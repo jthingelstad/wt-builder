@@ -1,0 +1,28 @@
+{
+  "items": [
+    {
+      "source_id": "fixture-pinboard-1",
+      "url": "https://avc.xyz/create-your-own-currency-with-flipcash",
+      "title": "Create Your Own Currency With Flipcash",
+      "description": "Community currencies remain an interesting design space.",
+      "tags": ["weekly-thing", "notable"],
+      "created_at": "2026-05-20T14:00:00Z"
+    },
+    {
+      "source_id": "fixture-pinboard-2",
+      "url": "https://james-pritchard.com/blog/llms-are-functions",
+      "title": "LLMs are functions, not brains.",
+      "description": "",
+      "tags": ["weekly-thing", "notable"],
+      "created_at": "2026-05-21T14:00:00Z"
+    },
+    {
+      "source_id": "fixture-pinboard-3",
+      "url": "https://github.com/antoinezambelli/forge",
+      "title": "forge: A framework for self-hosted LLM workflows",
+      "description": "Interesting project if you want to try running your own models.",
+      "tags": ["weekly-thing", "briefly"],
+      "created_at": "2026-05-22T14:00:00Z"
+    }
+  ]
+}

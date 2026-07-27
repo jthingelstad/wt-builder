@@ -1,0 +1,302 @@
+{
+  "schema_version": 1,
+  "issue": {
+    "id": "fixture-wt350",
+    "number": 350,
+    "title": "The Weekly Thing 350",
+    "status": "assembling",
+    "publication_date": "2026-09-05",
+    "editor": "Jamie Thingelstad",
+    "output_order": [
+      "intro",
+      "currently",
+      "photo",
+      "notable",
+      "promoted-post",
+      "journal",
+      "briefly",
+      "membership",
+      "outro",
+      "haiku",
+      "echoes"
+    ]
+  },
+  "nodes": [
+    {
+      "id": "intro",
+      "kind": "section",
+      "type": "intro",
+      "label": "Intro",
+      "movable": true,
+      "items": ["intro-1"]
+    },
+    {
+      "id": "currently",
+      "kind": "section",
+      "type": "currently",
+      "label": "Currently",
+      "movable": true,
+      "items": ["currently-building", "currently-listening"]
+    },
+    {
+      "id": "photo",
+      "kind": "section",
+      "type": "photo",
+      "label": "Photo",
+      "movable": true,
+      "items": ["photo-1"]
+    },
+    {
+      "id": "notable",
+      "kind": "section",
+      "type": "notable",
+      "label": "Notable",
+      "movable": true,
+      "items": ["link-flipcash", "link-functions"]
+    },
+    {
+      "id": "promoted-post",
+      "kind": "promoted_item",
+      "type": "journal_post",
+      "label": "Minnesota Technology Council",
+      "movable": true,
+      "items": ["journal-long"]
+    },
+    {
+      "id": "journal",
+      "kind": "section",
+      "type": "journal",
+      "label": "Journal",
+      "movable": true,
+      "items": ["journal-boat", "journal-pizza", "journal-concert", "journal-excluded"]
+    },
+    {
+      "id": "briefly",
+      "kind": "section",
+      "type": "briefly",
+      "label": "Briefly",
+      "movable": true,
+      "items": ["briefly-forge", "briefly-tokenspeed", "briefly-shortcuts"]
+    },
+    {
+      "id": "membership",
+      "kind": "section",
+      "type": "membership",
+      "label": "Membership",
+      "movable": true,
+      "items": ["membership-1"]
+    },
+    {
+      "id": "outro",
+      "kind": "section",
+      "type": "outro",
+      "label": "Outro",
+      "movable": true,
+      "items": ["outro-1"]
+    },
+    {
+      "id": "haiku",
+      "kind": "section",
+      "type": "haiku",
+      "label": "Haiku",
+      "movable": true,
+      "items": ["haiku-1"]
+    },
+    {
+      "id": "echoes",
+      "kind": "section",
+      "type": "echoes",
+      "label": "Echoes",
+      "movable": false,
+      "fixed_position": "last",
+      "items": ["echoes-1"]
+    }
+  ],
+  "items": {
+    "intro-1": {
+      "type": "intro",
+      "authorship": "Jamie",
+      "source": "direct",
+      "included": true,
+      "body": "Welcome back from summer break. This issue is being assembled item by item in WT Builder."
+    },
+    "currently-building": {
+      "type": "currently",
+      "authorship": "Jamie",
+      "source": "direct",
+      "included": true,
+      "label": "Building",
+      "body": "A focused tool for creating The Weekly Thing."
+    },
+    "currently-listening": {
+      "type": "currently",
+      "authorship": "Jamie",
+      "source": "direct",
+      "included": true,
+      "label": "Listening",
+      "body": "Brandi Carlile."
+    },
+    "photo-1": {
+      "type": "photo",
+      "authorship": "Jamie",
+      "source": "direct",
+      "included": true,
+      "media": {
+        "url": "https://files.thingelstad.com/weekly-thing/349/cover.jpg",
+        "alt": "Golden sunset over a calm lake with a silhouetted tree line and water tower.",
+        "caption": "Beautiful evening with the sun coming down.",
+        "timestamp": "2026-05-16T20:35:00-05:00",
+        "location": "Cannon Lake, Warsaw, MN"
+      }
+    },
+    "link-flipcash": {
+      "type": "pinboard_link",
+      "authorship": "syndicated",
+      "source": "Pinboard",
+      "source_id": "fixture-pinboard-1",
+      "source_url": "https://avc.xyz/create-your-own-currency-with-flipcash",
+      "included": true,
+      "section": "Notable",
+      "title": "Create Your Own Currency With Flipcash",
+      "commentary": "Community currencies remain an interesting design space.",
+      "tags": ["weekly-thing", "notable"],
+      "sync_state": "synced"
+    },
+    "link-functions": {
+      "type": "pinboard_link",
+      "authorship": "syndicated",
+      "source": "Pinboard",
+      "source_id": "fixture-pinboard-2",
+      "source_url": "https://james-pritchard.com/blog/llms-are-functions",
+      "included": true,
+      "section": "Notable",
+      "title": "LLMs are functions, not brains.",
+      "commentary": "",
+      "tags": ["weekly-thing", "notable"],
+      "sync_state": "needs_commentary"
+    },
+    "journal-long": {
+      "type": "journal_post",
+      "authorship": "syndicated",
+      "source": "Micro.blog",
+      "source_id": "https://www.thingelstad.com/2026/05/18/minnesota-technology-council.html",
+      "source_url": "https://www.thingelstad.com/2026/05/18/minnesota-technology-council.html",
+      "included": true,
+      "presentation": "promoted",
+      "title": "Minnesota Technology Council",
+      "published_at": "2026-05-18T21:00:00-05:00",
+      "body": "I had my first official meeting of the Technology Advisory Council. I am looking forward to helping in established areas like cloud and data transformation, as well as new areas with AI deployment."
+    },
+    "journal-boat": {
+      "type": "journal_post",
+      "authorship": "syndicated",
+      "source": "Micro.blog",
+      "source_url": "https://www.thingelstad.com/2026/05/16/mazie-and-i-taking-the.html",
+      "included": true,
+      "presentation": "journal",
+      "published_at": "2026-05-16T10:54:00-05:00",
+      "body": "Mazie and I taking the boat out for the season. Beautiful day!"
+    },
+    "journal-pizza": {
+      "type": "journal_post",
+      "authorship": "syndicated",
+      "source": "Micro.blog",
+      "source_url": "https://www.thingelstad.com/2026/05/16/first-visit-to-pleasant-grove.html",
+      "included": true,
+      "presentation": "journal",
+      "published_at": "2026-05-16T17:25:00-05:00",
+      "body": "First visit to Pleasant Grove Pizza Farm for 2026! Delicious pizza."
+    },
+    "journal-concert": {
+      "type": "journal_post",
+      "authorship": "syndicated",
+      "source": "Micro.blog",
+      "source_url": "https://www.thingelstad.com/2026/05/17/fabulous-show-by-the-new.html",
+      "included": true,
+      "presentation": "journal",
+      "published_at": "2026-05-17T22:15:00-05:00",
+      "body": "Fabulous show by The New Standards at The Dakota tonight."
+    },
+    "journal-excluded": {
+      "type": "journal_post",
+      "authorship": "syndicated",
+      "source": "Micro.blog",
+      "source_url": "https://www.thingelstad.com/example-excluded.html",
+      "included": false,
+      "presentation": "journal",
+      "published_at": "2026-05-17T22:30:00-05:00",
+      "body": "A post Jamie has intentionally removed from this issue."
+    },
+    "briefly-forge": {
+      "type": "pinboard_link",
+      "authorship": "syndicated",
+      "source": "Pinboard",
+      "source_url": "https://github.com/antoinezambelli/forge",
+      "included": true,
+      "section": "Briefly",
+      "title": "forge: A framework for self-hosted LLM workflows",
+      "commentary": "Interesting project if you want to try running your own models.",
+      "sync_state": "synced"
+    },
+    "briefly-tokenspeed": {
+      "type": "pinboard_link",
+      "authorship": "syndicated",
+      "source": "Pinboard",
+      "source_url": "https://mikeveerman.github.io/tokenspeed",
+      "included": true,
+      "section": "Briefly",
+      "title": "tokenspeed",
+      "commentary": "A good demonstration of what token speed feels like.",
+      "sync_state": "syncing"
+    },
+    "briefly-shortcuts": {
+      "type": "pinboard_link",
+      "authorship": "syndicated",
+      "source": "Pinboard",
+      "source_url": "https://www.macstories.net/stories/introducing-shortcuts-playground/",
+      "included": true,
+      "section": "Briefly",
+      "title": "Introducing Shortcuts Playground",
+      "commentary": "This should be a built-in feature in Shortcuts.",
+      "sync_state": "failed"
+    },
+    "membership-1": {
+      "type": "membership",
+      "authorship": "Thingy",
+      "source": "Thingy",
+      "included": true,
+      "attribution": "Thingy",
+      "status": "draft",
+      "body": "Supporting Members make the Weekly Thing possible while directing every membership dollar to this year's nonprofit partner."
+    },
+    "outro-1": {
+      "type": "outro",
+      "authorship": "Jamie",
+      "source": "direct",
+      "included": true,
+      "body": "Time to head outside. I hope you have a wonderful weekend."
+    },
+    "haiku-1": {
+      "type": "haiku",
+      "authorship": "Jamie",
+      "source": "generated",
+      "included": true,
+      "body": "Summer pages turn\nEach item finds its own place\nOld echoes return"
+    },
+    "echoes-1": {
+      "type": "echoes",
+      "authorship": "Thingy",
+      "source": "Thingy",
+      "included": true,
+      "attribution": "Thingy",
+      "status": "draft",
+      "body": "This week's return to building recalls earlier issues about owning the tools that shape your work.",
+      "archive_references": [
+        {
+          "issue": 349,
+          "url": "https://weekly.thingelstad.com/archive/349/"
+        }
+      ]
+    }
+  }
+}
