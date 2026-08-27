@@ -39,5 +39,17 @@ recovery action:
 - website feed confirmation,
 - podcast feed confirmation.
 
+## Archive feed
+
+Sending the issue text to the archive so Thingy can retrieve it is a separate
+leg with the same evidence shape as the legs above. It differs in three ways:
+
+- it runs after `verified`, not as part of reaching it,
+- it is never a readiness or `closed` gate, and
+- its failure is reported but does not degrade the issue's published state.
+
+An issue can sit `closed` with an unsent archive feed. That is a Thingy
+staleness problem, not a publishing problem, and it is retried independently.
+
 This contract documents the intended production phase. The design prototype
 must simulate these states and must not call external publishing services.

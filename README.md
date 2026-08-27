@@ -42,9 +42,18 @@ Start with:
 
 ## Related systems
 
-- `studio-thing`: production evidence and possible source of reusable
-  integrations. Its product model is not inherited.
-- `weekly.thingelstad.com`: downstream public render surface.
+Publishing means delivering an issue to a reader, and WT Builder owns every
+publishing leg. The archive is not a publishing destination; it is fed
+afterward so Thingy can answer questions about the issue. See
+[`docs/decisions/0002-publishing-and-archive-boundary.md`](docs/decisions/0002-publishing-and-archive-boundary.md).
+
+- `weekly.thingelstad.com`: downstream public render surface. Receives the
+  website edition and renders the podcast feed.
+- Buttondown: receives the email edition as a draft.
+- `files.thingelstad.com`: the only home for the rendered audio file.
+- `studio-thing`, being renamed `archive-thing`: the corpus and retrieval API.
+  Production evidence and a source of reusable integrations, but its product
+  model is not inherited. Fed after publication, never during it.
 - Thingy/Librarian: archive retrieval and attributed generation for Membership
   and Echoes.
 
