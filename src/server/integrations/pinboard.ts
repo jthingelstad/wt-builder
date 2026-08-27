@@ -1,7 +1,7 @@
 /**
  * Pinboard.
  *
- * Read: the issue window's tagged bookmarks become link candidates.
+ * Read: the unread queue inside the issue window becomes link candidates.
  * Write: last-writer-wins on title, commentary, and supported tags. A failed
  * write never discards the local edit (docs/item-model.md, Synchronization).
  */
@@ -9,12 +9,20 @@
 import type { Candidate, Item, SyncState } from '../../shared/types.ts';
 import { allChannels } from '../../shared/types.ts';
 import type { Window } from '../../shared/dates.ts';
+import { addDays } from '../../shared/dates.ts';
 import { config, credentials } from '../config.ts';
 
 const API = 'https://api.pinboard.in/v1';
 
-/** The tag that marks a bookmark as destined for the newsletter. */
-export const SWEEP_TAG = 'weekly-thing';
+/**
+ * How a bookmark gets into the issue.
+ *
+ * Studio's proven rule, which this matches: Jamie saves during the week and
+ * marks promising items "to read"; the sweep drains that unread queue. It is
+ * NOT a tag — the `weekly-thing` tag is not in use on the account, and
+ * filtering on it sweeps nothing. An optional tag narrows the queue further.
+ */
+export const SWEEP_UNREAD_ONLY = true;
 
 /** Tags that route a link to a section. Placement in the issue still wins. */
 const SECTION_TAGS: Record<string, string> = {
@@ -62,14 +70,17 @@ export function sectionForTags(tags: string[]): string | undefined {
   return undefined;
 }
 
-/** Bookmarks tagged for the newsletter, captured inside the window. */
-export async function sweepPinboard(window: Window): Promise<Candidate[]> {
-  const posts = (await call('/posts/all', {
-    tag: SWEEP_TAG,
+/** The unread queue, captured inside the window. */
+export async function sweepPinboard(window: Window, tag?: string): Promise<Candidate[]> {
+  const params: Record<string, string> = {
     fromdt: `${window.from}T00:00:00Z`,
-    // `todt` is exclusive, so reach to the start of the day after the window ends.
-    todt: `${window.to}T23:59:59Z`,
-  })) as PinboardPost[];
+    // Pinboard's fromdt/todt are bound-exclusive, so reach past the final day.
+    todt: `${addDays(window.to, 1)}T00:00:00Z`,
+  };
+  if (SWEEP_UNREAD_ONLY) params.toread = 'yes';
+  if (tag) params.tag = tag;
+
+  const posts = (await call('/posts/all', params)) as PinboardPost[];
 
   return posts.map((p) => ({
     id: `pinboard:${p.hash ?? p.href}`,

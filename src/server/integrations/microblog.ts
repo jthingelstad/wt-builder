@@ -9,7 +9,7 @@ import type { Candidate, Item } from '../../shared/types.ts';
 import { allChannels } from '../../shared/types.ts';
 import type { Window } from '../../shared/dates.ts';
 import { inWindow } from '../../shared/dates.ts';
-import { config, credentials } from '../config.ts';
+import { config } from '../config.ts';
 
 interface JsonFeedItem {
   id: string;
@@ -43,13 +43,15 @@ export function toPlainText(html: string): string {
 }
 
 /**
- * Posts published inside the window. Prefers the authenticated Micro.blog API
- * and falls back to the blog's public JSON Feed, which needs no credential.
+ * Posts published inside the window.
+ *
+ * The source is the blog's own JSON Feed, which is exactly Jamie's published
+ * posts. Note that Micro.blog's `/posts/all` is NOT this: despite the name it
+ * returns the authenticated user's *timeline* — everyone they follow — and
+ * sweeping it would put other people's writing into the newsletter.
  */
 export async function sweepMicroblog(window: Window): Promise<Candidate[]> {
-  const items = credentials.microblogToken
-    ? await fetchFromApi().catch(() => fetchFromFeed())
-    : await fetchFromFeed();
+  const items = await fetchFromFeed();
 
   return items
     .filter((i) => inWindow(i.date_published, window))
@@ -68,16 +70,6 @@ export async function sweepMicroblog(window: Window): Promise<Candidate[]> {
       return candidate;
     })
     .sort((a, b) => String(a.published_at).localeCompare(String(b.published_at)));
-}
-
-async function fetchFromApi(): Promise<JsonFeedItem[]> {
-  const res = await fetch(`${config.microblogHost}/posts/all`, {
-    headers: { Authorization: `Bearer ${credentials.microblogToken}` },
-    signal: AbortSignal.timeout(20_000),
-  });
-  if (!res.ok) throw new Error(`Micro.blog API failed: ${res.status}`);
-  const feed = (await res.json()) as JsonFeed;
-  return feed.items ?? [];
 }
 
 async function fetchFromFeed(): Promise<JsonFeedItem[]> {

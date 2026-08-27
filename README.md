@@ -16,17 +16,47 @@ newsletter.
 
 ## Status
 
-This repository begins with product and interaction design. The first
-deliverable is a clickable prototype validated by Jamie before production
-architecture is selected.
+**Implementation.** The interaction design is settled and the prototype in
+[`prototype/`](prototype/) is the reference for what the interface does. The
+first slice runs end to end: sweep, assemble, four lenses, and a Buttondown
+draft. Website and podcast sending are not built yet.
 
 Start with:
 
-1. [`docs/product-brief.md`](docs/product-brief.md)
-2. [`docs/design-brief.md`](docs/design-brief.md)
-3. [`docs/item-model.md`](docs/item-model.md)
-4. [`docs/rendering-contracts.md`](docs/rendering-contracts.md)
+1. [`AGENTS.md`](AGENTS.md) — the current phase, the stack, the guardrails
+2. [`docs/item-model.md`](docs/item-model.md)
+3. [`docs/rendering-contracts.md`](docs/rendering-contracts.md)
+4. [`docs/service-contracts.md`](docs/service-contracts.md)
 5. [`fixtures/representative-issue.json`](fixtures/representative-issue.json)
+
+## Running it
+
+```sh
+cp .env.example .env      # three credentials; see the file
+npm install
+npm test                  # 44 tests
+npm run dev               # service on :4317, client on :5317
+```
+
+The service holds every credential and the browser talks only to `/api`. It
+binds loopback by default. To reach it from the tailnet:
+
+```sh
+npm run build
+npm start
+tailscale serve --bg 4317
+```
+
+Tailscale terminates identity in front of the process. There is no
+authentication layer inside the app, so do not bind it to a public interface.
+
+### What runs against a real service
+
+- **Pinboard** — reads the unread queue for the issue's window. Write-back
+  mutates real bookmarks and stays off unless
+  `WT_BUILDER_PINBOARD_WRITEBACK=true`.
+- **Micro.blog** — reads the blog's public JSON Feed. Read-only, always.
+- **Buttondown** — creates and updates a draft. Never schedules, never sends.
 
 ## Product principles
 
