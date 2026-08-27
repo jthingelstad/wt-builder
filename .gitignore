@@ -8,3 +8,7 @@ build/
 .cache/
 coverage/
 *.log
+data/
+*.db
+*.db-shm
+*.db-wal

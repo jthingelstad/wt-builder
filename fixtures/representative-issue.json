@@ -1,11 +1,13 @@
 {
-  "schema_version": 1,
+  "schema_version": 2,
   "issue": {
     "id": "fixture-wt350",
     "number": 350,
     "title": "The Weekly Thing 350",
-    "status": "assembling",
+    "dek": "Assembled item by item, for the first time.",
+    "status": "draft",
     "publication_date": "2026-09-05",
+    "window_days": 7,
     "editor": "Jamie Thingelstad",
     "output_order": [
       "intro",
@@ -17,6 +19,7 @@
       "briefly",
       "membership",
       "outro",
+      "ps-email",
       "haiku",
       "echoes"
     ]
@@ -28,7 +31,10 @@
       "type": "intro",
       "label": "Intro",
       "movable": true,
-      "items": ["intro-1"]
+      "publishes_heading": false,
+      "items": [
+        "intro-1"
+      ]
     },
     {
       "id": "currently",
@@ -36,7 +42,11 @@
       "type": "currently",
       "label": "Currently",
       "movable": true,
-      "items": ["currently-building", "currently-listening"]
+      "publishes_heading": true,
+      "items": [
+        "currently-building",
+        "currently-listening"
+      ]
     },
     {
       "id": "photo",
@@ -44,7 +54,10 @@
       "type": "photo",
       "label": "Photo",
       "movable": true,
-      "items": ["photo-1"]
+      "publishes_heading": false,
+      "items": [
+        "photo-1"
+      ]
     },
     {
       "id": "notable",
@@ -52,7 +65,11 @@
       "type": "notable",
       "label": "Notable",
       "movable": true,
-      "items": ["link-flipcash", "link-functions"]
+      "publishes_heading": true,
+      "items": [
+        "link-flipcash",
+        "link-functions"
+      ]
     },
     {
       "id": "promoted-post",
@@ -60,7 +77,10 @@
       "type": "journal_post",
       "label": "Minnesota Technology Council",
       "movable": true,
-      "items": ["journal-long"]
+      "publishes_heading": true,
+      "items": [
+        "journal-long"
+      ]
     },
     {
       "id": "journal",
@@ -68,7 +88,13 @@
       "type": "journal",
       "label": "Journal",
       "movable": true,
-      "items": ["journal-boat", "journal-pizza", "journal-concert", "journal-excluded"]
+      "publishes_heading": true,
+      "items": [
+        "journal-boat",
+        "journal-pizza",
+        "journal-concert",
+        "journal-excluded"
+      ]
     },
     {
       "id": "briefly",
@@ -76,7 +102,12 @@
       "type": "briefly",
       "label": "Briefly",
       "movable": true,
-      "items": ["briefly-forge", "briefly-tokenspeed", "briefly-shortcuts"]
+      "publishes_heading": true,
+      "items": [
+        "briefly-forge",
+        "briefly-tokenspeed",
+        "briefly-shortcuts"
+      ]
     },
     {
       "id": "membership",
@@ -84,7 +115,10 @@
       "type": "membership",
       "label": "Membership",
       "movable": true,
-      "items": ["membership-1"]
+      "publishes_heading": false,
+      "items": [
+        "membership-1"
+      ]
     },
     {
       "id": "outro",
@@ -92,7 +126,21 @@
       "type": "outro",
       "label": "Outro",
       "movable": true,
-      "items": ["outro-1"]
+      "publishes_heading": false,
+      "items": [
+        "outro-1"
+      ]
+    },
+    {
+      "id": "ps-email",
+      "kind": "section",
+      "type": "mdblock",
+      "label": "Markdown block",
+      "movable": true,
+      "publishes_heading": false,
+      "items": [
+        "ps-1"
+      ]
     },
     {
       "id": "haiku",
@@ -100,7 +148,10 @@
       "type": "haiku",
       "label": "Haiku",
       "movable": true,
-      "items": ["haiku-1"]
+      "publishes_heading": false,
+      "items": [
+        "haiku-1"
+      ]
     },
     {
       "id": "echoes",
@@ -109,7 +160,11 @@
       "label": "Echoes",
       "movable": false,
       "fixed_position": "last",
-      "items": ["echoes-1"]
+      "required": false,
+      "publishes_heading": true,
+      "items": [
+        "echoes-1"
+      ]
     }
   ],
   "items": {
@@ -117,14 +172,22 @@
       "type": "intro",
       "authorship": "Jamie",
       "source": "direct",
-      "included": true,
+      "channels": {
+        "website": true,
+        "email": true,
+        "audio": true
+      },
       "body": "Welcome back from summer break. This issue is being assembled item by item in WT Builder."
     },
     "currently-building": {
       "type": "currently",
       "authorship": "Jamie",
       "source": "direct",
-      "included": true,
+      "channels": {
+        "website": true,
+        "email": true,
+        "audio": true
+      },
       "label": "Building",
       "body": "A focused tool for creating The Weekly Thing."
     },
@@ -132,7 +195,11 @@
       "type": "currently",
       "authorship": "Jamie",
       "source": "direct",
-      "included": true,
+      "channels": {
+        "website": true,
+        "email": true,
+        "audio": true
+      },
       "label": "Listening",
       "body": "Brandi Carlile."
     },
@@ -140,7 +207,14 @@
       "type": "photo",
       "authorship": "Jamie",
       "source": "direct",
-      "included": true,
+      "channels": {
+        "website": true,
+        "email": true,
+        "audio": false
+      },
+      "channel_locks": {
+        "audio": "Photos are omitted from audio rather than narrated."
+      },
       "media": {
         "url": "https://files.thingelstad.com/weekly-thing/349/cover.jpg",
         "alt": "Golden sunset over a calm lake with a silhouetted tree line and water tower.",
@@ -155,11 +229,18 @@
       "source": "Pinboard",
       "source_id": "fixture-pinboard-1",
       "source_url": "https://avc.xyz/create-your-own-currency-with-flipcash",
-      "included": true,
+      "channels": {
+        "website": true,
+        "email": true,
+        "audio": true
+      },
       "section": "Notable",
       "title": "Create Your Own Currency With Flipcash",
       "commentary": "Community currencies remain an interesting design space.",
-      "tags": ["weekly-thing", "notable"],
+      "tags": [
+        "weekly-thing",
+        "notable"
+      ],
       "sync_state": "synced"
     },
     "link-functions": {
@@ -168,11 +249,18 @@
       "source": "Pinboard",
       "source_id": "fixture-pinboard-2",
       "source_url": "https://james-pritchard.com/blog/llms-are-functions",
-      "included": true,
+      "channels": {
+        "website": true,
+        "email": true,
+        "audio": true
+      },
       "section": "Notable",
       "title": "LLMs are functions, not brains.",
       "commentary": "",
-      "tags": ["weekly-thing", "notable"],
+      "tags": [
+        "weekly-thing",
+        "notable"
+      ],
       "sync_state": "needs_commentary"
     },
     "journal-long": {
@@ -181,7 +269,11 @@
       "source": "Micro.blog",
       "source_id": "https://www.thingelstad.com/2026/05/18/minnesota-technology-council.html",
       "source_url": "https://www.thingelstad.com/2026/05/18/minnesota-technology-council.html",
-      "included": true,
+      "channels": {
+        "website": true,
+        "email": true,
+        "audio": true
+      },
       "presentation": "promoted",
       "title": "Minnesota Technology Council",
       "published_at": "2026-05-18T21:00:00-05:00",
@@ -192,7 +284,11 @@
       "authorship": "syndicated",
       "source": "Micro.blog",
       "source_url": "https://www.thingelstad.com/2026/05/16/mazie-and-i-taking-the.html",
-      "included": true,
+      "channels": {
+        "website": true,
+        "email": true,
+        "audio": true
+      },
       "presentation": "journal",
       "published_at": "2026-05-16T10:54:00-05:00",
       "body": "Mazie and I taking the boat out for the season. Beautiful day!"
@@ -202,7 +298,11 @@
       "authorship": "syndicated",
       "source": "Micro.blog",
       "source_url": "https://www.thingelstad.com/2026/05/16/first-visit-to-pleasant-grove.html",
-      "included": true,
+      "channels": {
+        "website": true,
+        "email": true,
+        "audio": true
+      },
       "presentation": "journal",
       "published_at": "2026-05-16T17:25:00-05:00",
       "body": "First visit to Pleasant Grove Pizza Farm for 2026! Delicious pizza."
@@ -212,7 +312,11 @@
       "authorship": "syndicated",
       "source": "Micro.blog",
       "source_url": "https://www.thingelstad.com/2026/05/17/fabulous-show-by-the-new.html",
-      "included": true,
+      "channels": {
+        "website": true,
+        "email": true,
+        "audio": true
+      },
       "presentation": "journal",
       "published_at": "2026-05-17T22:15:00-05:00",
       "body": "Fabulous show by The New Standards at The Dakota tonight."
@@ -222,7 +326,11 @@
       "authorship": "syndicated",
       "source": "Micro.blog",
       "source_url": "https://www.thingelstad.com/example-excluded.html",
-      "included": false,
+      "channels": {
+        "website": false,
+        "email": false,
+        "audio": false
+      },
       "presentation": "journal",
       "published_at": "2026-05-17T22:30:00-05:00",
       "body": "A post Jamie has intentionally removed from this issue."
@@ -232,7 +340,11 @@
       "authorship": "syndicated",
       "source": "Pinboard",
       "source_url": "https://github.com/antoinezambelli/forge",
-      "included": true,
+      "channels": {
+        "website": true,
+        "email": true,
+        "audio": true
+      },
       "section": "Briefly",
       "title": "forge: A framework for self-hosted LLM workflows",
       "commentary": "Interesting project if you want to try running your own models.",
@@ -243,7 +355,11 @@
       "authorship": "syndicated",
       "source": "Pinboard",
       "source_url": "https://mikeveerman.github.io/tokenspeed",
-      "included": true,
+      "channels": {
+        "website": true,
+        "email": true,
+        "audio": true
+      },
       "section": "Briefly",
       "title": "tokenspeed",
       "commentary": "A good demonstration of what token speed feels like.",
@@ -254,7 +370,11 @@
       "authorship": "syndicated",
       "source": "Pinboard",
       "source_url": "https://www.macstories.net/stories/introducing-shortcuts-playground/",
-      "included": true,
+      "channels": {
+        "website": true,
+        "email": true,
+        "audio": true
+      },
       "section": "Briefly",
       "title": "Introducing Shortcuts Playground",
       "commentary": "This should be a built-in feature in Shortcuts.",
@@ -264,7 +384,11 @@
       "type": "membership",
       "authorship": "Thingy",
       "source": "Thingy",
-      "included": true,
+      "channels": {
+        "website": true,
+        "email": true,
+        "audio": true
+      },
       "attribution": "Thingy",
       "status": "draft",
       "body": "Supporting Members make the Weekly Thing possible while directing every membership dollar to this year's nonprofit partner."
@@ -273,21 +397,47 @@
       "type": "outro",
       "authorship": "Jamie",
       "source": "direct",
-      "included": true,
+      "channels": {
+        "website": true,
+        "email": true,
+        "audio": true
+      },
       "body": "Time to head outside. I hope you have a wonderful weekend."
+    },
+    "ps-1": {
+      "type": "markdown",
+      "authorship": "Jamie",
+      "source": "direct",
+      "channels": {
+        "website": false,
+        "email": true,
+        "audio": false
+      },
+      "body": "P.S. If you are reading this in your inbox, you are reading the only edition that carries it. Reply and tell me what you are building."
     },
     "haiku-1": {
       "type": "haiku",
       "authorship": "Jamie",
       "source": "generated",
-      "included": true,
+      "channels": {
+        "website": true,
+        "email": true,
+        "audio": true
+      },
       "body": "Summer pages turn\nEach item finds its own place\nOld echoes return"
     },
     "echoes-1": {
       "type": "echoes",
       "authorship": "Thingy",
       "source": "Thingy",
-      "included": true,
+      "channels": {
+        "website": true,
+        "email": true,
+        "audio": false
+      },
+      "channel_locks": {
+        "audio": "Echoes is never spoken."
+      },
       "attribution": "Thingy",
       "status": "draft",
       "body": "This week's return to building recalls earlier issues about owning the tools that shape your work.",
