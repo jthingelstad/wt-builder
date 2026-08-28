@@ -1,0 +1,365 @@
+/*
+ * The canvas: the issue as a page, with structure in one margin and editorial
+ * in the other. From docs/interface-spec.md § Canvas.
+ *
+ * Three things here were arrived at by elimination and are load-bearing:
+ *
+ * 1. The card is painted per row, not around the grid. A card drawn around the
+ *    whole grid would have to contain the margins too.
+ * 2. Notes are a measured absolute overlay, not grid cells. In flow, a tall
+ *    note grows its row and tears the per-row card into bands; out of flow with
+ *    height 0 they collide with the next row's controls. Both were tried.
+ * 3. The page track is a fixed 680px. A flexible track absorbs any shortfall
+ *    between what the grid asks for and what the canvas has, which rewraps
+ *    every line of prose the moment a read opens.
+ */
+
+.canvas {
+  padding: 26px 0 140px;
+  overflow-x: auto;
+}
+
+.canvas-inner {
+  max-width: 990px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* Aligns with the reading column, not the card edge. */
+.lens-kicker {
+  padding-left: 160px;
+  margin-bottom: 12px;
+  display: flex;
+  gap: 10px;
+  align-items: baseline;
+  flex-wrap: wrap;
+}
+
+.lens-kicker .kicker {
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.09em;
+  color: var(--faint);
+  white-space: nowrap;
+}
+
+.lens-kicker .note {
+  font-size: 12.5px;
+  color: var(--muted);
+}
+
+/*
+ * The rows host. Carries an explicit min-width equal to the track sum, or it
+ * stays narrower than its own tracks and the canvas offers no overflow to
+ * scroll.
+ */
+.rows {
+  position: relative;
+  min-width: calc(var(--gutter) + var(--track));
+}
+
+.rows.with-notes {
+  min-width: calc(var(--gutter) + var(--track) + var(--notes));
+}
+
+.row {
+  display: grid;
+  grid-template-columns: var(--gutter) var(--track) 0;
+  align-items: stretch;
+}
+
+.rows.with-notes .row {
+  grid-template-columns: var(--gutter) var(--track) var(--notes);
+}
+
+/* ── the structural margin ────────────────────────────────────────────── */
+
+.row-structure {
+  grid-column: 1;
+  align-self: start;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 5px;
+  padding-right: 16px;
+  padding-top: 4px;
+}
+
+/* Shown only when the section's name does not publish. */
+.structure-name {
+  font-family: var(--mono);
+  font-size: 9.5px;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  color: var(--faint);
+  text-align: right;
+  line-height: 1.3;
+}
+
+/* A 2×n grid 49px wide, right-aligned — not a horizontal run. */
+.rail {
+  display: grid;
+  grid-template-columns: repeat(2, 23px);
+  gap: 3px;
+  opacity: 0.3;
+  transition: opacity 0.12s;
+}
+
+.row:hover .rail,
+.rail:focus-within {
+  opacity: 1;
+}
+
+.rail-btn,
+.sync-glyph {
+  width: 23px;
+  height: 23px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 6px;
+  padding: 0;
+}
+
+.rail-btn {
+  border: 1px solid var(--border);
+  background: var(--page);
+  color: var(--secondary);
+}
+
+.rail-btn:hover {
+  border-color: var(--ink);
+  color: var(--ink);
+}
+
+.rail-btn[disabled] {
+  opacity: 0.35;
+  cursor: not-allowed;
+}
+
+.sync-glyph {
+  border: 0;
+  background: none;
+}
+.sync-glyph.synced { color: var(--green); }
+.sync-glyph.saving { color: var(--amber); }
+.sync-glyph.failed { color: var(--terracotta); }
+.sync-glyph.needs { color: var(--amber); }
+
+/* ── the page ─────────────────────────────────────────────────────────── */
+
+/*
+ * Painted per row so the card reads as one continuous white surface holding
+ * only the issue, with both margins outside it.
+ */
+.row-page {
+  grid-column: 2;
+  min-width: 0;
+  background: var(--page);
+  border-left: 1px solid var(--border);
+  border-right: 1px solid var(--border);
+  padding: 0 40px;
+}
+
+.row:first-child .row-page {
+  border-top: 1px solid var(--border);
+  border-radius: 12px 12px 0 0;
+  padding-top: 40px;
+}
+
+.row:last-child .row-page {
+  border-bottom: 1px solid var(--border);
+  border-radius: 0 0 12px 12px;
+  padding-bottom: 52px;
+}
+
+.lens-audio .row-page { background: var(--panel); }
+
+/* ── the editorial margin ─────────────────────────────────────────────── */
+
+.row-margin {
+  grid-column: 3;
+  align-self: start;
+  padding-left: 12px;
+}
+
+/* Full strength when the item has no text; hover-revealed when it would be a redraft. */
+.wand {
+  width: 24px;
+  height: 24px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--terra-3);
+  border-radius: 7px;
+  background: var(--terra-1);
+  color: var(--terracotta);
+  padding: 0;
+}
+
+.wand.redraft { opacity: 0.35; transition: opacity 0.12s; }
+.row:hover .wand.redraft, .wand.redraft:hover { opacity: 1; }
+
+/* ── page blocks ──────────────────────────────────────────────────────── */
+
+.page-head .kicker {
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.09em;
+  color: var(--faint);
+  margin-bottom: 14px;
+}
+
+.page-head h1 {
+  font-size: 40px;
+  font-weight: 700;
+  line-height: 1.1;
+  letter-spacing: -0.028em;
+  margin: 0 0 12px;
+}
+
+.page-head .dek {
+  font-size: 17px;
+  line-height: 1.55;
+  color: var(--dek);
+  margin: 0 0 20px;
+}
+
+.byline {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.avatar {
+  width: 30px;
+  height: 30px;
+  border-radius: 99px;
+  background: var(--border);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--secondary);
+  flex: none;
+}
+
+.byline .name { font-size: 13px; font-weight: 500; }
+.byline .stats { font-family: var(--mono); font-size: 11px; color: var(--faint); }
+
+.section-rule { border: 0; border-top: 1px solid var(--border); margin: 30px 0; }
+
+.page h2 {
+  font-size: 25px;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  margin: 0 0 12px;
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+}
+
+.page h2 .hash { color: var(--mark); font-weight: 700; }
+
+.note-pill {
+  font-family: var(--mono);
+  font-size: 9px;
+  letter-spacing: 0.06em;
+  color: var(--faint);
+  background: var(--neutral-tint);
+  border-radius: 5px;
+  padding: 3px 7px;
+  white-space: nowrap;
+}
+
+.page p { font-size: 16.5px; line-height: 1.7; margin: 0 0 15px; }
+.page a { color: var(--blue); }
+
+.journal-date { font-size: 17px; font-weight: 700; margin: 22px 0 10px; }
+
+.link-title { font-size: 19px; font-weight: 700; line-height: 1.35; margin: 0 0 6px; }
+.link-title a { color: var(--blue); }
+.link-domain { font-family: var(--mono); font-size: 11px; color: var(--faint); margin-left: 8px; }
+
+.page blockquote {
+  border-left: 3px solid var(--border);
+  padding-left: 20px;
+  margin: 0 0 15px;
+}
+.page blockquote p { font-size: 19px; font-style: italic; line-height: 1.6; }
+.page blockquote .attribution { font-size: 14px; color: var(--secondary); font-style: normal; }
+
+.haiku { font-size: 18px; font-weight: 700; line-height: 1.85; white-space: pre-line; }
+
+.byline-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: var(--terra-2);
+  border-radius: 99px;
+  padding: 4px 10px;
+  font-size: 11.5px;
+  font-weight: 600;
+  color: var(--terracotta);
+  margin-bottom: 8px;
+}
+.byline-chip .dot { width: 5px; height: 5px; border-radius: 99px; background: var(--terracotta); }
+
+.echoes-refs { font-size: 13.5px; line-height: 1.7; color: var(--secondary); }
+
+.photo-drop {
+  height: 300px;
+  border: 1px dashed var(--border-button);
+  background: var(--subtle);
+  border-radius: 7px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  cursor: pointer;
+  color: var(--muted);
+  font-size: 13.5px;
+  text-align: center;
+  padding: 0 24px;
+}
+.photo-drop .hint { font-size: 12px; color: var(--faint); }
+
+.photo-set { position: relative; }
+.photo-set img { width: 100%; border-radius: 6px; display: block; }
+.photo-caption { font-size: 16px; line-height: 1.6; margin: 10px 0 4px; }
+.photo-meta { font-size: 14px; color: var(--secondary); }
+
+.held-strip {
+  border: 1px dashed var(--border-button);
+  background: var(--subtle);
+  border-radius: 7px;
+  padding: 10px 12px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 15px;
+}
+.held-strip .chan {
+  font-family: var(--mono);
+  font-size: 9px;
+  letter-spacing: 0.07em;
+  white-space: nowrap;
+}
+.held-strip .chan.email { color: var(--blue); }
+.held-strip .chan.none { color: var(--muted); }
+.held-strip .text {
+  color: var(--held);
+  font-size: 13.5px;
+  flex: 1;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+[contenteditable] { outline: none; border-radius: 3px; }
+[contenteditable]:focus { background: var(--edit); box-shadow: 0 0 0 4px var(--edit); }
+[data-ph]:empty::before { content: attr(data-ph); color: var(--placeholder); }

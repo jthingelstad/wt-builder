@@ -7,7 +7,7 @@ import { tmpdir } from 'node:os';
 import { join } from 'node:path';
 
 import type { IssueDoc } from '../src/shared/types.ts';
-import { issueWindow, snapToSaturday } from '../src/shared/dates.ts';
+import { inWindow, issueWindow, snapToSaturday, windowLabel } from '../src/shared/dates.ts';
 import {
   addMarkdownBlock, addSection, createIssue, demote, hideItem, moveNode,
   promote, readiness, removeSection, setChannel, setIssueNumber, setWindowDays,
@@ -24,11 +24,41 @@ const fixture = () =>
   ) as IssueDoc;
 
 describe('the issue window', () => {
-  it('closes Friday, so the span ends Thursday', () => {
-    // Publication Saturday 2026-09-05 → window ends Thursday 2026-09-03.
+  it('runs Friday 00:00 to Friday 00:00 Central', () => {
+    // Publication Saturday 2026-09-05 → sources Fri, Aug 28 → Fri, Sep 4.
     const w = issueWindow('2026-09-05', 7);
-    expect(w.to).toBe('2026-09-03');
     expect(w.from).toBe('2026-08-28');
+    expect(w.to).toBe('2026-09-04');
+    expect(windowLabel(w)).toBe('Fri, Aug 28 \u2192 Fri, Sep 4');
+  });
+
+  it('closes on the instant, not the date', () => {
+    // A Thursday 11 PM Central bookmark is stored as Friday 04:00 UTC.
+    // Comparing date strings alone pushed it into the following issue.
+    const w = issueWindow('2026-09-05', 7);
+    expect(inWindow('2026-09-03T23:58:00-05:00', w)).toBe(true);
+    expect(inWindow('2026-09-04T04:00:00Z', w)).toBe(true);
+    expect(inWindow('2026-09-04T00:02:00-05:00', w)).toBe(false);
+  });
+
+  it('includes the opening instant and excludes the closing one', () => {
+    const w = issueWindow('2026-09-05', 7);
+    expect(inWindow('2026-08-28T00:00:00-05:00', w)).toBe(true);
+    expect(inWindow('2026-08-27T23:59:00-05:00', w)).toBe(false);
+    expect(inWindow('2026-09-04T00:00:00-05:00', w)).toBe(false);
+  });
+
+  it('holds midnight Central across the DST changeover', () => {
+    // US clocks fall back on Sunday 2026-11-01, inside this window.
+    const w = issueWindow('2026-11-07', 7);
+    expect(new Date(w.fromMs).toISOString()).toBe('2026-10-30T05:00:00.000Z');
+    expect(new Date(w.toMs).toISOString()).toBe('2026-11-06T06:00:00.000Z');
+  });
+
+  it('reads a bare date as Central wall clock', () => {
+    const w = issueWindow('2026-09-05', 7);
+    expect(inWindow('2026-09-01', w)).toBe(true);
+    expect(inWindow('2026-09-04', w)).toBe(false);
   });
 
   it('snaps a publication date forward to Saturday', () => {

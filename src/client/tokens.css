@@ -1,0 +1,90 @@
+/*
+ * Design tokens, from docs/interface-spec.md § Design tokens.
+ *
+ * Values are transcribed, not chosen. If something here disagrees with the
+ * spec, the spec wins — and where the spec disagrees with itself, the Screens
+ * section wins over the token list, because it carries the reasoning.
+ */
+
+:root {
+  /* Surfaces */
+  --app: #f2f1ef;
+  --page: #ffffff;
+  --panel: #fbfbfa;
+  --subtle: #fafaf9;
+  --neutral-tint: #f5f4f2;
+
+  /* Borders */
+  --border: #e6e5e2;
+  --border-light: #eeedea;
+  --divider: #f0efec;
+  --border-button: #dedcd8;
+  --border-faintest: #f5f4f2;
+
+  /* Text */
+  --ink: #1a1a1a;
+  --dek: #4a4a4a;
+  --secondary: #6e6e6e;
+  --muted: #9a9a9a;
+  --held: #a5a3a0;
+  --faint: #b0aeaa;
+  --mark: #d6d4d0;
+  --mark-mid: #cdcbc7;
+  --mark-dark: #c9c7c2;
+  --placeholder: #b9b7b2;
+
+  /* Accents */
+  --blue: #1a5fb4;
+  --terracotta: #b35c2e;
+  --green: #2f7d4f;
+  --amber: #a07a1f;
+
+  /* Tints */
+  --blue-1: #f3f6fb;
+  --blue-2: #eef3fa;
+  --blue-3: #dde6f3;
+  --terra-1: #fdf6f1;
+  --terra-2: #faefe8;
+  --terra-3: #f0dfd4;
+  --green-1: #f2f8f4;
+  --green-2: #f7f9f7;
+  --green-3: #d6e8dc;
+  --green-4: #dfe9e2;
+  --amber-1: #fdf9ee;
+  --amber-2: #ece0bd;
+  --amber-3: #fff2d6;
+  --edit: #fff8e3;
+
+  /* Provenance bars */
+  --prov-syndicated: #c3d6ee;
+  --prov-thingy: #eccdb9;
+  --prov-own: transparent;
+
+  /* Type */
+  --sans: -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  --mono: ui-monospace, SFMono-Regular, Menlo, monospace;
+  /* The editorial voice, and the only serif in the app — a note must never
+     read as part of the issue. */
+  --serif: 'Iowan Old Style', Charter, Georgia, 'Times New Roman', serif;
+
+  /* Fixed dimensions */
+  --header: 52px;
+  --strip: 36px;
+  --left-panel: 300px;
+  --inspector: 352px;
+  --canvas-min: 720px;
+
+  /*
+   * The canvas row: structure │ page │ notes. The page track is fixed, never a
+   * range — a flexible track absorbs the shortfall when the notes column opens
+   * and rewraps every line of prose.
+   */
+  --gutter: 76px;
+  --track: 680px;
+  --notes: 250px;
+
+  /* Shadows */
+  --shadow-popover: 0 14px 40px rgba(26, 26, 26, 0.14);
+  --shadow-modal: 0 24px 60px rgba(26, 26, 26, 0.22);
+  --shadow-segment: 0 1px 2px rgba(0, 0, 0, 0.08);
+}

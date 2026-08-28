@@ -4,6 +4,10 @@
  * Timestamps carry their own offset ("2026-05-16T20:35:00-05:00") and are
  * displayed in that local wall clock, never converted to the viewer's zone: a
  * photo taken at 8:35 PM in Minnesota reads 8:35 PM to every reader.
+ *
+ * The issue window is the exception. It is a real instant boundary in Central
+ * time, so window arithmetic converts to epoch milliseconds rather than
+ * comparing date strings — see § issue window.
  */
 
 const MONTH = [
@@ -20,6 +24,9 @@ const DAY = [
   'Sunday', 'Monday', 'Tuesday', 'Wednesday',
   'Thursday', 'Friday', 'Saturday',
 ] as const;
+
+/** The newsletter's editorial zone. The window is defined in this clock. */
+export const ZONE = 'America/Chicago';
 
 export interface WallClock {
   y: number;
@@ -74,10 +81,14 @@ export function longDate(w: WallClock): string {
   return `${weekday(w)}, ${MONTH[w.mo - 1]} ${w.d}`;
 }
 
-// ── issue window ──────────────────────────────────────────────────────────
-//
-// The window closes Friday at 00:00, so the span ends Thursday and anything
-// captured on Friday belongs to the next issue (docs/item-model.md).
+/** "Fri, Aug 28" — the window boundary format on the canvas kicker. */
+export function boundaryDate(isoDate: string): string {
+  const c = wallClock(isoDate);
+  if (!c) return isoDate;
+  return `${DAY[weekdayIndex(c)]!.slice(0, 3)}, ${MON[c.mo - 1]} ${c.d}`;
+}
+
+// ── plain date arithmetic ─────────────────────────────────────────────────
 
 export function addDays(isoDate: string, n: number): string {
   const [y, mo, d] = isoDate.split('-').map(Number) as [number, number, number];
@@ -98,23 +109,105 @@ export function snapToSaturday(isoDate: string): string {
   return addDays(isoDate, (6 - dayOfWeek(isoDate) + 7) % 7);
 }
 
+// ── zone conversion ───────────────────────────────────────────────────────
+
+const ZONE_PARTS = new Intl.DateTimeFormat('en-US', {
+  timeZone: ZONE,
+  hour12: false,
+  year: 'numeric', month: '2-digit', day: '2-digit',
+  hour: '2-digit', minute: '2-digit', second: '2-digit',
+});
+
+/** How far Central time sits from UTC at a given instant, in milliseconds. */
+function zoneOffsetMs(utcMs: number): number {
+  const p: Record<string, number> = {};
+  for (const part of ZONE_PARTS.formatToParts(new Date(utcMs))) {
+    if (part.type !== 'literal') p[part.type] = Number(part.value);
+  }
+  // Intl renders midnight as hour 24 in some ICU builds.
+  const asIfUTC = Date.UTC(p.year!, p.month! - 1, p.day!, p.hour! % 24, p.minute!, p.second!);
+  return asIfUTC - utcMs;
+}
+
+/**
+ * The instant at which a wall-clock time occurs in Central time.
+ *
+ * Resolved in two passes because the offset depends on the instant we are
+ * solving for: the first pass picks an offset from an approximate instant, the
+ * second re-reads it at the corrected one. That matters twice a year — without
+ * it, a window boundary on a DST changeover weekend lands an hour off.
+ */
+export function zonedMs(y: number, mo: number, d: number, hh = 0, mm = 0): number {
+  const naive = Date.UTC(y, mo - 1, d, hh, mm);
+  const first = naive - zoneOffsetMs(naive);
+  return naive - zoneOffsetMs(first);
+}
+
+/**
+ * An ISO timestamp as an instant.
+ *
+ * A timestamp carrying an offset is authoritative. A bare date or a local
+ * timestamp without one is read as Central wall clock, which is what Pinboard
+ * and Micro.blog effectively mean by a local date.
+ */
+export function instantOf(iso: string | undefined | null): number | null {
+  if (!iso) return null;
+  const c = wallClock(iso);
+  if (!c) return null;
+  return /(?:Z|[+-]\d{2}:?\d{2})$/.test(iso.trim())
+    ? Date.parse(iso)
+    : zonedMs(c.y, c.mo, c.d, c.hh, c.mm);
+}
+
+// ── issue window ──────────────────────────────────────────────────────────
+//
+// The content cutoff runs Friday 00:00 CT to Friday 00:00 CT — a half-open
+// interval [from, to). An item captured Thursday at 11:58 PM Central is in;
+// one captured Friday at 12:02 AM belongs to the next issue. See
+// docs/decisions/0022-the-window-is-friday-to-friday-central.md.
+//
+// This is an instant comparison, not a date comparison. A Thursday 11 PM CT
+// bookmark is stored as Friday 04:00 UTC, and comparing the date part alone
+// pushes it into the following week.
+
 export interface Window {
+  /** YYYY-MM-DD of the opening Friday. Inclusive, at 00:00 CT. */
   from: string;
+  /** YYYY-MM-DD of the closing Friday. Exclusive, at 00:00 CT. */
   to: string;
+  /** The same boundaries as instants. */
+  fromMs: number;
+  toMs: number;
+}
+
+/** The Friday strictly before a date. */
+function previousFriday(isoDate: string): string {
+  const back = (dayOfWeek(isoDate) - 5 + 7) % 7;
+  return addDays(isoDate, -(back === 0 ? 7 : back));
 }
 
 /**
  * The sweep window for an issue published on `publicationDate` (a Saturday).
- * Ends the preceding Thursday; reaches `windowDays` back from there inclusive.
+ * Closes at 00:00 CT on the preceding Friday and opens `windowDays` earlier.
  */
 export function issueWindow(publicationDate: string, windowDays: number): Window {
-  const to = addDays(publicationDate, -2);
-  return { from: addDays(to, -(windowDays - 1)), to };
+  const to = previousFriday(publicationDate);
+  const from = addDays(to, -windowDays);
+  const at = (date: string) => {
+    const [y, mo, d] = date.split('-').map(Number) as [number, number, number];
+    return zonedMs(y, mo, d);
+  };
+  return { from, to, fromMs: at(from), toMs: at(to) };
 }
 
-/** Is a timestamp inside the window? Compared on date alone. */
+/** Is a timestamp inside the window? Half-open: [from, to). */
 export function inWindow(iso: string | undefined, w: Window): boolean {
-  const c = wallClock(iso);
-  if (!c) return false;
-  return c.key >= w.from && c.key <= w.to;
+  const ms = instantOf(iso);
+  if (ms === null) return false;
+  return ms >= w.fromMs && ms < w.toMs;
+}
+
+/** "Fri, Aug 28 → Fri, Sep 4" */
+export function windowLabel(w: Window): string {
+  return `${boundaryDate(w.from)} → ${boundaryDate(w.to)}`;
 }
