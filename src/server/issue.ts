@@ -367,19 +367,47 @@ function insertBefore(doc: IssueDoc, id: string, beforeId: string): string[] {
 }
 
 /** Removing a section holds its syndicated items out rather than deleting them. */
+/**
+ * Remove a section: **delete** its locally-authored items, **hold out** its
+ * syndicated ones.
+ *
+ * The asymmetry is the point. A syndicated item is still sitting in the window
+ * and would be swept straight back in, so removing it needs a durable "no" —
+ * that is what `orphans` is, and it renders in the Held out group with Put
+ * back. A locally-authored item has no sweep to return from; it was written
+ * into this section and goes with it.
+ *
+ * Deleted local items are stashed in `held_items` rather than dropped on the
+ * floor, so restoring the section restores them too (0019). They are out of
+ * `items`, so no edition and no lens can reach them in the meantime.
+ */
 export function removeSection(doc: IssueDoc, nodeId: string): IssueDoc {
   const next = structuredClone(doc);
   const target = next.nodes.find((n) => n.id === nodeId);
   if (!target) return next;
+
+  const syndicated: string[] = [];
+  const stash: Record<string, Item> = { ...(next.held_items ?? {}) };
+
+  for (const itemId of target.items) {
+    const item = next.items[itemId];
+    if (!item) continue;
+    if (item.authorship === 'syndicated') {
+      // Remember where it came from so Put back knows its natural section.
+      if (!item.section) item.section = target.label;
+      syndicated.push(itemId);
+    } else {
+      stash[itemId] = item;
+      delete next.items[itemId];
+    }
+  }
+
+  next.held_items = stash;
   next.held_nodes = [
     ...(next.held_nodes ?? []).filter((n) => n.id !== target.id),
     structuredClone(target),
   ];
-  for (const itemId of target.items) {
-    const item = next.items[itemId];
-    if (item && !item.section) item.section = target.label;
-  }
-  next.orphans = [...(next.orphans ?? []), ...target.items];
+  next.orphans = [...(next.orphans ?? []), ...syndicated];
   next.nodes = next.nodes.filter((n) => n.id !== nodeId);
   next.issue.output_order = (next.issue.output_order ?? []).filter((id) => id !== nodeId);
   return next;
@@ -403,6 +431,16 @@ export function addSection(doc: IssueDoc, spec: { type: string; label: string; i
     created.kind = 'ad_hoc';
     created.items = [itemId];
     next.items[itemId] = seedItem('markdown');
+  }
+
+  // Put back the locally-authored items this section took with it.
+  if (held && next.held_items) {
+    for (const itemId of held.items) {
+      const stashed = next.held_items[itemId];
+      if (!stashed) continue;
+      next.items[itemId] = stashed;
+      delete next.held_items[itemId];
+    }
   }
 
   // Reclaim any of this section's items that were held out.

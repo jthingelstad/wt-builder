@@ -396,3 +396,60 @@ describe('window-derived inclusion', () => {
     expect(falloutOf(doc, node, windowOf(doc))).toEqual({ count: 1, all: false });
   });
 });
+
+describe('section removal', () => {
+  /** Briefly holds three syndicated Pinboard links; Currently holds Jamie's own. */
+  it('holds out syndicated items so the sweep cannot bring them straight back', () => {
+    const doc = fixture();
+    const removed = removeSection(doc, 'briefly');
+    expect(removed.orphans).toContain('briefly-forge');
+    // Still in items{} — held out is a durable "no", not a deletion.
+    expect(removed.items['briefly-forge']).toBeTruthy();
+  });
+
+  it("deletes locally-authored items, which have no sweep to return from", () => {
+    const doc = fixture();
+    const currently = doc.nodes.find((n) => n.type === 'currently');
+    const localIds = currently!.items.filter((id) => doc.items[id]?.authorship !== 'syndicated');
+    expect(localIds.length).toBeGreaterThan(0);
+
+    const removed = removeSection(doc, currently!.id);
+    for (const id of localIds) {
+      expect(removed.items[id]).toBeUndefined();
+      expect(removed.orphans ?? []).not.toContain(id);
+    }
+  });
+
+  it('keeps deleted local items reachable only through Put back', () => {
+    const doc = fixture();
+    const currently = doc.nodes.find((n) => n.type === 'currently')!;
+    const localId = currently.items.find((id) => doc.items[id]?.authorship !== 'syndicated')!;
+    const before = doc.items[localId];
+
+    const removed = removeSection(doc, currently.id);
+    // Out of every rendering path...
+    expect(sourceRows(removed).some((r) => r.itemId === localId)).toBe(false);
+    for (const channel of ['website', 'email', 'audio'] as const) {
+      expect(planEdition(removed, channel).some((p) => p.items.some((i) => i.id === localId)))
+        .toBe(false);
+    }
+    // ...but restored intact when the section comes back.
+    const restored = addSection(removed, {
+      id: currently.id, type: currently.type, label: currently.label,
+    });
+    expect(restored.items[localId]).toEqual(before);
+    expect(restored.held_items?.[localId]).toBeUndefined();
+  });
+
+  it('restores a mixed section whole', () => {
+    const doc = fixture();
+    const journal = doc.nodes.find((n) => n.type === 'journal')!;
+    const ids = [...journal.items];
+    const restored = addSection(removeSection(doc, journal.id), {
+      id: journal.id, type: journal.type, label: journal.label,
+    });
+    const back = restored.nodes.find((n) => n.id === journal.id);
+    expect(back?.items).toEqual(ids);
+    for (const id of ids) expect(restored.items[id]).toBeTruthy();
+  });
+});

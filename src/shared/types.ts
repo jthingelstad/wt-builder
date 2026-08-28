@@ -149,6 +149,12 @@ export interface IssueDoc {
    */
   held_nodes?: IssueNode[];
   items: Record<string, Item>;
+  /**
+   * Locally-authored items deleted by section removal, kept beside their held
+   * node so Put back is still deterministic (0019). They are not in `items`,
+   * so nothing renders them and no edition can reach them.
+   */
+  held_items?: Record<string, Item>;
   /** Items swept in but not placed in a node. */
   orphans?: string[];
   sends?: Partial<Record<Destination, SendState>>;
