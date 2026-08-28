@@ -17,11 +17,13 @@ import { Archive, Check, CircleAlert, Spinner } from '../icons.tsx';
 
 interface Props {
   error: string | null;
+  /** True while a URL-named issue is being fetched. */
+  loading?: boolean;
   onError: (message: string | null) => void;
   onOpen: (id: string) => void;
 }
 
-export function IssueIndex({ error, onError, onOpen }: Props) {
+export function IssueIndex({ error, loading: opening, onError, onOpen }: Props) {
   const [issues, setIssues] = useState<IssueSummary[]>([]);
   const [nextNumber, setNextNumber] = useState(1);
   const [loading, setLoading] = useState(true);
@@ -70,7 +72,7 @@ export function IssueIndex({ error, onError, onOpen }: Props) {
         <h1>Issues</h1>
 
         {error && <div class="error-bar" role="alert">{error}</div>}
-        {loading && <p class="quiet">Loading…</p>}
+        {(loading || opening) && <p class="quiet">Loading…</p>}
         {!loading && !issues.length && (
           <p class="quiet">Nothing here yet. Start WT{nextNumber} and sweep the week.</p>
         )}
