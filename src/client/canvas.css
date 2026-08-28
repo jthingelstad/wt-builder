@@ -898,6 +898,15 @@
 }
 
 .cue-text { font-size: 16.5px; line-height: 1.7; }
+.cue-title { background: #fff2d6; border-radius: 3px; padding: 0 2px; }
+.cue-reverse-note {
+  display: block;
+  margin-top: 4px;
+  font-family: var(--mono);
+  font-size: 9.5px;
+  letter-spacing: 0.06em;
+  color: var(--muted);
+}
 
 .cue-section { display: flex; align-items: center; gap: 12px; margin: 26px 0 10px; }
 

@@ -81,6 +81,25 @@ export function longDate(w: WallClock): string {
   return `${weekday(w)}, ${MONTH[w.mo - 1]} ${w.d}`;
 }
 
+/** Day-of-month as a spoken ordinal — "twenty-ninth". Index 1–31. */
+const ORDINAL = [
+  '', 'first', 'second', 'third', 'fourth', 'fifth', 'sixth', 'seventh',
+  'eighth', 'ninth', 'tenth', 'eleventh', 'twelfth', 'thirteenth',
+  'fourteenth', 'fifteenth', 'sixteenth', 'seventeenth', 'eighteenth',
+  'nineteenth', 'twentieth', 'twenty-first', 'twenty-second', 'twenty-third',
+  'twenty-fourth', 'twenty-fifth', 'twenty-sixth', 'twenty-seventh',
+  'twenty-eighth', 'twenty-ninth', 'thirtieth', 'thirty-first',
+] as const;
+
+/**
+ * "Saturday, August twenty-ninth" — dates are spoken long in the audio
+ * edition (docs/interface-spec.md, Audio lens). "August 29" read by a
+ * synthesizer comes out as "August two nine" often enough to matter.
+ */
+export function spokenLongDate(w: WallClock): string {
+  return `${weekday(w)}, ${MONTH[w.mo - 1]} ${ORDINAL[w.d] ?? String(w.d)}`;
+}
+
 /** "Fri, Aug 28" — the window boundary format on the canvas kicker. */
 export function boundaryDate(isoDate: string): string {
   const c = wallClock(isoDate);

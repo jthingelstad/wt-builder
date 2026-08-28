@@ -7,7 +7,7 @@
  */
 
 import type { IssueDoc, Item } from '../types.ts';
-import { wallClock, weekday } from '../dates.ts';
+import { spokenLongDate, wallClock, weekday } from '../dates.ts';
 import type { PlannedNode } from './plan.ts';
 import { bodyLines, flatten, isLinkSection, planEdition } from './plan.ts';
 import { speakable } from './speech.ts';
@@ -95,6 +95,13 @@ export interface ScriptBlock {
   /** The node this block came from, for the lens's anchors. */
   nodeId?: string;
   itemId?: string;
+  /**
+   * A Briefly link speaks title-first while the page prints
+   * description-first; the lens highlights the title and says so once.
+   */
+  reversed?: boolean;
+  /** The spoken title, so the lens can highlight exactly that span. */
+  title?: string;
 }
 
 export function audioScript(doc: IssueDoc): ScriptBlock[] {
@@ -116,14 +123,27 @@ export function audioScript(doc: IssueDoc): ScriptBlock[] {
         }
         if (!groupBlocks.length) continue;
         if (group.weekday) {
-          spoken.push({ kind: 'cue', text: terminate(group.weekday), nodeId: planned.node.id });
+          // Spoken long — "Saturday, August twenty-ninth" — because a bare
+          // number through a synthesizer is a coin flip.
+          const w = wallClock(group.key);
+          spoken.push({
+            kind: 'cue',
+            text: terminate(w ? spokenLongDate(w) : group.weekday),
+            nodeId: planned.node.id,
+          });
         }
         spoken.push(...groupBlocks);
       }
     } else {
+      const briefly = String(planned.node.type) === 'briefly';
       planned.items.forEach((entry, i) => {
         for (const text of itemBlocks(entry.item, planned, i + 1, total)) {
-          spoken.push({ kind: 'cue', text, nodeId: planned.node.id, itemId: entry.id });
+          const block: ScriptBlock = { kind: 'cue', text, nodeId: planned.node.id, itemId: entry.id };
+          if (briefly && entry.item.type === 'pinboard_link') {
+            block.reversed = true;
+            block.title = terminate(String(entry.item.title ?? ''));
+          }
+          spoken.push(block);
         }
       });
     }

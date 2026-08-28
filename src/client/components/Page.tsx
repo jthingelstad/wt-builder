@@ -377,11 +377,35 @@ function AudioScript({
 
         cue += 1;
         const n = cue;
+
+        // Briefly speaks title-first — the reverse of print. The title is
+        // highlighted, and the first reversed cue says why once.
+        const firstReversed = Boolean(block.reversed)
+          && script.findIndex((b) => b.reversed) === i;
+        let text: ComponentChildren = block.text;
+        if (block.reversed && block.title && block.text.includes(block.title)) {
+          const at = block.text.indexOf(block.title);
+          text = (
+            <>
+              {block.text.slice(0, at)}
+              <mark class="cue-title">{block.title}</mark>
+              {block.text.slice(at + block.title.length)}
+            </>
+          );
+        }
+
         return (
           <Row key={`c-${i}`} anchor={anchor} selected={selected === anchor}>
             <div class="cue" onClick={() => onSelect(anchor)}>
               <span class="cue-num">{String(n).padStart(2, '0')}</span>
-              <span class="cue-text">{block.text}</span>
+              <span class="cue-text">
+                {text}
+                {firstReversed && (
+                  <span class="cue-reverse-note">
+                    TITLE FIRST — the page prints description → title; audio reverses.
+                  </span>
+                )}
+              </span>
             </div>
           </Row>
         );

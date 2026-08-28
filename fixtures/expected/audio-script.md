@@ -25,13 +25,13 @@ transformation, as well as new areas with AI deployment.
 
 Now, the Journal section.
 
-Saturday.
+Saturday, May sixteenth.
 
 Mazie and I taking the boat out for the season. Beautiful day!
 
 First visit to Pleasant Grove Pizza Farm for 2026! Delicious pizza.
 
-Sunday.
+Sunday, May seventeenth.
 
 Fabulous show by The New Standards at The Dakota tonight.
 
