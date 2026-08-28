@@ -120,9 +120,9 @@ the part that stops the next convenience feature from quietly writing.*
 
 ## The podcast builder will be a sibling, not a feature
 
-Jamie intends an authoring app for *Another Thing* — outlining, recording
-support, transcripts, and publishing episodes. **It will be its own
-application, not a mode of WT Builder.** One editor and one newsletter is
+The authoring app for *Another Thing* — outlining, recording support,
+transcripts, publishing episodes — is **`at-builder`**, scoped 2026-08-28.
+**It is its own application, not a mode of WT Builder.** One editor and one newsletter is
 what makes this codebase small enough to trust; a second product grafted on
 is how Studio became a "publishing brain" and died of it. The product brief's
 non-goals already exclude podcast authoring, and that exclusion is load-bearing.
