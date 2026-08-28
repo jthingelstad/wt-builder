@@ -911,7 +911,7 @@
 
 .cue-rule { flex: 1; border-top: 1px solid var(--border); }
 
-.cue-omit, .cue-flag {
+.cue-omit {
   display: flex;
   align-items: flex-start;
   gap: 10px;
@@ -923,9 +923,8 @@
 }
 
 .cue-omit { border: 1px dashed var(--border-button); background: var(--subtle); color: var(--muted); }
-.cue-flag { border: 1px solid var(--amber-2); background: var(--amber-1); color: var(--dek); }
 
-.cue-omit-label, .cue-flag-label {
+.cue-omit-label {
   font-family: var(--mono);
   font-size: 9px;
   letter-spacing: 0.07em;
@@ -934,7 +933,6 @@
   padding-top: 1px;
 }
 .cue-omit-label { color: var(--muted); }
-.cue-flag-label { color: var(--amber); }
 
 /* ── the Email lens's Buttondown branch ───────────────────────────────── */
 

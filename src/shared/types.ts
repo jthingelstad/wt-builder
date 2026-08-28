@@ -10,7 +10,7 @@ export const SCHEMA_VERSION = 2;
 export type Channel = 'website' | 'email' | 'audio';
 export const CHANNELS: readonly Channel[] = ['website', 'email', 'audio'] as const;
 
-/** Which editions an item appears in. There is no `included` boolean (0015). */
+/** Which editions an item appears in. There is no `included` boolean. */
 export type Channels = Record<Channel, boolean>;
 
 /**
@@ -133,7 +133,7 @@ export interface IssueMeta {
   status: IssueStatus;
   /** A Saturday. */
   publication_date: string;
-  /** How far back the sweep reaches from the Friday 00:00 CT close (0022). */
+  /** How far back the sweep reaches from the Friday 00:00 CT close. */
   window_days: number;
   editor?: string;
   output_order?: string[];
@@ -145,13 +145,13 @@ export interface IssueDoc {
   nodes: IssueNode[];
   /**
    * Removed nodes are retained intact so every structural removal has a
-   * deterministic Put back path (0019). They are not part of any edition.
+   * deterministic Put back path (docs/decisions.md). They are not part of any edition.
    */
   held_nodes?: IssueNode[];
   items: Record<string, Item>;
   /**
    * Locally-authored items deleted by section removal, kept beside their held
-   * node so Put back is still deterministic (0019). They are not in `items`,
+   * node so Put back is still deterministic (docs/decisions.md). They are not in `items`,
    * so nothing renders them and no edition can reach them.
    */
   held_items?: Record<string, Item>;

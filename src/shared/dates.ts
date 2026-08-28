@@ -164,7 +164,7 @@ export function instantOf(iso: string | undefined | null): number | null {
 // The content cutoff runs Friday 00:00 CT to Friday 00:00 CT — a half-open
 // interval [from, to). An item captured Thursday at 11:58 PM Central is in;
 // one captured Friday at 12:02 AM belongs to the next issue. See
-// docs/decisions/0022-the-window-is-friday-to-friday-central.md.
+// docs/decisions.md.
 //
 // This is an instant comparison, not a date comparison. A Thursday 11 PM CT
 // bookmark is stored as Friday 04:00 UTC, and comparing the date part alone

@@ -353,11 +353,6 @@ function AudioScript({
   doc, selected, onSelect,
 }: { doc: IssueDoc; selected: string | null; onSelect: (a: string | null) => void }) {
   const script = audioScript(doc);
-  const nodes = new Map(doc.nodes.map((n) => [n.id, n]));
-
-  // Sections that carry an unresolved audio question. The contract speaks them
-  // today; the design records the treatment as undecided.
-  const toValidate = new Set(['membership', 'haiku']);
 
   let cue = 0;
   const omitted = doc.nodes.filter(
@@ -367,7 +362,6 @@ function AudioScript({
   return (
     <>
       {script.map((block, i) => {
-        const node = block.nodeId ? nodes.get(block.nodeId) : undefined;
         const anchor = block.itemId ?? block.nodeId ?? 'issue';
 
         if (block.kind === 'transition') {
@@ -377,15 +371,6 @@ function AudioScript({
                 <span class="cue-label">{block.text.replace(/\.$/, '').toUpperCase()}</span>
                 <span class="cue-rule" />
               </div>
-              {node && toValidate.has(String(node.type)) && (
-                <div class="cue-flag">
-                  <span class="cue-flag-label">TO VALIDATE</span>
-                  <span>
-                    The audio treatment for {node.label} is undecided. It is spoken
-                    today; the design has not settled whether it should be.
-                  </span>
-                </div>
-              )}
             </Row>
           );
         }
@@ -732,7 +717,7 @@ function HeldStrip({
 
 /**
  * Prose plus one quiet line — never a labelled field grid. The grid version was
- * truthful and unreadable (0014).
+ * truthful and unreadable.
  */
 function SourceBlock({ doc, node, item, itemId, readOnly, act }: BlockProps) {
   const set = (patch: Record<string, unknown>) => act.updateItem(itemId, patch);

@@ -113,7 +113,7 @@ export function getIssueByNumber(number: number): IssueRow | null {
  * The highest published issue number, which the next issue defaults past.
  *
  * Nine years of issues were published before WT Builder existed and are not
- * imported (0020), so an empty database would otherwise number the next issue
+ * imported (docs/decisions.md), so an empty database would otherwise number the next issue
  * 1. `WT_BUILDER_LAST_PUBLISHED_ISSUE` carries that history as a floor; the
  * number stays editable either way.
  */

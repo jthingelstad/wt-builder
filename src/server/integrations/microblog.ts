@@ -121,7 +121,7 @@ export interface UpdateResult {
 
 /**
  * Write an edited post back through Micropub, last-writer-wins, on the same
- * terms as Pinboard (0015). Placement, inclusion, and presentation are never
+ * terms as Pinboard. Placement, inclusion, and presentation are never
  * written back: those are facts about the issue, not about the post.
  *
  * Guarded by the same flag as Pinboard write-back because it mutates a

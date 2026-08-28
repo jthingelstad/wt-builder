@@ -62,7 +62,7 @@ export const config = {
 
   /**
    * The last issue published before WT Builder. Pre-Builder issues are not
-   * imported as items (0020), so this is how issue numbering continues.
+   * imported as items (docs/decisions.md), so this is how issue numbering continues.
    */
   lastPublishedIssue: Number(optional('WT_BUILDER_LAST_PUBLISHED_ISSUE') ?? 0) || 0,
 

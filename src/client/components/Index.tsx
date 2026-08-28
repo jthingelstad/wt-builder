@@ -158,7 +158,7 @@ function IssueRow({
         {/*
           Three chips, not one flag: an issue can be live on the website with no
           audio and a draft still sitting in Buttondown, and one status word
-          cannot say that (0015).
+          cannot say that.
         */}
         <span class="ir-chips">
           {LEGS.map(([key, label, name]) => {
@@ -186,7 +186,7 @@ function IssueRow({
           </button>
           {!isDraft && (
             // "Website", never "Archive" — here the archive is the retrieval
-            // feed, and the two must not share a word (0013).
+            // feed, and the two must not share a word.
             <a
               class="btn small"
               href={`https://weekly.thingelstad.com/issues/${issue.number}/`}

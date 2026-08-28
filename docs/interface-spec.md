@@ -35,8 +35,7 @@ signs off and the destination continues. Until then it sits in `NEEDS YOU` — a
 interaction. A card button labelled with a state ("Waiting on you") is a dead
 primary: it duplicates the pill beside it and does nothing when clicked.
 
-**Failure** (the prototype makes Buttondown 503 on its first attempt, so the state is
-real rather than drawn): the card goes `DID NOT SEND` in terracotta with a
+**Failure** — and the state must be real rather than drawn: the card goes `DID NOT SEND` in terracotta with a
 `#faefe8` strip explaining that other destinations are unaffected, the failed step
 takes a `circle-x` and shows the error text where evidence would go, and the action
 becomes **Try again** — resuming from the failed step, not from the beginning.
@@ -98,76 +97,34 @@ An **Editorial review** can be asked for at any point: notes print in the page's
 margin, beside the block each one is about — proofing, issue rhythm, repetition against
 the archive, length. It never writes the issue's prose and never blocks publishing.
 
-The canvas is **the page, left-aligned, plus one 264px right margin** holding everything
-about the material: the structural controls, the draft wand, and review notes, all at
-once. The card's left edge and width are fixed, so nothing the margin does can reflow a
-sentence.
+The canvas is **the page, left-aligned, between two margins**: structure in a 76px
+left gutter, editorial in a 250px right one. The card's left edge and width are
+fixed, so nothing either margin does can reflow a sentence. See § Canvas.
 
 All glyphs are [Lucide](https://lucide.dev), inlined as SVG.
 
 The editorial acts the tool supports are: **hold out**, **place**, **order**,
 **promote**, and **write**. There is no import queue and no candidate tray.
 
-## Source of truth: read the repo first
+## What this document is, and what it is not
 
-This design was built against `github.com/jthingelstad/wt-builder`. **That repository is
-the authority on product boundary, contracts, and integrations — this README is the
-authority on interface and behavior.** Where they disagree, the repo wins on contracts
-and this document wins on UI.
-
-Before writing code, read, in order:
-
-1. `AGENTS.md` and `CLAUDE.md` — guardrails and phase
-2. `docs/product-brief.md` — scope, core jobs, non-goals
-3. `docs/item-model.md` — canonical item fields
-4. `docs/rendering-contracts.md` — the per-type Website / Buttondown / Audio matrix
-5. `docs/integrations.md` — Pinboard, Micro.blog, Thingy, Buttondown, website, audio
-6. `docs/publishing-lifecycle.md` — states, readiness, publication evidence
-7. `docs/decisions/0001`–`0003` — product boundary, publishing/archive boundary, archive feed
-8. `fixtures/representative-issue.json` and `fixtures/expected/*` — treat the expected
-   website / Buttondown / audio outputs as renderer tests
-
-The repo's guardrails are binding, and the prototype honors all of them:
-
-- Markdown is an **output**, never the editing source of truth.
-- Items, not sections, are the editorial unit.
-- Never imply every item appears in every edition.
-- Echoes is fixed last and excluded from audio. Photo is excluded from audio.
-- Briefly reverses in audio: title, then description.
-- Thingy-authored content is always visibly attributed.
-- No secrets, no raw Shortcut payloads, no production data in the public repo.
-
-**One phase note.** `AGENTS.md` currently forbids choosing a production framework,
-database, or hosting platform without Jamie explicitly advancing the project to
-implementation. This handoff *is* that advance — but record it: update `AGENTS.md`'s
-"Current phase" and add a decision record for the stack choice in the same change.
-
-## About the Design Files
-
-The files in this bundle are **design references created in HTML** — prototypes that
-demonstrate intended look and behavior. They are not production code to copy.
-
-The task is to **recreate these designs in the target codebase's environment** using its
-established patterns, component library, and data layer. If no environment exists yet,
-choose an appropriate stack (a React or Svelte SPA against a small API is the natural
-shape) and implement there.
-
-`prototype/WT Builder.dc.html` is a single-file prototype with an in-memory fixture. It
-has no backend, no persistence, and no real Pinboard / Micro.blog / Buttondown calls —
-those are simulated with timeouts. Everything it *does* model faithfully is the
-information architecture, the interaction model, and the visual design.
+**This is the authority on interface and behaviour.** `docs/item-model.md` and
+`docs/rendering-contracts.md` are the authority on the item shape and what each
+edition must contain. Where they disagree, the contracts win on data and this
+document wins on the screen.
 
 ## Fidelity
 
-**High-fidelity.** Colors, typography, spacing, radii, and interaction states are final
-and should be matched closely. The reading column in particular is a deliberate
-reproduction of the published archive at `weekly.thingelstad.com` — it must look like
-the newsletter, not like an admin UI.
+**High-fidelity.** Colours, typography, spacing, radii, and interaction states are
+final and should be matched closely. The reading column in particular is a
+deliberate reproduction of the published archive at `weekly.thingelstad.com` — it
+must look like the newsletter, not like an admin UI.
 
-Two things are explicitly *not* designed, though both have contracts in the repo:
-publishing (the prototype's button only flips a status — see Publishing below) and the
-audio treatment of Membership and Haiku (flagged "to validate" in the Audio lens, and
-marked "To validate" in `docs/rendering-contracts.md`).
+Every value in § Design tokens is transcribed rather than chosen. Where a number
+here disagrees with a number elsewhere in this document, the section carrying the
+reasoning wins over the bare list — and a handful of measurements were taken when
+the structural gutter was 158px rather than 76px, so any arithmetic that assumes
+the old gutter is stale. Those are noted where they occur.
 
 ---
 
@@ -190,8 +147,9 @@ Issue {
 ```
 
 The **source window** is derived, never stored as two dates:
-`end = publish - 1 day` (the Friday), `start = end - days`. Both ends inclusive whole
-days. See Open Questions — the end may need a time.
+`end = publish - 1 day` (the Friday at 00:00 CT, exclusive), `start = end - days`
+(inclusive). It is a half-open interval compared as instants, not as date strings —
+see `src/shared/dates.ts`.
 
 ### Node (a section, or a promoted item acting as one)
 
@@ -244,16 +202,16 @@ separate "hidden" flag — see Interactions.
 
 ### Mapping to the repo's canonical item model
 
-Use the repo's field names (`docs/item-model.md`), not the prototype's shorthand:
+Use the canonical field names (`docs/item-model.md`), not the shorthand this document uses:
 
 | Prototype | Canonical | Note |
 | --- | --- | --- |
 | `snapshot` | `source_snapshot` | what was imported, for the diff view |
-| item order in `node.items[]` | `position` | prototype uses array order |
+| item order in `node.items[]` | `position` | order is the array, not a field |
 | `presentation: "journal"` | `presentation: "normal"` | same meaning |
 | `chan: {website,email,audio}` | `rendering_overrides` | see below |
 | `section` | `section` | Featured / Notable / Briefly |
-| — | `source_id` | not modeled in the prototype; keep it |
+| — | `source_id` | not shown on any screen; keep it |
 
 **Contract changes this design implies — record each as a decision record before
 building:**
@@ -277,28 +235,7 @@ building:**
 
 ## Screens
 
-### 1. Issue index (`view: "index"`)
-
-Full-screen list, the landing view.
-
-- **Header** — 52px, white, `1px solid #e6e5e2` bottom. 22×22 `#1a1a1a` rounded-5px
-  square with white bold "W", then "WT Builder" 14px/600. Right: **New issue**, black
-  pill-ish button (`padding 6px 13px`, radius 7px, `#1a1a1a`, white 12.5px/500).
-- **Body** — `max-width: 840px`, centered, `padding: 40px 24px 100px`.
-  - Mono eyebrow "THE WEEKLY THING" 10px, `letter-spacing: .09em`, `#9a9a9a`.
-  - H1 "Issues" 38px/700/1.1, `-0.028em`.
-  - Lede 16.5px/1.6 `#4a4a4a`, `max-width: 56ch`.
-- **Issue rows** — flex column, `gap: 8px`. Each row: white, `1px solid #e6e5e2`,
-  radius 10px, `padding: 15px 18px`, `gap: 16px`, aligned center.
-  - Number, mono 13px `#b0aeaa`, fixed 34px, rendered **`WT350`**.
-  - Title 16px/600/-0.012em; meta line 12.5px `#9a9a9a` ("18 links · 9 journal posts").
-  - Status pill, mono 9.5px/.07em, radius 5px, `padding: 4px 9px`.
-  - Actions: live draft gets **Open** (dark); published issues with stored items get
-    **Open**; pre-Builder issues get **Archive ↗** (outlined, hover border `#1a5fb4`)
-    *and* **Open** — which opens a read-only record of the send.
-- Footer note 12.5px `#9a9a9a`, `max-width: 60ch`.
-
-### 2. Editor (`view: "editor"`)
+### 1. Editor (`view: "editor"`)
 
 Three columns inside a 52px header: optional left panel (300px), canvas (flex,
 `min-width: 720px`), optional inspector (352px). App background `#f2f1ef`.
@@ -549,8 +486,9 @@ A numbered script, not a page. Rows are `26px` mono cue numbers (`01`, `02` …)
 - **Currently** speaks "label, then value".
 - Omission strips (dashed, mono `NOT SPOKEN`): Photo ("omitted rather than narrated"),
   Echoes ("never spoken").
-- Flag strips (`#fdf9ee` / `1px #ece0bd`, mono `TO VALIDATE` in `#a07a1f`): Membership
-  and Haiku — audio treatment undecided, held out of the script.
+- **Membership and Haiku are spoken.** Membership is introduced as Thingy's words
+  before the words themselves; Haiku is read one line at a time so the pauses fall
+  on the line breaks. See `rendering-contracts.md`.
 
 #### Editorial review panel (352px, white, left border)
 
@@ -649,7 +587,7 @@ Opened by the rail `i` button. `padding: 14px 18px 40px`.
 9. **Remove from this issue** — outlined, hover terracotta, with reassurance that the
    source post stays published.
 
-### 3. Overlays
+### 2. Overlays
 
 - **Checklist popover** — anchored `top: 56px; right: 16px`, 352px, white, radius 10px,
   `box-shadow: 0 14px 40px rgba(26,26,26,.14)`. Header mono `BEFORE WT350 IS READY TO
@@ -711,7 +649,7 @@ Haiku candidates: **1200 ms**. Re-scan: **1100 ms**.
 **Saturday rule.** A non-Saturday publish date snaps forward to the next Saturday with a
 visible amber note rather than being rejected.
 
-**Publish.** In the prototype the button flips `status` and returns to the index; a
+**Publish.** The button flips `status` and returns to the index; a
 published issue opens read-only. That is a placeholder — the real contract is in
 `docs/publishing-lifecycle.md` and is summarized below.
 
@@ -779,44 +717,40 @@ campaign facts), Echoes (Thingy, from the assembled issue plus archive retrieval
 link description (Eddy, after fetching and reading the linked page — his prompt is
 explicit that the page gets read before the take is critiqued).
 
-## Publishing (contract, not yet designed)
+## Sending
 
-From `docs/publishing-lifecycle.md` and `docs/decisions/0002`–`0003`. None of this has a
-designed interface yet — **do not invent one; ask Jamie.** What the build must respect:
+**Designed. See § Send view at the top of this document**, which is the surface,
+and `docs/publishing-lifecycle.md`, which is the contract. What the build must
+respect:
 
-**States** — `assembling → reviewing → ready → rendering → drafted →
-scheduled-or-sent → verified → closed`. State is **derived from explicit evidence**, not
-stored as one mutable status. The prototype's single `draft` / `published` flag is a
-stand-in and should not survive into v1.
-
-**Readiness gates** — required direct items complete or explicitly omitted; included
-syndicated items have valid titles, URLs, and presentation; all three previews validate;
-Thingy content reviewed and attributed; Echoes generated late and last; the audio script
-contains only applicable items; package metadata complete. *The Ready pill and checklist
-popover in this design are the natural surface for these — they currently check only a
-subset (missing commentary, failed syncs, unreviewed Thingy drafts).*
-
-**Publication legs**, each recording its own attempts, timestamps, result, external
-identifier, and recovery action: audio render/upload → Buttondown draft → website
-archive handoff → Buttondown scheduled/sent → website feed → podcast feed.
+**Two issue states**, `draft` and `published`, plus **per-destination send state**
+(`none | sending | sent | failed`) carrying its own timestamp, external
+identifier, and error. An eight-state lifecycle was specified once and never
+built; the evidence per leg is what the Send view actually shows, and it is
+enough. Do not reintroduce a single mutable status that tries to describe three
+independent destinations at once.
 
 **Destinations** — WT Builder owns every publishing leg and sends directly:
 `weekly.thingelstad.com` (website edition, committed handoff, carrying an audio
-*reference* only), Buttondown (email edition as a draft; drafting is distinct from
-scheduling/sending), `files.thingelstad.com` (the audio file's only home).
+*reference* only), Buttondown (email edition as a draft; drafting is distinct
+from scheduling or sending), `files.thingelstad.com` (the audio file's only home).
 
-**The archive is not a publishing destination.** Issue text is committed to the archive
-repo *after* publication so Thingy can cite it. It is its own leg with its own evidence
-and retry, it never gates readiness or `closed`, and its failure must not degrade the
-published state. An issue can sit `closed` with an unsent archive feed. Send text only —
-the archive receives no audio.
+**Run order is Podcast → Website → Buttondown**, because the website handoff
+publishes an audio reference that needs a file to resolve to. The dependency is
+**stated, not enforced**: the Website card carries a blocker strip and nothing
+prevents sending out of order.
 
-**Sync semantics** — Pinboard is last-writer-wins and writes back automatically (title,
-commentary, supported tags); a failed write never discards the local edit. Micro.blog is
-**read-only initially** — inclusion, ordering, promotion, and presentation belong to
-WT Builder, and the original post stays canonical. *Note: this design shows Micro.blog
-body edits syncing back, which exceeds the current contract. Either scope it to
-read-only for v1 (drop the Micro.blog sync card and rail dot) or record the change.*
+**The archive is not a publishing destination.** Issue text is committed to the
+archive repo *after* publication so Thingy can cite it. It is its own leg with its
+own evidence and retry, it never gates readiness, and its failure must not degrade
+the published state. Send text only — the archive receives no audio.
+
+**Sync semantics** — Pinboard and Micro.blog both write back, last-writer-wins,
+and a failed write never discards the local edit. Micro.blog reads and writes
+through Micropub `q=source`, which returns the exact Markdown the post is stored
+as; the JSON Feed returns rendered content and cannot be handed back. Inclusion,
+ordering, promotion, and presentation belong to WT Builder; the original post
+stays canonical.
 
 **Thingy** calls the archive's retrieval endpoint **server-side with a service
 credential — never from browser code.** All credentials are server-side secrets.
@@ -894,44 +828,34 @@ circle. Real photo upload/display is undesigned — if v1 needs it, ask.
 
 ## Open questions for v1
 
-1. **Window end time.** The end is a whole day (Friday 00:00), so a Friday-afternoon
-   bookmark lands in the *next* issue. Should the window end Friday 11:59 PM CT?
-2. **Publishing.** Undesigned. What actually happens on Publish — Buttondown draft,
-   site deploy, audio generation, in what order, with what confirmation?
-3. **Audio for Membership and Haiku.** Currently held out and flagged.
-4. **Gutter rail discoverability.** At rest the rail is `opacity: .3`. Acceptable, or
+1. **Window end time.** Still open. The cutoff is Friday 00:00 to Friday 00:00
+   Central, so a Friday-daytime bookmark lands in the *next* issue. Should it end
+   Friday 11:59 PM CT instead?
+2. **Gutter rail discoverability.** At rest the rail is `opacity: .3`. Acceptable, or
    does it need a persistent affordance?
-5. **Photo handling** — upload, EXIF for the place line, multiple photos per issue.
-6. **Review scope.** It reads the website edition. Should it ever flag an audio script
+3. **Review scope.** It reads the website edition. Should it ever flag an audio script
    that reads badly aloud — and if so, as a fourth note class or a separate read?
-7. **Archive grounding for review.** Repetition notes need the same corpus Thingy uses.
+4. **Archive grounding for review.** Repetition notes need the same corpus Thingy uses.
    That is a server-side retrieval call with a service credential, so review cannot be
    a browser-side feature.
 
-## Files
+## Where the rest of this lives
 
 | File | What it is |
 | --- | --- |
-| `prototype/WT Builder.dc.html` | The full clickable prototype — index, editor, three lenses, collapse mode, inspector, setup sheet |
-| `prototype/support.js` | Runtime that renders the prototype file. Not part of the design; do not port |
-| `docs/decisions/0002-wysiwyg-issue-canvas.md` | Why the page is the editor |
-| `docs/decisions/0003-channel-lenses.md` | Website / Email / Audio as lenses on one document |
-| `docs/decisions/0004-ordering-promotion-and-provenance.md` | Ordering model, promotion, provenance bars |
-| `docs/decisions/0005-automatic-inclusion-by-window.md` | Inclusion is automatic; exclusion is the editorial act |
-| `docs/decisions/0006-issue-setup.md` | Saturday anchor, day-count window, issue numbering |
-| `docs/decisions/0007-metadata-panel-and-ad-hoc-structure.md` | Metadata panel, hold-out on the item, ad hoc sections and markdown blocks |
-| `docs/decisions/0008-source-as-the-fourth-lens.md` | Source as the canonical lens; the three channels are renderings of it |
-| `docs/decisions/0009-editorial-review-surface.md` | Editorial review as marginalia rather than an agent or a panel |
-| `docs/decisions/0010-two-margins-and-the-generation-pattern.md` | Structure left, editorial right, both outside the page; one ask→candidates→pick pattern for all generation |
-| `docs/decisions/0011-lucide-and-progress.md` | Lucide as the glyph set; the progress strip; done vs ignored on notes |
-| `docs/decisions/0012-quiet-by-default.md` | Source as prose plus one meta line; chips only when a channel is off; no inspector on sections; section names that do not publish |
+| `docs/decisions.md` | The decisions that are invisible in the code — absences and cross-repo boundaries |
+| `docs/status.md` | What is built, what is not, and what has never been run |
+| `docs/rendering-contracts.md` | What each edition must contain |
+| `docs/item-model.md` | The canonical issue and item shape |
+| `design/screenshots/` | What it looks like |
 
-Decision records 0002–0007 in this bundle are the **design** decisions and continue the
-numbering of the repo's own `docs/decisions/` (0001–0003 there are product decisions).
-Merge them into the repo when the design is accepted, renumbering to avoid the collision.
+The design bundle that produced this document also carried numbered decision
+records. They were **not** merged into the repo: their numbers collided with the
+repo's own, the bundle itself used two different schemes, and the reasoning they
+held is what makes this document as long as it is. The alternatives that were
+tried and rejected are stated inline here, in the section they apply to, and
+quoted in code comments where they constrain something.
 
-Read the decision records before implementing — each one names the alternatives that
-were tried and rejected, which is the fastest way to avoid re-litigating them.
-
-To run the prototype: open `prototype/WT Builder.dc.html` in a browser. No build, no
-server, no network.
+The clickable prototype was deleted once the design was implemented. It used a
+superseded data model — an `included` boolean rather than per-channel flags — and
+kept being mistaken for the specification. **This document is the specification.**

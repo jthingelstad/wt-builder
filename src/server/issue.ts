@@ -2,7 +2,7 @@
  * Issue operations.
  *
  * The document is the unit of work: every operation takes a document and
- * returns a new one. There is no undo and no conflict model (0019) — a single
+ * returns a new one. There is no undo and no conflict model (docs/decisions.md) — a single
  * editor means the last write is simply the truth.
  */
 
@@ -383,7 +383,7 @@ function insertBefore(doc: IssueDoc, id: string, beforeId: string): string[] {
  * into this section and goes with it.
  *
  * Deleted local items are stashed in `held_items` rather than dropped on the
- * floor, so restoring the section restores them too (0019). They are out of
+ * floor, so restoring the section restores them too (docs/decisions.md). They are out of
  * `items`, so no edition and no lens can reach them in the meantime.
  */
 export function removeSection(doc: IssueDoc, nodeId: string): IssueDoc {

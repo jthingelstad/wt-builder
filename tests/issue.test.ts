@@ -305,7 +305,7 @@ describe('the store', () => {
   });
 
   it('counts only published issues when defaulting the next number', async () => {
-    // Nine years shipped before WT Builder and are not imported (0020), so the
+    // Nine years shipped before WT Builder and are not imported (docs/decisions.md), so the
     // configured floor stands in for that history. A draft never advances it.
     const { config } = await import('../src/server/config.ts');
     const floor = config.lastPublishedIssue;

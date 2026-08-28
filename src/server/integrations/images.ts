@@ -192,7 +192,7 @@ export async function rehostIssueImages(doc: IssueDoc): Promise<{ doc: IssueDoc;
  * Same pipeline as a rehost — resize, re-encode, content-addressed key — but
  * the bytes arrive from the browser rather than from a URL. The EXIF read
  * happens here rather than in the client because the client only has the file's
- * modified time, which is when it was *copied*, not when it was taken (0021).
+ * modified time, which is when it was *copied*, not when it was taken.
  */
 export async function storeUpload(
   original: Buffer,

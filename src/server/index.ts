@@ -167,7 +167,7 @@ const routes: [RegExp, string, (ctx: Ctx, params: string[]) => Promise<unknown>]
     return { ok: true };
   }],
 
-  /** Whole-document save. Single editor, last write wins (0019). */
+  /** Whole-document save. Single editor, last write wins (docs/decisions.md). */
   [/^\/api\/issues\/([^/]+)$/, 'PUT', async ({ body }, [id]) => {
     const b = await body();
     if (!b?.issue?.id || b.issue.id !== id) throw new HttpError(400, 'document id mismatch');
