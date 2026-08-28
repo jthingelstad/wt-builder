@@ -535,6 +535,27 @@ export interface Readiness {
 }
 
 /**
+ * Bring an older document up to the current skeleton.
+ *
+ * Photo gained a seeded item once the drop zone needed something to render
+ * into. Issues created before that have a Photo section with no items, which
+ * renders as nothing at all — the section looks present in the outline and is
+ * missing from the page. Returns null when there was nothing to repair, so the
+ * caller only writes when it matters.
+ */
+export function normalizeSkeleton(doc: IssueDoc): IssueDoc | null {
+  const photo = doc.nodes.find((n) => n.type === 'photo' && n.kind === 'section');
+  if (!photo || photo.items.length > 0) return null;
+
+  const next = structuredClone(doc);
+  const target = next.nodes.find((n) => n.id === photo.id)!;
+  const itemId = `${photo.id}-1`;
+  next.items[itemId] = seedItem('photo');
+  target.items = [itemId];
+  return next;
+}
+
+/**
  * The ready checklist. Derived from the document rather than stored, so it can
  * never disagree with what is actually in the issue.
  */

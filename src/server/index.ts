@@ -142,6 +142,10 @@ const routes: [RegExp, string, (ctx: Ctx, params: string[]) => Promise<unknown>]
 
   [/^\/api\/issues\/([^/]+)$/, 'GET', async (_ctx, [id]) => {
     const doc = requireIssue(id!);
+    // Repair an older skeleton on the way out, once, and persist it so the
+    // repair is visible in the document rather than re-applied on every read.
+    const repaired = issues.normalizeSkeleton(doc);
+    if (repaired) return saved(repaired);
     return { issue: doc, readiness: issues.readiness(doc) };
   }],
 

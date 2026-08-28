@@ -10,7 +10,8 @@ import type { IssueDoc, Item } from '../src/shared/types.ts';
 import { inWindow, issueWindow, snapToSaturday, windowLabel } from '../src/shared/dates.ts';
 import {
   addMarkdownBlock, addSection, createIssue, demote, hideItem, moveNode,
-  promote, readiness, removeSection, setChannel, setIssueNumber, setPublicationDate, setWindowDays,
+  normalizeSkeleton, promote, readiness, removeSection, setChannel, setIssueNumber,
+  setPublicationDate, setWindowDays,
   updateItem,
 } from '../src/server/issue.ts';
 import { falloutOf, outOfWindow, planEdition, windowOf } from '../src/shared/render/plan.ts';
@@ -475,5 +476,33 @@ describe('the photo section', () => {
 
     doc.items[id]!.media = { url: 'https://files.thingelstad.com/wt400/a.jpg' };
     expect(readiness(doc).units.find((u) => u.title === 'Photo placed')?.done).toBe(true);
+  });
+});
+
+describe('bringing an older document up to the skeleton', () => {
+  it('seeds the photo item an older issue never got', () => {
+    const doc = createIssue({ number: 400, publication_date: '2026-09-05' });
+    // An issue as it existed before Photo was seeded.
+    const photo = doc.nodes.find((n) => n.type === 'photo')!;
+    for (const id of photo.items) delete doc.items[id];
+    photo.items = [];
+
+    const repaired = normalizeSkeleton(doc);
+    expect(repaired).not.toBeNull();
+    const back = repaired!.nodes.find((n) => n.type === 'photo')!;
+    expect(back.items).toHaveLength(1);
+    expect(repaired!.items[back.items[0]!]?.type).toBe('photo');
+  });
+
+  it('leaves a current document alone, so reads do not rewrite it', () => {
+    const doc = createIssue({ number: 400, publication_date: '2026-09-05' });
+    expect(normalizeSkeleton(doc)).toBeNull();
+  });
+
+  it('does not resurrect a Photo section that was deliberately removed', () => {
+    const doc = createIssue({ number: 400, publication_date: '2026-09-05' });
+    const photo = doc.nodes.find((n) => n.type === 'photo')!;
+    const removed = removeSection(doc, photo.id);
+    expect(normalizeSkeleton(removed)).toBeNull();
   });
 });
