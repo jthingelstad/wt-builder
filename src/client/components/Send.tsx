@@ -22,6 +22,11 @@ interface ChannelSpec {
   ends: string;
   icon: preact.JSX.Element;
   built: boolean;
+  /** Each destination says what it actually does, not Buttondown's words. */
+  verb: string;
+  again: string;
+  resultLabel: string;
+  openLabel: string;
 }
 
 const CHANNELS: ChannelSpec[] = [
@@ -32,6 +37,10 @@ const CHANNELS: ChannelSpec[] = [
     ends: 'Ends at a draft. Nothing is scheduled and nothing is sent, so a wrong draft has reached no reader. Sending again replaces the draft.',
     icon: <Mail />,
     built: true,
+    verb: 'Create draft',
+    again: 'Update draft',
+    resultLabel: 'Draft',
+    openLabel: 'Open in Buttondown',
   },
   {
     key: 'website',
@@ -39,7 +48,11 @@ const CHANNELS: ChannelSpec[] = [
     dest: 'weekly.thingelstad.com',
     ends: 'Commits the generated inputs to the render surface, which builds and deploys them.',
     icon: <Globe />,
-    built: false,
+    built: true,
+    verb: 'Commit',
+    again: 'Re-commit',
+    resultLabel: 'Commit',
+    openLabel: 'View on GitHub',
   },
   {
     key: 'podcast',
@@ -47,7 +60,11 @@ const CHANNELS: ChannelSpec[] = [
     dest: 'files.thingelstad.com',
     ends: 'Renders the script, synthesizes the audio, and uploads it to the CDN. The website publishes the reference.',
     icon: <Mic />,
-    built: false,
+    built: true,
+    verb: 'Render audio',
+    again: 'Re-render',
+    resultLabel: 'Audio',
+    openLabel: 'Listen',
   },
 ];
 
@@ -117,7 +134,7 @@ export function Send({ doc, readiness, error, onBack, onSent, onError }: Props) 
                 <button
                   class="btn primary"
                   disabled={!c.built || isRunning}
-                  title={c.built ? `Send to ${c.dest}` : 'Not built yet — Buttondown is the first slice'}
+                  title={c.built ? `Send to ${c.dest}` : 'Not built yet'}
                   onClick={() => send(c.key)}
                 >
                   {isRunning
@@ -125,10 +142,10 @@ export function Send({ doc, readiness, error, onBack, onSent, onError }: Props) 
                     : !c.built
                       ? 'Not built yet'
                       : state?.status === 'sent'
-                        ? 'Update draft'
+                        ? c.again
                         : state?.status === 'failed'
                           ? 'Retry'
-                          : 'Create draft'}
+                          : c.verb}
                 </button>
               </div>
 
@@ -137,8 +154,8 @@ export function Send({ doc, readiness, error, onBack, onSent, onError }: Props) 
               )}
               {state?.status === 'sent' && (
                 <div class="channel-note ok">
-                  Draft {state.external_id}
-                  {state.url && <> · <a href={state.url} target="_blank" rel="noreferrer">Open in Buttondown</a></>}
+                  {c.resultLabel} {(state.external_id ?? '').slice(0, 48)}
+                  {state.url && <> · <a href={state.url} target="_blank" rel="noreferrer">{c.openLabel}</a></>}
                   {state.at && <> · {state.at.slice(0, 16).replace('T', ' ')}</>}
                 </div>
               )}

@@ -5,7 +5,7 @@
  * flattened Markdown document (AGENTS.md, Guardrails).
  */
 
-import type { IssueDoc, Item } from '../types.ts';
+import type { IssueDoc, IssueNode, Item } from '../types.ts';
 import { clockTime, shortDate, wallClock, weekday } from '../dates.ts';
 import type { PlannedItem, PlannedNode } from './plan.ts';
 import { bodyLines, planEdition } from './plan.ts';
@@ -40,7 +40,10 @@ export function photoBlocks(item: Item): Block[] {
 
 /** Haiku prints as one bold block with Markdown hard breaks between lines. */
 export function haikuBlock(item: Item): Block {
-  return `**${bodyLines(item.body).join('  \n')}**`;
+  const lines = bodyLines(item.body);
+  // An unwritten haiku would otherwise publish a bare "****".
+  if (!lines.length) return '';
+  return `**${lines.join('  \n')}**`;
 }
 
 /** "Description → **[linked title]**" (docs/rendering-contracts.md, Briefly). */
@@ -77,26 +80,38 @@ export function promotedBlocks(item: Item): Block[] {
   return out;
 }
 
-function itemBlocks(entry: PlannedItem): Block[] {
+/**
+ * Which section an item renders as. Placement wins over the tag the item was
+ * captured with: a Pinboard link filed under Briefly renders as Briefly even
+ * if it was tagged for Notable, or tagged not at all.
+ */
+function sectionOf(item: Item, node?: IssueNode): string {
+  return (node?.label ?? item.section ?? '').toLowerCase();
+}
+
+function itemBlocks(entry: PlannedItem, node?: IssueNode): Block[] {
   const { item } = entry;
   switch (item.type) {
-    case 'currently':
-      return [`**${item.label}:** ${bodyLines(item.body).join(' ')}`];
+    case 'currently': {
+      const value = bodyLines(item.body).join(' ');
+      return value ? [`**${item.label}:** ${value}`] : [];
+    }
     case 'photo':
       return photoBlocks(item);
     case 'haiku':
       return [haikuBlock(item)];
     case 'pinboard_link':
-      return item.section?.toLowerCase() === 'briefly'
-        ? [brieflyBlock(item)]
-        : linkBlocks(item);
+      return sectionOf(item, node) === 'briefly' ? [brieflyBlock(item)] : linkBlocks(item);
     case 'journal_post':
       return item.presentation === 'promoted'
         ? promotedBlocks(item)
         : [journalEntryBlock(item)];
     case 'membership':
-    case 'echoes':
-      return [byline(item), bodyLines(item.body).join(' ')];
+    case 'echoes': {
+      const body = bodyLines(item.body).join(' ');
+      // Attribution with no words under it is an unwritten item, not a credit.
+      return body ? [byline(item), body] : [];
+    }
     case 'quote':
       return bodyLines(item.body).map((l) => `> ${l}`);
     default:
@@ -121,18 +136,19 @@ export function nodeHeading(planned: PlannedNode): string | null {
 /** Blocks for one node, used by the website and email editions alike. */
 export function nodeBlocks(planned: PlannedNode): Block[] {
   const out: Block[] = [];
+  const { node } = planned;
   const heading = nodeHeading(planned);
   if (heading) out.push(heading);
 
   if (planned.groups) {
     for (const group of planned.groups) {
       if (group.weekday) out.push(`### ${group.weekday}`);
-      for (const entry of group.items) out.push(...itemBlocks(entry));
+      for (const entry of group.items) out.push(...itemBlocks(entry, node));
     }
     return out;
   }
 
-  for (const entry of planned.items) out.push(...itemBlocks(entry));
+  for (const entry of planned.items) out.push(...itemBlocks(entry, node));
   return out;
 }
 

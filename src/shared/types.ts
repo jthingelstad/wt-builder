@@ -75,6 +75,12 @@ export interface Item {
   tags?: string[];
 
   presentation?: 'journal' | 'promoted';
+  /**
+   * Fields the source owns that write-back must hand back untouched. Pinboard's
+   * add endpoint replaces the whole record, so anything not sent is reset to
+   * its default — which would silently publish a private bookmark.
+   */
+  source_flags?: Record<string, string>;
   published_at?: string;
   media?: Media;
   sync_state?: SyncState;
@@ -158,6 +164,8 @@ export interface Candidate {
   published_at?: string;
   /** Micro.blog posts with a title are promotion candidates. */
   titled?: boolean;
+  /** Source-owned fields carried through so write-back preserves them. */
+  flags?: Record<string, string>;
 }
 
 export function emptyChannels(): Channels {

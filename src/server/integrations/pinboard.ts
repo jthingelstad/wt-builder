@@ -38,6 +38,9 @@ export interface PinboardPost {
   tags: string;
   time: string;
   hash?: string;
+  /** "yes" / "no". Owned by the bookmark, never by the issue. */
+  toread?: string;
+  shared?: string;
 }
 
 function requireToken(): string {
@@ -90,6 +93,11 @@ export async function sweepPinboard(window: Window, tag?: string): Promise<Candi
     commentary: p.extended,
     tags: String(p.tags ?? '').split(/\s+/).filter(Boolean),
     published_at: p.time,
+    // Carried so write-back can hand them back unchanged.
+    flags: {
+      toread: p.toread ?? 'yes',
+      shared: p.shared ?? 'no',
+    },
   }));
 }
 
@@ -108,6 +116,7 @@ export function candidateToItem(c: Candidate): Item {
     tags,
     sync_state: commentary ? 'synced' : 'needs_commentary',
     source_snapshot: { title: c.title, commentary, tags },
+    source_flags: c.flags,
   };
   const section = sectionForTags(tags);
   if (section) item.section = section;
@@ -130,11 +139,19 @@ export async function writeBack(item: Item): Promise<WriteBackResult> {
   }
 
   try {
+    // `replace=yes` rewrites the whole bookmark, so every field we do not send
+    // is reset to Pinboard's default — `shared=yes` and `toread=no`. Omitting
+    // them publishes a private bookmark and drops it from the unread queue,
+    // neither of which the editor asked for. The contract is title, commentary,
+    // and tags; everything else goes back exactly as it came.
+    const flags = item.source_flags ?? {};
     const result = (await call('/posts/add', {
       url: item.source_url,
       description: item.title ?? '',
       extended: item.commentary ?? '',
       tags: (item.tags ?? []).join(' '),
+      toread: flags.toread ?? 'yes',
+      shared: flags.shared ?? 'no',
       replace: 'yes',
     })) as { result_code?: string };
 

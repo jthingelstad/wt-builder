@@ -239,7 +239,7 @@ function NodeBlock({
                   {g.items.map((e) => (
                     <ItemBlock
                       key={e.id} itemId={e.id} item={e.item} doc={doc} lens={lens}
-                      nodeId={node.id} selected={selected} onSelect={onSelect} run={run}
+                      nodeId={node.id} nodeLabel={node.label} selected={selected} onSelect={onSelect} run={run}
                     />
                   ))}
                 </div>
@@ -247,7 +247,7 @@ function NodeBlock({
             : planned.items.map((e) => (
                 <ItemBlock
                   key={e.id} itemId={e.id} item={e.item} doc={doc} lens={lens}
-                  nodeId={node.id} selected={selected} onSelect={onSelect} run={run}
+                  nodeId={node.id} nodeLabel={node.label} selected={selected} onSelect={onSelect} run={run}
                 />
               ))}
         </div>
@@ -259,13 +259,14 @@ function NodeBlock({
 // ── items ─────────────────────────────────────────────────────────────────
 
 function ItemBlock({
-  itemId, item, doc, nodeId, selected, onSelect, run,
+  itemId, item, doc, nodeId, nodeLabel, selected, onSelect, run,
 }: {
   itemId: string;
   item: Item;
   doc: IssueDoc;
   lens: Channel;
   nodeId: string;
+  nodeLabel?: string;
   selected: string | null;
   onSelect: (id: string | null) => void;
   run: Props['run'];
@@ -293,17 +294,18 @@ function ItemBlock({
         onSelect(selected === itemId ? null : itemId);
       }}
     >
-      <ItemContent item={item} editable={editable} />
+      <ItemContent item={item} editable={editable} nodeLabel={nodeLabel} />
       <ItemAffordances itemId={itemId} item={item} doc={doc} nodeId={nodeId} run={run} />
     </div>
   );
 }
 
 function ItemContent({
-  item, editable,
+  item, editable, nodeLabel,
 }: {
   item: Item;
   editable: (v: string, f: string, p: string) => preact.JSX.Element;
+  nodeLabel?: string;
 }) {
   const body = String(item.body ?? '');
 
@@ -333,7 +335,9 @@ function ItemContent({
     }
 
     case 'pinboard_link': {
-      const briefly = item.section?.toLowerCase() === 'briefly';
+      // Placement wins over the tag the link was captured with, matching the
+      // renderer — otherwise the canvas and the edition disagree.
+      const briefly = (nodeLabel ?? item.section ?? '').toLowerCase() === 'briefly';
       if (briefly) {
         return (
           <p>

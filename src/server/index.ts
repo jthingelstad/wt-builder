@@ -156,7 +156,10 @@ const routes: [RegExp, string, (ctx: Ctx, params: string[]) => Promise<unknown>]
 
   [/^\/api\/issues\/([^/]+)\/items\/([^/]+)$/, 'PATCH', async ({ body }, [id, itemId]) => {
     const patch = await body();
-    return saved(issues.updateItem(requireIssue(id!), itemId!, patch));
+    const doc = requireIssue(id!);
+    // A silent no-op reads to the client as a saved edit.
+    if (!doc.items[itemId!]) throw new HttpError(404, `no item ${itemId}`);
+    return saved(issues.updateItem(doc, itemId!, patch));
   }],
 
   [/^\/api\/issues\/([^/]+)\/items\/([^/]+)\/channel$/, 'POST', async ({ body }, [id, itemId]) => {
@@ -483,11 +486,14 @@ const server = createServer(async (req, res) => {
       return json(res, 200, result);
     }
 
-    if (method === 'GET' && (await serveStatic(url, res))) return;
-
+    // The API answers for itself. Without this guard the SPA fallback below
+    // serves index.html for an unmatched /api/ path, and the client parses
+    // HTML as JSON instead of seeing a 404.
     if (url.pathname.startsWith('/api/')) {
       return json(res, 404, { error: `no route for ${method} ${url.pathname}` });
     }
+
+    if (method === 'GET' && (await serveStatic(url, res))) return;
     res.writeHead(404, { 'Content-Type': 'text/plain' });
     res.end('Not found. Run `npm run build`, or use the Vite dev server.');
   } catch (err) {

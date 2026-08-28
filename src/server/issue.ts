@@ -202,6 +202,11 @@ function placeInto(doc: IssueDoc, itemId: string, sectionLabel: string): void {
   );
   if (target) {
     target.items.push(itemId);
+    // Stamp where it actually landed. Without this, an item swept in untagged
+    // is held out on section removal and never offered back, because
+    // reclamation matches on the item's own section.
+    const item = doc.items[itemId];
+    if (item) item.section = target.label;
   } else {
     doc.orphans = [...(doc.orphans ?? []), itemId];
   }
