@@ -60,6 +60,12 @@ export const config = {
   rehostImages: optional('WT_BUILDER_REHOST_IMAGES') !== 'false',
   awsRegion: optional('AWS_DEFAULT_REGION') ?? 'us-east-1',
 
+  /**
+   * The last issue published before WT Builder. Pre-Builder issues are not
+   * imported as items (0020), so this is how issue numbering continues.
+   */
+  lastPublishedIssue: Number(optional('WT_BUILDER_LAST_PUBLISHED_ISSUE') ?? 0) || 0,
+
   /** The render surface the website edition is committed to. */
   websiteRepo: optional('GITHUB_REPO_NWO') ?? 'jthingelstad/weekly.thingelstad.com',
   websiteBranch: optional('WT_BUILDER_WEBSITE_BRANCH') ?? 'main',

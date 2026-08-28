@@ -43,12 +43,24 @@ binds loopback by default. To reach it from the tailnet:
 
 ```sh
 npm run build
-npm start
-tailscale serve --bg 4317
+launchctl bootstrap gui/$(id -u) ~/Library/LaunchAgents/com.thingelstad.wt-builder.plist
+tailscale serve --bg --https=10001 http://127.0.0.1:4317
 ```
 
-Tailscale terminates identity in front of the process. There is no
-authentication layer inside the app, so do not bind it to a public interface.
+Reachable at **https://otto.tail09aaf9.ts.net:10001/** — tailnet only.
+
+> ⚠️ **Never serve this through Funnel or on a Funnel-enabled port.** Tailscale
+> terminates identity in front of the process; there is no authentication layer
+> inside the app, and it holds write credentials for Pinboard, Micro.blog,
+> Buttondown, GitHub, and S3. `tailscale funnel status` must never list it.
+
+Managing the service:
+
+```sh
+launchctl kickstart -k gui/$(id -u)/com.thingelstad.wt-builder   # restart
+launchctl list | grep wt-builder                                  # status
+tail -f ~/Library/Logs/wt-builder/wt-builder.log                  # logs
+```
 
 ### What runs against a real service
 

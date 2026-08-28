@@ -109,12 +109,19 @@ export function getIssueByNumber(number: number): IssueRow | null {
   return row ? rowToIssue(row) : null;
 }
 
-/** The highest published issue number, which the next issue defaults past. */
+/**
+ * The highest published issue number, which the next issue defaults past.
+ *
+ * Nine years of issues were published before WT Builder existed and are not
+ * imported (0020), so an empty database would otherwise number the next issue
+ * 1. `WT_BUILDER_LAST_PUBLISHED_ISSUE` carries that history as a floor; the
+ * number stays editable either way.
+ */
 export function lastPublishedNumber(): number {
   const row = openDb()
     .prepare("SELECT MAX(number) AS n FROM issues WHERE status = 'published'")
     .get() as { n: number | null };
-  return row.n ?? 0;
+  return Math.max(row.n ?? 0, config.lastPublishedIssue);
 }
 
 export function saveIssue(doc: IssueDoc): IssueRow {

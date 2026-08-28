@@ -230,12 +230,23 @@ describe('the store', () => {
     expect(after?.doc.items['intro-1']!.body).toContain('Welcome back');
   });
 
-  it('counts only published issues when defaulting the next number', () => {
+  it('counts only published issues when defaulting the next number', async () => {
+    // Nine years shipped before WT Builder and are not imported (0020), so the
+    // configured floor stands in for that history. A draft never advances it.
+    const { config } = await import('../src/server/config.ts');
+    const floor = config.lastPublishedIssue;
+
     store.saveIssue(fixture());
-    expect(store.lastPublishedNumber()).toBe(0);
+    expect(store.lastPublishedNumber(), 'a draft must not advance numbering').toBe(floor);
+
     const published = fixture();
     published.issue.status = 'published';
     store.saveIssue(published);
-    expect(store.lastPublishedNumber()).toBe(350);
+    expect(store.lastPublishedNumber()).toBe(Math.max(350, floor));
+  });
+
+  it('never numbers below the pre-Builder history', async () => {
+    const { config } = await import('../src/server/config.ts');
+    expect(store.lastPublishedNumber()).toBeGreaterThanOrEqual(config.lastPublishedIssue);
   });
 });
