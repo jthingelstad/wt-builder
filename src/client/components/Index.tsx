@@ -132,12 +132,16 @@ function IssueRow({
   const when = wallClock(issue.publication_date);
   const clock = countdown(issue.publication_date);
 
-  const counts = isDraft
-    ? `${issue.counts.items} item${issue.counts.items === 1 ? '' : 's'}`
-    : [
-        `${issue.counts.links} link${issue.counts.links === 1 ? '' : 's'}`,
-        `${issue.counts.journal} journal post${issue.counts.journal === 1 ? '' : 's'}`,
-      ].join(' · ');
+  const counts = issue.imported
+    // A record, not a reconstruction: the text is one block, so item counts
+    // would only mislead.
+    ? 'published with the Shortcuts workflow'
+    : isDraft
+      ? `${issue.counts.items} item${issue.counts.items === 1 ? '' : 's'}`
+      : [
+          `${issue.counts.links} link${issue.counts.links === 1 ? '' : 's'}`,
+          `${issue.counts.journal} journal post${issue.counts.journal === 1 ? '' : 's'}`,
+        ].join(' · ');
 
   return (
     <div class={`issue-row${isDraft ? ' draft' : ''}${live ? ' live' : ''}`}>
@@ -161,7 +165,8 @@ function IssueRow({
           cannot say that.
         */}
         <span class="ir-chips">
-          {LEGS.map(([key, label, name]) => {
+          {issue.imported && <span class="ir-chip imported">PRE-BUILDER</span>}
+          {!issue.imported && LEGS.map(([key, label, name]) => {
             const state = issue.sends?.[key]?.status ?? 'none';
             return (
               <span
@@ -189,7 +194,7 @@ function IssueRow({
             // feed, and the two must not share a word.
             <a
               class="btn small"
-              href={`https://weekly.thingelstad.com/issues/${issue.number}/`}
+              href={`https://weekly.thingelstad.com/archive/${issue.number}/`}
               target="_blank"
               rel="noreferrer"
             >
@@ -199,7 +204,10 @@ function IssueRow({
         </span>
 
         <span class="ir-right">
-          {!isDraft && <ArchiveCell issue={issue} busy={archiving} onSend={onArchive} />}
+          {issue.imported
+            // The corpus was built FROM these issues — they are the archive.
+            ? <span class="arch sent"><Check size={11} />IN ARCHIVE</span>
+            : !isDraft && <ArchiveCell issue={issue} busy={archiving} onSend={onArchive} />}
         </span>
       </div>
 

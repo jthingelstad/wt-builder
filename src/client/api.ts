@@ -54,6 +54,8 @@ export interface IssueSummary {
   publication_date: string;
   status: string;
   updated_at: string;
+  /** A pre-Builder record — published by the Shortcuts workflow. */
+  imported?: boolean;
   sends: Record<string, { status: string; url?: string; error?: string }>;
   readiness: number;
   /** One entry per readiness unit — the dashboard draws these as the strip. */

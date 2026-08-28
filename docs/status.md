@@ -58,10 +58,9 @@ finished, what is half-finished, and what has never run.
 - **Audio lens details.** The script and its cues are right, but Briefly does
   not visibly reverse in the lens and dates are not yet spoken long
   ("Saturday, August twenty-ninth").
-- **Pre-Builder issue records.** Issues 349 and back should appear on the
-  dashboard as read-only records — number, title, archive link, one Markdown
-  block — for continuity (docs/decisions.md forbids parsing them into items).
-  Jamie confirmed 2026-08-28 this belongs here, like /ops/ did.
+- ~~Pre-Builder issue records~~ — built 2026-08-28: all 349 imported as
+  read-only records (scripts/import-prebuilder.ts, idempotent); the
+  dashboard shows them with a PRE-BUILDER chip and their archive state.
 - ~~Echoes archive retrieval~~ — built 2026-08-28: the wand retrieves from
   the Librarian, fails loud without it, and stores the citations it used.
 

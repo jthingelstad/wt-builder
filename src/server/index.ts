@@ -122,6 +122,7 @@ const routes: [RegExp, string, (ctx: Ctx, params: string[]) => Promise<unknown>]
         publication_date: r.publication_date,
         status: r.status,
         updated_at: r.updated_at,
+        imported: Boolean(r.doc.issue.imported),
         sends: r.doc.sends ?? {},
         readiness: ready.pct,
         // The dashboard draws one tick per unit, so it needs the units
