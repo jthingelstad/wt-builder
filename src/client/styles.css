@@ -10,7 +10,9 @@
 
 * { box-sizing: border-box; }
 
-html, body, #app { height: 100%; }
+/* The app owns its own scrolling; the document never scrolls. Without this,
+   a wheel event over a short panel chains up and drags the header off. */
+html, body, #app { height: 100%; overflow: hidden; }
 
 body {
   margin: 0;
@@ -270,6 +272,10 @@ a:hover { text-decoration: underline; }
 .wordmark { font-size: 14px; font-weight: 600; }
 
 .index-body {
+  /* Scrolls itself, or the whole app scrolls and takes the header with it. */
+  flex: 1;
+  min-height: 0;
+  overflow-y: auto;
   max-width: 840px;
   margin: 0 auto;
   padding: 40px 24px 100px;
