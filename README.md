@@ -17,7 +17,8 @@ The product is narrow on purpose: one editor, one current issue, one newsletter.
 ## Status
 
 **Building, and close to publishing real issues.** The editor, all four lenses,
-the editorial review, and all three send legs are built and running.
+the editorial review, and all four send legs — website, Buttondown, podcast,
+and the archive corpus — are built and running.
 
 **Nothing has been sent to a reader yet.** The website commit and the podcast
 synthesis have never been run for real. Until one issue has gone out end to end,
@@ -44,7 +45,7 @@ what has never run.
 ```sh
 cp .env.example .env      # see the file; three credentials are required
 npm install
-npm test                  # 174 tests
+npm test                  # 193 tests
 npm run dev               # service on :4317, client on :5317
 ```
 

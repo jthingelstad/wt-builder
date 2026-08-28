@@ -1,6 +1,9 @@
 # Where WT Builder stands
 
 Written 2026-08-27, at the end of the rebuild-from-the-design session.
+Amended 2026-08-28 after a full review: the send dispatch is restored (it had
+been silently severed since 2dd684b), the archive corpus send exists as the
+fourth leg, and the Pinboard sweep uses the window's true instants.
 
 The first build was made from the written contracts without opening the design
 files. This session imported the handoff, read the whole spec and its decision

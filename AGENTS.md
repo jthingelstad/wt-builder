@@ -44,7 +44,7 @@ read. `schema_version` on the document carries migrations.
 
 ```sh
 npm install
-npm test          # 174 tests
+npm test          # 193 tests
 npm run typecheck
 npm run dev       # service on :4317, client on :5317
 npm run build     # typecheck + vite build into dist/
@@ -123,4 +123,6 @@ absences, and boundaries that span repositories. Everything else belongs in a
 comment next to the thing it constrains, which is where it will actually be read.
 
 When you change a contract, update its document and its fixture in the same
-commit.
+commit. **A route or a send leg is a contract too**: severing, adding, or
+gating one updates `docs/status.md` in the same commit — the send dispatch
+was once severed for a day while three documents said it worked.
