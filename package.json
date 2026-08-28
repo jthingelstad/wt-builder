@@ -4,7 +4,9 @@
   "private": true,
   "type": "module",
   "description": "Authoring application for The Weekly Thing",
-  "engines": { "node": ">=22" },
+  "engines": {
+    "node": ">=22"
+  },
   "scripts": {
     "dev": "concurrently -n server,client -c blue,magenta \"npm:dev:server\" \"npm:dev:client\"",
     "dev:server": "tsx watch src/server/index.ts",
@@ -16,8 +18,10 @@
     "typecheck": "tsc -p tsconfig.json --noEmit"
   },
   "dependencies": {
+    "@aws-sdk/client-s3": "^3.1120.0",
     "better-sqlite3": "^12.2.0",
-    "preact": "^10.27.0"
+    "preact": "^10.27.0",
+    "sharp": "^0.35.4"
   },
   "devDependencies": {
     "@preact/preset-vite": "^2.10.2",

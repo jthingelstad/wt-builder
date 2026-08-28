@@ -45,10 +45,15 @@ export const config = {
    */
   host: optional('WT_BUILDER_HOST') ?? '127.0.0.1',
   dbPath: optional('WT_BUILDER_DB') ?? fileURLToPath(new URL('../../data/wt-builder.db', import.meta.url)),
-  /** Pinboard write-back is real and destructive; off unless explicitly enabled. */
+  /** Write-back mutates a real bookmark; explicit opt-in. */
   pinboardWriteBack: optional('WT_BUILDER_PINBOARD_WRITEBACK') === 'true',
-  microblogHost: optional('MICROBLOG_HOST') ?? 'https://micro.blog',
+  /** Write-back mutates a published post; explicit opt-in. */
+  microblogWriteBack: optional('WT_BUILDER_MICROBLOG_WRITEBACK') === 'true',
   blogUrl: optional('MICROBLOG_BLOG_URL') ?? 'https://www.thingelstad.com',
+
+  /** Rehost and resize remote images onto the CDN before sending. */
+  rehostImages: optional('WT_BUILDER_REHOST_IMAGES') !== 'false',
+  awsRegion: optional('AWS_DEFAULT_REGION') ?? 'us-east-1',
 };
 
 /** Safe to log: presence only, never values. */
@@ -60,6 +65,9 @@ export function describeConfig(): Record<string, string> {
     pinboard: credentials.pinboardToken ? 'configured' : 'MISSING',
     microblog: credentials.microblogToken ? 'configured' : 'MISSING',
     buttondown: credentials.buttondownKey ? 'configured' : 'MISSING',
+    aws: process.env.AWS_ACCESS_KEY_ID ? 'configured' : 'MISSING',
     pinboardWriteBack: config.pinboardWriteBack ? 'enabled' : 'disabled',
+    microblogWriteBack: config.microblogWriteBack ? 'enabled' : 'disabled',
+    rehostImages: config.rehostImages ? 'enabled' : 'disabled',
   };
 }

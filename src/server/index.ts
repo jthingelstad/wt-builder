@@ -24,6 +24,8 @@ import * as store from './db.ts';
 import * as issues from './issue.ts';
 import * as buttondown from './integrations/buttondown.ts';
 import * as pinboard from './integrations/pinboard.ts';
+import * as microblog from './integrations/microblog.ts';
+import { rehostIssueImages } from './integrations/images.ts';
 
 const DIST = fileURLToPath(new URL('../../dist', import.meta.url));
 
@@ -216,14 +218,30 @@ const routes: [RegExp, string, (ctx: Ctx, params: string[]) => Promise<unknown>]
     return saved(doc);
   }],
 
-  /** Push a Pinboard link's working values back, last-writer-wins. */
+  /**
+   * Push an item's working values back to where it came from, last-writer-wins.
+   * Pinboard and Micro.blog both write; the local edit always stands and only
+   * `sync_state` records the outcome.
+   */
   [/^\/api\/issues\/([^/]+)\/items\/([^/]+)\/writeback$/, 'POST', async (_ctx, [id, itemId]) => {
     const doc = requireIssue(id!);
     const item = doc.items[itemId!];
     if (!item) throw new HttpError(404, `no item ${itemId}`);
-    const result = await pinboard.writeBack(item);
-    // The local edit always stands; only sync_state records the outcome.
+
+    const result =
+      item.source === 'Micro.blog'
+        ? await microblog.updatePost(item)
+        : item.source === 'Pinboard'
+          ? await pinboard.writeBack(item)
+          : { sync_state: 'local' as const, error: `${item.source} has no write-back` };
+
     return { ...saved(issues.updateItem(doc, itemId!, { sync_state: result.sync_state })), result };
+  }],
+
+  /** Copy every remote image onto the CDN, resized. Safe to run repeatedly. */
+  [/^\/api\/issues\/([^/]+)\/images\/rehost$/, 'POST', async (_ctx, [id]) => {
+    const { doc, report } = await rehostIssueImages(requireIssue(id!));
+    return { ...saved(doc), report };
   }],
 
   /**
@@ -235,7 +253,10 @@ const routes: [RegExp, string, (ctx: Ctx, params: string[]) => Promise<unknown>]
     if (destination !== 'buttondown') {
       throw new HttpError(501, `${destination} sending is not built yet; Buttondown is the slice`);
     }
-    const doc = requireIssue(id!);
+    // Rehost first: the email is where image weight actually hurts, and the
+    // rewritten URLs must be in the document before the body is rendered.
+    const { doc: rehosted, report: images } = await rehostIssueImages(requireIssue(id!));
+    const doc = store.saveIssue(rehosted).doc;
     const previous = doc.sends?.buttondown;
     const subject = doc.issue.title;
     const body = renderEmail(doc);
@@ -252,7 +273,7 @@ const routes: [RegExp, string, (ctx: Ctx, params: string[]) => Promise<unknown>]
         url: draft.url,
       };
       const row = store.recordSend(id!, destination, state);
-      return { issue: row?.doc, send: state };
+      return { issue: row?.doc, send: state, images };
     } catch (err) {
       const state: SendState = {
         status: 'failed',

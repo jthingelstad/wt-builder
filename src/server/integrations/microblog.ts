@@ -1,84 +1,97 @@
 /**
- * Micro.blog.
+ * Micro.blog, through Micropub.
  *
- * Read-only. WT-specific inclusion, presentation, edits, and placement never
- * modify the original post (docs/item-model.md, Synchronization).
+ * Reads post *source* — the exact Markdown Jamie wrote — from
+ * `micropub?q=source`, rather than the rendered HTML in a feed. Two reasons:
+ * the source is what should appear in the newsletter (a feed forces a lossy
+ * HTML-to-text conversion), and the same endpoint is what updates a post, so
+ * read and write share one interface and one token.
+ *
+ * Note that Micro.blog's `/posts/all` is NOT this. Despite the name it returns
+ * the authenticated user's *timeline* — every account they follow — and
+ * sweeping it puts other people's writing into the newsletter.
  */
 
 import type { Candidate, Item } from '../../shared/types.ts';
 import { allChannels } from '../../shared/types.ts';
 import type { Window } from '../../shared/dates.ts';
 import { inWindow } from '../../shared/dates.ts';
-import { config } from '../config.ts';
+import { config, credentials } from '../config.ts';
 
-interface JsonFeedItem {
-  id: string;
-  url?: string;
-  title?: string;
-  content_html?: string;
-  content_text?: string;
-  date_published?: string;
+const MICROPUB = 'https://micro.blog/micropub';
+
+interface MicropubProperties {
+  url?: string[];
+  published?: string[];
+  name?: string[];
+  content?: (string | { html?: string; markdown?: string })[];
+  category?: string[];
+  'post-status'?: string[];
 }
 
-interface JsonFeed {
-  items?: JsonFeedItem[];
+interface MicropubItem {
+  type?: string[];
+  properties?: MicropubProperties;
 }
 
-/** Strip HTML to the text a Journal entry prints. */
-export function toPlainText(html: string): string {
-  return html
-    .replace(/<figure[\s\S]*?<\/figure>/gi, '')
-    .replace(/<script[\s\S]*?<\/script>/gi, '')
-    .replace(/<br\s*\/?>/gi, '\n')
-    .replace(/<\/p>/gi, '\n\n')
-    .replace(/<[^>]+>/g, '')
-    .replace(/&nbsp;/g, ' ')
-    .replace(/&amp;/g, '&')
-    .replace(/&lt;/g, '<')
-    .replace(/&gt;/g, '>')
-    .replace(/&quot;/g, '"')
-    .replace(/&#39;/g, "'")
-    .replace(/\n{3,}/g, '\n\n')
-    .trim();
+function requireToken(): string {
+  const token = credentials.microblogToken;
+  if (!token) throw new Error('MICROBLOG_API_KEY is not configured');
+  return token;
 }
 
-/**
- * Posts published inside the window.
- *
- * The source is the blog's own JSON Feed, which is exactly Jamie's published
- * posts. Note that Micro.blog's `/posts/all` is NOT this: despite the name it
- * returns the authenticated user's *timeline* — everyone they follow — and
- * sweeping it would put other people's writing into the newsletter.
- */
+function first(values: unknown[] | undefined): string {
+  const v = values?.[0];
+  if (typeof v === 'string') return v;
+  if (v && typeof v === 'object') {
+    const o = v as { markdown?: string; html?: string; value?: string };
+    return o.markdown ?? o.html ?? o.value ?? '';
+  }
+  return '';
+}
+
+/** Post source for the authenticated blog, newest first. */
+export async function fetchSource(limit = 100): Promise<MicropubItem[]> {
+  const url = new URL(MICROPUB);
+  url.searchParams.set('q', 'source');
+  url.searchParams.set('limit', String(limit));
+
+  const res = await fetch(url, {
+    headers: { Authorization: `Bearer ${requireToken()}`, Accept: 'application/json' },
+    signal: AbortSignal.timeout(30_000),
+  });
+  if (!res.ok) {
+    throw new Error(`Micropub q=source failed: ${res.status} ${res.statusText}`);
+  }
+  const body = (await res.json()) as { items?: MicropubItem[] };
+  return body.items ?? [];
+}
+
+/** Posts published inside the window, carrying their Markdown source. */
 export async function sweepMicroblog(window: Window): Promise<Candidate[]> {
-  const items = await fetchFromFeed();
+  const items = await fetchSource();
 
   return items
-    .filter((i) => inWindow(i.date_published, window))
     .map((i) => {
-      const body = toPlainText(i.content_html ?? i.content_text ?? '');
-      const title = String(i.title ?? '').trim();
+      const p = i.properties ?? {};
+      const url = first(p.url);
+      const published = first(p.published);
+      const title = first(p.name).trim();
+      const content = first(p.content);
       const candidate: Candidate = {
-        id: `microblog:${i.id}`,
+        id: `microblog:${url}`,
         origin: 'Micro.blog',
-        url: i.url ?? i.id,
-        body,
-        published_at: i.date_published,
+        url,
+        body: content,
+        published_at: published,
         titled: title.length > 0,
+        tags: p.category ?? [],
       };
       if (title) candidate.title = title;
       return candidate;
     })
+    .filter((c) => c.url && inWindow(c.published_at, window))
     .sort((a, b) => String(a.published_at).localeCompare(String(b.published_at)));
-}
-
-async function fetchFromFeed(): Promise<JsonFeedItem[]> {
-  const res = await fetch(`${config.blogUrl.replace(/\/$/, '')}/feed.json`, {
-    signal: AbortSignal.timeout(20_000),
-  });
-  if (!res.ok) throw new Error(`Micro.blog feed failed: ${res.status}`);
-  const feed = (await res.json()) as JsonFeed;
-  return feed.items ?? [];
 }
 
 export function candidateToItem(c: Candidate): Item {
@@ -92,9 +105,60 @@ export function candidateToItem(c: Candidate): Item {
     // A titled long post is a promotion candidate; promotion stays Jamie's call.
     presentation: 'journal',
     body: c.body,
+    sync_state: 'synced',
     source_snapshot: { body: c.body, title: c.title },
   };
   if (c.title) item.title = c.title;
+  if (c.tags?.length) item.tags = c.tags;
   if (c.published_at) item.published_at = c.published_at;
   return item;
+}
+
+export interface UpdateResult {
+  sync_state: Item['sync_state'];
+  error?: string;
+}
+
+/**
+ * Write an edited post back through Micropub, last-writer-wins, on the same
+ * terms as Pinboard (0015). Placement, inclusion, and presentation are never
+ * written back: those are facts about the issue, not about the post.
+ *
+ * Guarded by the same flag as Pinboard write-back because it mutates a
+ * published post.
+ */
+export async function updatePost(item: Item): Promise<UpdateResult> {
+  if (!item.source_url) return { sync_state: 'failed', error: 'item has no source_url' };
+  if (!config.microblogWriteBack) {
+    return { sync_state: 'local', error: 'write-back disabled (WT_BUILDER_MICROBLOG_WRITEBACK)' };
+  }
+
+  const replace: Record<string, unknown[]> = { content: [String(item.body ?? '')] };
+  if (item.title) replace.name = [item.title];
+
+  try {
+    const res = await fetch(MICROPUB, {
+      method: 'POST',
+      headers: {
+        Authorization: `Bearer ${requireToken()}`,
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ action: 'update', url: item.source_url, replace }),
+      signal: AbortSignal.timeout(30_000),
+    });
+
+    if (!res.ok) {
+      const detail = (await res.text()).slice(0, 300);
+      return { sync_state: 'failed', error: `${res.status} ${res.statusText} ${detail}` };
+    }
+    return { sync_state: 'synced' };
+  } catch (err) {
+    // The local edit stands; only the sync state records the failure.
+    return { sync_state: 'failed', error: (err as Error).message };
+  }
+}
+
+/** Presence check for the health route; never returns the token. */
+export function isConfigured(): boolean {
+  return Boolean(credentials.microblogToken);
 }
