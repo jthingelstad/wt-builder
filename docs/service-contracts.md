@@ -9,8 +9,10 @@ ignore.
 
 ## Editorial review
 
-Requested by a button, never automatically (0011). Each review replaces the last,
-so notes are never merged or aged.
+Requested by a button, never automatically (0011). Each review replaces the
+last **per pass**: a pass that runs replaces its own kinds wholesale, and a
+pass that does not run — skipped, or failed — carries its previous notes
+forward untouched. Notes are never merged within a pass or aged.
 
 ### Two calls, proofing first
 
@@ -18,7 +20,7 @@ Proofing and judgement are separate calls, in that order.
 
 | | Proof pass | Judgement pass |
 | --- | --- | --- |
-| Reasoning effort | `low` | `medium` |
+| Reasoning effort | `low` | `high` |
 | Archive context | none | last 8 issues |
 | Scope | typos, doubled words, broken possessives, wrong homophones, malformed links | balance and rhythm, repetition, length |
 | Re-runnable alone | yes | yes |
@@ -100,8 +102,11 @@ first occurrence.
 
 ### Failure
 
-A failed review **leaves the previous notes untouched** and says it failed. Clearing
-the margin on failure would destroy the thing Jamie was working from for no reason.
+A review where *no requested pass* succeeds fails whole, and **leaves the
+previous notes untouched**. Clearing the margin on failure would destroy the
+thing Jamie was working from for no reason. Where one requested pass succeeds
+and the other fails, the failed pass's previous notes are carried forward —
+`passes` records which pass actually ran, so a held-over note is legible.
 
 ## Drafting
 
@@ -138,6 +143,11 @@ reviewable:
   "archive_references": [ { "issue": 341, "url": "…", "note": "…" } ]
 }
 ```
+
+**Not built.** Nothing retrieves archive passages today — Echoes drafts only
+from context the client passes, no call reaches the Librarian retrieval
+endpoint, and `archive_references` is never populated. The drafting prompt
+compensates by forbidding invented references. See `docs/status.md`.
 
 ## Both
 

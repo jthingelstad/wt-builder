@@ -55,6 +55,10 @@ finished, what is half-finished, and what has never run.
 - **Audio lens details.** The script and its cues are right, but Briefly does
   not visibly reverse in the lens and dates are not yet spoken long
   ("Saturday, August twenty-ninth").
+- **Echoes archive retrieval.** The wand drafts Echoes from whatever context
+  is passed in; nothing calls the Librarian retrieval endpoint and
+  `archive_references` is never populated. The contract in
+  `docs/service-contracts.md` describes the target shape.
 
 ## Never run for real
 

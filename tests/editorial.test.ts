@@ -6,7 +6,9 @@ import { fileURLToPath } from 'node:url';
 
 import type { IssueDoc } from '../src/shared/types.ts';
 import { renderAnnotated } from '../src/shared/render/annotate.ts';
-import { candidateCount, pruneStale, type Note } from '../src/server/editorial.ts';
+import {
+  assembleReview, candidateCount, pruneStale, type Note, type Review,
+} from '../src/server/editorial.ts';
 
 const doc = JSON.parse(
   readFileSync(fileURLToPath(new URL('../fixtures/representative-issue.json', import.meta.url)), 'utf8'),
@@ -70,5 +72,74 @@ describe('candidate counts', () => {
 
   it('offers two for link commentary, where the want is a nudge', () => {
     expect(candidateCount('pinboard_link')).toBe(2);
+  });
+});
+
+describe('assembling a review from whichever passes ran', () => {
+  const proofNote: Note = {
+    kind: 'PROOF', item_id: 'intro-1', text: 'Doubled word.',
+    was: 'Welcome back', now: 'Welcome',
+  };
+  const judgementNote: Note = { kind: 'LENGTH', item_id: null, text: 'Short this week.' };
+  const previous: Review = {
+    summary: 'Old judgement. Old proof.',
+    notes: [
+      { ...proofNote, text: 'Old proof note.' },
+      { ...judgementNote, text: 'Old judgement note.' },
+    ],
+    at: '2026-08-27T00:00:00Z',
+    passes: { proof: true, judgement: true },
+    summaries: { proof: 'Old proof.', judgement: 'Old judgement.' },
+  };
+
+  it('a pass that ran replaces its kinds wholesale', () => {
+    const r = assembleReview({
+      doc,
+      proof: { summary: 'One error.', notes: [proofNote] },
+      judgement: { summary: 'Reads well.', notes: [judgementNote] },
+      previous,
+    });
+    expect(r.notes.map((n) => n.text)).toEqual(['Doubled word.', 'Short this week.']);
+    expect(r.passes).toEqual({ proof: true, judgement: true });
+  });
+
+  it('a pass that did not run keeps its previous notes — they are not lost', () => {
+    // The failure this pins: a proof-only re-run used to wipe the judgement
+    // notes, because the route replaced the whole review.
+    const r = assembleReview({
+      doc,
+      proof: { summary: 'Clean.', notes: [] },
+      judgement: null,
+      previous,
+    });
+    expect(r.notes.map((n) => n.text)).toEqual(['Old judgement note.']);
+    expect(r.passes).toEqual({ proof: true, judgement: false });
+    expect(r.summaries?.judgement).toBe('Old judgement.');
+    expect(r.summary).toContain('Old judgement.');
+    expect(r.summary).toContain('Clean.');
+  });
+
+  it('carried notes are still pruned against the current document', () => {
+    const r = assembleReview({
+      doc,
+      proof: null,
+      judgement: { summary: 'Fine.', notes: [judgementNote] },
+      previous: {
+        ...previous,
+        notes: [{ ...proofNote, was: 'text that is no longer anywhere' }],
+      },
+    });
+    // The carried proof note anchors to a substring that is gone, so it drops.
+    expect(r.notes.filter((n) => n.kind === 'PROOF')).toHaveLength(0);
+  });
+
+  it('with no previous review a skipped pass simply contributes nothing', () => {
+    const r = assembleReview({
+      doc,
+      proof: { summary: 'Clean.', notes: [] },
+      judgement: null,
+    });
+    expect(r.notes).toEqual([]);
+    expect(r.summary).toBe('Clean.');
   });
 });

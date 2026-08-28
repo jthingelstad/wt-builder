@@ -313,7 +313,14 @@ const routes: [RegExp, string, (ctx: Ctx, params: string[]) => Promise<unknown>]
       .slice(0, editorial.ARCHIVE_ISSUES)
       .map((r) => ({ number: r.number, rendered: render(r.doc, 'website') }));
 
-    const result = await editorial.review({ doc, recentIssues, only: b.only });
+    const result = await editorial.review({
+      doc,
+      recentIssues,
+      only: b.only,
+      // The review being replaced: a pass that does not run this time keeps
+      // its notes from here instead of losing them.
+      previous: doc.review as editorial.Review | undefined,
+    });
     doc.review = result;
     return { ...saved(doc), review: result };
   }],

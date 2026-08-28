@@ -44,8 +44,14 @@ export interface Review {
   summary: string;
   notes: Note[];
   at: string;
-  /** Which passes actually ran, so a partial review is legible. */
+  /**
+   * Which passes actually ran *this* review. A pass that did not run keeps its
+   * previous notes — carried forward, not regenerated — so false here with
+   * notes of that pass's kinds present means "held over from last time".
+   */
   passes: { proof: boolean; judgement: boolean };
+  /** Each pass's own summary, kept apart so a partial re-run can keep the other's. */
+  summaries?: { proof?: string; judgement?: string };
 }
 
 let client: Anthropic | null = null;
@@ -118,7 +124,7 @@ ten adequate ones. If the issue reads well, say so and return few notes.
 Write "summary" as two or three sentences to the editor — lead with what is
 strongest in the issue.`;
 
-interface CallResult {
+export interface CallResult {
   summary: string;
   notes: Note[];
 }
@@ -179,6 +185,52 @@ export interface ReviewRequest {
   recentIssues?: { number: number; rendered: string }[];
   /** Run one pass alone — both are independently re-runnable. */
   only?: 'proof' | 'judgement';
+  /**
+   * The review being replaced. A pass that does not run this time — skipped
+   * by `only`, or failed — keeps its notes from here rather than losing them.
+   */
+  previous?: Review;
+}
+
+/**
+ * Assemble the review from whichever passes ran. Pure, so the merge semantics
+ * are testable without a model.
+ *
+ * A pass owns its kinds: proof owns PROOF, judgement owns the rest. A pass
+ * that ran replaces its kinds wholesale; a pass that did not carries the
+ * previous review's notes of those kinds forward untouched. That is what
+ * "each review replaces the last" means once the passes are independently
+ * re-runnable — per pass, not per review.
+ */
+export function assembleReview(opts: {
+  doc: IssueDoc;
+  proof: CallResult | null;
+  judgement: CallResult | null;
+  previous?: Review;
+}): Review {
+  const { doc, proof, judgement, previous } = opts;
+  const prevNotes = previous?.notes ?? [];
+
+  const proofNotes = proof
+    ? proof.notes.filter((n) => n.kind === 'PROOF')
+    : prevNotes.filter((n) => n.kind === 'PROOF');
+  const judgementNotes = judgement
+    ? judgement.notes.filter((n) => n.kind !== 'PROOF')
+    : prevNotes.filter((n) => n.kind !== 'PROOF');
+
+  const summaries = {
+    proof: proof ? proof.summary : previous?.summaries?.proof,
+    judgement: judgement ? judgement.summary : previous?.summaries?.judgement,
+  };
+
+  return {
+    // The judgement summary leads: it is the two sentences to the editor.
+    summary: [summaries.judgement, summaries.proof].filter(Boolean).join(' '),
+    notes: pruneStale(doc, [...proofNotes, ...judgementNotes]),
+    at: new Date().toISOString(),
+    passes: { proof: Boolean(proof), judgement: Boolean(judgement) },
+    summaries,
+  };
 }
 
 /**
@@ -186,35 +238,27 @@ export interface ReviewRequest {
  * an opinion and can be re-checked cheaply after Jamie fixes things.
  *
  * A failed pass does not fail the review: whatever succeeded is returned, and
- * the caller keeps the previous notes for anything that did not.
+ * the pass that did not keeps its previous notes (see assembleReview).
  */
 export async function review(req: ReviewRequest): Promise<Review> {
   const { doc } = req;
   const rendered = renderAnnotated(doc, 'website');
-  const passes = { proof: false, judgement: false };
-  const notes: Note[] = [];
-  const summaries: string[] = [];
 
   const wantProof = req.only !== 'judgement';
   const wantJudgement = req.only !== 'proof';
 
   const issueLine = `Issue ${doc.issue.number}, publishing ${doc.issue.publication_date}.`;
 
+  let proof: CallResult | null = null;
   if (wantProof) {
     try {
-      const result = await callReviewer(
-        PROOF_PROMPT,
-        `${issueLine}\n\n${rendered}`,
-        PROOF_EFFORT,
-      );
-      notes.push(...result.notes.filter((n) => n.kind === 'PROOF'));
-      summaries.push(result.summary);
-      passes.proof = true;
+      proof = await callReviewer(PROOF_PROMPT, `${issueLine}\n\n${rendered}`, PROOF_EFFORT);
     } catch (err) {
       console.warn(`[review] proof pass failed: ${(err as Error).message}`);
     }
   }
 
+  let judgement: CallResult | null = null;
   if (wantJudgement) {
     const archive = (req.recentIssues ?? []).slice(0, ARCHIVE_ISSUES);
     const context = archive.length
@@ -224,29 +268,25 @@ export async function review(req: ReviewRequest): Promise<Review> {
       : '\n\nNo recent issues are available, so judge repetition conservatively.';
 
     try {
-      const result = await callReviewer(
+      judgement = await callReviewer(
         JUDGEMENT_PROMPT,
         `${issueLine}\n\n${rendered}${context}`,
         JUDGEMENT_EFFORT,
       );
-      notes.push(...result.notes.filter((n) => n.kind !== 'PROOF'));
-      summaries.push(result.summary);
-      passes.judgement = true;
     } catch (err) {
       console.warn(`[review] judgement pass failed: ${(err as Error).message}`);
     }
   }
 
-  if (!passes.proof && !passes.judgement) {
+  // The review fails only when no requested pass succeeded; the route then
+  // leaves the previous review in place. A pass that was not requested is
+  // not a failure — it is the carry-forward case.
+  const anyRequestedSucceeded = (wantProof && proof) || (wantJudgement && judgement);
+  if (!anyRequestedSucceeded) {
     throw new Error('the review failed; your previous notes are untouched');
   }
 
-  return {
-    summary: summaries.filter(Boolean).join(' '),
-    notes: pruneStale(doc, notes),
-    at: new Date().toISOString(),
-    passes,
-  };
+  return assembleReview({ doc, proof, judgement, previous: req.previous });
 }
 
 // ── drafting ──────────────────────────────────────────────────────────────
