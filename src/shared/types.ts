@@ -139,6 +139,11 @@ export interface IssueDoc {
   /** Items swept in but not placed in a node. */
   orphans?: string[];
   sends?: Partial<Record<Destination, SendState>>;
+  /**
+   * The most recent editorial review. Each review replaces the last, so notes
+   * are never merged or aged; a failed review leaves this untouched.
+   */
+  review?: unknown;
 }
 
 /** A candidate returned by a sweep, before it becomes an item. */

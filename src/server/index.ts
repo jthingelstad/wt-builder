@@ -26,6 +26,7 @@ import * as buttondown from './integrations/buttondown.ts';
 import * as pinboard from './integrations/pinboard.ts';
 import * as microblog from './integrations/microblog.ts';
 import { rehostIssueImages } from './integrations/images.ts';
+import * as editorial from './editorial.ts';
 
 const DIST = fileURLToPath(new URL('../../dist', import.meta.url));
 
@@ -83,7 +84,11 @@ function saved(doc: IssueDoc) {
 // ── routes ────────────────────────────────────────────────────────────────
 
 const routes: [RegExp, string, (ctx: Ctx, params: string[]) => Promise<unknown>][] = [
-  [/^\/api\/health$/, 'GET', async () => ({ ok: true, ...describeConfig() })],
+  [/^\/api\/health$/, 'GET', async () => ({
+    ok: true,
+    ...describeConfig(),
+    editorial: editorial.isConfigured() ? 'configured' : 'MISSING',
+  })],
 
   [/^\/api\/issues$/, 'GET', async () => ({
     issues: store.listIssues().map((r) => ({
@@ -236,6 +241,38 @@ const routes: [RegExp, string, (ctx: Ctx, params: string[]) => Promise<unknown>]
           : { sync_state: 'local' as const, error: `${item.source} has no write-back` };
 
     return { ...saved(issues.updateItem(doc, itemId!, { sync_state: result.sync_state })), result };
+  }],
+
+  /**
+   * Editorial review. Two passes — proofing first, then judgement against the
+   * last 8 issues. Each review replaces the last; a failure leaves the previous
+   * notes in place and says so.
+   */
+  [/^\/api\/issues\/([^/]+)\/review$/, 'POST', async ({ body }, [id]) => {
+    const b = await body();
+    const doc = requireIssue(id!);
+
+    // The judgement pass compares against what actually shipped.
+    const recentIssues = store
+      .listIssues()
+      .filter((r) => r.doc.issue.status === 'published' && r.number < doc.issue.number)
+      .slice(0, editorial.ARCHIVE_ISSUES)
+      .map((r) => ({ number: r.number, rendered: render(r.doc, 'website') }));
+
+    const result = await editorial.review({ doc, recentIssues, only: b.only });
+    doc.review = result;
+    return { ...saved(doc), review: result };
+  }],
+
+  /** Candidate text for one item. Never written — Jamie picks or ignores. */
+  [/^\/api\/issues\/([^/]+)\/items\/([^/]+)\/draft$/, 'POST', async ({ body }, [id, itemId]) => {
+    const b = await body();
+    const result = await editorial.draft({
+      doc: requireIssue(id!),
+      itemId: itemId!,
+      context: b.context,
+    });
+    return result;
   }],
 
   /** Copy every remote image onto the CDN, resized. Safe to run repeatedly. */
