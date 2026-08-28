@@ -118,6 +118,29 @@ prevented from writing, but because the accept step is his.
 *Visible in `editorial.ts` as a return type. Invisible as a principle — which is
 the part that stops the next convenience feature from quietly writing.*
 
+## The podcast builder will be a sibling, not a feature
+
+Jamie intends an authoring app for *Another Thing* — outlining, recording
+support, transcripts, and publishing episodes. **It will be its own
+application, not a mode of WT Builder.** One editor and one newsletter is
+what makes this codebase small enough to trust; a second product grafted on
+is how Studio became a "publishing brain" and died of it. The product brief's
+non-goals already exclude podcast authoring, and that exclusion is load-bearing.
+
+What the sibling should take from here is the *pattern*, and possibly two
+mechanisms worth extracting when it starts (not before): the audio mastering
+chain (`integrations/audio.ts` — chunked TTS is irrelevant to a recorded
+podcast, but the loudnorm/tag/upload tail is not) and the cross-repo commit
+client (`integrations/github.ts`). Its send targets differ: an episode is a
+commit of `content/episodes/{N}-slug.md` + transcript into
+`another.thingelstad.com`, whose URL scheme (`/podcast.xml`, `/YYYY/MM/DD/`,
+`/uploads/YYYY/`) is load-bearing for subscribers and must not be redesigned
+by the tool. The corpus side needs nothing: the Librarian already ingests
+Another's episodes on its own schedule.
+
+*Invisible in code because it is a decision about what this repo will never
+contain.*
+
 ## Still open
 
 **Should the content window end Friday 11:59 PM CT rather than 00:00?** The
