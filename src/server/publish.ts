@@ -326,23 +326,20 @@ export function archiveInputs(doc: IssueDoc, opts: SiteInputsOptions = {}): Repo
  * The files the handoff commits. `emails.json` is rewritten whole from prior
  * entries plus this issue, so the index can never drift from the pages beside
  * it.
+ *
+ * `status.json` is deliberately NOT pushed. The site's /ops/ page reads it in
+ * the retired Studio pipeline's shape (summary.total_issues, audio staleness
+ * counts); overwriting it with a different shape would break the page while
+ * looking like a successful handoff. It stays frozen until /ops/ is reworked
+ * against WT Builder.
  */
 export function siteInputs(doc: IssueDoc, opts: SiteInputsOptions = {}): RepoFile[] {
   const entry = issueEntry(doc, opts);
   const prior = (opts.priorEntries ?? []).filter((e) => e.number !== entry.number);
   const emails = [...prior, entry].sort((a, b) => a.number - b.number);
 
-  const status = {
-    generated_at: new Date().toISOString(),
-    generator: 'wt-builder',
-    latest_issue: entry.number,
-    latest_publish_date: entry.publish_date,
-    has_audio: Boolean(entry.audio_url),
-  };
-
   return [
     { path: `apps/site/archive/${entry.number}.md`, content: archivePage(doc, opts) },
     { path: 'apps/site/_data/emails.json', content: `${JSON.stringify(emails, null, 2)}\n` },
-    { path: 'apps/site/_data/status.json', content: `${JSON.stringify(status, null, 2)}\n` },
   ];
 }

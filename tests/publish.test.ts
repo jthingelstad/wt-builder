@@ -124,12 +124,14 @@ describe('the archive page', () => {
 });
 
 describe('the handoff file set', () => {
-  it('commits the page, the index, and the status', () => {
+  it('commits the page and the index — and deliberately not status.json', () => {
+    // /ops/ reads status.json in the retired Studio pipeline's shape;
+    // overwriting it with a different shape would break the page while
+    // looking like a successful handoff.
     const paths = siteInputs(doc()).map((f) => f.path);
     expect(paths).toEqual([
       'apps/site/archive/350.md',
       'apps/site/_data/emails.json',
-      'apps/site/_data/status.json',
     ]);
   });
 
