@@ -16,6 +16,7 @@ import { clockTime, kickerDate, longDate, wallClock, weekday } from '../../share
 import {
   editionOnly, falloutOf, heldOut, orderedNodes, outOfWindow, windowOf,
 } from '../../shared/render/plan.ts';
+import { audioScript } from '../../shared/render/audio.ts';
 import { rejoinBody, splitBody } from '../../shared/body.ts';
 import { markdownInlineToSafeHtml } from '../markdown.ts';
 import { ImagePlus, Plus, Trash } from '../icons.tsx';
@@ -80,6 +81,16 @@ export function Page({
   const readOnly = published;
   const w = windowOf(doc);
   const nodes = orderedNodes(doc);
+
+  // Audio is a script, not a page, so it does not share the block renderers.
+  if (lens === 'audio') {
+    return (
+      <div class="rows lens-audio" ref={hostRef}>
+        <AudioScript doc={doc} selected={selected} onSelect={onSelect} />
+        {children}
+      </div>
+    );
+  }
 
   const rows: ComponentChildren[] = [];
 
@@ -296,6 +307,86 @@ export function Page({
       {rows}
       {children}
     </div>
+  );
+}
+
+// ── the Audio lens ────────────────────────────────────────────────────────
+
+/**
+ * A numbered script, not a page.
+ *
+ * The cues come from the renderer that actually feeds the synthesizer, so what
+ * is on screen is the text that will be spoken. A lens that re-derived the
+ * script could drift from the mp3 without anything failing.
+ */
+function AudioScript({
+  doc, selected, onSelect,
+}: { doc: IssueDoc; selected: string | null; onSelect: (a: string | null) => void }) {
+  const script = audioScript(doc);
+  const nodes = new Map(doc.nodes.map((n) => [n.id, n]));
+
+  // Sections that carry an unresolved audio question. The contract speaks them
+  // today; the design records the treatment as undecided.
+  const toValidate = new Set(['membership', 'haiku']);
+
+  let cue = 0;
+  const omitted = doc.nodes.filter(
+    (n) => n.items.length > 0 && !n.items.some((id) => doc.items[id]?.channels.audio),
+  );
+
+  return (
+    <>
+      {script.map((block, i) => {
+        const node = block.nodeId ? nodes.get(block.nodeId) : undefined;
+        const anchor = block.itemId ?? block.nodeId ?? 'issue';
+
+        if (block.kind === 'transition') {
+          return (
+            <Row key={`t-${i}`} anchor={anchor} selected={selected === anchor}>
+              <div class="cue-section">
+                <span class="cue-label">{block.text.replace(/\.$/, '').toUpperCase()}</span>
+                <span class="cue-rule" />
+              </div>
+              {node && toValidate.has(String(node.type)) && (
+                <div class="cue-flag">
+                  <span class="cue-flag-label">TO VALIDATE</span>
+                  <span>
+                    The audio treatment for {node.label} is undecided. It is spoken
+                    today; the design has not settled whether it should be.
+                  </span>
+                </div>
+              )}
+            </Row>
+          );
+        }
+
+        cue += 1;
+        const n = cue;
+        return (
+          <Row key={`c-${i}`} anchor={anchor} selected={selected === anchor}>
+            <div class="cue" onClick={() => onSelect(anchor)}>
+              <span class="cue-num">{String(n).padStart(2, '0')}</span>
+              <span class="cue-text">{block.text}</span>
+            </div>
+          </Row>
+        );
+      })}
+
+      {omitted.map((node) => (
+        <Row key={`omit-${node.id}`} anchor={node.id}>
+          <div class="cue-omit">
+            <span class="cue-omit-label">NOT SPOKEN</span>
+            <span>
+              {node.type === 'echoes'
+                ? 'Echoes is never spoken.'
+                : node.type === 'photo'
+                  ? 'The photo is omitted rather than narrated.'
+                  : `${node.label} is held out of the audio edition.`}
+            </span>
+          </div>
+        </Row>
+      ))}
+    </>
   );
 }
 

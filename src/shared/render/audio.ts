@@ -82,6 +82,63 @@ function itemBlocks(item: Item, planned: PlannedNode, index: number, total: numb
   }
 }
 
+/**
+ * One block of the script, tagged with what it is.
+ *
+ * The Audio lens renders these rather than re-deriving the script, so what
+ * Jamie reads on screen is the text that will actually be synthesized. A lens
+ * that built its own version of the script could drift from the mp3.
+ */
+export interface ScriptBlock {
+  kind: 'open' | 'transition' | 'cue' | 'close';
+  text: string;
+  /** The node this block came from, for the lens's anchors. */
+  nodeId?: string;
+  itemId?: string;
+}
+
+export function audioScript(doc: IssueDoc): ScriptBlock[] {
+  const script: ScriptBlock[] = [
+    { kind: 'open', text: opening(doc.issue.number) },
+  ];
+
+  for (const planned of planEdition(doc, 'audio')) {
+    const total = planned.items.length;
+    const spoken: ScriptBlock[] = [];
+
+    if (planned.groups) {
+      for (const group of planned.groups) {
+        const groupBlocks: ScriptBlock[] = [];
+        for (const entry of group.items) {
+          for (const text of itemBlocks(entry.item, planned, 0, total)) {
+            groupBlocks.push({ kind: 'cue', text, nodeId: planned.node.id, itemId: entry.id });
+          }
+        }
+        if (!groupBlocks.length) continue;
+        if (group.weekday) {
+          spoken.push({ kind: 'cue', text: terminate(group.weekday), nodeId: planned.node.id });
+        }
+        spoken.push(...groupBlocks);
+      }
+    } else {
+      planned.items.forEach((entry, i) => {
+        for (const text of itemBlocks(entry.item, planned, i + 1, total)) {
+          spoken.push({ kind: 'cue', text, nodeId: planned.node.id, itemId: entry.id });
+        }
+      });
+    }
+
+    if (!spoken.length) continue;
+
+    const transition = transitionFor(planned);
+    if (transition) script.push({ kind: 'transition', text: transition, nodeId: planned.node.id });
+    script.push(...spoken);
+  }
+
+  script.push({ kind: 'close', text: CLOSING });
+  return script.filter((b) => b.text.trim().length > 0);
+}
+
 export function renderAudio(doc: IssueDoc): string {
   const blocks: SpokenBlock[] = [opening(doc.issue.number)];
 
