@@ -12,6 +12,7 @@ import type { IssueDoc, Item } from '../shared/types.ts';
 import { renderAnnotated } from '../shared/render/annotate.ts';
 import { bodyLines } from '../shared/render/plan.ts';
 import { config } from './config.ts';
+import * as librarian from './integrations/librarian.ts';
 
 const MODEL = 'claude-opus-5';
 
@@ -296,9 +297,27 @@ export async function review(req: ReviewRequest): Promise<Review> {
  * Three candidates where the choice is a voice; two for link commentary, where
  * the want is a nudge rather than a menu.
  */
-export function candidateCount(type: Item['type']): number {
+export function candidateCount(type: Item['type'] | 'issue'): number {
   return type === 'pinboard_link' ? 2 : 3;
 }
+
+/**
+ * The newsletter's voice, distilled from Jamie's own editorial spec
+ * (librarian-thing docs/voice-and-style.md). Prepended to every prompt that
+ * drafts in or near his voice, because these guardrails override everything.
+ */
+const VOICE = `The Weekly Thing's voice: first-person, observational, dry,
+curious — never salesy. Short sentences mixed with longer reflective ones.
+A reader and practitioner, not a pundit; candid opinions, rarely hot takes.
+
+Hard guardrails, which override everything else:
+- No superlatives ("best", "amazing", "premier") and no marketing phrases
+  ("cutting-edge", "curated with care", "hand-picked").
+- No thought-leader or ad-copy language; declarative framing, never
+  imperatives like "Level up your reading!".
+- Prefer specific over general: "47 links about AI agents in the last year"
+  beats "stay on top of AI".
+- No emoji unless quoting a subject that contains one.`;
 
 const DRAFT_PROMPTS: Partial<Record<Item['type'], string>> = {
   membership: `Write the Membership section for this issue of The Weekly Thing.
@@ -321,21 +340,81 @@ copy gets it exactly backwards:
 - Never invent a figure, a deadline, a goal, or urgency. Never mention
   member perks as the reason to join — the giving is the reason.`,
 
-  echoes: `Write Echoes: a short closing callback that connects something in this
-issue to the newsletter's archive. It is attributed to Thingy, so write in
-Thingy's voice, never as Jamie. Two or three sentences. Cite the issue you are
-calling back to by number. Only reference archive material you were given —
-never invent an issue or a claim about one.`,
+  echoes: `Write Echoes — the short archive note that closes the issue. It is
+the reader's doorway back into the archive: they should leave wanting to open
+a past issue.
 
-  haiku: `Write a haiku for this issue of The Weekly Thing — three lines, in
-Jamie's voice. It should catch something real from the issue rather than a
-generic seasonal image. Return each candidate as three lines separated by
-newlines.`,
+Voice: the archive librarian, not Jamie. Third person about Jamie ("Jamie
+tracked this in WT210"), composed and warm — Jamie writes loose, you write
+composed. Knowledgeable without being smug. No hype words ("fascinating
+parallel", "deep cut", "remarkable") — be specific or say nothing. No
+speculation about Jamie's mood, family, or motivations beyond what a cited
+issue shows.
 
-  pinboard_link: `Write one sentence of commentary for this link, in Jamie's
-voice: direct, specific, and unhyped. Say why it is worth a reader's attention.
-Do not restate the title.`,
+Shape: 2–5 sentences, roughly 60–110 words, one paragraph, no heading. Cite
+2–4 distinct past issues, every one as a markdown link —
+[WT210](https://weekly.thingelstad.com/archive/210/) — and every citation
+tied to something specific in THIS issue: a named link, a Journal entry, a
+recurring place or project. A citation that just says "Jamie has written
+about this before" is a failure. End by opening a door, not closing a topic
+— no tidy conclusions, no "keep exploring!".
+
+Ground every claim in the archive passages provided below. Never invent an
+issue number or a claim about one. Report the issues you actually cited in
+archive_references, with a note saying what each one carries.`,
+
+  haiku: `Write a haiku to close this issue of The Weekly Thing — three short
+lines, in Jamie's voice.
+
+Read the assembled issue and find what the week was about. Pull concrete
+nouns from the actual issue — never abstractions like "the future" or
+"technology", never a generic seasonal image, never greeting-card register.
+Jamie's convention is haiku-shaped rather than strictly 5-7-5: three short
+lines where the third turns or lands. Plain, observational, mildly wry. An
+em-dash at the end of line two is a common Weekly Thing pattern, not a rule.
+
+Two real examples of the shape working — concrete images from the issue,
+the third line doing the human turn:
+
+  Hand-drawn QR dreams,
+  Redis arrays tell stories —
+  Dads learn to listen
+
+  Coffee stirs the gut
+  While AI dreams in the night
+  Both keep us awake
+
+Return each candidate as three lines separated by newlines.`,
+
+  pinboard_link: `Write commentary for this link in Jamie's voice — the reason
+it is in the issue. Every link has one; the reader and Jamie learn together.
+
+Direct, specific, unhyped. Say what the thing actually is or what it made
+Jamie think — a candid opinion is welcome, a sales pitch is not. Do not
+restate the title. If the link is in Briefly, one crisp sentence; in Notable
+or Featured, one to three sentences with room for an aside.`,
 };
+
+/**
+ * The head wand: the issue's title theme and dek, drafted together. The
+ * title becomes "WT{n} — {theme}" everywhere subjects print; the dek is the
+ * description on social cards, the archive page, and the issue index.
+ */
+const ISSUE_PROMPT = `Draft the title theme and description for this issue of
+The Weekly Thing.
+
+Each candidate is exactly two lines:
+- Line 1 — the theme: 3–6 words, title case, no punctuation at the end. It
+  completes "WT{n} — {theme}", so never include the number or "WT". Concrete
+  and issue-specific, drawn from what is actually in the issue — never
+  generic ("Tech Roundup") and never clever at the expense of clarity.
+- Line 2 — the description: a comma-separated list of 5–8 concrete topics
+  lifted from the issue — named products, projects, people, places,
+  technologies — ending in a single period. Target 130–150 characters, hard
+  maximum 160. Prefer the editorial core (Notable, Featured, Briefly, the
+  Journal's substance) over incidental links.
+
+Make the candidates genuinely different angles on the issue, not synonyms.`;
 
 /**
  * The membership program's facts, formatted for the drafting prompt.
@@ -417,28 +496,110 @@ const CANDIDATES_SCHEMA = {
   },
 } as const;
 
+/** Echoes also reports which issues it cited, so citations are reviewable. */
+const ECHOES_SCHEMA = {
+  type: 'object',
+  additionalProperties: false,
+  required: ['candidates', 'archive_references'],
+  properties: {
+    candidates: { type: 'array', items: { type: 'string' } },
+    archive_references: {
+      type: 'array',
+      items: {
+        type: 'object',
+        additionalProperties: false,
+        required: ['issue', 'url'],
+        properties: {
+          issue: { type: 'integer' },
+          url: { type: 'string' },
+          note: { type: 'string' },
+        },
+      },
+    },
+  },
+} as const;
+
+/**
+ * The retrieval query for Echoes: what this issue is actually about, as
+ * text an embedding can hold — titles, labels, and the first stretch of
+ * each present item's words. Pure, so the shape is testable.
+ */
+export function echoesQuery(doc: IssueDoc): string {
+  const parts: string[] = [];
+  for (const item of Object.values(doc.items)) {
+    if (item.type === 'echoes') continue;
+    if (!Object.values(item.channels).some(Boolean)) continue;
+    for (const field of [item.title, item.commentary, item.body]) {
+      const flat = bodyLines(field).join(' ').trim();
+      if (flat) parts.push(flat.slice(0, 160));
+    }
+  }
+  return parts.join('\n').slice(0, 1200);
+}
+
+/** Passages formatted for the prompt: citable, compact, specific. */
+function passageContext(passages: librarian.Passage[]): string {
+  return passages
+    .slice(0, 10)
+    .map((p) => {
+      const head = [
+        p.issue_number ? `WT${p.issue_number}` : null,
+        p.subject,
+        p.publish_date?.slice(0, 10),
+        p.section,
+      ].filter(Boolean).join(' · ');
+      return `[${head}] ${p.url ?? ''}\n${String(p.text ?? '').slice(0, 500)}`;
+    })
+    .join('\n\n');
+}
+
 export async function draft(req: DraftRequest): Promise<DraftResult> {
-  const item = req.doc.items[req.itemId];
-  if (!item) throw new Error(`no item ${req.itemId}`);
+  // The head wand: 'issue' is not an item — it drafts the title theme + dek.
+  const isIssue = req.itemId === 'issue';
+  const item = isIssue ? null : req.doc.items[req.itemId];
+  if (!isIssue && !item) throw new Error(`no item ${req.itemId}`);
 
-  const system = DRAFT_PROMPTS[item.type];
-  if (!system) throw new Error(`${item.type} has no drafting prompt`);
+  const type = isIssue ? 'issue' : item!.type;
+  const system = isIssue
+    ? `${VOICE}\n\n${ISSUE_PROMPT}`
+    : DRAFT_PROMPTS[item!.type] && `${VOICE}\n\n${DRAFT_PROMPTS[item!.type]}`;
+  if (!system) throw new Error(`${type} has no drafting prompt`);
 
-  const n = candidateCount(item.type);
-  const current = bodyLines(item.body).join(' ');
+  const n = candidateCount(type as Item['type'] | 'issue');
+  const current = isIssue
+    ? [req.doc.issue.title, req.doc.issue.dek].filter(Boolean).join('\n')
+    : bodyLines(item!.body).join(' ');
   const assembled = renderAnnotated(req.doc, 'website');
 
   // Membership grounds itself in the live program facts; whatever the client
   // passed rides along as additional context.
-  const campaign = item.type === 'membership' ? await fetchCampaignFacts() : null;
+  const campaign = type === 'membership' ? await fetchCampaignFacts() : null;
+
+  // Echoes grounds itself in the archive, and fails loud without it — the
+  // editorial spec's quality bar is real semantic retrieval, never a
+  // silently degraded guess (docs/service-contracts.md).
+  let passages: librarian.Passage[] = [];
+  if (type === 'echoes') {
+    passages = await librarian.retrieve(echoesQuery(req.doc));
+    if (!passages.length) {
+      throw new Error('the archive returned no passages — rerun Echoes rather than inventing');
+    }
+  }
+
+  // The link's own section decides commentary length (Briefly vs Notable).
+  const linkSection = item?.type === 'pinboard_link'
+    ? req.doc.nodes.find((nd) => nd.items.includes(req.itemId))?.label ?? item.section
+    : undefined;
 
   const parts = [
     `Return exactly ${n} distinct candidates. Make them genuinely different from each other, not variations on one phrasing.`,
+    isIssue ? `\nThis is issue WT${req.doc.issue.number}.` : '',
     campaign ? `\nThe program, from the live members page:\n${campaign}` : '',
+    passages.length ? `\nArchive passages, retrieved for this issue — cite only from these:\n${passageContext(passages)}` : '',
     req.context ? `\nContext you must work from:\n${req.context}` : '',
-    current ? `\nWhat the item says now, which you are improving on:\n${current}` : '',
-    item.type === 'pinboard_link'
-      ? `\nThe link:\n${item.title ?? ''}\n${item.source_url ?? ''}`
+    current ? `\nWhat it says now, which you are improving on:\n${current}` : '',
+    item?.type === 'pinboard_link'
+      ? `\nThe link (in the ${linkSection ?? 'Notable'} section):\n${item.title ?? ''}\n${item.source_url ?? ''}`
       : `\nThe assembled issue, for grounding:\n${assembled}`,
   ];
 
@@ -448,7 +609,7 @@ export async function draft(req: DraftRequest): Promise<DraftResult> {
     system,
     output_config: {
       effort: 'medium',
-      format: { type: 'json_schema', schema: CANDIDATES_SCHEMA },
+      format: { type: 'json_schema', schema: type === 'echoes' ? ECHOES_SCHEMA : CANDIDATES_SCHEMA },
     },
     messages: [{ role: 'user', content: parts.filter(Boolean).join('\n') }],
   } as Anthropic.MessageCreateParamsNonStreaming);
@@ -462,6 +623,13 @@ export async function draft(req: DraftRequest): Promise<DraftResult> {
     .map((b) => b.text)
     .join('');
 
-  const parsed = JSON.parse(text) as { candidates?: string[] };
-  return { candidates: (parsed.candidates ?? []).slice(0, n) };
+  const parsed = JSON.parse(text) as {
+    candidates?: string[];
+    archive_references?: { issue: number; url: string; note?: string }[];
+  };
+  const result: DraftResult = { candidates: (parsed.candidates ?? []).slice(0, n) };
+  if (type === 'echoes' && parsed.archive_references) {
+    result.archive_references = parsed.archive_references;
+  }
+  return result;
 }

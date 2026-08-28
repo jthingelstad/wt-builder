@@ -47,7 +47,7 @@ interface PageProps {
   onSelect: (anchor: string | null) => void;
   act: PageActions;
   drafting: string | null;
-  draft: { itemId: string; candidates: string[] } | null;
+  draft: { itemId: string; candidates: string[]; references?: { issue: number; url: string; note?: string }[] } | null;
   onPickDraft: (itemId: string, text: string) => void;
   onDismissDraft: () => void;
   /** The `position: relative` host the note overlay measures against. */

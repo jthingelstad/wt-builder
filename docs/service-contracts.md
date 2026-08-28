@@ -152,10 +152,13 @@ reviewable:
 }
 ```
 
-**Not built.** Nothing retrieves archive passages today — Echoes drafts only
-from context the client passes, no call reaches the Librarian retrieval
-endpoint, and `archive_references` is never populated. The drafting prompt
-compensates by forbidding invented references. See `docs/status.md`.
+**Built 2026-08-28.** Echoes drafting calls the Librarian's `/retrieve`
+(service-secret auth, `LIBRARIAN_RETRIEVE_URL` + `LIBRARIAN_RETRIEVE_SECRET`)
+with a query built from the issue's own present items, grounds the prompt in
+the returned passages, and **fails loud** when retrieval is unavailable or
+empty — the editorial spec's quality bar is real semantic retrieval, never a
+silently degraded guess. The model reports the issues it actually cited, and
+accepting a candidate stores them on the item as `archive_references`.
 
 ## Both
 

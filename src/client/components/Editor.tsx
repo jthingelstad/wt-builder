@@ -60,7 +60,7 @@ export function Editor({ doc, readiness, busy, error, run, onIndex, onSend, onEr
   const [panel, setPanel] = useState(true);
   const [selected, setSelected] = useState<string | null>(null);
   const [drafting, setDrafting] = useState<string | null>(null);
-  const [draft, setDraft] = useState<{ itemId: string; candidates: string[] } | null>(null);
+  const [draft, setDraft] = useState<{ itemId: string; candidates: string[]; references?: { issue: number; url: string; note?: string }[] } | null>(null);
   const [sweeping, setSweeping] = useState(false);
   const [collapsed, setCollapsed] = useState(false);
   const [reading, setReading] = useState(false);
@@ -104,7 +104,7 @@ export function Editor({ doc, readiness, busy, error, run, onIndex, onSend, onEr
       setDrafting(itemId);
       setDraft(null);
       api.draftItem(id, itemId)
-        .then((r) => setDraft({ itemId, candidates: r.candidates }))
+        .then((r) => setDraft({ itemId, candidates: r.candidates, references: r.archive_references }))
         .catch((err) => onError((err as Error).message))
         .finally(() => setDrafting(null));
     },
@@ -304,12 +304,24 @@ export function Editor({ doc, readiness, busy, error, run, onIndex, onSend, onEr
               drafting={drafting}
               draft={draft}
               onPickDraft={(itemId, text) => {
-                const item = doc.items[itemId];
-                const field = !item ? 'body'
-                  : item.type === 'pinboard_link' ? 'commentary'
-                  : 'body';
+                const refs = draft?.references;
                 setDraft(null);
-                void run(() => api.updateItem(id, itemId, { [field]: text }));
+                // The head wand drafts the title theme and dek as two lines.
+                if (itemId === 'issue') {
+                  const [title, ...rest] = text.split('\n');
+                  void run(() => api.settings(id, {
+                    title: (title ?? '').trim(),
+                    dek: rest.join(' ').trim(),
+                  }));
+                  return;
+                }
+                const item = doc.items[itemId];
+                const field = item?.type === 'pinboard_link' ? 'commentary' : 'body';
+                const patch: Record<string, unknown> = { [field]: text };
+                // Echoes carries the citations it was drafted from, so the
+                // inspector can show what the note stands on.
+                if (item?.type === 'echoes' && refs?.length) patch.archive_references = refs;
+                void run(() => api.updateItem(id, itemId, patch));
               }}
               onDismissDraft={() => setDraft(null)}
             >

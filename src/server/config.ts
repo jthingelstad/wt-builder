@@ -28,6 +28,8 @@ export interface Credentials {
   pinboardToken?: string;
   microblogToken?: string;
   buttondownKey?: string;
+  /** Authorizes /retrieve on the Librarian Lambda. */
+  librarianSecret?: string;
   githubToken?: string;
   /** Text-to-speech for the audio edition. */
   openaiKey?: string;
@@ -37,6 +39,8 @@ export const credentials: Credentials = {
   pinboardToken: optional('PINBOARD_API_TOKEN'),
   microblogToken: optional('MICROBLOG_API_KEY'),
   buttondownKey: optional('BUTTONDOWN_API_KEY'),
+  /** Authorizes /retrieve on the Librarian Lambda. Echoes fails loud without it. */
+  librarianSecret: optional('LIBRARIAN_RETRIEVE_SECRET'),
   githubToken: optional('GITHUB_PAT_TOKEN'),
   openaiKey: optional('OPENAI_API_KEY'),
 };
@@ -79,6 +83,16 @@ export const config = {
   archiveBranch: optional('WT_BUILDER_ARCHIVE_BRANCH') ?? 'main',
 
   /**
+   * The Librarian retrieval endpoint — the archive's semantic search, which
+   * Echoes drafting is grounded in. The URL is the Lambda's function URL
+   * (public knowledge, stack output); the secret is what authorizes service
+   * retrieval and lives only in .env.
+   */
+  librarianUrl:
+    optional('LIBRARIAN_RETRIEVE_URL') ??
+    'https://jcvud66qqpq53frvno5stoqntm0zqntw.lambda-url.us-east-1.on.aws',
+
+  /**
    * Standing intro and outro bumpers wrapped around the audio body. They live
    * in the repo — they are as much a part of the edition as the renderers —
    * and the env var exists to try a different pair without a commit.
@@ -97,6 +111,7 @@ export function describeConfig(): Record<string, string> {
     pinboard: credentials.pinboardToken ? 'configured' : 'MISSING',
     microblog: credentials.microblogToken ? 'configured' : 'MISSING',
     buttondown: credentials.buttondownKey ? 'configured' : 'MISSING',
+    librarian: credentials.librarianSecret ? 'configured' : 'MISSING',
     aws: process.env.AWS_ACCESS_KEY_ID ? 'configured' : 'MISSING',
     github: credentials.githubToken ? 'configured' : 'MISSING',
     openai: credentials.openaiKey ? 'configured' : 'MISSING',

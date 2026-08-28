@@ -62,10 +62,8 @@ finished, what is half-finished, and what has never run.
   dashboard as read-only records — number, title, archive link, one Markdown
   block — for continuity (docs/decisions.md forbids parsing them into items).
   Jamie confirmed 2026-08-28 this belongs here, like /ops/ did.
-- **Echoes archive retrieval.** The wand drafts Echoes from whatever context
-  is passed in; nothing calls the Librarian retrieval endpoint and
-  `archive_references` is never populated. The contract in
-  `docs/service-contracts.md` describes the target shape.
+- ~~Echoes archive retrieval~~ — built 2026-08-28: the wand retrieves from
+  the Librarian, fails loud without it, and stores the citations it used.
 
 ## Never run for real
 

@@ -7,7 +7,8 @@ import { fileURLToPath } from 'node:url';
 import type { IssueDoc } from '../src/shared/types.ts';
 import { renderAnnotated } from '../src/shared/render/annotate.ts';
 import {
-  assembleReview, campaignFacts, candidateCount, pruneStale, type Note, type Review,
+  assembleReview, campaignFacts, candidateCount, echoesQuery, pruneStale,
+  type Note, type Review,
 } from '../src/server/editorial.ts';
 
 const doc = JSON.parse(
@@ -177,5 +178,21 @@ describe('membership campaign facts', () => {
     expect(facts).toContain('100% of membership fees');
     expect(facts).not.toContain('undefined');
     expect(facts).not.toContain('$NaN');
+  });
+});
+
+describe('the Echoes retrieval query', () => {
+  it('is built from what the issue actually contains', () => {
+    const q = echoesQuery(doc);
+    expect(q.length).toBeGreaterThan(50);
+    expect(q.length).toBeLessThanOrEqual(1200);
+    // Fixture content that should anchor retrieval.
+    expect(q).toContain('The New Standards');
+  });
+
+  it('excludes the Echoes item itself and hidden items', () => {
+    const d = structuredClone(doc);
+    d.items['echoes-1']!.body = 'ECHOES-SENTINEL should not seed its own retrieval';
+    expect(echoesQuery(d)).not.toContain('ECHOES-SENTINEL');
   });
 });
