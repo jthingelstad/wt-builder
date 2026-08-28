@@ -18,10 +18,15 @@ Proofing and judgement are separate calls, in that order.
 
 | | Proof pass | Judgement pass |
 | --- | --- | --- |
-| Temperature | 0 | default |
+| Reasoning effort | `low` | `medium` |
 | Archive context | none | last 8 issues |
 | Scope | typos, doubled words, broken possessives, wrong homophones, malformed links | balance and rhythm, repetition, length |
 | Re-runnable alone | yes | yes |
+
+The proof pass wants determinism, and the original contract asked for
+`temperature: 0`. Claude Opus 5 **rejects `temperature` with a 400** — the
+replacement is low reasoning effort plus a tightly scoped prompt, which is what
+`src/server/editorial.ts` does.
 
 Two reasons for the split. A typo must never be a matter of taste, and it must
 never lose a slot to an opinion — one model call ranking both together will
@@ -139,10 +144,16 @@ reviewable:
 - Latency is visible, not hidden: the review button reads `Reading…`, the draft
   affordance shows a spinner. Budget 5–15s.
 - Review is button-only, so no debounce and no rate limiting is needed.
-- Neither service is called by the first prototype.
+- Both are advisory. Neither gates sending, and neither writes a word into the
+  issue.
 
 ## Build status
 
-Neither service is wired yet. The first slice ends at a Buttondown draft
-(`AGENTS.md`), and both of these are assembly-time aids rather than parts of
-that path. The contracts above are what to build against when they land.
+**Both are wired and have run against Claude.** Review is in
+`src/server/editorial.ts` and surfaces as the summary bar plus margin notes;
+drafting surfaces as the wand in the editorial margin, which offers candidates
+and writes nothing until Jamie picks one.
+
+Review opens an existing read rather than re-running it — re-reading on every
+open spends a model call to show Jamie something he has already seen. `Read
+again` is the explicit re-run.

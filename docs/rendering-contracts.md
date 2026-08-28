@@ -3,9 +3,10 @@
 The issue has three first-class editions. Render behavior is defined per item
 type; it is not inferred by converting one final Markdown document.
 
-Per-item channel flags decide what renders where (see 0015). This matrix is the
-default the flags are seeded from, and the rows marked No are locked: the flag
-cannot be set true.
+Per-item channel flags decide what renders where. This matrix is the default the
+flags are seeded from, and the rows marked No are **locked**: the flag cannot be
+set true, and `channel_locks` carries the reason so the interface states it
+rather than failing quietly.
 
 ## Initial matrix
 
@@ -79,7 +80,7 @@ that helps with the Weekly Thing.
 ## Echoes
 
 Echoes renders last when it is present. It is not required: an issue may be
-published without it (see 0015).
+published without it.
 
 ## Audio
 
@@ -104,5 +105,10 @@ produces its own spoken block, enabling:
 - selective re-rendering, and
 - deterministic omission.
 
-The final audio artifact may reuse Studio's proven TTS, validation, bumper,
-normalization, and upload machinery, but not its flattened-Markdown dependency.
+**Membership and Haiku are spoken.** Membership is introduced as Thingy's words
+before the words themselves; Haiku is read one line at a time. Settled
+2026-08-28; the interface spec previously flagged both as undecided.
+
+The audio artifact is synthesized with OpenAI TTS, mastered with a two-pass
+ffmpeg loudnorm, and tagged with cover art before upload. It is rendered from
+canonical items, never from flattened Markdown.

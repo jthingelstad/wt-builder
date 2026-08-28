@@ -25,9 +25,15 @@ title
 dek
 ```
 
-The window **closes Friday at 00:00**, so the span ends Thursday and anything
-captured on Friday belongs to the next issue. `window_days` counts back from that
-Thursday.
+The content window runs **Friday 00:00 CT to Friday 00:00 CT** — a half-open
+interval `[from, to)`. An item captured Thursday at 11:58 PM Central is in; one
+captured Friday at 12:02 AM belongs to the next issue. `window_days` counts back
+from the Friday the window closes on.
+
+This is an **instant** comparison, not a date comparison. A bookmark saved
+Thursday 11 PM Central is stored as Friday 04:00 UTC, and comparing date strings
+alone pushes every Thursday-evening capture into the following issue. The
+arithmetic, including the daylight-saving handling, is in `src/shared/dates.ts`.
 
 The number is derived, not enforced. It defaults to one past the last published
 issue and stays editable, because issues published before WT Builder are
@@ -38,25 +44,45 @@ imported by number.
 Every item has:
 
 ```text
-id
 type
 authorship             Jamie | syndicated | Thingy
-source                 direct | Pinboard | Micro.blog | Thingy
+source                 direct | Pinboard | Micro.blog | Thingy | generated
 source_id
 source_url
-source_snapshot
+source_snapshot        what was imported, for the "as imported" diff
 title
 body
 commentary
-section
-position
+label                  Currently entries carry one ("Building", "Listening")
+attribution            Quote
+section                the section a link was captured for; placement wins
+tags                   Pinboard tags
 channels               { website: bool, email: bool, audio: bool }
-presentation           normal | promoted
+channel_locks          { [channel]: reason } — why a channel cannot be set true
+presentation           journal | promoted
 published_at
-media
-sync_state
+media                  { url, alt, caption, timestamp, location }
+source_flags           source-owned fields write-back must hand back untouched
+sync_state             synced | syncing | failed | needs_commentary | local
+sync_error             kept beside the local edit until a retry succeeds
+status                 draft | reviewed        (Thingy-authored)
+reviewed               bool                    (Thingy-authored)
+archive_references     [{ issue, url, note }]  (Echoes)
 rendering_overrides
 ```
+
+The item's **id is the key** in the document's `items` map, not a field on the
+item. **Order is the position in its node's `items` array**, not a field either —
+there is no `position`.
+
+Two of these are load-bearing in a way the name does not convey:
+
+- **`source_flags`** holds the fields Pinboard owns. Its `posts/add` endpoint
+  replaces the whole record, so anything not sent is reset to its default —
+  which silently publishes a private bookmark and clears the unread flag. The
+  flags are captured at sweep and handed back unchanged. This has happened once.
+- **`channel_locks`** carries the *reason* a channel is unavailable, so a
+  forbidden channel states why rather than failing quietly.
 
 `source_snapshot` preserves what was imported. Editable issue fields contain
 the latest working value. This makes provenance visible without preventing
@@ -65,8 +91,14 @@ editorial changes.
 ## Channels replace inclusion
 
 There is no `included` boolean. An item is in the issue when at least one
-channel is true, and hiding an item means setting all three false. One model
-instead of two.
+channel is true **and it falls inside the window**. Hiding an item means setting
+all three channels false. One model instead of two.
+
+Inclusion is **derived on read**, never stored. That is what makes changing the
+publication date or the window length re-derive every item for free; a stored
+flag would need a sweep, and the sweep is the thing that goes stale. Only
+syndicated items are subject to the window — Jamie's own writing is composed for
+the issue and carries no capture timestamp.
 
 This makes **edition-only items** a first-class state rather than an accident:
 an item — or a whole section — can be email-only or website-only. Where a
@@ -83,8 +115,15 @@ issues carry the familiar skeleton, but special issues legitimately have no
 Notable, no Briefly, no Journal, and no Photo — some are nothing but Markdown
 and photo blocks.
 
-Removing a section holds out its syndicated items rather than deleting them.
-Missing standard sections are offered back, so removal is never one-way.
+Removing a section **deletes its locally-authored items and holds out its
+syndicated ones.** The asymmetry is the point: a syndicated item is still inside
+the window and the next sweep would bring it straight back, so removing it needs
+a durable "no" — that is what holding out is, and it renders under **Held out**
+with a `Put back`. A locally-authored item has no sweep to return from.
+
+Deleted local items are retained beside their held node so restoring the section
+restores them too. Missing standard sections are offered back, so removal is
+never one-way.
 
 Two node types exist for issues that do not fit the skeleton:
 
@@ -148,8 +187,14 @@ WT Builder automatically writes the current value back to Pinboard. The UI
 shows saving, synced, and failed states and never discards the local edit on a
 failed write.
 
-Micro.blog synchronization is read-only initially. WT-specific inclusion,
-presentation, edits, and placement do not modify the original post.
+Micro.blog synchronizes both ways. Editing a post's title or body writes back
+through the Micropub `update` action, last-writer-wins, with the same
+saving / synced / failed states. Reads use Micropub `q=source`, which returns the
+exact Markdown the post is stored as — the only form that can safely be handed
+back in an update. The blog's JSON Feed returns *rendered* content and cannot.
+
+The original post stays canonical for the blog. WT-specific inclusion,
+presentation, and placement do not modify it; edits to its words do.
 
 ## Resolved questions
 

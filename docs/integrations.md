@@ -9,10 +9,18 @@
 
 ## Micro.blog
 
-- Imports posts, titles, dates, bodies, URLs, and media.
-- Original posts remain canonical for published blog content.
-- Inclusion, exclusion, ordering, promotion, and WT-specific presentation are
-  owned by WT Builder.
+- Reads through the Micropub **`q=source`** endpoint, which returns the exact
+  Markdown a post is stored as. The blog's JSON Feed returns *rendered* content
+  and cannot be handed back in an update, so it is not used.
+- `/posts/all` is the **timeline** — everyone Jamie follows — and must never be
+  swept into an issue.
+- Writes back through the Micropub `update` action, last-writer-wins. Editing a
+  post's title or body in WT Builder edits the post.
+- Original posts remain canonical for the blog. Inclusion, exclusion, ordering,
+  promotion, and WT-specific presentation are owned by WT Builder.
+- Post bodies carry raw `<img>` tags. Trailing images are split off for display
+  and rejoined on commit, so Jamie edits the words and the picture stays a
+  picture.
 
 ## Thingy / Librarian
 
@@ -29,7 +37,8 @@ Thingy is a generation service WT Builder calls during assembly.
 ## Archive
 
 The archive holds the corpus Thingy answers from. It is a separate repository,
-currently `studio-thing` and being renamed to `archive-thing`.
+`studio-thing`. A rename to `archive-thing` has been discussed and **has not
+happened** — the directory and remote are still `studio-thing`.
 
 - The archive is not a publishing destination. See
   [`decisions/0002-publishing-and-archive-boundary.md`](decisions/0002-publishing-and-archive-boundary.md).
@@ -48,6 +57,18 @@ currently `studio-thing` and being renamed to `archive-thing`.
 - Receives a rendered draft.
 - Draft creation/update is distinct from scheduling or sending.
 - Buttondown-specific Liquid and components belong only in the email renderer.
+
+## Images
+
+- Remote images referenced by an item are copied to `files.thingelstad.com`,
+  resized to 1200px wide and re-encoded, before an issue is sent. Micro.blog
+  serves originals: a photo shown at 600px arrives as a multi-megabyte JPEG,
+  which is what makes an email enormous.
+- A photo dropped on the canvas takes the same path. Its timestamp and
+  coordinates are read from EXIF **on the server** — the browser only knows when
+  the file was copied, not when it was taken. Coordinates, not a place name:
+  naming the place needs a geocoder this service does not have, and a wrong
+  place name in print is worse than none.
 
 ## Website
 
@@ -68,8 +89,11 @@ currently `studio-thing` and being renamed to `archive-thing`.
   Stamp `audio_url`, `audio_duration_seconds`, `audio_voice`, and
   `audio_byte_size` into the issue record at publication so the website edition
   needs no second source.
-- TTS generation, validation, normalization, metadata, storage, and podcast
-  feed integration can be salvaged from Studio after product validation.
+- **TTS is OpenAI** (`tts-1-hd`), chunked, then mastered with a two-pass ffmpeg
+  loudnorm to broadcast levels and tagged with ID3v2.3 and attached cover art.
+  Studio's pipeline was not reused.
+- `WT_BUILDER_BUMPERS_DIR` supplies the intro and outro bumpers. **Unset means
+  audio renders without them** rather than failing.
 
 ## Secrets
 
