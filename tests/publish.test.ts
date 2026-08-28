@@ -11,7 +11,11 @@ import type { IssueDoc } from '../src/shared/types.ts';
 import {
   archivePage, coverImage, extractLinks, issueEntry, siteInputs, subjectFor,
 } from '../src/server/publish.ts';
-import { chunkScript, MAX_CHARS } from '../src/server/integrations/audio.ts';
+import {
+  chunkScript, id3Tags, FINAL_CHANNELS, FINAL_SAMPLE_RATE,
+  LOUDNORM_I, LOUDNORM_TP, MAX_CHARS,
+} from '../src/server/integrations/audio.ts';
+import { bannerUrl, coverSource, SQUARE_SIZE } from '../src/server/integrations/cover.ts';
 import { blobSha } from '../src/server/integrations/github.ts';
 
 const base = JSON.parse(
@@ -173,5 +177,50 @@ describe('git blob hashing', () => {
   it('matches git hash-object', () => {
     // `printf 'hello\n' | git hash-object --stdin`
     expect(blobSha('hello\n')).toBe('ce013625030ba8dba906f756967f9e9ca394464a');
+  });
+});
+
+describe('audio mastering', () => {
+  it('tags the mp3 from what the issue already knows', () => {
+    const tags = id3Tags(doc({ title: 'Owning the Rails', number: 349 }));
+    expect(tags.title).toBe('WT349 — Owning the Rails');
+    expect(tags.track).toBe('349');
+    expect(tags.artist).toBe('Jamie Thingelstad');
+    expect(tags.album).toBe('The Weekly Thing');
+    expect(tags.date).toBe('2026-09-05');
+  });
+
+  it('normalizes to the podcast convention', () => {
+    // -16 LUFS / -1.5 dBTP is the podcast standard and what Studio ships.
+    expect(LOUDNORM_I).toBe(-16);
+    expect(LOUDNORM_TP).toBe(-1.5);
+    expect(FINAL_SAMPLE_RATE).toBe(44100);
+    expect(FINAL_CHANNELS).toBe(1);
+  });
+});
+
+describe('cover art', () => {
+  it("uses the issue's own photo as the source", () => {
+    expect(coverSource(doc())).toBe(
+      'https://files.thingelstad.com/weekly-thing/349/cover.jpg',
+    );
+  });
+
+  it('falls back to show art when an issue has no photo', () => {
+    const d = doc();
+    for (const item of Object.values(d.items)) {
+      if (item.type === 'photo') item.channels = { website: false, email: false, audio: false };
+    }
+    expect(coverSource(d)).toBeNull();
+  });
+
+  it('publishes the banner where the archive page points', () => {
+    expect(bannerUrl(350)).toBe('https://files.thingelstad.com/weekly-thing/350/cover.jpg');
+    expect(bannerUrl(350)).toBe(coverImage(350));
+  });
+
+  it('makes square art large enough for Apple Podcasts', () => {
+    expect(SQUARE_SIZE).toBeGreaterThanOrEqual(1400);
+    expect(SQUARE_SIZE).toBeLessThanOrEqual(3000);
   });
 });

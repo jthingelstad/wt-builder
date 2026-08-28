@@ -414,7 +414,7 @@ async function sendPodcast(id: string) {
   store.recordSend(id, 'podcast', { status: 'sending', at: new Date().toISOString() });
   try {
     const script = renderAudioScript(doc);
-    const result = await audio.renderAudio(script, doc.issue.number, {
+    const result = await audio.renderAudio(doc, script, {
       bumpersDir: process.env.WT_BUILDER_BUMPERS_DIR,
     });
     const state: PodcastSend = {
@@ -430,7 +430,7 @@ async function sendPodcast(id: string) {
       },
     };
     const row = store.recordSend(id, 'podcast', state);
-    return { issue: row?.doc, send: state, chunks: result.chunks };
+    return { issue: row?.doc, send: state, chunks: result.chunks, cover: result.coverSource };
   } catch (err) {
     const state: SendState = {
       status: 'failed',
