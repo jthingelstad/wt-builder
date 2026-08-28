@@ -1055,3 +1055,5 @@
 
 .cv-actions { display: flex; gap: 1px; opacity: 0; transition: opacity 0.12s; }
 .cv-row:hover .cv-actions, .cv-actions:focus-within { opacity: 1; }
+
+.photo-drop.busy { cursor: default; }

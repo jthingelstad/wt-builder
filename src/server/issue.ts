@@ -93,7 +93,12 @@ export function createIssue(opts: {
   const nodes: IssueNode[] = [];
 
   for (const s of SKELETON) {
-    const seeded: ItemType[] = ['intro', 'currently', 'membership', 'outro', 'haiku', 'echoes'];
+    // Photo is seeded too: the section holds exactly one photo, and the empty
+    // item *is* the drop zone. Without it the section renders nothing and the
+    // "Photo placed" checklist item has no way to be satisfied.
+    const seeded: ItemType[] = [
+      'intro', 'currently', 'photo', 'membership', 'outro', 'haiku', 'echoes',
+    ];
     if (seeded.includes(s.type as ItemType)) {
       const itemId = `${s.id}-1`;
       const extra = s.type === 'currently' ? { label: 'Building' } : {};

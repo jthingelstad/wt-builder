@@ -126,6 +126,20 @@ export const api = {
   settings: (id: string, body: Record<string, unknown>) => post(`/issues/${id}/settings`, body),
 
   /**
+   * A photo, sent as raw bytes rather than base64 — encoding inflates a real
+   * photo by a third and pushes it past the request limit.
+   */
+  uploadPhoto: (id: string, itemId: string, file: File) =>
+    call<IssueResponse & { image: { url: string; bytes: number; width?: number; height?: number } }>(
+      `/issues/${id}/items/${itemId}/photo`,
+      {
+        method: 'POST',
+        body: file,
+        headers: { 'Content-Type': file.type || 'application/octet-stream', 'X-Filename': file.name },
+      },
+    ),
+
+  /**
    * Candidate text for one item. Never written — the wand offers, Jamie picks.
    * Returning candidates rather than committing is what keeps every word in the
    * issue his.

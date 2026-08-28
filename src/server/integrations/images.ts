@@ -14,6 +14,7 @@
 import { createHash } from 'node:crypto';
 import { PutObjectCommand, S3Client, HeadObjectCommand } from '@aws-sdk/client-s3';
 import sharp from 'sharp';
+import exifReader from 'exif-reader';
 
 import type { IssueDoc, Item } from '../../shared/types.ts';
 import { config } from '../config.ts';
@@ -181,4 +182,96 @@ export async function rehostIssueImages(doc: IssueDoc): Promise<{ doc: IssueDoc;
   }
 
   return { doc: next, report };
+}
+
+// ── uploads ───────────────────────────────────────────────────────────────
+
+/**
+ * Store a photo Jamie dropped on the canvas.
+ *
+ * Same pipeline as a rehost — resize, re-encode, content-addressed key — but
+ * the bytes arrive from the browser rather than from a URL. The EXIF read
+ * happens here rather than in the client because the client only has the file's
+ * modified time, which is when it was *copied*, not when it was taken (0021).
+ */
+export async function storeUpload(
+  original: Buffer,
+  issueNumber: number,
+  filename: string,
+): Promise<RehostedImage & { takenAt?: string; coordinates?: string }> {
+  const image = sharp(original);
+  const meta = await image.metadata();
+
+  const pipeline = image
+    .rotate()
+    .resize({ width: MAX_WIDTH, withoutEnlargement: true })
+    .jpeg({ quality: JPEG_QUALITY, progressive: true, mozjpeg: true });
+
+  const { data, info } = await pipeline.toBuffer({ resolveWithObject: true });
+  const key = keyFor(issueNumber, `upload:${filename}:${data.length}`);
+  const url = `https://${CDN_HOST}/${key}`;
+
+  if (!(await alreadyThere(key))) {
+    await s3().send(
+      new PutObjectCommand({
+        Bucket: CDN_HOST,
+        Key: key,
+        Body: data,
+        ContentType: 'image/jpeg',
+        CacheControl: 'public, max-age=31536000, immutable',
+      }),
+    );
+  }
+
+  const exif = meta.exif ? readExif(meta.exif) : {};
+
+  return {
+    original: filename,
+    url,
+    bytes: data.length,
+    width: info.width,
+    height: info.height,
+    savedBytes: Math.max(0, original.length - data.length),
+    ...exif,
+  };
+}
+
+/**
+ * What the camera recorded: when, and where.
+ *
+ * Returns coordinates rather than a place name — naming the place needs a
+ * geocoder this service does not have, and a wrong place name in print is worse
+ * than none. The drop zone says both stay editable, so Jamie names it.
+ */
+export function readExif(buffer: Buffer): { takenAt?: string; coordinates?: string } {
+  try {
+    const tags = exifReader(buffer);
+    const out: { takenAt?: string; coordinates?: string } = {};
+
+    const taken = tags.Photo?.DateTimeOriginal ?? tags.Image?.DateTime;
+    if (taken instanceof Date && !Number.isNaN(taken.getTime())) {
+      // EXIF carries no zone; it is the camera's wall clock, which is the
+      // clock the caption should read in.
+      out.takenAt = taken.toISOString().replace(/\.\d+Z$/, '');
+    }
+
+    const gps = tags.GPSInfo;
+    const lat = dms(gps?.GPSLatitude, gps?.GPSLatitudeRef);
+    const lon = dms(gps?.GPSLongitude, gps?.GPSLongitudeRef);
+    if (lat !== null && lon !== null) out.coordinates = `${lat.toFixed(5)}, ${lon.toFixed(5)}`;
+
+    return out;
+  } catch {
+    // A photo with unreadable EXIF is still a usable photo.
+    return {};
+  }
+}
+
+/** EXIF stores coordinates as [degrees, minutes, seconds] plus a hemisphere. */
+export function dms(value: unknown, ref: unknown): number | null {
+  if (!Array.isArray(value) || value.length < 3) return null;
+  const [d, m, s] = value.map(Number);
+  if ([d, m, s].some((n) => !Number.isFinite(n))) return null;
+  const sign = ref === 'S' || ref === 'W' ? -1 : 1;
+  return sign * (d! + m! / 60 + s! / 3600);
 }

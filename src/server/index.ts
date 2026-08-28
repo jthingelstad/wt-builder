@@ -25,7 +25,7 @@ import * as issues from './issue.ts';
 import * as buttondown from './integrations/buttondown.ts';
 import * as pinboard from './integrations/pinboard.ts';
 import * as microblog from './integrations/microblog.ts';
-import { rehostIssueImages } from './integrations/images.ts';
+import { rehostIssueImages, storeUpload } from './integrations/images.ts';
 import * as editorial from './editorial.ts';
 import * as githubRepo from './integrations/github.ts';
 import * as audio from './integrations/audio.ts';
@@ -39,6 +39,7 @@ interface Ctx {
   res: ServerResponse;
   url: URL;
   body: () => Promise<any>;
+  raw: () => Promise<Buffer>;
 }
 
 class HttpError extends Error {
@@ -55,6 +56,22 @@ function json(res: ServerResponse, status: number, payload: unknown): void {
     'Cache-Control': 'no-store',
   });
   res.end(body);
+}
+
+/**
+ * Raw request bytes, for a photo upload. Kept separate from readBody so an
+ * image never has to survive a base64 round trip through the JSON parser —
+ * which inflates it by a third and pushes real photos past the size limit.
+ */
+async function readRaw(req: IncomingMessage): Promise<Buffer> {
+  const chunks: Buffer[] = [];
+  let size = 0;
+  for await (const chunk of req) {
+    size += (chunk as Buffer).length;
+    if (size > 40_000_000) throw new HttpError(413, 'image too large');
+    chunks.push(chunk as Buffer);
+  }
+  return Buffer.concat(chunks);
 }
 
 async function readBody(req: IncomingMessage): Promise<any> {
@@ -284,6 +301,34 @@ const routes: [RegExp, string, (ctx: Ctx, params: string[]) => Promise<unknown>]
     return { ...saved(doc), review: result };
   }],
 
+  /**
+   * A photo dropped on the canvas. Resized, stored on the CDN, and the fields
+   * the camera recorded are seeded — all of them stay editable.
+   */
+  [/^\/api\/issues\/([^/]+)\/items\/([^/]+)\/photo$/, 'POST', async ({ req, raw }, [id, itemId]) => {
+    const doc = requireIssue(id!);
+    const item = doc.items[itemId!];
+    if (!item) throw new HttpError(404, `no item ${itemId}`);
+
+    const bytes = await raw();
+    if (!bytes.length) throw new HttpError(400, 'no image in the request');
+
+    const filename = String(req.headers['x-filename'] ?? 'photo.jpg');
+    const stored = await storeUpload(bytes, doc.issue.number, filename);
+
+    item.media = {
+      ...(item.media ?? {}),
+      url: stored.url,
+      // Seeded, not imposed: an empty alt is a real accessibility problem, and
+      // a filename is a better starting point than nothing.
+      alt: item.media?.alt || filename.replace(/\.[a-z0-9]+$/i, '').replace(/[-_]+/g, ' '),
+      timestamp: item.media?.timestamp || stored.takenAt || undefined,
+      location: item.media?.location || stored.coordinates || undefined,
+    };
+
+    return { ...saved(doc), image: stored };
+  }],
+
   /** Candidate text for one item. Never written — Jamie picks or ignores. */
   [/^\/api\/issues\/([^/]+)\/items\/([^/]+)\/draft$/, 'POST', async ({ body }, [id, itemId]) => {
     const b = await body();
@@ -496,7 +541,10 @@ const server = createServer(async (req, res) => {
       const match = pattern.exec(url.pathname);
       if (!match || verb !== method) continue;
       const params = match.slice(1).map((p) => decodeURIComponent(p));
-      const result = await handler({ req, res, url, body: () => readBody(req) }, params);
+      const result = await handler(
+        { req, res, url, body: () => readBody(req), raw: () => readRaw(req) },
+        params,
+      );
       return json(res, 200, result);
     }
 

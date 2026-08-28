@@ -34,6 +34,10 @@ finished, what is half-finished, and what has never run.
   saying what finishing it means and jumping to the offending item.
 - **Collapse mode** — one row per section with preview, counts, drag reorder,
   and Echoes pinned last.
+- **Photo upload** — drop a file, it is resized to 1200px, stored on the CDN,
+  and the camera's own time and coordinates are read from EXIF. Verified end
+  to end: a 2400x1600 photo stored at 1200x800, 23 KB down to 3 KB, served
+  from files.thingelstad.com, and the "Photo placed" checklist item flipped.
 - **Send view** — Podcast, Website, Buttondown in run order, the audio gate,
   the stated-not-enforced blocker, real per-step evidence.
 - **Sweep** — Pinboard `toread=yes` and Micro.blog Micropub `q=source`, with
@@ -45,8 +49,6 @@ finished, what is half-finished, and what has never run.
   notes exist. The spec has both, sharing the right rail with the inspector.
 - **Insert points and add affordances.** No `+ Markdown here` at section
   boundaries, no `+ Currently entry` / `+ Write a link here` chips.
-- **Photo upload.** The drop zone reads the file and seeds alt text and
-  timestamp, but nothing uploads it yet.
 - **Audio lens details.** The script and its cues are right, but Briefly does
   not visibly reverse in the lens and dates are not yet spoken long
   ("Saturday, August twenty-ninth").
@@ -61,6 +63,14 @@ finished, what is half-finished, and what has never run.
   call and writes an mp3 to the CDN.
 - `WT_BUILDER_BUMPERS_DIR` is unset, so audio would render with no intro or
   outro bumper.
+
+## Test artifact left behind
+
+A 3 KB test image is on the CDN at
+`weekly-thing/999/images/f778b1d5eccf.jpg`. It is a blue rectangle under a
+fake issue number, uploaded to verify the pipeline. I could not remove it —
+the AWS CLI session on this machine is expired and the service's credentials
+live in `.env` rather than the CLI's profile. Safe to leave; safe to delete.
 
 ## Decisions taken this session
 

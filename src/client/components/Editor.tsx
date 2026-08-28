@@ -90,6 +90,11 @@ export function Editor({ doc, readiness, busy, error, run, onIndex, onSend, onEr
     promote: (itemId) => void run(() => api.promote(id, itemId)),
     demote: (nodeId) => void run(() => api.demote(id, nodeId)),
     setChannel: (itemId, channel, on) => void run(() => api.setChannel(id, itemId, channel, on)),
+    uploadPhoto: (itemId, file) => {
+      const p = api.uploadPhoto(id, itemId, file);
+      void run(() => p);
+      return p;
+    },
     /**
      * The wand offers; it never writes. Candidates land in a picker beside the
      * block and nothing changes until Jamie chooses one — which is what keeps

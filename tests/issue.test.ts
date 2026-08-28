@@ -453,3 +453,27 @@ describe('section removal', () => {
     for (const id of ids) expect(restored.items[id]).toBeTruthy();
   });
 });
+
+describe('the photo section', () => {
+  it('is seeded with an empty item, because that item is the drop zone', () => {
+    const doc = createIssue({ number: 400, publication_date: '2026-09-05' });
+    const photo = doc.nodes.find((n) => n.type === 'photo');
+    expect(photo?.items).toHaveLength(1);
+    const item = doc.items[photo!.items[0]!];
+    expect(item?.type).toBe('photo');
+    expect(item?.media?.url).toBeFalsy();
+  });
+
+  it('counts an empty photo as outstanding, and a placed one as done', () => {
+    const doc = createIssue({ number: 400, publication_date: '2026-09-05' });
+    const photo = doc.nodes.find((n) => n.type === 'photo')!;
+    const id = photo.items[0]!;
+
+    const before = readiness(doc).units.find((u) => u.title === 'Photo placed');
+    expect(before?.done).toBe(false);
+    expect(before?.anchor).toBe(id);
+
+    doc.items[id]!.media = { url: 'https://files.thingelstad.com/wt400/a.jpg' };
+    expect(readiness(doc).units.find((u) => u.title === 'Photo placed')?.done).toBe(true);
+  });
+});

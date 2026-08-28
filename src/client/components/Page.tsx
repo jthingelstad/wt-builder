@@ -9,6 +9,7 @@
  */
 
 import type { ComponentChildren, RefObject } from 'preact';
+import { useState } from 'preact/hooks';
 
 import type { Channel, IssueDoc, IssueNode, Item } from '../../shared/types.ts';
 import { CHANNELS } from '../../shared/types.ts';
@@ -20,7 +21,7 @@ import { audioScript } from '../../shared/render/audio.ts';
 import { MEMBER_THANKS, PREMIUM_CONDITION } from '../../shared/render/email.ts';
 import { rejoinBody, splitBody } from '../../shared/body.ts';
 import { markdownInlineToSafeHtml } from '../markdown.ts';
-import { ImagePlus, Plus, Trash } from '../icons.tsx';
+import { ImagePlus, Plus, Spinner, Trash } from '../icons.tsx';
 import { Editable, Rail, RichEditable, Row, Wand, itemRail, sectionRail } from './Row.tsx';
 
 export type Lens = Channel | 'source';
@@ -36,6 +37,7 @@ export interface PageActions {
   demote(nodeId: string): void;
   setChannel(itemId: string, channel: Channel, on: boolean): void;
   draft(itemId: string): void;
+  uploadPhoto(itemId: string, file: File): Promise<unknown>;
 }
 
 interface PageProps {
@@ -462,7 +464,12 @@ function ChannelBlock({ doc, node, item, itemId, readOnly, act }: BlockProps) {
       );
 
     case 'photo':
-      return <Photo item={item} readOnly={readOnly} set={set} />;
+      return (
+        <Photo
+          item={item} itemId={itemId} issueId={doc.issue.id}
+          readOnly={readOnly} set={set} act={act}
+        />
+      );
 
     case 'quote':
       return (
@@ -616,22 +623,40 @@ function domainOf(url: string | undefined): string {
  * the control — a div with a click handler is not reachable from the keyboard.
  */
 function Photo({
-  item, readOnly, set,
-}: { item: Item; readOnly: boolean; set: (p: Record<string, unknown>) => void }) {
+  item, itemId, issueId, readOnly, set, act,
+}: {
+  item: Item;
+  itemId: string;
+  issueId: string;
+  readOnly: boolean;
+  set: (p: Record<string, unknown>) => void;
+  act: PageActions;
+}) {
   const media = item.media ?? {};
+  const [uploading, setUploading] = useState(false);
+  const [failed, setFailed] = useState<string | null>(null);
 
+  /**
+   * The server reads the EXIF, not the browser: the file's modified time is
+   * when it was copied, not when it was taken.
+   */
   const take = (file: File | undefined) => {
     if (!file) return;
-    // Time and place come from the file; both stay editable afterwards.
-    set({
-      media: {
-        ...media,
-        pending_upload: file.name,
-        alt: media.alt || file.name.replace(/\.[a-z0-9]+$/i, '').replace(/[-_]+/g, ' '),
-        timestamp: media.timestamp || new Date(file.lastModified).toISOString(),
-      },
-    });
+    setUploading(true);
+    setFailed(null);
+    act.uploadPhoto(itemId, file)
+      .catch((err: Error) => setFailed(err.message))
+      .finally(() => setUploading(false));
   };
+
+  if (uploading) {
+    return (
+      <div class="photo-drop busy">
+        <Spinner size={20} />
+        <span>Resizing and uploading…</span>
+      </div>
+    );
+  }
 
   if (!media.url) {
     return (
@@ -643,6 +668,7 @@ function Photo({
         <ImagePlus />
         <span>Drop a photo here, or click to choose</span>
         <span class="hint">Time and place are read from the file. Both stay editable.</span>
+        {failed && <span class="hint error-text">{failed}</span>}
       </label>
     );
   }
