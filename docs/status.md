@@ -70,8 +70,8 @@ finished, what is half-finished, and what has never run.
   been made.
 - **The podcast send.** No audio has been synthesized. It costs an OpenAI TTS
   call and writes an mp3 to the CDN.
-- `WT_BUILDER_BUMPERS_DIR` is unset, so audio would render with no intro or
-  outro bumper.
+- ~~`WT_BUILDER_BUMPERS_DIR` is unset~~ — resolved 2026-08-28: the bumpers
+  live in `assets/bumpers/` and are the default.
 - **The archive send.** Built 2026-08-28 — it commits `data/issues/{N}/` into
   the corpus repository — and no commit has been made. Until this session it
   did not exist at all, while the dashboard offered its button anyway.

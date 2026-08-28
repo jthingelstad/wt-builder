@@ -502,7 +502,7 @@ async function sendPodcast(id: string) {
   try {
     const script = renderAudioScript(doc);
     const result = await audio.renderAudio(doc, script, {
-      bumpersDir: process.env.WT_BUILDER_BUMPERS_DIR,
+      bumpersDir: config.bumpersDir,
     });
     const state: PodcastSend = {
       status: 'sent',

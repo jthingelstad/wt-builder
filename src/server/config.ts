@@ -79,6 +79,15 @@ export const config = {
    */
   archiveRepo: optional('WT_BUILDER_ARCHIVE_REPO') ?? 'jthingelstad/studio-thing',
   archiveBranch: optional('WT_BUILDER_ARCHIVE_BRANCH') ?? 'main',
+
+  /**
+   * Standing intro and outro bumpers wrapped around the audio body. They live
+   * in the repo — they are as much a part of the edition as the renderers —
+   * and the env var exists to try a different pair without a commit.
+   */
+  bumpersDir:
+    optional('WT_BUILDER_BUMPERS_DIR') ??
+    fileURLToPath(new URL('../../assets/bumpers', import.meta.url)),
 };
 
 /** Safe to log: presence only, never values. */
