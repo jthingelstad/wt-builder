@@ -18,8 +18,8 @@ newsletter.
 
 **Implementation.** The interaction design is settled and the prototype in
 [`prototype/`](prototype/) is the reference for what the interface does. The
-first slice runs end to end: sweep, assemble, four lenses, and a Buttondown
-draft. Website and podcast sending are not built yet.
+whole path runs end to end: sweep, assemble, four lenses, editorial review,
+and all three sends — Buttondown draft, website handoff, and podcast audio.
 
 Start with:
 
@@ -57,6 +57,13 @@ authentication layer inside the app, so do not bind it to a public interface.
   `WT_BUILDER_PINBOARD_WRITEBACK=true`.
 - **Micro.blog** — reads the blog's public JSON Feed. Read-only, always.
 - **Buttondown** — creates and updates a draft. Never schedules, never sends.
+- **Website** — commits the generated 11ty inputs to the render surface as one
+  commit. `GET /api/issues/{id}/send/website/preview` shows what would change
+  and commits nothing.
+- **Podcast** — synthesizes the audio script with OpenAI `tts-1-hd` (voice
+  `echo`) and uploads the mp3 to `files.thingelstad.com`. Needs `ffmpeg`.
+- **Editorial review** — two passes over the issue, proofing then judgement.
+  Button-only; never writes.
 
 ## Product principles
 

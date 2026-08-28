@@ -27,6 +27,10 @@ import * as pinboard from './integrations/pinboard.ts';
 import * as microblog from './integrations/microblog.ts';
 import { rehostIssueImages } from './integrations/images.ts';
 import * as editorial from './editorial.ts';
+import * as githubRepo from './integrations/github.ts';
+import * as audio from './integrations/audio.ts';
+import { renderAudio as renderAudioScript } from '../shared/render/audio.ts';
+import { issueEntry, siteInputs, type IssueEntry } from './publish.ts';
 
 const DIST = fileURLToPath(new URL('../../dist', import.meta.url));
 
@@ -275,6 +279,14 @@ const routes: [RegExp, string, (ctx: Ctx, params: string[]) => Promise<unknown>]
     return result;
   }],
 
+  /** What the website handoff would change, changing nothing. */
+  [/^\/api\/issues\/([^/]+)\/send\/website\/preview$/, 'GET', async (_ctx, [id]) => {
+    const doc = requireIssue(id!);
+    const files = siteInputs(doc, websiteOptions(doc));
+    const result = await githubRepo.diff(files, config.websiteBranch);
+    return { repo: config.websiteRepo, ...result, files: files.map((f) => f.path) };
+  }],
+
   /** Copy every remote image onto the CDN, resized. Safe to run repeatedly. */
   [/^\/api\/issues\/([^/]+)\/images\/rehost$/, 'POST', async (_ctx, [id]) => {
     const { doc, report } = await rehostIssueImages(requireIssue(id!));
@@ -287,8 +299,10 @@ const routes: [RegExp, string, (ctx: Ctx, params: string[]) => Promise<unknown>]
    */
   [/^\/api\/issues\/([^/]+)\/send\/([a-z]+)$/, 'POST', async (_ctx, [id, dest]) => {
     const destination = dest as Destination;
+    if (destination === 'website') return sendWebsite(id!);
+    if (destination === 'podcast') return sendPodcast(id!);
     if (destination !== 'buttondown') {
-      throw new HttpError(501, `${destination} sending is not built yet; Buttondown is the slice`);
+      throw new HttpError(400, `unknown destination ${destination}`);
     }
     // Rehost first: the email is where image weight actually hurts, and the
     // rewritten URLs must be in the document before the body is rendered.
@@ -323,6 +337,110 @@ const routes: [RegExp, string, (ctx: Ctx, params: string[]) => Promise<unknown>]
     }
   }],
 ];
+
+
+// ── send legs ─────────────────────────────────────────────────────────────
+
+interface PodcastSend extends SendState {
+  audio?: Record<string, unknown>;
+}
+
+/** Prior issues' index entries, so emails.json is rewritten whole. */
+function priorEntries(number: number): IssueEntry[] {
+  return store
+    .listIssues()
+    .filter((r) => r.number !== number && r.doc.issue.status === 'published')
+    .map((r) => {
+      const sends = r.doc.sends ?? {};
+      const entry = issueEntry(r.doc);
+      return {
+        ...entry,
+        id: sends.buttondown?.external_id ?? entry.id,
+        absolute_url: sends.buttondown?.url ?? entry.absolute_url,
+      };
+    });
+}
+
+function websiteOptions(doc: IssueDoc) {
+  const sends = doc.sends ?? {};
+  const podcast = sends.podcast as PodcastSend | undefined;
+  return {
+    buttondownId: sends.buttondown?.external_id,
+    absoluteUrl: sends.buttondown?.url,
+    audio: podcast?.audio as never,
+    priorEntries: priorEntries(doc.issue.number),
+  };
+}
+
+/**
+ * Commit the generated 11ty inputs to the render surface as one commit. The
+ * site builds and deploys from there; nothing here touches the live site.
+ */
+async function sendWebsite(id: string) {
+  const doc = requireIssue(id);
+  store.recordSend(id, 'website', { status: 'sending', at: new Date().toISOString() });
+  try {
+    const files = siteInputs(doc, websiteOptions(doc));
+    const result = await githubRepo.putTree(
+      files,
+      `Add issue ${doc.issue.number} from WT Builder`,
+      config.websiteBranch,
+    );
+    const state: SendState = {
+      status: 'sent',
+      at: new Date().toISOString(),
+      external_id: result.sha,
+      url: `https://github.com/${config.websiteRepo}/commit/${result.sha}`,
+    };
+    const row = store.recordSend(id, 'website', state);
+    return { issue: row?.doc, send: state, changed: result.changed, committed: result.committed };
+  } catch (err) {
+    const state: SendState = {
+      status: 'failed',
+      at: new Date().toISOString(),
+      error: (err as Error).message,
+    };
+    store.recordSend(id, 'website', state);
+    throw new HttpError(502, state.error!);
+  }
+}
+
+/**
+ * Render the script, synthesize it, and upload the mp3 to the CDN. The website
+ * publishes the reference; the file lives only on the CDN.
+ */
+async function sendPodcast(id: string) {
+  const doc = requireIssue(id);
+  store.recordSend(id, 'podcast', { status: 'sending', at: new Date().toISOString() });
+  try {
+    const script = renderAudioScript(doc);
+    const result = await audio.renderAudio(script, doc.issue.number, {
+      bumpersDir: process.env.WT_BUILDER_BUMPERS_DIR,
+    });
+    const state: PodcastSend = {
+      status: 'sent',
+      at: new Date().toISOString(),
+      external_id: result.url,
+      url: result.url,
+      audio: {
+        audio_url: result.url,
+        audio_duration_seconds: result.durationSeconds,
+        audio_byte_size: result.bytes,
+        audio_voice: result.voice,
+      },
+    };
+    const row = store.recordSend(id, 'podcast', state);
+    return { issue: row?.doc, send: state, chunks: result.chunks };
+  } catch (err) {
+    const state: SendState = {
+      status: 'failed',
+      at: new Date().toISOString(),
+      error: (err as Error).message,
+    };
+    store.recordSend(id, 'podcast', state);
+    throw new HttpError(502, state.error!);
+  }
+}
 
 // ── static client ─────────────────────────────────────────────────────────
 

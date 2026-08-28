@@ -28,12 +28,17 @@ export interface Credentials {
   pinboardToken?: string;
   microblogToken?: string;
   buttondownKey?: string;
+  githubToken?: string;
+  /** Text-to-speech for the audio edition. */
+  openaiKey?: string;
 }
 
 export const credentials: Credentials = {
   pinboardToken: optional('PINBOARD_API_TOKEN'),
   microblogToken: optional('MICROBLOG_API_KEY'),
   buttondownKey: optional('BUTTONDOWN_API_KEY'),
+  githubToken: optional('GITHUB_PAT_TOKEN'),
+  openaiKey: optional('OPENAI_API_KEY'),
 };
 
 export const config = {
@@ -54,6 +59,10 @@ export const config = {
   /** Rehost and resize remote images onto the CDN before sending. */
   rehostImages: optional('WT_BUILDER_REHOST_IMAGES') !== 'false',
   awsRegion: optional('AWS_DEFAULT_REGION') ?? 'us-east-1',
+
+  /** The render surface the website edition is committed to. */
+  websiteRepo: optional('GITHUB_REPO_NWO') ?? 'jthingelstad/weekly.thingelstad.com',
+  websiteBranch: optional('WT_BUILDER_WEBSITE_BRANCH') ?? 'main',
 };
 
 /** Safe to log: presence only, never values. */
@@ -66,6 +75,9 @@ export function describeConfig(): Record<string, string> {
     microblog: credentials.microblogToken ? 'configured' : 'MISSING',
     buttondown: credentials.buttondownKey ? 'configured' : 'MISSING',
     aws: process.env.AWS_ACCESS_KEY_ID ? 'configured' : 'MISSING',
+    github: credentials.githubToken ? 'configured' : 'MISSING',
+    openai: credentials.openaiKey ? 'configured' : 'MISSING',
+    websiteRepo: config.websiteRepo,
     pinboardWriteBack: config.pinboardWriteBack ? 'enabled' : 'disabled',
     microblogWriteBack: config.microblogWriteBack ? 'enabled' : 'disabled',
     rehostImages: config.rehostImages ? 'enabled' : 'disabled',
