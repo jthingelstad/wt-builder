@@ -119,10 +119,18 @@ Generates candidate text for one item. Never writes it.
   "item_id": "membership-1",
   "type": "membership",
   "issue": { "number": 350 },
-  "context": { "campaign_facts": "…", "assembled_issue": "…" },
+  "context": "optional extra context from the client",
   "current": "whatever is in the item now, possibly empty"
 }
 ```
+
+For Membership, the service fetches the campaign facts itself from the
+website repo's `apps/site/_data/support.json` — the same file `/members/`
+renders from, so the draft cannot disagree with what a reader sees: the
+year's nonprofit, the price, the past years' totals, and the frame (free
+for everyone; 100% of fees to the nonprofit; membership is a giving
+program, never a paywall). A failed fetch degrades to the evergreen frame —
+the prompt forbids inventing figures.
 
 ### Response
 

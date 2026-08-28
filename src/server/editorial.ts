@@ -11,6 +11,7 @@ import Anthropic from '@anthropic-ai/sdk';
 import type { IssueDoc, Item } from '../shared/types.ts';
 import { renderAnnotated } from '../shared/render/annotate.ts';
 import { bodyLines } from '../shared/render/plan.ts';
+import { config } from './config.ts';
 
 const MODEL = 'claude-opus-5';
 
@@ -302,9 +303,23 @@ export function candidateCount(type: Item['type']): number {
 const DRAFT_PROMPTS: Partial<Record<Item['type'], string>> = {
   membership: `Write the Membership section for this issue of The Weekly Thing.
 It is attributed to Thingy in print, so write in Thingy's voice — an assistant
-that helps with the newsletter — never as Jamie. One short paragraph. State the
-campaign facts plainly and warmly. Do not invent a figure, a deadline, or a
-partner that is not in the facts given.`,
+that helps with the newsletter — never as Jamie. One short paragraph.
+
+Understand the program before you write, because generic newsletter-support
+copy gets it exactly backwards:
+
+- The Weekly Thing is free for everyone, always. Membership is NOT a paywall,
+  NOT premium content, and NOT "support Jamie's work".
+- Supporting Membership is a community giving program: 100% of membership
+  fees go directly to a nonprofit selected each year. The member's money
+  funds the nonprofit, not the newsletter.
+- Name the current year's nonprofit and say in a phrase why it matters —
+  from the facts given, never invented.
+- The ask is warm and unhurried: an invitation to give through the
+  newsletter, not a plea to sustain it. "Less than a coffee a month" is the
+  register. A one-time gift of any amount is equally welcome.
+- Never invent a figure, a deadline, a goal, or urgency. Never mention
+  member perks as the reason to join — the giving is the reason.`,
 
   echoes: `Write Echoes: a short closing callback that connects something in this
 issue to the newsletter's archive. It is attributed to Thingy, so write in
@@ -321,6 +336,65 @@ newlines.`,
 voice: direct, specific, and unhyped. Say why it is worth a reader's attention.
 Do not restate the title.`,
 };
+
+/**
+ * The membership program's facts, formatted for the drafting prompt.
+ *
+ * Pure so it is testable; the shape is apps/site/_data/support.json in the
+ * website repo — the same file the /members/ page renders from, which makes
+ * it the one source that cannot disagree with what a reader sees.
+ */
+export function campaignFacts(support: {
+  yearly_price?: number;
+  current?: {
+    nonprofit?: string;
+    description?: string;
+    year?: number;
+    year_label?: string;
+  };
+  past?: { nonprofit?: string; year?: number; amount_raised?: number }[];
+}): string {
+  const lines: string[] = [];
+  const c = support.current ?? {};
+  if (c.nonprofit) {
+    lines.push(
+      `This year's nonprofit (${c.year_label ?? c.year ?? 'current year'}): ${c.nonprofit}.`,
+    );
+  }
+  if (c.description) lines.push(`About them: ${c.description}`);
+  if (support.yearly_price) {
+    lines.push(
+      `Membership is $${support.yearly_price}/year, recurring — or a one-time gift of any amount.`,
+    );
+  }
+  const past = (support.past ?? []).filter((p) => p.nonprofit);
+  if (past.length) {
+    const total = past.reduce((n, p) => n + (p.amount_raised ?? 0), 0);
+    lines.push(
+      `Past years funded ${past.map((p) => p.nonprofit).join(', ')} — $${total.toFixed(2)} raised so far.`,
+    );
+  }
+  lines.push('100% of membership fees go to the nonprofit. The newsletter is free for everyone.');
+  return lines.join('\n');
+}
+
+/**
+ * Fetch the live program facts from the website repo. The client passes no
+ * campaign context, and asking Jamie to paste his own program description
+ * into a field every year is how the first generated CTA came out generic.
+ * Returns null on any failure — the prompt then forbids invention, so a
+ * fetch failure degrades to the evergreen frame rather than to fiction.
+ */
+async function fetchCampaignFacts(): Promise<string | null> {
+  try {
+    const url = `https://raw.githubusercontent.com/${config.websiteRepo}/main/apps/site/_data/support.json`;
+    const res = await fetch(url, { signal: AbortSignal.timeout(10_000) });
+    if (!res.ok) return null;
+    return campaignFacts(await res.json());
+  } catch {
+    return null;
+  }
+}
 
 export interface DraftRequest {
   doc: IssueDoc;
@@ -354,8 +428,13 @@ export async function draft(req: DraftRequest): Promise<DraftResult> {
   const current = bodyLines(item.body).join(' ');
   const assembled = renderAnnotated(req.doc, 'website');
 
+  // Membership grounds itself in the live program facts; whatever the client
+  // passed rides along as additional context.
+  const campaign = item.type === 'membership' ? await fetchCampaignFacts() : null;
+
   const parts = [
     `Return exactly ${n} distinct candidates. Make them genuinely different from each other, not variations on one phrasing.`,
+    campaign ? `\nThe program, from the live members page:\n${campaign}` : '',
     req.context ? `\nContext you must work from:\n${req.context}` : '',
     current ? `\nWhat the item says now, which you are improving on:\n${current}` : '',
     item.type === 'pinboard_link'

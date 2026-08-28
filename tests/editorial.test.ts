@@ -7,7 +7,7 @@ import { fileURLToPath } from 'node:url';
 import type { IssueDoc } from '../src/shared/types.ts';
 import { renderAnnotated } from '../src/shared/render/annotate.ts';
 import {
-  assembleReview, candidateCount, pruneStale, type Note, type Review,
+  assembleReview, campaignFacts, candidateCount, pruneStale, type Note, type Review,
 } from '../src/server/editorial.ts';
 
 const doc = JSON.parse(
@@ -141,5 +141,41 @@ describe('assembling a review from whichever passes ran', () => {
     });
     expect(r.notes).toEqual([]);
     expect(r.summary).toBe('Clean.');
+  });
+});
+
+describe('membership campaign facts', () => {
+  // Shaped like apps/site/_data/support.json in the website repo — the same
+  // file /members/ renders from.
+  const support = {
+    yearly_price: 48,
+    current: {
+      nonprofit: 'Signal',
+      description: 'Signal is the gold standard for private communication.',
+      year: 2026,
+      year_label: 'Ninth Year',
+    },
+    past: [
+      { nonprofit: 'Electronic Frontier Foundation', year: 2025, amount_raised: 1164.92 },
+      { nonprofit: 'Creative Commons', year: 2024, amount_raised: 623.87 },
+    ],
+  };
+
+  it('carries the program, not a paywall pitch', () => {
+    const facts = campaignFacts(support);
+    expect(facts).toContain('Signal');
+    expect(facts).toContain('Ninth Year');
+    expect(facts).toContain('$48/year');
+    expect(facts).toContain('one-time gift of any amount');
+    expect(facts).toContain('100% of membership fees go to the nonprofit');
+    expect(facts).toContain('free for everyone');
+    expect(facts).toContain('$1788.79 raised so far');
+  });
+
+  it('degrades to the evergreen frame when fields are missing', () => {
+    const facts = campaignFacts({});
+    expect(facts).toContain('100% of membership fees');
+    expect(facts).not.toContain('undefined');
+    expect(facts).not.toContain('$NaN');
   });
 });
