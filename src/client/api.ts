@@ -24,6 +24,21 @@ export interface IssueResponse {
   readiness: Readiness;
 }
 
+/** What a send hands back — the evidence each step produced. */
+export interface SendResult {
+  issue: IssueDoc;
+  send: { status: string; url?: string; external_id?: string; error?: string };
+  /** Podcast only. */
+  audio?: {
+    audio_url?: string;
+    audio_duration_seconds?: number;
+    audio_byte_size?: number;
+    audio_voice?: string;
+  };
+  chunks?: number;
+  cover?: string;
+}
+
 export interface IssueSummary {
   id: string;
   number: number;
@@ -123,8 +138,5 @@ export const api = {
     >,
 
   send: (id: string, destination: string) =>
-    call<{ issue: IssueDoc; send: { status: string; url?: string; external_id?: string } }>(
-      `/issues/${id}/send/${destination}`,
-      { method: 'POST', body: '{}' },
-    ),
+    call<SendResult>(`/issues/${id}/send/${destination}`, { method: 'POST', body: '{}' }),
 };
