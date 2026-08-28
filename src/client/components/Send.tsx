@@ -1,4 +1,4 @@
-import { useState } from 'preact/hooks';
+import { useEffect, useState } from 'preact/hooks';
 
 import type { Destination, IssueDoc } from '../../shared/types.ts';
 import { api, type Readiness } from '../api.ts';
@@ -48,7 +48,7 @@ const CHANNELS: ChannelSpec[] = [
     dest: 'weekly.thingelstad.com',
     ends: 'Commits the generated inputs to the render surface, which builds and deploys them.',
     icon: <Globe />,
-    built: true,
+    built: false,
     verb: 'Commit',
     again: 'Re-commit',
     resultLabel: 'Commit',
@@ -60,7 +60,7 @@ const CHANNELS: ChannelSpec[] = [
     dest: 'files.thingelstad.com',
     ends: 'Renders the script, synthesizes the audio, and uploads it to the CDN. The website publishes the reference.',
     icon: <Mic />,
-    built: true,
+    built: false,
     verb: 'Render audio',
     again: 'Re-render',
     resultLabel: 'Audio',
@@ -76,6 +76,14 @@ export function Send({ doc, readiness, error, onBack, onSent, onError }: Props) 
   const [running, setRunning] = useState<Destination | null>(null);
   const sends = doc.sends ?? {};
   const blockers = readiness ? readiness.units.filter((u) => !u.done) : [];
+
+  useEffect(() => {
+    const onKey = (event: KeyboardEvent) => {
+      if (event.key === 'Escape') onBack();
+    };
+    window.addEventListener('keydown', onKey);
+    return () => window.removeEventListener('keydown', onKey);
+  }, [onBack]);
 
   const send = async (destination: Destination) => {
     setRunning(destination);

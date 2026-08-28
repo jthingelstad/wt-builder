@@ -1,8 +1,8 @@
 import { useState } from 'preact/hooks';
 
-import type { IssueDoc } from '../../shared/types.ts';
+import type { IssueDoc, Item } from '../../shared/types.ts';
 import { CHANNELS } from '../../shared/types.ts';
-import { api, type IssueResponse } from '../api.ts';
+import { api, shouldWriteBack, type IssueResponse } from '../api.ts';
 
 interface Props {
   doc: IssueDoc;
@@ -13,32 +13,31 @@ interface Props {
 }
 
 const SYNC_LABEL: Record<string, string> = {
-  synced: 'Synced with Pinboard',
-  syncing: 'Writing to Pinboard…',
-  failed: 'Pinboard write failed — your edit is kept',
+  synced: 'Synced',
+  syncing: 'Writing…',
+  failed: 'Write failed — your edit is kept',
   needs_commentary: 'No commentary yet',
   local: 'Edited here, not yet written back',
 };
 
-/** Provenance, channels, and the per-item actions. */
+/** Provenance, fields, channels, and source synchronization for one item. */
 export function Inspector({ doc, itemId, run, onClose, onError }: Props) {
   const item = doc.items[itemId];
   const [writing, setWriting] = useState(false);
   if (!item) return null;
 
   const id = doc.issue.id;
+  const prefix = `item-${itemId}`;
   const node = doc.nodes.find((n) => n.items.includes(itemId));
+  const imported = item.source === 'Pinboard' || item.source === 'Micro.blog';
 
   const writeBack = async () => {
     setWriting(true);
     try {
       const res = await api.writeBack(id, itemId);
-      if (res.result.sync_state !== 'synced') {
-        onError(`Pinboard: ${res.result.error ?? res.result.sync_state}. Your edit is kept.`);
-      } else {
-        onError(null);
-      }
       await run(async () => res);
+      if (res.result.sync_state === 'synced') onError(null);
+      else onError(`${item.source}: ${res.result.error ?? res.result.sync_state}. Your edit is kept.`);
     } catch (err) {
       onError((err as Error).message);
     } finally {
@@ -46,68 +45,122 @@ export function Inspector({ doc, itemId, run, onClose, onError }: Props) {
     }
   };
 
+  const commit = async (patch: Record<string, unknown>) => {
+    try {
+      const updated = await api.updateItem(id, itemId, patch);
+      await run(async () => updated);
+      if (shouldWriteBack(item, patch)) await writeBack();
+    } catch (err) {
+      onError((err as Error).message);
+    }
+  };
+
+  const commitField = (field: keyof Item, value: unknown) => {
+    if (item[field] !== value) void commit({ [field]: value });
+  };
+
+  const commitMedia = (field: string, value: string) => {
+    if ((item.media?.[field as keyof NonNullable<Item['media']>] ?? '') === value) return;
+    void commit({ media: { ...(item.media ?? {}), [field]: value } });
+  };
+
   return (
-    <aside class="panel">
+    <aside class="panel" aria-label={`${item.type.replace('_', ' ')} inspector`}>
       <h3>{item.type.replace('_', ' ')}</h3>
 
-      {item.title && (
+      {(item.title !== undefined || imported) && (
         <div class="field">
-          <label>Title</label>
+          <label htmlFor={`${prefix}-title`}>Title</label>
           <input
-            value={item.title}
-            onBlur={(e) => void run(() => api.updateItem(id, itemId, { title: (e.target as HTMLInputElement).value }))}
+            id={`${prefix}-title`}
+            value={item.title ?? ''}
+            onBlur={(e) => commitField('title', (e.target as HTMLInputElement).value)}
           />
         </div>
       )}
 
       {item.type === 'currently' && (
         <div class="field">
-          <label>Label</label>
+          <label htmlFor={`${prefix}-label`}>Label</label>
           <input
+            id={`${prefix}-label`}
             value={item.label ?? ''}
-            onBlur={(e) => void run(() => api.updateItem(id, itemId, { label: (e.target as HTMLInputElement).value }))}
+            onBlur={(e) => commitField('label', (e.target as HTMLInputElement).value)}
           />
         </div>
       )}
 
-      {item.type === 'pinboard_link' ? (
-        <div class="field">
-          <label>Commentary</label>
-          <textarea
-            value={item.commentary ?? ''}
-            onBlur={(e) => void run(() => api.updateItem(id, itemId, { commentary: (e.target as HTMLTextAreaElement).value }))}
-          />
-        </div>
+      {item.type === 'photo' ? (
+        <PhotoFields item={item} prefix={prefix} commit={commitMedia} />
+      ) : item.type === 'pinboard_link' ? (
+        <>
+          <div class="field">
+            <label htmlFor={`${prefix}-commentary`}>Commentary</label>
+            <textarea
+              id={`${prefix}-commentary`}
+              value={item.commentary ?? ''}
+              onBlur={(e) => commitField('commentary', (e.target as HTMLTextAreaElement).value)}
+            />
+          </div>
+          <div class="field">
+            <label htmlFor={`${prefix}-tags`}>Pinboard tags</label>
+            <input
+              id={`${prefix}-tags`}
+              value={(item.tags ?? []).join(', ')}
+              onBlur={(e) => {
+                const tags = (e.target as HTMLInputElement).value
+                  .split(',')
+                  .map((tag) => tag.trim())
+                  .filter(Boolean);
+                if (tags.join('\n') !== (item.tags ?? []).join('\n')) void commit({ tags });
+              }}
+            />
+          </div>
+        </>
       ) : (
         <div class="field">
-          <label>Body</label>
+          <label htmlFor={`${prefix}-body`}>Body</label>
           <textarea
+            id={`${prefix}-body`}
             value={String(item.body ?? '')}
-            onBlur={(e) => void run(() => api.updateItem(id, itemId, { body: (e.target as HTMLTextAreaElement).value }))}
+            onBlur={(e) => commitField('body', (e.target as HTMLTextAreaElement).value)}
           />
+        </div>
+      )}
+
+      {item.authorship === 'Thingy' && (
+        <div class="review-box">
+          <span>{item.reviewed ? 'Reviewed by Jamie' : 'Jamie review required'}</span>
+          <button
+            class={`btn small${item.reviewed ? '' : ' primary'}`}
+            onClick={() => void commit({ reviewed: !item.reviewed, status: item.reviewed ? 'draft' : 'reviewed' })}
+          >
+            {item.reviewed ? 'Mark draft' : 'Mark reviewed'}
+          </button>
         </div>
       )}
 
       <h3 style="margin-top:18px">Editions</h3>
-      <div style="display:flex;gap:6px;margin-bottom:14px">
-        {CHANNELS.map((c) => {
-          const locked = item.channel_locks?.[c];
-          const on = item.channels[c];
+      <div class="edition-buttons">
+        {CHANNELS.map((channel) => {
+          const locked = item.channel_locks?.[channel];
+          const on = item.channels[channel];
           return (
             <button
-              key={c}
+              key={channel}
               class={`btn small${on ? ' primary' : ''}`}
               disabled={Boolean(locked)}
-              title={locked ?? `Toggle the ${c} edition`}
-              onClick={() => void run(() => api.setChannel(id, itemId, c, !on))}
+              title={locked ?? `Toggle the ${channel} edition`}
+              aria-label={`${on ? 'Remove' : 'Include'} item ${on ? 'from' : 'in'} ${channel}`}
+              onClick={() => void run(() => api.setChannel(id, itemId, channel, !on))}
             >
-              {c}
+              {channel}
             </button>
           );
         })}
       </div>
-      {Object.entries(item.channel_locks ?? {}).map(([c, why]) => (
-        <p key={c} style="font-size:12px;color:var(--faint);margin:0 0 10px">{why}</p>
+      {Object.entries(item.channel_locks ?? {}).map(([channel, why]) => (
+        <p key={channel} class="field-note">{why}</p>
       ))}
 
       <h3 style="margin-top:18px">Provenance</h3>
@@ -118,43 +171,78 @@ export function Inspector({ doc, itemId, run, onClose, onError }: Props) {
       {item.source_url && (
         <div class="kv">
           <span>Original</span>
-          <a href={item.source_url} target="_blank" rel="noreferrer" style="word-break:break-all">
+          <a href={item.source_url} target="_blank" rel="noreferrer" class="break-link">
             {item.source_url}
           </a>
         </div>
       )}
       {item.sync_state && (
-        <div class="kv"><span>Sync</span><span>{SYNC_LABEL[item.sync_state] ?? item.sync_state}</span></div>
+        <div class="kv"><span>Sync</span><span>{SYNC_LABEL[item.sync_state] ?? item.sync_state} with {item.source}</span></div>
       )}
+      {item.sync_error && <p class="field-note error-text">{item.sync_error}</p>}
 
-      {item.source === 'Pinboard' && (
+      {imported && (
         <button class="btn" style="margin-top:12px" onClick={writeBack} disabled={writing}>
-          {writing ? 'Writing…' : 'Write back to Pinboard'}
+          {writing ? 'Writing…' : `Retry write to ${item.source}`}
         </button>
       )}
 
       {item.archive_references?.length ? (
         <>
           <h3 style="margin-top:18px">Archive references</h3>
-          {item.archive_references.map((r) => (
-            <div class="kv" key={r.url}>
-              <span>WT{r.issue}</span>
-              <a href={r.url} target="_blank" rel="noreferrer">{r.note ?? r.url}</a>
+          {item.archive_references.map((reference) => (
+            <div class="kv" key={reference.url}>
+              <span>WT{reference.issue}</span>
+              <a href={reference.url} target="_blank" rel="noreferrer">{reference.note ?? reference.url}</a>
             </div>
           ))}
         </>
       ) : null}
 
-      <div style="display:flex;gap:6px;margin-top:18px">
+      <div class="panel-actions">
         <button
           class="btn"
           title="Hide this item — every edition off. Nothing is deleted."
-          onClick={() => void run(() => api.setVisible(id, itemId, false))}
+          onClick={async () => {
+            await run(() => api.setVisible(id, itemId, false));
+            onClose();
+          }}
         >
           Hide
         </button>
         <button class="btn" onClick={onClose}>Close</button>
       </div>
     </aside>
+  );
+}
+
+function PhotoFields({
+  item, prefix, commit,
+}: {
+  item: Item;
+  prefix: string;
+  commit: (field: string, value: string) => void;
+}) {
+  const fields: { key: keyof NonNullable<Item['media']>; label: string; type?: string }[] = [
+    { key: 'url', label: 'Image URL', type: 'url' },
+    { key: 'alt', label: 'Alt text' },
+    { key: 'caption', label: 'Caption' },
+    { key: 'timestamp', label: 'Timestamp (ISO 8601)' },
+    { key: 'location', label: 'Location' },
+  ];
+  return (
+    <>
+      {fields.map((field) => (
+        <div class="field" key={field.key}>
+          <label htmlFor={`${prefix}-${field.key}`}>{field.label}</label>
+          <input
+            id={`${prefix}-${field.key}`}
+            type={field.type ?? 'text'}
+            value={item.media?.[field.key] ?? ''}
+            onBlur={(e) => commit(field.key, (e.target as HTMLInputElement).value)}
+          />
+        </div>
+      ))}
+    </>
   );
 }

@@ -18,8 +18,8 @@ newsletter.
 
 **Implementation.** The interaction design is settled and the prototype in
 [`prototype/`](prototype/) is the reference for what the interface does. The
-whole path runs end to end: sweep, assemble, four lenses, editorial review,
-and all three sends — Buttondown draft, website handoff, and podcast audio.
+first thin slice runs end to end: sweep, assemble, four lenses, editorial
+review, and sending to a Buttondown draft. Website and podcast sends come next.
 
 Start with:
 
@@ -67,13 +67,11 @@ tail -f ~/Library/Logs/wt-builder/wt-builder.log                  # logs
 - **Pinboard** — reads the unread queue for the issue's window. Write-back
   mutates real bookmarks and stays off unless
   `WT_BUILDER_PINBOARD_WRITEBACK=true`.
-- **Micro.blog** — reads the blog's public JSON Feed. Read-only, always.
+- **Micro.blog** — reads the blog's public JSON Feed and writes source-owned
+  edits back through the server.
 - **Buttondown** — creates and updates a draft. Never schedules, never sends.
-- **Website** — commits the generated 11ty inputs to the render surface as one
-  commit. `GET /api/issues/{id}/send/website/preview` shows what would change
-  and commits nothing.
-- **Podcast** — synthesizes the audio script with OpenAI `tts-1-hd` (voice
-  `echo`) and uploads the mp3 to `files.thingelstad.com`. Needs `ffmpeg`.
+- **Website** and **Podcast** — their renderers and integration groundwork are
+  present, but sending is deliberately unavailable in the current slice.
 - **Editorial review** — two passes over the issue, proofing then judgement.
   Button-only; never writes.
 

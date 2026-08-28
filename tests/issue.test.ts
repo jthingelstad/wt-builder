@@ -10,9 +10,11 @@ import type { IssueDoc } from '../src/shared/types.ts';
 import { issueWindow, snapToSaturday } from '../src/shared/dates.ts';
 import {
   addMarkdownBlock, addSection, createIssue, demote, hideItem, moveNode,
-  promote, readiness, removeSection, setChannel, setWindowDays,
+  promote, readiness, removeSection, setChannel, setIssueNumber, setWindowDays,
+  updateItem,
 } from '../src/server/issue.ts';
 import { planEdition } from '../src/shared/render/plan.ts';
+import { sourceRows } from '../src/shared/render/source.ts';
 import { renderWebsite } from '../src/shared/render/website.ts';
 import { renderAudio } from '../src/shared/render/audio.ts';
 
@@ -124,6 +126,25 @@ describe('sections', () => {
     expect(restored.orphans).not.toContain('briefly-forge');
   });
 
+  it('retains and restores the exact removed node', () => {
+    const original = fixture().nodes.find((n) => n.id === 'journal')!;
+    const removed = removeSection(fixture(), 'journal');
+    expect(removed.held_nodes).toContainEqual(original);
+    expect(sourceRows(removed).some((row) => row.nodeId === 'journal' && row.held)).toBe(true);
+
+    const restored = addSection(removed, { id: 'journal', type: 'journal', label: 'Journal' });
+    expect(restored.nodes.find((n) => n.id === 'journal')).toEqual(original);
+    expect(restored.held_nodes).not.toContainEqual(original);
+  });
+
+  it('seeds a new ad hoc section with an editable item', () => {
+    const doc = addSection(fixture(), { type: 'ad_hoc', label: 'New section' });
+    const added = doc.nodes.find((n) => n.type === 'ad_hoc')!;
+    expect(added.kind).toBe('ad_hoc');
+    expect(added.items).toHaveLength(1);
+    expect(doc.items[added.items[0]!]!.type).toBe('markdown');
+  });
+
   it('never places a new section after Echoes', () => {
     const doc = addSection(fixture(), { type: 'ad_hoc', label: 'Postscript' });
     expect(doc.issue.output_order?.at(-1)).toBe('echoes');
@@ -135,6 +156,28 @@ describe('sections', () => {
     const node = doc.nodes.find((n) => n.type === 'mdblock' && n.id !== 'ps-email')!;
     expect(node.publishes_heading).toBe(false);
     expect(node.items).toHaveLength(1);
+  });
+});
+
+describe('editor state', () => {
+  it('marks source-owned edits as awaiting write-back', () => {
+    const doc = updateItem(fixture(), 'journal-concert', { body: 'A local revision.' });
+    expect(doc.items['journal-concert']!.sync_state).toBe('syncing');
+  });
+
+  it('requires a fresh review when Thingy copy changes', () => {
+    const before = fixture();
+    before.items['membership-1']!.reviewed = true;
+    before.items['membership-1']!.status = 'reviewed';
+    const after = updateItem(before, 'membership-1', { body: 'Fresh words.' });
+    expect(after.items['membership-1']!.reviewed).toBe(false);
+    expect(after.items['membership-1']!.status).toBe('draft');
+  });
+
+  it('updates the editable display number without changing document identity', () => {
+    const doc = setIssueNumber(fixture(), 412);
+    expect(doc.issue.number).toBe(412);
+    expect(doc.issue.id).toBe('fixture-wt350');
   });
 });
 

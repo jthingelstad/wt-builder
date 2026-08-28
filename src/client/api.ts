@@ -1,6 +1,16 @@
 /** Thin client for the service. Every credential stays on the far side of this. */
 
-import type { Channel, IssueDoc } from '../shared/types.ts';
+import type { Channel, IssueDoc, Item } from '../shared/types.ts';
+
+/** True when a local edit touches a field owned by an imported source. */
+export function shouldWriteBack(item: Item, patch: Record<string, unknown>): boolean {
+  const fields = item.source === 'Pinboard'
+    ? ['title', 'commentary', 'tags']
+    : item.source === 'Micro.blog'
+      ? ['title', 'body']
+      : [];
+  return fields.some((field) => field in patch);
+}
 
 export interface Readiness {
   units: { done: boolean; title: string; anchor: string }[];

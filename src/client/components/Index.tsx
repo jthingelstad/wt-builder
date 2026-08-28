@@ -31,6 +31,7 @@ export function IssueIndex({ error, onError, onOpen }: Props) {
   };
 
   useEffect(() => { void load(); }, []);
+  const currentDraft = issues.find((issue) => issue.status === 'draft');
 
   const create = async () => {
     setCreating(true);
@@ -51,8 +52,16 @@ export function IssueIndex({ error, onError, onOpen }: Props) {
       <header class="header">
         <span class="num">WT BUILDER</span>
         <span class="spacer" />
-        <button class="btn primary" onClick={create} disabled={creating}>
-          {creating ? 'Opening…' : `New issue — WT${nextNumber}`}
+        <button
+          class="btn primary"
+          onClick={() => currentDraft ? onOpen(currentDraft.id) : void create()}
+          disabled={creating}
+        >
+          {creating
+            ? 'Opening…'
+            : currentDraft
+              ? `Open current — WT${currentDraft.number}`
+              : `New issue — WT${nextNumber}`}
         </button>
       </header>
 

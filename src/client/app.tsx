@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useState } from 'preact/hooks';
+import { useCallback, useState } from 'preact/hooks';
 
 import type { IssueDoc } from '../shared/types.ts';
 import { api, type IssueResponse, type Readiness } from './api.ts';
@@ -53,14 +53,6 @@ export function App() {
     },
     [absorb],
   );
-
-  useEffect(() => {
-    const onKey = (e: KeyboardEvent) => {
-      if (e.key === 'Escape' && view !== 'index') setView(view === 'send' ? 'issue' : 'index');
-    };
-    window.addEventListener('keydown', onKey);
-    return () => window.removeEventListener('keydown', onKey);
-  }, [view]);
 
   if (view === 'index' || !doc) {
     return (

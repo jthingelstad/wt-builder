@@ -229,9 +229,21 @@ export function updateItem(doc: IssueDoc, itemId: string, patch: Partial<Item>):
   const next = structuredClone(doc);
   const item = next.items[itemId];
   if (!item) return next;
+  const bodyChanged = patch.body !== undefined && patch.body !== item.body;
   Object.assign(item, patch);
-  if (item.type === 'pinboard_link' && patch.commentary !== undefined) {
-    item.sync_state = String(patch.commentary).trim() ? 'local' : 'needs_commentary';
+
+  const sourceFieldChanged =
+    (item.source === 'Pinboard' && ['title', 'commentary', 'tags'].some((key) => key in patch)) ||
+    (item.source === 'Micro.blog' && ['title', 'body'].some((key) => key in patch));
+  if (sourceFieldChanged) {
+    item.sync_state = 'syncing';
+    delete item.sync_error;
+  }
+
+  // A Thingy draft must be reviewed again after its words change.
+  if (item.authorship === 'Thingy' && bodyChanged) {
+    item.reviewed = false;
+    item.status = 'draft';
   }
   return next;
 }
@@ -359,6 +371,14 @@ export function removeSection(doc: IssueDoc, nodeId: string): IssueDoc {
   const next = structuredClone(doc);
   const target = next.nodes.find((n) => n.id === nodeId);
   if (!target) return next;
+  next.held_nodes = [
+    ...(next.held_nodes ?? []).filter((n) => n.id !== target.id),
+    structuredClone(target),
+  ];
+  for (const itemId of target.items) {
+    const item = next.items[itemId];
+    if (item && !item.section) item.section = target.label;
+  }
   next.orphans = [...(next.orphans ?? []), ...target.items];
   next.nodes = next.nodes.filter((n) => n.id !== nodeId);
   next.issue.output_order = (next.issue.output_order ?? []).filter((id) => id !== nodeId);
@@ -371,13 +391,28 @@ export function addSection(doc: IssueDoc, spec: { type: string; label: string; i
   const id = spec.id ?? `${spec.type}-${Date.now().toString(36)}`;
   if (next.nodes.some((n) => n.id === id)) return next;
 
-  const created = node(id, spec.type, spec.label);
+  const heldIndex = (next.held_nodes ?? []).findIndex(
+    (n) => n.id === id || (!spec.id && n.type === spec.type && n.label === spec.label),
+  );
+  const held = heldIndex >= 0 ? next.held_nodes![heldIndex] : undefined;
+  if (held) next.held_nodes = next.held_nodes!.filter((_, i) => i !== heldIndex);
+
+  const created = held ? structuredClone(held) : node(id, spec.type, spec.label);
+  if (!held && spec.type === 'ad_hoc') {
+    const itemId = `ad-${Date.now().toString(36)}`;
+    created.kind = 'ad_hoc';
+    created.items = [itemId];
+    next.items[itemId] = seedItem('markdown');
+  }
+
   // Reclaim any of this section's items that were held out.
-  const reclaimed = (next.orphans ?? []).filter((itemId) => {
-    const item = next.items[itemId];
-    return item?.section?.toLowerCase() === spec.label.toLowerCase();
-  });
-  created.items = reclaimed;
+  const reclaimed = held
+    ? held.items
+    : (next.orphans ?? []).filter((itemId) => {
+        const item = next.items[itemId];
+        return item?.section?.toLowerCase() === spec.label.toLowerCase();
+      });
+  if (!created.items.length) created.items = reclaimed;
   next.orphans = (next.orphans ?? []).filter((i) => !reclaimed.includes(i));
 
   next.nodes.push(created);
@@ -426,6 +461,12 @@ export function setPublicationDate(doc: IssueDoc, date: string): IssueDoc {
 export function setWindowDays(doc: IssueDoc, days: number): IssueDoc {
   const next = structuredClone(doc);
   next.issue.window_days = Math.max(1, Math.min(60, Math.round(days)));
+  return next;
+}
+
+export function setIssueNumber(doc: IssueDoc, number: number): IssueDoc {
+  const next = structuredClone(doc);
+  next.issue.number = Math.max(1, Math.round(number));
   return next;
 }
 

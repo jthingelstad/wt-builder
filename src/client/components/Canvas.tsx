@@ -4,8 +4,11 @@ import type { Channel, IssueDoc, Item } from '../../shared/types.ts';
 import { CHANNELS } from '../../shared/types.ts';
 import { clockTime, shortDate, wallClock, weekday, issueWindow } from '../../shared/dates.ts';
 import { bodyLines, planEdition, type PlannedNode } from '../../shared/render/plan.ts';
-import { api, type IssueResponse, type Readiness } from '../api.ts';
+import { sourceRows } from '../../shared/render/source.ts';
+import { MEMBER_THANKS } from '../../shared/render/email.ts';
+import { api, shouldWriteBack, type IssueResponse, type Readiness } from '../api.ts';
 import { ChevronDown, ChevronUp, Check, Circle, Star, Trash, ArrowLeft } from '../icons.tsx';
+import { markdownInlineToSafeHtml, markdownToSafeHtml } from '../markdown.ts';
 import { Inspector } from './Inspector.tsx';
 
 export type Lens = Channel | 'source';
@@ -31,9 +34,10 @@ export function Canvas({ doc, readiness, busy, error, run, onIndex, onSend, onEr
   const id = doc.issue.id;
   const isPage = lens === 'website' || lens === 'email';
 
-  // Source and audio come from the service so the client and the send agree.
+  // Audio comes from the service so the client and the send agree. Source is
+  // interactive in the client so hidden and held-out material has a way back.
   useEffect(() => {
-    if (isPage) return;
+    if (lens !== 'audio') return;
     let live = true;
     api
       .renderLens(id, lens)
@@ -47,14 +51,42 @@ export function Canvas({ doc, readiness, busy, error, run, onIndex, onSend, onEr
     [doc, lens, isPage],
   );
 
-  const window = issueWindow(doc.issue.publication_date, doc.issue.window_days);
+  const sweepWindow = issueWindow(doc.issue.publication_date, doc.issue.window_days);
+
+  const jumpTo = (itemId: string) => {
+    const item = doc.items[itemId];
+    const targetLens: Lens = item?.channels.website
+      ? 'website'
+      : item?.channels.email
+        ? 'email'
+        : 'source';
+    setLens(targetLens);
+    setPanel('none');
+    setSelected(itemId);
+    window.setTimeout(() => {
+      const target = [...document.querySelectorAll<HTMLElement>('[data-item-id]')]
+        .find((el) => el.dataset.itemId === itemId);
+      target?.scrollIntoView({ block: 'center', behavior: 'smooth' });
+    }, 0);
+  };
+
+  useEffect(() => {
+    const onKey = (event: KeyboardEvent) => {
+      if (event.key !== 'Escape') return;
+      if (panel !== 'none') setPanel('none');
+      else if (selected) setSelected(null);
+      else onIndex();
+    };
+    window.addEventListener('keydown', onKey);
+    return () => window.removeEventListener('keydown', onKey);
+  }, [panel, selected, onIndex]);
 
   const sweep = async () => {
     setSweepNote(null);
     try {
       const res = await api.sweep(id);
       setSweepNote(
-        `Swept ${window.from} to ${window.to}: ${res.report.added} new, ${res.report.skipped} already here.`,
+        `Swept ${sweepWindow.from} to ${sweepWindow.to}: ${res.report.added} new, ${res.report.skipped} already here.`,
       );
       await run(async () => res);
     } catch (err) {
@@ -126,6 +158,7 @@ export function Canvas({ doc, readiness, busy, error, run, onIndex, onSend, onEr
                 selected={selected}
                 onSelect={setSelected}
                 run={run}
+                onError={onError}
               />
             ))}
             {!planned.length && (
@@ -137,13 +170,20 @@ export function Canvas({ doc, readiness, busy, error, run, onIndex, onSend, onEr
               </div>
             )}
           </div>
+        ) : lens === 'source' ? (
+          <SourceView
+            doc={doc}
+            selected={selected}
+            onSelect={setSelected}
+            run={run}
+          />
         ) : (
           <div class={lens === 'audio' ? 'plain script' : 'plain'}>{plain || 'Rendering…'}</div>
         )}
       </div>
 
       {panel === 'checklist' && readiness && (
-        <ChecklistPanel readiness={readiness} onClose={() => setPanel('none')} onJump={setSelected} />
+        <ChecklistPanel readiness={readiness} onClose={() => setPanel('none')} onJump={jumpTo} />
       )}
       {panel === 'meta' && (
         <MetaPanel doc={doc} run={run} onClose={() => setPanel('none')} />
@@ -178,7 +218,7 @@ const LENS_HINT: Record<Lens, string> = {
 // ── nodes ─────────────────────────────────────────────────────────────────
 
 function NodeBlock({
-  planned, doc, lens, selected, onSelect, run,
+  planned, doc, lens, selected, onSelect, run, onError,
 }: {
   planned: PlannedNode;
   doc: IssueDoc;
@@ -186,6 +226,7 @@ function NodeBlock({
   selected: string | null;
   onSelect: (id: string | null) => void;
   run: Props['run'];
+  onError: Props['onError'];
 }) {
   const { node } = planned;
   const id = doc.issue.id;
@@ -206,22 +247,23 @@ function NodeBlock({
         <div class="node-controls">
           {node.movable && (
             <>
-              <button class="icon-btn" title="Move up" onClick={() => run(() => api.moveNode(id, node.id, -1))}>
+              <button class="icon-btn" title="Move up" aria-label={`Move ${node.label} section up`} onClick={() => run(() => api.moveNode(id, node.id, -1))}>
                 <ChevronUp />
               </button>
-              <button class="icon-btn" title="Move down" onClick={() => run(() => api.moveNode(id, node.id, 1))}>
+              <button class="icon-btn" title="Move down" aria-label={`Move ${node.label} section down`} onClick={() => run(() => api.moveNode(id, node.id, 1))}>
                 <ChevronDown />
               </button>
             </>
           )}
           {node.kind === 'promoted_item' && (
-            <button class="icon-btn" title="Return to Journal" onClick={() => run(() => api.demote(id, node.id))}>
+            <button class="icon-btn" title="Return to Journal" aria-label={`Return ${node.label} to Journal`} onClick={() => run(() => api.demote(id, node.id))}>
               <Star />
             </button>
           )}
           <button
             class="icon-btn"
             title="Remove this section. Its items are held out, not deleted."
+            aria-label={`Remove ${node.label} section`}
             onClick={() => run(() => api.removeNode(id, node.id))}
           >
             <Trash />
@@ -239,7 +281,7 @@ function NodeBlock({
                   {g.items.map((e) => (
                     <ItemBlock
                       key={e.id} itemId={e.id} item={e.item} doc={doc} lens={lens}
-                      nodeId={node.id} nodeLabel={node.label} selected={selected} onSelect={onSelect} run={run}
+                      nodeId={node.id} nodeLabel={node.label} selected={selected} onSelect={onSelect} run={run} onError={onError}
                     />
                   ))}
                 </div>
@@ -247,7 +289,7 @@ function NodeBlock({
             : planned.items.map((e) => (
                 <ItemBlock
                   key={e.id} itemId={e.id} item={e.item} doc={doc} lens={lens}
-                  nodeId={node.id} nodeLabel={node.label} selected={selected} onSelect={onSelect} run={run}
+                  nodeId={node.id} nodeLabel={node.label} selected={selected} onSelect={onSelect} run={run} onError={onError}
                 />
               ))}
         </div>
@@ -259,7 +301,7 @@ function NodeBlock({
 // ── items ─────────────────────────────────────────────────────────────────
 
 function ItemBlock({
-  itemId, item, doc, nodeId, nodeLabel, selected, onSelect, run,
+  itemId, item, doc, lens, nodeId, nodeLabel, selected, onSelect, run, onError,
 }: {
   itemId: string;
   item: Item;
@@ -270,9 +312,22 @@ function ItemBlock({
   selected: string | null;
   onSelect: (id: string | null) => void;
   run: Props['run'];
+  onError: Props['onError'];
 }) {
   const id = doc.issue.id;
-  const commit = (patch: Record<string, unknown>) => run(() => api.updateItem(id, itemId, patch));
+  const commit = async (patch: Record<string, unknown>) => {
+    try {
+      const updated = await api.updateItem(id, itemId, patch);
+      await run(async () => updated);
+      if (!shouldWriteBack(item, patch)) return;
+      const res = await api.writeBack(id, itemId);
+      await run(async () => res);
+      if (res.result.sync_state === 'synced') onError(null);
+      else onError(`${item.source}: ${res.result.error ?? res.result.sync_state}. Your edit is kept.`);
+    } catch (err) {
+      onError((err as Error).message);
+    }
+  };
 
   const editable = (value: string, field: string, placeholder: string) => (
     <span
@@ -289,21 +344,23 @@ function ItemBlock({
   return (
     <div
       class={`item${selected === itemId ? ' selected' : ''}`}
+      data-item-id={itemId}
       onClick={(e) => {
         if ((e.target as HTMLElement).isContentEditable) return;
         onSelect(selected === itemId ? null : itemId);
       }}
     >
-      <ItemContent item={item} editable={editable} nodeLabel={nodeLabel} />
+      <ItemContent item={item} lens={lens} editable={editable} nodeLabel={nodeLabel} />
       <ItemAffordances itemId={itemId} item={item} doc={doc} nodeId={nodeId} run={run} />
     </div>
   );
 }
 
 function ItemContent({
-  item, editable, nodeLabel,
+  item, lens, editable, nodeLabel,
 }: {
   item: Item;
+  lens: Channel;
   editable: (v: string, f: string, p: string) => preact.JSX.Element;
   nodeLabel?: string;
 }) {
@@ -360,16 +417,16 @@ function ItemContent({
         return (
           <>
             {w && <p class="meta">{weekday(w)} · {clockTime(w)}</p>}
-            <p>{editable(body, 'body', '')}</p>
+            <RichText body={body} placeholder="Write this post" />
           </>
         );
       }
       return (
-        <p>
-          {w && <a href={item.source_url} target="_blank" rel="noreferrer">{clockTime(w)}</a>}
-          {w ? ' — ' : ''}
-          {editable(body, 'body', '')}
-        </p>
+        <div class="journal-entry">
+          {w && <a class="journal-time" href={item.source_url} target="_blank" rel="noreferrer">{clockTime(w)}</a>}
+          {w && <span> — </span>}
+          <span class="rich inline" dangerouslySetInnerHTML={{ __html: markdownInlineToSafeHtml(body) || '<span class="empty-copy">Write this post</span>' }} />
+        </div>
       );
     }
 
@@ -377,20 +434,45 @@ function ItemContent({
       return <p class="haiku">{editable(bodyLines(body).join('\n'), 'body', 'Three lines')}</p>;
 
     case 'membership':
+      return (
+        <>
+          <p class="byline">By {item.attribution ?? 'Thingy'}</p>
+          {lens === 'email' ? (
+            <div class="email-branches" aria-label="Buttondown subscriber branches">
+              <div class="email-branch">
+                <span class="branch-label">Supporting Members</span>
+                <RichText body={`${body}${body ? ` ${MEMBER_THANKS}` : ''}`} placeholder="Membership — not written yet" />
+              </div>
+              <div class="email-branch">
+                <span class="branch-label">Everyone else</span>
+                <RichText body={body} placeholder="Membership — not written yet" />
+              </div>
+            </div>
+          ) : <RichText body={body} placeholder="Membership — not written yet" />}
+        </>
+      );
+
     case 'echoes':
       return (
         <>
           <p class="byline">By {item.attribution ?? 'Thingy'}</p>
-          <p>{editable(body, 'body', `${item.type === 'echoes' ? 'Echoes' : 'Membership'} — not written yet`)}</p>
+          <RichText body={body} placeholder="Echoes — not written yet" />
         </>
       );
 
     case 'quote':
-      return <blockquote>{editable(body, 'body', 'A quote')}</blockquote>;
+      return <blockquote dangerouslySetInnerHTML={{ __html: markdownInlineToSafeHtml(body) || '<span class="empty-copy">A quote</span>' }} />;
 
     default:
-      return <p>{editable(body, 'body', 'Write here')}</p>;
+      return <RichText body={body} placeholder="Write here" />;
   }
+}
+
+function RichText({ body, placeholder }: { body: string; placeholder: string }) {
+  const html = markdownToSafeHtml(body);
+  return html
+    ? <div class="rich" dangerouslySetInnerHTML={{ __html: html }} />
+    : <p class="empty-copy">{placeholder}</p>;
 }
 
 /** Channel chips and the controls that only make sense per item. */
@@ -415,6 +497,7 @@ function ItemAffordances({
             class={`chip${on ? ' on' : ''}${locked ? ' locked' : ''}`}
             title={locked ?? `${on ? 'In' : 'Not in'} the ${c} edition`}
             disabled={Boolean(locked)}
+            aria-label={`${on ? 'Remove' : 'Include'} ${item.title ?? item.label ?? item.type} ${on ? 'from' : 'in'} ${c}`}
             onClick={(e) => {
               e.stopPropagation();
               if (locked) return;
@@ -429,6 +512,7 @@ function ItemAffordances({
         <button
           class="chip"
           title="Promote to its own section"
+          aria-label={`Promote ${item.title} to its own section`}
           onClick={(e) => { e.stopPropagation(); void run(() => api.promote(id, itemId)); }}
         >
           ★
@@ -437,6 +521,7 @@ function ItemAffordances({
       <button
         class="chip"
         title="Move up"
+        aria-label={`Move ${item.title ?? item.label ?? item.type} up`}
         onClick={(e) => { e.stopPropagation(); void run(() => api.moveItem(id, nodeId, itemId, -1)); }}
       >
         ↑
@@ -444,11 +529,102 @@ function ItemAffordances({
       <button
         class="chip"
         title="Move down"
+        aria-label={`Move ${item.title ?? item.label ?? item.type} down`}
         onClick={(e) => { e.stopPropagation(); void run(() => api.moveItem(id, nodeId, itemId, 1)); }}
       >
         ↓
       </button>
     </span>
+  );
+}
+
+// ── source ───────────────────────────────────────────────────────────────
+
+function SourceView({
+  doc, selected, onSelect, run,
+}: {
+  doc: IssueDoc;
+  selected: string | null;
+  onSelect: (id: string | null) => void;
+  run: Props['run'];
+}) {
+  const rows = sourceRows(doc);
+  const groups = new Map<string, typeof rows>();
+  for (const row of rows) {
+    const group = groups.get(row.nodeId) ?? [];
+    group.push(row);
+    groups.set(row.nodeId, group);
+  }
+
+  return (
+    <div class="source-view">
+      <div class="source-intro">
+        <strong>Every item in the issue</strong>
+        <span>Provenance, editions, hidden items, and held-out sections.</span>
+      </div>
+      {[...groups.entries()].map(([nodeId, group]) => {
+        const first = group[0]!;
+        const heldNode = doc.held_nodes?.find((node) => node.id === nodeId);
+        return (
+          <section class={`source-group${first.held ? ' held' : ''}`} key={nodeId}>
+            <header>
+              <span>{first.nodeLabel}</span>
+              {heldNode && (
+                <button
+                  class="btn small"
+                  onClick={() => void run(() => api.addNode(doc.issue.id, {
+                    id: heldNode.id,
+                    type: String(heldNode.type),
+                    label: heldNode.label,
+                  }))}
+                >
+                  Put section back
+                </button>
+              )}
+            </header>
+            {group.map((row) => (
+              <div
+                key={row.itemId}
+                class={`source-row${selected === row.itemId ? ' selected' : ''}`}
+                data-item-id={row.itemId}
+              >
+                <button
+                  class="source-row-open"
+                  aria-label={`Inspect ${row.title}`}
+                  onClick={() => onSelect(selected === row.itemId ? null : row.itemId)}
+                >
+                  <span class="source-main">
+                    <strong>{row.title}</strong>
+                    <span>{row.type.replace('_', ' ')} · {row.authorship} / {row.source}</span>
+                    {row.sync_state && <span>sync: {row.sync_state}</span>}
+                  </span>
+                  <span class="source-channels" aria-label="Editions">
+                    {CHANNELS.map((channel) => (
+                      <span
+                        key={channel}
+                        class={`source-channel${row.channels[channel] ? ' on' : ''}${row.locked[channel] ? ' locked' : ''}`}
+                        title={row.locked[channel] ?? `${row.channels[channel] ? 'In' : 'Not in'} ${channel}`}
+                      >
+                        {channel}
+                      </span>
+                    ))}
+                  </span>
+                </button>
+                {row.hidden && !row.held && (
+                  <button
+                    class="btn small"
+                    onClick={() => void run(() => api.setVisible(doc.issue.id, row.itemId, true))}
+                  >
+                    Put back
+                  </button>
+                )}
+              </div>
+            ))}
+          </section>
+        );
+      })}
+      {!rows.length && <div class="empty">No items yet.</div>}
+    </div>
   );
 }
 
@@ -464,17 +640,21 @@ function ChecklistPanel({
   return (
     <aside class="panel">
       <h3>Ready — {readiness.done} of {readiness.total}</h3>
-      {readiness.units.map((u, i) => (
-        <div
-          key={i}
-          class={`check-row${u.done ? ' done' : ''}`}
-          onClick={() => u.anchor !== 'issue' && onJump(u.anchor)}
-          style={u.anchor !== 'issue' ? 'cursor:pointer' : ''}
-        >
-          <span class="mark">{u.done ? <Check size={13} /> : <Circle size={13} />}</span>
-          <span>{u.title}</span>
-        </div>
-      ))}
+      {readiness.units.map((u, i) => {
+        const content = (
+          <>
+            <span class="mark">{u.done ? <Check size={13} /> : <Circle size={13} />}</span>
+            <span>{u.title}</span>
+          </>
+        );
+        return u.anchor !== 'issue'
+          ? (
+              <button key={i} class={`check-row${u.done ? ' done' : ''}`} onClick={() => onJump(u.anchor)}>
+                {content}
+              </button>
+            )
+          : <div key={i} class={`check-row${u.done ? ' done' : ''}`}>{content}</div>;
+      })}
       <button class="btn" style="margin-top:16px" onClick={onClose}>Close</button>
     </aside>
   );
@@ -489,35 +669,50 @@ function MetaPanel({
 }) {
   const id = doc.issue.id;
   const w = issueWindow(doc.issue.publication_date, doc.issue.window_days);
+  const prefix = `issue-${id}`;
   return (
     <aside class="panel">
       <h3>Issue</h3>
       <div class="field">
-        <label>Title</label>
+        <label htmlFor={`${prefix}-number`}>Number</label>
         <input
+          id={`${prefix}-number`}
+          type="number"
+          min="1"
+          value={doc.issue.number}
+          onBlur={(e) => void run(() => api.settings(id, { number: Number((e.target as HTMLInputElement).value) }))}
+        />
+      </div>
+      <div class="field">
+        <label htmlFor={`${prefix}-title`}>Title</label>
+        <input
+          id={`${prefix}-title`}
           value={doc.issue.title}
           onBlur={(e) => void run(() => api.settings(id, { title: (e.target as HTMLInputElement).value }))}
         />
       </div>
       <div class="field">
-        <label>Dek</label>
+        <label htmlFor={`${prefix}-dek`}>Dek</label>
         <textarea
+          id={`${prefix}-dek`}
           style="min-height:60px"
           value={doc.issue.dek ?? ''}
           onBlur={(e) => void run(() => api.settings(id, { dek: (e.target as HTMLTextAreaElement).value }))}
         />
       </div>
       <div class="field">
-        <label>Publication date — snapped to Saturday</label>
+        <label htmlFor={`${prefix}-date`}>Publication date — snapped to Saturday</label>
         <input
+          id={`${prefix}-date`}
           type="date"
           value={doc.issue.publication_date}
           onChange={(e) => void run(() => api.settings(id, { publication_date: (e.target as HTMLInputElement).value }))}
         />
       </div>
       <div class="field">
-        <label>Window — days back from Thursday</label>
+        <label htmlFor={`${prefix}-window`}>Window — days back from Thursday</label>
         <input
+          id={`${prefix}-window`}
           type="number" min="1" max="60"
           value={doc.issue.window_days}
           onChange={(e) => void run(() => api.settings(id, { window_days: Number((e.target as HTMLInputElement).value) }))}

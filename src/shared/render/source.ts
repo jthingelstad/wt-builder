@@ -22,12 +22,14 @@ export interface SourceRow {
   title: string;
   sync_state?: string;
   source_url?: string;
+  hidden: boolean;
+  held: boolean;
 }
 
 function displayTitle(item: Item): string {
   if (item.title) return item.title;
   if (item.label) return item.label;
-  const body = String(item.body ?? '').replace(/\\n/g, ' ').trim();
+  const body = String(item.body ?? '').replace(/\s+/g, ' ').trim();
   if (body) return body.length > 72 ? `${body.slice(0, 71)}…` : body;
   if (item.media?.caption) return item.media.caption;
   return '(empty)';
@@ -36,14 +38,16 @@ function displayTitle(item: Item): string {
 /** Every item in document order, including items in no edition at all. */
 export function sourceRows(doc: IssueDoc): SourceRow[] {
   const rows: SourceRow[] = [];
-  for (const node of orderedNodes(doc)) {
+  const seen = new Set<string>();
+  const appendNode = (node: IssueDoc['nodes'][number], held: boolean) => {
     for (const id of node.items) {
       const item = doc.items[id];
       if (!item) continue;
+      seen.add(id);
       rows.push({
         itemId: id,
         nodeId: node.id,
-        nodeLabel: node.label,
+        nodeLabel: held ? `Held out — ${node.label}` : node.label,
         type: item.type,
         authorship: item.authorship,
         source: item.source,
@@ -52,8 +56,35 @@ export function sourceRows(doc: IssueDoc): SourceRow[] {
         title: displayTitle(item),
         sync_state: item.sync_state,
         source_url: item.source_url,
+        hidden: !CHANNELS.some((c) => item.channels[c]),
+        held,
       });
     }
+  };
+
+  for (const node of orderedNodes(doc)) appendNode(node, false);
+  for (const node of doc.held_nodes ?? []) appendNode(node, true);
+
+  // Backward-compatible visibility for documents that predate held_nodes.
+  for (const id of doc.orphans ?? []) {
+    if (seen.has(id)) continue;
+    const item = doc.items[id];
+    if (!item) continue;
+    rows.push({
+      itemId: id,
+      nodeId: 'held-out',
+      nodeLabel: `Held out${item.section ? ` — ${item.section}` : ''}`,
+      type: item.type,
+      authorship: item.authorship,
+      source: item.source,
+      channels: { ...item.channels },
+      locked: { ...(item.channel_locks ?? {}) },
+      title: displayTitle(item),
+      sync_state: item.sync_state,
+      source_url: item.source_url,
+      hidden: !CHANNELS.some((c) => item.channels[c]),
+      held: true,
+    });
   }
   return rows;
 }
@@ -71,7 +102,8 @@ export function renderSource(doc: IssueDoc): string {
       if (row.locked[c] !== undefined) return `${c[0]!.toUpperCase()}·locked`;
       return row.channels[c] ? c[0]!.toUpperCase() : '–';
     }).join(' ');
-    lines.push(`- ${row.itemId} · ${row.type} · ${row.authorship}/${row.source} · [${flags}] · ${row.title}`);
+    const sync = row.sync_state ? ` · sync=${row.sync_state}` : '';
+    lines.push(`- ${row.itemId} · ${row.type} · ${row.authorship}/${row.source} · [${flags}]${sync} · ${row.title}`);
   }
   return lines.join('\n') + '\n';
 }

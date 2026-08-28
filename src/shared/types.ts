@@ -84,6 +84,8 @@ export interface Item {
   published_at?: string;
   media?: Media;
   sync_state?: SyncState;
+  /** Last write-back error, kept beside the local edit until a retry succeeds. */
+  sync_error?: string;
   attribution?: string;
   status?: 'draft' | 'reviewed';
   reviewed?: boolean;
@@ -141,6 +143,11 @@ export interface IssueDoc {
   schema_version: number;
   issue: IssueMeta;
   nodes: IssueNode[];
+  /**
+   * Removed nodes are retained intact so every structural removal has a
+   * deterministic Put back path (0019). They are not part of any edition.
+   */
+  held_nodes?: IssueNode[];
   items: Record<string, Item>;
   /** Items swept in but not placed in a node. */
   orphans?: string[];

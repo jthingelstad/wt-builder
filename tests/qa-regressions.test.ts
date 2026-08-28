@@ -11,6 +11,8 @@ import { renderWebsite } from '../src/shared/render/website.ts';
 import { renderAudio } from '../src/shared/render/audio.ts';
 import { speakable, isSilent } from '../src/shared/render/speech.ts';
 import { candidateToItem } from '../src/server/integrations/pinboard.ts';
+import { markdownToSafeHtml } from '../src/client/markdown.ts';
+import { shouldWriteBack } from '../src/client/api.ts';
 
 /** A skeleton issue whose items are deliberately half-written. */
 function issue(items: Record<string, Partial<Item>>, nodes: IssueDoc['nodes']): IssueDoc {
@@ -78,6 +80,20 @@ describe('markup never reaches the synthesizer', () => {
     expect(isSilent('<img src="https://x.test/a.jpg">')).toBe(true);
     expect(isSilent('**   **')).toBe(true);
     expect(isSilent('real words')).toBe(false);
+  });
+
+  it('renders imported Markdown and images as safe reader-facing HTML', () => {
+    const html = markdownToSafeHtml(post);
+    expect(html).toContain('<a href="https://www.johnsonpublichouse.com/"');
+    expect(html).toContain('<img src="https://www.thingelstad.com/uploads/2026/bbe1d53fe0.jpg"');
+    expect(html).not.toContain('&lt;img');
+  });
+
+  it('escapes unsafe raw HTML and URL schemes', () => {
+    const html = markdownToSafeHtml('<script>alert(1)</script> [bad](javascript:alert(2))');
+    expect(html).toContain('&lt;script&gt;');
+    expect(html).not.toContain('<script>');
+    expect(html).not.toContain('href="javascript:');
   });
 });
 
@@ -179,5 +195,21 @@ describe('write-back stays inside its contract', () => {
     });
     // Absent flags must not become "public and read" by omission.
     expect(item.source_flags).toBeUndefined();
+  });
+
+  it('automatically writes only source-owned fields', () => {
+    const pinboard = candidateToItem({
+      id: 'pinboard:abc', origin: 'Pinboard', url: 'https://x.test/a', title: 'A',
+    });
+    expect(shouldWriteBack(pinboard, { commentary: 'Local note' })).toBe(true);
+    expect(shouldWriteBack(pinboard, { channels: allChannels() })).toBe(false);
+
+    const microblog = {
+      ...pinboard,
+      type: 'journal_post' as const,
+      source: 'Micro.blog' as const,
+    };
+    expect(shouldWriteBack(microblog, { body: 'Revised post' })).toBe(true);
+    expect(shouldWriteBack(microblog, { commentary: 'Issue-only note' })).toBe(false);
   });
 });

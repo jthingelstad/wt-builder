@@ -223,6 +223,13 @@ const routes: [RegExp, string, (ctx: Ctx, params: string[]) => Promise<unknown>]
   [/^\/api\/issues\/([^/]+)\/settings$/, 'POST', async ({ body }, [id]) => {
     const b = await body();
     let doc = requireIssue(id!);
+    if (b.number !== undefined) {
+      const number = Number(b.number);
+      if (!Number.isFinite(number) || number <= 0) throw new HttpError(400, 'invalid issue number');
+      const existing = store.getIssueByNumber(Math.round(number));
+      if (existing && existing.id !== id) throw new HttpError(409, `issue ${Math.round(number)} already exists`);
+      doc = issues.setIssueNumber(doc, number);
+    }
     if (b.publication_date) doc = issues.setPublicationDate(doc, String(b.publication_date));
     if (b.window_days !== undefined) doc = issues.setWindowDays(doc, Number(b.window_days));
     if (b.title !== undefined) doc.issue.title = String(b.title);
@@ -247,7 +254,13 @@ const routes: [RegExp, string, (ctx: Ctx, params: string[]) => Promise<unknown>]
           ? await pinboard.writeBack(item)
           : { sync_state: 'local' as const, error: `${item.source} has no write-back` };
 
-    return { ...saved(issues.updateItem(doc, itemId!, { sync_state: result.sync_state })), result };
+    return {
+      ...saved(issues.updateItem(doc, itemId!, {
+        sync_state: result.sync_state,
+        sync_error: result.error,
+      })),
+      result,
+    };
   }],
 
   /**
@@ -302,8 +315,9 @@ const routes: [RegExp, string, (ctx: Ctx, params: string[]) => Promise<unknown>]
    */
   [/^\/api\/issues\/([^/]+)\/send\/([a-z]+)$/, 'POST', async (_ctx, [id, dest]) => {
     const destination = dest as Destination;
-    if (destination === 'website') return sendWebsite(id!);
-    if (destination === 'podcast') return sendPodcast(id!);
+    if (destination === 'website' || destination === 'podcast') {
+      throw new HttpError(409, `${destination} sending is not available in the current Buttondown-only slice`);
+    }
     if (destination !== 'buttondown') {
       throw new HttpError(400, `unknown destination ${destination}`);
     }
