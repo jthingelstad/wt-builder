@@ -18,6 +18,7 @@ import { api, type IssueResponse, type Readiness } from '../api.ts';
 import { ArrowLeft } from '../icons.tsx';
 import { Page, type Lens, type PageActions } from './Page.tsx';
 import { Notes, type Note } from './Notes.tsx';
+import { CollapseView } from './Collapse.tsx';
 import { LeftPanel } from './LeftPanel.tsx';
 import { Strip } from './Strip.tsx';
 import { Inspector } from './Inspector.tsx';
@@ -61,6 +62,7 @@ export function Editor({ doc, readiness, busy, error, run, onIndex, onSend, onEr
   const [drafting, setDrafting] = useState<string | null>(null);
   const [draft, setDraft] = useState<{ itemId: string; candidates: string[] } | null>(null);
   const [sweeping, setSweeping] = useState(false);
+  const [collapsed, setCollapsed] = useState(false);
   const [reading, setReading] = useState(false);
   const [readOpen, setReadOpen] = useState(false);
   const [dismissed, setDismissed] = useState<Set<string>>(new Set());
@@ -173,6 +175,9 @@ export function Editor({ doc, readiness, busy, error, run, onIndex, onSend, onEr
           Re-reading on every open would spend a model call to tell Jamie
           something he has already seen.
         */}
+        <button class={`btn${collapsed ? ' primary' : ''}`} onClick={() => setCollapsed(!collapsed)}>
+          Collapse
+        </button>
         <button
           class={`btn${readOpen ? ' reading' : ''}`}
           onClick={() => {
@@ -219,11 +224,17 @@ export function Editor({ doc, readiness, busy, error, run, onIndex, onSend, onEr
           <div class="canvas-inner">
             <div class="lens-kicker">
               <span class="kicker">
-                {doc.issue.status === 'published' && lens !== 'source'
-                  ? kicker.replace('EDITABLE', 'PUBLISHED')
-                  : kicker}
+                {collapsed
+                  ? 'COLLAPSED — SECTIONS'
+                  : doc.issue.status === 'published' && lens !== 'source'
+                    ? kicker.replace('EDITABLE', 'PUBLISHED')
+                    : kicker}
               </span>
-              <span class="note">{note}</span>
+              <span class="note">
+                {collapsed
+                  ? 'Drag to reorder. Click a section to open it. Nothing is editable here.'
+                  : note}
+              </span>
             </div>
 
             {readOpen && (
@@ -267,6 +278,16 @@ export function Editor({ doc, readiness, busy, error, run, onIndex, onSend, onEr
               </div>
             )}
 
+            {collapsed ? (
+              <CollapseView
+                doc={doc}
+                selected={selected}
+                onOpen={(nodeId) => { setCollapsed(false); jump(nodeId); }}
+                onMove={(nodeId, delta) => void run(() => api.moveNode(id, nodeId, delta))}
+                onRemove={(nodeId) => void run(() => api.removeNode(id, nodeId))}
+                onReorder={(nodeId, before) => void run(() => api.addNode(id, { id: nodeId, before }))}
+              />
+            ) : (
             <Page
               doc={doc}
               lens={lens}
@@ -298,6 +319,7 @@ export function Editor({ doc, readiness, busy, error, run, onIndex, onSend, onEr
                 />
               )}
             </Page>
+            )}
           </div>
         </div>
 

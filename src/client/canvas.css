@@ -1013,3 +1013,45 @@
 .cl-main { display: flex; flex-direction: column; gap: 2px; min-width: 0; }
 .cl-title { font-size: 13px; color: var(--ink); }
 .cl-context { font-size: 11.5px; color: var(--muted); line-height: 1.45; }
+
+/* ── collapse mode ────────────────────────────────────────────────────── */
+
+.collapse {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  max-width: calc(var(--gutter) + var(--track));
+}
+
+.cv-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: var(--panel);
+  border: 1px solid var(--border-light);
+  border-radius: 9px;
+  padding: 11px 14px;
+  cursor: pointer;
+}
+.cv-row:hover { border-color: var(--border-button); }
+.cv-row.selected { background: var(--blue-1); border-color: var(--blue-3); }
+.cv-row.over { background: var(--blue-1); border-color: var(--prov-syndicated); }
+.cv-row.dragging { opacity: 0.4; }
+
+.cv-grip { width: 12px; color: var(--mark); cursor: grab; flex: none; }
+.cv-label { font-size: 16px; font-weight: 600; flex: none; }
+
+.cv-preview {
+  flex: 1;
+  min-width: 0;
+  font-size: 12.5px;
+  color: var(--muted);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.cv-count { font-family: var(--mono); font-size: 10.5px; color: var(--faint); white-space: nowrap; }
+
+.cv-actions { display: flex; gap: 1px; opacity: 0; transition: opacity 0.12s; }
+.cv-row:hover .cv-actions, .cv-actions:focus-within { opacity: 1; }

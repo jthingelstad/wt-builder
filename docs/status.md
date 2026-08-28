@@ -32,6 +32,8 @@ finished, what is half-finished, and what has never run.
 - **Email lens** — the Buttondown Liquid branch after Membership.
 - **Checklist popover** — opens from the strip, coloured by kind, each row
   saying what finishing it means and jumping to the offending item.
+- **Collapse mode** — one row per section with preview, counts, drag reorder,
+  and Echoes pinned last.
 - **Send view** — Podcast, Website, Buttondown in run order, the audio gate,
   the stated-not-enforced blocker, real per-step evidence.
 - **Sweep** — Pinboard `toread=yes` and Micro.blog Micropub `q=source`, with
@@ -39,9 +41,6 @@ finished, what is half-finished, and what has never run.
 
 ## Not built
 
-- **Collapse mode.** The header control is not there either; it was dropped to
-  keep the header inside its width budget and needs to be added back with the
-  budget re-checked.
 - **The 352px editorial review panel.** Only the summary bar and the margin
   notes exist. The spec has both, sharing the right rail with the inspector.
 - **Insert points and add affordances.** No `+ Markdown here` at section
