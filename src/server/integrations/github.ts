@@ -1,8 +1,10 @@
 /**
  * Committing generated files to a GitHub repository.
  *
- * The website handoff must land as one commit: a half-applied set would leave
- * the render surface with an archive page whose index entry is missing. This
+ * Two legs ride this: the website handoff and the archive feed, each pointed
+ * at its own repository through `RepoTarget`. A handoff must land as one
+ * commit: a half-applied set would leave the render surface with an archive
+ * page whose index entry is missing, or the corpus with links and no text. This
  * builds blobs, then a tree, then a commit, then moves the ref — the same
  * mechanism Studio uses, so the two produce identical history.
  *
@@ -35,8 +37,8 @@ function token(): string {
   return t;
 }
 
-async function call(path: string, init: RequestInit = {}): Promise<any> {
-  const res = await fetch(`${API}/repos/${config.websiteRepo}${path}`, {
+async function call(repo: string, path: string, init: RequestInit = {}): Promise<any> {
+  const res = await fetch(`${API}/repos/${repo}${path}`, {
     ...init,
     headers: {
       Authorization: `Bearer ${token()}`,
@@ -66,14 +68,14 @@ export function blobSha(content: string): string {
     .digest('hex');
 }
 
-async function head(branch: string): Promise<{ commit: string; tree: string }> {
-  const ref = await call(`/git/ref/heads/${branch}`);
-  const commit = await call(`/git/commits/${ref.object.sha}`);
+async function head(repo: string, branch: string): Promise<{ commit: string; tree: string }> {
+  const ref = await call(repo, `/git/ref/heads/${branch}`);
+  const commit = await call(repo, `/git/commits/${ref.object.sha}`);
   return { commit: ref.object.sha, tree: commit.tree.sha };
 }
 
-async function treeBlobs(treeSha: string): Promise<Map<string, string>> {
-  const tree = await call(`/git/trees/${treeSha}?recursive=1`);
+async function treeBlobs(repo: string, treeSha: string): Promise<Map<string, string>> {
+  const tree = await call(repo, `/git/trees/${treeSha}?recursive=1`);
   const out = new Map<string, string>();
   for (const entry of tree.tree ?? []) {
     if (entry.type === 'blob') out.set(entry.path, entry.sha);
@@ -88,10 +90,21 @@ export interface PushResult {
   committed: boolean;
 }
 
+/** Which repository and branch a push lands on. Defaults to the website. */
+export interface RepoTarget {
+  repo?: string;
+  branch?: string;
+}
+
+function targetOf(t: RepoTarget): { repo: string; branch: string } {
+  return { repo: t.repo ?? config.websiteRepo, branch: t.branch ?? 'main' };
+}
+
 /** What a push would change, without changing anything. */
-export async function diff(files: RepoFile[], branch = 'main'): Promise<PushResult> {
-  const { commit, tree } = await head(branch);
-  const remote = await treeBlobs(tree);
+export async function diff(files: RepoFile[], target: RepoTarget = {}): Promise<PushResult> {
+  const { repo, branch } = targetOf(target);
+  const { commit, tree } = await head(repo, branch);
+  const remote = await treeBlobs(repo, tree);
   const changed = files.filter((f) => remote.get(f.path) !== blobSha(f.content)).map((f) => f.path);
   return {
     sha: commit,
@@ -108,15 +121,16 @@ export async function diff(files: RepoFile[], branch = 'main'): Promise<PushResu
 export async function putTree(
   files: RepoFile[],
   message: string,
-  branch = 'main',
+  target: RepoTarget = {},
 ): Promise<PushResult> {
   if (!files.length) throw new Error('putTree requires at least one file');
+  const { repo, branch } = targetOf(target);
 
   let lastError: Error | null = null;
 
   for (let attempt = 0; attempt < 2; attempt++) {
-    const { commit: parent, tree: baseTree } = await head(branch);
-    const remote = await treeBlobs(baseTree);
+    const { commit: parent, tree: baseTree } = await head(repo, branch);
+    const remote = await treeBlobs(repo, baseTree);
 
     const changed = files.filter((f) => remote.get(f.path) !== blobSha(f.content));
     if (!changed.length) {
@@ -125,25 +139,25 @@ export async function putTree(
 
     const entries = [];
     for (const file of changed) {
-      const blob = await call('/git/blobs', {
+      const blob = await call(repo, '/git/blobs', {
         method: 'POST',
         body: JSON.stringify({ content: file.content, encoding: 'utf-8' }),
       });
       entries.push({ path: file.path, mode: '100644', type: 'blob', sha: blob.sha });
     }
 
-    const tree = await call('/git/trees', {
+    const tree = await call(repo, '/git/trees', {
       method: 'POST',
       body: JSON.stringify({ base_tree: baseTree, tree: entries }),
     });
 
-    const commit = await call('/git/commits', {
+    const commit = await call(repo, '/git/commits', {
       method: 'POST',
       body: JSON.stringify({ message, tree: tree.sha, parents: [parent] }),
     });
 
     try {
-      await call(`/git/refs/heads/${branch}`, {
+      await call(repo, `/git/refs/heads/${branch}`, {
         method: 'PATCH',
         body: JSON.stringify({ sha: commit.sha, force: false }),
       });

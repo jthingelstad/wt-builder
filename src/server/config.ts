@@ -69,6 +69,16 @@ export const config = {
   /** The render surface the website edition is committed to. */
   websiteRepo: optional('GITHUB_REPO_NWO') ?? 'jthingelstad/weekly.thingelstad.com',
   websiteBranch: optional('WT_BUILDER_WEBSITE_BRANCH') ?? 'main',
+
+  /**
+   * The archive repository — the corpus the Librarian API answers from. Its
+   * CI rebuilds and uploads the corpus on any change under data/issues/, which
+   * is what the archive send commits into. Config rather than a constant
+   * because a streamline-and-rename of this repository is planned; when it
+   * lands, retargeting is one env var.
+   */
+  archiveRepo: optional('WT_BUILDER_ARCHIVE_REPO') ?? 'jthingelstad/studio-thing',
+  archiveBranch: optional('WT_BUILDER_ARCHIVE_BRANCH') ?? 'main',
 };
 
 /** Safe to log: presence only, never values. */
@@ -84,6 +94,7 @@ export function describeConfig(): Record<string, string> {
     github: credentials.githubToken ? 'configured' : 'MISSING',
     openai: credentials.openaiKey ? 'configured' : 'MISSING',
     websiteRepo: config.websiteRepo,
+    archiveRepo: config.archiveRepo,
     pinboardWriteBack: config.pinboardWriteBack ? 'enabled' : 'disabled',
     microblogWriteBack: config.microblogWriteBack ? 'enabled' : 'disabled',
     rehostImages: config.rehostImages ? 'enabled' : 'disabled',

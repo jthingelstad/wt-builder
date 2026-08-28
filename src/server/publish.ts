@@ -253,6 +253,75 @@ export function archivePage(doc: IssueDoc, opts: SiteInputsOptions = {}): string
   return `${fm.join('\n')}\n${GENERATED_NOTICE}\n${body}`;
 }
 
+// ── the archive feed ──────────────────────────────────────────────────────
+//
+// The corpus the Librarian API answers from. A separate leg that is not
+// publishing (docs/decisions.md): it runs after the issue is out, is never a
+// readiness gate, and receives text only. The commit lands in the archive
+// repository's data/issues/{N}/, and that repository's CI rebuilds and
+// uploads the corpus on any change under that path.
+//
+// The canonical shape mirrors the nine years of issues already there:
+// front matter *without* the site page's layout, permalink, tags, or
+// generator notice — those are materialized downstream when the archive
+// builds its own pages — and without audio fields, because the archive
+// receives no audio of any kind.
+
+/** `data/issues/{N}/archive.md` — the canonical issue text. */
+export function archiveMarkdown(doc: IssueDoc, opts: SiteInputsOptions = {}): string {
+  const e = issueEntry(doc, opts);
+  const fm: string[] = ['---'];
+
+  // Field order matches the issues already in the store, so a diff of a
+  // re-send reads as content, not as churn.
+  fm.push(`buttondown_id: ${yamlScalar(e.id)}`);
+  fm.push(`number: ${e.number}`);
+  fm.push(`subject: ${yamlScalar(e.subject)}`);
+  fm.push(`publish_date: '${e.publish_date}'`);
+  fm.push(`slug: '${e.slug}'`);
+  fm.push(`description: ${yamlScalar(e.description)}`);
+  fm.push(`image: ${e.image}`);
+  fm.push(`absolute_url: ${e.absolute_url}`);
+  fm.push('domains:');
+  for (const d of e.domains) fm.push(`- ${d}`);
+  fm.push(...yamlLinks(e.links));
+  fm.push(`word_count: ${e.word_count}`);
+  fm.push('---');
+
+  const body = renderWebsite(doc).replace(/^# .*\n\n?/, '');
+  return `${fm.join('\n')}\n${body}`;
+}
+
+/** The three files the archive send commits, in the corpus's own shape. */
+export function archiveInputs(doc: IssueDoc, opts: SiteInputsOptions = {}): RepoFile[] {
+  const e = issueEntry(doc, opts);
+  const dir = `data/issues/${e.number}`;
+
+  const links = {
+    notable_links: e.notable_links,
+    briefly_links: e.briefly_links,
+    domains: e.domains,
+    word_count: e.word_count,
+  };
+
+  const metadata = {
+    number: e.number,
+    subject: e.subject,
+    description: e.description,
+    image: e.image,
+    slug: e.slug,
+    publish_date: e.publish_date,
+    buttondown_id: e.id,
+    absolute_url: e.absolute_url,
+  };
+
+  return [
+    { path: `${dir}/archive.md`, content: archiveMarkdown(doc, opts) },
+    { path: `${dir}/links.json`, content: `${JSON.stringify(links, null, 2)}\n` },
+    { path: `${dir}/metadata.json`, content: `${JSON.stringify(metadata, null, 2)}\n` },
+  ];
+}
+
 /**
  * The files the handoff commits. `emails.json` is rewritten whole from prior
  * entries plus this issue, so the index can never drift from the pages beside

@@ -44,7 +44,7 @@ async function post(path: string): Promise<{ status: number; body: any }> {
 }
 
 describe('every send leg the screen offers is dispatched', () => {
-  for (const destination of ['podcast', 'website', 'buttondown'] as const) {
+  for (const destination of ['podcast', 'website', 'buttondown', 'archive'] as const) {
     it(`${destination} reaches its leg`, async () => {
       const { status, body } = await post(`/api/issues/nope/send/${destination}`);
       // 404 means the leg ran far enough to look for the issue. The severed

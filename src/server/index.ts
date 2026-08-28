@@ -30,7 +30,7 @@ import * as editorial from './editorial.ts';
 import * as githubRepo from './integrations/github.ts';
 import * as audio from './integrations/audio.ts';
 import { renderAudio as renderAudioScript } from '../shared/render/audio.ts';
-import { issueEntry, siteInputs, type IssueEntry } from './publish.ts';
+import { archiveInputs, issueEntry, siteInputs, type IssueEntry } from './publish.ts';
 
 const DIST = fileURLToPath(new URL('../../dist', import.meta.url));
 
@@ -361,7 +361,7 @@ const routes: [RegExp, string, (ctx: Ctx, params: string[]) => Promise<unknown>]
   [/^\/api\/issues\/([^/]+)\/send\/website\/preview$/, 'GET', async (_ctx, [id]) => {
     const doc = requireIssue(id!);
     const files = siteInputs(doc, websiteOptions(doc));
-    const result = await githubRepo.diff(files, config.websiteBranch);
+    const result = await githubRepo.diff(files, { branch: config.websiteBranch });
     return { repo: config.websiteRepo, ...result, files: files.map((f) => f.path) };
   }],
 
@@ -383,6 +383,7 @@ const routes: [RegExp, string, (ctx: Ctx, params: string[]) => Promise<unknown>]
     const destination = dest as Destination;
     if (destination === 'website') return sendWebsite(id!);
     if (destination === 'podcast') return sendPodcast(id!);
+    if (destination === 'archive') return sendArchive(id!);
     if (destination !== 'buttondown') {
       throw new HttpError(400, `unknown destination ${destination}`);
     }
@@ -466,7 +467,7 @@ async function sendWebsite(id: string) {
     const result = await githubRepo.putTree(
       files,
       `Add issue ${doc.issue.number} from WT Builder`,
-      config.websiteBranch,
+      { branch: config.websiteBranch },
     );
     const state: SendState = {
       status: 'sent',
@@ -520,6 +521,45 @@ async function sendPodcast(id: string) {
       error: (err as Error).message,
     };
     store.recordSend(id, 'podcast', state);
+    throw new HttpError(502, state.error!);
+  }
+}
+
+/**
+ * Feed the issue's text to the archive — the corpus the Librarian API answers
+ * from. Not publishing (docs/decisions.md): it runs after the issue is out,
+ * never gates it, and a failure leaves the issue published and Thingy stale.
+ * The archive repository's CI rebuilds and uploads the corpus on this commit.
+ */
+async function sendArchive(id: string) {
+  const doc = requireIssue(id);
+  store.recordSend(id, 'archive', { status: 'sending', at: new Date().toISOString() });
+  try {
+    const sends = doc.sends ?? {};
+    const files = archiveInputs(doc, {
+      buttondownId: sends.buttondown?.external_id,
+      absoluteUrl: sends.buttondown?.url,
+    });
+    const result = await githubRepo.putTree(
+      files,
+      `Archive issue ${doc.issue.number} from WT Builder`,
+      { repo: config.archiveRepo, branch: config.archiveBranch },
+    );
+    const state: SendState = {
+      status: 'sent',
+      at: new Date().toISOString(),
+      external_id: result.sha,
+      url: `https://github.com/${config.archiveRepo}/commit/${result.sha}`,
+    };
+    const row = store.recordSend(id, 'archive', state);
+    return { issue: row?.doc, send: state, changed: result.changed, committed: result.committed };
+  } catch (err) {
+    const state: SendState = {
+      status: 'failed',
+      at: new Date().toISOString(),
+      error: (err as Error).message,
+    };
+    store.recordSend(id, 'archive', state);
     throw new HttpError(502, state.error!);
   }
 }

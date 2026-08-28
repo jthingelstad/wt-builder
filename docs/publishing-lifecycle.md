@@ -80,5 +80,11 @@ An issue can sit published with an unsent archive feed. That is a Thingy
 staleness problem, not a publishing problem, and it is retried independently from
 the dashboard.
 
+The leg is a commit of `data/issues/{N}/` — `archive.md`, `links.json`, and
+`metadata.json`, the canonical shape nine years of issues already have there —
+into the archive repository (`WT_BUILDER_ARCHIVE_REPO`), whose CI rebuilds and
+uploads the corpus on any change under that path. Its evidence is the commit
+sha, like the website leg's.
+
 Send text only. The archive receives no audio — the file lives on the CDN and the
 website publishes the reference.

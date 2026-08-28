@@ -43,8 +43,10 @@ happened** — the directory and remote are still `studio-thing`.
 - The archive is not a publishing destination. See [`decisions.md`](decisions.md).
 - After an issue publishes, WT Builder sends its text to the archive so Thingy
   can retrieve and cite it.
-- The send is a direct commit into the archive repository, scoped to the issue
-  data path, rather than an API call. See [`decisions.md`](decisions.md).
+- The send is a direct commit into the archive repository, scoped to
+  `data/issues/{N}/`, rather than an API call. See [`decisions.md`](decisions.md).
+  The target repository is `WT_BUILDER_ARCHIVE_REPO`, so the planned
+  streamline-and-rename of the archive repo is a one-line retarget here.
 - The send is asynchronous and non-blocking. It has its own evidence and retry
   and is never a readiness gate. A failed archive send means the issue is
   published and Thingy does not know about it yet.
