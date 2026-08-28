@@ -251,13 +251,10 @@ describe('the send screen offers every leg that exists', () => {
     expect(order).toEqual(['podcast', 'website', 'buttondown']);
   });
 
-  it('has a server route for every destination the screen offers', async () => {
-    const src = readFileSync(
-      fileURLToPath(new URL('../src/server/index.ts', import.meta.url)), 'utf8');
-    expect(src).toContain("destination === 'website'");
-    expect(src).toContain("destination === 'podcast'");
-    expect(src).toContain("destination !== 'buttondown'");
-  });
+  // Whether the server actually dispatches each destination is pinned in
+  // tests/routes.test.ts, over HTTP. A source-grep version of that test lived
+  // here once and passed against the exact regression it was written to catch
+  // — the severed guard contained the same strings it looked for.
 });
 
 describe('the source lens shows words, not markup', () => {

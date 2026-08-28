@@ -372,14 +372,17 @@ const routes: [RegExp, string, (ctx: Ctx, params: string[]) => Promise<unknown>]
   }],
 
   /**
-   * Send. Buttondown only for now — the rest of the slice comes after
-   * (AGENTS.md). A failed send stops at its own leg and can be resumed.
+   * Send, per destination. A failed send stops at its own leg and can be
+   * resumed; the other legs are untouched (docs/publishing-lifecycle.md).
+   *
+   * This dispatch has been severed once before — a QA-fix commit reverted it
+   * to a Buttondown-only guard while the client still offered every leg.
+   * tests/routes.test.ts exercises it over HTTP so that cannot happen quietly.
    */
   [/^\/api\/issues\/([^/]+)\/send\/([a-z]+)$/, 'POST', async (_ctx, [id, dest]) => {
     const destination = dest as Destination;
-    if (destination === 'website' || destination === 'podcast') {
-      throw new HttpError(409, `${destination} sending is not available in the current Buttondown-only slice`);
-    }
+    if (destination === 'website') return sendWebsite(id!);
+    if (destination === 'podcast') return sendPodcast(id!);
     if (destination !== 'buttondown') {
       throw new HttpError(400, `unknown destination ${destination}`);
     }
