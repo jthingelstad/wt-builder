@@ -218,17 +218,37 @@ describe('write-back stays inside its contract', () => {
 });
 
 describe('the send screen offers every leg that exists', () => {
-  // A working send leg marked unbuilt is unreachable from the UI. This has
-  // regressed once already, so it is pinned here.
-  it('does not mark a built destination as unbuilt', async () => {
+  // A working send leg that the UI cannot reach is invisible. This regressed
+  // once (a built leg flagged unbuilt), so the reachability is pinned here.
+  // The `built` flag itself is gone — a destination is offered by having a
+  // card, so the guard is that each card exists and carries a runnable action.
+  it('gives every implemented destination a card that can be run', async () => {
     const src = readFileSync(
       fileURLToPath(new URL('../src/client/components/Send.tsx', import.meta.url)), 'utf8');
-    for (const key of ['buttondown', 'website', 'podcast']) {
+
+    const keys = [...src.matchAll(/key: '(buttondown|website|podcast)'/g)].map((m) => m[1]);
+    expect(new Set(keys)).toEqual(new Set(['podcast', 'website', 'buttondown']));
+
+    for (const key of ['podcast', 'website', 'buttondown']) {
       const start = src.indexOf(`key: '${key}'`);
-      expect(start, `no send card for ${key}`).toBeGreaterThan(-1);
-      const block = src.slice(start, src.indexOf('},', start));
-      expect(block, `${key} is marked unbuilt but the server implements it`).toContain('built: true');
+      const next = keys
+        .map((k) => src.indexOf(`key: '${k}'`))
+        .filter((i) => i > start)
+        .sort((a, b) => a - b)[0] ?? src.indexOf('];', start);
+      const block = src.slice(start, next);
+      // A verb is the action button's label; without one the card cannot send.
+      expect(block, `${key} has no action`).toMatch(/verb: '/);
+      expect(block, `${key} shows no steps`).toContain('steps: [');
     }
+  });
+
+  it('runs the legs in the order the design specifies', () => {
+    // Podcast first: the website handoff publishes an audio reference, so the
+    // file has to exist for that reference to resolve.
+    const src = readFileSync(
+      fileURLToPath(new URL('../src/client/components/Send.tsx', import.meta.url)), 'utf8');
+    const order = [...src.matchAll(/key: '(buttondown|website|podcast)'/g)].map((m) => m[1]);
+    expect(order).toEqual(['podcast', 'website', 'buttondown']);
   });
 
   it('has a server route for every destination the screen offers', async () => {
