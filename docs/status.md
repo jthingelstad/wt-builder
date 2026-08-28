@@ -9,8 +9,11 @@ finished, what is half-finished, and what has never run.
 
 ## Working, and verified in a browser against live data
 
-- **Issue index** with the setup sheet (Saturday validation, issue number,
-  source-material span, derived window line).
+- **Dashboard** — rows with the completion strip full-width beneath a draft
+  line, the deadline countdown chip, SITE/MAIL/POD send chips, and the
+  archive-feed cell. Plus the setup sheet.
+- **URLs** — `/`, `/wt350`, `/wt350/send`. Back, deep links, reload-in-place,
+  and two issues in two tabs all work.
 - **The canvas**: the three-column grid at `76px | 680px | {0 | 250px}`, the
   card painted per row, the structural margin with its 2×n control rail, the
   editorial margin.
@@ -91,6 +94,7 @@ was resolved by recency, using the sync history in `github.md`:
 | 0012's Consequences say "a 360px floor"; token list says "page 360–720" | **Fixed 680px.** A range is the exact failure the margin work exists to prevent. |
 | Lens kicker `padding-left: 160px` | Uses gutter + 40px. The 160 was measured when the gutter was 158px. |
 | `item-model.md` says the window ends Thursday | Superseded by 0022. |
+| Two `Issue index` sections: the later one (line 47) forbids the kicker, lede, and footnote the earlier one (line 280) specifies | **The later one.** Sections at the top of the file are the newer additions — the same is true of `Send view`. |
 
 ## One thing the design does not say
 
