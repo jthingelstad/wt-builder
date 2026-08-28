@@ -6,8 +6,8 @@
  */
 
 import type { Channel, IssueDoc, IssueNode, Item } from '../types.ts';
-import { inChannel } from '../types.ts';
-import { wallClock, weekday } from '../dates.ts';
+import { CHANNELS, inChannel } from '../types.ts';
+import { type Window, inWindow, issueWindow, wallClock, weekday } from '../dates.ts';
 
 export interface PlannedItem {
   id: string;
@@ -27,6 +27,69 @@ export interface PlannedNode {
   items: PlannedItem[];
   /** Present only for Journal sections. */
   groups?: JournalGroup[];
+}
+
+// ── inclusion ─────────────────────────────────────────────────────────────
+//
+// `included` is derived, never stored: an item is in the issue when at least
+// one channel is on *and* it falls inside the window (docs/interface-spec.md
+// § Item, and 0022). Deriving it on read is what makes changing the publish
+// date or the window length re-derive every item for free — a stored flag
+// would need a sweep, and the sweep is what goes stale.
+
+/** The source window this document currently describes. */
+export function windowOf(doc: IssueDoc): Window {
+  return issueWindow(doc.issue.publication_date, doc.issue.window_days);
+}
+
+/**
+ * Did this item fall outside the window?
+ *
+ * Only syndicated items are subject to it. Jamie's own writing — the intro, a
+ * haiku, a Currently line — is composed for this issue and carries no capture
+ * timestamp, so it is always in. A syndicated item with no timestamp is kept
+ * rather than dropped: an unjudgeable item is a data problem, and silently
+ * deleting it would hide it.
+ */
+export function outOfWindow(item: Item, w: Window): boolean {
+  if (item.authorship !== 'syndicated') return false;
+  if (!item.published_at) return false;
+  return !inWindow(item.published_at, w);
+}
+
+/** No channel on — held out by the editorial act of exclusion. */
+export function heldOut(item: Item): boolean {
+  return !CHANNELS.some((c) => item.channels[c]);
+}
+
+/** Derived: at least one channel on, and inside the window. */
+export function isIncluded(item: Item, w: Window): boolean {
+  return !heldOut(item) && !outOfWindow(item, w);
+}
+
+/** Exactly one channel on — an edition-only item, which the canvas says out loud. */
+export function editionOnly(item: Item): boolean {
+  return CHANNELS.filter((c) => item.channels[c]).length === 1;
+}
+
+export interface Fallout {
+  /** How many of the node's items fell outside the window. */
+  count: number;
+  /**
+   * Every item fell out. The canvas dims the heading to `opacity: .45` and
+   * prints ALL n FELL OUTSIDE THE WINDOW rather than letting the section
+   * vanish — a section that disappears silently reads as data loss.
+   */
+  all: boolean;
+}
+
+/** What the window took out of one node. Editor-only; editions just drop them. */
+export function falloutOf(doc: IssueDoc, node: IssueNode, w: Window): Fallout {
+  const items = node.items
+    .map((id) => doc.items[id])
+    .filter((i): i is Item => Boolean(i));
+  const count = items.filter((i) => outOfWindow(i, w)).length;
+  return { count, all: items.length > 0 && count === items.length };
 }
 
 /** Sections whose items are announced with a spoken "Link N of M" signpost. */
@@ -93,12 +156,14 @@ export function groupJournal(items: PlannedItem[]): JournalGroup[] {
  */
 export function planEdition(doc: IssueDoc, channel: Channel): PlannedNode[] {
   const planned: PlannedNode[] = [];
+  const w = windowOf(doc);
 
   for (const node of orderedNodes(doc)) {
     const items: PlannedItem[] = [];
     for (const id of node.items) {
       const item = doc.items[id];
       if (!item) continue;
+      if (outOfWindow(item, w)) continue;
       if (!inChannel(item, channel)) continue;
       items.push({ id, item });
     }

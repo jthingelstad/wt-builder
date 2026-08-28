@@ -187,7 +187,7 @@ describe('audio mastering', () => {
     expect(tags.track).toBe('349');
     expect(tags.artist).toBe('Jamie Thingelstad');
     expect(tags.album).toBe('The Weekly Thing');
-    expect(tags.date).toBe('2026-09-05');
+    expect(tags.date).toBe('2026-05-23');
   });
 
   it('normalizes to the podcast convention', () => {

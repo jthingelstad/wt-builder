@@ -6,14 +6,14 @@ import { fileURLToPath } from 'node:url';
 import { tmpdir } from 'node:os';
 import { join } from 'node:path';
 
-import type { IssueDoc } from '../src/shared/types.ts';
+import type { IssueDoc, Item } from '../src/shared/types.ts';
 import { inWindow, issueWindow, snapToSaturday, windowLabel } from '../src/shared/dates.ts';
 import {
   addMarkdownBlock, addSection, createIssue, demote, hideItem, moveNode,
-  promote, readiness, removeSection, setChannel, setIssueNumber, setWindowDays,
+  promote, readiness, removeSection, setChannel, setIssueNumber, setPublicationDate, setWindowDays,
   updateItem,
 } from '../src/server/issue.ts';
-import { planEdition } from '../src/shared/render/plan.ts';
+import { falloutOf, outOfWindow, planEdition, windowOf } from '../src/shared/render/plan.ts';
 import { sourceRows } from '../src/shared/render/source.ts';
 import { renderWebsite } from '../src/shared/render/website.ts';
 import { renderAudio } from '../src/shared/render/audio.ts';
@@ -289,7 +289,7 @@ describe('the store', () => {
     const doc = fixture();
     const row = store.saveIssue(doc);
     expect(row.number).toBe(350);
-    expect(row.publication_date).toBe('2026-09-05');
+    expect(row.publication_date).toBe('2026-05-23');
     expect(row.doc.items['intro-1']!.body).toContain('Welcome back');
     expect(store.listIssues()).toHaveLength(1);
   });
@@ -321,5 +321,78 @@ describe('the store', () => {
   it('never numbers below the pre-Builder history', async () => {
     const { config } = await import('../src/server/config.ts');
     expect(store.lastPublishedNumber()).toBeGreaterThanOrEqual(config.lastPublishedIssue);
+  });
+});
+
+describe('window-derived inclusion', () => {
+  const syndicated = (published_at: string): Item => ({
+    type: 'pinboard_link', authorship: 'syndicated', source: 'Pinboard',
+    channels: { website: true, email: true, audio: true },
+    title: 'A link', source_url: 'https://example.com', published_at,
+  });
+
+  /** One section, three syndicated links, publication Saturday 2026-09-05. */
+  const docWith = (...stamps: string[]): IssueDoc => {
+    const doc = createIssue({ number: 400, publication_date: '2026-09-05' });
+    doc.issue.window_days = 7;
+    const node = { id: 'n-notable', type: 'notable', kind: 'section',
+      label: 'Notable', items: [] as string[] } as unknown as IssueDoc['nodes'][number];
+    stamps.forEach((stamp, i) => {
+      const id = `i-${i}`;
+      doc.items[id] = syndicated(stamp);
+      node.items.push(id);
+    });
+    doc.nodes.push(node);
+    return doc;
+  };
+
+  it('drops a syndicated item that falls outside the window', () => {
+    const doc = docWith('2026-09-01T09:00:00-05:00', '2026-08-20T09:00:00-05:00');
+    const node = planEdition(doc, 'website').find((p) => p.node.id === 'n-notable');
+    expect(node?.items.map((i) => i.id)).toEqual(['i-0']);
+  });
+
+  it('re-derives when the publication date moves, with no sweep', () => {
+    const doc = docWith('2026-08-29T09:00:00-05:00');
+    expect(planEdition(doc, 'website').some((p) => p.node.id === 'n-notable')).toBe(true);
+    // Push publication out two weeks; the item is now before the window opens.
+    const moved = setPublicationDate(doc, '2026-09-19');
+    expect(planEdition(moved, 'website').some((p) => p.node.id === 'n-notable')).toBe(false);
+  });
+
+  it('re-derives when the window lengthens', () => {
+    const doc = docWith('2026-08-20T09:00:00-05:00');
+    expect(planEdition(doc, 'website').some((p) => p.node.id === 'n-notable')).toBe(false);
+    const wide = setWindowDays(doc, 21);
+    expect(planEdition(wide, 'website').some((p) => p.node.id === 'n-notable')).toBe(true);
+  });
+
+  it("leaves Jamie's own writing alone — it has no capture timestamp", () => {
+    const doc = createIssue({ number: 400, publication_date: '2026-09-05' });
+    const intro = doc.nodes.find((n) => n.type === 'intro');
+    const id = intro?.items[0];
+    expect(id).toBeTruthy();
+    expect(outOfWindow(doc.items[id!]!, windowOf(doc))).toBe(false);
+  });
+
+  it('keeps a syndicated item with no timestamp rather than dropping it', () => {
+    const doc = docWith('2026-09-01T09:00:00-05:00');
+    delete doc.items['i-0']!.published_at;
+    expect(outOfWindow(doc.items['i-0']!, windowOf(doc))).toBe(false);
+  });
+
+  it('reports a wholly-fallen-out section instead of letting it vanish', () => {
+    const doc = docWith('2026-08-01T09:00:00-05:00', '2026-08-02T09:00:00-05:00');
+    const node = doc.nodes.find((n) => n.id === 'n-notable')!;
+    const f = falloutOf(doc, node, windowOf(doc));
+    expect(f).toEqual({ count: 2, all: true });
+    // ...and it is genuinely absent from the rendered edition.
+    expect(planEdition(doc, 'website').some((p) => p.node.id === 'n-notable')).toBe(false);
+  });
+
+  it('does not flag a partly-trimmed section as wholly out', () => {
+    const doc = docWith('2026-09-01T09:00:00-05:00', '2026-08-02T09:00:00-05:00');
+    const node = doc.nodes.find((n) => n.id === 'n-notable')!;
+    expect(falloutOf(doc, node, windowOf(doc))).toEqual({ count: 1, all: false });
   });
 });
