@@ -198,7 +198,7 @@ presentation, and placement do not modify it; edits to its words do.
 
 ## Resolved questions
 
-Answered by prototype validation; kept here because the answers are contract.
+Settled during the interaction design; kept here because the answers are contract.
 
 - **Draggable versus menu-driven.** Both, in different places. The outline
   supports drag and arrows; the canvas gutter offers arrows and promote/demote.

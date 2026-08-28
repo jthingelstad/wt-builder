@@ -55,7 +55,6 @@ finished, what is half-finished, and what has never run.
 - **Audio lens details.** The script and its cues are right, but Briefly does
   not visibly reverse in the lens and dates are not yet spoken long
   ("Saturday, August twenty-ninth").
-- **Decision records 0004–0021** are not imported. 0022 and 0023 are.
 
 ## Never run for real
 
@@ -77,9 +76,9 @@ live in `.env` rather than the CLI's profile. Safe to leave; safe to delete.
 
 ## Decisions taken this session
 
-- `0022` — the window is Friday 00:00 CT to Friday 00:00 CT, half-open, compared
-  as instants rather than date strings.
-- `0023` — Micro.blog and Pinboard write-back are live, not read-only.
+- The window is Friday 00:00 CT to Friday 00:00 CT, half-open, compared as
+  instants rather than date strings.
+- Micro.blog and Pinboard write-back are live, not read-only.
 
 ## Conflicts found in the design, and how they were resolved
 
@@ -93,7 +92,7 @@ was resolved by recency, using the sync history in `github.md`:
 | 0012 puts notes at `left: 838px` | Spec's `left: 756px` wins — 838 is arithmetic from the old 158px gutter. |
 | 0012's Consequences say "a 360px floor"; token list says "page 360–720" | **Fixed 680px.** A range is the exact failure the margin work exists to prevent. |
 | Lens kicker `padding-left: 160px` | Uses gutter + 40px. The 160 was measured when the gutter was 158px. |
-| `item-model.md` says the window ends Thursday | Superseded by 0022. |
+| `item-model.md` says the window ends Thursday | Superseded: the span ends Friday. |
 | Two `Issue index` sections: the later one (line 47) forbids the kicker, lede, and footnote the earlier one (line 280) specifies | **The later one.** Sections at the top of the file are the newer additions — the same is true of `Send view`. |
 
 ## One thing the design does not say

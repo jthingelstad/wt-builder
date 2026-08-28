@@ -1,4 +1,8 @@
-# Documentation audit
+# Documentation audit, August 2026
+
+> **History, not instruction. Every finding below was remediated on 2026-08-28**
+> — see the outcome at the end. Kept because it records why the documentation is
+> shaped the way it is, and what shape it must not drift back into.
 
 2026-08-28. A full read of every Markdown file in the repo against the code as
 it actually stands.
@@ -208,3 +212,47 @@ starting point:
 4. `docs/status.md` — what is built, what is not, what has never run
 
 Everything else is a contract, a decision, or history — and says which it is.
+
+
+---
+
+## Outcome
+
+Everything above was acted on the same day.
+
+**Deleted:** `prototype/` (three of four entry points cited it as the interface
+authority), `docs/decisions/` as a directory, `docs/design-brief.md`,
+`docs/workflow-target.md`, `reference/studio-salvage-map.md`. Ten documents gone.
+
+**Unforked:** `CLAUDE.md` is now a symlink to `AGENTS.md`, matching `~`.
+
+**Rewritten:** `AGENTS.md` for the real phase, naming the spec as the authority in
+its first ten lines. `README.md`. `docs/publishing-lifecycle.md`, to the two
+states the code actually has.
+
+**Reconciled with the code:** `item-model.md` now matches `src/shared/types.ts`
+field for field. `service-contracts.md` documents reasoning effort rather than a
+temperature Opus 5 rejects, and no longer claims neither service is wired.
+`integrations.md` gained the image pipeline and the correct Micro.blog read path.
+
+**Edited in place:** `docs/interface-spec.md`, on Jamie's call — the superseded
+second Issue index section, the one-margin paragraph, the handoff-meta sections,
+and the eight-state publishing section are gone; three open questions are
+recorded as answered.
+
+**Settled:** Membership and Haiku are spoken, which is what the renderer and the
+audio fixture already did. The `TO VALIDATE` strip is out of the Audio lens.
+
+**Kept as history:** the Shortcuts workflow and inventory, because that workflow
+remains the fallback until WT Builder has published a real issue.
+
+Every internal link resolves. No decision-number citation survives anywhere in
+the source or the docs.
+
+### The rule that came out of it
+
+A decision earns a written record only when it is **invisible in the code** — an
+absence, or a boundary between repositories. Everything else belongs in a comment
+next to the thing it constrains, which is where it will actually be read. That is
+why `docs/decisions.md` is one short file and why the numbered directory should
+not come back.

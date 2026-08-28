@@ -1,5 +1,10 @@
 # Current workflow evidence
 
+> **History, not instruction.** This records the nine-year Shortcuts workflow
+> that WT Builder replaces. It is kept because that workflow is still the
+> fallback until WT Builder has published a real issue, and because it is the
+> behavioural evidence the rendering contracts were derived from.
+
 ## Shortcuts model
 
 `Build Issue` calls section shortcuts and concatenates the returned Markdown.

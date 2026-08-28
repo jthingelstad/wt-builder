@@ -1,5 +1,9 @@
 # Shortcuts inventory
 
+> **History, not instruction.** An inventory of the Shortcuts that built the
+> newsletter before WT Builder, kept as behavioural evidence and because the
+> workflow remains the fallback until a real issue has been published.
+
 The shared Shortcuts were inspected as behavioral evidence. Raw payloads are
 not committed because they may contain private configuration or credentials.
 

@@ -204,7 +204,7 @@ separate "hidden" flag — see Interactions.
 
 Use the canonical field names (`docs/item-model.md`), not the shorthand this document uses:
 
-| Prototype | Canonical | Note |
+| Shorthand here | Canonical | Note |
 | --- | --- | --- |
 | `snapshot` | `source_snapshot` | what was imported, for the diff view |
 | item order in `node.items[]` | `position` | order is the array, not a field |
@@ -676,7 +676,7 @@ insert points `0 → 1`; all `transition: opacity .12s`.
 
 ## State
 
-Prototype state, as a guide to the real store:
+The state this design assumes, as a guide to the real store:
 
 ```
 nodes[], items{}, issue{}, library[], orphans[], lastPublished

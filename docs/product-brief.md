@@ -9,7 +9,8 @@ website, email, and audio.
 
 The inherited Studio application contains useful publishing machinery but is
 burdened by a broader creative-studio framing. Its interface does not match the
-way Jamie wants to construct an issue.
+way Jamie wants to construct an issue. In the end none of it was reused: WT
+Builder's integrations were written fresh against the same services.
 
 ## Product statement
 
@@ -34,7 +35,8 @@ Buttondown, and audio editions.
 5. Generate clearly attributed Membership and Echoes content with Thingy.
 6. Generate and select a Haiku.
 7. Preview and validate three intentionally different output editions.
-8. Publish through existing downstream services in a later phase.
+8. Send the issue to the website, Buttondown, and the podcast — each its own
+   leg, none of them making the issue authoritative.
 
 ## Editorial principles
 
@@ -48,9 +50,9 @@ Buttondown, and audio editions.
 - Echoes connects the assembled current issue to the archive, is generated
   late, appears last, and is omitted from audio.
 
-## Success criteria for the prototype
+## Success criteria
 
-Jamie can take an imported candidate set and, without reading instructions:
+Jamie can open the week's swept issue and, without reading instructions:
 
 - understand what is in the issue and what is merely available,
 - edit unfinished Pinboard commentary,
@@ -59,8 +61,9 @@ Jamie can take an imported candidate set and, without reading instructions:
 - promote and reposition a long Journal post,
 - add authored custom items,
 - distinguish Jamie, syndicated, and Thingy authorship,
-- compare website, email, and audio editions, and
-- understand what remains incomplete.
+- compare website, email, and audio editions,
+- understand what remains incomplete, and
+- send all three legs and see what each one produced.
 
 ## Non-goals
 
@@ -69,5 +72,6 @@ Jamie can take an imported candidate set and, without reading instructions:
 - Blog authoring
 - Podcast authoring beyond the Weekly Thing audio edition
 - Generic project or knowledge management
-- Publishing from the first prototype
 - Replacing Pinboard, Micro.blog, Buttondown, or Thingy
+- Becoming the archive. WT Builder sends issue text to the archive after
+  publication; it does not hold the corpus and does not answer questions from it.

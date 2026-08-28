@@ -112,6 +112,9 @@ data, which looks exactly like a rendering bug.
   adding any of the three.
 - Never parse pre-Builder issue Markdown into items.
 - Never add secrets, raw Shortcut payloads, or production reader data.
+- **Do not retire the Shortcuts workflow.** It stays the fallback until WT
+  Builder has published a real issue end to end. Nothing here has sent to a
+  reader yet — see `docs/status.md`.
 
 ## Decisions
 

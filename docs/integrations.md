@@ -40,13 +40,11 @@ The archive holds the corpus Thingy answers from. It is a separate repository,
 `studio-thing`. A rename to `archive-thing` has been discussed and **has not
 happened** — the directory and remote are still `studio-thing`.
 
-- The archive is not a publishing destination. See
-  [`decisions/0002-publishing-and-archive-boundary.md`](decisions/0002-publishing-and-archive-boundary.md).
+- The archive is not a publishing destination. See [`decisions.md`](decisions.md).
 - After an issue publishes, WT Builder sends its text to the archive so Thingy
   can retrieve and cite it.
 - The send is a direct commit into the archive repository, scoped to the issue
-  data path. See
-  [`decisions/0003-archive-feed-mechanism.md`](decisions/0003-archive-feed-mechanism.md).
+  data path, rather than an API call. See [`decisions.md`](decisions.md).
 - The send is asynchronous and non-blocking. It has its own evidence and retry
   and is never a readiness gate. A failed archive send means the issue is
   published and Thingy does not know about it yet.
