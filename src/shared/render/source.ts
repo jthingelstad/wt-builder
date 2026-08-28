@@ -9,6 +9,7 @@
 import type { Channel, IssueDoc, Item } from '../types.ts';
 import { CHANNELS } from '../types.ts';
 import { orderedNodes } from './plan.ts';
+import { speakable } from './speech.ts';
 
 export interface SourceRow {
   itemId: string;
@@ -29,7 +30,9 @@ export interface SourceRow {
 function displayTitle(item: Item): string {
   if (item.title) return item.title;
   if (item.label) return item.label;
-  const body = String(item.body ?? '').replace(/\s+/g, ' ').trim();
+  // A Journal post's body is Markdown with embedded HTML. Read raw, its link
+  // syntax and image tags make an unreadable title.
+  const body = speakable(String(item.body ?? '')).replace(/\s+/g, ' ').trim();
   if (body) return body.length > 72 ? `${body.slice(0, 71)}…` : body;
   if (item.media?.caption) return item.media.caption;
   return '(empty)';

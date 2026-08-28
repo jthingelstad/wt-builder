@@ -4,6 +4,8 @@
  */
 
 import { describe, expect, it } from 'vitest';
+import { readFileSync } from 'node:fs';
+import { fileURLToPath } from 'node:url';
 
 import type { IssueDoc, Item } from '../src/shared/types.ts';
 import { allChannels } from '../src/shared/types.ts';
@@ -11,6 +13,7 @@ import { renderWebsite } from '../src/shared/render/website.ts';
 import { renderAudio } from '../src/shared/render/audio.ts';
 import { speakable, isSilent } from '../src/shared/render/speech.ts';
 import { candidateToItem } from '../src/server/integrations/pinboard.ts';
+import { sourceRows } from '../src/shared/render/source.ts';
 import { markdownToSafeHtml } from '../src/client/markdown.ts';
 import { shouldWriteBack } from '../src/client/api.ts';
 
@@ -211,5 +214,43 @@ describe('write-back stays inside its contract', () => {
     };
     expect(shouldWriteBack(microblog, { body: 'Revised post' })).toBe(true);
     expect(shouldWriteBack(microblog, { commentary: 'Issue-only note' })).toBe(false);
+  });
+});
+
+describe('the send screen offers every leg that exists', () => {
+  // A working send leg marked unbuilt is unreachable from the UI. This has
+  // regressed once already, so it is pinned here.
+  it('does not mark a built destination as unbuilt', async () => {
+    const src = readFileSync(
+      fileURLToPath(new URL('../src/client/components/Send.tsx', import.meta.url)), 'utf8');
+    for (const key of ['buttondown', 'website', 'podcast']) {
+      const start = src.indexOf(`key: '${key}'`);
+      expect(start, `no send card for ${key}`).toBeGreaterThan(-1);
+      const block = src.slice(start, src.indexOf('},', start));
+      expect(block, `${key} is marked unbuilt but the server implements it`).toContain('built: true');
+    }
+  });
+
+  it('has a server route for every destination the screen offers', async () => {
+    const src = readFileSync(
+      fileURLToPath(new URL('../src/server/index.ts', import.meta.url)), 'utf8');
+    expect(src).toContain("destination === 'website'");
+    expect(src).toContain("destination === 'podcast'");
+    expect(src).toContain("destination !== 'buttondown'");
+  });
+});
+
+describe('the source lens shows words, not markup', () => {
+  it('strips Markdown from a Journal post used as a title', () => {
+    const doc = issue(
+      { 'j-1': { type: 'journal_post', source: 'Micro.blog', authorship: 'syndicated',
+                 body: 'Great coffee at [Johnson Public House](https://jph.test) in Madison. '
+                     + '<img src="https://x.test/a.jpg" width="600">' } },
+      [node({ id: 'journal', type: 'journal', label: 'Journal', items: ['j-1'] })],
+    );
+    const row = sourceRows(doc)[0]!;
+    expect(row.title).toContain('Johnson Public House');
+    expect(row.title).not.toContain('](');
+    expect(row.title).not.toContain('<img');
   });
 });
