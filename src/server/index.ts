@@ -369,6 +369,25 @@ const routes: [RegExp, string, (ctx: Ctx, params: string[]) => Promise<unknown>]
     return { repo: config.websiteRepo, ...result, files: files.map((f) => f.path) };
   }],
 
+  /**
+   * What the archive feed would commit, committing nothing. The website leg
+   * has this because a real commit publishes; the archive leg has it because
+   * a real commit puts draft text in the corpus Thingy answers from.
+   */
+  [/^\/api\/issues\/([^/]+)\/send\/archive\/preview$/, 'GET', async (_ctx, [id]) => {
+    const doc = requireIssue(id!);
+    const sends = doc.sends ?? {};
+    const files = archiveInputs(doc, {
+      buttondownId: sends.buttondown?.external_id,
+      absoluteUrl: sends.buttondown?.url,
+    });
+    const result = await githubRepo.diff(files, {
+      repo: config.archiveRepo,
+      branch: config.archiveBranch,
+    });
+    return { repo: config.archiveRepo, ...result, files: files.map((f) => f.path) };
+  }],
+
   /** Copy every remote image onto the CDN, resized. Safe to run repeatedly. */
   [/^\/api\/issues\/([^/]+)\/images\/rehost$/, 'POST', async (_ctx, [id]) => {
     const { doc, report } = await rehostIssueImages(requireIssue(id!));
