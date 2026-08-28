@@ -510,10 +510,16 @@ export function setIssueNumber(doc: IssueDoc, number: number): IssueDoc {
 
 // ── readiness ─────────────────────────────────────────────────────────────
 
+/** What kind of outstanding thing this is — the popover colours by it. */
+export type ReadinessKind = 'required' | 'commentary' | 'sync' | 'thingy';
+
 export interface ReadinessUnit {
   done: boolean;
   title: string;
   anchor: string;
+  kind: ReadinessKind;
+  /** One line saying what finishing this means. */
+  context?: string;
 }
 
 export interface Readiness {
@@ -529,8 +535,10 @@ export interface Readiness {
  */
 export function readiness(doc: IssueDoc): Readiness {
   const units: ReadinessUnit[] = [];
-  const add = (done: boolean, title: string, anchor = 'issue') =>
-    units.push({ done, title, anchor });
+  const add = (
+    done: boolean, title: string, anchor = 'issue',
+    kind: ReadinessKind = 'required', context?: string,
+  ) => units.push({ done, title, anchor, kind, context });
 
   const nodeOf = (type: string) => doc.nodes.find((n) => n.type === type);
   const present = Object.entries(doc.items).filter(([, i]) =>
@@ -545,7 +553,8 @@ export function readiness(doc: IssueDoc): Readiness {
   ] as const) {
     const nd = nodeOf(type);
     if (!nd) {
-      add(true, `${label} — not in this issue`);
+      // A section that is not in the issue is satisfied, not outstanding.
+      add(true, `${label} — not in this issue`, 'issue', 'required');
       continue;
     }
     const filled = nd.items.length > 0 && nd.items.every((id) => {
@@ -555,29 +564,37 @@ export function readiness(doc: IssueDoc): Readiness {
         ? Boolean(item.media?.url)
         : bodyLines(item.body).length > 0;
     });
-    add(filled, label, nd.items[0] ?? nd.id);
+    add(filled, label, nd.items[0] ?? nd.id, 'required',
+      type === 'photo' ? 'Drop a photo, or remove the section.' : 'Write it, or remove the section.');
   }
 
   for (const [id, item] of present) {
     if (item.type !== 'pinboard_link') continue;
     const title = (item.title ?? 'untitled').slice(0, 40);
-    add(Boolean(String(item.commentary ?? '').trim()), `Commentary for “${title}”`, id);
+    add(
+      Boolean(String(item.commentary ?? '').trim()),
+      `Commentary for “${title}”`, id, 'commentary',
+      'A link with no commentary is just a headline.',
+    );
     if (item.sync_state === 'failed') {
-      add(false, `Pinboard write failed for “${title}”`, id);
+      add(false, `Pinboard write failed for “${title}”`, id, 'sync',
+        item.sync_error ?? 'Your edit is kept. Retry from the inspector.');
     }
   }
 
   for (const [id, item] of present) {
     if (item.authorship !== 'Thingy') continue;
     const name = item.type === 'membership' ? 'Membership' : 'Echoes';
-    add(bodyLines(item.body).length > 0, `${name} drafted by Thingy`, id);
-    add(Boolean(item.reviewed), `${name} reviewed by you`, id);
+    add(bodyLines(item.body).length > 0, `${name} drafted by Thingy`, id, 'thingy',
+      'Use the wand in the margin, or write it yourself.');
+    add(Boolean(item.reviewed), `${name} reviewed by you`, id, 'thingy',
+      'Thingy wrote it and it goes out under that byline.');
   }
 
   const haiku = nodeOf('haiku');
   if (haiku) {
     for (const id of haiku.items) {
-      add(bodyLines(doc.items[id]?.body).length > 0, 'Haiku chosen', id);
+      add(bodyLines(doc.items[id]?.body).length > 0, 'Haiku chosen', id, 'required');
     }
   }
 

@@ -17,6 +17,7 @@ import {
   editionOnly, falloutOf, heldOut, orderedNodes, outOfWindow, windowOf,
 } from '../../shared/render/plan.ts';
 import { audioScript } from '../../shared/render/audio.ts';
+import { MEMBER_THANKS, PREMIUM_CONDITION } from '../../shared/render/email.ts';
 import { rejoinBody, splitBody } from '../../shared/body.ts';
 import { markdownInlineToSafeHtml } from '../markdown.ts';
 import { ImagePlus, Plus, Trash } from '../icons.tsx';
@@ -282,6 +283,33 @@ export function Page({
         </Row>,
       );
     });
+
+    // Buttondown branches Membership on subscriber type. Only the email
+    // renderer knows about Liquid — the item itself carries one body — so the
+    // branch is shown here rather than living in the material.
+    if (lens === 'email' && node.type === 'membership' && inLens.length > 0) {
+      const body = inLens
+        .map((id) => doc.items[id]?.body)
+        .find((b) => b && b.trim());
+      if (body) {
+        rows.push(
+          <Row key={`${node.id}-liquid`} anchor={node.id}>
+            <div class="liquid">
+              <code>{`{% if ${PREMIUM_CONDITION} %}`}</code>
+              <code class="indent">…{` ${MEMBER_THANKS}`}</code>
+              <code>{'{% else %}'}</code>
+              <code class="indent">…</code>
+              <code>{'{% endif %}'}</code>
+            </div>
+            <p class="liquid-note">
+              Buttondown only. Members already supporting get the thanks; everyone
+              else gets the invitation. The website prints the invitation variant
+              as plain prose.
+            </p>
+          </Row>,
+        );
+      }
+    }
 
     // Held-out items stay visible so exclusion is reversible, not a disappearance.
     if (lens !== 'source') {

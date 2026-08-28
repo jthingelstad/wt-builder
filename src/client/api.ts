@@ -12,8 +12,16 @@ export function shouldWriteBack(item: Item, patch: Record<string, unknown>): boo
   return fields.some((field) => field in patch);
 }
 
+export type ReadinessKind = 'required' | 'commentary' | 'sync' | 'thingy';
+
 export interface Readiness {
-  units: { done: boolean; title: string; anchor: string }[];
+  units: {
+    done: boolean;
+    title: string;
+    anchor: string;
+    kind: ReadinessKind;
+    context?: string;
+  }[];
   done: number;
   total: number;
   pct: number;

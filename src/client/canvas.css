@@ -935,3 +935,81 @@
 }
 .cue-omit-label { color: var(--muted); }
 .cue-flag-label { color: var(--amber); }
+
+/* ── the Email lens's Buttondown branch ───────────────────────────────── */
+
+.liquid {
+  background: var(--blue-1);
+  border: 1px solid var(--blue-3);
+  border-radius: 8px;
+  padding: 11px 13px;
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  margin-bottom: 8px;
+}
+
+.liquid code {
+  font-family: var(--mono);
+  font-size: 11.5px;
+  color: var(--blue);
+  line-height: 1.5;
+}
+.liquid code.indent { padding-left: 16px; }
+
+.liquid-note { font-size: 12.5px; color: var(--secondary); line-height: 1.55; margin: 0 0 15px; }
+
+/* ── the checklist popover ────────────────────────────────────────────── */
+
+.strip { position: relative; }
+
+.strip-label, .strip-readout { border: 0; background: none; padding: 0; }
+.strip-label:hover, .strip-readout:hover { color: var(--ink); }
+
+.checklist {
+  position: absolute;
+  top: 34px;
+  right: 16px;
+  width: 352px;
+  max-height: 60vh;
+  overflow-y: auto;
+  background: var(--page);
+  border-radius: 10px;
+  box-shadow: var(--shadow-popover);
+  padding: 6px;
+  z-index: 40;
+  text-align: left;
+}
+
+.cl-head {
+  font-family: var(--mono);
+  font-size: 9.5px;
+  letter-spacing: 0.08em;
+  color: var(--faint);
+  padding: 8px 10px 6px;
+}
+
+.cl-clear { font-size: 12.5px; color: var(--green); padding: 4px 10px 10px; margin: 0; }
+
+.cl-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 9px;
+  width: 100%;
+  border: 0;
+  background: none;
+  border-radius: 7px;
+  padding: 8px 10px;
+  text-align: left;
+}
+.cl-row:hover { background: var(--subtle); }
+
+.cl-dot { width: 7px; height: 7px; border-radius: 99px; flex: none; margin-top: 5px; }
+.cl-dot.commentary { background: var(--amber); }
+.cl-dot.sync { background: var(--terracotta); }
+.cl-dot.thingy { background: var(--blue); }
+.cl-dot.required { background: var(--mark-dark); }
+
+.cl-main { display: flex; flex-direction: column; gap: 2px; min-width: 0; }
+.cl-title { font-size: 13px; color: var(--ink); }
+.cl-context { font-size: 11.5px; color: var(--muted); line-height: 1.45; }

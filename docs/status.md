@@ -26,6 +26,12 @@ finished, what is half-finished, and what has never run.
   channels and their reasons, provenance, archive references.
 - **Editorial review** — the summary bar and margin notes, measured and
   stacked. Run for real against Claude; the notes were good.
+- **Audio lens** — a numbered script rather than a page, rendered from the
+  same `audioScript()` that feeds the synthesizer, so it cannot drift from
+  the mp3. Section cues, omission strips, and the TO VALIDATE flag.
+- **Email lens** — the Buttondown Liquid branch after Membership.
+- **Checklist popover** — opens from the strip, coloured by kind, each row
+  saying what finishing it means and jumping to the offending item.
 - **Send view** — Podcast, Website, Buttondown in run order, the audio gate,
   the stated-not-enforced blocker, real per-step evidence.
 - **Sweep** — Pinboard `toread=yes` and Micro.blog Micropub `q=source`, with
@@ -36,19 +42,16 @@ finished, what is half-finished, and what has never run.
 - **Collapse mode.** The header control is not there either; it was dropped to
   keep the header inside its width budget and needs to be added back with the
   budget re-checked.
-- **The checklist popover.** The strip's ticks jump to their anchors, but the
-  strip itself does not open the popover the spec describes.
 - **The 352px editorial review panel.** Only the summary bar and the margin
   notes exist. The spec has both, sharing the right rail with the inspector.
-- **Audio lens as a numbered script.** It currently renders the website blocks
-  filtered to `audio`. It should be 26px mono cue numbers, section cues, long
-  spoken dates, reversed Briefly, and the omission and flag strips.
-- **Email lens Buttondown block.** The Liquid `subscriber_type` card after
-  Membership is missing.
 - **Insert points and add affordances.** No `+ Markdown here` at section
   boundaries, no `+ Currently entry` / `+ Write a link here` chips.
 - **Photo upload.** The drop zone reads the file and seeds alt text and
   timestamp, but nothing uploads it yet.
+- **Audio lens details.** The script and its cues are right, but Briefly does
+  not visibly reverse in the lens and dates are not yet spoken long
+  ("Saturday, August twenty-ninth").
+- **Decision records 0004–0021** are not imported. 0022 and 0023 are.
 
 ## Never run for real
 

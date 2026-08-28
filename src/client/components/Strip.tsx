@@ -9,6 +9,8 @@
  * focusable.
  */
 
+import { useEffect, useRef, useState } from 'preact/hooks';
+
 import type { Readiness } from '../api.ts';
 import { CircleCheck } from '../icons.tsx';
 
@@ -19,14 +21,40 @@ interface Props {
 }
 
 export function Strip({ number, readiness, onJump }: Props) {
+  const [open, setOpen] = useState(false);
+  const box = useRef<HTMLDivElement>(null);
+
+  // Click-away and Escape, so the popover never traps the page.
+  useEffect(() => {
+    if (!open) return;
+    const away = (e: MouseEvent) => {
+      if (!box.current?.contains(e.target as Node)) setOpen(false);
+    };
+    const key = (e: KeyboardEvent) => { if (e.key === 'Escape') setOpen(false); };
+    document.addEventListener('mousedown', away);
+    document.addEventListener('keydown', key);
+    return () => {
+      document.removeEventListener('mousedown', away);
+      document.removeEventListener('keydown', key);
+    };
+  }, [open]);
+
   const units = readiness?.units ?? [];
   const done = readiness?.done ?? 0;
   const total = readiness?.total ?? 0;
   const complete = total > 0 && done === total;
 
+  const outstanding = units.filter((u) => !u.done);
+
   return (
-    <div class={`strip${complete ? ' complete' : ''}`}>
-      <span class="strip-label">{complete ? 'READY' : `WT${number}`}</span>
+    <div class={`strip${complete ? ' complete' : ''}`} ref={box}>
+      <button
+        class="strip-label"
+        aria-expanded={open}
+        onClick={() => setOpen(!open)}
+      >
+        {complete ? 'READY' : `WT${number}`}
+      </button>
 
       <div class="ticks">
         {units.map((unit, i) => (
@@ -51,10 +79,37 @@ export function Strip({ number, readiness, onJump }: Props) {
         ))}
       </div>
 
-      <span class={`strip-readout${complete ? ' complete' : ''}`}>
+      <button
+        class={`strip-readout${complete ? ' complete' : ''}`}
+        aria-expanded={open}
+        onClick={() => setOpen(!open)}
+      >
         {complete ? 'Ready to send' : `${done} of ${total} done`}
-      </span>
+      </button>
       {complete && <CircleCheck />}
+
+      {open && (
+        <div class="checklist" role="dialog" aria-label="Before this issue is ready to send">
+          <div class="cl-head">BEFORE WT{number} IS READY TO SEND</div>
+          {outstanding.length === 0 ? (
+            <p class="cl-clear">Everything on this list is done.</p>
+          ) : (
+            outstanding.map((unit, i) => (
+              <button
+                class="cl-row"
+                key={`${unit.anchor}-${i}`}
+                onClick={() => { onJump(unit.anchor); setOpen(false); }}
+              >
+                <span class={`cl-dot ${unit.kind}`} />
+                <span class="cl-main">
+                  <span class="cl-title">{unit.title}</span>
+                  {unit.context && <span class="cl-context">{unit.context}</span>}
+                </span>
+              </button>
+            ))
+          )}
+        </div>
+      )}
     </div>
   );
 }
