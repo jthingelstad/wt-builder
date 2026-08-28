@@ -112,16 +112,29 @@ const routes: [RegExp, string, (ctx: Ctx, params: string[]) => Promise<unknown>]
   })],
 
   [/^\/api\/issues$/, 'GET', async () => ({
-    issues: store.listIssues().map((r) => ({
-      id: r.id,
-      number: r.number,
-      title: r.doc.issue.title,
-      publication_date: r.publication_date,
-      status: r.status,
-      updated_at: r.updated_at,
-      sends: r.doc.sends ?? {},
-      readiness: issues.readiness(r.doc).pct,
-    })),
+    issues: store.listIssues().map((r) => {
+      const ready = issues.readiness(r.doc);
+      const items = Object.values(r.doc.items);
+      return {
+        id: r.id,
+        number: r.number,
+        title: r.doc.issue.title,
+        publication_date: r.publication_date,
+        status: r.status,
+        updated_at: r.updated_at,
+        sends: r.doc.sends ?? {},
+        readiness: ready.pct,
+        // The dashboard draws one tick per unit, so it needs the units
+        // themselves — a percentage cannot be rendered as a strip.
+        ticks: ready.units.map((u) => u.done),
+        outstanding: ready.total - ready.done,
+        counts: {
+          items: items.length,
+          links: items.filter((i) => i.type === 'pinboard_link').length,
+          journal: items.filter((i) => i.type === 'journal_post').length,
+        },
+      };
+    }),
     next_number: store.lastPublishedNumber() + 1,
   })],
 

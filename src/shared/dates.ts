@@ -244,3 +244,43 @@ export function sourcesLabel(w: Window): string {
 export function spanLabel(w: Window): string {
   return sourcesLabel(w).replace(/^SOURCES /, '');
 }
+
+// ── the deadline ──────────────────────────────────────────────────────────
+
+export interface Countdown {
+  label: string;
+  /** How the chip reads: quiet, close, or past. */
+  tone: 'grey' | 'amber' | 'terracotta';
+}
+
+/**
+ * How long there is until an issue publishes.
+ *
+ * The Weekly Thing has a standing Saturday deadline, so this is a fact about
+ * the issue rather than a detail — it is the reason the dashboard says
+ * "TOMORROW" rather than a date the reader has to subtract from today.
+ *
+ * Measured in whole days in Central, so "TODAY" means the publication date has
+ * arrived on Jamie's clock, not on UTC's.
+ */
+export function countdown(publicationDate: string, now = new Date()): Countdown {
+  const today = wallClock(
+    new Intl.DateTimeFormat('en-CA', { timeZone: ZONE }).format(now),
+  );
+  const target = wallClock(publicationDate);
+  if (!today || !target) return { label: '', tone: 'grey' };
+
+  const day = 86_400_000;
+  const days = Math.round(
+    (Date.UTC(target.y, target.mo - 1, target.d) - Date.UTC(today.y, today.mo - 1, today.d)) / day,
+  );
+
+  if (days < 0) {
+    const late = Math.abs(days);
+    return { label: `${late} DAY${late === 1 ? '' : 'S'} LATE`, tone: 'terracotta' };
+  }
+  if (days === 0) return { label: 'TODAY', tone: 'terracotta' };
+  if (days === 1) return { label: 'TOMORROW', tone: 'amber' };
+  // Inside three days the deadline stops being background information.
+  return { label: `IN ${days} DAYS`, tone: days <= 3 ? 'amber' : 'grey' };
+}

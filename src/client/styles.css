@@ -287,43 +287,123 @@ a:hover { text-decoration: underline; }
   font-weight: 700;
   line-height: 1.1;
   letter-spacing: -0.028em;
-  margin: 6px 0 10px;
+  margin: 0 0 22px;
 }
-
-.lede { font-size: 16.5px; line-height: 1.6; color: var(--dek); max-width: 56ch; margin: 0 0 26px; }
 
 .issue-rows { display: flex; flex-direction: column; gap: 8px; }
 
 .issue-row {
-  display: flex;
-  align-items: center;
-  gap: 16px;
   background: var(--page);
-  border: 1px solid var(--border);
+  border: 1px solid var(--border-light);
   border-radius: 10px;
   padding: 15px 18px;
 }
+/* The live issue is the one you came for. */
+.issue-row.live { border-color: var(--border-button); }
 
-.ir-num { font-family: var(--mono); font-size: 13px; color: var(--faint); width: 34px; flex: none; }
+/* A draft row is a column: the strip sits beneath the line, full width. */
+.issue-row.draft { display: flex; flex-direction: column; gap: 12px; }
+
+.ir-line { display: flex; align-items: flex-start; gap: 16px; }
+
+/* Top-aligned to the title's line box rather than centred on the whole cell. */
+.ir-num {
+  width: 44px;
+  flex: none;
+  font-family: var(--mono);
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--ink);
+  line-height: 19.2px;
+}
+
 .ir-main { flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 3px; }
-.ir-title { font-size: 16px; font-weight: 600; letter-spacing: -0.012em; }
-.ir-meta { font-size: 12.5px; color: var(--muted); }
+.ir-title { font-size: 16px; font-weight: 600; letter-spacing: -0.012em; line-height: 19.2px; }
 
-.ir-pill {
+.ir-when { display: flex; align-items: center; gap: 7px; font-size: 12.5px; color: var(--muted); }
+
+/* The Saturday deadline is a fact about the issue, not a detail. */
+.ir-clock {
   font-family: var(--mono);
   font-size: 9.5px;
-  letter-spacing: 0.07em;
-  border-radius: 5px;
-  padding: 4px 9px;
+  letter-spacing: 0.06em;
+  border-radius: 4px;
+  padding: 2px 5px;
   white-space: nowrap;
-  background: var(--neutral-tint);
-  color: var(--secondary);
 }
-.ir-pill.draft { background: var(--amber-1); color: var(--amber); }
-.ir-pill.published { background: var(--green-1); color: var(--green); }
-.ir-pill.failed { background: var(--terra-1); color: var(--terracotta); }
+.ir-clock.grey { background: var(--neutral-tint); color: var(--secondary); }
+.ir-clock.amber { background: var(--amber-1); color: var(--amber); }
+.ir-clock.terracotta { background: var(--terra-2); color: var(--terracotta); }
 
-.index-foot { font-size: 12.5px; color: var(--muted); max-width: 60ch; margin-top: 26px; line-height: 1.6; }
+.ir-counts { font-size: 12.5px; color: var(--faint); }
+
+.ir-chips { display: flex; gap: 4px; flex: none; padding-top: 2px; }
+
+.ir-chip {
+  font-family: var(--mono);
+  font-size: 9px;
+  letter-spacing: 0.06em;
+  border-radius: 4px;
+  padding: 3px 6px;
+  background: var(--app);
+  color: var(--secondary);
+  white-space: nowrap;
+}
+.ir-chip.sent { background: #eaf3ed; color: var(--green); }
+.ir-chip.sending { background: var(--amber-1); color: var(--amber); }
+.ir-chip.failed { background: var(--terra-2); color: var(--terracotta); }
+
+.ir-actions { display: flex; gap: 6px; flex: none; }
+.ir-actions .btn { text-decoration: none; }
+
+/* Fixed, so rows line up whether or not they carry an archive state. */
+.ir-right {
+  width: 190px;
+  flex: none;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+
+.arch {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-family: var(--mono);
+  font-size: 9px;
+  letter-spacing: 0.06em;
+  white-space: nowrap;
+}
+.arch.sent { color: var(--green); }
+.arch.sending { color: var(--amber); }
+.arch.missing { color: var(--terracotta); }
+
+/* The whole strip is a button that opens the issue. */
+.ir-strip {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+  border: 0;
+  background: none;
+  padding: 0;
+}
+
+.ir-ticks { flex: 1; display: flex; gap: 2px; min-width: 0; }
+
+.ir-tick { flex: 1; height: 6px; border-radius: 2px; background: var(--border); }
+.ir-tick.done { background: var(--green); }
+
+.ir-left {
+  font-family: var(--mono);
+  font-size: 9.5px;
+  letter-spacing: 0.06em;
+  color: var(--muted);
+  white-space: nowrap;
+}
+.ir-left.ready { color: var(--green); }
 
 /* ── the setup sheet ──────────────────────────────────────────────────── */
 

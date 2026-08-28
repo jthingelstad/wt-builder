@@ -56,6 +56,10 @@ export interface IssueSummary {
   updated_at: string;
   sends: Record<string, { status: string; url?: string; error?: string }>;
   readiness: number;
+  /** One entry per readiness unit — the dashboard draws these as the strip. */
+  ticks: boolean[];
+  outstanding: number;
+  counts: { items: number; links: number; journal: number };
 }
 
 async function call<T>(path: string, init?: RequestInit): Promise<T> {
