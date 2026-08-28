@@ -6,6 +6,8 @@ import type { Item } from '../src/shared/types.ts';
 import { allChannels } from '../src/shared/types.ts';
 import { CDN_HOST, imageUrls, isRehosted, rewriteReferences } from '../src/server/integrations/images.ts';
 import { candidateToItem } from '../src/server/integrations/microblog.ts';
+import { sweepBounds } from '../src/server/integrations/pinboard.ts';
+import { issueWindow, inWindow } from '../src/shared/dates.ts';
 
 const item = (over: Partial<Item> = {}): Item => ({
   type: 'journal_post',
@@ -111,5 +113,29 @@ describe('a Micro.blog post becomes an item', () => {
     });
     expect(built.source_snapshot).toEqual({ body: 'original words', title: 'A Title' });
     expect(built.title).toBe('A Title');
+  });
+});
+
+describe('the Pinboard sweep and the window agree on where Friday is', () => {
+  // Friday 00:00 Central is 05:00 UTC in August (CDT). The request bounds
+  // must be the true instants, padded — not midnight UTC, which is Thursday
+  // evening in Minnesota and used to over-fetch by five hours a side.
+  it('requests the Central instants, padded an hour each side', () => {
+    const w = issueWindow('2026-09-05', 7); // closes Fri 2026-09-04 00:00 CT
+    const b = sweepBounds(w);
+    expect(b.fromdt).toBe('2026-08-28T04:00:00Z'); // Fri 00:00 CDT is 05:00Z, minus the pad
+    expect(b.todt).toBe('2026-09-04T06:00:00Z');   // plus the pad
+  });
+
+  it('the padding admits nothing — inWindow on the instants is the authority', () => {
+    const w = issueWindow('2026-09-05', 7);
+    // Thursday 11:58 PM Central, stored as Friday 04:58 UTC: inside.
+    expect(inWindow('2026-09-04T04:58:00Z', w)).toBe(true);
+    // Friday 12:02 AM Central: the next issue's, even though the padded
+    // request span includes it.
+    expect(inWindow('2026-09-04T05:02:00Z', w)).toBe(false);
+    // Thursday 7:30 PM Central the week the window opens — inside the old
+    // midnight-UTC request span, outside the window.
+    expect(inWindow('2026-08-28T00:30:00Z', w)).toBe(false);
   });
 });

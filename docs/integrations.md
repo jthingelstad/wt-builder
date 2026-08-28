@@ -3,6 +3,10 @@
 ## Pinboard
 
 - Imports candidate links and tags.
+- The sweep requests the window's true Central instants in UTC, padded an
+  hour each side, and then filters on `inWindow` — the same authority the
+  Micro.blog sweep and the renderers use. The window is never approximated
+  as midnight UTC.
 - WT Builder can author and edit commentary directly.
 - Supported edits sync automatically using last-writer-wins.
 - Local edits survive transient API failures.

@@ -9,7 +9,7 @@
 import type { Candidate, Item, SyncState } from '../../shared/types.ts';
 import { allChannels } from '../../shared/types.ts';
 import type { Window } from '../../shared/dates.ts';
-import { addDays } from '../../shared/dates.ts';
+import { inWindow } from '../../shared/dates.ts';
 import { config, credentials } from '../config.ts';
 
 const API = 'https://api.pinboard.in/v1';
@@ -73,19 +73,33 @@ export function sectionForTags(tags: string[]): string | undefined {
   return undefined;
 }
 
-/** The unread queue, captured inside the window. */
+/**
+ * The API request bounds for a window. Exported for the test that pins them.
+ *
+ * Pinboard's fromdt/todt are UTC, and the window boundary is an instant in
+ * Central time — Friday 00:00 CT is 05:00 or 06:00 UTC depending on the season.
+ * The request converts the true instants and pads an hour each side so
+ * Pinboard's own bound semantics can never clip an edge bookmark; the padding
+ * is harmless because `inWindow` on the true instants is the authority, the
+ * same one the Micro.blog sweep and the renderers use.
+ */
+export function sweepBounds(window: Window): { fromdt: string; todt: string } {
+  const pad = 3_600_000;
+  const iso = (ms: number) => new Date(ms).toISOString().replace(/\.\d{3}Z$/, 'Z');
+  return { fromdt: iso(window.fromMs - pad), todt: iso(window.toMs + pad) };
+}
+
+/** The unread queue, captured inside the window — the true Central instants. */
 export async function sweepPinboard(window: Window, tag?: string): Promise<Candidate[]> {
-  const params: Record<string, string> = {
-    fromdt: `${window.from}T00:00:00Z`,
-    // Pinboard's fromdt/todt are bound-exclusive, so reach past the final day.
-    todt: `${addDays(window.to, 1)}T00:00:00Z`,
-  };
+  const params: Record<string, string> = { ...sweepBounds(window) };
   if (SWEEP_UNREAD_ONLY) params.toread = 'yes';
   if (tag) params.tag = tag;
 
   const posts = (await call('/posts/all', params)) as PinboardPost[];
 
-  return posts.map((p) => ({
+  return posts
+    .filter((p) => inWindow(p.time, window))
+    .map((p) => ({
     id: `pinboard:${p.hash ?? p.href}`,
     origin: 'Pinboard' as const,
     title: p.description,
