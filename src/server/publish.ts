@@ -327,11 +327,9 @@ export function archiveInputs(doc: IssueDoc, opts: SiteInputsOptions = {}): Repo
  * entries plus this issue, so the index can never drift from the pages beside
  * it.
  *
- * `status.json` is deliberately NOT pushed. The site's /ops/ page reads it in
- * the retired Studio pipeline's shape (summary.total_issues, audio staleness
- * counts); overwriting it with a different shape would break the page while
- * looking like a successful handoff. It stays frozen until /ops/ is reworked
- * against WT Builder.
+ * There is no status.json here. The old pipeline pushed one for the site's
+ * /ops/ page; both are retired — this application's dashboard is the ops
+ * surface, live on the tailnet where the operator actually is.
  */
 export function siteInputs(doc: IssueDoc, opts: SiteInputsOptions = {}): RepoFile[] {
   const entry = issueEntry(doc, opts);

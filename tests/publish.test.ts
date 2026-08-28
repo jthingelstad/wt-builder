@@ -124,10 +124,9 @@ describe('the archive page', () => {
 });
 
 describe('the handoff file set', () => {
-  it('commits the page and the index — and deliberately not status.json', () => {
-    // /ops/ reads status.json in the retired Studio pipeline's shape;
-    // overwriting it with a different shape would break the page while
-    // looking like a successful handoff.
+  it('commits the page and the index — and no status.json', () => {
+    // The old pipeline pushed status.json for the site's /ops/ page; both
+    // are retired. The dashboard here is the ops surface.
     const paths = siteInputs(doc()).map((f) => f.path);
     expect(paths).toEqual([
       'apps/site/archive/350.md',
