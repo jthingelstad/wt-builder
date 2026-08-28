@@ -193,11 +193,9 @@ function idFor(doc: IssueDoc, c: Candidate): string {
     .filter(Boolean)
     .slice(-3)
     .join('-');
-  let id = `${c.origin === 'Pinboard' ? 'link' : 'journal'}-${slug}`.slice(0, 60);
-  let n = 2;
-  while (doc.items[id] && doc.items[id] !== undefined && id in doc.items) {
-    id = `${id}-${n++}`;
-  }
+  const base = `${c.origin === 'Pinboard' ? 'link' : 'journal'}-${slug}`.slice(0, 60);
+  let id = base;
+  for (let n = 2; id in doc.items; n++) id = `${base}-${n}`;
   return id;
 }
 
@@ -483,7 +481,11 @@ export function addMarkdownBlock(doc: IssueDoc, atNodeId?: string): IssueDoc {
   };
   next = addSection(next, { id: `mdblock-${stamp}`, type: 'mdblock', label: 'Markdown block' });
   const created = next.nodes.find((n) => n.id === `mdblock-${stamp}`);
-  if (created) created.items = [itemId];
+  if (created) {
+    // Its own kind, not 'section': the outline and collapse badges key on it.
+    created.kind = 'mdblock';
+    created.items = [itemId];
+  }
   if (atNodeId) next.issue.output_order = insertBefore(next, `mdblock-${stamp}`, atNodeId);
   return next;
 }

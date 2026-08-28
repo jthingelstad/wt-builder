@@ -86,9 +86,6 @@ export const api = {
 
   getIssue: (id: string) => call<IssueResponse>(`/issues/${id}`),
 
-  saveIssue: (doc: IssueDoc) =>
-    call<IssueResponse>(`/issues/${doc.issue.id}`, { method: 'PUT', body: JSON.stringify(doc) }),
-
   deleteIssue: (id: string) => call<{ ok: true }>(`/issues/${id}`, { method: 'DELETE' }),
 
   sweep: (id: string) =>

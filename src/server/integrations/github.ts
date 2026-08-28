@@ -168,7 +168,11 @@ export async function putTree(
         committed: true,
       };
     } catch (err) {
-      // Someone else moved the branch. Rebuild against the new head once.
+      // Only a lost ref-update race is worth a rebuild-and-retry — GitHub
+      // answers it 409 or 422. Anything else (bad token, missing scope) will
+      // fail identically the second time and must not be reported as a race.
+      const message = (err as Error).message;
+      if (!/ (409|422) /.test(message)) throw err;
       lastError = err as Error;
     }
   }

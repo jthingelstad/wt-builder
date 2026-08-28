@@ -169,6 +169,16 @@ export async function rehostIssueImages(doc: IssueDoc): Promise<{ doc: IssueDoc;
         rewriteReferences(item, source, settled);
         continue;
       }
+      // Content-addressed by URL and settings: if the object exists, the work
+      // is done — skip the download and re-encode, not just the upload.
+      const key = keyFor(next.issue.number, source);
+      if (await alreadyThere(key)) {
+        const url = `https://${CDN_HOST}/${key}`;
+        done.set(source, url);
+        rewriteReferences(item, source, url);
+        report.skipped.push(source);
+        continue;
+      }
       try {
         const result = await rehost(source, next.issue.number);
         done.set(source, result.url);

@@ -167,12 +167,9 @@ const routes: [RegExp, string, (ctx: Ctx, params: string[]) => Promise<unknown>]
     return { ok: true };
   }],
 
-  /** Whole-document save. Single editor, last write wins (docs/decisions.md). */
-  [/^\/api\/issues\/([^/]+)$/, 'PUT', async ({ body }, [id]) => {
-    const b = await body();
-    if (!b?.issue?.id || b.issue.id !== id) throw new HttpError(400, 'document id mismatch');
-    return saved(b as IssueDoc);
-  }],
+  // There is deliberately no whole-document PUT. Every mutation is a named
+  // operation, so the server never accepts an unvalidated tree — and a stale
+  // client copy can never clobber send states recorded since it was loaded.
 
   [/^\/api\/issues\/([^/]+)\/sweep$/, 'POST', async (_ctx, [id]) => {
     const { doc, report } = await issues.sweep(requireIssue(id!));
