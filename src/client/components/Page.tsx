@@ -1,0 +1,650 @@
+/**
+ * The issue as a page — the editor is a WYSIWYG rendering of the material,
+ * not a form beside a preview.
+ *
+ * Every block is a `Row`, so structure lands in the left margin and editorial
+ * in the right one while the card stays continuous behind the reading column.
+ * The lens decides what the middle cell renders; the margins are the same in
+ * all four.
+ */
+
+import type { ComponentChildren } from 'preact';
+
+import type { Channel, IssueDoc, IssueNode, Item } from '../../shared/types.ts';
+import { CHANNELS } from '../../shared/types.ts';
+import { clockTime, kickerDate, longDate, wallClock, weekday } from '../../shared/dates.ts';
+import {
+  editionOnly, falloutOf, heldOut, orderedNodes, outOfWindow, windowOf,
+} from '../../shared/render/plan.ts';
+import { rejoinBody, splitBody } from '../../shared/body.ts';
+import { markdownInlineToSafeHtml } from '../markdown.ts';
+import { ImagePlus, Plus, Trash } from '../icons.tsx';
+import { Editable, Rail, RichEditable, Row, Wand, itemRail, sectionRail } from './Row.tsx';
+
+export type Lens = Channel | 'source';
+
+export interface PageActions {
+  updateItem(itemId: string, patch: Record<string, unknown>): void;
+  updateIssue(patch: Record<string, unknown>): void;
+  moveItem(nodeId: string, itemId: string, delta: number): void;
+  moveNode(nodeId: string, delta: number): void;
+  removeNode(nodeId: string): void;
+  addNode(spec: { type: string; label: string; before?: string }): void;
+  promote(itemId: string): void;
+  demote(nodeId: string): void;
+  setChannel(itemId: string, channel: Channel, on: boolean): void;
+  draft(itemId: string): void;
+}
+
+interface PageProps {
+  doc: IssueDoc;
+  lens: Lens;
+  selected: string | null;
+  onSelect: (anchor: string | null) => void;
+  act: PageActions;
+  drafting: string | null;
+  draft: { itemId: string; candidates: string[] } | null;
+  onPickDraft: (itemId: string, text: string) => void;
+  onDismissDraft: () => void;
+}
+
+/** Sections that carry themselves — printing the label would be an artifact. */
+function headingPublishes(node: IssueNode): boolean {
+  return node.publishes_heading !== false;
+}
+
+// ── word counting, for the byline ─────────────────────────────────────────
+
+function words(s: string | undefined): number {
+  const t = String(s ?? '').trim();
+  return t ? t.split(/\s+/).length : 0;
+}
+
+function issueWords(doc: IssueDoc): number {
+  return Object.values(doc.items).reduce(
+    (n, i) => n + words(i.body) + words(i.commentary) + words(i.title) + words(i.media?.caption),
+    0,
+  );
+}
+
+export function Page({
+  doc, lens, selected, onSelect, act, drafting, draft, onPickDraft, onDismissDraft,
+}: PageProps) {
+  const published = doc.issue.status === 'published';
+  const readOnly = published;
+  const w = windowOf(doc);
+  const nodes = orderedNodes(doc);
+
+  const rows: ComponentChildren[] = [];
+
+  // ── head ────────────────────────────────────────────────────────────────
+  const linkCount = Object.values(doc.items).filter((i) => i.type === 'pinboard_link').length;
+  const wordCount = issueWords(doc);
+  const stats = lens === 'source'
+    ? `${nodes.length} nodes · ${Object.keys(doc.items).length} items · ${wordCount} words`
+    : `${wordCount.toLocaleString()} words · ${linkCount} links · ~${Math.max(1, Math.round(wordCount / 220))} min read`;
+
+  rows.push(
+    <Row
+      key="head"
+      anchor="issue"
+      selected={selected === 'issue'}
+      margin={<Wand
+        redraft={Boolean(doc.issue.dek)}
+        busy={drafting === 'issue'}
+        onClick={() => act.draft('issue')}
+      />}
+    >
+      <div class="page-head" onClick={() => onSelect('issue')}>
+        <div class="kicker">WT{doc.issue.number} · {kickerDate(doc.issue.publication_date)}</div>
+        <Editable
+          tag="h1"
+          readOnly={readOnly}
+          value={doc.issue.title}
+          ph="Untitled issue"
+          onCommit={(title) => act.updateIssue({ title })}
+        />
+        <Editable
+          tag="p"
+          class="dek"
+          readOnly={readOnly}
+          value={doc.issue.dek ?? ''}
+          ph="A line about this issue…"
+          onCommit={(dek) => act.updateIssue({ dek })}
+        />
+        <div class="byline">
+          {/* A website rendering artifact — Source shows the editor's measure instead. */}
+          {lens !== 'source' && (
+            <>
+              <span class="avatar">JT</span>
+              <span class="name">Jamie Thingelstad</span>
+            </>
+          )}
+          <span class="stats">{stats}</span>
+        </div>
+      </div>
+    </Row>,
+  );
+
+  // ── sections ────────────────────────────────────────────────────────────
+  nodes.forEach((node, index) => {
+    const inLens = lens === 'source'
+      ? node.items
+      : node.items.filter((id) => {
+          const item = doc.items[id];
+          return item && !outOfWindow(item, w) && item.channels[lens as Channel];
+        });
+
+    const fallout = falloutOf(doc, node, w);
+    const showHeading = headingPublishes(node);
+
+    // A section emptied by the window says so rather than vanishing: a section
+    // that disappears silently reads as data loss.
+    if (!inLens.length && !fallout.all && lens !== 'source') return;
+
+    if (index > 0) {
+      rows.push(<Row key={`${node.id}-rule`} anchor={node.id}><hr class="section-rule" /></Row>);
+    }
+
+    const rail = sectionRail({
+      promoted: node.kind === 'promoted_item',
+      movable: node.movable && node.fixed_position !== 'last',
+      onDemote: () => act.demote(node.id),
+      onUp: () => act.moveNode(node.id, -1),
+      onDown: () => act.moveNode(node.id, 1),
+      onRemove: () => act.removeNode(node.id),
+    });
+
+    if (showHeading) {
+      rows.push(
+        <Row
+          key={`${node.id}-h`}
+          anchor={node.id}
+          selected={selected === node.id}
+          rail={<Rail {...rail} />}
+        >
+          <h2 class={fallout.all ? 'faded' : undefined} onClick={() => onSelect(node.id)}>
+            <span class="hash">#</span>
+            <Editable
+              readOnly={readOnly || node.kind === 'section'}
+              value={node.label}
+              onCommit={() => { /* renamed from the outline */ }}
+            />
+            {node.kind === 'ad_hoc' && <span class="note-pill">AD HOC SECTION</span>}
+            {node.fixed_position === 'last' && <span class="note-pill">FIXED LAST · NOT IN AUDIO</span>}
+            {fallout.all && (
+              <span class="note-pill">ALL {fallout.count} FELL OUTSIDE THE WINDOW</span>
+            )}
+          </h2>
+        </Row>,
+      );
+    }
+
+    // Journal groups its items on date boundaries and prints the weekday alone.
+    let lastKey = '';
+
+    inLens.forEach((itemId, i) => {
+      const item = doc.items[itemId];
+      if (!item) return;
+
+      if (node.type === 'journal') {
+        const c = wallClock(item.published_at);
+        const key = c?.key ?? '';
+        if (key !== lastKey) {
+          lastKey = key;
+          rows.push(
+            <Row key={`${itemId}-date`} anchor={node.id}>
+              <div class="journal-date">{c ? weekday(c) : ''}</div>
+            </Row>,
+          );
+        }
+      }
+
+      const rowRail = itemRail({
+        item,
+        canPromote: node.type === 'journal' && Boolean(item.title),
+        promoteWhy: node.type === 'journal' && !item.title
+          ? 'An untitled post cannot be promoted — give it a title first'
+          : undefined,
+        onPromote: () => act.promote(itemId),
+        onUp: () => act.moveItem(node.id, itemId, -1),
+        onDown: () => act.moveItem(node.id, itemId, 1),
+        onInspect: () => onSelect(itemId),
+      });
+
+      const hasText = Boolean(item.commentary || item.body || item.media?.caption);
+
+      rows.push(
+        <Row
+          key={itemId}
+          anchor={itemId}
+          selected={selected === itemId}
+          structureName={!showHeading && i === 0 ? node.label.toUpperCase() : undefined}
+          rail={<Rail {...rowRail} />}
+          margin={
+            <>
+              <Wand
+                redraft={hasText}
+                busy={drafting === itemId}
+                onClick={() => act.draft(itemId)}
+              />
+              {draft?.itemId === itemId && (
+                <DraftPicker
+                  candidates={draft.candidates}
+                  onPick={(text) => onPickDraft(itemId, text)}
+                  onDismiss={onDismissDraft}
+                />
+              )}
+            </>
+          }
+        >
+          <Block
+            doc={doc} node={node} item={item} itemId={itemId} lens={lens}
+            readOnly={readOnly} act={act} onSelect={onSelect}
+          />
+        </Row>,
+      );
+    });
+
+    // Held-out items stay visible so exclusion is reversible, not a disappearance.
+    if (lens !== 'source') {
+      for (const itemId of node.items) {
+        const item = doc.items[itemId];
+        if (!item || inLens.includes(itemId)) continue;
+        if (outOfWindow(item, w)) continue;
+        rows.push(
+          <Row key={`${itemId}-held`} anchor={itemId}>
+            <HeldStrip
+              item={item}
+              lens={lens as Channel}
+              onPutBack={() => act.setChannel(itemId, lens as Channel, true)}
+            />
+          </Row>,
+        );
+      }
+    }
+  });
+
+  return (
+    <div class={`rows lens-${lens}`}>
+      {rows}
+    </div>
+  );
+}
+
+// ── one item, rendered for a lens ─────────────────────────────────────────
+
+interface BlockProps {
+  doc: IssueDoc;
+  node: IssueNode;
+  item: Item;
+  itemId: string;
+  lens: Lens;
+  readOnly: boolean;
+  act: PageActions;
+  onSelect: (anchor: string) => void;
+}
+
+function Block(props: BlockProps) {
+  return props.lens === 'source' ? <SourceBlock {...props} /> : <ChannelBlock {...props} />;
+}
+
+/** The Website/Email/Audio rendering — what a reader sees. */
+function ChannelBlock({ doc, node, item, itemId, readOnly, act }: BlockProps) {
+  const set = (patch: Record<string, unknown>) => act.updateItem(itemId, patch);
+  const thingy = item.authorship === 'Thingy';
+
+  const body = (
+    <Editable
+      tag="p" multiline readOnly={readOnly}
+      value={item.body ?? ''}
+      ph="Write something here…"
+      onCommit={(text) => set({ body: text })}
+    />
+  );
+
+  switch (item.type) {
+    case 'currently':
+      return (
+        <p>
+          <strong>{item.label}:</strong>{' '}
+          <Editable
+            readOnly={readOnly} value={item.body ?? ''} ph="…"
+            onCommit={(text) => set({ body: text })}
+          />
+        </p>
+      );
+
+    case 'photo':
+      return <Photo item={item} readOnly={readOnly} set={set} />;
+
+    case 'quote':
+      return (
+        <blockquote>
+          <Editable
+            tag="p" multiline readOnly={readOnly} value={item.body ?? ''}
+            ph="The quote…" onCommit={(text) => set({ body: text })}
+          />
+          <Editable
+            class="attribution" readOnly={readOnly} value={item.attribution ?? ''}
+            ph="Who said it" onCommit={(text) => set({ attribution: text })}
+          />
+        </blockquote>
+      );
+
+    case 'haiku':
+      return (
+        <Editable
+          class="haiku" tag="div" multiline readOnly={readOnly}
+          value={item.body ?? ''} ph="Five, seven, five…"
+          onCommit={(text) => set({ body: text })}
+        />
+      );
+
+    case 'pinboard_link':
+      return node.type === 'briefly'
+        ? (
+          <p>
+            <RichEditable
+              readOnly={readOnly} value={item.commentary ?? ''}
+              ph="A line about it" render={markdownInlineToSafeHtml}
+              onCommit={(text) => set({ commentary: text })}
+            />
+            {' '}
+            <a href={item.source_url} target="_blank" rel="noreferrer" class="brief-title">
+              {item.title}
+            </a>
+            <span class="arrow"> →</span>
+          </p>
+        )
+        : (
+          <>
+            <div class="link-title">
+              <a href={item.source_url} target="_blank" rel="noreferrer">{item.title}</a>
+              <span class="link-domain">{domainOf(item.source_url)}</span>
+            </div>
+            <Editable
+              tag="p" multiline readOnly={readOnly} value={item.commentary ?? ''}
+              ph="Why this is worth reading…" onCommit={(text) => set({ commentary: text })}
+            />
+          </>
+        );
+
+    case 'journal_post': {
+      const c = wallClock(item.published_at);
+      // The post's own images are shown as images; Jamie edits the words.
+      const split = splitBody(item.body);
+      return (
+        <>
+          <p>
+            {c && (
+              <>
+                <a href={item.source_url} target="_blank" rel="noreferrer">{clockTime(c)}</a>
+                <span class="emdash"> — </span>
+              </>
+            )}
+            <RichEditable
+              readOnly={readOnly} value={split.prose} ph="…"
+              render={markdownInlineToSafeHtml}
+              onCommit={(text) => set({ body: rejoinBody(text, split.tail) })}
+            />
+          </p>
+          {split.images.map((img) => (
+            <img key={img.src} class="post-image" src={img.src} alt={img.alt} loading="lazy" />
+          ))}
+        </>
+      );
+    }
+
+    case 'echoes':
+      return (
+        <>
+          {thingy && <ByChip />}
+          <div
+            class="echoes-refs"
+            dangerouslySetInnerHTML={{ __html: markdownInlineToSafeHtml(item.body ?? '') }}
+          />
+        </>
+      );
+
+    case 'markdown':
+      return (
+        <>
+          <div class="md-label">MARKDOWN BLOCK</div>
+          <Editable
+            class="md-body" tag="div" multiline readOnly={readOnly}
+            value={item.body ?? ''} ph="Markdown…"
+            onCommit={(text) => set({ body: text })}
+          />
+        </>
+      );
+
+    default:
+      return (
+        <>
+          {thingy && <ByChip />}
+          {item.title && node.kind === 'promoted_item' && (
+            <div class="link-title">{item.title}</div>
+          )}
+          {body}
+        </>
+      );
+  }
+}
+
+/**
+ * Candidates from the wand. Nothing is written until one is chosen, and
+ * dismissing leaves the item exactly as it was.
+ */
+function DraftPicker({
+  candidates, onPick, onDismiss,
+}: { candidates: string[]; onPick: (text: string) => void; onDismiss: () => void }) {
+  return (
+    <div class="draft-picker">
+      <div class="dp-head">
+        <span class="mono-label">DRAFTED — PICK ONE</span>
+        <button class="dp-x" aria-label="Dismiss" onClick={onDismiss}>×</button>
+      </div>
+      {candidates.length === 0 && <p class="quiet">Nothing came back.</p>}
+      {candidates.map((text, i) => (
+        <button key={i} class="dp-option" onClick={() => onPick(text)}>{text}</button>
+      ))}
+      <p class="dp-foot">Nothing is written until you pick one.</p>
+    </div>
+  );
+}
+
+const ByChip = () => (
+  <div class="byline-chip"><span class="dot" />By Thingy</div>
+);
+
+function domainOf(url: string | undefined): string {
+  if (!url) return '';
+  try { return new URL(url).hostname.replace(/^www\./, ''); } catch { return ''; }
+}
+
+// ── photo ─────────────────────────────────────────────────────────────────
+
+/**
+ * Empty is a `<label>` wrapping a hidden file input, so the whole 300px zone is
+ * the control — a div with a click handler is not reachable from the keyboard.
+ */
+function Photo({
+  item, readOnly, set,
+}: { item: Item; readOnly: boolean; set: (p: Record<string, unknown>) => void }) {
+  const media = item.media ?? {};
+
+  const take = (file: File | undefined) => {
+    if (!file) return;
+    // Time and place come from the file; both stay editable afterwards.
+    set({
+      media: {
+        ...media,
+        pending_upload: file.name,
+        alt: media.alt || file.name.replace(/\.[a-z0-9]+$/i, '').replace(/[-_]+/g, ' '),
+        timestamp: media.timestamp || new Date(file.lastModified).toISOString(),
+      },
+    });
+  };
+
+  if (!media.url) {
+    return (
+      <label class="photo-drop">
+        <input
+          type="file" accept="image/*" hidden disabled={readOnly}
+          onChange={(e) => take((e.currentTarget as HTMLInputElement).files?.[0])}
+        />
+        <ImagePlus />
+        <span>Drop a photo here, or click to choose</span>
+        <span class="hint">Time and place are read from the file. Both stay editable.</span>
+      </label>
+    );
+  }
+
+  const c = wallClock(media.timestamp);
+  const meta = [
+    c ? `${longDate(c).replace(/^\w+, /, '')}, ${c.y}` : '',
+    c ? clockTime(c) : '',
+    media.location,
+  ].filter(Boolean).join(' · ');
+
+  return (
+    <div class="photo-set">
+      <img src={media.url} alt={media.alt ?? ''} />
+      {!readOnly && (
+        <div class="photo-actions">
+          <label class="btn small">
+            Replace
+            <input type="file" accept="image/*" hidden
+              onChange={(e) => take((e.currentTarget as HTMLInputElement).files?.[0])} />
+          </label>
+          <button class="btn small" title="Remove" onClick={() => set({ media: { ...media, url: '' } })}>
+            <Trash />
+          </button>
+        </div>
+      )}
+      <Editable
+        class="photo-caption" tag="div" multiline readOnly={readOnly}
+        value={media.caption ?? ''} ph="Caption…"
+        onCommit={(caption) => set({ media: { ...media, caption } })}
+      />
+      {meta && <div class="photo-meta">{meta}</div>}
+    </div>
+  );
+}
+
+// ── held out ──────────────────────────────────────────────────────────────
+
+function HeldStrip({
+  item, lens, onPutBack,
+}: { item: Item; lens: Channel; onPutBack: () => void }) {
+  const on = CHANNELS.filter((c) => item.channels[c]);
+  const label = on.length === 0
+    ? { text: 'NOT IN THIS ISSUE', cls: 'none' }
+    : { text: `${on.map((c) => c.toUpperCase()).join(' + ')} ONLY`, cls: 'email' };
+
+  const text = item.title || item.commentary || item.body || item.media?.caption || '';
+
+  return (
+    <div class="held-strip">
+      <span class={`chan ${label.cls}`}>{label.text}</span>
+      <span class="text">{text}</span>
+      <button class="btn small" onClick={onPutBack}>
+        {on.length === 0 ? 'Put back' : 'Add here too'}
+      </button>
+    </div>
+  );
+}
+
+// ── the Source lens ───────────────────────────────────────────────────────
+
+/**
+ * Prose plus one quiet line — never a labelled field grid. The grid version was
+ * truthful and unreadable (0014).
+ */
+function SourceBlock({ doc, node, item, itemId, readOnly, act }: BlockProps) {
+  const set = (patch: Record<string, unknown>) => act.updateItem(itemId, patch);
+  const w = windowOf(doc);
+
+  const primary = item.title ?? item.media?.alt;
+  const body = item.commentary ?? item.body ?? item.media?.caption ?? '';
+
+  const chips = !CHANNELS.every((c) => item.channels[c]) || item.channel_locks;
+  const state = outOfWindow(item, w) ? 'OUTSIDE WINDOW'
+    : heldOut(item) ? 'HELD OUT'
+    : node.kind === 'promoted_item' ? 'PROMOTED'
+    : item.authorship === 'Thingy' && !item.reviewed ? 'NEEDS REVIEW'
+    : null;
+
+  const meta = [
+    node.label,
+    item.tags?.length ? item.tags.join(' ') : '',
+    item.published_at ? wallClock(item.published_at)?.key : '',
+    item.presentation,
+    item.media?.location,
+    item.authorship === 'Thingy' ? (item.reviewed ? 'reviewed' : 'draft') : '',
+    editionOnly(item) ? 'edition only' : '',
+  ].filter(Boolean);
+
+  const imported = item.source_snapshot?.[item.type === 'pinboard_link' ? 'commentary' : 'body'];
+  const diverged = typeof imported === 'string' && imported.trim() && imported !== body;
+
+  return (
+    <div class="src-item">
+      <div class="src-head">
+        <span class="src-type">{item.type.replace(/_/g, ' ').toUpperCase()}</span>
+        <span class={`src-dot ${authorClass(item)}`} />
+        <span class="src-author">{item.source}</span>
+        <span class="src-spacer" />
+        {state && <span class="src-state">{state}</span>}
+        {chips && CHANNELS.map((c) => (
+          <span
+            key={c}
+            class={`src-chip${item.channels[c] ? ' on' : ''}${item.channel_locks?.[c] ? ' locked' : ''}`}
+            title={item.channel_locks?.[c] ?? `${c}: ${item.channels[c] ? 'on' : 'off'}`}
+          >
+            {c[0]!.toUpperCase()}
+          </span>
+        ))}
+      </div>
+
+      {primary !== undefined && (
+        <Editable
+          class="src-primary" readOnly={readOnly} value={primary ?? ''} ph="Untitled"
+          onCommit={(title) => set(item.type === 'photo'
+            ? { media: { ...(item.media ?? {}), alt: title } }
+            : { title })}
+        />
+      )}
+
+      <Editable
+        class="src-body" tag="div" multiline readOnly={readOnly} value={body} ph="No text"
+        onCommit={(text) => set(
+          item.type === 'pinboard_link' ? { commentary: text }
+            : item.type === 'photo' ? { media: { ...(item.media ?? {}), caption: text } }
+            : { body: text },
+        )}
+      />
+
+      <div class="src-meta">
+        {meta.join(' · ')}
+        {item.source_url && (
+          <>
+            {meta.length ? ' · ' : ''}
+            <a href={item.source_url} target="_blank" rel="noreferrer">{domainOf(item.source_url)}</a>
+          </>
+        )}
+      </div>
+
+      {diverged && <div class="src-meta">as imported: “{String(imported).slice(0, 120)}”</div>}
+    </div>
+  );
+}
+
+function authorClass(item: Item): string {
+  if (item.authorship === 'Thingy') return 'thingy';
+  if (item.authorship === 'syndicated') return 'syndicated';
+  return 'jamie';
+}
+
+export { Plus };

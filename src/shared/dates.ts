@@ -211,3 +211,36 @@ export function inWindow(iso: string | undefined, w: Window): boolean {
 export function windowLabel(w: Window): string {
   return `${boundaryDate(w.from)} → ${boundaryDate(w.to)}`;
 }
+
+// ── chrome formats ────────────────────────────────────────────────────────
+
+/** "SAT, SEP 5, 2026" — the head block's mono kicker. */
+export function kickerDate(isoDate: string): string {
+  const c = wallClock(isoDate);
+  if (!c) return isoDate;
+  return `${DAY[weekdayIndex(c)]!.slice(0, 3)}, ${MON[c.mo - 1]} ${c.d}, ${c.y}`.toUpperCase();
+}
+
+/** "SAT, SEP 5" — the header identity line. */
+export function shortKicker(isoDate: string): string {
+  const c = wallClock(isoDate);
+  if (!c) return isoDate;
+  return `${DAY[weekdayIndex(c)]!.slice(0, 3)}, ${MON[c.mo - 1]} ${c.d}`.toUpperCase();
+}
+
+/**
+ * "SOURCES AUG 28–SEP 4" — the header's window meta, which is the first thing
+ * allowed to truncate when the header runs out of room.
+ */
+export function sourcesLabel(w: Window): string {
+  const a = wallClock(w.from);
+  const b = wallClock(w.to);
+  if (!a || !b) return '';
+  const month = (c: WallClock) => MON[c.mo - 1]!.toUpperCase();
+  return `SOURCES ${month(a)} ${a.d}–${month(b)} ${b.d}`;
+}
+
+/** "AUG 28–SEP 4", for the left panel's Sources line. */
+export function spanLabel(w: Window): string {
+  return sourcesLabel(w).replace(/^SOURCES /, '');
+}

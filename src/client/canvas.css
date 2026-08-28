@@ -15,8 +15,17 @@
  */
 
 .canvas {
+  /*
+   * flex:1 with an explicit min-width, or the canvas sizes to its content and
+   * the page card sits flush against the left panel instead of centred.
+   * min-width is what makes the horizontal scroll appear rather than the
+   * columns compressing.
+   */
+  flex: 1;
+  min-width: var(--canvas-min);
   padding: 26px 0 140px;
   overflow-x: auto;
+  overflow-y: auto;
 }
 
 .canvas-inner {
@@ -251,7 +260,7 @@
 
 .section-rule { border: 0; border-top: 1px solid var(--border); margin: 30px 0; }
 
-.page h2 {
+.row-page h2 {
   font-size: 25px;
   font-weight: 700;
   letter-spacing: -0.02em;
@@ -261,7 +270,7 @@
   gap: 8px;
 }
 
-.page h2 .hash { color: var(--mark); font-weight: 700; }
+.row-page h2 .hash { color: var(--mark); font-weight: 700; }
 
 .note-pill {
   font-family: var(--mono);
@@ -274,8 +283,8 @@
   white-space: nowrap;
 }
 
-.page p { font-size: 16.5px; line-height: 1.7; margin: 0 0 15px; }
-.page a { color: var(--blue); }
+.row-page p { font-size: 16.5px; line-height: 1.7; margin: 0 0 15px; }
+.row-page a { color: var(--blue); }
 
 .journal-date { font-size: 17px; font-weight: 700; margin: 22px 0 10px; }
 
@@ -283,13 +292,13 @@
 .link-title a { color: var(--blue); }
 .link-domain { font-family: var(--mono); font-size: 11px; color: var(--faint); margin-left: 8px; }
 
-.page blockquote {
+.row-page blockquote {
   border-left: 3px solid var(--border);
   padding-left: 20px;
   margin: 0 0 15px;
 }
-.page blockquote p { font-size: 19px; font-style: italic; line-height: 1.6; }
-.page blockquote .attribution { font-size: 14px; color: var(--secondary); font-style: normal; }
+.row-page blockquote p { font-size: 19px; font-style: italic; line-height: 1.6; }
+.row-page blockquote .attribution { font-size: 14px; color: var(--secondary); font-style: normal; }
 
 .haiku { font-size: 18px; font-weight: 700; line-height: 1.85; white-space: pre-line; }
 
@@ -363,3 +372,368 @@
 [contenteditable] { outline: none; border-radius: 3px; }
 [contenteditable]:focus { background: var(--edit); box-shadow: 0 0 0 4px var(--edit); }
 [data-ph]:empty::before { content: attr(data-ph); color: var(--placeholder); }
+
+/* ── selection and window fallout ─────────────────────────────────────── */
+
+.row.selected .row-page { background: var(--blue-1); }
+.lens-audio .row.selected .row-page { background: var(--blue-1); }
+
+/* A section emptied by the window dims rather than vanishing. */
+.row-page h2.faded { opacity: 0.45; }
+
+.rail-btn.danger:hover { border-color: var(--terracotta); color: var(--terracotta); }
+
+/* ── inline block details ─────────────────────────────────────────────── */
+
+.brief-title { font-weight: 700; color: var(--blue); }
+.arrow { color: var(--muted); }
+.emdash { color: var(--muted); }
+
+.md-label {
+  font-family: var(--mono);
+  font-size: 9px;
+  letter-spacing: 0.07em;
+  color: var(--faint);
+  margin-bottom: 6px;
+  opacity: 0;
+  transition: opacity 0.12s;
+}
+.row:hover .md-label { opacity: 1; }
+
+.md-body { white-space: pre-wrap; font-size: 16.5px; line-height: 1.7; }
+
+.photo-actions {
+  position: absolute;
+  right: 10px;
+  bottom: 10px;
+  display: flex;
+  gap: 6px;
+  opacity: 0;
+  transition: opacity 0.12s;
+}
+.photo-set:hover .photo-actions { opacity: 1; }
+.photo-actions .btn { background: var(--page); cursor: pointer; }
+
+/* ── the Source lens ──────────────────────────────────────────────────── */
+
+.src-item { margin-bottom: 22px; }
+
+.src-head {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  margin-bottom: 7px;
+}
+
+.src-type {
+  font-family: var(--mono);
+  font-size: 9.5px;
+  letter-spacing: 0.07em;
+  color: var(--faint);
+  white-space: nowrap;
+}
+
+.src-dot { width: 5px; height: 5px; border-radius: 99px; flex: none; }
+.src-dot.jamie { background: var(--ink); }
+.src-dot.syndicated { background: var(--blue); }
+.src-dot.thingy { background: var(--terracotta); }
+
+.src-author { font-size: 11px; color: var(--secondary); white-space: nowrap; }
+.src-spacer { flex: 1; }
+
+.src-state {
+  font-family: var(--mono);
+  font-size: 9px;
+  letter-spacing: 0.06em;
+  color: var(--secondary);
+  background: var(--neutral-tint);
+  border-radius: 5px;
+  padding: 3px 7px;
+  white-space: nowrap;
+}
+
+/* Shown only when the item is not in all three editions, or a rule applies. */
+.src-chip {
+  width: 17px;
+  height: 17px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 4px;
+  font-family: var(--mono);
+  font-size: 9px;
+  font-weight: 700;
+  border: 1px solid var(--border);
+  background: var(--page);
+  color: var(--muted);
+  flex: none;
+}
+.src-chip.on { background: var(--ink); border-color: var(--ink); color: #fff; }
+.src-chip.locked { color: var(--mark); border-color: var(--border-faintest); background: var(--subtle); }
+
+.src-primary { display: block; font-size: 17px; font-weight: 600; line-height: 1.35; margin-bottom: 4px; }
+.src-body { font-size: 16.5px; line-height: 1.7; white-space: pre-wrap; }
+
+.src-meta {
+  font-family: var(--mono);
+  font-size: 11px;
+  color: var(--held);
+  margin-top: 6px;
+  line-height: 1.5;
+}
+.src-meta a { color: var(--held); }
+
+/* The Source heading carries its own meta rather than a published H2. */
+.src-section {
+  display: flex;
+  align-items: baseline;
+  gap: 9px;
+  margin-bottom: 14px;
+}
+.src-section h2 { font-size: 22px; letter-spacing: -0.018em; margin: 0; }
+.src-section .meta {
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.06em;
+  color: var(--faint);
+}
+
+/* ── the progress strip ───────────────────────────────────────────────── */
+
+.strip {
+  height: var(--strip);
+  flex: none;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 0 16px;
+  background: var(--page);
+  border-bottom: 1px solid var(--border);
+  color: var(--green);
+}
+.strip.complete { background: #f7fbf8; }
+
+.strip-label {
+  font-family: var(--mono);
+  font-size: 9.5px;
+  letter-spacing: 0.09em;
+  color: var(--faint);
+  white-space: nowrap;
+}
+.strip.complete .strip-label { color: var(--green); }
+
+.ticks { flex: 1; display: flex; gap: 2px; min-width: 0; }
+
+.tick-wrap { flex: 1; position: relative; display: flex; min-width: 0; }
+
+.tick {
+  flex: 1;
+  height: 7px;
+  border: 0;
+  padding: 0;
+  border-radius: 2px;
+  background: var(--border);
+  cursor: pointer;
+}
+.tick.done { background: var(--green); }
+.tick:hover { outline: 2px solid var(--ink); }
+
+/*
+ * A tooltip, not a swap of the strip's readout: swapping changed the readout's
+ * width, which resized the flex ticks under the cursor.
+ */
+.tip {
+  position: absolute;
+  top: 15px;
+  width: 246px;
+  display: none;
+  align-items: center;
+  gap: 8px;
+  padding: 9px 11px;
+  background: var(--page);
+  border-radius: 8px;
+  box-shadow: 0 8px 22px rgba(26, 26, 26, 0.13);
+  pointer-events: none;
+  z-index: 20;
+}
+.tick-wrap:hover .tip { display: flex; }
+.tip.left { left: 0; }
+.tip.right { right: 0; }
+.tip.mid { left: 50%; transform: translateX(-50%); }
+
+.tip-dot { width: 7px; height: 7px; border-radius: 99px; background: var(--border); flex: none; }
+.tip-dot.done { background: var(--green); }
+.tip-text { font-size: 12px; color: var(--ink); flex: 1; min-width: 0; }
+.tip-state { font-family: var(--mono); font-size: 9.5px; color: var(--muted); white-space: nowrap; }
+.tip-state.done { color: var(--green); }
+
+.strip-readout { font-size: 11.5px; color: var(--muted); white-space: nowrap; }
+.strip-readout.complete { color: var(--green); font-weight: 500; }
+
+/* ── the left panel ───────────────────────────────────────────────────── */
+
+.left-panel {
+  width: var(--left-panel);
+  flex: none;
+  background: var(--panel);
+  border-right: 1px solid var(--border);
+  overflow-y: auto;
+  padding: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.panel-head { display: flex; align-items: center; gap: 8px; }
+.panel-head .spacer { flex: 1; }
+
+.mono-label {
+  font-family: var(--mono);
+  font-size: 9.5px;
+  letter-spacing: 0.08em;
+  color: var(--faint);
+}
+
+.meta-card {
+  background: var(--page);
+  border: 1px solid var(--border-light);
+  border-radius: 9px;
+  padding: 10px 12px;
+  font-size: 12.5px;
+  line-height: 1.9;
+}
+.meta-card.edit { padding: 11px 12px; line-height: 1.5; }
+.meta-card .k { color: var(--muted); margin-right: 6px; }
+.meta-card .quiet { color: var(--muted); }
+
+.field-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 9px 0;
+  border-bottom: 1px solid var(--divider);
+}
+.field-row:last-child { border-bottom: 0; }
+.field-row.col { flex-direction: column; align-items: stretch; gap: 7px; }
+
+.field-row input[type='number'],
+.field-row input[type='date'] {
+  border: 1px solid var(--border-button);
+  border-radius: 6px;
+  padding: 4px 7px;
+  font: inherit;
+  font-size: 12.5px;
+  background: var(--page);
+}
+.field-row .num { width: 88px; }
+.field-row .num.small { width: 62px; }
+
+.amber-note {
+  font-size: 11.5px;
+  color: var(--amber);
+  background: var(--amber-1);
+  border: 1px solid var(--amber-2);
+  border-radius: 6px;
+  padding: 6px 8px;
+  margin: 0;
+}
+
+.window-line { font-size: 12px; font-weight: 500; }
+
+.chips { display: flex; gap: 5px; flex-wrap: wrap; align-items: center; }
+
+.chip {
+  border: 1px solid var(--border-button);
+  background: var(--page);
+  border-radius: 99px;
+  padding: 3px 10px;
+  font-size: 11.5px;
+  cursor: pointer;
+}
+.chip.on { background: var(--ink); border-color: var(--ink); color: #fff; }
+.chip.add:hover { border-color: var(--ink); }
+
+.quiet { font-size: 11.5px; color: var(--muted); margin: 0; line-height: 1.5; }
+
+.outline-head { display: flex; flex-direction: column; gap: 4px; }
+
+.outline { display: flex; flex-direction: column; gap: 3px; }
+
+.ol-row {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  padding: 7px 8px;
+  border-radius: 7px;
+  cursor: pointer;
+  font-size: 12.5px;
+}
+.ol-row:hover { background: var(--neutral-tint); }
+.ol-row.selected { background: var(--blue-2); }
+.ol-row.dragging { opacity: 0.4; }
+
+.ol-row .grip { color: var(--mark); cursor: grab; flex: none; }
+.grip-space { width: 13px; flex: none; }
+
+/* 4×16px provenance chip — where this section's material came from. */
+.prov { width: 4px; height: 16px; border-radius: 2px; flex: none; }
+.prov.syndicated { background: var(--prov-syndicated); }
+.prov.thingy { background: var(--prov-thingy); }
+.prov.own { background: var(--prov-own); }
+
+.ol-label { font-weight: 500; flex: 1; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.ol-row .eye { color: var(--faint); flex: none; }
+
+.ol-badge {
+  font-family: var(--mono);
+  font-size: 8.5px;
+  letter-spacing: 0.06em;
+  background: var(--app);
+  border-radius: 4px;
+  padding: 2px 5px;
+  color: var(--secondary);
+  white-space: nowrap;
+}
+
+.ol-count { font-family: var(--mono); font-size: 10.5px; color: var(--faint); }
+.pinned { font-family: var(--mono); font-size: 9px; color: var(--terracotta); }
+
+.ol-actions { display: flex; gap: 1px; opacity: 0; transition: opacity 0.12s; }
+.ol-row:hover .ol-actions, .ol-actions:focus-within { opacity: 1; }
+
+.ol-btn {
+  width: 19px; height: 19px;
+  display: inline-flex; align-items: center; justify-content: center;
+  border: 0; background: none; border-radius: 4px;
+  color: var(--muted); padding: 0; cursor: pointer;
+}
+.ol-btn:hover { background: var(--page); color: var(--ink); }
+.ol-btn.danger:hover { color: var(--terracotta); }
+.ol-btn[disabled] { opacity: 0.3; cursor: not-allowed; }
+
+.outline-foot { display: flex; gap: 6px; }
+
+.ghost {
+  flex: 1;
+  border: 1px dashed var(--border-button);
+  background: none;
+  border-radius: 7px;
+  padding: 6px;
+  font-size: 11.5px;
+  color: var(--secondary);
+  cursor: pointer;
+}
+.ghost:hover { border-color: var(--ink); color: var(--ink); }
+
+.absent { display: flex; flex-direction: column; gap: 6px; }
+
+/*
+ * A post's own image. Read-only here: it belongs to the Micro.blog post, and
+ * the way to change it is to change the post.
+ */
+.post-image {
+  display: block;
+  width: 100%;
+  border-radius: 6px;
+  margin: 0 0 15px;
+}

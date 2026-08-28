@@ -133,7 +133,7 @@ export interface IssueMeta {
   status: IssueStatus;
   /** A Saturday. */
   publication_date: string;
-  /** How far back the sweep reaches from the Thursday the window closes on. */
+  /** How far back the sweep reaches from the Friday 00:00 CT close (0022). */
   window_days: number;
   editor?: string;
   output_order?: string[];

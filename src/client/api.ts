@@ -102,6 +102,21 @@ export const api = {
 
   settings: (id: string, body: Record<string, unknown>) => post(`/issues/${id}/settings`, body),
 
+  /**
+   * Candidate text for one item. Never written — the wand offers, Jamie picks.
+   * Returning candidates rather than committing is what keeps every word in the
+   * issue his.
+   */
+  draftItem: (id: string, itemId: string, context?: string) =>
+    call<{ candidates: string[]; archive_references?: { issue: number; url: string; note?: string }[] }>(
+      `/issues/${id}/items/${itemId}/draft`,
+      { method: 'POST', body: JSON.stringify({ context }) },
+    ),
+
+  /** An editorial read. Advisory only — notes never gate publishing. */
+  review: (id: string, only?: string) =>
+    post(`/issues/${id}/review`, { only }) as Promise<IssueResponse & { review: unknown }>,
+
   writeBack: (id: string, itemId: string) =>
     post(`/issues/${id}/items/${itemId}/writeback`) as Promise<
       IssueResponse & { result: { sync_state: string; error?: string } }

@@ -3,7 +3,7 @@ import { useCallback, useState } from 'preact/hooks';
 import type { IssueDoc } from '../shared/types.ts';
 import { api, type IssueResponse, type Readiness } from './api.ts';
 import { IssueIndex } from './components/Index.tsx';
-import { Canvas } from './components/Canvas.tsx';
+import { Editor } from './components/Editor.tsx';
 import { Send } from './components/Send.tsx';
 
 export type View = 'index' | 'issue' | 'send';
@@ -79,7 +79,7 @@ export function App() {
   }
 
   return (
-    <Canvas
+    <Editor
       doc={doc}
       readiness={readiness}
       busy={busy}
