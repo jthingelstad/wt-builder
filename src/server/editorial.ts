@@ -412,7 +412,10 @@ Each candidate is exactly two lines:
   lifted from the issue — named products, projects, people, places,
   technologies — ending in a single period. Target 130–150 characters, hard
   maximum 160. Prefer the editorial core (Notable, Featured, Briefly, the
-  Journal's substance) over incidental links.
+  Journal's substance) over incidental links. Never pad with section names
+  ("Currently", "a photo", "a haiku", "Echoes") — every entry is a topic a
+  reader could care about. With a thin issue, a shorter honest list beats a
+  padded one.
 
 Make the candidates genuinely different angles on the issue, not synonyms.`;
 
