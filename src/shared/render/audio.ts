@@ -139,41 +139,13 @@ export function audioScript(doc: IssueDoc): ScriptBlock[] {
   return script.filter((b) => b.text.trim().length > 0);
 }
 
+/**
+ * The synthesized script is the lens's script, joined. One walk produces both
+ * — this used to be a second copy of the walk above, which meant the screen
+ * could drift from the mp3 while claiming it could not.
+ */
 export function renderAudio(doc: IssueDoc): string {
-  const blocks: SpokenBlock[] = [opening(doc.issue.number)];
-
-  for (const planned of planEdition(doc, 'audio')) {
-    const total = planned.items.length;
-    const spoken: SpokenBlock[] = [];
-
-    if (planned.groups) {
-      for (const group of planned.groups) {
-        // Journal groups speak the weekday alone, matching print.
-        const groupBlocks: SpokenBlock[] = [];
-        for (const entry of group.items) {
-          groupBlocks.push(...itemBlocks(entry.item, planned, 0, total));
-        }
-        if (!groupBlocks.length) continue;
-        if (group.weekday) spoken.push(terminate(group.weekday));
-        spoken.push(...groupBlocks);
-      }
-    } else {
-      planned.items.forEach((entry, i) => {
-        spoken.push(...itemBlocks(entry.item, planned, i + 1, total));
-      });
-    }
-
-    // A section transition announces content. With nothing behind it, the
-    // listener is promised a section that never arrives.
-    if (!spoken.length) continue;
-
-    const transition = transitionFor(planned);
-    if (transition) blocks.push(transition);
-    blocks.push(...spoken);
-  }
-
-  blocks.push(CLOSING);
-  return blocks.filter((b) => b.trim().length > 0).join('\n\n') + '\n';
+  return audioScript(doc).map((b) => b.text).join('\n\n') + '\n';
 }
 
 /** Spoken date form, used by the podcast description rather than the script. */
