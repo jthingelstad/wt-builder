@@ -704,8 +704,9 @@ review endpoint.
 repetition; get back a list of `{kind, anchor, text, was?, now?, archive_ref?}`. Anchors
 are item ids, node ids, or `issue`. The model must be instructed to write no replacement
 prose for the issue's own text — that constraint is the product, not a preference. Eddy's
-prompt in `studio-thing` (`apps/workshop_bot/prompts/eddy/prompt.md`) is the right
-starting point for the editorial voice: lead with what's working, concrete notes tied to
+prompt (in `librarian-thing`'s git history — the workshop retired at the
+studio-thing → librarian-thing rename) is the right starting point for the
+editorial voice: lead with what's working, concrete notes tied to
 the issue over general writing advice, archive continuity as the high-value catch, and
 `PASS` when there is genuinely nothing to say. Drop its tool-calling and conversational
 scaffolding. Proofing should be a separate, deterministic pass — not the same model call

@@ -118,8 +118,9 @@ answer questions about the issue. See [`docs/decisions.md`](docs/decisions.md).
 - Buttondown — receives the email edition as a draft.
 - `files.thingelstad.com` — the only home for the rendered audio, and where
   rehosted images live.
-- `studio-thing` — the corpus and retrieval API. Fed after publication, never
-  during it. Its product model is not inherited and none of its code was reused.
+- `librarian-thing` — the corpus and retrieval API (renamed from
+  `studio-thing`). Fed after publication, never during it. Its product model
+  is not inherited and none of its code was reused.
 - Thingy/Librarian — archive retrieval and attributed generation for Membership
   and Echoes.
 

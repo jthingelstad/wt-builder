@@ -72,12 +72,10 @@ export const config = {
 
   /**
    * The archive repository — the corpus the Librarian API answers from. Its
-   * CI rebuilds and uploads the corpus on any change under data/issues/, which
-   * is what the archive send commits into. Config rather than a constant
-   * because a streamline-and-rename of this repository is planned; when it
-   * lands, retargeting is one env var.
+   * CI rebuilds and uploads the corpus on any change under data/issues/,
+   * which is what the archive send commits into.
    */
-  archiveRepo: optional('WT_BUILDER_ARCHIVE_REPO') ?? 'jthingelstad/studio-thing',
+  archiveRepo: optional('WT_BUILDER_ARCHIVE_REPO') ?? 'jthingelstad/librarian-thing',
   archiveBranch: optional('WT_BUILDER_ARCHIVE_BRANCH') ?? 'main',
 
   /**
