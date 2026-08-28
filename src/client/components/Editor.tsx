@@ -17,6 +17,7 @@ import { windowOf } from '../../shared/render/plan.ts';
 import { api, type IssueResponse, type Readiness } from '../api.ts';
 import { ArrowLeft } from '../icons.tsx';
 import { Page, type Lens, type PageActions } from './Page.tsx';
+import { Notes, type Note } from './Notes.tsx';
 import { LeftPanel } from './LeftPanel.tsx';
 import { Strip } from './Strip.tsx';
 import { Inspector } from './Inspector.tsx';
@@ -60,7 +61,11 @@ export function Editor({ doc, readiness, busy, error, run, onIndex, onSend, onEr
   const [drafting, setDrafting] = useState<string | null>(null);
   const [draft, setDraft] = useState<{ itemId: string; candidates: string[] } | null>(null);
   const [sweeping, setSweeping] = useState(false);
+  const [reading, setReading] = useState(false);
+  const [readOpen, setReadOpen] = useState(false);
+  const [dismissed, setDismissed] = useState<Set<string>>(new Set());
   const canvasRef = useRef<HTMLDivElement>(null);
+  const rowsRef = useRef<HTMLDivElement>(null);
 
   const id = doc.issue.id;
   const w = windowOf(doc);
@@ -116,6 +121,18 @@ export function Editor({ doc, readiness, busy, error, run, onIndex, onSend, onEr
 
   const inspecting = selected && doc.items[selected] ? selected : null;
 
+  const review = doc.review as { summary?: string; notes?: Note[] } | undefined;
+  const key = (n: Note, i: number) => `${n.item_id ?? 'issue'}:${i}:${n.text.slice(0, 32)}`;
+  const notes = (review?.notes ?? []).filter((n, i) => !dismissed.has(key(n, i)));
+  const proof = notes.filter((n) => n.kind === 'PROOF').length;
+
+  const read = () => {
+    setReading(true);
+    setReadOpen(true);
+    setDismissed(new Set());
+    void run(() => api.review(id)).finally(() => setReading(false));
+  };
+
   return (
     <div class="app">
       <header class="header">
@@ -151,6 +168,22 @@ export function Editor({ doc, readiness, busy, error, run, onIndex, onSend, onEr
           ))}
         </div>
 
+        {/*
+          Opens the read that exists; re-running is what "Read again" is for.
+          Re-reading on every open would spend a model call to tell Jamie
+          something he has already seen.
+        */}
+        <button
+          class={`btn${readOpen ? ' reading' : ''}`}
+          onClick={() => {
+            if (readOpen) setReadOpen(false);
+            else if (review) setReadOpen(true);
+            else read();
+          }}
+        >
+          {reading ? 'Reading…' : 'Review'}
+          {!reading && notes.length > 0 && <span class="count-badge">{notes.length}</span>}
+        </button>
         <button class={`btn${panel ? ' primary' : ''}`} onClick={() => setPanel(!panel)}>
           Issue
         </button>
@@ -193,9 +226,52 @@ export function Editor({ doc, readiness, busy, error, run, onIndex, onSend, onEr
               <span class="note">{note}</span>
             </div>
 
+            {readOpen && (
+              <div class="read-bar">
+                <div class="kicker">EDITORIAL<br />READ</div>
+                <div class="read-card">
+                  {reading ? (
+                    <>
+                      <p class="working">Reading the issue…</p>
+                      <div class="read-checks">
+                        {['Balance and rhythm', 'Against the archive', 'Length', 'Proofing'].map((c) => (
+                          <span class="read-check on" key={c}><span class="dot" />{c}</span>
+                        ))}
+                      </div>
+                    </>
+                  ) : notes.length === 0 ? (
+                    <>
+                      <p class="working">
+                        {review ? 'That is everything cleared.' : 'Nothing worth raising.'}
+                      </p>
+                      <p class="counts">Read it again after you change something.</p>
+                      <div class="acts">
+                        <button class="btn small" onClick={read}>Read again</button>
+                        <button class="btn small" onClick={() => setReadOpen(false)}>Done</button>
+                      </div>
+                    </>
+                  ) : (
+                    <>
+                      <p class="working">{review?.summary}</p>
+                      <p class="counts">
+                        {notes.length} note{notes.length === 1 ? '' : 's'} in the margin
+                        {proof > 0 && ` · ${proof} proof`} · read from this draft
+                      </p>
+                      <div class="acts">
+                        <button class="btn small" onClick={read}>Read again</button>
+                        <button class="btn small" onClick={() => setReadOpen(false)}>Done</button>
+                      </div>
+                    </>
+                  )}
+                </div>
+              </div>
+            )}
+
             <Page
               doc={doc}
               lens={lens}
+              hostRef={rowsRef}
+              withNotes={readOpen && notes.length > 0}
               selected={selected}
               onSelect={setSelected}
               act={act}
@@ -210,7 +286,18 @@ export function Editor({ doc, readiness, busy, error, run, onIndex, onSend, onEr
                 void run(() => api.updateItem(id, itemId, { [field]: text }));
               }}
               onDismissDraft={() => setDraft(null)}
-            />
+            >
+              {readOpen && notes.length > 0 && (
+                <Notes
+                  notes={notes}
+                  host={rowsRef}
+                  selected={selected}
+                  onShowMe={jump}
+                  onDone={(i) => setDismissed(new Set([...dismissed, key(notes[i]!, i)]))}
+                  onIgnore={(i) => setDismissed(new Set([...dismissed, key(notes[i]!, i)]))}
+                />
+              )}
+            </Page>
           </div>
         </div>
 

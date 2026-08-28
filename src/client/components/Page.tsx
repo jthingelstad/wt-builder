@@ -8,7 +8,7 @@
  * all four.
  */
 
-import type { ComponentChildren } from 'preact';
+import type { ComponentChildren, RefObject } from 'preact';
 
 import type { Channel, IssueDoc, IssueNode, Item } from '../../shared/types.ts';
 import { CHANNELS } from '../../shared/types.ts';
@@ -46,6 +46,11 @@ interface PageProps {
   draft: { itemId: string; candidates: string[] } | null;
   onPickDraft: (itemId: string, text: string) => void;
   onDismissDraft: () => void;
+  /** The `position: relative` host the note overlay measures against. */
+  hostRef?: RefObject<HTMLDivElement>;
+  /** Opens the notes track from 0 to 250px. */
+  withNotes?: boolean;
+  children?: ComponentChildren;
 }
 
 /** Sections that carry themselves — printing the label would be an artifact. */
@@ -69,6 +74,7 @@ function issueWords(doc: IssueDoc): number {
 
 export function Page({
   doc, lens, selected, onSelect, act, drafting, draft, onPickDraft, onDismissDraft,
+  hostRef, withNotes, children,
 }: PageProps) {
   const published = doc.issue.status === 'published';
   const readOnly = published;
@@ -136,7 +142,9 @@ export function Page({
         });
 
     const fallout = falloutOf(doc, node, w);
-    const showHeading = headingPublishes(node);
+    // Source shows structure as structure: every node gets a heading, including
+    // the ones whose name does not publish.
+    const showHeading = lens === 'source' || headingPublishes(node);
 
     // A section emptied by the window says so rather than vanishing: a section
     // that disappears silently reads as data loss.
@@ -155,7 +163,25 @@ export function Page({
       onRemove: () => act.removeNode(node.id),
     });
 
-    if (showHeading) {
+    if (showHeading && lens === 'source') {
+      const kind = node.kind === 'promoted_item' ? 'PROMOTED' : 'SECTION';
+      rows.push(
+        <Row
+          key={`${node.id}-h`}
+          anchor={node.id}
+          selected={selected === node.id}
+          rail={<Rail {...rail} />}
+        >
+          <div class="src-section" onClick={() => onSelect(node.id)}>
+            <h2 class={fallout.all ? 'faded' : undefined}>{node.label}</h2>
+            <span class="meta">
+              {kind} · {node.type} · {node.items.length} ITEM{node.items.length === 1 ? '' : 'S'}
+              {fallout.count > 0 && ` · ${fallout.count} OUTSIDE WINDOW`}
+            </span>
+          </div>
+        </Row>,
+      );
+    } else if (showHeading) {
       rows.push(
         <Row
           key={`${node.id}-h`}
@@ -187,7 +213,7 @@ export function Page({
       const item = doc.items[itemId];
       if (!item) return;
 
-      if (node.type === 'journal') {
+      if (node.type === 'journal' && lens !== 'source') {
         const c = wallClock(item.published_at);
         const key = c?.key ?? '';
         if (key !== lastKey) {
@@ -266,8 +292,9 @@ export function Page({
   });
 
   return (
-    <div class={`rows lens-${lens}`}>
+    <div class={`rows lens-${lens}${withNotes ? ' with-notes' : ''}`} ref={hostRef}>
       {rows}
+      {children}
     </div>
   );
 }

@@ -354,3 +354,16 @@ a:hover { text-decoration: underline; }
 
 .ok-note { font-size: 11.5px; color: var(--green); font-family: var(--mono); }
 .err-note { font-size: 11.5px; color: var(--terracotta); }
+
+/* The Review control carries its own count, so the header never reflows. */
+.count-badge {
+  font-family: var(--mono);
+  font-size: 9.5px;
+  background: var(--amber-3);
+  color: var(--amber);
+  border-radius: 99px;
+  padding: 1px 5px;
+  margin-left: 2px;
+}
+
+.btn.reading { background: var(--amber-1); border-color: var(--amber-2); color: var(--amber); }

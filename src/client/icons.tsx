@@ -131,3 +131,6 @@ export const ImagePlus = ({ size = 24, ...p }: IconProps) =>
     <path d="m21 15-3.086-3.086a2 2 0 0 0-2.828 0L6 21" />
     <circle cx="9" cy="9" r="2" />
   </>, size, p.class);
+
+export const Ban = ({ size = 12, ...p }: IconProps) =>
+  svg(<><circle cx="12" cy="12" r="10" /><path d="m4.9 4.9 14.2 14.2" /></>, size, p.class);

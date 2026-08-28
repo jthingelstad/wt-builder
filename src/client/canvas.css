@@ -34,9 +34,13 @@
   padding: 0 20px;
 }
 
-/* Aligns with the reading column, not the card edge. */
+/*
+ * Aligns with the reading column, not the card edge. The spec says 160px,
+ * which was measured when the gutter was 158px; with the 76px gutter the same
+ * intent is gutter + the card's 40px padding.
+ */
 .lens-kicker {
-  padding-left: 160px;
+  padding-left: calc(var(--gutter) + 40px);
   margin-bottom: 12px;
   display: flex;
   gap: 10px;
@@ -737,3 +741,145 @@
   border-radius: 6px;
   margin: 0 0 15px;
 }
+
+/* ── the editorial margin ─────────────────────────────────────────────── */
+
+/*
+ * Measured against the tracks, not `right: 0` — the host is wider than the
+ * grid, so `right: 0` puts notes on top of the structural controls.
+ */
+.note {
+  position: absolute;
+  left: calc(var(--gutter) + var(--track));
+  width: var(--notes);
+  transition: top 0.15s ease;
+  /*
+   * The spec puts both the wand and this block's notes in the editorial
+   * margin, and both anchor to the top of the same row — so at 16px they
+   * overlap exactly. The note body is inset past the 24px wand instead, which
+   * keeps every control reachable and the note inside its own track.
+   * Worth confirming with Jamie: the design does not say which wins.
+   */
+  padding-left: 34px;
+}
+
+.note-dot { left: 18px; }
+.note-leader { left: 22px; }
+
+.note-dot {
+  position: absolute;
+  top: 7px;
+  width: 4px;
+  height: 4px;
+  border-radius: 99px;
+  background: var(--mark-mid);
+}
+
+.note-leader {
+  position: absolute;
+  top: 9px;
+  width: 12px;
+  border-top: 1px solid var(--border);
+}
+
+.note-inner {
+  border-left: 2px solid var(--mark-mid);
+  border-radius: 0 5px 5px 0;
+  padding: 0 0 0 9px;
+}
+
+.note-proof .note-inner { border-left-color: var(--amber); }
+.note-archive .note-inner { border-left-color: var(--blue); }
+
+/* "Worth your time" notes get a ground so they read as the ones to act on. */
+.note-archive .note-inner { background: #fdfcf8; }
+
+.note.selected .note-inner { background: var(--amber-1); box-shadow: inset 3px 0 0 var(--amber); }
+
+.note-head { display: flex; align-items: center; gap: 5px; margin-bottom: 3px; }
+
+.note-badge {
+  font-family: var(--mono);
+  font-size: 8.5px;
+  letter-spacing: 0.07em;
+  border-radius: 4px;
+  padding: 2px 5px;
+}
+.note-badge.proof { color: var(--amber); background: var(--amber-1); }
+.note-badge.archive { color: var(--blue); background: var(--blue-1); }
+.note-badge.quiet { color: var(--secondary); background: var(--neutral-tint); }
+
+.note-spacer { flex: 1; }
+
+.note-act {
+  width: 18px; height: 18px;
+  display: inline-flex; align-items: center; justify-content: center;
+  border: 0; background: none; border-radius: 4px;
+  color: var(--mark-dark); padding: 0;
+  opacity: 0; transition: opacity 0.12s;
+}
+.note:hover .note-act, .note-act:focus-visible { opacity: 1; }
+.note-act.done:hover { color: var(--green); background: var(--green-1); }
+.note-act.ignore:hover { color: var(--secondary); background: var(--neutral-tint); }
+
+/* The editorial voice is the only serif in the app, so a note never reads as
+   part of the issue. 11.5px sans was simply too small in a margin. */
+.note-body {
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 13.5px;
+  line-height: 1.5;
+  color: #3a3a3a;
+  margin: 0;
+  text-wrap: pretty;
+}
+
+.note-fix { font-family: var(--mono); font-size: 10.5px; margin-top: 5px; line-height: 1.5; }
+.note-fix s { color: var(--terracotta); }
+.note-fix ins { color: var(--green); text-decoration: none; }
+.note-fix .arrow { color: var(--muted); }
+
+.note-foot { display: flex; gap: 10px; margin-top: 5px; }
+
+.note-link {
+  border: 0; background: none; padding: 0;
+  font-size: 10.5px; color: var(--secondary);
+}
+.note-link:hover { color: var(--ink); text-decoration: underline; }
+
+/* ── the editorial summary bar ────────────────────────────────────────── */
+
+.read-bar {
+  display: grid;
+  grid-template-columns: var(--gutter) 1fr;
+  margin-bottom: 14px;
+  align-items: start;
+}
+
+.read-bar .kicker {
+  font-family: var(--mono);
+  font-size: 9.5px;
+  letter-spacing: 0.08em;
+  color: var(--amber);
+  text-align: right;
+  padding-right: 16px;
+  padding-top: 14px;
+  line-height: 1.3;
+}
+
+.read-card {
+  border: 1px solid var(--amber-2);
+  background: var(--amber-1);
+  border-radius: 10px;
+  padding: 13px 16px;
+  max-width: calc(var(--track) + var(--notes));
+}
+
+.read-card .working { font-size: 13.5px; line-height: 1.6; margin: 0 0 7px; }
+.read-card .counts { font-size: 11.5px; color: var(--amber); margin: 0 0 10px; }
+.read-card .acts { display: flex; gap: 6px; }
+
+.read-checks { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 8px; }
+.read-check { display: flex; align-items: center; gap: 6px; font-size: 12px; color: var(--secondary); }
+.read-check .dot { width: 6px; height: 6px; border-radius: 99px; background: var(--amber-2); }
+.read-check.on .dot { background: var(--amber); }
