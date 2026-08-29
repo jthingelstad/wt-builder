@@ -123,6 +123,10 @@ export const api = {
   addNode: (id: string, body: { type?: string; label?: string; id?: string; kind?: string; before?: string }) =>
     post(`/issues/${id}/nodes`, body),
 
+  /** One item into an existing node — a Currently entry, a written link. */
+  addItem: (id: string, nodeId: string, type: string) =>
+    post(`/issues/${id}/nodes/${nodeId}/items`, { type }),
+
   availableSections: (id: string) =>
     call<{ sections: { id: string; type: string; label: string }[] }>(`/issues/${id}/available-sections`),
 

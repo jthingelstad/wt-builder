@@ -32,7 +32,8 @@ export interface PageActions {
   moveItem(nodeId: string, itemId: string, delta: number): void;
   moveNode(nodeId: string, delta: number): void;
   removeNode(nodeId: string): void;
-  addNode(spec: { type: string; label: string; before?: string }): void;
+  addNode(spec: { type: string; label: string; before?: string; kind?: string }): void;
+  addItem(nodeId: string, type: string): void;
   promote(itemId: string): void;
   demote(nodeId: string): void;
   setChannel(itemId: string, channel: Channel, on: boolean): void;
@@ -165,7 +166,17 @@ export function Page({
     if (!inLens.length && !fallout.all && lens !== 'source') return;
 
     if (index > 0) {
-      rows.push(<Row key={`${node.id}-rule`} anchor={node.id}><hr class="section-rule" /></Row>);
+      rows.push(
+        <Row key={`${node.id}-rule`} anchor={node.id}>
+          {!readOnly && lens === 'website' && (
+            <InsertPoint
+              onMarkdown={() => act.addNode({ kind: 'markdown', type: 'mdblock', label: 'Markdown block', before: node.id })}
+              onSection={() => act.addNode({ type: 'ad_hoc', label: 'Section', before: node.id })}
+            />
+          )}
+          <hr class="section-rule" />
+        </Row>,
+      );
     }
 
     const rail = sectionRail({
@@ -313,6 +324,28 @@ export function Page({
       }
     }
 
+    // Add affordances — dashed ghost chips where writing starts.
+    if (!readOnly && lens === 'website') {
+      if (node.type === 'currently') {
+        rows.push(
+          <Row key={`${node.id}-add`} anchor={node.id}>
+            <button class="ghost-chip" onClick={() => act.addItem(node.id, 'currently')}>
+              + Currently entry
+            </button>
+          </Row>,
+        );
+      }
+      if (node.type === 'notable' || node.type === 'briefly') {
+        rows.push(
+          <Row key={`${node.id}-add`} anchor={node.id}>
+            <button class="ghost-chip" onClick={() => act.addItem(node.id, 'pinboard_link')}>
+              + Write a link here
+            </button>
+          </Row>,
+        );
+      }
+    }
+
     // Held-out items stay visible so exclusion is reversible, not a disappearance.
     if (lens !== 'source') {
       for (const itemId of node.items) {
@@ -332,10 +365,53 @@ export function Page({
     }
   });
 
+  if (!readOnly && lens === 'website') {
+    const present = new Set(nodes.map((n) => String(n.type)));
+    const tail: [string, string][] = [
+      ['intro', '+ Intro'], ['quote', '+ Quote'], ['currently', '+ Currently'],
+      ['photo', '+ Photo'], ['outro', '+ Outro'],
+    ];
+    rows.push(
+      <Row key="tail-add" anchor="issue">
+        <div class="ghost-tail">
+          {tail.filter(([t]) => !present.has(t)).map(([t, label]) => (
+            <button
+              key={t}
+              class="ghost-chip"
+              onClick={() => act.addNode({ type: t, label: label.slice(2) })}
+            >
+              {label}
+            </button>
+          ))}
+          <button class="ghost-chip" onClick={() => act.addNode({ kind: 'markdown', type: 'mdblock', label: 'Markdown block' })}>
+            + Markdown block
+          </button>
+          <button class="ghost-chip" onClick={() => act.addNode({ type: 'ad_hoc', label: 'Section' })}>
+            + Section
+          </button>
+        </div>
+      </Row>,
+    );
+  }
+
   return (
     <div class={`rows lens-${lens}${withNotes ? ' with-notes' : ''}`} ref={hostRef}>
       {rows}
       {children}
+    </div>
+  );
+}
+
+/**
+ * A section boundary's insert point — a hairline that only says what it can
+ * do on hover, so the page stays a page until you ask (interface-spec,
+ * hover-revealed chrome).
+ */
+function InsertPoint({ onMarkdown, onSection }: { onMarkdown: () => void; onSection: () => void }) {
+  return (
+    <div class="insert-point">
+      <button class="ip-pill" onClick={onMarkdown}>+ Markdown here</button>
+      <button class="ip-pill" onClick={onSection}>+ Section here</button>
     </div>
   );
 }
@@ -464,7 +540,13 @@ function ChannelBlock({ doc, node, item, itemId, readOnly, act }: BlockProps) {
     case 'currently':
       return (
         <p>
-          <strong>{item.label}:</strong>{' '}
+          <strong>
+            <Editable
+              readOnly={readOnly} value={item.label ?? ''} ph="Label"
+              onCommit={(text) => set({ label: text })}
+            />
+            :
+          </strong>{' '}
           <Editable
             readOnly={readOnly} value={item.body ?? ''} ph="…"
             onCommit={(text) => set({ body: text })}

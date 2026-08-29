@@ -242,7 +242,18 @@ const routes: [RegExp, string, (ctx: Ctx, params: string[]) => Promise<unknown>]
       type: String(b.type ?? 'ad_hoc'),
       label: String(b.label ?? 'Section'),
       id: b.id,
+      before: b.before,
     }));
+  }],
+
+  /** One item into an existing node — a Currently entry, a written link. */
+  [/^\/api\/issues\/([^/]+)\/nodes\/([^/]+)\/items$/, 'POST', async ({ body }, [id, nodeId]) => {
+    const b = await body();
+    const type = String(b.type ?? '');
+    if (!['currently', 'pinboard_link', 'quote', 'markdown'].includes(type)) {
+      throw new HttpError(400, `cannot add a ${type || '(missing type)'} item`);
+    }
+    return saved(issues.addItem(requireIssue(id!), nodeId!, type as import('../shared/types.ts').ItemType));
   }],
 
   /** Standard sections not currently in the issue, offered back. */

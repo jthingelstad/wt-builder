@@ -87,6 +87,7 @@ export function Editor({ doc, readiness, busy, error, run, onIndex, onSend, onEr
     moveNode: (nodeId, delta) => void run(() => api.moveNode(id, nodeId, delta)),
     removeNode: (nodeId) => void run(() => api.removeNode(id, nodeId)),
     addNode: (spec) => void run(() => api.addNode(id, spec)),
+    addItem: (nodeId, type) => void run(() => api.addItem(id, nodeId, type)),
     promote: (itemId) => void run(() => api.promote(id, itemId)),
     demote: (nodeId) => void run(() => api.demote(id, nodeId)),
     setChannel: (itemId, channel, on) => void run(() => api.setChannel(id, itemId, channel, on)),

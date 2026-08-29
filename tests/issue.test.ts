@@ -7,6 +7,7 @@ import { tmpdir } from 'node:os';
 import { join } from 'node:path';
 
 import type { IssueDoc, Item } from '../src/shared/types.ts';
+import * as issues from '../src/server/issue.ts';
 import { inWindow, issueWindow, snapToSaturday, windowLabel } from '../src/shared/dates.ts';
 import {
   addMarkdownBlock, addSection, createIssue, demote, hideItem, moveNode,
@@ -504,5 +505,44 @@ describe('bringing an older document up to the skeleton', () => {
     const photo = doc.nodes.find((n) => n.type === 'photo')!;
     const removed = removeSection(doc, photo.id);
     expect(normalizeSkeleton(removed)).toBeNull();
+  });
+});
+
+describe('add affordances', () => {
+  it('adds a Currently entry to the section', () => {
+    const doc = issues.createIssue({ number: 991, publication_date: '2026-09-05' });
+    const next = issues.addItem(doc, 'currently', 'currently');
+    const node = next.nodes.find((n) => n.id === 'currently')!;
+    expect(node.items.length).toBe(2);
+    const added = next.items[node.items[1]!]!;
+    expect(added.type).toBe('currently');
+    expect(added.label).toBe('Also');
+  });
+
+  it('a written link is authored here: direct source, no write-back', () => {
+    const doc = issues.createIssue({ number: 992, publication_date: '2026-09-05' });
+    const next = issues.addItem(doc, 'notable', 'pinboard_link');
+    const node = next.nodes.find((n) => n.id === 'notable')!;
+    const added = next.items[node.items[0]!]!;
+    expect(added.source).toBe('direct');
+    expect(added.authorship).toBe('Jamie');
+    expect(added.sync_state).toBe('local');
+  });
+
+  it('a section inserts at its named position', () => {
+    const doc = issues.createIssue({ number: 993, publication_date: '2026-09-05' });
+    const next = issues.addSection(doc, { type: 'ad_hoc', label: 'Aside', before: 'journal' });
+    const order = next.issue.output_order!;
+    const aside = next.nodes.find((n) => n.type === 'ad_hoc')!;
+    expect(order.indexOf(aside.id)).toBe(order.indexOf('journal') - 1);
+  });
+
+  it("the outline's drag-reorder actually persists", () => {
+    // addNode with an existing id + before is the reorder path; it silently
+    // did nothing until now.
+    const doc = issues.createIssue({ number: 994, publication_date: '2026-09-05' });
+    const next = issues.addSection(doc, { type: 'journal', label: 'Journal', id: 'journal', before: 'intro' });
+    const order = next.issue.output_order!;
+    expect(order.indexOf('journal')).toBe(order.indexOf('intro') - 1);
   });
 });

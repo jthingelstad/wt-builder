@@ -1064,3 +1064,42 @@
 .cv-row:hover .cv-actions, .cv-actions:focus-within { opacity: 1; }
 
 .photo-drop.busy { cursor: default; }
+
+/* ── insert points & add affordances ─────────────────────────────────── */
+
+.insert-point {
+  display: flex;
+  gap: 8px;
+  justify-content: center;
+  margin: -6px 0 2px;
+  opacity: 0;
+  transition: opacity 0.12s;
+}
+.row:hover .insert-point { opacity: 1; }
+.ip-pill {
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.04em;
+  color: var(--muted);
+  background: var(--bg, #fff);
+  border: 1px dashed var(--border-button, #dedcd8);
+  border-radius: 99px;
+  padding: 3px 10px;
+  cursor: pointer;
+}
+.ip-pill:hover { color: var(--ink, #1f1f1f); border-color: var(--muted); }
+
+.ghost-chip {
+  font-family: var(--mono);
+  font-size: 10.5px;
+  letter-spacing: 0.04em;
+  color: var(--muted);
+  background: var(--subtle, #fafaf9);
+  border: 1px dashed var(--border-button, #dedcd8);
+  border-radius: 7px;
+  padding: 7px 12px;
+  cursor: pointer;
+  margin-top: 6px;
+}
+.ghost-chip:hover { color: var(--ink, #1f1f1f); border-color: var(--muted); }
+.ghost-tail { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 18px; }

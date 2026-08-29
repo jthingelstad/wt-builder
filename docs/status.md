@@ -53,8 +53,10 @@ finished, what is half-finished, and what has never run.
 
 - **The 352px editorial review panel.** Only the summary bar and the margin
   notes exist. The spec has both, sharing the right rail with the inspector.
-- **Insert points and add affordances.** No `+ Markdown here` at section
-  boundaries, no `+ Currently entry` / `+ Write a link here` chips.
+- ~~Insert points and add affordances~~ — built 2026-08-28: hover insert
+  points at section boundaries, `+ Currently entry` / `+ Write a link here`
+  chips, and the tail row of absent sections. The outline's drag-reorder is
+  also actually persisted now — it had silently done nothing.
 - **Audio lens details.** The script and its cues are right, but Briefly does
   not visibly reverse in the lens and dates are not yet spoken long
   ("Saturday, August twenty-ninth").

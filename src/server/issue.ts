@@ -417,10 +417,20 @@ export function removeSection(doc: IssueDoc, nodeId: string): IssueDoc {
 }
 
 /** Missing standard sections are offered back, so removal is never one-way. */
-export function addSection(doc: IssueDoc, spec: { type: string; label: string; id?: string }): IssueDoc {
+export function addSection(
+  doc: IssueDoc,
+  spec: { type: string; label: string; id?: string; before?: string },
+): IssueDoc {
   const next = structuredClone(doc);
   const id = spec.id ?? `${spec.type}-${Date.now().toString(36)}`;
-  if (next.nodes.some((n) => n.id === id)) return next;
+  if (next.nodes.some((n) => n.id === id)) {
+    // An existing id with a target is the outline's drag-reorder. Without a
+    // target it is a no-op — never a duplicate.
+    if (spec.before && next.nodes.some((n) => n.id === spec.before)) {
+      next.issue.output_order = insertBefore(next, id, spec.before);
+    }
+    return next;
+  }
 
   const heldIndex = (next.held_nodes ?? []).findIndex(
     (n) => n.id === id || (!spec.id && n.type === spec.type && n.label === spec.label),
@@ -457,6 +467,11 @@ export function addSection(doc: IssueDoc, spec: { type: string; label: string; i
   next.orphans = (next.orphans ?? []).filter((i) => !reclaimed.includes(i));
 
   next.nodes.push(created);
+  if (spec.before && next.nodes.some((n) => n.id === spec.before)) {
+    // An insert point names its neighbour; the section lands right there.
+    next.issue.output_order = insertBefore(next, id, spec.before);
+    return next;
+  }
   const order = next.issue.output_order ?? next.nodes.map((n) => n.id);
   const echoesAt = order.findIndex((x) => {
     const n = next.nodes.find((m) => m.id === x);
@@ -487,6 +502,37 @@ export function addMarkdownBlock(doc: IssueDoc, atNodeId?: string): IssueDoc {
     created.items = [itemId];
   }
   if (atNodeId) next.issue.output_order = insertBefore(next, `mdblock-${stamp}`, atNodeId);
+  return next;
+}
+
+/**
+ * Add one item to an existing node — a Currently entry, or a link written by
+ * hand. A written link is still a pinboard_link by type (the renderers and
+ * readiness know that shape) but its source is direct: authored here, no
+ * write-back, provenance honest.
+ */
+export function addItem(doc: IssueDoc, nodeId: string, type: ItemType): IssueDoc {
+  const next = structuredClone(doc);
+  const target = next.nodes.find((n) => n.id === nodeId);
+  if (!target) return next;
+
+  const itemId = `${type === 'pinboard_link' ? 'link' : type}-${Date.now().toString(36)}`;
+  const item: Item = type === 'currently'
+    ? { ...seedItem('currently'), label: 'Also' }
+    : type === 'pinboard_link'
+      ? {
+          type: 'pinboard_link',
+          authorship: 'Jamie',
+          source: 'direct',
+          channels: allChannels(),
+          title: '',
+          commentary: '',
+          sync_state: 'local',
+        }
+      : seedItem(type);
+
+  next.items[itemId] = item;
+  target.items.push(itemId);
   return next;
 }
 
