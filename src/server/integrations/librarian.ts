@@ -13,6 +13,11 @@
 
 import { config, credentials } from '../config.ts';
 
+// The /retrieve request/response shape this client codes against, from
+// librarian-thing/apps/librarian/contracts/librarian-api.json. Bump when
+// adopting a new major.
+const LIBRARIAN_CONTRACT_MAJOR = '2.0.0';
+
 export interface Passage {
   issue_number?: number;
   subject?: string;
@@ -41,7 +46,12 @@ export async function retrieve(query: string, k = 12): Promise<Passage[]> {
 
   const res = await fetch(`${config.librarianUrl.replace(/\/$/, '')}/retrieve`, {
     method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
+    headers: {
+      'Content-Type': 'application/json',
+      // Participate in contract negotiation: the Librarian answers 409 for
+      // majors it no longer serves, which beats silently-missing fields.
+      'x-librarian-contract-version': LIBRARIAN_CONTRACT_MAJOR,
+    },
     body: JSON.stringify({ query, k, retrieve_secret: secret }),
     signal: AbortSignal.timeout(30_000),
   });
