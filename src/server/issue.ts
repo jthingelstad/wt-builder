@@ -155,15 +155,27 @@ export async function sweep(doc: IssueDoc): Promise<{ doc: IssueDoc; report: Swe
   ]);
 
   const next = structuredClone(doc);
-  const known = new Set(
-    Object.values(next.items).map((i) => i.source_id).filter(Boolean) as string[],
+  const known = new Map(
+    Object.entries(next.items)
+      .filter(([, i]) => i.source_id)
+      .map(([id, i]) => [i.source_id as string, id]),
   );
 
   let added = 0;
   let skipped = 0;
 
   for (const c of links) {
-    if (known.has(c.id)) { skipped++; continue; }
+    const existing = known.get(c.id);
+    if (existing) {
+      // Items swept before the converter carried the capture time are
+      // unjudgeable by the window. Backfill rather than leave them immune.
+      const item = next.items[existing];
+      if (item && !item.published_at && c.published_at) {
+        item.published_at = c.published_at;
+      }
+      skipped++;
+      continue;
+    }
     const item = pinboard.candidateToItem(c);
     const id = idFor(next, c);
     next.items[id] = item;
@@ -178,6 +190,16 @@ export async function sweep(doc: IssueDoc): Promise<{ doc: IssueDoc; report: Swe
     next.items[id] = item;
     placeInto(next, id, 'Journal');
     added++;
+  }
+
+  // Heal Pinboard items that predate the converter carrying published_at:
+  // they are invisible to the window, and the windowed sweep above cannot
+  // re-see a bookmark captured outside the current window. One posts/get per
+  // unhealed item, and the set empties itself.
+  for (const item of Object.values(next.items)) {
+    if (item.source !== 'Pinboard' || item.published_at || !item.source_url) continue;
+    const time = await pinboard.captureTime(item.source_url);
+    if (time) item.published_at = time;
   }
 
   sortJournal(next);

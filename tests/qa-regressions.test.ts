@@ -192,6 +192,16 @@ describe('write-back stays inside its contract', () => {
     expect(item.source_flags).toEqual({ toread: 'yes', shared: 'no' });
   });
 
+  it('carries the capture time onto the item — the window judges by it', () => {
+    // Dropped once: swept links landed without published_at and were immune
+    // to the window while journal posts obeyed it.
+    const item = candidateToItem({
+      id: 'pinboard:abc', origin: 'Pinboard', url: 'https://x.test/a',
+      title: 'A', published_at: '2026-08-22T14:00:00Z',
+    });
+    expect(item.published_at).toBe('2026-08-22T14:00:00Z');
+  });
+
   it('defaults a bookmark with no captured flags to private and unread', () => {
     const item = candidateToItem({
       id: 'pinboard:abc', origin: 'Pinboard', url: 'https://x.test/a', title: 'A',

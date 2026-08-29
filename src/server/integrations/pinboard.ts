@@ -132,9 +132,27 @@ export function candidateToItem(c: Candidate): Item {
     source_snapshot: { title: c.title, commentary, tags },
     source_flags: c.flags,
   };
+  // The capture time is what the window judges. Dropping it here was a bug
+  // that made every swept link immune to the window (the Micro.blog
+  // converter always carried it; this one did not).
+  if (c.published_at) item.published_at = c.published_at;
   const section = sectionForTags(tags);
   if (section) item.section = section;
   return item;
+}
+
+/**
+ * One bookmark's capture time, by URL. Exists to heal items swept before the
+ * converter carried `published_at` — those are invisible to the window, and
+ * the windowed sweep cannot re-see a bookmark outside the current window.
+ */
+export async function captureTime(url: string): Promise<string | null> {
+  try {
+    const body = (await call('/posts/get', { url })) as { posts?: PinboardPost[] };
+    return body.posts?.[0]?.time ?? null;
+  } catch {
+    return null;
+  }
 }
 
 export interface WriteBackResult {
