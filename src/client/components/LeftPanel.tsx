@@ -9,7 +9,7 @@
 import { useEffect, useState } from 'preact/hooks';
 
 import type { IssueDoc, IssueNode } from '../../shared/types.ts';
-import { isSaturday, shortKicker, spanLabel } from '../../shared/dates.ts';
+import { isPublishDay, shortKicker, spanLabel } from '../../shared/dates.ts';
 import { orderedNodes, windowOf } from '../../shared/render/plan.ts';
 import { api } from '../api.ts';
 import { ArrowDown, ArrowUp, EyeOff, GripVertical, X } from '../icons.tsx';
@@ -97,14 +97,14 @@ function MetaEditor({
           onChange={(e) => {
             const date = (e.target as HTMLInputElement).value;
             if (!date) return;
-            setSnapped(!isSaturday(date));
+            setSnapped(!isPublishDay(date));
             onSettings({ publication_date: date });
           }}
         />
       </label>
       {snapped && (
         <p class="amber-note">
-          Moved to Saturday — the Weekly Thing always publishes Saturday.
+          Moved to Saturday — the Weekly Thing publishes on the weekend.
         </p>
       )}
 

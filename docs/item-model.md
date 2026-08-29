@@ -18,7 +18,7 @@ Issue
 
 ```text
 number                 monotonically incrementing; defaults to last published + 1
-publish_date           a Saturday
+publish_date           a Saturday by target; Sundays happen and stand
 window_days            how far back the sweep reaches
 status                 draft | published
 title

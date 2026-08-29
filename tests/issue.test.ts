@@ -546,3 +546,25 @@ describe('add affordances', () => {
     expect(order.indexOf('journal')).toBe(order.indexOf('intro') - 1);
   });
 });
+
+describe('the publish weekend', () => {
+  // Saturday is the target; nine years of the archive hold 67 Sundays and 3
+  // Mondays. The date stays honest when the issue slips a day.
+  it('a Sunday publication date stands as chosen', () => {
+    const doc = createIssue({ number: 995, publication_date: '2026-08-29' });
+    const next = setPublicationDate(doc, '2026-08-30'); // Sunday
+    expect(next.issue.publication_date).toBe('2026-08-30');
+  });
+
+  it('a slipped day never moves the window', () => {
+    // Sat 8/29, Sun 8/30, Mon 8/31 all close on Friday 8/28.
+    for (const date of ['2026-08-29', '2026-08-30', '2026-08-31']) {
+      expect(issueWindow(date, 7).to).toBe('2026-08-28');
+    }
+  });
+
+  it('a midweek date is a typo and snaps to the Saturday target', () => {
+    const doc = createIssue({ number: 996, publication_date: '2026-09-02' }); // Wednesday
+    expect(doc.issue.publication_date).toBe('2026-09-05');
+  });
+});

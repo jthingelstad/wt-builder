@@ -119,6 +119,7 @@ Jamie's call** — the design does not say which of the two owns that space.
 
 ## Still open, and deliberately not answered here
 
-Whether the content cutoff should move to Friday 11:59 PM CT rather than Friday
-00:00, so a Friday-daytime capture makes the next morning's issue. That is a
-different decision from 0022 and was not taken.
+~~The content cutoff question~~ — settled 2026-08-28: the cutoff is always
+midnight, Friday to Friday CT; a Friday-daytime capture belongs to the next
+issue by intent. Publication dates may stand on Sunday (or a slipped Monday)
+without moving the window. See docs/decisions.md.

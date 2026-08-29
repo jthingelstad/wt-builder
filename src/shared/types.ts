@@ -131,7 +131,7 @@ export interface IssueMeta {
   title: string;
   dek?: string;
   status: IssueStatus;
-  /** A Saturday. */
+  /** A Saturday by target; Sundays (and slipped Mondays) stand as chosen. */
   publication_date: string;
   /** How far back the sweep reaches from the Friday 00:00 CT close. */
   window_days: number;

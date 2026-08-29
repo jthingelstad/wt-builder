@@ -123,9 +123,29 @@ export function isSaturday(isoDate: string): boolean {
   return dayOfWeek(isoDate) === 6;
 }
 
-/** Move a date forward to the next Saturday (publication day). */
+/** Move a date forward to the next Saturday (the publication target). */
 export function snapToSaturday(isoDate: string): string {
   return addDays(isoDate, (6 - dayOfWeek(isoDate) + 7) % 7);
+}
+
+/**
+ * A date the Weekly Thing actually publishes on. Saturday is the target, but
+ * nine years of the archive hold 67 Sundays and 3 Mondays — the issue slips
+ * a day sometimes, and the date stays honest when it does. The window is
+ * unaffected: it closes on the previous Friday for all three days.
+ */
+export function isPublishDay(isoDate: string): boolean {
+  const d = dayOfWeek(isoDate);
+  return d === 6 || d === 0 || d === 1;
+}
+
+/**
+ * Publication dates: the weekend (and a slipped Monday) stand as chosen;
+ * anything else snaps forward to the Saturday target — a Wednesday
+ * publication date is a typo, not a plan.
+ */
+export function snapToPublishDay(isoDate: string): string {
+  return isPublishDay(isoDate) ? isoDate : snapToSaturday(isoDate);
 }
 
 // ── zone conversion ───────────────────────────────────────────────────────

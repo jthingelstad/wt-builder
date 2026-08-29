@@ -141,10 +141,15 @@ Another's episodes on its own schedule.
 *Invisible in code because it is a decision about what this repo will never
 contain.*
 
-## Still open
+## The cutoff is always midnight (settled 2026-08-28)
 
-**Should the content window end Friday 11:59 PM CT rather than 00:00?** The
-cutoff today is Friday 00:00 to Friday 00:00 Central, half-open, so a
-Friday-daytime bookmark lands in the *next* issue. Whether that is right is a
-live question. The arithmetic and the daylight-saving handling are in
-`src/shared/dates.ts`; only the question is here.
+Jamie: "The content cutoff is always midnight. It is typically Friday to
+Friday midnight CT." The window stays Friday 00:00 CT to Friday 00:00 CT,
+half-open — a Friday-daytime blog post or bookmark belongs to the *following*
+week's issue, and that is the intent, not an accident of the arithmetic.
+
+Publication targets Saturday but slips to Sunday sometimes (the archive holds
+67 Sundays and 3 Mondays across nine years). The date stays honest when it
+slips — `snapToPublishDay` accepts the weekend and a Monday — and the window
+does not move with it: all three days close on the same previous-Friday
+midnight.

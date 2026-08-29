@@ -15,7 +15,7 @@ import type {
   ItemType,
 } from '../shared/types.ts';
 import { SCHEMA_VERSION, allChannels, emptyChannels } from '../shared/types.ts';
-import { addDays, issueWindow, snapToSaturday } from '../shared/dates.ts';
+import { addDays, issueWindow, snapToPublishDay } from '../shared/dates.ts';
 import { bodyLines, orderedNodes } from '../shared/render/plan.ts';
 import * as pinboard from './integrations/pinboard.ts';
 import * as microblog from './integrations/microblog.ts';
@@ -88,7 +88,7 @@ export function createIssue(opts: {
   title?: string;
   dek?: string;
 }): IssueDoc {
-  const publication_date = snapToSaturday(opts.publication_date);
+  const publication_date = snapToPublishDay(opts.publication_date);
   const items: Record<string, Item> = {};
   const nodes: IssueNode[] = [];
 
@@ -545,7 +545,7 @@ export function renameSection(doc: IssueDoc, nodeId: string, label: string): Iss
 
 export function setPublicationDate(doc: IssueDoc, date: string): IssueDoc {
   const next = structuredClone(doc);
-  next.issue.publication_date = snapToSaturday(date);
+  next.issue.publication_date = snapToPublishDay(date);
   return next;
 }
 
