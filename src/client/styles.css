@@ -585,4 +585,7 @@ a:hover { text-decoration: underline; }
   gap: 7px;
 }
 .after p { font-size: 13px; line-height: 1.6; color: var(--dek); margin: 0; }
+.after-row { display: flex; align-items: center; gap: 10px; margin-top: 10px; }
+.after-preview { margin-top: 10px; display: flex; flex-direction: column; gap: 3px; }
+.after-preview code { font-family: var(--mono); font-size: 11px; color: var(--ink-soft, #4a4a4a); }
 .after-state { font-family: var(--mono); font-size: 10px; letter-spacing: 0.07em; color: var(--muted); }

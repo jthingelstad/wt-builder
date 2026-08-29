@@ -210,17 +210,73 @@ export function Send({ doc, readiness, error, onBack, onSent, onError }: Props) 
           />
         ))}
 
-        <div class="after">
-          <span class="mono-label">AFTER THE ISSUE IS OUT</span>
-          <p>
-            The archive feed makes the issue retrievable by Thingy. It is neither a
-            channel nor a gate — it runs on its own once the website is live.
-          </p>
-          <span class="after-state">
-            {doc.sends?.archive?.status === 'sent' ? 'INDEXED' : 'NOT YET INDEXED'}
-          </span>
-        </div>
+        <ArchiveFeed
+          doc={doc}
+          busy={Boolean(running)}
+          onRun={() => void send('archive' as Destination)}
+        />
       </div>
+    </div>
+  );
+}
+
+/**
+ * The archive feed — neither a channel nor a gate. Preview shows exactly what
+ * the commit would change in the corpus repository, changing nothing; Send
+ * runs the leg. Committing a draft would put unpublished text where Thingy
+ * answers from, which is what the preview exists to prevent.
+ */
+function ArchiveFeed({
+  doc, busy, onRun,
+}: { doc: IssueDoc; busy: boolean; onRun: () => void }) {
+  const [preview, setPreview] = useState<{ repo: string; changed: string[]; unchanged: number } | null>(null);
+  const [loading, setLoading] = useState(false);
+  const [err, setErr] = useState<string | null>(null);
+
+  const state = doc.sends?.archive?.status ?? 'none';
+
+  const load = () => {
+    setLoading(true);
+    setErr(null);
+    api.sendPreview(doc.issue.id, 'archive')
+      .then(setPreview)
+      .catch((e: Error) => setErr(e.message))
+      .finally(() => setLoading(false));
+  };
+
+  return (
+    <div class="after">
+      <span class="mono-label">AFTER THE ISSUE IS OUT</span>
+      <p>
+        The archive feed makes the issue retrievable by Thingy. It is neither a
+        channel nor a gate — it commits the canonical text to the corpus
+        repository once the issue is out.
+      </p>
+      <div class="after-row">
+        <span class="after-state">
+          {state === 'sent' ? 'INDEXED' : state === 'failed' ? 'DID NOT SEND' : 'NOT YET INDEXED'}
+        </span>
+        <button class="btn small" disabled={loading} onClick={load}>
+          {loading ? 'Diffing…' : 'Preview'}
+        </button>
+        <button class="btn small" disabled={busy} onClick={onRun}>
+          {state === 'sent' ? 'Re-send' : state === 'failed' ? 'Try again' : 'Send to archive'}
+        </button>
+        {doc.sends?.archive?.url && (
+          <a class="btn small" href={doc.sends.archive.url} target="_blank" rel="noreferrer">
+            Commit ↗
+          </a>
+        )}
+      </div>
+      {err && <div class="sc-evidence error">{err}</div>}
+      {preview && (
+        <div class="after-preview">
+          <span class="mono-label">WOULD COMMIT TO {preview.repo.toUpperCase()}</span>
+          {preview.changed.length === 0
+            ? <span class="quiet">Nothing — the corpus already matches this issue.</span>
+            : preview.changed.map((f) => <code key={f}>~ {f}</code>)}
+        </div>
+      )}
     </div>
   );
 }
