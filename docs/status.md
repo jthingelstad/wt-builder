@@ -68,18 +68,21 @@ finished, what is half-finished, and what has never run.
 - ~~Echoes archive retrieval~~ — built 2026-08-28: the wand retrieves from
   the Librarian, fails loud without it, and stores the citations it used.
 
-## Never run for real
+## The dry run — 2026-08-28, all four legs
 
-- **The website send.** Previewed only. It commits to
-  `jthingelstad/weekly.thingelstad.com` via the Git Data API, and no commit has
-  been made.
-- **The podcast send.** No audio has been synthesized. It costs an OpenAI TTS
-  call and writes an mp3 to the CDN.
-- ~~`WT_BUILDER_BUMPERS_DIR` is unset~~ — resolved 2026-08-28: the bumpers
-  live in `assets/bumpers/` and are the default.
-- **The archive send.** Built 2026-08-28 — it commits `data/issues/{N}/` into
-  the corpus repository — and no commit has been made. Until this session it
-  did not exist at all, while the dashboard offered its button anyway.
+- **Podcast: RAN FOR REAL.** WT350's draft script synthesized (tts-1-hd,
+  echo), wrapped in the bumpers, loudnorm-mastered, tagged with show art,
+  uploaded: 68 seconds, 1.78 MB, verified 200 on the CDN. The first audio
+  WT Builder has ever produced.
+- **Buttondown: RAN FOR REAL.** Draft created (never scheduled, never sent),
+  with 3 images rehosted to the CDN first. Re-sending updates the same draft.
+- **Website: previewed.** The diff against the live repo shows exactly the
+  archive page + emails.json. No commit — a real one publishes.
+- **Archive: previewed.** The diff against the corpus repository shows
+  exactly the canonical trio. No commit — a real one reaches Thingy.
+
+What remains unrun is exactly the two commits that reach readers, and both
+run on send day.
 
 ## Test artifact left behind
 
