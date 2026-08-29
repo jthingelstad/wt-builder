@@ -110,12 +110,12 @@ was resolved by recency, using the sync history in `github.md`:
 | `item-model.md` says the window ends Thursday | Superseded: the span ends Friday. |
 | Two `Issue index` sections: the later one (line 47) forbids the kicker, lede, and footnote the earlier one (line 280) specifies | **The later one.** Sections at the top of the file are the newer additions — the same is true of `Send view`. |
 
-## One thing the design does not say
+## One thing the design did not say — settled 2026-08-28
 
-The wand and a block's review notes both live in the editorial margin and both
-anchor to the top of the same row, so at the specified 16px they overlap
-exactly. Note bodies are currently inset past the 24px wand. **This needs
-Jamie's call** — the design does not say which of the two owns that space.
+The wand and a block's review notes both anchor to the top of the same row
+in the editorial margin. Settled: during a read the margin belongs to the
+notes, and the wand yields — hover-revealed in its reserved 24px inset, the
+spec's own idiom for secondary chrome. Read closed, the wand returns.
 
 ## Still open, and deliberately not answered here
 

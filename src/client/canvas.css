@@ -212,6 +212,9 @@
 
 .wand.redraft { opacity: 0.35; transition: opacity 0.12s; }
 .row:hover .wand.redraft, .wand.redraft:hover { opacity: 1; }
+/* During a read the notes own the margin; the wand is hover-revealed. */
+.with-notes .wand { opacity: 0; transition: opacity 0.12s; }
+.with-notes .row:hover .wand, .with-notes .wand:hover, .with-notes .wand:focus-visible { opacity: 1; }
 
 /* ── page blocks ──────────────────────────────────────────────────────── */
 
@@ -755,10 +758,11 @@
   transition: top 0.15s ease;
   /*
    * The spec puts both the wand and this block's notes in the editorial
-   * margin, and both anchor to the top of the same row — so at 16px they
-   * overlap exactly. The note body is inset past the 24px wand instead, which
-   * keeps every control reachable and the note inside its own track.
-   * Worth confirming with Jamie: the design does not say which wins.
+   * margin, anchored to the top of the same row. Settled 2026-08-28: during
+   * a read the margin belongs to the notes — the wand yields, becoming
+   * hover-revealed in its reserved 24px inset (the spec's own
+   * hover-revealed-chrome idiom, see below). The note body keeps the inset
+   * so the two never overlap even when the wand is summoned back.
    */
   padding-left: 34px;
 }
