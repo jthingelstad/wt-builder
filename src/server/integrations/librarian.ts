@@ -16,7 +16,7 @@ import { config, credentials } from '../config.ts';
 // The /retrieve request/response shape this client codes against, from
 // librarian-thing/apps/librarian/contracts/librarian-api.json. Bump when
 // adopting a new major.
-const LIBRARIAN_CONTRACT_MAJOR = '2.0.0';
+const LIBRARIAN_CONTRACT_MAJOR = '3.1.0';
 
 export interface Passage {
   issue_number?: number;
