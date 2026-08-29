@@ -9,6 +9,8 @@ interface Props {
   itemId: string;
   run: (fn: () => Promise<IssueResponse>) => Promise<void>;
   onClose: () => void;
+  /** Present when the review panel yielded the rail — the way back. */
+  onBackToReview?: () => void;
   onError: (m: string | null) => void;
 }
 
@@ -21,7 +23,7 @@ const SYNC_LABEL: Record<string, string> = {
 };
 
 /** Provenance, fields, channels, and source synchronization for one item. */
-export function Inspector({ doc, itemId, run, onClose, onError }: Props) {
+export function Inspector({ doc, itemId, run, onClose, onError, onBackToReview }: Props) {
   const item = doc.items[itemId];
   const [writing, setWriting] = useState(false);
   if (!item) return null;
@@ -66,6 +68,9 @@ export function Inspector({ doc, itemId, run, onClose, onError }: Props) {
 
   return (
     <aside class="panel" aria-label={`${item.type.replace('_', ' ')} inspector`}>
+      {onBackToReview && (
+        <button class="btn tiny back-review" onClick={onBackToReview}>← Review</button>
+      )}
       <h3>{item.type.replace('_', ' ')}</h3>
 
       {(item.title !== undefined || imported) && (

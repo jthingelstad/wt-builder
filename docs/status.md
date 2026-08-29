@@ -51,8 +51,10 @@ finished, what is half-finished, and what has never run.
 
 ## Not built
 
-- **The 352px editorial review panel.** Only the summary bar and the margin
-  notes exist. The spec has both, sharing the right rail with the inspector.
+- ~~The 352px editorial review panel~~ — built 2026-08-28: shares the rail
+  with the inspector (← Review swaps back), staleness hint, WHAT'S WORKING,
+  grouped notes with kind badges and was→now, done/ignore with reopen and
+  Show cleared, and PROOF notes that drop live when their substring is fixed.
 - ~~Insert points and add affordances~~ — built 2026-08-28: hover insert
   points at section boundaries, `+ Currently entry` / `+ Write a link here`
   chips, and the tail row of absent sections. The outline's drag-reorder is

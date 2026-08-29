@@ -22,6 +22,7 @@ import { CollapseView } from './Collapse.tsx';
 import { LeftPanel } from './LeftPanel.tsx';
 import { Strip } from './Strip.tsx';
 import { Inspector } from './Inspector.tsx';
+import { ReviewPanel, type PanelNote } from './ReviewPanel.tsx';
 
 interface Props {
   doc: IssueDoc;
@@ -65,7 +66,10 @@ export function Editor({ doc, readiness, busy, error, run, onIndex, onSend, onEr
   const [collapsed, setCollapsed] = useState(false);
   const [reading, setReading] = useState(false);
   const [readOpen, setReadOpen] = useState(false);
-  const [dismissed, setDismissed] = useState<Set<string>>(new Set());
+  const [cleared, setCleared] = useState<Map<string, 'done' | 'ignored'>>(new Map());
+  const [showCleared, setShowCleared] = useState(false);
+  // The staleness hint: how many edits this session since the read.
+  const [editsSince, setEditsSince] = useState(0);
   const canvasRef = useRef<HTMLDivElement>(null);
   const rowsRef = useRef<HTMLDivElement>(null);
 
@@ -80,17 +84,23 @@ export function Editor({ doc, readiness, busy, error, run, onIndex, onSend, onEr
     el?.scrollIntoView({ behavior: 'smooth', block: 'center' });
   }, []);
 
+  /** Every mutation routes through here so the read's staleness hint is honest. */
+  const runEdit = (fn: () => Promise<IssueResponse>) => {
+    setEditsSince((e) => e + 1);
+    return run(fn);
+  };
+
   const act: PageActions = {
-    updateItem: (itemId, patch) => void run(() => api.updateItem(id, itemId, patch)),
-    updateIssue: (patch) => void run(() => api.settings(id, patch)),
-    moveItem: (nodeId, itemId, delta) => void run(() => api.moveItem(id, nodeId, itemId, delta)),
-    moveNode: (nodeId, delta) => void run(() => api.moveNode(id, nodeId, delta)),
-    removeNode: (nodeId) => void run(() => api.removeNode(id, nodeId)),
-    addNode: (spec) => void run(() => api.addNode(id, spec)),
-    addItem: (nodeId, type) => void run(() => api.addItem(id, nodeId, type)),
-    promote: (itemId) => void run(() => api.promote(id, itemId)),
-    demote: (nodeId) => void run(() => api.demote(id, nodeId)),
-    setChannel: (itemId, channel, on) => void run(() => api.setChannel(id, itemId, channel, on)),
+    updateItem: (itemId, patch) => void runEdit(() => api.updateItem(id, itemId, patch)),
+    updateIssue: (patch) => void runEdit(() => api.settings(id, patch)),
+    moveItem: (nodeId, itemId, delta) => void runEdit(() => api.moveItem(id, nodeId, itemId, delta)),
+    moveNode: (nodeId, delta) => void runEdit(() => api.moveNode(id, nodeId, delta)),
+    removeNode: (nodeId) => void runEdit(() => api.removeNode(id, nodeId)),
+    addNode: (spec) => void runEdit(() => api.addNode(id, spec)),
+    addItem: (nodeId, type) => void runEdit(() => api.addItem(id, nodeId, type)),
+    promote: (itemId) => void runEdit(() => api.promote(id, itemId)),
+    demote: (nodeId) => void runEdit(() => api.demote(id, nodeId)),
+    setChannel: (itemId, channel, on) => void runEdit(() => api.setChannel(id, itemId, channel, on)),
     uploadPhoto: (itemId, file) => {
       const p = api.uploadPhoto(id, itemId, file);
       void run(() => p);
@@ -131,13 +141,44 @@ export function Editor({ doc, readiness, busy, error, run, onIndex, onSend, onEr
 
   const review = doc.review as { summary?: string; notes?: Note[] } | undefined;
   const key = (n: Note, i: number) => `${n.item_id ?? 'issue'}:${i}:${n.text.slice(0, 32)}`;
-  const notes = (review?.notes ?? []).filter((n, i) => !dismissed.has(key(n, i)));
+
+  /** A PROOF note whose substring is gone is fixed — it drops live, no re-read. */
+  const stillAnchored = (n: Note) => {
+    if (n.kind !== 'PROOF' || !n.was) return true;
+    const item = n.item_id ? doc.items[n.item_id] : null;
+    if (!item) return n.item_id === null;
+    return [item.title, item.body, item.commentary, item.label]
+      .filter(Boolean).join('\n').includes(n.was);
+  };
+
+  const allNotes: PanelNote[] = (review?.notes ?? [])
+    .map((n, i) => ({ note: n, k: key(n, i), cleared: cleared.get(key(n, i)) }))
+    .filter((pn) => stillAnchored(pn.note));
+  const notes = allNotes.filter((pn) => !pn.cleared).map((pn) => pn.note);
+  const noteKeys = allNotes.filter((pn) => !pn.cleared).map((pn) => pn.k);
   const proof = notes.filter((n) => n.kind === 'PROOF').length;
+
+  const clear = (k: string, how: 'done' | 'ignored') =>
+    setCleared(new Map([...cleared, [k, how]]));
+  const reopen = (k: string) => {
+    const next = new Map(cleared);
+    next.delete(k);
+    setCleared(next);
+  };
+
+  const anchorName = (itemId: string | null) => {
+    if (!itemId) return 'the issue';
+    const item = doc.items[itemId];
+    if (!item) return itemId;
+    const name = item.title || item.label || item.type.replace('_', ' ');
+    return name.length > 26 ? `${name.slice(0, 25)}…` : name;
+  };
 
   const read = () => {
     setReading(true);
     setReadOpen(true);
-    setDismissed(new Set());
+    setCleared(new Map());
+    setEditsSince(0);
     void run(() => api.review(id)).finally(() => setReading(false));
   };
 
@@ -332,8 +373,8 @@ export function Editor({ doc, readiness, busy, error, run, onIndex, onSend, onEr
                   host={rowsRef}
                   selected={selected}
                   onShowMe={jump}
-                  onDone={(i) => setDismissed(new Set([...dismissed, key(notes[i]!, i)]))}
-                  onIgnore={(i) => setDismissed(new Set([...dismissed, key(notes[i]!, i)]))}
+                  onDone={(i) => clear(noteKeys[i]!, 'done')}
+                  onIgnore={(i) => clear(noteKeys[i]!, 'ignored')}
                 />
               )}
             </Page>
@@ -341,15 +382,33 @@ export function Editor({ doc, readiness, busy, error, run, onIndex, onSend, onEr
           </div>
         </div>
 
-        {inspecting && (
+        {inspecting ? (
           <Inspector
             doc={doc}
             itemId={inspecting}
-            run={run}
+            run={runEdit}
             onClose={() => setSelected(null)}
             onError={onError}
+            onBackToReview={readOpen ? () => setSelected(null) : undefined}
           />
-        )}
+        ) : readOpen ? (
+          <ReviewPanel
+            reading={reading}
+            summary={review?.summary}
+            notes={allNotes}
+            editsSince={editsSince}
+            selected={selected}
+            anchorName={anchorName}
+            onShowMe={jump}
+            onDone={(k) => clear(k, 'done')}
+            onIgnore={(k) => clear(k, 'ignored')}
+            onReopen={reopen}
+            onReadAgain={read}
+            onClose={() => setReadOpen(false)}
+            showCleared={showCleared}
+            onToggleCleared={() => setShowCleared(!showCleared)}
+          />
+        ) : null}
       </div>
 
       {busy && <div class="busy-hint">Saving…</div>}
