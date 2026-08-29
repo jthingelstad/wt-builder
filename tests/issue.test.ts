@@ -1,7 +1,7 @@
 /** Assembly operations and the document store. */
 
 import { describe, expect, it, beforeEach, afterEach } from 'vitest';
-import { readFileSync, rmSync } from 'node:fs';
+import { readFileSync, rmSync, statSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
 import { tmpdir } from 'node:os';
 import { join } from 'node:path';
@@ -294,6 +294,24 @@ describe('the store', () => {
     expect(row.publication_date).toBe('2026-05-23');
     expect(row.doc.items['intro-1']!.body).toContain('Welcome back');
     expect(store.listIssues()).toHaveLength(1);
+  });
+
+  it('keeps the database and live SQLite sidecars owner-only', () => {
+    const previousUmask = process.umask(0o022);
+    try {
+      store.closeDb();
+      for (const suffix of ['', '-shm', '-wal']) {
+        try { rmSync(`${dbPath}${suffix}`); } catch { /* not there */ }
+      }
+      store.openDb(dbPath);
+      store.saveIssue(fixture());
+
+      for (const suffix of ['', '-shm', '-wal']) {
+        expect(statSync(`${dbPath}${suffix}`).mode & 0o777).toBe(0o600);
+      }
+    } finally {
+      process.umask(previousUmask);
+    }
   });
 
   it('records a send without rewriting the document', () => {

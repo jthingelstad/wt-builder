@@ -8,7 +8,7 @@
  */
 
 import Database from 'better-sqlite3';
-import { mkdirSync } from 'node:fs';
+import { chmodSync, existsSync, mkdirSync } from 'node:fs';
 import { dirname } from 'node:path';
 
 import type { Destination, IssueDoc, SendState } from '../shared/types.ts';
@@ -25,6 +25,13 @@ export interface IssueRow {
 }
 
 let db: Database.Database | null = null;
+
+function makeDatabaseFilesPrivate(path: string): void {
+  for (const suffix of ['', '-wal', '-shm']) {
+    const file = `${path}${suffix}`;
+    if (existsSync(file)) chmodSync(file, 0o600);
+  }
+}
 
 const MIGRATIONS: ((d: Database.Database) => void)[] = [
   // v1 — issues, stored as documents with derived columns for listing.
@@ -52,6 +59,9 @@ const MIGRATIONS: ((d: Database.Database) => void)[] = [
 
 export function openDb(path = config.dbPath): Database.Database {
   if (db) return db;
+  // Issue drafts and SQLite sidecars stay owner-only, including files SQLite
+  // creates later in this process after the initial connection is open.
+  process.umask(0o077);
   mkdirSync(dirname(path), { recursive: true });
   const d = new Database(path);
   d.pragma('journal_mode = WAL');
@@ -66,6 +76,7 @@ export function openDb(path = config.dbPath): Database.Database {
     })();
   }
 
+  makeDatabaseFilesPrivate(path);
   db = d;
   return d;
 }
