@@ -547,23 +547,28 @@ describe('add affordances', () => {
   });
 });
 
-describe('the publish weekend', () => {
-  // Saturday is the target; nine years of the archive hold 67 Sundays and 3
-  // Mondays. The date stays honest when the issue slips a day.
-  it('a Sunday publication date stands as chosen', () => {
+describe('the issue is dated its Saturday', () => {
+  // "No matter when I send it, the send date is that Saturday." The date is
+  // the issue's identity, not the send timestamp.
+  it('a Sunday send dates back to the Saturday just past, never a week forward', () => {
     const doc = createIssue({ number: 995, publication_date: '2026-08-29' });
     const next = setPublicationDate(doc, '2026-08-30'); // Sunday
-    expect(next.issue.publication_date).toBe('2026-08-30');
+    expect(next.issue.publication_date).toBe('2026-08-29');
   });
 
-  it('a slipped day never moves the window', () => {
-    // Sat 8/29, Sun 8/30, Mon 8/31 all close on Friday 8/28.
-    for (const date of ['2026-08-29', '2026-08-30', '2026-08-31']) {
-      expect(issueWindow(date, 7).to).toBe('2026-08-28');
-    }
+  it('a slipped Monday belongs to the same Saturday', () => {
+    const doc = createIssue({ number: 997, publication_date: '2026-08-31' }); // Monday
+    expect(doc.issue.publication_date).toBe('2026-08-29');
   });
 
-  it('a midweek date is a typo and snaps to the Saturday target', () => {
+  it('so the window can never move with a late send', () => {
+    const sat = createIssue({ number: 998, publication_date: '2026-08-29' });
+    const sun = createIssue({ number: 999, publication_date: '2026-08-30' });
+    expect(issueWindow(sun.issue.publication_date, 7).to)
+      .toBe(issueWindow(sat.issue.publication_date, 7).to);
+  });
+
+  it('a midweek date is a typo and snaps forward to the Saturday target', () => {
     const doc = createIssue({ number: 996, publication_date: '2026-09-02' }); // Wednesday
     expect(doc.issue.publication_date).toBe('2026-09-05');
   });

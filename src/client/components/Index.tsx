@@ -10,7 +10,7 @@ import { useEffect, useState } from 'preact/hooks';
 
 import { api, type IssueSummary } from '../api.ts';
 import {
-  countdown, isPublishDay, isSaturday, kickerDate, issueWindow, longDate, snapToSaturday,
+  countdown, isSaturday, issueSaturday, kickerDate, issueWindow, longDate, snapToSaturday,
   spanLabel, wallClock,
 } from '../../shared/dates.ts';
 import { Archive, Check, CircleAlert, Spinner } from '../icons.tsx';
@@ -273,7 +273,7 @@ function SetupSheet({
   const [busy, setBusy] = useState(false);
 
   const saturday = isSaturday(date);
-  const weekend = isPublishDay(date);
+  const dated = issueSaturday(date);
   const w = issueWindow(date, days);
 
   return (
@@ -293,9 +293,10 @@ function SetupSheet({
             <input type="date" value={date} onChange={(e) => setDate((e.target as HTMLInputElement).value)} />
             {saturday
               ? <span class="ok-note">{kickerDate(date)} · 12:00 AM CT</span>
-              : weekend
-                ? <span class="ok-note">{kickerDate(date)} — Saturday is the target; the date stands.</span>
-                : <span class="err-note">The Weekly Thing publishes on the weekend. Pick a Saturday.</span>}
+              : <span class="ok-note">
+                  Will be dated {kickerDate(dated)} — the issue is dated its
+                  Saturday no matter when it sends.
+                </span>}
           </label>
 
           <label class="field">

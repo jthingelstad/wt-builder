@@ -121,5 +121,5 @@ Jamie's call** — the design does not say which of the two owns that space.
 
 ~~The content cutoff question~~ — settled 2026-08-28: the cutoff is always
 midnight, Friday to Friday CT; a Friday-daytime capture belongs to the next
-issue by intent. Publication dates may stand on Sunday (or a slipped Monday)
-without moving the window. See docs/decisions.md.
+issue by intent. And the issue is dated its Saturday no matter when it
+sends — a Sunday send dates back, never forward. See docs/decisions.md.

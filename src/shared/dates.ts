@@ -129,23 +129,19 @@ export function snapToSaturday(isoDate: string): string {
 }
 
 /**
- * A date the Weekly Thing actually publishes on. Saturday is the target, but
- * nine years of the archive hold 67 Sundays and 3 Mondays — the issue slips
- * a day sometimes, and the date stays honest when it does. The window is
- * unaffected: it closes on the previous Friday for all three days.
+ * The Saturday an issue is dated. "No matter when I send it, the send date
+ * is that Saturday" — the date is the issue's identity, not the send
+ * timestamp. A Sunday or Monday send belongs to the Saturday just past, so
+ * those snap BACK; earlier weekdays are a typo and snap forward to the
+ * Saturday target. (The archive's 67 Sunday dates are the old workflow's
+ * send timestamps; WT Builder dates the Saturday.)
  */
-export function isPublishDay(isoDate: string): boolean {
+export function issueSaturday(isoDate: string): string {
   const d = dayOfWeek(isoDate);
-  return d === 6 || d === 0 || d === 1;
-}
-
-/**
- * Publication dates: the weekend (and a slipped Monday) stand as chosen;
- * anything else snaps forward to the Saturday target — a Wednesday
- * publication date is a typo, not a plan.
- */
-export function snapToPublishDay(isoDate: string): string {
-  return isPublishDay(isoDate) ? isoDate : snapToSaturday(isoDate);
+  if (d === 6) return isoDate;
+  if (d === 0) return addDays(isoDate, -1);
+  if (d === 1) return addDays(isoDate, -2);
+  return snapToSaturday(isoDate);
 }
 
 // ── zone conversion ───────────────────────────────────────────────────────

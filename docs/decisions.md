@@ -148,8 +148,8 @@ Friday midnight CT." The window stays Friday 00:00 CT to Friday 00:00 CT,
 half-open — a Friday-daytime blog post or bookmark belongs to the *following*
 week's issue, and that is the intent, not an accident of the arithmetic.
 
-Publication targets Saturday but slips to Sunday sometimes (the archive holds
-67 Sundays and 3 Mondays across nine years). The date stays honest when it
-slips — `snapToPublishDay` accepts the weekend and a Monday — and the window
-does not move with it: all three days close on the same previous-Friday
-midnight.
+**The issue is dated its Saturday, no matter when it sends.** The send may
+slip to Sunday or Monday (the archive's 67 Sunday dates are the old
+workflow's send timestamps), but the date is the issue's identity: a Sunday
+or Monday date snaps *back* to the Saturday just past, a midweek date snaps
+forward to the target. The window can therefore never move with a late send.
