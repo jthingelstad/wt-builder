@@ -13,6 +13,7 @@ import { isSaturday, shortKicker, spanLabel } from '../../shared/dates.ts';
 import { orderedNodes, windowOf } from '../../shared/render/plan.ts';
 import { api } from '../api.ts';
 import { ArrowDown, ArrowUp, EyeOff, GripVertical, X } from '../icons.tsx';
+import { EventLog } from './EventLog.tsx';
 
 interface Props {
   doc: IssueDoc;
@@ -32,6 +33,7 @@ const SPANS = [7, 14, 21];
 export function LeftPanel(props: Props) {
   const { doc } = props;
   const [editing, setEditing] = useState(false);
+  const [logOpen, setLogOpen] = useState(false);
   const w = windowOf(doc);
   const nodes = orderedNodes(doc);
   const swept = Object.keys(doc.items).length;
@@ -56,11 +58,18 @@ export function LeftPanel(props: Props) {
             <div><span class="k">Publishes</span> {shortKicker(doc.issue.publication_date)}</div>
             <div><span class="k">Sources</span> {spanLabel(w)}</div>
             <div class="quiet">{swept} items swept in from that span.</div>
-            <button class="btn small" disabled={props.sweeping} onClick={props.onSweep}>
-              {props.sweeping ? 'Re-scanning…' : 'Re-scan'}
-            </button>
+            <div class="meta-actions">
+              <button class="btn small" disabled={props.sweeping} onClick={props.onSweep}>
+                {props.sweeping ? 'Re-scanning…' : 'Re-scan'}
+              </button>
+              <button class="btn small" onClick={() => setLogOpen(true)}>Log</button>
+            </div>
           </div>
         )}
+
+      {logOpen && (
+        <EventLog issueId={doc.issue.id} number={doc.issue.number} onClose={() => setLogOpen(false)} />
+      )}
 
       <Outline {...props} nodes={nodes} />
     </aside>

@@ -56,6 +56,13 @@ finished, what is half-finished, and what has never run.
   refuses write-back so the deleted record is never silently recreated.
   Opening a draft issue re-scans automatically, and Re-scan sits on the
   at-rest meta card as well as in the edit panel.
+- **Event log** (2026-08-30) — every action on an issue is narrated to an
+  append-only `events` table (its own table; the document rewrites wholesale
+  on every save): sweep arrivals, source-side refreshes/gone/conflicts,
+  edits, outline changes, channel flips, settings, write-backs, review runs,
+  and sends. `GET /api/issues/:id/events`, newest first; the **Log** button
+  on the meta card opens it as a sheet. Quiet re-scans (nothing changed) log
+  nothing, so the auto-scan on open cannot bury the signal.
 
 ## Not built
 

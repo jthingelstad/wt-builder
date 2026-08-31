@@ -302,10 +302,14 @@ radius 6px; active = black fill).
 **At rest (closed)** — one white card, `1px solid #eeedea`, radius 9px,
 `padding: 10px 12px`, three lines 12.5px with `#9a9a9a` labels:
 `Publishes SAT, SEP 5` · `Sources AUG 29–SEP 4` · `14 items swept in from that span.`
-— then a **Re-scan** button. Re-scanning is the most-used act in the panel
-(sources fill in all week), so it lives on the resting card, not only behind
-Edit. Opening a draft issue also re-scans automatically; the page renders
-immediately and the sweep lands when it lands.
+— then a **Re-scan** button and a **Log** button. Re-scanning is the
+most-used act in the panel (sources fill in all week), so it lives on the
+resting card, not only behind Edit. Opening a draft issue also re-scans
+automatically; the page renders immediately and the sweep lands when it
+lands. **Log** opens the issue's event log as a sheet — every action on the
+issue, newest first: sweep arrivals, source refreshes, edits, outline
+changes, write-backs, sends. Rows are `time · kind chip · summary`. The log
+narrates; it never decides.
 
 **Edit open** — white card, radius 9px, `padding: 11px 12px`, mono 9.5px/.08em
 `#9a9a9a` field labels separated by `1px #f0efec` rules:

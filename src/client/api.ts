@@ -124,6 +124,11 @@ export const api = {
   removeItem: (id: string, nodeId: string, itemId: string) =>
     call<IssueResponse>(`/issues/${id}/nodes/${nodeId}/items/${itemId}`, { method: 'DELETE' }),
 
+  events: (id: string) =>
+    call<{ events: { id: number; at: string; kind: string; summary: string }[] }>(
+      `/issues/${id}/events`,
+    ),
+
   renameNode: (id: string, nodeId: string, label: string) =>
     post(`/issues/${id}/nodes/${nodeId}/rename`, { label }),
 

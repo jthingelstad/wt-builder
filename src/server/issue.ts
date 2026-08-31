@@ -142,6 +142,16 @@ export interface SweepReport {
   conflicts: number;
   window: { from: string; to: string };
   candidates: Candidate[];
+  /** One line per thing that happened, for the issue's event log. */
+  log: { kind: string; summary: string }[];
+}
+
+/** A short human handle for an item, for log lines and reports. */
+export function itemName(item: Item): string {
+  const text = (item.title ?? item.label ?? String(item.commentary ?? item.body ?? ''))
+    .replace(/\s+/g, ' ')
+    .trim();
+  return text ? (text.length > 60 ? `${text.slice(0, 59)}…` : text) : '(untitled)';
 }
 
 /**
@@ -171,6 +181,7 @@ export async function sweep(doc: IssueDoc): Promise<{ doc: IssueDoc; report: Swe
   let added = 0;
   let skipped = 0;
   const justAdded = new Set<string>();
+  const log: { kind: string; summary: string }[] = [];
 
   for (const c of links) {
     const existing = known.get(c.id);
@@ -189,6 +200,7 @@ export async function sweep(doc: IssueDoc): Promise<{ doc: IssueDoc; report: Swe
     next.items[id] = item;
     placeInto(next, id, item.section ?? 'Briefly');
     justAdded.add(id);
+    log.push({ kind: 'swept-in', summary: `${itemName(item)} — Pinboard, into ${item.section ?? 'Briefly'}` });
     added++;
   }
 
@@ -199,6 +211,7 @@ export async function sweep(doc: IssueDoc): Promise<{ doc: IssueDoc; report: Swe
     next.items[id] = item;
     placeInto(next, id, 'Journal');
     justAdded.add(id);
+    log.push({ kind: 'swept-in', summary: `${itemName(item)} — Micro.blog, into Journal` });
     added++;
   }
 
@@ -246,9 +259,16 @@ export async function sweep(doc: IssueDoc): Promise<{ doc: IssueDoc; report: Swe
     }
 
     const outcome = reconcileItem(item, remote);
-    if (outcome === 'refreshed') reconciled.refreshed++;
-    else if (outcome === 'gone') reconciled.gone++;
-    else if (outcome === 'conflict') reconciled.conflicts++;
+    if (outcome === 'refreshed') {
+      reconciled.refreshed++;
+      log.push({ kind: 'refreshed', summary: `${itemName(item)} — adopted the ${item.source} edit` });
+    } else if (outcome === 'gone') {
+      reconciled.gone++;
+      log.push({ kind: 'gone', summary: `${itemName(item)} — deleted at ${item.source}; copy kept` });
+    } else if (outcome === 'conflict') {
+      reconciled.conflicts++;
+      log.push({ kind: 'conflict', summary: `${itemName(item)} — edited both here and at ${item.source}` });
+    }
   }
 
   // Heal Pinboard items that predate the converter carrying published_at:
@@ -262,7 +282,7 @@ export async function sweep(doc: IssueDoc): Promise<{ doc: IssueDoc; report: Swe
   }
 
   sortJournal(next);
-  return { doc: next, report: { added, skipped, ...reconciled, window, candidates: [...links, ...posts] } };
+  return { doc: next, report: { added, skipped, ...reconciled, window, candidates: [...links, ...posts], log } };
 }
 
 function idFor(doc: IssueDoc, c: Candidate): string {

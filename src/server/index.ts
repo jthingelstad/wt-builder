@@ -102,6 +102,19 @@ function saved(doc: IssueDoc) {
   return { issue: row.doc, readiness: issues.readiness(row.doc) };
 }
 
+/** Bracket a send leg with log entries; the leg's own behavior is untouched. */
+async function loggedSend(id: string, dest: string, run: () => Promise<unknown>): Promise<unknown> {
+  store.logEvent(id, 'send', `Send started — ${dest}`);
+  try {
+    const out = await run();
+    store.logEvent(id, 'send', `Send finished — ${dest}`);
+    return out;
+  } catch (err) {
+    store.logEvent(id, 'send', `Send failed — ${dest}: ${(err as Error).message}`);
+    throw err;
+  }
+}
+
 // ── routes ────────────────────────────────────────────────────────────────
 
 const routes: [RegExp, string, (ctx: Ctx, params: string[]) => Promise<unknown>][] = [
@@ -151,6 +164,7 @@ const routes: [RegExp, string, (ctx: Ctx, params: string[]) => Promise<unknown>]
       title: b.title,
       dek: b.dek,
     });
+    store.logEvent(doc.issue.id, 'issue', `Issue started — WT${doc.issue.number}, publishes ${doc.issue.publication_date}`);
     return saved(doc);
   }],
 
@@ -174,7 +188,20 @@ const routes: [RegExp, string, (ctx: Ctx, params: string[]) => Promise<unknown>]
 
   [/^\/api\/issues\/([^/]+)\/sweep$/, 'POST', async (_ctx, [id]) => {
     const { doc, report } = await issues.sweep(requireIssue(id!));
+    // A quiet re-scan logs nothing; an open re-scans every time and a page of
+    // "0 in" lines would bury the log's signal.
+    if (report.added || report.refreshed || report.gone || report.conflicts) {
+      store.logEvent(id!, 'sweep',
+        `Re-scan: ${report.added} in, ${report.refreshed} refreshed, ${report.gone} gone, ${report.conflicts} conflicted`);
+      for (const entry of report.log) store.logEvent(id!, entry.kind, entry.summary);
+    }
     return { ...saved(doc), report };
+  }],
+
+  /** The issue's event log, newest first. */
+  [/^\/api\/issues\/([^/]+)\/events$/, 'GET', async (_ctx, [id]) => {
+    requireIssue(id!); // 404 for a missing issue, not an empty log
+    return { events: store.listEvents(id!) };
   }],
 
   [/^\/api\/issues\/([^/]+)\/render\/([a-z]+)$/, 'GET', async (_ctx, [id, lens]) => {
@@ -191,6 +218,8 @@ const routes: [RegExp, string, (ctx: Ctx, params: string[]) => Promise<unknown>]
     const doc = requireIssue(id!);
     // A silent no-op reads to the client as a saved edit.
     if (!doc.items[itemId!]) throw new HttpError(404, `no item ${itemId}`);
+    store.logEvent(id!, 'edit',
+      `Edited ${Object.keys(patch).join(', ')} — ${issues.itemName(doc.items[itemId!]!)}`);
     return saved(issues.updateItem(doc, itemId!, patch));
   }],
 
@@ -200,17 +229,32 @@ const routes: [RegExp, string, (ctx: Ctx, params: string[]) => Promise<unknown>]
     if (!['website', 'email', 'audio'].includes(channel)) {
       throw new HttpError(400, 'channel must be website, email, or audio');
     }
-    return saved(issues.setChannel(requireIssue(id!), itemId!, channel, Boolean(b.on)));
+    const doc = requireIssue(id!);
+    const item = doc.items[itemId!];
+    if (item) {
+      store.logEvent(id!, 'channels',
+        `${channel} ${b.on ? 'on' : 'off'} — ${issues.itemName(item)}`);
+    }
+    return saved(issues.setChannel(doc, itemId!, channel, Boolean(b.on)));
   }],
 
   [/^\/api\/issues\/([^/]+)\/items\/([^/]+)\/visibility$/, 'POST', async ({ body }, [id, itemId]) => {
     const b = await body();
     const doc = requireIssue(id!);
+    const item = doc.items[itemId!];
+    if (item) {
+      store.logEvent(id!, 'channels',
+        `${b.visible ? 'Shown' : 'Hidden'} — ${issues.itemName(item)}`);
+    }
     return saved(b.visible ? issues.showItem(doc, itemId!) : issues.hideItem(doc, itemId!));
   }],
 
-  [/^\/api\/issues\/([^/]+)\/items\/([^/]+)\/promote$/, 'POST', async (_ctx, [id, itemId]) =>
-    saved(issues.promote(requireIssue(id!), itemId!))],
+  [/^\/api\/issues\/([^/]+)\/items\/([^/]+)\/promote$/, 'POST', async (_ctx, [id, itemId]) => {
+    const doc = requireIssue(id!);
+    const item = doc.items[itemId!];
+    if (item) store.logEvent(id!, 'structure', `Promoted — ${issues.itemName(item)}`);
+    return saved(issues.promote(doc, itemId!));
+  }],
 
   [/^\/api\/issues\/([^/]+)\/nodes\/([^/]+)\/demote$/, 'POST', async (_ctx, [id, nodeId]) =>
     saved(issues.demote(requireIssue(id!), nodeId!))],
@@ -226,23 +270,42 @@ const routes: [RegExp, string, (ctx: Ctx, params: string[]) => Promise<unknown>]
       return saved(issues.moveItem(requireIssue(id!), nodeId!, itemId!, Number(b.delta ?? 0)));
     }],
 
-  [/^\/api\/issues\/([^/]+)\/nodes\/([^/]+)$/, 'DELETE', async (_ctx, [id, nodeId]) =>
-    saved(issues.removeSection(requireIssue(id!), nodeId!))],
+  [/^\/api\/issues\/([^/]+)\/nodes\/([^/]+)$/, 'DELETE', async (_ctx, [id, nodeId]) => {
+    const doc = requireIssue(id!);
+    const label = doc.nodes.find((n) => n.id === nodeId)?.label ?? nodeId;
+    store.logEvent(id!, 'structure', `Removed section — ${label}`);
+    return saved(issues.removeSection(doc, nodeId!));
+  }],
 
   /** One item out: syndicated is held out, locally-authored is deleted. */
   [/^\/api\/issues\/([^/]+)\/nodes\/([^/]+)\/items\/([^/]+)$/, 'DELETE',
-    async (_ctx, [id, nodeId, itemId]) =>
-      saved(issues.removeItem(requireIssue(id!), nodeId!, itemId!))],
+    async (_ctx, [id, nodeId, itemId]) => {
+      const doc = requireIssue(id!);
+      const item = doc.items[itemId!];
+      if (item) {
+        store.logEvent(id!, 'structure', item.authorship === 'syndicated'
+          ? `Held out — ${issues.itemName(item)}`
+          : `Deleted — ${issues.itemName(item)}`);
+      }
+      return saved(issues.removeItem(doc, nodeId!, itemId!));
+    }],
 
   [/^\/api\/issues\/([^/]+)\/nodes\/([^/]+)\/rename$/, 'POST', async ({ body }, [id, nodeId]) => {
     const b = await body();
-    return saved(issues.renameSection(requireIssue(id!), nodeId!, String(b.label ?? '')));
+    const doc = requireIssue(id!);
+    const old = doc.nodes.find((n) => n.id === nodeId)?.label ?? nodeId;
+    store.logEvent(id!, 'structure', `Renamed section — ${old} → ${String(b.label ?? '')}`);
+    return saved(issues.renameSection(doc, nodeId!, String(b.label ?? '')));
   }],
 
   [/^\/api\/issues\/([^/]+)\/nodes$/, 'POST', async ({ body }, [id]) => {
     const b = await body();
     const doc = requireIssue(id!);
-    if (b.kind === 'markdown') return saved(issues.addMarkdownBlock(doc, b.before));
+    if (b.kind === 'markdown') {
+      store.logEvent(id!, 'structure', 'Added a Markdown block');
+      return saved(issues.addMarkdownBlock(doc, b.before));
+    }
+    store.logEvent(id!, 'structure', `Added section — ${String(b.label ?? b.type ?? 'Section')}`);
     return saved(issues.addSection(doc, {
       type: String(b.type ?? 'ad_hoc'),
       label: String(b.label ?? 'Section'),
@@ -258,6 +321,7 @@ const routes: [RegExp, string, (ctx: Ctx, params: string[]) => Promise<unknown>]
     if (!['currently', 'pinboard_link', 'quote', 'markdown'].includes(type)) {
       throw new HttpError(400, `cannot add a ${type || '(missing type)'} item`);
     }
+    store.logEvent(id!, 'structure', `Added a ${type.replace('_', ' ')} — ${nodeId}`);
     return saved(issues.addItem(requireIssue(id!), nodeId!, type as import('../shared/types.ts').ItemType));
   }],
 
@@ -282,6 +346,14 @@ const routes: [RegExp, string, (ctx: Ctx, params: string[]) => Promise<unknown>]
     if (b.window_days !== undefined) doc = issues.setWindowDays(doc, Number(b.window_days));
     if (b.title !== undefined) doc.issue.title = String(b.title);
     if (b.dek !== undefined) doc.issue.dek = String(b.dek);
+    const parts = [
+      b.number !== undefined ? `number → ${doc.issue.number}` : '',
+      b.publication_date ? `publishes → ${doc.issue.publication_date}` : '',
+      b.window_days !== undefined ? `window → ${doc.issue.window_days} days` : '',
+      b.title !== undefined ? 'title' : '',
+      b.dek !== undefined ? 'dek' : '',
+    ].filter(Boolean);
+    if (parts.length) store.logEvent(id!, 'settings', `Settings — ${parts.join(', ')}`);
     return saved(doc);
   }],
 
@@ -306,6 +378,8 @@ const routes: [RegExp, string, (ctx: Ctx, params: string[]) => Promise<unknown>]
             ? await pinboard.writeBack(item)
             : { sync_state: 'local' as const, error: `${item.source} has no write-back` };
 
+    store.logEvent(id!, 'sync',
+      `Write to ${item.source} — ${result.sync_state}${result.error ? `: ${result.error}` : ''} — ${issues.itemName(item)}`);
     return {
       ...saved(issues.updateItem(doc, itemId!, {
         sync_state: result.sync_state,
@@ -340,6 +414,7 @@ const routes: [RegExp, string, (ctx: Ctx, params: string[]) => Promise<unknown>]
       previous: doc.review as editorial.Review | undefined,
     });
     doc.review = result;
+    store.logEvent(id!, 'review', 'Editorial review ran');
     return { ...saved(doc), review: result };
   }],
 
@@ -368,6 +443,7 @@ const routes: [RegExp, string, (ctx: Ctx, params: string[]) => Promise<unknown>]
       location: item.media?.location || stored.coordinates || undefined,
     };
 
+    store.logEvent(id!, 'edit', `Photo uploaded — ${filename}`);
     return { ...saved(doc), image: stored };
   }],
 
@@ -412,6 +488,7 @@ const routes: [RegExp, string, (ctx: Ctx, params: string[]) => Promise<unknown>]
   /** Copy every remote image onto the CDN, resized. Safe to run repeatedly. */
   [/^\/api\/issues\/([^/]+)\/images\/rehost$/, 'POST', async (_ctx, [id]) => {
     const { doc, report } = await rehostIssueImages(requireIssue(id!));
+    store.logEvent(id!, 'send', 'Images rehosted to the CDN');
     return { ...saved(doc), report };
   }],
 
@@ -425,12 +502,13 @@ const routes: [RegExp, string, (ctx: Ctx, params: string[]) => Promise<unknown>]
    */
   [/^\/api\/issues\/([^/]+)\/send\/([a-z]+)$/, 'POST', async (_ctx, [id, dest]) => {
     const destination = dest as Destination;
-    if (destination === 'website') return sendWebsite(id!);
-    if (destination === 'podcast') return sendPodcast(id!);
-    if (destination === 'archive') return sendArchive(id!);
+    if (destination === 'website') return loggedSend(id!, 'website', () => sendWebsite(id!));
+    if (destination === 'podcast') return loggedSend(id!, 'podcast', () => sendPodcast(id!));
+    if (destination === 'archive') return loggedSend(id!, 'archive', () => sendArchive(id!));
     if (destination !== 'buttondown') {
       throw new HttpError(400, `unknown destination ${destination}`);
     }
+    store.logEvent(id!, 'send', 'Send started — buttondown');
     // Rehost first: the email is where image weight actually hurts, and the
     // rewritten URLs must be in the document before the body is rendered.
     const { doc: rehosted, report: images } = await rehostIssueImages(requireIssue(id!));
@@ -451,6 +529,7 @@ const routes: [RegExp, string, (ctx: Ctx, params: string[]) => Promise<unknown>]
         url: draft.url,
       };
       const row = store.recordSend(id!, destination, state);
+      store.logEvent(id!, 'send', 'Send finished — buttondown (draft, never scheduled)');
       return { issue: row?.doc, send: state, images };
     } catch (err) {
       const state: SendState = {
@@ -460,6 +539,7 @@ const routes: [RegExp, string, (ctx: Ctx, params: string[]) => Promise<unknown>]
         external_id: previous?.external_id,
       };
       store.recordSend(id!, destination, state);
+      store.logEvent(id!, 'send', `Send failed — buttondown: ${state.error}`);
       throw new HttpError(502, state.error!);
     }
   }],

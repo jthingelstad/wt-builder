@@ -113,6 +113,35 @@ describe('an item can be removed over the wire', () => {
   });
 });
 
+describe('the event log narrates the issue', () => {
+  it('records the start, an edit, and a removal — newest first', async () => {
+    const created = await fetch(`${base}/api/issues`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ number: 990003, publication_date: '2026-09-19' }),
+    });
+    const { issue } = await created.json();
+    const id = issue.issue.id;
+
+    await fetch(`${base}/api/issues/${id}/items/intro-1`, {
+      method: 'PATCH',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ body: 'A first line.' }),
+    });
+
+    const { events } = await (await fetch(`${base}/api/issues/${id}/events`)).json();
+    expect(events.length).toBeGreaterThanOrEqual(2);
+    expect(events[events.length - 1].summary).toContain('Issue started — WT990003');
+    expect(events[0].kind).toBe('edit');
+    expect(events[0].summary).toContain('Edited body');
+
+    // Deleting the issue takes its log with it.
+    await fetch(`${base}/api/issues/${id}`, { method: 'DELETE' });
+    const gone = await fetch(`${base}/api/issues/${id}/events`);
+    expect(gone.status).toBe(404);
+  });
+});
+
 describe('issues round-trip through the service', () => {
   it('creates, lists, and deletes an issue', async () => {
     const created = await fetch(`${base}/api/issues`, {

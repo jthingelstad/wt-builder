@@ -55,6 +55,21 @@ const MIGRATIONS: ((d: Database.Database) => void)[] = [
       CREATE INDEX issues_status ON issues(status, publication_date DESC);
     `);
   },
+  // v2 — the per-issue event log. Its own table, not the document: events are
+  // append-only and unbounded, and the document rewrites wholesale on every
+  // save.
+  (d) => {
+    d.exec(`
+      CREATE TABLE events (
+        id       INTEGER PRIMARY KEY AUTOINCREMENT,
+        issue_id TEXT NOT NULL,
+        at       TEXT NOT NULL,
+        kind     TEXT NOT NULL,
+        summary  TEXT NOT NULL
+      );
+      CREATE INDEX events_issue ON events(issue_id, id DESC);
+    `);
+  },
 ];
 
 export function openDb(path = config.dbPath): Database.Database {
@@ -193,6 +208,30 @@ export function recordSend(id: string, destination: Destination, state: SendStat
 
 export function deleteIssue(id: string): void {
   openDb().prepare('DELETE FROM issues WHERE id = ?').run(id);
+  openDb().prepare('DELETE FROM events WHERE issue_id = ?').run(id);
+}
+
+// ── the event log ─────────────────────────────────────────────────────────
+
+export interface IssueEvent {
+  id: number;
+  at: string;
+  kind: string;
+  summary: string;
+}
+
+/** Append one event. The log narrates; it never decides anything. */
+export function logEvent(issueId: string, kind: string, summary: string): void {
+  openDb()
+    .prepare('INSERT INTO events (issue_id, at, kind, summary) VALUES (?, ?, ?, ?)')
+    .run(issueId, new Date().toISOString(), kind, summary);
+}
+
+/** Newest first. */
+export function listEvents(issueId: string, limit = 500): IssueEvent[] {
+  return openDb()
+    .prepare('SELECT id, at, kind, summary FROM events WHERE issue_id = ? ORDER BY id DESC LIMIT ?')
+    .all(issueId, limit) as IssueEvent[];
 }
 
 export function closeDb(): void {

@@ -442,6 +442,47 @@ a:hover { text-decoration: underline; }
 .ok-note { font-size: 11.5px; color: var(--green); font-family: var(--mono); }
 .err-note { font-size: 11.5px; color: var(--terracotta); }
 
+/* ── the event log ────────────────────────────────────────────────────── */
+
+.meta-actions { display: flex; gap: 6px; margin-top: 2px; }
+
+.log-sheet { width: 620px; max-width: calc(100vw - 32px); }
+
+.log-list {
+  display: flex;
+  flex-direction: column;
+  max-height: 60vh;
+  overflow-y: auto;
+  border-top: 1px solid var(--border-light);
+}
+
+.log-row {
+  display: grid;
+  grid-template-columns: 92px 64px 1fr;
+  gap: 10px;
+  align-items: baseline;
+  padding: 6px 0;
+  border-bottom: 1px solid var(--border-light);
+  font-size: 12.5px;
+  line-height: 1.45;
+}
+
+.log-when { font-family: var(--mono); font-size: 10px; color: var(--muted); white-space: nowrap; }
+
+.log-kind {
+  font-family: var(--mono);
+  font-size: 9.5px;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--secondary);
+  background: var(--panel);
+  border-radius: 4px;
+  padding: 1px 5px;
+  justify-self: start;
+}
+
+.log-what { color: var(--ink); overflow-wrap: anywhere; }
+
 /* The Review control carries its own count, so the header never reflows. */
 .count-badge {
   font-family: var(--mono);
