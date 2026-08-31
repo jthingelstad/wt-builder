@@ -17,7 +17,7 @@ import { allChannels } from '../../shared/types.ts';
 import type { Window } from '../../shared/dates.ts';
 import { inWindow } from '../../shared/dates.ts';
 import { config, credentials } from '../config.ts';
-import type { RemoteFields } from '../reconcile.ts';
+import { sourceMoved, type RemoteFields } from '../reconcile.ts';
 
 const MICROPUB = 'https://micro.blog/micropub';
 
@@ -121,6 +121,27 @@ export async function remoteIndex(): Promise<{
   return { byUrl, coveredFrom };
 }
 
+/**
+ * One post's current source, by URL, for the write-back's compare-and-set.
+ * Null only when Micro.blog definitively answers that the post is gone; an
+ * API failure throws so it can never read as a deletion.
+ */
+export async function fetchPost(url: string): Promise<RemoteFields | null> {
+  const q = new URL(MICROPUB);
+  q.searchParams.set('q', 'source');
+  q.searchParams.set('url', url);
+  const res = await fetch(q, {
+    headers: { Authorization: `Bearer ${requireToken()}`, Accept: 'application/json' },
+    signal: AbortSignal.timeout(30_000),
+  });
+  if (res.status === 404 || res.status === 400) return null;
+  if (!res.ok) throw new Error(`Micropub q=source&url failed: ${res.status} ${res.statusText}`);
+  const body = (await res.json()) as { properties?: MicropubProperties };
+  const p = body.properties;
+  if (!p) return null;
+  return { title: first(p.name).trim(), body: first(p.content) };
+}
+
 export function candidateToItem(c: Candidate): Item {
   const item: Item = {
     type: 'journal_post',
@@ -159,6 +180,22 @@ export async function updatePost(item: Item): Promise<UpdateResult> {
   if (!config.microblogWriteBack) {
     return { sync_state: 'local', error: 'write-back disabled (WT_BUILDER_MICROBLOG_WRITEBACK)' };
   }
+
+  // Compare-and-set, on the same terms as Pinboard: a post edited on the
+  // blog since the last scan must not be replaced unseen. Fetch failures
+  // fall through; the write reports its own outages.
+  try {
+    const remote = await fetchPost(item.source_url);
+    if (remote === null) {
+      return { sync_state: 'gone', error: 'deleted at Micro.blog — not recreating it' };
+    }
+    if (sourceMoved(item, remote)) {
+      return {
+        sync_state: 'conflict',
+        error: 'Micro.blog changed since the last scan — re-scan to reconcile before writing',
+      };
+    }
+  } catch { /* checked best-effort */ }
 
   const replace: Record<string, unknown[]> = { content: [String(item.body ?? '')] };
   if (item.title) replace.name = [item.title];

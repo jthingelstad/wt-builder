@@ -6,7 +6,7 @@
 import { describe, expect, it } from 'vitest';
 
 import type { Item } from '../src/shared/types.ts';
-import { reconcileItem, type RemoteFields } from '../src/server/reconcile.ts';
+import { reconcileItem, sourceMoved, type RemoteFields } from '../src/server/reconcile.ts';
 import { updateItem } from '../src/server/issue.ts';
 import { createIssue } from '../src/server/issue.ts';
 
@@ -151,6 +151,24 @@ describe('reconcileItem — Micro.blog posts', () => {
     const item = journalItem({ source: 'direct', authorship: 'Jamie' });
     expect(reconcileItem(item, null)).toBe('unchanged');
     expect(item.sync_state).toBe('synced');
+  });
+});
+
+describe('sourceMoved — the write-back’s compare-and-set', () => {
+  it('a remote matching the snapshot has not moved, whatever the local edit', () => {
+    const item = pinboardItem({ commentary: 'Edited here.' });
+    expect(sourceMoved(item, remote())).toBe(false);
+  });
+
+  it('a remote that left the snapshot behind has moved', () => {
+    const item = pinboardItem();
+    expect(sourceMoved(item, remote({ commentary: 'Rewritten on Pinboard.' }))).toBe(true);
+    expect(sourceMoved(item, remote({ tags: ['tools', 'ai'] }))).toBe(true);
+  });
+
+  it('never moves for sources the mirror does not own', () => {
+    const item = pinboardItem({ source: 'direct' });
+    expect(sourceMoved(item, remote({ commentary: 'anything' }))).toBe(false);
   });
 });
 

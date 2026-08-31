@@ -395,10 +395,23 @@ const routes: [RegExp, string, (ctx: Ctx, params: string[]) => Promise<unknown>]
 
     store.logEvent(id!, 'sync',
       `Write to ${item.source} — ${result.sync_state}${result.error ? `: ${result.error}` : ''} — ${issues.itemName(item)}`);
+    // A successful write moves the merge base: the snapshot now records what
+    // was written, so the next scan's reconcile starts from this write rather
+    // than re-adopting it as a source-side change.
+    const snapshot =
+      result.sync_state === 'synced'
+        ? {
+            source_snapshot:
+              item.source === 'Pinboard'
+                ? { title: item.title ?? '', commentary: item.commentary ?? '', tags: item.tags ?? [] }
+                : { title: item.title ?? '', body: item.body ?? '' },
+          }
+        : {};
     return {
       ...saved(issues.updateItem(doc, itemId!, {
         sync_state: result.sync_state,
         sync_error: result.error,
+        ...snapshot,
       })),
       result,
     };

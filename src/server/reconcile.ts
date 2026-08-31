@@ -44,6 +44,20 @@ function norm(v: unknown): string {
 }
 
 /**
+ * Has the source moved since the sweep that took this item's snapshot?
+ * Write-back asks this before replacing the record: a remote that no longer
+ * matches the base means an edit happened there that no scan has seen, and
+ * writing over it would lose it with no conflict ever surfacing — afterward
+ * both sides match, so the reconcile has nothing left to catch.
+ */
+export function sourceMoved(item: Item, remote: RemoteFields): boolean {
+  const fields = MIRRORED[item.source];
+  if (!fields) return false;
+  const snapshot = item.source_snapshot ?? {};
+  return fields.some((f) => norm(remote[f]) !== norm(snapshot[f]));
+}
+
+/**
  * Merge one item against its source. Mutates the item (fields, snapshot,
  * `sync_state`, `sync_error`) and reports what happened. `remote: null` means
  * the source record no longer exists — callers must pass null only when the

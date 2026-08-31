@@ -11,7 +11,7 @@ import { allChannels } from '../../shared/types.ts';
 import type { Window } from '../../shared/dates.ts';
 import { inWindow } from '../../shared/dates.ts';
 import { config, credentials } from '../config.ts';
-import type { RemoteFields } from '../reconcile.ts';
+import { sourceMoved, type RemoteFields } from '../reconcile.ts';
 
 const API = 'https://api.pinboard.in/v1';
 
@@ -187,6 +187,23 @@ export async function writeBack(item: Item): Promise<WriteBackResult> {
   if (!config.pinboardWriteBack) {
     return { sync_state: 'local', error: 'write-back disabled (WT_BUILDER_PINBOARD_WRITEBACK)' };
   }
+
+  // Compare-and-set: the bookmark as it stands must still match the snapshot
+  // the sweep took, or an edit made on Pinboard since then would be replaced
+  // and lost with no conflict ever surfacing. A fetch failure falls through —
+  // the write itself will surface a real outage on its own terms.
+  try {
+    const remote = await fetchBookmark(item.source_url);
+    if (remote === null) {
+      return { sync_state: 'gone', error: 'deleted at Pinboard — not recreating it' };
+    }
+    if (sourceMoved(item, remote)) {
+      return {
+        sync_state: 'conflict',
+        error: 'Pinboard changed since the last scan — re-scan to reconcile before writing',
+      };
+    }
+  } catch { /* checked best-effort; the write reports its own failures */ }
 
   try {
     // `replace=yes` rewrites the whole bookmark, so every field we do not send
