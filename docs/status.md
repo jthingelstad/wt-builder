@@ -74,9 +74,11 @@ finished, what is half-finished, and what has never run.
   points at section boundaries, `+ Currently entry` / `+ Write a link here`
   chips, and the tail row of absent sections. The outline's drag-reorder is
   also actually persisted now — it had silently done nothing.
-- **Audio lens details.** The script and its cues are right, but Briefly does
-  not visibly reverse in the lens and dates are not yet spoken long
-  ("Saturday, August twenty-ninth").
+- ~~Audio lens details~~ — built 2026-08-28 ("Dates spoken long, and the
+  Briefly reversal is visible in the lens"): Briefly reverses visibly and
+  dates are spoken long ("Saturday, August twenty-ninth"). This entry sat
+  stale for two days after the commit landed — the same decay the send
+  dispatch taught; a docs-freshness check remains worth building.
 - ~~Pre-Builder issue records~~ — built 2026-08-28: all 349 imported as
   read-only records (scripts/import-prebuilder.ts, idempotent); the
   dashboard shows them with a PRE-BUILDER chip and their archive state.
