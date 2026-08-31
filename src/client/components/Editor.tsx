@@ -124,7 +124,26 @@ export function Editor({ doc, readiness, busy, error, run, onIndex, onSend, onEr
 
   const sweep = () => {
     setSweeping(true);
-    void run(() => api.sweep(id)).finally(() => setSweeping(false));
+    api.sweep(id)
+      .then((resp) => {
+        // A scan landing mid-keystroke must not clobber the row being edited:
+        // replacing the doc resets every contenteditable, and the text in the
+        // focused one has not committed yet. The server already has the swept
+        // document — hold this response, and after the edit blurs (and its
+        // PATCH has had a beat to land) re-read the issue so both arrive.
+        const active = document.activeElement as HTMLElement | null;
+        if (active?.isContentEditable) {
+          const refresh = () => {
+            active.removeEventListener('blur', refresh);
+            setTimeout(() => void run(() => api.getIssue(id)), 600);
+          };
+          active.addEventListener('blur', refresh);
+          return;
+        }
+        void run(() => Promise.resolve(resp));
+      })
+      .catch((err) => onError((err as Error).message))
+      .finally(() => setSweeping(false));
   };
 
   // Opening a draft re-scans on its own: sources fill in all week, and the
