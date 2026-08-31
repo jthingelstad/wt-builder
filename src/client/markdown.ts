@@ -87,6 +87,8 @@ export function markdownToSafeHtml(source: string): string {
   const out: string[] = [];
   let paragraph: string[] = [];
   let list: string[] = [];
+  let ordered: string[] = [];
+  let orderedStart = 1;
 
   const flushParagraph = () => {
     if (!paragraph.length) return;
@@ -98,35 +100,55 @@ export function markdownToSafeHtml(source: string): string {
     out.push(`<ul>${list.map((line) => `<li>${markdownInlineToSafeHtml(line)}</li>`).join('')}</ul>`);
     list = [];
   };
+  const flushOrdered = () => {
+    if (!ordered.length) return;
+    const start = orderedStart === 1 ? '' : ` start="${orderedStart}"`;
+    out.push(`<ol${start}>${ordered.map((line) => `<li>${markdownInlineToSafeHtml(line)}</li>`).join('')}</ol>`);
+    ordered = [];
+  };
 
   for (const line of lines) {
     if (!line.trim()) {
       flushParagraph();
       flushList();
+      flushOrdered();
       continue;
     }
     const heading = /^(#{1,4})\s+(.+)$/.exec(line);
     const bullet = /^[-*]\s+(.+)$/.exec(line);
+    const numbered = /^(\d{1,9})[.)]\s+(.+)$/.exec(line);
     const quote = /^>\s?(.*)$/.exec(line);
     if (heading) {
       flushParagraph();
       flushList();
+      flushOrdered();
       const level = Math.min(4, heading[1]!.length + 1);
       out.push(`<h${level}>${markdownInlineToSafeHtml(heading[2]!)}</h${level}>`);
     } else if (bullet) {
       flushParagraph();
+      flushOrdered();
       list.push(bullet[1]!);
+    } else if (numbered && (!paragraph.length || numbered[1] === '1')) {
+      // As in CommonMark, only "1." may interrupt a paragraph — a line
+      // beginning "2003." mid-prose is a sentence, not a list.
+      flushParagraph();
+      flushList();
+      if (!ordered.length) orderedStart = Number(numbered[1]!);
+      ordered.push(numbered[2]!);
     } else if (quote) {
       flushParagraph();
       flushList();
+      flushOrdered();
       out.push(`<blockquote>${markdownInlineToSafeHtml(quote[1]!)}</blockquote>`);
     } else {
       flushList();
+      flushOrdered();
       paragraph.push(line.trim());
     }
   }
   flushParagraph();
   flushList();
+  flushOrdered();
   return out.join('');
 }
 

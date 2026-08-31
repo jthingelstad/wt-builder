@@ -92,6 +92,22 @@ describe('markup never reaches the synthesizer', () => {
     expect(html).not.toContain('&lt;img');
   });
 
+  it('renders an ordered list as a list, not a run-on paragraph', () => {
+    // WT350: the State Fair food log rendered as one paragraph because the
+    // canvas renderer had no ordered-list case.
+    const html = markdownToSafeHtml(
+      'State Fair Food Log:\n\n1. Elote Tots\n2. Muffin Top\n3. Mini Donuts',
+    );
+    expect(html).toContain('<ol><li>Elote Tots</li><li>Muffin Top</li><li>Mini Donuts</li></ol>');
+    expect(html).not.toContain('1. Elote Tots 2.');
+  });
+
+  it('does not turn a mid-paragraph year into a list', () => {
+    const html = markdownToSafeHtml('Since\n2003. The club has met monthly.');
+    expect(html).toContain('<p>Since 2003. The club has met monthly.</p>');
+    expect(html).not.toContain('<ol');
+  });
+
   it('escapes unsafe raw HTML and URL schemes', () => {
     const html = markdownToSafeHtml('<script>alert(1)</script> [bad](javascript:alert(2))');
     expect(html).toContain('&lt;script&gt;');
