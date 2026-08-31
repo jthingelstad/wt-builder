@@ -81,6 +81,38 @@ describe('the API answers for itself', () => {
   });
 });
 
+describe('an item can be removed over the wire', () => {
+  it('adds a Currently entry, deletes it, and the document agrees', async () => {
+    const created = await fetch(`${base}/api/issues`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ number: 990002, publication_date: '2026-09-12' }),
+    });
+    const { issue } = await created.json();
+    const id = issue.issue.id;
+
+    const addRes = await fetch(`${base}/api/issues/${id}/nodes/currently/items`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ type: 'currently' }),
+    });
+    expect(addRes.status).toBe(200);
+    const withEntry = (await addRes.json()).issue;
+    const node = withEntry.nodes.find((n: any) => n.id === 'currently');
+    const newId = node.items[node.items.length - 1];
+
+    const removed = await fetch(`${base}/api/issues/${id}/nodes/currently/items/${newId}`, {
+      method: 'DELETE',
+    });
+    expect(removed.status).toBe(200);
+    const after = (await removed.json()).issue;
+    expect(after.items[newId]).toBeUndefined();
+    expect(after.nodes.find((n: any) => n.id === 'currently').items).not.toContain(newId);
+
+    await fetch(`${base}/api/issues/${id}`, { method: 'DELETE' });
+  });
+});
+
 describe('issues round-trip through the service', () => {
   it('creates, lists, and deletes an issue', async () => {
     const created = await fetch(`${base}/api/issues`, {

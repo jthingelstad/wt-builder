@@ -229,6 +229,11 @@ const routes: [RegExp, string, (ctx: Ctx, params: string[]) => Promise<unknown>]
   [/^\/api\/issues\/([^/]+)\/nodes\/([^/]+)$/, 'DELETE', async (_ctx, [id, nodeId]) =>
     saved(issues.removeSection(requireIssue(id!), nodeId!))],
 
+  /** One item out: syndicated is held out, locally-authored is deleted. */
+  [/^\/api\/issues\/([^/]+)\/nodes\/([^/]+)\/items\/([^/]+)$/, 'DELETE',
+    async (_ctx, [id, nodeId, itemId]) =>
+      saved(issues.removeItem(requireIssue(id!), nodeId!, itemId!))],
+
   [/^\/api\/issues\/([^/]+)\/nodes\/([^/]+)\/rename$/, 'POST', async ({ body }, [id, nodeId]) => {
     const b = await body();
     return saved(issues.renameSection(requireIssue(id!), nodeId!, String(b.label ?? '')));

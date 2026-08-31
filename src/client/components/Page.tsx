@@ -30,6 +30,7 @@ export interface PageActions {
   updateItem(itemId: string, patch: Record<string, unknown>): void;
   updateIssue(patch: Record<string, unknown>): void;
   moveItem(nodeId: string, itemId: string, delta: number): void;
+  removeItem(nodeId: string, itemId: string): void;
   moveNode(nodeId: string, delta: number): void;
   removeNode(nodeId: string): void;
   addNode(spec: { type: string; label: string; before?: string; kind?: string }): void;
@@ -251,6 +252,12 @@ export function Page({
         }
       }
 
+      // Seeded singletons (Photo, Intro…) are removed as sections; every
+      // other item — a Currently entry, a link, a Journal post — gets its
+      // own X on the rail.
+      const singleton = ['intro', 'outro', 'photo', 'haiku', 'membership', 'echoes']
+        .includes(item.type);
+
       const rowRail = itemRail({
         item,
         canPromote: node.type === 'journal' && Boolean(item.title),
@@ -261,6 +268,7 @@ export function Page({
         onUp: () => act.moveItem(node.id, itemId, -1),
         onDown: () => act.moveItem(node.id, itemId, 1),
         onInspect: () => onSelect(itemId),
+        ...(singleton ? {} : { onRemove: () => act.removeItem(node.id, itemId) }),
       });
 
       const hasText = Boolean(item.commentary || item.body || item.media?.caption);

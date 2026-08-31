@@ -417,6 +417,37 @@ describe('window-derived inclusion', () => {
   });
 });
 
+describe('item removal', () => {
+  it('deletes a locally-authored item outright — a drafted Currently entry', () => {
+    const doc = fixture();
+    const currently = doc.nodes.find((n) => n.type === 'currently')!;
+    const localId = currently.items.find((id) => doc.items[id]?.authorship !== 'syndicated')!;
+
+    const next = issues.removeItem(doc, currently.id, localId);
+    expect(next.items[localId]).toBeUndefined();
+    expect(next.nodes.find((n) => n.id === currently.id)!.items).not.toContain(localId);
+    expect(next.orphans ?? []).not.toContain(localId);
+  });
+
+  it('holds a syndicated item out so the sweep cannot bring it straight back', () => {
+    const doc = fixture();
+    const briefly = doc.nodes.find((n) => n.type === 'briefly')!;
+    const linkId = briefly.items.find((id) => doc.items[id]?.authorship === 'syndicated')!;
+
+    const next = issues.removeItem(doc, briefly.id, linkId);
+    expect(next.nodes.find((n) => n.id === briefly.id)!.items).not.toContain(linkId);
+    expect(next.items[linkId]).toBeTruthy(); // held out, not deleted
+    expect(next.orphans).toContain(linkId);
+    expect(next.items[linkId]!.section).toBeTruthy(); // Put back knows where
+  });
+
+  it('is a no-op for an unknown node or an item not in that node', () => {
+    const doc = fixture();
+    expect(issues.removeItem(doc, 'no-such-node', 'intro-1')).toEqual(doc);
+    expect(issues.removeItem(doc, 'intro', 'no-such-item')).toEqual(doc);
+  });
+});
+
 describe('section removal', () => {
   /** Briefly holds three syndicated Pinboard links; Currently holds Jamie's own. */
   it('holds out syndicated items so the sweep cannot bring them straight back', () => {

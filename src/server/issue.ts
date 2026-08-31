@@ -452,6 +452,31 @@ function insertBefore(doc: IssueDoc, id: string, beforeId: string): string[] {
   return [...without.slice(0, at), id, ...without.slice(at)];
 }
 
+/**
+ * Remove one item from its section, with the same asymmetry as removing a
+ * section: a **syndicated** item is held out — it is still sitting in the
+ * window and the sweep would bring it straight back, so removal must be a
+ * durable "no" — while a **locally-authored** item (a drafted Currently
+ * entry, a written link) is simply deleted. It has no sweep to return from,
+ * and there is no undo (docs/decisions.md).
+ */
+export function removeItem(doc: IssueDoc, nodeId: string, itemId: string): IssueDoc {
+  const next = structuredClone(doc);
+  const target = next.nodes.find((n) => n.id === nodeId);
+  const item = next.items[itemId];
+  if (!target || !item || !target.items.includes(itemId)) return next;
+
+  target.items = target.items.filter((id) => id !== itemId);
+  if (item.authorship === 'syndicated') {
+    // Remember where it came from so Put back knows its natural section.
+    if (!item.section) item.section = target.label;
+    next.orphans = [...(next.orphans ?? []), itemId];
+  } else {
+    delete next.items[itemId];
+  }
+  return next;
+}
+
 /** Removing a section holds its syndicated items out rather than deleting them. */
 /**
  * Remove a section: **delete** its locally-authored items, **hold out** its

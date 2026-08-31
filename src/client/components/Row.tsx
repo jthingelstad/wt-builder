@@ -107,22 +107,33 @@ export function itemRail(opts: {
   onUp: () => void;
   onDown: () => void;
   onInspect: () => void;
+  /** Absent for seeded singletons (Photo, Intro…) — their section's X owns removal. */
+  onRemove?: () => void;
 }): { sync?: SyncState; actions: RailAction[] } {
-  return {
-    sync: opts.item.sync_state,
-    actions: [
-      {
-        key: 'promote',
-        label: opts.promoteWhy ?? 'Promote to its own section',
-        icon: <CornerUpRight />,
-        disabled: !opts.canPromote,
-        onClick: opts.onPromote,
-      },
-      { key: 'up', label: 'Move up', icon: <ArrowUp />, onClick: opts.onUp },
-      { key: 'down', label: 'Move down', icon: <ArrowDown />, onClick: opts.onDown },
-      { key: 'info', label: 'Inspect', icon: <Info />, onClick: opts.onInspect },
-    ],
-  };
+  const actions: RailAction[] = [
+    {
+      key: 'promote',
+      label: opts.promoteWhy ?? 'Promote to its own section',
+      icon: <CornerUpRight />,
+      disabled: !opts.canPromote,
+      onClick: opts.onPromote,
+    },
+    { key: 'up', label: 'Move up', icon: <ArrowUp />, onClick: opts.onUp },
+    { key: 'down', label: 'Move down', icon: <ArrowDown />, onClick: opts.onDown },
+    { key: 'info', label: 'Inspect', icon: <Info />, onClick: opts.onInspect },
+  ];
+  if (opts.onRemove) {
+    actions.push({
+      key: 'remove',
+      label: opts.item.authorship === 'syndicated'
+        ? 'Remove — held out, so the sweep cannot bring it back'
+        : 'Delete',
+      icon: <X size={12} />,
+      danger: true,
+      onClick: opts.onRemove,
+    });
+  }
+  return { sync: opts.item.sync_state, actions };
 }
 
 /** The rail for a section heading: reorder, demote a promoted item, remove. */

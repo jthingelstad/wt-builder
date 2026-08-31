@@ -389,8 +389,13 @@ issue, with both margins outside it.
   `circle-alert` terracotta failed, `pencil-line` amber awaiting commentary; nothing when
   there is nothing to sync) and a cluster of 23×23 buttons, radius 6px, `1px solid #e6e5e2`, white, each
   holding a 12px Lucide glyph: `corner-up-right` promote, `corner-down-right` demote,
-  `arrow-up`, `arrow-down`, `x` remove section, `info` inspect (**items only** — sections
-  have no inspector). **The cluster sits at `opacity: .3` and goes to 1 on row hover**
+  `arrow-up`, `arrow-down`, `x` remove, `info` inspect (**items only** — sections
+  have no inspector). The `x` appears on sections and on items alike: a
+  locally-authored item (a drafted Currently entry, a written link) deletes
+  outright — no sweep returns it, and there is no undo — while a syndicated
+  item is held out, the same durable "no" as section removal. Seeded
+  singletons (Photo, Intro, Outro, Haiku, Membership, Echoes) show no item
+  `x`; their section's `x` owns removal. **The cluster sits at `opacity: .3` and goes to 1 on row hover**
   (`.rail`, `transition: opacity .12s`). Every row carries `data-anchor` — the item id,
   node id, or `issue`.
 - **Middle cell = the page.** The material, and nothing else.
