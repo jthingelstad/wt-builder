@@ -489,7 +489,7 @@ const routes: [RegExp, string, (ctx: Ctx, params: string[]) => Promise<unknown>]
   /** What the website handoff would change, changing nothing. */
   [/^\/api\/issues\/([^/]+)\/send\/website\/preview$/, 'GET', async (_ctx, [id]) => {
     const doc = requireIssue(id!);
-    const files = siteInputs(doc, websiteOptions(doc));
+    const files = siteInputs(doc, websiteOptions(doc, await currentSiteEmails()));
     const result = await githubRepo.diff(files, { branch: config.websiteBranch });
     return { repo: config.websiteRepo, ...result, files: files.map((f) => f.path) };
   }],
@@ -582,30 +582,47 @@ interface PodcastSend extends SendState {
   audio?: Record<string, unknown>;
 }
 
-/** Prior issues' index entries, so emails.json is rewritten whole. */
-function priorEntries(number: number): IssueEntry[] {
-  return store
-    .listIssues()
-    .filter((r) => r.number !== number && r.doc.issue.status === 'published')
-    .map((r) => {
-      const sends = r.doc.sends ?? {};
-      const entry = issueEntry(r.doc);
-      return {
-        ...entry,
-        id: sends.buttondown?.external_id ?? entry.id,
-        absolute_url: sends.buttondown?.url ?? entry.absolute_url,
-      };
-    });
+/**
+ * The site's own archive can only grow. A parsed emails.json below this floor
+ * means a truncated or wrong file, and merging into one would re-lose the
+ * archive the 2026-08-30 revert restored — refuse instead.
+ */
+const MIN_ARCHIVE_ENTRIES = 349;
+
+/**
+ * The site's live emails.json — the merge base the handoff must preserve.
+ * Rebuilding the index from the Builder's own records gutted it once (104k
+ * lines to 10k, commit 91688fc7, reverted): the Shortcuts-era entries carry
+ * links, audio, slugs, and ids the imported records cannot reproduce. Any
+ * doubt about the file refuses the send rather than rewriting blind.
+ */
+async function currentSiteEmails(): Promise<IssueEntry[]> {
+  const raw = await githubRepo.readFile('apps/site/_data/emails.json', {
+    branch: config.websiteBranch,
+  });
+  if (raw === null) {
+    throw new HttpError(502, "the site's emails.json is missing from the repo — refusing to rewrite the index blind");
+  }
+  let parsed: unknown;
+  try {
+    parsed = JSON.parse(raw);
+  } catch {
+    throw new HttpError(502, "the site's emails.json did not parse — refusing to rewrite the index blind");
+  }
+  if (!Array.isArray(parsed) || parsed.length < MIN_ARCHIVE_ENTRIES) {
+    throw new HttpError(502, `the site's emails.json has ${Array.isArray(parsed) ? parsed.length : 'no'} entries, below the ${MIN_ARCHIVE_ENTRIES} the archive is known to hold — refusing to merge into a truncated index`);
+  }
+  return parsed as IssueEntry[];
 }
 
-function websiteOptions(doc: IssueDoc) {
+function websiteOptions(doc: IssueDoc, currentEmails: IssueEntry[]) {
   const sends = doc.sends ?? {};
   const podcast = sends.podcast as PodcastSend | undefined;
   return {
     buttondownId: sends.buttondown?.external_id,
     absoluteUrl: sends.buttondown?.url,
     audio: podcast?.audio as never,
-    priorEntries: priorEntries(doc.issue.number),
+    currentEmails,
   };
 }
 
@@ -623,9 +640,12 @@ async function sendWebsite(id: string, force = false) {
   if (!force && doc.sends?.podcast?.status !== 'sent') {
     throw new HttpError(409, 'the podcast leg has not run — its audio reference belongs in the page. Send the podcast first, or POST ?force=1 to ship without audio.');
   }
+  // Read the merge base before recording anything: a failure here refuses
+  // the send outright instead of stranding a 'sending' state.
+  const currentEmails = await currentSiteEmails();
   store.recordSend(id, 'website', { status: 'sending', at: new Date().toISOString() });
   try {
-    const files = siteInputs(doc, websiteOptions(doc));
+    const files = siteInputs(doc, websiteOptions(doc, currentEmails));
     const result = await githubRepo.putTree(
       files,
       `Add issue ${doc.issue.number} from WT Builder`,

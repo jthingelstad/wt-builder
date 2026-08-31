@@ -59,6 +59,13 @@ finished, what is half-finished, and what has never run.
   no longer matches the sweep's snapshot (or `gone` when deleted), so an
   edit made at the source between scans can never be silently overwritten.
   A successful write moves the snapshot to what was written.
+- **emails.json is merged, never rebuilt** (2026-08-31) — the website leg
+  reads the site's live emails.json first and preserves every entry verbatim
+  (unknown fields included), replacing only the issue being sent. It refuses
+  the send when the file is missing, unparseable, or below the 349 entries
+  the archive is known to hold. This closes the accidental-send finding: the
+  index was once rebuilt from the Builder's sparser records, gutting 104k
+  lines to 10k (commit 91688fc7, reverted).
 - **Docs freshness gate** (2026-08-30) — tests/docs.test.ts fails the build
   when any doc cites a file path that no longer exists, or claims a test
   count (a number in prose only ever decays).

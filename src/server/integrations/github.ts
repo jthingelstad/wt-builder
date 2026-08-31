@@ -100,6 +100,21 @@ function targetOf(t: RepoTarget): { repo: string; branch: string } {
   return { repo: t.repo ?? config.websiteRepo, branch: t.branch ?? 'main' };
 }
 
+/**
+ * One file's current content on the target branch, or null when absent.
+ * The website handoff reads the live emails.json through this before
+ * rewriting it — the index is merged, never rebuilt from a projection.
+ */
+export async function readFile(path: string, target: RepoTarget = {}): Promise<string | null> {
+  const { repo, branch } = targetOf(target);
+  const { tree } = await head(repo, branch);
+  const blobs = await treeBlobs(repo, tree);
+  const sha = blobs.get(path);
+  if (!sha) return null;
+  const blob = await call(repo, `/git/blobs/${sha}`);
+  return Buffer.from(String(blob.content ?? ''), 'base64').toString('utf8');
+}
+
 /** What a push would change, without changing anything. */
 export async function diff(files: RepoFile[], target: RepoTarget = {}): Promise<PushResult> {
   const { repo, branch } = targetOf(target);

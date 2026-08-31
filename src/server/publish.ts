@@ -168,8 +168,15 @@ export interface SiteInputsOptions {
   buttondownId?: string;
   absoluteUrl?: string;
   audio?: AudioFields;
-  /** Every prior issue's entry, so the index is rewritten whole. */
-  priorEntries?: IssueEntry[];
+  /**
+   * The site's emails.json as it stands, parsed. The handoff merges into
+   * this — nine years of Shortcuts-era entries carry links, audio fields,
+   * original slugs, and Buttondown ids the Builder's records cannot
+   * reproduce, so the file is authoritative for every issue except the one
+   * being sent. Rebuilding it from a projection gutted it once (2026-08-30,
+   * 104k lines to 10k, reverted); this field being required is the scar.
+   */
+  currentEmails?: IssueEntry[];
 }
 
 export function issueEntry(doc: IssueDoc, opts: SiteInputsOptions = {}): IssueEntry {
@@ -323,9 +330,9 @@ export function archiveInputs(doc: IssueDoc, opts: SiteInputsOptions = {}): Repo
 }
 
 /**
- * The files the handoff commits. `emails.json` is rewritten whole from prior
- * entries plus this issue, so the index can never drift from the pages beside
- * it.
+ * The files the handoff commits. `emails.json` is merged: the site's current
+ * entries preserved verbatim, plus this issue's own — so the index can never
+ * drift from the pages beside it, and can never lose what the site knew.
  *
  * There is no status.json here. The old pipeline pushed one for the site's
  * /ops/ page; both are retired — this application's dashboard is the ops
@@ -333,8 +340,13 @@ export function archiveInputs(doc: IssueDoc, opts: SiteInputsOptions = {}): Repo
  */
 export function siteInputs(doc: IssueDoc, opts: SiteInputsOptions = {}): RepoFile[] {
   const entry = issueEntry(doc, opts);
-  const prior = (opts.priorEntries ?? []).filter((e) => e.number !== entry.number);
-  const emails = [...prior, entry].sort((a, b) => a.number - b.number);
+  if (!opts.currentEmails) {
+    throw new Error(
+      'siteInputs needs the site\u2019s current emails.json entries \u2014 refusing to rewrite the index from a projection',
+    );
+  }
+  const preserved = opts.currentEmails.filter((e) => e.number !== entry.number);
+  const emails = [...preserved, entry].sort((a, b) => a.number - b.number);
 
   return [
     { path: `apps/site/archive/${entry.number}.md`, content: archivePage(doc, opts) },

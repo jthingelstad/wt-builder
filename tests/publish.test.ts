@@ -127,26 +127,51 @@ describe('the handoff file set', () => {
   it('commits the page and the index — and no status.json', () => {
     // The old pipeline pushed status.json for the site's /ops/ page; both
     // are retired. The dashboard here is the ops surface.
-    const paths = siteInputs(doc()).map((f) => f.path);
+    const paths = siteInputs(doc(), { currentEmails: [] }).map((f) => f.path);
     expect(paths).toEqual([
       'apps/site/archive/350.md',
       'apps/site/_data/emails.json',
     ]);
   });
 
-  it('rewrites the index whole, in issue order', () => {
-    const prior = [issueEntry(doc({ number: 348 })), issueEntry(doc({ number: 349 }))];
-    const files = siteInputs(doc(), { priorEntries: prior });
+  it('refuses to build the index without the site\u2019s current entries', () => {
+    // Rebuilding emails.json from the Builder's own records gutted it once
+    // (2026-08-30, 104k lines to 10k, reverted). The merge base is required.
+    expect(() => siteInputs(doc())).toThrowError(/refusing to rewrite the index/);
+  });
+
+  it('merges into the site\u2019s entries, in issue order', () => {
+    const current = [issueEntry(doc({ number: 348 })), issueEntry(doc({ number: 349 }))];
+    const files = siteInputs(doc(), { currentEmails: current });
     const emails = JSON.parse(files.find((f) => f.path.endsWith('emails.json'))!.content);
     expect(emails.map((e: { number: number }) => e.number)).toEqual([348, 349, 350]);
   });
 
-  it('never lets a stale prior entry shadow this issue', () => {
-    const stale = { ...issueEntry(doc()), subject: 'STALE' };
-    const files = siteInputs(doc(), { priorEntries: [stale] });
+  it('preserves a Shortcuts-era entry verbatim, unknown fields included', () => {
+    // The site's entries carry data the Builder cannot reproduce: original
+    // slugs, Buttondown ids, audio fields, and anything added since. The
+    // merge must pass them through untouched, not re-derive them.
+    const historic = {
+      ...issueEntry(doc({ number: 12 })),
+      id: 'em_original',
+      slug: 'weekly-thing-for-may-13-2017',
+      audio_url: 'https://files.thingelstad.com/old.mp3',
+      not_a_builder_field: 'kept',
+    } as never;
+    const files = siteInputs(doc(), { currentEmails: [historic] });
     const emails = JSON.parse(files.find((f) => f.path.endsWith('emails.json'))!.content);
-    expect(emails).toHaveLength(1);
-    expect(emails[0].subject).not.toBe('STALE');
+    expect(emails[0]).toEqual(historic);
+    expect(emails[1].number).toBe(350);
+  });
+
+  it('replaces only its own entry on a re-send', () => {
+    const stale = { ...issueEntry(doc()), subject: 'STALE' };
+    const other = issueEntry(doc({ number: 349 }));
+    const files = siteInputs(doc(), { currentEmails: [other, stale] });
+    const emails = JSON.parse(files.find((f) => f.path.endsWith('emails.json'))!.content);
+    expect(emails).toHaveLength(2);
+    expect(emails[1].subject).not.toBe('STALE');
+    expect(emails[0]).toEqual(other);
   });
 });
 
