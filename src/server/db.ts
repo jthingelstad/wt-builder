@@ -198,11 +198,33 @@ export function recordSend(id: string, destination: Destination, state: SendStat
   const row = getIssue(id);
   if (!row) return null;
   row.doc.sends = { ...(row.doc.sends ?? {}), [destination]: state };
+
+  // Published is derived, never clicked: the moment both reader-facing text
+  // legs have gone out, the issue is out. Nothing sets it back — the archive
+  // is authoritative after this, not the draft. Deriving it here is what
+  // keeps `lastPublishedNumber()` and the website's prior-issues index true
+  // after WT Builder's first real send.
+  const sends = row.doc.sends;
+  if (
+    row.doc.issue.status === 'draft' &&
+    sends.website?.status === 'sent' &&
+    sends.buttondown?.status === 'sent'
+  ) {
+    row.doc.issue.status = 'published';
+    logEvent(id, 'issue', `Published — WT${row.doc.issue.number}`);
+  }
+
   openDb()
     .prepare(
-      `UPDATE issues SET doc = ?, ${SEND_COLUMN[destination]} = ?, updated_at = ? WHERE id = ?`,
+      `UPDATE issues SET doc = ?, status = ?, ${SEND_COLUMN[destination]} = ?, updated_at = ? WHERE id = ?`,
     )
-    .run(JSON.stringify(row.doc), JSON.stringify(state), new Date().toISOString(), id);
+    .run(
+      JSON.stringify(row.doc),
+      row.doc.issue.status,
+      JSON.stringify(state),
+      new Date().toISOString(),
+      id,
+    );
   return getIssue(id);
 }
 
