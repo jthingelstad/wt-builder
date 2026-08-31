@@ -45,7 +45,23 @@ finished, what is half-finished, and what has never run.
   to end: a 2400x1600 photo stored at 1200x800, 23 KB down to 3 KB, served
   from files.thingelstad.com, and the "Photo placed" checklist item flipped.
 - **Send view** — Podcast, Website, Buttondown in run order, the audio gate,
-  the stated-not-enforced blocker, real per-step evidence.
+  real per-step evidence. As of 2026-08-30 the ordering blocker is enforced,
+  not stated: the server refuses a website send until the podcast has run
+  (`?force=1` is the deliberate escape for an issue with no audio), and every
+  leg refuses a second POST while one is in flight — a `sending` older than
+  ten minutes is treated as a crash strand and passes so the leg can retry.
+- **Published, derived** (2026-08-30) — an issue becomes `published` the
+  moment its website and buttondown legs are both `sent`; nothing un-derives
+  it. This is what keeps `lastPublishedNumber()`, the next-issue default,
+  and the website's prior-issues index true after the first real send.
+- **Write-back compare-and-set** (2026-08-30) — before replacing a bookmark
+  or post, write-back fetches the record and refuses with `conflict` when it
+  no longer matches the sweep's snapshot (or `gone` when deleted), so an
+  edit made at the source between scans can never be silently overwritten.
+  A successful write moves the snapshot to what was written.
+- **Docs freshness gate** (2026-08-30) — tests/docs.test.ts fails the build
+  when any doc cites a file path that no longer exists, or claims a test
+  count (a number in prose only ever decays).
 - **Sweep** — Pinboard `toread=yes` and Micro.blog Micropub `q=source`, with
   the corrected Friday-to-Friday Central window. As of 2026-08-30 the sweep
   also reconciles the read side of the mirror: Pinboard and Micro.blog are
@@ -78,7 +94,7 @@ finished, what is half-finished, and what has never run.
   Briefly reversal is visible in the lens"): Briefly reverses visibly and
   dates are spoken long ("Saturday, August twenty-ninth"). This entry sat
   stale for two days after the commit landed — the same decay the send
-  dispatch taught; a docs-freshness check remains worth building.
+  dispatch taught, and what finally earned the docs freshness gate above.
 - ~~Pre-Builder issue records~~ — built 2026-08-28: all 349 imported as
   read-only records (scripts/import-prebuilder.ts, idempotent); the
   dashboard shows them with a PRE-BUILDER chip and their archive state.

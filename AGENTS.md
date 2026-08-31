@@ -44,7 +44,7 @@ read. `schema_version` on the document carries migrations.
 
 ```sh
 npm install
-npm test          # 193 tests
+npm test
 npm run typecheck
 npm run dev       # service on :4317, client on :5317
 npm run build     # typecheck + vite build into dist/

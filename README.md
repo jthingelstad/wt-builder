@@ -45,7 +45,7 @@ what has never run.
 ```sh
 cp .env.example .env      # see the file; three credentials are required
 npm install
-npm test                  # 193 tests
+npm test
 npm run dev               # service on :4317, client on :5317
 ```
 
