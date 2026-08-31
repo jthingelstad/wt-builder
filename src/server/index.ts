@@ -290,12 +290,16 @@ const routes: [RegExp, string, (ctx: Ctx, params: string[]) => Promise<unknown>]
     const item = doc.items[itemId!];
     if (!item) throw new HttpError(404, `no item ${itemId}`);
 
+    // Writing back a `gone` item would recreate the record its owner deleted
+    // at the source. Deleting was an act there; restoring must be one too.
     const result =
-      item.source === 'Micro.blog'
-        ? await microblog.updatePost(item)
-        : item.source === 'Pinboard'
-          ? await pinboard.writeBack(item)
-          : { sync_state: 'local' as const, error: `${item.source} has no write-back` };
+      item.sync_state === 'gone'
+        ? { sync_state: 'gone' as const, error: `deleted at ${item.source} — not recreating it` }
+        : item.source === 'Micro.blog'
+          ? await microblog.updatePost(item)
+          : item.source === 'Pinboard'
+            ? await pinboard.writeBack(item)
+            : { sync_state: 'local' as const, error: `${item.source} has no write-back` };
 
     return {
       ...saved(issues.updateItem(doc, itemId!, {

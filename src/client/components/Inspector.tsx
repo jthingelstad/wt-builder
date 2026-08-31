@@ -15,12 +15,19 @@ interface Props {
 }
 
 const SYNC_LABEL: Record<string, string> = {
-  synced: 'Synced',
-  syncing: 'Writing…',
-  failed: 'Write failed — your edit is kept',
+  synced: 'Synced with {source}',
+  syncing: 'Writing to {source}…',
+  failed: 'Write to {source} failed — your edit is kept',
   needs_commentary: 'No commentary yet',
-  local: 'Edited here, not yet written back',
+  local: 'Edited here, not yet written back to {source}',
+  gone: 'Deleted at {source} — your copy is kept',
+  conflict: 'Edited both here and at {source} — your copy is kept',
 };
+
+function syncLine(state: string, source: string): string {
+  const label = SYNC_LABEL[state] ?? state;
+  return label.includes('{source}') ? label.replace('{source}', source) : label;
+}
 
 /** Provenance, fields, channels, and source synchronization for one item. */
 export function Inspector({ doc, itemId, run, onClose, onError, onBackToReview }: Props) {
@@ -182,7 +189,7 @@ export function Inspector({ doc, itemId, run, onClose, onError, onBackToReview }
         </div>
       )}
       {item.sync_state && (
-        <div class="kv"><span>Sync</span><span>{SYNC_LABEL[item.sync_state] ?? item.sync_state} with {item.source}</span></div>
+        <div class="kv"><span>Sync</span><span>{syncLine(item.sync_state, item.source)}</span></div>
       )}
       {item.sync_error && <p class="field-note error-text">{item.sync_error}</p>}
 

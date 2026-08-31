@@ -56,6 +56,9 @@ export function LeftPanel(props: Props) {
             <div><span class="k">Publishes</span> {shortKicker(doc.issue.publication_date)}</div>
             <div><span class="k">Sources</span> {spanLabel(w)}</div>
             <div class="quiet">{swept} items swept in from that span.</div>
+            <button class="btn small" disabled={props.sweeping} onClick={props.onSweep}>
+              {props.sweeping ? 'Re-scanning…' : 'Re-scan'}
+            </button>
           </div>
         )}
 

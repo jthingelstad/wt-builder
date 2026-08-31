@@ -11,6 +11,7 @@ import { allChannels } from '../../shared/types.ts';
 import type { Window } from '../../shared/dates.ts';
 import { inWindow } from '../../shared/dates.ts';
 import { config, credentials } from '../config.ts';
+import type { RemoteFields } from '../reconcile.ts';
 
 const API = 'https://api.pinboard.in/v1';
 
@@ -153,6 +154,23 @@ export async function captureTime(url: string): Promise<string | null> {
   } catch {
     return null;
   }
+}
+
+/**
+ * The bookmark as it exists on Pinboard right now, for reconciliation.
+ * Returns null only when Pinboard definitively answers that the bookmark is
+ * gone; an API failure throws, so a flaky call can never read as a deletion.
+ */
+export async function fetchBookmark(url: string): Promise<RemoteFields | null> {
+  const body = (await call('/posts/get', { url })) as { posts?: PinboardPost[] };
+  const p = body.posts?.[0];
+  if (!p) return null;
+  return {
+    title: p.description,
+    commentary: p.extended,
+    tags: p.tags ? p.tags.split(/\s+/).filter(Boolean) : [],
+    flags: { toread: p.toread ?? 'yes', shared: p.shared ?? 'no' },
+  };
 }
 
 export interface WriteBackResult {

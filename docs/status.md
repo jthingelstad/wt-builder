@@ -47,7 +47,15 @@ finished, what is half-finished, and what has never run.
 - **Send view** — Podcast, Website, Buttondown in run order, the audio gate,
   the stated-not-enforced blocker, real per-step evidence.
 - **Sweep** — Pinboard `toread=yes` and Micro.blog Micropub `q=source`, with
-  the corrected Friday-to-Friday Central window.
+  the corrected Friday-to-Friday Central window. As of 2026-08-30 the sweep
+  also reconciles the read side of the mirror: Pinboard and Micro.blog are
+  the CMS, so edits made there are adopted when the local copy is untouched
+  (`source_snapshot` is the merge base), two-sided edits surface as
+  `conflict`, and a deleted source record marks the item `gone` — the local
+  copy is always kept, and removal stays an editorial act. A `gone` item
+  refuses write-back so the deleted record is never silently recreated.
+  Opening a draft issue re-scans automatically, and Re-scan sits on the
+  at-rest meta card as well as in the edit panel.
 
 ## Not built
 

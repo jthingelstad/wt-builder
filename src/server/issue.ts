@@ -19,6 +19,7 @@ import { addDays, issueWindow, issueSaturday } from '../shared/dates.ts';
 import { bodyLines, orderedNodes } from '../shared/render/plan.ts';
 import * as pinboard from './integrations/pinboard.ts';
 import * as microblog from './integrations/microblog.ts';
+import { reconcileItem, type RemoteFields } from './reconcile.ts';
 
 /** Sections that print no heading — the content carries itself. */
 const HEADLESS: ReadonlySet<string> = new Set([
@@ -133,6 +134,12 @@ export function createIssue(opts: {
 export interface SweepReport {
   added: number;
   skipped: number;
+  /** Items whose source-side edits were adopted into the issue. */
+  refreshed: number;
+  /** Items whose source record has been deleted; local copies are kept. */
+  gone: number;
+  /** Items edited both here and at the source; local copies are kept. */
+  conflicts: number;
   window: { from: string; to: string };
   candidates: Candidate[];
 }
@@ -163,6 +170,7 @@ export async function sweep(doc: IssueDoc): Promise<{ doc: IssueDoc; report: Swe
 
   let added = 0;
   let skipped = 0;
+  const justAdded = new Set<string>();
 
   for (const c of links) {
     const existing = known.get(c.id);
@@ -180,6 +188,7 @@ export async function sweep(doc: IssueDoc): Promise<{ doc: IssueDoc; report: Swe
     const id = idFor(next, c);
     next.items[id] = item;
     placeInto(next, id, item.section ?? 'Briefly');
+    justAdded.add(id);
     added++;
   }
 
@@ -189,7 +198,57 @@ export async function sweep(doc: IssueDoc): Promise<{ doc: IssueDoc; report: Swe
     const id = idFor(next, c);
     next.items[id] = item;
     placeInto(next, id, 'Journal');
+    justAdded.add(id);
     added++;
+  }
+
+  // ── reconcile: the source side of the mirror ─────────────────────────────
+  //
+  // Pinboard and Micro.blog are the CMS; edits made there flow in here, with
+  // `source_snapshot` as the merge base (src/server/reconcile.ts). A source
+  // failure skips reconciliation for that item — an unreachable API must
+  // never read as a deletion.
+  const reconciled = { refreshed: 0, gone: 0, conflicts: 0 };
+  let mb: Awaited<ReturnType<typeof microblog.remoteIndex>> | null = null;
+  try {
+    mb = await microblog.remoteIndex();
+  } catch (e) {
+    console.warn(`[sweep] Micro.blog reconcile skipped: ${(e as Error).message}`);
+  }
+
+  for (const [id, item] of Object.entries(next.items)) {
+    if (justAdded.has(id) || !item.source_url) continue;
+
+    let remote: RemoteFields | null;
+    if (item.source === 'Pinboard') {
+      try {
+        remote = await pinboard.fetchBookmark(item.source_url);
+      } catch (e) {
+        console.warn(`[sweep] Pinboard reconcile skipped for ${id}: ${(e as Error).message}`);
+        continue;
+      }
+    } else if (item.source === 'Micro.blog' && mb) {
+      const found = mb.byUrl.get(item.source_url);
+      if (found) {
+        remote = found;
+      } else {
+        // Absent from the index is a deletion only when the fetch reached
+        // back past this post's own date.
+        const covered =
+          mb.coveredFrom !== null &&
+          item.published_at !== undefined &&
+          Date.parse(mb.coveredFrom) <= Date.parse(item.published_at);
+        if (!covered) continue;
+        remote = null;
+      }
+    } else {
+      continue;
+    }
+
+    const outcome = reconcileItem(item, remote);
+    if (outcome === 'refreshed') reconciled.refreshed++;
+    else if (outcome === 'gone') reconciled.gone++;
+    else if (outcome === 'conflict') reconciled.conflicts++;
   }
 
   // Heal Pinboard items that predate the converter carrying published_at:
@@ -203,7 +262,7 @@ export async function sweep(doc: IssueDoc): Promise<{ doc: IssueDoc; report: Swe
   }
 
   sortJournal(next);
-  return { doc: next, report: { added, skipped, window, candidates: [...links, ...posts] } };
+  return { doc: next, report: { added, skipped, ...reconciled, window, candidates: [...links, ...posts] } };
 }
 
 function idFor(doc: IssueDoc, c: Candidate): string {
@@ -260,7 +319,9 @@ export function updateItem(doc: IssueDoc, itemId: string, patch: Partial<Item>):
   const sourceFieldChanged =
     (item.source === 'Pinboard' && ['title', 'commentary', 'tags'].some((key) => key in patch)) ||
     (item.source === 'Micro.blog' && ['title', 'body'].some((key) => key in patch));
-  if (sourceFieldChanged) {
+  // A `gone` item has no source record to write to — editing it must not
+  // queue a write-back that would silently recreate the deleted bookmark.
+  if (sourceFieldChanged && item.sync_state !== 'gone') {
     item.sync_state = 'syncing';
     delete item.sync_error;
   }

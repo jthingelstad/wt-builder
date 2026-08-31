@@ -17,6 +17,7 @@ import { allChannels } from '../../shared/types.ts';
 import type { Window } from '../../shared/dates.ts';
 import { inWindow } from '../../shared/dates.ts';
 import { config, credentials } from '../config.ts';
+import type { RemoteFields } from '../reconcile.ts';
 
 const MICROPUB = 'https://micro.blog/micropub';
 
@@ -92,6 +93,32 @@ export async function sweepMicroblog(window: Window): Promise<Candidate[]> {
     })
     .filter((c) => c.url && inWindow(c.published_at, window))
     .sort((a, b) => String(a.published_at).localeCompare(String(b.published_at)));
+}
+
+/**
+ * Every recent post keyed by URL, for reconciliation. `coveredFrom` is the
+ * oldest published timestamp the fetch reached: a known item absent from the
+ * index counts as deleted only when its own date is inside that coverage —
+ * otherwise the fetch simply did not reach back far enough to say.
+ */
+export async function remoteIndex(): Promise<{
+  byUrl: Map<string, RemoteFields>;
+  coveredFrom: string | null;
+}> {
+  const items = await fetchSource();
+  const byUrl = new Map<string, RemoteFields>();
+  let coveredFrom: string | null = null;
+  for (const i of items) {
+    const p = i.properties ?? {};
+    const url = first(p.url);
+    if (!url) continue;
+    byUrl.set(url, { title: first(p.name).trim(), body: first(p.content) });
+    const published = first(p.published);
+    if (published && (!coveredFrom || Date.parse(published) < Date.parse(coveredFrom))) {
+      coveredFrom = published;
+    }
+  }
+  return { byUrl, coveredFrom };
 }
 
 export function candidateToItem(c: Candidate): Item {

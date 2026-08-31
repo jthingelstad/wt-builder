@@ -36,7 +36,16 @@ export type ItemType =
   | 'haiku';
 
 /** Pinboard write-back state. Never discards the local edit on a failed write. */
-export type SyncState = 'synced' | 'syncing' | 'failed' | 'needs_commentary' | 'local';
+export type SyncState =
+  | 'synced'
+  | 'syncing'
+  | 'failed'
+  | 'needs_commentary'
+  | 'local'
+  /** The source record was deleted after the sweep; the local copy is kept. */
+  | 'gone'
+  /** Edited both here and at the source since the sweep; the local copy is kept. */
+  | 'conflict';
 
 export interface Media {
   url?: string;

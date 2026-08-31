@@ -91,7 +91,11 @@ export const api = {
   deleteIssue: (id: string) => call<{ ok: true }>(`/issues/${id}`, { method: 'DELETE' }),
 
   sweep: (id: string) =>
-    post(`/issues/${id}/sweep`) as Promise<IssueResponse & { report: { added: number; skipped: number; window: { from: string; to: string } } }>,
+    post(`/issues/${id}/sweep`) as Promise<IssueResponse & { report: {
+      added: number; skipped: number;
+      refreshed: number; gone: number; conflicts: number;
+      window: { from: string; to: string };
+    } }>,
 
   renderLens: (id: string, lens: string) =>
     call<{ lens: string; rendered: string }>(`/issues/${id}/render/${lens}`),
@@ -116,6 +120,9 @@ export const api = {
 
   removeNode: (id: string, nodeId: string) =>
     call<IssueResponse>(`/issues/${id}/nodes/${nodeId}`, { method: 'DELETE' }),
+
+  removeItem: (id: string, nodeId: string, itemId: string) =>
+    call<IssueResponse>(`/issues/${id}/nodes/${nodeId}/items/${itemId}`, { method: 'DELETE' }),
 
   renameNode: (id: string, nodeId: string, label: string) =>
     post(`/issues/${id}/nodes/${nodeId}/rename`, { label }),

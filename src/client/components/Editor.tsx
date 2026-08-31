@@ -126,6 +126,14 @@ export function Editor({ doc, readiness, busy, error, run, onIndex, onSend, onEr
     void run(() => api.sweep(id)).finally(() => setSweeping(false));
   };
 
+  // Opening a draft re-scans on its own: sources fill in all week, and the
+  // page should show the week as it stands, not as it stood last session.
+  // The doc renders immediately; the sweep lands when it lands.
+  useEffect(() => {
+    if (doc.issue.status !== 'draft') return;
+    sweep();
+  }, [id]); // once per issue open — not on every doc replacement
+
   // Escape closes the right rail before it does anything else.
   useEffect(() => {
     const onKey = (e: KeyboardEvent) => {

@@ -87,6 +87,8 @@ const SYNC: Record<SyncState, { cls: string; label: string; icon: ComponentChild
   failed: { cls: 'failed', label: 'Write failed — your edit is kept', icon: <CircleAlert /> },
   needs_commentary: { cls: 'needs', label: 'No commentary yet', icon: <PencilLine /> },
   local: { cls: 'needs', label: 'Edited here, not yet written back', icon: <PencilLine /> },
+  gone: { cls: 'failed', label: 'Deleted at the source — your copy is kept', icon: <CircleAlert /> },
+  conflict: { cls: 'failed', label: 'Edited here and at the source — your copy is kept', icon: <CircleAlert /> },
 };
 
 /** Nothing renders when there is nothing to sync. */
