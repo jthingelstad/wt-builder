@@ -113,6 +113,56 @@ describe('an item can be removed over the wire', () => {
   });
 });
 
+describe('the send guards refuse before any leg runs', () => {
+  it('website without a sent podcast is a 409, and force is the escape', async () => {
+    const created = await fetch(`${base}/api/issues`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ number: 990004, publication_date: '2026-09-26' }),
+    });
+    const { issue } = await created.json();
+    const id = issue.issue.id;
+
+    const refused = await post(`/api/issues/${id}/send/website`);
+    expect(refused.status).toBe(409);
+    expect(refused.body.error).toContain('podcast');
+    expect(refused.body.error).toContain('force=1');
+
+    await fetch(`${base}/api/issues/${id}`, { method: 'DELETE' });
+  });
+
+  it('a leg already in flight is a 409; a stranded one is not', async () => {
+    const created = await fetch(`${base}/api/issues`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ number: 990005, publication_date: '2026-10-03' }),
+    });
+    const { issue } = await created.json();
+    const id = issue.issue.id;
+
+    const store = await import('../src/server/db.ts');
+    store.recordSend(id, 'podcast', { status: 'sending', at: new Date().toISOString() });
+    const inflight = await post(`/api/issues/${id}/send/podcast`);
+    expect(inflight.status).toBe(409);
+    expect(inflight.body.error).toContain('in flight');
+
+    // Ten-minutes-stale `sending` is a crash strand, not an active send: the
+    // guard passes and the leg itself is reached (it will fail later on its
+    // own terms in this environment; the guard's answer is what is pinned).
+    store.recordSend(id, 'website', {
+      status: 'sending',
+      at: new Date(Date.now() - 11 * 60_000).toISOString(),
+    });
+    const strandRetry = await post(`/api/issues/${id}/send/website`);
+    // Passes the in-flight guard, then hits the podcast-ordering 409 — which
+    // proves the stale strand did not block the retry.
+    expect(strandRetry.status).toBe(409);
+    expect(strandRetry.body.error).toContain('podcast');
+
+    await fetch(`${base}/api/issues/${id}`, { method: 'DELETE' });
+  });
+});
+
 describe('the event log narrates the issue', () => {
   it('records the start, an edit, and a removal — newest first', async () => {
     const created = await fetch(`${base}/api/issues`, {

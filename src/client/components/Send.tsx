@@ -93,7 +93,7 @@ const CARDS: Card[] = [
     again: 'Re-commit',
     blocker: (sent) => (sent.podcast
       ? null
-      : 'The handoff publishes an audio reference, so the podcast should run first. Nothing stops you.'),
+      : 'The page embeds the podcast’s audio reference, so the podcast runs first. The server refuses a commit without it.'),
     steps: [
       { label: 'Render the website edition' },
       {

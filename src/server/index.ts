@@ -102,6 +102,21 @@ function saved(doc: IssueDoc) {
   return { issue: row.doc, readiness: issues.readiness(row.doc) };
 }
 
+/**
+ * Refuse a leg that is already in flight — the client disables its buttons,
+ * but two tabs are a documented workflow, and a second POST re-runs paid TTS
+ * and re-uploads. A `sending` older than ten minutes is a stranded crash, not
+ * an active send, and passes so the leg can be retried.
+ */
+function guardInFlight(doc: IssueDoc, destination: Destination): void {
+  const current = doc.sends?.[destination];
+  if (current?.status !== 'sending') return;
+  const age = Date.now() - Date.parse(current.at ?? '');
+  if (Number.isFinite(age) && age < 10 * 60_000) {
+    throw new HttpError(409, `${destination} send already in flight since ${current.at}`);
+  }
+}
+
 /** Bracket a send leg with log entries; the leg's own behavior is untouched. */
 async function loggedSend(id: string, dest: string, run: () => Promise<unknown>): Promise<unknown> {
   store.logEvent(id, 'send', `Send started — ${dest}`);
@@ -500,14 +515,16 @@ const routes: [RegExp, string, (ctx: Ctx, params: string[]) => Promise<unknown>]
    * to a Buttondown-only guard while the client still offered every leg.
    * tests/routes.test.ts exercises it over HTTP so that cannot happen quietly.
    */
-  [/^\/api\/issues\/([^/]+)\/send\/([a-z]+)$/, 'POST', async (_ctx, [id, dest]) => {
+  [/^\/api\/issues\/([^/]+)\/send\/([a-z]+)$/, 'POST', async ({ url }, [id, dest]) => {
     const destination = dest as Destination;
-    if (destination === 'website') return loggedSend(id!, 'website', () => sendWebsite(id!));
+    const force = url.searchParams.get('force') === '1';
+    if (destination === 'website') return loggedSend(id!, 'website', () => sendWebsite(id!, force));
     if (destination === 'podcast') return loggedSend(id!, 'podcast', () => sendPodcast(id!));
     if (destination === 'archive') return loggedSend(id!, 'archive', () => sendArchive(id!));
     if (destination !== 'buttondown') {
       throw new HttpError(400, `unknown destination ${destination}`);
     }
+    guardInFlight(requireIssue(id!), 'buttondown');
     store.logEvent(id!, 'send', 'Send started — buttondown');
     // Rehost first: the email is where image weight actually hurts, and the
     // rewritten URLs must be in the document before the body is rendered.
@@ -583,8 +600,16 @@ function websiteOptions(doc: IssueDoc) {
  * Commit the generated 11ty inputs to the render surface as one commit. The
  * site builds and deploys from there; nothing here touches the live site.
  */
-async function sendWebsite(id: string) {
+async function sendWebsite(id: string, force = false) {
   const doc = requireIssue(id);
+  guardInFlight(doc, 'website');
+  // The website page embeds the podcast's audio reference; committed without
+  // it, the issue ships to readers with no episode and a green SENT. The
+  // client says the podcast should run first — this makes it true. `?force=1`
+  // is the deliberate escape for an issue that really has no audio.
+  if (!force && doc.sends?.podcast?.status !== 'sent') {
+    throw new HttpError(409, 'the podcast leg has not run — its audio reference belongs in the page. Send the podcast first, or POST ?force=1 to ship without audio.');
+  }
   store.recordSend(id, 'website', { status: 'sending', at: new Date().toISOString() });
   try {
     const files = siteInputs(doc, websiteOptions(doc));
@@ -618,6 +643,7 @@ async function sendWebsite(id: string) {
  */
 async function sendPodcast(id: string) {
   const doc = requireIssue(id);
+  guardInFlight(doc, 'podcast');
   store.recordSend(id, 'podcast', { status: 'sending', at: new Date().toISOString() });
   try {
     const script = renderAudioScript(doc);
@@ -657,6 +683,7 @@ async function sendPodcast(id: string) {
  */
 async function sendArchive(id: string) {
   const doc = requireIssue(id);
+  guardInFlight(doc, 'archive');
   store.recordSend(id, 'archive', { status: 'sending', at: new Date().toISOString() });
   try {
     const sends = doc.sends ?? {};
