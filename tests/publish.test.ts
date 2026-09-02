@@ -4,7 +4,7 @@
  */
 
 import { describe, expect, it } from 'vitest';
-import { readFileSync } from 'node:fs';
+import { existsSync, readFileSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
 
 import type { IssueDoc } from '../src/shared/types.ts';
@@ -74,10 +74,15 @@ describe('link extraction', () => {
   });
 });
 
+// The real published page lives in the sibling checkout — present on Jamie's
+// machine, absent on a bare CI runner, so that one check skips there.
+const realArchivePage = fileURLToPath(
+  new URL('../../weekly.thingelstad.com/apps/site/archive/349.md', import.meta.url),
+);
+
 describe('the archive page', () => {
-  it('carries every field the real published page has', () => {
-    const real = readFileSync(
-      '/Users/otto/Projects/weekly.thingelstad.com/apps/site/archive/349.md', 'utf8');
+  it.skipIf(!existsSync(realArchivePage))('carries every field the real published page has', () => {
+    const real = readFileSync(realArchivePage, 'utf8');
     const keys = (md: string) =>
       new Set(md.split('---')[1]!.split('\n').filter((l) => /^[a-z_]+:/.test(l)).map((l) => l.split(':')[0]!));
     // The reference page has audio, so compare the fully-populated case.
