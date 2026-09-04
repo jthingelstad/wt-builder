@@ -138,23 +138,35 @@ the prompt forbids inventing figures.
 { "candidates": ["…", "…", "…"] }
 ```
 
-**Three candidates** for Membership, Echoes, and Haiku; **two** for link commentary.
+**Three candidates** for Membership and Haiku; **two** for link commentary.
 Three gives real contrast where the choice is a voice; two reads as a coin flip.
 Link commentary is one sentence, where the want is a nudge rather than a menu.
 
-Echoes additionally returns the archive references it used, so its citations are
-reviewable. An issue reference carries its number; a blog or podcast reference
-carries a title instead:
+**Echoes returns units, not candidates** (Jamie, 2026-09-04): up to five
+self-contained echoes, best first, each one or two sentences tracing one
+thread with its own citations. Jamie selects any subset and the section
+composes from it in offered order (`src/shared/echoes.ts`) — the section's
+length follows the quality of what the archive actually offered. Each echo
+carries its own references, so citations stay reviewable per unit; an issue
+reference carries its number, a blog or podcast reference a title:
 
 ```json
 {
-  "candidates": ["…"],
-  "archive_references": [
-    { "kind": "issue", "issue": 341, "url": "…", "note": "…" },
-    { "kind": "blog", "title": "thingelstad.com Data Center", "url": "…", "note": "…" }
+  "echoes": [
+    {
+      "text": "The boat went in this week, as it has every May since [WT221](…).",
+      "archive_references": [ { "kind": "issue", "issue": 221, "url": "…", "note": "…" } ]
+    },
+    {
+      "text": "…",
+      "archive_references": [ { "kind": "blog", "title": "thingelstad.com Data Center", "url": "…", "note": "…" } ]
+    }
   ]
 }
 ```
+
+The ask-Thingy door rides at most one echo and is always offered last, so a
+selected door closes the section.
 
 ### Echoes retrieval
 

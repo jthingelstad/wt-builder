@@ -688,3 +688,39 @@ a:hover { text-decoration: underline; }
   align-self: flex-start; margin-bottom: 4px;
   color: #a07a1f; background: #fdf9ee; border: 1px solid #ece0bd;
 }
+
+/* ── the Echoes multi-select ──────────────────────────────────────────── */
+
+/* Five units cannot breathe in the 250px notes track: the picker widens and
+   overlays the card, popover-style, anchored from the margin. */
+.echoes-picker {
+  width: 560px;
+  margin-left: -330px;
+  position: relative;
+  z-index: 30;
+}
+.echoes-picker .dp-option {
+  display: flex;
+  gap: 8px;
+  align-items: flex-start;
+  font-size: 12.5px;
+}
+.echoes-picker .dp-option.picked {
+  border-color: var(--terracotta);
+  background: var(--terra-1);
+}
+.echoes-picker .dp-check {
+  flex: 0 0 14px;
+  width: 14px; height: 14px;
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  font-size: 10px; line-height: 14px; text-align: center;
+  color: var(--terracotta);
+  margin-top: 2px;
+  background: var(--page);
+}
+.echoes-picker .dp-option.picked .dp-check { border-color: var(--terracotta); }
+.echoes-picker .dp-text { flex: 1; }
+.echoes-picker .dp-compose {
+  display: flex; align-items: center; gap: 10px; margin-top: 2px;
+}

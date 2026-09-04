@@ -69,8 +69,9 @@ describe('note anchoring', () => {
 describe('candidate counts', () => {
   it('offers three where the choice is a voice', () => {
     expect(candidateCount('membership')).toBe(3);
-    expect(candidateCount('echoes')).toBe(3);
     expect(candidateCount('haiku')).toBe(3);
+    // Echoes no longer picks one of N candidates: the wand offers up to five
+    // units and Jamie composes the section from any subset (composeEchoes).
   });
 
   it('offers two for link commentary, where the want is a nudge', () => {

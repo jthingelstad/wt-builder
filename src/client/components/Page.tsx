@@ -11,7 +11,7 @@
 import type { ComponentChildren, RefObject } from 'preact';
 import { useState } from 'preact/hooks';
 
-import type { ArchiveReference, Channel, IssueDoc, IssueNode, Item } from '../../shared/types.ts';
+import type { ArchiveReference, Channel, EchoOption, IssueDoc, IssueNode, Item } from '../../shared/types.ts';
 import { CHANNELS } from '../../shared/types.ts';
 import { clockTime, kickerDate, longDate, wallClock, weekday } from '../../shared/dates.ts';
 import {
@@ -20,6 +20,7 @@ import {
 import { audioScript } from '../../shared/render/audio.ts';
 import { MEMBER_THANKS, PREMIUM_CONDITION } from '../../shared/render/email.ts';
 import { rejoinBody, splitBody } from '../../shared/body.ts';
+import { composeEchoes } from '../../shared/echoes.ts';
 import { markdownInlineToSafeHtml } from '../../shared/markdown.ts';
 import { ImagePlus, Plus, Spinner, Trash } from '../icons.tsx';
 import { Editable, Rail, RichEditable, Row, Wand, itemRail, sectionRail } from './Row.tsx';
@@ -53,8 +54,8 @@ interface PageProps {
   onSelect: (anchor: string | null) => void;
   act: PageActions;
   drafting: string | null;
-  draft: { itemId: string; candidates: string[]; references?: ArchiveReference[] } | null;
-  onPickDraft: (itemId: string, text: string) => void;
+  draft: { itemId: string; candidates: string[]; echoes?: EchoOption[] } | null;
+  onPickDraft: (itemId: string, text: string, refs?: ArchiveReference[]) => void;
   onDismissDraft: () => void;
   /** The `position: relative` host the note overlay measures against. */
   hostRef?: RefObject<HTMLDivElement>;
@@ -309,13 +310,22 @@ export function Page({
                 busy={drafting === itemId}
                 onClick={() => act.draft(itemId)}
               />
-              {draft?.itemId === itemId && (
+              {draft?.itemId === itemId && (draft.echoes ? (
+                <EchoesPicker
+                  echoes={draft.echoes}
+                  onCompose={(selected) => {
+                    const { body, archive_references } = composeEchoes(selected);
+                    onPickDraft(itemId, body, archive_references);
+                  }}
+                  onDismiss={onDismissDraft}
+                />
+              ) : (
                 <DraftPicker
                   candidates={draft.candidates}
                   onPick={(text) => onPickDraft(itemId, text)}
                   onDismiss={onDismissDraft}
                 />
-              )}
+              ))}
             </>
           }
         >
@@ -724,6 +734,59 @@ function DraftPicker({
         <button key={i} class="dp-option" onClick={() => onPick(text)}>{text}</button>
       ))}
       <p class="dp-foot">Nothing is written until you pick one.</p>
+    </div>
+  );
+}
+
+/**
+ * The Echoes wand offers units, not candidates: select any subset and the
+ * section composes from it — length follows quality. Wider than the notes
+ * track on purpose; five echoes cannot breathe in 250px, so the picker
+ * overlays the card like a popover.
+ */
+function EchoesPicker({
+  echoes, onCompose, onDismiss,
+}: {
+  echoes: EchoOption[];
+  onCompose: (selected: EchoOption[]) => void;
+  onDismiss: () => void;
+}) {
+  const [picked, setPicked] = useState<Set<number>>(new Set());
+  const toggle = (i: number) => {
+    const next = new Set(picked);
+    if (next.has(i)) next.delete(i); else next.add(i);
+    setPicked(next);
+  };
+  const selected = echoes.filter((_, i) => picked.has(i));
+
+  return (
+    <div class="draft-picker echoes-picker">
+      <div class="dp-head">
+        <span class="mono-label">ECHOES — SELECT ANY</span>
+        <button class="dp-x" aria-label="Dismiss" onClick={onDismiss}>×</button>
+      </div>
+      {echoes.length === 0 && <p class="quiet">Nothing came back.</p>}
+      {echoes.map((echo, i) => (
+        <button
+          key={i}
+          class={`dp-option${picked.has(i) ? ' picked' : ''}`}
+          aria-pressed={picked.has(i)}
+          onClick={() => toggle(i)}
+        >
+          <span class="dp-check">{picked.has(i) ? '✓' : ''}</span>
+          <span class="dp-text">{echo.text}</span>
+        </button>
+      ))}
+      <div class="dp-compose">
+        <button
+          class="btn small primary"
+          disabled={selected.length === 0}
+          onClick={() => onCompose(selected)}
+        >
+          Use {selected.length || 'none'} {selected.length === 1 ? 'echo' : 'echoes'}
+        </button>
+        <span class="dp-foot">The section is exactly what you select, in this order.</span>
+      </div>
     </div>
   );
 }

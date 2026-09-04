@@ -11,7 +11,7 @@
 
 import { useCallback, useEffect, useRef, useState } from 'preact/hooks';
 
-import type { ArchiveReference, Channel, IssueDoc } from '../../shared/types.ts';
+import type { Channel, EchoOption, IssueDoc } from '../../shared/types.ts';
 import { shortKicker, sourcesLabel } from '../../shared/dates.ts';
 import { windowOf } from '../../shared/render/plan.ts';
 import { api, type IssueResponse, type Readiness } from '../api.ts';
@@ -61,7 +61,7 @@ export function Editor({ doc, readiness, busy, error, run, onIndex, onSend, onEr
   const [panel, setPanel] = useState(true);
   const [selected, setSelected] = useState<string | null>(null);
   const [drafting, setDrafting] = useState<string | null>(null);
-  const [draft, setDraft] = useState<{ itemId: string; candidates: string[]; references?: ArchiveReference[] } | null>(null);
+  const [draft, setDraft] = useState<{ itemId: string; candidates: string[]; echoes?: EchoOption[] } | null>(null);
   const [sweeping, setSweeping] = useState(false);
   const [collapsed, setCollapsed] = useState(false);
   const [reading, setReading] = useState(false);
@@ -117,7 +117,7 @@ export function Editor({ doc, readiness, busy, error, run, onIndex, onSend, onEr
       setDrafting(itemId);
       setDraft(null);
       api.draftItem(id, itemId)
-        .then((r) => setDraft({ itemId, candidates: r.candidates, references: r.archive_references }))
+        .then((r) => setDraft({ itemId, candidates: r.candidates, echoes: r.echoes }))
         .catch((err) => onError((err as Error).message))
         .finally(() => setDrafting(null));
     },
@@ -376,8 +376,7 @@ export function Editor({ doc, readiness, busy, error, run, onIndex, onSend, onEr
               act={act}
               drafting={drafting}
               draft={draft}
-              onPickDraft={(itemId, text) => {
-                const refs = draft?.references;
+              onPickDraft={(itemId, text, refs) => {
                 setDraft(null);
                 // The head wand drafts the title theme and dek as two lines.
                 if (itemId === 'issue') {
@@ -391,8 +390,8 @@ export function Editor({ doc, readiness, busy, error, run, onIndex, onSend, onEr
                 const item = doc.items[itemId];
                 const field = item?.type === 'pinboard_link' ? 'commentary' : 'body';
                 const patch: Record<string, unknown> = { [field]: text };
-                // Echoes carries the citations it was drafted from, so the
-                // inspector can show what the note stands on.
+                // Echoes carries the citations it was composed from, so the
+                // inspector can show what the section stands on.
                 if (item?.type === 'echoes' && refs?.length) patch.archive_references = refs;
                 void run(() => api.updateItem(id, itemId, patch));
               }}

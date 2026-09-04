@@ -136,6 +136,16 @@ export interface IssueNode {
 
 export type IssueStatus = 'draft' | 'published';
 
+/**
+ * One selectable Echoes unit: a self-contained sentence or two with its own
+ * citations. Jamie composes the section from any subset of what the wand
+ * offers, so length follows quality.
+ */
+export interface EchoOption {
+  text: string;
+  archive_references: ArchiveReference[];
+}
+
 /** A shared draft preview: where it lives and what Jamie said with it. */
 export interface DraftShare {
   token: string;

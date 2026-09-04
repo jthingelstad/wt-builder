@@ -8,7 +8,7 @@
 
 import Anthropic from '@anthropic-ai/sdk';
 
-import type { ArchiveReference, IssueDoc, Item } from '../shared/types.ts';
+import type { ArchiveReference, EchoOption, IssueDoc, Item } from '../shared/types.ts';
 import { renderAnnotated } from '../shared/render/annotate.ts';
 import { bodyLines } from '../shared/render/plan.ts';
 import { config } from './config.ts';
@@ -353,11 +353,16 @@ loose, you write composed. Knowledgeable without being smug. No hype words
 nothing. No speculation about Jamie's mood, family, or motivations beyond
 what a cited source shows.
 
-Shape: let the material decide. One echo traced well — a thread from this
-issue back through the years — beats three name-checks; when the resonance
-genuinely spreads, two or three short callbacks are right. One paragraph,
-roughly 60–120 words, no heading. 1–4 citations, each a real resonance —
-never pad toward a count.
+Shape: return UP TO FIVE unique echoes, best first — aim for five when the
+material supports it, fewer when it does not; never pad toward a count.
+Each echo is its own self-contained unit: one or two sentences, roughly
+15–45 words, tracing ONE thread from this issue back through the archive,
+with its 1–2 citations inline. Jamie selects any subset to compose the
+section, so every echo must stand alone AND sit cleanly beside any of the
+others: no cross-references between echoes, no "also"/"meanwhile"
+chaining, no shared opening rhythm — five sentences that all start "This
+week's..." compose badly. Spread the echoes across different threads of
+the issue; do not cite the same source in two echoes.
 
 Citations: Weekly Thing issues as markdown links —
 [WT210](https://weekly.thingelstad.com/archive/210/) — and prefer them. A
@@ -367,15 +372,16 @@ citation must tie to something specific in THIS issue: a named link, a
 Journal entry, a recurring place, project, or season. A citation that just
 says "Jamie has written about this before" is a failure.
 
-End by opening a door, not closing a topic — no tidy conclusions, no "keep
-exploring!". Exactly one candidate — no more — may close with an invitation
-to ask Thingy itself at https://thingy.thingelstad.com/ (the same librarian,
-live); every other candidate ends on the citations alone.
+Open doors, don't close topics — no tidy conclusions, no "keep exploring!".
+At most ONE echo may close with an invitation to ask Thingy itself at
+https://thingy.thingelstad.com/ (the same librarian, live), and that echo
+must be offered LAST, so it lands at the end when Jamie selects it; every
+other echo ends on its citations alone.
 
 Ground every claim in the archive passages provided below — they are grouped
 by the item in this issue that retrieved them, and a passage from about a
 year ago this week may be included for seasonal rhymes. Never invent an
-issue number or a claim about one. Report every source you actually cited in
+issue number or a claim about one. Report each echo's sources in its own
 archive_references — kind "issue" with its number, or kind "blog"/"podcast"
 with its title — each with a note saying what it carries.`,
 
@@ -512,8 +518,12 @@ export interface SeasonalIssue {
 
 export interface DraftResult {
   candidates: string[];
-  archive_references?: ArchiveReference[];
+  /** Echoes only: selectable units — Jamie composes the section from a subset. */
+  echoes?: EchoOption[];
 }
+
+/** How many echo units one drafting call offers, at most. */
+export const ECHOES_OFFERED = 5;
 
 const CANDIDATES_SCHEMA = {
   type: 'object',
@@ -524,25 +534,42 @@ const CANDIDATES_SCHEMA = {
   },
 } as const;
 
-/** Echoes also reports which sources it cited, so citations are reviewable. */
+const REFERENCES_SCHEMA = {
+  type: 'array',
+  items: {
+    type: 'object',
+    additionalProperties: false,
+    required: ['url', 'kind'],
+    properties: {
+      kind: { type: 'string', enum: ['issue', 'blog', 'podcast'] },
+      issue: { type: 'integer' },
+      url: { type: 'string' },
+      title: { type: 'string' },
+      note: { type: 'string' },
+    },
+  },
+} as const;
+
+/**
+ * Echoes returns selectable units, not whole candidates: up to five echoes,
+ * each with its own citations, and Jamie composes the section from any
+ * subset — the section's length follows the quality of what the archive
+ * actually offered (Jamie, 2026-09-04).
+ */
 const ECHOES_SCHEMA = {
   type: 'object',
   additionalProperties: false,
-  required: ['candidates', 'archive_references'],
+  required: ['echoes'],
   properties: {
-    candidates: { type: 'array', items: { type: 'string' } },
-    archive_references: {
+    echoes: {
       type: 'array',
       items: {
         type: 'object',
         additionalProperties: false,
-        required: ['url', 'kind'],
+        required: ['text', 'archive_references'],
         properties: {
-          kind: { type: 'string', enum: ['issue', 'blog', 'podcast'] },
-          issue: { type: 'integer' },
-          url: { type: 'string' },
-          title: { type: 'string' },
-          note: { type: 'string' },
+          text: { type: 'string' },
+          archive_references: REFERENCES_SCHEMA,
         },
       },
     },
@@ -801,7 +828,9 @@ export async function draft(req: DraftRequest): Promise<DraftResult> {
     : undefined;
 
   const parts = [
-    `Return exactly ${n} distinct candidates. Make them genuinely different from each other, not variations on one phrasing.`,
+    type === 'echoes'
+      ? `Return up to ${ECHOES_OFFERED} unique echoes, best first — only as many as are real.`
+      : `Return exactly ${n} distinct candidates. Make them genuinely different from each other, not variations on one phrasing.`,
     isIssue ? `\nThis is issue WT${req.doc.issue.number}.` : '',
     campaign ? `\nThe program, from the live members page:\n${campaign}` : '',
     anchored.length
@@ -839,11 +868,10 @@ export async function draft(req: DraftRequest): Promise<DraftResult> {
 
   const parsed = JSON.parse(text) as {
     candidates?: string[];
-    archive_references?: ArchiveReference[];
+    echoes?: EchoOption[];
   };
-  const result: DraftResult = { candidates: (parsed.candidates ?? []).slice(0, n) };
-  if (type === 'echoes' && parsed.archive_references) {
-    result.archive_references = parsed.archive_references;
+  if (type === 'echoes') {
+    return { candidates: [], echoes: (parsed.echoes ?? []).slice(0, ECHOES_OFFERED) };
   }
-  return result;
+  return { candidates: (parsed.candidates ?? []).slice(0, n) };
 }
