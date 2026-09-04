@@ -26,6 +26,9 @@ import { Editable, Rail, RichEditable, Row, Wand, itemRail, sectionRail } from '
 
 export type Lens = Channel | 'source';
 
+/** Link sections whose entries can move down to Briefly (matches plan.ts). */
+const HEADING_LINK_SECTIONS: ReadonlySet<string> = new Set(['notable', 'featured']);
+
 export interface PageActions {
   updateItem(itemId: string, patch: Record<string, unknown>): void;
   updateIssue(patch: Record<string, unknown>): void;
@@ -37,6 +40,7 @@ export interface PageActions {
   addItem(nodeId: string, type: string): void;
   promote(itemId: string): void;
   demote(nodeId: string): void;
+  moveToSection(itemId: string, target: 'Notable' | 'Briefly'): void;
   setChannel(itemId: string, channel: Channel, on: boolean): void;
   draft(itemId: string): void;
   uploadPhoto(itemId: string, file: File): Promise<unknown>;
@@ -258,6 +262,16 @@ export function Page({
       const singleton = ['intro', 'outro', 'photo', 'haiku', 'membership', 'echoes']
         .includes(item.type);
 
+      // A link in a heading section moves down to Briefly; a Briefly link
+      // moves up to Notable. The server mirrors the move onto the bookmark's
+      // __brief tag, so the gesture is an edit at Pinboard too.
+      const moveTarget: 'Notable' | 'Briefly' | null =
+        item.type === 'pinboard_link'
+          ? node.type === 'briefly' ? 'Notable'
+            : HEADING_LINK_SECTIONS.has(node.type) ? 'Briefly'
+            : null
+          : null;
+
       const rowRail = itemRail({
         item,
         canPromote: node.type === 'journal' && Boolean(item.title),
@@ -265,6 +279,14 @@ export function Page({
           ? 'An untitled post cannot be promoted — give it a title first'
           : undefined,
         onPromote: () => act.promote(itemId),
+        ...(moveTarget
+          ? {
+              moveSection: {
+                target: moveTarget,
+                onClick: () => act.moveToSection(itemId, moveTarget),
+              },
+            }
+          : {}),
         onUp: () => act.moveItem(node.id, itemId, -1),
         onDown: () => act.moveItem(node.id, itemId, 1),
         onInspect: () => onSelect(itemId),

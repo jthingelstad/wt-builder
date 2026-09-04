@@ -113,6 +113,55 @@ describe('an item can be removed over the wire', () => {
   });
 });
 
+describe('a link moves between Notable and Briefly over the wire', () => {
+  it('moves both ways, carrying the __brief tag with it', async () => {
+    const created = await fetch(`${base}/api/issues`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ number: 990005, publication_date: '2026-10-03' }),
+    });
+    const { issue } = await created.json();
+    const id = issue.issue.id;
+
+    // A written link — no Pinboard record, so the move is purely local.
+    const addRes = await fetch(`${base}/api/issues/${id}/nodes/notable/items`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ type: 'pinboard_link' }),
+    });
+    const withLink = (await addRes.json()).issue;
+    const linkId = withLink.nodes.find((n: any) => n.id === 'notable').items.at(-1);
+
+    const down = await fetch(`${base}/api/issues/${id}/items/${linkId}/section`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ target: 'Briefly' }),
+    });
+    expect(down.status).toBe(200);
+    const moved = (await down.json()).issue;
+    expect(moved.nodes.find((n: any) => n.id === 'briefly').items).toContain(linkId);
+    expect(moved.items[linkId].tags).toContain('__brief');
+
+    const up = await fetch(`${base}/api/issues/${id}/items/${linkId}/section`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ target: 'Notable' }),
+    });
+    const back = (await up.json()).issue;
+    expect(back.nodes.find((n: any) => n.id === 'notable').items).toContain(linkId);
+    expect(back.items[linkId].tags).not.toContain('__brief');
+
+    const bad = await fetch(`${base}/api/issues/${id}/items/${linkId}/section`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ target: 'Journal' }),
+    });
+    expect(bad.status).toBe(400);
+
+    await fetch(`${base}/api/issues/${id}`, { method: 'DELETE' });
+  });
+});
+
 describe('the send guards refuse before any leg runs', () => {
   it('website without a sent podcast is a 409, and force is the escape', async () => {
     const created = await fetch(`${base}/api/issues`, {

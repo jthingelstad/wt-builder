@@ -87,6 +87,17 @@ finished, what is half-finished, and what has never run.
   on the meta card opens it as a sheet. Quiet re-scans (nothing changed) log
   nothing, so the auto-scan on open cannot bury the signal.
 
+- **Notable ↔ Briefly move** (2026-09-03) — a link's rail carries a move
+  action (it takes the promote slot, which for a link was a permanently
+  disabled button): Notable/Featured links move down to Briefly, Briefly
+  links move up to Notable. The move is also a source edit — Briefly is the
+  `__brief` tag on the bookmark, so the server adjusts tags and immediately
+  writes back to Pinboard through the shared write-back path (snapshot moves
+  on success; `gone` bookmarks move locally only; written links have no
+  source and just move). Route: `POST /api/issues/:id/items/:itemId/section`.
+  Exercised over HTTP in routes.test.ts; not yet clicked in a browser
+  against a live bookmark.
+
 ## Not built
 
 - ~~The 352px editorial review panel~~ — built 2026-08-28: shares the rail

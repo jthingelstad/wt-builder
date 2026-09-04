@@ -16,7 +16,7 @@ import { existsSync } from 'node:fs';
 import { extname, join, normalize } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
-import type { Channel, Destination, IssueDoc, SendState } from '../shared/types.ts';
+import type { Channel, Destination, IssueDoc, Item, SendState } from '../shared/types.ts';
 import { render } from '../shared/render/index.ts';
 import { renderEmail } from '../shared/render/email.ts';
 import { config, describeConfig } from './config.ts';
@@ -117,7 +117,55 @@ function guardInFlight(doc: IssueDoc, destination: Destination): void {
   }
 }
 
-/** Bracket a send leg with log entries; the leg's own behavior is untouched. */
+/**
+ * Push one item's working values to its source and record the outcome: the
+ * sync event, the item's sync state, and — on success — the moved merge
+ * base. Shared by the explicit write-back route and edits that imply one
+ * (a section move changes the bookmark's tags).
+ */
+async function writeItemToSource(
+  id: string,
+  doc: IssueDoc,
+  itemId: string,
+): Promise<{ doc: IssueDoc; result: { sync_state: Item['sync_state']; error?: string } }> {
+  const item = doc.items[itemId];
+  if (!item) throw new HttpError(404, `no item ${itemId}`);
+
+  // Writing back a `gone` item would recreate the record its owner deleted
+  // at the source. Deleting was an act there; restoring must be one too.
+  const result =
+    item.sync_state === 'gone'
+      ? { sync_state: 'gone' as const, error: `deleted at ${item.source} — not recreating it` }
+      : item.source === 'Micro.blog'
+        ? await microblog.updatePost(item)
+        : item.source === 'Pinboard'
+          ? await pinboard.writeBack(item)
+          : { sync_state: 'local' as const, error: `${item.source} has no write-back` };
+
+  store.logEvent(id, 'sync',
+    `Write to ${item.source} — ${result.sync_state}${result.error ? `: ${result.error}` : ''} — ${issues.itemName(item)}`);
+  // A successful write moves the merge base: the snapshot now records what
+  // was written, so the next scan's reconcile starts from this write rather
+  // than re-adopting it as a source-side change.
+  const snapshot =
+    result.sync_state === 'synced'
+      ? {
+          source_snapshot:
+            item.source === 'Pinboard'
+              ? { title: item.title ?? '', commentary: item.commentary ?? '', tags: item.tags ?? [] }
+              : { title: item.title ?? '', body: item.body ?? '' },
+        }
+      : {};
+  return {
+    doc: issues.updateItem(doc, itemId, {
+      sync_state: result.sync_state,
+      sync_error: result.error,
+      ...snapshot,
+    }),
+    result,
+  };
+}
+
 /**
  * The issue from about a year ago this week, for Echoes' seasonal lens.
  * Undefined when the archive holds nothing near that date — the draft then
@@ -140,6 +188,7 @@ function seasonalFor(doc: IssueDoc): editorial.SeasonalIssue | undefined {
   };
 }
 
+/** Bracket a send leg with log entries; the leg's own behavior is untouched. */
 async function loggedSend(id: string, dest: string, run: () => Promise<unknown>): Promise<unknown> {
   store.logEvent(id, 'send', `Send started — ${dest}`);
   try {
@@ -400,43 +449,44 @@ const routes: [RegExp, string, (ctx: Ctx, params: string[]) => Promise<unknown>]
    * `sync_state` records the outcome.
    */
   [/^\/api\/issues\/([^/]+)\/items\/([^/]+)\/writeback$/, 'POST', async (_ctx, [id, itemId]) => {
+    const { doc, result } = await writeItemToSource(id!, requireIssue(id!), itemId!);
+    return { ...saved(doc), result };
+  }],
+
+  /**
+   * Move a link between Notable and Briefly. One editorial gesture with a
+   * source-side half: Briefly is the `__brief` tag on the bookmark, so the
+   * move adjusts the tags and immediately writes them back to Pinboard —
+   * the builder and the bookmark must agree on what the link is.
+   */
+  [/^\/api\/issues\/([^/]+)\/items\/([^/]+)\/section$/, 'POST', async ({ body }, [id, itemId]) => {
+    const b = await body();
+    const target = b.target as 'Notable' | 'Briefly';
+    if (target !== 'Notable' && target !== 'Briefly') {
+      throw new HttpError(400, 'target must be Notable or Briefly');
+    }
     const doc = requireIssue(id!);
     const item = doc.items[itemId!];
     if (!item) throw new HttpError(404, `no item ${itemId}`);
+    if (item.type !== 'pinboard_link') {
+      throw new HttpError(400, 'only links move between Notable and Briefly');
+    }
+    const dest = doc.nodes.find(
+      (n) => n.kind === 'section' && n.label.toLowerCase() === target.toLowerCase(),
+    );
+    if (!dest) throw new HttpError(400, `this issue has no ${target} section`);
+    if (dest.items.includes(itemId!)) return saved(doc);
 
-    // Writing back a `gone` item would recreate the record its owner deleted
-    // at the source. Deleting was an act there; restoring must be one too.
-    const result =
-      item.sync_state === 'gone'
-        ? { sync_state: 'gone' as const, error: `deleted at ${item.source} — not recreating it` }
-        : item.source === 'Micro.blog'
-          ? await microblog.updatePost(item)
-          : item.source === 'Pinboard'
-            ? await pinboard.writeBack(item)
-            : { sync_state: 'local' as const, error: `${item.source} has no write-back` };
+    const moved = issues.moveLinkToSection(doc, itemId!, target);
+    store.logEvent(id!, 'structure', `Moved to ${target} — ${issues.itemName(item)}`);
 
-    store.logEvent(id!, 'sync',
-      `Write to ${item.source} — ${result.sync_state}${result.error ? `: ${result.error}` : ''} — ${issues.itemName(item)}`);
-    // A successful write moves the merge base: the snapshot now records what
-    // was written, so the next scan's reconcile starts from this write rather
-    // than re-adopting it as a source-side change.
-    const snapshot =
-      result.sync_state === 'synced'
-        ? {
-            source_snapshot:
-              item.source === 'Pinboard'
-                ? { title: item.title ?? '', commentary: item.commentary ?? '', tags: item.tags ?? [] }
-                : { title: item.title ?? '', body: item.body ?? '' },
-          }
-        : {};
-    return {
-      ...saved(issues.updateItem(doc, itemId!, {
-        sync_state: result.sync_state,
-        sync_error: result.error,
-        ...snapshot,
-      })),
-      result,
-    };
+    // The move marks the item `syncing` only when the tags actually changed;
+    // a `gone` bookmark moves locally and is never re-created at the source.
+    if (moved.items[itemId!]?.sync_state === 'syncing') {
+      const { doc: synced, result } = await writeItemToSource(id!, moved, itemId!);
+      return { ...saved(synced), result };
+    }
+    return saved(moved);
   }],
 
   /**

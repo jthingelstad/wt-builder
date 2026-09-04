@@ -25,11 +25,19 @@ const API = 'https://api.pinboard.in/v1';
  */
 export const SWEEP_UNREAD_ONLY = true;
 
+/**
+ * Jamie's Pinboard convention for a Briefly link, from the Shortcuts era.
+ * Moving a link between Notable and Briefly in the builder adds or removes
+ * it, and the write-back carries it to the bookmark.
+ */
+export const BRIEF_TAG = '__brief';
+
 /** Tags that route a link to a section. Placement in the issue still wins. */
 const SECTION_TAGS: Record<string, string> = {
   notable: 'Notable',
   briefly: 'Briefly',
   featured: 'Featured',
+  [BRIEF_TAG]: 'Briefly',
 };
 
 export interface PinboardPost {

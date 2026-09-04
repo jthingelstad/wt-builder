@@ -447,6 +447,51 @@ export function promote(doc: IssueDoc, itemId: string): IssueDoc {
   return next;
 }
 
+/**
+ * Move a link between the heading sections and Briefly. The editorial act is
+ * one gesture, but it is also a source edit: Briefly is `__brief` on the
+ * bookmark (Jamie's Pinboard convention), so the move adjusts the tag and
+ * marks the item for write-back — the route pushes it, the same path any
+ * other tag edit takes. A `gone` bookmark moves locally but is never
+ * queued for a write that would recreate it.
+ */
+export function moveLinkToSection(
+  doc: IssueDoc,
+  itemId: string,
+  target: 'Notable' | 'Briefly',
+): IssueDoc {
+  const next = structuredClone(doc);
+  const item = next.items[itemId];
+  if (!item || item.type !== 'pinboard_link') return next;
+
+  const source = next.nodes.find((n) => n.items.includes(itemId));
+  const dest = next.nodes.find(
+    (n) => n.kind === 'section' && n.label.toLowerCase() === target.toLowerCase(),
+  );
+  if (!source || !dest || source === dest) return next;
+
+  source.items = source.items.filter((i) => i !== itemId);
+  dest.items.push(itemId);
+  item.section = dest.label;
+
+  const tags = item.tags ?? [];
+  const hasBrief = tags.some((t) => t.toLowerCase() === pinboard.BRIEF_TAG);
+  const tagChanges = target === 'Briefly' ? !hasBrief : hasBrief;
+  if (tagChanges) {
+    item.tags =
+      target === 'Briefly'
+        ? [...tags, pinboard.BRIEF_TAG]
+        : tags.filter((t) => t.toLowerCase() !== pinboard.BRIEF_TAG);
+    // Only a real Pinboard bookmark queues a write; a link written directly
+    // into the issue has no source record, and `gone` must not recreate one.
+    if (item.source === 'Pinboard' && item.sync_state !== 'gone') {
+      item.sync_state = 'syncing';
+      delete item.sync_error;
+    }
+  }
+  return next;
+}
+
 export function demote(doc: IssueDoc, nodeId: string): IssueDoc {
   const next = structuredClone(doc);
   const promoted = next.nodes.find((n) => n.id === nodeId && n.kind === 'promoted_item');

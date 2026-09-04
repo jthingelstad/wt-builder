@@ -110,6 +110,9 @@ export const api = {
     post(`/issues/${id}/items/${itemId}/visibility`, { visible }),
 
   promote: (id: string, itemId: string) => post(`/issues/${id}/items/${itemId}/promote`),
+  /** Notable <-> Briefly. The server also writes the __brief tag to Pinboard. */
+  moveToSection: (id: string, itemId: string, target: 'Notable' | 'Briefly') =>
+    post(`/issues/${id}/items/${itemId}/section`, { target }),
   demote: (id: string, nodeId: string) => post(`/issues/${id}/nodes/${nodeId}/demote`),
 
   moveNode: (id: string, nodeId: string, delta: number) =>

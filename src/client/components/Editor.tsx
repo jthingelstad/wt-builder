@@ -100,6 +100,7 @@ export function Editor({ doc, readiness, busy, error, run, onIndex, onSend, onEr
     addNode: (spec) => void runEdit(() => api.addNode(id, spec)),
     addItem: (nodeId, type) => void runEdit(() => api.addItem(id, nodeId, type)),
     promote: (itemId) => void runEdit(() => api.promote(id, itemId)),
+    moveToSection: (itemId, target) => void runEdit(() => api.moveToSection(id, itemId, target)),
     demote: (nodeId) => void runEdit(() => api.demote(id, nodeId)),
     setChannel: (itemId, channel, on) => void runEdit(() => api.setChannel(id, itemId, channel, on)),
     uploadPhoto: (itemId, file) => {

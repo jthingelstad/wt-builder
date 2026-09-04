@@ -6,7 +6,7 @@ import type { Item } from '../src/shared/types.ts';
 import { allChannels } from '../src/shared/types.ts';
 import { CDN_HOST, imageUrls, isRehosted, rewriteReferences } from '../src/server/integrations/images.ts';
 import { candidateToItem } from '../src/server/integrations/microblog.ts';
-import { sweepBounds } from '../src/server/integrations/pinboard.ts';
+import { BRIEF_TAG, sectionForTags, sweepBounds } from '../src/server/integrations/pinboard.ts';
 import { issueWindow, inWindow } from '../src/shared/dates.ts';
 
 const item = (over: Partial<Item> = {}): Item => ({
@@ -125,6 +125,13 @@ describe('the Pinboard sweep and the window agree on where Friday is', () => {
     const b = sweepBounds(w);
     expect(b.fromdt).toBe('2026-08-28T04:00:00Z'); // Fri 00:00 CDT is 05:00Z, minus the pad
     expect(b.todt).toBe('2026-09-04T06:00:00Z');   // plus the pad
+  });
+
+  it("routes Jamie's __brief tag to Briefly, alongside the plain section tags", () => {
+    expect(sectionForTags([BRIEF_TAG])).toBe('Briefly');
+    expect(sectionForTags(['__Brief'])).toBe('Briefly');
+    expect(sectionForTags(['notable'])).toBe('Notable');
+    expect(sectionForTags(['weekly-thing'])).toBeUndefined();
   });
 
   it('the padding admits nothing — inWindow on the instants is the authority', () => {

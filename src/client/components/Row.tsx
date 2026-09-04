@@ -109,15 +109,28 @@ export function itemRail(opts: {
   onInspect: () => void;
   /** Absent for seeded singletons (Photo, Intro…) — their section's X owns removal. */
   onRemove?: () => void;
+  /**
+   * Links only: Notable ↔ Briefly. Takes the promote slot — a link never
+   * promotes, so for links that slot was a permanently disabled button.
+   */
+  moveSection?: { target: 'Notable' | 'Briefly'; onClick: () => void };
 }): { sync?: SyncState; actions: RailAction[] } {
+  const first: RailAction = opts.moveSection
+    ? {
+        key: 'move-section',
+        label: `Move to ${opts.moveSection.target} — updates the __brief tag on Pinboard`,
+        icon: opts.moveSection.target === 'Notable' ? <CornerUpRight /> : <CornerDownRight />,
+        onClick: opts.moveSection.onClick,
+      }
+    : {
+        key: 'promote',
+        label: opts.promoteWhy ?? 'Promote to its own section',
+        icon: <CornerUpRight />,
+        disabled: !opts.canPromote,
+        onClick: opts.onPromote,
+      };
   const actions: RailAction[] = [
-    {
-      key: 'promote',
-      label: opts.promoteWhy ?? 'Promote to its own section',
-      icon: <CornerUpRight />,
-      disabled: !opts.canPromote,
-      onClick: opts.onPromote,
-    },
+    first,
     { key: 'up', label: 'Move up', icon: <ArrowUp />, onClick: opts.onUp },
     { key: 'down', label: 'Move down', icon: <ArrowDown />, onClick: opts.onDown },
     { key: 'info', label: 'Inspect', icon: <Info />, onClick: opts.onInspect },

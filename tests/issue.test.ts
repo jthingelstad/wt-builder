@@ -10,7 +10,7 @@ import type { IssueDoc, Item } from '../src/shared/types.ts';
 import * as issues from '../src/server/issue.ts';
 import { inWindow, issueWindow, snapToSaturday, windowLabel } from '../src/shared/dates.ts';
 import {
-  addMarkdownBlock, addSection, createIssue, demote, hideItem, moveNode,
+  addMarkdownBlock, addSection, createIssue, demote, hideItem, moveLinkToSection, moveNode,
   normalizeSkeleton, promote, readiness, removeSection, setChannel, setIssueNumber,
   setPublicationDate, setWindowDays,
   updateItem,
@@ -138,6 +138,59 @@ describe('promotion', () => {
     expect(journal.items).toContain('journal-concert');
     expect(back.items['journal-concert']!.presentation).toBe('journal');
     expect(back.nodes.find((n) => n.id === node.id)).toBeUndefined();
+  });
+});
+
+describe('moving a link between Notable and Briefly', () => {
+  it('to Briefly: moves the item, stamps the section, adds __brief, queues a write', () => {
+    const doc = moveLinkToSection(fixture(), 'link-flipcash', 'Briefly');
+    expect(doc.nodes.find((n) => n.type === 'briefly')!.items).toContain('link-flipcash');
+    expect(doc.nodes.find((n) => n.type === 'notable')!.items).not.toContain('link-flipcash');
+    const item = doc.items['link-flipcash']!;
+    expect(item.section).toBe('Briefly');
+    expect(item.tags).toContain('__brief');
+    expect(item.sync_state).toBe('syncing');
+  });
+
+  it('to Notable: removes __brief, any casing', () => {
+    const start = fixture();
+    start.items['briefly-forge']!.tags = ['__Brief', 'tools'];
+    const doc = moveLinkToSection(start, 'briefly-forge', 'Notable');
+    expect(doc.nodes.find((n) => n.type === 'notable')!.items).toContain('briefly-forge');
+    const item = doc.items['briefly-forge']!;
+    expect(item.section).toBe('Notable');
+    expect(item.tags).toEqual(['tools']);
+    expect(item.sync_state).toBe('syncing');
+  });
+
+  it('a tag-neutral move never queues a write', () => {
+    // Already untagged, moving to Notable: placement changes, tags do not.
+    const doc = moveLinkToSection(fixture(), 'briefly-forge', 'Notable');
+    expect(doc.items['briefly-forge']!.sync_state).toBe('synced');
+  });
+
+  it('a gone bookmark moves locally and stays gone', () => {
+    const start = fixture();
+    start.items['link-flipcash']!.sync_state = 'gone';
+    const doc = moveLinkToSection(start, 'link-flipcash', 'Briefly');
+    expect(doc.items['link-flipcash']!.tags).toContain('__brief');
+    expect(doc.items['link-flipcash']!.sync_state).toBe('gone');
+  });
+
+  it('a written link adjusts its tags without pretending to sync', () => {
+    const start = fixture();
+    const item = start.items['link-flipcash']!;
+    item.source = 'direct';
+    item.sync_state = 'local';
+    const doc = moveLinkToSection(start, 'link-flipcash', 'Briefly');
+    expect(doc.items['link-flipcash']!.tags).toContain('__brief');
+    expect(doc.items['link-flipcash']!.sync_state).toBe('local');
+  });
+
+  it('only links move this way', () => {
+    const doc = moveLinkToSection(fixture(), 'journal-concert', 'Briefly');
+    expect(doc.nodes.find((n) => n.type === 'briefly')!.items).not.toContain('journal-concert');
+    expect(doc.nodes.find((n) => n.type === 'journal')!.items).toContain('journal-concert');
   });
 });
 
