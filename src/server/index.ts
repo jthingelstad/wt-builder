@@ -551,6 +551,9 @@ const routes: [RegExp, string, (ctx: Ctx, params: string[]) => Promise<unknown>]
       alt: item.media?.alt || filename.replace(/\.[a-z0-9]+$/i, '').replace(/[-_]+/g, ' '),
       timestamp: item.media?.timestamp || stored.takenAt || undefined,
       location,
+      // Kept beside the name: the published metadata line links the place
+      // to the exact spot on the map.
+      coordinates: item.media?.coordinates || stored.coordinates || undefined,
     };
 
     store.logEvent(id!, 'edit', `Photo uploaded — ${filename}`);

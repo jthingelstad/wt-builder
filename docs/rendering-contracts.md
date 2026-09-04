@@ -61,8 +61,11 @@ weekday and time beneath its heading.
 ## Photo
 
 Website and Buttondown include image, alt text, caption, and relevant metadata.
-Photo is omitted from audio rather than replaced with a generic narration.
-Photo may appear more than once in an issue.
+The location in the metadata line links to OpenStreetMap at the photo's exact
+EXIF coordinates when the camera recorded them (`media.coordinates`); without
+coordinates the place prints as plain text. Photo is omitted from audio rather
+than replaced with a generic narration. Photo may appear more than once in an
+issue.
 
 ## Thingy attribution
 

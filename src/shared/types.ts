@@ -53,7 +53,13 @@ export interface Media {
   caption?: string;
   /** ISO 8601 with offset. Rendered in the photo's own local time. */
   timestamp?: string;
+  /** The place as a reader should see it — "Falcon Heights, MN". Editable. */
   location?: string;
+  /**
+   * The EXIF "lat, lon", kept beside the human name so the published
+   * metadata line can link to the exact spot on the map.
+   */
+  coordinates?: string;
 }
 
 /**

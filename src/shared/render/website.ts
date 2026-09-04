@@ -17,6 +17,17 @@ export function byline(item: Item): string {
   return `_By ${item.attribution ?? item.authorship}_`;
 }
 
+/**
+ * The exact spot on OpenStreetMap, or null when the string is not "lat, lon".
+ * OSM is where the place name came from (integrations/geocode.ts), so it is
+ * also where the name links back to.
+ */
+export function osmUrl(coordinates: string | undefined): string | null {
+  const m = /^(-?\d+(?:\.\d+)?),\s*(-?\d+(?:\.\d+)?)$/.exec(String(coordinates ?? '').trim());
+  if (!m) return null;
+  return `https://www.openstreetmap.org/?mlat=${m[1]}&mlon=${m[2]}#map=16/${m[1]}/${m[2]}`;
+}
+
 /** "![alt](url)", caption, and the metadata line, in that order. */
 export function photoBlocks(item: Item): Block[] {
   const out: Block[] = [];
@@ -32,7 +43,11 @@ export function photoBlocks(item: Item): Block[] {
     parts.push(shortDate(w));
     parts.push(clockTime(w));
   }
-  if (media.location) parts.push(media.location);
+  if (media.location) {
+    // The place name links to the exact coordinates when the camera knew them.
+    const map = osmUrl(media.coordinates);
+    parts.push(map ? `[${media.location}](${map})` : media.location);
+  }
   if (parts.length) out.push(`_${parts.join(' · ')}_`);
 
   return out;

@@ -12,7 +12,7 @@ Welcome back from summer break. This issue is being assembled item by item in WT
 
 Beautiful evening with the sun coming down.
 
-_May 16, 2026 · 8:35 PM · Cannon Lake, Warsaw, MN_
+_May 16, 2026 · 8:35 PM · [Cannon Lake, Warsaw, MN](https://www.openstreetmap.org/?mlat=44.25538&mlon=-93.35226#map=16/44.25538/-93.35226)_
 
 ## Notable
 
