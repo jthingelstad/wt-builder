@@ -249,9 +249,10 @@ export async function storeUpload(
 /**
  * What the camera recorded: when, and where.
  *
- * Returns coordinates rather than a place name — naming the place needs a
- * geocoder this service does not have, and a wrong place name in print is worse
- * than none. The drop zone says both stay editable, so Jamie names it.
+ * Returns coordinates — this is the EXIF read, and coordinates are what the
+ * camera knows. Turning them into a place name is the upload route's job
+ * (integrations/geocode.ts, since 2026-09-03); when that fails the
+ * coordinates stand in, and either way the field stays editable.
  */
 export function readExif(buffer: Buffer): { takenAt?: string; coordinates?: string } {
   try {

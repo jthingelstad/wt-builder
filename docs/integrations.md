@@ -76,9 +76,12 @@ Librarian API and corpus on 2026-08-28.
   which is what makes an email enormous.
 - A photo dropped on the canvas takes the same path. Its timestamp and
   coordinates are read from EXIF **on the server** — the browser only knows when
-  the file was copied, not when it was taken. Coordinates, not a place name:
-  naming the place needs a geocoder this service does not have, and a wrong
-  place name in print is worse than none.
+  the file was copied, not when it was taken. The coordinates are reverse
+  geocoded to a place name — "Falcon Heights, MN"; "Barcelona, Spain" —
+  through Nominatim (OpenStreetMap, keyless, one call per upload; Jamie
+  changed the coordinates-only decision 2026-09-03). A failed geocode keeps
+  the coordinates, and the field stays editable either way, so a wrong name
+  never has to survive review.
 
 ## Website
 

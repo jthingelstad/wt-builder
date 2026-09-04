@@ -26,6 +26,7 @@ import * as buttondown from './integrations/buttondown.ts';
 import * as pinboard from './integrations/pinboard.ts';
 import * as microblog from './integrations/microblog.ts';
 import { rehostIssueImages, storeUpload } from './integrations/images.ts';
+import * as geocode from './integrations/geocode.ts';
 import * as editorial from './editorial.ts';
 import * as githubRepo from './integrations/github.ts';
 import * as audio from './integrations/audio.ts';
@@ -533,6 +534,15 @@ const routes: [RegExp, string, (ctx: Ctx, params: string[]) => Promise<unknown>]
     const filename = String(req.headers['x-filename'] ?? 'photo.jpg');
     const stored = await storeUpload(bytes, doc.issue.number, filename);
 
+    // A place name reads better than coordinates in print (Jamie, 2026-09-03).
+    // Best-effort: a failed geocode keeps the coordinates — true either way,
+    // and the field stays editable, so a wrong name never survives review.
+    const location =
+      item.media?.location ||
+      (stored.coordinates
+        ? (await geocode.placeName(stored.coordinates)) ?? stored.coordinates
+        : undefined);
+
     item.media = {
       ...(item.media ?? {}),
       url: stored.url,
@@ -540,7 +550,7 @@ const routes: [RegExp, string, (ctx: Ctx, params: string[]) => Promise<unknown>]
       // a filename is a better starting point than nothing.
       alt: item.media?.alt || filename.replace(/\.[a-z0-9]+$/i, '').replace(/[-_]+/g, ' '),
       timestamp: item.media?.timestamp || stored.takenAt || undefined,
-      location: item.media?.location || stored.coordinates || undefined,
+      location,
     };
 
     store.logEvent(id!, 'edit', `Photo uploaded — ${filename}`);

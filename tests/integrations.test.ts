@@ -6,6 +6,7 @@ import type { Item } from '../src/shared/types.ts';
 import { allChannels } from '../src/shared/types.ts';
 import { CDN_HOST, imageUrls, isRehosted, rewriteReferences } from '../src/server/integrations/images.ts';
 import { candidateToItem } from '../src/server/integrations/microblog.ts';
+import { formatPlace } from '../src/server/integrations/geocode.ts';
 import { BRIEF_TAG, sectionForTags, sweepBounds } from '../src/server/integrations/pinboard.ts';
 import { issueWindow, inWindow } from '../src/shared/dates.ts';
 
@@ -144,5 +145,26 @@ describe('the Pinboard sweep and the window agree on where Friday is', () => {
     // Thursday 7:30 PM Central the week the window opens — inside the old
     // midnight-UTC request span, outside the window.
     expect(inWindow('2026-08-28T00:30:00Z', w)).toBe(false);
+  });
+});
+
+describe('photo place names follow the caption convention', () => {
+  it('US: city plus the state code, from ISO3166-2', () => {
+    expect(formatPlace({
+      village: 'Falcon Heights', state: 'Minnesota',
+      'ISO3166-2-lvl4': 'US-MN', country: 'United States', country_code: 'us',
+    })).toBe('Falcon Heights, MN');
+  });
+
+  it('abroad: city plus country, no state', () => {
+    expect(formatPlace({
+      city: 'Barcelona', state: 'Catalunya', country: 'Spain', country_code: 'es',
+    })).toBe('Barcelona, Spain');
+  });
+
+  it('degrades honestly when levels are missing', () => {
+    expect(formatPlace({ state: 'Minnesota', country_code: 'us' })).toBe('Minnesota');
+    expect(formatPlace({ country: 'France', country_code: 'fr' })).toBe('France');
+    expect(formatPlace({})).toBeNull();
   });
 });
