@@ -116,11 +116,25 @@ export function Page({
       key="head"
       anchor="issue"
       selected={selected === 'issue'}
-      margin={<Wand
-        redraft={Boolean(doc.issue.dek)}
-        busy={drafting === 'issue'}
-        onClick={() => act.draft('issue')}
-      />}
+      margin={
+        <>
+          <Wand
+            redraft={Boolean(doc.issue.dek)}
+            busy={drafting === 'issue'}
+            onClick={() => act.draft('issue')}
+          />
+          {/* The head wand's candidates never had a picker — the call
+              returned and nothing displayed (Jamie, 2026-09-04). Each
+              candidate is two lines: the theme, then the dek. */}
+          {draft?.itemId === 'issue' && (
+            <DraftPicker
+              candidates={draft.candidates}
+              onPick={(text) => onPickDraft('issue', text)}
+              onDismiss={onDismissDraft}
+            />
+          )}
+        </>
+      }
     >
       <div class="page-head" onClick={() => onSelect('issue')}>
         <div class="kicker">WT{doc.issue.number} · {kickerDate(doc.issue.publication_date)}</div>
