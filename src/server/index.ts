@@ -32,6 +32,7 @@ import * as githubRepo from './integrations/github.ts';
 import * as audio from './integrations/audio.ts';
 import { renderAudio as renderAudioScript } from '../shared/render/audio.ts';
 import { archiveInputs, issueEntry, siteInputs, type IssueEntry } from './publish.ts';
+import * as draftShare from './share.ts';
 
 const DIST = fileURLToPath(new URL('../../dist', import.meta.url));
 
@@ -573,6 +574,31 @@ const routes: [RegExp, string, (ctx: Ctx, params: string[]) => Promise<unknown>]
     return result;
   }],
 
+  /**
+   * Share the draft: render the website edition to one static page and put
+   * it on the CDN at an unguessable URL, loudly labeled DRAFT, with Jamie's
+   * note to the reader. Re-sharing refreshes the same URL.
+   */
+  [/^\/api\/issues\/([^/]+)\/share$/, 'POST', async ({ body }, [id]) => {
+    const b = await body();
+    const doc = requireIssue(id!);
+    const share = await draftShare.share(doc, typeof b.note === 'string' ? b.note : undefined);
+    doc.draft_share = share;
+    store.logEvent(id!, 'send', `Draft shared — ${share.url}`);
+    return { ...saved(doc), share };
+  }],
+
+  /** Stop sharing: delete the page. `no-store` makes revocation prompt. */
+  [/^\/api\/issues\/([^/]+)\/share$/, 'DELETE', async (_ctx, [id]) => {
+    const doc = requireIssue(id!);
+    if (doc.draft_share) {
+      await draftShare.unshare(doc);
+      delete doc.draft_share;
+      store.logEvent(id!, 'send', 'Draft share stopped');
+    }
+    return saved(doc);
+  }],
+
   /** What the website handoff would change, changing nothing. */
   [/^\/api\/issues\/([^/]+)\/send\/website\/preview$/, 'GET', async (_ctx, [id]) => {
     const doc = requireIssue(id!);
@@ -745,6 +771,20 @@ async function sendWebsite(id: string, force = false) {
       url: `https://github.com/${config.websiteRepo}/commit/${result.sha}`,
     };
     const row = store.recordSend(id, 'website', state);
+
+    // A published issue must not keep serving a page that shouts DRAFT. Best
+    // effort: the URL is unguessable either way, and Unshare remains.
+    if (row?.doc.draft_share) {
+      try {
+        await draftShare.unshare(row.doc);
+        delete row.doc.draft_share;
+        store.saveIssue(row.doc);
+        store.logEvent(id, 'send', 'Draft share retired — the issue published');
+      } catch (e) {
+        console.warn(`[share] retiring the draft share failed: ${(e as Error).message}`);
+      }
+    }
+
     return { issue: row?.doc, send: state, changed: result.changed, committed: result.committed };
   } catch (err) {
     const state: SendState = {

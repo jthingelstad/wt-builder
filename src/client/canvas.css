@@ -1107,3 +1107,13 @@
 }
 .ghost-chip:hover { color: var(--ink, #1f1f1f); border-color: var(--muted); }
 .ghost-tail { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 18px; }
+
+/* ── the draft share card ─────────────────────────────────────────────── */
+.share-card .share-url {
+  display: block; word-break: break-all; font-size: 12px; margin: 4px 0 8px;
+}
+.share-card .share-note {
+  width: 100%; resize: vertical; font: inherit; font-size: 13px;
+  border: 1px solid var(--line, #ddd); border-radius: 6px;
+  padding: 6px 8px; margin: 6px 0; background: transparent; color: inherit;
+}

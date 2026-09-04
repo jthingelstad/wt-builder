@@ -293,6 +293,8 @@ export function Editor({ doc, readiness, busy, error, run, onIndex, onSend, onEr
             onReorder={(nodeId, before) => void run(() => api.addNode(id, { id: nodeId, before: before ?? undefined }))}
             onSweep={sweep}
             sweeping={sweeping}
+            onShare={(note) => run(() => api.shareDraft(id, note))}
+            onUnshare={() => run(() => api.unshareDraft(id))}
           />
         )}
 

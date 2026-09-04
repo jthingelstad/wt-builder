@@ -162,6 +162,16 @@ describe('a link moves between Notable and Briefly over the wire', () => {
   });
 });
 
+describe('the draft share routes are wired', () => {
+  it('share and unshare both reach their handlers', async () => {
+    // 404 means the handler ran far enough to look for the issue.
+    const { status } = await post('/api/issues/nope/share');
+    expect(status).toBe(404);
+    const res = await fetch(`${base}/api/issues/nope/share`, { method: 'DELETE' });
+    expect(res.status).toBe(404);
+  });
+});
+
 describe('the send guards refuse before any leg runs', () => {
   it('website without a sent podcast is a 409, and force is the escape', async () => {
     const created = await fetch(`${base}/api/issues`, {

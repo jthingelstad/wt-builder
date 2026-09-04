@@ -26,14 +26,83 @@ interface Props {
   onReorder: (nodeId: string, beforeId: string | null) => void;
   onSweep: () => void;
   sweeping: boolean;
+  onShare: (note?: string) => Promise<unknown>;
+  onUnshare: () => Promise<unknown>;
 }
 
 const SPANS = [7, 14, 21];
+
+/**
+ * Sharing a draft: a static page on the CDN, loudly labeled DRAFT, with an
+ * optional note to the person it is for. Re-sharing refreshes the same URL;
+ * Stop sharing deletes the page.
+ */
+function ShareCard({ doc, onShare, onUnshare }: {
+  doc: IssueDoc;
+  onShare: (note?: string) => Promise<unknown>;
+  onUnshare: () => Promise<unknown>;
+}) {
+  const share = doc.draft_share;
+  const [note, setNote] = useState(share?.note ?? '');
+  const [busy, setBusy] = useState(false);
+  const [copied, setCopied] = useState(false);
+
+  const act = (fn: () => Promise<unknown>) => {
+    setBusy(true);
+    void fn().finally(() => setBusy(false));
+  };
+
+  return (
+    <div class="meta-card share-card">
+      {share ? (
+        <>
+          <div class="quiet">A DRAFT-labeled page, live at:</div>
+          <a class="share-url" href={share.url} target="_blank" rel="noreferrer">
+            {share.url.replace(/^https:\/\//, '')}
+          </a>
+        </>
+      ) : (
+        <div class="quiet">
+          Publishes the draft as one DRAFT-labeled page at an unguessable URL.
+        </div>
+      )}
+      <textarea
+        class="share-note"
+        rows={3}
+        placeholder="A note to the person you're sharing with (optional)"
+        value={note}
+        onInput={(e) => setNote((e.currentTarget as HTMLTextAreaElement).value)}
+      />
+      <div class="meta-actions">
+        <button class="btn small primary" disabled={busy}
+          onClick={() => act(() => onShare(note || undefined))}>
+          {busy ? 'Working…' : share ? 'Update page' : 'Share draft'}
+        </button>
+        {share && (
+          <button class="btn small" onClick={() => {
+            void navigator.clipboard.writeText(share.url).then(() => {
+              setCopied(true);
+              setTimeout(() => setCopied(false), 1500);
+            });
+          }}>
+            {copied ? 'Copied' : 'Copy link'}
+          </button>
+        )}
+        {share && (
+          <button class="btn small" disabled={busy} onClick={() => act(onUnshare)}>
+            Stop sharing
+          </button>
+        )}
+      </div>
+    </div>
+  );
+}
 
 export function LeftPanel(props: Props) {
   const { doc } = props;
   const [editing, setEditing] = useState(false);
   const [logOpen, setLogOpen] = useState(false);
+  const [shareOpen, setShareOpen] = useState(false);
   const w = windowOf(doc);
   const nodes = orderedNodes(doc);
   const swept = Object.keys(doc.items).length;
@@ -63,9 +132,19 @@ export function LeftPanel(props: Props) {
                 {props.sweeping ? 'Re-scanning…' : 'Re-scan'}
               </button>
               <button class="btn small" onClick={() => setLogOpen(true)}>Log</button>
+              <button
+                class={`btn small${doc.draft_share ? ' primary' : ''}`}
+                onClick={() => setShareOpen(!shareOpen)}
+              >
+                {doc.draft_share ? 'Shared' : 'Share'}
+              </button>
             </div>
           </div>
         )}
+
+      {!editing && shareOpen && (
+        <ShareCard doc={doc} onShare={props.onShare} onUnshare={props.onUnshare} />
+      )}
 
       {logOpen && (
         <EventLog issueId={doc.issue.id} number={doc.issue.number} onClose={() => setLogOpen(false)} />

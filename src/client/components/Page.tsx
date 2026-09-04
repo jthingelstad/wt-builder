@@ -20,7 +20,7 @@ import {
 import { audioScript } from '../../shared/render/audio.ts';
 import { MEMBER_THANKS, PREMIUM_CONDITION } from '../../shared/render/email.ts';
 import { rejoinBody, splitBody } from '../../shared/body.ts';
-import { markdownInlineToSafeHtml } from '../markdown.ts';
+import { markdownInlineToSafeHtml } from '../../shared/markdown.ts';
 import { ImagePlus, Plus, Spinner, Trash } from '../icons.tsx';
 import { Editable, Rail, RichEditable, Row, Wand, itemRail, sectionRail } from './Row.tsx';
 

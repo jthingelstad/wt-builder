@@ -14,7 +14,7 @@ import { renderAudio } from '../src/shared/render/audio.ts';
 import { speakable, isSilent } from '../src/shared/render/speech.ts';
 import { candidateToItem } from '../src/server/integrations/pinboard.ts';
 import { sourceRows } from '../src/shared/render/source.ts';
-import { markdownToSafeHtml } from '../src/client/markdown.ts';
+import { markdownToSafeHtml } from '../src/shared/markdown.ts';
 import { shouldWriteBack } from '../src/client/api.ts';
 
 /** A skeleton issue whose items are deliberately half-written. */

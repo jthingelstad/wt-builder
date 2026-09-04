@@ -12,7 +12,7 @@
  */
 
 import { createHash } from 'node:crypto';
-import { PutObjectCommand, S3Client, HeadObjectCommand } from '@aws-sdk/client-s3';
+import { DeleteObjectCommand, PutObjectCommand, S3Client, HeadObjectCommand } from '@aws-sdk/client-s3';
 import sharp from 'sharp';
 import exifReader from 'exif-reader';
 
@@ -285,4 +285,26 @@ export function dms(value: unknown, ref: unknown): number | null {
   if ([d, m, s].some((n) => !Number.isFinite(n))) return null;
   const sign = ref === 'S' || ref === 'W' ? -1 : 1;
   return sign * (d! + m! / 60 + s! / 3600);
+}
+
+/**
+ * Store one HTML page on the CDN. The draft share uses this: `no-store` so
+ * revoking the share is prompt — a cached copy would outlive the deletion.
+ */
+export async function putHtml(key: string, html: string): Promise<string> {
+  await s3().send(
+    new PutObjectCommand({
+      Bucket: CDN_HOST,
+      Key: key,
+      Body: html,
+      ContentType: 'text/html; charset=utf-8',
+      CacheControl: 'no-store',
+    }),
+  );
+  return `https://${CDN_HOST}/${key}`;
+}
+
+/** Remove one object. Deleting a share is how it is revoked. */
+export async function deleteObject(key: string): Promise<void> {
+  await s3().send(new DeleteObjectCommand({ Bucket: CDN_HOST, Key: key }));
 }

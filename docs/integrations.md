@@ -83,6 +83,22 @@ Librarian API and corpus on 2026-08-28.
   the coordinates, and the field stays editable either way, so a wrong name
   never has to survive review.
 
+## Draft sharing
+
+- A draft can be shared before it sends: one static HTML page on
+  `files.thingelstad.com` under `weekly-thing/drafts/`, addressed by an
+  unguessable token. The page is loudly labeled DRAFT (banner and footer)
+  and carries Jamie's optional note to the person it was shared with — the
+  deterrent against forwarding is social, the revocation is real
+  (`Cache-Control: no-store` plus deletion on unshare).
+- The builder itself is never what gets shared — it has no auth layer and
+  holds write credentials. Only the rendered snapshot leaves.
+- Re-sharing refreshes the same URL. Stop sharing deletes the page. A
+  successful website send retires the share automatically, so a published
+  issue never keeps serving a page that says DRAFT.
+- The share page never feeds the archive or the corpus; the send legs do
+  not know it exists.
+
 ## Website
 
 - Receives the website edition through a versioned handoff that WT Builder

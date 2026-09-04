@@ -136,6 +136,16 @@ export interface IssueNode {
 
 export type IssueStatus = 'draft' | 'published';
 
+/** A shared draft preview: where it lives and what Jamie said with it. */
+export interface DraftShare {
+  token: string;
+  url: string;
+  /** Jamie's note to the person the draft was shared with. */
+  note?: string;
+  /** When the page was last rendered and uploaded. */
+  at: string;
+}
+
 export interface SendState {
   status: 'none' | 'sending' | 'sent' | 'failed';
   at?: string;
@@ -188,6 +198,12 @@ export interface IssueDoc {
   /** Items swept in but not placed in a node. */
   orphans?: string[];
   sends?: Partial<Record<Destination, SendState>>;
+  /**
+   * The live draft-preview share, when one exists: a static page at an
+   * unguessable CDN URL, loudly labeled DRAFT. Re-sharing refreshes the same
+   * URL; unsharing deletes the page (docs/integrations.md).
+   */
+  draft_share?: DraftShare;
   /**
    * The most recent editorial review. Each review replaces the last, so notes
    * are never merged or aged; a failed review leaves this untouched.

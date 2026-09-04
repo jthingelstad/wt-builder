@@ -98,6 +98,17 @@ finished, what is half-finished, and what has never run.
   Exercised over HTTP in routes.test.ts; not yet clicked in a browser
   against a live bookmark.
 
+- **Draft share** (2026-09-03) — Share on the meta card publishes the draft
+  as one static page on the CDN (`weekly-thing/drafts/wt{N}-{token}.html`,
+  unguessable token, `no-store`, `noindex`): a sticky DRAFT banner, Jamie's
+  optional note to the reader, the rendered website edition, and a
+  don't-pass-this-along footer. Re-sharing refreshes the same URL; Stop
+  sharing deletes the page; a successful website send retires it
+  automatically. The builder itself stays unshareable — this is the rendered
+  snapshot leaving, never the app. Routes:
+  `POST|DELETE /api/issues/:id/share`. Page rendering and routes are tested;
+  the S3 upload has not yet run for real.
+
 ## Not built
 
 - ~~The 352px editorial review panel~~ — built 2026-08-28: shares the rail
