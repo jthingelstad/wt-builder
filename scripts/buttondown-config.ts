@@ -235,11 +235,26 @@ async function main() {
   if (mode === 'diff') return;
 
   if (mode === 'push') {
+    let failed = 0;
     for (const c of changes) {
       const path = c.kind === 'newsletter' ? `/newsletters/${c.id}` : `/automations/${c.id}`;
-      await call(path, { method: 'PATCH', body: JSON.stringify(c.patch) });
-      console.log(`pushed ${c.kind} ${c.label}`);
+      try {
+        await call(path, { method: 'PATCH', body: JSON.stringify(c.patch) });
+        console.log(`pushed ${c.kind} ${c.label}`);
+      } catch (err) {
+        failed++;
+        console.error(`FAILED ${c.kind} ${c.label}: ${(err as Error).message.slice(0, 200)}`);
+        if (c.kind === 'newsletter') {
+          console.error(
+            '  Newsletter-settings writes 403 with the current API key (2026-09-04).\n' +
+            '  Either widen the key permissions in Buttondown Settings → API, or paste\n' +
+            '  the changed field from buttondown/newsletters/... into the web UI, then\n' +
+            '  run buttondown:pull to confirm the repo and live agree.'
+          );
+        }
+      }
     }
+    if (failed) process.exit(1);
     return;
   }
 

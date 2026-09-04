@@ -47,25 +47,6 @@
       "type": "send_email",
       "metadata": {
         "body": {
-          "$file": "welcome-sequence/action-2.md"
-        },
-        "subject": "Readers chat at r/WeeklyThing",
-        "email_id": "",
-        "template": ""
-      },
-      "timing": {
-        "time": "delay",
-        "delay": {
-          "value": "12",
-          "unit": "days",
-          "time_of_day": ""
-        }
-      }
-    },
-    {
-      "type": "send_email",
-      "metadata": {
-        "body": {
           "$file": "welcome-sequence/action-3.md"
         },
         "subject": "If you'd like to give back",

@@ -6,4 +6,4 @@ Thingy is free for every confirmed Weekly Thing subscriber. There are starter pr
 
 [Try Thingy](https://weekly.thingelstad.com/thingy/)
 
-In a few days, I'll send the next short note in this welcome series. That one's about r/WeeklyThing, the small reader community on Reddit.
+In a few days, I'll send the next short note in this welcome series. That one's about the Supporting Member program.
