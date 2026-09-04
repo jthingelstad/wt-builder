@@ -288,8 +288,12 @@ export function Page({
               },
             }
           : {}),
-        onUp: () => act.moveItem(node.id, itemId, -1),
-        onDown: () => act.moveItem(node.id, itemId, 1),
+        // A singleton IS its section, and heading-less sections have no
+        // section rail in the reading lenses — so its Up/Down move the
+        // node. Moving the item within its one-item node was a silent
+        // no-op (Jamie's haiku-above-outro report, 2026-09-04).
+        onUp: () => (singleton ? act.moveNode(node.id, -1) : act.moveItem(node.id, itemId, -1)),
+        onDown: () => (singleton ? act.moveNode(node.id, 1) : act.moveItem(node.id, itemId, 1)),
         onInspect: () => onSelect(itemId),
         ...(singleton ? {} : { onRemove: () => act.removeItem(node.id, itemId) }),
       });
@@ -587,8 +591,9 @@ function ChannelBlock({ doc, node, item, itemId, readOnly, act }: BlockProps) {
             />
             :
           </strong>{' '}
-          <Editable
+          <RichEditable
             readOnly={readOnly} value={item.body ?? ''} ph="…"
+            render={markdownInlineToSafeHtml}
             onCommit={(text) => set({ body: text })}
           />
         </p>
@@ -681,12 +686,17 @@ function ChannelBlock({ doc, node, item, itemId, readOnly, act }: BlockProps) {
     }
 
     case 'echoes':
+      // Generated, but Jamie's to edit (2026-09-04): rendered at rest,
+      // markdown source while editing — and a body change drops the item
+      // back to draft for the Thingy review gate (issue.ts updateItem).
       return (
         <>
           {thingy && <ByChip />}
-          <div
-            class="echoes-refs"
-            dangerouslySetInnerHTML={{ __html: markdownInlineToSafeHtml(item.body ?? '') }}
+          <RichEditable
+            tag="div" multiline class="echoes-refs" readOnly={readOnly}
+            value={item.body ?? ''} ph="Echoes from the archive…"
+            render={renderEchoesHtml}
+            onCommit={(text) => set({ body: text })}
           />
         </>
       );
@@ -794,6 +804,18 @@ function EchoesPicker({
 const ByChip = () => (
   <div class="byline-chip"><span class="dot" />By Thingy</div>
 );
+
+/**
+ * The Echoes body is short paragraphs of inline markdown (composeEchoes
+ * joins selected units with blank lines). Joined without newlines so the
+ * edit-mode `white-space: pre-line` cannot double-space the rendered view.
+ */
+function renderEchoesHtml(source: string): string {
+  return source
+    .split(/\n{2,}/)
+    .map((paragraph) => `<p>${markdownInlineToSafeHtml(paragraph)}</p>`)
+    .join('');
+}
 
 function domainOf(url: string | undefined): string {
   if (!url) return '';

@@ -258,7 +258,7 @@ export function Editable({
  * dropping the caret at the start of the run instead of where Jamie clicked.
  */
 export function RichEditable({
-  value, onCommit, ph, class: cls, readOnly, render,
+  value, onCommit, ph, class: cls, readOnly, render, multiline, tag = 'span',
 }: EditableProps & { render: (source: string) => string }) {
   const ref = useRef<HTMLElement>(null);
   const [editing, setEditing] = useState(false);
@@ -270,7 +270,7 @@ export function RichEditable({
   }, [value, editing, render]);
 
   if (readOnly) {
-    return <span class={cls} dangerouslySetInnerHTML={{ __html: value ? render(value) : '' }} />;
+    return createElement(tag, { class: cls, dangerouslySetInnerHTML: { __html: value ? render(value) : '' } });
   }
 
   const toSource = () => {
@@ -279,15 +279,14 @@ export function RichEditable({
     if (ref.current) ref.current.textContent = value;
   };
 
-  return (
-    <span
-      ref={ref}
-      class={cls}
-      contentEditable
-      spellcheck
-      data-ph={ph}
-      onMouseDown={toSource}
-      onFocus={() => {
+  return createElement(tag, {
+    ref,
+    class: cls,
+    contentEditable: true,
+    spellcheck: true,
+    'data-ph': ph,
+    onMouseDown: toSource,
+    onFocus: () => {
         // Keyboard focus: no click position to preserve, so caret goes to the end.
         if (editing) return;
         toSource();
@@ -299,19 +298,18 @@ export function RichEditable({
         const sel = window.getSelection();
         sel?.removeAllRanges();
         sel?.addRange(range);
-      }}
-      onBlur={(e: FocusEvent) => {
-        const el = e.currentTarget as HTMLElement;
-        const text = el.textContent ?? '';
-        setEditing(false);
-        if (text !== value) onCommit(text);
-        else el.innerHTML = value ? render(value) : '';
-      }}
-      onKeyDown={(e: KeyboardEvent) => {
-        const el = e.currentTarget as HTMLElement;
-        if (e.key === 'Escape') { el.textContent = value; el.blur(); return; }
-        if (e.key === 'Enter') { e.preventDefault(); el.blur(); }
-      }}
-    />
-  );
+      },
+    onBlur: (e: FocusEvent) => {
+      const el = e.currentTarget as HTMLElement;
+      const text = el.textContent ?? '';
+      setEditing(false);
+      if (text !== value) onCommit(text);
+      else el.innerHTML = value ? render(value) : '';
+    },
+    onKeyDown: (e: KeyboardEvent) => {
+      const el = e.currentTarget as HTMLElement;
+      if (e.key === 'Escape') { el.textContent = value; el.blur(); return; }
+      if (e.key === 'Enter' && !multiline) { e.preventDefault(); el.blur(); }
+    },
+  });
 }

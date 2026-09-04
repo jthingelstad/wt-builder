@@ -324,6 +324,11 @@
 .byline-chip .dot { width: 5px; height: 5px; border-radius: 99px; background: var(--terracotta); }
 
 .echoes-refs { font-size: 13.5px; line-height: 1.7; color: var(--secondary); }
+/* Editing shows markdown source: pre-line keeps the blank lines between
+   echo units visible, and makes Enter insert a newline rather than a div. */
+.echoes-refs { white-space: pre-line; }
+.echoes-refs p { white-space: normal; margin: 0 0 10px; }
+.echoes-refs p:last-child { margin-bottom: 0; }
 
 .photo-drop {
   height: 300px;
