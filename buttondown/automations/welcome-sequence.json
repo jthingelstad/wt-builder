@@ -1,0 +1,94 @@
+{
+  "id": "aut_1s00w17b6h99fv1nv1m52433ms",
+  "creation_date": "2026-05-06T23:54:08.881185Z",
+  "name": "Welcome Sequence",
+  "status": "active",
+  "trigger": "subscriber.confirmed",
+  "actions": [
+    {
+      "type": "send_email",
+      "metadata": {
+        "body": {
+          "$file": "welcome-sequence/action-0.md"
+        },
+        "subject": "Weekly Thing as a podcast",
+        "email_id": "",
+        "template": ""
+      },
+      "timing": {
+        "time": "delay",
+        "delay": {
+          "value": "4",
+          "unit": "days",
+          "time_of_day": null
+        }
+      }
+    },
+    {
+      "type": "send_email",
+      "metadata": {
+        "body": {
+          "$file": "welcome-sequence/action-1.md"
+        },
+        "subject": "Meet Thingy, an AI agent for the archive",
+        "email_id": "",
+        "template": ""
+      },
+      "timing": {
+        "time": "delay",
+        "delay": {
+          "value": "8",
+          "unit": "days",
+          "time_of_day": ""
+        }
+      }
+    },
+    {
+      "type": "send_email",
+      "metadata": {
+        "body": {
+          "$file": "welcome-sequence/action-2.md"
+        },
+        "subject": "Readers chat at r/WeeklyThing",
+        "email_id": "",
+        "template": ""
+      },
+      "timing": {
+        "time": "delay",
+        "delay": {
+          "value": "12",
+          "unit": "days",
+          "time_of_day": ""
+        }
+      }
+    },
+    {
+      "type": "send_email",
+      "metadata": {
+        "body": {
+          "$file": "welcome-sequence/action-3.md"
+        },
+        "subject": "If you'd like to give back",
+        "email_id": "",
+        "template": ""
+      },
+      "timing": {
+        "time": "delay",
+        "delay": {
+          "value": "16",
+          "unit": "days",
+          "time_of_day": ""
+        }
+      }
+    }
+  ],
+  "filters": {
+    "filters": [],
+    "groups": [],
+    "predicate": "and"
+  },
+  "metadata": {
+    "last_run": "2026-09-02T15:52:42.509022+00:00"
+  },
+  "should_evaluate_filter_after_delay": false
+}

@@ -1,0 +1,3 @@
+Enjoy reading books? We do to! **Reading Things** is where our family shares books that we have enjoyed, along with other things book and reading related. We publish this newsletter just four times a year in **January**, **April**, **July,** and **October**. When you sign up, you will get the latest issue to tide you over until the next one comes out.
+
+**Reading Things** is published by **[Jamie](https://www.thingelstad.com/hello/)**, **[Tammy](https://tammy.thingelstad.com/)**, **Mazie**, and **Tyler Thingelstad** so you will get a wide variety of topics and types of books. There are **no affiliate links** or tracking in any of our recommendations. Your privacy is safe with us.

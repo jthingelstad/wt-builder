@@ -1,0 +1,40 @@
+{
+  "id": "aut_64tenzdfr88tjrez6c17z83dhf",
+  "creation_date": "2025-05-18T11:10:20.311691Z",
+  "name": "Tag DD",
+  "status": "active",
+  "trigger": "subscriber.confirmed",
+  "actions": [
+    {
+      "type": "add_tags",
+      "metadata": {
+        "tag_ids": [
+          "sub_tag_5nmbk3y92d8bebgt2ytchbg9gb"
+        ]
+      },
+      "timing": {
+        "time": "immediate",
+        "delay": {
+          "value": "0",
+          "unit": "days",
+          "time_of_day": null
+        }
+      }
+    }
+  ],
+  "filters": {
+    "filters": [
+      {
+        "field": "referrer_url",
+        "operator": "contains",
+        "value": "densediscovery.com"
+      }
+    ],
+    "groups": [],
+    "predicate": "and"
+  },
+  "metadata": {
+    "last_run": "2026-06-05T06:12:04.424548+00:00"
+  },
+  "should_evaluate_filter_after_delay": false
+}

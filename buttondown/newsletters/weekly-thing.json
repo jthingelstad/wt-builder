@@ -1,0 +1,103 @@
+{
+  "id": "news_7f26cs4g51999br6053wz7wava",
+  "creation_date": "2019-08-07T12:47:48.251685Z",
+  "announcement_bar_background_color": "",
+  "announcement_bar_text": "",
+  "announcement_bar_visibility": "disabled",
+  "archive_theme": "modern",
+  "auditing_mode": "aggressive",
+  "css": "",
+  "custom_churn_email_body": {
+    "$file": "weekly-thing/custom_churn_email_body.md"
+  },
+  "custom_churn_email_subject": "Your Supporting Membership has ended",
+  "custom_churn_email_template": null,
+  "custom_email_template": "",
+  "custom_expired_trial_notification_body": "",
+  "custom_expired_trial_notification_subject": "",
+  "custom_expired_trial_notification_template": null,
+  "custom_gift_subscription_email_body": {
+    "$file": "weekly-thing/custom_gift_subscription_email_body.md"
+  },
+  "custom_gift_subscription_email_subject": "You've been gifted a Weekly Thing Supporting Membership",
+  "custom_gift_subscription_email_template": null,
+  "custom_gift_unsubscription_email_body": {
+    "$file": "weekly-thing/custom_gift_unsubscription_email_body.md"
+  },
+  "custom_gift_unsubscription_email_subject": "Your gift Supporting Membership has ended",
+  "custom_gift_unsubscription_email_template": null,
+  "custom_premium_confirmation_email_body": {
+    "$file": "weekly-thing/custom_premium_confirmation_email_body.md"
+  },
+  "custom_premium_confirmation_email_subject": "Thank you for becoming a Supporting Member",
+  "custom_premium_confirmation_email_template": null,
+  "custom_subscription_confirmation_email_subject": "Confirm your Weekly Thing subscription",
+  "custom_subscription_confirmation_email_template": null,
+  "custom_subscription_confirmation_email_text": {
+    "$file": "weekly-thing/custom_subscription_confirmation_email_text.md"
+  },
+  "custom_subscription_confirmation_reminder_email_subject": "Reminder: confirm your Weekly Thing subscription",
+  "custom_subscription_confirmation_reminder_email_text": {
+    "$file": "weekly-thing/custom_subscription_confirmation_reminder_email_text.md"
+  },
+  "custom_subscription_confirmed_email_subject": "Welcome to the Weekly Thing",
+  "custom_subscription_confirmed_email_text": {
+    "$file": "weekly-thing/custom_subscription_confirmed_email_text.md"
+  },
+  "description": {
+    "$file": "weekly-thing/description.md"
+  },
+  "domain": "",
+  "email_address": "jamie@thingelstad.com",
+  "email_domain": "thingelstad.com",
+  "email_theme_configuration": {},
+  "enabled_features": [
+    "api",
+    "automations",
+    "metadata",
+    "paid_subscriptions",
+    "portal",
+    "subscriber_cleanup",
+    "surveys",
+    "tags",
+    "whitelabeling"
+  ],
+  "footer": {
+    "$file": "weekly-thing/footer.md"
+  },
+  "from_name": "Jamie Thingelstad",
+  "header": "",
+  "hosting_domain_status": "valid",
+  "icon": null,
+  "icon_alt_text": "",
+  "image": null,
+  "locale": "en",
+  "metadata": {},
+  "name": "Weekly Thing",
+  "reply_to_address": "jamie@thingelstad.com",
+  "sending_domain_status": "valid",
+  "sharing_networks": [],
+  "socials": [],
+  "sort": "creation_date",
+  "subscription_confirmation_redirect_url": "https://weekly.thingelstad.com/confirmed/",
+  "subscription_redirect_url": "https://weekly.thingelstad.com/subscribed/",
+  "template": "classic",
+  "test_mode": false,
+  "theme_configuration": {
+    "dark_mode": "false",
+    "font-body": "Source Serif 4",
+    "font-accent": "Hex Franklin",
+    "color-accent": "#5fb1ff",
+    "posts_per_page": "20",
+    "blockquote_style": "card",
+    "color-background": "#FAFAFA",
+    "color-accent-dark": "#4A9EFF",
+    "color-background-dark": "#1A1A1E"
+  },
+  "timezone": "America/Chicago",
+  "tint_color": "#5fb1ff",
+  "username": "weekly-thing",
+  "web_css": {
+    "$file": "weekly-thing/web_css.md"
+  }
+}

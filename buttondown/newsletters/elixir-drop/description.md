@@ -1,0 +1,1 @@
+Occasional updates for players of Elixir Drop, the Clash Royale training app to help you play better.

@@ -1,0 +1,43 @@
+{
+  "id": "aut_3vrg641m4d90f9xn5q5kd2q4mq",
+  "creation_date": "2024-03-12T19:16:43.104850Z",
+  "name": "Tag SPS Subscribers",
+  "status": "active",
+  "trigger": "subscriber.confirmed",
+  "actions": [
+    {
+      "type": "add_tags",
+      "metadata": {
+        "body": "",
+        "subject": "",
+        "tag_ids": [
+          "sub_tag_4c56r806c78yy8q36pwjrp0q3q"
+        ],
+        "email_id": ""
+      },
+      "timing": {
+        "time": "immediate",
+        "delay": {
+          "value": "0",
+          "unit": "days",
+          "time_of_day": null
+        }
+      }
+    }
+  ],
+  "filters": {
+    "filters": [
+      {
+        "field": "email",
+        "operator": "contains",
+        "value": "spscommerce.com"
+      }
+    ],
+    "groups": [],
+    "predicate": "and"
+  },
+  "metadata": {
+    "last_run": "2026-06-29T13:43:12.316367+00:00"
+  },
+  "should_evaluate_filter_after_delay": false
+}

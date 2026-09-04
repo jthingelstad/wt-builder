@@ -16,7 +16,10 @@
     "test": "vitest run",
     "test:watch": "vitest",
     "typecheck": "tsc -p tsconfig.json --noEmit",
-    "import:prebuilder": "node --import tsx scripts/import-prebuilder.ts"
+    "import:prebuilder": "node --import tsx scripts/import-prebuilder.ts",
+    "buttondown:pull": "node --import tsx scripts/buttondown-config.ts pull",
+    "buttondown:diff": "node --import tsx scripts/buttondown-config.ts diff",
+    "buttondown:push": "node --import tsx scripts/buttondown-config.ts push"
   },
   "dependencies": {
     "@anthropic-ai/sdk": "^0.123.0",
