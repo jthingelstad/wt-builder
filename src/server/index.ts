@@ -118,6 +118,28 @@ function guardInFlight(doc: IssueDoc, destination: Destination): void {
 }
 
 /** Bracket a send leg with log entries; the leg's own behavior is untouched. */
+/**
+ * The issue from about a year ago this week, for Echoes' seasonal lens.
+ * Undefined when the archive holds nothing near that date — the draft then
+ * runs on semantic retrieval alone.
+ */
+function seasonalFor(doc: IssueDoc): editorial.SeasonalIssue | undefined {
+  const picked = editorial.pickSeasonalIssue(
+    store.listIssueDates(),
+    doc.issue.publication_date,
+    doc.issue.number,
+  );
+  if (!picked) return undefined;
+  const row = store.getIssueByNumber(picked.number);
+  if (!row) return undefined;
+  return {
+    number: picked.number,
+    title: row.doc.issue.title,
+    publication_date: picked.publication_date,
+    excerpt: editorial.issueExcerpt(row.doc),
+  };
+}
+
 async function loggedSend(id: string, dest: string, run: () => Promise<unknown>): Promise<unknown> {
   store.logEvent(id, 'send', `Send started — ${dest}`);
   try {
@@ -478,10 +500,12 @@ const routes: [RegExp, string, (ctx: Ctx, params: string[]) => Promise<unknown>]
   /** Candidate text for one item. Never written — Jamie picks or ignores. */
   [/^\/api\/issues\/([^/]+)\/items\/([^/]+)\/draft$/, 'POST', async ({ body }, [id, itemId]) => {
     const b = await body();
+    const doc = requireIssue(id!);
     const result = await editorial.draft({
-      doc: requireIssue(id!),
+      doc,
       itemId: itemId!,
       context: b.context,
+      seasonal: doc.items[itemId!]?.type === 'echoes' ? seasonalFor(doc) : undefined,
     });
     return result;
   }],

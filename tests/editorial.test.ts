@@ -7,8 +7,10 @@ import { fileURLToPath } from 'node:url';
 import type { IssueDoc } from '../src/shared/types.ts';
 import { renderAnnotated } from '../src/shared/render/annotate.ts';
 import {
-  assembleReview, campaignFacts, candidateCount, echoesQuery, pruneStale,
-  type Note, type Review,
+  ECHOES_MAX_ANCHORS,
+  assembleReview, campaignFacts, candidateCount, echoesAnchors, issueExcerpt,
+  pickSeasonalIssue, poolEchoPassages, pruneStale,
+  type AnchoredPassages, type Note, type Review,
 } from '../src/server/editorial.ts';
 
 const doc = JSON.parse(
@@ -181,18 +183,104 @@ describe('membership campaign facts', () => {
   });
 });
 
-describe('the Echoes retrieval query', () => {
-  it('is built from what the issue actually contains', () => {
-    const q = echoesQuery(doc);
-    expect(q.length).toBeGreaterThan(50);
-    expect(q.length).toBeLessThanOrEqual(1200);
-    // Fixture content that should anchor retrieval.
-    expect(q).toContain('The New Standards');
+describe('the Echoes retrieval anchors', () => {
+  it('gives promoted posts and Notable links their own queries', () => {
+    const anchors = echoesAnchors(doc);
+    const labels = anchors.map((a) => a.label);
+    expect(labels).toContain('Minnesota Technology Council');
+    expect(labels).toContain('Create Your Own Currency With Flipcash');
+    expect(anchors.length).toBeLessThanOrEqual(ECHOES_MAX_ANCHORS);
   });
 
-  it('excludes the Echoes item itself and hidden items', () => {
+  it('pools the intro, Currently, photo, and Journal into one week anchor', () => {
+    const anchors = echoesAnchors(doc);
+    const week = anchors.find((a) => a.label === 'The week itself');
+    expect(week).toBeDefined();
+    // Ordinary Journal moments seed the week anchor, not their own.
+    expect(week!.query).toContain('The New Standards');
+    expect(anchors.filter((a) => a.query.includes('The New Standards'))).toHaveLength(1);
+  });
+
+  it('excludes Echoes itself, Briefly one-liners, and hidden items', () => {
     const d = structuredClone(doc);
     d.items['echoes-1']!.body = 'ECHOES-SENTINEL should not seed its own retrieval';
-    expect(echoesQuery(d)).not.toContain('ECHOES-SENTINEL');
+    d.items['briefly-forge']!.commentary = 'BRIEFLY-SENTINEL too thin to anchor';
+    d.items['journal-excluded']!.body = 'HIDDEN-SENTINEL is in no edition';
+    const all = echoesAnchors(d).map((a) => a.query).join('\n');
+    expect(all).not.toContain('ECHOES-SENTINEL');
+    expect(all).not.toContain('BRIEFLY-SENTINEL');
+    expect(all).not.toContain('HIDDEN-SENTINEL');
+  });
+});
+
+describe('pooling the retrieved passages', () => {
+  const passage = (issue: number | undefined, date: string, url: string) => ({
+    issue_number: issue, publish_date: date, url, text: `about ${url}`,
+  });
+
+  it('drops the current issue and its two predecessors', () => {
+    const anchored: AnchoredPassages[] = [{
+      label: 'A',
+      passages: [
+        passage(350, '2026-05-23', 'u350'),
+        passage(349, '2026-05-16', 'u349'),
+        passage(348, '2026-05-09', 'u348'),
+        passage(261, '2023-09-16', 'u261'),
+      ],
+    }];
+    const pooled = poolEchoPassages(anchored, 350, '2026-05-23');
+    expect(pooled[0]!.passages.map((p) => p.url)).toEqual(['u261']);
+  });
+
+  it('ranks deep archive ahead of the last six months', () => {
+    const anchored: AnchoredPassages[] = [{
+      label: 'A',
+      passages: [
+        passage(337, '2026-01-18', 'recent'),
+        passage(196, '2021-09-18', 'deep'),
+        passage(undefined, '', 'undated'),
+      ],
+    }];
+    const urls = poolEchoPassages(anchored, 350, '2026-05-23')[0]!.passages.map((p) => p.url);
+    expect(urls.indexOf('deep')).toBeLessThan(urls.indexOf('recent'));
+    // Undated passages cannot be aged and rank as deep archive.
+    expect(urls.indexOf('undated')).toBeLessThan(urls.indexOf('recent'));
+  });
+
+  it('keeps a url once across anchors and caps each anchor', () => {
+    const many = Array.from({ length: 9 }, (_, i) => passage(200 + i, '2022-01-01', `u${i}`));
+    const anchored: AnchoredPassages[] = [
+      { label: 'A', passages: many },
+      { label: 'B', passages: [passage(204, '2022-01-01', 'u4')] },
+      { label: 'C', passages: [] },
+    ];
+    const pooled = poolEchoPassages(anchored, 350, '2026-05-23');
+    expect(pooled.map((a) => a.label)).toEqual(['A']);
+    expect(pooled[0]!.passages).toHaveLength(4);
+  });
+});
+
+describe('the seasonal lens', () => {
+  const rows = [
+    { number: 350, publication_date: '2026-05-23', status: 'draft' },
+    { number: 297, publication_date: '2025-05-24', status: 'published' },
+    { number: 296, publication_date: '2025-05-17', status: 'published' },
+    { number: 245, publication_date: '2024-05-25', status: 'published' },
+  ];
+
+  it('picks the published issue nearest a year before', () => {
+    expect(pickSeasonalIssue(rows, '2026-05-23', 350)?.number).toBe(297);
+  });
+
+  it('returns null when nothing lands within the tolerance', () => {
+    expect(pickSeasonalIssue(rows.slice(0, 1), '2026-05-23', 350)).toBeNull();
+    expect(pickSeasonalIssue([], '2026-05-23', 350)).toBeNull();
+  });
+
+  it('excerpts an issue as words, not markup', () => {
+    const excerpt = issueExcerpt(doc);
+    expect(excerpt).toContain('The New Standards');
+    expect(excerpt).not.toContain('<img');
+    expect(excerpt.length).toBeLessThanOrEqual(2800);
   });
 });

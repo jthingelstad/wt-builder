@@ -143,22 +143,58 @@ Three gives real contrast where the choice is a voice; two reads as a coin flip.
 Link commentary is one sentence, where the want is a nudge rather than a menu.
 
 Echoes additionally returns the archive references it used, so its citations are
-reviewable:
+reviewable. An issue reference carries its number; a blog or podcast reference
+carries a title instead:
 
 ```json
 {
   "candidates": ["…"],
-  "archive_references": [ { "issue": 341, "url": "…", "note": "…" } ]
+  "archive_references": [
+    { "kind": "issue", "issue": 341, "url": "…", "note": "…" },
+    { "kind": "blog", "title": "thingelstad.com Data Center", "url": "…", "note": "…" }
+  ]
 }
 ```
 
-**Built 2026-08-28.** Echoes drafting calls the Librarian's `/retrieve`
-(service-secret auth, `LIBRARIAN_RETRIEVE_URL` + `LIBRARIAN_RETRIEVE_SECRET`)
-with a query built from the issue's own present items, grounds the prompt in
-the returned passages, and **fails loud** when retrieval is unavailable or
-empty — the editorial spec's quality bar is real semantic retrieval, never a
-silently degraded guess. The model reports the issues it actually cited, and
-accepting a candidate stores them on the item as `archive_references`.
+### Echoes retrieval
+
+Built 2026-08-28; restructured 2026-09-03 around the settled intent — connect
+what is in THIS issue to the archive, primarily the Weekly Thing's own issues,
+with blog and podcast pulls welcome. Echoes drafting calls the Librarian's
+`/retrieve` (service-secret auth, `LIBRARIAN_RETRIEVE_URL` +
+`LIBRARIAN_RETRIEVE_SECRET`) and **fails loud** when retrieval is unavailable
+or returns nothing usable — the quality bar is real semantic retrieval, never
+a silently degraded guess.
+
+- **One retrieval per anchor, not one blended query.** The issue's strongest
+  present items are the anchors: each promoted Journal post and each
+  Notable/Featured link stands alone; the intro, Currently, photo, and
+  ordinary Journal moments pool into one "week itself" anchor — where the
+  rituals and seasons live. At most 5 anchors (`echoesAnchors`). One
+  1200-char blend of the boat, the railroads, and the semester abroad
+  averages into mush; per-anchor queries find the sharp echoes.
+- **A recency floor, applied client-side.** The current issue and its two
+  predecessors are excluded outright, and passages older than six months
+  rank ahead of younger ones (`poolEchoPassages`). Last week is repetition,
+  not an echo — and the review's judgement pass already owns the last 8
+  issues. No `/retrieve` contract change: passages carry `issue_number` and
+  `publish_date`, so the filter runs here.
+- **A deterministic seasonal lens.** The issue published closest to a year
+  before this one (within 28 days, `pickSeasonalIssue` over the local
+  records — the pre-Builder import means all of them) rides along as a
+  cited, dated excerpt. Rituals rhyme annually; semantic retrieval has no
+  calendar.
+- **Shape varies by issue** (settled with Jamie 2026-09-03): one echo traced
+  well, or two-to-three short callbacks when the resonance genuinely
+  spreads. 1–4 citations, never padded toward a count. Whole archive
+  citable, issues preferred.
+- **The ask-Thingy door is occasional by construction:** at most one of the
+  three candidates may close with the invitation to ask Thingy live; picking
+  it — or not — is the editorial act, which is what "occasional" means in a
+  system where every word ships because Jamie chose it.
+
+The model reports every source it actually cited, and accepting a candidate
+stores them on the item as `archive_references`.
 
 ## Both
 

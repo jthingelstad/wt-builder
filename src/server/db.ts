@@ -121,6 +121,13 @@ export function listIssues(): IssueRow[] {
   return rows.map(rowToIssue);
 }
 
+/** Number, date, and status only — the seasonal lens needs no documents. */
+export function listIssueDates(): { number: number; publication_date: string; status: string }[] {
+  return openDb()
+    .prepare('SELECT number, publication_date, status FROM issues ORDER BY number DESC')
+    .all() as { number: number; publication_date: string; status: string }[];
+}
+
 export function getIssue(id: string): IssueRow | null {
   const row = openDb().prepare('SELECT * FROM issues WHERE id = ?').get(id) as
     | Record<string, unknown>

@@ -1,6 +1,6 @@
 /** Thin client for the service. Every credential stays on the far side of this. */
 
-import type { Channel, IssueDoc, Item } from '../shared/types.ts';
+import type { ArchiveReference, Channel, IssueDoc, Item } from '../shared/types.ts';
 
 /** True when a local edit touches a field owned by an imported source. */
 export function shouldWriteBack(item: Item, patch: Record<string, unknown>): boolean {
@@ -164,7 +164,7 @@ export const api = {
    * issue his.
    */
   draftItem: (id: string, itemId: string, context?: string) =>
-    call<{ candidates: string[]; archive_references?: { issue: number; url: string; note?: string }[] }>(
+    call<{ candidates: string[]; archive_references?: ArchiveReference[] }>(
       `/issues/${id}/items/${itemId}/draft`,
       { method: 'POST', body: JSON.stringify({ context }) },
     ),

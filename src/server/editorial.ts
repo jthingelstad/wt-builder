@@ -8,7 +8,7 @@
 
 import Anthropic from '@anthropic-ai/sdk';
 
-import type { IssueDoc, Item } from '../shared/types.ts';
+import type { ArchiveReference, IssueDoc, Item } from '../shared/types.ts';
 import { renderAnnotated } from '../shared/render/annotate.ts';
 import { bodyLines } from '../shared/render/plan.ts';
 import { config } from './config.ts';
@@ -340,28 +340,44 @@ copy gets it exactly backwards:
 - Never invent a figure, a deadline, a goal, or urgency. Never mention
   member perks as the reason to join — the giving is the reason.`,
 
-  echoes: `Write Echoes — the short archive note that closes the issue. It is
-the reader's doorway back into the archive: they should leave wanting to open
-a past issue.
+  echoes: `Write Echoes — the short archive note that closes the issue. Its
+job: surface the connections between what is in THIS issue and Jamie's
+archive, so a reader discovers that this week's topics, people, and places
+have history. Primarily the Weekly Thing's own issues; his blog and the
+Another Thing podcast are welcome when the echo lives there.
 
-Voice: the archive librarian, not Jamie. Third person about Jamie ("Jamie
-tracked this in WT210"), composed and warm — Jamie writes loose, you write
-composed. Knowledgeable without being smug. No hype words ("fascinating
-parallel", "deep cut", "remarkable") — be specific or say nothing. No
-speculation about Jamie's mood, family, or motivations beyond what a cited
-issue shows.
+Voice: Thingy, the librarian of the archive — not Jamie. Third person about
+Jamie ("Jamie tracked this in WT210"), composed and warm — Jamie writes
+loose, you write composed. Knowledgeable without being smug. No hype words
+("fascinating parallel", "deep cut", "remarkable") — be specific or say
+nothing. No speculation about Jamie's mood, family, or motivations beyond
+what a cited source shows.
 
-Shape: 2–5 sentences, roughly 60–110 words, one paragraph, no heading. Cite
-2–4 distinct past issues, every one as a markdown link —
-[WT210](https://weekly.thingelstad.com/archive/210/) — and every citation
-tied to something specific in THIS issue: a named link, a Journal entry, a
-recurring place or project. A citation that just says "Jamie has written
-about this before" is a failure. End by opening a door, not closing a topic
-— no tidy conclusions, no "keep exploring!".
+Shape: let the material decide. One echo traced well — a thread from this
+issue back through the years — beats three name-checks; when the resonance
+genuinely spreads, two or three short callbacks are right. One paragraph,
+roughly 60–120 words, no heading. 1–4 citations, each a real resonance —
+never pad toward a count.
 
-Ground every claim in the archive passages provided below. Never invent an
-issue number or a claim about one. Report the issues you actually cited in
-archive_references, with a note saying what each one carries.`,
+Citations: Weekly Thing issues as markdown links —
+[WT210](https://weekly.thingelstad.com/archive/210/) — and prefer them. A
+blog post or podcast episode is citable by its title and permalink when the
+echo lives there; when it also appeared in an issue, cite the issue. Every
+citation must tie to something specific in THIS issue: a named link, a
+Journal entry, a recurring place, project, or season. A citation that just
+says "Jamie has written about this before" is a failure.
+
+End by opening a door, not closing a topic — no tidy conclusions, no "keep
+exploring!". Exactly one candidate — no more — may close with an invitation
+to ask Thingy itself at https://thingy.thingelstad.com/ (the same librarian,
+live); every other candidate ends on the citations alone.
+
+Ground every claim in the archive passages provided below — they are grouped
+by the item in this issue that retrieved them, and a passage from about a
+year ago this week may be included for seasonal rhymes. Never invent an
+issue number or a claim about one. Report every source you actually cited in
+archive_references — kind "issue" with its number, or kind "blog"/"podcast"
+with its title — each with a note saying what it carries.`,
 
   haiku: `Write a haiku to close this issue of The Weekly Thing — three short
 lines, in Jamie's voice.
@@ -483,11 +499,20 @@ export interface DraftRequest {
   itemId: string;
   /** Campaign facts for Membership; archive passages for Echoes. */
   context?: string;
+  /** Echoes only: the issue from about a year ago this week, if one exists. */
+  seasonal?: SeasonalIssue;
+}
+
+export interface SeasonalIssue {
+  number: number;
+  title: string;
+  publication_date: string;
+  excerpt: string;
 }
 
 export interface DraftResult {
   candidates: string[];
-  archive_references?: { issue: number; url: string; note?: string }[];
+  archive_references?: ArchiveReference[];
 }
 
 const CANDIDATES_SCHEMA = {
@@ -499,7 +524,7 @@ const CANDIDATES_SCHEMA = {
   },
 } as const;
 
-/** Echoes also reports which issues it cited, so citations are reviewable. */
+/** Echoes also reports which sources it cited, so citations are reviewable. */
 const ECHOES_SCHEMA = {
   type: 'object',
   additionalProperties: false,
@@ -511,10 +536,12 @@ const ECHOES_SCHEMA = {
       items: {
         type: 'object',
         additionalProperties: false,
-        required: ['issue', 'url'],
+        required: ['url', 'kind'],
         properties: {
+          kind: { type: 'string', enum: ['issue', 'blog', 'podcast'] },
           issue: { type: 'integer' },
           url: { type: 'string' },
+          title: { type: 'string' },
           note: { type: 'string' },
         },
       },
@@ -523,37 +550,203 @@ const ECHOES_SCHEMA = {
 } as const;
 
 /**
- * The retrieval query for Echoes: what this issue is actually about, as
- * text an embedding can hold — titles, labels, and the first stretch of
- * each present item's words. Pure, so the shape is testable.
+ * Retrieval anchors for Echoes: the issue's strongest present items, each as
+ * its own query. One blended query averages the boat, the railroads, and the
+ * semester abroad into mush; per-anchor queries find the sharp echoes. Pure,
+ * so the selection is testable.
+ *
+ * Anchors, in issue order: each promoted Journal post and each link in a
+ * heading section (Notable/Featured) stands alone; the intro, Currently,
+ * photo, and ordinary Journal moments pool into one "week itself" anchor —
+ * individually they are a sentence, together they are where the rituals and
+ * seasons live. Echoes, Membership, Haiku, and the outro never seed
+ * retrieval.
  */
-export function echoesQuery(doc: IssueDoc): string {
-  const parts: string[] = [];
-  for (const item of Object.values(doc.items)) {
-    if (item.type === 'echoes') continue;
-    if (!Object.values(item.channels).some(Boolean)) continue;
-    for (const field of [item.title, item.commentary, item.body]) {
-      const flat = bodyLines(field).join(' ').trim();
-      if (flat) parts.push(flat.slice(0, 160));
-    }
-  }
-  return parts.join('\n').slice(0, 1200);
+export const ECHOES_MAX_ANCHORS = 5;
+
+export interface EchoAnchor {
+  label: string;
+  query: string;
 }
 
-/** Passages formatted for the prompt: citable, compact, specific. */
-function passageContext(passages: librarian.Passage[]): string {
-  return passages
-    .slice(0, 10)
-    .map((p) => {
-      const head = [
-        p.issue_number ? `WT${p.issue_number}` : null,
-        p.subject,
-        p.publish_date?.slice(0, 10),
-        p.section,
-      ].filter(Boolean).join(' · ');
-      return `[${head}] ${p.url ?? ''}\n${String(p.text ?? '').slice(0, 500)}`;
+/** Link sections whose entries anchor their own retrieval (matches plan.ts). */
+const HEADING_LINK_SECTIONS: ReadonlySet<string> = new Set(['notable', 'featured']);
+
+function present(item: Item | undefined): item is Item {
+  return Boolean(item && Object.values(item.channels).some(Boolean));
+}
+
+function anchorText(item: Item, max: number): string {
+  const flat = [item.title, item.commentary, item.body]
+    .map((f) => bodyLines(f).join(' ').trim())
+    .filter(Boolean)
+    .join(' — ');
+  return flat.slice(0, max);
+}
+
+export function echoesAnchors(doc: IssueDoc): EchoAnchor[] {
+  const standalone: EchoAnchor[] = [];
+  const week: string[] = [];
+
+  for (const node of doc.nodes) {
+    for (const id of node.items) {
+      const item = doc.items[id];
+      if (!present(item)) continue;
+      switch (item.type) {
+        case 'journal_post':
+          if (node.kind === 'promoted_item' || item.presentation === 'promoted') {
+            standalone.push({ label: item.title || node.label, query: anchorText(item, 320) });
+          } else {
+            week.push(anchorText(item, 100));
+          }
+          break;
+        case 'pinboard_link':
+          if (HEADING_LINK_SECTIONS.has(node.type)) {
+            standalone.push({ label: item.title || 'Link', query: anchorText(item, 320) });
+          }
+          // Briefly links are one-liners; too thin to anchor an echo.
+          break;
+        case 'intro':
+        case 'currently':
+          week.push(anchorText(item, 160));
+          break;
+        case 'photo': {
+          const media = [item.media?.caption, item.media?.location].filter(Boolean).join(' — ');
+          week.push([anchorText(item, 100), media].filter(Boolean).join(' '));
+          break;
+        }
+        default:
+          break;
+      }
+    }
+  }
+
+  const weekQuery = week.filter(Boolean).join('\n').slice(0, 700);
+  const anchors = standalone
+    .filter((a) => a.query.length >= 20)
+    .slice(0, weekQuery ? ECHOES_MAX_ANCHORS - 1 : ECHOES_MAX_ANCHORS);
+  if (weekQuery) anchors.push({ label: 'The week itself', query: weekQuery });
+  return anchors;
+}
+
+/** A retrieval anchor with what the archive returned for it. */
+export interface AnchoredPassages {
+  label: string;
+  passages: librarian.Passage[];
+}
+
+/**
+ * Days between passages that echo and passages that merely repeat. The
+ * judgement pass owns the last eight issues; Echoes is the deep archive, so
+ * anything younger than this is kept only after every older passage.
+ */
+export const ECHOES_DEEP_DAYS = 183;
+
+/**
+ * Filter and rank what retrieval returned, per anchor. Pure, so the recency
+ * rules are testable.
+ *
+ * The current issue and its two predecessors are excluded outright — last
+ * week is repetition, not an echo (and the judgement pass already owns
+ * recency). Older-than-six-months passages rank ahead of younger ones;
+ * within a band, retrieval score order holds. A url appears once across all
+ * anchors — the first anchor that found it keeps it.
+ */
+export function poolEchoPassages(
+  anchored: AnchoredPassages[],
+  issueNumber: number,
+  publicationDate: string,
+  perAnchor = 4,
+): AnchoredPassages[] {
+  const cutoff = new Date(publicationDate + 'T00:00:00Z').getTime() - ECHOES_DEEP_DAYS * 86_400_000;
+  const excluded = new Set([issueNumber, issueNumber - 1, issueNumber - 2]);
+  const seen = new Set<string>();
+
+  return anchored
+    .map(({ label, passages }) => {
+      const kept = passages.filter((p) => {
+        if (p.issue_number && excluded.has(p.issue_number)) return false;
+        const key = p.url ?? `${p.issue_number}:${String(p.text ?? '').slice(0, 80)}`;
+        if (seen.has(key)) return false;
+        seen.add(key);
+        return true;
+      });
+      // Undated passages cannot be aged; treat them as deep archive.
+      const deep = kept.filter((p) => !p.publish_date || new Date(p.publish_date).getTime() < cutoff);
+      const recent = kept.filter((p) => !deep.includes(p));
+      return { label, passages: [...deep, ...recent].slice(0, perAnchor) };
+    })
+    .filter((a) => a.passages.length > 0);
+}
+
+/** Passages formatted for the prompt, grouped by the anchor that found them. */
+function passageContext(anchored: AnchoredPassages[]): string {
+  return anchored
+    .map(({ label, passages }) => {
+      const lines = passages.map((p) => {
+        const head = [
+          p.issue_number ? `WT${p.issue_number}` : null,
+          p.subject,
+          p.publish_date?.slice(0, 10),
+          p.section,
+        ].filter(Boolean).join(' · ');
+        return `[${head}] ${p.url ?? ''}\n${String(p.text ?? '').slice(0, 500)}`;
+      });
+      return `From this issue — ${label}:\n\n${lines.join('\n\n')}`;
     })
     .join('\n\n');
+}
+
+/**
+ * The issue published closest to a year before this one — the seasonal lens.
+ * Rituals rhyme annually (Boat Day, the anniversary, the state fair), and
+ * semantic retrieval has no calendar. Pure; the route supplies the rows.
+ */
+export const SEASONAL_TOLERANCE_DAYS = 28;
+
+export function pickSeasonalIssue(
+  candidates: { number: number; publication_date: string; status: string }[],
+  forDate: string,
+  excludeNumber: number,
+): { number: number; publication_date: string } | null {
+  const target = new Date(forDate + 'T00:00:00Z').getTime() - 365 * 86_400_000;
+  let best: { number: number; publication_date: string } | null = null;
+  let bestDistance = SEASONAL_TOLERANCE_DAYS * 86_400_000 + 1;
+  for (const c of candidates) {
+    if (c.status !== 'published' || c.number === excludeNumber) continue;
+    const distance = Math.abs(new Date(c.publication_date + 'T00:00:00Z').getTime() - target);
+    if (distance < bestDistance) {
+      best = { number: c.number, publication_date: c.publication_date };
+      bestDistance = distance;
+    }
+  }
+  return best;
+}
+
+/**
+ * The readable text of an issue, for the seasonal context block. Imported
+ * pre-Builder issues hold their whole published body in one item; Builder
+ * issues hold an item tree. Either way: the items' words, minus markup that
+ * carries no meaning for retrieval grounding.
+ */
+export function issueExcerpt(doc: IssueDoc, max = 2800): string {
+  const parts: string[] = [];
+  for (const node of doc.nodes) {
+    for (const id of node.items) {
+      const item = doc.items[id];
+      if (!item) continue;
+      const flat = [item.title, item.body, item.commentary]
+        .map((f) => bodyLines(f).join(' ').trim())
+        .filter(Boolean)
+        .join('\n');
+      if (flat) parts.push(flat);
+    }
+  }
+  return parts
+    .join('\n\n')
+    .replace(/<img[^>]*>/g, '')
+    .replace(/!\[[^\]]*\]\([^)]*\)/g, '')
+    .slice(0, max);
 }
 
 export async function draft(req: DraftRequest): Promise<DraftResult> {
@@ -563,9 +756,14 @@ export async function draft(req: DraftRequest): Promise<DraftResult> {
   if (!isIssue && !item) throw new Error(`no item ${req.itemId}`);
 
   const type = isIssue ? 'issue' : item!.type;
+  // VOICE is the newsletter's voice — first-person, Jamie's register. Echoes
+  // is Thingy's own bylined section and carries its persona and guardrails
+  // in its prompt; prepending a first-person voice would fight it.
   const system = isIssue
     ? `${VOICE}\n\n${ISSUE_PROMPT}`
-    : DRAFT_PROMPTS[item!.type] && `${VOICE}\n\n${DRAFT_PROMPTS[item!.type]}`;
+    : type === 'echoes'
+      ? DRAFT_PROMPTS.echoes
+      : DRAFT_PROMPTS[item!.type] && `${VOICE}\n\n${DRAFT_PROMPTS[item!.type]}`;
   if (!system) throw new Error(`${type} has no drafting prompt`);
 
   const n = candidateCount(type as Item['type'] | 'issue');
@@ -580,11 +778,19 @@ export async function draft(req: DraftRequest): Promise<DraftResult> {
 
   // Echoes grounds itself in the archive, and fails loud without it — the
   // editorial spec's quality bar is real semantic retrieval, never a
-  // silently degraded guess (docs/service-contracts.md).
-  let passages: librarian.Passage[] = [];
+  // silently degraded guess (docs/service-contracts.md). One retrieval per
+  // anchor: the sharp echoes only surface when the boat and the railroads
+  // are not averaged into one query.
+  let anchored: AnchoredPassages[] = [];
   if (type === 'echoes') {
-    passages = await librarian.retrieve(echoesQuery(req.doc));
-    if (!passages.length) {
+    const results = await Promise.all(
+      echoesAnchors(req.doc).map(async (a) => ({
+        label: a.label,
+        passages: await librarian.retrieve(a.query),
+      })),
+    );
+    anchored = poolEchoPassages(results, req.doc.issue.number, req.doc.issue.publication_date);
+    if (!anchored.length) {
       throw new Error('the archive returned no passages — rerun Echoes rather than inventing');
     }
   }
@@ -598,7 +804,12 @@ export async function draft(req: DraftRequest): Promise<DraftResult> {
     `Return exactly ${n} distinct candidates. Make them genuinely different from each other, not variations on one phrasing.`,
     isIssue ? `\nThis is issue WT${req.doc.issue.number}.` : '',
     campaign ? `\nThe program, from the live members page:\n${campaign}` : '',
-    passages.length ? `\nArchive passages, retrieved for this issue — cite only from these:\n${passageContext(passages)}` : '',
+    anchored.length
+      ? `\nArchive passages, retrieved per item of this issue — cite only from these and the seasonal issue below:\n${passageContext(anchored)}`
+      : '',
+    type === 'echoes' && req.seasonal
+      ? `\nAbout a year ago this week — [WT${req.seasonal.number}](https://weekly.thingelstad.com/archive/${req.seasonal.number}/), published ${req.seasonal.publication_date} ("${req.seasonal.title}"). For seasonal rhymes; use it only where it ties to this issue:\n${req.seasonal.excerpt}`
+      : '',
     req.context ? `\nContext you must work from:\n${req.context}` : '',
     current ? `\nWhat it says now, which you are improving on:\n${current}` : '',
     item?.type === 'pinboard_link'
@@ -628,7 +839,7 @@ export async function draft(req: DraftRequest): Promise<DraftResult> {
 
   const parsed = JSON.parse(text) as {
     candidates?: string[];
-    archive_references?: { issue: number; url: string; note?: string }[];
+    archive_references?: ArchiveReference[];
   };
   const result: DraftResult = { candidates: (parsed.candidates ?? []).slice(0, n) };
   if (type === 'echoes' && parsed.archive_references) {

@@ -204,8 +204,14 @@ export function Inspector({ doc, itemId, run, onClose, onError, onBackToReview }
           <h3 style="margin-top:18px">Archive references</h3>
           {item.archive_references.map((reference) => (
             <div class="kv" key={reference.url}>
-              <span>WT{reference.issue}</span>
-              <a href={reference.url} target="_blank" rel="noreferrer">{reference.note ?? reference.url}</a>
+              <span>
+                {reference.issue
+                  ? `WT${reference.issue}`
+                  : reference.kind === 'podcast' ? 'Podcast' : 'Blog'}
+              </span>
+              <a href={reference.url} target="_blank" rel="noreferrer">
+                {reference.note ?? reference.title ?? reference.url}
+              </a>
             </div>
           ))}
         </>

@@ -31,8 +31,11 @@
 Thingy is a generation service WT Builder calls during assembly.
 
 - Membership: generates an attributed CTA from supplied campaign facts.
-- Echoes: retrieves relevant archive context and writes an attributed closing
-  callback grounded in the assembled current issue.
+- Echoes: retrieves archive context per anchor item of the current issue
+  (plus a deterministic same-week-last-year lens) and writes an attributed
+  closing note connecting this issue to the archive — primarily Weekly Thing
+  issues; blog and podcast citations are welcome when the echo lives there.
+  See `service-contracts.md`, "Echoes retrieval".
 - Generation must preserve citations/provenance for Jamie's review even if the
   public rendering omits technical retrieval details.
 - Both call the archive's retrieval endpoint. It is a server-side call with a

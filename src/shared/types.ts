@@ -56,9 +56,16 @@ export interface Media {
   location?: string;
 }
 
+/**
+ * A source Echoes cited. Weekly Thing issues carry a number; blog posts and
+ * podcast episodes carry a title instead. Records from before the widening
+ * (2026-09) have neither `kind` nor `title` and read as issues.
+ */
 export interface ArchiveReference {
-  issue: number;
+  kind?: 'issue' | 'blog' | 'podcast';
+  issue?: number;
   url: string;
+  title?: string;
   note?: string;
 }
 

@@ -11,7 +11,7 @@
 import type { ComponentChildren, RefObject } from 'preact';
 import { useState } from 'preact/hooks';
 
-import type { Channel, IssueDoc, IssueNode, Item } from '../../shared/types.ts';
+import type { ArchiveReference, Channel, IssueDoc, IssueNode, Item } from '../../shared/types.ts';
 import { CHANNELS } from '../../shared/types.ts';
 import { clockTime, kickerDate, longDate, wallClock, weekday } from '../../shared/dates.ts';
 import {
@@ -49,7 +49,7 @@ interface PageProps {
   onSelect: (anchor: string | null) => void;
   act: PageActions;
   drafting: string | null;
-  draft: { itemId: string; candidates: string[]; references?: { issue: number; url: string; note?: string }[] } | null;
+  draft: { itemId: string; candidates: string[]; references?: ArchiveReference[] } | null;
   onPickDraft: (itemId: string, text: string) => void;
   onDismissDraft: () => void;
   /** The `position: relative` host the note overlay measures against. */

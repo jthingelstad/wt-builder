@@ -11,7 +11,7 @@
 
 import { useCallback, useEffect, useRef, useState } from 'preact/hooks';
 
-import type { Channel, IssueDoc } from '../../shared/types.ts';
+import type { ArchiveReference, Channel, IssueDoc } from '../../shared/types.ts';
 import { shortKicker, sourcesLabel } from '../../shared/dates.ts';
 import { windowOf } from '../../shared/render/plan.ts';
 import { api, type IssueResponse, type Readiness } from '../api.ts';
@@ -61,7 +61,7 @@ export function Editor({ doc, readiness, busy, error, run, onIndex, onSend, onEr
   const [panel, setPanel] = useState(true);
   const [selected, setSelected] = useState<string | null>(null);
   const [drafting, setDrafting] = useState<string | null>(null);
-  const [draft, setDraft] = useState<{ itemId: string; candidates: string[]; references?: { issue: number; url: string; note?: string }[] } | null>(null);
+  const [draft, setDraft] = useState<{ itemId: string; candidates: string[]; references?: ArchiveReference[] } | null>(null);
   const [sweeping, setSweeping] = useState(false);
   const [collapsed, setCollapsed] = useState(false);
   const [reading, setReading] = useState(false);
