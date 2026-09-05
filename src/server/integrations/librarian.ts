@@ -15,8 +15,11 @@ import { config, credentials } from '../config.ts';
 
 // The /retrieve request/response shape this client codes against, from
 // librarian-thing/apps/librarian/contracts/librarian-api.json. Bump when
-// adopting a new major.
-const LIBRARIAN_CONTRACT_MAJOR = '3.1.0';
+// adopting a new major - and this client is a REGISTERED consumer in the
+// Librarian's SUPPORTED_CONTRACT_MAJORS comment, so a major drop checks
+// here first. Verified against 4.10.0: /retrieve is a superset of what
+// this client sends and reads (2026-09-05).
+const LIBRARIAN_CONTRACT_MAJOR = '4.10.0';
 
 export interface Passage {
   issue_number?: number;

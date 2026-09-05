@@ -96,6 +96,14 @@ export interface Item {
   section?: string;
   tags?: string[];
 
+  /**
+   * Membership only: what an existing Supporting Member sees in the email
+   * INSTEAD of the call to action (the Liquid premium branch). Drafted with
+   * the CTA as one candidate pair; empty falls back to the static
+   * MEMBER_THANKS line appended to the body.
+   */
+  member_thanks?: string;
+
   presentation?: 'journal' | 'promoted';
   /**
    * Fields the source owns that write-back must hand back untouched. Pinboard's

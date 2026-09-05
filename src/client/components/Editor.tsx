@@ -61,7 +61,7 @@ export function Editor({ doc, readiness, busy, error, run, onIndex, onSend, onEr
   const [panel, setPanel] = useState(true);
   const [selected, setSelected] = useState<string | null>(null);
   const [drafting, setDrafting] = useState<string | null>(null);
-  const [draft, setDraft] = useState<{ itemId: string; candidates: string[]; echoes?: EchoOption[] } | null>(null);
+  const [draft, setDraft] = useState<{ itemId: string; candidates: string[]; echoes?: EchoOption[]; membership?: { cta: string; thanks: string }[] } | null>(null);
   const [sweeping, setSweeping] = useState(false);
   const [collapsed, setCollapsed] = useState(false);
   const [reading, setReading] = useState(false);
@@ -117,7 +117,7 @@ export function Editor({ doc, readiness, busy, error, run, onIndex, onSend, onEr
       setDrafting(itemId);
       setDraft(null);
       api.draftItem(id, itemId)
-        .then((r) => setDraft({ itemId, candidates: r.candidates, echoes: r.echoes }))
+        .then((r) => setDraft({ itemId, candidates: r.candidates, echoes: r.echoes, membership: r.membership }))
         .catch((err) => onError((err as Error).message))
         .finally(() => setDrafting(null));
     },
@@ -376,7 +376,7 @@ export function Editor({ doc, readiness, busy, error, run, onIndex, onSend, onEr
               act={act}
               drafting={drafting}
               draft={draft}
-              onPickDraft={(itemId, text, refs) => {
+              onPickDraft={(itemId, text, refs, extraPatch) => {
                 setDraft(null);
                 // The head wand drafts the title theme and dek as two lines.
                 if (itemId === 'issue') {
@@ -389,7 +389,7 @@ export function Editor({ doc, readiness, busy, error, run, onIndex, onSend, onEr
                 }
                 const item = doc.items[itemId];
                 const field = item?.type === 'pinboard_link' ? 'commentary' : 'body';
-                const patch: Record<string, unknown> = { [field]: text };
+                const patch: Record<string, unknown> = { [field]: text, ...(extraPatch ?? {}) };
                 // Echoes carries the citations it was composed from, so the
                 // inspector can show what the section stands on.
                 if (item?.type === 'echoes' && refs?.length) patch.archive_references = refs;

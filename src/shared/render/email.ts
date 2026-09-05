@@ -24,7 +24,9 @@ export function membershipBlocks(item: Item): Block[] {
   const body = bodyLines(item.body).join(' ');
   if (!body) return [byline(item)];
 
-  const thanks = `${body} ${MEMBER_THANKS}`;
+  // A drafted thank-you stands alone for existing members; without one,
+  // the historical form - the invitation with the static line appended.
+  const thanks = String(item.member_thanks ?? '').trim() || `${body} ${MEMBER_THANKS}`;
   return [
     byline(item),
     `{% if ${PREMIUM_CONDITION} %}`,

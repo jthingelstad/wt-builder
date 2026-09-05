@@ -19,7 +19,9 @@
     "import:prebuilder": "node --import tsx scripts/import-prebuilder.ts",
     "buttondown:pull": "node --import tsx scripts/buttondown-config.ts pull",
     "buttondown:diff": "node --import tsx scripts/buttondown-config.ts diff",
-    "buttondown:push": "node --import tsx scripts/buttondown-config.ts push"
+    "buttondown:push": "node --import tsx scripts/buttondown-config.ts push",
+    "persona:sync": "node scripts/sync-persona.mjs",
+    "persona:check": "node scripts/sync-persona.mjs --check"
   },
   "dependencies": {
     "@anthropic-ai/sdk": "^0.123.0",

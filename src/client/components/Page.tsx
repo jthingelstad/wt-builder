@@ -54,8 +54,8 @@ interface PageProps {
   onSelect: (anchor: string | null) => void;
   act: PageActions;
   drafting: string | null;
-  draft: { itemId: string; candidates: string[]; echoes?: EchoOption[] } | null;
-  onPickDraft: (itemId: string, text: string, refs?: ArchiveReference[]) => void;
+  draft: { itemId: string; candidates: string[]; echoes?: EchoOption[]; membership?: { cta: string; thanks: string }[] } | null;
+  onPickDraft: (itemId: string, text: string, refs?: ArchiveReference[], extraPatch?: Record<string, unknown>) => void;
   onDismissDraft: () => void;
   /** The `position: relative` host the note overlay measures against. */
   hostRef?: RefObject<HTMLDivElement>;
@@ -328,7 +328,13 @@ export function Page({
                 busy={drafting === itemId}
                 onClick={() => act.draft(itemId)}
               />
-              {draft?.itemId === itemId && (draft.echoes ? (
+              {draft?.itemId === itemId && (draft.membership ? (
+                <MembershipPicker
+                  candidates={draft.membership}
+                  onPick={(pair) => onPickDraft(itemId, pair.cta, undefined, { member_thanks: pair.thanks })}
+                  onDismiss={onDismissDraft}
+                />
+              ) : draft.echoes ? (
                 <EchoesPicker
                   echoes={draft.echoes}
                   onCompose={(selected) => {
@@ -363,11 +369,20 @@ export function Page({
         .map((id) => doc.items[id]?.body)
         .find((b) => b && b.trim());
       if (body) {
+        const membershipId = inLens.find((id) => doc.items[id]?.body?.trim());
+        const membershipItem = membershipId ? doc.items[membershipId] : undefined;
         rows.push(
           <Row key={`${node.id}-liquid`} anchor={node.id}>
             <div class="liquid">
               <code>{`{% if ${PREMIUM_CONDITION} %}`}</code>
-              <code class="indent">…{` ${MEMBER_THANKS}`}</code>
+              <div class="indent liquid-editable">
+                <Editable
+                  tag="span" multiline readOnly={readOnly}
+                  value={membershipItem?.member_thanks ?? ''}
+                  ph={`(no drafted thanks — falls back to the invitation + “${MEMBER_THANKS}”)`}
+                  onCommit={(text) => membershipId && act.updateItem(membershipId, { member_thanks: text })}
+                />
+              </div>
               <code>{'{% else %}'}</code>
               <code class="indent">…</code>
               <code>{'{% endif %}'}</code>
@@ -811,6 +826,38 @@ function EchoesPicker({
         </button>
         <span class="dp-foot">The section is exactly what you select, in this order.</span>
       </div>
+    </div>
+  );
+}
+
+/**
+ * Membership candidates are pairs - the invitation and the member
+ * thank-you drafted together so the two email branches always agree.
+ * One pick fills both (body + member_thanks).
+ */
+function MembershipPicker({
+  candidates, onPick, onDismiss,
+}: {
+  candidates: { cta: string; thanks: string }[];
+  onPick: (pair: { cta: string; thanks: string }) => void;
+  onDismiss: () => void;
+}) {
+  return (
+    <div class="draft-picker membership-picker">
+      <div class="dp-head">
+        <span class="mono-label">DRAFTED — PICK A PAIR</span>
+        <button class="dp-x" aria-label="Dismiss" onClick={onDismiss}>×</button>
+      </div>
+      {candidates.length === 0 && <p class="quiet">Nothing came back.</p>}
+      {candidates.map((pair, i) => (
+        <button key={i} class="dp-option" onClick={() => onPick(pair)}>
+          <span class="dp-pair-label">EVERYONE</span>
+          {pair.cta}
+          <span class="dp-pair-label">MEMBERS SEE</span>
+          {pair.thanks}
+        </button>
+      ))}
+      <p class="dp-foot">One pick fills both email branches. Nothing is written until you choose.</p>
     </div>
   );
 }

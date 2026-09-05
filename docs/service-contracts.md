@@ -142,6 +142,24 @@ the prompt forbids inventing figures.
 Three gives real contrast where the choice is a voice; two reads as a coin flip.
 Link commentary is one sentence, where the want is a nudge rather than a menu.
 
+**Membership candidates are pairs** (Jamie, 2026-09-05): each carries `cta`
+(the invitation) and `thanks` (what an existing Supporting Member sees
+instead, in the email's premium branch). One pick fills both — `body` and
+`member_thanks` — so the two branches always agree in register. An empty
+`member_thanks` falls back to the historical form: the invitation with the
+static thanks line appended.
+
+```json
+{ "candidates": [ { "cta": "…", "thanks": "…" } ] }
+```
+
+**The bylined prompts wear one wardrobe:** Echoes and Membership prepend
+the vendored Thingy print persona (`prompts/thingy-persona.md`, synced
+verbatim from the Librarian's canonical charter via `npm run
+persona:sync`; tests hold the sha and, when the sibling checkout is
+present, the upstream match). The reviewer and every other wand stay
+generic services — the byline is the boundary.
+
 **Echoes returns units, not candidates** (Jamie, 2026-09-04): up to five
 self-contained echoes, best first, each one or two sentences tracing one
 thread with its own citations. Jamie selects any subset and the section

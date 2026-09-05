@@ -333,7 +333,9 @@ export function updateItem(doc: IssueDoc, itemId: string, patch: Partial<Item>):
   const next = structuredClone(doc);
   const item = next.items[itemId];
   if (!item) return next;
-  const bodyChanged = patch.body !== undefined && patch.body !== item.body;
+  const bodyChanged =
+    (patch.body !== undefined && patch.body !== item.body) ||
+    (patch.member_thanks !== undefined && patch.member_thanks !== item.member_thanks);
   Object.assign(item, patch);
 
   const sourceFieldChanged =

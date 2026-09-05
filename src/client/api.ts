@@ -167,7 +167,7 @@ export const api = {
    * issue his.
    */
   draftItem: (id: string, itemId: string, context?: string) =>
-    call<{ candidates: string[]; echoes?: EchoOption[] }>(
+    call<{ candidates: string[]; echoes?: EchoOption[]; membership?: { cta: string; thanks: string }[] }>(
       `/issues/${id}/items/${itemId}/draft`,
       { method: 'POST', body: JSON.stringify({ context }) },
     ),

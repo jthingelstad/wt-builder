@@ -6,6 +6,10 @@
  * (docs/service-contracts.md).
  */
 
+import { readFileSync } from 'node:fs';
+import { dirname, join } from 'node:path';
+import { fileURLToPath } from 'node:url';
+
 import Anthropic from '@anthropic-ai/sdk';
 
 import type { ArchiveReference, EchoOption, IssueDoc, Item } from '../shared/types.ts';
@@ -319,10 +323,23 @@ Hard guardrails, which override everything else:
   beats "stay on top of AI".
 - No emoji unless quoting a subject that contains one.`;
 
+/**
+ * Thingy's print persona, vendored verbatim from the Librarian's canonical
+ * charter (persona:sync; scripts/sync-persona.mjs). Prepended to the
+ * BYLINED prompts only - Echoes and Membership speak as Thingy; the
+ * reviewer and every other wand are generic services and never wear it
+ * (Jamie's byline boundary, 2026-09-04).
+ */
+export const THINGY_PERSONA = readFileSync(
+  join(dirname(fileURLToPath(import.meta.url)), '..', '..', 'prompts', 'thingy-persona.md'),
+  'utf8',
+);
+
 const DRAFT_PROMPTS: Partial<Record<Item['type'], string>> = {
-  membership: `Write the Membership section for this issue of The Weekly Thing.
-It is attributed to Thingy in print, so write in Thingy's voice — an assistant
-that helps with the newsletter — never as Jamie. One short paragraph.
+  membership: `Write the Membership section for this issue of The Weekly
+Thing — BOTH sides of its email branching, in the community-giving register
+above. Each candidate is a pair: "cta", the invitation a reader sees, and
+"thanks", what an existing Supporting Member sees INSTEAD.
 
 Understand the program before you write, because generic newsletter-support
 copy gets it exactly backwards:
@@ -334,11 +351,14 @@ copy gets it exactly backwards:
   funds the nonprofit, not the newsletter.
 - Name the current year's nonprofit and say in a phrase why it matters —
   from the facts given, never invented.
-- The ask is warm and unhurried: an invitation to give through the
+- The cta: one short paragraph. An invitation to give through the
   newsletter, not a plea to sustain it. "Less than a coffee a month" is the
   register. A one-time gift of any amount is equally welcome.
 - Never invent a figure, a deadline, a goal, or urgency. Never mention
-  member perks as the reason to join — the giving is the reason.`,
+  member perks as the reason to join — the giving is the reason.
+- The thanks: one or two sentences to someone ALREADY giving. Name the
+  shared impact through this year's nonprofit, from the facts given. No
+  re-pitching, no perks, no invented totals — gratitude with substance.`,
 
   echoes: `Write Echoes — the short archive note that closes the issue. Its
 job: surface the connections between what is in THIS issue and Jamie's
@@ -346,12 +366,7 @@ archive, so a reader discovers that this week's topics, people, and places
 have history. Primarily the Weekly Thing's own issues; his blog and the
 Another Thing podcast are welcome when the echo lives there.
 
-Voice: Thingy, the librarian of the archive — not Jamie. Third person about
-Jamie ("Jamie tracked this in WT210"), composed and warm — Jamie writes
-loose, you write composed. Knowledgeable without being smug. No hype words
-("fascinating parallel", "deep cut", "remarkable") — be specific or say
-nothing. No speculation about Jamie's mood, family, or motivations beyond
-what a cited source shows.
+Write in the archive-librarian register above.
 
 Shape: return UP TO FIVE unique echoes, best first — aim for five when the
 material supports it, fewer when it does not; never pad toward a count.
@@ -516,14 +531,47 @@ export interface SeasonalIssue {
   excerpt: string;
 }
 
+/** One membership candidate: the invitation and the member thank-you, drafted as a pair. */
+export interface MembershipOption {
+  cta: string;
+  thanks: string;
+}
+
 export interface DraftResult {
   candidates: string[];
   /** Echoes only: selectable units — Jamie composes the section from a subset. */
   echoes?: EchoOption[];
+  /** Membership only: cta + thanks pairs — one pick fills both email branches. */
+  membership?: MembershipOption[];
 }
 
 /** How many echo units one drafting call offers, at most. */
 export const ECHOES_OFFERED = 5;
+
+/**
+ * Membership drafts both Liquid branches at once (Jamie, 2026-09-05): the
+ * cta for the else branch and the thanks an existing Supporting Member
+ * sees instead. One pick fills both, so they always agree in register.
+ */
+const MEMBERSHIP_SCHEMA = {
+  type: 'object',
+  additionalProperties: false,
+  required: ['candidates'],
+  properties: {
+    candidates: {
+      type: 'array',
+      items: {
+        type: 'object',
+        additionalProperties: false,
+        required: ['cta', 'thanks'],
+        properties: {
+          cta: { type: 'string' },
+          thanks: { type: 'string' },
+        },
+      },
+    },
+  },
+} as const;
 
 const CANDIDATES_SCHEMA = {
   type: 'object',
@@ -786,10 +834,14 @@ export async function draft(req: DraftRequest): Promise<DraftResult> {
   // VOICE is the newsletter's voice — first-person, Jamie's register. Echoes
   // is Thingy's own bylined section and carries its persona and guardrails
   // in its prompt; prepending a first-person voice would fight it.
+  // The byline boundary: Echoes and Membership speak as Thingy (persona
+  // prepended); everything else drafts Jamie's words in the newsletter's
+  // VOICE and never wears the persona.
+  const bylined = type === 'echoes' || type === 'membership';
   const system = isIssue
     ? `${VOICE}\n\n${ISSUE_PROMPT}`
-    : type === 'echoes'
-      ? DRAFT_PROMPTS.echoes
+    : bylined
+      ? `${THINGY_PERSONA}\n\n${DRAFT_PROMPTS[item!.type]}`
       : DRAFT_PROMPTS[item!.type] && `${VOICE}\n\n${DRAFT_PROMPTS[item!.type]}`;
   if (!system) throw new Error(`${type} has no drafting prompt`);
 
@@ -852,7 +904,10 @@ export async function draft(req: DraftRequest): Promise<DraftResult> {
     system,
     output_config: {
       effort: 'medium',
-      format: { type: 'json_schema', schema: type === 'echoes' ? ECHOES_SCHEMA : CANDIDATES_SCHEMA },
+      format: {
+        type: 'json_schema',
+        schema: type === 'echoes' ? ECHOES_SCHEMA : type === 'membership' ? MEMBERSHIP_SCHEMA : CANDIDATES_SCHEMA,
+      },
     },
     messages: [{ role: 'user', content: parts.filter(Boolean).join('\n') }],
   } as Anthropic.MessageCreateParamsNonStreaming);
@@ -867,11 +922,14 @@ export async function draft(req: DraftRequest): Promise<DraftResult> {
     .join('');
 
   const parsed = JSON.parse(text) as {
-    candidates?: string[];
+    candidates?: unknown[];
     echoes?: EchoOption[];
   };
   if (type === 'echoes') {
     return { candidates: [], echoes: (parsed.echoes ?? []).slice(0, ECHOES_OFFERED) };
   }
-  return { candidates: (parsed.candidates ?? []).slice(0, n) };
+  if (type === 'membership') {
+    return { candidates: [], membership: ((parsed.candidates ?? []) as MembershipOption[]).slice(0, n) };
+  }
+  return { candidates: ((parsed.candidates ?? []) as string[]).slice(0, n) };
 }
