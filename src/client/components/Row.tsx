@@ -194,6 +194,109 @@ export function Wand({ redraft, onClick, busy }: { redraft: boolean; onClick: ()
   );
 }
 
+// ── Markdown sugar on the keyboard ────────────────────────────────────────
+//
+// The editables hold Markdown source while editing. These are the gestures
+// a writer expects from any text field, expressed as Markdown: ⌘B, ⌘I, ⌘⇧K
+// (code) wrap or unwrap the selection; ⌘K makes a link; pasting a URL over a
+// selection links it. No toolbar, no editor library — the page is the editor
+// (Jamie, 2026-09-20). All edits go through insertText so undo works.
+
+/** Text offsets of the selection inside `el`, or null when it is elsewhere. */
+function selectionOffsets(el: HTMLElement): { start: number; end: number; text: string } | null {
+  const sel = window.getSelection();
+  if (!sel || !sel.rangeCount) return null;
+  const range = sel.getRangeAt(0);
+  if (!el.contains(range.startContainer) || !el.contains(range.endContainer)) return null;
+  const before = document.createRange();
+  before.selectNodeContents(el);
+  before.setEnd(range.startContainer, range.startOffset);
+  const start = before.toString().length;
+  const text = range.toString();
+  return { start, end: start + text.length, text };
+}
+
+/** Select the run [start, end) of `el`'s text, across its text nodes. */
+function selectOffsets(el: HTMLElement, start: number, end: number): void {
+  const walker = document.createTreeWalker(el, NodeFilter.SHOW_TEXT);
+  let seen = 0;
+  let from: [Node, number] | null = null;
+  let to: [Node, number] | null = null;
+  for (let node = walker.nextNode(); node; node = walker.nextNode()) {
+    const len = node.textContent?.length ?? 0;
+    if (!from && start <= seen + len) from = [node, start - seen];
+    if (!to && end <= seen + len) { to = [node, end - seen]; break; }
+    seen += len;
+  }
+  if (!from || !to) return;
+  const sel = window.getSelection();
+  sel?.setBaseAndExtent(from[0], from[1], to[0], to[1]);
+}
+
+function insertText(text: string): void {
+  document.execCommand('insertText', false, text);
+}
+
+/** Wrap the selection in `mark`, or unwrap it if it (or its surroundings) already is. */
+function toggleWrap(el: HTMLElement, mark: string): void {
+  const s = selectionOffsets(el);
+  if (!s) return;
+  const all = el.textContent ?? '';
+  const n = mark.length;
+
+  if (s.text.startsWith(mark) && s.text.endsWith(mark) && s.text.length >= 2 * n) {
+    insertText(s.text.slice(n, -n));
+    return;
+  }
+  if (all.slice(s.start - n, s.start) === mark && all.slice(s.end, s.end + n) === mark) {
+    selectOffsets(el, s.start - n, s.end + n);
+    insertText(s.text);
+    return;
+  }
+  if (!s.text) {
+    insertText(mark + mark);
+    selectOffsets(el, s.start + n, s.start + n);
+    return;
+  }
+  // Keep the surrounding whitespace outside the marks: "**word **" is not bold.
+  const lead = s.text.length - s.text.trimStart().length;
+  const trail = s.text.length - s.text.trimEnd().length;
+  const core = s.text.trim();
+  if (!core) return;
+  insertText(s.text.slice(0, lead) + mark + core + mark + s.text.slice(s.text.length - trail));
+}
+
+const URL_ONLY = /^\s*https?:\/\/\S+\s*$/i;
+
+/** ⌘K: [selection](|) with the caret in the parentheses; no selection: [|](). */
+function makeLink(el: HTMLElement): void {
+  const s = selectionOffsets(el);
+  if (!s) return;
+  if (URL_ONLY.test(s.text)) {
+    // A selected URL becomes a link whose text is still to be written.
+    insertText(`[](${s.text.trim()})`);
+    selectOffsets(el, s.start + 1, s.start + 1);
+    return;
+  }
+  insertText(`[${s.text}]()`);
+  const caret = s.text ? s.start + s.text.length + 3 : s.start + 1;
+  selectOffsets(el, caret, caret);
+}
+
+/** True when the key event was a formatting shortcut and has been handled. */
+export function formatShortcut(e: KeyboardEvent): boolean {
+  if (!(e.metaKey || e.ctrlKey) || e.altKey) return false;
+  const el = e.currentTarget as HTMLElement;
+  const key = e.key.toLowerCase();
+  if (key === 'b' && !e.shiftKey) toggleWrap(el, '**');
+  else if (key === 'i' && !e.shiftKey) toggleWrap(el, '_');
+  else if (key === 'k' && e.shiftKey) toggleWrap(el, '`');
+  else if (key === 'k') makeLink(el);
+  else return false;
+  e.preventDefault();
+  return true;
+}
+
 // ── rich text in, Markdown out ────────────────────────────────────────────
 //
 // The editables commit `textContent`, and a paste from Safari, Notes, or
@@ -247,6 +350,12 @@ function insertPaste(e: ClipboardEvent, multiline: boolean): void {
   e.preventDefault();
   let text = pasteAsMarkdown(e.clipboardData);
   if (!multiline) text = text.replace(/\s*\n\s*/g, ' ');
+  // A URL pasted over selected words links them.
+  const el = e.currentTarget as HTMLElement;
+  const s = selectionOffsets(el);
+  if (s?.text.trim() && URL_ONLY.test(text) && !URL_ONLY.test(s.text)) {
+    text = `[${s.text}](${text.trim()})`;
+  }
   document.execCommand('insertText', false, text);
 }
 
@@ -296,6 +405,7 @@ export function Editable({
       if (text !== value) onCommit(text);
     },
     onKeyDown: (e: KeyboardEvent) => {
+      if (formatShortcut(e)) return;
       const el = e.currentTarget as HTMLElement;
       if (e.key === 'Escape') { el.textContent = value; el.blur(); return; }
       if (e.key === 'Enter' && !multiline) { e.preventDefault(); el.blur(); }
@@ -369,6 +479,7 @@ export function RichEditable({
       else el.innerHTML = value ? render(value) : '';
     },
     onKeyDown: (e: KeyboardEvent) => {
+      if (formatShortcut(e)) return;
       const el = e.currentTarget as HTMLElement;
       if (e.key === 'Escape') { el.textContent = value; el.blur(); return; }
       if (e.key === 'Enter' && !multiline) { e.preventDefault(); el.blur(); }

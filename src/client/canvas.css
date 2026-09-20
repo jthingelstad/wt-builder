@@ -501,6 +501,13 @@
 
 .src-primary { display: block; font-size: 17px; font-weight: 600; line-height: 1.35; margin-bottom: 4px; }
 .src-body { font-size: 16.5px; line-height: 1.7; white-space: pre-wrap; }
+.src-body p, .src-body ul, .src-body ol, .src-body blockquote, .src-body h3, .src-body h4 { white-space: normal; }
+.src-body p { margin: 0 0 10px; }
+.src-body p:last-child { margin-bottom: 0; }
+.src-body img { display: block; max-width: 100%; height: auto; border-radius: 6px; margin: 8px 0; }
+.src-body ul, .src-body ol { margin: 0 0 10px; padding-left: 24px; }
+.src-body blockquote { border-left: 3px solid var(--border); padding-left: 16px; margin: 0 0 10px; color: var(--secondary); }
+.src-photo { display: block; max-width: 100%; height: auto; border-radius: 6px; margin: 6px 0 10px; }
 
 .src-meta {
   font-family: var(--mono);

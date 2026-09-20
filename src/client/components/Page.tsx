@@ -1098,8 +1098,16 @@ function SourceBlock({ doc, node, item, itemId, readOnly, act }: BlockProps) {
         />
       )}
 
-      <Editable
+      {item.type === 'photo' && item.media?.url && (
+        <img class="src-photo" src={item.media.url} alt={item.media.alt ?? ''} loading="lazy" />
+      )}
+
+      {/* Rendered at rest, Markdown while editing — the same as the page. Source
+          is about provenance and structure, not about reading raw Markdown
+          (Jamie, 2026-09-20: "too markdown"). */}
+      <RichEditable
         class="src-body" tag="div" multiline readOnly={readOnly} value={body} ph="No text"
+        render={markdownToSafeHtml}
         onCommit={(text) => set(
           item.type === 'pinboard_link' ? { commentary: text }
             : item.type === 'photo' ? { media: { ...(item.media ?? {}), caption: text } }

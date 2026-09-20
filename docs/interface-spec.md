@@ -630,6 +630,14 @@ count and lens). The one exception is an item holding an edit the source has not
 received — it stays, and the log says why. Widening the window again sweeps the rest
 straight back in.
 
+**Markdown on the keyboard.** Every editable holds Markdown source while editing and
+renders it at rest — Source included, which shows pictures and rendered text like the
+page (2026-09-20: raw Markdown there was "too markdown"). The sugar is the keyboard, not
+a toolbar: ⌘B / ⌘I / ⌘⇧K wrap or unwrap the selection in `**` / `_` / backticks; ⌘K
+makes `[selection]()` with the caret in the parentheses (a selected URL becomes
+`[](url)` with the caret in the brackets); pasting a URL over selected words links them.
+No editor library: the page is the editor.
+
 **Hold-out = no channels.** `setChan(item, channel, bool)` recomputes
 `included = website || email || audio`. `heldOut` is its inverse. Held-out items render
 as the compact strip described above, so exclusion stays visible and reversible. An item
