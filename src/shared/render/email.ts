@@ -90,11 +90,33 @@ function emailNodeBlocks(planned: PlannedNode): Block[] {
  * (WT349 compared side by side, 2026-09-20): no title in the body — the
  * subject carries it and Buttondown prints it — and a rule between sections.
  */
+/**
+ * The two other ways to take the issue, right under the intro: the page, and
+ * the episode when the podcast has been sent (the podcast page otherwise).
+ */
+export function otherWaysLine(doc: IssueDoc): string {
+  const n = doc.issue.number;
+  const read = `[Read this issue online](https://weekly.thingelstad.com/archive/${n}/)`;
+  const audio = doc.sends?.podcast?.status === 'sent' ? doc.sends.podcast.url : undefined;
+  const listen = audio
+    ? `[Listen to it](${audio})`
+    : '[Listen to it](https://weekly.thingelstad.com/podcast/)';
+  return `_${read} · ${listen}_`;
+}
+
 export function renderEmail(doc: IssueDoc): string {
   const sections: string[] = [];
+  let ways = false;
   for (const planned of planEdition(doc, 'email')) {
     const blocks = emailNodeBlocks(planned).filter((b) => b.trim().length > 0);
-    if (blocks.length) sections.push(blocks.join('\n\n'));
+    if (!blocks.length) continue;
+    if (!ways && planned.node.type === 'intro') {
+      blocks.push(otherWaysLine(doc));
+      ways = true;
+    }
+    sections.push(blocks.join('\n\n'));
   }
+  // An issue with no intro still offers the other ways, up top.
+  if (!ways) sections.unshift(otherWaysLine(doc));
   return withRehostedImages(doc, sections.join('\n\n---\n\n') + '\n');
 }

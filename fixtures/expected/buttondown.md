@@ -1,5 +1,7 @@
 Welcome back from summer break. This issue is being assembled item by item in WT Builder.
 
+_[Read this issue online](https://weekly.thingelstad.com/archive/350/) · [Listen to it](https://weekly.thingelstad.com/podcast/)_
+
 ---
 
 ## Currently
@@ -96,6 +98,8 @@ different document. What differs here:
 
 - ps-1 renders. It is email-only (channels: email true, website false, audio
   false) and exists to prove per-channel inclusion end to end.
+- "Read this issue online · Listen to it" sits under the intro: the page, and
+  the episode once the podcast has been sent (the podcast page before).
 - No title in the body and a --- rule between sections, matching the issues
   Jamie sent before the builder (WT349, compared 2026-09-20): the subject
   carries the title and Buttondown prints it.
