@@ -111,6 +111,17 @@ finished, what is half-finished, and what has never run.
   saving the copy it started from. Found the hard way: the auto re-scan on
   page open wrote its stale copy over two Currently lines.
 
+- **Echoes as items** (2026-09-20) — the Echoes section holds `echo` items,
+  each a thread, its citations, and a question for Thingy; the section wand
+  on the heading offers up to five and **appends** the ticked ones
+  (`POST /nodes/:id/echoes/draft` → `POST /nodes/:id/echoes`), a second run
+  is told what is there and offers other threads; each echo's wand redrafts
+  that one (up to three ways of saying the same thread, through the item
+  draft route). Readiness names one chip per echo after its thread; the
+  empty section owes its wand. Issues seeded before this lose their empty
+  single-body seed on read; a body with words, and every published issue,
+  is untouched. Run against WT351's draft and the Librarian for real.
+
 - **Notable ↔ Briefly move** (2026-09-03) — a link's rail carries a move
   action (it takes the promote slot, which for a link was a permanently
   disabled button): Notable/Featured links move down to Briefly, Briefly
@@ -168,15 +179,17 @@ finished, what is half-finished, and what has never run.
   predated a proper subject. Don't record a draft's public URL until it has
   one worth recording, or let the website leg fall back to the numbered
   archive URL it already knows.
-- **Echoes are items, like Currently** (Jamie, 2026-09-20, after the first
-  real Echoes). An echo is a unit with a fixed shape — thread, citations,
-  question — and today the section is one item whose body the picker glues
-  together, so no echo can be reordered, removed, or redrafted alone. Plan:
-  an `echo` item type (`body`, `archive_references`, `ask`), the Echoes node a
-  real multi-item section still pinned last, the section wand appends units,
-  a per-item wand redrafts one, renderers iterate, `echoBlock` moves from
-  composer to renderer. Existing single-body issues keep rendering. Half a
-  day with tests; first thing next session.
+- ~~Echoes are items, like Currently~~ — built 2026-09-20 (Jamie, after the
+  first real Echoes): an `echo` item type (`body`, `ask`,
+  `archive_references`), the Echoes node a real multi-item section still
+  pinned last, the wand on the heading appends what Jamie ticks and can run
+  again, each echo's own wand redrafts it in place, the three editions
+  iterate the items inside one Thingy frame, and `echoBlock` moved from the
+  composer to the renderers. WT350's single body still renders byte for byte
+  (tests/echoes.test.ts holds both shapes). Verified live on WT351's draft:
+  the section wand offered three, one appended and rendered in all three
+  editions, the redraft offered three ways of saying it, the delete took it
+  out. See **Echoes as items** under Working.
 - **The log shows the change, not just that one happened** (Jamie,
   2026-09-20, after the revisions table landed). Today an `edit` line says
   "Edited body — Building"; with every replaced document now kept in

@@ -176,7 +176,8 @@ inline.
 ```
 Item {
   type: "intro" | "outro" | "currently" | "photo" | "quote" | "haiku"
-      | "pinboard_link" | "journal_post" | "membership" | "echoes" | "markdown"
+      | "pinboard_link" | "journal_post" | "membership" | "echo" | "markdown"
+      | "echoes"        // single-body Echoes, WT350 and earlier; rendered, never seeded
   authorship: "Jamie" | "syndicated" | "Thingy"
   source: "direct" | "generated" | "Pinboard" | "Micro.blog" | "Thingy"
   source_url, imported_at, published_at
@@ -190,7 +191,8 @@ Item {
   // per type
   body, title, commentary, label, attribution, section, tags[]
   media: { alt, caption, timestamp, location }
-  refs: [{ issue, url, note }]     // echoes
+  ask: string                       // echo — the question under the thread
+  refs: [{ kind, issue, url, title, note }]  // echo — carried from the draft
   status: "draft"                   // Thingy-authored, needs review
   generated_at
 }
@@ -398,8 +400,9 @@ issue, with both margins outside it.
   locally-authored item (a drafted Currently entry, a written link) deletes
   outright — no sweep returns it, and there is no undo — while a syndicated
   item is held out, the same durable "no" as section removal. Seeded
-  singletons (Photo, Intro, Outro, Haiku, Membership, Echoes) show no item
-  `x`; their section's `x` owns removal. **The cluster sits at `opacity: .3` and goes to 1 on row hover**
+  singletons (Photo, Intro, Outro, Haiku, Membership) show no item
+  `x`; their section's `x` owns removal. An echo is not a singleton: each has
+  its own `x` and arrows, like a Currently line (2026-09-20). **The cluster sits at `opacity: .3` and goes to 1 on row hover**
   (`.rail`, `transition: opacity .12s`). Every row carries `data-anchor` — the item id,
   node id, or `issue`.
 - **Middle cell = the page.** The material, and nothing else.
@@ -698,7 +701,9 @@ accept-to-apply. The only action on a note is ✓ (done with it). Two classes �
 marked *worth your time*. Advisory only: never in the Ready checklist, never a gate.
 Reads the website edition.
 
-**Generation.** One pattern for Haiku, Membership, Echoes, and link descriptions: an
+**Generation.** One pattern for Haiku, Membership, and link descriptions (Echoes
+differs: its wand is on the section heading, offers up to five echoes, and the ticked
+ones append as items; each echo's own wand redrafts that one): an
 explicit `✦` ask; a 1500 ms busy state; two or three **candidates** rendered as
 selectable cards in the inspector; **nothing written to the issue until Jamie picks one**,
 and editable immediately after. Picking a link description writes `commentary` and

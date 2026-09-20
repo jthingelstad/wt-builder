@@ -55,6 +55,7 @@ body
 commentary
 label                  Currently entries carry one ("Building", "Listening")
 attribution            Quote
+ask                    Echo: the question under the thread, opens Thingy with it asked
 section                the section a link was captured for; placement wins
 tags                   Pinboard tags
 channels               { website: bool, email: bool, audio: bool }
@@ -67,7 +68,7 @@ sync_state             synced | syncing | failed | needs_commentary | local
 sync_error             kept beside the local edit until a retry succeeds
 status                 draft | reviewed        (Thingy-authored)
 reviewed               bool                    (Thingy-authored)
-archive_references     [{ issue, url, note }]  (Echoes)
+archive_references     [{ kind, issue, url, title, note }]  (Echo: carried, not hand-edited)
 rendering_overrides
 ```
 
@@ -136,7 +137,21 @@ pairs is a valid issue.
 
 Echoes retains two properties that are not about placement: it is generated only
 after the issue is substantially assembled, and it is written and attributed to
-Thingy. When present it renders last and is excluded from audio.
+Thingy. When present it renders last, in Thingy's voice.
+
+**Echoes is a section of `echo` items, the way Currently is a section of
+lines** (Jamie, 2026-09-20, after the first real Echoes). An echo has a fixed
+shape — the thread (`body`, Markdown, editable), its citations
+(`archive_references`, carried from the draft and replaced by a redraft, never
+hand-edited), and the question (`ask`, editable) — and each is its own item:
+it can be reordered, removed, or redrafted without touching the others. The
+section wand on the heading **appends** the echoes Jamie ticks, and can run
+again for more; each echo's own wand redrafts that one in place. The section
+starts empty; nothing is seeded.
+
+Issues from before this — WT350 and earlier — carry Echoes as one `echoes`
+item whose body was composed at pick time. That shape still renders exactly
+as it did and is never migrated: those issues are published.
 
 A promoted Journal post behaves as a top-level node while retaining Micro.blog
 provenance.
@@ -174,7 +189,9 @@ knows what a block is without the reader being told.
 ### Thingy content
 
 - Membership: generated from campaign facts and explicitly attributed
-- Echoes: archive-grounded callback and explicitly attributed
+- Echo: one archive-grounded thread with its citations and its question for
+  Thingy, explicitly attributed; the Echoes section holds any number of them
+- Echoes (single body): the pre-2026-09-20 shape, rendered, never seeded
 
 ### Generated content
 

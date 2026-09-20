@@ -121,6 +121,29 @@ omitted from audio until Thingy had a voice.
 Echoes renders last when it is present. It is not required: an issue may be
 published without it.
 
+**Echoes is items, and the edition assembles the section from them**
+(2026-09-20). Each `echo` item prints, in section order:
+
+```text
+<the thread — Markdown, with its citations inline>
+
+_Ask Thingy:_ [<the question>](https://thingy.thingelstad.com/chat/?prompt=<question>&from=weekly-thing-<N>)
+```
+
+An echo with no question prints its thread alone; an echo with no thread
+prints nothing. The door is built by the renderer from `ask` and the issue
+number (`src/shared/echoes.ts`) — it is never stored in the body, so editing
+the question changes the link. **One Thingy frame wraps the whole section**,
+not each echo: on the website the `.from-thingy` div, in email the
+inline-styled block with each echo rendered to HTML inside it, in audio one
+hand-over and one hello. Audio speaks each echo as its thread, then
+"Ask Thingy: <question>" — the link's words, never its URL.
+
+An issue whose Echoes is one `echoes` item — WT350 and earlier, where the
+body was composed at pick time — renders that body as written, inside the
+same frame. Both shapes are held by `tests/echoes.test.ts`; the old one is a
+published contract and does not change.
+
 ## Audio
 
 **Every word in the script is spoken.** Section transitions are script lines, not

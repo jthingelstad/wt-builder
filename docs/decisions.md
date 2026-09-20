@@ -117,6 +117,35 @@ wrote it, which is the part that matters.
 
 *The gate that nobody can find is a gate nobody passes.*
 
+## Echoes are items, like Currently
+
+WT350 (2026-09-20) was the first issue with real Echoes, and they went out as
+one item whose body the picker had glued together from the echoes Jamie
+ticked. Jamie, reading it: an echo is a unit with a fixed shape — thread,
+citations, question — the way a Currently line is label and body, and the
+glued body meant no echo could be reordered, removed, or redrafted alone,
+and the citations pooled instead of belonging to the echo they came from.
+
+So an `echo` is an item and Echoes is a multi-item section. What is
+invisible in the code is what was deliberately *not* done:
+
+- **No migration.** WT350 and earlier keep their single `echoes` body and the
+  renderers accept both shapes forever. A published issue is a contract with
+  its readers and the archive; rewriting it to a nicer model would change
+  bytes that already shipped.
+- **No composed body anywhere.** The Ask-Thingy door is built at render from
+  `ask` and the issue number, never written into `body`. Storing it would
+  make the question uneditable without breaking the link, which is exactly
+  the failure the glued body had.
+- **The section wand appends; it never replaces.** Jamie may run it more than
+  once, and the second run is told what the section holds so it offers other
+  threads. Replacing would throw away picks he already made.
+- **Picking is the review** here as everywhere: an echo arrives reviewed
+  because Jamie ticked it. There is no per-echo gate.
+
+*A section that is one string is one string no matter how many things it
+says.*
+
 ## Generation offers; it never writes
 
 The wand returns candidates and nothing changes until Jamie picks one. Editorial
