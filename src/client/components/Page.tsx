@@ -725,9 +725,11 @@ function ChannelBlock({ doc, node, item, itemId, readOnly, act }: BlockProps) {
               <a href={item.source_url} target="_blank" rel="noreferrer">{item.title}</a>
               <span class="link-domain">{domainOf(item.source_url)}</span>
             </div>
-            <Editable
-              tag="p" multiline readOnly={readOnly} value={item.commentary ?? ''}
-              ph="Why this is worth reading…" onCommit={(text) => set({ commentary: text })}
+            {/* Rendered at rest like everything else; it showed raw Markdown (2026-09-20). */}
+            <RichEditable
+              tag="div" class="post-body" multiline readOnly={readOnly} value={item.commentary ?? ''}
+              ph="Why this is worth reading…" render={markdownToSafeHtml}
+              onCommit={(text) => set({ commentary: text })}
             />
           </>
         );

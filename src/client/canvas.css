@@ -395,6 +395,18 @@
 
 [contenteditable] { outline: none; border-radius: 3px; }
 [contenteditable]:focus { background: var(--edit); box-shadow: 0 0 0 4px var(--edit); }
+/*
+ * An inline run (a Journal body after its lead, a Currently line) wraps across
+ * lines; a box-shadow per line box drew a stack of pills. Inline runs get one
+ * continuous wash instead, and the block editables keep the box.
+ */
+span[contenteditable]:focus {
+  box-shadow: none;
+  border-radius: 0;
+  padding: 2px 0;
+  -webkit-box-decoration-break: clone;
+  box-decoration-break: clone;
+}
 [data-ph]:empty::before { content: attr(data-ph); color: var(--placeholder); }
 
 /* An empty Currently body is a real click target, not a zero-width span. */
