@@ -544,10 +544,12 @@ export function updateItem(doc: IssueDoc, itemId: string, patch: Partial<Item>):
     delete item.sync_error;
   }
 
-  // A Thingy draft must be reviewed again after its words change.
+  // Words landing in a Thingy item are Jamie's act — a pick from the wand or
+  // his own edit — and that act is the review. There is no second gate
+  // (Jamie, 2026-09-20: "I see the three options and put it in").
   if (item.authorship === 'Thingy' && bodyChanged) {
-    item.reviewed = false;
-    item.status = 'draft';
+    item.reviewed = true;
+    item.status = 'reviewed';
   }
   return next;
 }
@@ -1089,12 +1091,10 @@ export function readiness(doc: IssueDoc): Readiness {
         // the map. A promoted post is its own section and gets one too.
         add(true, chipName(item), id, 'required', node.kind === 'promoted_item' ? 'Promoted post.' : 'Journal.');
       } else if (item.authorship === 'Thingy') {
-        // One chip: drafted is halfway, reviewed is done.
+        // Picking or writing it is the review; there is no second gate.
         const name = item.type === 'membership' ? 'Membership' : 'Echoes';
-        const drafted = bodyLines(item.body).length > 0;
-        add(!drafted ? 'todo' : item.reviewed ? 'done' : 'partial', name, id, 'thingy',
-          !drafted ? 'Use the wand in the margin, or write it yourself.'
-            : 'Thingy drafted it; it goes out under that byline once you have reviewed it.');
+        add(bodyLines(item.body).length > 0, name, id, 'thingy',
+          'Use the wand in the margin, or write it yourself.');
       } else if (node.type === 'haiku') {
         const lines = bodyLines(item.body).length;
         add(lines >= 3 ? 'done' : lines > 0 ? 'partial' : 'todo', 'Haiku', id, 'required', 'Three lines.');

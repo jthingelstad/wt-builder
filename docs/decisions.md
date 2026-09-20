@@ -106,6 +106,17 @@ issue in two places at once.
 
 *A tray that was never built looks identical to a tray nobody got round to.*
 
+## Picking is the review
+
+A Thingy draft used to need a second act — "Mark reviewed" in the inspector —
+before it counted as done, and any edit to its words dropped it back to draft.
+Jamie, on the first real Membership pick (2026-09-20): "I see the three options
+and put it in." Choosing a candidate, or writing the words, is the review; the
+strip counts the item done when it has words. The byline still says Thingy
+wrote it, which is the part that matters.
+
+*The gate that nobody can find is a gate nobody passes.*
+
 ## Generation offers; it never writes
 
 The wand returns candidates and nothing changes until Jamie picks one. Editorial

@@ -250,13 +250,14 @@ describe('editor state', () => {
     expect(doc.items['journal-concert']!.sync_state).toBe('syncing');
   });
 
-  it('requires a fresh review when Thingy copy changes', () => {
+  it('words landing in a Thingy item are the review — a pick or an edit, no second gate', () => {
     const before = fixture();
-    before.items['membership-1']!.reviewed = true;
-    before.items['membership-1']!.status = 'reviewed';
+    before.items['membership-1']!.reviewed = false;
+    before.items['membership-1']!.status = 'draft';
     const after = updateItem(before, 'membership-1', { body: 'Fresh words.' });
-    expect(after.items['membership-1']!.reviewed).toBe(false);
-    expect(after.items['membership-1']!.status).toBe('draft');
+    expect(after.items['membership-1']!.reviewed).toBe(true);
+    expect(after.items['membership-1']!.status).toBe('reviewed');
+    expect(readiness(after).units.find((u) => u.title === 'Membership')!.state).toBe('done');
   });
 
   it('updates the editable display number without changing document identity', () => {

@@ -417,6 +417,17 @@
 .arrow { color: var(--muted); }
 .emdash { color: var(--muted); }
 
+.subtle-head {
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--faint);
+  margin: 0 0 8px;
+  cursor: default;
+}
+.src-label { font-family: var(--mono); font-size: 9.5px; letter-spacing: .06em; color: var(--faint); margin: 10px 0 4px; }
+
 .md-label {
   font-family: var(--mono);
   font-size: 9px;

@@ -254,6 +254,14 @@ export function Page({
           </h2>
         </Row>,
       );
+    } else if (node.type === 'membership' && inLens.length > 0) {
+      // Membership publishes no heading, but on the canvas the block needs a
+      // name so it does not read as a stray paragraph (Jamie, 2026-09-20).
+      rows.push(
+        <Row key={`${node.id}-h`} anchor={node.id} selected={selected === node.id} rail={<Rail {...rail} />}>
+          <div class="subtle-head" onClick={() => onSelect(node.id)}>Supporting Members</div>
+        </Row>,
+      );
     }
 
     // Journal groups its items on date boundaries and prints the weekday alone.
@@ -1053,7 +1061,6 @@ function SourceBlock({ doc, node, item, itemId, readOnly, act }: BlockProps) {
   const state = outOfWindow(item, w) ? 'OUTSIDE WINDOW'
     : heldOut(item) ? 'HELD OUT'
     : node.kind === 'promoted_item' ? 'PROMOTED'
-    : item.authorship === 'Thingy' && !item.reviewed ? 'NEEDS REVIEW'
     : null;
 
   const meta = [
@@ -1062,7 +1069,6 @@ function SourceBlock({ doc, node, item, itemId, readOnly, act }: BlockProps) {
     item.published_at ? wallClock(item.published_at)?.key : '',
     item.presentation,
     item.media?.location,
-    item.authorship === 'Thingy' ? (item.reviewed ? 'reviewed' : 'draft') : '',
     editionOnly(item) ? 'edition only' : '',
   ].filter(Boolean);
 
@@ -1105,6 +1111,7 @@ function SourceBlock({ doc, node, item, itemId, readOnly, act }: BlockProps) {
       {/* Rendered at rest, Markdown while editing — the same as the page. Source
           is about provenance and structure, not about reading raw Markdown
           (Jamie, 2026-09-20: "too markdown"). */}
+      {item.type === 'membership' && <div class="src-label">INVITATION — everyone else</div>}
       <RichEditable
         class="src-body" tag="div" multiline readOnly={readOnly} value={body} ph="No text"
         render={markdownToSafeHtml}
@@ -1114,6 +1121,17 @@ function SourceBlock({ doc, node, item, itemId, readOnly, act }: BlockProps) {
             : { body: text },
         )}
       />
+      {item.type === 'membership' && (
+        <>
+          <div class="src-label">THANKS — what a Supporting Member sees instead (email only)</div>
+          <RichEditable
+            class="src-body" tag="div" multiline readOnly={readOnly}
+            value={item.member_thanks ?? ''} ph="No drafted thanks — the email falls back to the invitation."
+            render={markdownToSafeHtml}
+            onCommit={(text) => set({ member_thanks: text })}
+          />
+        </>
+      )}
 
       <div class="src-meta">
         {meta.join(' · ')}
