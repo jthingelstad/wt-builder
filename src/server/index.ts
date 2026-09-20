@@ -17,7 +17,7 @@ import { existsSync } from 'node:fs';
 import { extname, join, normalize } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
-import type { Channel, Destination, IssueDoc, Item, SendState } from '../shared/types.ts';
+import type { ArchiveReference, Channel, Destination, IssueDoc, Item, SendState } from '../shared/types.ts';
 import { render } from '../shared/render/index.ts';
 import { renderEmail } from '../shared/render/email.ts';
 import { config, describeConfig } from './config.ts';
@@ -444,6 +444,42 @@ const routes: [RegExp, string, (ctx: Ctx, params: string[]) => Promise<unknown>]
     }
     store.logEvent(id!, 'structure', `Added a ${type.replace('_', ' ')} — ${nodeId}`);
     return saved(issues.addItem(requireIssue(id!), nodeId!, type as import('../shared/types.ts').ItemType));
+  }],
+
+  /**
+   * The echoes Jamie ticked, appended to the Echoes section as items — the
+   * answer to the section wand. Appends, never replaces: a second run adds
+   * to what is there, and each echo is its own item from here on.
+   */
+  [/^\/api\/issues\/([^/]+)\/nodes\/([^/]+)\/echoes$/, 'POST', async ({ body }, [id, nodeId]) => {
+    const b = await body();
+    const offered = Array.isArray(b.echoes) ? (b.echoes as unknown[]) : [];
+    const echoes = offered
+      .filter((e): e is Record<string, unknown> => Boolean(e) && typeof e === 'object')
+      .map((e) => ({
+        text: String(e.text ?? ''),
+        ask: typeof e.ask === 'string' ? e.ask : undefined,
+        archive_references: Array.isArray(e.archive_references)
+          ? (e.archive_references as unknown[])
+              .filter((r): r is Record<string, unknown> => Boolean(r) && typeof r === 'object' && typeof (r as Record<string, unknown>).url === 'string')
+              .map((r): ArchiveReference => ({
+                kind: r.kind === 'blog' || r.kind === 'podcast' || r.kind === 'issue' ? r.kind : undefined,
+                issue: typeof r.issue === 'number' ? r.issue : undefined,
+                url: String(r.url),
+                title: typeof r.title === 'string' ? r.title : undefined,
+                note: typeof r.note === 'string' ? r.note : undefined,
+              }))
+          : [],
+      }))
+      .filter((e) => e.text.trim());
+    if (!echoes.length) throw new HttpError(400, 'echoes must carry at least one echo with text');
+    const doc = requireIssue(id!);
+    const node = doc.nodes.find((n) => n.id === nodeId);
+    if (!node) throw new HttpError(404, `no section ${nodeId}`);
+    if (node.type !== 'echoes') throw new HttpError(400, `${node.label} does not hold echoes`);
+    const { doc: next, ids } = issues.addEchoes(doc, nodeId!, echoes);
+    store.logEvent(id!, 'edit', `Added ${ids.length} ${ids.length === 1 ? 'echo' : 'echoes'} — Echoes`);
+    return { ...saved(next), ids };
   }],
 
   /** Standard sections not currently in the issue, offered back. */

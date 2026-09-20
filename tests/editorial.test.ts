@@ -22,7 +22,7 @@ describe('annotating the edition for review', () => {
     const out = renderAnnotated(doc);
     expect(out).toContain('<!--item:intro-1-->');
     expect(out).toContain('<!--item:journal-concert-->');
-    expect(out).toContain('<!--item:echoes-1-->');
+    expect(out).toContain('<!--item:echo-building-->');
   });
 
   it('omits items that are in no edition', () => {
@@ -216,7 +216,7 @@ describe('the Echoes retrieval anchors', () => {
 
   it('excludes Echoes itself, Briefly one-liners, and hidden items', () => {
     const d = structuredClone(doc);
-    d.items['echoes-1']!.body = 'ECHOES-SENTINEL should not seed its own retrieval';
+    d.items['echo-building']!.body = 'ECHOES-SENTINEL should not seed its own retrieval';
     d.items['briefly-forge']!.commentary = 'BRIEFLY-SENTINEL too thin to anchor';
     d.items['journal-excluded']!.body = 'HIDDEN-SENTINEL is in no edition';
     const all = echoesAnchors(d).map((a) => a.query).join('\n');

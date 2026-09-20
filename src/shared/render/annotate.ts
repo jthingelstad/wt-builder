@@ -23,7 +23,7 @@ export function renderAnnotated(doc: IssueDoc, channel: Channel = 'website'): st
         if (group.weekday) out.push(`### ${group.weekday}`);
         for (const entry of group.items) {
           out.push(`<!--item:${entry.id}-->`);
-          out.push(...blocksForItem(planned, entry.id));
+          out.push(...blocksForItem(planned, entry.id, doc.issue.number));
         }
       }
       continue;
@@ -31,7 +31,7 @@ export function renderAnnotated(doc: IssueDoc, channel: Channel = 'website'): st
 
     for (const entry of planned.items) {
       out.push(`<!--item:${entry.id}-->`);
-      out.push(...blocksForItem(planned, entry.id));
+      out.push(...blocksForItem(planned, entry.id, doc.issue.number));
     }
   }
 
@@ -39,12 +39,12 @@ export function renderAnnotated(doc: IssueDoc, channel: Channel = 'website'): st
 }
 
 /** Render one item by planning a node that contains only it. */
-function blocksForItem(planned: Parameters<typeof nodeBlocks>[0], itemId: string): string[] {
+function blocksForItem(planned: Parameters<typeof nodeBlocks>[0], itemId: string, issueNumber: number): string[] {
   const entry = planned.items.find((i) => i.id === itemId);
   if (!entry) return [];
   const solo = {
     node: { ...planned.node, publishes_heading: false },
     items: [entry],
   };
-  return nodeBlocks(solo);
+  return nodeBlocks(solo, issueNumber);
 }

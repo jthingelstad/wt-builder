@@ -1,15 +1,16 @@
 /**
- * Composing the Echoes section from selected units.
+ * How one echo prints.
  *
- * The wand offers up to five self-contained echoes; Jamie selects any
- * subset, so the section's length follows the quality of what the archive
- * offered. Selected echoes compose in the order they were offered — the
- * ask-Thingy door, when present, is offered last, so a selected door
- * closes the section. Each echo becomes its own short paragraph, and the
- * citations pool in the same order, deduped by url.
+ * An echo is an item with a fixed shape — the thread (`body`), its citations
+ * (`archive_references`), and a question for Thingy (`ask`). The renderers
+ * print each one as its thread, then the ask as a link that opens Thingy
+ * with the question already asked. This used to be composed into one body
+ * at pick time; WT350 shipped that way, and no echo could be reordered,
+ * removed, or redrafted on its own (Jamie, 2026-09-20). Now the item holds
+ * the parts and the edition assembles them.
  */
 
-import type { ArchiveReference, EchoOption } from './types.ts';
+import type { Item } from './types.ts';
 
 export const THINGY_CHAT = 'https://thingy.thingelstad.com/chat/';
 
@@ -21,30 +22,21 @@ export function askThingyUrl(question: string, issueNumber?: number): string {
   return url.toString();
 }
 
-/** One echo as it prints: the thread, then its door into Thingy. */
-export function echoBlock(echo: EchoOption, issueNumber?: number): string {
-  const text = echo.text.trim();
-  const ask = String(echo.ask ?? '').trim();
-  if (!text) return '';
-  if (!ask) return text;
-  return `${text}\n\n_Ask Thingy:_ [${ask}](${askThingyUrl(ask, issueNumber)})`;
+/** `_Ask Thingy:_ [question](…)`, or nothing when the echo carries no question. */
+export function askThingyLine(ask: string | undefined, issueNumber?: number): string {
+  const question = String(ask ?? '').trim();
+  if (!question) return '';
+  return `_Ask Thingy:_ [${question}](${askThingyUrl(question, issueNumber)})`;
 }
 
-export function composeEchoes(selected: EchoOption[], issueNumber?: number): {
-  body: string;
-  archive_references: ArchiveReference[];
-} {
-  const seen = new Set<string>();
-  const refs: ArchiveReference[] = [];
-  for (const echo of selected) {
-    for (const reference of echo.archive_references ?? []) {
-      if (!reference.url || seen.has(reference.url)) continue;
-      seen.add(reference.url);
-      refs.push(reference);
-    }
-  }
-  return {
-    body: selected.map((e) => echoBlock(e, issueNumber)).filter(Boolean).join('\n\n'),
-    archive_references: refs,
-  };
+/** One echo as blocks: the thread, then its door into Thingy. Empty when unwritten. */
+export function echoBlocks(echo: Pick<Item, 'body' | 'ask'>, issueNumber?: number): string[] {
+  const thread = String(echo.body ?? '').trim();
+  if (!thread) return [];
+  return [thread, askThingyLine(echo.ask, issueNumber)].filter(Boolean);
+}
+
+/** The same, as one Markdown string — what the email and the audio start from. */
+export function echoBlock(echo: Pick<Item, 'body' | 'ask'>, issueNumber?: number): string {
+  return echoBlocks(echo, issueNumber).join('\n\n');
 }

@@ -20,7 +20,6 @@ import {
 import { audioScript } from '../../shared/render/audio.ts';
 import { MEMBER_THANKS, PREMIUM_CONDITION } from '../../shared/render/email.ts';
 import { rejoinBody, splitBody } from '../../shared/body.ts';
-import { composeEchoes } from '../../shared/echoes.ts';
 import { markdownInlineToSafeHtml, markdownToSafeHtml } from '../../shared/markdown.ts';
 import { ImagePlus, Plus, Spinner, Trash } from '../icons.tsx';
 import { Editable, Rail, RichEditable, Row, Wand, itemRail, sectionRail } from './Row.tsx';
@@ -39,6 +38,8 @@ export interface PageActions {
   removeNode(nodeId: string): void;
   addNode(spec: { type: string; label: string; before?: string; kind?: string }): void;
   addItem(nodeId: string, type: string): void;
+  /** The echoes Jamie ticked, appended to the section — each becomes an item. */
+  addEchoes(nodeId: string, echoes: EchoOption[]): void;
   promote(itemId: string): void;
   demote(nodeId: string): void;
   moveToSection(itemId: string, target: 'Notable' | 'Briefly'): void;
@@ -392,10 +393,7 @@ export function Page({
               ) : draft.echoes ? (
                 <EchoesPicker
                   echoes={draft.echoes}
-                  onCompose={(selected) => {
-                    const { body, archive_references } = composeEchoes(selected, doc.issue.number);
-                    onPickDraft(itemId, body, archive_references);
-                  }}
+                  onCompose={(selected) => { act.addEchoes(node.id, selected); onDismissDraft(); }}
                   onDismiss={onDismissDraft}
                 />
               ) : (

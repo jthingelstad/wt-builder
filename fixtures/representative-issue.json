@@ -163,7 +163,8 @@
       "required": false,
       "publishes_heading": true,
       "items": [
-        "echoes-1"
+        "echo-building",
+        "echo-shortcuts"
       ]
     }
   ],
@@ -427,8 +428,8 @@
       },
       "body": "Summer pages turn\nEach item finds its own place\nOld echoes return"
     },
-    "echoes-1": {
-      "type": "echoes",
+    "echo-building": {
+      "type": "echo",
       "authorship": "Thingy",
       "source": "Thingy",
       "channels": {
@@ -437,12 +438,38 @@
         "audio": true
       },
       "attribution": "Thingy",
-      "status": "draft",
-      "body": "This week's return to building recalls earlier issues about owning the tools that shape your work.",
+      "status": "reviewed",
+      "reviewed": true,
+      "body": "This week's return to building recalls earlier issues about owning the tools that shape your work, most directly [WT349](https://weekly.thingelstad.com/archive/349/).",
+      "ask": "How has Jamie's thinking about building his own tools changed?",
       "archive_references": [
         {
+          "kind": "issue",
           "issue": 349,
-          "url": "https://weekly.thingelstad.com/archive/349/"
+          "url": "https://weekly.thingelstad.com/archive/349/",
+          "note": "Owning the tools that shape your work"
+        }
+      ]
+    },
+    "echo-shortcuts": {
+      "type": "echo",
+      "authorship": "Thingy",
+      "source": "Thingy",
+      "channels": {
+        "website": true,
+        "email": true,
+        "audio": true
+      },
+      "attribution": "Thingy",
+      "status": "reviewed",
+      "reviewed": true,
+      "body": "Shortcuts has been the workflow behind this newsletter since [WT210](https://weekly.thingelstad.com/archive/210/); this issue is the first assembled without it.",
+      "archive_references": [
+        {
+          "kind": "issue",
+          "issue": 210,
+          "url": "https://weekly.thingelstad.com/archive/210/",
+          "note": "The Shortcuts workflow that built the issue"
         }
       ]
     }

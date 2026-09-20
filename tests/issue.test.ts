@@ -1039,9 +1039,15 @@ describe('Echoes are items, like Currently', () => {
   });
 
   it('the single-body shape still counts as one Echoes chip', () => {
-    const units = readiness(fixture()).units.filter((u) => u.anchor === 'echoes-1');
+    const doc = fixture();
+    const echoes = doc.nodes.find((n) => n.type === 'echoes')!;
+    for (const id of echoes.items) delete doc.items[id];
+    echoes.items = ['echoes-1'];
+    doc.items['echoes-1'] = { type: 'echoes', authorship: 'Thingy', source: 'Thingy', channels: { website: true, email: true, audio: true }, body: 'Composed before echoes were items.' };
+    const units = readiness(doc).units.filter((u) => u.anchor === 'echoes-1');
     expect(units).toHaveLength(1);
     expect(units[0]!.title).toBe('Echoes');
+    expect(units[0]!.done).toBe(true);
   });
 });
 

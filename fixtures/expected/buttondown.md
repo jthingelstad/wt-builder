@@ -92,7 +92,8 @@ Old echoes return**
 
 <div class="from-thingy" style="margin:0 0 1.6em;padding:14px 18px;border-left:3px solid #2f7d4f;background:#f5f8f6;border-radius:0 8px 8px 0;font-family:Georgia,'Source Serif 4','Times New Roman',serif;color:#1a1a1a">
 <p style="font-family:ui-monospace,Menlo,Consolas,monospace;font-size:12px;letter-spacing:.05em;text-transform:uppercase;color:#5f6b63;margin:0 0 8px"><a href="https://thingy.thingelstad.com" style="color:#2f7d4f;text-decoration:none;font-weight:600">From Thingy</a>, my agentic librarian</p>
-<p>This week&#39;s return to building recalls earlier issues about owning the tools that shape your work.</p>
+<p>This week&#39;s return to building recalls earlier issues about owning the tools that shape your work, most directly <a href="https://weekly.thingelstad.com/archive/349/" target="_blank" rel="noreferrer">WT349</a>.</p><p><em>Ask Thingy:</em> <a href="https://thingy.thingelstad.com/chat/?prompt=How+has+Jamie%27s+thinking+about+building+his+own+tools+changed%3F&amp;from=weekly-thing-350" target="_blank" rel="noreferrer">How has Jamie&#39;s thinking about building his own tools changed?</a></p>
+<p>Shortcuts has been the workflow behind this newsletter since <a href="https://weekly.thingelstad.com/archive/210/" target="_blank" rel="noreferrer">WT210</a>; this issue is the first assembled without it.</p>
 </div>
 
 {% if medium == 'email' %}
@@ -121,4 +122,6 @@ different document. What differs here:
   the frame is outside the branch so
   attribution survives either path.
 - Item order and Thingy attribution match the website exactly.
+- Echoes is one frame around every echo, each rendered to HTML as its thread
+  and its Ask-Thingy door.
 -->

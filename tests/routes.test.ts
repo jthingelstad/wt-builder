@@ -113,6 +113,63 @@ describe('an item can be removed over the wire', () => {
   });
 });
 
+describe('echoes append over the wire', () => {
+  it('ticked echoes become echo items, a second run appends, one can be removed alone', async () => {
+    const created = await fetch(`${base}/api/issues`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ number: 990006, publication_date: '2026-09-26' }),
+    });
+    const id = (await created.json()).issue.issue.id;
+    const wt = (n: number) => ({ kind: 'issue', issue: n, url: `https://weekly.thingelstad.com/archive/${n}/`, note: 'why' });
+
+    const append = (echoes: unknown) => fetch(`${base}/api/issues/${id}/nodes/echoes/echoes`, {
+      method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ echoes }),
+    });
+
+    const first = await append([
+      { text: 'The boat went in, as every May since [WT221](https://weekly.thingelstad.com/archive/221/).', ask: 'When does the boat go in?', archive_references: [wt(221)] },
+      { text: 'The rails again.', ask: '', archive_references: [wt(261), { nope: true }] },
+    ]);
+    expect(first.status).toBe(200);
+    const one = await first.json();
+    expect(one.ids).toHaveLength(2);
+    const a = one.issue.items[one.ids[0]];
+    expect(a.type).toBe('echo');
+    expect(a.ask).toBe('When does the boat go in?');
+    expect(a.archive_references).toEqual([wt(221)]);
+    expect(a.reviewed).toBe(true);
+    expect(one.issue.items[one.ids[1]].ask).toBeUndefined();
+    expect(one.issue.items[one.ids[1]].archive_references).toEqual([wt(261)]);
+    // One readiness chip per echo, named for the thread.
+    const chips = one.readiness.units.filter((u: any) => String(u.anchor).startsWith('echo-'));
+    expect(chips.map((u: any) => u.anchor)).toEqual(one.ids);
+    expect(chips[0].title.startsWith('The boat went in')).toBe(true);
+
+    const second = await append([{ text: 'A later thought.', archive_references: [] }]);
+    const two = await second.json();
+    expect(two.issue.nodes.find((n: any) => n.id === 'echoes').items).toEqual([...one.ids, ...two.ids]);
+
+    const removed = await fetch(`${base}/api/issues/${id}/nodes/echoes/items/${one.ids[0]}`, { method: 'DELETE' });
+    const after = (await removed.json()).issue;
+    expect(after.items[one.ids[0]]).toBeUndefined();
+    expect(after.nodes.find((n: any) => n.id === 'echoes').items).toEqual([one.ids[1], ...two.ids]);
+
+    // Nothing to append is a 400; the wrong section is a 400; a missing one a 404.
+    expect((await append([{ text: '   ' }])).status).toBe(400);
+    const wrong = await fetch(`${base}/api/issues/${id}/nodes/currently/echoes`, {
+      method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ echoes: [{ text: 'x' }] }),
+    });
+    expect(wrong.status).toBe(400);
+    const missing = await fetch(`${base}/api/issues/${id}/nodes/nope/echoes`, {
+      method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ echoes: [{ text: 'x' }] }),
+    });
+    expect(missing.status).toBe(404);
+
+    await fetch(`${base}/api/issues/${id}`, { method: 'DELETE' });
+  });
+});
+
 describe('a link moves between Notable and Briefly over the wire', () => {
   it('moves both ways, carrying the _brief tag with it', async () => {
     const created = await fetch(`${base}/api/issues`, {

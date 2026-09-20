@@ -65,7 +65,12 @@ Old echoes return
 Before we go, Echoes from the archive, from Thingy, my agentic librarian.
 
 This week's return to building recalls earlier issues about owning the tools
-that shape your work.
+that shape your work, most directly WT349.
+
+Ask Thingy: How has Jamie's thinking about building his own tools changed?
+
+Shortcuts has been the workflow behind this newsletter since WT210; this issue
+is the first assembled without it.
 
 That brings us to the end of The Weekly Thing.
 

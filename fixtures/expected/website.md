@@ -76,7 +76,13 @@ Old echoes return**
 <p class="from-thingy-label"><a href="https://thingy.thingelstad.com">From Thingy</a>, my agentic librarian</p>
 
 This week's return to building recalls earlier issues about owning the tools
-that shape your work.
+that shape your work, most directly [WT349](https://weekly.thingelstad.com/archive/349/).
+
+_Ask Thingy:_ [How has Jamie's thinking about building his own tools changed?](https://thingy.thingelstad.com/chat/?prompt=How+has+Jamie%27s+thinking+about+building+his+own+tools+changed%3F&from=weekly-thing-350)
+
+Shortcuts has been the workflow behind this newsletter since
+[WT210](https://weekly.thingelstad.com/archive/210/); this issue is the first
+assembled without it.
 
 </div>
 
@@ -90,4 +96,7 @@ Renderer expectations exercised here:
 - journal-excluded has all three channels false and appears in no edition.
 - ps-1 is email-only (website: false) and is absent here.
 - Echoes renders last. It is not required in every issue.
+- Echoes is items: each echo prints its thread, then its Ask-Thingy door (a
+  question that opens Thingy with it asked, attributed to the issue) — or no
+  door when it carries no question. One frame around all of them.
 -->

@@ -8,6 +8,7 @@
 
 import type { IssueDoc, Item } from '../types.ts';
 import { spokenLongDate, wallClock, weekday } from '../dates.ts';
+import { echoBlock } from '../echoes.ts';
 import type { PlannedNode } from './plan.ts';
 import { bodyLines, flatten, isLinkSection, planEdition, postBlocks } from './plan.ts';
 import { speakable } from './speech.ts';
@@ -93,13 +94,24 @@ function itemBlocks(item: Item, planned: PlannedNode, index: number, total: numb
             .map(terminate)
         : [[terminate(String(item.title ?? '')), speakable(flatten(item.body))].filter(Boolean).join(' ')]
             .filter(Boolean);
+    case 'echo':
+      // The thread, then the question — spoken as the single-body Echoes
+      // always was: the link's words, never its URL.
+      return proseBlocks(echoBlock(item));
     default:
-      // Prose speaks one block per paragraph, so the pauses fall where the
-      // paragraph breaks are.
-      return postBlocks(item.body)
-        .map((b) => speakable(b.replace(/^(#{1,6}\s+|>\s?|[-*]\s+|\d{1,9}[.)]\s+)/gm, '')).replace(/\s*\n\s*/g, ' '))
-        .filter(Boolean);
+      return proseBlocks(item.body);
   }
+}
+
+/**
+ * Prose speaks one block per paragraph, so the pauses fall where the
+ * paragraph breaks are. Headings, bullets, and quote marks are print
+ * structure and are not said.
+ */
+function proseBlocks(body: string | undefined): SpokenBlock[] {
+  return postBlocks(body)
+    .map((b) => speakable(b.replace(/^(#{1,6}\s+|>\s?|[-*]\s+|\d{1,9}[.)]\s+)/gm, '')).replace(/\s*\n\s*/g, ' '))
+    .filter(Boolean);
 }
 
 /**

@@ -6,6 +6,7 @@
  */
 
 import type { IssueDoc, Item } from '../types.ts';
+import { echoBlock } from '../echoes.ts';
 import { markdownToSafeHtml } from '../markdown.ts';
 import type { Block } from './website.ts';
 import { THINGY_LABEL, THINGY_ROLE, THINGY_URL, byline, nodeBlocks, nodeHeading } from './website.ts';
@@ -81,20 +82,28 @@ export function membershipBlocks(item: Item, issueNumber: number): Block[] {
   return item.authorship === 'Thingy' ? [thingyEmailFrame(branch)] : [byline(item), ...branch];
 }
 
-/** Echoes in email: the same frame, no branch. */
-export function echoesBlocks(item: Item): Block[] {
-  const body = bodyLines(item.body).join(' ');
-  if (!body) return [];
-  return item.authorship === 'Thingy' ? [thingyEmailFrame([html(item.body)])] : [byline(item), ...postBlocks(item.body)];
+/**
+ * Echoes in email: one frame around every echo, no branch. Each `echo` item
+ * is its thread and its Ask-Thingy door; a single-body `echoes` item (WT350
+ * and earlier) is its body as written.
+ */
+export function echoesBlocks(planned: PlannedNode, issueNumber: number): Block[] {
+  const inner = planned.items
+    .map(({ item }) => (item.type === 'echo' ? echoBlock(item, issueNumber) : String(item.body ?? '')))
+    .filter((md) => bodyLines(md).length > 0);
+  const first = planned.items[0]?.item;
+  if (!inner.length || !first) return [];
+  return first.authorship === 'Thingy'
+    ? [thingyEmailFrame(inner.map(html))]
+    : [byline(first), ...inner.flatMap((md) => postBlocks(md))];
 }
 
 function emailNodeBlocks(planned: PlannedNode, issueNumber: number): Block[] {
-  if (planned.node.type !== 'membership' && planned.node.type !== 'echoes') return nodeBlocks(planned);
+  if (planned.node.type !== 'membership' && planned.node.type !== 'echoes') return nodeBlocks(planned, issueNumber);
 
-  const body: Block[] = [];
-  for (const entry of planned.items) {
-    body.push(...(planned.node.type === 'membership' ? membershipBlocks(entry.item, issueNumber) : echoesBlocks(entry.item)));
-  }
+  const body: Block[] = planned.node.type === 'echoes'
+    ? echoesBlocks(planned, issueNumber)
+    : planned.items.flatMap((entry) => membershipBlocks(entry.item, issueNumber));
   if (!body.some((b) => b.trim())) return [];
   const heading = nodeHeading(planned);
   return heading ? [heading, ...body] : body;

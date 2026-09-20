@@ -7,6 +7,7 @@
 
 import type { IssueDoc, IssueNode, Item } from '../types.ts';
 import { clockTime, shortDate, wallClock } from '../dates.ts';
+import { echoBlocks } from '../echoes.ts';
 import type { PlannedItem, PlannedNode } from './plan.ts';
 import { bodyLines, planEdition, postBlocks, withRehostedImages } from './plan.ts';
 
@@ -142,7 +143,7 @@ function sectionOf(item: Item, node?: IssueNode): string {
   return (node?.label ?? item.section ?? '').toLowerCase();
 }
 
-function itemBlocks(entry: PlannedItem, node?: IssueNode): Block[] {
+function itemBlocks(entry: PlannedItem, node?: IssueNode, issueNumber?: number): Block[] {
   const { item } = entry;
   switch (item.type) {
     case 'currently': {
@@ -163,6 +164,9 @@ function itemBlocks(entry: PlannedItem, node?: IssueNode): Block[] {
     case 'echoes':
       // Attribution with no words under it is an unwritten item, not a credit.
       return attributed(item, postBlocks(item.body));
+    case 'echo':
+      // On its own (outside an Echoes node) an echo still carries its frame.
+      return attributed(item, echoBlocks(item, issueNumber));
     case 'quote':
       return bodyLines(item.body).map((l) => `> ${l}`);
     default:
@@ -185,8 +189,32 @@ export function nodeHeading(planned: PlannedNode): string | null {
   return `## ${node.label}`;
 }
 
-/** Blocks for one node, used by the website and email editions alike. */
-export function nodeBlocks(planned: PlannedNode): Block[] {
+/**
+ * The inside of Echoes: each echo as its thread and its door, or — for an
+ * issue from before echoes were items (WT350 and earlier) — the one body as
+ * it was written. Both shapes render; nothing was migrated.
+ */
+export function echoesInner(planned: PlannedNode, issueNumber?: number): Block[] {
+  return planned.items.flatMap(({ item }) =>
+    item.type === 'echo' ? echoBlocks(item, issueNumber) : postBlocks(item.body));
+}
+
+/**
+ * Echoes is one frame around every echo — the section is Thingy's, not each
+ * line — so the items are gathered first and attributed once.
+ */
+function echoesBlocks(planned: PlannedNode, issueNumber?: number): Block[] {
+  const inner = echoesInner(planned, issueNumber).filter((b) => b.trim());
+  const first = planned.items[0]?.item;
+  if (!inner.length || !first) return [];
+  return attributed(first, inner);
+}
+
+/**
+ * Blocks for one node, used by the website and email editions alike. The
+ * issue number is what the echoes' Ask-Thingy links attribute themselves to.
+ */
+export function nodeBlocks(planned: PlannedNode, issueNumber?: number): Block[] {
   const body: Block[] = [];
   const { node } = planned;
 
@@ -197,8 +225,10 @@ export function nodeBlocks(planned: PlannedNode): Block[] {
       if (group.weekday) body.push(`### ${group.weekday}`);
       body.push(...items);
     }
+  } else if (node.type === 'echoes') {
+    body.push(...echoesBlocks(planned, issueNumber));
   } else {
-    for (const entry of planned.items) body.push(...itemBlocks(entry, node));
+    for (const entry of planned.items) body.push(...itemBlocks(entry, node, issueNumber));
   }
 
   // A heading over nothing is an unwritten section, not a section: an empty
@@ -211,7 +241,7 @@ export function nodeBlocks(planned: PlannedNode): Block[] {
 export function renderWebsite(doc: IssueDoc): string {
   const blocks: Block[] = [`# ${doc.issue.title}`];
   for (const planned of planEdition(doc, 'website')) {
-    blocks.push(...nodeBlocks(planned));
+    blocks.push(...nodeBlocks(planned, doc.issue.number));
   }
   return withRehostedImages(doc, blocks.filter((b) => b.trim().length > 0).join('\n\n') + '\n');
 }

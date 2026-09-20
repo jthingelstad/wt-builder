@@ -148,6 +148,10 @@ export const api = {
   addItem: (id: string, nodeId: string, type: string) =>
     post(`/issues/${id}/nodes/${nodeId}/items`, { type }),
 
+  /** The echoes Jamie ticked, appended to the Echoes section as items. */
+  addEchoes: (id: string, nodeId: string, echoes: EchoOption[]) =>
+    post(`/issues/${id}/nodes/${nodeId}/echoes`, { echoes }),
+
   availableSections: (id: string) =>
     call<{ sections: { id: string; type: string; label: string }[] }>(`/issues/${id}/available-sections`),
 

@@ -122,6 +122,7 @@ export function Editor({ doc, readiness, busy, error, run, onIndex, onSend, onEr
     removeNode: (nodeId) => void runEdit(() => api.removeNode(id, nodeId)),
     addNode: (spec) => void runEdit(() => api.addNode(id, spec)),
     addItem: (nodeId, type) => void runEdit(() => api.addItem(id, nodeId, type)),
+    addEchoes: (nodeId, echoes) => void runEdit(() => api.addEchoes(id, nodeId, echoes)),
     promote: (itemId) => void runEdit(() => api.promote(id, itemId)),
     moveToSection: (itemId, target) => void runEdit(() => api.moveToSection(id, itemId, target)),
     demote: (nodeId) => void runEdit(() => api.demote(id, nodeId)),
