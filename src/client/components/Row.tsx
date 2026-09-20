@@ -194,6 +194,62 @@ export function Wand({ redraft, onClick, busy }: { redraft: boolean; onClick: ()
   );
 }
 
+// ── rich text in, Markdown out ────────────────────────────────────────────
+//
+// The editables commit `textContent`, and a paste from Safari, Notes, or
+// Mail arrives as HTML: the links showed on screen as links and vanished on
+// blur, because an <a> has no textContent that says where it went (WT350's
+// Currently lines, 2026-09-20). Anything rich that lands in an editable is
+// read back as inline Markdown instead, and a paste is converted on the way
+// in so what is on screen is what will be kept.
+
+/** Inline Markdown for a DOM fragment: links, emphasis, code, line breaks. */
+export function domToMarkdown(root: Node): string {
+  const walk = (node: Node): string => {
+    // Numeric node types, not Node.TEXT_NODE: this runs under test without a DOM.
+    if (node.nodeType === 3) return (node.textContent ?? '').replace(/\u00a0/g, ' ');
+    if (node.nodeType !== 1) return '';
+    const el = node as HTMLElement;
+    const inner = () => Array.from(el.childNodes).map(walk).join('');
+    switch (el.tagName) {
+      case 'BR': return '\n';
+      case 'A': {
+        const href = el.getAttribute('href') ?? '';
+        const text = inner().trim();
+        return /^https?:\/\//i.test(href) && text ? `[${text}](${href})` : text;
+      }
+      case 'STRONG': case 'B': { const t = inner(); return t.trim() ? `**${t.trim()}**` : t; }
+      case 'EM': case 'I': { const t = inner(); return t.trim() ? `_${t.trim()}_` : t; }
+      case 'CODE': { const t = inner(); return t ? `\`${t}\`` : ''; }
+      case 'IMG': return '';
+      case 'STYLE': case 'SCRIPT': case 'HEAD': return '';
+      case 'P': case 'DIV': case 'LI': case 'H1': case 'H2': case 'H3': case 'H4': case 'BLOCKQUOTE':
+        return `${inner()}\n\n`;
+      default: return inner();
+    }
+  };
+  return walk(root)
+    .replace(/[ \t]+\n/g, '\n')
+    .replace(/\n{3,}/g, '\n\n')
+    .trim();
+}
+
+/** Clipboard → inline Markdown. Plain text as-is; HTML only when it carries structure. */
+export function pasteAsMarkdown(data: DataTransfer | null): string {
+  const plain = data?.getData('text/plain') ?? '';
+  const html = data?.getData('text/html') ?? '';
+  if (!html || !/<(a|strong|b|em|i|code)\b/i.test(html)) return plain.replace(/\u00a0/g, ' ');
+  const parsed = new DOMParser().parseFromString(html, 'text/html');
+  return domToMarkdown(parsed.body) || plain;
+}
+
+function insertPaste(e: ClipboardEvent, multiline: boolean): void {
+  e.preventDefault();
+  let text = pasteAsMarkdown(e.clipboardData);
+  if (!multiline) text = text.replace(/\s*\n\s*/g, ' ');
+  document.execCommand('insertText', false, text);
+}
+
 // ── editing ───────────────────────────────────────────────────────────────
 
 interface EditableProps {
@@ -232,8 +288,11 @@ export function Editable({
     contentEditable: true,
     spellcheck: true,
     'data-ph': ph,
+    onPaste: (e: ClipboardEvent) => insertPaste(e, Boolean(multiline)),
     onBlur: (e: FocusEvent) => {
-      const text = (e.currentTarget as HTMLElement).textContent ?? '';
+      const el = e.currentTarget as HTMLElement;
+      // Rich content that got in some other way still leaves as Markdown.
+      const text = el.querySelector('a, strong, b, em, i, code') ? domToMarkdown(el) : (el.textContent ?? '');
       if (text !== value) onCommit(text);
     },
     onKeyDown: (e: KeyboardEvent) => {
@@ -299,9 +358,12 @@ export function RichEditable({
         sel?.removeAllRanges();
         sel?.addRange(range);
       },
+    onPaste: (e: ClipboardEvent) => insertPaste(e, Boolean(multiline)),
     onBlur: (e: FocusEvent) => {
       const el = e.currentTarget as HTMLElement;
-      const text = el.textContent ?? '';
+      // In source mode the node holds Markdown text; anything rich that got
+      // in (a paste the handler missed, a drop) is read back as Markdown too.
+      const text = el.querySelector('a, strong, b, em, i, code') ? domToMarkdown(el) : (el.textContent ?? '');
       setEditing(false);
       if (text !== value) onCommit(text);
       else el.innerHTML = value ? render(value) : '';
