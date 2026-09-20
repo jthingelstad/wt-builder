@@ -9,6 +9,7 @@
 import type {
   Candidate,
   Channel,
+  EchoOption,
   IssueDoc,
   IssueNode,
   Item,
@@ -58,7 +59,7 @@ function node(id: string, type: string, label: string, items: string[] = []): Is
 }
 
 function seedItem(type: ItemType, extra: Partial<Item> = {}): Item {
-  const thingy = type === 'membership' || type === 'echoes';
+  const thingy = type === 'membership' || type === 'echoes' || type === 'echo';
   const base: Item = {
     type,
     authorship: thingy ? 'Thingy' : 'Jamie',
@@ -94,8 +95,10 @@ export function createIssue(opts: {
     // Photo is seeded too: the section holds exactly one photo, and the empty
     // item *is* the drop zone. Without it the section renders nothing and the
     // "Photo placed" checklist item has no way to be satisfied.
+    // Echoes is not seeded: it is a section of `echo` items, like Currently
+    // is lines, and the wand on its heading appends them (2026-09-20).
     const seeded: ItemType[] = [
-      'intro', 'currently', 'photo', 'membership', 'outro', 'haiku', 'echoes',
+      'intro', 'currently', 'photo', 'membership', 'outro', 'haiku',
     ];
     if (seeded.includes(s.type as ItemType)) {
       const itemId = `${s.id}-1`;
@@ -950,6 +953,44 @@ export function addItem(doc: IssueDoc, nodeId: string, type: ItemType): IssueDoc
   return next;
 }
 
+/**
+ * Append the echoes Jamie ticked to the Echoes section, each as its own
+ * `echo` item — the thread, its citations, its question. Appending is the
+ * point: the wand can run again and add to what is there, and each echo can
+ * then be reordered, removed, or redrafted on its own. The pick is the
+ * review, so the items arrive reviewed (docs/decisions.md, Picking is the
+ * review). Returns the ids it created, in order.
+ */
+export function addEchoes(
+  doc: IssueDoc, nodeId: string, echoes: EchoOption[],
+): { doc: IssueDoc; ids: string[] } {
+  const next = structuredClone(doc);
+  const target = next.nodes.find((n) => n.id === nodeId);
+  if (!target) return { doc: next, ids: [] };
+
+  const stamp = Date.now().toString(36);
+  const ids: string[] = [];
+  // Two runs inside one millisecond share a stamp; the ordinal keeps counting.
+  let n = 0;
+  for (const echo of echoes) {
+    const body = String(echo.text ?? '').trim();
+    if (!body) continue;
+    let itemId: string;
+    do itemId = `echo-${stamp}-${++n}`; while (next.items[itemId]);
+    const item = seedItem('echo', {
+      body,
+      ask: String(echo.ask ?? '').trim() || undefined,
+      archive_references: (echo.archive_references ?? []).filter((r) => r && r.url),
+    });
+    item.status = 'reviewed';
+    item.reviewed = true;
+    next.items[itemId] = item;
+    target.items.push(itemId);
+    ids.push(itemId);
+  }
+  return { doc: next, ids };
+}
+
 export function renameSection(doc: IssueDoc, nodeId: string, label: string): IssueDoc {
   const next = structuredClone(doc);
   const target = next.nodes.find((n) => n.id === nodeId);
@@ -1065,6 +1106,20 @@ export function normalizeSkeleton(doc: IssueDoc): IssueDoc | null {
     if (!Object.keys(it.channel_locks!).length) delete it.channel_locks;
     it.channels = { ...it.channels, audio: true };
   }
+
+  // Echoes became a section of `echo` items (2026-09-20). A draft seeded
+  // before then carries one empty single-body `echoes` item; drop it so the
+  // section is the empty multi-item section the wand appends to. A body
+  // that has words is left exactly as it is — WT350 and earlier keep
+  // rendering from their one body, and a draft with a picked body keeps it.
+  if (doc.issue.status === 'draft') {
+    for (const [id, item] of Object.entries(doc.items)) {
+      if (item.type !== 'echoes' || bodyLines(item.body).length) continue;
+      const n = touch();
+      delete n.items[id];
+      for (const nd of n.nodes) nd.items = nd.items.filter((x) => x !== id);
+    }
+  }
   return next;
 }
 
@@ -1103,6 +1158,23 @@ export function readiness(doc: IssueDoc): Readiness {
       add(byWords(body, bar), node.type === 'intro' ? 'Intro' : 'Outro',
         node.items[0] ?? node.id, 'required',
         `A sentence is a start; ${node.type === 'intro' ? 'the intro is a few paragraphs' : 'the outro is a short one'} (${bar}+ words).`);
+      continue;
+    }
+    if (node.kind === 'section' && node.type === 'echoes') {
+      const echoes = node.items.map((id) => doc.items[id]).filter((i): i is Item => Boolean(i && inIssue(i)));
+      // One chip per echo, named for its thread (Jamie, 2026-09-20). An echo
+      // exists because it was picked, so its chip is its place on the map —
+      // unless its words were taken out. The empty section owes its wand.
+      if (!echoes.length) {
+        add(false, 'Echoes', node.id, 'thingy', 'Use the wand on the heading to draft echoes, or remove the section.');
+        continue;
+      }
+      for (const id of node.items) {
+        const item = doc.items[id];
+        if (!item || !inIssue(item)) continue;
+        add(bodyLines(item.body).length > 0, item.type === 'echo' ? chipName(item) : 'Echoes', id, 'thingy',
+          item.type === 'echo' ? 'Echo — the thread, its citations, and a question for Thingy.' : 'Use the wand in the margin, or write it yourself.');
+      }
       continue;
     }
     if (node.kind === 'section' && node.type === 'photo') {

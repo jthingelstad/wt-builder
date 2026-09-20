@@ -950,6 +950,101 @@ describe('bringing an older document up to the skeleton', () => {
   });
 });
 
+describe('Echoes are items, like Currently', () => {
+  const wt = (n: number) => ({ kind: 'issue' as const, issue: n, url: `https://weekly.thingelstad.com/archive/${n}/` });
+
+  it('a new issue has an empty Echoes section, pinned last, with no seeded body', () => {
+    const doc = createIssue({ number: 400, publication_date: '2026-10-03' });
+    const echoes = doc.nodes.find((n) => n.type === 'echoes')!;
+    expect(echoes.items).toEqual([]);
+    expect(echoes.fixed_position).toBe('last');
+    expect(Object.values(doc.items).some((i) => i.type === 'echoes')).toBe(false);
+  });
+
+  it('appends the picked echoes as echo items — thread, citations, question — reviewed', () => {
+    const doc = createIssue({ number: 400, publication_date: '2026-10-03' });
+    const { doc: next, ids } = issues.addEchoes(doc, 'echoes', [
+      { text: 'The boat went in, as every May since [WT221](https://weekly.thingelstad.com/archive/221/).', archive_references: [wt(221)], ask: 'When does the boat go in?' },
+      { text: '   ', archive_references: [], ask: 'never becomes an item' },
+      { text: 'The rails ran through [WT261](https://weekly.thingelstad.com/archive/261/) too.', archive_references: [wt(261)] },
+    ]);
+    expect(ids).toHaveLength(2);
+    expect(next.nodes.find((n) => n.type === 'echoes')!.items).toEqual(ids);
+    const first = next.items[ids[0]!]!;
+    expect(first.type).toBe('echo');
+    expect(first.authorship).toBe('Thingy');
+    expect(first.body).toContain('The boat went in');
+    expect(first.ask).toBe('When does the boat go in?');
+    expect(first.archive_references).toEqual([wt(221)]);
+    expect(first.reviewed).toBe(true);
+    expect(next.items[ids[1]!]!.ask).toBeUndefined();
+  });
+
+  it('a second run appends after the first — the wand adds, it never replaces', () => {
+    const doc = createIssue({ number: 400, publication_date: '2026-10-03' });
+    const one = issues.addEchoes(doc, 'echoes', [{ text: 'first', archive_references: [] }]);
+    const two = issues.addEchoes(one.doc, 'echoes', [{ text: 'second', archive_references: [] }]);
+    const items = two.doc.nodes.find((n) => n.type === 'echoes')!.items;
+    expect(items).toEqual([...one.ids, ...two.ids]);
+    expect(new Set(items).size).toBe(2);
+    expect(two.doc.items[one.ids[0]!]!.body).toBe('first');
+  });
+
+  it('an echo can be reordered and removed on its own', () => {
+    const doc = createIssue({ number: 400, publication_date: '2026-10-03' });
+    const { doc: next, ids } = issues.addEchoes(doc, 'echoes', [
+      { text: 'a', archive_references: [] }, { text: 'b', archive_references: [] },
+    ]);
+    const moved = issues.moveItem(next, 'echoes', ids[1]!, -1);
+    expect(moved.nodes.find((n) => n.type === 'echoes')!.items).toEqual([ids[1], ids[0]]);
+    const removed = issues.removeItem(moved, 'echoes', ids[0]!);
+    expect(removed.items[ids[0]!]).toBeUndefined();
+    expect(removed.nodes.find((n) => n.type === 'echoes')!.items).toEqual([ids[1]]);
+  });
+
+  it('readiness: one chip per echo, named for its thread; the empty section owes its wand', () => {
+    const doc = createIssue({ number: 400, publication_date: '2026-10-03' });
+    const empty = readiness(doc).units.find((u) => u.anchor === 'echoes')!;
+    expect(empty.state).toBe('todo');
+    expect(empty.kind).toBe('thingy');
+    const { doc: next, ids } = issues.addEchoes(doc, 'echoes', [
+      { text: 'The Kubb tournament reached its 8th annual running this week, after [WT262](https://weekly.thingelstad.com/archive/262/).', archive_references: [wt(262)] },
+      { text: 'Car data has a long run-up.', archive_references: [] },
+    ]);
+    const units = readiness(next).units.filter((u) => u.kind === 'thingy' && u.anchor.startsWith('echo-'));
+    expect(units.map((u) => u.anchor)).toEqual(ids);
+    expect(units[0]!.title.startsWith('The Kubb tournament reached')).toBe(true);
+    expect(units[0]!.title).not.toContain('](');
+    expect(units.every((u) => u.done)).toBe(true);
+    expect(readiness(next).units.some((u) => u.anchor === 'echoes')).toBe(false);
+  });
+
+  it('a draft seeded before the change loses its empty single-body seed on read; words are kept', () => {
+    const doc = createIssue({ number: 400, publication_date: '2026-10-03' });
+    const seeded: Item = { type: 'echoes', authorship: 'Thingy', source: 'Thingy', channels: { website: true, email: true, audio: true }, body: '', status: 'draft' };
+    doc.items['echoes-1'] = seeded;
+    doc.nodes.find((n) => n.type === 'echoes')!.items = ['echoes-1'];
+    const repaired = normalizeSkeleton(doc)!;
+    expect(repaired).not.toBeNull();
+    expect(repaired.items['echoes-1']).toBeUndefined();
+    expect(repaired.nodes.find((n) => n.type === 'echoes')!.items).toEqual([]);
+
+    doc.items['echoes-1'] = { ...seeded, body: 'Picked words stay.' };
+    expect(normalizeSkeleton(doc)).toBeNull();
+
+    // A published issue is never rewritten, empty seed or not.
+    doc.items['echoes-1'] = seeded;
+    doc.issue.status = 'published';
+    expect(normalizeSkeleton(doc)).toBeNull();
+  });
+
+  it('the single-body shape still counts as one Echoes chip', () => {
+    const units = readiness(fixture()).units.filter((u) => u.anchor === 'echoes-1');
+    expect(units).toHaveLength(1);
+    expect(units[0]!.title).toBe('Echoes');
+  });
+});
+
 describe('add affordances', () => {
   it('adds a Currently entry to the section', () => {
     const doc = issues.createIssue({ number: 991, publication_date: '2026-09-05' });

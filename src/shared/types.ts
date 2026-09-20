@@ -32,6 +32,16 @@ export type ItemType =
   | 'pinboard_link'
   | 'journal_post'
   | 'membership'
+  /**
+   * One echo: a thread from this issue back through the archive, its
+   * citations, and a question for Thingy. The Echoes section is items of
+   * this type, like Currently is lines (Jamie, 2026-09-20).
+   */
+  | 'echo'
+  /**
+   * The Echoes section as one body — the shape WT350 and earlier carry.
+   * Still rendered; never seeded again. New issues get `echo` items.
+   */
   | 'echoes'
   | 'haiku';
 
@@ -129,6 +139,12 @@ export interface Item {
   /** Last write-back error, kept beside the local edit until a retry succeeds. */
   sync_error?: string;
   attribution?: string;
+  /**
+   * Echo only: the question a curious reader could put to Thingy to go
+   * deeper on this thread. Printed after the thread as a link that opens
+   * Thingy with it already asked; the renderers build the link.
+   */
+  ask?: string;
   status?: 'draft' | 'reviewed';
   reviewed?: boolean;
   archive_references?: ArchiveReference[];
@@ -157,9 +173,9 @@ export interface IssueNode {
 export type IssueStatus = 'draft' | 'published';
 
 /**
- * One selectable Echoes unit: a self-contained sentence or two with its own
- * citations. Jamie composes the section from any subset of what the wand
- * offers, so length follows quality.
+ * One echo as the wand offers it: a self-contained sentence or two with its
+ * own citations and its question. Each one Jamie ticks becomes an `echo`
+ * item, so the section's length follows quality.
  */
 export interface EchoOption {
   text: string;
