@@ -89,10 +89,20 @@ export function Editor({ doc, readiness, busy, error, run, onIndex, onSend, onEr
   const [kicker, note] = KICKER[lens];
 
   /** Jump the canvas to an anchor and select it — used by the progress strip. */
+  // A jump from the review panel or the strip highlights and scrolls, but
+  // keeps the rail as it is: "Show me" used to swap the review out for the
+  // inspector, so the note vanished the moment you went to act on it
+  // (2026-09-20). Clicking the item on the canvas still opens the inspector.
+  const [peeking, setPeeking] = useState(false);
   const jump = useCallback((anchor: string) => {
     setSelected(anchor);
+    setPeeking(true);
     const el = canvasRef.current?.querySelector(`[data-anchor="${CSS.escape(anchor)}"]`);
     el?.scrollIntoView({ behavior: 'smooth', block: 'center' });
+  }, []);
+  const select = useCallback((anchor: string | null) => {
+    setSelected(anchor);
+    setPeeking(false);
   }, []);
 
   /** Every mutation routes through here so the read's staleness hint is honest. */
@@ -177,7 +187,7 @@ export function Editor({ doc, readiness, busy, error, run, onIndex, onSend, onEr
     return () => window.removeEventListener('keydown', onKey);
   }, [selected]);
 
-  const inspecting = selected && doc.items[selected] ? selected : null;
+  const inspecting = selected && doc.items[selected] && !(peeking && readOpen) ? selected : null;
 
   const review = doc.review as { summary?: string; notes?: Note[] } | undefined;
   const key = (n: Note, i: number) => `${n.item_id ?? 'issue'}:${i}:${n.text.slice(0, 32)}`;
@@ -398,7 +408,7 @@ export function Editor({ doc, readiness, busy, error, run, onIndex, onSend, onEr
               hostRef={rowsRef}
               withNotes={readOpen && notes.length > 0}
               selected={selected}
-              onSelect={setSelected}
+              onSelect={select}
               act={act}
               drafting={drafting}
               draft={draft}
