@@ -83,10 +83,12 @@ export function linkBlocks(item: Item): Block[] {
  */
 export function journalEntryBlock(item: Item): Block {
   const w = wallClock(item.published_at);
-  const lead = String(item.title ?? '').trim() || (w ? clockTime(w) : '');
+  const title = String(item.title ?? '').trim();
   const body = bodyLines(item.body).join(' ');
-  if (!lead || !item.source_url) return body;
-  return `[${lead}](${item.source_url}) — ${body}`;
+  if (!item.source_url) return body;
+  // A title is bold, like a Briefly title; a time of day is not.
+  if (title) return `**[${title}](${item.source_url})** — ${body}`;
+  return w ? `[${clockTime(w)}](${item.source_url}) — ${body}` : body;
 }
 
 /**

@@ -52,8 +52,8 @@ Title. Description.
 
 Ordinary Journal items are grouped beneath publication-date boundaries. The
 group prints the weekday alone — the date is already established by the issue.
-Each item leads with a link back to the post: its title when it has one, the
-time of day otherwise. All clocks are Central. Each item remains independently
+Each item leads with a link back to the post: its title when it has one
+(bold), the time of day otherwise. All clocks are Central. Each item remains independently
 removable.
 
 Titled long posts may be promoted. Promotion changes placement and

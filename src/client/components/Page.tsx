@@ -616,8 +616,19 @@ function ChannelBlock({ doc, node, item, itemId, readOnly, act }: BlockProps) {
 
   switch (item.type) {
     case 'currently':
+      // Two inline editables on one line. An empty body is a zero-width span,
+      // so a click "in the body" landed on the line and the browser put the
+      // caret in the nearest editable — the label — and typing overwrote it
+      // (2026-09-20). The empty body gets a real width (canvas.css .cur-body)
+      // and a click on the line itself focuses the body.
       return (
-        <p>
+        <p
+          class="cur-line"
+          onClick={(e) => {
+            if (readOnly || e.target !== e.currentTarget) return;
+            (e.currentTarget as HTMLElement).querySelector<HTMLElement>('.cur-body')?.focus();
+          }}
+        >
           <strong>
             <Editable
               readOnly={readOnly} value={item.label ?? ''} ph="Label"
@@ -626,7 +637,8 @@ function ChannelBlock({ doc, node, item, itemId, readOnly, act }: BlockProps) {
             :
           </strong>{' '}
           <RichEditable
-            readOnly={readOnly} value={item.body ?? ''} ph="…"
+            class="cur-body"
+            readOnly={readOnly} value={item.body ?? ''} ph="What's happening…"
             render={markdownInlineToSafeHtml}
             onCommit={(text) => set({ body: text })}
           />
@@ -715,14 +727,17 @@ function ChannelBlock({ doc, node, item, itemId, readOnly, act }: BlockProps) {
           </>
         );
       }
-      // The lead is the title when the post has one, the time of day otherwise.
-      const lead = String(item.title ?? '').trim() || (c ? clockTime(c) : '');
+      // The lead is the title when the post has one (bold), the time of day otherwise.
+      const title = String(item.title ?? '').trim();
+      const lead = title || (c ? clockTime(c) : '');
       return (
         <>
           <p>
             {lead && (
               <>
-                <a href={item.source_url} target="_blank" rel="noreferrer">{lead}</a>
+                {title
+                  ? <strong><a href={item.source_url} target="_blank" rel="noreferrer">{title}</a></strong>
+                  : <a href={item.source_url} target="_blank" rel="noreferrer">{lead}</a>}
                 <span class="emdash"> — </span>
               </>
             )}

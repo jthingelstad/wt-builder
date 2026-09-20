@@ -397,6 +397,10 @@
 [contenteditable]:focus { background: var(--edit); box-shadow: 0 0 0 4px var(--edit); }
 [data-ph]:empty::before { content: attr(data-ph); color: var(--placeholder); }
 
+/* An empty Currently body is a real click target, not a zero-width span. */
+.cur-line { cursor: text; }
+.cur-body:empty { display: inline-block; min-width: 16ch; }
+
 /* ── selection and window fallout ─────────────────────────────────────── */
 
 .row.selected .row-page { background: var(--blue-1); }
