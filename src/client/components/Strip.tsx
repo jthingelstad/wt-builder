@@ -42,8 +42,10 @@ export function Strip({ number, readiness, onJump }: Props) {
 
   const units = readiness?.units ?? [];
   const done = readiness?.done ?? 0;
+  const partial = readiness?.partial ?? 0;
   const total = readiness?.total ?? 0;
   const complete = total > 0 && done === total;
+  const STATE = { done: 'done', partial: 'in progress', todo: 'not yet' } as const;
 
   // A tick that just turned green bursts; the last one takes the strip with
   // it. Keyed by anchor+title so a reorder does not read as progress, and the
@@ -86,8 +88,8 @@ export function Strip({ number, readiness, onJump }: Props) {
         {units.map((unit, i) => (
           <span class="tick-wrap" key={`${unit.anchor}-${i}`}>
             <button
-              class={`tick${unit.done ? ' done' : ''}`}
-              aria-label={`${unit.title} — ${unit.done ? 'done' : 'not yet'}`}
+              class={`tick ${unit.state}`}
+              aria-label={`${unit.title} — ${STATE[unit.state]}`}
               onClick={() => onJump(unit.anchor)}
             />
             {/*
@@ -95,11 +97,9 @@ export function Strip({ number, readiness, onJump }: Props) {
               screen, so the first four anchor left and the last four right.
             */}
             <span class={`tip ${i < 4 ? 'left' : i >= units.length - 4 ? 'right' : 'mid'}`}>
-              <span class={`tip-dot${unit.done ? ' done' : ''}`} />
+              <span class={`tip-dot ${unit.state}`} />
               <span class="tip-text">{unit.title}</span>
-              <span class={`tip-state${unit.done ? ' done' : ''}`}>
-                {unit.done ? 'done' : 'not yet'}
-              </span>
+              <span class={`tip-state ${unit.state}`}>{STATE[unit.state]}</span>
             </span>
           </span>
         ))}
@@ -110,7 +110,7 @@ export function Strip({ number, readiness, onJump }: Props) {
         aria-expanded={open}
         onClick={() => setOpen(!open)}
       >
-        {complete ? 'Ready to send' : `${done} of ${total} done`}
+        {complete ? 'Ready to send' : `${done} of ${total} done${partial ? ` · ${partial} in progress` : ''}`}
       </button>
       {complete && <CircleCheck />}
 
@@ -126,9 +126,12 @@ export function Strip({ number, readiness, onJump }: Props) {
                 key={`${unit.anchor}-${i}`}
                 onClick={() => { onJump(unit.anchor); setOpen(false); }}
               >
-                <span class={`cl-dot ${unit.kind}`} />
+                <span class={`cl-dot ${unit.kind}${unit.state === 'partial' ? ' partial' : ''}`} />
                 <span class="cl-main">
-                  <span class="cl-title">{unit.title}</span>
+                  <span class="cl-title">
+                    {unit.title}
+                    {unit.state === 'partial' && <span class="cl-state">IN PROGRESS</span>}
+                  </span>
                   {unit.context && <span class="cl-context">{unit.context}</span>}
                 </span>
               </button>

@@ -14,15 +14,19 @@ export function shouldWriteBack(item: Item, patch: Record<string, unknown>): boo
 
 export type ReadinessKind = 'required' | 'commentary' | 'sync' | 'thingy';
 
+export type ReadinessState = 'done' | 'partial' | 'todo';
+
 export interface Readiness {
   units: {
     done: boolean;
+    state: ReadinessState;
     title: string;
     anchor: string;
     kind: ReadinessKind;
     context?: string;
   }[];
   done: number;
+  partial: number;
   total: number;
   pct: number;
 }

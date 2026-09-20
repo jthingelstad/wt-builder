@@ -571,6 +571,8 @@
   cursor: pointer;
 }
 .tick.done { background: var(--green); }
+/* Started, under the bar: half a tick. */
+.tick.partial { background: linear-gradient(90deg, var(--green) 50%, var(--green-3) 50%); }
 .tick:hover { outline: 2px solid var(--ink); }
 
 /*
@@ -598,9 +600,11 @@
 
 .tip-dot { width: 7px; height: 7px; border-radius: 99px; background: var(--border); flex: none; }
 .tip-dot.done { background: var(--green); }
+.tip-dot.partial { background: linear-gradient(90deg, var(--green) 50%, var(--green-3) 50%); }
 .tip-text { font-size: 12px; color: var(--ink); flex: 1; min-width: 0; }
 .tip-state { font-family: var(--mono); font-size: 9.5px; color: var(--muted); white-space: nowrap; }
 .tip-state.done { color: var(--green); }
+.tip-state.partial { color: var(--green); opacity: .7; }
 
 .strip-readout { font-size: 11.5px; color: var(--muted); white-space: nowrap; }
 .strip-readout.complete { color: var(--green); font-weight: 500; }
@@ -1045,6 +1049,8 @@
 
 .cl-dot { width: 7px; height: 7px; border-radius: 99px; flex: none; margin-top: 5px; }
 .cl-dot.commentary { background: var(--amber); }
+.cl-dot.partial { background: linear-gradient(90deg, var(--green) 50%, var(--green-3) 50%); }
+.cl-state { font-family: var(--mono); font-size: 9px; letter-spacing: .06em; color: var(--green); margin-left: 8px; opacity: .8; }
 .cl-dot.sync { background: var(--terracotta); }
 .cl-dot.thingy { background: var(--blue); }
 .cl-dot.required { background: var(--mark-dark); }

@@ -805,17 +805,53 @@ describe('the photo section', () => {
     expect(item?.media?.url).toBeFalsy();
   });
 
-  it('counts an empty photo as outstanding, and a placed one as done', () => {
+  it('counts an empty photo as outstanding, a bare one as in progress, a captioned one as done', () => {
     const doc = createIssue({ number: 400, publication_date: '2026-09-05' });
     const photo = doc.nodes.find((n) => n.type === 'photo')!;
     const id = photo.items[0]!;
+    const unit = () => readiness(doc).units.find((u) => u.title === 'Photo placed')!;
 
-    const before = readiness(doc).units.find((u) => u.title === 'Photo placed');
-    expect(before?.done).toBe(false);
-    expect(before?.anchor).toBe(id);
+    expect(unit().state).toBe('todo');
+    expect(unit().anchor).toBe(id);
 
     doc.items[id]!.media = { url: 'https://files.thingelstad.com/wt400/a.jpg' };
-    expect(readiness(doc).units.find((u) => u.title === 'Photo placed')?.done).toBe(true);
+    expect(unit().state).toBe('partial');
+    doc.items[id]!.media = { url: 'https://files.thingelstad.com/wt400/a.jpg', alt: 'A lake', caption: 'Morning.' };
+    expect(unit().state).toBe('done');
+  });
+});
+
+describe('readiness knows started from finished', () => {
+  it('a one-sentence intro is in progress, a few paragraphs are done', () => {
+    const doc = createIssue({ number: 400, publication_date: '2026-09-05' });
+    const id = doc.nodes.find((n) => n.type === 'intro')!.items[0]!;
+    const intro = () => readiness(doc).units.find((u) => u.title === 'Intro written')!;
+    expect(intro().state).toBe('todo');
+    doc.items[id]!.body = 'Good morning! Hoping you had a wonderful summer.';
+    expect(intro().state).toBe('partial');
+    expect(intro().done).toBe(false);
+    doc.items[id]!.body = Array.from({ length: 60 }, (_, i) => `word${i}`).join(' ');
+    expect(intro().state).toBe('done');
+  });
+
+  it('a Notable link wants a paragraph; a Briefly link wants a line', () => {
+    const doc = fixture();
+    doc.items['link-flipcash']!.commentary = 'Neat.';
+    doc.items['briefly-forge']!.commentary = 'Neat.';
+    const r = readiness(doc);
+    expect(r.units.find((u) => u.anchor === 'link-flipcash')!.state).toBe('partial');
+    expect(r.units.find((u) => u.anchor === 'briefly-forge')!.state).toBe('done');
+    expect(r.partial).toBeGreaterThan(0);
+  });
+
+  it('gives each Currently line its own tick, and the issue its title', () => {
+    const doc = fixture();
+    const titles = readiness(doc).units.map((u) => u.title);
+    expect(titles.filter((t) => t.startsWith('Currently: '))).toHaveLength(2);
+    expect(titles).not.toContain('Currently filled in');
+    expect(titles[0]).toBe('Title and dek');
+    // The fixture's title is the seed, "The Weekly Thing 350": not yet titled.
+    expect(readiness(doc).units[0]!.state).not.toBe('done');
   });
 });
 

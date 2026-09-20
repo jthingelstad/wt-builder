@@ -946,8 +946,17 @@ export function setIssueNumber(doc: IssueDoc, number: number): IssueDoc {
 /** What kind of outstanding thing this is — the popover colours by it. */
 export type ReadinessKind = 'required' | 'commentary' | 'sync' | 'thingy';
 
+export type ReadinessState = 'done' | 'partial' | 'todo';
+
 export interface ReadinessUnit {
+  /** `state === 'done'`, kept for every reader that only asks that. */
   done: boolean;
+  /**
+   * Three states, not two: a one-sentence intro is not "written", it is
+   * started. The strip reads "how close am I" only if a stub does not count
+   * as finished (Jamie, 2026-09-20).
+   */
+  state: ReadinessState;
   title: string;
   anchor: string;
   kind: ReadinessKind;
@@ -955,8 +964,22 @@ export interface ReadinessUnit {
   context?: string;
 }
 
+/**
+ * How much prose makes a section finished rather than started. Calibrated
+ * to the issues Jamie actually sends: intros run several paragraphs, the
+ * outro a short one, a Notable link's commentary a paragraph, a Briefly
+ * link's a line. A stub under the bar reads as in progress.
+ */
+export const DONE_WORDS = { intro: 50, outro: 20, notable: 20 } as const;
+
+const words = (text: string | undefined) => bodyLines(text).join(' ').split(/\s+/).filter(Boolean).length;
+const byWords = (text: string | undefined, bar: number): ReadinessState =>
+  words(text) >= bar ? 'done' : words(text) > 0 ? 'partial' : 'todo';
+
 export interface Readiness {
   units: ReadinessUnit[];
+  /** Started but under the bar — the "in progress" count. */
+  partial: number;
   done: number;
   total: number;
   pct: number;
@@ -990,29 +1013,41 @@ export function normalizeSkeleton(doc: IssueDoc): IssueDoc | null {
 export function readiness(doc: IssueDoc): Readiness {
   const units: ReadinessUnit[] = [];
   const add = (
-    done: boolean, title: string, anchor = 'issue',
+    state: ReadinessState | boolean, title: string, anchor = 'issue',
     kind: ReadinessKind = 'required', context?: string,
-  ) => units.push({ done, title, anchor, kind, context });
+  ) => {
+    const st: ReadinessState = typeof state === 'boolean' ? (state ? 'done' : 'todo') : state;
+    units.push({ done: st === 'done', state: st, title, anchor, kind, context });
+  };
 
   const w = windowOf(doc);
   const inIssue = (item: Item) =>
     !outOfWindow(item, w) && (['website', 'email', 'audio'] as Channel[]).some((c) => item.channels[c]);
 
+  // The issue's own words come first: it cannot send as "The Weekly Thing N".
+  const title = String(doc.issue.title ?? '').trim();
+  const dek = String(doc.issue.dek ?? '').trim();
+  const titled = Boolean(title) && title !== `The Weekly Thing ${doc.issue.number}`;
+  add(titled && dek ? 'done' : titled || dek ? 'partial' : 'todo',
+    'Title and dek', 'issue', 'required', 'The title is the theme; the dek is the one-line summary.');
+
   // Units come out in the order the issue reads, section by section, so the
   // strip's ticks are a map of the page: the third tick is the third thing.
   // Held-out items (orphans) and fallen-out items owe nothing.
   for (const node of orderedNodes(doc)) {
-    const label = ({ intro: 'Intro written', outro: 'Outro written', currently: 'Currently filled in', photo: 'Photo placed' } as Record<string, string>)[node.type];
-    if (label && node.kind === 'section') {
-      const filled = node.items.length > 0 && node.items.every((id) => {
-        const item = doc.items[id];
-        if (!item) return false;
-        return item.type === 'photo'
-          ? Boolean(item.media?.url)
-          : bodyLines(item.body).length > 0;
-      });
-      add(filled, label, node.items[0] ?? node.id, 'required',
-        node.type === 'photo' ? 'Drop a photo, or remove the section.' : 'Write it, or remove the section.');
+    if (node.kind === 'section' && (node.type === 'intro' || node.type === 'outro')) {
+      const body = node.items.map((id) => doc.items[id]?.body ?? '').join('\n');
+      const bar = DONE_WORDS[node.type];
+      add(byWords(body, bar), node.type === 'intro' ? 'Intro written' : 'Outro written',
+        node.items[0] ?? node.id, 'required',
+        `A sentence is a start; ${node.type === 'intro' ? 'the intro is a few paragraphs' : 'the outro is a short one'} (${bar}+ words).`);
+      continue;
+    }
+    if (node.kind === 'section' && node.type === 'photo') {
+      const item = node.items.map((id) => doc.items[id]).find(Boolean);
+      const m = item?.media;
+      add(!m?.url ? 'todo' : m.alt && m.caption ? 'done' : 'partial', 'Photo placed',
+        node.items[0] ?? node.id, 'required', 'A photo, its alt text, and a caption — or remove the section.');
       continue;
     }
 
@@ -1020,15 +1055,18 @@ export function readiness(doc: IssueDoc): Readiness {
       const item = doc.items[id];
       if (!item || !inIssue(item)) continue;
 
-      if (item.type === 'pinboard_link') {
-        const title = (item.title ?? 'untitled').slice(0, 40);
-        add(
-          Boolean(String(item.commentary ?? '').trim()),
-          `Commentary for “${title}”`, id, 'commentary',
-          'A link with no commentary is just a headline.',
-        );
+      if (item.type === 'currently') {
+        // One tick per line: "Currently filled in" hid which line was empty.
+        add(bodyLines(item.body).length > 0, `Currently: ${item.label ?? 'entry'}`, id, 'required',
+          'Write the line, or remove the entry.');
+      } else if (item.type === 'pinboard_link') {
+        const short = (item.title ?? 'untitled').slice(0, 40);
+        const briefly = String(node.label).toLowerCase() === 'briefly';
+        add(briefly ? (String(item.commentary ?? '').trim() ? 'done' : 'todo') : byWords(item.commentary, DONE_WORDS.notable),
+          `Commentary for “${short}”`, id, 'commentary',
+          briefly ? 'A line is enough for Briefly.' : `A Notable link carries a paragraph (${DONE_WORDS.notable}+ words).`);
         if (item.sync_state === 'failed') {
-          add(false, `Pinboard write failed for “${title}”`, id, 'sync',
+          add(false, `Pinboard write failed for “${short}”`, id, 'sync',
             item.sync_error ?? 'Your edit is kept. Retry from the inspector.');
         }
       } else if (item.authorship === 'Thingy') {
@@ -1038,7 +1076,8 @@ export function readiness(doc: IssueDoc): Readiness {
         add(Boolean(item.reviewed), `${name} reviewed by you`, id, 'thingy',
           'Thingy wrote it and it goes out under that byline.');
       } else if (node.type === 'haiku') {
-        add(bodyLines(item.body).length > 0, 'Haiku chosen', id, 'required');
+        const lines = bodyLines(item.body).length;
+        add(lines >= 3 ? 'done' : lines > 0 ? 'partial' : 'todo', 'Haiku chosen', id, 'required', 'Three lines.');
       }
     }
   }
@@ -1059,6 +1098,7 @@ export function readiness(doc: IssueDoc): Readiness {
   return {
     units,
     done,
+    partial: units.filter((u) => u.state === 'partial').length,
     total: units.length,
     pct: units.length ? Math.round((done / units.length) * 100) : 100,
   };

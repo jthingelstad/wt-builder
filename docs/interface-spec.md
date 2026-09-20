@@ -630,6 +630,13 @@ count and lens). The one exception is an item holding an edit the source has not
 received — it stays, and the log says why. Widening the window again sweeps the rest
 straight back in.
 
+**The strip knows started from finished.** Each readiness unit is `done`, `partial`, or
+`todo`; a half-filled tick is in progress. A one-sentence intro is started, not written
+(`DONE_WORDS`: intro 50, outro 20, Notable commentary 20; Briefly wants a line; a photo
+wants alt and caption; a haiku three lines). Every Currently line is its own tick, the
+issue's title and dek are the first, and ticks run in the order the page reads, so the
+strip answers "how close am I" and a click on any tick jumps there (2026-09-20).
+
 **Markdown on the keyboard.** Every editable holds Markdown source while editing and
 renders it at rest — Source included, which shows pictures and rendered text like the
 page (2026-09-20: raw Markdown there was "too markdown"). The sugar is the keyboard, not
