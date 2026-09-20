@@ -342,6 +342,14 @@
 .echoes-refs p { white-space: normal; margin: 0 0 10px; }
 .echoes-refs p:last-child { margin-bottom: 0; }
 
+/* One echo: the thread, then its door. The door is set small and quiet so
+   the thread reads first, the way the frame prints it. */
+.echo-thread { font-size: 15.5px; line-height: 1.7; }
+.echo-thread:empty { min-height: 1.7em; }
+.echo-ask { margin: 6px 0 0; font-size: 13.5px; line-height: 1.6; color: var(--secondary); }
+.echo-ask em { color: var(--terracotta); font-style: italic; }
+.echo-question { color: var(--blue); }
+
 .photo-drop {
   height: 300px;
   border: 1px dashed var(--border-button);

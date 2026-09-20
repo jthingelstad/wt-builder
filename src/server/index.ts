@@ -675,13 +675,27 @@ const routes: [RegExp, string, (ctx: Ctx, params: string[]) => Promise<unknown>]
   [/^\/api\/issues\/([^/]+)\/items\/([^/]+)\/draft$/, 'POST', async ({ body }, [id, itemId]) => {
     const b = await body();
     const doc = requireIssue(id!);
+    const type = doc.items[itemId!]?.type;
     const result = await editorial.draft({
       doc,
       itemId: itemId!,
       context: b.context,
-      seasonal: doc.items[itemId!]?.type === 'echoes' ? seasonalFor(doc) : undefined,
+      seasonal: type === 'echoes' || type === 'echo' ? seasonalFor(doc) : undefined,
     });
     return result;
+  }],
+
+  /**
+   * The Echoes section wand: echoes to append, offered for the node rather
+   * than for an item. Nothing is written — the ticked ones come back through
+   * POST /nodes/:id/echoes.
+   */
+  [/^\/api\/issues\/([^/]+)\/nodes\/([^/]+)\/echoes\/draft$/, 'POST', async (_ctx, [id, nodeId]) => {
+    const doc = requireIssue(id!);
+    const node = doc.nodes.find((n) => n.id === nodeId);
+    if (!node) throw new HttpError(404, `no section ${nodeId}`);
+    if (node.type !== 'echoes') throw new HttpError(400, `${node.label} does not hold echoes`);
+    return editorial.draft({ doc, nodeId: nodeId!, seasonal: seasonalFor(doc) });
   }],
 
   /**

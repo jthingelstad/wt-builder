@@ -45,6 +45,8 @@ export interface PageActions {
   moveToSection(itemId: string, target: 'Notable' | 'Briefly'): void;
   setChannel(itemId: string, channel: Channel, on: boolean): void;
   draft(itemId: string): void;
+  /** The Echoes section wand: echoes to append, shown in a picker on the heading. */
+  draftEchoes(nodeId: string): void;
   /** Ask for a better order for a link section; the answer shows in a picker. */
   suggestOrder(nodeId: string): void;
   applyOrder(nodeId: string, order: string[], why: string): void;
@@ -204,7 +206,7 @@ export function Page({
     // add chip while it is empty; otherwise a Currently put back after removal
     // has no way to get its first line (WT350, 2026-09-20).
     const writable = !readOnly && lens === 'website' &&
-      (node.type === 'currently' || node.type === 'notable' || node.type === 'briefly');
+      (node.type === 'currently' || node.type === 'notable' || node.type === 'briefly' || node.type === 'echoes');
     if (!inLens.length && !fallout.all && lens !== 'source' && !writable) return;
 
     if (index > 0) {
@@ -254,6 +256,10 @@ export function Page({
       // until Jamie applies it (Jamie, 2026-09-20).
       const orderable = !readOnly && lens === 'website' && (node.type === 'notable' || node.type === 'briefly') &&
         inLens.filter((id) => doc.items[id]?.type === 'pinboard_link').length >= 3;
+      // The Echoes wand lives on the heading: it drafts echoes for the
+      // section and the ticked ones append as items, so it can run again
+      // for more (Jamie, 2026-09-20). Each echo's own wand redrafts it.
+      const echoesWand = !readOnly && node.type === 'echoes';
       rows.push(
         <Row
           key={`${node.id}-h`}
@@ -269,6 +275,18 @@ export function Page({
                   proposal={orderProposal}
                   onApply={() => { act.applyOrder(node.id, orderProposal.order, orderProposal.why); onDismissOrder?.(); }}
                   onDismiss={() => onDismissOrder?.()}
+                />
+              )}
+            </>
+          ) : echoesWand ? (
+            <>
+              <Wand redraft={inLens.length > 0} busy={drafting === node.id} onClick={() => act.draftEchoes(node.id)} />
+              {draft?.itemId === node.id && draft.echoes && (
+                <EchoesPicker
+                  echoes={draft.echoes}
+                  more={node.items.length > 0}
+                  onCompose={(selected) => { act.addEchoes(node.id, selected); onDismissDraft(); }}
+                  onDismiss={onDismissDraft}
                 />
               )}
             </>
@@ -393,7 +411,8 @@ export function Page({
               ) : draft.echoes ? (
                 <EchoesPicker
                   echoes={draft.echoes}
-                  onCompose={(selected) => { act.addEchoes(node.id, selected); onDismissDraft(); }}
+                  single
+                  onPick={(echo) => onPickDraft(itemId, echo.text, echo.archive_references, { ask: echo.ask ?? '' })}
                   onDismiss={onDismissDraft}
                 />
               ) : (
@@ -480,6 +499,17 @@ export function Page({
           <Row key={`${node.id}-add`} anchor={node.id}>
             <button class="ghost-chip" onClick={() => act.addItem(node.id, 'pinboard_link')}>
               + Write a link here
+            </button>
+          </Row>,
+        );
+      }
+      // Echoes are drafted, not typed: the section's add is the wand on its
+      // heading. The empty section says so rather than showing a bare rule.
+      if (node.type === 'echoes' && inLens.length === 0) {
+        rows.push(
+          <Row key={`${node.id}-add`} anchor={node.id}>
+            <button class="ghost-chip" disabled={drafting === node.id} onClick={() => act.draftEchoes(node.id)}>
+              {drafting === node.id ? 'Reading the archive…' : '✦ Draft echoes from the archive'}
             </button>
           </Row>,
         );
@@ -632,11 +662,9 @@ function AudioScript({
           <div class="cue-omit">
             <span class="cue-omit-label">NOT SPOKEN</span>
             <span>
-              {node.type === 'echoes'
-                ? 'Echoes is never spoken.'
-                : node.type === 'photo'
-                  ? 'The photo is omitted rather than narrated.'
-                  : `${node.label} is held out of the audio edition.`}
+              {node.type === 'photo'
+                ? 'The photo is omitted rather than narrated.'
+                : `${node.label} is held out of the audio edition.`}
             </span>
           </div>
         </Row>
@@ -823,6 +851,30 @@ function ChannelBlock({ doc, node, item, itemId, readOnly, act }: BlockProps) {
       );
     }
 
+    case 'echo':
+      // One echo: the thread, then its door — both Jamie's to edit. The
+      // door prints as "Ask Thingy: question" linked to Thingy's chat; the
+      // renderers build the link, so only the question is edited here.
+      return (
+        <div class="echo">
+          {thingy && node.items[0] === itemId && <ByChip />}
+          <RichEditable
+            tag="div" class="echo-thread" multiline readOnly={readOnly}
+            value={item.body ?? ''} ph="The thread from this issue back through the archive…"
+            render={markdownInlineToSafeHtml}
+            onCommit={(text) => set({ body: text })}
+          />
+          <p class="echo-ask">
+            <em>Ask Thingy:</em>{' '}
+            <Editable
+              class="echo-question" readOnly={readOnly} value={item.ask ?? ''}
+              ph="A question a curious reader could ask (or leave empty for no door)"
+              onCommit={(text) => set({ ask: text })}
+            />
+          </p>
+        </div>
+      );
+
     case 'echoes':
       // Generated, but Jamie's to edit (2026-09-04): rendered at rest,
       // markdown source while editing — and a body change drops the item
@@ -940,11 +992,18 @@ function OrderPicker({
  * overlays the card like a popover.
  */
 function EchoesPicker({
-  echoes, onCompose, onDismiss,
+  echoes, onCompose, onPick, onDismiss, single, more,
 }: {
   echoes: EchoOption[];
-  onCompose: (selected: EchoOption[]) => void;
+  /** Section wand: the ticked echoes, appended in this order. */
+  onCompose?: (selected: EchoOption[]) => void;
+  /** Per-echo wand: one way of saying it replaces the echo's words. */
+  onPick?: (echo: EchoOption) => void;
   onDismiss: () => void;
+  /** Pick one, not any — the per-echo redraft. */
+  single?: boolean;
+  /** The section already holds echoes; these add to it. */
+  more?: boolean;
 }) {
   const [picked, setPicked] = useState<Set<number>>(new Set());
   const toggle = (i: number) => {
@@ -957,7 +1016,7 @@ function EchoesPicker({
   return (
     <div class="draft-picker echoes-picker">
       <div class="dp-head">
-        <span class="mono-label">ECHOES — SELECT ANY</span>
+        <span class="mono-label">{single ? 'REDRAFTED — PICK ONE' : more ? 'MORE ECHOES — ADD ANY' : 'ECHOES — ADD ANY'}</span>
         <button class="dp-x" aria-label="Dismiss" onClick={onDismiss}>×</button>
       </div>
       {echoes.length === 0 && <p class="quiet">Nothing came back.</p>}
@@ -965,26 +1024,32 @@ function EchoesPicker({
         <button
           key={i}
           class={`dp-option${picked.has(i) ? ' picked' : ''}`}
-          aria-pressed={picked.has(i)}
-          onClick={() => toggle(i)}
+          aria-pressed={single ? undefined : picked.has(i)}
+          onClick={() => (single ? onPick?.(echo) : toggle(i))}
         >
-          <span class="dp-check">{picked.has(i) ? '✓' : ''}</span>
+          {!single && <span class="dp-check">{picked.has(i) ? '✓' : ''}</span>}
           <span class="dp-text">
             {echo.text}
             {echo.ask && <span class="dp-ask">Ask Thingy: {echo.ask}</span>}
           </span>
         </button>
       ))}
-      <div class="dp-compose">
-        <button
-          class="btn small primary"
-          disabled={selected.length === 0}
-          onClick={() => onCompose(selected)}
-        >
-          Use {selected.length || 'none'} {selected.length === 1 ? 'echo' : 'echoes'}
-        </button>
-        <span class="dp-foot">The section is exactly what you select, in this order.</span>
-      </div>
+      {single ? (
+        <p class="dp-foot">Same thread, said again. Nothing is written until you pick one.</p>
+      ) : (
+        <div class="dp-compose">
+          <button
+            class="btn small primary"
+            disabled={selected.length === 0}
+            onClick={() => onCompose?.(selected)}
+          >
+            Add {selected.length || 'none'} {selected.length === 1 ? 'echo' : 'echoes'}
+          </button>
+          <span class="dp-foot">
+            {more ? 'Each one joins the section as its own echo, after what is there.' : 'Each one becomes its own echo, in this order. Run the wand again for more.'}
+          </span>
+        </div>
+      )}
     </div>
   );
 }
@@ -1054,9 +1119,9 @@ const ByChip = () => (
 );
 
 /**
- * The Echoes body is short paragraphs of inline markdown (composeEchoes
- * joins selected units with blank lines). Joined without newlines so the
- * edit-mode `white-space: pre-line` cannot double-space the rendered view.
+ * A single-body Echoes item (WT350 and earlier) is short paragraphs of
+ * inline markdown. Joined without newlines so the edit-mode
+ * `white-space: pre-line` cannot double-space the rendered view.
  */
 function renderEchoesHtml(source: string): string {
   return source
@@ -1260,6 +1325,32 @@ function SourceBlock({ doc, node, item, itemId, readOnly, act }: BlockProps) {
             : { body: text },
         )}
       />
+      {item.type === 'echo' && (
+        <>
+          <div class="src-label">ASK THINGY — the door under the thread</div>
+          <RichEditable
+            class="src-body" tag="div" readOnly={readOnly}
+            value={item.ask ?? ''} ph="No question — the echo prints without a door."
+            render={markdownInlineToSafeHtml}
+            onCommit={(text) => set({ ask: text })}
+          />
+          {item.archive_references?.length ? (
+            <div class="src-meta">
+              grounded in{' '}
+              {item.archive_references.map((r, i) => (
+                <span key={r.url}>
+                  {i > 0 && ', '}
+                  <a href={r.url} target="_blank" rel="noreferrer" title={r.note ?? r.title ?? r.url}>
+                    {r.issue ? `WT${r.issue}` : r.title ?? domainOf(r.url)}
+                  </a>
+                </span>
+              ))}
+            </div>
+          ) : (
+            <div class="src-meta">no citations carried</div>
+          )}
+        </>
+      )}
       {item.type === 'membership' && (
         <>
           <div class="src-label">THANKS — what a Supporting Member sees instead (email only)</div>

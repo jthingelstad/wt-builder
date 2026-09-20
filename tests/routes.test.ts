@@ -170,6 +170,27 @@ describe('echoes append over the wire', () => {
   });
 });
 
+describe('the Echoes wands are wired', () => {
+  it('the section wand reaches its handler and refuses a section that is not Echoes', async () => {
+    const missing = await post('/api/issues/nope/nodes/echoes/echoes/draft');
+    expect(missing.status).toBe(404);
+    expect(missing.body.error).toContain('no issue');
+
+    const created = await fetch(`${base}/api/issues`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ number: 990007, publication_date: '2026-09-26' }),
+    });
+    const id = (await created.json()).issue.issue.id;
+    const wrong = await post(`/api/issues/${id}/nodes/currently/echoes/draft`);
+    expect(wrong.status).toBe(400);
+    expect(wrong.body.error).toContain('does not hold echoes');
+    const gone = await post(`/api/issues/${id}/nodes/nope/echoes/draft`);
+    expect(gone.status).toBe(404);
+    await fetch(`${base}/api/issues/${id}`, { method: 'DELETE' });
+  });
+});
+
 describe('a link moves between Notable and Briefly over the wire', () => {
   it('moves both ways, carrying the _brief tag with it', async () => {
     const created = await fetch(`${base}/api/issues`, {

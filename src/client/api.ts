@@ -184,6 +184,12 @@ export const api = {
   reorder: (id: string, nodeId: string, order: string[], why?: string) =>
     call<IssueResponse>(`/issues/${id}/nodes/${nodeId}/reorder`, { method: 'POST', body: JSON.stringify({ order, why }) }),
 
+  /** The Echoes section wand: echoes to append. Nothing is written until addEchoes. */
+  draftEchoes: (id: string, nodeId: string) =>
+    call<{ candidates: string[]; echoes?: EchoOption[] }>(
+      `/issues/${id}/nodes/${nodeId}/echoes/draft`, { method: 'POST', body: '{}' },
+    ),
+
   draftItem: (id: string, itemId: string, context?: string) =>
     call<{ candidates: string[]; echoes?: EchoOption[]; membership?: { cta: string; thanks: string }[]; photo?: { alt: string; caption: string }[] }>(
       `/issues/${id}/items/${itemId}/draft`,

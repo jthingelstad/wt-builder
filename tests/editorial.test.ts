@@ -7,7 +7,7 @@ import { fileURLToPath } from 'node:url';
 import type { IssueDoc } from '../src/shared/types.ts';
 import { renderAnnotated } from '../src/shared/render/annotate.ts';
 import {
-  ECHOES_MAX_ANCHORS,
+  ECHOES_MAX_ANCHORS, draft,
   assembleReview, campaignFacts, candidateCount, echoesAnchors, issueExcerpt,
   pickSeasonalIssue, poolEchoPassages, pruneStale,
   type AnchoredPassages, type Note, type Review,
@@ -295,5 +295,16 @@ describe('the seasonal lens', () => {
     expect(excerpt).toContain('The New Standards');
     expect(excerpt).not.toContain('<img');
     expect(excerpt.length).toBeLessThanOrEqual(2800);
+  });
+});
+
+describe('the Echoes wands', () => {
+  it('the section wand drafts for the Echoes node and refuses any other', async () => {
+    await expect(draft({ doc, nodeId: 'currently' })).rejects.toThrow('no Echoes section');
+    await expect(draft({ doc, nodeId: 'nope' })).rejects.toThrow('no Echoes section');
+  });
+
+  it('an item wand needs an item', async () => {
+    await expect(draft({ doc, itemId: 'nope' })).rejects.toThrow('no item nope');
   });
 });

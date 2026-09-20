@@ -154,6 +154,16 @@ export function Editor({ doc, readiness, busy, error, run, onIndex, onSend, onEr
         .catch((err) => onError((err as Error).message))
         .finally(() => setDrafting(null));
     },
+    // The Echoes section wand offers echoes for the node; the picker hangs
+    // off the heading, keyed by the node id, and the ticked ones append.
+    draftEchoes: (nodeId) => {
+      setDrafting(nodeId);
+      setDraft(null);
+      api.draftEchoes(id, nodeId)
+        .then((r) => setDraft({ itemId: nodeId, candidates: [], echoes: r.echoes ?? [] }))
+        .catch((err) => onError((err as Error).message))
+        .finally(() => setDrafting(null));
+    },
   };
 
   const sweep = () => {
@@ -438,9 +448,9 @@ export function Editor({ doc, readiness, busy, error, run, onIndex, onSend, onEr
                 const item = doc.items[itemId];
                 const field = item?.type === 'pinboard_link' ? 'commentary' : 'body';
                 const patch: Record<string, unknown> = { [field]: text, ...(extraPatch ?? {}) };
-                // Echoes carries the citations it was composed from, so the
-                // inspector can show what the section stands on.
-                if (item?.type === 'echoes' && refs?.length) patch.archive_references = refs;
+                // An echo carries the citations it was drafted from, so the
+                // inspector can show what it stands on. A redraft replaces them.
+                if ((item?.type === 'echoes' || item?.type === 'echo') && refs?.length) patch.archive_references = refs;
                 void run(() => api.updateItem(id, itemId, patch));
               }}
               onDismissDraft={() => setDraft(null)}

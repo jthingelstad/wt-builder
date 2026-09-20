@@ -171,6 +171,18 @@ export function Inspector({ doc, itemId, run, onClose, onError, onBackToReview }
         </div>
       )}
 
+      {item.type === 'echo' && (
+        <div class="field">
+          <label htmlFor={`${prefix}-ask`}>Ask Thingy</label>
+          <input
+            id={`${prefix}-ask`}
+            value={item.ask ?? ''}
+            placeholder="The question under the thread; empty prints no door"
+            onBlur={(e) => commitField('ask', (e.target as HTMLInputElement).value)}
+          />
+        </div>
+      )}
+
       {item.authorship === 'Thingy' && (
         <div class="review-box">
           <span>{item.reviewed ? 'Reviewed by Jamie' : 'Jamie review required'}</span>

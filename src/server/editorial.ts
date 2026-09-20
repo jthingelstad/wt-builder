@@ -12,7 +12,7 @@ import { fileURLToPath } from 'node:url';
 
 import Anthropic from '@anthropic-ai/sdk';
 
-import type { ArchiveReference, EchoOption, IssueDoc, Item } from '../shared/types.ts';
+import type { ArchiveReference, EchoOption, IssueDoc, Item, ItemType } from '../shared/types.ts';
 import { renderAnnotated } from '../shared/render/annotate.ts';
 import { bodyLines, outOfWindow, windowOf } from '../shared/render/plan.ts';
 import { config } from './config.ts';
@@ -529,7 +529,14 @@ async function fetchCampaignFacts(): Promise<string | null> {
 
 export interface DraftRequest {
   doc: IssueDoc;
-  itemId: string;
+  /**
+   * The item to draft for — or, for the Echoes section wand, absent: that
+   * wand drafts for the node named in `nodeId`, because the echoes it offers
+   * become new items rather than words for an existing one.
+   */
+  itemId?: string;
+  /** The Echoes section wand: draft new echoes for this node. */
+  nodeId?: string;
   /** Campaign facts for Membership; archive passages for Echoes. */
   context?: string;
   /** Echoes only: the issue from about a year ago this week, if one exists. */
@@ -632,6 +639,8 @@ Vary the three: one plain, one with a little wit, one that connects the photo to
 
 /** How many echo units one drafting call offers, at most. */
 export const ECHOES_OFFERED = 5;
+/** How many ways of saying one echo the per-item wand offers, at most. */
+export const ECHO_REDRAFTS = 3;
 
 /**
  * Membership drafts both Liquid branches at once (Jamie, 2026-09-05): the
@@ -1010,10 +1019,15 @@ export async function suggestOrder(
 export async function draft(req: DraftRequest): Promise<DraftResult> {
   // The head wand: 'issue' is not an item — it drafts the title theme + dek.
   const isIssue = req.itemId === 'issue';
-  const item = isIssue ? null : req.doc.items[req.itemId];
-  if (!isIssue && !item) throw new Error(`no item ${req.itemId}`);
+  // The Echoes section wand: no item either — it drafts echoes to append
+  // to the node. A per-echo wand redrafts one existing item in place.
+  const node = !isIssue && req.nodeId ? req.doc.nodes.find((n) => n.id === req.nodeId) : undefined;
+  if (!isIssue && req.nodeId && node?.type !== 'echoes') throw new Error(`no Echoes section ${req.nodeId}`);
+  const item = isIssue || node ? null : req.doc.items[req.itemId ?? ''];
+  if (!isIssue && !node && !item) throw new Error(`no item ${req.itemId}`);
+  const redraftEcho = item?.type === 'echo';
 
-  const type = isIssue ? 'issue' : item!.type;
+  const type: ItemType | 'issue' = isIssue ? 'issue' : node || redraftEcho ? 'echoes' : item!.type;
   if (type === 'photo') return draftPhoto(req, item!);
   // VOICE is the newsletter's voice — first-person, Jamie's register. Echoes
   // is Thingy's own bylined section and carries its persona and guardrails
@@ -1025,14 +1039,23 @@ export async function draft(req: DraftRequest): Promise<DraftResult> {
   const system = isIssue
     ? `${VOICE}\n\n${ISSUE_PROMPT}`
     : bylined
-      ? `${THINGY_PERSONA}\n\n${DRAFT_PROMPTS[item!.type]}`
-      : DRAFT_PROMPTS[item!.type] && `${VOICE}\n\n${DRAFT_PROMPTS[item!.type]}`;
+      ? `${THINGY_PERSONA}\n\n${DRAFT_PROMPTS[type as ItemType]}`
+      : DRAFT_PROMPTS[type as ItemType] && `${VOICE}\n\n${DRAFT_PROMPTS[type as ItemType]}`;
   if (!system) throw new Error(`${type} has no drafting prompt`);
 
   const n = candidateCount(type as Item['type'] | 'issue');
   const current = isIssue
     ? [req.doc.issue.title, req.doc.issue.dek].filter(Boolean).join('\n')
-    : bodyLines(item!.body).join(' ');
+    : node
+      ? ''
+      : redraftEcho
+        ? [bodyLines(item!.body).join(' '), item!.ask ? `Ask: ${item!.ask}` : ''].filter(Boolean).join('\n')
+        : bodyLines(item!.body).join(' ');
+  // What the section already holds: the wand appends, so a second run must
+  // offer different threads rather than the same five again.
+  const already = node
+    ? node.items.map((id) => req.doc.items[id]).filter((i): i is Item => Boolean(i) && bodyLines(i!.body).length > 0)
+    : [];
   const assembled = renderAnnotated(req.doc, 'website');
 
   // Membership grounds itself in the live program facts; whatever the client
@@ -1060,13 +1083,18 @@ export async function draft(req: DraftRequest): Promise<DraftResult> {
 
   // The link's own section decides commentary length (Briefly vs Notable).
   const linkSection = item?.type === 'pinboard_link'
-    ? req.doc.nodes.find((nd) => nd.items.includes(req.itemId))?.label ?? item.section
+    ? req.doc.nodes.find((nd) => nd.items.includes(req.itemId!))?.label ?? item.section
     : undefined;
 
   const parts = [
-    type === 'echoes'
-      ? `Return up to ${ECHOES_OFFERED} unique echoes, best first — only as many as are real.`
-      : `Return exactly ${n} distinct candidates. Make them genuinely different from each other, not variations on one phrasing.`,
+    redraftEcho
+      ? `Redraft ONE echo. Keep its thread — the same connection between this issue and the archive — and return up to ${ECHO_REDRAFTS} ways of saying it, best first: different wordings, or a sharper citation for the same thread from the passages below, each with its own ask. Do not change the subject.`
+      : type === 'echoes'
+        ? `Return up to ${ECHOES_OFFERED} unique echoes, best first — only as many as are real.`
+        : `Return exactly ${n} distinct candidates. Make them genuinely different from each other, not variations on one phrasing.`,
+    already.length
+      ? `\nAlready in the section — these threads and their sources are taken; offer DIFFERENT threads, and none that cite the same source:\n${already.map((i) => `- ${bodyLines(i.body).join(' ')}`).join('\n')}`
+      : '',
     isIssue ? `\nThis is issue WT${req.doc.issue.number}.` : '',
     campaign ? `\nThe program, from the live members page:\n${campaign}` : '',
     anchored.length
@@ -1110,7 +1138,7 @@ export async function draft(req: DraftRequest): Promise<DraftResult> {
     echoes?: EchoOption[];
   };
   if (type === 'echoes') {
-    return { candidates: [], echoes: (parsed.echoes ?? []).slice(0, ECHOES_OFFERED) };
+    return { candidates: [], echoes: (parsed.echoes ?? []).slice(0, redraftEcho ? ECHO_REDRAFTS : ECHOES_OFFERED) };
   }
   if (type === 'membership') {
     return { candidates: [], membership: ((parsed.candidates ?? []) as MembershipOption[]).slice(0, n) };
