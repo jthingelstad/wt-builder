@@ -153,6 +153,21 @@ finished, what is half-finished, and what has never run.
   dashboard shows them with a PRE-BUILDER chip and their archive state.
 - ~~Echoes archive retrieval~~ — built 2026-08-28: the wand retrieves from
   the Librarian, fails loud without it, and stores the citations it used.
+- **Alt text for Journal images, written back to Micro.blog** (2026-09-20,
+  WT350 shipped with Buttondown warning "11 of your images are missing alt
+  text"). The photo wand already writes alt from the picture; do the same per
+  `<img>` in a Journal post body, write the alt into the tag, and let the
+  existing body write-back carry it to the blog — the site and the email get
+  it through the same body. Regex on published posts: build it with tests, in
+  daylight. Top of the next session.
+- **Thingy's sign-off** — the Membership persona still ends its draft with
+  "— Thingy", redundant inside the frame and spoken aloud after the hello.
+  Drop it from the persona/prompt.
+- **Draft URL in the website front matter** — the website leg recorded the
+  Buttondown draft's `absolute_url` (`…/archive/untitled/`) when the draft
+  predated a proper subject. Don't record a draft's public URL until it has
+  one worth recording, or let the website leg fall back to the numbered
+  archive URL it already knows.
 - **Echoes are items, like Currently** (Jamie, 2026-09-20, after the first
   real Echoes). An echo is a unit with a fixed shape — thread, citations,
   question — and today the section is one item whose body the picker glues
