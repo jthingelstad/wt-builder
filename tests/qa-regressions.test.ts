@@ -125,6 +125,38 @@ describe('markup never reaches the synthesizer', () => {
   });
 });
 
+describe('a photo post keeps its pictures out of the sentence', () => {
+  // WT350: the Kubb Tournament entry welded four <img> tags onto the caption
+  // line, so the website set them inside the paragraph and the first one lost
+  // the archive's left edge. Trailing images print as blocks of their own.
+  const IMG = (n: string) =>
+    `<img src="https://files.thingelstad.com/weekly-thing/350/images/${n}.jpg" width="600" height="600" alt="">`;
+
+  it('prints the caption, then each image on its own line', () => {
+    const doc = issue(
+      { 'j-1': { type: 'journal_post', source: 'Micro.blog', authorship: 'syndicated',
+                 presentation: 'journal', published_at: '2026-08-26T19:00:00-05:00',
+                 source_url: 'https://www.thingelstad.com/2026/09/16/the-four-bracket-winning-teams.html',
+                 body: `The four bracket winning teams from our 8th annual Team SPS Kubb Tournament!\n\n${IMG('a')}${IMG('b')}` } },
+      [node({ id: 'journal', type: 'journal', label: 'Journal', publishes_heading: true, items: ['j-1'] })],
+    );
+    const md = renderWebsite(doc);
+    expect(md).toContain('Kubb Tournament!\n\n' + IMG('a') + '\n\n' + IMG('b'));
+    expect(md).not.toMatch(/Tournament! <img/);
+  });
+
+  it('leaves an image that sits inside the prose where it is', () => {
+    const doc = issue(
+      { 'j-1': { type: 'journal_post', source: 'Micro.blog', authorship: 'syndicated',
+                 presentation: 'journal', published_at: '2026-08-26T19:00:00-05:00',
+                 source_url: 'https://www.thingelstad.com/p.html',
+                 body: `Before ${IMG('a')} after.` } },
+      [node({ id: 'journal', type: 'journal', label: 'Journal', publishes_heading: true, items: ['j-1'] })],
+    );
+    expect(renderWebsite(doc)).toContain(`Before ${IMG('a')} after.`);
+  });
+});
+
 describe('half-written items publish nothing', () => {
   it('an unwritten haiku does not publish "****"', () => {
     const doc = issue(
