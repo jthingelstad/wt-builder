@@ -116,7 +116,8 @@ const CARDS: Card[] = [
       { label: 'Render the email edition' },
       {
         label: 'Create the draft',
-        evidence: (r) => (r.send.url ? { href: r.send.url, label: 'Draft' } : undefined),
+        // The editor, not the public archive: the draft is opened to be scheduled.
+        evidence: (r) => (r.send.edit_url ?? r.send.url ? { href: r.send.edit_url ?? r.send.url!, label: 'Draft' } : undefined),
       },
     ],
   },

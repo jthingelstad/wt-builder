@@ -33,7 +33,7 @@ import * as githubRepo from './integrations/github.ts';
 import * as audio from './integrations/audio.ts';
 import { audioSegments } from '../shared/render/audio.ts';
 import { heldOut, outOfWindow, windowOf } from '../shared/render/plan.ts';
-import { archiveInputs, issueEntry, siteInputs, type IssueEntry } from './publish.ts';
+import { archiveInputs, issueEntry, siteInputs, subjectFor, type IssueEntry } from './publish.ts';
 import * as draftShare from './share.ts';
 
 const DIST = fileURLToPath(new URL('../../dist', import.meta.url));
@@ -730,7 +730,8 @@ const routes: [RegExp, string, (ctx: Ctx, params: string[]) => Promise<unknown>]
     const { report: images, mapping } = await rehostIssueImages(requireIssue(id!));
     const doc = savedFresh(id!, (d) => applyRehost(d, mapping)).issue;
     const previous = doc.sends?.buttondown;
-    const subject = doc.issue.title;
+    // The email's subject is the issue's, "WT350 — Title", not the bare title.
+    const subject = subjectFor(doc);
     const body = renderEmail(doc);
 
     store.recordSend(id!, destination, { status: 'sending', at: new Date().toISOString() });
@@ -743,6 +744,7 @@ const routes: [RegExp, string, (ctx: Ctx, params: string[]) => Promise<unknown>]
         at: new Date().toISOString(),
         external_id: draft.id,
         url: draft.url,
+        edit_url: draft.edit_url,
       };
       const row = store.recordSend(id!, destination, state);
       store.logEvent(id!, 'send', 'Send finished — buttondown (draft, never scheduled)');

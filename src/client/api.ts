@@ -39,7 +39,7 @@ export interface IssueResponse {
 /** What a send hands back — the evidence each step produced. */
 export interface SendResult {
   issue: IssueDoc;
-  send: { status: string; url?: string; external_id?: string; error?: string };
+  send: { status: string; url?: string; edit_url?: string; external_id?: string; error?: string };
   /** Podcast only. */
   audio?: {
     audio_url?: string;

@@ -12,7 +12,10 @@ const API = 'https://api.buttondown.com/v1';
 
 export interface DraftResult {
   id: string;
+  /** The public archive URL, once Buttondown has one. */
   url?: string;
+  /** The editor, where the draft is reviewed and scheduled. */
+  edit_url: string;
   subject: string;
 }
 
@@ -41,26 +44,43 @@ async function call(path: string, init: RequestInit): Promise<unknown> {
 }
 
 /**
+ * Tells Buttondown the body is Markdown for its plaintext editor. Without
+ * it the draft opened in the rich-text editor with every newline collapsed
+ * (WT350, 2026-09-20). Buttondown documents the marker for exactly this:
+ * https://docs.buttondown.com/api-emails-create
+ */
+export const EDITOR_MODE_MARKER = '<!-- buttondown-editor-mode: plaintext -->';
+
+/** Where Jamie opens the draft to review and schedule it — not its public archive URL. */
+export function editUrl(id: string): string {
+  return `https://buttondown.com/emails/${id}`;
+}
+
+function markdownBody(body: string): string {
+  return body.startsWith(EDITOR_MODE_MARKER) ? body : `${EDITOR_MODE_MARKER}\n${body}`;
+}
+
+/**
  * Create the issue's draft. `status: 'draft'` is what keeps this safe — the
  * email exists in Buttondown for review and is not scheduled or sent.
  */
 export async function createDraft(subject: string, body: string): Promise<DraftResult> {
   const created = (await call('/emails', {
     method: 'POST',
-    body: JSON.stringify({ subject, body, status: 'draft' }),
+    body: JSON.stringify({ subject, body: markdownBody(body), status: 'draft' }),
   })) as { id: string; absolute_url?: string };
 
-  return { id: created.id, url: created.absolute_url, subject };
+  return { id: created.id, url: created.absolute_url, edit_url: editUrl(created.id), subject };
 }
 
 /** Replace the body of an existing draft, for a re-send after edits. */
 export async function updateDraft(id: string, subject: string, body: string): Promise<DraftResult> {
   const updated = (await call(`/emails/${id}`, {
     method: 'PATCH',
-    body: JSON.stringify({ subject, body }),
+    body: JSON.stringify({ subject, body: markdownBody(body) }),
   })) as { id: string; absolute_url?: string };
 
-  return { id: updated.id ?? id, url: updated.absolute_url, subject };
+  return { id: updated.id ?? id, url: updated.absolute_url, edit_url: editUrl(updated.id ?? id), subject };
 }
 
 /** Presence check used by the health route; never returns the key. */

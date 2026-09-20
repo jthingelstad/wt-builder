@@ -188,6 +188,8 @@ export interface SendState {
   /** Buttondown draft id, archive commit sha, etc. */
   external_id?: string;
   url?: string;
+  /** Where to open it to act on it, when that differs from `url` (Buttondown's editor). */
+  edit_url?: string;
   error?: string;
 }
 
