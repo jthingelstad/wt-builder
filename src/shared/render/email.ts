@@ -85,10 +85,16 @@ function emailNodeBlocks(planned: PlannedNode): Block[] {
   return heading ? [heading, ...body] : body;
 }
 
+/**
+ * The email's shape, matched to the issues Jamie sent before the builder
+ * (WT349 compared side by side, 2026-09-20): no title in the body — the
+ * subject carries it and Buttondown prints it — and a rule between sections.
+ */
 export function renderEmail(doc: IssueDoc): string {
-  const blocks: Block[] = [`# ${doc.issue.title}`];
+  const sections: string[] = [];
   for (const planned of planEdition(doc, 'email')) {
-    blocks.push(...emailNodeBlocks(planned));
+    const blocks = emailNodeBlocks(planned).filter((b) => b.trim().length > 0);
+    if (blocks.length) sections.push(blocks.join('\n\n'));
   }
-  return withRehostedImages(doc, blocks.filter((b) => b.trim().length > 0).join('\n\n') + '\n');
+  return withRehostedImages(doc, sections.join('\n\n---\n\n') + '\n');
 }
