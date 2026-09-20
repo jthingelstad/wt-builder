@@ -457,7 +457,7 @@ const routes: [RegExp, string, (ctx: Ctx, params: string[]) => Promise<unknown>]
 
   /**
    * Move a link between Notable and Briefly. One editorial gesture with a
-   * source-side half: Briefly is the `__brief` tag on the bookmark, so the
+   * source-side half: Briefly is the `_brief` tag on the bookmark, so the
    * move adjusts the tags and immediately writes them back to Pinboard —
    * the builder and the bookmark must agree on what the link is.
    */
@@ -535,11 +535,18 @@ const routes: [RegExp, string, (ctx: Ctx, params: string[]) => Promise<unknown>]
     const filename = String(req.headers['x-filename'] ?? 'photo.jpg');
     const stored = await storeUpload(bytes, doc.issue.number, filename);
 
+    // The time and place are facts about the file, so a replacement photo
+    // brings its own and the old photo's stop applying — a new picture under
+    // last week's timestamp is wrong twice (Jamie, 2026-09-20). Jamie's words
+    // — alt and caption — describe what he sees and are kept across a swap.
+    const replacing = Boolean(item.media?.url);
+    const carried = replacing ? undefined : item.media;
+
     // A place name reads better than coordinates in print (Jamie, 2026-09-03).
     // Best-effort: a failed geocode keeps the coordinates — true either way,
     // and the field stays editable, so a wrong name never survives review.
     const location =
-      item.media?.location ||
+      carried?.location ||
       (stored.coordinates
         ? (await geocode.placeName(stored.coordinates)) ?? stored.coordinates
         : undefined);
@@ -550,11 +557,11 @@ const routes: [RegExp, string, (ctx: Ctx, params: string[]) => Promise<unknown>]
       // Seeded, not imposed: an empty alt is a real accessibility problem, and
       // a filename is a better starting point than nothing.
       alt: item.media?.alt || filename.replace(/\.[a-z0-9]+$/i, '').replace(/[-_]+/g, ' '),
-      timestamp: item.media?.timestamp || stored.takenAt || undefined,
+      timestamp: carried?.timestamp || stored.takenAt || undefined,
       location,
       // Kept beside the name: the published metadata line links the place
       // to the exact spot on the map.
-      coordinates: item.media?.coordinates || stored.coordinates || undefined,
+      coordinates: carried?.coordinates || stored.coordinates || undefined,
     };
 
     store.logEvent(id!, 'edit', `Photo uploaded — ${filename}`);
