@@ -38,6 +38,10 @@ export function speakable(text: string | undefined): string {
   // Emphasis marks are silent.
   s = s.replace(/(\*\*|__|\*|_|`)/g, '');
 
+  // Emoji are for the eye; a synthesizer reads "☕️" as "hot beverage" or as
+  // nothing, and either is wrong out loud.
+  s = s.replace(/[\p{Extended_Pictographic}\uFE0F\u200D]/gu, '');
+
   // A bare URL left in prose is unspeakable; drop it rather than spell it.
   s = s.replace(/\bhttps?:\/\/\S+/gi, ' ');
 

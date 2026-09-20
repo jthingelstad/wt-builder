@@ -76,13 +76,13 @@ export function echoesBlocks(item: Item): Block[] {
 function emailNodeBlocks(planned: PlannedNode): Block[] {
   if (planned.node.type !== 'membership' && planned.node.type !== 'echoes') return nodeBlocks(planned);
 
-  const out: Block[] = [];
-  const heading = nodeHeading(planned);
-  if (heading) out.push(heading);
+  const body: Block[] = [];
   for (const entry of planned.items) {
-    out.push(...(planned.node.type === 'membership' ? membershipBlocks(entry.item) : echoesBlocks(entry.item)));
+    body.push(...(planned.node.type === 'membership' ? membershipBlocks(entry.item) : echoesBlocks(entry.item)));
   }
-  return out;
+  if (!body.some((b) => b.trim())) return [];
+  const heading = nodeHeading(planned);
+  return heading ? [heading, ...body] : body;
 }
 
 export function renderEmail(doc: IssueDoc): string {

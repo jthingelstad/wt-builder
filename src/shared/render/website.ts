@@ -187,21 +187,25 @@ export function nodeHeading(planned: PlannedNode): string | null {
 
 /** Blocks for one node, used by the website and email editions alike. */
 export function nodeBlocks(planned: PlannedNode): Block[] {
-  const out: Block[] = [];
+  const body: Block[] = [];
   const { node } = planned;
-  const heading = nodeHeading(planned);
-  if (heading) out.push(heading);
 
   if (planned.groups) {
     for (const group of planned.groups) {
-      if (group.weekday) out.push(`### ${group.weekday}`);
-      for (const entry of group.items) out.push(...itemBlocks(entry, node));
+      const items = group.items.flatMap((entry) => itemBlocks(entry, node)).filter((b) => b.trim());
+      if (!items.length) continue;
+      if (group.weekday) body.push(`### ${group.weekday}`);
+      body.push(...items);
     }
-    return out;
+  } else {
+    for (const entry of planned.items) body.push(...itemBlocks(entry, node));
   }
 
-  for (const entry of planned.items) out.push(...itemBlocks(entry, node));
-  return out;
+  // A heading over nothing is an unwritten section, not a section: an empty
+  // Echoes printed "## Echoes" and stopped (WT350 dry run, 2026-09-20).
+  if (!body.some((b) => b.trim())) return [];
+  const heading = nodeHeading(planned);
+  return heading ? [heading, ...body] : body;
 }
 
 export function renderWebsite(doc: IssueDoc): string {

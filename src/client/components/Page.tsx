@@ -247,7 +247,7 @@ export function Page({
               onCommit={() => { /* renamed from the outline */ }}
             />
             {node.kind === 'ad_hoc' && <span class="note-pill">AD HOC SECTION</span>}
-            {node.fixed_position === 'last' && <span class="note-pill">FIXED LAST · NOT IN AUDIO</span>}
+            {node.fixed_position === 'last' && <span class="note-pill">FIXED LAST</span>}
             {fallout.all && (
               <span class="note-pill">ALL {fallout.count} FELL OUTSIDE THE WINDOW</span>
             )}

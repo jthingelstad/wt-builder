@@ -24,7 +24,7 @@ rather than failing quietly.
 | Promoted Journal post | Yes | Yes | Yes | Yes, its own title |
 | Membership | Yes | Yes | Yes, Thingy introduced as author | No |
 | Haiku | Yes | Yes | Yes, one line at a time | No |
-| Echoes | Yes, last | Yes, last | No | Yes |
+| Echoes | Yes, last | Yes, last | Yes, last, in Thingy's voice | Yes |
 | Ad hoc section | Yes | Yes | Yes | Yes, its own title |
 | Markdown block | Yes | Yes | Yes | No |
 
@@ -95,9 +95,13 @@ identifies itself the same way everywhere and differently per channel
 ```text
 Next, a word about membership, from Thingy, my agentic librarian.   ← echo
 Hello, this is Thingy. <the membership words>                       ← nova
+…
+Before we go, Echoes from the archive, from Thingy, my agentic librarian.  ← echo
+<the echoes words>                                                          ← nova
 ```
 
-Echoes is omitted from audio.
+Thingy says hello once an episode. Echoes is spoken since 2026-09-20 — it was
+omitted from audio until Thingy had a voice.
 
 ## Echoes
 

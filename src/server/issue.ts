@@ -75,10 +75,7 @@ function seedItem(type: ItemType, extra: Partial<Item> = {}): Item {
     base.channels = { website: true, email: true, audio: false };
     base.channel_locks = { audio: 'Photos are omitted from audio rather than narrated.' };
   }
-  if (type === 'echoes') {
-    base.channels = { website: true, email: true, audio: false };
-    base.channel_locks = { audio: 'Echoes is never spoken.' };
-  }
+  // Echoes is spoken since 2026-09-20: Thingy has a voice now.
   return base;
 }
 
@@ -1029,14 +1026,28 @@ export interface Readiness {
  * caller only writes when it matters.
  */
 export function normalizeSkeleton(doc: IssueDoc): IssueDoc | null {
-  const photo = doc.nodes.find((n) => n.type === 'photo' && n.kind === 'section');
-  if (!photo || photo.items.length > 0) return null;
+  let next: IssueDoc | null = null;
+  const touch = () => (next ??= structuredClone(doc));
 
-  const next = structuredClone(doc);
-  const target = next.nodes.find((n) => n.id === photo.id)!;
-  const itemId = `${photo.id}-1`;
-  next.items[itemId] = seedItem('photo');
-  target.items = [itemId];
+  const photo = doc.nodes.find((n) => n.type === 'photo' && n.kind === 'section');
+  if (photo && photo.items.length === 0) {
+    const n = touch();
+    const target = n.nodes.find((x) => x.id === photo.id)!;
+    const itemId = `${photo.id}-1`;
+    n.items[itemId] = seedItem('photo');
+    target.items = [itemId];
+  }
+
+  // Echoes was locked out of audio until Thingy had a voice (2026-09-20).
+  // Drafts seeded before then carry the lock; lift it and let it speak.
+  for (const [id, item] of Object.entries(doc.items)) {
+    if (item.type !== 'echoes' || !item.channel_locks?.audio) continue;
+    const n = touch();
+    const it = n.items[id]!;
+    delete it.channel_locks!.audio;
+    if (!Object.keys(it.channel_locks!).length) delete it.channel_locks;
+    it.channels = { ...it.channels, audio: true };
+  }
   return next;
 }
 
@@ -1080,8 +1091,10 @@ export function readiness(doc: IssueDoc): Readiness {
     if (node.kind === 'section' && node.type === 'photo') {
       const item = node.items.map((id) => doc.items[id]).find(Boolean);
       const m = item?.media;
-      add(!m?.url ? 'todo' : m.alt && m.caption ? 'done' : 'partial', 'Photo',
-        node.items[0] ?? node.id, 'required', 'A photo, its alt text, and a caption — or remove the section.');
+      // The upload seeds alt from the filename; "IMG 6232" is not alt text.
+      const altWritten = Boolean(m?.alt) && !/^(img|dsc|dscf|pxl|photo|image)[ _-]?\d+$/i.test(String(m?.alt).trim());
+      add(!m?.url ? 'todo' : altWritten && m.caption ? 'done' : 'partial', 'Photo',
+        node.items[0] ?? node.id, 'required', 'A photo, alt text in words (not the filename), and a caption — or remove the section.');
       continue;
     }
 

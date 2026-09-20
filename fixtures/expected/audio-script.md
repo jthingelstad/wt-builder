@@ -62,6 +62,11 @@ Each item finds its own place
 
 Old echoes return
 
+Before we go, Echoes from the archive, from Thingy, my agentic librarian.
+
+This week's return to building recalls earlier issues about owning the tools
+that shape your work.
+
 That brings us to the end of The Weekly Thing.
 
 <!--
@@ -70,13 +75,13 @@ Every line above is spoken. Section transitions are script lines, not markers.
 Signposts: Notable and Briefly announce "Link N of M" before each item, counted
 over the items actually in the audio edition.
 
-Membership is spoken, introduced as Thingy's words before the words themselves.
+Membership and Echoes are spoken in Thingy's voice: Jamie hands over, Thingy
+says hello once an episode, then speaks; Jamie takes the next section back.
 Haiku is spoken one line per block, so the pauses land on the line breaks.
 
 Omitted, and why:
 
 - photo-1 — Photo is never narrated (channel locked).
-- echoes-1 — Echoes is omitted from audio (channel locked).
 - ps-1 — email-only.
 - journal-excluded — all channels false.
 

@@ -434,10 +434,7 @@
       "channels": {
         "website": true,
         "email": true,
-        "audio": false
-      },
-      "channel_locks": {
-        "audio": "Echoes is never spoken."
+        "audio": true
       },
       "attribution": "Thingy",
       "status": "draft",

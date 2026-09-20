@@ -26,6 +26,7 @@ export const HAIKU_TRANSITION = "And to close, this week's haiku.";
 /** Membership is spoken, introduced as Thingy's words before the words themselves. */
 /** Jamie hands over; Thingy introduces itself in its own voice, then speaks. */
 export const MEMBERSHIP_TRANSITION = 'Next, a word about membership, from Thingy, my agentic librarian.';
+export const ECHOES_TRANSITION = 'Before we go, Echoes from the archive, from Thingy, my agentic librarian.';
 export const THINGY_HELLO = 'Hello, this is Thingy.';
 
 export type Speaker = 'jamie' | 'thingy';
@@ -46,6 +47,7 @@ export function transitionFor(planned: PlannedNode): SpokenBlock | null {
 
   if (node.type === 'haiku') return HAIKU_TRANSITION;
   if (node.type === 'membership') return MEMBERSHIP_TRANSITION;
+  if (node.type === 'echoes') return ECHOES_TRANSITION;
 
   if (node.kind === 'promoted_item') {
     const title = items[0]?.item.title ?? node.label;
@@ -173,8 +175,9 @@ export function audioScript(doc: IssueDoc): ScriptBlock[] {
 
     const transition = transitionFor(planned);
     if (transition) script.push({ kind: 'transition', text: transition, nodeId: planned.node.id });
-    // Thingy introduces itself before its first words, in its own voice.
-    if (spoken.some((b) => b.speaker === 'thingy')) {
+    // Thingy introduces itself before its first words, in its own voice —
+    // once an episode; a second hello would be a stranger.
+    if (spoken.some((b) => b.speaker === 'thingy') && !script.some((b) => b.speaker === 'thingy')) {
       script.push({ kind: 'transition', text: THINGY_HELLO, nodeId: planned.node.id, speaker: 'thingy' });
     }
     script.push(...spoken);
