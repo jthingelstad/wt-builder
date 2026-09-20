@@ -133,7 +133,8 @@ function itemBlocks(entry: PlannedItem, node?: IssueNode): Block[] {
     case 'quote':
       return bodyLines(item.body).map((l) => `> ${l}`);
     default:
-      return [bodyLines(item.body).join(' ')];
+      // Intro, outro, Markdown blocks: prose keeps its paragraphs.
+      return postBlocks(item.body);
   }
 }
 

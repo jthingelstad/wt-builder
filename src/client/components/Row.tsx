@@ -306,8 +306,14 @@ export function formatShortcut(e: KeyboardEvent): boolean {
 // read back as inline Markdown instead, and a paste is converted on the way
 // in so what is on screen is what will be kept.
 
-/** Inline Markdown for a DOM fragment: links, emphasis, code, line breaks. */
-export function domToMarkdown(root: Node): string {
+/**
+ * Inline Markdown for a DOM fragment: links, emphasis, code, line breaks.
+ * `blockBreak` is what a P/DIV boundary becomes: a paragraph ("\n\n") for
+ * pasted HTML, a line ("\n") for what the browser itself puts in a
+ * contenteditable — Safari wraps every Enter in a <div>, and an empty one is
+ * the blank line between paragraphs.
+ */
+export function domToMarkdown(root: Node, blockBreak = '\n\n'): string {
   const walk = (node: Node): string => {
     // Numeric node types, not Node.TEXT_NODE: this runs under test without a DOM.
     if (node.nodeType === 3) return (node.textContent ?? '').replace(/\u00a0/g, ' ');
@@ -327,7 +333,7 @@ export function domToMarkdown(root: Node): string {
       case 'IMG': return '';
       case 'STYLE': case 'SCRIPT': case 'HEAD': return '';
       case 'P': case 'DIV': case 'LI': case 'H1': case 'H2': case 'H3': case 'H4': case 'BLOCKQUOTE':
-        return `${inner()}\n\n`;
+        return `${inner()}${blockBreak}`;
       default: return inner();
     }
   };
@@ -335,6 +341,17 @@ export function domToMarkdown(root: Node): string {
     .replace(/[ \t]+\n/g, '\n')
     .replace(/\n{3,}/g, '\n\n')
     .trim();
+}
+
+/**
+ * What a contenteditable holds, as text with its line structure. textContent
+ * drops the newlines the browser expressed as <div> and <br>; this keeps them,
+ * and turns any rich node that got in into Markdown.
+ */
+export function readEditable(el: HTMLElement, multiline: boolean): string {
+  if (el.querySelector('a, strong, b, em, i, code')) return domToMarkdown(el, multiline ? '\n' : ' ');
+  if (!multiline) return el.textContent ?? '';
+  return domToMarkdown(el, '\n');
 }
 
 /** Clipboard → inline Markdown. Plain text as-is; HTML only when it carries structure. */
@@ -400,8 +417,7 @@ export function Editable({
     onPaste: (e: ClipboardEvent) => insertPaste(e, Boolean(multiline)),
     onBlur: (e: FocusEvent) => {
       const el = e.currentTarget as HTMLElement;
-      // Rich content that got in some other way still leaves as Markdown.
-      const text = el.querySelector('a, strong, b, em, i, code') ? domToMarkdown(el) : (el.textContent ?? '');
+      const text = readEditable(el, Boolean(multiline));
       if (text !== value) onCommit(text);
     },
     onKeyDown: (e: KeyboardEvent) => {
@@ -473,7 +489,7 @@ export function RichEditable({
       const el = e.currentTarget as HTMLElement;
       // In source mode the node holds Markdown text; anything rich that got
       // in (a paste the handler missed, a drop) is read back as Markdown too.
-      const text = el.querySelector('a, strong, b, em, i, code') ? domToMarkdown(el) : (el.textContent ?? '');
+      const text = readEditable(el, Boolean(multiline));
       setEditing(false);
       if (text !== value) onCommit(text);
       else el.innerHTML = value ? render(value) : '';

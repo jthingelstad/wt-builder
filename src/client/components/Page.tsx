@@ -613,11 +613,16 @@ function ChannelBlock({ doc, node, item, itemId, readOnly, act }: BlockProps) {
   const set = (patch: Record<string, unknown>) => act.updateItem(itemId, patch);
   const thingy = item.authorship === 'Thingy';
 
+  // Prose (intro, outro, Markdown blocks): rendered paragraphs at rest,
+  // Markdown source while editing, with the blank lines visible. A plain <p>
+  // here swallowed the second paragraph — newlines vanished on save
+  // (2026-09-20) — and showed raw link syntax at rest.
   const body = (
-    <Editable
-      tag="p" multiline readOnly={readOnly}
+    <RichEditable
+      tag="div" class="post-body" multiline readOnly={readOnly}
       value={item.body ?? ''}
       ph="Write something here…"
+      render={markdownToSafeHtml}
       onCommit={(text) => set({ body: text })}
     />
   );

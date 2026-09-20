@@ -89,7 +89,11 @@ function itemBlocks(item: Item, planned: PlannedNode, index: number, total: numb
         : [[terminate(String(item.title ?? '')), speakable(flatten(item.body))].filter(Boolean).join(' ')]
             .filter(Boolean);
     default:
-      return [speakable(flatten(item.body))].filter(Boolean);
+      // Prose speaks one block per paragraph, so the pauses fall where the
+      // paragraph breaks are.
+      return postBlocks(item.body)
+        .map((b) => speakable(b.replace(/^(#{1,6}\s+|>\s?|[-*]\s+|\d{1,9}[.)]\s+)/gm, '')).replace(/\s*\n\s*/g, ' '))
+        .filter(Boolean);
   }
 }
 

@@ -5,7 +5,7 @@
 
 import { describe, expect, it } from 'vitest';
 
-import { domToMarkdown } from '../src/client/components/Row.tsx';
+import { domToMarkdown, readEditable } from '../src/client/components/Row.tsx';
 
 type Fake = { nodeType: number; textContent?: string; tagName?: string; childNodes: Fake[]; attrs?: Record<string, string>; getAttribute?: (n: string) => string | null };
 const text = (t: string): Fake => ({ nodeType: 3, textContent: t, childNodes: [] });
@@ -41,5 +41,27 @@ describe('a paste from Safari or Notes keeps its links', () => {
   it('drops a link with no real destination but keeps its words', () => {
     const tree = el('span', [el('a', [text('here')], { href: 'javascript:void(0)' })]);
     expect(md(tree)).toBe('here');
+  });
+});
+
+describe('reading a contenteditable back keeps its paragraphs', () => {
+  // Safari wraps every Enter in a <div>; an empty one is the blank line.
+  const typed = el('div', [
+    text('First paragraph.'),
+    el('div', [el('br', [])]),
+    el('div', [text('Second paragraph.')]),
+  ]);
+  const flat = (n: Fake): string => n.nodeType === 3 ? (n.textContent ?? '') : n.childNodes.map(flat).join('');
+  const withQuery = (node: Fake) => Object.assign(node, {
+    querySelector: () => null,
+    textContent: flat(node),
+  }) as unknown as HTMLElement;
+
+  it('turns the browser\'s divs into newlines, blank div into a blank line', () => {
+    expect(readEditable(withQuery(typed), true)).toBe('First paragraph.\n\nSecond paragraph.');
+  });
+
+  it('a single-line field reads as plain text', () => {
+    expect(readEditable(withQuery(el('span', [text('one line')])), false)).toBe('one line');
   });
 });
