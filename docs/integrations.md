@@ -15,8 +15,8 @@
   say about it yet); a described, unmarked link is Notable. The inference is
   never written onto the bookmark. The sweep places by it, and moving a
   link between Notable and Briefly in the builder adds or removes it on the
-  bookmark through the normal write-back path. A `gone` bookmark moves
-  locally only. **Placement follows the bookmark:** when a re-scan finds the
+  bookmark through the normal write-back path. A bookmark deleted at
+  Pinboard is dropped from the issue at the next re-scan. **Placement follows the bookmark:** when a re-scan finds the
   tag changed at Pinboard and no local tag edit is pending, the link moves
   section to match. (Until 2026-09-20 the builder looked for `__brief` and
   filed unmarked links in Briefly; the old spelling is still read.)

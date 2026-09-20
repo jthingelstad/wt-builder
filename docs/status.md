@@ -74,9 +74,11 @@ finished, what is half-finished, and what has never run.
   also reconciles the read side of the mirror: Pinboard and Micro.blog are
   the CMS, so edits made there are adopted when the local copy is untouched
   (`source_snapshot` is the merge base), two-sided edits surface as
-  `conflict`, and a deleted source record marks the item `gone` — the local
-  copy is always kept, and removal stays an editorial act. A `gone` item
-  refuses write-back so the deleted record is never silently recreated.
+  `conflict`, and a deleted source record drops the item from the issue at
+  that re-scan (2026-09-20 — deleting the bookmark IS the editorial act; the
+  words stay one row away in `revisions`). Until 2026-09-20 a `gone` copy
+  was kept and refused write-back, which left deleted links in the issue to
+  be removed a second time by hand.
   Opening a draft issue re-scans automatically, and Re-scan sits on the
   at-rest meta card as well as in the edit panel.
 - **Event log** (2026-08-30) — every action on an issue is narrated to an

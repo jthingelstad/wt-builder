@@ -311,12 +311,14 @@ export function applySweep(doc: IssueDoc, fetched: SweepFetch): { doc: IssueDoc;
       log.push({ kind: 'refreshed', summary: `${itemName(item)} — adopted the ${item.source} edit` });
     } else if (outcome === 'gone') {
       reconciled.gone++;
-      log.push({ kind: 'gone', summary: `${itemName(item)} — deleted at ${item.source}; copy kept` });
     } else if (outcome === 'conflict') {
       reconciled.conflicts++;
       log.push({ kind: 'conflict', summary: `${itemName(item)} — edited both here and at ${item.source}` });
     }
   }
+
+  // Deleted at the source is deleted here; the reconcile above marked them.
+  log.push(...pruneGone(next));
 
   log.push(...followBookmarkTags(next, justAdded));
 
@@ -368,19 +370,44 @@ export function pruneOutsideWindow(doc: IssueDoc): { kind: string; summary: stri
     dropped.add(id);
     log.push({ kind: 'dropped', summary: `${itemName(item)} — outside the window` });
   }
-  if (!dropped.size) return log;
+  dropItems(doc, dropped);
+  return log;
+}
 
+/** Take items out of the document entirely: items, nodes, held-out and held lists. */
+function dropItems(doc: IssueDoc, dropped: Set<string>): void {
+  if (!dropped.size) return;
   for (const id of dropped) delete doc.items[id];
   for (const n of doc.nodes) n.items = n.items.filter((id) => !dropped.has(id));
   for (const n of doc.held_nodes ?? []) n.items = n.items.filter((id) => !dropped.has(id));
   doc.orphans = (doc.orphans ?? []).filter((id) => !dropped.has(id));
 
-  // A promoted post that fell out leaves an empty section behind; take it too.
+  // A promoted post that went leaves an empty section behind; take it too.
   doc.nodes = doc.nodes.filter((n) => n.kind !== 'promoted_item' || n.items.length > 0);
   if (doc.issue.output_order) {
     const live = new Set(doc.nodes.map((n) => n.id));
     doc.issue.output_order = doc.issue.output_order.filter((id) => live.has(id));
   }
+}
+
+/**
+ * Drop the items whose source record is gone.
+ *
+ * Deleting a bookmark at Pinboard IS the editorial act — Jamie files there
+ * (2026-09-20: "it should have been removed from WT350 at the same time").
+ * The earlier rule kept a `gone` copy and surfaced it; that left deleted links
+ * sitting in the issue until removed a second time by hand. The words are
+ * one row away in `revisions` if the deletion was a slip. Mutates `doc`.
+ */
+export function pruneGone(doc: IssueDoc): { kind: string; summary: string }[] {
+  const log: { kind: string; summary: string }[] = [];
+  const dropped = new Set<string>();
+  for (const [id, item] of Object.entries(doc.items)) {
+    if (item.sync_state !== 'gone') continue;
+    dropped.add(id);
+    log.push({ kind: 'dropped', summary: `${itemName(item)} — deleted at ${item.source}` });
+  }
+  dropItems(doc, dropped);
   return log;
 }
 

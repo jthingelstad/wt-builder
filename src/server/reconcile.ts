@@ -13,8 +13,10 @@
  *   - both changed differently        → `conflict`; the local copy is kept
  *   - source record deleted           → `gone`; the local copy is kept
  *
- * Nothing here deletes. A vanished or conflicted source is surfaced and the
- * removal stays an editorial act.
+ * Nothing here deletes: this module marks. The sweep acts on the mark —
+ * since 2026-09-20 a `gone` item is dropped from the issue (issue.ts
+ * pruneGone), because deleting the bookmark at Pinboard is the editorial
+ * act. A conflict is still only surfaced.
  */
 
 import type { Item } from '../shared/types.ts';

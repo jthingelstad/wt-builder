@@ -13,7 +13,7 @@ import {
   addMarkdownBlock, addSection, createIssue, demote, hideItem, moveLinkToSection, moveNode,
   normalizeSkeleton, promote, readiness, removeSection, setChannel, setIssueNumber,
   setPublicationDate, setWindowDays,
-  updateItem, followBookmarkTags, pruneOutsideWindow,
+  updateItem, followBookmarkTags, pruneGone, pruneOutsideWindow,
 } from '../src/server/issue.ts';
 import { falloutOf, itemsInWindow, outOfWindow, planEdition, windowOf } from '../src/shared/render/plan.ts';
 import { sourceRows } from '../src/shared/render/source.ts';
@@ -538,6 +538,16 @@ describe('window-derived inclusion', () => {
     expect(doc.orphans).toEqual([]);
     expect(doc.nodes.some((n) => n.id === 'promoted-i-0')).toBe(false);
     expect(doc.issue.output_order).not.toContain('promoted-i-0');
+  });
+
+  it('a link deleted at Pinboard is dropped from the issue at the next re-scan', () => {
+    const doc = docWith('2026-09-01T09:00:00-05:00', '2026-09-02T09:00:00-05:00');
+    doc.items['i-1']!.sync_state = 'gone';
+    doc.items['i-1']!.sync_error = 'deleted at Pinboard; your copy is kept';
+    const log = pruneGone(doc);
+    expect(Object.keys(doc.items)).toEqual(expect.not.arrayContaining(['i-1']));
+    expect(doc.nodes.find((n) => n.id === 'n-notable')!.items).toEqual(['i-0']);
+    expect(log).toEqual([{ kind: 'dropped', summary: 'A link — deleted at Pinboard' }]);
   });
 
   it("never drops Jamie's own writing or an unjudgeable item", () => {
