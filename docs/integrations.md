@@ -13,7 +13,10 @@
 - The `_brief` tag (one underscore) is Jamie's filing mark: on, the link is
   Briefly. A link with **no description** is inferred Briefly too (nothing to
   say about it yet); a described, unmarked link is Notable. The inference is
-  never written onto the bookmark. The sweep places by it, and moving a
+  never written onto the bookmark. One case the rule cannot decide: the first
+  description written *in the builder* on an unmarked Briefly link. The canvas
+  asks — Stay in Briefly (puts `_brief` on the bookmark) or Move up to Notable
+  — and the re-scan leaves the link alone until answered (`placement_query`). The sweep places by it, and moving a
   link between Notable and Briefly in the builder adds or removes it on the
   bookmark through the normal write-back path. A bookmark deleted at
   Pinboard is dropped from the issue at the next re-scan.

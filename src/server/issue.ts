@@ -436,6 +436,7 @@ export function followBookmarkTags(
   const norm = (v: unknown) => (Array.isArray(v) ? [...v].sort().join(' ') : String(v ?? '')).trim();
   for (const [id, item] of Object.entries(doc.items)) {
     if (item.type !== 'pinboard_link' || item.source !== 'Pinboard' || skip.has(id)) continue;
+    if (item.placement_query) continue; // Jamie has a question open on it
     // Only a link with a sweep record can be said to follow its bookmark.
     const snapshot = item.source_snapshot;
     if (!snapshot || !Array.isArray(snapshot.tags)) continue;
@@ -532,7 +533,19 @@ export function updateItem(doc: IssueDoc, itemId: string, patch: Partial<Item>):
   const bodyChanged =
     (patch.body !== undefined && patch.body !== item.body) ||
     (patch.member_thanks !== undefined && patch.member_thanks !== item.member_thanks);
+  const describedNow =
+    item.type === 'pinboard_link' &&
+    patch.commentary !== undefined &&
+    !String(item.commentary ?? '').trim() &&
+    Boolean(String(patch.commentary).trim());
   Object.assign(item, patch);
+
+  // First description, written in Briefly, on a link with no _brief mark:
+  // the filing rule now says Notable, the act says Briefly. Ask.
+  if (describedNow && !(item.tags ?? []).some(pinboard.isBriefTag)) {
+    const here = next.nodes.find((n) => n.items.includes(itemId));
+    if (here?.label.toLowerCase() === 'briefly') item.placement_query = true;
+  }
 
   const sourceFieldChanged =
     (item.source === 'Pinboard' && ['title', 'commentary', 'tags'].some((key) => key in patch)) ||
@@ -668,11 +681,16 @@ export function moveLinkToSection(
   const dest = next.nodes.find(
     (n) => n.kind === 'section' && n.label.toLowerCase() === target.toLowerCase(),
   );
-  if (!source || !dest || source === dest) return next;
+  if (!source || !dest) return next;
+  // Choosing a section answers the open question, including "stay where it
+  // is" — which still puts the mark on the bookmark so the rule agrees.
+  delete item.placement_query;
 
-  source.items = source.items.filter((i) => i !== itemId);
-  dest.items.push(itemId);
-  item.section = dest.label;
+  if (source !== dest) {
+    source.items = source.items.filter((i) => i !== itemId);
+    dest.items.push(itemId);
+    item.section = dest.label;
+  }
 
   const tags = item.tags ?? [];
   const hasBrief = tags.some(pinboard.isBriefTag);

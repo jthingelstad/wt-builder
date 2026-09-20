@@ -1138,6 +1138,21 @@
 }
 .ip-pill:hover { color: var(--ink, #1f1f1f); border-color: var(--muted); }
 
+/* A question the filing rule cannot answer: written in Briefly, described like Notable. */
+.placement-ask {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin: 6px 0 14px;
+  padding: 9px 12px;
+  background: var(--green-1);
+  border: 1px solid var(--green-3);
+  border-radius: 8px;
+}
+.placement-ask .ask-text { font-size: 12.5px; color: var(--secondary); flex: 1; min-width: 220px; }
+.placement-ask code { font-family: var(--mono); font-size: 11px; }
+
 .ghost-chip {
   font-family: var(--mono);
   font-size: 10.5px;

@@ -116,6 +116,13 @@ export interface Item {
    * say so. Cleared when the tag comes off at Pinboard and the link returns.
    */
   excluded?: boolean;
+  /**
+   * A Briefly link with no `_brief` mark just got its first description here.
+   * By the filing rule that makes it Notable; by the act it was written in
+   * Briefly. Jamie is asked which, and the re-scan leaves it alone until he
+   * answers (2026-09-20).
+   */
+  placement_query?: boolean;
   published_at?: string;
   media?: Media;
   sync_state?: SyncState;

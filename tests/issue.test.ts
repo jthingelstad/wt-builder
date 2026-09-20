@@ -691,6 +691,36 @@ describe('placement follows the bookmark', () => {
     expect(doc.orphans).toContain('link-flipcash');
   });
 
+  it('a first description written in Briefly raises a question, and the re-scan waits for the answer', () => {
+    const doc = fixture();
+    const item = doc.items['briefly-forge']!;
+    item.tags = []; item.commentary = '';
+    item.source_snapshot = { tags: [], commentary: '' };
+    const asked = updateItem(doc, 'briefly-forge', { commentary: 'Worth your time.' });
+    expect(asked.items['briefly-forge']!.placement_query).toBe(true);
+    // Written back; snapshot now agrees. The rule says Notable; the question holds it.
+    asked.items['briefly-forge']!.source_snapshot = { tags: [], commentary: 'Worth your time.' };
+    expect(followBookmarkTags(asked)).toEqual([]);
+    expect(inSection(asked, 'briefly-forge')).toBe('Briefly');
+    // "Stay": same section, but the mark goes on so the rule agrees from now on.
+    const stay = moveLinkToSection(asked, 'briefly-forge', 'Briefly');
+    expect(stay.items['briefly-forge']!.placement_query).toBeUndefined();
+    expect(stay.items['briefly-forge']!.tags).toContain('_brief');
+    expect(stay.items['briefly-forge']!.sync_state).toBe('syncing');
+    // "Move up": answered by the move.
+    const up = moveLinkToSection(asked, 'briefly-forge', 'Notable');
+    expect(up.items['briefly-forge']!.placement_query).toBeUndefined();
+    expect(inSection(up, 'briefly-forge')).toBe('Notable');
+  });
+
+  it('no question when the link already carries _brief, or sits in Notable', () => {
+    const doc = fixture();
+    doc.items['briefly-forge']!.tags = ['_brief']; doc.items['briefly-forge']!.commentary = '';
+    expect(updateItem(doc, 'briefly-forge', { commentary: 'x' }).items['briefly-forge']!.placement_query).toBeUndefined();
+    doc.items['link-flipcash']!.commentary = '';
+    expect(updateItem(doc, 'link-flipcash', { commentary: 'x' }).items['link-flipcash']!.placement_query).toBeUndefined();
+  });
+
   it('waits while a description typed here is still writing back', () => {
     const doc = fixture();
     const item = doc.items['link-flipcash']!;
