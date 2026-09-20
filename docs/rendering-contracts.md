@@ -65,7 +65,8 @@ moment it stopped being. Audio speaks it one paragraph per block.
 
 ## Photo
 
-Website and Buttondown include image, alt text, caption, and relevant metadata.
+Website and Buttondown include image, alt text, caption, and a metadata line of
+the date (no time of day) and the place.
 The location in the metadata line links to OpenStreetMap at the photo's exact
 EXIF coordinates when the camera recorded them (`media.coordinates`); without
 coordinates the place prints as plain text. Photo is omitted from audio rather

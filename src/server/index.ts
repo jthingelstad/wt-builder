@@ -26,7 +26,7 @@ import * as issues from './issue.ts';
 import * as buttondown from './integrations/buttondown.ts';
 import * as pinboard from './integrations/pinboard.ts';
 import * as microblog from './integrations/microblog.ts';
-import { rehostIssueImages, storeUpload } from './integrations/images.ts';
+import { applyRehost, rehostIssueImages, storeUpload } from './integrations/images.ts';
 import * as geocode from './integrations/geocode.ts';
 import * as editorial from './editorial.ts';
 import * as githubRepo from './integrations/github.ts';
@@ -106,6 +106,21 @@ function saved(doc: IssueDoc) {
 }
 
 /**
+ * Re-read the issue and apply a synchronous change to that, then save.
+ *
+ * The rule for every handler that awaits the network: do the slow work
+ * against the copy you read, then apply its *result* to a fresh read. A
+ * handler that reads, awaits for seconds, and saves the copy it read writes
+ * over whatever Jamie saved in between - a re-scan on page open did exactly
+ * that to two Currently lines (2026-09-20). Node runs this function without
+ * yielding, so nothing can land between the read and the save.
+ */
+function savedFresh(id: string, change: (doc: IssueDoc) => IssueDoc | void) {
+  const fresh = requireIssue(id);
+  return saved(change(fresh) ?? fresh);
+}
+
+/**
  * Refuse a leg that is already in flight — the client disables its buttons,
  * but two tabs are a documented workflow, and a second POST re-runs paid TTS
  * and re-uploads. A `sending` older than ten minutes is a stranded crash, not
@@ -130,7 +145,7 @@ async function writeItemToSource(
   id: string,
   doc: IssueDoc,
   itemId: string,
-): Promise<{ doc: IssueDoc; result: { sync_state: Item['sync_state']; error?: string } }> {
+): Promise<{ patch: Partial<Item>; result: { sync_state: Item['sync_state']; error?: string } }> {
   const item = doc.items[itemId];
   if (!item) throw new HttpError(404, `no item ${itemId}`);
 
@@ -160,11 +175,7 @@ async function writeItemToSource(
         }
       : {};
   return {
-    doc: issues.updateItem(doc, itemId, {
-      sync_state: result.sync_state,
-      sync_error: result.error,
-      ...snapshot,
-    }),
+    patch: { sync_state: result.sync_state, sync_error: result.error, ...snapshot },
     result,
   };
 }
@@ -276,7 +287,10 @@ const routes: [RegExp, string, (ctx: Ctx, params: string[]) => Promise<unknown>]
   // client copy can never clobber send states recorded since it was loaded.
 
   [/^\/api\/issues\/([^/]+)\/sweep$/, 'POST', async (_ctx, [id]) => {
-    const { doc, report } = await issues.sweep(requireIssue(id!));
+    // Fetch against the issue as it is now; apply to the issue as it is when
+    // the fetch is done. Seconds pass in between and Jamie is typing.
+    const fetched = await issues.fetchForSweep(requireIssue(id!));
+    const { doc, report } = issues.applySweep(requireIssue(id!), fetched);
     // A quiet re-scan logs nothing; an open re-scans every time and a page of
     // "0 in" lines would bury the log's signal.
     if (report.added || report.refreshed || report.gone || report.conflicts) {
@@ -452,8 +466,8 @@ const routes: [RegExp, string, (ctx: Ctx, params: string[]) => Promise<unknown>]
    * `sync_state` records the outcome.
    */
   [/^\/api\/issues\/([^/]+)\/items\/([^/]+)\/writeback$/, 'POST', async (_ctx, [id, itemId]) => {
-    const { doc, result } = await writeItemToSource(id!, requireIssue(id!), itemId!);
-    return { ...saved(doc), result };
+    const { patch, result } = await writeItemToSource(id!, requireIssue(id!), itemId!);
+    return { ...savedFresh(id!, (d) => issues.updateItem(d, itemId!, patch)), result };
   }],
 
   /**
@@ -486,8 +500,10 @@ const routes: [RegExp, string, (ctx: Ctx, params: string[]) => Promise<unknown>]
     // The move marks the item `syncing` only when the tags actually changed;
     // a `gone` bookmark moves locally and is never re-created at the source.
     if (moved.items[itemId!]?.sync_state === 'syncing') {
-      const { doc: synced, result } = await writeItemToSource(id!, moved, itemId!);
-      return { ...saved(synced), result };
+      // The move is saved now; the write-back's outcome lands on a fresh read.
+      saved(moved);
+      const { patch, result } = await writeItemToSource(id!, moved, itemId!);
+      return { ...savedFresh(id!, (d) => issues.updateItem(d, itemId!, patch)), result };
     }
     return saved(moved);
   }],
@@ -516,9 +532,8 @@ const routes: [RegExp, string, (ctx: Ctx, params: string[]) => Promise<unknown>]
       // its notes from here instead of losing them.
       previous: doc.review as editorial.Review | undefined,
     });
-    doc.review = result;
     store.logEvent(id!, 'review', 'Editorial review ran');
-    return { ...saved(doc), review: result };
+    return { ...savedFresh(id!, (d) => { d.review = result; }), review: result };
   }],
 
   /**
@@ -536,37 +551,37 @@ const routes: [RegExp, string, (ctx: Ctx, params: string[]) => Promise<unknown>]
     const filename = String(req.headers['x-filename'] ?? 'photo.jpg');
     const stored = await storeUpload(bytes, doc.issue.number, filename);
 
-    // The time and place are facts about the file, so a replacement photo
-    // brings its own and the old photo's stop applying — a new picture under
-    // last week's timestamp is wrong twice (Jamie, 2026-09-20). Jamie's words
-    // — alt and caption — describe what he sees and are kept across a swap.
-    const replacing = Boolean(item.media?.url);
-    const carried = replacing ? undefined : item.media;
-
     // A place name reads better than coordinates in print (Jamie, 2026-09-03).
     // Best-effort: a failed geocode keeps the coordinates — true either way,
     // and the field stays editable, so a wrong name never survives review.
-    const location =
-      carried?.location ||
-      (stored.coordinates
-        ? (await geocode.placeName(stored.coordinates)) ?? stored.coordinates
-        : undefined);
-
-    item.media = {
-      ...(item.media ?? {}),
-      url: stored.url,
-      // Seeded, not imposed: an empty alt is a real accessibility problem, and
-      // a filename is a better starting point than nothing.
-      alt: item.media?.alt || filename.replace(/\.[a-z0-9]+$/i, '').replace(/[-_]+/g, ' '),
-      timestamp: carried?.timestamp || stored.takenAt || undefined,
-      location,
-      // Kept beside the name: the published metadata line links the place
-      // to the exact spot on the map.
-      coordinates: carried?.coordinates || stored.coordinates || undefined,
-    };
+    const place = stored.coordinates
+      ? (await geocode.placeName(stored.coordinates)) ?? stored.coordinates
+      : undefined;
 
     store.logEvent(id!, 'edit', `Photo uploaded — ${filename}`);
-    return { ...saved(doc), image: stored };
+    // Seconds of upload and geocoding have passed: the item is re-read.
+    const result = savedFresh(id!, (d) => {
+      const fresh = d.items[itemId!];
+      if (!fresh) throw new HttpError(404, `no item ${itemId}`);
+      // The time and place are facts about the file, so a replacement photo
+      // brings its own and the old photo's stop applying — a new picture under
+      // last week's timestamp is wrong twice (Jamie, 2026-09-20). Jamie's words
+      // — alt and caption — describe what he sees and are kept across a swap.
+      const carried = fresh.media?.url ? undefined : fresh.media;
+      fresh.media = {
+        ...(fresh.media ?? {}),
+        url: stored.url,
+        // Seeded, not imposed: an empty alt is a real accessibility problem, and
+        // a filename is a better starting point than nothing.
+        alt: fresh.media?.alt || filename.replace(/\.[a-z0-9]+$/i, '').replace(/[-_]+/g, ' '),
+        timestamp: carried?.timestamp || stored.takenAt || undefined,
+        location: carried?.location || place,
+        // Kept beside the name: the published metadata line links the place
+        // to the exact spot on the map.
+        coordinates: carried?.coordinates || stored.coordinates || undefined,
+      };
+    });
+    return { ...result, image: stored };
   }],
 
   /** Candidate text for one item. Never written — Jamie picks or ignores. */
@@ -591,9 +606,8 @@ const routes: [RegExp, string, (ctx: Ctx, params: string[]) => Promise<unknown>]
     const b = await body();
     const doc = requireIssue(id!);
     const share = await draftShare.share(doc, typeof b.note === 'string' ? b.note : undefined);
-    doc.draft_share = share;
     store.logEvent(id!, 'send', `Draft shared — ${share.url}`);
-    return { ...saved(doc), share };
+    return { ...savedFresh(id!, (d) => { d.draft_share = share; }), share };
   }],
 
   /** Stop sharing: delete the page. `no-store` makes revocation prompt. */
@@ -601,8 +615,8 @@ const routes: [RegExp, string, (ctx: Ctx, params: string[]) => Promise<unknown>]
     const doc = requireIssue(id!);
     if (doc.draft_share) {
       await draftShare.unshare(doc);
-      delete doc.draft_share;
       store.logEvent(id!, 'send', 'Draft share stopped');
+      return savedFresh(id!, (d) => { delete d.draft_share; });
     }
     return saved(doc);
   }],
@@ -636,9 +650,9 @@ const routes: [RegExp, string, (ctx: Ctx, params: string[]) => Promise<unknown>]
 
   /** Copy every remote image onto the CDN, resized. Safe to run repeatedly. */
   [/^\/api\/issues\/([^/]+)\/images\/rehost$/, 'POST', async (_ctx, [id]) => {
-    const { doc, report } = await rehostIssueImages(requireIssue(id!));
+    const { report, mapping } = await rehostIssueImages(requireIssue(id!));
     store.logEvent(id!, 'send', 'Images rehosted to the CDN');
-    return { ...saved(doc), report };
+    return { ...savedFresh(id!, (d) => applyRehost(d, mapping)), report };
   }],
 
   /**
@@ -662,8 +676,8 @@ const routes: [RegExp, string, (ctx: Ctx, params: string[]) => Promise<unknown>]
     store.logEvent(id!, 'send', 'Send started — buttondown');
     // Rehost first: the email is where image weight actually hurts, and the
     // rewritten URLs must be in the document before the body is rendered.
-    const { doc: rehosted, report: images } = await rehostIssueImages(requireIssue(id!));
-    const doc = store.saveIssue(rehosted).doc;
+    const { report: images, mapping } = await rehostIssueImages(requireIssue(id!));
+    const doc = savedFresh(id!, (d) => applyRehost(d, mapping)).issue;
     const previous = doc.sends?.buttondown;
     const subject = doc.issue.title;
     const body = renderEmail(doc);
@@ -785,8 +799,7 @@ async function sendWebsite(id: string, force = false) {
     if (row?.doc.draft_share) {
       try {
         await draftShare.unshare(row.doc);
-        delete row.doc.draft_share;
-        store.saveIssue(row.doc);
+        savedFresh(id, (d) => { delete d.draft_share; });
         store.logEvent(id, 'send', 'Draft share retired — the issue published');
       } catch (e) {
         console.warn(`[share] retiring the draft share failed: ${(e as Error).message}`);

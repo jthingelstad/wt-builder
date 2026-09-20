@@ -349,6 +349,21 @@ describe('the store', () => {
     expect(store.listIssues()).toHaveLength(1);
   });
 
+  it('keeps every version it replaces, newest first, and skips identical saves', () => {
+    const doc = fixture();
+    store.saveIssue(doc);
+    expect(store.listRevisions(doc.issue.id)).toHaveLength(0); // a first save replaces nothing
+    store.saveIssue(doc);
+    expect(store.listRevisions(doc.issue.id)).toHaveLength(0); // byte-identical: nothing to keep
+    const v2 = updateItem(doc, 'intro-1', { body: 'Second words' });
+    store.saveIssue(v2);
+    const v3 = updateItem(v2, 'intro-1', { body: 'Third words' });
+    store.saveIssue(v3);
+    const revs = store.listRevisions(doc.issue.id);
+    expect(revs.map((r) => r.doc.items['intro-1']!.body)).toEqual(['Second words', doc.items['intro-1']!.body]);
+    expect(store.getIssue(doc.issue.id)!.doc.items['intro-1']!.body).toBe('Third words');
+  });
+
   it('keeps the database and live SQLite sidecars owner-only', () => {
     const previousUmask = process.umask(0o022);
     try {
@@ -477,6 +492,19 @@ describe('window-derived inclusion', () => {
     expect(itemsInWindow(doc).map(([id]) => id)).toContain('i-0');
     expect(itemsInWindow(doc).map(([id]) => id)).not.toContain('i-1');
     expect(itemsInWindow(setWindowDays(doc, 21)).map(([id]) => id)).toContain('i-1');
+  });
+
+  it('applies a fetched sweep to whatever document it is given — a fresh read, not the stale copy', () => {
+    // The route fetches against one read and applies to another. An edit made
+    // in between lives only in the second; it must survive the apply.
+    const before = docWith('2026-09-01T09:00:00-05:00');
+    const fetched: import('../src/server/issue.ts').SweepFetch = {
+      window: windowOf(before), links: [], posts: [],
+      bookmarks: new Map(), microblog: null, captureTimes: new Map(),
+    };
+    const edited = updateItem(before, 'i-0', { commentary: 'Typed while the scan ran' });
+    const { doc } = issues.applySweep(edited, fetched);
+    expect(doc.items['i-0']!.commentary).toBe('Typed while the scan ran');
   });
 
   it('a re-scan drops what the window no longer admits', () => {

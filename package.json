@@ -17,6 +17,7 @@
     "test:watch": "vitest",
     "typecheck": "tsc -p tsconfig.json --noEmit",
     "import:prebuilder": "node --import tsx scripts/import-prebuilder.ts",
+    "revisions": "node --import tsx scripts/revisions.ts",
     "buttondown:pull": "node --import tsx scripts/buttondown-config.ts pull",
     "buttondown:diff": "node --import tsx scripts/buttondown-config.ts diff",
     "buttondown:push": "node --import tsx scripts/buttondown-config.ts push",

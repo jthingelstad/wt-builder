@@ -15,7 +15,7 @@ import type {
   ItemType,
 } from '../shared/types.ts';
 import { SCHEMA_VERSION, allChannels, emptyChannels } from '../shared/types.ts';
-import { addDays, instantOf, issueWindow, issueSaturday } from '../shared/dates.ts';
+import { type Window, addDays, instantOf, issueWindow, issueSaturday } from '../shared/dates.ts';
 import { bodyLines, itemsInWindow, orderedNodes, outOfWindow } from '../shared/render/plan.ts';
 import * as pinboard from './integrations/pinboard.ts';
 import * as microblog from './integrations/microblog.ts';
@@ -155,12 +155,27 @@ export function itemName(item: Item): string {
 }
 
 /**
- * Sweep both sources for the issue's window and place what is new. Items
- * already present (by source_id) are left alone so a re-sweep is safe; items
- * the window no longer admits are dropped (pruneOutsideWindow), so narrowing
- * the window and re-scanning leaves exactly the window's worth.
+ * Everything a sweep needs from the network, gathered before the document is
+ * touched. A sweep talks to Pinboard once per link and takes many seconds;
+ * the document it started from is stale by the time it is done. Splitting
+ * the fetch from the apply is what lets the apply run on a fresh read
+ * (see `sweep` and the route), so an edit saved mid-scan is never written
+ * over by the scan's older copy — which is exactly how two Currently lines
+ * lost their links on 2026-09-20.
  */
-export async function sweep(doc: IssueDoc): Promise<{ doc: IssueDoc; report: SweepReport }> {
+export interface SweepFetch {
+  window: Window;
+  links: Candidate[];
+  posts: Candidate[];
+  /** Pinboard's current record per source_url; absent when the fetch failed. */
+  bookmarks: Map<string, RemoteFields | null>;
+  /** Micro.blog's current index, or null when it could not be read. */
+  microblog: Awaited<ReturnType<typeof microblog.remoteIndex>> | null;
+  /** Capture times for Pinboard items that had none, by source_url. */
+  captureTimes: Map<string, string>;
+}
+
+export async function fetchForSweep(doc: IssueDoc): Promise<SweepFetch> {
   const window = issueWindow(doc.issue.publication_date, doc.issue.window_days);
   const [links, posts] = await Promise.all([
     pinboard.sweepPinboard(window).catch((e) => {
@@ -173,6 +188,42 @@ export async function sweep(doc: IssueDoc): Promise<{ doc: IssueDoc; report: Swe
     }),
   ]);
 
+  let mb: SweepFetch['microblog'] = null;
+  try {
+    mb = await microblog.remoteIndex();
+  } catch (e) {
+    console.warn(`[sweep] Micro.blog reconcile skipped: ${(e as Error).message}`);
+  }
+
+  // Only what the window will keep is worth a round trip.
+  const w = window;
+  const bookmarks = new Map<string, RemoteFields | null>();
+  const captureTimes = new Map<string, string>();
+  for (const item of Object.values(doc.items)) {
+    if (item.source !== 'Pinboard' || !item.source_url) continue;
+    if (outOfWindow(item, w)) continue;
+    try {
+      bookmarks.set(item.source_url, await pinboard.fetchBookmark(item.source_url));
+    } catch (e) {
+      console.warn(`[sweep] Pinboard reconcile skipped for ${item.source_url}: ${(e as Error).message}`);
+    }
+    if (!item.published_at) {
+      const time = await pinboard.captureTime(item.source_url);
+      if (time) captureTimes.set(item.source_url, time);
+    }
+  }
+
+  return { window, links, posts, bookmarks, microblog: mb, captureTimes };
+}
+
+/**
+ * Apply a fetched sweep to a document. Synchronous and pure in the document:
+ * given the freshest read, nothing can change under it before it is saved.
+ * Items already present (by source_id) are left alone so a re-sweep is safe;
+ * items the window no longer admits are dropped (pruneOutsideWindow).
+ */
+export function applySweep(doc: IssueDoc, fetched: SweepFetch): { doc: IssueDoc; report: SweepReport } {
+  const { window, links, posts } = fetched;
   const next = structuredClone(doc);
   const known = new Map(
     Object.entries(next.items)
@@ -224,27 +275,18 @@ export async function sweep(doc: IssueDoc): Promise<{ doc: IssueDoc; report: Swe
   //
   // Pinboard and Micro.blog are the CMS; edits made there flow in here, with
   // `source_snapshot` as the merge base (src/server/reconcile.ts). A source
-  // failure skips reconciliation for that item — an unreachable API must
-  // never read as a deletion.
+  // that was not fetched (API failure, or an item that arrived after the
+  // fetch) is skipped — an unreachable API must never read as a deletion.
   const reconciled = { refreshed: 0, gone: 0, conflicts: 0 };
-  let mb: Awaited<ReturnType<typeof microblog.remoteIndex>> | null = null;
-  try {
-    mb = await microblog.remoteIndex();
-  } catch (e) {
-    console.warn(`[sweep] Micro.blog reconcile skipped: ${(e as Error).message}`);
-  }
+  const mb = fetched.microblog;
 
   for (const [id, item] of Object.entries(next.items)) {
     if (justAdded.has(id) || !item.source_url) continue;
 
     let remote: RemoteFields | null;
     if (item.source === 'Pinboard') {
-      try {
-        remote = await pinboard.fetchBookmark(item.source_url);
-      } catch (e) {
-        console.warn(`[sweep] Pinboard reconcile skipped for ${id}: ${(e as Error).message}`);
-        continue;
-      }
+      if (!fetched.bookmarks.has(item.source_url)) continue;
+      remote = fetched.bookmarks.get(item.source_url)!;
     } else if (item.source === 'Micro.blog' && mb) {
       const found = mb.byUrl.get(item.source_url);
       if (found) {
@@ -278,18 +320,24 @@ export async function sweep(doc: IssueDoc): Promise<{ doc: IssueDoc; report: Swe
 
   log.push(...followBookmarkTags(next, justAdded));
 
-  // Heal Pinboard items that predate the converter carrying published_at:
-  // they are invisible to the window, and the windowed sweep above cannot
-  // re-see a bookmark captured outside the current window. One posts/get per
-  // unhealed item, and the set empties itself.
+  // Heal Pinboard items that predate the converter carrying published_at.
   for (const item of Object.values(next.items)) {
     if (item.source !== 'Pinboard' || item.published_at || !item.source_url) continue;
-    const time = await pinboard.captureTime(item.source_url);
+    const time = fetched.captureTimes.get(item.source_url);
     if (time) item.published_at = time;
   }
 
   sortJournal(next);
   return { doc: next, report: { added, skipped, ...reconciled, window, candidates: [...links, ...posts], log } };
+}
+
+/**
+ * Fetch and apply against one document. For tests and scripts; the route
+ * fetches, then re-reads the issue and applies to that, so a long fetch
+ * cannot write over an edit saved while it ran.
+ */
+export async function sweep(doc: IssueDoc): Promise<{ doc: IssueDoc; report: SweepReport }> {
+  return applySweep(doc, await fetchForSweep(doc));
 }
 
 /** An edit here that the source has not received yet. Dropping the item would lose it. */

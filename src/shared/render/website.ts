@@ -38,11 +38,9 @@ export function photoBlocks(item: Item): Block[] {
   if (media.caption) out.push(media.caption);
 
   const parts: string[] = [];
+  // The date, not the time of day: the photo is placed in the week, not the hour (2026-09-20).
   const w = wallClock(media.timestamp);
-  if (w) {
-    parts.push(shortDate(w));
-    parts.push(clockTime(w));
-  }
+  if (w) parts.push(shortDate(w));
   if (media.location) {
     // The place name links to the exact coordinates when the camera knew them.
     const map = osmUrl(media.coordinates);

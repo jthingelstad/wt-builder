@@ -91,6 +91,13 @@ data, which looks exactly like a rendering bug.
   as Friday 04:00 UTC, and comparing dates alone pushes it into the next issue.
 - **The issue window filters the editions.** `included` is derived from channels
   *and* the window, on read. Never store it.
+- **A handler that awaits the network must not save the copy it read.** Do
+  the slow work, then apply its *result* to a fresh read (`savedFresh` in
+  `src/server/index.ts`; the sweep is split into `fetchForSweep` +
+  `applySweep` for this). A re-scan on page open once took ~10 s and wrote
+  its stale copy over two Currently lines Jamie typed meanwhile. Every save
+  keeps the version it replaces in `revisions`; `npm run revisions -- wt350
+  [item-id]` shows what an item said over time.
 - **`.env` must never be committed.** This repo is public.
 
 ## Guardrails

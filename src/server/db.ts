@@ -70,7 +70,26 @@ const MIGRATIONS: ((d: Database.Database) => void)[] = [
       CREATE INDEX events_issue ON events(issue_id, id DESC);
     `);
   },
+  // v3 — revisions. Every save of an existing issue first copies the document
+  // it is replacing, so nothing Jamie typed is ever more than one row away.
+  // Trimmed to the last REVISIONS_KEPT per issue; a document is ~100 KB, so
+  // this is tens of MB per issue at most. Added after two Currently lines
+  // were written over by a slow re-scan and there was nothing to roll back to
+  // (2026-09-20).
+  (d) => {
+    d.exec(`
+      CREATE TABLE revisions (
+        id        INTEGER PRIMARY KEY AUTOINCREMENT,
+        issue_id  TEXT NOT NULL,
+        saved_at  TEXT NOT NULL,
+        doc       TEXT NOT NULL
+      );
+      CREATE INDEX revisions_issue ON revisions(issue_id, id DESC);
+    `);
+  },
 ];
+
+export const REVISIONS_KEPT = 300;
 
 export function openDb(path = config.dbPath): Database.Database {
   if (db) return db;
@@ -86,118 +105,148 @@ export function openDb(path = config.dbPath): Database.Database {
   for (let v = current; v < MIGRATIONS.length; v++) {
     const migrate = MIGRATIONS[v]!;
     d.transaction(() => {
-      migrate(d);
-      d.pragma(`user_version = ${v + 1}`);
-    })();
+        migrate(d);
+        d.pragma(`user_version = ${v + 1}`);
+      })();
+    }
+
+    makeDatabaseFilesPrivate(path);
+    db = d;
+    return d;
   }
 
-  makeDatabaseFilesPrivate(path);
-  db = d;
-  return d;
-}
-
-const SEND_COLUMN: Record<Destination, string> = {
-  buttondown: 'send_buttondown',
-  website: 'send_website',
-  podcast: 'send_podcast',
-  archive: 'send_archive',
-};
-
-function rowToIssue(row: Record<string, unknown>): IssueRow {
-  return {
-    id: row.id as string,
-    number: row.number as number,
-    publication_date: row.publication_date as string,
-    status: row.status as string,
-    updated_at: row.updated_at as string,
-    doc: JSON.parse(row.doc as string) as IssueDoc,
+  const SEND_COLUMN: Record<Destination, string> = {
+    buttondown: 'send_buttondown',
+    website: 'send_website',
+    podcast: 'send_podcast',
+    archive: 'send_archive',
   };
-}
 
-export function listIssues(): IssueRow[] {
-  const rows = openDb()
-    .prepare('SELECT * FROM issues ORDER BY number DESC')
-    .all() as Record<string, unknown>[];
-  return rows.map(rowToIssue);
-}
+  function rowToIssue(row: Record<string, unknown>): IssueRow {
+    return {
+      id: row.id as string,
+      number: row.number as number,
+      publication_date: row.publication_date as string,
+      status: row.status as string,
+      updated_at: row.updated_at as string,
+      doc: JSON.parse(row.doc as string) as IssueDoc,
+    };
+  }
 
-/** Number, date, and status only — the seasonal lens needs no documents. */
-export function listIssueDates(): { number: number; publication_date: string; status: string }[] {
-  return openDb()
-    .prepare('SELECT number, publication_date, status FROM issues ORDER BY number DESC')
-    .all() as { number: number; publication_date: string; status: string }[];
-}
+  export function listIssues(): IssueRow[] {
+    const rows = openDb()
+      .prepare('SELECT * FROM issues ORDER BY number DESC')
+      .all() as Record<string, unknown>[];
+    return rows.map(rowToIssue);
+  }
 
-export function getIssue(id: string): IssueRow | null {
-  const row = openDb().prepare('SELECT * FROM issues WHERE id = ?').get(id) as
-    | Record<string, unknown>
-    | undefined;
-  return row ? rowToIssue(row) : null;
-}
+  /** Number, date, and status only — the seasonal lens needs no documents. */
+  export function listIssueDates(): { number: number; publication_date: string; status: string }[] {
+    return openDb()
+      .prepare('SELECT number, publication_date, status FROM issues ORDER BY number DESC')
+      .all() as { number: number; publication_date: string; status: string }[];
+  }
 
-export function getIssueByNumber(number: number): IssueRow | null {
-  const row = openDb().prepare('SELECT * FROM issues WHERE number = ?').get(number) as
-    | Record<string, unknown>
-    | undefined;
-  return row ? rowToIssue(row) : null;
-}
+  export function getIssue(id: string): IssueRow | null {
+    const row = openDb().prepare('SELECT * FROM issues WHERE id = ?').get(id) as
+      | Record<string, unknown>
+      | undefined;
+    return row ? rowToIssue(row) : null;
+  }
 
-/**
- * The highest published issue number, which the next issue defaults past.
- *
- * Nine years of issues were published before WT Builder existed and are not
- * imported (docs/decisions.md), so an empty database would otherwise number the next issue
- * 1. `WT_BUILDER_LAST_PUBLISHED_ISSUE` carries that history as a floor; the
- * number stays editable either way.
- */
-export function lastPublishedNumber(): number {
-  const row = openDb()
-    .prepare("SELECT MAX(number) AS n FROM issues WHERE status = 'published'")
-    .get() as { n: number | null };
-  return Math.max(row.n ?? 0, config.lastPublishedIssue);
-}
+  export function getIssueByNumber(number: number): IssueRow | null {
+    const row = openDb().prepare('SELECT * FROM issues WHERE number = ?').get(number) as
+      | Record<string, unknown>
+      | undefined;
+    return row ? rowToIssue(row) : null;
+  }
+
+  /**
+   * The highest published issue number, which the next issue defaults past.
+   *
+   * Nine years of issues were published before WT Builder existed and are not
+   * imported (docs/decisions.md), so an empty database would otherwise number the next issue
+   * 1. `WT_BUILDER_LAST_PUBLISHED_ISSUE` carries that history as a floor; the
+   * number stays editable either way.
+   */
+  export function lastPublishedNumber(): number {
+    const row = openDb()
+      .prepare("SELECT MAX(number) AS n FROM issues WHERE status = 'published'")
+      .get() as { n: number | null };
+    return Math.max(row.n ?? 0, config.lastPublishedIssue);
+  }
 
 export function saveIssue(doc: IssueDoc): IssueRow {
   const now = new Date().toISOString();
   const sends = doc.sends ?? {};
   const serialize = (d: Destination) =>
     sends[d] ? JSON.stringify(sends[d]) : null;
+  const d = openDb();
 
-  openDb()
-    .prepare(
-      `INSERT INTO issues (id, number, publication_date, status, schema_version, doc,
-                           send_buttondown, send_website, send_podcast, send_archive,
-                           created_at, updated_at)
-       VALUES (@id, @number, @publication_date, @status, @schema_version, @doc,
-               @send_buttondown, @send_website, @send_podcast, @send_archive,
-               @now, @now)
-       ON CONFLICT(id) DO UPDATE SET
-         number = excluded.number,
-         publication_date = excluded.publication_date,
-         status = excluded.status,
-         schema_version = excluded.schema_version,
-         doc = excluded.doc,
-         send_buttondown = excluded.send_buttondown,
-         send_website = excluded.send_website,
-         send_podcast = excluded.send_podcast,
-         send_archive = excluded.send_archive,
-         updated_at = excluded.updated_at`,
-    )
-    .run({
-      id: doc.issue.id,
-      number: doc.issue.number,
-      publication_date: doc.issue.publication_date,
-      status: doc.issue.status,
-      schema_version: doc.schema_version ?? SCHEMA_VERSION,
-      doc: JSON.stringify(doc),
-      send_buttondown: serialize('buttondown'),
-      send_website: serialize('website'),
-      send_podcast: serialize('podcast'),
-      send_archive: serialize('archive'),
-      now,
-    });
+  d.transaction(() => {
+    // Keep what is being replaced, unless it is byte-identical.
+    const prev = d.prepare('SELECT doc, updated_at FROM issues WHERE id = ?').get(doc.issue.id) as
+      | { doc: string; updated_at: string } | undefined;
+    const serialized = JSON.stringify(doc);
+    if (prev && prev.doc !== serialized) {
+      d.prepare('INSERT INTO revisions (issue_id, saved_at, doc) VALUES (?, ?, ?)')
+        .run(doc.issue.id, prev.updated_at, prev.doc);
+      d.prepare(
+        `DELETE FROM revisions WHERE issue_id = ? AND id NOT IN
+           (SELECT id FROM revisions WHERE issue_id = ? ORDER BY id DESC LIMIT ?)`,
+      ).run(doc.issue.id, doc.issue.id, REVISIONS_KEPT);
+    }
+
+    d
+      .prepare(
+        `INSERT INTO issues (id, number, publication_date, status, schema_version, doc,
+                             send_buttondown, send_website, send_podcast, send_archive,
+                             created_at, updated_at)
+         VALUES (@id, @number, @publication_date, @status, @schema_version, @doc,
+                 @send_buttondown, @send_website, @send_podcast, @send_archive,
+                 @now, @now)
+         ON CONFLICT(id) DO UPDATE SET
+           number = excluded.number,
+           publication_date = excluded.publication_date,
+           status = excluded.status,
+           schema_version = excluded.schema_version,
+           doc = excluded.doc,
+           send_buttondown = excluded.send_buttondown,
+           send_website = excluded.send_website,
+           send_podcast = excluded.send_podcast,
+           send_archive = excluded.send_archive,
+           updated_at = excluded.updated_at`,
+      )
+      .run({
+        id: doc.issue.id,
+        number: doc.issue.number,
+        publication_date: doc.issue.publication_date,
+        status: doc.issue.status,
+        schema_version: doc.schema_version ?? SCHEMA_VERSION,
+        doc: serialized,
+        send_buttondown: serialize('buttondown'),
+        send_website: serialize('website'),
+        send_podcast: serialize('podcast'),
+        send_archive: serialize('archive'),
+        now,
+      });
+  })();
 
   return getIssue(doc.issue.id)!;
+}
+
+export interface Revision {
+  id: number;
+  saved_at: string;
+  doc: IssueDoc;
+}
+
+/** Newest first. `saved_at` is when that version was written, not replaced. */
+export function listRevisions(issueId: string, limit = REVISIONS_KEPT): Revision[] {
+  return (openDb()
+    .prepare('SELECT id, saved_at, doc FROM revisions WHERE issue_id = ? ORDER BY id DESC LIMIT ?')
+    .all(issueId, limit) as { id: number; saved_at: string; doc: string }[])
+    .map((r) => ({ id: r.id, saved_at: r.saved_at, doc: JSON.parse(r.doc) as IssueDoc }));
 }
 
 /** Record one destination's send state without rewriting the whole document. */

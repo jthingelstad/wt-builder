@@ -144,7 +144,9 @@ export function rewriteReferences(item: Item, from: string, to: string): void {
  * Rehost every image the issue references. Runs before a send so the email
  * carries optimized copies, and is safe to run repeatedly.
  */
-export async function rehostIssueImages(doc: IssueDoc): Promise<{ doc: IssueDoc; report: RehostReport }> {
+export async function rehostIssueImages(
+  doc: IssueDoc,
+): Promise<{ doc: IssueDoc; report: RehostReport; mapping: Map<string, string> }> {
   const next = structuredClone(doc);
   const report: RehostReport = { rehosted: [], skipped: [], failed: [] };
 
@@ -152,7 +154,7 @@ export async function rehostIssueImages(doc: IssueDoc): Promise<{ doc: IssueDoc;
     for (const item of Object.values(next.items)) {
       for (const url of imageUrls(item)) if (!isRehosted(url)) report.skipped.push(url);
     }
-    return { doc: next, report };
+    return { doc: next, report, mapping: new Map() };
   }
 
   // One pass per distinct source URL: the same photo can appear in two items.
@@ -191,7 +193,21 @@ export async function rehostIssueImages(doc: IssueDoc): Promise<{ doc: IssueDoc;
     }
   }
 
-  return { doc: next, report };
+  return { doc: next, report, mapping: done };
+}
+
+/**
+ * Point a document's references at the rehosted copies. The rehost takes as
+ * long as the downloads do; the route applies its mapping to a fresh read of
+ * the issue rather than saving the copy the rehost started from, so an edit
+ * saved meanwhile is kept.
+ */
+export function applyRehost(doc: IssueDoc, mapping: Map<string, string>): IssueDoc {
+  const next = structuredClone(doc);
+  for (const item of Object.values(next.items)) {
+    for (const [from, to] of mapping) rewriteReferences(item, from, to);
+  }
+  return next;
 }
 
 // ── uploads ───────────────────────────────────────────────────────────────

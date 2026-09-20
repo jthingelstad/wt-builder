@@ -983,7 +983,6 @@ function Photo({
   const c = wallClock(media.timestamp);
   const meta = [
     c ? `${longDate(c).replace(/^\w+, /, '')}, ${c.y}` : '',
-    c ? clockTime(c) : '',
     media.location,
   ].filter(Boolean).join(' · ');
 

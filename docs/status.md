@@ -87,6 +87,13 @@ finished, what is half-finished, and what has never run.
   on the meta card opens it as a sheet. Quiet re-scans (nothing changed) log
   nothing, so the auto-scan on open cannot bury the signal.
 
+- **Lost-edit protection** (2026-09-20) — every save keeps the replaced
+  document in `revisions` (last 300 per issue; `npm run revisions`), and every
+  handler that awaits the network — re-scan, photo upload, write-back,
+  review, share, rehost, sends — applies its result to a fresh read instead of
+  saving the copy it started from. Found the hard way: the auto re-scan on
+  page open wrote its stale copy over two Currently lines.
+
 - **Notable ↔ Briefly move** (2026-09-03) — a link's rail carries a move
   action (it takes the promote slot, which for a link was a permanently
   disabled button): Notable/Featured links move down to Briefly, Briefly
