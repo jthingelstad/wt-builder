@@ -29,14 +29,18 @@ const membership = Object.values(row.doc.items).find((i) => i.type === 'membersh
 const text = speakable(flatten(membership?.body)) ||
   'Supporting Members make the Weekly Thing possible while directing every membership dollar to this year\'s nonprofit partner.';
 
+// "voice" or "voice@model" or "voice@model:instruction words".
 const candidates = voices.length ? voices : [TTS_VOICE, 'nova', 'shimmer', 'fable'];
 mkdirSync(outDir, { recursive: true });
-for (const voice of candidates) {
-  const line = voice === TTS_VOICE
+for (const spec of candidates) {
+  const [voice, rest] = spec.split('@') as [string, string | undefined];
+  const [model, instructions] = rest ? (rest.split(':') as [string, string | undefined]) : [undefined, undefined];
+  const line = voice === TTS_VOICE && !model
     ? `${text}`
     : `Hello, this is Thingy. ${text}`;
-  const mp3 = await speak(line, voice);
-  const file = join(outDir, `${voice}${voice === TTS_VOICE ? '-current' : ''}.mp3`);
+  const mp3 = await speak(line, { voice, model, instructions });
+  const name = [voice, model, instructions ? 'steered' : ''].filter(Boolean).join('-');
+  const file = join(outDir, `${name}${voice === TTS_VOICE && !model ? '-current' : ''}.mp3`);
   writeFileSync(file, mp3);
   console.log(`${file}  ${(mp3.length / 1024).toFixed(0)} KB`);
 }

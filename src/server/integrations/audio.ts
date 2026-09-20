@@ -119,7 +119,15 @@ export function chunkScript(text: string, maxChars = MAX_CHARS): string[] {
   return chunks;
 }
 
-export async function speak(text: string, voice: string = TTS_VOICE): Promise<Buffer> {
+export interface SpeakOptions {
+  voice?: string;
+  model?: string;
+  /** Delivery direction; honoured by the gpt-4o-mini-tts family, ignored by tts-1. */
+  instructions?: string;
+}
+
+export async function speak(text: string, opts: SpeakOptions | string = {}): Promise<Buffer> {
+  const o = typeof opts === 'string' ? { voice: opts } : opts;
   const res = await fetch('https://api.openai.com/v1/audio/speech', {
     method: 'POST',
     headers: {
@@ -127,10 +135,11 @@ export async function speak(text: string, voice: string = TTS_VOICE): Promise<Bu
       'Content-Type': 'application/json',
     },
     body: JSON.stringify({
-      model: TTS_MODEL,
-      voice,
+      model: o.model ?? TTS_MODEL,
+      voice: o.voice ?? TTS_VOICE,
       input: text,
       response_format: 'mp3',
+      ...(o.instructions ? { instructions: o.instructions } : {}),
     }),
     signal: AbortSignal.timeout(180_000),
   });
