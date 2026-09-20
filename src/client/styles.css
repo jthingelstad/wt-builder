@@ -204,6 +204,7 @@ a:hover { text-decoration: underline; }
   width: 100%;
 }
 .field textarea { min-height: 84px; resize: vertical; line-height: 1.5; }
+.field textarea.growing { min-height: 140px; overflow-y: auto; resize: none; }
 .field-note { font-size: 11.5px; color: var(--muted); margin: 4px 0 0; line-height: 1.5; }
 .error-text { color: var(--terracotta); }
 

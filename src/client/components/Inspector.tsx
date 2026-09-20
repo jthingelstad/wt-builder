@@ -1,4 +1,4 @@
-import { useState } from 'preact/hooks';
+import { useEffect, useRef, useState } from 'preact/hooks';
 
 import type { IssueDoc, Item } from '../../shared/types.ts';
 import { CHANNELS } from '../../shared/types.ts';
@@ -27,6 +27,32 @@ const SYNC_LABEL: Record<string, string> = {
 function syncLine(state: string, source: string): string {
   const label = SYNC_LABEL[state] ?? state;
   return label.includes('{source}') ? label.replace('{source}', source) : label;
+}
+
+/**
+ * A textarea that is as tall as its text. The fixed 84px box showed four
+ * lines of a twelve-paragraph post, which made the inspector useless for the
+ * one thing "Show me" brought you there to do (Jamie, 2026-09-20).
+ */
+function GrowingTextarea(props: { id: string; value: string; onBlur: (e: FocusEvent) => void }) {
+  const ref = useRef<HTMLTextAreaElement>(null);
+  const fit = () => {
+    const el = ref.current;
+    if (!el) return;
+    el.style.height = 'auto';
+    el.style.height = `${Math.min(el.scrollHeight + 2, window.innerHeight * 0.6)}px`;
+  };
+  useEffect(fit, [props.value]);
+  return (
+    <textarea
+      ref={ref}
+      id={props.id}
+      class="growing"
+      value={props.value}
+      onInput={fit}
+      onBlur={props.onBlur}
+    />
+  );
 }
 
 /** Provenance, fields, channels, and source synchronization for one item. */
@@ -113,7 +139,7 @@ export function Inspector({ doc, itemId, run, onClose, onError, onBackToReview }
         <>
           <div class="field">
             <label htmlFor={`${prefix}-commentary`}>Commentary</label>
-            <textarea
+            <GrowingTextarea
               id={`${prefix}-commentary`}
               value={item.commentary ?? ''}
               onBlur={(e) => commitField('commentary', (e.target as HTMLTextAreaElement).value)}
@@ -137,7 +163,7 @@ export function Inspector({ doc, itemId, run, onClose, onError, onBackToReview }
       ) : (
         <div class="field">
           <label htmlFor={`${prefix}-body`}>Body</label>
-          <textarea
+          <GrowingTextarea
             id={`${prefix}-body`}
             value={String(item.body ?? '')}
             onBlur={(e) => commitField('body', (e.target as HTMLTextAreaElement).value)}
