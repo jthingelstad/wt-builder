@@ -285,19 +285,19 @@ describe('ordering', () => {
 describe('readiness', () => {
   it('counts an empty commentary as outstanding', () => {
     const r = readiness(fixture());
-    const commentary = r.units.filter((u) => u.title.startsWith('Commentary for'));
+    const commentary = r.units.filter((u) => u.kind === 'commentary');
     expect(commentary.some((u) => !u.done)).toBe(true);
   });
 
   it('flags a failed Pinboard write', () => {
     const r = readiness(fixture());
-    expect(r.units.some((u) => u.title.startsWith('Pinboard write failed'))).toBe(true);
+    expect(r.units.some((u) => u.kind === 'sync' && u.title.includes('Pinboard write failed'))).toBe(true);
   });
 
   it('treats a missing standard section as settled, not outstanding', () => {
     const doc = removeSection(fixture(), 'photo');
     const r = readiness(doc);
-    const photo = r.units.find((u) => u.title.startsWith('Photo placed'));
+    const photo = r.units.find((u) => u.title.startsWith('Photo'));
     expect(photo?.done).toBe(true);
     expect(photo?.title).toContain('not in this issue');
   });
@@ -321,6 +321,21 @@ describe('readiness reads in issue order and skips held-out items', () => {
     expect(before).toHaveLength(1);
     const held = issues.removeItem(doc, notable.id, 'link-functions');
     expect(readiness(held).units.filter((u) => u.anchor === 'link-functions')).toHaveLength(0);
+  });
+});
+
+describe('every thing on the page has a chip', () => {
+  it('names chips for the thing, and gives Journal and promoted posts theirs', () => {
+    const units = readiness(fixture()).units;
+    const titles = units.map((u) => u.title);
+    expect(titles).toContain('Create Your Own Currency With Flipcash');
+    expect(titles.some((t) => t.startsWith('Commentary for'))).toBe(false);
+    const promoted = units.find((u) => u.anchor === 'journal-long')!;
+    expect(promoted.state).toBe('done');
+    expect(promoted.context).toBe('Promoted post.');
+    expect(units.find((u) => u.anchor === 'journal-boat')!.context).toBe('Journal.');
+    // One chip per Thingy item: drafted is halfway, reviewed is done.
+    expect(units.filter((u) => u.title === 'Membership')).toHaveLength(1);
   });
 });
 
@@ -581,9 +596,9 @@ describe('window-derived inclusion', () => {
 
   it('does not ask for commentary on a link the window dropped', () => {
     const doc = docWith('2026-09-01T09:00:00-05:00', '2026-08-20T09:00:00-05:00');
-    const commentary = readiness(doc).units.filter((u) => u.title.startsWith('Commentary for'));
+    const commentary = readiness(doc).units.filter((u) => u.kind === 'commentary');
     expect(commentary.map((u) => u.anchor)).toEqual(['i-0']);
-    const wide = readiness(setWindowDays(doc, 21)).units.filter((u) => u.title.startsWith('Commentary for'));
+    const wide = readiness(setWindowDays(doc, 21)).units.filter((u) => u.kind === 'commentary');
     expect(wide.map((u) => u.anchor).sort()).toEqual(['i-0', 'i-1']);
   });
 });
@@ -809,7 +824,7 @@ describe('the photo section', () => {
     const doc = createIssue({ number: 400, publication_date: '2026-09-05' });
     const photo = doc.nodes.find((n) => n.type === 'photo')!;
     const id = photo.items[0]!;
-    const unit = () => readiness(doc).units.find((u) => u.title === 'Photo placed')!;
+    const unit = () => readiness(doc).units.find((u) => u.title === 'Photo')!;
 
     expect(unit().state).toBe('todo');
     expect(unit().anchor).toBe(id);
@@ -825,7 +840,7 @@ describe('readiness knows started from finished', () => {
   it('a one-sentence intro is in progress, a few paragraphs are done', () => {
     const doc = createIssue({ number: 400, publication_date: '2026-09-05' });
     const id = doc.nodes.find((n) => n.type === 'intro')!.items[0]!;
-    const intro = () => readiness(doc).units.find((u) => u.title === 'Intro written')!;
+    const intro = () => readiness(doc).units.find((u) => u.title === 'Intro')!;
     expect(intro().state).toBe('todo');
     doc.items[id]!.body = 'Good morning! Hoping you had a wonderful summer.';
     expect(intro().state).toBe('partial');
@@ -846,10 +861,12 @@ describe('readiness knows started from finished', () => {
 
   it('gives each Currently line its own tick, and the issue its title', () => {
     const doc = fixture();
-    const titles = readiness(doc).units.map((u) => u.title);
-    expect(titles.filter((t) => t.startsWith('Currently: '))).toHaveLength(2);
+    const units = readiness(doc).units;
+    const titles = units.map((u) => u.title);
+    expect(units.filter((u) => u.context?.startsWith('Currently'))).toHaveLength(2);
+    expect(titles).toContain('Building');
     expect(titles).not.toContain('Currently filled in');
-    expect(titles[0]).toBe('Title and dek');
+    expect(titles[0]).toBe('Title');
     // The fixture's title is the seed, "The Weekly Thing 350": not yet titled.
     expect(readiness(doc).units[0]!.state).not.toBe('done');
   });

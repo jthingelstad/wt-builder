@@ -972,6 +972,20 @@ export interface ReadinessUnit {
  */
 export const DONE_WORDS = { intro: 50, outro: 20, notable: 20 } as const;
 
+/** A chip's name: the thing itself, short, with Markdown and images stripped. */
+export function chipName(item: Item, max = 40): string {
+  const raw = item.title ?? item.label ?? String(item.commentary ?? item.body ?? '');
+  const text = raw
+    .replace(/<img\b[^>]*>/gi, ' ')
+    .replace(/!\[[^\]]*\]\([^)]*\)/g, ' ')
+    .replace(/\[([^\]]+)\]\([^)]*\)/g, '$1')
+    .replace(/[*_`#>]/g, '')
+    .replace(/\s+/g, ' ')
+    .trim();
+  if (!text) return '(untitled)';
+  return text.length > max ? `${text.slice(0, max - 1).trimEnd()}…` : text;
+}
+
 const words = (text: string | undefined) => bodyLines(text).join(' ').split(/\s+/).filter(Boolean).length;
 const byWords = (text: string | undefined, bar: number): ReadinessState =>
   words(text) >= bar ? 'done' : words(text) > 0 ? 'partial' : 'todo';
@@ -1029,7 +1043,7 @@ export function readiness(doc: IssueDoc): Readiness {
   const dek = String(doc.issue.dek ?? '').trim();
   const titled = Boolean(title) && title !== `The Weekly Thing ${doc.issue.number}`;
   add(titled && dek ? 'done' : titled || dek ? 'partial' : 'todo',
-    'Title and dek', 'issue', 'required', 'The title is the theme; the dek is the one-line summary.');
+    'Title', 'issue', 'required', 'A title that is the theme, and a one-line dek.');
 
   // Units come out in the order the issue reads, section by section, so the
   // strip's ticks are a map of the page: the third tick is the third thing.
@@ -1038,7 +1052,7 @@ export function readiness(doc: IssueDoc): Readiness {
     if (node.kind === 'section' && (node.type === 'intro' || node.type === 'outro')) {
       const body = node.items.map((id) => doc.items[id]?.body ?? '').join('\n');
       const bar = DONE_WORDS[node.type];
-      add(byWords(body, bar), node.type === 'intro' ? 'Intro written' : 'Outro written',
+      add(byWords(body, bar), node.type === 'intro' ? 'Intro' : 'Outro',
         node.items[0] ?? node.id, 'required',
         `A sentence is a start; ${node.type === 'intro' ? 'the intro is a few paragraphs' : 'the outro is a short one'} (${bar}+ words).`);
       continue;
@@ -1046,7 +1060,7 @@ export function readiness(doc: IssueDoc): Readiness {
     if (node.kind === 'section' && node.type === 'photo') {
       const item = node.items.map((id) => doc.items[id]).find(Boolean);
       const m = item?.media;
-      add(!m?.url ? 'todo' : m.alt && m.caption ? 'done' : 'partial', 'Photo placed',
+      add(!m?.url ? 'todo' : m.alt && m.caption ? 'done' : 'partial', 'Photo',
         node.items[0] ?? node.id, 'required', 'A photo, its alt text, and a caption — or remove the section.');
       continue;
     }
@@ -1055,39 +1069,45 @@ export function readiness(doc: IssueDoc): Readiness {
       const item = doc.items[id];
       if (!item || !inIssue(item)) continue;
 
+      // Chips are named for the thing, not the task: "Unread 5.0", not
+      // "Commentary for Unread 5.0". The task is the context line (2026-09-20).
       if (item.type === 'currently') {
         // One tick per line: "Currently filled in" hid which line was empty.
-        add(bodyLines(item.body).length > 0, `Currently: ${item.label ?? 'entry'}`, id, 'required',
-          'Write the line, or remove the entry.');
+        add(bodyLines(item.body).length > 0, chipName(item), id, 'required',
+          'Currently — write the line, or remove the entry.');
       } else if (item.type === 'pinboard_link') {
-        const short = (item.title ?? 'untitled').slice(0, 40);
         const briefly = String(node.label).toLowerCase() === 'briefly';
         add(briefly ? (String(item.commentary ?? '').trim() ? 'done' : 'todo') : byWords(item.commentary, DONE_WORDS.notable),
-          `Commentary for “${short}”`, id, 'commentary',
-          briefly ? 'A line is enough for Briefly.' : `A Notable link carries a paragraph (${DONE_WORDS.notable}+ words).`);
+          chipName(item), id, 'commentary',
+          briefly ? 'Briefly — a line of commentary is enough.' : `Notable — a paragraph of commentary (${DONE_WORDS.notable}+ words).`);
         if (item.sync_state === 'failed') {
-          add(false, `Pinboard write failed for “${short}”`, id, 'sync',
+          add(false, `${chipName(item)} — Pinboard write failed`, id, 'sync',
             item.sync_error ?? 'Your edit is kept. Retry from the inspector.');
         }
+      } else if (item.type === 'journal_post') {
+        // A post is finished when it was published; the chip is its place on
+        // the map. A promoted post is its own section and gets one too.
+        add(true, chipName(item), id, 'required', node.kind === 'promoted_item' ? 'Promoted post.' : 'Journal.');
       } else if (item.authorship === 'Thingy') {
+        // One chip: drafted is halfway, reviewed is done.
         const name = item.type === 'membership' ? 'Membership' : 'Echoes';
-        add(bodyLines(item.body).length > 0, `${name} drafted by Thingy`, id, 'thingy',
-          'Use the wand in the margin, or write it yourself.');
-        add(Boolean(item.reviewed), `${name} reviewed by you`, id, 'thingy',
-          'Thingy wrote it and it goes out under that byline.');
+        const drafted = bodyLines(item.body).length > 0;
+        add(!drafted ? 'todo' : item.reviewed ? 'done' : 'partial', name, id, 'thingy',
+          !drafted ? 'Use the wand in the margin, or write it yourself.'
+            : 'Thingy drafted it; it goes out under that byline once you have reviewed it.');
       } else if (node.type === 'haiku') {
         const lines = bodyLines(item.body).length;
-        add(lines >= 3 ? 'done' : lines > 0 ? 'partial' : 'todo', 'Haiku chosen', id, 'required', 'Three lines.');
+        add(lines >= 3 ? 'done' : lines > 0 ? 'partial' : 'todo', 'Haiku', id, 'required', 'Three lines.');
       }
     }
   }
 
   // A standard section that is not in the issue is satisfied, not outstanding.
   for (const [type, label] of [
-    ['intro', 'Intro written'],
-    ['outro', 'Outro written'],
-    ['currently', 'Currently filled in'],
-    ['photo', 'Photo placed'],
+    ['intro', 'Intro'],
+    ['outro', 'Outro'],
+    ['currently', 'Currently'],
+    ['photo', 'Photo'],
   ] as const) {
     if (!doc.nodes.some((n) => n.type === type && n.kind === 'section')) {
       add(true, `${label} — not in this issue`, 'issue', 'required');
