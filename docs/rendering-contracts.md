@@ -52,7 +52,9 @@ Title. Description.
 
 Ordinary Journal items are grouped beneath publication-date boundaries. The
 group prints the weekday alone — the date is already established by the issue.
-Each item remains independently removable.
+Each item leads with a link back to the post: its title when it has one, the
+time of day otherwise. All clocks are Central. Each item remains independently
+removable.
 
 Titled long posts may be promoted. Promotion changes placement and
 presentation, not provenance or underlying content. A promoted post is a

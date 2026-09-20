@@ -15,7 +15,7 @@ import type {
   ItemType,
 } from '../shared/types.ts';
 import { SCHEMA_VERSION, allChannels, emptyChannels } from '../shared/types.ts';
-import { addDays, issueWindow, issueSaturday } from '../shared/dates.ts';
+import { addDays, instantOf, issueWindow, issueSaturday } from '../shared/dates.ts';
 import { bodyLines, itemsInWindow, orderedNodes, outOfWindow } from '../shared/render/plan.ts';
 import * as pinboard from './integrations/pinboard.ts';
 import * as microblog from './integrations/microblog.ts';
@@ -413,10 +413,11 @@ function placeInto(doc: IssueDoc, itemId: string, sectionLabel: string): void {
 function sortJournal(doc: IssueDoc): void {
   const journal = doc.nodes.find((n) => n.type === 'journal' && n.kind === 'section');
   if (!journal) return;
+  // By instant, not by string: offsets differ between sources.
   journal.items.sort((a, b) => {
-    const x = doc.items[a]?.published_at ?? '';
-    const y = doc.items[b]?.published_at ?? '';
-    return x.localeCompare(y);
+    const x = instantOf(doc.items[a]?.published_at) ?? 0;
+    const y = instantOf(doc.items[b]?.published_at) ?? 0;
+    return x - y;
   });
 }
 

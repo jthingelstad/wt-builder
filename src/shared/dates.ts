@@ -1,13 +1,17 @@
 /**
  * Date handling for the editions.
  *
- * Timestamps carry their own offset ("2026-05-16T20:35:00-05:00") and are
- * displayed in that local wall clock, never converted to the viewer's zone: a
- * photo taken at 8:35 PM in Minnesota reads 8:35 PM to every reader.
+ * Every clock the reader sees is Central — the newsletter's editorial zone —
+ * never the viewer's. A timestamp that carries an offset ("…T01:00:00+00:00"
+ * from Micro.blog, "…Z" from Pinboard, "…-05:00" from a fixture) is an
+ * instant, and is converted to the Central wall clock before it prints: a post
+ * published at 8:00 PM on a Tuesday in Minnesota reads Tuesday 8:00 PM, not
+ * Wednesday 1:00 AM (2026-09-20, WT350). A timestamp with no offset — EXIF,
+ * which is the camera's own wall clock — is read as written.
  *
- * The issue window is the exception. It is a real instant boundary in Central
- * time, so window arithmetic converts to epoch milliseconds rather than
- * comparing date strings — see § issue window.
+ * The issue window is a real instant boundary in Central time, so window
+ * arithmetic converts to epoch milliseconds rather than comparing date strings
+ * — see § issue window.
  */
 
 const MONTH = [
@@ -38,13 +42,21 @@ export interface WallClock {
   key: string;
 }
 
+const OFFSET = /(?:Z|[+-]\d{2}:?\d{2})$/;
+
 /**
- * Read the wall clock out of an ISO timestamp without applying the offset.
- * Returns null for anything unparseable so callers can degrade rather than throw.
+ * The Central wall clock of an ISO timestamp. One that carries an offset is an
+ * instant and is converted; one without is read as written. Returns null for
+ * anything unparseable so callers can degrade rather than throw.
  */
 export function wallClock(iso: string | undefined | null): WallClock | null {
-  const m = /^(\d{4})-(\d{2})-(\d{2})(?:[T ](\d{2}):(\d{2}))?/.exec(iso ?? '');
+  const text = (iso ?? '').trim();
+  const m = /^(\d{4})-(\d{2})-(\d{2})(?:[T ](\d{2}):(\d{2}))?/.exec(text);
   if (!m) return null;
+  if (m[4] !== undefined && OFFSET.test(text)) {
+    const ms = Date.parse(text);
+    if (!Number.isNaN(ms)) return centralClock(ms);
+  }
   return {
     y: Number(m[1]),
     mo: Number(m[2]),
@@ -52,6 +64,20 @@ export function wallClock(iso: string | undefined | null): WallClock | null {
     hh: Number(m[4] ?? 0),
     mm: Number(m[5] ?? 0),
     key: `${m[1]}-${m[2]}-${m[3]}`,
+  };
+}
+
+/** The Central wall clock at an instant. */
+export function centralClock(utcMs: number): WallClock {
+  const p: Record<string, number> = {};
+  for (const part of ZONE_PARTS.formatToParts(new Date(utcMs))) {
+    if (part.type !== 'literal') p[part.type] = Number(part.value);
+  }
+  const hh = p.hour! % 24; // Intl renders midnight as hour 24 in some ICU builds
+  const pad = (n: number) => String(n).padStart(2, '0');
+  return {
+    y: p.year!, mo: p.month!, d: p.day!, hh, mm: p.minute!,
+    key: `${p.year}-${pad(p.month!)}-${pad(p.day!)}`,
   };
 }
 
@@ -105,6 +131,11 @@ export function boundaryDate(isoDate: string): string {
   const c = wallClock(isoDate);
   if (!c) return isoDate;
   return `${DAY[weekdayIndex(c)]!.slice(0, 3)}, ${MON[c.mo - 1]} ${c.d}`;
+}
+
+/** Today's date in Central time — a Saturday evening in Minnesota is not yet Sunday. */
+export function todayCentral(now = Date.now()): string {
+  return centralClock(now).key;
 }
 
 // ── plain date arithmetic ─────────────────────────────────────────────────
@@ -187,11 +218,13 @@ export function zonedMs(y: number, mo: number, d: number, hh = 0, mm = 0): numbe
  */
 export function instantOf(iso: string | undefined | null): number | null {
   if (!iso) return null;
+  if (OFFSET.test(iso.trim())) {
+    const ms = Date.parse(iso);
+    return Number.isNaN(ms) ? null : ms;
+  }
   const c = wallClock(iso);
   if (!c) return null;
-  return /(?:Z|[+-]\d{2}:?\d{2})$/.test(iso.trim())
-    ? Date.parse(iso)
-    : zonedMs(c.y, c.mo, c.d, c.hh, c.mm);
+  return zonedMs(c.y, c.mo, c.d, c.hh, c.mm);
 }
 
 // ── issue window ──────────────────────────────────────────────────────────

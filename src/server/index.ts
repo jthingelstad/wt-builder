@@ -10,6 +10,7 @@
  * exposing it on a public interface would publish an unauthenticated editor.
  */
 
+import { todayCentral } from '../shared/dates.ts';
 import { createServer, type IncomingMessage, type ServerResponse } from 'node:http';
 import { readFile } from 'node:fs/promises';
 import { existsSync } from 'node:fs';
@@ -247,7 +248,7 @@ const routes: [RegExp, string, (ctx: Ctx, params: string[]) => Promise<unknown>]
     if (store.getIssueByNumber(number)) throw new HttpError(409, `issue ${number} already exists`);
     const doc = issues.createIssue({
       number,
-      publication_date: String(b.publication_date ?? new Date().toISOString().slice(0, 10)),
+      publication_date: String(b.publication_date ?? todayCentral()),
       window_days: b.window_days ? Number(b.window_days) : 7,
       title: b.title,
       dek: b.dek,

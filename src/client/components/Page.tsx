@@ -715,12 +715,14 @@ function ChannelBlock({ doc, node, item, itemId, readOnly, act }: BlockProps) {
           </>
         );
       }
+      // The lead is the title when the post has one, the time of day otherwise.
+      const lead = String(item.title ?? '').trim() || (c ? clockTime(c) : '');
       return (
         <>
           <p>
-            {c && (
+            {lead && (
               <>
-                <a href={item.source_url} target="_blank" rel="noreferrer">{clockTime(c)}</a>
+                <a href={item.source_url} target="_blank" rel="noreferrer">{lead}</a>
                 <span class="emdash"> — </span>
               </>
             )}

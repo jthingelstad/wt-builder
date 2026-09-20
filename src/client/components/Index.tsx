@@ -9,10 +9,7 @@
 import { useEffect, useState } from 'preact/hooks';
 
 import { api, type IssueSummary } from '../api.ts';
-import {
-  countdown, isSaturday, issueSaturday, kickerDate, issueWindow, longDate, snapToSaturday,
-  spanLabel, wallClock,
-} from '../../shared/dates.ts';
+import { countdown, isSaturday, issueSaturday, issueWindow, kickerDate, longDate, snapToSaturday, spanLabel, todayCentral, wallClock } from '../../shared/dates.ts';
 import { Archive, Check, CircleAlert, Spinner } from '../icons.tsx';
 
 interface Props {
@@ -266,7 +263,7 @@ function SetupSheet({
   onCancel: () => void;
   onCreate: (body: { number: number; publication_date: string; window_days: number }) => void;
 }) {
-  const today = new Date().toISOString().slice(0, 10);
+  const today = todayCentral();
   const [date, setDate] = useState(snapToSaturday(today));
   const [number, setNumber] = useState(nextNumber);
   const [days, setDays] = useState(7);

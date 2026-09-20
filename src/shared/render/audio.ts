@@ -86,7 +86,8 @@ function itemBlocks(item: Item, planned: PlannedNode, index: number, total: numb
             .map((b) => speakable(b.replace(/^(#{1,6}\s+|>\s?|[-*]\s+|\d{1,9}[.)]\s+)/gm, '')).replace(/\s*\n\s*/g, ' '))
             .filter(Boolean)
             .map(terminate)
-        : [speakable(flatten(item.body))].filter(Boolean);
+        : [[terminate(String(item.title ?? '')), speakable(flatten(item.body))].filter(Boolean).join(' ')]
+            .filter(Boolean);
     default:
       return [speakable(flatten(item.body))].filter(Boolean);
   }

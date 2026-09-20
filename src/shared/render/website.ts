@@ -76,13 +76,17 @@ export function linkBlocks(item: Item): Block[] {
   return out;
 }
 
-/** An ordinary Journal entry: a linked timestamp, then the post. */
+/**
+ * An ordinary Journal entry: a linked lead, then the post. The lead is the
+ * post's title when it has one — a titled post that stays in the Journal
+ * keeps its name (2026-09-20) — and the time of day otherwise.
+ */
 export function journalEntryBlock(item: Item): Block {
   const w = wallClock(item.published_at);
-  const time = w ? clockTime(w) : '';
+  const lead = String(item.title ?? '').trim() || (w ? clockTime(w) : '');
   const body = bodyLines(item.body).join(' ');
-  if (!time || !item.source_url) return body;
-  return `[${time}](${item.source_url}) — ${body}`;
+  if (!lead || !item.source_url) return body;
+  return `[${lead}](${item.source_url}) — ${body}`;
 }
 
 /**
