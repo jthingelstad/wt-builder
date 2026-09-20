@@ -9,6 +9,7 @@ import { candidateToItem } from '../src/server/integrations/microblog.ts';
 import { formatPlace } from '../src/server/integrations/geocode.ts';
 import { BRIEF_TAG, DEFAULT_LINK_SECTION, candidateToItem as pinboardItem, sectionForTags, sweepBounds } from '../src/server/integrations/pinboard.ts';
 import { issueWindow, inWindow } from '../src/shared/dates.ts';
+import { applySweep, createIssue } from '../src/server/issue.ts';
 
 const item = (over: Partial<Item> = {}): Item => ({
   type: 'journal_post',
@@ -136,6 +137,20 @@ describe('the Pinboard sweep and the window agree on where Friday is', () => {
     expect(sectionForTags(['__brief'])).toBe('Briefly');
     expect(sectionForTags(['notable'])).toBe('Notable');
     expect(sectionForTags(['weekly-thing'])).toBeUndefined();
+  });
+
+  it('a candidate carrying _exclude is not swept in', () => {
+    const doc = createIssue({ number: 400, publication_date: '2026-09-05' });
+    const excluded = {
+      id: 'pinboard:x', origin: 'Pinboard' as const, title: 'T', url: 'https://example.com/x',
+      commentary: '', tags: ['_exclude'], published_at: '2026-09-01T20:00:00Z',
+    };
+    const { doc: next, report } = applySweep(doc, {
+      window: issueWindow('2026-09-05', 7), links: [excluded as never], posts: [],
+      bookmarks: new Map(), microblog: null, captureTimes: new Map(),
+    });
+    expect(Object.values(next.items).some((i) => i.source_url === 'https://example.com/x')).toBe(false);
+    expect(report.added).toBe(0);
   });
 
   it('files by the bookmark: _brief or no description is Briefly, a described link is Notable', () => {

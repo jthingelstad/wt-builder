@@ -174,10 +174,10 @@ async function writeItemToSource(
               : { title: item.title ?? '', body: item.body ?? '' },
         }
       : {};
-  return {
-    patch: { sync_state: result.sync_state, sync_error: result.error, ...snapshot },
-    result,
-  };
+  const patch: Partial<Item> = { sync_state: result.sync_state, sync_error: result.error, ...snapshot };
+  const flags = (result as { flags?: Record<string, string> }).flags;
+  if (flags) patch.source_flags = flags;
+  return { patch, result };
 }
 
 /**
@@ -400,7 +400,12 @@ const routes: [RegExp, string, (ctx: Ctx, params: string[]) => Promise<unknown>]
           ? `Held out — ${issues.itemName(item)}`
           : `Deleted — ${issues.itemName(item)}`);
       }
-      return saved(issues.removeItem(doc, nodeId!, itemId!));
+      const result = saved(issues.removeItem(doc, nodeId!, itemId!));
+      // A held-out Pinboard link carries _exclude on the bookmark; write it.
+      const after = result.issue.items[itemId!];
+      if (after?.source !== 'Pinboard' || after.sync_state !== 'syncing') return result;
+      const { patch } = await writeItemToSource(id!, result.issue, itemId!);
+      return savedFresh(id!, (d) => issues.updateItem(d, itemId!, patch));
     }],
 
   [/^\/api\/issues\/([^/]+)\/nodes\/([^/]+)\/rename$/, 'POST', async ({ body }, [id, nodeId]) => {

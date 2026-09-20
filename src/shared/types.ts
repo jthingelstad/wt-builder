@@ -111,6 +111,11 @@ export interface Item {
    * its default — which would silently publish a private bookmark.
    */
   source_flags?: Record<string, string>;
+  /**
+   * Held out of the issue by Jamie, and the bookmark carries `_exclude` to
+   * say so. Cleared when the tag comes off at Pinboard and the link returns.
+   */
+  excluded?: boolean;
   published_at?: string;
   media?: Media;
   sync_state?: SyncState;

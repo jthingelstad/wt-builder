@@ -237,6 +237,8 @@ export function applySweep(doc: IssueDoc, fetched: SweepFetch): { doc: IssueDoc;
   const log: { kind: string; summary: string }[] = [];
 
   for (const c of links) {
+    // Excluded at Pinboard: not in the issue, by Jamie's hand.
+    if ((c.tags ?? []).some(pinboard.isExcludeTag) && !known.has(c.id)) { skipped++; continue; }
     const existing = known.get(c.id);
     if (existing) {
       // Items swept before the converter carried the capture time are
@@ -440,6 +442,29 @@ export function followBookmarkTags(
     const implied = pinboard.sectionForBookmark(tags, item.commentary);
     if (implied !== 'Notable' && implied !== 'Briefly') continue;
     const here = doc.nodes.find((n) => n.items.includes(id));
+    const excludedAtSource = tags.some(pinboard.isExcludeTag);
+    const heldOut = (doc.orphans ?? []).includes(id);
+
+    // `_exclude` on the bookmark holds the link out; off again puts it back.
+    if (excludedAtSource && here) {
+      here.items = here.items.filter((i) => i !== id);
+      if (!item.section) item.section = here.label;
+      item.excluded = true;
+      doc.orphans = [...(doc.orphans ?? []), id];
+      log.push({ kind: 'held-out', summary: `${itemName(item)} — _exclude at Pinboard` });
+      continue;
+    }
+    if (!excludedAtSource && heldOut && item.excluded) {
+      const dest = doc.nodes.find((n) => n.kind === 'section' && n.label === implied);
+      if (!dest) continue;
+      doc.orphans = (doc.orphans ?? []).filter((i) => i !== id);
+      delete item.excluded;
+      dest.items.push(id);
+      item.section = implied;
+      log.push({ kind: 'put-back', summary: `${itemName(item)} — _exclude came off at Pinboard, into ${implied}` });
+      continue;
+    }
+
     if (!here || here.kind !== 'section') continue;
     const from = here.label;
     if ((from !== 'Notable' && from !== 'Briefly') || from === implied) continue;
@@ -707,6 +732,15 @@ export function removeItem(doc: IssueDoc, nodeId: string, itemId: string): Issue
     // Remember where it came from so Put back knows its natural section.
     if (!item.section) item.section = target.label;
     next.orphans = [...(next.orphans ?? []), itemId];
+    // A Pinboard link records the exclusion on the bookmark, where Jamie
+    // files: `_exclude` goes on and is written back by the route.
+    if (item.source === 'Pinboard' && item.sync_state !== 'gone') {
+      const tags = item.tags ?? [];
+      if (!tags.some(pinboard.isExcludeTag)) item.tags = [...tags, pinboard.EXCLUDE_TAG];
+      item.excluded = true;
+      item.sync_state = 'syncing';
+      delete item.sync_error;
+    }
   } else {
     delete next.items[itemId];
   }

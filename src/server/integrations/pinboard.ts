@@ -44,6 +44,18 @@ export function isBriefTag(tag: string): boolean {
   return BRIEF_TAGS.has(tag.toLowerCase());
 }
 
+/**
+ * Jamie's "not in the issue" mark. Holding a link out of the issue writes it
+ * onto the bookmark, so the exclusion lives where Jamie files and survives a
+ * rebuild; taking it off at Pinboard puts the link back at the next re-scan
+ * (2026-09-20). Never swept in while present.
+ */
+export const EXCLUDE_TAG = '_exclude';
+
+export function isExcludeTag(tag: string): boolean {
+  return tag.toLowerCase() === EXCLUDE_TAG;
+}
+
 /** Tags that route a link to a section. */
 const SECTION_TAGS: Record<string, string> = {
   notable: 'Notable',
@@ -210,6 +222,8 @@ export async function fetchBookmark(url: string): Promise<RemoteFields | null> {
 export interface WriteBackResult {
   sync_state: SyncState;
   error?: string;
+  /** The flags as written, for the item to carry until the next scan. */
+  flags?: Record<string, string>;
 }
 
 /**
@@ -245,21 +259,25 @@ export async function writeBack(item: Item): Promise<WriteBackResult> {
     // them publishes a private bookmark and drops it from the unread queue,
     // neither of which the editor asked for. The contract is title, commentary,
     // and tags; everything else goes back exactly as it came.
-    const flags = item.source_flags ?? {};
+    // One exception, asked for: writing commentary IS reading the link. A
+    // described bookmark leaves the unread queue (Jamie, 2026-09-20).
+    const flags = { ...(item.source_flags ?? {}) };
+    flags.toread = String(item.commentary ?? '').trim() ? 'no' : (flags.toread ?? 'yes');
+    flags.shared = flags.shared ?? 'no';
     const result = (await call('/posts/add', {
       url: item.source_url,
       description: item.title ?? '',
       extended: item.commentary ?? '',
       tags: (item.tags ?? []).join(' '),
-      toread: flags.toread ?? 'yes',
-      shared: flags.shared ?? 'no',
+      toread: flags.toread,
+      shared: flags.shared,
       replace: 'yes',
     })) as { result_code?: string };
 
     if (result.result_code && result.result_code !== 'done') {
       return { sync_state: 'failed', error: result.result_code };
     }
-    return { sync_state: 'synced' };
+    return { sync_state: 'synced', flags };
   } catch (err) {
     // The local edit stands; only the sync state records the failure.
     return { sync_state: 'failed', error: (err as Error).message };

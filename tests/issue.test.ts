@@ -613,6 +613,47 @@ describe('placement follows the bookmark', () => {
     expect(inSection(doc, 'link-flipcash')).toBe('Notable');
   });
 
+  it('holding out a Pinboard link puts _exclude on the bookmark and queues the write', () => {
+    const doc = fixture();
+    const notable = doc.nodes.find((n) => n.type === 'notable')!;
+    const next = issues.removeItem(doc, notable.id, 'link-flipcash');
+    const item = next.items['link-flipcash']!;
+    expect(next.orphans).toContain('link-flipcash');
+    expect(item.tags).toContain('_exclude');
+    expect(item.excluded).toBe(true);
+    expect(item.sync_state).toBe('syncing');
+  });
+
+  it('_exclude arriving from Pinboard holds a placed link out; coming off puts it back', () => {
+    const doc = fixture();
+    const item = doc.items['link-flipcash']!;
+    item.tags = ['_exclude'];
+    item.source_snapshot = { tags: ['_exclude'], commentary: item.commentary };
+    let log = followBookmarkTags(doc);
+    expect(doc.orphans).toContain('link-flipcash');
+    expect(inSection(doc, 'link-flipcash')).toBeUndefined();
+    expect(log[0]?.kind).toBe('held-out');
+
+    item.tags = [];
+    item.source_snapshot = { tags: [], commentary: item.commentary };
+    log = followBookmarkTags(doc);
+    expect(doc.orphans).not.toContain('link-flipcash');
+    expect(inSection(doc, 'link-flipcash')).toBe('Notable');
+    expect(item.excluded).toBeUndefined();
+    expect(log[0]?.kind).toBe('put-back');
+  });
+
+  it('does not put back a link that was held out before exclusion was recorded on the bookmark', () => {
+    // Held out under the old rule: in orphans, no _exclude, no `excluded` mark.
+    const doc = fixture();
+    const item = doc.items['link-flipcash']!;
+    doc.nodes.find((n) => n.type === 'notable')!.items = ['link-functions'];
+    doc.orphans = ['link-flipcash'];
+    item.source_snapshot = { tags: item.tags, commentary: item.commentary };
+    expect(followBookmarkTags(doc)).toEqual([]);
+    expect(doc.orphans).toContain('link-flipcash');
+  });
+
   it('waits while a description typed here is still writing back', () => {
     const doc = fixture();
     const item = doc.items['link-flipcash']!;

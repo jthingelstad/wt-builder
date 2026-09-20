@@ -16,7 +16,17 @@
   never written onto the bookmark. The sweep places by it, and moving a
   link between Notable and Briefly in the builder adds or removes it on the
   bookmark through the normal write-back path. A bookmark deleted at
-  Pinboard is dropped from the issue at the next re-scan. **Placement follows the bookmark:** when a re-scan finds the
+  Pinboard is dropped from the issue at the next re-scan.
+- **`_exclude`** is the other mark. Holding a link out of the issue (the X on
+  its rail) writes `_exclude` onto the bookmark, so the exclusion lives where
+  Jamie files and survives a rebuild; a bookmark carrying it is never swept
+  in; putting it on at Pinboard holds a placed link out at the next re-scan,
+  and taking it off puts the link back. Deleting the bookmark is still the
+  stronger act.
+- **Writing commentary marks the bookmark read.** Write-back sends
+  `toread=no` when the link has commentary; every other flag goes back as it
+  came. Links already in the issue stay (the sweep only adds), so leaving the
+  unread queue does not drop them. **Placement follows the bookmark:** when a re-scan finds the
   tag changed at Pinboard and no local tag edit is pending, the link moves
   section to match. (Until 2026-09-20 the builder looked for `__brief` and
   filed unmarked links in Briefly; the old spelling is still read.)
