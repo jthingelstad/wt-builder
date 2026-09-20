@@ -119,7 +119,7 @@ export function chunkScript(text: string, maxChars = MAX_CHARS): string[] {
   return chunks;
 }
 
-async function speak(text: string): Promise<Buffer> {
+export async function speak(text: string, voice: string = TTS_VOICE): Promise<Buffer> {
   const res = await fetch('https://api.openai.com/v1/audio/speech', {
     method: 'POST',
     headers: {
@@ -128,7 +128,7 @@ async function speak(text: string): Promise<Buffer> {
     },
     body: JSON.stringify({
       model: TTS_MODEL,
-      voice: TTS_VOICE,
+      voice,
       input: text,
       response_format: 'mp3',
     }),

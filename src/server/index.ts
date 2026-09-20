@@ -924,6 +924,7 @@ const MIME: Record<string, string> = {
   '.png': 'image/png',
   '.jpg': 'image/jpeg',
   '.woff2': 'font/woff2',
+  '.mp3': 'audio/mpeg',
 };
 
 async function serveStatic(url: URL, res: ServerResponse): Promise<boolean> {
