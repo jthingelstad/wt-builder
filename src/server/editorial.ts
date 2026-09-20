@@ -353,7 +353,11 @@ copy gets it exactly backwards:
   from the facts given, never invented.
 - The cta: one short paragraph. An invitation to give through the
   newsletter, not a plea to sustain it. "Less than a coffee a month" is the
-  register. A one-time gift of any amount is equally welcome.
+  register. The offer is ONE thing: a year of Supporting Membership at $48.
+  Never mention a one-time gift, a monthly option, or any other amount. A
+  button follows the paragraph in the email, so do not write a link or a
+  "click here"; end on the invitation itself. No sign-off, no "— Thingy":
+  the frame around the section already says who is speaking.
 - Never invent a figure, a deadline, a goal, or urgency. Never mention
   member perks as the reason to join — the giving is the reason.
 - The thanks: one or two sentences to someone ALREADY giving. Name the

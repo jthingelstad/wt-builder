@@ -55,8 +55,11 @@ No title in the body — the subject is `WT<N> — Title` and Buttondown prints 
 the builder (WT349 compared side by side, 2026-09-20). The body ends with the
 Tinylytics open pixel as every issue before the builder carried it — anonymous,
 named for the issue (`/email/<N>/`), never for the reader, email medium only.
-One thing WT349 had that the builder does not carry on purpose: the mid-issue
-membership buttons (Membership is now one Thingy-framed section).
+Membership's regular-subscriber branch ends with the button to the members
+page — the year at $48 is the only offer, and the button is the only thing to
+do — with the reader's email prefilled and `ref=WT<N>`; the premium branch is
+thanks with no button. WT349's second mid-issue button is not carried:
+Membership is one Thingy-framed section now.
 
 ## Journal
 

@@ -66,6 +66,9 @@ This should be a built-in feature in Shortcuts. → **[Introducing Shortcuts Pla
 <p>Supporting Members make the Weekly Thing possible while directing every membership dollar to this year&#39;s nonprofit partner. Thank you for being one.</p>
 {% else %}
 <p>Supporting Members make the Weekly Thing possible while directing every membership dollar to this year&#39;s nonprofit partner.</p>
+<p style="text-align:center; padding:10px 0; font-size: 16px; font-weight: bold;">
+<buttondown-button href="https://weekly.thingelstad.com/members/?email={{ subscriber.email | urlencode }}&ref=WT350">Become a Supporting Member</buttondown-button>
+</p>
 {% endif %}
 </div>
 
@@ -104,6 +107,9 @@ different document. What differs here:
   false) and exists to prove per-channel inclusion end to end.
 - "Read this issue online · Listen to it" sits under the intro: the page, and
   the episode once the podcast has been sent (the podcast page before).
+- The regular-subscriber branch of Membership ends with the button to the
+  members page (the year at $48, email prefilled, ref=WT350); the premium
+  branch has no button - members are thanked, not re-pitched.
 - The Tinylytics open pixel closes the body, anonymous and named for the
   issue, email medium only - as every issue before the builder had it.
 - No title in the body and a --- rule between sections, matching the issues

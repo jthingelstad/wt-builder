@@ -49,7 +49,21 @@ const html = (markdown: string | undefined) => markdownToSafeHtml(postBlocks(mar
  * Membership, wrapped in subscriber branching inside Thingy's frame, so the
  * attribution survives either path.
  */
-export function membershipBlocks(item: Item): Block[] {
+/**
+ * The one thing a reader can do about membership: the button, as every issue
+ * before the builder had it. It goes to the members page with the reader's
+ * email filled in and the issue as the ref; that page offers the year at $48
+ * and nothing else is offered here (Jamie, 2026-09-20).
+ */
+export function membershipButton(issueNumber: number): string {
+  return [
+    '<p style="text-align:center; padding:10px 0; font-size: 16px; font-weight: bold;">',
+    `<buttondown-button href="https://weekly.thingelstad.com/members/?email={{ subscriber.email | urlencode }}&ref=WT${issueNumber}">Become a Supporting Member</buttondown-button>`,
+    '</p>',
+  ].join('\n');
+}
+
+export function membershipBlocks(item: Item, issueNumber: number): Block[] {
   const body = bodyLines(item.body).join(' ');
   if (!body) return [];
 
@@ -61,6 +75,7 @@ export function membershipBlocks(item: Item): Block[] {
     html(thanks),
     '{% else %}',
     html(item.body),
+    membershipButton(issueNumber),
     '{% endif %}',
   ];
   return item.authorship === 'Thingy' ? [thingyEmailFrame(branch)] : [byline(item), ...branch];
@@ -73,12 +88,12 @@ export function echoesBlocks(item: Item): Block[] {
   return item.authorship === 'Thingy' ? [thingyEmailFrame([html(item.body)])] : [byline(item), ...postBlocks(item.body)];
 }
 
-function emailNodeBlocks(planned: PlannedNode): Block[] {
+function emailNodeBlocks(planned: PlannedNode, issueNumber: number): Block[] {
   if (planned.node.type !== 'membership' && planned.node.type !== 'echoes') return nodeBlocks(planned);
 
   const body: Block[] = [];
   for (const entry of planned.items) {
-    body.push(...(planned.node.type === 'membership' ? membershipBlocks(entry.item) : echoesBlocks(entry.item)));
+    body.push(...(planned.node.type === 'membership' ? membershipBlocks(entry.item, issueNumber) : echoesBlocks(entry.item)));
   }
   if (!body.some((b) => b.trim())) return [];
   const heading = nodeHeading(planned);
@@ -108,7 +123,7 @@ export function renderEmail(doc: IssueDoc): string {
   const sections: string[] = [];
   let ways = false;
   for (const planned of planEdition(doc, 'email')) {
-    const blocks = emailNodeBlocks(planned).filter((b) => b.trim().length > 0);
+    const blocks = emailNodeBlocks(planned, doc.issue.number).filter((b) => b.trim().length > 0);
     if (!blocks.length) continue;
     if (!ways && planned.node.type === 'intro') {
       blocks.push(otherWaysLine(doc));
