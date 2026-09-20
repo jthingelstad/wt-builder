@@ -34,7 +34,7 @@ mkdirSync(outDir, { recursive: true });
 for (const voice of candidates) {
   const line = voice === TTS_VOICE
     ? `${text}`
-    : `From Thingy, my agentic librarian. ${text}`;
+    : `Hello, this is Thingy. ${text}`;
   const mp3 = await speak(line, voice);
   const file = join(outDir, `${voice}${voice === TTS_VOICE ? '-current' : ''}.mp3`);
   writeFileSync(file, mp3);
