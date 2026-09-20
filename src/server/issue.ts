@@ -16,7 +16,7 @@ import type {
 } from '../shared/types.ts';
 import { SCHEMA_VERSION, allChannels, emptyChannels } from '../shared/types.ts';
 import { type Window, addDays, instantOf, issueWindow, issueSaturday } from '../shared/dates.ts';
-import { bodyLines, itemsInWindow, orderedNodes, outOfWindow } from '../shared/render/plan.ts';
+import { bodyLines, orderedNodes, outOfWindow, windowOf } from '../shared/render/plan.ts';
 import * as pinboard from './integrations/pinboard.ts';
 import * as microblog from './integrations/microblog.ts';
 import { reconcileItem, type RemoteFields } from './reconcile.ts';
@@ -992,63 +992,64 @@ export function readiness(doc: IssueDoc): Readiness {
     kind: ReadinessKind = 'required', context?: string,
   ) => units.push({ done, title, anchor, kind, context });
 
-  const nodeOf = (type: string) => doc.nodes.find((n) => n.type === type);
-  // Only what will publish can be outstanding: a link the window dropped
-  // has no commentary to owe.
-  const present = itemsInWindow(doc).filter(([, i]) =>
-    (['website', 'email', 'audio'] as Channel[]).some((c) => i.channels[c]),
-  );
+  const w = windowOf(doc);
+  const inIssue = (item: Item) =>
+    !outOfWindow(item, w) && (['website', 'email', 'audio'] as Channel[]).some((c) => item.channels[c]);
 
+  // Units come out in the order the issue reads, section by section, so the
+  // strip's ticks are a map of the page: the third tick is the third thing.
+  // Held-out items (orphans) and fallen-out items owe nothing.
+  for (const node of orderedNodes(doc)) {
+    const label = ({ intro: 'Intro written', outro: 'Outro written', currently: 'Currently filled in', photo: 'Photo placed' } as Record<string, string>)[node.type];
+    if (label && node.kind === 'section') {
+      const filled = node.items.length > 0 && node.items.every((id) => {
+        const item = doc.items[id];
+        if (!item) return false;
+        return item.type === 'photo'
+          ? Boolean(item.media?.url)
+          : bodyLines(item.body).length > 0;
+      });
+      add(filled, label, node.items[0] ?? node.id, 'required',
+        node.type === 'photo' ? 'Drop a photo, or remove the section.' : 'Write it, or remove the section.');
+      continue;
+    }
+
+    for (const id of node.items) {
+      const item = doc.items[id];
+      if (!item || !inIssue(item)) continue;
+
+      if (item.type === 'pinboard_link') {
+        const title = (item.title ?? 'untitled').slice(0, 40);
+        add(
+          Boolean(String(item.commentary ?? '').trim()),
+          `Commentary for “${title}”`, id, 'commentary',
+          'A link with no commentary is just a headline.',
+        );
+        if (item.sync_state === 'failed') {
+          add(false, `Pinboard write failed for “${title}”`, id, 'sync',
+            item.sync_error ?? 'Your edit is kept. Retry from the inspector.');
+        }
+      } else if (item.authorship === 'Thingy') {
+        const name = item.type === 'membership' ? 'Membership' : 'Echoes';
+        add(bodyLines(item.body).length > 0, `${name} drafted by Thingy`, id, 'thingy',
+          'Use the wand in the margin, or write it yourself.');
+        add(Boolean(item.reviewed), `${name} reviewed by you`, id, 'thingy',
+          'Thingy wrote it and it goes out under that byline.');
+      } else if (node.type === 'haiku') {
+        add(bodyLines(item.body).length > 0, 'Haiku chosen', id, 'required');
+      }
+    }
+  }
+
+  // A standard section that is not in the issue is satisfied, not outstanding.
   for (const [type, label] of [
     ['intro', 'Intro written'],
     ['outro', 'Outro written'],
     ['currently', 'Currently filled in'],
     ['photo', 'Photo placed'],
   ] as const) {
-    const nd = nodeOf(type);
-    if (!nd) {
-      // A section that is not in the issue is satisfied, not outstanding.
+    if (!doc.nodes.some((n) => n.type === type && n.kind === 'section')) {
       add(true, `${label} — not in this issue`, 'issue', 'required');
-      continue;
-    }
-    const filled = nd.items.length > 0 && nd.items.every((id) => {
-      const item = doc.items[id];
-      if (!item) return false;
-      return item.type === 'photo'
-        ? Boolean(item.media?.url)
-        : bodyLines(item.body).length > 0;
-    });
-    add(filled, label, nd.items[0] ?? nd.id, 'required',
-      type === 'photo' ? 'Drop a photo, or remove the section.' : 'Write it, or remove the section.');
-  }
-
-  for (const [id, item] of present) {
-    if (item.type !== 'pinboard_link') continue;
-    const title = (item.title ?? 'untitled').slice(0, 40);
-    add(
-      Boolean(String(item.commentary ?? '').trim()),
-      `Commentary for “${title}”`, id, 'commentary',
-      'A link with no commentary is just a headline.',
-    );
-    if (item.sync_state === 'failed') {
-      add(false, `Pinboard write failed for “${title}”`, id, 'sync',
-        item.sync_error ?? 'Your edit is kept. Retry from the inspector.');
-    }
-  }
-
-  for (const [id, item] of present) {
-    if (item.authorship !== 'Thingy') continue;
-    const name = item.type === 'membership' ? 'Membership' : 'Echoes';
-    add(bodyLines(item.body).length > 0, `${name} drafted by Thingy`, id, 'thingy',
-      'Use the wand in the margin, or write it yourself.');
-    add(Boolean(item.reviewed), `${name} reviewed by you`, id, 'thingy',
-      'Thingy wrote it and it goes out under that byline.');
-  }
-
-  const haiku = nodeOf('haiku');
-  if (haiku) {
-    for (const id of haiku.items) {
-      add(bodyLines(doc.items[id]?.body).length > 0, 'Haiku chosen', id, 'required');
     }
   }
 

@@ -12,6 +12,7 @@
 import { useEffect, useRef, useState } from 'preact/hooks';
 
 import type { Readiness } from '../api.ts';
+import { burstAt, celebrateStrip } from '../celebrate.ts';
 import { CircleCheck } from '../icons.tsx';
 
 interface Props {
@@ -44,6 +45,31 @@ export function Strip({ number, readiness, onJump }: Props) {
   const total = readiness?.total ?? 0;
   const complete = total > 0 && done === total;
 
+  // A tick that just turned green bursts; the last one takes the strip with
+  // it. Keyed by anchor+title so a reorder does not read as progress, and the
+  // first render seeds silently — opening a half-done issue is not a win.
+  const ticks = useRef<HTMLDivElement>(null);
+  const seen = useRef<Map<string, boolean> | null>(null);
+  useEffect(() => {
+    const now = new Map(units.map((u) => [`${u.anchor}|${u.title}`, u.done]));
+    const prev = seen.current;
+    seen.current = now;
+    if (!prev || !ticks.current) return;
+    const buttons = ticks.current.querySelectorAll<HTMLElement>('.tick');
+    const newlyDone = units
+      .map((u, i) => ({ u, i }))
+      .filter(({ u }) => u.done && prev.get(`${u.anchor}|${u.title}`) === false);
+    if (!newlyDone.length) return;
+    if (complete) {
+      void celebrateStrip(ticks.current.getBoundingClientRect());
+      return;
+    }
+    for (const { i } of newlyDone) {
+      const r = buttons[i]?.getBoundingClientRect();
+      if (r) void burstAt(r.left + r.width / 2, r.top + r.height / 2);
+    }
+  }, [units, complete]);
+
   const outstanding = units.filter((u) => !u.done);
 
   return (
@@ -56,7 +82,7 @@ export function Strip({ number, readiness, onJump }: Props) {
         {complete ? 'READY' : `WT${number}`}
       </button>
 
-      <div class="ticks">
+      <div class="ticks" ref={ticks}>
         {units.map((unit, i) => (
           <span class="tick-wrap" key={`${unit.anchor}-${i}`}>
             <button

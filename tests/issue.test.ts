@@ -303,6 +303,27 @@ describe('readiness', () => {
   });
 });
 
+describe('readiness reads in issue order and skips held-out items', () => {
+  it('lists units section by section, the way the page reads', () => {
+    const r = readiness(fixture());
+    const anchors = r.units.map((u) => u.anchor);
+    const at = (id: string) => anchors.indexOf(id);
+    expect(at('intro-1')).toBeLessThan(at('link-flipcash'));
+    expect(at('link-flipcash')).toBeLessThan(at('briefly-forge'));
+    expect(at('briefly-forge')).toBeLessThan(at('membership-1'));
+    expect(at('membership-1')).toBeLessThan(at('outro-1'));
+  });
+
+  it('a held-out link owes no commentary', () => {
+    const doc = fixture();
+    const notable = doc.nodes.find((n) => n.type === 'notable')!;
+    const before = readiness(doc).units.filter((u) => u.anchor === 'link-functions');
+    expect(before).toHaveLength(1);
+    const held = issues.removeItem(doc, notable.id, 'link-functions');
+    expect(readiness(held).units.filter((u) => u.anchor === 'link-functions')).toHaveLength(0);
+  });
+});
+
 describe('an issue without the skeleton', () => {
   it('renders when it is nothing but Markdown blocks', () => {
     let doc = createIssue({ number: 400, publication_date: '2026-10-03' });
