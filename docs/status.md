@@ -136,6 +136,11 @@ finished, what is half-finished, and what has never run.
   dashboard shows them with a PRE-BUILDER chip and their archive state.
 - ~~Echoes archive retrieval~~ — built 2026-08-28: the wand retrieves from
   the Librarian, fails loud without it, and stores the citations it used.
+- **The log shows the change, not just that one happened** (Jamie,
+  2026-09-20, after the revisions table landed). Today an `edit` line says
+  "Edited body — Building"; with every replaced document now kept in
+  `revisions`, the log can show was→now for the field, the way review notes
+  already do. Not scoped yet; the data is there.
 
 ## The dry run — 2026-08-28, all four legs
 
