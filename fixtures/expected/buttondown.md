@@ -24,8 +24,6 @@ Community currencies remain an interesting design space.
 
 ## Minnesota Technology Council
 
-_Monday · 9:00 PM_
-
 I had my first official meeting of the Technology Advisory Council. I am
 looking forward to helping in established areas like cloud and data
 transformation, as well as new areas with AI deployment.

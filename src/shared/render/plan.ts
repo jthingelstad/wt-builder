@@ -67,6 +67,17 @@ export function isIncluded(item: Item, w: Window): boolean {
   return !heldOut(item) && !outOfWindow(item, w);
 }
 
+/**
+ * The items the window still admits, as `[id, item]` pairs. Every editor-side
+ * count and check reads through this so the instruments agree with the
+ * editions: an item that fell out when the window shrank is not counted, not
+ * asked for commentary, and not fed to the wand.
+ */
+export function itemsInWindow(doc: IssueDoc): [string, Item][] {
+  const w = windowOf(doc);
+  return Object.entries(doc.items).filter(([, item]) => !outOfWindow(item, w));
+}
+
 /** Exactly one channel on — an edition-only item, which the canvas says out loud. */
 export function editionOnly(item: Item): boolean {
   return CHANNELS.filter((c) => item.channels[c]).length === 1;
@@ -190,6 +201,33 @@ export function bodyLines(body: string | undefined): string[] {
     .split('\n')
     .map((l) => l.trim())
     .filter((l) => l.length > 0);
+}
+
+/**
+ * A long post's Markdown, one block per paragraph, heading, list, or quote.
+ *
+ * A Journal moment is a sentence or two and flattens to one line; a promoted
+ * post is an article, and flattening it welds every paragraph into one. The
+ * blank-line boundaries are the structure, so they are kept. Headings are
+ * shifted so the shallowest sits one level under the post's own `##` heading
+ * — a post written with `##` must not print as a sibling of the section it is.
+ */
+export function postBlocks(body: string | undefined): string[] {
+  const blocks = String(body ?? '')
+    .replace(/\\n/g, '\n')
+    .replace(/\r\n/g, '\n')
+    .split(/\n[ \t]*\n+/)
+    .map((b) => b.trim())
+    .filter(Boolean);
+
+  const levels = blocks
+    .map((b) => /^(#{1,6})\s/.exec(b)?.[1]?.length ?? 0)
+    .filter((n) => n > 0);
+  const shift = levels.length ? Math.max(0, 3 - Math.min(...levels)) : 0;
+  if (!shift) return blocks;
+  return blocks.map((b) =>
+    b.replace(/^(#{1,6})(\s)/, (_all, hashes: string, sp: string) =>
+      '#'.repeat(Math.min(6, hashes.length + shift)) + sp));
 }
 
 /** Collapse a body to a single line for spoken output. */

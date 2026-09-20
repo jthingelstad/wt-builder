@@ -24,8 +24,6 @@ Community currencies remain an interesting design space.
 
 ## Minnesota Technology Council
 
-_Monday · 9:00 PM_
-
 I had my first official meeting of the Technology Advisory Council. I am
 looking forward to helping in established areas like cloud and data
 transformation, as well as new areas with AI deployment.
@@ -79,7 +77,7 @@ Renderer expectations exercised here:
 
 - Photo, Membership, and Haiku publish with no heading (publishes_heading: false).
 - Journal date groups print the weekday alone; the date is established by the issue.
-- A promoted Journal post prints its own title, then weekday and time.
+- A promoted Journal post prints its own title and no clock; its body keeps its paragraphs.
 - link-functions has no commentary and still renders: the title is the item.
 - journal-excluded has all three channels false and appears in no edition.
 - ps-1 is email-only (website: false) and is absent here.

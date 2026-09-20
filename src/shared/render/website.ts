@@ -6,9 +6,9 @@
  */
 
 import type { IssueDoc, IssueNode, Item } from '../types.ts';
-import { clockTime, shortDate, wallClock, weekday } from '../dates.ts';
+import { clockTime, shortDate, wallClock } from '../dates.ts';
 import type { PlannedItem, PlannedNode } from './plan.ts';
-import { bodyLines, planEdition } from './plan.ts';
+import { bodyLines, planEdition, postBlocks } from './plan.ts';
 
 /** Blocks are joined by a blank line; a block is one Markdown paragraph. */
 export type Block = string;
@@ -85,14 +85,13 @@ export function journalEntryBlock(item: Item): Block {
   return `[${time}](${item.source_url}) — ${body}`;
 }
 
-/** A promoted post prints its weekday and time beneath its own heading. */
+/**
+ * A promoted post is a section of its own: its title is the heading and its
+ * body prints whole. It carries no clock — the time belongs to the Journal
+ * moment it stopped being.
+ */
 export function promotedBlocks(item: Item): Block[] {
-  const out: Block[] = [];
-  const w = wallClock(item.published_at);
-  if (w) out.push(`_${weekday(w)} · ${clockTime(w)}_`);
-  const body = bodyLines(item.body).join(' ');
-  if (body) out.push(body);
-  return out;
+  return postBlocks(item.body);
 }
 
 /**

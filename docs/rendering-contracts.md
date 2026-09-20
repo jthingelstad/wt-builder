@@ -55,8 +55,11 @@ group prints the weekday alone — the date is already established by the issue.
 Each item remains independently removable.
 
 Titled long posts may be promoted. Promotion changes placement and
-presentation, not provenance or underlying content. A promoted post prints its
-weekday and time beneath its heading.
+presentation, not provenance or underlying content. A promoted post is a
+section of its own: its title is the heading, its body prints with its own
+paragraphs, headings, lists, and quotes intact (headings shifted to sit under
+the post's heading), and it carries no time — the clock belongs to the Journal
+moment it stopped being. Audio speaks it one paragraph per block.
 
 ## Photo
 

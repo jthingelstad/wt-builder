@@ -89,6 +89,7 @@ export function markdownToSafeHtml(source: string): string {
   let list: string[] = [];
   let ordered: string[] = [];
   let orderedStart = 1;
+  let quoted: string[][] = [];
 
   const flushParagraph = () => {
     if (!paragraph.length) return;
@@ -106,12 +107,24 @@ export function markdownToSafeHtml(source: string): string {
     out.push(`<ol${start}>${ordered.map((line) => `<li>${markdownInlineToSafeHtml(line)}</li>`).join('')}</ol>`);
     ordered = [];
   };
+  // A quoted passage is a run of `>` lines; a bare `>` between them is a
+  // paragraph break inside the quote, not the end of it.
+  const flushQuote = () => {
+    const paragraphs = quoted.filter((lines) => lines.length);
+    if (paragraphs.length) {
+      out.push(`<blockquote>${paragraphs
+        .map((lines) => `<p>${markdownInlineToSafeHtml(lines.join(' '))}</p>`)
+        .join('')}</blockquote>`);
+    }
+    quoted = [];
+  };
 
   for (const line of lines) {
     if (!line.trim()) {
       flushParagraph();
       flushList();
       flushOrdered();
+      flushQuote();
       continue;
     }
     const heading = /^(#{1,4})\s+(.+)$/.exec(line);
@@ -122,33 +135,41 @@ export function markdownToSafeHtml(source: string): string {
       flushParagraph();
       flushList();
       flushOrdered();
+      flushQuote();
       const level = Math.min(4, heading[1]!.length + 1);
       out.push(`<h${level}>${markdownInlineToSafeHtml(heading[2]!)}</h${level}>`);
     } else if (bullet) {
       flushParagraph();
       flushOrdered();
+      flushQuote();
       list.push(bullet[1]!);
     } else if (numbered && (!paragraph.length || numbered[1] === '1')) {
       // As in CommonMark, only "1." may interrupt a paragraph — a line
       // beginning "2003." mid-prose is a sentence, not a list.
       flushParagraph();
       flushList();
+      flushQuote();
       if (!ordered.length) orderedStart = Number(numbered[1]!);
       ordered.push(numbered[2]!);
     } else if (quote) {
       flushParagraph();
       flushList();
       flushOrdered();
-      out.push(`<blockquote>${markdownInlineToSafeHtml(quote[1]!)}</blockquote>`);
+      const text = quote[1]!.trim();
+      if (!quoted.length) quoted.push([]);
+      if (text) quoted[quoted.length - 1]!.push(text);
+      else quoted.push([]);
     } else {
       flushList();
       flushOrdered();
+      flushQuote();
       paragraph.push(line.trim());
     }
   }
   flushParagraph();
   flushList();
   flushOrdered();
+  flushQuote();
   return out.join('');
 }
 

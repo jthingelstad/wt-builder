@@ -9,7 +9,7 @@
 import type { IssueDoc, Item } from '../types.ts';
 import { spokenLongDate, wallClock, weekday } from '../dates.ts';
 import type { PlannedNode } from './plan.ts';
-import { bodyLines, flatten, isLinkSection, planEdition } from './plan.ts';
+import { bodyLines, flatten, isLinkSection, planEdition, postBlocks } from './plan.ts';
 import { speakable } from './speech.ts';
 
 /** One spoken block. Blocks are separated by a blank line, which is a pause. */
@@ -77,6 +77,16 @@ function itemBlocks(item: Item, planned: PlannedNode, index: number, total: numb
       return isLinkSection(planned.node)
         ? [linkBlock(item, index, total)]
         : [terminate(flatten(item.commentary) || String(item.title ?? ''))];
+    case 'journal_post':
+      // A promoted post is an article: one spoken block per paragraph, so the
+      // pauses fall at the paragraph breaks. Headings, bullets, and quote
+      // marks are print structure and are not said.
+      return item.presentation === 'promoted'
+        ? postBlocks(item.body)
+            .map((b) => speakable(b.replace(/^(#{1,6}\s+|>\s?|[-*]\s+|\d{1,9}[.)]\s+)/gm, '')).replace(/\s*\n\s*/g, ' '))
+            .filter(Boolean)
+            .map(terminate)
+        : [speakable(flatten(item.body))].filter(Boolean);
     default:
       return [speakable(flatten(item.body))].filter(Boolean);
   }

@@ -309,6 +309,18 @@
 
 .haiku { font-size: 18px; font-weight: 700; line-height: 1.85; white-space: pre-line; }
 
+/* A promoted post: an article's own structure, one step under the section heading. */
+.post-body { white-space: pre-wrap; font-size: 16.5px; line-height: 1.7; }
+.post-body p, .post-body h3, .post-body h4, .post-body ul, .post-body ol,
+.post-body blockquote { white-space: normal; }
+.post-body h3 { font-size: 19px; font-weight: 700; line-height: 1.35; margin: 26px 0 8px; }
+.post-body h4 { font-size: 16.5px; font-weight: 700; margin: 20px 0 6px; }
+.post-body ul, .post-body ol { margin: 0 0 15px; padding-left: 26px; }
+.post-body li { font-size: 16.5px; line-height: 1.7; margin: 0 0 6px; }
+.post-body blockquote p { font-size: 16.5px; font-style: italic; line-height: 1.7; margin: 0 0 10px; }
+.post-body blockquote p:last-child { margin-bottom: 0; }
+.post-body img { max-width: 100%; height: auto; border-radius: 6px; margin: 4px 0 15px; }
+
 .byline-chip {
   display: inline-flex;
   align-items: center;

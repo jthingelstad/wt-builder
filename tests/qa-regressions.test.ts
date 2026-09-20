@@ -108,6 +108,15 @@ describe('markup never reaches the synthesizer', () => {
     expect(html).not.toContain('<ol');
   });
 
+  it('keeps a multi-line quote as one blockquote with paragraphs inside', () => {
+    // A long post quotes a passage as several `>` lines with a bare `>` between
+    // paragraphs. One blockquote per line read as five separate quotations.
+    const html = markdownToSafeHtml('> First thought,\n> continued.\n>\n> Second thought.\n\nMy reply.');
+    expect(html).toBe(
+      '<blockquote><p>First thought, continued.</p><p>Second thought.</p></blockquote><p>My reply.</p>',
+    );
+  });
+
   it('escapes unsafe raw HTML and URL schemes', () => {
     const html = markdownToSafeHtml('<script>alert(1)</script> [bad](javascript:alert(2))');
     expect(html).toContain('&lt;script&gt;');
