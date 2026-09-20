@@ -54,19 +54,14 @@ A good demonstration of what token speed feels like. →
 This should be a built-in feature in Shortcuts. →
 **[Introducing Shortcuts Playground](https://www.macstories.net/stories/introducing-shortcuts-playground/)**
 
-_By Thingy_
-
+<div class="from-thingy" style="margin:0 0 1.6em;padding:14px 18px;border-left:3px solid #2f7d4f;background:#f5f8f6;border-radius:0 8px 8px 0;font-family:Georgia,'Source Serif 4','Times New Roman',serif;color:#1a1a1a">
+<p style="font-family:ui-monospace,Menlo,Consolas,monospace;font-size:12px;letter-spacing:.05em;text-transform:uppercase;color:#5f6b63;margin:0 0 8px"><a href="https://thingy.thingelstad.com" style="color:#2f7d4f;text-decoration:none;font-weight:600">From Thingy</a>, my agentic librarian</p>
 {% if subscriber.subscriber_type == 'premium' %}
-
-Supporting Members make the Weekly Thing possible while directing every
-membership dollar to this year's nonprofit partner. Thank you for being one.
-
+<p>Supporting Members make the Weekly Thing possible while directing every membership dollar to this year&#39;s nonprofit partner. Thank you for being one.</p>
 {% else %}
-
-Supporting Members make the Weekly Thing possible while directing every
-membership dollar to this year's nonprofit partner.
-
+<p>Supporting Members make the Weekly Thing possible while directing every membership dollar to this year&#39;s nonprofit partner.</p>
 {% endif %}
+</div>
 
 Time to head outside. I hope you have a wonderful weekend.
 
@@ -79,10 +74,11 @@ Old echoes return**
 
 ## Echoes
 
-_By Thingy_
+<div class="from-thingy" style="margin:0 0 1.6em;padding:14px 18px;border-left:3px solid #2f7d4f;background:#f5f8f6;border-radius:0 8px 8px 0;font-family:Georgia,'Source Serif 4','Times New Roman',serif;color:#1a1a1a">
+<p style="font-family:ui-monospace,Menlo,Consolas,monospace;font-size:12px;letter-spacing:.05em;text-transform:uppercase;color:#5f6b63;margin:0 0 8px"><a href="https://thingy.thingelstad.com" style="color:#2f7d4f;text-decoration:none;font-weight:600">From Thingy</a>, my agentic librarian</p>
+<p>This week&#39;s return to building recalls earlier issues about owning the tools that shape your work.</p>
+</div>
 
-This week's return to building recalls earlier issues about owning the tools
-that shape your work.
 
 <!--
 The email edition is the website edition plus subscriber branching, not a
@@ -90,8 +86,10 @@ different document. What differs here:
 
 - ps-1 renders. It is email-only (channels: email true, website false, audio
   false) and exists to prove per-channel inclusion end to end.
-- Membership is wrapped in Liquid. The branching is added by this renderer; the
-  item itself carries one body, and the byline is outside the branch so
+- Membership is wrapped in Liquid inside Thingy's frame (an inline-styled div
+  with the body as HTML, so no mail-side Markdown parser looks inside it). The
+  branching is added by this renderer; the item itself carries one body, and
+  the frame is outside the branch so
   attribution survives either path.
 - Item order and Thingy attribution match the website exactly.
 -->

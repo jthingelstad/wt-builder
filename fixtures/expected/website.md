@@ -54,10 +54,14 @@ A good demonstration of what token speed feels like. →
 This should be a built-in feature in Shortcuts. →
 **[Introducing Shortcuts Playground](https://www.macstories.net/stories/introducing-shortcuts-playground/)**
 
-_By Thingy_
+<div class="from-thingy">
+
+<p class="from-thingy-label"><a href="https://thingy.thingelstad.com">From Thingy</a>, my agentic librarian</p>
 
 Supporting Members make the Weekly Thing possible while directing every
 membership dollar to this year's nonprofit partner.
+
+</div>
 
 Time to head outside. I hope you have a wonderful weekend.
 
@@ -67,10 +71,14 @@ Old echoes return**
 
 ## Echoes
 
-_By Thingy_
+<div class="from-thingy">
+
+<p class="from-thingy-label"><a href="https://thingy.thingelstad.com">From Thingy</a>, my agentic librarian</p>
 
 This week's return to building recalls earlier issues about owning the tools
 that shape your work.
+
+</div>
 
 <!--
 Renderer expectations exercised here:

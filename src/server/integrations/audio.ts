@@ -19,6 +19,7 @@ import { join } from 'node:path';
 import { PutObjectCommand, S3Client } from '@aws-sdk/client-s3';
 
 import type { IssueDoc } from '../../shared/types.ts';
+import type { ScriptSegment, Speaker } from '../../shared/render/audio.ts';
 import { config, credentials } from '../config.ts';
 import { CDN_HOST } from './images.ts';
 import { buildCover } from './cover.ts';
@@ -26,8 +27,15 @@ import { subjectFor } from '../publish.ts';
 
 export const TTS_MODEL = 'tts-1-hd';
 export const TTS_VOICE = 'echo';
+/**
+ * Thingy's voice — chosen by ear against echo on 2026-09-20 (nova, on the
+ * same model; gpt-4o-mini-tts lost on sound). A different voice is the
+ * audio edition's different font.
+ */
+export const THINGY_VOICE = 'nova';
+export const VOICES: Record<Speaker, string> = { jamie: TTS_VOICE, thingy: THINGY_VOICE };
 /** The voice string recorded on the issue, matching Studio's manifest format. */
-export const VOICE_ID = `openai-${TTS_MODEL}:${TTS_VOICE}`;
+export const VOICE_ID = `openai-${TTS_MODEL}:${TTS_VOICE}+${THINGY_VOICE}`;
 
 /** OpenAI caps a single speech request; Studio settled on this chunk size. */
 export const MAX_CHARS = 3800;
@@ -241,10 +249,12 @@ function runCapturingStderr(cmd: string, args: string[]): Promise<string> {
  */
 export async function renderAudio(
   doc: IssueDoc,
-  script: string,
+  script: string | ScriptSegment[],
   opts: { bumpersDir?: string } = {},
 ): Promise<AudioResult> {
   const issueNumber = doc.issue.number;
+  // A plain string is one voice throughout; segments carry their speaker.
+  const segments: ScriptSegment[] = typeof script === 'string' ? [{ speaker: 'jamie', text: script }] : script;
 
   for (const tool of ['ffmpeg', 'ffprobe']) {
     // Spawned processes inherit a minimal PATH under launchd; fail loudly here
@@ -254,7 +264,7 @@ export async function renderAudio(
     });
   }
 
-  const chunks = chunkScript(script);
+  const chunks = segments.flatMap((seg) => chunkScript(seg.text).map((text) => ({ text, voice: VOICES[seg.speaker] })));
   if (!chunks.length) throw new Error('the audio script is empty');
 
   // Build the cover before paying for synthesis: a missing cover should fail
@@ -272,7 +282,7 @@ export async function renderAudio(
     if (intro && existsSync(intro)) parts.push(intro);
 
     for (const [i, chunk] of chunks.entries()) {
-      const audio = await speak(chunk);
+      const audio = await speak(chunk.text, { voice: chunk.voice });
       const path = join(work, `chunk-${String(i).padStart(3, '0')}.mp3`);
       await writeFile(path, audio);
       parts.push(path);

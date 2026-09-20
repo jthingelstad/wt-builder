@@ -89,6 +89,13 @@ finished, what is half-finished, and what has never run.
   on the meta card opens it as a sheet. Quiet re-scans (nothing changed) log
   nothing, so the auto-scan on open cannot bury the signal.
 
+- **Thingy's frame** (2026-09-20) — "From Thingy, my agentic librarian",
+  linked to thingy.thingelstad.com, around Membership and Echoes: a sans block
+  on the site (`.from-thingy` in weekly.thingelstad.com), an inline-styled
+  block in email, and Thingy's own voice (nova) in audio. Podcast synthesis
+  takes voice segments; `VOICE_ID` records both voices. Not yet heard in a
+  real send.
+
 - **Lost-edit protection** (2026-09-20) — every save keeps the replaced
   document in `revisions` (last 300 per issue; `npm run revisions`), and every
   handler that awaits the network — re-scan, photo upload, write-back,

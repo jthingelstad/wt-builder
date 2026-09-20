@@ -45,8 +45,9 @@ Link 2 of 3. tokenspeed. A good demonstration of what token speed feels like.
 Link 3 of 3. Introducing Shortcuts Playground. This should be a built-in
 feature in Shortcuts.
 
-Next, a word about membership. This part was written by Thingy, the assistant
-that helps with the Weekly Thing.
+Next, a word about membership, from Thingy, my agentic librarian.
+
+Hello, this is Thingy.
 
 Supporting Members make the Weekly Thing possible while directing every
 membership dollar to this year's nonprofit partner.

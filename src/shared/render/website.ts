@@ -17,6 +17,41 @@ export function byline(item: Item): string {
   return `_By ${item.attribution ?? item.authorship}_`;
 }
 
+// ── Thingy's frame ────────────────────────────────────────────────────────
+//
+// Thingy is Jamie's sidekick, showing up in the content from time to time.
+// It identifies itself the same way everywhere and differently per channel:
+// a labelled block set in the site's serif on the web, an inline-styled
+// block in email, its own voice in audio (docs/rendering-contracts.md,
+// Thingy attribution; Jamie, 2026-09-20). The label links to Thingy's own
+// site, and the byline reads "From Thingy, my agentic librarian".
+
+export const THINGY_URL = 'https://thingy.thingelstad.com';
+export const THINGY_LABEL = 'From Thingy';
+export const THINGY_ROLE = 'my agentic librarian';
+
+/**
+ * The website frame: an HTML block the site styles (`.from-thingy` in
+ * weekly.thingelstad.com's stylesheet), with Markdown inside. Each piece is
+ * its own block so the blank lines between them let markdown-it treat the
+ * div and label as raw HTML and the body as Markdown.
+ */
+export function thingyFrame(body: Block[]): Block[] {
+  if (!body.length) return [];
+  return [
+    '<div class="from-thingy">',
+    `<p class="from-thingy-label"><a href="${THINGY_URL}">${THINGY_LABEL}</a>, ${THINGY_ROLE}</p>`,
+    ...body,
+    '</div>',
+  ];
+}
+
+/** Attribution for a Membership or Echoes body: Thingy's frame, or a plain byline. */
+export function attributed(item: Item, body: Block[]): Block[] {
+  if (!body.length) return [];
+  return item.authorship === 'Thingy' ? thingyFrame(body) : [byline(item), ...body];
+}
+
 /**
  * The exact spot on OpenStreetMap, or null when the string is not "lat, lon".
  * OSM is where the place name came from (integrations/geocode.ts), so it is
@@ -125,11 +160,9 @@ function itemBlocks(entry: PlannedItem, node?: IssueNode): Block[] {
         ? promotedBlocks(item)
         : [journalEntryBlock(item)];
     case 'membership':
-    case 'echoes': {
-      const body = bodyLines(item.body).join(' ');
+    case 'echoes':
       // Attribution with no words under it is an unwritten item, not a credit.
-      return body ? [byline(item), body] : [];
-    }
+      return attributed(item, postBlocks(item.body));
     case 'quote':
       return bodyLines(item.body).map((l) => `> ${l}`);
     default:

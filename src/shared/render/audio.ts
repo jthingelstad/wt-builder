@@ -24,8 +24,11 @@ export const CLOSING = 'That brings us to the end of The Weekly Thing.';
 export const HAIKU_TRANSITION = "And to close, this week's haiku.";
 
 /** Membership is spoken, introduced as Thingy's words before the words themselves. */
-export const MEMBERSHIP_TRANSITION =
-  'Next, a word about membership. This part was written by Thingy, the assistant that helps with the Weekly Thing.';
+/** Jamie hands over; Thingy introduces itself in its own voice, then speaks. */
+export const MEMBERSHIP_TRANSITION = 'Next, a word about membership, from Thingy, my agentic librarian.';
+export const THINGY_HELLO = 'Hello, this is Thingy.';
+
+export type Speaker = 'jamie' | 'thingy';
 
 /** Add a full stop unless the text already ends in terminal punctuation. */
 export function terminate(text: string): string {
@@ -117,6 +120,8 @@ export interface ScriptBlock {
   reversed?: boolean;
   /** The spoken title, so the lens can highlight exactly that span. */
   title?: string;
+  /** Who says it. Thingy's blocks are synthesized in Thingy's voice; absent means Jamie. */
+  speaker?: Speaker;
 }
 
 export function audioScript(doc: IssueDoc): ScriptBlock[] {
@@ -154,6 +159,7 @@ export function audioScript(doc: IssueDoc): ScriptBlock[] {
       planned.items.forEach((entry, i) => {
         for (const text of itemBlocks(entry.item, planned, i + 1, total)) {
           const block: ScriptBlock = { kind: 'cue', text, nodeId: planned.node.id, itemId: entry.id };
+          if (entry.item.authorship === 'Thingy') block.speaker = 'thingy';
           if (briefly && entry.item.type === 'pinboard_link') {
             block.reversed = true;
             block.title = terminate(String(entry.item.title ?? ''));
@@ -167,6 +173,10 @@ export function audioScript(doc: IssueDoc): ScriptBlock[] {
 
     const transition = transitionFor(planned);
     if (transition) script.push({ kind: 'transition', text: transition, nodeId: planned.node.id });
+    // Thingy introduces itself before its first words, in its own voice.
+    if (spoken.some((b) => b.speaker === 'thingy')) {
+      script.push({ kind: 'transition', text: THINGY_HELLO, nodeId: planned.node.id, speaker: 'thingy' });
+    }
     script.push(...spoken);
   }
 
@@ -181,6 +191,24 @@ export function audioScript(doc: IssueDoc): ScriptBlock[] {
  */
 export function renderAudio(doc: IssueDoc): string {
   return audioScript(doc).map((b) => b.text).join('\n\n') + '\n';
+}
+
+/** One run of consecutive blocks in one voice: what the synthesizer takes. */
+export interface ScriptSegment {
+  speaker: Speaker;
+  text: string;
+}
+
+/** The script as voice runs, in order — the same blocks, grouped by who speaks. */
+export function audioSegments(doc: IssueDoc): ScriptSegment[] {
+  const out: ScriptSegment[] = [];
+  for (const b of audioScript(doc)) {
+    const speaker: Speaker = b.speaker ?? 'jamie';
+    const last = out[out.length - 1];
+    if (last && last.speaker === speaker) last.text += `\n\n${b.text}`;
+    else out.push({ speaker, text: b.text });
+  }
+  return out;
 }
 
 /** Spoken date form, used by the podcast description rather than the script. */

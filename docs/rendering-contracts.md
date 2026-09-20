@@ -75,16 +75,29 @@ issue.
 
 ## Thingy attribution
 
-Membership and Echoes must include a visible byline or equivalent attribution.
-Thingy's words must never appear to be Jamie's.
+Thingy is Jamie's sidekick, showing up in the content from time to time
+(Membership, Echoes). Thingy's words must never appear to be Jamie's, so Thingy
+identifies itself the same way everywhere and differently per channel
+(2026-09-20):
 
-Echoes is omitted from audio. Membership **is** spoken, and the script must
-introduce Thingy as its author before the words themselves:
+- **Website** — `<div class="from-thingy">` with a label line, `From Thingy`
+  linked to https://thingy.thingelstad.com, then `, my agentic librarian`; the
+  body follows as Markdown. The site sets the block in its sans against the
+  issue's serif — the different font is the identity. Not a blockquote.
+- **Email** — the same label in an inline-styled block (mail clients keep
+  inline styles and little else), with the body rendered to HTML inside so no
+  mail-side Markdown parser has to look inside a div. The Liquid membership
+  branch sits inside the frame.
+- **Audio** — a different voice. Jamie hands over in his voice, Thingy
+  introduces itself in its own (`nova`, same `tts-1-hd` model as Jamie's
+  `echo`), then speaks; Jamie takes the next section back:
 
 ```text
-Next, a word about membership. This part was written by Thingy, the assistant
-that helps with the Weekly Thing.
+Next, a word about membership, from Thingy, my agentic librarian.   ← echo
+Hello, this is Thingy. <the membership words>                       ← nova
 ```
+
+Echoes is omitted from audio.
 
 ## Echoes
 

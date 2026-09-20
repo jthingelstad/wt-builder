@@ -6,10 +6,11 @@
  */
 
 import type { IssueDoc, Item } from '../types.ts';
+import { markdownToSafeHtml } from '../markdown.ts';
 import type { Block } from './website.ts';
-import { byline, nodeBlocks, nodeHeading } from './website.ts';
+import { THINGY_LABEL, THINGY_ROLE, THINGY_URL, byline, nodeBlocks, nodeHeading } from './website.ts';
 import type { PlannedNode } from './plan.ts';
-import { bodyLines, planEdition } from './plan.ts';
+import { bodyLines, planEdition, postBlocks } from './plan.ts';
 
 export const PREMIUM_CONDITION = "subscriber.subscriber_type == 'premium'";
 
@@ -17,33 +18,70 @@ export const PREMIUM_CONDITION = "subscriber.subscriber_type == 'premium'";
 export const MEMBER_THANKS = 'Thank you for being one.';
 
 /**
- * Membership, wrapped in subscriber branching. The byline sits outside the
- * branch so attribution survives either path.
+ * Thingy's frame for email: one HTML block with inline styles (mail clients
+ * keep those and little else) and the body rendered to HTML inside it, so no
+ * mail-side Markdown parser has to look inside a div. Liquid passes through
+ * untouched — Buttondown resolves it before the HTML is sent.
+ */
+const FRAME_STYLE = [
+  'margin:0 0 1.6em', 'padding:14px 18px', 'border-left:3px solid #2f7d4f',
+  'background:#f5f8f6', 'border-radius:0 8px 8px 0',
+  "font-family:Georgia,'Source Serif 4','Times New Roman',serif", 'color:#1a1a1a',
+].join(';');
+const LABEL_STYLE = [
+  "font-family:ui-monospace,Menlo,Consolas,monospace", 'font-size:12px', 'letter-spacing:.05em',
+  'text-transform:uppercase', 'color:#5f6b63', 'margin:0 0 8px',
+].join(';');
+const LINK_STYLE = 'color:#2f7d4f;text-decoration:none;font-weight:600';
+
+export function thingyEmailFrame(inner: string[]): Block {
+  return [
+    `<div class="from-thingy" style="${FRAME_STYLE}">`,
+    `<p style="${LABEL_STYLE}"><a href="${THINGY_URL}" style="${LINK_STYLE}">${THINGY_LABEL}</a>, ${THINGY_ROLE}</p>`,
+    ...inner,
+    '</div>',
+  ].join('\n');
+}
+
+const html = (markdown: string | undefined) => markdownToSafeHtml(postBlocks(markdown).join('\n\n'));
+
+/**
+ * Membership, wrapped in subscriber branching inside Thingy's frame, so the
+ * attribution survives either path.
  */
 export function membershipBlocks(item: Item): Block[] {
   const body = bodyLines(item.body).join(' ');
-  if (!body) return [byline(item)];
+  if (!body) return [];
 
   // A drafted thank-you stands alone for existing members; without one,
   // the historical form - the invitation with the static line appended.
   const thanks = String(item.member_thanks ?? '').trim() || `${body} ${MEMBER_THANKS}`;
-  return [
-    byline(item),
+  const branch = [
     `{% if ${PREMIUM_CONDITION} %}`,
-    thanks,
+    html(thanks),
     '{% else %}',
-    body,
+    html(item.body),
     '{% endif %}',
   ];
+  return item.authorship === 'Thingy' ? [thingyEmailFrame(branch)] : [byline(item), ...branch];
+}
+
+/** Echoes in email: the same frame, no branch. */
+export function echoesBlocks(item: Item): Block[] {
+  const body = bodyLines(item.body).join(' ');
+  if (!body) return [];
+  return item.authorship === 'Thingy' ? [thingyEmailFrame([html(item.body)])] : [byline(item), ...postBlocks(item.body)];
 }
 
 function emailNodeBlocks(planned: PlannedNode): Block[] {
-  if (planned.node.type !== 'membership') return nodeBlocks(planned);
+  if (planned.node.type !== 'membership' && planned.node.type !== 'echoes') return nodeBlocks(planned);
 
   const out: Block[] = [];
   const heading = nodeHeading(planned);
   if (heading) out.push(heading);
-  for (const entry of planned.items) out.push(...membershipBlocks(entry.item));
+  for (const entry of planned.items) {
+    out.push(...(planned.node.type === 'membership' ? membershipBlocks(entry.item) : echoesBlocks(entry.item)));
+  }
   return out;
 }
 

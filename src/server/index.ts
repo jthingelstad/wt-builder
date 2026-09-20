@@ -31,7 +31,7 @@ import * as geocode from './integrations/geocode.ts';
 import * as editorial from './editorial.ts';
 import * as githubRepo from './integrations/github.ts';
 import * as audio from './integrations/audio.ts';
-import { renderAudio as renderAudioScript } from '../shared/render/audio.ts';
+import { audioSegments } from '../shared/render/audio.ts';
 import { archiveInputs, issueEntry, siteInputs, type IssueEntry } from './publish.ts';
 import * as draftShare from './share.ts';
 
@@ -848,8 +848,8 @@ async function sendPodcast(id: string) {
   guardInFlight(doc, 'podcast');
   store.recordSend(id, 'podcast', { status: 'sending', at: new Date().toISOString() });
   try {
-    const script = renderAudioScript(doc);
-    const result = await audio.renderAudio(doc, script, {
+    // Segments, not a flat script: Thingy's blocks are synthesized in Thingy's voice.
+    const result = await audio.renderAudio(doc, audioSegments(doc), {
       bumpersDir: config.bumpersDir,
     });
     const state: PodcastSend = {
@@ -986,7 +986,29 @@ if (isMain !== false) {
   server.listen(config.port, config.host, () => {
     console.log(`WT Builder on http://${config.host}:${config.port}`);
     for (const [k, v] of Object.entries(describeConfig())) console.log(`  ${k}: ${v}`);
+    void finishStrandedWrites();
   });
+}
+
+/**
+ * A restart between "saved" and "written to the source" leaves an item in
+ * `syncing` with nothing writing (a deploy landed in the same second as an
+ * edit, 2026-09-20). On boot, every such item in a draft gets its write.
+ */
+async function finishStrandedWrites(): Promise<void> {
+  for (const row of store.listIssues()) {
+    if (row.doc.issue.status !== 'draft') continue;
+    for (const [itemId, item] of Object.entries(row.doc.items)) {
+      if (item.sync_state !== 'syncing') continue;
+      try {
+        const { patch, result } = await writeItemToSource(row.id, requireIssue(row.id), itemId);
+        savedFresh(row.id, (d) => issues.updateItem(d, itemId, patch));
+        store.logEvent(row.id, 'sync', `Finished after restart — ${result.sync_state} — ${issues.itemName(item)}`);
+      } catch (e) {
+        console.warn(`[boot] stranded write for ${row.id}/${itemId} failed: ${(e as Error).message}`);
+      }
+    }
+  }
 }
 
 export { server };
