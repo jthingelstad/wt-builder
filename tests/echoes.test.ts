@@ -42,3 +42,18 @@ describe('composing selected echoes', () => {
     expect(archive_references).toEqual([]);
   });
 });
+
+describe('each echo carries a door into Thingy', () => {
+  it('renders the question as a link that opens Thingy with it asked, attributed to the issue', async () => {
+    const { composeEchoes, askThingyUrl } = await import('../src/shared/echoes.ts');
+    const { body } = composeEchoes([
+      { text: 'Code review came up in [WT210](https://weekly.thingelstad.com/archive/210/).', archive_references: [], ask: "How has Jamie's view of code review changed?" },
+      { text: 'A thread with no question.', archive_references: [] },
+    ], 350);
+    const url = askThingyUrl("How has Jamie's view of code review changed?", 350);
+    expect(url.startsWith('https://thingy.thingelstad.com/chat/?prompt=')).toBe(true);
+    expect(url).toContain('from=weekly-thing-350');
+    expect(body).toContain(`_Ask Thingy:_ [How has Jamie's view of code review changed?](${url})`);
+    expect(body.endsWith('A thread with no question.')).toBe(true);
+  });
+});

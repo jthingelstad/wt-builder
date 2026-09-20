@@ -388,10 +388,18 @@ Journal entry, a recurring place, project, or season. A citation that just
 says "Jamie has written about this before" is a failure.
 
 Open doors, don't close topics — no tidy conclusions, no "keep exploring!".
-At most ONE echo may close with an invitation to ask Thingy itself at
-https://thingy.thingelstad.com/ (the same librarian, live), and that echo
-must be offered LAST, so it lands at the end when Jamie selects it; every
-other echo ends on its citations alone.
+Every echo ends on its citations. Do not write invitations to ask Thingy
+into the text: each echo carries its own door instead — "ask", ONE question
+a curious reader could put to Thingy (you, live, with the whole archive) to
+go deeper on exactly that thread. Specific to the thread, answerable from the
+archive, phrased as the reader would type it, under 90 characters, no
+"Jamie" in the third person unless natural ("How has Jamie's view of code
+review changed?" is fine). It renders as a clickable link that opens Thingy
+with the question already asked.
+
+The archive is three things and the echo cites whichever it lives in:
+Weekly Thing issues first; Jamie's blog (thingelstad.com) when the thread
+is a post of his; the Another Thing podcast when it was said there.
 
 Ground every claim in the archive passages provided below — they are grouped
 by the item in this issue that retrieved them, and a passage from about a
@@ -687,10 +695,11 @@ const ECHOES_SCHEMA = {
       items: {
         type: 'object',
         additionalProperties: false,
-        required: ['text', 'archive_references'],
+        required: ['text', 'archive_references', 'ask'],
         properties: {
           text: { type: 'string' },
           archive_references: REFERENCES_SCHEMA,
+          ask: { type: 'string' },
         },
       },
     },

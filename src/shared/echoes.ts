@@ -11,7 +11,26 @@
 
 import type { ArchiveReference, EchoOption } from './types.ts';
 
-export function composeEchoes(selected: EchoOption[]): {
+export const THINGY_CHAT = 'https://thingy.thingelstad.com/chat/';
+
+/** The clickable question: opens Thingy with it already asked, attributed to the issue. */
+export function askThingyUrl(question: string, issueNumber?: number): string {
+  const url = new URL(THINGY_CHAT);
+  url.searchParams.set('prompt', question.trim());
+  url.searchParams.set('from', issueNumber ? `weekly-thing-${issueNumber}` : 'weekly-thing');
+  return url.toString();
+}
+
+/** One echo as it prints: the thread, then its door into Thingy. */
+export function echoBlock(echo: EchoOption, issueNumber?: number): string {
+  const text = echo.text.trim();
+  const ask = String(echo.ask ?? '').trim();
+  if (!text) return '';
+  if (!ask) return text;
+  return `${text}\n\n_Ask Thingy:_ [${ask}](${askThingyUrl(ask, issueNumber)})`;
+}
+
+export function composeEchoes(selected: EchoOption[], issueNumber?: number): {
   body: string;
   archive_references: ArchiveReference[];
 } {
@@ -25,7 +44,7 @@ export function composeEchoes(selected: EchoOption[]): {
     }
   }
   return {
-    body: selected.map((e) => e.text.trim()).filter(Boolean).join('\n\n'),
+    body: selected.map((e) => echoBlock(e, issueNumber)).filter(Boolean).join('\n\n'),
     archive_references: refs,
   };
 }

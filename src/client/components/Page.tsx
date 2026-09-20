@@ -393,7 +393,7 @@ export function Page({
                 <EchoesPicker
                   echoes={draft.echoes}
                   onCompose={(selected) => {
-                    const { body, archive_references } = composeEchoes(selected);
+                    const { body, archive_references } = composeEchoes(selected, doc.issue.number);
                     onPickDraft(itemId, body, archive_references);
                   }}
                   onDismiss={onDismissDraft}
@@ -971,7 +971,10 @@ function EchoesPicker({
           onClick={() => toggle(i)}
         >
           <span class="dp-check">{picked.has(i) ? '✓' : ''}</span>
-          <span class="dp-text">{echo.text}</span>
+          <span class="dp-text">
+            {echo.text}
+            {echo.ask && <span class="dp-ask">Ask Thingy: {echo.ask}</span>}
+          </span>
         </button>
       ))}
       <div class="dp-compose">

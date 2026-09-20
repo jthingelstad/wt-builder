@@ -164,6 +164,12 @@ export type IssueStatus = 'draft' | 'published';
 export interface EchoOption {
   text: string;
   archive_references: ArchiveReference[];
+  /**
+   * A question a curious reader could put to Thingy to go deeper on this
+   * thread. Rendered as a link that opens Thingy with the question already
+   * asked (thingy.thingelstad.com/chat/?prompt=…), 2026-09-20.
+   */
+  ask?: string;
 }
 
 /** A shared draft preview: where it lives and what Jamie said with it. */
