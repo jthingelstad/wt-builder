@@ -153,6 +153,15 @@ finished, what is half-finished, and what has never run.
   dashboard shows them with a PRE-BUILDER chip and their archive state.
 - ~~Echoes archive retrieval~~ — built 2026-08-28: the wand retrieves from
   the Librarian, fails loud without it, and stores the citations it used.
+- **Echoes are items, like Currently** (Jamie, 2026-09-20, after the first
+  real Echoes). An echo is a unit with a fixed shape — thread, citations,
+  question — and today the section is one item whose body the picker glues
+  together, so no echo can be reordered, removed, or redrafted alone. Plan:
+  an `echo` item type (`body`, `archive_references`, `ask`), the Echoes node a
+  real multi-item section still pinned last, the section wand appends units,
+  a per-item wand redrafts one, renderers iterate, `echoBlock` moves from
+  composer to renderer. Existing single-body issues keep rendering. Half a
+  day with tests; first thing next session.
 - **The log shows the change, not just that one happened** (Jamie,
   2026-09-20, after the revisions table landed). Today an `edit` line says
   "Edited body — Building"; with every replaced document now kept in
