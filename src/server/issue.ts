@@ -16,7 +16,7 @@ import type {
 } from '../shared/types.ts';
 import { SCHEMA_VERSION, allChannels, emptyChannels } from '../shared/types.ts';
 import { addDays, issueWindow, issueSaturday } from '../shared/dates.ts';
-import { bodyLines, orderedNodes } from '../shared/render/plan.ts';
+import { bodyLines, itemsInWindow, orderedNodes, outOfWindow } from '../shared/render/plan.ts';
 import * as pinboard from './integrations/pinboard.ts';
 import * as microblog from './integrations/microblog.ts';
 import { reconcileItem, type RemoteFields } from './reconcile.ts';
@@ -156,7 +156,9 @@ export function itemName(item: Item): string {
 
 /**
  * Sweep both sources for the issue's window and place what is new. Items
- * already present (by source_id) are left alone so a re-sweep is safe.
+ * already present (by source_id) are left alone so a re-sweep is safe; items
+ * the window no longer admits are dropped (pruneOutsideWindow), so narrowing
+ * the window and re-scanning leaves exactly the window's worth.
  */
 export async function sweep(doc: IssueDoc): Promise<{ doc: IssueDoc; report: SweepReport }> {
   const window = issueWindow(doc.issue.publication_date, doc.issue.window_days);
@@ -198,9 +200,9 @@ export async function sweep(doc: IssueDoc): Promise<{ doc: IssueDoc; report: Swe
     const item = pinboard.candidateToItem(c);
     const id = idFor(next, c);
     next.items[id] = item;
-    placeInto(next, id, item.section ?? 'Briefly');
+    placeInto(next, id, item.section ?? pinboard.DEFAULT_LINK_SECTION);
     justAdded.add(id);
-    log.push({ kind: 'swept-in', summary: `${itemName(item)} — Pinboard, into ${item.section ?? 'Briefly'}` });
+    log.push({ kind: 'swept-in', summary: `${itemName(item)} — Pinboard, into ${item.section ?? pinboard.DEFAULT_LINK_SECTION}` });
     added++;
   }
 
@@ -214,6 +216,9 @@ export async function sweep(doc: IssueDoc): Promise<{ doc: IssueDoc; report: Swe
     log.push({ kind: 'swept-in', summary: `${itemName(item)} — Micro.blog, into Journal` });
     added++;
   }
+
+  // ── the window is the membership ─────────────────────────────────────────
+  log.push(...pruneOutsideWindow(next));
 
   // ── reconcile: the source side of the mirror ─────────────────────────────
   //
@@ -271,6 +276,8 @@ export async function sweep(doc: IssueDoc): Promise<{ doc: IssueDoc; report: Swe
     }
   }
 
+  log.push(...followBookmarkTags(next, justAdded));
+
   // Heal Pinboard items that predate the converter carrying published_at:
   // they are invisible to the window, and the windowed sweep above cannot
   // re-see a bookmark captured outside the current window. One posts/get per
@@ -283,6 +290,86 @@ export async function sweep(doc: IssueDoc): Promise<{ doc: IssueDoc; report: Swe
 
   sortJournal(next);
   return { doc: next, report: { added, skipped, ...reconciled, window, candidates: [...links, ...posts], log } };
+}
+
+/** An edit here that the source has not received yet. Dropping the item would lose it. */
+const UNSYNCED: ReadonlySet<string> = new Set(['local', 'syncing', 'failed', 'conflict']);
+
+/**
+ * Drop the syndicated items the window no longer admits.
+ *
+ * The window is the issue's membership: Jamie widened WT350 to three weeks,
+ * narrowed it back to one, and rightly expected the two weeks he let go of to
+ * be gone — not kept and marked OUTSIDE WINDOW in every count and lens
+ * (2026-09-20). A dropped item's words live at the source and a re-scan
+ * inside a wider window brings it straight back, so nothing is lost —
+ * except an edit that has not written back yet, and that item is kept and
+ * named in the log. Mutates `doc`; returns the log lines.
+ */
+export function pruneOutsideWindow(doc: IssueDoc): { kind: string; summary: string }[] {
+  const w = issueWindow(doc.issue.publication_date, doc.issue.window_days);
+  const log: { kind: string; summary: string }[] = [];
+  const dropped = new Set<string>();
+
+  for (const [id, item] of Object.entries(doc.items)) {
+    if (!outOfWindow(item, w)) continue;
+    if (UNSYNCED.has(item.sync_state ?? '')) {
+      log.push({ kind: 'kept', summary: `${itemName(item)} — outside the window, kept: an edit here has not reached ${item.source}` });
+      continue;
+    }
+    dropped.add(id);
+    log.push({ kind: 'dropped', summary: `${itemName(item)} — outside the window` });
+  }
+  if (!dropped.size) return log;
+
+  for (const id of dropped) delete doc.items[id];
+  for (const n of doc.nodes) n.items = n.items.filter((id) => !dropped.has(id));
+  for (const n of doc.held_nodes ?? []) n.items = n.items.filter((id) => !dropped.has(id));
+  doc.orphans = (doc.orphans ?? []).filter((id) => !dropped.has(id));
+
+  // A promoted post that fell out leaves an empty section behind; take it too.
+  doc.nodes = doc.nodes.filter((n) => n.kind !== 'promoted_item' || n.items.length > 0);
+  if (doc.issue.output_order) {
+    const live = new Set(doc.nodes.map((n) => n.id));
+    doc.issue.output_order = doc.issue.output_order.filter((id) => live.has(id));
+  }
+  return log;
+}
+
+/**
+ * Placement follows the bookmark. Jamie files links by tagging in Pinboard —
+ * `_brief` on, it is Briefly; off, it is Notable — and the reconcile has just
+ * adopted whatever the tags now say. A link whose tags and snapshot agree has
+ * no local edit in flight, so its section is re-derived and it moves if the
+ * tags moved. A move made in the builder is a tag edit too
+ * (moveLinkToSection), so it shows as a pending local edit and is left alone.
+ * Mutates `doc`; returns the log lines for what moved.
+ */
+export function followBookmarkTags(
+  doc: IssueDoc,
+  skip: Set<string> = new Set(),
+): { kind: string; summary: string }[] {
+  const log: { kind: string; summary: string }[] = [];
+  for (const [id, item] of Object.entries(doc.items)) {
+    if (item.type !== 'pinboard_link' || item.source !== 'Pinboard' || skip.has(id)) continue;
+    // Only a link with a sweep record can be said to follow its bookmark.
+    const base = item.source_snapshot?.tags;
+    if (!Array.isArray(base)) continue;
+    const tags = item.tags ?? [];
+    if ([...tags].sort().join(' ') !== [...base].sort().join(' ')) continue;
+    const implied = pinboard.sectionForTags(tags) ?? pinboard.DEFAULT_LINK_SECTION;
+    if (implied !== 'Notable' && implied !== 'Briefly') continue;
+    const here = doc.nodes.find((n) => n.items.includes(id));
+    if (!here || here.kind !== 'section') continue;
+    const from = here.label;
+    if ((from !== 'Notable' && from !== 'Briefly') || from === implied) continue;
+    const moved = moveLinkToSection(doc, id, implied);
+    if (moved.items[id]?.section !== implied) continue;
+    doc.nodes = moved.nodes;
+    doc.items = moved.items;
+    log.push({ kind: 'moved', summary: `${itemName(item)} — ${from} → ${implied}, following the bookmark's tags` });
+  }
+  return log;
 }
 
 function idFor(doc: IssueDoc, c: Candidate): string {
@@ -451,7 +538,7 @@ export function promote(doc: IssueDoc, itemId: string): IssueDoc {
 
 /**
  * Move a link between the heading sections and Briefly. The editorial act is
- * one gesture, but it is also a source edit: Briefly is `__brief` on the
+ * one gesture, but it is also a source edit: Briefly is `_brief` on the
  * bookmark (Jamie's Pinboard convention), so the move adjusts the tag and
  * marks the item for write-back — the route pushes it, the same path any
  * other tag edit takes. A `gone` bookmark moves locally but is never
@@ -477,13 +564,13 @@ export function moveLinkToSection(
   item.section = dest.label;
 
   const tags = item.tags ?? [];
-  const hasBrief = tags.some((t) => t.toLowerCase() === pinboard.BRIEF_TAG);
+  const hasBrief = tags.some(pinboard.isBriefTag);
   const tagChanges = target === 'Briefly' ? !hasBrief : hasBrief;
   if (tagChanges) {
     item.tags =
       target === 'Briefly'
         ? [...tags, pinboard.BRIEF_TAG]
-        : tags.filter((t) => t.toLowerCase() !== pinboard.BRIEF_TAG);
+        : tags.filter((t) => !pinboard.isBriefTag(t));
     // Only a real Pinboard bookmark queues a write; a link written directly
     // into the issue has no source record, and `gone` must not recreate one.
     if (item.source === 'Pinboard' && item.sync_state !== 'gone') {
@@ -790,7 +877,9 @@ export function readiness(doc: IssueDoc): Readiness {
   ) => units.push({ done, title, anchor, kind, context });
 
   const nodeOf = (type: string) => doc.nodes.find((n) => n.type === type);
-  const present = Object.entries(doc.items).filter(([, i]) =>
+  // Only what will publish can be outstanding: a link the window dropped
+  // has no commentary to owe.
+  const present = itemsInWindow(doc).filter(([, i]) =>
     (['website', 'email', 'audio'] as Channel[]).some((c) => i.channels[c]),
   );
 

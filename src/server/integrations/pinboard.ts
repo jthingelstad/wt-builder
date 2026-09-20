@@ -30,15 +30,34 @@ export const SWEEP_UNREAD_ONLY = true;
  * Moving a link between Notable and Briefly in the builder adds or removes
  * it, and the write-back carries it to the bookmark.
  */
-export const BRIEF_TAG = '__brief';
+/**
+ * Jamie's Briefly mark on a bookmark, single underscore — that is what the
+ * bookmarks actually carry (verified against WT350's swept tags, 2026-09-20).
+ * The builder shipped for a fortnight believing it was `__brief`, so the
+ * double-underscore spelling is still recognised on read and stripped on a
+ * move to Notable; only the real one is ever written.
+ */
+export const BRIEF_TAG = '_brief';
+const BRIEF_TAGS = new Set([BRIEF_TAG, '__brief']);
 
-/** Tags that route a link to a section. Placement in the issue still wins. */
+export function isBriefTag(tag: string): boolean {
+  return BRIEF_TAGS.has(tag.toLowerCase());
+}
+
+/** Tags that route a link to a section. */
 const SECTION_TAGS: Record<string, string> = {
   notable: 'Notable',
   briefly: 'Briefly',
   featured: 'Featured',
-  [BRIEF_TAG]: 'Briefly',
 };
+
+/**
+ * Where a bookmark's tags say it goes. Jamie's convention is one mark:
+ * `_brief` is a Briefly link, and a link with no mark is Notable. Sweeping
+ * untagged links into Briefly (as the builder did until 2026-09-20) put the
+ * whole week's reading in the wrong section.
+ */
+export const DEFAULT_LINK_SECTION = 'Notable';
 
 export interface PinboardPost {
   href: string;
@@ -76,6 +95,7 @@ async function call(path: string, params: Record<string, string>): Promise<unkno
 
 export function sectionForTags(tags: string[]): string | undefined {
   for (const tag of tags) {
+    if (isBriefTag(tag)) return 'Briefly';
     const section = SECTION_TAGS[tag.toLowerCase()];
     if (section) return section;
   }

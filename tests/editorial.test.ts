@@ -193,6 +193,18 @@ describe('the Echoes retrieval anchors', () => {
     expect(anchors.length).toBeLessThanOrEqual(ECHOES_MAX_ANCHORS);
   });
 
+  it('leaves out a Journal post the window dropped', () => {
+    const d = structuredClone(doc);
+    const journal = d.nodes.find((n) => n.type === 'journal')!;
+    const id = journal.items[0]!;
+    d.items[id]!.published_at = '2026-04-01T09:00:00-05:00';
+    const opening = String(d.items[id]!.body).trim().slice(0, 20);
+    const before = echoesAnchors(doc).find((a) => a.label === 'The week itself')!.query;
+    const after = echoesAnchors(d).find((a) => a.label === 'The week itself')!.query;
+    expect(before).toContain(opening);
+    expect(after).not.toContain(opening);
+  });
+
   it('pools the intro, Currently, photo, and Journal into one week anchor', () => {
     const anchors = echoesAnchors(doc);
     const week = anchors.find((a) => a.label === 'The week itself');

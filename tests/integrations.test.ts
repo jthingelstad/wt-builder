@@ -7,7 +7,7 @@ import { allChannels } from '../src/shared/types.ts';
 import { CDN_HOST, imageUrls, isRehosted, rewriteReferences } from '../src/server/integrations/images.ts';
 import { candidateToItem } from '../src/server/integrations/microblog.ts';
 import { formatPlace } from '../src/server/integrations/geocode.ts';
-import { BRIEF_TAG, sectionForTags, sweepBounds } from '../src/server/integrations/pinboard.ts';
+import { BRIEF_TAG, DEFAULT_LINK_SECTION, candidateToItem as pinboardItem, sectionForTags, sweepBounds } from '../src/server/integrations/pinboard.ts';
 import { issueWindow, inWindow } from '../src/shared/dates.ts';
 
 const item = (over: Partial<Item> = {}): Item => ({
@@ -128,11 +128,23 @@ describe('the Pinboard sweep and the window agree on where Friday is', () => {
     expect(b.todt).toBe('2026-09-04T06:00:00Z');   // plus the pad
   });
 
-  it("routes Jamie's __brief tag to Briefly, alongside the plain section tags", () => {
+  it("routes Jamie's _brief tag to Briefly, alongside the plain section tags", () => {
+    expect(BRIEF_TAG).toBe('_brief');
     expect(sectionForTags([BRIEF_TAG])).toBe('Briefly');
-    expect(sectionForTags(['__Brief'])).toBe('Briefly');
+    expect(sectionForTags(['_Brief'])).toBe('Briefly');
+    // The spelling the builder wrote to bookmarks before 2026-09-20.
+    expect(sectionForTags(['__brief'])).toBe('Briefly');
     expect(sectionForTags(['notable'])).toBe('Notable');
     expect(sectionForTags(['weekly-thing'])).toBeUndefined();
+  });
+
+  it('an unmarked link is Notable — _brief is the only mark Jamie makes', () => {
+    const item = pinboardItem({
+      id: 'pinboard:x', origin: 'Pinboard', title: 'T', url: 'https://example.com',
+      commentary: '', tags: [], published_at: '2026-09-17T20:00:00Z',
+    } as Parameters<typeof pinboardItem>[0]);
+    expect(item.section).toBeUndefined();
+    expect(DEFAULT_LINK_SECTION).toBe('Notable');
   });
 
   it('the padding admits nothing — inWindow on the instants is the authority', () => {

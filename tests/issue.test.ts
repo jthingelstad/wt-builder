@@ -13,9 +13,9 @@ import {
   addMarkdownBlock, addSection, createIssue, demote, hideItem, moveLinkToSection, moveNode,
   normalizeSkeleton, promote, readiness, removeSection, setChannel, setIssueNumber,
   setPublicationDate, setWindowDays,
-  updateItem,
+  updateItem, followBookmarkTags, pruneOutsideWindow,
 } from '../src/server/issue.ts';
-import { falloutOf, outOfWindow, planEdition, windowOf } from '../src/shared/render/plan.ts';
+import { falloutOf, itemsInWindow, outOfWindow, planEdition, windowOf } from '../src/shared/render/plan.ts';
 import { sourceRows } from '../src/shared/render/source.ts';
 import { renderWebsite } from '../src/shared/render/website.ts';
 import { renderAudio } from '../src/shared/render/audio.ts';
@@ -142,17 +142,17 @@ describe('promotion', () => {
 });
 
 describe('moving a link between Notable and Briefly', () => {
-  it('to Briefly: moves the item, stamps the section, adds __brief, queues a write', () => {
+  it('to Briefly: moves the item, stamps the section, adds _brief, queues a write', () => {
     const doc = moveLinkToSection(fixture(), 'link-flipcash', 'Briefly');
     expect(doc.nodes.find((n) => n.type === 'briefly')!.items).toContain('link-flipcash');
     expect(doc.nodes.find((n) => n.type === 'notable')!.items).not.toContain('link-flipcash');
     const item = doc.items['link-flipcash']!;
     expect(item.section).toBe('Briefly');
-    expect(item.tags).toContain('__brief');
+    expect(item.tags).toContain('_brief');
     expect(item.sync_state).toBe('syncing');
   });
 
-  it('to Notable: removes __brief, any casing', () => {
+  it('to Notable: removes _brief, any casing', () => {
     const start = fixture();
     start.items['briefly-forge']!.tags = ['__Brief', 'tools'];
     const doc = moveLinkToSection(start, 'briefly-forge', 'Notable');
@@ -173,7 +173,7 @@ describe('moving a link between Notable and Briefly', () => {
     const start = fixture();
     start.items['link-flipcash']!.sync_state = 'gone';
     const doc = moveLinkToSection(start, 'link-flipcash', 'Briefly');
-    expect(doc.items['link-flipcash']!.tags).toContain('__brief');
+    expect(doc.items['link-flipcash']!.tags).toContain('_brief');
     expect(doc.items['link-flipcash']!.sync_state).toBe('gone');
   });
 
@@ -183,7 +183,7 @@ describe('moving a link between Notable and Briefly', () => {
     item.source = 'direct';
     item.sync_state = 'local';
     const doc = moveLinkToSection(start, 'link-flipcash', 'Briefly');
-    expect(doc.items['link-flipcash']!.tags).toContain('__brief');
+    expect(doc.items['link-flipcash']!.tags).toContain('_brief');
     expect(doc.items['link-flipcash']!.sync_state).toBe('local');
   });
 
@@ -467,6 +467,114 @@ describe('window-derived inclusion', () => {
     const doc = docWith('2026-09-01T09:00:00-05:00', '2026-08-02T09:00:00-05:00');
     const node = doc.nodes.find((n) => n.id === 'n-notable')!;
     expect(falloutOf(doc, node, windowOf(doc))).toEqual({ count: 1, all: false });
+  });
+
+  // The editor's instruments read through the same filter as the editions.
+  // A window widened to three weeks and narrowed back to one leaves every
+  // swept item in the document; the counts and checks must not still see them.
+  it('counts only what the window admits', () => {
+    const doc = docWith('2026-09-01T09:00:00-05:00', '2026-08-20T09:00:00-05:00');
+    expect(itemsInWindow(doc).map(([id]) => id)).toContain('i-0');
+    expect(itemsInWindow(doc).map(([id]) => id)).not.toContain('i-1');
+    expect(itemsInWindow(setWindowDays(doc, 21)).map(([id]) => id)).toContain('i-1');
+  });
+
+  it('a re-scan drops what the window no longer admits', () => {
+    const doc = docWith('2026-09-01T09:00:00-05:00', '2026-08-20T09:00:00-05:00');
+    const log = pruneOutsideWindow(doc);
+    expect(Object.keys(doc.items)).toContain('i-0');
+    expect(Object.keys(doc.items)).not.toContain('i-1');
+    expect(doc.nodes.find((n) => n.id === 'n-notable')!.items).toEqual(['i-0']);
+    expect(log).toEqual([{ kind: 'dropped', summary: 'A link — outside the window' }]);
+  });
+
+  it('keeps a fallen-out item whose edit has not reached the source, and says so', () => {
+    const doc = docWith('2026-08-20T09:00:00-05:00');
+    doc.items['i-0']!.sync_state = 'failed';
+    const log = pruneOutsideWindow(doc);
+    expect(doc.items['i-0']).toBeDefined();
+    expect(log[0]?.kind).toBe('kept');
+    expect(log[0]?.summary).toContain('has not reached Pinboard');
+  });
+
+  it('takes a promoted post\'s empty section with it, and clears the held-out list', () => {
+    const doc = docWith('2026-08-20T09:00:00-05:00');
+    doc.orphans = ['i-0'];
+    doc.nodes.find((n) => n.id === 'n-notable')!.items = [];
+    doc.nodes.push({
+      id: 'promoted-i-0', kind: 'promoted_item', type: 'journal_post', label: 'Old post',
+      movable: true, publishes_heading: true, items: ['i-0'],
+    } as unknown as IssueDoc['nodes'][number]);
+    doc.issue.output_order = [...doc.nodes.map((n) => n.id)];
+    pruneOutsideWindow(doc);
+    expect(doc.orphans).toEqual([]);
+    expect(doc.nodes.some((n) => n.id === 'promoted-i-0')).toBe(false);
+    expect(doc.issue.output_order).not.toContain('promoted-i-0');
+  });
+
+  it("never drops Jamie's own writing or an unjudgeable item", () => {
+    const doc = docWith('2026-09-01T09:00:00-05:00');
+    delete doc.items['i-0']!.published_at;
+    const before = Object.keys(doc.items).length;
+    expect(pruneOutsideWindow(doc)).toEqual([]);
+    expect(Object.keys(doc.items).length).toBe(before);
+  });
+
+  it('does not ask for commentary on a link the window dropped', () => {
+    const doc = docWith('2026-09-01T09:00:00-05:00', '2026-08-20T09:00:00-05:00');
+    const commentary = readiness(doc).units.filter((u) => u.title.startsWith('Commentary for'));
+    expect(commentary.map((u) => u.anchor)).toEqual(['i-0']);
+    const wide = readiness(setWindowDays(doc, 21)).units.filter((u) => u.title.startsWith('Commentary for'));
+    expect(wide.map((u) => u.anchor).sort()).toEqual(['i-0', 'i-1']);
+  });
+});
+
+describe('placement follows the bookmark', () => {
+  const inSection = (doc: IssueDoc, id: string) =>
+    doc.nodes.find((n) => n.items.includes(id))?.label;
+
+  it('moves a link to Notable when _brief comes off at Pinboard', () => {
+    const doc = fixture();
+    const item = doc.items['briefly-forge']!;
+    expect(inSection(doc, 'briefly-forge')).toBe('Briefly');
+    // The reconcile adopted the source: tags and snapshot both say "no mark".
+    item.tags = ['tools'];
+    item.source_snapshot = { ...item.source_snapshot, tags: ['tools'] };
+    const log = followBookmarkTags(doc);
+    expect(inSection(doc, 'briefly-forge')).toBe('Notable');
+    expect(doc.items['briefly-forge']!.section).toBe('Notable');
+    expect(log[0]?.summary).toContain('Briefly → Notable');
+  });
+
+  it('moves a link to Briefly when _brief goes on at Pinboard', () => {
+    const doc = fixture();
+    const item = doc.items['link-flipcash']!;
+    expect(inSection(doc, 'link-flipcash')).toBe('Notable');
+    item.tags = ['_brief'];
+    item.source_snapshot = { ...item.source_snapshot, tags: ['_brief'] };
+    followBookmarkTags(doc);
+    expect(inSection(doc, 'link-flipcash')).toBe('Briefly');
+  });
+
+  it('leaves a link Jamie moved here, whose tag edit has not written back yet', () => {
+    const start = fixture();
+    start.items['briefly-forge']!.tags = ['_brief'];
+    start.items['briefly-forge']!.source_snapshot = { tags: ['_brief'] };
+    const doc = moveLinkToSection(start, 'briefly-forge', 'Notable');
+    // tags lost _brief locally; the snapshot still carries it — a pending edit.
+    expect(doc.items['briefly-forge']!.sync_state).toBe('syncing');
+    expect(followBookmarkTags(doc)).toEqual([]);
+    expect(inSection(doc, 'briefly-forge')).toBe('Notable');
+  });
+
+  it('does not touch a link already where its tags say, or one with no sweep record', () => {
+    const doc = fixture();
+    doc.items['briefly-tokenspeed']!.tags = ['_brief'];
+    doc.items['briefly-tokenspeed']!.source_snapshot = { tags: ['_brief'] };
+    // briefly-forge and friends carry no snapshot: hand-placed, not swept.
+    const before = JSON.stringify(doc.nodes);
+    expect(followBookmarkTags(doc)).toEqual([]);
+    expect(JSON.stringify(doc.nodes)).toBe(before);
   });
 });
 

@@ -10,7 +10,7 @@ import { useEffect, useState } from 'preact/hooks';
 
 import type { IssueDoc, IssueNode } from '../../shared/types.ts';
 import { isSaturday, shortKicker, spanLabel } from '../../shared/dates.ts';
-import { orderedNodes, windowOf } from '../../shared/render/plan.ts';
+import { itemsInWindow, orderedNodes, outOfWindow, windowOf } from '../../shared/render/plan.ts';
 import { api } from '../api.ts';
 import { ArrowDown, ArrowUp, EyeOff, GripVertical, X } from '../icons.tsx';
 import { EventLog } from './EventLog.tsx';
@@ -106,6 +106,8 @@ export function LeftPanel(props: Props) {
   const w = windowOf(doc);
   const nodes = orderedNodes(doc);
   const swept = Object.keys(doc.items).length;
+  const inWindow = itemsInWindow(doc).length;
+  const outside = swept - inWindow;
 
   return (
     <aside class="left-panel">
@@ -126,7 +128,11 @@ export function LeftPanel(props: Props) {
           <div class="meta-card">
             <div><span class="k">Publishes</span> {shortKicker(doc.issue.publication_date)}</div>
             <div><span class="k">Sources</span> {spanLabel(w)}</div>
-            <div class="quiet">{swept} items swept in from that span.</div>
+            <div class="quiet">
+              {outside > 0
+                ? `${inWindow} items in that span · ${outside} scanned earlier now fall outside it.`
+                : `${swept} items swept in from that span.`}
+            </div>
             <div class="meta-actions">
               <button class="btn small" disabled={props.sweeping} onClick={props.onSweep}>
                 {props.sweeping ? 'Re-scanning…' : 'Re-scan'}
@@ -285,7 +291,7 @@ function Outline({
                 <EyeOff class="eye" />
               )}
               {badge && <span class="ol-badge">{badge}</span>}
-              <span class="ol-count">{node.items.length}</span>
+              <span class="ol-count">{inWindowCount(doc, node)}</span>
               {pinned
                 ? <span class="pinned">pinned</span>
                 : (
@@ -333,6 +339,15 @@ function Outline({
 }
 
 /** The provenance of a section is the provenance of what is in it. */
+/** How many of a node's items the window still admits — the count the editions will print. */
+function inWindowCount(doc: IssueDoc, node: IssueNode): number {
+  const w = windowOf(doc);
+  return node.items.filter((id) => {
+    const item = doc.items[id];
+    return item && !outOfWindow(item, w);
+  }).length;
+}
+
 function provOf(doc: IssueDoc, node: IssueNode): string {
   const kinds = new Set(
     node.items.map((id) => doc.items[id]?.authorship).filter(Boolean),

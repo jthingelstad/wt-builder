@@ -114,7 +114,7 @@ describe('an item can be removed over the wire', () => {
 });
 
 describe('a link moves between Notable and Briefly over the wire', () => {
-  it('moves both ways, carrying the __brief tag with it', async () => {
+  it('moves both ways, carrying the _brief tag with it', async () => {
     const created = await fetch(`${base}/api/issues`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
@@ -140,7 +140,7 @@ describe('a link moves between Notable and Briefly over the wire', () => {
     expect(down.status).toBe(200);
     const moved = (await down.json()).issue;
     expect(moved.nodes.find((n: any) => n.id === 'briefly').items).toContain(linkId);
-    expect(moved.items[linkId].tags).toContain('__brief');
+    expect(moved.items[linkId].tags).toContain('_brief');
 
     const up = await fetch(`${base}/api/issues/${id}/items/${linkId}/section`, {
       method: 'POST',
@@ -149,7 +149,7 @@ describe('a link moves between Notable and Briefly over the wire', () => {
     });
     const back = (await up.json()).issue;
     expect(back.nodes.find((n: any) => n.id === 'notable').items).toContain(linkId);
-    expect(back.items[linkId].tags).not.toContain('__brief');
+    expect(back.items[linkId].tags).not.toContain('_brief');
 
     const bad = await fetch(`${base}/api/issues/${id}/items/${linkId}/section`, {
       method: 'POST',

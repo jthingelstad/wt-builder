@@ -118,7 +118,7 @@ export function itemRail(opts: {
   const first: RailAction = opts.moveSection
     ? {
         key: 'move-section',
-        label: `Move to ${opts.moveSection.target} — updates the __brief tag on Pinboard`,
+        label: `Move to ${opts.moveSection.target} — updates the _brief tag on Pinboard`,
         icon: opts.moveSection.target === 'Notable' ? <CornerUpRight /> : <CornerDownRight />,
         onClick: opts.moveSection.onClick,
       }

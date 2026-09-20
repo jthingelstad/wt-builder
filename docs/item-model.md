@@ -204,8 +204,10 @@ Settled during the interaction design; kept here because the answers are contrac
   supports drag and arrows; the canvas gutter offers arrows and promote/demote.
 - **What removal means.** There is no source tray to remove from. Unchecking
   every channel hides an item; removing a section holds its items out.
-- **Pinboard tags versus issue placement.** Placement wins in the issue; the
-  write-back covers title, commentary, and supported tags only.
-- **Promoted Journal date context.** The weekday and time print beneath the
-  promoted heading. The date is established by the issue; the weekday is the
-  useful part.
+- **Pinboard tags versus issue placement.** The two are one thing kept in
+  step: a move in the builder edits the `_brief` tag, and a tag change at
+  Pinboard moves the link on re-scan (unless a local tag edit is pending).
+  The write-back covers title, commentary, and supported tags only.
+- **Promoted Journal date context.** None prints. A promoted post is a section
+  of its own, titled; the clock belongs to the Journal moment it stopped being
+  (2026-09-20, the first real promotion in WT350).

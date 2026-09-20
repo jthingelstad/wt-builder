@@ -623,7 +623,12 @@ Opened by the rail `i` button. `padding: 14px 18px 40px`.
 page from the moment the issue exists. Changing `publish` or `days` re-derives
 `out_of_window` for every syndicated item; items that fall out disappear from the page,
 and a section whose items all fell out renders its heading at `opacity: .45` with a mono
-note `ALL 4 FELL OUTSIDE THE WINDOW` rather than vanishing silently.
+note `ALL 4 FELL OUTSIDE THE WINDOW` rather than vanishing silently. That state lasts
+until the next re-scan, which **drops** fallen-out items from the issue (2026-09-20: the
+window is the membership; a kept-but-hidden item showed up as `OUTSIDE WINDOW` in every
+count and lens). The one exception is an item holding an edit the source has not
+received — it stays, and the log says why. Widening the window again sweeps the rest
+straight back in.
 
 **Hold-out = no channels.** `setChan(item, channel, bool)` recomputes
 `included = website || email || audio`. `heldOut` is its inverse. Held-out items render
@@ -637,8 +642,8 @@ only when the set is not the default.
 structural margin instead, and single-item ones fold the section's move/remove controls
 into the item's own row.
 
-**Placement.** Pinboard tags suggest a section (`notable`, `briefly`); the inspector's
-Placement buttons override for this issue and win.
+**Placement.** The `_brief` tag on the bookmark files a link in Briefly; no tag is
+Notable. The move action edits the tag; a tag edit at Pinboard moves the link on re-scan.
 
 **Promotion.** A journal post *with a title* can be promoted: it leaves the Journal
 group and becomes a top-level node (`kind: "promoted_item"`) that still carries its

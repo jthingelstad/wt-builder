@@ -14,7 +14,7 @@ import Anthropic from '@anthropic-ai/sdk';
 
 import type { ArchiveReference, EchoOption, IssueDoc, Item } from '../shared/types.ts';
 import { renderAnnotated } from '../shared/render/annotate.ts';
-import { bodyLines } from '../shared/render/plan.ts';
+import { bodyLines, outOfWindow, windowOf } from '../shared/render/plan.ts';
 import { config } from './config.ts';
 import * as librarian from './integrations/librarian.ts';
 
@@ -647,8 +647,11 @@ export interface EchoAnchor {
 /** Link sections whose entries anchor their own retrieval (matches plan.ts). */
 const HEADING_LINK_SECTIONS: ReadonlySet<string> = new Set(['notable', 'featured']);
 
-function present(item: Item | undefined): item is Item {
-  return Boolean(item && Object.values(item.channels).some(Boolean));
+/** In the issue as the editions will print it: a channel on, and inside the window. */
+function present(doc: IssueDoc, item: Item | undefined): item is Item {
+  return Boolean(
+    item && Object.values(item.channels).some(Boolean) && !outOfWindow(item, windowOf(doc)),
+  );
 }
 
 function anchorText(item: Item, max: number): string {
@@ -666,7 +669,7 @@ export function echoesAnchors(doc: IssueDoc): EchoAnchor[] {
   for (const node of doc.nodes) {
     for (const id of node.items) {
       const item = doc.items[id];
-      if (!present(item)) continue;
+      if (!present(doc, item)) continue;
       switch (item.type) {
         case 'journal_post':
           if (node.kind === 'promoted_item' || item.presentation === 'promoted') {
@@ -806,10 +809,11 @@ export function pickSeasonalIssue(
  */
 export function issueExcerpt(doc: IssueDoc, max = 2800): string {
   const parts: string[] = [];
+  const w = windowOf(doc);
   for (const node of doc.nodes) {
     for (const id of node.items) {
       const item = doc.items[id];
-      if (!item) continue;
+      if (!item || outOfWindow(item, w)) continue;
       const flat = [item.title, item.body, item.commentary]
         .map((f) => bodyLines(f).join(' ').trim())
         .filter(Boolean)

@@ -10,10 +10,14 @@
 - WT Builder can author and edit commentary directly.
 - Supported edits sync automatically using last-writer-wins.
 - Local edits survive transient API failures.
-- The `__brief` tag is Jamie's convention for a Briefly link (Shortcuts
-  era). The sweep routes it to Briefly, and moving a link between Notable
-  and Briefly in the builder adds or removes it on the bookmark through the
-  normal write-back path. A `gone` bookmark moves locally only.
+- The `_brief` tag (one underscore) is Jamie's only filing mark: on, the
+  link is Briefly; off, it is Notable. The sweep places by it, and moving a
+  link between Notable and Briefly in the builder adds or removes it on the
+  bookmark through the normal write-back path. A `gone` bookmark moves
+  locally only. **Placement follows the bookmark:** when a re-scan finds the
+  tag changed at Pinboard and no local tag edit is pending, the link moves
+  section to match. (Until 2026-09-20 the builder looked for `__brief` and
+  filed unmarked links in Briefly; the old spelling is still read.)
 
 ## Micro.blog
 

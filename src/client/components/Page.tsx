@@ -15,13 +15,13 @@ import type { ArchiveReference, Channel, EchoOption, IssueDoc, IssueNode, Item }
 import { CHANNELS } from '../../shared/types.ts';
 import { clockTime, kickerDate, longDate, wallClock, weekday } from '../../shared/dates.ts';
 import {
-  editionOnly, falloutOf, heldOut, orderedNodes, outOfWindow, windowOf,
+  editionOnly, falloutOf, heldOut, itemsInWindow, orderedNodes, outOfWindow, windowOf,
 } from '../../shared/render/plan.ts';
 import { audioScript } from '../../shared/render/audio.ts';
 import { MEMBER_THANKS, PREMIUM_CONDITION } from '../../shared/render/email.ts';
 import { rejoinBody, splitBody } from '../../shared/body.ts';
 import { composeEchoes } from '../../shared/echoes.ts';
-import { markdownInlineToSafeHtml } from '../../shared/markdown.ts';
+import { markdownInlineToSafeHtml, markdownToSafeHtml } from '../../shared/markdown.ts';
 import { ImagePlus, Plus, Spinner, Trash } from '../icons.tsx';
 import { Editable, Rail, RichEditable, Row, Wand, itemRail, sectionRail } from './Row.tsx';
 
@@ -77,8 +77,8 @@ function words(s: string | undefined): number {
 }
 
 function issueWords(doc: IssueDoc): number {
-  return Object.values(doc.items).reduce(
-    (n, i) => n + words(i.body) + words(i.commentary) + words(i.title) + words(i.media?.caption),
+  return itemsInWindow(doc).reduce(
+    (n, [, i]) => n + words(i.body) + words(i.commentary) + words(i.title) + words(i.media?.caption),
     0,
   );
 }
@@ -105,7 +105,7 @@ export function Page({
   const rows: ComponentChildren[] = [];
 
   // ── head ────────────────────────────────────────────────────────────────
-  const linkCount = Object.values(doc.items).filter((i) => i.type === 'pinboard_link').length;
+  const linkCount = itemsInWindow(doc).filter(([, i]) => i.type === 'pinboard_link').length;
   const wordCount = issueWords(doc);
   const stats = lens === 'source'
     ? `${nodes.length} nodes · ${Object.keys(doc.items).length} items · ${wordCount} words`
@@ -182,8 +182,13 @@ export function Page({
     const showHeading = lens === 'source' || headingPublishes(node);
 
     // A section emptied by the window says so rather than vanishing: a section
-    // that disappears silently reads as data loss.
-    if (!inLens.length && !fallout.all && lens !== 'source') return;
+    // that disappears silently reads as data loss. And a section that is
+    // written into — Currently, Notable, Briefly — keeps its heading and its
+    // add chip while it is empty; otherwise a Currently put back after removal
+    // has no way to get its first line (WT350, 2026-09-20).
+    const writable = !readOnly && lens === 'website' &&
+      (node.type === 'currently' || node.type === 'notable' || node.type === 'briefly');
+    if (!inLens.length && !fallout.all && lens !== 'source' && !writable) return;
 
     if (index > 0) {
       rows.push(
@@ -279,7 +284,7 @@ export function Page({
 
       // A link in a heading section moves down to Briefly; a Briefly link
       // moves up to Notable. The server mirrors the move onto the bookmark's
-      // __brief tag, so the gesture is an edit at Pinboard too.
+      // _brief tag, so the gesture is an edit at Pinboard too.
       const moveTarget: 'Notable' | 'Briefly' | null =
         item.type === 'pinboard_link'
           ? node.type === 'briefly' ? 'Notable'
@@ -692,6 +697,24 @@ function ChannelBlock({ doc, node, item, itemId, readOnly, act }: BlockProps) {
       const c = wallClock(item.published_at);
       // The post's own images are shown as images; Jamie edits the words.
       const split = splitBody(item.body);
+      // Promoted, the post is a section of its own: its title is the heading,
+      // its paragraphs, headings, lists, and quotes print as written, and the
+      // clock stays behind with the Journal moment it used to be.
+      if (node.kind === 'promoted_item' || item.presentation === 'promoted') {
+        return (
+          <>
+            <RichEditable
+              tag="div" multiline class="post-body" readOnly={readOnly}
+              value={split.prose} ph="…"
+              render={markdownToSafeHtml}
+              onCommit={(text) => set({ body: rejoinBody(text, split.tail) })}
+            />
+            {split.images.map((img) => (
+              <img key={img.src} class="post-image" src={img.src} alt={img.alt} loading="lazy" />
+            ))}
+          </>
+        );
+      }
       return (
         <>
           <p>
