@@ -1044,7 +1044,9 @@ function SourceBlock({ doc, node, item, itemId, readOnly, act }: BlockProps) {
   const set = (patch: Record<string, unknown>) => act.updateItem(itemId, patch);
   const w = windowOf(doc);
 
-  const primary = item.title ?? item.media?.alt;
+  // A Currently line's label is its title-equivalent; without it the Source
+  // lens showed five bodies and no way to tell Building from Listening.
+  const primary = item.title ?? item.label ?? item.media?.alt;
   const body = item.commentary ?? item.body ?? item.media?.caption ?? '';
 
   const chips = !CHANNELS.every((c) => item.channels[c]) || item.channel_locks;
@@ -1091,6 +1093,7 @@ function SourceBlock({ doc, node, item, itemId, readOnly, act }: BlockProps) {
           class="src-primary" readOnly={readOnly} value={primary ?? ''} ph="Untitled"
           onCommit={(title) => set(item.type === 'photo'
             ? { media: { ...(item.media ?? {}), alt: title } }
+            : item.type === 'currently' ? { label: title }
             : { title })}
         />
       )}

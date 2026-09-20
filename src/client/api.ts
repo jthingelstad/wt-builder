@@ -100,8 +100,10 @@ export const api = {
   renderLens: (id: string, lens: string) =>
     call<{ lens: string; rendered: string }>(`/issues/${id}/render/${lens}`),
 
+  /** `result` is present when the edit touched a mirrored field and was written to its source. */
   updateItem: (id: string, itemId: string, patch: Record<string, unknown>) =>
-    call<IssueResponse>(`/issues/${id}/items/${itemId}`, { method: 'PATCH', body: JSON.stringify(patch) }),
+    call<IssueResponse & { result?: { sync_state: Item['sync_state']; error?: string } }>(
+      `/issues/${id}/items/${itemId}`, { method: 'PATCH', body: JSON.stringify(patch) }),
 
   setChannel: (id: string, itemId: string, channel: Channel, on: boolean) =>
     post(`/issues/${id}/items/${itemId}/channel`, { channel, on }),

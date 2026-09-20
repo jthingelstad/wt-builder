@@ -56,9 +56,14 @@ export function Inspector({ doc, itemId, run, onClose, onError, onBackToReview }
 
   const commit = async (patch: Record<string, unknown>) => {
     try {
+      // The server writes a mirrored field back to its source as part of the
+      // edit and reports the outcome; the inspector only surfaces it.
       const updated = await api.updateItem(id, itemId, patch);
       await run(async () => updated);
-      if (shouldWriteBack(item, patch)) await writeBack();
+      if (shouldWriteBack(item, patch) && updated.result) {
+        if (updated.result.sync_state === 'synced') onError(null);
+        else onError(`${item.source}: ${updated.result.error ?? updated.result.sync_state}. Your edit is kept.`);
+      }
     } catch (err) {
       onError((err as Error).message);
     }

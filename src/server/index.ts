@@ -323,7 +323,17 @@ const routes: [RegExp, string, (ctx: Ctx, params: string[]) => Promise<unknown>]
     if (!doc.items[itemId!]) throw new HttpError(404, `no item ${itemId}`);
     store.logEvent(id!, 'edit',
       `Edited ${Object.keys(patch).join(', ')} — ${issues.itemName(doc.items[itemId!]!)}`);
-    return saved(issues.updateItem(doc, itemId!, patch));
+    const result = saved(issues.updateItem(doc, itemId!, patch));
+
+    // The write-back belongs to the edit, not to the surface it was made on.
+    // updateItem marks a source-field change `syncing`; only the inspector
+    // ever followed that with a write, so an edit made on the canvas sat in
+    // "Writing to Pinboard…" forever (2026-09-20). Written here, every path
+    // that edits a mirrored field carries it to the source.
+    const after = result.issue.items[itemId!];
+    if (after?.sync_state !== 'syncing') return result;
+    const { patch: outcome, result: write } = await writeItemToSource(id!, result.issue, itemId!);
+    return { ...savedFresh(id!, (d) => issues.updateItem(d, itemId!, outcome)), result: write };
   }],
 
   [/^\/api\/issues\/([^/]+)\/items\/([^/]+)\/channel$/, 'POST', async ({ body }, [id, itemId]) => {
