@@ -337,37 +337,43 @@ export function pruneOutsideWindow(doc: IssueDoc): { kind: string; summary: stri
 }
 
 /**
- * Placement follows the bookmark. Jamie files links by tagging in Pinboard —
- * `_brief` on, it is Briefly; off, it is Notable — and the reconcile has just
- * adopted whatever the tags now say. A link whose tags and snapshot agree has
- * no local edit in flight, so its section is re-derived and it moves if the
- * tags moved. A move made in the builder is a tag edit too
+ * Placement follows the bookmark. Jamie files links in Pinboard — `_brief`
+ * is Briefly, no description is Briefly, a described unmarked link is
+ * Notable (pinboard.sectionForBookmark) — and the reconcile has just adopted
+ * whatever the bookmark now says. A link whose tags and commentary match its
+ * snapshot has no local edit in flight, so its section is re-derived and it
+ * moves if the bookmark moved. A move made in the builder is a tag edit too
  * (moveLinkToSection), so it shows as a pending local edit and is left alone.
- * Mutates `doc`; returns the log lines for what moved.
+ *
+ * The move here is placement only: an inferred Briefly must not write
+ * `_brief` onto the bookmark, or the inference would outlive the description
+ * that later contradicts it. Mutates `doc`; returns the log lines.
  */
 export function followBookmarkTags(
   doc: IssueDoc,
   skip: Set<string> = new Set(),
 ): { kind: string; summary: string }[] {
   const log: { kind: string; summary: string }[] = [];
+  const norm = (v: unknown) => (Array.isArray(v) ? [...v].sort().join(' ') : String(v ?? '')).trim();
   for (const [id, item] of Object.entries(doc.items)) {
     if (item.type !== 'pinboard_link' || item.source !== 'Pinboard' || skip.has(id)) continue;
     // Only a link with a sweep record can be said to follow its bookmark.
-    const base = item.source_snapshot?.tags;
-    if (!Array.isArray(base)) continue;
+    const snapshot = item.source_snapshot;
+    if (!snapshot || !Array.isArray(snapshot.tags)) continue;
     const tags = item.tags ?? [];
-    if ([...tags].sort().join(' ') !== [...base].sort().join(' ')) continue;
-    const implied = pinboard.sectionForTags(tags) ?? pinboard.DEFAULT_LINK_SECTION;
+    if (norm(tags) !== norm(snapshot.tags) || norm(item.commentary) !== norm(snapshot.commentary)) continue;
+    const implied = pinboard.sectionForBookmark(tags, item.commentary);
     if (implied !== 'Notable' && implied !== 'Briefly') continue;
     const here = doc.nodes.find((n) => n.items.includes(id));
     if (!here || here.kind !== 'section') continue;
     const from = here.label;
     if ((from !== 'Notable' && from !== 'Briefly') || from === implied) continue;
-    const moved = moveLinkToSection(doc, id, implied);
-    if (moved.items[id]?.section !== implied) continue;
-    doc.nodes = moved.nodes;
-    doc.items = moved.items;
-    log.push({ kind: 'moved', summary: `${itemName(item)} — ${from} → ${implied}, following the bookmark's tags` });
+    const dest = doc.nodes.find((n) => n.kind === 'section' && n.label === implied);
+    if (!dest) continue;
+    here.items = here.items.filter((i) => i !== id);
+    dest.items.push(id);
+    item.section = implied;
+    log.push({ kind: 'moved', summary: `${itemName(item)} — ${from} → ${implied}, following the bookmark` });
   }
   return log;
 }

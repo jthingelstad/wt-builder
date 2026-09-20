@@ -533,17 +533,20 @@ describe('placement follows the bookmark', () => {
   const inSection = (doc: IssueDoc, id: string) =>
     doc.nodes.find((n) => n.items.includes(id))?.label;
 
-  it('moves a link to Notable when _brief comes off at Pinboard', () => {
+  it('moves a described link to Notable when _brief comes off at Pinboard', () => {
     const doc = fixture();
     const item = doc.items['briefly-forge']!;
     expect(inSection(doc, 'briefly-forge')).toBe('Briefly');
     // The reconcile adopted the source: tags and snapshot both say "no mark".
     item.tags = ['tools'];
-    item.source_snapshot = { ...item.source_snapshot, tags: ['tools'] };
+    item.source_snapshot = { ...item.source_snapshot, tags: ['tools'], commentary: item.commentary };
     const log = followBookmarkTags(doc);
     expect(inSection(doc, 'briefly-forge')).toBe('Notable');
     expect(doc.items['briefly-forge']!.section).toBe('Notable');
     expect(log[0]?.summary).toContain('Briefly → Notable');
+    // Placement only: the source-driven move edits no tag and queues no write.
+    expect(doc.items['briefly-forge']!.tags).toEqual(['tools']);
+    expect(doc.items['briefly-forge']!.sync_state).not.toBe('syncing');
   });
 
   it('moves a link to Briefly when _brief goes on at Pinboard', () => {
@@ -551,9 +554,35 @@ describe('placement follows the bookmark', () => {
     const item = doc.items['link-flipcash']!;
     expect(inSection(doc, 'link-flipcash')).toBe('Notable');
     item.tags = ['_brief'];
-    item.source_snapshot = { ...item.source_snapshot, tags: ['_brief'] };
+    item.source_snapshot = { ...item.source_snapshot, tags: ['_brief'], commentary: item.commentary };
     followBookmarkTags(doc);
     expect(inSection(doc, 'link-flipcash')).toBe('Briefly');
+  });
+
+  it('infers Briefly for an unmarked link with no description, and Notable once it has one', () => {
+    const doc = fixture();
+    const item = doc.items['link-flipcash']!;
+    item.tags = [];
+    item.commentary = '';
+    item.source_snapshot = { tags: [], commentary: '' };
+    followBookmarkTags(doc);
+    expect(inSection(doc, 'link-flipcash')).toBe('Briefly');
+    expect(item.tags).toEqual([]); // inferred, never written onto the bookmark
+    // Jamie writes a description at Pinboard; the reconcile adopts it.
+    item.commentary = 'Worth a read.';
+    item.source_snapshot = { tags: [], commentary: 'Worth a read.' };
+    followBookmarkTags(doc);
+    expect(inSection(doc, 'link-flipcash')).toBe('Notable');
+  });
+
+  it('waits while a description typed here is still writing back', () => {
+    const doc = fixture();
+    const item = doc.items['link-flipcash']!;
+    item.tags = [];
+    item.commentary = 'Typed in the builder';
+    item.source_snapshot = { tags: [], commentary: '' };
+    expect(followBookmarkTags(doc)).toEqual([]);
+    expect(inSection(doc, 'link-flipcash')).toBe('Notable');
   });
 
   it('leaves a link Jamie moved here, whose tag edit has not written back yet', () => {

@@ -52,12 +52,19 @@ const SECTION_TAGS: Record<string, string> = {
 };
 
 /**
- * Where a bookmark's tags say it goes. Jamie's convention is one mark:
- * `_brief` is a Briefly link, and a link with no mark is Notable. Sweeping
- * untagged links into Briefly (as the builder did until 2026-09-20) put the
- * whole week's reading in the wrong section.
+ * Where a bookmark says it goes. Jamie's convention is one mark and one
+ * inference: `_brief` is a Briefly link; a link with no description is
+ * Briefly too (there is nothing to say about it yet); a described, unmarked
+ * link is Notable. Sweeping every untagged link into Briefly (as the builder
+ * did until 2026-09-20) put the whole week's reading in the wrong section.
  */
 export const DEFAULT_LINK_SECTION = 'Notable';
+
+export function sectionForBookmark(tags: string[], commentary: unknown): string {
+  const tagged = sectionForTags(tags);
+  if (tagged) return tagged;
+  return String(commentary ?? '').trim() ? DEFAULT_LINK_SECTION : 'Briefly';
+}
 
 export interface PinboardPost {
   href: string;
@@ -165,8 +172,7 @@ export function candidateToItem(c: Candidate): Item {
   // that made every swept link immune to the window (the Micro.blog
   // converter always carried it; this one did not).
   if (c.published_at) item.published_at = c.published_at;
-  const section = sectionForTags(tags);
-  if (section) item.section = section;
+  item.section = sectionForBookmark(tags, commentary);
   return item;
 }
 

@@ -10,8 +10,10 @@
 - WT Builder can author and edit commentary directly.
 - Supported edits sync automatically using last-writer-wins.
 - Local edits survive transient API failures.
-- The `_brief` tag (one underscore) is Jamie's only filing mark: on, the
-  link is Briefly; off, it is Notable. The sweep places by it, and moving a
+- The `_brief` tag (one underscore) is Jamie's filing mark: on, the link is
+  Briefly. A link with **no description** is inferred Briefly too (nothing to
+  say about it yet); a described, unmarked link is Notable. The inference is
+  never written onto the bookmark. The sweep places by it, and moving a
   link between Notable and Briefly in the builder adds or removes it on the
   bookmark through the normal write-back path. A `gone` bookmark moves
   locally only. **Placement follows the bookmark:** when a re-scan finds the

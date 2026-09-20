@@ -138,13 +138,16 @@ describe('the Pinboard sweep and the window agree on where Friday is', () => {
     expect(sectionForTags(['weekly-thing'])).toBeUndefined();
   });
 
-  it('an unmarked link is Notable — _brief is the only mark Jamie makes', () => {
-    const item = pinboardItem({
+  it('files by the bookmark: _brief or no description is Briefly, a described link is Notable', () => {
+    const swept = (commentary: string, tags: string[]) => pinboardItem({
       id: 'pinboard:x', origin: 'Pinboard', title: 'T', url: 'https://example.com',
-      commentary: '', tags: [], published_at: '2026-09-17T20:00:00Z',
-    } as Parameters<typeof pinboardItem>[0]);
-    expect(item.section).toBeUndefined();
+      commentary, tags, published_at: '2026-09-17T20:00:00Z',
+    } as Parameters<typeof pinboardItem>[0]).section;
     expect(DEFAULT_LINK_SECTION).toBe('Notable');
+    expect(swept('A line about it.', [])).toBe('Notable');
+    expect(swept('', [])).toBe('Briefly');
+    expect(swept('A line about it.', ['_brief'])).toBe('Briefly');
+    expect(swept('', ['notable'])).toBe('Notable');
   });
 
   it('the padding admits nothing — inWindow on the instants is the authority', () => {

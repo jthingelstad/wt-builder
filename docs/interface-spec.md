@@ -642,8 +642,10 @@ only when the set is not the default.
 structural margin instead, and single-item ones fold the section's move/remove controls
 into the item's own row.
 
-**Placement.** The `_brief` tag on the bookmark files a link in Briefly; no tag is
-Notable. The move action edits the tag; a tag edit at Pinboard moves the link on re-scan.
+**Placement.** The `_brief` tag on the bookmark files a link in Briefly, as does having
+no description; a described, unmarked link is Notable. The move action edits the tag; a
+tag or description change at Pinboard moves the link on re-scan (placement only — the
+inference is never written back).
 
 **Promotion.** A journal post *with a title* can be promoted: it leaves the Journal
 group and becomes a top-level node (`kind: "promoted_item"`) that still carries its
