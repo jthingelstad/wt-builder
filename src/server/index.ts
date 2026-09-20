@@ -292,8 +292,10 @@ const routes: [RegExp, string, (ctx: Ctx, params: string[]) => Promise<unknown>]
     const fetched = await issues.fetchForSweep(requireIssue(id!));
     const { doc, report } = issues.applySweep(requireIssue(id!), fetched);
     // A quiet re-scan logs nothing; an open re-scans every time and a page of
-    // "0 in" lines would bury the log's signal.
-    if (report.added || report.refreshed || report.gone || report.conflicts) {
+    // "0 in" lines would bury the log's signal. Quiet means nothing happened
+    // — a drop, a move, or a hold-out is something happening, and a scan that
+    // did one of those must say so (the first drops went unlogged, 2026-09-20).
+    if (report.log.length) {
       store.logEvent(id!, 'sweep',
         `Re-scan: ${report.added} in, ${report.refreshed} refreshed, ${report.gone} gone, ${report.conflicts} conflicted`);
       for (const entry of report.log) store.logEvent(id!, entry.kind, entry.summary);

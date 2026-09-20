@@ -195,13 +195,15 @@ export async function fetchForSweep(doc: IssueDoc): Promise<SweepFetch> {
     console.warn(`[sweep] Micro.blog reconcile skipped: ${(e as Error).message}`);
   }
 
-  // Only what the window will keep is worth a round trip.
+  // Only what the window will keep is worth a round trip — plus a fallen-out
+  // item the prune keeps for an unwritten edit, which needs the read to ever
+  // resolve (converge, conflict, or gone) and stop being kept.
   const w = window;
   const bookmarks = new Map<string, RemoteFields | null>();
   const captureTimes = new Map<string, string>();
   for (const item of Object.values(doc.items)) {
     if (item.source !== 'Pinboard' || !item.source_url) continue;
-    if (outOfWindow(item, w)) continue;
+    if (outOfWindow(item, w) && !UNSYNCED.has(item.sync_state ?? '')) continue;
     try {
       bookmarks.set(item.source_url, await pinboard.fetchBookmark(item.source_url));
     } catch (e) {
