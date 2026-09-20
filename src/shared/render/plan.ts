@@ -230,6 +230,19 @@ export function postBlocks(body: string | undefined): string[] {
       '#'.repeat(Math.min(6, hashes.length + shift)) + sp));
 }
 
+/**
+ * Point an edition's image references at the CDN copies the rehost made
+ * (doc.image_map). The map lives on the document and is applied here, on
+ * output, so the items — the source mirror — keep the source's own URLs.
+ */
+export function withRehostedImages(doc: IssueDoc, text: string): string {
+  const map = doc.image_map;
+  if (!map) return text;
+  let out = text;
+  for (const [from, to] of Object.entries(map)) if (from && to) out = out.split(from).join(to);
+  return out;
+}
+
 /** Collapse a body to a single line for spoken output. */
 export function flatten(body: string | undefined): string {
   return bodyLines(body).join(' ');

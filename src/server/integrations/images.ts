@@ -204,9 +204,10 @@ export async function rehostIssueImages(
  */
 export function applyRehost(doc: IssueDoc, mapping: Map<string, string>): IssueDoc {
   const next = structuredClone(doc);
-  for (const item of Object.values(next.items)) {
-    for (const [from, to] of mapping) rewriteReferences(item, from, to);
-  }
+  // Recorded on the document, applied at render. Item bodies stay the source's
+  // words with the source's URLs, so write-back never hands the blog our CDN.
+  next.image_map = { ...(next.image_map ?? {}) };
+  for (const [from, to] of mapping) next.image_map[from] = to;
   return next;
 }
 

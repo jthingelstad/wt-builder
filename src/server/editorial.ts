@@ -543,6 +543,79 @@ export interface DraftResult {
   echoes?: EchoOption[];
   /** Membership only: cta + thanks pairs — one pick fills both email branches. */
   membership?: MembershipOption[];
+  /** Photo only: alt + caption pairs, written from the picture itself. */
+  photo?: PhotoOption[];
+}
+
+export interface PhotoOption {
+  alt: string;
+  caption: string;
+}
+
+const PHOTO_SCHEMA = {
+  type: 'object',
+  additionalProperties: false,
+  required: ['candidates'],
+  properties: {
+    candidates: {
+      type: 'array',
+      items: {
+        type: 'object',
+        additionalProperties: false,
+        required: ['alt', 'caption'],
+        properties: { alt: { type: 'string' }, caption: { type: 'string' } },
+      },
+    },
+  },
+} as const;
+
+/**
+ * The photo wand looks at the photo. Alt text is for someone who cannot see
+ * it: what is in the frame, plainly, under ~125 characters, no "image of".
+ * The caption is Jamie's one line about it, in his voice, using what the
+ * camera recorded (when, where) as context rather than reciting it.
+ */
+async function draftPhoto(req: DraftRequest, item: Item): Promise<DraftResult> {
+  const url = item.media?.url;
+  if (!url) throw new Error('drop a photo first — the wand writes from the picture');
+  const when = item.media?.timestamp ? `taken ${item.media.timestamp}` : '';
+  const where = item.media?.location ? `at ${item.media.location}` : '';
+  const facts = [when, where].filter(Boolean).join(' ');
+  const system = `${VOICE}
+
+Write for a photo in this issue of The Weekly Thing. You can see the photo. Return three candidates, each an alt + caption pair.
+
+alt: for a reader who cannot see the image. Say what is in the frame — subject, setting, what is happening — plainly and concretely, in one sentence under 125 characters. No "image of", "photo of", or "picture of". No interpretation, no mood words, no exclamation marks.
+
+caption: one sentence in Jamie's voice about this moment, the kind of line he puts under a photo — specific, warm, no hashtags, no emoji unless he would. Use the facts below as context, not as a list to recite; the date and place print beneath the caption already.
+
+Vary the three: one plain, one with a little wit, one that connects the photo to the week.`;
+
+  const parts: Anthropic.MessageCreateParamsNonStreaming['messages'][number]['content'] = [
+    { type: 'image', source: { type: 'url', url } },
+    {
+      type: 'text',
+      text: [
+        facts ? `The camera recorded: ${facts}.` : 'The camera recorded no time or place.',
+        item.media?.caption ? `Current caption, which you are improving on: ${item.media.caption}` : '',
+        item.media?.alt && !/^(img|dsc|photo|image)[ _-]?\d+$/i.test(item.media.alt) ? `Current alt: ${item.media.alt}` : '',
+        req.context ? `Context you must work from:\n${req.context}` : '',
+        `The issue, for grounding:\n${issueExcerpt(req.doc, 1600)}`,
+      ].filter(Boolean).join('\n\n'),
+    },
+  ];
+
+  const response = await anthropic().messages.create({
+    model: MODEL,
+    max_tokens: 1500,
+    system,
+    output_config: { effort: 'medium', format: { type: 'json_schema', schema: PHOTO_SCHEMA } },
+    messages: [{ role: 'user', content: parts }],
+  } as Anthropic.MessageCreateParamsNonStreaming);
+  if (response.stop_reason === 'refusal') throw new Error('the drafting service declined this request');
+  const text = response.content.filter((b): b is Anthropic.TextBlock => b.type === 'text').map((b) => b.text).join('');
+  const parsed = JSON.parse(text) as { candidates?: PhotoOption[] };
+  return { candidates: [], photo: (parsed.candidates ?? []).slice(0, 3) };
 }
 
 /** How many echo units one drafting call offers, at most. */
@@ -928,6 +1001,7 @@ export async function draft(req: DraftRequest): Promise<DraftResult> {
   if (!isIssue && !item) throw new Error(`no item ${req.itemId}`);
 
   const type = isIssue ? 'issue' : item!.type;
+  if (type === 'photo') return draftPhoto(req, item!);
   // VOICE is the newsletter's voice — first-person, Jamie's register. Echoes
   // is Thingy's own bylined section and carries its persona and guardrails
   // in its prompt; prepending a first-person voice would fight it.

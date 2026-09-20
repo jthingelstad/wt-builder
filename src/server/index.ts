@@ -829,6 +829,10 @@ async function sendWebsite(id: string, force = false) {
   // Read the merge base before recording anything: a failure here refuses
   // the send outright instead of stranding a 'sending' state.
   const currentEmails = await currentSiteEmails();
+  // The page must not hotlink: every image the issue references is on the CDN
+  // before the page is rendered (content-addressed; a second run is free).
+  const { mapping } = await rehostIssueImages(requireIssue(id));
+  savedFresh(id, (d) => applyRehost(d, mapping));
   store.recordSend(id, 'website', { status: 'sending', at: new Date().toISOString() });
   try {
     const files = siteInputs(doc, websiteOptions(doc, currentEmails));

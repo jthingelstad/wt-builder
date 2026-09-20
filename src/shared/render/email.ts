@@ -10,7 +10,7 @@ import { markdownToSafeHtml } from '../markdown.ts';
 import type { Block } from './website.ts';
 import { THINGY_LABEL, THINGY_ROLE, THINGY_URL, byline, nodeBlocks, nodeHeading } from './website.ts';
 import type { PlannedNode } from './plan.ts';
-import { bodyLines, planEdition, postBlocks } from './plan.ts';
+import { bodyLines, planEdition, postBlocks, withRehostedImages } from './plan.ts';
 
 export const PREMIUM_CONDITION = "subscriber.subscriber_type == 'premium'";
 
@@ -90,5 +90,5 @@ export function renderEmail(doc: IssueDoc): string {
   for (const planned of planEdition(doc, 'email')) {
     blocks.push(...emailNodeBlocks(planned));
   }
-  return blocks.filter((b) => b.trim().length > 0).join('\n\n') + '\n';
+  return withRehostedImages(doc, blocks.filter((b) => b.trim().length > 0).join('\n\n') + '\n');
 }

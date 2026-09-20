@@ -227,6 +227,13 @@ export interface IssueDoc {
   held_items?: Record<string, Item>;
   /** Items swept in but not placed in a node. */
   orphans?: string[];
+  /**
+   * Source image URL → the CDN copy. Applied when an edition renders, never
+   * written into an item: a Journal post's body is the mirror of the blog
+   * post, and a write-back must hand the blog its own image URLs, not ours
+   * (2026-09-20). The site and the email never hotlink.
+   */
+  image_map?: Record<string, string>;
   sends?: Partial<Record<Destination, SendState>>;
   /**
    * The live draft-preview share, when one exists: a static page at an

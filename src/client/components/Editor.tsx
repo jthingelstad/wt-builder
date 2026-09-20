@@ -62,7 +62,7 @@ export function Editor({ doc, readiness, busy, error, run, onIndex, onSend, onEr
   const [panel, setPanel] = useState(true);
   const [selected, setSelected] = useState<string | null>(null);
   const [drafting, setDrafting] = useState<string | null>(null);
-  const [draft, setDraft] = useState<{ itemId: string; candidates: string[]; echoes?: EchoOption[]; membership?: { cta: string; thanks: string }[] } | null>(null);
+  const [draft, setDraft] = useState<{ itemId: string; candidates: string[]; echoes?: EchoOption[]; membership?: { cta: string; thanks: string }[]; photo?: { alt: string; caption: string }[] } | null>(null);
   const [sweeping, setSweeping] = useState(false);
   const [ordering, setOrdering] = useState<string | null>(null);
   const [orderProposal, setOrderProposal] = useState<OrderProposal | null>(null);
@@ -149,7 +149,7 @@ export function Editor({ doc, readiness, busy, error, run, onIndex, onSend, onEr
       setDrafting(itemId);
       setDraft(null);
       api.draftItem(id, itemId)
-        .then((r) => setDraft({ itemId, candidates: r.candidates, echoes: r.echoes, membership: r.membership }))
+        .then((r) => setDraft({ itemId, candidates: r.candidates, echoes: r.echoes, membership: r.membership, photo: r.photo }))
         .catch((err) => onError((err as Error).message))
         .finally(() => setDrafting(null));
     },

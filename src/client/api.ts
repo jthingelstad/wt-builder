@@ -181,7 +181,7 @@ export const api = {
     call<IssueResponse>(`/issues/${id}/nodes/${nodeId}/reorder`, { method: 'POST', body: JSON.stringify({ order, why }) }),
 
   draftItem: (id: string, itemId: string, context?: string) =>
-    call<{ candidates: string[]; echoes?: EchoOption[]; membership?: { cta: string; thanks: string }[] }>(
+    call<{ candidates: string[]; echoes?: EchoOption[]; membership?: { cta: string; thanks: string }[]; photo?: { alt: string; caption: string }[] }>(
       `/issues/${id}/items/${itemId}/draft`,
       { method: 'POST', body: JSON.stringify({ context }) },
     ),

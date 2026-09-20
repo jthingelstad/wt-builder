@@ -65,7 +65,7 @@ interface PageProps {
   onSelect: (anchor: string | null) => void;
   act: PageActions;
   drafting: string | null;
-  draft: { itemId: string; candidates: string[]; echoes?: EchoOption[]; membership?: { cta: string; thanks: string }[] } | null;
+  draft: { itemId: string; candidates: string[]; echoes?: EchoOption[]; membership?: { cta: string; thanks: string }[]; photo?: { alt: string; caption: string }[] } | null;
   onPickDraft: (itemId: string, text: string, refs?: ArchiveReference[], extraPatch?: Record<string, unknown>) => void;
   onDismissDraft: () => void;
   /** The section whose order is being proposed, and the proposal. */
@@ -375,7 +375,15 @@ export function Page({
                 busy={drafting === itemId}
                 onClick={() => act.draft(itemId)}
               />
-              {draft?.itemId === itemId && (draft.membership ? (
+              {draft?.itemId === itemId && (draft.photo ? (
+                <PhotoPicker
+                  candidates={draft.photo}
+                  onPick={(pair) => onPickDraft(itemId, item.body ?? '', undefined, {
+                    media: { ...(item.media ?? {}), alt: pair.alt, caption: pair.caption },
+                  })}
+                  onDismiss={onDismissDraft}
+                />
+              ) : draft.membership ? (
                 <MembershipPicker
                   candidates={draft.membership}
                   onPick={(pair) => onPickDraft(itemId, pair.cta, undefined, { member_thanks: pair.thanks })}
@@ -985,6 +993,34 @@ function EchoesPicker({
  * thank-you drafted together so the two email branches always agree.
  * One pick fills both (body + member_thanks).
  */
+/** The photo wand's pairs: alt for the reader who cannot see it, caption for the one who can. */
+function PhotoPicker({
+  candidates, onPick, onDismiss,
+}: {
+  candidates: { alt: string; caption: string }[];
+  onPick: (pair: { alt: string; caption: string }) => void;
+  onDismiss: () => void;
+}) {
+  return (
+    <div class="draft-picker membership-picker">
+      <div class="dp-head">
+        <span class="mono-label">FROM THE PHOTO — PICK A PAIR</span>
+        <button class="dp-x" aria-label="Dismiss" onClick={onDismiss}>×</button>
+      </div>
+      {candidates.length === 0 && <p class="quiet">Nothing came back.</p>}
+      {candidates.map((pair, i) => (
+        <button key={i} class="dp-option" onClick={() => onPick(pair)}>
+          <span class="dp-pair-label">ALT</span>
+          {pair.alt}
+          <span class="dp-pair-label">CAPTION</span>
+          {pair.caption}
+        </button>
+      ))}
+      <p class="dp-foot">One pick fills alt and caption. Both stay editable.</p>
+    </div>
+  );
+}
+
 function MembershipPicker({
   candidates, onPick, onDismiss,
 }: {
