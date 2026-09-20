@@ -13,7 +13,7 @@ import {
   addMarkdownBlock, addSection, createIssue, demote, hideItem, moveLinkToSection, moveNode,
   normalizeSkeleton, promote, readiness, removeSection, setChannel, setIssueNumber,
   setPublicationDate, setWindowDays,
-  updateItem, followBookmarkTags, pruneGone, pruneOutsideWindow,
+  updateItem, followBookmarkTags, pruneGone, pruneOutsideWindow, setItemOrder,
 } from '../src/server/issue.ts';
 import { falloutOf, itemsInWindow, outOfWindow, planEdition, windowOf } from '../src/shared/render/plan.ts';
 import { sourceRows } from '../src/shared/render/source.ts';
@@ -750,6 +750,25 @@ describe('placement follows the bookmark', () => {
     const before = JSON.stringify(doc.nodes);
     expect(followBookmarkTags(doc)).toEqual([]);
     expect(JSON.stringify(doc.nodes)).toBe(before);
+  });
+});
+
+describe('applying a proposed order', () => {
+  it('puts the named items in that order and keeps the unnamed ones after, in place', () => {
+    const doc = fixture();
+    const briefly = doc.nodes.find((n) => n.type === 'briefly')!;
+    expect(briefly.items).toEqual(['briefly-forge', 'briefly-tokenspeed', 'briefly-shortcuts']);
+    const next = setItemOrder(doc, briefly.id, ['briefly-shortcuts', 'briefly-forge']);
+    expect(next.nodes.find((n) => n.id === briefly.id)!.items).toEqual(['briefly-shortcuts', 'briefly-forge', 'briefly-tokenspeed']);
+  });
+
+  it('ignores ids that are not in the section, and repeats', () => {
+    const doc = fixture();
+    const briefly = doc.nodes.find((n) => n.type === 'briefly')!;
+    const next = setItemOrder(doc, briefly.id, ['link-flipcash', 'briefly-tokenspeed', 'briefly-tokenspeed', 'briefly-forge', 'briefly-shortcuts']);
+    const items = next.nodes.find((n) => n.id === briefly.id)!.items;
+    expect(items).toEqual(['briefly-tokenspeed', 'briefly-forge', 'briefly-shortcuts']);
+    expect(next.nodes.find((n) => n.type === 'notable')!.items).toContain('link-flipcash');
   });
 });
 

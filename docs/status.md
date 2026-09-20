@@ -89,6 +89,14 @@ finished, what is half-finished, and what has never run.
   on the meta card opens it as a sheet. Quiet re-scans (nothing changed) log
   nothing, so the auto-scan on open cannot bury the signal.
 
+- **Ordering wand** (2026-09-20) — a wand on the Notable and Briefly headings
+  asks the model for a sequence that reads better than bookmark order; the
+  proposal shows numbered beside the current order with a one-line why and
+  per-item notes where placement is not obvious; **Apply** moves the items,
+  nothing moves otherwise. Validated server-side to a permutation of exactly
+  the links offered. Routes: `POST /nodes/:id/order` (propose),
+  `POST /nodes/:id/reorder` (apply, logged with the why).
+
 - **Thingy's frame** (2026-09-20) — "From Thingy, my agentic librarian",
   linked to thingy.thingelstad.com, around Membership and Echoes: a sans block
   on the site (`.from-thingy` in weekly.thingelstad.com), an inline-styled

@@ -32,6 +32,7 @@ import * as editorial from './editorial.ts';
 import * as githubRepo from './integrations/github.ts';
 import * as audio from './integrations/audio.ts';
 import { audioSegments } from '../shared/render/audio.ts';
+import { heldOut, outOfWindow, windowOf } from '../shared/render/plan.ts';
 import { archiveInputs, issueEntry, siteInputs, type IssueEntry } from './publish.ts';
 import * as draftShare from './share.ts';
 
@@ -603,6 +604,35 @@ const routes: [RegExp, string, (ctx: Ctx, params: string[]) => Promise<unknown>]
       };
     });
     return { ...result, image: stored };
+  }],
+
+  /**
+   * A proposed order for a link section. Never applied here — Jamie sees the
+   * sequence beside the current one and applies it, or not.
+   */
+  [/^\/api\/issues\/([^/]+)\/nodes\/([^/]+)\/order$/, 'POST', async (_ctx, [id, nodeId]) => {
+    const doc = requireIssue(id!);
+    const node = doc.nodes.find((n) => n.id === nodeId);
+    if (!node) throw new HttpError(404, `no section ${nodeId}`);
+    const w = windowOf(doc);
+    const ids = node.items.filter((itemId) => {
+      const item = doc.items[itemId];
+      return item && item.type === 'pinboard_link' && !outOfWindow(item, w) && !heldOut(item);
+    });
+    const suggestion = await editorial.suggestOrder(doc, nodeId!, ids);
+    return { ...suggestion, current: ids };
+  }],
+
+  /** Apply an order to a section — the answer to the suggestion above, or a drag. */
+  [/^\/api\/issues\/([^/]+)\/nodes\/([^/]+)\/reorder$/, 'POST', async ({ body }, [id, nodeId]) => {
+    const b = await body();
+    const order = Array.isArray(b.order) ? (b.order as unknown[]).map(String) : [];
+    if (!order.length) throw new HttpError(400, 'order must name the items');
+    const doc = requireIssue(id!);
+    const node = doc.nodes.find((n) => n.id === nodeId);
+    if (!node) throw new HttpError(404, `no section ${nodeId}`);
+    store.logEvent(id!, 'structure', `Reordered ${node.label}${typeof b.why === 'string' && b.why ? ` — ${b.why}` : ''}`);
+    return saved(issues.setItemOrder(doc, nodeId!, order));
   }],
 
   /** Candidate text for one item. Never written — Jamie picks or ignores. */

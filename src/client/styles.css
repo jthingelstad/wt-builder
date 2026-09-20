@@ -268,6 +268,18 @@ a:hover { text-decoration: underline; }
 
 .dp-foot { font-size: 10.5px; color: var(--muted); margin: 0; }
 
+/* The ordering wand's proposal: a numbered sequence beside the current one. */
+.order-picker { width: calc(var(--notes) + 60px); }
+.op-why { font-size: 12px; line-height: 1.5; color: var(--ink); margin: 0; }
+.op-list { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 3px; }
+.op-list li { display: grid; grid-template-columns: 18px 1fr auto; column-gap: 7px; align-items: baseline; font-size: 12px; line-height: 1.4; padding: 3px 5px; border-radius: 5px; }
+.op-list li.moved { background: var(--terra-1); }
+.op-num { font-family: var(--mono); font-size: 10.5px; color: var(--muted); text-align: right; }
+.op-title { color: var(--ink); min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.op-was { font-family: var(--mono); font-size: 9.5px; color: var(--terracotta); white-space: nowrap; }
+.op-note { grid-column: 2 / -1; font-size: 11px; color: var(--secondary); }
+.op-actions { display: flex; gap: 6px; margin-top: 4px; }
+
 /* ── the issue index ──────────────────────────────────────────────────── */
 
 .wordmark { font-size: 14px; font-weight: 600; }

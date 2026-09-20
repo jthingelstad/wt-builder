@@ -172,6 +172,14 @@ export const api = {
    * Returning candidates rather than committing is what keeps every word in the
    * issue his.
    */
+  /** A proposed order for a link section; nothing moves until reorder() is called. */
+  suggestOrder: (id: string, nodeId: string) =>
+    call<{ order: string[]; why: string; notes: { id: string; note: string }[]; current: string[] }>(
+      `/issues/${id}/nodes/${nodeId}/order`, { method: 'POST' },
+    ),
+  reorder: (id: string, nodeId: string, order: string[], why?: string) =>
+    call<IssueResponse>(`/issues/${id}/nodes/${nodeId}/reorder`, { method: 'POST', body: JSON.stringify({ order, why }) }),
+
   draftItem: (id: string, itemId: string, context?: string) =>
     call<{ candidates: string[]; echoes?: EchoOption[]; membership?: { cta: string; thanks: string }[] }>(
       `/issues/${id}/items/${itemId}/draft`,

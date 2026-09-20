@@ -828,6 +828,99 @@ export function issueExcerpt(doc: IssueDoc, max = 2800): string {
     .slice(0, max);
 }
 
+// ── ordering ──────────────────────────────────────────────────────────────
+
+export interface OrderSuggestion {
+  /** Item ids, the proposed sequence — a permutation of what was offered. */
+  order: string[];
+  /** One or two sentences on the shape of the sequence. */
+  why: string;
+  /** Per-item, optional: why it sits where it does. */
+  notes: { id: string; note: string }[];
+}
+
+const ORDER_SCHEMA = {
+  type: 'object',
+  properties: {
+    order: { type: 'array', items: { type: 'string' } },
+    why: { type: 'string' },
+    notes: {
+      type: 'array',
+      items: {
+        type: 'object',
+        properties: { id: { type: 'string' }, note: { type: 'string' } },
+        required: ['id', 'note'],
+        additionalProperties: false,
+      },
+    },
+  },
+  required: ['order', 'why', 'notes'],
+  additionalProperties: false,
+} as const;
+
+/**
+ * Propose an order for a link section that reads better than the order the
+ * links were bookmarked in. Offers; never writes (docs/decisions.md). The
+ * result is validated to be a permutation of exactly the ids offered, so a
+ * suggestion can neither drop a link nor invent one.
+ */
+export async function suggestOrder(
+  doc: IssueDoc,
+  nodeId: string,
+  ids: string[],
+): Promise<OrderSuggestion> {
+  const node = doc.nodes.find((n) => n.id === nodeId);
+  if (!node) throw new Error(`no section ${nodeId}`);
+  const links = ids
+    .map((id) => ({ id, item: doc.items[id] }))
+    .filter((x): x is { id: string; item: Item } => Boolean(x.item));
+  if (links.length < 3) throw new Error('an order needs at least three links');
+
+  const listing = links
+    .map(({ id, item }, i) => {
+      const host = (() => { try { return new URL(String(item.source_url)).hostname.replace(/^www\./, ''); } catch { return ''; } })();
+      const commentary = bodyLines(item.commentary).join(' ').slice(0, 600);
+      return `${i + 1}. id=${id}\n   title: ${item.title ?? ''}\n   site: ${host}\n   commentary: ${commentary || '(none yet)'}`;
+    })
+    .join('\n\n');
+
+  const section = String(node.label);
+  const system = [
+    'You are helping Jamie Thingelstad sequence the links in one section of his newsletter, The Weekly Thing.',
+    'You are ordering, not editing: you never change titles or commentary, never drop a link, never add one.',
+    `The section is ${section}.`,
+    section.toLowerCase() === 'briefly'
+      ? 'Briefly is a run of one-line links: aim for a sequence with rhythm — cluster the ones that rhyme in theme, vary tone between clusters, put a strong or funny one last.'
+      : 'Notable is the substantial links with a paragraph each: open with the strongest, let related pieces sit next to each other so one sets up the next, vary heavy and light, and end on something that lingers.',
+    'Return every id exactly once in `order`. `why` is one or two plain sentences Jamie can read in a glance. `notes` may be empty; use it only where a placement is not obvious.',
+  ].join(' ');
+
+  const response = await anthropic().messages.create({
+    model: MODEL,
+    max_tokens: 2000,
+    system,
+    output_config: { effort: 'medium', format: { type: 'json_schema', schema: ORDER_SCHEMA } },
+    messages: [{ role: 'user', content: `The links, in their current order:\n\n${listing}` }],
+  } as Anthropic.MessageCreateParamsNonStreaming);
+
+  if (response.stop_reason === 'refusal') throw new Error('the ordering service declined this request');
+  const text = response.content
+    .filter((b): b is Anthropic.TextBlock => b.type === 'text')
+    .map((b) => b.text)
+    .join('');
+  const parsed = JSON.parse(text) as OrderSuggestion;
+
+  const offered = new Set(links.map((l) => l.id));
+  const seen = new Set<string>();
+  const order = (parsed.order ?? []).filter((id) => offered.has(id) && !seen.has(id) && (seen.add(id), true));
+  for (const id of links.map((l) => l.id)) if (!seen.has(id)) order.push(id); // never lose one
+  return {
+    order,
+    why: String(parsed.why ?? '').trim(),
+    notes: (parsed.notes ?? []).filter((n) => offered.has(n.id)),
+  };
+}
+
 export async function draft(req: DraftRequest): Promise<DraftResult> {
   // The head wand: 'issue' is not an item — it drafts the title theme + dek.
   const isIssue = req.itemId === 'issue';

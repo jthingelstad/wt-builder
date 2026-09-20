@@ -630,6 +630,23 @@ export function moveItem(doc: IssueDoc, nodeId: string, itemId: string, delta: n
   return next;
 }
 
+/**
+ * Put a section's items in the given order. `order` names the items being
+ * arranged; anything in the node it does not name (held out, fallen out of
+ * the window) keeps its relative place after them. Ids not in the node are
+ * ignored, so a stale suggestion cannot pull an item in from elsewhere.
+ */
+export function setItemOrder(doc: IssueDoc, nodeId: string, order: string[]): IssueDoc {
+  const next = structuredClone(doc);
+  const target = next.nodes.find((n) => n.id === nodeId);
+  if (!target) return next;
+  const inNode = new Set(target.items);
+  const named = order.filter((id, i) => inNode.has(id) && order.indexOf(id) === i);
+  const rest = target.items.filter((id) => !named.includes(id));
+  target.items = [...named, ...rest];
+  return next;
+}
+
 /** Promotion changes placement and presentation, not provenance. */
 export function promote(doc: IssueDoc, itemId: string): IssueDoc {
   const next = structuredClone(doc);

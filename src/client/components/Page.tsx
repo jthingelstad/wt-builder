@@ -44,7 +44,18 @@ export interface PageActions {
   moveToSection(itemId: string, target: 'Notable' | 'Briefly'): void;
   setChannel(itemId: string, channel: Channel, on: boolean): void;
   draft(itemId: string): void;
+  /** Ask for a better order for a link section; the answer shows in a picker. */
+  suggestOrder(nodeId: string): void;
+  applyOrder(nodeId: string, order: string[], why: string): void;
   uploadPhoto(itemId: string, file: File): Promise<unknown>;
+}
+
+export interface OrderProposal {
+  nodeId: string;
+  order: string[];
+  current: string[];
+  why: string;
+  notes: { id: string; note: string }[];
 }
 
 interface PageProps {
@@ -57,6 +68,10 @@ interface PageProps {
   draft: { itemId: string; candidates: string[]; echoes?: EchoOption[]; membership?: { cta: string; thanks: string }[] } | null;
   onPickDraft: (itemId: string, text: string, refs?: ArchiveReference[], extraPatch?: Record<string, unknown>) => void;
   onDismissDraft: () => void;
+  /** The section whose order is being proposed, and the proposal. */
+  ordering?: string | null;
+  orderProposal?: OrderProposal | null;
+  onDismissOrder?: () => void;
   /** The `position: relative` host the note overlay measures against. */
   hostRef?: RefObject<HTMLDivElement>;
   /** Opens the notes track from 0 to 250px. */
@@ -85,6 +100,7 @@ function issueWords(doc: IssueDoc): number {
 
 export function Page({
   doc, lens, selected, onSelect, act, drafting, draft, onPickDraft, onDismissDraft,
+  ordering, orderProposal, onDismissOrder,
   hostRef, withNotes, children,
 }: PageProps) {
   const published = doc.issue.status === 'published';
@@ -232,12 +248,30 @@ export function Page({
         </Row>,
       );
     } else if (showHeading) {
+      // Notable and Briefly carry an ordering wand: the model proposes a
+      // sequence that reads better than bookmark order, and nothing moves
+      // until Jamie applies it (Jamie, 2026-09-20).
+      const orderable = !readOnly && lens === 'website' && (node.type === 'notable' || node.type === 'briefly') &&
+        inLens.filter((id) => doc.items[id]?.type === 'pinboard_link').length >= 3;
       rows.push(
         <Row
           key={`${node.id}-h`}
           anchor={node.id}
           selected={selected === node.id}
           rail={<Rail {...rail} />}
+          margin={orderable ? (
+            <>
+              <Wand redraft={false} busy={ordering === node.id} onClick={() => act.suggestOrder(node.id)} />
+              {orderProposal?.nodeId === node.id && (
+                <OrderPicker
+                  doc={doc}
+                  proposal={orderProposal}
+                  onApply={() => { act.applyOrder(node.id, orderProposal.order, orderProposal.why); onDismissOrder?.(); }}
+                  onDismiss={() => onDismissOrder?.()}
+                />
+              )}
+            </>
+          ) : undefined}
         >
           <h2 class={fallout.all ? 'faded' : undefined} onClick={() => onSelect(node.id)}>
             <span class="hash">#</span>
@@ -842,6 +876,53 @@ function DraftPicker({
         <button key={i} class="dp-option" onClick={() => onPick(text)}>{text}</button>
       ))}
       <p class="dp-foot">Nothing is written until you pick one.</p>
+    </div>
+  );
+}
+
+/**
+ * A proposed order beside the current one. Titles only — the point is the
+ * sequence. Apply moves the items; dismiss leaves everything where it is.
+ */
+function OrderPicker({
+  doc, proposal, onApply, onDismiss,
+}: { doc: IssueDoc; proposal: OrderProposal; onApply: () => void; onDismiss: () => void }) {
+  const name = (id: string) => {
+    const t = String(doc.items[id]?.title ?? '').trim() || '(untitled)';
+    return t.length > 46 ? `${t.slice(0, 45).trimEnd()}…` : t;
+  };
+  const note = (id: string) => proposal.notes.find((n) => n.id === id)?.note;
+  const unchanged = proposal.order.every((id, i) => proposal.current[i] === id);
+  return (
+    <div class="draft-picker order-picker">
+      <div class="dp-head">
+        <span class="mono-label">PROPOSED ORDER</span>
+        <button class="dp-x" aria-label="Dismiss" onClick={onDismiss}>×</button>
+      </div>
+      {proposal.why && <p class="op-why">{proposal.why}</p>}
+      <ol class="op-list">
+        {proposal.order.map((id, i) => {
+          const was = proposal.current.indexOf(id);
+          const moved = was !== i;
+          return (
+            <li key={id} class={moved ? 'moved' : ''}>
+              <span class="op-num">{i + 1}</span>
+              <span class="op-title">{name(id)}</span>
+              {moved && <span class="op-was">was {was + 1}</span>}
+              {note(id) && <span class="op-note">{note(id)}</span>}
+            </li>
+          );
+        })}
+      </ol>
+      {unchanged
+        ? <p class="dp-foot">Same as it is now.</p>
+        : (
+          <div class="op-actions">
+            <button class="btn small primary" onClick={onApply}>Apply this order</button>
+            <button class="btn small" onClick={onDismiss}>Keep as is</button>
+          </div>
+        )}
+      <p class="dp-foot">Nothing moves until you apply it.</p>
     </div>
   );
 }

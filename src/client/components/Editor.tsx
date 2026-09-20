@@ -16,7 +16,7 @@ import { shortKicker, sourcesLabel } from '../../shared/dates.ts';
 import { windowOf } from '../../shared/render/plan.ts';
 import { api, type IssueResponse, type Readiness } from '../api.ts';
 import { ArrowLeft } from '../icons.tsx';
-import { Page, type Lens, type PageActions } from './Page.tsx';
+import { Page, type Lens, type OrderProposal, type PageActions } from './Page.tsx';
 import { Notes, type Note } from './Notes.tsx';
 import { CollapseView } from './Collapse.tsx';
 import { LeftPanel } from './LeftPanel.tsx';
@@ -64,6 +64,8 @@ export function Editor({ doc, readiness, busy, error, run, onIndex, onSend, onEr
   const [drafting, setDrafting] = useState<string | null>(null);
   const [draft, setDraft] = useState<{ itemId: string; candidates: string[]; echoes?: EchoOption[]; membership?: { cta: string; thanks: string }[] } | null>(null);
   const [sweeping, setSweeping] = useState(false);
+  const [ordering, setOrdering] = useState<string | null>(null);
+  const [orderProposal, setOrderProposal] = useState<OrderProposal | null>(null);
   // ⌘/ shows the keyboard sugar; Jamie will forget it otherwise (2026-09-20).
   const [hints, setHints] = useState(false);
   useEffect(() => {
@@ -134,6 +136,15 @@ export function Editor({ doc, readiness, busy, error, run, onIndex, onSend, onEr
      * block and nothing changes until Jamie chooses one — which is what keeps
      * every word in the issue his.
      */
+    suggestOrder: (nodeId) => {
+      setOrdering(nodeId);
+      setOrderProposal(null);
+      api.suggestOrder(id, nodeId)
+        .then((r) => setOrderProposal({ nodeId, order: r.order, current: r.current, why: r.why, notes: r.notes }))
+        .catch((err) => onError((err as Error).message))
+        .finally(() => setOrdering(null));
+    },
+    applyOrder: (nodeId, order, why) => void runEdit(() => api.reorder(id, nodeId, order, why)),
     draft: (itemId) => {
       setDrafting(itemId);
       setDraft(null);
@@ -432,6 +443,9 @@ export function Editor({ doc, readiness, busy, error, run, onIndex, onSend, onEr
                 void run(() => api.updateItem(id, itemId, patch));
               }}
               onDismissDraft={() => setDraft(null)}
+              ordering={ordering}
+              orderProposal={orderProposal}
+              onDismissOrder={() => setOrderProposal(null)}
             >
               {readOpen && notes.length > 0 && (
                 <Notes
