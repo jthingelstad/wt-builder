@@ -52,10 +52,11 @@ Title. Description.
 
 No title in the body — the subject is `WT<N> — Title` and Buttondown prints it
 — and a `---` rule between sections. Matched to the issues Jamie sent before
-the builder (WT349 compared side by side, 2026-09-20). Two things WT349 had
-that the builder does not carry on purpose: the mid-issue membership buttons
-(Membership is now one Thingy-framed section) and the tracking pixel (the
-newsletter is pixel-free).
+the builder (WT349 compared side by side, 2026-09-20). The body ends with the
+Tinylytics open pixel as every issue before the builder carried it — anonymous,
+named for the issue (`/email/<N>/`), never for the reader, email medium only.
+One thing WT349 had that the builder does not carry on purpose: the mid-issue
+membership buttons (Membership is now one Thingy-framed section).
 
 ## Journal
 

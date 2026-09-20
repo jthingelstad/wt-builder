@@ -118,5 +118,20 @@ export function renderEmail(doc: IssueDoc): string {
   }
   // An issue with no intro still offers the other ways, up top.
   if (!ways) sections.unshift(otherWaysLine(doc));
-  return withRehostedImages(doc, sections.join('\n\n---\n\n') + '\n');
+  return withRehostedImages(doc, sections.join('\n\n---\n\n') + '\n\n' + openPixel(doc) + '\n');
+}
+
+/**
+ * The open count, as every issue before the builder carried it: Tinylytics'
+ * anonymous 1×1 named for the issue (`/email/<N>/`), never for the reader —
+ * the email medium only, so the Buttondown web archive does not fire it.
+ * Restored 2026-09-20 ("I want the pixel in there like we had before").
+ */
+export const TINYLYTICS_SITE = 'a2YQr3ZMqkySNYSwz4uF';
+export function openPixel(doc: IssueDoc): string {
+  return [
+    "{% if medium == 'email' %}",
+    `<img src="https://tinylytics.app/pixel/${TINYLYTICS_SITE}.gif?path=/email/${doc.issue.number}/" alt="tinylytics" style="width:1px;height:1px;border:0;" />`,
+    '{% endif %}',
+  ].join('\n');
 }

@@ -92,6 +92,10 @@ Old echoes return**
 <p>This week&#39;s return to building recalls earlier issues about owning the tools that shape your work.</p>
 </div>
 
+{% if medium == 'email' %}
+<img src="https://tinylytics.app/pixel/a2YQr3ZMqkySNYSwz4uF.gif?path=/email/350/" alt="tinylytics" style="width:1px;height:1px;border:0;" />
+{% endif %}
+
 <!--
 The email edition is the website edition plus subscriber branching, not a
 different document. What differs here:
@@ -100,6 +104,8 @@ different document. What differs here:
   false) and exists to prove per-channel inclusion end to end.
 - "Read this issue online · Listen to it" sits under the intro: the page, and
   the episode once the podcast has been sent (the podcast page before).
+- The Tinylytics open pixel closes the body, anonymous and named for the
+  issue, email medium only - as every issue before the builder had it.
 - No title in the body and a --- rule between sections, matching the issues
   Jamie sent before the builder (WT349, compared 2026-09-20): the subject
   carries the title and Buttondown prints it.
