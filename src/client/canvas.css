@@ -1153,6 +1153,20 @@
 .placement-ask .ask-text { font-size: 12.5px; color: var(--secondary); flex: 1; min-width: 220px; }
 .placement-ask code { font-family: var(--mono); font-size: 11px; }
 
+/* ⌘/ — the keyboard sugar, written down. */
+.hint-card {
+  position: fixed; top: 88px; left: 50%; transform: translateX(-50%);
+  width: 420px; max-width: calc(100vw - 32px);
+  background: var(--page); border-radius: 12px; padding: 16px 18px 12px;
+  box-shadow: 0 24px 60px rgba(26, 26, 26, .22); z-index: 60;
+}
+.hint-row { display: flex; gap: 14px; align-items: baseline; padding: 6px 0; border-top: 1px solid var(--border); font-size: 13px; }
+.hint-row:first-of-type { border-top: 0; }
+.hint-row kbd { font-family: var(--mono); font-size: 11.5px; color: var(--ink); background: var(--neutral-tint); border-radius: 5px; padding: 2px 7px; white-space: nowrap; flex: none; min-width: 52px; text-align: center; }
+.hint-row span { color: var(--secondary); }
+.hint-foot { font-size: 11.5px; color: var(--faint); margin: 12px 0 0; }
+.panel-foot { margin-top: auto; padding-top: 14px; font-family: var(--mono); font-size: 10px; letter-spacing: .04em; color: var(--faint); }
+
 .ghost-chip {
   font-family: var(--mono);
   font-size: 10.5px;

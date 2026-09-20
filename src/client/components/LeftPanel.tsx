@@ -157,6 +157,7 @@ export function LeftPanel(props: Props) {
       )}
 
       <Outline {...props} nodes={nodes} />
+      <div class="panel-foot quiet">⌘/ for keyboard shortcuts</div>
     </aside>
   );
 }

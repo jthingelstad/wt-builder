@@ -20,6 +20,7 @@ import { Page, type Lens, type PageActions } from './Page.tsx';
 import { Notes, type Note } from './Notes.tsx';
 import { CollapseView } from './Collapse.tsx';
 import { LeftPanel } from './LeftPanel.tsx';
+import { SHORTCUTS } from './Row.tsx';
 import { Strip } from './Strip.tsx';
 import { Inspector } from './Inspector.tsx';
 import { ReviewPanel, type PanelNote } from './ReviewPanel.tsx';
@@ -63,6 +64,16 @@ export function Editor({ doc, readiness, busy, error, run, onIndex, onSend, onEr
   const [drafting, setDrafting] = useState<string | null>(null);
   const [draft, setDraft] = useState<{ itemId: string; candidates: string[]; echoes?: EchoOption[]; membership?: { cta: string; thanks: string }[] } | null>(null);
   const [sweeping, setSweeping] = useState(false);
+  // ⌘/ shows the keyboard sugar; Jamie will forget it otherwise (2026-09-20).
+  const [hints, setHints] = useState(false);
+  useEffect(() => {
+    const key = (e: KeyboardEvent) => {
+      if ((e.metaKey || e.ctrlKey) && e.key === '/') { e.preventDefault(); setHints((h) => !h); }
+      else if (e.key === 'Escape') setHints(false);
+    };
+    document.addEventListener('keydown', key);
+    return () => document.removeEventListener('keydown', key);
+  }, []);
   const [collapsed, setCollapsed] = useState(false);
   const [reading, setReading] = useState(false);
   const [readOpen, setReadOpen] = useState(false);
@@ -272,6 +283,21 @@ export function Editor({ doc, readiness, busy, error, run, onIndex, onSend, onEr
       </header>
 
       <Strip number={doc.issue.number} readiness={readiness} onJump={jump} />
+
+      {hints && (
+        <div class="scrim" onClick={() => setHints(false)}>
+          <div class="hint-card" role="dialog" aria-label="Keyboard shortcuts" onClick={(e) => e.stopPropagation()}>
+            <div class="cl-head">WHILE EDITING</div>
+            {SHORTCUTS.map((sc) => (
+              <div class="hint-row" key={sc.keys}>
+                <kbd>{sc.keys}</kbd>
+                <span>{sc.does}</span>
+              </div>
+            ))}
+            <p class="hint-foot">Fields hold Markdown while you edit and render it when you click away.</p>
+          </div>
+        </div>
+      )}
 
       {error && (
         <div class="error-bar" role="alert">

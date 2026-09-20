@@ -283,6 +283,38 @@ function makeLink(el: HTMLElement): void {
   selectOffsets(el, caret, caret);
 }
 
+/**
+ * ⌘⇧. — quote: every line the selection touches gets "> " (or loses it if
+ * every one already has it). With no selection, the current line.
+ */
+function toggleQuote(el: HTMLElement): void {
+  const s = selectionOffsets(el);
+  if (!s) return;
+  const all = el.textContent ?? '';
+  const start = all.lastIndexOf('\n', s.start - 1) + 1;
+  const endNl = all.indexOf('\n', Math.max(s.end - 1, s.start));
+  const end = endNl < 0 ? all.length : endNl;
+  const lines = all.slice(start, end).split('\n');
+  const quoted = lines.every((l) => /^>\s?/.test(l));
+  const next = lines.map((l) => (quoted ? l.replace(/^>\s?/, '') : `> ${l}`)).join('\n');
+  selectOffsets(el, start, end);
+  insertText(next);
+  selectOffsets(el, start, start + next.length);
+}
+
+/** The shortcuts, for the hint card (⌘/) as much as for the handler. */
+export const SHORTCUTS: { keys: string; does: string }[] = [
+  { keys: '⌘B', does: 'bold — **selection**' },
+  { keys: '⌘I', does: 'italic — _selection_' },
+  { keys: '⌘K', does: 'link — [selection](url); a selected URL becomes [](url)' },
+  { keys: '⌘⇧K', does: 'code — `selection`' },
+  { keys: '⌘⇧.', does: 'quote — > every line the selection touches' },
+  { keys: 'paste a URL over words', does: 'links them' },
+  { keys: 'Enter, Enter', does: 'new paragraph in prose fields' },
+  { keys: 'Esc', does: 'drop the edit in progress' },
+  { keys: '⌘/', does: 'this card' },
+];
+
 /** True when the key event was a formatting shortcut and has been handled. */
 export function formatShortcut(e: KeyboardEvent): boolean {
   if (!(e.metaKey || e.ctrlKey) || e.altKey) return false;
@@ -292,6 +324,7 @@ export function formatShortcut(e: KeyboardEvent): boolean {
   else if (key === 'i' && !e.shiftKey) toggleWrap(el, '_');
   else if (key === 'k' && e.shiftKey) toggleWrap(el, '`');
   else if (key === 'k') makeLink(el);
+  else if ((key === '.' || key === '>') && e.shiftKey) toggleQuote(el);
   else return false;
   e.preventDefault();
   return true;
