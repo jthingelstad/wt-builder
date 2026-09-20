@@ -259,10 +259,12 @@ export async function writeBack(item: Item): Promise<WriteBackResult> {
     // them publishes a private bookmark and drops it from the unread queue,
     // neither of which the editor asked for. The contract is title, commentary,
     // and tags; everything else goes back exactly as it came.
-    // One exception, asked for: writing commentary IS reading the link. A
-    // described bookmark leaves the unread queue (Jamie, 2026-09-20).
+    // Two exceptions, asked for (Jamie, 2026-09-20): writing commentary IS
+    // reading the link, and excluding it is deciding about it. Either way the
+    // bookmark leaves the unread queue.
     const flags = { ...(item.source_flags ?? {}) };
-    flags.toread = String(item.commentary ?? '').trim() ? 'no' : (flags.toread ?? 'yes');
+    const decided = Boolean(String(item.commentary ?? '').trim()) || (item.tags ?? []).some(isExcludeTag);
+    flags.toread = decided ? 'no' : (flags.toread ?? 'yes');
     flags.shared = flags.shared ?? 'no';
     const result = (await call('/posts/add', {
       url: item.source_url,
