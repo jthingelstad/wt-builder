@@ -7,6 +7,10 @@
  *
  * Default sizes match the spec's call sites: 12px in the structural rail,
  * 13–14px in chrome, 24px in the photo drop zone.
+ *
+ * This file is copied verbatim into AT Builder (src/client/icons.tsx there);
+ * the sibling's tests/sibling-drift.test.ts fails when the two differ. Add a
+ * glyph here, then carry it across — the set is the family's, not this app's.
  */
 
 interface IconProps { size?: number; class?: string }
@@ -31,6 +35,15 @@ export const ChevronUp = ({ size = 12, ...p }: IconProps) =>
 
 export const ChevronDown = ({ size = 12, ...p }: IconProps) =>
   svg(<path d="m6 9 6 6 6-6" />, size, p.class);
+
+export const ChevronRight = ({ size = 12, ...p }: IconProps) =>
+  svg(<path d="m9 18 6-6-6-6" />, size, p.class);
+
+export const ArrowRight = ({ size = 12, ...p }: IconProps) =>
+  svg(<><path d="M5 12h14" /><path d="m12 5 7 7-7 7" /></>, size, p.class);
+
+export const TriangleAlert = ({ size = 13, ...p }: IconProps) =>
+  svg(<><path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3" /><path d="M12 9v4" /><path d="M12 17h.01" /></>, size, p.class);
 
 export const Check = ({ size = 14, ...p }: IconProps) =>
   svg(<path d="M20 6 9 17l-5-5" />, size, p.class);
