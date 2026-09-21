@@ -416,17 +416,20 @@ export function pruneGone(doc: IssueDoc): { kind: string; summary: string }[] {
 }
 
 /**
- * Placement follows the bookmark. Jamie files links in Pinboard — `_brief`
- * is Briefly, no description is Briefly, a described unmarked link is
- * Notable (pinboard.sectionForBookmark) — and the reconcile has just adopted
- * whatever the bookmark now says. A link whose tags and commentary match its
- * snapshot has no local edit in flight, so its section is re-derived and it
- * moves if the bookmark moved. A move made in the builder is a tag edit too
- * (moveLinkToSection), so it shows as a pending local edit and is left alone.
+ * Where Jamie put a link is where it goes. A link is placed once, when it
+ * arrives (pinboard.sectionForBookmark: a section tag wins; otherwise no
+ * description is Briefly and a described link is Notable). After that only
+ * two things move it: a move in the builder, which is a tag edit too
+ * (moveLinkToSection), and a section tag put on the bookmark at Pinboard —
+ * `_brief` on, and the link goes to Briefly. Writing a description never
+ * moves a placed link and never raises a question: on WT350's send day the
+ * description rule re-filed links Jamie had already placed and then asked
+ * him about it three times (2026-09-20).
  *
- * The move here is placement only: an inferred Briefly must not write
- * `_brief` onto the bookmark, or the inference would outlive the description
- * that later contradicts it. Mutates `doc`; returns the log lines.
+ * A link whose tags and commentary match its snapshot has no local edit in
+ * flight, so a tag the reconcile just adopted is followed; one with an edit
+ * pending is left alone. The move is placement only: it writes nothing back.
+ * Mutates `doc`; returns the log lines.
  */
 export function followBookmarkTags(
   doc: IssueDoc,
@@ -436,13 +439,14 @@ export function followBookmarkTags(
   const norm = (v: unknown) => (Array.isArray(v) ? [...v].sort().join(' ') : String(v ?? '')).trim();
   for (const [id, item] of Object.entries(doc.items)) {
     if (item.type !== 'pinboard_link' || item.source !== 'Pinboard' || skip.has(id)) continue;
-    if (item.placement_query) continue; // Jamie has a question open on it
     // Only a link with a sweep record can be said to follow its bookmark.
     const snapshot = item.source_snapshot;
     if (!snapshot || !Array.isArray(snapshot.tags)) continue;
     const tags = item.tags ?? [];
     if (norm(tags) !== norm(snapshot.tags) || norm(item.commentary) !== norm(snapshot.commentary)) continue;
-    const implied = pinboard.sectionForBookmark(tags, item.commentary);
+    // A section tag on the bookmark is an instruction; its absence is not.
+    const tagged = pinboard.sectionForTags(tags);
+    const implied = tagged ?? pinboard.sectionForBookmark(tags, item.commentary);
     if (implied !== 'Notable' && implied !== 'Briefly') continue;
     const here = doc.nodes.find((n) => n.items.includes(id));
     const excludedAtSource = tags.some(pinboard.isExcludeTag);
@@ -468,7 +472,7 @@ export function followBookmarkTags(
       continue;
     }
 
-    if (!here || here.kind !== 'section') continue;
+    if (!here || here.kind !== 'section' || !tagged) continue;
     const from = here.label;
     if ((from !== 'Notable' && from !== 'Briefly') || from === implied) continue;
     const dest = doc.nodes.find((n) => n.kind === 'section' && n.label === implied);
@@ -533,19 +537,7 @@ export function updateItem(doc: IssueDoc, itemId: string, patch: Partial<Item>):
   const bodyChanged =
     (patch.body !== undefined && patch.body !== item.body) ||
     (patch.member_thanks !== undefined && patch.member_thanks !== item.member_thanks);
-  const describedNow =
-    item.type === 'pinboard_link' &&
-    patch.commentary !== undefined &&
-    !String(item.commentary ?? '').trim() &&
-    Boolean(String(patch.commentary).trim());
   Object.assign(item, patch);
-
-  // First description, written in Briefly, on a link with no _brief mark:
-  // the filing rule now says Notable, the act says Briefly. Ask.
-  if (describedNow && !(item.tags ?? []).some(pinboard.isBriefTag)) {
-    const here = next.nodes.find((n) => n.items.includes(itemId));
-    if (here?.label.toLowerCase() === 'briefly') item.placement_query = true;
-  }
 
   const sourceFieldChanged =
     (item.source === 'Pinboard' && ['title', 'commentary', 'tags'].some((key) => key in patch)) ||
@@ -699,9 +691,6 @@ export function moveLinkToSection(
     (n) => n.kind === 'section' && n.label.toLowerCase() === target.toLowerCase(),
   );
   if (!source || !dest) return next;
-  // Choosing a section answers the open question, including "stay where it
-  // is" — which still puts the mark on the bookmark so the rule agrees.
-  delete item.placement_query;
 
   if (source !== dest) {
     source.items = source.items.filter((i) => i !== itemId);

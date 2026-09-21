@@ -546,14 +546,11 @@ const routes: [RegExp, string, (ctx: Ctx, params: string[]) => Promise<unknown>]
       (n) => n.kind === 'section' && n.label.toLowerCase() === target.toLowerCase(),
     );
     if (!dest) throw new HttpError(400, `this issue has no ${target} section`);
-    // Already there and no question open: nothing to do. With a question open,
-    // "stay" is an answer — it puts the mark on the bookmark.
-    if (dest.items.includes(itemId!) && !item.placement_query) return saved(doc);
+    // Already there: nothing to do.
+    if (dest.items.includes(itemId!)) return saved(doc);
 
-    const staying = dest.items.includes(itemId!);
     const moved = issues.moveLinkToSection(doc, itemId!, target);
-    store.logEvent(id!, 'structure',
-      staying ? `Stays in ${target} — ${issues.itemName(item)}` : `Moved to ${target} — ${issues.itemName(item)}`);
+    store.logEvent(id!, 'structure', `Moved to ${target} — ${issues.itemName(item)}`);
 
     // The move marks the item `syncing` only when the tags actually changed;
     // a `gone` bookmark moves locally and is never re-created at the source.

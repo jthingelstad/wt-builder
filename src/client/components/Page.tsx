@@ -429,20 +429,6 @@ export function Page({
             doc={doc} node={node} item={item} itemId={itemId} lens={lens}
             readOnly={readOnly} act={act} onSelect={onSelect}
           />
-          {item.placement_query && !readOnly && (
-            <div class="placement-ask">
-              <span class="ask-text">
-                It has a description now. Briefly links carry <code>_brief</code>; described links
-                without it go to Notable. Which is this?
-              </span>
-              <button class="btn small primary" onClick={() => act.moveToSection(itemId, 'Briefly')}>
-                Stay in Briefly
-              </button>
-              <button class="btn small" onClick={() => act.moveToSection(itemId, 'Notable')}>
-                Move up to Notable
-              </button>
-            </div>
-          )}
         </Row>,
       );
     });

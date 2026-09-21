@@ -608,46 +608,60 @@ describe('placement follows the bookmark', () => {
   const inSection = (doc: IssueDoc, id: string) =>
     doc.nodes.find((n) => n.items.includes(id))?.label;
 
-  it('moves a described link to Notable when _brief comes off at Pinboard', () => {
-    const doc = fixture();
-    const item = doc.items['briefly-forge']!;
-    expect(inSection(doc, 'briefly-forge')).toBe('Briefly');
-    // The reconcile adopted the source: tags and snapshot both say "no mark".
-    item.tags = ['tools'];
-    item.source_snapshot = { ...item.source_snapshot, tags: ['tools'], commentary: item.commentary };
-    const log = followBookmarkTags(doc);
-    expect(inSection(doc, 'briefly-forge')).toBe('Notable');
-    expect(doc.items['briefly-forge']!.section).toBe('Notable');
-    expect(log[0]?.summary).toContain('Briefly → Notable');
-    // Placement only: the source-driven move edits no tag and queues no write.
-    expect(doc.items['briefly-forge']!.tags).toEqual(['tools']);
-    expect(doc.items['briefly-forge']!.sync_state).not.toBe('syncing');
-  });
-
-  it('moves a link to Briefly when _brief goes on at Pinboard', () => {
+  it('_brief going on at Pinboard moves a Notable link to Briefly', () => {
     const doc = fixture();
     const item = doc.items['link-flipcash']!;
     expect(inSection(doc, 'link-flipcash')).toBe('Notable');
     item.tags = ['_brief'];
     item.source_snapshot = { ...item.source_snapshot, tags: ['_brief'], commentary: item.commentary };
-    followBookmarkTags(doc);
+    const log = followBookmarkTags(doc);
     expect(inSection(doc, 'link-flipcash')).toBe('Briefly');
+    expect(doc.items['link-flipcash']!.section).toBe('Briefly');
+    expect(log[0]?.summary).toContain('Notable → Briefly');
+    expect(doc.items['link-flipcash']!.sync_state).not.toBe('syncing');
   });
 
-  it('infers Briefly for an unmarked link with no description, and Notable once it has one', () => {
+  it('a placed link stays put when its description changes — no tag, no move, no question', () => {
     const doc = fixture();
-    const item = doc.items['link-flipcash']!;
-    item.tags = [];
-    item.commentary = '';
-    item.source_snapshot = { tags: [], commentary: '' };
-    followBookmarkTags(doc);
-    expect(inSection(doc, 'link-flipcash')).toBe('Briefly');
-    expect(item.tags).toEqual([]); // inferred, never written onto the bookmark
-    // Jamie writes a description at Pinboard; the reconcile adopts it.
+    const item = doc.items['briefly-forge']!;
+    expect(inSection(doc, 'briefly-forge')).toBe('Briefly');
+    // Unmarked, described at Pinboard; the reconcile adopted it. The old rule
+    // said Notable and re-filed it; Jamie put it in Briefly, so it stays.
+    item.tags = ['tools'];
     item.commentary = 'Worth a read.';
-    item.source_snapshot = { tags: [], commentary: 'Worth a read.' };
-    followBookmarkTags(doc);
+    item.source_snapshot = { tags: ['tools'], commentary: 'Worth a read.' };
+    expect(followBookmarkTags(doc)).toEqual([]);
+    expect(inSection(doc, 'briefly-forge')).toBe('Briefly');
+    // And the reverse: an unmarked Notable link losing its description stays Notable.
+    const flip = doc.items['link-flipcash']!;
+    flip.tags = []; flip.commentary = '';
+    flip.source_snapshot = { tags: [], commentary: '' };
+    expect(followBookmarkTags(doc)).toEqual([]);
     expect(inSection(doc, 'link-flipcash')).toBe('Notable');
+  });
+
+  it('_brief coming off at Pinboard does not move a Briefly link — only a move here does', () => {
+    const doc = fixture();
+    const item = doc.items['briefly-forge']!;
+    item.tags = ['tools'];
+    item.source_snapshot = { ...item.source_snapshot, tags: ['tools'], commentary: item.commentary };
+    expect(followBookmarkTags(doc)).toEqual([]);
+    expect(inSection(doc, 'briefly-forge')).toBe('Briefly');
+    const up = moveLinkToSection(doc, 'briefly-forge', 'Notable');
+    expect(inSection(up, 'briefly-forge')).toBe('Notable');
+  });
+
+  it('a first description written here does not ask and does not move', () => {
+    const doc = fixture();
+    const item = doc.items['briefly-forge']!;
+    item.tags = []; item.commentary = '';
+    item.source_snapshot = { tags: [], commentary: '' };
+    const written = updateItem(doc, 'briefly-forge', { commentary: 'Worth your time.' });
+    expect(inSection(written, 'briefly-forge')).toBe('Briefly');
+    written.items['briefly-forge']!.source_snapshot = { tags: [], commentary: 'Worth your time.' };
+    expect(followBookmarkTags(written)).toEqual([]);
+    expect(inSection(written, 'briefly-forge')).toBe('Briefly');
+    expect(written.items['briefly-forge']!.tags ?? []).not.toContain('_brief');
   });
 
   it('holding out a Pinboard link puts _exclude on the bookmark and queues the write', () => {
@@ -689,36 +703,6 @@ describe('placement follows the bookmark', () => {
     item.source_snapshot = { tags: item.tags, commentary: item.commentary };
     expect(followBookmarkTags(doc)).toEqual([]);
     expect(doc.orphans).toContain('link-flipcash');
-  });
-
-  it('a first description written in Briefly raises a question, and the re-scan waits for the answer', () => {
-    const doc = fixture();
-    const item = doc.items['briefly-forge']!;
-    item.tags = []; item.commentary = '';
-    item.source_snapshot = { tags: [], commentary: '' };
-    const asked = updateItem(doc, 'briefly-forge', { commentary: 'Worth your time.' });
-    expect(asked.items['briefly-forge']!.placement_query).toBe(true);
-    // Written back; snapshot now agrees. The rule says Notable; the question holds it.
-    asked.items['briefly-forge']!.source_snapshot = { tags: [], commentary: 'Worth your time.' };
-    expect(followBookmarkTags(asked)).toEqual([]);
-    expect(inSection(asked, 'briefly-forge')).toBe('Briefly');
-    // "Stay": same section, but the mark goes on so the rule agrees from now on.
-    const stay = moveLinkToSection(asked, 'briefly-forge', 'Briefly');
-    expect(stay.items['briefly-forge']!.placement_query).toBeUndefined();
-    expect(stay.items['briefly-forge']!.tags).toContain('_brief');
-    expect(stay.items['briefly-forge']!.sync_state).toBe('syncing');
-    // "Move up": answered by the move.
-    const up = moveLinkToSection(asked, 'briefly-forge', 'Notable');
-    expect(up.items['briefly-forge']!.placement_query).toBeUndefined();
-    expect(inSection(up, 'briefly-forge')).toBe('Notable');
-  });
-
-  it('no question when the link already carries _brief, or sits in Notable', () => {
-    const doc = fixture();
-    doc.items['briefly-forge']!.tags = ['_brief']; doc.items['briefly-forge']!.commentary = '';
-    expect(updateItem(doc, 'briefly-forge', { commentary: 'x' }).items['briefly-forge']!.placement_query).toBeUndefined();
-    doc.items['link-flipcash']!.commentary = '';
-    expect(updateItem(doc, 'link-flipcash', { commentary: 'x' }).items['link-flipcash']!.placement_query).toBeUndefined();
   });
 
   it('waits while a description typed here is still writing back', () => {

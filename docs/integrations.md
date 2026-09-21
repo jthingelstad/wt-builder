@@ -11,15 +11,16 @@
 - Supported edits sync automatically using last-writer-wins.
 - Local edits survive transient API failures.
 - The `_brief` tag (one underscore) is Jamie's filing mark: on, the link is
-  Briefly. A link with **no description** is inferred Briefly too (nothing to
-  say about it yet); a described, unmarked link is Notable. The inference is
-  never written onto the bookmark. One case the rule cannot decide: the first
-  description written *in the builder* on an unmarked Briefly link. The canvas
-  asks — Stay in Briefly (puts `_brief` on the bookmark) or Move up to Notable
-  — and the re-scan leaves the link alone until answered (`placement_query`). The sweep places by it, and moving a
-  link between Notable and Briefly in the builder adds or removes it on the
-  bookmark through the normal write-back path. A bookmark deleted at
-  Pinboard is dropped from the issue at the next re-scan.
+  Briefly. A link is placed once, when it arrives: the tag wins; otherwise
+  **no description** is Briefly (nothing to say about it yet) and a described
+  link is Notable. After that, where Jamie put it is where it goes: moving a
+  link between Notable and Briefly in the builder adds or removes `_brief` on
+  the bookmark through the normal write-back path, and putting a section tag
+  on the bookmark at Pinboard moves it here at the next re-scan. Writing a
+  description never moves a placed link and nothing asks (2026-09-20: the
+  description rule re-filed placed links and asked three times on WT350's
+  send day). A bookmark deleted at Pinboard is dropped from the issue at the
+  next re-scan.
 - **`_exclude`** is the other mark. Holding a link out of the issue (the X on
   its rail) writes `_exclude` onto the bookmark, so the exclusion lives where
   Jamie files and survives a rebuild; a bookmark carrying it is never swept

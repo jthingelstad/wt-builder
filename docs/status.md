@@ -131,6 +131,13 @@ finished, what is half-finished, and what has never run.
   every pre-builder issue was. WT350's email went out sized and the Journal
   photos overflowed in Mail. Fixed for WT351 on; WT350 is not re-sent.
 
+- **Placement is Jamie's** (2026-09-20) — a link is placed once, when it
+  arrives (tag, else described → Notable, undescribed → Briefly); after
+  that only a move in the builder or a section tag put on the bookmark
+  moves it. A description never re-files a placed link and the canvas
+  no longer asks "stay, or move up" — on WT350's send day the rule moved
+  links Jamie had placed and asked him three times.
+
 - **Notable ↔ Briefly move** (2026-09-03) — a link's rail carries a move
   action (it takes the promote slot, which for a link was a permanently
   disabled button): Notable/Featured links move down to Briefly, Briefly
