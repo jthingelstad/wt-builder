@@ -1,7 +1,7 @@
 /**
  * Pinboard.
  *
- * Read: the unread queue inside the issue window becomes link candidates.
+ * Read: every bookmark inside the issue window becomes a link candidate.
  * Write: last-writer-wins on title, commentary, and supported tags. A failed
  * write never discards the local edit (docs/item-model.md, Synchronization).
  */
@@ -16,14 +16,14 @@ import { sourceMoved, type RemoteFields } from '../reconcile.ts';
 const API = 'https://api.pinboard.in/v1';
 
 /**
- * How a bookmark gets into the issue.
- *
- * Studio's proven rule, which this matches: Jamie saves during the week and
- * marks promising items "to read"; the sweep drains that unread queue. It is
- * NOT a tag — the `weekly-thing` tag is not in use on the account, and
- * filtering on it sweeps nothing. An optional tag narrows the queue further.
+ * How a bookmark gets into the issue: it was saved inside the window. That
+ * is the whole rule. Read/unread is Jamie's own flag and the builder does
+ * not read or write it (Jamie, 2026-09-20, after WT350: "It is a flag I'll
+ * use. WT Builder doesn't care") — it used to sweep the unread queue only,
+ * and mark a bookmark read when its commentary was written or it was held
+ * out, which made every commentary edit a Pinboard write about reading.
+ * A bookmark that is not for the issue is held out, and `_exclude` says so.
  */
-export const SWEEP_UNREAD_ONLY = true;
 
 /**
  * Jamie's Pinboard convention for a Briefly link, from the Shortcuts era.
@@ -137,10 +137,9 @@ export function sweepBounds(window: Window): { fromdt: string; todt: string } {
   return { fromdt: iso(window.fromMs - pad), todt: iso(window.toMs + pad) };
 }
 
-/** The unread queue, captured inside the window — the true Central instants. */
+/** Everything captured inside the window — the true Central instants. */
 export async function sweepPinboard(window: Window, tag?: string): Promise<Candidate[]> {
   const params: Record<string, string> = { ...sweepBounds(window) };
-  if (SWEEP_UNREAD_ONLY) params.toread = 'yes';
   if (tag) params.tag = tag;
 
   const posts = (await call('/posts/all', params)) as PinboardPost[];
@@ -240,11 +239,13 @@ export async function writeBack(item: Item): Promise<WriteBackResult> {
   // the sweep took, or an edit made on Pinboard since then would be replaced
   // and lost with no conflict ever surfacing. A fetch failure falls through —
   // the write itself will surface a real outage on its own terms.
+  let current: Record<string, string> | undefined;
   try {
     const remote = await fetchBookmark(item.source_url);
     if (remote === null) {
       return { sync_state: 'gone', error: 'deleted at Pinboard — not recreating it' };
     }
+    current = remote.flags;
     if (sourceMoved(item, remote)) {
       return {
         sync_state: 'conflict',
@@ -256,15 +257,13 @@ export async function writeBack(item: Item): Promise<WriteBackResult> {
   try {
     // `replace=yes` rewrites the whole bookmark, so every field we do not send
     // is reset to Pinboard's default — `shared=yes` and `toread=no`. Omitting
-    // them publishes a private bookmark and drops it from the unread queue,
-    // neither of which the editor asked for. The contract is title, commentary,
-    // and tags; everything else goes back exactly as it came.
-    // Two exceptions, asked for (Jamie, 2026-09-20): writing commentary IS
-    // reading the link, and excluding it is deciding about it. Either way the
-    // bookmark leaves the unread queue.
-    const flags = { ...(item.source_flags ?? {}) };
-    const decided = Boolean(String(item.commentary ?? '').trim()) || (item.tags ?? []).some(isExcludeTag);
-    flags.toread = decided ? 'no' : (flags.toread ?? 'yes');
+    // them publishes a private bookmark and flips it read, neither of which
+    // the editor asked for. The contract is title, commentary, and tags;
+    // everything else goes back exactly as it stands at Pinboard *now* — the
+    // record just fetched, so a flag Jamie flipped since the scan survives
+    // the write. Read/unread is his flag; the builder never sets it.
+    const flags = { ...(item.source_flags ?? {}), ...(current ?? {}) };
+    flags.toread = flags.toread ?? 'yes';
     flags.shared = flags.shared ?? 'no';
     const result = (await call('/posts/add', {
       url: item.source_url,

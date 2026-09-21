@@ -69,7 +69,9 @@ finished, what is half-finished, and what has never run.
 - **Docs freshness gate** (2026-08-30) — tests/docs.test.ts fails the build
   when any doc cites a file path that no longer exists, or claims a test
   count (a number in prose only ever decays).
-- **Sweep** — Pinboard `toread=yes` and Micro.blog Micropub `q=source`, with
+- **Sweep** — every Pinboard bookmark in the window (read/unread is Jamie's
+  flag; the builder stopped selecting on it and writing it 2026-09-20 after
+  WT350's 34 read-flag writes) and Micro.blog Micropub `q=source`, with
   the corrected Friday-to-Friday Central window. As of 2026-08-30 the sweep
   also reconciles the read side of the mirror: Pinboard and Micro.blog are
   the CMS, so edits made there are adopted when the local copy is untouched

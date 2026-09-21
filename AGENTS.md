@@ -80,8 +80,10 @@ data, which looks exactly like a rendering bug.
   Markdown the post is stored as. That is what write-back needs. The blog's JSON
   Feed returns *rendered* content and cannot be handed back. `/posts/all` is the
   **timeline** — everyone Jamie follows — and must never be swept into an issue.
-- **Pinboard selection is `toread=yes`**, the unread queue, not a tag. The
-  `weekly-thing` tag is not in use on the account.
+- **Pinboard selection is the window, nothing else.** Not a tag (the
+  `weekly-thing` tag is not in use on the account) and not the unread queue:
+  read/unread is Jamie's own flag, and the builder neither selects on it nor
+  writes it (2026-09-20). Holding a link out is the "no", and `_exclude` records it.
 - **Pinboard's `posts/add` replaces the whole record.** Anything not sent is
   reset to its default, which silently publishes a private bookmark. Write-back
   captures `source_flags` at sweep time and hands them back untouched. This has

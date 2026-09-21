@@ -81,7 +81,9 @@ Two of these are load-bearing in a way the name does not convey:
 - **`source_flags`** holds the fields Pinboard owns. Its `posts/add` endpoint
   replaces the whole record, so anything not sent is reset to its default —
   which silently publishes a private bookmark and clears the unread flag. The
-  flags are captured at sweep and handed back unchanged. This has happened once.
+  flags are captured at sweep, refreshed from the record at write time, and
+  handed back unchanged — read/unread is Jamie's flag, never the builder's
+  (2026-09-20). This has happened once.
 - **`channel_locks`** carries the *reason* a channel is unavailable, so a
   forbidden channel states why rather than failing quietly.
 
