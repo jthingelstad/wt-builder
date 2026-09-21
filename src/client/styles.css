@@ -458,7 +458,9 @@ a:hover { text-decoration: underline; }
 
 /* ── the event log ────────────────────────────────────────────────────── */
 
-.meta-actions { display: flex; gap: 6px; margin-top: 2px; }
+/* Stacked: four buttons in a row wrapped mid-word in the 250px panel (Jamie, 2026-09-20). */
+.meta-actions { display: flex; flex-direction: column; align-items: stretch; gap: 6px; margin-top: 6px; }
+.meta-actions .btn { text-align: left; }
 
 .log-sheet { width: 620px; max-width: calc(100vw - 32px); }
 

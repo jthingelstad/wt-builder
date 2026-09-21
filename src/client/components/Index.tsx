@@ -11,6 +11,23 @@ import { useEffect, useState } from 'preact/hooks';
 import { api, type IssueSummary } from '../api.ts';
 import { countdown, isSaturday, issueSaturday, issueWindow, kickerDate, longDate, snapToSaturday, spanLabel, todayCentral, wallClock } from '../../shared/dates.ts';
 import { Archive, Check, CircleAlert, Spinner } from '../icons.tsx';
+import { omnifocusUrl, taskpaper } from '../../shared/taskpaper.ts';
+
+/**
+ * The issue's OmniFocus project, from the dashboard: the week starts here,
+ * before the issue is opened (Jamie, 2026-09-20). The row only has the
+ * summary, so the document is fetched on click. ⌥-click copies the TaskPaper.
+ */
+async function openInOmniFocus(id: string, alt: boolean, onError: (m: string) => void) {
+  try {
+    const { issue } = await api.getIssue(id);
+    const text = taskpaper(issue, window.location.origin);
+    if (alt) { await navigator.clipboard.writeText(text); return; }
+    window.location.href = omnifocusUrl(text);
+  } catch (err) {
+    onError((err as Error).message);
+  }
+}
 
 interface Props {
   error: string | null;
@@ -83,6 +100,7 @@ export function IssueIndex({ error, loading: opening, onError, onOpen }: Props) 
               archiving={archiving === issue.id}
               onOpen={onOpen}
               onArchive={() => void sendArchive(issue.id)}
+              onError={onError}
             />
           ))}
         </div>
@@ -117,13 +135,14 @@ const LEGS: [string, string, string][] = [
 ];
 
 function IssueRow({
-  issue, live, archiving, onOpen, onArchive,
+  issue, live, archiving, onOpen, onArchive, onError,
 }: {
   issue: IssueSummary;
   live: boolean;
   archiving: boolean;
   onOpen: (id: string) => void;
   onArchive: () => void;
+  onError: (m: string) => void;
 }) {
   const isDraft = issue.status === 'draft';
   const when = wallClock(issue.publication_date);
@@ -186,6 +205,15 @@ function IssueRow({
           <button class={`btn small${isDraft ? ' primary' : ''}`} onClick={() => onOpen(issue.id)}>
             Open
           </button>
+          {isDraft && !issue.imported && (
+            <button
+              class="btn small"
+              title="Create this issue's project in OmniFocus (⌥-click to copy the TaskPaper)"
+              onClick={(e) => void openInOmniFocus(issue.id, e.altKey, onError)}
+            >
+              OmniFocus
+            </button>
+          )}
           {!isDraft && (
             // "Website", never "Archive" — here the archive is the retrieval
             // feed, and the two must not share a word.
