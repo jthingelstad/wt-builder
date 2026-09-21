@@ -284,6 +284,8 @@ a:hover { text-decoration: underline; }
 /* ── the issue index ──────────────────────────────────────────────────── */
 
 .wordmark { font-size: 14px; font-weight: 600; }
+.sibling-link { margin-left: 14px; font-size: 12px; color: var(--muted); text-decoration: none; }
+.sibling-link:hover { color: var(--ink); }
 
 .index-body {
   /* Scrolls itself, or the whole app scrolls and takes the header with it. */

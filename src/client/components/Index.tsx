@@ -13,6 +13,13 @@ import { countdown, isSaturday, issueSaturday, issueWindow, kickerDate, longDate
 import { Archive, Check, CircleAlert, Spinner } from '../icons.tsx';
 import { omnifocusUrl, taskpaper } from '../../shared/taskpaper.ts';
 
+/** AT Builder: the same host, served one port up (tailnet :10002, dev :5318). */
+function siblingUrl(): string {
+  const { protocol, hostname, port } = window.location;
+  const sibling = port === '10001' ? '10002' : port === '5317' ? '5318' : port === '4317' ? '4318' : '10002';
+  return `${protocol}//${hostname}:${sibling}/`;
+}
+
 /**
  * The issue's OmniFocus project, from the dashboard: the week starts here,
  * before the issue is opened (Jamie, 2026-09-20). The row only has the
@@ -78,6 +85,9 @@ export function IssueIndex({ error, loading: opening, onError, onOpen }: Props) 
       <header class="header">
         <span class="mark">W</span>
         <span class="wordmark">WT Builder</span>
+        {/* The sibling, one hop away: same host, the next port on the tailnet
+            (:10001 → :10002; :5317 → :5318 in dev). Jamie, 2026-09-20. */}
+        <a class="sibling-link" href={siblingUrl()}>AT Builder →</a>
         <span class="head-spacer" />
         <button class="btn primary" onClick={() => setSheet(true)}>New issue</button>
       </header>
