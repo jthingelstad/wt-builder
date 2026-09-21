@@ -131,6 +131,12 @@ finished, what is half-finished, and what has never run.
   every pre-builder issue was. WT350's email went out sized and the Journal
   photos overflowed in Mail. Fixed for WT351 on; WT350 is not re-sent.
 
+- **Re-send all sent** (2026-09-20) — on the Send view once any text leg
+  has gone: re-runs website, Buttondown, and archive, in order, stopping at
+  the first failure. The podcast is left alone (re-sending it re-synthesizes
+  and replaces the mp3; its card does that on purpose). WT350's send day
+  ended with an hour of re-sending those three by hand after two fixes.
+
 - **Placement is Jamie's** (2026-09-20) — a link is placed once, when it
   arrives (tag, else described → Notable, undescribed → Briefly); after
   that only a move in the builder or a section tag put on the bookmark

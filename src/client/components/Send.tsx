@@ -137,15 +137,18 @@ export function Send({ doc, readiness, error, onBack, onSent, onError }: Props) 
   const sentMap = Object.fromEntries(CARDS.map((c) => [c.key, stateOf(c.key) === 'sent']));
   const sentCount = CARDS.filter((c) => stateOf(c.key) === 'sent').length;
 
-  const send = async (key: Destination) => {
+  /** One leg. True when it went; a failure is shown and stops any run it is part of. */
+  const send = async (key: Destination): Promise<boolean> => {
     setRunning(key);
     onError(null);
     try {
       const res = await api.send(id, key);
       setResults((r) => ({ ...r, [key]: res }));
       onSent(res.issue);
+      return true;
     } catch (err) {
       onError(`${key}: ${(err as Error).message}`);
+      return false;
     } finally {
       setRunning(null);
     }
@@ -156,7 +159,22 @@ export function Send({ doc, readiness, error, onBack, onSent, onError }: Props) 
     for (const card of CARDS) {
       if (card.key === 'podcast' && !approved) return;
       if (stateOf(card.key) === 'sent') continue;
-      await send(card.key);
+      if (!(await send(card.key))) return;
+    }
+  };
+
+  /**
+   * After a fix, every text leg that has already gone out goes out again, in
+   * run order: website, Buttondown, archive. WT350's send day ended with an
+   * hour of re-sending those three by hand, twice (Jamie, 2026-09-20). The
+   * podcast is not among them — re-sending it re-synthesizes and replaces
+   * the mp3, which a text fix never wants; its own card does that on purpose.
+   */
+  const RESEND: Destination[] = ['website', 'buttondown', 'archive' as Destination];
+  const resendable = RESEND.filter((key) => stateOf(key) === 'sent');
+  const resendAll = async () => {
+    for (const key of resendable) {
+      if (!(await send(key))) return;
     }
   };
 
@@ -171,9 +189,19 @@ export function Send({ doc, readiness, error, onBack, onSent, onError }: Props) 
           <span class="win">{doc.issue.title}</span>
         </span>
         <span class="head-spacer" />
-        <button class="btn primary" disabled={Boolean(running)} onClick={sendAll}>
-          {sentCount > 0 && sentCount < 3 ? `Send the rest` : 'Send all three'}
-        </button>
+        {resendable.length > 0 && (
+          <button
+            class="btn" disabled={Boolean(running)} onClick={resendAll}
+            title={`Re-send ${resendable.join(', ')} in order. The podcast is left as it is — its card re-synthesizes on purpose.`}
+          >
+            Re-send all sent
+          </button>
+        )}
+        {sentCount < 3 && (
+          <button class="btn primary" disabled={Boolean(running)} onClick={sendAll}>
+            {sentCount > 0 ? 'Send the rest' : 'Send all three'}
+          </button>
+        )}
       </header>
 
       <div class="send-body">
