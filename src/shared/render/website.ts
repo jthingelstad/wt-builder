@@ -10,7 +10,7 @@ import { clockTime, shortDate, wallClock } from '../dates.ts';
 import { splitBody } from '../body.ts';
 import { echoBlocks } from '../echoes.ts';
 import type { PlannedItem, PlannedNode } from './plan.ts';
-import { bodyLines, planEdition, postBlocks, withRehostedImages } from './plan.ts';
+import { bodyLines, planEdition, postBlocks, finishEdition } from './plan.ts';
 
 /** Blocks are joined by a blank line; a block is one Markdown paragraph. */
 export type Block = string;
@@ -254,5 +254,5 @@ export function renderWebsite(doc: IssueDoc): string {
   for (const planned of planEdition(doc, 'website')) {
     blocks.push(...nodeBlocks(planned, doc.issue.number));
   }
-  return withRehostedImages(doc, blocks.filter((b) => b.trim().length > 0).join('\n\n') + '\n');
+  return finishEdition(doc, blocks.filter((b) => b.trim().length > 0).join('\n\n') + '\n');
 }

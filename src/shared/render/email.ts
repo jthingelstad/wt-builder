@@ -11,7 +11,7 @@ import { markdownToSafeHtml } from '../markdown.ts';
 import type { Block } from './website.ts';
 import { THINGY_LABEL, THINGY_ROLE, THINGY_URL, byline, nodeBlocks, nodeHeading } from './website.ts';
 import type { PlannedNode } from './plan.ts';
-import { bodyLines, planEdition, postBlocks, withRehostedImages } from './plan.ts';
+import { bodyLines, planEdition, postBlocks, finishEdition } from './plan.ts';
 
 export const PREMIUM_CONDITION = "subscriber.subscriber_type == 'premium'";
 
@@ -142,7 +142,7 @@ export function renderEmail(doc: IssueDoc): string {
   }
   // An issue with no intro still offers the other ways, up top.
   if (!ways) sections.unshift(otherWaysLine(doc));
-  return withRehostedImages(doc, sections.join('\n\n---\n\n') + '\n\n' + openPixel(doc) + '\n');
+  return finishEdition(doc, sections.join('\n\n---\n\n') + '\n\n' + openPixel(doc) + '\n');
 }
 
 /**

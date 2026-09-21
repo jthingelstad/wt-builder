@@ -243,6 +243,29 @@ export function withRehostedImages(doc: IssueDoc, text: string): string {
   return out;
 }
 
+/**
+ * Drop the size a blog post's `<img>` tags carry. Micro.blog stores its
+ * photos as `<img src width height alt>`, and the item mirrors that exactly
+ * so write-back can hand it back. In an edition the size is wrong: the
+ * email template and the site's stylesheet own image layout, and a fixed
+ * width/height made WT350's Journal photos overflow in Mail (Jamie,
+ * 2026-09-20). Every issue before the builder shipped `<img src alt>` only.
+ * Applied on output, like the rehost map, so the source mirror is untouched.
+ */
+export function withPlainImages(text: string): string {
+  // Walk the attributes in order so a quoted value that happens to contain
+  // `height=` is never mistaken for the attribute.
+  const attr = /\s+([A-Za-z][\w:-]*)(?:\s*=\s*(?:"[^"]*"|'[^']*'|[^\s"'>]+))?/g;
+  return text.replace(/<img\b([^>]*?)(\s*\/?)>/gi, (_tag, attrs: string, close: string) =>
+    `<img${attrs.replace(attr, (whole, name: string) =>
+      name.toLowerCase() === 'width' || name.toLowerCase() === 'height' ? '' : whole)}${close}>`);
+}
+
+/** What every edition does to its text on the way out: the CDN copies, the plain tags. */
+export function finishEdition(doc: IssueDoc, text: string): string {
+  return withPlainImages(withRehostedImages(doc, text));
+}
+
 /** Collapse a body to a single line for spoken output. */
 export function flatten(body: string | undefined): string {
   return bodyLines(body).join(' ');

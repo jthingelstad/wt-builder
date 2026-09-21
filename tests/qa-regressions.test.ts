@@ -131,6 +131,10 @@ describe('a photo post keeps its pictures out of the sentence', () => {
   // the archive's left edge. Trailing images print as blocks of their own.
   const IMG = (n: string) =>
     `<img src="https://files.thingelstad.com/weekly-thing/350/images/${n}.jpg" width="600" height="600" alt="">`;
+  // The editions drop the size Micro.blog stores (withPlainImages); the
+  // template and the stylesheet own image layout.
+  const OUT = (n: string) =>
+    `<img src="https://files.thingelstad.com/weekly-thing/350/images/${n}.jpg" alt="">`;
 
   it('prints the caption, then each image on its own line', () => {
     const doc = issue(
@@ -141,7 +145,7 @@ describe('a photo post keeps its pictures out of the sentence', () => {
       [node({ id: 'journal', type: 'journal', label: 'Journal', publishes_heading: true, items: ['j-1'] })],
     );
     const md = renderWebsite(doc);
-    expect(md).toContain('Kubb Tournament!\n\n' + IMG('a') + '\n\n' + IMG('b'));
+    expect(md).toContain('Kubb Tournament!\n\n' + OUT('a') + '\n\n' + OUT('b'));
     expect(md).not.toMatch(/Tournament! <img/);
   });
 
@@ -153,7 +157,7 @@ describe('a photo post keeps its pictures out of the sentence', () => {
                  body: `Before ${IMG('a')} after.` } },
       [node({ id: 'journal', type: 'journal', label: 'Journal', publishes_heading: true, items: ['j-1'] })],
     );
-    expect(renderWebsite(doc)).toContain(`Before ${IMG('a')} after.`);
+    expect(renderWebsite(doc)).toContain(`Before ${OUT('a')} after.`);
   });
 });
 

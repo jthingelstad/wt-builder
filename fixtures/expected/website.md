@@ -43,6 +43,8 @@ transformation, as well as new areas with AI deployment.
 [10:15 PM](https://www.thingelstad.com/2026/05/17/fabulous-show-by-the-new.html)
 — Fabulous show by The New Standards at The Dakota tonight.
 
+<img src="https://www.thingelstad.com/uploads/2026/dakota.jpg" alt="The New Standards on stage at The Dakota">
+
 ## Briefly
 
 Interesting project if you want to try running your own models. →
@@ -96,6 +98,8 @@ Renderer expectations exercised here:
 - journal-excluded has all three channels false and appears in no edition.
 - ps-1 is email-only (website: false) and is absent here.
 - Echoes renders last. It is not required in every issue.
+- journal-concert's photo prints as its own block, with the width and height
+  Micro.blog stores stripped: the site's stylesheet owns image layout.
 - Echoes is items: each echo prints its thread, then its Ask-Thingy door (a
   question that opens Thingy with it asked, attributed to the issue) — or no
   door when it carries no question. One frame around all of them.

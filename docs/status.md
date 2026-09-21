@@ -122,6 +122,13 @@ finished, what is half-finished, and what has never run.
   single-body seed on read; a body with words, and every published issue,
   is untouched. Run against WT351's draft and the Librarian for real.
 
+- **Images leave the editions plain** (2026-09-20) — Micro.blog stores its
+  photos as `<img src width height alt>` and the item mirrors that for
+  write-back; the website and email editions strip `width`/`height` on the
+  way out (`withPlainImages`, beside the rehost map in `finishEdition`), as
+  every pre-builder issue was. WT350's email went out sized and the Journal
+  photos overflowed in Mail. Fixed for WT351 on; WT350 is not re-sent.
+
 - **Notable ↔ Briefly move** (2026-09-03) — a link's rail carries a move
   action (it takes the promote slot, which for a link was a permanently
   disabled button): Notable/Featured links move down to Briefly, Briefly

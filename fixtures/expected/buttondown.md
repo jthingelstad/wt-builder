@@ -48,6 +48,8 @@ I had my first official meeting of the Technology Advisory Council. I am looking
 
 [10:15 PM](https://www.thingelstad.com/2026/05/17/fabulous-show-by-the-new.html) — Fabulous show by The New Standards at The Dakota tonight.
 
+<img src="https://www.thingelstad.com/uploads/2026/dakota.jpg" alt="The New Standards on stage at The Dakota">
+
 ---
 
 ## Briefly
@@ -122,6 +124,8 @@ different document. What differs here:
   the frame is outside the branch so
   attribution survives either path.
 - Item order and Thingy attribution match the website exactly.
+- Journal images carry no width/height: Buttondown's template sizes them,
+  and a fixed size overflowed in Mail (WT350).
 - Echoes is one frame around every echo, each rendered to HTML as its thread
   and its Ask-Thingy door.
 -->
