@@ -198,3 +198,14 @@ describe('photo place names follow the caption convention', () => {
     expect(formatPlace({})).toBeNull();
   });
 });
+
+describe('a Buttondown placeholder slug is not a URL worth recording', async () => {
+  const { usableArchiveUrl } = await import('../src/server/integrations/buttondown.ts');
+  it('drops the untitled draft URL and keeps a real one', () => {
+    expect(usableArchiveUrl('https://buttondown.com/weekly-thing/archive/untitled/')).toBeUndefined();
+    expect(usableArchiveUrl('https://buttondown.com/weekly-thing/archive/untitled-2/')).toBeUndefined();
+    expect(usableArchiveUrl('https://buttondown.com/weekly-thing/archive/wt350-builders-puzzlers-and-agents/'))
+      .toBe('https://buttondown.com/weekly-thing/archive/wt350-builders-puzzlers-and-agents/');
+    expect(usableArchiveUrl(undefined)).toBeUndefined();
+  });
+});

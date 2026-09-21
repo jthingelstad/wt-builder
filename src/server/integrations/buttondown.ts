@@ -70,7 +70,19 @@ export async function createDraft(subject: string, body: string): Promise<DraftR
     body: JSON.stringify({ subject, body: markdownBody(body), status: 'draft' }),
   })) as { id: string; absolute_url?: string };
 
-  return { id: created.id, url: created.absolute_url, edit_url: editUrl(created.id), subject };
+  return { id: created.id, url: usableArchiveUrl(created.absolute_url), edit_url: editUrl(created.id), subject };
+}
+
+/**
+ * A draft created before it had a subject gets Buttondown's placeholder slug
+ * — `…/archive/untitled/` — and WT350's website front matter recorded that
+ * as the issue's email URL (2026-09-20). A placeholder is not a URL worth
+ * keeping: the website leg falls back to the numbered archive URL it already
+ * knows, and the next re-send records the real one.
+ */
+export function usableArchiveUrl(url: string | undefined): string | undefined {
+  if (!url) return undefined;
+  return /\/archive\/untitled(?:-\d+)?\/?$/i.test(url) ? undefined : url;
 }
 
 /** Replace the body of an existing draft, for a re-send after edits. */
@@ -80,7 +92,7 @@ export async function updateDraft(id: string, subject: string, body: string): Pr
     body: JSON.stringify({ subject, body: markdownBody(body) }),
   })) as { id: string; absolute_url?: string };
 
-  return { id: updated.id ?? id, url: updated.absolute_url, edit_url: editUrl(updated.id ?? id), subject };
+  return { id: updated.id ?? id, url: usableArchiveUrl(updated.absolute_url), edit_url: editUrl(updated.id ?? id), subject };
 }
 
 /** Presence check used by the health route; never returns the key. */

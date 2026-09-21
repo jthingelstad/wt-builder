@@ -201,14 +201,14 @@ finished, what is half-finished, and what has never run.
   existing body write-back carry it to the blog — the site and the email get
   it through the same body. Regex on published posts: build it with tests, in
   daylight. Top of the next session.
-- **Thingy's sign-off** — the Membership persona still ends its draft with
-  "— Thingy", redundant inside the frame and spoken aloud after the hello.
-  Drop it from the persona/prompt.
-- **Draft URL in the website front matter** — the website leg recorded the
-  Buttondown draft's `absolute_url` (`…/archive/untitled/`) when the draft
-  predated a proper subject. Don't record a draft's public URL until it has
-  one worth recording, or let the website leg fall back to the numbered
-  archive URL it already knows.
+- ~~Thingy's sign-off~~ — done 2026-09-20: the prompt says no sign-off and
+  `stripSignOff` in `src/server/editorial.ts` makes sure of it on every
+  Membership candidate, both branches. The frame says who is speaking.
+- ~~Draft URL in the website front matter~~ — done 2026-09-20: a
+  Buttondown `…/archive/untitled/` placeholder is never recorded as the
+  draft's URL (`usableArchiveUrl` in `src/server/integrations/buttondown.ts`),
+  so the website leg falls back to the numbered archive URL it knows until a
+  re-send records the real slug.
 - ~~Echoes are items, like Currently~~ — built 2026-09-20 (Jamie, after the
   first real Echoes): an `echo` item type (`body`, `ask`,
   `archive_references`), the Echoes node a real multi-item section still

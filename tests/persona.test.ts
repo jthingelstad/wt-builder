@@ -7,6 +7,7 @@
  */
 
 import { describe, expect, it } from 'vitest';
+import { stripSignOff } from '../src/server/editorial.ts';
 import { createHash } from 'node:crypto';
 import { existsSync, readFileSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
@@ -33,5 +34,14 @@ describe('the vendored Thingy persona', () => {
     expect(THINGY_PERSONA).toBe(read('prompts/thingy-persona.md'));
     expect(THINGY_PERSONA).toContain('Archive librarian');
     expect(THINGY_PERSONA).toContain('Community giving');
+  });
+});
+
+describe('no sign-off inside the frame', () => {
+  it('strips a trailing "— Thingy" in its dash and spacing variants, and nothing else', () => {
+    expect(stripSignOff('The newsletter stays free either way. — Thingy')).toBe('The newsletter stays free either way.');
+    expect(stripSignOff('Thank you for making that part of the list.\n\n—Thingy')).toBe('Thank you for making that part of the list.');
+    expect(stripSignOff('…either way. - Thingy.')).toBe('…either way.');
+    expect(stripSignOff('Ask Thingy how the tournament grew.')).toBe('Ask Thingy how the tournament grew.');
   });
 });

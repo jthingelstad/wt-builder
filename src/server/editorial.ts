@@ -1016,6 +1016,15 @@ export async function suggestOrder(
   };
 }
 
+/**
+ * Thingy's frame already says who is speaking; a "— Thingy" at the end of a
+ * Membership draft was redundant in print and, in audio, spoken right after
+ * the hello (WT350, 2026-09-20). The prompt says not to; this makes sure.
+ */
+export function stripSignOff(text: string): string {
+  return String(text ?? '').replace(/\s*(?:[—–-]|&mdash;)\s*Thingy\.?\s*$/u, '').trimEnd();
+}
+
 export async function draft(req: DraftRequest): Promise<DraftResult> {
   // The head wand: 'issue' is not an item — it drafts the title theme + dek.
   const isIssue = req.itemId === 'issue';
@@ -1141,7 +1150,12 @@ export async function draft(req: DraftRequest): Promise<DraftResult> {
     return { candidates: [], echoes: (parsed.echoes ?? []).slice(0, redraftEcho ? ECHO_REDRAFTS : ECHOES_OFFERED) };
   }
   if (type === 'membership') {
-    return { candidates: [], membership: ((parsed.candidates ?? []) as MembershipOption[]).slice(0, n) };
+    return {
+      candidates: [],
+      membership: ((parsed.candidates ?? []) as MembershipOption[])
+        .slice(0, n)
+        .map((pair) => ({ cta: stripSignOff(pair.cta), thanks: stripSignOff(pair.thanks) })),
+    };
   }
   return { candidates: ((parsed.candidates ?? []) as string[]).slice(0, n) };
 }
