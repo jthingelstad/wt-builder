@@ -14,6 +14,7 @@ import { itemsInWindow, orderedNodes, outOfWindow, windowOf } from '../../shared
 import { api } from '../api.ts';
 import { ArrowDown, ArrowUp, EyeOff, GripVertical, X } from '../icons.tsx';
 import { EventLog } from './EventLog.tsx';
+import { omnifocusUrl, taskpaper } from '../../shared/taskpaper.ts';
 
 interface Props {
   doc: IssueDoc;
@@ -143,6 +144,20 @@ export function LeftPanel(props: Props) {
                 onClick={() => setShareOpen(!shareOpen)}
               >
                 {doc.draft_share ? 'Shared' : 'Share'}
+              </button>
+              {/* The issue's project, straight into OmniFocus: Jamie's
+                  template with the builder's three dates in it. ⌥-click
+                  copies the TaskPaper instead (shared/taskpaper.ts). */}
+              <button
+                class="btn small"
+                title="Create this issue's project in OmniFocus (⌥-click to copy the TaskPaper)"
+                onClick={(e) => {
+                  const text = taskpaper(doc, window.location.origin);
+                  if (e.altKey) { void navigator.clipboard.writeText(text); return; }
+                  window.location.href = omnifocusUrl(text);
+                }}
+              >
+                OmniFocus
               </button>
             </div>
           </div>

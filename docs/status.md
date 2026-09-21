@@ -131,6 +131,14 @@ finished, what is half-finished, and what has never run.
   every pre-builder issue was. WT350's email went out sized and the Journal
   photos overflowed in Mail. Fixed for WT351 on; WT350 is not re-sent.
 
+- **OmniFocus project** (2026-09-20) — the meta card's OmniFocus button
+  writes the issue's project as TaskPaper (`src/shared/taskpaper.ts`: Jamie's
+  template trimmed to what is outside the builder, his date offsets kept,
+  the builder's three dates filled in as absolute clock times) and hands it
+  to OmniFocus through `omnifocus:///paste?target=projects`; ⌥-click copies
+  the text instead. Retires the Drafts template and the Create OmniFocus
+  Project shortcut. Not yet clicked into a real OmniFocus.
+
 - **Re-send all sent** (2026-09-20) — on the Send view once any text leg
   has gone: re-runs website, Buttondown, and archive, in order, stopping at
   the first failure. The podcast is left alone (re-sending it re-synthesizes
