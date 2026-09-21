@@ -1142,9 +1142,15 @@ span[contenteditable]:focus {
   justify-content: center;
   margin: -6px 0 2px;
   opacity: 0;
-  transition: opacity 0.12s;
+  /* Invisible means unclickable, and the pills only appear after the cursor
+     has lingered on the rule: a click on the way past a section boundary
+     added a section three times on WT350 (2026-09-20). `visibility` takes
+     the same delay as the fade, so there is no moment when the pill is
+     hidden and live (pointer-events cannot be delayed; visibility can). */
+  visibility: hidden;
+  transition: opacity 0.12s 0.3s, visibility 0s 0.3s;
 }
-.row:hover .insert-point { opacity: 1; }
+.row:hover .insert-point { opacity: 1; visibility: visible; }
 .ip-pill {
   font-family: var(--mono);
   font-size: 10px;
