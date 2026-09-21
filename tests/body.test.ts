@@ -1,7 +1,7 @@
 /** Splitting Micro.blog bodies into editable prose and their images. */
 
 import { describe, expect, it } from 'vitest';
-import { rejoinBody, splitBody } from '../src/shared/body.ts';
+import { imageTags, imagesWithoutAlt, rejoinBody, splitBody, withImageAlts } from '../src/shared/body.ts';
 
 const POST = 'Great coffee this morning at [Johnson Public House](https://www.johnsonpublichouse.com). \n\n<img src="https://www.thingelstad.com/uploads/2026/bbe1d53fe0.jpg" width="600" height="450" alt="">';
 
@@ -60,5 +60,49 @@ describe('splitting a post body', () => {
     expect(s.prose).toBe('');
     expect(s.images).toEqual([{ src: 'a.jpg', alt: '' }]);
     expect(rejoinBody('', s.tail)).toBe('<img src="a.jpg">');
+  });
+});
+
+describe('alt text on the post\'s own image tags', () => {
+  const post = [
+    'Kicking off the 8th annual Team SPS Kubb Tournament with a quick rules rundown and a 100-person selfie!',
+    '',
+    '<img src="https://www.thingelstad.com/uploads/2026/a.jpg" width="600" height="450" alt="">',
+    "<img src='https://www.thingelstad.com/uploads/2026/b.jpg' alt='Rules on the mic' />",
+    '<img src="https://www.thingelstad.com/uploads/2026/c.jpg" loading="lazy">',
+  ].join('\n');
+
+  it('reads every tag, inline or trailing, and knows which lack alt text', () => {
+    expect(imageTags(post).map((i) => [i.src.slice(-5), i.alt])).toEqual([['a.jpg', ''], ['b.jpg', 'Rules on the mic'], ['c.jpg', '']]);
+    expect(imagesWithoutAlt(post).map((i) => i.src.slice(-5))).toEqual(['a.jpg', 'c.jpg']);
+    expect(imageTags('no pictures here')).toEqual([]);
+    expect(imagesWithoutAlt('Before <img src="x.jpg" alt=""> after.')).toHaveLength(1);
+  });
+
+  it('sets the alt inside the exact tag and changes nothing else', () => {
+    const out = withImageAlts(post, {
+      'https://www.thingelstad.com/uploads/2026/a.jpg': 'Jamie holds a microphone in front of about a hundred people on a plaza',
+      'https://www.thingelstad.com/uploads/2026/c.jpg': 'Four winning teams hold wooden kubb batons',
+    });
+    expect(out).toContain('<img src="https://www.thingelstad.com/uploads/2026/a.jpg" width="600" height="450" alt="Jamie holds a microphone in front of about a hundred people on a plaza">');
+    expect(out).toContain("<img src='https://www.thingelstad.com/uploads/2026/b.jpg' alt='Rules on the mic' />");
+    expect(out).toContain('<img src="https://www.thingelstad.com/uploads/2026/c.jpg" loading="lazy" alt="Four winning teams hold wooden kubb batons">');
+    expect(out.startsWith('Kicking off')).toBe(true);
+  });
+
+  it('escapes what an attribute cannot hold, replaces single-quoted alts, and leaves unnamed images alone', () => {
+    expect(withImageAlts('<img src="x.jpg" alt="">', { 'x.jpg': 'He said "kubb" & <smiled>' }))
+      .toBe('<img src="x.jpg" alt="He said &quot;kubb&quot; &amp; &lt;smiled&gt;">');
+    expect(withImageAlts("<img src='x.jpg' alt='old'/>", { 'x.jpg': 'new' })).toBe("<img src='x.jpg' alt=\"new\"/>");
+    expect(withImageAlts('<img src="x.jpg">', {})).toBe('<img src="x.jpg">');
+    expect(withImageAlts('<img src="x.jpg" alt="keep">', { 'y.jpg': 'other' })).toBe('<img src="x.jpg" alt="keep">');
+    expect(withImageAlts('<img src="x.jpg" alt="gone">', { 'x.jpg': '' })).toBe('<img src="x.jpg" alt="">');
+  });
+
+  it('round-trips through split and rejoin unchanged', () => {
+    const withAlts = withImageAlts(post, { 'https://www.thingelstad.com/uploads/2026/a.jpg': 'A crowd' });
+    const split = splitBody(withAlts);
+    expect(split.images[0]!.alt).toBe('A crowd');
+    expect(rejoinBody(split.prose, split.tail)).toBe(withAlts);
   });
 });

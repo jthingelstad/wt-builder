@@ -15,6 +15,7 @@ import Anthropic from '@anthropic-ai/sdk';
 import type { ArchiveReference, EchoOption, IssueDoc, Item, ItemType } from '../shared/types.ts';
 import { renderAnnotated } from '../shared/render/annotate.ts';
 import { bodyLines, outOfWindow, windowOf } from '../shared/render/plan.ts';
+import { imageTags, splitBody } from '../shared/body.ts';
 import { config } from './config.ts';
 import * as librarian from './integrations/librarian.ts';
 
@@ -558,6 +559,8 @@ export interface MembershipOption {
 
 export interface DraftResult {
   candidates: string[];
+  /** Journal post only: an alt per image in the post, by src, written from the pictures. */
+  alts?: ImageAlt[];
   /** Echoes only: selectable units — Jamie composes the section from a subset. */
   echoes?: EchoOption[];
   /** Membership only: cta + thanks pairs — one pick fills both email branches. */
@@ -569,6 +572,72 @@ export interface DraftResult {
 export interface PhotoOption {
   alt: string;
   caption: string;
+}
+
+export interface ImageAlt {
+  src: string;
+  alt: string;
+}
+
+/** How many of a post's images one wand call looks at, at most. */
+export const JOURNAL_ALT_MAX = 8;
+
+const ALTS_SCHEMA = {
+  type: 'object',
+  additionalProperties: false,
+  required: ['alts'],
+  properties: {
+    alts: { type: 'array', items: { type: 'string' } },
+  },
+} as const;
+
+/**
+ * The Journal wand looks at the post's pictures. A Micro.blog photo post
+ * arrives with `alt=""` on every image unless Jamie typed one from the
+ * phone, and WT350 shipped 11 of 12 that way. One call, every image in
+ * order, one alt each — for the reader who cannot see them, in the same
+ * register the photo wand uses. The alt goes back into the post's own tag
+ * (withImageAlts) and the body write-back carries it to the blog.
+ */
+async function draftJournalAlts(req: DraftRequest, item: Item): Promise<DraftResult> {
+  const images = imageTags(item.body).filter((i) => i.src).slice(0, JOURNAL_ALT_MAX);
+  if (!images.length) throw new Error('this post has no pictures — the wand writes alt text from them');
+  const prose = bodyLines(splitBody(item.body).prose).join(' ');
+
+  const system = `${VOICE}
+
+Write alt text for the pictures in one Journal entry of The Weekly Thing — a short blog post of Jamie's with ${images.length === 1 ? 'one photo' : `${images.length} photos`} attached. You can see the pictures. Return exactly ${images.length} alts, one per picture, in the order given.
+
+Each alt is for a reader who cannot see the image. Say what is in the frame — subject, setting, what is happening — plainly and concretely, in one sentence under 125 characters. No "image of", "photo of", or "picture of". No interpretation, no mood words, no exclamation marks, no repeating the post's own words. Name people only as the post names them.`;
+
+  const content: Anthropic.MessageCreateParamsNonStreaming['messages'][number]['content'] = [];
+  images.forEach((img, i) => {
+    content.push({ type: 'text', text: `Picture ${i + 1} of ${images.length}${img.alt ? ` (current alt: ${img.alt})` : ''}:` });
+    content.push({ type: 'image', source: { type: 'url', url: img.src } });
+  });
+  content.push({
+    type: 'text',
+    text: [
+      prose ? `The post these pictures belong to:\n${prose}` : 'The post has no words, only the pictures.',
+      req.context ? `Context you must work from:\n${req.context}` : '',
+    ].filter(Boolean).join('\n\n'),
+  });
+
+  const response = await anthropic().messages.create({
+    model: MODEL,
+    max_tokens: 1500,
+    system,
+    output_config: { effort: 'medium', format: { type: 'json_schema', schema: ALTS_SCHEMA } },
+    messages: [{ role: 'user', content }],
+  } as Anthropic.MessageCreateParamsNonStreaming);
+  if (response.stop_reason === 'refusal') throw new Error('the drafting service declined this request');
+  const text = response.content.filter((b): b is Anthropic.TextBlock => b.type === 'text').map((b) => b.text).join('');
+  const parsed = JSON.parse(text) as { alts?: string[] };
+  const alts = (parsed.alts ?? []).map((a) => String(a ?? '').trim());
+  return {
+    candidates: [],
+    alts: images.map((img, i) => ({ src: img.src, alt: alts[i] ?? '' })).filter((a) => a.alt),
+  };
 }
 
 const PHOTO_SCHEMA = {
@@ -1038,6 +1107,7 @@ export async function draft(req: DraftRequest): Promise<DraftResult> {
 
   const type: ItemType | 'issue' = isIssue ? 'issue' : node || redraftEcho ? 'echoes' : item!.type;
   if (type === 'photo') return draftPhoto(req, item!);
+  if (type === 'journal_post') return draftJournalAlts(req, item!);
   // VOICE is the newsletter's voice — first-person, Jamie's register. Echoes
   // is Thingy's own bylined section and carries its persona and guardrails
   // in its prompt; prepending a first-person voice would fight it.

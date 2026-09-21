@@ -194,13 +194,15 @@ finished, what is half-finished, and what has never run.
   dashboard shows them with a PRE-BUILDER chip and their archive state.
 - ~~Echoes archive retrieval~~ — built 2026-08-28: the wand retrieves from
   the Librarian, fails loud without it, and stores the citations it used.
-- **Alt text for Journal images, written back to Micro.blog** (2026-09-20,
-  WT350 shipped with Buttondown warning "11 of your images are missing alt
-  text"). The photo wand already writes alt from the picture; do the same per
-  `<img>` in a Journal post body, write the alt into the tag, and let the
-  existing body write-back carry it to the blog — the site and the email get
-  it through the same body. Regex on published posts: build it with tests, in
-  daylight. Top of the next session.
+- ~~Alt text for Journal images, written back to Micro.blog~~ — built
+  2026-09-20: the wand on a Journal post looks at its pictures (one call,
+  every image in order) and offers an alt per picture, each editable in the
+  picker; **Use these** writes them into the post's own `<img>` tags
+  (`withImageAlts` in `src/shared/body.ts`, every other byte of the tag
+  kept) and the existing body write-back carries them to Micro.blog, so the
+  site and the email get them through the same body. The Journal chip is
+  *started* rather than done while a picture lacks alt, and says how many.
+  WT350 shipped 11 of 12 without. Not yet picked against a live post.
 - ~~Thingy's sign-off~~ — done 2026-09-20: the prompt says no sign-off and
   `stripSignOff` in `src/server/editorial.ts` makes sure of it on every
   Membership candidate, both branches. The frame says who is speaking.

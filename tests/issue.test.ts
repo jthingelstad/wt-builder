@@ -340,6 +340,18 @@ describe('every thing on the page has a chip', () => {
   });
 });
 
+describe('a Journal post owes alt text for its pictures', () => {
+  it('is done with alt on every picture, started without, and the chip says how many', () => {
+    const doc = fixture();
+    const done = readiness(doc).units.find((u) => u.anchor === 'journal-concert')!;
+    expect(done.state).toBe('done');
+    doc.items['journal-concert']!.body += '\n<img src="https://www.thingelstad.com/uploads/2026/encore.jpg" alt="">';
+    const started = readiness(doc).units.find((u) => u.anchor === 'journal-concert')!;
+    expect(started.state).toBe('partial');
+    expect(started.context).toBe('1 picture without alt text — the wand writes it from the pictures.');
+  });
+});
+
 describe('an issue without the skeleton', () => {
   it('renders when it is nothing but Markdown blocks', () => {
     let doc = createIssue({ number: 400, publication_date: '2026-10-03' });

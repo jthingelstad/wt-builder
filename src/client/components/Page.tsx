@@ -19,7 +19,7 @@ import {
 } from '../../shared/render/plan.ts';
 import { audioScript } from '../../shared/render/audio.ts';
 import { MEMBER_THANKS, PREMIUM_CONDITION } from '../../shared/render/email.ts';
-import { rejoinBody, splitBody } from '../../shared/body.ts';
+import { imagesWithoutAlt, rejoinBody, splitBody, withImageAlts } from '../../shared/body.ts';
 import { markdownInlineToSafeHtml, markdownToSafeHtml } from '../../shared/markdown.ts';
 import { ImagePlus, Plus, Spinner, Trash } from '../icons.tsx';
 import { Editable, Rail, RichEditable, Row, Wand, itemRail, sectionRail } from './Row.tsx';
@@ -68,7 +68,7 @@ interface PageProps {
   onSelect: (anchor: string | null) => void;
   act: PageActions;
   drafting: string | null;
-  draft: { itemId: string; candidates: string[]; echoes?: EchoOption[]; membership?: { cta: string; thanks: string }[]; photo?: { alt: string; caption: string }[] } | null;
+  draft: { itemId: string; candidates: string[]; echoes?: EchoOption[]; membership?: { cta: string; thanks: string }[]; photo?: { alt: string; caption: string }[]; alts?: { src: string; alt: string }[] } | null;
   onPickDraft: (itemId: string, text: string, refs?: ArchiveReference[], extraPatch?: Record<string, unknown>) => void;
   onDismissDraft: () => void;
   /** The section whose order is being proposed, and the proposal. */
@@ -406,6 +406,12 @@ export function Page({
                 <MembershipPicker
                   candidates={draft.membership}
                   onPick={(pair) => onPickDraft(itemId, pair.cta, undefined, { member_thanks: pair.thanks })}
+                  onDismiss={onDismissDraft}
+                />
+              ) : draft.alts ? (
+                <AltPicker
+                  alts={draft.alts}
+                  onUse={(alts) => onPickDraft(itemId, withImageAlts(item.body, Object.fromEntries(alts.map((a) => [a.src, a.alt]))))}
                   onDismiss={onDismissDraft}
                 />
               ) : draft.echoes ? (
@@ -1069,6 +1075,50 @@ function PhotoPicker({
         </button>
       ))}
       <p class="dp-foot">One pick fills alt and caption. Both stay editable.</p>
+    </div>
+  );
+}
+
+/**
+ * The Journal wand's alts: one per picture, written from the picture, each
+ * editable before it goes in. "Use these" writes them into the post's own
+ * image tags, and the body write-back carries them to the blog — so the
+ * site and the email get them through the same body (2026-09-20).
+ */
+function AltPicker({
+  alts, onUse, onDismiss,
+}: {
+  alts: { src: string; alt: string }[];
+  onUse: (alts: { src: string; alt: string }[]) => void;
+  onDismiss: () => void;
+}) {
+  const [edited, setEdited] = useState(alts);
+  return (
+    <div class="draft-picker membership-picker alt-picker">
+      <div class="dp-head">
+        <span class="mono-label">FROM THE PICTURES — ALT TEXT</span>
+        <button class="dp-x" aria-label="Dismiss" onClick={onDismiss}>×</button>
+      </div>
+      {edited.length === 0 && <p class="quiet">Nothing came back.</p>}
+      {edited.map((a, i) => (
+        <div key={a.src} class="alt-row">
+          <img src={a.src} alt="" loading="lazy" />
+          <textarea
+            rows={2}
+            value={a.alt}
+            onInput={(e) => {
+              const alt = (e.currentTarget as HTMLTextAreaElement).value;
+              setEdited((prev) => prev.map((x, j) => (j === i ? { ...x, alt } : x)));
+            }}
+          />
+        </div>
+      ))}
+      <div class="dp-compose">
+        <button class="btn small primary" disabled={!edited.some((a) => a.alt.trim())} onClick={() => onUse(edited)}>
+          Use these
+        </button>
+        <span class="dp-foot">Written into the post and back to Micro.blog. Nothing is written until you choose.</span>
+      </div>
     </div>
   );
 }

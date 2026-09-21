@@ -743,6 +743,11 @@ a:hover { text-decoration: underline; }
   display: flex; align-items: center; gap: 10px; margin-top: 2px;
 }
 
+/* ── the Journal alt picker ───────────────────────────────────────────── */
+.alt-row { display: grid; grid-template-columns: 96px 1fr; gap: 10px; align-items: start; margin: 0 0 10px; }
+.alt-row img { width: 96px; height: 72px; object-fit: cover; border-radius: 6px; background: var(--panel); }
+.alt-row textarea { width: 100%; font: inherit; font-size: 12.5px; line-height: 1.45; padding: 6px 8px; border: 1px solid var(--border); border-radius: 6px; resize: vertical; }
+
 /* ── the Membership pair picker ───────────────────────────────────────── */
 .membership-picker { width: 560px; margin-left: -330px; position: relative; z-index: 30; }
 .membership-picker .dp-option { display: block; }

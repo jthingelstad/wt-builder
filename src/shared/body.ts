@@ -74,3 +74,57 @@ export function rejoinBody(prose: string, tail: string): string {
   const trimmed = prose.trimEnd();
   return trimmed ? `${trimmed}\n\n${tail.trim()}` : tail.trim();
 }
+
+// ── alt text ──────────────────────────────────────────────────────────────
+//
+// Micro.blog stores a photo post's pictures as `<img src … alt="">` — the
+// alt is empty unless Jamie typed one at posting time, and he rarely does
+// from the phone. WT350 shipped 11 of 12 Journal images without alt text
+// (Buttondown said so). The wand writes an alt per image from the picture
+// itself; these helpers read the tags and put the alt back into the exact
+// tag so the body — the source mirror — carries it to the blog on write-back,
+// and the site and the email get it through the same body (2026-09-20).
+
+export interface ImageTag {
+  /** The tag as it appears in the body. */
+  tag: string;
+  src: string;
+  alt: string;
+}
+
+/** Every `<img>` in a body, in document order — inline or trailing. */
+export function imageTags(body: string | undefined): ImageTag[] {
+  return [...String(body ?? '').matchAll(IMG)].map((m) => ({
+    tag: m[0],
+    src: SRC.exec(m[0])?.[1] ?? '',
+    alt: ALT.exec(m[0])?.[1] ?? '',
+  }));
+}
+
+/** The images in a body that have no alt text — what the reader who cannot see them is missing. */
+export function imagesWithoutAlt(body: string | undefined): ImageTag[] {
+  return imageTags(body).filter((i) => i.src && !i.alt.trim());
+}
+
+function attrValue(text: string): string {
+  return text.replace(/&/g, '&amp;').replace(/"/g, '&quot;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+}
+
+/**
+ * The body with each image's alt set, by src. A tag with an `alt` gets its
+ * value replaced; one without gets ` alt="…"` before its close. Every other
+ * byte of the tag — width, height, loading, the quoting style — is kept, so
+ * the blog gets its own markup back with one attribute changed. Images not
+ * named in `alts` are untouched; an empty alt is written as empty.
+ */
+export function withImageAlts(body: string | undefined, alts: Record<string, string>): string {
+  return String(body ?? '').replace(IMG, (tag) => {
+    const src = SRC.exec(tag)?.[1];
+    if (!src || !(src in alts)) return tag;
+    const value = attrValue(String(alts[src] ?? '').replace(/\s+/g, ' ').trim());
+    if (/\balt=/i.test(tag)) {
+      return tag.replace(/\balt=(?:"[^"]*"|'[^']*'|[^\s>]*)/i, `alt="${value}"`);
+    }
+    return tag.replace(/\s*(\/?)>$/, ` alt="${value}"$1>`);
+  });
+}

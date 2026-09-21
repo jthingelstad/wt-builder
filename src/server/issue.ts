@@ -18,6 +18,7 @@ import type {
 import { SCHEMA_VERSION, allChannels, emptyChannels } from '../shared/types.ts';
 import { type Window, addDays, instantOf, issueWindow, issueSaturday } from '../shared/dates.ts';
 import { bodyLines, orderedNodes, outOfWindow, windowOf } from '../shared/render/plan.ts';
+import { imagesWithoutAlt } from '../shared/body.ts';
 import * as pinboard from './integrations/pinboard.ts';
 import * as microblog from './integrations/microblog.ts';
 import { reconcileItem, type RemoteFields } from './reconcile.ts';
@@ -1197,8 +1198,14 @@ export function readiness(doc: IssueDoc): Readiness {
         }
       } else if (item.type === 'journal_post') {
         // A post is finished when it was published; the chip is its place on
-        // the map. A promoted post is its own section and gets one too.
-        add(true, chipName(item), id, 'required', node.kind === 'promoted_item' ? 'Promoted post.' : 'Journal.');
+        // the map. A promoted post is its own section and gets one too. Its
+        // pictures owe alt text, though: WT350 shipped 11 of 12 without
+        // (2026-09-20), so a post with an alt-less image is started, not done.
+        const missing = imagesWithoutAlt(item.body).length;
+        add(missing ? 'partial' : 'done', chipName(item), id, 'required',
+          missing
+            ? `${missing} picture${missing === 1 ? '' : 's'} without alt text — the wand writes it from the pictures.`
+            : node.kind === 'promoted_item' ? 'Promoted post.' : 'Journal.');
       } else if (item.authorship === 'Thingy') {
         // Picking or writing it is the review; there is no second gate.
         const name = item.type === 'membership' ? 'Membership' : 'Echoes';
