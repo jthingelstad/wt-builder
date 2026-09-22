@@ -503,9 +503,12 @@ A numbered script, not a page. Rows are `26px` mono cue numbers (`01`, `02` …)
 - Omission strips (dashed, mono `NOT SPOKEN`) for a section held out of audio. Photo
   and Echoes speak since 2026-09-21 and 2026-09-20; a Photo with no caption is the
   one that still shows the strip.
-- Openers and closers ("NOW, THE NOTABLE SECTION. SEVEN LINKS THIS WEEK" /
-  "THAT'S THE END OF NOTABLE") draw as rules — the closer muted — because they are the
-  pauses the listener hears.
+- The builder's own spoken lines — the opening, "Now, the Notable section. Seven links
+  this week.", "That's the end of Notable.", Thingy's hello, the close — are numbered
+  cues like every other line, set in amber (the lens's audio-device colour, shared with
+  the Briefly title highlight), with a one-time note saying so. Drawn as rules they
+  read as headings that would not be spoken (Jamie, 2026-09-22). A cue that follows a
+  section pause sits after a larger gap. Thingy's cues carry a small THINGY tag.
 - **Membership and Haiku are spoken.** Membership is introduced as Thingy's words
   before the words themselves; Haiku is read one line at a time so the pauses fall
   on the line breaks. See `rendering-contracts.md`.

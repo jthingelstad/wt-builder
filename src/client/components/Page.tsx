@@ -18,6 +18,7 @@ import {
   editionOnly, falloutOf, heldOut, itemsInWindow, orderedNodes, outOfWindow, postBlocks, windowOf,
 } from '../../shared/render/plan.ts';
 import { audioScript } from '../../shared/render/audio.ts';
+import type { ScriptBlock } from '../../shared/render/audio.ts';
 import { MEMBER_THANKS, PREMIUM_CONDITION } from '../../shared/render/email.ts';
 import { imagesWithoutAlt, rejoinBody, splitBody, withImageAlts } from '../../shared/body.ts';
 import { markdownInlineToSafeHtml, markdownToSafeHtml } from '../../shared/markdown.ts';
@@ -597,26 +598,27 @@ function AudioScript({
     (n) => n.items.length > 0 && !n.items.some((id) => doc.items[id]?.channels.audio),
   );
 
+  // The builder's own lines — the opening, the section openers and closers,
+  // Thingy's hello, the close — are spoken like everything else, so they
+  // read as script, numbered with the rest. They are set in amber, the
+  // colour this lens already uses for its audio-only devices, so it is
+  // clear they are generated rather than Jamie's words; drawn as rules
+  // they looked like headings that would not be read (Jamie, 2026-09-22).
+  const isGenerated = (b: ScriptBlock) => b.kind !== 'cue';
+  const firstGenerated = script.findIndex(isGenerated);
+
   return (
     <>
       {script.map((block, i) => {
         const anchor = block.itemId ?? block.nodeId ?? 'issue';
 
-        // Openers and closers are spoken too, but they are the structure the
-        // listener hears; the lens draws them as the rules they are.
-        if (block.kind === 'transition' || block.kind === 'closer') {
-          return (
-            <Row key={`t-${i}`} anchor={anchor} selected={selected === anchor}>
-              <div class={block.kind === 'closer' ? 'cue-section cue-closer' : 'cue-section'}>
-                <span class="cue-label">{block.text.replace(/\.$/, '').toUpperCase()}</span>
-                <span class="cue-rule" />
-              </div>
-            </Row>
-          );
-        }
-
         cue += 1;
         const n = cue;
+        const classes = ['cue'];
+        if (isGenerated(block)) classes.push('cue-generated');
+        if (block.speaker === 'thingy') classes.push('cue-thingy');
+        // A section boundary is the longest pause; the gap shows it.
+        if (block.pauseBefore === 'section') classes.push('cue-after-pause');
 
         // Briefly speaks title-first — the reverse of print. The title is
         // highlighted, and the first reversed cue says why once.
@@ -636,10 +638,16 @@ function AudioScript({
 
         return (
           <Row key={`c-${i}`} anchor={anchor} selected={selected === anchor}>
-            <div class="cue" onClick={() => onSelect(anchor)}>
+            <div class={classes.join(' ')} onClick={() => onSelect(anchor)}>
               <span class="cue-num">{String(n).padStart(2, '0')}</span>
               <span class="cue-text">
+                {block.speaker === 'thingy' && <span class="cue-speaker">THINGY</span>}
                 {text}
+                {i === firstGenerated && (
+                  <span class="cue-reverse-note">
+                    GENERATED — the builder's own spoken lines are set in this colour; every other line is the issue's text.
+                  </span>
+                )}
                 {firstReversed && (
                   <span class="cue-reverse-note">
                     TITLE FIRST — the page prints description → title; audio reverses.

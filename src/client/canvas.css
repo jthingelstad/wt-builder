@@ -975,19 +975,24 @@ span[contenteditable]:focus {
   color: var(--muted);
 }
 
-.cue-section { display: flex; align-items: center; gap: 12px; margin: 26px 0 10px; }
-
-.cue-label {
+/* The builder's own spoken lines: script, in the script's type, in the
+   lens's audio-device colour. Not a heading — every one is read aloud. */
+.cue-generated .cue-text { color: var(--amber); }
+.cue-generated .cue-num { color: var(--amber-2); }
+/* The longest pause, seen as the largest gap. */
+.cue-after-pause { margin-top: 22px; }
+.cue-speaker {
+  display: inline-block;
+  margin-right: 8px;
+  padding: 1px 6px;
+  border-radius: 3px;
+  background: var(--prov-thingy);
+  color: var(--terracotta);
   font-family: var(--mono);
-  font-size: 9.5px;
-  letter-spacing: 0.09em;
-  color: var(--secondary);
-  white-space: nowrap;
+  font-size: 9px;
+  letter-spacing: 0.08em;
+  vertical-align: 2px;
 }
-
-.cue-rule { flex: 1; border-top: 1px solid var(--border); }
-.cue-closer { margin: 10px 0 26px; }
-.cue-closer .cue-label { color: var(--muted); }
 
 .cue-omit {
   display: flex;
