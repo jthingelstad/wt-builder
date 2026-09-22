@@ -105,6 +105,13 @@ finished, what is half-finished, and what has never run.
   block in email, and Thingy's own voice (nova) in audio. `VOICE_ID` records
   both voices. Heard in WT350's send (2026-09-20).
 
+- **The back catalogue is being published, ten a day** (2026-09-22) — six
+  calibration renders assessed by whisper (`backfill/assess.py`); the daily
+  job (`scripts/backfill-daily.ts`, LaunchAgent `com.thingelstad.wt-backfill`
+  at 02:15) renders the newest ten without a current edition against the live
+  page on GitHub, verifies the CDN, commits the pages, checks the feed, and
+  writes `tmp/backfill/reports/<date>.md`. Newest first: 349 → 1. Jamie chose
+  ten a day over one bill (2026-09-22).
 - **The back catalogue can be spoken** (2026-09-22) — `legacyBlocks()`
   (`src/shared/render/legacy-blocks.ts`) turns a `backfill/scripts/<N>.txt`
   into the assembler's blocks: section cues become title-only chapters on
