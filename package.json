@@ -25,7 +25,8 @@
     "buttondown:push": "node --import tsx scripts/buttondown-config.ts push",
     "persona:sync": "node scripts/sync-persona.mjs",
     "persona:check": "node scripts/sync-persona.mjs --check",
-    "backfill:daily": "node --import tsx scripts/backfill-daily.ts"
+    "backfill:daily": "node --import tsx scripts/backfill-daily.ts",
+    "backfill:status": "node --import tsx scripts/backfill-status.ts"
   },
   "dependencies": {
     "@anthropic-ai/sdk": "^0.123.0",
