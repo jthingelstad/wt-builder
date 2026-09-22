@@ -33,6 +33,8 @@ const DAY_LABEL = /^(?:Monday|Tuesday|Wednesday|Thursday|Friday|Saturday|Sunday)
 const TABLE = /^\|.*\|\s*$/;
 const TABLE_RULE = /^\|(?:\s*:?-+:?\s*\|)+\s*$/;
 const HEX_SIGNATURE = /^0x[0-9a-f]{40,}$/i;
+/** Markup the transform let through as a paragraph of its own: a lone bullet, an anchor that just says "link", a row of dots. */
+const RESIDUE = /^(?:\*|link|[.…]+)$/i;
 
 /** "Dec 31, twenty seventeen at 9:03 PM" — the photo's date, month abbreviated; read as a word it is "desk". */
 const MONTH_ABBR = /\b(Jan|Feb|Mar|Apr|Jun|Jul|Aug|Sep|Sept|Oct|Nov|Dec)\.? (?=\d{1,2},? )/g;
@@ -106,6 +108,7 @@ export function legacyBlocks(script: string, issue: LegacyIssue): ScriptBlock[] 
       afterOpener = false;
       continue;
     }
+    if (RESIDUE.test(paragraph)) continue;
     // A signature is proof for the eye; read aloud it is a minute of hex.
     if (section === 'Signature' && HEX_SIGNATURE.test(paragraph)) continue;
     // Issues 251–260 set the Fortune as a subheading of the Signature, which

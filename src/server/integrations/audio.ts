@@ -236,22 +236,32 @@ async function storedPiece(key: string): Promise<Buffer | null> {
  * synthesizer — and into the store and the cache when it is new. Rate limits
  * are retried with a backoff; anything else is the caller's failure.
  */
-async function speakCached(text: string, voice: string, cacheDir: string): Promise<{ path: string; fresh: boolean }> {
+async function speakCached(text: string, voice: string, cacheDir: string): Promise<{ path: string; fresh: boolean; silent?: boolean }> {
   const name = `${pieceKey(text, voice)}.mp3`;
   const path = join(cacheDir, name);
-  if (existsSync(path)) return { path, fresh: false };
   const key = `${TTS_STORE_PREFIX}/${name}`;
+  // A hit is only a hit if it has sound in it: a silent piece stored before
+  // this check existed is spoken again, not served.
+  if (existsSync(path) && (await peakDb(path)) > SILENT_DB) return { path, fresh: false };
   const stored = await storedPiece(key);
   if (stored) {
     await writeFile(path, stored);
-    return { path, fresh: false };
+    if ((await peakDb(path)) > SILENT_DB) return { path, fresh: false };
   }
   let attempt = 0;
+  let silent = 0;
   for (;;) {
     try {
       const audio = await speak(text, { voice, speed: TTS_SPEED });
-      await store().send(new PutObjectCommand({ Bucket: CDN_HOST, Key: key, Body: audio, ContentType: 'audio/mpeg' }));
       await writeFile(path, audio);
+      if ((await peakDb(path)) <= SILENT_DB) {
+        // Silence is not what was asked for. Ask again; the synthesizer is
+        // not deterministic. Three silences in a row is a real failure.
+        silent += 1;
+        if (silent >= 3) return { path, fresh: true, silent: true };
+        continue;
+      }
+      await store().send(new PutObjectCommand({ Bucket: CDN_HOST, Key: key, Body: audio, ContentType: 'audio/mpeg' }));
       return { path, fresh: true };
     } catch (err) {
       // Worth another go: the rate limit, the service's own errors, a call
@@ -315,6 +325,20 @@ async function durationExact(path: string): Promise<number> {
 
 export async function durationSeconds(path: string): Promise<number> {
   return Math.round(await durationExact(path));
+}
+
+/**
+ * Below this peak a piece is silence. tts-1-hd sometimes returns a third of
+ * a second of nothing for a one-word block ("Supabase." at -54 dB, WT150,
+ * 2026-09-22); speech peaks well above -20 dB.
+ */
+export const SILENT_DB = -40;
+
+/** The piece's loudest moment, in dBFS. */
+async function peakDb(path: string): Promise<number> {
+  const err = await runCapturingStderr('ffmpeg', ['-hide_banner', '-nostats', '-i', path, '-af', 'volumedetect', '-f', 'null', '-']);
+  const m = /max_volume:\s*(-?[\d.]+) dB/.exec(err);
+  return m ? Number(m[1]) : Number.NEGATIVE_INFINITY;
 }
 
 /** A chapter with the second it starts at. */
@@ -499,7 +523,7 @@ export function id3Chapters(chapters: TimedChapter[], art: Map<string, Buffer>, 
  */
 export async function renderAudio(
   episode: Episode,
-  blocks: ScriptBlock[],
+  script: ScriptBlock[],
   opts: {
     /** Write the three files here instead of the CDN — a dry run that costs only the synthesis. */
     localOut?: string;
@@ -512,6 +536,7 @@ export async function renderAudio(
   } = {},
 ): Promise<AudioResult> {
   const issueNumber = episode.number;
+  let blocks = script;
   if (!blocks.length) throw new Error('the audio script is empty');
 
   for (const tool of ['ffmpeg', 'ffprobe']) {
@@ -533,9 +558,29 @@ export async function renderAudio(
     await writeFile(coverPath, cover.square);
 
     // 1. Speech, one piece per block, from the cache where it has been said.
-    const spoken = await mapLimit(blocks, CONCURRENCY, (b) =>
+    let spoken = await mapLimit(blocks, CONCURRENCY, (b) =>
       speakCached(pronounce(b.text), VOICES[b.speaker ?? 'jamie'], config.ttsCacheDir));
-    const synthesized = spoken.filter((s) => s.fresh).length;
+    let synthesized = spoken.filter((s) => s.fresh).length;
+
+    // A terse block — a one-word subheading, "DuckDB." — comes back from
+    // tts-1-hd as silence more often than not, and stays silent on retry.
+    // Every word is still said: the block is welded onto the one after it
+    // and the two are spoken as one piece, on the first's boundary, under
+    // the first's chapter. The transcript then says exactly what was heard.
+    for (let i = spoken.length - 1; i >= 0; i -= 1) {
+      if (!spoken[i]!.silent) continue;
+      const next = blocks[i + 1];
+      if (!next || (next.speaker ?? 'jamie') !== (blocks[i]!.speaker ?? 'jamie')) {
+        throw new Error(`the synthesizer returned silence for ${JSON.stringify(blocks[i]!.text)} and there is no block to weld it to`);
+      }
+      const welded: ScriptBlock = { ...next, text: `${blocks[i]!.text} ${next.text}`, pauseBefore: blocks[i]!.pauseBefore, chapter: blocks[i]!.chapter ?? next.chapter };
+      const piece = await speakCached(pronounce(welded.text), VOICES[welded.speaker ?? 'jamie'], config.ttsCacheDir);
+      if (piece.silent) throw new Error(`the synthesizer returned silence for ${JSON.stringify(welded.text)}`);
+      blocks = [...blocks.slice(0, i), welded, ...blocks.slice(i + 2)];
+      spoken = [...spoken.slice(0, i), piece, ...spoken.slice(i + 2)];
+      synthesized += piece.fresh ? 1 : 0;
+      console.warn(`[audio] silent piece welded onto the next: ${JSON.stringify(welded.text.slice(0, 60))}`);
+    }
 
     // 2. Each piece to PCM at the synthesizer's rate, its own dead air
     //    trimmed to a small margin so the pauses are the ones placed below.
@@ -584,6 +629,13 @@ export async function renderAudio(
       return path;
     };
     const durations = await mapLimit(pieces, 4, durationExact);
+    // A piece with no measurable duration would put NaN into every start
+    // time after it and surface much later as an ID3 integer error (WT150,
+    // 2026-09-22). Say which piece, now.
+    const unmeasured = durations.findIndex((d) => !Number.isFinite(d) || d <= 0);
+    if (unmeasured >= 0) {
+      throw new Error(`piece ${unmeasured} has no duration (${durations[unmeasured]}): ${JSON.stringify(blocks[unmeasured]!.text.slice(0, 80))}`);
+    }
     const parts: string[] = [];
     const placed: PlacedBlock[] = [];
     let t = 0;

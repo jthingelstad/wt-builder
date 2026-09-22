@@ -99,6 +99,12 @@ describe('legacyBlocks', () => {
     expect(blocks(35).some((x) => /\bDec \d/.test(x.text))).toBe(false);
   });
 
+  it('drops the markup the transform let through as paragraphs', () => {
+    for (const n of [223, 253, 256]) {
+      for (const x of blocks(n)) expect(x.text).not.toMatch(/^(\*|link|[.…]+)\.?$/i);
+    }
+  });
+
   it('reads a table row by row', () => {
     const texts = blocks(175).map((x) => x.text);
     expect(texts).toContain('BTC: Stored value. I think of it as gold.');
