@@ -320,10 +320,19 @@ const routes: [RegExp, string, (ctx: Ctx, params: string[]) => Promise<unknown>]
   }],
 
   [/^\/api\/issues\/([^/]+)\/items\/([^/]+)$/, 'PATCH', async ({ body }, [id, itemId]) => {
-    const patch = await body();
+    const raw = await body();
     const doc = requireIssue(id!);
     // A silent no-op reads to the client as a saved edit.
     if (!doc.items[itemId!]) throw new HttpError(404, `no item ${itemId}`);
+    // An edit that only removes every line break is a lossy view read back
+    // as source, not an intention; it is refused here, before it can reach
+    // the document or the source it mirrors, and the log says so.
+    const { patch, dropped } = issues.withoutFlattening(doc.items[itemId!]!, raw);
+    if (dropped.length) {
+      store.logEvent(id!, 'edit',
+        `Refused an edit to ${dropped.join(', ')} that only removed its line breaks — ${issues.itemName(doc.items[itemId!]!)}`);
+    }
+    if (!Object.keys(patch).length) return { issue: doc, readiness: issues.readiness(doc) };
     store.logEvent(id!, 'edit',
       `Edited ${Object.keys(patch).join(', ')} — ${issues.itemName(doc.items[itemId!]!)}`);
     const result = saved(issues.updateItem(doc, itemId!, patch));

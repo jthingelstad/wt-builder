@@ -33,6 +33,17 @@ describe('a paste from Safari or Notes keeps its links', () => {
     expect(md(tree)).toBe('**Bold** and _italic_ and `x`');
   });
 
+  it('keeps a pasted list as a list and a quote as a quote', () => {
+    const tree = el('div', [
+      el('p', [text('Three things:')]),
+      el('ul', [el('li', [text('One')]), el('li', [text('Two ')]), el('li', [el('a', [text('Three')], { href: 'https://x.test/3' })])]),
+      el('ol', [el('li', [text('First')]), el('li', [text('Second')])]),
+      el('blockquote', [el('p', [text('Said')]), el('p', [text('twice')])]),
+      el('p', [text('After.')]),
+    ]);
+    expect(md(tree)).toBe('Three things:\n\n- One\n- Two\n- [Three](https://x.test/3)\n\n1. First\n2. Second\n\n> Said\n>\n> twice\n\nAfter.');
+  });
+
   it('separates paragraphs and honours line breaks', () => {
     const tree = el('div', [el('p', [text('One')]), el('p', [text('Two'), el('br', []), text('three')])]);
     expect(md(tree)).toBe('One\n\nTwo\nthree');

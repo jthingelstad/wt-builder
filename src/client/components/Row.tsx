@@ -365,7 +365,19 @@ export function domToMarkdown(root: Node, blockBreak = '\n\n'): string {
       case 'CODE': { const t = inner(); return t ? `\`${t}\`` : ''; }
       case 'IMG': return '';
       case 'STYLE': case 'SCRIPT': case 'HEAD': return '';
-      case 'P': case 'DIV': case 'LI': case 'H1': case 'H2': case 'H3': case 'H4': case 'BLOCKQUOTE':
+      // A pasted list keeps its markers and a quote its angle, or a list from
+      // Notes arrives as loose paragraphs with the bullets gone.
+      case 'UL': case 'OL': {
+        const ordered = el.tagName === 'OL';
+        const items = Array.from(el.childNodes).filter((c) => (c as HTMLElement).tagName === 'LI');
+        const lines = items.map((li, i) =>
+          `${ordered ? `${i + 1}.` : '-'} ${Array.from(li.childNodes).map(walk).join('').trim()}`);
+        return `${lines.join('\n')}${blockBreak}`;
+      }
+      case 'LI': return `- ${inner().trim()}\n`;
+      case 'BLOCKQUOTE':
+        return `${inner().trim().split('\n').map((l) => `> ${l}`).join('\n')}${blockBreak}`;
+      case 'P': case 'DIV': case 'H1': case 'H2': case 'H3': case 'H4':
         return `${inner()}${blockBreak}`;
       default: return inner();
     }

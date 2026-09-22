@@ -11,7 +11,7 @@ import * as issues from '../src/server/issue.ts';
 import { inWindow, issueWindow, snapToSaturday, windowLabel } from '../src/shared/dates.ts';
 import {
   addMarkdownBlock, addSection, createIssue, demote, hideItem, moveLinkToSection, moveNode,
-  normalizeSkeleton, promote, readiness, removeSection, setChannel, setIssueNumber,
+  isFlattened, normalizeSkeleton, promote, readiness, removeSection, setChannel, setIssueNumber, withoutFlattening,
   setPublicationDate, setWindowDays,
   updateItem, followBookmarkTags, pruneGone, pruneOutsideWindow, setItemOrder,
 } from '../src/server/issue.ts';
@@ -918,6 +918,28 @@ describe('readiness knows started from finished', () => {
     expect(titles[0]).toBe('Title');
     // The fixture's title is the seed, "The Weekly Thing 350": not yet titled.
     expect(readiness(doc).units[0]!.state).not.toBe('done');
+  });
+});
+
+describe('an edit that only removes line breaks is not an edit', () => {
+  const post = 'We did a session.\n\n- Pauses fall right.\n- Lists are spoken.\n\nA viable way.';
+  const flat = 'We did a session.  - Pauses fall right. - Lists are spoken.  A viable way.';
+
+  it('recognises the flatten signature and nothing else', () => {
+    expect(isFlattened(post, flat)).toBe(true);
+    expect(isFlattened(post, post)).toBe(false);
+    expect(isFlattened(post, 'We did a session.\n\n- Pauses fall right.')).toBe(false); // words changed
+    expect(isFlattened('One line.', 'One line. Two.')).toBe(false); // nothing to flatten
+    expect(isFlattened(post, post.replace('\n\nA viable way.', ' A viable way.'))).toBe(false); // still has lines
+  });
+
+  it('drops the flattening fields from a patch and keeps the rest', () => {
+    const item = fixture().items['journal-boat']!;
+    item.body = post;
+    const { patch, dropped } = withoutFlattening(item, { body: flat, title: 'Kept' });
+    expect(dropped).toEqual(['body']);
+    expect(patch).toEqual({ title: 'Kept' });
+    expect(withoutFlattening(item, { body: 'Rewritten.' })).toEqual({ patch: { body: 'Rewritten.' }, dropped: [] });
   });
 });
 

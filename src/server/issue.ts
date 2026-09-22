@@ -529,6 +529,34 @@ function sortJournal(doc: IssueDoc): void {
 
 // ── mutations ─────────────────────────────────────────────────────────────
 
+/**
+ * The same words with every line break gone. This is what a lossy view
+ * committed as source looks like — WT351's "Podcast Improvements" post came
+ * back from an accidental click with its seven bullets welded onto one line,
+ * and the write-back carried that to Micro.blog (2026-09-21). Nobody edits a
+ * post into that shape on purpose, so it is not an edit.
+ */
+export function isFlattened(before: string | undefined, after: string | undefined): boolean {
+  const b = String(before ?? '');
+  const a = String(after ?? '');
+  if (!/\n/.test(b) || /\n/.test(a)) return false;
+  const collapse = (s: string) => s.replace(/\s+/g, ' ').trim();
+  return collapse(b) === collapse(a);
+}
+
+/** The text fields of a patch that would only flatten what is there, dropped; their names returned. */
+export function withoutFlattening(item: Item, patch: Partial<Item>): { patch: Partial<Item>; dropped: string[] } {
+  const next = { ...patch };
+  const dropped: string[] = [];
+  for (const key of ['body', 'commentary', 'member_thanks'] as const) {
+    if (key in next && isFlattened(item[key], next[key])) {
+      delete next[key];
+      dropped.push(key);
+    }
+  }
+  return { patch: next, dropped };
+}
+
 export function updateItem(doc: IssueDoc, itemId: string, patch: Partial<Item>): IssueDoc {
   const next = structuredClone(doc);
   const item = next.items[itemId];

@@ -15,7 +15,7 @@ import type { ArchiveReference, Channel, EchoOption, IssueDoc, IssueNode, Item }
 import { CHANNELS } from '../../shared/types.ts';
 import { clockTime, kickerDate, longDate, wallClock, weekday } from '../../shared/dates.ts';
 import {
-  editionOnly, falloutOf, heldOut, itemsInWindow, orderedNodes, outOfWindow, windowOf,
+  editionOnly, falloutOf, heldOut, itemsInWindow, orderedNodes, outOfWindow, postBlocks, windowOf,
 } from '../../shared/render/plan.ts';
 import { audioScript } from '../../shared/render/audio.ts';
 import { MEMBER_THANKS, PREMIUM_CONDITION } from '../../shared/render/email.ts';
@@ -766,7 +766,9 @@ function ChannelBlock({ doc, node, item, itemId, readOnly, act }: BlockProps) {
       );
 
     case 'pinboard_link':
-      return node.type === 'briefly'
+      // A Briefly line with more than one paragraph edits as a block, for the
+      // same reason a structured Journal post does.
+      return node.type === 'briefly' && postBlocks(item.commentary).length <= 1
         ? (
           <p>
             <RichEditable
@@ -821,17 +823,38 @@ function ChannelBlock({ doc, node, item, itemId, readOnly, act }: BlockProps) {
       // The lead is the title when the post has one (bold), the time of day otherwise.
       const title = String(item.title ?? '').trim();
       const lead = title || (c ? clockTime(c) : '');
+      const leadLink = lead && (
+        <>
+          {title
+            ? <strong><a href={item.source_url} target="_blank" rel="noreferrer">{title}</a></strong>
+            : <a href={item.source_url} target="_blank" rel="noreferrer">{lead}</a>}
+          <span class="emdash"> — </span>
+        </>
+      );
+      // A moment is one line and edits as one. A post with more structure —
+      // a list, several paragraphs — edits as a block: in a single-line span
+      // its line breaks are invisible, Enter blurs, and the inline view had
+      // welded WT351's bullets onto one line (2026-09-21).
+      if (postBlocks(split.prose).length > 1) {
+        return (
+          <>
+            {leadLink && <p>{leadLink}</p>}
+            <RichEditable
+              tag="div" multiline class="post-body" readOnly={readOnly}
+              value={split.prose} ph="…"
+              render={markdownToSafeHtml}
+              onCommit={(text) => set({ body: rejoinBody(text, split.tail) })}
+            />
+            {split.images.map((img) => (
+              <img key={img.src} class="post-image" src={img.src} alt={img.alt} loading="lazy" />
+            ))}
+          </>
+        );
+      }
       return (
         <>
           <p>
-            {lead && (
-              <>
-                {title
-                  ? <strong><a href={item.source_url} target="_blank" rel="noreferrer">{title}</a></strong>
-                  : <a href={item.source_url} target="_blank" rel="noreferrer">{lead}</a>}
-                <span class="emdash"> — </span>
-              </>
-            )}
+            {leadLink}
             <RichEditable
               readOnly={readOnly} value={split.prose} ph="…"
               render={markdownInlineToSafeHtml}

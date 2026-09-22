@@ -904,3 +904,22 @@ quoted in code comments where they constrain something.
 The clickable prototype was deleted once the design was implemented. It used a
 superseded data model — an `included` boolean rather than per-channel flags — and
 kept being mistaken for the specification. **This document is the specification.**
+
+## Editing invariants (2026-09-21)
+
+Learned from WT351, where an accidental click on a Journal post committed its
+rendered view as source and the write-back carried the flattened post to
+Micro.blog:
+
+- **A rendered view is never committed.** `RichEditable` shows rendered HTML at
+  rest and swaps to Markdown source on mousedown/focus; a blur that arrives while
+  the node still holds HTML commits nothing, whatever path skipped the swap.
+- **Structure edits as a block.** A Journal entry or Briefly line whose text has
+  more than one block (a list, several paragraphs) edits in the block editor
+  (`post-body`, `pre-wrap`, Enter makes a line), not the inline span where line
+  breaks are invisible and Enter blurs. One-line moments stay inline.
+- **A flatten is refused.** The server drops any `body`/`commentary`/
+  `member_thanks` change whose only difference is that every line break is
+  gone (`isFlattened`), logs "Refused an edit … that only removed its line
+  breaks", and nothing reaches the source.
+- **Pasted lists and quotes keep their markers** (`domToMarkdown`).
