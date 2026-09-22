@@ -545,8 +545,6 @@ export async function renderAudio(
 
     const body = await readFile(outPath);
     const seconds = await durationSeconds(outPath);
-    const stamp = createHash('sha256').update(body).digest('hex').slice(0, 8);
-    const base = `weekly-thing/${issueNumber}/weekly-thing-${issueNumber}-${stamp}`;
     const transcript = transcriptVtt(placed);
 
     let href = (key: string) => `https://${CDN_HOST}/${key}`;
@@ -556,6 +554,11 @@ export async function renderAudio(
     }
     for (const c of chapters) if (c.image) c.image = href(c.image);
     const chaptersFile = chaptersJson(chapters);
+    // The name stands for all three files: a chapter list that changes under
+    // an unchanged mp3 (2026-09-21, the art went square) must be a new name
+    // too, or the CDN keeps serving the old list for a year.
+    const stamp = createHash('sha256').update(body).update(chaptersFile).update(transcript).digest('hex').slice(0, 8);
+    const base = `weekly-thing/${issueNumber}/weekly-thing-${issueNumber}-${stamp}`;
 
     if (opts.localOut) {
       const name = base.split('/').pop()!;
