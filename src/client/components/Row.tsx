@@ -480,6 +480,9 @@ export function RichEditable({
 }: EditableProps & { render: (source: string) => string }) {
   const ref = useRef<HTMLElement>(null);
   const [editing, setEditing] = useState(false);
+  // Mirrors `editing` for the blur handler, which can run before the
+  // re-render that would update its closure.
+  const editingRef = useRef(false);
 
   useEffect(() => {
     const el = ref.current;
@@ -492,7 +495,8 @@ export function RichEditable({
   }
 
   const toSource = () => {
-    if (editing) return;
+    if (editingRef.current) return;
+    editingRef.current = true;
     setEditing(true);
     if (ref.current) ref.current.textContent = value;
   };
@@ -520,9 +524,21 @@ export function RichEditable({
     onPaste: (e: ClipboardEvent) => insertPaste(e, Boolean(multiline)),
     onBlur: (e: FocusEvent) => {
       const el = e.currentTarget as HTMLElement;
+      // Never commit the rendered view as source. The inline renderer turns
+      // every newline into a space and normalizes link URLs, so a blur that
+      // arrives while the node still holds HTML would flatten the item — and
+      // did: an accidental click on a WT351 Journal post committed its
+      // rendered view, and the write-back carried the flattened post to
+      // Micro.blog (2026-09-21). Whatever focus path skipped the swap, the
+      // rendered state has nothing to commit.
+      if (!editingRef.current) {
+        el.innerHTML = value ? render(value) : '';
+        return;
+      }
       // In source mode the node holds Markdown text; anything rich that got
       // in (a paste the handler missed, a drop) is read back as Markdown too.
       const text = readEditable(el, Boolean(multiline));
+      editingRef.current = false;
       setEditing(false);
       if (text !== value) onCommit(text);
       else el.innerHTML = value ? render(value) : '';

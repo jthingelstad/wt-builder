@@ -76,6 +76,16 @@ paragraphs, headings, lists, and quotes intact (headings shifted to sit under
 the post's heading), and it carries no time — the clock belongs to the Journal
 moment it stopped being. Audio speaks it one paragraph per block.
 
+## Journal entries
+
+A Journal moment prints as one line: the time of day (or the post's title,
+when it has one) linked to the post, an em dash, the words, then each of its
+photos as a block of its own. A post with more structure than a moment — a
+list, several paragraphs, a quote — keeps it: the lead carries the first
+paragraph and the rest prints as written (2026-09-21; WT351's bullets had been
+welded onto the lead line). Audio speaks the same structure. A post Jamie
+promotes leaves the Journal and prints whole under its own heading.
+
 ## Photo
 
 Website and Buttondown include image, alt text, caption, and a metadata line of

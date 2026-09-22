@@ -116,16 +116,23 @@ export function linkBlocks(item: Item): Block[] {
  * The lead is the post's title when it has one — a titled post that stays in
  * the Journal keeps its name (2026-09-20) — and the time of day otherwise.
  *
- * A Micro.blog photo post is prose then its `<img>` tags. The prose flattens
- * to one line; each image prints as a block of its own, the way nine years of
- * archive issues lay them out. Welding the tags onto the sentence (WT350) put
- * the pictures inside the paragraph, where they lost their left edge.
+ * A Journal moment is a sentence or two and flattens to one line. A post with
+ * more structure than that — a list, several paragraphs, a quote — keeps it:
+ * the lead carries the first paragraph and the rest prints as written
+ * (WT351's "Podcast Improvements" post, 2026-09-21, whose bullets had been
+ * welded onto one line as "- one - two - three").
+ *
+ * A Micro.blog photo post is prose then its `<img>` tags. Each image prints
+ * as a block of its own, the way nine years of archive issues lay them out.
+ * Welding the tags onto the sentence (WT350) put the pictures inside the
+ * paragraph, where they lost their left edge.
  */
 export function journalEntryBlocks(item: Item): Block[] {
   const w = wallClock(item.published_at);
   const title = String(item.title ?? '').trim();
   const { prose, tail } = splitBody(item.body);
-  const body = bodyLines(prose).join(' ');
+  const [first = '', ...rest] = postBlocks(prose);
+  const body = bodyLines(first).join(' ');
   const images = tail.match(/<img\b[^>]*>/gi) ?? [];
   const lead = (() => {
     if (!item.source_url) return body;
@@ -133,7 +140,7 @@ export function journalEntryBlocks(item: Item): Block[] {
     if (title) return `**[${title}](${item.source_url})** — ${body}`;
     return w ? `[${clockTime(w)}](${item.source_url}) — ${body}` : body;
   })();
-  return [lead, ...images].filter(Boolean);
+  return [lead, ...rest, ...images].filter(Boolean);
 }
 
 /**
