@@ -96,6 +96,9 @@ export const CHAPTER_ART_SIZE = 1000;
 export async function squareArt(bytes: Buffer, size = CHAPTER_ART_SIZE): Promise<Buffer> {
   return sharp(bytes)
     .rotate()
+    // JPEG has no alpha: a transparent PNG (Thingy's portrait) would come
+    // out on black. The site's page colour is the background it sits on.
+    .flatten({ background: '#fcfcfa' })
     .resize({ width: size, height: size, fit: 'cover', position: sharp.strategy.attention, withoutEnlargement: false })
     .jpeg({ quality: JPEG_QUALITY, progressive: true, mozjpeg: true })
     .toBuffer();
