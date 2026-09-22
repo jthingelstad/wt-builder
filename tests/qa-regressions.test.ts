@@ -80,10 +80,9 @@ describe('markup never reaches the synthesizer', () => {
     expect(script).toContain('Johnson Public House');
   });
 
-  it('respells the surname for the synthesizer only', () => {
+  it('leaves the surname as written — the synthesizer says it right, and a respelling spelled letters', () => {
     expect(pronounce('written by Jamie Thingelstad, at weekly dot thingelstad dot com'))
-      .toBe('written by Jamie Thing-el-stad, at weekly dot thing-el-stad dot com');
-    expect(pronounce('Thingy')).toBe('Thingy');
+      .toBe('written by Jamie Thingelstad, at weekly dot thingelstad dot com');
   });
 
   it('reports silence for markup that carries no words', () => {

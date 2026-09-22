@@ -57,15 +57,17 @@ export function speakable(text: string | undefined): string {
 
 /**
  * Words the synthesizer says wrong as written, and the spelling that makes it
- * say them right — found by synthesizing and transcribing (2026-09-21: the
- * surname alone came out "thinglestad"; hyphenated it came out right).
- * Applied to what the synthesizer is given, never to what is shown: the lens
- * and the transcript keep the real spelling.
+ * say them right. Applied to what the synthesizer is given, never to what is
+ * shown: the lens and the transcript keep the real spelling.
+ *
+ * Empty on purpose. "Thingelstad" was respelled "Thing-el-stad" here for one
+ * evening (2026-09-21) because a transcript of the plain spelling read
+ * "thinglestad" — and the hyphenated form was then read aloud as the letters
+ * E, L. Jamie's ear: the plain spelling was fine. A transcript cannot tell
+ * letters from a syllable; only listening can. Add an entry here only after
+ * hearing it.
  */
-export const LEXICON: [RegExp, string][] = [
-  [/\bThingelstad\b/g, 'Thing-el-stad'],
-  [/\bthingelstad\b/g, 'thing-el-stad'],
-];
+export const LEXICON: [RegExp, string][] = [];
 
 export function pronounce(text: string): string {
   let s = text;
