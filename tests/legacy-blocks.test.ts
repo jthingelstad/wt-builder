@@ -93,6 +93,12 @@ describe('legacyBlocks', () => {
     expect(texts.some((t) => t.startsWith('Second, '))).toBe(true);
   });
 
+  it('spells the month in a photo date, which abbreviated is read as a word', () => {
+    expect(blocks(35).some((x) => x.text.startsWith('December 31, twenty seventeen at 9:03 PM'))).toBe(true);
+    expect(blocks(5).some((x) => x.text.startsWith('June 3, twenty seventeen, 8:49 PM'))).toBe(true);
+    expect(blocks(35).some((x) => /\bDec \d/.test(x.text))).toBe(false);
+  });
+
   it('reads a table row by row', () => {
     const texts = blocks(175).map((x) => x.text);
     expect(texts).toContain('BTC: Stored value. I think of it as gold.');

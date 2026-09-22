@@ -152,7 +152,10 @@ export function terminate(text: string): string {
  */
 export function spokenTitle(title: string | undefined): string {
   // After a question or exclamation the aside needs no comma: "…reviews? Gergely Orosz."
-  const spoken = String(title ?? '').replace(/([^\s])\s+(?:\||[-–—])\s+/g, (_m, last: string) =>
+  // An em or en dash separates even with no space after it ("…Blind —Bridget
+  // Kromhout", the 2017 archive); a hyphen needs space on both sides or it is
+  // a compound word.
+  const spoken = String(title ?? '').replace(/([^\s])\s+(?:\|\s+|-\s+|[–—]\s*)/g, (_m, last: string) =>
     /[.!?…]/.test(last) ? `${last} ` : `${last}, `);
   return terminate(spoken);
 }

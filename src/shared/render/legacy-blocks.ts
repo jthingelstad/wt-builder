@@ -34,6 +34,14 @@ const TABLE = /^\|.*\|\s*$/;
 const TABLE_RULE = /^\|(?:\s*:?-+:?\s*\|)+\s*$/;
 const HEX_SIGNATURE = /^0x[0-9a-f]{40,}$/i;
 
+/** "Dec 31, twenty seventeen at 9:03 PM" — the photo's date, month abbreviated; read as a word it is "desk". */
+const MONTH_ABBR = /\b(Jan|Feb|Mar|Apr|Jun|Jul|Aug|Sep|Sept|Oct|Nov|Dec)\.? (?=\d{1,2},? )/g;
+const MONTHS: Record<string, string> = {
+  Jan: 'January', Feb: 'February', Mar: 'March', Apr: 'April', Jun: 'June', Jul: 'July', Aug: 'August',
+  Sep: 'September', Sept: 'September', Oct: 'October', Nov: 'November', Dec: 'December',
+};
+const monthsSpelled = (text: string) => text.replace(MONTH_ABBR, (_m, abbr: string) => `${MONTHS[abbr]} `);
+
 /** Openers whose spoken form is not "Now, the X section." */
 const SECTION_TITLES: Record<string, string> = {
   'more links': 'More Links',
@@ -122,7 +130,7 @@ export function legacyBlocks(script: string, issue: LegacyIssue): ScriptBlock[] 
       continue;
     }
     for (const [j, piece] of piecesOf(paragraph).entries()) {
-      out.push({ kind: 'cue', text: piece.text, pauseBefore: j === 0 ? first : piece.boundary });
+      out.push({ kind: 'cue', text: monthsSpelled(piece.text), pauseBefore: j === 0 ? first : piece.boundary });
     }
   }
   return out;

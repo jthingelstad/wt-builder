@@ -81,7 +81,13 @@ export const PIECE_TAIL_S = 0.15;
 /** The synthesizer's own rate; pieces are assembled at it and mastered up. */
 const PIECE_RATE = 24000;
 /** Synthesis calls in flight at once. Pricing is per character, so this is only latency. */
-const CONCURRENCY = 3;
+/**
+ * Pieces in flight at once. Three is gentle for a weekly issue; the back
+ * catalogue is ~26,000 pieces, and at three abreast that is days. The rate
+ * limit answers with 429s, which are retried with a backoff, so the ceiling
+ * is the account's, not this number's.
+ */
+const CONCURRENCY = Math.max(1, Number(process.env.WT_BUILDER_TTS_CONCURRENCY) || 3);
 
 /**
  * Loudness normalization, matching Studio's shipped values. -16 LUFS is the
@@ -248,8 +254,16 @@ async function speakCached(text: string, voice: string, cacheDir: string): Promi
       await writeFile(path, audio);
       return { path, fresh: true };
     } catch (err) {
+      // Worth another go: the rate limit, the service's own errors, a call
+      // that ran past its timeout, and the connection dropping under it
+      // (fetch says "fetch failed"). A 4xx is the text's problem, not the run's.
       const status = (err as { status?: number }).status;
-      if ((status === 429 || (status !== undefined && status >= 500)) && attempt < 4) {
+      const name = (err as { name?: string }).name;
+      const transient =
+        status === 429 || (status !== undefined && status >= 500) ||
+        name === 'TimeoutError' || name === 'AbortError' ||
+        (status === undefined && /fetch failed|ECONNRESET|ETIMEDOUT|EAI_AGAIN/.test(String((err as Error).message)));
+      if (transient && attempt < 5) {
         await new Promise((r) => setTimeout(r, 1000 * 2 ** attempt));
         attempt += 1;
         continue;

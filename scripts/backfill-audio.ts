@@ -75,17 +75,30 @@ function withAudio(page: string, fields: AudioFields): string {
   return `---\n${[...kept, ...audioFrontMatter(fields)].join('\n')}\n---\n${body}`;
 }
 
+const failed: string[] = [];
 for (const name of names) {
+  try {
+    await one(name);
+  } catch (err) {
+    // One issue's failure is that issue's; the run goes on and says so at the end.
+    failed.push(name);
+    console.error(`${name}: FAILED ${(err as Error).message.slice(0, 300)}`);
+  }
+}
+if (failed.length) {
+  console.error(`failed: ${failed.join(' ')}`);
+  process.exit(1);
+}
+
+async function one(name: string): Promise<void> {
   const n = Number.parseInt(name, 10);
   if (!Number.isFinite(n) || n > LAST_LEGACY_ISSUE) {
-    console.error(`${name}: not a back-catalogue issue (1–${LAST_LEGACY_ISSUE} and 140-special)`);
-    process.exit(1);
+    throw new Error(`not a back-catalogue issue (1–${LAST_LEGACY_ISSUE} and 140-special)`);
   }
   const pagePath = `${ARCHIVE}${name}.md`;
   const scriptPath = `${SCRIPTS}${name}.txt`;
   if (!existsSync(pagePath) || !existsSync(scriptPath)) {
-    console.error(`${name}: missing ${existsSync(pagePath) ? scriptPath : pagePath}`);
-    process.exit(1);
+    throw new Error(`missing ${existsSync(pagePath) ? scriptPath : pagePath}`);
   }
   const page = readFileSync(pagePath, 'utf8');
   const { get } = frontMatter(page);
@@ -104,7 +117,7 @@ for (const name of names) {
 
   if (flag('--plan')) {
     console.log(`${name}: ${blocks.length} blocks, ${chapters.length} chapters [${chapters.join(', ')}]; "${episode.title}", ${episode.date}, cover ${episode.coverSource ? 'from page' : 'show art'}`);
-    continue;
+    return;
   }
 
   let localOut: string | undefined;
