@@ -602,10 +602,12 @@ function AudioScript({
       {script.map((block, i) => {
         const anchor = block.itemId ?? block.nodeId ?? 'issue';
 
-        if (block.kind === 'transition') {
+        // Openers and closers are spoken too, but they are the structure the
+        // listener hears; the lens draws them as the rules they are.
+        if (block.kind === 'transition' || block.kind === 'closer') {
           return (
             <Row key={`t-${i}`} anchor={anchor} selected={selected === anchor}>
-              <div class="cue-section">
+              <div class={block.kind === 'closer' ? 'cue-section cue-closer' : 'cue-section'}>
                 <span class="cue-label">{block.text.replace(/\.$/, '').toUpperCase()}</span>
                 <span class="cue-rule" />
               </div>
@@ -655,7 +657,7 @@ function AudioScript({
             <span class="cue-omit-label">NOT SPOKEN</span>
             <span>
               {node.type === 'photo'
-                ? 'The photo is omitted rather than narrated.'
+                ? 'The photo has no caption to speak; the picture is never described.'
                 : `${node.label} is held out of the audio edition.`}
             </span>
           </div>

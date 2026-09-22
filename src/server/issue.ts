@@ -73,10 +73,8 @@ function seedItem(type: ItemType, extra: Partial<Item> = {}): Item {
     base.attribution = 'Thingy';
     base.status = 'draft';
   }
-  if (type === 'photo') {
-    base.channels = { website: true, email: true, audio: false };
-    base.channel_locks = { audio: 'Photos are omitted from audio rather than narrated.' };
-  }
+  // Photo speaks since 2026-09-21: its caption, place, and date — Jamie's
+  // words — with the picture shown as the chapter's art. Never a description.
   // Echoes is spoken since 2026-09-20: Thingy has a voice now.
   return base;
 }
@@ -1086,10 +1084,12 @@ export function normalizeSkeleton(doc: IssueDoc): IssueDoc | null {
     target.items = [itemId];
   }
 
-  // Echoes was locked out of audio until Thingy had a voice (2026-09-20).
-  // Drafts seeded before then carry the lock; lift it and let it speak.
+  // Echoes was locked out of audio until Thingy had a voice (2026-09-20), and
+  // Photo until it had something to say — its caption, place, and date
+  // (2026-09-21). Issues seeded before then carry the lock; lift it. Not
+  // gated on draft: a published issue is regenerated from the same document.
   for (const [id, item] of Object.entries(doc.items)) {
-    if (item.type !== 'echoes' || !item.channel_locks?.audio) continue;
+    if ((item.type !== 'echoes' && item.type !== 'photo') || !item.channel_locks?.audio) continue;
     const n = touch();
     const it = n.items[id]!;
     delete it.channel_locks!.audio;

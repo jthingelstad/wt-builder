@@ -16,7 +16,7 @@ rather than failing quietly.
 | Outro | Yes | Yes | Yes | No |
 | Quote | Yes | Yes | Yes | No |
 | Currently | Yes | Yes | Yes, custom spoken form | Yes |
-| Photo | Yes | Yes | No | No |
+| Photo | Yes | Yes | Yes, caption, place, and date | No |
 | Featured link | Yes | Yes | Yes | Yes |
 | Notable link | Yes | Yes | Yes | Yes |
 | Briefly link | Yes | Yes | Yes, reversed form | Yes |
@@ -82,9 +82,12 @@ Website and Buttondown include image, alt text, caption, and a metadata line of
 the date (no time of day) and the place.
 The location in the metadata line links to OpenStreetMap at the photo's exact
 EXIF coordinates when the camera recorded them (`media.coordinates`); without
-coordinates the place prints as plain text. Photo is omitted from audio rather
-than replaced with a generic narration. Photo may appear more than once in an
-issue.
+coordinates the place prints as plain text. Audio speaks the caption — Jamie's
+words — then the place and date ("Taken in Falcon Heights, Minnesota, on
+Saturday, May sixteenth."), and shows the picture as the chapter's art. The
+photo is never described: the alt text is for the page (Jamie, 2026-09-21; it
+was omitted from audio entirely until then). Photo may appear more than once in
+an issue.
 
 ## Thingy attribution
 
@@ -147,30 +150,56 @@ published contract and does not change.
 ## Audio
 
 **Every word in the script is spoken.** Section transitions are script lines, not
-markers: "Now, the Notable section.", "And to close, this week's haiku." A line
-that appears in the script and is not read aloud is a bug.
+markers, and the listener hears both ends of a section: "Now, the Notable
+section. Seven links this week." … "That's the end of Notable." A promoted post
+opens "Next, a longer piece: <title>." and closes the same way; the Journal
+closes too. A line that appears in the script and is not read aloud is a bug.
+
+**The pauses are placed, not hoped for.** The synthesizer does not honour a
+blank line — measured on WT350 (2026-09-21), the gap before a block ran
+0.0–1.6 s with no relation to structure, and a section opener got none. So
+every block carries a boundary (`section`, `lead`, `item`, `paragraph`,
+`line`), each block is synthesized on its own, and the assembler inserts that
+boundary's silence between the pieces (`PAUSE` in
+`src/server/integrations/audio.ts`). Pieces are cached by what was said and
+how, so regenerating an issue re-synthesizes only the blocks that changed.
+
+**The opening and the close are script.** There are no pre-rendered bumpers
+(gone 2026-09-21). The opener names the issue, its date, and its author, then
+says that the edition is generated and where the newsletter is; the close is
+one sentence after Echoes, which stays the last thing said.
 
 **Link sections carry spoken signposts.** Notable, Featured, and Briefly announce
 position — "Link 1 of 5." — before each item, so a listener has somewhere to
 anchor. The count is of items actually in the audio edition, not of items in the
-section.
+section. A title's " | Site" or " - Site" is spoken as an aside after a comma —
+"Your car is selling your data, The Verge." — because a source and a tagline
+cannot be told apart and both read correctly that way.
+
+**Print structure becomes speech.** A blockquote is framed "Quote. … End
+quote." A bulleted list speaks ordinals — "First," "Second," — and a numbered
+list its numbers. A heading inside a post is spoken on an item boundary. Images
+say nothing.
 
 **Haiku is read one line at a time**, each line its own spoken block, so the
-pauses fall where the line breaks are.
-
-Audio is rendered from canonical items before publication. Each applicable item
-produces its own spoken block, enabling:
-
-- item-specific transformations,
-- editorial preview and correction,
-- natural pauses and section transitions,
-- selective re-rendering, and
-- deterministic omission.
+pauses fall where the line breaks are. "And to close" is said only when the
+haiku is in fact the last section spoken.
 
 **Membership and Haiku are spoken.** Membership is introduced as Thingy's words
-before the words themselves; Haiku is read one line at a time. Settled
-2026-08-28; the interface spec previously flagged both as undecided.
+before the words themselves. Settled 2026-08-28.
 
-The audio artifact is synthesized with OpenAI TTS, mastered with a two-pass
-ffmpeg loudnorm, and tagged with cover art before upload. It is rendered from
-canonical items, never from flattened Markdown.
+**Chapters and a transcript ship with the file.** Every block that begins a
+chapter — each section, each link with its URL, each Journal post with its blog
+URL and first photo, the Photo with its picture, each echo with its Ask Thingy
+door, Membership with the members page — is timed by where the assembler placed
+it. The mp3 carries ID3v2 chapters; `<name>.chapters.json` (Podcasting 2.0) and
+`<name>.vtt` (WebVTT, every cue naming its speaker, so Thingy is attributed in
+text as in voice) sit beside it on the CDN, and the issue record carries their
+URLs and the chapter list. This is how the podcast hands a listener the links.
+
+The audio artifact is synthesized with OpenAI TTS (`tts-1-hd`, echo for Jamie,
+nova for Thingy, the two gain-matched before mastering), mastered with a
+two-pass ffmpeg loudnorm, and tagged with cover art before upload under a
+content-addressed name — the CDN serves it immutable, so a regenerated issue is
+a new object and the page and feed move to it when the website leg re-sends. It
+is rendered from canonical items, never from flattened Markdown.

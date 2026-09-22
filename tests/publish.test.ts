@@ -13,9 +13,10 @@ import {
   issueEntry, siteInputs, subjectFor,
 } from '../src/server/publish.ts';
 import {
-  chunkScript, id3Tags, FINAL_CHANNELS, FINAL_SAMPLE_RATE,
-  LOUDNORM_I, LOUDNORM_TP, MAX_CHARS,
+  chaptersJson, chaptersOf, ffMetadata, id3Tags, pieceKey, transcriptVtt, vttClock,
+  FINAL_CHANNELS, FINAL_SAMPLE_RATE, LOUDNORM_I, LOUDNORM_TP, PAUSE,
 } from '../src/server/integrations/audio.ts';
+import type { PlacedBlock } from '../src/server/integrations/audio.ts';
 import { bannerUrl, coverSource, SQUARE_SIZE } from '../src/server/integrations/cover.ts';
 import { blobSha } from '../src/server/integrations/github.ts';
 
@@ -237,28 +238,53 @@ describe('the archive feed file set', () => {
   });
 });
 
-describe('audio chunking', () => {
-  it('keeps every chunk under the cap', () => {
-    const script = Array.from({ length: 200 }, (_, i) => `Paragraph ${i} of the script.`).join('\n\n');
-    for (const chunk of chunkScript(script)) expect(chunk.length).toBeLessThanOrEqual(MAX_CHARS);
+describe('audio assembly', () => {
+  const placed: PlacedBlock[] = [
+    { block: { kind: 'open', text: 'This is The Weekly Thing, issue 350.', pauseBefore: 'none', chapter: { title: 'Welcome', url: 'https://weekly.thingelstad.com/archive/350/' } }, start: 0, end: 4.2 },
+    { block: { kind: 'transition', text: 'Now, the Notable section. One link this week.', pauseBefore: 'section', chapter: { title: 'Notable' } }, start: 5.6, end: 8.1 },
+    { block: { kind: 'cue', text: 'Link 1 of 1. A title, The Site. Words -- more words.', pauseBefore: 'lead', chapter: { title: 'A title | The Site', url: 'https://x.test/a' } }, start: 8.7, end: 20.0 },
+    { block: { kind: 'cue', text: 'Hello, this is Thingy.', pauseBefore: 'lead', speaker: 'thingy' }, start: 21.4, end: 22.5 },
+  ];
+
+  it('every boundary has a length, and structure gets the longest', () => {
+    expect(PAUSE.none).toBe(0);
+    expect(PAUSE.section).toBeGreaterThan(PAUSE.item);
+    expect(PAUSE.item).toBeGreaterThan(PAUSE.paragraph);
+    expect(PAUSE.lead).toBeGreaterThan(0);
+    expect(PAUSE.line).toBeGreaterThan(0);
   });
 
-  it('splits on paragraph boundaries, where a pause already is', () => {
-    const chunks = chunkScript('One.\n\nTwo.\n\nThree.');
-    expect(chunks).toEqual(['One.\n\nTwo.\n\nThree.']);
+  it('writes the transcript as WebVTT with the speaker named on every cue', () => {
+    const vtt = transcriptVtt(placed);
+    expect(vtt.startsWith('WEBVTT\n\n')).toBe(true);
+    expect(vtt).toContain('00:00:00.000 --> 00:00:04.200\n<v Jamie>This is The Weekly Thing, issue 350.');
+    expect(vtt).toContain('00:00:21.400 --> 00:00:22.500\n<v Thingy>Hello, this is Thingy.');
+    expect(vtt.match(/<v /g)).toHaveLength(4);
+    expect(vttClock(3725.5)).toBe('01:02:05.500');
   });
 
-  it('splits an over-long paragraph on sentence ends', () => {
-    const long = Array.from({ length: 400 }, (_, i) => `Sentence number ${i}.`).join(' ');
-    const chunks = chunkScript(long);
-    expect(chunks.length).toBeGreaterThan(1);
-    for (const c of chunks) expect(c.length).toBeLessThanOrEqual(MAX_CHARS);
-    expect(chunks.join(' ').replace(/\s+/g, ' ')).toBe(long);
+  it('times the chapters from where the blocks landed and keeps their links and art', () => {
+    const chapters = chaptersOf(placed);
+    expect(chapters.map((c) => [c.title, c.start])).toEqual([['Welcome', 0], ['Notable', 5.6], ['A title | The Site', 8.7]]);
+    const json = JSON.parse(chaptersJson(chapters)) as { version: string; chapters: { startTime: number; title: string; url?: string }[] };
+    expect(json.version).toBe('1.2.0');
+    expect(json.chapters[2]).toEqual({ startTime: 8.7, title: 'A title | The Site', url: 'https://x.test/a' });
+    expect(json.chapters[1]).toEqual({ startTime: 5.6, title: 'Notable' });
   });
 
-  it('drops nothing from the script', () => {
-    const script = 'Alpha.\n\nBravo.\n\nCharlie.';
-    expect(chunkScript(script).join('\n\n')).toBe(script);
+  it('writes the tags and chapters as ffmetadata, each chapter ending where the next begins', () => {
+    const meta = ffMetadata({ title: 'WT350 — A; B = C', track: '350' }, chaptersOf(placed), 22.5);
+    expect(meta.startsWith(';FFMETADATA1\n')).toBe(true);
+    expect(meta).toContain('title=WT350 — A\\; B \\= C\n');
+    expect(meta).toContain('[CHAPTER]\nTIMEBASE=1/1000\nSTART=0\nEND=5600\ntitle=Welcome\n');
+    expect(meta).toContain('START=8700\nEND=22500\ntitle=A title | The Site\n');
+  });
+
+  it('keys a cached piece by what is said, by whom, and how', () => {
+    expect(pieceKey('Hello.', 'echo')).toBe(pieceKey('Hello.', 'echo'));
+    expect(pieceKey('Hello.', 'echo')).not.toBe(pieceKey('Hello.', 'nova'));
+    expect(pieceKey('Hello.', 'echo')).not.toBe(pieceKey('Hello!', 'echo'));
+    expect(pieceKey('Hello.', 'echo', 'tts-1-hd', 0.9)).not.toBe(pieceKey('Hello.', 'echo', 'tts-1-hd', 1));
   });
 });
 

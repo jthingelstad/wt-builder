@@ -51,7 +51,7 @@ const KICKER: Record<Lens, [string, string]> = {
   ],
   audio: [
     'AUDIO — SPOKEN SCRIPT',
-    'A numbered script, not a page. Photos are omitted rather than narrated.',
+    'A numbered script, not a page. Each block is synthesized on its own; the rules are the pauses.',
   ],
 };
 

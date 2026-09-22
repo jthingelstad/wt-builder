@@ -129,20 +129,25 @@ Librarian API and corpus on 2026-08-28.
 
 ## Audio
 
-- Receives ordered spoken blocks from item renderers.
-- WT Builder owns audio end to end: script, synthesis, bumpers, cover,
-  validation, normalization, upload, and metadata.
+- Receives ordered spoken blocks from item renderers, each on a named boundary.
+- WT Builder owns audio end to end: script, synthesis, pauses, cover,
+  chapters, transcript, normalization, upload, and metadata.
 - The rendered file is uploaded to `files.thingelstad.com` and lives only
   there. It is never committed to a repository.
 - The website publishes the reference and renders the podcast feed from it.
-  Stamp `audio_url`, `audio_duration_seconds`, `audio_voice`, and
-  `audio_byte_size` into the issue record at publication so the website edition
-  needs no second source.
-- **TTS is OpenAI** (`tts-1-hd`), chunked, then mastered with a two-pass ffmpeg
-  loudnorm to broadcast levels and tagged with ID3v2.3 and attached cover art.
-  Studio's pipeline was not reused.
-- `WT_BUILDER_BUMPERS_DIR` supplies the intro and outro bumpers. **Unset means
-  audio renders without them** rather than failing.
+  Stamp `audio_url`, `audio_duration_seconds`, `audio_voice`,
+  `audio_byte_size`, `audio_chapters_url`, `audio_transcript_url`, and the
+  `audio_chapters` list into the issue record at publication so the website
+  edition needs no second source.
+- **TTS is OpenAI** (`tts-1-hd`), one call per script block, assembled with
+  placed silence, then mastered with a two-pass ffmpeg loudnorm to broadcast
+  levels and tagged with ID3v2.3, chapters, and attached cover art. Studio's
+  pipeline was not reused.
+- Files are named by content (`weekly-thing-<N>-<hash>.mp3`) because the CDN
+  serves them immutable; the website leg must re-send after a regeneration.
+- `WT_BUILDER_TTS_CACHE` places the per-block speech cache (default
+  `data/tts-cache/`). Deleting it costs one full re-synthesis and nothing else.
+- There are no bumpers. The opener and the close are script (2026-09-21).
 
 ## Secrets
 

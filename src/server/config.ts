@@ -93,13 +93,14 @@ export const config = {
     'https://jcvud66qqpq53frvno5stoqntm0zqntw.lambda-url.us-east-1.on.aws',
 
   /**
-   * Standing intro and outro bumpers wrapped around the audio body. They live
-   * in the repo — they are as much a part of the edition as the renderers —
-   * and the env var exists to try a different pair without a commit.
+   * Synthesized speech, one file per script block, keyed by what was said and
+   * how. A wording fix re-synthesizes only the blocks that changed; a failed
+   * run resumes where it stopped. Beside the database, so it is backed up
+   * and ignored with it.
    */
-  bumpersDir:
-    optional('WT_BUILDER_BUMPERS_DIR') ??
-    fileURLToPath(new URL('../../assets/bumpers', import.meta.url)),
+  ttsCacheDir:
+    optional('WT_BUILDER_TTS_CACHE') ??
+    fileURLToPath(new URL('../../data/tts-cache', import.meta.url)),
 };
 
 /** Safe to log: presence only, never values. */

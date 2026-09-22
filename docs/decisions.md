@@ -169,8 +169,9 @@ non-goals already exclude podcast authoring, and that exclusion is load-bearing.
 
 What the sibling should take from here is the *pattern*, and possibly two
 mechanisms worth extracting when it starts (not before): the audio mastering
-chain (`integrations/audio.ts` — chunked TTS is irrelevant to a recorded
-podcast, but the loudnorm/tag/upload tail is not) and the cross-repo commit
+chain (`integrations/audio.ts` — per-block TTS and placed pauses are
+irrelevant to a recorded podcast, but the loudnorm/chapter/tag/upload tail is
+not) and the cross-repo commit
 client (`integrations/github.ts`). Its send targets differ: an episode is a
 commit of `content/episodes/{N}-slug.md` + transcript into
 `another.thingelstad.com`, whose URL scheme (`/podcast.xml`, `/YYYY/MM/DD/`,
@@ -180,6 +181,26 @@ Another's episodes on its own schedule.
 
 *Invisible in code because it is a decision about what this repo will never
 contain.*
+
+## There are no bumpers, and no music (2026-09-21)
+
+The audio edition is speech from its first second to its last. The intro and
+outro bumpers that wrapped it — two pre-rendered mp3s inherited from the
+Shortcuts era — are gone: everything they said is now script, so it is spoken
+in the issue's own voice, names the issue, and cannot repeat what the script
+says (WT350's opener said "You're listening to…" twice, once per source). No
+section sting either: the pauses, the counts, and the closers are the
+transitions, and a sound effect would be the first thing in the edition that
+is not a word from the newsletter. Revisit only if the placed pauses prove
+insufficient by ear.
+
+## The audio transcript is a surface artifact, not archive
+
+The WebVTT transcript and the chapters JSON are published beside the mp3 on the
+CDN and referenced from the website's issue record. They are not sent to
+`librarian-thing`: the archive already holds the canonical text every cue was
+rendered from, and the timings describe one rendering of it. (The archive's
+WT349 transcript directory is a Studio-era artifact and is not a precedent.)
 
 ## The cutoff is always midnight (settled 2026-08-28)
 

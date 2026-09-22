@@ -31,7 +31,7 @@ import * as geocode from './integrations/geocode.ts';
 import * as editorial from './editorial.ts';
 import * as githubRepo from './integrations/github.ts';
 import * as audio from './integrations/audio.ts';
-import { audioSegments } from '../shared/render/audio.ts';
+import { audioScript } from '../shared/render/audio.ts';
 import { heldOut, outOfWindow, windowOf } from '../shared/render/plan.ts';
 import { archiveInputs, issueEntry, siteInputs, subjectFor, type IssueEntry } from './publish.ts';
 import * as draftShare from './share.ts';
@@ -931,10 +931,9 @@ async function sendPodcast(id: string) {
   guardInFlight(doc, 'podcast');
   store.recordSend(id, 'podcast', { status: 'sending', at: new Date().toISOString() });
   try {
-    // Segments, not a flat script: Thingy's blocks are synthesized in Thingy's voice.
-    const result = await audio.renderAudio(doc, audioSegments(doc), {
-      bumpersDir: config.bumpersDir,
-    });
+    // Blocks, not a flat script: each is synthesized in its speaker's voice
+    // and placed with the pause its boundary calls for.
+    const result = await audio.renderAudio(doc, audioScript(doc));
     const state: PodcastSend = {
       status: 'sent',
       at: new Date().toISOString(),
@@ -945,10 +944,13 @@ async function sendPodcast(id: string) {
         audio_duration_seconds: result.durationSeconds,
         audio_byte_size: result.bytes,
         audio_voice: result.voice,
+        audio_chapters_url: result.chaptersUrl,
+        audio_transcript_url: result.transcriptUrl,
+        audio_chapters: result.chapters,
       },
     };
     const row = store.recordSend(id, 'podcast', state);
-    return { issue: row?.doc, send: state, chunks: result.chunks, cover: result.coverSource };
+    return { issue: row?.doc, send: state, pieces: result.pieces, synthesized: result.synthesized, cover: result.coverSource };
   } catch (err) {
     const state: SendState = {
       status: 'failed',

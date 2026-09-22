@@ -154,7 +154,7 @@ describe('an issue from before echoes were items renders unchanged', () => {
       'Ask Thingy: How has the Kubb Tournament grown?',
       'The call for privacy regulation has a long run-up: WT281.',
       'Ask Thingy: What has Jamie written about privacy?',
-      'That brings us to the end of The Weekly Thing.',
+      'That brings us to the end of The Weekly Thing, issue 350. Thanks for listening.',
     ].join('\n\n'));
   });
 

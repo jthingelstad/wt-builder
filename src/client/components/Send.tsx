@@ -68,7 +68,13 @@ const CARDS: Card[] = [
       {
         label: 'Synthesize the voice',
         evidence: (r) => (r.audio?.audio_voice
-          ? { text: [r.audio.audio_voice, r.chunks && `${r.chunks} chunks`].filter(Boolean).join(' · ') }
+          ? { text: [r.audio.audio_voice, r.pieces && `${r.pieces} blocks${r.synthesized !== undefined ? `, ${r.synthesized} new` : ''}`].filter(Boolean).join(' · ') }
+          : undefined),
+      },
+      {
+        label: 'Chapter and transcribe',
+        evidence: (r) => (r.audio?.audio_chapters_url
+          ? { href: r.audio.audio_chapters_url, label: 'Chapters', text: r.audio.audio_transcript_url ? 'and the WebVTT transcript' : undefined }
           : undefined),
       },
       {

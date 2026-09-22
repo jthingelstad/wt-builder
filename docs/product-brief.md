@@ -48,7 +48,7 @@ Buttondown, and audio editions.
   promotion, placement, and presentation belong to WT Builder.
 - Thingy may write Membership and Echoes, always with explicit attribution.
 - Echoes connects the assembled current issue to the archive, is generated
-  late, appears last, and is omitted from audio.
+  late, appears last, and is spoken in Thingy's voice.
 
 ## Success criteria
 

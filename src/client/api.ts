@@ -46,8 +46,11 @@ export interface SendResult {
     audio_duration_seconds?: number;
     audio_byte_size?: number;
     audio_voice?: string;
+    audio_chapters_url?: string;
+    audio_transcript_url?: string;
   };
-  chunks?: number;
+  pieces?: number;
+  synthesized?: number;
   cover?: string;
 }
 

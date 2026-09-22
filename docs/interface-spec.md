@@ -500,8 +500,12 @@ A numbered script, not a page. Rows are `26px` mono cue numbers (`01`, `02` …)
 - **Briefly reverses**: title first (highlighted `#fff2d6`), then description, with a
   note explaining the page order is the opposite.
 - **Currently** speaks "label, then value".
-- Omission strips (dashed, mono `NOT SPOKEN`): Photo ("omitted rather than narrated"),
-  Echoes ("never spoken").
+- Omission strips (dashed, mono `NOT SPOKEN`) for a section held out of audio. Photo
+  and Echoes speak since 2026-09-21 and 2026-09-20; a Photo with no caption is the
+  one that still shows the strip.
+- Openers and closers ("NOW, THE NOTABLE SECTION. SEVEN LINKS THIS WEEK" /
+  "THAT'S THE END OF NOTABLE") draw as rules — the closer muted — because they are the
+  pauses the listener hears.
 - **Membership and Haiku are spoken.** Membership is introduced as Thingy's words
   before the words themselves; Haiku is read one line at a time so the pauses fall
   on the line breaks. See `rendering-contracts.md`.
@@ -595,7 +599,7 @@ Opened by the rail `i` button. `padding: 14px 18px 40px`.
    Hide** presets (active = black fill), then three full-width channel rows: 15px
    checkbox (radius 4px, `1.5px` border, black when on), channel name 12.5px/600 at
    66px, and a per-channel note ("Description, then linked title" / "Reversed: title
-   first" / "Photo is omitted from audio, not narrated"). Audio is **locked with `–`**
+   first" / "Caption, place, and date; the picture is chapter art"). Audio is **locked with `–`**
    when the type has an automatic rule. When nothing is checked, a dashed note: "Held
    out of WT350. It stays on Pinboard — only its place here is gone."
 8. **PROVENANCE** — source, source URL, imported/published time, and (when edited) an

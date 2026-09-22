@@ -103,13 +103,16 @@ describe('channels replace inclusion', () => {
 
   it('refuses to switch on a locked channel, and says why', () => {
     const doc = fixture();
-    expect(doc.items['photo-1']!.channel_locks?.audio).toBeTruthy();
+    doc.items['photo-1']!.channels.audio = false;
+    doc.items['photo-1']!.channel_locks = { audio: 'held for the test' };
     const after = setChannel(doc, 'photo-1', 'audio', true);
     expect(after.items['photo-1']!.channels.audio).toBe(false);
   });
 
   it('still allows the other channels of a locked item to change', () => {
-    const after = setChannel(fixture(), 'photo-1', 'email', false);
+    const doc = fixture();
+    doc.items['photo-1']!.channel_locks = { audio: 'held for the test' };
+    const after = setChannel(doc, 'photo-1', 'email', false);
     expect(after.items['photo-1']!.channels.email).toBe(false);
     expect(after.items['photo-1']!.channels.website).toBe(true);
   });
@@ -368,7 +371,7 @@ describe('an issue without the skeleton', () => {
     let doc = removeSection(fixture(), 'echoes');
     const script = renderAudio(doc);
     expect(script).not.toContain('Echoes');
-    expect(script.trimEnd().endsWith('That brings us to the end of The Weekly Thing.')).toBe(true);
+    expect(script.trimEnd().endsWith('Thanks for listening.')).toBe(true);
   });
 });
 
@@ -931,6 +934,16 @@ describe('bringing an older document up to the skeleton', () => {
     const back = repaired!.nodes.find((n) => n.type === 'photo')!;
     expect(back.items).toHaveLength(1);
     expect(repaired!.items[back.items[0]!]?.type).toBe('photo');
+  });
+
+  it('lifts the audio lock an older Photo carried, so the caption speaks', () => {
+    const doc = createIssue({ number: 400, publication_date: '2026-09-05' });
+    const id = doc.nodes.find((n) => n.type === 'photo')!.items[0]!;
+    doc.items[id]!.channels.audio = false;
+    doc.items[id]!.channel_locks = { audio: 'Photos are omitted from audio rather than narrated.' };
+    const repaired = normalizeSkeleton(doc)!;
+    expect(repaired.items[id]!.channels.audio).toBe(true);
+    expect(repaired.items[id]!.channel_locks).toBeUndefined();
   });
 
   it('leaves a current document alone, so reads do not rewrite it', () => {

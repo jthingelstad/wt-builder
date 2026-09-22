@@ -211,10 +211,7 @@
       "channels": {
         "website": true,
         "email": true,
-        "audio": false
-      },
-      "channel_locks": {
-        "audio": "Photos are omitted from audio rather than narrated."
+        "audio": true
       },
       "media": {
         "url": "https://files.thingelstad.com/weekly-thing/349/cover.jpg",

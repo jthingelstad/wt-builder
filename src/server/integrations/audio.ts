@@ -1,17 +1,27 @@
 /**
- * The audio edition.
+ * The audio edition, assembled.
  *
- * Text-to-speech through OpenAI, matching what Studio has shipped for years:
- * `tts-1-hd` in the `echo` voice. The script comes from the audio renderer, so
- * every word spoken is a word the renderer chose — the flattened-Markdown path
- * Studio used is not inherited (AGENTS.md, Guardrails).
+ * Text-to-speech through OpenAI, `tts-1-hd`, in the `echo` voice for Jamie
+ * and `nova` for Thingy. The script comes from the audio renderer, so every
+ * word spoken is a word the renderer chose.
  *
- * Long scripts are chunked, synthesized chunk by chunk, and concatenated with
- * ffmpeg, with the standing intro and outro bumpers wrapped around the body.
+ * Each script block is synthesized on its own and the programme is assembled
+ * from the pieces with measured silence between them. The renderer says what
+ * kind of boundary each block sits on; `PAUSE` says how long that is. This is
+ * what the synthesizer cannot do itself — a blank line in its input is not a
+ * pause (WT350, measured 2026-09-21) — and it is what makes the pauses fall
+ * where the structure is rather than where a 3,800-character chunk happened
+ * to end. Because the pieces are placed by hand, the assembler also knows
+ * when every block starts, which is where the chapters and the transcript
+ * come from.
+ *
+ * Pieces are cached by content: regenerating an issue after a wording fix
+ * pays for the blocks that changed and nothing else.
  */
 
 import { spawn } from 'node:child_process';
-import { mkdtemp, readFile, rm, writeFile } from 'node:fs/promises';
+import { createHash } from 'node:crypto';
+import { mkdtemp, mkdir, readFile, rm, writeFile } from 'node:fs/promises';
 import { existsSync } from 'node:fs';
 import { tmpdir } from 'node:os';
 import { join } from 'node:path';
@@ -19,7 +29,8 @@ import { join } from 'node:path';
 import { PutObjectCommand, S3Client } from '@aws-sdk/client-s3';
 
 import type { IssueDoc } from '../../shared/types.ts';
-import type { ScriptSegment, Speaker } from '../../shared/render/audio.ts';
+import type { Boundary, Chapter, ScriptBlock, Speaker } from '../../shared/render/audio.ts';
+import { pronounce } from '../../shared/render/speech.ts';
 import { config, credentials } from '../config.ts';
 import { CDN_HOST } from './images.ts';
 import { buildCover } from './cover.ts';
@@ -34,11 +45,40 @@ export const TTS_VOICE = 'echo';
  */
 export const THINGY_VOICE = 'nova';
 export const VOICES: Record<Speaker, string> = { jamie: TTS_VOICE, thingy: THINGY_VOICE };
+/**
+ * Delivery pace, as the speech endpoint's `speed`. tts-1-hd reads at about
+ * 200 words a minute at 1.0 — quick for a listen. To be settled by ear with
+ * `npm run voice:samples`; nothing below depends on the value.
+ */
+export const TTS_SPEED = 1.0;
 /** The voice string recorded on the issue, matching Studio's manifest format. */
 export const VOICE_ID = `openai-${TTS_MODEL}:${TTS_VOICE}+${THINGY_VOICE}`;
 
-/** OpenAI caps a single speech request; Studio settled on this chunk size. */
-export const MAX_CHARS = 3800;
+/**
+ * Silence between blocks, in seconds, by the boundary the renderer put there.
+ * A sentence inside a block keeps the synthesizer's own timing; these are the
+ * pauses the synthesizer would not make.
+ */
+export const PAUSE: Record<Boundary, number> = {
+  none: 0,
+  section: 1.4,
+  lead: 0.6,
+  item: 0.9,
+  paragraph: 0.5,
+  line: 0.7,
+};
+
+/**
+ * Each piece keeps this much of its own room tone at either end when its
+ * leading and trailing silence is trimmed, so a pause is the piece's own
+ * quiet plus the inserted silence, not a hard digital cut into nothing.
+ */
+export const PIECE_HEAD_S = 0.1;
+export const PIECE_TAIL_S = 0.15;
+/** The synthesizer's own rate; pieces are assembled at it and mastered up. */
+const PIECE_RATE = 24000;
+/** Synthesis calls in flight at once. Pricing is per character, so this is only latency. */
+const CONCURRENCY = 3;
 
 /**
  * Loudness normalization, matching Studio's shipped values. -16 LUFS is the
@@ -49,7 +89,7 @@ export const MAX_CHARS = 3800;
 export const LOUDNORM_I = -16.0;
 export const LOUDNORM_TP = -1.5;
 export const LOUDNORM_LRA = 11.0;
-export const LOUDNORM_VERSION = 'v3';
+export const LOUDNORM_VERSION = 'v4';
 /** Rolls off TTS rumble below the voice. */
 export const HIGHPASS_HZ = 80;
 
@@ -90,46 +130,10 @@ export function isConfigured(): boolean {
   return Boolean(credentials.openaiKey);
 }
 
-/**
- * Split a script on paragraph boundaries, never mid-sentence: a chunk seam is
- * audible, so it belongs where a pause already is.
- */
-export function chunkScript(text: string, maxChars = MAX_CHARS): string[] {
-  const paragraphs = text.split(/\n{2,}/).map((p) => p.trim()).filter(Boolean);
-  const chunks: string[] = [];
-  let current = '';
-
-  const flush = () => {
-    if (current.trim()) chunks.push(current.trim());
-    current = '';
-  };
-
-  for (const para of paragraphs) {
-    if (para.length > maxChars) {
-      flush();
-      // A single paragraph over the cap: split on sentence ends.
-      let sentence = '';
-      for (const piece of para.split(/(?<=[.!?])\s+/)) {
-        if ((sentence + ' ' + piece).trim().length > maxChars) {
-          if (sentence.trim()) chunks.push(sentence.trim());
-          sentence = piece;
-        } else {
-          sentence = sentence ? `${sentence} ${piece}` : piece;
-        }
-      }
-      if (sentence.trim()) chunks.push(sentence.trim());
-      continue;
-    }
-    if ((current + '\n\n' + para).trim().length > maxChars) flush();
-    current = current ? `${current}\n\n${para}` : para;
-  }
-  flush();
-  return chunks;
-}
-
 export interface SpeakOptions {
   voice?: string;
   model?: string;
+  speed?: number;
   /** Delivery direction; honoured by the gpt-4o-mini-tts family, ignored by tts-1. */
   instructions?: string;
 }
@@ -147,15 +151,63 @@ export async function speak(text: string, opts: SpeakOptions | string = {}): Pro
       voice: o.voice ?? TTS_VOICE,
       input: text,
       response_format: 'mp3',
+      ...(o.speed !== undefined && o.speed !== 1 ? { speed: o.speed } : {}),
       ...(o.instructions ? { instructions: o.instructions } : {}),
     }),
     signal: AbortSignal.timeout(180_000),
   });
   if (!res.ok) {
     const detail = await res.text();
-    throw new Error(`OpenAI speech failed: ${res.status} ${res.statusText} ${detail.slice(0, 300)}`);
+    const err = new Error(`OpenAI speech failed: ${res.status} ${res.statusText} ${detail.slice(0, 300)}`);
+    (err as Error & { status?: number }).status = res.status;
+    throw err;
   }
   return Buffer.from(await res.arrayBuffer());
+}
+
+/** The cache key: what is said, by whom, how. Anything else about the run is not the piece. */
+export function pieceKey(text: string, voice: string, model = TTS_MODEL, speed = TTS_SPEED): string {
+  return createHash('sha256').update(`${model}|${voice}|${speed}|${text}`).digest('hex').slice(0, 32);
+}
+
+/**
+ * Speak one block, from the cache when it has been said before. Rate limits
+ * are retried with a backoff; anything else is the caller's failure.
+ */
+async function speakCached(text: string, voice: string, cacheDir: string): Promise<{ path: string; fresh: boolean }> {
+  const path = join(cacheDir, `${pieceKey(text, voice)}.mp3`);
+  if (existsSync(path)) return { path, fresh: false };
+  let attempt = 0;
+  for (;;) {
+    try {
+      const audio = await speak(text, { voice, speed: TTS_SPEED });
+      await writeFile(path, audio);
+      return { path, fresh: true };
+    } catch (err) {
+      const status = (err as { status?: number }).status;
+      if ((status === 429 || (status !== undefined && status >= 500)) && attempt < 4) {
+        await new Promise((r) => setTimeout(r, 1000 * 2 ** attempt));
+        attempt += 1;
+        continue;
+      }
+      throw err;
+    }
+  }
+}
+
+/** Run `fn` over `items` with at most `limit` in flight, preserving order. */
+async function mapLimit<T, R>(items: T[], limit: number, fn: (item: T, i: number) => Promise<R>): Promise<R[]> {
+  const out: R[] = new Array(items.length);
+  let next = 0;
+  const workers = Array.from({ length: Math.min(limit, items.length) }, async () => {
+    for (;;) {
+      const i = next++;
+      if (i >= items.length) return;
+      out[i] = await fn(items[i]!, i);
+    }
+  });
+  await Promise.all(workers);
+  return out;
 }
 
 function run(cmd: string, args: string[]): Promise<string> {
@@ -172,14 +224,24 @@ function run(cmd: string, args: string[]): Promise<string> {
   });
 }
 
-export async function durationSeconds(path: string): Promise<number> {
+/** Exact duration, for placing pieces; the rounded one is for the feed. */
+async function durationExact(path: string): Promise<number> {
   const out = await run('ffprobe', [
     '-v', 'error',
     '-show_entries', 'format=duration',
     '-of', 'default=noprint_wrappers=1:nokey=1',
     path,
   ]);
-  return Math.round(Number(out));
+  return Number(out);
+}
+
+export async function durationSeconds(path: string): Promise<number> {
+  return Math.round(await durationExact(path));
+}
+
+/** A chapter with the second it starts at. */
+export interface TimedChapter extends Chapter {
+  start: number;
 }
 
 export interface AudioResult {
@@ -187,10 +249,15 @@ export interface AudioResult {
   bytes: number;
   durationSeconds: number;
   voice: string;
-  chunks: number;
+  /** Blocks synthesized, and how many of them were not already in the cache. */
+  pieces: number;
+  synthesized: number;
   loudnormVersion: string;
   coverUrl: string;
   coverSource: string;
+  chaptersUrl: string;
+  transcriptUrl: string;
+  chapters: TimedChapter[];
 }
 
 interface LoudnormMeasurement {
@@ -242,19 +309,97 @@ function runCapturingStderr(cmd: string, args: string[]): Promise<string> {
   });
 }
 
+/** A concat-demuxer list: one `file` line per path, single quotes escaped. */
+function concatList(paths: string[]): string {
+  return paths.map((p) => `file '${p.replace(/'/g, "'\\''")}'`).join('\n');
+}
+
+/** `hh:mm:ss.mmm`, the WebVTT clock. */
+export function vttClock(seconds: number): string {
+  const ms = Math.round(seconds * 1000);
+  const h = Math.floor(ms / 3_600_000);
+  const m = Math.floor((ms % 3_600_000) / 60_000);
+  const s = Math.floor((ms % 60_000) / 1000);
+  return `${String(h).padStart(2, '0')}:${String(m).padStart(2, '0')}:${String(s).padStart(2, '0')}.${String(ms % 1000).padStart(3, '0')}`;
+}
+
+/** A placed block: where it starts and ends in the programme. */
+export interface PlacedBlock {
+  block: ScriptBlock;
+  start: number;
+  end: number;
+}
+
 /**
- * Synthesize the script, wrap it in the bumpers, normalize, tag, embed the
- * cover, upload, and return the reference the website publishes. The file
- * itself lives only on the CDN.
+ * The transcript, as WebVTT: one cue per block, the speaker named, so
+ * Thingy's words are attributed in the transcript as they are in the voice.
+ */
+export function transcriptVtt(placed: PlacedBlock[]): string {
+  const cues = placed.map(({ block, start, end }) => {
+    const who = block.speaker === 'thingy' ? 'Thingy' : 'Jamie';
+    const text = block.text.replace(/-->/g, '→').replace(/\s*\n\s*/g, ' ');
+    return `${vttClock(start)} --> ${vttClock(end)}\n<v ${who}>${text}`;
+  });
+  return `WEBVTT\n\n${cues.join('\n\n')}\n`;
+}
+
+/** The chapters, from the blocks that begin one, timed by where they landed. */
+export function chaptersOf(placed: PlacedBlock[]): TimedChapter[] {
+  return placed
+    .filter((p) => p.block.chapter)
+    .map((p) => ({ ...p.block.chapter!, start: Math.round(p.start * 1000) / 1000 }));
+}
+
+/** Podcasting 2.0 chapters — the form the players that show links read. */
+export function chaptersJson(chapters: TimedChapter[]): string {
+  return JSON.stringify({
+    version: '1.2.0',
+    chapters: chapters.map((c) => ({
+      startTime: c.start,
+      title: c.title,
+      ...(c.url ? { url: c.url } : {}),
+      ...(c.image ? { img: c.image } : {}),
+    })),
+  }, null, 2) + '\n';
+}
+
+/** ffmetadata escaping: `=`, `;`, `#`, `\` and newline are special. */
+function ffEscape(s: string): string {
+  return s.replace(/[\\=;#\n]/g, (c) => (c === '\n' ? '\\\n' : `\\${c}`));
+}
+
+/** The ID3 tags and the chapters, as one ffmetadata file for the final encode. */
+export function ffMetadata(tags: Record<string, string>, chapters: TimedChapter[], totalSeconds: number): string {
+  const lines = [';FFMETADATA1'];
+  for (const [k, v] of Object.entries(tags)) lines.push(`${k}=${ffEscape(v)}`);
+  chapters.forEach((c, i) => {
+    const end = chapters[i + 1]?.start ?? totalSeconds;
+    if (end <= c.start) return;
+    lines.push('[CHAPTER]', 'TIMEBASE=1/1000', `START=${Math.round(c.start * 1000)}`, `END=${Math.round(end * 1000)}`, `title=${ffEscape(c.title)}`);
+  });
+  return lines.join('\n') + '\n';
+}
+
+/**
+ * Synthesize every block, place the pieces with their pauses, gain-match the
+ * voices, master, tag, chapter, embed the cover, write the transcript, and
+ * upload all three under a content-addressed name. The files live only on
+ * the CDN.
+ *
+ * The name carries a hash of the mp3: the CDN serves these immutable for a
+ * year, so a regenerated issue must be a new object, and the page and feed
+ * move to it when the website leg re-sends.
  */
 export async function renderAudio(
   doc: IssueDoc,
-  script: string | ScriptSegment[],
-  opts: { bumpersDir?: string } = {},
+  blocks: ScriptBlock[],
+  opts: {
+    /** Write the three files here instead of the CDN — a dry run that costs only the synthesis. */
+    localOut?: string;
+  } = {},
 ): Promise<AudioResult> {
   const issueNumber = doc.issue.number;
-  // A plain string is one voice throughout; segments carry their speaker.
-  const segments: ScriptSegment[] = typeof script === 'string' ? [{ speaker: 'jamie', text: script }] : script;
+  if (!blocks.length) throw new Error('the audio script is empty');
 
   for (const tool of ['ffmpeg', 'ffprobe']) {
     // Spawned processes inherit a minimal PATH under launchd; fail loudly here
@@ -264,45 +409,89 @@ export async function renderAudio(
     });
   }
 
-  const chunks = segments.flatMap((seg) => chunkScript(seg.text).map((text) => ({ text, voice: VOICES[seg.speaker] })));
-  if (!chunks.length) throw new Error('the audio script is empty');
-
   // Build the cover before paying for synthesis: a missing cover should fail
-  // the send cheaply, not after ten TTS calls.
-  const cover = await buildCover(doc);
+  // the send cheaply, not after a hundred TTS calls.
+  const cover = await buildCover(doc, { upload: !opts.localOut });
 
+  await mkdir(config.ttsCacheDir, { recursive: true });
   const work = await mkdtemp(join(tmpdir(), `wt-audio-${issueNumber}-`));
   try {
     const coverPath = join(work, 'cover.jpg');
     await writeFile(coverPath, cover.square);
 
-    const parts: string[] = [];
+    // 1. Speech, one piece per block, from the cache where it has been said.
+    const spoken = await mapLimit(blocks, CONCURRENCY, (b) =>
+      speakCached(pronounce(b.text), VOICES[b.speaker ?? 'jamie'], config.ttsCacheDir));
+    const synthesized = spoken.filter((s) => s.fresh).length;
 
-    const intro = opts.bumpersDir ? join(opts.bumpersDir, 'intro.mp3') : null;
-    if (intro && existsSync(intro)) parts.push(intro);
+    // 2. Each piece to PCM at the synthesizer's rate, its own dead air
+    //    trimmed to a small margin so the pauses are the ones placed below.
+    const trim =
+      `silenceremove=start_periods=1:start_threshold=-50dB:start_silence=${PIECE_HEAD_S},` +
+      `areverse,silenceremove=start_periods=1:start_threshold=-50dB:start_silence=${PIECE_TAIL_S},areverse`;
+    const pieces = await mapLimit(spoken, 4, async (s, i) => {
+      const path = join(work, `piece-${String(i).padStart(3, '0')}.wav`);
+      await run('ffmpeg', ['-hide_banner', '-loglevel', 'error', '-y', '-i', s.path,
+        '-af', trim, '-ar', String(PIECE_RATE), '-ac', '1', '-c:a', 'pcm_s16le', path]);
+      return path;
+    });
 
-    for (const [i, chunk] of chunks.entries()) {
-      const audio = await speak(chunk.text, { voice: chunk.voice });
-      const path = join(work, `chunk-${String(i).padStart(3, '0')}.mp3`);
-      await writeFile(path, audio);
-      parts.push(path);
+    // 3. Gain-match Thingy to Jamie. The final loudnorm is linear, so a level
+    //    difference between the two voices would survive it.
+    const bySpeaker = (who: Speaker) => pieces.filter((_, i) => (blocks[i]!.speaker ?? 'jamie') === who);
+    if (bySpeaker('thingy').length) {
+      const level = async (who: Speaker) => {
+        const list = join(work, `${who}.txt`);
+        await writeFile(list, concatList(bySpeaker(who)));
+        const wav = join(work, `${who}.wav`);
+        await run('ffmpeg', ['-hide_banner', '-loglevel', 'error', '-y', '-f', 'concat', '-safe', '0', '-i', list, '-c', 'copy', wav]);
+        return Number((await measureLoudness(wav)).input_i);
+      };
+      const offset = (await level('jamie')) - (await level('thingy'));
+      if (Math.abs(offset) >= 0.5) {
+        await mapLimit(pieces.map((p, i) => [p, i] as const).filter(([, i]) => blocks[i]!.speaker === 'thingy'), 4,
+          async ([p]) => {
+            const matched = `${p}.matched.wav`;
+            await run('ffmpeg', ['-hide_banner', '-loglevel', 'error', '-y', '-i', p, '-af', `volume=${offset.toFixed(2)}dB`, matched]);
+            await run('mv', [matched, p]);
+          });
+      }
     }
 
-    const outro = opts.bumpersDir ? join(opts.bumpersDir, 'outro.mp3') : null;
-    if (outro && existsSync(outro)) parts.push(outro);
-
+    // 4. Place: pause, piece, pause, piece. The pauses are files of silence,
+    //    one per distinct length, so the concat is a plain list.
+    const silences = new Map<number, string>();
+    const silence = async (seconds: number) => {
+      const have = silences.get(seconds);
+      if (have) return have;
+      const path = join(work, `silence-${seconds}.wav`);
+      await run('ffmpeg', ['-hide_banner', '-loglevel', 'error', '-y', '-f', 'lavfi',
+        '-i', `anullsrc=r=${PIECE_RATE}:cl=mono`, '-t', String(seconds), '-c:a', 'pcm_s16le', path]);
+      silences.set(seconds, path);
+      return path;
+    };
+    const durations = await mapLimit(pieces, 4, durationExact);
+    const parts: string[] = [];
+    const placed: PlacedBlock[] = [];
+    let t = 0;
+    for (const [i, block] of blocks.entries()) {
+      const pause = i === 0 ? 0 : PAUSE[block.pauseBefore];
+      if (pause > 0) {
+        parts.push(await silence(pause));
+        t += pause;
+      }
+      parts.push(pieces[i]!);
+      placed.push({ block, start: t, end: t + durations[i]! });
+      t += durations[i]!;
+    }
     const listPath = join(work, 'concat.txt');
-    await writeFile(listPath, parts.map((p) => `file '${p.replace(/'/g, "'\\''")}'`).join('\n'));
+    await writeFile(listPath, concatList(parts));
+    const rawPath = join(work, 'raw.wav');
+    await run('ffmpeg', ['-hide_banner', '-loglevel', 'error', '-y',
+      '-f', 'concat', '-safe', '0', '-i', listPath, '-c', 'copy', rawPath]);
+    const total = await durationExact(rawPath);
 
-    // Concat first, stream-copied, so normalization measures the whole
-    // programme — bumpers included — rather than the body alone.
-    const rawPath = join(work, 'raw.mp3');
-    await run('ffmpeg', [
-      '-hide_banner', '-loglevel', 'error', '-y',
-      '-f', 'concat', '-safe', '0', '-i', listPath,
-      '-c', 'copy', rawPath,
-    ]);
-
+    // 5. Master: measure the whole programme, then normalize linearly.
     const measured = await measureLoudness(rawPath);
     const filter =
       `highpass=f=${HIGHPASS_HZ},` +
@@ -314,12 +503,18 @@ export async function renderAudio(
       `:offset=${measured.target_offset}` +
       `:linear=true:print_format=summary`;
 
+    const chapters = chaptersOf(placed);
+    const metaPath = join(work, 'metadata.txt');
+    await writeFile(metaPath, ffMetadata(id3Tags(doc), chapters, total));
+
     const outPath = join(work, `weekly-thing-${issueNumber}.mp3`);
-    const args = [
+    await run('ffmpeg', [
       '-hide_banner', '-loglevel', 'error', '-y',
       '-i', rawPath,
       '-i', coverPath,
+      '-i', metaPath,
       '-map', '0:a', '-map', '1:v',
+      '-map_metadata', '2', '-map_chapters', '2',
       '-c:v', 'copy', '-disposition:v', 'attached_pic',
       '-af', filter,
       '-ar', String(FINAL_SAMPLE_RATE),
@@ -328,37 +523,50 @@ export async function renderAudio(
       '-b:a', FINAL_BITRATE,
       '-write_xing', '1',
       '-id3v2_version', '3',
-    ];
-    for (const [key, value] of Object.entries(id3Tags(doc))) {
-      args.push('-metadata', `${key}=${value}`);
-    }
-    args.push('-metadata:s:v', 'title=Album cover', '-metadata:s:v', 'comment=Cover (front)');
-    args.push(outPath);
-    await run('ffmpeg', args);
+      '-metadata:s:v', 'title=Album cover', '-metadata:s:v', 'comment=Cover (front)',
+      outPath,
+    ]);
 
     const body = await readFile(outPath);
     const seconds = await durationSeconds(outPath);
-    const key = `weekly-thing/${issueNumber}/weekly-thing-${issueNumber}.mp3`;
+    const stamp = createHash('sha256').update(body).digest('hex').slice(0, 8);
+    const base = `weekly-thing/${issueNumber}/weekly-thing-${issueNumber}-${stamp}`;
+    const transcript = transcriptVtt(placed);
+    const chaptersFile = chaptersJson(chapters);
 
-    await new S3Client({ region: config.awsRegion }).send(
-      new PutObjectCommand({
-        Bucket: CDN_HOST,
-        Key: key,
-        Body: body,
-        ContentType: 'audio/mpeg',
-        CacheControl: 'public, max-age=31536000, immutable',
-      }),
-    );
+    let href = (key: string) => `https://${CDN_HOST}/${key}`;
+    if (opts.localOut) {
+      await mkdir(opts.localOut, { recursive: true });
+      const name = base.split('/').pop()!;
+      await writeFile(join(opts.localOut, `${name}.mp3`), body);
+      await writeFile(join(opts.localOut, `${name}.chapters.json`), chaptersFile);
+      await writeFile(join(opts.localOut, `${name}.vtt`), transcript);
+      href = (key: string) => `file://${join(opts.localOut!, key.split('/').pop()!)}`;
+    } else {
+      const s3 = new S3Client({ region: config.awsRegion });
+      const put = (key: string, Body: Buffer | string, ContentType: string) =>
+        s3.send(new PutObjectCommand({
+          Bucket: CDN_HOST, Key: key, Body, ContentType,
+          CacheControl: 'public, max-age=31536000, immutable',
+        }));
+      await put(`${base}.mp3`, body, 'audio/mpeg');
+      await put(`${base}.chapters.json`, chaptersFile, 'application/json+chapters');
+      await put(`${base}.vtt`, transcript, 'text/vtt');
+    }
 
     return {
-      url: `https://${CDN_HOST}/${key}`,
+      url: href(`${base}.mp3`),
       bytes: body.length,
       durationSeconds: seconds,
       voice: VOICE_ID,
-      chunks: chunks.length,
+      pieces: blocks.length,
+      synthesized,
       loudnormVersion: LOUDNORM_VERSION,
       coverUrl: cover.bannerUrl,
       coverSource: cover.source,
+      chaptersUrl: href(`${base}.chapters.json`),
+      transcriptUrl: href(`${base}.vtt`),
+      chapters,
     };
   } finally {
     await rm(work, { recursive: true, force: true });

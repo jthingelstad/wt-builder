@@ -85,7 +85,7 @@ export interface CoverResult {
  * Build both covers. `attention` cropping keeps the interesting part of a
  * photo in frame rather than centre-cropping through a subject's head.
  */
-export async function buildCover(doc: IssueDoc): Promise<CoverResult> {
+export async function buildCover(doc: IssueDoc, opts: { upload?: boolean } = {}): Promise<CoverResult> {
   const { bytes, from } = await sourceBytes(doc);
 
   const banner = await sharp(bytes)
@@ -111,7 +111,9 @@ export async function buildCover(doc: IssueDoc): Promise<CoverResult> {
     .jpeg({ quality: JPEG_QUALITY, progressive: true, mozjpeg: true })
     .toBuffer();
 
-  await new S3Client({ region: config.awsRegion }).send(
+  // A dry run of the audio must not touch the live banner: this once
+  // replaced WT350's cover with the fixture's photo (2026-09-21).
+  if (opts.upload !== false) await new S3Client({ region: config.awsRegion }).send(
     new PutObjectCommand({
       Bucket: CDN_HOST,
       Key: bannerKey(doc.issue.number),

@@ -231,9 +231,9 @@ finished, what is half-finished, and what has never run.
 ## The dry run — 2026-08-28, all four legs
 
 - **Podcast: RAN FOR REAL.** WT350's draft script synthesized (tts-1-hd,
-  echo), wrapped in the bumpers, loudnorm-mastered, tagged with show art,
-  uploaded: 68 seconds, 1.78 MB, verified 200 on the CDN. The first audio
-  WT Builder has ever produced.
+  echo), wrapped in the bumpers of the day, loudnorm-mastered, tagged with
+  show art, uploaded: 68 seconds, 1.78 MB, verified 200 on the CDN. The first
+  audio WT Builder has ever produced. (The bumpers were retired 2026-09-21.)
 - **Buttondown: RAN FOR REAL.** Draft created (never scheduled, never sent),
   with 3 images rehosted to the CDN first. Re-sending updates the same draft.
 - **Website: previewed.** The diff against the live repo shows exactly the

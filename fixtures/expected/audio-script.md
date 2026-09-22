@@ -1,8 +1,11 @@
-You're listening to an AI-generated audio version of The Weekly Thing, issue
-350.
+This is The Weekly Thing, issue 350. Published Saturday, May twenty-third, 2026,
+and written by Jamie Thingelstad.
 
-Welcome back from summer break. This issue is being assembled item by item in
-WT Builder.
+This audio edition is generated. Every link and photo is in the newsletter at
+weekly dot thingelstad dot com, where you can also sign up for the email.
+
+Welcome back from summer break. This issue is being assembled item by item in WT
+Builder.
 
 Now, the Currently section.
 
@@ -10,18 +13,26 @@ Building: A focused tool for creating The Weekly Thing.
 
 Listening: Brandi Carlile.
 
-Now, the Notable section.
+This week's photo. Beautiful evening with the sun coming down.
 
-Link 1 of 2. Create Your Own Currency With Flipcash. Community currencies
-remain an interesting design space.
+Taken in Cannon Lake, Warsaw, Minnesota, on Saturday, May sixteenth.
+
+Now, the Notable section. Two links this week.
+
+Link 1 of 2. Create Your Own Currency With Flipcash. Community currencies remain
+an interesting design space.
 
 Link 2 of 2. LLMs are functions, not brains.
 
-Minnesota Technology Council.
+That's the end of Notable.
 
-I had my first official meeting of the Technology Advisory Council. I am
-looking forward to helping in established areas like cloud and data
-transformation, as well as new areas with AI deployment.
+Next, a longer piece: Minnesota Technology Council.
+
+I had my first official meeting of the Technology Advisory Council. I am looking
+forward to helping in established areas like cloud and data transformation, as
+well as new areas with AI deployment.
+
+That's the end of Minnesota Technology Council.
 
 Now, the Journal section.
 
@@ -35,15 +46,19 @@ Sunday, May seventeenth.
 
 Fabulous show by The New Standards at The Dakota tonight.
 
-Now, the Briefly section.
+That's the end of the Journal.
+
+Now, the Briefly section. Three links this week.
 
 Link 1 of 3. forge: A framework for self-hosted LLM workflows. Interesting
 project if you want to try running your own models.
 
 Link 2 of 3. tokenspeed. A good demonstration of what token speed feels like.
 
-Link 3 of 3. Introducing Shortcuts Playground. This should be a built-in
-feature in Shortcuts.
+Link 3 of 3. Introducing Shortcuts Playground. This should be a built-in feature
+in Shortcuts.
+
+That's the end of Briefly.
 
 Next, a word about membership, from Thingy, my agentic librarian.
 
@@ -54,7 +69,7 @@ membership dollar to this year's nonprofit partner.
 
 Time to head outside. I hope you have a wonderful weekend.
 
-And to close, this week's haiku.
+This week's haiku.
 
 Summer pages turn
 
@@ -72,21 +87,24 @@ Ask Thingy: How has Jamie's thinking about building his own tools changed?
 Shortcuts has been the workflow behind this newsletter since WT210; this issue
 is the first assembled without it.
 
-That brings us to the end of The Weekly Thing.
+That brings us to the end of The Weekly Thing, issue 350. Thanks for listening.
 
 <!--
-Every line above is spoken. Section transitions are script lines, not markers.
+Audio edition contract, held by tests/render.test.ts.
 
-Signposts: Notable and Briefly announce "Link N of M" before each item, counted
-over the items actually in the audio edition.
-
-Membership and Echoes are spoken in Thingy's voice: Jamie hands over, Thingy
-says hello once an episode, then speaks; Jamie takes the next section back.
-Haiku is spoken one line per block, so the pauses land on the line breaks.
+Every block above is one synthesized piece; the blank line between blocks is
+not a pause the synthesizer makes. Each block carries a boundary (section,
+lead, item, paragraph, line) and the assembler inserts that much silence, so
+the pauses fall on the structure. Opener and close carry what the retired
+bumpers said. Link sections announce their count and close with "That's the
+end of …"; a promoted post opens "Next, a longer piece:" and closes the same
+way. Blockquotes are framed "Quote. … End quote."; bullets speak ordinals,
+numbered lists their numbers; a title's " | Site" or " - Site" is an aside
+after a comma. The photo speaks its caption, place, and date — never a
+description. Haiku is one line per block.
 
 Omitted, and why:
 
-- photo-1 — Photo is never narrated (channel locked).
 - ps-1 — email-only.
 - journal-excluded — all channels false.
 

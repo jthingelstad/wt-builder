@@ -11,6 +11,7 @@ import type { IssueDoc, Item } from '../src/shared/types.ts';
 import { allChannels } from '../src/shared/types.ts';
 import { renderWebsite } from '../src/shared/render/website.ts';
 import { renderAudio } from '../src/shared/render/audio.ts';
+import { pronounce } from '../src/shared/render/speech.ts';
 import { speakable, isSilent } from '../src/shared/render/speech.ts';
 import { candidateToItem } from '../src/server/integrations/pinboard.ts';
 import { sourceRows } from '../src/shared/render/source.ts';
@@ -77,6 +78,12 @@ describe('markup never reaches the synthesizer', () => {
     const script = renderAudio(doc);
     expect(script).not.toMatch(/<img|\]\(|https?:\/\//);
     expect(script).toContain('Johnson Public House');
+  });
+
+  it('respells the surname for the synthesizer only', () => {
+    expect(pronounce('written by Jamie Thingelstad, at weekly dot thingelstad dot com'))
+      .toBe('written by Jamie Thing-el-stad, at weekly dot thing-el-stad dot com');
+    expect(pronounce('Thingy')).toBe('Thingy');
   });
 
   it('reports silence for markup that carries no words', () => {
@@ -194,7 +201,7 @@ describe('half-written items publish nothing', () => {
     );
     const script = renderAudio(doc);
     expect(script).not.toContain("this week's haiku");
-    expect(script.trim().endsWith('That brings us to the end of The Weekly Thing.')).toBe(true);
+    expect(script.trim().endsWith('Thanks for listening.')).toBe(true);
   });
 
   it('does not speak a Journal weekday with no posts under it', () => {
@@ -205,7 +212,8 @@ describe('half-written items publish nothing', () => {
       [node({ id: 'journal', type: 'journal', label: 'Journal', publishes_heading: true, items: ['j-1'] })],
     );
     const script = renderAudio(doc);
-    expect(script).not.toContain('Saturday');
+    // The opener names the publication date; the Journal must not add a day of its own.
+    expect(script.match(/Saturday/g)).toHaveLength(1);
     expect(script).not.toContain('Now, the Journal section.');
   });
 });

@@ -111,8 +111,9 @@ data, which looks exactly like a rendering bug.
 - Thingy-authored content is always visibly attributed. Thingy's words must
   never appear to be Jamie's.
 - Echoes renders last, is a section of `echo` items (never one glued body),
-  and is spoken in Thingy's voice. Photo is never spoken. Briefly reverses in
-  audio: title, then description.
+  and is spoken in Thingy's voice. Photo speaks its caption, place, and date,
+  and is shown as chapter art — never described. Briefly reverses in audio:
+  title, then description.
 - Publishing is called **sending**, and it runs per destination. Nothing WT
   Builder sends becomes authoritative where it lands; the archive does that,
   afterwards.

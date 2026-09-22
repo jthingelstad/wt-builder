@@ -986,6 +986,8 @@ span[contenteditable]:focus {
 }
 
 .cue-rule { flex: 1; border-top: 1px solid var(--border); }
+.cue-closer { margin: 10px 0 26px; }
+.cue-closer .cue-label { color: var(--muted); }
 
 .cue-omit {
   display: flex;

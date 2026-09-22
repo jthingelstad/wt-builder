@@ -55,6 +55,24 @@ export function speakable(text: string | undefined): string {
     .trim();
 }
 
+/**
+ * Words the synthesizer says wrong as written, and the spelling that makes it
+ * say them right — found by synthesizing and transcribing (2026-09-21: the
+ * surname alone came out "thinglestad"; hyphenated it came out right).
+ * Applied to what the synthesizer is given, never to what is shown: the lens
+ * and the transcript keep the real spelling.
+ */
+export const LEXICON: [RegExp, string][] = [
+  [/\bThingelstad\b/g, 'Thing-el-stad'],
+  [/\bthingelstad\b/g, 'thing-el-stad'],
+];
+
+export function pronounce(text: string): string {
+  let s = text;
+  for (const [from, to] of LEXICON) s = s.replace(from, to);
+  return s;
+}
+
 /** True when nothing speakable survives — an empty block must not be emitted. */
 export function isSilent(text: string | undefined): boolean {
   return speakable(text).length === 0;
