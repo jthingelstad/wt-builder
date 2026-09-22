@@ -16,7 +16,9 @@ Is it also possible that the reverse is true? People will create a worldview to 
 
 Now, the Featured section.
 
-Link one. "things are a little crazy rn"
+There are two links this week.
+
+Link one of two. "things are a little crazy rn"
 
 Okay, first a little background.
 
@@ -32,7 +34,7 @@ I can just watch it go on and on… it’s so horribly great. Just the best.
 
 I love that you can buy them as NFTs as well! Fifteen are available to mint, and three have been sold so far. 5,000 dollars though is a big gulp.
 
-Link two. "Identity and ideas | Seth's Blog"
+Link two of two. "Identity and ideas | Seth's Blog"
 
 I have been thinking about identity some recently. When you work to improve yourself, change your habits, or otherwise explore new things you end up bouncing up against identity at some point. I dig Godin's comments here.
 
@@ -54,7 +56,9 @@ That's the end of Featured.
 
 Now, the Notable section.
 
-Link one. "Introducing Twitter Blue - Twitter’s first-ever subscription offering"
+There are thirteen links this week.
+
+Link one of thirteen. "Introducing Twitter Blue - Twitter’s first-ever subscription offering"
 
 I was excited that Twitter was coming out with a subscription offering, but there are two things that it should have to me and this has neither.
 
@@ -63,21 +67,21 @@ I was excited that Twitter was coming out with a subscription offering, but ther
 
 The features they are offering aren't even mildly interesting to me. Hopefully they keep iterating and getting it better. Also, only launching in Canada and Australia? I don't get that at all.
 
-Link two. "PlayingCards.io Virtual Tabletop"
+Link two of thirteen. "PlayingCards.io Virtual Tabletop"
 
 Interesting web app that simply allows you to put cards on the screen and move them around, so you can play any game that you want. Get a FaceTime call going and then bring this up in a web browser and you have a very playable distributed game table.
 
-Link three. "Timery Comes to the Mac and Makes Time Tracking With Toggl Easier Than Ever - MacStories"
+Link three of thirteen. "Timery Comes to the Mac and Makes Time Tracking With Toggl Easier Than Ever - MacStories"
 
 I use Toggl for my calendar analytics, and I know that time tracking is a useful productivity tool. I've tried Timery before but with it on the Mac I’m going to give it another go and see if I find it useful.
 
-Link four. "Wikipedia Endowment: The Site Is Rich. Why Is It Fundraising?"
+Link four of thirteen. "Wikipedia Endowment: The Site Is Rich. Why Is It Fundraising?"
 
 I’m a big fan of Wikipedia and have donated to the site regularly for years. I plan to continue. I’m glad that they have successfully gotten their endowment funded. I have no issue that they are hiring technology and leadership and paying a competitive market rate. I’m not a fan of this meme that if you choose to be in non-profit you are bound to a life of poverty.
 
 Now, with that said, I do think the organization should be clear on what they are going to put the additional funds to work to do. If Wikipedia can raise beyond it’s own needs, but put those resources toward things that are aligned with their mission, I’m fine with it.
 
-Link five. "Michael Tsai - Blog - Starlink Review"
+Link five of thirteen. "Michael Tsai - Blog - Starlink Review"
 
 I haven't been following Starlink that closely but some recent coverage made me look. At our cabin we only have DSL and the performance is not great. Looking at Starlink I can get more than 10x the performance for only about 10% more a month. It turns out I can order Starlink right now, there is enough coverage, but I’m holding off for two reasons.
 
@@ -86,11 +90,11 @@ I haven't been following Starlink that closely but some recent coverage made me 
 
 I did come away feeling that Starlink was much more real than I thought it was. And I love the potential disruption this will cause to the broadband market.
 
-Link six. "Five New Frontiers for NFTs. Art is the tip of the iceberg and we… | Electric Capital"
+Link six of thirteen. "Five New Frontiers for NFTs. Art is the tip of the iceberg and we… | Electric Capital"
 
 I see a lot of potential for NFTs. This article highlights many of the same possibilities that I have envisioned.
 
-Link seven. "JsonLogic"
+Link seven of thirteen. "JsonLogic"
 
 Neat way to store rules and other logic in various systems to execute in multiple locations.
 
@@ -106,13 +110,13 @@ End quote.
 
 Has parsing libraries for Javascript. Python, PHP, and Ruby.
 
-Link eight. "My Software Estimation Technique - Jacob Kaplan-Moss"
+Link eight of thirteen. "My Software Estimation Technique - Jacob Kaplan-Moss"
 
 Some great wisdom here, but I would amplify even more the uncertainty aspect. Not only do you need to capture and measure that, you also have to realize that if uncertainty is above a certain level there is no possible time estimate. This is why teams tend to use Fibonacci sequences to estimate complexity. As complexity goes up the solution time and cost goes up much more than linearly, and at some point goes parabolic to the moon.
 
 You have to know reasonably well what you are building and how that will happen before any estimation of time is meaningful at all.
 
-Link nine. "The Unix Game"
+Link nine of thirteen. "The Unix Game"
 
 This is so amazing and great!
 
@@ -122,7 +126,7 @@ End quote.
 
 UNIX nerds love to brag about the amazing "command line fu" they come up with. This is a great way to learn, and to develop an appreciation for the kind of things that a CLI still is so great at.
 
-Link ten. "Why Russians do not smile"
+Link ten of thirteen. "Why Russians do not smile"
 
 I've made over a dozen trips to Ukraine and this smiling thing is true there as well.
 
@@ -132,15 +136,15 @@ End quote.
 
 Reading this reminded me of a conversation I had with Yuri, the Director of our office in Ukraine. I had finished walking to the office from the hotel. It is a simple route and there are a lot of people making their way to their jobs in the morning. I asked him "Do you think people know that I’m not from here when I’m just walking to the office?" and he immediately replied that "Yes, they for sure know.". I wondered how this could be, I was just one of many people walking along the street. I asked him how they would know I wasn't a local and he replied immediately "Because you are smiling."
 
-Link eleven. "Grok TiddlyWiki — Build a deep, lasting understanding of TiddlyWiki"
+Link eleven of thirteen. "Grok TiddlyWiki — Build a deep, lasting understanding of TiddlyWiki"
 
 I think it’s a good idea to know at least one wiki solution and know it well. A number of years ago I dove deep into MediaWiki and learned all about the broad ecosystem behind Wikipedia. This book is an incredibly deep resource for understanding TiddlyWiki, which I think is one of the most appropriate wikis for many personal knowledge systems that people seek out today.
 
-Link twelve. "Funding Friday: The Dirt Newsletter - AVC"
+Link twelve of thirteen. "Funding Friday: The Dirt Newsletter - AVC"
 
 I've been saying for a couple of months that NFTs are going to enable a number of things, including a new revenue model for newsletters. I even tried minting a couple of NFTs for issues of the Weekly Thing, that I ultimately withdrew as I think about it more. This is a cool example funding a season of their newsletter with an NFT issuance.
 
-Link thirteen. "Uber's Crazy YOLO App Rewrite, From the Front Seat - The Pragmatic Engineer"
+Link thirteen of thirteen. "Uber's Crazy YOLO App Rewrite, From the Front Seat - The Pragmatic Engineer"
 
 I've launched a good number of products and platforms over the years and there are parts of this that I resonate strongly with those experiences. But this was pretty far out there. If you don't know how the software on your devices gets written and shipped, you might think it is much more elegant than it is.
 
@@ -174,83 +178,85 @@ That's the end of the Journal.
 
 Now, the Briefly section.
 
-Link one. "IPFS, Filecoin, and ‘Content Persistence’"
+There are twenty links this week.
+
+Link one of twenty. "IPFS, Filecoin, and ‘Content Persistence’"
 
 How to store and find content forever.
 
-Link two. "Scaling Ethereum with zkSync | Union Square Ventures"
+Link two of twenty. "Scaling Ethereum with zkSync | Union Square Ventures"
 
 Tech background on bringing more speed to Ethereum.
 
-Link three. "Dogecoin (DOGE) is now available on Coinbase | The Coinbase Blog"
+Link three of twenty. "Dogecoin (DOGE) is now available on Coinbase | The Coinbase Blog"
 
 I previously thought the lack of support for DOGE on Coinbase was because of its lack of seriousness. Let the transaction fees flow. At this point I don't see any reason to hold this token.
 
-Link four. "David Deutsch on Multiple Worlds and Our Place in Them (Ep. 124) | Conversations with Tyler"
+Link four of twenty. "David Deutsch on Multiple Worlds and Our Place in Them (Ep. 124) | Conversations with Tyler"
 
 I listened to this podcast and it’s either very profound philosophy or complete drivel.
 
-Link five. "Ekow Nimako - Surrealistic, Lego Art | Ekow Nimako"
+Link five of twenty. "Ekow Nimako - Surrealistic, Lego Art | Ekow Nimako"
 
 This is amazing art all created with LEGO
 
-Link six. "JBS Cyber Hack: Meat Supplier Shuts Down Some Slaughterhouses After Attack - Bloomberg"
+Link six of twenty. "JBS Cyber Hack: Meat Supplier Shuts Down Some Slaughterhouses After Attack - Bloomberg"
 
 It feels like these kind of attacks are just getting started.
 
-Link seven. "Now use your Coinbase Card with Apple Pay® and Google Pay™ | The Coinbase Blog"
+Link seven of twenty. "Now use your Coinbase Card with Apple Pay® and Google Pay™ | The Coinbase Blog"
 
 Connecting crypto with traditional credit card networks should be a way to get more integration between fiat and crypto.
 
-Link eight. "GPT-3 Can Write Disinformation Now—and Dupe Human Readers | WIRED"
+Link eight of twenty. "GPT-3 Can Write Disinformation Now—and Dupe Human Readers | WIRED"
 
 We are going to have to get even better and understanding who or what created the things we read online.
 
-Link nine. "rfc.fyi"
+Link nine of twenty. "rfc.fyi"
 
 Browseable, searchable RFC index. These are the documents that form much of how the Internet works.
 
-Link ten. "How to Ask Useful Questions – Josh Kaufman"
+Link ten of twenty. "How to Ask Useful Questions – Josh Kaufman"
 
 There are patterns here!
 
-Link eleven. "Cargo"
+Link eleven of twenty. "Cargo"
 
 Tool to help you create NFT's on Ethereum, xDai, and Polygon.
 
-Link twelve. "River Runner"
+Link twelve of twenty. "River Runner"
 
 Place a drop of water anywhere on the map and see what waterways it takes. Cool visualization and nice way to show how connected rivers are.
 
-Link thirteen. "Avatar generator playground - Boring Avatars"
+Link thirteen of twenty. "Avatar generator playground - Boring Avatars"
 
 Neat project. I like the "Beam" ones.
 
-Link fourteen. "QUIC is now RFC 9000 | Fastly"
+Link fourteen of twenty. "QUIC is now RFC 9000 | Fastly"
 
 A big step forward for an even faster web.
 
-Link fifteen. "Big Mail - Upgrade your inbox"
+Link fifteen of twenty. "Big Mail - Upgrade your inbox"
 
 I get a lot of similar features from Sanebox, but this email client also contains a lot of things that Hey introduced. Interesting.
 
-Link sixteen. "Surviving an In-Flight Anomaly: What Happened on Ingenuity’s Sixth Flight - NASA Mars"
+Link sixteen of twenty. "Surviving an In-Flight Anomaly: What Happened on Ingenuity’s Sixth Flight - NASA Mars"
 
 Very cool tech with a happy ending.
 
-Link seventeen. "GameStop Announces That It’s Working on NFTs | HYPEBEAST"
+Link seventeen of twenty. "GameStop Announces That It’s Working on NFTs | HYPEBEAST"
 
 The GME story gets another chapter.
 
-Link eighteen. "New ATH - 28 billion dollars+ Daily Value Sent Over Litecoin Network"
+Link eighteen of twenty. "New ATH - 28 billion dollars+ Daily Value Sent Over Litecoin Network"
 
 That's a lot of sent over Litecoin!
 
-Link nineteen. "ZeroTier – Global Area Networking"
+Link nineteen of twenty. "ZeroTier – Global Area Networking"
 
 Super interesting networking service to connect things over the Internet.
 
-Link twenty. "Finally understanding PNG | Compress-Or-Die"
+Link twenty of twenty. "Finally understanding PNG | Compress-Or-Die"
 
 Learn how PNG works inside, particularly with color palettes.
 

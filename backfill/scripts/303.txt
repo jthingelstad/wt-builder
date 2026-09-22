@@ -10,7 +10,9 @@ But better than the food was getting to spend time with family and do all the tr
 
 Now, the Notable section.
 
-Link one. "Generative AI’s Potential to Improve Customer Experience | Bain and Company"
+There are seven links this week.
+
+Link one of seven. "Generative AI’s Potential to Improve Customer Experience | Bain and Company"
 
 Bain writeup on five principles to improve the retail customer experience by using AI.
 
@@ -20,7 +22,7 @@ End quote.
 
 Good examples in each.
 
-Link two. "Fine-tuning NLP transformers for task automation - Jon Eskin's Blog"
+Link two of seven. "Fine-tuning NLP transformers for task automation - Jon Eskin's Blog"
 
 This article highlights what I suspect is going to be a very common and powerful way to get benefit from AI. There are many tasks that need to be done where an "intelligent" approach would be a big win, but you don't need "too much" intelligence. Why not bring a simple model with very defined training to the problem.
 
@@ -30,7 +32,7 @@ End quote.
 
 Here the test was to look at emails and classify them. There are many, many tasks like this in modern workflows.
 
-Link three. "Oncall shift should be Tuesday to Tuesday"
+Link three of seven. "Oncall shift should be Tuesday to Tuesday"
 
 The main thing I learned in this article was this…
 
@@ -48,7 +50,7 @@ End quote.
 
 The worst day I can think of would be Friday's with Monday's a close second.
 
-Link four. "A Camera the Size of a Grain of Salt Could Change Imaging as We Know It – Communications of the ACM"
+Link four of seven. "A Camera the Size of a Grain of Salt Could Change Imaging as We Know It – Communications of the ACM"
 
 Camera technology has become so ubiquitous and so small. But this is a whole different level.
 
@@ -58,7 +60,7 @@ End quote.
 
 Would we even call this a camera? The article highlights incredible use cases in medicine with endoscopes. The concept of "turning a surface into a camera" is a bit mind blowing. What if the ceiling in the room was all just a camera? You could redefine what it means to be a smart building.
 
-Link five. "Introducing the Model Context Protocol Anthropic"
+Link five of seven. "Introducing the Model Context Protocol Anthropic"
 
 Where your data lives is critical to building AI applications, so this new protocol from Anthropic is a big deal allowing models to access data that is in other sources.
 
@@ -68,7 +70,7 @@ End quote.
 
 More reading at this quickstart and the documentation.
 
-Link six. "Petnames: A humane approach to secure, decentralized naming"
+Link six of seven. "Petnames: A humane approach to secure, decentralized naming"
 
 There is a great saying in computer science that will get a very knowing chuckle from nearly all technologists.
 
@@ -88,7 +90,7 @@ End quote.
 
 I love the idea of having different name spaces, some shared and some not.
 
-Link seven. "Daring Fireball: The End of the Line for Delicious Library"
+Link seven of seven. "Daring Fireball: The End of the Line for Delicious Library"
 
 Sad to see Delicious Library go end-of-life. I haven't used the app for a while. It was my primary tool for tracking my DVD, Laser Disc, and CD collection back in the day. I ordered a fancy Bluetooth barcode scanner to use with it in two thousand seven. I delighted when Delicious Library 2 was released. I’m a collector, so this software really spoke to me. And the developer, Wil Shipley shaped a whole series of applications over the years. Gruber's write up on Daring Fireball is great, and even better read Siracusa's two thousand four review which includes some great screenshots.
 
@@ -204,35 +206,37 @@ That's the end of the Journal.
 
 Now, the Briefly section.
 
-Link one. "Retool | A better way to build custom software"
+There are eight links this week.
+
+Link one of eight. "Retool | A better way to build custom software"
 
 Nicely done CRUD tool to make small applications.
 
-Link two. "Synapse bankruptcy: Thousands of Americans see their savings vanish"
+Link two of eight. "Synapse bankruptcy: Thousands of Americans see their savings vanish"
 
 Whether it is traditional finance or crypto we certainly need more innovation in financial services, but we also need to make sure that the risk associated with that innovation is understood and contained.
 
-Link three. "Iceland’s shorter working week has been a huge success – and it’s changed my family’s life | The Guardian"
+Link three of eight. "Iceland’s shorter working week has been a huge success – and it’s changed my family’s life | The Guardian"
 
 Iceland innovating and experimenting.
 
-Link four. "lla: A modern alternative to ls"
+Link four of eight. "lla: A modern alternative to ls"
 
 I love that even though we are decades into the maturity of Unix based operating systems there are still folks rethinking the fundamentals. Here is modern version of ls. Written in Rust with some very nice features. The -t and -T options are spiffy.
 
-Link five. "jless - A Command-Line JSON Viewer"
+Link five of eight. "jless - A Command-Line JSON Viewer"
 
 Brilliant little tool to page around inside of a JSON file on the terminal. Intelligent searching via regex or direct index via the JSON path.
 
-Link six. "Benefits of an open network"
+Link six of eight. "Benefits of an open network"
 
 An approachable read if you are curious about why Bluesky is different than other networks at a protocol level. Personally I'll stay on the original open network.
 
-Link seven. "Surveillance Self-Defense"
+Link seven of eight. "Surveillance Self-Defense"
 
 Good set of resources from the EFF to defend yourself against surveillance and tracking online.
 
-Link eight. "Who Americans spend their time with, by age - Marginal REVOLUTION"
+Link eight of eight. "Who Americans spend their time with, by age - Marginal REVOLUTION"
 
 This graph blows my mind!
 

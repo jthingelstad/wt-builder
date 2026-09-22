@@ -8,7 +8,9 @@ A lot of interesting links and articles on a wide range of topics this week… l
 
 Now, the Featured section.
 
-Link one. "An Engineer's Hype-Free Observations on Web3 (and its Possibilities)"
+There are two links this week.
+
+Link one of two. "An Engineer's Hype-Free Observations on Web3 (and its Possibilities)"
 
 I've been playing with a wide variety of web3 technology, multiple crypto projects, different wallets, types of assets, etc. It has been an incredible learning experience and this article is a great summary, with a bend to the technical, of the state of web3. I couldn't find anything I disagreed with here. I also love the opening about how fun it is to see the web being weird again.
 
@@ -20,7 +22,7 @@ I love the experimentation that the web and the Internet enables. Anyway, this i
 
 For context, remember that when Web 2.0 was a think and O'Reilly was having conferences and we were all learning to write "AJAX code" in Javascript… things were about this weird as well. All of that ushered in the current generation of the web. This stuff takes years to happen.
 
-Link two. "42 things I learned from building a production database | mahesh’s blog"
+Link two of two. "42 things I learned from building a production database | mahesh’s blog"
 
 This is a brilliant list that any technology leader or team building a service should keep in mind. I also think it is notable that the first group of items is "Customers" and the very first note of advice is:
 
@@ -42,7 +44,9 @@ That's the end of Currently.
 
 Now, the Notable section.
 
-Link one. "The World’s Deadliest Thing — Anthony Warner"
+There are seventeen links this week.
+
+Link one of seventeen. "The World’s Deadliest Thing — Anthony Warner"
 
 Never would have guessed botulism if asked this question.
 
@@ -50,7 +54,7 @@ Quote.
 It is perhaps strange that such a rare poisoning event shapes our modern food system so profoundly, but this is perhaps because the toxin produced is one of, if not the, deadliest on earth. It has been estimated that in its pure crystalline form, six grams of botulism toxin, about one teaspoon full, would be enough to kill 200 million people. The lethal dose when consumed orally is around 30 billionths of a gram, which if you want a relatable comparison, is about the same as if you cut a single poppy seed into ten thousand equal pieces and ate one of them. It is an amount so tiny, it really doesn’t make sense.
 End quote.
 
-Link two. "Facebook fed posts with violence and nudity to people with low digital literacy"
+Link two of seventeen. "Facebook fed posts with violence and nudity to people with low digital literacy"
 
 Absolutely nothing new here, but it is important to keep everyone remembering how damaging Facebook is to its own users.
 
@@ -60,11 +64,11 @@ End quote.
 
 At this point how can anyone really feel good about using any Facebook property? The usage provided by everyone ignoring all of these horrible things is the revenue to keep driving the company to more and more "impact". You can do something. You can leave the service. When I say that to people they often tell me that all their friends are there. They won't disappear. Group texts, email, there are lots of ways to connect. Ways that don't involve pulling your "friends" into a caustic and damaging information environment.
 
-Link three. "How Complex Systems Fail"
+Link three of seventeen. "How Complex Systems Fail"
 
 This is generically about complex systems, but it sure reads true for complex software systems. Indexes like this are useful to read so that you don't go down dead ends when trying to work inside of a complex systems, of which much of software is. An example I can relate to is 7 "Post-accident attribution to a 'root cause' is fundamentally wrong". This is why I specifically want to do an Incident Report and not a Root Cause Analysis when a complex system experiences a failure. Root cause is a overly simplistic and often a myth in complex systems. Good stuff. Hat tip to my fellow book club member Loren Terveen for sharing.
 
-Link four. "ConstitutionDAO’s bold crypto bid for US Constitution falls short | TechCrunch"
+Link four of seventeen. "ConstitutionDAO’s bold crypto bid for US Constitution falls short | TechCrunch"
 
 This article has a good background on the forming of ConstitutionDAO, who was involved, and how the process unfolded. I’m really happy that I got to be part of this, even if it ultimately didn’t work out. I did get a POAP out of it.
 
@@ -74,7 +78,7 @@ I feel bad for the folks behind this as some are accusing them of running this l
 
 The most notable thing to me was that this was advertised as a DAO but nothing that happened in it actually ran as a DAO. I think that is because the DAO wasn't going to be created until the Constitution was bought. At that point the PEOPLE tokens would have been issued and voting could have occurred. Until then, it was all up to the core group which has some people worked up.
 
-Link five. "beartype: Unbearably fast O(1) runtime type-checking in pure Python"
+Link five of seventeen. "beartype: Unbearably fast O(1) runtime type-checking in pure Python"
 
 This looks like a powerful type-checker for Python.
 
@@ -84,11 +88,11 @@ End quote.
 
 Easy-to-use and claims to be extremely performant.
 
-Link six. "No notebook is perfect, but the reMarkable comes really close"
+Link six of seventeen. "No notebook is perfect, but the reMarkable comes really close"
 
 I've looked at the reMarkable many times and have read many reviews. This article is nice because the person has 6 months of use to reflect on. It is notable that the OCR is not good, but I think I could live with that. What it does well it seems to do very well.
 
-Link seven. "The Joy of Cryptography"
+Link seven of seventeen. "The Joy of Cryptography"
 
 Another free book on the web.
 
@@ -98,11 +102,11 @@ End quote.
 
 This would be a fabulous read on fundamental concepts. So many books…
 
-Link eight. "How to Navigate Stress in a Storm | Leadership Freak"
+Link eight of seventeen. "How to Navigate Stress in a Storm | Leadership Freak"
 
 Simple and concise. I like this. I particularly see "#1 Accept the world as it is, not as you wish it was." and "#3 Focus on the way you treat each other." as critical.
 
-Link nine. "Knowledge Graphs"
+Link nine of seventeen. "Knowledge Graphs"
 
 Deep topic that you can get the whole book free as a web page.
 
@@ -112,7 +116,7 @@ End quote.
 
 As an aside, I love when authors remember that the web is a great publishing platform and you don't need to use proprietary formats for something like this.
 
-Link ten. "Hurl, run and test HTTP requests."
+Link ten of seventeen. "Hurl, run and test HTTP requests."
 
 Simple tool to run HTTP requests and test web endpoints.
 
@@ -122,7 +126,7 @@ End quote.
 
 The notable thing here is the very simple text file based configurations. You could easily incorporate this into a wide range of tools as needed.
 
-Link eleven. "Think Different. Think Users. - Jessica Livingston"
+Link eleven of seventeen. "Think Different. Think Users. - Jessica Livingston"
 
 I love how Livingston frames the act of building out a product and the "feel" you get with your user community.
 
@@ -132,7 +136,7 @@ End quote.
 
 This is spot on.
 
-Link twelve. "Mike Osterholm on Covid’s Next Act | Twin Cities Business"
+Link twelve of seventeen. "Mike Osterholm on Covid’s Next Act | Twin Cities Business"
 
 Oosterholm and CIDRAP has been a consistant voice on COVID-19. There is still so much we don't know about how COVID-19 will evolve. It is clear COVID-19 isn't going away.
 
@@ -142,7 +146,7 @@ End quote.
 
 Also notable to me that people with his level of experience and expertise, and access to all the data, still don't have a super clear guide for how to navigate this virus.
 
-Link thirteen. "Data Governance Has a Serious Branding Problem | Towards Data Science"
+Link thirteen of seventeen. "Data Governance Has a Serious Branding Problem | Towards Data Science"
 
 Yes, Data Governance has a terrible brand problem. It starts and ends in the second word. Who likes "Governance". It sounds slow, cumbersome, bureaucratic. And just for extra, it sounds expensive. Two thoughts:
 
@@ -151,19 +155,19 @@ Yes, Data Governance has a terrible brand problem. It starts and ends in the sec
 
 Organizations do need to figure this out. While modern tools in the cloud make it easier to modify and change data, even duplicate it at a lower cost, it still adds cost and friction to the process when you have to do that.
 
-Link fourteen. "Brave partners with Solana to integrate it into the browser and make it the default for DApp support"
+Link fourteen of seventeen. "Brave partners with Solana to integrate it into the browser and make it the default for DApp support"
 
 I’m not a regular user of Brave, but I certainly love that Brendan Eich and team are out there slugging it out to innovate and try new things. One of the biggest challenges in web3 adoption today is managing wallets, so integrating Solana directly into Brave will be an interesting test to see how it changes adoption.
 
-Link fifteen. "Moving faster"
+Link fifteen of seventeen. "Moving faster"
 
 This post is filled with interesting observations the author has on methods used to improve the speed at which tasks get completed. I like that the focus was specifically on moving faster. This is something I've thought of and applied myself. The faster here is very focused on technical tasks and programming. The thought patterns could be applied to many tasks though.
 
-Link sixteen. "Too Much To Do | GTD® - YouTube"
+Link sixteen of seventeen. "Too Much To Do | GTD® - YouTube"
 
 I’m a practitioner of Getting Things Done and I like the perspective flip that David Allen applis in this video. "Too much to do" is probably, for most of us, a representation of all of the optionality that we have achieved in our lives. Allen and GTD references the agreements we make with ourselves often. It is those agreements, often tied around optionality, that can casue anxiety if not managed well. "You can only feel good about what your not doing, when you know what your not doing." I find many people focus on the productivity aspects of GTD, but for me, the ability to clear my mind and rely on a trusted system is by far the biggest value I get out of it. GTD can be applied to "do more stuff", but it can also be applied to "create more space".
 
-Link seventeen. "Endaoment"
+Link seventeen of seventeen. "Endaoment"
 
 This is an incredibly cool DeFi app that allows you to create your own Donor Advised Fund on the Ethereum blockchain, send funds into it and receive tax deductions from that, and then distribute via your custom DAF. Once you create your fund you can send crypto assets directly into the fund in whatever tokens are supported. Endaoment then converts those tokens to USDC, providing tax deduction for the contributor. You can then send the funds into participating non-profits.
 
@@ -246,47 +250,49 @@ That's the end of the Journal.
 
 Now, the Briefly section.
 
-Link one. "Exporting Links from Safari Reading List via Shortcuts for Mac - MacStories"
+There are eleven links this week.
+
+Link one of eleven. "Exporting Links from Safari Reading List via Shortcuts for Mac - MacStories"
 
 Oh wow! This is a big deal for me. It is generally a good example of the power that Shortcuts provides. But, I use Safari Reading List to queue links up for the Weekly Thing. I then move them to Pinboard for commentary and publishing into the newsletter. Right now I have to do that move by hand. Now I can automate it. Yeah!
 
-Link two. "BookNLP, a natural language processing pipeline for books"
+Link two of eleven. "BookNLP, a natural language processing pipeline for books"
 
 Interesting natural language processor built specifically for books.
 
-Link three. "ummm — organize your thoughts"
+Link three of eleven. "ummm — organize your thoughts"
 
 There is so much experimentation occurring in note taking software. I can’t imagine all of these will succeed, but it is interesting to see where people are exploring.
 
-Link four. "Icebreakers"
+Link four of eleven. "Icebreakers"
 
 Don't know what to say when meeting new people? Bookmark this?
 
-Link five. "After 35 years, Uptown Minneapolis mainstay Kitchen Window to close - StarTribune.com"
+Link five of eleven. "After 35 years, Uptown Minneapolis mainstay Kitchen Window to close - StarTribune.com"
 
 I have taken dozens of cooking classes at Kitchen Window and have over the years even gotten to know the folks that run the place. It is very sad to see the store closing. It is also not great for the Uptown area that is struggling so much.
 
-Link six. "ICU is full of the unvaccinated – my patience with them is wearing thin | Anonymous | The Guardian"
+Link six of eleven. "ICU is full of the unvaccinated – my patience with them is wearing thin | Anonymous | The Guardian"
 
 I don't understand the logic of not getting vaccinated against COVID-19. Neither does this Doctor. To be clear, I also agree with this Doctor that I don't like the idea of mandates and forcing either. I think it is worth acknowledging that our information ecosystem is different than it has ever been before.
 
-Link seven. "Why I Hate Password Rules - Schneier on Security"
+Link seven of eleven. "Why I Hate Password Rules - Schneier on Security"
 
 I've hit this problem before. i use 1Password and have had super complicated password fail some silly requirements.
 
-Link eight. "DAOs, A Canon - Future"
+Link eight of eleven. "DAOs, A Canon - Future"
 
 Massive reading list of content on Decentralized Autonomous Organizations from a16z.
 
-Link nine. "Pony Messenger"
+Link nine of eleven. "Pony Messenger"
 
 Messenger application that delivers messages to you once a day, at your preference. Not sure I would use this but it is an interesting idea.
 
-Link ten. "Welcome to the Meatverse"
+Link ten of eleven. "Welcome to the Meatverse"
 
 Looks much tastier than the metaverse.:-) Thanks Garrick for link.
 
-Link eleven. "The CEO of you | Seth's Blog"
+Link eleven of eleven. "The CEO of you | Seth's Blog"
 
 What decisions do you need to make?
 

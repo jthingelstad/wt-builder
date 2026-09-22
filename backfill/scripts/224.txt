@@ -12,7 +12,9 @@ PS: There was a problem in Buttondown that was stoping the Weekly Thing from bei
 
 Now, the Featured section.
 
-Link one. "Sam Harris | #282 - Do You Really Have a Self?"
+There are three links this week.
+
+Link one of three. "Sam Harris | #282 - Do You Really Have a Self?"
 
 Some of the reading about meditation I have done has raised the question of "self". I find it a curious topic. I also use Waking Up as part of my meditation practice and it frequently touches on the topic "self", as well as inferences of free will not existing.
 
@@ -22,7 +24,7 @@ Of course the obvious question is why does this matter? My read is that if we id
 
 I will likely listen to this podcast a couple more times.
 
-Link two. "Why We Will Never Have Enough Software Developers"
+Link two of three. "Why We Will Never Have Enough Software Developers"
 
 I found this read and the data referenced thought provoking. I've said for years that a career in technology is a career in learning. The tools and skills needed today likely didn’t exist five years ago, and that will be true in another five. Passionate technologists are almost always passionate learners.
 
@@ -34,7 +36,7 @@ I hadn't really considered the continual learning demand of technology compared 
 
 The argument, that to get and keep enough talent you have to slow down the rate of change, has some merit to it. We all know this in tech. You can’t just adopt every new language and tool in part because not enough people know it. But I think we look at that with a micro lens, and the assertion here is that it is a macro problem.
 
-Link three. "Is "acceptably non-dystopian" self-sovereign identity even possible?"
+Link three of three. "Is "acceptably non-dystopian" self-sovereign identity even possible?"
 
 What even is self-sovereign identity? Good question. Ask yourself what makes you an identifiable person? The answer to that is really "for who?". For the government, your Social Security number is that. If you work for a company you have some identifier. The question being posed here is can we identify a unique person without centralized organizations? Maybe, but it is a lot harder than it may seem.
 
@@ -62,27 +64,29 @@ That's the end of Currently.
 
 Now, the Notable section.
 
-Link one. "The Bill Gurley Chronicles: Part I - Macro Ops Musings"
+There are thirteen links this week.
+
+Link one of thirteen. "The Bill Gurley Chronicles: Part I - Macro Ops Musings"
 
 This blog post summarizes 25 years of Bill Gurley's writing into a "cliff notes" version in one single document. Great information and super easy to read. Thanks Hector for the link.
 
-Link two. "tokenproof"
+Link two of thirteen. "tokenproof"
 
 Using NFT's to gain entrance to a real world event is a growing use case. However, it can be really clumsy to open up your wallet and show someone. Plus, your wallet has balances and stuff you don't want to show people. Tokenproof allows you to point to your wallet and validate the presence of an NFT without showing your wallet to someone.
 
-Link three. "Bankless: How Bad will Inflation Get? | Jim Bianco"
+Link three of thirteen. "Bankless: How Bad will Inflation Get? | Jim Bianco"
 
 I found this interview with Jim Bianco really interesting and a great explainer on the dangers of inflation. His argument is that we are in this spot because of all the money that the US injected into the system at the start of the pandemic. How that all plays out, and how much use will have to do to manage that, are the topics he dives into further. His assertion that all of that "free money" was also a big part of the crypto price spike that we saw is, I suspect, spot on.
 
-Link four. "Hub and spoke"
+Link four of thirteen. "Hub and spoke"
 
 This is a wild interactive map of the world that shows you the nearest dozen airports from wherever you are on the map. Okay, that is neat and all. But, as I played with it scrolling around I started to see the airport links like a giant spider that was crawling all over the planet. Totally trippy.
 
-Link five. "txt.fyi"
+Link five of thirteen. "txt.fyi"
 
 What a tagline: Welcome to the dumbest publishing platform on the web. I’m not sure what the difference is between sites like this and using a Github Gist or Pastebin. Mainly some require registration and some don't. Either way these seem to be things that ultimately get abused like crazy. Why not put this text on txt.fyi.
 
-Link six. "Problems now (problems later)"
+Link six of thirteen. "Problems now (problems later)"
 
 Godin's writing strikes a chord sometimes, and this is one of those.
 
@@ -90,7 +94,7 @@ Quote.
 Our story about the future is in the now, regardless of how far away the future is. All we can do with the future is experience our story about it right now.
 End quote.
 
-Link seven. "Apple M2 Die Shot and Architecture Analysis – Big Cost Increase And A15 Based IP"
+Link seven of thirteen. "Apple M2 Die Shot and Architecture Analysis – Big Cost Increase And A15 Based IP"
 
 The performance of the latest-and-greatest Apple Silicon, the new M2 chip, looks impressive to me. This article suggests however that Apple is showing strains and getting performance at a greater cost than should be expected.
 
@@ -100,7 +104,7 @@ End quote.
 
 This isn't the first time I've seen suggestions that the performance ramp isn't working on Apple Silicon. It is all conjecture though, so only time will tell. It is intriguing to me how they dissect the chip and think about the layout.
 
-Link eight. "New CRISPR-based map ties every human gene to its function | MIT News"
+Link eight of thirteen. "New CRISPR-based map ties every human gene to its function | MIT News"
 
 When I read Crack in Creation I was blown away by the capabilities of CRISPR. One of the most striking analogies used to describe it was that CRISPR was to gene editing what the PC was to computing. That is a massive conjecture. It is hard to even imagine what that means if true.
 
@@ -110,7 +114,7 @@ End quote.
 
 This is an incredible level of detail. It will be curious to me how far we can go, and my constant caution here is organic entities are fundamentally analog, and that we can only understand them so far. Like a fractal, no matter how far you zoom in, there is still more detail to discover.
 
-Link nine. "What is NounsDAO!?"
+Link nine of thirteen. "What is NounsDAO!?"
 
 This is a great introduction to NounsDAO.
 
@@ -120,15 +124,15 @@ End quote.
 
 The author hits on the same things that I found super interesting about NounsDAO, and why I bought Lil Noun 1416! This seems like an incredible experiment to be part of. I've voted on four proposals so far. Joining Lil Nouns DAO is relatively simple and will cost 0.3 to 0.7 ETH depending on the individual Noun. Lil Nouns DAO and Nouns DAO are connected by owning each others Nouns.
 
-Link ten. "Am I on the IndieWeb Yet? | Miriam Eric Suzanne"
+Link ten of thirteen. "Am I on the IndieWeb Yet? | Miriam Eric Suzanne"
 
 I’m also a big believer in the indieweb. It used to be that all of the web was the indieweb after all. Core to indieweb is the idea of self-publishing your own site. Owning your own domain name as well. The reality highlighted here is that it is all too hard for most people. I think the best middle ground is indieweb providers like micro.blog. I use micro.blog to host my own website.
 
-Link eleven. "Pastry on Twitter: "How to create your own NFT collection from scratch…""
+Link eleven of thirteen. "Pastry on Twitter: "How to create your own NFT collection from scratch…""
 
 Incredibly simple and easy to follow "how to" from Bakery DAO going through the entire process of creating your own generative images for an NFT drop. This doesn't have to be for NFTs. You could use the same toolkit to make any large number of composable images. Super neat! (I sure with this was a blog post instead of a. Twitter thread.)
 
-Link twelve. "TextCleaner - The Text Cleaning Tool"
+Link twelve of thirteen. "TextCleaner - The Text Cleaning Tool"
 
 I often bring text into Sublime Text or Drafts to make sure it has no hidden formatting or other metadata. Why? Because frequently when you copy text out of some apps it has a lot of unknown metadata and hidden formatting in it (yes, Microsoft Word, you!). Tools like this help make sure it is just simple text.
 
@@ -138,7 +142,7 @@ End quote.
 
 Related to this, after using Macs for decades I just recently learned that when you paste, if you do cmd-opt-shift-V it will paste the clipboard as plain text!
 
-Link thirteen. "In defense of crypto(currency) – A Few Thoughts on Cryptographic Engineering"
+Link thirteen of thirteen. "In defense of crypto(currency) – A Few Thoughts on Cryptographic Engineering"
 
 I seem to share a lot of the same position as Green does in this article. This is a response to the Concerned Tech letter to Congress. I’m a pragmatist with this tech, and think that there is value here and it can be integrated into and help innovation in our current ecosystem.
 
@@ -202,43 +206,45 @@ That's the end of the Journal.
 
 Now, the Briefly section.
 
-Link one. "Firefox Rolls Out Total Cookie Protection By Default To All Users"
+There are ten links this week.
+
+Link one of ten. "Firefox Rolls Out Total Cookie Protection By Default To All Users"
 
 I’m not a Firefox user but I endorse and applaud all that they are doing to protect privacy.
 
-Link two. "A message from Coinbase CEO and Cofounder, Brian Armstrong | The Coinbase Blog"
+Link two of ten. "A message from Coinbase CEO and Cofounder, Brian Armstrong | The Coinbase Blog"
 
 Coinbase cutting workforce by 18%.
 
-Link three. "Silicon Valley’s Horrible Bosses"
+Link three of ten. "Silicon Valley’s Horrible Bosses"
 
 In general, I think we can agree that leading your company via tweet is not a great strategy.
 
-Link four. "Clarus Returns Home"
+Link four of ten. "Clarus Returns Home"
 
 Clarus the Dogcow makes a return in macOS.
 
-Link five. "Apple and MLS to present all MLS matches for 10 years, beginning in twenty twenty three - Apple"
+Link five of ten. "Apple and MLS to present all MLS matches for 10 years, beginning in twenty twenty three - Apple"
 
 I’m an MLS fan! I’m an Apple fan! This is exciting and I love that it is a long-term agreement. I hope that having this for 10 years will allow Apple to make investments in the experience that would be harder to justify on a shorter term.
 
-Link six. "fresh - The next-gen web framework"
+Link six of ten. "fresh - The next-gen web framework"
 
 Does the world need yet more web frameworks? Sure, why not. The more the merrier.
 
-Link seven. "NiceNode"
+Link seven of ten. "NiceNode"
 
 Packaged Ethereum node ready to download and run on your desktop.
 
-Link eight. "Rocket Pool - Your friendly decentralised Ethereum Proof of Stake (PoS) Protocol"
+Link eight of ten. "Rocket Pool - Your friendly decentralised Ethereum Proof of Stake (PoS) Protocol"
 
 I would like to run my own Ethereum staking node, but I don't think I want to deal with the issues of running the whole thing. This is a simple way to stake but let the provider run the gear for you.
 
-Link nine. "Handling Concurrency Without Locks | Haki Benita"
+Link nine of ten. "Handling Concurrency Without Locks | Haki Benita"
 
 Concurrency is a super hard problem for software engineers. Frankly, we often think concurrency issues don't exist but the reality is that they haven't been exercised completely until we get more powerful hardware. Designing for concurrency is difficult, but necessary at times.
 
-Link ten. "AWS costs every programmer should know"
+Link ten of ten. "AWS costs every programmer should know"
 
 In the cloud developers must understand and design for the cost structure that the architecture they create. That may seem obvious, but in the decades of on-premise hardware that largely wasn't a consideration.
 

@@ -6,7 +6,9 @@ We've been on vacation this week taking advantage of the MEA school break. We've
 
 Now, the Featured section.
 
-Link one. "Why nobody hires junior developers anymore"
+There are two links this week.
+
+Link one of two. "Why nobody hires junior developers anymore"
 
 The lack of good on-ramps for people seeking a technology career is a major issue. This article hits on many of the issues that create this problem. This is a topic that all technology teams need to address though, because the lack of those on-ramps will be debilitating over the long-term.
 
@@ -16,7 +18,7 @@ I like to challenge that. Perhaps the problem is hard, but is it also possible t
 
 Technology teams can make significant progress in making their code base and deployments simpler, safter, and easier-to-understand. That then enables them to access a broader range of talent.
 
-Link two. "The Skill of Org Design - The Commoncog Blog"
+Link two of two. "The Skill of Org Design - The Commoncog Blog"
 
 I greatly enjoyed this article and the practitioner approach it takes to such a complicated topic. I love that it starts not with companies, but with clubs. There is a lot of wisdom here.
 
@@ -32,11 +34,13 @@ That's the end of Currently.
 
 Now, the Notable section.
 
-Link one. "The SaaS Metrics That Matter - Bottom Up by David Sacks"
+There are nine links this week.
+
+Link one of nine. "The SaaS Metrics That Matter - Bottom Up by David Sacks"
 
 This is a great primer of key performance metrics you are going to hear about in SaaS businesses. Some of them are more focused on startups, but all are meaningful.
 
-Link two. "Tests aren’t enough: Case study after adding type hints to urllib3 — sethmlarson.dev"
+Link two of nine. "Tests aren’t enough: Case study after adding type hints to urllib3 — sethmlarson.dev"
 
 The debate over type safety in loosely-typed languages like Python has raged for decades. This case study from the maintainers of urllib3 is a good argument for making the investment.
 
@@ -46,31 +50,31 @@ End quote.
 
 The "What we learned" section is particularly good.
 
-Link three. "What every software engineer should know about search"
+Link three of nine. "What every software engineer should know about search"
 
 Good article to keep in mind anytime a conversation lends to "Let's just add search to this." First, "just" is a four letter word. Also, search is a complicated space surrounded by edge cases that need to be at least considered.
 
-Link four. "Apple Unveils the New 14 and 16-Inch MacBook Pros Powered by the M1 Pro and M1 Max Systems-on-a-Chip - MacStories"
+Link four of nine. "Apple Unveils the New 14 and 16-Inch MacBook Pros Powered by the M1 Pro and M1 Max Systems-on-a-Chip - MacStories"
 
 These new laptops are amazing! The processors specs, the batteries, the re-appearance of some of our "BFF" ports like HDMI. While the Touch Bar had a certain flare to it, sadly it was all flare and no value. I almost never use it. I don't expect anyone will miss it in these new laptops. The core count and chip performance is still mind-blowing.
 
-Link five. "HTTP is obsolete. It's time for the distributed, permanent web"
+Link five of nine. "HTTP is obsolete. It's time for the distributed, permanent web"
 
 I find the immutability of IPFS hard to wrap my head around. Mostly when I've built services for the web mutability was a helpful thing. But, I do appreciate that immutability allows you to design and build in a much different way. I keep wondering how long it will be before browsers allow direct connections to IPFS, not routing through an HTTP gateway. Either way, this article is a good overview of what web3 transport will likely look like.
 
-Link six. "Raya and the Promise of Private Social Media | The New Yorker"
+Link six of nine. "Raya and the Promise of Private Social Media | The New Yorker"
 
 I had never heard of Raya before, which I guess means I’m not a celebrity or influencer or whatever this thing is targeted for. Interesting article to read just because it is like a peek into some party or club that is trying a different approach to building a community.
 
-Link seven. "Steam is removing NFT games from the platform"
+Link seven of nine. "Steam is removing NFT games from the platform"
 
 It seems pretty obvious that Steam would do this to keep their ability to capture revenue intact. If they allow NFTs in these platforms they are making it possible for players to buy and sell value in the open, and not pay a piece to Steam.
 
-Link eight. "Open Source Is Finally Coming to Financial Services - Future"
+Link eight of nine. "Open Source Is Finally Coming to Financial Services - Future"
 
 I find technology adoption in financial services to be this odd mix. Financial services, particularly trading, was incredibly aggressive to adopt technology because it literally made them more money. Other areas, particularly in banking, are very outdated. It is actually less of an argument about adoption, and more about how do you continuously reinvent and change. In many ways financial services is the most dated in part because they were the first to adopt and the only thing harder than creating new services, is large scale change to existing ones!
 
-Link nine. "How to be a man | Psyche Guides"
+Link nine of nine. "How to be a man | Psyche Guides"
 
 I found this article compelling. I might read the book as well.
 
@@ -250,27 +254,29 @@ That's the end of the Journal.
 
 Now, the Briefly section.
 
-Link one. "The Top 50 Texas BBQ Joints: twenty twenty one Edition – Texas Monthly"
+There are six links this week.
+
+Link one of six. "The Top 50 Texas BBQ Joints: twenty twenty one Edition – Texas Monthly"
 
 I've been to Franklin BBQ and was blown away. This would make a great top 10 list to try.
 
-Link two. "Diagon: ASCII art diagram generator"
+Link two of six. "Diagon: ASCII art diagram generator"
 
 Sort of weird experiment in doing things in ASCII.
 
-Link three. "Read Something Great"
+Link three of six. "Read Something Great"
 
 Cool idea for a list of high quality content online to read the next time you feel like scrolling mindlessly in social media.
 
-Link four. "Carp: A statically typed lisp, without a GC, for real-time applications"
+Link four of six. "Carp: A statically typed lisp, without a GC, for real-time applications"
 
 I don't tend to think of lisp languages and real-time systems, but this one is.
 
-Link five. "Carbon | Create and share beautiful images of your source code"
+Link five of six. "Carbon | Create and share beautiful images of your source code"
 
 Neat tool to make an image out of your source code. Not sure why you would need to do that?
 
-Link six. "Tekne Awards Lifetime Achievement Recipients » MnTech"
+Link six of six. "Tekne Awards Lifetime Achievement Recipients » MnTech"
 
 Two people greatly deserving of this recognition!
 

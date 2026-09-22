@@ -54,7 +54,9 @@ That's the end of Straw Poll.
 
 Now, the Notable section.
 
-Link one. "Our approach to advertising and expanding access to ChatGPT | OpenAI"
+There are seven links this week.
+
+Link one of seven. "Our approach to advertising and expanding access to ChatGPT | OpenAI"
 
 Remember how ads first came to search results and the search companies had all of this highfalutin talk about not impacting results, keeping clear separation, don't be evil and all that ridiculousness. I was hopeful that we wouldn't recreate the original sin of the web with AI. We know better now right? Sadly no, and I’m a fool for thinking it wouldn't have.
 
@@ -66,19 +68,19 @@ Hypergrowth doesn't merge well with "a reasonable fee paid for defined value". S
 
 We already know that search results are skewed by advertising. How will we possibly ever know that AI interactions are not?
 
-Link two. "Miniroll - Your blogroll, anywhere"
+Link two of seven. "Miniroll - Your blogroll, anywhere"
 
 Blogrolls are "old school" web and were the way original bloggers linked to other sites they read and wanted to connect with. They still exist, and are awesome and beautiful. I keep a blogroll. Mine is just a page of writing and blogrolls can be made much more powerful and even pull RSS feeds for the sites and show the last article. I started playing with it and made a small blogroll on Miniroll. This is a cool service to make a more powerful blogroll to add to your site. Hannah wrote about creating Miniroll on his blog.
 
-Link three. "humanizer/SKILL.md at main"
+Link three of seven. "humanizer/SKILL.md at main"
 
 People tend to feel like they can identify AI writing — by looking for — lots of emdashes — amongst other things. This is an interesting Claude Skill that teaches an AI to write unlike an AI. I love how it uses Wikipedia's Signs of AI Writing to create the Skill. Seeing this and reviewing it brought me right back to The Most Human Human, which is all about the Turing Test and how some actual people fail to convey their human-ness.
 
-Link four. "Left – Widgets for Time Left"
+Link four of seven. "Left – Widgets for Time Left"
 
 Little app I discovered via MacSparky and grabbed for myself. I’m a fan of visualization of time, and this has a bunch of really interesting ones. I was surprised that one of the whole tabs in this app is "You" where it gets your birthday and some info and give you a "Left" for you. It is a bit like my Four Thousand Weeks as Rings gauge, but this moves in seconds! It says I have 287.32335 months left right now.
 
-Link five. "How countries can end the capability overhang | OpenAI"
+Link five of seven. "How countries can end the capability overhang | OpenAI"
 
 I missed this offering when it was announced. This update is obviously timed for the World Economic Forum going on right now.
 
@@ -88,7 +90,7 @@ End quote.
 
 Is this more marketing than real stuff? Diving into the PDF report on page 12 there is a brief rundown of what 11 different countries are doing. Honestly it seems smart when you read the various efforts.
 
-Link six. "Velocity Is the New Authority. Here’s Why – On my Om"
+Link six of seven. "Velocity Is the New Authority. Here’s Why – On my Om"
 
 This is an incredible essay from Om Malik reflecting on our modern information ecosystem. I have banged on about algorithmic manipulation of content at length, that algorithms cannot be designed without a purpose, etc. Malik does an amazing job framing this up in a much more cogent view than I ever could. I wanted to quote the whole thing, and honestly maybe you should just go read the whole thing.
 
@@ -112,7 +114,7 @@ I hope that reading this gives you a perspective, a different edge, to look at w
 
 I think what we need to counter this velocity meme train is perspective, and control, and even a bit of meditation on a regular basis.
 
-Link seven. "Claude's new constitution | Anthropic"
+Link seven of seven. "Claude's new constitution | Anthropic"
 
 Anthropic has been a leading voice, and an open one, on how they build their models. This new "constitution" is part of how they "program" (is teach a better word?) it.
 
@@ -172,55 +174,57 @@ That's the end of the Journal.
 
 Now, the Briefly section.
 
-Link one. "Introducing ChatGPT Go, now available worldwide | OpenAI"
+There are thirteen links this week.
+
+Link one of thirteen. "Introducing ChatGPT Go, now available worldwide | OpenAI"
 
 Yadda, yadda about access. Really about raising ceiling of average revenue per user.
 
-Link two. "Signal creator Moxie Marlinspike wants to do for AI what he did for messaging - Ars Technica"
+Link two of thirteen. "Signal creator Moxie Marlinspike wants to do for AI what he did for messaging - Ars Technica"
 
 Love that Marlinspike is bringing his privacy ethos to the world of AI.
 
-Link three. "I spent 8 months testing every brand of canned tomato with a controlled pasta sauce recipe. Full rankings inside.: r/Cooking"
+Link three of thirteen. "I spent 8 months testing every brand of canned tomato with a controlled pasta sauce recipe. Full rankings inside.: r/Cooking"
 
 This is why I love the web. If only it were a blog post, but this will do.
 
-Link four. "A Complete Guide To AGENTS.md"
+Link four of thirteen. "A Complete Guide To AGENTS.md"
 
 Good guideline on making sure your AGENTS.md file is focused and making your project better.
 
-Link five. "Claude Code for writers"
+Link five of thirteen. "Claude Code for writers"
 
 Paid post but you can read enough to be interesting. I’m doing a ton of non-code projects with Claude Code. It is amazing.
 
-Link six. "10 things I learned from burning myself out with AI coding agents - Ars Technica"
+Link six of thirteen. "10 things I learned from burning myself out with AI coding agents - Ars Technica"
 
 Interesting insights from deep usage of the "worst AI coding assistants" that we will have in the future.
 
-Link seven. "jQuery 4.0.0 | Official jQuery Blog"
+Link seven of thirteen. "jQuery 4.0.0 | Official jQuery Blog"
 
 First major version in 10 years, and "the final release".
 
-Link eight. "Are arrays functions?"
+Link eight of thirteen. "Are arrays functions?"
 
 This one had me at "indexable arrays, which may be thought of as functions whose domains are isomorphic to contiguous subsets of the integers".
 
-Link nine. "Busy Simulator"
+Link nine of thirteen. "Busy Simulator"
 
 This is hilarious, horrible, and you could probably make an EDM song with it.
 
-Link ten. "The extraordinary story of a soccer coach, a kidnapping and a Saudi job that didn’t exist - The Athletic"
+Link ten of thirteen. "The extraordinary story of a soccer coach, a kidnapping and a Saudi job that didn’t exist - The Athletic"
 
 Scary and incredible recount of former Minnesota United head coach Adrian Heath being kindapped!
 
-Link eleven. "I'm 34. Here's 34 things I wish I knew at 21 | elliot.my"
+Link eleven of thirteen. "I'm 34. Here's 34 things I wish I knew at 21 | elliot.my"
 
 Lessons shared.
 
-Link twelve. "The conditionally open web • Cory Dransfeldt"
+Link twelve of thirteen. "The conditionally open web • Cory Dransfeldt"
 
 Reflections on what the open web really means. I would add to the commentary that I think we need to consider zoning on the web. It should be clear when I’m in a non-commercial public area, versus a commercial or industrial zone. Ideally domain names would have had some meaning here, but that didn’t really pan out.
 
-Link thirteen. "RSS.Social"
+Link thirteen of thirteen. "RSS.Social"
 
 I don't know that this project is even done or launched and it took me a minute to figure out what it was doing but now I see it is bridging blog RSS feeds to the Fediverse.
 

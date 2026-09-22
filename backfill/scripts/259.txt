@@ -10,15 +10,17 @@ I would put a bit of context on this with just two answers — positive and neg
 
 Now, the Notable section.
 
-Link one. "The Ultimate Deliberate Practice Guide: How to Be the Best"
+There are eighteen links this week.
+
+Link one of eighteen. "The Ultimate Deliberate Practice Guide: How to Be the Best"
 
 I read Peak: Secrets from the New Science of Expertise that is all about deliberate practice. This is a good article length summarization of the key points. This is one of those topics that a little bit can go a long way. If you are in a rut with something you practice, consider how to bring "deliberate" aspects into it.
 
-Link two. "Ian Bremmer: The next global superpower isn't who you think | TED Talk"
+Link two of eighteen. "Ian Bremmer: The next global superpower isn't who you think | TED Talk"
 
 I follow Bremmer's newsletter on global politics and I think he has some interesting perspectives. This TED talk highlights the role that technology platforms/companies may have as the next superpowers. Bremmer isn't talking about this like Network States driven by people, but instead dominant platforms that control communication. It is interesting to me to extend both of these technology visions out and see how they differentiate.
 
-Link three. "Apple’s threat to delist Damus impacts the V4V community"
+Link three of eighteen. "Apple’s threat to delist Damus impacts the V4V community"
 
 Damus is the iOS app I've been using to explore Nostr. One of the brilliant capabilities that Damus and Nostr provide is the ability to send Zaps, small amounts of Bitcoin, to anyone else that is setup. I use Wallet of Satoshi as my Lightning wallet and have sent hundreds of Zaps to people on Nostr. It is like a small "tip" to say "I really dig what you said there", or to welcome or recognize people in other ways.
 
@@ -26,7 +28,7 @@ It seems that Damus has run into the App Store rules and Apple is insisting that
 
 Hopefully this works out the way it should, but Apple is for sure on the wrong side of this one.
 
-Link four. "How MrBeast Became the Willy Wonka of YouTube - The New York Times"
+Link four of eighteen. "How MrBeast Became the Willy Wonka of YouTube - The New York Times"
 
 It seems New York Times Magazine has discovered MrBeast!
 
@@ -36,15 +38,15 @@ End quote.
 
 This is a decent overview of MrBeast and his continually growing YouTube "empire".
 
-Link five. "Apple Vision Pro: A Watershed Moment for Personal Computing - MacStories"
+Link five of eighteen. "Apple Vision Pro: A Watershed Moment for Personal Computing - MacStories"
 
 Viticci with a thorough and very positive review of his experience with the Vision Pro. Viticci is a great reviewer of iOS and particularly the iPad family. He brings that same level of detail to this review. I appreciated that he actually owns and uses a Quest 2, so his perspective is a little more nuanced. I also liked that he is the only reviewer to talk about some of the other experiences like the Mindfulness app.
 
-Link six. "A Developer's View of Vision Pro - David Smith, Independent iOS Developer"
+Link six of eighteen. "A Developer's View of Vision Pro - David Smith, Independent iOS Developer"
 
 Additional perspective more from a developer view on Vision Pro.
 
-Link seven. "The Three Transitions"
+Link seven of eighteen. "The Three Transitions"
 
 I continue to see a wide range of powerful use cases for Ethereum. With that said, there are a number of technical challenges still in front of Ethereum even with "The Merge" accomplished and complete.
 
@@ -54,7 +56,7 @@ End quote.
 
 These are all great topics to understand directly how Buterin is thinking about it. The wallet section is particularly interesting to me since I think that wallet improvements is one of the most important unlocks that we need. Wallet development has to prioritize user experience and ease-of-use at some point, even when there is still a tremendous amount of technical work to be done. I also applaud that Buterin repeatedly places privacy as a high priority. Blockchains are necessarily public endeavors, and making sure that we don't abandon privacy with their adoption is very important.
 
-Link eight. "Tiny Awards"
+Link eight of eighteen. "Tiny Awards"
 
 I love this idea so much.
 
@@ -66,7 +68,7 @@ Keeping the web human-scale, personal, and fun is a worthy effort. Tiny Awards a
 
 I hope that this gets legs even further. I would love to be able to sponsor and organize subsets of Tiny Awards. Tiny Awards by City? Tiny Awards for Newsletters? You could do a lot of different versions to highlight all the great stuff done by normal people on the web.
 
-Link nine. "Mental Liquidity · Collab Fund"
+Link nine of eighteen. "Mental Liquidity · Collab Fund"
 
 Changing your mind should be considered a skill, a practice to be exercised. I find that it is both too easy to make up your mind, and too hard to change it once made up.
 
@@ -84,27 +86,27 @@ This specific call out is incredibly important to me. It also connects well with
 
 I also think the article misses a key aspect of identity, and that is that marketers have figured out how to slip things into your identity. The callout of politics and religion is valid, but these days nearly anything can be sold to you as a component of your identity. Don't buy it.
 
-Link ten. "What’s the Best Use for Crypto? AI Will Figure It Out - Bloomberg"
+Link ten of eighteen. "What’s the Best Use for Crypto? AI Will Figure It Out - Bloomberg"
 
 The headline is a bit misleading here, the point is that digital money can be used not just by people, but systems and code as well. Smart Contracts can hold and manage money. Bots and AI can have money. Imagine if ChatGPT-4, instead of having a 20 dollars/mo fee, instead required you to send a small amount of Satoshi's via Lightning with every question. It could then provision its own infrastructure and other resources as needed.
 
-Link eleven. "Vision Pro"
+Link eleven of eighteen. "Vision Pro"
 
 Cool technical walk through of visionOS and Vision Pro. Some of the nuggets in here from other sessions at WWDC are interesting. The section on the strategy is interesting to me because it is likely very intentional. Apple has some experience bringing mass markets to new platforms, and I suspect that a key component of that is a healthy blend of new and never-before-seen capability, but also bringing enough of the familiar to allow you to bridge mental concepts over. visionOS use of "apps" and "windows" are examples of that bridge in my mind. They are conceptually easy to understand, in an otherwise completely new and unfamiliar technology.
 
-Link twelve. "Onboarding Antipatterns - D. Caulfield"
+Link twelve of eighteen. "Onboarding Antipatterns - D. Caulfield"
 
 It doesn't take a lot to be deliberate and thoughtful with your onboarding process for new team members but it is surprising how many organizations don't put enough thought there. I routinely meet with new team members and always ask about the onboarding experience. One of the things some of our teams have done is make onboarding like normal activities, and give an onboarding epic with multiple stories and tasks in it, so you learn your tools directly in the act of onboarding.
 
-Link thirteen. "Reddark"
+Link thirteen of eighteen. "Reddark"
 
 This has been an incredible week of protests at Reddit. The decision by Reddit to charge for their API in a way that made the wildly popular Apollo app have to close it doors was greeted to massive protests inside the Reddit community. Many moderators turned their subreddits off by making them private. At one point causing 100's of millions of subreddit users to not be able to contribute to the companies they are part of. This site is tracking these Reddit protests. More recently Reddit has raised the stakes and made many of these subreddits public again against the wishes of the original maintainers. This fight isn't over, but it is a stark reminder that when you build on another companies platform you are never really in control.
 
-Link fourteen. "Redact - Delete Your Social Media Posts"
+Link fourteen of eighteen. "Redact - Delete Your Social Media Posts"
 
 For years I've used TweetDelete, which as you might guess, deletes my tweets on Twitter when my preferred amount of time has passed. This app is the first desktop application I've seen that does similar, and does it for over 40 different services. You login, and using Redact, you can hide your content. I take issue with them calling this "Delete your digital footprint". We all need to be reminded all the time that none of these companies actually delete your content, they simply hide it. It may still be used for various things, just not displayed on their service. Overall though, I’m glad to see privacy tools being made to help people with constant surveillance.
 
-Link fifteen. "Eastern philosophy says there is no "self." Science agrees - Big Think"
+Link fifteen of eighteen. "Eastern philosophy says there is no "self." Science agrees - Big Think"
 
 I have read and listened to a good amount of perspectives on the lack of self. This article does a better job in fewer words than much of what I've read does in describing the argument.
 
@@ -120,7 +122,7 @@ End quote.
 
 The acting of thinking invokes the story of the self.
 
-Link sixteen. "Why AI Will Save the World | Andreessen Horowitz"
+Link sixteen of eighteen. "Why AI Will Save the World | Andreessen Horowitz"
 
 Andreessen's view here is more overlapping with my own, at least in the outcomes. Many of the reasons he discounts a number of AI risks are similar to mine, and overall I agree that the positive potential of AI is huge, if only to make computers more humane to protect our own humanity!
 
@@ -136,7 +138,7 @@ End quote.
 
 His argument is good, and I think represents our experiences thus far. I added the bolding at the end, because I think "past performance isn't a guarantee of future performance". Certainly there are types and amounts of technology innovation that does just as he describes. But ultimately you're playing to Limit Theory games — infinite need and desire, infinite technology leverage. Are they both infinite? Are they both guaranteed to be dependent and timed together? One has external needs like energy and atoms, the other is originated in our minds.
 
-Link seventeen. "Prompts for Work and Play: Launching the Wolfram Prompt Repository—Stephen Wolfram Writings"
+Link seventeen of eighteen. "Prompts for Work and Play: Launching the Wolfram Prompt Repository—Stephen Wolfram Writings"
 
 I've been dismissive of the idea that "prompt engineering" is a new job with any staying power, however the concept of prompt engineering is relevant, at least for now, and this repository looks like a first of its kind.
 
@@ -146,7 +148,7 @@ End quote.
 
 The examples are great to show what this does.
 
-Link eighteen. "How companies use dark patterns to keep you subscribed"
+Link eighteen of eighteen. "How companies use dark patterns to keep you subscribed"
 
 I do a lot of unsubscribing and it is surprising to me how nefarious and deceptive companies, in many cases very well regarded organizations, are in the process. All of a sudden they turn all the user experience expertise they have 180 degrees the other way and make it as difficult as possible to successfully engage with them.
 
@@ -289,47 +291,49 @@ That's the end of the Journal.
 
 Now, the Briefly section.
 
-Link one. "Leadership Development is About One Thing We Often Miss - Leadership Freak"
+There are eleven links this week.
+
+Link one of eleven. "Leadership Development is About One Thing We Often Miss - Leadership Freak"
 
 Important questions to ask ourselves, leader or not.
 
-Link two. "The 9 Best ChatGPT Plugins You Can Try Right Now"
+Link two of eleven. "The 9 Best ChatGPT Plugins You Can Try Right Now"
 
 Some of the early plugins to extend ChatGPT functionality.
 
-Link three. "This is valid Python syntax by Nobody has time for Python"
+Link three of eleven. "This is valid Python syntax by Nobody has time for Python"
 
 Every language has a version of this kind of post. These should never show up in real code, but it is still fun to see and giggle at.
 
-Link four. "AsyncIO | charles leifer"
+Link four of eleven. "AsyncIO | charles leifer"
 
 Pretty deep article about the tradeoffs of asynchronous execution models.
 
-Link five. "Age of AI: Everything you need to know about artificial intelligence | TechCrunch"
+Link five of eleven. "Age of AI: Everything you need to know about artificial intelligence | TechCrunch"
 
 I've been giving some talks on the fundamentals of AI. This article is like an upgraded version of those talks. Great overview of the foundational components, what various companies are doing, etc.
 
-Link six. "Apple’s Messi Vision. Which is decidedly not messy, and… | 500ish"
+Link six of eleven. "Apple’s Messi Vision. Which is decidedly not messy, and… | 500ish"
 
 The greatest soccer player in the world is coming to Major League Soccer and playing for Inter Miami — and Apple was part of making the deal happen.
 
-Link seven. "Jony Ive and Anna Wintour in Conversation - RE:WIRED twenty twenty one: Designing for the Future We Want to Inhabit - YouTube"
+Link seven of eleven. "Jony Ive and Anna Wintour in Conversation - RE:WIRED twenty twenty one: Designing for the Future We Want to Inhabit - YouTube"
 
 This interview is a couple years old, but I greatly enjoyed listening to Ive talk about the creative process and the work that he was part of.
 
-Link eight. "David Foster Wallace "This is Water." - YouTube"
+Link eight of eleven. "David Foster Wallace "This is Water." - YouTube"
 
 This speech from David Foster Wallace is great and I recently listened to it again. if you haven't heard the full version of this it is worth a listen.
 
-Link nine. "Botsonic: Custom Train ChatGPT On Your Knowledge Base Data"
+Link nine of eleven. "Botsonic: Custom Train ChatGPT On Your Knowledge Base Data"
 
 Simple service to pull your data into a ChatGPT training set and make it accessible to your users.
 
-Link ten. "BoltRing - Bitcoin Lightning NFC Contactless Wearable Payment Ring"
+Link ten of eleven. "BoltRing - Bitcoin Lightning NFC Contactless Wearable Payment Ring"
 
 This seems like a gimmick, but a fun one nonetheless. I already have a Smart Ring so don't have a finger for a Lightning ring.
 
-Link eleven. "iOS 17 automatically removes tracking parameters from links you click on - 9to5Mac"
+Link eleven of eleven. "iOS 17 automatically removes tracking parameters from links you click on - 9to5Mac"
 
 Step in the right direction but not enough. More is required to fight surveillance in URLs.
 

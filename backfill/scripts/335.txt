@@ -10,7 +10,9 @@ Let's get on with the links. There is just one more Weekly Thing issue coming in
 
 Now, the Notable section.
 
-Link one. "Context plumbing (Interconnected)"
+There are twelve links this week.
+
+Link one of twelve. "Context plumbing (Interconnected)"
 
 As of right now, it seems to me that context management is where AI efforts will go from good to great. Think about it — everyone has access to the same LLMs. We can all write prompts, and regardless of how tricky prompt engineering may be it ultimately can be iterated quickly. Note, LLM's are great at helping you with prompt engineering. So meta.
 
@@ -26,7 +28,7 @@ Sometimes context is interchanged with data. I don't know that that is right. So
 
 So, strategically it may be that the benefit you can achieve from LLMs is tuned to how well you can understand and manage context.
 
-Link two. "Brief thoughts on the recent Cloudflare outage – Surfing Complexity"
+Link two of twelve. "Brief thoughts on the recent Cloudflare outage – Surfing Complexity"
 
 This is a great overview of the Cloudflare issue from a couple weeks ago and the writeup. Hochstein brings some additional color that is really good. And I love this statement because it is completely true.
 
@@ -36,7 +38,7 @@ End quote.
 
 When you run a platform, particularly a large and complex one, you get a sense for it’s behavior and what is normal. A single graph shape can be all you need to know if something is amiss.
 
-Link three. "Seeing like a software company"
+Link three of twelve. "Seeing like a software company"
 
 I haven't used this term of legibility but I get it and the concept makes a ton of sense. Creating large systems requires large groups of engineers to work together, that requires legibility between everyone on how that system works, and that has an extraordinary cost.
 
@@ -48,31 +50,31 @@ End quote.
 
 Interesting stuff.
 
-Link four. "Fizzy – Kanban as it should be. Not as it has been."
+Link four of twelve. "Fizzy – Kanban as it should be. Not as it has been."
 
 New product from 37 Signals — a super simple and straightforward Kanban service. I love that it is free for up to 1,000 items, including multiple users. I would think a lot of families may find this a useful tool for home task management totally for free. The user experience is fun and fast.
 
-Link five. "Dotprompt: Executable GenAI Prompt Templates"
+Link five of twelve. "Dotprompt: Executable GenAI Prompt Templates"
 
 A pretty cool idea to have a simple text file with YAML front matter and embedded prompts that you can then run as a Unix executable. This is a pretty cool idea and very extensible. It reminds me a bit of what I've done with Shortcuts and "Use Model" but incredibly more extensible. You can then pair this with something like runprompt which as a Python program that will run your .prompt files for you.
 
-Link six. "Shai Hulud 2.0 Strikes Again: Malware Supply-Chain Attack Hits Zapier and ENS Domains"
+Link six of twelve. "Shai Hulud 2.0 Strikes Again: Malware Supply-Chain Attack Hits Zapier and ENS Domains"
 
 Another "supply chain" attack focusing on npm packages. It is an interesting read and it is really scary how easily these attacks work. This really is one of the biggest challenges of large open source ecosystems — you don't have a clear understanding of who made what and if it is authentic. This is totally solvable using public key cryptography and code signing. But there is a big challenge in doing that since it challenges many of the open concepts of open source software. As an industry though, we need to get this figured out and probably make some tradeoffs.
 
-Link seven. "Internet Handle"
+Link seven of twelve. "Internet Handle"
 
 I do like how Bluesky allows you to use a domain name as your username. Extending this further is certainly workable, but I wonder if any of the folks working on this have the history of working with OpenID which used domain names and it always felt a little odd to be known at thingelstad.com.
 
-Link eight. "Why is ChatGPT for Mac So Good? - Allen Pike"
+Link eight of twelve. "Why is ChatGPT for Mac So Good? - Allen Pike"
 
 I generally agree with Pike on this and specifically agree that debating models is interesting, but the tools that get you the value in and out of the model are critical too. ChatGPT is far and away best on the desktop than any other app of its kind.
 
-Link nine. "Daring Fireball: Signal Secure Backups Are Now Available on iOS"
+Link nine of twelve. "Daring Fireball: Signal Secure Backups Are Now Available on iOS"
 
 I love that Signal finally turned this feature on and it was an instant buy for me in part because I do use Signal but also as another way to support a very important piece of software. With this backup feature I'll be more comfortable using it. I didn’t like how easy it was to lose all your chat history in Signal before.
 
-Link ten. "Claude 4.5 Opus' Soul Document"
+Link ten of twelve. "Claude 4.5 Opus' Soul Document"
 
 It is so interesting to read the prompts that the major LLMs use to talk to users, and this new "soul doc" actually explains to Claude what it is and gives it context on itself.
 
@@ -82,7 +84,7 @@ End quote.
 
 It is crazy that this is a form of programming?
 
-Link eleven. "Introducing AWS Lambda Managed Instances: Serverless simplicity with EC2 flexibility | AWS News Blog"
+Link eleven of twelve. "Introducing AWS Lambda Managed Instances: Serverless simplicity with EC2 flexibility | AWS News Blog"
 
 Lambda continues to grow in interesting and surprising ways. You can now effectively create your own compute pool to have Lambda invocations run against, which means you can optimize the compute for the specific Lambda tasks that you are running.
 
@@ -92,7 +94,7 @@ End quote.
 
 Complicated but allows people to use Lambda for things it would otherwise just not be an option for.
 
-Link twelve. "Amazon S3 Vectors now generally available with increased scale and performance | AWS News Blog"
+Link twelve of twelve. "Amazon S3 Vectors now generally available with increased scale and performance | AWS News Blog"
 
 Vector storage is incredibly important with AI applications and S3 Vectors has incredible performance.
 
@@ -148,31 +150,33 @@ That's the end of the Journal.
 
 Now, the Briefly section.
 
-Link one. "Tiger Style"
+There are seven links this week.
+
+Link one of seven. "Tiger Style"
 
 I've never heard anybody building software like this and it doesn't seem too practical, but interesting read and philosophy.
 
-Link two. "Effective harnesses for long-running agents Anthropic"
+Link two of seven. "Effective harnesses for long-running agents Anthropic"
 
 Interesting methods of creating artifacts and focusing agents so they can chain work together across many agents to do very complex tasks.
 
-Link three. "Survey shows how much teenagers dislike the news media | AP News"
+Link three of seven. "Survey shows how much teenagers dislike the news media | AP News"
 
 Bleak.
 
-Link four. "POSSE Party - Quit social media by posting more"
+Link four of seven. "POSSE Party - Quit social media by posting more"
 
 POSSE, Publish On Your Own Site Syndicate Everywhere, is a popular way to do IndieWeb and still participate in the social ecosystem. This is an impressively robust self-hosted option to do that syndication.
 
-Link five. "Twin Cities Business Person of the Year: Rob Vischer | Twin Cities Business"
+Link five of seven. "Twin Cities Business Person of the Year: Rob Vischer | Twin Cities Business"
 
 Huge congrats to my friend and neighbor Rob for this great recognition. There is also a great interview with him worth watching.
 
-Link six. "Admins and defenders gird themselves against maximum-severity server vuln - Ars Technica"
+Link six of seven. "Admins and defenders gird themselves against maximum-severity server vuln - Ars Technica"
 
 Big security issue in a very popular web framework.
 
-Link seven. "Capacities – A studio for your mind"
+Link seven of seven. "Capacities – A studio for your mind"
 
 I know a lot of folks like Obsidian but I find it far too much work to get the value. This app is a very different approach based on objects instead of files.
 

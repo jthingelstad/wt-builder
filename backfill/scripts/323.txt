@@ -24,15 +24,17 @@ Right after I send you this email.
 
 Now, the Notable section.
 
-Link one. "MCP Is RSS for AI: More Use Cases for Model Context Protocol - The New Stack"
+There are sixteen links this week.
+
+Link one of sixteen. "MCP Is RSS for AI: More Use Cases for Model Context Protocol - The New Stack"
 
 I really want this to be the case, we'll see if it actually happens. I love the idea that every website could have an MCP endpoint. A truly open and accessible web. MCP does have a similar vibe to RSS. Simple, easy, quick. Perhaps this is a path to a truly more decentralized web with agents helping people navigate and assemble things together. I’m hoping.
 
-Link two. "Cap — Modern, lightning-quick PoW captcha"
+Link two of sixteen. "Cap — Modern, lightning-quick PoW captcha"
 
 Completely Automated Public Turing Test to tell Computers and Humans Apart, or CAPTCHA, those little tests you get at times to find an image or decipher a number, have largely been circumvented by either dark patterns involving relaying the tests to other humans or AI. This library takes a different approach using a proof-of-work scheme and is even easier on the end user. All of these methods are a form of proof of humanity, which is a deceptively hard problem and getting harder with more advanced technology.
 
-Link three. "Are We Too Concerned About Social Media? - Cal Newport"
+Link three of sixteen. "Are We Too Concerned About Social Media? - Cal Newport"
 
 Newport's answer on this isn't surprising, and is in agreement with my own. I like his analogy.
 
@@ -42,19 +44,19 @@ End quote.
 
 Social media is the refinement of many anti-patterns.
 
-Link four. "Breaking down why Apple TVs are privacy advocates’ go-to streaming device - Ars Technica"
+Link four of sixteen. "Breaking down why Apple TVs are privacy advocates’ go-to streaming device - Ars Technica"
 
 Apple TV's are the only way I watch TV and streaming services. I've even gone further and making sure that the TV's we have are not even on WiFi, which means they don't get firmware updates, but I suspect those firmware updates are mostly just to track us more. I’m sure some would argue this assumes Apple doesn't do bad things with our data. I would suggest that I'd rather only have one company in the mix, not dozens as you do if you have multiple apps on a standard Smart TV. I also believe that Apple believes that it is in their monetary interest to keep data private, so that they can monetize health and messaging services.
 
-Link five. "Model Context Protocol (MCP) Tools for Mac - Michael Tsai"
+Link five of sixteen. "Model Context Protocol (MCP) Tools for Mac - Michael Tsai"
 
 Good index of various MCP tools and apps for macOS. HyperContext looks really interesting. Most notable to me was seeing Ken Case of Omni on that list. If OmniFocus had a built-in MCP server that would be amazing!
 
-Link six. "MCP Best Practices | Peter Steinberger"
+Link six of sixteen. "MCP Best Practices | Peter Steinberger"
 
 Building an MCP server? Here are some best practices to consider.
 
-Link seven. "Your Manager Is Not Your Best Friend | Stay SaaSy"
+Link seven of sixteen. "Your Manager Is Not Your Best Friend | Stay SaaSy"
 
 Particularly focused article on commiserating as a manager. Some would call this venting.
 
@@ -64,7 +66,7 @@ End quote.
 
 It is a good read and spot on. And nobody, truly nobody, is perfect here. I know I've slipped into this spot at times. But being aware and thinking through the follow-on issues is a good reminder of what to be careful about as a leader.
 
-Link eight. "I Read All Of Cloudflare's Claude-Generated Commits | Max Mitchell"
+Link eight of sixteen. "I Read All Of Cloudflare's Claude-Generated Commits | Max Mitchell"
 
 Mitchell looks at the commit history of this repository to see how the developer used AI to create it.
 
@@ -80,19 +82,19 @@ End quote.
 
 Super interesting.
 
-Link nine. "visionOS 26: The MacStories Overview - MacStories"
+Link nine of sixteen. "visionOS 26: The MacStories Overview - MacStories"
 
 Okay, the Widget features in this look wild and I'll have to see them in real usage but the idea of putting Widgets in your physical spaces and having them pinned there for a long time is a great AR use case. Apple is doing with the Vision Pro exactly what I had hoped, and what we saw with watchOS. Adding features, trying things, see what works. I’m also more sold then ever that their goal here is to make visionOS work on a future hardware device that doesn't exist, and that the Vision Pro is just the best way to simulate that for now. It kind of reminds me of Microsoft building MS-DOS on a PDP 11 because there was no PC at the time.
 
-Link ten. "macOS Tahoe: The MacStories Overview - MacStories"
+Link ten of sixteen. "macOS Tahoe: The MacStories Overview - MacStories"
 
 WWDC announcements on next version of macOS Tahoe, or 26, or Tahoe? They switched to year numbers for everything other than macOS. The new design is here and a lot of small refinements but nothing game changing. The changes to Spotlight bring capability I've had for a long time with LaunchBar to the masses. The Shortcuts improvements look great and will make accessible stuff I've been doing with custom API callouts.
 
-Link eleven. "iOS 26, iPadOS 26, and Liquid Glass: The MacStories Overview - MacStories"
+Link eleven of sixteen. "iOS 26, iPadOS 26, and Liquid Glass: The MacStories Overview - MacStories"
 
 MacStories always has the best breakdowns of the newest WWDC and Apple OS updates. The Liquid Glass design change looks really good in my opinion. I’m looking forward to having it on all my devices. It is also interesting how close Sebastian de With got to the new design. The iPadOS changes with full windowing is interesting and I think the right direction, but also I think a dead end of tablets and laptops merging. Also good write-ups on tvOS 26 and watchOS 26.
 
-Link twelve. "My AI Skeptic Friends Are All Nuts · The Fly Blog"
+Link twelve of sixteen. "My AI Skeptic Friends Are All Nuts · The Fly Blog"
 
 Ptacek bringing perspective to LLM use in software development.
 
@@ -108,7 +110,7 @@ End quote.
 
 His last but made me chuckle cause there he has a point. "but i’m tired of hearing about it". The best antidote to that is to play with it and explore.
 
-Link thirteen. "Telegram is indistinguishable from an FSB honeypot | Songs on the Security of Networks"
+Link thirteen of sixteen. "Telegram is indistinguishable from an FSB honeypot | Songs on the Security of Networks"
 
 I used Telegram for a bit due to the broad usage in Ukraine and then to explore it as a platform. I even had a Weekly Thing channel on it for a few weeks. I didn’t like a number of things about the service and ultimately decided to stop using it. This article goes deeper on many issues with it.
 
@@ -118,7 +120,7 @@ End quote.
 
 The Internet can seem like a different place without country boundaries, but those packets, servers, and bits have to physically be some place.
 
-Link fourteen. "God is hungry for Context: First thoughts on o3 pro"
+Link fourteen of sixteen. "God is hungry for Context: First thoughts on o3 pro"
 
 I haven't done any serious work with the newest reasoning models, and frankly have found them a bit cumbersome to engage with. This post highlights how you really do need to engage with them very differently, and what they are really good at.
 
@@ -128,11 +130,11 @@ End quote.
 
 Definitely deep research capabilities.
 
-Link fifteen. "MidWord! The world's favorite word guessing game"
+Link fifteen of sixteen. "MidWord! The world's favorite word guessing game"
 
 Word guessing game that is much harder than I expected, and makes me want to do some quick analysis of the dictionary and what words are at various positions in the list. Unix to the rescue! wc -l /usr/share/dict/words tells me there are 235,976 words. Then sed -n '117988p' /usr/share/dict/words tells me the first word to start with is "mediation".
 
-Link sixteen. "The Periodic Table of Emoji, presented by Shady Characters"
+Link sixteen of sixteen. "The Periodic Table of Emoji, presented by Shady Characters"
 
 I an unabashed fan of emoji and think it is super interesting to see how they are culturally adopted.
 
@@ -200,55 +202,57 @@ That's the end of the Journal.
 
 Now, the Briefly section.
 
-Link one. "powRSS"
+There are thirteen links this week.
+
+Link one of thirteen. "powRSS"
 
 Directory of RSS feeds curated by and for people.
 
-Link two. "url.town"
+Link two of thirteen. "url.town"
 
 Index of indie web sites.
 
-Link three. "Odyc.js"
+Link three of thirteen. "Odyc.js"
 
 Lovely "small javascript library that lets you code video games even without programming experience." Great way to have kids learn to code. Think this will be a summer challenge!
 
-Link four. "rssrssrss - Combine Multiple RSS Feeds into One"
+Link four of thirteen. "rssrssrss - Combine Multiple RSS Feeds into One"
 
 Super simple tool to merge RSS feeds into one feed. Great example of the benefit of open standards.
 
-Link five. "Atkinson Dithering"
+Link five of thirteen. "Atkinson Dithering"
 
 Such Macintosh and Hypercard vibes.
 
-Link six. "OpenAI hits 10 billion dollars in annualized revenue fueled by ChatGPT growth"
+Link six of thirteen. "OpenAI hits 10 billion dollars in annualized revenue fueled by ChatGPT growth"
 
 I know OpenAI has grown fast, but 10 billion dollars ARR was surprising to me.
 
-Link seven. "Will Apple Stream Live F1 (Racing)? – On my Om"
+Link seven of thirteen. "Will Apple Stream Live F1 (Racing)? – On my Om"
 
 I keep waiting for one of the streaming services to do something truly unique with sports. You could create a completely different way to experience the game bringing data and video together in a unique way. I'd love to see that happen with F1.
 
-Link eight. "US air traffic control still runs on Windows 95 and floppy disks - Ars Technica"
+Link eight of thirteen. "US air traffic control still runs on Windows 95 and floppy disks - Ars Technica"
 
 Floppy disks? What?
 
-Link nine. "It's The End Of Observability As We Know It (And I Feel Fine) | Honeycomb"
+Link nine of thirteen. "It's The End Of Observability As We Know It (And I Feel Fine) | Honeycomb"
 
 Wild example of LLMs finding issues in production systems.
 
-Link ten. "I've massively improved my home organization with this free and open-source tool"
+Link ten of thirteen. "I've massively improved my home organization with this free and open-source tool"
 
 An inventory management system for your home? For the OCD folks out there.
 
-Link eleven. "Opportunity Cost – See Prices in Bitcoin Instantly"
+Link eleven of thirteen. "Opportunity Cost – See Prices in Bitcoin Instantly"
 
 Cool browser extension to insert into prices on websites in Bitcoin alongside US dollars.
 
-Link twelve. "Stay Hungry, Stay Foolish | Steve Jobs Archive"
+Link twelve of thirteen. "Stay Hungry, Stay Foolish | Steve Jobs Archive"
 
 Updated video on the 20 year anniversary of Steve Jobs Stanford commencement speech. A great opportunity to watch this again.
 
-Link thirteen. "Introducing Databricks Free Edition | Databricks Blog"
+Link thirteen of thirteen. "Introducing Databricks Free Edition | Databricks Blog"
 
 Databricks is on a roll and this is a big deal to get in the hands of developers.
 

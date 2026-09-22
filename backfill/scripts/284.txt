@@ -10,7 +10,9 @@ Let's jump right along to the links from the week…
 
 Now, the Notable section.
 
-Link one. "The UX of UUIDs | Unkey"
+There are nine links this week.
+
+Link one of nine. "The UX of UUIDs | Unkey"
 
 Universally Unique Identifiers are used all over the place in software and often spill out into the user experience as well.
 
@@ -20,7 +22,7 @@ End quote.
 
 This article highlights a number of ways to make them more friendly for users.
 
-Link two. "Peloton is a media company now, with media company problems"
+Link two of nine. "Peloton is a media company now, with media company problems"
 
 I got the Peloton Bike in November twenty eighteen. I have always enjoyed spinning and have taken many spin classes over the year. The Peloton Bike appealed to me as the best quality spin bike I'd ever used along with the classes built right on it. All-in-one with great quality. I’m also picky about spin instructors. I want good music that I like. I can’t stand instructors that use negative messages. A super high-quality bike with some of the best spin instructors in the world and music genres that I can pick from? Sounds great.
 
@@ -36,7 +38,7 @@ Peloton definitely has a committed core audience that I don't think will go anyw
 
 It is a great product, but not a great stock. Does that matter? It does, but I also don't know how they could have ran the course of the last 6 years any differently.
 
-Link three. "Lessons after a half-billion GPT tokens - Ken Kantzer's Blog"
+Link three of nine. "Lessons after a half-billion GPT tokens - Ken Kantzer's Blog"
 
 Kantzer shares some key observations from his work building functionality with LLMs.
 
@@ -46,7 +48,7 @@ End quote.
 
 He goes into details on each of these points. There is some good learnings here.
 
-Link four. "What makes a great technical blog | notes.eatonphil.com"
+Link four of nine. "What makes a great technical blog | notes.eatonphil.com"
 
 Great list of recommendations for technical blogs, but I'd really say most of these apply to any blog!
 
@@ -56,15 +58,15 @@ End quote.
 
 Only the second item is specific to a technical blog.
 
-Link five. "The Most Important Thing That Leaders Protect - Matt Norman"
+Link five of nine. "The Most Important Thing That Leaders Protect - Matt Norman"
 
 Time. Time is such a critical resource. And our modern world of calendar invites treat time like it is useless. Someday I would like to see a service that really helps you align your time to your goals.
 
-Link six. "GDC Vault - The Playdate Story: What Was it Like to Make Handheld Video Game System Hardware?"
+Link six of nine. "GDC Vault - The Playdate Story: What Was it Like to Make Handheld Video Game System Hardware?"
 
 Fun talk from Cabel Sasser about creating the Playdate and all of the many challenges they had bringing this little platform to life. I was one of the people that pre-ordered the Playdate just cause I loved the premise and it looked cool. I barely ever play games and as a result the Playdate doesn't get a lot of use but I still have a soft spot for this little yellow guy. I'll probably still buy the speaker dock when and if that ships!
 
-Link seven. "This is a teenager"
+Link seven of nine. "This is a teenager"
 
 Two things are interesting here. First, the data itself is compelling and tells so many stories. Secondly, the data visualization itself brings the data to life in pretty amazing ways.
 
@@ -74,11 +76,11 @@ End quote.
 
 At the end you can see yourself how various factors are correlated with the experienced people have.
 
-Link eight. "Greg Pierce: Automate SMS Unsubscribing - Mastodon"
+Link eight of nine. "Greg Pierce: Automate SMS Unsubscribing - Mastodon"
 
 There are only a handful of services I’m okay getting automated text messages from. Everything else I reply "STOP" regularly. When I saw Greg Pierce, author of Drafts, share this simple automation using Shortcuts to automatically send STOP to those messages I was delighted. I set the same thing up on my phone! Brilliant!
 
-Link nine. "Why the Short-Lived Calvin and Hobbes Is Still One of the Most Beloved and Influential Comic Strips | Open Culture"
+Link nine of nine. "Why the Short-Lived Calvin and Hobbes Is Still One of the Most Beloved and Influential Comic Strips | Open Culture"
 
 We have The Complete Calvin and Hobbes with every frame of the comic strip in it. I've read parts of it, but Tyler has read the entire four volumes actually multiple times. He thoroughly enjoyed it. There is something truly special about Calvin and Hobbes.
 
@@ -156,31 +158,33 @@ That's the end of the Journal.
 
 Now, the Briefly section.
 
-Link one. "Fizz Creations “Tetris” Waffle Maker — Tools and Toys"
+There are seven links this week.
+
+Link one of seven. "Fizz Creations “Tetris” Waffle Maker — Tools and Toys"
 
 A waffle maker that uses tetromino shapes from Tetris!
 
-Link two. "Kaspersky analysis of the backdoor in XZ | Securelist"
+Link two of seven. "Kaspersky analysis of the backdoor in XZ | Securelist"
 
 Thorough analysis of the XZ backdoor that almost made it into the wild.
 
-Link three. "Privacy Pro: DuckDuckGo's New 3-in-1 Subscription Service"
+Link three of seven. "Privacy Pro: DuckDuckGo's New 3-in-1 Subscription Service"
 
 Smart product offering from DuckDuckGo. The data deletion service is cheaper than DeleteMe, which is what I’m using, and you get other services too.
 
-Link four. "No Web Without Women"
+Link four of seven. "No Web Without Women"
 
 Well designed site that highlights the critical role that women have played in the creation of the web.
 
-Link five. "An Electric New Era for Atlas"
+Link five of seven. "An Electric New Era for Atlas"
 
 The Atlas robots from Boston Dynamics are incredible, but this little 30-second clip of the new all electric Atlas is a bit mind blowing. Watch the video of Atlas laying on the floor and getting up.
 
-Link six. "The invisible seafaring industry that keeps the internet afloat"
+Link six of seven. "The invisible seafaring industry that keeps the internet afloat"
 
 There have been a couple of articles about the massive cable runs on the bottom of the ocean recently but this one has the most story and a ton of interesting pictures too. What a wild thing to drag cables thousands of miles around the ocean!
 
-Link seven. "The Delta Videogame Emulator Launches on the App Store - MacStories"
+Link seven of seven. "The Delta Videogame Emulator Launches on the App Store - MacStories"
 
 App Store rules were changed and now apps like Delta can be distributed. Super fun, but I need to find some ROMs to play.
 

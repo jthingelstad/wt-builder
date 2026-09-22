@@ -8,7 +8,9 @@ Remember to "fall back" with daylight savings time this weekend!
 
 Now, the Must Read section.
 
-Link one. "Choosing the Management Track | blog.danielna.com"
+There are two links this week.
+
+Link one of two. "Choosing the Management Track | blog.danielna.com"
 
 I wish I would have written this article. I agree with nearly all of it. It is a great perspective on the path of engineering management. He hits many topics that I have seen dozens of new engineering managers struggle with.
 
@@ -44,7 +46,7 @@ End quote.
 
 Seeing teams succeed and win, and being part of making that happen, is one of the greatest things.
 
-Link two. "Writing Is Thinking – A List Apart"
+Link two of two. "Writing Is Thinking – A List Apart"
 
 Love this guide on writing better, and the fundamental value of doing it.
 

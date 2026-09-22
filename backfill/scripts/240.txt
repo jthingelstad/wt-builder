@@ -16,7 +16,9 @@ But if you dig a little… you find some very similar goal driven people that co
 
 Now, the Featured section.
 
-Link one. "The Magic of Small Databases"
+There is one link this week.
+
+Link one of one. "The Magic of Small Databases"
 
 I love this idea of small databases. I've published this kind of thing on my own website for decades. Thanks to the amazing Wayback Machine at Internet Archive you can see my list of laserdiscs and even my list of CDs from 1992! Even today, one of my main website categories is Lists where I continue to curate things like list of escape rooms, list of vehicles I've owned, even cameras I've had. These are all small databases.
 
@@ -32,7 +34,9 @@ That's the end of Featured.
 
 Now, the Notable section.
 
-Link one. "Amazon Q4 twenty twenty two Financials • ongoing by Tim Bray"
+There are fifteen links this week.
+
+Link one of fifteen. "Amazon Q4 twenty twenty two Financials • ongoing by Tim Bray"
 
 Bray used to work at AWS, and is not a financial analyst, but is a very smart developer.
 
@@ -42,13 +46,13 @@ End quote.
 
 There are a lot of reasons Amazon doesn't want to spin off Amazon Web Services, but agree with Bray that they should, and I wonder if the day is coming when they will be required to.
 
-Link two. "Twitter to remove free API access in latest money making quest - The Verge"
+Link two of fifteen. "Twitter to remove free API access in latest money making quest - The Verge"
 
 This is a big and complicated move by Twitter. Even people that rarely interact with Twitter may be using the Twitter API. And the details are going to be complicated. For example, I get updates from a handful of Twitter accounts using Feedbin and the API integration. How will this work now? Does Feedbin pay? I think the thought is I would pay, which is a whole new authentication thing for partners to handle. What about API usage on platforms like Zapier and IFTTT?
 
 The one thing I’m sure this will do is drop Twitters API demand by multiple orders of magnitude. Along with the changes around third party clients, this is turning Twitter more into a closed ecosystem.
 
-Link three. "What Shape are You? – Tynan.com"
+Link three of fifteen. "What Shape are You? – Tynan.com"
 
 Super interesting article to approach performance conversations and just think about how individuals in teams work together towards a goal, and about the contributions made.
 
@@ -60,11 +64,11 @@ This language of "additive" and "subtractive" is really compelling. Are you addi
 
 This is worth thinking about more.
 
-Link four. "Tag Systems"
+Link four of fifteen. "Tag Systems"
 
 This is a delightful blog post that walks through several different approaches to "tags" in systems. This is a great example why a request to "add tags" to a product is so completely lacking in clarity that there is nothing that you could do. It also highlights how different tagging approaches will work better or worse for the specific problem that you are trying to solve.
 
-Link five. "Pluralistic: Tiktok’s enshittification (21 Jan twenty twenty three)"
+Link five of fifteen. "Pluralistic: Tiktok’s enshittification (21 Jan twenty twenty three)"
 
 Super interesting post from Doctorow describing a pattern of value shift over many, many platforms.
 
@@ -74,7 +78,7 @@ End quote.
 
 The pattern he describes has definitely played out many times. And I like his approach that the best remedy isn't to protect these platforms (err companies) but instead make it easy to get your data out. The ability to hold user data hostage is the thing to fix. Doctorow includes crypto in his thesis here. Certainly the pattern he describes with crypto has happened, but I disagree that it makes the entire domain worthless.
 
-Link six. "The generative AI revolution has begun—how did we get here? | Ars Technica"
+Link six of fifteen. "The generative AI revolution has begun—how did we get here? | Ars Technica"
 
 Great article summarizing what got us so many advances in AI so quickly. What was the key enabling technology, as well as the approaches that allowed such quick progress.
 
@@ -84,11 +88,11 @@ End quote.
 
 I found this interesting because it helps frame up domains that are more or less appropriate for these AI models. If you lack a similar structure in a domain, pursing an AI solution to work with it is going to be very difficult.
 
-Link seven. "Inside CNET’s AI-powered SEO money machine - The Verge"
+Link seven of fifteen. "Inside CNET’s AI-powered SEO money machine - The Verge"
 
 Search engines like Google are threatened by other search companies using AI to index and find content better, but maybe even more concerning is the coming deluge of AI generated synthetic text that is going to flood the web and make it incredibly difficult to search and find anything. Also, I’m old enough to remember when CNET was a great site… rubbish now.
 
-Link eight. "Uncle Sam’s Stimulus and Crypto Boom"
+Link eight of fifteen. "Uncle Sam’s Stimulus and Crypto Boom"
 
 Didn’t read the entire paper, but the amount of pandemic forgivable loans that ended up going into crypto assets is something we need to understand even better. That was not the intent of the money.
 
@@ -98,21 +102,21 @@ End quote.
 
 No skin in the game.
 
-Link nine. "ChatGPT's killer enterprise use case will be managing knowledge | VentureBeat"
+Link nine of fifteen. "ChatGPT's killer enterprise use case will be managing knowledge | VentureBeat"
 
 This seems right to me. If you look at early results where ChatGPT has attempted to pass certifications or tests for certain professions the place it does well is when indexing and summarizing a large set of data is the primary job. All that information already exists for learners to work with today, and having AI do the same seems obvious and just around the corner.
 
-Link ten. "Setting engineering org values. | Irrational Exuberance"
+Link ten of fifteen. "Setting engineering org values. | Irrational Exuberance"
 
 Another great post from Larson on something that I've personally had some experience with as well. At SPS we have Technology Principles to serve the function that Larson describes here, and they work really well. I hadn't done anything like that in previous companies, and I had to work through all the same things that Larson outlines here, including how the Tech Principles would complement the overall Company Values.
 
 We've had them for a few years now and they do serve a very important role for teams as they design solutions.
 
-Link eleven. "We invested 10% to pay back tech debt; Here's what happened"
+Link eleven of fifteen. "We invested 10% to pay back tech debt; Here's what happened"
 
 Super simple approach to dealing with software modernization as well as the results that came from it. On the face of it, I would argue against this approach with the reason being that static allocation of investment (10%) is too simple to factor in the opportunities you are evaluating. On the flip side though, Keep-It-Simple-Stupid is a real thing and simple allocations sometimes work better, even if not optimal.
 
-Link twelve. "The coming ubiquity | Seth's Blog"
+Link twelve of fifteen. "The coming ubiquity | Seth's Blog"
 
 I think Godin is onto something here.
 
@@ -122,11 +126,11 @@ End quote.
 
 We are going to need new ways of proving authenticity and authorship of content very soon. I want to see methods to cyrptographically sign all of my content with my thingelstad.eth wallet.
 
-Link thirteen. "Wolfram|Alpha as the Way to Bring Computational Knowledge Superpowers to ChatGPT—Stephen Wolfram Writings"
+Link thirteen of fifteen. "Wolfram|Alpha as the Way to Bring Computational Knowledge Superpowers to ChatGPT—Stephen Wolfram Writings"
 
 Super interesting breakdown of different "fact based" questions comparing how ChatGPT does it with Wolfram|Alpha. As I read this I was left thinking that just as our brains have different regions that do different jobs, AI is perhaps the same way. Why not have Neural Nets doing what ChatGPT is doing, but then a different part doing the fact work. Connecting all this together is going to be incredible.
 
-Link fourteen. "The Galaga no fire cheat mystery"
+Link fourteen of fifteen. "The Galaga no fire cheat mystery"
 
 Galaga is one of my favorite arcade shooters ever. I had no idea about this cheat!
 
@@ -136,7 +140,7 @@ End quote.
 
 I have some Galaga emulators and am going to try this cheat on them.
 
-Link fifteen. "Call of the Void: Seven years on, what do we know about the disappearance of Malaysia Airlines flight 370?"
+Link fifteen of fifteen. "Call of the Void: Seven years on, what do we know about the disappearance of Malaysia Airlines flight 370?"
 
 I found this writeup of the Malaysian Air flight that went missing incredible. I haven't followed the story, but this does a great job of catching you up and then draws out a conclusion that is shocking, and pretty hard to argue. Found via Five Things on Friday #341.
 
@@ -186,47 +190,49 @@ That's the end of the Journal.
 
 Now, the Briefly section.
 
-Link one. "Introducing ChatGPT Plus"
+There are eleven links this week.
+
+Link one of eleven. "Introducing ChatGPT Plus"
 
 This has to be one of the fastest transitions to subscription plan from a beta launch ever.
 
-Link two. "Trigger.dev - Effortless automation built for developers"
+Link two of eleven. "Trigger.dev - Effortless automation built for developers"
 
 Interesting automation platform like Zapier and IFTTT but designed exclusively for developer use in code.
 
-Link three. "Crypto Theses for twenty twenty three | Gravity Fund"
+Link three of eleven. "Crypto Theses for twenty twenty three | Gravity Fund"
 
 Solid progress being made on a lot of fronts, and the pace of development continues to pick up.
 
-Link four. "ENS: Everything to Know About the Latest Trends, Milestones"
+Link four of eleven. "ENS: Everything to Know About the Latest Trends, Milestones"
 
 Recap of recent ENS events. ENS is one of the most important services in the crypto ecosystem, and I’m very happy with how they are evolving it.
 
-Link five. "Owning your Professional Development Journey | LinkedIn"
+Link five of eleven. "Owning your Professional Development Journey | LinkedIn"
 
 Little sneak peak from an upcoming book by Rachel Lockett including a reference to me and the Weekly Thing.
 
-Link six. "Blockworks Weekly Recap: Aptos"
+Link six of eleven. "Blockworks Weekly Recap: Aptos"
 
 This breakdown of the market value of Aptos is a great example where crypto prices are completely random.
 
-Link seven. "Revoke.cash - Revoke your Ethereum token allowances"
+Link seven of eleven. "Revoke.cash - Revoke your Ethereum token allowances"
 
 Super important utility that allows you to sever agreements with different crypto services from accessing your wallet. Good to run on occasion and remove things you don't use or recognize.
 
-Link eight. "The life of a DNS query in Kubernetes — NsLookup learning"
+Link eight of eleven. "The life of a DNS query in Kubernetes — NsLookup learning"
 
 Good detailed breakdown of name resolution in a cluster. DNS is one of those services that always seems simple, but gets complex very fast. And when it doesn't work, everyone has a very bad day.
 
-Link nine. "Cal.com | Open Scheduling Infrastructure"
+Link nine of eleven. "Cal.com | Open Scheduling Infrastructure"
 
 Free option over other services like Calendly. The constant calls to action to invite your team to upsell can get annoying fast though.
 
-Link ten. "Calligrapher.ai: Realistic computer-generated handwriting"
+Link ten of eleven. "Calligrapher.ai: Realistic computer-generated handwriting"
 
 Very cool to make handwritten text.
 
-Link eleven. "Cyber - Fast and concurrent scripting"
+Link eleven of eleven. "Cyber - Fast and concurrent scripting"
 
 Interesting new scripting language that is designed to be embeddable.
 

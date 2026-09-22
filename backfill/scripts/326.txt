@@ -32,11 +32,13 @@ That's the end of Currently.
 
 Now, the Notable section.
 
-Link one. "My review of Claude’s new Code Interpreter, released under a very confusing name"
+There are ten links this week.
+
+Link one of ten. "My review of Claude’s new Code Interpreter, released under a very confusing name"
 
 Deep dive on Claude's new ability to run code. It is super interesting to me that you can add additional packages to the runtime on the server.
 
-Link two. "Five for 50 - Anil Dash"
+Link two of ten. "Five for 50 - Anil Dash"
 
 Anil Dash reflecting on ways to have positive impact on his 50th birthday.
 
@@ -46,7 +48,7 @@ End quote.
 
 Some good stuff to think about.
 
-Link three. "Building Etsy Buyer Profiles with LLMs | Etsy Engineering"
+Link three of ten. "Building Etsy Buyer Profiles with LLMs | Etsy Engineering"
 
 It is interesting to me how LLM's are so different than Machine Learning models to architect solutions. Personally I've been able to "think different" about these approaches when I scale a large data problem down to a single instance and then think "How would a person do this for one thing?" In general that answer is a reasonable parallel to how an LLM could do it. Notably, it is very different than how a traditional Machine Learning and Big Data approach would work.
 
@@ -58,7 +60,7 @@ End quote.
 
 The magical things I’m noting in these solutions is the ability to control the amount of data you bring to the LLM, the frequency, and even the cognitive effort the LLM will put towards it with a token budget.
 
-Link four. "Tempo: The Blockchain Designed for Payments"
+Link four of ten. "Tempo: The Blockchain Designed for Payments"
 
 Interesting new L1 blockchain backed by Stripe and Paradigm.
 
@@ -68,11 +70,11 @@ End quote.
 
 Not sure why they needed to make another L1 blockchain versus using one of the established ones but it does have some specific features for payments. Bitcoin Lightning has similar capabilities already.
 
-Link five. "i ran Claude in a loop for three months, and it created a genz programming language called cursed"
+Link five of ten. "i ran Claude in a loop for three months, and it created a genz programming language called cursed"
 
 This language, which is real and will build, makes me laugh out loud for real when I read the "Gen Z" code. Yeet? Slay? Sus? Bestie? The crazy part is it mostly makes sense.
 
-Link six. "Using Claude Code to modernize a 25-year-old kernel driver – Dmitry Brant"
+Link six of ten. "Using Claude Code to modernize a 25-year-old kernel driver – Dmitry Brant"
 
 How to bring a device with no driver support into the modern era? A great task to throw at AI.
 
@@ -82,7 +84,7 @@ End quote.
 
 This problem is particularly well suited to a tool like Claude Code.
 
-Link seven. "Should we revisit Extreme Programming in the age of AI?"
+Link seven of ten. "Should we revisit Extreme Programming in the age of AI?"
 
 We are right in the midst of rethinking how we create products using AI and this article hits on big themes that matter.
 
@@ -92,11 +94,11 @@ End quote.
 
 I particularly like the "process needs to become more human". The future isn't sending off a user story to an LLM but instead rethinking how we build software and bringing everyone — programmers, designers, product, maybe even customer — and putting AI in the middle of all of it. The artifacts of software will be part of what we have previously considered "the code".
 
-Link eight. "Working for advertisers | Seth's Blog"
+Link eight of ten. "Working for advertisers | Seth's Blog"
 
 I love the way Godin frames running an ad supported business. It fundamentally puts you in conflict with so many things that your actual customers probably want. I really hope that the next wave of AI companies continue to charge a fee for service instead of monetizing attention. The temptation is going to be really strong to do both.
 
-Link nine. "You Need to Be Bored. Here’s Why."
+Link nine of ten. "You Need to Be Bored. Here’s Why."
 
 When was the last time you were bored? If your like many, it has been a while. The lack of boredom is, in my opinion, one of the biggest impacts that mobile devices and constant access to the Internet has given us. Before that cigarettes were one of people's best escape hatches from boredom. I’m not bored, I’m just looking at my phone. I’m not bored, I’m just having a cigarette. More similarities than we may like in those two statements. People hate boredom and we now carry a device that can stop it at any moment, but that deprives us of a feedback loop that is important.
 
@@ -112,7 +114,7 @@ I loved his comment on emergencies — "Here's something that's not an emergency
 
 So yeah, put down the phone. And for bonus points, go and get lost someplace.
 
-Link ten. "The Last Programmers || Xipu Li"
+Link ten of ten. "The Last Programmers || Xipu Li"
 
 Thought provoking piece on how developing software is evolving. There is a core theme here that resonates strongly with me:
 
@@ -176,39 +178,41 @@ That's the end of the Journal.
 
 Now, the Briefly section.
 
-Link one. "Signal >> Introducing Signal Secure Backups"
+There are nine links this week.
+
+Link one of nine. "Signal >> Introducing Signal Secure Backups"
 
 I’m happy to see Signal adding this. It is very hard to preserve chat history with Signal and this is a step in the right direction. I think it is also good that they are adding it as a paid offering.
 
-Link two. "Is ‘The Wizard of Oz’ at Sphere the Future of Cinema? Or the End of It? - The New York Times"
+Link two of nine. "Is ‘The Wizard of Oz’ at Sphere the Future of Cinema? Or the End of It? - The New York Times"
 
 This sounds like an incredible experience. Gift Link
 
-Link three. "microdot: The impossibly small web framework for Python and MicroPython"
+Link three of nine. "microdot: The impossibly small web framework for Python and MicroPython"
 
 Web framework to use on very resource limited devices.
 
-Link four. "The Hot Investment With a 3,000% Return? Pokémon Cards - WSJ"
+Link four of nine. "The Hot Investment With a 3,000% Return? Pokémon Cards - WSJ"
 
 Indeed Pokémon cards outperformed the SP500. I’m guessing Bitcoin outperformed the cards though. Gift Link
 
-Link five. "Liquid Glass in the Browser: Refraction with CSS and SVG — kube.io"
+Link five of nine. "Liquid Glass in the Browser: Refraction with CSS and SVG — kube.io"
 
 Create glass effects in CSS similar to the new Liquid Glass effects.
 
-Link six. "Memory Integrity Enforcement: A complete vision for memory safety in Apple devices - Apple Security Research"
+Link six of nine. "Memory Integrity Enforcement: A complete vision for memory safety in Apple devices - Apple Security Research"
 
 Comprehensive overview of how the newest devices are protecting memory space which stops attack vectors from gaining access to devices. It is incredible how sophisticated these security mechanisms have gotten over the years.
 
-Link seven. "Seedship"
+Link seven of nine. "Seedship"
 
 Interesting game to play in the browser.
 
-Link eight. "RSL"
+Link eight of nine. "RSL"
 
 A licensing model for websites to adopt to "force" AI models to have to license content. It is coded in XML to make it machine readable. Reminds me a lot of Creative Commons. How much impact will something like this have? I doubt a lot.
 
-Link nine. "Albania appoints AI bot as minister to tackle corruption | The Straits Times"
+Link nine of nine. "Albania appoints AI bot as minister to tackle corruption | The Straits Times"
 
 Everyone start working on prompt injection in RFP responses.
 

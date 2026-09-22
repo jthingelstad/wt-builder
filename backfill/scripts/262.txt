@@ -10,11 +10,13 @@ I hope you have a fabulous weekend! I’m particularly looking forward to it mys
 
 Now, the Notable section.
 
-Link one. "Developing better developers"
+There are fourteen links this week.
+
+Link one of fourteen. "Developing better developers"
 
 This article from Dave Winer is over five years old, but the gaps, concepts, and challenges he describes are still evident. I've found myself in a lot of conversations over the last couple of years exploring challenges with tech talent. The answer is still not at all clear, but it is very evident that computer science education as it has historically been done needs to evolve and change. It needs to be more practical. It needs ethics. It needs to layer on top of other disciplines. Software is everywhere, and our methods of teaching how to create software are woefully behind.
 
-Link two. "You’re barely managing | Barely Managing"
+Link two of fourteen. "You’re barely managing | Barely Managing"
 
 A website with article to help new managers learn fundamental capabilities. This comment from the introduction is more true than some may believe.
 
@@ -26,11 +28,11 @@ In some companies (including ours) we have training programs specifically for bo
 
 Managing and leading is a career, not an overlay to apply to an existing role.
 
-Link three. "Daring Fireball: Thoughts and Observations on This Week’s ‘Wonderlust’ Apple Event"
+Link three of fourteen. "Daring Fireball: Thoughts and Observations on This Week’s ‘Wonderlust’ Apple Event"
 
 Detailed overview and recap of last weeks Apple event from Gruber covering all the major sections and announcements.
 
-Link four. "Capitalism Onchained - Not Boring by Packy McCormick"
+Link four of fourteen. "Capitalism Onchained - Not Boring by Packy McCormick"
 
 Great perspective from McCormick on his long term view on crypto.
 
@@ -42,11 +44,11 @@ One of his tenants is around driving efficiency. This is one of my primary views
 
 AI has taken 30, 40, maybe 50 years to get to ChatGPT and sudden mass adoption. Maybe crypto is on the same path? My Blockclock tells me we are only 14 years into this journey.
 
-Link five. "Building an economy simulator from scratch"
+Link five of fourteen. "Building an economy simulator from scratch"
 
 Decades ago one of my favorite games was SimCity. This article goes through the mechanics of building a complex simulator game like that. And even cooler, every assumption has a little JavaScript that you can run and shows you what the hypothesis that you have do when executed. It gets pretty complicated, but goes step-by-step through the scenarios.
 
-Link six. "System Initiative"
+Link six of fourteen. "System Initiative"
 
 Post from Adam Jacob framing up the successes of DevOps strategies in the last decade, and where it has fallen down.
 
@@ -62,19 +64,19 @@ End quote.
 
 Being able to quickly, confidently, and efficiently move software through your environments from people building solutions to customers is a core competency and strategic differentiator. Doing that weekly, or monthly, is a recipe for failure.
 
-Link seven. "iOS 17, iPadOS 17, and macOS Sonoma Expand Password Management and Access System-Wide - MacStories"
+Link seven of fourteen. "iOS 17, iPadOS 17, and macOS Sonoma Expand Password Management and Access System-Wide - MacStories"
 
 Shared passwords coming to the newest releases of Apple operating systems is a little surprising. Clearly some level of password management is now considered an OS level capability, but some of the more advanced features of something like 1Password seemed out of scope. But sharing is a big thing that a robust password manager offers. For some reason I’m really not comfortable relying on the magic of iCloud Password Management yet, so I'll stick with 1Password. Plus 1Password does so much more. But these more robust password capabilities are a great add for many people.
 
-Link eight. "The internet used to be fun"
+Link eight of fourteen. "The internet used to be fun"
 
 A great collection of essays all about the web that is weird, personal, and not controlled by companies. The web of blogging, of home pages. I love this part of the web so much.
 
-Link nine. "iOS and iPadOS 17: The MacStories Review - MacStories"
+Link nine of fourteen. "iOS and iPadOS 17: The MacStories Review - MacStories"
 
 Viticci's monster review of iOS and iPadOS 17. This review comes in at 17 "pages" on the web, and goes to incredible levels of detail. If you want to know all about what is new, this is the one and only read you need. I love reading this kind of meticulous review.
 
-Link ten. "How Apple made the ultimate Snoopy watch: “You wouldn't believe the minutiae” | British GQ"
+Link ten of fourteen. "How Apple made the ultimate Snoopy watch: “You wouldn't believe the minutiae” | British GQ"
 
 We aren't "Peanuts Obsessives" as those mentioned in this article, but we do have a Charlie Brown Tree and like Snoopy and friends.
 
@@ -84,21 +86,21 @@ End quote.
 
 I've been using this watch face for a couple of days and it has genuinely made me smile and chuckle many times. It brings some delight to me when I check the time. That is a pretty awesome thing.
 
-Link eleven. "210: It's (Not Necessarily) Fair to Mock Apple's "Mother Nature" Video"
+Link eleven of fourteen. "210: It's (Not Necessarily) Fair to Mock Apple's "Mother Nature" Video"
 
 I liked this writeup on the environmental message in last weeks Apple event. Personally I thought the segment was good. And the actual accomplishments are impressive. This article gives some good context for those announcements and why it is such a big deal.
 
-Link twelve. "ChatGPT for you | Seth's Blog"
+Link twelve of fourteen. "ChatGPT for you | Seth's Blog"
 
 Godin presents a really interesting "system message" for ChatGPT to give you better results. I found it interesting to see what the specific directions were. Follow his advice and give it a try.
 
-Link thirteen. "Daring Fireball: The iPhones 15 Pro (and iPhones 15)"
+Link thirteen of fourteen. "Daring Fireball: The iPhones 15 Pro (and iPhones 15)"
 
 Gruber is my go to reviewer for new Apple hardware so of course I was curious to see what he had to say about the new iPhone 15 Pro. Titanium, Cameras, Action Button, USB-C. A lighter phone does sound nice. The new cameras look great. I would immediately wire the Action Button to a Shortcut to do all sorts of things based on where I am, time of day, and who knows what else. And USB-C to me seems like an obvious step in the right direction. It is kinda neat that now in a pinch your iPhone can charge your Apple Watch.
 
 All in thought, since I have the iPhone 14 Pro no upgrade for me. But that Titanium is going to be nice when I do make the jump to a new phone.
 
-Link fourteen. "Improving your online privacy: An update – Gonçalo Valério"
+Link fourteen of fourteen. "Improving your online privacy: An update – Gonçalo Valério"
 
 Good article highlighting 7 techniques to preserve your privacy online. I wrote a similar article about improving your security and privacy. There is a lot of overlap, although I would have put the last item in this article first.
 
@@ -198,35 +200,37 @@ That's the end of the Journal.
 
 Now, the Briefly section.
 
-Link one. "B612 – The font family"
+There are eight links this week.
+
+Link one of eight. "B612 – The font family"
 
 Font designed for critical use to be extremely legible.
 
-Link two. "EndBASIC"
+Link two of eight. "EndBASIC"
 
 Emulator environment to provide a very simple BASIC programming experience. This is pretty fun to play around with.
 
-Link three. "YAY.BOO!"
+Link three of eight. "YAY.BOO!"
 
 Super, super simple way to put a basic website online, from the gang at Good Enough. This is a fun way to help kids learning to build on the web get their projects online.
 
-Link four. "iOS 17's Check In Feature Simplifies Making Sure Friends and Family Get Home Safely - MacStories"
+Link four of eight. "iOS 17's Check In Feature Simplifies Making Sure Friends and Family Get Home Safely - MacStories"
 
 Handy new feature in iOS 17.
 
-Link five. "NINTENDO - 43 Biggest SECRETS - YouTube"
+Link five of eight. "NINTENDO - 43 Biggest SECRETS - YouTube"
 
 I really like Nintendo and this quick video had a bunch of interesting tidbits.
 
-Link six. "fx – terminal JSON viewer"
+Link six of eight. "fx – terminal JSON viewer"
 
 Very fancy tool for navigating JSON data (including streaming data) on the terminal.
 
-Link seven. "WebKit Features in Safari 17.0 | WebKit"
+Link seven of eight. "WebKit Features in Safari 17.0 | WebKit"
 
 Full overview of WebKit updates in newest version of Safari. It is amazing to see how advanced web technologies have advanced over the years.
 
-Link eight. "iPhone 15, USB-C, and External Displays - MacStories"
+Link eight of eight. "iPhone 15, USB-C, and External Displays - MacStories"
 
 Moving the iPhone to USB-C should open up these kind of capabilities. This is where the value is.
 

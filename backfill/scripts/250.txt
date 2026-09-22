@@ -32,7 +32,9 @@ Signing our work. I like it. It feels very human.
 
 Now, the Featured section.
 
-Link one. "An example of LLM prompting for programming"
+There is one link this week.
+
+Link one of one. "An example of LLM prompting for programming"
 
 This is an incredible example of creating a solution using ChatGPT. I've done many examples of having ChatGPT write code, but this approach creates a solution that can be debated and improved before you just spit out code.
 
@@ -60,7 +62,9 @@ That's the end of Featured.
 
 Now, the Notable section.
 
-Link one. "Amazon twenty twenty two Shareholder Letter (PDF)"
+There are thirteen links this week.
+
+Link one of thirteen. "Amazon twenty twenty two Shareholder Letter (PDF)"
 
 Andy Jassy's second annual shareholder letter as Amazon CEO. It covers a lot of ground, and in general has a tone of lower risk appetite, focused on efficiency, and managed investment in growth.
 
@@ -72,7 +76,7 @@ I think this is the first time that AWS has seen demand stay relatively flat. Th
 
 As always the whole letter is a good read, and given the size and breadth of Amazon's business is an overall assessment of numerous industries.
 
-Link two. "Ethereum’s Shanghai Upgrade Is Complete, Starting New Era of Staking Withdrawals"
+Link two of thirteen. "Ethereum’s Shanghai Upgrade Is Complete, Starting New Era of Staking Withdrawals"
 
 I think Ethereum has tremendous potential. It is the most exciting thing in crypto to me. After a successful move to proof-of-stake, Ethereum is now allowing staking withdrawals.
 
@@ -82,7 +86,7 @@ End quote.
 
 This is another huge milestone and creates a level of sustainability in the staking ecosystem for Ethereum that should give it incredible durability for a very long time.
 
-Link three. "Free Dolly: Introducing the World's First Open and Commercially Viable Instruction-Tuned LLM - The Databricks Blog"
+Link three of thirteen. "Free Dolly: Introducing the World's First Open and Commercially Viable Instruction-Tuned LLM - The Databricks Blog"
 
 Open-source options for building out LLM features.
 
@@ -92,7 +96,7 @@ End quote.
 
 This has a new training set that is open for others to use.
 
-Link four. "Replacing my best friends with an LLM trained on 500,000 group chat messages"
+Link four of thirteen. "Replacing my best friends with an LLM trained on 500,000 group chat messages"
 
 This is a wild AI project using a 6 person group chat with over 500,000 messages.
 
@@ -102,7 +106,7 @@ End quote.
 
 There have been many examples shared of people doing something like this with a single person (sometimes deceased!), but I haven't seen a group version before. It is interesting that it works so well even though all five of the people are trained in a single model. Perhaps that makes it better than if they were separate? Would be interesting to see the comparison.
 
-Link five. "Running Python micro-benchmarks using the ChatGPT Code Interpreter alpha"
+Link five of thirteen. "Running Python micro-benchmarks using the ChatGPT Code Interpreter alpha"
 
 This is an incredible way to use ChatGPT. It requires some alpha plug-in access most people don't have.
 
@@ -120,7 +124,7 @@ Willison goes on to tweak and modify this benchmark to make it more useful.
 
 This whole process is remarkable.
 
-Link six. "How to plan as an engineering executive. | Irrational Exuberance"
+Link six of thirteen. "How to plan as an engineering executive. | Irrational Exuberance"
 
 Another great post from Larson this time about three core planning processes that teams need to engage in.
 
@@ -130,7 +134,7 @@ End quote.
 
 A lot of great information here.
 
-Link seven. "Leading From The Heart - AVC"
+Link seven of thirteen. "Leading From The Heart - AVC"
 
 Wilson has worked with hundreds of leaders in many different environments.
 
@@ -146,7 +150,7 @@ End quote.
 
 Absolutely agree with this, and it isn't easy to do. But leadership isn't easy, particularly authenticate and genuine leadership.
 
-Link eight. "Wing Programming Language"
+Link eight of thirteen. "Wing Programming Language"
 
 Interesting language that automatically connects with cloud infrastructure to create what the code needs on its own.
 
@@ -154,7 +158,7 @@ Interesting but seems like a lot of surface area to cover for one tool
 
 So this could let ChatGPT write its own code that just runs in its own cloud right?
 
-Link nine. "DevOps uses a capability model, not a maturity model - Octopus Deploy"
+Link nine of thirteen. "DevOps uses a capability model, not a maturity model - Octopus Deploy"
 
 Great way of thinking about continuous improvement of DevOps practices.
 
@@ -164,15 +168,15 @@ End quote.
 
 Would all methodologies be better served by a capability model versus maturity? Could Agile be viewed the same way?
 
-Link ten. "Why I Blog"
+Link ten of thirteen. "Why I Blog"
 
 Guo has a great set of reasons to blog: Clarify My Thinking, Share Knowledge and Ideas, Learn Things, Practice Writing, Learn How I'm Wrong, Be Able to Provide a Link, Vanity, Unexpected Opportunities, and Monetization. I particularly like and agree with the first four. The other reasons are all good too, but they rely on having an audience and in some cases a feedback loop. Personally I would like to focus on value that I get without a dependency on an audience.
 
-Link eleven. "Tesla workers shared images from car cameras, including "scenes of intimacy" | Ars Technica"
+Link eleven of thirteen. "Tesla workers shared images from car cameras, including "scenes of intimacy" | Ars Technica"
 
 Ring had the same issue. If your company captures images of customers, you should really determine why you are ever storing them. Assume your employees cannot resist the desire to share them and get laughs.
 
-Link twelve. "I’m an ER doctor: Here’s what I found when I asked ChatGPT to diagnose my patients | Medium"
+Link twelve of thirteen. "I’m an ER doctor: Here’s what I found when I asked ChatGPT to diagnose my patients | Medium"
 
 Interesting assessment by an ER doctor having ChatGPT trying to diagnose. It did better than expected, but missed outliers.
 
@@ -188,7 +192,7 @@ End quote.
 
 The article goes on to highlight ways that it can add value. There isn't a mention though that the patient might actually be more open and truthful with an AI than with the human doctor. When we look at what people type into Google, they seem to share things that they may be otherwise embarrassed to share. An AI Doctor might better at getting all the right information.
 
-Link thirteen. "Memory Dividends - POAP Blog"
+Link thirteen of thirteen. "Memory Dividends - POAP Blog"
 
 This post captures the thing I like the most about POAPs.
 
@@ -260,55 +264,57 @@ That's the end of the Journal.
 
 Now, the Briefly section.
 
-Link one. "Eight Things to Know about LLMS - Marginal REVOLUTION"
+There are thirteen links this week.
+
+Link one of thirteen. "Eight Things to Know about LLMS - Marginal REVOLUTION"
 
 Interesting.
 
-Link two. "Principles for Creating with AI"
+Link two of thirteen. "Principles for Creating with AI"
 
 Good list for framing thoughts on using AI.
 
-Link three. "The one good HomeKit-capable wall switch you should get – A Whole Lotta Nothing"
+Link three of thirteen. "The one good HomeKit-capable wall switch you should get – A Whole Lotta Nothing"
 
 I put some Lutron Caseta switches in our house and like them, but I agree that the button layout is not great. The newest generation looks much better.
 
-Link four. "Importing tweets to Micro.blog - Manton Reece"
+Link four of thirteen. "Importing tweets to Micro.blog - Manton Reece"
 
 Micro.blog can again import tweets, with a massively upgraded approach. I pulled all my Tweets off of Twitter and into micro.blog using the original import. I’m undecided about the future value of Tweets. Often Tweets don't hold up on their own, and instead just seem like a fragment.
 
-Link five. "The AI singularity is here | InfoWorld"
+Link five of thirteen. "The AI singularity is here | InfoWorld"
 
 Great examples of why code generation may be a great place to get the first benefit from LLMs. Code has to pass all sorts of tests before it can be used. All of those tests operate as filters for errors.
 
-Link six. "Crypto (Could) Fixes This - Not Boring by Packy McCormick"
+Link six of thirteen. "Crypto (Could) Fixes This - Not Boring by Packy McCormick"
 
 Great examples of ways that crypto can add tremendous value — and why I continue to learn and work with it.
 
-Link seven. "Uptime Guarantees — A Pragmatic Perspective"
+Link seven of thirteen. "Uptime Guarantees — A Pragmatic Perspective"
 
 Reminder to consider the cost of increased availability, and make sure that the tradeoffs make sense.
 
-Link eight. "I don't want streaming music, I just want to stream my music • Cory Dransfeldt"
+Link eight of thirteen. "I don't want streaming music, I just want to stream my music • Cory Dransfeldt"
 
 It is frustrating when new capability like streaming music on any device anywhere — doesn't work with a previous model like owning music that sits on your own hard drive.
 
-Link nine. "Codeberg.org"
+Link nine of thirteen. "Codeberg.org"
 
 A privacy-focused, non-profit member owned Github alternative based out of Germany. It is good to see growing interest in tech about longer term matters for important things like this.
 
-Link ten. "Twitter now disables likes, replies, and retweets if a tweet has Substack links - The Verge"
+Link ten of thirteen. "Twitter now disables likes, replies, and retweets if a tweet has Substack links - The Verge"
 
 Disappointing.
 
-Link eleven. "ChatGPT is making up fake Guardian articles. Here’s how we’re responding | Chris Moran | The Guardian"
+Link eleven of thirteen. "ChatGPT is making up fake Guardian articles. Here’s how we’re responding | Chris Moran | The Guardian"
 
 ChatGPT doesn't need to be bound by facts.
 
-Link twelve. "Simply explained: how does GPT work? | Confused bit"
+Link twelve of thirteen. "Simply explained: how does GPT work? | Confused bit"
 
 Simplified explanation of how ChatGPT works.
 
-Link thirteen. "New decisions based on new information | Seth's Blog"
+Link thirteen of thirteen. "New decisions based on new information | Seth's Blog"
 
 It’s okay to change your mind.
 

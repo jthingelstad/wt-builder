@@ -26,11 +26,13 @@ So yeah, the Reader Survey would be awesome. Cool? Thank you!
 
 Now, the Notable section.
 
-Link one. "Project Indigo - a computational photography camera app"
+There are eleven links this week.
+
+Link one of eleven. "Project Indigo - a computational photography camera app"
 
 Adobe decided to enter the Pro level capture app space! I purchased Halide and when I’m looking to take a specific picture and control all the details on my phone I use that. When you read this introduction of Indigo it reads like Adobe's view of the same space. They even take some jabs at Halide's Process Zero feature and do take a different approach. I'd say that Halide's approach is more to reduce computational photography capabilities where Indigo seems to be suggesting a different set of computational photography features. I installed this and will be playing with it.
 
-Link two. "Platform reality"
+Link two of eleven. "Platform reality"
 
 One could strongly argue that I’m also stupid like Sloan. I don't publish the Weekly Thing on Substack even though it would be easy to do, free, and would for sure drive user metrics up. That is what their platform does. But we know where this train ends.
 
@@ -46,29 +48,29 @@ End quote.
 
 Yes, the web itself is a platform. It allows you to express yourself. These ecosystems require you to adapt to them, and fundamentally change your expression — and you.
 
-Link three. "Andrej Karpathy: Software Is Changing (Again) - YouTube"
+Link three of eleven. "Andrej Karpathy: Software Is Changing (Again) - YouTube"
 
 Great talk from Karpathy on the evolution of software with LLMs – software 3.0 as he suggests. Super interesting framing and particularly liked his view that you have to use the right tool for the problem you are solving. Recommended watch.
 
-Link four. "In Praise of “Normal” Engineers – charity.wtf"
+Link four of eleven. "In Praise of “Normal” Engineers – charity.wtf"
 
 Great overview of thinking about software team productivity and how you design the work to drive group productivity. I have never liked the "10x Engineer" metaphor either. Certainly different engineers have different strengths, but creating value over time and supporting production systems requires a team approach and the teams that win the most have ability to bring in a wide variety of skill levels.
 
-Link five. "Warp: Introducing Warp 2.0: the Agentic Development Environment"
+Link five of eleven. "Warp: Introducing Warp 2.0: the Agentic Development Environment"
 
 Warp and this Agentic Development Environment is currently bending my mind. Warp has been around for a bit as an AI powered terminal app which seems sort of "okay, fine" but with this 2.0 release they have tackled a bunch of new space. The video is a compelling watch. I've installed it and spent a couple minutes with it but need to go deeper. I like products like this that are pushing the traditional definitions of different tools.
 
-Link six. "MCP is eating the world — and it's here to stay"
+Link six of eleven. "MCP is eating the world — and it's here to stay"
 
 I love this "good enough" assessment and think it is spot on. MCP totally reminds me of RSS. And if you are thinking what is RSS? Well it is the entire protocol of Podcasting and still how I get all my regular updates. It is core plumbing. I get a very RSS vibe from MCP. In part because it does have issues, but it is good enough.
 
 Additionally, I've been using these directly now with Raycast. It can talk to MCP endpoints on my machine and it is wild to see what it can do.
 
-Link seven. "Brad Barrish - Some more detail about Linty Link"
+Link seven of eleven. "Brad Barrish - Some more detail about Linty Link"
 
 At 66,000 links Brad has more than 4x the number of curated over the years. I love what he's made here and I have my own hopes of creating a database driven index into my link collection at some point. Right now they only appear in the Weekly Thing by week but there are many ways I'd like to index into this database in the future. Brad used AI to create this, perhaps that will be my Vibe Coding project.
 
-Link eight. "The gold bull-market has a dirty secret"
+Link eight of eleven. "The gold bull-market has a dirty secret"
 
 People are frequently critical of the energy footprint of Bitcoin. It is important to remember that Gold has a footprint too.
 
@@ -78,7 +80,7 @@ End quote.
 
 I suspect every currency or store of value has externalities and costs.
 
-Link nine. "Why the AI revolution needs tollbooths – Crazy Stupid Tech"
+Link nine of eleven. "Why the AI revolution needs tollbooths – Crazy Stupid Tech"
 
 We continue to see reasons that micropayments need to be built into the fabric of the web. The issues described in here are all real, and I think they are being overly limited in just considering crawling. This is an ideal surface area for crypto. It would be very easy for websites to advertise an address that payments should go to. In addition, I think we need to be considering the idea of every website having an MCP endpoint, as well as an Agent that other Agents could talk to. My blog could have a "menu" like:
 
@@ -90,11 +92,11 @@ There is increasing cost and capability. This is then direct payment from the re
 
 There is a known need for micropayments and I don't see how any of the traditional financial solutions can meet the need. Digital money, crypto, has the answer.
 
-Link ten. "Experimenting with Apple’s AI models inside Shortcuts – Six Colors"
+Link ten of eleven. "Experimenting with Apple’s AI models inside Shortcuts – Six Colors"
 
 Early examples of using AI calls in Shortcuts. I’m doing this already with the OpenAI API and it is awesome. This will definitely be a power user feature, as is all Shortcuts, but for those that use it I think it will be very powerful.
 
-Link eleven. "Most of us will leave behind a large ‘digital legacy’ when we die. Here’s how to plan what happens to it"
+Link eleven of eleven. "Most of us will leave behind a large ‘digital legacy’ when we die. Here’s how to plan what happens to it"
 
 I've thought some about what will happen to my website and newsletter after I’m gone. It is a much more complicated matter than it seems and it is certainly not just a technical one. Having a digital will is likely a needed thing already. I like the categorical breakdown here.
 
@@ -186,79 +188,81 @@ That's the end of the Journal.
 
 Now, the Briefly section.
 
-Link one. "Harper"
+There are nineteen links this week.
+
+Link one of nineteen. "Harper"
 
 An open-source and "lighter" weight version of Grammarly (which I pay for) that can be run locally? Sounds great. Nicely done Automattic for making this!
 
-Link two. "A practical guide to building agents (PDF)"
+Link two of nineteen. "A practical guide to building agents (PDF)"
 
 Very approachable guide to creating agents and structuring them. Includes Python examples. Simple way to "create your first agent" if you are looking for a cookbook.
 
-Link three. "The Iconfactory: Pixel Portraits"
+Link three of nineteen. "The Iconfactory: Pixel Portraits"
 
 Top notch artist crafted pixel PFPs.
 
-Link four. "Mechanical Watch: Exploded View - Fredrik F. Ellertsen"
+Link four of nineteen. "Mechanical Watch: Exploded View - Fredrik F. Ellertsen"
 
 What a wonderful project and the finished cast is so cool looking. I'd love to see one of these in person. Built off blog post about how mechanical watch movements work.
 
-Link five. "WebAIM: History of the browser user-agent string"
+Link five of nineteen. "WebAIM: History of the browser user-agent string"
 
 Wild history of the User-Agent string.
 
-Link six. "Google announces Gemini CLI: your open-source AI agent"
+Link six of nineteen. "Google announces Gemini CLI: your open-source AI agent"
 
 Gemini is now available in your terminal too.
 
-Link seven. "Fun with uv and PEP 723"
+Link seven of nineteen. "Fun with uv and PEP 723"
 
 I wasn't familiar with uv but this blog post does a great job highlighting how superior it is for Python package management. Also see using with Django.
 
-Link eight. "Using AI Right Now: A Quick Guide - by Ethan Mollick"
+Link eight of nineteen. "Using AI Right Now: A Quick Guide - by Ethan Mollick"
 
 I recently read Mollick's book Co-Intelligence and thought it was great. I would recommend it to anyone that is trying to think through how AI will integrate into various parts of society. If you are wondering where to start, this article is a good step-by-step to just walk through the basics of AI use cases.
 
-Link nine. "tabiew: A lightweight TUI application to view and query tabular data files, such as CSV, TSV, and parquet"
+Link nine of nineteen. "tabiew: A lightweight TUI application to view and query tabular data files, such as CSV, TSV, and parquet"
 
 I installed this via brew and happened to have a CSV for a CustomGPT on the desktop and it works nice.
 
-Link ten. "Barcode Tool - Generator and Scanner"
+Link ten of nineteen. "Barcode Tool - Generator and Scanner"
 
 Simple web app to make a variety of machine readable things. You can put an image in the middle like this.
 
-Link eleven. "Atuin - Magical Shell History"
+Link eleven of nineteen. "Atuin - Magical Shell History"
 
 Shell history power tool that even includes fully encrypted history sync across multiple devices. Very nice!
 
-Link twelve. "See the Mind-Blowing First Images From a Revolutionary New Telescope"
+Link twelve of nineteen. "See the Mind-Blowing First Images From a Revolutionary New Telescope"
 
 This is incredible.
 
-Link thirteen. "How 100 Enterprise CIOs Are Building and Buying Gen AI in twenty twenty five | Andreessen Horowitz"
+Link thirteen of nineteen. "How 100 Enterprise CIOs Are Building and Buying Gen AI in twenty twenty five | Andreessen Horowitz"
 
 Good overview of 16 criteria to consider. I don't see the switching costs issue, in fact I see the opposite. But I can see how vendors will drive lock-in with additional features on top.
 
-Link fourteen. "Getting Started with Obsidian Bases - Obsidian Rocks"
+Link fourteen of nineteen. "Getting Started with Obsidian Bases - Obsidian Rocks"
 
 I abandoned Obsidian and its infinite complexity, but for those that use it this looks cool.
 
-Link fifteen. "Perplexity's new AI features are a game changer. Here's how to make the most of them - Fast Company"
+Link fifteen of nineteen. "Perplexity's new AI features are a game changer. Here's how to make the most of them - Fast Company"
 
 Perplexity is leading the pack on a bunch of "productize AI" for regular use cases. They are not a Frontier Model creator and use other models.
 
-Link sixteen. "CC Signals: A New Social Contract for the Age of AI - Creative Commons"
+Link sixteen of nineteen. "CC Signals: A New Social Contract for the Age of AI - Creative Commons"
 
 This is very early but I’m liking that Creative Commons is branching out beyond copyright and license into additional uses with this new offering.
 
-Link seventeen. "From pair to peer programmer: Our vision for agentic workflows in GitHub Copilot - The GitHub Blog"
+Link seventeen of nineteen. "From pair to peer programmer: Our vision for agentic workflows in GitHub Copilot - The GitHub Blog"
 
 Engineering teams creating software are going to be the first teams that have Agents as fully understood teammates. But they will only be the first, this will be the norm for many if not most and eventually all jobs.
 
-Link eighteen. "My Couples Retreat With 3 AI Chatbots and the Humans Who Love Them | WIRED"
+Link eighteen of nineteen. "My Couples Retreat With 3 AI Chatbots and the Humans Who Love Them | WIRED"
 
 I unintentionally read most or all of this. Kind of wild stuff.
 
-Link nineteen. "PNG is back!"
+Link nineteen of nineteen. "PNG is back!"
 
 I didn’t realize how frozen the PNG specification had been. Good to see it wake up and get these basics added in.
 

@@ -8,7 +8,9 @@ I've been finding myself already pining for summer. Given that we are just now t
 
 Now, the Must Read section.
 
-Link one. "How Will You Measure Your Life?"
+There are three links this week.
+
+Link one of three. "How Will You Measure Your Life?"
 
 Clayton Christensen, author of The Innovators Dilemma, passed away last week, and many people were sharing talks and articles by him. This article was by far the most recommended, and I had not read it. I strongly encourage reading it, maybe multiple times.
 
@@ -18,7 +20,7 @@ End quote.
 
 That resource of time, and where you put it, is so critical.
 
-Link two. "Stripe — The Developer Coefficient: Software engineering efficiency and its 3 trillion dollars impact on global GDP"
+Link two of three. "Stripe — The Developer Coefficient: Software engineering efficiency and its 3 trillion dollars impact on global GDP"
 
 Some fascinating economics outlined here, but the major punchline is:
 
@@ -34,7 +36,7 @@ There probably is no such thing as a Unicorn valley of mystical code that requir
 
 Add to the mix that all software development is still such an imprecise and immature craft, and you see a lot of potential for improvement over time. The kicker, though, is that even with the potential improvement, the growth in demand likely still outstrips the potential growth in efficiency.
 
-Link three. "Sexism: Just Another Day as a Woman In Tech - Snort Out Loud"
+Link three of three. "Sexism: Just Another Day as a Woman In Tech - Snort Out Loud"
 
 Male leaders and executives read this.
 

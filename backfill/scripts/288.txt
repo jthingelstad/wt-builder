@@ -10,7 +10,9 @@ Have a great day!
 
 Now, the Featured section.
 
-Link one. "“Link In Bio” is a slow knife - Anil Dash"
+There is one link this week.
+
+Link one of one. "“Link In Bio” is a slow knife - Anil Dash"
 
 I've honestly never thought of the link as anything other than a simple utility feature of the web. But maybe it is much more. Maybe it is one of the primary ways to express yourself on the web, not requiring any permission or special access to connect things together wherever you want.
 
@@ -42,11 +44,13 @@ That's the end of Featured.
 
 Now, the Notable section.
 
-Link one. "Hackerverse"
+There are seven links this week.
+
+Link one of seven. "Hackerverse"
 
 This map of ideas from Hacker News is kind of fun to explore. The blog post introducing and giving overview of it is very interesting as well. The connected-ness of the various topics is fun to explore. I found it accurate for example that it put crypto on a connected island off to the side.
 
-Link two. "Cubic millimetre of brain mapped in spectacular detail"
+Link two of seven. "Cubic millimetre of brain mapped in spectacular detail"
 
 It is completely amazing how much is happening in this single cubic millimeter!
 
@@ -56,7 +60,7 @@ End quote.
 
 1.4 petabytes in a millimeter? This sort of analysis makes me wonder if there is a concept of a digital brain as compared to an human brain the foundational structures are so different. Might this be where some of the very wild things in quantum computing make a difference?
 
-Link three. "It's always TCP_NODELAY. Every damn time. - Marc's Blog"
+Link three of seven. "It's always TCP_NODELAY. Every damn time. - Marc's Blog"
 
 Distributed systems are hard to build and scale. There are so many components to making them work. And the depth of knowledge in all the various stacks makes it even harder. Including the network…
 
@@ -64,19 +68,19 @@ Quote.
 The first thing I check when debugging latency issues in distributed systems is whether TCP_NODELAY is enabled. And it's not just me. Every distributed system builder I know has lost hours to latency issues quickly fixed by enabling this simple socket option, suggesting that the default behavior is wrong, and perhaps that the whole concept is outmoded.
 End quote.
 
-Link four. "Backward Walking Is the Best Workout You're Not Doing | TIME"
+Link four of seven. "Backward Walking Is the Best Workout You're Not Doing | TIME"
 
 Tammy and I have been thinking about stability and mobility work and particularly avoiding falls as you age. In fact Peter Attia had a recent episode of The Drive all on foot health that was incredible to listen to. There is a lot going on in our lower leg and feet that we really don't pay much of any attention to. This backward walking exercise sounds really interesting, and we are lucky enough to have a treadmill that can do the neutral feature like they reference. Think I'll give this a go.
 
-Link five. "Daring Fireball: The M4 iPad Pros"
+Link five of seven. "Daring Fireball: The M4 iPad Pros"
 
 I am sort of in the market for a new iPad so I read this review with a little more anticipation. I always prefer Gruber's write-ups on new Apple hardware. He's got decades of experience with the lineup. He takes a little different trip than other reviewers on this one, spending some time reframing iPadOS and macOS and what the intended market is for these new, incredibly powerful iPads. Am I going to upgrade from my several year old iPad Pro to the new one? Probably. The biggest issue with iPad upgrades is even one that is fairly old still works so great.
 
-Link six. "OpenAI debuts GPT-4o 'omni' model now powering ChatGPT | TechCrunch"
+Link six of seven. "OpenAI debuts GPT-4o 'omni' model now powering ChatGPT | TechCrunch"
 
 GPT-4 now better in every way. Notable about this release "in OpenAI’s API and Microsoft’s Azure OpenAI Service, GPT-4o is twice as fast as, half the price of and has higher rate limits than GPT-4 Turbo". That is a big deal for people building off of this service. Speed and cost are some of the largest limiters right now. A number of other announcements that feel like OpenAI is getting a better understanding of how you productize the LLM capability.
 
-Link seven. "We Are the Curators of the Web - I am BARRY HESS"
+Link seven of seven. "We Are the Curators of the Web - I am BARRY HESS"
 
 I dig my friend Barry's take on curating the web. Fundamentally he's going to the importance of a vibrant and diverse web, connected with hyperlinks, and all of us sharing what resonates with others. Not in a proprietary social network driven by surveillance. Just on the web.
 
@@ -132,47 +136,49 @@ That's the end of the Journal.
 
 Now, the Briefly section.
 
-Link one. "AI at Work Is Here. Now Comes the Hard Part"
+There are eleven links this week.
+
+Link one of eleven. "AI at Work Is Here. Now Comes the Hard Part"
 
 Microsoft has a ton to gain from AI adoption so take with a grain of salt a giant research report from Microsoft about AI and work. However, this is loaded with statistical data and information.
 
-Link two. "Record-breaking increase in CO2 levels in world’s atmosphere | The Guardian"
+Link two of eleven. "Record-breaking increase in CO2 levels in world’s atmosphere | The Guardian"
 
 I struggle with how to put any context around global warming indicators. It is all going "the wrong way" but even as someone that wants to understand it I don't know how to contextualize is, much less action it.
 
-Link three. "Chapter I: The birth of Parquet | The Sympathetic Ink Blog"
+Link three of eleven. "Chapter I: The birth of Parquet | The Sympathetic Ink Blog"
 
 Good blog post on the origin of Parquet and what makes it work so well.
 
-Link four. "Symbolica"
+Link four of eleven. "Symbolica"
 
 Interesting language for algebra. Reminds me a bit of something from Mathematica.
 
-Link five. "Sci-Fi Author J.G. Ballard Predicts the Rise of Social Media (1977) | Open Culture"
+Link five of eleven. "Sci-Fi Author J.G. Ballard Predicts the Rise of Social Media (1977) | Open Culture"
 
 Very prescient.
 
-Link six. "Hackers discover how to reprogram NES Tetris from within the game | Ars Technica"
+Link six of eleven. "Hackers discover how to reprogram NES Tetris from within the game | Ars Technica"
 
 Wild article about injecting code into Tetris running on a console. Amazing what folks can figure out.
 
-Link seven. "Immersive Math"
+Link seven of eleven. "Immersive Math"
 
 This is an impressive example of what every textbook should be like. Interactive and easy to explore the concepts.
 
-Link eight. "Manifesto for a Humane Web"
+Link eight of eleven. "Manifesto for a Humane Web"
 
 I've seen many of these type of things and don't suspect any get real momentum, but I appreciate the intent and framing that each provide.
 
-Link nine. "The Great Flattening – Stratechery by Ben Thompson"
+Link nine of eleven. "The Great Flattening – Stratechery by Ben Thompson"
 
 Thompson's reflections on the backlash around Apple's Crush ad and putting it more in the context of aggregation over the last decades of tech growth.
 
-Link ten. "Bitcoin's Halving Aftermath"
+Link ten of eleven. "Bitcoin's Halving Aftermath"
 
 As Bitcoin mining rewards continue to get cut in half every four years the Bitcoin ecosystem will need to transition to a self-sustaining model based only on mining fees.
 
-Link eleven. "Cloudflare’s public IPFS gateways and supporting Interplanetary Shipyard"
+Link eleven of eleven. "Cloudflare’s public IPFS gateways and supporting Interplanetary Shipyard"
 
 IPFS is a technology I want to see work but I find it so difficult to use, and if I think that, well that says something. I've read this a couple of times and Cloudflare seems to try to spin this to a positive but isn't it really just saying that Cloudflare is no longer going to support an IPFS bridge? That doesn't seem good for IPFS.
 

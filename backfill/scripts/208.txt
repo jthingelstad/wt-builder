@@ -14,11 +14,13 @@ So yeah, a lot has been happening. But now we are here, back with Weekly Thing #
 
 Now, the Featured section.
 
-Link one. "GPS – Bartosz Ciechanowski"
+There are three links this week.
+
+Link one of three. "GPS – Bartosz Ciechanowski"
 
 Even if you know how the GPS system works this article is worth spending some time on. It is an incredibly well done explainer of the location techniques used by GPS, and the interactive diagrams do a great job of illustrating the concepts right in front of your eyes. This will give you a detailed understanding of how these little devices can tell you where you are, anywhere in the world.
 
-Link two. "The Intel Split – Stratechery by Ben Thompson"
+Link two of three. "The Intel Split – Stratechery by Ben Thompson"
 
 Intel is in a tough place right now, and new CEO Pat Gelsinger is making some pretty incredible bets to turn the ship around. I can’t help but want to root for Intel. They are a stalwart of technology, and we need to have multiple companies innovating for the best circuits.
 
@@ -36,7 +38,7 @@ End quote.
 
 This is a huge bet. I hope it works out!
 
-Link three. "Coronavirus: Game Over - by Tomas Pueyo"
+Link three of three. "Coronavirus: Game Over - by Tomas Pueyo"
 
 Omicron is sweeping the country. At this point every day I hear people that have tested positive. It is just everywhere. I think this article does a good job articulating where we are hopefully heading. How are we all going to adapt?
 
@@ -60,11 +62,13 @@ That's the end of Currently.
 
 Now, the Notable section.
 
-Link one. "Twitter brings NFTs to the timeline as hexagon-shaped profile pictures - The Verge"
+There are nine links this week.
+
+Link one of nine. "Twitter brings NFTs to the timeline as hexagon-shaped profile pictures - The Verge"
 
 This seems like an obvious way for Twitter to dip their toes into some web3 ownership concepts. The hexagon is needed to tell it is a different type of profile. It would be even cooler if they connected this to your ENS profile, and used NFT Avatar support from ENS to configure.
 
-Link two. "Opera launches a dedicated crypto browser | Engadget"
+Link two of nine. "Opera launches a dedicated crypto browser | Engadget"
 
 I dig what Opera is doing with this experiment and it is one of the clear next steps we need to see to make the crypto stack more accessible.
 
@@ -74,7 +78,7 @@ End quote.
 
 It is worth reading the full announcement for all the details. Opera has been experimenting in this space for a while.
 
-Link three. "Call to Arms: Make customer support stats public"
+Link three of nine. "Call to Arms: Make customer support stats public"
 
 This is a first that I have ever seen.
 
@@ -86,7 +90,7 @@ It is an interesting idea, but I’m not sure how useful it really is. Status Pa
 
 Additionally with support there are a lot of differences in what good support looks like and how companies measure it. It also could drive very poor behavior like providing a first response to live chat, and then ignoring for several minutes. Support is a very complicated domain and hard to compare as they are suggesting.
 
-Link four. "Becoming a Better Writer in Tech - The Pragmatic Engineer"
+Link four of nine. "Becoming a Better Writer in Tech - The Pragmatic Engineer"
 
 Written text is still the best way of communicating our ideas. In fact, it is also a great way to vet our own ideas. I agree with Orosz and think that writing is key to so many things.
 
@@ -96,11 +100,11 @@ End quote.
 
 I like the steps and practical suggestions he makes. I also use Grammarly for my writing. On of the benefits I hope to get from publishing the Weekly Thing is to become a better writer over time.
 
-Link five. "An Anatomy of Bitcoin Price Manipulation – Single Lunch"
+Link five of nine. "An Anatomy of Bitcoin Price Manipulation – Single Lunch"
 
 This is a very detailed analysis of some material price movement in Bitcoin and how manipulation may have move the market. I’m reminded how sophisticated the trading algorithms are, and in crypto they are even more aggressive. I’m bullish on crypto tech, but if manipulation like this is happening it needs to be addressed.
 
-Link six. "POAP inc. raises 10 million dollars to accelerate human development | POAP"
+Link six of nine. "POAP inc. raises 10 million dollars to accelerate human development | POAP"
 
 POAP is one of my very favorite crypto projects out there. I like collecting things, and creating events and distributing tokens to friends around things that happen in-real-life is fun. I've created POAP events for many things. The project is very successful and has struggled to deal with growing pains. In the last 3-4 months they started to make some significant changes to set themselves up for the next phase. Overall, I’m excited for the team that they have formalized the project to a company, and they have successfully raised funding to help make it all work. TechCrunch article is also good.
 
@@ -108,11 +112,11 @@ That's the good.
 
 However, I scratch my head at why crypto projects like POAP take a traditional approach like this. POAP could have also formalized itself around a DAO. It could have allowed people to buy in and be part of it. Instead they pursued a closed, traditional means of raising money. Opensea also did this recently. I can give Opensea a bit of a pass because they are so much bigger, but I think POAP could have taken a different path. Maybe they will get there and transition similar to how ENS has…
 
-Link seven. "How Omicron Symptoms Differ From Delta, Past COVID-19 Variants"
+Link seven of nine. "How Omicron Symptoms Differ From Delta, Past COVID-19 Variants"
 
 All the symptoms I experienced were spot on with Omicron. Most notable symptom for me was the fatigue. I was incredibly tired.
 
-Link eight. "Living on 24 Hours a Day | Justin Fuller"
+Link eight of nine. "Living on 24 Hours a Day | Justin Fuller"
 
 This reflection of How to Live on 24 Hours a Day hits on something that I know I feel. Don't fractionalize your attention. Don't do three things a little bit. You don't get the value of any of them.
 
@@ -120,7 +124,7 @@ Quote.
 He suggests that we use the evenings for learning. About what? It doesn’t matter, really. But you should spend your time learning about something. Ideally, something you care about. If you have a hobby or interest, learn about that. It could be music, movies, sports, or anything else. The point is that you spend your time learning about something you’re interested in so that you experience it more deeply. Perhaps you don’t have hobbies, or you’re looking for something a little deeper. Here, he suggests learning about science, history, or philosophy. Spending a few hours each night reading Epictetus, Epicurus, and others can help you develop a framework for thinking about life in a deeper and more meaningful way. And that’s exactly the point of the morning time he asks us to set aside. To think about life and reflect. Now, this isn’t meant to be idle thinking. Instead, it should be dedicated and focused reflection. It will require focus, which may be tough at first (it’s still tough for me).
 End quote.
 
-Link nine. "I Think I Know Why You Can't Hire Engineers Right Now"
+Link nine of nine. "I Think I Know Why You Can't Hire Engineers Right Now"
 
 There is a lot of truth in this article.
 
@@ -164,23 +168,25 @@ That's the end of the Journal.
 
 Now, the Briefly section.
 
-Link one. "Using Shortcuts and Data Jar to Store and Share Multiple Links"
+There are five links this week.
+
+Link one of five. "Using Shortcuts and Data Jar to Store and Share Multiple Links"
 
 I use Data Jar extensively with Shortcuts. Having a cloud synchronized shared data store that you can use between various Shortcuts is a game changer. This article is just one example of what you can do.
 
-Link two. "TinyBase"
+Link two of five. "TinyBase"
 
 Powerful and extremely small "only costs 2.6kB - 5.6kB when compressed, and has zero dependencies" library to manage state data in Javascript.
 
-Link three. "Introducing the NFT Security Group"
+Link three of five. "Introducing the NFT Security Group"
 
 Interesting to see the layers that this new group is going to focus on. Given the amount of investment in NFTs this make sense.
 
-Link four. "Empirical Analysis of EIP-1559: Transaction Fees, Waiting Time, and Consensus Security"
+Link four of five. "Empirical Analysis of EIP-1559: Transaction Fees, Waiting Time, and Consensus Security"
 
 Incredible detail on the impact EIP-1559 has had on Ethereum transactions.
 
-Link five. "Filecoin in twenty twenty one: Looking Back at a Year of Exponential Growth"
+Link five of five. "Filecoin in twenty twenty one: Looking Back at a Year of Exponential Growth"
 
 Total capacity in Filecoin network has grown more than 7x, but utilization is extremely slow and grown less than 2x in same period. Overall storage utilization is very low at just 1.7%.
 

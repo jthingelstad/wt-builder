@@ -8,7 +8,9 @@ And now, let's get to the links from the week…
 
 Now, the Featured section.
 
-Link one. "Cloudflare’s Disruption – Stratechery by Ben Thompson"
+There are two links this week.
+
+Link one of two. "Cloudflare’s Disruption – Stratechery by Ben Thompson"
 
 Ben Thompson sharing some brilliant observations on the strategy that Cloudflare is pursuing in the cloud market. Tons of Clay Christensen references here from both Thompson and Matthew Prince of Cloudflare.
 
@@ -20,7 +22,7 @@ I've got a lot of respect for Cloudflare. They have built incredible, foundation
 
 This will be very interesting to watch over the coming years.
 
-Link two. "Pickup truck runs over 6 cyclists in Waller County, 4 people hospitalized"
+Link two of two. "Pickup truck runs over 6 cyclists in Waller County, 4 people hospitalized"
 
 In two thousand one I flew to Fredericksburg, Texas with my bike to take part in Hell Week Texas, 8 days riding 100-mile century ride each day. Texas Hill Country has some immense climbs, so it is great for training. The roads are also very nicely paved so it’s great riding.
 
@@ -44,7 +46,9 @@ That's the end of Currently.
 
 Now, the Notable section.
 
-Link one. "AWS Step Functions Supports 200 AWS Services To Enable Easier Workflow Automation | AWS News Blog"
+There are eleven links this week.
+
+Link one of eleven. "AWS Step Functions Supports 200 AWS Services To Enable Easier Workflow Automation | AWS News Blog"
 
 This is a pretty massive expansion in capability for Step Functions.
 
@@ -54,19 +58,19 @@ End quote.
 
 You can now create much more sophisticated functions in Lambda that you can then build on top of for more server-less solutions.
 
-Link two. "My Dad | Humidity and Hope"
+Link two of eleven. "My Dad | Humidity and Hope"
 
 I follow Hugh Hollowell's newsletter. He writes from a very personal place. This writeup about losing his Dad a year ago to COVID is touching.
 
-Link three. "fractional.art"
+Link three of eleven. "fractional.art"
 
 Service to allow people to buy NFT's in groups, or buy just parts of an NFT. This doesn't look to be a DAO like Flamingo, but has very similar characteristics. Via Nifty Tables.
 
-Link four. "I Just Don’t Want to Be Busy Anymore by Elena Salaks | Forge"
+Link four of eleven. "I Just Don’t Want to Be Busy Anymore by Elena Salaks | Forge"
 
 There have been a couple of times in my career that I truly entered a "burnout" phase. Once you start to figure out some signs that you can detect, I think you can manage and make less pronounced changes to modulate your energy. The most important take away from this article is having the dialog with your manager and being open about it. I suspect that many people that experience these burnout feelings are important members of a team, and it is in the best interests of the team to help people not get burnt out.
 
-Link five. "Masked Email from Fastmail and 1Password protects your identity online"
+Link five of eleven. "Masked Email from Fastmail and 1Password protects your identity online"
 
 Masking your email address is a really powerful tool to protect your privacy online. It is common for services to generate a token or hash from your email address and use that to target and profile you. So, even though you of course use different passwords everywhere, you can easily be tracked and matched if you use the same email address. However, using different email addresses takes time. I've been doing this with Fastmail's previous routing support, but this new masked mail service works for sending too and gives you metrics on how frequently the email address is used.
 
@@ -74,15 +78,15 @@ Now, connecting it to 1Password is a stroke of genius. When registering a new ac
 
 I've been a happy customer (family accounts!) of both Fastmail and 1Password for years now. I highly recommend both of them.
 
-Link six. "Bunches • Start Your Bunch"
+Link six of eleven. "Bunches • Start Your Bunch"
 
 Interesting service that lets you create a topical Twitter-like experience, but just for that topic. You can be in multiples. Sort of like IRC channels really. Even supports paid channels.
 
-Link seven. "The Diamond"
+Link seven of eleven. "The Diamond"
 
 Mesmerizing 16-minute video with people searching for diamonds atop an ancient volcano. Not really about the diamonds, but about the stories, and the people. The interview with the director is a good read too.
 
-Link eight. "The Most Important iPhone Ever – Asymco"
+Link eight of eleven. "The Most Important iPhone Ever – Asymco"
 
 I waited in line for that very first iPhone. It has been amazing to see this device revolutionize so much around us.
 
@@ -92,7 +96,7 @@ End quote.
 
 Honestly we may never see another product as disruptive as this in our lifetime.
 
-Link nine. "The Internet's Original Sin by Charlie Warzel - Galaxy Brain"
+Link nine of eleven. "The Internet's Original Sin by Charlie Warzel - Galaxy Brain"
 
 Great dive into the incredibly complex world of online advertising, and the impacts on our privacy and much more.
 
@@ -100,11 +104,11 @@ Quote.
 But the more I started reporting on digital privacy issues, the more it became extremely clear that this huge, opaque online advertising ecosystem was a lucrative blackbox, powered by our personal data. It grew faster than anyone could regulate it, so it was barely regulated. It was (is) ripe with billions of dollars of fraud per year (52 billion dollars in twenty twenty). And because the system is so hard to understand, it’s ripe for bad actors to use it to pollute the internet with garbage ads. The online ad ecosystem is helping to fund most every publication — including those that spew hate or misinformation. The online ads game is at the center of Google and Facebook’s dominance, too. Most everything bad about the internet (and a lot of good things too) has at least a little bit to do with this ecosystem.
 End quote.
 
-Link ten. "'Float,' a film shot on iPhone - YouTube"
+Link ten of eleven. "'Float,' a film shot on iPhone - YouTube"
 
 This is a beautiful and touching short film about a daughter and father. Notable that it is shot directly on an iPhone 13 Pro using the new cinematic capabilities. But honestly, its just a great 3 minutes. via Daring Fireball.
 
-Link eleven. "How Big Tech Runs Tech Projects and the Curious Absence of Scrum - The Pragmatic Engineer"
+Link eleven of eleven. "How Big Tech Runs Tech Projects and the Curious Absence of Scrum - The Pragmatic Engineer"
 
 It is certainly common for people to look at other companies and try to emulate what they do hoping to have the same successes. This article looks at team practices to deliver software, and there really is no correlation. This doesn't surprise me at all. The way that you choose to build software is not based solely on the size of your organization, it has a ton of other inputs, most of which are more important than size. The short answer here is that each company has to figure out how to best deliver software for their situation. Sorry, there are no shortcuts here.
 
@@ -168,35 +172,37 @@ That's the end of Reply All.
 
 Now, the Briefly section.
 
-Link one. "12 Things Smart Leaders Don’t Say | Leadership Freak"
+There are eight links this week.
+
+Link one of eight. "12 Things Smart Leaders Don’t Say | Leadership Freak"
 
 Simple, direct. Good things to keep in mind.
 
-Link two. "Simone Biles Chose Herself"
+Link two of eight. "Simone Biles Chose Herself"
 
 Good article with Simone Biles catching up with her since her decision to not compete in Tokyo. Our family was eager to watch her sweep the medals, and it was shocking when she decided to withdraw.
 
-Link three. "Jade Denson to Lead MnTech Talent Initiatives » MnTech"
+Link three of eight. "Jade Denson to Lead MnTech Talent Initiatives » MnTech"
 
 I've gotten to work with Jade Denson at MnTech and I am super excited about her leading up this effort!
 
-Link four. "How Experts Overlooked Left-Wing Authoritarianism - The Atlantic"
+Link four of eight. "How Experts Overlooked Left-Wing Authoritarianism - The Atlantic"
 
 Authoritarianism comes in all different flavors. That really should not be surprising at all. The authoritarian part comes before the flavor that that particular group or individual pursuits.
 
-Link five. "A hamster has been trading cryptocurrencies in a cage rigged to automatically buy and sell tokens since June - and it's currently outperforming the S and P 500 | Markets Insider"
+Link five of eight. "A hamster has been trading cryptocurrencies in a cage rigged to automatically buy and sell tokens since June - and it's currently outperforming the S and P 500 | Markets Insider"
 
 This is so great.
 
-Link six. "Twitter accelerates again with Bitcoin tips, NFTs, recorded Spaces, creator fund and more | TechCrunch"
+Link six of eight. "Twitter accelerates again with Bitcoin tips, NFTs, recorded Spaces, creator fund and more | TechCrunch"
 
 It is fun to see Twitter trying stuff, innovating, again.
 
-Link seven. "iPadOS 15 Walkthrough: EVERYTHING You Need To Know! - YouTube"
+Link seven of eight. "iPadOS 15 Walkthrough: EVERYTHING You Need To Know! - YouTube"
 
 Incredibly detailed and thorough walk-through of all the new stuff in iPadOS 15. If video is your preferred way of learning, I can guarantee you will find some new stuff in here.
 
-Link eight. "An ultimate guide to memory palaces"
+Link eight of eight. "An ultimate guide to memory palaces"
 
 If you are looking for a method to remember a large number of things, memory palaces are a well known solution.
 

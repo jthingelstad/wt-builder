@@ -6,7 +6,9 @@ Let's get right onto the links shall we!
 
 Now, the Featured section.
 
-Link one. "The Omicron situation - by Noah Smith - Noahpinion"
+There is one link this week.
+
+Link one of one. "The Omicron situation - by Noah Smith - Noahpinion"
 
 The graphic in this article showing the genetic difference of Omicron versus other COVID-19 variants is stark. It is in another path entirely. What we know about this new variant is much less than what we don't know. We've been masking much more again, and happily we now have all of our family fully vaccinated and soon boosters too. Stay safe and maintain some cautions is my take.
 
@@ -14,19 +16,21 @@ That's the end of Featured.
 
 Now, the Notable section.
 
-Link one. "SPS Commerce CEO: How A Miserable Job Can Pay Off | Investor's Business Daily"
+There are twelve links this week.
+
+Link one of twelve. "SPS Commerce CEO: How A Miserable Job Can Pay Off | Investor's Business Daily"
 
 This is a great interview with our CEO Archie Black. Everything in here is spot on and Archie's focus on our local community comes through very strong. Lead the way #TeamSPS!
 
-Link two. "The Financialization of Everything - The Atlantic"
+Link two of twelve. "The Financialization of Everything - The Atlantic"
 
 Broad and accessible overview of some theories around tokenization of some very unfamiliar things, like social tokens. This is an interesting taste. If it is interesting I'd recommend the book Radical Markets for a much more thorough exercise of bringing market dynamics into new places. Some of this is interesting, and some feels like it would be a mistake. Not sure which is which though.
 
-Link three. "How to Become an Awesome Hybrid Leader - Matt Norman"
+Link three of twelve. "How to Become an Awesome Hybrid Leader - Matt Norman"
 
 My friend Matt Norman and I were catching up and we got to talking about engaging in hybrid environments and maintaining connections during these times of great change. He wrote up a great post that hits on some of the key points.
 
-Link four. "Ten trends to watch in the coming year | The Economist"
+Link four of twelve. "Ten trends to watch in the coming year | The Economist"
 
 This list of ten trends to watch in twenty twenty two seems spot on.
 
@@ -36,7 +40,7 @@ End quote.
 
 All big stuff with large potential impacts.
 
-Link five. "Thanksgiving’s biggest online shopping day was Cyber Monday, but other days were close behind"
+Link five of twelve. "Thanksgiving’s biggest online shopping day was Cyber Monday, but other days were close behind"
 
 Interesting analysis of aggregate e-commerce traffic around Cyber Monday.
 
@@ -46,7 +50,7 @@ End quote.
 
 It is interesting that there were such high volume days earlier in November. It certainly seems that something pushed more buying activity earlier in the season than normal. My best guess is that all the news of supply chain issues got many shoppers to place orders significantly earlier than they normally would. Retailers have also been attempted to "flatten the curve" for years and perhaps they had more success this year than they have in the past.
 
-Link six. "New Concerning Variant: B.1.1.529 - by Katelyn Jetelina - Your Local Epidemiologist"
+Link six of twelve. "New Concerning Variant: B.1.1.529 - by Katelyn Jetelina - Your Local Epidemiologist"
 
 Early reaction to the findings around what we now know as Omicron.
 
@@ -56,15 +60,15 @@ End quote.
 
 Keep your masks around, and get your booster shots.
 
-Link seven. "The Internet is Held Together With Spit and Baling Wire"
+Link seven of twelve. "The Internet is Held Together With Spit and Baling Wire"
 
 It is incredible that MAIL-FROM was ever considered a valid means of authenticating a message between the operators running the backbones connecting the internet. It is an interesting problem, how do the core network backbone operators share the running configuration of the Internet and affect changes without opening up compromise vectors.
 
-Link eight. "Europe must ban Bitcoin mining to hit the 1.5C Paris climate goal, say Swedish regulators | Euronews"
+Link eight of twelve. "Europe must ban Bitcoin mining to hit the 1.5C Paris climate goal, say Swedish regulators | Euronews"
 
 People often highlight a threat to crypto is governments shutting it down. I’m dubious of more open governments doing that mostly because it wouldn't play well. However, there is this growing climate change storyline that is being built around crypto and I would be watching for politicians attempting to use this to try and block something that they worry may cause them some loss of control.
 
-Link nine. "Is Crypto Bullshit? - Will Wilkinson, Model Citizen"
+Link nine of twelve. "Is Crypto Bullshit? - Will Wilkinson, Model Citizen"
 
 I wish I would have written this blog post, because my experience mirrors it completely. And in all areas. Wilkinson first addresses the strong opinions that people have on crypto tech.
 
@@ -82,7 +86,7 @@ End quote.
 
 It is so important to make time to directly engage with new technologies.
 
-Link ten. "Overengineering can kill your product - Mind the Product"
+Link ten of twelve. "Overengineering can kill your product - Mind the Product"
 
 Good article and a topic that I often doesn't get enough attention. I've seen projects fail because of this. I particularly appreciate the early optimization pattern highlighted.
 
@@ -94,11 +98,11 @@ If you are optimizing before you are in production and have real data it is like
 
 The other pattern I've seen is Excessive Abstractions, where engineers seek to make a very agile and extensible solution, but then end up building abstractions on abstractions over and over, until you cannot even see the problem that you are solving anymore.
 
-Link eleven. "Crypto design challenges"
+Link eleven of twelve. "Crypto design challenges"
 
 This is a great overview of all the issues that need to be overcome for crypto to be able to gain mass adoption. We are still in early times and many of these friction points limit use to only technical folks or people that are particularly motivated.
 
-Link twelve. "11 rules for buying an ebike, and the 11 ebikes to buy now"
+Link twelve of twelve. "11 rules for buying an ebike, and the 11 ebikes to buy now"
 
 Great overview of things to consider when buying an ebike. It feels like there is a tremendous amount of innovation to happen with ebikes. I didn’t realize that some of them are building in anti-theft systems. That would be a huge deal. Leaving your bike when you run errands is always worrisome.
 
@@ -195,19 +199,21 @@ That's the end of Reply All.
 
 Now, the Briefly section.
 
-Link one. "Give the gift of crypto this holiday season"
+There are four links this week.
+
+Link one of four. "Give the gift of crypto this holiday season"
 
 Smart new offering from Coinbase. Send some crypto to friends for Christmas!
 
-Link two. "Townscaper on the Web"
+Link two of four. "Townscaper on the Web"
 
 Townscaper is a fun Zen game where you build these cities. The author decided to make a surprisingly workable demo version that you can run in any web browser. It takes a while to load.
 
-Link three. "Square changes corporate name to Block"
+Link three of four. "Square changes corporate name to Block"
 
 Now that Dorsey is just focused on Square and no longer doing part-time at Twitter, I think we will see, err, Block move faster on crypto efforts.
 
-Link four. "Why We Need to Upgrade Our Face Masks--and Where to Get Them - Scientific American"
+Link four of four. "Why We Need to Upgrade Our Face Masks--and Where to Get Them - Scientific American"
 
 Our whole family uses Enro masks. But if I’m going to be in an environment that I think is particularly higher risk, I try to make sure I have a N95.
 

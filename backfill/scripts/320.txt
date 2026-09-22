@@ -14,15 +14,17 @@ PS: My cousin Josh writes a biweekly column and his most recent one titled Windo
 
 Now, the Notable section.
 
-Link one. "Introducing OpenMemory MCP"
+There are twelve links this week.
+
+Link one of twelve. "Introducing OpenMemory MCP"
 
 MCP-server that you can run locally to expose your information to different models. Interesting way to put your project in one place and then orchestrate with multiple models on different tasks, with them engaging via the MCP. I could see using this to have all issues of the Weekly Thing in an MCP that I can use to research my own archive. Could have another with a complete archive of my blog to "talk to myself". The idea of running small MCP instances is interesting. How about an MCP instance that has downloaded PDF's of all the appliances you have in your home? Add to it all the invoices from various projects you've done. Hmm…
 
-Link two. "Stack overflow is almost dead - The Pragmatic Engineer"
+Link two of twelve. "Stack overflow is almost dead - The Pragmatic Engineer"
 
 Stack Overflow for years was the absolute go to resource for developers, and a number of other folks too. It is notable that they experienced no growth from twenty fourteen and were declining well into the 2020s. ChatGPT was a knockout punch, but there were already on the ropes. Perhaps unsurprisingly, Stack Overflow recently published what's next referencing a full rebranding. The original founders sold at the peak.
 
-Link three. "AI-Generated Law - Schneier on Security"
+Link three of twelve. "AI-Generated Law - Schneier on Security"
 
 Some great context from Schneier on AI assisting with writing and assessing laws. He references some examples of this from five years ago here in the US.
 
@@ -32,15 +34,15 @@ End quote.
 
 This seems like an obvious place that AI can be used by all parties. Writing legislation, and probably all contracts, becomes like chess — where the best players in the world are using machines to assist.
 
-Link four. "AI and Work (Some Predictions) - Cal Newport"
+Link four of twelve. "AI and Work (Some Predictions) - Cal Newport"
 
 Newport on some observations around AI use cases. Overall assessment is spot on, but I think there is a lot more agent potential than is framed up. If folks think of agents as these incredibly powerful tools to do "anything" then I'd be pessimistic. But when you look at home many simple things add friction in companies of any size that a fairly trivial agent could help with, there is a ton of potential. I share his skepticism about AGI.
 
-Link five. "Octopus, solar and e-paper energy dashboards - Interaction Magic"
+Link five of twelve. "Octopus, solar and e-paper energy dashboards - Interaction Magic"
 
 I absolutely adore the simple design of the dashboard to show energy flows. The multiple inputs and even the concept of "export" energy to the grid. Great stuff. At some point we'll have something like this for every home right? A future smart home isn't a bunch of light switches controlled with HomeKit but instead has two or three independent energy production methods and is connected to a smart grid that flexibly pushes and pulls energy. Add to that an in-home private AI agent that can manage the devices in the home based on overall production and we can become incredibly more efficient.
 
-Link six. "How weight-loss wonder drugs are redefining the way our bodies work | The Guardian"
+Link six of twelve. "How weight-loss wonder drugs are redefining the way our bodies work | The Guardian"
 
 I've been taking a GLP-1 drug for a couple of months now and have found it incredibly interesting. More on that for other blog posts, but the impact of these drugs in general is hard to overstate.
 
@@ -50,7 +52,7 @@ End quote.
 
 Yes there are issues to figure out around what to do after, but from my personal experience I feel like these tools are a huge potential for the individual and society.
 
-Link seven. "The Agentic Web and Original Sin – Stratechery by Ben Thompson"
+Link seven of twelve. "The Agentic Web and Original Sin – Stratechery by Ben Thompson"
 
 Imagine this future…
 
@@ -61,7 +63,7 @@ Imagine this future…
 
 This future is where digital currency is required. This is the IndieWeb of the future.
 
-Link eight. "Self-hosting is having a moment. Ethan Sholly knows why. - Ars Technica"
+Link eight of twelve. "Self-hosting is having a moment. Ethan Sholly knows why. - Ars Technica"
 
 As you might expect I do some self-hosting myself, but you also may be surprised that I do a lot less of it than people may think. Why? In the short term this stuff is not that hard, and even fun for folks like me, but the long term support is where challenges come into play. Right now I have two Synology NAS devices that each have 16TB of storage and mirror each other. They are both 9 years old and need to be replaced. I’m so not looking forward to the cost of the replacement, but even more I’m not looking forward to migrating 10TB of data from the old devices to the new, managing the synchronization settings across the devices, and insuring I did it all right!
 
@@ -75,7 +77,7 @@ So for me I have to pick my battles. Mostly I hope to pay for cloud services and
 
 Self-hosting should exist and is good for some folks, but it shouldn't be the only way for us to have privacy.
 
-Link nine. "Ditching Obsidian and building my own"
+Link nine of twelve. "Ditching Obsidian and building my own"
 
 Quoting myself from twenty twenty two:
 
@@ -89,7 +91,7 @@ The siren song of a personal knowledge management system is compelling. But none
 
 I'll pass on being a librarian for my own notes. And certainly wouldn't build my own.
 
-Link ten. "We did the math on AI’s energy footprint. Here’s the story you haven’t heard. | MIT Technology Review"
+Link ten of twelve. "We did the math on AI’s energy footprint. Here’s the story you haven’t heard. | MIT Technology Review"
 
 Good article attempting to get to the bottom of the electricity requirements of AI capabilities. The short answer by the way is it is super complicated because every task is unique, and the required GPU capabilities to serve them are all unique.
 
@@ -101,7 +103,7 @@ We need to understand and manage these loads, but I don't agree with calls that 
 
 Simon Willison did a great writeup on this article too. This article is part of an AI Energy Package if you want to read more.
 
-Link eleven. "AI Age Brings The Biggest Acquhire – Crazy Stupid Tech"
+Link eleven of twelve. "AI Age Brings The Biggest Acquhire – Crazy Stupid Tech"
 
 Om Malik thoughts on OpenAI buying io. His framing as an "acquihire" is actually right, and 6.5 billion dollars for that is wild. That is 118 million dollars for each of the 55-people at io. Wow. It also sets up further options.
 
@@ -111,7 +113,7 @@ End quote.
 
 It does seem worth noting here how wild it is that this is all in private markets. The fact that this amount of money is moving around without a public listing, and notably without any public investors being able to participate in the upside, is eye popping.
 
-Link twelve. "The real value isn’t in the code - Jon Ayre"
+Link twelve of twelve. "The real value isn’t in the code - Jon Ayre"
 
 Good post from Ayre highlighting what a lot of people don't see when teams create software. I think in part there is an almost "magician" aspect to the act of writing software. All the funky syntax, specialized tools and such. To a non-technical person it really does look like magic. But to people experienced in the craft it is the realization of a lot of other inputs. Reading Ayre's essay he uses an example project that he was involved in to show how small the coding part really is. There is a lot of truth to this. People love the "build a house metaphors" with software, even though I think it is fundamentally flawed (your house doesn't move for instance), but to pull from it the coding is probably a bit like just looking at the framing and drywall going up. That isn't a house unless you do all the other stuff.
 
@@ -206,95 +208,97 @@ That's the end of the Journal.
 
 Now, the Briefly section.
 
-Link one. "Internet Artifacts"
+There are twenty three links this week.
+
+Link one of twenty three. "Internet Artifacts"
 
 This is a lovely stroll around the Internet of yore.
 
-Link two. "License Plate Reader Company Flock Is Building a Massive People Lookup Tool, Leak Shows"
+Link two of twenty three. "License Plate Reader Company Flock Is Building a Massive People Lookup Tool, Leak Shows"
 
 Surveillance cameras reading license plate numbers and doing face matching of the driver.
 
-Link three. "Coinbase says customers' personal information stolen in data breach | TechCrunch"
+Link three of twenty three. "Coinbase says customers' personal information stolen in data breach | TechCrunch"
 
 This is a big deal as it potentially connects a lot of identities to on-chain holdings.
 
-Link four. "Pocket is Saying Goodbye: What You Need to Know | Pocket Help"
+Link four of twenty three. "Pocket is Saying Goodbye: What You Need to Know | Pocket Help"
 
 Read it Later services are R.I.P.
 
-Link five. "Starship — Cross-shell Prompt"
+Link five of twenty three. "Starship — Cross-shell Prompt"
 
 For the CLI lovers!
 
-Link six. "Tinfoil ⋅ Confidential AI"
+Link six of twenty three. "Tinfoil ⋅ Confidential AI"
 
 Option to access LLM models with minimal logging and retention. Interesting but does make me wonder how this works for AI. AI is non-deterministic so logging turns out to be really needed. This isn't like running a VPN with no logs.
 
-Link seven. "Julius AI | Your AI Data Analyst"
+Link seven of twenty three. "Julius AI | Your AI Data Analyst"
 
 AI tools are showing up all over the place in developer tools, and now we will start to see them more in data analysis as well. Adding AI to experiences like Jupyter Notebook?
 
-Link eight. "IntelTechniques Data Removal Workbook"
+Link eight of twenty three. "IntelTechniques Data Removal Workbook"
 
 I use DeleteMe because there is so much friction, by design, to data removal services. But this index of various deletion methods may be helpful if you want to do it by hand.
 
-Link nine. "Introducing Codex | OpenAI"
+Link nine of twenty three. "Introducing Codex | OpenAI"
 
 OpenAI with a significantly improved offering for software development. See Simon Willison's Codex writeup as well.
 
-Link ten. "Purdubik's Cube Breaks World Record - YouTube"
+Link ten of twenty three. "Purdubik's Cube Breaks World Record - YouTube"
 
 Love everything about this. So incredibly fast!
 
-Link eleven. "NASA’s Voyager 1 Revives Backup Thrusters Before Command Pause | NASA Jet Propulsion Laboratory (JPL)"
+Link eleven of twenty three. "NASA’s Voyager 1 Revives Backup Thrusters Before Command Pause | NASA Jet Propulsion Laboratory (JPL)"
 
 All the crazy stuff that these Voyager engineers have done just fills me with awe. Seriously, someone go give these folks a medal. This is on a whole different level.
 
-Link twelve. "A decade with the Apple Watch - The New Consumer"
+Link twelve of twenty three. "A decade with the Apple Watch - The New Consumer"
 
 Apple Watch usage is both crazy high with "one in five US consumers" saying they've used one in the past week, and only could be considered low if we compare it to mobile phones. There is a strong health platform here, as well as data and telemetry device. Where this platform goes is still an open question.
 
-Link thirteen. "Chess grandmaster Magnus Carlsen is forced into a draw in a showdown against ‘the world’ | AP News"
+Link thirteen of twenty three. "Chess grandmaster Magnus Carlsen is forced into a draw in a showdown against ‘the world’ | AP News"
 
 Wisdom of the crowds for the win! Or at least the draw! Very cool.
 
-Link fourteen. "Chart: A Decade of Smartphone Production, by Brand (twenty fifteen-twenty twenty four)"
+Link fourteen of twenty three. "Chart: A Decade of Smartphone Production, by Brand (twenty fifteen-twenty twenty four)"
 
 What a chart!
 
-Link fifteen. "Jules - An Asynchronous Coding Agent"
+Link fifteen of twenty three. "Jules - An Asynchronous Coding Agent"
 
 In a flash AI coding assistants have moved from living in your IDE to an "agent" that is a member of the team and is working collaboratively with you on pull requests and features.
 
-Link sixteen. "The 15 biggest announcements at Google I/O twenty twenty five | The Verge"
+Link sixteen of twenty three. "The 15 biggest announcements at Google I/O twenty twenty five | The Verge"
 
 Okay, maybe we can get just 15 updates?
 
-Link seventeen. "Building a personal archive of the web, the slow way – alexwlchan"
+Link seventeen of twenty three. "Building a personal archive of the web, the slow way – alexwlchan"
 
 Creating an archive of web pages is harder than it looks. I'll leave this to the fine folks at Internet Archive.
 
-Link eighteen. "GPT-4.1 Prompting Guide | OpenAI Cookbook"
+Link eighteen of twenty three. "GPT-4.1 Prompting Guide | OpenAI Cookbook"
 
 The prompt examples here are great references and highlight how specific (pedantic?) you need to be with the LLMs. I’m super interested in agents at the moment and the agent prompts are much more specific than anything I've been exploring.
 
-Link nineteen. "Ann, the Small Annotation Server"
+Link nineteen of twenty three. "Ann, the Small Annotation Server"
 
 A lovely little approach to annotating URLs using ActivityPub. The spirit of this is really cool and the idea of joining small "annotation" communities is interesting too.
 
-Link twenty. "Basecoat"
+Link twenty of twenty three. "Basecoat"
 
 It’s been a while since I've seen some new CSS frameworks hitting the open source world. This one is nice and clean. Good base for many projects.
 
-Link twenty one. "Sam and Jony introduce io | OpenAI"
+Link twenty one of twenty three. "Sam and Jony introduce io | OpenAI"
 
 Big news from Ive and Altman. What a strange photo. Nothing for technologists yet, more a pitch for investors. We'll see what comes. Can the magic that Ive and Jobs had be replicated? I’m doubtful, things are more complex than they seem.
 
-Link twenty two. "Google I/O twenty twenty five: 100 things Google announced"
+Link twenty two of twenty three. "Google I/O twenty twenty five: 100 things Google announced"
 
 So many things getting announced it is crazy fast even for the already crazy fast world of tech.
 
-Link twenty three. "Introducing Claude 4 Anthropic"
+Link twenty three of twenty three. "Introducing Claude 4 Anthropic"
 
 New models from Anthropic and enhancements to Claude Code. Claude is my second most frequently used AI tools, behind ChatGPT and ahead of Gemini.
 

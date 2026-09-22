@@ -20,7 +20,9 @@ That's the end of Currently.
 
 Now, the Notable section.
 
-Link one. "“Wherever you get your podcasts” is a radical statement - Anil Dash"
+There are nine links this week.
+
+Link one of nine. "“Wherever you get your podcasts” is a radical statement - Anil Dash"
 
 Dash is right that we should celebrate this statement.
 
@@ -30,7 +32,7 @@ End quote.
 
 The same thing applies for RSS feeds — subscribe in your feed reader. Big difference between feed readers and podcasts though is the value of the ad industry inside it. Maybe we need to get more comfortable not linking directly to things. For example, buy this book at your favorite book seller instead of a direct link to Amazon.
 
-Link two. "They gave local news away for free. Virtually nobody wanted it. - Columbia Journalism Review"
+Link two of nine. "They gave local news away for free. Virtually nobody wanted it. - Columbia Journalism Review"
 
 The news and media business is very difficult, but nowhere is it more difficult than in local news.
 
@@ -40,7 +42,7 @@ End quote.
 
 The spot that these local news organizations filled has been completely replaced with other content. And just like politics, the local is likely way more important to you in practical terms.
 
-Link three. "connect() - why are you so slow?"
+Link three of nine. "connect() - why are you so slow?"
 
 Cloudflare has some great investigations into super edge case performance stuff that only matters at their scale. This was a fun sleuth!
 
@@ -50,7 +52,7 @@ End quote.
 
 The odd/even thing here would never have been suspected without the detailed analysis.
 
-Link four. "METAstasis | No Mercy / No Malice"
+Link four of nine. "METAstasis | No Mercy / No Malice"
 
 I highlighted Galloway's comments on Pivot in Weekly Thing 276. He took that same topic to his newsletter.
 
@@ -60,7 +62,7 @@ End quote.
 
 Galloway can rail on social media even better than I, but we need to stop giving legislatures credit for having hearings and posting clips about heated questions. That means nothing. Do your job and at least protect kids.
 
-Link five. "How I got scammed (05 Feb twenty twenty four) – Pluralistic: Daily links from Cory Doctorow"
+Link five of nine. "How I got scammed (05 Feb twenty twenty four) – Pluralistic: Daily links from Cory Doctorow"
 
 This is a great writeup from Doctorow detailing how he got scammed and his credit card was compromised.
 
@@ -70,19 +72,19 @@ End quote.
 
 This is a good read to just raise your own awareness and be more cautious.
 
-Link six. "Ask security questions"
+Link six of nine. "Ask security questions"
 
 I've been saying for a bit that with AI able to generate content that looks so genuinely like someone else wrote it that we need to use signatures, likely using Ethereum, to verify authenticity. Then Vitalik, the creator of Ethereum, says that may not be adequate and really we need to ask security questions.
 
-Link seven. "GiveDirectly: Send money to people living in poverty"
+Link seven of nine. "GiveDirectly: Send money to people living in poverty"
 
 Found this non-profit at the end of Making Sense 352 and loved how Stewart described the technology innovation of mobile money and the efficiency and empowerment of giving directly. I wish there was more of this. Crypto would be great for this.
 
-Link eight. "OmniFocus 4 - Michael Tsai"
+Link eight of nine. "OmniFocus 4 - Michael Tsai"
 
 I like Tsai's blog which is filled with round-up type posts regularly. I don't often link to them mostly because they are "round ups" of other posts, so it seems fairly meta to link there. However here he goes deep on OmniFocus 4. He is clearly an avid user, as am I. I found his writeup good and even learned a couple of things from it — including the 'double tap' gesture on the iPhone.
 
-Link nine. "Privacy Isn't Dead. Far From It. | Electronic Frontier Foundation"
+Link nine of nine. "Privacy Isn't Dead. Far From It. | Electronic Frontier Foundation"
 
 A privacy recap from the EFF, focusing on the things to be optimistic about. I care deeply about privacy online and often people tell me they have given up on privacy online. That it is a lost fight. I would bend more towards the EFF point of view actually. There is plenty of reason to be pessimistic about privacy legislation (but really, we can be pessimistic about all things politics). However, there is an ever growing suite of tools that can empower individuals. And encryption technology is getting deeper and broader. There is much to celebrate. It is far too difficult, and we still need laws, but privacy is not lost. It can be given up, but not lost.
 
@@ -136,19 +138,21 @@ That's the end of the Journal.
 
 Now, the Briefly section.
 
-Link one. "A look at Internet traffic trends during Super Bowl LVIII"
+There are four links this week.
+
+Link one of four. "A look at Internet traffic trends during Super Bowl LVIII"
 
 Fun analysis of Internet activity timed around specific moments in the Super Bowl.
 
-Link two. "Remembering alum David Mills, who brought the internet into perfect time"
+Link two of four. "Remembering alum David Mills, who brought the internet into perfect time"
 
 A more detailed remembrance of David Mills, the author of NTP, and the wide-ranging impact his work has had.
 
-Link three. "Customer satisfaction and tipping | Seth's Blog"
+Link three of four. "Customer satisfaction and tipping | Seth's Blog"
 
 Tammy and I have been noting how tipping is getting more complicated. With digital payment terminals everywhere prompts to tip are appearing everywhere. It is a mess, even when you think you know what to do.
 
-Link four. "Omni Roadmap twenty twenty four - The Omni Group"
+Link four of four. "Omni Roadmap twenty twenty four - The Omni Group"
 
 Not a surprise that Omni Group is taking all of their apps to Vision OS, but it was fun to hear their reasoning and how they have always pushed new technologies. I’m now running OmniFocus in Vision OS.
 

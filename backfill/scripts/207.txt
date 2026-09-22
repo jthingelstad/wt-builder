@@ -8,7 +8,9 @@ See you in twenty twenty two!
 
 Now, the Featured section.
 
-Link one. "Scaling the Practice of Architecture, Conversationally"
+There are two links this week.
+
+Link one of two. "Scaling the Practice of Architecture, Conversationally"
 
 Software architecture is a complicated topic, and one I've actually spent a lot of my career trying to push into teams and not have as a discrete function. However, you reach a point of scale where you need architecture, and in fact you need enterprise architects. Without them I can guarantee you will go slower. However, it is key that those architects determine how to engage with teams in a way that does not slow down delivery, and is empowering to creating great solutions.
 
@@ -42,7 +44,7 @@ End quote.
 
 Pragmatic, light, decentralized. Great approach.
 
-Link two. "Contrarians Start Here - by Doug Clinton"
+Link two of two. "Contrarians Start Here - by Doug Clinton"
 
 I read this with particular interest because I wonder if as we age, as we have experiences that work, if it isn't harder and doesn't require more effort to remain open to particularly uncomfortable tests of our assumptions.
 
@@ -75,19 +77,21 @@ That's the end of Currently.
 
 Now, the Notable section.
 
-Link one. "Wanting | Feel The Byrn"
+There are eighteen links this week.
+
+Link one of eighteen. "Wanting | Feel The Byrn"
 
 Gordon Bryn writes these explorations, almost meandering, on various feeling and thoughts at times. I find them compelling, and they make me think deeply and reflect and learn. I can’t however determine if it just resonates with me, or more broadly. But I found this writing powerful and the concepts in it worthy of consideration.
 
-Link two. "Apple Notifies More Victims Of NSO Malware Hacking Attempts"
+Link two of eighteen. "Apple Notifies More Victims Of NSO Malware Hacking Attempts"
 
 I’m glad to see Apple doing this, and it sets a precedent that I think other technology providers and platforms should do. Some platforms use warrant canary techniques to let users know things without violating disclosure requirements. This activity by Apple reminds me of it a bit, but makes me wonder what a individual user warrant canary feature would be like.
 
-Link three. "The Information: ‘Inside Tim Cook’s Secret 275 billion dollars Deal with Chinese Authorities’"
+Link three of eighteen. "The Information: ‘Inside Tim Cook’s Secret 275 billion dollars Deal with Chinese Authorities’"
 
 Pointing to Gruber's writeup and not to the entire article as it is quite long. It seems increasingly obvious that the deep connections Apple has in China are an engine of it’s growth, both for production of devices as well as customers. But it is also a giant risk for the company, particularly one driven so publicly by certain values and aspirations, to be connected with a country that is so not aligned with those values.
 
-Link four. "The Future of Crowdfunding Creative Projects — Kickstarter"
+Link four of eighteen. "The Future of Crowdfunding Creative Projects — Kickstarter"
 
 I've backed well over a dozen Kickstarter projects, and I also like how Kickstarter built itself on Kickstarter, seeking support for features on their platform as projects that users backed. And now Kickstarter is going to build a Web3 version of itself!
 
@@ -97,11 +101,11 @@ End quote.
 
 This is a long play, but it makes incredible sense to me. Think about it, even today Web3 capabilities like NFTs have a potential to dislodge Kickstarter. Instead of getting a bunch of backers on Kickstarter, I could sell different NFT's for each level of my project and people could redeem them (burn them) for the reward at the end. How interesting that the token could even be sold at a profit or loss, before the project ships. Very interesting stuff, so it makes total sense to me that Kickstarter itself should be here. Notable also that they are choosing a carbon-negative blockchain, Celo, to develop the protocol on.
 
-Link five. "Tisbest Charity Gift Cards Make Charitable Giving Fun"
+Link five of eighteen. "Tisbest Charity Gift Cards Make Charitable Giving Fun"
 
 Very cool service that allows you to give the gift of charity. Send someone else cash that they then get to pick what charity it goes to. This seems like a great thing for professional gifting particularly.
 
-Link six. "Making Something Social Destroys the Truth of It"
+Link six of eighteen. "Making Something Social Destroys the Truth of It"
 
 Does this apply to other things that we may prepend social to?
 
@@ -111,11 +115,11 @@ End quote.
 
 Social Media?
 
-Link seven. "DNS doesn't "propagate""
+Link seven of eighteen. "DNS doesn't "propagate""
 
 If your curious to know how the Domain Name System manages records, and in effect runs a giant, always-on, distributed database this has some good info. It also helps to clearly understand the role caching plays in DNS records and why changes can happen fast or slow.
 
-Link eight. "Endgame"
+Link eight of eighteen. "Endgame"
 
 Vitalik Buterin's assessment of multiple ways to scale blockchains like Ethereum to deal with massively larger transactions per second. The sharding and layering techniques he outlines are all being developed right now.
 
@@ -125,19 +129,19 @@ End quote.
 
 Scaling these technologies is certainly possible. "But it does look increasingly clear how a realistic but bright future for scalable blockchains is likely to emerge."
 
-Link nine. "How to Become a Crypto Person: A Normie’s Guide"
+Link nine of eighteen. "How to Become a Crypto Person: A Normie’s Guide"
 
 I enjoyed reading this article, and to be clear this has nothing technical in it. It is all about the various components of the crypto ecosystem, where to get info, what norms exist, etc. It is an interesting read and insightful if only to outline that the crypto ecosystem is vast, diverse and not at all monolithic.
 
-Link ten. "Reddit Reads: Book reccomendations from reddit"
+Link ten of eighteen. "Reddit Reads: Book reccomendations from reddit"
 
 I’m not a Redditor and in fact Reddit is on the list of sites that I block. Frankly I just don't get Reddit. However, I know a lot of people do like it and I love projects like this one that aggregate data signals from the flock of users. Here you can see what books are being discussed most frequently on Reddit, and even filter by the Subreddit talking about it. Could be a great way to find good reads.
 
-Link eleven. "PROOF Collective"
+Link eleven of eighteen. "PROOF Collective"
 
 This is interesting to me as a great example of how NFT's can be used in novel ways. Kevin Rose is launching this 1,000 member group, and the way in is to buy the NFT and hold it in your wallet. Membership with value, and benefits. This launches soon and it will be intriguing to see how much the auction goes for. My guess is each one is over 10,000 dollars USD, maybe much more.
 
-Link twelve. "100 years of whatever this will be - apenwarr"
+Link twelve of eighteen. "100 years of whatever this will be - apenwarr"
 
 What if today's tech trends hold true for a long time…
 
@@ -149,11 +153,11 @@ Through the financial crisis and banking we've become used to the term "Too big 
 
 I've been wondering lately, when does "Too big to fail" become a thing for technology. Maybe we are already there.
 
-Link thirteen. "The unbearable fussiness of the smart home - Stacey on IoT"
+Link thirteen of eighteen. "The unbearable fussiness of the smart home - Stacey on IoT"
 
 This article highlights exactly why we have very few smart home devices in our house. There are certain devices that make a ton of sense, like a thermostat. But things that you use frequently, and need instantaneous responses from, like light switches, I tend to avoid making "smart."
 
-Link fourteen. "The Rise of the Decentralized Startup – Elizabeth Yin"
+Link fourteen of eighteen. "The Rise of the Decentralized Startup – Elizabeth Yin"
 
 Inside out way of thinking about creating organizations…
 
@@ -161,7 +165,7 @@ Quote.
 But what if we flipped startup-creation on its head? What if you start with a mission and values — not founders?
 End quote.
 
-Link fifteen. "The Universal Structure of Storytelling"
+Link fifteen of eighteen. "The Universal Structure of Storytelling"
 
 All storytelling has a common arc, and a common set of purposes.
 
@@ -171,7 +175,7 @@ End quote.
 
 Pulls in a reference to Dunbar's "Grooming, Gossip, and the Evolution of Language" as well. Stories are such a powerful human capability.
 
-Link sixteen. "Understanding Zero-knowledge proofs through illustrated examples | Good Audience"
+Link sixteen of eighteen. "Understanding Zero-knowledge proofs through illustrated examples | Good Audience"
 
 Very approachable overview of zero-knowledge proofs.
 
@@ -181,7 +185,7 @@ End quote.
 
 Simple and easy to understand.
 
-Link seventeen. "Proof-of-Stake and Stablecoins: A Blockchain Centralization Dilemma"
+Link seventeen of eighteen. "Proof-of-Stake and Stablecoins: A Blockchain Centralization Dilemma"
 
 Alden's writing on crypto is incredibly deep thorough. Here she takes on, at a foundational level, the tradeoffs of decentralization and how various solutions fall on that spectrum. This is not a Boolean, but instead is a sliding scale that can be optimized to a solution.
 
@@ -191,7 +195,7 @@ End quote.
 
 I think that her nod toward a future where we have multiple solutions that have differing levels of centralization and protection is most likely. Based on the problem that you are solving, and the protocol needs, you should develop on a platform that provides you the tradeoffs that make sense. This has been true for everything we build in tech for as long as we've been building.
 
-Link eighteen. "Storm in the stratosphere: how the cloud will be reshuffled · Erik Bernhardsson"
+Link eighteen of eighteen. "Storm in the stratosphere: how the cloud will be reshuffled · Erik Bernhardsson"
 
 Interesting take specifically parsing the solutions that cloud providers build in-house versus outside parties building for those platforms. Bernhardsson's argument kind of lies on two beliefs:
 
@@ -234,31 +238,33 @@ That's the end of the Journal.
 
 Now, the Briefly section.
 
-Link one. "Why Return to the Office if You Can Do Your Job at Home | Leadership Freak"
+There are seven links this week.
+
+Link one of seven. "Why Return to the Office if You Can Do Your Job at Home | Leadership Freak"
 
 There is a lot that influences how we work, including where we work. Context matters, always.
 
-Link two. "Just Delete Me | A directory of direct links to delete your account from web services"
+Link two of seven. "Just Delete Me | A directory of direct links to delete your account from web services"
 
 Userful directory of quick links, and an assessment of difficulty, to delete your account on various websites.
 
-Link three. "Miniature 3456 LED cube – Willem Pennings"
+Link three of seven. "Miniature 3456 LED cube – Willem Pennings"
 
 What a cool project. I would love to play with one of these. It would be fun to have Conway's Game of Life play out on it.
 
-Link four. "Really stupid "smart contract" bug let hackers steal 31 million dollars in digital coin | Ars Technica"
+Link four of seven. "Really stupid "smart contract" bug let hackers steal 31 million dollars in digital coin | Ars Technica"
 
 There have been other examples of this and there will be more. There is an incredible pace of innovation and people are trying stuff very fast. Right now the consensus is speed is better than an occasional issue like this.
 
-Link five. "Airline Food"
+Link five of seven. "Airline Food"
 
 This may be one of the most ludicrous, and funny, programming languages ever. Thanks to Garrick for sharing with me.
 
-Link six. "Chatter Telephone | Fisher Price"
+Link six of seven. "Chatter Telephone | Fisher Price"
 
 I remember the original toy version of this from when I was a kid. I’m pretty sure I pulled one around from time to time. How fun to make a real one!
 
-Link seven. "The life and tragic death of John Eyers – a fitness fanatic who refused the vaccine | The Guardian"
+Link seven of seven. "The life and tragic death of John Eyers – a fitness fanatic who refused the vaccine | The Guardian"
 
 These stories are tragic. Protect yourself.
 

@@ -10,7 +10,9 @@ PS: I send the Weekly Thing via Buttondown and in an attempt to make some delive
 
 Now, the Featured section.
 
-Link one. "Your CTO Should Actually Be Technical"
+There are two links this week.
+
+Link one of two. "Your CTO Should Actually Be Technical"
 
 I think it is strange that this is even a question, but it is. Consider other domains for a moment. Would you ask someone that doesn't know finance to be a CFO? Would a company have a head of sales that doesn't know how to sell? The answer is a solid no to both. Yet there is active debate on wether technology leaders, particularly CIO and CTO, need to be technical. Unequivocally the answer is yes. You cannot lead a function that you don't understand, and even more importantly, love and have passion for!
 
@@ -26,7 +28,7 @@ My only disagreement with this essay is his assertion that a CTO should pass the
 
 Being a great coder is a specific, highly respected and revered skill. Your best coders had better be way better coders than your CTO.
 
-Link two. "Nounlets"
+Link two of two. "Nounlets"
 
 I've dove into the Noun ecosystem at some length. I have a Lil Noun, a couple of Foodnouns, some YOLO Nouns, etc. But the original Nouns that sell one a day, still go for 60-90 ETH (80,000 dollars-120,000 dollars USD) which is pretty wild to me. The project also has a 29,092 ETH (41 million dollars USD) DAO treasury and only 447 DAO seats at the moment.
 
@@ -40,15 +42,17 @@ That's the end of Featured.
 
 Now, the Notable section.
 
-Link one. "Nifty Chess"
+There are ten links this week.
+
+Link one of ten. "Nifty Chess"
 
 Cool app that let's you mint your chess game into an NFT. This original version uses Gnosis and supports Chess.com and lichess.org, and the new version Treasure Chess uses Polygon and only Chess.com. I think it is a neat idea to be able to capture a game as a unique NFT. Similar to a POAP capturing an event.
 
-Link two. "Didact AI: The anatomy of an ML-powered stock picking engine · Principia Mundi"
+Link two of ten. "Didact AI: The anatomy of an ML-powered stock picking engine · Principia Mundi"
 
 The hunt for more returns in the stock market has attracted AI and ML researchers since those acronyms existed. They are getting better and better, and it does make me wonder if we are approaching a time when they will simply always outcompete humans like in Chess and now Go. Is the Stock Market a closed system like a game? I think it is more like one than not.
 
-Link three. "Adversarial Collaboration: An EDGE Lecture by Daniel Kahneman | Edge.org"
+Link three of ten. "Adversarial Collaboration: An EDGE Lecture by Daniel Kahneman | Edge.org"
 
 Kahneman describing how to get better outcomes with conflicting views.
 
@@ -58,7 +62,7 @@ End quote.
 
 I have at least one friend that this article made me think of because he seems to do the best job of getting me riled up about some belief or assertion (Hey Nick! ). I like Kahneman's breakdown on how that push back and forth can result in better outcomes.
 
-Link four. "Learning is Remembering"
+Link four of ten. "Learning is Remembering"
 
 Article suggests that we can only keep up to four new concepts in our working memory, and that to truly learn something you have to commit those concepts into your memory, and then add on another new concept in your working memory.
 
@@ -70,7 +74,7 @@ This also highlights why new concepts that connect to our existing memories are 
 
 The analogue here to a computer using memory and storage is just too similar to ignore.
 
-Link five. "The Hierarchy Is Bullshit (And Bad For Business) – charity.wtf"
+Link five of ten. "The Hierarchy Is Bullshit (And Bad For Business) – charity.wtf"
 
 I appreciate how Charity Majors give practical perspective to a long and rewarding career in technology.
 
@@ -86,7 +90,7 @@ End quote.
 
 Very good read.
 
-Link six. "Stop Overcomplicating It: The Simple Guidebook to Upping Your Management Game | First Round Review"
+Link six of ten. "Stop Overcomplicating It: The Simple Guidebook to Upping Your Management Game | First Round Review"
 
 Solid set of recommendations that could be applied for any manager at any level. This is a reduction of the points in Laraway's book When They Win, You Win, which I’m adding to my reading list now. The focus is on three key areas:
 
@@ -96,7 +100,7 @@ End quote.
 
 Good article and a lot of thought provoking suggestions.
 
-Link seven. "A history of ARM, part 1: Building the first chip | Ars Technica"
+Link seven of ten. "A history of ARM, part 1: Building the first chip | Ars Technica"
 
 Great first part of the story behind the creation of the ARM chip. It Is amazing how much of this is done in emulators (the ARM emulator was in BASIC!), and also how small the team was.
 
@@ -106,15 +110,15 @@ End quote.
 
 If this type of story is at all interesting to you I would strongly recommend reading Kidder's "The Soul of a New Machine" which tells the history of Data General.
 
-Link eight. "Creating a Thriving On-Call Engineering Workflow by Embracing Healthy Team Habits | Adobe Tech Blog"
+Link eight of ten. "Creating a Thriving On-Call Engineering Workflow by Embracing Healthy Team Habits | Adobe Tech Blog"
 
 Fabulous deep and detailed discussion of the on-call culture in part of Adobe, how they made it better and built a set of good habits around it. I particularly appreciate the focus on the humans, the people actually being on-call. Too many times organizations build on-call structures that ignore the basic needs of the people involved.
 
-Link nine. "A Simple Reusable One-On-One Plan - Leadership Freak"
+Link nine of ten. "A Simple Reusable One-On-One Plan - Leadership Freak"
 
 I’m always intrigued on ways to structure one-on-ones. I like the points that are highlighted here, particularly the part about preparing and "welcome them with optimism". One of the hard things for leaders is to flip completely from one conversation to another, and show up the right way. It doesn't happen without making the effort and being conscious about it. Also see part 2.
 
-Link ten. "Day 212. Lyptsi. - by Alona / cryptodrftng"
+Link ten of ten. "Day 212. Lyptsi. - by Alona / cryptodrftng"
 
 First hand account from the Russian attack of Ukraine from Lyptsi.
 
@@ -156,23 +160,25 @@ That's the end of the Journal.
 
 Now, the Briefly section.
 
-Link one. "First Look: OmniFocus 4 for Mac - Learn OmniFocus"
+There are five links this week.
+
+Link one of five. "First Look: OmniFocus 4 for Mac - Learn OmniFocus"
 
 Some nice user experience improvements coming to an app that I use every day, on every device I have.
 
-Link two. "Istio sails into the Cloud Native Computing Foundation | Cloud Native Computing Foundation"
+Link two of five. "Istio sails into the Cloud Native Computing Foundation | Cloud Native Computing Foundation"
 
 Good to see Istio officially part of the CNCF.
 
-Link three. "Charts - Human Interface Guidelines - Design - Apple Developer"
+Link three of five. "Charts - Human Interface Guidelines - Design - Apple Developer"
 
 For the real authority on information visualization, see Edward Tufte, but this HIG from Apple is good too.
 
-Link four. "ENS, POAP, and IYK Devcon Bogotá Swag"
+Link four of five. "ENS, POAP, and IYK Devcon Bogotá Swag"
 
 I’m a huge fan of POAPs and having an NFC card that can give people a POAP is pretty awesome.
 
-Link five. "James Stanley - Nightdrive"
+Link five of five. "James Stanley - Nightdrive"
 
 Simple, cool Javascript animation.
 

@@ -6,7 +6,9 @@ Now onto other links that are way more interesting.
 
 Now, the Featured section.
 
-Link one. "I’m A Twenty Year Truck Driver, I Will Tell You Why America’s "Shipping Crisis" Will Not End by Ryan Johnson | Medium"
+There are two links this week.
+
+Link one of two. "I’m A Twenty Year Truck Driver, I Will Tell You Why America’s "Shipping Crisis" Will Not End by Ryan Johnson | Medium"
 
 Great first-hand account of the dynamics going on in ports and shipping yards causing massive backups in supply chains.
 
@@ -22,7 +24,7 @@ End quote.
 
 It is hard to see how the incentives could be that misaligned, but it’s certainly possible.
 
-Link two. "Crypto Cities"
+Link two of two. "Crypto Cities"
 
 I enjoy that Buterin chooses to write long form blog posts and eschews little quips on social media. He thinks deeply about these topics and his perspective is always enlightening. Here he dives into Crypto Cities and goes through some specific experiments that cities could try.
 
@@ -42,7 +44,9 @@ That's the end of Currently.
 
 Now, the Notable section.
 
-Link one. "Inside the mind of Kraken netminder Chris Driedger"
+There are fourteen links this week.
+
+Link one of fourteen. "Inside the mind of Kraken netminder Chris Driedger"
 
 Being a goalie in hockey or soccer is a position that I assume must require more emotional fortitude than the average player. I found the snippets in this article interesting, and particularly this line.
 
@@ -52,7 +56,7 @@ End quote.
 
 I don't know if Driedger practices meditation, but that sure sounds like a meditative state. I also liked that he refers to routines, not superstitions, in effect because he sees routines being more resilient to unknowns.
 
-Link two. "Apple: Ten Years Forward. by Jean-Louis Gassée | by Jean-Louis Gassée | Oct, twenty twenty one | Monday Note"
+Link two of fourteen. "Apple: Ten Years Forward. by Jean-Louis Gassée | by Jean-Louis Gassée | Oct, twenty twenty one | Monday Note"
 
 When you are one of the biggest market cap companies in the world where do you grow for growth. You need big opportunities, and I agree with Gassée.
 
@@ -62,39 +66,39 @@ End quote.
 
 I think health and wellness is where Apple sees a big enough opportunity, with slow to no innovation, and financial structures that make little sense.
 
-Link three. "Do-nothing scripting: the key to gradual automation – Dan Slimmon"
+Link three of fourteen. "Do-nothing scripting: the key to gradual automation – Dan Slimmon"
 
 Cool idea to make even a simple written SOP into a piece of code. Why? You reduce the friction required if someone in the future wants to take a component of the SOP and write automation for it.
 
-Link four. "Curves and Surfaces – Bartosz Ciechanowski"
+Link four of fourteen. "Curves and Surfaces – Bartosz Ciechanowski"
 
 Crazy detailed and incredibly interesting article showing how very elegant shapes are modeled with math. The article is fun just to look at the figures and move the interactive sliders around.
 
-Link five. "Netflix Games starts global rollout on Android, with iOS ‘on the way’ - The Verge"
+Link five of fourteen. "Netflix Games starts global rollout on Android, with iOS ‘on the way’ - The Verge"
 
 Netflix getting into games is a pretty obvious expansion for them. I'll be curious though if they stick with original titles like this or if they extend into existing game titles.
 
-Link six. "Guardo.io — All of yours get back to stored in one place"
+Link six of fourteen. "Guardo.io — All of yours get back to stored in one place"
 
 Another bookmarking service. Some interesting features. I still use Pinboard and find Raindrop very interesting, but my workflows are so tied into Pinboard it would be a lot of work to switch.
 
-Link seven. "Tesla owners can now remotely stream live footage from their car’s cameras - The Verge"
+Link seven of fourteen. "Tesla owners can now remotely stream live footage from their car’s cameras - The Verge"
 
 I turned this feature on in my Model 3 and just like that I can see out any of the four cameras. It hasn't been super reliable, but it is a first release. The next feature should be to allow me to view previously recorded Sentry video clips from my phone.
 
-Link eight. "Kingfisher and Wombat: I have been playing around with Townscaper…"
+Link eight of fourteen. "Kingfisher and Wombat: I have been playing around with Townscaper…"
 
 I've been playing with Townscaper a bit too and it is a mesmerizing experience. I hesitate to call it a game. It feels like a form of adult coloring that I can groove with. This comic strip is created from the game.
 
-Link nine. "We’re ready to rip out the beating heart of the disinformation economy"
+Link nine of fourteen. "We’re ready to rip out the beating heart of the disinformation economy"
 
 I was reading this and thinking "Wow, this sounds like what Sleeping GIants was doing." and then I saw the two people doing this were part of the founding of Sleeping Giants. I think this is smart effort, and if done well I suspect it could have real impact. The truth is that the incredibly complex algorithmic advertising platforms online make it nearly impossible for advertisers to know what content their ads are appearing alongside. There are many stories of well known brands being shown next to particularly caustic things. The premise here is to cut the revenue chain by making brands aware of what their content is supporting.
 
-Link ten. "Programmer’s emotions – sidebits"
+Link ten of fourteen. "Programmer’s emotions – sidebits"
 
 This seems like a pretty complete view of the emotions that many developers feel as they do their craft.
 
-Link eleven. "Apple MacBook Pro 14 and 16 (twenty twenty one) review: return to form - The Verge"
+Link eleven of fourteen. "Apple MacBook Pro 14 and 16 (twenty twenty one) review: return to form - The Verge"
 
 Great review of these amazing new MacBook Pro's.
 
@@ -104,7 +108,7 @@ End quote.
 
 These will go down as epic laptops.
 
-Link twelve. "MetaJob – On my Om"
+Link twelve of fourteen. "MetaJob – On my Om"
 
 Om Malik doesn't mince any words on his view of Facebook's situation.
 
@@ -114,7 +118,7 @@ End quote.
 
 This is all a massive head fake on Facebook's part.
 
-Link thirteen. "MLOps-Basics"
+Link thirteen of fourteen. "MLOps-Basics"
 
 Code repo to walk you through the fundamentals of a machine learning pipeline, using a classification problem.
 
@@ -122,7 +126,7 @@ Quote.
 The goal of the series is to understand the basics of MLOps like model building, monitoring, configurations, testing, packaging, deployment, cicd, etc.
 End quote.
 
-Link fourteen. "Catalog"
+Link fourteen of fourteen. "Catalog"
 
 Interesting approach to selling songs as NFTs.
 
@@ -210,43 +214,45 @@ That's the end of the Journal.
 
 Now, the Briefly section.
 
-Link one. "Working on your emotional intelligence? Try these CIO tips | The Enterprisers Project"
+There are ten links this week.
+
+Link one of ten. "Working on your emotional intelligence? Try these CIO tips | The Enterprisers Project"
 
 Brief tips from seven CIO's, including me, on EQ.
 
-Link two. "SPS Commerce Acquires Genius Central - MarketWatch"
+Link two of ten. "SPS Commerce Acquires Genius Central - MarketWatch"
 
 Welcome Genius Central to #TeamSPS!
 
-Link three. "9 Ways to ‘Rewild Your Attention’ | by Clive Thompson | Oct, twenty twenty one | Forge"
+Link three of ten. "9 Ways to ‘Rewild Your Attention’ | by Clive Thompson | Oct, twenty twenty one | Forge"
 
 Good suggestions to get out of your bubbles and get some random inputs into your regular routine.
 
-Link four. "A new app for books: Epilogue — Manton Reece"
+Link four of ten. "A new app for books: Epilogue — Manton Reece"
 
 I love the continued innovation that I see in micro.blog!
 
-Link five. "Maurice Parker - Shortcuts for Micro.blog"
+Link five of ten. "Maurice Parker - Shortcuts for Micro.blog"
 
 I love seeing little "Unix-like" tools like this that do nothing other than bridge services into Shortcuts.
 
-Link six. "Niantic’s Pikmin Bloom is rolling out globally starting today - The Verge"
+Link six of ten. "Niantic’s Pikmin Bloom is rolling out globally starting today - The Verge"
 
 I've been trying this game out just because I find these games that occur in the real world interesting.
 
-Link seven. "Spiders are much smarter than you think | Ars Technica"
+Link seven of ten. "Spiders are much smarter than you think | Ars Technica"
 
 Spiders totally freak me out and this all just makes me even more freaked out.
 
-Link eight. "LaunchBar/Run-Shortcut at master · Ptujec/LaunchBar · GitHub"
+Link eight of ten. "LaunchBar/Run-Shortcut at master · Ptujec/LaunchBar · GitHub"
 
 I have to imagine that native support for Shortcuts will be in LaunchBar very soon, but in the meantime this will do it.
 
-Link nine. "The Fatiguing Effects of Camera Use in Virtual Meetings: A Within-Person Field Experiment - PsycNET"
+Link nine of ten. "The Fatiguing Effects of Camera Use in Virtual Meetings: A Within-Person Field Experiment - PsycNET"
 
 We now have proper research that shows that camera use during virtual meetings does indeed fatigue people. I don't think this is an obvious reason to then not use cameras. There is real value conveyed via the video, but there is also a cost to consider.
 
-Link ten. "computer–1 - teenage engineering"
+Link ten of ten. "computer–1 - teenage engineering"
 
 If I was still into building my own PC's, this is the case I would get.
 

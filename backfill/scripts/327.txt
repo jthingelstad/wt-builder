@@ -16,7 +16,9 @@ That's the end of Currently.
 
 Now, the Notable section.
 
-Link one. "The Purpose of Prototypes: Silicon Valley Product Group"
+There are thirteen links this week.
+
+Link one of thirteen. "The Purpose of Prototypes: Silicon Valley Product Group"
 
 As GenAI tools have completely flipped the table on prototyping, and turned it into something that anyone can take a run at (which is all a great thing!) it is important to remember what a prototype is. Many seem to think it is the beta of a product. Some think it is a way to determine the viability of a solution. Nah, it is neither of those things.
 
@@ -26,19 +28,19 @@ End quote.
 
 I re-discovered this when I vibe coded POAP2RSS. The first iteration was completely discarded, and it was completely worth it. It helped me discover a successful solution.
 
-Link two. "ChatGPT Memory and the Bitter Lesson | Shlok Khemani"
+Link two of thirteen. "ChatGPT Memory and the Bitter Lesson | Shlok Khemani"
 
 Interesting analysis of how ChatGPT's memory system works, along with prompts that you can type in to know what ChatGPT has in memory for you. I found it super interesting to see what details it had stowed away. Some it got very right, others were an odd question or two that I asked that it now thinks I’m way more into than I actually am. Of course ChatGPT knows I’m big into POAPs though.
 
-Link three. "UTF-8 is a Brilliant Design — Vishnu's Pages"
+Link three of thirteen. "UTF-8 is a Brilliant Design — Vishnu's Pages"
 
 Character encoding is one of those things that every programmer would rather never have to deal with, but you do. I think we'd all be happy for AI to just handle it. This is a nice analysis of how encoding is designed with UTF-8 and how it so elegantly handles backward compatibility all the way to 7-bit ASCII.
 
-Link four. "iOS and iPadOS 26: The MacStories Review - MacStories"
+Link four of thirteen. "iOS and iPadOS 26: The MacStories Review - MacStories"
 
 iOS gets an even deeper dive of all the new changes -- a whopping nineteen "pages" of updates. If you want to know everything that has changed down to the tiniest detail this is the review for you. Again, why go into this much detail? Well, how many hours a week do you spend using your phone. I'd say it is worth it to really know how the software works.
 
-Link five. "macOS 26 Tahoe: The MacStories Review - MacStories"
+Link five of thirteen. "macOS 26 Tahoe: The MacStories Review - MacStories"
 
 I tend to read just one review of the big new OS releases from Apple and these days those are the MacStories ones. Why read seven pages on this? I spend a lot of time on macOS and I like to know how it is changing.
 
@@ -51,11 +53,11 @@ I tend to read just one review of the big new OS releases from Apple and these d
 
 I never install the betas but I do upgrade the day the new releases are out. So far I’m having a lot of fun with Tahoe. Also see Ars Technica's macOS 26 review.
 
-Link six. "All Omni Apps Ready; Liquid Glass and Apple Intelligence Journeys Begin - The Omni Group"
+Link six of thirteen. "All Omni Apps Ready; Liquid Glass and Apple Intelligence Journeys Begin - The Omni Group"
 
 OmniFocus is one of my most important apps. I use it dozens of times a day and on my Mac it is always run it. It is the heart of my GTD system and I was super happy to see that Omni was quick to get it ready for iOS 26 and Liquid Glass. I didn’t know however that they opened up Apple Intelligence to the automation system in OmniFocus. Ken Case and the team at Omni Software have been really slow to do anything with AI and I wish they would do more. I think their priorities around privacy, which means that OmniFocus has completely encrypted and private data systems, has kept them from diving in. At least now I can install a plug-in that starts to bring some AI capability. More of this please!
 
-Link seven. "visionOS 26: The MacStories Review - MacStories"
+Link seven of thirteen. "visionOS 26: The MacStories Review - MacStories"
 
 Great and comprehensive review of visionOS 26. I updated my Vision Pro and was impressed with all the additional features.
 
@@ -66,7 +68,7 @@ Great and comprehensive review of visionOS 26. I updated my Vision Pro and was i
 
 Apple continues to iterate on this platform.
 
-Link eight. "watchOS 26: The MacStories Review - MacStories"
+Link eight of thirteen. "watchOS 26: The MacStories Review - MacStories"
 
 watchOS 26 seems to me like it has the least changes, perhaps in part because Liquid Glass while on the watch doesn't really change much. watchOS itself has a very light interface to start with.
 
@@ -76,7 +78,7 @@ watchOS 26 seems to me like it has the least changes, perhaps in part because Li
 
 Fine incremental changes but nothing that exciting.
 
-Link nine. "Forward Deployed Engineers - Silicon Valley Product Group"
+Link nine of thirteen. "Forward Deployed Engineers - Silicon Valley Product Group"
 
 People have made products for a very long time. Depending on the material that you use, you require different disciplines to build a product. If you are making a plastic nozzle that handles high pressure you probably need materials science people, someone that knows how to deal with high pressure, and who knows what else.
 
@@ -98,7 +100,7 @@ Not everyone can do everything. We need specialization, even with AI coming onto
 
 Reminds me a saying — what is the goal of the goalie in soccer? To stop the other team from scoring? No. To win the game.
 
-Link ten. "“Hello, is this Anna?": Unpacking the Lifecycle of Pig-Butchering Scams"
+Link ten of thirteen. "“Hello, is this Anna?": Unpacking the Lifecycle of Pig-Butchering Scams"
 
 I have been getting an increasing number of these random "wrong number" texts. Never reply to these, just delete them. It is almost certainly an initial attempt at some form of fraud to perpetrate — likely this "pig-butchering" scam. It is a horrible name.
 
@@ -108,7 +110,7 @@ End quote.
 
 This is a long, clinically worded paper but worth reading to get a good sense of the methodology used by the criminals. Be on the lookout, not just for yourself, but for others as well.
 
-Link eleven. "What do people actually use ChatGPT for? OpenAI provides some numbers. - Ars Technica"
+Link eleven of thirteen. "What do people actually use ChatGPT for? OpenAI provides some numbers. - Ars Technica"
 
 Some super interesting usage data from OpenAI about ChatGPT.
 
@@ -120,7 +122,7 @@ Some super interesting usage data from OpenAI about ChatGPT.
 
 Most recent data I've seen says ChatGPT standalone is a 2 billion dollars recurring revenue business. Given that growth in the last 6 months I wouldn't be surprised if it is now 4 billion dollars standalone.
 
-Link twelve. "iPhone 17 Pro Camera Review: Dolomites — Austin Mann"
+Link twelve of thirteen. "iPhone 17 Pro Camera Review: Dolomites — Austin Mann"
 
 I guess we are now just "used to" the ridiculous camera technology that Apple fits in their newest phones, but really it is incredible. The 4x telephoto with 48MP is very appealing to me.
 
@@ -132,7 +134,7 @@ I totally agree with Mann. The 12MP on that 5x made me shy away from it. This ne
 
 Dual-capture looks cool and I’m hoping the fine folks at Marco Polo are figuring out how to use that.
 
-Link thirteen. "MCP Registry · GitHub"
+Link thirteen of thirteen. "MCP Registry · GitHub"
 
 GitHub announced this new aggregator to discover MCP servers that may be useful. It is incredible how fast these servers have proliferated and already become a core component of many agentic development systems.
 
@@ -227,43 +229,45 @@ That's the end of the Journal.
 
 Now, the Briefly section.
 
-Link one. "The internet’s hidden creative renaissance (and how to find it)"
+There are ten links this week.
+
+Link one of ten. "The internet’s hidden creative renaissance (and how to find it)"
 
 I love all that is the IndieWeb. Let's keep the Web Weird!
 
-Link two. "What I think about when I think about Claude Code"
+Link two of ten. "What I think about when I think about Claude Code"
 
 I enjoyed this essay about how it "feels" to use Claude Code as a coder. I had never heard that breathing patterns change when people do things like respond to email either.
 
-Link three. "GPT‑5-Codex and upgrades to Codex"
+Link three of ten. "GPT‑5-Codex and upgrades to Codex"
 
 OpenAI doesn't have the cachet that they would like to have in coding tools, but they certainly aren't going to give up. This space is moving so fast.
 
-Link four. "The Wealth Race"
+Link four of ten. "The Wealth Race"
 
 Simple game as a social commentary on wealth disparity. Click as fast as you can!
 
-Link five. "The Great YNAB Remodel | YNAB"
+Link five of ten. "The Great YNAB Remodel | YNAB"
 
 Tammy and I have been YNAB users since before they migrated to the web. It is cool to see this most recent release and reflect on how they have moved their product so far into a modern multi-user mobile first personal finance package. If you're looking for a great personal finance solution — this is our favorite.
 
-Link six. "iPhone 17: A Photographer's Review - YouTube"
+Link six of ten. "iPhone 17: A Photographer's Review - YouTube"
 
 I hadn't watched one of Stalman's camera reviews but he did a great job covering the new kit.
 
-Link seven. "TCB Names Rob Vischer Its twenty twenty five Person of the Year | Twin Cities Business"
+Link seven of ten. "TCB Names Rob Vischer Its twenty twenty five Person of the Year | Twin Cities Business"
 
 Big congratulations to my friend, neighbor, and Weekly Thing reader Rob Vischer! Great to see wonderful people recognized for being wonderful.
 
-Link eight. "Writing an operating system kernel from scratch"
+Link eight of ten. "Writing an operating system kernel from scratch"
 
 Great article walking through coding a very simple unikernel with basic features. If your curious how the very heart of your computer works this gives you some insight into that world, with a simplified view.
 
-Link nine. "Go behind the browser with Chrome’s new AI features"
+Link nine of ten. "Go behind the browser with Chrome’s new AI features"
 
 Will all browsers become agent powered? Yes, most likely. Also see Future of Browsing Begins Now.
 
-Link ten. "Python: The Documentary | An origin story - YouTube"
+Link ten of ten. "Python: The Documentary | An origin story - YouTube"
 
 I haven't had a chance to watch this but saw enough to know I’m going to and it is great. Also this blog post about it from Jim Nielsen highlights some of the good stuff. I’m a fan of Python. If I’m coding, which I’m not very good at, I’m doing it in Python.
 

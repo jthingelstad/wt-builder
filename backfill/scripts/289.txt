@@ -16,7 +16,9 @@ That's the end of Currently.
 
 Now, the Notable section.
 
-Link one. "Computer Scientists Invent an Efficient New Way to Count | Quanta Magazine"
+There are eight links this week.
+
+Link one of eight. "Computer Scientists Invent an Efficient New Way to Count | Quanta Magazine"
 
 Wow, this is a fun algorithm to get an approximation of the number of unique elements in a list.
 
@@ -26,11 +28,11 @@ End quote.
 
 This is the kind of problem that programmers, particularly those working at scale, have to deal with fairly regularly. It seems easy "well, just count the things", but counting, particularly unique things, in a list that is billions or billions of billions long is very resource intensive. And often an approximate count is fine.
 
-Link two. "Thinking out loud about second-gen Email – Gabriel Sieben"
+Link two of eight. "Thinking out loud about second-gen Email – Gabriel Sieben"
 
 Sieben goes on a fun and thought-provoking journey exploring how we could go about innovating at the protocol layer for email. Email is still such a critical capability, and the foundations of it are beyond creeky. We have built so much around it though that it seems completely ossified. This article suggests ways to break-through that ossification and create new approaches.
 
-Link three. "The Ideal Email Folder Structure – The Sweet Setup"
+Link three of eight. "The Ideal Email Folder Structure – The Sweet Setup"
 
 It has been years since I have given much thought to how I use folders in my email, but seeing this article brought it to mind. I generally agree with this article to not create a ton of folders like most people (including myself) did decades ago. But I also don't recommend just using Inbox and Archive as this article suggests.
 
@@ -43,7 +45,7 @@ My approach is to use folders for retention and workflow reasons, and never for 
 
 I also use Sanebox which manages a separate set of folders that I don't really interact with directly.
 
-Link four. "Windows Returns – Stratechery by Ben Thompson"
+Link four of eight. "Windows Returns – Stratechery by Ben Thompson"
 
 Interesting recap of Microsoft's most recent Windows announcements and the new class of "Copilot+ PCs".
 
@@ -51,7 +53,7 @@ Quote.
 The end result — assuming that reviewed performance measures up to Microsoft’s claims — is an array of hardware from both Microsoft and its OEM partners that is MacBook Air-esque, but, unlike Apple’s offering, actually meaningfully integrated with AI in a way that not only seems useful today, but also creates the foundation to be dramatically more useful as developers leverage Microsoft’s AI capabilities going forward. I’m not going to switch (yet), but it’s the first time I’ve been tempted; at a minimum the company set a clear bar for Apple to clear at next month’s WWDC.
 End quote.
 
-Link five. "Mapping the Mind of a Large Language Model | Anthropic"
+Link five of eight. "Mapping the Mind of a Large Language Model | Anthropic"
 
 Interesting analysis from Anthropic figuring out how to model out the "feature" components of an LLMs data (brain?) and then modify the priority of a "feature" to change the way in which it engages.
 
@@ -61,7 +63,7 @@ End quote.
 
 Someone call up a neuroscientist for AI!
 
-Link six. "How do layer 2s really differ from execution sharding?"
+Link six of eight. "How do layer 2s really differ from execution sharding?"
 
 Vitalik sharing his thinking about the benefits of Ethereum's approach to scaling via Layer 2 networks.
 
@@ -71,11 +73,11 @@ End quote.
 
 I think this approach is a great one and it is one of the many reasons I continue to be enthusiastic about Ethereum. You can imagine a collection of networks that are all interoperable as part of the Ethereum ecosystem solving a very broad and diverse set of needs. It is harder to do, and slower in the near-term, but if done right will allow for incredible capability.
 
-Link seven. "Queueing – An interactive study of queueing strategies – Encore Blog"
+Link seven of eight. "Queueing – An interactive study of queueing strategies – Encore Blog"
 
 Great overview of various queue solutions using interactive visuals to let you play with sending messages into the queues and seeing how they behave. It is fun to see many people playing with these interactive learning experiences.
 
-Link eight. "No Wrong Doors | Irrational Exuberance"
+Link eight of eight. "No Wrong Doors | Irrational Exuberance"
 
 I had not heard of this No Wrong Doors approach but I like the approach. I've seen issues like this many times in my own organizations. The internal operations of a large team are often complex, and that complexity is typically (not always) needed for various reasons. But it makes things harder to navigate. Hence No Wrong Doors.
 
@@ -147,27 +149,29 @@ That's the end of the Journal.
 
 Now, the Briefly section.
 
-Link one. "Interviewed: my creative process – On my Om"
+There are six links this week.
+
+Link one of six. "Interviewed: my creative process – On my Om"
 
 I've followed Om for years and it was super cool to see him featured on People and Blogs! I feel a little cooler now since I was also featured on People and Blogs.
 
-Link two. "The History of Tetris World Records"
+Link two of six. "The History of Tetris World Records"
 
 I’m good at Tetris, but not anywhere near great. It is still one of my favorite games. I’m looking forward to watching this movie!
 
-Link three. "“Unprecedented” Google Cloud event wipes out customer account and its backups | Ars Technica"
+Link three of six. "“Unprecedented” Google Cloud event wipes out customer account and its backups | Ars Technica"
 
 This is absolutely terrifying!
 
-Link four. "How a 64k intro is made"
+Link four of six. "How a 64k intro is made"
 
 Cool article going into details how these very small executables that create amazing graphics are done.
 
-Link five. "“I don’t learn that way” | Seth's Blog"
+Link five of six. "“I don’t learn that way” | Seth's Blog"
 
 Learn through play, not by watching.
 
-Link six. "Microplastics found in every human testicle in study | The Guardian"
+Link six of six. "Microplastics found in every human testicle in study | The Guardian"
 
 I feel like there is going to be a developing story about microplastics and a range of impacts to humans.
 

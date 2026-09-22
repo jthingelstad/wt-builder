@@ -16,7 +16,9 @@ We are on vacation this week at the Magic Kingdom! There will not be an issue ne
 
 Now, the Featured section.
 
-Link one. "A Bad Report Card for Computer Science Education in Minnesota | Twin Cities Business"
+There are two links this week.
+
+Link one of two. "A Bad Report Card for Computer Science Education in Minnesota | Twin Cities Business"
 
 This is an abysmal report for computer science education in my home state of Minnesota.
 
@@ -32,7 +34,7 @@ End quote.
 
 I’m lucky to serve on the board of the Minnesota Technology Association which is led by Jeff Tollefson, who is quoted extensively in the article. There are three main areas the organization is focused on, and this is one of them. However, there needs to be much more awareness of how poorly our state is doing and a push from parents and industry to drive this as a priority.
 
-Link two. "The Diminishing Returns of Calendar Culture"
+Link two of two. "The Diminishing Returns of Calendar Culture"
 
 This article on calendars and the systems behind them piqued my interest right away. I have an exceptionally busy calendar. I would be lost without it. It is where I plan, execute, and reflect. The interesting topics that Petersen brings up in this article were thought provoking to me.
 
@@ -62,7 +64,9 @@ That's the end of Currently.
 
 Now, the Notable section.
 
-Link one. "In gold-standard trial, colonoscopy fails to cut rate of cancer deaths - STAT"
+There are ten links this week.
+
+Link one of ten. "In gold-standard trial, colonoscopy fails to cut rate of cancer deaths - STAT"
 
 Having just turned 50 and recently become first-hand familiar with colonoscopies, this piqued my interest.
 
@@ -72,17 +76,17 @@ End quote.
 
 Main conclusion is that it is still good to get a colonoscopy, but it isn't as big of a clear check as one might hope.
 
-Link two. "Fractal Garden"
+Link two of ten. "Fractal Garden"
 
 Fractals are amazing. They should get more attention.
 
 In here the Sierpinski Triangle had me reminiscing. The very first program I ever wrote that did graphics was that algorithm. In fact, I made multiple iterations because it turns out you can introduce randomness and still get the infinite triangles. I wrote it in Turbo Pascal on some version of Windows.
 
-Link three. "How to plan? | Kellan Elliott-McCrea"
+Link three of ten. "How to plan? | Kellan Elliott-McCrea"
 
 Interesting observations on creating an annual plan, and the key aspects of successfully creating one.
 
-Link four. "I wish my web server were in the corner of my room (Interconnected)"
+Link four of ten. "I wish my web server were in the corner of my room (Interconnected)"
 
 I love this article because it falls into that wonderful place of making the Internet small, and all about people.
 
@@ -98,19 +102,19 @@ I never had my web server play Mooo sounds or music though. That would have been
 
 In this spirit, I am running a Gnosis Chain validator in my house and it gives me many of these same feels.
 
-Link five. "Reminiscing: the retreat to comforting work. | Irrational Exuberance"
+Link five of ten. "Reminiscing: the retreat to comforting work. | Irrational Exuberance"
 
 I like Larson's framing here, "reminiscing". it sounds so much more appropriate than other more negative terms. I would suggest that everyone goes to this kind of "reminiscing" work from time to time. I like his suggestions for being mindful about it.
 
-Link six. "I’m not OK (and that’s OK). – Rhoneisms"
+Link six of ten. "I’m not OK (and that’s OK). – Rhoneisms"
 
 My friend Patrick sharing on Mental Health Awareness Day that he is not okay. Mental health is a big deal, and there is way too much stigma around it. My father had many mental health issues and I've been lucky to avoid them. We need to make these topics okay, and remove the worries that come from even speaking about them.
 
-Link seven. "WTF is NNS? — Nouns Name Service"
+Link seven of ten. "WTF is NNS? — Nouns Name Service"
 
 I own thingelstad.◨-◨ and WeeklyThing.◨-◨. I find the experimentation in the Noun ecosystem tremendously interesting and the idea that a part of the crypto universe can create there own name system is pretty wild. PS: I can also rightly use the term "own" since NNS names are purchased permanently and have no renewal like ENS, or traditional DNS.
 
-Link eight. "Ukraine’s Path to Victory | Foreign Affairs"
+Link eight of ten. "Ukraine’s Path to Victory | Foreign Affairs"
 
 This article goes into depth on a number of factors that give Ukraine a strategic advantage. Overall the suggestion is that Ukraine has a much more agile and modern military approach, although it is much smaller.
 
@@ -124,7 +128,7 @@ Quote.
 Ukraine has also suffered serious casualties, and its soldiers will continue to fall in combat. But unlike the Russians, who are fighting a "special military operation" fueled by Putin’s imperial delusions, the Ukrainians are fighting a total war to save their country.
 End quote.
 
-Link nine. "The GIF Is on Its Deathbed - The Atlantic"
+Link nine of ten. "The GIF Is on Its Deathbed - The Atlantic"
 
 It dates me, but I was a little surprised that this article made no mention of the patent battles that Unisys tried to assert regarding GIF. They had their lawyers all over at the beginning of the web trying to get everyone to pay a royalty. At BigCharts we served charts as GIFs, and they came knocking on our door. I’m still proud of my reply. Their patent covered the compressing and decompressing of GIFs. We never decompressed, so I suggested we didn’t violate their patent. It worked well enough to get them to move along to other people.
 
@@ -138,7 +142,7 @@ Is it possible that GIFs are the vinyl record of the Internet? Not as convenient
 
 Forever is a really big word, but I would feel very confident saying that GIF is a file format that will be around forever.
 
-Link ten. "Eden Prairie Cybersecurity Firm Arctic Wolf Lands 401 million dollars in Financing | Twin Cities Business"
+Link ten of ten. "Eden Prairie Cybersecurity Firm Arctic Wolf Lands 401 million dollars in Financing | Twin Cities Business"
 
 Notable to me that this financing is debt and not a simple equity purchase. There is a lot of money being invested in security, and while the total spend going into that industry is growing I wonder if it is growing fast enough for the capital being put in.
 
@@ -194,11 +198,13 @@ That's the end of the Journal.
 
 Now, the Briefly section.
 
-Link one. "tremor"
+There are two links this week.
+
+Link one of two. "tremor"
 
 Great looking library for creating dashboards.
 
-Link two. "Things versus OmniFocus versus Todoist: A comparison of the best GTD app suites"
+Link two of two. "Things versus OmniFocus versus Todoist: A comparison of the best GTD app suites"
 
 I've been an OmniFocus user for as long as it has existed. I did play with Things at one point. I would concur with the conclusions here on these different tools.
 

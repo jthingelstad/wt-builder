@@ -10,7 +10,9 @@ I’m going to keep it short this week and get on with all the great links and s
 
 Now, the Featured section.
 
-Link one. "The Case Against Caffeine - Insight Axis"
+There is one link this week.
+
+Link one of one. "The Case Against Caffeine - Insight Axis"
 
 I love my morning cup of coffee. A lot. I love the ritual of it. Grinding the beans and giving them a smell. The slow hand dripped water at 205 °F circling over the filter. Smelling the hot brew. The rich taste of that first sip. As such, I’m certainly biased to read every article I run into about how great coffee is for you. But if I’m learning I should also read articles like this.
 
@@ -34,7 +36,9 @@ That's the end of Currently.
 
 Now, the Notable section.
 
-Link one. "U.S. Internet Leaked Years of Internal, Customer Emails – Krebs on Security"
+There are nine links this week.
+
+Link one of nine. "U.S. Internet Leaked Years of Internal, Customer Emails – Krebs on Security"
 
 I was shocked to see a headline from Krebs that referenced my own ISP - U.S. Internet!
 
@@ -50,11 +54,11 @@ End quote.
 
 I use USI for fiber internet and the service is fabulous. I have a great 1 gigabit connection that is rock solid. I don't use them for anything else, and would have preferred there engagement on this incident was more robust.
 
-Link two. "Beautiful Things"
+Link two of nine. "Beautiful Things"
 
 I put on my Vision Pro and had an awesome time at this website grabbing 3D objects and placing them around me, making them bigger and smaller, rotating them. Incredible stuff. Then I decided to put a Tesla Model 3, Macintosh Classic, Hyrulian Shield, Thor's Hammer, and an iPod on my desk for fun.
 
-Link three. "Sharing a Vision Pro with Someone Else Is Too Hard - MacStories"
+Link three of nine. "Sharing a Vision Pro with Someone Else Is Too Hard - MacStories"
 
 This is probably my biggest gripe right now with VisionOS — it is single user. Looking at Apple devices we have iOS and iPadOS which are purely single user. watchOS is of course single user. tvOS has recently branched into multi-user in a fairly subtle way that likely very few people use. macOS of course has been multi-user.
 
@@ -62,7 +66,7 @@ Currently visionOS is single user which is frustrating for a device that is so e
 
 I hope that Apple takes this as an upgrade in visionOS. It is a software thing only, and would be a big unlock if others in the family could use the Vision Pro without having to be in a guest mode and retraining the device every time.
 
-Link four. "Don't delegate your word"
+Link four of nine. "Don't delegate your word"
 
 I've followed this approach 99% of the time.
 
@@ -80,11 +84,11 @@ End quote.
 
 Simple.
 
-Link five. "Groq"
+Link five of nine. "Groq"
 
 New and incredibly fast AI service. Built using custom hardware and software. The speed is impressive, and would be particularly interesting for conversational use.
 
-Link six. "twenty twenty four MLS season kicks off today exclusively on MLS Season Pass on Apple TV - Apple"
+Link six of nine. "twenty twenty four MLS season kicks off today exclusively on MLS Season Pass on Apple TV - Apple"
 
 Nothing surprising about the twenty twenty four MLS Season coming to Apple TV, but at the bottom of this release is this gem.
 
@@ -94,15 +98,15 @@ End quote.
 
 I can’t wait to watch this on the Vision Pro. This is a perfect example where Apple can influence content to drive the experience in their own products.
 
-Link seven. "The 14 pains of building your own billing system - Arnon Shimoni"
+Link seven of nine. "The 14 pains of building your own billing system - Arnon Shimoni"
 
 This is another one of those great posts that dives into a topic that seems relatively mundane like "We need to bill our customers." and highlights the myriad of edge cases that arise. This often is overlooked in build-buy decisions and can result in underestimating complexity of the solution required. Shimoni highlights 14 pain points: Idempotency, Date Handling, Proration and "Leftovers", Usage Metering, Invoice Formatting, Complex Customer Hierarchy, Payment Collection and Churn Prevention, Pausing and Resuming, Crediting and Refunding, Tax Handling, Custom Deals, Human Error, Selective Pricing Changes, and Revenue Recognition and Accrued Revenue.
 
-Link eight. "Gasless DNSSEC on Mainnet | ENS Blog"
+Link eight of nine. "Gasless DNSSEC on Mainnet | ENS Blog"
 
 I have stated many times that one of the things I do not like about the Web3 proposition is how it is often positioned in opposition to the current web. I think it is much more productive and practical to consider them woven together into a cohesive experience. I absolutely love what ENS is doing to make that a reality right now. With this release you can now configure DNS records to serve ENS information using EIP-3668. So in addition to the completely decentralized ENS service for names like jamie.thingelstad.eth, I can also now use jamie.thingelstad.com in Web3 applications! If you own a DNS name you can set this up with simple TXT records today.
 
-Link nine. "List of twenty twenty four Leap Day Bugs"
+Link nine of nine. "List of twenty twenty four Leap Day Bugs"
 
 I didn’t realize there were so many edge case bugs associated with Leap Day! It isn't terribly surprising though given how difficult it is to program around all the variations in something that we think is so simple — time. I use a couple of the services listed.
 
@@ -260,71 +264,73 @@ That's the end of the Journal.
 
 Now, the Briefly section.
 
-Link one. "Sora — Creating video from text | OpenAI"
+There are seventeen links this week.
+
+Link one of seventeen. "Sora — Creating video from text | OpenAI"
 
 Buckle up — these videos are impressive.
 
-Link two. "Observable 2.0 | Observable"
+Link two of seventeen. "Observable 2.0 | Observable"
 
 Interesting approach to building observability using a static-site generator instead of a more traditional tool approach.
 
-Link three. "Why Tapestry? • The Breakroom"
+Link three of seventeen. "Why Tapestry? • The Breakroom"
 
 I don't know that I will be a frequent user of Tapestry, but I’m backing it because I think many people could be. I plan on setting my Mom up with it so she can more easily follow my blog.
 
-Link four. "GraphRAG: Unlocking LLM discovery on narrative private data - Microsoft Research"
+Link four of seventeen. "GraphRAG: Unlocking LLM discovery on narrative private data - Microsoft Research"
 
 Interesting advances in augmenting LLM analysis with additional data.
 
-Link five. "wddbfs – Mount a sqlite database as a filesystem"
+Link five of seventeen. "wddbfs – Mount a sqlite database as a filesystem"
 
 Pretty wild way to access a database.
 
-Link six. "Vision Pro - Exploring Spatial Computing"
+Link six of seventeen. "Vision Pro - Exploring Spatial Computing"
 
 Great examples of using the Vision Pro for productive things. I agree with the authors enthusiasm around the conceptual models of VisionOS. I think that Apple has gotten this really close to right. The hardware and software will improve, but the concepts need to endure.
 
-Link seven. "Defending Access to the Decentralized Web | Electronic Frontier Foundation"
+Link seven of seventeen. "Defending Access to the Decentralized Web | Electronic Frontier Foundation"
 
 Interesting case where IPFS gateways, which operate as caching endpoints, are being targeted for content that they host. This at the same time that Section 230 is used by social media companies to block all liability of content that they promote? This contradiction makes no sense.
 
-Link eight. "100 things you can do on your personal website | James' Coffee Blog"
+Link eight of seventeen. "100 things you can do on your personal website | James' Coffee Blog"
 
 Fun list of great things you can do with your own website.
 
-Link nine. "Apache ECharts"
+Link nine of seventeen. "Apache ECharts"
 
 Great looking charts with a well supported Apache project.
 
-Link ten. "Walmart agrees to buy Vizio to grow ad business"
+Link ten of seventeen. "Walmart agrees to buy Vizio to grow ad business"
 
 Given my strong views on privacy it wouldn't surprise anyone that I’m opposed to the idea of putting devices in my house that create a platform for advertisers to then reach me. The model makes sense though, and I suspect that this will be popular. Buying a product for reduced price and agreeing to have your activity surveilled seems to be a tradeoff some are wiling to make.
 
-Link eleven. "Death, Lonely Death — Crooked Timber"
+Link eleven of seventeen. "Death, Lonely Death — Crooked Timber"
 
 This writeup about Voyager 1 and as it is speeding ever further away from Earth and after decades of use beyond what it was designed has become inoperable.
 
-Link twelve. "Keep your phone number private with Signal usernames"
+Link twelve of seventeen. "Keep your phone number private with Signal usernames"
 
 It has always bugged me that your phone number was your identity in Signal. Happy to see them rolling out username.
 
-Link thirteen. "Daring Fireball: Apple Sports"
+Link thirteen of seventeen. "Daring Fireball: Apple Sports"
 
 Interesting commentary on the approach Apple took with the new Sports app and similarities to Journal. It makes sense that there is now a default Sports app for iOS, similar to Weather and Stocks.
 
-Link fourteen. "iMessage with PQ3: The new state of the art in quantum-secure messaging at scale - Apple Security Research"
+Link fourteen of seventeen. "iMessage with PQ3: The new state of the art in quantum-secure messaging at scale - Apple Security Research"
 
 Someday we will or may have quantum computers and theoretically they will be able to brute force existing encryption methods. Apple is moving iMessage to a post-quantum encryption method now in preparation for that. Any solutions that use encryption heavily seem to be considering this change. Ethereum has a roadmap for a post-quantum approach for example.
 
-Link fifteen. "The direct influence of Twin Peaks on Zelda - The Verge"
+Link fifteen of seventeen. "The direct influence of Twin Peaks on Zelda - The Verge"
 
 I adore Twin Peaks (have watched it multiple times), and if I had the patience for gaming Zelda would be my jam. Fun to see the connection was real!
 
-Link sixteen. "Okay, Color Spaces — ericportis.com"
+Link sixteen of seventeen. "Okay, Color Spaces — ericportis.com"
 
 Color spaces are a confusing thing to me. I know that most things are sRGB. And I know that I shoot photos in Adobe RGB.
 
-Link seventeen. "Turkey beloved in Kenny neighborhood of south Minneapolis dies after vehicle strike"
+Link seventeen of seventeen. "Turkey beloved in Kenny neighborhood of south Minneapolis dies after vehicle strike"
 
 This turkey used to stand roost in the middle of the street just a few blocks from our house. We were sad to hear it had been hit by a vehicle. How many turkeys make the newspaper?
 

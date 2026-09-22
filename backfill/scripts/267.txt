@@ -8,7 +8,9 @@ Have a great day and lets jump right into it!
 
 Now, the Featured section.
 
-Link one. "POSSE: a better way to post on social networks - The Verge"
+There is one link this week.
+
+Link one of one. "POSSE: a better way to post on social networks - The Verge"
 
 As someone that has been blogging since before social networking existed the intersection of blogging and social media is something I've had first-hand experience with and have developed strong opinions about. I ultimately look back at the several years that I primarily engaged with Twitter and didn’t blog as much as a lost period. Blurting out 140 character tweets is nothing like writing real blog posts.
 
@@ -50,7 +52,9 @@ That's the end of Currently.
 
 Now, the Notable section.
 
-Link one. "Microfrontends should be your last resort"
+There are twelve links this week.
+
+Link one of twelve. "Microfrontends should be your last resort"
 
 Tech does indeed have its trends and microfrontends are a current one. This is a balanced article that suggests that you should make sure you are ready for this pattern before you dive into it.
 
@@ -60,7 +64,7 @@ End quote.
 
 Understanding the prerequisites for technologies is something we often forget about.
 
-Link two. "Signal app President Meredith Whittaker on messaging privacy"
+Link two of twelve. "Signal app President Meredith Whittaker on messaging privacy"
 
 This comment from Whittaker responding to the lack of a policy team at Signal and if that is a disadvantage. I so love this response.
 
@@ -76,13 +80,13 @@ End quote.
 
 I’m not an active user of Signal, but I do have it on my devices and have an account. iMessage encryption is good enough for me. But I absolutely love that Signal exists, and that it is being led by folks like Whittaker. We need fighters to protect our privacy, and she is absolutely one!
 
-Link three. "Reddit’s blockchain-based Community Points are going away - The Verge"
+Link three of twelve. "Reddit’s blockchain-based Community Points are going away - The Verge"
 
 I really liked what Reddit was doing with blockchain Community Points and it is a bummer to see them shutting it down. I also think Reddit has had a huge mess for the last year in a huge fight with their users and moderators. They are passing on a real opportunity here to make the Reddit reputation system publicly available and allow others to build on it. You could gain instant credibility in other services by connecting your wallet.
 
 Interestingly the article makes no reference to their Collectible Avatars that are NFT's and are sold and traded amongst users. That is also integrated with the Reddit Vault.
 
-Link four. "A Visit to Ghibli Park, a Miyazaki Theme Park - The New York Times"
+Link four of twelve. "A Visit to Ghibli Park, a Miyazaki Theme Park - The New York Times"
 
 Tyler has been thinking that he would like his graduation trip destination to be Tokyo. Tammy had listened to this article on the Sunday Read and she played it for us while driving back from Big Cedar Lodge. However, I promptly fell asleep and missed parts of it so I found the article. As a bonus, the article has some photos and a ton of images from different Studio Ghibli movies.
 
@@ -92,13 +96,13 @@ End quote.
 
 Ghibli Park sounds pretty incredible. It all made me think that we should see Spirited Away again and to my delight I found it was playing at a local theater as part of Ghibli Festival. We are going on Sunday afternoon to experience it in the theater for the first time.
 
-Link five. "Engineering Management Checklist"
+Link five of twelve. "Engineering Management Checklist"
 
 (Why not publish simple text files on the web. )
 
 Simple, not too wordy checklist of engineering managers. Truly could be used by most managers well beyond engineering too.
 
-Link six. "The Business Necessity for Platform Engineering - SPS Commerce | DevOps Enterprise Summit"
+Link six of twelve. "The Business Necessity for Platform Engineering - SPS Commerce | DevOps Enterprise Summit"
 
 Presentation by Andy Domeier and Nathaniel Andersen of #TeamSPS at DevOps Enterprise Summit.
 
@@ -108,7 +112,7 @@ End quote.
 
 Great talk highlighting the value they've seen using our platform. Annoying but you have to register to watch the video.
 
-Link seven. "What happened to blogging for the hell of it? | wiwi blog"
+Link seven of twelve. "What happened to blogging for the hell of it? | wiwi blog"
 
 This simple post struck a huge chord with me, it is exactly how I like to think about blogging.
 
@@ -118,7 +122,7 @@ End quote.
 
 Strong agree. Take your "hustle" somewhere else.
 
-Link eight. "Daring Fireball: Apple and AI"
+Link eight of twelve. "Daring Fireball: Apple and AI"
 
 It has been odd that the most valuable tech company in the world really hasn't picked up on the Generative AI tidal wave. Also, Apple is not seen as a leader in this area.
 
@@ -130,7 +134,7 @@ If I were to just make a complete guess I think they are very focused on the Vis
 
 Is there a limit to the surface area you can be "the best" in? Well, there has to be. Having huge amounts of capital help. But ultimately organizational focus gets stretched.
 
-Link nine. "Embeddings: What they are and why they matter"
+Link nine of twelve. "Embeddings: What they are and why they matter"
 
 Good overview from Willison introducing Embeddings and going into some detail on how to use them.
 
@@ -140,15 +144,15 @@ End quote.
 
 He goes through a couple of examples and gives command line information so you can follow along.
 
-Link ten. "OnThis.xyz"
+Link ten of twelve. "OnThis.xyz"
 
 This is certainly an interesting idea, and the usability of sending some ETH to toarbitrum.eth and having it magically bridge over to your wallet there is pretty slick. But it sure requires a level of trust that seems much higher than directly engaging with the bridge. Usability tradeoff for reduced control and transparency?
 
-Link eleven. "EthSign"
+Link eleven of twelve. "EthSign"
 
 One of the built-in features of Ethereum and all blockchain apps is the public-key cryptography. This product uses that to create a way to manage legal signing of contracts between multiple parties. Think Docusign but with verifiable identity, and while you're at it, you could send payment directly with the contract. Very well done application.
 
-Link twelve. "RSS Club | daverupert.com"
+Link twelve of twelve. "RSS Club | daverupert.com"
 
 Oh! My! I so love this! Now I want to figure out something that I can publish only as an RSS feed. No website. The only way you can get it and read it is to use an RSS feed reader. Mind spinning.
 
@@ -260,43 +264,45 @@ That's the end of the Journal.
 
 Now, the Briefly section.
 
-Link one. "The Singing Pumpkin"
+There are ten links this week.
+
+Link one of ten. "The Singing Pumpkin"
 
 I experienced these when we were at Big Cedar and it was a really cool effect. It would be fun to have this setup on Halloween!
 
-Link two. "Nota Examples"
+Link two of ten. "Nota Examples"
 
 Wild mashup of Markdown with Javascript thrown in, some MathJax/TeX stuff, on and variables. I’m not sure how this would necessarily be better than just using HTML and direct web technologies.
 
-Link three. "Gartner: Generative AI will be everywhere, so strategize now | VentureBeat"
+Link three of ten. "Gartner: Generative AI will be everywhere, so strategize now | VentureBeat"
 
 Go! Fast!
 
-Link four. "Find Your Pi Day"
+Link four of ten. "Find Your Pi Day"
 
 Love the geeky math of this. Plus, you can have a custom shirt made! I suspect I'll be wearing one of these on March 14, twenty twenty four! π
 
-Link five. "Mermaid | Diagramming and charting tool"
+Link five of ten. "Mermaid | Diagramming and charting tool"
 
 I can’t tell if this is poorly described, just super complicated, or I’m not getting it. The "Live Editor" was most helpful to me, and it sort of looks like GraphViz and DOT notation.
 
-Link six. "Amazon enables passwordless passkeys on the web and in mobile apps - The Verge"
+Link six of ten. "Amazon enables passwordless passkeys on the web and in mobile apps - The Verge"
 
 My password manager of choice is 1Password and they just recently released Passkey support. I’m setting them up on any sites that support it. The usability is fabulous. Plus anything we can do to get people beyond passwords is a huge step for security.
 
-Link seven. "pypipe: Python pipe command line tool"
+Link seven of ten. "pypipe: Python pipe command line tool"
 
 Very powerful tool for manipulating piped text. Probably easier than awk, sed, and grep which could do similar things.
 
-Link eight. "Texts Joins Automattic | Matt Mullenweg"
+Link eight of ten. "Texts Joins Automattic | Matt Mullenweg"
 
 I’m a fan of Mullenweg and think he's done so much good for the web. I’m a little surprised they are getting into messaging, but not much. Wish them the best with this acquisition.
 
-Link nine. "NASA just sent a software update to a spacecraft 12 billion miles away"
+Link nine of ten. "NASA just sent a software update to a spacecraft 12 billion miles away"
 
 Just the idea of doing a firmware update to a satellite 12 billion miles away is so incredibly cool. I'd love to just hang out and watch while they did it.
 
-Link ten. "Women's Pockets are Inferior"
+Link ten of ten. "Women's Pockets are Inferior"
 
 It would drive me bonkers if my front pockets were this small.
 

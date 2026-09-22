@@ -12,7 +12,9 @@ Cheers!
 
 Now, the Featured section.
 
-Link one. "Can a Chatbot Named Daenerys Targaryen Be Blamed for a Teen’s Suicide? - The New York Times"
+There is one link this week.
+
+Link one of one. "Can a Chatbot Named Daenerys Targaryen Be Blamed for a Teen’s Suicide? - The New York Times"
 
 Gift link for this article so you do not need a subscription to read.
 
@@ -60,11 +62,13 @@ That's the end of Currently.
 
 Now, the Notable section.
 
-Link one. "Daring Fireball: Vision Pro Bites Dog"
+There are seven links this week.
+
+Link one of seven. "Daring Fireball: Vision Pro Bites Dog"
 
 There is a defensiveness to Gruber's tone in this article about Vision Pro sales volumes, but he is also right. As a Vision Pro owner I don't regret the purchase as I wanted to learn about this new Spatial Computing environment. I've learned it is interesting but there needs to be more development, and even more important it is not something that you use to sit down for a few minutes to do some quick things. It is only useful when you intend to spend a block of uninterrupted time. Combine that with the apps and the platform just isn't compelling enough yet.
 
-Link two. "Apples Have Never Tasted So Delicious. Here’s Why | Scientific American"
+Link two of seven. "Apples Have Never Tasted So Delicious. Here’s Why | Scientific American"
 
 My favorite apple is without question the Honeycrisp, developed right here in the Great State of Minnesota by the way!
 
@@ -80,15 +84,15 @@ End quote.
 
 I read this article with some pride knowing the role the University of Minnesota played in the Honeycrisp apple, but also learning a ton about all the so many varieties of apples there are.
 
-Link three. "iOS and iPadOS 18.1: Everything New Besides Apple Intelligence - MacStories"
+Link three of seven. "iOS and iPadOS 18.1: Everything New Besides Apple Intelligence - MacStories"
 
 New Emoji keyboard I noticed right away and like it. Nice to see a Shortcut add to allow us to easily wire the Action button on the iPhone to Control Center, which makes a lot of sense to me. Redoing the spatial photo and video options into their own area in Camera makes sense too.
 
-Link four. "Apple's Commitment to AI Is Clear, But Its Execution Is Uneven - MacStories"
+Link four of seven. "Apple's Commitment to AI Is Clear, But Its Execution Is Uneven - MacStories"
 
 Initial reviews on Apple Intelligence are going to be rocky. Why? This "feature" is unlike any other I've seen them release in that it will come in four separate releases, all the way from 18.1 to 18.4. So now we are just getting the first part. My initial impression is okay, it is interesting. I don't think we will really be able to judge it until the whole thing has shipped.
 
-Link five. "Meta’s AI Abundance – Stratechery by Ben Thompson"
+Link five of seven. "Meta’s AI Abundance – Stratechery by Ben Thompson"
 
 I’m not a fan of Meta (Facebook) but Thompson's analysis of the opportunities they have around AI are spot on.
 
@@ -98,7 +102,7 @@ End quote.
 
 Their stock is almost certainly a great buy. Similar to how tobacco stocks were a great buy for a long time.
 
-Link six. "Change Healthcare Breach Hits 100M Americans – Krebs on Security"
+Link six of seven. "Change Healthcare Breach Hits 100M Americans – Krebs on Security"
 
 The scope of this breach is incredible.
 
@@ -108,7 +112,7 @@ End quote.
 
 Once this data is out there it is just out there. The only thing we can do is attempt to minimize the ability for criminals to leverage such incredibly comprehensive data.
 
-Link seven. "Australia/Lord_Howe is the weirdest timezone | SSOReady"
+Link seven of seven. "Australia/Lord_Howe is the weirdest timezone | SSOReady"
 
 Another one of these articles that goes into the weird edge cases of stuff that most people take for granted but that software engineers need to completely solve for. In this case it turns out there are timezones that have very funky behavior.
 
@@ -206,27 +210,29 @@ That's the end of the Journal.
 
 Now, the Briefly section.
 
-Link one. "Linus Torvalds Comments On The Russian Linux Maintainers Being Delisted - Phoronix"
+There are six links this week.
+
+Link one of six. "Linus Torvalds Comments On The Russian Linux Maintainers Being Delisted - Phoronix"
 
 Interesting development. I wonder if other open source projects will follow suit as well?
 
-Link two. "How we saved hundreds of engineering hours by writing tests with LLMs"
+Link two of six. "How we saved hundreds of engineering hours by writing tests with LLMs"
 
 This is a great entry point to use LLM in software development.
 
-Link three. "Nintendo Releases a Music App - MacStories"
+Link three of six. "Nintendo Releases a Music App - MacStories"
 
 Do you ever want to really take in the sounds of those classic Nintendo games? Now you can!
 
-Link four. "Pokémon TCG Pocket Launches Early - MacStories"
+Link four of six. "Pokémon TCG Pocket Launches Early - MacStories"
 
 Finally Pokémon brings The Card Game to a native mobile experience.
 
-Link five. "Simplify and enhance Amazon S3 static website hosting with AWS Amplify Hosting"
+Link five of six. "Simplify and enhance Amazon S3 static website hosting with AWS Amplify Hosting"
 
 Good add by AWS to make it even easier to host sites.
 
-Link six. "Cabel Sasser, Panic - XOXO Festival (twenty twenty four) - YouTube"
+Link six of six. "Cabel Sasser, Panic - XOXO Festival (twenty twenty four) - YouTube"
 
 Lovely talk. Thanks to Garrick for the link.
 

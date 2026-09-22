@@ -18,7 +18,9 @@ That's the end of Currently.
 
 Now, the Notable section.
 
-Link one. "Steve Blank Playing With Fire – ChatGPT"
+There are fourteen links this week.
+
+Link one of fourteen. "Steve Blank Playing With Fire – ChatGPT"
 
 Steve Blank has been around innovation in Silicon Valley since 1978 and has seen a lot. His reflections on ChatGPT-4 and the coming wave of AI innovation are worth reading.
 
@@ -34,15 +36,15 @@ End quote.
 
 We don't totally know what all is happening here, and where it will be in just a few months. Hold on!
 
-Link two. "LinkedIn power users are turning to ghostwriters - Vox"
+Link two of fourteen. "LinkedIn power users are turning to ghostwriters - Vox"
 
 I’m over here wondering how social platforms are going to be impacted by AI generated text, and it turns out that there is an entire market of ghostwriters for LinkedIn creating content for people already. It has always been the case that some LinkedIn content is clearly written by marketing teams on behalf of people, but this is the person themselves hiring someone to build an audience for them. Not for me.
 
-Link three. "Gnosis Ecosystem (PDF) - Google Drive"
+Link three of fourteen. "Gnosis Ecosystem (PDF) - Google Drive"
 
 This PDF covers the history of Gnosis and the various projects that have spun out of Gnosis DAO particularly. I run a Gnosis Validator and am a home staker. I find the "vibe" of Gnosis to be a great fit for me, and it is a wonderful ecosystem to explore and learn in.
 
-Link four. "Tim Cook on Shaping the Future of Apple | GQ"
+Link four of fourteen. "Tim Cook on Shaping the Future of Apple | GQ"
 
 In full disclosure if there were a Tim Cook fan club, I'd be a card carrying member. I've also been a long-time customer of Apple and enjoy their products which certainly has a halo effect for Cook himself. What I really admire about Cook though is how he leads with values. I also think his calm and reasoned persona is a great model, and oddly iconoclast, to so many leaders in technology. Including his predecessor Steve Jobs!
 
@@ -58,11 +60,11 @@ End quote.
 
 The interview highlights the incongruity of the CEO of Apple focusing on privacy and device addiction. It is isn't incongruous if you start by leading with your values.
 
-Link five. "Introducing S-GPT, A Shortcut to Connect OpenAI's ChatGPT with Native Features of Apple's Operating Systems - MacStories"
+Link five of fourteen. "Introducing S-GPT, A Shortcut to Connect OpenAI's ChatGPT with Native Features of Apple's Operating Systems - MacStories"
 
 This is an incredibly advanced Shortcut that brings ChatGPT features into a number of cool areas on your Mac or iPhone. One of the coolest features is having ChatGPT create playlists for you in Apple Music. It did a great job with the few tests I gave it.
 
-Link six. "Think of language models like ChatGPT as a "calculator for words""
+Link six of fourteen. "Think of language models like ChatGPT as a "calculator for words""
 
 This is a super interesting mental model for thinking about ChatGPT and LLMs.
 
@@ -72,7 +74,7 @@ End quote.
 
 It does however make me wonder how quickly that "calculator" turns into a spreadsheet, and from their into something even more. The parameters of this mental model may have a very short shelf life.
 
-Link seven. "Introducing BloombergGPT, Bloomberg’s 50-billion parameter large language model, purpose-built from scratch for finance | Bloomberg LP"
+Link seven of fourteen. "Introducing BloombergGPT, Bloomberg’s 50-billion parameter large language model, purpose-built from scratch for finance | Bloomberg LP"
 
 Domain specific Generative Pre-trained Transformers are an obvious next step.
 
@@ -82,7 +84,7 @@ End quote.
 
 Will these have staying power or will it be more useful to have a broader data set?
 
-Link eight. "Smart Locks Endanger Tenants’ Privacy and Should Be Regulated | Electronic Frontier Foundation"
+Link eight of fourteen. "Smart Locks Endanger Tenants’ Privacy and Should Be Regulated | Electronic Frontier Foundation"
 
 I haven't adopted that much "smart home" infrastructure, in part because of the privacy concerns. I've thought several times that having a smart lock at our cabin would be great, but yet another stream of data that can be sold and shared without our knowledge is enough to keep me away.
 
@@ -92,11 +94,11 @@ End quote.
 
 The growing use of technology in our homes, a place that is recognized under our constitution in special ways, without privacy considerations is a problem.
 
-Link nine. "Leverage is brittle | Seth's Blog"
+Link nine of fourteen. "Leverage is brittle | Seth's Blog"
 
 Choosing and being careful about where you use leverage is important. It is also worth considering that not all forms of leverage are financial. The same concepts can apply to time and relationships.
 
-Link ten. "Implications of Open Monetary and Information Networks - Lyn Alden"
+Link ten of fourteen. "Implications of Open Monetary and Information Networks - Lyn Alden"
 
 Another very well done article from Alden this time comparing centralized versus decentralized approaches to money and information. Alden's career is in finance and her framing starts with that, and then continues to information. I think her conclusions are right on, including the boundaries that she sets for decentralized technology.
 
@@ -106,7 +108,7 @@ End quote.
 
 Her view of Web3 is similar to mine, and she also see's a "long debate" ahead, similar to my view on polarizing technology.
 
-Link eleven. "Stripe’s twenty twenty two annual letter"
+Link eleven of fourteen. "Stripe’s twenty twenty two annual letter"
 
 Annual letter from the founders of Stripe. Stripe is one of the technology companies that I always keep an eye on. They are building enabling technology that is impressive for payments, but equally important is how they build it and how they take that to market. The amount of innovation that is enabled by Stripe is incredible.
 
@@ -122,15 +124,15 @@ End quote.
 
 Incredible.
 
-Link twelve. "A Deep Dive into the ENS Name Wrapper — ENS"
+Link twelve of fourteen. "A Deep Dive into the ENS Name Wrapper — ENS"
 
 The Ethereum Name Service is both a great utility for users, as well as breaking new ground for how you run decentralized services and organizations. It has always been the case that ENS names like thingelstad.eth are completely decentralized and "owned" by the owner. However, that wasn't true for subdomains like tammy.thingelstad.eth. This new Name Wrapper opens up a tremendous set of opportunities to decentralize ENS names at every level. The video here is the easiest way to understand this.
 
-Link thirteen. "Printing daily.baty.net – Baty.net"
+Link thirteen of fourteen. "Printing daily.baty.net – Baty.net"
 
 Cool to see how Baty has automated pulling his blog posts into nice looking printed artifact. One of my things to do is to figure out how to have my blog live for as long as possible. It is a harder problem than one might think. The funny thing though is that printing it out on paper and having a bunch of copies made is one of the easiest ways to do it.
 
-Link fourteen. "Review: Aura’s digital photo frame is solid, if not quite picture perfect – Six Colors"
+Link fourteen of fourteen. "Review: Aura’s digital photo frame is solid, if not quite picture perfect – Six Colors"
 
 I've had an Aura frame for a couple of years now and I’m happy with it. The best thing about it is it just works, and doesn't take management. I've never had to do anything beyond sending photos to it. I’m considering getting more of them.
 
@@ -168,39 +170,41 @@ That's the end of the Journal.
 
 Now, the Briefly section.
 
-Link one. "Ask Your PDF"
+There are nine links this week.
+
+Link one of nine. "Ask Your PDF"
 
 Another tool to use AI to analyze collections of PDFs.
 
-Link two. "Reply to Everyone — How we built something useful"
+Link two of nine. "Reply to Everyone — How we built something useful"
 
 I’m not going to move email, but a feature like this would be nice for a small set of circumstances.
 
-Link three. "The Bitcoin Whitepaper Is Hidden in Every Modern Copy of macOS - Waxy.org"
+Link three of nine. "The Bitcoin Whitepaper Is Hidden in Every Modern Copy of macOS - Waxy.org"
 
 Wow! I verified this on my machine and sure enough there it is. Somebody at Apple is into Bitcoin. I'll be curious to see if this is changed.
 
-Link four. "How to have buckets of time"
+Link four of nine. "How to have buckets of time"
 
 An interesting approach to serializing work into chunks to improve efficiency and reduce task switching. This is very GTD-friendly. These buckets could easily be GTD contexts.
 
-Link five. "Google for Startups Ukraine Support Fund: One year on"
+Link five of nine. "Google for Startups Ukraine Support Fund: One year on"
 
 Cool to see what Google continues to support in Ukraine.
 
-Link six. "Ethereum Guatemala Update"
+Link six of nine. "Ethereum Guatemala Update"
 
 Cool to see this first Ethereum event in Guatemala.
 
-Link seven. ""I’ll Walk Away From Anything": Kara Swisher Calls the Shots | Vanity Fair"
+Link seven of nine. ""I’ll Walk Away From Anything": Kara Swisher Calls the Shots | Vanity Fair"
 
 I enjoy listening to Swisher's podcasts. She is a powerhouse personality.
 
-Link eight. "Blog posting frequencies (ooh.directory)"
+Link eight of nine. "Blog posting frequencies (ooh.directory)"
 
 I dig the kind of geeky stuff that is happening around blogs.
 
-Link nine. "Rebranding Announcement - Fueled Collective"
+Link nine of nine. "Rebranding Announcement - Fueled Collective"
 
 It makes me so happy that the Coco brand is coming back to Minneapolis!
 

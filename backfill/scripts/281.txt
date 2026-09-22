@@ -10,7 +10,9 @@ Hope you have a fabulous remainder of your weekend!
 
 Now, the Notable section.
 
-Link one. "Holding Hands with the "Fediverse" – ActivityPub at SFO Museum"
+There are seventeen links this week.
+
+Link one of seventeen. "Holding Hands with the "Fediverse" – ActivityPub at SFO Museum"
 
 Truth be told I haven't spent a ton of time digging into ActivityPub and the Fediverse. Largely if the Fediverse is just "Twitter, err, X, that doesn't suck" that just isn't that compelling to me. I’m not sure why this article caught my attention, but as I read it I got excited about the potential here for the first time.
 
@@ -20,7 +22,7 @@ End quote.
 
 I love the framing that a museum could have its own Fediverse instance not just to host one account, but an account for every object in it? I love this. This is actually interesting and fun. It made me instantly think how fun it would be to have a Fediverse instance for our home and what accounts could that have. The mind whirs. Worth noting though that I am someone that created a Twitter bot for my house in two thousand seven.
 
-Link two. "Onboarding roulette: deleting our employee accounts daily"
+Link two of seventeen. "Onboarding roulette: deleting our employee accounts daily"
 
 Chaos testing can be great for testing, but this kind of random deletion of your profile is next level.
 
@@ -30,7 +32,7 @@ End quote.
 
 I like the reasoning that went into why they do it. The developers building the product would otherwise never experience the onboarding process.
 
-Link three. "Starbucks Is Shutting Down Its Odyssey Beta NFT Rewards Program — Will It Return? - Decrypt"
+Link three of seventeen. "Starbucks Is Shutting Down Its Odyssey Beta NFT Rewards Program — Will It Return? - Decrypt"
 
 I wish that programs like this were successful, but I’m not surprised they are turning this down.
 
@@ -45,7 +47,7 @@ Let's think for a moment about why a loyalty program would be implemented with c
 
 Starbucks didn’t do either of these. I don't think the tech and user experience is far enough along to do the second item yet.
 
-Link four. "It's just a blog - annie mueller"
+Link four of seventeen. "It's just a blog - annie mueller"
 
 Annie Mueller sharing her love of blogging, of personal websites, of writing and sharing.
 
@@ -63,7 +65,7 @@ End quote.
 
 Yep, it is. It is as long as we are part of it.
 
-Link five. "8 years later: A world Go champion’s reflections on AlphaGo"
+Link five of seventeen. "8 years later: A world Go champion’s reflections on AlphaGo"
 
 I tracked when Lee Sedol played these historic games against AlphaGo, and ultimately lost.
 
@@ -73,7 +75,7 @@ End quote.
 
 How wild is it that students of Go can learn better by watching the AI play than a grandmaster.
 
-Link six. "Take Ownership of Your Future Self"
+Link six of seventeen. "Take Ownership of Your Future Self"
 
 If you've read books like Atomic Habits, Tiny Habits, or others this article covers similar ground. I like that it gets to what I think is the root around identity, and how we identify ourselves.
 
@@ -85,7 +87,7 @@ This is the part that meditation practices of keeping the "self" as small as pos
 
 Even more importantly I would suggest is to ask yourself what are the labels you've attached to your identity? And how did they get there? Were they your choice, or someone else's? Make sure they weren't a marketers choice.
 
-Link seven. "Dead air on the incident call – Dan Slimmon"
+Link seven of seventeen. "Dead air on the incident call – Dan Slimmon"
 
 This wont come as a surprise to folks that have worked with me and managed a production incident — I don't do well with silence in incident response. This article lays out the huge role of communication during an incident, and also shares what can be good silence.
 
@@ -95,7 +97,7 @@ End quote.
 
 Functional silence is a good way to think of it.
 
-Link eight. "04: photography as a result of life"
+Link eight of seventeen. "04: photography as a result of life"
 
 I like this reflection from Toh. I like the "softer philosophy" and just being.
 
@@ -103,11 +105,11 @@ Quote.
 Photography as a result of life. This frames photography as a natural act, like breathing. You have a camera and you take photos. Are they meaningful? That's not for you to say. Is there a narrative? The more you try to force a narrative, the uglier things become. Instead, breathe.
 End quote.
 
-Link nine. "NVIDIA's STUNNING Breakthroughs: Blackwell AI Chip, Robots, AGI, World Model and more! - YouTube"
+Link nine of seventeen. "NVIDIA's STUNNING Breakthroughs: Blackwell AI Chip, Robots, AGI, World Model and more! - YouTube"
 
 This highlight video from Nvidia's recent event has amazing announcements. The processing power of the Blackwell chips, and what they are doing with it, is no less than amazing. Worth watching for sure. Also, Ben Thompson's Nvidia Waves and Moats is a good follow-on read.
 
-Link ten. "Understanding the DOJ's Antitrust Complaint Against Apple - MacStories"
+Link ten of seventeen. "Understanding the DOJ's Antitrust Complaint Against Apple - MacStories"
 
 Every tech blogger under the sun has been writing about this case. Ben Thompsons take was thorough and well informed. Voorhees perspective is interesting to me because he is actually a lawyer. Voorhees breaks down the same five core arguments:
 
@@ -117,7 +119,7 @@ End quote.
 
 Worth reading for another perspective on this.
 
-Link eleven. "The drift to normal | Seth's Blog"
+Link eleven of seventeen. "The drift to normal | Seth's Blog"
 
 Godin's struck a chord with me on this observation.
 
@@ -129,7 +131,7 @@ A corollary that should go with this is that everything being unique and differe
 
 So how do you identify where you are distinctively not average, not normal, and protect that at all costs?
 
-Link twelve. "United States v. Apple – Stratechery by Ben Thompson"
+Link twelve of seventeen. "United States v. Apple – Stratechery by Ben Thompson"
 
 Thompson providing context and a breakdown of the case the Department of Justice has brought against Apple. Nearly everyone that has asked me about this goes to the App Store and the issues around it. As Thompson highlights though, this case isn't about the App Store.
 
@@ -145,11 +147,11 @@ End quote.
 
 These are the areas of focus. Thompson goes through each one with some great context. If you are curious about this topic it is worth a read.
 
-Link thirteen. "How to Figure Out What Your Car Knows About You (and Opt Out of Sharing When You Can) | Electronic Frontier Foundation"
+Link thirteen of seventeen. "How to Figure Out What Your Car Knows About You (and Opt Out of Sharing When You Can) | Electronic Frontier Foundation"
 
 First we had Smart TV manufacturers surveilling us and selling data. Now car companies are collecting our data and selling that too? We need privacy regulations in this country. The devices that we buy are increasingly connected, and are increasingly surveilling on us.
 
-Link fourteen. "vCard + RSS as an alternative to social media - nfraprado"
+Link fourteen of seventeen. "vCard + RSS as an alternative to social media - nfraprado"
 
 I’m not sure this could get traction but I like the approach of using existing open standards.
 
@@ -159,7 +161,7 @@ End quote.
 
 You could have such a thing be entirely decentralized as well — just like blogs and their feeds are today.
 
-Link fifteen. "5 ways to actually use the notes you take | Dann Berg"
+Link fifteen of seventeen. "5 ways to actually use the notes you take | Dann Berg"
 
 I’m digging into Obsidian recently and trying to improve my note taking process. I’m still struggling with it. I don't think I've ever been a very good note taker and it seems like something I would get value out of doing better. This list from Berg is interesting, but also seems daunting.
 
@@ -169,7 +171,7 @@ End quote.
 
 What struck me about this list is how similar it is to blogging. The fifth item literally is to blog. The first four are things that I do every day when I do blog gardening. Maybe I need to stop thinking about note taking and think about private blogging?
 
-Link sixteen. "LinkedIn is not a social or professional network, it's a learning network"
+Link sixteen of seventeen. "LinkedIn is not a social or professional network, it's a learning network"
 
 Critchlow has a fresh perspective for LinkedIn's positioning. There are no shortage of "LinkedIn is cringe" blog posts out there. And the updates are sometimes particularly, well I guess, cringe. But this focus on learning would be a brilliant push.
 
@@ -185,7 +187,7 @@ End quote.
 
 For what it’s worth, LinkedIn is the one place that I've found serious engagement and uptake with the Weekly Thing. I try to focus my emails on learning and I think it aligns with this approach.
 
-Link seventeen. "First Float Tank Experience – Random Musings"
+Link seventeen of seventeen. "First Float Tank Experience – Random Musings"
 
 My friend Hadar wrote up his first experience in a floatation tank. I've never seriously considered doing this, but his writeup has me thinking I may want to give it a try.
 
@@ -354,47 +356,49 @@ That's the end of the Journal.
 
 Now, the Briefly section.
 
-Link one. "20 Years in the Making, GnuCOBOL Is Ready for Industry - The New Stack"
+There are eleven links this week.
+
+Link one of eleven. "20 Years in the Making, GnuCOBOL Is Ready for Industry - The New Stack"
 
 This isn't going to be a widely used thing, but it strikes me as a super critical tool for those that need it.
 
-Link two. "Job Simulator Is Coming To Apple Vision Pro"
+Link two of eleven. "Job Simulator Is Coming To Apple Vision Pro"
 
 My kids have loved playing Job Simulator — having it on the Vision Pro will be a lot of fun.
 
-Link three. "Dencun POAP Raises More Than 100,000 dollars for Ethereum Solo Stakers — Week in POAP"
+Link three of eleven. "Dencun POAP Raises More Than 100,000 dollars for Ethereum Solo Stakers — Week in POAP"
 
 The POAP Checkout feature that launched a couple of years ago is awesome, and using it to raise real money for the community is a great use case.
 
-Link four. "A Roundup of the Best Obsidian Plugin in twenty twenty four – The Sweet Setup"
+Link four of eleven. "A Roundup of the Best Obsidian Plugin in twenty twenty four – The Sweet Setup"
 
 Notes for my continued exploration of Obsidian.
 
-Link five. "Climate models can’t explain twenty twenty three’s huge heat anomaly — we could be in uncharted territory"
+Link five of eleven. "Climate models can’t explain twenty twenty three’s huge heat anomaly — we could be in uncharted territory"
 
 Climate models and scientists can’t connect the record warmth of this winter to anything in their systems. Are we off the map?
 
-Link six. "Memories"
+Link six of eleven. "Memories"
 
 I still cannot find a perfect photo solution. I currently split my catalog of 200,000+ photos between iCloud Photos and Adobe Cloud. I'd like to have something that gives me more control, but it is hard to do at the scale I need. Here is another option for self-hosting.
 
-Link seven. "The Omni Show: How Pete Edstrom Uses OmniFocus"
+Link seven of eleven. "The Omni Show: How Pete Edstrom Uses OmniFocus"
 
 It is pretty rare that you scan your podcasts and see someone you know! Pete Edstrom is right here in the Twin Cities and a regular part of the tech community here. Was fun to listen to this!
 
-Link eight. "Echo Chess — Play Daily Puzzles"
+Link eight of eleven. "Echo Chess — Play Daily Puzzles"
 
 I would like to be better at Chess. I’m pretty bad. Tyler is working on getting better and he will soon be able to reliably beat me. Playing a daily Chess puzzle might help me out.
 
-Link nine. "Webtag - A free text-based bookmarking"
+Link nine of eleven. "Webtag - A free text-based bookmarking"
 
 Another super-simple bookmarking service.
 
-Link ten. "KeyDB - The Faster Redis Alternative"
+Link ten of eleven. "KeyDB - The Faster Redis Alternative"
 
 Redis is a rock-solid piece of software infrastructure. Good to have others looking at ways to do even better.
 
-Link eleven. "GSAP – A wildly robust JavaScript animation library built for professionals"
+Link eleven of eleven. "GSAP – A wildly robust JavaScript animation library built for professionals"
 
 A little bit of animation effects can be great, but not too much.
 

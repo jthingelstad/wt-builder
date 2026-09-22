@@ -10,7 +10,9 @@ There is a lot in this weeks issue, so let's get straight to it!
 
 Now, the Featured section.
 
-Link one. "Own the Internet: The Bull Case for Ethereum - Not Boring by Packy McCormick"
+There are two links this week.
+
+Link one of two. "Own the Internet: The Bull Case for Ethereum - Not Boring by Packy McCormick"
 
 This is an article I wish I had written. Ethereum is so much more than Bitcoin. It is an entirely different solution, with much more capability. If you add the ecosystem around it you get an easy 10x expansion of value.
 
@@ -20,7 +22,7 @@ End quote.
 
 This is why I will continue to build up knowledge and capital in Ethereum. It feels like the very early days of the web, when Mosaic was still in beta.
 
-Link two. "Status Anxiety as a Service - Noahpinion"
+Link two of two. "Status Anxiety as a Service - Noahpinion"
 
 This breakdown of Twitters features and function is very interesting.
 
@@ -46,7 +48,9 @@ That's the end of Currently.
 
 Now, the Notable section.
 
-Link one. "MoFi Consensus - Weekly News and Crypto Talk w/ Kevin Rose and Feyyaz Alingan | Modern Finance Podcast - MoFi"
+There are eighteen links this week.
+
+Link one of eighteen. "MoFi Consensus - Weekly News and Crypto Talk w/ Kevin Rose and Feyyaz Alingan | Modern Finance Podcast - MoFi"
 
 If you want a taste of what is going on in the broader crypto ecosystem beyond just Bitcoin and Ethereum this episode of Modern Finance touches on a dozen or more projects, concepts, and such. Incredible array of services being built out here. From the show notes:
 
@@ -56,7 +60,7 @@ End quote.
 
 I have some Matic/Polygon and I've been wanting to try staking first-hand so I added that to my list.
 
-Link two. "An interlude. | Irrational Exuberance"
+Link two of eighteen. "An interlude. | Irrational Exuberance"
 
 I have shared a good number of posts from Will Larson's blog and I enjoyed his book An Elegant Puzzle. This post is a personal story about suffering a stroke.
 
@@ -66,7 +70,7 @@ End quote.
 
 A good reminder.
 
-Link three. "Faryar Shirzad Joins Coinbase as Chief Policy Officer | The Coinbase Blog"
+Link three of eighteen. "Faryar Shirzad Joins Coinbase as Chief Policy Officer | The Coinbase Blog"
 
 Another big name from "traditional" finance joining the crypto world.
 
@@ -76,7 +80,7 @@ End quote.
 
 Coinbase is well positioned to take the leadership role working with existing organizations to integrate crypto into the existing financial ecosystem. There are a lot of people that will position crypto versus existing structures, but the path that I hope for is one where crypto is integrated alongside existing structures.
 
-Link four. "Announcing Coinbase Fact Check: Decentralizing truth in the age of misinformation | The Coinbase Blog"
+Link four of eighteen. "Announcing Coinbase Fact Check: Decentralizing truth in the age of misinformation | The Coinbase Blog"
 
 Coinbase feels that some of the media coverage on them is not accurate and are launching a new blog section to specifically address that.
 
@@ -96,11 +100,11 @@ Quote.
 Why media? Every aspect of every business is increasingly carried out through the media. From advertising and marketing to sales and customer service, from product design to manufacturing, everything that happens anywhere in business is ever more likely to happen on a screen or handheld device.
 End quote.
 
-Link five. "Fig"
+Link five of eighteen. "Fig"
 
 This is pretty incredible autocompletion support for the command-line. This is so robust that at first I thought it was an alternative shell, but it looks like it can run in your existing shell.
 
-Link six. "Hashids - generate short unique ids from integers"
+Link six of eighteen. "Hashids - generate short unique ids from integers"
 
 Cool little library that could be very handy for building unique URLs, with data encoded in them, but also not overly long.
 
@@ -110,7 +114,7 @@ End quote.
 
 I can think of a couple of places something like this would be handy.
 
-Link seven. "Dolphin Emulator - Temptation of the Apple: Dolphin on macOS M1"
+Link seven of eighteen. "Dolphin Emulator - Temptation of the Apple: Dolphin on macOS M1"
 
 Impressive performance information on the Apple M1, not from Apple, but from an emulator writer in gaming.
 
@@ -122,7 +126,7 @@ The efficiency of the M1 continues to amaze me. I’m now using a MacBook Pro M1
 
 I don't think people yet realize how big of a deal this new generation of Apple Silicon is. And for the life of me I cannot figure out how Intel is going to compete, or even keep up.
 
-Link eight. "Blockchain voting is overrated among uninformed people but underrated among informed people"
+Link eight of eighteen. "Blockchain voting is overrated among uninformed people but underrated among informed people"
 
 Vitalik Buterin, the creator of Ethereum, breaks down how you can approach voting using a blockchain. His analysis is detailed and shows how a solution could be constructed.
 
@@ -140,7 +144,7 @@ End quote.
 
 Great read to understand how this could be done.
 
-Link nine. "A thank-you note to the net — BuzzMachine"
+Link nine of eighteen. "A thank-you note to the net — BuzzMachine"
 
 Imagine the pandemic and lockdowns without the Internet. Nope, I don't want to consider it either. I agree with Jarvis on this.
 
@@ -148,11 +152,11 @@ Thank you Internet.
 
 love Jamie
 
-Link ten. "Lazy"
+Link ten of eighteen. "Lazy"
 
 I saw this via a link from Mark Cuban, so no surprise he's an investor. This is a simple service that allows you to showcase your NFT's. Here are Mark Cuban's NFTs.
 
-Link eleven. "The hybrid work paradox by Satya Nadella | LinkedIn"
+Link eleven of eighteen. "The hybrid work paradox by Satya Nadella | LinkedIn"
 
 Good overview of how Microsoft is approaching hybrid work. This is all notable from Microsoft since obviously they make the software that many of us will use to do hybrid work as well. So, their operating models are likely to be embodied in their software and become models that we all use in our own organizations.
 
@@ -164,11 +168,11 @@ I love that they published their whole playbook for this. A lot more to read and
 
 It seemed strange to me that Nadella shared this on LinkedIn instead of a Microsoft blog post, but then I remembered Microsoft owns LinkedIn so…
 
-Link twelve. "Motivation: The Scientific Guide on How to Get and Stay Motivated"
+Link twelve of eighteen. "Motivation: The Scientific Guide on How to Get and Stay Motivated"
 
 I loved James Clear's book Atomic Habits. This is like a mini-book specifically on the topic of motivation.
 
-Link thirteen. "Using An Elgato Stream Deck With OmniFocus"
+Link thirteen of eighteen. "Using An Elgato Stream Deck With OmniFocus"
 
 I've had an Elgato Stream Deck for a bit now and this article blew my mind in two ways.
 
@@ -178,7 +182,7 @@ I've had an Elgato Stream Deck for a bit now and this article blew my mind in tw
 
 This is enough to make me want a Stream Deck on other computers I use heavily.
 
-Link fourteen. "The Limits to Blockchain Scalability"
+Link fourteen of eighteen. "The Limits to Blockchain Scalability"
 
 Vitalik Buterin goes into the fundamentals about scaling blockchain solutions. This is the biggest thing that Ethereum needs to figure out. His approach here is fundamental and not specific to Ethereum.
 
@@ -188,11 +192,11 @@ End quote.
 
 This makes me wonder how other blockchains have gotten to much faster performance. How did they do it? Did they compromise some of these fundamentals?
 
-Link fifteen. "My thoughts about the Principal role"
+Link fifteen of eighteen. "My thoughts about the Principal role"
 
 First person description of being a principal engineer and what is important for success, some of the inherent priority conflicts, and how to approach the role both from a task and relationship perspective.
 
-Link sixteen. "What the ephemerality of the Web means for your hyperlinks - Columbia Journalism Review"
+Link sixteen of eighteen. "What the ephemerality of the Web means for your hyperlinks - Columbia Journalism Review"
 
 Interesting data on how old links to content hold up over time.
 
@@ -202,7 +206,7 @@ End quote.
 
 I’m glad the article mentions Internet Archive which is a great organization I have supported for years. But I think in the case of media companies and others, the better solution is to take the onus on yourself to hold a copy of what was published as a static asset. Some bookmarking solutions do that as well. I pay a small annual fee to Pinboard and it stores a snapshot of every link that I bookmark. Even if it is deleted by the publisher, I still have Pinboard's copy.
 
-Link seventeen. "twenty twenty one Streaming Kit – Matt Mullenweg"
+Link seventeen of eighteen. "twenty twenty one Streaming Kit – Matt Mullenweg"
 
 I've read many of these recommended streaming AV setups for your computer but this may be my absolutely favorite. Mullenweg is the person behind WordPress and a huge advocate of open source. This setup looks pretty incredible.
 
@@ -212,7 +216,7 @@ End quote.
 
 Small and compact. I love that the example is him streaming from a dirt road by a camper somewhere!
 
-Link eighteen. "Dark Pattern Tipline"
+Link eighteen of eighteen. "Dark Pattern Tipline"
 
 User-submitted collection of "dark patterns", things that are evasive or attempting to trick the user.
 
@@ -260,43 +264,45 @@ That's the end of the Journal.
 
 Now, the Briefly section.
 
-Link one. "Google launches its third major operating system, Fuchsia | Ars Technica"
+There are ten links this week.
+
+Link one of ten. "Google launches its third major operating system, Fuchsia | Ars Technica"
 
 I first read about Google's Fuchsia OS in May twenty seventeen and now four years later it is in consumers devices, but not where I would expect it.
 
-Link two. "Venmo Launches Litecoin"
+Link two of ten. "Venmo Launches Litecoin"
 
 I have a soft spot for Litecoin. Glad to see it included here.
 
-Link three. "Charty 1.4 — MacSparky"
+Link three of ten. "Charty 1.4 — MacSparky"
 
 I have Charty but I never considered combining it with OmniFocus. This could be fun!
 
-Link four. "Explaining viewing keys - Electric Coin Company"
+Link four of ten. "Explaining viewing keys - Electric Coin Company"
 
 Interesting capability for Zcash to support compliance and audit needs while still maintaining privacy in transactions.
 
-Link five. "elk.audio"
+Link five of ten. "elk.audio"
 
 I didn’t know that "audio operating system" was a thing.
 
-Link six. "Map of the Internet — Halcyon Maps"
+Link six of ten. "Map of the Internet — Halcyon Maps"
 
 This is so incredibly awesome. I wan't to sail the Firmware Sea.
 
-Link seven. "AWS Shield threat landscape review: twenty twenty year-in-review | AWS Security Blog"
+Link seven of ten. "AWS Shield threat landscape review: twenty twenty year-in-review | AWS Security Blog"
 
 Ignore the half of this that is an advertisement for Shield. Notable that DDoS attacks continue to be very prevalent.
 
-Link eight. "Privacy on iPhone | Tracked | Apple - YouTube"
+Link eight of ten. "Privacy on iPhone | Tracked | Apple - YouTube"
 
 Good ad, and surprisingly accurate description of what happens online.
 
-Link nine. "Blog about what you've struggled with"
+Link nine of ten. "Blog about what you've struggled with"
 
 If you are looking for inspiration as a blogger, particularly a technical blogger, I like this approach from Julia Evans.
 
-Link ten. "The Ford Electric F-150 Lightning's Astonishing Price - The Atlantic"
+Link ten of ten. "The Ford Electric F-150 Lightning's Astonishing Price - The Atlantic"
 
 Surprising as a Tesla owner, but this Ford sounds pretty cool. I love the fact that they are allowing it to be a power source for other things!
 

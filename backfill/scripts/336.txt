@@ -18,7 +18,9 @@ That's the end of Currently.
 
 Now, the Notable section.
 
-Link one. "After nearly 30 years, Crucial will stop selling RAM to consumers - Ars Technica"
+There are eight links this week.
+
+Link one of eight. "After nearly 30 years, Crucial will stop selling RAM to consumers - Ars Technica"
 
 I've bought a number of Crucial memory sticks over the years. The massive demand for memory for AI means no more consumer product.
 
@@ -28,7 +30,7 @@ End quote.
 
 Frankly this sucks. The same thing has happened in the GPU market. The margins and revenue are higher selling to large data centers and huge buyers. But the impact to the DIY market to build your own computers is terrible.
 
-Link two. "How AI Is Transforming Work at Anthropic | Anthropic"
+Link two of eight. "How AI Is Transforming Work at Anthropic | Anthropic"
 
 We are all learning how agentic AI can help people in their work. This data from Anthropic is interesting and meshes well with my experiences. I also like the callout on work that would never have been done.
 
@@ -40,7 +42,7 @@ I don't know how we'll metric that. The reality is we are doing more, and it isn
 
 We've always seen this. PowerPoint lets you make fancy slides, so now you feel compelled to make fancier, and more expensive in terms of time, slides.
 
-Link three. "Discovering the indieweb with calm tech"
+Link three of eight. "Discovering the indieweb with calm tech"
 
 What a lovely idea this is! The challenge that everyone likes to highlight with the web is discoverability. This "Blog Quest" plugin is a super interesting way of solving that:
 
@@ -50,7 +52,7 @@ End quote.
 
 I wish this was available for Safari — I would add it in a minute. I love the idea of accumulating feeds with passive browsing.
 
-Link four. "Perl's decline was cultural"
+Link four of eight. "Perl's decline was cultural"
 
 I was there having these same experiences with these languages. Strickland does a great job in this post generally describing the cultures of these various languages, starting with Perl, then Ruby, PHP, and Python. All of these languages are still used and will be for as long as I can imagine. But of them only Python has continued to ascend and is now one of the most popular languages. Strickland's suggestion is this is as much about the culture of these languages than anything else.
 
@@ -64,7 +66,7 @@ Thinking of the culture of programming languages is an interesting thing, and so
 
 PS: I love that this includes the mess of PHP as well. I've always called that "the people's language". The fact that WordPress and MediaWiki are built on PHP guarantees it a place on the web nearly forever.
 
-Link five. "Why RSS matters"
+Link five of eight. "Why RSS matters"
 
 If you've been reading the Weekly Thing for a while you know nearly everything in here I get via an RSS feed. RSS and a feed reader is my jam. If a site doesn't publish RSS, I’m not reading it. It just is how it is. And RSS can do so much more.
 
@@ -76,7 +78,7 @@ The issue to me for RSS and why companies choose to not support it is the same s
 
 Nearly all social media sites supported RSS when they launched. And they all shut it off after they get enough users. Because they have the power then. Cue enshittification.
 
-Link six. "10 Years of Let's Encrypt Certificates - Let's Encrypt"
+Link six of eight. "10 Years of Let's Encrypt Certificates - Let's Encrypt"
 
 Let's Encrypt may be the most important project on the web in the last decade. This recent milestone is mind blowing.
 
@@ -88,7 +90,7 @@ This might seem like technical gibberish but this is what makes your web connect
 
 Now we have an ever more secure web, open to all, and funded by a non-profit. I love this project and what it has done for the world. I've been a proud supporter since they launched. If you use the web, you should send them a few bucks. Really.
 
-Link seven. "What '67' Reveals About Childhood Creativity - Atlas Obscura"
+Link seven of eight. "What '67' Reveals About Childhood Creativity - Atlas Obscura"
 
 Interesting history on young adult meme's and the role they play.
 
@@ -98,7 +100,7 @@ End quote.
 
 6 — 7.
 
-Link eight. "Why We Need to Die"
+Link eight of eight. "Why We Need to Die"
 
 The finitude of life is what makes life, life.
 
@@ -191,55 +193,57 @@ That's the end of the Journal.
 
 Now, the Briefly section.
 
-Link one. "Fresh - The Terminal Text Editor"
+There are thirteen links this week.
+
+Link one of thirteen. "Fresh - The Terminal Text Editor"
 
 Interesting take on a new text editor for your terminal. The multi-pane interface via curses is interesting. Avoiding having to teach successive generations all the complexity of vim or emacs is a good goal.
 
-Link two. "So What's Going to Happen to Product Management Anyway?"
+Link two of thirteen. "So What's Going to Happen to Product Management Anyway?"
 
 Thought provoking read specifically about product management functions and how that changes with AI. I’m a big believer in directly playing with the technology, building and tinkering is a must. I wholeheartedly would agree that everyone should do that, not just product managers.
 
-Link three. "Introducing Anthropic Interviewer | Anthropic"
+Link three of thirteen. "Introducing Anthropic Interviewer | Anthropic"
 
 Anthropic now has Claude doing interviews. Makes sense.
 
-Link four. "Frank Gehry's most iconic work in pictures"
+Link four of thirteen. "Frank Gehry's most iconic work in pictures"
 
 Such iconic design.
 
-Link five. "Avoiding the toxic status loop | Seth's Blog"
+Link five of thirteen. "Avoiding the toxic status loop | Seth's Blog"
 
 The crazy thing is that social media doesn't even hide the status game. Your follower count and likes of all your posts are just right there. It is a pure status game, with nothing else for it.
 
-Link six. "The Land of Giants Transmission Towers"
+Link six of thirteen. "The Land of Giants Transmission Towers"
 
 I love these! Mark this as another thing to see the next time in Iceland. Kudos Iceland!
 
-Link seven. "Engineer proves that Kohler’s smart toilet cameras aren’t very private - Ars Technica"
+Link seven of thirteen. "Engineer proves that Kohler’s smart toilet cameras aren’t very private - Ars Technica"
 
 I’m a sucker for smart devices and such, but a camera in your toilet? No. Just no.
 
-Link eight. "Commerce Operations Foundation - A Common Language for Modern Commerce Operations"
+Link eight of thirteen. "Commerce Operations Foundation - A Common Language for Modern Commerce Operations"
 
 New industry group focusing on interoperability along with AI-enablement of retail operations.
 
-Link nine. "How HubSpot "Fixed" Retention | Brian Halligan | LinkedIn"
+Link nine of thirteen. "How HubSpot "Fixed" Retention | Brian Halligan | LinkedIn"
 
 Main components of how HubSpot totally flipped their focus and in the process made big improvements to core operating metrics — focused on customer outcomes.
 
-Link ten. "The state of enterprise AI | OpenAI"
+Link ten of thirteen. "The state of enterprise AI | OpenAI"
 
 Massive transformations.
 
-Link eleven. "Meet Pebble Index 01 - External Memory For Your Brain | rePebble Blog"
+Link eleven of thirteen. "Meet Pebble Index 01 - External Memory For Your Brain | rePebble Blog"
 
 I liked having my Aura ring and even consider getting one again. But a ring with a button that you press and such seems really awkward. Love the experiment, but feels doomed.
 
-Link twelve. "Alyx: A Fun, Flexible Way to Track Caffeine Intake - MacStories"
+Link twelve of thirteen. "Alyx: A Fun, Flexible Way to Track Caffeine Intake - MacStories"
 
 Well designed app.
 
-Link thirteen. "Introducing GPT-5.2 | OpenAI"
+Link thirteen of thirteen. "Introducing GPT-5.2 | OpenAI"
 
 A notch better… feels like CPU upgrades.
 

@@ -8,7 +8,9 @@ Cheers!
 
 Now, the Featured section.
 
-Link one. "LLMs break the internet. Signing everything fixes it."
+There are two links this week.
+
+Link one of two. "LLMs break the internet. Signing everything fixes it."
 
 One of the outcomes of LLMs and Generative AI is that the cost of content creation will trend to 0 dollars. I’m not saying good content, but content will be readily available for free to fill every nook and cranny.
 
@@ -42,7 +44,7 @@ Ethereum gives us authentication. It has a means of signing. It can be connected
 
 The path forward to Sign Everything has the most potential in Ethereum, in my opinion.
 
-Link two. "AI and economic liability - Marginal REVOLUTION"
+Link two of two. "AI and economic liability - Marginal REVOLUTION"
 
 The debate about who is liable for the output of an LLM is an interesting one. As I've thought about it I was a little surprised to find that I ended up having to consider Section 230 law as well. Section 230 is the law that provides protection from liability for content that users create at websites. It generally is what social media firms use to argue that they aren't liable for the harm that they often do to people.
 
@@ -58,13 +60,15 @@ That's the end of Featured.
 
 Now, the Notable section.
 
-Link one. "Founder and CEO is kinda a BS title"
+There are ten links this week.
+
+Link one of ten. "Founder and CEO is kinda a BS title"
 
 This article frames these roles in nearly comically overstated way. I disagree with the framing entirely. Great CEO's do much more than "executing diligently" as he suggests, and great Founders are much more than idea machines "flooding with new ideas".
 
 As is the case with all leaders, they need to have more than one mode. You cannot succeed over the long term with a single mode, regardless of what that mode is.
 
-Link two. "The Annual Computer Science Fair - AVC"
+Link two of ten. "The Annual Computer Science Fair - AVC"
 
 This looks really interesting, and I think it would have a big impact.
 
@@ -76,11 +80,11 @@ I’m gonna explore what it would look like to do something like this in the Twi
 
 If you are in technology in the area and interested in this concept, send me an email.
 
-Link three. "The Many Hats of Product Managers – rajiv.com"
+Link three of ten. "The Many Hats of Product Managers – rajiv.com"
 
 This is likely a fine read for product managers themselves. Perhaps a checklist to consider where time is going and anything that might be getting lost in the shuffle? However, I think it is a better list particularly for other people to understand the breadth of the role. Product Manager is a difficult job, and the specific definitions are often unique per company. But the idea of a product manager being a "glue" type role that connects many different things together is near universally true.
 
-Link four. "Coin Metrics’ State of the Network: Issue 204"
+Link four of ten. "Coin Metrics’ State of the Network: Issue 204"
 
 This article is a pretty simple explainer on how blockchain addresses are generated. It specifically goes through Ethereum accounts and smart contracts as well as Bitcoin. I was curious as I've started using many different accounts on Ethereum, and in many cases dedicating an account per applications I use in Ethereum. I do the same thing with email addresses but generating unique email addresses for every site I have an account on.
 
@@ -90,7 +94,7 @@ End quote.
 
 This is the magic part that allows Ethereum addresses to be created, but I’m still not sure if there is a maximum number of addresses that one private key can create.
 
-Link five. "Generative AI at Work - Marginal REVOLUTION"
+Link five of ten. "Generative AI at Work - Marginal REVOLUTION"
 
 Interesting productivity impacts of using Generative AI tools.
 
@@ -100,11 +104,11 @@ End quote.
 
 This is a working paper, and I’m sure we'll see much more research into this area.
 
-Link six. "Coinbase takes another formal step to seek regulatory clarity from SEC for the crypto industry"
+Link six of ten. "Coinbase takes another formal step to seek regulatory clarity from SEC for the crypto industry"
 
 Wether Coinbase and Brian Armstrong want the role or not, I do think they are uniquely positioned to lead the legal framework around crypto. I think this filing is a good one, as I suspect there is an active strategy to not provide guidance to harm the crypto industry. Now, with all that said I don't envy the path. As I've spent three years deeply exploring Ethereum, my best answer to "is it a security?" or whatever is "none of the above". I think the best approach at the moment is to acknowledge that crypto is something new, and needs a specific framework for it.
 
-Link seven. "Farming: Satellite failure ‘cripples’ farmers as GPS-guided tractors grind to a halt"
+Link seven of ten. "Farming: Satellite failure ‘cripples’ farmers as GPS-guided tractors grind to a halt"
 
 Automation yields efficiency improvements, but along with it dependencies.
 
@@ -114,15 +118,15 @@ End quote.
 
 This also highlights how much farming has changed. My grandpa didn’t even have a radio in most of his tractors. Now if you take away GPS the machine just stops.
 
-Link eight. "Stretch 15"
+Link eight of ten. "Stretch 15"
 
 I’m in horrible need of more stretching. This website has simple 15-minute stretching routines you can do whenever you want. I've added it to my Favorites tab! The UX is nice and it seems to have a wide variety of stretches both for home and the office.
 
-Link nine. "Evidence - Business Intelligence as Code"
+Link nine of ten. "Evidence - Business Intelligence as Code"
 
 This feels reminiscent of Jupyter Notebooks. I dig this nascent space of putting text, usually in Markdown, alongside code that pulls in data, and generates dynamic documents and reports. If these tools get simple enough, with access to enough data, they could be very useful. I would expect there is an AI opportunity here too.
 
-Link ten. "Space Elevator"
+Link ten of ten. "Space Elevator"
 
 This is a fabulous visualization of the various levels of getting into space, where various craft have gone, etc. I loved going through it all. So much I even bought Agarwal a coffee at the end.
 
@@ -214,27 +218,29 @@ That's the end of the Journal.
 
 Now, the Briefly section.
 
-Link one. "When Pay to Play Doesn’t Pay"
+There are six links this week.
+
+Link one of six. "When Pay to Play Doesn’t Pay"
 
 First hand account from Chilvers on the treadmill of advertising to drive additional sales.
 
-Link two. "Botify Expands Executive Team with Appointment of Charley Hackerson as Chief Revenue Officer | Business Wire"
+Link two of six. "Botify Expands Executive Team with Appointment of Charley Hackerson as Chief Revenue Officer | Business Wire"
 
 Congrats to my friend Charley on his new role!
 
-Link three. "The Average Screen Time and Usage by Country - ElectronicsHub"
+Link three of six. "The Average Screen Time and Usage by Country - ElectronicsHub"
 
 Interesting data and wild how much difference there is in various countries.
 
-Link four. "Manton Reece - Why Micro.blog is supporting Bluesky now"
+Link four of six. "Manton Reece - Why Micro.blog is supporting Bluesky now"
 
 Cool to see micro.blog already adding support for the newest decentralized social protocol.
 
-Link five. "Accelerating Value Flow with SAFe 6.0 - Scaled Agile Framework"
+Link five of six. "Accelerating Value Flow with SAFe 6.0 - Scaled Agile Framework"
 
 Specific dive into Flow in the newest iteration of SAFe. There is also a more detailed article.
 
-Link six. "Bard now helps you code"
+Link six of six. "Bard now helps you code"
 
 Google is continuing to play catchup in a surprisingly distant position on AI.
 

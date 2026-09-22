@@ -4,6 +4,8 @@ There are a bunch of new subscribers to the Weekly Thing this week! Hello and we
 
 We had a good pounding of snow here in Minneapolis on Monday, more than a foot of it! It was snowing over 1" per hour for much of the day. The commute home was challenging, but it also brought out that great Minnesota winter karma. I saw many scenes of strangers helping others get unstuck, pushing cars out of snowbanks and just looking out for each other. Neighbors helping neighbors! I did my part by running our snowblower all around the block for a couple of hours. You get a pretty big smile and "Thank You" when you show up and help finish clearing a blocked driveway of a foot of snow. A good snow brings out that spirit in everyone. As a big bonus, the kids got to celebrate school being shut down the next day.
 
+Now, the Blog posts section.
+
 twenty seventeen in Meetings
 
 Analaysis of my twenty seventeen calendar.
@@ -12,20 +14,28 @@ twenty seventeen in Links
 
 Analysis of the 913 links I saved to various websites in twenty seventeen.
 
+That's the end of Blog posts.
+
+Now, the Photog section.
+
 We got right around a foot of snow on Monday night and it covered everything in a pretty blanket of white powder.
 
 Jan 22, twenty eighteen at 7:21 PM
 Minneapolis, MN
 
-HomePod versus Amazon Echo versus Google Home Max versus Sonos One: Speaker showdown | iMore
+That's the end of Photog.
+
+Now, the Links section.
+
+Link one. "HomePod versus Amazon Echo versus Google Home Max versus Sonos One: Speaker showdown | iMore"
 
 Best HomePod writeup I’ve read yet. Sounds like it will have amazing sound, but disappointing that so much is still in the works. Not even multi speaker support is available now? And not supporting multiple iCloud users is a bummer. I’m hoping that a HomePod would use a voice signature to know all users in our iCloud Family account and bring the right data and interactions to each. Guess I’ll have to keep waiting.
 
-Coming in twenty eighteen: OmniFocus 3 for Mac and iOS —Learn OmniFocus
+Link two. "Coming in twenty eighteen: OmniFocus 3 for Mac and iOS —Learn OmniFocus"
 
 Some fabulous new stuff coming to OmniFocus 3 in twenty eighteen. The tags will be great, already know how I would use that. The automation engine is going to be a big win too for project templates. Also great to see a web version coming! Now to just give me a REST API to access tasks as well?
 
-twenty eighteen Developer Skills Report by HackerRank
+Link three. "twenty eighteen Developer Skills Report by HackerRank"
 
 This is a very interesting report. I don't know if this type of study has been done often. With 39,441 respondents this would seem to be statistically valid. A lot of great data points and some interesting insights.
 
@@ -45,7 +55,7 @@ VIM beats all other editors by a landslide.
 
 Even though vim is used four times as much, it turns out vim and emacs users in total use the same amount of memory. A lot of interesting data. The data missing from here that I would like to have seen included would have been some analysis of gender. We know that we need to work to grow the ranks of women in tech and I wonder if any of this data would have highlighted some actionable gaps.
 
-‘Never get high on your own supply’ – why social media bosses don’t use social media | Media | The Guardian
+Link four. "‘Never get high on your own supply’ – why social media bosses don’t use social media | Media | The Guardian"
 
 The title of this article did make me chuckle along with the hip-hop inspired pull quote:
 
@@ -53,7 +63,7 @@ If this is the case, then social media executives are simply following the rule 
 
 It is worth noting, in a sector that is so proud of dog fooding their own products, why don't the leaders of these companies use them? I do believe and I think the evidence is clear that these products are designed to be addictive, but I don't think that is why executives at social media companies don't use their own products. More likely they are just busy and social media just isn't that important.
 
-Growing apart and losing touch is human and healthy
+Link five. "Growing apart and losing touch is human and healthy"
 
 I concur with DHH's thesis here.
 
@@ -61,15 +71,15 @@ What allowed me to change and prosper was the freedom to grow apart and lose tou
 
 Many people can reflect on this in the college experience. It’s one of those seminal moments when you make a step change as a person. It happens when you change jobs. Sometimes it happens in the reverse, an alcoholic changes their friends as they become sober. The point is, your social network isn't a snowball that just gets bigger your entire life. It’s a collection that forms and reforms over years. I would also add the important thinking around Dunbar's number that suggests the mean number of people that humans can maintain connections with is 148. The snowball metaphor just frankly doesn't work unless you are willing to freeze your development in your teens.
 
-Daring Fireball: Apple Previews iOS 11.3
+Link six. "Daring Fireball: Apple Previews iOS 11.3"
 
 Some pretty big features coming in iOS 11.3. When I first saw Apple Pay Cash shown my head went right away to that being a great way to buy items from small merchants. The challenge was on the merchant side, but this new Business Chat capability is directly solving that. I’m going to guess that iMessage using iCloud is a critical dependency for Business Chat. I also like the additions to the Health app. It seems odd that you cannot currently store the results of a Dr. visit in Health, which hopefully this will solve.
 
-Amazon Go and the Future – Stratechery by Ben Thompson
+Link seven. "Amazon Go and the Future – Stratechery by Ben Thompson"
 
 Detailed thoughts on why and where Amazon is going with its recently opened cashier-less Amazon Go store. The background on the financial and strategy tactics of tech companies makes this a worthwhile read by itself.
 
-ActivityPub
+Link eight. "ActivityPub"
 
 It’s good to see some official standards adopted for decentralizing social media.
 
@@ -77,13 +87,13 @@ The ActivityPub protocol is a decentralized social networking protocol based upo
 
 I think there is still good debate if even decentralized social media is a good thing. It does reduce the issues around filter bubbles and ownership, but you could have the some trust and mental issues surrounding it.
 
-Zstandard - Real-time data compression algorithm
+Link nine. "Zstandard - Real-time data compression algorithm"
 
 Facebook developed open-source compression algorithm. Looks to be very capable.
 
 Zstandard is a real-time compression algorithm, providing high compression ratios. It offers a very wide range of compression / speed trade-off, while being backed by a very fast decoder (see benchmarks below). It also offers a special mode for small data, called dictionary compression, and can create dictionaries from any sample set. Zstandard library is provided as open source software using a BSD license.
 
-BeyondCorp: How Google Ditched VPNs for Remote Employee Access - The New Stack
+Link ten. "BeyondCorp: How Google Ditched VPNs for Remote Employee Access - The New Stack"
 
 Wow, this is pretty amazing.
 
@@ -91,29 +101,29 @@ Today, none of Google’s employee-facing applications are on a virtual private 
 
 This is an interesting premise. I don't see organizations being ready for this, but it’s an interesting goal to consider over the long haul.
 
-Privacy, simplified.
+Link eleven. "Privacy, simplified."
 
 Very cool! I use Duck Duck Go as my default search engine on all of my devices and I love this new addition. Now not only do you have a privacy forward search experience, but the services you visit from there will be privacy enhanced via this browser. I achieve something similar with a handful of plugins and content blockers. This is much simpler and is privacy by default.
 
-The Best Productivity and GTD App for Mac, iPhone, and iPad
+Link twelve. "The Best Productivity and GTD App for Mac, iPhone, and iPad"
 
 I’m sticking with OmniFocus because I continue to believe the least productive thing you can do is spend significant time and energy switching productivity systems. It’s a common rabbit hole. But, it’s cool to see Things is doing so well.
 
-Personal Data Representatives: An Idea – Tom Steinberg – Medium
+Link thirteen. "Personal Data Representatives: An Idea – Tom Steinberg – Medium"
 
 This seems completely unworkable but it’s a novel idea for managing access to personal data. Establishing a third party entity to deal with the complexity might make sense.
 
-Settlers of Catan and the Invasion of the German Board Games - The Atlantic
+Link fourteen. "Settlers of Catan and the Invasion of the German Board Games - The Atlantic"
 
 These strategy board games pulled me into some casual board gaming over recent years. Specifically Carcassonne and Ticket to Ride. Additionally strong digital versions of those games also make them very approachable and expose them to a new market. Starting with digital and then getting the actual board game has been pretty common for me.
 
-ARK Invest - Big Ideas twenty eighteen - Disruptive Innovation
+Link fifteen. "ARK Invest - Big Ideas twenty eighteen - Disruptive Innovation"
 
 This kind of future looking analyst report isn't worth betting the future on, but I find them compelling to understand how others are looking at opportunities and where the "edges" of some opportunities might be.
 
 “Big Ideas” is ARK’s annual publication showcasing a selection of innovations that we believe will accelerate the pace of change. The research presented in the following slides aims to illustrate how these ideas are transforming the way the world works and delivering outsized growth opportunities across different industries.
 
-Coraline Ada Ehmke — Not Applicable: What Your Job Post Is Really Saying
+Link sixteen. "Coraline Ada Ehmke — Not Applicable: What Your Job Post Is Really Saying"
 
 This is worth reading a couple of times. The cultural signals in your job postings are real, and they dramatically impact the candidate pool.
 
@@ -125,7 +135,7 @@ We had over three hundred applications, almost 75% of them from underrepresented
 
 Wow!
 
-Facebook’s Motivations – Stratechery by Ben Thompson
+Link seventeen. "Facebook’s Motivations – Stratechery by Ben Thompson"
 
 I’m very direct with people in my dislike of Facebook specifically for a number of reasons. Most people think I’m crazy and that charging at privacy windmills is just that, pointless. My opinion on the real threat to Facebook is perfectly captured in Bon Thompson's writeup here:
 
@@ -133,23 +143,23 @@ Rather, the only thing that could undo Facebook’s power is users actively reje
 
 If it is established that social media just isn't good for you, I think that this analogy to smoking could be very accurate. We'll see.
 
-JS things I never knew existed
+Link eighteen. "JS things I never knew existed"
 
 Fun collection of lesser known things you can do in Javascript.
 
-CES twenty eighteen: Real Advances, Real Progress, Real Questions
+Link nineteen. "CES twenty eighteen: Real Advances, Real Progress, Real Questions"
 
 Epic length recap of news from CES twenty eighteen along with a lot of pictures. Index into what you might find interesting here. I didn't realize Google made such a strong push with it’s voice technology here.
 
-The hidden costs of serverless – A Cloud Guru
+Link twenty. "The hidden costs of serverless – A Cloud Guru"
 
 This could be summed up with a simple "Remember all the indirect costs too!". The premise is solid, make sure you don't get fooled by the direct expenses of serverless and forget the other items. However, there is a flaw that the author doesn't factor in the costs of running the node.js comparable system. So, if labor is free maybe, but that is far from the case.
 
-Google’s Fuchsia OS on the Pixelbook: It works! It actually works! | Ars Technica
+Link twenty one. "Google’s Fuchsia OS on the Pixelbook: It works! It actually works! | Ars Technica"
 
 I haven't seen much in the rumor mill about Fuchsia for a year or more, so I was intrigued to see this article. This could all be a secret experiment that never sees the light of day, but you can see how this could be Google's path to getting something that deals with some of the inner issues of Android.
 
-Craft Beer Is the Strangest, Happiest Economic Story in America - The Atlantic
+Link twenty two. "Craft Beer Is the Strangest, Happiest Economic Story in America - The Atlantic"
 
 I know craft breweries in Minneapolis have been popping up everywhere and it seems they have in the rest of the country too. This article is interesting for the topic of beer, but I find it more interesting for the observations about the regulatory structure and what it encourages.
 
@@ -157,7 +167,7 @@ Third, even in an economy obsessed with efficiency, sometimes it is just as wise
 
 How could we design similar incentives in other markets?
 
-Satan Makes His Pitch to Amazon.com - McSweeney’s Internet Tendency
+Link twenty three. "Satan Makes His Pitch to Amazon.com - McSweeney’s Internet Tendency"
 
 I missed this funny response to Amazon’s public request for HQ2 location proposals.
 
@@ -165,7 +175,7 @@ Amazon will find Hell’s labor and employment laws quite business-friendly. We 
 
 Hilarious.
 
-The techlash against Amazon, Facebook and Google—and what they can do - A memo to big tech
+Link twenty four. "The techlash against Amazon, Facebook and Google—and what they can do - A memo to big tech"
 
 The Economist with a witty memo to Silicon Valley leaders on the threats ahead.
 
@@ -173,7 +183,7 @@ You are an industry that embraces acronyms, so let me explain the situation with
 
 I think there are legs to this “big tech” thought. How material and motivated it gets is impossible to guess though.
 
-The iOS Economy, Updated | Asymco
+Link twenty five. "The iOS Economy, Updated | Asymco"
 
 From a nascent idea on a new mobile platform to an immense application ecosystem.
 
@@ -181,21 +191,29 @@ In its latest update on the App Store Apple reported that iOS developers earned 
 
 Would be curious if this also created jobs and how many.
 
-The Fall of Travis Kalanick Was a Lot Weirder and Darker Than You Thought - Bloomberg
+Link twenty six. "The Fall of Travis Kalanick Was a Lot Weirder and Darker Than You Thought - Bloomberg"
 
 The background leading up to the ouster of the Uber CEO and Founder. What an incredible mess and how self-destructive.
 
-Die With Me
+Link twenty seven. "Die With Me"
 
 This is “app as art”. Silly, fun and creative.
 
 The chat app you can only use when you have less than 5% battery.
 
-xkcd: The End of the Rainbow
+Link twenty eight. "xkcd: The End of the Rainbow"
 
 Learning and fun.
 
+That's the end of Links.
+
+Now, the Promotion section.
+
 WikiTribune is a news platform that brings journalists and a community of volunteers together. WikiTribune just got funded and I became a backer. I've been impressed with Wikipedia and am excited about Jimmy Wales and team focusing on the news ecosystem. I am very curious to see how they realize these objectives. I've previously thought about how news can be reinvented. I focused more on the open source model instead of wiki, but either way I feel like a fundamental rethink is possible! Let's see how they tackle this. Become a supporter today!
+
+That's the end of Promotion.
+
+Now, the Featured App section.
 
 Toggl
 
@@ -206,6 +224,10 @@ Did you lose track of your time again? We can help you out. With a single tap, t
 My twenty seventeen in Meetings analysis is powered in large part using Toggl. I've created custom scripts and workflows to put the data into Toggl, but the reporting and management stuff works right out of it. If you have a need to track your time, this is a good application to start with.
 
 Free 1.5/5 stars
+
+That's the end of Featured App.
+
+Now, the Microblog updates section.
 
 - I have an irrational enthusiasm for updating firmware.
 - Trying Dropmix for first time! Pretty cool — a musical trip!
@@ -219,6 +241,8 @@ Free 1.5/5 stars
 - I can’t think of a reason I would ever want a notification from my Kindle app.
 - This "done in 60.411 seconds" has me despising Jekyll.
 - One of my favorite Saturday morning spots to do some reading.
+
+That's the end of Microblog updates.
 
 Thank you for subscribing to the Weekly Thing! If you know of people that would like the Weekly Thing please forward it along!
 

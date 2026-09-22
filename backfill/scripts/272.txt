@@ -14,7 +14,9 @@ I’m going to wrap this up so we can head out to a Christmas Market.
 
 Now, the Featured section.
 
-Link one. "My techno-optimism"
+There are two links this week.
+
+Link one of two. "My techno-optimism"
 
 Vitalik Buterin, founder of Ethereum blockchain, with his own take on "techno-optimism". This whole thread was started with Marc Andreessen's manifesto and branches out with a number of critiques and replies.
 
@@ -26,7 +28,7 @@ End quote.
 
 Reading through this brought many ideas from Taleb's Anti-Fragile to my mind as well. Investing in defensive technology to make people and society more resilient.
 
-Link two. "Writing to Think"
+Link two of two. "Writing to Think"
 
 I love everything about this essay. I've shared articles in the past that hit on the same topic, and this one puts it together really well. One of the big reasons I write is to be a better writer. And if writing is thinking, you necessarily are becoming a better thinker.
 
@@ -58,7 +60,9 @@ That's the end of Currently.
 
 Now, the Notable section.
 
-Link one. "Sqids (formerly Hashids) · Generate Short IDs from Numbers"
+There are fourteen links this week.
+
+Link one of fourteen. "Sqids (formerly Hashids) · Generate Short IDs from Numbers"
 
 I've never thought much about how the random codes associated with YouTube videos work. This library makes it easy to create unique tokens, sqids, from integers.
 
@@ -68,7 +72,7 @@ End quote.
 
 Could be handy.
 
-Link two. "Magnific AI"
+Link two of fourteen. "Magnific AI"
 
 In movies you sometimes see that scene where they have some grainy video camera image and then the main character asks the computer to "enhance the image" and instantly you have a super detailed image of the scene? Magnific is that.
 
@@ -76,25 +80,25 @@ The sliders on the web page are worth playing with. You need to do it on a compu
 
 How do we even think about images like this? They are not obviously fake, but they are. They are "enhanced". The future is incredible.
 
-Link three. "The bash book to rule them all"
+Link three of fourteen. "The bash book to rule them all"
 
 I don't have Efficient Linux at the Command Line but I love Sanglard's enthusiasm for the book. I followed the link to the Amazon product page and the reviews are incredible.
 
 The command-line in Unix is an incredibly powerful place. I've shared my own delights at what you can do. This is a place that nearly all technologists can learn more, and the investment will pay off. If you are early in your tech career, get a book like this and really learn it. The shell is one area that you will get a career of value from knowing better. Related, this Full Bash Guide has a lot of info for free.
 
-Link four. "Teaching Bitcoin with Alby"
+Link four of fourteen. "Teaching Bitcoin with Alby"
 
 I love how this teacher is bringing Bitcoin Lightning into the classroom. Over the summer Tyler and I did something similar. I gave him "Tech Bounties" to work on and then he would figure out the solution, present it to me, and then I awarded him with Bitcoin for completing it. Overall this falls in the category of use cases that are enabled with micropayments that are nearly free. There is a huge set of solutions ready for us enabled with this technology. Well done Tim Grigsby!
 
-Link five. "Mail-in-a-Box"
+Link five of fourteen. "Mail-in-a-Box"
 
 I long ago decided to outsource email to Fastmail, and in general running your own mail server is very difficult. At the same time, I applaud and support efforts like this to make it simple for you to self-host your own email. Email was probably the most decentralized protocol on the Internet for decades, and is now in the stranglehold of Google and a handful of other giant service providers. The reputation systems used to fight spam make it very difficult to setup your own server and have anyone get your mail. The best antidote would be thousands (or tens of thousands!) of mail servers running in peoples houses.
 
-Link six. "Please, United: Don’t Do It. – Doc Searls Weblog"
+Link six of fourteen. "Please, United: Don’t Do It. – Doc Searls Weblog"
 
 Doc Searls with an impassioned plea to United Airlines to not sell flyer data. This is yet another example where I think we need regulatory action. Market forces will push companies to monetize everything, including customer data. Do we want all devices to become like SmartTVs that surveil us and sell private data about what we do in our homes?
 
-Link seven. "I Fight For The Users"
+Link seven of fourteen. "I Fight For The Users"
 
 Atwood's blog is great, and it’s been a while since he has shared an essay. I loved his TRON invocation of "Fight for the Users". I've banged on about social media plenty, but a little less about X (formerly Twitter). If I wrote a post, it would be a copy of what Atwood has shared here.
 
@@ -106,7 +110,7 @@ I've added X and Twitter domains to my social media blocking list in 1Blocker. I
 
 Also, I love the plaques he is auctioning! I put a bid in on one.
 
-Link eight. "Lessons from going freemium: a decision that broke our business"
+Link eight of fourteen. "Lessons from going freemium: a decision that broke our business"
 
 CEO of Equals shares their company journey trying a freemium go-to-market.
 
@@ -116,15 +120,15 @@ End quote.
 
 Good reminder that you need to contextualize your onboarding experience for your product and your customers.
 
-Link nine. "UniFi Express - Ubiquiti"
+Link nine of fourteen. "UniFi Express - Ubiquiti"
 
 I’m a big fan of UniFi networking equipment and use it exclusively now. It is incredibly performant and has great features. This new product looks like a great alternative to Eero, which I can no longer recommend because it was purchased by Amazon and I don't trust the privacy implications of having an Amazon owned device at the core of a home network. UniFi has been releasing a ton of new stuff lately.
 
-Link ten. "Receipts"
+Link ten of fourteen. "Receipts"
 
 Cool beta project that allows you to bridge fitness activities on Strava into a blockchain verified NFT. Also works with Chess.com. This type of "bridging proof" solution is interesting, and has similar use cases to POAP for communities.
 
-Link eleven. "Study gauges how people perceive AI-created content | MIT Sloan"
+Link eleven of fourteen. "Study gauges how people perceive AI-created content | MIT Sloan"
 
 What do consumers think of AI generated content?
 
@@ -134,7 +138,7 @@ End quote.
 
 I've seen this trend represented a few times. We have an aversion to AI generated content but only because we know it is. This has been shown in multiple domains. However, I would suggest this is simply the results of the new-ness. After some time, and more exposure, this aversion will go away.
 
-Link twelve. "23andMe confirms hackers stole ancestry data on 6.9 million users | TechCrunch"
+Link twelve of fourteen. "23andMe confirms hackers stole ancestry data on 6.9 million users | TechCrunch"
 
 This is one of the "worst case" outcomes for why people don't want to use these genetic testing services.
 
@@ -144,11 +148,11 @@ End quote.
 
 The fact that this includes DNA information certainly makes it feel much worse than other common data breaches. These services could be using something similar to "end-to-end encryption" to protect this data so much better.
 
-Link thirteen. "History of the PDF | Sensible Blog"
+Link thirteen of fourteen. "History of the PDF | Sensible Blog"
 
 The Portable Document Format (PDF) is now a core part of our digital world. I remember when Adobe first launched it and it seemed like it mainly solved the problem of not having the right fonts on your computer. But it has become so much more, and it is great example of a company moving the entire ecosystem forward by being a great steward of the invention.
 
-Link fourteen. "Introducing Wikifunctions: first Wikimedia project to launch in a decade creates new forms of knowledge – Wikimedia Foundation"
+Link fourteen of fourteen. "Introducing Wikifunctions: first Wikimedia project to launch in a decade creates new forms of knowledge – Wikimedia Foundation"
 
 I’m a fan of Wikipedia and the Wikimedia Foundation, and it is exciting to see a new project.
 
@@ -270,83 +274,85 @@ That's the end of the Journal.
 
 Now, the Briefly section.
 
-Link one. "Fuzzy Feelings | Apple Holiday Film - YouTube"
+There are twenty links this week.
+
+Link one of twenty. "Fuzzy Feelings | Apple Holiday Film - YouTube"
 
 Nice short and warm story.
 
-Link two. "Permute - Media Converter for macOS"
+Link two of twenty. "Permute - Media Converter for macOS"
 
 New to me app that makes it super easy to take media assets from one format to another. Via People and Blogs: Robin Rendle.
 
-Link three. "Rows n' Columns"
+Link three of twenty. "Rows n' Columns"
 
 Wow, an embeddable spreadsheet component to drop into a web app.
 
-Link four. "Morty: Every escape room. Every haunt. Ever"
+Link four of twenty. "Morty: Every escape room. Every haunt. Ever"
 
 Our family enjoys escape rooms and this site has a huge index of them.
 
-Link five. "trains.fyi"
+Link five of twenty. "trains.fyi"
 
 Fun real-time view of trains moving around the US.
 
-Link six. "Learnings from fine-tuning LLM on my Telegram messages"
+Link six of twenty. "Learnings from fine-tuning LLM on my Telegram messages"
 
 Interesting project training a custom LLM based on personal chat history.
 
-Link seven. "Writing Documentation for Your House"
+Link seven of twenty. "Writing Documentation for Your House"
 
 Great idea, and something we do a little bit. I don't think I would take it to the extent the author does. How cool would it be if every house had a wiki that stayed with the house, and the owners over the years all use that same wiki. That would be incredible.
 
-Link eight. "Examples of Great URL Design - Jim Nielsen’s Blog"
+Link eight of twenty. "Examples of Great URL Design - Jim Nielsen’s Blog"
 
 The URL for your site and service is part of the user experience. Despite attempts by browsers to hide the details of URLs.
 
-Link nine. "When the committee decides | Seth's Blog"
+Link nine of twenty. "When the committee decides | Seth's Blog"
 
 I love this quick post from Godin suggesting what drives committees making a decision. I haven't thought about it as detailed as he puts forward, but intuitively this aligns with what happens when you have a group asses 'request for proposal' responses.
 
-Link ten. "How to Avoid the 3 Biggest Mistakes Leaders Don’t Need to Make - Leadership Freak"
+Link ten of twenty. "How to Avoid the 3 Biggest Mistakes Leaders Don’t Need to Make - Leadership Freak"
 
 Great reminders! Particularly the rigid one. If you are "feeling" that as a leader, you need to quickly reset.
 
-Link eleven. "Zoom Fatigue is Real, According to Brain Scans"
+Link eleven of twenty. "Zoom Fatigue is Real, According to Brain Scans"
 
 Anyone who has spent hours on Zoom can attest to this. It is nice to see data to confirm it.
 
-Link twelve. "Daring Fireball: CNBC Gets an Inside Look at an Apple Chip Lab"
+Link twelve of twenty. "Daring Fireball: CNBC Gets an Inside Look at an Apple Chip Lab"
 
 Video has a good overview of Apple's shift to making their own chips — where it started, and how it has evolved. This was a brilliant strategy shift that wasn't really noted at the time.
 
-Link thirteen. "Signal Facing Collapse After CIA Cuts Funding"
+Link thirteen of twenty. "Signal Facing Collapse After CIA Cuts Funding"
 
 This connects to the article I shared previously on the costs to running Signal. Maybe I’m behind, but I had no idea that government funding was involved with Signal. That means both Signal and Tor were in part funded and launched by US Government spy organizations needing solutions.
 
-Link fourteen. "Melodrip Coffee Tools"
+Link fourteen of twenty. "Melodrip Coffee Tools"
 
 Perfect Christmas gift for any coffee snobs that you know.
 
-Link fifteen. "Blockchain Domain-Name Provider Ethereum Name Service Pushes Back Against Rival's Patent"
+Link fifteen of twenty. "Blockchain Domain-Name Provider Ethereum Name Service Pushes Back Against Rival's Patent"
 
 I fully support Ethereum Name Service in this effort. ENS is one of the most profoundly important projects in crypto, and their approach has been great.
 
-Link sixteen. "ChatGPT turns one: How OpenAI’s AI chatbot changed tech forever - The Verge"
+Link sixteen of twenty. "ChatGPT turns one: How OpenAI’s AI chatbot changed tech forever - The Verge"
 
 What an incredible year it has been.
 
-Link seventeen. "Switch off bad TV settings"
+Link seventeen of twenty. "Switch off bad TV settings"
 
 I find many of the things modern TV's do to the video stream they are displaying annoying. This is a good index on how to watch shows the way they were captured.
 
-Link eighteen. "How Did I Get Here?"
+Link eighteen of twenty. "How Did I Get Here?"
 
 Site that uses the output of traceroute along with additional metadata to explain in plain language how your computer got there.
 
-Link nineteen. "Scientists claim to have discovered secret to perfect espresso | The Guardian"
+Link nineteen of twenty. "Scientists claim to have discovered secret to perfect espresso | The Guardian"
 
 The pursuit of the best coffee. I don't plan to start spritzing my coffee beans before grinding though. It seems like it would leave more residue in your grinder?
 
-Link twenty. "Upgrading GitHub.com to MySQL 8.0 - The GitHub Blog"
+Link twenty of twenty. "Upgrading GitHub.com to MySQL 8.0 - The GitHub Blog"
 
 MySQL scaled to tremendous levels — 1,200 hosts, 300 TB of data. How do you upgrade them all through a major version change? Carefully.
 

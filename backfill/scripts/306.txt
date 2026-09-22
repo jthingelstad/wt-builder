@@ -38,7 +38,9 @@ Over the next few weeks I am going to invite each person to introduce their blog
 
 Now, the Featured section.
 
-Link one. "What Spotify took from us by giving us everything - The Verge"
+There are two links this week.
+
+Link one of two. "What Spotify took from us by giving us everything - The Verge"
 
 This article is a deep review of Mood Machine by Liz Pelly. We've had an Apple Music Family subscription for a long time. In the last few months I actually decided to give Spotify a try and we added a Family subscription to that. I've also subscribed to Sonos Radio in the past. Spotify is well known for great playlists and I thought Christmas would be great for it.
 
@@ -58,7 +60,7 @@ Will your timeline on social media be filled with generated AI content? Yes it w
 
 Back to Spotify though, I feel like I’m in a game where they are trying to trick me at times.
 
-Link two. "People and Blogs: Annie Mueller"
+Link two of two. "People and Blogs: Annie Mueller"
 
 I’m a fan of the People and Blogs newsletter. I was the first supporter of it and was featured in the sixteenth edition. This most recent edition with Annie Mueller is a fabulous read. I liked all of it but this part about who she is really writing for really resonated with me.
 
@@ -84,25 +86,27 @@ That's the end of Currently.
 
 Now, the Notable section.
 
-Link one. "I Ditched the Algorithm for RSS — and You Should Too - Joey's Hoard of Stuff"
+There are seven links this week.
+
+Link one of seven. "I Ditched the Algorithm for RSS — and You Should Too - Joey's Hoard of Stuff"
 
 I've shared many posts over the years of how great I think RSS and feed readers are. I use Feedbin and have for years. It is great. But anything that uses RSS skips algorithms and addictive patterns by design. This is another call to action, but there is also bonus here going deep on the RSS feeds that YouTube, Hacker News, and Reddit provide. I’m not a Reddit user but the RSS feeds have a lot of power. Given that Reddit has monetized everything else I wonder if they just forgot these exist and will shut them off when they find out they are still there. But until then…
 
-Link two. "Have a Great Day: David Lynch (1946-twenty twenty five) | Roger Ebert"
+Link two of seven. "Have a Great Day: David Lynch (1946-twenty twenty five) | Roger Ebert"
 
 It was sad that we lost David Lynch. My first knowledge of Lynch came from watching Twin Peaks in college. I didn’t see it on the air, but borrowed a friend's copies that were recorded on Super VHS. I watched them all in a weekend or so. I also owned all of the Twin Peaks episodes on Laserdisc at one point, with special introductions from the Log Lady. I had actually seen Wild at Heart as a freshman before that but had no idea that was Lynch. I branched in to the Lynch universe and actually really liked his version of Dune that is often panned. I thought it was great and watched it several times. Mulholland Drive was great. I even suffered through Eraserhead once. Blue Velvet, The Elephant Man, Fire Walk With me. All of it was amazing. He was a true artist.
 
 For me though I will always go back to Twin Peaks. That was incredible stuff. The twenty seventeen revisit of Twin Peaks was good as well, but freaked me out.:-)
 
-Link three. "How to: Get to Know iPhone Privacy and Security Settings | Surveillance Self-Defense"
+Link three of seven. "How to: Get to Know iPhone Privacy and Security Settings | Surveillance Self-Defense"
 
 I didn’t know that EFF has these device specific privacy guides. I wouldn't follow everything in here, but I did find settings like "Advanced Tracking and Fingerprint Protection" that I didn’t realize were on for Private Browsing. I want that on for all browsing. I also hadn't run "Safety Check" before and found some old photo shares that I didn’t realize were there and removed them. Good stuff.
 
-Link four. "McLarens and CarPlay | Adam Bell"
+Link four of seven. "McLarens and CarPlay | Adam Bell"
 
 I had a great time reading this post. How many times do you get to start with Formula 1 and very nice sports cars like a Lotus or McLaren and then drift into hex codes, reverse engineering protocols, and Raspberry Pis! Never. A fun geeky journey to get nice music integration in a crazy fast sports car.
 
-Link five. "ToS about"
+Link five of seven. "ToS about"
 
 What is a good use for Gen AI? How about reading those ridiculous Terms of Service documents that you are forced to click accept and have no idea what you just accepted.
 
@@ -110,11 +114,11 @@ Some background. A decade or so ago I got the wiki bug in a bad way and one of t
 
 Using AI for this makes even more sense. The challenge still exists to get the information to the person at the time they are looking at the agreement. Make it "in band" to the process. Will people care? I don't know. But at least we could be better informed.
 
-Link six. "The Powerful AI Tool That Cops (or Stalkers) Can Use to Geolocate Photos in Seconds"
+Link six of seven. "The Powerful AI Tool That Cops (or Stalkers) Can Use to Geolocate Photos in Seconds"
 
 My son likes to play GeoGuessr which drops you in a random place on Google Street View and you get 2 minutes to guess where you are. It is pretty fun and surprising how close you can get with the search engine right there as well. This AI tool is like that but just using a photo. Even photos without GPS data. This is just looking at the content of the photo and determining from that where the photo was taken.
 
-Link seven. "How Unix Spell Ran in 64kB RAM - by Abhinav Upadhyay"
+Link seven of seven. "How Unix Spell Ran in 64kB RAM - by Abhinav Upadhyay"
 
 Wow, I had no idea there was this kind of wizardry in the early versions of spell!
 
@@ -208,43 +212,45 @@ That's the end of the Journal.
 
 Now, the Briefly section.
 
-Link one. "No calls"
+There are ten links this week.
+
+Link one of ten. "No calls"
 
 Fun story how they took a very different approach to enterprise sales. Repeatable? Maybe. Best output? I don't know. But certainly a different way of doing it.
 
-Link two. "You should get a blog"
+Link two of ten. "You should get a blog"
 
 A call to action to start a blog. This article also has many great suggestions of things to write about. Micro.blog just launched a new micro.one starter blog service for 1 dollar a month. That too much? Email me and we'll get you a blog.
 
-Link three. "Switch 2 sports ~7.9-inch screen, 33% bigger tablet surface - Ars Technica"
+Link three of ten. "Switch 2 sports ~7.9-inch screen, 33% bigger tablet surface - Ars Technica"
 
 Ars Technica did the work of laboriously digging through the video of the Switch 2 to figure out the specs that are not yet published. Can’t wait to get my hands on one, or two, of these.
 
-Link four. "Let’s talk about AI and end-to-end encryption – A Few Thoughts on Cryptographic Engineering"
+Link four of ten. "Let’s talk about AI and end-to-end encryption – A Few Thoughts on Cryptographic Engineering"
 
 Overview of encryption approaches and the intersection of encrypted data and building value with AI.
 
-Link five. "Using ChatGPT is not bad for the environment"
+Link five of ten. "Using ChatGPT is not bad for the environment"
 
 Crypto and AI have both been framed as being massive energy drains. Here is some data.
 
-Link six. "Mad at Meta? Don't Let Them Collect and Monetize Your Personal Data | Electronic Frontier Foundation"
+Link six of ten. "Mad at Meta? Don't Let Them Collect and Monetize Your Personal Data | Electronic Frontier Foundation"
 
 Meta changed all their moderation policies in profound ways. A lot of folks are upset about this. You should get off of it if you are. There is a world without Facebook and Instagram. It is delightful.
 
-Link seven. "Daring Fireball: BrikTok"
+Link seven of ten. "Daring Fireball: BrikTok"
 
 It is bonkers to me that we lack the fortitude as a country to stand by our law in this case.
 
-Link eight. "Rogan Misses The Mark: How Zuck’s Misdirection On Gov’t Pressure Goes Unchallenged | Techdirt"
+Link eight of ten. "Rogan Misses The Mark: How Zuck’s Misdirection On Gov’t Pressure Goes Unchallenged | Techdirt"
 
 This is the kind of thing that happens when entertainers get confused with journalists.
 
-Link nine. "At NRF, retailers talk up expanded uses of AI"
+Link nine of ten. "At NRF, retailers talk up expanded uses of AI"
 
 Brief overviews of some use cases of AI in retail.
 
-Link ten. "Master the Art of the Product Manager 'No'"
+Link ten of ten. "Master the Art of the Product Manager 'No'"
 
 This made me chuckle.
 

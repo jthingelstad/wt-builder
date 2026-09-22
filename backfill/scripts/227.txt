@@ -12,7 +12,9 @@ That's a pretty cool assignment. Now lets get to WIL!
 
 Now, the Featured section.
 
-Link one. "Take Care of Your Blog"
+There are two links this week.
+
+Link one of two. "Take Care of Your Blog"
 
 I love the passion and enthusiasm Rendle pours into this post. It is a call to action to fire up your blog and put some text out there on the Internet.
 
@@ -28,7 +30,7 @@ End quote.
 
 I had a website before I had a blog. The blog part starts in June two thousand four. 18 years and counting!
 
-Link two. "Doc Searls Weblog · Attention is not a commodity"
+Link two of two. "Doc Searls Weblog · Attention is not a commodity"
 
 Doc Searls agreeing, and decomposing, some concepts in Scott Galloway's most recent posts. Searls takes objection with the metaphor of attention as a commodity. He suggests it is "dehumanizing", which I suppose he is right.
 
@@ -52,7 +54,9 @@ That's the end of Featured.
 
 Now, the Notable section.
 
-Link one. "QR codes | Dan Hollick"
+There are nine links this week.
+
+Link one of nine. "QR codes | Dan Hollick"
 
 I absolutely devoured this post, how wonderfully interesting to learn a bit about how QR codes actually work. I will admit I was firmly in the camp that made fun of QR codes, but then along came a pandemic and smart phones and we all realized they can be pretty awesome.
 
@@ -64,7 +68,7 @@ Highlights from me:
 
 Take a dig through this and be amazed.
 
-Link two. "What I've Learned from Users"
+Link two of nine. "What I've Learned from Users"
 
 Graham sharing insights that he's learned from working with so many startups through the Y Combinator program. While this advise is framed for "founders", I think it can apply to many people in a variety of functions.
 
@@ -76,17 +80,17 @@ End quote.
 
 Speed is something to be cherished. Moving quickly, you get more chances to be right. Making sure you are on the shortest path is a good reminder to look up and around to check regularly.
 
-Link three. "Daring Fireball: Apple Watch Ultra"
+Link three of nine. "Daring Fireball: Apple Watch Ultra"
 
 When it comes to Apple hardware Gruber is my go to person. HIs review of the Apple Watch Ultra is solid, and given that I have a pretty big wrist I’m intrigued to try one out. I've always felt that the Apple Watch was slightly small on me. The Ultra, and the additional capabilities, may look and feel great in addition to all the powerful features.
 
-Link four. "DAOs are not corporations: where decentralization in autonomous organizations matters"
+Link four of nine. "DAOs are not corporations: where decentralization in autonomous organizations matters"
 
 I find Decentralized Autonomous Organizations (DAOs) one of the most interesting structures in crypto. I bought Lil Noun 1416 so I could be a Lil Nouns DAO voting member, and have been actively voting on most proposals.
 
 The details on different types of DAOs that Vitalik outlines here is interesting. I think his point here is that there is no single best DAO voting method. You need to design for what you are doing. There is still much to learn and discover here.
 
-Link five. "More resilient and user-controlled than AWS: Colin Evran's vision for Filecoin"
+Link five of nine. "More resilient and user-controlled than AWS: Colin Evran's vision for Filecoin"
 
 Storing data for a long time, well beyond my lifetime, is something I wonder about. I fully intend to make sure that my blog, photos, and all my writing online is setup in some way that I can insure it is online for as long as possible, hopefully "forever". Filecoin is interesting for a number of reasons, but one of them is that the economics of storing the data can be built into the contracts on the blockchain.
 
@@ -96,7 +100,7 @@ End quote.
 
 This is intriguing to me, in addition to other use cases. Disclosure: I have a small investment in Seal Storage, a Filecoin provider.
 
-Link six. "Crucial Questions from CEOs and Boards"
+Link six of nine. "Crucial Questions from CEOs and Boards"
 
 Good read on seven different areas that Venables has had focused dialog with multiple Corporate Boards on security topics. This is a collection of more informal topics.
 
@@ -108,7 +112,7 @@ The topics, and his points on each are good.
 
 The similar article on questions from CIOs and CTOs is very good as well.
 
-Link seven. "Daily General Discussion - September 16, twenty twenty two: ethfinance"
+Link seven of nine. "Daily General Discussion - September 16, twenty twenty two: ethfinance"
 
 Interesting framing on how EIP-1559 turned Ethereum from a currency into a commodity.
 
@@ -120,11 +124,11 @@ I've heard EIP-1559 touted in many ways, mostly that it is deflationary. In the 
 
 This view though is a different look. The analogy of staking being like farming is even interesting.
 
-Link eight. "Daring Fireball: The iPhones 14 Pro (and iPhones 14)"
+Link eight of nine. "Daring Fireball: The iPhones 14 Pro (and iPhones 14)"
 
 Gruber going into great detail on the new iPhone 14. I love how much attention he pays to the details. I’m not due for an upgrade yet, but I like everything I see here. I have to comment that the "Dynamic Island" may be the strangest name that Apple has ever attached to something.
 
-Link nine. "RSS 2.0 Launched 20 Years Ago"
+Link nine of nine. "RSS 2.0 Launched 20 Years Ago"
 
 RSS 2.0 was launched 20 years ago. I do so much with RSS, and to this day it is the most prevalent way I find and discover content. No algorithms, no ML, no social. Just the content I want. Thank you Dave Winer for making a protocol that continues to deliver, and hopefully will do so for decades more.
 
@@ -253,35 +257,37 @@ That's the end of Reply All.
 
 Now, the Briefly section.
 
-Link one. "Crypto-Mining Data Center Compute North Files for Bankruptcy, CEO Steps Down"
+There are eight links this week.
+
+Link one of eight. "Crypto-Mining Data Center Compute North Files for Bankruptcy, CEO Steps Down"
 
 Computer North is a Minneapolis company. Curious to know more about the details here. Compute North also had a lot of debt, with 300 million dollars borrowed in February. For mining in crypto in general I think the future is dim as more blockchains follow Ethereum's move to proof-of-stake. To be clear though, I tend to believe Bitcoin should stay proof-of-work.
 
-Link two. "High blood pressure is significantly lowered with breath training: NPR"
+Link two of eight. "High blood pressure is significantly lowered with breath training: NPR"
 
 Wild that you can train your breathing muscles and improve your blood pressure.
 
-Link three. "Simple Icons"
+Link three of eight. "Simple Icons"
 
 2,350 free icons of different brands. Haven't seen that done before. All SVGs.
 
-Link four. "figr.app - Your notepad calculator"
+Link four of eight. "figr.app - Your notepad calculator"
 
 This reminds me a lot of Soulver, but looks even more powerful and is cross-platform. This type of "intelligent" notebooks that can do math can be very powerful.
 
-Link five. "Three Dynamics Shaping Leadership for the Future | Russell Reynolds Associates"
+Link five of eight. "Three Dynamics Shaping Leadership for the Future | Russell Reynolds Associates"
 
 Interesting perspective on three large trends: Globalization fraying, Innovation waves shortening, and Employee activism. I appreciated the Leadership implications attached to each one.
 
-Link six. "IYK - POAP Card"
+Link six of eight. "IYK - POAP Card"
 
 I’m a big fan of POAP (see my list of POAPs I've created)and a card you can have in your wallet to give them out via NFC is pretty cool.
 
-Link seven. "Uber Investigating Breach of Its Computer Systems - The New York Times"
+Link seven of eight. "Uber Investigating Breach of Its Computer Systems - The New York Times"
 
 Oh wow, that is a lot of access.
 
-Link eight. "A look inside our sixth generation of server hardware - Dropbox"
+Link eight of eight. "A look inside our sixth generation of server hardware - Dropbox"
 
 I wish there was more detail here but I find it interesting to see how companies that are competing with the cloud approach their hardware. Dropbox really cannot use the cloud for economic reasons, so they have to go bare metal. 20 petabytes in a rack is impressive.
 

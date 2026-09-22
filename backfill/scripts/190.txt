@@ -18,7 +18,9 @@ At a moment of rampant disinformation and conspiracy theories juiced by algorith
 
 Now, the Featured section.
 
-Link one. "The Cost of Cloud, a Trillion Dollar Paradox - Andreessen Horowitz"
+There is one link this week.
+
+Link one of one. "The Cost of Cloud, a Trillion Dollar Paradox - Andreessen Horowitz"
 
 This is an incredible article and a must read for any senior technology leader in a public company, or any large organization. This is a deep dive on how cloud spend shows up on the P and L versus traditional technology infrastructure which is an asset that sits on the balance sheet. The cloud has huge benefits in many areas, and leveraging them is absolutely key to building solutions quickly. However, you build on a permanent level of leverage that is very hard to unwind.
 
@@ -52,7 +54,9 @@ That's the end of Featured.
 
 Now, the Notable section.
 
-Link one. "Fastly crippled much of the Web, then issued the perfect apology - without bullshit"
+There are nineteen links this week.
+
+Link one of nineteen. "Fastly crippled much of the Web, then issued the perfect apology - without bullshit"
 
 This Fastly outage had a big impact on the entire Internet.
 
@@ -62,7 +66,7 @@ End quote.
 
 I agree completely. I've had to write my fair share of Incident Reports and the basic structure here is what I have found the best. Be clear. Be completely transparent -- even when that is really hard. Always have a timeline. And explain what actions you are going to be taking as a result of the incident.
 
-Link two. "iCloud Private Relay and other Apple WWDC privacy features"
+Link two of nineteen. "iCloud Private Relay and other Apple WWDC privacy features"
 
 This iCloud Private Relay sounds interesting, but I’m going to need to play with it first hand.
 
@@ -72,7 +76,7 @@ End quote.
 
 This almost has a flavor of Tor to it. Very interesting.
 
-Link three. "Don't let Social Media Think for You"
+Link three of nineteen. "Don't let Social Media Think for You"
 
 Well told story that highlights many of the fundamental negative cycles of social media.
 
@@ -88,15 +92,15 @@ End quote.
 
 I know people still like to defend social media, and positive aspects. I don't buy it. I think the ROI is extremely upside down.
 
-Link four. "Condorsay"
+Link four of nineteen. "Condorsay"
 
 Dan Frankowski, a friend (and Weekly Thing reader! ) is co-founder and CTO at Condorsay. This caught my eye in part as I was actively reading the chapter on quadratic voting in Radical Markets. Condorsay takes a different approach, but promises to deliver better decisions than other survey methods.
 
-Link five. "MicroStrategy Boosts Bitcoin-Linked Junk Bond to 500 million dollars - Bloomberg"
+Link five of nineteen. "MicroStrategy Boosts Bitcoin-Linked Junk Bond to 500 million dollars - Bloomberg"
 
 They originally were going to raise 400 million dollars, but took 500 million dollars. Even more they "received about 1.6 billion dollars in orders for the offering". There is a strong appetite for institutional investors to gain access to crypto. In the meantime, structures like this are offering a bridge, but with significant costs and inefficiencies to the investors.
 
-Link six. "The Modern Trap of Feeling Obligated to Turn Hobbies Into Hustles"
+Link six of nineteen. "The Modern Trap of Feeling Obligated to Turn Hobbies Into Hustles"
 
 "We live in the era of the hustle." I despise how this word "hustle" has entered the technology space. Hard pass.
 
@@ -106,11 +110,11 @@ End quote.
 
 Yes.
 
-Link seven. "WWDC twenty twenty one: Shortcuts for Mac – Six Colors"
+Link seven of nineteen. "WWDC twenty twenty one: Shortcuts for Mac – Six Colors"
 
 Shortcuts coming to macOS! I’m a very frequent user of Shortcuts on iOS and iPadOS. I build the Weekly Thing using a sequence of Shortcuts. Bringing shortcuts to the Mac is huge, and will open up so many great options for automation. I love where automation across all of Apple's platforms are heading.
 
-Link eight. "A Lifetime of Systems Thinking - The Systems Thinker"
+Link eight of nineteen. "A Lifetime of Systems Thinking - The Systems Thinker"
 
 Some reflections from Russel Ackoff at 80.
 
@@ -120,7 +124,7 @@ End quote.
 
 A lot fo things in this that will make you think.
 
-Link nine. "Can senior leaders make friends at work? | Irrational Exuberance"
+Link nine of nineteen. "Can senior leaders make friends at work? | Irrational Exuberance"
 
 I can definitely relate to the central theme of this article.
 
@@ -130,11 +134,11 @@ End quote.
 
 Everyone can take their own path. But beware that things may not work out well.
 
-Link ten. "Coin Metrics"
+Link ten of nineteen. "Coin Metrics"
 
 Coin Metrics is like a modern version of BigCharts but for crypto. Great tools and data. This is a space I’m very familiar with from the work I did at Dow Jones, MarketWatch, and BigCharts. Cool stuff.
 
-Link eleven. "Tank Man - Jeff Widener"
+Link eleven of nineteen. "Tank Man - Jeff Widener"
 
 This is an incredible story and background from the photographer that took the incredibly powerful photo of "Tank Man" in front of a line of tanks in the 1989 Tiananmen Square protests
 
@@ -144,7 +148,7 @@ End quote.
 
 I love the story. Journalists and photojournalists do incredible things.
 
-Link twelve. "Why We Should End the Data Economy - The Reboot"
+Link twelve of nineteen. "Why We Should End the Data Economy - The Reboot"
 
 Good call to action for why we need to manage our privacy online.
 
@@ -154,7 +158,7 @@ End quote.
 
 I want to know that my decisions are mine. Not some advertisers.
 
-Link thirteen. "Production values | Seth's Blog"
+Link thirteen of nineteen. "Production values | Seth's Blog"
 
 The medium matters.
 
@@ -164,11 +168,11 @@ End quote.
 
 Read Amusing Ourselves to Death.
 
-Link fourteen. "The Bitcoin Water Trust"
+Link fourteen of nineteen. "The Bitcoin Water Trust"
 
 I love what Charity Water is doing here. I've been donating to them for a few months now and I like their mission and approach. I really like this innovative fundraiser taking Bitcoin, HODL-ing it for a while, and then putting it to work. The Winklevoss twins are matching the first 50 BTC. Love seeing Scott Galloway of Pivot, and Hector Fernandez on the donor list!
 
-Link fifteen. "The self is not singular but a fluid network of identities | Aeon Essays"
+Link fifteen of nineteen. "The self is not singular but a fluid network of identities | Aeon Essays"
 
 Continuing reading on identity and how you think about yourself.
 
@@ -178,7 +182,7 @@ End quote.
 
 This seems conceptually right to me. If you want to better understand your own identity, or identities, thinking about these networks could be very useful.
 
-Link sixteen. "DeAll: The Air of Decentralization in twenty twenty one | Hector Fernandez | LinkedIn"
+Link sixteen of nineteen. "DeAll: The Air of Decentralization in twenty twenty one | Hector Fernandez | LinkedIn"
 
 Thought framework from Hector Fernandez on how he is thinking about decentralization of, well, everything.
 
@@ -188,11 +192,11 @@ End quote.
 
 Worth reading a few times through. Hector has thought very deeply on this topic and his perspective is unique. Hector is also a Weekly Thing reader!
 
-Link seventeen. "The CTO Show with Rajiv Pant | Cloudflare TV"
+Link seventeen of nineteen. "The CTO Show with Rajiv Pant | Cloudflare TV"
 
 Great interview with Rajiv Pant. I met Rajiv years ago when he was at Conde Nast and he has always been someone to learn from. His "3 Roles of a CTO" article was hugely influential to me. He's also a Weekly Thing reader!
 
-Link eighteen. "Passport – Stratechery by Ben Thompson"
+Link eighteen of nineteen. "Passport – Stratechery by Ben Thompson"
 
 Cool project from Thompson to power his own businesses, but built completely on open standards. Love how he approached this and how the solution works. It is interesting that Passport uses unique URL's to grant access to content.
 
@@ -208,7 +212,7 @@ End quote.
 
 This seems like it could be a big deal. Allowing groups of creators to sell bundles of content between them could be a very powerful way to gain more subscribers.
 
-Link nineteen. "Roll - The new standard in social money"
+Link nineteen of nineteen. "Roll - The new standard in social money"
 
 Easy platform to create a coin and manage the vesting of it, etc.
 
@@ -260,63 +264,65 @@ That's the end of the Journal.
 
 Now, the Briefly section.
 
-Link one. "WWDC twenty twenty one: MailKit set to offer new Mail extension possibilities – Six Colors"
+There are fifteen links this week.
+
+Link one of fifteen. "WWDC twenty twenty one: MailKit set to offer new Mail extension possibilities – Six Colors"
 
 I've avoided Mail extensions forever. They have always seemed brittle and buggy to me. Hopefully MailKit makes these solutions work better!
 
-Link two. "Bitcoin: El Salvador makes cryptocurrency legal tender - BBC News"
+Link two of fifteen. "Bitcoin: El Salvador makes cryptocurrency legal tender - BBC News"
 
 El Salvador made a huge announcement at the Bitcoin Miami conference and now the law has officially passed. Bitcoin is now an official currency in a country.
 
-Link three. "watchOS 8: The MacStories Overview - MacStories"
+Link three of fifteen. "watchOS 8: The MacStories Overview - MacStories"
 
 Good overview of updates to watchOS!
 
-Link four. "WWDC twenty twenty one: All The Small Things in Apple's Upcoming OS Releases - MacStories"
+Link four of fifteen. "WWDC twenty twenty one: All The Small Things in Apple's Upcoming OS Releases - MacStories"
 
 I love these recaps of all the little details in upcoming releases.
 
-Link five. "Open Broadcaster Software"
+Link five of fifteen. "Open Broadcaster Software"
 
 Open source software to manage your webcasts with more powerful features.
 
-Link six. "Playdate Update — 6/8/twenty twenty one - YouTube"
+Link six of fifteen. "Playdate Update — 6/8/twenty twenty one - YouTube"
 
 I can’t wait to get my hands on a Playdate.
 
-Link seven. "macOS Monterey: The MacStories Overview - MacStories"
+Link seven of fifteen. "macOS Monterey: The MacStories Overview - MacStories"
 
 Great features coming to the next version of macOS!
 
-Link eight. "iOS and iPadOS 15: The MacStories Overview - MacStories"
+Link eight of fifteen. "iOS and iPadOS 15: The MacStories Overview - MacStories"
 
 I want more from iPadOS, but the trend is the right way. Looking forward to upgrading this fall!
 
-Link nine. "Types of Blogs"
+Link nine of fifteen. "Types of Blogs"
 
 I aspire to something sort of like his "Voice" category.
 
-Link ten. "This one email explains Apple | TechCrunch"
+Link ten of fifteen. "This one email explains Apple | TechCrunch"
 
 I love Panzarino's breakdown of this email and quick interchange that launched the App Store.
 
-Link eleven. "Jsonmatic"
+Link eleven of fifteen. "Jsonmatic"
 
 JSON CSV, and CSV JSON. Handy tool.
 
-Link twelve. "NonFungible.com | Analyze, track and discover NFTs and collectible art markets"
+Link twelve of fifteen. "NonFungible.com | Analyze, track and discover NFTs and collectible art markets"
 
 Place to find NFT's, look at collections, and see how much NFT activity is occurring across Ethereum.
 
-Link thirteen. "Can I Trust YNAB? Why We Don't (and Won't) Share Your Data"
+Link thirteen of fifteen. "Can I Trust YNAB? Why We Don't (and Won't) Share Your Data"
 
 This post makes me happy to continue to be a customer of You Need a Budget. This is what we use to manage all of our personal finances. It is a great app!
 
-Link fourteen. "A beginner's guide to NFTs — Mirror"
+Link fourteen of fifteen. "A beginner's guide to NFTs — Mirror"
 
 Good and reasonably broad description of various NFT use cases.
 
-Link fifteen. "Coinvise"
+Link fifteen of fifteen. "Coinvise"
 
 Still getting built but interesting platform for creating social coins, NFTs, and DAOs.
 

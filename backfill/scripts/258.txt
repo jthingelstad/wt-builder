@@ -16,7 +16,9 @@ The featured section is all about two key articles on the Vision Pro. Am I going
 
 Now, the Featured section.
 
-Link one. "Daring Fireball: First Impressions of Vision Pro and VisionOS"
+There are two links this week.
+
+Link one of two. "Daring Fireball: First Impressions of Vision Pro and VisionOS"
 
 When it comes to new Apple products my go to reviewer is John Gruber of Daring Fireball. Gruber knows the Apple world better than anyone else. He is also demanding of details, and focuses on the experience.
 
@@ -59,7 +61,7 @@ There are a number of other Vision Pro reviews that I thought were good reads as
 - First impressions: Yes, Apple Vision Pro works and yes, it’s good | TechCrunch
 - Introducing Apple Vision Pro: Apple’s first spatial computer - Apple
 
-Link two. "Apple Vision – Stratechery by Ben Thompson"
+Link two of two. "Apple Vision – Stratechery by Ben Thompson"
 
 Ben Thompson's writeup on the Vision Pro is a great read. I appreciate that he hits on the user experience, as well as the technology, and the worries around isolation.
 
@@ -99,7 +101,9 @@ That's the end of Featured.
 
 Now, the Notable section.
 
-Link one. "Strike Infrastructure Update: We Now Serve Customers on Our Own Infrastructure"
+There are eleven links this week.
+
+Link one of eleven. "Strike Infrastructure Update: We Now Serve Customers on Our Own Infrastructure"
 
 A number of new product announcement from Strike, but perhaps even more importantly they have transitioned to running all their own infrastructure.
 
@@ -115,11 +119,11 @@ End quote.
 
 I like the model that Strike has embraced and how much friction they are removing from sending money around.
 
-Link two. "Do Personal Brands Matter?"
+Link two of eleven. "Do Personal Brands Matter?"
 
 First, I don't like the term "personal brand" in general. I just don't like the image it brings up. People are not brands. But I do really like how Chilvers flips it, and just moves brand to the side in favor of reputation. That is something I think is critical. His approach and perspective is spot on here. I particularly appreciate the clarity that this is something you get via action. You cannot directly manipulate your reputation.
 
-Link three. "Dedicate Time And Space To Not Doing - Matt Norman"
+Link three of eleven. "Dedicate Time And Space To Not Doing - Matt Norman"
 
 Norman hits on a good topic here, just making time to not be engaged in things. He has five recommendations for doing this well.
 
@@ -129,7 +133,7 @@ End quote.
 
 This might seem overly rigorous to do nothing, but being intentional is usually a key to success.
 
-Link four. "Open-Source LLMs - Schneier on Security"
+Link four of eleven. "Open-Source LLMs - Schneier on Security"
 
 When Facebook (Meta) open-sourced LLaMa it wasn't obvious to me how big of a strategic thing that was. It has opened up a whole line of innovation with LLMs.
 
@@ -139,7 +143,7 @@ End quote.
 
 It is good that this alternative path exists in addition to the closed, commercial efforts underway.
 
-Link five. "Some blogging myths"
+Link five of eleven. "Some blogging myths"
 
 I love this "encouragement" from Evans for bloggers. People have asked me so many times how to approach blogging and I just tell them to start. That is the key. Just start. Evans myth busting here are good answers to the common refutes to why people cannot just start.
 
@@ -149,15 +153,15 @@ End quote.
 
 Great stuff.
 
-Link six. "With iPadOS 17, Stage Manager Is (Finally) Moving in the Right Direction - MacStories"
+Link six of eleven. "With iPadOS 17, Stage Manager Is (Finally) Moving in the Right Direction - MacStories"
 
 Window managers are surprisingly complicated things to get right, and filled with a ton of personal preference. I tried Stage Manager for a bit, but found it too heavy handed. Or maybe it was just too big of a change. I'll give it another go with the new version. While Apple didn’t reference Stage Manager in visionOS, it sure seemed like the windows in the demos were placed in ways that were inspired by Stage Manager.
 
-Link seven. "Examining HTTP/3 usage one year on"
+Link seven of eleven. "Examining HTTP/3 usage one year on"
 
 I’m frankly shocked that HTTP/3 is already 25-30% of connections for people using browsers. I thought this article would be about the non-adoption of HTTP/3. Cloudflare breaks out robotic HTTP requests and shows how far behind that is, with a lot of HTTP/1.1 usage. Either way, at least these protocol changes go faster than IPv4 to IPv6!
 
-Link eight. "Retiring CEO Archie Black on why he had to improve as a leader for today's SPS Commerce"
+Link eight of eleven. "Retiring CEO Archie Black on why he had to improve as a leader for today's SPS Commerce"
 
 Great interview with our CEO Archie Black on his retirement and reflecting on his 22 years leading SPS.
 
@@ -167,11 +171,11 @@ End quote.
 
 Incredible success. And I love that the theme of continual learning and improving is woven into so much of what Archie shared in this interview. If you always focus on getting better, you do, and your likely going to win.
 
-Link nine. "NVIDIA Grace Hopper Superchips Designed for Accelerated Generative AI Enter Full Production | NVIDIA Newsroom"
+Link nine of eleven. "NVIDIA Grace Hopper Superchips Designed for Accelerated Generative AI Enter Full Production | NVIDIA Newsroom"
 
 I haven't followed GPU advancements that close, but this NVIDIA announcement is incredible with the statistics that they are hitting on these systems. The announcement video is a good watch as well. The throughput that these GPUs have is hard to fathom.
 
-Link ten. "Privacy (Part 1): Constantly Under Threat:: Escape Big Tech"
+Link ten of eleven. "Privacy (Part 1): Constantly Under Threat:: Escape Big Tech"
 
 I take a lot of measures to protect my privacy from companies online. I block many social networks entirely, I run blockers in my browsers, and I run an OS level blocker as well. About 20% of the requests various things on my computer want to do get blocked.
 
@@ -189,7 +193,7 @@ End quote.
 
 Being aware of these schemes and tradeoffs is a great start, and there is still far too little awareness in the general public.
 
-Link eleven. "They Plugged GPT-4 Into Minecraft—and Unearthed New Potential for AI | WIRED"
+Link eleven of eleven. "They Plugged GPT-4 Into Minecraft—and Unearthed New Potential for AI | WIRED"
 
 How GPT-4 plays Minecraft is interesting, and I wonder if this is one of the few examples where GPT-4 itself is coding the solution and making it better.
 
@@ -324,71 +328,73 @@ That's the end of the Journal.
 
 Now, the Briefly section.
 
-Link one. "Binance was sued by the SEC. It looks like FTX but worse"
+There are seventeen links this week.
+
+Link one of seventeen. "Binance was sued by the SEC. It looks like FTX but worse"
 
 Will be curious to see how this unfolds. Is the key to avoid crypto exchanges whose founders are known by initials? SBF. CZ.
 
-Link two. "ZAPLIFE.LOL"
+Link two of seventeen. "ZAPLIFE.LOL"
 
 Streaming view of Zaps (Bitcoin Lightning tips) on Nostr, along with leaderboards.
 
-Link three. "Minecraft, now on Chromebook"
+Link three of seventeen. "Minecraft, now on Chromebook"
 
 A couple decades ago Doom was spread to every platform. Today that is Minecraft.
 
-Link four. "Apple previews new features coming to Apple services this fall - Apple"
+Link four of seventeen. "Apple previews new features coming to Apple services this fall - Apple"
 
 All minor things, but so many of these are things I'll get value out of right away. SharePlay in the car will be a win.
 
-Link five. "‘Franklin Smoke’ Cookbook by Aaron Franklin and Jordan Mackay — Tools and Toys"
+Link five of seventeen. "‘Franklin Smoke’ Cookbook by Aaron Franklin and Jordan Mackay — Tools and Toys"
 
 I have a total "man crush" on Aaron Franklin and the idea of having a book that is just about the technique of smoke and fire may sound odd, but I’m all in.
 
-Link six. "Timechain Calendar"
+Link six of seventeen. "Timechain Calendar"
 
 Visual of time in the context of the Bitcoin blockchain.
 
-Link seven. "GPT best practices - OpenAI API"
+Link seven of seventeen. "GPT best practices - OpenAI API"
 
 Thorough docs on writing better prompts and working with GPT from OpenAI themselves.
 
-Link eight. "WWDC twenty twenty three: watchOS 10’s redesign – Six Colors"
+Link eight of seventeen. "WWDC twenty twenty three: watchOS 10’s redesign – Six Colors"
 
 Quiet a few significant UX changes coming to watchOS. Love to see that Apple is still pivoting and adapting with watchOS.
 
-Link nine. "collectif encore — HOURRÉ: MANIFESTE POUR UNE MAISON VIVANTE"
+Link nine of seventeen. "collectif encore — HOURRÉ: MANIFESTE POUR UNE MAISON VIVANTE"
 
 The before and after photos of this old farmhouse are amazing. Via Dense Discovery 241.
 
-Link ten. "It’s not wrong that "".length == 7"
+Link ten of seventeen. "It’s not wrong that "".length == 7"
 
 I had no idea how divergent different languages report the length of a Unicode character to be. Wild!
 
-Link eleven. "Photographer Lines Up Great Pyramid, Moon, and Airplane in One Epic Shot | PetaPixel"
+Link eleven of seventeen. "Photographer Lines Up Great Pyramid, Moon, and Airplane in One Epic Shot | PetaPixel"
 
 My friend Layne quotes the photographer mantra "ƒ/8 and be there". That is this shot.
 
-Link twelve. "generative AI learning path | Google Cloud Skills Boost"
+Link twelve of seventeen. "generative AI learning path | Google Cloud Skills Boost"
 
 Wide range of learning resources from Google for AI.
 
-Link thirteen. "14 The Inspirational Leader Series: Anna Love — Teresa Brazen"
+Link thirteen of seventeen. "14 The Inspirational Leader Series: Anna Love — Teresa Brazen"
 
 Anna Love was on our team at BigCharts two plus decades ago. She now leads her own organization and has embraced some incredible leadership practices. Very cool!
 
-Link fourteen. "How to make fancy road trip maps with R and OpenStreetMap | Andrew Heiss"
+Link fourteen of seventeen. "How to make fancy road trip maps with R and OpenStreetMap | Andrew Heiss"
 
 What a delightful project and I love the clarity of the maps produced. I do this kind of map sharing on my blog. However, I can’t see learning R and doing all this.
 
-Link fifteen. "A Short 100-Question Diligence Checklist"
+Link fifteen of seventeen. "A Short 100-Question Diligence Checklist"
 
 Thorough list of questions to use when reviewing an organization.
 
-Link sixteen. "Plane - The open source project management tool"
+Link sixteen of seventeen. "Plane - The open source project management tool"
 
 Open source option to commercial solution like JIRA.
 
-Link seventeen. "We need not all be connected, all the time"
+Link seventeen of seventeen. "We need not all be connected, all the time"
 
 Less is more.
 

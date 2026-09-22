@@ -14,11 +14,13 @@ Have a great weekend — Jamie!
 
 Now, the Must Read section.
 
-Link one. "Economic Club of Minnesota Webinar - Our Economy and Health in Crisis - YouTube"
+There are three links this week.
+
+Link one of three. "Economic Club of Minnesota Webinar - Our Economy and Health in Crisis - YouTube"
 
 I was able to attend the Economic Club of Minnesota's webinar today on "Our Economy and Health in Crisis". My brother-in-law Hector Fernandez pointed me to some of their earlier events. It was moderated by Margaret Brennan of Face the Nation, and Neel Kashkari, CEO of the Federal Reserve Bank of Minneapolis, and Dr. Michael Osterholm of the University of Minnesota were the two panelists. I recommend watching. I also blogged about this video.
 
-Link two. "How Lisp Became God's Own Programming Language"
+Link two of three. "How Lisp Became God's Own Programming Language"
 
 I still fondly (I think fondly?) remember learning Lisp in the Computer Science curriculum at the University of Minnesota.
 
@@ -32,7 +34,7 @@ Dr. Carlis taught the Lisp class and on the first day of the class he asked the 
 
 Dr. Carlis then looked at us that still had our hands up and emphatically stated that for those of you with your hands still up you will have the hardest time in this class. Lisp requires you to think in an entirely different way. He was right by the way.
 
-Link three. "The Risks - Know Them - Avoid Them"
+Link three of three. "The Risks - Know Them - Avoid Them"
 
 Very good article explaining how to think about risks of exposure to Covid-19. Big headline here is to stay outside with fresh air.
 

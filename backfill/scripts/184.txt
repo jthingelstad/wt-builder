@@ -8,7 +8,9 @@ Have a great weekend!
 
 Now, the Must Read section.
 
-Link one. "Has UML died without anyone noticing? | Ernesto Garbarino"
+There are two links this week.
+
+Link one of two. "Has UML died without anyone noticing? | Ernesto Garbarino"
 
 Ostensibly about Unified Modeling Language (UML), but the Garbarino correctly pivots right away to the actual trend which is to focus less on design and just get things into production. He points to Agile as the "assassin".
 
@@ -18,7 +20,7 @@ End quote.
 
 Building software is a complex process, and the reality is that there is no one method that is best for all software. I would point less to Agile as the author does, and ask project teams building solutions to consider the cost of refactoring. If it is possible to build your solution from start to finish and maintain a low cost of refactoring, by all means, let us ship fast and early! However, if your cost of refactoring is not low, or increases over time, using a formal design process, potentially even something as formal as UML, may be very needed. Also, that cost of refactoring needs to be considered with external use cases as well.
 
-Link two. "Vizy"
+Link two of two. "Vizy"
 
 This is an amazing project. It is made even more amazing by the entry-level commodity hardware that powers it!
 

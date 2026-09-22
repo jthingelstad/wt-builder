@@ -12,7 +12,9 @@ In the meantime, all is good here in the land of email. How about we take a spin
 
 Now, the Featured section.
 
-Link one. "Milky Eggs » What happened at Alameda Research"
+There is one link this week.
+
+Link one of one. "Milky Eggs » What happened at Alameda Research"
 
 If you are curious to go through the main ways that FTX lost so much money, this article is a fabulous overview of the whole thing.
 
@@ -34,7 +36,9 @@ That's the end of Currently.
 
 Now, the Notable section.
 
-Link one. "You’ve met MrBeast, the YouTuber. Now meet Jimmy, the business mogul."
+There are eleven links this week.
+
+Link one of eleven. "You’ve met MrBeast, the YouTuber. Now meet Jimmy, the business mogul."
 
 This is fully a puff piece about MrBeast but I had to read it because my son is a big MrBeast fan, and he's shared enough about him and his videos that I can appreciate some of what he does.
 
@@ -44,7 +48,7 @@ End quote.
 
 It is pretty incredible to see the size of the business that he's built up really just around the YouTube channels.
 
-Link two. "How FTX built a house of cards – On my Om"
+Link two of eleven. "How FTX built a house of cards – On my Om"
 
 Om Malik has been reporting on and writing about the Internet for a very long time. I was curious to read his take on FTX.
 
@@ -54,7 +58,7 @@ End quote.
 
 Emphasis added.
 
-Link three. "Craft — PaulStamatiou.com"
+Link three of eleven. "Craft — PaulStamatiou.com"
 
 An interesting read on the concepts of quality and craft in the design of software. The article primarily is written from the aspect of the visual design and interactive paradigms of software, but the principles and themes could be applied to any type of building.
 
@@ -64,11 +68,11 @@ End quote.
 
 This paragraph resonated with me because it is how I often see quality realized. It isn't through constant refactoring so much, as really understanding the problem you are solving, exploring the different solution paths, and then fully realizing that solution.
 
-Link four. "Interview: Fallen crypto CEO Sam Bankman-Fried opens up about FTX, Alameda Research, and his regrets - Vox"
+Link four of eleven. "Interview: Fallen crypto CEO Sam Bankman-Fried opens up about FTX, Alameda Research, and his regrets - Vox"
 
 This article is filled with DM conversations between Bankman-Fried and the author. The DM exchanges on Twitter are hard to even fathom. Bankman-Fried may have conducted his fraud in crypto, but the emphasis should be on fraud. The perp walk should be coming soon.
 
-Link five. "The Distributed Computing Manifesto | All Things Distributed"
+Link five of eleven. "The Distributed Computing Manifesto | All Things Distributed"
 
 Amazon CTO Werner Vogels sharing the original writeup from 1998 that set Amazon's architecture in place to scale 10x from where they were.
 
@@ -86,11 +90,11 @@ A lot of technologists that have been in growing businesses have seen that!
 
 This thinking was not default 25 years ago. The SOA patterns were only just starting to emerge then. I have no doubt that this pattern, and the realization of it in their software, was one of the biggest enablers to their continued growth.
 
-Link six. "Collaborating away"
+Link six of eleven. "Collaborating away"
 
 Jason Fried on the various ways that he experiences collaboration. This is one of those topics that comes up a lot when we think about distributed work. I've experienced great collaboration myself both in-person, and remotely. The tools to achieve it are the key, and even more important are the folk that you are collaborating with.
 
-Link seven. "Taking A Long Term View Of Web3 - AVC"
+Link seven of eleven. "Taking A Long Term View Of Web3 - AVC"
 
 Fred Wilson on the FTX blowup and his longer term view of Web3 technology.
 
@@ -98,7 +102,7 @@ Quote.
 Ironically, web3 is about giving control of data and assets back to the people and taking it away from large centralized companies. But the transition from web2 to web3 has been slow and messy and many of the early web3 companies have been copycat versions of what came before them. That is where the risk has been in the web3 ecosystem and what we need to move away from.
 End quote.
 
-Link eight. "Starting principles: How to find your principles"
+Link eight of eleven. "Starting principles: How to find your principles"
 
 An approach to taking life advice and learnings, and putting them in a framework that is actionable, using principles.
 
@@ -108,7 +112,7 @@ End quote.
 
 I kept waiting for a reference to Ray Dalio's popular book Principles (it is even on principles.com!) but no. The concepts are similar, and the names are the same. The main difference is the filter of only having six principles and filtering down so that you can hold them in your memory.
 
-Link nine. "Most "Leaders" are actually Drivers – Here’s Why That’s a Problem"
+Link nine of eleven. "Most "Leaders" are actually Drivers – Here’s Why That’s a Problem"
 
 Good article to highlight the differences between leading and driving.
 
@@ -118,13 +122,13 @@ End quote.
 
 My observation would be that there are times when leaders need to be drivers, and other times (most of the time!) when they should be leading. This made me ponder how to detect and be deliberate about driving behavior, and to watch out because driving could easily feel good, and feel like you are "getting things done", but it may be the wrong way to get there.
 
-Link ten. "Solana Ecosystem Facts Related To FTX Bankruptcy"
+Link ten of eleven. "Solana Ecosystem Facts Related To FTX Bankruptcy"
 
 I have a couple of NFT projects on Solana, and Solana is one of the tokens I hold more than my minimum of. Solana has always been closely affiliated with FTX. In fact, FTX made a bunch of money on the token launch of Solana. A number of folks I know in crypto would tell me right away they wouldn't do anything with Solana because of FTX. The dependencies and connections are significant, as this article enumerates.
 
 The Solana Foundation is going to have a lot of work to cleave themselves away from the nuclear disaster that is FTX.
 
-Link eleven. "vitalik.eth on Twitter: Updated Ethereum roadmap diagram!"
+Link eleven of eleven. "vitalik.eth on Twitter: Updated Ethereum roadmap diagram!"
 
 "Merge! Surge! Scourge! Verge! Purge! Splurge!" You might be forgiven if you confuse the Ethereum roadmap objectives as the stages of some new disease that you really don't want to get.
 
@@ -160,35 +164,37 @@ That's the end of the Journal.
 
 Now, the Briefly section.
 
-Link one. "Bubbles"
+There are eight links this week.
+
+Link one of eight. "Bubbles"
 
 This is surprisingly mesmerizing and zen. You can move the fan and the bubble maker around. Weird, but fun.
 
-Link two. "State of Minnesota Launches 34.5 million dollars Venture Capital Program"
+Link two of eight. "State of Minnesota Launches 34.5 million dollars Venture Capital Program"
 
 The State of Minnesota as an investor in early stage companies seems really strange to me? Particularly funneling taxpayer dollars into venture funds. I’m surprised this is legal. Curious to see if other states have done anything similar to this.
 
-Link three. "ENS Redirect"
+Link three of eight. "ENS Redirect"
 
 Simple utility that creates the IPFS payload to allow your ENS name to redirect to a DNS based website. Only really useful for browsers that natively resolve ENS, which don't exist yet.
 
-Link four. "Ethereum Dashboards"
+Link four of eight. "Ethereum Dashboards"
 
 Nice collection of publicly available Ethereum dashboards. I love graphs!
 
-Link five. "WeCard, the evolution of Personal Cards | Welook"
+Link five of eight. "WeCard, the evolution of Personal Cards | Welook"
 
 This looks very similar to the IYK POAP card that I desperately want to get my hands on (on my Christmas list), but possible has some additional capabilities.
 
-Link six. "Make a Pirate"
+Link six of eight. "Make a Pirate"
 
 Surprisingly fun to make a bunch of different pirates.
 
-Link seven. "Flagpole Buddy Gen II Starlink Mounting Kit for RVs — Tools and Toys"
+Link seven of eight. "Flagpole Buddy Gen II Starlink Mounting Kit for RVs — Tools and Toys"
 
 Having Starlink service for your RV opens up a ton of possibilities!
 
-Link eight. "Reddit NFTs Surge as Polygon-Based Avatars Reach Millions of New Users - Decrypt"
+Link eight of eight. "Reddit NFTs Surge as Polygon-Based Avatars Reach Millions of New Users - Decrypt"
 
 What Reddit is doing with crypto, and very importantly how they are doing it, is super interesting to me.
 

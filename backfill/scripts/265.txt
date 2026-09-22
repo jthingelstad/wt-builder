@@ -23,7 +23,9 @@ That's the end of Currently.
 
 Now, the Notable section.
 
-Link one. "iPhone 15 Pro Max Camera Review: Depth and Reach"
+There are six links this week.
+
+Link one of six. "iPhone 15 Pro Max Camera Review: Depth and Reach"
 
 Great article with beautiful photos showing the iPhone 15 Pro Max camera performance. The star of the show here is the 5x Telephoto lens. Several of the example photos are at dusk or at night in very low light conditions.
 
@@ -33,15 +35,15 @@ End quote.
 
 The shot out of the airplane window is impressive. It is truly amazing how far camera technology has come on these small devices.
 
-Link two. "How successful business authors work better with AI - Josh Bernoff"
+Link two of six. "How successful business authors work better with AI - Josh Bernoff"
 
 Great examples how professional writers are using ChatGPT and other AI tools to improve their writing, brainstorm, and overall create a better final product. All of these use cases are collaborative. Using AI tools as a constantly available, never tired collaborator is really powerful.
 
-Link three. "What Would Steve Jobs Have Thought of Our Industry Now? – On my Om"
+Link three of six. "What Would Steve Jobs Have Thought of Our Industry Now? – On my Om"
 
 Malik reflecting on the 12 year anniversary of Steve Jobs death. He suggests that Jobs played a role as a visionary for not just Apple, but the entire technology industry. And also suggests that we need that more than ever with the continued advancements.
 
-Link four. "Does Your Hybrid Strategy Need to Change?"
+Link four of six. "Does Your Hybrid Strategy Need to Change?"
 
 Remote work, hybrid, in-office continues to be such a challenging, multi-faceted issue. This article does a good job of capturing a data driven way to look at it. I also tend to agree with the thought of pushing these decisions closest to where the work occurs.
 
@@ -51,11 +53,11 @@ End quote.
 
 Technology teams have been distributed around the globe for years, and I think to be a technology leader you have to know how to lead through digital solutions.
 
-Link five. "Why a search engine that scans your face is dangerous: NPR"
+Link five of six. "Why a search engine that scans your face is dangerous: NPR"
 
 It seems inevitable with the amount of computing power, storage, and metadata that we have there will be services that allow you to point your phone at any random person on the street and know who they are. Extending that to automated surveillance freaks me out. This should be one of the things that drives privacy legislation in the US.
 
-Link six. "Magic Eden Dropping Tokenized Pokémon Cards"
+Link six of six. "Magic Eden Dropping Tokenized Pokémon Cards"
 
 My brother-in-law Max is really into sneakers. He's regularly buying and selling sneakers, and when NFTs were first hitting the market we had a few chats thinking about some certified storage place that would hold sneakers for you, and issue you an NFT that you could buy and sell that sneaker while it physically stayed safe in some vault.
 
@@ -159,27 +161,29 @@ That's the end of the Journal.
 
 Now, the Briefly section.
 
-Link one. "Shortery"
+There are six links this week.
+
+Link one of six. "Shortery"
 
 Handy utility that allows you to trigger a Shortcut to run at a variety of different times or events. Great automation add-on!
 
-Link two. "tldraw"
+Link two of six. "tldraw"
 
 Super slick React library for creating whiteboards and other infinite canvas experiences. Very fast and easy to use.
 
-Link three. "Satya Nadella Says Copilot Will Be as Significant as the PC | JD Meier"
+Link three of six. "Satya Nadella Says Copilot Will Be as Significant as the PC | JD Meier"
 
 Article is sort of about Copilot, but it is really about how Satya Nadella crafts a story and a vision to lead Microsoft towards this compelling future.
 
-Link four. "Circle's Silver Lining: Unpacking USDC's Supply Drop in an Era of Rising Rates"
+Link four of six. "Circle's Silver Lining: Unpacking USDC's Supply Drop in an Era of Rising Rates"
 
 Deep dive into USDC, backed by Circle, and the stablecoin I prefer to use when needed. I didn’t realize the drop in supply, but did know there were concerns over exposure to Silicon Valley Bank. Interesting read to understand how this works as a business.
 
-Link five. "Free Online Graph Paper / Asymmetric and Specialty Grid Paper PDFs"
+Link five of six. "Free Online Graph Paper / Asymmetric and Specialty Grid Paper PDFs"
 
 Fun library. Wonder if these could be used on the remarkable.
 
-Link six. "How to Use ChatGPT as Your Personal Assistant for Work"
+Link six of six. "How to Use ChatGPT as Your Personal Assistant for Work"
 
 Some interesting examples to use ChatGPT, particularly around tasks. I’m intrigued to use a Shortcut to pull certain calendar data and have ChatGPT help with analysis. Stay tuned…
 

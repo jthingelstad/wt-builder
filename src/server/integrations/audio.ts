@@ -36,7 +36,7 @@ import type { Boundary, Chapter, ScriptBlock, Speaker } from '../../shared/rende
 import { pronounce } from '../../shared/render/speech.ts';
 import { config, credentials } from '../config.ts';
 import { CDN_HOST } from './images.ts';
-import { buildCover, squareArt } from './cover.ts';
+import { buildCover, coverSource, squareArt } from './cover.ts';
 import { subjectFor } from '../publish.ts';
 
 export const TTS_MODEL = 'tts-1-hd';
@@ -109,16 +109,42 @@ const ID3 = {
     'AI-generated audio version of The Weekly Thing newsletter. weekly.thingelstad.com',
 };
 
-/** The per-issue ID3 tags, built from what the issue already knows. */
-export function id3Tags(doc: IssueDoc): Record<string, string> {
+/**
+ * What the assembler needs to know about the issue it is rendering, and
+ * nothing else. An issue authored here supplies it from its document
+ * (`episodeOf`); the back catalogue supplies it from the archive's front
+ * matter, since those issues were never authored here.
+ */
+export interface Episode {
+  /** The issue number, or `140-special` for the one midweek special. */
+  number: number | string;
+  /** The ID3 title: `WT350 — Builders Puzzlers And Agents`. */
+  title: string;
+  /** The issue's date, ISO, for the ID3 date. */
+  date: string;
+  /** The picture the cover is cut from; null means the show art. */
+  coverSource: string | null;
+}
+
+export function episodeOf(doc: IssueDoc): Episode {
   return {
+    number: doc.issue.number,
     title: subjectFor(doc),
+    date: doc.issue.publication_date,
+    coverSource: coverSource(doc),
+  };
+}
+
+/** The per-issue ID3 tags, built from what the issue already knows. */
+export function id3Tags(episode: Episode): Record<string, string> {
+  return {
+    title: episode.title,
     artist: ID3.artist,
     album: ID3.album,
     album_artist: ID3.album_artist,
-    date: doc.issue.publication_date,
+    date: episode.date,
     genre: ID3.genre,
-    track: String(doc.issue.number),
+    track: String(episode.number),
     comment: ID3.comment,
   };
 }
@@ -458,14 +484,20 @@ export function id3Chapters(chapters: TimedChapter[], art: Map<string, Buffer>, 
  * move to it when the website leg re-sends.
  */
 export async function renderAudio(
-  doc: IssueDoc,
+  episode: Episode,
   blocks: ScriptBlock[],
   opts: {
     /** Write the three files here instead of the CDN — a dry run that costs only the synthesis. */
     localOut?: string;
+    /**
+     * Whether the landscape banner is uploaded as the issue's cover. On by
+     * default for an issue being published; off for the back catalogue, whose
+     * covers are already on the CDN and must not be replaced by a re-cut.
+     */
+    banner?: boolean;
   } = {},
 ): Promise<AudioResult> {
-  const issueNumber = doc.issue.number;
+  const issueNumber = episode.number;
   if (!blocks.length) throw new Error('the audio script is empty');
 
   for (const tool of ['ffmpeg', 'ffprobe']) {
@@ -478,7 +510,7 @@ export async function renderAudio(
 
   // Build the cover before paying for synthesis: a missing cover should fail
   // the send cheaply, not after a hundred TTS calls.
-  const cover = await buildCover(doc, { upload: !opts.localOut });
+  const cover = await buildCover(episode, { upload: !opts.localOut && opts.banner !== false });
 
   await mkdir(config.ttsCacheDir, { recursive: true });
   const work = await mkdtemp(join(tmpdir(), `wt-audio-${issueNumber}-`));
@@ -588,7 +620,7 @@ export async function renderAudio(
       }
     }
     const metaPath = join(work, 'metadata.txt');
-    await writeFile(metaPath, ffMetadata(id3Tags(doc)));
+    await writeFile(metaPath, ffMetadata(id3Tags(episode)));
 
     const outPath = join(work, `weekly-thing-${issueNumber}.mp3`);
     await run('ffmpeg', [

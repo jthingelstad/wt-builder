@@ -8,7 +8,9 @@ We have one final week in Arizona next week. I’m taking the week off and we ar
 
 Now, the Must Read section.
 
-Link one. "Brave acquires search engine to offer the first private alternative to Google Search and Google Chrome on both mobile and desktop"
+There are three links this week.
+
+Link one of three. "Brave acquires search engine to offer the first private alternative to Google Search and Google Chrome on both mobile and desktop"
 
 This is great news, and a total surprise to me!
 
@@ -20,7 +22,7 @@ I've followed Brave for a while. My friend Hadar was the first person to turn me
 
 I love that Brave is jumping into the search space. I've used DuckDuckGo for years and it works great. Yes, you can have an Internet without Google folks. But, more options for privacy-first search engines will be great.
 
-Link two. "Speed is the killer feature - bdickason.com"
+Link two of three. "Speed is the killer feature - bdickason.com"
 
 I love the message of this article and I've seen it missed so many times.
 
@@ -34,7 +36,7 @@ The other thing is that this is often not about the tech, but is specifically ab
 
 Performance is an enabler to so many good things.
 
-Link three. "Finger.Farm"
+Link three of three. "Finger.Farm"
 
 This service won me over right away. It instantly took me back to the 90's sitting in the Computer Science building at the University of Minnesota on some SunOS machines exploring the pre-web Internet. IRC and Talk were the jam back then. And Finger was a great command to see if your friends were online. I haven't used finger in decades but I setup an account on this great site and now have one. Drop to your terminal and do finger jthingelstad@finger.farm to see the awesome-ness. It works on pretty much any Unix-based host. If terminals sound scary, you can see my info on the web. I'll write a blog post later about what is actually on my finger info, it is pretty fun.
 

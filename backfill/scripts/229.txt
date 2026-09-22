@@ -12,7 +12,9 @@ The mind is not a vessel to be filled but a fire to be kindled. — Plutarch
 
 Now, the Featured section.
 
-Link one. "The Battle for the Soul of the Web - The Atlantic"
+There are three links this week.
+
+Link one of three. "The Battle for the Soul of the Web - The Atlantic"
 
 This article hits on a topic that I've pondered at some length. There is an important and vocal effort online focused on a more distributed web. DWeb is a term, but I think IndieWeb is more closely aligned to it. I’m a fan and proponent of this myself. I think anyone that is still actively blogging on their own website is expressing this. It is the opposition movement to the centralization of social media and large corporations hosting all of our personal content.
 
@@ -25,7 +27,7 @@ There is a good amount of alignment between these communities, but ultimately mo
 
 I think these movements need to come together. A more decentralized, and economically robust web is what we need. There are two sides of the solution right in front of us, but it requires us to shed the marketing terms and get out of tribes to see how it can all work together. Because it absolutely can.
 
-Link two. "Social media firms ‘monetising misery’, says Molly Russell’s father after inquest | The Guardian"
+Link two of three. "Social media firms ‘monetising misery’, says Molly Russell’s father after inquest | The Guardian"
 
 Social media is specifically called out as contributing to the death of 14-year-old Molly Russell.
 
@@ -37,7 +39,7 @@ Adults are very aware of the numerous problems with social media. Addictive patt
 
 But the real tragedy is for teens that are pulled into these circles. Take the complexities of being a teenager, and the greater influence and lack of experience and self-confidence, and add to that the algorithm engines of these sites driving constant engagement with no regard to the content and the outcomes for the child, and we have a profound problem.
 
-Link three. "The Thorny Problem of Keeping the Internet’s Time | The New Yorker"
+Link three of three. "The Thorny Problem of Keeping the Internet’s Time | The New Yorker"
 
 I’m very familiar with NTP, the Network Time Protocol. In fact, I remember setting up some Unix machines in the mid-90's before NTP was just installed automatically and going through the effort to determine which "strata" of time server I should synchronize with, and how to adjust and manage the local drift of my machines clock. It turns out NTP, and the fact that systems can assume they have a very nearly perfect time, is really important for so many applications. And NTP has done that job for decades.
 
@@ -55,11 +57,13 @@ That's the end of Featured.
 
 Now, the Notable section.
 
-Link one. "There are three types of meetings."
+There are eleven links this week.
+
+Link one of eleven. "There are three types of meetings."
 
 Interesting taxonomy for meetings, and the conditions that make them work. The "devolution" path is interesting. There are definitely structures here that could be put to work pretty easily.
 
-Link two. "The High Cost of Living Your Life Online | WIRED"
+Link two of eleven. "The High Cost of Living Your Life Online | WIRED"
 
 I've been a blogger for over 20 years, so my experience of being online goes back a long way. I can relate to having times where I feel a need to disconnect and make sure I ground myself. Having some part of our lives lived online does create new social and psychological dynamics that we are still trying to understand.
 
@@ -71,7 +75,7 @@ These feedback loops, that are part of the mechanism social media uses to create
 
 I like to think about the idea of "write-only" mode for online activity. Many bloggers operate in "write-only" mode. It is hard in some sense because you intentionally deprive yourself of these feedback loops. But operating in "write-only" also has benefits. It is the opposite of lurking, or "read-only" mode.
 
-Link three. "maigret: Collect a dossier on a person by username from thousands of sites"
+Link three of eleven. "maigret: Collect a dossier on a person by username from thousands of sites"
 
 This is a very interesting tool that allows you to search hundreds of websites for a given username. I also love that instead of it being built as a website that could be easily blocked, it is a Python package that you run locally. I did a quick pip3 install maigret and ran a scan for thingles, my most common username.
 
@@ -87,15 +91,15 @@ Maigret also found a Yandex user with my username. That is a little odd to me. I
 
 Security forensics folks could find this very valuable. I'll keep it around just to monitor my own information, and see what is discoverable.
 
-Link four. "Sleep Debt: Is It Possible to Catch up On Lost Sleep? - The Pulse Blog"
+Link four of eleven. "Sleep Debt: Is It Possible to Catch up On Lost Sleep? - The Pulse Blog"
 
 There is some interesting information on Sleep Debt here, but note that it is also a clear pitch for the Oura Ring as well. I've actually had an Oura Ring now for over 6 months and I have been blown away by the sleep metrics that it provides. It is by far the best device that I've ever had for sleep data. Now, I still don't get enough sleep… but at least I’m better informed.
 
-Link five. "Announcing Turnstile, a user-friendly, privacy-preserving alternative to CAPTCHA"
+Link five of eleven. "Announcing Turnstile, a user-friendly, privacy-preserving alternative to CAPTCHA"
 
 When I first read about some of the Proof of Humanity projects out there I didn’t get it. Honestly it took a bit for me to connect the dots that CAPTCHA really is a Proof of Humanity solution. It is nice to see less intrusive tools to solve this anti-bot problem.
 
-Link six. "Zolatron 64: Writing an OS for a 6502 homebrew computer - Machina Speculatrix"
+Link six of eleven. "Zolatron 64: Writing an OS for a 6502 homebrew computer - Machina Speculatrix"
 
 What an incredibly geeky and delightful project this is. I fondly remember the 6502 in the Apple II and Apple IIe. It was also in the Atari 2600 but I don't think I knew that back then. The Commodore 64 and the original Nintendo also had the 6502. So, you get the era we are talking about.
 
@@ -107,7 +111,7 @@ End quote.
 
 How fun.
 
-Link seven. "Elon Musk’s Texts Shatter the Myth of the Tech Genius - The Atlantic"
+Link seven of eleven. "Elon Musk’s Texts Shatter the Myth of the Tech Genius - The Atlantic"
 
 I’m not sure there is all that much to learn from going over these text messages, but this comment from Larry Ellison was wild.
 
@@ -117,11 +121,11 @@ End quote.
 
 A billion from a text. Wow.
 
-Link eight. "50 ways to be ridiculously generous — and feel ridiculously good."
+Link eight of eleven. "50 ways to be ridiculously generous — and feel ridiculously good."
 
 What a great sentiment and a great list. I wish I didn’t need reminding of the key point of this article, but I do. Being generous can be incredibly rewarding, and the list of ideas here are a great resource. I noted suggestion 18 "Tip generously". That is one that is super easy to make real.
 
-Link nine. "Sauna use as a lifestyle practice to extend healthspan - ScienceDirect"
+Link nine of eleven. "Sauna use as a lifestyle practice to extend healthspan - ScienceDirect"
 
 Long article with a lot of detail, and as a fan of saunas I love to see all the benefits enumerated.
 
@@ -131,7 +135,7 @@ End quote.
 
 And I just learned there is a "man in a sauna" emoji!
 
-Link ten. "Dating Other Task Managers"
+Link ten of eleven. "Dating Other Task Managers"
 
 I've been an OmniFocus user since before it was released. It is the power user tool for GTD, and I tend to have a strong view that problems with task managers are more about the person than the tool. Switching task managers is probably one of the most costly things you can do, so I don't even allow myself to really explore other systems. Instead, I can read articles like this to get a flavor for what is out there. Even without exploring the tools you can learn from how other people setup their systems. At the end though Travers states:
 
@@ -141,7 +145,7 @@ End quote.
 
 The answer is right there…
 
-Link eleven. "An elegy for GNU and RMS | gay robot noises"
+Link eleven of eleven. "An elegy for GNU and RMS | gay robot noises"
 
 The world owes a lot to GNU and the Free Software Foundation for all it has made happen. I think we need to support, donate, and help these organizations that have gotten us so far, however, I completely agree with Ash on this point:
 
@@ -209,35 +213,37 @@ That's the end of the Journal.
 
 Now, the Briefly section.
 
-Link one. "28 Words Every Leader Needs to Thrive - Leadership Freak"
+There are eight links this week.
+
+Link one of eight. "28 Words Every Leader Needs to Thrive - Leadership Freak"
 
 Great simple reminders from the book Leadership Two Words at a Time.
 
-Link two. "Miniflux - Minimalist and Opinionated Feed Reader"
+Link two of eight. "Miniflux - Minimalist and Opinionated Feed Reader"
 
 I’m still a happy Feedbin customer, but I like a lot of the features of this feed reader, particularly the privacy features.
 
-Link three. "Earnifi | Find Crypto Airdrops"
+Link three of eight. "Earnifi | Find Crypto Airdrops"
 
 Handy utility that watches your Ethereum address and notifies you if there are airdrops waiting for you. I used this and found that I had eight different POAPs that I didn’t know where ready for me to claim.
 
-Link four. "poaper.io - POAP Banner Builder"
+Link four of eight. "poaper.io - POAP Banner Builder"
 
 POAP is my favorite crypto app, and this is a cool little utility to make a Twitter banner filled with the various POAPs that you have collected.
 
-Link five. "Get Things Done with Emacs"
+Link five of eight. "Get Things Done with Emacs"
 
 Looking to deploy a GTD system? I can’t imagine a method harder than this one. I know there are many people that love Emacs, but this just seems bonkers. Now, if there was one for Vim…
 
-Link six. "Zelensky Requested Accelerated Membership to NATO - Kyiv Post - Ukraine's Global Voice"
+Link six of eight. "Zelensky Requested Accelerated Membership to NATO - Kyiv Post - Ukraine's Global Voice"
 
 Ukraine seeking NATO membership, and includes the full text of President Zelensky's comments along with it.
 
-Link seven. "Lychee — Self-hosted photo-management done right"
+Link seven of eight. "Lychee — Self-hosted photo-management done right"
 
 It really shouldn't be this hard to host your own photos on the web. Even great open source solutions like this require a web server, PHP, and a database backend.
 
-Link eight. "Steampipe | select * from cloud;"
+Link eight of eight. "Steampipe | select * from cloud;"
 
 Interesting tool that allows you to use SQL syntax to query the configuration information in the cloud, and even join it across multiple cloud datasets. Wild.
 

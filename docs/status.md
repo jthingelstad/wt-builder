@@ -105,6 +105,16 @@ finished, what is half-finished, and what has never run.
   block in email, and Thingy's own voice (nova) in audio. `VOICE_ID` records
   both voices. Heard in WT350's send (2026-09-20).
 
+- **The back catalogue can be spoken** (2026-09-22) — `legacyBlocks()`
+  (`src/shared/render/legacy-blocks.ts`) turns a `backfill/scripts/<N>.txt`
+  into the assembler's blocks: section cues become title-only chapters on
+  section boundaries, links and journal entries sit on item boundaries, lists
+  get ordinals, tables are read by row, signatures are not read as hex.
+  `renderAudio` takes an `Episode` (number, title, date, cover source) rather
+  than an IssueDoc, so an issue never authored here can be rendered;
+  `npm run backfill:audio -- --plan --all` parses all 350 at no cost, `--dry`
+  renders to `tmp/backfill/` for a listen, `--write` puts the audio fields
+  into the archive page. Not yet run for real: the calibration listen is next.
 - **The spoken pieces are stored** (2026-09-22) — `speakCached` writes every
   new piece to `weekly-thing/tts/` on the CDN bucket before the local cache,
   and reads back from there on a miss; the 132 pieces already on disk were

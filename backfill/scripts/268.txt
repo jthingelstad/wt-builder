@@ -8,7 +8,9 @@ Have a great weekend, and hope that those of you that adjust your clocks like we
 
 Now, the Featured section.
 
-Link one. "On C2PA · ongoing by Tim Bray"
+There are two links this week.
+
+Link one of two. "On C2PA · ongoing by Tim Bray"
 
 This article caught my eye for three reasons: Leica, Digital Signatures, and Tim Bray.
 
@@ -38,7 +40,7 @@ I think this signature chain for photos is phenomenal. Where Ethereum could do i
 
 All very cool.
 
-Link two. "How to Think Computationally about AI, the Universe and Everything—Stephen Wolfram Writings"
+Link two of two. "How to Think Computationally about AI, the Universe and Everything—Stephen Wolfram Writings"
 
 Wolfram is an impressive and deep thinker. He's one of the people that I think it would be amazing to just have a cup of coffee with, even if I don't think I would understand much of what he was saying. This TED AI talk frames up some very large concepts that he has been working on for decades. The expanse of it is amazing for 18 minutes.
 
@@ -76,7 +78,9 @@ That's the end of Featured.
 
 Now, the Notable section.
 
-Link one. "watchOS 10: The MacStories Review - MacStories"
+There are nine links this week.
+
+Link one of nine. "watchOS 10: The MacStories Review - MacStories"
 
 When you upgrade to watchOS 10 your watch walks you through a number of changes to primary interface elements. This is needed due to fundamental changes to the experience.
 
@@ -86,7 +90,7 @@ End quote.
 
 I find this fun and interesting, and it also highlights that Apple is still learning primary things on the watch. How people want to use it and how to best meet those needs. This detailed writeup goes through all of new things.
 
-Link two. "U2:UV Achtung Baby Live At Sphere: the story behind the show | Wallpaper"
+Link two of nine. "U2:UV Achtung Baby Live At Sphere: the story behind the show | Wallpaper"
 
 Background on how U2, and specifically Willie Williams, approached the experience for the U2 residency at The Sphere. The article stays pretty surface level. Mainly they got a ton of creative collaborators to engage. It is notable that the team creating the experiences needed to do it all on location. When you are designing for something that has never existed that makes sense.
 
@@ -104,7 +108,7 @@ I saw some video of the experience in the Sphere and came to a similar conclusio
 
 With the growing cost of tickets to experiences like this, how are we ever going to make it so more people can have these. A future where only people with a lot of disposable income can experience concert performances sounds terrible. But will immersive experiences like this bridge the in-person experience to a digital experience that can be transmitted around the world? Maybe.
 
-Link three. "C. Thi Nguyen: The Gamification of Public Discourse (Royal Institute of Philosophy) - YouTube"
+Link three of nine. "C. Thi Nguyen: The Gamification of Public Discourse (Royal Institute of Philosophy) - YouTube"
 
 Interesting talk from Nguyen that highlights the structure of echo chambers and how that extends into the structure of conspiracy theories and how to architect them.
 
@@ -120,7 +124,7 @@ End quote.
 
 This talk is from twenty nineteen.
 
-Link four. "The Ten Rules of Schema Growth - Datomic"
+Link four of nine. "The Ten Rules of Schema Growth - Datomic"
 
 I liked this article because it is part of a long running system that isn't talked about that much. Maintaining your database schema over time and growth is a whole art in itself. Most of these suggestions are ones that are earned with a lot of bruises and scraps over the years. Hard won experiences.
 
@@ -130,11 +134,11 @@ End quote.
 
 This is the kind of thing an experienced database expert knows well.
 
-Link five. "Through the Ages: Apple CPU Architecture"
+Link five of nine. "Through the Ages: Apple CPU Architecture"
 
 Great article going through the various CPU architectures that Apple has navigated since the Macintosh was introduced. The technical complexity of what they've done to switch architectures multiple times is incredible, and it is part of what has allowed them to innovate so fast.
 
-Link six. "How to (and how not to) design REST APIs · stickfigure"
+Link six of nine. "How to (and how not to) design REST APIs · stickfigure"
 
 Schnitzer with design suggestions for REST APIs. This is pretty straightforward, and I that it stays pretty simple and has a clear focus on usability.
 
@@ -144,11 +148,11 @@ End quote.
 
 Of all of them, I think 9 is one of the most important.
 
-Link seven. "Rob Pike's 5 Rules of Programming"
+Link seven of nine. "Rob Pike's 5 Rules of Programming"
 
 Pike is the author of the Go programming language and was involved in a lot of the Unix foundation. His thoughts in this area matter. All five deserve regular revisits.
 
-Link eight. "Life Lessons from the Death Bed – Isonomia Quarterly"
+Link eight of nine. "Life Lessons from the Death Bed – Isonomia Quarterly"
 
 Aging is hard. I found this series of reflections on death from Zakrzewski moving and insightful.
 
@@ -158,7 +162,7 @@ End quote.
 
 We only have so much time.
 
-Link nine. "The Omni Show: GTD Focus President Meg Edwards Returns"
+Link nine of nine. "The Omni Show: GTD Focus President Meg Edwards Returns"
 
 I enjoyed this podcast with Meg Edwards in part because she covers so much of the range of GTD. She shares some wonderful coaching gems that resulted in a to do for me. Her comment that every client she's ever had has too much detail in their contexts, which caused me to refactor my OmniFocus tags from about 50 to 15 or so.
 
@@ -242,27 +246,29 @@ That's the end of the Journal.
 
 Now, the Briefly section.
 
-Link one. "New SPS Commerce CEO Chad Collins aims for expansion beyond Minneapolis"
+There are six links this week.
+
+Link one of six. "New SPS Commerce CEO Chad Collins aims for expansion beyond Minneapolis"
 
 Brief highlight from Chad Collins, our new CEO!
 
-Link two. "Apple Reveals New M3 iMac - MacStories"
+Link two of six. "Apple Reveals New M3 iMac - MacStories"
 
 The pace of innovation in Apple Silicon is impressive.
 
-Link three. "Sleep - AVC"
+Link three of six. "Sleep - AVC"
 
 Fred Wilson shares how he's using his Oura Ring to improve his sleep. I've been using an Oura Ring for a while now and it is one of the best sleep devices for the price.
 
-Link four. "Microsoft’s twenty twenty three Diversity and Inclusion Report - The Official Microsoft Blog"
+Link four of six. "Microsoft’s twenty twenty three Diversity and Inclusion Report - The Official Microsoft Blog"
 
 Interesting to see how the handful of large tech companies that report on DEI efforts do so.
 
-Link five. "How Bear does analytics with CSS | Herman's blog"
+Link five of six. "How Bear does analytics with CSS | Herman's blog"
 
 Very witty method to do analytics without using any Javascript. Also would be very difficult to block or defend against.
 
-Link six. "Strike Upgrades: Direct Deposit, Wires, Cards, and more | Jack Mallers"
+Link six of six. "Strike Upgrades: Direct Deposit, Wires, Cards, and more | Jack Mallers"
 
 The clarity of Mallers vision for Strike, and the continuous push forward that they are making is impressive and inspiring.
 

@@ -38,11 +38,11 @@ export const JPEG_QUALITY = 86;
 /** Where the show-level art lives when no issue photo is available. */
 const SHOW_ART = fileURLToPath(new URL('../../../assets/podcast-cover.png', import.meta.url));
 
-export function bannerKey(issueNumber: number): string {
+export function bannerKey(issueNumber: number | string): string {
   return `weekly-thing/${issueNumber}/cover.jpg`;
 }
 
-export function bannerUrl(issueNumber: number): string {
+export function bannerUrl(issueNumber: number | string): string {
   return `https://${CDN_HOST}/${bannerKey(issueNumber)}`;
 }
 
@@ -56,8 +56,14 @@ export function coverSource(doc: IssueDoc): string | null {
   return null;
 }
 
-async function sourceBytes(doc: IssueDoc): Promise<{ bytes: Buffer; from: string }> {
-  const url = coverSource(doc);
+/** The cover is what the issue is, and what is said. */
+export interface CoverSubject {
+  number: number | string;
+  /** The picture the cover is cut from; null means the show art. */
+  coverSource: string | null;
+}
+
+async function sourceBytes(url: string | null): Promise<{ bytes: Buffer; from: string }> {
   if (url) {
     const res = await fetch(url, { signal: AbortSignal.timeout(60_000) });
     if (res.ok) {
@@ -104,8 +110,8 @@ export async function squareArt(bytes: Buffer, size = CHAPTER_ART_SIZE): Promise
     .toBuffer();
 }
 
-export async function buildCover(doc: IssueDoc, opts: { upload?: boolean } = {}): Promise<CoverResult> {
-  const { bytes, from } = await sourceBytes(doc);
+export async function buildCover(subject: CoverSubject, opts: { upload?: boolean } = {}): Promise<CoverResult> {
+  const { bytes, from } = await sourceBytes(subject.coverSource);
 
   const banner = await sharp(bytes)
     .rotate()
@@ -135,7 +141,7 @@ export async function buildCover(doc: IssueDoc, opts: { upload?: boolean } = {})
   if (opts.upload !== false) await new S3Client({ region: config.awsRegion }).send(
     new PutObjectCommand({
       Bucket: CDN_HOST,
-      Key: bannerKey(doc.issue.number),
+      Key: bannerKey(subject.number),
       Body: banner,
       ContentType: 'image/jpeg',
       // The banner can change while an issue is still being edited, so this is
@@ -144,5 +150,5 @@ export async function buildCover(doc: IssueDoc, opts: { upload?: boolean } = {})
     }),
   );
 
-  return { bannerUrl: bannerUrl(doc.issue.number), square, source: from };
+  return { bannerUrl: bannerUrl(subject.number), square, source: from };
 }

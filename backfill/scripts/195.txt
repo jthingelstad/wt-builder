@@ -6,7 +6,9 @@ Let's get right to the links and updates! Much going on this week…
 
 Now, the Featured section.
 
-Link one. "Executive Engagement | Silicon Valley Product Group"
+There are two links this week.
+
+Link one of two. "Executive Engagement | Silicon Valley Product Group"
 
 I don't think there is enough clear thinking in product delivery around executive engagement, so this article caught my eye right away. I found this list of Interaction Principles brilliant. This frames up, with a bit of detail, how these different roles should and can work together to create great solutions. As a taste, here are the items.
 
@@ -18,7 +20,7 @@ Go to the article to read up on each one of those. I should probably put this on
 
 I don't agree with all of Cagan's viewpoints on agile delivery, notable his negative view on SaFE, but his spirit is always spot on and this one frames up a sticky topic so well.
 
-Link two. "Pushing Back Against Privacy Infringement On The Web — Smashing Magazine"
+Link two of two. "Pushing Back Against Privacy Infringement On The Web — Smashing Magazine"
 
 A "call to action" piece focused on bending the trend with privacy more towards people. Interesting as well since it is written by the Vice President of Data Governance at The New York Times, a media company that collects a tremendous amount of data from their customers and visitors.
 
@@ -40,17 +42,19 @@ That's the end of Featured.
 
 Now, the Notable section.
 
-Link one. "America’s Debt Cycle, Bitcoin, and Bubbles with Lyn Alden — The Prof G Pod with Scott Galloway — Overcast"
+There are fifteen links this week.
+
+Link one of fifteen. "America’s Debt Cycle, Bitcoin, and Bubbles with Lyn Alden — The Prof G Pod with Scott Galloway — Overcast"
 
 Indexing this link to the interview with Lyn Alden. I found the dialog insightful, and her perspective on macro trends was deep. I appreciated how she dovetailed a variety of different investing assets into it, including crypto and Bitcoin. Her commentary on crypto and energy usage is very similar to mine.
 
-Link two. "Your likes, hearts, and flattering comments are bad for my brain"
+Link two of fifteen. "Your likes, hearts, and flattering comments are bad for my brain"
 
 All of the trivial feedback loops that social platforms have introduced to our world are fundamentally addictive tools to increase your engagement. Additionally though they change the creator, getting us to be the mouse in the cage pressing the button for more likes.
 
 I agree with Hansson's concern on these. This is actually why I collect no data on what people click on in the Weekly Thing. I know that if I see what articles people will click on, I will subconsciously start trending content toward that activity. By completely removing that signal, I can better insure that I’m not being led by anything but my own curiosity. With that I can truly share my journey, as opposed to following the scent of further engagement.
 
-Link three. "Loot Project: the first community owned NFT gaming platform | The Coinbase Blog"
+Link three of fifteen. "Loot Project: the first community owned NFT gaming platform | The Coinbase Blog"
 
 Loot makes your head hurt a bit. Imagine creating a very detailed component of a fictional world, that leaves the vast majority undefined, and then leaving it to others to build around.
 
@@ -60,7 +64,7 @@ End quote.
 
 When folks talk about decentralized approaches, this is probably what it looks like. In a way, it is very organic, generative, almost biological and evolutionary. Such a different ecosystem than your typical approach.
 
-Link four. "5 Minutes of Fame - My First Million NFT Collection | OpenSea"
+Link four of fifteen. "5 Minutes of Fame - My First Million NFT Collection | OpenSea"
 
 This is a good example of tokenization and using NFT to manage value.
 
@@ -70,11 +74,11 @@ End quote.
 
 Current highest bidder is 5.25 WETH or just over 18,500 dollars. There is no expiration, so they are allowing the buyer to hold this token over time. There seems to be no limit on resale, so you could sell it to someone else. To use it, you burn the NFT.
 
-Link five. "Let’s Encrypt serving Shopify’s 4.5 million domains - Let's Encrypt"
+Link five of fifteen. "Let’s Encrypt serving Shopify’s 4.5 million domains - Let's Encrypt"
 
 Let's Encrypt has to be the single most important service brought to the open web in the last several years. We have an incredibly more secure web as a result. We simply could not have gotten HTTPS by default without it. I love Let's Encrypt. Join me and donate to help keep the web secure.
 
-Link six. "How Endemic COVID Becomes a Manageable Risk - The Atlantic"
+Link six of fifteen. "How Endemic COVID Becomes a Manageable Risk - The Atlantic"
 
 I have been saying for a while that COVID is here for good. The pandemic engagement isn't though, and integrating COVID into our future world may change some practices. I found Gottlieb's article a pragmatic perspective.
 
@@ -84,7 +88,7 @@ End quote.
 
 Fundamentally I read his perspective one of being aware and adaptive. I’m a bit embarrassed to admit but before COVID I don't think I ever got a seasonal flu shot. My brain hadn't fully embraced the logic behind it, but the pandemic experience has taught me a lesson. I will be getting it going forward. In short, we will need to be more adaptive and frankly aware of these viruses and manage them to the extent possible.
 
-Link seven. "FORCEDENTRY: NSO Group iMessage Zero-Click Exploit Captured in the Wild - The Citizen Lab"
+Link seven of fifteen. "FORCEDENTRY: NSO Group iMessage Zero-Click Exploit Captured in the Wild - The Citizen Lab"
 
 If you haven't updated your iPhone (and all iOS devices) recently you should stop reading and go update it. This article has some additional details about how this exploit was used by NSO Group to gain access to phones. It is one of those worrisome exploits that can be done entirely remote.
 
@@ -94,7 +98,7 @@ End quote.
 
 Security gaps are not new, and the technology industry has a long-standing practice of letting the company with the vulnerability know of an issue, so that overall we have a safer environment. It has typically been the criminals that find these vulnerabilities and then exploit them for some gain. So what do we call companies and governments that find, exploit, and hide these exploits for their own use?
 
-Link eight. "Facebook Says Its Rules Apply to All. Company Documents Reveal a Secret Elite That’s Exempt. - WSJ"
+Link eight of fifteen. "Facebook Says Its Rules Apply to All. Company Documents Reveal a Secret Elite That’s Exempt. - WSJ"
 
 It has been a while since I dove into another chapter of Horrible Things that Facebook does, but this article from the Wall Street Journal on XCheck is a worthwhile read. My position on Facebook and all of its services is very clearly negative. I block all Facebook services on my devices.
 
@@ -120,7 +124,7 @@ What even are Facebook's values? Your guess is as good as mine.
 
 For another take check out Why Facebook is filled with hate, anger, and conflict by Josh Bernoff.
 
-Link nine. "Delta variant vaccinated versus unvaccinated seen in CDC chart"
+Link nine of fifteen. "Delta variant vaccinated versus unvaccinated seen in CDC chart"
 
 Very glad to be fully vaccinated.
 
@@ -128,15 +132,15 @@ Quote.
 The CDC’s data shows that not fully vaccinated people are over 10 times more likely to be hospitalized from COVID-19 and over 10 times more likely to die from it. Not fully vaccinated people are also five times more likely to catch COVID-19 than vaccinated people.
 End quote.
 
-Link ten. "How to Create an Apple ID Recovery Key"
+Link ten of fifteen. "How to Create an Apple ID Recovery Key"
 
 Assuming you are comfortable managing secret keys such as this, it is a good idea to create a recovery key and take custody of it. If you aren't comfortable doing that, or have no tool to manage it, you might want to not do this and leave it with the provider. I put stuff like this in 1Password.
 
-Link eleven. "Mistakes I've Made in AWS | Laravel News"
+Link eleven of fifteen. "Mistakes I've Made in AWS | Laravel News"
 
 I've made a couple of these as well. I like when people share the things that have tripped them up. It helps the rest of us not trip. Now go make sure you manage your CPU credits.
 
-Link twelve. "The NFT Investor's Guide - Uncomfortable Profit"
+Link twelve of fifteen. "The NFT Investor's Guide - Uncomfortable Profit"
 
 This is a good overview of NFT investing, and what some of the use cases are.
 
@@ -150,11 +154,11 @@ Quote.
 Anheuser Busch recently bought beer.eth for 30 ETH (~90 thousand dollars at the time).
 End quote.
 
-Link thirteen. "U.S. could authorize Pfizer COVID-19 shot for kids age 5-11 in October -sources | Reuters"
+Link thirteen of fifteen. "U.S. could authorize Pfizer COVID-19 shot for kids age 5-11 in October -sources | Reuters"
 
 We only have one member of our family that is not vaccinated, and it would mean a lot to us for all of us to be able to be vaccinated. Hoping this moves forward.
 
-Link fourteen. "Minus"
+Link fourteen of fifteen. "Minus"
 
 This project seems more like a piece of performance art than anything else.
 
@@ -164,7 +168,7 @@ End quote.
 
 I created a profile but I’m scared to post anything and use one of my 100 posts yet.
 
-Link fifteen. "Back to School | No Mercy / No Malice"
+Link fifteen of fifteen. "Back to School | No Mercy / No Malice"
 
 Galloway’s observations on education, from elementary to university, are very relevant. I would have quoted nearly every section of this, so instead I’ll quote none and suggest you read it all.
 
@@ -266,35 +270,37 @@ That's the end of the Journal.
 
 Now, the Briefly section.
 
-Link one. "SPS Commerce's Kim Nelson wins Career Achievement Award - Minneapolis / St. Paul Business Journal"
+There are eight links this week.
+
+Link one of eight. "SPS Commerce's Kim Nelson wins Career Achievement Award - Minneapolis / St. Paul Business Journal"
 
 As a CTO it is very important to have a strong alignment and partnership with your CFO. I've had the pleasure of working with Kim Nelson for over 8 years. She is incredibly deserving of this recognition.
 
-Link two. "Matchstick Ventures Closes 55 million dollars Fund | Twin Cities Business"
+Link two of eight. "Matchstick Ventures Closes 55 million dollars Fund | Twin Cities Business"
 
 Great to see some additional capital flowing in to build tech companies in our local market!
 
-Link three. "High-Performance-Organizations-Reading-List: Ideas for creating and sustaining high performance organizations"
+Link three of eight. "High-Performance-Organizations-Reading-List: Ideas for creating and sustaining high performance organizations"
 
 Several good book recommendations in here.
 
-Link four. "The Philosophy of SimCity: An Interview With the Game's Lead Designer - The Atlantic"
+Link four of eight. "The Philosophy of SimCity: An Interview With the Game's Lead Designer - The Atlantic"
 
 SimCity is one of the few games I ever really got into playing.
 
-Link five. "Wicked Backgrounds"
+Link five of eight. "Wicked Backgrounds"
 
 Infinite wavey backgrounds!
 
-Link six. "Checkboxland"
+Link six of eight. "Checkboxland"
 
 Checkbox art?
 
-Link seven. "Datasette Desktop — a macOS desktop application for Datasette"
+Link seven of eight. "Datasette Desktop — a macOS desktop application for Datasette"
 
 I have been following what Willison has been creating with Datasette for a long time. Creating a desktop app should make it more accessible to a wider set of users.
 
-Link eight. "Model S Plaid at Nürburgring - YouTube"
+Link eight of eight. "Model S Plaid at Nürburgring - YouTube"
 
 I could watch this video over and over. Hits top speeds around 160 mph!
 

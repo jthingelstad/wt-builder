@@ -16,11 +16,13 @@ That's the end of Currently.
 
 Now, the Notable section.
 
-Link one. "Exploring GPTs: ChatGPT in a trench coat?"
+There are eight links this week.
+
+Link one of eight. "Exploring GPTs: ChatGPT in a trench coat?"
 
 This is a great deep dive into creating custom GPTs with ChatGPT. Willison has a deep background in this tech. He also shares how he has written some of his own GPTs prompts. This is a good example to use to create your own.
 
-Link two. "The Imperfectionist: A cupboard of tools"
+Link two of eight. "The Imperfectionist: A cupboard of tools"
 
 Burkeman, author of Four Thousand Weeks, had this gem in his recent newsletter reflecting on the fact that no one productivity "system" is going to solely be the answer.
 
@@ -34,7 +36,7 @@ My "system" of choice is Getting Things Done, or GTD. It doesn't have all the an
 
 Whatever does that seems like a good thing.
 
-Link three. "Privacy is Priceless, but Signal is Expensive"
+Link three of eight. "Privacy is Priceless, but Signal is Expensive"
 
 I keep a profile on Signal and I have it on my iPhone so that folks can reach me as desired. I respect Signals mission and the technology that they are creating. I even pay for Signal monthly just because I want to support their mission.
 
@@ -48,7 +50,7 @@ I am very familiar with technology costs to run services, and I was still reason
 
 Donate to Signal on their website.
 
-Link four. "AI is about to completely change how you use computers | Bill Gates"
+Link four of eight. "AI is about to completely change how you use computers | Bill Gates"
 
 Gates connecting the concept of software agents to the current tech of LLMs.
 
@@ -60,7 +62,7 @@ I’m not sure about connecting this so strongly to the term "agent", but the sc
 
 I do believe there is a huge shift coming with the incredible unlock that LLMs provide to something that is, close enough, to expertise for others to learn and benefit from.
 
-Link five. "On Ad Blockers – Manu"
+Link five of eight. "On Ad Blockers – Manu"
 
 Moreale sharing his perspective on why he feels fine blocking ads in his browser. He limits the topic to just ad blocking, which I think is fine but keeps out the entire stack of surveillance software that comes along with ads. The argument that people running ad blockers are somehow hurting creators may in fact carry some water, but in my opinion no where near enough to change my mind.
 
@@ -77,7 +79,7 @@ If you have a simple ad network that doesn't surveil users I’m happy to let th
 
 My current list: 1Blocker and Little Snitch Mini do most of the protecting for me, and of course I only use Safari.
 
-Link six. "CEO Reminds Everyone His Company Collects Customers' Sleep Data to Make Zeitgeisty Point About OpenAI Drama"
+Link six of eight. "CEO Reminds Everyone His Company Collects Customers' Sleep Data to Make Zeitgeisty Point About OpenAI Drama"
 
 As a relatively new owner of an Eight Sleep Pod this article caught my eye.
 
@@ -89,7 +91,7 @@ When a product is free I know to take a pause and look at how they use data. If 
 
 This is a great example of why we need privacy legislation. Managing and protecting our data isn't going to happen any other way. There is so much complexity and legalese for companies to hide behind.
 
-Link seven. "Binance and CEO Plead Guilty to Federal Charges in 4 billion dollars Resolution | United States Department of Justice"
+Link seven of eight. "Binance and CEO Plead Guilty to Federal Charges in 4 billion dollars Resolution | United States Department of Justice"
 
 Does crypto create crooks? I don't think so. Does it create an environment that attracts crooks? Yes, for sure.
 
@@ -101,7 +103,7 @@ End quote.
 
 Unfortunately for blockchain and crypto the lack of any regulation just means that we continue to have crooks like this. I wonder at this point if not regulating crypto is the most effective way governments have to hurt it.
 
-Link eight. "Manifesto for posting online in twenty twenty three"
+Link eight of eight. "Manifesto for posting online in twenty twenty three"
 
 A lot of good advice here. Some of it is similar to how I engage, some not. I like that Tasker enumerated this and put it out there for others to gain from her experience.
 
@@ -217,15 +219,17 @@ That's the end of the Journal.
 
 Now, the Briefly section.
 
-Link one. "Inko Programming Language"
+There are three links this week.
+
+Link one of three. "Inko Programming Language"
 
 A concurrent language that "features deterministic automatic memory management, move semantics, static typing, type-safe concurrency, efficient error handling, and more".
 
-Link two. "Microsoft Ignite twenty twenty three Book of News"
+Link two of three. "Microsoft Ignite twenty twenty three Book of News"
 
 Crazy long comprehensive listing of all the announcements made at Ignite twenty twenty three.
 
-Link three. "Introducing the Functional Source License: Freedom without Free-riding"
+Link three of three. "Introducing the Functional Source License: Freedom without Free-riding"
 
 A new license framework, derived from Business Source License, and optimized for SaaS companies.
 

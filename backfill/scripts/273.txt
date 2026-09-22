@@ -12,7 +12,9 @@ See you in twenty twenty four!
 
 Now, the Featured section.
 
-Link one. "Why Can't We Recover America's Buffalo? | Outdoor Life"
+There are two links this week.
+
+Link one of two. "Why Can't We Recover America's Buffalo? | Outdoor Life"
 
 I love bison. I grew up in North Dakota. There are not a lot of buffalo anywhere, but in North Dakota you will see bison at times. Usually being farmed, but if you go to the big parks you can see wild bison on the plains. One of the most majestic sights is a bison with snow and ice packed on them in the middle of a North Dakota blizzard, seemingly unfazed by any of it.
 
@@ -20,7 +22,7 @@ This article highlights a number of challenging issues to truly bringing wild bi
 
 These are majestic animals and I hope that we can see some true wild herds in the future.
 
-Link two. "Steve Blank The Secret History of Minnesota Part 1: Engineering Research Associates"
+Link two of two. "Steve Blank The Secret History of Minnesota Part 1: Engineering Research Associates"
 
 This is part 17 of Steve Blank's Secret History series, and it is just part one of his detailed history of the critical role Minnesota served in computing.
 
@@ -52,11 +54,13 @@ That's the end of Currently.
 
 Now, the Notable section.
 
-Link one. "Notes on Enterprise Architecture as Strategy | Irrational Exuberance"
+There are seven links this week.
+
+Link one of seven. "Notes on Enterprise Architecture as Strategy | Irrational Exuberance"
 
 Will Larson commenting on Enterprise Architecture as Strategy by Jeanne W. Ross, Peter Weill, and David C Robertson. Some very good frameworks here for technology leaders.
 
-Link two. "I am a poem I am not software — Robin Rendle"
+Link two of seven. "I am a poem I am not software — Robin Rendle"
 
 Rendle writing about the tug between very polished web presence and weird sites that may be a little confusing.
 
@@ -68,7 +72,7 @@ Overall my hope is that people feel free to have their website be whatever they 
 
 It can be whatever you want, however you want. And if you want a website about mathematical significant roadsigns, you can have one.
 
-Link three. "AI and Mass Spying - Schneier on Security"
+Link three of seven. "AI and Mass Spying - Schneier on Security"
 
 I’m enthusiastic about AI but I’m also sure it is and will continue to be used in ways I don't like. Schneier suggests that one of those will be Mass Spying.
 
@@ -78,11 +82,11 @@ End quote.
 
 Surveillance is already happening at mass scale. What will it mean to put an AI inside of all of those surveillance data flows. At least right now the costs are probably prohibitive, but that won't last. This should be another urge to do everything you can to manage your identify online and make it hard for different services to connect you between them. For a long time it has been a bad practice to share passwords, but going forward we will need to not share email addresses or anything else between different sites. I can imagine web browsers that will isolate all of your browsing activity per website.
 
-Link four. "The resurgence of crypto - Marginal REVOLUTION"
+Link four of seven. "The resurgence of crypto - Marginal REVOLUTION"
 
 Good overview from Cowen on the current resurgence of crypto and the response to it. I continue to be bullish on crypto, and even more with AI advancing so quickly. I think crypto has many of the capabilities we'll need to both enable AI to do more using digital currency, and legitimately prove what we as humans created via blockchain.
 
-Link five. "The Root of Over-Meeting Culture - Anne Helen Petersen"
+Link five of seven. "The Root of Over-Meeting Culture - Anne Helen Petersen"
 
 This article covers a lot of ground, some I agree with and some less so. The anchor is this stat that the average Microsoft Teams member is spending 252% more time in meetings since February twenty twenty. There are a lot of factors here, including the fact that in a remote environment there is no serendipity so you have to schedule everything.
 
@@ -93,7 +97,7 @@ Two things that we need:
 1. AI tools to summarize meetings so you can get caught up without being in them. This is here and coming to even more platforms.
 2. Some way of assessing a "cost" to the meeting organizer for the size and scope of the meeting. Physical logistics were a form of cost, but have lessened. Not sure what the future cost could be.
 
-Link six. "A few words about Blameless culture - cat /dev/brain"
+Link six of seven. "A few words about Blameless culture - cat /dev/brain"
 
 Great article going into specifics on what a 'blameless' retrospective is, with specific examples.
 
@@ -109,7 +113,7 @@ End quote.
 
 I agree with the premise, you cannot have blameless incidents without also have a blameless culture. Many good examples of what that is.
 
-Link seven. "Team Nick"
+Link seven of seven. "Team Nick"
 
 One of the very interesting things you can do with Ethereum Name Service tokens is mint subdomains and send them to other people. This has a bunch of super interesting use cases like membership tokens, voting, tickets, etc. This site allows you to mint a subdomain of teamnick.eth as a sign of support for ENS in their patent litigation.
 
@@ -195,31 +199,33 @@ That's the end of the Journal.
 
 Now, the Briefly section.
 
-Link one. "standard-webhooks"
+There are seven links this week.
+
+Link one of seven. "standard-webhooks"
 
 Reference for creating Webhooks that will be easier for others to use.
 
-Link two. "How AI assistants are already changing the way code gets made | MIT Technology Review"
+Link two of seven. "How AI assistants are already changing the way code gets made | MIT Technology Review"
 
 it is amazing how far this has come in a year. However, I’m still very bullish on software as a skill, and think this will not have a huge impact on the employment prospects of software developers.
 
-Link three. "The seven pillars of modern AI development: Leaning into the era of custom copilots | Microsoft Azure Blog"
+Link three of seven. "The seven pillars of modern AI development: Leaning into the era of custom copilots | Microsoft Azure Blog"
 
 Good broad ways to think about developing your organizations abilities around AI.
 
-Link four. "Google Year in Search: Video highlights all-time most popular search trends"
+Link four of seven. "Google Year in Search: Video highlights all-time most popular search trends"
 
 Great video.
 
-Link five. "trippy | A network diagnostic tool"
+Link five of seven. "trippy | A network diagnostic tool"
 
 Powerful and fancy network tool that provides windowing interfaces in a CLI.
 
-Link six. "Bitkey: self-custody bitcoin wallet"
+Link six of seven. "Bitkey: self-custody bitcoin wallet"
 
 Jack Dorsey's Block has a new Bitcoin wallet. I’m not a fan of how this works. I like the multiple signatures, but would rather that not be tied to the wallet manufacturer. I’m not a big fan of this puck that interacts with your phone. I'd rather have it all in one like a Ledger.
 
-Link seven. "Phi-2: The surprising power of small language models - Microsoft Research"
+Link seven of seven. "Phi-2: The surprising power of small language models - Microsoft Research"
 
 Worth keeping an eye on these smaller LLMs, particularly for programmatic use cases.
 

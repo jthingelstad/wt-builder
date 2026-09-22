@@ -62,7 +62,9 @@ Russia’s decision to invade, and cause so much pain to so many people saddens 
 
 Now, the Featured section.
 
-Link one. "Social Media is a Major Cause of the Mental Illness Epidemic in Teen Girls. Here’s The Evidence."
+There is one link this week.
+
+Link one of one. "Social Media is a Major Cause of the Mental Illness Epidemic in Teen Girls. Here’s The Evidence."
 
 This analysis of 55 different studies of social media use and mental health is a tremendous read. Everyone should read this and consider it, particularly parents, especially those of teen girls. Some highlights here. The bold is my addition.
 
@@ -109,7 +111,9 @@ That's the end of Featured.
 
 Now, the Notable section.
 
-Link one. "How Your LED Lights and Screens are Killing You"
+There are twelve links this week.
+
+Link one of twelve. "How Your LED Lights and Screens are Killing You"
 
 Interesting read on the impact of LED lighting to your body.
 
@@ -125,15 +129,15 @@ Quote.
 Do we exist to serve the needs of our technology, or does our technology exist to serve the needs of humans? It’s an important question!
 End quote.
 
-Link two. "The age of cargo cult Agile must end. | Jason Yip"
+Link two of twelve. "The age of cargo cult Agile must end. | Jason Yip"
 
 Yip responding to many misconceptions in arguments against Agile methodology. There are dozens of corrections made here and reading them is a great reminder of the core of agile methods and what we are really trying to do when we use them to create great software.
 
-Link three. "Salsa Meet and Chat through POAPs"
+Link three of twelve. "Salsa Meet and Chat through POAPs"
 
 One of the reasons I dig POAPs are all the things that could be built on them, and Salsa is an awesome example of that. Salsa allows you to connect with people that you share POAPs with. There is interesting potential here to build continued experiences with people that you met at various events.
 
-Link four. "It’s not about the land… – Rhoneisms"
+Link four of twelve. "It’s not about the land… – Rhoneisms"
 
 My friend Patrick's reflections on the long-term value of certain assets.
 
@@ -141,39 +145,39 @@ Quote.
 People think of inheritance as stuff – money, furniture, property. And, while these things are important, they are simply things. Real inheritance is the freedom owning such things allows.
 End quote.
 
-Link five. "On Section 230 and the Dream of a More Human Internet - Cal Newport"
+Link five of twelve. "On Section 230 and the Dream of a More Human Internet - Cal Newport"
 
 Newport highlights that the services that would be most negatively impacted by Section 230 being weakened are precisely the ones that do the most damage to people and society. I think that Section 230 makes sense for many uses. However, when a platform starts using an algorithm to prioritize some content over the other, I believe it is completely appropriate that the Section 230 protections should be lessened or removed. If you operate as pure plumbing, simply routing characters around that is way different than was most social platforms do today.
 
-Link six. "Report: Apple working on non-invasive glucose testing device – Six Colors"
+Link six of twelve. "Report: Apple working on non-invasive glucose testing device – Six Colors"
 
 I think there are two "moonshot" projects in the wearable tech space. The first is a way to continuously monitor blood glucose level, the other is to do the same for blood pressure. Both of these metrics change frequently and are very responsive to the things we eat, activities we do, and our environment. If a device like a watch were able to track these things with reasonable frequency it could give very actionable feedback to people on ways to improve their health in the short and long term. It isn't clear that this is even possible to do though, but it is great to see continued research to try.
 
-Link seven. "We stand to save 7 million dollars over five years from our cloud exit"
+Link seven of twelve. "We stand to save 7 million dollars over five years from our cloud exit"
 
 This analysis is comparing a lot of and, but it is still a worthwhile read. What I like here is not just assuming that for all workloads the cloud is the best approach. For some it is, for others it isn't. You can’t look at this as one size fits all. I also liked the related five values guiding their transition.
 
 The things that are not mentioned in here are the cost of running everything, the leverage of using managed services, and much more. Doing specific analysis on the cost model is great. In addition, I also like to think about how much of the most precious resource an organization has, which is its people, are working on market differentiating capabilities.
 
-Link eight. "Montaigne"
+Link eight of twelve. "Montaigne"
 
 This may be the simplest interface I've ever seen for making a blog or website. You create a folder in the Notes app on your iPhone or Mac, and then share that folder with this website. The notes in that folder are used to create the website. You can even add images and audio to the notes and they will show up on the web too. I wouldn't have even thought this was possible. Services like this that lower the barrier to publishing online are awesome.
 
-Link nine. "Throughout the rich world, the young are falling out of love with cars | The Economist"
+Link nine of twelve. "Throughout the rich world, the young are falling out of love with cars | The Economist"
 
 When I was a kid I couldn't wait to get my drivers license, and as soon as I could I wanted a car of my own. Why? I suppose that it represented a sort of freedom and independence. Now, our daughter was fine getting her license but wasn't really eager. She has friends that still don't have it. And she isn't pining for a car of her own at all.
 
 The article touches on this, but I think smartphones are part of the reason. The freedom and independence I sought in 1988 can be realized to some extent with the phone that every teenager has in their pocket!
 
-Link ten. "Ordinals | Gamma"
+Link ten of twelve. "Ordinals | Gamma"
 
 You can now do something similar to an NFT on Bitcoin. This is a bit of a hack, using some metadata associated with an individual Satoshi on the blockchain. Gamma provides an easy interface to mint one of these Ordinals of your very own.
 
-Link eleven. "The Network State Podcast with Balaji Srinivasan"
+Link eleven of twelve. "The Network State Podcast with Balaji Srinivasan"
 
 I always try to listen to podcasts when Balaji Srinivasan is on them. I don't agree with all that he asserts, but I think his comments are challenging and expand the boundaries of how I think about technology. It was an easy choice to subscribe to his new podcast. I've only listened to the first episode with Vitalik Buterin so far. The content is good and high value. Hopefully future episodes bring a little humor and levity too though.
 
-Link twelve. "What Is ChatGPT Doing … and Why Does It Work?—Stephen Wolfram Writings"
+Link twelve of twelve. "What Is ChatGPT Doing … and Why Does It Work?—Stephen Wolfram Writings"
 
 Wolfram is an expert at many things, including neural nets and the foundational functions of AI. This writeup is very long (I skimmed it and plan to give it a full read later), but the clarity of the models, the math, and how these Generative AI's and LLMs work is fabulous. I love his analysis of our, meaning us humans, view of the things that ChatGPT is doing (bolding my addition).
 
@@ -272,51 +276,53 @@ That's the end of the Journal.
 
 Now, the Briefly section.
 
-Link one. "One year of war in Ukraine: Internet trends, attacks, and resilience"
+There are twelve links this week.
+
+Link one of twelve. "One year of war in Ukraine: Internet trends, attacks, and resilience"
 
 Tons of graphs from Cloudflare showing different activities in Ukraine over the course of the last year of fighting with Russia. Very interesting!
 
-Link two. "Introducing Day One on the Web"
+Link two of twelve. "Introducing Day One on the Web"
 
 I think Day One is a fabulous journaling application, and I’m glad to see that they now have a proper web version. Recommended.
 
-Link three. "Biden makes surprise visit to Kyiv, meets Zelensky"
+Link three of twelve. "Biden makes surprise visit to Kyiv, meets Zelensky"
 
 I was really pleased to see Biden made this trip to show support for Ukraine.
 
-Link four. "Risk of diabetes rises 58% after COVID, even amid omicron, study finds | Ars Technica"
+Link four of twelve. "Risk of diabetes rises 58% after COVID, even amid omicron, study finds | Ars Technica"
 
 We are going to continue to learn new things about COVID for years. And some of it will be debunked but in the meantime…
 
-Link five. "The 4 Steps of Coaching Someone to Improve a Skill - Matt Norman"
+Link five of twelve. "The 4 Steps of Coaching Someone to Improve a Skill - Matt Norman"
 
 Another great post from Norman this time on coaching. All leaders are coaches to their people from time-to-time, and this framework is a good way to approach that.
 
-Link six. "Four Technology Leaders Join MnTech's Board of Directors » MnTech"
+Link six of twelve. "Four Technology Leaders Join MnTech's Board of Directors » MnTech"
 
 Welcome Andy Bingenheimer, Lucinda DuToit, Amka Hodzic, and Beth Tschida to the MnTech board!
 
-Link seven. "Lua Programming Gems"
+Link seven of twelve. "Lua Programming Gems"
 
 Fun reference and probably a good place to learn Lua techniques.
 
-Link eight. "Scientists find first evidence that black holes are the source of dark energy"
+Link eight of twelve. "Scientists find first evidence that black holes are the source of dark energy"
 
 I love cosmology.
 
-Link nine. "Neptyne"
+Link nine of twelve. "Neptyne"
 
 They put Python inside a spreadsheet? Very cool and could be a great way to introduce people to programming. You could also build some pretty powerful data interfaces with this.
 
-Link ten. "Peel — Drum machine in your browser"
+Link ten of twelve. "Peel — Drum machine in your browser"
 
 Super simple interface to create 16 beat drum machine loops in your browser. Easily shared with a simple URL. Very fun and a great way to familiarize yourself with something so fundamental to EDM.
 
-Link eleven. "staticrypt: Password protect a static HTML page"
+Link eleven of twelve. "staticrypt: Password protect a static HTML page"
 
 Whoa, this is something I've wanted to use on my own website. Can someone please package this up as a micro.blog plugin? k, thx.
 
-Link twelve. "Scribble Diffusion"
+Link twelve of twelve. "Scribble Diffusion"
 
 Add a sketch with your text prompt and get an AI generated image.
 

@@ -15,7 +15,9 @@ as programs are to computers." — me
 
 Now, the Notable section.
 
-Link one. "Slowly Percolating Forms: “So, how’s the sabbatical going?”"
+There are eleven links this week.
+
+Link one of eleven. "Slowly Percolating Forms: “So, how’s the sabbatical going?”"
 
 Dave O'Hara reflecting a bit on his sabbatical. I wish that this concept applied to other professions. I truly think it would be a huge win for so many people. I know there have been times in my career where a sabbatical was exactly what I needed, but alas it wasn't an option.
 
@@ -25,7 +27,7 @@ End quote.
 
 Enjoy the reflection O'Hara and I’m looking forward to hearing more.
 
-Link two. "An Interview With the Target and Home Depot Hacker – Krebs on Security"
+Link two of eleven. "An Interview With the Target and Home Depot Hacker – Krebs on Security"
 
 This is an incredible look behind the curtain of the lives and occupations of these hackers that wreck havoc all over the place.
 
@@ -35,7 +37,7 @@ End quote.
 
 So interesting.
 
-Link three. "Is the (US) Internet Really Slowing? – On my Om"
+Link three of eleven. "Is the (US) Internet Really Slowing? – On my Om"
 
 Are we seeing Internet adoption finally get to a saturation point?
 
@@ -45,7 +47,7 @@ End quote.
 
 I think the next steps of bandwidth usage will be less about our time and usage, but the devices and capabilities in our homes using much more to serve us. Consider the use case of an LLM that is running in your house, or your own blockchain consensus servers. I run a Gnosis Chain validator and the minimum bandwidth I use is 10 Mbps.
 
-Link four. "Thinking About Recipe Formats More Than Anyone Should • Robb Knight"
+Link four of eleven. "Thinking About Recipe Formats More Than Anyone Should • Robb Knight"
 
 Given how absolutely critical cooking food is to our, well, survival it is a little odd that we don't have more semantic structures around cooking, recipes, and sharing that information with other people. We have robust schemas and concepts for many parts of life. Recipes generally are the world of ad networks and surveillance on websites, and not enough of well defined semantic structures to aid in the communication and understanding of recipes.
 
@@ -53,14 +55,14 @@ Knight's dive into this and sharing is a good read. Cooklang is interesting and 
 
 The Recipe Schema seems like something no person should ever be exposed to. But if you needed to understand the data structure for recipes this would be a good one to use something that is ready to go.
 
-Link five. "What To Use Instead of PGP - Dhole Moments"
+Link five of eleven. "What To Use Instead of PGP - Dhole Moments"
 
 I hadn't read The PGP Problem before but this article got me there and I it doesn't surprise me. PGP has the challenges that are outlined there. This article does a good job of showing alternative ways to do many of these things with direct links to the solutions to do it. The two that stood out for me:
 
 Messaging: It just says use Signal. Forget about the rest.
 Email: I find it interesting that it just says no. Give it up. Not possible.
 
-Link six. "What does a date actually mean? - The Engineering Manager"
+Link six of eleven. "What does a date actually mean? - The Engineering Manager"
 
 Building software is notoriously hard to estimate. As a profession software development has progressed and matured in amazing ways for scaling, reusability, velocity, durability. But when you get to the art of setting a schedule as an industry we still struggle — a lot.
 
@@ -81,7 +83,7 @@ This forecasting model is the right way to do it. You do have more visibility on
 
 It is worth remembering this craft is still very young. We've only been doing it for a few decades.
 
-Link seven. "AI-generated poetry is indistinguishable from human-written poetry and is rated more favorably | Scientific Reports"
+Link seven of eleven. "AI-generated poetry is indistinguishable from human-written poetry and is rated more favorably | Scientific Reports"
 
 This study prompts an interesting question — is AI generated poetry easier or harder to detect than other AI generated text? I think it would be harder to detect.
 
@@ -91,7 +93,7 @@ End quote.
 
 Either way interesting how this played out.
 
-Link eight. "The only computer science book worth reading twice? | Simon Dobson"
+Link eight of eleven. "The only computer science book worth reading twice? | Simon Dobson"
 
 When I read this title I instantly was transported back to the Scheme class I took at the University of Minnesota with Dr. John Carlis. I remember two things about that class very distinctly.
 
@@ -101,17 +103,17 @@ The second thing I remember is Dr. Carlis holding the book fro the class up. It 
 
 So it didn’t surprise me to see that this article was referencing that very same book. The link in the article is dated to the freely available version online. You can read the entire book on the web. And I’m delighted to see the book is licensed in Creative Commons license — the same organization that Weekly Thing Supporting Memberships is going to!
 
-Link nine. "Good software development habits | Zarar's blog"
+Link nine of eleven. "Good software development habits | Zarar's blog"
 
 Great set of recommendations to create software and do it with quality. The one that resonates with me on this list is "All code is a liability". In financial terms software is placed on the balance sheet as an asset. As a technologist I would say that the software is a liability and the asset you have to manage that is the people that know how that software works.
 
-Link ten. "World's Radio | Listen to Radio Stations from Around the World"
+Link ten of eleven. "World's Radio | Listen to Radio Stations from Around the World"
 
 When I was a kid a good friend of our family, Gordon Dubovoy, was into three things that he shared with me: Chess, Astronomy, and Short Wave Radio. Gordon taught me how to play Chess and suffered many poor games of chess with me. I’m still not very good at chess. He also built his own telescope and a couple of times we went to his farm and setup the telescope and looked at the stars in the night sky. He also had a very long antennae at his farm and a powerful short wave radio. He had a map of the world with pins of stations he had tuned in. I remember being there and slowly moving the dials. All these different languages would come in and then we'd try to figure out where the signal was coming from. It seemed magical that you could hear signals from so far away.
 
 Now you can pull up a website like this and click a button to listen. It is on a map so you know exactly where it is. It isn't nearly as magical as that old shortwave radio was, but it is still incredible that we can make the world so small.
 
-Link eleven. "You Don't Know Jack about Bandwidth - ACM Queue"
+Link eleven of eleven. "You Don't Know Jack about Bandwidth - ACM Queue"
 
 This is a good article highlighting the complexity in managing bandwidth to the Internet. As fiber becomes more common and along with it more continuous data load, it is critical that the software in your router is very capable. I use UniFi routers and I feel they do a very good job at this. But if you have a high speed fiber connection but a very old device that is perhaps not updated -- look at that to get much better performance.
 
@@ -317,51 +319,53 @@ That's the end of the Journal.
 
 Now, the Briefly section.
 
-Link one. "A Dark Meeting | by Brian Koberlein"
+There are twelve links this week.
+
+Link one of twelve. "A Dark Meeting | by Brian Koberlein"
 
 What happens when an interstellar cloud meets a pair of binary black holes?
 
-Link two. "LlamaOCR.com – Document to markdown"
+Link two of twelve. "LlamaOCR.com – Document to markdown"
 
 I tested this by giving it a fully designed one page flyer and it did a very good job of turning that into markdown with the structure correctly assembled.
 
-Link three. "OnAir"
+Link three of twelve. "OnAir"
 
 Interesting service intended for sales or customer support, but I would think this would also work for things like office hours.
 
-Link four. "The Current State of This Blog’s Syndication - Justin's Linklog"
+Link four of twelve. "The Current State of This Blog’s Syndication - Justin's Linklog"
 
 Justin builds his linklog using Pinboard as a CMS, very similar to how I build the Weekly Thing!
 
-Link five. "How Public Key Cryptography Really Works | Quanta Magazine"
+Link five of twelve. "How Public Key Cryptography Really Works | Quanta Magazine"
 
 Easy to read primer on public key crypto. Given how core encryption is I think this is a reasonable thing for most people to understand at a basic level.
 
-Link six. "Yggdrasil Network | End-to-end encrypted IPv6 networking to connect worlds"
+Link six of twelve. "Yggdrasil Network | End-to-end encrypted IPv6 networking to connect worlds"
 
 This looks super interesting but I must admit some of these software network solutions confuse me.
 
-Link seven. "public.me"
+Link seven of twelve. "public.me"
 
 Ever wanted to be able to post on the web by just sending an iMessage to an address? Now you can.
 
-Link eight. "LAN Party House"
+Link eight of twelve. "LAN Party House"
 
 This is a totally wild setup for a home. The pictures are great, but the Q and A after the pictures is just as good.
 
-Link nine. "Creating a QR Code step by step"
+Link nine of twelve. "Creating a QR Code step by step"
 
 Super detailed overview creating a QR code. Interactive and shows every single step in the process with interactive elements.
 
-Link ten. "Bluesky Firehose (live)"
+Link ten of twelve. "Bluesky Firehose (live)"
 
 The 3D effect in this is neat, but I find it creepy for some odd reason.
 
-Link eleven. "Foursquare Open Source Places: A new foundational dataset for the geospatial community"
+Link eleven of twelve. "Foursquare Open Source Places: A new foundational dataset for the geospatial community"
 
 Very cool to see a giant database like this being open sourced for everyone to use! Well done Foursquare! I found this via Simon Willison and it was cool to see what he did so easily with this data.
 
-Link twelve. "Trashie - Do good, get rewarded"
+Link twelve of twelve. "Trashie - Do good, get rewarded"
 
 Interesting take on recycling clothing with gamification, branding, and rewards.
 

@@ -96,8 +96,54 @@ def heading_label(raw: str) -> str:
     return HEADING_LABELS.get(text, text)
 
 
+_RULE_RE = re.compile(r"^[ \t]*-{3,}[ \t]*$", re.MULTILINE)
+_REAL_H2_RE = re.compile(r"^##\s+(?!(?:the end|end|fin)\b|by\s)", re.MULTILINE | re.IGNORECASE)
+_H3_LINK_RE = re.compile(r"^###\s+\[[^\]]+]\(([^)]+)\)", re.MULTILINE)
+_BULLET_RE = re.compile(r"^\s*[-*]\s+\S", re.MULTILINE)
+
+
+def _rule_section_name(chunk: str) -> str:
+    """Name the section a rule opened, from the shape of what follows it —
+    the vocabulary the issues on either side (31, 39) used as headings: a
+    photo, the links, the blog posts, the one App Store link that was the
+    Featured App, the one Amazon link that was Now Reading, a bare URL that
+    opened a Promotion, and the week's microblog bullets."""
+    links = _H3_LINK_RE.findall(chunk)
+    if links:
+        if all("thingelstad.com" in url for url in links):
+            return "Blog posts"
+        if len(links) == 1 and "apple.com" in links[0]:
+            return "Featured App"
+        if len(links) == 1 and "amazon.com" in links[0]:
+            return "Now Reading"
+        return "Links"
+    if any(JOURNAL_DATE_RE.match(line) for line in chunk.splitlines()):
+        return "Photog"
+    if _BULLET_RE.search(chunk):
+        return "Microblog updates"
+    first = next((line.strip() for line in chunk.splitlines() if line.strip()), "")
+    if re.match(r"^https?://\S+$", first):
+        return "Promotion"
+    return "Notes"
+
+
+def sections_from_rules(body: str) -> str:
+    """Issues 32–38 (December 2017 to January 2018) drew their sections as
+    horizontal rules with no headings, so the transform saw one long
+    unsectioned body and spoke it without a single cue. Each rule becomes
+    the heading it stood for. A body with real headings is left alone."""
+    if _REAL_H2_RE.search(body) or not _RULE_RE.search(body):
+        return body
+    chunks = _RULE_RE.split(body)
+    out = [chunks[0]]
+    for chunk in chunks[1:]:
+        out.append(f"\n## {_rule_section_name(chunk)}\n{chunk}")
+    return "".join(out)
+
+
 def body_to_audio_script(body: str, frontmatter: dict[str, Any]) -> str:
     body = HTML_COMMENT_RE.sub("", body)
+    body = sections_from_rules(body)
     body = STRIKETHROUGH_HTML_RE.sub("", body)
     body = re.sub(r"^[ \t]*[-*][ \t]*$", "", body, flags=re.MULTILINE)
     body = FENCED_CODE_RE.sub("", body)

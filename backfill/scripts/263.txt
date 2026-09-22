@@ -12,7 +12,9 @@ Enjoy this weeks links!
 
 Now, the Notable section.
 
-Link one. "Did I Make a Mistake Selling Del.icio.us to Yahoo?"
+There are nine links this week.
+
+Link one of nine. "Did I Make a Mistake Selling Del.icio.us to Yahoo?"
 
 I was a user of Del.icio.us and I really liked it. It was this whole new idea, and being someone that likes to collect and curate links, it vibed with me really strongly. I used it for years and I’m sure I had a couple thousand links stored. The failures of Del.icio.us are what allowed for Pinboard to get launched. Pinboard was fast, and even better reliable. I imported my Del.icio.us links to Pinboard and never looked back. Today I have 14,159 links in Pinboard, including those ones I imported from Del.icio.us.
 
@@ -20,7 +22,7 @@ Schachter wonders what could have become of the site. I doubt it could have been
 
 Not mentioned in this article is the fact that after Yahoo! did everything it could to ruin Del.icio.us, Pinboard bought it. Pinboard is famously known as a solopreneur product, with just Maciej Cegłowski running it by himself for the last 14 years. Simple, small-business with a paying customer base. No ads or other silly stuff.
 
-Link two. "Announcing Microsoft Copilot, your everyday AI companion - The Official Microsoft Blog"
+Link two of nine. "Announcing Microsoft Copilot, your everyday AI companion - The Official Microsoft Blog"
 
 the rollout of Copilot is starting across Microsofts various platforms.
 
@@ -30,11 +32,11 @@ End quote.
 
 I’m impressed with how fast they have mobilized this in so many parts of their software and services.
 
-Link three. "The invisible problem – Scott Jenson"
+Link three of nine. "The invisible problem – Scott Jenson"
 
 Jenson presents a thoughtful assessment of how bad detailed editing of text is on mobile devices, along with a recommended improvement. I like this article cause it hits on something we all struggle with but have sort of accepted, to his point of it being invisible. At one point iOS offered a 2-finger drag on the keyboard to emulate arrow keys. That isn't there anymore but I really miss it. Personally, I almost never attempt to do this kind of detailed text editing on my mobile device because it is maddening.
 
-Link four. "Scaling Kafka to Support PayPal’s Data Growth | PayPal Technology Blog"
+Link four of nine. "Scaling Kafka to Support PayPal’s Data Growth | PayPal Technology Blog"
 
 Scaling tech to extreme scales is usually an interesting story. The levels that PayPal has scaled Kafka are impressive!
 
@@ -44,7 +46,7 @@ End quote.
 
 Detailed article describing how they have achieved this level of scale and resiliency, including their own custom libraries they built to interface with Kafka.
 
-Link five. "Vale.sh - A linter for prose"
+Link five of nine. "Vale.sh - A linter for prose"
 
 This is the kind of tool that one could easily breeze right by and think "Sure, sort of interesting" and give a. However, there are many, many use cases where English text is run through systems to appear somewhere.
 
@@ -54,19 +56,19 @@ End quote.
 
 My blog has over 10,000 files, each with a different blog post. I'd love to get spelling and grammar checks, but doing that with thousands of files isn't simple. Vale is perfect for that. Or, you have text that you need to insert into the software you are buidling and could insert Vale into the commit pipeline to make sure that it doesn't have errors. I need to set aside some time to play with this. It is also extensible so an organization can extend it with their own style guidelines.
 
-Link six. "The Philips Hue ecosystem is collapsing into stupidity"
+Link six of nine. "The Philips Hue ecosystem is collapsing into stupidity"
 
 There are two software categories today that seem to be fighting for dominance as the controller of this: your home and your body. Fitness apps all want to track everything. And every app that does anything with a smart device in your home seems to want to claim home turf to all things in your home. As they attempt to do that, the user experience suffers and they fill the app with garbage.
 
-Link seven. "macOS Sonoma: The MacStories Review - MacStories"
+Link seven of nine. "macOS Sonoma: The MacStories Review - MacStories"
 
 If you want to get the full rundown on all the new things in macOS Sonoma, this is the review for you. There are twelve pages covering every nook and cranny of the operating system. If you want even more, the macOS 14 Sonoma: The Ars Technica review is equally long and detailed.
 
-Link eight. "How Mastercard sells its ‘gold mine’ of transaction data"
+Link eight of nine. "How Mastercard sells its ‘gold mine’ of transaction data"
 
 Not only do credit card companies create a private tax on the entire economy, they also generate a mountain of surveillance and sell that on various exchanges. When you step back it seems wild the role that these organizations have in the economy. We need some kind of data protection laws in the US. And honestly maybe we need to stop giving these companies our transactions. Sadly, the alternative is what?
 
-Link nine. "Using ChatGPT as an editor – recursion by Luke Francl"
+Link nine of nine. "Using ChatGPT as an editor – recursion by Luke Francl"
 
 Francl shares his original and then the final abstract for a talk he was preparing after working with ChatGPT. What I like about this article is how he engaged with it to collaborate, and get to a final version that was really good. I think this is a great example of how ChatGPT can help you as a collaborator today.
 
@@ -251,35 +253,37 @@ That's the end of the Journal.
 
 Now, the Briefly section.
 
-Link one. "AWS: Cannot Escape IPv4"
+There are eight links this week.
+
+Link one of eight. "AWS: Cannot Escape IPv4"
 
 AWS is starting to charge for IPv4 addresses, presumably because of the fairly finite supply of them. At some point IPv6 will need to be the default in major cloud providers as their scale will outstrip IPv4 address space. This article highlights where AWS is ready for that, and where they are very much not ready.
 
-Link two. "Odin Programming Language"
+Link two of eight. "Odin Programming Language"
 
 Not just a Norse God. "Odin is a general-purpose programming language with distinct typing built for high performance, modern systems and data-oriented programming." So many niche languages.
 
-Link three. "OpenAI Cookbook"
+Link three of eight. "OpenAI Cookbook"
 
 Collection of examples for building on the OpenAI API.
 
-Link four. "A Good Enough Guestbook"
+Link four of eight. "A Good Enough Guestbook"
 
 A long, long time ago, before blogs commonly had comments, they would often have a Guest Book. Some page on the site that the author could put emails they got, or if it was really fancy the visitor could add to the guest book using a form. I love Good Enough's Guestbook populated with drawings from their Internet Printer.
 
-Link five. "The Musk Algorithm"
+Link five of eight. "The Musk Algorithm"
 
 Hansson was intrigued by the same section in the Musk Biography that caught my eye and commented about in Weekly Thing 261. He elaborates further on it from the book, which I have not read yet.
 
-Link six. "The Screens are the Symptom | danah boyd"
+Link six of eight. "The Screens are the Symptom | danah boyd"
 
 Boyd reflecting on re-reading Bradbury's Fahrenheit 451 and reflecting on the role of screens in it, and in society today.
 
-Link seven. "Bots, Spiders, and Crawlers: The Results – Manu"
+Link seven of eight. "Bots, Spiders, and Crawlers: The Results – Manu"
 
 I've long assume robots.txt is ignored by most robots. Moreale's experiment is good proof of that. If you really want to blog robots, you'll need to do it on the HTTP server and it is going to be a big pain.
 
-Link eight. "The World’s Best Pancake Recipe"
+Link eight of eight. "The World’s Best Pancake Recipe"
 
 Always on the lookout for even better pancakes!
 

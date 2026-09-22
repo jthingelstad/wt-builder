@@ -10,7 +10,9 @@ So let's get right to it!
 
 Now, the Featured section.
 
-Link one. "The End of Programming as We Know It – O’Reilly"
+There is one link this week.
+
+Link one of one. "The End of Programming as We Know It – O’Reilly"
 
 Tom O'Reilly shares his perspective on the future of programming and how he sees AI impacting this. As many realize, programming has evolved so much in the last fifty years in ways that programmers from "back then" would have no idea how modern programmers do there craft.
 
@@ -58,7 +60,9 @@ That's the end of Introducing Eric Cohn's Blog.
 
 Now, the Notable section.
 
-Link one. "Apple Ordered by UK to Create Global iCloud Encryption Backdoor - MacRumors"
+There are six links this week.
+
+Link one of six. "Apple Ordered by UK to Create Global iCloud Encryption Backdoor - MacRumors"
 
 Now it is the UK's turn to go after encryption.
 
@@ -68,15 +72,15 @@ End quote.
 
 Encryption needs to be defended as a fundamental right to use. We have the right to secrets, and that should extend to our use of technology as well.
 
-Link two. "Agile as Trauma — Dorian Taylor"
+Link two of six. "Agile as Trauma — Dorian Taylor"
 
 There are a lot of interesting points in this article that Taylor makes about the limitations of Agile. I think a lot of this is spot on. Many organizations and teams just adopt Agile without thinking about the problem they are trying to solve. I continue to see the missing part of this around the cost of refactoring, which isn't mentioned here. Fundamentally I think teams need to understand "What is the 'cost' if we get this wrong?" The cost by the way could be time, actual lost revenue, anything really. If it is very costly to be wrong, you need to build process around that. You should also be thinking how you can change that. Because in general it is always more difficult to change things that have a high cost to mistakes.
 
-Link three. "Once again, the only way forward is the Mac | Macworld"
+Link three of six. "Once again, the only way forward is the Mac | Macworld"
 
 The different models and control points that manage how software (apps) end up on our devices are interesting, and Apple has via its AppStore some of the most sweeping controls of any. The recent Tik Tok issues highlight how challenging it is when a company limits distribution onto their platform through one point. Snell argues that Apple should pursue a more open model like macOS uses.
 
-Link four. "Personal Software | Lee Robinson"
+Link four of six. "Personal Software | Lee Robinson"
 
 Is it possible that with AI we could be entering a time where you can have any application you want custom created for you? Is software the opposite of many industries where we start with bespoke and then become increasingly manufactured? What if the future doesn't involving buying or "renting" any software, but just having an AI make what you wish. Like having your own tailor to make all of your clothing just for you.
 
@@ -90,7 +94,7 @@ And if this applies to software then why would we not apply it to every other cr
 
 If one of those scenarios sounds right and the other wrong… I think there is something amiss in our thinking.
 
-Link five. "The sound of silence | ᕕ( ᐛ )ᕗ Herman's blog"
+Link five of six. "The sound of silence | ᕕ( ᐛ )ᕗ Herman's blog"
 
 I loved this post from the creator of Bear blog.
 
@@ -106,7 +110,7 @@ The combination of mobile devices, always available Internet, and so many algori
 
 That is a loss.
 
-Link six. "Will stablecoins herald a broader-based dollarization? - Marginal REVOLUTION"
+Link six of six. "Will stablecoins herald a broader-based dollarization? - Marginal REVOLUTION"
 
 The potential to use US dollar backed tokens like USDC on existing blockchains is incredibly powerful. All of this tech exists and has been in use for years now. If we got to a point where it was well regulated and remove legal questions it could be a huge economic unlock. This is all independent of the price of Bitcoin or Ethereum mind you. Just think of it as modern banking for the existing USD uses.
 
@@ -200,39 +204,41 @@ That's the end of the Journal.
 
 Now, the Briefly section.
 
-Link one. "Why it makes perfect sense for this bike to have two gears and two chains - Ars Technica"
+There are nine links this week.
+
+Link one of nine. "Why it makes perfect sense for this bike to have two gears and two chains - Ars Technica"
 
 Incredible bicycle and introduced me to World Bicycle Relief which has brought bicycles to over 4 million people. The video in this article is worth watching.
 
-Link two. "Internet Archive played crucial role in tracking shady CDC data removals - Ars Technica"
+Link two of nine. "Internet Archive played crucial role in tracking shady CDC data removals - Ars Technica"
 
 The role of Internet Archive continues to grow in importance.
 
-Link three. "Drones are now launching drones to attack other drones in Ukraine - Ars Technica"
+Link three of nine. "Drones are now launching drones to attack other drones in Ukraine - Ars Technica"
 
 Add AI to this and we have true technology led warfare.
 
-Link four. "EFF to Ninth Circuit: Young People Have a First Amendment Right to Use Social Media (and All of Its Features) | Electronic Frontier Foundation"
+Link four of nine. "EFF to Ninth Circuit: Young People Have a First Amendment Right to Use Social Media (and All of Its Features) | Electronic Frontier Foundation"
 
 This is filled with a lot of legalize but I think I may disagree with the EFF on this one. For sure young people should have the right to publish and "create" online. But limiting the impact of surveillance on young people is something I completely agree with, including algorithmic timelines.
 
-Link five. "How Google turned 'I'm not a robot' into a massive surveillance system - Boing Boing"
+Link five of nine. "How Google turned 'I'm not a robot' into a massive surveillance system - Boing Boing"
 
 Ugh.
 
-Link six. "It's Later Than You Think - Hollis Robbins"
+Link six of nine. "It's Later Than You Think - Hollis Robbins"
 
 A view of AI's impact on teaching and Universities.
 
-Link seven. "Daring Fireball: Fox’s New Scorebug Graphic Design, and Our Innate Resistance to Change"
+Link seven of nine. "Daring Fireball: Fox’s New Scorebug Graphic Design, and Our Innate Resistance to Change"
 
 I enjoy reading Gruber's rare design critiques like this. I noticed the "score bug" was different but I didn’t take it apart like this. Good read.
 
-Link eight. "History’s Largest and Most Famous Disability Access Ramp – Ex Urbe"
+Link eight of nine. "History’s Largest and Most Famous Disability Access Ramp – Ex Urbe"
 
 When we were in Florence they highlighted this private Medici skyway.
 
-Link nine. "NotebookLM Plus Is Now Available to Google One AI Premium Subscribers - MacStories"
+Link nine of nine. "NotebookLM Plus Is Now Available to Google One AI Premium Subscribers - MacStories"
 
 NotebookLM has quietly become a very powerful AI tool for projects.
 

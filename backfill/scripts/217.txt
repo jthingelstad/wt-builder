@@ -8,7 +8,9 @@ I’m continuing to include a set of links to organizations that you can support
 
 Now, the Featured section.
 
-Link one. "Organizations as Learning Systems"
+There is one link this week.
+
+Link one of one. "Organizations as Learning Systems"
 
 I often say "All great technology companies are learning organizations." I believe this is a fact. Consider the fact that most technology companies are currently successful with information, systems, capabilities that didn’t exist a decade ago. If you aren't learning, you're failing, slowly.
 
@@ -20,15 +22,17 @@ That's the end of Featured.
 
 Now, the Notable section.
 
-Link one. "The Ukraine Crisis Explained with Niall Ferguson — The Prof G Pod with Scott Galloway — Overcast"
+There are thirteen links this week.
+
+Link one of thirteen. "The Ukraine Crisis Explained with Niall Ferguson — The Prof G Pod with Scott Galloway — Overcast"
 
 This interview with Niall Ferguson has some compelling commentary on the war in Ukraine and the impacts that will be felt from it.
 
-Link two. "Ukraine is Winning - The Atlantic"
+Link two of thirteen. "Ukraine is Winning - The Atlantic"
 
 Ukraine is impressing the entire world with their military actions to defend against Russia's invasion. The only good reason I can see to shy away from a winning narrative is that it could make others complacent. The power difference between Russia and Ukraine is stark, and while Ukraine may very well win this war, the rest of the world needs to do everything it possibly can to help tip the odds continual in its favor.
 
-Link three. "Slow Yew Down - Next Action Associates"
+Link three of thirteen. "Slow Yew Down - Next Action Associates"
 
 I've been using GTD for over a decade, maybe two decades now. Clarifying the work that is in front of you is key. It is also something most people, including myself, struggle with regularly.
 
@@ -38,7 +42,7 @@ End quote.
 
 Making the time and energy available for the review process is very important. The need for it is often predicted by steadily rising anxiety. The challenge is recognizing "planning versus doing" as a solution for that anxiety.
 
-Link four. "Mozilla’s vision for the evolution of the Web"
+Link four of thirteen. "Mozilla’s vision for the evolution of the Web"
 
 I do love that Mozilla continues to focus on the core tenets of what the web should be.
 
@@ -48,23 +52,23 @@ End quote.
 
 I admire and concur with all of this, particularly the goal to "Make it easy for anyone to publish on the Web". The web was envisioned from the very beginning by Tim Berners-Lee to be a read-write medium. That web pages could be easily edited using the same tool that you use to read. Wiki's come close to this ideal, but the web as a whole has become harder to publish, and perhaps more importantly, self-publish on. I’m not talking about posting on some giant technology companies social media site. I’m talking about my own website, my own words, my own rules.
 
-Link five. "Famous Fox Federation Roadmap 2.0 | by Famous Fox Federation | Mar, twenty twenty two | Medium"
+Link five of thirteen. "Famous Fox Federation Roadmap 2.0 | by Famous Fox Federation | Mar, twenty twenty two | Medium"
 
 Famous Fox Federation is the most interesting (and successful) NFT project I have been involved in. Check out my den. This project has moved very fast and the development has been tremendous. This next roadmap has some really interesting ideas: Raid missions, Fox rentals, Mission items. All of it looks really fun and cool. Continuing to learn here!
 
-Link six. "Arnold Schwarzenegger: "I love the Russian people. That is why I have to tell you the truth.""
+Link six of thirteen. "Arnold Schwarzenegger: "I love the Russian people. That is why I have to tell you the truth.""
 
 A great personal message from Arnold Schwarzenegger on Russia's attack of Ukraine. If you prefer to read, The Atlantic has the transcript.
 
-Link seven. "Population.io"
+Link seven of thirteen. "Population.io"
 
 A number of statistics for you based on your date of birth, country of residence, and gender. It turns out I’m in the 75th percentile of age in the world.
 
-Link eight. "20 days in Mariupol: The team that documented city’s agony | AP News"
+Link eight of thirteen. "20 days in Mariupol: The team that documented city’s agony | AP News"
 
 These images from Mariupol of the war and killing are chilling. I do believe that showing the horrors of war is a means to get people to turn against it, and work harder for peace. Mariupol continues to face catastrophe.
 
-Link nine. "5 Steps to Transform Your Life"
+Link nine of thirteen. "5 Steps to Transform Your Life"
 
 I first was exposed to the formal concept of self-coaching when I was doing a lot of cycling, mostly century rides. I had a formal process of writing down my training programs, recording the data from my rides, evaluating the outcomes to see if I was tracking. It really can work. This is all about a clear approach to apply self-coaching.
 
@@ -74,7 +78,7 @@ End quote.
 
 To me the biggest aspect of self-coaching is to externalize the data and learnings, typically by writing them down. Doing this allows you to see your own thoughts and commitments almost as external to you, and allow you to be a better coach to yourself.
 
-Link ten. "The Current Thing – Stratechery by Ben Thompson"
+Link ten of thirteen. "The Current Thing – Stratechery by Ben Thompson"
 
 Interesting dissection of holding opposing ideas in a world with no marginal cost of supporting ideas, and then connecting that to policy or moderation decisions at different levels of the technology stack.
 
@@ -86,7 +90,7 @@ I share a very similar view to Thompson in regard to the layers in the stack and
 
 In whole, the Internet should be as lightly moderated as possible, really only to legality, at the access layer (lowest) layers. And it is any companies decisions on what they want to do at the top user-facing (highest) layers.
 
-Link eleven. "Coaching versus Mentoring"
+Link eleven of thirteen. "Coaching versus Mentoring"
 
 I like this differentiation between coaching and mentoring.
 
@@ -96,7 +100,7 @@ End quote.
 
 Coaches have skin in the game. Mentors are advisors. Worthwhile to frame this way and realize that if you agree to coach someone you need to be much more thoughtful about it.
 
-Link twelve. "What You’re Feeling Isn’t A Vibe Shift. It’s Permanent Change."
+Link twelve of thirteen. "What You’re Feeling Isn’t A Vibe Shift. It’s Permanent Change."
 
 Thought provoking article thinking about the bigger picture of where society may be.
 
@@ -112,7 +116,7 @@ End quote.
 
 "Risk society" is not a term I've heard or read about. It is an interesting perspective.
 
-Link thirteen. "Ethereum's Vitalik Buterin Is Worried About Crypto's Future | Time"
+Link thirteen of thirteen. "Ethereum's Vitalik Buterin Is Worried About Crypto's Future | Time"
 
 Very approachable (it is TIME!) introduction to Ethereum's founder Vitalik Buterin.
 
@@ -224,33 +228,35 @@ That's the end of the Journal.
 
 Now, the Briefly section.
 
-Link one. "Stephen Wilhite, creator of the GIF, has died - The Verge"
+There are eight links this week.
+
+Link one of eight. "Stephen Wilhite, creator of the GIF, has died - The Verge"
 
 GIFs will be with us forever. The writeup here focuses too much on memes in my opinion. Before 24-bit color and JPEG's, GIFs were the only widely-used portable graphics format.
 
-Link two. "A Closer Look at the LAPSUS$ Data Extortion Group – Krebs on Security"
+Link two of eight. "A Closer Look at the LAPSUS$ Data Extortion Group – Krebs on Security"
 
 Hacking into systems can be hard, so this group just buys credentials from insiders.
 
 MacPaw is a popular software developer that is located in Kyiv. They remain committed to Ukraine and their customers.
-Link three. "MacPaw’s Operations amidst the Russian Aggression against Ukraine"
+Link three of eight. "MacPaw’s Operations amidst the Russian Aggression against Ukraine"
 
-Link four. "Why ‘The Baby-Sitters Club’ Was Canceled at Netflix"
+Link four of eight. "Why ‘The Baby-Sitters Club’ Was Canceled at Netflix"
 
 Show that everyone loves, but cancelled. This feels like what happens when the algorithm takes over.
 
-Link five. "Photography is not Objective, Art is a Set of Choices | Aaron Hertzmann’s blog"
+Link five of eight. "Photography is not Objective, Art is a Set of Choices | Aaron Hertzmann’s blog"
 
 Photographers do typically try to tell a story with their photo. Telling a story is about framing and controlling the process of the image. If you can tell a story, then the medium is not entirely neutral.
 
-Link six. "The Network State: How To Start a New Country - Amazon.com"
+Link six of eight. "The Network State: How To Start a New Country - Amazon.com"
 
 Balaji Srinivasan is one of the most provocative thinkers regarding crypto and the future. He is coming out with a new book that looks interesting. Notably will be released on July fourth. Already pre-ordered.
 
 When you hear "War is Hell", this is a good example of that.
-Link seven. "How ​​Ukraine swaps living soldiers for dead Russians"
+Link seven of eight. "How ​​Ukraine swaps living soldiers for dead Russians"
 
-Link eight. "Ban Online Behavioral Advertising"
+Link eight of eight. "Ban Online Behavioral Advertising"
 
 I believe this would make for a much better Internet for all of us. I think it would even help the companies in the end, since their customers could start to trust their motives.
 

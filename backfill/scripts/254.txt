@@ -14,7 +14,9 @@ Both are key to thriving." — Me
 
 Now, the Notable section.
 
-Link one. "SpaceTraders API"
+There are twelve links this week.
+
+Link one of twelve. "SpaceTraders API"
 
 A game which is only accessible via a REST API — I've never seen that before! You can play it by directly interacting with the API, and community members are creating their own interfaces and applications on top of it.
 
@@ -24,27 +26,27 @@ End quote.
 
 Wild!
 
-Link two. "News Minimalist — Only significant news"
+Link two of twelve. "News Minimalist — Only significant news"
 
 Use ChatGPT to gauge the "importance" of news, and simply filter out at a level of significance you set and even get that in a newsletter. Editors have been doing this forever, and I don't know about an AI doing it better. And I think AI has been sort of doing this based on click-through and engagement, but doing it based on the content is "better."
 
-Link three. "Story: Redis and its creator antirez"
+Link three of twelve. "Story: Redis and its creator antirez"
 
 This is a fun story of Redis, which is a pretty incredible and widely-adopted solution these days. I played with Redis a long time ago, and I still remember how clean it was to build. You could grab the source, configure and make, and it was a delight how clean it all worked. And the software itself was so stable. Good stuff.
 
-Link four. "New talk: Learning DNS in 10 years"
+Link four of twelve. "New talk: Learning DNS in 10 years"
 
 This is a great article to learn about details of DNS, but is also a fun read about how standards are set and "learning hard things". And Evans publishes this "how to" as a zine as well for a mere 12 dollars.
 
-Link five. "Goodbye, Dooce - Waxy.org"
+Link five of twelve. "Goodbye, Dooce - Waxy.org"
 
 In the early days of blogging Dooce was one of the blogs that I followed along with many others. We were watching a whole new medium being created by these early bloggers. Armstrong is often referred to as the original "mommy blogger", but I would say that she was just one of the groundbreaking bloggers of the era. Her blog was funny and a great read. When I heard that she had died I was worried it was suicide and it was. I had read that she battled with depression for years. Also Heather Armstrong, influential mommy blogger also known as Dooce, dies at 47.
 
-Link six. "Dr. Jayshree Seth on Empowering Our Future With Science"
+Link six of twelve. "Dr. Jayshree Seth on Empowering Our Future With Science"
 
 Afternoon keynote from Dr. Jayshree Seth at MnTech Tech Connect twenty twenty three. Her talk was really powerful and filled with great data and insights.
 
-Link seven. "The Imperfectionist: Just go to the shed"
+Link seven of twelve. "The Imperfectionist: Just go to the shed"
 
 I need to revisit this article and read it a few more times, because if I reflect on it this idea of "just go there" to things that you are pushing off, procrastinating, or just not wanting to do for some reason may be the thing that works the best for me.
 
@@ -54,15 +56,15 @@ End quote.
 
 This is counter to the typical "eat the frog" idea. And I think it is psychologically more productive.
 
-Link eight. "Assembly time is where you have the most control of an incident | FireHydrant"
+Link eight of twelve. "Assembly time is where you have the most control of an incident | FireHydrant"
 
 I like the focus of this article, and particularly like giving this phase of an incident a name like "assembly time". It is really hard to manage incidents in a timely fashion if assembly time takes a long time by itself. Anything you can save on assembly time, which as the article highlights can be practiced and modeled ahead of time, gives you more time to work the actual problem.
 
-Link nine. "Federation Architecture Overview - Bluesky"
+Link nine of twelve. "Federation Architecture Overview - Bluesky"
 
 I’m curious about Bluesky but it seems very early still. The architecture described here is pretty simplistic. It seems there is a lot more to figure out, compared to working systems like Mastodon and Nostr.
 
-Link ten. "Mojo may be the biggest programming advance in decades"
+Link ten of twelve. "Mojo may be the biggest programming advance in decades"
 
 This is interesting if only because it is from Chris Lattner who created LLVM, Clang, and Swift — now bringing his attention to the Python world.
 
@@ -72,11 +74,11 @@ End quote.
 
 Also see Michael Tsai's Mojo Programming Language roundup.
 
-Link eleven. "Leaked Google document: "We Have No Moat, And Neither Does OpenAI""
+Link eleven of twelve. "Leaked Google document: "We Have No Moat, And Neither Does OpenAI""
 
 Interesting read from an internal assessment at Google about the strategic path for LLMs. In part due to Facebook's LLaMa there is an incredible amount of innovation happening everywhere with AI. An AI LLM that lives on your phone and you have a sustained "relationship" over time seems like it will be here faster than we can imagine. So is there a long term strategic win for companies like OpenAI if open source proliferates so fast? We'll have to wait to see.
 
-Link twelve. "On Kids and Smartphones - Cal Newport"
+Link twelve of twelve. "On Kids and Smartphones - Cal Newport"
 
 Newport digs through the data on this question and provides some context on the conclusions.
 
@@ -138,27 +140,29 @@ That's the end of the Journal.
 
 Now, the Briefly section.
 
-Link one. "Python's Missing Batteries: Essential Libraries You're Missing Out On | Martin Heinz | Personal Website and Blog"
+There are six links this week.
+
+Link one of six. "Python's Missing Batteries: Essential Libraries You're Missing Out On | Martin Heinz | Personal Website and Blog"
 
 Great list of Python libraries for a wide variety of things. A lot of new libraries I wasn't familiar with.
 
-Link two. "Shopify offloads logistics business to Flexport"
+Link two of six. "Shopify offloads logistics business to Flexport"
 
 Shopify changing course with logistics efforts.
 
-Link three. "See this page fetch itself, byte by byte, over TLS"
+Link three of six. "See this page fetch itself, byte by byte, over TLS"
 
 Cool byte-level view of a web request over TLS, with annotation.
 
-Link four. "strike.army | Strike + LNURL = <3"
+Link four of six. "strike.army | Strike + LNURL = <3"
 
 Strike supports Bitcoin Lightning, but it works really hard to hide it from the user. This little tool helps you create the links and addresses to easily share Lightning information with others.
 
-Link five. "In Memoriam: Atomic Data Co-Founder Jim Wolford | Twin Cities Business"
+Link five of six. "In Memoriam: Atomic Data Co-Founder Jim Wolford | Twin Cities Business"
 
 Very sad to lose an important entrepreneur and community leader in our community. Jim was only 55 years old too.
 
-Link six. "Gnosis Chain spends 5 million dollars on validator incentive program for decentralization"
+Link six of six. "Gnosis Chain spends 5 million dollars on validator incentive program for decentralization"
 
 Gnosis, like Ethereum, is seeking to have very decentralized validators. I've found it odd that while this is a desire there have been no attempts, until this one, to incentivize this. I’m glad to see Gnosis attempting to make this more than just a hope.
 

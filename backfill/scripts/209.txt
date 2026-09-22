@@ -14,7 +14,9 @@ Hope you have a great weekend!
 
 Now, the Featured section.
 
-Link one. "Why I Wrote PGP"
+There is one link this week.
+
+Link one of one. "Why I Wrote PGP"
 
 I was sharing with some friends that I have been surprised at how political conversations around crypto technology end up becoming, but that upon reflections perhaps that was appropriate as crypto has the potential to disrupt politics. I was trying to think if any other technology had a similar experience and it hit me that public key encryption has many similar characteristics. Encryption and Crypto both have potentials to threaten power structures. Encryption battles started in earnest in the 90's and we are still arguing about it. Should the government have a backdoor to your phone? That argument has been around for 30 years.
 
@@ -40,7 +42,9 @@ That's the end of Currently.
 
 Now, the Notable section.
 
-Link one. "On Meditation and the Unconscious: A Buddhist Monk and a Neuroscientist in Conversation | The MIT Press Reader"
+There are thirteen links this week.
+
+Link one of thirteen. "On Meditation and the Unconscious: A Buddhist Monk and a Neuroscientist in Conversation | The MIT Press Reader"
 
 It is amazing to me how much Buddhism and the practice of meditation got right about the brain, and we are now validating with advanced technology today.
 
@@ -50,7 +54,7 @@ End quote.
 
 In my experience, "training the mind" has been very rewarding.
 
-Link two. "Advice You Will Ignore - Humidity and Hope"
+Link two of thirteen. "Advice You Will Ignore - Humidity and Hope"
 
 Hugh Hollowell sharing advice for maintaining your focus and energy over the long haul.
 
@@ -60,7 +64,7 @@ End quote.
 
 Simple list of 22 things. A good list to turn into actions.
 
-Link three. "Soulbound"
+Link three of thirteen. "Soulbound"
 
 I don't like the World of Warcraft term that Buterin uses to describe non-transferrable NFTs, but the idea is something that I’m very intrigued by and have been for a while. There are a lot of use cases that open up if you know that the NFT a user has was not purchased from someone else, but granted directly to them. Think certifications, diplomas, licenses.
 
@@ -68,17 +72,17 @@ One way to do this that seems interesting to me is to look at on-chain activity 
 
 I also love that he highlights POAPs in this article. It is one of my favorite crypto projects.
 
-Link four. "Google kills FLoC, unveils new plan to replace tracking cookies — here's how it works | Tom's Guide"
+Link four of thirteen. "Google kills FLoC, unveils new plan to replace tracking cookies — here's how it works | Tom's Guide"
 
 You'll remember that Google decided that tracking cookies were a bad idea once they had come up with FLoC, which is even worse for privacy online. Happily they are ditching FLoC, but Topics just seems like magical handwaving. All good reasons to not run Chrome. Seriously, why would you run the web browser made by the company that sells more online ads than anyone else?
 
-Link five. "Cracking a 2 million dollars crypto wallet - The Verge"
+Link five of thirteen. "Cracking a 2 million dollars crypto wallet - The Verge"
 
 The issue of "lost coins" is a real one. Knowing how hard it is for people to even keep digital photos around, I worry that self-custody of digital money is just too difficult. Relying on "crypto banks" may be a much better answer for most people.
 
 It also raises one issue with Bitcoin that I don't have a good answer for… over time more and more Bitcoin will be lost. The keys will be irretrievably gone. How do you handle this loss in a mathematically finite system like Bitcoin. Over time, the coins get more valuable just because of the lost coins. But it is also very hard to identify a lost coin…
 
-Link six. "On Covid"
+Link six of thirteen. "On Covid"
 
 I think Wilson's take on this is about right…
 
@@ -88,7 +92,7 @@ End quote.
 
 I would add though that no matter what time only goes in one direction, forward. "Going back" should be disregarded as much as anything else. We are here now, and it is time to move forward… but we can do that without COVID being the centerpiece of everything.
 
-Link seven. "Personal velocity"
+Link seven of thirteen. "Personal velocity"
 
 I love this post from Godin and the analogy.
 
@@ -100,11 +104,11 @@ There is more to our lives that is carried on my momentum than we probably know.
 
 How about we all build into our journeys rest stops, places to intentionally stop, get off the bike, and look around. Get back on the bike when ready…
 
-Link eight. "Show your children who you are - Austin Kleon"
+Link eight of thirteen. "Show your children who you are - Austin Kleon"
 
 I love this essay and fully embrace the idea. One of the things I hope to show my kids and beyond via my blog, newsletter, and other archives is who I really am.
 
-Link nine. "Examining the covidtests.gov architecture - Ad Hoc"
+Link nine of thirteen. "Examining the covidtests.gov architecture - Ad Hoc"
 
 How do you design a site that millions of people are going to go to and submit a request on the same day? Keep it simple, stupid. This article highlights the very good design decisions, and solutions involved, to let everyone in the US order free COVID tests.
 
@@ -114,11 +118,11 @@ End quote.
 
 Well done.
 
-Link ten. "Scaling with Process versus People"
+Link ten of thirteen. "Scaling with Process versus People"
 
 I don't agree with all of what Cagan puts out, but this general comment on process-focus is a real thing and one that I think particularly leaders have to keep front and center. You must always focus on the value, creating amazing things. Everything else must bend to that.
 
-Link eleven. "Mosey"
+Link eleven of thirteen. "Mosey"
 
 This is a brilliant B2B SaaS offering. You need to hire people in various states? Mosey aggregates the State requirements and helps you be compliant wherever you need to be.
 
@@ -128,11 +132,11 @@ End quote.
 
 This is such an obvious need. Plus, bonus points for the fun company name.
 
-Link twelve. "Roblox Return to Service 10/28-10/31 twenty twenty one - Roblox Blog"
+Link twelve of thirteen. "Roblox Return to Service 10/28-10/31 twenty twenty one - Roblox Blog"
 
 Roblox had a tremendous 73 hour outage right before Halloween and they have now published a public incident report on it. I was very curious to read this. I remember thinking at the time that whatever was causing the problem must be horribly complicated, or was it a security issue? This writeup is very well done, and is a good read for anyone that is seeking to understand the incredible complexity of running very large scale services. Reading this made my palms sweaty in places because of situations I've been in the past, or just thinking what options the Roblox team had at various points.
 
-Link thirteen. "The Internet Changed My Life | Pointers Gone Wild"
+Link thirteen of thirteen. "The Internet Changed My Life | Pointers Gone Wild"
 
 What a great, heartfelt recounting of the huge positive impact that the Internet had on Chevalier-Boisvert's childhood and early adulthood.
 
@@ -160,35 +164,37 @@ That's the end of the Journal.
 
 Now, the Briefly section.
 
-Link one. "First Look: New Emojis in iOS 15.4"
+There are eight links this week.
+
+Link one of eight. "First Look: New Emojis in iOS 15.4"
 
 I’m already excited to use melting face and dotted line face.
 
-Link two. "Trailing Slashes on URLs: Contentious or Settled?—zachleat.com"
+Link two of eight. "Trailing Slashes on URLs: Contentious or Settled?—zachleat.com"
 
 Nearly 30 years on the web and I still get this wrong all the time.
 
-Link three. "My new job at Hearst"
+Link three of eight. "My new job at Hearst"
 
 Congrats to very smart CTO, and Weekly Thing reader, Rajiv on this new position!
 
-Link four. "systemd by example - the systemd playground"
+Link four of eight. "systemd by example - the systemd playground"
 
 These interactive tutorials are so impressive and a great way to learn complicated technology topics.
 
-Link five. "Better Results in your Home Gym, 22"
+Link five of eight. "Better Results in your Home Gym, 22"
 
 I've been doing more strength and agility workouts at home and this list of 22 items to keep in mind is a good one.
 
-Link six. "EconGraphs"
+Link six of eight. "EconGraphs"
 
 Fun graphs but more fun because you can move the inputs and see the formulas and graphs update in realtime.
 
-Link seven. "Retailers unwrap a successful twenty twenty one holiday season with Google’s Black Friday/Cyber Monday program"
+Link seven of eight. "Retailers unwrap a successful twenty twenty one holiday season with Google’s Black Friday/Cyber Monday program"
 
 It is very interesting how Google Cloud is adopting industry specific practices like this. I don't see AWS or Azure doing this yet.
 
-Link eight. "Russia proposes ban on use and mining of cryptocurrencies • Reuters"
+Link eight of eight. "Russia proposes ban on use and mining of cryptocurrencies • Reuters"
 
 It is not surprising to see countries like Russia and China taking action against crypto given the power it has and neither of them care about being seen as open countries that embrace the rights of their people.
 

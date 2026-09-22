@@ -12,7 +12,9 @@ Cheers!
 
 Now, the Featured section.
 
-Link one. "Judges Rule Big Tech's Free Ride on Section 230 Is Over"
+There is one link this week.
+
+Link one of one. "Judges Rule Big Tech's Free Ride on Section 230 Is Over"
 
 Interesting movement and a decent background on Section 230 of the Communication Decency Act and the role it plays in social media. Let me first get a gripe out of the way. I strongly dislike the authors use of "Big Tech" here. More appropriate would be "Social Media". I don't equate those things — Apple, Amazon, and Google have no social media offerings of note. With that out of the way, I’m generally in strong support that Section 230 needs a massive revamp and I think where this is going makes sense.
 
@@ -38,27 +40,29 @@ That's the end of Featured.
 
 Now, the Notable section.
 
-Link one. "Daring Fireball: What to Do With Unwanted Political Spam Texts"
+There are six links this week.
+
+Link one of six. "Daring Fireball: What to Do With Unwanted Political Spam Texts"
 
 I share Gruber's disdain for all of these automated text messages. I’m happy to report though that for years I've been doing the simple "STOP" reply to these and in my experience it works very well. I reply STOP to all of them and they don't come back. I also actively unsubscribe from email lists. It feels tedious but it also works.
 
 A little bit of effort on a regular basis can have a big impact on the amount of junk that comes in via text and email.
 
-Link two. "Signal Is More Than Encrypted Messaging. Under Meredith Whittaker, It’s Out to Prove Surveillance Capitalism Wrong | WIRED"
+Link two of six. "Signal Is More Than Encrypted Messaging. Under Meredith Whittaker, It’s Out to Prove Surveillance Capitalism Wrong | WIRED"
 
 Interview is more about Whittaker than Signal, but I appreciated reading it as she has been outspoken about Signal and I've generally liked the direction she is taking the conversation on privacy. I’m a casual user of Signal, but happy to pay a monthly donation for such a critical service. We need services like Signal and leaders like Whittaker out there fighting for privacy.
 
-Link three. "The secret inside One Million Checkboxes | eieio.games"
+Link three of six. "The secret inside One Million Checkboxes | eieio.games"
 
 I spent a few minutes looking at One Million Checkboxes when it launched and thought it was a nifty piece of "social art" for the web. I dig this kind of oddball stuff. Keep the web weird and all that. But I didn’t give it much more thought.
 
 This article then dives down what some very fun hackers, and I’m using that term in the positive sense of folks that love playing with stuff, did with it. It is a delightful read and the kind of thing that warms my heart on the web.
 
-Link four. "Founder Mode"
+Link four of six. "Founder Mode"
 
 This recent essay from Graham has gotten a ton of attention. There are good parts, and in general I prefer Tobi Lütke perspective on this focusing on "legitimacy". I shared this in Weekly Thing 236. Founders have "legitimacy" that allows them to operate differently. Graham's take is too reductive in my view. This is good, that is bad. It isn't as simple as that in my experience.
 
-Link five. "Hope for the web | James' Coffee Blog"
+Link five of six. "Hope for the web | James' Coffee Blog"
 
 I love the spirit of this and a more people-focused web is something I will always strive for.
 
@@ -68,7 +72,7 @@ End quote.
 
 Love it.
 
-Link six. "How to write "About the Author" - Josh Bernoff"
+Link six of six. "How to write "About the Author" - Josh Bernoff"
 
 Most people aren't authors, but I do think most people find it very difficult to write an introduction for themselves. I think the "About" page of most websites, or the "Bio" block on a profile, stops many people in their tracks. Some of what Bernoff has here could be useful for thinking about those writing tasks.
 
@@ -176,15 +180,17 @@ That's the end of the Journal.
 
 Now, the Briefly section.
 
-Link one. "Is My Blue Your Blue?"
+There are three links this week.
+
+Link one of three. "Is My Blue Your Blue?"
 
 This is a fun little test to see what you define as blue. My family likes to give me a hard time about not seeing colors "right". I’m not color blind, but I have a touch of it. It turns out my blue is much more blue than the average, and much more than the others in my family.
 
-Link two. "Announcing The Assistant | Kagi Blog"
+Link two of three. "Announcing The Assistant | Kagi Blog"
 
 It is fun to see innovation in search from Kagi. Well worth 5 dollars a month for me to use this.
 
-Link three. "Graphic Truth: The rise of US school shootings - GZERO Media"
+Link three of three. "Graphic Truth: The rise of US school shootings - GZERO Media"
 
 Why isn't this graph front page news and driving a solution. Yes it makes me sad, but even more it makes me angry that school shootings have become so common.
 

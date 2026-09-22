@@ -10,7 +10,9 @@ In the interest of not delaying further, lets get right on with it.
 
 Now, the Featured section.
 
-Link one. "Meditations On Moloch"
+There is one link this week.
+
+Link one of one. "Meditations On Moloch"
 
 I heard this essay referenced on Lex Fridman's podcast with Max Tegmark and found it fascinating. We've all seen situations where market dynamics create incentives that are net negatives for all players involved. Or scenarios we will refer to as a Tragedy of the Commons. This essay personifies that concept into Moloch. Strongly recommended. This one will stick with you for a while.
 
@@ -18,7 +20,9 @@ That's the end of Featured.
 
 Now, the Notable section.
 
-Link one. "4 Tools for Self-Reflection Every Leader Needs - Leadership Freak"
+There are ten links this week.
+
+Link one of ten. "4 Tools for Self-Reflection Every Leader Needs - Leadership Freak"
 
 Another short but powerful piece highlighting four important areas to focus on for self-reflection.
 
@@ -28,15 +32,15 @@ End quote.
 
 Interesting areas to focus on for some self-coaching.
 
-Link two. "Chess is booming among teens. Here’s why - Polygon"
+Link two of ten. "Chess is booming among teens. Here’s why - Polygon"
 
 It is cool to see Chess growing in popularity, for a multitude of reasons. I've seen this myself. I was a little surprised when Tyler told me he had started playing Chess online a lot. He plays during downtown and plays both people and AI players. I love that he has taken a liking to it, although it highlights that I am a pretty poor Chess player myself.
 
-Link three. "What Are Transformer Models and How Do They Work?"
+Link three of ten. "What Are Transformer Models and How Do They Work?"
 
 Simplified overview of how a Transformer like GPT functions. I worry about overdoing the "one word at a time" heuristic that is commonly thrown out. I think it encourages oversimplification, but this does a good job of covering the various layers of the solutions.
 
-Link four. "twenty twenty three State of Crypto Report: Introducing the State of Crypto Index - a16z crypto"
+Link four of ten. "twenty twenty three State of Crypto Report: Introducing the State of Crypto Index - a16z crypto"
 
 a16z's most recent crypto report. a16z has a lot of investments in crypto and web3 so one should caveat this heavily, but it is still good data and perspective. Key points that the report focuses on:
 
@@ -53,7 +57,7 @@ My takes:
 5. Love the 99.9% energy reduction of Ethereum highlight as a result of "The Merge" to proof-of-stake. Ethereum uses 0.001% of the energy YouTube uses now.
 6. The market cap graphs are misleading due to an overly long timeline.
 
-Link five. "What Is A Protocol And Why Does It Matter? - AVC"
+Link five of ten. "What Is A Protocol And Why Does It Matter? - AVC"
 
 Wilson attempting to introduce what a protocol is, the functions it performs, and lends a particular bend on what Web3 focuses on with a protocol.
 
@@ -65,7 +69,7 @@ I think it is still controversial to have direct financial costs in protocols as
 
 Imagine what the world of spam would look like if SMTP had been built with a fee structure implicitly in it. I think it would be hugely better.
 
-Link six. "U.S. Teen Girls Experiencing Increased Sadness and Violence | CDC"
+Link six of ten. "U.S. Teen Girls Experiencing Increased Sadness and Violence | CDC"
 
 Our kids are not doing well.
 
@@ -75,11 +79,11 @@ End quote.
 
 I feel like this issue needs more attention.
 
-Link seven. "Prompt injection: What’s the worst that can happen?"
+Link seven of ten. "Prompt injection: What’s the worst that can happen?"
 
 This is a very good overview of prompt injection. It also seems like a very complicated thing to protect against, in part because ChatGPT can do so much and respond to such a variety of inputs. Prompt injection is going to be hard to tell apart from real requests that are valid.
 
-Link eight. "The Free Software Foundation is dying"
+Link eight of ten. "The Free Software Foundation is dying"
 
 "We", all of us using the Internet and reading an email on it, owe a big debt of gratitude to the work of the Free Software Foundation. The mission that it took on, and the literal software that it helped create and maintain, has been critical to the Internet and computing for decades.
 
@@ -93,11 +97,11 @@ The FSF has become irrelevant, fighting last decades battles and worrying about 
 
 The trouble is, does it matter? Maybe the FSF ran its course and should just go away?
 
-Link nine. "ChatGPT pretends to be me. And that's scaring the crap out of me. - without bullshit"
+Link nine of ten. "ChatGPT pretends to be me. And that's scaring the crap out of me. - without bullshit"
 
 Interesting dialog Bernoff had with a chat bot trained to be him. The entire dialog is a fun read, and I think Bernoff's take on it is a good one. It makes stuff up, in Bernoff's case a lot, but some of what it makes up is pretty good. It lacks wit, but much of the basics of copyediting it can do well, and will do better.
 
-Link ten. "Beyond Getting Stuff Done - zen habits"
+Link ten of ten. "Beyond Getting Stuff Done - zen habits"
 
 A good system isn't measured by how much you get done.
 
@@ -149,31 +153,33 @@ That's the end of the Journal.
 
 Now, the Briefly section.
 
-Link one. "Apple Card’s new high-yield Savings account is now available, offering a 4.15 percent APY - Apple"
+There are seven links this week.
+
+Link one of seven. "Apple Card’s new high-yield Savings account is now available, offering a 4.15 percent APY - Apple"
 
 I activated this for my Apple Card to give it a try. It is curious how big Apply has quietly gotten in payments.
 
-Link two. "Cryptographic Best Practices"
+Link two of seven. "Cryptographic Best Practices"
 
 Cryptography is a deep topic, and this attempts to give a shallow but broad overview of the important concepts.
 
-Link three. "I'm a Blogger - hutaffe.blog"
+Link three of seven. "I'm a Blogger - hutaffe.blog"
 
 Love it.
 
-Link four. "Reddit Moderators Brace for a ChatGPT Spam Apocalypse"
+Link four of seven. "Reddit Moderators Brace for a ChatGPT Spam Apocalypse"
 
 ChatGPT and similar AI platforms are going to take the cost of uniquely generated content to near zero. As a result, we are going to see next level robotically created content.
 
-Link five. "Fleek - Own your $HOME"
+Link five of seven. "Fleek - Own your $HOME"
 
 Wrapper around Nix to make it easier to maintain your software on different computers.
 
-Link six. "Stand on one leg – and 16 other life-changing daily moves that will keep your body happy | The Guardian"
+Link six of seven. "Stand on one leg – and 16 other life-changing daily moves that will keep your body happy | The Guardian"
 
 Wild how much just simply moving around is like medicine for us, even better. Nothing fancy, just move.
 
-Link seven. "LLMs and neurodiversity - Marginal REVOLUTION"
+Link seven of seven. "LLMs and neurodiversity - Marginal REVOLUTION"
 
 Interesting observation regarding how different people may benefit from interacting with AI models.
 

@@ -6,7 +6,9 @@ One of the nice things about Shortcuts though is you can bang around in them pre
 
 Now, the Featured section.
 
-Link one. "iPhone 13 Pro Camera Review: Tanzania — Austin Mann"
+There are two links this week.
+
+Link one of two. "iPhone 13 Pro Camera Review: Tanzania — Austin Mann"
 
 If I want to read about the camera capabilities of any new iPhone, I want to read what a photographer has to say, and that is almost always Austin Mann.
 
@@ -16,7 +18,7 @@ End quote.
 
 His photos and video are incredible here. The focal length on the 3x is a big deal.
 
-Link two. "Daring Fireball: The iPhones 13"
+Link two of two. "Daring Fireball: The iPhones 13"
 
 When it comes to reviews of new iPhones I typically rely on John Gruber's take.
 
@@ -32,11 +34,13 @@ That's the end of Currently.
 
 Now, the Notable section.
 
-Link one. "20 Reasons To Quit Social Media - Durmonski.com"
+There are fourteen links this week.
+
+Link one of fourteen. "20 Reasons To Quit Social Media - Durmonski.com"
 
 People often ask me where I find the time to create the Weekly Thing. Well, one way, I spend nearly zero time on social media (see reason 1). All twenty of these are great.
 
-Link two. "The First Rule of Machine Learning: Start without Machine Learning"
+Link two of fourteen. "The First Rule of Machine Learning: Start without Machine Learning"
 
 I hope at this point most people understand that machine learning isn't an exotic spice you can add to any problem to make it better. This article does a good job of highlighting other ways to solve similar problems, that are often easier and cheaper. And I like the key qualifier for deciding when the problem you are working on is ready for machine learning techniques.
 
@@ -46,7 +50,7 @@ End quote.
 
 If you are building a solution that you know will be at a scale that will require machine learning, getting those data pipelines right early on is very important.
 
-Link three. "Why This St. Paul Startup CEO Moved to Dallas | Twin Cities Business"
+Link three of fourteen. "Why This St. Paul Startup CEO Moved to Dallas | Twin Cities Business"
 
 This brief interview with Clarence Bethea is an important read. He's moved away from our community, even though his company is staying in St. Paul.
 
@@ -56,7 +60,7 @@ End quote.
 
 This is not acceptable.
 
-Link four. "Your Calendar as Both Planning and Archive Tool — MacSparky"
+Link four of fourteen. "Your Calendar as Both Planning and Archive Tool — MacSparky"
 
 I do this type of thing with my calendar as well.
 
@@ -66,15 +70,15 @@ End quote.
 
 Your calendar is just the best place to track information laid out in a sequence of hours and days. It can do a number of things that people don't naturally consider a calendar tool for.
 
-Link five. "Newly Finite Themes — Mirror"
+Link five of fourteen. "Newly Finite Themes — Mirror"
 
 Interesting things you can do on Mirror. TechDirt using Mirror to raise funds via Ethereum to support an in-depth research article they are doing on NFTs. I joined with a small 0.03 ETH send. You can see @thingles on the leaderboard and my thingelstad.eth wallet address. I also received 30 $TDNFT for my fractional ownership for part of the final paper.
 
-Link six. "watchOS 8: The MacStories Review - MacStories"
+Link six of fourteen. "watchOS 8: The MacStories Review - MacStories"
 
 The one read you need to find out all the new stuff in watchOS 8, which frankly isn't much. "watchOS 8 is the sleepiest update we’ve seen for the Apple Watch thus far." Agree.
 
-Link seven. "iOS and iPadOS 15: The MacStories Review - MacStories"
+Link seven of fourteen. "iOS and iPadOS 15: The MacStories Review - MacStories"
 
 You may not be looking for a 23 "page" writeup on the new version of iOS but these reads are by far the best way to know what all has changed, and MacStories does these better than anyone else. The stuff I’m most excited about…
 
@@ -87,7 +91,7 @@ You may not be looking for a 23 "page" writeup on the new version of iOS but the
 
 If this isn't enough, Six Colors review is also good.
 
-Link eight. "Jumping the SPAC | No Mercy / No Malice"
+Link eight of fourteen. "Jumping the SPAC | No Mercy / No Malice"
 
 This writeup of Aspiration just delivers crazy after crazy.
 
@@ -97,7 +101,7 @@ End quote.
 
 The comparisons to WeWork are interesting, but of course WeWork was at an entirely different scale.
 
-Link nine. "The Algorithm Tweaks Won't Save Us by Charlie Warzel - Galaxy Brain"
+Link nine of fourteen. "The Algorithm Tweaks Won't Save Us by Charlie Warzel - Galaxy Brain"
 
 I've previously suggested that algorithms that sort content are inherently driven by some goal. The only way to order content that is devoid of a goal, I would suggest, is in strict time order or random. Anything else, necessarily, must be programmed to some optimization target. You cannot create an algorithm without that.
 
@@ -111,11 +115,11 @@ Quote.
 What seems rather indisputable is that as currently designed (to optimize scale, engagement, profit) there is no way to tweak the platform in a way that doesn’t ultimately make people miserable or that destabilizes big areas of culture and society.
 End quote.
 
-Link ten. "What I learned from a year on Substack by Casey Newton - Platformer"
+Link ten of fourteen. "What I learned from a year on Substack by Casey Newton - Platformer"
 
 Casey Newton made news when he left The Verge and "went direct" using Substack. These reflections on the first year doing that are interesting.
 
-Link eleven. "The new warrant: how US police mine Google for your location and search history | The Guardian"
+Link eleven of fourteen. "The new warrant: how US police mine Google for your location and search history | The Guardian"
 
 Location data and keyword search data used without any other probable cause.
 
@@ -125,7 +129,7 @@ End quote.
 
 I knew about the geofence warrants, but I didn’t realize that was happening with keyword searches too. Good idea to to switch to Duck Duck Go and stop using Google for search.
 
-Link twelve. "A Prehistory of DAOs — Mirror"
+Link twelve of fourteen. "A Prehistory of DAOs — Mirror"
 
 I continue to be fascinated with Decentralized Autonomous Organizations and how they may enable collective action by people. This history piece dives into a number of examples of DAOs.
 
@@ -135,11 +139,11 @@ End quote.
 
 Some great, specific, examples of how DAOs are operating today as well.
 
-Link thirteen. "Tampa police called for hundreds to be evicted. Entire families lost their homes."
+Link thirteen of fourteen. "Tampa police called for hundreds to be evicted. Entire families lost their homes."
 
 I recently read Evicted so this story caught my eye with a bit more insight than I had before. The book highlights some of the public safety causes that the police can use to cause evictions.
 
-Link fourteen. "Bitcoin’s Energy Usage Isn’t a Problem. Here’s Why."
+Link fourteen of fourteen. "Bitcoin’s Energy Usage Isn’t a Problem. Here’s Why."
 
 Bitcoins energy footprint is a common knee-jerk answer for many on why it is bad. This article does a great job of providing broader context and highlighting the unique ways in which Bitcoin can use energy.
 
@@ -179,43 +183,45 @@ That's the end of the Journal.
 
 Now, the Briefly section.
 
-Link one. "Crush Facebook - without bullshit"
+There are ten links this week.
+
+Link one of ten. "Crush Facebook - without bullshit"
 
 I agree with a lot of this, but not the part about asking governments to shut it down. People need to vote with their feet (or phones, as it were).
 
-Link two. "Of all the iPhone(s) 13, Pro seems to be perfect. – On my Om"
+Link two of ten. "Of all the iPhone(s) 13, Pro seems to be perfect. – On my Om"
 
 iPhone 13 Pro will be my next phone.
 
-Link three. "Modoboa, Open Source email server"
+Link three of ten. "Modoboa, Open Source email server"
 
 I'll stick with paying Fastmail a reasonable subscription for a great service. But if you wanted to host your email this looks like a good option.
 
-Link four. "Arthur Ventures Raises 375,000,000 dollars in New Capital — Arthur Ventures"
+Link four of ten. "Arthur Ventures Raises 375,000,000 dollars in New Capital — Arthur Ventures"
 
 Congrats to local fund!
 
-Link five. "The Perils of an .xyz Domain"
+Link five of ten. "The Perils of an .xyz Domain"
 
 Good examples of how DNS reputation can impact your service.
 
-Link six. "Q and A With Co-Creator of the 6502 Processor - IEEE Spectrum"
+Link six of ten. "Q and A With Co-Creator of the 6502 Processor - IEEE Spectrum"
 
 The 6502 is the only assembly language work I've ever done, and the instruction set is well done.
 
-Link seven. "Multiperspective System Architecture Diagramming · Ilograph developer blog"
+Link seven of ten. "Multiperspective System Architecture Diagramming · Ilograph developer blog"
 
 Interesting way to show systems from many different views. Includes how to construct the data model for it.
 
-Link eight. "Chris Gilliard aims to abolish Silicon Valley’s surveillance machine - The Washington Post"
+Link eight of ten. "Chris Gilliard aims to abolish Silicon Valley’s surveillance machine - The Washington Post"
 
 I wasn't aware of Gilliard's work, but this background is both a good primer on the issues around privacy and surveillance, as well as what he has focused on.
 
-Link nine. "15 episodes in and still have no idea what works to make a podcast popular - Summation by Auren Hoffman"
+Link nine of ten. "15 episodes in and still have no idea what works to make a podcast popular - Summation by Auren Hoffman"
 
 I’m 195 issues into the Weekly Thing and I still feel this way when I send an issue.
 
-Link ten. "borb | Read, write, and edit PDF files with borb, a pure python library"
+Link ten of ten. "borb | Read, write, and edit PDF files with borb, a pure python library"
 
 If you need to work with PDF files this Python library looks phenomenal. Easy to use and easy to read.
 

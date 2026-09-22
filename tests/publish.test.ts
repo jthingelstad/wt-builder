@@ -13,7 +13,7 @@ import {
   issueEntry, siteInputs, subjectFor,
 } from '../src/server/publish.ts';
 import {
-  chaptersJson, chaptersOf, ffMetadata, id3Chapters, id3Tags, pieceKey, transcriptVtt, vttClock,
+  chaptersJson, chaptersOf, episodeOf, ffMetadata, id3Chapters, id3Tags, pieceKey, transcriptVtt, vttClock,
   FINAL_CHANNELS, FINAL_SAMPLE_RATE, LOUDNORM_I, LOUDNORM_TP, PAUSE,
 } from '../src/server/integrations/audio.ts';
 import type { PlacedBlock } from '../src/server/integrations/audio.ts';
@@ -311,7 +311,7 @@ describe('git blob hashing', () => {
 
 describe('audio mastering', () => {
   it('tags the mp3 from what the issue already knows', () => {
-    const tags = id3Tags(doc({ title: 'Owning the Rails', number: 349 }));
+    const tags = id3Tags(episodeOf(doc({ title: 'Owning the Rails', number: 349 })));
     expect(tags.title).toBe('WT349 — Owning the Rails');
     expect(tags.track).toBe('349');
     expect(tags.artist).toBe('Jamie Thingelstad');

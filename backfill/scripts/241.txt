@@ -14,7 +14,9 @@ Cheers!
 
 Now, the Featured section.
 
-Link one. "Is Mastodon a commons? · Doc Searls Weblog"
+There is one link this week.
+
+Link one of one. "Is Mastodon a commons? · Doc Searls Weblog"
 
 Doc Searls is deeply thoughtful on many Internet "systems" and when I saw him invoking the commons it made me want to read on. I particularly like that he pulled in Elinor Ostrom's characteristics of a commons from Governing the Commons, work that she won a Nobel prize for.
 
@@ -34,7 +36,9 @@ That's the end of Featured.
 
 Now, the Notable section.
 
-Link one. "7 Relationship Building Rules for Results-Driven Leaders - Leadership Freak"
+There are nine links this week.
+
+Link one of nine. "7 Relationship Building Rules for Results-Driven Leaders - Leadership Freak"
 
 I dig this simple rundown of focus areas for leaders to build relationships.
 
@@ -44,11 +48,11 @@ End quote.
 
 Good ideas that would be straightforward to put into action.
 
-Link two. "What is a Journal? Why You Should Start One Today"
+Link two of nine. "What is a Journal? Why You Should Start One Today"
 
 Day One sells a journaling product so it isn't a surprise they are advocating for journling. However, this article hits on a number of good factors and reasons for journaling. I've gone on-and-off with journaling over the years. I’m a Day One subscriber.
 
-Link three. "Does Google need a new CEO? – On my Om"
+Link three of nine. "Does Google need a new CEO? – On my Om"
 
 Malik reflecting on the state of affairs at Google. If this was just any random blogger I wouldn't give it a nod, but Om founded GigaOm and has been covering tech for a couple decades.
 
@@ -58,7 +62,7 @@ End quote.
 
 To me Google is, for the first time really, facing a classic Innovators Dilemma. They have to start disrupting themselves, and that is going to take a conviction that they haven't shown… really ever?
 
-Link four. "Welcome to Wildebeest: the Fediverse on Cloudflare"
+Link four of nine. "Welcome to Wildebeest: the Fediverse on Cloudflare"
 
 Cloudflare continues to impress me with the breadth and depth of their offerings. This new open-source Mastadon server is another great example of that.
 
@@ -68,7 +72,7 @@ End quote.
 
 The whole article goes into detail on how they created the solution using many different components of the Cloudflare Supercloud. Incredible mount of functionality in there, and a powerfull add to the Fediverse stack.
 
-Link five. "Don’t build a personal brand, build a reputation"
+Link five of nine. "Don’t build a personal brand, build a reputation"
 
 I love the sentiment of this post.
 
@@ -78,7 +82,7 @@ End quote.
 
 That is the spirit I try to bring to what I do with the Weekly Thing. It isn't topical on purpose. It meanders with my interests. It isn't a "side hustle". It’s just me.
 
-Link six. "Zero Time Habits – Shawn Blanc"
+Link six of nine. "Zero Time Habits – Shawn Blanc"
 
 I love this term for this type of change.
 
@@ -88,7 +92,7 @@ End quote.
 
 Nice.
 
-Link seven. "The Alternative To Agile Coaches - Silicon Valley Product Group"
+Link seven of nine. "The Alternative To Agile Coaches - Silicon Valley Product Group"
 
 This post from Cagan vibes so much with me. I've long struggled with having dedicated Agile Coaches or Scrum Masters. There have been several times when I have had those roles in organizations, but I see that as a training moment for managers and leaders to learn from them how to do it themselves.
 
@@ -98,7 +102,7 @@ End quote.
 
 This is the model that I think is needed. Managers have the accountability to the organization for what their teams are delivering, and it only makes sense that they serve these roles directly. Said another way, I don't think you would want to hand over something so critical to other people that don't have that responsibility.
 
-Link eight. "How the Fed "Went Broke" - Lyn Alden"
+Link eight of nine. "How the Fed "Went Broke" - Lyn Alden"
 
 Alden looks deep at financial trends (macro?) and I find the perspective interesting. This assessment of the Federal Reserve now operating at a financial loss is an interesting read. The assessment is the short term impact is not much, but that it is a step in a bad direction for the overall economy.
 
@@ -114,7 +118,7 @@ End quote.
 
 So how is it that crypto is so much less reliable than this?
 
-Link nine. "Want anonymity? Make a persona not a mystery. | Derek Sivers"
+Link nine of nine. "Want anonymity? Make a persona not a mystery. | Derek Sivers"
 
 Advice from Sivers on achieving anonymity through a persona.
 
@@ -237,23 +241,25 @@ That's the end of the Journal.
 
 Now, the Briefly section.
 
-Link one. "The Plan for Twitter"
+There are five links this week.
+
+Link one of five. "The Plan for Twitter"
 
 Example of how hard it is to run any service that attempts to connect to Twitter with no lack of clarity on what they are doing.
 
-Link two. "Pay Attention to the Little Things that Signal Big Trust - Matt Norman"
+Link two of five. "Pay Attention to the Little Things that Signal Big Trust - Matt Norman"
 
 I love this list of 30 things that help build trust! So good.
 
-Link three. "The simple, one-page calendar that lasts all year - Big Think"
+Link three of five. "The simple, one-page calendar that lasts all year - Big Think"
 
 This is a cool "map" of an entire year calendar that makes it really easy to lookup days associated with various dates, or vice versa.
 
-Link four. "Mastodon: A New Hope for Social Networking - TidBITS"
+Link four of five. "Mastodon: A New Hope for Social Networking - TidBITS"
 
 Detailed and thorough overview of Mastodon for those interested in exploring deeper.
 
-Link five. ""two thousand one: A Space Odyssey" directed by George Lucas? - YouTube"
+Link five of five. ""two thousand one: A Space Odyssey" directed by George Lucas? - YouTube"
 
 Exquiset video giving a Star Wars feel to two thousand one. I was left wanting many more scenes.
 

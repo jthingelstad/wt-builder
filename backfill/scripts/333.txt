@@ -26,11 +26,13 @@ That's the end of Currently.
 
 Now, the Notable section.
 
-Link one. "Piloting group chats in ChatGPT | OpenAI"
+There are eleven links this week.
+
+Link one of eleven. "Piloting group chats in ChatGPT | OpenAI"
 
 Group chats in ChatGPT seem like it could be pretty interesting. I dig the idea of ChatGPT playing a facilitator role, or being an analyst for multiple people on a group project. I sure hope they consider adding the opposite feature which would be a Group Chat with multiple Custom GPTs! I'd love to spin up a few different Custom GPTs and talk amongst them for debate and different perspectives.
 
-Link two. "Daring Fireball: Tesla Is Working on CarPlay Support"
+Link two of eleven. "Daring Fireball: Tesla Is Working on CarPlay Support"
 
 I've been asked many times by people "Does your CarPlay work in your Tesla?" and I chuckle and say "No, and it never will." To allow CarPlay in a Tesla would break so much of the computing paradigm in a Tesla. What do I mean? Most cars are cars that happen to have not one, but a bunch of computers, that do an okay job of working together to create a driver experience. It is absolutely not unified and works well enough. Tesla's are totally different. They are a single computer that is controlling a unified, continuously connected experience that happens to drive around the road.
 
@@ -38,7 +40,7 @@ In the first model CarPlay is "just another" computer joining the symphony of co
 
 In a Tesla, it is all connected. How would the navigation system in a Tesla relate to something in CarPlay? It cannot. In fact, it would step the experience backwards and make it no longer connected and unified. So, if this does happen, I'll be super curious to see how it is done. Tesla could provide a CarPlay window — almost like an emulator running on a computer to run another operating system inside it.
 
-Link three. "2 Years of ML versus 1 Month of Prompting"
+Link three of eleven. "2 Years of ML versus 1 Month of Prompting"
 
 This article hits home for me. I've now had a couple of problems that have long bothered me, things that I knew machine learning could possibly do but the costs were prohibitive or the solution I wanted to create just didn’t have enough data. I've come back to those problems and reimagined them with a different approach using LLMs and found incredible success.
 
@@ -51,11 +53,11 @@ This article does a great job showing an example of that. Two things:
 1. Machine learning and LLMs are cousins in the artificial intelligence pantheon, but they are completely and totally different. They should not be used in any way interchangeably. ML will continue to meet a niche set of very specific problem domains. But you should never consider swapping an ML solution for an LLM one unless you are redesigning the entire process.
 2. Machine learning solutions often require an approach that is very "machine". Math and data heavy, looking for things that are sometimes arcane. LLM solutions, for me, often start with "How would I do that if I did it once?" And then model off of that. These are much simpler to reason about.
 
-Link four. "Gemini 3: Introducing the latest Gemini AI model from Google"
+Link four of eleven. "Gemini 3: Introducing the latest Gemini AI model from Google"
 
 Newest flagship AI models from Google. I haven't had time to play with these directly but will be soon. Folks ask me a lot where I put my attention to keep up-to-date on LLM advances and my answer is: OpenAI and ChatGPT as the continued leader, Anthropic and Claude largely around coding but everything too, and Gemini and Google in part because of the connectedness to search and other data. Willison's recap is a good start.
 
-Link five. "Three Years from GPT-3 to Gemini 3 - by Ethan Mollick"
+Link five of eleven. "Three Years from GPT-3 to Gemini 3 - by Ethan Mollick"
 
 Mollick's book "Co-Intelligence" is a great read to introduce pragmatic ways that LLMs and AI may change different parts of society. Here he reflects on the continued progress of LLMs with this weeks Gemini 3 announcements.
 
@@ -65,11 +67,11 @@ End quote.
 
 It is an incredible time to play and experiment. I was telling some friends how much fine I’m having playing with Agent stuff and this analogy works for me. Imagine that you have spent decades playing with LEGO and it is so fun. Building things. Trying stuff out. Incredible. And then one day you get LEGO's that move. Your mind is blown. That is what building software with LLMs feels like.
 
-Link six. "Google Antigravity"
+Link six of eleven. "Google Antigravity"
 
 Early observations on Google Antigravity. That name doesn't resonate with me for some reason. Willison highlights some of the (currently) unique parts. There are so many new tools being created right now for building software it is hard to keep it all sorted.
 
-Link seven. "The Illusion of Thought: Chain of Thought Lies"
+Link seven of eleven. "The Illusion of Thought: Chain of Thought Lies"
 
 Super interesting read on interesting research from Anthropic.
 
@@ -87,7 +89,7 @@ End quote.
 
 The "they" in that sentence is LLMs, but people do this all the time too.
 
-Link eight. "Cloudflare outage on November 18, twenty twenty five"
+Link eight of eleven. "Cloudflare outage on November 18, twenty twenty five"
 
 Cloudflare had a big outage on Monday morning that disrupted many services. Cloudflare is not a well known name to most but they are probably the largest CDN (content distribution network) in the world and they operate as a caching front-end for many websites. I have a lot of respect for the stuff they do — they are truly solving unique and very difficult engineering problems to scale the Internet and web even more. This outage was rare and as is often the case the cause was frustrating banal.
 
@@ -99,7 +101,7 @@ This is the kind of thing that can cause you massive issues and it seems so simp
 
 The observation that their status page was also down and it just being a coincidence seems almost too random to believe, but I guess. Lastly, it is impressive that Matthew Prince, CEO and Founder, wrote the incident report.
 
-Link nine. "OpenAI and Target partner to bring new AI-powered experiences across retail | OpenAI"
+Link nine of eleven. "OpenAI and Target partner to bring new AI-powered experiences across retail | OpenAI"
 
 Interesting update from OpenAI and Minneapolis-based Target.
 
@@ -111,11 +113,11 @@ I know senior tech folks at Target so I’m hoping to learn more about how this 
 
 I've recently found myself using LLMs more for shopping "work". I use work deliberately because for me it fits a unique spot. Most of my shopping (I’m not much a shopper) is just "I need X", so I find X and buy it. I sometimes desire to browse and "I would like to explore X" and see what is out there. I’m using AI for this third space of "I wish there was a thing that did X, Y, and Z but I don't know that it exists". I've now given tasks like this multiple times to an LLM and have it go do research on stuff I don't even know where to start.
 
-Link ten. "'I heat my Essex home with a data centre in the shed'"
+Link ten of eleven. "'I heat my Essex home with a data centre in the shed'"
 
 Data centers use a tremendous amount of power and create a lot of heat. The two are connected -- the more power the more heat. Both of those things are hard to deal with when they are very densely packed. The enabling capability is network bandwidth. The more network bandwidth we can create the more distributed we can physically place all that electricity and heat, which can make it easier to generate and use both of them. This article reminded me of the hot tub heated by a Bitcoin miner that I saw at Bitcoin Miami. Heat has uses, and if we can put the heat generation where it is needed you get a better solution for everyone. But the network bandwidth is needed to make that compute useful.
 
-Link eleven. "supercookie: Browser fingerprinting via favicon!"
+Link eleven of eleven. "supercookie: Browser fingerprinting via favicon!"
 
 It really seems like there are endless ways to track users on the web. Cookies are the built-in way of course and as privacy tools have improved we then moved to browser fingerprinting which is very hard to defend against, and now the handy little favicon that gives you an icon in the tab bar of your browser for that website is weaponized?
 
@@ -290,47 +292,49 @@ That's the end of the Journal.
 
 Now, the Briefly section.
 
-Link one. "Bitcoin's big secret: How cryptocurrency became law enforcement's secret weapon | Bitwarden"
+There are eleven links this week.
+
+Link one of eleven. "Bitcoin's big secret: How cryptocurrency became law enforcement's secret weapon | Bitwarden"
 
 To folks that know crypto and blockchains this isn't a surprise. Contrary to public understanding crypto is in most ways the most trackable currency that has ever existed. That is why it is called a public blockchain. The ability to be private comes from being able to create wallets that are not connected to your identity, which is much harder to do than most people realize.
 
-Link two. "twenty twenty five Tekne Award Winners » MnTech"
+Link two of eleven. "twenty twenty five Tekne Award Winners » MnTech"
 
-Link three. "Original Mac calculator design came from letting Steve Jobs play with menus for 10 minutes - Ars Technica"
+Link three of eleven. "Original Mac calculator design came from letting Steve Jobs play with menus for 10 minutes - Ars Technica"
 
 Funny story about engineering around an iterative design process.
 
-Link four. "Homebrew 5.0.0"
+Link four of eleven. "Homebrew 5.0.0"
 
 Official macOS 26 support and parallel downloads! I’m a proud monthly supporter of Homebrew — such an incredible project.
 
-Link five. "Lawmakers Want to Ban VPNs—And They Have No Idea What They're Doing | Electronic Frontier Foundation"
+Link five of eleven. "Lawmakers Want to Ban VPNs—And They Have No Idea What They're Doing | Electronic Frontier Foundation"
 
 Hopefully this gets nowhere. The ability to manage our privacy and protect our communications should be fundamental.
 
-Link six. "AWK technical notes | Volodymyr Gubarkov"
+Link six of eleven. "AWK technical notes | Volodymyr Gubarkov"
 
 Many (most?) users of awk just copy and paste something into a command line with a bunch of pipes, cross their fingers, and hope it works. It turns out awk is one of those endlessly fascinating rabbit holes.
 
-Link seven. "The Internet is Cool. Thank you, TCP | Moncef Abboud"
+Link seven of eleven. "The Internet is Cool. Thank you, TCP | Moncef Abboud"
 
 Everything you've ever done on the Internet is enabled by Transmission Control Protocol (TCP). It is the TCP in TCP/IP.
 
-Link eight. "New audio option for Micro.blog Studio - Manton Reece"
+Link eight of eleven. "New audio option for Micro.blog Studio - Manton Reece"
 
 I really like how Manton continues to evolve the micro.blog platform. I upgraded to Studio to have all these features.
 
-Link nine. "Minivac 601 Simulator"
+Link nine of eleven. "Minivac 601 Simulator"
 
 This is so delightful!
 
-Link ten. "LangChain and LangGraph Agent Frameworks Reach v1.0 Milestones"
+Link ten of eleven. "LangChain and LangGraph Agent Frameworks Reach v1.0 Milestones"
 
 Widely used framework for those building Agents.
 
 Another custom Wordle? Sure, maybe this will become a regular feature. The "clue" is just this issue number written out (they don't allow numbers?).
 
-Link eleven. "Weekly Thing 333 Wordle"
+Link eleven of eleven. "Weekly Thing 333 Wordle"
 
 A haiku to leave you with…
 

@@ -154,7 +154,9 @@ That's the end of Your Version Number.
 
 Now, the Notable section.
 
-Link one. "Redis array type: short story of a long development -"
+There are seven links this week.
+
+Link one of seven. "Redis array type: short story of a long development -"
 
 I love that antirez (author of Redis) is sharing so much about his use of agentic coding. We need more stories from experts like this that provide mission-critical software. Also, software written in difficult environments like C!
 
@@ -170,7 +172,7 @@ End quote.
 
 He took a bigger bet, went for a bigger slice of functionality, and had a bigger outcome by using agentic coding tools.
 
-Link two. "When everyone has AI and the company still learns nothing"
+Link two of seven. "When everyone has AI and the company still learns nothing"
 
 Getting AI tools to your company and getting individual use out of them is not the hard thing, it is figuring out how your organization learns and improves with this capability. I'm seeing this right now because people are bringing a typical enterprise mindset to token consumption. Buying AI tools isn't expensive, but tokens are. And if you approach that with a desire to minimize token usage, you are going to destroy your potential. The question should not be token consumption, but instead value creation over token consumption.
 
@@ -186,7 +188,7 @@ Another model that I've considered is the transition from capital with servers t
 
 This morning I was doing a weekly review on one of my agents and Claude Code used the logging I have to show me five different skills the agent has and, to the penny, how much each of those cost me over the last week. That visibility applied to other tasks allows us to get much smarter.
 
-Link three. "Agentic Coding is a Trap | Lars Faye"
+Link three of seven. "Agentic Coding is a Trap | Lars Faye"
 
 This is a balanced article from an engineer seeing all sides of agentic coding. I found myself reading this and thinking that I agree and disagree based on the thing you are making. Not all code is equal. Some code deserves additional effort and oversight, and other stuff does not. I think folks don't consider that enough. For some solutions I think the process that is described here is spot on. For others, I would not agree.
 
@@ -202,7 +204,7 @@ End quote.
 
 To me the giant challenge in front of us is figuring out how you measure value creation over token usage.
 
-Link four. "Appearing Productive in The Workplace — No One's Happy"
+Link four of seven. "Appearing Productive in The Workplace — No One's Happy"
 
 LLM capabilities are pouring into many professions and on the whole I'm bullish about this and think it will be transformational. However, there are disconnects that we need to become culturally attuned to. This article highlights one that we need to gain skill on first.
 
@@ -222,17 +224,17 @@ Read broadly I think it is critical that we know when we are "playing tennis wit
 
 How do you apply this testability to other domains? And then how do you calibrate expertise into the system? Ideally expertise determines ways to make things testable that appear not to be. That is where I find real leverage. The LLM itself can be used to make the untestable output testable.
 
-Link five. "Six Years Perfecting Maps on watchOS - David Smith, Independent iOS Developer"
+Link five of seven. "Six Years Perfecting Maps on watchOS - David Smith, Independent iOS Developer"
 
 Lovely essay emphasizing the artisanal effort put into making a feature work in the best way possible. I had to re-read when I hit the line "So… I commissioned a custom map." What? The extreme number of iterations put into making this user experience delightful is impressive and a good peek into what goes into making a truly remarkable experience a reality.
 
-Link six. "How people ask Claude for personal guidance — Anthropic"
+Link six of seven. "How people ask Claude for personal guidance — Anthropic"
 
 Interesting article including actual data. It is super interesting to me that "Health / Wellness" and "Professional / Career" are 27 and 26% respectively. Then a 50% drop-off to the next two, followed by another 50% drop-off to everything else. When I saw this it was like a giant blinking sign saying "COACH". Both of those areas are places where people get coaches if they can afford it and have a big enough need. AI coaches has always been an area I think we will see a ton of specialization in. Opening access to coaching feels incredibly powerful. It is also interesting that these two areas have lower rates of sycophancy.
 
 The other take away is how the sycophancy rates are dropping with each model. That proves this is a problem solvable by training.
 
-Link seven. "The Death of Scrum — An Interactive Essay"
+Link seven of seven. "The Death of Scrum — An Interactive Essay"
 
 This article (worksheet?) hits on many of the topics I referenced in my Software Is Liquid post from last week. When constraints, inputs, and outputs change it is necessary to review the system you are operating to see what changes are needed. That is what brought Scrum into existence and it is the thing that should make us question its utility going forward. The challenge to me is if not this, then what. There are four options suggested here: Shape Up, The Linear Method, Continuous Flow, and Agent-First Development. It will be interesting to see if we are able to move, as an industry, to something that is more focused on the particular aspects of the outcome we are shooting for, as opposed to the limitations and constraints of the system we have to work in.
 
@@ -308,39 +310,41 @@ That's the end of the Journal.
 
 Now, the Briefly section.
 
-Link one. "Datatype — variable font that turns text into charts"
+There are nine links this week.
+
+Link one of nine. "Datatype — variable font that turns text into charts"
 
 It is incredible what you can make a font do. This seems perfect for a variety of inline data visualizations.
 
-Link two. "Hand‑drawn QR codes — Seth Larson"
+Link two of nine. "Hand‑drawn QR codes — Seth Larson"
 
 Delightful bit creating QR codes with pencil and paper. (Bonus, local Minneapolis blogger I wasn't following!)
 
-Link three. "FilamentHound — Best Prices on 3D Printing Filament"
+Link three of nine. "FilamentHound — Best Prices on 3D Printing Filament"
 
 I went to "3D Printing: One step closer to the home replicator?" at Minnebar 20. The presenter shared that he had created this website to help people get good deals. It was a great session.
 
-Link four. "pyinfra - Fast Python Infrastructure Automation and Configuration Management Tool"
+Link four of nine. "pyinfra - Fast Python Infrastructure Automation and Configuration Management Tool"
 
 Ansible without the YAML.
 
-Link five. "The AWS MCP Server is now generally available | AWS News Blog"
+Link five of nine. "The AWS MCP Server is now generally available | AWS News Blog"
 
 I've commented about platforms making command-line interfaces to allow agents to use them, and shifting to agents as their customer. MCP is an evolution and secondary channel to do that.
 
-Link six. "Names Are No Longer Single Objects | ENS Blog"
+Link six of nine. "Names Are No Longer Single Objects | ENS Blog"
 
 ENS continuing to improve blockchain accessibility, but also showing the state of the art in how blockchain native applications work. It is funny to me that the massively decentralized ENS is learning delegation from the centralized DNS system.
 
-Link seven. "DO_NOT_TRACK"
+Link seven of nine. "DO_NOT_TRACK"
 
 Web browsers added a "do not track" feature years ago. Don't take too much solace in it though, since it is not enforceable, just a way of sharing a preference. It is also the case that a lot of other tools send tracking information, so this environment preference is an attempt to create a similar mechanism.
 
-Link eight. "How American Dads Became the Parents Their Fathers Never Were"
+Link eight of nine. "How American Dads Became the Parents Their Fathers Never Were"
 
 Interesting data on the evolving roles of Dads in the household.
 
-Link nine. "Meta lost 20 million users last quarter | The Verge"
+Link nine of nine. "Meta lost 20 million users last quarter | The Verge"
 
 Some good news!
 

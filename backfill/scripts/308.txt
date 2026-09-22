@@ -30,23 +30,25 @@ That's the end of Introducing David O'Hara's Blog.
 
 Now, the Notable section.
 
-Link one. "LocalSend: Share files to nearby devices"
+There are sixteen links this week.
+
+Link one of sixteen. "LocalSend: Share files to nearby devices"
 
 I discovered this from a post on Daring Fireball and it was an instant download for me. I like Airdrop for sharing photos with friends and family, but that only works on Apple devices. LocalSend does the same (and more) between a wide variety of devices. Even if you need a way to send clipboards back and forth between devices LocalSend does that. And it is open-source and free to boot, with the option to give a tip.
 
-Link two. "TRMNL | E-ink dashboard to stay focused"
+Link two of sixteen. "TRMNL | E-ink dashboard to stay focused"
 
 Cool product to put information you want on a very low power and unobtrusive dashboard. Robust plugin support as well. I could see this being a cool thing to have a couple of in different locations with information for your office, for family areas, who knows what else. Good gift idea.
 
-Link three. "The open web as gift economy (Part 4) – Tracy Durnell's Mind Garden"
+Link three of sixteen. "The open web as gift economy (Part 4) – Tracy Durnell's Mind Garden"
 
 I enjoyed this approach to thinking about the web, about hyperlinks, about supporting other blogs, about creating virtuous connections on the open web. Good stuff!
 
-Link four. "How to grow old • Mike Monteiro"
+Link four of sixteen. "How to grow old • Mike Monteiro"
 
 Mike Monteiro is one of the founders of Mule Design. I've enjoyed his writing and watched some talks of his. I had no idea he also had a newsletter so when I found this issue it was an instant subscribe for me. The premise of his newsletter is that folks send him questions and he answers them. I liked this one a lot. Also, his most recent one on How to choose a donut he answered a question from me!
 
-Link five. "o1 pro - Marginal REVOLUTION"
+Link five of sixteen. "o1 pro - Marginal REVOLUTION"
 
 I've honestly been thinking about signing up for ChatGPT Pro so that I could experience the o1 pro model directly. Cowen has and his comments on using it are very positive.
 
@@ -56,7 +58,7 @@ End quote.
 
 That kind of capability for 200 dollars a month doesn't seem like a bad deal. I wonder how many people actually have questions that need that level of capability though.
 
-Link six. "Everyone knows your location"
+Link six of sixteen. "Everyone knows your location"
 
 This goes deep specifically looking at location data and how it is "leaked" to dozens of entities all the time while you use your mobile device.
 
@@ -68,7 +70,7 @@ Some of the things I do like running 1Blocker certainly help limit access to thi
 
 The fact that we have no protection at all against this type of surveillance is unbelievable.
 
-Link seven. "Elon’s Twitter Destruction Playbook Hits The US Government, And It’s Even More Dangerous | Techdirt"
+Link seven of sixteen. "Elon’s Twitter Destruction Playbook Hits The US Government, And It’s Even More Dangerous | Techdirt"
 
 It has been an absolutely insane week.
 
@@ -78,7 +80,7 @@ End quote.
 
 The US Government isn't a company. The President isn't a CEO. And your net worth doesn't mean you get to decide everything. At least I hope.
 
-Link eight. "Everything you need to make great coffee – and the kit that’s not worth your money | The Guardian"
+Link eight of sixteen. "Everything you need to make great coffee – and the kit that’s not worth your money | The Guardian"
 
 I greatly enjoy my coffee and this article mostly gets it right. It is pretty simple.
 
@@ -89,31 +91,31 @@ I greatly enjoy my coffee and this article mostly gets it right. It is pretty si
 
 It is also worth noting that for not that much investment I think you can get 95% of the best drop coffee at home. Even if you invest thousands and thousands of dollars I think you can at best get an 80% espresso at home. I leave espresso to the professionals.
 
-Link nine. "A guide to using Signal for government workers"
+Link nine of sixteen. "A guide to using Signal for government workers"
 
 Sure this is written for government workers but it is fine for anyone. Making sure you have trusted, reliable, encrypted communication platforms is important for all of us. I also suggest donating to Signal (it is a non-profit) and helping them support their mission.
 
-Link ten. "Mark All Read - I am BARRY HESS"
+Link ten of sixteen. "Mark All Read - I am BARRY HESS"
 
 The simple truth for most of us is that there is more things we find interesting than there is time to engage with it. I've shared in the past that sending these emails actually helps me with that. If I haven't read something in that week I drop it. If I didn’t have time this week I won't next week. There will be new things. I like Hess's approach here.
 
-Link eleven. "New 'Apple Invites' App Debuts on the App Store - MacStories"
+Link eleven of sixteen. "New 'Apple Invites' App Debuts on the App Store - MacStories"
 
 This caught me completely by surprise. Why would Apple bother to create an app like this? I wonder if it isn't a bit like the story behind the Sports app. The thought there was that Apple got frustrated with all the apps in that category being littered with advertising and surveillance and wanted to provide a clean experience. That is certainly true here. At this point using Evite is really just an ad network that happens to do some calendar messaging. I'll definitely use this. I also like that it is open and doesn't require anything other than a browser for the recipient. Nice user experience as well.
 
-Link twelve. "Enter Tapestry • The Breakroom"
+Link twelve of sixteen. "Enter Tapestry • The Breakroom"
 
 I was a Kickstarter backer of Tapestry and am excited to see the app reach public release now. Tapestry is one of a handful of "timeline apps". Think of it like a social media timeline, but it has no algorithms (just ordered by time) and the content comes from open protocols like RSS. Brilliant! This feels to me like a middle space for folks that find Feed Readers to be "too much" but would rather get the surveillance and algorithms out of what they are reading.
 
-Link thirteen. "Art Links"
+Link thirteen of sixteen. "Art Links"
 
 Love to see The Met doing a play on the NY Times Connections game and then rewarding players with NFTs! I've collected two so far. Love the experimentation and read the announcement for the full overview.
 
-Link fourteen. "One year with the Vision Pro – Six Colors"
+Link fourteen of sixteen. "One year with the Vision Pro – Six Colors"
 
 It is a little surprising to me that my Vision Pro is just one year old. Our expectations of technology to be ubiquitous so fast have only increased. Thinking about this made me think about the Apple Watch after a year. I’m pretty sure Apple was still suggesting it was a communications device at that point. I agree with the articles opening that I would only recommend buying a Vision Pro if you want to play around with stuff that may never be real. I also am hoping that Apple does what they have done with other platforms and continues to work on the software, trying things, until they find the right use cases. They aren't a company that gets distracted easily, and I don't know of any other software company that is so good and creating new metaphors and user experiences. I’m still intrigued!
 
-Link fifteen. "What really happens inside a dating app - My blog"
+Link fifteen of sixteen. "What really happens inside a dating app - My blog"
 
 There is so much interesting information in this article. Some excerpts from the "Fun Data" section:
 
@@ -123,7 +125,7 @@ End quote.
 
 If you are looking to improve your performance on dating apps, this is a good read. It is also just a super curious read about human behavior. And ultimately a critique of the dynamics that these apps introduce and how it sets expectation. Maybe dating isn't like shopping.
 
-Link sixteen. "El Salvador Abandons Bitcoin as Legal Tender After Failed Experiment"
+Link sixteen of sixteen. "El Salvador Abandons Bitcoin as Legal Tender After Failed Experiment"
 
 The first county to adopt Bitcoin as a legal currency abandons it.
 
@@ -183,51 +185,53 @@ That's the end of Weekly Thing Forum.
 
 Now, the Briefly section.
 
-Link one. "stats: macOS system monitor in your menu bar"
+There are twelve links this week.
+
+Link one of twelve. "stats: macOS system monitor in your menu bar"
 
 Like a free and open source version of iStat Menus.
 
-Link two. "The Best Table Tennis Points Of twenty twenty four"
+Link two of twelve. "The Best Table Tennis Points Of twenty twenty four"
 
 This is just crazy stuff.
 
-Link three. "Pitfall!"
+Link three of twelve. "Pitfall!"
 
 Retro gaming in your browser.
 
-Link four. "The API client that lives in your terminal - Posting"
+Link four of twelve. "The API client that lives in your terminal - Posting"
 
 Like Postman but running in your terminal.
 
-Link five. "Advice for a friend who wants to start a blog"
+Link five of twelve. "Advice for a friend who wants to start a blog"
 
 Starting a blog? Have a blog? Nineteen recommendations to consider.
 
-Link six. "Why Grammarly Beats Apple’s Writing Tools for Serious Writers - TidBITS"
+Link six of twelve. "Why Grammarly Beats Apple’s Writing Tools for Serious Writers - TidBITS"
 
 I continue to be a Grammarly customer even with all of the AI tools out there.
 
-Link seven. "The Era of Tab Continuation - Allen Pike"
+Link seven of twelve. "The Era of Tab Continuation - Allen Pike"
 
 Thinking about auto-completion in domains outside of programming.
 
-Link eight. "DeepSeek FAQ – Stratechery by Ben Thompson"
+Link eight of twelve. "DeepSeek FAQ – Stratechery by Ben Thompson"
 
 Good index of info on R1.
 
-Link nine. "Explainer: What's R1 and Everything Else? - Tim Kellogg"
+Link nine of twelve. "Explainer: What's R1 and Everything Else? - Tim Kellogg"
 
 Commentary on the DeepSeek R1 model.
 
-Link ten. "NTSB forces reporters to get plane crash updates on X"
+Link ten of twelve. "NTSB forces reporters to get plane crash updates on X"
 
 There is much to be worried about lately. This type of directive to abandon open and direct communication paths with citizens and force them through private companies with their various terms of service and surveillance should be illegal.
 
-Link eleven. "Seven things I know after 25 years of development"
+Link eleven of twelve. "Seven things I know after 25 years of development"
 
 Wisdom from a Ukrainian software developer who is now serving in the Ukrainian military.
 
-Link twelve. "Minnestar Welcomes Meg Steuer as Executive Director, Announces Minnebar19 Date | Minnestar"
+Link twelve of twelve. "Minnestar Welcomes Meg Steuer as Executive Director, Announces Minnebar19 Date | Minnestar"
 
 Congratulations to Minnestar and Meg Steuer!
 

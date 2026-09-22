@@ -14,7 +14,9 @@ There is a lot packed into today's email — you may need an extra cup of coffee
 
 Now, the Featured section.
 
-Link one. "Hypercritical: I Made This"
+There are three links this week.
+
+Link one of three. "Hypercritical: I Made This"
 
 I’m a big fan of Siracusa. For years I savored every page of his Mac OS X reviews. He mostly podcasts on very long podcasts now, but occasionally we get a gem of a blog post like this. Siracusa takes a run at the challenge of intellectual property ownership behind Generative AI.
 
@@ -36,7 +38,7 @@ It is the right question, but in the age of AI what if it isn't answerable becau
 
 null made this?
 
-Link two. "Assessing the Health of Bitcoin - Lyn Alden"
+Link two of three. "Assessing the Health of Bitcoin - Lyn Alden"
 
 Alden is a notable proponent of Bitcoin, and what makes her work unique is that she is also an engineer and an independent financial analyst. In short, she combines strong technical depth with a rich background in macroeconomic concepts and theories. In this article she assesses Bitcoin based on five major factors:
 
@@ -71,7 +73,7 @@ End quote.
 
 Ultimately she gives it a grade of A-. Alden's recent book Broken Money is on my shelf for an upcoming read.
 
-Link three. "Inventor of NTP protocol that keeps time on billions of devices dies at age 85 | Ars Technica"
+Link three of three. "Inventor of NTP protocol that keeps time on billions of devices dies at age 85 | Ars Technica"
 
 Network Time Protocol is one of the many critical systems that we never really think about on the Internet. When you sit down at your computer and see that the time is exactly right, you are benefiting from Network Time Protocol (NTP).
 
@@ -163,7 +165,9 @@ That's the end of Interview with 612 Series creator Erik Halaas.
 
 Now, the Notable section.
 
-Link one. "Bottled Water Contains Previously Undetected Nanoplastics - Bloomberg"
+There are twelve links this week.
+
+Link one of twelve. "Bottled Water Contains Previously Undetected Nanoplastics - Bloomberg"
 
 The more we learn about plastic the more problematic it is, and yet we keep putting our food in it.
 
@@ -175,7 +179,7 @@ This article made me think "I should go read the original study that is cited." 
 
 And these nanoplastics that can pass into your blood stream? Yikes!
 
-Link two. "SEC.gov | Statement on Omnibus Approval Order for List and Trade Bitcoin-Based Commodity-Based Trust Shares and Trust Units"
+Link two of twelve. "SEC.gov | Statement on Omnibus Approval Order for List and Trade Bitcoin-Based Commodity-Based Trust Shares and Trust Units"
 
 We finally have SEC approval to move forward on Bitcoin-based ETFs. This statement from Commissioner Peirce criticizing the SEC's process with Bitcoin is an interesting read. She highlights many negatives that came from the SEC sitting on this for a decade.
 
@@ -185,7 +189,7 @@ End quote.
 
 Good that we finally have this approved.
 
-Link three. "ArchiveBox: Open source self-hosted web archiving"
+Link three of twelve. "ArchiveBox: Open source self-hosted web archiving"
 
 One of the features I pay extra for with Pinboard is archiving the full contents of any URLs that I save. This is a stand-alone solution to do that for anything.
 
@@ -195,25 +199,25 @@ End quote.
 
 I think I'll add this to my "Someday, Maybe" list to setup. It would be great to have this to archive the parts of the web that I care about.
 
-Link four. "ISDN History: Why It (Mostly) Failed To Make A Mark"
+Link four of twelve. "ISDN History: Why It (Mostly) Failed To Make A Mark"
 
 I had ISDN service to my apartment in the early two thousand's. For the time it was fast, but the gear was always finicky. At MarketWatch at that time we also had ISDN lines for all of our videoconferencing systems because our Internet connections were not stable enough and had too high of latency. We also used ISDN for our MarketWatch Radio network.
 
 Sadly this article doesn't reference at all the only ISDN remnant that I still thoroughly enjoy — Future Sound of London's album ISDN, released in 1994. I just started playing it.
 
-Link five. "Up Ahead Lets You Track the Important Things in Life – The Sweet Setup"
+Link five of twelve. "Up Ahead Lets You Track the Important Things in Life – The Sweet Setup"
 
 I purchased a year of Up Ahead and have been using it. Up Ahead is probably the third or fourth application I've tried to use that does a really simple thing, track events that are coming up and count down to them. I've found a few apps that do this, but sadly there isn't one that works the way I ultimately want.
 
-Link six. "What happens when a school bans smartphones? A complete transformation | The Guardian"
+Link six of twelve. "What happens when a school bans smartphones? A complete transformation | The Guardian"
 
 Our kids have told me countless stories of kids in school using their cell phones all the time, not listening to the teachers. The problem is amplified when every student also has a Chromebook and access to the web. The distractions are nearly limitless. Is banning phones the right thing? I think yes. Is taking computer out of the classroom also right? That is a harder problem.
 
-Link seven. "Making Apple Vision Pro - YouTube"
+Link seven of twelve. "Making Apple Vision Pro - YouTube"
 
 A quick 80 second video (ad?) from Apple showing the machining process for the new Vision Pro. Nobody does this stuff like Apple. I can't wait to get mine on Feb second! Also see the Apple Vision Pro Guided Tour.
 
-Link eight. "Microsoft Actions Following Attack by Nation State Actor Midnight Blizzard | Microsoft Security Response Center"
+Link eight of twelve. "Microsoft Actions Following Attack by Nation State Actor Midnight Blizzard | Microsoft Security Response Center"
 
 Initial information on Microsoft security event.
 
@@ -223,11 +227,11 @@ End quote.
 
 Highlights how all public endpoints matter, production or not.
 
-Link nine. "Reducing our AWS bill by 100,000 dollars - Fathom Analytics"
+Link nine of twelve. "Reducing our AWS bill by 100,000 dollars - Fathom Analytics"
 
 Great writeup how Fathom went, service by service, and identified excess costs to reduce. This is a great highlight of why FinOps (financial operations) in technology teams is so critical. The flexibility of the cloud comes with a lot of complexity, and managing the costs associated with that capacity is not trivial.
 
-Link ten. "Daft Social"
+Link ten of twelve. "Daft Social"
 
 Daft allows you to create short posts on a "blog" by sending email to a unique address and specifying the text in the subject. It is kind of weird really. I created an account and made sure I was "so very daft". There is no authentication other than making sure you don't share the special email address that is created for your username. Each site has an RSS feed.
 
@@ -239,7 +243,7 @@ End quote.
 
 So it seems folks thought it was fun enough to try.
 
-Link eleven. "Happy 40th Birthday, Macintosh"
+Link eleven of twelve. "Happy 40th Birthday, Macintosh"
 
 This is a great website to celebrate the 40th Birthday of the Macintosh.
 
@@ -249,7 +253,7 @@ End quote.
 
 Wonderful photos and a ton of memories for long-time Mac users.
 
-Link twelve. "Backlog size is inversely proportional to how often you talk to customers"
+Link twelve of twelve. "Backlog size is inversely proportional to how often you talk to customers"
 
 Several years ago I was talking with a product lead. This leader was making the case that his product needed more engineers. At one point in the conversation he attempted to justify this by exclaiming that his backlog was so large that it would take too long to work through. My reply was something like this — the size of your backlog is irrelevant to the amount of investment we should make, investment is driven on driving growth and customer engagement.
 
@@ -383,63 +387,65 @@ That's the end of the Journal.
 
 Now, the Briefly section.
 
-Link one. "Walmart unveils new generative AI-powered capabilities for shoppers and associates - The Official Microsoft Blog"
+There are fifteen links this week.
+
+Link one of fifteen. "Walmart unveils new generative AI-powered capabilities for shoppers and associates - The Official Microsoft Blog"
 
 Walmart is using Generative AI in some interesting ways.
 
-Link two. "Let's Block It!"
+Link two of fifteen. "Let's Block It!"
 
 Crowdsourced blocking rules for uBlock Origin. I used 1Blocker for blocking. I highly recommend running some form of content blocker in your browser.
 
-Link three. "Outlook is Microsoft’s new data collection service | Proton"
+Link three of fifteen. "Outlook is Microsoft’s new data collection service | Proton"
 
 This is shameful Microsoft. Your email client should not be surveilling you.
 
-Link four. "How my link blog works ·./jm"
+Link four of fifteen. "How my link blog works ·./jm"
 
 When I was running a link blog I did pretty much the exact same thing. I use Pinboard as a CMS, and then you can export from that to other systems. I may create a link blog again in the future, but if I did I want it to not be blog-date-centric but instead content-keyword-search centric.
 
-Link five. "Fixable Feeds"
+Link five of fifteen. "Fixable Feeds"
 
 This is a great feature add for Feedbin, and one that I've never seen any other feed reader do. This found 6 feeds in my subscriptions that had moved to new URLs and let me get them updates with a couple clicks.
 
-Link six. "How High-Performing Teams Build Trust"
+Link six of fifteen. "How High-Performing Teams Build Trust"
 
 Good culture considerations for any team. Does HBR always have 5 sections to these articles? Still good content.
 
-Link seven. "Airshow Updates"
+Link seven of fifteen. "Airshow Updates"
 
 Airshow is a Podcast player made by Feedbin, and uses Feedbin for the sync system. As an avid Feedbin user I decided to give this a shot instead of Overcast for a while. The user interface is nice.
 
-Link eight. "The tyranny of the algorithm: why every coffee shop looks the same | The Guardian"
+Link eight of fifteen. "The tyranny of the algorithm: why every coffee shop looks the same | The Guardian"
 
 Everything is connected and it all becomes the same?
 
-Link nine. "Why the M2 is more advanced that it seemed – The Eclectic Light Company"
+Link nine of fifteen. "Why the M2 is more advanced that it seemed – The Eclectic Light Company"
 
 Wild how important one CPU method bfloat16 is.
 
-Link ten. "Gibberish Is Now Available on TestFlight - Gibberish and Stuff"
+Link ten of fifteen. "Gibberish Is Now Available on TestFlight - Gibberish and Stuff"
 
 What if you could author a blog with a text messaging interface? That is what Gibberish is trying. It does not seem compelling to me, but I love that they are trying something so different.
 
-Link eleven. "Happyfeed - Daily Gratitude Journal App for iOS and Android"
+Link eleven of fifteen. "Happyfeed - Daily Gratitude Journal App for iOS and Android"
 
 I've kept a gratitude journal in Day One, but this app is just for gratitude alone. The compelling feature is to join small groups of friends to share gratitude notes amongst each other. Interesting and very special purpose.
 
-Link twelve. "Domain redirect service hassle-free - redirect.pizza"
+Link twelve of fifteen. "Domain redirect service hassle-free - redirect.pizza"
 
 I have typically created an S3 bucket to redirect domains. It is very hard to find services that will do this with SSL, but this one does.
 
-Link thirteen. "CheckmateChamp.net: Chess Tactics Trainer"
+Link thirteen of fifteen. "CheckmateChamp.net: Chess Tactics Trainer"
 
 Work through over 800 chess scenarios.
 
-Link fourteen. "The top five RSS readers for keeping up with your news feeds - The Verge"
+Link fourteen of fifteen. "The top five RSS readers for keeping up with your news feeds - The Verge"
 
 If you are looking for information on feed readers. I've used Feedbin for years and highly recommend it.
 
-Link fifteen. "Keep Your SSH Keys Safe with Watchtower | 1Password"
+Link fifteen of fifteen. "Keep Your SSH Keys Safe with Watchtower | 1Password"
 
 Nice feature addition to 1Password!
 

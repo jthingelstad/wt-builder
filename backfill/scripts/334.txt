@@ -12,19 +12,21 @@ That is all for now. Have a great start of the official holiday season! And enjo
 
 Now, the Notable section.
 
-Link one. "Nano Banana Pro aka gemini-3-pro-image-preview is the best available image generation model"
+There are seven links this week.
+
+Link one of seven. "Nano Banana Pro aka gemini-3-pro-image-preview is the best available image generation model"
 
 Willison has an initial take on Gemini 3 Pro's "Nano Banana" image generation. I've now used this as well for a few tests as well as a recent POAP I made. I've done a lot of image generation with ChatGPT and DALL-E, and so far Nano Banana definitely does a better job. The larger sizes are a nice addition, and it generally has gotten the images better and seems to show a better understanding of the prompts. I have seen it give me the same image back when I ask for edits and I've had to ask it to try again. Like other AI image generators I find it gets confused after several iterations and I need to start a new conversation with a fresh prompt. Also see Google suggestions on using Nano Banana.
 
-Link two. "Writer Coin - Next Day Thoughts"
+Link two of seven. "Writer Coin - Next Day Thoughts"
 
 Wilson started mirroring his (very good) blog onto Mirror a long-time ago. Mirror and Paragraph recently finished merging and now provide the most complete crypto enabled publishing platform. I was also a Mirror user and now have blog.thingelstad.xyz which is cross-posts content from my blog and I also have a writer coin wonderfully named $THING that I’m still learning about. I’m dubious this stuff does anywhere but I applaud the attempt to bring an economic model that isn't attention-based.
 
-Link three. "Agent Design Is Still Hard | Armin Ronacher's Thoughts and Writings"
+Link three of seven. "Agent Design Is Still Hard | Armin Ronacher's Thoughts and Writings"
 
 Building agents is a whole different ballgame than using them and creating product value around them has a bunch of new things for developers to solve. This article hits on a number of the challenges when creating productized agent capabilities. Managing context and testing are the ones that I suspect will continue to be hard for a while.
 
-Link four. "Personal Business | Are.na Editorial"
+Link four of seven. "Personal Business | Are.na Editorial"
 
 I want an Internet that has this.
 
@@ -36,7 +38,7 @@ I use and pay for a lot of IndieWeb or solopreneur services. The Weekly Thing is
 
 I love voting with my spending and I’m doing that to help make more personal business online.
 
-Link five. "llm-council: LLM Council works together to answer your hardest questions"
+Link five of seven. "llm-council: LLM Council works together to answer your hardest questions"
 
 This idea of having multiple LLMs explore a topic and dialog amongst each other is super interesting to me. It reminds me a bit of TinyTroupe (shared in WT301).
 
@@ -52,11 +54,11 @@ End quote.
 
 I dig this and it would be exactly what I want to have if instead of just interacting directly with the LLMs you could define agents in front of them. I think there are several use cases where I would like to define a bespoke set of agents, with different perspectives and goals, and ask them for feedback and debate on something. There is often as much if not more insight from listening to a topic being debated as there is to being in the debate.
 
-Link six. "onyx: AI Chat with advanced features that works with every LLM"
+Link six of seven. "onyx: AI Chat with advanced features that works with every LLM"
 
 Robust chat front-end that can connect with any LLM of your choice. This is an interesting way to bypass various companies having your entire chat history and still access LLMs of your choosing. You could even imagine using a round-robin approach so that no LLM provider ever saw your entire conversation chain even on a single topic.
 
-Link seven. "X’s New Feature Reveals Why Trust and Safety Work Was Never About The ‘Censorship Industrial Complex’ | Techdirt"
+Link seven of seven. "X’s New Feature Reveals Why Trust and Safety Work Was Never About The ‘Censorship Industrial Complex’ | Techdirt"
 
 I have so many thoughts related to this article. Should identity verification be required online? I do not think so. Should your location, even just your country, be revealed? I don't know. How do we know accounts are not bots attempting to influence us? That is impossible now. However, the part that isn't complicated is to focus on simple explanations and follow the money. If economic incentives exist, they will be exercised particularly when you have global reach. Perhaps this is less surprising to me because it is so common in crypto.
 
@@ -185,39 +187,41 @@ That's the end of the Journal.
 
 Now, the Briefly section.
 
-Link one. "Utrecht - World’s Best Cycling City | Arnold Hoogerwerf"
+There are nine links this week.
+
+Link one of nine. "Utrecht - World’s Best Cycling City | Arnold Hoogerwerf"
 
 I visited Utrecht when I was in the Netherlands.
 
-Link two. "Kevin Boone: The privacy nightmare of browser fingerprinting"
+Link two of nine. "Kevin Boone: The privacy nightmare of browser fingerprinting"
 
 This is one of the most insidious methods of tracking people.
 
-Link three. "Introducing shopping research in ChatGPT | OpenAI"
+Link three of nine. "Introducing shopping research in ChatGPT | OpenAI"
 
 Apparently I’m not the only one that has been doing this kind of research in ChatGPT.
 
-Link four. "Pearl Jam helps pay for Zamboni for Two Harbors, Minnesota"
+Link four of nine. "Pearl Jam helps pay for Zamboni for Two Harbors, Minnesota"
 
 I love this.
 
-Link five. "Introducing advanced tool use on the Claude Developer Platform Anthropic"
+Link five of nine. "Introducing advanced tool use on the Claude Developer Platform Anthropic"
 
 It gives me a big chuckle to realize we are shoving regex patterns into the most sophisticated agentic toolchains that have ever existed to save context.
 
-Link six. "13 Signs of High EQ Leadership | LinkedIn"
+Link six of nine. "13 Signs of High EQ Leadership | LinkedIn"
 
 I don't do much linking to LinkedIn, but this is a pretty great list.
 
-Link seven. "Software Failures and IT Management's Repeated Mistakes - IEEE Spectrum"
+Link seven of nine. "Software Failures and IT Management's Repeated Mistakes - IEEE Spectrum"
 
 Large-scale software transitions are incredibly hard and don't seem to be getting easier. There is a big component of Gall's Law here. I would also highlight that no large-scale software transition is just a technology effort — they are all human change efforts as well and that is complicated.
 
-Link eight. "What's the difference between an artist and a creator?"
+Link eight of nine. "What's the difference between an artist and a creator?"
 
 I hadn't though that much about this but found this an interesting read.
 
-Link nine. "Universal consciousness as foundational field: A theoretical bridge between quantum physics and non-dual philosophy | AIP Publishing"
+Link nine of nine. "Universal consciousness as foundational field: A theoretical bridge between quantum physics and non-dual philosophy | AIP Publishing"
 
 Maybe Buddhism has had it right all along?
 

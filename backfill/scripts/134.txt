@@ -14,7 +14,9 @@ Now, often technical people would suggest lossy is worse. But there are times wh
 
 Now, the Must Read section.
 
-Link one. "Maintaining platform-product fit."
+There are two links this week.
+
+Link one of two. "Maintaining platform-product fit."
 
 I read this article and felt I had lived it a few times. Larson's observation here on the formation point of a platform and then the struggle as other capabilities get built on that platform is solid. The first product that drives the creation of the platform influences the lifecycle of the platform in extreme ways.
 
@@ -24,7 +26,7 @@ End quote.
 
 His recommendations for solving these are both excellent approaches as well. Highly recommended read for any technology leaders. Thanks to Sam Pierson for the link!
 
-Link two. "The Making of a Corporate Athlete"
+Link two of two. "The Making of a Corporate Athlete"
 
 An excellent article that highlights the importance of focusing on your physical, emotional, mental, and spiritual capacities to be a successful leader. There are similar concepts here the book I read recently The Power of Full Engagement: Managing Energy, Not Time, Is the Key to High Performance and Personal Renewal. I've also talked about this by saying we have to remember we are not a "brain on a stick."
 

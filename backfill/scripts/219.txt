@@ -18,7 +18,9 @@ That's the end of Currently.
 
 Now, the Notable section.
 
-Link one. "Thinking About Friendships – Rhoneisms"
+There are thirteen links this week.
+
+Link one of thirteen. "Thinking About Friendships – Rhoneisms"
 
 My friend Patrick writing about friendships.
 
@@ -30,7 +32,7 @@ Patrick's friend that had that heart attack is a good friend of mine as well.
 
 I also am guilty of not giving priority to maintaining friendships.
 
-Link two. "FloriNouns"
+Link two of thirteen. "FloriNouns"
 
 There are a number of Noun NFT projects now. FloriNouns is interesting. It is a class project from Florida Gulf Coast University, and the Professor is leading the class through creating this project and also turning it into a DAO.
 
@@ -40,15 +42,15 @@ End quote.
 
 I love to learn by doing. I think I would like Professor Werder's class.
 
-Link three. "Beyond Power"
+Link three of thirteen. "Beyond Power"
 
 I got interested in The Divine NFT project in part because it was one of a collection of women-led efforts of it’s kind. This is another women-led NFT project but extends much broader, granting holders access to content, mentorship, job boards, etc. This sort of NFT/DAO around a specific shared interest or objective is working in many places.
 
-Link four. "Keeping your feed relevant and productive"
+Link four of thirteen. "Keeping your feed relevant and productive"
 
 LinkedIn is adding even more algorithmic filtering to its newsfeed. They don't use the word "editorial" here, but they should. It is notable that LinkedIn's growth trajectory (time spent specifically) changed dramatically when they made the feed a bigger part of the experience. Now they are needing to do things like "remove politics". I don't claim to know the answer, but they are walking down the exact same path as Facebook, just a few years behind them. It will be curious to see where this goes. Found via Five things on Friday #329, which is great by the way.
 
-Link five. "Some Notes on Executive Dashboards"
+Link five of thirteen. "Some Notes on Executive Dashboards"
 
 A variety of observations on dashboards, not just "executive dashboards", whatever that may mean. The words "executive" and "enterprise" are used often with really squishy interpretations. Anyway, I dig the thoughts in here.
 
@@ -58,7 +60,7 @@ End quote.
 
 I’m a strong believer that every service team in a software organization should have a dashboard. They own it, create it, maintain it, and make sure it is published and discoverable. They can’t all be experts at making them, so there should be some shared expertise to help with best practices.
 
-Link six. "About those kill-switched Ukrainian tractors | Cory Doctorow"
+Link six of thirteen. "About those kill-switched Ukrainian tractors | Cory Doctorow"
 
 Great article from Doctorow, and highlights how in our current digital world we don't always really understand what we "own". I also didn’t know how John Deere was collecting all this data while farmers were using their tractors. This seems similar to how TV companies listen to us and sell that data. Or even how trivially simple it would be for Tesla to make it so I could never drive the car sitting in my garage ever again.
 
@@ -68,27 +70,27 @@ End quote.
 
 This falls in the not-terribly-well-named bucket of things like Right to Repair. But in general, understanding what we are really buying when we buy something is important.
 
-Link seven. "Day 74. Never Again."
+Link seven of thirteen. "Day 74. Never Again."
 
 Incredible Address by the President of Ukraine on the Day of Remembrance and Reconciliation. English subtitles added, and full text of speech in the article.
 
-Link eight. "The Joys and Sorrows of Maintaining a Personal Website"
+Link eight of thirteen. "The Joys and Sorrows of Maintaining a Personal Website"
 
 An ode to the many aspects of self-publishing on the web. This captures what I feel is a critical part of the web. It is open to anyone that is willing to put in the effort. The great thing about the web is that openness. Facebook, Twitter, YouTube — these are not the web, they are things that are on the web.
 
-Link nine. "Rich Strike, 80-1 Long Shot, Wins Kentucky Derby in Stunning Upset - The New York Times"
+Link nine of thirteen. "Rich Strike, 80-1 Long Shot, Wins Kentucky Derby in Stunning Upset - The New York Times"
 
 Tammy and I were at the 148th Kentucky Derby to see this amazing 80-1 Rich Strike win the race. What an incredible thing. You can see we didn’t have Rich Strike on our list.
 
-Link ten. "Tales | The easiest way to record your family's memories"
+Link ten of thirteen. "Tales | The easiest way to record your family's memories"
 
 What a fabulous idea! "Our professional interviewers speak with your loved one and deliver a studio-quality audio recording that you'll cherish forever." Creating a personal archive, something to share with family and friends, is hard to do. Having people who are good interviewers and quality tech is a great idea.
 
-Link eleven. "Uncurled"
+Link eleven of thirteen. "Uncurled"
 
 Daniel Stenberg, the lead developer of cURL, created this book about "everything I know and learned about running and maintaining Open Source projects for three decades". I looked through parts of it and there is great stuff here.
 
-Link twelve. "Post-Incident Review on the Atlassian April twenty twenty two outage - Atlassian Engineering"
+Link twelve of thirteen. "Post-Incident Review on the Atlassian April twenty twenty two outage - Atlassian Engineering"
 
 A 14-day outage for a major SaaS provider is exceedingly rare, and incredibly painful. This one is even more so as it was an accident.
 
@@ -98,7 +100,7 @@ End quote.
 
 This had to be an incredibly difficult incident report to write-up, but Atlassian deserves credit for being clear with their customers on what happened.
 
-Link thirteen. "How to Put Life on Easy Mode"
+Link thirteen of thirteen. "How to Put Life on Easy Mode"
 
 Good list from Leo Babauta of things to consider to engage "easy mode" in life. This would be a good list to revisit regularly.
 
@@ -158,35 +160,37 @@ That's the end of the Journal.
 
 Now, the Briefly section.
 
-Link one. "721"
+There are eight links this week.
+
+Link one of eight. "721"
 
 Interesting utility that lets anyone with a certain NFT in their wallet send a Tweet from an account. Basic idea of NFT-holders gaining access to some privileged functionality.
 
-Link two. "Peloton announces large losses in Q3 twenty twenty two earnings report - Peloton Buddy"
+Link two of eight. "Peloton announces large losses in Q3 twenty twenty two earnings report - Peloton Buddy"
 
 I still enjoy the Peloton product and service a lot. The company however seems to be in a complete tailspin. There is a massive turnaround to do here, and I just hope they are even able to do it! Good product, not a good company, at least right now.
 
-Link three. "How mindfulness can make you a darker person - BBC Worklife"
+Link three of eight. "How mindfulness can make you a darker person - BBC Worklife"
 
 This headline should be: Mindfulness works. That would get fewer clicks though. Main point, don't use mindfulness techniques to alleviate negative feelings from doing something wrong.
 
-Link four. "Announcement: I’m Going to Miss You, But I Am Taking a Sabbatical"
+Link four of eight. "Announcement: I’m Going to Miss You, But I Am Taking a Sabbatical"
 
 Jason Kottke has been publishing online for nearly as long as there was an "online". 24 years.
 
-Link five. "See U2’s Bono and the Edge Play Surprise Acoustic Set in Kyiv Bomb Shelter"
+Link five of eight. "See U2’s Bono and the Edge Play Surprise Acoustic Set in Kyiv Bomb Shelter"
 
 U2 deserves a lot of respect for using their music and fame to bring attention and resources to so many humanitarian crisis over the years. I love that they did this performance in Kyiv.
 
-Link six. "OnionDAO - Adding incentive layers to public goods"
+Link six of eight. "OnionDAO - Adding incentive layers to public goods"
 
 Another DAO example, this one creating additional incentives for doing good things. Current one is to incentivize running Tor exit nodes.
 
-Link seven. "World's Best FPV Drone Shot? (Extreme Mountain Biking) - YouTube"
+Link seven of eight. "World's Best FPV Drone Shot? (Extreme Mountain Biking) - YouTube"
 
 This video is filled with ridiculous mountain biking, and caught with over the top drone flying. Wow. Jump to 8m 13s if you just want to watch the video. Via Five things on Friday #329.
 
-Link eight. "Manor DAO A Poolsuite Offering"
+Link eight of eight. "Manor DAO A Poolsuite Offering"
 
 A DAO collectively buying a Manor, err, vacation property? Another example of DAOs enabling collective action in ways that would have been very difficult and expensive before.
 

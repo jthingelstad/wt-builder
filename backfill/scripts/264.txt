@@ -12,11 +12,13 @@ Now onto the links…
 
 Now, the Notable section.
 
-Link one. "We were never supposed to see our own faces this much | Dazed"
+There are eleven links this week.
+
+Link one of eleven. "We were never supposed to see our own faces this much | Dazed"
 
 Much has been written about how distracting it is to see yourself on the screen. I always prefer to turn off "Self View" in Zoom. But it also can be psychologically damaging. For me this connects back to the huge boom of Instagram tied to the launch of the front-facing camera.
 
-Link two. "Computational Power and AI - AI Now Institute"
+Link two of eleven. "Computational Power and AI - AI Now Institute"
 
 This is a very broad and reasonably deep description of how compute power is used to build and train models, and why this is hard and very expensive.
 
@@ -26,15 +28,15 @@ End quote.
 
 Those costs are huge, and it is a ton of power too. It is interesting that the big innovations over the last few years — crypto and AI — are both very high compute demand workloads. Crypto has an answer with proof-of-stake. It isn't clear what will make AI costs go down for model building.
 
-Link three. "Amazon launches its Bedrock generative AI service in general availability | TechCrunch"
+Link three of eleven. "Amazon launches its Bedrock generative AI service in general availability | TechCrunch"
 
 Bedrock? I thought Bard was a lackluster name. This doesn't seem to be much truly new, but AWS wrapping GenAI capability into something that plays well with the rest of the AWS ecosystem. We need to see what comes of their massive Anthropic investment.
 
-Link four. "Introducing: Raspberry Pi 5! - Raspberry Pi"
+Link four of eleven. "Introducing: Raspberry Pi 5! - Raspberry Pi"
 
 It amazes me what you can get in such a small package and so cheaply. There was a time when this would have been a pretty impressive computer! Also see Testing PCIe on the Raspberry Pi 5.
 
-Link five. "Moneyness: There are now two types of PayPal dollars, and one is better than the other"
+Link five of eleven. "Moneyness: There are now two types of PayPal dollars, and one is better than the other"
 
 Announcement from PayPal launching US dollar Stablecoin. They have launched this with Paxos and it is worth looking at given the deep "crypto winter" we are in. Koning writes up his view on which of these assets, regular US dollars held at PayPal, or PyUSD Stablecoins, are better.
 
@@ -44,7 +46,7 @@ End quote.
 
 The more efficient and stronger technology here is crypto. There is a long way to go, but digital currency will be far superior in something like PayPal, and their push here with this stablecoin is a good indication of that value.
 
-Link six. "The Speed of Transactions versus the Speed of Settlements - Lyn Alden"
+Link six of eleven. "The Speed of Transactions versus the Speed of Settlements - Lyn Alden"
 
 Alden reflects on the role of currency over history, and specifically focuses on the transactions and settlements as two different things, and how technology has affected them. Alden is keen to apply a technology lens to this, and extends to what we are likely going to need in the future.
 
@@ -54,11 +56,11 @@ End quote.
 
 An interesting read. The nuance of settlement is critical, and one that many forget. I know when I've shown people Bitcoin Lightning sometimes they say "Well, I can do that on Venmo." But no you can’t. Bitcoin settles immediately, the transaction is done. Venmo takes 1-3 days for the cash to move. It is a totally different thing built on top of the slow banking system.
 
-Link seven. "Meta quietly releases Llama 2 Long AI model | VentureBeat"
+Link seven of eleven. "Meta quietly releases Llama 2 Long AI model | VentureBeat"
 
 Get ready for it, I’m going to say something nice about Facebook (aka Meta). I appreciate what they are doing with Llama, and bringing an open-source solution to the AI battles that are raging. Llama is pretty powerful, and for many AI solutions may be the right thing to use to power it.
 
-Link eight. "The synthetic social network is coming - The Verge"
+Link eight of eleven. "The synthetic social network is coming - The Verge"
 
 Now that we have AI that can create new content, including images, intelligently it seems obvious that social networks will be filled with more advanced AI's pretending to be people. If you launched a social network today, with a good enough budget, you could have 100,000 bot users in there immediately so even the first user would feel like there were a lot of other people here. Only they aren't people, they are AIs.
 
@@ -72,11 +74,11 @@ This is one of the risks Ian Bremmer highlighted in Weapons of Mass Disruption. 
 
 Also see Introducing New AI Experiences Across Our Family of Apps and Devices where Facebook highlights the 28 more AI characters. I had to temporarily turn off my content blocker to read that one.
 
-Link nine. "nomnoml"
+Link nine of eleven. "nomnoml"
 
 This tool reminds me of the DOT language that Graphviz uses to create diagrams, but in this case you are creating UML. It doesn't make me want to use UML at all, but these tools that take text input and turn it into diagrams or images are fun.
 
-Link ten. "10 Challenges to Building a Customer Obsessed Organization"
+Link ten of eleven. "10 Challenges to Building a Customer Obsessed Organization"
 
 Gothelf shares twelve areas to focus your organization to improve at being customer centric (or obsessed as he says.
 
@@ -101,7 +103,7 @@ This is a great list for leaders to use to asses their organization and see wher
 
 Very good areas to focus.
 
-Link eleven. "Google Pixel 8 launch event: all the news and products - The Verge"
+Link eleven of eleven. "Google Pixel 8 launch event: all the news and products - The Verge"
 
 New flagship Pixel 8 phone from Google. The 15 minute video overview from the Verge is great. I’m an Apple user but curious to see what the premier Android platform are doing. The AI photo editing capabilities are interesting, but the photograher in me has a lot of questions about what to call those images. Not sure they are pictures. So weird to see the Fitbit brand showing up as an app on the watch.
 
@@ -246,51 +248,53 @@ That's the end of the Journal.
 
 Now, the Briefly section.
 
-Link one. "The Seven Meetings You Hate – Rands in Repose"
+There are twelve links this week.
+
+Link one of twelve. "The Seven Meetings You Hate – Rands in Repose"
 
 Distinct taxonomy of seven different ways to classify a failed meeting. Multiple choice.
 
-Link two. "bruno"
+Link two of twelve. "bruno"
 
 API client that stores configuration information in files you can version control and share via Git. Alternative to Postman.
 
-Link three. "How To Turn Off Google’s “Privacy Sandbox” Ad Tracking—and Why You Should | Electronic Frontier Foundation"
+Link three of twelve. "How To Turn Off Google’s “Privacy Sandbox” Ad Tracking—and Why You Should | Electronic Frontier Foundation"
 
 If you care about privacy you are probably not using Chrome, but Google has roled out their new form of surveillance that is buried deep in the heart of Chrome. EFF has a guide so you can turn it off.
 
-Link four. "Swiss glaciers lose 10% of volume in worst two years on record | Reuters"
+Link four of twelve. "Swiss glaciers lose 10% of volume in worst two years on record | Reuters"
 
 Unprecedented glacial melting. "The one-two punch for Swiss glaciers during the country's third hottest summer on record means they lost as much ice in two years as in the three decades before 1990, it said, describing the losses as 'catastrophic'."
 
-Link five. "Non-engineers guide: Train a LLaMA 2 chatbot"
+Link five of twelve. "Non-engineers guide: Train a LLaMA 2 chatbot"
 
 Simple guide to use Hugging Face to create your own LLaMA 2 bot. You can even load your own training data into it. I might walk through this to play a little bit more.
 
-Link six. "Incident Review: What Comes Up Must First Go Down | Honeycomb"
+Link six of twelve. "Incident Review: What Comes Up Must First Go Down | Honeycomb"
 
 Public incident report on database failure at Honeycomb. These are always interesting to read and try to learn from. Well written with good data.
 
-Link seven. "Joule “Turbo” Smart Sous Vide Machine by Breville — Tools and Toys"
+Link seven of twelve. "Joule “Turbo” Smart Sous Vide Machine by Breville — Tools and Toys"
 
 I've got a Joule from before Breville bought them and I've used it plenty. Is there really a need for a "turbo" function? I would think Sous Vides meals are planned in advance, and you can schedule for whatever time you need, including overnight.
 
-Link eight. "Why Kagi is the best Google alternative I’ve tried yet - The Verge"
+Link eight of twelve. "Why Kagi is the best Google alternative I’ve tried yet - The Verge"
 
 I've been using Kagi for a few months, since Neeva went away, and I like it a lot. I like the ability to set search preferences a lot. It is another way for me to filter the social media world out. I recently upgraded to a Family membership so everyone could use it as well.
 
-Link nine. "murmurtype | Best speech-to-text app"
+Link nine of twelve. "murmurtype | Best speech-to-text app"
 
 I don't use dictation to "write" things, but I've considered it many times. Training myself to pronounce punctuation though seems odd. This app looks like a great way to get started.
 
-Link ten. "For You"
+Link ten of twelve. "For You"
 
 A great new blog filled with "some thoughts for you".
 
-Link eleven. "JSONGenerator - Create Random JSON Data"
+Link eleven of twelve. "JSONGenerator - Create Random JSON Data"
 
 Great idea for a tool to create sample data to design for a certain data exchange or API call. Loaded with generators to make all sorts of different data types, and loops to create larger arrays of JSON objects. This could be very handy for developers.
 
-Link twelve. "zany easy, free and configurable hosted favicons"
+Link twelve of twelve. "zany easy, free and configurable hosted favicons"
 
 Simple tool that generates a favicon using query parameters.
 

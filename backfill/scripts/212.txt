@@ -8,7 +8,9 @@ I think there are some really good links this week. Let's get to them…
 
 Now, the Featured section.
 
-Link one. "That Wild Ask A Manager Story - Jacob Kaplan-Moss"
+There are three links this week.
+
+Link one of three. "That Wild Ask A Manager Story - Jacob Kaplan-Moss"
 
 A fairly preposterous experience in a hiring process. When asked how to stop it, Kaplan-Moss's response is:
 
@@ -24,7 +26,7 @@ End quote.
 
 Engineers must design to accommodate all the potential outcomes, which makes sense in a world of machine and logic. When we leave logic and enter the messy organic human space we need to design differently.
 
-Link two. "What We Lost"
+Link two of three. "What We Lost"
 
 I share Lopp's disclaimers. I think the broad adoption and familiarity with technology like Zoom has been a huge game changer. I lead a global team of nearly 500 people and over half of them live nowhere close to me. Using Zoom has allowed me to build better and more meaningful connections. In the past I used to wait for trips, now I do things much more as needed. This is all a good thing, and we should continue to adopt and take advantage of all of this.
 
@@ -36,7 +38,7 @@ End quote.
 
 We are not digital beings. We can simulate various experiences in that world, and at times that is vastly superior than any other options. But it is critical that we still have those organic, human experiences. And that is true in all the aspects of our lives.
 
-Link three. "Putting Ideas into Words"
+Link three of three. "Putting Ideas into Words"
 
 One of the reasons I focus on writing better is to help me think clearer. Writing is thinking, and the act of writing refines and clarifies your thoughts and ideas.
 
@@ -63,15 +65,17 @@ That's the end of Featured.
 
 Now, the Notable section.
 
-Link one. "COVID-19: Current state of affairs, Omicron, and a search for the end game | Peter Attia, M.D."
+There are thirteen links this week.
+
+Link one of thirteen. "COVID-19: Current state of affairs, Omicron, and a search for the end game | Peter Attia, M.D."
 
 First off, this is really long. At 2.5 hours it took me several commutes to get through this whole Peter Attia Drive Podcast episode. But I’m glad that I did. It is starting to age a bit as this was recorded when Omicron was on the rise, but the majority of it is still very topical. The main value I got from this was thinking how to move forward, knowing that COVID is going to be here forever, and the extremes on both sides I think are getting it mostly wrong. A pragmatic, risk adjusted approach is what we've tried to do in our family through the whole pandemic. Mostly I feel like we got it right, but the data changes regularly so you must revisit regularly too.
 
-Link two. "The Factorio Mindset - The Diff"
+Link two of thirteen. "The Factorio Mindset - The Diff"
 
 Tobi Lutke, CEO of Shopify, loves this game and Shopify actually will reimburse any team members for a subscription. He feels the skills you learn in this game are that important. I've not tried it but this writeup has me thinking I should.
 
-Link three. "Notes apps are where ideas go to die. And that’s good. · reproof"
+Link three of thirteen. "Notes apps are where ideas go to die. And that’s good. · reproof"
 
 Any article that quotes Daniel Kahneman and David Allen, amongst others, is going to catch my eye. I’m like many others with notes. I keep them, but I wonder at times why I even bother given how infrequently I find that I need to go back to them. What is the ROI if you retrieve so little?
 
@@ -81,11 +85,11 @@ End quote.
 
 Writing it down so you can let it leave your mind is a big part of the return-on-investment that is easy to forget.
 
-Link four. "Medieval Fantasy City Generator"
+Link four of thirteen. "Medieval Fantasy City Generator"
 
 This is a delightful generator. I find these fun to randomly create cities and then think of the stories that could be told in that city. This would pair well with Azgaar's Fantasy Map Generator. Infinite stories to create!
 
-Link five. "What using RSS feeds feels like"
+Link five of thirteen. "What using RSS feeds feels like"
 
 People ask me often how I find the links that I put in the Weekly Thing and for the vast majority that answer is via my RSS feeds. I like this blog post about the "feeling" of using RSS…
 
@@ -95,13 +99,13 @@ End quote.
 
 I would agree. I use different services, but RSS is absolutely an environment where you are in control and it feels significantly higher value than randomly scrolling timelines.
 
-Link six. "Include diagrams in your Markdown files with Mermaid | The GitHub Blog"
+Link six of thirteen. "Include diagrams in your Markdown files with Mermaid | The GitHub Blog"
 
 The most notable thing about this is that GitHub is supporting it so it will be very easy to use. It looks like Mermaid uses the standard DOT graph description language to describe these images. DOT is a powerful tool and a good choice for this. The way that GitHub is rendering these is very polished as well.
 
 There is an interesting extension to go with this — using code to generate the DOT notation and then feed it into GitHub. it would be curious to do software analysis that generates large volumes of DOT files and then puts them on GitHub to render and display.
 
-Link seven. "The simple system I’m using to stay in touch with hundreds of people – Jakob Greenfeld"
+Link seven of thirteen. "The simple system I’m using to stay in touch with hundreds of people – Jakob Greenfeld"
 
 Two things about this…
 
@@ -111,11 +115,11 @@ Two things about this…
 
 This system seems like a solid approach.
 
-Link eight. "Event Notes in Craft Are Awesome for Time Blockers"
+Link eight of thirteen. "Event Notes in Craft Are Awesome for Time Blockers"
 
 I've had Craft for a while and I generally like it but I've not clicked on a frequent use case, yet. I've been using Agenda on my devices to keep and prepare meeting related notes and information. Agenda is nice, but it lacks some polish that I would like to have. I also find the apps navigation cumbersome. Craft is very polished and the calendar integration is really clean. I’m going to try using it for meeting related information instead of Agenda.
 
-Link nine. "‘We Need to Oppose Russia’: Ukrainians Find Common Purpose"
+Link nine of thirteen. "‘We Need to Oppose Russia’: Ukrainians Find Common Purpose"
 
 There is an incredible amount of reporting on the situation in Ukraine with Russian troops amassing at the border for so-called "exercises". Amidst all the reporting about Russia and what the US says, we need to hear more from the people of Ukraine and what they want. This is a continuation of an 8 year war on the Eastern border.
 
@@ -125,15 +129,15 @@ End quote.
 
 Incredibly challenging times for the people of Ukraine. They need our support.
 
-Link ten. "Why I changed my mind about advertising | The Sample blog"
+Link ten of thirteen. "Why I changed my mind about advertising | The Sample blog"
 
 Advertising and attention as a form of micropayments? I don't buy it, why? You don't get a choice. If there is a micropayment of some sort I’m aware of it and I get to decide it I want to do it or not. Advertising doesn't provide that choice, it skews your intent with limited ability to stop it.
 
-Link eleven. "The Delivery Hero Reliability Manifesto"
+Link eleven of thirteen. "The Delivery Hero Reliability Manifesto"
 
 Cool approach and overall great guidelines. A-2 "We Care About Naming" is a bigger thing than many people appreciate.
 
-Link twelve. "We sound like idiots when we talk about technical debt | cyclic.sh"
+Link twelve of thirteen. "We sound like idiots when we talk about technical debt | cyclic.sh"
 
 As a technology leader the topic of technical debt comes up with some regularity. The term was first used by Ward Cunningham and many very smart software people have further refined it over the years. In practice though it isn't a very effective way to dialogue about, and come to solutions, about better approaches and ultimately refactoring solutions. Why?
 
@@ -143,7 +147,7 @@ End quote.
 
 Inside a project or service team I think the shorthand of technical debt is find. But when communicating with others, it doesn't work well. Rather than talking about technical debt it is better to focus on the value that can be created, even indirect value like "shipping faster." It is all about selling an investment and the benefits it can provide!
 
-Link thirteen. "Swatch Internet Time"
+Link thirteen of thirteen. "Swatch Internet Time"
 
 Something reminded me of this recently and it keeps popping back into my head. Divide the day into 1,000 beats, and that is the time. In beats. I even created a Time in Beats Shortcut for fun.
 
@@ -241,43 +245,45 @@ That's the end of Reply All.
 
 Now, the Briefly section.
 
-Link one. "Fitness Meets Gaming: Welcome to Peloton Lanebreak | The Output"
+There are ten links this week.
+
+Link one of ten. "Fitness Meets Gaming: Welcome to Peloton Lanebreak | The Output"
 
 I've been eagerly waiting for this new Peloton Bike "experience" to launch and now it has. I’m glad to see them trying some new things like this.
 
-Link two. "Leveraging machine learning to find security vulnerabilities | The GitHub Blog"
+Link two of ten. "Leveraging machine learning to find security vulnerabilities | The GitHub Blog"
 
 This seems like a smart place to apply learning technology to code.
 
-Link three. "NFT-Linked House Sells for 650 thousand dollars in Propy’s First US Sale"
+Link three of ten. "NFT-Linked House Sells for 650 thousand dollars in Propy’s First US Sale"
 
 Very experimental but interesting how people are playing with crypto tech. Using an NFT to point at a real world asset and buy and sell that asset could have many use cases.
 
-Link four. "How to Lead a Work-from-Home Workforce"
+Link four of ten. "How to Lead a Work-from-Home Workforce"
 
 Not really new, but good reminder, specifically around manager relationship. Guess what still makers? Actually care and connect with the people around you.
 
-Link five. "Google turns old Macs, PCs into Chromebooks with Chrome OS Flex | Ars Technica"
+Link five of ten. "Google turns old Macs, PCs into Chromebooks with Chrome OS Flex | Ars Technica"
 
 Great idea to extend the usable life of older laptops!
 
-Link six. "Tracking Russia’s Latest Military Movements Around Ukraine"
+Link six of ten. "Tracking Russia’s Latest Military Movements Around Ukraine"
 
 Chilling video and data on all the troop movements and military buildup around Ukraine.
 
-Link seven. "Amazon’s ‘Lord of the Rings’ Series Rises: Inside ‘The Rings of Power’ | Vanity Fair"
+Link seven of ten. "Amazon’s ‘Lord of the Rings’ Series Rises: Inside ‘The Rings of Power’ | Vanity Fair"
 
 This has the potential to be a train wreck or epic.
 
-Link eight. "Heart-disease risk soars after COVID — even with a mild case"
+Link eight of ten. "Heart-disease risk soars after COVID — even with a mild case"
 
 I worry that articles like this cause fear and make people irrational in regards to COVID. At the same time, we do need to accept the fact that we don't know much about long-term affects of COVID.
 
-Link nine. "jless - Command Line JSON Viewer"
+Link nine of ten. "jless - Command Line JSON Viewer"
 
 Very cool command-line tool to navigate JSON files with superpowers.
 
-Link ten. "Growing MANGO Tree From Seed - ONE YEAR Time Lapse - YouTube"
+Link ten of ten. "Growing MANGO Tree From Seed - ONE YEAR Time Lapse - YouTube"
 
 Mazie and I like mango a lot. It is fun to see how the tree starts out. Won't fruit for four more years though.
 

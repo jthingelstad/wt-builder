@@ -10,7 +10,9 @@ For those in the United States, I hope you have a good Memorial Day weekend.
 
 Now, the Featured section.
 
-Link one. "On rebooting: the unreasonable effectiveness of turning computers off and on again - Keunwoo Lee's Minimum Viable Homepage"
+There is one link this week.
+
+Link one of one. "On rebooting: the unreasonable effectiveness of turning computers off and on again - Keunwoo Lee's Minimum Viable Homepage"
 
 "Turn it off and on" is a pretty normal recommendation when a computer isn't working. It is one I don't like, because in some way it seems like giving up on finding the solution to what went wrong. This article walking through the various state progression of the computer is a good way to think about this.
 
@@ -30,7 +32,9 @@ That's the end of Featured.
 
 Now, the Notable section.
 
-Link one. "GTD in 15 minutes – A Pragmatic Guide to Getting Things Done"
+There are eighteen links this week.
+
+Link one of eighteen. "GTD in 15 minutes – A Pragmatic Guide to Getting Things Done"
 
 Good overview of Getting Things Done. I've been a practitioner of GTD for over a decade now. I consider it a life skill, something that I will focus on and improve on over many years.
 
@@ -40,7 +44,7 @@ End quote.
 
 I like that this highlights the true benefit of GTD. It is not a productivity system to allow you to do even more, although you may be able to. It is intended to allow you to be in the moment, focus on the things in front of you, knowing that your trusted system has you covered. That you can forget about other things and it will be there when you need it.
 
-Link two. "The web3 world computer is at a 1970 level of development (Interconnected)"
+Link two of eighteen. "The web3 world computer is at a 1970 level of development (Interconnected)"
 
 I'd like to quote this whole article from Webb. Instead maybe just click on it and read the whole thing. I would echo the statements in very similar ways.
 
@@ -70,7 +74,7 @@ End quote.
 
 It will be fun to see how this all evolves.
 
-Link three. "Tether Required Recapitalization In May twenty twenty two | Kalzumeus Software"
+Link three of eighteen. "Tether Required Recapitalization In May twenty twenty two | Kalzumeus Software"
 
 I was lucky enough (researched enough?) to avoid Tether. I did look at it and the Luna ecosystem for a bit, but there wasn't enough utility for me to play with.
 
@@ -82,11 +86,11 @@ A couple of things:
 
 Stay safe out there, particularly if you are going to experiment with crypto.
 
-Link four. "Open Letter to Noam Chomsky (and other like-minded intellectuals) on the Russia-Ukraine war • The Berkeley Blog"
+Link four of eighteen. "Open Letter to Noam Chomsky (and other like-minded intellectuals) on the Russia-Ukraine war • The Berkeley Blog"
 
 Thoughtful set of arguments from four professors to points Noam Chomsky has made on Ukraine. Chomsky's arguments share commonality with many other experts as well. The first two items are ones I think about and see regularly ignored.
 
-Link five. "4 Hard Things Leaders Do"
+Link five of eighteen. "4 Hard Things Leaders Do"
 
 Rockwell hits on great topics like this with very simple but powerful framing. I like his four items, but read the article for the real meat of it.
 
@@ -96,7 +100,7 @@ End quote.
 
 I particularly liked the last one. Doing things yourself, in public, can be hard but it keeps you grounded to creating. Creating is hard. But through creating you can connect more deeply with others.
 
-Link six. "Donald Knuth on work habits, problem solving, and happiness"
+Link six of eighteen. "Donald Knuth on work habits, problem solving, and happiness"
 
 Donald Knuth is a major contributor to technology. He is the author of the appropriately titled The Art of Computer Programming. I love that he refers to this as Art and not Science.
 
@@ -106,7 +110,7 @@ End quote.
 
 This collection of excerpts and highlights about how Knuth works is really great.
 
-Link seven. "How To Be Successful - Sam Altman"
+Link seven of eighteen. "How To Be Successful - Sam Altman"
 
 Altman's advice on success. Thirteen topics that he covers.
 
@@ -116,7 +120,7 @@ End quote.
 
 Dig in to read the whole thing. This is probably one of those that would be worth revisiting from time-to-time.
 
-Link eight. "The smallest viable audience"
+Link eight of eighteen. "The smallest viable audience"
 
 I dig this advice from Godin.
 
@@ -126,7 +130,7 @@ End quote.
 
 This is similar to the idea of getting 100 true fans, and building from there.
 
-Link nine. "How This Ends"
+Link nine of eighteen. "How This Ends"
 
 Fred Wilson on a recession.
 
@@ -142,11 +146,11 @@ End quote.
 
 Stay safe out there.
 
-Link ten. "The not-so-obvious positive outcomes of great incident management | FireHydrant"
+Link ten of eighteen. "The not-so-obvious positive outcomes of great incident management | FireHydrant"
 
 Things break in technology, and you need to have a clear and defined process for managing those things. If I think back two decades most tech organizations had an on-call process. Often really everyone was on-call. Now fast forward and incident management has become a core capability of great technology organizations. In great orgs, this is something that has dedicated training. There are clearly defined roles that various people will engage as during the process. And the process importantly will power continual learning to improve the organization with every incident. As a CTO, you must make sure this is a core competency of your team.
 
-Link eleven. "Lessons learned in risk measurement"
+Link eleven of eighteen. "Lessons learned in risk measurement"
 
 This is a wide collection of observations and learnings applying risk measurement to cybersecurity.
 
@@ -156,31 +160,31 @@ End quote.
 
 Most security organizations are swimming in data, and it is still a struggle to align the learnings from that data with the engineering objectives. Improving risk measurement is a big help with that, but equally important is to make sure that the mechanisms of your security function are aligned with the broader engineering team. If your planning cadence, delivery structures, and build processes are not aligned you are doomed before you start.
 
-Link twelve. "I'm an addict | Tarun's blog"
+Link twelve of eighteen. "I'm an addict | Tarun's blog"
 
 Interesting perspective sharing on what I read as really being addicted to the feed, or the new. We love the little reward we get from discovering a new video, a new post, a new whatever. Tarun sounds like they are pretty deep, but any of us that randomly pull out our phone and "pull to refresh" a feed are experiencing a very similar thing.
 
-Link thirteen. "Scott Goes Back to High School"
+Link thirteen of eighteen. "Scott Goes Back to High School"
 
 I enjoy listening and reading Scott Galloway on Pivot and the Prof G podcast. He had a show on CNN+ for the 5 minutes that that network existed. This episode of that show never aired because CNN+ was cancelled. The production crew was generous and edited and finished it still. That is all the background, the episode is worth a watch.
 
-Link fourteen. "Restore macOS Contacts from Time Machine backup"
+Link fourteen of eighteen. "Restore macOS Contacts from Time Machine backup"
 
 I use my Contacts data extensively, including groups and other metadata. Sadly, I've had issues where it loses some data. It is maddening. I'll realize I have 200 or so fewer contacts than I should, and it is entirely unclear what happened. This article is a good step-by-step on how to fix this. For me, I've had to go to the database restore on the file system multiple times. I now backup this data set manually, using both a database backup and a CalDAV export, each month.
 
-Link fifteen. "Decentralized Society: Finding Web3's Soul"
+Link fifteen of eighteen. "Decentralized Society: Finding Web3's Soul"
 
 I think the idea of having non-transferrable NFTs is really interesting. It opens up a number of use cases where you can prove you have some certification or accomplishment just by showing that the token is in your wallet. I also think that even today you could prove that it is yours by making sure it was minted directly to the person in question. If you have a token thats says you graduated from the University of Minnesota and it was minted from umn.eth directly into your wallet, that is good. If you bought it from random-person.eth, it is invalid. But a non-tranferrable token would remove that need and support additional capabilities. However, I don't like the term "soulbound" at all. Sounds like something from a fantasy novel.
 
-Link sixteen. "The Putin Show | The Economist"
+Link sixteen of eighteen. "The Putin Show | The Economist"
 
 This article does a great job of showing how the Russian government, through its complete control of the media ecosystem, is framing their war on Ukraine to their people. When you control all aspects of the information system that surrounds people you can make anything appear true. The Economist did a great job with the interactive components as well.
 
-Link seventeen. "Markdoc | A powerful, flexible, Markdown-based authoring framework"
+Link seventeen of eighteen. "Markdoc | A powerful, flexible, Markdown-based authoring framework"
 
 If you want to write a book using Markdown, this looks like a good toolchain. I do wonder when I see Markdown extensions. It gets complicated, and I wonder if it wouldn't be easier to just use plain HTML.
 
-Link eighteen. "Hop Exchange"
+Link eighteen of eighteen. "Hop Exchange"
 
 I used this bridge to send Ethereum tokens and USD Coin from Ethereum mainnet to Arbitrum. It works really well and supports a wide arrange of tokens and various Layer 2 networks. This will be my default bridge for anything it supports.
 
@@ -212,37 +216,39 @@ That's the end of the Journal.
 
 Now, the Briefly section.
 
-Link one. "Introducing Gucci x Oura - The Pulse Blog"
+There are nine links this week.
+
+Link one of nine. "Introducing Gucci x Oura - The Pulse Blog"
 
 Apple collaborates with Hermes on watches. Now Oura working with Gucci. It isn't my thing, but for wearables connecting with fashion is a smart option.
 
-Link two. "Feather Wiki"
+Link two of nine. "Feather Wiki"
 
 I love wikis. This is mostly a streamlined version of TiddlyWiki. Even has multiple versions that are progressively more stripped down based on what you want.
 
-Link three. "List of school shootings in the United States - Wikipedia"
+Link three of nine. "List of school shootings in the United States - Wikipedia"
 
-Link four. "Helping Ukrainian teachers keep teaching"
+Link four of nine. "Helping Ukrainian teachers keep teaching"
 
 Continuing to teach during a war is important. Good to see Google providing computers and services to make this a little easier.
 
-Link five. "Where Death Rates Rose the Most During the Pandemic - The New York Times"
+Link five of nine. "Where Death Rates Rose the Most During the Pandemic - The New York Times"
 
 The wide range of deltas here are pretty incredible.
 
-Link six. "MnTech Connect"
+Link six of nine. "MnTech Connect"
 
 Comprehensive set of resources for those looking to advance themselves in technology, run my Minnesota Technology Association.
 
-Link seven. "Great North Ventures Raises 40 million dollars Fund II - Great North Ventures"
+Link seven of nine. "Great North Ventures Raises 40 million dollars Fund II - Great North Ventures"
 
 I know many of the folks behind Great North Ventures. A big congrats to them on raising Fund 2!
 
-Link eight. "With 287.6 billion dollars in revenue, UnitedHealth again tops list of Minnesota public companies"
+Link eight of nine. "With 287.6 billion dollars in revenue, UnitedHealth again tops list of Minnesota public companies"
 
 Good reference list. SPS Commerce in 44th position.
 
-Link nine. "USDTea: The first stablecoin backed by cans of AriZona Iced Tea"
+Link nine of nine. "USDTea: The first stablecoin backed by cans of AriZona Iced Tea"
 
 "Each USDTea is equivalent to and redeemable for one 23 ounce can of AriZona Iced Tea."
 

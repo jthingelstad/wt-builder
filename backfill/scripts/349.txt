@@ -1,0 +1,171 @@
+The Weekly Thing, issue 349. WT349 — Owning the Rails. Published May 23, twenty twenty six. By Jamie Thingelstad. In this issue: Internet of AI, Flipcash community coins, agentic LLM harnesses, RCCF method, adult friendship, productivity apps and agents, zerolang, Shortcuts Playground, Claude Code monorepo.
+
+Here we are at Memorial Day weekend and the official Minnesota start of summer! This is when many in our state "go to the lake" and some would like to not return until the leaves are off the trees. One of the great things about having harsh winters is the delight one gets in the summer when it is so nice to be outside.
+
+You're reading the first Weekly Thing created start-to-finish in the new Workshop that I've built. I'm still getting the kinks worked out but I feel confident enough in this model that I'm charging forward. This is by far the biggest change I've ever made to the Weekly Thing automation, and it is working well. This new setup has allowed me to change the way I construct the issues and you may notice some slight improvements. The audio text-to-speech for the podcast version is going to see some of the biggest improvements.
+
+Another big shout out to more new subscribers from Dense Discovery! I hope that you find the Weekly Thing a fun place to learn together.
+
+Now, the Currently section.
+
+Building: Continuing to build out the multi-agent Workshop that is now Weekly Thing headquarters!
+
+Listening: Brandi Carlile's newest single "Life On The Run". Can't get enough of her music.
+
+That's the end of Currently.
+
+Now, the Notable section.
+
+There are seven links this week.
+
+Link one of seven. "Create Your Own Currency With Flipcash"
+
+Fred Wilson wrote about Flipcash and I was intrigued. I still think there is something interesting in community coins powered by crypto. I created a Weekly Thing coin just to see how it worked. It is interesting that it is hosted on Solana but enforces Bitcoins 21 million coin limit. Not sure what I'll do with my Weekly Thing coins though.
+
+Link two of seven. "Say Hello to the Internet of AI – On my Om"
+
+I found this article from Om about the changes happening at the network layer as a result of AI super interesting. The foundational design of the infrastructure of the web is being challenged by the mesh-like needs of AI capabilities versus the more hierarchal structure that powered streaming media and web interfaces.
+
+Quote.
+In short, all four hyperscalers are giving the fat tree’s economic logic the thumbs down when it comes to AI workloads. Each has its own proprietary response. And you can bet your last penny that none of them is going to license their answer to the others. This is the same pattern that played out with custom silicon (TPUs, Trainium, Maia, MTIA), switches, and other gear. The hyperscalers see the workloads first, at scale, and they build the infrastructure to match. And they optimize, and optimize. The rest of the industry catches up later, if at all.
+End quote.
+
+This section really hit me.
+
+Quote.
+The right historical analogy for what is happening with AI is not Web 2.0 or the cloud. It is the railroads of the nineteenth century. Railroad operators understood the freight cars were not where value lived. The value was in owning the rails and everything around them, including the land. Owning the rails meant controlling routes, latency, geography, redundancy, and the cost structure of every customer who depended on the network.
+End quote.
+
+I read this with some historical context. I was building and running large scale public websites before the cloud existed. I spent many years building out data centers in colo facilities. I still remember with a bit of a smirk when we had truckloads of Dell computers being unloaded into AT and T data centers and our crew onsite to 'rack and stack' and get everything going.
+
+When you compare that world to the data centers of the hyperscalers there is almost nothing in common. The design of these things is now largely proprietary and at a level of complexity that is only understandable by the most elite infrastructure people in the world. Om goes on to suggest that is a bigger moat that the likes of Nvidia. I think he could be right.
+
+Link three of seven. "Project Glasswing: what Mythos showed us"
+
+This is a more interesting read on Mythos and why it is better than the average coding agent at finding security issues. I specifically like the walk through of the vulnerability discovery harness. It makes sense that a coding agent, which relies heavily on its agent harness, would not be as powerful as a specific vulnerability discovery harness.
+
+Link four of seven. "LLMs are functions, not brains."
+
+When building agentic systems a big part of what you design is the guardrails, the context management, and tool environment for the LLM to operate in, to "be" the agent you are defining. This article is a good overview of the structure and how you build around the LLM capabilities. The naive view would be that you just give some input to a prompt. Not at all, the harness and capabilities are the thing that truly make it powerful.
+
+Link five of seven. "How to deal with your kid leaving"
+
+When I was done with high school we had a graduation party, and the next day I got in my 1982 Chevy Luv propane pickup and drove to Delano, MN to work for Westrum's Quality Foods for the summer. My mother had no idea where I was and we had a general agreement that I would call on Sunday's from whatever state fair, art fair, or other event that we were selling corn dogs, foot long hot dogs, or something else on a stick.
+
+Having gone through our oldest going off to college, then going to J-term, then a semester abroad, and on this very day leaving again for ten weeks away working her summer job — I'm thankful that it has been a progressive set of events unlike mine.
+
+Monteiro's essay hit all the notes for me on this. This is what doing parenting right looks like. And it feels horrible while you are so proud of them.
+
+Link six of seven. "I was wasting Claude until I learned the RCCF method"
+
+There is an art to working with any agent and this structure for working with coding agents seems like a good approach: role, context, command, and format. I tend to be more directive when I'm doing work with Claude Code. I find that I'm more comfortable being the designer and architect and I give Claude more directive "implement an X using the Y to make Z happen" kind of thing. However you do it, approaching with some structure will give you better results.
+
+Link seven of seven. "The quiet grief of adult friendship"
+
+I enjoyed this article. Adult friendships are challenging to prioritize. Or at least that is how it seems to be.
+
+Quote.
+And perhaps this is why adult friendship feels increasingly radical. It resists the transactional logic modern life rewards everywhere else. Because a real friend offers something profoundly rare: unoptimised presence. Family is structured by blood. Marriage by institution. Work relationships by utility. Friendship survives purely through mutual choosing. Nobody has to stay. And yet some people do.
+End quote.
+
+I read this with the constant reminder in my mind that so many men report having no close friends. None. And the parasocial friendships of social media and podcasts don't fill this hole. I find myself routinely thinking "wow, you are failing as a friend" because I haven't replied to an email or sent a message. It at least feels in part that there is so much you have to do, and then you want to do, that by the time you get to the stuff you could do the energy is gone.
+
+Then you start to look at the other end of parenthood. That is where that grief of lost friendships lands. The good news is that it is never too late, and this specifically is something that helps prod me to get better, make time, and reach out.
+
+That's the end of Notable.
+
+Now, the Journal section.
+
+Saturday, May 16
+
+10:54 AM — Mazie and I taking the boat out for the season. Beautiful day!
+
+5:25 PM — First visit to Pleasant Grove Pizza Farm for twenty twenty six! Delicious pizza.
+
+6:26 PM — Evening bike ride to Dairy Queen for ice cream!
+
+8:35 PM — Time for s’mores.
+
+Sunday, May 17
+
+10:15 PM — Fabulous show by The New Standards at The Dakota tonight.
+
+10:19 PM — It took all four of us about an hour to get the canopy in the boat cover. The wind was borderline and three different times we got it on just to have it blown off. After finally getting it on we gave the boat the best cleaning ever and it is looking really good!
+
+Monday, May 18
+
+Journal entry one. Minnesota Technology Council
+
+9:00 PM
+
+I had my first official meeting of the Technology Advisory Council a week ago. I was honored to be accepted into this group with an official appointment from Governor Walz. The role of the council is to advise Minnesota IT Services (MNIT). The group is preparing for transition with a new CIO for the State of Minnesota, and a Governor transition as well. This meeting was my first chance to see the breadth of the portfolio MNIT manages.
+
+I'm looking forward to helping in established areas like cloud and data transformation, as well as new areas with AI deployment. I think there could also be some good opportunities to connect the State of Minnesota with the Minnesota Technology Association (MnTech) where I'm currently chair.
+
+Tuesday, May 19
+
+7:15 PM — Mazie and I had a great dinner at Khâluna. She had the Mango Fish and I had Laksa. We started with the Basil Wings (wow!). Great food and an amazing dining room to boot. Recommended!
+
+10:30 PM — Mazie and I went to Project Hail Mary. It was a second watching for me and her first. She isn't the biggest movie person but loved this one and thought that Rocky was very cute.
+
+That's the end of the Journal.
+
+Now, the Briefly section.
+
+There are eleven links this week.
+
+Link one of eleven. "forge: A Python framework for self-hosted LLM tool-calling and multi-step agentic workflows"
+
+Interesting project if you want to try running your own models. I haven't focused on self-hosted models yet. Better runtimes are what would make self-hosting actually accessible.
+
+Link two of eleven. "tokenspeed — feel LLM tokens-per-second"
+
+It is surprising to me how quickly I've gone from being amazed that Claude Code can do what it does to wishing it didn't take 15 minutes to do a complete refactor of a feature. This site does a good job of showing what token speed feels like.
+
+Link three of eleven. "The Productivity Apps That Don’t Speak Agent Will Lose"
+
+This is spot on. I'm looking at you OmniFocus! I also notice that apps are creating MCP bridges using AppleScript interfaces. Drafts recently did this. Unfortunately these are often not reliable and performant enough. I suspect the AppleScript in the middle is the problem. Agentic support needs to be direct.
+
+Link four of eleven. "Introducing Shortcuts Playground: Create Apple Shortcuts with Claude Code or Codex"
+
+This should be a built-in feature in Shortcuts right now.
+
+Link five of eleven. "zerolang: The programming language for agents"
+
+We've seen plenty of tools and software made for agents. How about a whole programming language designed for agents!
+
+Link six of eleven. "The Emacsification of Software — Quarrelsome"
+
+You can create as much bespoke software as you like these days. That is both amazing, and challenging at the same time. What a wonderful time to be a builder.
+
+Link seven of eleven. "what 262,715 regex questions on stack overflow haven't answered | ian erik varatalu"
+
+I'm a sucker for diving into rabbit holes filled with regular expressions.
+
+Link eight of eleven. "How Claude Code works in large codebases: Best practices and where to start | Claude"
+
+I'm using Claude in a monorepo (my first monorepo actually) and the multiple CLAUDE.md thing is an obvious but important thing to do.
+
+Link nine of eleven. "A Field Guide to Learning - Bite of an Apple"
+
+Five step approach to learn any topic.
+
+Link ten of eleven. "feedr: A feature-rich terminal-based RSS/Atom feed reader written in Rust"
+
+Seeing a terminal UI for RSS brought me back to the old days of use rn to read Usenet. If it supported syncing with Feedbin I might give it a try, but alas no.
+
+Link eleven of eleven. "Review: ‘Steve Jobs in Exile’ recounts Apple founder’s tough mid-career lessons – Six Colors"
+
+Learning the hard way.
+
+Time to head outside and enjoy this Memorial Day weekend. I hope you get to do the same.
+
+Maybe some time with some of those friends too!
+
+A haiku to leave you with…
+
+Hyperscalers lay rail —
+my daughter boards a different train
+some routes can't be owned
+
+That brings us to the end of the Weekly Thing, issue 349. Thanks for listening, and I'll see you next time.

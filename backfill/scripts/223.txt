@@ -8,7 +8,9 @@ Looking below it seems I got a bit verbose. It was also Apple's WWDC this week. 
 
 Now, the Featured section.
 
-Link one. "Reputation in Web3: Ships Built on the Great Flood"
+There are two links this week.
+
+Link one of two. "Reputation in Web3: Ships Built on the Great Flood"
 
 This is a great essay. First let me start though by saying that I would define Web2 and Web3 differently than the author. I tend to want to define those terms as technical things. The way this essay defines them is more common though. I also don't think that Web2 and Web3 are versus each other, but can live together. However, the main point of this article is about digital identities and I accept there may be more versus in that context.
 
@@ -52,7 +54,7 @@ I've felt this first-hand with the use of Ethereum Name Service. ENS is very dif
 
 So, can this usurp the centralized Twitter profile? Maybe. Is it part of my digital identity, for sure. But digital identity is a big surface area and no one technology or solution will likely ever be the whole thing. Oh, and to compare to OpenID, connecting with thingelstad.eth and authenticating in my wallet feels totally normal, simple and easy.
 
-Link two. "Don't Find A Niche, Find A Mode"
+Link two of two. "Don't Find A Niche, Find A Mode"
 
 This is a bit meta, because this article is really about publishing online and while I find this stuff interesting, I often find it far too marketing heavy. I do like the idea though of finding people to connect with, and sharing value. That is why I make the Weekly Thing after all.
 
@@ -78,13 +80,15 @@ That's the end of Currently.
 
 Now, the Notable section.
 
-Link one. "Why Target’s inventory problem is freaking everybody out - FreightWaves"
+There are sixteen links this week.
+
+Link one of sixteen. "Why Target’s inventory problem is freaking everybody out - FreightWaves"
 
 Have you ever noticed how traffic jams, however they start, are note linear? I mean, you don't linearly slow down from 60 mph to 30 mph and then linearly increase your speed until you resume. Instead, you are cruising along and then quickly have to come to a complete stop. Then, you have stop and go traffic for a while and you have to be very attentive to the cars in front of you as you start to speed up because inevitably you end up stopped again. This is complex systems stuff. Flock of birds activity. You need serious math and high-end simulations to model it.
 
 The pandemic did that initial stop to so many things in our life, and now we get to figure out how those systems come back to some level of stasis and what the start and stops look like in the middle. Keep your seatbelt fastened!
 
-Link two. "Where To Spend More Part Three"
+Link two of sixteen. "Where To Spend More Part Three"
 
 Byrn with some more perspective.
 
@@ -94,7 +98,7 @@ End quote.
 
 A lot of wisdom here.
 
-Link three. "Design Your Organization to Match Your Strategy"
+Link three of sixteen. "Design Your Organization to Match Your Strategy"
 
 Compelling article focused on materializing your strategy into your organization.
 
@@ -113,7 +117,7 @@ Highlights these key areas:
 
 Definitely worth considering, particularly as your strategy evolves and if you haven't had any organizational changes to adapt to that.
 
-Link four. "Driving Iceland’s Overlooked North"
+Link four of sixteen. "Driving Iceland’s Overlooked North"
 
 A friend sent me this article as we are heading to Iceland this summer for a family trip and we are going to be in this fantastic area.
 
@@ -123,19 +127,19 @@ End quote.
 
 The photos are fabulous. I can’t wait.
 
-Link five. "Organize Your Budget, Organize Your Life"
+Link five of sixteen. "Organize Your Budget, Organize Your Life"
 
 Tammy and I have used YNAB for years to manage our personal finances and it works really well. A few years ago we started doing something similar to this article. We started structuring our budgets around the major entities in our life, and then by category. For example, every family member has a category. Cars have a category. House, cabin. It was a smart pivot to make in our planning.
 
-Link six. "Why People Go to Silence and How to Help Them Open Up"
+Link six of sixteen. "Why People Go to Silence and How to Help Them Open Up"
 
 When I took Crucial Conversations training I wasn't necessarily surprised to do the self-assessment and see that I am a "go to silence" person, but I was surprised by how much. It was helpful for me to be able to see it in myself and acknowledge and try to manage it. But, I suspect that is a dragon I will never ultimately slay. This articles specific recommendations on how to avoid having the person you engage with go to silence rung true to me.
 
-Link seven. "Tim Cook: Loss of Privacy to Big Tech Could Change Behavior | TIME"
+Link seven of sixteen. "Tim Cook: Loss of Privacy to Big Tech Could Change Behavior | TIME"
 
 Digital privacy is something I care very deeply about, and I love that Tim Cook has been increasingly more outspoken about this. I believe Cook's position on this is genuine, and I think that we need more of the kind of leadership he is showing on this topic. This snippet has some highlights, but the full video has Cook's complete interview starting at 1h 32m and runs for 25 minutes.
 
-Link eight. "watchOS 9: The MacStories Overview"
+Link eight of sixteen. "watchOS 9: The MacStories Overview"
 
 Apple is doing what they have done with every version, just incrementally getting better.
 
@@ -145,7 +149,7 @@ Apple is doing what they have done with every version, just incrementally gettin
 
 Also sprinkled through here are several new features that "you don't need an iPhone to do". The Watches physical limitations will hold it back for longer than the iPhone, but someday it will break free of that tether, just like the iPhone broke free of the Mac, and that will be pretty interesting.
 
-Link nine. "iOS and iPadOS 16: The MacStories Overview"
+Link nine of sixteen. "iOS and iPadOS 16: The MacStories Overview"
 
 Summer is here so it is time to start the beta cycle of the next iOS release. Perhaps the most out-of-character thing I do is I do not run these betas. It is some combination of me deferring the fun until it is done and I can have it all, and not wanting my critical devices to not work when I need them. I still love to read in great detail about what is coming.
 
@@ -159,7 +163,7 @@ Summer is here so it is time to start the beta cycle of the next iOS release. Pe
 
 If you want even more details, see the the additional tidbits as well. It is pretty cool that iOS 16 will connect to a Nintendo Swith Pro Controller or Joycon!
 
-Link ten. "macOS Ventura: The MacStories Overview"
+Link ten of sixteen. "macOS Ventura: The MacStories Overview"
 
 What will we be seeing in the latest and greatest of macOS?
 
@@ -170,15 +174,15 @@ What will we be seeing in the latest and greatest of macOS?
 
 Solid improvements. Stage Manager coming to iPadOS and macOS has the potential to be a huge move.
 
-Link eleven. "The beauty of Unix pipelines"
+Link eleven of sixteen. "The beauty of Unix pipelines"
 
 It may seem odd to some to use the word "beauty" here but I completely agree with the author. The Unix philosophy of small, single-purpose tools that can be chained together is amazing. I have my own examples here and here. The simple Unix pipe allows for near limitless reuse and invention.
 
-Link twelve. "Giveth"
+Link twelve of sixteen. "Giveth"
 
 Platform that makes it super simple to gift crypto to organizations doing good. I like that Giveth supports a wide range of tokens that you can give, including stablecoins like DAI, as well as multiple blockchains like Gnosis. I did a test donation to Unchain Ukraine using DAI on Gnosis. Also see overview on donating with Giveth.
 
-Link thirteen. "About 200 years ago, the world started getting rich. Why? - Vox"
+Link thirteen of sixteen. "About 200 years ago, the world started getting rich. Why? - Vox"
 
 Interesting read on the impact of technology and innovation on sustained growth.
 
@@ -186,11 +190,11 @@ Quote.
 This is one of the key questions in all of economics. Its answer is central to why some countries grew rich while others have not. The simplest answer is that economic growth occurred only after the rate of technological innovation became highly sustained. Without sustained technological innovation, any one-off economic improvement will not lead to sustained growth.
 End quote.
 
-Link fourteen. "book notes | Derek Sivers"
+Link fourteen of sixteen. "book notes | Derek Sivers"
 
 Sivers' put up what looks like a database of all of his book notes that you can easily index into. I tend to have grand thoughts about writing about the books I read. Perhaps something more like this with just a quick blurb and key point on each one would be more realistic. Anyway, this is a good resource to find some interesting reading.
 
-Link fifteen. "Thinking in Bets: How to Make Decisions Like a Poker Player - Frontera"
+Link fifteen of sixteen. "Thinking in Bets: How to Make Decisions Like a Poker Player - Frontera"
 
 Fun and simple read, and I like it because it places a critical role for luck. Highlight, emphasis is mine:
 
@@ -198,7 +202,7 @@ Quote.
 [People] judge the quality of the decisions based on the outcomes. And this is a flaw that creates a dangerous illusion for future decisions. Because life is not chess. It’s poker. Luck plays a bigger role than you think.
 End quote.
 
-Link sixteen. "Product Shouldn't Be Left to Product Managers"
+Link sixteen of sixteen. "Product Shouldn't Be Left to Product Managers"
 
 This times a hundred.
 
@@ -303,27 +307,29 @@ That's the end of the Journal.
 
 Now, the Briefly section.
 
-Link one. "FOMO Nouns"
+There are six links this week.
+
+Link one of six. "FOMO Nouns"
 
 Another Noun related project, this is project #8. I’m not sure what to make everything happening in the Nouns projects but it is super interesting.
 
-Link two. "Signer.is"
+Link two of six. "Signer.is"
 
 Small and simple tool that allows you to get email forwarded to you via your ethereum address. Thing is though, that email address is an ENS configuration.
 
-Link three. "A Road to Common Lisp / Steve Losh"
+Link three of six. "A Road to Common Lisp / Steve Losh"
 
 Lisp is an incredible language that will bend a programmers mind into new ways of thinking. This is a very comprehensive overview to help anyone jump into learning Lisp.
 
-Link four. "Planet"
+Link four of six. "Planet"
 
 This app has all sorts of interesting keywords: ENS, IPFS, decentralized, publish. I installed it and poked around for a bit. More playtime required.
 
-Link five. "Micro Blockclock — Coinkite Store"
+Link five of six. "Micro Blockclock — Coinkite Store"
 
 Ohh, there is now a micro version of the Blockclock. Great gift!
 
-Link six. "Nouns Center"
+Link six of six. "Nouns Center"
 
 Good overview of the Noun ecosystem.
 

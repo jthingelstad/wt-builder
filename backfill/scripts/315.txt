@@ -14,7 +14,9 @@ I’ll be back in your inbox the following week!
 
 Now, the Notable section.
 
-Link one. "Dawn of a new era in Search: Balancing innovation, competition, and public good | Kagi Blog"
+There are seven links this week.
+
+Link one of seven. "Dawn of a new era in Search: Balancing innovation, competition, and public good | Kagi Blog"
 
 First, I’m a paying subscriber of Kagi and like it. I switched to them when Neeva went out of business. Before that I used DuckDuckGo. Using a paid search platform, for me, just feels so much better. I trust the results and don't get tons of "promoted" links thrown at me. Search, like email, is now in my category of things I believe you should pay for.
 
@@ -30,7 +32,7 @@ It is our data after all. They do the work of storing it and indexing it. But ha
 
 Also see Kagi is a better search engine than Google — but it costs 10 dollars a month.
 
-Link two. "The Frontend Treadmill - These Yaks Ain’t Gonna Shave Themselves"
+Link two of seven. "The Frontend Treadmill - These Yaks Ain’t Gonna Shave Themselves"
 
 Technology moves and evolves quickly, but there is probably no part of technology that changes as much as frontend frameworks for web applications. If you go on a long vacation you might find everything has changed. The downsides of this are real. Product teams spend a lot of time moving from one to another.
 
@@ -46,23 +48,23 @@ As a CTO, I might actually just pick the middle. Use a simple framework. Knowing
 
 But then a security issue will pop up and call your bluff.
 
-Link three. "Cloudflare turns AI against itself with endless maze of irrelevant facts - Ars Technica"
+Link three of seven. "Cloudflare turns AI against itself with endless maze of irrelevant facts - Ars Technica"
 
 In general folks don't believe you should write viruses that attack other viruses. The ethics being don't run unknown software on someones device even if it is attempting to do a good thing. There's also the tactic of running 'honeypots,' servers that are configured in a way to attract bad actors and then use those actions to label them or possibly block them. Is this new thing from Cloudflare running software without permission? No. Is it a honeypot? Hmm, not really? It might be closest to that. Is this a good idea? I’m on the fence, but I’m also less hostile to AI agents indexing my website. Here is the announcement from Cloudflare.
 
-Link four. "bigscreen"
+Link four of seven. "bigscreen"
 
 This hardware looks like an incredible VR device. My current POV on visionOS is that it is working to figure out the software platform while the hardware continues to get settled. But will VR stuff like this be good enough to beat see through glasses with augmentation that give you the real-world for free? The demo video here is pretty impressive.
 
-Link five. "How to delete for 23andMe data and Test Sample – On my Om – Daily Blog"
+Link five of seven. "How to delete for 23andMe data and Test Sample – On my Om – Daily Blog"
 
 This seems like yet another example of why we need comprehensive privacy legislation in the United States? Be aware that if you used 23andMe you should immediately go and delete your data. This article has instructions. But in general it is ridiculous that someone can buy them and then have all that data without needing to even get the consent of the people that submitted it!
 
-Link six. "Achieving Great Privacy with Safari | Matan Abudy"
+Link six of seven. "Achieving Great Privacy with Safari | Matan Abudy"
 
 There are a number of reasons I run Safari but one of them is the software stack to protect privacy. I use 1Blocker but when I ran that through this lovely testing site I found my setup is only getting 24%! The recommended configuration here gets 96%. A huge improvement. Going to make a note to explore this configuration more for my own use.
 
-Link seven. "Introducing 4o Image Generation | OpenAI"
+Link seven of seven. "Introducing 4o Image Generation | OpenAI"
 
 This new image generation from OpenAI is a huge upgrade. DALL-E was an interesting toy, but it struggled to do anything that was all that useful. And its inability to deal with text at all was a huge issue for many of my use cases. Using 4o with some of my tests has been incredible. I've had it make some POAP images and the text was spot on and it understood the visual need much better. This is worth giving a serious look.
 
@@ -151,55 +153,57 @@ That's the end of the Journal.
 
 Now, the Briefly section.
 
-Link one. "OpenAI.fm"
+There are thirteen links this week.
+
+Link one of thirteen. "OpenAI.fm"
 
 Great little tool to play with the newest voice capabilities from OpenAI.
 
-Link two. "Xenographics – Weird but (sometimes) useful charts"
+Link two of thirteen. "Xenographics – Weird but (sometimes) useful charts"
 
 Delightful assortment of fairly edge case charts.
 
-Link three. "Understanding Solar Energy - Brian Potter"
+Link three of thirteen. "Understanding Solar Energy - Brian Potter"
 
 This progress in solar is incredible!
 
-Link four. "Deliberate Practice for Developers"
+Link four of thirteen. "Deliberate Practice for Developers"
 
 Ways to get better at the craft.
 
-Link five. "BYD's 1,000V Super E-Platform offers charging 400km in 5 minutes"
+Link five of thirteen. "BYD's 1,000V Super E-Platform offers charging 400km in 5 minutes"
 
 This is incredible charging performance for an electric car. You're now getting in the range where this is about the same as adding gas to your car.
 
-Link six. "Handling billions of invocations – best practices from AWS Lambda | AWS Compute Blog"
+Link six of thirteen. "Handling billions of invocations – best practices from AWS Lambda | AWS Compute Blog"
 
 Lambda is amazing for building cloud scale applications, but what to do when the demands of your application are beyond fundamental cloud account limits?
 
-Link seven. "The Trump Administration Accidentally Texted Me Its War Plans - The Atlantic"
+Link seven of thirteen. "The Trump Administration Accidentally Texted Me Its War Plans - The Atlantic"
 
 What an incredible article. Don't miss the follow-up with the full not-classified messages. Gift links!
 
-Link eight. "Bijan on the blog again – On my Om"
+Link eight of thirteen. "Bijan on the blog again – On my Om"
 
 Warms my heart when big name folks get their blog on instead of writing on one of the surveillance networks. I added Bijan to Feedbin!
 
-Link nine. "Micro.blog expanding photo servers in Europe"
+Link nine of thirteen. "Micro.blog expanding photo servers in Europe"
 
 I was excited to see Manton roll out this smart new feature for micro.blog. He also announced blog server in Europe. Maybe the next step will give the option to have your blog on both and route the user to the fastest location? I know from updown.io that my site is 2-3 times slower in Europe than North America.
 
-Link ten. "Stoop Coffee: How a Simple Idea Transformed My Neighborhood"
+Link ten of thirteen. "Stoop Coffee: How a Simple Idea Transformed My Neighborhood"
 
 I’m lucky enough to live in a neighborhood that has some ceremonies and connection. I liked this article's "how to" to make that happen.
 
-Link eleven. "Calligraphr - Draw your own fonts"
+Link eleven of thirteen. "Calligraphr - Draw your own fonts"
 
 When I saw this I immediately wanted to use my handwriting and make a custom font for my website.
 
-Link twelve. "Silk"
+Link twelve of thirteen. "Silk"
 
 These web effects are remarkably similar to the native mobile equivalents.
 
-Link thirteen. "The Resistor Network: Thinking Different, Thinking Slowly: LLMs on a PowerPC Mac"
+Link thirteen of thirteen. "The Resistor Network: Thinking Different, Thinking Slowly: LLMs on a PowerPC Mac"
 
 This was a fun trip back remembering the PowerPC Macs that I had back in the day.
 

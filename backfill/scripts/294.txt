@@ -12,15 +12,17 @@ Hope you are awesome and have a great weekend!
 
 Now, the Notable section.
 
-Link one. "The Minneapolis Street Grid: Explained - Streets.mn"
+There are thirteen links this week.
+
+Link one of thirteen. "The Minneapolis Street Grid: Explained - Streets.mn"
 
 I've lived in Minneapolis for over 30 years and the oddities that are highlighted in this article hadn't stuck out to me, but I wish it would have. I thought this was a fun read and interesting to learn a bit more about how cities label their street grids.
 
-Link two. "Storyworth - Everyone has a story worth sharing"
+Link two of thirteen. "Storyworth - Everyone has a story worth sharing"
 
 Services that prompts you with email messages that you reply to and over the course of a year it builds the content to publish a book about you. It is an interesting way to build something to preserve your legacy. The fact that it is bound to text and email seems very limiting though. I'd be curious to see something like this that uses a conversational dialog, possibly with an AI, to create the content and then derive that into text as well as audio recordings to capture your voice and get a more personal connection. Or, just start writing a blog!
 
-Link three. "iOS and iPadOS 18: The MacStories Review - MacStories"
+Link three of thirteen. "iOS and iPadOS 18: The MacStories Review - MacStories"
 
 Super detailed review of iOS 18. Fourteen "pages" in fact. Read this if you want every little detail. Here are the things I've liked since upgrading.
 
@@ -29,7 +31,7 @@ Super detailed review of iOS 18. Fourteen "pages" in fact. Read this if you want
 - Home Screen customization and moving icons wherever you want them is interesting. Honestly as a longtime iPhone user though I feel like it is messy. I have some apps put in places of their own and my mind immediately wants to "clean it up".
 - Control center is interesting and I like the Shortcuts integration and various app support. I’m going to try getting used to using this. I've struggled to ever be a frequent user of widgets and this is sort of similar, but it seems to have more powerful features. I'd love to see Tesla add climate to this.
 
-Link four. "visionOS 2: The MacStories Review - MacStories"
+Link four of thirteen. "visionOS 2: The MacStories Review - MacStories"
 
 Details on the improvements in the new version of visionOS. I've played around with this on my Vision Pro. Some reactions:
 
@@ -37,7 +39,7 @@ Details on the improvements in the new version of visionOS. I've played around w
 - More native apps including Notes, Passwords, and others. However Calendar is still an iPad app. Ugh! Calendar needs to be native.
 - Home Screen customization finally! I have four pages of apps in visionOS and they were in no worthwhile arrangement.
 
-Link five. "macOS Sequoia: The MacStories Review - MacStories"
+Link five of thirteen. "macOS Sequoia: The MacStories Review - MacStories"
 
 Full review of all the new capabilities in the newest macOS. Some things that I have found interesting right away.
 
@@ -46,7 +48,7 @@ Full review of all the new capabilities in the newest macOS. Some things that I 
 - Calendar app got some small design tweaks, but I love them. It really wasn't much, but I find the app so much more visually pleasing. I use this all the time so it is a big deal for me.
 - Window TIling is nice and I've used Moom for a while to do something similar. The built-in system I’m still getting used to but I think there is a lot of potential here for all users.
 
-Link six. "watchOS 11: The MacStories Review - MacStories"
+Link six of thirteen. "watchOS 11: The MacStories Review - MacStories"
 
 MacStories now publishes the most in-depth reviews of new Apple operating systems. I've upgraded of course and on the watch the things I like and look forward to include:
 
@@ -54,15 +56,15 @@ MacStories now publishes the most in-depth reviews of new Apple operating system
 - Live activities and Sports: I like this since it puts information that I’m interested in more prominent on the watch.
 - Activity Rings: I’m not overly focused on these rings but I like that you can now pause them and set specific day targets. Turning them off for a week on a trip is nice, and knowing that weekends are different than weekdays.
 
-Link seven. "Daring Fireball: The iPhones 16"
+Link seven of thirteen. "Daring Fireball: The iPhones 16"
 
 Gruber is my go to for reading about new Apple hardware, particularly new iPhones. He goes on a long time in this review about removing buttons and how big of a deal it is that a button was added to the iPhone 16. Everything about the new model looked great. Great enough that I’m upgrading a year ahead of when I would usually. I want to experience the Apple Intelligence features first-hand.
 
-Link eight. "iPhone 16 Pro Camera Review: Kenya - Austin Mann"
+Link eight of thirteen. "iPhone 16 Pro Camera Review: Kenya - Austin Mann"
 
 Of course every new iPhone has new camera features. For me, I always look for Mann's review of the camera. Mann is an incredible photographer and he puts the camera through real tests in the field. The improvements in the wide-angle are a big deal. Photographic styles look really good. And the dedicated shutter button is a nice convenience. I take a lot of photos on my iPhone and the camera is a big part of what got me to upgrade.
 
-Link nine. "FTC Staff Report Finds Large Social Media and Video Streaming Companies Have Engaged in Vast Surveillance of Users with Lax Privacy Controls and Inadequate Safeguards for Kids and Teens | Federal Trade Commission"
+Link nine of thirteen. "FTC Staff Report Finds Large Social Media and Video Streaming Companies Have Engaged in Vast Surveillance of Users with Lax Privacy Controls and Inadequate Safeguards for Kids and Teens | Federal Trade Commission"
 
 This should surprise absolutely nobody.
 
@@ -72,11 +74,11 @@ End quote.
 
 Still waiting for comprehensive privacy legislation in the US.
 
-Link ten. "Reviewing iOS 18 for power users: Control Center, iCloud, and more | Ars Technica"
+Link ten of thirteen. "Reviewing iOS 18 for power users: Control Center, iCloud, and more | Ars Technica"
 
 If you are curious to learn more about Control Center this has a more detailed look. There is a lot of power here but it requires you to customize it to get there. This also highlights the Hidden and Protected apps features.
 
-Link eleven. "Vaporizing plastics recycles them into nothing but gas | Ars Technica"
+Link eleven of thirteen. "Vaporizing plastics recycles them into nothing but gas | Ars Technica"
 
 The amount of energy it takes to break down plastic, if we even can break it down, is ridiculous.
 
@@ -86,11 +88,11 @@ End quote.
 
 No this doesn't mean you should use more plastic, but at least there is some progress on a path to break it down.
 
-Link twelve. "Open-Source Journalism – Doc Searls Weblog"
+Link twelve of thirteen. "Open-Source Journalism – Doc Searls Weblog"
 
 Searls doesn't go deep in here, but the term he used caught my eye. There has been much effort put toward crowdsourcing news. I don't think that is the best approach, and I believe that has proven out. Using open-source models though could be much more powerful. Open-source can create incredibly complicated assets in software produced by hundreds of people. There is an orchestration and system needed to make it work. I'd love to see an open-source framework for news.
 
-Link thirteen. "Hands-on with Orion, Meta’s first pair of AR glasses - The Verge"
+Link thirteen of thirteen. "Hands-on with Orion, Meta’s first pair of AR glasses - The Verge"
 
 This is an impressive demo and ultimately using screens you can see through is going to be the right approach. The tech is just extremely hard right now. Supposedly these would cost 10,000 dollars each to make. I found Ben Thompson's read of them interesting. He highlighted that the reduced resolution of the digital parts didn’t matter as much when there isn't a screen between you and the real world. That makes sense to me.
 
@@ -256,79 +258,81 @@ That's the end of the Journal.
 
 Now, the Briefly section.
 
-Link one. "Apple’s AirPods Pro 2 could forever change how people access hearing aids - The Verge"
+There are nineteen links this week.
+
+Link one of nineteen. "Apple’s AirPods Pro 2 could forever change how people access hearing aids - The Verge"
 
 It does seem incredible that an iPhone and some AirPods are all you need to have at least some solution to hearing issues.
 
-Link two. "Why do I blog? | gru:Bz"
+Link two of nineteen. "Why do I blog? | gru:Bz"
 
 I like reading why bloggers blog.
 
-Link three. "Walking From Manhattan to the Catskills on the ‘Long Path’ - The New York Times"
+Link three of nineteen. "Walking From Manhattan to the Catskills on the ‘Long Path’ - The New York Times"
 
 I had no idea there was a 358 mile hiking trail that you can start by getting off of a Manhattan subway stop! The Long Path seems pretty cool.
 
-Link four. "Introducing Little Snitch 6 – Elevating Mac Privacy Protection to the Next Level"
+Link four of nineteen. "Introducing Little Snitch 6 – Elevating Mac Privacy Protection to the Next Level"
 
 Given how much I care about privacy I should probably take the leap to this. I've been running Little Snitch Mini which is great but less powerful. I tried the full Little Snitch in twenty sixteen and found it too complicated.
 
-Link five. "Voyager 1 survives clogged thruster issue billions of miles away | CNN"
+Link five of nineteen. "Voyager 1 survives clogged thruster issue billions of miles away | CNN"
 
 I’m truly in awe of what the original designers and current engineers that are communicating with Voyager 1 are able to do. Incredible.
 
-Link six. "Dune Shell"
+Link six of nineteen. "Dune Shell"
 
 Cool and interesting approach to a shell.
 
-Link seven. "The Lego Great Ball Contraption"
+Link seven of nineteen. "The Lego Great Ball Contraption"
 
 This video left me flabbergasted at all the different ways of moving balls around with LEGO. So very cool.
 
-Link eight. "Swift 6 - Michael Tsai"
+Link eight of nineteen. "Swift 6 - Michael Tsai"
 
 Concurrency is a super hard problem in coding. The reactions to initial Swift 6 concurrency features made me chuckle.
 
-Link nine. "Behold, the black Apple Watch Ultra 2 - The Verge"
+Link nine of nineteen. "Behold, the black Apple Watch Ultra 2 - The Verge"
 
 When I saw this new black Ultra 2 in the launch video I gasped a bit. It looks amazing. And the photos in this article aren't even with the amazing matched link bracelet.
 
-Link ten. "LinkedIn is training AI models on your data - The Verge"
+Link ten of nineteen. "LinkedIn is training AI models on your data - The Verge"
 
 Another example of why I won't trust LinkedIn — they are very fast and loose with your data and (always?) default permissions in their favor. I highly recommend checking your LinkedIn privacy settings every few months.
 
-Link eleven. "Google calls for halting use of WHOIS for TLS domain verifications | Ars Technica"
+Link eleven of nineteen. "Google calls for halting use of WHOIS for TLS domain verifications | Ars Technica"
 
 I shared in Weekly Thing 293 about the lack of security in WHOIS so this makes sense.
 
-Link twelve. "Apple Intelligence Features Expected to Roll Out in This Order Between iOS 18.1 and iOS 18.4 - MacRumors"
+Link twelve of nineteen. "Apple Intelligence Features Expected to Roll Out in This Order Between iOS 18.1 and iOS 18.4 - MacRumors"
 
 This is an incredibly drawn out release cycle. It is going to be confusing for users in the middle of it.
 
-Link thirteen. "Fooda Acquires Foodsby, Joining Forces to Create New Opportunities for Clients and Local Restaurant Partners | Fooda"
+Link thirteen of nineteen. "Fooda Acquires Foodsby, Joining Forces to Create New Opportunities for Clients and Local Restaurant Partners | Fooda"
 
 I've been a customer of Foodsby for years now and it is a really good service. Plus a company founded here in Minneapolis.
 
-Link fourteen. "OpenFreeMap"
+Link fourteen of nineteen. "OpenFreeMap"
 
 Totally open and free mapping resources.
 
-Link fifteen. "The Intelligence Age"
+Link fifteen of nineteen. "The Intelligence Age"
 
 Sam Altman describing his view of the amazing future we have with deep learning.
 
-Link sixteen. "diffdiff.net"
+Link sixteen of nineteen. "diffdiff.net"
 
 Super simple visual diff tool on the web.
 
-Link seventeen. "Meta Connect twenty twenty four: biggest news and announcements - The Verge"
+Link seventeen of nineteen. "Meta Connect twenty twenty four: biggest news and announcements - The Verge"
 
 Facebook continues to push into the Quest Pro and even more VR and AR technology.
 
-Link eighteen. "Jonas Hietala: Why I still blog after 15 years"
+Link eighteen of nineteen. "Jonas Hietala: Why I still blog after 15 years"
 
 What a great list because it shows all the great things blogging can deliver for the author.
 
-Link nineteen. "Daring Fireball: X Blocks Links to Stolen J.D. Vance Dossier"
+Link nineteen of nineteen. "Daring Fireball: X Blocks Links to Stolen J.D. Vance Dossier"
 
 Yep. And Michael Tsai goes deeper.
 

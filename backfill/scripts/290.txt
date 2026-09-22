@@ -12,11 +12,13 @@ Wishing you a great summer!
 
 Now, the Notable section.
 
-Link one. "Daylight | A More Caring Computer"
+There are seven links this week.
+
+Link one of seven. "Daylight | A More Caring Computer"
 
 This new tablet gives me strong vibes of my reMarkable 2, but at least from the videos it appears to be radically faster. That is interesting since the speed of the reMarkable 2 is a big limiter. This also costs nearly 2x what a reMarkable costs. I find it interesting that the sales video drives home privacy and distraction. It looks super interesting but I think it is so hard for a brand new platform to enter the space. App support is always a big issue. Regardless of that though, the screen technology here is very cool.
 
-Link two. "Manton Reece - Audio narration in Micro.blog"
+Link two of seven. "Manton Reece - Audio narration in Micro.blog"
 
 I love that micro.blog is playing with new ways to express yourself on your blog. Narrating blog posts is interesting to me for two things:
 
@@ -27,7 +29,7 @@ I've given this a test run and narrated my Reflections on No Coffee and First Co
 
 Adding features like this is one of the many things I love that micro.blog continues to do!
 
-Link three. "EcoFlow’s 200 dollars PowerStream is so clever, you might buy a 4,000 dollars solar generator - The Verge"
+Link three of seven. "EcoFlow’s 200 dollars PowerStream is so clever, you might buy a 4,000 dollars solar generator - The Verge"
 
 This looks like really cool tech but sadly we cannot use in the US yet. Innovation like this and even things like the Tesla Powerwall make me wonder about two trends:
 
@@ -36,7 +38,7 @@ This looks like really cool tech but sadly we cannot use in the US yet. Innovati
 
 Might reduction of our carbon footprint for energy come from making all houses standalone, or nearly standalone. What if the grids only job is to backup and assist your homes own electrical subsystem.
 
-Link four. "Details of Google Cloud GCVE incident | Google Cloud Blog"
+Link four of seven. "Details of Google Cloud GCVE incident | Google Cloud Blog"
 
 I shared this event in Weekly Thing 289 where Google Cloud literally deleted the account of a customer erasing all information with no backups. Google released this note about what happened.
 
@@ -46,15 +48,15 @@ End quote.
 
 This reminds me of an AWS S3 outage a few years ago also caused by a maintenance activity and an engineer putting the wrong value in a field. These maintenance programs are places where corners often get cut. The team will think "Hey, we have professionals using this. It is okay. if we don't catch every error scenario." But even professionals make mistakes. There is no truly "safe" user.
 
-Link five. "Why, after 6 years, I’m over GraphQL"
+Link five of seven. "Why, after 6 years, I’m over GraphQL"
 
 GraphQL is an attractive technology but it has never really taken off the way I thought it might have. For some use cases I think it may still make sense, but it is no JSON replacement. Note complexity is showing up here as well.
 
-Link six. "Introducing Kino"
+Link six of seven. "Introducing Kino"
 
 I am much more comfortable with photos versus video, but I did buy this because I have a bunch of respect for Halide and the color grading feature looks crazy good. if you want to take better looking video this is worth looking at.
 
-Link seven. "Three Laws of Software Complexity (or: why software engineers are always grumpy) | mahesh’s blog"
+Link seven of seven. "Three Laws of Software Complexity (or: why software engineers are always grumpy) | mahesh’s blog"
 
 What I think this article gets very right is that complexity is a fundamental challenge in software systems. The more complex the system, the harder it is to do everything with it. Harder to modify. Harder to support. Harder to keep running. So, it follows that removing complexity should result in easier for all of those things. This is perhaps the foundational belief that drives micro-services. Limit complexity in each service and overall average complexity through the entire system. Balakrishnan highlights three principles.
 
@@ -130,35 +132,37 @@ That's the end of the Journal.
 
 Now, the Briefly section.
 
-Link one. "Stark Industries Solutions: An Iron Hammer in the Cloud – Krebs on Security"
+There are eight links this week.
+
+Link one of eight. "Stark Industries Solutions: An Iron Hammer in the Cloud – Krebs on Security"
 
 Great research from Krebs highlighting one of the largest hosting providers supporting malicious groups attacking other services. Worth a read just to get a sense of how criminal and state actors deploy these attacks.
 
-Link two. "The Sea Change on Crypto-Regulation - Marginal REVOLUTION"
+Link two of eight. "The Sea Change on Crypto-Regulation - Marginal REVOLUTION"
 
 Interesting developments helping crypto over recent weeks.
 
-Link three. "My Morning Routine - zen habits"
+Link three of eight. "My Morning Routine - zen habits"
 
 I like reading about peoples morning routines. I've recently completely redone mine supported by removing coffee. Although I often wonder how people find the time for all of it. I struggle to get more than about an hour of activities in the morning.
 
-Link four. "A root-server at the Internet’s core lost touch with its peers. We still don’t know why. | Ars Technica"
+Link four of eight. "A root-server at the Internet’s core lost touch with its peers. We still don’t know why. | Ars Technica"
 
 Few folks know how DNS works — the system that turns something like www.thingelstad.com into an address that your computer understands. Even folks that know how DNS works may not know the role of root-servers. They resolve the root name of ".", that is core to any of name resolution working. So it is a big deal if one of them gets confused.
 
-Link five. "How it feels to get an AI email from a friend"
+Link five of eight. "How it feels to get an AI email from a friend"
 
 There are contexts that we should not allow technology to disintermediate. Friends and family are definitely one of those.
 
-Link six. "AI Integration and Modularization – Stratechery by Ben Thompson"
+Link six of eight. "AI Integration and Modularization – Stratechery by Ben Thompson"
 
 Interesting observation on the patterns different tech firms are taking with AI.
 
-Link seven. "What We Learned from a Year of Building with LLMs (Part I) – O’Reilly"
+Link seven of eight. "What We Learned from a Year of Building with LLMs (Part I) – O’Reilly"
 
 A lot of learnings about how to build product around LLMs.
 
-Link eight. "What's next for Kagi? | Kagi Blog"
+Link eight of eight. "What's next for Kagi? | Kagi Blog"
 
 I've been a paying customer of Kagi since Neeva went under (err, got bought by Snowflake). I like the tuning that Kagi supports and it is very clean, fast, and simple. I’m happy to pay for it but I sure wish there were more options for paid search.
 

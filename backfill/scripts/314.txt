@@ -24,11 +24,13 @@ I have nothing else to say — because what more could be said than to just enjo
 
 Now, the Notable section.
 
-Link one. "Why "Normal" Engineers Are the Key to Great Teams - IEEE Spectrum"
+There are ten links this week.
+
+Link one of ten. "Why "Normal" Engineers Are the Key to Great Teams - IEEE Spectrum"
 
 Charity Majors with a great article about engineering teams and what makes great engineering organizations. A quip I think about a lot: All great technology organizations are learning organizations. I think you see that in what Majors suggests here. It is about making the act of being an engineer approachable and learnable. Creating build and CI systems that allow innovation to be done safely and quickly. Shipping frequently. It is about the team that delivers great software.
 
-Link two. "The Ozempocalypse Is Nigh - Scott Alexander"
+Link two of ten. "The Ozempocalypse Is Nigh - Scott Alexander"
 
 I started semaglutide on March 7 using a compounding pharmacy, after the FDA had already declared the shortage over. In the couple weeks since then the price of Wegovy was dropped by over 60% for self-pay. It seems impossible that some negotiation on pricing wasn't part of declaring the shortage over. This article highlights interesting ways that compounding may still be attempted with various unique dosage levels or additives.
 
@@ -38,15 +40,15 @@ End quote.
 
 I think it would be too simple to apply this to a wide array of drugs, but there are likely some it could.
 
-Link three. "Our interfaces have lost their senses — Amelia Wattenberger"
+Link three of ten. "Our interfaces have lost their senses — Amelia Wattenberger"
 
 This article is worth exploring not just for its message but also for the stunning design and visuals. The concepts are also meaningful. Standardizing everything also makes everything the same. We need to bring weird back to parts of our computing.
 
-Link four. "Can You Fool A Self Driving Car? - YouTube"
+Link four of ten. "Can You Fool A Self Driving Car? - YouTube"
 
 Mark Rober with a well done video demonstrating what LiDAR can do and how effective it is for self-driving cars. This is pushing on one of Tesla's biggest bets for self-driving, which is relying only on visual camera systems. You can follow the assertion. People drive cars using only visual input so why can’t a computer. Maybe, but you can also argue that computers could drive even better using LiDAR. Personally I'd rather Tesla was using LiDAR as well. Also this video leaves me wanting to get one of these portable LiDAR units to play with. The 3D model of Space Mountain is awesome too.
 
-Link five. "HTTP/3 is everywhere but nowhere"
+Link five of ten. "HTTP/3 is everywhere but nowhere"
 
 I've not followed HTTP/3 adoption and this article pointed out how it was both more adopted than I thought and less.
 
@@ -56,15 +58,15 @@ End quote.
 
 It would surprise me if open source doesn't get there, but how long will it take? It also highlights how significantly HTTP/3 breaks from prior versions, making incremental software adaptation more difficult.
 
-Link six. "A Pi API - Happy Pi Day"
+Link six of ten. "A Pi API - Happy Pi Day"
 
 I was so excited to see that there is a π API that uses the 100 trillion calculated digits of π and allows you to index into it and get sets of numbers of π as you wish. It's such a delightful and geeky tool.
 
-Link seven. "An Interview with OpenAI CEO Sam Altman About Building a Consumer Tech Company – Stratechery by Ben Thompson"
+Link seven of ten. "An Interview with OpenAI CEO Sam Altman About Building a Consumer Tech Company – Stratechery by Ben Thompson"
 
 Deep interview with Sam Altman from the very astute Ben Thompson. Includes background on Altman and the origin story back to OpenAI and Altman's thoughts on Y Combinator and building ChatGPT.
 
-Link eight. "The Lost Art of Research as Leisure - Mariam Mahmoud"
+Link eight of ten. "The Lost Art of Research as Leisure - Mariam Mahmoud"
 
 This article serves as a reminder of the importance of reading, of curating questions in our mind, and the delight in pursuing those answers through "leisure." The importance of reading is highlighted in the article with examples from the Quran. It reminded me of a similar impact of Protestantism highlighted in The WEIRDest People in the World (one of my absolutely favorite books!) where practitioners of the faith are called to directly read the Bible, which resulted in a huge spike in literacy which also resulted in other pursuits of learning.
 
@@ -96,7 +98,7 @@ I'd like to think this is a small component of what I’m doing in these emails.
 
 What is the question you are asking?
 
-Link nine. "The Product Engineer – Rands in Repose"
+Link nine of ten. "The Product Engineer – Rands in Repose"
 
 This article starts with a salacious assertion on not needing product managers that I wouldn't agree with, but it is a good attention grab for the actual point of it. In reality you have many disciplines involved to creating a great product, and this dives into three of those: product manager, designer, and engineer. I've seen and experienced every one of the scenarios described. The scenario around "designer island" literally made me laugh out loud in the "yeah, I've seen that one too" kind of way. The punchline of the engineer scenario is the most damning.
 
@@ -118,7 +120,7 @@ It all circles back to shared goals, and one of my favorite metaphors drives thi
 
 The objective of everyone building a product needs to be to create a great product.
 
-Link ten. "Digital hygiene | karpathy"
+Link ten of ten. "Digital hygiene | karpathy"
 
 Great overview of services and tools. I use many of the services on here except for VPN. I've found that to just be too annoying for me. And I use Fastmail but do have an account with Proton Mail just for encryption. I've tried using Yubikeys but don't currently use one.
 
@@ -237,35 +239,37 @@ That's the end of the Journal.
 
 Now, the Briefly section.
 
-Link one. "RCS Encryption: A Leap Towards Secure and Interoperable Messaging"
+There are eight links this week.
+
+Link one of eight. "RCS Encryption: A Leap Towards Secure and Interoperable Messaging"
 
 It is good to see encryption coming to RCS but I've also been a bit annoyed at how uneven RCS support is between different devices. Hopefully this will improve along with encryption support.
 
-Link two. "‘AI will become very good at manipulating emotions’: Kazuo Ishiguro on the future of fiction and truth | The Guardian"
+Link two of eight. "‘AI will become very good at manipulating emotions’: Kazuo Ishiguro on the future of fiction and truth | The Guardian"
 
 Never Let Me Go was the first Ishiguro book I read and thought it was great. A friend of mine commented that Ishiguro is "all pathos". That might suggest Ishiguro is an astute observer on the topic of AI manipulating emotions.
 
-Link three. "No one knows what the hell an AI agent is | TechCrunch"
+Link three of eight. "No one knows what the hell an AI agent is | TechCrunch"
 
 AI agents are a marketing concept at this point.
 
-Link four. "Bubbles!"
+Link four of eight. "Bubbles!"
 
 Super simple game that is oddly engaging. Best played on touch device but works on anything.
 
-Link five. "30 Charts That Show How Covid Changed Everything in March twenty twenty - The New York Times"
+Link five of eight. "30 Charts That Show How Covid Changed Everything in March twenty twenty - The New York Times"
 
 I love telling stories with charts and these are great examples. Gift Link.
 
-Link six. "California’s A.B. 412: A Bill That Could Crush Startups and Cement A Big Tech AI Monopoly | Electronic Frontier Foundation"
+Link six of eight. "California’s A.B. 412: A Bill That Could Crush Startups and Cement A Big Tech AI Monopoly | Electronic Frontier Foundation"
 
 Another case of regulation that many would argue is great but could then only help large, established companies continue to dominate. Privacy is filled with this stuff.
 
-Link seven. "How Fast the Days Are Getting Longer – Joe Antognini"
+Link seven of eight. "How Fast the Days Are Getting Longer – Joe Antognini"
 
 Visuals and math on calculating the rate of change of daylight over the seasons. My latitude is 45°.
 
-Link eight. "the Seneca – Norbauer and Co"
+Link eight of eight. "the Seneca – Norbauer and Co"
 
 What would a 3,600 dollars keyboard be? This.
 

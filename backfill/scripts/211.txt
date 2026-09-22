@@ -20,11 +20,13 @@ That's the end of Currently.
 
 Now, the Notable section.
 
-Link one. "Managing people | Andreas Klinger"
+There are seven links this week.
+
+Link one of seven. "Managing people | Andreas Klinger"
 
 An outline of various manager tips focusing on smaller organizations, but most of it seems to apply to any organization trying to create new things.
 
-Link two. "When to delegate, when to say no"
+Link two of seven. "When to delegate, when to say no"
 
 Great walk through on using an Eisenhower Matrix to prioritize what is on your plate.
 
@@ -34,11 +36,11 @@ End quote.
 
 Many leaders have to acknowledge that there is no way to get everything done every day… the skill is figuring out what doesn't need to get done.
 
-Link three. "How I Finally Embraced the Apple Watch as a Fitness Tracker - TidBITS"
+Link three of seven. "How I Finally Embraced the Apple Watch as a Fitness Tracker - TidBITS"
 
 Very detailed article with links to various apps on getting the most out of your Apple Watch for fitness and activity tracking.
 
-Link four. "No capes: the perils of being a hero-engineer"
+Link four of seven. "No capes: the perils of being a hero-engineer"
 
 I've seen this "hero" approach far too many times in my career. I'll admit that early on I didn’t even see it as a problem. There were a core group of people that could be trusted to fix pretty much anything. But inevitably this fails at multiple levels.
 
@@ -48,7 +50,7 @@ End quote.
 
 I've had people burn out from being a hero multiple times. Ultimately the hero themselves, and the organization lose. One of the benefits of a defined, trained on, and well understood incident management program is to limit the extent that you get hero problems in your tech team.
 
-Link five. "When Women Make Headlines"
+Link five of seven. "When Women Make Headlines"
 
 I found the data and analysis in this article insightful and raised my awareness of the topic. The interactive data visualizations are very powerful too.
 
@@ -56,11 +58,11 @@ Quote.
 The story of when women make headlines is, like most stories about people, full of contradictions. It is violent, sensational, biased, hopeful and empowering although not all of them in equal measure. This visual essay suggests that headlines used to report women-centered news can be biased and can reinforce existing stereotypes. These headlines also tend to be more sensational than for other news topics, and they tend to represent women in situations of crime and violence.
 End quote.
 
-Link six. "Precision In Technical Discussions"
+Link six of seven. "Precision In Technical Discussions"
 
 Sometimes even technical people can use very vague, and non-specific language to describe a technical concept. I have a personal favorite that I call people on routinely when they say a process, application, or computer "crashed." Crashed is a non-technical term used by people that do not understand how computers work. Crashed is a pointless word for technical experts to use to describe an event. Instead of crashed, describe what actually happened.
 
-Link seven. "Polar bears move into abandoned Arctic weather station – photo essay | Arctic | The Guardian"
+Link seven of seven. "Polar bears move into abandoned Arctic weather station – photo essay | Arctic | The Guardian"
 
 I have a soft spot in my heart for Polar Bears. I often refer to them as my spirit animal. The only other animal that comes close for me are Bison. These photos of Polar Bears on this island are really incredible. So many of them in close proximity too.
 
@@ -138,31 +140,33 @@ That's the end of the Journal.
 
 Now, the Briefly section.
 
-Link one. "AssangeDAO Raises 55 million dollars in Six Days to Help Liberate WikiLeaks’ Founder - Blockworks"
+There are seven links this week.
+
+Link one of seven. "AssangeDAO Raises 55 million dollars in Six Days to Help Liberate WikiLeaks’ Founder - Blockworks"
 
 I’m not necessarily a Julian Assange advocate, but this is another example of a DAO with a lot of momentum in a very short time.
 
-Link two. "SHA256 Algorithm Explained"
+Link two of seven. "SHA256 Algorithm Explained"
 
 Very cool project that allows you to step through every part of the SHA256 algorithm. I can’t say that I know how it works now, but if nothing else it is cool to watch it run!
 
-Link three. "Nerdle - the daily numbers game"
+Link three of seven. "Nerdle - the daily numbers game"
 
 Like Wordle but for numbers and math. Also, requires an entirely different approach.
 
-Link four. "The Sample"
+Link four of seven. "The Sample"
 
 Interesting service that sends you a different newsletter each day so you can "sample" them and if you like it subscribe.
 
-Link five. "Country Flags in SVG | flag-icons"
+Link five of seven. "Country Flags in SVG | flag-icons"
 
 Good resource if you need a set of flags on the web.
 
-Link six. "building a modern home - Johnny Rodgers"
+Link six of seven. "building a modern home - Johnny Rodgers"
 
 Beware, reading this blog post may result in you wanting to build a home. The home and location look beautiful.
 
-Link seven. "Minneapolis-based Tech Company Yardstik Lands 8 million dollars raise | Twin Cities Business"
+Link seven of seven. "Minneapolis-based Tech Company Yardstik Lands 8 million dollars raise | Twin Cities Business"
 
 Another local company completing a successful fundraising.
 

@@ -8,7 +8,9 @@ PS: If you have a Weekly Thing POAP, don't miss the gift that has been sent to y
 
 Now, the Featured section.
 
-Link one. "Lisp, Smalltalk, and the Power of Symmetry | In Search of Secrets"
+There are two links this week.
+
+Link one of two. "Lisp, Smalltalk, and the Power of Symmetry | In Search of Secrets"
 
 Programmers have a lot of languages to choose from, but some stand out above others. Lisp and Smalltalk are two that have reverence above and beyond most languages. Most languages are seen as a tool for a job, but Lisp and Smalltalk have an elegance and beauty that inspire and delight.
 
@@ -18,7 +20,7 @@ End quote.
 
 This article gives a flavor of how programmers see that beauty.
 
-Link two. "Friendships form via shared context, not shared activities | Bill Mei"
+Link two of two. "Friendships form via shared context, not shared activities | Bill Mei"
 
 I think this is spot on.
 
@@ -50,7 +52,9 @@ That's the end of Gift for Weekly Thing POAP Holders.
 
 Now, the Notable section.
 
-Link one. "Ukrainian farmers make stop in Minneapolis and appeal for help | Star Tribune"
+There are fifteen links this week.
+
+Link one of fifteen. "Ukrainian farmers make stop in Minneapolis and appeal for help | Star Tribune"
 
 In Weekly Thing #213 I shared my reflections from being to Ukraine many times, including this comment.
 
@@ -60,21 +64,21 @@ End quote.
 
 Ukraine farms a lot of wheat. And Russia's War is threatening that harvest.
 
-Link two. "Calendar.txt"
+Link two of fifteen. "Calendar.txt"
 
 I sort of hoped this was an April Fool's joke but, nope. Now, it is an interesting example of using the inherent structure of data to make it easy to search, filter, and navigate. I mean, you could actually make this work with just a text file as the database. But, it seems crazy to try to do anything more than an insanely simple example.
 
-Link three. "Thin Platforms – Stratechery by Ben Thompson"
+Link three of fifteen. "Thin Platforms – Stratechery by Ben Thompson"
 
 Thompson is incredible insightful and this analysis of the Microsoft and Stripe approaches doesn't let us down. It is hard to read this and not also see the huge pendulum swing that technology has made between client-server, big centralized mainframes, and highly distributed systems. There is an underlying ebb and flow in our industry around that. The right answer? There is not one. Different solutions work better in different models. There is no one-size-fits-all.
 
-Link four. "Letter in Support of Responsible Fintech Policy"
+Link four of fifteen. "Letter in Support of Responsible Fintech Policy"
 
 A number of really smart technologist, including more than a few that I follow very closely, publicly asking the government to be very skeptical of crypto. My view on this is that existing law around insider trading and fraud should and can be enforced in crypto today. I think regulation, particularly around stablecoins should exist. But other than that their should be a "light touch" to allow a lot of experimentation now.
 
 Sadly I think a balanced and nuanced approach is likely impossible as everyone screams from their various bunkers.
 
-Link five. "Shut it Down!"
+Link five of fifteen. "Shut it Down!"
 
 Good (and entertaining) read on Fed policy and inflation and how the overall market trends impact the crypto markets as well.
 
@@ -90,37 +94,37 @@ End quote.
 
 Overall smart take, but who knows what will really happen. No crystal balls available.
 
-Link six. "Felt – The best way to make maps on the internet"
+Link six of fifteen. "Felt – The best way to make maps on the internet"
 
 First off, I think maps are great. Maps can tell stories. They can do so much. Unfortunately digital maps are hard to augment with your own story. This service seems incredible. Watch the video overview. You can not just annotate maps but augment them with entirely new information. It look incredible! I may use this to create a map when we go to Iceland.
 
-Link seven. "Intro to the Web Revival #1: What is the Web Revival? | Melon's Thoughts"
+Link seven of fifteen. "Intro to the Web Revival #1: What is the Web Revival? | Melon's Thoughts"
 
 Publishing your own website is a great way to be part of maintaining an open and independent web. I disagree with the crypto position in here, and need to write more on that. The hostility of the IndieWeb community to crypto makes no sense to me.
 
-Link eight. "How a Single Raspberry PI made my Home Network Faster"
+Link eight of fifteen. "How a Single Raspberry PI made my Home Network Faster"
 
 This is a great overview of the amazing impact that Pi-hole can have on your entire network. I ran a Pi-hole for a long time and it was great to have privacy protection and ad blocking network wide. However, I ultimately ended up removing it. I can’t recommend the Pi-hole because the way it works is to break certain types of requests. Usually that doesn't create a problem, but sometimes it makes websites not work. And when it does, it is nearly impossible for a non-technical user to know what is going on.
 
-Link nine. "Electronic Catan LCD Tiles · Colin Iuliano"
+Link nine of fifteen. "Electronic Catan LCD Tiles · Colin Iuliano"
 
 This is an incredibly cool project. I would love to play Catan using interactive tiles. it could bring so many cool new dimensions to the game. It makes me want to have a variety of square, hex, and other shaped tiles that could plug together and then have a programmable interface to create various games on them. You could extend this to many other games.
 
-Link ten. "The Science Is Clear: Gun Control Saves Lives - Scientific American"
+Link ten of fifteen. "The Science Is Clear: Gun Control Saves Lives - Scientific American"
 
 I've felt this way forever, and I only agree more as each shooting happens with ever more frequency. Sadly I don't think politicians have any path to get this done. I hate to be cynical, but I think they gain more value from this not being solved, than doing anything productive here.
 
-Link eleven. "The Crypto Wallet: Unlocking Digital Identity"
+Link eleven of fifteen. "The Crypto Wallet: Unlocking Digital Identity"
 
 When you use your wallet to connect to dozens of services and are instantly logged in with a secure connection, no password, and still maintain your privacy it is a game changing experience. This is a component of the web3 stack that I think has a huge potential. At the moment though, the user experience is far too complicated and the software is not simple enough. If you imagine a future where these features are built into a browser you have one of the nicest experiences you could imagine to access services online. Username and password? May not need it at all.
 
-Link twelve. "The age of Scrum is over | Medium"
+Link twelve of fifteen. "The age of Scrum is over | Medium"
 
 An argument that Scrum has passed its usefulness. I’m not sure I agree, but I do think that is is appropriate to think of any methodology and it’s solutions in the context of it’s time. There will clearly be a point where Scrum has outlived its utility. Please note that I, and the author, clearly delineate Scrum as different than Agile. Agile is a class of things, Scrum is a specific instance in it.
 
 The particular point that I think scrum misses on over time is engagement outside of the typical developer stack, such as infrastructure as code and service team operation. Also, Scrum lacks a way to think about broader stakeholders and dependencies. The answers Scrum provides for both of these areas are immature and light. Most people end up having to roll-their-own process for these things.
 
-Link thirteen. "Field-Value Automata"
+Link thirteen of fifteen. "Field-Value Automata"
 
 Great essay, really for programmers, on optimizing a specific high-volume use case.
 
@@ -136,7 +140,7 @@ End quote.
 
 The dynamics of immense load on software systems is truly impossible to model.
 
-Link fourteen. "The ENS Boom - Metaversal"
+Link fourteen of fifteen. "The ENS Boom - Metaversal"
 
 The Ethereum Name Service has broken out as the best solution for friendly names, like thingelstad.eth, to map to Ethereum addresses. This is a really big deal and making this easy is even more important than Domain Name Service that powers website addresses turning into IP addresses. Why? Because ENS names can be used as identity in addition to other things. I’m incredibly impressed with the service. I also love that it is leading the way on how to run a great DAO. It is modeling how web3 can be truly different.
 
@@ -146,7 +150,7 @@ End quote.
 
 This is amazing growth. The ENS names I have registered: thingelstad.eth, thinglestad.eth, jamiethingelstad.eth, things4good.eth, thingsforgood.eth, magicpines.eth, knoxave.eth, nightofcrypto.eth, rwbookclub.eth, roadsignmath.eth, weeklything.eth, 0xjjt.eth, web3msp.eth.
 
-Link fifteen. "Is Management Burnout Inevitable?"
+Link fifteen of fifteen. "Is Management Burnout Inevitable?"
 
 Being a manager is an incredibly hard job and one that deserves so much respect and support. This is the crucible where strategy turns into action and outcomes. I do think manager burnout is avoidable. It requires good relationships and dialog with those around you.
 
@@ -225,47 +229,49 @@ That's the end of the Journal.
 
 Now, the Briefly section.
 
-Link one. "WorldWideWeb, Part II • The Breakroom"
+There are eleven links this week.
+
+Link one of eleven. "WorldWideWeb, Part II • The Breakroom"
 
 Such a great new app from Iconfactory. Stand-alone app that delivers a directory on your computer as a website. Great developer features like no caching and it handles formats like JSON. Plus, there is an iOS version too.
 
-Link two. "Is Web3 the future of the Web?: Key takeaways from our webinar"
+Link two of eleven. "Is Web3 the future of the Web?: Key takeaways from our webinar"
 
 The World Wide Web Foundation with some broad and general comments on Web3 technologies. Mostly "Interesting, and potential, we'll see where it goes". Seems like a fair view to me.
 
-Link three. "The Web's Timeline"
+Link three of eleven. "The Web's Timeline"
 
 Super cool and ambitious attempt to capture a giant timeline of the Web. It was really fun to look through the various years and see projects from so long ago. Made me wonder when I launched my very first personal website.
 
-Link four. "A belief in meritocracy is not only false: it’s bad for you"
+Link four of eleven. "A belief in meritocracy is not only false: it’s bad for you"
 
 This is a topic I would still like to understand better. I do get the argument, would just like to understand the depth more.
 
-Link five. "Dragonfly"
+Link five of eleven. "Dragonfly"
 
 Redis and memcache are both incredibly powerful and popular tools for in-memory data storage. Dragonfly is attempting to support both of those API's natively, and just give even better performance.
 
-Link six. "A decade of dotfiles"
+Link six of eleven. "A decade of dotfiles"
 
 Great examples of how Unix can be customized to fit just perfectly the problems you are trying to solve.
 
-Link seven. "How To Say No"
+Link seven of eleven. "How To Say No"
 
 It can be really hard to say no. This resource aggregates templates from a variety of people to say no to common requests. This could be a useful resource.
 
-Link eight. "One Way Fastmail Developers Build a Creative Workplace Culture"
+Link eight of eleven. "One Way Fastmail Developers Build a Creative Workplace Culture"
 
 First of all, the Vestaboard is super cool and I would love to have one to play with. Creating a web app so teams can send messages to each other is a fun way to build culture across teams.
 
-Link nine. "Tiddlyhost"
+Link nine of eleven. "Tiddlyhost"
 
 I love wikis. TiddlyWiki is a great option that you can even just run on your local laptop. But having a super-simple hosting service like this is great.
 
-Link ten. "Virtual Graph Paper - Sketch on a Grid"
+Link ten of eleven. "Virtual Graph Paper - Sketch on a Grid"
 
 Simple and cool app for diagraming.
 
-Link eleven. "mood"
+Link eleven of eleven. "mood"
 
 This app seems super simple which may be the key to actually capturing your mood over time.
 

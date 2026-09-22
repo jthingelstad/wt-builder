@@ -16,7 +16,9 @@ That's the end of Currently.
 
 Now, the Notable section.
 
-Link one. "Piccolo - A Stackless Lua Interpreter"
+There are nine links this week.
+
+Link one of nine. "Piccolo - A Stackless Lua Interpreter"
 
 I wasn't familiar with the term stackless but reading this was a great overview. Plus as many know I have a fondness for Lua so this article caught my attention.
 
@@ -26,7 +28,7 @@ End quote.
 
 The examples of how this stackless implementation provides for many benefits are great. The article references inspiration from Stackless Python.
 
-Link two. "Differential privacy - Explained"
+Link two of nine. "Differential privacy - Explained"
 
 The first time I heard the term "differential privacy" it was in Apple marketing on how they were protecting privacy but still getting information to improve usability. However, I didn’t know specifically what it meant. Here is a good definition.
 
@@ -36,15 +38,15 @@ End quote.
 
 Tons of links to other articles about this technique as well as various libraries.
 
-Link three. "Companies Are Just a Graph of Algorithms"
+Link three of nine. "Companies Are Just a Graph of Algorithms"
 
 Interesting framing from Miessler. To reinforce his thought process I would highlight the importance of System Thinking to most businesses. The reason it is important is that any company of size has to think of the systems in the business and optimize them. Additionally think about organizational design. Many of those models focus on functional units with inputs and outputs. Combine those things and you get far away from some organic jazz band and into a choreographed symphony working with a clear set of systems and processes. Given that framing, AI can be very effective at many of those parts.
 
-Link four. "ENS Labs Unveils Integration with .box Domains: A New Era for Web3 Identities | ENS Blog"
+Link four of nine. "ENS Labs Unveils Integration with .box Domains: A New Era for Web3 Identities | ENS Blog"
 
 I have a thesis around Web3 technology that it will blend into the existing web and be the central force behind a push, which I’m not sure will be big or small, to decentralize services. I dislike how it is used as opposition to the current web stack. And the best example I see for exemplifying this is what the ENS team is doing. Ethereum Name Service is a critical capability that turns thingelstad.eth into my wallet address, just like DNS turns thingelstad.com into my website address. Several months back ENS also made it so I can put my wallet address in DNS and now ENS can resolve thingelstad.com to my wallet address too. The next step is to have a completely merged top-level domain that blends traditional DNS and ENS into one, and that is what I think we'll see figured out with .box.
 
-Link five. "The defensive arrogance of TL;DR | Seth's Blog"
+Link five of nine. "The defensive arrogance of TL;DR | Seth's Blog"
 
 Godin with another nugget of wisdom here.
 
@@ -54,19 +56,19 @@ End quote.
 
 A related concept that comes to my mind is the journey matters, not just the destination. Godin references "Dopamine Culture", and Dopamine Nation is in my Audible library on the recommendation of a friend. Godin's little post here also connected my thinking to the book How to Read a Book where Adler asserts a method to reading that takes you deeper into the matter.
 
-Link six. "Amazon: Wild Margin Expansion - App Economy Insights"
+Link six of nine. "Amazon: Wild Margin Expansion - App Economy Insights"
 
 I love the visual in this article breaking down the components of Amazon's financials. AWS is now 50% the size of the Amazon.com business, and is contributing a big chunk of the profit. It reports a 34% margin. Wasn't it Jeff Bezos who coined the saying "Your margin is your competitions opportunity."? The problem in this hyper scale cloud environment is the capital required to run a business like this is ridiculous. And there is no way that other companies can acquire capital as cheaply as Amazon.
 
-Link seven. "Marvel Studios and ILM Immersive Announce an Upcoming Vision Pro Project Based on the 'What If…?' Series - MacStories"
+Link seven of nine. "Marvel Studios and ILM Immersive Announce an Upcoming Vision Pro Project Based on the 'What If…?' Series - MacStories"
 
 This sounds interesting and I can’t wait to experience it. It also highlights the kind of thing that I would have presumed Apple would have had dozens of lined up for the Vision Pro. My biggest disappointment of the Vision Pro launch is the lack of content that Apple worked with partners to make available and continuously release after the launch. There needs to be more of this to amp up the entertainment use case for the Vision Pro.
 
-Link eight. "How the US Is Destroying Young People’s Future | Scott Galloway | TED - YouTube"
+Link eight of nine. "How the US Is Destroying Young People’s Future | Scott Galloway | TED - YouTube"
 
 I listen to Scott Galloway on Pivot and I also follow his No Mercy/No Malice newsletter. He frequently references the "transfer of wealth from the young to the old" in a variety of different systems. Here is his TED presentation framing up his argument in a more complete way. The data is stark. I am left with a question of the motive. Is it as he says an intentional effort or is the data a sign of some other decline. However, either way his call to action is valid and right. We should be doing something to make America a better place for our kids. Added bonus that there is actually humor in his talk, not common for TED.
 
-Link nine. "Plinky"
+Link nine of nine. "Plinky"
 
 This is a new bookmarking service that looks well done, and interestingly is currently mobile only. I like the vibe of this app and also appreciate that it looks designed well. I installed it and it was easy to use and full featured. I'll stick to Pinboard where I have over 14,650 links stored. I find many of the bookmarking services struggle with large databases, and particularly struggle with database synchronization to a mobile device. But if you are just getting started saving links for sharing or reference this looks like a very well designed app. Check out the blog post introducing Plinky as well.
 
@@ -188,27 +190,29 @@ That's the end of the Journal.
 
 Now, the Briefly section.
 
-Link one. "Billions in profits, millions in fines! – On my Om"
+There are six links this week.
+
+Link one of six. "Billions in profits, millions in fines! – On my Om"
 
 200 million dollars in fines to four different carriers for illegally selling our location data means nothing. Totally agree with Malik here that until the cost of misusing data goes up we will not see any improvements.
 
-Link two. "What’s happening at Tesla? Here’s what experts think. | Ars Technica"
+Link two of six. "What’s happening at Tesla? Here’s what experts think. | Ars Technica"
 
 I mostly have stopped following the drama of Elon Musk, but as a two-Tesla household I have a vested interest in things like superchargers.
 
-Link three. "UnitedHealth CEO: 'Decision to pay ransom was mine' • The Register"
+Link three of six. "UnitedHealth CEO: 'Decision to pay ransom was mine' • The Register"
 
 Some background info on the Change Healthcare ransomware attack, including the CEO owning and disclosing that they did pay 22 million dollars in ransom.
 
-Link four. "Read Satya Nadella’s Microsoft memo on putting security first - The Verge"
+Link four of six. "Read Satya Nadella’s Microsoft memo on putting security first - The Verge"
 
 Security risks continue to grow, and even big companies with tons of resources and capital have struggles with it.
 
-Link five. "Daring Fireball: Boring News: Vision Pro Sales Are Going Just About as Expected"
+Link five of six. "Daring Fireball: Boring News: Vision Pro Sales Are Going Just About as Expected"
 
 There is constant YouTuber speculation on the fate of the Vision Pro. This is a new platform that will take years to develop. Similar to the first Apple Watches that were underpowered and didn’t do much. It is going to take some time for VisionOS to find footing, and it isn't a guarantee that it will.
 
-Link six. "Maybe we all should be conspiracy theorists now… – Rhoneisms"
+Link six of six. "Maybe we all should be conspiracy theorists now… – Rhoneisms"
 
 My friend Patrick reminding us to think more about the "why?" of some of the memes that pass around the social media ecosystem. One of the benefits of removing oneself from social media is you don't even know these are there so it is very easy to ignore.
 

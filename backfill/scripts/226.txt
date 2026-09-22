@@ -24,7 +24,9 @@ And you never meet the people, you never shake their hands, you never hear their
 
 Now, the Featured section.
 
-Link one. "Billionaire No More: Patagonia Founder Gives Away the Company"
+There are three links this week.
+
+Link one of three. "Billionaire No More: Patagonia Founder Gives Away the Company"
 
 Yvon Chouinard, founder of Patagonia, has long been an atypical founder.
 
@@ -40,7 +42,7 @@ End quote.
 
 It will be interesting to see how this works out. I suspect it will work very well. Patagonia has always been driven by its values. This structure will allow it to continue to do that.
 
-Link two. "Is Engineering Management Bullshit? - Make Art with Python"
+Link two of three. "Is Engineering Management Bullshit? - Make Art with Python"
 
 The provocative title of this article draws attention right away. As I read Kaiser's thoughts I noted that his reading list is very similar to mine. I’m a big fan of Peter Drucker and I like that he starts and ends this assessment with Drucker's thinking on knowledge work.
 
@@ -56,7 +58,7 @@ Quote.
 Going back to Drucker, a manager’s job is to prepare people to perform, and to give them freedom to do so. Creative people need psychological safety in order to perform. An effective manager provides this, along with coaching to help reports become more effective versions of themselves. This should then allow them to reap long term rewards. An effective manager builds trust and space for their reports to execute, along with guidance for where their efforts will have the largest impact, helping them to continue growing in their career. An effective manager cares for their team, their work, and its effect beyond the immediate organization. They are stewards first, realizing that much is beyond their control.
 End quote.
 
-Link three. "Interview: Vitalik Buterin, creator of Ethereum"
+Link three of three. "Interview: Vitalik Buterin, creator of Ethereum"
 
 Vitalik Buterin is an impressive person. He reminds me of Matt Mullenweg, another technologist that I have immense respect for. What connect Vitalik and Matt in my mind is that they are both incredibly humble, have a tremendously broad view, and are working on enabling technology. For Mullenweg that means making it easy for people to publish and host websites. For Vitalik that means enabling a complete platform that a wide range of solutions can be built on. They share a strong push for decentralization. And while they have both done well economically, neither wants tremendous wealth.
 
@@ -66,7 +68,9 @@ That's the end of Featured.
 
 Now, the Notable section.
 
-Link one. "Coin Metrics' State of the Network: Special Merge Update"
+There are fifteen links this week.
+
+Link one of fifteen. "Coin Metrics' State of the Network: Special Merge Update"
 
 Great recap of the successful Ethereum transition to Proof-of-Stake, away from mining.
 
@@ -76,23 +80,23 @@ End quote.
 
 I stayed up late to watch this event live. It was a fun bit of history to be part of.
 
-Link two. "The Follower – Dries Depoorter"
+Link two of fifteen. "The Follower – Dries Depoorter"
 
 This is a bit mind-blowing. Depoorter used publicly available webcams and then used ML to match it to Instagram photos. What you get is surveillance footage of the Instagram shot. It is creepy to watch, highlights the ridiculous "gloss" of Instagram, and is a reminder of how connected data can get. Take a moment to think through all the Door ring bells out there capturing video. Creepy…
 
-Link three. "What makes a senior engineer? Writing software versus building systems"
+Link three of fifteen. "What makes a senior engineer? Writing software versus building systems"
 
 The central thesis of this article resonates with me, while the specifics I might debate or disagree with. Piechocki chose to write it using "Junior Engineers" and "Senior Engineers", which may make it harder to parse as many would consider those job titles. If I read this as "Less experienced" and "More experienced" engineers, it resonates better. The primary point is that just writing code is not even close to all you need to be successful. Experienced engineers know where things will break, what situations will happen in a year that you need to plan for now. Bringing those insights to less experienced engineers in a helpful way is one of the most valuable things an experienced engineer can do.
 
-Link four. "watchOS 9: The MacStories Review"
+Link four of fifteen. "watchOS 9: The MacStories Review"
 
 I rely on MacStories reviews to keep up-to-date on all the new features in Apple releases. Most of these changes in watchOS 9 really don't do too much for me. It’s continuing improvement and iteration.
 
-Link five. "Tokimeki Unfollow"
+Link five of fifteen. "Tokimeki Unfollow"
 
 I still struggle with Twitter. Should I syndicate to it? Should I engage with something that I commonly refer to as a "dumpster fire of hate". I do know that your experience on Twitter is disproportionately impacted by who you follow, more than anything else. This tool is a great way to prune that list, and probably give you a better experience. Hat tip to Patrick Rhone for repeatedly highlighting the value of this.
 
-Link six. "iOS 16: The MacStories Review - MacStories"
+Link six of fifteen. "iOS 16: The MacStories Review - MacStories"
 
 Viticci is out again with another massive review of the latest version of iOS! I like the framing he starts with:
 
@@ -102,11 +106,11 @@ End quote.
 
 I’m a bit skeptical at the moment because at least in my experience some of these features are just too complicated. Apple is continuing to build out Focus Modes, and tying those into Lock Screens and additional widgets. I've yet to understand the mental model that this is built on, and if I can’t see that I have no idea how your average user is going to figure it out. We'll see. Also check out Viticci's iOS 16: All the Things I Didn’t Like list.
 
-Link seven. "The Steve Jobs Archive"
+Link seven of fifteen. "The Steve Jobs Archive"
 
 Beautiful, simple, and fitting website to archive and honor Steve Jobs. There are many in tech that were inspired and even want to emulate Jobs, but there is a lot of cherry picking. Given that Jobs was a well known tyrant to get his way, and also it probably serves Jobs well that Twitter didn’t exist during his life. Perhaps he would come off as poorly as some other billionaire Tweeters. I don't know. But I do have an incredible amount of respect for what Jobs created, and by and large, even the way that they created it. He had a very clear vision.
 
-Link eight. "Honoring Peter Eckersley, Who Made the Internet a Safer Place for Everyone | Electronic Frontier Foundation"
+Link eight of fifteen. "Honoring Peter Eckersley, Who Made the Internet a Safer Place for Everyone | Electronic Frontier Foundation"
 
 Even if you have never heard of Eckersley, you have benefited greatly from the work that he led with many others at the EFF and Let's Encrypt. I believe that Let's Encrypt should be recognized for the amazing impact it has had to make the web more secure. Before Let's Encrypt setting up HTTPS was hard and expensive. Let's Encrypt changed that entirely.
 
@@ -116,29 +120,29 @@ End quote.
 
 The web is a safer, more secure, more private place because of the work that Eckersley led. Also see message from the Let's Encrypt Community.
 
-Link nine. "One-on-ones with executives."
+Link nine of fifteen. "One-on-ones with executives."
 
 I’m a fan of Larson's writing and was particularly curious when I saw this one. His previous article on presenting to executives is spot on. I found his ontology of types of executive one-on-ones interesting: Fact Finding, Loyalty Check, Meet and Greet, Mentorship. I think that is pretty accurate, and I would concur with Larson that the Loyalty Check one should be uncommon or rarely ever.
 
-Link ten. "You Should Be Using Python's Walrus Operator - Here's Why | Martin Heinz"
+Link ten of fifteen. "You Should Be Using Python's Walrus Operator - Here's Why | Martin Heinz"
 
 An argument for the use of the:= operator in Python, but also a great set of "Pythonic" examples of the cool things you can do with Python.
 
-Link eleven. "Hands On: iCloud Shared Photo Library and Family Checklist - MacStories"
+Link eleven of fifteen. "Hands On: iCloud Shared Photo Library and Family Checklist - MacStories"
 
 This feature ended up getting pushed out to iOS 16.1. This is something that I think many families would like to have, sharing all (or mostly all) of the photos that we take on our phones into one big shared library. However, it is a hard problem to work through and figure out the specific rules for an incredible number of edge cases. This overview is a good primer on how Apple is addressing those edge cases.
 
-Link twelve. "After self-hosting my email for twenty-three years I have thrown in the towel. The oligopoly has won."
+Link twelve of fifteen. "After self-hosting my email for twenty-three years I have thrown in the towel. The oligopoly has won."
 
 I gave up running my own mail in two thousand seven. Largely because of spam managing email servers is a terribly tricky business. In the intervening years the software has gotten better, but the problems have gotten even worse. This article highlights some of the modern challenges, which are yet different these days. I still have one technical friend who runs his own mail ( hi Hadar!) and I know he can validate these same issues.
 
-Link thirteen. "Less is more agile | Tales about Software Engineering"
+Link thirteen of fifteen. "Less is more agile | Tales about Software Engineering"
 
 There is this view, I'll call it Agile Purist, that I find frustrating in software. There are more than a handful of folks, including some very smart people that I highly respect, who seem to believe the only thing we need to know to build great software is the Agile Manifesto. Frankly, I've never seen that be enough to organize anything more than a trivial size team creating a small number of things. It is a frustrating argument to get into too, since inevitably the purist will refute all your arguments to the contrary with "Your doing it wrong".
 
 The Agile Manifesto was a good solution for the time but it misses a lot of dimensions. There were no marketing, sales, or customer teams writing that manifesto. There were also no operations people making sure stuff works 24 hours a day. There also weren't any women authoring the manifesto.
 
-Link fourteen. "Running More Low-Severity Incidents Is Improving Our Culture"
+Link fourteen of fifteen. "Running More Low-Severity Incidents Is Improving Our Culture"
 
 This is a thought provoking read. It made me think of one of my favorite DevOps sayings, "If it hurts, do it more until it stops." The point being that if releasing software is hard for your team, you need to do it more often not less. You can replace a lot of different actions in that statement, and if running incidents is hard for your team, maybe you should do it more?
 
@@ -148,7 +152,7 @@ End quote.
 
 As I think about my own use of incident management in teams we have gradually increased the scope of it to include more "types" or "severities" of incidents. If you have a good process, and it clearly helps you communicate, structure response, etc. there can be benefit to using it.
 
-Link fifteen. "The Sender Policy Framework (SPF)"
+Link fifteen of fifteen. "The Sender Policy Framework (SPF)"
 
 I've had to figure out enough of SPF in order to configure mail for thingelstad.com, and when you start doing a newsletter the mail settings for your domain get much more important to avoid spam folders. This dig into SPF was a fun rabbit hole. I actually LOL'd for real when I got to the section on macros. I had no idea SPF supported macros!
 
@@ -286,39 +290,41 @@ That's the end of the Journal.
 
 Now, the Briefly section.
 
-Link one. "iPhone 14 Pro Camera Review: Scotland — Travel Photographer - Austin Mann"
+There are nine links this week.
+
+Link one of nine. "iPhone 14 Pro Camera Review: Scotland — Travel Photographer - Austin Mann"
 
 48MP ProRaw images coming off an iPhone are incredible. I keep wondering where the limit on mobile photography is, and it seems to just get further away. The shots in this article are incredible.
 
-Link two. "iPhone 14 Pro Camera Preview: The Hardware Changes – Lux"
+Link two of nine. "iPhone 14 Pro Camera Preview: The Hardware Changes – Lux"
 
 Technical details of the new iPhone 14 Pro camera. The disclaimer at the top about computational photography is of growing importance. It seems that Apple can make even bigger changes in the computational side versus the specific details of the sensors.
 
-Link three. "IKEA’s Knowledge Graph and Why It Has Three Layers | Flat Pack Tech"
+Link three of nine. "IKEA’s Knowledge Graph and Why It Has Three Layers | Flat Pack Tech"
 
 Interesting to see IKEA using sophisticated ontology and knowledge graph approach to thinking about products, and perhaps many additional concepts. The article is a bit vague on the intended use cases, but will be curious to see what may come of this.
 
-Link four. "JSON Hero"
+Link four of nine. "JSON Hero"
 
 Powerful tool to visualize your JSON data and navigate through it quickly.
 
-Link five. "Ukraine seizes the initiative in the east | The Economist"
+Link five of nine. "Ukraine seizes the initiative in the east | The Economist"
 
 Amazing to see the Ukraine army taking back so much territory from Russia.
 
-Link six. "How Does the Oura Ring Track My Sleep? - The Pulse Blog"
+Link six of nine. "How Does the Oura Ring Track My Sleep? - The Pulse Blog"
 
 I've had my Oura Ring for several months now and I have been impressed with how good it is at tracking sleep, and providing usable information that you can action. I've found several other sleep devices and apps that fail on both of these accounts.
 
-Link seven. "Ethereum Co-founder Vitalik Buterin Appears at Kyiv Tech Summit to Support for Ukraine"
+Link seven of nine. "Ethereum Co-founder Vitalik Buterin Appears at Kyiv Tech Summit to Support for Ukraine"
 
 I’m a big fan of Vitalik Buterin, and the fact that he travelled in person to this event in Kyiv, in the midst of Russia's attacks on Ukraine, is incredible.
 
-Link eight. "The 3 Secret Blunders Leaders Make"
+Link eight of nine. "The 3 Secret Blunders Leaders Make"
 
 This list from Rockwell is a good checkpoint for any leader, and applies at various levels. All three of these are things I have struggled with or considered at times.
 
-Link nine. "Playdate Community Bundle - itch.io"
+Link nine of nine. "Playdate Community Bundle - itch.io"
 
 The Playdate is a fun handheld gaming platform, and the open SDK has allowed community games to flourish. I love the creativity and indie spirit here.
 

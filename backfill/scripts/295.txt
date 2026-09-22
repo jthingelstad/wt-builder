@@ -20,7 +20,9 @@ Let's jump into the the links…
 
 Now, the Featured section.
 
-Link one. "Beyond the link tax: journalism and the changing nature of the internet - Halifax Examiner"
+There is one link this week.
+
+Link one of one. "Beyond the link tax: journalism and the changing nature of the internet - Halifax Examiner"
 
 I commented on linking on my blog in May:
 
@@ -52,7 +54,9 @@ That's the end of Featured.
 
 Now, the Notable section.
 
-Link one. "LG Smart TVs, including OLEDs, now show screensaver ads - FlatpanelsHD"
+There are seven links this week.
+
+Link one of seven. "LG Smart TVs, including OLEDs, now show screensaver ads - FlatpanelsHD"
 
 If there is a headline that could throw me into a rage it is this one.
 
@@ -69,7 +73,7 @@ That my friends is why every TV I own has an Apple TV plugged into it and I neve
 
 I have however allowed them to be on WiFi because of my OCD needs to have current firmware. That is leaving a huge backdoor. I’m going to add a task to remove WiFi settings from all my TVs so that they cannot communicate with anything.
 
-Link two. "Bitcoin: A Global Liquidity Barometer - Lyn Alden"
+Link two of seven. "Bitcoin: A Global Liquidity Barometer - Lyn Alden"
 
 Interesting analysis advised from Alden looking at Bitcoin price movement and what it is aligned with.
 
@@ -79,7 +83,7 @@ End quote.
 
 I consider Bitcoin a long-term hold. However, understanding what drives the price movement better would be helpful, particularly if Bitcoin is down significantly like it was in recent years. Connecting to price drivers could provide the insight needed to buy into those drops.
 
-Link three. "POSSE: Reclaiming social media in a fragmented world"
+Link three of seven. "POSSE: Reclaiming social media in a fragmented world"
 
 White generally highlights many good benefits of the IndieWeb strategy to Publish on your Own Site, Syndicate Everywhere (POSSE). It is a great way to make sure that you always have full access to all of your writing, photos, and whatever else. Note that I’m careful to not say ownership because all social platforms assume ownership of everything you post. Syndicated from your blog doesn't matter. The syndicated copy of that article is now the property of the social platform.
 
@@ -98,17 +102,17 @@ Syndicating content into all these surveillance systems in some way feels to me 
 
 The medium does matter, and I want my medium to be the open web. I also don't mind that if you want to read that, you need to leave those platforms and venture out into the web. Don't worry, it is great out here.
 
-Link four. "Canvas is a new way to write and code with ChatGPT | OpenAI"
+Link four of seven. "Canvas is a new way to write and code with ChatGPT | OpenAI"
 
 OpenAI is extending the context of ways you work with ChatGPT with this new offering. The overview makes a ton of sense, and will make ChatGPT a much more capable collaborator. I’m interested to try this out.
 
-Link five. "Paypal Opted You Into Sharing Data Without Your Knowledge"
+Link five of seven. "Paypal Opted You Into Sharing Data Without Your Knowledge"
 
 This article is for subscribers only but the headline and first paragraph are enough. LinkedIn has been on my naughty list for years for doing this kind of random opt-in to some new way to surveil your data or mine your activity. It seems PayPal decided that was far too great to not do too. I logged into my account and sure enough I have this Personalized Shopping feature defaulted to on. I've corrected that and reviewed the rest of my privacy settings.
 
 It seems to be a best practice that once or twice a year you need to audit your privacy settings on these services.
 
-Link six. "Our Unevenly Distributed Future - Allen Pike"
+Link six of seven. "Our Unevenly Distributed Future - Allen Pike"
 
 Pike's article is really about knowing how to pick trends and determine as a technologist where to invest your time. Having a career in technology is having a career in learning. However, I truly appreciated his Waymo story.
 
@@ -126,7 +130,7 @@ End quote.
 
 Expectations of technology change quick.
 
-Link seven. "College students used Meta’s smart glasses to dox people in real time - The Verge"
+Link seven of seven. "College students used Meta’s smart glasses to dox people in real time - The Verge"
 
 The video embedded in the post from X is a good watch. A few years ago there was a similar test done where college students were asked if they could take a picture of them and they instantly identified the person with nothing else. This is extending that into a live view in glasses.
 
@@ -266,17 +270,19 @@ That's the end of the Journal.
 
 Now, the Briefly section.
 
-Link one. "FTC Report Confirms: Commercial Surveillance is Out of Control | Electronic Frontier Foundation"
+There are four links this week.
+
+Link one of four. "FTC Report Confirms: Commercial Surveillance is Out of Control | Electronic Frontier Foundation"
 
 This should not surprise anyone but I suspect it will. We need privacy legislation in the US.
 
-Link two. "NIST proposes barring some of the most nonsensical password rules | Ars Technica"
+Link two of four. "NIST proposes barring some of the most nonsensical password rules | Ars Technica"
 
-Link three. "Forever Notes - A free framework for Apple Notes"
+Link three of four. "Forever Notes - A free framework for Apple Notes"
 
 Rather than jumping into deep rabbit holes like Obsidian this is a framework that you can apply using the built-in Notes app. Reminds me a bit of the tool agnostic approach of GTD.
 
-Link four. "Nerdy Details: The Apple iPhone 16’s Camera Control Button - COOL HUNTING®"
+Link four of four. "Nerdy Details: The Apple iPhone 16’s Camera Control Button - COOL HUNTING®"
 
 I got my iPhone 16 Pro and am getting used to this new button. It does a lot of things. It reminds me of a control stick in a car in that way. I've found it a bit challenging to nuance exactly how I want it at time, but am still getting familiar.
 

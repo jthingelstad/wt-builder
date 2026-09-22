@@ -225,6 +225,34 @@ function yamlScalar(value: string): string {
   return value;
 }
 
+/**
+ * The audio fields as front-matter lines — the website's record of an
+ * episode. The back catalogue's renderer writes these same lines into the
+ * archive pages it never generated, so the two cannot drift.
+ */
+export function audioFrontMatter(e: AudioFields): string[] {
+  const fm: string[] = [];
+  if (!e.audio_url) return fm;
+  fm.push(`audio_url: ${e.audio_url}`);
+  if (e.audio_duration_seconds !== undefined) {
+    fm.push(`audio_duration_seconds: ${e.audio_duration_seconds}`);
+  }
+  if (e.audio_byte_size !== undefined) fm.push(`audio_byte_size: ${e.audio_byte_size}`);
+  if (e.audio_voice) fm.push(`audio_voice: ${e.audio_voice}`);
+  if (e.audio_chapters_url) fm.push(`audio_chapters_url: ${e.audio_chapters_url}`);
+  if (e.audio_transcript_url) fm.push(`audio_transcript_url: ${e.audio_transcript_url}`);
+  if (e.audio_chapters?.length) {
+    fm.push('audio_chapters:');
+    for (const c of e.audio_chapters) {
+      fm.push(`- start: ${c.start}`);
+      fm.push(`  title: ${yamlScalar(c.title)}`);
+      if (c.url) fm.push(`  url: ${yamlScalar(c.url)}`);
+      if (c.image) fm.push(`  image: ${yamlScalar(c.image)}`);
+    }
+  }
+  return fm;
+}
+
 function yamlLinks(links: IssueLink[]): string[] {
   const out: string[] = ['links:'];
   for (const link of links) {
@@ -259,25 +287,7 @@ export function archivePage(doc: IssueDoc, opts: SiteInputsOptions = {}): string
   fm.push(`permalink: /archive/${e.number}/`);
   fm.push('tags: issue');
 
-  if (e.audio_url) {
-    fm.push(`audio_url: ${e.audio_url}`);
-    if (e.audio_duration_seconds !== undefined) {
-      fm.push(`audio_duration_seconds: ${e.audio_duration_seconds}`);
-    }
-    if (e.audio_byte_size !== undefined) fm.push(`audio_byte_size: ${e.audio_byte_size}`);
-    if (e.audio_voice) fm.push(`audio_voice: ${e.audio_voice}`);
-    if (e.audio_chapters_url) fm.push(`audio_chapters_url: ${e.audio_chapters_url}`);
-    if (e.audio_transcript_url) fm.push(`audio_transcript_url: ${e.audio_transcript_url}`);
-    if (e.audio_chapters?.length) {
-      fm.push('audio_chapters:');
-      for (const c of e.audio_chapters) {
-        fm.push(`- start: ${c.start}`);
-        fm.push(`  title: ${yamlScalar(c.title)}`);
-        if (c.url) fm.push(`  url: ${yamlScalar(c.url)}`);
-        if (c.image) fm.push(`  image: ${yamlScalar(c.image)}`);
-      }
-    }
-  }
+  fm.push(...audioFrontMatter(e));
 
   fm.push('---');
 

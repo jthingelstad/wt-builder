@@ -32,23 +32,25 @@ Second, I heard this quote on the Prof G podcast attributed to the show After Li
 
 Now, the Notable section.
 
-Link one. "Introducing ChatGPT search | OpenAI"
+There are seven links this week.
+
+Link one of seven. "Introducing ChatGPT search | OpenAI"
 
 ChatGPT is officially in the Search space. I haven't had too many chances to use this. It has very current information. You can ask it questions more like a search engine and it seems to understand them. It shows the sources that it uses. Overall it seems pretty clever. Is this the future of search? Quite possibly. It doesn't feel like the other approaches of using a typically search engine and having AI summarize the results. This "feels" like a more capable approach.
 
-Link two. "Worried about your privacy? This service locks down 223 settings for you. - The Washington Post"
+Link two of seven. "Worried about your privacy? This service locks down 223 settings for you. - The Washington Post"
 
 Gift Link!
 
 This service looks useful if you do use these social websites and want to have them scan and make sure your privacy settings are set in ways that benefit you. Many of these companies add new things all the time and default you to on or sharing. Seems like a good tool.
 
-Link three. "How I Followed the Election Results – On my Om"
+Link three of seven. "How I Followed the Election Results – On my Om"
 
 I mostly did the same as Malik for the election results. TV news has so much filler. I particularly liked the News+ Live Activity unit that updated quickly as election results came in.
 
 The one issue I had with it is that it looked exactly like I was following a basketball or soccer game. I feel like we've brought sports thinking to politics too much — my team, your team, etc. Politics are not sports. But we are making our information around it look nearly identical to each other.
 
-Link four. "Scripting News: Wednesday, November 6, twenty twenty four"
+Link four of seven. "Scripting News: Wednesday, November 6, twenty twenty four"
 
 This quote is really from Ben Thompson's subscriber newsletter but via Dave Winer's blog highlighting this excerpt.
 
@@ -58,7 +60,7 @@ End quote.
 
 I do think most folks looked at Musk buying Twitter as a business move, but what he has done with it makes a lot more sense if you think of it like his personal media company. It is much easier to understand why you would throw a brand that had global name recognition like Twitter away overnight to replace it with X, if you just don't care at all about it as a company. Bezos owns the Washington Post. Musk owns X.
 
-Link five. "Traceroute Isn't Real | Gekk"
+Link five of seven. "Traceroute Isn't Real | Gekk"
 
 I don't use traceroute often but I have used it plenty over the years to see what network path things are taking. I assumed it was some network capability to identify this. It turns out it is completely a hack!
 
@@ -73,7 +75,7 @@ So, a couple things…
 
 I’m gonna chuckle every time I use traceroute from now on.
 
-Link six. "Your life is not a story: why narrative thinking holds you back | Psyche Ideas"
+Link six of seven. "Your life is not a story: why narrative thinking holds you back | Psyche Ideas"
 
 When I went to the Human Performance Institute in twenty twenty one of the frequent sayings was a line from Dr. Jim Loehr, one of the founders:
 
@@ -95,7 +97,7 @@ End quote.
 
 So maybe if you want to change your life, read poetry?
 
-Link seven. "Auto-texting STOP to unknown numbers | eieio.games"
+Link seven of seven. "Auto-texting STOP to unknown numbers | eieio.games"
 
 First, I have generally found that texting STOP really does work. I know that some worry that responding is just validating that there is a real human at this number and you will get more spam. That has not been my experience with text and STOP.
 
@@ -167,31 +169,33 @@ That's the end of the Journal.
 
 Now, the Briefly section.
 
-Link one. "Democratising publishing"
+There are seven links this week.
+
+Link one of seven. "Democratising publishing"
 
 Background on the history of Ghost and the non-profit that runs it. A good explanation of other ways to run publishing solutions for the web that have many advantages.
 
-Link two. "Programming Languages That Blew My Mind"
+Link two of seven. "Programming Languages That Blew My Mind"
 
 Fun overview of concepts from different languages.
 
-Link three. "Nobody cares about decentralization until they do"
+Link three of seven. "Nobody cares about decentralization until they do"
 
 Decentralization is a hard topic in part because you have to think about data and where it is stored and people generally care less and less about that. I'd still argue that collections of blogs and using RSS is fully decentralized and works just like you would want it. Social platforms struggle to get that same level of decentralization we had decades ago.
 
-Link four. "34x34x34 Rubik's Cube Record By Matt Bahner"
+Link four of seven. "34x34x34 Rubik's Cube Record By Matt Bahner"
 
 This is incredible. A fleet of 3D printers and a whole lot of obsession. The 6 minute video embedded in this page is a must watch. It weighs 94 pounds.
 
-Link five. "Please publish and share more - Jeff Triplett's Micro.blog"
+Link five of seven. "Please publish and share more - Jeff Triplett's Micro.blog"
 
 Just write, on the web, using your own domain. Easy enough.
 
-Link six. "Typst: Compose papers faster"
+Link six of seven. "Typst: Compose papers faster"
 
 If you need sophisticated typography and collaboration features.
 
-Link seven. "Data Commons"
+Link seven of seven. "Data Commons"
 
 Interesting data platform powered by Google.
 

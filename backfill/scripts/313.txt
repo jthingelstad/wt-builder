@@ -12,13 +12,15 @@ I’m going to keep this brief and hit send on Saturday. Hope you are doing well
 
 Now, the Notable section.
 
-Link one. "Secret Weblog • Succinct data structures"
+There are twelve links this week.
+
+Link one of twelve. "Secret Weblog • Succinct data structures"
 
 Loved this read and taking a moment to think hard about memory space and what we are doing with all the bits in these amazing devices we have today. Most of the time programmers today rarely even think about memory. It is just there and we can use it without thought. However, when you need to scan and iterate over data the mere size of the data can impact performance in a huge way. Here, bit operators become so much more effective.
 
 This is kind of like quantum mechanics, where at very small scales, all the rules change.
 
-Link two. "Career Development:  What It Really Means to be a Manager, Director, or VP - Kellblog"
+Link two of twelve. "Career Development:  What It Really Means to be a Manager, Director, or VP - Kellblog"
 
 Good overview of the differences in accountability between different levels of roles. This mostly focuses on the VP level and how a leader at that level needs to think about their ownership responsibilities.
 
@@ -28,7 +30,7 @@ End quote.
 
 I also love the line about directors. " I love strong directors. They get shit done." I'd upvote that comment all day long!
 
-Link three. "Undocumented commands found in Bluetooth chip used by a billion devices"
+Link three of twelve. "Undocumented commands found in Bluetooth chip used by a billion devices"
 
 This article caught my eye because of the security threat. However, when I saw the company name Espressif, I knew I had seen it before. Looking in my UniFi console I see I have one of these devices on my network!
 
@@ -48,7 +50,7 @@ End quote.
 
 None of this is even possible to exploit via the operating systems themselves.
 
-Link four. "Building an Agentic System"
+Link four of twelve. "Building an Agentic System"
 
 It is a big leap from using LLMs to perform functions inside a system or product to getting to Agentic features.
 
@@ -58,7 +60,7 @@ End quote.
 
 This is focused on coding tasks but I would expect patterns that could be applied to different Agentic paradigms.
 
-Link five. "The Fundamental Humanity of Reddit - The Atlantic"
+Link five of twelve. "The Fundamental Humanity of Reddit - The Atlantic"
 
 This is a bit of a love letter to Reddit, the site that I've never gone that deep in, but always think I should give it a deeper look.
 
@@ -68,7 +70,7 @@ End quote.
 
 The structure of Reddit definitely got more things right than wrong. If you dig Reddit, check out r/WeeklyThing. And if the Reddits you join say something about you, one of my favorites is r/candlemaking.
 
-Link six. "Here’s how I use LLMs to help me write code"
+Link six of twelve. "Here’s how I use LLMs to help me write code"
 
 Willison dove deep into LLM usage early on and has focused squarely on it for a couple of years now. This post is a great recap of what he has learned about using an LLM to help him write code.
 
@@ -84,7 +86,7 @@ End quote.
 
 We still have a lot of folks saying that computers are just going to code themselves with LLMs. Informed opinions are more aligned with Willison's. This is yet another huge boost in what developers can create. More layers of abstraction and power to create more things.
 
-Link seven. "Kill your Feeds - Stop letting algorithms dictate how you think - usher.dev"
+Link seven of twelve. "Kill your Feeds - Stop letting algorithms dictate how you think - usher.dev"
 
 As I've shared before it is not possible to write an algorithm to filter, sort, and show you information without the algorithm having a goal. There are only two truly neutral ways to do that — sorting by date and time or randomizing. This post highlights the greater concern I have over us giving an algorithm control over what we read.
 
@@ -100,7 +102,7 @@ In effect this is happening today and we know the tradeoff. Many are giving thei
 
 What is the return you are getting on the attention you give algorithms? Do you have a budget?
 
-Link eight. "Apple AI’s Platform Pivot Potential – Stratechery by Ben Thompson"
+Link eight of twelve. "Apple AI’s Platform Pivot Potential – Stratechery by Ben Thompson"
 
 As usual Thompson has a very well thought out assessment of Apple's miss announcing that Apple Intelligence's powerful Siri rebuild is going to be pushed probably a year. He pulls from Simon Willison with a guess on what is proving so hard.
 
@@ -116,7 +118,7 @@ End quote.
 
 The hardware is there but the software isn't. David Heinemeier Hansson suggests that Apple is making the mistake Microsoft did with the Internet. It is possible. Siri is such a sore spot for Apple and they haven't done enough to address it. Now the intersection of Apple Intelligence delays and the incredible amount of marketing they put in front of this is frankly embarrassing for them.
 
-Link nine. "What Really Happened With the DDoS Attacks That Took Down X | WIRED"
+Link nine of twelve. "What Really Happened With the DDoS Attacks That Took Down X | WIRED"
 
 I’m positive X is attacked every day.
 
@@ -126,7 +128,7 @@ End quote.
 
 Less of a ‘massive’ attack and more of an unprotected flank.
 
-Link ten. "The future of the internet is likely smaller communities, with a focus on curated experiences | The Verge"
+Link ten of twelve. "The future of the internet is likely smaller communities, with a focus on curated experiences | The Verge"
 
 The future is a guessing game but this read from the Verge is interesting.
 
@@ -138,7 +140,7 @@ Bolding is my addition. I’m not sure the Fediverse signals much, but Reddit mi
 
 I'd like to think that authenticity is what blogging does best. Personal, intentional, and built on trust is Web 1.0!
 
-Link eleven. "Daring Fireball: Something Is Rotten in the State of Cupertino"
+Link eleven of twelve. "Daring Fireball: Something Is Rotten in the State of Cupertino"
 
 I've read Gruber for a long time and he is an Apple fan, but that also means when he tears into them it cuts deep. This writeup on the Apple Intelligence blunders in what they promised is tough, and totally valid.
 
@@ -154,7 +156,7 @@ End quote.
 
 It is time for the often joked about Siri issues to get addressed.
 
-Link twelve. "Pokémon Go developer Niantic to sell gaming business to Saudi group | The Verge"
+Link twelve of twelve. "Pokémon Go developer Niantic to sell gaming business to Saudi group | The Verge"
 
 3.5 billion dollars for Pokémon Go is impressive. It will be curious to see how this works and also interesting to see what Niantic does with the cash. Niantic was probably the only company at the time that could make Pokémon Go, as they had learned what they needed from their earlier game, Ingress. It is also worth noting that neither of these companies own any of the intellectual property for Pokémon itself. On the flip side, all that location and profile data that has been built up over the last decade now changes hands. And Scopely seems to have more history with in-app purchases and this may be the beginning of the enshittification of Pokémon Go into a toll booth to drive more revenue at the expense of the game experience.
 
@@ -262,63 +264,65 @@ That's the end of the Journal.
 
 Now, the Briefly section.
 
-Link one. "8 Reasons a Strategic Crypto Reserve Is a Bad Idea - Nic Carter"
+There are fifteen links this week.
+
+Link one of fifteen. "8 Reasons a Strategic Crypto Reserve Is a Bad Idea - Nic Carter"
 
 Carter is pro-crypto and this is in a crypto focused publication. What crypto does need is clear rules of the road. The government needs to do its job here. I would agree with Carter on a crypto reserve. It makes no sense to me beyond being a grift for crypto venture lobbying.
 
-Link two. "Church Of Turing - The Landscape of Lisp"
+Link two of fifteen. "Church Of Turing - The Landscape of Lisp"
 
 Tons of depth on the Lisp ecosystem.
 
-Link three. "Naturally occurring molecule rivals Ozempic in weight loss, sidesteps side effects"
+Link three of fifteen. "Naturally occurring molecule rivals Ozempic in weight loss, sidesteps side effects"
 
 Super interesting continued research into the mechanisms that make GLP-1 drugs effective and alternative or superior ways to get the same benefit. This one used AI to explore options much faster.
 
-Link four. "The Einstein AI model"
+Link four of fifteen. "The Einstein AI model"
 
 What would it take for an LLM to be revolutionary and not just hold existing knowledge but challenge it. That challenging is often what drives real innovation.
 
-Link five. "Age and cognitive skills: Use it or lose it | Science Advances"
+Link five of fifteen. "Age and cognitive skills: Use it or lose it | Science Advances"
 
 Never stop learning!
 
-Link six. "Yessica's Pencils | David O'Hara"
+Link six of fifteen. "Yessica's Pencils | David O'Hara"
 
 A great read ostensibly about the gift of pencils and a developing artist, from Weekly Thing reader!
 
-Link seven. "WireMock - flexible, open source API mocking"
+Link seven of fifteen. "WireMock - flexible, open source API mocking"
 
 Handy service to create mock endpoints to build software around.
 
-Link eight. "H3"
+Link eight of fifteen. "H3"
 
 Intriguing way to map the world using a multi-layered hexagonal grid. Developed by Uber. Alternative to longitude and latitude?
 
-Link nine. "The hidden world beneath the shadows of YouTube's algorithm"
+Link nine of fifteen. "The hidden world beneath the shadows of YouTube's algorithm"
 
 YouTube is so hard for me to classify. Is it a social platform? Yeah. Is it Internet infrastructure? Yeah. Is it archiving all video for the future? Yeah. Is it radicalizing people? Yeah. I’m left with it is a platform, and an incredibly powerful one used in many ways.
 
-Link ten. "updown.io – Website monitoring, simple and inexpensive"
+Link ten of fifteen. "updown.io – Website monitoring, simple and inexpensive"
 
 This is a great service at a super pay-for-what-you-use price. They even support dead man checks. I’m using this to monitor my websites now.
 
-Link eleven. "How Much Are LLMs Actually Boosting Real-World Programmer Productivity? — LessWrong"
+Link eleven of fifteen. "How Much Are LLMs Actually Boosting Real-World Programmer Productivity? — LessWrong"
 
 The punchline here is AI delivering 10-30% productivity improvement, which is nothing to sneeze at. That is a big win. But it is a far cry from what some are selling.
 
-Link twelve. "SpacetimeDB"
+Link twelve of fifteen. "SpacetimeDB"
 
 Curious database optimized for building systems that have a full history of events over time.
 
-Link thirteen. "Claude Code - Anthropic"
+Link thirteen of fifteen. "Claude Code - Anthropic"
 
 I haven't had time to play with Claude Code but several friends have and say it is amazing. I like how it directly works at the command line.
 
-Link fourteen. "Apple unveils immersive concert experience with Metallica for Apple Vision Pro - Apple"
+Link fourteen of fifteen. "Apple unveils immersive concert experience with Metallica for Apple Vision Pro - Apple"
 
 I can’t wait to watch this with my Vision Pro! It is great to see exclusive content that really uses the platform.
 
-Link fifteen. "ForwardDomain.net"
+Link fifteen of fifteen. "ForwardDomain.net"
 
 Simple and free service for forward a domain to another.
 

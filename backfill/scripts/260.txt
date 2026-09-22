@@ -16,19 +16,21 @@ PS: Summer is also when I tend to make improvements and changes. If you have sug
 
 Now, the Notable section.
 
-Link one. "privateGPT: Interact privately with your documents using the power of GPT"
+There are ten links this week.
+
+Link one of ten. "privateGPT: Interact privately with your documents using the power of GPT"
 
 Want to run your own private LLM on your own data? This repo has all you need, and there is a handy video walkthrough as well.
 
-Link two. "Safari 17 Profiles"
+Link two of ten. "Safari 17 Profiles"
 
 It took me a while to figure out what Tab Groups would be useful for, and then I started using them for projects and found them great. I've started to associate tab groups with OmniFocus projects. Profiles sounds like something I would put to good use right away. I use Safari for all my browsing, and if I could activate a profile possibly tied to a Focus Mode that would be great.
 
-Link three. "Style your RSS feed"
+Link three of ten. "Style your RSS feed"
 
 I love RSS so much, but it is confusing to users if you accidentally load an RSS feed and are staring at a bunch of XML in your browser. This styling "how to" is really simple and makes RSS feeds both intelligible, as well as nearly usable standalone without a feed reader.
 
-Link four. "Project management | Seth's Blog"
+Link four of ten. "Project management | Seth's Blog"
 
 I like Godin's framing of a "project is a promise". Very good.
 
@@ -38,7 +40,7 @@ End quote.
 
 Project management is something we all do. One of the things I like about GTD is the project framework that it is built around. Weekly Reviews are a form of project oversight and assessment.
 
-Link five. "We need more of Richard Stallman, not less"
+Link five of ten. "We need more of Richard Stallman, not less"
 
 Stallman wasn't a great leader of the FSF in my view, but he was a great visionary and passionate advocate. I think it would have been better if he would have focused his effort there and let others do the organizational bits. As our world fills ever more with software, the articles assertions of the importance of the Free Software movement are accurate.
 
@@ -48,7 +50,7 @@ End quote.
 
 If you are looking for organizations to support here, Creative Commons is a good one.
 
-Link six. "AI: First New UI Paradigm in 60 Years"
+Link six of ten. "AI: First New UI Paradigm in 60 Years"
 
 Interesting perspective on AI as the primary user interface. It is really interesting to consider how this could change how we engage with computers.
 
@@ -58,11 +60,11 @@ End quote.
 
 I do find that working with ChatGPT feels so very different, even than previous voice systems that are really command-like. ChatGPT is the first interface where I often find myself saying Please and Thank You.
 
-Link seven. "ANTI-META FEDI PACT"
+Link seven of ten. "ANTI-META FEDI PACT"
 
 Apparently the Fediverse is open, well, mostly. I’m a bit divided on this. It is well known I’m no fan of Facebook, but I think that protocols should be open. The Fediverse is a protocol, and I think anyone should be able to use it. Just like SMTP. Now, if node operators don't want to transmit the data? Hmm. That would be similar to an SMTP server deciding it will not accept email from Gmail. Which the host could do. It isn't in the protocol.
 
-Link eight. "I’m an ER doctor. Here’s how I’m already using ChatGPT to help treat patients. | Inflect Health"
+Link eight of ten. "I’m an ER doctor. Here’s how I’m already using ChatGPT to help treat patients. | Inflect Health"
 
 Interesting real-world learnings productively using ChatGPT in an ER scenario, but probably not for what you are thinking.
 
@@ -72,11 +74,11 @@ End quote.
 
 Using ChatGPT as a bridge between the hurried expert Doctor and the family that needs it explained in simpler terms, with more patience. Interesting use cases.
 
-Link nine. "Rash - The Reckless Racket Shell"
+Link nine of ten. "Rash - The Reckless Racket Shell"
 
 I love that there is still broad experimentation in shells. I hadn't heard of Racket before but it is a Lisp language based on Scheme. The wild thing about Rash is that you can mix and match shell operators, pipes, and Racket code completely inline. The demo video is an easy introduction to some of the capabilities. It feels a bit like Rash is to Racket like Emacs is to Lisp. The tool and the language blend in ways that are hard to even distinguish.
 
-Link ten. "My Father’s Death in 7 Gigabytes | WIRED"
+Link ten of ten. "My Father’s Death in 7 Gigabytes | WIRED"
 
 The authors Dad, Frank, requested his archive of writing be uploaded to the Internet Archive. I’m a big fan of the Internet Archive.
 
@@ -212,67 +214,69 @@ That's the end of the Journal.
 
 Now, the Briefly section.
 
-Link one. "arguably: The best Python CLI library, arguably"
+There are sixteen links this week.
+
+Link one of sixteen. "arguably: The best Python CLI library, arguably"
 
 If you are making some Python utilities it is great to have modules like this that give you robust command line functionality for free.
 
-Link two. "Ideas in progress: David O'Hara on interdisciplinary humanities, sustainability, and bees"
+Link two of sixteen. "Ideas in progress: David O'Hara on interdisciplinary humanities, sustainability, and bees"
 
 Nice interview with professor, and Weekly Thing subscriber, David O'Hara.
 
-Link three. "10 Things I Wish I’d Known Before Fulltime RVing… – Wheeling It"
+Link three of sixteen. "10 Things I Wish I’d Known Before Fulltime RVing… – Wheeling It"
 
 Filing this away for future reference if that RV thing ever becomes a reality.
 
-Link four. "Damus Zaps versus the App Store"
+Link four of sixteen. "Damus Zaps versus the App Store"
 
 I feel like Apple got this completely wrong. Zaps in Damus are more like sending micropayments in Venmo. You aren't buying an asset. You're not buying anything. It is a tip.
 
-Link five. "Hashing"
+Link five of sixteen. "Hashing"
 
 If you are curious how hashing works this is a good explainer.
 
-Link six. "Waterllama: Water tracker app and drink water reminder"
+Link six of sixteen. "Waterllama: Water tracker app and drink water reminder"
 
 I always need to drink more water but water trackers haven't been very effective for me. They mostly are annoying. This one looks fun, and I’m going to give it a try. Plus the developers are from Ukraine which makes me even happier to give it a go.
 
-Link seven. "Gerty - Your Bitcoin Assistant - LNbits Web Shop"
+Link seven of sixteen. "Gerty - Your Bitcoin Assistant - LNbits Web Shop"
 
 I have a Blockclock Mini and I love having it on my desk. Gerty is a much smaller and simpler device, with a bunch of additional functions.
 
-Link eight. "Apple adds passkeys to Apple ID, iCloud logins – Six Colors"
+Link eight of sixteen. "Apple adds passkeys to Apple ID, iCloud logins – Six Colors"
 
 I need to learn more about passkeys.
 
-Link nine. "Oh My Git!"
+Link nine of sixteen. "Oh My Git!"
 
 A game to learn Git? Sounds like a great idea. Tyler is exploring git with this right now.
 
-Link ten. "The Reddit Blackout Is Breaking Reddit | WIRED"
+Link ten of sixteen. "The Reddit Blackout Is Breaking Reddit | WIRED"
 
 It is absolutely wild what is happening at Reddit.
 
-Link eleven. "DeepStateMAP | Map of the war in Ukraine"
+Link eleven of sixteen. "DeepStateMAP | Map of the war in Ukraine"
 
 This site hosts very detailed maps of the battle lines in Ukraine. I was amazed to see that it even includes detail fortifications so you can see the lines of reinforcement directly.
 
-Link twelve. "Finding agency | Seth's Blog"
+Link twelve of sixteen. "Finding agency | Seth's Blog"
 
 Short essay differentiating freedom from agency.
 
-Link thirteen. "ChatGPT prompts: How to optimize for sales, marketing, writing, and more | TechCrunch"
+Link thirteen of sixteen. "ChatGPT prompts: How to optimize for sales, marketing, writing, and more | TechCrunch"
 
 Great example ChatGPT prompts to use in different scenarios. This is worthwhile to build an index to reference for yourself.
 
-Link fourteen. "Electric bikes are the most climate-friendly way to travel - Triangle Blog Blog"
+Link fourteen of sixteen. "Electric bikes are the most climate-friendly way to travel - Triangle Blog Blog"
 
 Bikes start with being the most efficient form of human movement, not a big surprise that an electric bike is most emission friendly. Hopefully prices come down fast.
 
-Link fifteen. "Software effort estimation is mostly fake research"
+Link fifteen of sixteen. "Software effort estimation is mostly fake research"
 
 Keep this in mind if you read "research" about estimation.
 
-Link sixteen. "Beeper — All your chats in one app. Yes, really"
+Link sixteen of sixteen. "Beeper — All your chats in one app. Yes, really"
 
 I try to use as few chat applications as possible so this app isn't for me. But if you're a multi-platform chat user this might be convenient.
 

@@ -14,7 +14,9 @@ Have a great day!
 
 Now, the Featured section.
 
-Link one. "Daring Fireball: The Vision Pro"
+There are two links this week.
+
+Link one of two. "Daring Fireball: The Vision Pro"
 
 I always go to Gruber for reviews of new Apple hardware, particularly iPhones. His review of the Apple Vision Pro is detailed and hits on all the key components. I agree with his view that this is the beginning of something very new.
 
@@ -24,7 +26,7 @@ End quote.
 
 The whole writeup is a great overview, including the parts that it doesn't do so well.
 
-Link two. "The end of my childhood"
+Link two of two. "The end of my childhood"
 
 Vitalek Buterin reflecting on his own role in the crypto ecosystem, and how crypto itself is evolving and maturing.
 
@@ -40,11 +42,13 @@ That's the end of Featured.
 
 Now, the Notable section.
 
-Link one. "Cheap but lethally accurate: how drones froze Ukraine’s frontlines | The Guardian"
+There are six links this week.
+
+Link one of six. "Cheap but lethally accurate: how drones froze Ukraine’s frontlines | The Guardian"
 
 Ukrainians have gotten very innovative with their use of drone technology. Ukraine even has an Army of Drones with people around the country assisting in assembling and in some cases even printing the drone components.
 
-Link two. "Technology Trends for twenty twenty four – O’Reilly"
+Link two of six. "Technology Trends for twenty twenty four – O’Reilly"
 
 Huge increases in AI, Security, and Cloud. Mostly aligns with what you would expect if you looked at the major trends in twenty twenty three. The recap is well stated:
 
@@ -54,15 +58,15 @@ End quote.
 
 Change is the constant in technology.
 
-Link three. "Sense.com – The Sense Home Energy Monitor"
+Link three of six. "Sense.com – The Sense Home Energy Monitor"
 
 If you, like me, have ever attempted to make a data driven effort to reduce your electric usage you know how poor the data is. I've used plug based meters for specific appliances, but to see the data through your home is very hard. It is great to see innovation here and Sense looks pretty great. You can meter every breaker in your box, no difficult installation. I’m tempted to get it. When you consider this topic in general and how much efficient use of energy could help us, precise usage information should be required.
 
-Link four. "If Your Privacy Is in the Hands of Others Alone, You Don’t Have Any – Doc Searls Weblog"
+Link four of six. "If Your Privacy Is in the Hands of Others Alone, You Don’t Have Any – Doc Searls Weblog"
 
 Doc Searls commenting on Patreon's recent movements to try and repeal an old law around privacy dating from videotape rental times. I’m glad to see the EFF stepping in here. The opposite of Searls headline is my suggestion — take your privacy into your own hands. There are things you can do!
 
-Link five. "The Big Little Guide to Message Queues"
+Link five of six. "The Big Little Guide to Message Queues"
 
 Message queues have been part of every platform I've been around on the Internet. They are a core building block of any distributed systems, and they are more complicated than it may seem, as well as incredibly powerful.
 
@@ -72,7 +76,7 @@ End quote.
 
 This article is a great summary and covers the critical points of message queues. More than a couple of times I've had developers approach me, frustrated after dealing with some complicated queue problem, and suggest that we should "build our own" message queue. In the future, I'll just refer them to this article and highlight all of the complexities that make queues so difficult to build and to run.
 
-Link six. "My 4 magic moments with Vision Pro – On my Om"
+Link six of six. "My 4 magic moments with Vision Pro – On my Om"
 
 Malik has been around tech for a very long time and I liked this non-review take on the Vision Pro.
 
@@ -175,35 +179,37 @@ That's the end of the Journal.
 
 Now, the Briefly section.
 
-Link one. "On Writing on Web - Amit Gawande"
+There are eight links this week.
+
+Link one of eight. "On Writing on Web - Amit Gawande"
 
 Gawande wondering if anyone actually reads on the web. I think they do. I don't surveil people so am not sure how many. But even if they don't, I do, and it is valuable to me to write.
 
-Link two. "xkcd: Minnesota"
+Link two of eight. "xkcd: Minnesota"
 
 How fun to see our state of Minnesota featured in xkcd — "Minnesota shouldn't be squishy."
 
-Link three. "Conducting the ETH Census - by Kyle Waters"
+Link three of eight. "Conducting the ETH Census - by Kyle Waters"
 
 Interesting read on how to calculate a fairly simple question: how much ether (ETH) is there in Ethereum? I had no idea the staking contract blackholes ETH sent to it, but doesn't actually burn it.
 
-Link four. "Intel’s Humbling – Stratechery by Ben Thompson"
+Link four of eight. "Intel’s Humbling – Stratechery by Ben Thompson"
 
 Intel is making big changes, and I truly hope they are successful in finding their footing again. Gelsinger seems like the right person for the job, but it is going to take multiple years.
 
-Link five. "The Endless Acid Banger"
+Link five of eight. "The Endless Acid Banger"
 
 I let this run for a few minutes and it is fun to play with and isn't terrible with the beats.
 
-Link six. "Hypercritical: Spatial Computing"
+Link six of eight. "Hypercritical: Spatial Computing"
 
 Siracusa with a thoughtful post on how people relate to user experiences and how that has evolved to be very "direct", and now with VisionOS is a step away from that.
 
-Link seven. "Hack your brain with Obsidian.md - YouTube"
+Link seven of eight. "Hack your brain with Obsidian.md - YouTube"
 
 Great 12 minute overview of Obsidian.
 
-Link eight. "Logseq: A privacy-first, open-source knowledge base"
+Link eight of eight. "Logseq: A privacy-first, open-source knowledge base"
 
 When I shared that I was jumping into Obsidian a friend suggested I check out Logseq too. It has a different model, more like an ever growing outline. Interesting, but I’m keeping my focus on Obsidian due to the rich ecosystem.
 

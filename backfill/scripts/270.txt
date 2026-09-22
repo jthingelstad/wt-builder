@@ -10,7 +10,9 @@ Now, onto the links for this week.
 
 Now, the Featured section.
 
-Link one. "Daring Fireball: Vision Pro, Spatial Video, and Panoramic Photos"
+There is one link this week.
+
+Link one of one. "Daring Fireball: Vision Pro, Spatial Video, and Panoramic Photos"
 
 Gruber with his usual detail on experiencing Spatial Video taken with an iPhone 15 and viewed on a Vision Pro.
 
@@ -58,7 +60,9 @@ That's the end of Featured.
 
 Now, the Notable section.
 
-Link one. "The Secret Life of the 500+ Cables That Run the Internet - CNET"
+There are eight links this week.
+
+Link one of eight. "The Secret Life of the 500+ Cables That Run the Internet - CNET"
 
 While the Internet and the Cloud tend to live in this metaphorical non-place we know that they are real things. Clouds are massive data centers that in person would never conjure the image of a cloud. And the magical Internet that connects the world at some point is a garden hose thickness cable that is strung along the ocean floor connecting continents together. And there is a lot of them.
 
@@ -66,7 +70,7 @@ I loved the details on how these cables are made and "armored". I also found it 
 
 All of this for us to send cat pictures and watch Tik Tok videos.
 
-Link two. "How to Boss Without Being Bossy – Holy Ghost Stories"
+Link two of eight. "How to Boss Without Being Bossy – Holy Ghost Stories"
 
 Interesting analysis of various ways to ask for a specific task to be done, gauging each one on clarity and harshness.
 
@@ -76,7 +80,7 @@ End quote.
 
 Words matter.
 
-Link three. "Global Sensor Bandwidth · ongoing by Tim Bray"
+Link three of eight. "Global Sensor Bandwidth · ongoing by Tim Bray"
 
 I had not heard about this new Sony Alpha9 III nor had I heard of the term "global shutter".
 
@@ -88,11 +92,11 @@ Bray's writeup is great and this concept of a shutter so fast you effectively ca
 
 Cool stuff!
 
-Link four. "Almost an Agent: What GPTs can do - Ethan Mollick"
+Link four of eight. "Almost an Agent: What GPTs can do - Ethan Mollick"
 
 This is a good overview of ways you can use GPTs. I also appreciated that he shared the detailed prompt that he gave the "Feedback Wizard" GPT that he created. I created a GTD Coach GPT but I just followed ChatGPTs prompts in the GPT Builder. Now I want to take another run at it using a much more detailed prompt.
 
-Link five. "7 Habits of Successful Generative AI Adopters | PagerDuty"
+Link five of eight. "7 Habits of Successful Generative AI Adopters | PagerDuty"
 
 Building on LLMs and Generative AI is incredibly early still, and there is much to learn. This set of recommendations are a good place to start.
 
@@ -102,11 +106,11 @@ End quote.
 
 There is still so much we are all learning here.
 
-Link six. "Building an occupancy sensor with a 5 dollars ESP32 and a serverless DB"
+Link six of eight. "Building an occupancy sensor with a 5 dollars ESP32 and a serverless DB"
 
 I loved this article and Esposito's walk through solving how to build this sensor and get the data. Also, it is incredible how easy and cheap it is to build something like this that operates at a pretty good scale. It would be fun to have one at our house just to see the metrics. Great project.
 
-Link seven. "“One of the world’s oldest continually publishing blogs” – Ideapad"
+Link seven of eight. "“One of the world’s oldest continually publishing blogs” – Ideapad"
 
 A number of blogs, including mine, are or will be crossing 20 years. But Ideapad's 25 years is a major milestone since those 5 earlier years were so early.
 
@@ -116,7 +120,7 @@ End quote.
 
 What a great milestone.
 
-Link eight. "How can we keep domains working long after our death? – Chuck Grimmett"
+Link eight of eight. "How can we keep domains working long after our death? – Chuck Grimmett"
 
 This is a topic I've written on as well, and there is still much to figure out. This post is only focused on keeping a domain name registered for a very long time. I hadn't considered the ability to let visitors chip in to keep a domain live. That is interesting.
 
@@ -228,35 +232,37 @@ That's the end of the Journal.
 
 Now, the Briefly section.
 
-Link one. "The world’s largest aircraft breaks cover in Silicon Valley | TechCrunch"
+There are eight links this week.
+
+Link one of eight. "The world’s largest aircraft breaks cover in Silicon Valley | TechCrunch"
 
 Something about this giant airship floating around would make me chuckle.
 
-Link two. "Owner of Tumblr confirms site’s shift from “surging” to “small and focused” | Ars Technica"
+Link two of eight. "Owner of Tumblr confirms site’s shift from “surging” to “small and focused” | Ars Technica"
 
 I was happy that Automattic bought Tumblr, but also not surprised they couldn't make it grow again. Tumblr to me seems to live in this empty space between social media and blogging, not really feeling at home in either.
 
-Link three. "Business questions worth asking - Gabriel Mays"
+Link three of eight. "Business questions worth asking - Gabriel Mays"
 
 Interesting index of questions to prompt thinking in a bunch of different areas of a business.
 
-Link four. "‘It never ends’: the book club that spent 28 years reading Finnegans Wake | The Guardian"
+Link four of eight. "‘It never ends’: the book club that spent 28 years reading Finnegans Wake | The Guardian"
 
 I've never read Finnegans Wake, and I’m not going to. This sounds like the worst version of Groundhog Day!
 
-Link five. "Blockchains As Platforms - Not Boring by Packy McCormick"
+Link five of eight. "Blockchains As Platforms - Not Boring by Packy McCormick"
 
 Good and fitting analogy.
 
-Link six. ""Learn from your chats" ChatGPT feature preview"
+Link six of eight. ""Learn from your chats" ChatGPT feature preview"
 
 Interesting feature test observed in the wild.
 
-Link seven. "Apple announces that RCS support is coming to iPhone next year - 9to5Mac"
+Link seven of eight. "Apple announces that RCS support is coming to iPhone next year - 9to5Mac"
 
 Surprising announcement from Apple, and a good one. Getting away from plain SMS and MMS will be a good thing for all.
 
-Link eight. "Announcing Buy Bitcoin Globally | Jack Mallers"
+Link eight of eight. "Announcing Buy Bitcoin Globally | Jack Mallers"
 
 Mallers with another big set of announcements about Strike and Bitcoin. Even if you aren't that interested in Bitcoin, Mallers does a great job sharing the benefit it can bring to so many people.
 

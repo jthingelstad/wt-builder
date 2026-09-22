@@ -8,7 +8,9 @@ Hope you have a great weekend and enjoy some interesting links!
 
 Now, the Notable section.
 
-Link one. "Endatabas"
+There are seven links this week.
+
+Link one of seven. "Endatabas"
 
 I hadn't heard of Endatabas and this summary from Willison hits on some great highlights.
 
@@ -18,11 +20,11 @@ End quote.
 
 Pretty cool stuff.
 
-Link two. "Some Reflections on Writing Unix Daemons - Laurence Tratt"
+Link two of seven. "Some Reflections on Writing Unix Daemons - Laurence Tratt"
 
 Tratt goes through three different daemons that he has created for Unix systems and discusses the approach. Concludes with suggestions on how best practices for designing daemons, why they should be considered for solutions, and how to implement them. I’m always blown away by how many daemons run on a modern macOS machine. I just did a quick ps -e | grep 'd$' on my laptop and it catches 191 instances. Not all of them are daemons, but most are.
 
-Link three. "In praise of Nushell"
+Link three of seven. "In praise of Nushell"
 
 I had not heard of Nushell but I find it fun to read about new takes on foundational Unix tools. This one looks pretty cool. It is a significant break from the traditional look of a shell.
 
@@ -32,7 +34,7 @@ End quote.
 
 Prett nifty!
 
-Link four. "BlackCat Ransomware Group Implodes After Apparent 22 million dollars Payment by Change Healthcare – Krebs on Security"
+Link four of seven. "BlackCat Ransomware Group Implodes After Apparent 22 million dollars Payment by Change Healthcare – Krebs on Security"
 
 This ransomware attack is a big deal, and interesting that they seem to have actually paid the ransom.
 
@@ -42,7 +44,7 @@ End quote.
 
 After paying the mess just gets worse.
 
-Link five. "The Hunt for the Missing Data Type"
+Link five of seven. "The Hunt for the Missing Data Type"
 
 Wayne writes about how common graph relationship problems show up in programming and wonders why we don't have much more robust support for graphs built-in to languages. Fundamentally he comes to a conclusion on why generic support for graphs is not suitable.
 
@@ -54,7 +56,7 @@ Hou then writes a great response that there is a great language for graphs in Th
 
 Both articles are a good read.
 
-Link six. "How Did REST Come To Mean The Opposite of REST?"
+Link six of seven. "How Did REST Come To Mean The Opposite of REST?"
 
 Good writeup clarifying that REST interfaces are not just JSON over HTTP.
 
@@ -64,7 +66,7 @@ End quote.
 
 Nearly everyone stops at level 2.
 
-Link seven. "Privacy First and Competition | Electronic Frontier Foundation"
+Link seven of seven. "Privacy First and Competition | Electronic Frontier Foundation"
 
 EFF on all the many ways that privacy legislation could help us.
 
@@ -159,23 +161,25 @@ That's the end of the Journal.
 
 Now, the Briefly section.
 
-Link one. "TinyLetter: looking back on the humblest newsletter platform - The Verge"
+There are five links this week.
+
+Link one of five. "TinyLetter: looking back on the humblest newsletter platform - The Verge"
 
 TinyLetter is the service I first used to publish the Weekly Thing.
 
-Link two. "Serving my blog posts as Linux manual pages | James' Coffee Blog"
+Link two of five. "Serving my blog posts as Linux manual pages | James' Coffee Blog"
 
 I love how geeky this is.
 
-Link three. "An HTML Switch Control | WebKit"
+Link three of five. "An HTML Switch Control | WebKit"
 
 Is there any functional difference between a checkbox and a switch? I don't think so, but they are a very common and modern UI element. The suggestion is a switch is "on or off" and a checkbox is something to select. Makes sense.
 
-Link four. "iOS 17.4 Emoji Changelog"
+Link four of five. "iOS 17.4 Emoji Changelog"
 
 It is always interesting to see the continuous expansion and evolution of emoji. What did we do before emoji?
 
-Link five. "Kagi + Wolfram | Kagi Blog"
+Link five of five. "Kagi + Wolfram | Kagi Blog"
 
 I’m a subscriber to Kagi and am excited to see this connection with Wolfram Alpha!
 

@@ -12,15 +12,17 @@ Related: My article On Audience Capture.
 
 Now, the Notable section.
 
-Link one. "Effective Altruist Leaders Were Warned About Sam Bankman-Fried Years Before FTX Collapse | Time"
+There are eleven links this week.
+
+Link one of eleven. "Effective Altruist Leaders Were Warned About Sam Bankman-Fried Years Before FTX Collapse | Time"
 
 The depth of connection between the Effective Altruism movement and Sam Bankman-Fried is shocking. Even more than I had thought. It seems like there were leaders in the Effective Altruism movement who either knew, or should have known, at least some of what was going on and stopped this charade of FTX before it got as far as it did.
 
-Link two. "March twenty twenty three Newsletter: A Look at Bank Solvency - Lyn Alden"
+Link two of eleven. "March twenty twenty three Newsletter: A Look at Bank Solvency - Lyn Alden"
 
 If all the banking news has you wondering about fundamental questions on how banks work, Alden's newest newsletter has a great and very thorough walk through. Plus lots of great charts.
 
-Link three. "RAI, The Free-Floating Stablecoin That Actually Works | IntoTheBlock"
+Link three of eleven. "RAI, The Free-Floating Stablecoin That Actually Works | IntoTheBlock"
 
 In my opinion stablecoins are a critical component of crypto solutions. Native tokens like Bitcoin and Ethereum are important, but there are vast capabilities that you can unlock if you remove or lessen volatility. I first ran into RAI several months ago it it made my head hurt a bit. It doesn't work at all like a traditional stablecoin.
 
@@ -44,7 +46,7 @@ End quote.
 
 Holding value like that through these market conditions is notable.
 
-Link four. "Kottke.org Is 25 Years Old Today and I’m Going to Write About It"
+Link four of eleven. "Kottke.org Is 25 Years Old Today and I’m Going to Write About It"
 
 I love this celebratory post from Kottke marking his blogs twenty fifth year!
 
@@ -54,7 +56,7 @@ End quote.
 
 The artifact that we create when we write on our own website is so great. My blog is nearly 19 years old.
 
-Link five. "Why Write?"
+Link five of eleven. "Why Write?"
 
 This is a great reminder that writing is not a utility function, or the outcome of something, but it is the act of actually thinking.
 
@@ -64,27 +66,27 @@ End quote.
 
 This is a big reason why I write the Weekly Thing, and why I blog. And it is a value that writing actual sentences and paragraphs brings, the the utterances of social media completely lose.
 
-Link six. "Emergency Proposal: Risk and Governance Parameter Changes (11 March twenty twenty three) - The Maker Forum"
+Link six of eleven. "Emergency Proposal: Risk and Governance Parameter Changes (11 March twenty twenty three) - The Maker Forum"
 
 Maker DAO governs the DAI stable coin. The recent bank instability has caused all organizations in the financial world to take some actions and make some adjustments. I found this forum dialog super interesting as a peek into how that happens when it is done in a DAO using software, instead of bank board rooms or Washington offices. This is also then connected to the Proposal Emergency Parameter Changes - March 11, twenty twenty three where you can see the changes being put into code. Fascinating stuff.
 
-Link seven. "The Demise of Silicon Valley Bank - by Marc Rubinstein"
+Link seven of eleven. "The Demise of Silicon Valley Bank - by Marc Rubinstein"
 
 Good overview and explainer about what happened at Silicon Valley Bank. I’m blown away by the fact that 42 billion dollars in deposits were requested to be withdrawn in a single day on March 9, twenty twenty three. That is incredible.
 
-Link eight. "Discord, or the Death of Lore « ASCII by Jason Scott"
+Link eight of eleven. "Discord, or the Death of Lore « ASCII by Jason Scott"
 
 Scott reminding us that closed systems like Discord (and others) don't have great ways to pull all the history that people are creating in them out to the open web, or frankly anywhere else. The Geocities moment for Discord, assuming that happens which is a when not an if, will be hard.
 
-Link nine. "The privacy loophole in your doorbell - POLITICO"
+Link nine of eleven. "The privacy loophole in your doorbell - POLITICO"
 
 You have to assume that the data that you store in the cloud from an internet connected camera can and will be shared at anytime. I will not ever put one of these cameras pointing inside my house, but I do use some Nest cameras to be able to see things at our cabin. The privacy issues with this data are profound. Personally, I don't trust Ring at all with this data. And I particularly dislike their fear based marketing tactics.
 
-Link ten. "Upwelling: Combining real-time collaboration with version control for writers."
+Link ten of eleven. "Upwelling: Combining real-time collaboration with version control for writers."
 
 This is a cool read to understand how the problem domain changes completely how a solution should work. In essence, the way that real-time collaboration works in software coding isn't great for writing. Here it breaks down the use cases, why it should be done a certain way, and the next steps for building it out.
 
-Link eleven. "Infra-Red, In Situ (IRIS) Inspection of Silicon « bunnie's blog"
+Link eleven of eleven. "Infra-Red, In Situ (IRIS) Inspection of Silicon « bunnie's blog"
 
 How can you know that the integrated circuits you are buying do not have malicious code in them, at a hardware level? This is a devilishly hard problem to deal with.
 
@@ -150,47 +152,49 @@ That's the end of the Journal.
 
 Now, the Briefly section.
 
-Link one. "Pynecone: The easiest way to build web apps"
+There are eleven links this week.
+
+Link one of eleven. "Pynecone: The easiest way to build web apps"
 
 Super interesting web framework for Python. Looks sort of like Rails but for Python?
 
-Link two. "Zed - Code at the speed of thought"
+Link two of eleven. "Zed - Code at the speed of thought"
 
 This looks like an incredbily powerful text and code editor, with some really well thought out collaboration features baked in.
 
-Link three. "How to use the en dash, em dash and hyphen (also ndash, mdash)"
+Link three of eleven. "How to use the en dash, em dash and hyphen (also ndash, mdash)"
 
 I use em dash pretty frequently and I was happy to see that I mostly use it right! I didn’t realize that en dash was specifically for ranges.
 
-Link four. "Announcing POAP Drops"
+Link four of eleven. "Announcing POAP Drops"
 
 A brand new and much nicer user experience and workflow for creating POAPs. Great step to broader adoption!
 
-Link five. "Say Hello to SAFe 6.0! - Scaled Agile Framework"
+Link five of eleven. "Say Hello to SAFe 6.0! - Scaled Agile Framework"
 
 Newest increment to Scaled Agile. Incorporates additional learnings and advances into the recommendaitons. Cynical view? New version number to drive consulting and certification from.
 
-Link six. "Concrete and pi - All this"
+Link six of eleven. "Concrete and pi - All this"
 
 Great trivia for π day — the specific gravity of portland cement is about π.
 
-Link seven. "The Filecoin Virtual Machine (FVM) is live on Mainnet!"
+Link seven of eleven. "The Filecoin Virtual Machine (FVM) is live on Mainnet!"
 
 This is a good development for Filecoin, and I’m particularly glad to see they are supporting the Ethereum Virtual Machine as well.
 
-Link eight. "Apple TV+ wins Academy Award for The Boy, the Mole, the Fox and the Horse - Apple"
+Link eight of eleven. "Apple TV+ wins Academy Award for The Boy, the Mole, the Fox and the Horse - Apple"
 
 This made me chuckle because one night I started playing this on Apple TV+ and Tammy thought it was incredibly boring and slow moving. The kids and I kept watching it and agreed it was slow but had a laugh with it. And now it wins an Academy Award.
 
-Link nine. "A top audio engineer explains NPR’s signature sound - Current"
+Link nine of eleven. "A top audio engineer explains NPR’s signature sound - Current"
 
 This is a great geeky breakdown of how NPR configures their microphones. Fun stuff to read and consider about podcasting setups. Roll your bass off!
 
-Link ten. "writeout.ai – Transcribe and translate any audio file"
+Link ten of eleven. "writeout.ai – Transcribe and translate any audio file"
 
 Handy utility and free.
 
-Link eleven. "Revisiting stamps for email | Seth's Blog"
+Link eleven of eleven. "Revisiting stamps for email | Seth's Blog"
 
 Reputation systems for email are really hard, and the fact that inbound email is free to the sender creates a foundational asymmetry. There have been various attempts to solve this, and none have worked.
 

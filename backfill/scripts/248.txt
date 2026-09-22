@@ -20,7 +20,9 @@ A lot is packed in this week's email… let's roll!
 
 Now, the Featured section.
 
-Link one. "ChatGPT Gets Its "Wolfram Superpowers"!—Stephen Wolfram Writings"
+There is one link this week.
+
+Link one of one. "ChatGPT Gets Its "Wolfram Superpowers"!—Stephen Wolfram Writings"
 
 A couple months ago I highlighted Wolfram's article suggesting that ChatGPT needed a partner like Wolfram to be able to answer fact based questions. Well now it is real with a plugin!
 
@@ -66,17 +68,19 @@ That's the end of Currently.
 
 Now, the Notable section.
 
-Link one. "Twitter is dying | TechCrunch"
+There are eighteen links this week.
+
+Link one of eighteen. "Twitter is dying | TechCrunch"
 
 I don't think Twitter deserves all the attention it gets. For a niche of people that love immediate feeds (like me), it is incredibly addictive. But to normal folks, it has never made sense. Maybe it is just fine that it dies. Or maybe it is being reborn into something new. Let's just remember Twitter isn't the Internet, nor is any other social media. There is a great wide world out here in your browser. Take a moment to explore that and stop hand wringing about all this garbage.
 
-Link two. "Feedbin: Twitter Access Revoked"
+Link two of eighteen. "Feedbin: Twitter Access Revoked"
 
 I deleted my social graph on Twitter a while back (unfollowed all accounts), but there were a few accounts of friends that I was still following via the Twitter API in Feedbin. The Feedbin Twitter experience was actually really delightful. It put Twitter Threads together for you, limited distractions, and made it fairly enjoyable without likes and retweets poluting it.
 
 Now that Twitter is a closed platform that is no more. This is the last vestige of a connection I had to Twitter after 18 years.
 
-Link three. "The Government Conspiracy Against Crypto - Marginal REVOLUTION"
+Link three of eighteen. "The Government Conspiracy Against Crypto - Marginal REVOLUTION"
 
 My view on the position that we should expect from government regarding crypto is outlined in my post on polarizing technology. I believe that we will see decades of actions to try and fight the power that crypto disrupts.
 
@@ -88,7 +92,7 @@ End quote.
 
 We need to expect this type of skirmish to continue for many years. We still haven't settled on encryption, and crypto is even more complicated.
 
-Link four. "S3 as an Eternal Service - Last Week in AWS Blog"
+Link four of eighteen. "S3 as an Eternal Service - Last Week in AWS Blog"
 
 It is interesting to consider that we are getting to the point where certain technology capabilities are, in a good way, ossified.
 
@@ -100,7 +104,7 @@ I think about this type of capability online more than the average person I susp
 
 But it is also interesting to note when stopping change is a good thing. I recently shared in another venue that software with no change, with no backlog, is the same as dead software. But maybe there is another angle too. Software that is sufficiently ossified that it is no longer in need of further change?
 
-Link five. "The Kottke.org Ask Me Anything: Thoughts on AI"
+Link five of eighteen. "The Kottke.org Ask Me Anything: Thoughts on AI"
 
 Kottke launched a new Ask Me Anything feature, and got a question on his experiences with AI. He actually used ChatGPT to create the AMA site itself. He goes on…
 
@@ -110,7 +114,7 @@ End quote.
 
 Is this a similar inflection point? It seems quite possibly.
 
-Link six. "Pause Giant AI Experiments: An Open Letter - Future of Life Institute"
+Link six of eighteen. "Pause Giant AI Experiments: An Open Letter - Future of Life Institute"
 
 Interesting to see many big names, including Elon Musk and Steve Wozniak, signing onto this.
 
@@ -124,29 +128,29 @@ And if they don't, the government should step in? At least some of the folks tha
 
 At least be consistent. I don't see the point of this, which isn't to say I don't think there is anything to worry about. One of my favorite bloggers suggests this is purely symbolic and will have no impact. I think he is right.
 
-Link seven. "Bicycle – Bartosz Ciechanowski"
+Link seven of eighteen. "Bicycle – Bartosz Ciechanowski"
 
 This is an epic illustration of all of the physics involved in riding a bike. It is massive and covers everything from riding positions to contact patches. The really cool thing is the entire article is accompanied with interactive diagrams that help show you the concepts in easy to understand ways. Text books should be this informative! Incredible work.
 
 If this looks familiar, I've linked to three of Ciechanowski's previous similar pages: GPS, Curves and Surfaces, and Cameras and Lenses.
 
-Link eight. "Mainnet Shapella Announcement | Ethereum Foundation Blog"
+Link eight of eighteen. "Mainnet Shapella Announcement | Ethereum Foundation Blog"
 
 Ethereum continues to advance. After successfully transitioning to proof-of-stake this next release will allow stakers to withdraw from the staking network. This will be a big milestone and continues to build up the capabilities and quality of the Ethereum ecosystem. Keep building!
 
-Link nine. "Daring Fireball: Wavelength"
+Link nine of eighteen. "Daring Fireball: Wavelength"
 
 This is about the closest thing I've ever seen to Gruber writing an advertisement for a service, but it isn't. I’m not sure I have a need to explore a chat app, but he highlighted some pretty cool innovative features in Wavelength that I wanted to try out. I installed it and created a Weekly Thing group — use this invite link if you are experimenting. Having AI in the chats is an interesting thing too.
 
-Link ten. "PDFGPT.IO - Chat with PDF for quick and easy answers!"
+Link ten of eighteen. "PDFGPT.IO - Chat with PDF for quick and easy answers!"
 
 Tool that allows you to upload multiple PDF documents and then ask questions of the contents via ChatGPT. This is a particularly interesting use case. I'd love to see DEVONthink get this kind of capability. Give me an AI per project in DEVONthink.
 
-Link eleven. "Onboarding peer executives. | Irrational Exuberance"
+Link eleven of eighteen. "Onboarding peer executives. | Irrational Exuberance"
 
 Like much of Larson's writing this is exceptionally well thought out. While intended to be an onboarding tool for a peer, this is a great article to use for yourself to cover the things that are needed as a new executive. Companies don't bring executives in that often, and the positions can be very unique, so the approach to onboarding needs to be different than other positions.
 
-Link twelve. "6 Phases of the Post-GPT World - Daniel Miessler"
+Link twelve of eighteen. "6 Phases of the Post-GPT World - Daniel Miessler"
 
 Messier takes a run at considering different phases that AI will take on.
 
@@ -156,7 +160,7 @@ End quote.
 
 Interesting and thought provoking.
 
-Link thirteen. "Attention is All You Need - Not Boring by Packy McCormick"
+Link thirteen of eighteen. "Attention is All You Need - Not Boring by Packy McCormick"
 
 Interesting strategic article from McCormick on how OpenAI could position ChatGPT as the "Apex Aggregator".
 
@@ -166,23 +170,23 @@ End quote.
 
 He positions ChatGPT as a potential disruptor for much of existing consumer businesses. I don't see this as directly obvious as McCormick suggests, but the plug-in capability that OpenAI has introduced certainly makes a space for ChatGPT to go this direction.
 
-Link fourteen. "ChatGPT Gets a Computer – Stratechery by Ben Thompson"
+Link fourteen of eighteen. "ChatGPT Gets a Computer – Stratechery by Ben Thompson"
 
 This article is filled with delightful examples of how impactful it is for ChatGPT 4 to use the Wolfram Alpha plugin. The examples before and after are stunning. Honestly it makes me wonder deeply how these plugins work, and how the data interchange happens between ChatGPT and the other systems!
 
-Link fifteen. "HeadshotPro: Professional corporate headshots for remote teams."
+Link fifteen of eighteen. "HeadshotPro: Professional corporate headshots for remote teams."
 
 This seems super creepy to me but also inevitable and likely to be popular. Instead of actually taking headshots, just upload a few pictures of yourself and let the AI make a headshot for you that never even existed. There are many obvious extensions including team photos for teams that have never been together. Or how about just making up completely non-existent people to have on the team. We are not in Kansas anymore.
 
-Link sixteen. "scrapeghost"
+Link sixteen of eighteen. "scrapeghost"
 
 This is mostly an experiment but I find it extremely interesting. This libary allows you to define a target schema in JSON, and then it will have ChatGPT fill the data from a URL into the schema. This is next level scraping and makes me think of all sorts of cool use cases.
 
-Link seventeen. "Chatbase | Train ChatGPT on your data and add it to your website"
+Link seventeen of eighteen. "Chatbase | Train ChatGPT on your data and add it to your website"
 
 I was curious to see how this would do so I created an account and pointed it at my website. It is limited now and will only load 400 URLs, so it is hard to judge how good this would be if I indexed my entire site. It was able to answer questions about our family, preferences, activities we've done, etc. Ultimately it wasn't so good, but it is a hint at a future that is very near. If I have a bot index my entire blog and the thousands of posts, and it has some additional training and verification from me, it could be a pretty incredible way to interact with twenty years of blog data.
 
-Link eighteen. "Using a Hosts File To Make The Internet Not Suck (as much)"
+Link eighteen of eighteen. "Using a Hosts File To Make The Internet Not Suck (as much)"
 
 I was a bit surprised when I saw this because it seems like the kind of thing I would have found years ago. Unix machines have a special file called /etc/hosts and you can override DNS resolution with it. This file overrides thousands of hostnames for tracking services to not resolve right. This blocks you from being exposed to them.
 
@@ -259,27 +263,29 @@ That's the end of the Journal.
 
 Now, the Briefly section.
 
-Link one. "The Legend of Zelda: Tears of the Kingdom – YouTube"
+There are six links this week.
+
+Link one of six. "The Legend of Zelda: Tears of the Kingdom – YouTube"
 
 I never run iOS betas because I want to "enjoy" and be suprised by the official versions when they ship. It made me chuckle that Tyler wouldn't watch this video with me because he similarly wants to "enjoy" the game when he plays it first. It looks amazing.
 
-Link two. "We Spoke To The Guy Behind The Viral AI Image Of The Pope"
+Link two of six. "We Spoke To The Guy Behind The Viral AI Image Of The Pope"
 
 And so it begins…
 
-Link three. "Photography’s future is software and computation – On my Om"
+Link three of six. "Photography’s future is software and computation – On my Om"
 
 Totally agree with Om's take on where photography is, and where it is going.
 
-Link four. "Remembering Alex Hay, the Maker of Toolbox Pro, During Automation April - MacStories"
+Link four of six. "Remembering Alex Hay, the Maker of Toolbox Pro, During Automation April - MacStories"
 
 I was an avid user of Toolbox Pro but steered away from it because of a lack of updates. Now I know why the updates slowed down. Stark reminder that people are behind all those things you use on your phone.
 
-Link five. "An Anti-Smartphone With a Rotary Designed and Built by Space Engineer Justine Haupt — Colossal"
+Link five of six. "An Anti-Smartphone With a Rotary Designed and Built by Space Engineer Justine Haupt — Colossal"
 
 How delightful is this.
 
-Link six. "Gordon Moore, Intel Co-Founder, Dies at 94"
+Link six of six. "Gordon Moore, Intel Co-Founder, Dies at 94"
 
 Giant in the technology field. Thank you!
 

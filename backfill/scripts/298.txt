@@ -12,11 +12,13 @@ Lots of links and a bunch of stuff from our weekend in Chicago below. Lastly, re
 
 Now, the Notable section.
 
-Link one. "Busy Status Bar — Productivity Multi-tool Device with an LED pixel screen"
+There are eleven links this week.
+
+Link one of eleven. "Busy Status Bar — Productivity Multi-tool Device with an LED pixel screen"
 
 This is a cool looking device and if people distracting you is a common issue it could be a great tool for that. I wonder if anyone would actually follow the direction though? And maybe it results in even more distractions with people asking you about this cool device you have?
 
-Link two. "The technology addiction trope — BuzzMachine"
+Link two of eleven. "The technology addiction trope — BuzzMachine"
 
 Jarvis suggesting that the Internet itself isn't addictive (emphasis mine).
 
@@ -26,7 +28,7 @@ End quote.
 
 I tend to agree with Jarvis. There are many things enabled by the Internet, but that as a network it is itself without addictiveness. Similar to gambling, the room of a casino is not addictive but the games in it are. Is social media addictive? I believe yes. Is an online poker app? Very much so! Is the Internet, I don't know that it can be. Is your phone? Hmmm… I’m not sure.
 
-Link three. "EFF to Third Circuit: TikTok Has Section 230 Immunity for Video Recommendations | Electronic Frontier Foundation"
+Link three of eleven. "EFF to Third Circuit: TikTok Has Section 230 Immunity for Video Recommendations | Electronic Frontier Foundation"
 
 I've been a long time supporter of the EFF and this may be an area where I diverge with their view.
 
@@ -38,7 +40,7 @@ I’m not the legal expert that these folks are, but I do believe that Section 2
 
 Meanwhile the open web exists and is ready to publish whatever you want.
 
-Link four. "Pluralistic: You should be using an RSS reader – Cory Doctorow"
+Link four of eleven. "Pluralistic: You should be using an RSS reader – Cory Doctorow"
 
 I've been using RSS and a feed reader for at least a decade but I suspect two. It is the way that I find all the content that you see in the Weekly Thing by the way. So, it could come as no surprise that I completely agree with Doctorow on this point.
 
@@ -54,11 +56,11 @@ What about content that isn't made available via RSS? Get rid of it. The provide
 
 No RSS, no attention.
 
-Link five. "My solar-powered and self-hosted website | Dries Buytaert"
+Link five of eleven. "My solar-powered and self-hosted website | Dries Buytaert"
 
 I've seen other projects like this. He mentions Low←Tech Magazine as an example that shows you the battery level for the server in the background color of the content. The fun thing here is Buytaert shows all the components being used and how they are put together. You could follow this and do your own DIY version of this setup.
 
-Link six. "Chinese researchers break RSA encryption with a quantum computer | CSO Online"
+Link six of eleven. "Chinese researchers break RSA encryption with a quantum computer | CSO Online"
 
 We know that quantum computing is a risk for encryption but that timeline may have changed with this event.
 
@@ -68,7 +70,7 @@ End quote.
 
 The good news is that there are well known post-quantum encryption techniques. The bad news is that the amount of change to adopt those is incredibly large.
 
-Link seven. "This Is A Tool – Rhoneisms"
+Link seven of eleven. "This Is A Tool – Rhoneisms"
 
 My friend Patrick reminding us how he frames the phone that he carries around — as a tool. I’m not sure I’m as far to the utility as Patrick is regarding my phone, but I particularly agree with his framing at the end.
 
@@ -82,7 +84,7 @@ If we are super intentional about the apps that we install, and only add them if
 
 But above all, be intentional about it.
 
-Link eight. "Future of Internet in the age of AI"
+Link eight of eleven. "Future of Internet in the age of AI"
 
 Interesting interview with the CEO of Cloudflare on some longer term trends with the web. His "third place" analogy was interesting to me.
 
@@ -92,15 +94,15 @@ End quote.
 
 Interesting perspective on a number of things.
 
-Link nine. "Relationship circles - annie's blog"
+Link nine of eleven. "Relationship circles - annie's blog"
 
 I’m a big believer in Dunbar's number, and in Dunbar's research he does go much deeper into different levels and such. I liked Mueller's post on this particularly for her definitions and the fact that she started with self and ended with everyone in the world. As I read that the math geek in me wanted to think about rings and how maybe ∞ and -∞ are the same and then how in Buddhist practice there is the idea that through meditation we become nothing and everything at once. So in these rings is there another dimension of self connecting with everyone in the world? I like to think there is.
 
-Link ten. "How I Use Claude"
+Link ten of eleven. "How I Use Claude"
 
 This article is about Claude but the techniques that Balwit describe are applicable to any chat-based LLM that you may want to use. If you are having a hard time determining where to start with using AI technology yourself this may have some ideas to build off of. I've recently gotten a Claude Pro license along with my ChatGPT license. It is very interesting to interact with both of them and see how they respond and engage differently. Incredible that you can have that for just 20 dollars/mo each.
 
-Link eleven. "The Global Surveillance Free-for-All in Mobile Ad Data – Krebs on Security"
+Link eleven of eleven. "The Global Surveillance Free-for-All in Mobile Ad Data – Krebs on Security"
 
 Very detailed read on how location data is being captured by data brokers and being used in so many different ways. It is a good read to understand why you need to be mindful of giving location information to applications. This is a good argument for why we need comprehensive privacy legislation in the United States. It is scary how much information we are giving anyone that is willing to pay.
 
@@ -243,47 +245,49 @@ That's the end of the Journal.
 
 Now, the Briefly section.
 
-Link one. "Ward Christensen, BBS inventor and architect of our online age, dies at age 78"
+There are eleven links this week.
+
+Link one of eleven. "Ward Christensen, BBS inventor and architect of our online age, dies at age 78"
 
 I’m old enough to remember dialing into BBS systems. I even ran a BBS out of my dorm room for a while with a single phone line. It was an amazing pre-Internet thing.
 
-Link two. "Digital River Not Paying Developers - Michael Tsai"
+Link two of eleven. "Digital River Not Paying Developers - Michael Tsai"
 
 Digital River, a Minneapolis company, has been struggling for a while now and maybe things are getting even worse?
 
-Link three. "All Those Meetings by Kaamran Hafeez and Helene Parsons"
+Link three of eleven. "All Those Meetings by Kaamran Hafeez and Helene Parsons"
 
 This made me chuckle. Via Eric.
 
-Link four. "A list of known attacks against Bitcoin / crypto asset owning entities that occurred in meatspace"
+Link four of eleven. "A list of known attacks against Bitcoin / crypto asset owning entities that occurred in meatspace"
 
 Self-hosting crypto and avoiding the traditional banking system has a lot of positive things for it but it changes the security and protection required in extreme ways.
 
-Link five. "The IPv6 Transition - ISP Column"
+Link five of eleven. "The IPv6 Transition - ISP Column"
 
 For many years it was a joke amongst technologists to talk about IPv6 adoption — it was so low as to be irrelevant. But it is happening. It just takes a tremendous amount of time for a change so massive.
 
-Link six. "Internet Archive breached again through stolen access tokens"
+Link six of eleven. "Internet Archive breached again through stolen access tokens"
 
 Ugh!
 
-Link seven. "SEC Charges Four Companies With Misleading Cyber Disclosures"
+Link seven of eleven. "SEC Charges Four Companies With Misleading Cyber Disclosures"
 
 The reporting requirements for public companies regarding cybersecurity events have dramatically changed in recent years. And there are teeth in these fines as well.
 
-Link eight. "Introducing computer use, a new Claude 3.5 Sonnet, and Claude 3.5 Haiku Anthropic"
+Link eight of eleven. "Introducing computer use, a new Claude 3.5 Sonnet, and Claude 3.5 Haiku Anthropic"
 
 What if the LLM you are using could have their own computer and do things with it? Well now it can.
 
-Link nine. "Hands-On With Apple's Genmoji AI Emoji Generator in Beta"
+Link nine of eleven. "Hands-On With Apple's Genmoji AI Emoji Generator in Beta"
 
 In iOS 18.2 Apple is releasing this new Genmoji capability to make whatever emoji you want with AI. This article is a good breakdown of how it works.
 
-Link ten. "You Should Probably Pay Attention to Tokenizers - Cybernetist"
+Link ten of eleven. "You Should Probably Pay Attention to Tokenizers - Cybernetist"
 
 Good background on the important role of tokenizers in developing AI solutions using RAG.
 
-Link eleven. "Mersenne Prime Discovery - 2^136279841-1 is Prime!"
+Link eleven of eleven. "Mersenne Prime Discovery - 2^136279841-1 is Prime!"
 
 It is hard to even conceptualize a number like this. I downloaded it as a file and it is a 41.8MB text file — that is just this number. And to think that there are infinite primes.
 

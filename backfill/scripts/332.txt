@@ -20,7 +20,9 @@ That's the end of Currently.
 
 Now, the Notable section.
 
-Link one. "Pagefind — Static low-bandwidth search at scale"
+There are ten links this week.
+
+Link one of ten. "Pagefind — Static low-bandwidth search at scale"
 
 One of the more annoying features for a blogger to make for their site is search, and it is one that we all want to have. If you use something like WordPress or something else with a database they all pretty much punt that to the database and use whatever the SQL server can do. This is okay, but not great. Almost no blog uses a true search index.
 
@@ -32,7 +34,7 @@ End quote.
 
 I love this and for now I’m hoping that micro.blog adds this natively or some other plug-in developer takes a go at it. It seems like a much better solution than anything else I've seen for static sites. Found this via a great writeup from Tim Bray.
 
-Link two. "Your URL Is Your State"
+Link two of ten. "Your URL Is Your State"
 
 Lovely article that dives into the richness of data that a URL can contain. Every developer should learn this structure deeply. So many times you see URLs that just contain a GUID that is obviously a pointer to some caching system in the backend. Obtuse, unsharable, difficult to deal with.
 
@@ -42,7 +44,7 @@ End quote.
 
 Good URL design is designing "with the grain" of the web.
 
-Link three. "Mr TIFF"
+Link three of ten. "Mr TIFF"
 
 Our digital worlds are filled with programs, algorithms, file formats, and a million other things that have all been created by people over recent decades. Some of those names folks know. The vast majority nobody does. TIFF is an image file format created years ago to help in desktop publishing and other tools. Steve Carlsen made TIFF. This article is about this bloggers search for him. I love this callout toward the end.
 
@@ -52,7 +54,7 @@ End quote.
 
 That is the Internet I love — where the one person that made TIFF, years later is in a discussion board answering some questions about the thing.
 
-Link four. "You Should Write An Agent · The Fly Blog"
+Link four of ten. "You Should Write An Agent · The Fly Blog"
 
 Great article walking through creating an agent using Python and then extending it with tools and capabilities. It is all a pretty simple example, but it is powerful to show how much capability you can create with these. I think it is fair to say that today every developer should know how to author their own agents with sub-agents and tools. Compared to deploying something in AWS, this is easy.
 
@@ -64,11 +66,11 @@ End quote.
 
 Great stuff.
 
-Link five. "Micro.blog offers an indie alternative to YouTube with its ‘Studio’ video hosting plan - HeyDingus"
+Link five of ten. "Micro.blog offers an indie alternative to YouTube with its ‘Studio’ video hosting plan - HeyDingus"
 
 I host all my blogs on micro.blog and in general think it is the best blogging solution on the market today. This new plan is a big addition for video that is really cool. The key here is to allow IndieWeb publishers to host their own video, without YouTube hosting everything that exists, and still have the performance be great. There is a lot of transcoding magic and slicing of video files needed to make that happen and micro.blog now does that with these Studio plans. While not for me, I love that this exists and is a step to publishing video that doesn't rely on Google (aka YouTube).
 
-Link six. ""Good engineering management" is a fad | Irrational Exuberance"
+Link six of ten. ""Good engineering management" is a fad | Irrational Exuberance"
 
 Will Larson with a great article talking about something I've observed and adapted to, but not articulated nearly as well as him. Excuse the lengthy excerpt:
 
@@ -82,15 +84,15 @@ I love his list of core and growth skills. This article is gold for leaders of t
 
 I’m a fan of taking time to refactor your own tools or capabilities. I've shared many times that I think doing an annual start and stop list is a necessary practice. In a faster growing company you may do it every 6 months or every quarter. But Larson is hitting on a bigger thing. When the fundamentals shift in technology, you need to assess differently and literally operate differently. For me this has meant leaning into AI obsessively, amongst other things.
 
-Link seven. "Apple is crossing a Steve Jobs red line | Ken Segall"
+Link seven of ten. "Apple is crossing a Steve Jobs red line | Ken Segall"
 
 Google Maps is filled with ads and paid placements. It is one of the reasons I don't use that product, or much of anything Google makes. I wish that Apple would rid themselves of the advertising offerings they have entirely but I suspect that the advertising in the AppStore both makes a ton of money and is meaningful to app developers gaining audiences. Are Ads in Maps the same as an advertisement playing when I log into my computer? Absolutely not, but it is a slippery slope.
 
-Link eight. "Book Recommendations | book.sv"
+Link eight of ten. "Book Recommendations | book.sv"
 
 Book recommendations seem to be a pretty niche thing. There is a similar use case for movie and TV shows, but I think because the time investment is lower I care less about the rigor that goes into them. I also assume they are being manipulated by some algorithmic goal that is unclear to me. This book recommendation engine though is really interesting and in my limited tests gave really good results.
 
-Link nine. "Git AI is now 1.0"
+Link nine of ten. "Git AI is now 1.0"
 
 A lot of development teams are trying to answer this question — what code in this repo was written by an agent versus a person. There are multiple reasons you might ask this question ranging from finding problem areas in code or just attributing the productivity impact of AI agents. This project is specifically created to answer this.
 
@@ -100,7 +102,7 @@ End quote.
 
 It looks super interesting and well designed.
 
-Link ten. "GPT-5.1: A smarter, more conversational ChatGPT | OpenAI"
+Link ten of ten. "GPT-5.1: A smarter, more conversational ChatGPT | OpenAI"
 
 This additional level of personalization for ChatGPT seems like a notable add:
 
@@ -189,91 +191,93 @@ That's the end of the Journal.
 
 Now, the Briefly section.
 
-Link one. "uv is the best thing to happen to the Python ecosystem in a decade - Dr. Emily L. Hunt"
+There are twenty two links this week.
+
+Link one of twenty two. "uv is the best thing to happen to the Python ecosystem in a decade - Dr. Emily L. Hunt"
 
 Time for me to come clean — I've never used virtual environments for my Python projects. Frankly it is all too complicated for me. However, looking at how uv does this I think I could make this work.
 
-Link two. "How to Not Get Acquired - Allen Pike"
+Link two of twenty two. "How to Not Get Acquired - Allen Pike"
 
 There are a million posts on how to get acquired — I love that Pike wrote about how to not get acquired.
 
-Link three. "What’s new in Shortcuts for iOS 26, iPadOS 26, macOS 26, watchOS 26, and visionOS 26 - Apple Support"
+Link three of twenty two. "What’s new in Shortcuts for iOS 26, iPadOS 26, macOS 26, watchOS 26, and visionOS 26 - Apple Support"
 
 I’m a Shortcuts power user for sure and there were some really good additions in the recent releases. The "Use Model" capability of Apple Intelligence by itself is something I’m confident you could get value from and it is right on your phone today.
 
-Link four. "unavatar, the ultimate avatar service that offers everything you need to easily retrieve user avatars"
+Link four of twenty two. "unavatar, the ultimate avatar service that offers everything you need to easily retrieve user avatars"
 
 This looks like a nice and simple service that could take the place of Gravatar.
 
-Link five. "AWS and OpenAI announce multi-year strategic partnership | OpenAI"
+Link five of twenty two. "AWS and OpenAI announce multi-year strategic partnership | OpenAI"
 
 Makes total sense that this would happen. Too much upside for both companies to not.
 
-Link six. "The App Store now has a pretty sweet solution for the web – Six Colors"
+Link six of twenty two. "The App Store now has a pretty sweet solution for the web – Six Colors"
 
 This is a nice surprise — when linking to an app I would still prefer to link to the publishers own site, but this is a nice fallback. I would think this is also to help search engines, but even more importantly it makes the App Store accessible to LLMs.
 
-Link seven. "512KB Club | A showcase of lightweight websites"
+Link seven of twenty two. "512KB Club | A showcase of lightweight websites"
 
 Love this focus on super fast simple sites. My blog will never be this small because I love including images too much.
 
-Link eight. "Fall Foliage Map twenty twenty five: Daily Updates and Forecasts!"
+Link eight of twenty two. "Fall Foliage Map twenty twenty five: Daily Updates and Forecasts!"
 
 I need to keep this site for next year — this looks like a super detailed way to track fall colors.
 
-Link nine. "Internet Archive’s legal fights are over, but its founder mourns what was lost - Ars Technica"
+Link nine of twenty two. "Internet Archive’s legal fights are over, but its founder mourns what was lost - Ars Technica"
 
 I've been an active donor to the Internet Archive for well over a decade. I’m glad that they survived this legal fight but how we are approaching property rights in the digital space continues to be a struggle.
 
-Link ten. "Code execution with MCP: building more efficient AI agents Anthropic"
+Link ten of twenty two. "Code execution with MCP: building more efficient AI agents Anthropic"
 
 More advanced approaches to building out ever more complicated MCP capabilities. Again focusing on managing context.
 
-Link eleven. "How I use AI (Oct twenty twenty five) - Ben Stolovitz"
+Link eleven of twenty two. "How I use AI (Oct twenty twenty five) - Ben Stolovitz"
 
 These "how I use AI" posts are always good reads to amplify your learning building on others experiences.
 
-Link twelve. "Making Sense of Bitcoin’s Changing Market Rythm"
+Link twelve of twenty two. "Making Sense of Bitcoin’s Changing Market Rythm"
 
 Deep dive using on-chain data to see how Bitcoin is changing hands. Bitcoin has really stabilized above 100,000 dollars USD at this point. Is another crypto winter coming? Maybe? I’m starting to wonder.
 
-Link thirteen. "Six coding agents at once"
+Link thirteen of twenty two. "Six coding agents at once"
 
 Welcome to the future!
 
-Link fourteen. "Why is Zig so Cool?"
+Link fourteen of twenty two. "Why is Zig so Cool?"
 
 I love reading about the incredible variety of programming languages. This one sure reads a lot like C but has some really modern takes on the style. Almost looks Pythonic in some ways.
 
-Link fifteen. "Montana Becomes First State to Enshrine ‘Right to Compute’ Into Law - Montana Newsroom"
+Link fifteen of twenty two. "Montana Becomes First State to Enshrine ‘Right to Compute’ Into Law - Montana Newsroom"
 
 Interesting. I wasn't familiar with RightToCompute. Curious to read more about them. I did some preliminary AI-assisted comparisons with the EFF to get a sense of them and it is interesting territory. Proactively defending against limitations on what people are allowed to run on computers in the abstract seems like a good thing.
 
-Link sixteen. "beets: the music geek‘s media organizer"
+Link sixteen of twenty two. "beets: the music geek‘s media organizer"
 
 Incredibly powerful command-line tool that you can use to manage music files with a ton of power. The video is a great overview of the features. Impressive stuff.
 
-Link seventeen. "Pikaday"
+Link seventeen of twenty two. "Pikaday"
 
 Date and time pickers are notoriously unhelpful. This library does a pretty good job.
 
-Link eighteen. "Space Type Generator"
+Link eighteen of twenty two. "Space Type Generator"
 
 Wild set of little tools to do odd things with type.
 
-Link nineteen. "try: fresh directories for every vibe"
+Link nineteen of twenty two. "try: fresh directories for every vibe"
 
 Little command line utility notably from Shopify CEO Tobi Lütke that helps you manage a ton of directories for little projects or experiments you want to "try".
 
-Link twenty. "Cryptography 101 with Alfred Menezes – Video lectures, notes, and exercises in all areas of applied cryptography"
+Link twenty of twenty two. "Cryptography 101 with Alfred Menezes – Video lectures, notes, and exercises in all areas of applied cryptography"
 
 An incredible array of learning materials for cryptography.
 
-Link twenty one. "Apple rolls out Digital ID in Apple Wallet for U.S. passport holders – Six Colors"
+Link twenty one of twenty two. "Apple rolls out Digital ID in Apple Wallet for U.S. passport holders – Six Colors"
 
 I was bummed to see Minnesota is not one of the states that you can import your drivers license for. However I’m excited to see I can add my passport.
 
-Link twenty two. "How ENS Is Approaching ICANN's gTLD Expansion Program | ENS Blog"
+Link twenty two of twenty two. "How ENS Is Approaching ICANN's gTLD Expansion Program | ENS Blog"
 
 The fact that Ethereum Name Service has a clear plain to work alongside, instead of in opposition to, the traditional Domain Name Service is one of the things that excited me the most about it. Web3 needs to integrate into the web.
 

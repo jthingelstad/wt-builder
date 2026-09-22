@@ -27,11 +27,13 @@ Lots of good fun that is funny"
 
 Now, the Notable section.
 
-Link one. "Why sprint estimation has broken Agile | VirtusLab"
+There are sixteen links this week.
+
+Link one of sixteen. "Why sprint estimation has broken Agile | VirtusLab"
 
 This post gets story points all wrong. The author suggests that story points are the same as time, and that is a broken approach. Spring points should be an estimate of complexity. The value of story points comes in making sure that the stories are actually able to be completed, not to estimate the duration of clock time it will take to do them.
 
-Link two. "The UNIX Pipe Card Game"
+Link two of sixteen. "The UNIX Pipe Card Game"
 
 Oh. My. Wow! This is the most delightful, geekiest thing I think I have ever seen. Sadly it is sold out or I might have to order a dozen of these to give to friends!
 
@@ -41,7 +43,7 @@ Using cards to visually connect commands together seems just brilliant.
 
 He also has a set of cards to learn Go!
 
-Link three. "Google Has Most of My Email Because It Has All of Yours – copyrighteous"
+Link three of sixteen. "Google Has Most of My Email Because It Has All of Yours – copyrighteous"
 
 I use Fastmail to host my mail, and I wouldn't use Google because like the author here I don't want them to see my email. Obviously if you email people that use Google, they then have the email. The author here actually did the work to figure out how much that was for his email usage.
 
@@ -53,7 +55,7 @@ Ugh. Now, even though Google saw that, since I’m not a Gmail user they cannot 
 
 But keeping data out of big services like Google is really hard.
 
-Link four. "Plastic recycling remains a 'myth': Greenpeace study"
+Link four of sixteen. "Plastic recycling remains a 'myth': Greenpeace study"
 
 Ugh… recycling isn't gonna be the answer for dealing with plastic.
 
@@ -63,7 +65,7 @@ End quote.
 
 Neat. Plastic may be mankind's most lasting mark on the Universe.
 
-Link five. "What "Work" Looks Like - Jim Nielsen’s Blog"
+Link five of sixteen. "What "Work" Looks Like - Jim Nielsen’s Blog"
 
 One of my own challenges is finding enough time alone, contemplating the big topics, to direct things going forward.
 
@@ -73,11 +75,11 @@ End quote.
 
 This made me think of Warren Buffet or even Bill Gates and their work habits around focus time, reading, and a lot of thinking time.
 
-Link six. "Slow Roads"
+Link six of sixteen. "Slow Roads"
 
 This thing is mesmerizing! Load it into your browser and press "F" to activate auto drive. Almost like having an aquarium to stare at. The author wrote a great writeup on the project, it was his own attempt to see if he could created a "procedurally generating infinite, scenic landscapes". Looks great to me.
 
-Link seven. "POAP x ENS x IYK swag at Devcon 6 by the numbers — ENS"
+Link seven of sixteen. "POAP x ENS x IYK swag at Devcon 6 by the numbers — ENS"
 
 This "swag" event that ENS did at Devcon 6 is so incredible, and the recap of the results here is super impressive. I want one of these IYK PAOP Cards so bad now! Check out the connection graph of the POAPs distributed.
 
@@ -89,23 +91,23 @@ This should just be standard at any crypto events, or any events at all, going f
 
 Love it all so much.
 
-Link eight. "Raoul Pal CEO of RealVision, GMI, etc. | web3 talks"
+Link eight of sixteen. "Raoul Pal CEO of RealVision, GMI, etc. | web3 talks"
 
 Good talk with Raoul Pal on macro economics and crypto. His description of the macro cycle is the most easily to digest I've ever heard. Pal also talks about what he sees in crypto. He actually answers something I've wondered about for a while. Specifically, if crypto can be used to create new communities, why would companies like Disney ever allow that. Pal suggests that by doing that, they may be able to show these currently unvalued assets on their balance sheet. That is a very interesting thought.
 
-Link nine. "Michael Tsai - Stage Manager in macOS 13.0"
+Link nine of sixteen. "Michael Tsai - Stage Manager in macOS 13.0"
 
 I tried Stage Manager on iPadOS for about 5 minutes and turned it off. It doesn't make sense to me unless you regularly connect an iPad to an external display and use it like a laptop. However, on macOS I've been playing with Stage Manager and sort of like it. I’m still getting used to it, but it is a novel way to collect windows and applications together. I wish that the collections you created were persistent, but maybe that will come.
 
-Link ten. "macOS Ventura: The MacStories Review"
+Link ten of sixteen. "macOS Ventura: The MacStories Review"
 
 Incredible detail about every new thing in macOS Ventura. These are long reads but it is a good way to make sure you discover all the new stuff. The Ars Technics writeup is also a really good read.
 
-Link eleven. "Burned Out on Your Personal Brand - Tom Peters"
+Link eleven of sixteen. "Burned Out on Your Personal Brand - Tom Peters"
 
 Not terribly surprising that many influencers and social media personalities find it exhausting over time. Many turn their entire life into a performance. Performative living! That isn't going to be fulfilling even for a little while.
 
-Link twelve. "Focus Is Saying No To Good Ideas - Commoncog"
+Link twelve of sixteen. "Focus Is Saying No To Good Ideas - Commoncog"
 
 Great article and stories around focus and choosing what is going to get attention.
 
@@ -115,7 +117,7 @@ End quote.
 
 I prefer to say this as "What makes you successful is what you don't do, as much as what you do."
 
-Link thirteen. "Russell Napier: The world will experience a capex boom"
+Link thirteen of sixteen. "Russell Napier: The world will experience a capex boom"
 
 There are a lot of financial people continuing to highlight various situations in "never before seen" spots. This interview frames a view that wea re shifting to a very different economic environment, and explains the reasons why and how.
 
@@ -131,11 +133,11 @@ End quote.
 
 There is some potential to avoid he states, if we can figure out a way to drive real productivity up faster. Who knows where that could come from though.
 
-Link fourteen. "How to Build Software like an SRE — willett dot io"
+Link fourteen of sixteen. "How to Build Software like an SRE — willett dot io"
 
 Good list of practices to focus on resiliency of solutions. Some of these are challenging, like strict RPC settings. It is easy for teams to to just add retries and extend timeouts to work through issues, but it creates unpredictability during execution.
 
-Link fifteen. "Federation ◨-◨"
+Link fifteen of sixteen. "Federation ◨-◨"
 
 This is a super interesting piece of DAO capability coming out of the Nouns ecosystem, which I have a lot of fun playing with.
 
@@ -145,7 +147,7 @@ End quote.
 
 I've seen this directly and the DAO-to-DAO connection here has some interesting use cases.
 
-Link sixteen. "Portfolio Allocations — Endaoment"
+Link sixteen of sixteen. "Portfolio Allocations — Endaoment"
 
 Endaoment is one of the cooler crypto applications, allowing you to set up a Donor Advised Fund completely on your own using Ethereum. They've been adding additional features and they just now launched the ability to invest your fund assets into portfolios so you can grow the DAF after it is funded.
 
@@ -214,43 +216,45 @@ That's the end of the Journal.
 
 Now, the Briefly section.
 
-Link one. "Open Source Podcasting Client – Matt Mullenweg"
+There are ten links this week.
+
+Link one of ten. "Open Source Podcasting Client – Matt Mullenweg"
 
 I love that Matt Mullenweg continues to push forward on the same core principles of software and the web. It blows me away that he is still only 38 years old.
 
-Link two. "Lucide"
+Link two of ten. "Lucide"
 
 Simple and clean icons for whatever uses you may need.
 
-Link three. "WalletChat - Wallet to Wallet messaging for web3"
+Link three of ten. "WalletChat - Wallet to Wallet messaging for web3"
 
 Allows people that hold the same NFT to create private chat rooms. Best used with POAPs to create a messaging interface between people that have the same POAPs.
 
-Link four. "The Block: CFTC and SEC chairs may disagree over whether ether is a security"
+Link four of ten. "The Block: CFTC and SEC chairs may disagree over whether ether is a security"
 
 Is Ether a security? A commodity? I think the answer is that digital assets are a new thing and should be addressed in their own regulatory framework.
 
-Link five. "Trying Cloudflare Pages: Best Server Tech Since cgi-bin - Perf and other stuff"
+Link five of ten. "Trying Cloudflare Pages: Best Server Tech Since cgi-bin - Perf and other stuff"
 
 Aside from these examples being in Typescript, this is a really powerful capability in Cloudflare pages.
 
-Link six. "33 Behavioral Interview Questions to Ask Candidates"
+Link six of ten. "33 Behavioral Interview Questions to Ask Candidates"
 
 Interviewing is always hard, and this is a good list of questions to use to get deeper insights into the candidate.
 
-Link seven. "World Scouting launches first green NFT badge at JOTA-JOTI | WOSM"
+Link seven of ten. "World Scouting launches first green NFT badge at JOTA-JOTI | WOSM"
 
 Scouts can now get an NFT badge. Brilliant.
 
-Link eight. "Pearl: POAP Inbox"
+Link eight of ten. "Pearl: POAP Inbox"
 
 There are a number of apps working on creating communities around POAPs, this one looks interesting but is still very much in beta.
 
-Link nine. "The Best Leaders Know 3 Things Average Leaders Don’t - Leadership Freak"
+Link nine of ten. "The Best Leaders Know 3 Things Average Leaders Don’t - Leadership Freak"
 
 I like it.
 
-Link ten. "Astronomers are captivated by brightest flash ever seen"
+Link ten of ten. "Astronomers are captivated by brightest flash ever seen"
 
 Astronomy fascinates me and makes my head hurt at the same time. "18 teraelectronvolts of energy" sounds like a lot!
 

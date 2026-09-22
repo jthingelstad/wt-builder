@@ -27,7 +27,9 @@ That's the end of Currently.
 
 Now, the Notable section.
 
-Link one. "Stop saying "technical debt" - Stack Overflow Blog"
+There are nine links this week.
+
+Link one of nine. "Stop saying "technical debt" - Stack Overflow Blog"
 
 This is a great post and is so completely spot on! I feel like I've had this conversation in parts with several technology leaders over time.
 
@@ -39,7 +41,7 @@ Said another way, "tech debt" is a sloppy term that can mean anything to anyone.
 
 Next word to focus on? "Scale".
 
-Link two. "crul"
+Link two of nine. "crul"
 
 This looks like a really powerful tool to mine web pages for various data feeds.
 
@@ -49,7 +51,7 @@ End quote.
 
 Interesting set of capabilities to build with.
 
-Link three. "LastPass says employee’s home computer was hacked and corporate vault taken | Ars Technica"
+Link three of nine. "LastPass says employee’s home computer was hacked and corporate vault taken | Ars Technica"
 
 This LastPass breach was widely published a couple of months ago, and now we are getting more details on what actually happened. The vector that the attackers use to get in was only possible with four people? Emphasis mine.
 
@@ -59,7 +61,7 @@ End quote.
 
 Keeping secrets secure is hard, and even harder when those secrets end up on unmanaged equipment. Painful. See the LastPass announcement for full writeup.
 
-Link four. "Microsoft unveils AI model that understands image content, solves visual puzzles | Ars Technica"
+Link four of nine. "Microsoft unveils AI model that understands image content, solves visual puzzles | Ars Technica"
 
 This seems like the obvious next step and something I eluded to earlier in reference to Wolfram Alpha working with ChatGPT to each do their respective part best. The same way the human brain has different regions to do different tasks, why wouldn't we use different AI models in the same way.
 
@@ -69,7 +71,7 @@ End quote.
 
 It seem like a very hard problem to transition concepts between different models. The models are neural nets themselves that do not have a readily decomposable way to describe themselves post training. How does this thing send an object around to different models? Maybe it doesn't need to? They can all just guess and then an executive model can render the final thing together?
 
-Link five. "The Technium: 1,000 True Fans"
+Link five of nine. "The Technium: 1,000 True Fans"
 
 I first read the original version of this in twenty nineteen and enjoyed this updated take on the same concept.
 
@@ -81,11 +83,11 @@ If there is only one thing to take away from this to me it is to focus on the le
 
 People love to highlight how many followers or subscribers they have. Those are the numbers that social platforms give you. When folks jump out of that caustic ecosystem they often feel lost in a blog with less engagement. The thing to focus on, is the quality of that engagement.
 
-Link six. "Cleaning and graphing baseball data - All this"
+Link six of nine. "Cleaning and graphing baseball data - All this"
 
 I saw Dr. Drang's first post on baseball game durations and the chart in it made my eyes light up. Then the next day I saw this post where he goes through the specifics on how he made the chart. I love the detail and the Python toolchain he used to make this.
 
-Link seven. "Ethereum Reflections twenty twenty three · djrtwo/writing · GitHub"
+Link seven of nine. "Ethereum Reflections twenty twenty three · djrtwo/writing · GitHub"
 
 This article from core Ethereum developer Danny Ryan of the Ethereum Foundation is a good read overall. It highlights how much continued development is possible and likely around Ethereum, but also highlights risks that are out. It is notable to me that many of the risks are not technical, but are about control and governance.
 
@@ -101,11 +103,11 @@ End quote.
 
 That last line is why I’m looking into becoming a home validator for Ethereum, as I've been doing with Gnosis for several months now.
 
-Link eight. "The Fediverse is Already Dead | Nora Codes"
+Link eight of nine. "The Fediverse is Already Dead | Nora Codes"
 
 As I read about the Fediverse I can’t help but think we have had this for a very long time. We have the Web. And we have RSS and Atom. We can publish content, and we can syndicate that to others. What is the problem we are trying to solve here? Why do we need this at all?
 
-Link nine. "The Unbearable Sameness of the Modern Web"
+Link nine of nine. "The Unbearable Sameness of the Modern Web"
 
 Another in the thread of "Make the Web Weird Again!"!
 
@@ -215,35 +217,37 @@ That's the end of Reply All.
 
 Now, the Briefly section.
 
-Link one. "After two decades and more than two thousand% revenue growth, SPS Commerce CEO is retiring"
+There are eight links this week.
+
+Link one of eight. "After two decades and more than two thousand% revenue growth, SPS Commerce CEO is retiring"
 
 Our CEO Archie Black has announced his plans for retirement after 22 years of leading SPS Commerce. Particularly love the photo from our tech floor. I've learned so much from him over the last ten years.
 
-Link two. "Why Python keeps growing, explained | The GitHub Blog"
+Link two of eight. "Why Python keeps growing, explained | The GitHub Blog"
 
 Python is my favorite language, and this is a good outline on many of the reasons why I like it and why I've encouraged it in many different settings.
 
-Link three. "The Camera Shy Hoodie — Mac Pierce"
+Link three of eight. "The Camera Shy Hoodie — Mac Pierce"
 
 A hoodie that makes it so cameras can’t record you well? Love it. I wonder if we will continue to see innovation in clothing and other equipment to shield ourselves from the continual passive surveillance that we are subjected to.
 
-Link four. "A Letter from Minnestar Executive Director Maria Ploessl | Minnestar"
+Link four of eight. "A Letter from Minnestar Executive Director Maria Ploessl | Minnestar"
 
 After an amazing run as the first Executive Director of Minnestar, Maria Ploessl is stepping down. The search for the next ED starts now…
 
-Link five. "Watch David Letterman ‘Bono and The Edge: A Sort of Homecoming’ Trailer – Rolling Stone"
+Link five of eight. "Watch David Letterman ‘Bono and The Edge: A Sort of Homecoming’ Trailer – Rolling Stone"
 
 We will be watching this right away!
 
-Link six. "Introducing POAP Checkout"
+Link six of eight. "Introducing POAP Checkout"
 
 I’m a big fan of POAPs, and I have used POAP Checkout to support charitable efforts multiple times during the beta period. It is great to see this now in general release!
 
-Link seven. ""Our neighbor is a lunatic," says Ukrainian journalist a year on"
+Link seven of eight. ""Our neighbor is a lunatic," says Ukrainian journalist a year on"
 
 Interview with a Ukrainian journalist about the last year of covering the attacks from Russia.
 
-Link eight. "Oops, You Wrote a Database"
+Link eight of eight. "Oops, You Wrote a Database"
 
 This made me chuckle. I've definitely been parts of this story unfold.
 

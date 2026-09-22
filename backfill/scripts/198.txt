@@ -10,7 +10,9 @@ There is no attribution for this quote, but I heard it from Alan Abramson.
 
 Now, the Featured section.
 
-Link one. "Facebook Political Problems – Stratechery by Ben Thompson"
+There are three links this week.
+
+Link one of three. "Facebook Political Problems – Stratechery by Ben Thompson"
 
 I’m a huge fan of Thompson and Stratechery, and this "omnibus" reference article of his is an interesting idea to collect his overall thoughts on Facebook, independent of a single topic.
 
@@ -26,7 +28,7 @@ I feel like in this passage he completely flipped the context of the Internet an
 
 The last part is that he positions Facebook as being the victim of their own success. They are so great at execution, that they won everything. If they were so great, I would suggest they would have seen these strategic problems and done something, anything, to attempt to avoid them. Instead they have ignored them, or just pretended they didn’t exist. Now those issues are coming back.
 
-Link two. "Why You Should Stop Reading News"
+Link two of three. "Why You Should Stop Reading News"
 
 I’m a big fan of Cal Newport's approach to news and practice it myself. I do value being informed, but I don't need to be hyper informed. There is a very real limit to the value of continual news, and being thoughtful on how you limit incoming news is important. And, just as Facebook and social media have figured out how to grab your attention by the scruff of the neck and never let go, so have media companies.
 
@@ -38,7 +40,7 @@ Here is what I do:
 
 Works great for me.
 
-Link three. "My Accidental Visit to Kyiv, the Pandemic’s Party Capital - The New York Times"
+Link three of three. "My Accidental Visit to Kyiv, the Pandemic’s Party Capital - The New York Times"
 
 I've been to Kyiv well over a dozen times and the city has a great character and such a wide variety of experiences to offer.
 
@@ -62,7 +64,9 @@ That's the end of Currently.
 
 Now, the Notable section.
 
-Link one. "The Apple A15 SoC Performance Review: Faster and More Efficient"
+There are eighteen links this week.
+
+Link one of eighteen. "The Apple A15 SoC Performance Review: Faster and More Efficient"
 
 In short, the A15 delivers 15% more performance using 5% less power. The efficiency of the Apples System-on-a-Chip continues to get better and better. Largely tried and true means of getting it by doubling the SLC to 32MB and the L2 cache up 50% to 12MB. Clock speed is also up to 3.18GHz. The fact this stuff sits in your pocket still blows my mind.
 
@@ -74,27 +78,27 @@ End quote.
 
 Stay tuned…
 
-Link two. "Cloud Cost as Just Another Metric - SPS Technology"
+Link two of eighteen. "Cloud Cost as Just Another Metric - SPS Technology"
 
 Cost is measurable in the cloud, and should be a component of good architecture and operational oversight. I like how our team at SPS has tackled this and made it a transparent component of a service and its solutions. The net result is better efficiency, less waste.
 
-Link three. "What if Recommendation Algorithms Like Facebook’s Grappled Directly with Bad Content? by Dan Frankowski | Medium"
+Link three of eighteen. "What if Recommendation Algorithms Like Facebook’s Grappled Directly with Bad Content? by Dan Frankowski | Medium"
 
 My friend Dan Frankowski has years of experience working on recommendation engines. His observations on two different models being trained for competing objectives is interesting. He also makes the great point that all algorithms have to be optimized to some outcome. Thus, any content that is algorithmically determined is optimizing for something. The only neutral methods of ordering information are in time, or random.
 
-Link four. "The Coinbase Ventures Guide to NFTs by Coinbase | The Coinbase Blog"
+Link four of eighteen. "The Coinbase Ventures Guide to NFTs by Coinbase | The Coinbase Blog"
 
 If you are still trying to understand the basics of NFTs this is a good explainer on the main concepts. The DeFi and NFT stuff was news to me. You can actually use an NFT as collateral for debt.
 
-Link five. "The entirety of Twitch has reportedly been leaked | VGC"
+Link five of eighteen. "The entirety of Twitch has reportedly been leaked | VGC"
 
 This is an incredible leak. All source code and a ton of data taken. Reminder that Amazon owns Twitch. The leaked payout data that some Twitch streamers are receiving is incredible. The top streamer, xQcOW, was paid 752,467 dollars in just the month of September. Maybe we should encourage the kids to play video games some more.
 
-Link six. "How to replace estimations and guesses with a Monte Carlo simulation"
+Link six of eighteen. "How to replace estimations and guesses with a Monte Carlo simulation"
 
 I think it would be so interesting to bring Monte Carlo simulations to business. Most businesses use fairly straightforward projections and only create a small, finite set of models. Monte Carlo simulations would do a much better job of identifying best and worst cases, and giving you probability of different outcomes. Alas, it’s all a bit too hard to generate, and the bigger issue is it is harder to read and interpret. This article is a good explainer on writing Monte Carlo simulations in code.
 
-Link seven. "The Tech Worker Handbook"
+Link seven of eighteen. "The Tech Worker Handbook"
 
 Interesting resource.
 
@@ -104,11 +108,11 @@ End quote.
 
 I've long felt that we should explore a robust ethics program, both as part of formal education and professional certification, for technologists. Technologists are creating the code and systems that we increasingly live our lives in. Ethical matters abound, and as an industry there is little to help people navigate it.
 
-Link eight. "How to Act Like the CEO when You’re Not | Leadership Freak"
+Link eight of eighteen. "How to Act Like the CEO when You’re Not | Leadership Freak"
 
 I appreciate how Rockwell writes brief and to the point, although it does start to look like a listicle at times. These recommendations are a great way as a leader to test how you are engaging and make sure you feel good about your answers for each one.
 
-Link nine. "Letterloop: The Newsletter for Friends and Family"
+Link nine of eighteen. "Letterloop: The Newsletter for Friends and Family"
 
 This is such a delightful new service! I love the description.
 
@@ -118,11 +122,11 @@ End quote.
 
 Letterloop lets you create a newsletter with a small group, and the contents of the newsletter are collected from the members. What a cool way for a distributed group of friends to stay connected. You can also include photos and a variety of other content. I just love the pace, the intentionality. I dig that the entire service runs in email. It’s very cheap (no ads). This is the kind of thing that warms my heart on the web.
 
-Link ten. "Facebook whistleblower Frances Haugen details company's misleading efforts on 60 Minutes - CBS News"
+Link ten of eighteen. "Facebook whistleblower Frances Haugen details company's misleading efforts on 60 Minutes - CBS News"
 
 Regular readers of the Weekly Thing know my position on Facebook. I’m glad to see this getting such widespread media attention, and hopefully it will cause people to think deeply about what they are engaging with at Facebook.
 
-Link eleven. "There’s a Multibillion-Dollar Market for Your Phone’s Location Data – The Markup"
+Link eleven of eighteen. "There’s a Multibillion-Dollar Market for Your Phone’s Location Data – The Markup"
 
 Interesting deeper dive into how location data is collected, aggregated, and sold. I like the details here and the specific explanations of the use cases.
 
@@ -132,7 +136,7 @@ End quote.
 
 Incredible how many use cases there are for this data.
 
-Link twelve. "The seven programming ur-languages"
+Link twelve of eighteen. "The seven programming ur-languages"
 
 Good overview of fundamentally different programming language paradigms.
 
@@ -142,15 +146,15 @@ End quote.
 
 Many programmers will spend nearly their entire career just in the one branch -- ALGOL. And moving between languages in that branch really isn't that hard. It’s syntax difference, but the approach is similar enough. Moving to another branch is much more difficult.
 
-Link thirteen. "How Cloudflare provides tools to help keep IPFS users safe"
+Link thirteen of eighteen. "How Cloudflare provides tools to help keep IPFS users safe"
 
 IPFS still makes my head hurt a bit. I've played with it some, and put some content on it, but how it works for use beyond putting a single image out there still seems very odd. With that said, it seems foundational relevant and at some point I expect browsers will natively support IPFS. Cloudflare continues to lead the way here bridging IPFS into the current web.
 
-Link fourteen. "Web3 — A vision for a decentralized web"
+Link fourteen of eighteen. "Web3 — A vision for a decentralized web"
 
 I've been on the Web since the beginning and clearly remember when we first started hearing about Web 2.0 and all the AJAX glory it provided. I tend to define Web 1 as a read-only web, and Web 2 as a read-write web with the primary example of that capability being social. In my head Web 3 adds Identity, Payment, Assets to the stack of web capabilities to build in. It is interesting to see organizations framing these thoughts. Cloudflare is even creating apps to help you get started on Web3.
 
-Link fifteen. "The Jordan Analogy by Doug Clinton - Uncomfortable Profit"
+Link fifteen of eighteen. "The Jordan Analogy by Doug Clinton - Uncomfortable Profit"
 
 My brother-in-law is big into shoes, Jordan's specifically. He buys and sells them and has a good eye on what will be hot. This article uses that sneakers market to help create an understanding of the value of NFT's.
 
@@ -160,7 +164,7 @@ End quote.
 
 I’m still on the record that I don't understand the absolute value of some of the NFT's out there, but I do agree that they have value. The important thing will be how many of these NFT's really develop communities around them, like the Jordan sneaker market has.
 
-Link sixteen. "Always-on Processor magic: How Find My works while iPhone is powered off"
+Link sixteen of eighteen. "Always-on Processor magic: How Find My works while iPhone is powered off"
 
 The first time I restarted my iPhone 13 Pro I saw this notice that Find My capabilities would continue to operate while the device was off. How? Well, it turns out there is a whole subsystem that does this stuff.
 
@@ -170,11 +174,11 @@ End quote.
 
 Super interesting. The security, cryptography, and privacy on much of this Find My infrastructure makes it very difficult to follow how these systems work.
 
-Link seventeen. "Michael Tsai - Blog - iOS 15 Shortcuts and SwiftUI"
+Link seventeen of eighteen. "Michael Tsai - Blog - iOS 15 Shortcuts and SwiftUI"
 
 Roundup of multiple blog posts highlighting all of the issues with Shortcuts in iOS 15. I've personally experienced this in a meaningful way. I use Shortcuts to automate a lot of things both personally, professionally, and for various hobbies. I've had struggles since upgrading and the vast majority of them are with Shortcuts itself. This is rough, and Apple needs to get some firefighters looking at that code right away.
 
-Link eighteen. "The Macro of Micro.blog // pimoore.ca"
+Link eighteen of eighteen. "The Macro of Micro.blog // pimoore.ca"
 
 I've been running thingelstad.com on micro.blog since micro.blog launched. I originally used micro.blog as an alternative Twitter. After the platform matured it become obvious to me that I wanted all of my blogging to be this easy. The simple fact is there is no easier way to get a picture and some words on the internet than micro.blog. I have also learned that any friction is a problem in writing. I don't even want to have to name a file. And micro.blog removes more friction than any other solution.
 
@@ -210,23 +214,25 @@ That's the end of the Journal.
 
 Now, the Briefly section.
 
-Link one. "The Verica Open Incident Database (VOID)"
+There are five links this week.
+
+Link one of five. "The Verica Open Incident Database (VOID)"
 
 Searchable database of incident reports for hundreds of different companies. I don't think this data has ever been collected like this.
 
-Link two. "God made a social network — BuzzMachine"
+Link two of five. "God made a social network — BuzzMachine"
 
 Commentary from Jeff Jarvis on social networks and how we adapt to them.
 
-Link three. "FoundationDB: A Distributed Unbundled Transactional Key Value Store"
+Link three of five. "FoundationDB: A Distributed Unbundled Transactional Key Value Store"
 
 Highly scalable key value store, but uniquely built to allow for strictly serializable transactions.
 
-Link four. "What Happened to Facebook, Instagram, and WhatsApp? – Krebs on Security"
+Link four of five. "What Happened to Facebook, Instagram, and WhatsApp? – Krebs on Security"
 
 Facebook and it’s properties went offline for a while and everyone lost their mind. It is striking when the biggest of Internet operations has a critical issue like this.
 
-Link five. "Internet goes down for millions, tech companies scramble as key encryption service expires"
+Link five of five. "Internet goes down for millions, tech companies scramble as key encryption service expires"
 
 Now I know what caused the SSL warning I was getting last Thursday evening…
 

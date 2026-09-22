@@ -8,11 +8,13 @@ I want to wish all the Mothers out there a very Happy Mothers Day! Most of all t
 
 Now, the Must Read section.
 
-Link one. "Facebook SDK Issue Causing Some iOS Apps to Crash - MacRumors"
+There are three links this week.
+
+Link one of three. "Facebook SDK Issue Causing Some iOS Apps to Crash - MacRumors"
 
 So the other night Tyler told me he could not get Duolingo to load. He is learning some German and is really liking Duolingo. When he launched the app it would just crash right away. I told him to delete it and reinstall, still did it. We rebooted his device and that didn’t fix it. Then I noticed another app did it on his device. Odd. I gave up and told him I would look more later, and went to meditate and launched Headspace on my phone and it did the exact same thing. Then I started thinking that maybe a new rule was active on my Pi-Hole and that was causing the issue, but I disabled the Pi-Hole briefly and it still didn’t work. Then I saw that Facebook and poor error handling in their horrible SDK was causing a lot of apps to fail. There is an hour I’ll never get back...
 
-Link two. "Opinion | Dave Eggers: Flattening the Truth on Coronavirus - The New York Times"
+Link two of three. "Opinion | Dave Eggers: Flattening the Truth on Coronavirus - The New York Times"
 
 I love Eggers writing and this is spot on. He calls it all out too.
 
@@ -20,7 +22,7 @@ Quote.
 Having no plan is the plan! Haven’t you been listening? Plans are for commies and the Danish.
 End quote.
 
-Link three. "ongoing by Tim Bray · Bye, Amazon"
+Link three of three. "ongoing by Tim Bray · Bye, Amazon"
 
 I have followed Tim Bray’s blog for years. I enjoy his writing, and have also enjoyed the things he has shared about AWS services he has been working on since joining Amazon. It was a total shock to see this article in his feed, but after reading it you get a clear understanding of his reasoning.
 

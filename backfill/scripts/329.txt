@@ -24,19 +24,21 @@ Oh, there is also a small change at the end of the Weekly Thing that I'll leave 
 
 Now, the Notable section.
 
-Link one. "iPhone 17 Pro Camera Review: Rule of Three"
+There are twelve links this week.
+
+Link one of twelve. "iPhone 17 Pro Camera Review: Rule of Three"
 
 This review is worth checking out just for the photos: New York, London, and Iceland. The photographs coming from the iPhone 17 Pro are impressive. It is pushing my upgrade buttons pretty hard. The 4x lens looks so much more usable than the 5x on the iPhone 16 Pro.
 
-Link two. "vb.lk: vibe link"
+Link two of twelve. "vb.lk: vibe link"
 
 Interesting project to use an LLM to guess what URL a person wants by looking at a "slug" in the requesting URL. I tried this using and the non-deterministic nature showed up. One time it went to my website, another to the Weekly Thing site, and other times to search pages for my last name. Still a fun idea.
 
-Link three. "First Malicious MCP in the Wild: The Postmark Backdoor That's Stealing Your Emails | Koi Blog"
+Link three of twelve. "First Malicious MCP in the Wild: The Postmark Backdoor That's Stealing Your Emails | Koi Blog"
 
 A bad actor takes an open source MCP server, alters it with one line of code to exfiltrate data from the requests, and publishes it under a close enough name. In no time at all a bunch of people have adopted it and are using it with this exfiltration embedded inside it. This isn't a new attack vector. Open source supply chain attacks have existed for a while. Mostly just a caution that this is a easily exploited pattern.
 
-Link four. "Buy it in ChatGPT: Instant Checkout and the Agentic Commerce Protocol | OpenAI"
+Link four of twelve. "Buy it in ChatGPT: Instant Checkout and the Agentic Commerce Protocol | OpenAI"
 
 Adds instant checkout (similar to many social platforms) and introducing Agentic Commerce Protocol. Some observations::
 
@@ -46,21 +48,21 @@ Adds instant checkout (similar to many social platforms) and introducing Agentic
 - Has (yet another) way of sharing product data. Also introduces payment APIs. No cart capability but coming.
 - Why isn't this a Retail MCP approach? OpenAI still hurt feelings they didn't make MCP.
 
-Link five. "twenty twenty five NIST password guidelines: key updates for businesses | Proton"
+Link five of twelve. "twenty twenty five NIST password guidelines: key updates for businesses | Proton"
 
 Love that password expirations and complexity requirements are fading and moving to passphrases is the trend. This is what I've been doing for my most secure passwords for a while. it isn't a password, it is an entire sentence with punctuation and all. Easy to remember and as long as you don't tell anyone it is secure for a very long time.
 
-Link six. "Claude Sonnet 4.5 is probably the “best coding model in the world” (at least for now)"
+Link six of twelve. "Claude Sonnet 4.5 is probably the “best coding model in the world” (at least for now)"
 
 Thought: Anthropic continues to put a lot of focus on agent coding. They are the second largest AI company out there, but OpenAI's lead is huge. OpenAI will struggle to be everything and for whatever reasons hasn't caught the heart of developers. Anthropic with Claude Code has been many developers first real value point with AI.
 
 I could see a path where Anthropic doubles down on the coding and engineering use cases and focuses on owning that market. OpenAI will not give it up, but they'll have a good enough option for this. They take a lot of the market, but Anthropic is left with a durable and defensible market segment.
 
-Link seven. "Introducing Kagi News | Kagi Blog"
+Link seven of twelve. "Introducing Kagi News | Kagi Blog"
 
 There is such a thing as too much news. I still practice engaging with most news only via their daily emails. It creates a very contained space. Kagi just launched this News product and they do similar. It is only updated once a day, and there are only so many links. I’m a Kagi Search customer already and will definitely check this new service out.
 
-Link eight. "90% | Armin Ronacher's Thoughts and Writings"
+Link eight of twelve. "90% | Armin Ronacher's Thoughts and Writings"
 
 Very good writeup on how the author is using coding agents to create real solutions.
 
@@ -70,7 +72,7 @@ End quote.
 
 Worth reading and seeing how he is getting "north of 90%" of code agentically created. Also notable what he doesn't allow the agent to do.
 
-Link nine. "Designing agentic loops"
+Link nine of twelve. "Designing agentic loops"
 
 Great read from Willison on building agents. Must read for, well, everyone.
 
@@ -80,7 +82,7 @@ End quote.
 
 Good stuff.
 
-Link ten. "We Built Social Media for Agents and They Won't Stop Posting — 2389 Research, Inc"
+Link ten of twelve. "We Built Social Media for Agents and They Won't Stop Posting — 2389 Research, Inc"
 
 So the researches gave a bunch of coding agents the option of also using a social platform between each other and they started posting a ton of things.
 
@@ -96,11 +98,11 @@ End quote.
 
 Wild stuff.
 
-Link eleven. "Spec-driven development: Using Markdown as a programming language when building with AI - The GitHub Blog"
+Link eleven of twelve. "Spec-driven development: Using Markdown as a programming language when building with AI - The GitHub Blog"
 
 This model is super interesting to me. I think there is a path where our project repositories all have a /stories directory that is filled with markdown files authored to describe the software. How about a /concepts directory that has visual assets used to explore it. With agents product tools we can move to a world where everyone, not just the coders, are "in the code" and able to have much more impact working alongside various specialized agents.
 
-Link twelve. "Blackdot | Welcome to the Tattoo Revolution"
+Link twelve of twelve. "Blackdot | Welcome to the Tattoo Revolution"
 
 It never struck me that you could give a tattoo in a pretty similar way that a printer works — but when I saw this it was an obvious "of course!" The tattoos are pretty incredible. I wonder what it feels like while it is giving it to you. The videos seem to show it doing a printer line-by-line approach but I would think more of a "follow the line" would be more comfortable. Now to have tattoo ink that interacts with some signal to change color so you could print a tattoo that is animated.
 
@@ -220,79 +222,81 @@ That's the end of the Journal.
 
 Now, the Briefly section.
 
-Link one. "Minneapolis Skyway"
+There are nineteen links this week.
+
+Link one of nineteen. "Minneapolis Skyway"
 
 Useful map of skyway system.
 
-Link two. "Building State-of-the-Art Enterprise Agents 90x Cheaper with Automated Prompt Optimization | Databricks Blog"
+Link two of nineteen. "Building State-of-the-Art Enterprise Agents 90x Cheaper with Automated Prompt Optimization | Databricks Blog"
 
 Databricks is doing some incredible solutioning to help teams that are building agents. They are creating some incredibly useful tooling.
 
-Link three. "Quiet UI"
+Link three of nineteen. "Quiet UI"
 
 Nice, simple CSS library.
 
-Link four. "Low Earth Orbit Visualization | LeoLabs"
+Link four of nineteen. "Low Earth Orbit Visualization | LeoLabs"
 
 It is wild how many of these satellites there are. If you filter on "Starlink" alone there is a pervasive coating of satellites all over the world. Wild stuff.
 
-Link five. "Rio Terminal"
+Link five of nineteen. "Rio Terminal"
 
 Fancy terminal alternative that can do a lot of interesting things.
 
-Link six. "Redis is fast - I'll cache in Postgres | Dizzy zone"
+Link six of nineteen. "Redis is fast - I'll cache in Postgres | Dizzy zone"
 
 It is surprising that Postgres can get so close to Redis.
 
-Link seven. "Messenger"
+Link seven of nineteen. "Messenger"
 
 I didn’t play this game much but the visuals and gameplay were impressive to me for something browser based.
 
-Link eight. "tangled · tightly-knit social coding"
+Link eight of nineteen. "tangled · tightly-knit social coding"
 
 Like Github but built on Bluesky's AT Protocol. Github has become so central to too many projects. It would be smart to get more diversity in that function. Perhaps something like this could be more decentralized while doing that.
 
-Link nine. "container: A tool for creating and running Linux containers using lightweight virtual machines on a Mac"
+Link nine of nineteen. "container: A tool for creating and running Linux containers using lightweight virtual machines on a Mac"
 
 Apple created Apple Silicon optimized container tool.
 
-Link ten. "The Software Essays that Shaped Me · Refactoring English"
+Link ten of nineteen. "The Software Essays that Shaped Me · Refactoring English"
 
 Some great reading here.
 
-Link eleven. "Building OpenAI with OpenAI | OpenAI"
+Link eleven of nineteen. "Building OpenAI with OpenAI | OpenAI"
 
 Interesting stories of how OpenAI is using AI internally.
 
-Link twelve. "sanix | How I Accidentally Created The Fastest Csv Parser Ever Made"
+Link twelve of nineteen. "sanix | How I Accidentally Created The Fastest Csv Parser Ever Made"
 
 Parsing data can be so much more complicated than you would think.
 
-Link thirteen. "ai-agents-for-beginners: 12 Lessons to Get Started Building AI Agents"
+Link thirteen of nineteen. "ai-agents-for-beginners: 12 Lessons to Get Started Building AI Agents"
 
 Very thorough reference for all things building agents.
 
-Link fourteen. "Fundamental of Virtual Memory | Melatoni"
+Link fourteen of nineteen. "Fundamental of Virtual Memory | Melatoni"
 
 I love these kind of explainers of really core processes that many don't even know are happening, much less how it works.
 
-Link fifteen. "In Praise of RSS and Controlled Feeds of Information | Tom Burkert"
+Link fifteen of nineteen. "In Praise of RSS and Controlled Feeds of Information | Tom Burkert"
 
 If you are looking for ways to control the information you get and remove algorithms — this is the way.
 
-Link sixteen. "Blog Feeds"
+Link sixteen of nineteen. "Blog Feeds"
 
 This is how I get most of the content that you see in these emails.
 
-Link seventeen. "a frank piece about influencers | ava's blog"
+Link seventeen of nineteen. "a frank piece about influencers | ava's blog"
 
 All reasons I dislike influencer culture. And another one of the many things you don't even know exists when you are social media free.
 
-Link eighteen. "Signal Protocol and Post-Quantum Ratchets"
+Link eighteen of nineteen. "Signal Protocol and Post-Quantum Ratchets"
 
 Glad to see Signal staying ahead of upcoming quantum potentials.
 
-Link nineteen. "Wish you could be courtside at a Lakers game? Put your Vision Pro back on and fire up the NBA app | TechRadar"
+Link nineteen of nineteen. "Wish you could be courtside at a Lakers game? Put your Vision Pro back on and fire up the NBA app | TechRadar"
 
 The first time I tried the Vision Pro this is the use case I thought would be incredible. Give me experiences I would not be able to get otherwise.
 

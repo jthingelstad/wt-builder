@@ -32,7 +32,9 @@ That's the end of Want to start a blog?.
 
 Now, the Notable section.
 
-Link one. "Interview: The Real Costs of Free Search Engines | 1Password"
+There are fourteen links this week.
+
+Link one of fourteen. "Interview: The Real Costs of Free Search Engines | 1Password"
 
 I've been a customer of Kagi for a while now and I've been happy with it. This interview with the CEO is a good read. The first things I insisted on paying for due to privacy concerns were email, feed readers, and storage. But as soon as paid search options were good enough it was obvious to me to make that switch for many reasons including this one.
 
@@ -48,7 +50,7 @@ End quote.
 
 Considering the role that search plays in how you inform yourself and discover content online getting search that is incentivized to help you versus an advertiser seems like a good idea.
 
-Link two. "A Minecraft town of AI characters made friends, invented jobs, and spread religion | MIT Technology Review"
+Link two of fourteen. "A Minecraft town of AI characters made friends, invented jobs, and spread religion | MIT Technology Review"
 
 Super interesting way to experiment with large scale AI "agent" interactions.
 
@@ -58,7 +60,7 @@ End quote.
 
 It is incredible to me that some of the emergent things we see human society create happened here as well.
 
-Link three. "Can you lose weight by just exercising? Science says it rarely works. - The Washington Post"
+Link three of fourteen. "Can you lose weight by just exercising? Science says it rarely works. - The Washington Post"
 
 Gift Link. This interview was super interesting to me. The suggestion is that metabolism is completely connected to the number of cells you have.
 
@@ -68,7 +70,7 @@ End quote.
 
 Super interesting stuff. Goes on to highlight that age impacts things different than we think.
 
-Link four. "How Honeycrisp Apples Went From Marvel to Mediocre"
+Link four of fourteen. "How Honeycrisp Apples Went From Marvel to Mediocre"
 
 In Weekly Thing 299 I shared an article about the incredible Minnesota-made Honeycrisp apple. It highlighted how Honeycrisp swept the Apple market. But I don't recall it highlighting how "Made for Minnesota" the Honeycrisp apple is.
 
@@ -78,11 +80,11 @@ End quote.
 
 Get your Honeycrisp Apples right here in Minnesota.
 
-Link five. "Generating Worlds"
+Link five of fourteen. "Generating Worlds"
 
 What if you could take a single picture or drawing and from that generate an entire 3D world that you can move around in and explore? That is what this does. This seems almost magical and could be amazing to explore fictional worlds on the fly.
 
-Link six. "7 Databases in 7 Weeks for twenty twenty five"
+Link six of fourteen. "7 Databases in 7 Weeks for twenty twenty five"
 
 A high level overview of the strengths of seven different databases as well as a guide to focus on if you were to dive deeper and spend a few days running it. The databases covered are:
 
@@ -96,17 +98,17 @@ A high level overview of the strengths of seven different databases as well as a
 
 It is cool that there is still so much innovation happening in databases.
 
-Link seven. "What I would love to see in a wallet"
+Link seven of fourteen. "What I would love to see in a wallet"
 
 I've gone pretty deep in crypto and one of the conclusions that I have is that the wallet software, the final interface between the user and the blockchain, is a huge limiter for crypto adoption. There is a ton of innovation that needs to happen here as well as a radical improvement to the user experience. Buterin's list hits on a lot of multichain and multiaddress capabilities which are important but I would also highlight just plain usability.
 
 My hope is that someday we'll get the big software houses like Google and Apple to built crypto capability directly into the Wallet applications that are already on our mobile phones. The experience that these organizations have building user experiences that scale for millions of users is needed. Sadly I think that is still several years away. In the meantime, wallets like Rainbow and Family are on a good path. I suspect wallet development gets a lot less attention because there are no tokens and fees to go after. The economics are not obvious.
 
-Link eight. "How YouTube Ate Podcasting"
+Link eight of fourteen. "How YouTube Ate Podcasting"
 
 Earlier this year Anil Dash wrote how the statement "Wherever you get your podcasts" is radical. His point is that the open ecosystem of podcast hosting, RSS feeds, directories, and players is incredible. There is no lock in here like we have with social networks. But more and more YouTube is becoming where many get podcasts and that doesn't seem great for this open ecosystem.
 
-Link nine. "Andrew Grove Interview - CEO of Intel - Quotes about Corporatoins and the Internet"
+Link nine of fourteen. "Andrew Grove Interview - CEO of Intel - Quotes about Corporatoins and the Internet"
 
 With Intel CEO Pat Gelsinger out there have been a lot of references to legendary Intel CEO Andy Grove. This quote from him is from two thousand six!
 
@@ -116,11 +118,11 @@ End quote.
 
 Spot on and very early. Via Daring Fireball link on other items
 
-Link ten. "Daring Fireball: Andy Grove Was Right"
+Link ten of fourteen. "Daring Fireball: Andy Grove Was Right"
 
 Gruber's take on Intel downfall is a good read and he invokes one of my very favorite quotes from former Intel CEO Andy Grove "Only the paranoid survive". He goes on to highlight how Intel stopped being paranoid. Intel survived one massive miss when they entirely lost the mobile market. Intel had a chance. Apple themselves would have worked with them on the iPhone. But Intel wasn't willing to do it. After missing the mobile wave, now they have completely missed the GPU. I still think Intel will survive but the path is going to be horrible and may take a decade or more.
 
-Link eleven. "They See Your Photos"
+Link eleven of fourteen. "They See Your Photos"
 
 A simple tool where you can upload a photo and it will tell you what information can be retrieved from it and how that might be used. It uses the Google Vision API. I uploaded a photo I took at a conference and it got all the obvious metadata like the exact address it was taken at, the model of my iPhone and when. The final paragraph highlights details in the example I gave it:
 
@@ -130,15 +132,15 @@ End quote.
 
 I've talked to many friends about using services like Google Photos. The amount of information that can be retrieved from your photos is rather incredible. It goes well beyond the metadata and specifically to the brands of appliances you have, types of things that are in your house, the list goes on and on. There is so much data in your photos.
 
-Link twelve. "Should you reuse single-use plastics? Experts say it’s a health risk. - The Washington Post"
+Link twelve of fourteen. "Should you reuse single-use plastics? Experts say it’s a health risk. - The Washington Post"
 
 With what I've read about microplastics and what we generally know about plastic and food I think we are going to continue to learn that this has been very bad to us and plastic should stay as far away as possible from anything we eat. Gift link.
 
-Link thirteen. "The Curse of Markdown | Code Hike"
+Link thirteen of fourteen. "The Curse of Markdown | Code Hike"
 
 Interesting take a the limits of expression based on the tool that you create in. The rather sensational title is really just highlighting that while Markdown is great for what it does, it limits how you can express yourself. And the point that Pombo makes is that then making the jump to something where you can do those things is too big. We need a more gradual curve to adopt more expressive capabilities. Thought provoking.
 
-Link fourteen. "U.S. officials urge Americans to use encrypted apps amid cyberattack"
+Link fourteen of fourteen. "U.S. officials urge Americans to use encrypted apps amid cyberattack"
 
 Wow, this is wild.
 
@@ -257,61 +259,63 @@ That's the end of the Journal.
 
 Now, the Briefly section.
 
-Link one. "Why pipes sometimes get "stuck": buffering"
+There are fifteen links this week.
+
+Link one of fifteen. "Why pipes sometimes get "stuck": buffering"
 
 I didn’t realize that a Unix pipe does buffer like this. Interesting.
 
-Link two. "vince - Self Hosted Alternative to Google Analytics"
+Link two of fifteen. "vince - Self Hosted Alternative to Google Analytics"
 
 Great to see continued options for web analytics that don't rely on giant companies and support privacy preservation.
 
-Link three. "‘By 8pm it is time to head home’: whatever happened to the big night out? | The Guardian"
+Link three of fifteen. "‘By 8pm it is time to head home’: whatever happened to the big night out? | The Guardian"
 
 It turns out it is cool to go to bed early now?
 
-Link four. "The Connections Puzzlemaker Welcomes Your Hate - The Atlantic"
+Link four of fifteen. "The Connections Puzzlemaker Welcomes Your Hate - The Atlantic"
 
 Tyler got me into playing Connections on a regular basis. I was terrible for the first few and then started getting the hang of it. But I think I still fail about half the time. Gift Link.
 
-Link five. "The Paris Review - Waclaw Szpakowski Made Labyrinthine Drawings from Single, Continuous Lines"
+Link five of fifteen. "The Paris Review - Waclaw Szpakowski Made Labyrinthine Drawings from Single, Continuous Lines"
 
 Mesmerizing drawings.
 
-Link six. "Markwhen"
+Link six of fifteen. "Markwhen"
 
 There are a number of projects that extend the simplicity of Markdown in different ways. This is interesting, and I’m a fan of things like timelines, but the format seems a bit complicated.
 
-Link seven. "Speed, creativity and AI | Seth's Blog"
+Link seven of fifteen. "Speed, creativity and AI | Seth's Blog"
 
 Great take from Godin on what may be achieved with creative output and AI.
 
-Link eight. "BlogFlock"
+Link eight of fifteen. "BlogFlock"
 
 Simple site that allows you to takes lists of RSS feeds and put them together as a group. Others can follow those lists and the result is a big "river of news" style feed. Love it. I played with this and like it.
 
-Link nine. "The Best Goals in Football for twenty twenty four"
+Link nine of fifteen. "The Best Goals in Football for twenty twenty four"
 
-Link ten. "The Giving Game – recursion by Luke Francl"
+Link ten of fifteen. "The Giving Game – recursion by Luke Francl"
 
 Francl came up with a great way to teach his kids about giving. Our kids are older but this is one of the things I love about the Things 4 Good sale we do — everyone has to research and identify charities they want to give to.
 
-Link eleven. "Amid Europe’s energy crisis, this Dutch tulip farmer is swapping gas for heat from Bitcoin mining | Euronews"
+Link eleven of fifteen. "Amid Europe’s energy crisis, this Dutch tulip farmer is swapping gas for heat from Bitcoin mining | Euronews"
 
 We need to do more of this, and it is pretty obvious. Too much heat from servers? Put it with something that needs that heat.
 
-Link twelve. "For Starters #39: Pros and Cons of 6 Innovation Practices"
+Link twelve of fifteen. "For Starters #39: Pros and Cons of 6 Innovation Practices"
 
 My friend Garrick shares strengths and weaknesses of six different methods to favor innovation. Good list to consider and explore if you want to create a more innovative environment.
 
-Link thirteen. "Online holiday sales set record, driven by higher-income shoppers - The Washington Post"
+Link thirteen of fifteen. "Online holiday sales set record, driven by higher-income shoppers - The Washington Post"
 
 Online sales up 8.1% over last year. Gift Link.
 
-Link fourteen. "Brian Thompson, UnitedHealthcare CEO, Is Fatally Shot in Midtown Manhattan: Live Updates - The New York Times"
+Link fourteen of fifteen. "Brian Thompson, UnitedHealthcare CEO, Is Fatally Shot in Midtown Manhattan: Live Updates - The New York Times"
 
 UnitedHealthcare is headquartered here in Minneapolis and this news hit our local community very hard.
 
-Link fifteen. "Who owns your words? | Seth's Blog"
+Link fifteen of fifteen. "Who owns your words? | Seth's Blog"
 
 I shared this same sentiment in twenty twenty two with Not your domain, not your words.
 

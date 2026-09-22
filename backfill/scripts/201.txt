@@ -11,7 +11,9 @@ There were some very thought provoking articles this week, so let's get to it!
 
 Now, the Featured section.
 
-Link one. "Essay: The digital death of collecting"
+There are three links this week.
+
+Link one of three. "Essay: The digital death of collecting"
 
 I’ve always been a bit of a collector. When I was a kid I collected every M A S*H playing figure and vehicle. With the advent of CD's I collected music and built a library of nearly 2,000 albums. I collected media of all type really. Laserdiscs were still some of my favorites. I recorded every episode of Star Trek: The Next Generation and built my own collection. I’m also a completionist but that is a different thing. So this essay on collecting and how algorithms and digital tech impact it resonated with me.
 
@@ -25,7 +27,7 @@ Now with a rental economy versus an ownership economy, you lose the collection. 
 
 I know for me the boundary line here is books. I've ceded much of my music and media collecting, but I still collect it digitally and own much of it. But books feel too important. Too meaningful. I don't want an algorithm reorganizing my books. I feel value in a few bookshelves populated with the books that have grounded the development of me.
 
-Link two. "Beyond Smart"
+Link two of three. "Beyond Smart"
 
 I love the drive behind this article from Graham. Having new ideas, synthesizing existing information into something fundamentally new or different, even if just in your own head, is a delightful thing. I agree with his assertion that intelligence and ideation are independent.
 
@@ -39,7 +41,7 @@ End quote.
 
 Writing your thoughts is so important. It is easy to believe you have found some clarity in a stream-of-conscious dialog or some list of bullets, but the act of forming sentences and paragraphs with nouns and verbs is a refining process that filters, clarifies, and forces cohesion needed to for something new.
 
-Link three. "Willingness to look stupid"
+Link three of three. "Willingness to look stupid"
 
 I think it is pretty hard, possibly impossible, to learn new things without appearing stupid to at least some people. It is also pretty difficult to break with a dominant trend or viewpoint without someone judging you as dumb or foolish.
 
@@ -74,11 +76,13 @@ That's the end of Currently.
 
 Now, the Notable section.
 
-Link one. "Building cross-platform shortcuts – Six Colors"
+There are twenty links this week.
+
+Link one of twenty. "Building cross-platform shortcuts – Six Colors"
 
 Now that we have Shortcuts on macOS more sophisticated shortcuts may need to have specific functions for different platforms. This article covers ways to make advanced shortcuts work everywhere.
 
-Link two. "Roy Fielding's Misappropriated REST Dissertation"
+Link two of twenty. "Roy Fielding's Misappropriated REST Dissertation"
 
 Essay on how the ubiquitous REST pattern has been adopted and often misunderstood.
 
@@ -88,11 +92,11 @@ End quote.
 
 That original paper is probably one that all developers should read. There isn't any need to be a purist, but understanding the concepts more deeply will result in better solutions.
 
-Link three. "CookLang: recipe markup language"
+Link three of twenty. "CookLang: recipe markup language"
 
 Imagine Markdown but for recipes. I dig structured text formats, but this one does raise an eyebrow or two. Having @smoked paprika{} surrounded with unmatched characters seems very weird to me.
 
-Link four. "URI-based Integration — ongoing by Tim Bray"
+Link four of twenty. "URI-based Integration — ongoing by Tim Bray"
 
 Bray was involved in the creation of AWS Lambda, and I love this story about the use of URI's in the system.
 
@@ -102,7 +106,7 @@ End quote.
 
 I’m a big fan of this myself. In general, try to use things that are universally addressable, not some ID or unique string that you have to know a lot about in order to determine how to access it.
 
-Link five. "More Compute Power Doesn’t Produce AGI"
+Link five of twenty. "More Compute Power Doesn’t Produce AGI"
 
 This is a super important point that many people miss with the radical advances in machine learning.
 
@@ -114,11 +118,11 @@ To be clear, that doesn't mean the value of these technologies is lessened, but 
 
 So, think harder about how an open system could be modeled as a closed system.
 
-Link six. "Braintrust | The First User-Owned Talent Network"
+Link six of twenty. "Braintrust | The First User-Owned Talent Network"
 
 Here is a super-interesting example of a business, being run as a DAO. They raised 18 million dollars and are using DeFi technology to operate. Interestingly enough, the actual payments are all with USD. I love that, as it challenges this recurring meme of crypto versus something else and highlights how crypto structures can live in harmony alongside existing ones. This is what Web3 businesses could look like.
 
-Link seven. "MacBook Pro M1 Max for Photographers — Austin Mann"
+Link seven of twenty. "MacBook Pro M1 Max for Photographers — Austin Mann"
 
 Great review, very much from a user perspective, of the new blazing fast MacBook Pro M1 Max.
 
@@ -128,7 +132,7 @@ End quote.
 
 I think this is going to go down as an epic machine.
 
-Link eight. "Web3 versus Web2 - AVC"
+Link eight of twenty. "Web3 versus Web2 - AVC"
 
 Fred Wilson's thoughts on how people may engage with Web3.
 
@@ -144,19 +148,19 @@ End quote.
 
 Web3 makes more and more sense to me.
 
-Link nine. "Percentage of Hacker News job postings that mention a remote option - Will do stuff for stuff"
+Link nine of twenty. "Percentage of Hacker News job postings that mention a remote option - Will do stuff for stuff"
 
 twenty seventeen to twenty twenty, 10% increase. twenty twenty 45% jump. So far in twenty twenty one, 5% increase.
 
-Link ten. "Archie Black - President and CEO of SPS Commerce - MN CEOs You Should Know | iHeart"
+Link ten of twenty. "Archie Black - President and CEO of SPS Commerce - MN CEOs You Should Know | iHeart"
 
 Great podcast episode featuring our SPS Commerce CEO Archie Black! Some great highlights of how SPS was able to help companies through the pandemic and more.
 
-Link eleven. "The Most Important Decision You Make – Daily Dad – The Blog"
+Link eleven of twenty. "The Most Important Decision You Make – Daily Dad – The Blog"
 
 I subscribe to this Daily Dad newsletter, and this issue really struck a chord with me. The quote from Bruce Springsteen is powerful.
 
-Link twelve. "ADMIRE: A Product-Driven Approach to Automating Migrations - Two Sigma"
+Link twelve of twenty. "ADMIRE: A Product-Driven Approach to Automating Migrations - Two Sigma"
 
 This is very interesting and a novel way to view what a lot of teams might call "technical debt" or something. Migrations from system X to system Y are always hard. This article hits on the key topics behind it and provides a model.
 
@@ -166,7 +170,7 @@ End quote.
 
 I've been involved in dozens (hundreds?) of migrations and the successful ones have used processes like this.
 
-Link thirteen. "Daring Fireball: The twenty twenty one 14-Inch MacBook Pro"
+Link thirteen of twenty. "Daring Fireball: The twenty twenty one 14-Inch MacBook Pro"
 
 I have a feeling that these new MacBook Pro's will go down as epic machines that are local maximal in the long arc of Macintosh computers.
 
@@ -176,7 +180,7 @@ End quote.
 
 From Gruber, that is a huge statement.
 
-Link fourteen. "Omni Apps Now Support Shortcuts on macOS Monterey - The Omni Group"
+Link fourteen of twenty. "Omni Apps Now Support Shortcuts on macOS Monterey - The Omni Group"
 
 I love Automation, and I love OmniFocus. The Omni Group has created their own Automation Framework for their apps, and now that macOS supports Shortcuts they have made the two automation frameworks interoperable!
 
@@ -186,7 +190,7 @@ End quote.
 
 Very cool!
 
-Link fifteen. "macOS Monterey: The MacStories Review - MacStories"
+Link fifteen of twenty. "macOS Monterey: The MacStories Review - MacStories"
 
 Extremely comprehensive "11-page" overview of the new macOS Monterey! The stuff I’m most interested in:
 
@@ -195,11 +199,11 @@ Extremely comprehensive "11-page" overview of the new macOS Monterey! The stuff 
 - Shared and synchronized Focus Modes across all of your devices is compelling. I still need to read more examples of how people are using Focus Modes effectively. It strikes me as powerful, but I need more time to play.
 - The iCloud+ features to protect privacy look great, but many are still beta quality so holding off a bit for now.
 
-Link sixteen. "RFC 3339 versus ISO 8601"
+Link sixteen of twenty. "RFC 3339 versus ISO 8601"
 
 Date formatting via RFC 3339 and ISO 8601 is always a one of those things you have to RTFM for. This is a great reference, as well as a neat way to show overlap. Also, I had no idea that 6-digit years was part of a spec! Welcome to 002021!
 
-Link seventeen. "Taleb Concepts Vol. 2"
+Link seventeen of twenty. "Taleb Concepts Vol. 2"
 
 Clear and short assessment of Taleb's core thesis to much of his work.
 
@@ -209,7 +213,7 @@ End quote.
 
 I love tinkering.
 
-Link eighteen. "Dads spend time in Louisiana high school after 23 students were arrested in string of violence - CBS News"
+Link eighteen of twenty. "Dads spend time in Louisiana high school after 23 students were arrested in string of violence - CBS News"
 
 I absolutely love this. Dads on Duty would be a great model to repeat.
 
@@ -219,7 +223,7 @@ End quote.
 
 Zero.
 
-Link nineteen. "Coordination Headwind - How Organizations Are Like Slime Molds"
+Link nineteen of twenty. "Coordination Headwind - How Organizations Are Like Slime Molds"
 
 Wow, this is a great thought piece with some incredibly valuable organizational principles.
 
@@ -237,7 +241,7 @@ There is a lot to take away from this:
 
 Also, I how this deck is with emojis as the!
 
-Link twenty. "Walt Mossberg’s Take on Mark Zuckerberg and More — Sway"
+Link twenty of twenty. "Walt Mossberg’s Take on Mark Zuckerberg and More — Sway"
 
 I greatly enjoyed this episode of Sway. Kara Swisher and Walt Mossberg worked together for years running AllThingsD in the past. Little trivia note, I met both of them when I was at Dow Jones and they were launching AllThingsD. The meeting didn’t go well, they were already planning on using WordPress to run their site and Dow Jones wanted them to use "our stuff". They made the right decision.
 
@@ -352,45 +356,47 @@ That's the end of the Journal.
 
 Now, the Briefly section.
 
-Link one. "Dinner DAO is Creating IRL Dinner Clubs Built Around NFTs"
+There are ten links this week.
+
+Link one of ten. "Dinner DAO is Creating IRL Dinner Clubs Built Around NFTs"
 
 I continue to find DAO's super interesting as a way to coordinate collective action. Here is a somewhat simple example using a DAO around a dinner club.
 
-Link two. "Shortcuts for Mac: 27 of Our Favorite Third-Party Integrations - MacStories"
+Link two of ten. "Shortcuts for Mac: 27 of Our Favorite Third-Party Integrations - MacStories"
 
 If you are curious what you can do with Shortcuts, this inventory of macOS apps that are shortcuts enabled can stir some ideas.
 
-Link three. "Hiker lost for 24 hours ignored calls from rescuers because of unknown number"
+Link three of ten. "Hiker lost for 24 hours ignored calls from rescuers because of unknown number"
 
 I really wanted this to be a satirical article from The Onion, but alas…
 
-Link four. "Remove tracking data from copied URLs | The Robservatory"
+Link four of ten. "Remove tracking data from copied URLs | The Robservatory"
 
 Now that we have Shortcuts on macOS, there is an even easier way to do this. Install the Remove Tracking from URL shortcut and add it to your menubar!
 
-Link five. "Some Monterey Features of Note — MacSparky"
+Link five of ten. "Some Monterey Features of Note — MacSparky"
 
 Short list of macOS Monterey features from David Sparks.
 
-Link six. "Apple Releases iOS and iPadOS 15.1 with SharePlay, Safari for iPad Fixes, Shortcuts Improvements, and More - MacStories"
+Link six of ten. "Apple Releases iOS and iPadOS 15.1 with SharePlay, Safari for iPad Fixes, Shortcuts Improvements, and More - MacStories"
 
 Good overview of SharePlay and what you can do with it. Nice that you can now do screen sharing remotely on iOS.
 
-Link seven. "John Carmack pushes out unlocked OS for defunct Oculus Go headset | Ars Technica"
+Link seven of ten. "John Carmack pushes out unlocked OS for defunct Oculus Go headset | Ars Technica"
 
 Software update that will liberate 2 million Oculus devices to be used as long as they work.
 
 Scaling NFS is really hard… [Iterating on how we do NFS at Wikimedia Cloud Services – [[WM:TECHBLOG]]](
 
-Link eight. "RSS is Wonderful · Quakkels.com"
+Link eight of ten. "RSS is Wonderful · Quakkels.com"
 
 I like how people can tinker when you have open standards like RSS.
 
-Link nine. "Science of Slow Cooking"
+Link nine of ten. "Science of Slow Cooking"
 
 Lots of big words applied to BBQ.
 
-Link ten. "Lorem.space - placeholder image generator"
+Link ten of ten. "Lorem.space - placeholder image generator"
 
 Neat tool to provide random placeholder images of any size, but with an actual image in them.
 

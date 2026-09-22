@@ -6,7 +6,9 @@ This weekend we commemorate 20 years since the attacks of 9/11. I can still reca
 
 Now, the Featured section.
 
-Link one. "How doctors die. It’s not like the rest of us, but it should be | Cancer World Archive"
+There is one link this week.
+
+Link one of one. "How doctors die. It’s not like the rest of us, but it should be | Cancer World Archive"
 
 End-of-life care is something that we don't like to talk about, and it’s hurting us in many ways.
 
@@ -20,15 +22,17 @@ That's the end of Featured.
 
 Now, the Notable section.
 
-Link one. "Parliament passes law to legalize cryptocurrency in Ukraine | KyivPost"
+There are twelve links this week.
+
+Link one of twelve. "Parliament passes law to legalize cryptocurrency in Ukraine | KyivPost"
 
 I love seeing Ukraine taking a leadership role on crypto and explicitly supporting it in the law. There are very few countries that have done anything here yet. Ukraine rightly wants to create a welcome environment for companies building on crypto. It would be amazing if adopting crypto assets allowed the country to strengthen it’s independence
 
-Link two. "POAP - "ANNOUNCING - The NFT Treasure Hunt!! ""
+Link two of twelve. "POAP - "ANNOUNCING - The NFT Treasure Hunt!! ""
 
 I love this idea, just from the headlines. It would be super cool to have POAP NFT treasure hunts in various cities. You have to find several POAP tokens over the course of some number of days. It would be great if you then got additional tokens when you collected all of them, like unlocking another NFT.
 
-Link three. "Making Sense Podcast #259 - The Reckoning to Come - A Conversation with Balaji Srinivasan | Sam Harris"
+Link three of twelve. "Making Sense Podcast #259 - The Reckoning to Come - A Conversation with Balaji Srinivasan | Sam Harris"
 
 It seems every podcast with Balaji Srinivasan is super long and this is no exception at 4 hours. It took me four separate sessions to listen to the entire thing. (Note: Making Sense episodes are limited to one hour unless you subscribe.) I have listened to Tim Ferris interview with Balaji and thought it was very interesting. I found this interview with Sam Harris more interesting because Harris challenged him more and engaged in real debate on several of the topics.
 
@@ -38,7 +42,7 @@ End quote.
 
 The variety of topics is incredibly wide, and I think Balaji's perspective is thought provoking. I don't think he is right in all these regards, and some of his predictions I truly hope he is wrong, but either way I found my it invigorating and challenging through the whole discussion.
 
-Link four. "Those virtual battlegrounds…. I lost my country but I gained a big pile of virtual gold"
+Link four of twelve. "Those virtual battlegrounds…. I lost my country but I gained a big pile of virtual gold"
 
 Simon Wardley brings his mapping techniques to an interesting space.
 
@@ -48,7 +52,7 @@ End quote.
 
 I think you can extend this thinking in some interesting ways. Isn't there something very similar to this in a meme like Qanon? Wardley extends this to digital sovereignty which starts to touch on the idea that some far reaching crypto enthusiasts suggest vis-a-vis creating new digital states.
 
-Link five. "Are you sure you are ready for hybrid meetings? - The Digital Workplace"
+Link five of twelve. "Are you sure you are ready for hybrid meetings? - The Digital Workplace"
 
 Several good things to keep in mind as we all have many more hybrid meetings now. I found this note for leaders interesting.
 
@@ -58,7 +62,7 @@ End quote.
 
 I have certainly changed my thinking on bigger team meetings where we have over 100 people on. I think of it more like a realtime podcast, with production aspects, a green screen, and I look for digital ways to engage the audience. Stuff that I can’t do in other venues.
 
-Link six. "Improve your business writing with the TL;DR principle - without bullshit"
+Link six of twelve. "Improve your business writing with the TL;DR principle - without bullshit"
 
 I like his recipe to follow when you feel an urge to add a TL;DR section to something you have written.
 
@@ -68,27 +72,27 @@ End quote.
 
 Add this to the bucket of things to be a better writer.
 
-Link seven. "Litecoin Smart Contracts, DAOs, Tokenised Assets and NFT's Are Here!"
+Link seven of twelve. "Litecoin Smart Contracts, DAOs, Tokenised Assets and NFT's Are Here!"
 
 Many core Ethereum innovations now showing up on Litecoin. I've long held Litecoin and find it an interesting project, but this project seems very far away from the core focus. Also, there is already Cardano and Solana in this space. I’m a bit bearish on this for Litecoin, but it’s still good to see them innovating.
 
-Link eight. "Jade's Monthly Reflections: 6 Major Keys to Building A Successful Career! » MnTech"
+Link eight of twelve. "Jade's Monthly Reflections: 6 Major Keys to Building A Successful Career! » MnTech"
 
 Great suggestions from Jade Denson for those beginning their careers in technology. I particularly like her second suggestion "Identify your personal superpower". If you can align your energy with the things you are naturally good at you will have a tailwind that will put you further ahead.
 
-Link nine. "The Trouble with Due Dates - OmniFocus — MyProductiveMac"
+Link nine of twelve. "The Trouble with Due Dates - OmniFocus — MyProductiveMac"
 
 I made this same change several years ago and it is a huge deal. I cannot imagine using a task management system without deferral dates. And due dates are constantly used for 'fake dates'. Only use them when the due date is real.
 
-Link ten. "Meet Callin, the First Social Podcasting Platform by David Sacks | Callin | Medium"
+Link ten of twelve. "Meet Callin, the First Social Podcasting Platform by David Sacks | Callin | Medium"
 
 There is a lot of innovation happening around voice apps and podcasts. Clubhouse kind of kicked it all into overdrive. This seems like an interesting app with some solid features.
 
-Link eleven. "Playdate Pulp: Zero to video game in 60 Seconds"
+Link eleven of twelve. "Playdate Pulp: Zero to video game in 60 Seconds"
 
 I have my Playdate on order (early order so I will get it in twenty twenty one) and Tyler and I have been talking about making a game for it. That is one of the reasons I wanted to get it. This writeup on Playdate Pulp was great and Pulp will definitely have the capabilities we want to create Magic Pines, the Game.
 
-Link twelve. "OpenMoji"
+Link twelve of twelve. "OpenMoji"
 
 It is surprising how much effort different platform providers put into creating the thousands of emoji images that are required. They even have pretty radical different interpretations of the same emoji at times. It seems like a great idea to have an open source collection of emoji images. This project reminds me a tiny bit of OpenStreetMap.
 
@@ -124,23 +128,25 @@ That's the end of the Journal.
 
 Now, the Briefly section.
 
-Link one. "Ship / Show / Ask"
+There are five links this week.
+
+Link one of five. "Ship / Show / Ask"
 
 Interesting approach to branching for code that I have not seen before.
 
-Link two. "sheet-posting"
+Link two of five. "sheet-posting"
 
 Whoa! I had to try this, and it works just great. Even supports RSS!
 
-Link three. "minecraft-ondemand: Templates to deploy a serverless Minecraft Server on demand in AWS"
+Link three of five. "minecraft-ondemand: Templates to deploy a serverless Minecraft Server on demand in AWS"
 
 Great use of several AWS capabilities to make it easy and very cheap to run your own Minecraft server.
 
-Link four. "How the 5G experience compares across 50 states and 250 US cities | Opensignal"
+Link four of five. "How the 5G experience compares across 50 states and 250 US cities | Opensignal"
 
 Having just been to Vermont on vacation I’m not surprised it has the lowest amount of 5G coverage. Minnesota is in the upper quarter.
 
-Link five. "58% of Hacker News, Reddit and tech-savvy audiences block Google Analytics | Plausible Analytics"
+Link five of five. "58% of Hacker News, Reddit and tech-savvy audiences block Google Analytics | Plausible Analytics"
 
 It makes complete sense that a more technical audience would be using tools to protect their privacy.
 

@@ -35,11 +35,13 @@ That's the end of Yearly Thing twenty twenty five.
 
 Now, the Notable section.
 
-Link one. "Isometric NYC"
+There are eight links this week.
+
+Link one of eight. "Isometric NYC"
 
 When I was younger I loved to play SimCity before they ruined that game. So these isometric scenes always remind me of that. This view of New York City is incredible to play around with. But even more incredible is the article about building it! This is an incredible amount of data and detail and it was made possible using agentic tools and LLMs.
 
-Link two. "I'm addicted to being useful"
+Link two of eight. "I'm addicted to being useful"
 
 I love building things. I’m not a software engineer, I’m frankly not nearly good enough at coding to be one. As a result I build things around and with software, and love to work with the amazing people that can make that software exist, run, and be safe. If you have the right culture in your engineering team, the best thing I believe you can do is get the engineers as close to the problems as possible. This article captures why…
 
@@ -49,7 +51,7 @@ End quote.
 
 For simple problems you can just have the person with the problem and the developer helping them solve it. As you build bigger things you need more skills, but be mindful that you are not reducing or even blocking the signal of the problem to be solved from the ones that solve it.
 
-Link three. "The lost art of XML — mmagueta"
+Link three of eight. "The lost art of XML — mmagueta"
 
 I've been in tech long enough to remember when XML entered the scene, well before JSON. There were all those years of XHTML, before everyone decided to just live with HTML5. It is unfortunate that there are many developers that think of XML and JSON as interchangeable. They really are very different things. Many teams likely have at least some data they are managing with JSON that would be better served as XML.
 
@@ -65,11 +67,11 @@ End quote.
 
 …and is also not new. There is a long tradition of "fashion" in tech pursuing whatever tech because it is cool. That shouldn't be ignored because the crowd is right often, but not always.
 
-Link four. "Best Practices for Claude Code - Claude Code Docs"
+Link four of eight. "Best Practices for Claude Code - Claude Code Docs"
 
 This is a robust overview and if you are doing projects with Claude Code it is worth a read. I've been creating a lot of Claude Code projects for things that have nothing to do with coding and many of these still apply. The primary limiter with Claude Code is that you need to be comfortable on the terminal. Sadly that takes a lot of people out, but if you are fine there you really should be diving into this. I made the Yearly Thing with Claude Code. I’m on an association board and I have a Claude Code project for that. There are many other projects I have that I’ve framed out Claude Code projects for. Reading this to learn how to use it best is a good investment of time.
 
-Link five. "Things I’ve learned in my 10 years as an engineering manager"
+Link five of eight. "Things I’ve learned in my 10 years as an engineering manager"
 
 Great set of less-obvious learnings.
 
@@ -93,7 +95,7 @@ End quote.
 
 All of this is great advice.
 
-Link six. "LED lighting (350-650nm) undermines human visual performance unless supplemented by wider spectra (400-1500nm+) like daylight | Scientific Reports"
+Link six of eight. "LED lighting (350-650nm) undermines human visual performance unless supplemented by wider spectra (400-1500nm+) like daylight | Scientific Reports"
 
 I have heard people suggest that LED lighting isn't as good for people. I've not dug deep but this research is interesting.
 
@@ -109,7 +111,7 @@ On reductionism my thinking starts with food. I logged my food for a very long t
 
 Is LED lighting another case of reductionism? Look, I can see the light. But what can I not see? And is it fundamentally digital, a place that "we" are foreigners in. Maybe?
 
-Link seven. "OpenClaw — Personal AI Assistant"
+Link seven of eight. "OpenClaw — Personal AI Assistant"
 
 OpenClaw (formerly MoltBot, formerly ClawdBot) showed up first from a blogger I follow. He was doing some really interesting stuff so I grabbed the link and checked it out. Then I saw Viticci of MacStories wrote that this showed him what the future of personal AI assistants looks like.
 
@@ -119,7 +121,7 @@ There are a ton of extensions to this project at ClawHub, and this recap of mult
 
 Now I just need to play with this — and sadly the week ahead is completely busy.
 
-Link eight. "Management as AI superpower - Ethan Mollick"
+Link eight of eight. "Management as AI superpower - Ethan Mollick"
 
 This article resonated strongly with me having just finished my Yearly Thing project, which I created alongside Claude Code.
 
@@ -175,67 +177,69 @@ That's the end of the Journal.
 
 Now, the Briefly section.
 
-Link one. "Shadow work in engineering teams - Anton Zaides"
+There are sixteen links this week.
+
+Link one of sixteen. "Shadow work in engineering teams - Anton Zaides"
 
 Building software is about so much more than coding. Coding isn't even the majority of it really.
 
-Link two. "“Skip Level” Interview Questions - Paul's Weblog"
+Link two of sixteen. "“Skip Level” Interview Questions - Paul's Weblog"
 
 Interesting read and smart prep on how to approach a "skip level" interview.
 
-Link three. "City Weather Explorer - 3D Climate Comparison"
+Link three of sixteen. "City Weather Explorer - 3D Climate Comparison"
 
 I dig this way of looking at the weather between cities. Useful and way better than a table.
 
-Link four. "A Year of 3D Printing"
+Link four of sixteen. "A Year of 3D Printing"
 
 This is a very risky article for someone that has been eyeing a Bambu Lab P2S 3D Printer for some time.
 
-Link five. "ChartGPU: Beautiful, open source, WebGPU-based charting library"
+Link five of sixteen. "ChartGPU: Beautiful, open source, WebGPU-based charting library"
 
 Robust data visualization in a browser is still not great and is often bogged down with even a small amount of data. This library uses WebGPU to make it much more performant and higher quality.
 
-Link six. "Lolgato: A macOS app that enhances control over Elgato lights"
+Link six of sixteen. "Lolgato: A macOS app that enhances control over Elgato lights"
 
 I have an Elgato Key Light in my home office and it is fabulous for video meetings. Being able to control light color and brightness gives a ton of flexibility. However the included software from Elgato is not great. This app works way better, and is worth it for even just a single feature: you can have the light come on and off with the camera!
 
-Link seven. "EFF Statement on ICE and CBP Violence | Electronic Frontier Foundation"
+Link seven of sixteen. "EFF Statement on ICE and CBP Violence | Electronic Frontier Foundation"
 
 Happy to be a long-time supporter of the EFF. The EFF is also the organization the Weekly Thing Community Supporter program is raising funds for this year.
 
-Link eight. "Does Evidence Even Matter? – On my Om"
+Link eight of sixteen. "Does Evidence Even Matter? – On my Om"
 
 One of my favorite bloggers reacting to the killing of Alex Pretti.
 
-Link nine. "Report: ICE Using Palantir Tool That Feeds On Medicaid Data | Electronic Frontier Foundation"
+Link nine of sixteen. "Report: ICE Using Palantir Tool That Feeds On Medicaid Data | Electronic Frontier Foundation"
 
 There are many reasons that the government is now allowed by law to combine certain databases together. These laws need to be enforced.
 
-Link ten. "Beware: Government Using Image Manipulation for Propaganda | Electronic Frontier Foundation"
+Link ten of sixteen. "Beware: Government Using Image Manipulation for Propaganda | Electronic Frontier Foundation"
 
 The EFF has long pursued projects that detect surveillance, increase encryption, etc. I’m hoping they will work on some advanced work to detect manipulated images and videos like this.
 
-Link eleven. "A CEO, Captured. – On my Om"
+Link eleven of sixteen. "A CEO, Captured. – On my Om"
 
 The origins of technology come from counter-culture, and now technology is culture. The visionaries were in pursuit of a different, in they believed better, world. "It used to believe it could change the world. Now it just hopes the world won’t change its stock price."
 
-Link twelve. "Introducing Prism | OpenAI"
+Link twelve of sixteen. "Introducing Prism | OpenAI"
 
 Having AI turn a whiteboard into LaTeX is pretty cool actually.
 
-Link thirteen. "A chaotic confrontation, a gun and 10 shots: A frame-by-frame analysis of the fatal shooting of Alex Pretti"
+Link thirteen of sixteen. "A chaotic confrontation, a gun and 10 shots: A frame-by-frame analysis of the fatal shooting of Alex Pretti"
 
 Very detailed analysis of the fatal interaction between Alex Pretti and ICE agents. Well done to the team at the Star Tribune.
 
-Link fourteen. "Bruce Springsteen - Streets Of Minneapolis (Official Audio) - YouTube"
+Link fourteen of sixteen. "Bruce Springsteen - Streets Of Minneapolis (Official Audio) - YouTube"
 
 "The Boss" singing about Minneapolis and performing it at First Ave on Jan 30.
 
-Link fifteen. "12 Expressions of Self-Imposed Stress - Leadership Freak"
+Link fifteen of sixteen. "12 Expressions of Self-Imposed Stress - Leadership Freak"
 
 Super simple list of things to keep an eye on. Interesting how many of those a mindfulness routine is a good counter to.
 
-Link sixteen. "Comparing the Classic and Unified Views in iOS 26’s Phone App - TidBITS"
+Link sixteen of sixteen. "Comparing the Classic and Unified Views in iOS 26’s Phone App - TidBITS"
 
 I tried the new Unified Phone app on iOS 26 when it first came out and quickly moved back to Classic. This article, and some time, gave me a nudge to go back to the Unified view and see how it feels now.
 

@@ -12,11 +12,13 @@ That's the end of Currently.
 
 Now, the Notable section.
 
-Link one. "Preparing for the Unthinkable: A Brief Guide to Digital Legacy Planning - TidBITS"
+There are six links this week.
+
+Link one of six. "Preparing for the Unthinkable: A Brief Guide to Digital Legacy Planning - TidBITS"
 
 Our computing lives get ever more complicated, and with that complication they become ever more integrated into our lives. Considering the destiny of our digital assets after we are gone is getting more complicated. This article does a decent job of going over the primary points. I do wonder if there isn't a new market here for a digital estate service. I could imagine a service that I give access to my password database, and inventory of various assets, that is able to bring the variety of expertise to bear to assist with transitioning your digital estate. Crypto is a great example. I’m not sure how comfortable Tammy would be able to transfer my digital assets from various wallets. I think we need to not rely on documentation, and instead thing about something more professional.
 
-Link two. "A Cypherpunk's Manifesto"
+Link two of six. "A Cypherpunk's Manifesto"
 
 This was written in 1993 — thirty one years ago — by Eric Hughes.
 
@@ -26,7 +28,7 @@ End quote.
 
 I hadn't run across this essay before and find it incredible prescient to the current state of the digital world.
 
-Link three. "When Do We Stop Finding New Music? A Statistical Analysis"
+Link three of six. "When Do We Stop Finding New Music? A Statistical Analysis"
 
 Good article with data framing how we explore new music in our youth, and then settle into a set of music that we are comfortable with and then stay there.
 
@@ -36,7 +38,7 @@ End quote.
 
 I personally try to explore new music. I find it harder than I think it should be, but it does happen. Brandi Carlile is someone that Tammy and I adore and she is a newer artist. A lot of the EDM I like I've gotten after my mid-30s. But I do find that I have to sort of "work at it" to adopt new things.
 
-Link four. "We can have a different web"
+Link four of six. "We can have a different web"
 
 White does a great job telling the story of the evolution of the web through analogy. It is very easy to follow. I sympathize with her perspective. I love the web, and will continue to inhabit the web on that layer. Indieweb services, run by real people, with genuine authors publishing real things.
 
@@ -46,7 +48,7 @@ End quote.
 
 Her point that you can choose to have this web is spot on. We all can make this choice. It really isn't hard. And I can tell you, the water is so much better out here.
 
-Link five. "What Therapists Say Harms Eldest Daughters’ Happiness Most | HuffPost Life"
+Link five of six. "What Therapists Say Harms Eldest Daughters’ Happiness Most | HuffPost Life"
 
 There are unique aspects to being the oldest, youngest, or middle child in any family. Also unique components of age gaps as well. This eldest daughter analysis is interesting and certainly doesn't seem far fetched.
 
@@ -56,7 +58,7 @@ End quote.
 
 Interesting.
 
-Link six. "I've Moved Onchain | AVC"
+Link six of six. "I've Moved Onchain | AVC"
 
 I have followed Fred Wilson's blog for decades. I have always admired how he engages directly in the tech that he is investing in. I saw that he was mirroring his blog posts on a web3 service for a while, but I didn’t realize he had switched his publishing entirely to that now. Wilson articulates the things that he was trying to solve by doing this.
 
@@ -146,35 +148,37 @@ That's the end of the Journal.
 
 Now, the Briefly section.
 
-Link one. "Rabbit’s R1 is a little AI gadget that grows on you | TechCrunch"
+There are eight links this week.
+
+Link one of eight. "Rabbit’s R1 is a little AI gadget that grows on you | TechCrunch"
 
 I have pre-ordered a Rabbit R1 and am looking forward to playing with it. Looks like fun!
 
-Link two. "The web is not dying – Manu"
+Link two of eight. "The web is not dying – Manu"
 
 Strong agree.
 
-Link three. "Bill Gates, Man United and 20 other sites that ban linking to them – Malcolm Coles"
+Link three of eight. "Bill Gates, Man United and 20 other sites that ban linking to them – Malcolm Coles"
 
 Websites have all sorts of silly and confusing terms of service, but I didn’t know that some say you need permission before you can link to them? That is just dumb. I’m guessing the intent is they don't want the hyperlink to be in a negative context, but you have no control over what other people do with links.
 
-Link four. "Printing music with CSS Grid – web development agency in Lausanne"
+Link four of eight. "Printing music with CSS Grid – web development agency in Lausanne"
 
 This looks pretty incredible. Like MathJax but for music!
 
-Link five. "ffs: the file fileystem | ffs"
+Link five of eight. "ffs: the file fileystem | ffs"
 
 Wild way to mount a JSON structure as a file system. Not sure what you would do with this but it is kind of wild.
 
-Link six. "A recent security incident involving Dropbox Sign - Dropbox Sign"
+Link six of eight. "A recent security incident involving Dropbox Sign - Dropbox Sign"
 
 Got full access to user info but not files. Not the core Dropbox product.
 
-Link seven. "Calendar types in Watches"
+Link seven of eight. "Calendar types in Watches"
 
 I have a thing for mechanical watches. Not too bad. I don't have any winders or anything. But this dive into the calendar mechanisms in mechanical watches is really wild. So complicated!
 
-Link eight. "How to improve the AI panel at your event - Josh Bernoff"
+Link eight of eight. "How to improve the AI panel at your event - Josh Bernoff"
 
 Every conference has one or even several AI panels. This advice from Bernoff is spot on. Actually, it is spot on for every panel.
 

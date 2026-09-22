@@ -6,7 +6,9 @@ A couple of weeks ago I was noticing that I was feeling like writing more, and w
 
 Now, the Featured section.
 
-Link one. "Poaps are a big deal"
+There are two links this week.
+
+Link one of two. "Poaps are a big deal"
 
 I have been having some fun with POAPs. I think it is a very fun way to introduce people to some crypto / web3 technologies without having to spend any money.
 
@@ -22,7 +24,7 @@ End quote.
 
 I subscribed to NiftyTable, it seems like a good way to stay in the flow of NFT activity. If you want even more check out the Proof podcast.
 
-Link two. "DAO Landscape — Mirror"
+Link two of two. "DAO Landscape — Mirror"
 
 I am incredibly interested in decentralized autonomous organizations (DAOs) on Ethereum to allow people to self-organized communities for a variety of collective actions.
 
@@ -50,23 +52,25 @@ That's the end of Currently.
 
 Now, the Notable section.
 
-Link one. "Don’t Reschedule; Commit or Cancel – Garrick van Buren"
+There are seventeen links this week.
+
+Link one of seventeen. "Don’t Reschedule; Commit or Cancel – Garrick van Buren"
 
 My friend Garrick van Buren giving some "real talk" about managing your time, and not "sort of" committing to activities.
 
-Link two. "Initial Details on Using Driver’s Licenses and State ID’s in Apple Wallet — Daring Fireball"
+Link two of seventeen. "Initial Details on Using Driver’s Licenses and State ID’s in Apple Wallet — Daring Fireball"
 
 I've been wondering when more secure forms of identification will be integrated into digital wallets. I wish Minnesota was one of the early adopters. The implementation is interesting, since it is more like a NFC purchase. You don't show your ID on the screen, you allow your ID to be displayed on a device that the requester is using. Like paying with a credit card. Interesting.
 
-Link three. "OpenSea Metrics — Dune Analytics"
+Link three of seventeen. "OpenSea Metrics — Dune Analytics"
 
 Crazy metrics on NFT transactions on OpenSea. 3,424,711,478 dollars in transactions. 3 dollars+ billion! That dollar value was spread across 1,657,229 NFTs with 217,977 wallet addresses buying and selling. Wow.
 
-Link four. ""If software engineering is in demand, why is it so hard to get a software engineering job?" by Curt Corginia | Better Programming"
+Link four of seventeen. ""If software engineering is in demand, why is it so hard to get a software engineering job?" by Curt Corginia | Better Programming"
 
 The way that we go about evaluating and interviewing developers has a lot of challenges. This article highlights just some of them. As an industry, this needs attention, but it’s not a simple problem. Technologists spend all day creating things in code, that you cannot see. There is no good way to determine skill level, and the job is more craft than many appreciate.
 
-Link five. "The Art of Not Taking Things Personally by Dave Bailey | The Founder Coach"
+Link five of seventeen. "The Art of Not Taking Things Personally by Dave Bailey | The Founder Coach"
 
 I think we all struggle with taking things personally, I know I do. I can usually manage it, but I like the framework and terms here.
 
@@ -76,7 +80,7 @@ End quote.
 
 Being able to identify patterns could make it easier to provide that generosity.
 
-Link six. "U.S. Digital Corps"
+Link six of seventeen. "U.S. Digital Corps"
 
 This is a good thing to do, but the cynic in me wonders if bringing in "digital" talent will generate any outcomes when it inevitably runs into legacy, controls, and other friction points.
 
@@ -86,11 +90,11 @@ End quote.
 
 Certainly a good step though!
 
-Link seven. "Nfinita - NFT for social good platform"
+Link seven of seventeen. "Nfinita - NFT for social good platform"
 
 Very early stage company looking to help non-profits use NFT sales to raise funds for their organization. "Our mission is to make giving more sustainable and scalable through NFTs, and to enable any NFT to be charitable." This seems like a very good idea. I could see live NFT auctions at events being very interesting.
 
-Link eight. "Bright Moments DAO | Union Square Ventures"
+Link eight of seventeen. "Bright Moments DAO | Union Square Ventures"
 
 Evidence of the massive potential of DAO's.
 
@@ -100,11 +104,11 @@ End quote.
 
 500 ETH as of today is 1.86 million dollars. DAO's have the potential to remove so much friction from groups of people organizing together, including traditional corporate entities.
 
-Link nine. "ESG Is The Little Bighorn Of Bitcoin Skeptics | Pantera"
+Link nine of seventeen. "ESG Is The Little Bighorn Of Bitcoin Skeptics | Pantera"
 
 The team at Pantera Capital takes a broad look at environmental, social and governance (ESG) aspects of Bitcoin. Bitcoin uses a lot of electricity, and many people just stop there and say it is environmentally bad. This is a broader look at the entire ESG space for Bitcoin.
 
-Link ten. "An Open Letter to Airbnb. The pitchforks are coming by Jared A. Brock | Surviving Tomorrow"
+Link ten of seventeen. "An Open Letter to Airbnb. The pitchforks are coming by Jared A. Brock | Surviving Tomorrow"
 
 I don't agree with the authors "recommendations" for Airbnb, they are in no way practical. However, I hadn't given much of any consideration to the impact to the real estate market as a result of Airbnb.
 
@@ -114,15 +118,15 @@ End quote.
 
 The impact to house prices and inventory is something that cities need to think about.
 
-Link eleven. "NFT Craze Rages On as August Sales Near 900 million dollars - Blockworks"
+Link eleven of seventeen. "NFT Craze Rages On as August Sales Near 900 million dollars - Blockworks"
 
 I am very bullish on NFT technology and the utility capability of NFTs. The collector component of NFTs is incredibly hyped right now. We all thought that the hype in April twenty twenty was a lot, and that is about 1/tenth of what we are seeing in August.
 
-Link twelve. "What is the Air Quality Index? Here's How to Stay Safe - The New York Times"
+Link twelve of seventeen. "What is the Air Quality Index? Here's How to Stay Safe - The New York Times"
 
 With the wildfires this year I installed Breathable on my phone and have had a widget to keep informed on the Air Quality Index. It has been helpful to better understand how I’m feeling when I’m outside. This article is a good overview of what the AQI number actually is. During some of the fires this summer the AQI in our area peaked over 200.
 
-Link thirteen. "Why BitClout’s Diamondhands is HODLing to the Moon by Sequoia | Sequoia Capital Publication | Medium"
+Link thirteen of seventeen. "Why BitClout’s Diamondhands is HODLing to the Moon by Sequoia | Sequoia Capital Publication | Medium"
 
 I've been on Bitclout for about four months now. I am @jthingelstad there. I even have a profile for @WeeklyThing. Bitclout has reminded me in many ways of the very early days on Twitter. It is the first blockchain application I've used that doesn't feel like a blockchain. Anyone could use it without any awareness of that. It does feel in some ways like something truly new.
 
@@ -136,15 +140,15 @@ Sounds like a DAO!
 
 The biggest struggle with Bitclout is getting network effect, and extending outside of people that just use it because it is decentralized. I hope the team continues to push. Looks like my coin value has dropped a little bit.
 
-Link fourteen. "The Story of Playdate"
+Link fourteen of seventeen. "The Story of Playdate"
 
 I ordered my Playdate and can’t wait to get it. The backstory on it is fun to read. I’m planning on creating a game for it called Magic Pines based on the layout of our cabin.
 
-Link fifteen. "Evidence"
+Link fifteen of seventeen. "Evidence"
 
 Use Markdown to create content, and then embed SQL queries directly into the content with markup on how to visualize it. The data is then live. This is a pretty cool way to create live documents that update in realtime with external data references. Neat!
 
-Link sixteen. "My Kids Will Not Be Home Today: On the Mental Weight We Carry"
+Link sixteen of seventeen. "My Kids Will Not Be Home Today: On the Mental Weight We Carry"
 
 I liked this article reflecting on mental space, mental buffer, and the lack of it that many parents have experienced with kids staying home during the pandemic.
 
@@ -154,7 +158,7 @@ End quote.
 
 Schools are open and kids are heading off for first days. It is a good thing for the kids, and maybe an even better thing for the parents.
 
-Link seventeen. "Full DNS Namespace Integration to ENS Now on Mainnet by Brantly Millegan | The Ethereum Name Service | Medium"
+Link seventeen of seventeen. "Full DNS Namespace Integration to ENS Now on Mainnet by Brantly Millegan | The Ethereum Name Service | Medium"
 
 I've been playing with a number of Web3 applications and using a name for your Ethereum wallet makes everything much easier to use. I registered thingelstad.eth and a handful of other names on ENS. I also registered thingelstad.xyz, which is a DNS name but registered on ENS as well. This announcement extends the trust model that ENS built for .xyz and extends it to other DNS top-level domains. The DNSSEC requirements in the step-by-step guide are a little challenging, but only because many DNS providers doin't support the specific requirements. The comparison to ENS registration is a very good read because there are still good reasons to use .eth as well. DNS is centrally controlled, and if some entity could make up a reason to remove my rights to thingelstad.com they could. However, that isn't possible with thingelstad.eth, which is owned in my wallet and is an asset (technically it is an NFT!).
 
@@ -228,33 +232,35 @@ That's the end of the Journal.
 
 Now, the Briefly section.
 
-Link one. "We Are Definitely Going Back to Normal Right Now. Maybe - McSweeney’s Internet Tendency"
+There are eight links this week.
+
+Link one of eight. "We Are Definitely Going Back to Normal Right Now. Maybe - McSweeney’s Internet Tendency"
 
 "To prepare for our return to normal, we have set a date that exactly one month from now, everything will be back to how things were."
 
-Link two. "When you monetize your hobby, it looks a lot like a job - Vox"
+Link two of eight. "When you monetize your hobby, it looks a lot like a job - Vox"
 
 I think this article is literally every single person that has ever opened up an Aquarium store.
 
-Link three. "A Beginner’s Guide to Craft: Documents, Pages, and Blocks – The Sweet Setup"
+Link three of eight. "A Beginner’s Guide to Craft: Documents, Pages, and Blocks – The Sweet Setup"
 
 There are seriously so many note taking applications out there it is hard to even keep track. I bought a year subscription to Craft and have been enjoying it.
 
-Link four. "Staying Light and Flexible While Traveling - zen habits"
+Link four of eight. "Staying Light and Flexible While Traveling - zen habits"
 
 I tend to over pack and bring more stuff than I need. We plan out each day when we travel, but we definitely embrace the flexibility described in 4.
 
-Link five. "If The Truth Be Told | Mitigating Chaos"
+Link five of eight. "If The Truth Be Told | Mitigating Chaos"
 
-Link six. "Turing Pi V2 is here - Turing Pi"
+Link six of eight. "Turing Pi V2 is here - Turing Pi"
 
 Cool little board that you can mount multiple Raspberry Pi's on and create your own little cluster of computers!
 
-Link seven. "Work hard | What's new"
+Link seven of eight. "Work hard | What's new"
 
 This article is about pursuing a career in mathematics, but I think you could write the exact same thing for technology. Every one of the comments seems to apply to me.
 
-Link eight. "WebCrate - Organize your Web"
+Link eight of eight. "WebCrate - Organize your Web"
 
 An open-source app to organize bookmarks online. Instead of tags this uses the idea of crates.
 

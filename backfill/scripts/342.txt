@@ -241,7 +241,9 @@ That's the end of Wrap.
 
 Now, the Notable section.
 
-Link one. "Redis Patterns for Coding Agents"
+There is one link this week.
+
+Link one of one. "Redis Patterns for Coding Agents"
 
 In addition to software for agents we also need to think about documentation for agents. You can write in a more direct and context-friendly way for agents. Raw markdown index is a huge win. Sadly a lot of projects block agents from accessing their site because of Cloudflare anti-bot mechanisms. That is going to prove an absolutely terrible decision and lead to less adoption of your software.
 
@@ -327,11 +329,13 @@ That's the end of the Journal.
 
 Now, the Briefly section.
 
-Link one. "For Public Parks on the Internet – Doc Searls Weblog"
+There are two links this week.
+
+Link one of two. "For Public Parks on the Internet – Doc Searls Weblog"
 
 We need something like this. The Internet represents our digital world, and it cannot just be malls!
 
-Link two. "MCP is dead. Long live the CLI"
+Link two of two. "MCP is dead. Long live the CLI"
 
 Agentic-first capabilities thrive in the traditional world of Unix command line best practices. Non-blocking, good flags, and documentation. This is the reason behind my mb - agent first micro.blog client.
 

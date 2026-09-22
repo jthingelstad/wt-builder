@@ -8,7 +8,9 @@ Hope you have a great rest of your weekend!
 
 Now, the Notable section.
 
-Link one. "Vibe engineering"
+There are ten links this week.
+
+Link one of ten. "Vibe engineering"
 
 As a practice matures the language matures too…
 
@@ -18,7 +20,7 @@ End quote.
 
 Willison is on the tip-of-the-spear with this tech and working with it everyday. To me he is starting to define what the post-agent environment will really look like for a future engineering team that is fully embracing AI practices.
 
-Link two. "Customize Claude Code with plugins Anthropic"
+Link two of ten. "Customize Claude Code with plugins Anthropic"
 
 Obligatory insert about holy crap is everything moving along so fast in this space!
 
@@ -32,11 +34,11 @@ And of course there is a plugin marketplace loaded up with stuff to try.
 
 You would literally have to do nothing other than work on coding agents to keep up with just this one stream of AI innovation.
 
-Link three. "Write It Down"
+Link three of ten. "Write It Down"
 
 DIY feeling personal finance tool. We are big users of YNAB and I'll be sticking to that but this is interesting because tracking your finances is absolutely something that folks should do and secondly I don't know that I've ever seen something so polished that is entirely built out of a cloud app, in this case Google Sheets.
 
-Link four. "The Movies That Defined Gen X - Mark McInerney"
+Link four of ten. "The Movies That Defined Gen X - Mark McInerney"
 
 So many great movies on this list and this one hits squarely with me — firmly Gen X.
 
@@ -46,13 +48,13 @@ End quote.
 
 Movies are stories and stories are how people share the best. Do the stories shape us or we shape the stories? Of course both. As I read this list so many of those movies lit up my brain with deep memories.
 
-Link five. "Herd - Browser Superpowers and MCP Servers for AI Agents"
+Link five of ten. "Herd - Browser Superpowers and MCP Servers for AI Agents"
 
 Interesting "reverse" mode for MCP server, if I’m understanding this right. Any website you are logged into can be "scripted" via a "trail" and then those can be accessed via MCP by AI agents. So, you fire up the browser and log into LinkedIn using your credentials. You then install a module that has defined "trails" for LinkedIn and you have an MCP server to talk to LinkedIn.
 
 Pretty smart idea really. In a super goofy way it reminds me of old TN3270 stuff that we used a long time ago to make mainframes accessible via APIs!
 
-Link six. "Album Cards: Rebuilding the Joy of Music Discovery for My 10-Year-Old"
+Link six of ten. "Album Cards: Rebuilding the Joy of Music Discovery for My 10-Year-Old"
 
 I need to set the stage for this article. If you would have stopped by before the era of digital music you may have taken a moment to browse the 1,800+ CD collection that I had alphabetically organized on display. I distinctly remember finding these very clean, modern looking CD racks with silver rods. The jewel cases fit perfectly at an angle that made them easy to read. I would go find five CD's and load them into the 5-disc CD changer and have a great time. Thinking back on it I enjoyed that music collection in ways that I get nothing from today's world of streaming.
 
@@ -74,13 +76,13 @@ At our cabin we have a record player and a small collection of vinyl LPs. It is 
 
 Maybe some NFC tags and fancy cards are the way to create that feeling even more.
 
-Link seven. "The Great De-Leveraging: Friday Flash Crash - Tanay Ved"
+Link seven of ten. "The Great De-Leveraging: Friday Flash Crash - Tanay Ved"
 
 I find it fascinating to read about crypto market volatility because these markets are "pure" in ways that the financial markets are not. There are no trading curbs. They are all global markets. They never close. They are public chains with full visibility to all transactions. And on top of that they are, typically, incredibly fast and highly liquid. These events are also opportunities for the blockchains that underpin them to test their durability, performance, and resilience.
 
 There are many orders of magnitude of difference in the total asset value of course, but these are multi-billion dollar movements as well. In general crypto markets tend to be more volatile but seem to recover very fast. I’m not an expert in this domain but in general I wonder if increased fluidity and resilience of a market can support reduced manual interventions.
 
-Link eight. "nanochat: The best ChatGPT that 100 dollars can buy."
+Link eight of ten. "nanochat: The best ChatGPT that 100 dollars can buy."
 
 Maybe I found my use case for that new NVIDIA DGX Spark.
 
@@ -92,7 +94,7 @@ I totally dig this project and love the idea that I could train my own "good eno
 
 Now give it a couple of weeks and I bet this is a one-line installer for that new Spark.
 
-Link nine. "Beads - A memory upgrade for your coding agent"
+Link nine of ten. "Beads - A memory upgrade for your coding agent"
 
 New project from Steve Yegge that seems pretty wild on first blush.
 
@@ -114,7 +116,7 @@ He also wrote a full introduction and an article about how he built it.
 
 Fascinating stuff!
 
-Link ten. "Switch to Jujutsu already: a tutorial - Stavros' Stuff"
+Link ten of ten. "Switch to Jujutsu already: a tutorial - Stavros' Stuff"
 
 I’m "of an age" where I remember version control very well before the days of git. I cut did a lot of early work using Subversion svn and go way back to cvs and SourceSafe. The days before distributed version control sucked by the way. You couldn't code unless you were connected online and they were so, so, so slow. Git was a miracle when Torvald's made it. And notably he made it out of necessity because nothing else could handle the Linux kernel, at least the way he wanted to do it.
 
@@ -224,55 +226,57 @@ That's the end of the Journal.
 
 Now, the Briefly section.
 
-Link one. "ShadeMap - Simulate sun shadows for any time and place on Earth"
+There are thirteen links this week.
+
+Link one of thirteen. "ShadeMap - Simulate sun shadows for any time and place on Earth"
 
 I’m not sure what I would necessarily use this for, but it is sort of mesmerizing to move the time around and watch the shadows move.
 
-Link two. "Waymo, the company behind driverless taxis, is pushing to expand in Minnesota | MPR News"
+Link two of thirteen. "Waymo, the company behind driverless taxis, is pushing to expand in Minnesota | MPR News"
 
 I'd love to see Waymo start operating in the Twin Cities. I wonder how they would do with Minnesota winters?
 
-Link three. "Introducing the Fastmail desktop app | Fastmail"
+Link three of thirteen. "Introducing the Fastmail desktop app | Fastmail"
 
 I've been a Fastmail user for years and have grown to like their web interface. This app brings it to the desktop and on initial use I’m liking it a good amount.
 
-Link four. "Python 3.14 Is Here. How Fast Is It? - miguelgrinberg.com"
+Link four of thirteen. "Python 3.14 Is Here. How Fast Is It? - miguelgrinberg.com"
 
 Nice speed improvements for the newest version of Python.
 
-Link five. "Automating Project Creation using MCP with OmniFocus - MacSparky"
+Link five of thirteen. "Automating Project Creation using MCP with OmniFocus - MacSparky"
 
 Loved to see Sparks playing with this and I’m still hopeful that OmniFocus adds MCP server support. This test shows why it is so powerful and what you could do. There are certain domains that I see so much capability for AI and my task manager and GTD system is key amongst them.
 
-Link six. "Steve Jobs versus Tim Cook: How the Tenures of Both Apple CEOs Compare"
+Link six of thirteen. "Steve Jobs versus Tim Cook: How the Tenures of Both Apple CEOs Compare"
 
 Two incredibly impressive and extraordinarily different leaders that definitely "put a dent in the Universe".
 
-Link seven. "Wikidata Launches Free Vector Database as Open Alternative to Closed AI Systems"
+Link seven of thirteen. "Wikidata Launches Free Vector Database as Open Alternative to Closed AI Systems"
 
 Interesting extension for the Wikidata project.
 
-Link eight. "A small number of samples can poison LLMs of any size Anthropic"
+Link eight of thirteen. "A small number of samples can poison LLMs of any size Anthropic"
 
 Interesting research on a real threat vector.
 
-Link nine. "How to check for overlapping intervals - zayenz.se"
+Link nine of thirteen. "How to check for overlapping intervals - zayenz.se"
 
 Lovely deep-dive into a common coding problem.
 
-Link ten. "NVIDIA DGX Spark Arrives for World’s AI Developers | NVIDIA Newsroom"
+Link ten of thirteen. "NVIDIA DGX Spark Arrives for World’s AI Developers | NVIDIA Newsroom"
 
 This new little machine from NVIDIA would be super fun to run models on. Would be a super fun toy to have but wouldn't make sense for anything I do. Also see Willison's write up on it.
 
-Link eleven. "LLMs As Conduits for Data Portability Between Apps - MacStories"
+Link eleven of thirteen. "LLMs As Conduits for Data Portability Between Apps - MacStories"
 
 For small data migration tasks from one app to another I’m inclined to just "do it by hand". Now with LLMs in the middle you can do much larger jobs that way.
 
-Link twelve. "Why Signal’s post-quantum makeover is an amazing engineering achievement - Ars Technica"
+Link twelve of thirteen. "Why Signal’s post-quantum makeover is an amazing engineering achievement - Ars Technica"
 
 Deeper dive on Signal's recent improvements.
 
-Link thirteen. "SPS Commerce renews lease at Minneapolis tower for 15 years - Minneapolis / St. Paul Business Journal"
+Link thirteen of thirteen. "SPS Commerce renews lease at Minneapolis tower for 15 years - Minneapolis / St. Paul Business Journal"
 
 SPS Tower.
 

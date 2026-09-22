@@ -10,7 +10,9 @@ That's the end of Currently.
 
 Now, the Notable section.
 
-Link one. "ChatGPT"
+There are ten links this week.
+
+Link one of ten. "ChatGPT"
 
 OpenAI this week launched ChatGPT. I want to play with this more, and my early experiments have been both great and still show the limits. I find this even more interesting than the image generators.
 
@@ -32,7 +34,7 @@ Response:
 
 As a CTO, I am always looking for ways to improve the technology that we use at our company. Recently, I have been impressed by ChatGPT, a state-of-the-art language model developed by OpenAI. This technology has the potential to significantly improve the performance of our natural language processing systems, such as chatbots and virtual assistants. ChatGPT is trained on a massive amount of text data, which allows it to generate highly coherent and realistic responses to a wide range of inputs. I believe that incorporating ChatGPT into our technology stack will help us provide an even better user experience for our customers.
 
-Link two. "Company, team, self. | Irrational Exuberance"
+Link two of ten. "Company, team, self. | Irrational Exuberance"
 
 Larson reflecting that you must thing about the humans in mix, and what brings them energy, as you think about the priority of the work that you tackle.
 
@@ -42,7 +44,7 @@ End quote.
 
 The focus on what provides energy is a good one.
 
-Link three. "The Need to Read"
+Link three of ten. "The Need to Read"
 
 Reading makes you a better writer. Writing is thinking.
 
@@ -54,7 +56,7 @@ Reading will make you a better thinker, if augmented with writing.
 
 This is one of the reasons I blog and write the Weekly Thing.
 
-Link four. "The 7 Habits of Highly Overrated People - DaedTech"
+Link four of ten. "The 7 Habits of Highly Overrated People - DaedTech"
 
 The title of this article caught my eye. Dietrich combines an array of experiences and highlights the patterns that he has seen "highly overrated" people exhibit.
 
@@ -64,7 +66,7 @@ End quote.
 
 Many of these things would be easy to spot, but a good read particularly for managers to keep an eye out for some practices that are meant to mislead and obfuscate.
 
-Link five. "Opinion | Americans are spending more time alone. Let's reverse that. - The Washington Post"
+Link five of ten. "Opinion | Americans are spending more time alone. Let's reverse that. - The Washington Post"
 
 These numbers continue to trend down, and none of this seems like it can be good for us.
 
@@ -80,7 +82,7 @@ End quote.
 
 We humans have a profound need to connect with others, which I totally think is a fact. We are also so anxious and avoidant of that need that it seems that little glowing piece of glass can overrid that fundamental need entirely. Related reading, Bowling Alone.
 
-Link six. "The promise of social media - without bullshit"
+Link six of ten. "The promise of social media - without bullshit"
 
 Bernoff assesses the current state of social and asks the important question:
 
@@ -94,7 +96,7 @@ I think the answer to this is no.
 
 I had a few breakfast debates on this with Lee Zukor years ago and it helped form my opinion that the problem with social media isn't the specific implmentation of Facebook or Twitter, but is instead the thing itself. You can’t optimize and improve it, because the core thing is no good. It’s like smoking cigarettes. There is no version of it that isn't bad for you.
 
-Link seven. "Protect Me From What I Want • ongoing by Tim Bray"
+Link seven of ten. "Protect Me From What I Want • ongoing by Tim Bray"
 
 Bray offers an optimisic perspective on using algorithms to display content to people, however with a very huge caveat. I have added the bold.
 
@@ -110,11 +112,11 @@ End quote.
 
 Connect Bray's point and mine, and you get the problem. Bray highlights good algorithms that help us filter through noise, and suggests a "Algorithms for the people by the people" kind of idea. It would be cool to see such a thing, but most place that isn't possible. His idea of using Mastadon as a place for experimentation is a good one. Bray himself would hate my additional suggestion (he's a strong critic of all things crypto), of using data held in public blockchains which require full open access to both the data and the function.
 
-Link eight. "Opinion: FTX failed because it veered from decentralized finance - MarketWatch"
+Link eight of ten. "Opinion: FTX failed because it veered from decentralized finance - MarketWatch"
 
 "Not your keys, not your crypto." Many people I know in crypto didn’t fall for the FTX fraud because of a close aherence to that principle — they keep their crypto on their own and self-custody. FTX of course offered incredible interest rates and yield on assets you left with them, which was the other reason many people weren't affected — it was simply too good to be true.
 
-Link nine. "Seeing through hardware counters: a journey to threefold performance increase | Netflix TechBlog"
+Link nine of ten. "Seeing through hardware counters: a journey to threefold performance increase | Netflix TechBlog"
 
 You don't often get to see performance debugging down at the level of the JVM, but this is a pretty interesting read. The problem is framed up:
 
@@ -124,7 +126,7 @@ End quote.
 
 Ultimately comes down to how the cache is laid out in physical memory!
 
-Link ten. "The Most Important Scarce Resource is Legitimacy"
+Link ten of ten. "The Most Important Scarce Resource is Legitimacy"
 
 I found this essay from Buterin in a reference from Tobi Lütke in the Knowledge Project. Legitimacy as an asset that is built and withdrawn from is something that I think deserves more attention. Legitimacy also comes into play with software. What makes a system legitimate? These are interesting human system questions.
 
@@ -193,31 +195,33 @@ That's the end of the Journal.
 
 Now, the Briefly section.
 
-Link one. "New ways we're supporting Ukraine"
+There are seven links this week.
+
+Link one of seven. "New ways we're supporting Ukraine"
 
 It is great to see Google continuing to support Ukraine and the people of Ukraine in so many ways.
 
-Link two. "How do transistors work, anyway? - lcamtuf’s thing"
+Link two of seven. "How do transistors work, anyway? - lcamtuf’s thing"
 
 What even is a transistor?
 
-Link three. "Fantasy Jodorowsky Tron visualisations by Johnny Darrell | DJ Food"
+Link three of seven. "Fantasy Jodorowsky Tron visualisations by Johnny Darrell | DJ Food"
 
 I’m a fan of the TRON world and its imagery. This different take, all created by AI, is wild.
 
-Link four. "Shopify Merchants Set New Black Friday Cyber Monday Record with 7.5 billion dollars in Sales"
+Link four of seven. "Shopify Merchants Set New Black Friday Cyber Monday Record with 7.5 billion dollars in Sales"
 
 Tons of new records set for twenty twenty two holiday season at Shoppify.
 
-Link five. "Musk overload  – On my Om"
+Link five of seven. "Musk overload  – On my Om"
 
 I’m 100% with Malik on this. I’m happy to keep my focus away from the circus of Twitter and whatever the antics of the day are.
 
-Link six. "Failover Controls for Amazon S3 Multi-Region Access Points | AWS News Blog"
+Link six of seven. "Failover Controls for Amazon S3 Multi-Region Access Points | AWS News Blog"
 
 Much needed new feature for S3 Multi-Regionality. The Replication visual is pretty cool looking.
 
-Link seven. "The Buy And Hold Mindset - AVC"
+Link seven of seven. "The Buy And Hold Mindset - AVC"
 
 Good read to see a seasoned VC and Investor sharing how to think about long-term investing.
 

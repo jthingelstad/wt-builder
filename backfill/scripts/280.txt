@@ -10,25 +10,27 @@ Have a great weekend!
 
 Now, the Notable section.
 
-Link one. "Autogenerating a Book Series From Three Years of iMessages | Ben Kettle"
+There are seven links this week.
+
+Link one of seven. "Autogenerating a Book Series From Three Years of iMessages | Ben Kettle"
 
 I love this article. It is really two things: how do you extract your messages from iMessages, and how can you apply some reasonable typesetting to it for print. I have this continuing thought of creating books of each "Year in Links" that I curate. There is some applicable tech here for that.
 
-Link two. "Why I'm Not Going To #InspireInclusion For This Year's International Women's Day | LinkedIn"
+Link two of seven. "Why I'm Not Going To #InspireInclusion For This Year's International Women's Day | LinkedIn"
 
 I read this whole article and honestly felt like I've been duped by this marketing company that runs internationalwomensday.com. IWD is led by the United Nations. The result this year, competing hashtags, err, objectives. The UN declared Invest in Women and the marketing organization Inspire Inclusion. At least I've learned to go to the UN website going forward.
 
-Link three. "Make better documents. - Anil Dash"
+Link three of seven. "Make better documents. - Anil Dash"
 
 I love Dash's writeup on creating better, high quality documents. So many great pieces of advice here. I particularly resonated with the "Stop Formatting Everything to Death" section. Let the actual content and data show, not the lines and boxes. The animation showing this simplification from Dark Horse Analytics is worth including.
 
 The whole thing is a great read.
 
-Link four. "S3 is files, but not a filesystem"
+Link four of seven. "S3 is files, but not a filesystem"
 
 This is a great dive into how S3 works and crucially how it is different. That extends into what it is truly great at and stuff you should avoid.
 
-Link five. "40 years of programming"
+Link five of seven. "40 years of programming"
 
 I love this essay sharing experiences from a long career programming. I often say "Technology is a team sport" but I've struggled to get a bite-size explanation of that for those that are still stuck on the hoodie-wearing lone developer in a dark room incapable of communication. This essay isn't bite-sized, but it is a great explainer for the team sport analogy.
 
@@ -38,11 +40,11 @@ End quote.
 
 There are many great observations here worth reading.
 
-Link six. "District heating: Using data centers to heat communities | All Things Distributed"
+Link six of seven. "District heating: Using data centers to heat communities | All Things Distributed"
 
 Data centers create a lot of heat, and that heat can captured and used productively. Strategic placement of data centers to use wind or water power and redirect the heat waste to productive use is a big deal. There are clear ways to offset the carbon produced by even very large data centers.
 
-Link seven. "Marking the Web’s 35th Birthday: An Open Letter | Tim Berners-Lee"
+Link seven of seven. "Marking the Web’s 35th Birthday: An Open Letter | Tim Berners-Lee"
 
 The Web marked its 35th year and Berners-Lee shared some thoughts on the state of the web. What a miraculous thing the web has been. "It was to be a tool to empower humanity." The fact that I’m writing this on my computer then hitting a few buttons and anyone in the world can read it instantly is certainly empowerment. Ever the engineer though, Berners-Lee hits frames his two primary concerns with his own invention.
 
@@ -157,47 +159,49 @@ That's the end of the Journal.
 
 Now, the Briefly section.
 
-Link one. "Introducing Effortless Apple Card Imports with YNAB"
+There are eleven links this week.
+
+Link one of eleven. "Introducing Effortless Apple Card Imports with YNAB"
 
 We've been YNAB users for years and it uses a service to pull in transactions from the bank. When I added an Apple Card I was bummed there was no way to do that. Now there is an API in the iOS 17.4 that does this on-device. Even better!
 
-Link two. "Minneapolis neighborhood turkey's death embodies challenges of urban wildlife"
+Link two of eleven. "Minneapolis neighborhood turkey's death embodies challenges of urban wildlife"
 
 The saga of the dead turkey in our neighborhood continues.
 
-Link three. "Novo’s New Weight Loss Drug Is More Effective Than Wegovy In Early Trial"
+Link three of eleven. "Novo’s New Weight Loss Drug Is More Effective Than Wegovy In Early Trial"
 
 The first company to make one of the GLP-1 agonists into a pill is creating a money machine.
 
-Link four. "URL parts"
+Link four of eleven. "URL parts"
 
 Fun utility to identify all the specifics components of a URL.
 
-Link five. "The end of Airplane.dev | Benjamin Yolken"
+Link five of eleven. "The end of Airplane.dev | Benjamin Yolken"
 
 There is a strong survivorship bias in startup stories. This one is an example of when it doesn't go so well.
 
-Link six. "Working with Tilt/Shift lenses - phillipreeve.net"
+Link six of eleven. "Working with Tilt/Shift lenses - phillipreeve.net"
 
 Great explainer on how these lenses work. I had one of these for a while but never understood it well enough.
 
-Link seven. "On POSSE – Manu"
+Link seven of eleven. "On POSSE – Manu"
 
 I share many of the same "issues" with POSSE — Publish on your Own Site, Syndicate Everywhere. I do syndicate my blog to BlueSky and Nostr. I’m more likely to syndicate the Weekly Thing.
 
-Link eight. "JSON Canvas — An open file format for infinite canvas data"
+Link eight of eleven. "JSON Canvas — An open file format for infinite canvas data"
 
 I first experienced the canvas format using Obsidian and thought "this sure seems proprietary" and now they have announcement the opening of this format.
 
-Link nine. "Byte-sized Swift: Building Tiny Games for the Playdate"
+Link nine of eleven. "Byte-sized Swift: Building Tiny Games for the Playdate"
 
 I've had a Playdate since launch and it is such a cute and fun little device. I found it cool to read how Varma was able to get Swift code to compile and target the device.
 
-Link ten. "Undersea cable failures cause Internet disruptions for multiple African countries"
+Link ten of eleven. "Undersea cable failures cause Internet disruptions for multiple African countries"
 
 It is difficult to keep these massive undersea cable spans operating.
 
-Link eleven. "Meta Picks Rosemount for 800 million dollars Data Center | Twin Cities Business"
+Link eleven of eleven. "Meta Picks Rosemount for 800 million dollars Data Center | Twin Cities Business"
 
 Facebook is moving in.
 

@@ -29,7 +29,9 @@ The first issue was sent last week. If you sign-up for Reading Things you will g
 
 Now, the Must Read section.
 
-Link one. "Why the blockchain matters | Seth's Blog"
+There are two links this week.
+
+Link one of two. "Why the blockchain matters | Seth's Blog"
 
 Godin writes a very approachable explainer on blockchain technology and why it matters.
 
@@ -45,7 +47,7 @@ End quote.
 
 I like his explanation a lot more than mine. I keep saying the Blockchain is a technology solution to trust. I think that is true, but his connection to decentralization is very powerful. He also invokes Wikipedia which I’m a huge fan and supporter of. It is interesting to consider his analogy. I've supported Wikipedia as a non-profit for years. If I could buy Wikipedia Tokens on an exchange, I would.
 
-Link two. "The Mortifying Ordeal of Pairing All Day"
+Link two of two. "The Mortifying Ordeal of Pairing All Day"
 
 This is an insightful and deep article sharing Bennet's experience pair programming every day over a long period of time. I found this a compelling read as it hits on the emotional aspects of pair programming, and the impact it had on her.
 

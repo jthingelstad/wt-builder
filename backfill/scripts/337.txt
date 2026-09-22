@@ -16,23 +16,25 @@ This is impacting our city and those who call it home. It is a good time to give
 
 Now, the Notable section.
 
-Link one. "How Markdown took over the world - Anil Dash"
+There are fourteen links this week.
+
+Link one of fourteen. "How Markdown took over the world - Anil Dash"
 
 Markdown really is everywhere. I write these emails in Markdown. Every comment I have about the links is written in Markdown. I take notes in Markdown. I blog in Markdown. And now every LLM thinks and writes in Markdown. It is literally everywhere. I particularly like the list of 10 reasons Markdown worked.
 
-Link two. "Open Infrastructure Map"
+Link two of fourteen. "Open Infrastructure Map"
 
 This is a pretty incredible project. You can see power lines and electrical generation stations, oil pipelines, water infrastructure — all of it is just on a map that you can browse and explore as you wish. Amazing stuff.
 
-Link three. "Nine Years, One Sunrise Composition: A New Year’s Day Photo Project"
+Link three of fourteen. "Nine Years, One Sunrise Composition: A New Year’s Day Photo Project"
 
 I met Bryan Hansel when I took his Winter Along the Gunflint workshop in twenty twenty four. He is a great photographer, amazing post-production expert, and teacher. I subscribed to his newsletter and it is a treat. He sends amazing images and his writing along with it is great. Highly recommend. This most recent issue highlights a photo he's taken at sunrise, every day for the last nine years, in the exact same spot. What a great project and beautiful collection of images.
 
-Link four. "You probably don't need Oh My Zsh | Artem Golubin"
+Link four of fourteen. "You probably don't need Oh My Zsh | Artem Golubin"
 
 Oh My Zsh is cool but I've always veered away from it because of the huge footprint. This post addresses that directly with recommendations to get the biggest value with the least performance hit. I would also add that your shell is probably something where you should really know what is happening, and turning it over to a bunch of stuff you aren't familiar with is perhaps not the best idea.
 
-Link five. "Don't fall into the anti-AI hype -"
+Link five of fourteen. "Don't fall into the anti-AI hype -"
 
 Salvatore Sanfilippo (aka antirez) is best know for writing Redis. Redis is this incredible vector database that is well known for being incredible performant, stable, and reliable. I still remember using Redis a long, long time ago when I had to download the tar-ball and build it myself. It was beautiful to watch because the code was so clean, and so well maintained that there were no compiler errors. The entire process gave you confidence in the software from the very beginning. Critical with a service like Redis.
 
@@ -50,7 +52,7 @@ End quote.
 
 What is your why? Is it to be the best coder, or the best builder?
 
-Link six. "ICE Is Going on a Surveillance Shopping Spree | Electronic Frontier Foundation"
+Link six of fourteen. "ICE Is Going on a Surveillance Shopping Spree | Electronic Frontier Foundation"
 
 This is an incredible amount of surveillance infrastructure and capability.
 
@@ -60,15 +62,15 @@ End quote.
 
 The ICE budget has nearly tripled in just the last two years, and some chunk of that is going to building an incredible surveillance network. And you might think no big deal since the FBI and CIA have huge surveillance functions, but those are entirely different as they are in the intelligence community. This surveillance is less regulated.
 
-Link seven. "MCP is a fad | Tom Bedor's Blog"
+Link seven of fourteen. "MCP is a fad | Tom Bedor's Blog"
 
 I’m skeptical of the assertion but it is notable that LLM's have proven already to be very adaptive to interfacing with different protocols. So, will MCP last a long time and do I need to care? My bet is that it will. Its simplicity is a feature not a bug. I think it may be like RSS, around for a very long time and just the glue that makes things work.
 
-Link eight. "Apple: You (Still) Don’t Understand the Vision Pro – Stratechery by Ben Thompson"
+Link eight of fourteen. "Apple: You (Still) Don’t Understand the Vision Pro – Stratechery by Ben Thompson"
 
 Thompson shares his reaction to the first live broadcast Vision Pro basketball game. He's critical but not of the technology, more of the way it was produced. From my own usage of the Vision Pro it is clear that you have to think about production in a very different way. Cutting from one camera to another in a VR experience is jarring and not like anything on a regular TV. I was hopeful that Apple would do some innovative things like this with MLS coverage, and that never did happen. Now my hope is that the deal with F1 will be where we see this attempted. I want to feel like I’m driving the Ferrari as it races around the track. This should be entirely possible with the Vision Pro and the content rights must be in place now. F1 may be the best sport to learn how to create these experiences. I’m hopeful.
 
-Link nine. "Introducing Cowork | Claude"
+Link nine of fourteen. "Introducing Cowork | Claude"
 
 I've been using Claude Code for a bunch of different projects. I've also been telling everyone that will listen that even though "Code" is in the title, know that Claude Code can do so much other than code. Truly, Claude Code is just a way to work with collections of files in a directory. You can do whatever you want beyond that. However, this is still limiting since folks that are not comfortable in a terminal are going to get scared away. Now enter Claude Cowork!
 
@@ -78,7 +80,7 @@ That container part also caused issues for me since Claude created new files for
 
 I think this points to a much more powerful way for us to engage with LLMs for more project-centric activities.
 
-Link ten. "Reading across books with Claude Code | Pieter Maes"
+Link ten of fourteen. "Reading across books with Claude Code | Pieter Maes"
 
 Reading How to Read a Book was my first exposure to the concept of Syntopic Reading:
 
@@ -88,19 +90,19 @@ End quote.
 
 This article explores using Claude Code to assist in syntopic reading across a collection of books. It would be interesting to build a librarian like agent capability like this, that could hold broad conversations across a variety of books you've read as well as extending into ones that are adjacent. This is from the same person that created the Hacker News Book Map.
 
-Link eleven. "Photos Backup Anywhere"
+Link eleven of fourteen. "Photos Backup Anywhere"
 
 I wonder if this is just a nice UI in front of PhotosExport which I recently discovered as well. Either way, these are great options to make sure that you are completely backing up your iCloud Photo Library. This is going on my to do list to setup and use regularly. I would trust this a lot more than just doing an Export.
 
-Link twelve. "Patricio Worthalter (POAP): The impossible balance between culture alignment and survival - YouTube"
+Link twelve of fourteen. "Patricio Worthalter (POAP): The impossible balance between culture alignment and survival - YouTube"
 
 Great presentation from the founder of POAP sharing some of what he sees in Ethereum and the future of blockchain applications. I loved how he shared the impact of his "You've Met Patricio" POAPs. It inspired me to get back to those and commit to doing them in an ongoing manner.
 
-Link thirteen. "sitemaptorss - Convert Sitemaps to RSS Feeds"
+Link thirteen of fourteen. "sitemaptorss - Convert Sitemaps to RSS Feeds"
 
 Justin at Buttondown recently made the incredibly useful rssrssrssrss service that lets you combine multiple RSS feeds into one. I love how this fully embraces a Unix-like approach of doing one single thing and doing it well. It is a tool. I didn’t know he also created caltorss to transform an iCal feed into RSS. That isn't a use case I've ever considered but I dig it! Then he rolled out this one and I again smirked as I had never considered it either. I wasn't sure what I would use it for and then I realized there are sites I would like to follow that do not publish RSS feeds, but they do have sitemaps! It isn't a particularly nice feed, but in a last ditch attempt this is a cool way to get updates from sites.
 
-Link fourteen. "Ozempic is changing the foods Americans buy | Cornell Chronicle"
+Link fourteen of fourteen. "Ozempic is changing the foods Americans buy | Cornell Chronicle"
 
 Interesting data on the impact of food spending when people start taking a GLP-1.
 
@@ -196,79 +198,81 @@ That's the end of the Journal.
 
 Now, the Briefly section.
 
-Link one. "The struggle of resizing windows on macOS Tahoe – no.heger"
+There are nineteen links this week.
+
+Link one of nineteen. "The struggle of resizing windows on macOS Tahoe – no.heger"
 
 This drives me crazy when I’m using my Mac.
 
-Link two. "WORDS.ZIP - Infinite Collaborative Word Search Game Online"
+Link two of nineteen. "WORDS.ZIP - Infinite Collaborative Word Search Game Online"
 
 A wild social infinite word find. Lovely little project.
 
-Link three. "A quick Markdown Fixup update - BrettTerpstra.com"
+Link three of nineteen. "A quick Markdown Fixup update - BrettTerpstra.com"
 
 Terpstra makes some powerful Markdown tools. I wasn't familiar with this one.
 
-Link four. "offline regains its value | ava's blog"
+Link four of nineteen. "offline regains its value | ava's blog"
 
 When the authenticity of digital assets cannot be proven, "in real life" gains a new value. I'd love to see blockchains help this.
 
-Link five. "15 Years of Indie Dev In 4 Bits of Advice - Tom Francis"
+Link five of nineteen. "15 Years of Indie Dev In 4 Bits of Advice - Tom Francis"
 
 Lessons from an indie game creator.
 
-Link six. "Claude Code 2.1.0 arrives with smoother workflows and smarter agents | VentureBeat"
+Link six of nineteen. "Claude Code 2.1.0 arrives with smoother workflows and smarter agents | VentureBeat"
 
 Huge set of improvements and updates.
 
-Link seven. "Daring Fireball: Let’s Call a Murder a Murder"
+Link seven of nineteen. "Daring Fireball: Let’s Call a Murder a Murder"
 
 George Orwell, in 1984: “The Party told you to reject the evidence of your eyes and ears. It was their final, most essential command.”
 
-Link eight. "Claude Code and What Comes Next - Ethan Mollick"
+Link eight of nineteen. "Claude Code and What Comes Next - Ethan Mollick"
 
 Basic introduction to Claude Code and how you can work with it on non-code projects. Good read if you are looking to just get started.
 
-Link nine. "Matt 4.2 | Matt Mullenweg"
+Link nine of nineteen. "Matt 4.2 | Matt Mullenweg"
 
 Birthday reflections.
 
-Link ten. "Joint statement from Google and Apple"
+Link ten of nineteen. "Joint statement from Google and Apple"
 
 Feels a lot like Maps and the initial iPhone.
 
-Link eleven. "twenty twenty six is the year of self-hosting"
+Link eleven of nineteen. "twenty twenty six is the year of self-hosting"
 
 There are plenty of folks looking at LLMs for building software, but they are also really good at doing system administration tasks too. Maybe before it was too much to run some of your own services locally, but what if an LLM was doing the setup for you?
 
-Link twelve. "Statement from Federal Reserve Chair Jerome H. Powell - Federal Reserve Board"
+Link twelve of nineteen. "Statement from Federal Reserve Chair Jerome H. Powell - Federal Reserve Board"
 
 "The threat of criminal charges is a consequence of the Federal Reserve setting interest rates based on our best assessment of what will serve the public, rather than following the preferences of the President."
 
-Link thirteen. "Apple Picks Gemini - Michael Tsai"
+Link thirteen of nineteen. "Apple Picks Gemini - Michael Tsai"
 
 Round-up of various reactions to news that Apple and Google have a deal and Gemini will be used for various AI features. There has to be some familiarity here since Apple has relied on Google so much for Search (and continues), Maps (less so now), and now AI.
 
-Link fourteen. "Hacker News Book Map"
+Link fourteen of nineteen. "Hacker News Book Map"
 
 Interesting visualization of the 1,000 most commonly referenced books on Hacker News along with clustering. The site is slow to load but an interesting reference, particularly if lookin for reading ideas.
 
-Link fifteen. "Python Software Foundation News: Anthropic invests 1.5 million dollars in the Python Software Foundation and open source security"
+Link fifteen of nineteen. "Python Software Foundation News: Anthropic invests 1.5 million dollars in the Python Software Foundation and open source security"
 
 Well done Anthropic!
 
-Link sixteen. "Date is out, Temporal is in - Piccalilli"
+Link sixteen of nineteen. "Date is out, Temporal is in - Piccalilli"
 
 It is crazy how frustrating it can be to deal with date and time in software, particularly when you need to calculate things. Bring on the vibe coding, and good frameworks like this one.
 
-Link seventeen. "ASCII Clouds"
+Link seventeen of nineteen. "ASCII Clouds"
 
 Mesmerizing.
 
-Link eighteen. "Wikipedia at 25: What the web can be - Anil Dash"
+Link eighteen of nineteen. "Wikipedia at 25: What the web can be - Anil Dash"
 
 Happy Birthday Wikipedia!
 
-Link nineteen. "CreepyLink"
+Link nineteen of nineteen. "CreepyLink"
 
 Fun little URL shortener that makes links that look incredibly suspicious. I made one to go to the Weekly Thing landing page and it definitely looks like something you shouldn't click on. I’m not going to add it here as it would certainly cause this email to get flagged as suspicious.
 

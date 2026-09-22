@@ -22,7 +22,9 @@ My best wishes to you at this wonderful time of year. See you in twenty twenty f
 
 Now, the Featured section.
 
-Link one. "Is there more to burnout than working too hard?"
+There is one link this week.
+
+Link one of one. "Is there more to burnout than working too hard?"
 
 Gift Link. I found this article a good read and was helpful to differentiate between being busy and doing a lot of things versus patterns that will result in burnout.
 
@@ -48,7 +50,9 @@ That's the end of Featured.
 
 Now, the Notable section.
 
-Link one. "Michael Tsai - Blog - RCS in iOS 18"
+There are ten links this week.
+
+Link one of ten. "Michael Tsai - Blog - RCS in iOS 18"
 
 Some grounding: SMS is basic texting that was invented decades ago and never meant for what we do with it. MMS was a failed attempt to bring multimedia to that. RCS is a modern, open standard meant for interoperability. iMessage is Apple's proprietary messaging service that is fully encrypted.
 
@@ -56,7 +60,7 @@ RCS is now in iOS 18 and for some of the interactions I have with non-Apple devi
 
 This writeup is a good overview of various RCS aspects in iOS 18 and a good reference for those that do a lot of cross-platform messaging. It drives me crazy that carriers are also a variable in this.
 
-Link two. "The Death of Intel: When Boards Fail - by Doug O'Laughlin"
+Link two of ten. "The Death of Intel: When Boards Fail - by Doug O'Laughlin"
 
 Great writeup about what has been happening in the Intel board while the company has been falling apart. Sadly it is a reasonable look at how all corporate governance seems to work these days. The reality is that the vast majority of shareholders are passive and voting their shares and governance is actually a chore they would rather avoid. Who wants accountability for those votes? Instead follow ISS.
 
@@ -72,15 +76,15 @@ End quote.
 
 I don't feel like this is all just an interesting story to watch. Intel is a critical US company in the space. It is hard to see how the US can continue with the strong position we've had without domestic companies like Intel. Relying on others, particularly foreign companies, for such a critical industry doesn't seem wise. We need Intel to turn around.
 
-Link three. "Lighthouse - Inbox Zero for RSS Feeds"
+Link three of ten. "Lighthouse - Inbox Zero for RSS Feeds"
 
 Another RSS feed system. This one uses an Inbox metaphor, more like an email flow. If you have a relatively low volume of feeds this may work well. For me it didn’t work at all. I have hundreds of items a day. Your mileage may vary though.
 
-Link four. "Itch.io went offline due to a ‘trash AI-powered’ phishing report - The Verge"
+Link four of ten. "Itch.io went offline due to a ‘trash AI-powered’ phishing report - The Verge"
 
 This article is another example of the incredible fragility in the DNS and Registrar layer of the web. It is shockingly easy to socially exploit the companies that operate in this space. There is a complete lack of controls for proving your identity and authenticity to make requests. Frankly I’m surprised this doesn't happen even more. It also makes me think that the potential for the Ethereum Name Service (ENS) is bigger than we think. DNS and ENS can and should merge into one hybrid system, and ENS has much better controls for the governance layer than DNS.
 
-Link five. "How to Think About Time"
+Link five of ten. "How to Think About Time"
 
 This article does a great job highlighting how complicated the basic matter of time is while programming. For non-programmers it is an interesting read to go deeper on why this is much more complex than one may think. For programmers this document is a culmination of best practices developed to avoid bugs in time based logic in software. The differentiation between "physical time" and "civil time" is an interesting one.
 
@@ -90,7 +94,7 @@ End quote.
 
 Fun stuff.
 
-Link six. "Meet Willow, our state-of-the-art quantum chip"
+Link six of ten. "Meet Willow, our state-of-the-art quantum chip"
 
 It is certainly a "moon shot" for Google to be working on this. IBM is the one that is usually making noise about quantum computing. Cool milestone…
 
@@ -100,11 +104,11 @@ End quote.
 
 Quantum, AI, Crypto — these are all long bets that I suspect we will see come to fruition over the next couple decades. We are already well down the way with AI and Crypto isn't far behind.
 
-Link seven. "He was suicidal and needed help. A 15-year-old girl pushed him to kill himself on a live stream. - The Washington Post"
+Link seven of ten. "He was suicidal and needed help. A 15-year-old girl pushed him to kill himself on a live stream. - The Washington Post"
 
 Gift Link. This article hit me really hard. Maybe it is that this guy is from Minnesota. For sure I know all these services. But I also found it a sad look into some of what people are doing online. How can any human see someone suffering and struggling and instead of trying to help encourage them to go further down. Terrible.
 
-Link eight. "Survey: 88% of Execs Expect Large Global IT Outage in twenty twenty five | PagerDuty"
+Link eight of ten. "Survey: 88% of Execs Expect Large Global IT Outage in twenty twenty five | PagerDuty"
 
 Maybe this group of leaders is a bit more pessimistic than the average?
 
@@ -114,11 +118,11 @@ End quote.
 
 When that bad Crowdstrike update took so many systems down at least some folks thought "I’m amazed this doesn't happen all the time." The reality is that our understand of resiliency in distributed systems is still very immature. As an industry we are learning, but we are still in the early phases of this journey.
 
-Link nine. "ntfy.sh | Send push notifications to your phone via PUT/POST"
+Link nine of ten. "ntfy.sh | Send push notifications to your phone via PUT/POST"
 
 This looks like a great, simple way to go from simple shell scripts and automation to a push notification on your phone. Very easy to use. I need to keep this around for potential use cases.
 
-Link ten. "Artemis, a calm web reader, is available (in beta) | James' Coffee Blog"
+Link ten of ten. "Artemis, a calm web reader, is available (in beta) | James' Coffee Blog"
 
 I love seeing continued innovation in the RSS ecosystem. New feed readers usually catch my attention and when I read first Impressions of Artemis I wanted to give it a try. I've used Feedbin for many years but it is also the case that not all feeds are the same and Artemis right away seemed like something for slower content, specifically like personally blogs. I love the fact that it links out instead of giving you a direct reader experience. I've setup a couple dozen personally blogs in it and am using it just for those and I’m enjoying the overall experience. I also find it fun that it only updates once a day. It is strongly opinionated.
 
@@ -229,55 +233,57 @@ That's the end of the Journal.
 
 Now, the Briefly section.
 
-Link one. "The Tube Computer"
+There are thirteen links this week.
+
+Link one of thirteen. "The Tube Computer"
 
 Making a computer the old way. Also you can heat your house with it.
 
-Link two. "Introducing ChatGPT Pro | OpenAI"
+Link two of thirteen. "Introducing ChatGPT Pro | OpenAI"
 
 At first I thought a 200 dollars/month offering made no sense from ChatGPT. Then I thought about it more and read about what it actually offers. The deeper analysis that the LLM does has a lot of potential. For many use cases, this could be a really great offering.
 
-Link three. "The Rage and Glee That Followed a C.E.O.’s Killing Should Ring All Alarms - The New York Times"
+Link three of thirteen. "The Rage and Glee That Followed a C.E.O.’s Killing Should Ring All Alarms - The New York Times"
 
 The reaction to this killing has been nothing like what I would have expected. Gift Link.
 
-Link four. "15 Times to use AI, and 5 Not to - by Ethan Mollick"
+Link four of thirteen. "15 Times to use AI, and 5 Not to - by Ethan Mollick"
 
 Still thinking about where you can use AI? Good list here. I don't agree with his "not to" about learning though. I've found having a voice conversation with ChatGPT exploring a topic is a great way to learn.
 
-Link five. "Just Programmer's Manual"
+Link five of thirteen. "Just Programmer's Manual"
 
 A long time ago make was created to help programmers build source code. Over the years make was used in many ways that it wasn't intended for. Those use cases are what just is focused on. Handy and simple utility.
 
-Link six. "Cotton-and-squid-bone sponge can soak up 99.9% of microplastics, scientists say | The Guardian"
+Link six of thirteen. "Cotton-and-squid-bone sponge can soak up 99.9% of microplastics, scientists say | The Guardian"
 
 I’m wary of microplastics and I suspect we are going to learn over the next several years that they are particularly harmful for us. Great to see that there is progress being made on filtering it out.
 
-Link seven. "Sora is here | OpenAI"
+Link seven of thirteen. "Sora is here | OpenAI"
 
 Sora is now available to create AI generated video. If you have a ChatGPT+ subscription you can sign in and start using it right away.
 
-Link eight. "How Much Stretching It Takes to Make You More Flexible, According to Science | Lifehacker"
+Link eight of thirteen. "How Much Stretching It Takes to Make You More Flexible, According to Science | Lifehacker"
 
 Four minutes a muscle. More than most people probably do.
 
-Link nine. "iOS and iPadOS 18.2: Everything New Besides Apple Intelligence - MacStories"
+Link nine of thirteen. "iOS and iPadOS 18.2: Everything New Besides Apple Intelligence - MacStories"
 
 Many details on additions in the newest version of iOS.
 
-Link ten. "Apple Intelligence in iOS 18.2: A Deep Dive into Working with Siri and ChatGPT, Together - MacStories"
+Link ten of thirteen. "Apple Intelligence in iOS 18.2: A Deep Dive into Working with Siri and ChatGPT, Together - MacStories"
 
 Great overview of all the new Apple Intelligence features.
 
-Link eleven. "Automators Podcast Obsidian Vault - Next Steps | ThoughtAsylum"
+Link eleven of thirteen. "Automators Podcast Obsidian Vault - Next Steps | ThoughtAsylum"
 
 I listened to many episodes of Automators. The podcast is now done, but I love what this listener did with the content and creating a knowledge base. It would be really interesting to do something similar with the links from the Weekly Thing.
 
-Link twelve. "The state of my Home Assistant in twenty twenty four – Tomi's place"
+Link twelve of thirteen. "The state of my Home Assistant in twenty twenty four – Tomi's place"
 
 Wild amount of devices and automations. Fun to just see what is possible.
 
-Link thirteen. "Making “Social” Social Again. Announcing Mozi | Medium"
+Link thirteen of thirteen. "Making “Social” Social Again. Announcing Mozi | Medium"
 
 I’m not sure about Mozi but I thought I would give it a try. You can connect with me there. This writeup is good context for it.
 

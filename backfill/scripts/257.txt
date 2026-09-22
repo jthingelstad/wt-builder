@@ -28,7 +28,9 @@ Back it now to get your signed edition and support distributing copies to librar
 
 Now, the Featured section.
 
-Link one. "Meet @Fiatjaf, The Mysterious Nostr Creator Who Has Lured 18 Million Users And 5 million dollars From Jack Dorsey"
+There are two links this week.
+
+Link one of two. "Meet @Fiatjaf, The Mysterious Nostr Creator Who Has Lured 18 Million Users And 5 million dollars From Jack Dorsey"
 
 This writeup on Nostr and the key folks behind it is a good backgrounder. I've been playing with Nostr for a few weeks and it has some interesting capabilities. Micro.blog recently added syndication support for Nostr as well, which I turned on. Nostr feels much more like using a protocol than using a specific service. It feels more like SMTP or HTTP than Twitter. The work and experience is up to the client, and using a client like Damus feels a lot like Twitter with some unique twists due to the decentralized nature. For example, you don't really know who or how many people follow you. Just like the Web. You publish, and others read.
 
@@ -52,7 +54,7 @@ End quote.
 
 I met Will at Bitcoin twenty twenty three after the Nostr session. Damus is for sure one of the most user friendly experiences on Nostr. Pair it with a Lightning wallet for micropayments and you have a great way to experience how this works.
 
-Link two. "Reflections on Ten Years Past The Snowden Revelations"
+Link two of two. "Reflections on Ten Years Past The Snowden Revelations"
 
 Interesting post from the IETF reflecting on learning of the last ten years since Edward Snowden leaked documents on the NSA surveillance programs.
 
@@ -78,15 +80,17 @@ That's the end of Featured.
 
 Now, the Notable section.
 
-Link one. "ENS for your community - matoken.eth"
+There are twelve links this week.
+
+Link one of twelve. "ENS for your community - matoken.eth"
 
 The new ENS v3 Name Wrapper opens up a number of interesting use cases. Issuing subnames to your community is wildly interesting. Imagine when you register for a service you received an NFT that represents your user profile, and it is a subname of the entity itself.
 
-Link two. "Solo stakers: The backbone of Ethereum — Rated blog"
+Link two of twelve. "Solo stakers: The backbone of Ethereum — Rated blog"
 
 Not all stakers in a proof-of-stake network are the same. This analysis tries to determine how many of the Ethereum Beacon chain stakers are solo stakers. These stakers are the most resilient and decentralized. They don't operate as a block. Many stake-at-home on their own hardware. I have been doing this on Gnosis Chain for nearly a year now. I think chains should consider how validator rewards are given to incentivize more solo stakers.
 
-Link three. "What not to share with ChatGPT if you use it for work | Mashable"
+Link three of twelve. "What not to share with ChatGPT if you use it for work | Mashable"
 
 Most notable thing in this article is the option to turn off your chat history and training. The vectors described are less novel than one might think.
 
@@ -96,25 +100,25 @@ Most notable thing in this article is the option to turn off your chat history a
 
 Noted.
 
-Link four. "Japan Goes All In: Copyright Doesn't Apply To AI Training"
+Link four of twelve. "Japan Goes All In: Copyright Doesn't Apply To AI Training"
 
 The US court system is still working through this matter but it is interesting to see Japan rule this way. All in, I think this is the way I feel it should be. Yes AI models are trained on existing examples in any domain, but so are people. No poet become a poet without reading other poets. No painter learns to paint without observing and learning from other painters. What is it about a Neural Network or Transformer Network that says you can’t do the same?
 
-Link five. "How Leaders Manage Time and Attention - Allen Pike"
+Link five of twelve. "How Leaders Manage Time and Attention - Allen Pike"
 
 Super interesting mini-research report from Pike specifically focusing on leaders use of productivity methods. I would share Pike's surprise at how popular a single "Long-Ass Note" is. Tammy uses a "Long-Ass Note" and I’m always nudging about ways to do that "better". Her approach seems more common than mine. No real strong message around GTD here, other than concerns of overwhelm.
 
 It doesn't surprise me that he found a love of time blocking. I think the positive aspects of time created for tasks is real, I use that myself. But I also think Pike doesn't highlight enough how critical it is to defensively block out some time. As a manager, your time will all get consumed if you leave it open. All of it. If you don't protect some time for what you need to get done, you will be crushed. Time blocking can do a bit of both.
 
-Link six. "Lightning Tip Cards"
+Link six of twelve. "Lightning Tip Cards"
 
 Bitcoin Lightning enables all sorts of cool micropayment, friction-free use cases. With Tip Cards you can print out cards that have a standard QR code on it, lead the card with 1 dollar or 50 cents, and give it to anyone for them to have. I’m definitely going to play with some of these.
 
-Link seven. "Discord Admins Hacked by Malicious Bookmarks – Krebs on Security"
+Link seven of twelve. "Discord Admins Hacked by Malicious Bookmarks – Krebs on Security"
 
 Complicated and nasty attack pattern against Discord communities. Discord is like the bar in Star Wars. You need to be extra, extra careful anytime you are in a Discord group. Trust nothing.
 
-Link eight. "Bcrypt at 25: A Retrospective on Password Security | USENIX"
+Link eight of twelve. "Bcrypt at 25: A Retrospective on Password Security | USENIX"
 
 Interesting read on various ways to secure password hashes and how Bcrypt has stayed relevant for an incredible 25 years. I found this bit about the design intentionally making it more difficult to use GPU methods interesting.
 
@@ -124,7 +128,7 @@ End quote.
 
 Good passwords with a good hash and a strong second factor are pretty hard to get by, even today.
 
-Link nine. "All the Hard Stuff Nobody Talks About when Building Products with LLMs | Honeycomb"
+Link nine of twelve. "All the Hard Stuff Nobody Talks About when Building Products with LLMs | Honeycomb"
 
 Good set of challenges enumerated by the Honeycomb team trying to use an LLM to generate the complicated input into their query engine. I found this call out particularly worth remembering:
 
@@ -134,7 +138,7 @@ End quote.
 
 Don't start with the LLM, start with the problem you are solving for your user.
 
-Link ten. "Microtiming in a Riff from Metallica’s "Master of Puppets" – Metal In Theory"
+Link ten of twelve. "Microtiming in a Riff from Metallica’s "Master of Puppets" – Metal In Theory"
 
 First, "Master of Puppets" is an awesome song. One of my all-time favorites. I didn’t realize that it had this complicated timing. I love when folks go deep on something that they really are into.
 
@@ -150,7 +154,7 @@ End quote.
 
 Yes!
 
-Link eleven. "AI Canon | Andreessen Horowitz"
+Link eleven of twelve. "AI Canon | Andreessen Horowitz"
 
 A16z collected this large collection of articles to give an overall primer on a variety of topics in AI. Including:
 
@@ -163,7 +167,7 @@ A16z collected this large collection of articles to give an overall primer on a 
 
 There is a lot here. It is similar to the Crypto Canon and NFT Canon they have published before.
 
-Link twelve. "cf #63: being mindful of vanity metrics"
+Link twelve of twelve. "cf #63: being mindful of vanity metrics"
 
 Some of these vanity metrics overlap with what I've referred to as "analytics as addiction". Follower counts and retweets fall in here. Frankly the majority of web analytics do as well.
 
@@ -229,43 +233,45 @@ That's the end of the Journal.
 
 Now, the Briefly section.
 
-Link one. "python-nostr: A Python library for Nostr"
+There are ten links this week.
+
+Link one of ten. "python-nostr: A Python library for Nostr"
 
 Simple Python library to send events to Nostr. Reminds me of how easy it used to be to write simple bots for Twitter.
 
-Link two. "RSS for Nostr | Nostr.Band"
+Link two of ten. "RSS for Nostr | Nostr.Band"
 
 Simple utility to make an RSS feed from a variety of Nostr queries.
 
-Link three. "Snowflake acquisition of Neeva to add generative AI | TechTarget"
+Link three of ten. "Snowflake acquisition of Neeva to add generative AI | TechTarget"
 
 I was bummed to hear that Neeva was shutting down, and then they said they were pivoting to AI, and just a week later they are now sold to Snowflake. I didn’t have that on my BINGO card for them. Also, Snowflake's Frank Slootman: Generative AI Disruption, Obsolescence.
 
-Link four. "Another dormant Ethereum wallet reawakens after 8 years, moving millions"
+Link four of ten. "Another dormant Ethereum wallet reawakens after 8 years, moving millions"
 
 Wild stuff when a wallet is idle for 8 years and then moves 8,000 ETH (14.7 million dollars USD) to a new address. The original purchase was made for 2,500 dollars USD when ETH was trading at 0 dollars and 31 cents. 2,500 dollars to 14.7 million dollars.
 
-Link five. "Safety Sign Generator"
+Link five of ten. "Safety Sign Generator"
 
 This just seems fun and maybe useful to me.
 
-Link six. "Where does my computer get the time from? – Tony Finch"
+Link six of ten. "Where does my computer get the time from? – Tony Finch"
 
 Super fun read about all the various organizations that determine very accurately what the time is.
 
-Link seven. "Lua: The Little Language That Could"
+Link seven of ten. "Lua: The Little Language That Could"
 
 Lua is still on my "Someday, Maybe" list as a language to do something fun with.
 
-Link eight. "Stratasys to Acquire Fellow 3D Printing Company in 1.8 billion dollars Deal"
+Link eight of ten. "Stratasys to Acquire Fellow 3D Printing Company in 1.8 billion dollars Deal"
 
 Buying others while fending off being bought themselves.
 
-Link nine. "SimpleX Chat: private and secure messenger without any user IDs (not even random)"
+Link nine of ten. "SimpleX Chat: private and secure messenger without any user IDs (not even random)"
 
 Interesting chat app that takes privacy even further by having no user IDs at all. I created a profile to try it out. This must be one of the most secure and private messenger solution.
 
-Link ten. "Embed Responsively"
+Link ten of ten. "Embed Responsively"
 
 Handy little utility to give you superior video embed code for various services. I want to go back and upgrade the embeds on my blog with this.
 

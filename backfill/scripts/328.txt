@@ -18,15 +18,17 @@ That's the end of Currently.
 
 Now, the Notable section.
 
-Link one. "MCP in Practice – O’Reilly"
+There are eight links this week.
+
+Link one of eight. "MCP in Practice – O’Reilly"
 
 The vast majority of these early MCP services are to enable Agentic Engineering. The adoption curves are still interesting to see. It will be more interesting to see how this evolves as MCP continues to become productized and expand into different verticals.
 
-Link two. "Locally AI"
+Link two of eight. "Locally AI"
 
 I discovered this app via Simon Willison blog post. It is about the easiest way to get different models onto your phone and experiment with them. It also just added support for the Apple Intelligence model as well. I was tempted to use it in Shortcuts automation but it doesn't have a macOS app so will hold off for now.
 
-Link three. "Cloudflare’s twenty twenty five Annual Founders’ Letter"
+Link three of eight. "Cloudflare’s twenty twenty five Annual Founders’ Letter"
 
 Many folks haven't heard of Cloudflare but they run a huge amount of Internet infrastructure. I tend to find their product announcements very opinionated towards an overall direction they feel the Internet is or should be going. There annual letter strikes a ton of change.
 
@@ -42,7 +44,7 @@ End quote.
 
 I would place under this the lack of micropayment infrastructure and ability which forced everything to attention models as the problem. Freeing ourselves of that surveillance economy would be incredible.
 
-Link four. "Does WiFi Make Students Smarter? - Cal Newport"
+Link four of eight. "Does WiFi Make Students Smarter? - Cal Newport"
 
 There are a lot of opinions about technology adoption in schools. Overall I’m a fan of less mobile phones in schools, but I've also read reports how gifted students use those same devices to excel beyond the mediocre class content they are in. That is likely a minority compared to the number that just play games or watch TikTok. Newport found an interesting control group on WiFi in school.
 
@@ -52,7 +54,7 @@ End quote.
 
 Should technology be in schools and learning? Absolutely yes. But how do we do that while keeping the attention economy out? That is the issue.
 
-Link five. "Go Out and Get Some Air – On my Om"
+Link five of eight. "Go Out and Get Some Air – On my Om"
 
 Malik sharing his excitement for the iPhone Air.
 
@@ -62,7 +64,7 @@ End quote.
 
 I haven't handled one of these, and the camera is too much of a compromise for me. But I suspect for a lot of people this may be an amazing choice.
 
-Link six. "How AWS S3 serves 1 petabyte per second on top of slow HDDs"
+Link six of eight. "How AWS S3 serves 1 petabyte per second on top of slow HDDs"
 
 The scale of S3 is really hard to understand even for technologists who have worked on very scaled systems.
 
@@ -72,7 +74,7 @@ End quote.
 
 This article is a very approachable overview on the key methods they use to hit this performance.
 
-Link seven. "How Claude Code is built - Gergely Orosz"
+Link seven of eight. "How Claude Code is built - Gergely Orosz"
 
 Claude Code has been transformational for agentic software development. The first handful of times I used it I was blown away not just by what it does but how it does it.
 
@@ -106,7 +108,7 @@ Could this be the unlock of the golden age of software? Think of this progressio
 
 Sadly the rest of the article is only for paid subscribers, but just that first part was worth it.
 
-Link eight. "Introducing ChatGPT Pulse | OpenAI"
+Link eight of eight. "Introducing ChatGPT Pulse | OpenAI"
 
 I used this for the first couple of times this week and it is surprisingly good. I was able to give it some nudges for different things I wanted to know and it worked well. It was telling how good ChatGPT could figure out my interests from the collected interactions I've had with it.
 
@@ -225,23 +227,25 @@ That's the end of the Journal.
 
 Now, the Briefly section.
 
-Link one. "LinkedIn will use your data to train AI – how to opt out | Proton"
+There are five links this week.
+
+Link one of five. "LinkedIn will use your data to train AI – how to opt out | Proton"
 
 Simple and easy directions to follow to opt-out.
 
-Link two. "Apple previews new immersive films for Apple Vision Pro - Apple"
+Link two of five. "Apple previews new immersive films for Apple Vision Pro - Apple"
 
 Apple has to spend some cash to prime this ecosystem. The hardware isn't there yet but is coming along. The software is also not there but improving. Creating a library of content for AR as they move down the path is the right thing to do.
 
-Link three. "The Top Programming Languages twenty twenty five - IEEE Spectrum"
+Link three of five. "The Top Programming Languages twenty twenty five - IEEE Spectrum"
 
 Python at the top of the list by a ways, and also now at the top of the list for the most popular in "Jobs" as well.
 
-Link four. "Python on the Edge: Fast, sandboxed, and powered by WebAssembly · Wasmer"
+Link four of five. "Python on the Edge: Fast, sandboxed, and powered by WebAssembly · Wasmer"
 
 Python is getting itself everywhere.
 
-Link five. "Preparing the AI-First Enterprise Workforce for the Age of Agents - Evangelos Simoudis"
+Link five of five. "Preparing the AI-First Enterprise Workforce for the Age of Agents - Evangelos Simoudis"
 
 A model for thinking about agentic deployment in the enterprise.
 

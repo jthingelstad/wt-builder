@@ -10,7 +10,9 @@ See you in September! Now onto the links for this week…
 
 Now, the Featured section.
 
-Link one. "Scripting News: They can't see what they can't see"
+There are three links this week.
+
+Link one of three. "Scripting News: They can't see what they can't see"
 
 Dave Winer has written for decades at this point about blogging, the web, and journalism. He wrote Sources go direct in two thousand nine! Here he is hitting on a bigger thing.
 
@@ -20,7 +22,7 @@ End quote.
 
 I got here reading Doc Searls "What becomes of journalism when everybody can write or cast?" which adds additional context. I think Winer hit the point more directly.
 
-Link two. "Living normally, with Covid-19: Task force ministers on how Singapore is drawing road map for new normal - The Straits Times"
+Link two of three. "Living normally, with Covid-19: Task force ministers on how Singapore is drawing road map for new normal - The Straits Times"
 
 My view all along has been that Covid-19 will not go away, for sure not in the next decade. But thanks to science and amazing medical talent we will be able to manage Covid-19.
 
@@ -30,7 +32,7 @@ End quote.
 
 Pivoting into this new way of managing and reacting to Covid-19 may be challenging but seems like the right path. Oh, and get vaccinated!
 
-Link three. "I swallowed one of my AirPods | The Guardian"
+Link three of three. "I swallowed one of my AirPods | The Guardian"
 
 One of my common ways to fall asleep if I’m having a hard time is to put my left AirPod in and select a podcast to listen to. If I need a heavy hammer to get myself to sleep I go straight to On Being because Krista Tippett's voice soothes me to sleep in seconds. Typically the AirPod falls out at some point and I find it in the morning. I have never considered that I could swallow it?
 
@@ -50,19 +52,21 @@ That's the end of Currently.
 
 Now, the Notable section.
 
-Link one. "Bitcoin, Currencies, and Bubbles by Nassim Nicholas Taleb"
+There are sixteen links this week.
+
+Link one of sixteen. "Bitcoin, Currencies, and Bubbles by Nassim Nicholas Taleb"
 
 I've read three of Taleb's books. Fooled by Randomness, Black Swan, and Antifragile. All have been fabulous reads, if you can see your way through Taleb's hubris. Taleb tweeted this draft article arguing Bitcoin is worthless. It is good to read all views, particularly on something so innovative and particularly disruptive as crypto.
 
 Taleb seems to delete things off his site so I cached a copy of my own for reference.
 
-Link two. "data-brokers.md · GitHub"
+Link two of sixteen. "data-brokers.md · GitHub"
 
 Some data broker got my mobile number and has added it to my profile on their service. I have no idea which one, but the result is that I’m getting hammered with sales calls to my mobile phone. The folks that are calling have no idea it is a mobile, and they are not telemarketers so even though I’m on Do Not Call lists it doesn't apply.
 
 My only remedy? Send opt out requests to data brokers.
 
-Link three. "Introducing Solidify — a tool to automatically detect and classify smart contract security risks | The Coinbase Blog"
+Link three of sixteen. "Introducing Solidify — a tool to automatically detect and classify smart contract security risks | The Coinbase Blog"
 
 This is probably the first of dozens of tools that blockchain developers will need as sophisticated solutions get built out. We have things like this for other domains already.
 
@@ -72,7 +76,7 @@ End quote.
 
 Good stuff.
 
-Link four. "How Shortcuts for the Mac will fit in - All this"
+Link four of sixteen. "How Shortcuts for the Mac will fit in - All this"
 
 I've been a huge fan of Shortcuts since before Apple bought it and it was called Workflow. With Shortcuts coming to macOS Monterey I’m eager to play around with the bevy of powerful tools added to it. The fact that you can bridge Shortcuts into Unix style automation is incredible.
 
@@ -82,25 +86,25 @@ End quote.
 
 I can’t wait to get my hands on this and start creating even more powerful automations! Automation is a super power!
 
-Link five. "Why Python is not the programming language of the future"
+Link five of sixteen. "Why Python is not the programming language of the future"
 
 I've been a fan of Python for years. Mostly I find it an immensely productive language for teams. Personally I find it very readable and easy to work with. Betting against languages because of sluggishness is a dangerous bet. Javascript was slow as can be at one point. So were many languages.
 
-Link six. "The Dark, Democratizing Power of the Social-Media Stock Market | The New Yorker"
+Link six of sixteen. "The Dark, Democratizing Power of the Social-Media Stock Market | The New Yorker"
 
 I have been playing with BitClout for a bit, you can find me @jthingelstad. I was curious to read this article and get its take. Notably the ability to transfer BitClout $CLOUT out and back in to Bitcoin and thus cash is now solved, so there is no lock in. I wasn't sure what I would think about Creator Coins, but it seems mostly a good thing so far. My coin price today is 9 dollars and 58 cents. I hold 11 different creator coins in my wallet.
 
-Link seven. "Laura Vanderkam Interview: How To Find Time By Tracking Time"
+Link seven of sixteen. "Laura Vanderkam Interview: How To Find Time By Tracking Time"
 
 Time is money. You could read this article and replace every instance of time with money and it would still make sense. Worse with time, there is no more of it. You only get what you got. Use it wisely. You budget your money? Do you budget your time? Do you track it?
 
-Link eight. "Brave Search"
+Link eight of sixteen. "Brave Search"
 
 Brave has been working on the Brave Browser for years. There are many innovative ideas, and it was one of the first browsers to take privacy seriously. Now they have launched a search engine that brings those same concepts to search.
 
 I haven't used Google for a long time, I use DuckDuckGo for search and have been very happy with it. Recently I have started using Neeva which is going to be the first subscription search offering (you just pay, no ads, no privacy concerns). Now we have Brave Search. I love that we are seeing some innovation in this market that has been stagnate and declining with Google's complete and utter dominance over it.
 
-Link nine. "zsync"
+Link nine of sixteen. "zsync"
 
 It has been a long time since I used rsync, but it is a fabulous tool for moving data between machines that you have access to. zsync removes the need for a special server implementation.
 
@@ -110,7 +114,7 @@ End quote.
 
 If you need to move a reasonably sized asset to a lot of places this is your solution.
 
-Link ten. "Internet-in-a-Box"
+Link ten of sixteen. "Internet-in-a-Box"
 
 We spend a lot of time thinking about the newest and greatest, but there are still millions of people that do not have access to the web and the vast data most of us take for granted.
 
@@ -120,7 +124,7 @@ End quote.
 
 Devices like this are important to bridge those gaps until we can get the web everywhere.
 
-Link eleven. "Courting the common cold"
+Link eleven of sixteen. "Courting the common cold"
 
 I've heard multiple folks considering the continuation of mask wearing to fend off other viruses in general. I like this take from Mo Perry.
 
@@ -136,11 +140,11 @@ End quote.
 
 "A ship in harbor is safe, but that is not what ships are built for." Same goes for people.
 
-Link twelve. "Loup TV 096: "Bitcoin twenty twenty one" Further Mainstreams Crypto | Loup Ventures"
+Link twelve of sixteen. "Loup TV 096: "Bitcoin twenty twenty one" Further Mainstreams Crypto | Loup Ventures"
 
 Gene Munster interviews Hector Fernandez and Sal Ternullo about Bitcoin and specifically the Bitcoin twenty twenty one event in Miami.
 
-Link thirteen. "The Things That Make Fathers Happiest - The Atlantic"
+Link thirteen of sixteen. "The Things That Make Fathers Happiest - The Atlantic"
 
 A great read for Father’s Day.
 
@@ -150,11 +154,11 @@ End quote.
 
 The whole article resonated with me.
 
-Link fourteen. "BitClout User Posts RSS Feed"
+Link fourteen of sixteen. "BitClout User Posts RSS Feed"
 
 Cool tool to provide RSS feed for a BitClout user. I've been trying BitClout and I am digging it. It is a great example of a decentralized blockchain social platform. This app was just made yesterday.
 
-Link fifteen. "Triple Crown - Stone and Sky"
+Link fifteen of sixteen. "Triple Crown - Stone and Sky"
 
 This blog deservedly could eat up a lot of reading time.
 
@@ -164,7 +168,7 @@ End quote.
 
 Only 482 people have hiked these three giant trails. Amazing.
 
-Link sixteen. "Leica just launched its first smartphone that houses the company’s world-class camera technology | Yanko Design"
+Link sixteen of sixteen. "Leica just launched its first smartphone that houses the company’s world-class camera technology | Yanko Design"
 
 A Leica branded smartphone? Yeah, this is actually real. I had to check my calendar and make sure it wasn't April first. Nope! Further looking shows this is a modified Sharp Aquos R6 but that big camera actually looks pretty awesome. Or maybe it is just the red "Leica" circle in the corner.
 
@@ -267,63 +271,65 @@ That's the end of the Journal.
 
 Now, the Briefly section.
 
-Link one. "Andreessen Horowitz Launches 2.2 billion dollars Crypto Fund - Blockworks"
+There are fifteen links this week.
+
+Link one of fifteen. "Andreessen Horowitz Launches 2.2 billion dollars Crypto Fund - Blockworks"
 
 Last week it was MicroStrategy raising 500 million dollars while they received interest of 1.6 billion dollars. Now Andreessen Horowitz raises a 2.2 billion dollars fund for investing in crypto.
 
-Link two. "URLs: It's complicated"
+Link two of fifteen. "URLs: It's complicated"
 
 Have you ever wondered what all the pieces of a URL are? This is a good overview, and also explains some of the strange parts too.
 
-Link three. "Lifting the mask - Continuing Ed with Edward Snowden"
+Link three of fifteen. "Lifting the mask - Continuing Ed with Edward Snowden"
 
 Edward Snowden has a newsletter now. Instant subscribe.
 
-Link four. "Decentralized Identifiers (DIDs) v1.0"
+Link four of fifteen. "Decentralized Identifiers (DIDs) v1.0"
 
 "DIDs are URIs that associate a DID subject with a DID document allowing trustable interactions associated with that subject."
 
-Link five. "SimCities and SimCrises - International City Gaming Conference keynote"
+Link five of fifteen. "SimCities and SimCrises - International City Gaming Conference keynote"
 
 Love this if only for the history of SimCity. SimCity is one of the few games I ever played seriously. I still wish I could resurrect my old SimCity 3000 city.
 
-Link six. "A from-scratch tour of Bitcoin in Python"
+Link six of fifteen. "A from-scratch tour of Bitcoin in Python"
 
 "We are going to create, digitally sign, and broadcast a Bitcoin transaction in pure Python, from scratch, and with zero dependencies." Buckle up!
 
-Link seven. "The phases of remote adaptation | GitLab"
+Link seven of fifteen. "The phases of remote adaptation | GitLab"
 
 Interesting framework for modeling distributed work environments. I particularly like the "whiteboarding fixation" callout.
 
-Link eight. "Cybereason: 80% of orgs that paid the ransom were hit again | VentureBeat"
+Link eight of fifteen. "Cybereason: 80% of orgs that paid the ransom were hit again | VentureBeat"
 
 Paying doesn't make ransomware go away.
 
-Link nine. "Jay Christensen on Twitter: Glensheen Experience"
+Link nine of fifteen. "Jay Christensen on Twitter: Glensheen Experience"
 
 Super cool video fly through of Glensheen Mansion in Duluth.
 
-Link ten. "USC professor’s DIY online teaching hack to engage students goes viral"
+Link ten of fifteen. "USC professor’s DIY online teaching hack to engage students goes viral"
 
 This lightboard is really cool and a great teaching aid. More generally, I love the approach this teacher took to completely rethinking how she engaged online. There are learnings here for a many business leaders.
 
-Link eleven. "Kats - One stop shop for time series analysis in Python"
+Link eleven of fifteen. "Kats - One stop shop for time series analysis in Python"
 
 Toolkit to analyze time-series data via Facebook. The tutorials look pretty straightforward.
 
-Link twelve. "The 25 Micro-Habits of High-Impact Managers | First Round Review"
+Link twelve of fifteen. "The 25 Micro-Habits of High-Impact Managers | First Round Review"
 
 Great list with a ton of variety and examples shared by various managers.
 
-Link thirteen. "The Document Culture of Amazon"
+Link thirteen of fifteen. "The Document Culture of Amazon"
 
 First hand commentary on the foundational role that various documents play at Amazon.
 
-Link fourteen. "GraphCDN, the CDN for GraphQL APIs"
+Link fourteen of fifteen. "GraphCDN, the CDN for GraphQL APIs"
 
 Caching solution that understands the semantics of GraphQL.
 
-Link fifteen. "Gently Down the Stream"
+Link fifteen of fifteen. "Gently Down the Stream"
 
 Delightfully illustrated kids book that introduces the core concepts of Apache Kafka and streaming software architecture.
 

@@ -10,7 +10,9 @@ But the best thing about Thanksgiving is the people you are with, all the specia
 
 Now, the Featured section.
 
-Link one. "How China Got Our Kids Hooked on ‘Digital Fentanyl’"
+There are two links this week.
+
+Link one of two. "How China Got Our Kids Hooked on ‘Digital Fentanyl’"
 
 Overview of many aspects of TikTok that should concern you greatly. TikTok is growing at tremendous rates, in part because the onboarding process is so low friction. TikTok takes algorithmic feeds to levels that Facebook and Twitter could only dream of. In fact, because of the explicit following and friending actions you take in other social networks, they can’t even do the same thing.
 
@@ -26,7 +28,7 @@ The lack of agency in selection of what you see is bad enough, but augment that 
 
 If there is a level of bad for you in the digital media landscape. TikTok occupies the top of the podium.
 
-Link two. "The Seven Levels of Busy – Rands in Repose"
+Link two of two. "The Seven Levels of Busy – Rands in Repose"
 
 I love this enumeration of busy. Seven levels. Not Busy, Stuff to Do, Significant Commitments, At Capacity, Cracks in the Facade, Crushing Commitments, Unsustainable. The descriptions are simple. There is no recommendation of what to do with it, but as an enumeration I dig it.
 
@@ -36,7 +38,9 @@ That's the end of Featured.
 
 Now, the Notable section.
 
-Link one. "Moving away from UUIDs – Neil Madden"
+There are eleven links this week.
+
+Link one of eleven. "Moving away from UUIDs – Neil Madden"
 
 Madden has a delightful post going into depth on the "guessability" of UUIDs. UUIDs are used all over the place in so many systems. They solve a really important issue for programmers, creating a (nearly) guaranteed random number.
 
@@ -48,7 +52,7 @@ End quote.
 
 That takes 17.9 million years to guess. More than 35 minutes…
 
-Link two. "On company size"
+Link two of eleven. "On company size"
 
 When Musk came into Twitter and started firing people by the thousands it brought a lot of attention to how many employees and contractors Twitter actually had. In the case of Twitter, I have no idea how many employees is the right number for them to have.
 
@@ -60,7 +64,7 @@ If I want to learn from other companies, I want to first know their growth rate.
 
 In fairness, Twitter also isn't growing that fast so that isn't a reason for them to have a lot of staff.
 
-Link three. "3 Reasons Smart Leaders Tell Stories - How You Can Too - Leadership Freak"
+Link three of eleven. "3 Reasons Smart Leaders Tell Stories - How You Can Too - Leadership Freak"
 
 There is so much truth to this statement. Nearly all great leaders I've worked with are also storytellers.
 
@@ -70,7 +74,7 @@ Stories are the programs of the brain. People engage in stories. They are how we
 
 If you can turn your objectives and goals into stories that people identify with, and engage with, you will see amazing results.
 
-Link four. "Bob Iger Returning as Disney CEO, Bob Chapek Fired by Board – The Hollywood Reporter"
+Link four of eleven. "Bob Iger Returning as Disney CEO, Bob Chapek Fired by Board – The Hollywood Reporter"
 
 Iger is returning to Disney.
 
@@ -80,11 +84,11 @@ End quote.
 
 I’m pretty sure "developing a successor" was on his to do list the last time too. Take two now…
 
-Link five. "FBI director says he's 'extremely concerned' about China's ability to weaponize TikTok - CyberScoop"
+Link five of eleven. "FBI director says he's 'extremely concerned' about China's ability to weaponize TikTok - CyberScoop"
 
 I have a very long list of things that I despise about TikTok. The threat that it poses from foreign ownership, in my opinion, is real. The algorithmic and behavioral approach that TikTok uses could be easily directed towards a variety of objectives, none of which would be readily discerned without all the data behind the scenes. Could that be weaponized? Very much so.
 
-Link six. "Infosys leaked FullAdminAccess AWS keys on PyPi for over a year | Tom Forbes"
+Link six of eleven. "Infosys leaked FullAdminAccess AWS keys on PyPi for over a year | Tom Forbes"
 
 Leaked credentials to cloud services is a huge problem, and it is so easy to make. This is wild that this was publicly exposed for a year!
 
@@ -92,13 +96,13 @@ Quote.
 At the top of the file, embedded as string constants, was an AWS access key and AWS secret key. The rest of the code seemed to be interacting with a S3 bucket in pretty standard ways: pulling data, loading it into pandas and computing some basic aggregates. It seems like this code came from an internal Github instance inside Infosys and was accidentally published. I assumed the key had been revoked (it’s been public for over a year!), but to my great surprise I found it was still active!
 End quote.
 
-Link seven. "Taylor Swift | The Eras Tour Onsale Explained - Ticketmaster"
+Link seven of eleven. "Taylor Swift | The Eras Tour Onsale Explained - Ticketmaster"
 
 The service issues related to the most recent Swift concert sale made the news. This article doesn't really explain what the technical issues were. I don't know that much explanation is needed though, the graph in the article tells the whole story.
 
 Staggering sales would have been sensible. It also highlights how even really large technology platforms, designed for scale, aren't ready for "world scale" yet. Handling the demand of the entire world is still the work of science fiction.
 
-Link eight. "Twitter. | Irrational Exuberance"
+Link eight of eleven. "Twitter. | Irrational Exuberance"
 
 Larson joined Twitter in March two thousand seven.
 
@@ -110,7 +114,7 @@ I’m vehement that Twitter is not the "town square" or the "commons". The commo
 
 But I’m also not running for the hills. I’m curious to see how the product changes.
 
-Link nine. "Mike Klingensmith: The Exit Interview | Twin Cities Business"
+Link nine of eleven. "Mike Klingensmith: The Exit Interview | Twin Cities Business"
 
 Publisher of our local paper is retiring. Local news is a tough but important business.
 
@@ -122,7 +126,7 @@ Isn't that a kicker? When you "succeed" in making that jump from print to digita
 
 News and media is still a very difficult place to build a business, unless you are one of the handful of huge, national brands.
 
-Link ten. "Micropayments for content | Seth's Blog"
+Link ten of eleven. "Micropayments for content | Seth's Blog"
 
 Godin suggesting that a frictionless micropayment infrastructure is needed for the web. I agree completely. Payment is one of those foundational capabilities that we nee for the web as it continues to evolve.
 
@@ -130,7 +134,7 @@ What Godin describes here is a bit similar to the Brave Rewards system based on 
 
 After all, you could send me a micropayment anytime you want to thingelstad.eth!
 
-Link eleven. "Having a safe CEX: proof of solvency and beyond"
+Link eleven of eleven. "Having a safe CEX: proof of solvency and beyond"
 
 Buterin theorizing on different approaches to making centralized exchanges safer for users, requiring less trust. There is some interesting ideas here, but we already know the best way is to not keep your funds on an exchange.
 
@@ -200,19 +204,21 @@ That's the end of the Journal.
 
 Now, the Briefly section.
 
-Link one. "D2 Tour | D2 Documentation"
+There are four links this week.
+
+Link one of four. "D2 Tour | D2 Documentation"
 
 Sometimes the easiest way to create a diagram is to type.
 
-Link two. "It’s Costing Peanuts for the US to Defeat Russia - CEPA"
+Link two of four. "It’s Costing Peanuts for the US to Defeat Russia - CEPA"
 
 Supporting Ukraine is right strategically, and the financial cost to the US isn't that big when you put it in context.
 
-Link three. "Tesla teases Apple Music integration coming soon | Electrek"
+Link three of four. "Tesla teases Apple Music integration coming soon | Electrek"
 
 I've long assumed this just wasn't going to happen, but now I've got a glimmer of hope. I use Apple Music and not having that in the Tesla is about the only gripe I can make about the car. I wish I could get my same music library. This would be a big deal for me.
 
-Link four. "Leaving Twitter's Walled Garden | Electronic Frontier Foundation"
+Link four of four. "Leaving Twitter's Walled Garden | Electronic Frontier Foundation"
 
 There are a lot of posts lately guiding people through onboarding with Mastadon. I’m mostly sharing this one as I think it is well done, and I’m a longtime supporter of the EFF. If you are looking for a thorough overview, this is it.
 

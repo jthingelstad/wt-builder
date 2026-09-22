@@ -8,7 +8,9 @@ The week has been packed full and the morning coffee that powered the final push
 
 Now, the Featured section.
 
-Link one. "The Disappearance of an Internet Domain"
+There is one link this week.
+
+Link one of one. "The Disappearance of an Internet Domain"
 
 The IO top-level domain is used by a large number of technology services. It is a simple play off of the input/output functions in tech. Remember BIOS? Basic Input/Output System. It is a foundational concept and the fact that the British Indian Ocean Territory was also country code IO was a neat coincidence. However, that is changing!
 
@@ -30,7 +32,9 @@ That's the end of Featured.
 
 Now, the Notable section.
 
-Link one. "Patent troll Sable pays up, dedicates all its patents to the public!"
+There are eight links this week.
+
+Link one of eight. "Patent troll Sable pays up, dedicates all its patents to the public!"
 
 Patent Trolls are often successful because companies do the math and decide it is easier and cheaper to pay them than to fight. Cloudflare however decided not to play ball.
 
@@ -40,23 +44,23 @@ End quote.
 
 They won the filing and they made Sable dissolve their patent rights. Impressive stuff. I also love that they used crowd-sourcing with their Project Jengo to help fight this troll.
 
-Link two. "159 employees are leaving Automattic as CEO's fight with WP Engine escalates | TechCrunch"
+Link two of eight. "159 employees are leaving Automattic as CEO's fight with WP Engine escalates | TechCrunch"
 
 Automattic's, or more appropriately Mullenweg's, fight with WP Engine has become a whole drama. I have always thought so highly of Mullenweg and his commitment to the health of the Web. This fight with WP Engine however is inflicting a lot of damage.
 
-Link three. "Daring Fireball: Chinese Government Hackers Compromise 'Back Door for the Good Guys' in U.S. Communication Networks"
+Link three of eight. "Daring Fireball: Chinese Government Hackers Compromise 'Back Door for the Good Guys' in U.S. Communication Networks"
 
 Great summery from Gruber highlighting why "back doors" around encryption or security measures are a terrible idea. There is no way to limit their use to only the intended beneficiaries.
 
-Link four. "Ethereum Follow Protocol"
+Link four of eight. "Ethereum Follow Protocol"
 
 Interesting new protocol for Ethereum that allows you to create a follower concept directly on the blockchain. You follow other wallets by address or ENS name. You can add tags to them as well. The EFP website then lets you follow all transactions for those addresses, but you could build any number of other applications on top of this data. I created an initial set of accounts to follow and it mints an NFT that stores the follower data. If you create a follow group early you can graph a EFP Early twenty twenty four POAP. I got mine!
 
-Link five. "Idiomatic awk"
+Link five of eight. "Idiomatic awk"
 
 I have used awk in various scripts to do pretty straightforward things. I've always known it to be significantly more powerful than I am familiar and this article does a great job walking through more complex use cases. It is worth reading since there are many things awk can do out of the box that folks could easily end up writing their own small Python code for. Much simpler to use the tools that exist!
 
-Link six. "Your doctor’s office could be reading your blood pressure all wrong - Ars Technica"
+Link six of eight. "Your doctor’s office could be reading your blood pressure all wrong - Ars Technica"
 
 I learned about the correct method of checking blood pressure from an episode of Peter Attia's podcast a while back. It does make a notable difference when you do the test.
 
@@ -66,7 +70,7 @@ End quote.
 
 The downside of this though is that it means taking your blood pressure goes from a couple of minutes to taking like 15 minutes — which for me at least means I test it much, much less frequently.
 
-Link seven. "CTV industry’s unprecedented “surveillance” - Ars Technica"
+Link seven of eight. "CTV industry’s unprecedented “surveillance” - Ars Technica"
 
 I wrote about some of the frustrating privacy issues with Smart TV's in Weekly Thing 295. I was expecting this article to just be a restatement of stuff I’m already very aware of. And then I hit this line.
 
@@ -78,7 +82,7 @@ So when you watch the show and when I watch it there is going to be different co
 
 I have disconnected all my Smart TV's from WiFi. These devices cannot be trusted. It annoys me since I am a bit OCD about applying firmware updates. But it helps to realize that the software updates for these Smart TV's are most likely surveillance updates.
 
-Link eight. "Internet Archive hacked, data breach impacts 31 million users"
+Link eight of eight. "Internet Archive hacked, data breach impacts 31 million users"
 
 As a technologist I deep down have some hope that there is a moral code to most hackers but there isn't. It’s all about the money, in most cases. Attacking the Internet Archive is terrible. I’ve been a supporter of this non-profit for over a decade. I highlighted them in the list of organizations to support the open internet. And alas they have not just been hacked but have now been down for several days as the result of an aggressive Denial of Service attack. The site just has a banner now saying "Internet Archive services are temporarily offline."
 
@@ -131,51 +135,53 @@ That's the end of the Journal.
 
 Now, the Briefly section.
 
-Link one. "Getting my daily news from a dot matrix printer - Andrew Schmelyun"
+There are twelve links this week.
+
+Link one of twelve. "Getting my daily news from a dot matrix printer - Andrew Schmelyun"
 
 um — you could just subscribe to an actual newspaper?
 
-Link two. "fav.farm"
+Link two of twelve. "fav.farm"
 
 Simple site to add favicon to your website.
 
-Link three. "The Medieval Masterpiece, the Book of Kells, Is Now Digitized and Available Online | Open Culture"
+Link three of twelve. "The Medieval Masterpiece, the Book of Kells, Is Now Digitized and Available Online | Open Culture"
 
 When we visited Ireland we went to see this on exhibit and if you got anywhere near your phone to take a picture a security guard was their to promptly stop you.
 
-Link four. "Scripting News at 30 - Michael Tsai"
+Link four of twelve. "Scripting News at 30 - Michael Tsai"
 
 Great roundup of various posts celebrating Dave Winer for 30 years of blogging. Winer is perhaps the proto-blogger that moved blogs forward!
 
-Link five. "Telehealth remains popular, does not add cost or lower quality of care, report finds"
+Link five of twelve. "Telehealth remains popular, does not add cost or lower quality of care, report finds"
 
 Sharing this mostly because the Doctor highlighted is a friend and neighbor of mine! Hey Steve!
 
-Link six. "Introducing Kotlin Money"
+Link six of twelve. "Introducing Kotlin Money"
 
 Nice library for working with money. It might surprise non-programmers that money isn't a native data type in any programming language, and it has very specific rules that make tracking money complicated with the data types that do exist.
 
-Link seven. "Earth’s ‘vital signs’ show humanity’s future in balance, say climate experts | Climate crisis | The Guardian"
+Link seven of twelve. "Earth’s ‘vital signs’ show humanity’s future in balance, say climate experts | Climate crisis | The Guardian"
 
 All the indicators are in the wrong direction. The science makes sense. But the collective action required to do anything meaningful about it seems more impossible than ever.
 
-Link eight. "Apple Passwords’ Generated Strong Password Format « Ricky Mondello"
+Link eight of twelve. "Apple Passwords’ Generated Strong Password Format « Ricky Mondello"
 
 I like that these passwords have some pattern to them and I’m trusting it doesn't make them less secure. When you cannot copy/paste a password, a truly random password can be very difficult to input.
 
-Link nine. "Twin Peaks Actually Explained: A 4-Hour Video Essay Demystifies It All | Open Culture"
+Link nine of twelve. "Twin Peaks Actually Explained: A 4-Hour Video Essay Demystifies It All | Open Culture"
 
 I was a huge fan of Twin Peaks. I watched the whole thing at least three times. There are still many mysteries. Time to watch this!
 
-Link ten. "How To Write More Blog Posts | Loris Cro's Blog"
+Link ten of twelve. "How To Write More Blog Posts | Loris Cro's Blog"
 
 I agree with some but not all points in this post. But I think it is a good read if you want to write more on the web but aren't sure how you want to approach it.
 
-Link eleven. "“Submerged” brings immersive narrative to Vision Pro – Six Colors"
+Link eleven of twelve. "“Submerged” brings immersive narrative to Vision Pro – Six Colors"
 
 I’m looking forward to watching this on the Vision Pro. I found it interesting how different story telling concepts like scenes and cuts may need to be in an immersive experience.
 
-Link twelve. "A closer look at Nintendo’s adorable Alarmo clock - The Verge"
+Link twelve of twelve. "A closer look at Nintendo’s adorable Alarmo clock - The Verge"
 
 I love that Nintendo created this. Brilliant.
 

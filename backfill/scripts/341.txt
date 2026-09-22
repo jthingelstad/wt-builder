@@ -10,7 +10,9 @@ Now onto the links and have a great rest of your Sunday!
 
 Now, the Notable section.
 
-Link one. "My AI Adoption Journey – Mitchell Hashimoto"
+There are twelve links this week.
+
+Link one of twelve. "My AI Adoption Journey – Mitchell Hashimoto"
 
 Hashimoto shares his journey from chatting with AI to adopting fully agentic processes.
 
@@ -20,7 +22,7 @@ End quote.
 
 When folks are describing stuff as "life-altering" it is worth taking note.
 
-Link two. "How AI Goes to Work – On my Om"
+Link two of twelve. "How AI Goes to Work – On my Om"
 
 Om observing how AI is changing how people engage with software.
 
@@ -30,11 +32,11 @@ End quote.
 
 Agents that are expert in the software and bridge the gap of what you want to do, your understanding of the softwares abilities, and the data you have are going to transform a lot of things.
 
-Link three. "Claude is a space to think | Anthropic Anthropic"
+Link three of twelve. "Claude is a space to think | Anthropic Anthropic"
 
 I’m not a fan of advertising in AI solutions and think that is a mistake for ChatGPT. They also have now given Anthropic something to really tout as a differentiator, which is yet another mistake. Related, Anthropics ads here, here, here, and here are brilliant.
 
-Link four. "ReMemory - Split a secret among people you trust"
+Link four of twelve. "ReMemory - Split a secret among people you trust"
 
 This looks great and is an example of a small utility that deserves more attention.
 
@@ -49,15 +51,15 @@ Why do I like this? We all have a number of digital secrets and we need much bet
 
 You could imagine taking one of these and splitting it into 5 chunks and requiring any 3 to be present to reconstitute it. Then distributing this to your family so that if something happens to you they can access these critical secrets, but only if 3 of them agree to come together on it. No 1 person has all that info.
 
-Link five. "Omni Roadmap twenty twenty six - The Omni Group"
+Link five of twelve. "Omni Roadmap twenty twenty six - The Omni Group"
 
 Omni is a thought leading Mac developer, and I’m a constant user of OmniFocus, so I’m always interested in their annual roadmap updates. I love the addition of Omni Links. I don't think that they are pushing hard enough with AI thought. OmniFocus is an app that would benefit from AI agentic capabilities in so many ways. I get the strong sense that Case (CEO) is pretty standoffish with AI. He's also a huge privacy advocate which was something I appreciated. OmniFocus is a rare app of its kind that encrypts all data. But I think they need to push harder with more AI capabilities and not take a backseat with Apple Intelligence. Minimally there should be built-in MCP capabilities to allow users to bring their own AI.
 
-Link six. "Dot: The Menu Bar Calendar That's Become My Main Calendar - MacStories"
+Link six of twelve. "Dot: The Menu Bar Calendar That's Become My Main Calendar - MacStories"
 
 I wish there was more innovation in calendar apps. The unique thing about these apps is they literally know the future — they know what you are planning. Yet there is little put into bringing intelligence from these. This app has interesting innovation in display and is always ready via the menu bar.
 
-Link seven. "Minions: Stripe’s one-shot, end-to-end coding agents | Stripe Dot Dev Blog"
+Link seven of twelve. "Minions: Stripe’s one-shot, end-to-end coding agents | Stripe Dot Dev Blog"
 
 Super interesting read about how Stripe is building agentic capabilities for their development teams.
 
@@ -67,7 +69,7 @@ End quote.
 
 Doing this, and creating it specifically for your environment, is how you unlock agentic advantage.
 
-Link eight. "I Started Programming When I Was 7. I'm 50 Now, and the Thing I Loved Has Changed"
+Link eight of twelve. "I Started Programming When I Was 7. I'm 50 Now, and the Thing I Loved Has Changed"
 
 As agentic development techniques improve we are seeing a rapid, actually blisteringly fast, adaptation of a super critical craft — creating software.
 
@@ -89,7 +91,7 @@ End quote.
 
 This whole post is about agentic development and everyone (literally everyone) is talking about this. But I will be plain, this type of reinvention will happen to any profession that involves managing, moving, and manipulating information. That isn't to be scary, but to make sure that folks don't look at this transformation and assume that is just something because it is close to technology. Not at all.
 
-Link nine. "picoclaw"
+Link nine of twelve. "picoclaw"
 
 Inspired by OpenClaw but made to run on incredibly tiny hardware.
 
@@ -99,7 +101,7 @@ End quote.
 
 And it seems built by an Agent itself.
 
-Link ten. "What They Copied - PRNDL by Jordan Golson"
+Link ten of twelve. "What They Copied - PRNDL by Jordan Golson"
 
 If you appreciate design this whole article, and the 18 min video, are just amazing. This is a overview of the new Ferrari Luce which was designed by none other than Jony Ive and LoveFrom. Jony Ive of Apple "lore" and designer of the iPhone and the inspiration for so many of the products you use today.
 
@@ -113,7 +115,7 @@ As a Tesla driver for years this stands out as Tesla's design principle has been
 
 This new Ferrari is an absolute thing of beauty.
 
-Link eleven. "OpenClaw Is Changing My Life | Reorx’s Forge"
+Link eleven of twelve. "OpenClaw Is Changing My Life | Reorx’s Forge"
 
 These folks going deep with OpenClaw are showing possible paths that sound pretty wild.
 
@@ -123,7 +125,7 @@ End quote.
 
 I’m about ready to buy a dedicated Mac mini to run one of these.
 
-Link twelve. "AI fatigue is real and nobody talks about it | Siddhant Khare"
+Link twelve of twelve. "AI fatigue is real and nobody talks about it | Siddhant Khare"
 
 I for sure feel what Khare is writing about in this post. AI is a ridiculous unlock to do things that would otherwise not have been possible. With that though our ability to do more fills with more things that we wished we could do. No matter what, there is still only so much time and energy in the day. The fact that Claude is there at 2am while you cannot sleep can be a problem. The fact that you can have five projects going on with different agents is neat, but you still are coordinating them!
 
@@ -157,35 +159,37 @@ That's the end of the Journal.
 
 Now, the Briefly section.
 
-Link one. "ENS is staying on Ethereum | ENS Blog"
+There are eight links this week.
+
+Link one of eight. "ENS is staying on Ethereum | ENS Blog"
 
 This makes me happy on two counts — that Ethereum is scaling well and that ENS, one of the most meaningful apps on it, will stay on Layer 1.
 
-Link two. "Lil Wayne X Clash Royal Music Video - YouTube"
+Link two of eight. "Lil Wayne X Clash Royal Music Video - YouTube"
 
 Marketing collab with Clash Royale. Gaming culture continues merging more into other areas.
 
-Link three. "Andrea Bocelli's sweeping vocals overtake Opening Ceremony | Winter Olympics twenty twenty six | NBC Sports - YouTube"
+Link three of eight. "Andrea Bocelli's sweeping vocals overtake Opening Ceremony | Winter Olympics twenty twenty six | NBC Sports - YouTube"
 
 This performance of Nessun dorma was incredible and nearly brought me to tears. I listen to this performed by Pavarotti when I make my lasagna. Bocelli's version here is next level.
 
-Link four. "The Agentic Commerce Revolution – O’Reilly"
+Link four of eight. "The Agentic Commerce Revolution – O’Reilly"
 
 Just some of the ways that Agents are going to change shopping experiences, marketing, and payment handling.
 
-Link five. "Humbird - February (Official Video) - YouTube"
+Link five of eight. "Humbird - February (Official Video) - YouTube"
 
 Wonderful local musician.
 
-Link six. "SPS Commerce Introduces MAX - SPS Commerce"
+Link six of eight. "SPS Commerce Introduces MAX - SPS Commerce"
 
 I’m so excited to see MAX now getting introduced to customers. This has been one of the most exciting new products I've been lucky to be part of.
 
-Link seven. "AI In Shopping: Implications and a Roadmap for Consumer Goods Leaders"
+Link seven of eight. "AI In Shopping: Implications and a Roadmap for Consumer Goods Leaders"
 
 Snowflake on how they see agentic impacting retail.
 
-Link eight. "With Ring, American Consumers Built a Surveillance Dragnet"
+Link eight of eight. "With Ring, American Consumers Built a Surveillance Dragnet"
 
 I’m no fan of Ring cameras. I use UniFi devices that record video in our home for this same purpose. Deploying Ring devices is literally building a surveillance network for anyone that is willing to pay Ring a few bucks.
 

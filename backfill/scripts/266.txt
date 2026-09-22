@@ -8,7 +8,9 @@ I hope you have a wonderful weekend!
 
 Now, the Featured section.
 
-Link one. "How GitHub Engineering communicates"
+There are two links this week.
+
+Link one of two. "How GitHub Engineering communicates"
 
 Interesting read from GitHub Engineering on how they desire to communicate amongst each other.
 
@@ -35,7 +37,7 @@ Three things that stand out to me:
 
 A good representation of "write things down" to put this together.
 
-Link two. "How to fix the internet | MIT Technology Review"
+Link two of two. "How to fix the internet | MIT Technology Review"
 
 I generally agree with Notopoulos take on this, but I would clarify and extend a bit. In general, the explanation of "what is wrong" with the Internet is not much different than "what is wrong" with any large scale system or society. In a way, I don't know that we can anymore differentiate the Internet from society and culture. It is just another place that those things are expressed, no different than our physical places or the memes (to invoke the original Dawkins intent here) that exist in human societies. The internet is just us, and we are it.
 
@@ -80,7 +82,9 @@ That's the end of Currently.
 
 Now, the Notable section.
 
-Link one. "Six Months Ago NPR Left Twitter. The Effects Have Been Negligible - Nieman Reports"
+There are nine links this week.
+
+Link one of nine. "Six Months Ago NPR Left Twitter. The Effects Have Been Negligible - Nieman Reports"
 
 NPR shares the data on traffic impact from not being on Twitter.
 
@@ -90,11 +94,11 @@ End quote.
 
 Twitter, now X, has never been a great platform to drive advertising click throughs. Facebook was better. LinkedIn was better. Twitter was attractive because of the people that were on it, but it was never a great medium to drive engagement.
 
-Link two. "ProfG.AI"
+Link two of nine. "ProfG.AI"
 
 Scott Galloway's new AI that is trained on all of his writing and podcasts in an attempt to allow you to ask him (or an LLM trained like him) questions. It is okay, but misses some things I’m surprised by. For example, Galloway often refers to himself as "the Dog", and when asking ProfG.AI about "the Dog" it totally misses and thinks you are asking about actual dogs. However, it does suggest his favorite stock is Amazon and that is probably an accurate answer. This is an interesting experiment either way. Add in voice training using the hours of podcasts that Galloway has produced and this could be really compelling.
 
-Link three. "Intuition for Cryptography | Azeem Bande-Ali | azeemba.com"
+Link three of nine. "Intuition for Cryptography | Azeem Bande-Ali | azeemba.com"
 
 Simple overview of the key qualities of different encryption processes.
 
@@ -104,7 +108,7 @@ End quote.
 
 Good overview.
 
-Link four. "Social Internet Is Dead. Get Over It. – On my Om"
+Link four of nine. "Social Internet Is Dead. Get Over It. – On my Om"
 
 Om Malik has been around the web for a very long time, well before the beginning of social media.
 
@@ -114,7 +118,7 @@ End quote.
 
 I’m in the same camp as Malik.
 
-Link five. "Omnivore"
+Link five of nine. "Omnivore"
 
 I’m trying this service out. It could be a better way to read as I collect links. I've got two issues right away though:
 
@@ -123,11 +127,11 @@ I’m trying this service out. It could be a better way to read as I collect lin
 
 It does look like a much better "read later" service, but I’m not sure it will have enough value over Safari's Reading List for me.
 
-Link six. "Introducing the New Kottke.org Comments"
+Link six of nine. "Introducing the New Kottke.org Comments"
 
 Kottke.org is one of the bellwether blogs of the Internet and it is exciting to see it bringing comments back. I also think the idea of requiring a subscription for comments is a smart way to still create open content, but also create a business model for a pro blog like this.
 
-Link seven. "On Disruption and Distraction - Cal Newport"
+Link seven of nine. "On Disruption and Distraction - Cal Newport"
 
 Newport reminding the reader about the distraction machine that can be social media.
 
@@ -139,11 +143,11 @@ In a small view we all use our smartphones to avoid feeling lonely or bored. Nei
 
 In a bigger sense, they may keep us from taking real action in the world that may better express our desires, interests, and goals. There is a George Orwell 1984 reference here that comes to mind.
 
-Link eight. "Don Norman on how design fails older consumers"
+Link eight of nine. "Don Norman on how design fails older consumers"
 
 I've read Norman's "Design of Everyday Things" and he and Bruce Tognazzini were key designers behind Apple's famous Human Interface Guidelines and Apple's Advanced Technology Group. Norman is now 83 and observes how poorly modern design serves older people. This seems like something that deserves more attention.
 
-Link nine. "FreeTube - The Private YouTube Client"
+Link nine of nine. "FreeTube - The Private YouTube Client"
 
 YouTube has so much content, and it isn't possible to categorically segment it. There is good stuff, and less good stuff. But there is so much good stuff that blocking YouTube comes with so much downside that you really don't want to do it. What is one to do if you want to have access to the world's largest collection of video, but still preserve your privacy?
 
@@ -252,35 +256,37 @@ That's the end of the Journal.
 
 Now, the Briefly section.
 
-Link one. "Roll Your Own All-Sky, Raspberry Pi Camera - IEEE Spectrum"
+There are eight links this week.
+
+Link one of eight. "Roll Your Own All-Sky, Raspberry Pi Camera - IEEE Spectrum"
 
 I had no idea what a AllSkyCams were until I saw this article. I bet there would be really cool views from one of these.
 
-Link two. "Welcome to Metric-time.com"
+Link two of eight. "Welcome to Metric-time.com"
 
 If you could redo time entirely would a metric approach based on 10's be better? Interesting, but this little display skips the implications to timezones. Fewer hours would make it much harder to have a common "daylight experience" across the world.
 
-Link three. "DiceRight"
+Link three of eight. "DiceRight"
 
 Web app that allows you to manage a table-top role playing game efficiently.
 
-Link four. "Open Textbook Library"
+Link four of eight. "Open Textbook Library"
 
 Index of textbooks that are licensed openly. Good resource to make it easier to discover these resources. Happy to see this being hosted by the University of Minnesota too!
 
-Link five. "The Compact Calendar twenty twenty three-twenty twenty four – DSri Seah"
+Link five of eight. "The Compact Calendar twenty twenty three-twenty twenty four – DSri Seah"
 
 I dig these "continuous" calendars that ignore the month boundaries and instead focus on the flow of weeks. Many are very large for the wall. This one is the size of a page which could be great for planning.
 
-Link six. "People are obsessed with Obsidian, the darling of notetaking apps"
+Link six of eight. "People are obsessed with Obsidian, the darling of notetaking apps"
 
 I've actively avoided diving into Obsidian because it seems like it would take a massive amount of time and I don't think I have a problem I need it for. I do like the ethos of the developers behind it, and it sure tempts me at times.
 
-Link seven. "Words that deserve wider use - Word Warriors - Wayne State University"
+Link seven of eight. "Words that deserve wider use - Word Warriors - Wayne State University"
 
 I keep a list of words I don't like. This is a fun list of words that should get more use!
 
-Link eight. "Ferrari to accept crypto as payment for its cars in the US | Reuters"
+Link eight of eight. "Ferrari to accept crypto as payment for its cars in the US | Reuters"
 
 So it is fun that Ferrari is accepting crypto, but the massive stereotype reinforcement of "crypto bros" driving Ferraris brings a massive eye roll.
 

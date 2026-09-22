@@ -8,7 +8,9 @@ There are a good number of interesting links that I have to share with you this 
 
 Now, the Featured section.
 
-Link one. "Overconfidence and AI | Seth's Blog"
+There are three links this week.
+
+Link one of three. "Overconfidence and AI | Seth's Blog"
 
 Godin hits on a topic that I've been wondering about — why do people put so much trust, often unearned, in some forms of technology? OpenAI and ChatGPT are phenomenal, but it is brand new tech and it gets a lot wrong. On the extreme, there are people that die every year because they let their Tesla do the driving. I drive a Tesla, and I can tell you I wouldn't trust it to do anything beyond the most basic highway driving.
 
@@ -18,7 +20,7 @@ So we trust it.
 
 Even when we shouldn't.
 
-Link two. "Bike helmets: what the science really says about an American safety obsession."
+Link two of three. "Bike helmets: what the science really says about an American safety obsession."
 
 We have a rule in our family:
 
@@ -46,7 +48,7 @@ So, I stand by…
 
 If there are wheels under your feet, there is a helmet on your head.
 
-Link three. "20 Things I've Learned in my 20 Years as a Software Engineer - Simple Thread"
+Link three of three. "20 Things I've Learned in my 20 Years as a Software Engineer - Simple Thread"
 
 I read this list and the background on each item and kept wondering if I would get to something that I disagreed with. I never did. I would agree with every single one of these twenty observations. I usually tried to excerpt or emphasize something in articles, but this one I’m just going to leave for you to read the original in its entirety.
 
@@ -60,7 +62,9 @@ That's the end of Currently.
 
 Now, the Notable section.
 
-Link one. "Why are we addicted to junk food?"
+There are eight links this week.
+
+Link one of eight. "Why are we addicted to junk food?"
 
 I spend a lot of time considering the algorithms that filter content that I see, and what the goal of those algorithms are. I don't think a lot about the optimizations that have been made to engineered food and what those goals are.
 
@@ -70,7 +74,7 @@ End quote.
 
 Perhaps it is helpful to consider the intent of the design and marketing process around junk food, and determine if we want to be part of that game.
 
-Link two. "Dealing with the Anxiety That Comes from Leadership - Matt Norman"
+Link two of eight. "Dealing with the Anxiety That Comes from Leadership - Matt Norman"
 
 What Norman describes is very true, and I don't think discussed very often.
 
@@ -80,7 +84,7 @@ End quote.
 
 This is one of the reasons that I think meditation is so important for leaders.
 
-Link three. "The Year Ahead | Pantera"
+Link three of eight. "The Year Ahead | Pantera"
 
 Disclosure: I’m a limited partner in a Pantera fund.
 
@@ -106,15 +110,15 @@ Overall I continue to see so much opportunity in the crypto stack because of the
 
 In the entire history of computing, we have never seen a way to drive significant efficiency improvement and decided to just pass on it, and keep doing things the hard and expensive way. I don't think we are going to start now.
 
-Link four. "Microsoft and OpenAI extend partnership - The Official Microsoft Blog"
+Link four of eight. "Microsoft and OpenAI extend partnership - The Official Microsoft Blog"
 
 Microsoft has been invested in OpenAI for multiple years already, but this further partnership has the potential to be a huge deal for both companies. In a very short period of time, Google looks like they are lagging and not innovating fast enough.
 
-Link five. "Bear Blog"
+Link five of eight. "Bear Blog"
 
 Another blogging platform that I would recommend for a semi-technical user that would like something very simple and fast. I’m using the Bear theme on Micro.blog because I love the simplicity and it is incredibly fast. Basically Bear is a fairly thin UI layered on top of Hugo.
 
-Link six. "Matt Yglesias and the secret of blogging - by Max Read"
+Link six of eight. "Matt Yglesias and the secret of blogging - by Max Read"
 
 I get asked with some regularity from people that want to write more online. Usually this isn't about creating a business, but just as a hobby.
 
@@ -126,7 +130,7 @@ Regularity is the key. I might add to ignore analytics too. Force yourself to fi
 
 Write for one person. It is fine if that one person is you.
 
-Link seven. "Amazon Smile gets a frown | Seth's Blog"
+Link seven of eight. "Amazon Smile gets a frown | Seth's Blog"
 
 I've used Amazon Smile from time-to-time over the years.
 
@@ -136,7 +140,7 @@ End quote.
 
 I had no idea that it raised 500 million dollars for charities. I’m also surprised that Amazon decided to discontinue the program. They cited low usage. Why not solve that problem instead of just shutting it off? I would have loved for Amazon Smile to be backed into the normal Amazon experience. Certainly that would have driven engagement and resulted in a positive message instead.
 
-Link eight. "The Strategic Approach to Building a Board | Andreessen Horowitz"
+Link eight of eight. "The Strategic Approach to Building a Board | Andreessen Horowitz"
 
 This model for determining board composition makes a lot of sense to me. Some of these roles are pretty common in boards that I have interacted with.
 
@@ -186,47 +190,49 @@ That's the end of the Journal.
 
 Now, the Briefly section.
 
-Link one. "How The Home Depot uses a managed service for Prometheus | Google Cloud Blog"
+There are eleven links this week.
+
+Link one of eleven. "How The Home Depot uses a managed service for Prometheus | Google Cloud Blog"
 
 Great example of using Kubernetes to manage a huge fleet of remote infrastructure.
 
-Link two. "Mapping the Generative AI landscape | Antler"
+Link two of eleven. "Mapping the Generative AI landscape | Antler"
 
 Incredible diversity of companies in this space.
 
-Link three. "Is "stream" as a design paradigm over? – On my Om"
+Link three of eleven. "Is "stream" as a design paradigm over? – On my Om"
 
 I've wondered this many times with blogs. It seems odd that when you go to my blog you are very influenced by whatever the last 10 posts that I wrote were. We need to innovate with different models.
 
-Link four. "QuickNode raises 60 million dollars at 800 million dollars valuation to become the ‘AWS or Azure of blockchain’ | TechCrunch"
+Link four of eleven. "QuickNode raises 60 million dollars at 800 million dollars valuation to become the ‘AWS or Azure of blockchain’ | TechCrunch"
 
 Continued investment in crypto despite "crypto winter" and overall headwinds in tech.
 
-Link five. "A Letter to the POAP Community"
+Link five of eleven. "A Letter to the POAP Community"
 
 Great recap of all the fun stuff around POAPs in twenty twenty two.
 
-Link six. "ChatGPT in an iOS Shortcut — Worlds Smartest HomeKit Voice Assistant | Mate Marschalko"
+Link six of eleven. "ChatGPT in an iOS Shortcut — Worlds Smartest HomeKit Voice Assistant | Mate Marschalko"
 
 Cool demo that shows how a much more powerful backend can change the voice assistant experience.
 
-Link seven. "Internal comms for executives. | Irrational Exuberance"
+Link seven of eleven. "Internal comms for executives. | Irrational Exuberance"
 
 Great approach to communication for leaders.
 
-Link eight. "Fairness in multi-tenant systems"
+Link eight of eleven. "Fairness in multi-tenant systems"
 
 Implementing rate-limiting and quotas on APIs is a harder problem than it may seem.
 
-Link nine. "A small mistake does not a complex systems failure make – Surfing Complexity"
+Link nine of eleven. "A small mistake does not a complex systems failure make – Surfing Complexity"
 
 Sometimes very small things can cause cascading failure in complex systems. The whole point of this article is that the small thing that started it is only the beginning, and not the real explanation.
 
-Link ten. "Thonny, Python IDE for beginners"
+Link ten of eleven. "Thonny, Python IDE for beginners"
 
 I think Python is one of the very best languages for people to learn coding in, and this is a cool Development Environment specifically designed for beginners. Cool!
 
-Link eleven. "Apple Pay not working on a Touch ID Mac? Here are the security settings to check | Macworld"
+Link eleven of eleven. "Apple Pay not working on a Touch ID Mac? Here are the security settings to check | Macworld"
 
 I've had a couple of M1 MacBooks that I have never successfully been able to get Apple Pay to turn on and have been completely stumped. It turns out there are some pretty low level things that can disable Apple Pay.
 

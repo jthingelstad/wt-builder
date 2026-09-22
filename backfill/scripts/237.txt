@@ -24,7 +24,9 @@ Enjoy your time with family and friends, may it be Merry and Bright, and I look 
 
 Now, the Featured section.
 
-Link one. "What in the Ethereum application ecosystem excites me"
+There is one link this week.
+
+Link one of one. "What in the Ethereum application ecosystem excites me"
 
 As the creator of Ethereum I was very interested in reading about Vitalik Buterin's take on what he is excited about in the space. While obviously being a promoter of Ethereum, Vitalik is also a reasonable critic and has a track record of highlighting problems or limitations. He starts with that…
 
@@ -124,7 +126,9 @@ That's the end of Currently.
 
 Now, the Notable section.
 
-Link one. "How the 1% Runs an Ironman - The New York Times"
+There are twelve links this week.
+
+Link one of twelve. "How the 1% Runs an Ironman - The New York Times"
 
 I didn’t know that Ironman XC existed: a full on VIP approach to doing a half-Ironman event. I've known many people that have done Ironman events. The time and commitment it takes are intense. This white-glove treatment sounds pretty awesome for those that want and can afford it.
 
@@ -136,13 +140,13 @@ End quote.
 
 I dunno about speed bumps, but it certainly stretches your limits.
 
-Link two. "Stability without Pegs | Reflexer"
+Link two of twelve. "Stability without Pegs | Reflexer"
 
 RAI is a completely independent way to create a crypto stablecoin. Many stablecoins peg themselves to other assets, often 1 US dollar. This has a number of collateral as well as legal issues that could be a problem. RAI is independent of all other mechanisms.
 
 It doesn't give the "warm fuzzy" that pegging to an established currency gives, but it does make it survivable of various regulatory issues.
 
-Link three. "Volodymyr Zelensky Is TIME's twenty twenty two Person of the Year | Time"
+Link three of twelve. "Volodymyr Zelensky Is TIME's twenty twenty two Person of the Year | Time"
 
 Great pick for Person of the Year. The transformation of Zelensky for comedian and actor, to wartime president is incredible.
 
@@ -150,7 +154,7 @@ Quote.
 Zelensky’s success as a wartime leader has relied on the fact that courage is contagious. It spread through Ukraine’s political leadership in the first days of the invasion, as everyone realized the President had stuck around.
 End quote.
 
-Link four. "What Is A Black Start Of The Power Grid? — Practical Engineering"
+Link four of twelve. "What Is A Black Start Of The Power Grid? — Practical Engineering"
 
 This is a fun brief primer into how a large grid recovers from a total outage.
 
@@ -160,7 +164,7 @@ End quote.
 
 These "black start" power stations that help the rest of the grid get back is pretty cool. Overall this whole thing reminds me a bit of the complexity of starting a data center if everything is shutdown. Complex systems, it seems, always require a key amount of choreography in order to get themselves back up and running.
 
-Link five. "Apple Announces a Trio of Security Features Coming to Its Platforms - MacStories"
+Link five of twelve. "Apple Announces a Trio of Security Features Coming to Its Platforms - MacStories"
 
 This is a great set of improvements on the way! I love the addition of iMessage Contact Key Verification. This sounds a lot like what Signal has always had where you can verify in person and create additional confidence that your messages are going to the right person.
 
@@ -170,7 +174,7 @@ End quote.
 
 And not to be missed is Advanced Data Protection for iCloud which will finally support end-to-end encryption of all of your photos in iCloud as well. That is a great add!
 
-Link six. "Tony Fadell Is Trying to Build the iPod of Crypto | WIRED"
+Link six of twelve. "Tony Fadell Is Trying to Build the iPod of Crypto | WIRED"
 
 Bringing experienced designers who have built mass-market solutions, people exactly like Tony Fadell who designed the original iPod, is exactly what crypto needs.
 
@@ -182,7 +186,7 @@ Innovation in wallets and the user experience is the largest barrier to further 
 
 I was on the fence about ordering a Ledger Stax. I use a Ledger Nano X today, and the usability is at best frustrating. But I want to own a bit of history with the Stax. Pre-order placed.
 
-Link seven. "What I've Learned in 45 Years in the Software Industry | BTI360"
+Link seven of twelve. "What I've Learned in 45 Years in the Software Industry | BTI360"
 
 Great wisdom to apply to solutions.
 
@@ -195,7 +199,7 @@ Great wisdom to apply to solutions.
 
 These are all things that are worth reminding about. Simplicity is perhaps the one that needs reminding the most often. Technologists often find complexity fascinating.
 
-Link eight. "Ann Patchett on Scheduling Creativity - Cal Newport"
+Link eight of twelve. "Ann Patchett on Scheduling Creativity - Cal Newport"
 
 Making sure we have time to think and explore concepts is important.
 
@@ -205,11 +209,11 @@ End quote.
 
 This is something I regularly struggle to achieve. The issue that goes along with this is having the energy ready and available when the time you have set aside comes along. I've always struggled to schedule time to write for example, as I often find that the energy isn't there when the time arrives.
 
-Link nine. "How to Use ChatGPT’s AI Chatbot to Save Time Marketing Your App | Susannah Skyer Gupta"
+Link nine of twelve. "How to Use ChatGPT’s AI Chatbot to Save Time Marketing Your App | Susannah Skyer Gupta"
 
 This is a trivial example of how AI can be used in marketing, and it seems obvious that this is the path we are going to head down faster than we realize. In addition to describing the solution to the AI to author the message, how about also having the AI look at the social profiles of every person that it is sending to. Magically, you get customized 1:1 marketing messages for each person you are reaching out to.
 
-Link ten. "Sign Everything - AVC"
+Link ten of twelve. "Sign Everything - AVC"
 
 This is a super interesting idea from Wilson. Digitally signing things, particularly emails, has been around for a while but never really caught on. In general, we can rely that the email that appears from me actually is. However, as Wilson suggests with advances in AI this may become a bigger issue.
 
@@ -227,7 +231,7 @@ This comment signed by thingelstad.eth with signature:
 f1c2465df0b2f4890922103bed38f70d0734768d6957
 c6d02f133abced05cd2ee6f1f5e667e46c476414ab1c
 
-Link eleven. "Decentralization - Not Boring by Packy McCormick"
+Link eleven of twelve. "Decentralization - Not Boring by Packy McCormick"
 
 A thought provoking thesis from McCormick on the regular oscillation between centralized and decentralized solutions.
 
@@ -235,7 +239,7 @@ Quote.
 We’re heading towards an era of greater decentralization on all fronts – geopolitics, finance, education, journalism, and energy are just a few examples – driven by technologies including, but not limited to, the internet. This newly decentralized era will require new infrastructure and organizing principles that can adapt to the chaos and complexity inherent in decentralized systems.
 End quote.
 
-Link twelve. "FTX’s Collapse Was a Crime, Not an Accident"
+Link twelve of twelve. "FTX’s Collapse Was a Crime, Not an Accident"
 
 Coindesk was the genesis of the news that ultimately ended up bringing down FTX. I strongly agree with their take on the crimes involved in FTX.
 
@@ -383,35 +387,37 @@ That's the end of Reply All.
 
 Now, the Briefly section.
 
-Link one. "Update on JetBrains’ Statement on Ukraine | Company Blog"
+There are eight links this week.
+
+Link one of eight. "Update on JetBrains’ Statement on Ukraine | Company Blog"
 
 JetBrains relocated over 800 people and their families out of Russia? Wow.
 
-Link two. "Three Star Leadership | Wally Bock | How to Make Better Decisions"
+Link two of eight. "Three Star Leadership | Wally Bock | How to Make Better Decisions"
 
 Defining the problem with stories and determining the boundaries are good reminders.
 
-Link three. "MarsEdit 5 brings microposting, Markdown highlighting – Six Colors"
+Link three of eight. "MarsEdit 5 brings microposting, Markdown highlighting – Six Colors"
 
 I don't use MarsEdit routinely, but it is a great tool to have in your blogging kit. Easy decision to upgrade.
 
-Link four. "Apple Announces Upcoming Apple Music Sing Feature - MacStories"
+Link four of eight. "Apple Announces Upcoming Apple Music Sing Feature - MacStories"
 
 Karaoke features coming to your living room. Our kids are going to like this, maybe too much.
 
-Link five. "Is it worth writing about? | notes.eatonphil.com"
+Link five of eight. "Is it worth writing about? | notes.eatonphil.com"
 
 In short: Yes.
 
-Link six. "52 things I learned in twenty twenty two | Magnetic Notes"
+Link six of eight. "52 things I learned in twenty twenty two | Magnetic Notes"
 
 Delightful list of various things.
 
-Link seven. "Silver Bullet"
+Link seven of eight. "Silver Bullet"
 
 Markdown meets wiki and note taking capability hosted in a personal web server.
 
-Link eight. "Gnosis: The Community-Run Chain - Gnosis Chain"
+Link eight of eight. "Gnosis: The Community-Run Chain - Gnosis Chain"
 
 I run a Gnosis Chain validator, and I like the vision being articulated for it.
 

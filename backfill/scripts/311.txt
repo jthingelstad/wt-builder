@@ -20,7 +20,9 @@ I hope you are having a good start to your weekend!
 
 Now, the Notable section.
 
-Link one. "Garbage — Ridgeline issue 203"
+There are eleven links this week.
+
+Link one of eleven. "Garbage — Ridgeline issue 203"
 
 I know and think a bit about garbage and what happens to it because Tammy has a passion for this and has read a good amount about it. I would say that we do a decent job of being aware of the waste we generate. So this essay from Mod was on topic:
 
@@ -30,15 +32,15 @@ End quote.
 
 The best way to have less waste is to simply consume less. I liked Mod's take on being responsible for that waste.
 
-Link two. "mdq: find specific elements in a md doc"
+Link two of eleven. "mdq: find specific elements in a md doc"
 
 This tool made me chuckle because I've always thought one of the cool things about Markdown files is that they have a structure to them per se, and you can use that structure to create things like a table of contents, or build programmatic content off of. For example, mdq would make it very easy for me to generate an index for each issue of the Weekly Thing and let you jump to each specific section or link. Or even just do a find on a directory with all the issues, pipe them through mdq and use simple wc -l to answer questions like "How many links did I share in twenty twenty four?". Cool stuff!
 
-Link three. "WikiTok"
+Link three of eleven. "WikiTok"
 
 I love Wikipedia so it shouldn't be a surprise that I love this little app too! If you are addicted to "the scroll" and need something to feel better about scrolling, WikiTok is it! Scroll through Wikipedia articles and learn things instead of whatever that stuff is on TikTok. Add this web app to your phone home screen and you are ready to go! So good.
 
-Link four. "Apple Vision Glasses Will Be Irresistible"
+Link four of eleven. "Apple Vision Glasses Will Be Irresistible"
 
 I've had my Vision Pro for a year and it is still interesting but is not a core part of my computing world. In fact I can go a week or two without even putting it on. However, when I do take some time to put it on and explore I always have fun. It is enjoyable. And there is a steady drip of new things. This article suggests that a future Glasses product from Apple will be crazy good, and it highlights a way of thinking about where we are that I think is spot on.
 
@@ -48,7 +50,7 @@ The iPhone and Apple Watch didn’t have this challenge. The Apple TV didn’t e
 
 I also note the word of caution in this article. In the extreme these experiences could be so captivating that we lose ourselves. If we think our social timelines are addictive and escape hatches to the real world, that is nothing compared to the future. How will we handle this?
 
-Link five. "Daring Fireball: Apple Pulls Advanced Data Protection From the UK, in Defiance of UK Demand for Global Backdoor"
+Link five of eleven. "Daring Fireball: Apple Pulls Advanced Data Protection From the UK, in Defiance of UK Demand for Global Backdoor"
 
 Apple responds as many suspected they might to the UK's demand to allow access to encrypted information by removing the capability for that country.
 
@@ -60,7 +62,7 @@ Reminder that it wasn't that long ago that the US Government and FBI were suing 
 
 To reiterate my position on privacy and encryption vis-a-vis Apple. I don't have saintly belief that Apple is mission driven on this per se. I believe they have identified Health as one of their giant markets and they believe that you cannot be successful there unless you have a strong position on privacy and encryption. I believe that Apple looks at requests to compromise on these features as a loss against an entire giant market they believe has a ton of revenue for them. Google, Amazon, Meta (Facebook) have already lost this option.
 
-Link six. "Removing Jeff Bezos From My Bed — Truffle Security Co."
+Link six of eleven. "Removing Jeff Bezos From My Bed — Truffle Security Co."
 
 This articles title would be better to describe what is a pretty big backdoor in the 8Sleep product. A friend sent this over to me knowing I’m an 8Sleep customer. I love/hate the product. It for sure brings incredible comfort and improvement to my sleep, and it also gives me the best sleep data I've ever had. However, I also suspect (know?) that it is a privacy disaster and now we see that they have access points into the devices in glaringly bad ways.
 
@@ -80,11 +82,11 @@ Now that fundamentally isn't a bad thing, but how that person got access, how lo
 
 What is the solve? Privacy protection is for sure part of this. Also companies need to reveal what access they have and how it is protected. However, I’m also going to pursue other solutions. I think I should be able to configure my Unifi network so that the 8Sleep is segmented from the rest of my network and cannot connect to other devices. I would do the same for the Peloton devices and our Tesla cars.
 
-Link seven. "Software engineering job openings hit five-year low? - The Pragmatic Engineer"
+Link seven of eleven. "Software engineering job openings hit five-year low? - The Pragmatic Engineer"
 
 Super interesting observations on the state of the job market for software engineering. There is a lot made of AI's impact on software engineering, and a lot of guessing frankly about that impact. This article suggests that the bigger factor is actually changes in interest rates which impact the startup ecosystem the most. Secondly he suggests that tech is particularly reactive to sudden changes, more than other industries. Being close to this topic, I also think observations about what works and doesn't work in scaling engineering teams is interesting.
 
-Link eight. "How the largest crypto exchange hack happened: What Ethereum security experts say about Lazarus' 1.5 billion dollars Bybit attack | The Block"
+Link eight of eleven. "How the largest crypto exchange hack happened: What Ethereum security experts say about Lazarus' 1.5 billion dollars Bybit attack | The Block"
 
 This 1.5 billion dollars theft from Bybit is the largest crypto attack ever, and notably it doesn't appear to be a compromise of Ethereum, Smart Contracts, or even the Wallets themselves but instead an attack at the interface between the multiple humans that controlled the multi-signature wallet and the transaction.
 
@@ -100,11 +102,11 @@ I keep having a thought regarding crypto theft like this — some of the securit
 
 Operational security of crypto assets, beyond the tech itself, may need to show up as adding inefficiency and bureaucracy to the system.
 
-Link nine. "Bybit Burglarized For a Billion"
+Link nine of eleven. "Bybit Burglarized For a Billion"
 
 This article on the Bybit hack takes the view after the hack and looking at the funds. While it is obviously a bad thing for an exchange to get robbed like this, it is super interesting how crypto technology allowed the ecosystem around it to stabilize and know what happened. The graph of "Fund Flows" that shows the wallets that all of the 401.347 ETH tokens were sent to is incredible. At some point it will not be possible to track these funds, but it is wild how much visibility we can have. It is also interesting to see how everyone could see the 1.5 billion dollars go out of their account, and then validate that they shortly after added 1.3 billion dollars in deposits to provide solvency. This can all be done without relying on auditors, just purely the technology.
 
-Link ten. "Daring Fireball: The iPhone 16e"
+Link ten of eleven. "Daring Fireball: The iPhone 16e"
 
 Gruber is always my go to reviewer to read up on new iPhone models. I think his conclusion is right on this:
 
@@ -114,7 +116,7 @@ End quote.
 
 Seems right on. It will be curious to see how this sells since most folks I know do have strong opinions about what they want on their phone. But I’m sure there are many that just want a phone that is good enough.
 
-Link eleven. "olmOCR – Open-Source OCR for Accurate Document Conversion"
+Link eleven of eleven. "olmOCR – Open-Source OCR for Accurate Document Conversion"
 
 Impressive solution for turning PDFs and even photos of handwritten text into text data. Claims to handle tables well which is usually the downfall of all of these types of solutions. Uses a "vision language model".
 
@@ -164,63 +166,65 @@ That's the end of the Journal.
 
 Now, the Briefly section.
 
-Link one. "These were the 15 biggest employers in downtown Minneapolis in twenty twenty four - Bring Me The News"
+There are fifteen links this week.
+
+Link one of fifteen. "These were the 15 biggest employers in downtown Minneapolis in twenty twenty four - Bring Me The News"
 
 SPS is number 9 on the list.
 
-Link two. "Apple Intelligence comes to Apple Vision Pro in April - Apple"
+Link two of fifteen. "Apple Intelligence comes to Apple Vision Pro in April - Apple"
 
 I've been wondering when Apple Intelligence would arrive on visionOS! All of these changes are good and I wasn't expecting a Vision Pro iPhone app but that makes a ton of sense. I continue to hope that Apple continues to incrementally invest in visionOS.
 
-Link three. "Introducing Perplexity Deep Research"
+Link three of fifteen. "Introducing Perplexity Deep Research"
 
 The comparison screenshots in this article do a great job of showing how these research models respond.
 
-Link four. "Are We Self-Segregating on Social Media? - Dame Magazine"
+Link four of fifteen. "Are We Self-Segregating on Social Media? - Dame Magazine"
 
 This seems obvious to me and was a couple of years ago. All social media products are near clones of each other. The only difference is brand, marketing, and whatever "influencers" they pay to be on their networks. Stop calling any of this stuff "technology". it doesn't deserve the credit.
 
-Link five. "Tapestry: Past, Present, and Future • The Breakroom"
+Link five of fifteen. "Tapestry: Past, Present, and Future • The Breakroom"
 
 If you are looking for a simple app to "follow" blogs, YouTube, social this is a great option.
 
-Link six. "Migraine is more than a headache — a radical rethink offers hope to one billion people"
+Link six of fifteen. "Migraine is more than a headache — a radical rethink offers hope to one billion people"
 
 Interesting new data on the stages of a migraine attack and what is occurring in the brain.
 
-Link seven. "Introduction to CUDA Programming for Python Developers | PySpur - AI Agent Builder"
+Link seven of fifteen. "Introduction to CUDA Programming for Python Developers | PySpur - AI Agent Builder"
 
 Good introduction to massively parallel GPU coding using Python frameworks.
 
-Link eight. "Trump 2.0 Brings Cuts to Cyber, Consumer Protections – Krebs on Security"
+Link eight of fifteen. "Trump 2.0 Brings Cuts to Cyber, Consumer Protections – Krebs on Security"
 
 This marks the US Government as one of the very, very few organizations I've heard decreasing their investment in cybersecurity.
 
-Link nine. "It is no longer safe to move our governments and societies to US clouds - Bert Hubert's writings"
+Link nine of fifteen. "It is no longer safe to move our governments and societies to US clouds - Bert Hubert's writings"
 
 There are a lot of use cases around money, contracts, and computing where the US is a great solution because we are a country of laws and dependability. Take away that dependability and our "solution" is degraded.
 
-Link ten. "Bookmarklets (and Custom URL Schemes) Are Criminally Underrated | silly business"
+Link ten of fifteen. "Bookmarklets (and Custom URL Schemes) Are Criminally Underrated | silly business"
 
 I have three bookmarklets that I use dozens of times a day. Being able to pop a little Javascript in your browsers user experience is very useful. I wish more products offered interfaces like this.
 
-Link eleven. "On the benefits of learning in public:: Giles' blog"
+Link eleven of fifteen. "On the benefits of learning in public:: Giles' blog"
 
 Love the message here and hope that I do a bit of this with what I share in these emails.
 
-Link twelve. "NUT on my Pi, so my servers don't die | Jeff Geerling"
+Link twelve of fifteen. "NUT on my Pi, so my servers don't die | Jeff Geerling"
 
 I had no idea that Network UPS Tools existed. I've had this same issue myself with multiple devices on a single UPS, but only one device able to communicate with the UPS itself.
 
-Link thirteen. "With Pokémon Champions, Competitive Pokémon 'VGC' May Finally Go Mainstream - MacStories"
+Link thirteen of fifteen. "With Pokémon Champions, Competitive Pokémon 'VGC' May Finally Go Mainstream - MacStories"
 
 Okay I didn’t know that there was a Pokémon Day but sure, I suppose that makes sense. This new Pokémon Champions sounds interesting.
 
-Link fourteen. "Elon Musk’s Starlink Is Keeping Modern Slavery Compounds Online | WIRED"
+Link fourteen of fifteen. "Elon Musk’s Starlink Is Keeping Modern Slavery Compounds Online | WIRED"
 
 Reminder: Musk was able to direct Starlink to not work for Ukraine if they were using it too close to Russian territory. They have incredibly granular capability to control what is occurring on their network.
 
-Link fifteen. "The Xonsh Shell — Python-powered shell. Python shell. Python in the shell. Shell in Python. Shell and Python. Python and shell"
+Link fifteen of fifteen. "The Xonsh Shell — Python-powered shell. Python shell. Python in the shell. Shell in Python. Shell and Python. Python and shell"
 
 This shell does an incredible job of merging Python primitives directly into the command line. I love to see continued innovation on core capabilities like this.
 

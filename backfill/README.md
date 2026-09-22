@@ -6,26 +6,43 @@ authored here, so their spoken scripts are kept in this directory instead.
 
 ## What is here
 
-- `scripts/<N>.txt` — the spoken script for issues 1–348 and `140-special`,
-  exactly as the retired Studio pipeline generated them from the archive
-  Markdown (`librarian-thing` at `de83efde^`, `data/audio/scripts/`). Validated
-  2026-05-08 with zero errors (`script_status.json`). **These are the source**
-  for the back catalogue: what is said is what is in these files.
-- `transform/` — the Python that produced them (`legacy.py` for issues ≤130,
-  `modern.py` after; `common.py` shared). Kept for provenance and as the
-  reference for the cue vocabulary. It is not run here.
-- `script_status.json` — the validator's record per script (hash, errors, warnings).
-- `old-manifest.json` — the retired pipeline's record of the 84 episodes it
-  published (266–349): urls, durations, hashes. Those files are still live.
+- `scripts/<N>.txt` — the spoken script for issues 1–349 and `140-special`,
+  generated from the archive Markdown by `transform/`. **These are the source
+  for the back catalogue**: what is said is what is in these files. They are
+  committed so a transform change is reviewed as a diff of what will be said.
+- `transform/` — the era transforms (`legacy.py` for issues ≤130, `modern.py`
+  after; `common.py` shared), lifted from the retired Studio pipeline
+  (`librarian-thing` at `de83efde^`), plus `regenerate.py`, which runs them:
 
-## Why frozen text and not a port
+  ```sh
+  python3 backfill/transform/regenerate.py            # every issue, into scripts/
+  python3 backfill/transform/regenerate.py 32 35      # just these
+  python3 backfill/transform/regenerate.py --out /tmp/x 250   # somewhere else, to diff
+  ```
 
-The archive is frozen, the transform was tuned over 349 issues, and 85 of its
-outputs were published and listened to. Re-deriving the scripts in TypeScript
-would re-solve a solved problem. Fixes for how these scripts *sound* (literal
-`* ` bullets, the two pipe tables, the `---`-delimited sections of issues
-32–38) belong in the block adapter that reads them, so the scripts stay what
-they are.
+  It reads the sibling website checkout (`../weekly.thingelstad.com/apps/site/archive/`)
+  by relative path and needs nothing beyond Python 3. Issues from 350 on are
+  authored in WT Builder and are never regenerated here.
+- `script_status.json` — the retired validator's record per script as of
+  2026-05-08 (zero errors). `old-manifest.json` — the retired pipeline's record
+  of the 84 episodes it published (266–349). Both are history, kept for reference.
+
+## What was changed on 2026-09-22
+
+Regenerating from the transform as lifted reproduced issues 1–130 byte for
+byte and gave 131–349 the "There are seven links this week. Link one of
+seven." cue the transform gained after those scripts were last built. Two
+fixes on top:
+
+- issues 32–38 drew their sections as `---` rules with no headings, which the
+  transform deleted before it looked; each rule now becomes the heading it
+  stood for (`sections_from_rules` in `legacy.py`);
+- `140-special` is spoken as "Special Thing 140", not "issue 140-special".
+
+Fixes for how a script *sounds* (lists with ordinals, tables read by row,
+signatures not read as hex) live in the block adapter,
+`src/shared/render/legacy-blocks.ts`, so the scripts stay what the transform
+says.
 
 ## The cue vocabulary the adapter reads
 

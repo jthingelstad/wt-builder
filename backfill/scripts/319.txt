@@ -16,7 +16,9 @@ That's the end of Currently.
 
 Now, the Notable section.
 
-Link one. "Generating Physically Stable and Buildable LEGO Designs from Text"
+There are ten links this week.
+
+Link one of ten. "Generating Physically Stable and Buildable LEGO Designs from Text"
 
 Everything to love in this project.
 
@@ -26,7 +28,7 @@ End quote.
 
 Type some stuff and get directions to build it. The videos of the robots building LEGO are wild but where is the fun of doing it yourself.
 
-Link two. "AI use damages professional reputation, study suggests - Ars Technica"
+Link two of ten. "AI use damages professional reputation, study suggests - Ars Technica"
 
 Do we think less of people when they disclose that they are using AI tools to help them do something? It seems that yes, we do!
 
@@ -46,7 +48,7 @@ This is totally different, but I think some of that is involved when people conc
 
 What is the level of technology that flips from being a utility to create more value, to cheating?
 
-Link three. "Hypercritical: Apple Turnover"
+Link three of ten. "Hypercritical: Apple Turnover"
 
 Siracusa is a deep technologist and has built and created things for the Apple ecosystem for decades. His reviews of macOS releases back in the day were epic and required reads for the nerdiest of us. His argument of Apple's drive for profit over product is meaningful because it is him making it.
 
@@ -56,15 +58,15 @@ End quote.
 
 Will be curious to see how things evolve at Apple in the next year.
 
-Link four. "Are.na"
+Link four of ten. "Are.na"
 
 I hadn't heard of Are.na until Buttondown sent an update that they were supporting sharing your newsletter to it. I’m loathe to explore more social apps but Are.na looks more like a bookmarking site. Like some weird middle ground between Pinboard and Pinterest. The site is for users and charges subscriptions. No algorithms feeding you, just real people. It is structured around channels, I made a Weekly Thing channel. I like platforms that bring me new and interesting links. Possibly this could be one but I’m still poking at it.
 
-Link five. "RECONSIDER - Signal v. Noise"
+Link five of ten. "RECONSIDER - Signal v. Noise"
 
 DHH with his usual zeal commenting on the obsession of many tech startups to only be making a shot at being the next Unicorn or nothing. This is one of the things I like about the Indieweb space. There are small companies making a product I pay for and getting enough profit to build normal businesses that add value to the world around them.
 
-Link six. "Embeddings are underrated"
+Link six of ten. "Embeddings are underrated"
 
 Good explainer on what embeddings really are.
 
@@ -74,11 +76,11 @@ End quote.
 
 If you are building custom LLM applications this is likely something you need to use.
 
-Link seven. "Creating a static website for all my bookmarks – alexwlchan"
+Link seven of ten. "Creating a static website for all my bookmarks – alexwlchan"
 
 I read this with interest since bookmarking is, I guess, a hobby of mine and how links get right here into the Weekly Thing. I’m bookmarking about bookmarking. How meta. I also use Pinboard as the author does and I have in the past fed those bookmarks from the Pinboard API into static files to then generate a linkblog. I prefer using a newsletter to share these. But someday I will likely want to turn that into a site of its own.
 
-Link eight. "What is HDR, anyway?"
+Link eight of ten. "What is HDR, anyway?"
 
 The team behind Halide with another great writeup on how they are advancing the "state of the art" for iPhone photography. This article is particularly great because it goes through the whole history of HDR and then grounds back into the "what are you trying to do" as opposed to the technology. When they referenced dodging and burning with print development it really connected the dots. I love the Ansel Adams quote referenced.
 
@@ -90,11 +92,11 @@ I shoot a lot of photos with my iPhone and upgrading the camera is the main reas
 
 I’m excited to try these new tone controls when they ship.
 
-Link nine. "The cryptography behind passkeys - The Trail of Bits Blog"
+Link nine of ten. "The cryptography behind passkeys - The Trail of Bits Blog"
 
 I’m using passkeys on any sites that support them and 1Password, my secret manager of choice, does a great job managing and storing them. This article goes a bit more in depth on the WebAuthn specification that is passkeys. The additional layers of trust built into the protocol, for example allowing a site to require a certain instance of an authenticator to be used is smart. I think we still need to see if passkeys become useful for regular non-technical users. I worry they can feel a little "magical" and folks will lose credentials a lot. Either way I would much rather see more passkey adoption versus this trend of no passwords and sending an email code every time you login.
 
-Link ten. "Hike, Bike, Drive Offline Navigate with Privacy | CoMaps"
+Link ten of ten. "Hike, Bike, Drive Offline Navigate with Privacy | CoMaps"
 
 It isn't obvious to most people that when you use mapping applications, particularly to route you places, you are providing as much if not more information than you are getting. Modern mapping applications depend on monitoring users movement to augment and improve the map itself. It is a 2-way street that makes the map better, and gives you directions. For driving this works fine but the privacy trade off may not be what you want. For offline use this presents problems. This mapping application is completely private, uses the trusted OpenStreetMap data source, and is designed to work offline for when you want to get away from things. This is a fork from another project and still under development.
 
@@ -208,43 +210,45 @@ That's the end of the Journal.
 
 Now, the Briefly section.
 
-Link one. "Hyvector"
+There are ten links this week.
+
+Link one of ten. "Hyvector"
 
 Vector graphics editor in your browser.
 
-Link two. "itter.sh - Social Media via SSH"
+Link two of ten. "itter.sh - Social Media via SSH"
 
 This will not go anywhere but it made me smile remembering the early days Twitter, like when we used to post via SMS messages to 40404.
 
-Link three. "Void"
+Link three of ten. "Void"
 
 Another IDE bringing AI in as a native capability.
 
-Link four. "nao - AI code editor for data"
+Link four of ten. "nao - AI code editor for data"
 
 It is super interesting to see how people are bringing AI capabilities into various areas of the development toolchain. This is focused on data engineering.
 
-Link five. "A Critical Look at MCP - Raz Blog"
+Link five of ten. "A Critical Look at MCP - Raz Blog"
 
 Critical look at key components of the MCP pattern.
 
-Link six. "Extending a Language — Writing Powerful Macros in Scheme"
+Link six of ten. "Extending a Language — Writing Powerful Macros in Scheme"
 
 Fun stuff and great way to learn a bit of Scheme.
 
-Link seven. "F1 The Movie | Main Trailer - YouTube"
+Link seven of ten. "F1 The Movie | Main Trailer - YouTube"
 
 Can’t wait to go to this if just for the race scenes.
 
-Link eight. "twenty twenty five-05-11 air traffic control"
+Link eight of ten. "twenty twenty five-05-11 air traffic control"
 
 Interesting background on the patchwork of systems that started much of what today's air traffic control system is.
 
-Link nine. "Iceland approved the 4-day workweek in twenty nineteen: nearly 6 years later, all the predictions made have come true"
+Link nine of ten. "Iceland approved the 4-day workweek in twenty nineteen: nearly 6 years later, all the predictions made have come true"
 
 Iceland innovating and experimenting.
 
-Link ten. "F1 at 75"
+Link ten of ten. "F1 at 75"
 
 Great overview of the history of F1. The pictures are great and the presentation is really nice. Works great on mobile but deserves a big screen for the visuals.
 

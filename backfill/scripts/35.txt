@@ -4,76 +4,90 @@ I hope you all had a great New Years and a fabulous start to twenty eighteen! Fo
 
 I also kicked off the new year by taking Shawn Blanc's Focus Course. There are a few things I’m thinking about working on in twenty eighteen and establishing more focus is one of them. I decided to take it along with some friends that were also interested. I’m enjoying the course so far!
 
+Now, the Photog section.
+
 One of our New Years Eve traditions with the kids is a game of Clue. This year Mrs. Peacock did it with the Wrench in the Hall!
 
 Dec 31, twenty seventeen at 9:03 PM
 Home, Minneapolis MN
 
-Prometheus Blog Series (Part 1): Metrics and Labels
+That's the end of Photog.
+
+Now, the Links section.
+
+Link one. "Prometheus Blog Series (Part 1): Metrics and Labels"
 
 Interesting series of blog posts with a solid introduction to Prometheus. Multiple parts Metrics and Labels, Metric types, Exposing and collecting metrics, Instrumenting code in Go and Java and Alerting rules.
 
-Dan Harris Knows All Your Excuses for Not Meditating - Note to Self - WNYC
+Link two. "Dan Harris Knows All Your Excuses for Not Meditating - Note to Self - WNYC"
 
 I enjoyed this podcast and it spoke to me as I’m one of those people that constantly thinks that meditation would be a good practice for me but I never make the time to do it.
 
-'Kernel memory leaking' Intel processor design flaw forces Linux, Windows redesign • The Register
+Link three. "'Kernel memory leaking' Intel processor design flaw forces Linux, Windows redesign • The Register"
 
 This reads like a detective novel and dives into some interesting things about how modern CPU's work and what they do in silicon to protect different memory spaces. This looks like a pretty nasty issue but we won't know the real extent of it until the embargo is removed. The aside on the name option for the fix made me chuckle: The fix is to separate the kernel's memory completely from user processes using what's called Kernel Page Table Isolation, or KPTI. At one point, Forcefully Unmap Complete Kernel With Interrupt Trampolines, aka FUCKWIT, was mulled by the Linux kernel team, giving you an idea of how annoying this has been for the developers.
 
-Simulating Chutes and Ladders in Python | Pythonic Perambulations
+Link four. "Simulating Chutes and Ladders in Python | Pythonic Perambulations"
 
 Oh the fun you can have playing with some Python code and a simple game. If you've been subjected to many games of Chutes and Ladders this will give you some new ways to appreciate the game. With two players, this translates to a 1% chance that the game will go 72 moves without either of the players winning. Assuming roughly 20 seconds per round, that is about 24 minutes of play time, though from personal experience I can say it feels roughly twenty times that long.
 
-How cloud speed helps SQL Server DBAs | Blog | Microsoft Azure
+Link five. "How cloud speed helps SQL Server DBAs | Blog | Microsoft Azure"
 
 Nice article going into some depth on how Microsoft has had to completely rethink how they deliver SQL Server to make it work for a cloud platform. I like that this highlights the stuff that often isn't considered as you shift software to a cloud deployment strategy. Velocity and speed are highlighted in ways they never are in other models.
 
-twenty seventeen in Numbers • Aaron Parecki
+Link six. "twenty seventeen in Numbers • Aaron Parecki"
 
 Another example of a personal annual report, this one on various metrics that Aaron Parecki has kept for the year. Transportation, beverages…
 
-Ad targeters are pulling data from your browser’s password manager - The Verge
+Link seven. "Ad targeters are pulling data from your browser’s password manager - The Verge"
 
 Ad this to the list of reasons for why you absolutely should be running protective software when browsing the web. I run 1Blocker, Ghostery and Better.
 
-Spamnesty - Home
+Link eight. "Spamnesty - Home"
 
 Lovely! I like how they show the transcripts of previous discussions. Spamnesty is a way to waste spammers' time. If you get a spam email, simply forward it to sp@mnesty.com, and Spamnesty will strip your email address, pretend it's a real person and reply to the email. Just remember to strip out any personal information from the body of the email, as it will be used so the reply looks more legitimate.
 
-Sense: Track energy use in real time
+Link nine. "Sense: Track energy use in real time"
 
 I shared my frustration with the reporting that my power company provides and Luke Samaha pointed me to Sense. This looks like a pretty amazing device and some great data. I like the premise of identifying the changes and then having the user annotate what happened. Wish it cost half as much though.
 
-Encryption Lava Lamps – San Francisco, California - Atlas Obscura
+Link ten. "Encryption Lava Lamps – San Francisco, California - Atlas Obscura"
 
 There are many many novel ways to generate true random numbers, versus pseudorandom numbers that almost all devices create. This one is a great read and a good photo but it leaves me feeling like it can be a very good answer. Look at the photo that the video is capturing, most of that frame is static. It would seem much better if there was more variety in the frame.
 
-Best of twenty seventeen: iOS Apps - BrettTerpstra.com
+Link eleven. "Best of twenty seventeen: iOS Apps - BrettTerpstra.com"
 
 Terpstra is a developer and power-user and I always find I learn or discover something when I read the write-ups of apps that folks like this use.
 
-To Serve Man, with Software
+Link twelve. "To Serve Man, with Software"
 
 Great post and reflections from Jeff Atwood. His thoughts reflect many of the people building things in tech. I think it’s a good thing that people are becoming more introspective on the systems that they create, and asking questions about the value they are bringing. Software is easy to change, but people … aren't. So in the new year, as software developers, let's make a resolution to focus on the part we can change, and keep asking ourselves one very important question: how can our software help people become the best version of themselves? File this into that area of computer ethics that should become part of computer science curriculums.
 
-Life Stack – AnomaLily.net
+Link thirteen. "Life Stack – AnomaLily.net"
 
 Thorough list of tools that this person uses to track and measure various aspects of their life.
 
-Checklist-Checklist: A Curated List of Checklists ︎︎
+Link fourteen. "Checklist-Checklist: A Curated List of Checklists ︎︎"
 
 Like seeing Checklist Manifesto I started a wiki at CCChecklist.org. The idea of that project was to be a Creative Commons licensed collection of checklists to share. This project is similar just using Github instead of a wiki. I never launched that project, but the concept is still really good. Minor nitpick that Github Flavored Markdown for the checklists and I think Taskpaper would be a more useful and interoperable format.
 
-IKEA effect - Wikipedia
+Link fifteen. "IKEA effect - Wikipedia"
 
 I had no idea this was a known effect but it makes a lot of sense and the name is pretty awesome.
 
-Monitoring Home Power Consumption for less than 25 dollars
+Link sixteen. "Monitoring Home Power Consumption for less than 25 dollars"
 
 This is super cool and I might have to try this. I know our house has a wireless meter system, the electric company installed it several years ago. I've never looked into how it works but if it’s this easy this could be a great way to get much more detail on our power usage. If you can get hourly, daily reports on power you should be able to connect your activities close enough to make changes to reduce usage.
 
+That's the end of Links.
+
+Now, the Promotion section.
+
 Minnestar is the technology community for Minnesota. If you are passionate about technology you need to go to Minnebar and Minnedemo. Did you know that Minnebar is the largest BarCamp in North America and one of the largest in the world? Its also been going on for over 10 years? Minnedemo is the best place to hear about innovative tech and fun projects in the Twin Cities area. I am on the Minnestar board and I focus on Minnestar as one of the driving forces improving and expanding the technology community in the area. Minnestar is a 501c3 non-profit. Become a Community Supporter today!
+
+That's the end of Promotion.
+
+Now, the Microblog updates section.
 
 - Entering the world of sous vide cooking with my new Joule. Love that I even get to update firmware on this! Has WiFi and can be controlled anywhere from iOS.
 - Just finished module 1 of The Focus Course. It is a slow start but I see it building some foundational things. Looking forward to the rest of the modules.
@@ -85,6 +99,8 @@ Minnestar is the technology community for Minnesota. If you are passionate about
 - Leveling up my coffee fussiness with this new coffee distribution tool.
 - Tyler and I played Super Mario Odyssey through a few levels today and had a blast. The game is filled with little hidden gems. And playing as other characters with the hat is amazing.
 - First time playing Ticket to Ride: Nordic Countries and liked it a lot. Limiting to only have 3 players, but fun routes and tunnels add challenges. Pairs well with snow and hot cocoa.
+
+That's the end of Microblog updates.
 
 Thank you for subscribing to the Weekly Thing! If you know of people that would like the Weekly Thing please forward it along!
 

@@ -16,7 +16,9 @@ PS: Issues 267 and 268 were not sent from my personal email address but instead 
 
 Now, the Featured section.
 
-Link one. "Hu.ma.ne"
+There is one link this week.
+
+Link one of one. "Hu.ma.ne"
 
 Watch the 11 minute video for this wild device, with way more sensors than I would have expected. The laser display on your hand? The device is very well thought out with a variety of capabilities. The battery system is smart to work for as long as you want. I was surprised to see a camera on it but that is critical to give the AI assistant "sight". I love how they are rethinking the entire experience and focusing on an ever present AI assistant.
 
@@ -51,7 +53,9 @@ That's the end of Featured.
 
 Now, the Notable section.
 
-Link one. "Apple M3 and the State of CPUs | Digits to Dollars"
+There are eight links this week.
+
+Link one of eight. "Apple M3 and the State of CPUs | Digits to Dollars"
 
 Commentary on the state of the CPU market, reflecting on Apple's recent launch of the M3. Many were impressed by the fact they launched three versions all at once, but I hadn't considered the costs of doing that.
 
@@ -67,19 +71,19 @@ End quote.
 
 To me, Apple in the CPU market seems very similar to Tesla in the auto market. Just playing a different game, and gaining ground while everyone else is still playing the old game.
 
-Link two. "Phind - AI Search Engine and Pair Programmer"
+Link two of eight. "Phind - AI Search Engine and Pair Programmer"
 
 I don't know if I would call this a search engine? It sort of is, but it also is a code generator. I tried a few different scenarios and the results it gave were definitely very useful.
 
-Link three. "How to be on-call - cat /dev/brain"
+Link three of eight. "How to be on-call - cat /dev/brain"
 
 Being in tech often means that you have to support software 24x7 and it is important to think about how that works. This blog post covers the fundamentals any team should consider to create a structure that will work well. As you get bigger this needs to evolve into an entire Incident Management approach.
 
-Link four. "Bitcoin’s 13.5 billion dollars Overhang"
+Link four of eight. "Bitcoin’s 13.5 billion dollars Overhang"
 
 This "Wall of Worry" is interesting — governments hold 389.197 Bitcoin they have seized from bankruptcies and criminals. They do plan on selling these coins, and many of those sales are slated to happen in the coming year. Meanwhile, in the last year Bitcoin is up 100% and renewed rumors of a Bitcoin ETF are continuing to push the price. Does a 13 billion dollars overhang mean much to Bitcoin? That is anybody's guess.
 
-Link five. "Introducing GPTs"
+Link five of eight. "Introducing GPTs"
 
 For years I've wanted to hire a GTD Coach but I've never made it happen. (I'll pass on the irony of that. ) A couple weeks ago I wondered if GPT 4 could be a coach for me. I started a new conversation, and told Chat GPT that it was a GTD coach working with a very experienced GTD practitioner. I told it that I had extensive background with OmniFocus, and wanted to focus on the longer horizons of planning. ChatGPT did really well. I continue to have this "conversation" around and am using it to explore ways to improve my GTD practice. It is working.
 
@@ -87,13 +91,13 @@ When OpenAI announced GPTs this week my mind went right to my GTD Coach. That is
 
 Bundling up these domain specific "personas", or GPTs, is a great idea. Making them discoverable and easier to use will help with adoption. I can’t wait to go deeper with this idea using a custom GPT. Ars Technica also has a good writeup on GPTs.
 
-Link six. "Textcasting"
+Link six of eight. "Textcasting"
 
 Dave Winer spends a lot of time thinking about how to create syndication systems that may improve or build on his earlier creation, RSS. This Textcasting seems very similar to a blog. Kottke's reply suggests additional features.
 
 However, I’m left with a huh? and why? The world doesn't need to have social networks. The web is the original network, and it has social capabilities. I’m pessimistic, or maybe cynical, that there is not such thing as a worthwhile social network.
 
-Link seven. "OpenAI DevDay, Opening Keynote - YouTube"
+Link seven of eight. "OpenAI DevDay, Opening Keynote - YouTube"
 
 Tyler and I watched this keynote this week and it was great. There were a ton of new announcements around new models and developer products. I was most intrigued by the GPTs and the Assistant API.
 
@@ -103,7 +107,7 @@ The Assistants API seems like another big win for adoption. Building ChatGPT int
 
 Very smart steps from OpenAI.
 
-Link eight. "The OpenAI Keynote – Stratechery by Ben Thompson"
+Link eight of eight. "The OpenAI Keynote – Stratechery by Ben Thompson"
 
 Thompson's take on the OpenAI Keynote is a good read on multiple levels. I shared his feeling of "wonder" in watching the keynote. I usually watch Apple events since I use their products and platforms, but they are rarely surprising. There just isn't a lot that truly surprises but I find what OpenAI is doing super interesting.
 
@@ -151,39 +155,41 @@ That's the end of the Journal.
 
 Now, the Briefly section.
 
-Link one. "tailspin: A log file highlighter"
+There are nine links this week.
+
+Link one of nine. "tailspin: A log file highlighter"
 
 Fancy way to watch a log file and have specific types of information highlighted and easier to identify.
 
-Link two. "Grist | The Evolution of Spreadsheets"
+Link two of nine. "Grist | The Evolution of Spreadsheets"
 
 This seems similar to Airtable and that category that blends the capabilities of spreadsheets and databases. This is an open source solution though, and definitely undercuts Airtable on price.
 
-Link three. "'A Massive Change': How a Carbohydrate Revolution is Speeding up Pro Cycling - Velo"
+Link three of nine. "'A Massive Change': How a Carbohydrate Revolution is Speeding up Pro Cycling - Velo"
 
 Modern cyclists have highly optimized themselves for many things, and with improved nutrition the ability to push more calories in at a faster rate is a big deal. 5,000 to 7,000 "calorie pipeline" from breakfast to bedtime? Wow.
 
-Link four. "Project resistance | Seth's Blog"
+Link four of nine. "Project resistance | Seth's Blog"
 
 Godin reflecting on Steve Pressfield's concept of "Resistance", how it shows up, and how to approach it.
 
-Link five. "This Blog is 20 Years Old Today – Rhoneisms"
+Link five of nine. "This Blog is 20 Years Old Today – Rhoneisms"
 
 My friend Patrick celebrates the 20 years of blogging! When you blog for over a decade you create an artifact, a thing, that has real value over the long term. I love it. I also like how Patrick highlights the different "eras" his blog has had.
 
-Link six. "Using Shortcuts to Display the Temperature from My Outdoor Sensor in the Menu Bar - MacStories"
+Link six of nine. "Using Shortcuts to Display the Temperature from My Outdoor Sensor in the Menu Bar - MacStories"
 
 Great example of how you can create something relatively complex using Shortcuts.
 
-Link seven. "Tech is Going to Get Much Bigger"
+Link seven of nine. "Tech is Going to Get Much Bigger"
 
 Software is eating the world.
 
-Link eight. "iOS 17.1 finally lets you pick the album to use for the Photo Shuffle lock screen - 9to5Mac"
+Link eight of nine. "iOS 17.1 finally lets you pick the album to use for the Photo Shuffle lock screen - 9to5Mac"
 
 This may not seem like a big deal but it is. I loved the Photo Shuffle on the Lock Screen but it would find photos from 15 years ago. Limiting it to a single album is way better!
 
-Link nine. "Explore GPU advancements in M3 and A17 Pro - Tech Talks - Apple Developer"
+Link nine of nine. "Explore GPU advancements in M3 and A17 Pro - Tech Talks - Apple Developer"
 
 Tons of info on the GPU architecture in the newest Apple Silicon chips.
 

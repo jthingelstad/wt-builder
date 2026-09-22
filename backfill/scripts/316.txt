@@ -12,11 +12,13 @@ I hope your weekend is going well. Happy Easter! I hope you have a wonderful day
 
 Now, the Notable section.
 
-Link one. "Ye Olde Blogroll - Because blogs are the soul of the web"
+There are fourteen links this week.
+
+Link one of fourteen. "Ye Olde Blogroll - Because blogs are the soul of the web"
 
 A blogroll on your website was one of the earliest forms of discovery on the web. You could hop from site to site based on these recommendations. Webrings evolved as "bigger and decentralized" blogrolls if you will. Manuel Moreale had blogroll land in his lap as it were, and he gave it a brand new launch using People and Blogs as a core part of it. Good stuff.
 
-Link two. "CaMeL offers a promising new direction for mitigating prompt injection attacks"
+Link two of fourteen. "CaMeL offers a promising new direction for mitigating prompt injection attacks"
 
 Many packages that add GenAI capabilities suddenly find themselves subject to prompt injection attacks.
 
@@ -26,11 +28,11 @@ End quote.
 
 Interesting approach, breaking down and building up again.
 
-Link three. "ChatGPT can now remember and reference all your previous chats - Ars Technica"
+Link three of fourteen. "ChatGPT can now remember and reference all your previous chats - Ars Technica"
 
 I found this new memory feature to be much more impactful than I suspected it would. ChatGPT now brings a bunch of context to questions that is implied from your entire history. Makes ChatGPT feel much more like your personal agent.
 
-Link four. "Why I support privacy"
+Link four of fourteen. "Why I support privacy"
 
 A reminder that blockchains allow for people to be anonymous by keeping wallet ownership unknown, but there is nothing private that the wallet can do. All transactions are known to everyone always. Privacy on blockchains is, right now, not existent. Here Vitalik Buterin shares his views on why privacy is important.
 
@@ -40,11 +42,11 @@ End quote.
 
 You could shorten this all to one simple statement: because it is the right thing to do.
 
-Link five. "Using LLMs as the first line of support in Open Source"
+Link five of fourteen. "Using LLMs as the first line of support in Open Source"
 
 Using AI to help developers learn how to integrate your framework into the codebase they are working on. Overall this is a super example of using AI to completely change the onboarding process to use a new capability.
 
-Link six. "An Ars Technica history of the Internet, part 1 - Ars Technica"
+Link six of fourteen. "An Ars Technica history of the Internet, part 1 - Ars Technica"
 
 I've read about the birth of the Internet many times. The stories of the IMP, Interface Message Processors, and their 24kb of memory are delightful. I love the paper sketch in this article showing the first four IMPs connected.
 
@@ -56,15 +58,15 @@ End quote.
 
 Every message ever sent on the web is done with TCP/IP. More than nearly anything else, it is the defining protocol of the Internet that is everywhere today.
 
-Link seven. "Trump Revenge Tour Targets Cyber Leaders, Elections – Krebs on Security"
+Link seven of fourteen. "Trump Revenge Tour Targets Cyber Leaders, Elections – Krebs on Security"
 
 I don't think we appreciate how critical our cyber defenses are. We give it a nod, but we need to consider these organizations and leaders on the same level as our physical defense if not even more critical! The asymmetry of cyber warfare is huge — you can easily inflict orders of magnitude more damage than the costs. Politicizing this critical function is highly problematic.
 
-Link eight. "Everything Wrong with MCP - Shrivu Shankar"
+Link eight of fourteen. "Everything Wrong with MCP - Shrivu Shankar"
 
 My guess is that MCP is going to be a transitional framework and likely these limitations will be solved in another approach. It is also a bit of an engineer meme to actually do a better job describing a thing by telling you what is wrong with the thing. This article does a good job of that as well.
 
-Link nine. "How to Bike Across the Country"
+Link nine of fourteen. "How to Bike Across the Country"
 
 I have ridden with people that have rode across the country. When I did Texas Hellweek in two thousand one I rode with people who were training for the Race Across America. Personally I'd want to do such an effort on a supported trip with a rest day a week. This post is great with very specific discussion on how he approached and completed this.
 
@@ -86,7 +88,7 @@ End quote.
 
 Great stuff.
 
-Link ten. "Unpacking Circle's IPO Filing and USDC’s On-Chain Footprint"
+Link ten of fourteen. "Unpacking Circle's IPO Filing and USDC’s On-Chain Footprint"
 
 I regularly use and hold USDC to make crypto payments. Circle, the company that backs USDC, filed an S1 to go public and this article breaks down the business.
 
@@ -96,19 +98,19 @@ End quote.
 
 To me this seems like a good, and boring, business. If they can manage to just do that it would be wonderful and provide a great utility.
 
-Link eleven. "codex: Lightweight coding agent that runs in your terminal"
+Link eleven of fourteen. "codex: Lightweight coding agent that runs in your terminal"
 
 It is interesting to me that OpenAI calls this "lightweight". This directly competes with Claude Code and looks pretty interesting. I’m always a little cautious that the demos of these tools can be amazing and fall short of practical use. Need to try on some personal projects.
 
-Link twelve. "OpenAI o3 and o4-mini - YouTube"
+Link twelve of fourteen. "OpenAI o3 and o4-mini - YouTube"
 
 Overview of this week's announcements from OpenAI. Great video to really show the capabilities and what it does. I’m very interested to try doing some things with the new codex solution. Worth 25 minutes to see this. See o3 and o4-mini announcements as well.
 
-Link thirteen. "Homeland Security funding for CVE program expires - The Register"
+Link thirteen of fourteen. "Homeland Security funding for CVE program expires - The Register"
 
 Totally typical of the chaos of now at the last minute the US changed course and is now funding but still notable to share how important this CVE program is to coordinated cybersecurity response. This is how most security organizations organize and communicate around critical vulnerabilities. It was reassuring to hear the organization has been working on contingencies.
 
-Link fourteen. "OpenAI's new GPT-4.1 AI models focus on coding | TechCrunch"
+Link fourteen of fourteen. "OpenAI's new GPT-4.1 AI models focus on coding | TechCrunch"
 
 Impressive results and shows what Anthropic and Google are able to do on similar benchmarks. Notably they are even higher.
 
@@ -188,31 +190,33 @@ That's the end of the Journal.
 
 Now, the Briefly section.
 
-Link one. "70 million dollars in 60 Seconds: How Insider Information Helped Someone 28x Their Money"
+There are seven links this week.
+
+Link one of seven. "70 million dollars in 60 Seconds: How Insider Information Helped Someone 28x Their Money"
 
 Pretty lucky.
 
-Link two. "Quick Primer on Model Context Protocol (MCP)"
+Link two of seven. "Quick Primer on Model Context Protocol (MCP)"
 
 Full walk-through to create an MCP for GenAI use.
 
-Link three. "AI twenty twenty seven"
+Link three of seven. "AI twenty twenty seven"
 
 Fiction and stories are a great way to envision possible futures. This story plays out upcoming developments in AI and how what they can mean.
 
-Link four. "OpenAI’s Sam Altman Talks ChatGPT, AI Agents and Superintelligence — Live at TED2025 - YouTube"
+Link four of seven. "OpenAI’s Sam Altman Talks ChatGPT, AI Agents and Superintelligence — Live at TED2025 - YouTube"
 
 Good interview with Altman by Anderson although the first part covers well trodden territory that Altman answers as you would expect him to. Altman's comments on future ChatGPT capabilities are more interesting.
 
-Link five. "Daring Fireball: The WSJ Reports on How Elon Musk Manages His 'Legion' of Children and Harem of Mothers"
+Link five of seven. "Daring Fireball: The WSJ Reports on How Elon Musk Manages His 'Legion' of Children and Harem of Mothers"
 
 So strange. Reporting by the Wall Street Journal.
 
-Link six. "Simple Web Server"
+Link six of seven. "Simple Web Server"
 
 Sometimes you just need a simple little app to be a local web server.
 
-Link seven. "Introducing Kermit: A typeface for kids - Microsoft Design"
+Link seven of seven. "Introducing Kermit: A typeface for kids - Microsoft Design"
 
 Nice enough and very usable. Perhaps schools everywhere can no longer ever use Comic Sans? Also, I found this "Kermit’s animation feel like it’s naturally drawing itself with a pen" pretty cool. The example shows it well. It made me wonder if you could use it on the web to show a page "writing" itself.
 

@@ -22,7 +22,9 @@ I love that I was able to create an entire activity on the POAP platform.
 
 Now, the Notable section.
 
-Link one. "How I used o3 to find CVE-twenty twenty five-37899, a remote zeroday vulnerability in the Linux kernel’s SMB implementation – Sean Heelan's Blog"
+There are ten links this week.
+
+Link one of ten. "How I used o3 to find CVE-twenty twenty five-37899, a remote zeroday vulnerability in the Linux kernel’s SMB implementation – Sean Heelan's Blog"
 
 One of the amazing use cases for LLMs and code is to find security vulnerabilities. Here Heelan uses it to see how well it can find very difficult Linux kernel bugs. I love how he uses multiple iterations and does a sort of Monte Carlo run. And wild that it finds it in some, but very few iterations.
 
@@ -38,19 +40,19 @@ End quote.
 
 This shows there is clear value here and honestly I think if you showed the original code to 100 engineers I would be surprised if even 8 of them found the issue.
 
-Link two. "Highlights from the Claude 4 system prompt"
+Link two of ten. "Highlights from the Claude 4 system prompt"
 
 This is an incredible read and gives you insight into how Anthropic creates the personality of Claude for people to interact with. Is this programming? It doesn't look like it but it sure feels like it. This lights up all sorts of thoughts for me on how agents will appear in the workplace. We will need to consider designing agent personas in a much broader way than "help people create a ticket". The tagging of different components is also very interesting. Wow.
 
-Link three. "MCP is the coming of Web 2.0 2.0 - Anil Dash"
+Link three of ten. "MCP is the coming of Web 2.0 2.0 - Anil Dash"
 
 I agree with Dash here and see the same glimmer of hope. The idea that my website could have an MCP capability was what got me there. I have a human interface in HTML, a feed interface with RSS and JSON Feed. Why not an agentic interface with MCP? And if that agentic interface existed there is an incredible variety of potential that could be created from this. I’m hopeful!
 
-Link four. "The Future of Engineering Services: Building and Measuring Human-AI Teams – rajiv.com"
+Link four of ten. "The Future of Engineering Services: Building and Measuring Human-AI Teams – rajiv.com"
 
 Friend and Weekly Thing reader Rajiv Pant ( hey Rajiv!) breaks down how to pivot our thinking about engineering capability as you transition into an AI-native approach. He even walks through how to phase the transformation that he describes. At the core is thinking more about the value provided and less about individual productivity metrics. I think there is some nuance there in the mental model. I’m currently more in the mindset of agentic engineers working alongside people to contribute value to a project. More horizontally integrated. However, if we take a more vertical approach as Rajiv suggests and consider the people the designers and the LLM the coder, that would result in a different view. Thought provoking regardless of how you approach it.
 
-Link five. "Sky Extends AI Integration and Automation to Your Entire Mac - MacStories"
+Link five of ten. "Sky Extends AI Integration and Automation to Your Entire Mac - MacStories"
 
 Sky hasn't launched yet and their website just has a teaser video showing the application doing some pretty amazing things powered by AI. I signed up on the waiting list and even filled their survey out. There is a lot of enthusiasm about this app because it is from the authors of Workflow, which Apple acquired and renamed Shortcuts, and which I use every single day and is the primary tool I use to build the Weekly Thing.
 
@@ -70,7 +72,7 @@ End quote.
 
 I’m looking forward to getting my hands on this.
 
-Link six. "AI-assisted development needs automated tests"
+Link six of ten. "AI-assisted development needs automated tests"
 
 Small but profound statement. You hear a lot of variety in feedback on how well LLMs work in contributing to code. What we don't hear enough about are what the conditions of that code are. Do they have good tests? Is it a spaghetti mess? In the early days of LLM's doing code I shared with many friends that coding is in some ways a much easier task than writing generic text. Why? Well in a way you are playing a game with the compiler or interpreter. There is another piece of software that will tell you if you are right (compiles) or wrong (wont compile). So the LLM can play that game at machine-speed to get to something that compiles. However, every developer will tell you that is interesting but means nothing. Just because it compiles doesn't mean it can do the thing you want. What does that? Automated tests and focusing on test-first development. It follows from the first example that tests would then give the LLM another "boss battle" to work through to get to a valid outcome.
 
@@ -78,7 +80,7 @@ All of this is to simply say that as Agentic coding becomes more common we will 
 
 PS: Doing better at this would also help all developers. Test first development, similar to pair programming, is generally a known "good thing" but it is hard and many organizations find it slow in the beginning and they bale on it.
 
-Link seven. "Say Your Writing"
+Link seven of ten. "Say Your Writing"
 
 Reading this made me smile. I guess I don't really think about the process that much but I will say that when I write these emails and blog posts this is exactly what I do.
 
@@ -88,7 +90,7 @@ End quote.
 
 I’m usually speaking to myself in my head and working my hands as fast as I can to keep up. Doesn't everyone do that?
 
-Link eight. "Vibe coding for teams, thoughts to date | Kellan Elliott-McCrea: Blog"
+Link eight of ten. "Vibe coding for teams, thoughts to date | Kellan Elliott-McCrea: Blog"
 
 Interesting observation about some of the impacts that LLMs have on a codebase.
 
@@ -98,11 +100,11 @@ End quote.
 
 All three of these insights are notable and things that teams should not ignore. In fact, I think this points to why an agentic model for software development is the right way to approach it. The things that the author highlights would also be true of adding a new engineer to the team. So how do we onboard an agent into the software development team? That is the question to ponder.
 
-Link nine. "Lazy Tetris"
+Link nine of ten. "Lazy Tetris"
 
 Tetris is one of my favorite games. I still remembering playing it early on and to this day a good Tetris implementation (which is hard to find sadly!) is one of the few games that can capture me. I forget to blink when I play Tetris. So this version, where the tetromino doesn't actually fall seemed silly at first. Then I used my mouse and just moved pieces around and created beautiful stacks of tiles. And it was fun. And I could still blink my eyes. It was even relaxing. Huh.
 
-Link ten. "LLMs are weird, man – Surfing Complexity"
+Link ten of ten. "LLMs are weird, man – Surfing Complexity"
 
 This is an enjoyable read highlighting how the inner workings of LLMs are a mystery to everyone, including those who create them. The point of this is that usually we can generate some sort of a mental model to categorize and understand a given technology, but LLMs seem to not fit those models. In a super simple way you can think of it like a "calculator for words" but that feels completely wrong when you see an LLM respond with something that is truly insightful.
 
@@ -201,75 +203,77 @@ That's the end of the Journal.
 
 Now, the Briefly section.
 
-Link one. "What Does The Saluting Face Emoji Mean?"
+There are eighteen links this week.
+
+Link one of eighteen. "What Does The Saluting Face Emoji Mean?"
 
 The cultural adoption of emoji is fascinating.
 
-Link two. "KrebsOnSecurity Hit With Near-Record 6.3 Tbps DDoS – Krebs on Security"
+Link two of eighteen. "KrebsOnSecurity Hit With Near-Record 6.3 Tbps DDoS – Krebs on Security"
 
 The scale of these DDoS attacks is incredible. All these insecure devices becoming zombies is a huge threat.
 
-Link three. "Just a QR Code"
+Link three of eighteen. "Just a QR Code"
 
 Simple form with good controls to make a QR code. No redirects involved. No surveillance. Just a simple QR code. I tend to use Shortcuts for this, but this tool has more control over the QR code specifics.
 
-Link four. "The Way of Code | Rick Rubin"
+Link four of eighteen. "The Way of Code | Rick Rubin"
 
 Poetic.
 
-Link five. "How this year’s Pulitzer awardees used AI in their reporting | Nieman Journalism Lab"
+Link five of eighteen. "How this year’s Pulitzer awardees used AI in their reporting | Nieman Journalism Lab"
 
 Interesting look into how journalists are using AI in their craft. I think this is notable given that the act of writing is core to an LLM and in many ways "too close" to the task so having guardrails becomes more important.
 
-Link six. "twenty twenty five Milky Way Photographer of the Year - Capture the Atlas"
+Link six of eighteen. "twenty twenty five Milky Way Photographer of the Year - Capture the Atlas"
 
 Beautiful photos and so hard to capture.
 
-Link seven. "Watching TV With The Sound Off - Gordo Byrn"
+Link seven of eighteen. "Watching TV With The Sound Off - Gordo Byrn"
 
 Bryn with some great thoughts about how to manage your attention.
 
-Link eight. "The Bank of Starbucks - Of All Trades"
+Link eight of eighteen. "The Bank of Starbucks - Of All Trades"
 
 Starbucks holds nearly 2 billion dollars in prepayment from customers? That number is astonishing to me.
 
-Link nine. "Large Language Models can run tools in your terminal with LLM 0.26"
+Link nine of eighteen. "Large Language Models can run tools in your terminal with LLM 0.26"
 
 Willison's LLM tool is like a pocket knife for people that are exploring and learning about LLMs and how to build around and on them. This new feature is a big jump in capability.
 
-Link ten. "prompt-eng-interactive-tutorial: Anthropic's Interactive Prompt Engineering Tutorial"
+Link ten of eighteen. "prompt-eng-interactive-tutorial: Anthropic's Interactive Prompt Engineering Tutorial"
 
 This looks like a great course to learn how to interact with LLMs better.
 
-Link eleven. "Daring Fireball: Gurman: Apple Is Going to Re-Version OSes by Year, Starting With iOS 26, MacOS 26, tvOS 26, Etc"
+Link eleven of eighteen. "Daring Fireball: Gurman: Apple Is Going to Re-Version OSes by Year, Starting With iOS 26, MacOS 26, tvOS 26, Etc"
 
 Don't love it but I guess the trend is strong. Maybe I need to embrace that this is still some form of Semantic Versioning using the calendar?
 
-Link twelve. "The Five Layers of Sharing Thoughts and Ideas | Matt Mullenweg"
+Link twelve of eighteen. "The Five Layers of Sharing Thoughts and Ideas | Matt Mullenweg"
 
 Interesting mental model.
 
-Link thirteen. "DuckLake is an integrated data lake and catalog format. – DuckLake"
+Link thirteen of eighteen. "DuckLake is an integrated data lake and catalog format. – DuckLake"
 
 I've seen data lakes do some incredible things. Another approach at that pattern.
 
-Link fourteen. "TIL: timeout in Bash scripts | Heitor's log"
+Link fourteen of eighteen. "TIL: timeout in Bash scripts | Heitor's log"
 
 Handy timeout command for bash.
 
-Link fifteen. "CSS Minecraft"
+Link fifteen of eighteen. "CSS Minecraft"
 
 It is wild to me that this is possible with CSS only!
 
-Link sixteen. "I made a font | blog.chay.dev"
+Link sixteen of eighteen. "I made a font | blog.chay.dev"
 
 The font here is nice enough, but the thing I really liked in this article is the author going into detail on how they made their very first font. For some reason I always find font creation super interesting. Reading this article had me pondering the idea of creating a font of my own. I think it would be called Thing. Hmm… added to the Someday, Maybe list.
 
-Link seventeen. "Russia launches one of biggest drone attacks on Kyiv since start of war | Ukraine | The Guardian"
+Link seventeen of eighteen. "Russia launches one of biggest drone attacks on Kyiv since start of war | Ukraine | The Guardian"
 
 Russia's attacks on Ukraine continue and have escalated. Three years on and the people of Ukraine need our support.
 
-Link eighteen. "The David Lynch Collection"
+Link eighteen of eighteen. "The David Lynch Collection"
 
 I loved Twin Peaks and am a Lynch fan. What a collection of stuff. The "Twin Peaks" Scripts with the original "Northwest Passage" title are already at 6,000 dollars.
 

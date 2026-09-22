@@ -10,13 +10,15 @@ It’s been two months since I've gotten to write to all of you and it’s tempt
 
 Now, the Must Read section.
 
-Link one. "How software developers can drive business growth | McKinsey"
+There are two links this week.
+
+Link one of two. "How software developers can drive business growth | McKinsey"
 
 Found this via Donnie Berkholz newsletter and I find the data super interesting. Exhibit 4 which shows the specific functional breakdowns that correlate to higher business growth is an interesting key to focus on.
 
 I often reflect that "Teams that ship more, win more." and the tooling that is highlighted here is all about speed. You don't have to be smarter, you have to get more chances to be right. Ship more!
 
-Link two. "Kindle Collects a Surprisingly Large Amount of Data"
+Link two of two. "Kindle Collects a Surprisingly Large Amount of Data"
 
 I have always assumed that the Kindle collects a tremendous amount of information about what you are reading. Seeing it all spelled out like this makes it more meaningful.
 

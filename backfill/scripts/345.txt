@@ -14,11 +14,13 @@ Enjoy the links and have a great day!
 
 Now, the Notable section.
 
-Link one. "OpenAI’s New Codex App Has the Best ‘Computer Use’ Feature I’ve Ever Tested - MacStories"
+There are ten links this week.
+
+Link one of ten. "OpenAI’s New Codex App Has the Best ‘Computer Use’ Feature I’ve Ever Tested - MacStories"
 
 Add this to the long list of things I need to directly play with. I will share that I've been incredibly frustrated with OpenClaw and am about to give up on it. The continued progression of Claude Cowork and now Codex computer-use features seem like they are much more mature and reliable to get work done.
 
-Link two. "Cloudflare Email Service: now in public beta. Ready for your agents"
+Link two of ten. "Cloudflare Email Service: now in public beta. Ready for your agents"
 
 There are a lot of email services but not many that are fully designed for agents. Agents are going to want email as a core service just like we do, but they are going to want their email inbox to work differently. This is going to happen with many, many services.
 
@@ -26,7 +28,7 @@ I have to share that I have some flashbacks here to the period when we were maki
 
 I think this time is very different.
 
-Link three. "Headless everything for personal AI"
+Link three of ten. "Headless everything for personal AI"
 
 This "headless" term is pure marketing and I sure hope it blows by, but the concept I agree with completely. Matter of fact I’m already playing here with my mb project. I've been working on a lot of agent building and thinking about how agentic systems compare with typical product building that has been the focus of most things I've done for my career.
 
@@ -38,7 +40,7 @@ There is overlap between these but less than you might think. Part of the reason
 
 And on top of that, you can just ask the agent how it is working. You can ask another LLM to generate interactive test data. You can move so much faster.
 
-Link four. "Introducing Claude Design by Anthropic Labs"
+Link four of ten. "Introducing Claude Design by Anthropic Labs"
 
 Anthropic's newest major capability for Claude is Claude Design. I wanted to get my hands dirty with it so I pointed it at the POAP KINGS website which was entirely created with Claude Code, including the design. I thought the design was okay but I had just added a blog feature and it was getting unruly. I pointed Claude Design at the Github repo and it went to work. I answered a number of questions about what I was hoping for and over the course of several prompts it provided a very solid iteration forward.
 
@@ -46,7 +48,7 @@ The most helpful thing in Claude Design is that you can select a specific elemen
 
 Impressive, particularly for a beta, and the connectedness with Claude Code is very powerful.
 
-Link five. "Dad brains: How fatherhood rewires the male mind"
+Link five of ten. "Dad brains: How fatherhood rewires the male mind"
 
 Interesting read filled with what seems like a decent amount of common sense.
 
@@ -56,23 +58,23 @@ End quote.
 
 Tons of podcasts and newsletters for men are focusing on keeping your testosterone high and that it is a problem for men as they age. Data also shows that being in a good relationship and having kids drops testosterone levels. We shouldn't ignore either to the disadvantage of the other, but it is also important to not just look at one thing in isolation.
 
-Link six. "Introducing ChatGPT Images 2.0 | OpenAI"
+Link six of ten. "Introducing ChatGPT Images 2.0 | OpenAI"
 
 Incredible example images created by the newest image models from OpenAI. I know everyone, including me, is all focused on Anthropic right now but GPT-5.5 and this are pretty impressive.
 
-Link seven. "Mac Power Users #845: Intentional Technology with Patrick Rhone - Relay"
+Link seven of ten. "Mac Power Users #845: Intentional Technology with Patrick Rhone - Relay"
 
 Was great to see the Twin Cities own Patrick Rhone on the latest episode of Mac Power Users!
 
-Link eight. "An MCP server for Fastmail — National Email Day"
+Link eight of ten. "An MCP server for Fastmail — National Email Day"
 
 This might be the first MCP server that becomes my BFF. I’ve been a Fastmail user for many years and when I saw this I instantly went into Claude and added the connection. It was super-simple and then I asked Claude if it could see my email and there it was. I've not done anything all that advanced with it but I’m very happy with how seamless and easy it is. It is also great that it connects to my Claude account and instantly was available on all of my Claude interfaces. Oh how I wish I had a similar MCP for OmniFocus.
 
-Link nine. "Is Your Site Agent-Ready?"
+Link nine of ten. "Is Your Site Agent-Ready?"
 
 Tool that inspects a website to see what AI capabilities it is advertising. Useful if you wish to make your site as useful for agents as possible. I’m surprised thought that it didn’t look for llms.txt support.
 
-Link ten. "Introducing GPT-5.5 | OpenAI"
+Link ten of ten. "Introducing GPT-5.5 | OpenAI"
 
 Most of the highlights here are about coding. I fired up codex on Elixir's code and asked it to do a review and assessment. It came forward with strong suggestions and quickly understood everything. The model seemed notably fast to me. Just overall it is still mind-blowing how this is all evolving.
 
@@ -228,39 +230,41 @@ That's the end of the Journal.
 
 Now, the Briefly section.
 
-Link one. "On Ada, Its Design, and the Language That Built the Languages"
+There are nine links this week.
+
+Link one of nine. "On Ada, Its Design, and the Language That Built the Languages"
 
 Long article but I like these kind of deep-dives into languages. This one makes the case that Ada was well ahead of its time in many ways.
 
-Link two. "Wikiwise — Build your own Wikipedia"
+Link two of nine. "Wikiwise — Build your own Wikipedia"
 
 I am a fan of wikis but getting them integrated into your knowledge system isn't easy. Using a wiki to collaborate with an agent seems like a solid path.
 
-Link three. "Changes in the system prompt between Claude Opus 4.6 and 4.7"
+Link three of nine. "Changes in the system prompt between Claude Opus 4.6 and 4.7"
 
 It is super interesting to see the changes that AI models get between releases.
 
-Link four. "Daring Fireball: 'Community Letter From Tim'"
+Link four of nine. "Daring Fireball: 'Community Letter From Tim'"
 
 I'll miss Tim Cook being at the helm of Apple. I've got a ton of respect for what he has built and how he has led Apple (with a couple of recent exceptions).
 
-Link five. "Noah Kahan: Tiny Desk Concert: NPR"
+Link five of nine. "Noah Kahan: Tiny Desk Concert: NPR"
 
 We have tickets to go see Noah Kahan in Minneapolis this summer. Our whole family is really into his music.
 
-Link six. "Daring Fireball: Trump on Tim Apple"
+Link six of nine. "Daring Fireball: Trump on Tim Apple"
 
 Nothing much to add.
 
-Link seven. "Daring Fireball: Another Day Has Come"
+Link seven of nine. "Daring Fireball: Another Day Has Come"
 
 John Gruber commenting on the CEO transition at Apple. Gruber is my go to for deep Apple insights.
 
-Link eight. "Why Zip drives dominated the 90s, then vanished almost overnight"
+Link eight of nine. "Why Zip drives dominated the 90s, then vanished almost overnight"
 
 This brought me back! I remember being so excited when I got my Zip drive back in the day. It seemed so fast and could hold so much!
 
-Link nine. "Ferrari: The Prancing Horse and the Business of Desire — Acquired"
+Link nine of nine. "Ferrari: The Prancing Horse and the Business of Desire — Acquired"
 
 As a fan of Ferrari and specifically Ferrari Formula 1 I greatly enjoyed this episode of Acquired.
 

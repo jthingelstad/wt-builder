@@ -30,11 +30,13 @@ That's the end of Currently.
 
 Now, the Notable section.
 
-Link one. "Every webpage deserves to be a place"
+There are eight links this week.
+
+Link one of eight. "Every webpage deserves to be a place"
 
 I love this experimental way of showing multiple people looking at the same web page and even allowing them to communicate with each other. We should have a bunch more experimentation with this kind of social capability. I love the idea of giving the web physicality and a sense of being somewhere with others.
 
-Link two. "The Effects of Generative AI on High Skilled Work"
+Link two of eight. "The Effects of Generative AI on High Skilled Work"
 
 I’m not sure I would put too much weight into this study due to the small sample set of just three organizations (Microsoft, Accenture, Anonymous Company). It is good to see this studied and interesting to see the results.
 
@@ -46,7 +48,7 @@ I feel like we need more understanding about the decrease benefit associated wit
 
 However you approach it though it is clear that there is a benefit to be had for developers to use AI capabilities.
 
-Link three. "For Starters #33: Your First Pitch is This One Sentence"
+Link three of eight. "For Starters #33: Your First Pitch is This One Sentence"
 
 My friend Garrick with a super simple way to talk about the value you bring to the market.
 
@@ -56,7 +58,7 @@ End quote.
 
 Simple. And spot on.
 
-Link four. "Why GitHub Actually Won"
+Link four of eight. "Why GitHub Actually Won"
 
 Great article from one of the founders of GitHub.
 
@@ -74,7 +76,7 @@ End quote.
 
 Focus on the experience. It matters for everyone, even developers.
 
-Link five. "My Thoughts About Apple’s iPhone 16 “Glowtime” Event – On my Om"
+Link five of eight. "My Thoughts About Apple’s iPhone 16 “Glowtime” Event – On my Om"
 
 I appreciated Om's perspective on the most recent iPhone announcements. He frames up the cycle we are in very well:
 
@@ -84,11 +86,11 @@ End quote.
 
 The physical device is really just the same glass with very few buttons around it. Everything else is in the software.
 
-Link six. "The new reMarkable Paper Pro adds a color display"
+Link six of eight. "The new reMarkable Paper Pro adds a color display"
 
 I have a reMarkable 2 and while I don't use it that much I am very impressed with the device. My biggest issue with it is actually solved with the Paper Pro and the front light. My fifty-year-old eyes don't do so well in dark rooms and without a lot of light I find the reMarkable 2 hard to see. The front light would be a big win. I've always been impressed at the low latency of the pen, and it is twice as fast on this one. Color will be nice to add as well. They have also made steady improvements in the software. This new one is very enticing.
 
-Link seven. "Rogue WHOIS server gives researcher superpowers no one should ever have | Ars Technica"
+Link seven of eight. "Rogue WHOIS server gives researcher superpowers no one should ever have | Ars Technica"
 
 This is a pretty incredible story and I’m surprised that there is no cryptographic signing requirements for a WHOIS server like this. In this case this researcher simply setup a WHOIS server where one previously was and a bunch of things just trusted it because it was there!
 
@@ -98,7 +100,7 @@ End quote.
 
 It seems wild that such a critical function wouldn't require some form of certificate to prove it is valid.
 
-Link eight. "Windows NT versus Unix: A design comparison by Julio Merino"
+Link eight of eight. "Windows NT versus Unix: A design comparison by Julio Merino"
 
 I enjoyed this read comparing the designs of Unix and Windows NT.
 
@@ -176,39 +178,41 @@ That's the end of the Journal.
 
 Now, the Briefly section.
 
-Link one. "Big Hockey Players, Itty-Bitty Rink"
+There are nine links this week.
+
+Link one of nine. "Big Hockey Players, Itty-Bitty Rink"
 
 A hockey rink 1/tenth the size with two full teams.
 
-Link two. "I Wrote a Static Site Generator in Bash - Paul's Weblog"
+Link two of nine. "I Wrote a Static Site Generator in Bash - Paul's Weblog"
 
 You really shouldn't do this kind of thing in bash, but I love that you can and that he did.
 
-Link three. "10+ Things to Know about The Great Wave | The Art Institute of Chicago"
+Link three of nine. "10+ Things to Know about The Great Wave | The Art Institute of Chicago"
 
 The Great Wave is Tyler's favorite art work and these various facts about it are interesting.
 
-Link four. "Apple Watch Ultra 2 now available in black titanium - Apple"
+Link four of nine. "Apple Watch Ultra 2 now available in black titanium - Apple"
 
 The Ultra 2 in black with the black band — wow!
 
-Link five. "Boomer Apple – Stratechery by Ben Thompson"
+Link five of nine. "Boomer Apple – Stratechery by Ben Thompson"
 
 Thompson suggesting that Apple has really completed the turn from a hardware company with a blend of software and services, to a services company enabled by a hardware platform.
 
-Link six. "Man Arrested for Creating Fake Bands With AI, Then Making 10 million dollars by Listening to Their Songs With Bots"
+Link six of nine. "Man Arrested for Creating Fake Bands With AI, Then Making 10 million dollars by Listening to Their Songs With Bots"
 
 Incredible story of an entire creator and fan loop created by bots and generating royalty dollars fraudulently.
 
-Link seven. "Why AI Can Push You to Make the Wrong Decision at Work"
+Link seven of nine. "Why AI Can Push You to Make the Wrong Decision at Work"
 
 The headline is a bit misleading, or at least omits that this is really about automation bias. Automation bias combined with results that are not predictable is a dangerous mix.
 
-Link eight. "LLM Visualization"
+Link eight of nine. "LLM Visualization"
 
 Very cool visual walk through of an extremely simple LLM.
 
-Link nine. "One a Month Club"
+Link nine of nine. "One a Month Club"
 
 Indieweb movement to promote supporting things you enjoy on the web by paying 1 dollar a month. I like this idea and signed up to support a few of these blogs already. I even setup my own One a Month.
 

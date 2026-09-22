@@ -32,7 +32,9 @@ That's the end of Introducing Jesse Lang's Blog.
 
 Now, the Notable section.
 
-Link one. "Reasons to have higher L1 gas limits even in an L2-heavy Ethereum"
+There are nine links this week.
+
+Link one of nine. "Reasons to have higher L1 gas limits even in an L2-heavy Ethereum"
 
 I continue to see promise in Ethereum's Layer 1 (L1) versus Layer 2 (L2) network. I think the idea of one blockchain "winning" is not likely, and would likely be a bad thing. Ethereum's approach is much like the Internet itself, a network of networks. This blog post is exploring how much more scale is needed in Ethereum in order to support this vision, and in the short term doesn't making L1 gas fees super low actually discourage L2 adoption? As usual I found Buterin's analysis logical and I particularly liked the different use cases he highlights.
 
@@ -42,7 +44,7 @@ End quote.
 
 So yes, Ethereum needs to get at least another order of magnitude cheaper and faster to support this. The example of a L2 going rogue and all assets needing to be moved off of it is an interesting one. Reading this continues to make me wish that Gnosis would transition to a proper L2.
 
-Link two. "TAG Grading"
+Link two of nine. "TAG Grading"
 
 Tyler and I have branched into the world of "graded" Pokémon cards. Most cards are graded by PSA and when we sent our first cards in to be graded I was floored — it takes a month to get your card back, and costs 25 dollars a card to be graded. Apparently a person does all this voodoo to determine the grading. That seemed bonkers to me with all the advanced computer vision capabilities that exist. TAG is a different take using those capabilities. You get super detailed analysis of the card via computer vision analysis and the grading is quantitative. Cheaper as well, but still not as cheap as it should be.
 
@@ -52,31 +54,31 @@ I still think these services are missing two big things.
 
 2. They should be issuing an NFT for each card they grade. They all maintain a database of the cards they've graded and a link so you can see that info. But these databases could be completely open and tradable as NFTs. Plus it would be a simple add-on sale for 5 dollars to mint an NFT to go with the grading process.
 
-Link three. "calculator-app - Chad Nauseam Home"
+Link three of nine. "calculator-app - Chad Nauseam Home"
 
 Another of these great explorations of the edge cases of writing software. This is a fun dive into all the various ways that computers "approximate" numbers and even the more complicated issue of numbers that cannot be expressed completely like π. After reading this I’m now going to cede that the Android calculator app may be pretty cool.
 
 Sadly I did the same test with my preferred calculator app PCalc and it also got the (10^100)+1-(10^100) solve wrong.
 
-Link four. "Run LLMs on macOS using llm-mlx and Apple’s MLX framework"
+Link four of nine. "Run LLMs on macOS using llm-mlx and Apple’s MLX framework"
 
 Filing this one away since one of the reasons I got the M4 Pro chip on my new laptop was to play around with local LLMs.
 
-Link five. "WikiTimeline - Generate Interactive Historical Timelines from Wikipedia"
+Link five of nine. "WikiTimeline - Generate Interactive Historical Timelines from Wikipedia"
 
 I dig timelines and generally think they are an underused form of data visualization. This is a cool tool to display Wikipedia content using them. I whipped up a timeline with ARM, Linux, and iPhone milestones as an example.
 
-Link six. "The Deep Research problem — Benedict Evans"
+Link six of nine. "The Deep Research problem — Benedict Evans"
 
 Main issue with all AI tools is what level of confidence do you need to actually rely on them, and the more complicated the work they do the more you have to double check. I’m using AI a lot for things that are purely subjective and I can "judge" them very easily. When you get to more complicated topics that require your own analysis the benefits vanish.
 
 That sounds just like doing a group project with other people by the way. Is this even a solvable problem?
 
-Link seven. "My LLM codegen workflow atm | Harper Reed's Blog"
+Link seven of nine. "My LLM codegen workflow atm | Harper Reed's Blog"
 
 Super interesting overview of how one developer is using LLM's to help build software. Love to see folks exploring new territory like this.
 
-Link eight. "Reflections on 25 years of Interconnected"
+Link eight of nine. "Reflections on 25 years of Interconnected"
 
 Lovely history and look back on blogging.
 
@@ -86,7 +88,7 @@ End quote.
 
 This all warms my heart and I can’t emphasize enough the point of "words build up over time". I treasure my blog (and my newsletter!).
 
-Link nine. "The Imperfectionist: Reality is right here"
+Link nine of nine. "The Imperfectionist: Reality is right here"
 
 There has been an absolutely avalanche of news recently. I found this concept of "psychological center of gravity" from Burkeman interesting.
 
@@ -263,51 +265,53 @@ That's the end of the Journal.
 
 Now, the Briefly section.
 
-Link one. "My Life in Weeks by Gina Trapani"
+There are twelve links this week.
+
+Link one of twelve. "My Life in Weeks by Gina Trapani"
 
 I dig this approach to a "map of my life". Also interesting to see the empty blocks for the future.
 
-Link two. "Introducing Privacy Pass authentication for Kagi Search | Kagi Blog"
+Link two of twelve. "Introducing Privacy Pass authentication for Kagi Search | Kagi Blog"
 
 I wasn't aware of Privacy Pass but I dig the concept allowing you to access a service requiring authentication without them knowing who you are. This is also something that can be done super easily with cyrpto by holding an NFT in your wallet. Love to see Kagi bringing this feature forward.
 
-Link three. "The Physicians Really Are Healing Themselves, With Ozempic - The New York Times"
+Link three of twelve. "The Physicians Really Are Healing Themselves, With Ozempic - The New York Times"
 
 Doctors getting on the GLP-1 train in a big way.
 
-Link four. "Biomarker Test Can Detect Alzheimer's Pathology Earlier, Pitt Study Shows | School of Medicine | University of Pittsburgh"
+Link four of twelve. "Biomarker Test Can Detect Alzheimer's Pathology Earlier, Pitt Study Shows | School of Medicine | University of Pittsburgh"
 
 Many breakthroughs in early detection of Alzheimers. Linked via this article.
 
-Link five. "United States Power Outage Map"
+Link five of twelve. "United States Power Outage Map"
 
 Useful aggregation of data.
 
-Link six. "Product Development Processes You Might Not have Heard of - Department of Product"
+Link six of twelve. "Product Development Processes You Might Not have Heard of - Department of Product"
 
 Good reminder that is isn't all just Scrum and Waterfall.
 
-Link seven. "Daring Fireball: Golfo del Gringo Loco"
+Link seven of twelve. "Daring Fireball: Golfo del Gringo Loco"
 
 Gulf of Thingelstad.
 
-Link eight. "Elon Musk’s X blocks links to Signal, the encrypted messaging service"
+Link eight of twelve. "Elon Musk’s X blocks links to Signal, the encrypted messaging service"
 
 Musk's idea of "free speech".
 
-Link nine. "Project twenty twenty five Tracker"
+Link nine of twelve. "Project twenty twenty five Tracker"
 
 Impressive progress for a plan nobody was going to follow.
 
-Link ten. "Signals of Trouble: Multiple Russia-Aligned Threat Actors Actively Targeting Signal Messenger | Google Cloud Blog"
+Link ten of twelve. "Signals of Trouble: Multiple Russia-Aligned Threat Actors Actively Targeting Signal Messenger | Google Cloud Blog"
 
 Put this in the category of the most effective security tools are likely to be attacked the most. Suggestion, donate to Signal, even if you don't use it.
 
-Link eleven. "Daring Fireball: Thoughts and Observations on Today’s iPhone 16e Announcement"
+Link eleven of twelve. "Daring Fireball: Thoughts and Observations on Today’s iPhone 16e Announcement"
 
 We have a new letter to attach to iPhone models, e? Overall a good phone but even the lower cost phones are not low cost anymore.
 
-Link twelve. "Pay to get playlisted? The accusations against Spotify’s Discovery Mode | The Guardian"
+Link twelve of twelve. "Pay to get playlisted? The accusations against Spotify’s Discovery Mode | The Guardian"
 
 Ugh Spotify!
 

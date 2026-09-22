@@ -30,11 +30,13 @@ That's the end of Introducing Phil Rodemann's Blog.
 
 Now, the Notable section.
 
-Link one. "Scaling Ethereum L1 and L2s in twenty twenty five and beyond"
+There are fourteen links this week.
+
+Link one of fourteen. "Scaling Ethereum L1 and L2s in twenty twenty five and beyond"
 
 Buterin sharing current point-of-view on continued growth and scaling of Ethereum. I continue to be a big proponent of Ethereum and the roadmap. The network-of-networks approach with Layer 1 and Layer 2s makes so much sense. I also love that Ethereum continues to build, build, and build the infrastructure that will enable incredible capabilities. It is a long and complex roadmap.
 
-Link two. "You're Being Alienated From Your Own Attention - The Atlantic"
+Link two of fourteen. "You're Being Alienated From Your Own Attention - The Atlantic"
 
 Gift link! What are you thinking about right now? What has your attention? Why?
 
@@ -44,15 +46,15 @@ End quote.
 
 It is worth thinking about these questions and making sure you understand the why.
 
-Link three. "TabBoo"
+Link three of fourteen. "TabBoo"
 
 I love this! Yes you can block websites that you don't want to go to but find yourself continuing to go there. That is what I use 1Blocker for. This Chrome extension lets you go there and then pops a "boo" image at you. Behavior conditioning at work!
 
-Link four. "FOMO Machines - I am BARRY HESS"
+Link four of fourteen. "FOMO Machines - I am BARRY HESS"
 
 One of the great practices that mindfulness brings you is to be aware of your own reaction to things. Why do I feel like this when I am exposed to that? Hess takes a moment of mindfulness with different services. Do this once a day and take action and you'll be happier.
 
-Link five. "The Bear Manifesto | ᕕ( ᐛ )ᕗ Herman's blog"
+Link five of fourteen. "The Bear Manifesto | ᕕ( ᐛ )ᕗ Herman's blog"
 
 I love this manifesto from Herman Martinus, the creator of Bear which is a great indie blogging service. He highlights:
 
@@ -64,19 +66,19 @@ He even goes further to talk about the legal structure and real thought he has p
 
 We need more people building digital services with this mindset.
 
-Link six. "The Art of Calling Out Room Dynamics"
+Link six of fourteen. "The Art of Calling Out Room Dynamics"
 
 This isn't something I’m great at, but I know other leaders that are really good at this and it definitely works. It is the antidote of "going to silence" or "going to violence" when there is conflict.
 
-Link seven. "Open Heart Protocol"
+Link seven of fourteen. "Open Heart Protocol"
 
 I like using Emoji reactions in Slack and chat tools. I’m actually all for something like this that would allow you to add emoji reactions to any URL. It seems overly simple though. Like you would get hit with millions of fake messages just because you could.
 
-Link eight. "Almost one in 10 people use the same four-digit PIN - ABC News"
+Link eight of fourteen. "Almost one in 10 people use the same four-digit PIN - ABC News"
 
 This article is fun to read if only for the PIN visualizations. I like how they did that. Seriously though why do people pick such horrendous PINs? 10% of people use the same PIN? It isn't that hard to do this at least a little right.
 
-Link nine. "We’re Shutting Down The Pika Pulse - Building Pika Out Loud"
+Link nine of fourteen. "We’re Shutting Down The Pika Pulse - Building Pika Out Loud"
 
 Pika is another great blogging service made by the wonderful folks over at Good Enough. Similar to Micro.blog's Discover feed, Pika made the Pulse feed as a way to support discovery of new blogs. It sounds like it was using a random selection of articles.
 
@@ -88,19 +90,19 @@ Their decision highlights to me how hard it is to both be a publishing solution 
 
 However if you are an aggregator you are fundamentally making choices. You are an editor. If you have AI do it, or a random number generator, you are no less an editor you are just using something other than a person to select what to highlight.
 
-Link ten. "Google Maps to show Gulf of America after government updates"
+Link ten of fourteen. "Google Maps to show Gulf of America after government updates"
 
 I remember reading about this feature in Google Maps years ago. They had to solve the capability of using different labels for the same thing because governments don't agree. Mostly it is in conflicted areas of the world. But now the U.S. is considered a ‘sensitive country’ like China, Russia and we'll get our own special names that are different than the rest of the globe.
 
-Link eleven. "The Old Family Photos Project: Lessons in creating family photos that people want to keep | Esther Schindler"
+Link eleven of fourteen. "The Old Family Photos Project: Lessons in creating family photos that people want to keep | Esther Schindler"
 
 I take a lot of photographs. Some for fun, some for documentation, some for art. My library is over 200,000 for sure. How will my descendants look at those photos? This article is a cool perspective. It isn't going to change how I think of my own photos, but it does make me appreciate the photos that I put on my blog and have at least some context on what it is about.
 
-Link twelve. "Omni Roadmap twenty twenty five - The Omni Group"
+Link twelve of fourteen. "Omni Roadmap twenty twenty five - The Omni Group"
 
 Given how much I use OmniFocus I’m always interested to see what Omni is thinking. I have no idea if I'll like a Kanban view. We'll see. The tag logic that they are adding seems like a component of a Kanban view as well. A scheduled date could be interesting. I'd like to see them do something with Contacts and being able to associate tasks with people. The same way you can add a location to a tag, let me add a contact to a tag and then do interesting things with that.
 
-Link thirteen. "Introducing codename goose"
+Link thirteen of fourteen. "Introducing codename goose"
 
 This codename goose is an interesting tool.
 
@@ -110,7 +112,7 @@ End quote.
 
 We are going to see a ton of innovative solutions like this.
 
-Link fourteen. "DistroWatch.com: Put the fun back into computing. Use Linux, BSD."
+Link fourteen of fourteen. "DistroWatch.com: Put the fun back into computing. Use Linux, BSD."
 
 So Facebook has decided they are no longer going to moderate a bunch of posts that have hateful and fake information, but they are going to decide Linux is off limits?
 
@@ -170,43 +172,45 @@ That's the end of the Journal.
 
 Now, the Briefly section.
 
-Link one. "You can just hack on ATProto | Vicki Boykis"
+There are ten links this week.
+
+Link one of ten. "You can just hack on ATProto | Vicki Boykis"
 
 You used to be able to just hack on many of these social services until they turned away from innovation to focus on surveillance and lock-in as much as possible. Cool that Bluesky creating a way for people to play, explore, and have fun.
 
-Link two. "Badges"
+Link two of ten. "Badges"
 
 I love these old school web badges! It makes me want to get some of my own!
 
-Link three. "NYC Subwaysheds"
+Link three of ten. "NYC Subwaysheds"
 
 Don't live in NYC so isn't that interesting but I liked the data visualization.
 
-Link four. "Michael Tsai - DeepSeek"
+Link four of ten. "Michael Tsai - DeepSeek"
 
 Tsai does great roundup posts and this one has a ton of links on DeepSeek.
 
-Link five. "A Synchronized Start for Linked Devices — Signal"
+Link five of ten. "A Synchronized Start for Linked Devices — Signal"
 
 This is a much needed feature for Signal. It is frustrating when you setup a new device and have no history.
 
-Link six. "This Habit Is Making You Miserable - RyanHoliday.net"
+Link six of ten. "This Habit Is Making You Miserable - RyanHoliday.net"
 
 Great suggestion from Ryan Holiday.
 
-Link seven. "Minnetonka-based E-Commerce Firm Digital River to Shut Down | Twin Cities Business"
+Link seven of ten. "Minnetonka-based E-Commerce Firm Digital River to Shut Down | Twin Cities Business"
 
 Digital River was a power house in Minneapolis at one point. It is a bit sad to see it shutting down.
 
-Link eight. "Making Micro Social - Greg Morris"
+Link eight of ten. "Making Micro Social - Greg Morris"
 
 Interesting third party app being built on micro.blog.
 
-Link nine. "Hedy - Textual programming made easy"
+Link nine of ten. "Hedy - Textual programming made easy"
 
 Simple programming language to teach coding. I like that this runs right in the browser.
 
-Link ten. "Why I still like Sublime Text in twenty twenty five | OhDoyleRules"
+Link ten of ten. "Why I still like Sublime Text in twenty twenty five | OhDoyleRules"
 
 I’m not a programmer so I can’t say I need the same power in an editor as those folks, but I’m a happy Sublime Text user still. Also, I need to look into a Markdown LSP.
 

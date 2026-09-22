@@ -10,7 +10,9 @@ Cheers!
 
 Now, the Notable section.
 
-Link one. "Prestige Writing – Rands in Repose"
+There are nine links this week.
+
+Link one of nine. "Prestige Writing – Rands in Repose"
 
 Writing arcs, and telling a story.
 
@@ -20,15 +22,15 @@ End quote.
 
 This sounds much more enjoyable than the typical "vanilla" structure. Thanks Leah for the link.
 
-Link two. "NutritionFacts.org | The Latest Nutrition Related Topics"
+Link two of nine. "NutritionFacts.org | The Latest Nutrition Related Topics"
 
 Accurate data on nutrition is incredibly difficult to find. This organization is a non-profit, backed by donors. I've listened to the podcast and it is high-quality as well. All science-based information. Thanks to my brother-in-law Max for putting this on my radar.
 
-Link three. "Send and receive crypto on multiple networks, starting with Polygon and Solana | The Coinbase Blog"
+Link three of nine. "Send and receive crypto on multiple networks, starting with Polygon and Solana | The Coinbase Blog"
 
 Supporting multiple blockchains is important and it is nice to see Coinbase getting there. Eventually the different blockchains need to be abstracted from the end-user, and this is a step in that direction. It is a smart retention move by Coinbase as well. Direct transfer to networks like Polygon and Solana is the main capability that has made me consider going to a different exchange. With Polygon supported you can Hop Exchange to get to many other Layer 2 networks, including Gnosis.
 
-Link four. "Get Yourself Free by Mo Perry - The Unfurling"
+Link four of nine. "Get Yourself Free by Mo Perry - The Unfurling"
 
 Mo Perry on keeping your identity small. Non-identification.
 
@@ -38,11 +40,11 @@ End quote.
 
 Deep stuff, and a topic I find very interesting. I love the label-maker reference.
 
-Link five. "Tech Notes: Notes on WebAssembly"
+Link five of nine. "Tech Notes: Notes on WebAssembly"
 
 I haven't been following WebAssembly that closely. Notes like this are interesting to see how it is developing and broadly how it works. WebAssembly Everywhere is another good read on the topic exploring where it could go as it evolves.
 
-Link six. "Launching Seaport and Saving the Community Millions in Fees - OpenSea Blog"
+Link six of nine. "Launching Seaport and Saving the Community Millions in Fees - OpenSea Blog"
 
 Seaport replaces the Wyvern Protocol frequently used to transfer digital assets between wallets (people). It has a number of new features and performance improvements. The savings in gas fees are incredible.
 
@@ -52,15 +54,15 @@ End quote.
 
 All of this is enabled through open source and protocols that can be deployed independent of the assets themselves.
 
-Link seven. "Markwhen"
+Link seven of nine. "Markwhen"
 
 Markdown was a great innovation because it allows a writer to stay "in flow" better while authoring for the web. The idea has been extended to many other domains, this one in project planning and Gantt charts. It reminds me of a Chris Rock joke though — "You can drive a car with your feet if you want to; it don't mean it's a good [beep] idea!" Markwhen? A fun trick like driving a car with your feet, but not a good idea.
 
-Link eight. "PhizFans Multisig Experiment"
+Link eight of nine. "PhizFans Multisig Experiment"
 
 I so adore this experiment! Superphiz gave a Phiz Fans POAP out. He then took anyone that got that POAP and had an ENS name setup (I suspect to prove some level of familiarity) and made those 52 holders the joint owners of the Phiz Fans wallet! He then transferred an NFT into it. The wallet requires 6 holders to approve any actions. Now they have transferred their own ENS name into it, as well as other assets. Wild!
 
-Link nine. "Software Engineering - The Soft Parts - AddyOsmani.com"
+Link nine of nine. "Software Engineering - The Soft Parts - AddyOsmani.com"
 
 This is an incredibly broad, and insightful, set of recommendations that Osmani has compiled based on 10 years of being a Senior Staff Engineering Manager on Google Chrome. He covers a wide array of topics, and I just kept nodding my head as I read along. It is notable to me how often learning and communication show up.
 
@@ -103,31 +105,33 @@ That's the end of the Journal.
 
 Now, the Briefly section.
 
-Link one. "Cloudflare outage on June 21, twenty twenty two"
+There are seven links this week.
+
+Link one of seven. "Cloudflare outage on June 21, twenty twenty two"
 
 Another large outage tied back to BGP changes. BGP is incredibly necessary, but when you introduce a problem it can have profound impacts.
 
-Link two. "Brave announces Filecoin integration and more preloaded EVM chains in Brave Wallet | Brave Browser"
+Link two of seven. "Brave announces Filecoin integration and more preloaded EVM chains in Brave Wallet | Brave Browser"
 
 It is cool to see Brave Browser experimenting and innovating with crypto-based technology. They are also shipping the browser with more Ethereum Layer 2 networks preconfigured.
 
-Link three. "He used to edit political stories at the Chicago Tribune. Now he says the press is failing our democracy. - PressThink"
+Link three of seven. "He used to edit political stories at the Chicago Tribune. Now he says the press is failing our democracy. - PressThink"
 
 I've worked with many great journalists when I was at MarketWatch and Dow Jones. It frustrates me that so many disparage the profession, but the profession itself needs to evolve and approach the work differently.
 
-Link four. "Don't Use Kubernetes, Yet"
+Link four of seven. "Don't Use Kubernetes, Yet"
 
 Argues that small teams do not get a large enough return on investment from Kubernetes. Totally makes sense. Also suggests the opposite, large teams should use it and get significant return, assuming you do make the investment to support the carrying costs.
 
-Link five. "(Not Boring) Habits App | Fun habit tracker that works"
+Link five of seven. "(Not Boring) Habits App | Fun habit tracker that works"
 
 I've used Streaks for years for habit building. Streaks tries to walk a line that is a little to-do list, but based on habits. I’m sure a lot of people use it as a to-do list. I do not. This app is solely focused on Habits. If you clearly distinguish habits and to-do list this might be worth a look.
 
-Link six. "The computers are fast, but you don't know it | Computer Science After Dark"
+Link six of seven. "The computers are fast, but you don't know it | Computer Science After Dark"
 
 Fun journey through 5-stages of optimization of a function, using Python and extending into C++.
 
-Link seven. "Skarper - eBike. Transformed"
+Link seven of seven. "Skarper - eBike. Transformed"
 
 Imagine a little motor and battery box that you can attach to any bike to make it an e-bike. That is this.
 

@@ -14,61 +14,63 @@ PS: The eighth anniversary of the Weekly Thing is just days away. This is the la
 
 Now, the Notable section.
 
-Link one. "The Art of Assembly Language"
+There are sixteen links this week.
+
+Link one of sixteen. "The Art of Assembly Language"
 
 I’m not suggesting that you should be writing assembly code. But I am suggesting that if you have no idea what assembly looks like and how it works you should give this a gander. Assembly is the closest human-readable thing to what your computer is actually doing. And frankly many current day programmers even have no idea how this is happening.
 
-Link two. "𝘁𝗶𝗻𝘆Pod"
+Link two of sixteen. "𝘁𝗶𝗻𝘆Pod"
 
 I wasn't sure what this really was until they showed it was an Apple Watch shoved into a case with a wheel. I’m not thinking this is going to be a commercial hit, but might it work well? It might. Frankly the mechanics of using a screen on your wrist makes using an Apple Watch harder. If it is in this device you might find the features more readily usable.
 
-Link three. "DOGE Is Building a Master Database to Surveil and Track Immigrants | WIRED"
+Link three of sixteen. "DOGE Is Building a Master Database to Surveil and Track Immigrants | WIRED"
 
 Nothing about the data being collected here would be limited to immigrants. Connecting the varied data sets together across organizations like this is in many cases illegal, but even further has the potential to create a surveillance system that undermines everyone, and is likely very riddled with gaps and errors.
 
-Link four. "Whistleblower: DOGE Siphoned NLRB Case Data – Krebs on Security"
+Link four of sixteen. "Whistleblower: DOGE Siphoned NLRB Case Data – Krebs on Security"
 
 A friend shared a podcast with me about this same case that I listened to. Krebs presents it well here. This certainly looks like a security event where data was exfiltrated from this government agency. Where that data then goes, impossible to know.
 
-Link five. "What I've learned about writing AI apps so far | Seldo.com"
+Link five of sixteen. "What I've learned about writing AI apps so far | Seldo.com"
 
 Field experience from using AI in applications. My takeaway is AI can do a lot, but it can’t do everything. You still have to understand the problem space and know what you are solving for. Often times those are the harder problems when building complex systems.
 
-Link six. "Perplexity's voice assistant now available on iOS | Mashable"
+Link six of sixteen. "Perplexity's voice assistant now available on iOS | Mashable"
 
 This new voice assistant capability actually triggered me to sign up for Perplexity Pro for a bit to give it a try. It is incredible how capable it is. There have been some calls that Apple should buy Perplexity as a way to solve the many issues they have with Siri. Reminder by the way that Apple also bought Siri however long ago. I thought that seemed silly until I tried this integration and was impressed with how well it worked being a third party app. Good on Perplexity, and even more example why Apple needs to get their act together on AI.
 
-Link seven. "feeels"
+Link seven of sixteen. "feeels"
 
 Web-based mood tracking app using the Atlas of Emotions. Mostly interesting to me because of the visual representation of the emotions. I've thought it would be interesting to use a mood tracker but have never done it in part because it seems so very subjective and sometimes I’m not even sure what my mood is.
 
-Link eight. "Diane, I wrote a lecture by talking about it (Interconnected)"
+Link eight of sixteen. "Diane, I wrote a lecture by talking about it (Interconnected)"
 
 Interesting approach to dictating with AI and how to use it with both commands and content. I’m a Twin Peaks fan so I caught the "Diane" reference in this post right way. Love it. I need to use Whisper Memos more.
 
-Link nine. "ChatGPT crosses a new AI threshold by beating the Turing test | TechRadar"
+Link nine of sixteen. "ChatGPT crosses a new AI threshold by beating the Turing test | TechRadar"
 
 I honestly thought it had beat Turing test a long time ago. By the way, if you find the Turing test interesting I always suggest reading The Most Human Human which goes deep into what makes up human conversation and explores why many humans actually fail the Turing test.
 
-Link ten. "Backfill your blog"
+Link ten of sixteen. "Backfill your blog"
 
 Moving your writing from one service to another can be a little challenging, and might require writing some small scripts, but it allows you to keep your content together. Instead of "starting a new blog", migrate it! I've done this I think five times. I also imported thousands of my Tweets into my blog after left Twitter (well before X) which was a little harder because probably half of that stuff didn’t make sense as a post. I fixed that over the course of regular blog gardening.
 
 There is another "backfill" too which is the blog pensieve — create whole new posts in the past. If you have a photo from the past, with a reliable timestamp, why not create a post as if it happened on that day?
 
-Link eleven. "RSS Lookup - Find RSS feeds on any URL"
+Link eleven of sixteen. "RSS Lookup - Find RSS feeds on any URL"
 
 Discovery of RSS feeds is one of the user adoption issues with RSS. Nearly all "feed readers" go out of their way to make this a bit easier for users. This tool is just to find feeds. Some sites go out of their way to make RSS feeds hard to find, particularly for complicated search parameters.
 
-Link twelve. "Stripe opens testing for new stablecoin product following Bridge acquisition"
+Link twelve of sixteen. "Stripe opens testing for new stablecoin product following Bridge acquisition"
 
 Stripe had been working on this a few years ago and put the effort on hold. The utility makes a ton of sense for them. There was a lot of concern about how the US Government may treat stable coins that stopped it. Circle and USDC continued on and were fine. There is huge utility in crypto infrastructure using stable assets like this. By the way, there are other approaches to stable coins that don't require government backed currencies. Rai Reflex is the one I've watched for years. It moves a little, but is a super interesting approach to the same use case.
 
-Link thirteen. "DeepWiki"
+Link thirteen of sixteen. "DeepWiki"
 
 This is a pretty incredible example of AI documenting and sharing understanding of code. You can add any public Github repository and it will then use Devin to build out documentation about the project. It is impressive and shows what we know is a powerful AI use case — understanding an existing codebase and familiarize the developer with how it works. To see how it worked further I added the repo for Foreground, the MediaWiki theme that Garrick and I worked on, and others have continued to build out over recent years. It took a few minutes to process and you can see it here. Frankly, it is incredibly good. Wow.
 
-Link fourteen. "Reading RSS content is a skilled activity - David Oliver"
+Link fourteen of sixteen. "Reading RSS content is a skilled activity - David Oliver"
 
 Probably you know I’m a huge fan of the RSS protocol and what how it allows you to subscribe to websites for ongoing updates, if they support it. In this post Oliver describes his failed attempts to use RSS and what he did differently to understand how to approach it better.
 
@@ -78,13 +80,13 @@ End quote.
 
 If it is indeed a skill it is one that I've honed well having used RSS for longer than I can remember.
 
-Link fifteen. "o3 Beats a Master-Level Geoguessr Player—Even with Fake EXIF Data"
+Link fifteen of sixteen. "o3 Beats a Master-Level Geoguessr Player—Even with Fake EXIF Data"
 
 Geoguessing is an interesting game that I first heard about from Tyler. Take a photo, a simple plain photo, anywhere in the world and the person sees how close they can get to figuring out where it was taken. Geoguessr allows you to play and compare yourself to other players. Many of them do this on YouTube so you can follow along how they "think about" figuring this out.
 
 So how would an LLM do with this challenge? It turns out pretty darn interesting, and just like the players on YouTube who talk through the problem you can watch the LLM work through it. It is amazing how close o3 is able to get to the guess that the expert makes. Related Watching o3 guess a photo’s location is surreal, dystopian and wildly entertaining
 
-Link sixteen. "How to have friends past age 30 - by Noah Smith"
+Link sixteen of sixteen. "How to have friends past age 30 - by Noah Smith"
 
 How friendship evolves past your 30s is an interesting topic to me, being well over 30. I have a number of good friends, but as many as I had at half my age? No. And how many of those friends are just friends versus business connections or other affiliations. Does that even matter? How do we think about friendship beyond just "spending time". Is there a skill here? I think there probably is. Related blog post from Chris ODonnell, I need new friends. I think this is a particularly poignant topic for men, and it seems to me connected to the overall decline in clubs and organizations that we've seen in the last few decades.
 
@@ -247,79 +249,81 @@ That's the end of the Journal.
 
 Now, the Briefly section.
 
-Link one. "kiki - a tiny homepage construction kit"
+There are nineteen links this week.
+
+Link one of nineteen. "kiki - a tiny homepage construction kit"
 
 Wonderful and simple shareware program to run a public wiki or homepage. Very basic with minimal dependencies.
 
-Link two. "Cyberpunk 1958: The Early Days of the Polish IT Industry | Article | Culture.pl"
+Link two of nineteen. "Cyberpunk 1958: The Early Days of the Polish IT Industry | Article | Culture.pl"
 
 Interesting early history of technology in Poland.
 
-Link three. "The Zen of Task Management with Org - Bastien Guerry"
+Link three of nineteen. "The Zen of Task Management with Org - Bastien Guerry"
 
 There is no way that I’m using Org Mode or anything else in Emacs, I care to much about actually getting stuff done. But learning structure and process from folks that are deep in that toolchain is interesting.
 
-Link four. "Pipelining might be my favorite programming language feature | MOND←TECH MAGAZINE"
+Link four of nineteen. "Pipelining might be my favorite programming language feature | MOND←TECH MAGAZINE"
 
 I have to agree that the first example is way more readable and the fact that you can support it with good comments is very nice. Thinking procedurally, I would for sure write the second one every time because I’m passing a thing, into a thing, into a thing.
 
-Link five. "Smash Smash"
+Link five of nineteen. "Smash Smash"
 
 Simon Støvring is back after his Christmas app Festivitas with a new app that lets you smash your screen! Pretty funny. Name your own price and grab a copy for a fun time.
 
-Link six. "14 Advanced Python Features | Edward Li's Blog"
+Link six of nineteen. "14 Advanced Python Features | Edward Li's Blog"
 
 Wonderful overview of some deep Python capabilities.
 
-Link seven. "Amazon CEO Andy Jassy's twenty twenty four Letter to Shareholders—Annotated - Last Week in AWS"
+Link seven of nineteen. "Amazon CEO Andy Jassy's twenty twenty four Letter to Shareholders—Annotated - Last Week in AWS"
 
 A critical take through annotations on Amazon's last year. Is Amazon finally getting to some scale limits? Maybe.
 
-Link eight. "Are You Ok? - Brad Feld"
+Link eight of nineteen. "Are You Ok? - Brad Feld"
 
 Feld is a well known VC and long-time blogger. A personal update from him as he went into hibernation for a while.
 
-Link nine. "For VCs, Everything is AI. All Is AI – On my Om – Daily Blog"
+Link nine of nineteen. "For VCs, Everything is AI. All Is AI – On my Om – Daily Blog"
 
 VC == AI. It is hilarious to me that Andreessen believes AI can’t replace VCs themselves. That would be an interesting "snake eating itself" moment.
 
-Link ten. "The Real Winners of the Trump Memecoin Feeding Frenzy | WIRED"
+Link ten of nineteen. "The Real Winners of the Trump Memecoin Feeding Frenzy | WIRED"
 
 Memecoins have valid use cases but buying access to government officials should not be one of them. And many memecoins, including this one, generate revenue off of transactions.
 
-Link eleven. "dir2txt: A blazing-fast CLI tool to export a directory's structure and contents for AI"
+Link eleven of nineteen. "dir2txt: A blazing-fast CLI tool to export a directory's structure and contents for AI"
 
 Handy utility to package a directory together to make it easy to upload to an LLM for further use.
 
-Link twelve. "YAGRI: You are gonna read it"
+Link twelve of nineteen. "YAGRI: You are gonna read it"
 
 Wisdom here. This is a great nudge to keep some basic metadata on values that you build into your software, knowing that at some point there will likely be a use case that benefits from having it available.
 
-Link thirteen. "Curry Programming Language"
+Link thirteen of nineteen. "Curry Programming Language"
 
 A 'declarative multi-paradigm programming language" bringing together both functional and logic models.
 
-Link fourteen. "Nail salon employee pleads guilty after holding 13 remote IT jobs worked by developers in China | Fortune"
+Link fourteen of nineteen. "Nail salon employee pleads guilty after holding 13 remote IT jobs worked by developers in China | Fortune"
 
 This scheme has been documented by security organizations and advisories have been sent to warn employers to watch out for it — but the details and specifics here make it more "real."
 
-Link fifteen. "Smart Folders Are the macOS Game Changer That I’ve Always Ignored"
+Link fifteen of nineteen. "Smart Folders Are the macOS Game Changer That I’ve Always Ignored"
 
 I use macOS all the time and have never used Smart Folders. This explainer shows some use cases that make sense. I should probably make a "Current Presentations" one on my work laptop right now.
 
-Link sixteen. "These are the largest SaaS Firms in the Twin Cities - Minneapolis / St. Paul Business Journal"
+Link sixteen of nineteen. "These are the largest SaaS Firms in the Twin Cities - Minneapolis / St. Paul Business Journal"
 
 SPS at number 3.
 
-Link seventeen. "QR is cool"
+Link seventeen of nineteen. "QR is cool"
 
 Very cool breakdown of how QR codes work and the error correction built into them.
 
-Link eighteen. "The Good Internet - Sacha Judd"
+Link eighteen of nineteen. "The Good Internet - Sacha Judd"
 
 Make the web weird again.
 
-Link nineteen. "PyXL - Python, on hardware"
+Link nineteen of nineteen. "PyXL - Python, on hardware"
 
 Hardware directly running Python? Wild.
 

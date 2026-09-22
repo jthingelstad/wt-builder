@@ -10,7 +10,9 @@ It was delightful.
 
 Now, the Featured section.
 
-Link one. "This State is Becoming America’s Crypto Capital - YouTube"
+There are two links this week.
+
+Link one of two. "This State is Becoming America’s Crypto Capital - YouTube"
 
 It is great to see Wyoming taking such a leading role on crypto. Hopefully other states will see this and feel compelled to catch up.
 
@@ -24,7 +26,7 @@ It is great to see Wyoming taking such a leading role on crypto. Hopefully other
 
 What I think is so good about Wyomings approach is it has the potential for a "and" solution instead of an "or". There is no reason that crypto solutions cannot live alongside existing ones. Many want to position it as a battle, but it doesn't need to be. And the way Wyoming is doing this will allow them to have a hybrid system.
 
-Link two. "Tips On Prioritizing Tech Debt In A Healthy Way"
+Link two of two. "Tips On Prioritizing Tech Debt In A Healthy Way"
 
 This article jumps in the anti-pattern, what not to do first. And I have to emphasize it because I've seen it multiple times and it is a complete failure.
 
@@ -48,7 +50,9 @@ That's the end of Featured.
 
 Now, the Notable section.
 
-Link one. "Simplifying Our Mental View - zen habits"
+There are twelve links this week.
+
+Link one of twelve. "Simplifying Our Mental View - zen habits"
 
 The techniques outlined here have worked for me when I get overwhelmed.
 
@@ -58,19 +62,19 @@ End quote.
 
 Sometimes the change you need is to just think of the next action, and do that. Don't worry what comes after that until you finish that action. Repeat.
 
-Link two. "A Moment of Excruciating Anticipation in Kyiv | The New Yorker"
+Link two of twelve. "A Moment of Excruciating Anticipation in Kyiv | The New Yorker"
 
 The buildup of Russian troops along the border of Ukraine has been all over the news. The one thing that everyone can agree on is that nobody knows what Russia is really doing, if anything at all. I've been to Ukraine over a dozen times and through our team there have gotten to know some of the people and learn the history and culture of Ukraine. It is a rich, warm culture. I appreciated this article because it was all from the perspective of the people.
 
-Link three. "Focused #144: Enough, with Patrick Rhone - Relay FM"
+Link three of twelve. "Focused #144: Enough, with Patrick Rhone - Relay FM"
 
 I was surprised and delighted to see my friend Patrick Rhone as the guest on one of the podcasts I subscribe to. Listen in to hear Patrick share his wisdom on Focus and related topics.
 
-Link four. "Supply Chain Startup Inspectorio Lands 50 million dollars Raise | Twin Cities Business"
+Link four of twelve. "Supply Chain Startup Inspectorio Lands 50 million dollars Raise | Twin Cities Business"
 
 Inspectorio has been continuing to grow and this is an impressive growth round for them. Awesome local growth company.
 
-Link five. "Andy Warhol, Clay Christensen, and Vitalik Buterin walk into a bar – O’Reilly"
+Link five of twelve. "Andy Warhol, Clay Christensen, and Vitalik Buterin walk into a bar – O’Reilly"
 
 O'Reilly himself sharing some framing on the web3 ecosystem. He tells this story through multiple personalities.
 
@@ -86,7 +90,7 @@ End quote.
 
 My bet is that there are foundational elements that will have big change in the next ten year.
 
-Link six. "WebVM"
+Link six of twelve. "WebVM"
 
 Wait, what? Yes, you can run Linux in WebAssembly in your browser.
 
@@ -94,7 +98,7 @@ Quote.
 WebVM is a server-less virtual Linux environment running fully client-side in HTML5/WebAssembly. In this demo, it runs an unmodified Debian distribution including many native development toolchains. WebVM is powered by the CheerpX virtualization engine, and enables safe, sandboxed client-side execution of x86 binaries on any browser.
 End quote.
 
-Link seven. "What Doesn't Need to Be Done"
+Link seven of twelve. "What Doesn't Need to Be Done"
 
 This is the key to actually shipping your software and product.
 
@@ -104,7 +108,7 @@ End quote.
 
 When you hear that software ships with a number of known bugs or things still to do, those are the things that don't need to be done now.
 
-Link eight. "The unreasonable effectiveness of one-on-ones | benkuhn.net"
+Link eight of twelve. "The unreasonable effectiveness of one-on-ones | benkuhn.net"
 
 Interesting reflections on the one-on-one meetings and what makes them work. The punchline here is really in this one line.
 
@@ -114,7 +118,7 @@ End quote.
 
 I would suggest that if you want to do one thing to make one-on-ones more effective, it is right there. Care a lot.
 
-Link nine. "Lock-in and Multi-Cloud"
+Link nine of twelve. "Lock-in and Multi-Cloud"
 
 Bray does a great job highlighting the various approaches to cloud and lock-in. I was curious if his thinking mirrored mine, and it does, with some nuance.
 
@@ -128,15 +132,15 @@ If I deny the benefits to defray that potential future, I will 100% not get the 
 
 I'll take the benefit now, and manage the risk on the long term.
 
-Link ten. "Tobias Lütke, CEO of Shopify, to join Coinbase Board of Directors"
+Link ten of twelve. "Tobias Lütke, CEO of Shopify, to join Coinbase Board of Directors"
 
 Lütke, or should we say tobi.eth, joining Coinbase board isn't all that surprising. Tobi has been publicly playing with crypto, NFT's, and related tech for a while on Twitter. The only part suprrising is that Shoppify has announced that they are going to get into NFT sales, and Coinbase is building out their NFT platform. My view on that was "Will crypto companies learn retail sales first? Or retail companies learn crypto?" That clearly isn't enough of a conflict for Coinbase to be concerned.
 
-Link eleven. "Operating Accounts"
+Link eleven of twelve. "Operating Accounts"
 
 Byrn highlights using multiple accounts to know how much certain assets cost. We started doing this a while ago but not without accounts. When we got a cabin we decided to create a budget around each of the major assets we have. House, cabin, cars. That way you know at all times what that asset costs. We extended that to people as well, so every family member has their own mini-budget.
 
-Link twelve. "The Sudden Rise of Wordle"
+Link twelve of twelve. "The Sudden Rise of Wordle"
 
 Congrats to the creator of Wordle for selling it to the New York Times. Tammy and I have been enjoying playing it still.
 
@@ -163,51 +167,53 @@ That's the end of the Journal.
 
 Now, the Briefly section.
 
-Link one. "Wordle in less than 50 lines of Bash · GitHub"
+There are twelve links this week.
+
+Link one of twelve. "Wordle in less than 50 lines of Bash · GitHub"
 
 There has been so many Wordle projects, but this Bash solution is my favorite yet.
 
-Link two. "Facebook says Apple iOS privacy change will cost 10 billion dollars this year"
+Link two of twelve. "Facebook says Apple iOS privacy change will cost 10 billion dollars this year"
 
 So users get a little sliver of their privacy back and it costs Facebook 10 billion dollars in revenue? Fine with me.
 
-Link three. "The Worst Day of Mark Zuckerberg’s Reign at Facebook"
+Link three of twelve. "The Worst Day of Mark Zuckerberg’s Reign at Facebook"
 
 Is there an emoji for fake-crying?
 
-Link four. "Motivational Streaker - Next Action Associates"
+Link four of twelve. "Motivational Streaker - Next Action Associates"
 
 Streaks have proven to be a pretty effective tool for me to build new habits.
 
-Link five. "Builder Brain"
+Link five of twelve. "Builder Brain"
 
 I often describe myself as a builder. And I believe one of the things that makes a builder is someone that enjoys building so much that you sometimes lose site of what the thing is your building, and if it even makes sense. It is just so much fun to build.
 
-Link six. "Pay attention to WebAssembly | Harshal Sheth"
+Link six of twelve. "Pay attention to WebAssembly | Harshal Sheth"
 
 I haven't followed WebAssembly much at all but the points in this article are interesting capabilities.
 
-Link seven. "The AWK State Machine Parser Pattern"
+Link seven of twelve. "The AWK State Machine Parser Pattern"
 
 There is so much power hidden away in tools like awk.
 
-Link eight. "Reasons for servers to support IPv6"
+Link eight of twelve. "Reasons for servers to support IPv6"
 
 Good bite-sized info on IPv6. I wonder if IPv4 will ever be turned off.
 
-Link nine. "On Photo Sharing"
+Link nine of twelve. "On Photo Sharing"
 
 My favorite photo sharing is using private iCloud Photo Albums with friends and family.
 
-Link ten. "I crowdfunded a novel using cryptocurrency"
+Link ten of twelve. "I crowdfunded a novel using cryptocurrency"
 
 What a cool experiment. I hope we continue to see even more experimentation like this.
 
-Link eleven. "vim-galore: All things Vim!"
+Link eleven of twelve. "vim-galore: All things Vim!"
 
 Everything you would ever want to know about vim, and then some.
 
-Link twelve. "Making the web better. With blocks! – Joel on Software"
+Link twelve of twelve. "Making the web better. With blocks! – Joel on Software"
 
 Interesting idea using a composable Block Protocol to allow wide innovation of more complex content objects. Nifty.
 

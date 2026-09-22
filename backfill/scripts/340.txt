@@ -16,7 +16,9 @@ Have a great weekend.
 
 Now, the Notable section.
 
-Link one. "moltbook - the front page of the agent internet"
+There are eleven links this week.
+
+Link one of eleven. "moltbook - the front page of the agent internet"
 
 OpenClaw (aka ClawdBot, MoltBot) took the AI world by storm last week. Just days later someone figured "hey, what would be cooler than having unrestricted AI do whatever it wants? I know, let's have them talk to each other on a social platform". This is the point where many folks roll their eyes and say "why oh why are you doing everything you can to encourage the robot uprising!"
 
@@ -24,7 +26,7 @@ The outcome is pretty wild. These agents seem to like to share information. It i
 
 It is a Brave New World.
 
-Link two. "Automatic programming -"
+Link two of eleven. "Automatic programming -"
 
 I like this delineation a lot.
 
@@ -34,7 +36,7 @@ End quote.
 
 I’m going to start using the automatic programming term much more often. And I like the differentiation. Sometimes I really do vibe code, to explore, learn, see if something can be done. Automatic programming is a whole different mindset.
 
-Link three. "Pi: The Minimal Agent Within OpenClaw | Armin Ronacher's Thoughts and Writings"
+Link three of eleven. "Pi: The Minimal Agent Within OpenClaw | Armin Ronacher's Thoughts and Writings"
 
 OpenClaw uses this coding agent to create software for itself.
 
@@ -44,7 +46,7 @@ End quote.
 
 Very interesting read on how Pi is different in approach to other coding agents.
 
-Link four. "Two kinds of AI users are emerging. The gap between them is astonishing. - Martin Alderson"
+Link four of eleven. "Two kinds of AI users are emerging. The gap between them is astonishing. - Martin Alderson"
 
 I think there are a lot more than "two kinds" but I also think there is a huge difference in where people sort of stopped adapting with AI? A shocking number of people are still thinking AI is a chatbot. That was two years ago. It is all agents now. And how knows where this goes.
 
@@ -62,7 +64,7 @@ What does an AI native company look like? Agents operating in context alongside 
 
 So the question is, how do you model context for your company? The value and investment should go there. The agents themselves will change and evolve and adapt much faster.
 
-Link five. "Notepad++ Hijacked by State-Sponsored Hackers"
+Link five of eleven. "Notepad++ Hijacked by State-Sponsored Hackers"
 
 Wow, the duration and potential of this attack is truly pretty scary.
 
@@ -74,13 +76,13 @@ This started in June twenty twenty five and persisted through December twenty tw
 
 Short of that though, software developers could still use their own signing authority to insure that the signed app they have out there will only update itself with a similarly signed app.
 
-Link six. "BlogBook — WordPress, Micro.blog, or Ghost Markdown Book"
+Link six of eleven. "BlogBook — WordPress, Micro.blog, or Ghost Markdown Book"
 
 Brett Terpstra shared that he was building this app and it instantly caught my attention. I just created the Yearly Thing book which started as Markdown. Vellum did a great job of producing the final book, but in the middle I had to convert from Markdown to Microsoft Word files. That part freaked me out. My Markdown was super clean and known to be correct. Pandoc made it easy to convert to word, but that conversion then into Vellum to me felt like it could introduce all sorts of weird complexities. It was okay for me, but I would have preferred to stay in Markdown all the way to publish and BlogBook amongst other things looks like it will allow that.
 
 Separately, the idea of publishing my blog each year as a book seems like a great way to archive that for the future. I suspect that will be a primary use case for this.
 
-Link seven. "Claude Opus 4.6 Anthropic"
+Link seven of eleven. "Claude Opus 4.6 Anthropic"
 
 Anthropic continues to push heavily into automated coding.
 
@@ -90,11 +92,11 @@ End quote.
 
 The 1 million token context window is a big deal. Programming has always required you to keep a large amount of "state" in your mind as you create, and for LLMs this shows up as context. Larger context windows allow you to solve more complex problems.
 
-Link eight. "Introducing OpenAI Frontier | OpenAI"
+Link eight of eleven. "Introducing OpenAI Frontier | OpenAI"
 
 I've been saying for a while that the primary way that businesses will deliver and receive value via AI is with agents. One of the more interesting things I've been observing is how OpenAI, Anthropic, and Google have differently approached agent creation and management. This new offering from OpenAI looks like it is catching them up to the other solutions. ChatGPT's Custom GPT feature was and is interesting, but it isn't an agent interface. Frontier looks much more robust and aimed at companies. Sadly I can’t seem to use it though — instead I see a "Contact sales" button. This whole release is a bit more inscrutable than is typical from them. All of that together makes me wonder if this is a bit vaporware, which would be atypical for OpenAI.
 
-Link nine. "Introducing GPT-5.3-Codex | OpenAI"
+Link nine of eleven. "Introducing GPT-5.3-Codex | OpenAI"
 
 The combination of this new GPT-5.3-Codex model and OpenAI's recent release of a Mac native app for Codex got me to engage with Codex again. I was much more impressed than I was the first time I used it. I used it to create a web project and it did a really good job. It was a simple task, but it handled it well and created a good output. I continued to use it but after running several tasks I found myself wanting for the Claude Code interface.
 
@@ -102,11 +104,11 @@ After opening Claude Code on that same project I realized the difference in my h
 
 Ultimately it will depend on what you're doing and want to experience but for me, right now, I much prefer the Claude Code experience over the Codex one.
 
-Link ten. "A sane but extremely bull case on Clawdbot / OpenClaw | Brandon Wang"
+Link ten of eleven. "A sane but extremely bull case on Clawdbot / OpenClaw | Brandon Wang"
 
 I haven't had time (still!) to play directly with OpenClaw. This writeup is really fantastic though with a ton of screenshots to show exactly what it can do and how it does it. It seems like the most powerful way to run it is to literally setup a computer just for OpenClaw to run (as you!) on. I have to admit the ability to watch your messages and capture commitments or follow-ups by itself would be a super power for me. I struggle with that in a big way. It looks pretty incredible really.
 
-Link eleven. "AI is Killing B2B SaaS | N’s Blog"
+Link eleven of eleven. "AI is Killing B2B SaaS | N’s Blog"
 
 There is this meme out there that automatic programming tools are going to make SaaS companies go away. I think this shows a massive misunderstanding of what is involved in creating and running these solutions. That of course does not mean that SaaS companies do not have to evolve, but that is true of every company. There is generally a before and after AI and you need to get across that chasm. Also, just like programming, basic and simple services likely will become simple to recreate. But complex systems will still be created with expertise and domain understanding that is simply not productive or efficient to build inside your business. Do you want to be an expert at making software or using it? And making software is not just coding, that is one of dozens of things that go into it.
 
@@ -215,35 +217,37 @@ That's the end of the Journal.
 
 Now, the Briefly section.
 
-Link one. "The LEGO Group and Crocs Enter Multi-Year Global Partnership - LEGO.com"
+There are eight links this week.
+
+Link one of eight. "The LEGO Group and Crocs Enter Multi-Year Global Partnership - LEGO.com"
 
 Is it April first?
 
-Link two. "Will They Inherit Our Blogs? | Kev Quirk"
+Link two of eight. "Will They Inherit Our Blogs? | Kev Quirk"
 
 I truly hope my blog stays around for as long as possible. I’m going to make that easy by keeping it all text and files. It is incredibly cheap to host such a thing.
 
-Link three. "Why Tech ( and ) Media is complicated – On my Om"
+Link three of eight. "Why Tech ( and ) Media is complicated – On my Om"
 
 Another great essay from Om Malik.
 
-Link four. "Introducing the Codex app | OpenAI"
+Link four of eight. "Introducing the Codex app | OpenAI"
 
 Installed this right away and definitely an improvement. OpenAI still lags behind in the programming space though. I think because their approach is just different.
 
-Link five. "The New Announcement Economy – On my Om"
+Link five of eight. "The New Announcement Economy – On my Om"
 
 Scott Galloway has said something similar very well — the most valuable skill in the world is storytelling. Announcements are just a kind of meme. It’s all memes.
 
-Link six. "Introducing the ENS App Alpha | ENS Blog"
+Link six of eight. "Introducing the ENS App Alpha | ENS Blog"
 
 I think Ethereum Name Service is continuing to lead the way for building real solutions on crypto, and seeing their continued evolution and progress is interesting. I’m a fan and think this is building real utility.
 
-Link seven. "Pick your agent: Use Claude and Codex on Agent HQ - The GitHub Blog"
+Link seven of eight. "Pick your agent: Use Claude and Codex on Agent HQ - The GitHub Blog"
 
 Github smartly allowing teams to use whatever agents they want.
 
-Link eight. "Map to Poster - Generate Beautiful City Map Posters"
+Link eight of eight. "Map to Poster - Generate Beautiful City Map Posters"
 
 Cool visual builder off of maps. I wish the map control was more accurate though. I would like to put a specific coordinate in.
 

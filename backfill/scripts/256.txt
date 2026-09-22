@@ -16,7 +16,9 @@ Many interesting links (not 256!) and many (too many? ) posts and photos from th
 
 Now, the Featured section.
 
-Link one. "Google I/O and the Coming AI Battles – Stratechery by Ben Thompson"
+There is one link this week.
+
+Link one of one. "Google I/O and the Coming AI Battles – Stratechery by Ben Thompson"
 
 Thompson starts with a pretty simple reflection on Google and AI, transitions through a really compelling strategic framing, and ends with a view on Protestantism and Reformation? Yes he does.
 
@@ -44,7 +46,9 @@ That's the end of Featured.
 
 Now, the Notable section.
 
-Link one. "To Save the News, We Must Shatter Ad-Tech | Electronic Frontier Foundation"
+There are fourteen links this week.
+
+Link one of fourteen. "To Save the News, We Must Shatter Ad-Tech | Electronic Frontier Foundation"
 
 The "original sin" of the Internet is that it was built nearly exclusively on advertising revenue. In addition to creating a set of incentives that do not benefit people, it created an incredibly complex ad-tech stack where Google, Meta, and one or two other companies own the entire market. This gives a good example:
 
@@ -62,7 +66,7 @@ This approach to break these functions into different organizations could be a b
 
 Instead of reforming advertising, I think that "original sin" needs to be shed entirely. Even if the various parts of this stack were not self-dealing, it still creates bad incentives to drive page views over everything else and ever more sensational content. Micropayments solutions like Bitcoin Lightning that are immediate, free, and censorship resistant could be huge for news organizations. Not only ridding themselves of the page view incentive, but also making them resilient to their funding being disintermediated.
 
-Link two. "Generative Fill – Rands in Repose"
+Link two of fourteen. "Generative Fill – Rands in Repose"
 
 Newest version of Photoshop has added an AI powered "Generative Fill" option. This example is pretty wild.
 
@@ -72,7 +76,7 @@ End quote.
 
 Here is the official announcement. Generative AI is on its way to so many products right now.
 
-Link three. "How to spend your life force as a product manager"
+Link three of fourteen. "How to spend your life force as a product manager"
 
 This article is ostensibly about product managers focus, but can be for anyone. Bucketing work on an ease v. impact scale.
 
@@ -80,17 +84,17 @@ Quote.
 Which leads me to my main point. It’s in the combination of the ease/effort involved in a task, as well as our known sphere of influence, that we are able to make the best decisions about where to spend our life force.
 End quote.
 
-Link four. "News from Google Marketing Live twenty twenty three"
+Link four of fourteen. "News from Google Marketing Live twenty twenty three"
 
 The largest advertising company in the world, Google, is now making it easy to use AI to create "automatically created assets". AI generated content to manipulate you through direct and indirect methods has already been happening with the algorithms social media companies use. They have been wildly effective. This is the next step, generating the content whole cloth to convince you to buy something.
 
 The nod at the end to privacy is comically insincere.
 
-Link five. "A Claim in the Ether: Tracking the Soaring Demand for Ethereum Staking"
+Link five of fourteen. "A Claim in the Ether: Tracking the Soaring Demand for Ethereum Staking"
 
 When Ethereum enabled withdrawals for takers there was some hand wringing about the price of Ethereum collapsing and validators exiting en-masse after being unable to withdraw before that. There were some, but the price of Ethereum remained stable and now there is a two month wait for new Ethereum stakers to begin.
 
-Link six. "The Freedom To Innovate - AVC"
+Link six of fourteen. "The Freedom To Innovate - AVC"
 
 Wilson commenting on the scrutiny, pressure, and obfuscation strategically being used against crypto:
 
@@ -100,11 +104,11 @@ End quote.
 
 Technological innovation, once out in the wild, is very difficult to stop. It is a huge lever.
 
-Link seven. "MacStories Hands-On: Podcast Editing with Logic Pro for iPad - MacStories"
+Link seven of fourteen. "MacStories Hands-On: Podcast Editing with Logic Pro for iPad - MacStories"
 
 Podcast production on iPadOS hits a new level with Logic Pro for iPad. Pretty cool that with a good Zoom mobile recording setup you could easily capture, dump the files into Logic Pro on your iPad and have a final podcast with a very mobile setup.
 
-Link eight. "First Impressions: Final Cut Pro for iPad - MacStories"
+Link eight of fourteen. "First Impressions: Final Cut Pro for iPad - MacStories"
 
 Unfortunately my iPad Pro is too old to run this newest "pro" application to come to iPadOS, but it looks really great. I particularly liked this highlight:
 
@@ -114,21 +118,21 @@ End quote.
 
 Precise editing with a touch interface is difficult in every app I've used. It sounds like Apple put some effort into making touch work for precise controls with some special UX.
 
-Link nine. "You're Getting Old!"
+Link nine of fourteen. "You're Getting Old!"
 
 I shared this site with some friends and the reaction was mixed — some didn’t like it and some thought it was fun and interesting. Either way, the facts of your age and time are just that, facts. Insert various references to finitude and 4,000 weeks here.
 
 I plugged my date of birth in and found some fun things. I didn’t realize that Pong was released the same year I was born. I did like that 91.8% of the people born on the day I did are still living, but 85% of the people that visit this website are younger than me.
 
-Link ten. "Kagi Search - A Premium Search Engine"
+Link ten of fourteen. "Kagi Search - A Premium Search Engine"
 
 I was sad to hear that Neeva is shutting down. I have no interest in returning to the surveillance economy for search, so I’m looking for new options. Gruber mentioned Kagi and I know he is pretty picky so that is a notable signal for me. I’m giving Kagi a try to see how I like it. So far it is working well.
 
-Link eleven. "six thousand sits – Cats Will Eat You"
+Link eleven of fourteen. "six thousand sits – Cats Will Eat You"
 
 Matt Semke, also known as Cats Will Eat You, reached the incredible milestone of 6,000 consecutive days creating new artwork. Doing anything 6,000 days in a row is incredible, but creating a new creative work that long is like being a perpetual creation machine. I’m wildly impressed.
 
-Link twelve. "What is a friend? | always happy; never satisfied"
+Link twelve of fourteen. "What is a friend? | always happy; never satisfied"
 
 Friendship is something most take for granted.
 
@@ -138,7 +142,7 @@ End quote.
 
 I greatly enjoyed the mix of anecdote, data, framework, and even poem in this essay on friendship.
 
-Link thirteen. "The Bookmarking Data Model Is Wrong For Highlighting"
+Link thirteen of fourteen. "The Bookmarking Data Model Is Wrong For Highlighting"
 
 I feel like the name "bookmark" is overloaded with two very different use cases. There are bookmarks (or even favorites) that you add to your browsers navigation system because you use it frequently. Then there is this other version of bookmark which is to store a reference to something interesting, often with some additional commentary, for possible use later. That second use case really hasn't had a lot of thought put toward it. There is a niche market serviced by bookmarking tools like this, but it is pretty stagnate. I use one of the most well known solutions in that space, Pinboard, to capture and annotate links for the Weekly Thing.
 
@@ -148,7 +152,7 @@ End quote.
 
 I’m going to add a research task to OmniFocus to dig into Notado more to explore this "content first" data model.
 
-Link fourteen. "Rooms.xyz"
+Link fourteen of fourteen. "Rooms.xyz"
 
 This looks like an interesting "experience" to play with. It reminds me a bit of Minecraft. There are all these rooms, and you can place various objects to interact with in them. You can even make mini-games in them, as well as attaching your own code to affect behavior. Neat! (Note: does seem to much prefer Chrome.)
 
@@ -397,27 +401,29 @@ That's the end of the Journal.
 
 Now, the Briefly section.
 
-Link one. "Manage process before people"
+There are six links this week.
+
+Link one of six. "Manage process before people"
 
 Great examples of system thinking to make organizations more effective and efficient.
 
-Link two. "ISRG’s tenth Anniversary - Let's Encrypt"
+Link two of six. "ISRG’s tenth Anniversary - Let's Encrypt"
 
 Internet Security Research Group (ISRG) marks 10 years since it was incorporated, with the initial goal to launch Let's Encrypt. I think it would be hard to name an organization that has done more to make the web better in the last 10 years than ISRG.
 
-Link three. "Microsoft Build twenty twenty three: The 5 biggest announcements - The Verge"
+Link three of six. "Microsoft Build twenty twenty three: The 5 biggest announcements - The Verge"
 
 "Add AI to everything. Thanks."
 
-Link four. "Brink"
+Link four of six. "Brink"
 
 Brink is a non-profit that supports Bitcoin core contributors. Have added this to the list of organizations we support.
 
-Link five. "Bitcoin Legal Defense Fund – Legal Defense By the Bitcoin Community, for the Bitcoin Community"
+Link five of six. "Bitcoin Legal Defense Fund – Legal Defense By the Bitcoin Community, for the Bitcoin Community"
 
 This soon-to-be non-profit is defending people that work on Bitcoin from legal threats. It reminds me of a specialized version of the EFF. Will definitely be donating to them once they finalize 501(c)(3) status.
 
-Link six. "Landmark crypto rules make exchanges liable for customer losses in EU | Ars Technica"
+Link six of six. "Landmark crypto rules make exchanges liable for customer losses in EU | Ars Technica"
 
 I’m not sure about the details here but moving forward with a clear documented framework should be a good step.
 

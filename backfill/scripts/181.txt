@@ -12,7 +12,9 @@ I’m cooking up a new project that the whole family is going to be involved wit
 
 Now, the Must Read section.
 
-Link one. "grit: A multitree-based personal task manager"
+There are two links this week.
+
+Link one of two. "grit: A multitree-based personal task manager"
 
 I found this a fun project and a delightful README.
 
@@ -34,7 +36,7 @@ $ for i in {1..35}; do grit add -p textbook "Chapter $i"; done
 
 What a cool project.
 
-Link two. "How to Value an NFT (or any Collectible) - The Contrarian Mindset"
+Link two of two. "How to Value an NFT (or any Collectible) - The Contrarian Mindset"
 
 A lot of the conversation around NFT's has been around art, but that is just one use case. I find the use of NFT's as a form of collectable much more interesting. This article is an interesting read on determining value for a collectible.
 

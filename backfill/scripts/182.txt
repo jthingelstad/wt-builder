@@ -6,7 +6,9 @@ Our city was again in a state of turmoil after the terrible killing of Duante Wr
 
 Now, the Must Read section.
 
-Link one. "The True Meaning of Technical Debt - Refactoring"
+There are two links this week.
+
+Link one of two. "The True Meaning of Technical Debt - Refactoring"
 
 I've used the term technical debt and people I work with use it as well. I’m not a huge fan of it because I don't think it does a good job clearly communicating the issue. With that said, I’m a bit embarrassed to say I had no idea Ward Cunningham coined the term and the video included in this article is an astoundingly clear way to describe it, and very different than I've ever heard in two decades in tech.
 
@@ -18,7 +20,7 @@ This brought me back to Pragmatic Product Management, and making sure that you r
 
 Framing this metaphor this way is so much more powerful than how it is typically used.
 
-Link two. "Identity is often used against us | Seth's Blog"
+Link two of two. "Identity is often used against us | Seth's Blog"
 
 There is nothing more vulnerable than identity change. Most of us will fight like our life depends on it to protect our identity. Sadly even if that identity is detrimental to you.
 

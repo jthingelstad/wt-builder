@@ -41,7 +41,9 @@ That's the end of PROMOTION.
 
 Now, the Featured section.
 
-Link one. "Discord: Imagine a Place - Not Boring by Packy McCormick"
+There are three links this week.
+
+Link one of three. "Discord: Imagine a Place - Not Boring by Packy McCormick"
 
 I've bumped into Discord over the last few years and frankly I pretty much ignored it. What I understood was that Discord is a thing for gamers to connect around their clan or gaming group. That is where Discord started, and where most of its users still are, but I've slowly started dipping into Discord recently because it is being used by a handful of communities that I’m part of. Club MacStories has a Discord. Matthew Cassinelli Shortcuts Membership has a Discord. Crypto projects like POAP, ENS, Angry Bunny Club. Anyway, you get the point.
 
@@ -71,7 +73,7 @@ End quote.
 
 The CEO of Discord recently shared a screenshot connecting to an Ethereum wallet. It will be very curious to see how Discord pursuits this web3 area and how.
 
-Link two. "$ENS Now Available for Claiming — Mirror"
+Link two of three. "$ENS Now Available for Claiming — Mirror"
 
 Okay, this is seriously one of the coolest things I think I've seen on the web in over two decades.
 
@@ -81,7 +83,7 @@ This writeup from NiftyTable on ENS has some incredible data on this change and 
 
 I’m a member.
 
-Link three. "The Real Benefits Of Staying Off Social Media - Durmonski.com"
+Link three of three. "The Real Benefits Of Staying Off Social Media - Durmonski.com"
 
 A very well written article going to the deeper aspects of social media.
 
@@ -109,7 +111,9 @@ That's the end of Currently.
 
 Now, the Notable section.
 
-Link one. "Introducing the Filecoin Virtual Machine"
+There are seventeen links this week.
+
+Link one of seventeen. "Introducing the Filecoin Virtual Machine"
 
 This is a year away still but it is interesting to see additional blockchains adopting Ethereum VM compatibility.
 
@@ -119,7 +123,7 @@ End quote.
 
 For Filecoin, the idea of being able to run code close to the data makes a lot of sense. Or having NFTs where the smart contract, or actor, is on the same blockchain as the assets.
 
-Link two. "Why We’re Building A New Product To Change The Way We Read Online | Medium"
+Link two of seventeen. "Why We’re Building A New Product To Change The Way We Read Online | Medium"
 
 I’m very vocal about how social media platforms have figured out how to grab your attention and never let go, but it is equally true that media organizations have as well. When I've thought about how to make a new kind of media company, one that has proper incentives, and isn't driven by clicks and attention, I actually thought that creating such an entity as a DAO may be a smart approach.
 
@@ -137,7 +141,7 @@ End quote.
 
 The part I raise my eyebrow at is this says "reading news", not "creating news". I’m not sure just focusing on reading is sufficient. Either way, I will be curious to see how this evolves. (Also, odd that Chandler posted this on Medium and not Mirror.)
 
-Link three. "How Newsletters Survived Technology - The Atlantic"
+Link three of seventeen. "How Newsletters Survived Technology - The Atlantic"
 
 A bit of a love letter to the newsletter from Dave Pell who writes one of my favorite daily newsletters NextDraft.
 
@@ -153,7 +157,7 @@ End quote.
 
 I do think there is a "home field" advantage that we as a reader have in our Inbox. And the relationship that can be built with a newsletter is definitely more personal than many other means.
 
-Link four. "Buying Crypto Assets - AVC"
+Link four of seventeen. "Buying Crypto Assets - AVC"
 
 I've been following Fred Wilson's blog for as long as I've used an RSS reader. Here is his current advice on how he recommends buying into crypto.
 
@@ -163,39 +167,39 @@ End quote.
 
 His writeup is pretty similar to what I shared in Feb twenty twenty one.
 
-Link five. "Work, Family, Scene: You Can Only Pick Two - RyanHoliday.net"
+Link five of seventeen. "Work, Family, Scene: You Can Only Pick Two - RyanHoliday.net"
 
 Good perspective on trade-offs and prioritization from Ryan Holiday.
 
-Link six. "Kyiv Post shuts down; staff says this is the owner's act of vengeance | Euromaidan Press"
+Link six of seventeen. "Kyiv Post shuts down; staff says this is the owner's act of vengeance | Euromaidan Press"
 
 We have a large and growing team in Kyiv and I subscribe to the Kyiv Post so that I can keep informed on what is happening there. Getting fair reporting in Ukraine is not easy, and it looks like there was a conflict between the oligarch that bought the paper and the newsroom. Whatever issues people may have with media organizations, I’m glad that they are not in situations like the Kyiv Post found itself in. Also see.
 
-Link seven. "The Omni Show: How GTD Focus President Meg Edwards Uses OmniFocus - The Omni Group"
+Link seven of seventeen. "The Omni Show: How GTD Focus President Meg Edwards Uses OmniFocus - The Omni Group"
 
 Meg Edwards is the President of GTD Focus and has been a long-time user of OmniFocus. Meg knows her stuff incredibly well, so hearing how she personally uses OmniFocus is pretty interesting stuff.
 
-Link eight. "Falsehoods Programmers Believe About Names - With Examples - Shine Solutions Group"
+Link eight of seventeen. "Falsehoods Programmers Believe About Names - With Examples - Shine Solutions Group"
 
 Another one of those examples of edge cases that programmers have to take into account when they design things that many people would assume are very simple, like a name. The "wrap up" section of this one is great as it gives you real recommendations on things to consider when writing code to deal with names.
 
-Link nine. "A half-hour to learn Rust"
+Link nine of seventeen. "A half-hour to learn Rust"
 
 This is an incredibly well done post with very clearly written code snippets that walk you through learning Rust. Honestly, even if you aren't a coder but were curious to just better understand how code is structured and laid out this is a great intro. It’s a bit terse due to it being Rust, but I maybe if you give it two hours instead of 30 minutes anyone can make it through this and come out with a deeper understanding.
 
-Link ten. "The 22 best board games, a revised list of Polygon’s favorites"
+Link ten of seventeen. "The 22 best board games, a revised list of Polygon’s favorites"
 
 Tammy likes to remind me that we like buying board games more than playing board games. By the frequency of play she is right. I still find it fun to see all the innovation in board games. This is a good reference for holiday shopping too.
 
-Link eleven. "MarineTraffic: Global Ship Tracking Intelligence"
+Link eleven of seventeen. "MarineTraffic: Global Ship Tracking Intelligence"
 
 Near real-time map of marine vessels around the world. I've seen this for flights before but this marine version is fun. Filter the vessel type to "Pleasure Craft" and you can see many of the ships have pictures associated with them.
 
-Link twelve. "Facebook … What To Do? | No Mercy / No Malice"
+Link twelve of seventeen. "Facebook … What To Do? | No Mercy / No Malice"
 
 I reserve the right to change my mind but I’m not in the camp of regulating Facebook. Rather than regulate, I fundamentally think we need to change public opinion. Using Facebook and social apps in general needs to become a bit like smoking. Just not cool. Galloway's take on the various ways to tackle Facebook's many issues is an interesting exploration.
 
-Link thirteen. "Kinds of projects | Seth's Blog"
+Link thirteen of seventeen. "Kinds of projects | Seth's Blog"
 
 I like Godin's point here that there are a lot of different kinds of projects, and they have different outcomes.
 
@@ -205,15 +209,15 @@ End quote.
 
 My friend Garrick and I have used the term "Decade Project," which is just a way to say that we are committing to something for a long time and have trust that we will find the right path as we go. I actually think of the Weekly Thing as a Decade Project.
 
-Link fourteen. "Six Ways to Be a More Disciplined Person - Matt Norman"
+Link fourteen of seventeen. "Six Ways to Be a More Disciplined Person - Matt Norman"
 
 I know Matt and he is an incredibly focused person. It is hard for me to believe that he doesn't wake up with 100% energy every day! I like his practical advice in this article. I know that I pretend like "Start with 7 + 1.5" is actually "Start with 5.5 + coffee". I think his biggest callout here though is identifying with being disciplined. Identity is at the root of so much, and the scariest thing for us as people to engage with.
 
-Link fifteen. "There’s a New 750-Mile Bicycle Route in New York. - The New York Times"
+Link fifteen of seventeen. "There’s a New 750-Mile Bicycle Route in New York. - The New York Times"
 
 This summer when we were in New York we rode 8.1 miles of this trail. It was a great ride. I didn’t realize the whole Empire State Trail was 750-miles long. This would be a great way to spend 2 weeks riding a little over 50 miles a day.
 
-Link sixteen. "Luau Goes Open-Source"
+Link sixteen of seventeen. "Luau Goes Open-Source"
 
 I didn’t realize that Roblox was built on Lua, or now Luau.
 
@@ -223,7 +227,7 @@ End quote.
 
 It seems this is backward compatible with Lua? Curious why this isn't just Lua 6? Maybe the Lua team will merge this in and un-fork it.
 
-Link seventeen. "Soccer Looks Different When You Can’t See Who’s Playing | FiveThirtyEight"
+Link seventeen of seventeen. "Soccer Looks Different When You Can’t See Who’s Playing | FiveThirtyEight"
 
 What happens when you take actual footage of a soccer game and turn It into telemetry and then show people a computer generated version of the data?
 
@@ -299,47 +303,49 @@ That's the end of the Journal.
 
 Now, the Briefly section.
 
-Link one. "Eric Adams: "I’m going to take my first THREE paychecks in Bitcoin when I become mayor.""
+There are eleven links this week.
+
+Link one of eleven. "Eric Adams: "I’m going to take my first THREE paychecks in Bitcoin when I become mayor.""
 
 It is interesting to see various Mayors embracing Bitcoin and moving their cities to crypto-friendly policies. Like many other things, perhaps our policy will be shaped by these early movers.
 
-Link two. "NocoDB | Turns your SQL database into a Nocode platform. Free and Open Source"
+Link two of eleven. "NocoDB | Turns your SQL database into a Nocode platform. Free and Open Source"
 
 This looks like a very comprehensive solution if you want something like Airtable but open source and hosted on your own.
 
-Link three. "Rows — The spreadsheet where teams work faster"
+Link three of eleven. "Rows — The spreadsheet where teams work faster"
 
 This seems like an Anaplan Lite. Make super-charged, connected spreadsheets that your team can recombine to make very powerful solutions with.
 
-Link four. "Playdate Owners Update #1"
+Link four of eleven. "Playdate Owners Update #1"
 
 Making physical things with batteries and chips is hard stuff. Bummer to see this pushed out, but I have total confidence Panic! is making the right tradeoffs here and communicating well.
 
-Link five. "What Is A Project Communication Plan And How To Create One?"
+Link five of eleven. "What Is A Project Communication Plan And How To Create One?"
 
 Not a project plan, a project communication plan. Very specific thing to define the cadence and structure of communication in the project.
 
-Link six. "West Yellowstone Buffalo Stampede on entrance road. - YouTube"
+Link six of eleven. "West Yellowstone Buffalo Stampede on entrance road. - YouTube"
 
 I love bison. This isn't a stampede, it’s just a herd moving around. This is a big group, bigger than any group we saw when we visited. Mute the audio for a better experience.
 
-Link seven. "NFT sales surge to 10 point 7 dollars bln in Q3 as crypto asset frenzy hits new highs | Reuters"
+Link seven of eleven. "NFT sales surge to 10 point 7 dollars bln in Q3 as crypto asset frenzy hits new highs | Reuters"
 
 The interesting thing will be the data for October. September is a big drop from August, but I suspect it will plateau at a level at least 10-25x pre-June levels.
 
-Link eight. "Pause Button for Peloton now available! - Peloton Buddy"
+Link eight of eleven. "Pause Button for Peloton now available! - Peloton Buddy"
 
 "Finally!"
 
-Link nine. "Bamboolib: One of the Most Useful Python Libraries You Have Ever Seen | Towards Data Science"
+Link nine of eleven. "Bamboolib: One of the Most Useful Python Libraries You Have Ever Seen | Towards Data Science"
 
 I had not heard of this library but the examples are really powerful. If you routinely are needing to do analysis on various datasets this could be very useful.
 
-Link ten. "5 Anti-Patterns to Avoid in Lambda based Apps"
+Link ten of eleven. "5 Anti-Patterns to Avoid in Lambda based Apps"
 
 Good advice to consider when designing solutions that use Lambda functions.
 
-Link eleven. "Actions | Sindre Sorhus"
+Link eleven of eleven. "Actions | Sindre Sorhus"
 
 Another powerful utility application that does nothing but contribute actions to Shortcuts to make automation more powerful.
 

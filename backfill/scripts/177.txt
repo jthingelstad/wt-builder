@@ -16,7 +16,9 @@ PS: I’m cooking up a fun, new family project! Like books? Sign up for Reading 
 
 Now, the Must Read section.
 
-Link one. "HEY World makes what’s old new again with blogging. – On my Om"
+There are three links this week.
+
+Link one of three. "HEY World makes what’s old new again with blogging. – On my Om"
 
 If Om Malik is writing about blogging I’m reading. Om made a career out of blogging and fundamentally impacted the trajectory of the blogosphere. I love his take and admiration for Hey World, and in general how he positions self-expression on the web.
 
@@ -26,7 +28,7 @@ End quote.
 
 I love that he gave a hat-tip to CJ Chilvers too. I am a fan of his writing, and he's a Weekly Thing reader.
 
-Link two. "How to poison the data that Big Tech uses to surveil you | MIT Technology Review"
+Link two of three. "How to poison the data that Big Tech uses to surveil you | MIT Technology Review"
 
 If you can’t beat them, sabotage them?
 
@@ -36,7 +38,7 @@ End quote.
 
 This article reminded me of another I read years ago that suggested that Millennials were telling Facebook that their friends were their brothers and sisters, and intentionally throwing garbage into the social networks algorithms. This seems like a space that could even benefit from some tooling to help people introduce maximally confusing content to the algorithms.
 
-Link three. "At Least 30,000 U.S. Organizations Newly Hacked Via Holes in Microsoft’s Email Software — Krebs on Security"
+Link three of three. "At Least 30,000 U.S. Organizations Newly Hacked Via Holes in Microsoft’s Email Software — Krebs on Security"
 
 This is one of the biggest vulnerabilities to be exploited in recent years, and the impact is big.
 

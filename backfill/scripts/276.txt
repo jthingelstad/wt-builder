@@ -14,7 +14,9 @@ Cheers!
 
 Now, the Featured section.
 
-Link one. "The end of the social network"
+There is one link this week.
+
+Link one of one. "The end of the social network"
 
 I've believed for a while that social media is a dead end. Actually, more than that, it is dangerous, addictive, and bad for you. It is today's cigarette. This section foretells that path.
 
@@ -44,11 +46,13 @@ That's the end of Currently.
 
 Now, the Notable section.
 
-Link one. "Farcaster — Decentralized social network built on Ethereum"
+There are twelve links this week.
+
+Link one of twelve. "Farcaster — Decentralized social network built on Ethereum"
 
 I signed up to try this out mostly because I was intrigued about the connection with Ethereum. It is like a mix of Twitter and Reddit together. It has channels that seem very similar to subreddits. Users can associate with their ENS names and bring Ethereum assets into their profiles. Otherwise it is a constant feed of tweet like messages. Seems tired and old really. Take Twitter, add a little Reddit, and use Ethereum for identity and verification. Maybe my reaction is just further validation that I’m really tired of timelines.
 
-Link two. "Starlink's Laser System Is Beaming 42 Million GB of Data Per Day | PCMag"
+Link two of twelve. "Starlink's Laser System Is Beaming 42 Million GB of Data Per Day | PCMag"
 
 I have researched Starlink a bit but didn’t realize that the system also does peer-to-peer transmission between the satellites. This is incredible.
 
@@ -58,19 +62,19 @@ End quote.
 
 This was the realm of Sci-fi until now. Impressive. If you roll this forward you can see the existing terrestrial Internet backbone, with a parallel orbital backbone, and data jumping from one to the other as needed. This is also the first thing that could possibly get around those giant undersea data cables that are constantly getting damaged.
 
-Link three. "Why I Moved My Blog from IPFS to a Server | Neiman’s Blog"
+Link three of twelve. "Why I Moved My Blog from IPFS to a Server | Neiman’s Blog"
 
 I've had on my "Someday, Maybe" list for a while now to mirror my blog that uses web protocols like DNS and HTTPS on decentralized solutions like ENS and IPFS. This blog post highlights what I know, which is that tech stack is still too immature. I also continue to struggle with how IPFS will work for web content since it is an immutable data store. There is no "updating" something in IPFS, you instead just replace it and destroy the old one. Brave is the only browser that has native support for ENS and IPFS, and it has minuscule market share. I continue to hold out hope since ENS and IPFS are potential solutions to my desire to have my website live for 100+ years, but we are not there yet.
 
-Link four. "Why using a Now/Next/Later roadmap might be right for you"
+Link four of twelve. "Why using a Now/Next/Later roadmap might be right for you"
 
 I’m a fan of this type of roadmap structure, however I would modify the timelines here with "now" meaning the next month or two, "next" meaning in the next 6 months, and "later" meaning things that are more than 6 months out. For most teams going deep into the "later" bucket is mostly just making stuff up anyway.
 
-Link five. "Thanksgiving twenty twenty three security incident"
+Link five of twelve. "Thanksgiving twenty twenty three security incident"
 
 Very detailed and complete writeup from Cloudflare on a recent security incident. It is an interesting read to see how the intruder moved between systems to continue to get more access.
 
-Link six. "Extreme brainstorming questions to trigger new, better ideas"
+Link six of twelve. "Extreme brainstorming questions to trigger new, better ideas"
 
 This is a good list of provocative questions to push new approaches to problems.
 
@@ -80,15 +84,15 @@ End quote.
 
 I've seen teams do this a lot with scale. If you know you will have 40% scale each year, it is worth asking what you would do if you needed 1,000% scale. You can also do similar things in models by using extreme inputs to see if the model just fails.
 
-Link seven. "Thoughts on XMTP"
+Link seven of twelve. "Thoughts on XMTP"
 
 Good read on the complications of developing robust, decentralized, censorship resistant messaging protocols. There are a number of really hard problems to solve here. I like how Rao clearly articulates the difference between publishing on a timeline and direct messaging. They are radically different use cases and should be separated.
 
-Link eight. "Vision Pro Teardown—Why Those Fake Eyes Look So Weird | iFixit News"
+Link eight of twelve. "Vision Pro Teardown—Why Those Fake Eyes Look So Weird | iFixit News"
 
 This is only the first part of the teardown, but it is pretty cool to see. Looking at this in pieces it looks more like some bionic device than traditional tech. Not many flat surfaces. It was super interesting to read the part about the EyeSight display on the front and why it has a very odd look. Also the two SOC units take up a good amount of room. I've gotten used to looking at phones that are almost all battery with very small components.
 
-Link nine. "The pain points of building a copilot - Austin Z. Henley"
+Link nine of twelve. "The pain points of building a copilot - Austin Z. Henley"
 
 Interesting to read the approach and challenges teams are facing building "copilot" functions for their applications.
 
@@ -98,15 +102,15 @@ End quote.
 
 Reading this makes me feel pretty strongly that we will soon have frameworks or "kits" to do this and reduce or remove some of these challenges.
 
-Link ten. "Connect the Drops with POAP Collections"
+Link ten of twelve. "Connect the Drops with POAP Collections"
 
 On January sixteenth of last year I blogged about ways to extend POAP and highlighted my desire to have POAP Collections. A year later and POAP has launched exactly what I described!
 
-Link eleven. "The Apple Vision Pro – Stratechery by Ben Thompson"
+Link eleven of twelve. "The Apple Vision Pro – Stratechery by Ben Thompson"
 
 Thompson with his first full take on the Apple Vision Pro after having it for a while. He highlights the origin, tradeoffs, and the state of the software as it stands. Overall a reasonable assessment but I think some of his comparisons are a bit off — say comparing his four displays on his desktop to the Vision Pro display. I do strongly agree with him on the lack of multi-user capabilities. Right now Vision OS is just like iOS or iPadOS and only accommodates one user. You can enable guest mode, but I can already tell you that it is annoying that every time Tyler wants to use the Vision Pro I have to put it on, authenticate, and then enable Guest Mode for him — where he then has to retrain it for his hands and eyes. The good news is software alone could solve this and get it to the point where anyone in the family can put on the device and have it ready for them.
 
-Link twelve. "OKRs are Bullshit - by drmorr"
+Link twelve of twelve. "OKRs are Bullshit - by drmorr"
 
 Provocative title that would be more accurately termed as OKRs are hard and don't fix everything. I've made many uses of OKRs with varying levels of success. They are harder than it may seem, and a uniform process isn't the right approach. The good part is to use them to think bigger about where your organization could go, and how to go about getting there.
 
@@ -160,47 +164,49 @@ That's the end of the Journal.
 
 Now, the Briefly section.
 
-Link one. "How I Take Notes in One-on-One Meetings"
+There are eleven links this week.
+
+Link one of eleven. "How I Take Notes in One-on-One Meetings"
 
 In my exploration of Obsidian I found this useful to think about meeting notes and how to fit those into my system. There is a notable different in how I want to treat recurring group, recurring individual, and ad hoc meeting notes.
 
-Link two. "Why Tim Cook Is Going All In on the Apple Vision Pro | Vanity Fair"
+Link two of eleven. "Why Tim Cook Is Going All In on the Apple Vision Pro | Vanity Fair"
 
 No tech in this article but I like Cook putting his own perspective on the Vision Pro and what he has liked with it, and how they are thinking about the future of it.
 
-Link three. "Pkl — Configuration that is Programmable, Scalable, and Safe"
+Link three of eleven. "Pkl — Configuration that is Programmable, Scalable, and Safe"
 
 Robust configuration language from Apple. Not the kind of open source project that you typically associate with Apple.
 
-Link four. "Calendar"
+Link four of eleven. "Calendar"
 
 Simple webpage view of the entire year that is made to be printed. Handy. I like calendar views that span an entire year for long-term planning. Maybe a native Calendar app for Vision OS will give us something expansive like this.
 
-Link five. "Stract — Open Source Search Engine"
+Link five of eleven. "Stract — Open Source Search Engine"
 
 Fun to see a little bit of innovation showing up in search.
 
-Link six. "s/bash/zsh/g"
+Link six of eleven. "s/bash/zsh/g"
 
 Detailed blog post on all the weird things in bash that zsh fixes. When I was in the terminal more I always used zsh.
 
-Link seven. "FIFA World Cup 26™ | Match schedule, final and opening match"
+Link seven of eleven. "FIFA World Cup 26™ | Match schedule, final and opening match"
 
 The World Cup will be (mostly) in the United States in twenty twenty six. Mark your calendars!
 
-Link eight. "Why Is Big Tech Still Cutting Jobs? - The New York Times"
+Link eight of eleven. "Why Is Big Tech Still Cutting Jobs? - The New York Times"
 
 It is amazing how much the biggest tech firms staffed up in the last few years. I wonder also how much of Meta's cuts are in the metaverse efforts.
 
-Link nine. "Finance worker pays out 25 million dollars after video call with deepfake ‘chief financial officer’ | CNN"
+Link nine of eleven. "Finance worker pays out 25 million dollars after video call with deepfake ‘chief financial officer’ | CNN"
 
 Started with a phishing campaign but then a multi-party video conference where every other member of the call was a deepfake and they successfully convinced this person to send 25 million dollars. Wow.
 
-Link ten. "Pika - Start Your Happy Blog"
+Link ten of eleven. "Pika - Start Your Happy Blog"
 
 Another great IndieWeb blogging solution! This one from the great team at Good Enough. Just 6 dollars a month to have your own site.
 
-Link eleven. "Contextual Computing with Vision Pro: My Writing Cabin - MacSparky"
+Link eleven of eleven. "Contextual Computing with Vision Pro: My Writing Cabin - MacSparky"
 
 I pay close attention to the tools and workflows of MacSparky. I like how he is digging into productivity use cases for the Vision Pro.
 

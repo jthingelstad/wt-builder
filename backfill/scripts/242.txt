@@ -18,11 +18,13 @@ That's the end of Currently.
 
 Now, the Notable section.
 
-Link one. "Plan to write. Write to learn. - without bullshit"
+There are twelve links this week.
+
+Link one of twelve. "Plan to write. Write to learn. - without bullshit"
 
 Writing is learning — I believe that firmly. Paul Graham highlights this all the time. This is the number one reason I think blogging and writing online can be such a great thing to do.
 
-Link two. "Startups that Have Employees In Offices Grow 3½ Times Faster"
+Link two of twelve. "Startups that Have Employees In Offices Grow 3½ Times Faster"
 
 Interesting set of data from 37 companies in the portfolio of Reach Capital.
 
@@ -32,11 +34,11 @@ End quote.
 
 It is a small dataset but the delta is significant. There are many opinions on every side of this debate, so any splash of quantitative data is great to see.
 
-Link three. "Frond"
+Link three of twelve. "Frond"
 
 Interesting service to allow groups of people to chat and engage, but not as high-engagement as Slack or Discord and not as low engagement as something like Discourse. A "just right" in the middle. I'd love to see something like this work because I find there are multiple projects that I would like to engage with that I want something in the middle like this.
 
-Link four. "Update on gasless DNSSEC implementation - ENS Development / Contracts"
+Link four of twelve. "Update on gasless DNSSEC implementation - ENS Development / Contracts"
 
 Ethereum Name Service (ENS) is a one of the most important projects to make Ethereum services easier to use. I have thingelstad.eth and many other ENS names. However, traditional DNS and ENS need to blend in a way that is completely transparent to users, and this is a huge step:
 
@@ -52,7 +54,7 @@ End quote.
 
 Brilliant bridge to connect two incredible important systems.
 
-Link five. "Tell Good Stories - Not Boring by Packy McCormick"
+Link five of twelve. "Tell Good Stories - Not Boring by Packy McCormick"
 
 Fun essay recounting the history of some of the World's Fairs and the stories that we have framed over decades around technology advancement.
 
@@ -62,13 +64,13 @@ End quote.
 
 Overall I agree with this article. We do need better stories about how technology can bend the arc of the future for the better.
 
-Link six. "Unicode Launch New Adopt A Character Website"
+Link six of twelve. "Unicode Launch New Adopt A Character Website"
 
 How cool that you can adopt a Unicode character? Lowest level is 100 dollars. This seems like a cool way to engage people and raise funds for the Unicode Consortium. I've officially adopted "Thinking Face".
 
 I can’t help but think though that this would be even cooler if it were done via NFTs. You should get a minted NFT when you adopt a character. That would be awesome.
 
-Link seven. "Podcast Overload – On my Om"
+Link seven of twelve. "Podcast Overload – On my Om"
 
 It is amazing how huge Podcasts have become. It is simply amazing how an RSS feed with an MP3 attachment has changed so much.
 
@@ -78,11 +80,11 @@ End quote.
 
 I'd love to create a podcast to accompany the Weekly Thing. But the time commitment is just too much. And, well there are already 5 million podcasts. Yikes.
 
-Link eight. "Advice For Engineers, From A Manager — Marco Rogers"
+Link eight of twelve. "Advice For Engineers, From A Manager — Marco Rogers"
 
 Some great advice for engineers. I would agree with every item on the list, but might put them in a different order if any priority was implied. I also like his list of translations of common frustrations. Good stuff. Linked from Elezea.
 
-Link nine. "Journalism is lossy compression"
+Link nine of twelve. "Journalism is lossy compression"
 
 Jarvis reflecting on the summarization of ChatGPT and comparing to journalism itself.
 
@@ -98,7 +100,7 @@ End quote.
 
 Remember that this is what the algorithm is really doing. The intelligence we see is a reflection.
 
-Link ten. "Yellowstone Caldera Volcanic Power Generation Facility: A new engineering approach for harvesting emission-free green volcanic energy on a national scale - ScienceDirect"
+Link ten of twelve. "Yellowstone Caldera Volcanic Power Generation Facility: A new engineering approach for harvesting emission-free green volcanic energy on a national scale - ScienceDirect"
 
 Personally, I tend to just like to forget that there is a giant mega-volcano under Yellowstone that would pretty much devastate the United States and much of the world. This concept of "bleeding energy" off of it to produce electricity sounds delightful.
 
@@ -108,7 +110,7 @@ End quote.
 
 Let's go.
 
-Link eleven. "You're not building a career. You're building a network. - without bullshit"
+Link eleven of twelve. "You're not building a career. You're building a network. - without bullshit"
 
 There is some wonderful brilliance here that I really like.
 
@@ -118,7 +120,7 @@ End quote.
 
 This is a great way to approach your professional activities, and even hobbies.
 
-Link twelve. "I had ChatGPT write a Decemberists song"
+Link twelve of twelve. "I had ChatGPT write a Decemberists song"
 
 The Decemberists are an awesome band, and this article from Colin Meloy having ChatGPT:
 
@@ -229,35 +231,37 @@ That's the end of Reply All.
 
 Now, the Briefly section.
 
-Link one. "Bing: "I will not harm you unless you harm me first""
+There are eight links this week.
+
+Link one of eight. "Bing: "I will not harm you unless you harm me first""
 
 Many examples of Bing Chat getting into very odd dialogues.
 
-Link two. "Why a Conversation With Bing’s Chatbot Left Me Deeply Unsettled - The New York Times"
+Link two of eight. "Why a Conversation With Bing’s Chatbot Left Me Deeply Unsettled - The New York Times"
 
 NY Times columnist leads the Chatbot into a strange dialog. The bot eventually declares its love for Roose. This kind of thing seems like theater to me, but perhaps a worthwhile highlight of how you can get these systems into a very confused state. Read the full transcript for all the details.
 
-Link three. "What is HRV (Heart Rate Variability)?"
+Link three of eight. "What is HRV (Heart Rate Variability)?"
 
 Good introduction and explainer to HRV. I’m a big fan of my Oura Ring but haven't put much attention to this metric. Happy to see my HRV balance is currently "Optimal".
 
-Link four. ""Battery Daddy" Battery Organizer Storage Case — Tools and Toys"
+Link four of eight. ""Battery Daddy" Battery Organizer Storage Case — Tools and Toys"
 
 My brother-in-law got me one of these a few months ago and it is really awesome. Holds a ton of batteries and works better than the previous organizer I had.
 
-Link five. "Is Minnesota the State of Blockchain? - YouTube"
+Link five of eight. "Is Minnesota the State of Blockchain? - YouTube"
 
 Well done video from Minnesota Blockchain suggesting a potential role for Minnesota in this new space.
 
-Link six. "Coin Metrics’ State of the Network: Issue 194"
+Link six of eight. "Coin Metrics’ State of the Network: Issue 194"
 
 Interesting on-chain analysis of Bitcoin Ordinals (aka NFTs for Bitcoin) and how they are affecting Bitcoin block size. Reading this writeup was bringing back when I read The Blocksize War. I would think there are a lot of Bitcoin supporters that aren't very happy about this use case. Personally, I wonder what the point is. Ethereum offers all of this and then some now. I guess Bitcoiners want to have their NFTs too.
 
-Link seven. "Star Tribune names former Google exec Steve Grove as publisher"
+Link seven of eight. "Star Tribune names former Google exec Steve Grove as publisher"
 
 I was surprised to see Steve Grove announced as the next publisher. It is an interesting pick, and I'll be very curious to see how Grove brings his digital expertise to the regions leading news organization.
 
-Link eight. "A few alternative things you can do when you’re bored (instead of scrolling social media) – Shawn Blanc"
+Link eight of eight. "A few alternative things you can do when you’re bored (instead of scrolling social media) – Shawn Blanc"
 
 This is a great list of suggestions. When you delete all of the social apps off of your phone, and all the news apps, you find that it fails to fill the gaps of minor boredom you have. It is also just fine to be bored.
 

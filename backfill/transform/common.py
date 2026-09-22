@@ -306,6 +306,14 @@ def published_date(value: Any) -> str:
     return parsed.strftime("%B %-d, %Y")
 
 
+def issue_name(number: Any) -> str:
+    """How the issue names itself when spoken: "issue 140" for an issue,
+    "Special Thing 140" for the one midweek special (140-special) — spoken as
+    its number and a dash, it sounded like a part code (2026-09-22)."""
+    m = re.match(r"^(\d+)-special$", str(number))
+    return f"Special Thing {m.group(1)}" if m else f"issue {number}"
+
+
 def preamble(frontmatter: dict[str, Any]) -> str:
     number = frontmatter.get("number", "")
     subject = strip_emoji((frontmatter.get("subject") or "").strip()).strip()
@@ -316,7 +324,7 @@ def preamble(frontmatter: dict[str, Any]) -> str:
         subject = subject.rsplit(" / ", 1)[1].strip()
     date = published_date(frontmatter.get("publish_date", ""))
     description = strip_emoji((frontmatter.get("description") or "").strip()).strip()
-    parts = [f"The Weekly Thing, issue {number}."]
+    parts = [f"The Weekly Thing, {issue_name(number)}."]
     if subject:
         parts.append(subject.rstrip(".") + ".")
     parts.extend([f"Published {date}.", "By Jamie Thingelstad."])
@@ -329,7 +337,7 @@ def preamble(frontmatter: dict[str, Any]) -> str:
 def closing(frontmatter: dict[str, Any]) -> str:
     number = frontmatter.get("number", "")
     return normalize_text(
-        f"That brings us to the end of the Weekly Thing, issue {number}. "
+        f"That brings us to the end of the Weekly Thing, {issue_name(number)}. "
         "Thanks for listening, and I'll see you next time."
     )
 

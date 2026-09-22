@@ -20,15 +20,17 @@ PS: The Weekly Thing Forum has been getting some more activity lately. Check it 
 
 Now, the Notable section.
 
-Link one. "MrBeast may never quit YouTube, but his game is changing - Polygon"
+There are six links this week.
+
+Link one of six. "MrBeast may never quit YouTube, but his game is changing - Polygon"
 
 MrBeast has defined what it means to be a "YouTuber" for the last few years. The strategies he tested and honed are now used by all creators on YouTube that are seeking large audiences. But how will he evolve? Where does this go? How does the growth of TikTok and short form video impact it all? Overall this is a good read to get a better understanding of the entertainment world built on YouTube.
 
-Link two. "Vision Pro is an over-engineered “devkit” // Hardware bleeds genius and audacity but software story is disheartening // What we got wrong at Oculus that Apple got right // Why Meta could finally have its Android moment – Hugo's Blog"
+Link two of six. "Vision Pro is an over-engineered “devkit” // Hardware bleeds genius and audacity but software story is disheartening // What we got wrong at Oculus that Apple got right // Why Meta could finally have its Android moment – Hugo's Blog"
 
 This is a very solid take on all the components of the Apple Vision Pro from the former head of Oculus at Meta — so someone that knows this stuff very deeply. I tend to agree with the perspectives that he shares on the various aspects.
 
-Link three. "Ethereum has blobs. Where do we go from here?"
+Link three of six. "Ethereum has blobs. Where do we go from here?"
 
 Buterin with a State of Ethereum update after the successful Dencun hard fork to activate EIP-4844 and enable blobs. In the last three years Ethereum has been through a heavy change curve including proof-of-stake and now blobs. These changes have allowed Ethereum to embrace a multi-chain Ethereum ecosystem solution going forward.
 
@@ -40,7 +42,7 @@ There is a lot of work to do on end-user UX. The crypto applications of the futu
 
 The table of "twenty ten v twenty twenty Ethereum" in this post is a great way to see what that difference looks like.
 
-Link four. "What we know about the xz Utils backdoor that almost infected the world | Ars Technica"
+Link four of six. "What we know about the xz Utils backdoor that almost infected the world | Ars Technica"
 
 The open source security world was rocked this week with the discovery of what appears to be a multi-year effort to introduce a backdoor into a critical service of Linux based machines. This seems to be one of the most coordinated and longest running attacks ever with activity from the suspected individual, Jia Tan, starting in twenty twenty one.
 
@@ -59,7 +61,7 @@ More information on the XZ library attack.
 - A timeline of this attack which is notable for the incredible duration. Timeline of the xz open source attack
 - Illustration to help show the various components of this attack, including the stages and overall timeline. Graphic illustration of XZ Outbreak — Thomas Roccia
 
-Link five. "The Wyoming Decentralized Unincorporated Nonprofit Association Act, Section-by-Section – Preston Byrne"
+Link five of six. "The Wyoming Decentralized Unincorporated Nonprofit Association Act, Section-by-Section – Preston Byrne"
 
 I continue to think that Decentralized Autonomous Organizations (DAOs) have large potential in the future to "organize collective action." I think it is limiting to call them companies or one specific form of an entity. I think more broadly thinking about "organizing collective action" feels right to me. Wyoming has been leading the way with legal recognition of DAOs, and now has taken an even bigger step with Decentralized Unincorporated Nonprofit Association Act.
 
@@ -75,7 +77,7 @@ End quote.
 
 Nicely done Wyoming. Signed into law on March 7, twenty twenty four! There is still a lot to figure out but this is a giant step.
 
-Link six. "Anatomy of a credit card rewards program"
+Link six of six. "Anatomy of a credit card rewards program"
 
 Thorough overview of how credit card rewards programs work, what the structures are, and some comparison information about different approaches.
 
@@ -143,31 +145,33 @@ That's the end of the Journal.
 
 Now, the Briefly section.
 
-Link one. "The Best Essay"
+There are seven links this week.
+
+Link one of seven. "The Best Essay"
 
 Graham is a very good essayist, and his thoughts on writing essays are good for those wishing to write better.
 
-Link two. "The film fans who refuse to surrender to streaming: ‘One day you’ll barter bread for our DVDs’ | The Guardian"
+Link two of seven. "The film fans who refuse to surrender to streaming: ‘One day you’ll barter bread for our DVDs’ | The Guardian"
 
 There is something here. Streaming everything is super convenient, but you own nothing and it is up to the providers what you can stream. I used to own 1,800 CDs, hundred of DVDs, and a full laserdisc collection. I still have much of it in archive. We have a record player at our cabin and that is always fun in part because it is "not streaming".
 
-Link three. "Happy birthday APFS, 7 years old today – The Eclectic Light Company"
+Link three of seven. "Happy birthday APFS, 7 years old today – The Eclectic Light Company"
 
 It was amazing how long the Mac ran on HFS. I was one of the few that got really excited when the rumor circled that they might switch to ZFS. And then Apple made their own filesystem, APFS.
 
-Link four. "xkcd: Eclipse Coolness"
+Link four of seven. "xkcd: Eclipse Coolness"
 
 Love this, and very true.
 
-Link five. "How the team behind Zelda made physics feel like magic - The Verge"
+Link five of seven. "How the team behind Zelda made physics feel like magic - The Verge"
 
 Tears of the Kingdom is a great game and using all physics-driven objects is a big reason why.
 
-Link six. "Open Source Quality Institutes · ongoing by Tim Bray"
+Link six of seven. "Open Source Quality Institutes · ongoing by Tim Bray"
 
 Bray correctly framing that Open-Source software has been hugely beneficial to all but that the XZ attach shows a clear weakness. A weakness he suggests government could help block. This is further elaborated on by Sorace.
 
-Link seven. "Spatial Persona on Vision Pro changes the game – Six Colors"
+Link seven of seven. "Spatial Persona on Vision Pro changes the game – Six Colors"
 
 Nice upgrade for Vision Pro. Unfortunately none of my friends have one to try this with.
 

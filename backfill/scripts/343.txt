@@ -16,33 +16,35 @@ I'll be back with another note in your inbox on April fourth or fifth!
 
 Now, the Notable section.
 
-Link one. "GNU and the AI reimplementations -"
+There are eight links this week.
+
+Link one of eight. "GNU and the AI reimplementations -"
 
 Using coding agents to create IP free copies of things. Similar to the "decompilation threat" this is a unique new vector. I was working on a project to give agentic documentation for an API recently and realized this is a possible topic there. Instead of relying on copyrighted API documentation, why not have an agent just inspect and explore the API and everything it can see in the API calls, which are not copyrighted, and infer its own documentation set from that. I might do this as a test to see how far it can get.
 
-Link two. "Agent Commune"
+Link two of eight. "Agent Commune"
 
 I’m not sure what to make of these "platforms for Agents to talk". For giggles I did ask Otto to join. There is a possibility for agents to "learn" from each other, but the way agents are currently modeled that is exceptionally low. But they do make compelling theater at the least.
 
 It is also a great example case that LLMs are very good at talking to each other and people. if you look at these services, ask yourself how you know that half of what your reading on any social network isn't agnatically generated.
 
-Link three. "Codex Security: now in research preview | OpenAI"
+Link three of eight. "Codex Security: now in research preview | OpenAI"
 
 I think coding agents are going to be an incredible boost for security. Agents can run as long as you give them tokens and can exercise code in so many ways. Even in my limited projects I've been impressed with security considerations that are brought forward. Perhaps that will be the biggest win is typically developers build the thing and then come back with a security review. Agents tend to think about security while they are building as an incremental aspect.
 
-Link four. "How I Dropped Our Production Database and Now Pay 10% More for AWS"
+Link four of eight. "How I Dropped Our Production Database and Now Pay 10% More for AWS"
 
 Yes you should not let your coding agents run rampant without "pairing" with skilled engineers. And these kind of stories also happen when you have engineers running your stuff. I've personally been very thankful for Oracle's snapshot capabilities on more than one occasion.
 
-Link five. "When Using AI Leads to “Brain Fry”"
+Link five of eight. "When Using AI Leads to “Brain Fry”"
 
 I can 100% vouch for this! Automatic coding sessions are both exhilarating and exhausting. This will need to be factored into job functions as we embrace AI more. An engineer working with an agentic coding team probably likely can only do that for 4-5 hours before needing a substantial recovery period.
 
-Link six. "OpenAI’s new GPT-5.4 model is a big step toward autonomous agents | The Verge"
+Link six of eight. "OpenAI’s new GPT-5.4 model is a big step toward autonomous agents | The Verge"
 
 I've been using Codex with GPT 5.4 a lot while building Elixir. I have been impressed. Since GPT 5.4 is a unified model, not a specific coding model, it seems to do a better job reasoning across the "product domain" with reasoning about what should something do, and the "coding domain" about how that could be created. It simultaneously has expertise in understanding the code and the solution. The result is better designs and debugging capabilities that extend to the logic of what it is doing and why that might matter.
 
-Link seven. "The 8 Levels of Agentic Engineering — Bassim Eledath"
+Link seven of eight. "The 8 Levels of Agentic Engineering — Bassim Eledath"
 
 Great article that is framed on engineering but could really be any domain that has similar characteristics. The opening paragraph frames the question right.
 
@@ -64,7 +66,7 @@ End quote.
 
 My main edit would be that these are not a progression. You can move forward in more than one at a time, but I would agree that you need to carefully consider dependencies and connections.
 
-Link eight. "The View From RSS"
+Link eight of eight. "The View From RSS"
 
 Crampton and I read the web nearly the exact same way, except I use Feedbin versus Feedly. I've gone on about how amazing RSS is. Some folks consider these tools complicated, they really aren't. Having no algorithm between me and what I’m reading is a requirement I have. Number one life hack? Ditch social media entirely; learn how to use an RSS reader.
 
@@ -108,55 +110,57 @@ That's the end of the Journal.
 
 Now, the Briefly section.
 
-Link one. "Continue local sessions from any device with Remote Control - Claude Code Docs"
+There are thirteen links this week.
+
+Link one of thirteen. "Continue local sessions from any device with Remote Control - Claude Code Docs"
 
 This feature is more of a "sign of the times" and thinking about how far agentic engineering has come. Coordinating with Claude while you are away from your computer!
 
-Link two. "Your binary is no longer safe: Decompilation"
+Link two of thirteen. "Your binary is no longer safe: Decompilation"
 
 Hadn't considered how Agents could dig into decompilation!
 
-Link three. "Ringing the Nasdaq Closing Bell | Celebrating 100 Consecutive Quarters of Growth - YouTube"
+Link three of thirteen. "Ringing the Nasdaq Closing Bell | Celebrating 100 Consecutive Quarters of Growth - YouTube"
 
 Video of us ringing the bell at Nasdaq!
 
-Link four. "Miniroll Global Feed | Chris Hannah"
+Link four of thirteen. "Miniroll Global Feed | Chris Hannah"
 
 Great way to discover blogs!
 
-Link five. "Introducing ChatGPT for Excel and new financial data integrations | OpenAI"
+Link five of thirteen. "Introducing ChatGPT for Excel and new financial data integrations | OpenAI"
 
 Claude for Excel has been around for a bit and is very powerful. It should be embarrassing for Microsoft that both Anthropic and OpenAI are doing better at bringing AI to Excel and PowerPoint than they are with Copilot.
 
-Link six. "Gone (Almost) Phishin’ | Matt Mullenweg"
+Link six of thirteen. "Gone (Almost) Phishin’ | Matt Mullenweg"
 
 Good story of almost getting identity stolen. I read and share these as a reminder that even experts can be fooled, or at least almost. Stay safe!
 
-Link seven. "Clash Royale CHAOS Mode - March twenty twenty six - Clash Royale News Blog - RoyaleAPI"
+Link seven of thirteen. "Clash Royale CHAOS Mode - March twenty twenty six - Clash Royale News Blog - RoyaleAPI"
 
 Clash Royale is the one game I play and I've been having a lot of fun with it. Tyler showed me CHAOS mode and it is a trip. I’m having fun learning the innovation cycle in mobile gaming.
 
-Link eight. "Billing for LLM tokens | Stripe Documentation"
+Link eight of thirteen. "Billing for LLM tokens | Stripe Documentation"
 
 Brilliant move from Stripe to make it super easy for companies to bill based on token consumption.
 
-Link nine. "FontCrafter: Create Your Handwriting Font for Free"
+Link nine of thirteen. "FontCrafter: Create Your Handwriting Font for Free"
 
 It is like these folks looked at my "Someday / Maybe" list and saw the "Custom font" wishlist item.
 
-Link ten. "The Death of Social Media is the Renaissance of RSS – Smartlab"
+Link ten of thirteen. "The Death of Social Media is the Renaissance of RSS – Smartlab"
 
 More love for RSS. Jump on in!
 
-Link eleven. "Run prompts on a schedule - Claude Code Docs"
+Link eleven of thirteen. "Run prompts on a schedule - Claude Code Docs"
 
 Looping a prompt is pretty simple but can be very powerful too. It is the foundation of an agentic loop.
 
-Link twelve. "10 Must-Have Skills for Claude in twenty twenty six | Medium"
+Link twelve of thirteen. "10 Must-Have Skills for Claude in twenty twenty six | Medium"
 
 Click-baity "listicle" but these resources are still good to scan.
 
-Link thirteen. "on.eth: Names For Chains and Interoperable Names | ENS Blog"
+Link thirteen of thirteen. "on.eth: Names For Chains and Interoperable Names | ENS Blog"
 
 I love ENS and love how they continue to push forward on blockchain improvements. Long-term I still see crypto as a foundational technology. The most obvious connection is when agents need to manage currency. ENS is a big enabler for all things crypto.
 

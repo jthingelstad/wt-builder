@@ -15,7 +15,9 @@ That is all for tonight. I’m going to get rested and get ready to be a retaile
 
 Now, the Featured section.
 
-Link one. "Home invasion"
+There is one link this week.
+
+Link one of one. "Home invasion"
 
 Since Musk took ownership of Twitter and started his random act of the day strategy, we've seen a massive number of people jumping into Mastodon. Mastadon has been around for a long time, and uses a federation of thousands of servers, each with their own admin and policies, to then federate a Twitter-like experience. It is sort of like Twitter, but it is also very much NOT Twitter. This article highlights the cultural collisions happening as these Twitter refugees come tumbling into Mastadon and bring an entirely different set of expectation and culture into the Fediverse.
 
@@ -27,21 +29,23 @@ That's the end of Featured.
 
 Now, the Notable section.
 
-Link one. "Versepad"
+There are fourteen links this week.
+
+Link one of fourteen. "Versepad"
 
 A text editor for poets? Yep. What does that mean? It is pretty neat to try it. It helps illustrate the structure of the poem, and has a variety of tools to help with poem structure as you edit. How cool.
 
-Link two. "Could FTX’s Collapse Signal Even Tougher Times for Crypto? Here’s What to Know"
+Link two of fourteen. "Could FTX’s Collapse Signal Even Tougher Times for Crypto? Here’s What to Know"
 
 I've read a ton about the fall of FTX this week, and it is still playing out. I’m active in crypto and find the tech compelling so have paid close attention. One of the most important tenets of crypto is to self-custody your tokens. "Not your wallet, not your crypto" is how the saying goes. We are again learning that centralized exchanges on a decentralized platform have the potential for big problems.
 
 This article has a good tlmeline. I’m saddened by the losses that many folks are going to take as a result of this. But I also still see the long-term potential in what can be built. Realistically, I think the FTX blow up pushes back crypto 2-3 years in adoption.
 
-Link three. "Layoffs.fyi - Tech Layoff Tracker and Startup Layoff Lists"
+Link three of fourteen. "Layoffs.fyi - Tech Layoff Tracker and Startup Layoff Lists"
 
 There have been a lot of layoffs in technology with challenging market dynamics we are in now. According to this tracker "787 tech companies with layoffs, 120699 employees laid off in twenty twenty two." This site collects data and validates is a database of tech related layoffs.
 
-Link four. "What to blog about"
+Link four of fourteen. "What to blog about"
 
 I love blogging, and one of the questions that people often get stuck on is what to write about. Willison's take on this is great.
 
@@ -51,7 +55,7 @@ End quote.
 
 If you haven't tried before, there is no better time than now to start a blog and create your own "little corner of the Internet".
 
-Link five. "Your Calendar = Your Priorities"
+Link five of fourteen. "Your Calendar = Your Priorities"
 
 One of the recurring topics I keep gravitating in productivity and leadership is time management. Time is the most finite resource any of us have, and the pure fact that we give a big percentage of that time to anyone that sends us a calendar invite suggests that we may not be as purposeful and planful with our time as might be needed.
 
@@ -63,21 +67,21 @@ Another way this is often said is the common quip that "What you don't do is oft
 
 Given how important this is, you would think there would be a variety of incredibly powerful calendar analytics solutions to help us manage this incredible resource. Alas, there is not. In the meantime, doing manual analysis, categorization, and evaluation of our calendar and then using that to drive some best practices seems "state of the art".
 
-Link six. "Just Don’t"
+Link six of fourteen. "Just Don’t"
 
 This essay from Bray totally resonated with me. And I catch myself using "just" plenty enough as well, in cases that are not helpful. "Just install Foo, and then configure your account and you are in." To many people that is a giant ask, not a "just".
 
 I've said before that "just" is a four-letter word. By the way, so is "easy."
 
-Link seven. "Zoom officially announces its video conferencing app is coming soon to Tesla vehicles - Drive Tesla"
+Link seven of fourteen. "Zoom officially announces its video conferencing app is coming soon to Tesla vehicles - Drive Tesla"
 
 This is totally geeky of me but I love that they are putting Zoom in the Tesla. And the use of the previously unused driver facing camera is brilliant. I’m curious how they will handle safety, I assume that camera cannot be used while driving?
 
-Link eight. "Portmaster 1.0, A New Era for Privacy"
+Link eight of fourteen. "Portmaster 1.0, A New Era for Privacy"
 
 I will be curious to see how this package evolves. It is very similar to Little Snitch which I have used in the past but I always give up on because it is just too much to manage. You quickly realize that all of your apps talk to dozens of things online, and figuring out what to allow and disallow is much too complicated. If Postmaster comes with some more intelligence and out-of-the-box packages, maybe it can bridge that gap? This would be a great capability for privacy.
 
-Link nine. "Mathics"
+Link nine of fourteen. "Mathics"
 
 Mathematica is an incredibly powerful piece of software, and it is awesome to see an open-source alternative coming together.
 
@@ -87,11 +91,11 @@ End quote.
 
 Opening access to the power of a system like Mathematica is great.
 
-Link ten. "Your organization should run its own Mastodon server"
+Link ten of fourteen. "Your organization should run its own Mastodon server"
 
 Thoughtful article on how you can approach Mastadon and the Fediverse for your company or organization, differently than you do existing social media platforms. I had never considered the idea of hosting employee accounts for example, but that makes a ton of sense and creates a really nice way for companies to operate on the Fediverse.
 
-Link eleven. "The Apple Watch Ultra’s Impact on My Focus and Presence – The Sweet Setup"
+Link eleven of fourteen. "The Apple Watch Ultra’s Impact on My Focus and Presence – The Sweet Setup"
 
 I’m due for a new Apple Watch and I have my eye on the new Apple Watch Ultra. Not because I’m going to climb a bunch of mountains, but because it has a ton of power and I think it could change how I use the watch. Ginter seems to think it may be doing that for him.
 
@@ -101,7 +105,7 @@ End quote.
 
 Plus I think it would fit me pretty well. The Apple Watch has always been a touch small for my wrist.
 
-Link twelve. "The Death of Decentralized Email"
+Link twelve of fourteen. "The Death of Decentralized Email"
 
 Love the historical perspective that this article brings to email, going way, way back. It also very clearly shows how email has been largely captured by the big tech players and even though it was designed as an incredibly decentralized and resilient protocol, it has been centralized all in the name of content filtering and managing spam.
 
@@ -111,7 +115,7 @@ End quote.
 
 At the end the article connects this back to Bitcoin and asks the Bitcoin community to be thoughtful on how SMTP went from being this decentralized and open system to something completely centralized and managed by a few companies. There are lessons to be learned. SMTP has spam, and Crypto has rug pulls and wallet attacks. There is much to learn from the journey of email, and avoid.
 
-Link thirteen. "Use RSS for privacy and efficiency"
+Link thirteen of fourteen. "Use RSS for privacy and efficiency"
 
 Longtime readers of the Weekly Thing know that I love RSS and Feedbin is my RSS reader of choice. It is a win for privacy, focus, attention, liberty, agency. I could go on and on. But using an RSS solution to connect you to other platforms works great.
 
@@ -121,7 +125,7 @@ End quote.
 
 I use Feedbin to follow a number of Twitter accounts, YouTube channels, and many other things. RSS works beautifully for this… and it is just a protocol.
 
-Link fourteen. "Nouns Builder | Nouns your ideas"
+Link fourteen of fourteen. "Nouns Builder | Nouns your ideas"
 
 The Nouns ecosystem is based on the main method of creating a sequence of unique NFT's on a schedule, and using those sales to build a treasury that the holders of the Nouns can vote to put to work. With Nouns Builder, anyone can determine a schedule, the graphic assets, and create their own Nouns-like project with the same capabilities.
 
@@ -215,31 +219,33 @@ That's the end of the Journal.
 
 Now, the Briefly section.
 
-Link one. "Symul FTX/Alameda Dashboard"
+There are seven links this week.
+
+Link one of seven. "Symul FTX/Alameda Dashboard"
 
 Symul released this public dashboard that allows you to look at various wallets that FTX has enchain. It is pretty wild that you can get this level of detail, but also just a built in feature of crypto.
 
-Link two. "Minneapolis tech firm Code42 lays off 15% of workforce"
+Link two of seven. "Minneapolis tech firm Code42 lays off 15% of workforce"
 
 Another local tech firm doing layoffs. Also in Business Journal.
 
-Link three. "Bright Health Group to Lay Off 99 Employees | Twin Cities Business"
+Link three of seven. "Bright Health Group to Lay Off 99 Employees | Twin Cities Business"
 
 Local firm with pretty significant layoffs. Also in Star Tribune.
 
-Link four. "Debirdify"
+Link four of seven. "Debirdify"
 
 There is no formal way to point a Twitter username to a Mastadon account name, but this app will search those you follow for common ways of sharing that information and then present it to you to make it easier to move from Twitter to the Fediverse.
 
-Link five. "The Observation Deck » Twitter, when the wall came down"
+Link five of seven. "The Observation Deck » Twitter, when the wall came down"
 
 Some thoughts from long-time Twitter user Bryan Cantrill on the current state of Twitter. He's also now on Mastadon.
 
-Link six. "It looks like I’m moving to Mastodon"
+Link six of seven. "It looks like I’m moving to Mastodon"
 
 Wilson also moved to Mastadon, and shared his learnings along the way.
 
-Link seven. "Polygon, Arweave Jump Double Digits as Meta’s Instagram Announces New NFT Tools - Decrypt"
+Link seven of seven. "Polygon, Arweave Jump Double Digits as Meta’s Instagram Announces New NFT Tools - Decrypt"
 
 Instagram bringing NFT creation directly into the product. This is the type of innovation that will drive larger adoption of crypto technology.
 

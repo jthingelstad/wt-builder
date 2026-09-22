@@ -20,11 +20,13 @@ That's the end of Currently.
 
 Now, the Notable section.
 
-Link one. "An IRC client in your motherboard | Phillip Tennen"
+There are six links this week.
+
+Link one of six. "An IRC client in your motherboard | Phillip Tennen"
 
 UEFI is the modern replacement for BIOS and this trick of creating an IRC client that runs in it is pretty wild. It also freaks me out considering how IRC can be used as a command-and-control network for ransomware and what if that stuff embedded itself into the UEFI portion of your computer?
 
-Link two. "After AI beat them, professional go players got better and more creative"
+Link two of six. "After AI beat them, professional go players got better and more creative"
 
 It is cool to see how professional Go players have adapted since AlphaGo beat Lee Sedol.
 
@@ -40,7 +42,7 @@ End quote.
 
 AI shattering the preconceptions caused players to through out the old and reinvent their game. Very cool.
 
-Link three. "How Engineers at Digital Equipment Corp. Saved Ethernet - IEEE Spectrum"
+Link three of six. "How Engineers at Digital Equipment Corp. Saved Ethernet - IEEE Spectrum"
 
 This is a great story about the creation of the very first Ethernet bridge, or what we now call a switch. I've got five switches in my house right now making sure my Ethernet network runs super fast. I didn’t realize that Ethernet and I are about the same age.
 
@@ -62,11 +64,11 @@ End quote.
 
 Thank you Mark!
 
-Link four. "Twitter’s Clumsy Pivot to X.com Is a Gift to Phishers – Krebs on Security"
+Link four of six. "Twitter’s Clumsy Pivot to X.com Is a Gift to Phishers – Krebs on Security"
 
 So X has decided that they really want people to start saying X and not saying Twitter anymore. Someone tells a developer to make that happen. So they start replacing "twitter.com" with "x.com" but don't bound the match at all? Seriously, this is beyond amateur hour, and exposes users to super-simple phishing attacks. C'mon — even an associate fresh on the job should have known better.
 
-Link five. "Notes on how to use LLMs in your product. | Irrational Exuberance"
+Link five of six. "Notes on how to use LLMs in your product. | Irrational Exuberance"
 
 Will Larson shares his "notes" as he has been working on adding LLM capabilities to products. There are some really good thoughts here that should help product people figure out how to approach this and result in better outcomes.
 
@@ -78,7 +80,7 @@ End quote.
 
 Not a single line in this that I would disagree with. Great stuff.
 
-Link six. "Platformonomics - Follow the CAPEX: The Clown Car Race Checkered Flag"
+Link six of six. "Platformonomics - Follow the CAPEX: The Clown Car Race Checkered Flag"
 
 Great article that looks at the capital investment being made by cloud providers to check their PR messaging with the investment. The article is fundamentally highlighting that Oracle and IBM are just not in this market in any real way, but the real amazing thing to me is the amount of capital that AWS, Microsoft, and Google are continuously driving into their massive cloud operations.
 
@@ -177,43 +179,45 @@ That's the end of the Journal.
 
 Now, the Briefly section.
 
-Link one. "Vision Pro App Spotlight: Seasons Weaves Immersive Conditions Into a Comprehensive Weather App - MacStories"
+There are ten links this week.
+
+Link one of ten. "Vision Pro App Spotlight: Seasons Weaves Immersive Conditions Into a Comprehensive Weather App - MacStories"
 
 Weather apps were a source of much innovation in the early days of mobile. I wonder if we'll see a similar thing with the Vision Pro?
 
-Link two. "great_tables"
+Link two of ten. "great_tables"
 
 Creating tables in code (or really anywhere) is fussy and annoying. This is a great Python module to make it all much easier.
 
-Link three. "Betula"
+Link three of ten. "Betula"
 
 Another self-hosted bookmarking service. Thing I thought was notable is Fediverse support to you can subscribe to links from it.
 
-Link four. "How College Consultants Invent Perfect Ivy League Applicants"
+Link four of ten. "How College Consultants Invent Perfect Ivy League Applicants"
 
 This article just seems like "crazy town" in every way possible.
 
-Link five. "EchoFeed"
+Link five of ten. "EchoFeed"
 
 Simple utility that watches an RSS feed and publishes items from that feed to another service. I love little RSS utilities like this.
 
-Link six. "Deckset iOS"
+Link six of ten. "Deckset iOS"
 
 I do all my web facing writing in Markdown. My blog is Markdown. I write the Weekly Thing in Markdown. Using it for presentations could be really nice.
 
-Link seven. "faces.js - A JavaScript library for generating vector-based cartoon faces"
+Link seven of ten. "faces.js - A JavaScript library for generating vector-based cartoon faces"
 
 This library totally reminds me of the Mii stuff for the Wii U. Seems like a nice solution to create profile images with.
 
-Link eight. "blocky"
+Link eight of ten. "blocky"
 
 Similar to PiHole but this is a proxy versus being its own DNS service. This is where you can add so much security and privacy to your network.
 
-Link nine. "oisd | domain blocklist"
+Link nine of ten. "oisd | domain blocklist"
 
 Love the good work going into crowdsourcing domain blocklists to protect against surveillance and many other threats.
 
-Link ten. "The Best Photos and Videos of the twenty twenty four Solar Eclipse"
+Link ten of ten. "The Best Photos and Videos of the twenty twenty four Solar Eclipse"
 
 Some great images of the recent eclipse.
 

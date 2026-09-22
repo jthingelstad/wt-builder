@@ -22,7 +22,9 @@ That's the end of Currently.
 
 Now, the Notable section.
 
-Link one. "My 20 Year Career is Technical Debt or Deprecated"
+There are eleven links this week.
+
+Link one of eleven. "My 20 Year Career is Technical Debt or Deprecated"
 
 In a constantly changing environment like technology, this is almost always the case.
 
@@ -32,23 +34,23 @@ End quote.
 
 No reason to be sad about that. We are all building higher and higher, and the new stuff can’t happen without the old stuff being there first.
 
-Link two. "How to Enable Advanced Data Protection on iOS, and Why You Should | Electronic Frontier Foundation"
+Link two of eleven. "How to Enable Advanced Data Protection on iOS, and Why You Should | Electronic Frontier Foundation"
 
 I’m glad to see the EFF call out this end-to-end encryption capability that Apple has added for their services. I’ve got this enabled and it just feels great to have it in place. I would highly recommend everyone turn it on. Make sure that you take care of the recovery contacts when you set it up just in case. The recovery contacts are also well integrated with the features Apple has added to access iCloud data for people that have died. Another good thing to be thoughtful about.
 
-Link three. "Inside GitHub: Working with the LLMs behind GitHub Copilot | The GitHub Blog"
+Link three of eleven. "Inside GitHub: Working with the LLMs behind GitHub Copilot | The GitHub Blog"
 
 Fairly shallow article but interesting to read about the progression of approach and model that GitHub Copilot used with OpenAI. It is interesting how they learned to provide additional data to the LLM in order to get better results. I found the file path an interesting one that would not be obvious.
 
-Link four. "New TLDs: Not Bad, Actually – text/plain"
+Link four of eleven. "New TLDs: Not Bad, Actually – text/plain"
 
 There has been some hand wringing and concern about these new top-level domains like .zip and .mov, because they are the same as file extensions. These are good arguments for why it is fine.
 
-Link five. "CryptoHack – A fun, free platform for learning cryptography"
+Link five of eleven. "CryptoHack – A fun, free platform for learning cryptography"
 
 This looks like a really great site to learn about a variety of cryptography approaches from basic to fairly advanced. I created a profile so I can try it out. This could be a fun one to do with your kids as well. I thought it was funny that they gave you a simple cypher to solve just to register (hint: ROT-13).
 
-Link six. "This time, it feels different - nadh.in"
+Link six of eleven. "This time, it feels different - nadh.in"
 
 There have been many advances in AI/ML over the years. I agree with this author that it does feel like we are at a different spot this time.
 
@@ -60,7 +62,7 @@ I always think of mobile in this regard. I’m old enough that I remember all th
 
 We all know it eventually did, with the iPhone. Is ChatGPT the iPhone of AI?
 
-Link seven. "Vore"
+Link seven of eleven. "Vore"
 
 I’m almost obligated to dig into this new site just based on it’s intro:
 
@@ -72,11 +74,11 @@ There is a great blog post to introduce this fun new service. I’m a big fan of
 
 It is interesting that Vore very much takes the "River of News" approach. All feeds are public, so you can see my river of a few feeds I put in to test. There isn’t a read/unread either. I’ll stick with Feedbin for my RSS service, but it is fun to see this and may use it for some group of feeds.
 
-Link eight. "Introducing Lassie - a retrieval client for Filecoin and IPFS"
+Link eight of eleven. "Introducing Lassie - a retrieval client for Filecoin and IPFS"
 
 IPFS is a very interesting and capable system to store data, but it really needs better tooling so I was curious when I saw this. It is a command line tool, so still not real user friendly, but it is a step in the right direction. You could easily put a list of Content IDs in a file and use this with a script to retrieve it all.
 
-Link nine. "What’s a "techie"? | Seth's Blog"
+Link nine of eleven. "What’s a "techie"? | Seth's Blog"
 
 Godin attempts to define the term "techie", something a lot of people say but don't really specify what it really means.
 
@@ -92,11 +94,11 @@ End quote.
 
 I think he is mostly right.
 
-Link ten. "The Case for the Total Liberation of Ukraine - The Atlantic"
+Link ten of eleven. "The Case for the Total Liberation of Ukraine - The Atlantic"
 
 Anne Applebaum, one of the authors of this was on the Pivot podcast and gave a very good overview of the State of the Russian attacks on Ukraine, and the positive path that Ukraine may have to victory.
 
-Link eleven. "Digital identity – Assessing Web3’s identity building blocks"
+Link eleven of eleven. "Digital identity – Assessing Web3’s identity building blocks"
 
 Good overview of various components for identity using crypto tech. I find it kind of silly that they enumerate identifiers other than ENS. The web3 ecosystem should follow the lead of Ethereum Name Service and build on that, not compete. Also love the callout to POAPs.
 
@@ -251,23 +253,25 @@ That's the end of the Journal.
 
 Now, the Briefly section.
 
-Link one. "pixpaint"
+There are five links this week.
+
+Link one of five. "pixpaint"
 
 This reminds me of a drum machine but for visual squiggles. I’m not sure what I would do with it, but it is sort of fun to play with.
 
-Link two. "Alby"
+Link two of five. "Alby"
 
 A more advanced wallet for the Bitcoin ecosystem. Perhaps a bit like Rainbow is to Ethereum. Supports Lightning, and advanced features to use services like Nostr.
 
-Link three. "Google Cloud Duet AI for developers | Google Cloud Blog"
+Link three of five. "Google Cloud Duet AI for developers | Google Cloud Blog"
 
 Google answer to GitHub Copiliot?
 
-Link four. "Map of GitHub"
+Link four of five. "Map of GitHub"
 
 What a wild visualization of various code "ecosystems" in GitHub and how they are connected together. Pretty fun to explore.
 
-Link five. "the three paths of micro.blog – The Homebound Symphony"
+Link five of five. "the three paths of micro.blog – The Homebound Symphony"
 
 Micro.blog is what I use to run my blog, and this is a good writeup of the three primary ways you can use it. I primarily use it as a publishing platform.
 

@@ -12,7 +12,9 @@ I’m gonna keep it short and let's get right into it.
 
 Now, the Notable section.
 
-Link one. "Good Writing"
+There are thirteen links this week.
+
+Link one of thirteen. "Good Writing"
 
 Graham reinforcing that "writing is thinking"…
 
@@ -22,7 +24,7 @@ End quote.
 
 … and sloppy writing is likely sloppy thinking. See also: bullet points.
 
-Link two. "The CTO and chief product officer in the Age of Generative AI: A New Playbook for Technology Leadership – rajiv.com"
+Link two of thirteen. "The CTO and chief product officer in the Age of Generative AI: A New Playbook for Technology Leadership – rajiv.com"
 
 Rajiv Pant, friend and Weekly Thing reader thinking deeply about how AI is changing the role of chief technology and product roles. Rajiv's thinking on these topics has been leading the way for years. His twenty fourteen article on Three Roles of a CTO still resonates with me.
 
@@ -42,11 +44,11 @@ End quote.
 
 Great stuff and I think he's on the right track here.
 
-Link three. "dns0.eu — The European public DNS that makes your Internet safer"
+Link three of thirteen. "dns0.eu — The European public DNS that makes your Internet safer"
 
 DNS is what turns the domain names you know into addresses your computer can use. Without it everything fails. It is also a place that you can surveil what people are doing. It makes sense for the EU to have a standalone DNS resolver to assist with GDPR and to maintain infrastructure autonomy from other regions and countries.
 
-Link four. "Apple's Shortcuts app is getting a huge upgrade in iOS 26 and macOS 26 — here's how it will help you | Tom's Guide"
+Link four of thirteen. "Apple's Shortcuts app is getting a huge upgrade in iOS 26 and macOS 26 — here's how it will help you | Tom's Guide"
 
 I’m a big fan and power user of Shortcuts. The Weekly Thing is built using a suite of Shortcuts. I liked the addition of these Apple Intelligence features:
 
@@ -58,7 +60,7 @@ This is actually similar to what I've done using the OpenAI API, but will be muc
 
 Adding Automations support to macOS is also huge. Those triggers will open a ton of options for me. Connect to work WiFi? Automatically launch all my work apps.
 
-Link five. "Disruption and Denial  - Silicon Valley Product Group"
+Link five of thirteen. "Disruption and Denial  - Silicon Valley Product Group"
 
 Cagan argues, I believe correctly, that we are in the early rounds of a huge rethink due to AI. Similar in scale and shape to what we saw with the Web.
 
@@ -74,7 +76,7 @@ End quote.
 
 Let's go!
 
-Link six. "WPP Media Mid-Year Global Advertising Forecast Update: 1.08 trillion dollars in twenty twenty five Ad Revenue and 6% Growth"
+Link six of thirteen. "WPP Media Mid-Year Global Advertising Forecast Update: 1.08 trillion dollars in twenty twenty five Ad Revenue and 6% Growth"
 
 Major tipping point.
 
@@ -82,7 +84,7 @@ Quote.
 User-generated content is overtaking professional production: In twenty twenty five, more than half of content-driven advertising revenue will come from platforms like TikTok, YouTube, Kuaishou, and Instagram Reels. Creator-generated revenue will hit 184.9 billion dollars this year, up 20% from twenty twenty four, and is expected to more than double to 376.6 billion dollars by 2030.
 End quote.
 
-Link seven. "The stark difference in smartphone usage among eight-year-olds in less-advantaged and wealthier backgrounds | Irish Independent"
+Link seven of thirteen. "The stark difference in smartphone usage among eight-year-olds in less-advantaged and wealthier backgrounds | Irish Independent"
 
 The numbers here are huge no matter how you look at it but the sharp drop of smartphone ownership as income goes up is interesting. A big part of this has to be that the kids are on their own more and that the phone is a lightweight babysitter often.
 
@@ -104,7 +106,7 @@ End quote.
 
 74% of kids have TikTok. Ugh.
 
-Link eight. "Field Notes From Shipping Real Code With Claude - diwank's space"
+Link eight of thirteen. "Field Notes From Shipping Real Code With Claude - diwank's space"
 
 Experiences of using Claude as part of development and specifically how you message to the LLM how it should work.
 
@@ -114,7 +116,7 @@ End quote.
 
 Everyone is learning! Wild times.
 
-Link nine. "How we built our multi-agent research system Anthropic"
+Link nine of thirteen. "How we built our multi-agent research system Anthropic"
 
 As we build Agents we need to use a mental model of agents performing tasks that are relatively clear. We can do complicated things by orchestrating these tasks together. That is a multi-agent system with multiple agents coordinating. This article shares how Anthropic is approaching these.
 
@@ -138,7 +140,7 @@ Agent performance, collaboration, and improvement will be an interesting area as
 Also see
 Simon Willison's commentary on this.
 
-Link ten. "Is there a Half-Life for the Success Rates of AI Agents? — Toby Ord"
+Link ten of thirteen. "Is there a Half-Life for the Success Rates of AI Agents? — Toby Ord"
 
 Frankly I’m amazed at the accuracy for these tasks at these durations. I figured it would be a 1 or 5 minute task, not 59 minutes.
 
@@ -148,11 +150,11 @@ End quote.
 
 Also the rate of improvement is fast.
 
-Link eleven. "Yancey Strickler: Forget hustle culture. Behold the Artist Corporation | TED Talk"
+Link eleven of thirteen. "Yancey Strickler: Forget hustle culture. Behold the Artist Corporation | TED Talk"
 
 Strickler has enabled so many creators with KickStarter and I appreciated his focus on enabling artists. This reminded me a bit of Lessig creating Creative Commons to fix a problem. The structure of these Artist Corporations seems boring but can be a real enabler to creating opportunities. He didn’t reference fans being able to buy shares in the A Corp but that would make sense. The whole time I kept thinking that this should be codified into a DAO and operate on-chain to make it even easier to create and run one.
 
-Link twelve. "Coding agents require skilled operators"
+Link twelve of thirteen. "Coding agents require skilled operators"
 
 The narrative of having LLMs displace software developers needs to go away. The two are not in opposition, but instead are in an act or co-creation and enabling and supporting human developers to operate at a scale and level of understanding that is not possible otherwise.
 
@@ -168,7 +170,7 @@ There is another angle that isn't discussed as often. As software and systems ha
 
 AI in our development environments may help scale the ability for developers to actually see and understand these systems. To increase the confidence in what we are creating and modifying.
 
-Link thirteen. "The Conversational SDLC | Joseph Bironas | Medium"
+Link thirteen of thirteen. "The Conversational SDLC | Joseph Bironas | Medium"
 
 As we bring LLMs into the product development process it isn't just about the engineers doing things differently. All that context in a discovery session is critical for the LLM. How we write and think about features will need to evolve. This article highlights a first look at what that may look like.
 
@@ -297,63 +299,65 @@ That's the end of the Journal.
 
 Now, the Briefly section.
 
-Link one. "If the Moon Were Only 1 Pixel - A tediously accurate map of the solar system"
+There are fifteen links this week.
+
+Link one of fifteen. "If the Moon Were Only 1 Pixel - A tediously accurate map of the solar system"
 
 Get ready to scroll!
 
-Link two. "Than Average"
+Link two of fifteen. "Than Average"
 
 How do you compare?
 
-Link three. "Why retailers like Amazon and Walmart are looking into stablecoins"
+Link three of fifteen. "Why retailers like Amazon and Walmart are looking into stablecoins"
 
 Didn’t expect this but it makes sense on many levels. Also, wallet software is the hardest part of crypto adoption and these retailers could build that into their mobile apps making it very simple.
 
-Link four. "I am disappointed in the AI discourse"
+Link four of fifteen. "I am disappointed in the AI discourse"
 
 Me too, agree.
 
-Link five. "China’s AI Companies Dodge U.S. Chip Curbs by Flying Suitcases of Hard Drives Abroad - WSJ"
+Link five of fifteen. "China’s AI Companies Dodge U.S. Chip Curbs by Flying Suitcases of Hard Drives Abroad - WSJ"
 
 Flying hard drives around. Wow.
 
-Link six. "Design Patterns for Securing LLM Agents against Prompt Injections"
+Link six of fifteen. "Design Patterns for Securing LLM Agents against Prompt Injections"
 
 Prompt injection is very difficult to defend against.
 
-Link seven. "kill the metrics in your head | The Roof is on Phire"
+Link seven of fifteen. "kill the metrics in your head | The Roof is on Phire"
 
 Analytics as addiction.
 
-Link eight. "POAP Product Updates - June 25"
+Link eight of fifteen. "POAP Product Updates - June 25"
 
 So many great updates for POAP!
 
-Link nine. "OpenMCP"
+Link nine of fifteen. "OpenMCP"
 
 App that bridges an existing API and makes it accessible as an MCP endpoint. Notably has a library of services already defined making it trivial to get to many existing services.
 
-Link ten. "Writing Toy Software Is A Joy | Joshua Barretto"
+Link ten of fifteen. "Writing Toy Software Is A Joy | Joshua Barretto"
 
 I love the Feynman quote here "What I cannot create, I do not understand", and I love the spirit of creating for fun and learning. Most of my projects scratch an itch like this for me.
 
-Link eleven. "Scrappy: make little apps for you and your friends"
+Link eleven of fifteen. "Scrappy: make little apps for you and your friends"
 
 Fun tool to build little things but also a great one to learn with.
 
-Link twelve. "GifCities"
+Link twelve of fifteen. "GifCities"
 
 Spend a few minutes exploring the awsome animated GIFs of the old web.
 
-Link thirteen. "Building Effective AI Agents Anthropic"
+Link thirteen of fifteen. "Building Effective AI Agents Anthropic"
 
 Good reading on approach to creating agents.
 
-Link fourteen. "Websites Are Tracking You Via Browser Fingerprinting | Texas A and M University Engineering"
+Link fourteen of fifteen. "Websites Are Tracking You Via Browser Fingerprinting | Texas A and M University Engineering"
 
 Fingerprinting your browser is so difficult to block. It is akin to profiling and not much you can do to opt-out.
 
-Link fifteen. "CardStock.run"
+Link fifteen of fifteen. "CardStock.run"
 
 Inspired by what HyperCard made possible on the Macintosh and bringing that to the web.
 

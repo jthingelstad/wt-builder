@@ -10,7 +10,9 @@ Next week I'll share the organization we are supporting next year! Thank you aga
 
 Now, the Notable section.
 
-Link one. "Expanding on what we missed with sycophancy"
+There are six links this week.
+
+Link one of six. "Expanding on what we missed with sycophancy"
 
 Willison's commentary on OpenAI recent issue with "sycophancy" in the model. A recent model from OpenAI was overly praising — and for those that have used AI a lot you may be thinking they already do a pretty decent job of making you feel smarter and better than you probably are. This excerpt from Willison caught my eye.
 
@@ -24,15 +26,15 @@ On one hand I can get comfortable with this. Neuroscientists don't specifically 
 
 However it does put in stark contrast a need for determinism. In computing we have many things that fundamentally need to be deterministic. We need to be mindful of the problem we are solving, and insure that an open approach, where we fundamentally don't know the "why" of any of it, is okay.
 
-Link two. "Post-Chat UI - Allen Pike"
+Link two of six. "Post-Chat UI - Allen Pike"
 
 Pike has great examples of how products are using LLMs to just be smarter and more intelligent for users. Great stuff to consider in your own offering.
 
-Link three. "Helmdar: 3D Scanning Brooklyn on Rollerblades"
+Link three of six. "Helmdar: 3D Scanning Brooklyn on Rollerblades"
 
 I absolutely love everything about this — building a homemade "helmdar" by mounting LiDAR sensors on a helmet and rollerblading around? love What a magical world where you can do this. It all makes me want to go get a LiDAR even though I have no idea what I would do with it.
 
-Link four. "As an Experienced LLM User, I Actually Don't Use Generative LLMs Often | Max Woolf's Blog"
+Link four of six. "As an Experienced LLM User, I Actually Don't Use Generative LLMs Often | Max Woolf's Blog"
 
 For many users ChatGPT is the interface for LLM, but the OpenAI API is a much more powerful way to interact.
 
@@ -42,11 +44,11 @@ End quote.
 
 This is the capability I tapped into for the Weekly Thing. And now that I have an easy bridge to hit the OpenAI interfaces with Shortcuts I have a super simple way to create logical "agents" (a stretch) that I can easily instantiate and access from my phone whenever I want. Crazy stuff.
 
-Link five. "Mentra Smart Glasses: The AI Agents Interface"
+Link five of six. "Mentra Smart Glasses: The AI Agents Interface"
 
 A lot of cool things with this product (project?). Love that it is open source. Like the idea that it is a hardware platform to innovate off of. Cheap so lowering barriers to adoption. However, none of this will be a scaled product. I've generally warmed to the idea that Smart Glasses, like Smart Watches, will likely be a platform with scale at some point. However I think we are further away from a scaled technology platform than we realize. In the meantime, open platforms to encourage hobbyists and innovation is exactly the place to play.
 
-Link six. "llm-prices.com"
+Link six of six. "llm-prices.com"
 
 Willison put his LLM pricing calculator tool on a standalone website and added some new features. I debated linking right to the tool but this short writeup highlights how is using LLMs to actually make the tool as well. This highlight "using a vibe-coded bash script that I forgot to save anywhere" feels about right. He's adding features using LLM as well, and using AI for design elements.
 
@@ -205,47 +207,49 @@ That's the end of the Journal.
 
 Now, the Briefly section.
 
-Link one. "ENS at the United Nations: How ENS is Rethinking Brands and IP in Web3 | ENS Blog"
+There are eleven links this week.
+
+Link one of eleven. "ENS at the United Nations: How ENS is Rethinking Brands and IP in Web3 | ENS Blog"
 
 I wasn't expecting to see Ethereum Name Service and United Nations in the same headline. I’m a total fan of ENS and love how they look at Crypto as an extension of the web, not in competition with it. Crypto would do so much better if we flushed the greed out and let this tech solve real problems.
 
-Link two. "Wherein I Go to Yoga (for the first time) | ruk.ca"
+Link two of eleven. "Wherein I Go to Yoga (for the first time) | ruk.ca"
 
 This is a good read, and I love the handwritten blog post.
 
-Link three. "Redis is open source again -"
+Link three of eleven. "Redis is open source again -"
 
 Best news that could happen for Redis. The follow up post is also a good read.
 
-Link four. "Attachments helped email go global"
+Link four of eleven. "Attachments helped email go global"
 
 I loved this walk down memory lane with email, and a great history too. MIME types, uuencode, and mountains of RFCs for the win. I was at the tail end of it but I did plenty of USENET downloads with uudecode to get binary files off the nascent Internet well before the web.
 
-Link five. "How I Created Perfect Wiki and Reached 250 thousand dollars in Annual Revenue Without Investors / Habr"
+Link five of eleven. "How I Created Perfect Wiki and Reached 250 thousand dollars in Annual Revenue Without Investors / Habr"
 
 Good story about building a small new product and getting initial traction. It took 5 years to get to the headline number which is about five times longer than a lot of folks dream it will take.
 
-Link six. "TM SGNL, the obscure unofficial Signal app Mike Waltz uses to text with Trump officials"
+Link six of eleven. "TM SGNL, the obscure unofficial Signal app Mike Waltz uses to text with Trump officials"
 
 I had no idea that there were Signal clones that used the same protocol and then did, well whatever they want with the info. Notably they could be archiving in plaintext all your beautifully encrypted and secure messages. I get (sort of) why Signal might allow this but I also think it has the potential to be massively brand damaging. They could require authentication in a way that stopped this.
 
-Link seven. "Hacking Spree Hits UK Retail Giants | WIRED"
+Link seven of eleven. "Hacking Spree Hits UK Retail Giants | WIRED"
 
 Security threats abound.
 
-Link eight. "Photos From the Great Smoky Mountains National Park"
+Link eight of eleven. "Photos From the Great Smoky Mountains National Park"
 
 I took a workshop from Hansel and his newsletters are wonderful to read and filled with amazing images.
 
-Link nine. "Formula 1 Drivers Just Hit the Track in These Full-Size Lego Cars | WIRED"
+Link nine of eleven. "Formula 1 Drivers Just Hit the Track in These Full-Size Lego Cars | WIRED"
 
 Brilliant marketing from LEGO. I'd love to drive one of these.
 
-Link ten. "utterances"
+Link ten of eleven. "utterances"
 
 A blog commenting system backed by Github Issues? Huh. I guess so.
 
-Link eleven. "The vocal effects of Daft Punk"
+Link eleven of eleven. "The vocal effects of Daft Punk"
 
 So much variety on the various ways that Daft Punk played with synth.
 

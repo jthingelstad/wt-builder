@@ -22,15 +22,17 @@ That's the end of Currently.
 
 Now, the Notable section.
 
-Link one. "HTML for People"
+There are seven links this week.
+
+Link one of seven. "HTML for People"
 
 This is a great resource written for your average person to learn about creating content for the web. I love the spirit and intent of this. HTML isn't that complicated and increasing access to it enables people to have their own voice on the web. If you find this great join me in sending a thank you to Watson's Ko-fi page.
 
-Link two. "What Are You Building With Your Life? | David O’Hara"
+Link two of seven. "What Are You Building With Your Life? | David O’Hara"
 
 I've met David O'Hara a handful of times, a mutual friend introduced us. He shared this transcript of a talk at Augustana University's chapel that he gave recently prompting the question "What are you building with your life?" I enjoyed reading his talk greatly. Likely it is worth a couple of reads. His call to "build with love and wonder" is great. (David is also a Weekly Thing reader — Hello David! )
 
-Link three. "2 dollars H100s: How the GPU Bubble Burst - by Eugene Cheah"
+Link three of seven. "2 dollars H100s: How the GPU Bubble Burst - by Eugene Cheah"
 
 Where there is demand the market is going to react. It is hard to see a future where Nvidia has a lock on GPU capabilities that lasts for a long time. Even if AMD and Intel are slow to the game they should be close enough?
 
@@ -42,11 +44,11 @@ It is interesting that part of this demand loss seems to be the biggest workload
 
 Overall an incredible dynamic market with super high capital requirements.
 
-Link four. "The Future of Software: From API to AI as the Communication Interface – rajiv.com"
+Link four of seven. "The Future of Software: From API to AI as the Communication Interface – rajiv.com"
 
 Rajiv Pant shares his views on shifting from API to AI interoperability between systems. My first taste of this was when I read about how ChatGPT and Wolfram Alpha communicate. They are both AI capable and they use that to coordinate versus rigid APIs. It is hard for me to wrap my head around given the unpredictability of this kind of interface but it is super interesting to consider how it could work.
 
-Link five. "Wealth distribution in the United States"
+Link five of seven. "Wealth distribution in the United States"
 
 This is an incredible chart.
 
@@ -56,7 +58,7 @@ End quote.
 
 The scale of the wealth that these dozen or so individuals have is mind blowing.
 
-Link six. "To the crazy ones"
+Link six of seven. "To the crazy ones"
 
 I watched the replay of the Starship launch and it truly a marvel. It was incredible watching the booster return to the earth and the launch pad catching it with these giant "chopsticks". SpaceX is changing the world in huge ways. I mostly agree with DHH's commentary here, but I think he misses a really big difference that is very meaningful.
 
@@ -66,7 +68,7 @@ SpaceX we are watching the amazing results of a private company. Not even a publ
 
 It is something we watch "them" do, not something "we" made happen.
 
-Link seven. "TikTok knows its app is harming kids, new internal documents show: NPR"
+Link seven of seven. "TikTok knows its app is harming kids, new internal documents show: NPR"
 
 The only thing that should be surprising in this article is if this is surprising. TikTok is designed to addict.
 
@@ -212,39 +214,41 @@ That's the end of the Journal.
 
 Now, the Briefly section.
 
-Link one. "The Teenage Engineering TP-7"
+There are nine links this week.
+
+Link one of nine. "The Teenage Engineering TP-7"
 
 I had never heard of the TP-7 but it looks like an incredible piece of engineering.
 
-Link two. "Simple.css"
+Link two of nine. "Simple.css"
 
 Super simple CSS framework to make HTML content much more pleasant.
 
-Link three. "‘It’s mindblowing’: US meteorologists face death threats as hurricane conspiracies surge | The Guardian"
+Link three of nine. "‘It’s mindblowing’: US meteorologists face death threats as hurricane conspiracies surge | The Guardian"
 
 This is insane.
 
-Link four. "Kafka 101"
+Link four of nine. "Kafka 101"
 
 Very approachable overview of how Kafka works.
 
-Link five. "Pure Blogger – On my Om"
+Link five of nine. "Pure Blogger – On my Om"
 
 "Pure Blogger". Like that. I would like to think I might earn that title.
 
-Link six. "The 1/eighth Sleep | near.blog"
+Link six of nine. "The 1/eighth Sleep | near.blog"
 
 We have an 8Sleep so I was curious to see what a DIY one would be.
 
-Link seven. "I Finally Lost My Smart Ring! - I am BARRY HESS"
+Link seven of nine. "I Finally Lost My Smart Ring! - I am BARRY HESS"
 
 An incredible story of losing an Oura Ring and then it being recovered!
 
-Link eight. "Possible futures of the Ethereum protocol, part 1: The Merge"
+Link eight of nine. "Possible futures of the Ethereum protocol, part 1: The Merge"
 
 The continued roadmap for Ethereum. I like the focus on reducing the staking requirement to make it easier for more people to participate.
 
-Link nine. "Federal Trade Commission Announces Final “Click-to-Cancel” Rule Making It Easier for Consumers to End Recurring Subscriptions and Memberships | Federal Trade Commission"
+Link nine of nine. "Federal Trade Commission Announces Final “Click-to-Cancel” Rule Making It Easier for Consumers to End Recurring Subscriptions and Memberships | Federal Trade Commission"
 
 This would be such a welcome improvement. Cancelling some recurring services is incredibly difficult.
 

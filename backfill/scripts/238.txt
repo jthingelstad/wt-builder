@@ -24,7 +24,9 @@ I love having my own website to write on. Writing is thinking, and it is fun to 
 
 Now, the Featured section.
 
-Link one. "GPT-3 Is the Best Journal I've Ever Used - Superorganizers - Every"
+There are two links this week.
+
+Link one of two. "GPT-3 Is the Best Journal I've Ever Used - Superorganizers - Every"
 
 How would you feel about your journal being a dialogue between you and a chatbot? At first the idea sounds very strange, but this article from Shipper is a relatively deep exploration into that concept. He experiments with different personas for the GPT-3 to use with different results. It is super interesting.
 
@@ -42,7 +44,7 @@ Wow. The awareness of the robotic response was the notable downside. But what if
 
 We are entering some genuinely strange times.
 
-Link two. "YouTube Addiction"
+Link two of two. "YouTube Addiction"
 
 I write a lot about the ills of social networking and algorithmic content, but YouTube is the service that I just look at and don't really know what to do with it. This persons story of recognizing their addiction is wild.
 
@@ -62,7 +64,9 @@ That's the end of Currently.
 
 Now, the Notable section.
 
-Link one. "10 Blogging Pioneers: Influential, But Not Always Famous"
+There are nine links this week.
+
+Link one of nine. "10 Blogging Pioneers: Influential, But Not Always Famous"
 
 I remember reading some of these blogs back when they were in their prime.
 
@@ -72,7 +76,7 @@ End quote.
 
 It is shocking, in a delightful way, when you go back and look at all these various websites and see the splendor of their designs and writing, and compare that to the stilted uniformity of centralized social platforms. Let's make the web weird again!
 
-Link two. "My 8 Best Techniques for Evaluating Character"
+Link two of nine. "My 8 Best Techniques for Evaluating Character"
 
 Gioia shares insight on things he looks at to understand a persons character. A number of interesting prompts here.
 
@@ -80,7 +84,7 @@ Quote.
 1. Forget what they say — instead look at who they marry. 2. See how they treat service workers. 3. Discover what experiences formed their character in early life. 4. How do they invest their two most valuable resources? 5. Identify what irritates people the most in others—because this is probably the trait they dislike most in themselves. 6. Can they listen? 7. If they cheat at small things, they will cheat at big things. 8. Watch how they handle unexpected problems.
 End quote.
 
-Link three. "Four Thousand Weeks"
+Link three of nine. "Four Thousand Weeks"
 
 I read Four Thousand Weeks about a year ago now and I thought it was a good book. It even got me to make a Four Thousand Weeks Ring Graph that is still on the Mind and Body screen of my iPhone.
 
@@ -92,15 +96,15 @@ End quote.
 
 Good site, and good redux of the primary messages of the book.
 
-Link four. "The Shit Show • furbo.org"
+Link four of nine. "The Shit Show • furbo.org"
 
 Hockenberry wrote Twitterific, which was the Twitter client I used for so many of the 17 years that I've had a Twitter account. I haven't used Twitterific since I stopped posting original content on Twitter years ago. Twitter clients were at one time an amazing playground of features. Many features of Twitter today started in third party clients. That is all done now, and that is just fine since Twitter can do what it wants. I'll still be happily over here on my website.
 
-Link five. "Meetings for an effective eng organization. | Irrational Exuberance"
+Link five of nine. "Meetings for an effective eng organization. | Irrational Exuberance"
 
 Larson again with a great overview of core meetings to run an effective engineering organization. I would agree with nearly everything he has included in here, and have done much of the same through my career. There are a couple of ones he has here that I haven't seen before and want to think about.
 
-Link six. "The media loved Sam Bankman-Fried; it hated Brian Armstrong | Semafor"
+Link six of nine. "The media loved Sam Bankman-Fried; it hated Brian Armstrong | Semafor"
 
 Interesting article taking note of negative press coverage that Coinbase and Brian Armstrong received, versus the positive fawning that Sam Bankman-Fried and FTX got.
 
@@ -116,7 +120,7 @@ End quote.
 
 It is easy to cite that people like working with people they like, but it is fair to highlight the incredible miss here on the part of everyone, including journalists. Reporting requires hard work, and nobody did that work in the case of FTX and seemingly didn’t want to do the work in the positive for Coinbase.
 
-Link seven. "Weapons of Mass Disruption: Eurasia Group's #3 Top Risk of twenty twenty three"
+Link seven of nine. "Weapons of Mass Disruption: Eurasia Group's #3 Top Risk of twenty twenty three"
 
 The rapid rise of AI could open the flood gate for tremendous amounts of content to be created, so much that it would be nearly impossible for people to navigate what is real and generated.
 
@@ -128,11 +132,11 @@ Ian Bremmer has been on a few podcasts talking about this as well. There he stat
 
 There is a bit of good news. We do have a way to navigate this by using public key encryption and signing messages. I shared Sign Everything from Fred Wilson in Weekly Thing 237. We need to get moving to get our publishing platforms supporting the ability to sign what we create. Ethereum wallets, even without any funds in them, are fully capable of signing messages for free.
 
-Link eight. "Spend Your Time Intentionally - zen habits"
+Link eight of nine. "Spend Your Time Intentionally - zen habits"
 
 I love the message in this article and I work to be intentional with my time. However, the planning and time blocking techniques that Babauta describe here don't always work well for me. What I have found more powerful is to identify things that result in my being unintentional with my time. Anything on my phone with an infinite scroll has the potential to pull me in, so I delete them. Social media is a morass for unintentional use of time. Get rid of it. Intentionality is easier if you simply avoid systems that are built for unintentional actions.
 
-Link nine. "Why can Edina quickly plow its streets, but Minneapolis can't?"
+Link nine of nine. "Why can Edina quickly plow its streets, but Minneapolis can't?"
 
 We lived in Edina for three years and the snow removal is impressive. This article highlights why this is so much harder for cities. The short answer: cars parked on the street, and density of the city. Add alleys just to make it even more interesting.
 
@@ -168,19 +172,21 @@ That's the end of the Journal.
 
 Now, the Briefly section.
 
-Link one. "Hello, PNG!"
+There are four links this week.
+
+Link one of four. "Hello, PNG!"
 
 A lovely breakdown of data structures that make up PNG files, including sample code to create the files yourself. This is a delightful way to learn more about the PNG file format.
 
-Link two. "ENS Merch Shop"
+Link two of four. "ENS Merch Shop"
 
 Get your ENS name on a hat. I love that this is connected to your wallet so you have to own the name to get it. thingelstad.eth Dad Hat will be on the way shortly!
 
-Link three. "Mailchain — Web3 Email"
+Link three of four. "Mailchain — Web3 Email"
 
 An attempt to allow you to send email via Ethereum addresses. This would be great, but I’m not sold any of the attempts to do this will work.
 
-Link four. "Introducing Ethical Monitor: A Privacy-Focused Service for Dappnode Alerts | DAppNode"
+Link four of four. "Introducing Ethical Monitor: A Privacy-Focused Service for Dappnode Alerts | DAppNode"
 
 How can you provide remote monitoring of infrastructure, but protect the privacy of the people that are running the infrastructure? Here is one approach.
 

@@ -10,7 +10,9 @@ I'll spare a Terminator "I'll be back" reference, but I will be. See you in a fe
 
 Now, the Featured section.
 
-Link one. "Volodymyr Zelensky on why Ukraine must defeat Putin | The Economist"
+There is one link this week.
+
+Link one of one. "Volodymyr Zelensky on why Ukraine must defeat Putin | The Economist"
 
 An intimate interview with Ukraine's President from The Economist.
 
@@ -108,49 +110,51 @@ That's the end of the Journal.
 
 Now, the Briefly section.
 
-Link one. "Ukraine Latest news on live map"
+There are twelve links this week.
+
+Link one of twelve. "Ukraine Latest news on live map"
 
 The latest data on the war in Ukraine, overlaid on a map.
 
-Link two. "Syndicate"
+Link two of twelve. "Syndicate"
 
 Simple platform to create your own DAO.
 
-Link three. "Collaborate with kindness: Consider these etiquette tips in Slack | Slack"
+Link three of twelve. "Collaborate with kindness: Consider these etiquette tips in Slack | Slack"
 
 These are great recommendations for Slack.
 
-Link four. "Why Tension Spreads Through Relationships and Organizations"
+Link four of twelve. "Why Tension Spreads Through Relationships and Organizations"
 
 This makes sense, and a worthy question to ask "Do I do this?"
 
-Link five. "Token compensation: a brief explainer for job candidates - Paradigm"
+Link five of twelve. "Token compensation: a brief explainer for job candidates - Paradigm"
 
 An interesting variable to consider for crypto companies.
 
-Link six. "After 25 years, Brewster Kahle and the Internet Archive are still working to democratize knowledge | Nieman Journalism Lab"
+Link six of twelve. "After 25 years, Brewster Kahle and the Internet Archive are still working to democratize knowledge | Nieman Journalism Lab"
 
 I’m a big fan, and supporter, of the Internet Archive.
 
-Link seven. "Programmable Notes"
+Link seven of twelve. "Programmable Notes"
 
 This feels overly complicated to me, but I also think it is what people have loved about Obsidian.
 
-Link eight. "Disinformation and Fooled by Randomness"
+Link eight of twelve. "Disinformation and Fooled by Randomness"
 
 You cannot extrapolate broad assertions from specific details. I feel like I should reread Fooled by Randomness. It has been a very long time, and still strikes me as one of Taleb's best books.
 
-Link nine. "The Illustrated TLS 1.3 Connection: Every Byte Explained"
+Link nine of twelve. "The Illustrated TLS 1.3 Connection: Every Byte Explained"
 
 I dig these detailed walk throughs.
 
-Link ten. "I built a receipt printer for GitHub issues - Andrew Schmelyun"
+Link ten of twelve. "I built a receipt printer for GitHub issues - Andrew Schmelyun"
 
 Github issues as a short order cook?
 
-Link eleven. "Taylor Hawkins, Foo Fighters’ Drummer, Dies at 50"
+Link eleven of twelve. "Taylor Hawkins, Foo Fighters’ Drummer, Dies at 50"
 
-Link twelve. "Inside Ukraine′s cyber guerrilla army"
+Link twelve of twelve. "Inside Ukraine′s cyber guerrilla army"
 
 You can now volunteer to fight on your keyboard.
 

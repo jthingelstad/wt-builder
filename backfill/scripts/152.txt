@@ -16,7 +16,9 @@ If you are interested in stuff like this, check out Identifying Addictive Applic
 
 Now, the Must Read section.
 
-Link one. "I am exhausted and want you to know why - Adversus - Medium"
+There are two links this week.
+
+Link one of two. "I am exhausted and want you to know why - Adversus - Medium"
 
 I appreciated Lints writing this and I hope that many more share perspective like this.
 
@@ -26,7 +28,7 @@ End quote.
 
 Reading stories like this reminds me of reading many of the things coming out of the #MeToo movement. I read many of those and was shocked and disturbed that there were men out there doing the things described. It was a wake up call. This feels similar. There are folks calling the police in this situation? We need to raise the visibility so that we can change and improve.
 
-Link two. "Easily rename your Git default branch from master to main - Scott Hanselman"
+Link two of two. "Easily rename your Git default branch from master to main - Scott Hanselman"
 
 Teams should do this. In fact, I'd like to see a pull request to the git mainline to change from master to main. For years I debated how much language impacted technology culture around gender. I came to the conclusion is was bigger than I thought. Technology has "master-slave architecture". That language cannot be neutral for black technologists. We have "whitelists", always allow, and "blacklists", never allow. Call it being language police if you wish, I think it is about creating a culture and environment that is supporting of all.
 

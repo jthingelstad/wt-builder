@@ -14,11 +14,6 @@ Listening: The new Noah Kahan album, The Great Divide. I'm really enjoying it. I
 
 Watching: Finished watching Season 3 of Shrinking on Apple TV. Tammy and I have really gotten into this show. The characters are great and the story is well done. Looking forward to next season!
 
-Minnehaha Creek rushing towards the Mississippi River just after the Falls.
-
-May 10, twenty twenty six
-Minneapolis, MN
-
 The Weekly Thing Team
 
 I've been publishing the Weekly Thing for nine years and automation is one of the things that has made that possible. I shared a while back how I find content, assemble the issues, and my project structure. Without these well defined workflows there is no way I could continue this project.
@@ -53,7 +48,9 @@ That's the end of Currently.
 
 Now, the Notable section.
 
-Link one. "You Need AI That Reduces Maintenance Costs"
+There are four links this week.
+
+Link one of four. "You Need AI That Reduces Maintenance Costs"
 
 Most folks just think about the cost of turning ideas into software, but the reality is that software lives forever and has a cost to keep it running. I've commented many times that companies put software as an "asset" on their balance sheet. Most technologists know that the reality is sofware is a "liability" that must be maintained and your team is the "asset" that you balance against that. So now with agents making software, if we increase materially the rate of software we are making, that maintenance must be dealt with.
 
@@ -63,7 +60,7 @@ End quote.
 
 Provocatively I will say that I think agentic coding will result in software that is easier to maintain. Many bugs aren't resolved because they are just too hard to find and fix. If agents can do that faster, the bugs can get resolved. Plus agents are way better at getting deployments robust. And ultimately agents can babysit software for you. I've been building a new Discord agent and for the entire week I've had Claude Code not just coding it but running it. It is seeing all the logs, errors, anything on stderr and taking action. This is resulting in more maintainable software.
 
-Link two. "First public macOS kernel memory corruption exploit on Apple M5"
+Link two of four. "First public macOS kernel memory corruption exploit on Apple M5"
 
 First known exploit of Apple's silicon memory protection in the M5 chip.
 
@@ -81,7 +78,7 @@ The bolding is mine. Apple spent five years creating this defensive structure an
 
 There has to be a finite number of security vectors. Maybe we end up in a great place after uncovering these issues.
 
-Link three. "For thirty years I programmed with Phish on, every day. In twenty twenty six, the music is out of phase with the work."
+Link three of four. "For thirty years I programmed with Phish on, every day. In twenty twenty six, the music is out of phase with the work."
 
 It is hard to explain to people outside of software how profound the changes are in the software world right now. This essay from an engineer explaining how the work has changed hits it well.
 
@@ -91,7 +88,7 @@ End quote.
 
 This all lands different for different people. For me personally, I find I can lose all track of time and get extremely engrossed (flow!) working with a number of agents. However, I do note if I have three or four agents in different projects I start to lose track of the context of each one. But either way, this is very different work that putting on your headphones and writing code.
 
-Link four. "This is what free costs"
+Link four of four. "This is what free costs"
 
 This website does a great job of showing you how various data elements are collected from your browser and how fast. You are "digitally fingerprinted" within seconds of visiting a website. You can, and I do, run software to defend against this activity. But this is a great example of why we need privacy legislation.
 
@@ -171,43 +168,45 @@ That's the end of the Journal.
 
 Now, the Briefly section.
 
-Link one. "Behind the Scenes Hardening Firefox with Claude Mythos Preview - Mozilla Hacks"
+There are ten links this week.
+
+Link one of ten. "Behind the Scenes Hardening Firefox with Claude Mythos Preview - Mozilla Hacks"
 
 You should open this article just to scroll down and see the graph of bug fixes by month. This seems like validation that Mythos really is that powerful of a model.
 
-Link two. "Mythos finds a curl vulnerability | daniel.haxx.se"
+Link two of ten. "Mythos finds a curl vulnerability | daniel.haxx.se"
 
 I wonder if some embargo was recently released and people are talking about issues identified by Mythos. This one is a bit different than the Firefox report in that it only found one notable issue. Also curl seems like a very hardened code base.
 
-Link three. "Claude for Legal"
+Link three of ten. "Claude for Legal"
 
 Vertical AI solutions are the next step for companies like Anthropic and OpenAI. In many ways, it is a system prompt turned into a product.
 
-Link four. "Claude AI recovers an 11 yrs old BTC wallet holding 400k USD"
+Link four of ten. "Claude AI recovers an 11 yrs old BTC wallet holding 400k USD"
 
 "Claude saved my crypto!"
 
-Link five. "Lua as a practical "soft-bedrock" language"
+Link five of ten. "Lua as a practical "soft-bedrock" language"
 
 I need to spend some time making Lua with Claude.
 
-Link six. "How I restarted using RSS, and actually noticed! – Six Colors"
+Link six of ten. "How I restarted using RSS, and actually noticed! – Six Colors"
 
 My weekly plug on why RSS is so great. You should be using this to "read" the web.
 
-Link seven. "Ideas for web readers"
+Link seven of ten. "Ideas for web readers"
 
 Lovely feature exploration of things that feed readers could do.
 
-Link eight. "On likes, reposts, and bookmarks"
+Link eight of ten. "On likes, reposts, and bookmarks"
 
 Clear semantics on what these actions really can or should mean.
 
-Link nine. "Love Letter to IndieWebClub"
+Link nine of ten. "Love Letter to IndieWebClub"
 
 Want an actual social web with real people? Here you go.
 
-Link ten. "Understanding Wi-Fi 4/5/6/6E/7/8 (802.11 n/ac/ax/be/bn)"
+Link ten of ten. "Understanding Wi-Fi 4/5/6/6E/7/8 (802.11 n/ac/ax/be/bn)"
 
 This is an incredibly detailed exploration through all things WiFi. Radio frequencies, physical layers, more than you probably ever knew existed.
 

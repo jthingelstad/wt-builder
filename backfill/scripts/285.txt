@@ -10,7 +10,9 @@ I hope you have a great weekend!
 
 Now, the Featured section.
 
-Link one. "Mental Health in Software Engineering"
+There is one link this week.
+
+Link one of one. "Mental Health in Software Engineering"
 
 Many disciplines have a lot of stress in their roles in companies. And leading those areas adds another level to that. I know the world of technology the best and the unique anxiety that can come with it. I also think that aspect of technology is not acknowledged inside our outside our practice much. I suspect the stereotypical combination of technologists not being as comfortable communicating about such things is a contributor. I know that at Minnebar there have been sessions over the years on burnout and stress and they always draw large attendance. And the facts are clear that many people drop out of technology careers when they have many working years left. So when I saw Kravcenko's article on mental health it drew me in.
 
@@ -32,11 +34,13 @@ That's the end of Featured.
 
 Now, the Notable section.
 
-Link one. "VASA-1 - Microsoft Research"
+There are nine links this week.
+
+Link one of nine. "VASA-1 - Microsoft Research"
 
 The example videos in this research writeup are incredible. If you look really, really close you can see some errors. But the fact that these videos of talking heads were created with just a single still image is mind blowing. We need to assume that anything being said by anyone in a video could be generated.
 
-Link two. "My 25-Year Engineering Career Retrospective"
+Link two of nine. "My 25-Year Engineering Career Retrospective"
 
 Technology is still such a young and constantly evolving field that I think career retrospectives like this are particularly good reads. I also like that this is not specifically about tools. Nothing like "I wish I used tool Y less." These are foundational practices to how you manage your career.
 
@@ -46,7 +50,7 @@ End quote.
 
 I particularly like the callout to learning. I'll repeat it again: To have a career in technology, is to have a career in learning. Great callouts to writing in public, speaking, coding, reading.
 
-Link three. "NASA’s Voyager 1 Resumes Sending Engineering Updates to Earth – Voyager"
+Link three of nine. "NASA’s Voyager 1 Resumes Sending Engineering Updates to Earth – Voyager"
 
 I absolutely adore this story! The idea that this NASA team was able to revive Voyager 1 after a chip on it failed while it is hurtling in outer space is just fabulous!
 
@@ -58,11 +62,11 @@ So, this is some pretty low level addressing stuff going on. And let me tell you
 
 I love the picture too. Those are some deservedly happy technologists. This group deserves some medal. Send them a POAP!
 
-Link four. "Map of the Web"
+Link four of nine. "Map of the Web"
 
 Love this cool graph animation of different sites and how they link to each other. I did a search for thingelstad.com and my site is on the map, as well as weekly.thingelstad.com. This wild and wonderfully interconnected web is beautiful. Keep the silos away.
 
-Link five. "Ghost — Building ActivityPub"
+Link five of nine. "Ghost — Building ActivityPub"
 
 This kind of announcement is what has me finally digging deeper into ActivityPub and the Fediverse.
 
@@ -74,7 +78,7 @@ The open and distributed nature of ActivityPub is allowing it to show up in a wi
 
 You can find me at @jamiethingelstad@mastodon.social and I also have @weeklything@mastodon.social. If you are still just living in the closed and proprietary networks I would recommend spending some time on Mastodon.
 
-Link six. "Digital Toolmaker - HeyDingus"
+Link six of nine. "Digital Toolmaker - HeyDingus"
 
 I’m a big fan of the Shortcuts app. I was an avid user of it when it was still called Workflow before Apple bought it and baked it right into iOS and iPadOS, and then brought it to all the platforms.
 
@@ -86,7 +90,7 @@ I feel very similar to Blundy. I don't have as many Shortcuts, but I use multipl
 
 If I can recommend one tool that you may not be using but probably should — it would be Shortcuts.
 
-Link seven. "The Man Who Killed Google Search"
+Link seven of nine. "The Man Who Killed Google Search"
 
 I don't use Google for search directly, but many that do have commented on the general quality of the search results. In this article Zitron connects the dots via emails that were made public in discovery to actions made to drive revenue up by changes in the search responses.
 
@@ -96,7 +100,7 @@ So the mechanism is for sure there. Are the actions there? Read and see what you
 
 There is also a response to comments Google made about the assertions. If your curious what I do use for search I pay for Kagi and my fallback is the free DuckDuckGo.
 
-Link eight. "The creepy sound of online trackers"
+Link eight of nine. "The creepy sound of online trackers"
 
 I am passionate about online privacy and run layers of software to protect my web browsing from surveillance. It is hard to explain to people how much they are being surveilled when they browse various websites. Then someone got this amazing idea!
 
@@ -106,7 +110,7 @@ End quote.
 
 Watching the two videos in this post shows you how much activity is going to various surveillance systems as you browse the web. I’m happy to have 1Blocker and Little Snitch protecting me, but we also need more awareness of this problem.
 
-Link nine. "Founders And CEO Of Cryptocurrency Mixing Service Arrested And Charged With Money Laundering And Unlicensed Money Transmitting Offenses | United States Department of Justice"
+Link nine of nine. "Founders And CEO Of Cryptocurrency Mixing Service Arrested And Charged With Money Laundering And Unlicensed Money Transmitting Offenses | United States Department of Justice"
 
 In August twenty twenty two the US Treasury took action against Tornado Cash which hid the sender and receiver of transfers on Ethereum. Now the DOJ has arrested the founders of Samourai Wallet for running a similar service for Bitcoin, referred to in the case as a "cryptocurrency mixer". The DOJ has made a clear line that crypto services that anonymize transactions in their opinion are illegal. These services are used for criminal activity for sure, but providing privacy of blockchain transactions is a problem to solve. What will happen when the first blockchain builds this feature into the base layer?
 
@@ -192,23 +196,25 @@ That's the end of the Journal.
 
 Now, the Briefly section.
 
-Link one. "US Air Force says AI-controlled F-16 has fought humans • The Register"
+There are five links this week.
+
+Link one of five. "US Air Force says AI-controlled F-16 has fought humans • The Register"
 
 First AI beat us at Chess. Then AI beat us at Go. Now AI is going to be in F-16 dog fights? The military use of AI is bewildering.
 
-Link two. "Valkey is Rapidly Overtaking Redis - DevOps.com"
+Link two of five. "Valkey is Rapidly Overtaking Redis - DevOps.com"
 
 Redis is a wonderful piece of software that is used in so many systems. This decision to change the license for Redis is having a swift impact.
 
-Link three. "Anthropic — Prompt library"
+Link three of five. "Anthropic — Prompt library"
 
 Prompt libraries are helpful to learn better ways to get what you are looking for from LLMs.
 
-Link four. "The Norwegian ban on smart phones in middle schools - Marginal REVOLUTION"
+Link four of five. "The Norwegian ban on smart phones in middle schools - Marginal REVOLUTION"
 
 I’m surprised that banning smart phones didn’t have a bigger effect. The effect was positive in every way, but I thought it would have been bigger.
 
-Link five. "Apple Releases Open Source AI Models That Run On-Device - MacRumors"
+Link five of five. "Apple Releases Open Source AI Models That Run On-Device - MacRumors"
 
 Some foreshadowing and groundwork for what I expect will be a ton of AI announcements at WWDC.
 

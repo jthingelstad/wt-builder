@@ -26,23 +26,25 @@ Each new issue will be shared. I’m not sure exactly where this will go, but ba
 
 Now, the Notable section.
 
-Link one. "iPhone 14 Pro Camera Review: A Small Step, A Huge Leap — Lux"
+There are fourteen links this week.
+
+Link one of fourteen. "iPhone 14 Pro Camera Review: A Small Step, A Huge Leap — Lux"
 
 Detailed analysis of the newest iPhone camera module. I keep wondering when Apple is going to hit a wall here but they seem to be able to get more and more out of this very small package.
 
-Link two. "12 Things Self-Confident People Do that Insecure People Avoid - Leadership Freak"
+Link two of fourteen. "12 Things Self-Confident People Do that Insecure People Avoid - Leadership Freak"
 
 I love both of these lists so much. I think this would be worth revisiting on a regular basis. Two of the "build self-confidence" items really resonated: "Finish something", "Do something you’re putting off".
 
-Link three. "Jony Ive on Life After Apple - WSJ"
+Link three of fourteen. "Jony Ive on Life After Apple - WSJ"
 
 I don't know if you could find a designer that has impacted more people, in a more profound way, than Jony Ive. His fingerprint is all over Apple products, and mimicked by their competitors.
 
-Link four. "Wiring my home with Fiber - Stefan Schüller"
+Link four of fourteen. "Wiring my home with Fiber - Stefan Schüller"
 
 I've never done networking with fiber, so I found this article an interesting dive into the tools and techniques you need to put a fiber network in. A lot of complicated bits, and specialized equipment, that I've never had any experience with.
 
-Link five. "The Infinite Conversation"
+Link five of fourteen. "The Infinite Conversation"
 
 This is really wild.
 
@@ -52,19 +54,19 @@ End quote.
 
 Start this up on a browser and just let it run in the background while you do other things. Where are we going with all this tech?
 
-Link six. "Introducing YNAB Together for Your Shared Financial Journey"
+Link six of fourteen. "Introducing YNAB Together for Your Shared Financial Journey"
 
 We've been using YNAB for years to do our personal finances and I think it works great. It works fine for Tammy and I to share a single account, but they've now rolled out support for multiple users to work together. Importantly they hit on something that I have wished they would do for a while, creating a way to pull your kids into a small part of the overall budget. This looks like a great step into collaborative financials, and having kids get introductions to managing their own budgets.
 
-Link seven. "Michael Tsai - Blog - IAP for NFTs"
+Link seven of fourteen. "Michael Tsai - Blog - IAP for NFTs"
 
 Apple updates their guidelines that NFTs are fine, but you cannot use them to bypass In-app Purchases. So, no buying an NFT to get a feature unlocked in a product.
 
-Link eight. "iA Presenter"
+Link eight of fourteen. "iA Presenter"
 
 iA is renowned for making beautifully designed and elegant applications. I've used iA Writer in the past, although Drafts ultimately took over that need for me. This new approach at presenting is really different. At first I thought it was just another Markdown to slides tool, but it is much more. This is a tool that thinks through the entire act of creating a presentation, and provides a way to do it that will likely result in a superior result. Sadly, most places you have to do PowerPoint with others, but I’m going to look for an opportunity to use this soon.
 
-Link nine. "What Moneyball Has Done to American Culture - The Atlantic"
+Link nine of fourteen. "What Moneyball Has Done to American Culture - The Atlantic"
 
 The sentiment of this article resonates with me.
 
@@ -74,19 +76,19 @@ End quote.
 
 Must we perfect everything to absolute efficiency? And if in doing so, do we destroy it?
 
-Link ten. "Decker"
+Link ten of fourteen. "Decker"
 
 This probably resonates more with me because I did a number of fairly robust projects in HyperCard when I was in High School. My final project for Humanities was in HyperCard. Decker is visually similar to HyperCard, but is built entirely in the browser and uses Lua for scripting. The choice to use very primitive visuals is a definite nod back to HyperCard.
 
-Link eleven. "Get Blogging!"
+Link eleven of fourteen. "Get Blogging!"
 
 Want to start a blog? This is a great overview to introduce you to the various services and get started in no time.
 
-Link twelve. "Welcome to hell, Elon - The Verge"
+Link twelve of fourteen. "Welcome to hell, Elon - The Verge"
 
 Patel outlines the host of challenges facing Twitter and Musk as its new owner. I haven't commented on this that much, because really it seems like everyone is talking about it.
 
-Link thirteen. "Time is an illusion, Unix time doubly so..."
+Link thirteen of fourteen. "Time is an illusion, Unix time doubly so..."
 
 This is a fun dive into how Unix handles time.
 
@@ -104,7 +106,7 @@ End quote.
 
 As this article highlights, there are also a ton of other challenges with time. Such a simple concept, but super hard for computers to deal with.
 
-Link fourteen. "Privacy Gateway: a privacy preserving proxy built on Internet standards"
+Link fourteen of fourteen. "Privacy Gateway: a privacy preserving proxy built on Internet standards"
 
 Cloudflare continues to impress with their work on very foundational capabilities, now with a Privacy solution.
 
@@ -178,31 +180,33 @@ That's the end of the Journal.
 
 Now, the Briefly section.
 
-Link one. "Stripe to lay off 14% of staff as CEO says he made 'two very consequential mistakes' - MarketWatch"
+There are seven links this week.
+
+Link one of seven. "Stripe to lay off 14% of staff as CEO says he made 'two very consequential mistakes' - MarketWatch"
 
 I've been impressed by the vision that Stripe is pursuing for a long time. It seems they also overshot their growth.
 
-Link two. "Charts.css"
+Link two of seven. "Charts.css"
 
 Well done CSS framework specifically for charts.
 
-Link three. "New Rolex Deepsea Challenge Touts Titanium Case, Ultra-Deep Bona Fides - Worn and Wound"
+Link three of seven. "New Rolex Deepsea Challenge Touts Titanium Case, Ultra-Deep Bona Fides - Worn and Wound"
 
 What a gorgeous watch.
 
-Link four. "Pokémon Cards CSS Holographic Effect"
+Link four of seven. "Pokémon Cards CSS Holographic Effect"
 
 Cool CSS work to bring the various effects of Pokemon cards to digital versions.
 
-Link five. "Elon Code Review - Print it out and Elon Musk will check it"
+Link five of seven. "Elon Code Review - Print it out and Elon Musk will check it"
 
 Playing on Musk's request of Twitter engineers to print out code, presumably to see if they are any good.
 
-Link six. "Ukrainian mom keeps daughter safe in Minneapolis as husband fights Russians at home"
+Link six of seven. "Ukrainian mom keeps daughter safe in Minneapolis as husband fights Russians at home"
 
 Touching personal account of Nataliia Kuchma and her daughter living in Minneapolis as a refugee of the war in Ukraine.
 
-Link seven. "Daniel Del Prado's Growing Culinary Empire | Twin Cities Business"
+Link seven of seven. "Daniel Del Prado's Growing Culinary Empire | Twin Cities Business"
 
 Probably only interesting to Twin Cities folks. We are big fans of Del Prado's restaurants, particularly Martina which is a favorite of ours.
 

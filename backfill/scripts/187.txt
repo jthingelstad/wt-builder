@@ -16,7 +16,9 @@ I loved that so much I put it on the subscribe page. I love the idea of going on
 
 Now, the Must Read section.
 
-Link one. "Terms and Conditions Apply"
+There are three links this week.
+
+Link one of three. "Terms and Conditions Apply"
 
 What a fun game.
 
@@ -38,7 +40,7 @@ End quote.
 
 Missed 4 of them.
 
-Link two. "Metric Display Standards. Best practices for presenting numbers… by Tim Sheiner | Salesforce Design | Medium"
+Link two of three. "Metric Display Standards. Best practices for presenting numbers… by Tim Sheiner | Salesforce Design | Medium"
 
 Designing dashboards and presenting quantitative data is critically important, particularly when those displays are used to provide feedback to humans operating in an environment.
 
@@ -50,7 +52,7 @@ End quote.
 
 Get that right, and you should be spot on.
 
-Link three. "I Mailed an AirTag and Tracked Its Progress; Here's What Happened - The Mac Security Blog"
+Link three of three. "I Mailed an AirTag and Tracked Its Progress; Here's What Happened - The Mac Security Blog"
 
 I just got my first AirTags. This McElhearn put one in the mail and sent it away to see how effective you can track an AirTag "in the wild".
 
@@ -63,6 +65,8 @@ The device was findable for a large amount of its journey. There are a lot of iP
 That's the end of Must Read.
 
 Now, the Recommended Links section.
+
+There are two links this week.
 
 The Geopolitics of Cryptocurrencies with Niall Ferguson — The Prof G Show with Scott Galloway — Overcast
 
@@ -90,7 +94,7 @@ This could be really exciting. Where or where will the iPad platform go?
 
 BitClout
 
-Link one. "@jthingelstad"
+Link one of two. "@jthingelstad"
 
 Imagine Twitter built on a blockchain protocol with it’s own native coin. BitClout recently open sourced the entire platform delivering on a completely open and decentralized network. There are a ton of interesting concepts here, and it should be completely bot resistant since each account requires a small Bitcoin transfer. I setup a profile at
 
@@ -120,7 +124,7 @@ Heard about Flamingo on Kevin Rose's Modern Finance episode. It is an impressive
 
 #327 Paul Johansen - CTO of Edmentum
 
-Link two. "Paul Johansen"
+Link two of two. "Paul Johansen"
 
 Great interview with Minneapolis-based CTO
 

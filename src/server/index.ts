@@ -942,7 +942,7 @@ async function sendPodcast(id: string) {
   try {
     // Blocks, not a flat script: each is synthesized in its speaker's voice
     // and placed with the pause its boundary calls for.
-    const result = await audio.renderAudio(doc, audioScript(doc));
+    const result = await audio.renderAudio(audio.episodeOf(doc), audioScript(doc));
     const state: PodcastSend = {
       status: 'sent',
       at: new Date().toISOString(),

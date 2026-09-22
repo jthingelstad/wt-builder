@@ -12,7 +12,9 @@ Now I’m back and typing to you here on a Sunday morning. Should we get back ri
 
 Now, the Notable section.
 
-Link one. "Working with agents doesn't feel like flow — Bill de hÓra"
+There are eleven links this week.
+
+Link one of eleven. "Working with agents doesn't feel like flow — Bill de hÓra"
 
 I have been working with many agents building and exploring things and I've been curious to observe what it feels like. I think that we will find that for people working closely with agents that doing that for 2-3 hours at a time is probably a limit. Maybe a little bit more, but co-creating alongside an agent takes a different kind of energy. This blog post commenting on flow and that feeling was interesting to me.
 
@@ -22,11 +24,11 @@ End quote.
 
 For me, I have found that I do enter a state of flow working with agents to create and build. I lose track of time and I really "feel" like I’m co-creating with another entity. Collaborating and ideating. A lot of the rest of the comments here I agree with. There is a game like aspect to it. We are still incredibly early in understanding how people and agents will collaborate.
 
-Link two. "The Economics of Software Teams: Why Most Engineering Organizations Are Flying Blind - Viktor Cessan"
+Link two of eleven. "The Economics of Software Teams: Why Most Engineering Organizations Are Flying Blind - Viktor Cessan"
 
 This is a great read and the Cessan is spot on that most (none I've ever seen) software teams think about the financials this way. Some get close, particularly with engineering teams that make other teams more productive there is a leverage view you have to apply to know if it makes sense. But this is all getting turned upside down with automatic programming and agentic delivery. We are needing to go back to the basics, and this math may be the best place to start.
 
-Link three. "Want to understand the current state of AI? | MIT Technology Review"
+Link three of eleven. "Want to understand the current state of AI? | MIT Technology Review"
 
 Great overview of the pace of progress on frontier models. The charts here are incredible.
 
@@ -36,15 +38,15 @@ End quote.
 
 The crazy part? We are still in the very beginning of this transformation.
 
-Link four. "Browser Run: give your agents a browser"
+Link four of eleven. "Browser Run: give your agents a browser"
 
 It is surprisingly difficult to give an AI Agent a browser to use the web with. The web is inherently very visual and there is a lot of complexity in the interfaces for agents to navigate. It seems very clear that agents running Chrome is fine for testing a website, but it is NOT what an agent would prefer. Cloudflare making a cloud-hosted agent-first browser makes a ton of sense. Notice how unique the features are too. It is very obvious we are going to be building a lot of software for agents.
 
-Link five. "Evals Are the New PRD — Elezea"
+Link five of eleven. "Evals Are the New PRD — Elezea"
 
 Agents aren't just helping us write software, and they aren't just end user features, they are actually helping evaluate and build the software too. Without too much effort you can create agentic loops that evaluate how your product is performing and automatically works to improve the experiences that get negative scores. This is almost a standard operating practice now in part because there is so much data you can’t possibly do it any other way.
 
-Link six. "Building a CLI for all of Cloudflare"
+Link six of eleven. "Building a CLI for all of Cloudflare"
 
 When I saw this article I wondered if the focus was really "making a CLI for agents" and that is exactly spot on. They start out plainly:
 
@@ -56,15 +58,15 @@ For a service like Cloudflare they have to pivot their entire product offering t
 
 This space of creating products that are actually for agents and not for people is pretty interesting. I have my own agent product I've been working on, mb, a micro.blog client built for agents.
 
-Link seven. "The Human Cost of 10x AI Productivity - Denis Stetskov"
+Link seven of eleven. "The Human Cost of 10x AI Productivity - Denis Stetskov"
 
 This article to me reads as the real issue with the human-in-the-loop answer to agentic transformation. It sounds good and makes folks feel better — oh good, there is a person looking at all that. However, to agnatically transform something you are usually looking to get "machine speed" and that becomes much more difficult with a human-in-the-loop. Right now there are a lot of senior engineers being asked to do this ill defined task. We need to learn quickly how to move our systems to safer environments to minimize this before we burn out tons of people. Safety of systems is the place to focus to make this better.
 
-Link eight. "Our evaluation of Claude Mythos Preview’s cyber capabilities | AISI Work"
+Link eight of eleven. "Our evaluation of Claude Mythos Preview’s cyber capabilities | AISI Work"
 
 It is predictable that coding agents are going to find vulnerabilities, and they are moving along very quickly. It seems we are now in race to use agents to secure systems at the same time others are using them to attack systems. The reality is that the vulnerabilities Mythos has found are nearly impossible for people to find. All this makes me wonder if there will be a time when we believe that coding is just too hard for people to do and to do it safely agents should do it. Driving a car could end up in the same place.
 
-Link nine. "OpenAI Unveils Codex "Superapp" Update with Computer Use, Automations, Built-In Browser, and More - MacStories"
+Link nine of eleven. "OpenAI Unveils Codex "Superapp" Update with Computer Use, Automations, Built-In Browser, and More - MacStories"
 
 Codex just got a ton of new capabilities.
 
@@ -74,7 +76,7 @@ End quote.
 
 These systems are moving so fast it is impossible to keep up.
 
-Link ten. "Saying Goodbye to Agile"
+Link ten of eleven. "Saying Goodbye to Agile"
 
 Working in technology teams to build things I've practiced Agile delivery for decades. The arrival of automatic programming capabilities is throwing everything up in the air.
 
@@ -88,7 +90,7 @@ The part that everyone misses in this though is the "why" we should make this ch
 
 That one issue, what is the impact of something being wrong, is the single most important thing that needs to go into figuring out how you do the work. And automatic programming is changing that in dramatic ways. It was changes to programming languages and moving into more interpreted and dynamic development environments that enabled agile. What is it that automatic programming is enabling?
 
-Link eleven. "Cybersecurity Looks Like Proof of Work Now"
+Link eleven of eleven. "Cybersecurity Looks Like Proof of Work Now"
 
 This is an interesting read of the impact AI is having on securing and exploiting systems.
 
@@ -118,63 +120,65 @@ That's the end of the Journal.
 
 Now, the Briefly section.
 
-Link one. "Artemis II Mobile Wallpapers - NASA"
+There are fifteen links this week.
+
+Link one of fifteen. "Artemis II Mobile Wallpapers - NASA"
 
 Beautiful images from NASA's Artemis mission to adorn your phone with.
 
-Link two. "SQLite Release 3.53.0"
+Link two of fifteen. "SQLite Release 3.53.0"
 
 I've been using SQLite in some of my agentic apps and it is just a wonderful piece of software.
 
-Link three. "From Assistant to Collaborator: How My AI Second Brain Grew Up — Elezea"
+Link three of fifteen. "From Assistant to Collaborator: How My AI Second Brain Grew Up — Elezea"
 
 Interesting and short read on how folks are making agentic systems even more capable.
 
-Link four. "How I run multiple 10 thousand dollars MRR companies on a 20 dollars/month tech stack | Steve Hanov's Blog"
+Link four of fifteen. "How I run multiple 10 thousand dollars MRR companies on a 20 dollars/month tech stack | Steve Hanov's Blog"
 
 The title on this is so clickbait I feel gross even including it, but I find these articles compelling to read anyway to expand thinking and see what folks are doing that are pushing agentic capabilities.
 
-Link five. "Cowork - How to AI"
+Link five of fifteen. "Cowork - How to AI"
 
 Good primer on getting more out of Claude Cowork. I’m close to dumping OpenClaw and instead just running Cowork with Claude Dispatch on my phone.
 
-Link six. "Bitcoin miners are losing 19,000 dollars on every BTC produced as difficulty drops 7.8%"
+Link six of fifteen. "Bitcoin miners are losing 19,000 dollars on every BTC produced as difficulty drops 7.8%"
 
 Bitcoin intentionally drops miner rewards over time. The math is sensible. In the early days miners should be compensated through direct mining activity, but over time Bitcoin should transition to fees paid for transactions. That transition is still in front of the Bitcoin ecosystem and given that Bitcoin has landed more as digital gold than cash, the transaction fees may be hard to get profitable?
 
-Link seven. "Introduction to Nintendo DS Programming"
+Link seven of fifteen. "Introduction to Nintendo DS Programming"
 
 Delightful trip with the awesome Nintendo DS platform.
 
-Link eight. "Introducing Apple Frames 4 - MacStories"
+Link eight of fifteen. "Introducing Apple Frames 4 - MacStories"
 
 This shortcut is one of the more powerful that exist, and really highlights how you can make some incredible solutions in Shortcuts.
 
-Link nine. "Someone Bought 30 WordPress Plugins and Planted a Backdoor in All of Them"
+Link nine of fifteen. "Someone Bought 30 WordPress Plugins and Planted a Backdoor in All of Them"
 
 WordPress Plugins are a security nightmare, but this strategy can be applied to many software pipelines.
 
-Link ten. "The biggest advance in AI since the LLM - Gary Marcus"
+Link ten of fifteen. "The biggest advance in AI since the LLM - Gary Marcus"
 
 Time to read up on neurosymbolic AI!
 
-Link eleven. "Gas Town: from Clown Show to v1.0 | Steve Yegge"
+Link eleven of fifteen. "Gas Town: from Clown Show to v1.0 | Steve Yegge"
 
 Beads was one of the first products I remember reading about that was specifically made for an agent as a user. I find this category of software fascinating.
 
-Link twelve. "obsidian-skills: Agent skills for Obsidian"
+Link twelve of fifteen. "obsidian-skills: Agent skills for Obsidian"
 
 I've tried using Obsidian multiple times and concluded every time that it is a rabbit hole that productive time sinks into. However, having your agent use it to store knowledge? That is rather interesting. Maybe Obsidian should have never been used by people. I can mostly agree with that.
 
-Link thirteen. "Bambu Lab X2D Signals Potential Shift Toward Consumer-Focused 3D Printing Market « Fabbaloo"
+Link thirteen of fifteen. "Bambu Lab X2D Signals Potential Shift Toward Consumer-Focused 3D Printing Market « Fabbaloo"
 
 I recently bought a Bambu Lab P2S and have been loving it. This article comparing their strategy to what DJI did with drones seems spot on, and was part of why I felt good buying one of their printers!
 
-Link fourteen. "A Deeper Look at the ENS App | ENS Blog"
+Link fourteen of fifteen. "A Deeper Look at the ENS App | ENS Blog"
 
 Everyone is all AI all the time but I believe that crypto tech, particularly Ethereum, will continue to slowly grow in importance and ENS is continuing to incrementally improve. Great stuff.
 
-Link fifteen. "We gave an AI a 3 year retail lease in SF and asked it to make a profit | Andon Labs"
+Link fifteen of fifteen. "We gave an AI a 3 year retail lease in SF and asked it to make a profit | Andon Labs"
 
 Interesting project to see how far an AI can run something on its own.
 
