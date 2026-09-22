@@ -83,6 +83,12 @@ export interface ScriptBlock {
 
 export const ISSUE_URL_BASE = 'https://weekly.thingelstad.com/archive/';
 export const MEMBERS_URL = 'https://weekly.thingelstad.com/members/';
+/**
+ * Thingy's portrait — the identity image the site and the chat use — shown as
+ * the chapter art whenever Thingy is the one speaking (Jamie, 2026-09-21).
+ * Attribution the listener can see as well as hear.
+ */
+export const THINGY_IMAGE = 'https://weekly.thingelstad.com/img/thingy.png';
 
 /** The site, spelled out; the assembler's lexicon handles the surname. */
 export const SPOKEN_SITE = 'weekly dot thingelstad dot com';
@@ -372,10 +378,12 @@ function chapterFor(doc: IssueDoc, item: Item, planned: PlannedNode): Chapter | 
     }
     case 'echo': {
       const ask = String(item.ask ?? '').trim();
-      return ask ? { title: ask, url: askThingyUrl(ask, doc.issue.number) } : undefined;
+      return ask ? { title: ask, url: askThingyUrl(ask, doc.issue.number), image: THINGY_IMAGE } : undefined;
     }
+    case 'echoes':
+      return { title: planned.node.label, image: THINGY_IMAGE };
     case 'membership':
-      return { title: 'Supporting Membership', url: `${MEMBERS_URL}?ref=WT${doc.issue.number}-audio` };
+      return { title: 'Supporting Membership', url: `${MEMBERS_URL}?ref=WT${doc.issue.number}-audio`, image: THINGY_IMAGE };
     default:
       // Intro rides the Welcome chapter; a headed section's items ride its
       // opener. The unheaded ones — Outro, a Quote — are their own.
@@ -490,7 +498,7 @@ export function audioScript(doc: IssueDoc): ScriptBlock[] {
     if (transition) {
       const opener: ScriptBlock = {
         kind: 'transition', text: transition, pauseBefore: 'section', nodeId: planned.node.id,
-        chapter: { title: planned.node.label },
+        chapter: { title: planned.node.label, ...(planned.node.type === 'echoes' ? { image: THINGY_IMAGE } : {}) },
       };
       // A section of one item — the essay, Membership — is one chapter, and
       // the item's (with its URL) is the better one; it starts at the opener.

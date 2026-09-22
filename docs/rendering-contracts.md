@@ -192,7 +192,8 @@ before the words themselves. Settled 2026-08-28.
 chapter — each section, each link with its URL, each Journal post with its blog
 URL and first photo, the Photo with its picture, each echo with its Ask Thingy
 door, Membership with the members page — is timed by where the assembler placed
-it. Chapter art is cropped square (1000px, attention crop, like the cover) so it
+it. Thingy's portrait (the site's `img/thingy.png`) is the art of every chapter
+Thingy speaks, so the attribution is seen as well as heard. Chapter art is cropped square (1000px, attention crop, like the cover) so it
 fills a player's frame on purpose, and uploaded content-addressed beside the
 file. The mp3 carries ID3v2 chapters; `<name>.chapters.json` (Podcasting 2.0) and
 `<name>.vtt` (WebVTT, every cue naming its speaker, so Thingy is attributed in
