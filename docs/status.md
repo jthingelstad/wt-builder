@@ -102,9 +102,24 @@ finished, what is half-finished, and what has never run.
 - **Thingy's frame** (2026-09-20) — "From Thingy, my agentic librarian",
   linked to thingy.thingelstad.com, around Membership and Echoes: a sans block
   on the site (`.from-thingy` in weekly.thingelstad.com), an inline-styled
-  block in email, and Thingy's own voice (nova) in audio. Podcast synthesis
-  takes voice segments; `VOICE_ID` records both voices. Not yet heard in a
-  real send.
+  block in email, and Thingy's own voice (nova) in audio. `VOICE_ID` records
+  both voices. Heard in WT350's send (2026-09-20).
+
+- **The audio edition, assembled** (2026-09-21) — after Jamie listened to
+  WT350: one synthesized piece per script block, placed with silence by
+  boundary (`PAUSE`), the two voices gain-matched, pieces cached in
+  `data/tts-cache/`; ID3 chapters in the mp3, `chapters.json` (every link
+  with its URL, photos as square chapter art) and a speaker-labelled WebVTT
+  beside it, content-addressed. Bumpers gone; opener and close are script;
+  quotes framed, lists spoken with ordinals, sections opened with counts and
+  closed. **WT350 regenerated for real** the same evening: 110 pieces, 26:26,
+  `weekly-thing-350-cf2b3845.mp3`; the website leg re-sent (d13cfa38) so the
+  page and feed moved to it. Verified by transcribing the result
+  (`uvx --from mlx-whisper mlx_whisper`) and measuring every structural pause
+  ≥1.08 s where the old file had 0.0 s. Not yet listened to by Jamie. The
+  site does not yet render chapters, show notes, or the transcript from the
+  fields it now receives (`audio_chapters_url`, `audio_transcript_url`,
+  `audio_chapters`) — that is weekly.thingelstad.com's next step.
 
 - **Lost-edit protection** (2026-09-20) — every save keeps the replaced
   document in `revisions` (last 300 per issue; `npm run revisions`), and every
@@ -142,7 +157,8 @@ finished, what is half-finished, and what has never run.
 - **Re-send all sent** (2026-09-20) — on the Send view once any text leg
   has gone: re-runs website, Buttondown, and archive, in order, stopping at
   the first failure. The podcast is left alone (re-sending it re-synthesizes
-  and replaces the mp3; its card does that on purpose). WT350's send day
+  what changed and publishes a new, content-named mp3 — the website leg must
+  follow for the page and feed to move; its card does that on purpose). WT350's send day
   ended with an hour of re-sending those three by hand after two fixes.
 
 - **Placement is Jamie's** (2026-09-20) — a link is placed once, when it
