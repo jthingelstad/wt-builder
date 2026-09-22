@@ -33,7 +33,7 @@ import type { Boundary, Chapter, ScriptBlock, Speaker } from '../../shared/rende
 import { pronounce } from '../../shared/render/speech.ts';
 import { config, credentials } from '../config.ts';
 import { CDN_HOST } from './images.ts';
-import { buildCover } from './cover.ts';
+import { buildCover, squareArt } from './cover.ts';
 import { subjectFor } from '../publish.ts';
 
 export const TTS_MODEL = 'tts-1-hd';
@@ -504,6 +504,22 @@ export async function renderAudio(
       `:linear=true:print_format=summary`;
 
     const chapters = chaptersOf(placed);
+    // Chapter art, squared and content-addressed. Each distinct picture is
+    // fetched and cropped once; the chapter points at the square.
+    const art = new Map<string, { key: string; body: Buffer }>();
+    for (const c of chapters) {
+      if (!c.image) continue;
+      let have = art.get(c.image);
+      if (!have) {
+        const res = await fetch(c.image, { signal: AbortSignal.timeout(60_000) });
+        if (!res.ok) throw new Error(`chapter art ${c.image}: ${res.status}`);
+        const squared = await squareArt(Buffer.from(await res.arrayBuffer()));
+        const hash = createHash('sha256').update(squared).digest('hex').slice(0, 12);
+        have = { key: `weekly-thing/${issueNumber}/chapters/${hash}.jpg`, body: squared };
+        art.set(c.image, have);
+      }
+      c.image = have.key;
+    }
     const metaPath = join(work, 'metadata.txt');
     await writeFile(metaPath, ffMetadata(id3Tags(doc), chapters, total));
 
@@ -532,16 +548,21 @@ export async function renderAudio(
     const stamp = createHash('sha256').update(body).digest('hex').slice(0, 8);
     const base = `weekly-thing/${issueNumber}/weekly-thing-${issueNumber}-${stamp}`;
     const transcript = transcriptVtt(placed);
-    const chaptersFile = chaptersJson(chapters);
 
     let href = (key: string) => `https://${CDN_HOST}/${key}`;
     if (opts.localOut) {
       await mkdir(opts.localOut, { recursive: true });
+      href = (key: string) => `file://${join(opts.localOut!, key.split('/').pop()!)}`;
+    }
+    for (const c of chapters) if (c.image) c.image = href(c.image);
+    const chaptersFile = chaptersJson(chapters);
+
+    if (opts.localOut) {
       const name = base.split('/').pop()!;
       await writeFile(join(opts.localOut, `${name}.mp3`), body);
       await writeFile(join(opts.localOut, `${name}.chapters.json`), chaptersFile);
       await writeFile(join(opts.localOut, `${name}.vtt`), transcript);
-      href = (key: string) => `file://${join(opts.localOut!, key.split('/').pop()!)}`;
+      for (const a of art.values()) await writeFile(join(opts.localOut, a.key.split('/').pop()!), a.body);
     } else {
       const s3 = new S3Client({ region: config.awsRegion });
       const put = (key: string, Body: Buffer | string, ContentType: string) =>
@@ -549,6 +570,7 @@ export async function renderAudio(
           Bucket: CDN_HOST, Key: key, Body, ContentType,
           CacheControl: 'public, max-age=31536000, immutable',
         }));
+      for (const a of art.values()) await put(a.key, a.body, 'image/jpeg');
       await put(`${base}.mp3`, body, 'audio/mpeg');
       await put(`${base}.chapters.json`, chaptersFile, 'application/json+chapters');
       await put(`${base}.vtt`, transcript, 'text/vtt');

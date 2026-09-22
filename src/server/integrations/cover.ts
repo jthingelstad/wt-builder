@@ -85,6 +85,22 @@ export interface CoverResult {
  * Build both covers. `attention` cropping keeps the interesting part of a
  * photo in frame rather than centre-cropping through a subject's head.
  */
+/**
+ * Chapter art is shown in a square, like the cover, and smaller. Players
+ * fill the frame, so a landscape photo handed over as-is is cropped by
+ * whoever draws it — through a head as easily as not. Cropped here, with
+ * the same attention strategy as the cover, it fills the frame on purpose.
+ */
+export const CHAPTER_ART_SIZE = 1000;
+
+export async function squareArt(bytes: Buffer, size = CHAPTER_ART_SIZE): Promise<Buffer> {
+  return sharp(bytes)
+    .rotate()
+    .resize({ width: size, height: size, fit: 'cover', position: sharp.strategy.attention, withoutEnlargement: false })
+    .jpeg({ quality: JPEG_QUALITY, progressive: true, mozjpeg: true })
+    .toBuffer();
+}
+
 export async function buildCover(doc: IssueDoc, opts: { upload?: boolean } = {}): Promise<CoverResult> {
   const { bytes, from } = await sourceBytes(doc);
 
