@@ -1,0 +1,143 @@
+The Weekly Thing, issue 16. Weekly Thing for August 26, twenty seventeen. Published August 26, twenty seventeen. By Jamie Thingelstad. In this issue: Speech Commands Dataset, remote CEOs, pronouns and stock price, total solar eclipse twenty seventeen, Multi-Cloud AWS and GCP, PyGraphistry big graphs.
+
+On Monday we got to experience the total eclipse in Eureka, MO. Many people asked what it was like and I've highlighted two things that are notable and require that you be there. First, it doesn't really look like the photos. The photos of the total eclipse just show the Suns corona with the black moon in front of it. Cameras cannot capture the range of exposure to truly see the eclipse. When you see it with your eye you can see the Moon being lit up by the Sun as well. There is more to see than just a black disc. The second is the rapid drop and rise in temperature. I didn’t have a thermometer but the temperature plummeted as the sun was blocked and quickly recovered. It was much more pronounced than I would have expected. We already added the twenty twenty four total eclipse to our calendar!
+
+Summer is coming to it’s end! The kids go back to school on Monday. This has been the fastest summer ever filled with tons of memories, most good some sad, but definitely a worthy one for the record books. Hope your transitions back into the school year go great!
+
+My Weekly Thing project is going well. I’m having fun doing this! Take a moment to think of someone you know that would find value in it and forward it to them. Maybe they will subscribe!
+
+Now, the Photog section.
+
+We were in St. Louis last weekend visiting on our way to Eureka, MO for the total eclipse. Great framing in the city with this statue and fountain, the courthouse building and the Gateway Arch framing it all.
+
+Aug 19, twenty seventeen, 6:56 PM 500 Pine St St. Louis MO 63101 United States.
+
+That's the end of Photog.
+
+Now, the Links section.
+
+Link one. "8 things remote CEOs do differently – Signal v. Noise"
+
+I don't intend to be a remote CEO but I think you could apply these 8 things to every leadership role and a bunch of them apply wether you are remote or not! If you lead a global team there is a lot to take away in here.
+
+Link two. "Research Blog: Launching the Speech Commands Dataset"
+
+I’m often very critical of Google and the massive amount of data they collect on all of us. I’m constantly troubled by the privacy and data collection part of their systems. Here however is one of many examples of great things they do. Releasing all this data and using an open Creative Commons license is fabulous.
+
+Link three. "Proof that the pronouns "I," "we," and "you" improve not just your writing, but your stock price - without bullshit"
+
+Interesting brief read on impact of pronoun choice! I am deliberate in my use of pronouns. I would never use the objective third person but I do always make sure to use "we" when talking about the successes of the team and milestones achieved. As a leader I also tend to use "I", first person, when referring to failures.
+
+Link four. "ongoing by Tim Bray · Enlightenment Technology"
+
+A very complicated review of a book on the origins of our modern growth focus. This book sounds daunting to read, and I’m not a great reader. But the concepts and topic sound compelling. I may have to live with Tim Bray's writeup as enough though.
+
+Link five. "The Dude abides | Southwest Journal"
+
+My friend David Hussman did this cool interview in the community newspaper in our area about his recent cancer diagnosis. David's personality is so big, it comes right through the text here. Days when I get to hang with David are always better days!
+
+Link six. "These are Google's tools for effective management — Quartz"
+
+I fully believe that Google is probably doing more data-driven analysis of how companies and teams work than any company has done ever before. They need to do it, it’s in their DNA and they have the tooling. I think it’s great that they are sharing some of these finding now on a new Re:Work site.
+
+Link seven. "Offline Only"
+
+This made me giggle. I like the trick as a way to make a point!
+
+Link eight. "Interface font family"
+
+I’m a complete sucker for fonts, particularly simple ones. I think it’s a great thing that we are starting to see more open source happening in typography as well.
+
+Link nine. "Coinbin.org: A Human–Friendly API Service for Crypto Currency Information"
+
+A new Python library and service from Kenneth Reitz, who wrote the fabulous Requests. Now with a Python module and Webservice to help developers deal with crypto-currencies. The API is beautiful. Also, there are 849 cryptocurrencies! Wow!
+
+Link ten. "xkcd: Eclipse Review"
+
+I can personally attest that this is absolutely true!
+
+Link eleven. "RxJS Observable interop with Promises and Async-Await"
+
+Reactive + Promises? Sounds fabulous together!
+
+Link twelve. "iOS Text Transformations with TextTool 2 — MacSparky"
+
+I have TextTool 2 in my automation stack on iOS. It has super powerful features. Unfortunately the day after this great writeup the developer announced he is ceasing development on it. He disclosed his total sales revenue for TextTool 2 was a little over 3,100 dollars. When you hear stories about getting rich on mobile apps remember that this is much more common.
+
+Link thirteen. "Code42 to Focus Exclusively on its Rapidly Growing Business in the Enterprise and Small Business Markets | Code42"
+
+I’m not surprised to see Code42 (Minneapolis company!) exit the home market. I am a little surprised that they aren't doing anything for those users other than a referral relationship to Carbonite. I would have thought they could have provided a much softer transition for these home users that didn’t require them to effectively start over.
+
+Link fourteen. "Going Multi-Cloud with AWS and GCP: Lessons Learned at Scale | Metamarkets"
+
+Comprehensive writeup comparing and contrasting AWS and Google Cloud. I love the opener on growing infrastructure in a single cloud region "like inflating a balloon in a porcupine farm". Worthwhile read! It would surprise non-technical people that billing is such a challenge but I can share first hand that it’s massively complicated.
+
+Link fifteen. "How do I improve my storytelling? | Ask MetaFilter"
+
+Storytelling is a key act of leading groups of people, in business and other areas of life. Being a good storyteller is something leaders should work on.
+
+Link sixteen. "PyGraphistry is library to extract, transform, and visually explore big graphs"
+
+The library produces some stunning graph visuals. It looks very useful for doing graph analysis. However, it doesn't seem to be a standalone thing but instead using the services of Graphistry.
+
+Link seventeen. "There goes the sun, total solar eclipse twenty seventeen - The Boston Globe"
+
+I’m a fan of the Big Picture column and this week was on the American Eclipse. Photography observation that a lot of what photographing an event is is not just the event. There are some pictures of the eclipse, but most are actually pictures of people taking in the eclipse. That tells the story!
+
+That's the end of Links.
+
+Now, the Now Reading section.
+
+How to Live: Or A Life of Montaigne in One Question and Twenty Attempts at an Answer
+
+by Sarah Bakewell
+
+How to get along with people, how to deal with violence, how to adjust to losing someone you love—such questions arise in most people’s lives. They are all versions of a bigger question: How do you live? This question obsessed Renaissance writers, none more than Michel Eyquem de Montaigne, considered by many to be the first truly modern individual. He wrote free-roaming explorations of his thoughts and experience, unlike anything written before. More than four hundred years later, Montaigne’s honesty and charm still draw people to him. Readers come to him in search of companionship, wisdom, and entertainment —and in search of themselves. Just as they will to this spirited and singular biography.
+
+My book club picked this for our next book and I’m diving in. I’m very intrigued by all the great reviews and mentions of this book. It wasn't on my radar at all but Tom picks some great books.
+
+That's the end of Now Reading.
+
+Now, the Promotion section.
+
+Creative Commons helps you legally share your knowledge and creativity to build a more equitable, accessible, and innovative world — unlocking the full potential of the internet to drive a new era of development, growth, and productivity. I have been a supporter of Creative Commons for years. Larry Lessig, the founder of Creative Commons, has done the world a great thing by creating a legal structure to help authors and creators encourage remix culture. In addition to donating, you should consider making your content under a Creative Commons license. Donate to Creative Commons today!
+
+That's the end of Promotion.
+
+Now, the Highlighted iOS App section.
+
+Halide - RAW Manual Camera
+
+by Chroma Noir LLC
+
+Halide is a groundbreaking camera app for deliberate and thoughtful photography. With high-end tools and beautiful details, Halide is your go-to camera when you want to really take a photo rather than a quick snapshot.
+
+There are dozens of photo applications for iOS but Halide is the first that I've used that promises to be a pro tool and delivers. The controls are intuitive and it’s easy to use. I don't use it for all photos but when I need manual control over the camera this is my go to application.
+
+4 dollars and 99 cents 4.5/5 stars
+
+That's the end of Highlighted iOS App.
+
+Now, the Microblog updates section.
+
+- Tammy is already planning out the April 8, twenty twenty four total solar eclipse.
+- Family selfie one minute before totality!
+- Me waiting for totality!
+- Just had 2:18 of totality. Amazing experience! Corona was completely visible!
+- Great position for today’s eclipse! Now just keep the away!
+- 1:17:29 pm max eclipse for us!
+- If you are in the path of totality for the eclipse Solar Eclipse Timer seems like a good app to assist.
+- Big flag!
+- Would have been cool if Apple had an Eclipse watchOS watch face.
+- Looking good St. Louis!
+- Sump Coffee has amazing espresso. This is a cathedral to coffee. So good.
+- That’s a big prop!
+- Feeling safe.
+- City Museum is pretty amazing / crazy. Shot of tree house.
+- Super fun time at City Museum in St. Louis!
+
+That's the end of Microblog updates.
+
+Thank you for subscribing to the Weekly Thing! If you know of people that would like the Weekly Thing please forward it along!
+
+That brings us to the end of the Weekly Thing, issue 16. Thanks for listening, and I'll see you next time.

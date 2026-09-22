@@ -1,0 +1,176 @@
+The Weekly Thing, issue 40. Weekly Thing for February 10, twenty eighteen. Published February 10, twenty eighteen. By Jamie Thingelstad. In this issue: iA Power Back, Declaration of Cyberspace, John Perry Barlow, Web Trend Map twenty eighteen, Kubernetes Effect, House That Spied on Me, Billy Mitchell MAME, effective CTO.
+
+It was pretty cool to watch the Super Bowl last weekend with highlights of our fine city of Minneapolis. However, after weeks of increasing road closures and security perimeters I'm pretty happy to see everyone head back to their home and let us get back to normal!
+
+Now we are ready to transition to the Winter Olympics on TV!
+
+Identify Addictive Application Patterns
+
+Learn to identify patterns in software that create addictive feedback loops.
+
+Forestry.io
+
+A powerful CMS for static sites.
+
+Nice winter days with a bunch of snow and the sun keeping you warm are delightful.
+
+Feb 3, twenty eighteen at 12:21 PM
+Cabin, Warsaw MN
+
+Now, the Web section.
+
+Take the Power Back – iA
+
+Powerful writing from iA about engaging in the web and our digital platforms with more thought.
+
+The answer to the passive consumption of trash is the active formulation of questions, the active search for answers and the active work of putting complex knowledge and diffuse feelings into clear words.
+
+This article is a great read if only for the writing.
+
+Social Media is a mental prison where Facebook exists to make us believe that Google is still open.
+
+That made me laugh and think at the same time.
+
+A Declaration of the Independence of Cyberspace | Electronic Frontier Foundation
+
+I’m shocked that I had never read this article. Sadly John Perry Barlow, the founder of the EFF and the author of this declaration recently passed away. Cory Doctorow has a very nice remembrance of him. From Doctorow:
+
+Today, Barlow is dead, and his vision is vindicated: the risks Barlow foresaw (along with other EFF founders like John Gilmore and Mitch Kapor ) are more imminent than ever; the organization that he started and the movement he kicked off has never been more badly needed.
+
+Web Trend Map twenty eighteen – iA
+
+The web has been consolidating to major corporations, losing sight of some of the original objectives.
+
+The Web has lost its spirit. The Web is no longer a distributed Web.
+
+There are however sprouts of new activity.
+
+There seems to be a weak undercurrent of old and young bloggers like us that feel sentimental or curious and want to bring back blogging. Blogging won’t save the world. But, hell, after two weeks now, we can confirm: it feels great to be back on the blogging line.
+
+I have nothing against successful companies online, but there needs to be space for other things. Commercial areas are fine, but I also want parks. Industrial activity is needed, but we need residential areas too. This all applies to the web as well.
+
+That's the end of Web.
+
+Now, the Productivity section.
+
+Episode #38 – The Power of Outcome Thinking
+
+I've been thinking about mental focus and also meditation. This recent GTD podcast offered some great color on the topic.
+
+This talk will reveal just how much the thoughts we hold in our head have the potential to affect the types and qualities of action we take. From athletic performance to prepping for that next big meeting, what we think about while we act can affect how we act.
+
+Plus David Allen is pretty funny in some of his talks.
+
+That's the end of Productivity.
+
+Now, the Tech section.
+
+acme.sh: A pure Unix shell script implementing ACME client protocol
+
+ACME is Let's Encrypt protocol for managing encryption certificates. There are a number of clients but one in pure bash would make it easy to add certificates in a variety of situations.
+
+The Kubernetes Effect
+
+Some interesting learning here on the deeper ways that you can use Kubernetes in your application architecture.
+
+Kubernetes offers a full set of distributed primitives (such as pods, services, controllers) that addresses the requirements and drives the design of our applications. These new primitives and the platform capabilities dictate the guiding design principles and design patterns we use to implement all future services.
+
+It also highlights the broad surface area of Kubernetes. The points on broad adoption across various platforms are also important to note.
+
+That's the end of Tech.
+
+Now, the Privacy section.
+
+The House That Spied on Me
+
+A fun experiment to show what behavioral information your ISP can mine from your families use of Internet of Things devices. I like that they specifically didn’t try to break encryption, this is just basic analysis of data coming out of your home as we adopt more "smart" devices.
+
+That's the end of Privacy.
+
+Now, the Games section.
+
+PocketSprite - Tiny Retro Gaming on your Keychain
+
+A gaming device that is the size of a keychain? Yep! This seems really silly but it I love that it exists.
+
+Billy Mitchell's Direct Feed Recordings are MAME Generated
+
+If you have watched King of Kong you know the story of Billy Mitchell. After some incredibly detailed analysis, it seems his records were faked.
+
+In light of the evidence presented here, I am removing Billy Mitchell's current score of 1,062,800 from the Donkey Kong Forum High Score List.
+
+The Internet is so great. If you find this story interesting, watch the movie!
+
+That's the end of Games.
+
+Now, the Business section.
+
+The 8 best questions to put on your next one-on-one meeting agenda
+
+Managers spend a lot of time in 1:1 meetings, and company's as a whole spend a lot of time in them. If you have 1,000 employees and managers spend 30 min/week in 1:1 that is nearly 2 million dollars of expense that there is little time spent improving. I’m curious to know how to make that time more effective.
+
+Matter. | How to be an effective CTO
+
+I've met Rajiv Pant many times and have a lot of respect for him as a leader and thinker. I continue to enjoy how he breaks down the keys areas that CTO's need to focus on.
+
+lcamtuf's blog: Progressing from tech to leadership
+
+Good reflection of one person's journey from individual work in technology to leading a team. I've seen nearly all of these points happen as I've moved in my career and as I've helped others do the same.
+
+That's the end of Business.
+
+Now, the Transportation section.
+
+How Bikes Will Take Their Revenge on Cars and Help Us Reclaim Our Streets
+
+An interesting take on how the future of "micro-transportation" may look. Having recently purchased an electric Fat Bike I can attest that it changes the ways you can use a bike and opens up a lot of options. I don't see any way for these models though to deal with climate and the fact that it’s very cold and very hot in some places.
+
+That's the end of Transportation.
+
+Now, the Science section.
+
+Falcon Heavy Test Flight - YouTube
+
+This was all amazing! What a feat for SpaceX.
+
+When Falcon Heavy lifts off, it will be the most powerful operational rocket in the world by a factor of two. With the ability to lift into orbit nearly 64 metric tons (141,000 lb)---a mass greater than a 737 jetliner loaded with passengers, crew, luggage and fuel--Falcon Heavy can lift more than twice the payload of the next closest operational vehicle, the Delta IV Heavy, at one-third the cost.
+
+Watching the two Falcon engines land nearly simultaneously made me think I was watching a science fiction movie!
+
+That's the end of Science.
+
+Now, the Programming section.
+
+A GraphQL Primer: Why We Need A New Kind Of API (Part 1) — Smashing Magazine
+
+Good introduction to the problem that GraphQL is solving and the history of RPC, SOAP, and REST thus far. I continue to think GraphQL has high applicability to many application. Interestingly I think that REST and GraphQL may find a reason to co-exist for a long time. Make sure to read part 2 of this as well.
+
+The Electronic Frontier Foundation is the leading nonprofit organization defending civil liberties in the digital world. I have been a member of the EFF for years. Not only is the EFF working hard to protect you on the Internet they have also recently launched solutions like Privacy Badger and the critically important Let's Encrypt service to make encrypting web servers free to anyone. Support the EFF with a donation!
+
+OpenTerm
+
+by Silver Fox
+
+OpenTerm is a sandboxed command line interface for iOS.
+
+This is a really cool idea that I think could be extended in some very interesting ways. Certainly for techies only right now but I’m curious to how a command line interface can be extended to various iOS concepts.
+
+Free 4.5/5 stars
+
+- Tesla pushed my Model 3 reservation to “Late twenty eighteen”. In “Musk-speak” that reads “Mid twenty nineteen” to me.
+- The video of these Falcon boosters landing today is amazing. I have to remind myself repeatedly that it’s not a movie.
+- Super Bowl LII was pretty spectacular.
+- Using Super Bowl ads as an opportunity to highlight for my kids how brands attempt to manipulate their emotions in ways that benefit them.
+- In celebration of Super Bowl LII here we are in front of the ice sculpture of the numerals downtown!
+- Snowy trail from today’s bike ride. Went down once.
+- Did a very short ride on my Fat Bike in the snow. It’s so much fun to ride around in the snow. I need to do that more, and dress warmer for it too!
+- I’m reading Why Buddhism Is True and the references to “modules” of the mind keep reminding me of the characters in Inside Out!
+- Snowshoes.
+- Winter baseball!
+- Winter fire.
+
+That's the end of Programming.
+
+Thank you for subscribing to the Weekly Thing! If you know of people that would like the Weekly Thing please forward it along!
+
+That brings us to the end of the Weekly Thing, issue 40. Thanks for listening, and I'll see you next time.

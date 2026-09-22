@@ -1,0 +1,224 @@
+The Weekly Thing, issue 210. Wyoming, WebAssembly, Wordle. Published February 5, twenty twenty two. By Jamie Thingelstad. In this issue: Crypto capital state, prioritizing tech debt, WebVM, Wordle rise, Tobias Lütke joins Coinbase board, Inspectorio 50 million dollars raise.
+
+My favorite thing recently? The days are getting longer.
+
+On our way to dinner tonight at 5:30p we were driving along and it was still light out!
+
+Then we got to sit inside at one of our favorite restaurants, and noted that we hadn't been inside of the restaurant for two years. We've had takeout, and eaten many meals in the car in the parking lot, but tonight we actually got to sit down at a table inside.
+
+It was delightful.
+
+Now, the Featured section.
+
+Link one. "This State is Becoming America’s Crypto Capital - YouTube"
+
+It is great to see Wyoming taking such a leading role on crypto. Hopefully other states will see this and feel compelled to catch up.
+
+- 24 laws passed regarding digital assets
+- "Technology exists to do simultaneous settlement"
+- Governor of Wyoming heavily features
+- July first, Wyoming became first state to recognize DAO's as a legal entity
+- 150 DAO's formalized in Wyoming.
+- Highlighted CityDAO, and entire city run as a DAO.
+- Support for crypto mining, highlight Elite Mining.
+
+What I think is so good about Wyomings approach is it has the potential for a "and" solution instead of an "or". There is no reason that crypto solutions cannot live alongside existing ones. Many want to position it as a battle, but it doesn't need to be. And the way Wyoming is doing this will allow them to have a hybrid system.
+
+Link two. "Tips On Prioritizing Tech Debt In A Healthy Way"
+
+This article jumps in the anti-pattern, what not to do first. And I have to emphasize it because I've seen it multiple times and it is a complete failure.
+
+Quote.
+Let's start with what not to do. Many teams end up with two kinds of backlogs – one product-focused and one tech-focused.
+End quote.
+
+Having two backlogs is agreeing to not agree. It creates so many negative issues, this article highlights some of them. If you see this practice, do everything you can to stop it immediately.
+
+Overall I think he approach framed up here is spot on for addressing this topic. The most important aspect is for technologists to understand how to communicate the abstract concept of tech debt in terms that make sense in a market context.
+
+Quote.
+Your best strategy here is to understand how to give that context in the language your stakeholders speak. "Well, it's trivial why this is important" won't work. There are 50 other items in your backlog which is "trivially important" to them. Also, please don't make it about yourself. It's great that you're passionate about fixing this, but if it sounds like your pet project without any further argument, it likely won't get prioritized. I'll show you a few ways to frame your views. Spoiler: it's all about connecting the dots from your tech debt items to your internal or external customers and the product's performance.
+End quote.
+
+I added the bold. If you find yourself unable to get attention to these matters, I guarantee the issue is how it is being communicated.
+
+There are a number of good suggestions outlined here to address technical debt.
+
+That's the end of Featured.
+
+Now, the Notable section.
+
+Link one. "Simplifying Our Mental View - zen habits"
+
+The techniques outlined here have worked for me when I get overwhelmed.
+
+Quote.
+However … if we bring awareness to our added mental layer, we can simplify it by letting go of that extra layer. It’s about doing things as simply as possible.
+End quote.
+
+Sometimes the change you need is to just think of the next action, and do that. Don't worry what comes after that until you finish that action. Repeat.
+
+Link two. "A Moment of Excruciating Anticipation in Kyiv | The New Yorker"
+
+The buildup of Russian troops along the border of Ukraine has been all over the news. The one thing that everyone can agree on is that nobody knows what Russia is really doing, if anything at all. I've been to Ukraine over a dozen times and through our team there have gotten to know some of the people and learn the history and culture of Ukraine. It is a rich, warm culture. I appreciated this article because it was all from the perspective of the people.
+
+Link three. "Focused #144: Enough, with Patrick Rhone - Relay FM"
+
+I was surprised and delighted to see my friend Patrick Rhone as the guest on one of the podcasts I subscribe to. Listen in to hear Patrick share his wisdom on Focus and related topics.
+
+Link four. "Supply Chain Startup Inspectorio Lands 50 million dollars Raise | Twin Cities Business"
+
+Inspectorio has been continuing to grow and this is an impressive growth round for them. Awesome local growth company.
+
+Link five. "Andy Warhol, Clay Christensen, and Vitalik Buterin walk into a bar – O’Reilly"
+
+O'Reilly himself sharing some framing on the web3 ecosystem. He tells this story through multiple personalities.
+
+Quote.
+Buterin: So one way to understand what we’re working on in the crypto world is that we’re building new mechanisms for solving the problems of consensus and coordination and legitimacy. And that’s also exactly what "the market" is doing when it tries to settle the messy question of value. So when we talk about building a new financial system with crypto, we’re not talking about just rebuilding the plumbing of the existing system with fancy new pipes, we’re questioning how value is created and who gets it.
+End quote.
+
+And a great reminder with this quote from Gates.
+
+Quote.
+Bill Gates once said, "We always overestimate the change that will occur in the next two years and underestimate the change that will occur in the next ten. Don’t let yourself be lulled into inaction." That doesn’t mean to rush out and buy the latest meme stock, meme coin, or overpriced NFT. But it does mean that it’s important to engage with the social, legal, and economic implications of crypto. The world advances one bubble at a time. What matters is that what’s left behind when the bubble pops makes the world richer in possibilities for the next generation to build on.
+End quote.
+
+My bet is that there are foundational elements that will have big change in the next ten year.
+
+Link six. "WebVM"
+
+Wait, what? Yes, you can run Linux in WebAssembly in your browser.
+
+Quote.
+WebVM is a server-less virtual Linux environment running fully client-side in HTML5/WebAssembly. In this demo, it runs an unmodified Debian distribution including many native development toolchains. WebVM is powered by the CheerpX virtualization engine, and enables safe, sandboxed client-side execution of x86 binaries on any browser.
+End quote.
+
+Link seven. "What Doesn't Need to Be Done"
+
+This is the key to actually shipping your software and product.
+
+Quote.
+While that’s all very important, I’ve found there’s a second set of things that also matter, but tend to fly under the radar: the things that don’t need to be done. Of course, we’re not in this to do the minimum. If something is worth doing, it’s worth doing well. But if it’s worth doing, it’s also worth finishing. And to finish, you eventually need to buckle down, simplify, and stop doing the stuff that doesn’t need to be done.
+End quote.
+
+When you hear that software ships with a number of known bugs or things still to do, those are the things that don't need to be done now.
+
+Link eight. "The unreasonable effectiveness of one-on-ones | benkuhn.net"
+
+Interesting reflections on the one-on-one meetings and what makes them work. The punchline here is really in this one line.
+
+Quote.
+On the flip side, I also now think the "caring a lot" qualification is way more important than I used to.
+End quote.
+
+I would suggest that if you want to do one thing to make one-on-ones more effective, it is right there. Care a lot.
+
+Link nine. "Lock-in and Multi-Cloud"
+
+Bray does a great job highlighting the various approaches to cloud and lock-in. I was curious if his thinking mirrored mine, and it does, with some nuance.
+
+Quote.
+You can decide you’re just not up for all these proprietary APIs. But then you’re going to need to hire more people, you won’t be able to deliver solutions as fast, and you’ll (probably) end up spending more money.
+End quote.
+
+Given all the variables of time-to-market, finding technology talent, scaling and managing infrastructure I think the best choice is to use your cloud provider to maximum benefit. This way I get the maximum return on that spend. If the time comes that I need to shift, then those costs need to be absorbed. But that is an "if". There is some percent chance that will be needed that is not 100%.
+
+If I deny the benefits to defray that potential future, I will 100% not get the benefit that I could get. So I would be intentionally deciding to reduce my benefit in the short term, and would be guaranteed to have to absorb that gap.
+
+I'll take the benefit now, and manage the risk on the long term.
+
+Link ten. "Tobias Lütke, CEO of Shopify, to join Coinbase Board of Directors"
+
+Lütke, or should we say tobi.eth, joining Coinbase board isn't all that surprising. Tobi has been publicly playing with crypto, NFT's, and related tech for a while on Twitter. The only part suprrising is that Shoppify has announced that they are going to get into NFT sales, and Coinbase is building out their NFT platform. My view on that was "Will crypto companies learn retail sales first? Or retail companies learn crypto?" That clearly isn't enough of a conflict for Coinbase to be concerned.
+
+Link eleven. "Operating Accounts"
+
+Byrn highlights using multiple accounts to know how much certain assets cost. We started doing this a while ago but not without accounts. When we got a cabin we decided to create a budget around each of the major assets we have. House, cabin, cars. That way you know at all times what that asset costs. We extended that to people as well, so every family member has their own mini-budget.
+
+Link twelve. "The Sudden Rise of Wordle"
+
+Congrats to the creator of Wordle for selling it to the New York Times. Tammy and I have been enjoying playing it still.
+
+Wordle gets two things right.
+
+1. Only one word a day, so you play it once a day and then your done. Limited time commitment, and actually leaves you looking forward to tomorrow.
+2. Perhaps most importantly, everyone has the same word. There is a sense of shared community that would be lost otherwise.
+
+Wordle is like everyone tuning in for Thursday night TV in the 80's and sharing stories with friends about the word of that day.
+
+That's the end of Notable.
+
+Now, the Journal section.
+
+Thursday @ 7:49 PM
+
+I dig the new .day top-level domain. Not sure how I want to use it yet, but I decided to register thingelstad.day and weeklything.day. For now I'm redirecting thingelstad.day to my on this day page.
+
+Sunday @ 9:05 PM
+
+Tammy and I had a wonderful weekend at Wild Rice Retreat in Bayfield.
+
+That's the end of the Journal.
+
+Now, the Briefly section.
+
+Link one. "Wordle in less than 50 lines of Bash · GitHub"
+
+There has been so many Wordle projects, but this Bash solution is my favorite yet.
+
+Link two. "Facebook says Apple iOS privacy change will cost 10 billion dollars this year"
+
+So users get a little sliver of their privacy back and it costs Facebook 10 billion dollars in revenue? Fine with me.
+
+Link three. "The Worst Day of Mark Zuckerberg’s Reign at Facebook"
+
+Is there an emoji for fake-crying?
+
+Link four. "Motivational Streaker - Next Action Associates"
+
+Streaks have proven to be a pretty effective tool for me to build new habits.
+
+Link five. "Builder Brain"
+
+I often describe myself as a builder. And I believe one of the things that makes a builder is someone that enjoys building so much that you sometimes lose site of what the thing is your building, and if it even makes sense. It is just so much fun to build.
+
+Link six. "Pay attention to WebAssembly | Harshal Sheth"
+
+I haven't followed WebAssembly much at all but the points in this article are interesting capabilities.
+
+Link seven. "The AWK State Machine Parser Pattern"
+
+There is so much power hidden away in tools like awk.
+
+Link eight. "Reasons for servers to support IPv6"
+
+Good bite-sized info on IPv6. I wonder if IPv4 will ever be turned off.
+
+Link nine. "On Photo Sharing"
+
+My favorite photo sharing is using private iCloud Photo Albums with friends and family.
+
+Link ten. "I crowdfunded a novel using cryptocurrency"
+
+What a cool experiment. I hope we continue to see even more experimentation like this.
+
+Link eleven. "vim-galore: All things Vim!"
+
+Everything you would ever want to know about vim, and then some.
+
+Link twelve. "Making the web better. With blocks! – Joel on Software"
+
+Interesting idea using a composable Block Protocol to allow wide innovation of more complex content objects. Nifty.
+
+That's the end of Briefly.
+
+Now, the Fortune section.
+
+Here is your fortune…
+
+Change your thoughts and you change your world.
+
+Thank you for subscribing to the Weekly Thing!
+
+That brings us to the end of the Weekly Thing, issue 210. Thanks for listening, and I'll see you next time.

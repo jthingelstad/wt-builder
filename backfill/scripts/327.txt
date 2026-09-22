@@ -1,0 +1,278 @@
+The Weekly Thing, issue 327. Prototypes, Tahoe, UTF-8. Published September 20, twenty twenty five. By Jamie Thingelstad. In this issue: Purpose of Prototypes, Forward Deployed Engineers, ChatGPT Memory, UTF-8 design, iOS 26, macOS Tahoe, Pig-Butchering Scams, iPhone 17 Pro Camera.
+
+Good morning!
+
+Hope your fall is starting off well! We are starting to get things put away and shut down — winter is coming.
+
+Did you upgrade all your Apple devices this week? I did. I cannot resist that smell of fresh bits in my software so on Monday night I was running around the house upgrading all the things! Now on crisp new bits everything is sliding around on Liquid Glass.
+
+Hope you have a delightful weekend!
+
+Now, the Currently section.
+
+Watching: We've watched Long Way Round, Long Way Down, and Long Way Up so of course we are going to watch Ewan and Charley on Long Way Home. This is their fourth motorcycle adventure this time exploring Europe. The gents are a bit older so the vibe changes over 20 years but still a very fun show to watch.
+
+That's the end of Currently.
+
+Now, the Notable section.
+
+Link one. "The Purpose of Prototypes: Silicon Valley Product Group"
+
+As GenAI tools have completely flipped the table on prototyping, and turned it into something that anyone can take a run at (which is all a great thing!) it is important to remember what a prototype is. Many seem to think it is the beta of a product. Some think it is a way to determine the viability of a solution. Nah, it is neither of those things.
+
+Quote.
+The primary purpose of prototyping is to help discover a successful solution. Going from an idea that could potentially solve a problem, to a prototype of an effective solution is the craft of product. And this involves fleshing out the idea, exploring the consequences and implications, and rapidly iterating on the solution. There are many other techniques that are helpful in both problem and solution discovery, and eventually it's worth learning more of them, but far and away, the most important discovery technique is prototyping, and then using the prototypes you create to test the risks -- before you proceed to building the actual product.
+End quote.
+
+I re-discovered this when I vibe coded POAP2RSS. The first iteration was completely discarded, and it was completely worth it. It helped me discover a successful solution.
+
+Link two. "ChatGPT Memory and the Bitter Lesson | Shlok Khemani"
+
+Interesting analysis of how ChatGPT's memory system works, along with prompts that you can type in to know what ChatGPT has in memory for you. I found it super interesting to see what details it had stowed away. Some it got very right, others were an odd question or two that I asked that it now thinks I’m way more into than I actually am. Of course ChatGPT knows I’m big into POAPs though.
+
+Link three. "UTF-8 is a Brilliant Design — Vishnu's Pages"
+
+Character encoding is one of those things that every programmer would rather never have to deal with, but you do. I think we'd all be happy for AI to just handle it. This is a nice analysis of how encoding is designed with UTF-8 and how it so elegantly handles backward compatibility all the way to 7-bit ASCII.
+
+Link four. "iOS and iPadOS 26: The MacStories Review - MacStories"
+
+iOS gets an even deeper dive of all the new changes -- a whopping nineteen "pages" of updates. If you want to know everything that has changed down to the tiniest detail this is the review for you. Again, why go into this much detail? Well, how many hours a week do you spend using your phone. I'd say it is worth it to really know how the software works.
+
+Link five. "macOS 26 Tahoe: The MacStories Review - MacStories"
+
+I tend to read just one review of the big new OS releases from Apple and these days those are the MacStories ones. Why read seven pages on this? I spend a lot of time on macOS and I like to know how it is changing.
+
+- Liquid Glass is the headline design element of all these releases. There has been a lot of hand wringing about it. Some love it and a lot of folks are less positive. I’m just getting my first glimpses and so far I've found it pretty comfortable and usable. We'll see how it evolves as developers get more experience with it.
+- Control Center has gotten really powerful over many releases. Having multiple instances in Tahoe is interesting. Also you can now put individual Control Center capabilities in the menu bar.
+- I wasn't aware of how much personalization capability there is in Tahoe. It isn't marketed that way, but it really feels like the most customizable version of macOS perhaps ever.
+- I use Raycast and before that LaunchBar so I tend to not ever use Spotlight but the new Spotlight sounds like a huge upgrade for those that haven't used launchers in the past.
+- Shortcuts is one of my most used capabilities and now having direct model access to Apple Intelligence is a big win. I've used OpenAI APIs to do things like this already and it is powerful. It is now tons easier to do. This is worth playing with.
+- Journal is now on more platforms. I still have Day One and might consider moving to Journal but there is no easy path. I realize the right answer is use neither and just write in text files.
+
+I never install the betas but I do upgrade the day the new releases are out. So far I’m having a lot of fun with Tahoe. Also see Ars Technica's macOS 26 review.
+
+Link six. "All Omni Apps Ready; Liquid Glass and Apple Intelligence Journeys Begin - The Omni Group"
+
+OmniFocus is one of my most important apps. I use it dozens of times a day and on my Mac it is always run it. It is the heart of my GTD system and I was super happy to see that Omni was quick to get it ready for iOS 26 and Liquid Glass. I didn’t know however that they opened up Apple Intelligence to the automation system in OmniFocus. Ken Case and the team at Omni Software have been really slow to do anything with AI and I wish they would do more. I think their priorities around privacy, which means that OmniFocus has completely encrypted and private data systems, has kept them from diving in. At least now I can install a plug-in that starts to bring some AI capability. More of this please!
+
+Link seven. "visionOS 26: The MacStories Review - MacStories"
+
+Great and comprehensive review of visionOS 26. I updated my Vision Pro and was impressed with all the additional features.
+
+- Putting widgets literally on your wall is pretty wild. In the Vision Pro they look very real. This may be the must useful environment for widgets — which I've not used a lot on other platforms.
+- Spatial Web Browsing is pretty neat.
+- Sharing nearly any window or app on the Vision Pro with a nearby Vision Pro user is a huge add, but is also only useful when you have more than one user. You can now watch a movie in visionOS "with someone" next to you and sharing the same window.
+- I don't get why the Calendar app is still the iPadOS version.
+
+Apple continues to iterate on this platform.
+
+Link eight. "watchOS 26: The MacStories Review - MacStories"
+
+watchOS 26 seems to me like it has the least changes, perhaps in part because Liquid Glass while on the watch doesn't really change much. watchOS itself has a very light interface to start with.
+
+- I’m trying out the Exactograph watch face just because it is pretty fun.
+- Happy to see the Notes app finally get to watchOS, although very limited.
+- Messages is now much more feature complete.
+
+Fine incremental changes but nothing that exciting.
+
+Link nine. "Forward Deployed Engineers - Silicon Valley Product Group"
+
+People have made products for a very long time. Depending on the material that you use, you require different disciplines to build a product. If you are making a plastic nozzle that handles high pressure you probably need materials science people, someone that knows how to deal with high pressure, and who knows what else.
+
+When you make software you need similar disciplines. It has changed a lot over the years. The roles have blurred. We used to require database people in nearly all products, but then databases got easier and only really specific requirements still need that. Even testing used to be specialized and has become less. But we still have a couple of major branches that are seen as different disciplines: notably product manager types that understand markets, and software developer types that create magical incantations for the computers.
+
+But at the core, it is all just making products and solutions. Everyone doing their part of their domain to make that a reality. This concept of Forward Deployed Engineers going to that core. Reduce cognitive overhead by limiting the count of brains. Get the solutioning as close to the user problem as possible — everything else is a layer of abstraction.
+
+Quote.
+The core of the FDE model is that you send empowered engineers (and other product creators) directly to spend intense time embedded with customers, with the express purpose of learning the problem and solution space, so they can discover a solution that will achieve the necessary outcome.
+End quote.
+
+The magic is less about the domains and figuring out how you generalize any of this into repeatable solutions. Building a single widget is fine. Building a machine that builds a million widgets is a whole different thing.
+
+Quote.
+The original form of an FDE is to send them to not just one, but to multiple customers, so they can personally and directly see the similarities and the differences, with the goal of creating a single productthat can serve the needs of multiple customers. This is the essence of customer discovery.
+End quote.
+
+Not everyone can do everything. We need specialization, even with AI coming onto the scene. However it would be good at regular times for any team making a product, regardless of your materials and your domains, to just remind themselves that they all have one job — to make the product.
+
+Reminds me a saying — what is the goal of the goalie in soccer? To stop the other team from scoring? No. To win the game.
+
+Link ten. "“Hello, is this Anna?": Unpacking the Lifecycle of Pig-Butchering Scams"
+
+I have been getting an increasing number of these random "wrong number" texts. Never reply to these, just delete them. It is almost certainly an initial attempt at some form of fraud to perpetrate — likely this "pig-butchering" scam. It is a horrible name.
+
+Quote.
+In this paper, we present the first qualitative analysis of pig-butchering scams, informed by in-depth semi-structured interviews with N= 26 victims. We capture nuanced, first-hand accounts from victims, providing insight into the lifecycle of pig-butchering scams and the complex emotional and financial manipulation involved. We systematically analyze each phase of the scam, revealing that perpetrators employ tactics such as staged trust-building, fraudulent financial platforms, fabricated investment returns, and repeated high-pressure tactics, all designed to exploit victims' trust and financial resources over extended periods. Our findings reveal an organized scam lifecycle characterized by emotional manipulation, staged financial exploitation, and persistent reengagement efforts that amplify victim losses. We also find complex psychological and financial impacts on victims, including heightened vulnerability to secondary scams.
+End quote.
+
+This is a long, clinically worded paper but worth reading to get a good sense of the methodology used by the criminals. Be on the lookout, not just for yourself, but for others as well.
+
+Link eleven. "What do people actually use ChatGPT for? OpenAI provides some numbers. - Ars Technica"
+
+Some super interesting usage data from OpenAI about ChatGPT.
+
+- ChatGPT added over 300M active users in the last 6 months? That is incredible. Nearly doubled!
+- Interesting how heavily male the user base was in the beginning and is now close to even.
+- 72% of requests to ChatGPT are "non-work" related.
+- Over 50% of the usage is either Helping with Writing or "Practical Guidance".
+- Only 7% of usage is "multimedia" which is something I do a lot of.
+
+Most recent data I've seen says ChatGPT standalone is a 2 billion dollars recurring revenue business. Given that growth in the last 6 months I wouldn't be surprised if it is now 4 billion dollars standalone.
+
+Link twelve. "iPhone 17 Pro Camera Review: Dolomites — Austin Mann"
+
+I guess we are now just "used to" the ridiculous camera technology that Apple fits in their newest phones, but really it is incredible. The 4x telephoto with 48MP is very appealing to me.
+
+Quote.
+On the 16 Pro, the 5x (120mm) often felt a little too tight. The new 4x (100mm) feels far more natural and much more familiar. It’s a classic portrait and landscape focal length in the photography world, and with the bump up from 12MP to 48MP I’ve been really happy with the results.
+End quote.
+
+I totally agree with Mann. The 12MP on that 5x made me shy away from it. This new sensor at 4x sounds perfect. Amazing photos and the 8x shots look really good.
+
+Dual-capture looks cool and I’m hoping the fine folks at Marco Polo are figuring out how to use that.
+
+Link thirteen. "MCP Registry · GitHub"
+
+GitHub announced this new aggregator to discover MCP servers that may be useful. It is incredible how fast these servers have proliferated and already become a core component of many agentic development systems.
+
+That's the end of Notable.
+
+Now, the Journal section.
+
+Journal entry one.
+
+I’m slowly starting to adopt the new Planned Date in OmniFocus 4.7. At a minimum it will reduce the use of a “Today” tag. I already use Due Dates sparingly but can now use them even less. The combination of Planned and Defer Dates are good enough for most things.
+
+Journal entry two.
+
+Flank steak on the Big Green Egg! I need to grill more often.
+
+Journal entry three.
+
+Driving into the sunset.
+
+Journal entry four.
+
+Tetris on the ModRetro Chromatic is my favorite implementation ever. So good.
+
+Journal entry five.
+
+Nice morning at Country Blossom Farm! Bakery, Apples, Games, Bouncy Pillow, Corn Pit, and more!
+
+Journal entry six.
+
+These bicycle themed demitasse cups are still some of my favorites ever. Felt like an afternoon espresso.
+
+Journal entry seven. My Supplement Program
+
+I’ve started working with a Doctor focusing on overall health and wellness. Think of it a bit like the things that Peter Attia does with patients, but significantly less famous, less expensive, and in my zip code.
+
+I thought it would be worth capturing my current supplements that are based on a comprehensive set of blood tests that we did.
+
+1. Premium Insurance Caps: I’ve taken these on and off for decades and had not been taking them recently. My Dr. wasn’t familiar with them but after looking them up his comment was “Those are some of the best overall general vitamin I have seen in long time.” I take 3 a day.
+2. Elite EPA Gems: These are the same Omega-3 supplements that Attia takes. I'm taking two a day, one with breakfast and one at dinner. My Triglycerides were slightly elevated in my test. I will be switching to O.N.E. Omega when I run out since it also has DHA.
+3. Vitamin D3: My Vitamin D was low and going into winter this will get harder. Taking three tablets each morning.
+4. DHEA: My testosterone levels were low and DHEA is a hormone that can boost production. Taking two of these in the morning.
+
+I'm likely going to add Curcumin to this program as well. In 2 to 3 months I’ll be getting the comprehensive blood tests again. This will be the first time I'm getting a real before and after. I'm curious to see how things react.
+
+Journal entry eight.
+
+I don't run the public betas for Apple OS releases -- and days like today are the fun when I get to jump into the new release. Updated macOS, iOS, tvOS, watchOS, and lastly visionOS to 26! Having fun and it is cool to see all the apps updating with Liquid Glass.
+
+Journal entry nine.
+
+POAP 7453396 for SPS Women in Tech Q3 twenty twenty five Lunch and Learn.
+
+The image for this POAP was created via GPT-5 with the prompt:
+
+Quote.
+I would like you to generate an image for a circular POAP badge with a vibrant teal-to-orange gradient background. At the center is the Women in Tech (WiT) logo -- a clean, minimal flat-style laptop with coffee and charts inside, outlined in white. Radiating outward are subtle glowing neural network dots and arcs, minimal and elegant, giving an AI-inspired futuristic vibe. At the bottom-right inside the circle is a small playful line-art outline portrait of Jamie Thingelstad, wearing a hat with a bird perched on it, drawn in the same minimal outlined style as the WiT logo. Inside the circle edges, curved text: on top "WiT Q3 Lunch and Learn", on bottom "How AI is Transforming Product Creation". A small ribbon banner under the logo reads "Jamie Thingelstad · Sept 18, twenty twenty five". Fun, playful, but clean and polished, with all elements fully contained within the circle for cropping.
+End quote.
+
+Journal entry ten.
+
+Tasty Fox in the Woods coffee from Grayfox Coffee. The images they put on their coffee makes me almost wish I had a Ripple Maker to do the same at home.
+
+Journal entry eleven.
+
+A delightful evening to mark 20 years of the CIO Wine Tasting organized by Dee Thibodeau of Charter Solutions. Chuck Kanski of Solo Vino always brings an incredible selection and takes us on an amazing journey through the different wines.
+
+Journal entry twelve.
+
+POAP 7454382 at SPS TechJam twenty twenty five - Attendee.
+
+Journal entry thirteen. SPS TechJam twenty twenty five
+
+We wrapped up the tenth anniversary of SPS TechJam twenty twenty five today. TechJam is our internal “unconference” led by members of our team that volunteer to give talks. We had so many great presentations and tons of learning. All of it wrapped around an AI focused Hackathon. It was incredible.
+
+Journal entry fourteen. Easy Way or the Hard Way
+
+Government censorship the “easy way or the hard way”.
+
+Quote.
+ABC, a television network owned by Disney, suspended Jimmy Kimmel’s late-night chat show indefinitely after the Federal Communications Commission’s chairman implied ABC’s broadcast licence was at risk. On Monday Mr Kimmel suggested that Charlie Kirk’s alleged killer was a MAGA sympathiser, sparking an outcry from conservatives. “We can do this the easy way or the hard way,” Brendan Carr, the head of the FCC, said on Wednesday. Critics fear that free expression over Kirk is being silenced by firings and threats. -- The Economist, The US in Brief, September eighteenth twenty twenty five
+End quote.
+
+Quote.
+ABC pulled Jimmy Kimmel’s talk show following comments the American comedian made about the murder of Charlie Kirk. Mr Kimmel said the “MAGA gang” was scoring political points over the shooting of the right-wing activist, and pretending the murderer was “anything other than one of them”. Mr Trump–who is increasingly targeting what he considers left-wing organisations–congratulated the Disney-owned network for its action. -- The Economist, The World in Brief, September eighteenth twenty twenty five
+End quote.
+
+Journal entry fifteen.
+
+We are having the stucco redashed on our house and I decided it was a good time to say goodbye to the grape vine that the previous owners had planted. Now a blank slate for something different next year. And the new stucco will go on very easy. Before and after photo.
+
+That's the end of the Journal.
+
+Now, the Briefly section.
+
+Link one. "The internet’s hidden creative renaissance (and how to find it)"
+
+I love all that is the IndieWeb. Let's keep the Web Weird!
+
+Link two. "What I think about when I think about Claude Code"
+
+I enjoyed this essay about how it "feels" to use Claude Code as a coder. I had never heard that breathing patterns change when people do things like respond to email either.
+
+Link three. "GPT‑5-Codex and upgrades to Codex"
+
+OpenAI doesn't have the cachet that they would like to have in coding tools, but they certainly aren't going to give up. This space is moving so fast.
+
+Link four. "The Wealth Race"
+
+Simple game as a social commentary on wealth disparity. Click as fast as you can!
+
+Link five. "The Great YNAB Remodel | YNAB"
+
+Tammy and I have been YNAB users since before they migrated to the web. It is cool to see this most recent release and reflect on how they have moved their product so far into a modern multi-user mobile first personal finance package. If you're looking for a great personal finance solution — this is our favorite.
+
+Link six. "iPhone 17: A Photographer's Review - YouTube"
+
+I hadn't watched one of Stalman's camera reviews but he did a great job covering the new kit.
+
+Link seven. "TCB Names Rob Vischer Its twenty twenty five Person of the Year | Twin Cities Business"
+
+Big congratulations to my friend, neighbor, and Weekly Thing reader Rob Vischer! Great to see wonderful people recognized for being wonderful.
+
+Link eight. "Writing an operating system kernel from scratch"
+
+Great article walking through coding a very simple unikernel with basic features. If your curious how the very heart of your computer works this gives you some insight into that world, with a simplified view.
+
+Link nine. "Go behind the browser with Chrome’s new AI features"
+
+Will all browsers become agent powered? Yes, most likely. Also see Future of Browsing Begins Now.
+
+Link ten. "Python: The Documentary | An origin story - YouTube"
+
+I haven't had a chance to watch this but saw enough to know I’m going to and it is great. Also this blog post about it from Jim Nielsen highlights some of the good stuff. I’m a fan of Python. If I’m coding, which I’m not very good at, I’m doing it in Python.
+
+That's the end of Briefly.
+
+Now, the Fortune section.
+
+Here is your fortune…
+
+Happiness comes in UTF-8: brilliantly well-encoded.
+
+That brings us to the end of the Weekly Thing, issue 327. Thanks for listening, and I'll see you next time.

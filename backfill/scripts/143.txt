@@ -1,0 +1,237 @@
+The Weekly Thing, issue 143. Archetypes, Wear a Mask, Zoom. Published April 11, twenty twenty. By Jamie Thingelstad. In this issue: Zoom encryption flaws, wear a mask, reopen the nation, COBOL falling apart, Bill Gates vaccine factories, John Prine dead at 73, Tesla ventilator.
+
+We have another week of Covid-19 lockdown behind us. Our family has been doing our work from home and home schooling. The school district started distance learning this week and I've generally been impressed with what they have done in such a short time. The kids are engaged and seem to like it fine. We've also supplemented with some other things. We signed up with REM5VR to rent an Oculus Go that they load with educational software. We all did the Apollo 11 experience as well as an Anne Franke thing. It was pretty eye opening to me how effective the VR space was for learning.
+
+… just came back to this. My barbershop setup a Go Fund Me. This is the constant reminder of how difficult the current financial environment is. I don't see that we have any choice, and we have a long way to go.
+
+We've made an active decision to continue to support our neighborhood restaurants and are getting take out multiple times a week. We want to come out the other side of this with these places still here, and that means they need customers. We've kept our dining budget the same as it was before.
+
+Lucky, our new puppy, has been a great addition to the family, and a welcome distraction from all the other stuff out there. She is all puppy and loves to mouth everything, including us. She's already gained about 20% of her body weight. She's definitely going to be a bigger dog!
+
+It seems like all the links to highlight each week are all Coronavirus, but there is a bit of other stuff this week too. Let's get along to it.
+
+Now, the Must Read section.
+
+Link one. "How Will We Know When It’s Time to Reopen the Nation? - The New York Times"
+
+This is a question that many people have asked, and I think this is a reasonable approach to determining when we can reopen things.
+
+Quote.
+1. Hospitals in the state must be able to safely treat all patients requiring hospitalization, without resorting to crisis standards of care. 2. A state needs to be able to at least test everyone who has symptoms. 3. The state is able to conduct monitoring of confirmed cases and contacts. 4. There must be a sustained reduction in cases for at least 14 days.
+End quote.
+
+The quarantines that most states are doing is clearly focused on #1. I’m continuing to worry that we aren't making the progress we need to on testing.
+
+Link two. "Let's All Wear A Mask (Idle Words)"
+
+A great overview on why masks should be worn and a call to action to make it socially normalized.
+
+Quote.
+But that is thinking about it backwards. The point of wearing a mask in public is not to protect yourself, but to protect other people from you. We know that many people who fall ill won't show symptoms during the time when they are most infectious. Some people may even remain asymptomatic through the whole course of the disease, never knowing they had it.
+End quote.
+
+That's the end of Must Read.
+
+Now, the Currently section.
+
+Reading: My book club is reading Replay by Ken Grimwood. I've been enjoying reading a fantasy book right now, and the premise is interesting.
+
+That's the end of Currently.
+
+Now, the Photograph section.
+
+This wonderful message was on a driveway in our neighborhood this week. Absolutely, #WeGotThis!
+
+Want smarter friends?
+Forward them this email and suggest they join us!
+
+That's the end of Photograph.
+
+Now, the Recommended Links section.
+
+Staff engineer archetypes.
+
+Super interesting deep dive on some specific variants (archetypes) of the staff engineering role. Worth reading and considering as a way of expressing the specific types of responsibilities that this one step in the typical engineering career ladder may have.
+
+The Internet - AVC
+
+Great reflection on how the Internet has scaled as we have pushed so much online with the Coronavirus lock down.
+
+Quote.
+And the answer, of course, is that Zoom doesn’t have to provide all of the bandwidth for their service. We all do. Netflix doesn’t have to provide all of the bandwidth for their service. We all do. The decentralized architecture of the internet is showing itself off right now. And it is a beautiful thing to behold.
+End quote.
+
+I would like to think that this will be remembered the next time that we have challenging conversations about Net neutrality. What we are seeing here is the result of adherence to that approach.
+
+In-Depth: The Eerie Beauty Of The Apple Watch Solar Face, And The Anatomy Of Nightfall
+
+This is an incredible deep dive on the Solar watch face in watchOS 6. This is a fun read, and got me to switch to using this face for a while.
+
+Our Government Runs on a 60-Year-Old Coding Language, and Now It’s Falling Apart
+
+When society is faced with a new challenge that requires agility, technical legacy and inflexible systems that have received little to no investment cause a big problem.
+
+Quote.
+Today, nearly half the world’s banking systems run on COBOL, according to Reuters, and more than 80% of card-based transactions use the code.
+End quote.
+
+Sure, lets get some COBOL folks on the problem, but then hopefully we can invest to keep us out of bad spots.
+
+How Jeff Bezos Turned Narrative into Amazon's Competitive Advantage - Write Louder - Knock Down Silos
+
+I am not convinced on specifically prescribing the template that Amazon uses for 6-page narratives. However, I am very convinced of not using PowerPoint for them. The problem really though isn't PowerPoint, but instead the "bulletized thinking" that PowerPoint encourages. These two lines are the most important to me.
+
+Quote.
+Writing memos forces his team to think through their ideas in high-resolution detail.
+End quote.
+
+and
+
+Quote.
+Most importantly, it makes it impossible to hide any logical inconsistencies in the ideas that people put out there.
+End quote.
+
+I believe it is very say to have logical inconsistencies in bullets that highlight a few punchy notes of an idea. My proof of this is several times when I have myself thought I had a cool idea, jotted three or four bullets down, and then tried to write it into sentences and paragraphs with no success.
+
+Why you should stop using Google Analytics on your website | Plausible Analytics
+
+I agree with this and do not use Google Analytics on any of my websites. This is a very well done argument, with reason on each item.
+
+Quote.
+More recently my thinking about this has changed. Using Google Analytics is a habit website owners, bloggers and web developers should try to stop. Here’s a look at why you should remove Google Analytics from your website and help create a more open, independent web that’s more friendly to the visitors.
+End quote.
+
+Worth reading. If you run your own blog or hobby site, do society a favor and remove Google Analytics.
+
+Don’t Mute, Get a Better Headset – Matt Mullenweg
+
+I largely do as Matt suggests here, only muting to explicitly block noise like a cough or sneeze. But to do that you need to have a good headset. I use a Plantronics Voyager with Bluetooth and it works great. Personally I don't want a cord, so that I can get up and walk around to stretch my legs.
+
+3M Response to Defense Production Act Order | Business Wire
+
+The world is very connected, and that cannot be undone quickly.
+
+Quote.
+In addition, ceasing all export of respirators produced in the United States would likely cause other countries to retaliate and do the same, as some have already done.
+End quote.
+
+Callaway Climate Insights
+
+David Callaway is a friend and former colleague of mine. Dave is one of several journalists that I have worked with in my career that helped me understand the mission-driven approach that the best in that craft pursuit. He's launched a new newsletter focused on Climate Change.
+
+Quote.
+Callaway Climate Insights provides news, critical analysis and original perspectives at the intersection of global finance and the challenges of climate change.
+End quote.
+
+This is an instant subscribe for me. I highly recommend it.
+
+Does Zoom use end-to-end encryption? – A Few Thoughts on Cryptographic Engineering
+
+Clarity that under certain conditions Zoom is end-to-end encrypted. Certain features disable that. Zoom could definitely do a better job showing the user what the status of any given meeting is.
+
+Quote.
+What Zoom needs now is to very rapidly deploy a new method of agreeing on cryptographic session keys, so that only legitimate participants will have access to them. Fortunately this "group key exchange" problem is relatively easy to solve, and an almost infinite number of papers have been written on the topic.
+End quote.
+
+I think this is accurate. Recent hires and Zoom's commitment to focus only on security for the next 90-days should result in a good result.
+
+Bill Gates on Fighting Coronavirus | The Daily Social Distancing Show - YouTube
+
+Another great interview with Bill Gates on Coronavirus and how we should react to it as a society.
+
+With Covid-19, we've made it to the life raft. Dry land is far away - STAT
+
+Social distancing is a stop-gap, not a solution. There are no easy ways out of this situation we are in.
+
+Move Fast and Roll Your Own Crypto: A Quick Look at the Confidentiality of Zoom Meetings - The Citizen Lab
+
+Good detailed writeup on Zoom encryption weaknesses. The recommendations are good and pragmatic.
+
+Security and Privacy Implications of Zoom - Schneier on Security
+
+Bruce Schneier with a writeup on Zoom security and privacy practices. It’s a little confusing that he mixes what they do on their public website into the article, but it is a cogent writeup of the issues that Zoom needs to address quickly.
+
+Every Zoom Security and Privacy Flaw So Far, and What You Can Do to Protect Yourself - TidBITS
+
+Very detailed and thorough writeup of all the known issues that Zoom has had.
+
+Bill Gates is helping fund factories for 7 coronavirus vaccine candidates - Business Insider
+
+This is astonishing, almost unbelievable which makes me want to look for some further information.
+
+Quote.
+Gates said the top seven vaccine candidates would be picked, and then building manufacturing capacity would be built for them. "Even though we'll end up picking at most two of them, we're going to fund factories for all seven, just so that we don't waste time in serially saying, 'OK, which vaccine works?' and then building the factory," he said.
+End quote.
+
+Time is of the essence. This isn't the time for capital efficiency arguments.
+
+A Message to Our Users - Zoom Blog
+
+Zoom needs to take quick action on the many privacy and security aspects being highlighted as usage has skyrocketed. It is good to see the CEO addressing these matters. I also noted that an update to Zoom just today added a Security function for hosts of video calls. I’m hopeful they make quick action on these important improvements.
+
+That's the end of Recommended Links.
+
+Now, the Status Updates section.
+
+Sunday @ 9:06 PM
+
+I find it interesting that my Pi-hole blocks 10-20% of DNS requests made when nobody is home. Average of 200 DNS requests every 10 mins when nobody is home, and 20-40 of those are some form of tracking.
+
+Sunday @ 7:14 PM
+
+Inspiring State of the State from Gov. Tim Walz (@GovTimWalz) tonight. Thank you. #StayHomeMN #OneMinnesota
+
+Saturday @ 1:27 PM
+
+We are in the middle of doing Get Knit’s “Stay at home Scavenger Hunt” today! The whole family is having a lot of fun!
+
+Saturday @ 11:24 AM
+
+Would be pretty nifty to get a Zoom app for Tesla.
+
+Friday @ 7:01 PM
+
+Lucky carrying a big stick.
+
+That's the end of Status Updates.
+
+Now, for your information.
+
+Grep
+
+Very fast and programmer friendly search tool for Github.
+
+John Prine, One of America's Greatest Songwriters, Dead at 73 - Rolling Stone
+
+I was saddened to hear that we lost a great songwriter to Covid-19. Take a moment to enjoy Prine's 10 Best Songs.
+
+He Visited Disneyland Every Day for Eight Years—Then Coronavirus Happened - VICE
+
+Wait a second, wha? "Reitz had been visiting it for almost 3,000 consecutive days."
+
+Larry David, Master of His Quarantine - The New York Times
+
+Fun weekend read.
+
+Tesla Ventilator - YouTube
+
+Very cool work that Tesla is doing here, and it is really neat to see how much they are leveraging from the Model 3.
+
+The Worm is Back! | NASA
+
+I’m not going to start calling this "the worm", but it is my favorite NASA logo by a mile.
+
+Your friends already read this?
+Recommend it to strangers, have them join us here, and you'll be BFF's forever!
+
+That's the end of the FYI section.
+
+Now, the Fortune section.
+
+You've made it all the way to the end! Here is your fortune for this week.
+
+Long life is in store for you.
+
+Thank you for subscribing to the Weekly Thing!
+
+That brings us to the end of the Weekly Thing, issue 143. Thanks for listening, and I'll see you next time.

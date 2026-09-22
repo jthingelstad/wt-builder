@@ -1,0 +1,243 @@
+The Weekly Thing, issue 262. Simulator, System, Snoopy. Published September 23, twenty twenty three. By Jamie Thingelstad. In this issue: Apple Wonderlust event, iPhones 15 Pro, iOS 17 review, macOS Sonoma passwords, Snoopy watch, economy simulator, capitalism onchain, online privacy.
+
+Hello there!
+
+I’m still working out the final kinks in the revamped automation I built to help assemble this email and it has come together really nice. Just a few more tweaks and I’m going to have hit all the items I was looking to do.
+
+Probably a lot of Apple links this week as iOS 17 was released and various new product announcements from last week. But there are still plenty of other topics to explore.
+
+I hope you have a fabulous weekend! I’m particularly looking forward to it myself.
+
+Now, the Notable section.
+
+Link one. "Developing better developers"
+
+This article from Dave Winer is over five years old, but the gaps, concepts, and challenges he describes are still evident. I've found myself in a lot of conversations over the last couple of years exploring challenges with tech talent. The answer is still not at all clear, but it is very evident that computer science education as it has historically been done needs to evolve and change. It needs to be more practical. It needs ethics. It needs to layer on top of other disciplines. Software is everywhere, and our methods of teaching how to create software are woefully behind.
+
+Link two. "You’re barely managing | Barely Managing"
+
+A website with article to help new managers learn fundamental capabilities. This comment from the introduction is more true than some may believe.
+
+Quote.
+We are always taking someone who is highly performant or experienced (not necessarily the same thing) in the 'doing' of a role in the team, what I call the ‘technical’ stuff, and based off some light leadership examples such as leading projects or being a mentor, are deemed fit enough to now run an entire team.
+End quote.
+
+In some companies (including ours) we have training programs specifically for both new managers as well as individuals that want to explore management. I also like to have "the talk" with individuals that suggest they want to pursue a management path. I think it is critical, particularly in technology, for people to realize that where they feel self-worth as a manager will be different than as an individual. I've seen many people make that leap, only to not feel good about the value they add. They continue to look at what they used to do, and not pivot to the new job.
+
+Managing and leading is a career, not an overlay to apply to an existing role.
+
+Link three. "Daring Fireball: Thoughts and Observations on This Week’s ‘Wonderlust’ Apple Event"
+
+Detailed overview and recap of last weeks Apple event from Gruber covering all the major sections and announcements.
+
+Link four. "Capitalism Onchained - Not Boring by Packy McCormick"
+
+Great perspective from McCormick on his long term view on crypto.
+
+Quote.
+Crypto’s ideal state is that it will make capitalism more efficient and accelerate progress across industries. That’s civilizationally valuable enough that people will pursue it through booms and busts.
+End quote.
+
+One of his tenants is around driving efficiency. This is one of my primary views with crypto. For 50 years we have driven efficiency with technology. Crypto enables a step-function jump in efficiency for some things. I don't see any way that we will ignore that, and not take that jump.
+
+AI has taken 30, 40, maybe 50 years to get to ChatGPT and sudden mass adoption. Maybe crypto is on the same path? My Blockclock tells me we are only 14 years into this journey.
+
+Link five. "Building an economy simulator from scratch"
+
+Decades ago one of my favorite games was SimCity. This article goes through the mechanics of building a complex simulator game like that. And even cooler, every assumption has a little JavaScript that you can run and shows you what the hypothesis that you have do when executed. It gets pretty complicated, but goes step-by-step through the scenarios.
+
+Link six. "System Initiative"
+
+Post from Adam Jacob framing up the successes of DevOps strategies in the last decade, and where it has fallen down.
+
+Quote.
+I still believe that everyone in technology deserves to work in a culture of collaboration and trust, deploying software hundreds or thousands of times a day, while achieving world-class stability, availability, and security. If we want it to come true - not to be consigned to history as another quaint idea co-opted by industry - we have to start breaking the rules of how the system is designed.
+End quote.
+
+This stat on deploys is not good.
+
+Quote.
+But after 14 years of effort - 88% of the respondents to the State of DevOps report in twenty twenty two are unable to deploy more frequently than once a week, often once every six months.
+End quote.
+
+Being able to quickly, confidently, and efficiently move software through your environments from people building solutions to customers is a core competency and strategic differentiator. Doing that weekly, or monthly, is a recipe for failure.
+
+Link seven. "iOS 17, iPadOS 17, and macOS Sonoma Expand Password Management and Access System-Wide - MacStories"
+
+Shared passwords coming to the newest releases of Apple operating systems is a little surprising. Clearly some level of password management is now considered an OS level capability, but some of the more advanced features of something like 1Password seemed out of scope. But sharing is a big thing that a robust password manager offers. For some reason I’m really not comfortable relying on the magic of iCloud Password Management yet, so I'll stick with 1Password. Plus 1Password does so much more. But these more robust password capabilities are a great add for many people.
+
+Link eight. "The internet used to be fun"
+
+A great collection of essays all about the web that is weird, personal, and not controlled by companies. The web of blogging, of home pages. I love this part of the web so much.
+
+Link nine. "iOS and iPadOS 17: The MacStories Review - MacStories"
+
+Viticci's monster review of iOS and iPadOS 17. This review comes in at 17 "pages" on the web, and goes to incredible levels of detail. If you want to know all about what is new, this is the one and only read you need. I love reading this kind of meticulous review.
+
+Link ten. "How Apple made the ultimate Snoopy watch: “You wouldn't believe the minutiae” | British GQ"
+
+We aren't "Peanuts Obsessives" as those mentioned in this article, but we do have a Charlie Brown Tree and like Snoopy and friends.
+
+Quote.
+When you go for a swim, Snoopy dons his scuba gear and floats through your watch screen. When night arrives he'll howl at the moon, and when you’re not up to much at all you can find him draped over his iconic red doghouse in a series of panels that are a direct lift from the comics. It all amounts to over 12 minutes of animation work that stemmed from an unexpectedly chaotic tête-à-tête.
+End quote.
+
+I've been using this watch face for a couple of days and it has genuinely made me smile and chuckle many times. It brings some delight to me when I check the time. That is a pretty awesome thing.
+
+Link eleven. "210: It's (Not Necessarily) Fair to Mock Apple's "Mother Nature" Video"
+
+I liked this writeup on the environmental message in last weeks Apple event. Personally I thought the segment was good. And the actual accomplishments are impressive. This article gives some good context for those announcements and why it is such a big deal.
+
+Link twelve. "ChatGPT for you | Seth's Blog"
+
+Godin presents a really interesting "system message" for ChatGPT to give you better results. I found it interesting to see what the specific directions were. Follow his advice and give it a try.
+
+Link thirteen. "Daring Fireball: The iPhones 15 Pro (and iPhones 15)"
+
+Gruber is my go to reviewer for new Apple hardware so of course I was curious to see what he had to say about the new iPhone 15 Pro. Titanium, Cameras, Action Button, USB-C. A lighter phone does sound nice. The new cameras look great. I would immediately wire the Action Button to a Shortcut to do all sorts of things based on where I am, time of day, and who knows what else. And USB-C to me seems like an obvious step in the right direction. It is kinda neat that now in a pinch your iPhone can charge your Apple Watch.
+
+All in thought, since I have the iPhone 14 Pro no upgrade for me. But that Titanium is going to be nice when I do make the jump to a new phone.
+
+Link fourteen. "Improving your online privacy: An update – Gonçalo Valério"
+
+Good article highlighting 7 techniques to preserve your privacy online. I wrote a similar article about improving your security and privacy. There is a lot of overlap, although I would have put the last item in this article first.
+
+It is difficult, and your email service has to have features to support this, but using unique email addresses for each service you register for is a huge win for privacy. I use the Masked Email address feature of Fastmail for this, but other services offer things like it.
+
+I would quibble with some of the specific recommendations, but the overall message is spot on.
+
+That's the end of Notable.
+
+Now, the Journal section.
+
+Journal entry one.
+
+Congratulations to all the twenty twenty three Minnesota CIO ORBIE Award winners and nominees!
+
+Journal entry two.
+
+It is always a bittersweet day when we take the boat in for the fall. This summer was so full of travel, graduation parties, and other celebrations that we only got out on the water twice! We only got it out on June 10, only 98 days!
+
+Journal entry three.
+
+This Athletic Brewing Waves of Sun is delicious.
+
+Journal entry four.
+
+Look up.
+
+Journal entry five.
+
+We had my step-dad Bruce over for dinner tonight with my his brother, my Uncle Tim. We were trying to recount the last time I had seen Tim and it was at least thirty years ago. The bear is amazing!
+
+Journal entry six.
+
+Minnedemo 39 was awesome! It was great to see so many from our fabulous technology community, and to see the great demos that everyone shared.
+
+Thanks to Caedence, Showcrow, Evergreen, Charles Edge, Request Metrics, and Raise a Hood for presenting!
+
+Journal entry seven.
+
+Thanks to Paul’s Fireplace Wood I’m ready for fall and winter fires! I love that they have the domain firewood.com.
+
+Journal entry eight.
+
+I love that the gang at Good Enough is playing with some things that remind me of the early days of the web. They have a thermal printer you can print to from a web page. So, I had to try it out. Barry posted my drawings and I grabbed copies for archival on my site too.
+
+Now, what to print next!?
+
+Journal entry nine. TeamSPS twenty twenty two Kubb Tournament
+
+Today we held our fifth Annual TeamSPS Kubb Tournament! This event has now become a real tradition and many of our team look forward to playing Kubb together in early fall every year.
+
+We had 16 teams of 6 people, with a full registration of 96 players. Plus plenty of folks came down just to watch, hang out with team members, and cheer on the players.
+
+The great thing about Kubb for a team event is that anyone can play, the game is quick to pick up, and I guarantee you that you are going to meet and talk to the other members of your team. The game is casual, and can be enjoyed by players of any age.
+
+Some of our team really get into it. As the Tournament Director I'm responsible for calling matches, making rulings on anything questionable on the field. It is awesome to see the folks that really git into the spirit of Kubb.
+
+This year we decided to up our game a bit and got 8 custom Kubb sets with SPS colors on the kings, and the logo etched into it. These amazing sets came from JP’s Backyard Games and he threw in some shirts that I got to hand out to some players as well.
+
+It was a great afternoon to Throw Some Wood!
+
+Just like previous years, we had a POAP for the event!
+
+We played three Round Robin matches in four different groups, and from the round robin we placed teams into four different brackets. The winners of each bracket got bragging rights for the year, and an awesome medal!
+
+Bracket 1: Lead the Way
+
+EDI Emperors (W) versus Kubastank
+The Kubb Nubbs versus Kubbless (W)
+
+EDI Emperors (W) versus Kubbless
+
+Bracket 2: Know More to Be More
+
+Kubbcumbers versus Simply the Best (W)
+Kubbiks Rube versus Kubb Me Up, Scotty (W)
+
+Simply the Best (W) versus Kubb Me Up, Scotty
+
+Bracket 3: Win Today, Win Tomorrow
+
+Ice Kubs (W) versus Kubb Scouts
+Lucky #13 versus Knock’n Kubb Uff-da-bash! (W)
+
+Ice Kubs versus Knock’n Kubb Uff-da-bash! (W)
+
+Bracket 4: Succeed Together
+
+Kubb on the Cob versus Kubb Your Enthusiasm (W)
+Kubby-doo Where Are You? (W) versus Kubb 2: Hyperkubb
+
+Kubb Your Enthusiasm versus Kubby-doo Where Are You? (W)
+
+See: twenty twenty three, twenty twenty two, twenty twenty one, twenty nineteen, and twenty eighteen tournaments.
+
+That's the end of the Journal.
+
+Now, the Briefly section.
+
+Link one. "B612 – The font family"
+
+Font designed for critical use to be extremely legible.
+
+Link two. "EndBASIC"
+
+Emulator environment to provide a very simple BASIC programming experience. This is pretty fun to play around with.
+
+Link three. "YAY.BOO!"
+
+Super, super simple way to put a basic website online, from the gang at Good Enough. This is a fun way to help kids learning to build on the web get their projects online.
+
+Link four. "iOS 17's Check In Feature Simplifies Making Sure Friends and Family Get Home Safely - MacStories"
+
+Handy new feature in iOS 17.
+
+Link five. "NINTENDO - 43 Biggest SECRETS - YouTube"
+
+I really like Nintendo and this quick video had a bunch of interesting tidbits.
+
+Link six. "fx – terminal JSON viewer"
+
+Very fancy tool for navigating JSON data (including streaming data) on the terminal.
+
+Link seven. "WebKit Features in Safari 17.0 | WebKit"
+
+Full overview of WebKit updates in newest version of Safari. It is amazing to see how advanced web technologies have advanced over the years.
+
+Link eight. "iPhone 15, USB-C, and External Displays - MacStories"
+
+Moving the iPhone to USB-C should open up these kind of capabilities. This is where the value is.
+
+That's the end of Briefly.
+
+Now, the Fortune section.
+
+Here is your fortune…
+
+You'd like to do it instantaneously, but that's too slow.
+
+Thank you for subscribing to the Weekly Thing!
+
+That brings us to the end of the Weekly Thing, issue 262. Thanks for listening, and I'll see you next time.

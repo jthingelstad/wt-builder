@@ -1,0 +1,205 @@
+The Weekly Thing, issue 234. Distributed, Principles, Drivers. Published November 19, twenty twenty two. By Jamie Thingelstad. In this issue: Alameda Research, FTX house of cards, Sam Bankman-Fried regrets, Distributed Computing Manifesto, Ethereum roadmap, Solana FTX bankruptcy.
+
+Hello there and good morning!
+
+At least to many of you it is morning… if not, please substitute the timezone appropriate term.
+
+I just checked if Twitter is still up. It is. It seems the impending doom of the daily soap opera that is Twitter is still unfolding. My preference at this point is to just ignore Twitter for three months and then check in to see how things are going.
+
+Maybe that would be a good idea for all the social things.
+
+In the meantime, all is good here in the land of email. How about we take a spin through some interesting articles from the week.
+
+Now, the Featured section.
+
+Link one. "Milky Eggs » What happened at Alameda Research"
+
+If you are curious to go through the main ways that FTX lost so much money, this article is a fabulous overview of the whole thing.
+
+Quote.
+We can try to give a very rough accounting of their potential losses: - Voyager/BlockFi acquisition: 1.5 billion dollars - LUNA exposure: 1 billion dollars - KCG-style algo crash: 1 billion dollars - FTT/SRM collateral maintenance: 2 billion dollars - Venture capital: 2 billion dollars - Real estate, branding, other frivolous spending: 2 billion dollars - FTT drop from 22 dollars to 4 dollars: 4 billion dollars - Discretionary longs going bad: 2 billion dollars - Total: 15.5 billion dollars
+End quote.
+
+The article goes through some interesting potentials for how FTX degraded to what it became. Also part of the premise is how can you even lose that much money? it seems you would have to try really hard.
+
+This story is going to go on for a long time.
+
+That's the end of Featured.
+
+Now, the Currently section.
+
+Reading: Tammy and I both recently read The Third Pole: Mystery, Obsession, and Death on Mount Everest. We've both read about Everest before, notably Into Thin Air. This one really highlighted how incredibly difficult and dangerous it is to attempt to summit Everest. I learned a number of new things from it. If you are interested in Everest, this book may give you a fresh perspective.
+
+That's the end of Currently.
+
+Now, the Notable section.
+
+Link one. "You’ve met MrBeast, the YouTuber. Now meet Jimmy, the business mogul."
+
+This is fully a puff piece about MrBeast but I had to read it because my son is a big MrBeast fan, and he's shared enough about him and his videos that I can appreciate some of what he does.
+
+Quote.
+In twenty twenty one, Forbes ranked MrBeast as the highest-paid YouTuber. His estimated 54 million dollars in earnings comes from a mix of sources: advertising revenue, brand integrations and revenue from his enterprises. While YouTube ad revenue can be incredibly lucrative for creators like him, who get billions of views, Jimmy also multiplies the money he makes by launching businesses.
+End quote.
+
+It is pretty incredible to see the size of the business that he's built up really just around the YouTube channels.
+
+Link two. "How FTX built a house of cards – On my Om"
+
+Om Malik has been reporting on and writing about the Internet for a very long time. I was curious to read his take on FTX.
+
+Quote.
+It might not seem so obvious, but if you follow the breadcrumbs trail — I did — this is a classic Ponzi scheme, where instead of mailed letters of the yore and the tattle of taxi drivers, FTX found suckers at network scale using YouTubers and Tom Brady. The icing on the cake came from media outlets such as Forbes and Fortune, the latter calling Sam Bankman-Fried the next Warren Buffett. Simply put, FTX is a textbook case of a massively successful content-based marketing strategy in the age of social networks.
+End quote.
+
+Emphasis added.
+
+Link three. "Craft — PaulStamatiou.com"
+
+An interesting read on the concepts of quality and craft in the design of software. The article primarily is written from the aspect of the visual design and interactive paradigms of software, but the principles and themes could be applied to any type of building.
+
+Quote.
+We've identified that quality is hard and that it's tied to a whole slew of things from culture and leadership to experience and tools. Quality is the way you work. Focusing on quality doesn't have to mean that suddenly your project scope has become bloated with a slew of tasks that will take 25% longer to complete. It can be prioritizing more complete, well-considered chunks of functionality.
+End quote.
+
+This paragraph resonated with me because it is how I often see quality realized. It isn't through constant refactoring so much, as really understanding the problem you are solving, exploring the different solution paths, and then fully realizing that solution.
+
+Link four. "Interview: Fallen crypto CEO Sam Bankman-Fried opens up about FTX, Alameda Research, and his regrets - Vox"
+
+This article is filled with DM conversations between Bankman-Fried and the author. The DM exchanges on Twitter are hard to even fathom. Bankman-Fried may have conducted his fraud in crypto, but the emphasis should be on fraud. The perp walk should be coming soon.
+
+Link five. "The Distributed Computing Manifesto | All Things Distributed"
+
+Amazon CTO Werner Vogels sharing the original writeup from 1998 that set Amazon's architecture in place to scale 10x from where they were.
+
+Quote.
+Back in 1998, a collective of senior Amazon engineers started to lay the groundwork for a radical overhaul of Amazon’s architecture to support the next generation of customer centric innovation. A core point was separating the presentation layer, business logic and data, while ensuring that reliability, scale, performance and security met an incredibly high bar and keeping costs under control. Their proposal was called the Distributed Computing Manifesto.
+End quote.
+
+This line in the document made me chuckle.
+
+Quote.
+Currently much of our database access is ad hoc with a proliferation of Perl scripts that to a very real extent run our business.
+End quote.
+
+A lot of technologists that have been in growing businesses have seen that!
+
+This thinking was not default 25 years ago. The SOA patterns were only just starting to emerge then. I have no doubt that this pattern, and the realization of it in their software, was one of the biggest enablers to their continued growth.
+
+Link six. "Collaborating away"
+
+Jason Fried on the various ways that he experiences collaboration. This is one of those topics that comes up a lot when we think about distributed work. I've experienced great collaboration myself both in-person, and remotely. The tools to achieve it are the key, and even more important are the folk that you are collaborating with.
+
+Link seven. "Taking A Long Term View Of Web3 - AVC"
+
+Fred Wilson on the FTX blowup and his longer term view of Web3 technology.
+
+Quote.
+Ironically, web3 is about giving control of data and assets back to the people and taking it away from large centralized companies. But the transition from web2 to web3 has been slow and messy and many of the early web3 companies have been copycat versions of what came before them. That is where the risk has been in the web3 ecosystem and what we need to move away from.
+End quote.
+
+Link eight. "Starting principles: How to find your principles"
+
+An approach to taking life advice and learnings, and putting them in a framework that is actionable, using principles.
+
+Quote.
+The most profound realization I had from this exercise is that adding a new Starting Principle refines your identity. Consider the implications: these principles become your intuitions for what the right thing to do is. They influence how you treat others. What you work on. What you value. And, therefore, they determine who you become.
+End quote.
+
+I kept waiting for a reference to Ray Dalio's popular book Principles (it is even on principles.com!) but no. The concepts are similar, and the names are the same. The main difference is the filter of only having six principles and filtering down so that you can hold them in your memory.
+
+Link nine. "Most "Leaders" are actually Drivers – Here’s Why That’s a Problem"
+
+Good article to highlight the differences between leading and driving.
+
+Quote.
+Drivers operate tight ships. They often demand excellence. But here’s the thing: except for short-term sprints such as in some startup environments, driving limits performance.
+End quote.
+
+My observation would be that there are times when leaders need to be drivers, and other times (most of the time!) when they should be leading. This made me ponder how to detect and be deliberate about driving behavior, and to watch out because driving could easily feel good, and feel like you are "getting things done", but it may be the wrong way to get there.
+
+Link ten. "Solana Ecosystem Facts Related To FTX Bankruptcy"
+
+I have a couple of NFT projects on Solana, and Solana is one of the tokens I hold more than my minimum of. Solana has always been closely affiliated with FTX. In fact, FTX made a bunch of money on the token launch of Solana. A number of folks I know in crypto would tell me right away they wouldn't do anything with Solana because of FTX. The dependencies and connections are significant, as this article enumerates.
+
+The Solana Foundation is going to have a lot of work to cleave themselves away from the nuclear disaster that is FTX.
+
+Link eleven. "vitalik.eth on Twitter: Updated Ethereum roadmap diagram!"
+
+"Merge! Surge! Scourge! Verge! Purge! Splurge!" You might be forgiven if you confuse the Ethereum roadmap objectives as the stages of some new disease that you really don't want to get.
+
+r/WeeklyThing?
+
+Are you into Reddit? I’ve been giving it another go lately. I’ve long thought that it would be really cool to have a place for Weekly Thing readers to comment and connect!
+
+Check out r/WeeklyThing!
+
+That's the end of Notable.
+
+Now, the Journal section.
+
+Monday @ 9:13 PM
+
+Mainnet Merge Lapse 12 "Thing"
+
+The Mainnet Merge Paint Party was one of the fun events to celebrate the Ethereum Merge in September, and I put some pixels down and put "Thing" on that canvas to be memorialized forever. At the time there was a comment of being able to mint an NFT from the canvas, but it wasn't ready yet. I recently stumbled onto the new and improved POAP Art website and saw that the mint feature was now live!
+
+I minted the twelfth lapse and now have my own NFT that is a animated zoom of just the area of the POAP Canvas that my name is in. You can see that I had to defend my pixels through the night.
+
+If you look closely you'll also see an "HF" in red. That is Hector's pixels that he placed and then I defended, and eventually moved, to keep them in the final.
+
+I also have my Mainnet Merge POAP.art Canvas Pixel Placer POAP token as well.
+
+What a great way to remember such a historic event, and mark "I was here!"
+
+Monday @ 9:00 PM
+
+I was reminded of The 1 thousand dollars Project for Ukraine today reading Fred Wilson's blog. Connecting the dots with families in the Kherson region was the nudge I needed to move forward. Help is needed. If you are able please consider supporting a family.
+
+That's the end of the Journal.
+
+Now, the Briefly section.
+
+Link one. "Bubbles"
+
+This is surprisingly mesmerizing and zen. You can move the fan and the bubble maker around. Weird, but fun.
+
+Link two. "State of Minnesota Launches 34.5 million dollars Venture Capital Program"
+
+The State of Minnesota as an investor in early stage companies seems really strange to me? Particularly funneling taxpayer dollars into venture funds. I’m surprised this is legal. Curious to see if other states have done anything similar to this.
+
+Link three. "ENS Redirect"
+
+Simple utility that creates the IPFS payload to allow your ENS name to redirect to a DNS based website. Only really useful for browsers that natively resolve ENS, which don't exist yet.
+
+Link four. "Ethereum Dashboards"
+
+Nice collection of publicly available Ethereum dashboards. I love graphs!
+
+Link five. "WeCard, the evolution of Personal Cards | Welook"
+
+This looks very similar to the IYK POAP card that I desperately want to get my hands on (on my Christmas list), but possible has some additional capabilities.
+
+Link six. "Make a Pirate"
+
+Surprisingly fun to make a bunch of different pirates.
+
+Link seven. "Flagpole Buddy Gen II Starlink Mounting Kit for RVs — Tools and Toys"
+
+Having Starlink service for your RV opens up a ton of possibilities!
+
+Link eight. "Reddit NFTs Surge as Polygon-Based Avatars Reach Millions of New Users - Decrypt"
+
+What Reddit is doing with crypto, and very importantly how they are doing it, is super interesting to me.
+
+That's the end of Briefly.
+
+Now, the Fortune section.
+
+Here is your fortune…
+
+You will be surrounded by luxury.
+
+Thank you for subscribing to the Weekly Thing!
+
+That brings us to the end of the Weekly Thing, issue 234. Thanks for listening, and I'll see you next time.

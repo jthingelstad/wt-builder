@@ -1,0 +1,213 @@
+The Weekly Thing, issue 57. Jun 9, twenty eighteen. Published June 9, twenty eighteen. By Jamie Thingelstad. In this issue: Microsoft data center ocean, Safari privacy browser, Microsoft GitHub, macOS Mojave, iOS 12, watchOS 5, teens social media technology.
+
+With much fanfare and anticipation the school year has ended, and with it summer has officially started! Now is the time to take a moment to savor it all. In a blink it will be fall, the kids will be heading back to school and it will have felt like 5 minutes. I'm hoping to soak in the summer a bit more this year.
+
+Now, the My Blog Posts section.
+
+DevOps Minneapolis: Changing the Enterprise Session
+
+I was on a panel this week at the DevOps meetup and got to speak to a number of topics about tech, best practices and some of my approaches to common problems in tech.
+
+That's the end of My Blog Posts.
+
+Now, the Featured Links section.
+
+Link one. "Laziness Does Not Exist – E Price – Medium"
+
+This article is written from the position of a psychology professor understanding students, but it caught my attention and make me remember Do The Work by Steven Pressfield as well.
+
+If a person’s behavior doesn’t make sense to you, it is because you are missing a part of their context. It’s that simple. I’m so grateful to Kim and their writing for making me aware of this fact. No psychology class, at any level, taught me that. But now that it is a lens that I have, I find myself applying it to all kinds of behaviors that are mistaken for signs of moral failure — and I’ve yet to find one that can’t be explained and empathized with.
+
+I read this in the context of leadership and it is a good reminder that as a leader and manager you need to start with the assumption that people are trying to do the right thing. Most people want to do the right thing and be successful.
+
+People do not choose to fail or disappoint. No one wants to feel incapable, apathetic, or ineffective. If you look at a person’s action (or inaction) and see only laziness, you are missing key details. There is always an explanation. There are always barriers. Just because you can’t see them, or don’t view them as legitimate, doesn’t mean they’re not there. Look harder.
+
+This is a great call to action for leaders. If you see a lack of progress, what might you be missing that is inhibiting that progress?
+
+Link two. "How Disney is turning women from across the company into coders"
+
+This is an impressive program that Disney is running to get more women into technology roles.
+
+The CODE in CODE: Rosie stands for Creating Opportunities for Diverse Engineers. The “Rosie” part references Rosie the Riveter, the symbol of World War II’s working women; an internal CODE Rosie logo even depicts Minnie Mouse in Rosie’s iconic rolled-up-sleeve pose. In particular, the program pays tribute to the “Rosies” who programmed the U.S. Army’s pioneering ENIAC computer back in the 1940s.
+
+It is impressive in its scope and I admire the approach. A program like this could make a difference.
+
+That's the end of Featured Links.
+
+Now, the My Weekly Photo section.
+
+The sun setting after a fabulous day of fun on Cannon Lake. Minnesota is beautiful.
+
+The sun setting after a fabulous day of fun on Cannon Lake.
+Jun 2, twenty eighteen at 8:46 PM
+Cannon Lake, Minnesota
+
+That's the end of My Weekly Photo.
+
+Now, the Notable Links section.
+
+Link one. "How to Organize a Working Group | Lara Hogan"
+
+I liked the structure and specificity in this how-to guide.
+
+“Working groups” is a hand-wavy term that can mean a lot of things; I use this term to describe a small group of people who come together with a common goal/deliverable, acting as representatives of the larger organization.
+
+Planning this part of a working group is necessary to be successful in the outcome.
+
+Link two. "Performance Reviews Are a Waste of Time – Bradfield"
+
+Formal feedback mechanisms in companies are hard. I've come to think of performance reviews as an organizational insurance policy. The process and mechanism for them insures that a bare minimum of dialog is happening. I really don't know of anybody that feels that they are an effective way of leading and managing teams. I think that is summarized in the common refrain that there should be nothing new learned in a performance review.
+
+Link three. "Microsoft Just Put a Data Center on the Bottom of the Ocean - Motherboard"
+
+This is just cool. Microsoft put a bunch of servers in a tube and put it in the ocean! They highlight that the cooling provided by the water is a big benefit, and that makes sense. In most data centers half of the energy is used to cool equipment. It’s just goofy to think of a bunch of servers floating around under the water.
+
+Link four. "Doc Searls Weblog · What’s wrong with bots is they’re not ours"
+
+Totally agree with Doc Searls on this. I have some "bots" that work for me, and they are ridiculously helpful. They don't sell it this way, but Sanebox is a lot like a bot for my email. Unfortunately the majority of bot investment is for corporations, not people.
+
+Link five. "WWDC twenty eighteen: Apple Just Made Safari the Good Privacy Browser | WIRED"
+
+I love Safari, and the privacy focus of Safari is a big part of it. That wasn't always the case, but over the last few years Apple has started to lead and even use this as a leading feature. I use Safari with 1Blocker and Ghostery, as well with all privacy settings set high. These additional features will be great!
+
+Link six. "The Secret Reason that Development Teams Struggle to Deliver On Time, On Budget, or On Scope – 7pace Blog"
+
+I think this article oversimplifies the problem, but it does highlight at least one type of problem when estimating software effort. Software teams far too often skip the planning process. Using data for planning, specifically velocity metrics, is also key. This article doesn't track the issue of progressive discovery of your requirements, which in my opinion is a bigger issue, but this is a good read nonetheless.
+
+Link seven. "Leadership Principles"
+
+Leadership principles from the US Marine Corps. I like the lists in the "develop" side of this. If you're looking for topic areas to focus on, this would be a good place to inventory your skills and decide where to invest.
+
+Link eight. "How to be a Manager"
+
+An attempt at an overall guide to all things about managing. Expansive in scope, and certainly has some gems to pick from.
+
+Link nine. "Our management doesn’t – Serious Scrum – Medium"
+
+A guide for pushing Scrum practices into the management layer in your organization.
+
+Link ten. "AI at Google: our principles — Google"
+
+Google recently withdrew itself from a Pentagon contract because of internal pressure from employees. Now the CEO of Google is framing up how they will use AI technology. We are getting into ethics here, which is a good thing. AI will force technology companies to make some hard decisions on the application. I hope we do a better job than we did with privacy.
+
+Link eleven. "Introducing sole-tenant nodes for Google Compute Engine — when sharing isn’t an option — Google Cloud Platform"
+
+I’m surprised to see the big cloud providers supporting these solutions. It’s counter-cloud in many ways, but required by some anti-cloud licensing practices and challenging audit requirements.
+
+Link twelve. "Microsoft + GitHub = Empowering Developers — Official Microsoft Blog"
+
+Microsoft has been doing really interesting things for a while, and this acquisition of GitHub is a smart one. I honestly would have rather GitHub stay independent, but I think Microsoft will do a good job with it.
+
+Link thirteen. "macOS Mojave: The MacStories Overview — MacStories"
+
+Apple announced the next major release of macOS. This has all the big features in it. I don't see a lot in here though that gets me really excited. Everyone should upgrade, but it feels like polishing and not a lot of innovation.
+
+Link fourteen. "watchOS 5: The MacStories Overview — MacStories"
+
+Overview of new features in watchOS 5. Continuing to push on fitness features. The Walkie-Talkie app looks interesting. Siri watch face improvements look great. You can see a path where Siri watch face is the main way that you interact with your watch. WebKit coming to watchOS is new, but not sure how useful that will be.
+
+Link fifteen. "iOS 12: The MacStories Overview — MacStories"
+
+A thorough overview of new iOS 12 features announced at WWDC. The new Shortcuts app tells us what Apple had in mind when it bought Workflow. The new Screen Time features are a very welcome addition both for personal and family use.
+
+Link sixteen. "Teens, Social Media and Technology twenty eighteen | Pew Research Center"
+
+A lot of data on where teens are spending their time online. I don't join the chorus of marketers seeking to follow "what the kids are doing" all over the place. Look at the platforms used. It worries me that it’s all self-absorbed, mind-numbing, "amusing ourselves to death" social media. Given the world in our pocket, this is what we do?
+
+That's the end of Notable Links.
+
+Now, the Give Back section.
+
+The Wikimedia Foundation, Inc. is a nonprofit charitable organization dedicated to encouraging the growth, development and distribution of free, multilingual, educational content, and to providing the full content of these wiki-based projects to the public free of charge. The Wikimedia Foundation operates some of the largest collaboratively edited reference projects in the world, including Wikipedia, a top-ten internet property. Donate to Wikimedia today!
+
+That's the end of Give Back.
+
+Now, the Highlighted iOS App section.
+
+OmniFocus 3
+
+by The Omni Group
+
+Use OmniFocus to accomplish more every day. Create projects and tasks, organize them with tags, focus on what you can do right now — and get stuff done.
+
+I've been using OmniFocus since it came out on macOS. It continues to be my most frequently used, and trusted appliactions. I've been enjoying the changes in this new version. I think the team at Omni Software hit the mark making this very powerful tool simultaneously more powerful, and easier to use.
+
+That's the end of Highlighted iOS App.
+
+Now, more links.
+
+- Python Application Layouts: A Reference – Real Python realpython.com
+Nice templates for laying out a project smartly.
+- World wide wrist. — Ethan Marcotte ethanmarcotte.com
+- Amazon EKS – Now Generally Available | AWS News Blog aws.amazon.com
+- Management and Leadership Worksheets and Tools | Lara Hogan larahogan.me
+Interesting reference material for managers.
+- Intro to Graphs aaronlelevier.github.io
+Introduction to graph vocabulary and types.
+- Apple Redesigns Mac App Store with iOS-like Editorial Focus, New Product Pages, and More — MacStories www.macstories.net
+These are good changes for the Mac App Store, and I’m glad that Apple isn't giving up on this.
+- A bright future for GitHub — GitHub blog.github.com
+GitHub being sold from the GitHub side.
+- An Ambitious Person’s Brutally Honest Take On Work-Life Balance medium.com
+- Kubernetes won – so now what? – James Governor's Monkchips redmonk.com
+Definitely where Kubernetes should be focusing now.
+
+That's the end of More Links.
+
+Now, the Microposts section.
+
+Thursday @ 3:09 PM
+
+Great Minnestar board meeting today! Lucky to be part of a great organization helping to connect the Twin Cities technology community.
+
+Tuesday @ 9:27 PM
+
+Nice turnout tonight for the Dev Ops Minneapolis meetup. It makes me happy that we can host the community at @SPS_Commerce!
+
+Tuesday @ 8:51 PM
+
+I had a great time talking about Changing the Enterprise at tonight’s DevOps Minneapolis Meetup with Heather Mickman (Twitter: @hmickman) and Bridget Kromhout (Twitter: @bridgetkromhout)! Great insights and an amazing community!
+
+Tuesday @ 6:29 AM
+
+US Internet speed test using Fast. Multiple tests ranged from 930-1000 Mbps.
+
+Monday @ 6:45 PM
+
+US Internet completed my fiber install today! Flipping over was as easy as swapping a cable and a reboot of the Eero. Great speed!
+
+Sunday @ 11:25 PM
+
+My productivity geek wish for tomorrow’s WWDC event is to learn what Apple had in mind when it bought Workflow.
+
+Sunday @ 5:15 PM
+
+I’d rather GitHub stay independent, but of all that could buy it, Microsoft feels okay.
+
+Sunday @ 3:58 PM
+
+Espresso time.
+
+Sunday @ 2:05 PM
+
+Took advantage of cool weather this morning and spent 2 hours clearing brush from the lakeshore. Nice before/after from the Dropcam.
+
+Saturday @ 10:49 PM
+
+Was a great evening for s’mores!
+
+Saturday @ 9:28 PM
+
+Introduced a bunch of new people to Skittles today.
+
+That's the end of Microposts.
+
+Now, the Fortune section.
+
+You've made it all the way to the end! Here is your fortune for this week.
+
+Cheerfulness smooths the road of life.
+
+Thank you for subscribing to the Weekly Thing!
+
+That brings us to the end of the Weekly Thing, issue 57. Thanks for listening, and I'll see you next time.

@@ -1,0 +1,244 @@
+The Weekly Thing, issue 155. Menu Engineers, Halo, RFC8890. Published September 5, twenty twenty. By Jamie Thingelstad. In this issue: Kindle data collection, menu engineers, postal reform, Amazon Halo wearable, TOTP algorithm, unnatural lighting art, drowning in plastic.
+
+Hello there! Here we are in September and I’m coming back from my summer break. Welcome to the new school year. Welcome to some crisper air that gives a hint of the approaching fall. And welcome back to a new issue of the Weekly Thing!
+
+What all happened in July and August? The most notable thing was that we rented an RV and took a Great American Road Trip to Yellowstone. It was a fabulous time. I think I may be an "RV Person". Yellowstone was amazing. Neither Tammy or I had been since we were kids and had gone with our parents. There was a bit of a "Circle of Life" moment when I was telling our kids that, and that perhaps the next time they would be in Yellowstone was when they were bringing their children!
+
+My #FitByFifty Mission 2 work has continued to progress. I’m 2/third through Mission 2 and the fitness part is going really well. I need to kick the weight loss in high gear though to hit my goal. I've been exercising but also vacationing and celebrating more so the weight has been flat.
+
+It’s been two months since I've gotten to write to all of you and it’s tempting to go on and on. But, I'll be back again next week, and the week after that, so I'll leave those of you in the US to a fabulous Labor Day weekend.
+
+Now, the Must Read section.
+
+Link one. "How software developers can drive business growth | McKinsey"
+
+Found this via Donnie Berkholz newsletter and I find the data super interesting. Exhibit 4 which shows the specific functional breakdowns that correlate to higher business growth is an interesting key to focus on.
+
+I often reflect that "Teams that ship more, win more." and the tooling that is highlighted here is all about speed. You don't have to be smarter, you have to get more chances to be right. Ship more!
+
+Link two. "Kindle Collects a Surprisingly Large Amount of Data"
+
+I have always assumed that the Kindle collects a tremendous amount of information about what you are reading. Seeing it all spelled out like this makes it more meaningful.
+
+Quote.
+Every page that is read sends the following information: - Time a page was opened (when you turn to a new page, a timestamp is generated) - The first character on the page (This might be something like character 7705 in the book, which is the exact location) - The last character on the page - If the page is images or text
+End quote.
+
+This information isn't for you, it’s for Amazon to determine what you are reading. It creeps me out to think that I would be advertised a certain product because a book I’m reading is related to it. However, that is certainly happening. For reasons I can’t put my finger on, it feels more invasive because it is happening around reading.
+
+That's the end of Must Read.
+
+Now, the Currently section.
+
+Buying: Natural D-Hist to try and help me get through allergy season. My Loratadine is the main thing to help, but it’s really bad this year.
+
+Reading: My book club meeting is coming up and I still have a good chunk of Bending Adversity: Japan and the Art of Survival to read!
+
+Watching: Both Tammy and I were big fans of Star Trek: The Next Generation. A while back when Star Trek: Picard was released I knew it was something I would want to watch but not enough to get me to subscribe to CBS All-Access. However, this year the UEFA Champions League matches were only available on CBS All-Access so I went ahead and setup a 1-month trial for that (Go FC Bayern!). Before the month was over we watched Picard and really enjoyed it. It is like a big love letter to TNG fans brining all your favorites back out for a while. It was a great time.
+
+That's the end of Currently.
+
+Now, the Photog section.
+
+The Grand Prismatic Spring in Yellowstone is an incredible sight. I got this shot from the hiking path that climbs up so you can see the entire spring.
+
+Jul 23, twenty twenty at 5:57 PM
+Yellowstone National Park
+
+Thank you for reading!
+Please share this with a friend. Cool, thanks!
+
+That's the end of Photog.
+
+Now, the Recommended Links section.
+
+airtable-export: Export Airtable data to YAML or JSON files on disk
+
+Simon Willison, author of Datasette, mentioned this utility that he made for Airtable in his weeknote. I've considered this use case myself. Storing data in a well structured Airtable setup and then writing to disk to publish online. I didn’t consider using YAML or JSON in the middle though which is a pretty solid idea.
+
+Meet the "menu engineers" who optimize restaurant revenue
+
+I like reading about these kind of optimizations so that I can spot them in action. Of course menus are engineered.
+
+Quote.
+A few of the myriad strategies employed by menu engineers like Benesch: - Using words like "signature," "original," and "famous" to make high-margin items more appealing. - Removing the dollar sign ($) from the dish prices. Studies show that customers spend more when the price is presented as a standalone number. - Enlisting the magic number for items per food category. At fast-food joints, it’s 6; for snazzier joints, it’s 7 appetizers/desserts and 10 main courses. - Retooling design elements: menus with big fonts and no more than 20% white space improve the dining experience.
+End quote.
+
+The obvious next step is digital menus that dynamically change presentation based on the person looking at it. Using the front facing camera you could detect gender and facial expression, and then adjust on page transitions.
+
+Daring Fireball: Online Privacy Should Be Modeled on Real-World Privacy
+
+This ad, and Gruber's writeup, reflect in part why I so actively defend myself against all these trackers.
+
+Quote.
+Just because there is now a multi-billion-dollar industry based on the abject betrayal of our privacy doesn’t mean the sociopaths who built it have any right whatsoever to continue getting away with it. They talk in circles but their argument boils down to entitlement: they think our privacy is theirs for the taking because they’ve been getting away with taking it without our knowledge, and it is valuable.
+End quote.
+
+We, as a society and as a group of Internet citizens, never once agreed to this surveillance. There is no right for this type of activity to exist.
+
+Leaders: You Must be Present to Win | Lee Zukor
+
+Great post from my friend Lee Zukor sharing the various ways that he is continuing to stay connected with his team during the extended distributed work with Covid-19.
+
+Preserve the People’s Post Office: Let Us Do Meaningful Postal Reform
+
+I have followed the recent arguments and concerns about the US Postal Service, but I did not consider any historical context of other attempts over time to privatize the public service of the Post Office.
+
+Quote.
+It has been claimed that the Postal Service has losses of billions of dollars but that is largely because the powerful interests who design the methods by which we count and measure worth hate the concept of public benefit. Instead let us acknowledge the value inherent in a public infrastructure that binds the nation together bringing every home and business into a network that furthers economic and social profit while promoting national security. Let us acknowledge the public benefits of universal service.
+End quote.
+
+The State of the American Restaurant, City by City | Wolf Street
+
+Super interesting graphs here using data sourced from OpenTable to show restaurant demand. Look at all of those weeks with zero demand. None. I’m surprised that they have recovered as much as they have.
+
+present: A terminal-based presentation tool with colors and effects.
+
+Oh. My. I simply adore this! I’m not looking to add more slides to the Universe, but a terminal-based slide deck makes me chuckle. Fireworks and explosion effect too! This deserves to win an award. Firing up pip right now…
+
+Amazon Halo is a subscription fitness wearable and platform | Engadget
+
+New fitness band from Amazon that does the normal things you would expect, but it also listens to your voice to gauge your physical and emotional wellbeing? There is absolutely no way I would wear this device. Kindle is already sending Amazon way too much information about what I’m reading. Information about the timber of my voice? No thank you.
+
+mnot’s blog: RFC8890: The Internet is for End Users
+
+The IETF is a very unique group, and this article is both illuminating of this RFC, but also of the way the group operates in general.
+
+Quote.
+So at its heart, The Internet is for End Users is a call for IETF participants to stop pretending that they can ignore the non-technical consequences of their decisions, a call for broader consultation when making them, and one for continued focus on the end user. Ultimately, end user impact is as least as important as the technical considerations of a proposal, and judging that impact requires a more serious effort to understand and incorporate other non-technical views.
+End quote.
+
+This seems like something that should be implicit to these discussions.
+
+The reality of Black pain is breaking American sports' status quo
+
+I support these players walking out after Jacob Blake's shooting in Kenosha. I suspect this is just the beginning of a more active stance on these social and civic matters from athletes, and that is a good thing in my opinion.
+
+Praise for alleged Kenosha shooter proliferates on Facebook despite supposed ban | Facebook | The Guardian
+
+Facebook continues to be an incredibly effective platform for spreading hate and bigotry faster and cheaper than anything that has ever existed before. It’s not too late to delete your account.
+
+How to Choose Software Development KPIs for Your Board Deck
+
+These are all interesting metrics, and are ones that technology teams should seek to have, but I can’t imagine putting them in a board presentation. If your board is looking at this level of detail, I would assume that something isn't working right. Via Donnie Berkholz.
+
+.new - Google Registry
+
+I don't get this much at all. Adopting a new URL with a .new suffix is forcing some form of user behavior change that seems difficult. And then, why would you trust Google to run this? They will minimally collect information on the usage of these to gain insight into these other services. They could even take over the names, and say, redirect a zoom.new request to their own service.
+
+That's the end of Recommended Links.
+
+Now, the Stream section.
+
+Thursday @ 10:19 PM
+
+Heather’s in South Minneapolis has quickly become a family favorite for dinner out on their large patio. Our food has all been great, and the space is relaxing and enjoyable. Recommended.
+
+Wednesday @ 8:40 PM
+
+Kayaking the Crow River
+
+After our morning bike ride Tammy and I continued our day of fun and adventure with a late afternoon kayak down the Crow River. We met River Dragon Kayak Rental outside of Saint Michael and then drove upstream to Hanover and put in the river there.
+
+Here we are at the put in spot. If I look nervous it’s because I’m not very confident in kayaks still.
+
+After I settled in and navigated a few shallow water rock bumping occasions I got comfortable and we had a stellar paddle down the river. It took us about 90 minutes to go the 5 miles. After we finished we had a nice dinner outside at Main Street Farmer in St. Michael.
+
+Wednesday @ 4:31 PM
+
+Ride the Dakota Rail Regional Trail
+
+With the kids away with their cousin for a couple of days, I cleared my calendar and Tammy and I took a day to ourselves. We got started early with a big bike ride. We drove out to Wayzata and had a delicious breakfast outside at The Grocer's Table. Then we went to the start of the start of the Dakota Rail Regional Trail and took off. The trail was great with wonderful views in all directions. When we got to Lake Waconia we turned around. We put 33 miles in on the out and back.
+
+In addition to breakfast we stopped on our ride back for a fun round of mini golf at Big Stone Mini Golf. This is the best mini golf place that I've been. You are surrounded by stone sculpture too. After we finished golfing we wandered through the sculpture garden. After the round of mini golf we stopped for lunch at Dakota Junction in Mound and then finished the last few miles back to Wayzata. What a great way to spend a morning!
+
+After our great bike ride, we went for an afternoon kayak!
+
+Tuesday @ 11:37 PM
+
+Tammy and I finally watched A Star is Born. We both enjoyed it. Great acting. Music was of course great.
+
+Tuesday @ 11:32 PM
+
+Martina’s New Patio
+
+Tonight Tammy and I went to one of our favorite restaurants in town, Martina. We were excited to see their new outdoor patio space. Patios have gone from being a nice summer option to one of the most important things a restaurant can have during the pandemic.
+
+The space is amazing. It is well designed with different levels, trees, and lighting. It is one of our favorite patios in town now. The drinks and food were amazing as always.
+
+The distancing precautions and changes to their processes were also very well done to minimize risks.
+
+The Panqueque dessert is still amazing, and perfect to share for two.
+
+Monday @ 9:36 PM
+
+Thumbs Cookies were a perfect snack at the end of a long bike ride. Their KIRBY mobile unit was in Linden Hills.
+
+Monday @ 9:12 PM
+
+Tammy and I had a perfect night for a gorgeous 15 mile ride around the the chain of lakes.
+
+Saturday @ 4:25 PM
+
+Lucky is 8 months old today. She looks so small in her 3 month photos now. She also has this adorable habit of crossing her front legs.
+
+Saturday @ 4:21 PM
+
+I took my Yama Cold Brew Tower out for the first time in a long time today and was reminded how delicious the coffee is from this process. Smooth and delicious. Patience required though.
+
+Friday @ 11:35 AM
+
+Potential Zoom feature: Autopilot
+
+When autopilot is on the Zoom client will automatically leave meetings at the scheduled time, and automatically connect to the next meeting. No user input needed. There could be a preference for a brief intermission to stretch.
+
+Friday @ 8:27 AM
+
+Got a new 45 minute PR this morning in Sam Yo’s class! 122 out of 1,443 riders live. 523 kJ total output.
+
+That's the end of Stream.
+
+Now, for your information.
+
+How does the Time-Based One-Time Password (TOTP) algorithm work? - Digital Bunker
+
+You probably use these codes all the time (or at least you should!). This is a very approachable article to how this system works.
+
+MinneAMA: Kubernetes 101
+
+Replay of a great AMA session hosted by Minnestar with Andy Domeier and Matt Walbrun of #TeamSPS!
+
+The surreal art of ‘unnatural lighting’
+
+These are really interesting photos, and I love the idea of taking good old fashioned light painting and taking it to the next level using drones. It seems the possibilities for this are endless.
+
+Drowning in plastic
+
+This is a shocking infographic and remember all of this plastic lasts, for practical terms, forever.
+
+Frog and Toad Tentatively Go Outside After Months In Self-Quarantine - McSweeney’s Internet Tendency
+
+A great take from McSweeney's. "Toad changed into his work pajamas."
+
+That's the end of the FYI section.
+
+Now, the Local section.
+
+Let's provide a 'pod' for every Minnesota learner who needs one | Star Tribune
+
+This looks like a fabulous program to help those most in need get help with tools and resources to make distance learning work better.
+
+Learning from this email?
+Help others learn by sharing on LinkedIn.
+
+That's the end of Local.
+
+Now, the Fortune section.
+
+You've made it all the way to the end! Here is your fortune for this week.
+
+Bridge ahead. Pay troll.
+
+Thank you for subscribing to the Weekly Thing!
+
+That brings us to the end of the Weekly Thing, issue 155. Thanks for listening, and I'll see you next time.

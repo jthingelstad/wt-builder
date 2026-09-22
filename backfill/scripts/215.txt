@@ -1,0 +1,209 @@
+The Weekly Thing, issue 215. Queues, Tor, Venting. Published March 13, twenty twenty two. By Jamie Thingelstad. In this issue: Twitter Tor version, Apple baseball deal, infinite scroll, Ukrainian versus Russian languages, Lincoln's humility, OmniFocus checklists, web3 webpage.
+
+Hello!
+
+We continue to see horrific bombing and combat in Ukraine, along with incredible resilience from the people of Ukraine. You'll find a list of organizations to support the people of Ukraine below.
+
+As Covid continues to move to endemic, something that we will just have around forever, the instability of war in Ukraine is a good reminder that there is no "going back" and "normal". Time only moves forward, and the world is never the same any two days. Our individual lives aren't the same either.
+
+There is only the future, with the information and experiences we have gained, to forge the path that best suits us and those around us today.
+
+"When people are naturally good at something, they tend to be puzzled by how bad other people are at it. So that's one way to figure out what you're naturally good at. What do other people seem puzzlingly bad at? (Being right doesn't count. Everyone thinks they're right.)" — Paul Graham
+
+Now, the Featured section.
+
+Link one. "The most important thing to understand about queues – Dan Slimmon"
+
+Every major system I've worked with for the last two decades plus has used queues in some way, and anyone that has worked around queues in production long enough has learned the hard way that queues behave very differently as they get larger. Typically queue performance decreases exponentially as the queue gets more messages on it.
+
+Quote.
+To reiterate: As you approach maximum throughput, average queue size – and therefore average wait time – approaches infinity. What’s the solution, then? We only have so many variables to work with in a queueing system. Any solution for the exploding-queue-size problem is going to involve some combination of these three approaches: 1. Increase capacity 2. Decrease demand 3. Set an upper bound for the queue size I like number 3. It forces you to acknowledge the fact that queue size is always finite, and to think through the failure modes that a full queue will engender.
+End quote.
+
+I agree with the author here, not limiting a queue at some point is the equivalent of ignoring error messages. Extra credit can be achieved here by introducing some chaos engineering. How about having your queue server reject 0.1% requests all the time, and then enforce the maximum.
+
+The complicated aspect here is that the queue server cannot determine the maximum, because it dramatically will change with the size and type of messages on the queue.
+
+Link two. "Twitter is launching a Tor-friendly version of its site - The Verge"
+
+I have plenty to gripe about with Twitter, but the platform has clear importance to communication online. I applaud this decision to officially support the Tor network and create a version of Twitter that will be much harder for governments to deny their citizens access to.
+
+Quote.
+Twitter’s onion service is available at while using Tor Browser or a similar tool. While you could already access Twitter’s ordinary website via Tor, the newly launched version adds more layers of protection to the already anonymized browsing experience and is designed specifically for the network.
+End quote.
+
+I'd love to see Twitter continue to add more options to make it increasingly difficult for any government to block access to the platform.
+
+That's the end of Featured.
+
+Now, the Notable section.
+
+Link one. "Apple’s big Baseball deal, detailed – Six Colors"
+
+This new package between Major League Baseball and Apple TV+ is really interesting, and I think it is only the very beginning. Baseball seems to have an edge with the licensing of game content, and if we see MLB Advanced Media partnering on more than just video content this could get even better. Why not have the game, and all the live data that MLB already has in At Bat, superimposed on one complete show. That could be really incredible. I am interested if we see some innovation into hybrid content.
+
+Link two. "Venting doesn’t work"
+
+I think there is a big difference between talking through negative feelings and venting. I would agree with this article, that venting may feel good in the short term, but it doesn't ultimately help you work through the issue, except perhaps a mild benefit from the act of talking about the topic.
+
+Quote.
+And that is likely the biggest driver of venting. Exercising restraint is hard. Protecting other people from the full brunt of our frustration—which is almost always driven by underlying fear, insecurities, and anxiety—takes work. We want to give in to the urge to wallow, to do damage, to invite company into our misery. We also can feel closer to others when we expose them to our raw emotion, and if there’s one reliable truth about human psychology, it’s that we desire connection so much that we’ll take it in negative forms when we can’t get positive ones.
+End quote.
+
+For me, meditation and breathing are by far the most effective ways to deal with negative feelings.
+
+Link three. "My lizard brain is no match for infinite scroll · Caffeinspiration"
+
+In twenty eighteen I wrote about infinite scroll as an addictive pattern in software.
+
+Quote.
+That’s where admitting defeat helps; I know how my brain works, and I can work with it. Let’s not install that app with the infinite scroll, since we can probably get by with just the mobile web version. Let’s not log in, unless there’s a reason you need to, since they’re after you with recommendations for your account. Let’s try to be conscious of how much time you end up spending on certain sites.
+End quote.
+
+I use Screen Time "App Limits" to manage some of this category of applications. It is easy enough to extend them for more time, but at least it operates as an in-your-face notification of how much time you have spent in a given app or website.
+
+Link four. "You're using email wrong"
+
+I've been using a very similar setup for my email for years and years. I also use Sanebox which is like having a magician that filters your email into various folders for you. A few simple rules can make a huge difference with email. This post doesn't mention it, and with Sandbox I don't use this, but if you want something simple just create a rule for any mail that has the word "unsubscribe" in the body and put that in a folder.
+
+Link five. "Ukrainian versus Russian: How Do These Languages Differ?"
+
+I've been working with teams in Ukraine for 8 years now and there has been a gradual shift to using more Ukrainian language. Russia's attack of Ukraine should solidify that even more. The breakdown of the differences between the two languages is good.
+
+Link six. "The million-dollar gap"
+
+This is all playing out in front of our eyes still.
+
+Quote.
+And yet, more than a decade into this dramatic compression of the gap, big-time marketers and industry players are still acting as if the gap is still there, as if their ‘professional’ creations are only competing with each other for attention.
+End quote.
+
+Ask any tween boy what their favorite YouTubers are, and then ask them what media companies they know.
+
+Link seven. "Lincoln's Humility"
+
+Perspective from my friend Rob Vischer on how we approach disagreement. I agree with Rob's perspective, and find it compelling that he used Lincoln as the exemplar. Sadly, I blame modern politicians for much of the problem that he is highlighting. Political organizations have done an amazing job of making their desired positions into a component of peoples identity. And a big part of the leap that is highlighted in this article is the difference between considerings someones position a belief, or part of their identity.
+
+Link eight. "Sparking Your Inner Stoic with Dave O'Hara"
+
+My friend Nick Swenson introduced me to Dave O'Hara a couple years ago. Dave is a deep and broad thinker, and that comes through in this podcast. I particularly liked the discussion of the Stoics and the Epicureans, which I've heard much less about. Delightful listen.
+
+Link nine. "Two Ways to Use Checklists with OmniFocus | Being Productive"
+
+I’m a power user of OmniFocus but Kourosh Dini takes things to an entirely new level. OmniFocus is an incredibly powerful GTD tool, but for plain checklists it does take a specific approach for them. Dini's approach here is interesting.
+
+Link ten. "Who chooses?"
+
+Godin is hitting on a topic I think often about. Algorithms that decide what to show you must be designed with a goal.
+
+Quote.
+Choosing is a form of selection, of amplification and of curation. Not official government censorship, but something more nuanced than that, the responsibility that comes from choice.
+End quote.
+
+I prefer to be in charge of the choosing. Trusting others to that choice, is a form of influence over the information I see.
+
+Link eleven. "My first web3 webpage | Dries Buytaert"
+
+This is a thorough and detailed overview of deploying a completely decentralized website using ENS and IPFS. This is on my "someday, maybe" list. I'd love to have a version of my blog that is hosted in this way. The components are all pretty straightforward.
+
+For a long time I've wondered how I will keep my blog online long after I’m gone. Using IPFS, perhaps secured via smart contract and bound to some cyrpto, and addressed using ENS is the way to do it. Could you realistically have a website that survives for a very, very long time that way? I think so.
+
+Support Ukraine
+
+The people of Ukraine need the worlds help as they struggle through the invasion of their country. Please consider helping with a financial donation to these causes.
+
+- 1 thousand dollars Project: Sponsor a Ukrainian family in need.
+- Samaritan's Purse: Samaritan's Purse has deployed an Emergency Field Hospital to Ukraine.
+- Convoy of Hope: Whether it’s after a disaster, feeding a hungry child, or helping a parent put food on the table, Convoy of Hope is proud to deliver your kindness to those who need it most.
+- Doctors Without Borders: We have teams in Ukraine, Poland, Moldova, Hungary, Slovakia, Russia, and Belarus. We are an independent and impartial organization committed to providing medical humanitarian assistance to people affected by the war no matter who they are or where they are.
+- Voices of Children: Providing non-stop assistance to affected children and families from all over the country, providing emergency psychological assistance, and assisting in the evacuation process.
+- USA for UNHCR: UNHCR is on the ground scaling its response to provide assistance and ensure those displaced find safety in welcoming arms in this moment of crisis.
+- Razom for Ukraine: Razom creates spaces where people meet, partner and work together to unlock the potential of Ukraine.
+- Kyiv Independent: Support independent journalism in Ukraine. Choose one-time or ongoing support.
+- International Red Cross: Operations in Ukraine are among the ten largest ICRC operations worldwide with a team of over 600 staff members.
+- United Help Ukraine: Help us provide medical aid and humanitarian relief to brave Ukrainians defending themselves! Stand with the people of Ukraine!
+- Care.org Ukraine Crisis Fund: Give now to send lifesaving food, water, and hygiene kits to the most vulnerable in Ukraine.
+- Direct Relief: Direct Relief is working with Ukraine’s Ministry of Health and other groups in the region to provide requested medical aid—from oxygen concentrators to critical care medicines—while preparing to offer longer-term aid to people displaced or affected by the war.
+- World Central Kitchen: Providing meals to Ukrainian families in need.
+- Lifeline Ukraine: Suicide prevention support line.
+- UNICEF: Help UNICEF deliver aid to hundreds of thousands of children in eastern Ukraine impacted by violence — and to hundreds of thousands more as UNICEF races to meet increasingly urgent needs across the country.
+
+Thank you!
+
+That's the end of Notable.
+
+Now, the Journal section.
+
+Saturday @ 10:41 AM
+
+Someday the Wordle will be STEAM.
+
+And on that day, I will win.
+
+Saturday @ 7:44 AM
+
+Consider for today:
+
+1. Take a moment to reflect on how much the world has changed in the last 10 days.
+2. Consider how those changes may affect your current priorities and opinions.
+3. Determine how those changes can be actioned.
+
+That's the end of the Journal.
+
+Now, the Briefly section.
+
+Link one. "Giant Joro spiders expected to drop from sky across the East Coast this spring - Axios Washington D.C"
+
+Giant Spiders dropping from the sky? Enough already!
+
+Link two. "Defining Our Work | GTD®"
+
+Short reminder from David Allen on one of the core challenges of knowledge work.
+
+Link three. "Eponymous Laws Part I: Laws of the Internet"
+
+Great collection of various "Laws" of the Internet.
+
+Link four. "Outline VPN - Access to the free and open internet"
+
+Most VPN services are focused on allowing the user to protect their information, or pretend they are in a different country for some content restrictions. This one is focused on getting around censorship.
+
+Link five. "Telegram Harm Reduction for Users in Russia and Ukraine | Electronic Frontier Foundation"
+
+It is great to see the EFF sharing analysis on how you should use Telegram, a popular communication tool.
+
+Link six. "Later - Save your Mac apps for later"
+
+Neat little utility that allows you to store away collections of apps and bring them up as groups.
+
+Link seven. "Balaji Srinivasan: Creating Sources of Definitive Truth With Blockchain Oracles - YouTube"
+
+Srinivasan is a broad an challenging thinker. His perspective on using blockchain technology to create a trusted ecosystem for "definitive truth" is interesting.
+
+Link eight. "Where is our moral line in Ukraine?"
+
+I hope that we are not pressed so far to have to answer this question, but Jarvis' clearly articulates the reason that this is such a difficult thing to answer.
+
+Link nine. "Get Computer Glasses"
+
+I've had to wear reading glasses for a couple of years now when I work on the computer. I thought the only variant with computer glasses was blocking blue light, but Bray highlights an array of focusing improvements for the short distance of your screen.
+
+Link ten. "For Ukraine: SuperRare Artists Support the Cause"
+
+Several artists created special edition NFTs for Ukraine and all proceeds of the sales are going to support Ukraine relief efforts. I purchased Support Ukraine Particle #4.
+
+Link eleven. "The calorie counter"
+
+Incredibly detailed information on calorie burn and the overall metabolic cycle.
+
+That's the end of Briefly.
+
+Now, the Fortune section.
+
+Here is your fortune…
+
+Stay away from hurricanes for a while.
+
+Thank you for subscribing to the Weekly Thing!
+
+That brings us to the end of the Weekly Thing, issue 215. Thanks for listening, and I'll see you next time.

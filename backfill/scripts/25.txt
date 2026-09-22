@@ -1,0 +1,140 @@
+The Weekly Thing, issue 25. Weekly Thing for October 28, twenty seventeen. Published October 28, twenty seventeen. By Jamie Thingelstad. In this issue: Dungeons and Dragons resurrection, AlphaGo Zero, iPad Pro programming, Faktory, Mastodon Project, Vietnam War Ken Burns, TLDR pages.
+
+It dawned on me this week that I could write some short scripts and fix the hundreds (and now I realize thousands!) of photos that haven't been linked right on my blog archive ever since I moved to my new setup. After fixing the images, which worked in all but some edge cases, I was perusing my archive to check on the images. I also remembered why I like blogging.
+
+Tammy loves to talk about my Project Terabyte. I decided that I was going to build myself a terabyte of storage at home. Before you laugh, this was two thousand four. Now you can get this for a few bucks at Best Buy. Back then it wasn't so simple. I got a chuckle reading through that post, and the images, and remembering how amazing that setup was at the time. A good reminder to how quickly all this techie stuff ages into irrelevance. But the content, that is still a lot of fun.
+
+Now, the Photog section.
+
+Plenty of pumpkins waiting to be taken home, cut open, carved up and put on display for Halloween.
+
+Oct 27, twenty seventeen at 5:07 PM
+1500 W 50th St Minneapolis MN
+
+That's the end of Photog.
+
+Now, the Links section.
+
+Link one. "The Uncanny Resurrection of Dungeons and Dragons | The New Yorker"
+
+I played D and D when I was a kid, the original version of the game. I was a bit young though and only knew a couple other kids who were into it again. I played again in college and had many long, long evenings with campaigns. I always play a Wizard. Usually good. Then, a fifth edition of D. and D. rules came out, in twenty fourteen, and, somehow, the culture was receptive again to bags of holding and silver-haired drow. People started buying up these volumes in droves. “More people are interested in D and D than we thought,” the game’s lead developer, Mike Mearls, said, as print runs repeatedly sold out. “Who are these people? What do they want?”
+
+Link two. "The Rising Stakes in SaaS"
+
+Interesting read on the maturation of the SaaS market. The table stakes in SaaS are rising. But it’s not the MRR milestones or the payback period benchmarks that have changed. They may have increased slightly. Instead, the competitive differentiation ante is much greater.
+
+Link three. "Facebook's arrogant and patronizing statement about changes to the News Feed - without bullshit"
+
+How you should read Facebooks recent experimentation with the news feed. If you use Facebook to reach your customers you are kidding yourself if you don't believe you will have to pay to reach those customers in the future. That has been obvious for years and years.
+
+Link four. "The iPad Pro as main computer for programming"
+
+Good writeup on how to turn your iPad Pro into a very portable terminal tool for development and systems work. Nice callout to mosh and blink.
+
+Link five. "Introducing Faktory"
+
+Yet another background job system. This one is a standalone Go executable.
+
+Link six. "Paw – A full-featured visual HTTP client"
+
+This looks like a very nice tool for working with RESTful API's.
+
+Link seven. "Tiny Tiny RSS"
+
+Cool self-hosted RSS reader option. Nice to see people working on these as options for those that want to be totally DIY. I'll stick with Feedbin though.
+
+Link eight. "Page.REST - An HTTP API to extract OpenGraph, oEmbed or any other content from any public web page as JSON."
+
+This looks like a super handy API to easily get key metadata for a given URL. Would be a useful API for anything doing bookmarking. I could see using this on my Link Thing to pull relevant data for links!
+
+Link nine. "Move fast, break nothing - The Download"
+
+Nice to see eero come out with a KRACK fix so quickly! I run an eero mesh network at home and have been happy with it.
+
+Link ten. "wallabag: a self hostable application for saving web pages"
+
+I use Pinboard to save my links (and power Link Thing) but Wallabag looks like a well designed and robust solution for people that want to self-host and have total control of their bookmarks.
+
+Link eleven. "Dramatiq: simple task processing"
+
+Compelling task processing system for Python that uses decorators on functions to turn them into distributed tasks. These systems are usually a mile deep and complex but this looks very nice on the surface. Read the about the motivation. If you’re used to either of those or if you’ve ever had to use Celery in anger, Dramatiq might just be the tool for you. When I was still building WikiApiary I tried to use Celery and it was too high of a requirement for me.
+
+Link twelve. "Reaching people on the internet - The Oatmeal"
+
+Oatmeal hits the nail on the head, like usual.
+
+Link thirteen. "Command-line-text-processing/gnu_awk.md at master · learnbyexample"
+
+I recently had to go through a hundred or so markdown files with YAML front matter for Jekyll and modify the front matter with data from the filename. I did 3 or 4 by hand and realized how much that was going to be terrible. Then I wrote a for loop in a bash script with awk and sed and I was done in a couple minutes. This writeup of awk is very nice and the examples are rich. I'd recommend reading the similar one for sed
+
+Link fourteen. "Giving social networking back to you - The Mastodon Project"
+
+I haven’t tried Mastodon but I like that a decentralized social network seems to be continuing to get users and improvements. I’ll be sticking with micro.blog myself.
+
+Link fifteen. "The Vietnam War: A film by Ken Burns and Lynn Novick"
+
+I’ve heard a number of great things about this new Ken Burns series. Adding to my list for this winter.
+
+Link sixteen. "TLDR pages"
+
+This project feels like Stack Overflow meets man pages. Nice to see there is a version for Dash.
+
+Link seventeen. "AlphaGo Zero: Learning from scratch | DeepMind"
+
+AlphaGo made headlines when it beat the best Go players in the world. The same team built another instance of AlphaGo that had no training and learned the game by playing itself. It is even better. This is pretty amazing progress.
+
+Link eighteen. "Parse shell one-liners with pyparsing | nvbn blog"
+
+The specific example in this blog post of using Pyparsing to write an abstract syntax tree isn't the reason I’m highlighting it. I've read about PyParsing before and even attempted to write a parser for the Planet Kubb notation system. This is a library developers should know about. Too often people use regex in bad ways to solve these problems when a parser with a proper BNF is the right approach.
+
+Link nineteen. "A Photo Tour of Apple’s New Flagship Chicago Store – MacStories"
+
+Apple continues to impress with jaw-dropping architecture in their retail stores. This is worth it just to look at the photos. Next time I’m in Chicago I'll be stopping by here.
+
+Link twenty. "Low-risk Monolith to Microservice Evolution Part I – Software Blog"
+
+Excellent writeup on approaching a large-scale monolithic application and beginning to decompose it. I've seen these approaches used first-hand and they work. However, it takes a lot of time. The time probably goes up more than linear as size of the monolith goes up. Check out part 2 of the article as well.
+
+Link twenty one. "Feedbin as a Multi-Device Reader"
+
+I've been a Feedbin user for years now and highly recommend them. One of the best 30 dollars a year I spend. If you have never experienced using a feed reader I would highly recommend giving it a try. This post doesn't highlight it but I also liked that Feedbin added JSON Feed support right away.
+
+That's the end of Links.
+
+Now, the Promotion section.
+
+WikiTribune is a news platform that brings journalists and a community of volunteers together. WikiTribune just got funded and I became a backer. I've been impressed with Wikipedia and am excited about Jimmy Wales and team focusing on the news ecosystem. I am very curious to see how they realize these objectives. I've previously thought about how news can be reinvented. I focused more on the open source model instead of wiki, but either way I feel like a fundamental rethink is possible! Let's see how they Become a supporter today!
+
+That's the end of Promotion.
+
+Now, the Featured App section.
+
+FROST
+
+by kunabi brother GmbH
+
+Draw paths to guide the flocking spirits to their home planets. Watch countless beautiful creatures emerge from light, bring balance to a world in constant motion, and unravel its mysteries.
+
+I don't do a lot of games but I do enjoy some of these "zen" like games on iOS. This is a very relaxing, puzzle-like game with very cool graphics. It is a very nice way to wind down in the evening.
+
+4 dollars and 99 cents 5/5 stars
+
+That's the end of Featured App.
+
+Now, the Microblog updates section.
+
+- Some scripting magic and I’ve finally resolved the missing images from most of my blog archive. www.thingelstad.com/archive/
+- Just saved myself a silly amount of time with 18 lines of bash. So great.
+- Fun R/W Book Club meeting tonight talking about CRISPR and gene editing! rwbook.club/book/crac…
+- Difficult falling asleep again lately. Ordered some more Hammer Nutrition REM Caps. Work great for me.
+- Bitcoin price for last month. Bananas.
+- My Safari Reading List has mysteriously stopped synchronizing between devices. There seems to be no way to debug this.
+- Family photos from this weekends trip.
+- Fall.
+- Campfire donuts, but on a grill.
+
+That's the end of Microblog updates.
+
+Thank you for subscribing to the Weekly Thing! If you know of people that would like the Weekly Thing please forward it along!
+
+That brings us to the end of the Weekly Thing, issue 25. Thanks for listening, and I'll see you next time.

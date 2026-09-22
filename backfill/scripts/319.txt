@@ -1,0 +1,261 @@
+The Weekly Thing, issue 319. Embeddings, Passkeys, Macros. Published May 17, twenty twenty five. By Jamie Thingelstad. In this issue: Buildable LEGO designs from text, AI reputation damage, Apple Turnover, embeddings, HDR explained, passkey cryptography, CoMaps offline navigation.
+
+Good morning and welcome to the eight-year anniversary of the Weekly Thing — Wow!
+
+Thank you for inviting me to your inbox! In the last couple of weeks I've been able to attend some technology events in town and I was struck by how many folks came up to me that I didn’t know, told me they read these emails, and thanked me for sending them. More than a couple highlighted that they start their weekend morning by reading it.
+
+That is incredible and thank you!
+
+Have a great day!
+
+Now, the Currently section.
+
+Giving: If you are looking for continuing ways to support Ukraine against Russian attacks Zero Line is doing impressive work to bring direct help into the country. They have run multiple convoys of aid into the country.
+
+That's the end of Currently.
+
+Now, the Notable section.
+
+Link one. "Generating Physically Stable and Buildable LEGO Designs from Text"
+
+Everything to love in this project.
+
+Quote.
+LegoGPT generates a LEGO structure from a user-provided text prompt in an end-to-end manner. Notably, our generated LEGO structure is physically stable and buildable.
+End quote.
+
+Type some stuff and get directions to build it. The videos of the robots building LEGO are wild but where is the fun of doing it yourself.
+
+Link two. "AI use damages professional reputation, study suggests - Ars Technica"
+
+Do we think less of people when they disclose that they are using AI tools to help them do something? It seems that yes, we do!
+
+Quote.
+On Thursday, the Proceedings of the National Academy of Sciences (PNAS) published a study showing that employees who use AI tools like ChatGPT, Claude, and Gemini at work face negative judgments about their competence and motivation from colleagues and managers.
+End quote.
+
+This is super interesting to me as I've seen first hand hesitations in using these powerful capabilities. Could concerns about imposter syndrome be part of that?
+
+Quote.
+In the first experiment conducted by the team from Duke, participants imagined using either an AI tool or a dashboard creation tool at work. It revealed that those in the AI group expected to be judged as lazier, less competent, less diligent, and more replaceable than those using conventional technology. They also reported less willingness to disclose their AI use to colleagues and managers.
+End quote.
+
+The article itself doesn't use the word "cheating" but I have seen that implied many times. The implication that if you used AI you cheated in some way. That is a clear motivation to hide it.
+
+This is totally different, but I think some of that is involved when people conceal using a GLP-1 weight loss drug. Is there a sense of "you cheated" in the outcome?
+
+What is the level of technology that flips from being a utility to create more value, to cheating?
+
+Link three. "Hypercritical: Apple Turnover"
+
+Siracusa is a deep technologist and has built and created things for the Apple ecosystem for decades. His reviews of macOS releases back in the day were epic and required reads for the nerdiest of us. His argument of Apple's drive for profit over product is meaningful because it is him making it.
+
+Quote.
+As far as I'm concerned, the only truly mortal sin for Apple's leadership is losing sight of the proper relationship between product virtue and financial success--and not just momentarily, but constitutionally, intransigently, for years. Sadly, I believe this has happened. The preponderance of the evidence is undeniable. Too many times, in too many ways, over too many years, Apple has made decisions that do not make its products better, all in service of control, leverage, protection, profits--all in service of money.
+End quote.
+
+Will be curious to see how things evolve at Apple in the next year.
+
+Link four. "Are.na"
+
+I hadn't heard of Are.na until Buttondown sent an update that they were supporting sharing your newsletter to it. I’m loathe to explore more social apps but Are.na looks more like a bookmarking site. Like some weird middle ground between Pinboard and Pinterest. The site is for users and charges subscriptions. No algorithms feeding you, just real people. It is structured around channels, I made a Weekly Thing channel. I like platforms that bring me new and interesting links. Possibly this could be one but I’m still poking at it.
+
+Link five. "RECONSIDER - Signal v. Noise"
+
+DHH with his usual zeal commenting on the obsession of many tech startups to only be making a shot at being the next Unicorn or nothing. This is one of the things I like about the Indieweb space. There are small companies making a product I pay for and getting enough profit to build normal businesses that add value to the world around them.
+
+Link six. "Embeddings are underrated"
+
+Good explainer on what embeddings really are.
+
+Quote.
+Here’s the mental leap. Embeddings are similar to points on a map. Each number in the embedding array is a dimension, similar to the X-Coordinates and Y-Coordinates from earlier. When an embedding model sends you back an array of 1000 numbers, it’s telling you the point where that text semantically lives in its 1000-dimension space, relative to all other texts. When we compare the distance between two embeddings in this 1000-dimension space, what we’re really doing is figuring out how semantically close or far apart those two texts are from each other.
+End quote.
+
+If you are building custom LLM applications this is likely something you need to use.
+
+Link seven. "Creating a static website for all my bookmarks – alexwlchan"
+
+I read this with interest since bookmarking is, I guess, a hobby of mine and how links get right here into the Weekly Thing. I’m bookmarking about bookmarking. How meta. I also use Pinboard as the author does and I have in the past fed those bookmarks from the Pinboard API into static files to then generate a linkblog. I prefer using a newsletter to share these. But someday I will likely want to turn that into a site of its own.
+
+Link eight. "What is HDR, anyway?"
+
+The team behind Halide with another great writeup on how they are advancing the "state of the art" for iPhone photography. This article is particularly great because it goes through the whole history of HDR and then grounds back into the "what are you trying to do" as opposed to the technology. When they referenced dodging and burning with print development it really connected the dots. I love the Ansel Adams quote referenced.
+
+Quote.
+Is it a lie to dodge and burn a photo? According to Ansel Adams in The Print: > "When you are making a fine print you are creating, as well as re-creating. The final image you achieve will, to quote Alfred Stieglitz, reveal what you saw and felt."
+End quote.
+
+I shoot a lot of photos with my iPhone and upgrading the camera is the main reason I upgrade my phones. But I've been pretty lazy and using the built-in camera app. Halide is a far superior approach. I finally just updated my settings so Halide launches as my default camera app.
+
+I’m excited to try these new tone controls when they ship.
+
+Link nine. "The cryptography behind passkeys - The Trail of Bits Blog"
+
+I’m using passkeys on any sites that support them and 1Password, my secret manager of choice, does a great job managing and storing them. This article goes a bit more in depth on the WebAuthn specification that is passkeys. The additional layers of trust built into the protocol, for example allowing a site to require a certain instance of an authenticator to be used is smart. I think we still need to see if passkeys become useful for regular non-technical users. I worry they can feel a little "magical" and folks will lose credentials a lot. Either way I would much rather see more passkey adoption versus this trend of no passwords and sending an email code every time you login.
+
+Link ten. "Hike, Bike, Drive Offline Navigate with Privacy | CoMaps"
+
+It isn't obvious to most people that when you use mapping applications, particularly to route you places, you are providing as much if not more information than you are getting. Modern mapping applications depend on monitoring users movement to augment and improve the map itself. It is a 2-way street that makes the map better, and gives you directions. For driving this works fine but the privacy trade off may not be what you want. For offline use this presents problems. This mapping application is completely private, uses the trusted OpenStreetMap data source, and is designed to work offline for when you want to get away from things. This is a fork from another project and still under development.
+
+That's the end of Notable.
+
+Now, the Journal section.
+
+Journal entry one. Nate Bargatze in Duluth
+
+We had a night full of laughs seeing Nate Bargatze for the first time — and as it happens it was the very first show of his new Big Dumb Eyes tour here in Duluth! The show was completely sold out. Julian McCollough served as host and there were short bits from Steven Rogers, Keith Alberstadt, and Aaron Weber before Nate took the stage for the main event. Hilarious stuff!
+
+Journal entry two.
+
+Busy morning at 190º Coffee and Tea this morning.
+
+Journal entry three. Jay Cooke State Park
+
+Finished hiking around Jay Cooke State Park 1.63 miles in 51.6 minutes. Beautiful scenery and delightful day.
+
+Journal entry four.
+
+Lunch at New Scenic Cafe is a mandatory activity for us on the North Shore.
+
+Journal entry five.
+
+Added 9 kWh at Gooseberry Falls while we were hiking around. Thank you Minnesota DNR!
+
+Journal entry six.
+
+This was a perfect spot to meditate for a few minutes.
+
+Journal entry seven. Gooseberry Falls
+
+Exploring Gooseberry Falls today. Walked to the lake shore and back.
+
+Journal entry eight.
+
+Stop for delicious chocolate at Great Lakes Candy Kitchen.
+
+Journal entry nine.
+
+Tammy instantly loved these paintings by Lissa Scotland from Duluth. We decided that these two are coming home with us. Beautiful.
+
+Journal entry ten.
+
+We saw Secret Mall Apartment at the Zeitgeist Zinema in Duluth. Wild story.
+
+Journal entry eleven.
+
+Excited to see the United play today -- and even more excited to see Messi! GOAT!
+
+Journal entry twelve.
+
+Thanks to the recent fix on micro.blog allowing blogs over 5G to export I got my first backup in 2 years and 4 months! My total backup is now 11.58 GB, and it seems in the last couple years I averaged 187.5 MB of additions a month.
+
+Journal entry thirteen.
+
+An incredible day of soccer getting to see Lionel Messi, one of the greatest soccer players to ever play the game, come onto Allianz Field and score the sole Inter Miami goal in a 4-1 loss against MN United. Security and press coverage was way more than usual. PULGA = GOAT!
+
+Journal entry fourteen.
+
+Manu recently added an RSS feed of new sites to Blogroll. I popped it into Feedbin to discover new blogs. I explored a few and was delighted at the diversity of sites these bloggers have. If there is an opposite of scrolling an algorithmic feed it is this. Let’s bring surfing the web back.
+
+Journal entry fifteen.
+
+Plant shopping at the Heart to Care Tanzania plant sale! If you are in the Twin Cities and want plants you can support a good cause at the same time.
+
+Journal entry sixteen.
+
+Upgraded one of my bikes with these awesome large Crank Brothers Stamps. Old pedals were too small.
+
+Journal entry seventeen.
+
+Moms are awesome -- especially mine. Happy Mother's Day!
+
+Journal entry eighteen.
+
+Happy Mother's Day to the "heart of our family" and most amazing of Moms.
+
+Journal entry nineteen.
+
+We went to a live recording of The Object podcast at the MIA today. Dessa was the special guest discussing Salvador Dalí and the surrealists. She is always engaging and entertaining.
+
+Journal entry twenty. Pirates of the Spanish Main at Enigma Adventure
+
+We capped off Mother’s Day with a trip to Enigma Adventures in Maple Grove to do their Pirates of the Spanish Main room. This room was the top recommendation of the folks that run Copper Cat Escape Games and it held up to the recommendation. The room has a wonderful mix of puzzles and multiple “reveals” that were very fun surprises. The pacing of the puzzles and challenges was good. With just the four of us we were challenged to keep the pace fast and sadly we didn’t get there in the 60 minute deadline, but we did finish just a minute or two past that.
+
+We had previously done Istanbul Gambit at Enigma’s other location and they should get very high marks on how well these rooms are executed. They are very good, imaginative, and the mechanics are top notch. We gave Pirates a rating for sure. It is also nice that they don’t make you sign waivers. They could do better with the overall ambiance and it feels like colocating with Whirly Ball isn’t pulling in visitors.
+
+Highly recommend giving this room a go -- we had a great time! Room 69!
+
+Journal entry twenty one.
+
+At our Q2 #TeamSPS company meeting I was honored to share the stage with Elizabeth Neuville and Christy Sovereign and announce our support of the twenty twenty six Special Olympics USA Games -- SPS Commerce is the official Bocce sponsor! Why Bocce? It needs the most volunteers and TeamSPS values volunteering!
+
+Journal entry twenty two.
+
+I am glad we can support Zero Line on their next convoy of aid to Ukraine and their continued work to support the people of Ukraine.
+
+Journal entry twenty three.
+
+This is a bit goofy, but I like goofy.
+
+1. Received email -- there is an Internet Phone Book?
+2. Used site lookup search to see if I’m in it.
+3. Ordered a copy of Internet Phone Book.
+
+The initial run of 500 copies sold out in less than 24 hours.
+
+That's the end of the Journal.
+
+Now, the Briefly section.
+
+Link one. "Hyvector"
+
+Vector graphics editor in your browser.
+
+Link two. "itter.sh - Social Media via SSH"
+
+This will not go anywhere but it made me smile remembering the early days Twitter, like when we used to post via SMS messages to 40404.
+
+Link three. "Void"
+
+Another IDE bringing AI in as a native capability.
+
+Link four. "nao - AI code editor for data"
+
+It is super interesting to see how people are bringing AI capabilities into various areas of the development toolchain. This is focused on data engineering.
+
+Link five. "A Critical Look at MCP - Raz Blog"
+
+Critical look at key components of the MCP pattern.
+
+Link six. "Extending a Language — Writing Powerful Macros in Scheme"
+
+Fun stuff and great way to learn a bit of Scheme.
+
+Link seven. "F1 The Movie | Main Trailer - YouTube"
+
+Can’t wait to go to this if just for the race scenes.
+
+Link eight. "twenty twenty five-05-11 air traffic control"
+
+Interesting background on the patchwork of systems that started much of what today's air traffic control system is.
+
+Link nine. "Iceland approved the 4-day workweek in twenty nineteen: nearly 6 years later, all the predictions made have come true"
+
+Iceland innovating and experimenting.
+
+Link ten. "F1 at 75"
+
+Great overview of the history of F1. The pictures are great and the presentation is really nice. Works great on mobile but deserves a big screen for the visuals.
+
+Here is your haiku…
+
+AI whispers code,
+Passkeys, privacy, and puns —
+Bookmarks in the cloud.
+
+- Join the private Weekly Thing Forum
+- r/WeeklyThing on Reddit
+- Sign the Weekly Thing Guestbook
+
+That brings us to the end of the Weekly Thing, issue 319. Thanks for listening, and I'll see you next time.

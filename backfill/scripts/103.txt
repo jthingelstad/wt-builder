@@ -1,0 +1,176 @@
+The Weekly Thing, issue 103. Apr 27, twenty nineteen. Published April 27, twenty nineteen. By Jamie Thingelstad. In this issue: Boeing 737 Max software, Tesla Full Self Driving ASIC, SpaceX Falcon Heavy launch, Mueller Report PDF, industrial strength WiFi.
+
+We got really lucky when we moved in January, as there was almost no snow on the ground. Shortly after we moved, the walloping started with snowstorm after snowstorm. Moving in the winter feels a little like a partial move. You move into your house, but you don't really see the yard or explore the outside spaces. It’s all frozen and covered in snow! As Spring has now arrived, I feel like we have thawed and can now finish the rest of the moving process, explore the yard, and get familiar with the rest of the space.
+
+This is a big weekend! Tammy, my lovely co-pilot in this awesome journey of life, is celebrating her birthday weekend! It's going to be a lot of fun! Minnebar 14 is also this weekend. If you are at Minnebar, say Hi!
+
+Now, the Featured Links section.
+
+Link one. "My Billion Dollar Mistake | Product Habits"
+
+This is a pretty amazing article by Hiten Shah, a co-founder of KISSmetrics. He walks through how they found market fit, saw tremendous engagement, and then failed to execute.
+
+We were ahead of the market by 3 years. Yes, 3 full years. In twenty ten, we had moved the entire analytics category to the point that competitors wouldn’t close the gap until twenty thirteen.
+
+We had a billion dollar opportunity sitting right in front of us. Without a shred of doubt, I believe we could have turned KISSmetrics into a billion dollar startup. It was ours to lose.
+
+That’s exactly what we did, we lost it.
+
+Not an easy thing to write, but the kind of thing you can learn from.
+
+Link two. "How the Boeing 737 Max Disaster Looks to a Software Developer - IEEE Spectrum"
+
+This is a fantastic read on the Boeing 737 Max situation.
+
+I’ll say it again: In the 737 Max, the engine nacelles themselves can, at high angles of attack, work as a wing and produce lift. And the lift they produce is well ahead of the wing’s center of lift, meaning the nacelles will cause the 737 Max at a high angle of attack to go to a higher angle of attack. This is aerodynamic malpractice of the worst kind.
+
+It is very interesting to hear from someone who knows this space what the 737 Max was trying to achieve in it’s design.
+
+In a pinch, a human pilot could just look out the windshield to confirm visually and directly that, no, the aircraft is not pitched up dangerously. That’s the ultimate check and should go directly to the pilot’s ultimate sovereignty. Unfortunately, the current implementation of MCAS denies that sovereignty. It denies the pilots the ability to respond to what’s before their own eyes.
+
+So Boeing essentially had unworkable hardware and said "Hey, we'll fix it in the software!". But then the software doesn't let the pilot work the way all other planes let them work.
+
+So Boeing produced a dynamically unstable airframe, the 737 Max. That is big strike No. 1. Boeing then tried to mask the 737’s dynamic instability with a software system. Big strike No. 2. Finally, the software relied on systems known for their propensity to fail (angle-of-attack indicators) and did not appear to include even rudimentary provisions to cross-check the outputs of the angle-of-attack sensor against other sensors, or even the other angle-of-attack sensor. Big strike No. 3.
+
+Anyone writing software that can mean life and death should make sure to learn from this situation.
+
+That's the end of Featured Links.
+
+Now, the My Weekly Photo section.
+
+Evening sun glowing in the sky.
+Apr 19, twenty nineteen at 7:47 PM
+Cannon Lake, Minnesota
+
+That's the end of My Weekly Photo.
+
+Now, the Notable Links section.
+
+Link one. "Uber Questions – Stratechery by Ben Thompson"
+
+Another great writeup from Ben Thompson looking at Uber's S-1.
+
+However, if I bought individual stocks (I don’t per my ethics policy), I would be out: this S-1 is so devoid of meaningful information (despite its length) that it makes me wonder what, if anything, Uber is trying to hide. If I am going to be taken for a ride I want at least some idea of where I am going — isn’t that the point of Uber in the first place?
+
+He raises some interesting questions.
+
+Link two. "Tesla Full Self Driving ASIC – Perspectives"
+
+Detailed hardware analysis from James Hamilton of AWS on the new custom ASIC that Tesla announced for Full Self Driving. Very fun read with all the technical details any engineer would be curious about.
+
+Link three. "The Greatest Coach | Silicon Valley Product Group"
+
+I've read a number of remembrances of Bill Campbell and this review of Trillion Dollar Coach has put the book at the top of my reading list!
+
+Link four. "Apruve Announces New Board Member"
+
+Congratulations to my friend David Novak on joining the Apruve board!
+
+Link five. "Amazon re:MARS twenty nineteen | AI and ML Conference"
+
+Interesting new conference from AWS focused on machine learning. I've been looking for an opportunity to deep dive into this at an event and decided to sign up to attend. See you in Vegas!
+
+Link six. "When Do You Know You Are Emotionally Mature? 26 Suggestions - The Book of LifeThe Book of Life"
+
+What a great read. Wisdom here. I particularly liked #5, #12, and #24. Via Five Things on Friday #292.
+
+Link seven. "Running Datasette on Glitch"
+
+This is a fun read for me in large part because I've not worked with Glitch. It looks very interesting. Plus, I like how Simon tackled the automation here using smart command line capabilities versus diving into code.
+
+Link eight. "SPS Commerce: Tech-Driven Value Creation - YouTube"
+
+A brief video I did for the SPS team in Ukraine to share with people that are interested in working with us!
+
+Link nine. "Apple spends more than 30 million dollars a month on Amazon Web Services"
+
+Now that is a large bill! It is interesting that a company with the resources of Apple sees enough value in a third party cloud service that they would spend this much with AWS instead of bringing it in-house.
+
+Link ten. "mockit · An open source tool to mock endpoints"
+
+Mocking API endpoints is a great way to get projects moving quickly.
+
+MockIt was designed and developed to help developers get off the ground faster, and give developers a quick way to create APIS for their applications whilst “real” ones are being worked on.
+
+Cool to see an open source version of this you can run on your own.
+
+Link eleven. "A Technical and Cultural Assessment of the Mueller Report PDF | PDF Association"
+
+This is a fun read. Forget the politics for a moment and this is a fun analysis of the PDF file that was delivered by the Department of Justice for the Mueller Report. It is a little crazy that they didn’t digitally sign the document. There is no way to guarantee that you got the original file.
+
+Link twelve. "Tips on industrial strength WiFi for normal people – A Whole Lotta Nothing"
+
+I’m worried about the future for Eero so I read this with a bit more interest. It looks like a great option if you are willing to spend a little bit to get really solid home WiFi. It is worth keeping this option in mind.
+
+Link thirteen. "What it's Like to View a SpaceX Falcon Heavy Launch"
+
+Someday I hope to see a real rocket take off in person. I loved reading this recap of this persons visit to see the Falcon Heavy launch.
+
+The roar sounds just like just what it is: an immense amount of energy unleashed all at once. It builds gradually in intensity while dropping in pitch (due to the Doppler effect.) It’s a roar that you can feel in your chest
+
+Sounds amazing.
+
+That's the end of Notable Links.
+
+Now, the Give Back section.
+
+The mission of Hack the Gap is to amplify the voices and cultivate talents of underserved people in our community. I serve on the board of Minnestar with Jenna Pederson, one of the founders of Hack the Gap, and I love what this organization is focusing on. Gender diversity in tech is a real problem and it’s far too often brushed off as some endemic issue that cannot be solved. That isn't the case at all. Hack the Gap is creating a way for people to get into the technology industry and breaking down barriers. Donate to Hack the Gap today!
+
+That's the end of Give Back.
+
+Now, more links.
+
+- MindNode 6 Review: Refined Mind Mapping – MacStories www.macstories.net
+Nice improvements to my preferred mind mapping software.
+- The Instant Pot was made to cook Indian butter chicken thetakeout.com
+I think I may finally get on the Instant Pot bandwagon.
+- Finding a place to charge your EV is easy with Google Maps www.blog.google
+Great new add to Google Maps.
+- Report: 26 States Now Ban or Restrict Community Broadband - Motherboard motherboard.vice.com
+Anti-competitive behavior on the part of telecom companies and your easily purchased legislators.
+- California VC Turns 9 million dollars into Eye-Popping 6.9 billion dollars in Uber IPO Jackpot www.ccn.com
+766 times initial investment in 8 years. That is approximately 2 million dollars of appreciation a day, including weekends.
+- SQLGate - The Most Intelligent IDE for Database www.sqlgate.com
+Looks like a solid SQL IDE.
+- Siri Shortcuts and Screen Time coming to the Mac - 9to5Mac 9to5mac.com
+The Shortcuts app coming to macOS would be a big deal for me. Just a rumor so far though.
+- Follow-up: I found two identical packs of Skittles, among 468 packs with a total of 27,740 Skittles | Possibly Wrong possiblywrong.wordpress.com
+Oh my, I so love the internet sometimes.
+- Explore U.S. National Parks in Google Earth www.blog.google
+Visiting every National Park is something I've thought would be a good retirement activity. Maybe this is an option?
+
+That's the end of More Links.
+
+Now, the Microposts section.
+
+Sunday @ 7:00 PM
+
+Used the Scosche Rhythm+ heart rate monitor for first time today. I liked it on the forearm versus around the chest, and it seemed as accurate as the electrical versions. It does get very sweaty. Happy with it on initial run.
+
+Sunday @ 6:25 PM
+
+New PR for 45 minute spin today!
+
+Saturday @ 8:18 PM
+
+Time to relax and enjoy a fire.
+
+Saturday @ 6:35 PM
+
+First run on the flat top was a success, but will definitely require a few runs to get the hang of it.
+
+Saturday @ 11:23 AM
+
+Ready to do some Flat Top Grilling!
+
+That's the end of Microposts.
+
+Now, the Fortune section.
+
+You've made it all the way to the end! Here is your fortune for this week.
+
+Bridge ahead. Pay troll.
+
+Thank you for subscribing to the Weekly Thing!
+
+That brings us to the end of the Weekly Thing, issue 103. Thanks for listening, and I'll see you next time.

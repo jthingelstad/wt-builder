@@ -1,0 +1,296 @@
+The Weekly Thing, issue 248. Bicycle, Attention, Shapella. Published April 1, twenty twenty three. By Jamie Thingelstad. In this issue: ChatGPT Wolfram superpowers, Twitter dying, S3 eternal service, pause giant AI experiments, Ethereum Shapella, post-GPT world.
+
+Hello there!
+
+I was reflecting today how happy I am that a few years ago I made a conscious decision to change how I engage with news. I shared a bit in Weekly Thing 159 about it, and my approach is largely unchanged.
+
+I have no mobile apps on any of my devices for news. No push notifications. I subscribe to The Economist and The Star Tribune, and nearly all of my engagement with them is via their email newsletters. Limiting engagement to email means it happens on my own terms.
+
+When the news cycle gets really busy I don't get bothered by it. I've created a medium and time-budget to give it, and that stays relatively constant.
+
+Then I get to focus my attention where I want it.
+
+Everyone should choose the news sources they feel are best for them. The part I think is valuable, is being intentional about how and when you engage with those sources. Once a day is just fine.
+
+Hope you are great!
+
+A lot is packed in this week's email… let's roll!
+
+"Love is the only force capable of transforming an enemy to a friend." — Martin Luther King Jr.
+
+Now, the Featured section.
+
+Link one. "ChatGPT Gets Its "Wolfram Superpowers"!—Stephen Wolfram Writings"
+
+A couple months ago I highlighted Wolfram's article suggesting that ChatGPT needed a partner like Wolfram to be able to answer fact based questions. Well now it is real with a plugin!
+
+The examples in this article are incredibly impressive. Particularly the series of conversations to take data, modify it, visualize it, etc. This is all coming from multiple different systems.
+
+Quote.
+One particularly significant thing here is that ChatGPT isn’t just using us to do a "dead-end" operation like show the content of a webpage. Rather, we’re acting much more like a true "brain implant" for ChatGPT—where it asks us things whenever it needs to, and we give responses that it can weave back into whatever it’s doing. It’s rather impressive to see in action. And—although there’s definitely much more polishing to be done—what’s already there goes a long way towards (among other things) giving ChatGPT the ability to deliver accurate, curated knowledge and data—as well as correct, nontrivial computations.
+End quote.
+
+Wolfram goes on in the second half of the post to actually show the data that ChatGPT and Wolfram are handing back and forth. It is amazing stuff. Give this a read, and then read it again. There is a lot to learn here.
+
+Quote.
+One of the great (and, frankly, unexpected) things about ChatGPT is its ability to start from a rough description, and generate from it a polished, finished output—such as an essay, letter, legal document, etc. In the past, one might have tried to achieve this "by hand" by starting with "boilerplate" pieces, then modifying them, "gluing" them together, etc. But ChatGPT has all but made this process obsolete. In effect, it’s "absorbed" a huge range of boilerplate from what it’s "read" on the web, etc.—and now it typically does a good job at seamlessly "adapting it" to what you need. So what about code? In traditional programming languages writing code tends to involve a lot of "boilerplate work"—and in practice many programmers in such languages spend lots of their time building up their programs by copying big slabs of code from the web. But now, suddenly, it seems as if ChatGPT can make much of this obsolete. Because it can effectively put together essentially any kind of boilerplate code automatically—with only a little "human input".
+End quote.
+
+Wolfram Language and how it is allowing ChatGPT and Wolfram to communicate in a completely new way is wild.
+
+Quote.
+ChatGPT + Wolfram is something very new—really a completely new kind of technology. And as happens whenever a new kind of technology arrives, it’s opening up tremendous new opportunities. Some of these we can already begin to to see—but lots of others will emerge over the weeks, months and years to come.
+End quote.
+
+Indeed.
+
+That's the end of Featured.
+
+Now, the Currently section.
+
+Installing: I’m giving Little Snitch Mini a go on all my personal Macs and am liking it so far. It is much easier to use than the non-Mini version and I've loaded one block list to protect privacy.
+
+Watching: Season 3 of Ted Lasso is here and Tammy and I are watching. I'm enjoying the start of the season but am a little bummed out to know this is the final season already.
+
+Listening: I've listened to much more podcasts than I typically do this week. Lex Fridman's interview with MrBeast on the Future of YouTube, Twitter, TikTok, and Instagram was great. We all listened to that, especially since Tyler is the one that introduced MrBeast to all of us. It is a super wide ranging interview and covered a lot of ground. Note, there are plenty of F-bombs in the podcast so not recommending as family appropriate. Your call.
+
+Installing More: I found Zapper which does a really nice job of consolidating activity across multiple wallets and networks in crypto.
+
+Listening More: Then we have OpenAI which is everywhere the last few weeks and Sam Altman did an episode of ‘On With Kara Swisher’: Sam Altman on the GPT-4 Revolution that was really interesting, and then I also listened to his interview with Lex Fridman on the same week Sam Altman on OpenAI CEO on GPT-4, ChatGPT, and the Future of AI. The different interviews cover unique ground and gave a different angle to the things that OpenAI is working on.
+
+Installing Even More: Based on Gruber's thorough article I decided to try out Wavelength and installed it on my phone. It certainly has some interesting features. Possibly it is a better Telegram or Discord? I created a Weekly Thing group if you want to join to experiment.
+
+Listening Even More: Lastly, Bankless: Jim Bianco on the Health of the Global Financial System was a super insightful listen to the banking issues going on recently. Bianco knows his stuff, and is good at clarifying what is happening.
+
+That's the end of Currently.
+
+Now, the Notable section.
+
+Link one. "Twitter is dying | TechCrunch"
+
+I don't think Twitter deserves all the attention it gets. For a niche of people that love immediate feeds (like me), it is incredibly addictive. But to normal folks, it has never made sense. Maybe it is just fine that it dies. Or maybe it is being reborn into something new. Let's just remember Twitter isn't the Internet, nor is any other social media. There is a great wide world out here in your browser. Take a moment to explore that and stop hand wringing about all this garbage.
+
+Link two. "Feedbin: Twitter Access Revoked"
+
+I deleted my social graph on Twitter a while back (unfollowed all accounts), but there were a few accounts of friends that I was still following via the Twitter API in Feedbin. The Feedbin Twitter experience was actually really delightful. It put Twitter Threads together for you, limited distractions, and made it fairly enjoyable without likes and retweets poluting it.
+
+Now that Twitter is a closed platform that is no more. This is the last vestige of a connection I had to Twitter after 18 years.
+
+Link three. "The Government Conspiracy Against Crypto - Marginal REVOLUTION"
+
+My view on the position that we should expect from government regarding crypto is outlined in my post on polarizing technology. I believe that we will see decades of actions to try and fight the power that crypto disrupts.
+
+This is a perfect time for the government to attack. Crypto is still down significantly from highs. Banks are under pressure so there is cover for actions.
+
+Quote.
+A sharply worded whitepaper from law firm Cooper and Kirk accuses regulators at the FDIC and the FED of an illegal and unconstitutional attack on crypto done without cover of law or Congressional approval. Cooper and Kirk are one of the most powerful and influential law firms in Washington. The firm’s attorneys have frequently appeared before the Supreme Court and as of twenty twenty one "six former interns or associates of Cooper and Kirk [were] serving as U.S. Supreme Court clerks." So this broadside isn’t coming from an obscure and unconnected law firm: > Recent stories in the financial press have uncovered a coordinated campaign by prudential bank regulators to drive crypto businesses out of the financial system. Bank regulators have published informal guidance documents that single out cryptocurrency and cryptocurrency customers as a risk to the banking system. Businesses in the cryptocurrency marketplace are losing their bank accounts, or their access to the ACH network, suddenly, and with no explanation from their bankers. The owners and employees of cryptocurrency firms are even having their personal accounts closed without explanation. And over the past two weeks, federal regulators have shut down a solvent bank that was known to be serving the crypto industry and, although it is required to resolve banks through the "least cost resolution" to the Deposit Insurance Fund, the FDIC chose to shutter rather than sell the part of the bank that serves digital asset customers, costing the Fund billions of dollars.
+End quote.
+
+We need to expect this type of skirmish to continue for many years. We still haven't settled on encryption, and crypto is even more complicated.
+
+Link four. "S3 as an Eternal Service - Last Week in AWS Blog"
+
+It is interesting to consider that we are getting to the point where certain technology capabilities are, in a good way, ossified.
+
+Quote.
+I sometimes think about the fact that Amazon S3 effectively has to exist until the heat death of the universe. Many millennia from now, our highly-evolved descendants will probably be making use of an equally highly evolved descendant of S3. It is fun to think about how this would be portrayed in science fiction form, where developers pore through change logs and design documents that predate their great-great-great-great grandparents, and users inherit ancient (yet still useful) S3 buckets, curate the content with great care, and then ensure that their progeny will be equally good stewards for all of the precious data stored within.
+End quote.
+
+I think about this type of capability online more than the average person I suspect. One of the projects I intend to pursue is to somehow position my blog to last for as close to forever as I can. It is a much harder problem than it seems. The crypto stack in Ethereum with IPFS is currently the most promising bet to making it happen.
+
+But it is also interesting to note when stopping change is a good thing. I recently shared in another venue that software with no change, with no backlog, is the same as dead software. But maybe there is another angle too. Software that is sufficiently ossified that it is no longer in need of further change?
+
+Link five. "The Kottke.org Ask Me Anything: Thoughts on AI"
+
+Kottke launched a new Ask Me Anything feature, and got a question on his experiences with AI. He actually used ChatGPT to create the AMA site itself. He goes on…
+
+Quote.
+There have only been a few occasions in my life when I've used or seen some new technology that felt like magic. The first time I wrote and ran a simple BASIC program on a computer. The first time I used the web. The first time using a laptop with wifi. The first time using an iPhone. Programming with ChatGPT over the past few weeks has felt like magic in the same way. While working on these projects with ChatGPT, I can't wait to get out of bed in the morning to pick up where we left off last night (likely too late last night), a feeling I honestly have not consistently felt about work in a long time. I feel giddy. I feel POWERFUL.
+End quote.
+
+Is this a similar inflection point? It seems quite possibly.
+
+Link six. "Pause Giant AI Experiments: An Open Letter - Future of Life Institute"
+
+Interesting to see many big names, including Elon Musk and Steve Wozniak, signing onto this.
+
+Quote.
+Therefore, we call on all AI labs to immediately pause for at least 6 months the training of AI systems more powerful than GPT-4. This pause should be public and verifiable, and include all key actors. If such a pause cannot be enacted quickly, governments should step in and institute a moratorium.
+End quote.
+
+I don't really get what 6 months is going to do. It seems very arbitrary. Everybody just stop for 6 months because then we will know what?
+
+And if they don't, the government should step in? At least some of the folks that have signed onto this have also been advocating the government stay out of crypto for years and that technology doesn't need regulation?
+
+At least be consistent. I don't see the point of this, which isn't to say I don't think there is anything to worry about. One of my favorite bloggers suggests this is purely symbolic and will have no impact. I think he is right.
+
+Link seven. "Bicycle – Bartosz Ciechanowski"
+
+This is an epic illustration of all of the physics involved in riding a bike. It is massive and covers everything from riding positions to contact patches. The really cool thing is the entire article is accompanied with interactive diagrams that help show you the concepts in easy to understand ways. Text books should be this informative! Incredible work.
+
+If this looks familiar, I've linked to three of Ciechanowski's previous similar pages: GPS, Curves and Surfaces, and Cameras and Lenses.
+
+Link eight. "Mainnet Shapella Announcement | Ethereum Foundation Blog"
+
+Ethereum continues to advance. After successfully transitioning to proof-of-stake this next release will allow stakers to withdraw from the staking network. This will be a big milestone and continues to build up the capabilities and quality of the Ethereum ecosystem. Keep building!
+
+Link nine. "Daring Fireball: Wavelength"
+
+This is about the closest thing I've ever seen to Gruber writing an advertisement for a service, but it isn't. I’m not sure I have a need to explore a chat app, but he highlighted some pretty cool innovative features in Wavelength that I wanted to try out. I installed it and created a Weekly Thing group — use this invite link if you are experimenting. Having AI in the chats is an interesting thing too.
+
+Link ten. "PDFGPT.IO - Chat with PDF for quick and easy answers!"
+
+Tool that allows you to upload multiple PDF documents and then ask questions of the contents via ChatGPT. This is a particularly interesting use case. I'd love to see DEVONthink get this kind of capability. Give me an AI per project in DEVONthink.
+
+Link eleven. "Onboarding peer executives. | Irrational Exuberance"
+
+Like much of Larson's writing this is exceptionally well thought out. While intended to be an onboarding tool for a peer, this is a great article to use for yourself to cover the things that are needed as a new executive. Companies don't bring executives in that often, and the positions can be very unique, so the approach to onboarding needs to be different than other positions.
+
+Link twelve. "6 Phases of the Post-GPT World - Daniel Miessler"
+
+Messier takes a run at considering different phases that AI will take on.
+
+Quote.
+1. Companies Become Models/APIs 2. People Become Models/APIs 3. AI Assistants 4. Content Authentication 5. Knowledge Work Replacement 6. The Creativity Explosion
+End quote.
+
+Interesting and thought provoking.
+
+Link thirteen. "Attention is All You Need - Not Boring by Packy McCormick"
+
+Interesting strategic article from McCormick on how OpenAI could position ChatGPT as the "Apex Aggregator".
+
+Quote.
+Most importantly, plugins will turn ChatGPT into one destination for nearly everything: search, discovery, travel planning, restaurant booking, gift shopping, first drafts, research, you name it. Importantly, unlike a traditional platform, through which users can find and download apps, ChatGPT consumes plugins and absorbs their capabilities into the main product. It’s a product as a platform, or a platform as one product.
+End quote.
+
+He positions ChatGPT as a potential disruptor for much of existing consumer businesses. I don't see this as directly obvious as McCormick suggests, but the plug-in capability that OpenAI has introduced certainly makes a space for ChatGPT to go this direction.
+
+Link fourteen. "ChatGPT Gets a Computer – Stratechery by Ben Thompson"
+
+This article is filled with delightful examples of how impactful it is for ChatGPT 4 to use the Wolfram Alpha plugin. The examples before and after are stunning. Honestly it makes me wonder deeply how these plugins work, and how the data interchange happens between ChatGPT and the other systems!
+
+Link fifteen. "HeadshotPro: Professional corporate headshots for remote teams."
+
+This seems super creepy to me but also inevitable and likely to be popular. Instead of actually taking headshots, just upload a few pictures of yourself and let the AI make a headshot for you that never even existed. There are many obvious extensions including team photos for teams that have never been together. Or how about just making up completely non-existent people to have on the team. We are not in Kansas anymore.
+
+Link sixteen. "scrapeghost"
+
+This is mostly an experiment but I find it extremely interesting. This libary allows you to define a target schema in JSON, and then it will have ChatGPT fill the data from a URL into the schema. This is next level scraping and makes me think of all sorts of cool use cases.
+
+Link seventeen. "Chatbase | Train ChatGPT on your data and add it to your website"
+
+I was curious to see how this would do so I created an account and pointed it at my website. It is limited now and will only load 400 URLs, so it is hard to judge how good this would be if I indexed my entire site. It was able to answer questions about our family, preferences, activities we've done, etc. Ultimately it wasn't so good, but it is a hint at a future that is very near. If I have a bot index my entire blog and the thousands of posts, and it has some additional training and verification from me, it could be a pretty incredible way to interact with twenty years of blog data.
+
+Link eighteen. "Using a Hosts File To Make The Internet Not Suck (as much)"
+
+I was a bit surprised when I saw this because it seems like the kind of thing I would have found years ago. Unix machines have a special file called /etc/hosts and you can override DNS resolution with it. This file overrides thousands of hostnames for tracking services to not resolve right. This blocks you from being exposed to them.
+
+The downside of doing this at the DNS level is it is very difficult to know when it is causing problems. I’m using Little Snitch Mini to do the same thing, and am happy to pay a few bucks to have a nice UI and be able to see what it is doing as it filters Internet traffic.
+
+That's the end of Notable.
+
+Now, the Journal section.
+
+Wednesday @ 8:10 PM
+
+Building on Dreams — Avenues for Youth
+
+Tammy and I had a good evening at the tenth Annual Building on Dreams fundraiser for Avenues for Youth. Shayla Reaves was emcee with Katherine Meerse of Avenues giving the main message of the evening, as well as Princess Titus, the Co-Founder of Appetite for Change sharing the impact that Avenues has had. Amazing choral performances from Known MPLS bookended the evening. This organization was new to Tammy and I and we were very impressed with the good work and results they are having. Donate here!
+
+Tuesday @ 6:16 PM
+
+Minnebar 17 StayNftyMpls 612 Series Giveaway
+
+Minnebar 17 is coming up on April twenty second! For the first time ever, there will be Minnebar 17 POAPs given to all attendees, presenters, and organizers. I am excited to share that there will also be a free POAP Raffle in partnership with StayNftyMpls for everyone that collects any of the event POAPs.
+
+StayNftyMpls is a supportive community that shares, celebrates, and encourages the creativity of our community by exploring and leveraging NFTs and blockchain technology. Erik Halaas started StayNftyMpls and launched the 612 Series (also on OpenSea) as its first collection.
+
+The 612 Series highlights landmarks around the Twin Cities area — places that many of us have memories and stories to share about. This is a local project, with local landmarks, from a local artist!
+
+This is all completely free and for fun! And there will be thirty-two winners!
+
+The thirty-two 612 Series collectibles are currently in the raffle.Minnebar.eth wallet. The raffle will draw 32 winners at 4:45pm on Saturday, April twenty second. The winners will be given items from the 612 Series as follows:
+
+1. 113 Al's Breakfast (1 of 2) contributed from thingelstad.eth
+2. 015 Midtown Global Market (1 of 8)
+3. 099 Wells Fargo Center (1 of 8)
+4. 137 Grain Belt Sign (1 of 8)
+5. 244 Foshay Tower (1 of 8)
+6. 277 Goldy (1 of 8)
+7. 368 Capella Tower (1 of 8)
+8. 432 Riverside Plaza (1 of 8)
+9. 437 Gold Medal Building (1 of 8)
+10. 451 Target Headquarters (1 of 8)
+11. 493 IDS Tower (1 of 8)
+12. 609 Northrup Chair (1 of 8)
+13. 197 Campbell Mithun Tower (1 of 9)
+14. 294 Martin Olav Sabo Bridge (1 of 19)
+15. 538 Washington Avenue Bridge (1 of 23)
+16. 346 Basilica (1 of 24)
+17. 473 Lake Nokomis (1 of 24)
+18. 522 Bde Maka Ska (1 of 24)
+19. 564 Lake Hiawatha (1 of 24)
+20. 416 Minnehaha Falls (1 of 25)
+21. 111 35W Bridge (1 of 28)
+22. 207 Lake Harriet (1 of 28)
+23. 396 Lake of the Isles (1 of 28)
+24. 401 Hennepin Ave Bridge (1 of 28)
+25. 555 Cherry and Spoon (1 of 29)
+26. 118 Guthrie (1 of 32)
+27. 212 The Walker (1 of 32)
+28. 275 Stone Arch Bridge (1 of 32)
+29. 299 Lowry Ave Bridge (1 of 32)
+30. 349 Witches Tower (1 of 32)
+31. 509 Lowry Ave Bridge (1 of 32)
+32. 128 MIA (1 of 36)
+
+Once the raffle is completed, each item will be transfered to the respective winners from raffle.Minnebar.eth within three days. No action is required.
+
+Sunday @ 10:11 PM
+
+Tyler has been doing some coding projects and is liking it so I ordered some books to help him along: Coding for Kids: Python and Coding Projects in Scratch. And same as I did with Mazie, sharing my enthusiasm about GTD with Getting Things Done for Teens.
+
+Saturday @ 10:43 PM
+
+We watched Jumanji: Welcome to the Jungle tonight and thought it was really fun. Better movie than I expected. Plenty of good laughs and fun action.
+
+That's the end of the Journal.
+
+Now, the Briefly section.
+
+Link one. "The Legend of Zelda: Tears of the Kingdom – YouTube"
+
+I never run iOS betas because I want to "enjoy" and be suprised by the official versions when they ship. It made me chuckle that Tyler wouldn't watch this video with me because he similarly wants to "enjoy" the game when he plays it first. It looks amazing.
+
+Link two. "We Spoke To The Guy Behind The Viral AI Image Of The Pope"
+
+And so it begins…
+
+Link three. "Photography’s future is software and computation – On my Om"
+
+Totally agree with Om's take on where photography is, and where it is going.
+
+Link four. "Remembering Alex Hay, the Maker of Toolbox Pro, During Automation April - MacStories"
+
+I was an avid user of Toolbox Pro but steered away from it because of a lack of updates. Now I know why the updates slowed down. Stark reminder that people are behind all those things you use on your phone.
+
+Link five. "An Anti-Smartphone With a Rotary Designed and Built by Space Engineer Justine Haupt — Colossal"
+
+How delightful is this.
+
+Link six. "Gordon Moore, Intel Co-Founder, Dies at 94"
+
+Giant in the technology field. Thank you!
+
+That's the end of Briefly.
+
+Now, the Fortune section.
+
+Here is your fortune…
+
+You display the wonderful traits of charm and courtesy.
+
+Thank you for subscribing to the Weekly Thing!
+
+That brings us to the end of the Weekly Thing, issue 248. Thanks for listening, and I'll see you next time.

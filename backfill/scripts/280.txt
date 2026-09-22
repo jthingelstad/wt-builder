@@ -1,0 +1,226 @@
+The Weekly Thing, issue 280. Canvas, Undersea, Documents. Published March 16, twenty twenty four. By Jamie Thingelstad. In this issue: S3 not a filesystem, autogenerating book from iMessages, district heating data centers, Web's 35th birthday, 40 years of programming, better documents.
+
+Good morning!
+
+I hope you've had a great week. Did you celebrate π day? It has become one of my favorite days of the year. A wonderful day to celebrate math and science while having some delicious pie and connecting with friends and colleagues. For twenty twenty four I made my own π day POAP to share.
+
+Pro Tip: create a keyboard expansion for ppi to type the π symbol. On an iPhone go to Settings General Keyboard Text Replacement. Hit the + and create a new expansion. You can copy the π symbol here and use that. While you are there, create another expansion for eme that turns into your personal email address. I use that all the time!
+
+Have a great weekend!
+
+Now, the Notable section.
+
+Link one. "Autogenerating a Book Series From Three Years of iMessages | Ben Kettle"
+
+I love this article. It is really two things: how do you extract your messages from iMessages, and how can you apply some reasonable typesetting to it for print. I have this continuing thought of creating books of each "Year in Links" that I curate. There is some applicable tech here for that.
+
+Link two. "Why I'm Not Going To #InspireInclusion For This Year's International Women's Day | LinkedIn"
+
+I read this whole article and honestly felt like I've been duped by this marketing company that runs internationalwomensday.com. IWD is led by the United Nations. The result this year, competing hashtags, err, objectives. The UN declared Invest in Women and the marketing organization Inspire Inclusion. At least I've learned to go to the UN website going forward.
+
+Link three. "Make better documents. - Anil Dash"
+
+I love Dash's writeup on creating better, high quality documents. So many great pieces of advice here. I particularly resonated with the "Stop Formatting Everything to Death" section. Let the actual content and data show, not the lines and boxes. The animation showing this simplification from Dark Horse Analytics is worth including.
+
+The whole thing is a great read.
+
+Link four. "S3 is files, but not a filesystem"
+
+This is a great dive into how S3 works and crucially how it is different. That extends into what it is truly great at and stuff you should avoid.
+
+Link five. "40 years of programming"
+
+I love this essay sharing experiences from a long career programming. I often say "Technology is a team sport" but I've struggled to get a bite-size explanation of that for those that are still stuck on the hoodie-wearing lone developer in a dark room incapable of communication. This essay isn't bite-sized, but it is a great explainer for the team sport analogy.
+
+Quote.
+It's not enough to know how computers work, how to use programming languages, to know algorithms and data structures, or how to use the varied tools involved in software construction. You also need to know how to talk with other people to learn what software to build, what it must do, how much effort is acceptable, how to manage the work, and many more things. You have know how to work with others to build something together that's bigger than any of you. If you and your team can do it well, it'll be bigger than the sum of you. Team work can be a force multiplier.
+End quote.
+
+There are many great observations here worth reading.
+
+Link six. "District heating: Using data centers to heat communities | All Things Distributed"
+
+Data centers create a lot of heat, and that heat can captured and used productively. Strategic placement of data centers to use wind or water power and redirect the heat waste to productive use is a big deal. There are clear ways to offset the carbon produced by even very large data centers.
+
+Link seven. "Marking the Web’s 35th Birthday: An Open Letter | Tim Berners-Lee"
+
+The Web marked its 35th year and Berners-Lee shared some thoughts on the state of the web. What a miraculous thing the web has been. "It was to be a tool to empower humanity." The fact that I’m writing this on my computer then hitting a few buttons and anyone in the world can read it instantly is certainly empowerment. Ever the engineer though, Berners-Lee hits frames his two primary concerns with his own invention.
+
+Quote.
+There are two clear, connected issues to address. The first is the extent of power concentration, which contradicts the decentralised spirit I originally envisioned. This has segmented the web, with a fight to keep users hooked on one platform to optimise profit through the passive observation of content. This exploitative business model is particularly grave in this year of elections that could unravel political turmoil. Compounding this issue is the second, the personal data market that has exploited people’s time and data with the creation of deep profiles that allow for targeted advertising and ultimately control over the information people are fed.
+End quote.
+
+Centralization and data ownership. I firmly agree with his position on this. I do think there are two movements that are making real progress here. The Indieweb is working hard to bring the web back to a human scale endeavor. There is a small but important revival of the web of old. The other is crypto. The core technology of crypto and blockchain is squarely aligned with decentralization and embodies "a tool to empower humanity" in ways that almost nothing else does.
+
+He wrote a similar note on the thirtieth birthday.
+
+That's the end of Notable.
+
+Now, the Journal section.
+
+Journal entry one.
+
+In recognition of International Women's Day continuing my commitment to empowering all women, particularly in technology and leadership. #IWD2024 #InspireInclusion
+
+See IWD twenty twenty four, twenty twenty one, twenty twenty, twenty twenty @ SPS, and twenty eighteen.
+
+Journal entry two.
+
+Made my first visit to Stogies on Grand in St. Paul to get some cigars for tonight. Great selection and a nice walk-in-humidor. They have a lounge where you can stay and smoke if you purchase the cigar there.
+
+Journal entry three.
+
+Enjoying cigars around the fire with my cousins Josh and Quinn along with Kurt and Dylan.
+
+Journal entry four.
+
+We watched Jumanji: The Next Level tonight -- almost a year after we watched Jumanji: Welcome to the Jungle. It was a fun family movie night. Tyler likes Dwayne Johnson movies.
+
+Journal entry five. Micro.blog Uploads Wish List
+
+I'm a fan of Micro.blog for hosting my website. For me it is a great mix of ease-of-use and powerful capabilities. Manton and team have done a great job enhancing and improving it over the years. However, Uploads is one part of the service that I stumble with and routinely wish it had additional capabilities.
+
+Here is my wish list for Uploads:
+
+- Search by Name: very simply I want to be able to search my uploaded files by name. The use case here is an upload that I found in a blog post and no longer am using. I want to search for it and delete it. Nothing fancy, just basic search by the filename.
+- Navigate by Folders: Micro.blog stores uploads in a folder structure using dates. I’d like to be able to navigate via that structure instead of just seeing one massive tile group in chronological order.
+- Replace Upload: This would be a big one. Sometimes I want to tweak a photo and replace it. Or I find an old blog post with a small image and I’d like to update it with a better picture. I’d love to easily replace the image without changing the URL.
+- Orphaned Uploads: This is an intensive task on the server for sure, but for a variety of reasons related to how importing worked, I realized my blog has hundreds of uploads that are not used. I’d love for Micro.blog to find these orphaned uploads and offer me the ability to delete them individual or in bulk.
+
+I can’t decide if Duplicate Uploads would be a win too. It feels similar to Orphaned Uploads as a bulk task that would run weekly or monthly and prompt the user to do some cleaning up.
+
+These features aren’t gaps for normal day-to-day posting. They mostly show up when I'm doing blog gardening. But having them would be a great add to Micro.blog.
+
+Journal entry six. Grandpa and Grandma
+
+Hanging out with my Cousin Josh the last couple of days brought many stories and remembrances of the farm. Many stories of Grandpa Ardell and Grandma Rose. Typically the stories of Grandpa ended with boisterous laughter and those of Grandma reflected on how kind and generous she was.
+
+They have both been gone for a bit now but their memories are strong in the hearts of their kids, grandkids, and great-grandkids.
+
+Quote.
+“I mean, they say you die twice. One time when you stop breathing and a second time, a bit later on, when somebody says your name for the last time.” -- Banksy (link)
+End quote.
+
+Grandpa and Grandma, your names will be spoken for several decades to come. We miss you.
+
+This picture of Grandpa having lunch in the field over a pickup with my Uncle Tim has been showing up on my Aura Frame lately. It makes me smile. I remember Grandpa out in the fields. His overalls dirty. He was a John Deere man. His personality was as big as those fields he farmed.
+
+Related: Ardell and Rose Chrest’s 50th Anniversary.
+
+Journal entry seven.
+
+Today Gnosis Chain activated the Dencun upgrade before Ethereum. I run a validator on Gnosis and POAP tokens are also issued on Gnosis. Gnosis vision of a multi-chain Ethereum ecosystem makes sense to me.
+
+Journal entry eight.
+
+Today Bitcoin finally broke through the 70,000 dollars resistance it had been bouncing off of for days now and immediately jumped past setting a new all-time high. Ethereum had also been bouncing against 4,000 dollars resistance and went through that. The run-up in price over recent weeks is wild.
+
+Journal entry nine. Lead With Influence: A Proven Process To Lead Without Authority
+
+I’ve met Matt Norman a few times. He is an incredibly outgoing, generous, and nice person that happily shares his insights with others. When he asked me if I would like an early read of his new book Lead With Influence I said yes right away.
+
+Influence is an important topic, particularly in modern organizations that go far beyond a simple hierarchal view of the organization. To get things done, regardless of title and position, you need to influence people and sell them on your ideas. Knowledge work doesn’t happen because you tell someone to do it. Cross-functional teams are the norm and require influence to align around their objectives and achieve success. So, how do you achieve this influence?
+
+This is where Norman’s book comes in. He walks the reader through all of the components of creating influence. He includes many resources in the form of different checklists and mental models to help the reader work through creating influence on their own. This is a book that could easily come with worksheets (or make your own) to help you create a strong case for what you are working to influence in any given situation.
+
+I would recommend this book to knowledge workers that find themselves working in cross-functional teams toward a goal (isn’t this all knowledge workers?). The book is approachable by anyone in business even if you have very little training or experience in these topics.
+
+Journal entry ten.
+
+We had a great π day celebration with TeamSPS today! Many pies and some great Pi Day shirts too!
+
+See Pi Day Collection.
+
+Journal entry eleven.
+
+Tammy's π Day twenty twenty four creations: Bumble Berry, Bailey's Irish Cream Pie, Spinach Pie, Broccoli Cheddar Pie.
+
+See Pi Day Collection.
+
+Journal entry twelve.
+
+Pi Day twenty twenty four cocktail: Shut Your Pie Hole.
+
+See Pi Day Collection.
+
+Weekly Thing Forum
+
+Join Aleksei Drokin, Peter Clark, Patrick Hambek, Barry Hess, Tom Mungavan, and many other Weekly Thing readers in the Weekly Thing Forum. Recent topics include:
+
+- Tron Movies
+- Medovik
+- 277 / Privacy, Scammed, OmniFocus
+- 276 / Contextual, Copilot, Collections
+- 275 / Vision, Sense, Magic
+
+That's the end of the Journal.
+
+Now, the Briefly section.
+
+Link one. "Introducing Effortless Apple Card Imports with YNAB"
+
+We've been YNAB users for years and it uses a service to pull in transactions from the bank. When I added an Apple Card I was bummed there was no way to do that. Now there is an API in the iOS 17.4 that does this on-device. Even better!
+
+Link two. "Minneapolis neighborhood turkey's death embodies challenges of urban wildlife"
+
+The saga of the dead turkey in our neighborhood continues.
+
+Link three. "Novo’s New Weight Loss Drug Is More Effective Than Wegovy In Early Trial"
+
+The first company to make one of the GLP-1 agonists into a pill is creating a money machine.
+
+Link four. "URL parts"
+
+Fun utility to identify all the specifics components of a URL.
+
+Link five. "The end of Airplane.dev | Benjamin Yolken"
+
+There is a strong survivorship bias in startup stories. This one is an example of when it doesn't go so well.
+
+Link six. "Working with Tilt/Shift lenses - phillipreeve.net"
+
+Great explainer on how these lenses work. I had one of these for a while but never understood it well enough.
+
+Link seven. "On POSSE – Manu"
+
+I share many of the same "issues" with POSSE — Publish on your Own Site, Syndicate Everywhere. I do syndicate my blog to BlueSky and Nostr. I’m more likely to syndicate the Weekly Thing.
+
+Link eight. "JSON Canvas — An open file format for infinite canvas data"
+
+I first experienced the canvas format using Obsidian and thought "this sure seems proprietary" and now they have announcement the opening of this format.
+
+Link nine. "Byte-sized Swift: Building Tiny Games for the Playdate"
+
+I've had a Playdate since launch and it is such a cute and fun little device. I found it cool to read how Varma was able to get Swift code to compile and target the device.
+
+Link ten. "Undersea cable failures cause Internet disruptions for multiple African countries"
+
+It is difficult to keep these massive undersea cable spans operating.
+
+Link eleven. "Meta Picks Rosemount for 800 million dollars Data Center | Twin Cities Business"
+
+Facebook is moving in.
+
+That's the end of Briefly.
+
+Now, the Fortune section.
+
+Here is your fortune…
+
+You are the only person to ever get this message.
+
+Thank you for subscribing to the Weekly Thing!
+
+That's the end of Fortune.
+
+Now, the Want to support the Weekly Thing? section.
+
+First — thank you for subscribing and reading. Here are some things you can do that would be great…
+
+- Share Weekly Thing 280 / Canvas, Undersea, Documents with others you know!
+- Post about the Weekly Thing and let others know about it.
+- Join the Weekly Thing Forum and connect with others.
+- Send Bitcoin via Lightning! This will be used to support something good. weeklything@getalby.com
+- Email me comments, feedback, or just to say Hi!
+
+That brings us to the end of the Weekly Thing, issue 280. Thanks for listening, and I'll see you next time.

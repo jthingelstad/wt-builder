@@ -1,0 +1,100 @@
+The Weekly Thing, issue 33. Weekly Thing for December 23, twenty seventeen. Published December 23, twenty seventeen. By Jamie Thingelstad. In this issue: Semisonic at First Ave, Facebook age discrimination, GTD capturing, iOS apps twenty seventeen, Pomodoro productivity, bury the hustle, jo JSON command.
+
+It’s Christmas Eve Eve and we are in the final approach for the big day. There is much excitement to open presents and play, the kids are pretty eager too. We're spending Christmas at the lake which is really nice. It’s quiet and relaxing. We'll make excursions to family on Christmas Eve and Christmas Day as well. A batch of Wassail Tea is ready and I’m on deck to make Glorified Rice and some Jell-O with floating fruit!
+
+I have a suggestion for everyone, one that I’m giving myself as well. Disconnect from the phone. I use Forest and will be trying to plant as many trees as I can over Christmas. You can't use your phone while planting a tree, and yes I see the irony of using an app on your phone to help you to use your phone less. I've removed all social apps from my devices and block all social networks in my browser. It’s amazing how much noise goes away. Have a great holiday with hugs and love love and laughter. Cheers!
+
+Semisonic performing Feeling Strangely Fine in it's entirety at First Ave -- awesome!
+
+Dec 16, twenty seventeen at 9:52 PM
+first Ave, Minneapolis MN
+
+Dozens of Companies Are Using Facebook to Exclude Older… — ProPublica
+
+Glad to see there are folks investigating this type of activity. Wonder what other targeting options are used to filter these opportunities.
+
+Equifinality - Wikipedia
+
+What a delightful word! I didn't know this word and it showed up in a presentation and made the logic-based thinker in me all excited. Now I need to find several places to use this.
+
+GTD Podcast Episode #35 – The Case For Capturing
+
+Capturing is the most basic aspect of GTD and I think sometimes overlooked. This is a very well done talk from David Allen on the important aspects of capture. Plus it’s pretty funny!
+
+My Must-Have iOS Apps, twenty seventeen Edition – MacStories
+
+Huge review of a hundred or more iOS apps from Frederico Viticci. These are worth scanning to me just to discover new applications that I might now know about.
+
+Monitoring FastMail with Prometheus | FastMail Blog
+
+Solid overview of Prometheus and how FastMail uses it. I haven't had any experience with Prometheus but this looks really nice.
+
+AWS re:Invent Videos
+
+This is a great way to find and watch the sessions from AWS re:Invent! Fast search with decent filtering. Easily found the six videos in twenty seventeen at level 300 or 400 about Lambda.
+
+Mehdi Cherti – Improving my productivity using Pomodoro: takeaways after 2 years of practice
+
+Fun to see someone doing some analytics on their productivity system. I've tried Pomodoro and it doesn't work well for what I do. I suspect that is a bit of the maker v. manager schedule issue at play. I also don't know that you should blend GTD and Pomodoro. But, I liked this writeup and like that he used a simple shell script to make it all work. I also like that this is reflecting on two years of data.
+
+Let’s bury the hustle – Signal v. Noise
+
+I couldn't agree more with DHH on his distaste for the term "hustle". When I hear entrepreneurs use that term I cringe. I don't see any positive interpretations. DHH equals it to "the grind". I'd connect it with "to hustle", or "to steal". Hustle to me always implies creating some shell of value, with a rotten core. Build value, don't hustle.
+
+10 years of professional blogging - what I've learned at andrewchen
+
+Great set of recommendations for professional blogging from Andrew Chen.
+
+Once, We Were Explorers – Rhoneisms
+
+What a great piece of writing from Patrick Rhone. I say we continue to explore…
+
+boardgame.io
+
+This is a nifty framework to make multiplayer boardgames in Javascript. The goal of this framework is to allow a game author to essentially translate the rules of a game to a series of simple functions that describe how the game state changes when a particular move is made, and the framework takes care of the rest.
+
+Tips for in-house teams in a free market software culture
+
+Development teams that build software for other development teams often have a unique set of challenges. You know this is happening anytime the services and products you are building are referred to as "tools" or "tooling". The light should go off that you are still building a high quality, well designed product but your user is going to do something very different with it. I've seen this many times and I like some of the suggestions here, and have seen them used effectively. Open Meetings, Workshops and Pairing (across teams!) are great ways to engage with developers-as-users. I've wanted to do bootcamps but haven't put that to use yet. The communications highlights in this article are great callouts the many teams miss when deploying internally.
+
+Facebook admits it poses mental health risk – but says using site more can help | Technology | The Guardian
+
+Facebook acknowledging downsides of addictively using their platform. Studies have repeatedly found that Facebook, Twitter and other social media sites can damage the emotional wellbeing of heavy users, particularly younger people. This seems like tobacco companies putting warnings on cigarettes.
+
+A shell command to create JSON: jo
+
+Oh, I just love this! A small shell command that will create a JSON object? What a perfect embodiment of the Unix philosophy of Do One Thing and Do It Well. This is a super handy utility to place at the end of your shell scripts or to create a solid interface between systems or services. Nifty!
+
+If You Aspire to Be a Great Leader, Be Present
+
+This article hits on an important topic and one that I don't think leaders spend enough time considering. I think people can start to think they are just a logic machine going from one conversation to the other, and that the meta around them isn't relevant. Both are completely wrong. I've known for years for example that if I’m doing an important presentation I will not sit at my computer for at least 10 minutes before. I need to get my brain in a different place. I've actively changed how I mentally approach my 1:1 meetings with team members. Actively managing your own energy and knowing where you are at any given point in time is really important.
+
+Are Men Just 'Babies' When They Get the Flu? Maybe Not – WebMD
+
+Vindication for when I get taken down my a “man cold”!
+
+Why Lightroom CC Is a Big Step Up from Apple’s Photos - TidBITS
+
+I haven't used Lightroom much in the last couple of years but it’s still my go to for power user functionality with photos. Interesting to see Adobe taking a run at a complete rethink of Lightroom. The naming is really confusing, but I might check this out.
+
+Internet Archive is a non-profit library of millions of free books, movies, software, music, websites, and more. I have been a supporter of the Internet Archive for many years and I think their mission is fabulous! The web is a major part of our culture and it the content that we put on it is sadly ephemeral. The Internet Archive is working hard to capture that information and keep it for history. Donate to Internet Archive today!
+
+- You remove all the social apps from your iPhone and you realize it wont fill all your idle moments. At first this makes you angry — damn you, entertain me! Then you realize idle moments are good. Life happens in those idle moments too.
+- Another super fun R/W Book Club meeting tonight! Good conversation about Daemon by Daniel Suarez.
+- Looking up recipes for Christmas, proud Minnesotan moment with this intro on Wikipedia: “Glorified rice is a dessert salad served in Minnesota and other states in the Upper Midwest.” You betcha…
+- Really happy to see micro.blog public release today! I’ve been enjoying micro.blog since the first day of the Kickstarter launch (this is my 574th post!). Amazing work by @manton!
+- Saw Star Wars: The Last Jedi and thought it was great!
+- … when you sit down to do something quick on your computer and you spend 30 mins fixing cable modem issues.
+- Trying to figure out what size rubber grommet I need for my espresso knock box bar. A bit bewildering.
+- Think I might have finally fixed a really annoying Time Machine v. Synology NAS behavior.
+- I love this! #TeamSPS slide to highlight my disdain for pie charts. The exploded slices are a great touch! I’ll stick to pie you eat, thanks.
+- We went to Martina for the first time last night and I was very impressed! The space is great and we got to sit right by the kitchen and watch the woodfire grill being stoked. We started with the Crab Cakes which were amazing. Then we had the Pork Chop Pizzaiola and Fusilli with Lamb Shoulder for the main and both were fabulous. The Panqueque dessert was delicious. The meal didn’t cost an arm and a leg and they even have a kids menu and mocktails, which we will likely try out next time when we bring the whole family.
+- Tammy and I went to see Lady Bird last night. It was really good and I liked it a lot, despite my bias against coming of age stories.
+- Semisonic at First Ave!
+- Excited for tonight’s Semisonic show!
+- Snowy field along the Northstar Train route.
+- Afternoon father-son excursion on the Northstar Train to Big Lake and back.
+
+Thank you for subscribing to the Weekly Thing! If you know of people that would like the Weekly Thing please forward it along!
+
+That brings us to the end of the Weekly Thing, issue 33. Thanks for listening, and I'll see you next time.

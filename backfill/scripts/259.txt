@@ -1,0 +1,346 @@
+The Weekly Thing, issue 259. Vision Pro, Tiny Awards, Mental Liquidity. Published June 18, twenty twenty three. By Jamie Thingelstad. In this issue: Deliberate practice, Apple Vision Pro, MrBeast Willy Wonka, Wolfram Prompt Repository, mental liquidity, dark patterns.
+
+Good morning!
+
+Happy Father's Day to all the Dads reading this! I hope you all have a great day! We are planning to get out in nature and have a hike today as part of our Father's day fun.
+
+So last week I prompted based on the announcement this week, how likely are you to buy an Apple Vision Pro? The results are in, 57 of you responded.
+
+I would put a bit of context on this with just two answers — positive and negative. In that case, 21 responses were positive, yielding a 37% positivity rate. For a new and different product like Vision Pro that seems pretty good.
+
+Now, the Notable section.
+
+Link one. "The Ultimate Deliberate Practice Guide: How to Be the Best"
+
+I read Peak: Secrets from the New Science of Expertise that is all about deliberate practice. This is a good article length summarization of the key points. This is one of those topics that a little bit can go a long way. If you are in a rut with something you practice, consider how to bring "deliberate" aspects into it.
+
+Link two. "Ian Bremmer: The next global superpower isn't who you think | TED Talk"
+
+I follow Bremmer's newsletter on global politics and I think he has some interesting perspectives. This TED talk highlights the role that technology platforms/companies may have as the next superpowers. Bremmer isn't talking about this like Network States driven by people, but instead dominant platforms that control communication. It is interesting to me to extend both of these technology visions out and see how they differentiate.
+
+Link three. "Apple’s threat to delist Damus impacts the V4V community"
+
+Damus is the iOS app I've been using to explore Nostr. One of the brilliant capabilities that Damus and Nostr provide is the ability to send Zaps, small amounts of Bitcoin, to anyone else that is setup. I use Wallet of Satoshi as my Lightning wallet and have sent hundreds of Zaps to people on Nostr. It is like a small "tip" to say "I really dig what you said there", or to welcome or recognize people in other ways.
+
+It seems that Damus has run into the App Store rules and Apple is insisting that the 30% App Store royalty should apply to Zaps. This is a completely wrong read to me. Zaps should be seen like Venmo or PayPal, a direct transfer, person-to-person of value. You aren't buying anything. The author of Damus said that Apple considered sending a Zap like purchasing a digital asset, like buying an NFT. But that is completely wrong, you don't buy anything.
+
+Hopefully this works out the way it should, but Apple is for sure on the wrong side of this one.
+
+Link four. "How MrBeast Became the Willy Wonka of YouTube - The New York Times"
+
+It seems New York Times Magazine has discovered MrBeast!
+
+Quote.
+Donaldson has built a YouTube empire on this kind of quasi philanthropy, in which he crafts spectacles around surprise cash giveaways ("Giving a Random Homeless Man 10,000 dollars"), contests with expensive prizes ("Last to Leave 800,000 dollars Island Keeps It") and other lavish, if not particularly sensible, gifts ("Tipping Waitresses With Real Gold Bars"). The phenomenal popularity of these videos has made him a superstar by any measure and cemented his reputation as a secular saint among the YouTube faithful, but it has also left him open to the criticism that his generosity is more calculated than heartfelt -- another audience-development strategy alongside the garish thumbnails and finely tuned video titles.
+End quote.
+
+This is a decent overview of MrBeast and his continually growing YouTube "empire".
+
+Link five. "Apple Vision Pro: A Watershed Moment for Personal Computing - MacStories"
+
+Viticci with a thorough and very positive review of his experience with the Vision Pro. Viticci is a great reviewer of iOS and particularly the iPad family. He brings that same level of detail to this review. I appreciated that he actually owns and uses a Quest 2, so his perspective is a little more nuanced. I also liked that he is the only reviewer to talk about some of the other experiences like the Mindfulness app.
+
+Link six. "A Developer's View of Vision Pro - David Smith, Independent iOS Developer"
+
+Additional perspective more from a developer view on Vision Pro.
+
+Link seven. "The Three Transitions"
+
+I continue to see a wide range of powerful use cases for Ethereum. With that said, there are a number of technical challenges still in front of Ethereum even with "The Merge" accomplished and complete.
+
+Quote.
+As Ethereum transitions from a young experimental technology into a mature tech stack that is capable of actually bringing an open, global and permissionless experience to average users, there are three major technical transitions that the stack needs to undergo, roughly simultaneously: - The L2 scaling transition - everyone moving to rollups - The wallet security transition - everyone moving to smart contract wallets - The privacy transition - making sure privacy-preserving funds transfers are available, and making sure all of the other gadgets that are being developed (social recovery, identity, reputation) are privacy-preserving
+End quote.
+
+These are all great topics to understand directly how Buterin is thinking about it. The wallet section is particularly interesting to me since I think that wallet improvements is one of the most important unlocks that we need. Wallet development has to prioritize user experience and ease-of-use at some point, even when there is still a tremendous amount of technical work to be done. I also applaud that Buterin repeatedly places privacy as a high priority. Blockchains are necessarily public endeavors, and making sure that we don't abandon privacy with their adoption is very important.
+
+Link eight. "Tiny Awards"
+
+I love this idea so much.
+
+Quote.
+Tiny Awards is a small prize awarded by an equally-small selection committee of online makers to the website which we feel best embodies the idea of a small, playful and heartfelt web.
+End quote.
+
+Keeping the web human-scale, personal, and fun is a worthy effort. Tiny Awards are a great act in that direction.
+
+I hope that this gets legs even further. I would love to be able to sponsor and organize subsets of Tiny Awards. Tiny Awards by City? Tiny Awards for Newsletters? You could do a lot of different versions to highlight all the great stuff done by normal people on the web.
+
+Link nine. "Mental Liquidity · Collab Fund"
+
+Changing your mind should be considered a skill, a practice to be exercised. I find that it is both too easy to make up your mind, and too hard to change it once made up.
+
+Quote.
+Beliefs take effort and investment, and it hurts to realize that there may be limited ROI on your hard-fought convictions. For a lot of things in life – particularly politics, investing, and relationships – people don’t necessarily want the truth; they want certainty. Changing your mind is hard because it’s an admission that the certainty you once thought you held was an illusion. The path of least resistance is to cling to beliefs for dear life. A question I love to ask people is, "What have you changed your mind about in the last decade?" I use "decade" because it pushes you into thinking about big things, not who you think will win the Super Bowl.
+End quote.
+
+This is a great question to consider journaling about.
+
+Quote.
+Be careful what beliefs you let become part of your identity. Religion and politics are contentious because almost by definition your beliefs are part of your identity – you’re not just dealing with ideas and philosophies, but tribes and belonging.
+End quote.
+
+This specific call out is incredibly important to me. It also connects well with the mindfulness concept of keeping your identity small, as small as you can reasonably make it. Changing your mind is nothing compared to changing your identity.
+
+I also think the article misses a key aspect of identity, and that is that marketers have figured out how to slip things into your identity. The callout of politics and religion is valid, but these days nearly anything can be sold to you as a component of your identity. Don't buy it.
+
+Link ten. "What’s the Best Use for Crypto? AI Will Figure It Out - Bloomberg"
+
+The headline is a bit misleading here, the point is that digital money can be used not just by people, but systems and code as well. Smart Contracts can hold and manage money. Bots and AI can have money. Imagine if ChatGPT-4, instead of having a 20 dollars/mo fee, instead required you to send a small amount of Satoshi's via Lightning with every question. It could then provision its own infrastructure and other resources as needed.
+
+Link eleven. "Vision Pro"
+
+Cool technical walk through of visionOS and Vision Pro. Some of the nuggets in here from other sessions at WWDC are interesting. The section on the strategy is interesting to me because it is likely very intentional. Apple has some experience bringing mass markets to new platforms, and I suspect that a key component of that is a healthy blend of new and never-before-seen capability, but also bringing enough of the familiar to allow you to bridge mental concepts over. visionOS use of "apps" and "windows" are examples of that bridge in my mind. They are conceptually easy to understand, in an otherwise completely new and unfamiliar technology.
+
+Link twelve. "Onboarding Antipatterns - D. Caulfield"
+
+It doesn't take a lot to be deliberate and thoughtful with your onboarding process for new team members but it is surprising how many organizations don't put enough thought there. I routinely meet with new team members and always ask about the onboarding experience. One of the things some of our teams have done is make onboarding like normal activities, and give an onboarding epic with multiple stories and tasks in it, so you learn your tools directly in the act of onboarding.
+
+Link thirteen. "Reddark"
+
+This has been an incredible week of protests at Reddit. The decision by Reddit to charge for their API in a way that made the wildly popular Apollo app have to close it doors was greeted to massive protests inside the Reddit community. Many moderators turned their subreddits off by making them private. At one point causing 100's of millions of subreddit users to not be able to contribute to the companies they are part of. This site is tracking these Reddit protests. More recently Reddit has raised the stakes and made many of these subreddits public again against the wishes of the original maintainers. This fight isn't over, but it is a stark reminder that when you build on another companies platform you are never really in control.
+
+Link fourteen. "Redact - Delete Your Social Media Posts"
+
+For years I've used TweetDelete, which as you might guess, deletes my tweets on Twitter when my preferred amount of time has passed. This app is the first desktop application I've seen that does similar, and does it for over 40 different services. You login, and using Redact, you can hide your content. I take issue with them calling this "Delete your digital footprint". We all need to be reminded all the time that none of these companies actually delete your content, they simply hide it. It may still be used for various things, just not displayed on their service. Overall though, I’m glad to see privacy tools being made to help people with constant surveillance.
+
+Link fifteen. "Eastern philosophy says there is no "self." Science agrees - Big Think"
+
+I have read and listened to a good amount of perspectives on the lack of self. This article does a better job in fewer words than much of what I've read does in describing the argument.
+
+Quote.
+Now let’s turn to the East. Buddhism, Taoism, the Advaita Vedanta school of Hinduism, and other schools of Eastern thought have quite a different take on the self, the ego, or "me." They say that this idea of "me" is a fiction, although a very convincing one. Buddhism has a word for this concept — anatta, which is often translated as "no self" — which is one of the most fundamental tenets of Buddhism, if not the most important. This idea sounds radical, even nonsensical, to those who are trained in Western traditions. It seems to contradict our everyday experience, indeed our whole sense of being. But in Buddhism and other schools of Eastern thought, the concept of the self is seen as the result of the thinking mind. The thinking mind reinvents the self from moment to moment such that it in no way resembles the stable coherent self most believe it to be. Put another way, it is the process of thinking that creates the self, rather than there being a self having any independent existence separate from thought. The self is more like a verb than a noun. To take it a step further, the implication is that without thought, the self does not, in fact, exist. In the same way that walking only exists while one is walking, the self only exists while there are thoughts about it. As a neuropsychologist, I can say that in my view, science is just now catching up with what Buddhist, Taoist, and Advaita Vedanta Hinduism have been teaching for over 2,500 years.
+End quote.
+
+It continues to describe how particularly your left brain will create story ad infinitum.
+
+Quote.
+The truth is that your left brain has been interpreting reality for you your whole life, and if you are like most people, you have never understood the full implications of this. This is because we mistake the story of who we think we are for who we truly are.
+End quote.
+
+The acting of thinking invokes the story of the self.
+
+Link sixteen. "Why AI Will Save the World | Andreessen Horowitz"
+
+Andreessen's view here is more overlapping with my own, at least in the outcomes. Many of the reasons he discounts a number of AI risks are similar to mine, and overall I agree that the positive potential of AI is huge, if only to make computers more humane to protect our own humanity!
+
+Quote.
+What AI offers us is the opportunity to profoundly augment human intelligence to make all of these outcomes of intelligence – and many others, from the creation of new medicines to ways to solve climate change to technologies to reach the stars – much, much better from here.
+End quote.
+
+He does address employment as well, which I've thought about again with AI.
+
+Quote.
+To summarize, technology empowers people to be more productive. This causes the prices for existing goods and services to fall, and for wages to rise. This in turn causes economic growth and job growth, while motivating the creation of new jobs and new industries. If a market economy is allowed to function normally and if technology is allowed to be introduced freely, this is a perpetual upward cycle that never ends. For, as Milton Friedman observed, "Human wants and needs are endless" – we always want more than we have. A technology-infused market economy is the way we get closer to delivering everything everyone could conceivably want, but never all the way there. And that is why technology doesn’t destroy jobs and never will.
+End quote.
+
+His argument is good, and I think represents our experiences thus far. I added the bolding at the end, because I think "past performance isn't a guarantee of future performance". Certainly there are types and amounts of technology innovation that does just as he describes. But ultimately you're playing to Limit Theory games — infinite need and desire, infinite technology leverage. Are they both infinite? Are they both guaranteed to be dependent and timed together? One has external needs like energy and atoms, the other is originated in our minds.
+
+Link seventeen. "Prompts for Work and Play: Launching the Wolfram Prompt Repository—Stephen Wolfram Writings"
+
+I've been dismissive of the idea that "prompt engineering" is a new job with any staying power, however the concept of prompt engineering is relevant, at least for now, and this repository looks like a first of its kind.
+
+Quote.
+LLMs are powerful things. And one might wonder why, if one has a description for a prompt, one can’t just use that description directly, rather than having to store a prewritten prompt. Well, sometimes just using the description will indeed work fine. But often it won’t. Sometimes that’s because one needs to clarify further what one wants. Sometimes it’s because there are not-immediately-obvious corner cases to cover. And sometimes there’s just a certain amount of "LLM wrangling" to be done. And this all adds up to the need to do at least some "prompt engineering" on almost any prompt.
+End quote.
+
+The examples are great to show what this does.
+
+Link eighteen. "How companies use dark patterns to keep you subscribed"
+
+I do a lot of unsubscribing and it is surprising to me how nefarious and deceptive companies, in many cases very well regarded organizations, are in the process. All of a sudden they turn all the user experience expertise they have 180 degrees the other way and make it as difficult as possible to successfully engage with them.
+
+That's the end of Notable.
+
+Now, the Journal section.
+
+Thursday @ 10:04 PM
+
+We went to An American Tail: The Musical at the Children's Theatre tonight. It was a great performance. Wonderful songs, and a great story to add to it.
+
+Wednesday @ 11:00 PM
+
+Mazie's Surprise Carnival
+
+To celebrate Mazie's eighteenth birthday and graduating from high school Tammy had a brilliant idea — surprise Mazie with a Carnival! Set up several games to play and earn tickets to put toward prizes, along with three raffles! Ring Toss, Bean Bags, Musical Chairs, Duck Pick, and more. Add to that a giant bouncy house, photo booth, an Ice Cream truck with all the fixings, airbrush tattoos and balloon artist and you have an awesome time for all! The secret held too — Mazie had no idea what was up. We left for a long picnic at Lake Harriet at 4pm and when we returned to a giant SURPRISE at 7pm it was the greatest!
+
+Wednesday @ 6:15 PM
+
+Mazie Turns 18
+
+Today we celebrated Mazie's eighteenth Birthday! Both of the kids are out of school, and I took the day off, so we were able to make the day extra special for Mazie.
+
+Tammy had the awesome idea of reliving each of Mazie's 17 preceding birthdays! She wrote out a brief remembrance of each birthday event, along with a few photos from that year. Some of the years also revisited a gift she got from that year. It was awesome.
+
+Highlights of the day included a morning visit to Shady Oak Beach, lunch at Yum! for her kid favorite of Mac and Cheese, a revisit of an Escape Room that she did a few years ago with friends on her birthday, a new version of the Instax instant camera, and much more.
+
+It was an incredible day with incredible memories — old and new!
+
+Wednesday @ 8:02 AM
+
+Bison are one of my favorite animals, and I learned something new about them today. When a storm is approaching Bison, unlike nearly all other animals, will gather as a herd and charge toward the storm. They protect each other in numbers and push through the storm directly.
+
+Monday @ 9:56 PM
+
+London Welcoming Crypto?
+
+You may not be a fan of a16z (Andreessen Horowitz). You may not be a fan of crypto. But pushing fintech innovation outside of the United States is not a good idea. The movements by regulators against crypto have much more to do with protecting power and marketing than they do about protecting consumers. See my post from Dec twenty twenty two on Polarizing Technology.
+
+Quote.
+Andreessen Horowitz, an American venture-capital firm, will open its first international office in London. The branch will focus on investments in crypto and blockchain startups. The firm believes that Britain's government is more hospitable towards cryptocurrency. Regulators in America have clamped down on big crypto companies recently. — Economist Espresso, June 12, twenty twenty three
+End quote.
+
+Also, inside the crypto community it is disheartening to see some in the Bitcoin community in effect supporting these moves. Bitcoin isn't somehow immune on this, it is just the biggest and most widely-held of crypto. Regulators will try to undermine smaller ecosystems first.
+
+Monday @ 9:32 PM
+
+Mazie's High School Graduation today! It's official!
+
+Sunday @ 9:30 PM
+
+We went to Guardians of the Galaxy Vol. 3 tonight. Enjoyed it a lot.
+
+Sunday @ 5:05 PM
+
+Pretty awesome spot to hang out!
+
+Sunday @ 4:07 PM
+
+Lucky thinks she is an 80 pound lap dog!?
+
+Sunday @ 8:19 AM
+
+Beyond the Light by Layne Kennedy
+
+My friend Layne Kennedy launched a Kickstarter for his new book Beyond the Light. I met Layne when Tammy signed me up for a Dog Sledding Photography workshop in two thousand nine. Layne is an incredible photographer, creator, and teacher.
+
+Quote.
+They speak to us about the power of connection, the place of beauty in our lives, and the strength that comes from deep within us all. They go beyond the light,. That is why, after 40 years of searching out these images, wherever they are found - from my own backyard to locations across the world - I am bringing a curated collection of these photographs and the stories behind them, together in a new, high-quality collector's edition book; BEYOND THE LIGHT: The Stories Behind The Photographs.
+End quote.
+
+I still routinely hear Layne's words when I look through the viewfinder.
+
+"Every photo tells a story. What is the story you are telling?"
+
+True for many things beyond photography too…
+
+The Kickstarter is just 1,000 dollars away from the funding goal!
+
+Sunday @ 8:14 AM
+
+I had wished for a micro.blog plugin for NIP-05 Verification and then I realized there are many things that use Well-Known URI including NIP-05 Verification and Lightning. Maybe a micro.blog plugin to create Well-Known endpoints would be better? Could have templates for services.
+
+Sunday @ 7:50 AM
+
+Surveillance in URLs
+
+The Uniform Resource Locator is the glue of the web. Mostly we don't think about URLs unless you create content on the web. Some browsers have even started to "simplify" the URL display worried that people might get confused. Or are they hiding it on purpose? URLs are however, a place where you can be tracked and surveilled right in the open. There are a myriad of ways to make URLs completely unique so that you are the only person in the universe that has it and whoever created that link can specifically know that you, or someone you shared it with, clicked on it. They also know when, where, and on what device. Every time.
+
+I don't think that is acceptable.
+
+I curate and collect URLs and am always on the lookout for tracking information in them. It is usually easy to spot and remove. I got really excited when I saw that iOS 17 automatically removes tracking parameters from links. Unfortunately the feature is far too limited. It is nice that it works in a variety of applications, including Mail. However it only removes the unique tracking, and doesn't get rid of the rest of the surveillance. And it only activates in Safari Private Browsing mode.
+
+This is what URL surveillance looks like from a link I recently received from a friend. The link itself was a slight 28 characters. The surveillance was 302 characters. Over 90% of the information in the URL was to surveil and track the users of the link. I've changed the specifics so this isn't a valid link, but here is what it looks like split onto multiple lines for readability.
+
+?utm_source=Instagram_Stories
+and utm_medium=ad_story_smartly
+and utm_campaign=123456_msp
+and ad_id=123456789012
+and utm_term=987654321098765
+and fbclid=PAAaZnG…5kyWFFJ
+
+The person that sent me this got it from Instagram, apparently in an Instagram Story. They were advertised with a utm_campaign focusing on "msp", our nearest airport code. The creepiest parameter is fbclid which specifically identifies the click event for this paid content and will track the specific link of humans that this goes through. Letting the originator know that my friend also shared it with other people, and all of their metadata too.
+
+The good news is you can just delete everything after the? and it works great. Which is the thing I do a lot. A truly privacy aligned feature for a browser would be to strip all URLs of all surveillance parameters. There is a corollary too. Browsers that hide URL parameters are assisting in the surveillance of users.
+
+As a user, you can significantly improve your privacy and fight surveillance by being aware of the tracking parameters placed routinely in URLs and removing them. Remove it before you share it. Remove it before you create a bookmark. You often can just delete anything after the?. Doing this helps your privacy, and helps protect the privacy of those you send links to.
+
+Saturday @ 10:46 AM
+
+Boat Day! Got the pontoon in the water. Annual voyage up Cannon River to Wells Lake and finally Cannon Lake. First time after Memorial Day.
+
+Saturday @ 7:55 AM
+
+Bitcoin Lightning makes the majority of the micropayment models that have been envisioned for the last two decades possible today. Instant, nearly free, person-to-person digital transactions — and the usability is reasonable even at this early stage. thingelstad@walletofsatoshi.com
+
+Saturday @ 7:48 AM
+
+Quiet weekend mornings on the deck enjoying a fresh cup of coffee and relaxing with Lucky are delightful.
+
+Friday @ 10:17 PM
+
+I added a bit of metadata to my website to enable Bitcoin Lightning "tips". One line to indicate my Lightning address.
+
+In Chrome, with the Alby Extension you can easily send Satoshis.
+
+Friday @ 10:15 PM
+
+Quote.
+"I don't know what kind of carnage I inflicted in a past life to deserve it. I must have been Dracula or a spin instructor." — David, Schitt's Creek S4 E7
+End quote.
+
+This made me LOL.
+
+Friday @ 8:55 PM
+
+I got a Sonos Move to add to my system and have a portable speaker that still has high audio quality. Happy with initial results! Sound quality is great. Heavy but I like that it is very stable. Might be nice to have a second.
+
+That's the end of the Journal.
+
+Now, the Briefly section.
+
+Link one. "Leadership Development is About One Thing We Often Miss - Leadership Freak"
+
+Important questions to ask ourselves, leader or not.
+
+Link two. "The 9 Best ChatGPT Plugins You Can Try Right Now"
+
+Some of the early plugins to extend ChatGPT functionality.
+
+Link three. "This is valid Python syntax by Nobody has time for Python"
+
+Every language has a version of this kind of post. These should never show up in real code, but it is still fun to see and giggle at.
+
+Link four. "AsyncIO | charles leifer"
+
+Pretty deep article about the tradeoffs of asynchronous execution models.
+
+Link five. "Age of AI: Everything you need to know about artificial intelligence | TechCrunch"
+
+I've been giving some talks on the fundamentals of AI. This article is like an upgraded version of those talks. Great overview of the foundational components, what various companies are doing, etc.
+
+Link six. "Apple’s Messi Vision. Which is decidedly not messy, and… | 500ish"
+
+The greatest soccer player in the world is coming to Major League Soccer and playing for Inter Miami — and Apple was part of making the deal happen.
+
+Link seven. "Jony Ive and Anna Wintour in Conversation - RE:WIRED twenty twenty one: Designing for the Future We Want to Inhabit - YouTube"
+
+This interview is a couple years old, but I greatly enjoyed listening to Ive talk about the creative process and the work that he was part of.
+
+Link eight. "David Foster Wallace "This is Water." - YouTube"
+
+This speech from David Foster Wallace is great and I recently listened to it again. if you haven't heard the full version of this it is worth a listen.
+
+Link nine. "Botsonic: Custom Train ChatGPT On Your Knowledge Base Data"
+
+Simple service to pull your data into a ChatGPT training set and make it accessible to your users.
+
+Link ten. "BoltRing - Bitcoin Lightning NFC Contactless Wearable Payment Ring"
+
+This seems like a gimmick, but a fun one nonetheless. I already have a Smart Ring so don't have a finger for a Lightning ring.
+
+Link eleven. "iOS 17 automatically removes tracking parameters from links you click on - 9to5Mac"
+
+Step in the right direction but not enough. More is required to fight surveillance in URLs.
+
+That's the end of Briefly.
+
+Now, the Signature section.
+
+"Weekly Thing #259 / Vision Pro, Tiny Awards, Mental Liquidity" is signed…
+
+Fortune
+
+You single-handedly fought your way into this hopeless mess.
+
+That brings us to the end of the Weekly Thing, issue 259. Thanks for listening, and I'll see you next time.

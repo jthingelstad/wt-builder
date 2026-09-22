@@ -1,0 +1,218 @@
+The Weekly Thing, issue 315. Innovation, Yak, Calligraphr. Published March 30, twenty twenty five. By Jamie Thingelstad. In this issue: Kagi search innovation, frontend treadmill, Cloudflare AI maze, bigscreen, deleting 23andMe data, Safari privacy, 4o image generation.
+
+Shifting sands of technology from search engine monopolies to virtual reality breakthroughs and privacy challenges.
+
+Good morning!
+
+I hope your weekend has been wonderful.
+
+We're traveling this coming week for Spring Break. It is a special year where schedules align and it is time to visit a beach.
+
+There will be no Weekly Thing next week. I’m going to curate the sand and views instead of articles and links.
+
+I’ll be back in your inbox the following week!
+
+Now, the Notable section.
+
+Link one. "Dawn of a new era in Search: Balancing innovation, competition, and public good | Kagi Blog"
+
+First, I’m a paying subscriber of Kagi and like it. I switched to them when Neeva went out of business. Before that I used DuckDuckGo. Using a paid search platform, for me, just feels so much better. I trust the results and don't get tons of "promoted" links thrown at me. Search, like email, is now in my category of things I believe you should pay for.
+
+This article from Kagi is thoughtful and an interesting take on thinking about Google's monopoly, and how it could be addressed. The idea of opening up the search index is incredible to me.
+
+Quote.
+The Search Index is the core engine that drives the search flow and generates results pertinent to the user. If we want different search products (the search page) to flourish and different business models for search products to flourish, we should consider separating the Search Index from the other two indexes and make the Search Index available to competitors. This will drive enormous innovation and free competitors to pursue different business models. The innovation on presenting results to users can center around different ranking criteria, different business models, and different user controls on the data they see. Since search is a critical but essential resource for all users, the solution that can be considered is allowing fair access to the Search Index or take it a step further into known precedents, consider treating the Search Index as an "Essential Facility".
+End quote.
+
+I also love that this approach could have an end too. If Google's share dropped to some level, perhaps they don't need to share this? Or maybe any search company with greater than a certain market share is required to make their search index accessible.
+
+It is our data after all. They do the work of storing it and indexing it. But having it available for others to build off of would create so much innovation. When was the last time Google truly innovated in search?
+
+Also see Kagi is a better search engine than Google — but it costs 10 dollars a month.
+
+Link two. "The Frontend Treadmill - These Yaks Ain’t Gonna Shave Themselves"
+
+Technology moves and evolves quickly, but there is probably no part of technology that changes as much as frontend frameworks for web applications. If you go on a long vacation you might find everything has changed. The downsides of this are real. Product teams spend a lot of time moving from one to another.
+
+Quote.
+If your product is still around in 5 years, you're doing great and you should feel successful. But guess what? Whatever framework you choose will be obsolete in 5 years. That's just how the frontend community has been operating, and I don't expect it to change soon. Even the popular frameworks that are still around are completely different. Because change is the name of the game. So they're gonna rewrite their shit too and just give it a new version number. Product teams that are smart are getting off the treadmill. Whatever framework you currently have, start investing in getting to know it deeply. Learn the tools until they are not an impediment to your progress. That's the only option. Replacing it with a shiny new tool is a trap.
+End quote.
+
+I've had my own teams spend a lot of time migrating from X to Y. There is always a good reason to make these changes. They improve something. But you also know you're never really done.
+
+The article makes a good point that the learnings here are too abstracted up the stack. As a developer it encourages that you work closer to the browser itself. Use less abstraction. I guess that means you would also own more of the stack? That is also a tough tradeoff.
+
+As a CTO, I might actually just pick the middle. Use a simple framework. Knowingly plan to use it well past its market "cool factor" is over. Five or six years. Wait until the product needs evolve to the point where you need to reconsider the front end experience, and use that change event to jump forward. Some attempt to thread the needle on not reinventing all the time, but also not building a ton of abstract framework code that slows you down.
+
+But then a security issue will pop up and call your bluff.
+
+Link three. "Cloudflare turns AI against itself with endless maze of irrelevant facts - Ars Technica"
+
+In general folks don't believe you should write viruses that attack other viruses. The ethics being don't run unknown software on someones device even if it is attempting to do a good thing. There's also the tactic of running 'honeypots,' servers that are configured in a way to attract bad actors and then use those actions to label them or possibly block them. Is this new thing from Cloudflare running software without permission? No. Is it a honeypot? Hmm, not really? It might be closest to that. Is this a good idea? I’m on the fence, but I’m also less hostile to AI agents indexing my website. Here is the announcement from Cloudflare.
+
+Link four. "bigscreen"
+
+This hardware looks like an incredible VR device. My current POV on visionOS is that it is working to figure out the software platform while the hardware continues to get settled. But will VR stuff like this be good enough to beat see through glasses with augmentation that give you the real-world for free? The demo video here is pretty impressive.
+
+Link five. "How to delete for 23andMe data and Test Sample – On my Om – Daily Blog"
+
+This seems like yet another example of why we need comprehensive privacy legislation in the United States? Be aware that if you used 23andMe you should immediately go and delete your data. This article has instructions. But in general it is ridiculous that someone can buy them and then have all that data without needing to even get the consent of the people that submitted it!
+
+Link six. "Achieving Great Privacy with Safari | Matan Abudy"
+
+There are a number of reasons I run Safari but one of them is the software stack to protect privacy. I use 1Blocker but when I ran that through this lovely testing site I found my setup is only getting 24%! The recommended configuration here gets 96%. A huge improvement. Going to make a note to explore this configuration more for my own use.
+
+Link seven. "Introducing 4o Image Generation | OpenAI"
+
+This new image generation from OpenAI is a huge upgrade. DALL-E was an interesting toy, but it struggled to do anything that was all that useful. And its inability to deal with text at all was a huge issue for many of my use cases. Using 4o with some of my tests has been incredible. I've had it make some POAP images and the text was spot on and it understood the visual need much better. This is worth giving a serious look.
+
+That's the end of Notable.
+
+Now, the Journal section.
+
+Journal entry one.
+
+The pizza at Boludo is so incredible. Delicious and unique!
+
+Journal entry two.
+
+Today’s United v. LA Galaxy game was surprisingly nice for March soccer in Minnesota! We had bright sun and were actually warm. My friends Jim, Alex, and Quinn joined me. We got a tie out of the game and it was close the whole time.
+
+Journal entry three.
+
+The new metal Loon sculpture at Allianz Field is impressive in person. Cool addition to the stadium.
+
+Journal entry four.
+
+The LLM functions I’ve built for the Weekly Thing have worked really well. So well in fact that I’m redoing my Shortcuts to move from simple calls to the ChatGPT app to using the OpenAI API directly. This has the added benefit of additional fine tuning including optimized system messages.
+
+Journal entry five.
+
+LEGO and Pokémon announced that they are launching a multi-year partnership in twenty twenty six. This is going to mint an incredible amount of revenue for both companies. Consider how many of these sets will be bought and never even opened for collectors.
+
+Journal entry six.
+
+Months ago when I signed up to host the April IndieWeb Carnival I thought it was a great idea and now I’m finding myself atypically anxious about choosing a good topic!
+
+Journal entry seven.
+
+I would like to create blog posts from some workouts. It seems like something that Shortcuts should make possible but I've not seen anything to make it easier to do. Is anyone familiar with something that does this? I'd like a map and statistics in the posts.
+
+Journal entry eight.
+
+Finished 3.89 mile walk in 77.4 minutes (19.9 min/mile).
+
+Journal entry nine.
+
+I’m super excited to see Ben Edwards @alttext now on micro.blog! Ben has a done a bunch but in my mind he’s always one of the folks that got minnestar off the ground. He was emailing me over the weekend about blogging stuff -- I think you’re gonna like it Ben! Picture from Minnebar two thousand nine.
+
+Journal entry ten.
+
+I’m very happy with these Ukrainian Tryzub Trident pins that I ordered from ShopUA 1000. Made in Ukraine.
+
+Journal entry eleven.
+
+Finished 3.91 mile walk in 77 minutes (19.7 min/mile).
+
+Journal entry twelve.
+
+Finished 1.51 mile walk in 42.1 minutes (27.88 min/mile). Casual walk this evening. Was just too nice out to not go outside. Brought Lucky along and she reminded us how crazy she is around other dogs.
+
+Journal entry thirteen.
+
+Got my tickets to Minnebar 19! Tyler and I are both going. I’m planning on doing a session this year as well. More to come!
+
+Journal entry fourteen.
+
+I signed up to run a session at Minnebar 19! I’m going to host How to Newsletter: Lessons from 300 issues of the Weekly Thing. I had originally planned do this at Minnebar 17 but had to cancel. I’m looking forward to going deep and broad on how I do all this! Come if you are in Minneapolis!
+
+Journal entry fifteen. Renewal — IndieWeb Carnival
+
+When I signed up to host this IndieWeb Carnival it was several months in the future and I thought it would be simple to put a theme together and run the carnival. As it approached I started to feel like the theme I had in mind wasn’t a theme but more a topic and wasn’t going to be big enough for a whole carnival. I explored a bunch of avenues for different options and wasn’t finding anything I loved.
+
+I decided to ask the family over dinner. They had no idea what a blog carnival is, but that is fine. Right away Tammy suggested Renewal. For those of us in the Northern Hemisphere it is Spring and it has that feeling of renewal. As we rolled it around more I liked it more. It is April, it is Spring, and it is a time of renewal.
+
+The theme of renewal resonated with me because it can apply to so many things. Renewal could happen in a day or a year. It could apply to your relationships, yourself, your digital world, whatever you want. We can point a desire for renewal anywhere we like.
+
+- We can renew the bonds of our most treasured and intimate relationships.
+- Connecting more with friends and family renews those relationships.
+- Watching the plants come to life after a long winter sparks thought of renewal.
+- I think after decades of commercialized and surveilled social networks on the web it is time for a renewed focus on writing, publishing, and people.
+
+Do you have a story of renewal to share? Is there a need for renewal that you see and a way to make that happen? How do you approach renewal?
+
+Everyone and anyone is welcome to participate in this IndieWeb Carnival. Share your stories of renewal and send a webmention to this page and email me to submit your posts. I will share a list of all posts!
+
+Journal entry sixteen.
+
+Digging the Challenge Coin that I received from @mtt today. Thank you! Pictured here alongside another challenge coin I got from Elwin Loomis. Someday I’m going to mint my own!
+
+That's the end of the Journal.
+
+Now, the Briefly section.
+
+Link one. "OpenAI.fm"
+
+Great little tool to play with the newest voice capabilities from OpenAI.
+
+Link two. "Xenographics – Weird but (sometimes) useful charts"
+
+Delightful assortment of fairly edge case charts.
+
+Link three. "Understanding Solar Energy - Brian Potter"
+
+This progress in solar is incredible!
+
+Link four. "Deliberate Practice for Developers"
+
+Ways to get better at the craft.
+
+Link five. "BYD's 1,000V Super E-Platform offers charging 400km in 5 minutes"
+
+This is incredible charging performance for an electric car. You're now getting in the range where this is about the same as adding gas to your car.
+
+Link six. "Handling billions of invocations – best practices from AWS Lambda | AWS Compute Blog"
+
+Lambda is amazing for building cloud scale applications, but what to do when the demands of your application are beyond fundamental cloud account limits?
+
+Link seven. "The Trump Administration Accidentally Texted Me Its War Plans - The Atlantic"
+
+What an incredible article. Don't miss the follow-up with the full not-classified messages. Gift links!
+
+Link eight. "Bijan on the blog again – On my Om"
+
+Warms my heart when big name folks get their blog on instead of writing on one of the surveillance networks. I added Bijan to Feedbin!
+
+Link nine. "Micro.blog expanding photo servers in Europe"
+
+I was excited to see Manton roll out this smart new feature for micro.blog. He also announced blog server in Europe. Maybe the next step will give the option to have your blog on both and route the user to the fastest location? I know from updown.io that my site is 2-3 times slower in Europe than North America.
+
+Link ten. "Stoop Coffee: How a Simple Idea Transformed My Neighborhood"
+
+I’m lucky enough to live in a neighborhood that has some ceremonies and connection. I liked this article's "how to" to make that happen.
+
+Link eleven. "Calligraphr - Draw your own fonts"
+
+When I saw this I immediately wanted to use my handwriting and make a custom font for my website.
+
+Link twelve. "Silk"
+
+These web effects are remarkably similar to the native mobile equivalents.
+
+Link thirteen. "The Resistor Network: Thinking Different, Thinking Slowly: LLMs on a PowerPC Mac"
+
+This was a fun trip back remembering the PowerPC Macs that I had back in the day.
+
+That's the end of Briefly.
+
+Now, the Fortune section.
+
+Here is your fortune…
+
+Shave the yak, ride the frontend wave!
+
+- Join the private Weekly Thing Forum
+- r/WeeklyThing on Reddit
+- Sign the Weekly Thing Guestbook
+
+That brings us to the end of the Weekly Thing, issue 315. Thanks for listening, and I'll see you next time.

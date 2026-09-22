@@ -1,0 +1,186 @@
+The Weekly Thing, issue 101. Apr 13, twenty nineteen. Published April 13, twenty nineteen. By Jamie Thingelstad. In this issue: Linus Torvalds interview, Apple credit card design, Stack Overflow developer survey, second-order thinking, Warp mobile security, data ownership.
+
+I’m wrapping up four weeks of travel and I’m pretty excited to get home and rest up a bit. All of it has been great, both business as well as our vacation sliced into the middle, but you never truly relax on the road and I’m definitely feeling it. I’m unusually excited to have a weekend to kick back a bit, and get some solid sleep in my own bed. I think I’ll get a haircut too. I’m also happy to say that I’m actually missing my Peloton spin bike. I’m looking forward to getting a couple of classes in this weekend.
+
+I spent the last week in Ukraine visiting our team there. While there I got to spend a half-day walking from team to team and seeing demos of some of the newest things they were building. I absolutely love doing this. Seeing working software come into existence is an absolute delight. It’s also a great time to engage in the how and why things were architected in certain ways. This was like a delicious desert at the end of a good meal.
+
+Kiev continues to grow like crazy. I should really track the length of time it takes to drive from the airport to the hotel as a metric of the cities growth. It took about an hour this time. Everywhere you look there are cranes putting up new buildings. It really is a huge juxtaposition from the view that we get from media coverage of Ukraine, which sounds full of conflict with Russia. That is certainly real, but the forward momentum of the economy and city seems unabated by that.
+
+Now, the Featured Links section.
+
+Link one. "25 Years Later: Interview with Linus Torvalds | Linux Journal"
+
+Enjoyable article with the Linus, the creator of Linux. His comment on the difficulty of building a kernel was interesting to me.
+
+I've also come to realize that making a new operating system is just way harder than I ever thought. It really takes a lot of effort by a lot of people, and the strength of Linux—and open source in general, of course—is very much that you can build on top of the effort of all those other people.
+
+So unless there is some absolutely enormous shift in the computing landscape, I think Linux will be doing quite well another quarter century from now. Not because of any particular detail of the code itself, but simply fundamentally, because of the development model and the problem space.
+
+It’s very possible that the kernel space gets “solved” with Linux, and that for the foreseeable future that is what runs that layer of computing. The innovation is always moving further up the technology stack. I also noted that he, like many that have thought hard about it, is not a fan of social media.
+
+I absolutely detest modern "social media"—Twitter, Facebook, Instagram. It's a disease. It seems to encourage bad behavior.
+
+[...] The whole "liking" and "sharing" model is just garbage. There is no effort and no quality control. In fact, it's all geared to the reverse of quality control, with lowest common denominator targets, and click-bait, and things designed to generate an emotional response, often one of moral outrage.
+
+Agree.
+
+Link two. "Apple Plus - brand versus subscription — Benedict Evans"
+
+This is a super interesting way to look at the evolving business model of one of the giants of the tech industry.
+
+The old Apple promise was that you don't have to worry if the tech works. The new promise is you don't have to worry if the tech is scamming you.
+
+I find this interesting about Apple, but it’s also just an interesting space to watch as one of the largest technology companies in the world transitions a significant part of their business.
+
+That's the end of Featured Links.
+
+Now, the My Weekly Photo section.
+
+View of Kiev, Ukraine.
+Apr 9, twenty nineteen at 9:42 AM
+75 Zhylianska Street, Kiev, Ukraine
+
+That's the end of My Weekly Photo.
+
+Now, the Notable Links section.
+
+Link one. "Stack Overflow Developer Survey twenty nineteen"
+
+There is so much data here that it’s hard to even navigate it all. I would be cautious since the selection process isn’t controlled, so, the data could have a lot of unknown bias based on that. However, there are enough respondents that it is absolutely valid for many things and certainly good for spotting trends.
+
+Link two. "10 questions I wish I’d asked more to turbocharge my career"
+
+Good questions for 1:1 sessions with people that you work with or want to learn from. The book sounds like it could be interesting too.
+
+Link three. "Second-Order Thinking: What Smart People Use to Outperform"
+
+In general, think through decisions to the longer impact.
+
+A lot of extraordinary things in life are the result of things that are first-order negative, second order positive. So just because things look like they have no immediate payoff, doesn’t mean that’s the case. All it means is that you’ll have less competition if the second and third order consequences are positive because everyone who thinks at the first order won’t think things through.
+
+Link four. "The Design of Apple's Credit Card"
+
+This is definitely going to be a fun card to check out.
+
+This level of obsession with the details is nearly expected from Apple. It’s an obsession that requires taste, wealth, expertise and an extensive supply chain, a combination unique to Apple.
+
+I honestly didn’t expect this much design to go into the physical card.
+
+Link five. "The Top 0.5% Underpay 50 billion dollars a Year In Taxes and Crushed the IRS Plan to Stop Them — ProPublica"
+
+Solid reporting from ProPublica. Of course the very wealthy influence policies by buying votes from our elected officials, but I hadn’t really thought about how that could also buy protection from tax officials.
+
+The IRS’ new approach to taking on the superwealthy has been stymied. The wealthy’s lobbyists immediately pushed to defang the new team. And soon after the group was formed, Republicans in Congress began slashing the agency’s budget. As a result, the team didn’t receive the resources it was promised. Thousands of IRS employees left from every corner of the agency, especially ones with expertise in complex audits, the kinds of specialists the agency hoped would staff the new elite unit
+
+As tax day approaches in the US, this article highlights that not all citizens have the same tools in the process.
+
+Link six. "Introducing Warp: Fixing Mobile Internet Performance and Security"
+
+This is an ambitious offering from Cloudflare. Their push here is performance, but they rightly realize that privacy is a significant concern of VPN users.
+
+Let’s acknowledge that many corners of the consumer VPN industry are really awful so it’s a reasonable question whether we have some ulterior motive. That many VPN companies pretend to keep your data private and then sell it to help target you with advertising is, in a word, disgusting. That is not Cloudflare’s business model and it never will be.
+
+It’s not available yet, but Cloudflare has a lot of credibility to tackle a problem this big. Definitely worth watching.
+
+Link seven. "D and I Guidebook – Bakken and Bæck"
+
+This seems like a very good public example of a well documented and thorough handbook on diversity and inclusion. I like the surface area it defines, and the way it is presented is great.
+
+Link eight. "Russia Ordered a Killing That Made No Sense. Then the Assassin Started Talking. - The New York Times"
+
+If the dots that are connected in this article are accurate, Russia has a long memory. When I travel to Kiev it seems like just another city with a lot of people making their way through the normal things in life.
+
+Link nine. "Privacy Is Just the First Step, the Goal Is Data Ownership"
+
+The attempt to bridge privacy with data theft is a little challenging here, but it’s a good read anyway to illustrate the surface are of some privacy concerns online. The conclusion that we need a “data vault” that we can store our personal data in to allow others to use, and not use, as we wish is similar to some of the blockchain arguments in this space.
+
+Link ten. "Introducing Liftoff: Easily Create a Static Website Powered by Airtable — Postlight — Digital product studio"
+
+This is a neat project and one I’ve thought about before. Airtable is a very cool service and if you are publishing a website that is really data driven using Airtable as a CMS makes a ton of sense. It makes me want to relaunch Road Sign Math!
+
+Link eleven. "I Let a Stranger Watch Me Work for a Day — And I’ve Never Been More Productive - MEL Magazine"
+
+I had never heard of FocusMate before but it’s an intriguing service. I could particularly see people that work remote full-time using it. There has to be some interesting psychology going on here.
+
+Link twelve. "Writing Docs at Amazon – Noteworthy - The Journal Blog"
+
+While written as a guide for doing this at Amazon, it all applies to doing the same in any situation. Generally, how do you build a business case, document it, and advocate for it.
+
+That's the end of Notable Links.
+
+Now, the Give Back section.
+
+The Electronic Frontier Foundation is the leading nonprofit organization defending civil liberties in the digital world. I have been a member of the EFF for years. Not only is the EFF working hard to protect you on the Internet they have also recently launched solutions like Privacy Badger and the critically important Let's Encrypt service to make encrypting web servers free to anyone. Support the EFF with a donation!
+
+That's the end of Give Back.
+
+Now, more links.
+
+- Helvetica Now www.monotype.com
+It’s cool to see such an iconic typeface getting updated.
+- Domain-Oriented Observability martinfowler.com
+A very detailed, code-first look, at building observability into systems.
+- A Magician Explains Why We See What’s Not There - Issue 70: Variables - Nautilus nautil.us
+We see what our brains think we should see, even when we don’t see it. The mental perception that your brain is building is stronger than reality.
+- gitstatus/listdir.md at master github.com
+Great example of incremental optimization of code.
+
+That's the end of More Links.
+
+Now, the Microposts section.
+
+Thursday @ 10:11 AM
+
+It’s awesome when you are following #TeamSPS backpacks eight timezones away!
+
+Wednesday @ 12:56 PM
+
+Great night bowling with #TeamSPS in Ukraine! Команда грають в боулінг разом, та виграють разом!
+
+Wednesday @ 12:08 AM
+
+Great dinner last night with some our our #TeamSPS Ukraine leaders in Kiev! Great food, conversation, and people.
+
+Saturday @ 10:41 PM
+
+Our anthem for our time in San Antonio, TX has been "In San Antonio, They Got The Alamo".
+
+Saturday @ 8:50 PM
+
+Taking in some Texas Soccer watching San Antonio FC v Las Vegas Lights. San Antonio leading 1-0!
+
+Saturday @ 8:47 PM
+
+The Orca’s at SeaWorld are amazing!
+
+Saturday @ 8:43 PM
+
+Today's Vacation Ice Cream stop was Steel City Pops. Made to order ice cream bars!
+
+Saturday @ 8:41 PM
+
+We had an amazing afternoon in San Antonio at the Pearl Farmers Market. Also checked out Hotel Emma, which is immensely cool.
+
+Saturday @ 12:19 PM
+
+The San Fernando Cathedral Light Show was really cool last night! There is a full video you can watch online.
+
+Saturday @ 12:11 PM
+
+We saw a very cool magic show and got a magic lesson from Scott Pepper and the Magicians Agency!
+
+Saturday @ 11:03 AM
+
+Yesterday we got to hang out with Penguins at SeaWorld! Super cool!
+
+That's the end of Microposts.
+
+Now, the Fortune section.
+
+You've made it all the way to the end! Here is your fortune for this week.
+
+You should go home.
+
+Thank you for subscribing to the Weekly Thing!
+
+That brings us to the end of the Weekly Thing, issue 101. Thanks for listening, and I'll see you next time.

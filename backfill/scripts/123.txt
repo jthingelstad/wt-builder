@@ -1,0 +1,180 @@
+The Weekly Thing, issue 123. Oct 26, twenty nineteen. Published October 26, twenty nineteen. By Jamie Thingelstad. In this issue: Quantum supremacy, superconducting processor, architectural decision records, quitting analytics, James Clear, GitLab political chat.
+
+Fall is officially here. This is the first Fall in our new house and I’m noting the intense volume of leaves that have fallen thus far, but even worse those that are still waiting to fall. The good news is that raking leaves, at least in our house, is a full family activity. The kids get into it, and if it’s a nice day it’s all very pleasant to do. That will be the plan for Sunday. I expect some piles to be made, some jumping to happen, and some delightful pictures to be taken.
+
+Now, the Featured Links section.
+
+Link one. "Google AI Blog: Quantum Supremacy Using a Programmable Superconducting Processor"
+
+Quantum computing has been talked about for well over a decade, but this is the first time we are seeing something real.
+
+We developed a new 54-qubit processor, named “Sycamore”, that is comprised of fast, high-fidelity quantum logic gates, in order to perform the benchmark testing. Our machine performed the target computation in 200 seconds, and from measurements in our experiment we determined that it would take the world’s fastest supercomputer 10,000 years to produce a similar output.
+
+10,000 years to 200 seconds? I had to do the math. That's 1,578,000,000 times faster. What does that mean, nearly all encrypted documents we have today are probably easily decrypted with brute force tactics. Read more in this Nature article article.
+
+That's the end of Featured Links.
+
+Now, the My Weekly Photo section.
+
+Walking in the woods.
+Oct 18, twenty nineteen at 2:49 PM
+Golden Anniversary State Forest, Grand Rapids MN
+
+That's the end of My Weekly Photo.
+
+Now, the Notable Links section.
+
+Link one. "Cellphone Contract for a Child's First Cell Phone - Feld Thoughts"
+
+This is an amazingly detailed agreement to walk through with your kid before they get a phone. It’s an interesting idea, and obviously a very clear way to communicate expectations. Perhaps a bit much though.
+
+Link two. "Wayfair Tech Explains It All: David Short on Formulaic Naming – Wayfair Tech Blog"
+
+What an interesting idea, and a little disconcerting.
+
+With Formulaic Naming, Wayfair is transitioning to a structured solution for naming based on other questions we already ask our suppliers about their products. Once we have this structured information, we can pursue Dynamic Naming, where the product name will vary based on where the name is displayed and the customer who is viewing the product.
+
+So when you buy the Cleaver Cedar Sofa and your friend that you recommend it to may not see that a product of that name doesn't even exist? Interesting ideas.
+
+Link three. "How to Become Comfortable Being Vulnerable - Matt Norman"
+
+Being vulnerable is one of many ways to show you are human, and it lets people relate to you as a leader. It’s not comfortable since many leaders, myself included, are not comfortable in that position or feel like it’s not okay.
+
+“Group cooperation is created by small, frequently repeated moments of vulnerability,” he explains. “Of these, none carries more power than the moment when a leader signals vulnerability.” It’s paramount for people to know that it’s safe to tell the truth here.
+
+I've tried to get more comfortable being vulnerable, knowing that it helps the culture and team I work with.
+
+Link four. "WeWork Founder Adam Neumann Is Still a Billionaire After Bailout - Bloomberg"
+
+This would be the definition of a Golden Parachute.
+
+SoftBank Group Corp.’s proposed rescue package of WeWork involves Neumann selling about 1 billion dollars of stock and getting a 185 million dollars consulting fee from the Japanese firm even as the deal values the struggling office-sharing company at 8 billion dollars, according to people familiar with the transaction. That’s down from an estimated 47 billion dollars at the start of the year. Neumann will leave the company’s board though he still can assign two seats.
+
+So after creating no profits at all, the founder of WeWork leaves a billionaire. This is wrong.
+
+Link five. "Quitting Analytics"
+
+I did this myself in twenty seventeen. I go back to intent and zoning. When I visit friends houses I don't want to think that their is a KPI being incremented. For me, the same is true for personal websites.
+
+Link six. "Architectural Decision Records | adr.github.io"
+
+Interesting structure for architecture.
+
+An Architectural Decision (AD) is a software design choice that addresses a functional or non-functional requirement that is architecturally significant. An Architecturally Significant Requirement (ASR) is a requirement that has a measurable effect on a software system’s architecture and quality. An Architectural Decision Record (ADR) captures a single AD, such as often done when writing personal notes or meeting minutes; the collection of ADRs created and maintained in a project constitute its decision log. All these are within the topic of Architectural Knowledge Management (AKM).
+
+I think it is very critical that you define how architecture is executed so that teams and architects know what to expect from each other.
+
+Link seven. "Creating the Habit of Not Being Busy: zen habits"
+
+There is some good stuff here. I wonder, is being busy addictive? Does it give you a reinforcement about your importance and the work you do? Does not being busy make people nervous? I wonder if there is a lot more "busy" than necessarily needs to be.
+
+Link eight. "The Internet and the Third Estate – Stratechery by Ben Thompson"
+
+Wide ranging reaction to Zuckerberg's framing of Facebook, or generally social media, as the Fifth Estate. An interesting read.
+
+Link nine. "Why Richard Stallman doesn't matter | Stefano Maffulli"
+
+There is so much truth to this. I like the vision and mission of the Free Software Foundation, but under Stallman's "leadership", it has ignored the internet.
+
+That’s because Stallman’s world was and still is, stuck in the 80s: computers are physical devices that users can own and keep in their homes. For that use case, the four freedoms, the definition of source code and installation tooling introduced in GPLv3 made a lot of sense. Nothing else seemed to matter to him. The decision for the Linux kernel not to adopt GPLv3 wasn’t considered a problem and it was often downplayed by FSF leadership.
+
+I shared my story of meeting Stallman before and he really didn’t see the Internet as a thing that mattered. Mostly this was because he wouldn't use it? He famously is the person who used an emacs, email, bash script thing to pull web pages when he needed information. That's crazy. The real Free Software challenge has moved online and Stallman was still thinking about a open BIOS.
+
+Link ten. "Highlights from "The Checklist Manifesto" by Atul Gawande - Chester Grant"
+
+This is one of my favorite books ever. I highly recommend you get a copy and read the whole thing. Read it a couple times actually. But if you still need to be convinced this article has some good highlights.
+
+Link eleven. "Which Way Do You Run? - Andreessen Horowitz"
+
+There is nothing limited to Founder/CEO's about the feeling in this article. Leaders tend to have these feelings. "I used to become physically ill whenever there was something wrong in the company — even if I didn’t know what it was." I totally get that and feel it myself. The act of running towards what scares you and your fears is one of the hardest things about leading. You have to, and you have to be the first to do it.
+
+Link twelve. "The Atomic Minimalist: My Conversation with James Clear - Study Hacks - Cal Newport"
+
+If you are a fan of either Cal Newport or James Clear this will be an interesting listen. I find the core concepts that both of them are writing about interesting and found this podcast informative and thought provoking.
+
+Link thirteen. "GitLab reset --hard bad1dea: Biz U-turns, unbans office political chat, will vet customers • The Register"
+
+This is the followup to another article highlighting the change being made to policies at Gitlab. Just one day later another article and a reversal of the policy change highlighted in the first article. These matters are complicated and right or wrong, it seems like Gitlab's initial action was poorly planned and executed.
+
+That's the end of Notable Links.
+
+Now, more links.
+
+- Zuck Testified Before the House Financial Services Committee and It Did Not Go Well for Him — Pixel Envy pxlnv.com
+At some point people should read stuff like this and ask why they continue to participate in such a broken ecosystem.
+- The Quantum Computing Breakthrough + Other Nonsense – On my Om om.co
+Om highlighting the silliness of so much tech industry coverage.
+- Without deal, WeWork would have been out of money next week, sources say www.cnbc.com
+One week of cash flow. Supposedly was worth 47 billion dollars a few weeks ago.
+- Minecraft becomes a board game, and the results are faithful, fantastic | Ars Technica arstechnica.com
+Wait a second? Minecraft as a board game?
+- Dapr - portable, event-driven, serverless runtime. dapr.io
+Interesting runtime. "An event-driven, portable runtime for building microservices on cloud and edge."
+
+That's the end of More Links.
+
+Now, the Microposts section.
+
+Thursday @ 10:27 PM
+
+Tammy and I enjoyed Cabal tonight, from the Walking Shadow Theatre Company. Billed as a “Play with Puzzles”, it mixed actors, puzzle room concepts and an elaborate story. If you like puzzle rooms at all, this is highly recommended.
+
+Wednesday @ 8:19 PM
+
+Mark O’Leary and I shared some context and excitement with one of our teams as we continue our adoption of Scaled Agile practices. #TeamSPS
+
+Wednesday @ 7:37 PM
+
+Game 2 of the World Series and there has already been so much action in the first inning! Tied 2-2.
+
+Tuesday @ 11:39 PM
+
+Mazie got to go on stage and dance and sing with Michael Franti tonight!
+
+Tuesday @ 11:37 PM
+
+Michael Franti was amazing tonight. His music is so inspirational and uplifting. It’s a joy to experience. I love that he ends his shows with everyone singing “Imagine” together.
+
+Tuesday @ 11:28 PM
+
+My Mom, Sister, and our family all went to the Michael Franti show tonight! Amazing show!
+
+Sunday @ 7:20 PM
+
+We are kitted up and ready to cheer for the United in their first postseason game! Go Loons! #MNUFC
+
+Saturday @ 2:20 PM
+
+We had a fun quick trip to my brother’s place on Pokegama Lake. Too late to be on the water, but we got a family selfie on the dock before heading out!
+
+Saturday @ 1:17 PM
+
+Some bowling today at Thunder Alley XL in Grand Rapids! I struggled more than I would like to admit to get over 100.
+
+Saturday @ 11:15 AM
+
+We checked out the US Army Corps of Engineers work at the Pokegama Lake Dam today, and did some hiking around the area. Nice place to hang out.
+
+Friday @ 11:08 PM
+
+We had a fun evening watching Queen Machine in Grand Rapids on their first US tour!
+
+Friday @ 6:01 PM
+
+We had great pizza and equally great beer at Rapids Brewing Co. Some deliciously hoppy beers!
+
+Friday @ 2:58 PM
+
+We had a nice morning hiking around Golden Anniversary State Forest. The light and fall leaves were pretty and inspired a lot of photographs.
+
+That's the end of Microposts.
+
+Now, the Fortune section.
+
+You've made it all the way to the end! Here is your fortune for this week.
+
+You will pioneer the first Martian colony.
+
+Thank you for subscribing to the Weekly Thing!
+
+That brings us to the end of the Weekly Thing, issue 123. Thanks for listening, and I'll see you next time.

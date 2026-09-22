@@ -1,0 +1,298 @@
+The Weekly Thing, issue 227. Attention, Minnedemo, Learning. Published September 24, twenty twenty two. By Jamie Thingelstad. In this issue: Take care of your blog, attention not a commodity, QR codes, Apple Watch Ultra, iPhones 14 Pro, DAOs not corporations, Filecoin vision, RSS 20 years.
+
+Mazie was sharing with us that her History teacher has them do a Weekly WIL. A what?
+
+WIL is an acronym. What I Learned.
+
+So at the end of each week, she is supposed to capture what she learned and share that with her teacher.
+
+It made me think of the Weekly Thing. Part of my goal is to share What I Learned each week.
+
+That's a pretty cool assignment. Now lets get to WIL!
+
+Now, the Featured section.
+
+Link one. "Take Care of Your Blog"
+
+I love the passion and enthusiasm Rendle pours into this post. It is a call to action to fire up your blog and put some text out there on the Internet.
+
+Quote.
+There are no rules to blogging except this one: always self-host your website because your URL, your own private domain, is the most valuable thing you can own.
+End quote.
+
+Yes! 100% By the way, this really isn't that difficult to do these days either.
+
+Quote.
+So, if you want to push your career and your life in a new direction then take care of your blog. Because it all adds up.
+End quote.
+
+I had a website before I had a blog. The blog part starts in June two thousand four. 18 years and counting!
+
+Link two. "Doc Searls Weblog · Attention is not a commodity"
+
+Doc Searls agreeing, and decomposing, some concepts in Scott Galloway's most recent posts. Searls takes objection with the metaphor of attention as a commodity. He suggests it is "dehumanizing", which I suppose he is right.
+
+In general I liked his perspective, but I also thought this statement about the current state of the web was so well stated.
+
+Quote.
+At this point in history it is almost impossible to think outside of platformed living. But the Internet is still as free and open as gravity, and does not require platforms to operate. And it’s still young: at most only decades old. In how we experience it today, with ubiquitous connectivity everywhere there’s a cellular data connection, it’s a few years old, tops.
+End quote.
+
+I also like his reminder that we are all still so early. There is still so much experimentation. It’s easy for us to just think that the web has settled on what it is. But it isn't.
+
+Quote.
+So, what can we do? The simple and difficult answer is to start making tools for individuals, and services leveraging those tools. These are tools empowering individuals with better ways to engage the world’s organizations, especially businesses.
+End quote.
+
+There is so much more to explore. So much more to build. So much more to discover.
+
+I love that.
+
+That's the end of Featured.
+
+Now, the Notable section.
+
+Link one. "QR codes | Dan Hollick"
+
+I absolutely devoured this post, how wonderfully interesting to learn a bit about how QR codes actually work. I will admit I was firmly in the camp that made fun of QR codes, but then along came a pandemic and smart phones and we all realized they can be pretty awesome.
+
+Highlights from me:
+
+1. I’m amazed at how much error correction information a QR code has so it can be resilient to damage and being partially obscured.
+2. The version 40 QR code is gigantic!
+3. How amazing that the company that invented them made them free by never exercising their patent.
+
+Take a dig through this and be amazed.
+
+Link two. "What I've Learned from Users"
+
+Graham sharing insights that he's learned from working with so many startups through the Y Combinator program. While this advise is framed for "founders", I think it can apply to many people in a variety of functions.
+
+I loved this part:
+
+Quote.
+A small improvement in navigational ability can make you a lot faster, because it has a double effect: the path is shorter, and you can travel faster along it when you're more certain it's the right one. That's where a lot of YC's value lies, in helping founders get an extra increment of focus that lets them move faster. And since moving fast is the essence of a startup, YC in effect makes startups more startup-like. Speed defines startups. Focus enables speed. YC improves focus.
+End quote.
+
+Speed is something to be cherished. Moving quickly, you get more chances to be right. Making sure you are on the shortest path is a good reminder to look up and around to check regularly.
+
+Link three. "Daring Fireball: Apple Watch Ultra"
+
+When it comes to Apple hardware Gruber is my go to person. HIs review of the Apple Watch Ultra is solid, and given that I have a pretty big wrist I’m intrigued to try one out. I've always felt that the Apple Watch was slightly small on me. The Ultra, and the additional capabilities, may look and feel great in addition to all the powerful features.
+
+Link four. "DAOs are not corporations: where decentralization in autonomous organizations matters"
+
+I find Decentralized Autonomous Organizations (DAOs) one of the most interesting structures in crypto. I bought Lil Noun 1416 so I could be a Lil Nouns DAO voting member, and have been actively voting on most proposals.
+
+The details on different types of DAOs that Vitalik outlines here is interesting. I think his point here is that there is no single best DAO voting method. You need to design for what you are doing. There is still much to learn and discover here.
+
+Link five. "More resilient and user-controlled than AWS: Colin Evran's vision for Filecoin"
+
+Storing data for a long time, well beyond my lifetime, is something I wonder about. I fully intend to make sure that my blog, photos, and all my writing online is setup in some way that I can insure it is online for as long as possible, hopefully "forever". Filecoin is interesting for a number of reasons, but one of them is that the economics of storing the data can be built into the contracts on the blockchain.
+
+Quote.
+Via further updates, it is possible to create DeFi instruments that auto-renew deals for tokenholders, creating essentially a "perpetual storage" network.
+End quote.
+
+This is intriguing to me, in addition to other use cases. Disclosure: I have a small investment in Seal Storage, a Filecoin provider.
+
+Link six. "Crucial Questions from CEOs and Boards"
+
+Good read on seven different areas that Venables has had focused dialog with multiple Corporate Boards on security topics. This is a collection of more informal topics.
+
+Quote.
+To be clear, these aren’t the questions necessarily asked in Board meetings I present to, or executive meetings I attend. Rather, these are the questions typically asked when I meet people in such roles in informal settings and they just ask questions to be personally informed. The level of detail of my responses, of course, depends on the audience. So, the point of these posts is not to give you the content of the answers (much of which you will likely know), or to present an exhaustive list of questions and answers for all topics. The point is to give you a flavor of what these groups are asking as it reveals some insights into their concerns and challenges.
+End quote.
+
+The topics, and his points on each are good.
+
+The similar article on questions from CIOs and CTOs is very good as well.
+
+Link seven. "Daily General Discussion - September 16, twenty twenty two: ethfinance"
+
+Interesting framing on how EIP-1559 turned Ethereum from a currency into a commodity.
+
+Quote.
+EIP-1559 made the Ethereum Virtual Machine (EVM) hungry, in order for the EVM to do its work it needs to be fed. Like a cattle is fed corn (a commodity), a furnace is fed fuel (a commodity), a tree is fed with fertilizer (a commodity) or a mathematician is fed with coffee (a commodity). The EVM is fed with ETH and the ETH used gets consumed/spent/burnt.
+End quote.
+
+I've heard EIP-1559 touted in many ways, mostly that it is deflationary. In the first 24 hours after it launched 4,700 Ether were burned, and according to Etherchain 2,632,172 ETH have been burned thus far, or 3,512,766,660 dollars and 92 cents at todays price.
+
+This view though is a different look. The analogy of staking being like farming is even interesting.
+
+Link eight. "Daring Fireball: The iPhones 14 Pro (and iPhones 14)"
+
+Gruber going into great detail on the new iPhone 14. I love how much attention he pays to the details. I’m not due for an upgrade yet, but I like everything I see here. I have to comment that the "Dynamic Island" may be the strangest name that Apple has ever attached to something.
+
+Link nine. "RSS 2.0 Launched 20 Years Ago"
+
+RSS 2.0 was launched 20 years ago. I do so much with RSS, and to this day it is the most prevalent way I find and discover content. No algorithms, no ML, no social. Just the content I want. Thank you Dave Winer for making a protocol that continues to deliver, and hopefully will do so for decades more.
+
+That's the end of Notable.
+
+Now, the Journal section.
+
+Thursday @ 11:38 PM
+
+My Validators made five proposals today on Gnosis Chain. New high. Still just a couple weeks into running my “at home” Dappnode Validator.
+
+Thursday @ 10:33 PM
+
+The RSS feed for the Pinboard’s Popular links stopped working on Sep twelfth. Hoping this will be restored soon.
+
+Thursday @ 10:23 PM
+
+The POAP for this years TeamSPS Kubb Tournament turned out just amazing! I created a Poapathon bounty and “InsertGenericArtName” just blew me away with this design.
+
+Thursday @ 10:19 PM
+
+Minnedemo 37
+
+It was great to see the Twin Cities technology community back together for Minnedemo tonight at the Reverview Theater. Minnedemo was also part of the Twin Cities Startup Week lineup.
+
+The presenters for tonight were great. I also have a special affinity for the vibe of the Riverview Minnedemos. Theatre snacks, food trucks, and a gorgeous evening are a pretty awesome combination.
+
+The demos were really impressive!
+
+Sunsett.io: Well designed and easy-to-use product to merge reporting information from many platforms into a single view for small- to mid-sized companies.
+
+Teqnizan Bluetooth Earrings: Cool idea of an earbud that is mounted into an earring and works outside of the ear canal.
+
+Collab Spot: Allows you to overlay a collaboration layer on top of any website allowing people to build a website to work together in the actual site.
+
+IntelligentRx: Mind boggling free tool that allows you to find discounts and coupons to apply to medications and save as much as 90% off the retail price. Incredibly impressive. Self-funded and growing.
+
+Seraph7 Studios: Presenter had to cancel. Guessing Covid.
+
+Aurelius 3.0: Solution that collects end-user feedback, does speech-to-text analysis, and allows you to curate and analyze aggregate feedback.
+
+SitEat: Service specifically designed to allow concession operators at sports venues to allow fans to order from their seat and get orders fulfilled much faster.
+
+I thought IntelligentRx had the most promise to be very impactful for people. SitEat is something I would love to use at MN United games.
+
+Even after 37 sessions, 259 demos, I’m still amazed at the creativity and ingenuity of the technology community here.
+
+Former Minnestar Board members: Me, Adrienne Peirce, and Jim Bernard.
+
+Thursday @ 4:51 PM
+
+I got my Ethereum Mainnet Merge POAP today! It goes perfectly with my Ropsten Merge and Goerli Merge tokens. Tyler got one too.
+
+Wednesday @ 10:53 AM
+
+Great morning sharing keynote for Protolabs GTX event on Innovation Accelerated! Thanks to Rob Bodor for the invitation and Oleg Ryaboy there new CTO for the introduction!
+
+Monday @ 6:05 PM
+
+I decided to take a big "step up" in Wicky Thing Candles production and get a DigiBoil 9 gallon wax melter. Before we had three melters in two double boilers doing 3 lbs of wax at a time. Things4Good Fall Fundraiser coming November twelfth and thirteenth.
+
+Sunday @ 3:47 PM
+
+Roadmap by Dariush
+
+I stumbled upon Roadmap by Dariush (0xDariush.eth, @0xDariush) and the project intrigued me. He's hitchhiking from Armenia to Georgia and Turkey and from there to Europe. He is going to share the story on Ethereum. Interesting!
+
+He's supporting the journey a number of ways, including proposal 862 from Nouns DAO. I also grabbed one of the OG 100 tokens to support his trip.
+
+I find this sort of experimentation interesting and am curious to see how the experience works.
+
+Sunday @ 3:25 PM
+
+Got cutting-discs on the Dremel and trimmed a dozen or so drawer pull bolts to proper lengths. Tammy filed them down after.
+
+Sunday @ 3:22 PM
+
+Installed these cool modern sconces from Dutton Brown made right here in Minneapolis. I’m not very handy, but I have an unqualified confidence with light electric work.
+
+Sunday @ 9:19 AM
+
+Tracking active Lil Nouns DAO proposals.
+
+Voted for Lil Nouns DAO proposal 48 "Lil Nouns Weekly Newsletter".
+
+Voted for Lil Nouns DAO proposal 49 "Lil Funding + Data Pod + Content Pod Refills".
+
+Snapshot vote for Nouns DAO proposal 142.
+
+Saturday @ 6:07 PM
+
+First time running the Big Green Egg at our new house. Sous Vides beef tenderloin getting a finish on the fire.
+
+Saturday @ 4:35 PM
+
+Noted milestones of your kid driving:
+
+1. Gets permit and you begin the journey.
+2. Passes drivers test and has their own drivers license.
+3. You add their phone as a driver on your car.
+4. They go to the grocery store on their own.
+
+Me, waiting for the return from the grocery store.
+
+That's the end of the Journal.
+
+Now, the Reply All section.
+
+Here are some replies from Weekly Thing #226 / Patagonia, Merge, Walrus.
+
+Jared shared a follow-on to my comment about Software Engineering versus Software Development. It is a great find!
+
+Your comment on Software Engineers versus Software Developers reminded me of this three part blog series Are We Really Engineers? I read a few months back.
+
+The author is a Software Engineer and set out to answer the question: "Is software engineering 'really' engineering?". He does so by interviewing people that have been both professional engineerings and professional software developers. It's a long read but it draws some interesting comparisons and conclusions.
+
+This is one of my favorite parts that made me appreciate working in software:
+
+Quote.
+> Software is entirely synthesized. It’s bounded entirely by logic. It doesn’t wear out like a spring, right? It just does what it’s supposed to do. The only thing that can actually go wrong is the specifications. The software was bad. - Nathan Software is far more consistent than any other kind of engineering. We usually think of software as a giant mess, a haze of interdependencies and incompatible hardware, but we actually have it pretty nice. If I give you a sorting function, you can expect it to sort. You do not expect it to sort a given list of (nonpathological) numbers only 95% of the time. That would be ridiculous.
+End quote.
+
+I thought you might find the series interesting so I thought I'd share.
+
+That's the end of Reply All.
+
+Now, the Briefly section.
+
+Link one. "Crypto-Mining Data Center Compute North Files for Bankruptcy, CEO Steps Down"
+
+Computer North is a Minneapolis company. Curious to know more about the details here. Compute North also had a lot of debt, with 300 million dollars borrowed in February. For mining in crypto in general I think the future is dim as more blockchains follow Ethereum's move to proof-of-stake. To be clear though, I tend to believe Bitcoin should stay proof-of-work.
+
+Link two. "High blood pressure is significantly lowered with breath training: NPR"
+
+Wild that you can train your breathing muscles and improve your blood pressure.
+
+Link three. "Simple Icons"
+
+2,350 free icons of different brands. Haven't seen that done before. All SVGs.
+
+Link four. "figr.app - Your notepad calculator"
+
+This reminds me a lot of Soulver, but looks even more powerful and is cross-platform. This type of "intelligent" notebooks that can do math can be very powerful.
+
+Link five. "Three Dynamics Shaping Leadership for the Future | Russell Reynolds Associates"
+
+Interesting perspective on three large trends: Globalization fraying, Innovation waves shortening, and Employee activism. I appreciated the Leadership implications attached to each one.
+
+Link six. "IYK - POAP Card"
+
+I’m a big fan of POAP (see my list of POAPs I've created)and a card you can have in your wallet to give them out via NFC is pretty cool.
+
+Link seven. "Uber Investigating Breach of Its Computer Systems - The New York Times"
+
+Oh wow, that is a lot of access.
+
+Link eight. "A look inside our sixth generation of server hardware - Dropbox"
+
+I wish there was more detail here but I find it interesting to see how companies that are competing with the cloud approach their hardware. Dropbox really cannot use the cloud for economic reasons, so they have to go bare metal. 20 petabytes in a rack is impressive.
+
+That's the end of Briefly.
+
+Now, the Fortune section.
+
+Here is your fortune…
+
+You have been selected for a secret mission.
+
+Thank you for subscribing to the Weekly Thing!
+
+That brings us to the end of the Weekly Thing, issue 227. Thanks for listening, and I'll see you next time.

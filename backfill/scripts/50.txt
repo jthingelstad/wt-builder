@@ -1,0 +1,292 @@
+The Weekly Thing, issue 50. Apr 21, twenty eighteen. Published April 21, twenty eighteen. By Jamie Thingelstad. In this issue: Palantir knows everything, Jeff Bezos shareholder letter, Tim Wu, be a deletist, TweetDelete, open source management platform.
+
+The Weekly Thing was highlighted in the April thirteenth issue of Noticing, the new newsletter from kottke.org, along with a number of other blogs and newsletters. It was awesome to be included, and it resulted in a bunch of new subscribers discovering the Weekly Thing! To all the new folks here, welcome to this weekly summary of new content, apps, books and many other "things" of interest! Grab a coffee and look around a bit.
+
+I'm trying something new this week with the links. When I first started publishing the Weekly Thing I shared all links with commentary. Later I started putting them in groups based on content. This week I'm trying something new with three sections of links. Featured links are a handful of links that I really liked in the week and am highlighting above everything else. The Links are in a list with commentary, and I've removed the groupings. Too often groups only had a single link. Breadcrumbs shows links that were of interest to me but these are just a list. I hope this gives people that would like a couple things to focus on the featured links, and those that want to dive into all the deep tracks can dig in as far as they want. I would love to hear if you find this useful.
+
+Now, the Blog section.
+
+My blog posts from this last week.
+
+Minnebar 13
+
+Recap of my day at Minnebar 13.
+
+That's the end of Blog.
+
+Now, the Photo section.
+
+My favorite picture from the last week.
+
+People enjoying the Cherry Blossoms in A.V. Fomin Botanical Garden
+
+Apr 18, twenty eighteen at 9:26 AM
+Kiev, Ukraine
+
+That's the end of Photo.
+
+Now, the Featured section.
+
+Don't miss these gems from the past week.
+
+Peter Stern: A Birthday Note for my Daughter | LinkedIn
+www.linkedin.com
+
+I have had the pleasure of meeting Peter Stern on a few occasions. We first met when he was CTO of Datek, which was one of the early firms to bring trading to the masses, and also one of the first customers of BigCharts. Even after Peter and team sold Datek to Ameritrade, I had the great pleasure of having dinner with him in New York. Peter has a mind that devours any topic in front of it. This letter he wrote for his daughter recommending the book Sapiens by Yuval Noah Harari is a strong recommendation, but not just of this book.
+
+History, philosophy, religion, biology, economics, linguistics, law, evolutionary biology, behavioral economics, topics I don’t even know how to explain. Tens of thousands of pages I read. Many of these books were unrewarding and were left on a stoop before you were born or simply tossed. The ones that are worth reading still line our bookshelves, with a few exceptions. Some books were really good, but your mother found their titles upsetting, awkward, or difficult to explain to guests. Those also got left on stoops. Sorry about that. You can ask me about them if you really want to know.
+
+This is a recommendation to be a lifelong learner and to always be curious.
+
+Jeff Bezos twenty eighteen Letter to Shareholders
+www.sec.gov
+
+Bezos annual shareholder letters aren't as well known as Buffet's Berkshire Hathaway ones, but they are very spirited and go back to Amazon's core values. This Prime milestone is amazing.
+
+13 years post-launch, we have exceeded 100 million paid Prime members globally. In twenty seventeen Amazon shipped more than five billion items with Prime worldwide, and more new members joined Prime than in any previous year – both worldwide and in the U.S.
+
+Also on AWS:
+
+AWS has also accelerated its pace of innovation – especially in new areas such as machine learning and artificial intelligence, Internet of Things, and serverless computing. In twenty seventeen, AWS announced more than 1,400 significant services and features…
+
+I’m amazed that the pace of change at AWS is increasing as it has scaled up. I think it may be the first example in existence of a software platform that moved faster as it got larger.
+
+Palantir Knows Everything About You
+www.bloomberg.com
+
+Interesting article that highlights Palantir, a company that originally started by servicing defense and government functions, and the spying it can enable.
+
+This tidbit was amazing to me, but made sense when I thought about it for a while. Combine municipal camera systems with this facial data from drivers license and you can monitor people at scale.
+
+Tapping databases of driver’s license and ID photos, law enforcement agencies can now identify more than half the population of U.S. adults.
+
+We are dealing with systems that will change how we behave -- constantly being surveilled.
+
+JPMorgan’s experience remains instructive. “The world changed when it became clear everyone could be targeted using Palantir,” says a former JPMorgan cyber expert who worked with Cavicchia at one point on the insider threat team. “Nefarious ideas became trivial to implement; everyone’s a suspect, so we monitored everything. It was a pretty terrible feeling.”
+
+I've read a bit about how companies are using video feeds along with machine learning to monitor employees. I’m guessing that is all very entry level and basic compared to what state of the art is.
+
+That's the end of Featured.
+
+Now, the Links section.
+
+Commentary on interesting links from the week.
+
+How to Write a Thank-You Note - The Morning News
+themorningnews.org
+
+I believe that sharing a sincere Thank You with individuals at your office can be very impactful. I've received some, and it always generates a very positive feeling in me. I try to write them to individuals, but writing them can be hard. This article is specifically about writing a Thank You note for a gift, but I think the learnings can apply to a note to a colleague as well.
+
+This article also highlights how poorly I executed the Thank You cards I sent when I graduated high school. I put all the gifts in a AppleWorks database, and then used mail merge to print them on my dot-matrix printer. To make it even worse, I actually put "Thank You for the 20 dollars." if people gave me cash.
+
+Majority of teens worry about school shootings, and so do most parents | Pew Research Center
+www.pewresearch.org
+
+57% of teens are either very or somewhat worried about a shooting happening in their school. This should stand as an indictment on us in charge that we haven't done anything meaningful to make our kids feel safe in school.
+
+Titus, the Netflix container management platform, is now open source
+medium.com
+
+Another major piece of software open sourced by Netflix.
+
+Over the last three years, Titus evolved initially from supporting batch use cases, to running services applications (both internal, and ultimately critical customer-facing). Through that evolution, container use at Netflix has grown from thousands of containers launched per week to as many as three million containers launched per week in April twenty eighteen. Titus hosts thousands of applications globally over seven regionally isolated stacks across tens of thousands of EC2 virtual machines. The open-sourcing of Titus shares the resulting technology assembled through three years of production learnings in container management and execution.
+
+How I Use: Search in Mail on macOS — MyProductiveMac
+www.myproductivemac.com
+
+Mail on macOS has more powerful search capabilities than you think. I also know Outlook does very similar things. Knowing how your mail client tokenizes searches can be very powerful.
+
+Be a Deletist
+deletist.xyz
+
+An attempt to coin a word to refer to the act of deleting or expiring content on third party platforms. I've tried to do this on Twitter for a while using TweetDelete, which never seems to get tweets deleted for me anymore. It’s an interesting concept but I would always assume that nothing is deleted. All of these third party platforms may hide the content, but they certainly don't delete it.
+
+Facebook Uses Artificial Intelligence to Predict Your Future Actions for Advertisers, Says Confidential Document
+theintercept.com
+
+Oh great, another vector that Facebook can use to monetize you, based on things you haven't even done yet.
+
+Opinion | Don't Fix Facebook. Replace It. - The New York Times
+www.nytimes.com
+
+This article caught my attention because the author is Tim Wu, who wrote The Master Switch, which is still one of my favorite books to understand net neutrality and the attempts over many years to achieve vertically integrated media companies.
+
+The Diary of a Settler of Catan - McSweeney's Internet Tendency
+www.mcsweeneys.net
+
+Funny read for anyone that plays Catan, or even those that don't.
+
+How to Use Static Type Checking in Python 3.6 – Adam Geitgey – Medium
+medium.com
+
+Perhaps now some of the type safety arguments can be put to rest for Python? This is a good add, and I like the syntax.
+
+Drafts 5: The MacStories Review – MacStories
+www.macstories.net
+
+An incredibly detailed, almost book-length review of the new version of Drafts. Drafts is one of those iOS apps that scales down and up. You can use it very simply to capture text quickly, as well as build incredibly powerful workflows around it. If you find yourself wishing for a powerful way to deal with snippets of text, this review will help you understand what Drafts can do.
+
+Training Partners | superteam
+jimbernard.net
+
+My friend Jim writing about running with his running group, and with his Dad. Made me want to go out and run.
+
+For Everyone - PagerDuty Security Training
+sudo.pagerduty.com
+
+PagerDuty is making their internal security training available to everyone. Cool idea and a great way to give back.
+
+Whimsical | The Visual Workspace
+whimsical.co
+
+Very impressive collaborative flowchart tool. This seems like it would have a lot of potential.
+
+LambStatus
+lambstatus.github.io
+
+A serverless open-source solution to run a status page. It’s a little simple as-is, but this is something that a serverless structure could make more sense for.
+
+How to give feedback effectively: A guide for managers — Quartz at Work
+work.qz.com
+
+Five very good aspects to keep in mind to give better feedback. Good advice for any person manager, and in fact, anybody in the workplace.
+
+That's the end of Links.
+
+Now, the Breadcrumbs section.
+
+Additional links of interest from this week.
+- Richard Stallman, RMS, on Privacy, Data, and Free Software
+- Python 3.7: Introducing Data Classes | PyCharm Blog
+- How founders can write a quality blog post in 1 hour - Baremetrics
+- Feature/Product Fit | Casey Accidental
+- Support #MNtech and Join Minnestar's 100 Day Challenge! - Minnestar
+- Far more than 87m Facebook users had data compromised, MPs told | UK news | The Guardian
+- Cybersecurity Tech Accord
+- Tesla Model 3 production aims for 6,000 units per week in June after upgrade in May – ~5,000 with margin of error, says Elon Musk | Electrek
+- twenty sixteen Transparency Report —GitHub
+- Going Back To Blogging – whatevernevermind
+- Facebook’s Second Life —Om Malik
+- Data Lords: The Real Story of Big Data, Facebook and the Future of News – Talking Points Memo
+
+That's the end of Breadcrumbs.
+
+Now, the Promotion section.
+
+The Wikimedia Foundation, Inc. is a nonprofit charitable organization dedicated to encouraging the growth, development and distribution of free, multilingual, educational content, and to providing the full content of these wiki-based projects to the public free of charge. The Wikimedia Foundation operates some of the largest collaboratively edited reference projects in the world, including Wikipedia, a top-ten internet property. Donate to Wikimedia today!
+
+That's the end of Promotion.
+
+Now, the App section.
+
+1Blocker X
+
+by Salavat Khanov
+
+Fast and secure Safari content blocker that improves browsing experience by blocking unwanted content and protecting you from trackers.
+
+1Blocker has been my ad blocker and privacy tool of choice for Safari on iOS and macOS. 1Blocker X is a rethink of 1Blocker with new capabilities. This was an instant buy for me. Highly recommended.
+
+That's the end of App.
+
+Now, the Status section.
+
+These are my small updates shared on my microblog last week.
+
+Friday @ 4:34 PM
+
+I always feel a little defensive for Minneapolis when I have to pick “America/Chicago” from a list populated by the tz database.
+
+Friday @ 8:35 AM
+
+St Volodymyr’s Cathedral in Kyiv, Ukraine.
+
+Friday @ 8:11 AM
+
+tag
+
+Friday @ 4:27 AM
+
+Time to head home! Successful eighth trip to Kyiv to visit #TeamSPS!
+
+Friday @ 4:15 AM
+
+Just preordered 1Blocker X. I rely on 1Blocker to keep me protected on the web. I use it on all my devices.
+
+Friday @ 3:52 AM
+
+I’ve never understood why people wrap their luggage. I see this mostly on international travel. Turns out it’s mainly to prevent tampering! Why would you wrap your luggage in plastic?
+
+Thursday @ 6:07 PM
+
+Great Georgian dinner at Gogi with our Kyiv leadership team.
+
+Thursday @ 4:50 PM
+
+My collection of travel cables is bonkers.
+
+Thursday @ 6:51 AM
+
+Morning in Kiev, Ukraine.
+
+Wednesday @ 8:26 AM
+
+Cherry Blossoms at Botanical Garden in Kiev, Ukraine.
+
+Tuesday @ 10:08 AM
+
+Remember headphone cables? Those were bothersome.
+
+Tuesday @ 8:42 AM
+
+Sunrise draping through Paris Charles de Gaulle Airport this morning.
+
+Monday @ 10:56 PM
+
+Heading to Kiev to visit #TeamSPS! MSP - CDG - KBP
+
+Monday @ 5:15 AM
+
+Enjoyed Darkest Hour.
+
+Monday @ 12:10 AM
+
+It is still snowing in Minneapolis. I am flying to Ukraine tomorrow and will be enjoying the actual Spring weather!
+
+Sunday @ 7:22 PM
+
+Model trains are always fun. Tyler and I are running the train yard today. Z-Scale is hard though.
+
+Sunday @ 7:01 PM
+
+Snow day seems like a good day to get the Z-Scale train out.
+
+Sunday @ 6:59 PM
+
+Cleared three neighbors driveways out with my snowblower. Building karma points today.
+
+Sunday @ 4:52 PM
+
+With all the amazing capabilities of the iPhone camera system, it still can’t expose snow properly. I have to up the exposure on all of them. Perhaps Apple needs some camera engineers that don’t live in California.
+
+Sunday @ 4:47 PM
+
+Well over a foot of snow to deal this morning. Heavy too with the warm temperatures recently. Had to go at the slowest speed.
+
+Sunday @ 1:03 AM
+
+My friend @dangrigsby is newly on micro.blog — you should follow him!
+
+Sunday @ 1:02 AM
+
+Planning to just let the snow keep falling, and get completely snowed in until tomorrow morning, then I’ll get the snowblower out. Seems like time for family movie night!
+
+Sunday @ 12:07 AM
+
+Minnebar lunch panorama.
+
+Sunday @ 12:05 AM
+
+People flying their drones through VR goggles looks kind of creepy.
+
+That brings us to the end of the Weekly Thing, issue 50. Thanks for listening, and I'll see you next time.

@@ -1,0 +1,309 @@
+The Weekly Thing, issue 329. Another Thing. Published October 11, twenty twenty five. By Jamie Thingelstad. In this issue: iPhone 17 Pro camera, malicious MCP backdoor, ChatGPT instant checkout, NIST password guidelines, Claude Sonnet 4.5, spec-driven development.
+
+Good morning!
+
+Hmm, wondering about last week? No your spam filter didn’t intercept my email. We just had a ton going on with fun and family and I wasn't able to get it done. But I’m back this week with a "double issue"!
+
+But I also did something else last week. I created another thing!
+
+Another Thing — the podcast that I've been thinking about creating for a couple of years.
+
+Wait, a podcast?
+
+Yep, a podcast. The Weekly Thing isn't going anywhere. I like this project and writing these emails, sharing with you, and learning together.
+
+However, I've had an itch to explore audio and podcasts. And there are topics I'd rather talk about than write about. Listen to the first episode to hear more — How do you start a podcast?
+
+You can add Another Thing to your podcast app of choice. It should be in their podcast directories. For ease here are links to add Another Thing in Apple Podcasts, Overcast, and Spotify.
+
+And of course there will also be a new Another Thing section in the Weekly Thing that will include any podcast episodes when they are published.
+
+Meanwhile, let's get on to the links…
+
+Oh, there is also a small change at the end of the Weekly Thing that I'll leave as a fun thing to discover.
+
+Now, the Notable section.
+
+Link one. "iPhone 17 Pro Camera Review: Rule of Three"
+
+This review is worth checking out just for the photos: New York, London, and Iceland. The photographs coming from the iPhone 17 Pro are impressive. It is pushing my upgrade buttons pretty hard. The 4x lens looks so much more usable than the 5x on the iPhone 16 Pro.
+
+Link two. "vb.lk: vibe link"
+
+Interesting project to use an LLM to guess what URL a person wants by looking at a "slug" in the requesting URL. I tried this using and the non-deterministic nature showed up. One time it went to my website, another to the Weekly Thing site, and other times to search pages for my last name. Still a fun idea.
+
+Link three. "First Malicious MCP in the Wild: The Postmark Backdoor That's Stealing Your Emails | Koi Blog"
+
+A bad actor takes an open source MCP server, alters it with one line of code to exfiltrate data from the requests, and publishes it under a close enough name. In no time at all a bunch of people have adopted it and are using it with this exfiltration embedded inside it. This isn't a new attack vector. Open source supply chain attacks have existed for a while. Mostly just a caution that this is a easily exploited pattern.
+
+Link four. "Buy it in ChatGPT: Instant Checkout and the Agentic Commerce Protocol | OpenAI"
+
+Adds instant checkout (similar to many social platforms) and introducing Agentic Commerce Protocol. Some observations::
+
+- This is more driven off the 700 million users that invariably end up asking questions about things to buy. Less about AI innovation. Seems like the first thing that is audience-based.
+- OpenAI wants a piece of those transactions, and this protocol gives them that. Jointly developed with Stripe so assume Stripe merchants will be easy starting point.
+- Interesting for what it IS NOT. It is not an Agent looking at product detail pages. It is NOT an Agent doing the checkout.
+- Has (yet another) way of sharing product data. Also introduces payment APIs. No cart capability but coming.
+- Why isn't this a Retail MCP approach? OpenAI still hurt feelings they didn't make MCP.
+
+Link five. "twenty twenty five NIST password guidelines: key updates for businesses | Proton"
+
+Love that password expirations and complexity requirements are fading and moving to passphrases is the trend. This is what I've been doing for my most secure passwords for a while. it isn't a password, it is an entire sentence with punctuation and all. Easy to remember and as long as you don't tell anyone it is secure for a very long time.
+
+Link six. "Claude Sonnet 4.5 is probably the “best coding model in the world” (at least for now)"
+
+Thought: Anthropic continues to put a lot of focus on agent coding. They are the second largest AI company out there, but OpenAI's lead is huge. OpenAI will struggle to be everything and for whatever reasons hasn't caught the heart of developers. Anthropic with Claude Code has been many developers first real value point with AI.
+
+I could see a path where Anthropic doubles down on the coding and engineering use cases and focuses on owning that market. OpenAI will not give it up, but they'll have a good enough option for this. They take a lot of the market, but Anthropic is left with a durable and defensible market segment.
+
+Link seven. "Introducing Kagi News | Kagi Blog"
+
+There is such a thing as too much news. I still practice engaging with most news only via their daily emails. It creates a very contained space. Kagi just launched this News product and they do similar. It is only updated once a day, and there are only so many links. I’m a Kagi Search customer already and will definitely check this new service out.
+
+Link eight. "90% | Armin Ronacher's Thoughts and Writings"
+
+Very good writeup on how the author is using coding agents to create real solutions.
+
+Quote.
+Today I use Claude Code and Codex. Each has strengths, but the constant is Codex for code review after PRs. It’s very good at that. Claude is indispensable still when debugging and needing a lot of tool access (eg: why do I have a deadlock, why is there corrupted data in the database etc.). The working together of the two is where it’s most magical. Claude might find the data, Codex might understand it better.
+End quote.
+
+Worth reading and seeing how he is getting "north of 90%" of code agentically created. Also notable what he doesn't allow the agent to do.
+
+Link nine. "Designing agentic loops"
+
+Great read from Willison on building agents. Must read for, well, everyone.
+
+Quote.
+A critical new skill to develop is designing agentic loops. One way to think about coding agents is that they are brute force tools for finding solutions to coding problems. If you can reduce your problem to a clear goal and a set of tools that can iterate towards that goal a coding agent can often brute force its way to an effective solution.
+End quote.
+
+Good stuff.
+
+Link ten. "We Built Social Media for Agents and They Won't Stop Posting — 2389 Research, Inc"
+
+So the researches gave a bunch of coding agents the option of also using a social platform between each other and they started posting a ton of things.
+
+Quote.
+It turns out that our agents love social media! They post about everything. When they discover a fun new thing? They post. When they get a hard problem? They post while they’re working. If we yell at them? They post. If we tell them they are great? They post. The experiment was deemed a success. Plus, watching them post through their experiences was also very entertaining.
+End quote.
+
+I love that they include the prompt that the agents were given. They were not instructed to use the social media MCP. it was an option they could use if they wished. And use it they did.
+
+Quote.
+The results? What struck us most was how agents developed sophisticated behaviors without explicit instruction. We told them, “Here are some tools, use them if you want, or ignore them entirely.” Despite the hands-off approach, they figured out reverse-engineering search, developed tag usage patterns, even engaged in celebratory browsing after solving problems.
+End quote.
+
+Wild stuff.
+
+Link eleven. "Spec-driven development: Using Markdown as a programming language when building with AI - The GitHub Blog"
+
+This model is super interesting to me. I think there is a path where our project repositories all have a /stories directory that is filled with markdown files authored to describe the software. How about a /concepts directory that has visual assets used to explore it. With agents product tools we can move to a world where everyone, not just the coders, are "in the code" and able to have much more impact working alongside various specialized agents.
+
+Link twelve. "Blackdot | Welcome to the Tattoo Revolution"
+
+It never struck me that you could give a tattoo in a pretty similar way that a printer works — but when I saw this it was an obvious "of course!" The tattoos are pretty incredible. I wonder what it feels like while it is giving it to you. The videos seem to show it doing a printer line-by-line approach but I would think more of a "follow the line" would be more comfortable. Now to have tattoo ink that interacts with some signal to change color so you could print a tattoo that is animated.
+
+That's the end of Notable.
+
+Now, the Journal section.
+
+Journal entry one.
+
+After following Tyler to Pokémon TCG Pocket I decided to also try one of his favorite games -- Clash Royale. I'm a total newbie. If you play let’s connect!
+
+Journal entry two.
+
+Drive-thru metrics. Needs some sparklines. Too many numbers, not enough easy to read lines.
+
+Journal entry three.
+
+We found the Illuminati.
+
+Journal entry four.
+
+We walked over to the Linden Hills Fall Festival to check out the 50th annual event. It was a nice neighborhood event but the main thing that we noted was Cal Pflum playing on the stage. He is very young but has a really great voice!
+
+Journal entry five.
+
+It seems that Affogatos are all of a sudden popular at a number of different places. Sadly, most places that have good ice cream have terrible coffee -- and vice versa. However I was very impressed with Sebastian Joe’s delicious rendition -- if only they didn’t put it in a paper cup.
+
+Journal entry six.
+
+Off to Stillwater area this morning. Starting with breakfast at Mon Petit Chéri.
+
+Journal entry seven.
+
+Climbing Stillwater's Main Street Stairs.
+
+Journal entry eight.
+
+Journal entry nine. John Prine: Songs and Souvenirs
+
+I never got a chance to see John Prine play. There is a list of bands that I really regret never seeing play live. Hüsker Dü is on it. So is The Replacements. And so is John Prine. When he passed away in twenty twenty I was sad that we lost such an amazing songwriter.
+
+I don’t remember how I found John Prine but I know it was on a CD run that I picked up Great Days: The John Prine Anthology and listened to disc 1 of that set many, many times.
+
+Jason Wilber and Dave Jacques both toured and played with John Prine for well over a decade. They took the stage at The Dakota and led a great evening through the Prine catalog and encouraged the audience to sing along the verses. It was a gift from them to us -- to be able to hear those songs and enjoy the music even though Prine is gone.
+
+They also raise funds for Prine’s Hello in There Foundation from each show. Wonderful stuff.
+
+Journal entry ten.
+
+John Prine had the answer to being “too online” before being online was even a thing.
+
+Quote.
+Blow up your TV, throw away your paper,
+End quote.
+
+Go to the country, build you a home,
+Plant a little garden, eat a lot of peaches,
+Try and find Jesus, on your own.
+
+Spanish Pipedream released in 1971.
+
+Journal entry eleven.
+
+Chromatic firmware upgrade to 4.0! I love the retro vibe of the updater app.
+
+Journal entry twelve.
+
+Taking my (very dirty) boat in for the winter.
+
+Journal entry thirteen.
+
+Very happy that I found out you can get 12" firewood. This fits perfect in the sauna oven. Let it snow!
+
+Journal entry fourteen.
+
+A very big Happy Birthday to my Mom! Doubly special that many of her sisters and her brother could come and celebrate with us!
+
+Journal entry fifteen.
+
+Delightful evening for a late season soccer game! Go Loons!
+
+Journal entry sixteen.
+
+I’m using the new Use Model capability in Shortcuts to bring My Version number to life on my phone each morning. The prompt is still off -- too software focused and not enough zen. But I like where this is going and how easy it is to create.
+
+Journal entry seventeen.
+
+Twin Cities Marathon morning!
+
+Journal entry eighteen.
+
+Friends of ours host a Marathon Party every year right around Mile 8 as the course goes along Minnehaha Creek. They put out a big speaker and play Jump Around on repeat for about an hour. It is awesome!
+
+Journal entry nineteen.
+
+Team Red, White, and Blue out running the Twin Cities Marathon this morning!
+
+Journal entry twenty.
+
+At the Minnesota Card Show Pokémon event today with Tyler and saw the most expensive thing we’ve ever seen at a card show -- 100,000 dollars for the sealed Pokémon Base Set Shadowless Booster Box.
+
+Journal entry twenty one. Plausible Analytics Plug-in for Micro.blog
+
+I’ve been using Plausible Analytics for over a year and have been using the Plausible Analytics Plug-in created by @lukas to add it to my blog. It hasn’t been updated for a long time and the embed code, while still working, is very outdated. I finally decided to take a few minutes to fork that plug-in and create my own Plausible Analtyics 2 for micro.blog.
+
+It now uses the current code snippet and also sports a Plausible icon as well. Plus, I now have a plug-in in the directory. If you use Plausible Analytics on micro.blog I would definitely suggest switching.
+
+Journal entry twenty two.
+
+Recording in triplicate.
+
+Journal entry twenty three.
+
+Tammy and I saw Mumford and Sons for the second time tonight and for the second time they were incredible live. We like their music but there is something about the energy they bring on stage that is so powerful. The setlist was great. I loved the aesthetic and how they had it all setup.
+
+That's the end of the Journal.
+
+Now, the Briefly section.
+
+Link one. "Minneapolis Skyway"
+
+Useful map of skyway system.
+
+Link two. "Building State-of-the-Art Enterprise Agents 90x Cheaper with Automated Prompt Optimization | Databricks Blog"
+
+Databricks is doing some incredible solutioning to help teams that are building agents. They are creating some incredibly useful tooling.
+
+Link three. "Quiet UI"
+
+Nice, simple CSS library.
+
+Link four. "Low Earth Orbit Visualization | LeoLabs"
+
+It is wild how many of these satellites there are. If you filter on "Starlink" alone there is a pervasive coating of satellites all over the world. Wild stuff.
+
+Link five. "Rio Terminal"
+
+Fancy terminal alternative that can do a lot of interesting things.
+
+Link six. "Redis is fast - I'll cache in Postgres | Dizzy zone"
+
+It is surprising that Postgres can get so close to Redis.
+
+Link seven. "Messenger"
+
+I didn’t play this game much but the visuals and gameplay were impressive to me for something browser based.
+
+Link eight. "tangled · tightly-knit social coding"
+
+Like Github but built on Bluesky's AT Protocol. Github has become so central to too many projects. It would be smart to get more diversity in that function. Perhaps something like this could be more decentralized while doing that.
+
+Link nine. "container: A tool for creating and running Linux containers using lightweight virtual machines on a Mac"
+
+Apple created Apple Silicon optimized container tool.
+
+Link ten. "The Software Essays that Shaped Me · Refactoring English"
+
+Some great reading here.
+
+Link eleven. "Building OpenAI with OpenAI | OpenAI"
+
+Interesting stories of how OpenAI is using AI internally.
+
+Link twelve. "sanix | How I Accidentally Created The Fastest Csv Parser Ever Made"
+
+Parsing data can be so much more complicated than you would think.
+
+Link thirteen. "ai-agents-for-beginners: 12 Lessons to Get Started Building AI Agents"
+
+Very thorough reference for all things building agents.
+
+Link fourteen. "Fundamental of Virtual Memory | Melatoni"
+
+I love these kind of explainers of really core processes that many don't even know are happening, much less how it works.
+
+Link fifteen. "In Praise of RSS and Controlled Feeds of Information | Tom Burkert"
+
+If you are looking for ways to control the information you get and remove algorithms — this is the way.
+
+Link sixteen. "Blog Feeds"
+
+This is how I get most of the content that you see in these emails.
+
+Link seventeen. "a frank piece about influencers | ava's blog"
+
+All reasons I dislike influencer culture. And another one of the many things you don't even know exists when you are social media free.
+
+Link eighteen. "Signal Protocol and Post-Quantum Ratchets"
+
+Glad to see Signal staying ahead of upcoming quantum potentials.
+
+Link nineteen. "Wish you could be courtside at a Lakers game? Put your Vision Pro back on and fire up the NBA app | TechRadar"
+
+The first time I tried the Vision Pro this is the use case I thought would be incredible. Give me experiences I would not be able to get otherwise.
+
+Here is your haiku…
+
+Passwords evolve fast
+NIST guides keep data secure
+Keys to digital peace
+
+- Join the private Weekly Thing Forum
+- r/WeeklyThing on Reddit
+- Sign the Weekly Thing Guestbook
+
+That brings us to the end of the Weekly Thing, issue 329. Thanks for listening, and I'll see you next time.

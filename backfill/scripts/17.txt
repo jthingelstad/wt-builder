@@ -1,0 +1,118 @@
+The Weekly Thing, issue 17. Weekly Thing for September 2, twenty seventeen. Published September 2, twenty seventeen. By Jamie Thingelstad. In this issue: Google's Farm, Twitter bot intimidation, testing in production, software engineering rule of 3, Apple next iPhone, Sarahah uploads address book.
+
+The kids went back to school this week! Everyone had a great start to the school year. Now we have the holiday weekend and the unofficial end-of-summer here in Minnesota. We are heading to my brother's cabin on Pokegama Lake for the weekend and I'm looking forward to time on the lake and a nice evening by the fire. I hope you all are enjoying the long weekend!
+
+I started a little project over the last couple weeks. I decided that the R/W Book Club needed a website again. After getting the hang with Jekyll for my main site I knew I could do what I wanted for the book club. It is still pretty rough, but if you are curious what books we are reading check out
+
+Now, the Photog section.
+
+One of the favorite things about where we live is having Minnehaha Creek just across the block. I feel like I can walk a few hundred steps and I get to take in running water, green spaces and relax. Running water is so great.
+
+Sep 1, twenty seventeen, 6:22 PM 5200 Newton Ave S Minneapolis MN 55419.
+
+That's the end of Photog.
+
+Now, the Links section.
+
+Link one. "A Serf on Google’s Farm – Talking Points Memo"
+
+Interesting (worrisome?) read from a publisher on how they think of their relationship to Google.
+
+Link two. "Event Sourcing | Microsoft Docs"
+
+Microsoft writes up some amazing pattern and architecture stuff. This event sourcing pattern was mentioned in a discussion I was in recently. Good overview!  Instead of storing just the current state of the data in a domain, use an append-only store to record the full series of actions taken on that data. The store acts as the system of record and can be used to materialize the domain objects.
+
+Link three. "Twitter Bots Use Likes, RTs for Intimidation —Krebs on Security"
+
+Just another article that makes me really question why I bother with Twitter. Some layer of Twitter is a constant war of botnet's pretending to be people and influence people. Yuck.
+
+Link four. "Stepping Up to the Plate: A Story About Being On-Call - PagerDuty"
+
+Fun read especially for those that aren't aware of the incident response that happens in operations teams. I also like the reference to "the ball" in here. Operations teams always have a concept of someone having "the ball" (the problem). You have to manage who has the ball (sometimes balls!) in a very clear way.
+
+Link five. "Testing in production: Yes, you can (and should) | Opensource.com"
+
+A ton of truth in this. I'd put everything in this in the bucket of being pragmatic.
+
+Link six. "The software engineering rule of 3 · Erik Bernhardsson"
+
+I've seen this play out. Early analysis of a problem starts a solution and you get too far in the solution before you realize your assumptions are wrong. While refactoring is cheaper these days, it’s still a good idea to stay on a whiteboard to make sure you understand the problem before writing out the solution.
+
+Link seven. "How Apple Plans to Change the Way You Use the Next iPhone - Bloomberg"
+
+Interesting suggestions of new gestures for the upcoming iPhone. These are pretty big changes. It will be interesting to see if this pans out.
+
+Link eight. "The Systems Thinker – Moving from Blame to Accountability - The Systems Thinker"
+
+Quote.
+When something goes wrong in an organization, the first question that is often posed is, “Whose fault is it?” When there’s data missing in accounting, it’s the bookkeeper’s fault. If we lose a key customer, it’s the sales group’s problem- “They promised more than we could deliver!”
+End quote.
+
+Link nine. "Hash of the Titan: How Google bakes security all the way into silicon • The Register"
+
+You may remember that the Snowden docs showed that the NSA modifies silicon in some machines as it leaves the country. Looks like Google is actually defending against an attack at even that level.
+
+Link ten. "Single-Minded Devotion to a Task —zen habits"
+
+Constant fractional attention is a real problem. I think back to research I read years ago suggesting that attempting to multitask alters your thought patterns to force you to. But then I forgot what I was thinking about.
+
+Link eleven. "One Rubric Changed Box's Engineering Performance — Here's How | First Round Review"
+
+Nice, direct advice for building out your culture. I’m not saying I agree with all of it, but it’s always enlightening to read these. Hat tip to @jkelly3 for this.
+
+Link twelve. "Hit App Sarahah Quietly Uploads Your Address Book"
+
+I installed and signed up for Sarahah and I did git it access to my contacts. Curious how they are using it, since they don't seem to be. I assumed it would be used for finding contacts or to streamline the process of sending someone feedback. Neither are features in the app today.
+
+Link thirteen. "siftrss | Filter your RSS feeds and throw away the junk"
+
+Super simple tool that allows you to filter an RSS feed. I love stuff like this. It lets me think of the web like a Unix shell with inputs and outputs. Also, this is the kind of thing we get when we have open standards.
+
+Link fourteen. "Blockchains, Determinism, Monads, Agents and Functional Reactive Programming | thomasbarker.com"
+
+Quote.
+I would like to propose that blockchains are a network concurrency primitive, like the two-phase commit or distributed hash-tables. That modern Turing-Complete chains, like Ethereum, are simply Erlang or Smalltalk-style virtual machines, and that their blockchain nature is orthogonal to their VM nature. This makes blockchain's future simply a part (although a vital one) of the widening adoption of decentralized computing.
+End quote.
+
+Link fifteen. "How the personal data extraction industry ends —Doc Searls Weblog"
+
+Doc Searls thinking about the long term aspects of all the personal data collection on the web. I wish that I was as confident as he that even the biggest players on the web will pass over time. Plus got to learn a new word epiphenomenal.
+
+That's the end of Links.
+
+Now, the Promotion section.
+
+Minnestar is the technology community for Minnesota. If you are passionate about technology you need to go to Minnebar and Minnedemo. Did you know that Minnebar is the largest BarCamp in North America and one of the largest in the world? Its also been going on for over 10 years? Minnedemo is the best place to hear about innovative tech and fun projects in the Twin Cities area. I am on the Minnestar board and I focus on Minnestar as one of the driving forces improving and expanding the technology community in the area. Minnestar is a 501c3 non-profit. Become a Community Supporter today!
+
+That's the end of Promotion.
+
+Now, the Highlighted iOS App section.
+
+Day One Journal
+
+by Bloom Built Inc
+
+Capture life as you live it. From once-in-a-lifetime events to everyday moments, Day One’s elegant interface makes journaling about your life a simple pleasure.
+
+I've referenced a number of different articles about using Day One but I've never highlighted the application itself. I subscribe to Day One and I use it as my journal. I have multiple journals: Journal, Top 3, Reviews, Musings, Cooking, Fitness. Each one is used for different things. Day One has a great user interface and I like how it captures relevant metadata for each post. If you are thinking about journaling I wouldn't recommend anything else.
+
+Free 4.5/5 stars
+
+That's the end of Highlighted iOS App.
+
+Now, the Microblog updates section.
+
+- Rough but functional version of R/W book club website is now up! Still a lot of to do.
+- Currently tweaking Minnestar DNS settings! Don’t mess it up!
+- Just now trying some HomeKit things and am really impressed.
+- Got a great start getting my book club website relaunched. Not ready to share yet but coming along. Using Jekyll and Github Pages.
+- The average quality of Jekyll themes is frustrating. I couldn’t imagine it would be worse than WordPress, but it is.
+- Watched Pete’s Dragon tonight and loved it. Really great movie!
+- Quiet, rainy day at the cabin. Burgers on the Big Green Egg.
+- Drinking delicious coffee with the morning breeze editing the Weekly Thing for this week!
+
+That's the end of Microblog updates.
+
+Thank you for subscribing to the Weekly Thing! If you know of people that would like the Weekly Thing please forward it along!
+
+That brings us to the end of the Weekly Thing, issue 17. Thanks for listening, and I'll see you next time.

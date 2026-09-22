@@ -1,0 +1,173 @@
+The Weekly Thing, issue 179. Nemawashi, Transformation, Geldingadalur. Published March 27, twenty twenty one. By Jamie Thingelstad. In this issue: Bitcoin as battery, Moore's Law for Everything, Slack messaging app, Instagram for Kids, Substack scam, Iceland volcano live feed, curl turns 23.
+
+I hope you have had a great week and are kicking off an excellent weekend! I’m enjoying an early arrival of spring and and looking forward to longer and warmer days, vaccines on the horizon, and by the looks of it seeing some soccer games live soon!
+
+In general, things are looking up! Have a great weekend and enjoy some links below.
+
+"society is a massive conspiracy to distract you from the important choices of life in order to help you fixate on the unimportant ones." -- David Brooks, "The Second Mountain", p 166.
+
+Now, the Must Read section.
+
+Link one. "The Director Series - Board Topics of Today - Insights from Professional Board Member Sven Wehrwein - YouTube"
+
+This Club E interview with Sven Wehrwein provides some great insight on how he approaches his board work. Sven is on the SPS Commerce board and I have had the great privilege of working with him and getting to know him a bit. Sven has been on 9 public boards, 5 private boards. He has over 70 years on public boards. He's an expert.
+
+Some great highlights Sven shared:
+
+1. He kept track for a year to see how much time it takes to be on a board. He averaged it out to 225 hours a year per board.
+2. It is interesting to hear the dialogue between Sven and Jim Zuehlke, Rick Brimacomb sharing some of the board committee structures they have experienced.
+2. Approach board work with Nose-in, Fingers-out (NIFO) strategy. Get your nose into things, but keep your fingers out. Socratic Method: Ask questions to drive to better understanding. Don't give orders. Effectiveness: Are you helping move the company forward?
+3. Sven has a mantra, No Surprises. Audit committees cannot have surprises. He knows this is effective when he sees it affecting the things that he is brought in on, and when.
+4. General leadership comment "All good leaders have a message that will resonant, are clear, and repeat."
+
+They also shared that there will be a part two of this conversation!
+
+Link two. "Senior Engineers Build Consensus: hyperbo.la"
+
+The consensus building aspect that Senior Engineers play in organizations is frequently overlooked by people as they take these roles.
+
+Quote.
+Nemawashi is a tool for helping the organization do the right thing by default. The goal of a senior engineer should be to identify what those right things are and set the organization up for success by removing roadblocks.
+End quote.
+
+Often times Senior engineers may take the approach of "let me show you how it’s done", and without building consensus with the very smart and talented engineers around you, the results often don't realize.
+
+I also found this Nemawashi concept interesting. I've seen and done the practice, but didn’t know there was a name.
+
+That's the end of Must Read.
+
+Now, the Currently section.
+
+Watching: We watched the LEGO® House: Home of the Brick documentary on Netflix about the creation of the LEGO® House. Now we want to go to Billund, Denmark to see this amazing place in person!
+
+That's the end of Currently.
+
+Now, the Recommended Links section.
+
+Crypto, NFTs, and Blockchain ft. Raoul Pal — The Prof G Show with Scott Galloway
+
+This discussion with Scott Galloway and Raoul Pal is a good overview of a lot of blockchain concepts as well as Non-fungible Tokens. As Galloway says in the interview, Pal is definitely an evangelist. They touch on some very interesting topics and it is thought provoking.
+
+Slack is becoming a full messaging app - Protocol
+
+There are certainly select use cases for using Slack across different companies. Most of them are project-centric. Having direct messages between organizations doesn't sound great to me.
+
+Transformation at Scale - SPS Technology
+
+This is a fabulous writeup from Tom Sparks about our adoption fo Essential SAFe at SPS. We have had a very fast, and successful, adoption of SAFe and it has allowed us to focus our efforts where they are most needed!
+
+Drafts 26: The Customization Update – nahumck.me
+
+I've become a very active Drafts user. Drafts is an app that took me probably a year to really get the hang of, and now it is core to a number of workflows for me. This update is great, particularly the ability to add syntax highlighting.
+
+Bitcoin as Battery
+
+This is an interesting take on the electricity consumption of blockchain and Bitcoin.
+
+Quote.
+So, if we think of Bitcoin as a battery, what can we do with it? The key properties of Bitcoin’s battery are: 1) always on and permissionless (no need to find customers, just plug and go) and 2) naturally seeking low-cost electricity: it will always buy when the price is right.
+End quote.
+
+It is true that Bitcoin miners seek out, and are very adaptive, to power costs.
+
+The S in IOT is for Security – Purism
+
+Weaver got a LED desk lamp that is controlled by software, but instead of installing the proprietary stuff he bypassed and created his own software to control it. Fun to see how he bypassed it.
+
+Facebook Is Building An Instagram For Kids
+
+Facebook has saturated the population of the world, so now it is going to come after our kids too. This will be positioned as a good thing, an experience optimized for kids. One of the people working on it formerly built YouTube for Kids, which had a ton of problems. No thanks!
+
+Moore's Law for Everything
+
+Interesting and provoking read from Sam Altman on the impact AI is going to have.
+
+Quote.
+Because we are at the beginning of this tectonic shift, we have a rare opportunity to pivot toward the future. That pivot can’t simply address current social and political problems; it must be designed for the radically different society of the near future. Policy plans that don’t account for this imminent transformation will fail for the same reason that the organizing principles of pre-agrarian or feudal societies would fail today.
+End quote.
+
+We're Never Going Back - Not Boring by Packy McCormick
+
+Deep read on a number of facets of remote work and various impacts that could result as teams navigate the next couple of years.
+
+Imagine Your Flexible Office Work Future - Culture Study
+
+Another thorough read on the approach to remote work and benefits of various approaches, culture changes, etc. There is so much to figure out as organizations navigate this.
+
+Here's why Substack's scam worked so well - The Hypothesis
+
+I subscribe to a handful of newsletters on Substack, but I've never had any interest in using it to publish. The revelation that they pay some writers to be on their platform isn't super surprising, but not disclosing that is a foul. They also steer incoming readers to certain content, which moves it from a utility platform to a media company.
+
+That's the end of Recommended Links.
+
+Now, the Journal section.
+
+Thursday @ 10:19 PM
+
+Pileated Woodpecker
+
+I've been fighting a Pileated Woodpecker, and losing. This woodpecker has been visiting our house every morning. It usually shows up between 7-9am. It is the biggest woodpecker I've ever seen, and it's done a number.
+
+We have someone coming tomorrow to put a metal plate up, and then we are going put in Hardie Board. The rest of the house has Hardie Board already, but its regular lumber in the gable.
+
+I've been pounding on the wall, but it has gotten less scared of that. Now I've started running outside and yelling at it which sends it away. If the image of Bill Murray going after the Gopher in Caddyshack is coming to mind, that is about right.
+
+Thursday @ 10:15 PM
+
+After way too much deliberation I decided to head to Podany’s today and come home with a new chair and a sit-stand desk. I should have done this months ago. This is a great upgrade from my previous setup.
+
+Wednesday @ 9:31 PM
+
+Container Ship Queue
+
+Having the Ever Given, a massive container ship, stuck in the Suez Canal and halting all normal activity through the canal is a familiar problem to any technologist that has dealt with queue problems. Look at the real-time vessel map and all the ships stuck waiting.
+
+They normally pass 50 ships a day through the canal. With so many backed up, it will be a few days before things get back to normal.
+
+These pictures tell the story well.
+
+That's the end of the Journal.
+
+Now, for your information.
+
+Tally forms
+
+Super simple service to make forms on the web. Very intuitive experience.
+
+Live feed from Iceland volcano | RÚV
+
+It is very cool to be able to watch this volcano erupting live.
+
+curl is 23 years old today | daniel.haxx.se
+
+Origin story and history of a "client that groks the URLs". Curl is used all over the place. I would guess nearly every technical person uses it on a regular basis. Happy twenty third Birthday!
+
+That's the end of the FYI section.
+
+Now, the Reply All section.
+
+Here are some replies from Weekly Thing #178 / Reverse Meetings, OODA Loop, Hockey Goalies.
+
+Paul Birkbeck enjoyed the article on Hockey Goalies and sent this great reply that I want to share his whole reply with all of you!
+
+I loved the inclusion of the goalie article. I have something for you that will bend your head a little… it’s super obvious when you see it, but nothing you’ve likely ever considered… it’s called the Shooter’s Illusion.
+
+You’re a player, you are a right handed shot meaning that your left hand is on the upper part of the stick and right hand down lower controlling the stick. You’re coming in on the right side and you are pretty close to the goalie. He’s already down in the butterfly stance and you get pretty excited because of all the room he’s left you to shoot blocker side. Sure goal in your mind!
+
+You take aim for pretty much anywhere on the blocker side… but miraculous save by the goalie. Or was it? Now let’s put a camera on the puck… which is 5’6” lower than your eyes and about 3’ further in front of you:
+
+In reality, you had nothing to shoot at. Goalie’s will change the angle of the gloves, put them further out in front and actually tilt them downward. To a player, it looks like the glove is closed, or out of position, but in actuality, because the puck is coming on an upward angle, the glove is more open to the puck but appears more closed from the player perspective. Next time you are watching a hockey game, notice that oftentimes when a player is in close and shooting, he will change the angle of the shot, oftentimes by bringing the puck in closer, or take a quick ½ step in a different direction before shooting. The goalie has set up for where the puck is, so by changing the angle of the shot, they increase their chances of scoring greatly.
+
+The article shows a few more angles but it’s an interesting optical illusion in hockey that most people don’t know about.
+
+That's the end of Reply All.
+
+Now, the Fortune section.
+
+Here is your fortune…
+
+You are always busy.
+
+Thank you for subscribing to the Weekly Thing!
+
+That brings us to the end of the Weekly Thing, issue 179. Thanks for listening, and I'll see you next time.

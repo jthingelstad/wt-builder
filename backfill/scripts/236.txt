@@ -1,0 +1,234 @@
+The Weekly Thing, issue 236. ChatGPT, Reading, Legitimacy. Published December 3, twenty twenty two. By Jamie Thingelstad. In this issue: ChatGPT, need to read, time alone, social media without bullshit, FTX decentralized finance, hardware counters performance, scarce resource legitimacy.
+
+Cyberweek twenty twenty two arrived this week and for everyone in and around retail technology it was a big week to focus on making sure everything hummed along as smooth as possible. This is when you get to see systems adapting to dynamic volume, scaling up and down as needed with incredible amounts of automation at work, and observability that allows people to see everything that matters and know exactly how systems are performing. It is a pretty cool thing, almost magical!
+
+Now, the Currently section.
+
+Listening: A combination of increased drive time and difficulties getting to sleep created some extra podcast time. Both of these podcasts were long, but very insightful. Tobi Lütke: Calm Progress on The Knowledge Project touches on so many topics that I won't even attempt to enumerate them. Lütke is a deep thinker. Also, Making Sense with Cal Newport was better than the average Cal Newport interview. Newport is known for Deep Work, but this discussion was broader and particularly his analysis of how Twitter, TikTok, and something like Reddit differ helped me see that space a little differently. He also makes the case for Harris to leave Twitter, which he was successful with as he terminated his account a few days later.
+
+That's the end of Currently.
+
+Now, the Notable section.
+
+Link one. "ChatGPT"
+
+OpenAI this week launched ChatGPT. I want to play with this more, and my early experiments have been both great and still show the limits. I find this even more interesting than the image generators.
+
+I figured I should let ChatGPT introduce itself in the Weekly Thing.
+
+Suggestion:
+
+write a short paragraph about ChatGPT appropriate for a newsletter highlight
+
+Response:
+
+ChatGPT is a state-of-the-art language model developed by OpenAI that is capable of generating human-like text. It can be used to improve the performance of natural language processing systems, such as chatbots and virtual assistants. ChatGPT is trained on a vast amount of text data, which allows it to generate highly coherent and realistic responses to a wide range of inputs. This makes it an excellent tool for enhancing the user experience of natural language interfaces.
+
+Suggestion:
+
+write a short paragraph about ChatGPT by a CTO
+
+Response:
+
+As a CTO, I am always looking for ways to improve the technology that we use at our company. Recently, I have been impressed by ChatGPT, a state-of-the-art language model developed by OpenAI. This technology has the potential to significantly improve the performance of our natural language processing systems, such as chatbots and virtual assistants. ChatGPT is trained on a massive amount of text data, which allows it to generate highly coherent and realistic responses to a wide range of inputs. I believe that incorporating ChatGPT into our technology stack will help us provide an even better user experience for our customers.
+
+Link two. "Company, team, self. | Irrational Exuberance"
+
+Larson reflecting that you must thing about the humans in mix, and what brings them energy, as you think about the priority of the work that you tackle.
+
+Quote.
+Back to the main topic: correctness and humans mix in complex ways. The most important lesson I’ve learned as I’ve become a better manager is that there is almost always a correct answer, but applying that answer to your specific situation will always be nuanced and messy. Further, the correct answer is almost always different if you’re taking a short-term or long-term perspective. You should always be in the longest-term perspective that you’re certain you can reach, but sometimes that’s only next week.
+End quote.
+
+The focus on what provides energy is a good one.
+
+Link three. "The Need to Read"
+
+Reading makes you a better writer. Writing is thinking.
+
+Quote.
+But if you need to solve a complicated, ill-defined problem, it will almost always help to write about it. Which in turn means that someone who's not good at writing will almost always be at a disadvantage in solving such problems.
+End quote.
+
+Reading will make you a better thinker, if augmented with writing.
+
+This is one of the reasons I blog and write the Weekly Thing.
+
+Link four. "The 7 Habits of Highly Overrated People - DaedTech"
+
+The title of this article caught my eye. Dietrich combines an array of experiences and highlights the patterns that he has seen "highly overrated" people exhibit.
+
+Quote.
+1. "Overcommunicate" 2. Be Bossy and Critical 3. Shamelessly Self Promote 4. Distract with Arguments about Minutiae 5. Time It So You Look Good (Or Everyone Else Looks Bad) 6. Plan Excuses Ahead of Time 7. Take Credit in Non-Disprovable Ways
+End quote.
+
+Many of these things would be easy to spot, but a good read particularly for managers to keep an eye out for some practices that are meant to mislead and obfuscate.
+
+Link five. "Opinion | Americans are spending more time alone. Let's reverse that. - The Washington Post"
+
+These numbers continue to trend down, and none of this seems like it can be good for us.
+
+Quote.
+By twenty nineteen, the average American was spending only four hours per week with friends (a sharp, 37 percent decline from five years before). Social media, political polarization and new technologies all played a role in the drop. (It is notable that market penetration for smartphones crossed 50 percent in twenty fourteen.)
+End quote.
+
+I was a little shocked to see that none of this now unused time is going to those we love either.
+
+Quote.
+On average, Americans did not transfer that lost time to spouses, partners or children. Instead, they chose to be alone.
+End quote.
+
+We humans have a profound need to connect with others, which I totally think is a fact. We are also so anxious and avoidant of that need that it seems that little glowing piece of glass can overrid that fundamental need entirely. Related reading, Bowling Alone.
+
+Link six. "The promise of social media - without bullshit"
+
+Bernoff assesses the current state of social and asks the important question:
+
+Quote.
+I wonder if it is even possible to have a mode of social media interaction that…
+End quote.
+
+He enumerates a few objectives, but the main point is can you really have a big social media platform that works.
+
+I think the answer to this is no.
+
+I had a few breakfast debates on this with Lee Zukor years ago and it helped form my opinion that the problem with social media isn't the specific implmentation of Facebook or Twitter, but is instead the thing itself. You can’t optimize and improve it, because the core thing is no good. It’s like smoking cigarettes. There is no version of it that isn't bad for you.
+
+Link seven. "Protect Me From What I Want • ongoing by Tim Bray"
+
+Bray offers an optimisic perspective on using algorithms to display content to people, however with a very huge caveat. I have added the bold.
+
+Quote.
+An algorithm is not intrinsically bad. As long as we understand that it represents the interests of whoever paid to have it constructed. I think an algorithm with human values that simply wanted to enrich experience is perfectly possible. I haven't seen one, probably because nobody has ever had a financial incentive to construct it.
+End quote.
+
+I shared in Weekly Thing #152, highlighting that any algorithm must have a goal.
+
+Quote.
+Anytime that you are looking at content in something other than time order, ask yourself what the goal of the system behind it is.
+End quote.
+
+Connect Bray's point and mine, and you get the problem. Bray highlights good algorithms that help us filter through noise, and suggests a "Algorithms for the people by the people" kind of idea. It would be cool to see such a thing, but most place that isn't possible. His idea of using Mastadon as a place for experimentation is a good one. Bray himself would hate my additional suggestion (he's a strong critic of all things crypto), of using data held in public blockchains which require full open access to both the data and the function.
+
+Link eight. "Opinion: FTX failed because it veered from decentralized finance - MarketWatch"
+
+"Not your keys, not your crypto." Many people I know in crypto didn’t fall for the FTX fraud because of a close aherence to that principle — they keep their crypto on their own and self-custody. FTX of course offered incredible interest rates and yield on assets you left with them, which was the other reason many people weren't affected — it was simply too good to be true.
+
+Link nine. "Seeing through hardware counters: a journey to threefold performance increase | Netflix TechBlog"
+
+You don't often get to see performance debugging down at the level of the JVM, but this is a pretty interesting read. The problem is framed up:
+
+Quote.
+Although we confirmed fairly equal traffic distribution between nodes, CPU and latency metrics surprisingly demonstrated a very different, bimodal distribution pattern. There is a "lower band" of nodes exhibiting much lower CPU and latency with hardly any variation; and there is an "upper band" of nodes with significantly higher CPU/latency and wide variation. We noticed only ~12% of the nodes fall into the lower band, a figure that was suspiciously consistent over time. In both bands, performance characteristics remain consistent for the entire uptime of the JVM on the node, that is nodes never jumped the bands. This was our starting point for troubleshooting.
+End quote.
+
+Ultimately comes down to how the cache is laid out in physical memory!
+
+Link ten. "The Most Important Scarce Resource is Legitimacy"
+
+I found this essay from Buterin in a reference from Tobi Lütke in the Knowledge Project. Legitimacy as an asset that is built and withdrawn from is something that I think deserves more attention. Legitimacy also comes into play with software. What makes a system legitimate? These are interesting human system questions.
+
+That's the end of Notable.
+
+Now, the Journal section.
+
+Thursday @ 7:17 PM
+
+I reserved three Ethereum Name Service (ENS) names for Minnestar: minnestar.eth, minnebar.eth, and minnedemo.eth. Minnestar doesn't have a need for them today, but I think they will in the future. I'll have them over in my thingelstad.eth ENS collection in the meantime.
+
+Tuesday @ 8:28 AM
+
+Some coffee to start your day? “Coffee is for closers.” Love this. #TeamSPS
+
+Monday @ 4:38 PM
+
+Cyber Monday twenty twenty two! Great day to show all the work our teams do to deliver amazing performance! #TeamSPS
+
+Sunday @ 10:11 AM
+
+Things 4 Good Fall Fundraiser Notes
+
+We had a great Things 4 Good twenty twenty two Fall Fundraiser. With the help of many friends and family we raised 5,217 dollars to support four good causes.
+
+Some notes from the event:
+
+* We sold 172 of the 180 Wicky Thing Candles we made. Last year we sold 134 candles.
+* We sold all 50 bottles of Sweet Thing Honey.
+* We sold 10 Jiggy Thing Puzzles, but it was the same puzzle we had in twenty twenty one so a number of folks already had it. Last year we sold 26 puzzles.
+* We had six Wicky Thing Candle scents this year: Winter Wonderland, Apple of my Eye, Oh my Darling, Tea Time (new), Red Hot (new), True North (new). Winter Wonderland and True North were nearly half of the 180 candles and together sold out the fastest.
+* I'm not sure which vessel colors are the most popular, but it seems brown was likely the least popular.
+We achieved over 400% return on the expenses to buy supplies given the amount raised!
+* Thus far 28 people have redeemed the Things 4 Good twenty twenty two Fall Fundraiser POAP token. Printing out claim sheets with directions and the claim code was a much better way to distribute these.
+
+I'm already looking forward to the twenty twenty three Fall Fundraiser!
+
+Sunday @ 10:02 AM
+
+Things 4 Good Fall Fundraiser Distributed
+
+The Things 4 Good twenty twenty two Fall Fundraiser raised 5,217 dollars to support good causes! That is a 460 dollars increase over twenty twenty one. We had around 100 visitors as well as many email orders from people that couldn't come in person. Today we distributed the proceeds to the four non-profits that we had selected.
+
+* United Help Ukraine
+* Agate Housing + Services
+* Save the Snakes
+* Free Guitars 4 Kids
+
+As in previous years we shared the non-profits with each in-person visitor and they could select any number of the four organizations to support.
+
+A huge thank you to everyone for being part of this fun event and help some organizations having a good impact in the world.
+
+Saturday @ 10:42 PM
+
+We had a fun time at Cirque Dreams today at the Orpheum. There were very impressive acts with a fun Christmas theme. It was not as extravagant as a full Cirque du Soleil production, but still had plenty of WOW moments.
+
+Saturday @ 12:39 PM
+
+Made Toffee Bars this morning. Grandma Rose used to make sure these were around every time I was at the farm because she knew they were my favorite. Don't suspect I'll ever make them as good as she did. Miss you Grandma!
+
+Saturday @ 8:56 AM
+
+Witnessing Lewandowski’s first World Cup goal in four appearances! POL v KSA 2-0
+
+That's the end of the Journal.
+
+Now, the Briefly section.
+
+Link one. "New ways we're supporting Ukraine"
+
+It is great to see Google continuing to support Ukraine and the people of Ukraine in so many ways.
+
+Link two. "How do transistors work, anyway? - lcamtuf’s thing"
+
+What even is a transistor?
+
+Link three. "Fantasy Jodorowsky Tron visualisations by Johnny Darrell | DJ Food"
+
+I’m a fan of the TRON world and its imagery. This different take, all created by AI, is wild.
+
+Link four. "Shopify Merchants Set New Black Friday Cyber Monday Record with 7.5 billion dollars in Sales"
+
+Tons of new records set for twenty twenty two holiday season at Shoppify.
+
+Link five. "Musk overload  – On my Om"
+
+I’m 100% with Malik on this. I’m happy to keep my focus away from the circus of Twitter and whatever the antics of the day are.
+
+Link six. "Failover Controls for Amazon S3 Multi-Region Access Points | AWS News Blog"
+
+Much needed new feature for S3 Multi-Regionality. The Replication visual is pretty cool looking.
+
+Link seven. "The Buy And Hold Mindset - AVC"
+
+Good read to see a seasoned VC and Investor sharing how to think about long-term investing.
+
+That's the end of Briefly.
+
+Now, the Fortune section.
+
+Here is your fortune…
+
+Your aims are high, and you are capable of much.
+
+Thank you for subscribing to the Weekly Thing!
+
+That brings us to the end of the Weekly Thing, issue 236. Thanks for listening, and I'll see you next time.

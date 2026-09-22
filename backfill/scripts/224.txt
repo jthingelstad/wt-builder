@@ -1,0 +1,255 @@
+The Weekly Thing, issue 224. Self, Learning, Identity. Published June 18, twenty twenty two. By Jamie Thingelstad. In this issue: Sam Harris on self, software developer shortage, self-sovereign identity, Apple M2 die shot, CRISPR gene map, NounsDAO, crypto defense.
+
+This week I over-consumed on financial news. With inflation, interest rates, and markets all in wild spots there was plenty to consume. It was a rough week in all of these areas. As I was reading and listening to different observations I noted there were many references to charts and data with the comment of "we have never seen this line above the other line", or "X has always been higher than Y, this is the first time ever that Y is higher". When I hear these things I always assume this new and novel situation is terrible. Indeed, things are so far off the tracks that we are obviously doomed.
+
+But in fact, the data doesn't actually infer that. It just says that it hasn't happened before. It is new!
+
+Wether it is the pandemic, financial markets, or our personal lives time only moves forward. And the same way that "past performance does not guarantee future results", the novelty of a new and never observed situation does not guarantee negative outcomes.
+
+Or at least we can hope.
+
+PS: There was a problem in Buttondown that was stoping the Weekly Thing from being sent to iCloud mailboxes reliably. If your email is on iCloud and you haven't received the last few issues, hopefully it works this week.
+
+Now, the Featured section.
+
+Link one. "Sam Harris | #282 - Do You Really Have a Self?"
+
+Some of the reading about meditation I have done has raised the question of "self". I find it a curious topic. I also use Waking Up as part of my meditation practice and it frequently touches on the topic "self", as well as inferences of free will not existing.
+
+This insightful podcast hits on all of those topics. I certainly have an idea that my mind and my self are different, or that my body and my self are, and that free will and self can be applied to these entities of mind and body. The argument in this podcast is that that is rubbish. There is no self, you are your body and your mind. There is no other.
+
+Of course the obvious question is why does this matter? My read is that if we identify a self independent of our mind and body, we are never truly present in our own being. But this quickly gets into a realm that is way beyond my depth.
+
+I will likely listen to this podcast a couple more times.
+
+Link two. "Why We Will Never Have Enough Software Developers"
+
+I found this read and the data referenced thought provoking. I've said for years that a career in technology is a career in learning. The tools and skills needed today likely didn’t exist five years ago, and that will be true in another five. Passionate technologists are almost always passionate learners.
+
+Quote.
+Computer-related occupations receive the highest score by far, 4.8. Note that the mean and standard deviation of this measure are ~3 and ~1 respectively, so computer-related jobs are nearly two standard deviations away from the typical job in America
+End quote.
+
+I hadn't really considered the continual learning demand of technology compared to other professions. The need for continual learning and the demands of that over decades of a career can be challenging.
+
+The argument, that to get and keep enough talent you have to slow down the rate of change, has some merit to it. We all know this in tech. You can’t just adopt every new language and tool in part because not enough people know it. But I think we look at that with a micro lens, and the assertion here is that it is a macro problem.
+
+Link three. "Is "acceptably non-dystopian" self-sovereign identity even possible?"
+
+What even is self-sovereign identity? Good question. Ask yourself what makes you an identifiable person? The answer to that is really "for who?". For the government, your Social Security number is that. If you work for a company you have some identifier. The question being posed here is can we identify a unique person without centralized organizations? Maybe, but it is a lot harder than it may seem.
+
+Quote.
+Self-sovereign identity is one of those things that sounds wonderful at a glance, but can get pretty dystopian the more you start to think about it. Conversely, centrally-controlled identifiers left to governments and corporations have their own obvious and serious issues particularly when it comes to marginalized groups, oppressive governments, and access.
+End quote.
+
+This topic is related to crypto technology but not necessarily the same. The same way crypto argues that people should be able to have their own way of storing and transacting value without a central entity, this tech argues that we should be able to assert and prove our identity without a central entity. Leave the Social Security number at home.
+
+Quote.
+Digital identity has its own trilemma: privacy, Sybil resistance, and decentralization.
+End quote.
+
+I setup a BrightID profile a few weeks back because there are several crypto projects that use it as a way of validating you. BrightID is not perfect and this article highlights many issues with it, and all approaches to this problem.
+
+I do think this is an interesting problem to solve, and could unlock some very compelling real-world use cases when combined with other things.
+
+That's the end of Featured.
+
+Now, the Currently section.
+
+Playing: After pre-ordering a year ago this week our Playdate arrived! It is such a fun little game device. In addition to the two games on it from Season One, I grabbed A Joke That's Worth 0 dollars and 99 cents and Bomber Panda to play as well.
+
+That's the end of Currently.
+
+Now, the Notable section.
+
+Link one. "The Bill Gurley Chronicles: Part I - Macro Ops Musings"
+
+This blog post summarizes 25 years of Bill Gurley's writing into a "cliff notes" version in one single document. Great information and super easy to read. Thanks Hector for the link.
+
+Link two. "tokenproof"
+
+Using NFT's to gain entrance to a real world event is a growing use case. However, it can be really clumsy to open up your wallet and show someone. Plus, your wallet has balances and stuff you don't want to show people. Tokenproof allows you to point to your wallet and validate the presence of an NFT without showing your wallet to someone.
+
+Link three. "Bankless: How Bad will Inflation Get? | Jim Bianco"
+
+I found this interview with Jim Bianco really interesting and a great explainer on the dangers of inflation. His argument is that we are in this spot because of all the money that the US injected into the system at the start of the pandemic. How that all plays out, and how much use will have to do to manage that, are the topics he dives into further. His assertion that all of that "free money" was also a big part of the crypto price spike that we saw is, I suspect, spot on.
+
+Link four. "Hub and spoke"
+
+This is a wild interactive map of the world that shows you the nearest dozen airports from wherever you are on the map. Okay, that is neat and all. But, as I played with it scrolling around I started to see the airport links like a giant spider that was crawling all over the planet. Totally trippy.
+
+Link five. "txt.fyi"
+
+What a tagline: Welcome to the dumbest publishing platform on the web. I’m not sure what the difference is between sites like this and using a Github Gist or Pastebin. Mainly some require registration and some don't. Either way these seem to be things that ultimately get abused like crazy. Why not put this text on txt.fyi.
+
+Link six. "Problems now (problems later)"
+
+Godin's writing strikes a chord sometimes, and this is one of those.
+
+Quote.
+Our story about the future is in the now, regardless of how far away the future is. All we can do with the future is experience our story about it right now.
+End quote.
+
+Link seven. "Apple M2 Die Shot and Architecture Analysis – Big Cost Increase And A15 Based IP"
+
+The performance of the latest-and-greatest Apple Silicon, the new M2 chip, looks impressive to me. This article suggests however that Apple is showing strains and getting performance at a greater cost than should be expected.
+
+Quote.
+The core itself is 21% larger than in M1, and 7% larger than A15. The big area of gen-on-gen growth is with the shared L2 cache which has gone from 12MB to 16MB compared to both M1 and A15. The AMX unit looks identical across A15 and M1 as well. The shared logic plane is also significantly larger which is is an indication that there is more bandwidth between the cores and the L2 cache and SLC. Overall, Apple spent 5.2mm2 on the big P-Cores, but the performance increase from them comes mostly from clock speeds.
+End quote.
+
+This isn't the first time I've seen suggestions that the performance ramp isn't working on Apple Silicon. It is all conjecture though, so only time will tell. It is intriguing to me how they dissect the chip and think about the layout.
+
+Link eight. "New CRISPR-based map ties every human gene to its function | MIT News"
+
+When I read Crack in Creation I was blown away by the capabilities of CRISPR. One of the most striking analogies used to describe it was that CRISPR was to gene editing what the PC was to computing. That is a massive conjecture. It is hard to even imagine what that means if true.
+
+Quote.
+The Perturb-seq method uses CRISPR-Cas9 genome editing to introduce genetic changes into cells, and then uses single-cell RNA sequencing to capture information about the RNAs that are expressed resulting from a given genetic change. Because RNAs control all aspects of how cells behave, this method can help decode the many cellular effects of genetic changes.
+End quote.
+
+This is an incredible level of detail. It will be curious to me how far we can go, and my constant caution here is organic entities are fundamentally analog, and that we can only understand them so far. Like a fractal, no matter how far you zoom in, there is still more detail to discover.
+
+Link nine. "What is NounsDAO!?"
+
+This is a great introduction to NounsDAO.
+
+Quote.
+Apart from being well thought and not a plain money grab, Nouns has some cool game theory mechanics going on behind it. Let’s lay out some of the truths about NounsDAO: 1. There is a new Noun every 24h forever 2. There is north of 50 million dollars+ in the treasury and constantly growing 3. There is no copyright on the artwork
+End quote.
+
+The author hits on the same things that I found super interesting about NounsDAO, and why I bought Lil Noun 1416! This seems like an incredible experiment to be part of. I've voted on four proposals so far. Joining Lil Nouns DAO is relatively simple and will cost 0.3 to 0.7 ETH depending on the individual Noun. Lil Nouns DAO and Nouns DAO are connected by owning each others Nouns.
+
+Link ten. "Am I on the IndieWeb Yet? | Miriam Eric Suzanne"
+
+I’m also a big believer in the indieweb. It used to be that all of the web was the indieweb after all. Core to indieweb is the idea of self-publishing your own site. Owning your own domain name as well. The reality highlighted here is that it is all too hard for most people. I think the best middle ground is indieweb providers like micro.blog. I use micro.blog to host my own website.
+
+Link eleven. "Pastry on Twitter: "How to create your own NFT collection from scratch…""
+
+Incredibly simple and easy to follow "how to" from Bakery DAO going through the entire process of creating your own generative images for an NFT drop. This doesn't have to be for NFTs. You could use the same toolkit to make any large number of composable images. Super neat! (I sure with this was a blog post instead of a. Twitter thread.)
+
+Link twelve. "TextCleaner - The Text Cleaning Tool"
+
+I often bring text into Sublime Text or Drafts to make sure it has no hidden formatting or other metadata. Why? Because frequently when you copy text out of some apps it has a lot of unknown metadata and hidden formatting in it (yes, Microsoft Word, you!). Tools like this help make sure it is just simple text.
+
+Quote.
+Text cleaner is an all-in-one text cleaning and text formatting online tool that can perform many simple and complex text operations including format text, remove line breaks, strip HTML, Convert case, and find and replace text online.
+End quote.
+
+Related to this, after using Macs for decades I just recently learned that when you paste, if you do cmd-opt-shift-V it will paste the clipboard as plain text!
+
+Link thirteen. "In defense of crypto(currency) – A Few Thoughts on Cryptographic Engineering"
+
+I seem to share a lot of the same position as Green does in this article. This is a response to the Concerned Tech letter to Congress. I’m a pragmatist with this tech, and think that there is value here and it can be integrated into and help innovation in our current ecosystem.
+
+That's the end of Notable.
+
+Now, the Journal section.
+
+Thursday @ 7:41 PM
+
+First strawberries from the garden. So delicious. We need to put straw down to keep them off the dirt.
+
+Thursday @ 12:55 PM
+
+The Playdate arrived! Preordered this about a year ago. Initial impression is great. Adorable device. And the crank is just so cranky! Can’t wait to play with this and maybe create something for it.
+
+Wednesday @ 9:53 PM
+
+I attended a whiskey tasting at O’Shaughnessy Distilling tonight. The four spirits we tried were fabulous, and the space was incredible. I need to come back and take a full tour.
+
+Wednesday @ 9:35 PM
+
+Voted for Lil Nouns DAO Proposal 18 to Acquire LilNouns.eth ENS Domain. txn.
+
+Wednesday @ 9:33 PM
+
+Voted for Lil Nouns DAO Proposal 17 to Buy Noun #102. txn.
+
+Tuesday @ 9:23 PM
+
+Mazie turned 17 today! She is so smart, creative, and energetic. Her big day has been awesome. I’m so proud of her!
+
+Saturday @ 8:53 PM
+
+Mazie and I packed rider packets for next weeks Minnesota Ironman Bike Ride today. Our task was unboxing and folding at least 2,000 t-shirts to be put in bags.
+
+Friday @ 10:51 PM
+
+Now that we have Jack Dorsey using “Web5” I assume all DNS and ENS names of “web[0-9]+” are being reserved.
+
+Friday @ 10:40 PM
+
+I can now declare some level of basic competency with the irrigation controller and its various programs, schedules, start times, durations, and zones.
+
+I successfully have three programs running complementary and differing start times and durations.
+
+Friday @ 7:42 PM
+
+Mazie and I at our first ever MN Aurora FC game! Awesome that we get to see women’s professional soccer in the Twin Cities! Aurora v Chicago.
+
+Aurora over Chicago 3-1. Final attendance 5,132.
+
+Friday @ 7:37 PM
+
+Dinner at Crisp and Green, Mazie’s favorite restaurant.
+
+Friday @ 7:35 PM
+
+Mazie and I went on a tour of the University of Minnesota today. It is part of her college exploration and I wanted to show her where I went to school. A lot has changed in 30 years.
+
+That's the end of the Journal.
+
+Now, the Briefly section.
+
+Link one. "Firefox Rolls Out Total Cookie Protection By Default To All Users"
+
+I’m not a Firefox user but I endorse and applaud all that they are doing to protect privacy.
+
+Link two. "A message from Coinbase CEO and Cofounder, Brian Armstrong | The Coinbase Blog"
+
+Coinbase cutting workforce by 18%.
+
+Link three. "Silicon Valley’s Horrible Bosses"
+
+In general, I think we can agree that leading your company via tweet is not a great strategy.
+
+Link four. "Clarus Returns Home"
+
+Clarus the Dogcow makes a return in macOS.
+
+Link five. "Apple and MLS to present all MLS matches for 10 years, beginning in twenty twenty three - Apple"
+
+I’m an MLS fan! I’m an Apple fan! This is exciting and I love that it is a long-term agreement. I hope that having this for 10 years will allow Apple to make investments in the experience that would be harder to justify on a shorter term.
+
+Link six. "fresh - The next-gen web framework"
+
+Does the world need yet more web frameworks? Sure, why not. The more the merrier.
+
+Link seven. "NiceNode"
+
+Packaged Ethereum node ready to download and run on your desktop.
+
+Link eight. "Rocket Pool - Your friendly decentralised Ethereum Proof of Stake (PoS) Protocol"
+
+I would like to run my own Ethereum staking node, but I don't think I want to deal with the issues of running the whole thing. This is a simple way to stake but let the provider run the gear for you.
+
+Link nine. "Handling Concurrency Without Locks | Haki Benita"
+
+Concurrency is a super hard problem for software engineers. Frankly, we often think concurrency issues don't exist but the reality is that they haven't been exercised completely until we get more powerful hardware. Designing for concurrency is difficult, but necessary at times.
+
+Link ten. "AWS costs every programmer should know"
+
+In the cloud developers must understand and design for the cost structure that the architecture they create. That may seem obvious, but in the decades of on-premise hardware that largely wasn't a consideration.
+
+That's the end of Briefly.
+
+Now, the Fortune section.
+
+Here is your fortune…
+
+You will be awarded some great honor.
+
+Thank you for subscribing to the Weekly Thing!
+
+That brings us to the end of the Weekly Thing, issue 224. Thanks for listening, and I'll see you next time.

@@ -1,0 +1,236 @@
+The Weekly Thing, issue 285. Voyager, ActivityPub, Trackers. Published April 28, twenty twenty four. By Jamie Thingelstad. In this issue: VASA-1, Voyager 1 resumes updates, Map of the Web, Ghost building ActivityPub, killed Google Search, cryptocurrency mixing arrested.
+
+Weekly Thing 285 with fifteen links and five journal entries between Apr 19, twenty twenty four and Apr 26, twenty twenty four. Sent from Minneapolis, MN.
+
+Good morning!
+
+Landing in your mailbox on Sunday morning and in real-time as well. We've been having a fun and active weekend celebrating Tammy's birthday. We have observed many gardens of tulips that are just a few days from being a splendor of color. Not there yet. So close.
+
+I hope you have a great weekend!
+
+Now, the Featured section.
+
+Link one. "Mental Health in Software Engineering"
+
+Many disciplines have a lot of stress in their roles in companies. And leading those areas adds another level to that. I know the world of technology the best and the unique anxiety that can come with it. I also think that aspect of technology is not acknowledged inside our outside our practice much. I suspect the stereotypical combination of technologists not being as comfortable communicating about such things is a contributor. I know that at Minnebar there have been sessions over the years on burnout and stress and they always draw large attendance. And the facts are clear that many people drop out of technology careers when they have many working years left. So when I saw Kravcenko's article on mental health it drew me in.
+
+Quote.
+This kind of situation isn't rare. You're always on edge, thinking the whole company's fate rests on your next move. It's like being in a constant state of alert, where slowing down feels like you're letting everyone down. As a CTO or any other tech leadership position, you're making calls that could either make or break the whole operation. And yeah, it's thrilling, but it's also a breeding ground for anxiety.
+End quote.
+
+I could relate to nearly everything in this article, particularly the startup phases with customer commitments that will require herculean efforts and have a ton of risk. By the way, once you are no longer in startup and have thousands of customers that anxiety doesn't go away but instead shifts into the challenge of keeping services running continuously, every minute of every day.
+
+Quote.
+For me, it was about noticing when I started to dread work I usually enjoyed and the random sense of apocalyptic doom or when my sleep went sideways. I mean, I don't think anyone can miss those signs, but it took me half a year to recognize them and go to a psychotherapist. I thought I had the winter blues. Go figure…
+End quote.
+
+In twenty eighteen I started a daily meditation practice. The reason for that was directly the kind of stress and anxiety introduced from the accountability this article describes. I had done an assessment and concluded that I was losing the battle with stress and anxiety. I didn’t feel on a steep decline, but the trend line was going the wrong way. I found meditation to provide a relief. An opportunity to apply perspective to those thoughts and change that trend line.
+
+Given the need for talented technologists we need to find ways to bring this topic into the open and discuss it, and from that hopefully find ways to reduce the sources and increase the ways to compensate and manage.
+
+That's the end of Featured.
+
+Now, the Notable section.
+
+Link one. "VASA-1 - Microsoft Research"
+
+The example videos in this research writeup are incredible. If you look really, really close you can see some errors. But the fact that these videos of talking heads were created with just a single still image is mind blowing. We need to assume that anything being said by anyone in a video could be generated.
+
+Link two. "My 25-Year Engineering Career Retrospective"
+
+Technology is still such a young and constantly evolving field that I think career retrospectives like this are particularly good reads. I also like that this is not specifically about tools. Nothing like "I wish I used tool Y less." These are foundational practices to how you manage your career.
+
+Quote.
+- Mindset and Productivity - Learning - Career Planning - Public Exposure - Work-Life Balance - Mentorship and Networking
+End quote.
+
+I particularly like the callout to learning. I'll repeat it again: To have a career in technology, is to have a career in learning. Great callouts to writing in public, speaking, coding, reading.
+
+Link three. "NASA’s Voyager 1 Resumes Sending Engineering Updates to Earth – Voyager"
+
+I absolutely adore this story! The idea that this NASA team was able to revive Voyager 1 after a chip on it failed while it is hurtling in outer space is just fabulous!
+
+Quote.
+The team discovered that a single chip responsible for storing a portion of the FDS memory -- including some of the FDS computer's software code -- isn't working. The loss of that code rendered the science and engineering data unusable. Unable to repair the chip, the team decided to place the affected code elsewhere in the FDS memory. But no single location is large enough to hold the section of code in its entirety. So they devised a plan to divide the affected code into sections and store those sections in different places in the FDS. To make this plan work, they also needed to adjust those code sections to ensure, for example, that they all still function as a whole. Any references to the location of that code in other parts of the FDS memory needed to be updated as well.
+End quote.
+
+So, this is some pretty low level addressing stuff going on. And let me tell you, the idea that you mess this up and point at the wrong memory locations is the kind of stuff that would make any developer anxious. Now imagine doing that work on a spacecraft that is so far away it takes over 22 hours for the signals to reach it!
+
+I love the picture too. Those are some deservedly happy technologists. This group deserves some medal. Send them a POAP!
+
+Link four. "Map of the Web"
+
+Love this cool graph animation of different sites and how they link to each other. I did a search for thingelstad.com and my site is on the map, as well as weekly.thingelstad.com. This wild and wonderfully interconnected web is beautiful. Keep the silos away.
+
+Link five. "Ghost — Building ActivityPub"
+
+This kind of announcement is what has me finally digging deeper into ActivityPub and the Fediverse.
+
+Quote.
+We’re building an ActivityPub feed directly into Ghost to allow you to follow people, publications and topics from around the web that interest and inspire you.
+End quote.
+
+The open and distributed nature of ActivityPub is allowing it to show up in a wide variety of software. It is now feeling similar to RSS where I can do what I want. Or even the open use of email. There is truly interesting stuff happening here.
+
+You can find me at @jamiethingelstad@mastodon.social and I also have @weeklything@mastodon.social. If you are still just living in the closed and proprietary networks I would recommend spending some time on Mastodon.
+
+Link six. "Digital Toolmaker - HeyDingus"
+
+I’m a big fan of the Shortcuts app. I was an avid user of it when it was still called Workflow before Apple bought it and baked it right into iOS and iPadOS, and then brought it to all the platforms.
+
+Quote.
+Saving time is just one reason I like throwing my time into creating these (sometimes) small digital hammers. Another is because, at this point, all my digital problems look like little digital nails, just waiting to be tapped into place with a few well-placed Shortcuts actions. But mostly, it just lights up my brain in a way that few other things do.
+End quote.
+
+I feel very similar to Blundy. I don't have as many Shortcuts, but I use multiple shortcuts every single day. The biggest example is how I build the Weekly Thing!
+
+If I can recommend one tool that you may not be using but probably should — it would be Shortcuts.
+
+Link seven. "The Man Who Killed Google Search"
+
+I don't use Google for search directly, but many that do have commented on the general quality of the search results. In this article Zitron connects the dots via emails that were made public in discovery to actions made to drive revenue up by changes in the search responses.
+
+I can tell you first-hand the mechanics here work. If you are running a large website using ads it is very simple to identify ways to increase impressions by changing the user experience. The tradeoff (usually) is that those changes are typically negative for the user. In news organizations this is part of why there is a "firewall" between the team making the content and the team selling ads. For Google, that is the search results page and the algorithms that decide what goes where.
+
+So the mechanism is for sure there. Are the actions there? Read and see what you think.
+
+There is also a response to comments Google made about the assertions. If your curious what I do use for search I pay for Kagi and my fallback is the free DuckDuckGo.
+
+Link eight. "The creepy sound of online trackers"
+
+I am passionate about online privacy and run layers of software to protect my web browsing from surveillance. It is hard to explain to people how much they are being surveilled when they browse various websites. Then someone got this amazing idea!
+
+Quote.
+So this is what he did. A piece of software dubbed googerteller designed for his Linux computer that emits a scratchy beep when the computer detects information flowing out from his computer to one of Google's computers.
+End quote.
+
+Watching the two videos in this post shows you how much activity is going to various surveillance systems as you browse the web. I’m happy to have 1Blocker and Little Snitch protecting me, but we also need more awareness of this problem.
+
+Link nine. "Founders And CEO Of Cryptocurrency Mixing Service Arrested And Charged With Money Laundering And Unlicensed Money Transmitting Offenses | United States Department of Justice"
+
+In August twenty twenty two the US Treasury took action against Tornado Cash which hid the sender and receiver of transfers on Ethereum. Now the DOJ has arrested the founders of Samourai Wallet for running a similar service for Bitcoin, referred to in the case as a "cryptocurrency mixer". The DOJ has made a clear line that crypto services that anonymize transactions in their opinion are illegal. These services are used for criminal activity for sure, but providing privacy of blockchain transactions is a problem to solve. What will happen when the first blockchain builds this feature into the base layer?
+
+That's the end of Notable.
+
+Now, the Journal section.
+
+Journal entry one.
+
+Crucially important House of Representatives vote coming up to provide critical aid to Ukraine! I just got off the phone with Representative Omar’s office expressing my support for these bills and asking for her vote in support. Thank you to Stand With Ukraine MN for the steps!
+
+Journal entry two.
+
+We just passed the Bitcoin halving and are now in Epoch V! What an incredible journey so far. I found Bitcoin interesting in twenty fourteen. I ultimately experimented with it but didn’t see the utility. I ignored it for years. Then played with it from time to time. I think it is likely that Bitcoin is the foundation of an entire crypto ecosystem that will grow in importance over decades.
+
+See my blog posts mentioning bitcoin. Screenshot is from Timechain Calendar.
+
+Journal entry three. Minnebar 18
+
+Today was one of the biggest days of the year for the technology community of the Twin Cities -- Minnebar 18! Once again Best Buy Headquarters was a gracious host sponsor and Minnestar welcome over 1,000 passionate technolgies to partake in at least 80 sessions led by members of the community. Tyler and I had a great time and attended many sessions.
+
+- Let’s Invest: Building Strong Community and Empowering Our Future with Steve Buchanan
+- Mastering LLM Optimization: RAG, Fine-Tuning, and Combined Strategies with Prashanth Pollishetty and Varun Kodathala
+- Google Sheets + AI, the new Brainstorming, and Custom GPTs with Jeffrey Williams
+- Retro-Computing Hobby with Girish Jorapurkar
+- DevSecOps the Good, the Bad, the Ugly with Brian Dolan-Goecke
+
+The main room as the day gets kicked off.
+
+Minnebar 18 t-shirts ready! They look amazing!
+
+Ran into Colin Hirdman who had this incredible display integrated with his shirt.
+
+One of our sessions learning about LLM techniques.
+
+Steve Buchanan introducing himself as he gets Session 0 (aka Minnebar Keynote) going.
+
+Very, very long line for pizza.
+
+Great to see Maria Boland Ploessl, Benjamin Ortega, me, Jeff Sellner, Tony Collen, and Adrienne Peirce.
+
+The session we attended Retro Hardware.
+
+SPS Commerce is a terabyte sponsor of Minnestar!
+
+We didn't get everyone, but several of #TeamSPS got together for a team photo at Minnebar 18!
+
+Awesome community members that I got to say Hi to at Minnebar (incomplete and unordered)…
+
+Bridget Kromhout, Nate Anderson, Levi McCormick, Jeanette Dorazio, Justin Porter, Casey Helbling, Paul DeBettignies, John Roberts, Jenna Pederson, Colin Hirdman, Samantha Grumdahl, Matt Decuir, Gordon Raup, Maria Boland Ploessl, Adrienne Peirce, Jeff Sellner, Tony Collen, Benjamin Ortega, Corwin Diamond, Bode Falade, Mark Gritter, Nikki Riemersma, Jim Bernard, Pete Clark, Tor Flatebo, Tori Peraza, Melissa Buening, Jade Barker, David Duccini, Peter Edstrom, Graeme Thickins, Molly Doyle, Robert Weber, John Murphy, John Kelly, and Robert Speer.
+
+See also Minnebar collection.
+
+Journal entry four. Blog Gardening Reflection
+
+Today was a particularly fun session of blog gardening:
+
+- Realized that we walked the High Line in New York exactly 11 years apart and didn't know it, first in twenty twelve and then in twenty thirteen.
+- Shared 1-year anniversary of a milestone with SPS team.
+- Reminded of the Cherry Blossoms in Kyiv.
+- Linked all five High Line blog posts together.
+- Fixed three photos that had been lost in past blog migrations.
+- Used Internet Archive to fill in missing information from a conference I attended in twenty sixteen.
+- Added a photo from Lightroom that had never been on my blog because it was hard to do that back then.
+- Added over a dozen hyperlinks to various posts making them and the web better.
+- Fixed a handful of typos.
+
+Journal entry five.
+
+Playoff basketball tonight with Timberwolves v Phoenix. Aggressive ball! 50-51 at the half.
+
+Weekly Thing Forum
+
+Join Patrick Hambek, Barry Hess, Eric Walker, Brad Armstrong, Tom Mungavan, and many other Weekly Thing readers in the Weekly Thing Forum. Recent topics include:
+
+- Mastodon Instance Recommendation
+- A few thoughts on this weeks Weekly Thing
+- Take Ownership Of Your Future Self
+- Milwaukee
+- Tron Movies
+
+That's the end of the Journal.
+
+Now, the Briefly section.
+
+Link one. "US Air Force says AI-controlled F-16 has fought humans • The Register"
+
+First AI beat us at Chess. Then AI beat us at Go. Now AI is going to be in F-16 dog fights? The military use of AI is bewildering.
+
+Link two. "Valkey is Rapidly Overtaking Redis - DevOps.com"
+
+Redis is a wonderful piece of software that is used in so many systems. This decision to change the license for Redis is having a swift impact.
+
+Link three. "Anthropic — Prompt library"
+
+Prompt libraries are helpful to learn better ways to get what you are looking for from LLMs.
+
+Link four. "The Norwegian ban on smart phones in middle schools - Marginal REVOLUTION"
+
+I’m surprised that banning smart phones didn’t have a bigger effect. The effect was positive in every way, but I thought it would have been bigger.
+
+Link five. "Apple Releases Open Source AI Models That Run On-Device - MacRumors"
+
+Some foreshadowing and groundwork for what I expect will be a ton of AI announcements at WWDC.
+
+That's the end of Briefly.
+
+Now, the Fortune section.
+
+Here is your fortune…
+
+Change your thoughts and you change your world.
+
+Thank you for subscribing to the Weekly Thing!
+
+That's the end of Fortune.
+
+Now, the Want to support the Weekly Thing? section.
+
+First — thank you for subscribing and reading. Here are some things you can do that would be great…
+
+- Share Weekly Thing 285 / Voyager, ActivityPub, Trackers with others you know!
+- Post about the Weekly Thing and let others know about it.
+- Join the Weekly Thing Forum and connect with others.
+- Email me comments, feedback, or just to say Hi!
+
+That brings us to the end of the Weekly Thing, issue 285. Thanks for listening, and I'll see you next time.

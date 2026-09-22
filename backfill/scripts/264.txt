@@ -1,0 +1,307 @@
+The Weekly Thing, issue 264. Dazed, Zany, Llama. Published October 7, twenty twenty three. By Jamie Thingelstad. In this issue: Seeing our own faces, computational power and AI, Amazon Bedrock, Raspberry Pi 5, two types of PayPal dollars, synthetic social network, Google Pixel 8.
+
+Hello!
+
+We started this week with unusually hot weather in the upper 80 °F and are ending with definitive cold winds of fall and lows in the 40s. I’m looking forward to many evening fires before the snow starts to fly. Fall is one of my favorite times of year. It is also time to put The Replacements on heavy rotation. Their music is made for fall.
+
+I’m looking forward to our very first Homecoming and Family Weekend at St. Olaf this weekend!
+
+Also, thanks to all those that jumped into the Weekly Thing Forum to try it out!
+
+Now onto the links…
+
+Now, the Notable section.
+
+Link one. "We were never supposed to see our own faces this much | Dazed"
+
+Much has been written about how distracting it is to see yourself on the screen. I always prefer to turn off "Self View" in Zoom. But it also can be psychologically damaging. For me this connects back to the huge boom of Instagram tied to the launch of the front-facing camera.
+
+Link two. "Computational Power and AI - AI Now Institute"
+
+This is a very broad and reasonably deep description of how compute power is used to build and train models, and why this is hard and very expensive.
+
+Quote.
+Compute costs are predictably large: the final training run of GPT-3 is estimated to have cost somewhere between 500,000 dollars to 4.6 million dollars. Training GPT-4 may have cost in the vicinity of 50 million dollars, but the overall training cost is probably more than 100 million dollars because compute is required for trial and error before the final training run.
+End quote.
+
+Those costs are huge, and it is a ton of power too. It is interesting that the big innovations over the last few years — crypto and AI — are both very high compute demand workloads. Crypto has an answer with proof-of-stake. It isn't clear what will make AI costs go down for model building.
+
+Link three. "Amazon launches its Bedrock generative AI service in general availability | TechCrunch"
+
+Bedrock? I thought Bard was a lackluster name. This doesn't seem to be much truly new, but AWS wrapping GenAI capability into something that plays well with the rest of the AWS ecosystem. We need to see what comes of their massive Anthropic investment.
+
+Link four. "Introducing: Raspberry Pi 5! - Raspberry Pi"
+
+It amazes me what you can get in such a small package and so cheaply. There was a time when this would have been a pretty impressive computer! Also see Testing PCIe on the Raspberry Pi 5.
+
+Link five. "Moneyness: There are now two types of PayPal dollars, and one is better than the other"
+
+Announcement from PayPal launching US dollar Stablecoin. They have launched this with Paxos and it is worth looking at given the deep "crypto winter" we are in. Koning writes up his view on which of these assets, regular US dollars held at PayPal, or PyUSD Stablecoins, are better.
+
+Quote.
+It's the PayPal dollars hosted on crypto databases that are the safer of the two, if not along every dimension, at least in terms of the degree to which customers are protected by: 1) the quality of underlying assets; 2) their seniority (or ranking relative to other creditors); and 3) transparency.
+End quote.
+
+The more efficient and stronger technology here is crypto. There is a long way to go, but digital currency will be far superior in something like PayPal, and their push here with this stablecoin is a good indication of that value.
+
+Link six. "The Speed of Transactions versus the Speed of Settlements - Lyn Alden"
+
+Alden reflects on the role of currency over history, and specifically focuses on the transactions and settlements as two different things, and how technology has affected them. Alden is keen to apply a technology lens to this, and extends to what we are likely going to need in the future.
+
+Quote.
+Nature’s ledger (gold) has robust parameters for supply and debasement but doesn’t move and get verified fast enough in the telecommunication age. Mankind’s ledger (the dollar) moves and gets verified fast enough but doesn’t have robust parameters for supply and debasement. The only way to fix this speed gap in the long run would be to develop a way for a widely accepted, scarce, monetary bearer asset itself to also be able to settle over long distances at the speed of light. In other words, something like bitcoin.
+End quote.
+
+An interesting read. The nuance of settlement is critical, and one that many forget. I know when I've shown people Bitcoin Lightning sometimes they say "Well, I can do that on Venmo." But no you can’t. Bitcoin settles immediately, the transaction is done. Venmo takes 1-3 days for the cash to move. It is a totally different thing built on top of the slow banking system.
+
+Link seven. "Meta quietly releases Llama 2 Long AI model | VentureBeat"
+
+Get ready for it, I’m going to say something nice about Facebook (aka Meta). I appreciate what they are doing with Llama, and bringing an open-source solution to the AI battles that are raging. Llama is pretty powerful, and for many AI solutions may be the right thing to use to power it.
+
+Link eight. "The synthetic social network is coming - The Verge"
+
+Now that we have AI that can create new content, including images, intelligently it seems obvious that social networks will be filled with more advanced AI's pretending to be people. If you launched a social network today, with a good enough budget, you could have 100,000 bot users in there immediately so even the first user would feel like there were a lot of other people here. Only they aren't people, they are AIs.
+
+Quote.
+More significantly, I think, is the idea that Meta plans to place its AI characters on every major surface of its products. They have Facebook pages and Instagram accounts; you will message them in the same inbox that you message your friends and family. Soon, I imagine they will be making Reels. And when that happens, feeds that were once defined by the connections they enabled between human beings will have become something else: a partially synthetic social network.
+End quote.
+
+This seems obvious. Game networks have done this for a while. If you have a multiplayer game you need to have an option for people that want to play when everyone else is sleeping. Bot players serve that purpose well. Of course having a bot play a game is entirely different than a conversational AI with a profile, history, photos, and everything else that could go with it.
+
+This is one of the risks Ian Bremmer highlighted in Weapons of Mass Disruption. Where this goes is anybody's guess.
+
+Also see Introducing New AI Experiences Across Our Family of Apps and Devices where Facebook highlights the 28 more AI characters. I had to temporarily turn off my content blocker to read that one.
+
+Link nine. "nomnoml"
+
+This tool reminds me of the DOT language that Graphviz uses to create diagrams, but in this case you are creating UML. It doesn't make me want to use UML at all, but these tools that take text input and turn it into diagrams or images are fun.
+
+Link ten. "10 Challenges to Building a Customer Obsessed Organization"
+
+Gothelf shares twelve areas to focus your organization to improve at being customer centric (or obsessed as he says.
+
+Quote.
+It was hard distilling this list into only 10 of these anti-patterns (in fact, I failed, there are actually 12 in this article) but I feel that these are the most prevalent and the ones that, if improved, would make the most difference to organizations competing in today's uncertain, rapidly changing world and business environment.
+End quote.
+
+This is a great list for leaders to use to asses their organization and see where improvements can be made.
+
+1. Misaligned Incentives
+2. Learning is not a Priority
+3. No Cross-Functional Collaboration
+4. Underuse of In-House Research Team
+5. Lack of Humility
+6. Too Much Theory X, Not Enough Theory Y
+7. Agile and Process Theater
+8. Fixed, Annual Planning Cycles
+9. Lack of Psychological Safety
+10. Teams Don't Understand their Business Model
+11. Bonus 1: No Access to Customers
+12. Bonus 2: Teams don't know how to do Product Discovery
+
+Very good areas to focus.
+
+Link eleven. "Google Pixel 8 launch event: all the news and products - The Verge"
+
+New flagship Pixel 8 phone from Google. The 15 minute video overview from the Verge is great. I’m an Apple user but curious to see what the premier Android platform are doing. The AI photo editing capabilities are interesting, but the photograher in me has a lot of questions about what to call those images. Not sure they are pictures. So weird to see the Fitbit brand showing up as an app on the watch.
+
+Recommended
+
+People and Blogs is a wonderful project by Manuel Moreale, highlighting "wonderful human beings and their blogs". Manuel's goal is to promote a healthier way to inhabit the web. I love blogging, and I love how People and Blogs shines a spotlight on it. I’m a supporter of the project via Ko-Fi. I'd recommend subscribing to get new issues each week!
+
+That's the end of Notable.
+
+Now, the Journal section.
+
+Journal entry one.
+
+Starting AI for Business conference at Carlson School of Management, Management Information Systems Research Center (MISRC). Looking forward to a focused day of learning on one of the most critical topics of the moment.
+
+Journal entry two. Launch Apps Shortcut
+
+I'm a big fan of Shortcuts and find it useful for many small automation tasks, creating one off scripts really fast, and even building complex solutions like the Weekly Thing.
+
+“Launch Apps” is a shortcut that I think every Mac user can benefit from. I have a set of applications that I always use. Mail, Calendar, Drafts, etc. Some apps I add contextually based on which computer I'm on, or what network. Launch Apps gives me one shortcut I can put in my Menubar and easily get everything that I want running quickly.
+
+You can grab my Launch Apps Shortcut as a starting point to make your own. It is a very simple shortcut, and a great way to get started with automation.
+
+This post is part of the Shortcuts Collection.
+
+Journal entry three.
+
+I created a Shortcuts Collection page to connect various blog posts I’ve written about Shortcuts and how I use them. Few posts so far, but thinking this is a topic I will write about more since I do so much with it.
+
+Journal entry four. Smooth Transition from Purchase to App
+
+There is a very common gap in customer experience that is often ignored when you buy a physical product that has to be shipped to you and it has an app that you can use to interact or control it. This can go from a Smart home appliance all the way to a Tesla.
+
+I still remember when I reserved my spot for my Tesla Model 3 and was excited to download the Tesla app only to realize that it wouldn’t let me do anything until I had my car. This is very common, and it is a let down because right at that time of purchase you are excited to get the thing, and are motivated to get things setup so you are ready for it to arrive.
+
+I recently purchased an Eight Sleep system, and for the first time saw a company handle this hand off from purchase, to receipt and app well!
+
+After I completed the order, Eight Sleep smartly directed me right away to download the application and get my account setup. Once creating my account, it knew that I had placed the order but didn’t have it yet, so it helpfully showed me the order status. Even better, in anticipation of the product arriving it also gave me a Checklist to get some things I will need to have on hand when the product arrives.
+
+This is a great way to insure that:
+
+1. I get my account setup and have the app installed, ready for the arrival of the product.
+2. Make sure that I have everything I need so I’m not disappointed when it arrives.
+3. Smoothly handle the transition from new customer to app user.
+
+Nicely done Eight Sleep!
+
+Journal entry five.
+
+We went to our last MN United game of twenty twenty three tonight. They drew a 1-1 tie versus San Jose with plenty of scoring opportunities. It was a little sad realizing we wont be back to Allianz Field until twenty twenty four!
+
+Journal entry six.
+
+I received an email this morning from a service I have no recollection of informing me that their terms of service were updated. I have no idea what this service is. I looked in 1Password and have no entry record of it either, so it is very old. I don’t know the password on the account so I issue a password reset, just so I can then delete this account. It then requires me to provide a reason for cancellation. My reason is “This field should not be required.”
+
+There should be a requirement similar to “1-click unsubscribe” but to delete your account.
+
+Journal entry seven. Task Management for the Weekly Thing
+
+I'm often asked about how I create the Weekly Thing and how I’ve been doing it for over six years. People are usually curious about how I find things to write about or how I build the Weekly Thing. However, there is a critical part that is invisible to others but key to the consistency of sending every week for 262 issues -- project management!
+
+With the recent rebuild of my automation I needed to update my project template which seemed like a good time to share how I do this. I'm a Getting Things Done practitioner, and my tool of choice for as long as I can remember has been OmniFocus. Everything here is in OmniFocus or supporting automation.
+
+A detail to share on dates and times for the publishing schedule. My target for sending the Weekly Thing is Saturday at 7:00 am CT. If I miss that it's fine, I can shift things. However, the content cutoff is actually Thursday at 11:59 pm CT and that never changes. This allows me a window from Thursday night to Saturday at 7:00 am CT to publish. One odd side effect of this is that a blog post I publish on Friday will not be in that issues Journal on Saturday, but will wait for the following week. Nobody seems to notice this and it is necessary for me to have the time to do the publishing.
+
+Project
+
+Here is what the project to send Weekly Thing 264 looks like in OmniFocus. The two dates on the right are the defer and due dates. Defer dates are critical for me since they keep things off my plate until they need to be. Note everything in gray is deferred. You can see that right now, there are only three tasks available. I’ve expanded select tasks so that you can see the helper links and text that make things a bit faster for me.
+
+There are four major steps to publishing each issue:
+
+1. Creating Content: Most notable activities here include writing the introduction, adding any “Currently” topics, taking and setting the picture for the week. Some of these I can do immediately, others I defer until a few days into the week. The writing is done in Drafts.
+2. Curating Links: I try to curate links and various points through the week, but I have two “deadlines” for the publishing cycle. Links are curated in Pinboard.
+3. Building and Sending: Content and Links are done, time to build and send. I’ve automated this to be pretty simple. See how I build the Weekly Thing for more.
+4. Finalizing: After the issue is sent and in peoples mailboxes, I need to do some final activities and most importantly create the project for the next issue.
+
+All of these steps are sequential. And the tasks in them are sequential, except for Creating Content which can be done in any order.
+
+Repetition
+
+This project is not a repeating project. That is the reason for the last step in the project, to create the next project. Why not repeating?
+
+1. Changes: Not having it repeating means I can change and alter any given instance however I like. I might add a special task to one issue, like adding a POAP for the anniversary issue. Or a special section I'm only doing that time.
+2. Schedule: I may move the due dates for one step or another and I love knowing that will not persist to the next iteration.
+
+So how do I get the repeating project without doing all the work? Plus, there are tons of date references that need to be calculated, where does that come from? This is where TaskPaper and project templates come to the rescue.
+
+TaskPaper allows me to have a template for sending the Weekly Thing that I can “run” via a Shortcut. You can see the Send Weekly Thing Taskpaper Template for all the details. Take note of two special “tokens” in the template: «Issue» and «Date». These are not part of TaskPaper, but instead two “variables” I handle.
+
+Before I hand OmniFocus the TaskPaper to create the project, I'm going to process those two tokens using a Shortcut. My Send Weekly Thing shortcut will get the “Publish Date” and “Issue Number” from Data Jar. It will set those “variables” in the TaskPaper and the rest of the data offsets are magically handled by OmniFocus. Most critical thing here is making sure I format the «Date» as yyyy-MM-dd hh:mm aa so that OmniFocus understands it.
+
+The Shortcut also puts a time block on my calendar for Thursday night to send the issue. This is a nice benefit of combining Taskpaper and Shortcuts together.
+
+Summary
+
+Creating the Weekly Thing isn’t a single “Send Weekly Thing” task on my list. Instead I’ve focused on “next action thinking” to try and make each component a simple task. Overall this works really well for me. It doesn’t solve writers block, but frees me up to focus on the creative aspects instead of the tasks.
+
+You might be curious how this works when I take my summer or winter breaks? In those cases, I still create the next project for the issue when I come back from break, but then I set the defer date for the whole thing to the week before that issue publishes. I also usually add a housecleaning task to the beginning of that issue to clean out my Safari Reading list and Pinboard Unread links.
+
+Journal entry eight.
+
+Switched things up with the 89 °F unusually hot day to get one last afternoon in the pool!
+
+Journal entry nine. Squash Blossom Farm and Sod House Theater Dinner
+
+We had a fun evening driving out to Squash Blossom Farm just outside of Oronoco, Minnesota for a Farm-to-Table dinner presented by the Sod House Theater group with funny skits and performances along with the meal. This was a truly unique experience!
+
+The farm was pretty and very relaxed. The Sod House Theater had an accordian player to accompany the skits.
+
+We tried two different meads and had one other drink.
+
+The performances were fun and goofy and made us all chuckle. You were right in the action.
+
+The meals were good and not too foody. Simple dishes served very well.
+
+Journal entry ten.
+
+The conference rooms on #TeamSPS fifth floor in Minneapolis are named after Fictional Elements. To fill out the Fictional Element world even more, this Periodic Table of Fictional Elements was added recently and I absolutely adore it.
+
+Journal entry eleven.
+
+Scrambling to wrap up Tyler's soccer game as a storm barrels in. Finished just in time.
+
+Journal entry twelve.
+
+Had a fun evening at the twenty twenty three Minneapolis Downtown Council Annual Fundraiser at Mosaic. #TeamSPS’s own Karin Lucas chairs the MDC board and addressed the crowed.
+
+Journal entry thirteen.
+
+We got our Hoist 3-Tier Dumbbell Rack put together tonight. We ran out of room on the vertical rack, and the heavier dumbbells never fit right on that one. Nice to have easy access to everything.
+
+Weekly Thing Forum
+
+Join Kyaw Za Zaw, Makis Malioris, Mike Frost, Andy McGrath, Kellie Miller, and many other Weekly Thing readers in the Weekly Thing Forum. Recent topics include:
+
+- 263 / Copilot, Del.icio.us, Pancake
+- 261 / Bloomfield Bridge, Critical Ignoring, Subscription Era
+- How I Build the Weekly Thing
+- 262 / Simulator, System, Snoopy
+
+That's the end of the Journal.
+
+Now, the Briefly section.
+
+Link one. "The Seven Meetings You Hate – Rands in Repose"
+
+Distinct taxonomy of seven different ways to classify a failed meeting. Multiple choice.
+
+Link two. "bruno"
+
+API client that stores configuration information in files you can version control and share via Git. Alternative to Postman.
+
+Link three. "How To Turn Off Google’s “Privacy Sandbox” Ad Tracking—and Why You Should | Electronic Frontier Foundation"
+
+If you care about privacy you are probably not using Chrome, but Google has roled out their new form of surveillance that is buried deep in the heart of Chrome. EFF has a guide so you can turn it off.
+
+Link four. "Swiss glaciers lose 10% of volume in worst two years on record | Reuters"
+
+Unprecedented glacial melting. "The one-two punch for Swiss glaciers during the country's third hottest summer on record means they lost as much ice in two years as in the three decades before 1990, it said, describing the losses as 'catastrophic'."
+
+Link five. "Non-engineers guide: Train a LLaMA 2 chatbot"
+
+Simple guide to use Hugging Face to create your own LLaMA 2 bot. You can even load your own training data into it. I might walk through this to play a little bit more.
+
+Link six. "Incident Review: What Comes Up Must First Go Down | Honeycomb"
+
+Public incident report on database failure at Honeycomb. These are always interesting to read and try to learn from. Well written with good data.
+
+Link seven. "Joule “Turbo” Smart Sous Vide Machine by Breville — Tools and Toys"
+
+I've got a Joule from before Breville bought them and I've used it plenty. Is there really a need for a "turbo" function? I would think Sous Vides meals are planned in advance, and you can schedule for whatever time you need, including overnight.
+
+Link eight. "Why Kagi is the best Google alternative I’ve tried yet - The Verge"
+
+I've been using Kagi for a few months, since Neeva went away, and I like it a lot. I like the ability to set search preferences a lot. It is another way for me to filter the social media world out. I recently upgraded to a Family membership so everyone could use it as well.
+
+Link nine. "murmurtype | Best speech-to-text app"
+
+I don't use dictation to "write" things, but I've considered it many times. Training myself to pronounce punctuation though seems odd. This app looks like a great way to get started.
+
+Link ten. "For You"
+
+A great new blog filled with "some thoughts for you".
+
+Link eleven. "JSONGenerator - Create Random JSON Data"
+
+Great idea for a tool to create sample data to design for a certain data exchange or API call. Loaded with generators to make all sorts of different data types, and loops to create larger arrays of JSON objects. This could be very handy for developers.
+
+Link twelve. "zany easy, free and configurable hosted favicons"
+
+Simple tool that generates a favicon using query parameters.
+
+That's the end of Briefly.
+
+Now, the Fortune section.
+
+Here is your fortune…
+
+You will win success in whatever calling you adopt.
+
+Thank you for subscribing to the Weekly Thing!
+
+That brings us to the end of the Weekly Thing, issue 264. Thanks for listening, and I'll see you next time.

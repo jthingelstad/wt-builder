@@ -1,0 +1,87 @@
+The Weekly Thing, issue 37. Weekly Thing for January 20, twenty eighteen. Published January 20, twenty eighteen. By Jamie Thingelstad. In this issue: Nintendo Labo, Raspberry Pi Kubernetes cluster, Argo workflow engine, Datasette Publish, Micro.blog, Feedbin, Bruce Schneier IoT, Internet Archive.
+
+I’m not a big football fan, but you'd have to be a zombie to not be excited about the Minnesota Vikings amazing win last Sunday! The newly named SPS Tower is in downtown Minneapolis, and with the upcoming Super Bowl we are planning for a bit of chaos. If the Vikings can make their way to that game, it will be an entirely different level of chaos. Cross your fingers for this weekends game and hopefully making history!
+
+There is something magical about a collection of books waiting for you to go on a thousand adventures. Even more so when they are all kids books filled with magic.
+
+Jan 13, twenty eighteen at 12:21 PM
+Wild Rumpus Minneapolis, MN
+
+James Clear: There are 7 minutes/day you need to master to be productive - RescueTime
+
+A number of useful tips on optimizing time and energy.
+
+Bootstrap 4 · Bootstrap
+
+Nice to see continued innovation on Bootstrap! It also feels like it might not look so templated across different uses of the library.
+
+HEY META - Website Meta Tag Check
+
+Handy tool to check the meta headers on a website and will also give you a template to add for what you might want.
+
+Nintendo Labo Official Site – Trailer, product information
+
+What a cool idea from Nintendo and an innovative way to use a small, portable game device!
+
+My Raspberry Pi Kubernetes Cluster
+
+A home-built Raspberry Pi Kubernetes cluster for 400 dollars that you can run at home with very little power consumption and no noise. Awesome! I kind of want to build one of these even though I have no idea what I would use it for!
+
+Here's The Vikings' Unbelievable Last-Second, Game-Winning Touchdown Over The Saints - Digg
+
+Enjoy watching the 18 seconds miracle touchdown from the Minnesota Vikings!
+
+Datasette Publish: a web app for publishing CSV files as an online database
+
+I love what Simon Willison is doing here with Datasettes. He's focusing on making it super simple to take any file in a CSV format and make it available on the Internet in a public JSON API. He's now made a publisher so you can put data out there with no technical background at all! Very nice! This should be a great thing for some of the open data initiatives out there.
+
+افكار و احلام » Two weeks with Micro.blog
+
+This is a very thorough write-up of this persons introduction to Micro.blog! This is where I host my micro blog.
+
+Share to Micro.blog
+
+Awesome to see my feed reader of choice, Feedbin, supporting posting to Micro.blog natively!
+
+Open source container-native workflow engine for Kubernetes | Argo
+
+Interesting, Kubernetes + Workflows. A lot of this is operations example like deploying and continuous integration, but there is a data processing one as well.
+
+Comparing Kubernetes to Pivotal Cloud Foundry — A Developer’s Perspective
+
+Very good writeup comparing current CloudFoundry and Kubernetes. I've been trying to understand this differentiation better, and even asked some Pivotal people this exact question, but the answers were not as clear as the ones in this article.
+
+The Internet of Things' Dangerous Future: Bruce Schneier
+
+Compelling article by Bruce Schneier arguing the increasing threats we face in the security space.
+
+The market can’t fix this because neither the buyer nor the seller cares. The owners of the webcams and DVRs used in the denial-of-service attacks don’t care. Their devices were cheap to buy, they still work, and they don’t know any of the victims of the attacks. The sellers of those devices don’t care: They’re now selling newer and better models, and the original buyers only cared about price and features. There is no market solution, because the insecurity is what economists call an externality: It’s an effect of the purchasing decision that affects other people. Think of it kind of like invisible pollution.
+
+His argument is an interesting one and I think he's right. There are parts of the technology market where the buyer does care about security, but by device count that is far from a majority. I also appreciate his call to not connect things to the Internet just because. Realize there is risk associated with that.
+
+Internet Archive is a non-profit library of millions of free books, movies, software, music, websites, and more. I have been a supporter of the Internet Archive for many years and I think their mission is fabulous! The web is a major part of our culture and it the content that we put on it is sadly ephemeral. The Internet Archive is working hard to capture that information and keep it for history. Donate to Internet Archive today!
+
+Rise - Nutrition and Weight Loss Coach
+
+by Rise Labs, Inc.
+
+We pair you with a top-notch nutritionist who will take the guess work out of dieting and figure out what works best for you. We don’t believe in one-size fits all solutions, calorie counting or yo-yo dieting. We believe in healthy habits and weight loss that lasts.
+
+I've used Rise in the past and I've started using it again. Rise is a pretty amazing app connecting you with a registered nutritionist as a coach and giving you a 1:1 connection to improve what you are eating. Each meal you snap a photo, and your coach gives you feedback on your choices. Having an expert help with choosing better foods is pretty powerful.
+
+Free 4/5 stars
+
+- Gas pumps with screens blaring advertising should be required by law to have always present off buttons.
+- I have been impressed with the Anki Cozmo — its amazing how much character this little robot has!
+- Getting the whole family shoveling the snow makes it very quick!
+- Vikings! That was an amazing play!
+- Nice start by the Vikings!
+- Espresso crema.
+- New light hung! This is about the extent of my handyman skills.
+- Pleased with my first go at Nordic Waffles! Tasted delicious. Kids liked them too. May cut the cardamom back a touch next time.
+- Trying my hand at some Nordic Waffles this morning with the help of Stine Aasland’s We Love Waffles!
+- Went to Young Joni for dinner for the first time. Delicious food and amazing location.
+
+Thank you for subscribing to the Weekly Thing! If you know of people that would like the Weekly Thing please forward it along!
+
+That brings us to the end of the Weekly Thing, issue 37. Thanks for listening, and I'll see you next time.

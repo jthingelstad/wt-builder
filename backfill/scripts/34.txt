@@ -1,0 +1,127 @@
+The Weekly Thing, issue 34. Weekly Thing for December 30, twenty seventeen. Published December 30, twenty seventeen. By Jamie Thingelstad. In this issue: Lowertown Line, Jeremy Messersmith, Trampled by Turtles, microservices pattern language, iPhone X, Apple AirPods, blockchain use, Santa Facts xkcd.
+
+I hope you all have been having a wonderful Christmas and New Years and are getting some time away to rest and relax. I’m sure you're wondering how my first attempt at Glorified Rice turned out? It was pretty good! I learned I didn't need to make a double batch, and I needed a little more crushed pineapple.
+
+I’m taking this week off from work and we have been enjoying time at the lake doing puzzles, video games, Legos, watching movies and playing new board games. We are all looking forward to a fabulous twenty eighteen!
+
+What apps make you better?
+
+What apps do you have on your phone that are making you a better person?
+
+All bundled up for the winter with temperatures well below zero.
+
+Dec 28, twenty seventeen at 8:40 AM
+Warsaw MN
+
+The Lowertown Line - Twin Cities PBS
+
+I just discovered this show while browsing through stuff on Apple TV and was excited to see episodes with a number of artists I like. Jeremy Messersmith, Cactus Blossoms and Trampled by Turtles are great places to start.
+
+What work really is, or 17 things I learned about productivity in twenty seventeen - a n n i e m u e l l e r
+
+I greatly enjoy Mueller's writing and this reflection on productivity is another good one.
+
+A pattern language for microservices
+
+A collection of various pattern components for microservice design. Not sure what to think of this. Is this a new thing or a rethink of existing patterns in microservices?
+
+Checklist for Plain Language | plainlanguage.gov
+
+I've shared with many people that I dislike the word "utilized" and it’s all about using plain language. Used is a fine word and I have yet to find a case where utilized was necessary over the more pedestrian used. This checklist is a good one to revisit language in your writing. I don't know what to think of the fact that this is a US Government website?
+
+twenty eighteen and the Internet: our predictions
+
+Cloudflare sees an incredible amount of activity across the web and they share some thoughts on what they expect twenty eighteen to bring, as well as visiting some of their twenty seventeen predictions.
+
+OpenEvents
+
+This is a solid idea. There are any number of systems in a platform that would benefit from subscribing to event data, but having a common structure for events is a foundational requirement to unlock any of that capability.
+
+Daring Fireball: The iPhone X
+
+Gruber's writeup on the platform transition that the iPhone X represents is interesting. When Apple introduced the iPhone 8 and the iPhone X I told a number of folks this is the transition point. I fully expect there to be an iPhone 9 and iPhone XI (let's hope the roman numerals go away). What we are seeing is the transitional period from the first arc of the iPhone and iOS to the second big arc, and during that time we'll have some overlap to allow users and apps to transition and for the cost curve to come down on the new tech. This is something that nobody has ever done at this scale, and those that have done it have not done it well. Think Mac OS 9 to Mac OS X or whatever flavor of Windows to Windows the next flavor.
+
+One Year with Apple AirPods | Beardy Guy Musings
+
+I haven't written that much about my AirPods but I find them an absolutely delightful product. They just work, and work in so many ways. I agree with this recap on them. Plus, what a great name for a blog -- beardy guy!
+
+One-on-one meetings are underrated, whereas group meetings waste time | Smash Company
+
+I've been thinking about the effectiveness of different types of meetings and aligning those meetings to my goals. I’m a manager more often than a maker, so my schedule is key to executing projects and tasks. This article is a strong argument for more frequent one-on-one meetings. I can see the point of making it the easiest way to get truthful and direct info. I also can see the point that group meetings can be driven by ego. But I also find one-on-one meetings to require a high amount of after meetings actions, after all you just had the one person to talk to. I also wonder about getting skewed perspective that may send people down odd tangents.
+
+How to Write Articles and Essays Quickly and Expertly ~ Stephen Downes
+
+I like articles from folks that know a craft and can share some of how the sausage is made. Writing articles has a structure, just like songs and poems and computer code. But to those who don't know that structure it seems like magic.
+
+Lanier’s Social Medium Ultimatum | James Shelley
+
+I love this call out from Jaron Lanier: People have to take responsibility to become literate in a new way if they are going to use the technology at all. So if you just can’t find it in yourselves to delete all your social media accounts, then you must take it upon yourself to really learn how it works. Learn how the addiction cycle works. Learn how the manipulation works. Become aware of it. We have to become much smarter customers and users of these services.
+
+Computer latency: 1977-twenty seventeen
+
+What a great project filled with delightful sentences like: At 144 Hz, each frame takes 7 ms. A change to the screen will have 0 ms to 7 ms of extra latency as it waits for the next frame boundary before getting rendered (on average,we expect half of the maximum latency, or 3.5 ms). On top of that, even though my display at home advertises a 1 ms switching time, it actually appears to take 10 ms to fully change color once the display has started changing color. When we add up the latency from waiting for the next frame to the latency of an actual color change, we get an expected latency of 7/2 + 10 = 13.5ms I've never been bothered by latency from key to display on any of my computers, but it’s curious to see that the latency has gone up with complexity. I do notice this whenever I use an Android device. Touch devices drive the latency demand higher in my opinion since your finger is there and your brain and eyes want to see the reaction with as close to no latency as possible. For me Android has a frustrating amount of latency.
+
+Ten years in, nobody has come up with a use for blockchain
+
+A good contrarian read to the fevered meme that the blockchain is the next Internet.
+
+How to be a 10x engineer: Business value for technologists – Striving for greatness
+
+Donnie Berkholz connecting the dots on how to really deliver value as a tech team — understand your business objectives. Making sure that your teams understand and connect their work is one of the key jobs of leadership.
+
+Santa Facts —xkcd.com
+
+A long time ago, in a Glasgow far, far, away… – Three Letter Acronym
+
+PCalc has been in active development for 25 years. That's amazing. I use the term "decade project" from time to time and this is a good example of one of those.
+
+Zines are the future of media
+
+Kottke's read on this prediction is good. I hope that the prediction is directional right.
+
+The best board games of twenty seventeen | Ars Technica
+
+It's cool to see how much board games have evolved in recent years. It is a good time to be someone that enjoys strategy games.
+
+Google Maps’s Moat
+
+Amazing side-by-side analysis of Google Maps and Apple Maps. Better thought of as an analysis of how Google is scaling their mapping data using machine learning and visual analysis. You get the sense that Google is looking at map data at a whole different level than everyone else.
+
+Snowden-Backed App 'Haven' Turns Your Phone Into a Home Security System | WIRED
+
+This article got me thinking about other ways that your phone could be used to help your personal security. This use case is interesting and for people that have to work in random places globally (like journalists) would make sense. I wonder if there is other stuff that your phone could do at night to monitor the environment around you while you sleep. The dot projection camera on the new iPhone X is probably not strong enough to scan a room, but maybe in the future it could detect movement in a completely dark room?
+
+Foo Fighters: Christmas Medley (Live) - SNL - YouTube
+
+The Foo Fighters are so awesome, and now I find myself wishing for a Foo Fighters Christmas Album!
+
+Tetris: The Games People Play
+
+by Box Brown
+
+It is, perhaps, the perfect video game. Simple yet addictive, Tetris delivers an irresistible, unending puzzle that has players hooked. Play it long enough and you’ll see those brightly colored geometric shapes everywhere.
+
+I had always heard that Tetris had a complicated legal background and this graphic novel is a fun read on the complicated web of relationships that were behind the most popular videogame in history. It also helps explain why even today all Tetris games are so strictly controlled.
+
+Internet Archive is a non-profit library of millions of free books, movies, software, music, websites, and more. I have been a supporter of the Internet Archive for many years and I think their mission is fabulous! The web is a major part of our culture and it the content that we put on it is sadly ephemeral. The Internet Archive is working hard to capture that information and keep it for history. Donate to Internet Archive today!
+
+- Watched Hacksaw Ridge tonight. Very well done. Battle scenes were a bit much. Tammy and I have now watched all the twenty seventeen Best Picture nominees.
+- Static site generators are great in so many ways, but the friction in publishing with them is horrible.
+- I want to be an energy efficient household but this monthly report from XcelEnergy does nothing to help me. Just makes me feel bad. Showing min/max/avg by day and hour would at least give some data to work with.
+- … NAS issue resolved? After extended SMART test said all was fine I did another rebuild of the Volume and after 14 hours it succeeded.
+- Watched The Circle. Thought provoking ideas and concepts. Okay movie.
+- I got an Anki Cozmo robot for Christmas and we’ve been having a lot of fun with it. Little thing has a lot of character.
+- We are going to bring in the new year… frozen!
+- Tyler and I did this LEGO Technic RC Tracked Racer. Very fun! One of the most impressive LEGO kits we’ve done.
+- … back to NAS issue. I ran the extended SMART test on every drive in my Synology and no errors. Attempting to repair the RAID volume again.
+- Watched Fences tonight. Amazing acting all around and great dialogue. Thoroughly enjoyed it.
+- Playing Prime Climb with the family. Interesting game. Sort of like Sorry. Lots of math!
+- Playing Maze Racers with the kids. Fun game.
+- Christmas Eve dinner on Big Green Egg.
+- Nice gentle snow for Christmas Eve this afternoon.
+- Watched Arthur Christmas again last night with the kids. That movie might get a spot on the annual Christmas movie list next to (but lower than) Elf.
+- Been getting errors on disk 3 in one of my Synology DS416 units. Swapped out the bad disk and started volume repair. Now seeing errors on disk 2 and failing volume repair. Uh oh. Luckily this data is all mirrored.
+
+Thank you for subscribing to the Weekly Thing! If you know of people that would like the Weekly Thing please forward it along!
+
+That brings us to the end of the Weekly Thing, issue 34. Thanks for listening, and I'll see you next time.

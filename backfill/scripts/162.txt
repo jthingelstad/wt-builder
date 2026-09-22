@@ -1,0 +1,239 @@
+The Weekly Thing, issue 162. iPhone 12, Lidar, Quibi. Published October 24, twenty twenty. By Jamie Thingelstad. In this issue: Quibi shutting down, iPhone 12 Pro camera, Apple Lidar history, Gowalla returning, Covid-19 global data, consensus protocols, flight offsets.
+
+Minnesota seems to have skipped most all of Fall and jumped straight to winter. This week we had record breaking snowfall. Nearly every day had some snow. And the temperatures have hovered just above or below freezing all week. This is not how the middle of October should be. I’m still hopeful that we will see a return of Fall before we plunge into the real winter.
+
+Let's jump right into the links this week.
+
+Now, the Must Read section.
+
+Link one. "Quibi is shutting down - The Verge"
+
+This is a pretty amazing story. It would be difficult to blow 1.75 billion dollars in capital in just 6 months. They got people to engage, but they couldn't keep any of them.
+
+Quote.
+A report from app tracking firm Sensor Tower back in July claimed that Quibi lost over 90 percent of its subscribers after the initial three-month trial ran out, with just 72,000 of its roughly 910,000 users who had signed up at launch sticking around as paid customers.
+End quote.
+
+Om Malik's take on this is also a good read, Don't be surprised that Quibi failed.
+
+Quote.
+It doesn’t matter how much money a company raises or what valuation it gets. What makes services/apps work and get our attention? They either bring happiness, utility, or both. Value, not valuations is what makes a business work.
+End quote.
+
+Fundamental issue was Quibi just plowed right into an already overcrowded market with no advantage other than some famous names. Having a big wallet doesn't help when the cost of capital for your competitors is most likely lower than yours,.
+
+One of my favorite comments on Quibi was this text reply from my brother-in-law Hector Fernandez, "WeWork Medal of twenty twenty".
+
+Link two. "Christian Ross – Purveyor of Awesome | twentieth Anniversary Trip"
+
+This husband may win an award for creating this Photoshop'd trip to Italy for their twentieth Anniversary. What a great thing to share. I read this with a lot of interest since Tammy and I were planning on taking the family to Italy this year over our eighteenth anniversary. We had a 3 week trip with flights booked and all accommodations. We cancelled it all of course. I did not create a Photoshop'd trip for everyone though. Via The Weekly Review: Vol VII Issue 16.
+
+That's the end of Must Read.
+
+Now, the Photograph section.
+
+On Tuesday, October twentieth, we got 6-8 inches and set records for October snowfall.
+
+Oct 20, twenty twenty at 5:55 PM
+Edina, MN
+
+Want smarter friends?
+Forward them this email and suggest they join us!
+
+That's the end of Photograph.
+
+Now, the Recommended Links section.
+
+iPhone 12 Pro Camera Review: Glacier — Austin Mann
+
+Austin Mann's iPhone reviews are always a great read with great photos too. The night mode shots here are very impressive. He also has a nice looking Airstream.
+
+Daring Fireball: The iPhone 12 and iPhone 12 Pro
+
+Gruber's reviews of new iPhones are must reads. I wasn't at all expecting Magsafe on the iPhone 12, and it look pretty cool. 5G is less exciting. The new camera is again one of the biggest selling points.
+
+We like what we choose | Seth's Blog
+
+Goden is typically short and to the point, but this one hit me a bit harder than I would have guessed.
+
+Quote.
+New research confirms that random choices lead to preferences, and then it follows that preferences lead to habits and habits lead us to become the person we somehow decide we were born to be.
+End quote.
+
+That all feels so… random.
+
+Emotional Compression - //Jason Burk
+
+Context matters, and when everything starts happening in the same context we lose those cues to help our brains navigate it all.
+
+Quote.
+This means of social participation has had an effect of Emotional Compression where all emotions are squeezed from the outer extremes down to the middle, which has given the perception of recalibrating what emotions are being felt during any given event. A 90-minute quarterly all-hands event at work and a funeral eulogy are viewed from the same window and it can be difficult to remember where you are physically, virtually, and mentally.
+End quote.
+
+I have found that while the tools are the same you can get context by changing location. I have three different places at home that I use for Zoom, and they are very specifically bound to context.
+
+The Content Value Hierarchy (CVH) | Daniel Miessler
+
+This is an interesting model to think about what you create online, if you are doing the kind of creating that I tend to do at least. I think I actually create content in all four of these areas.
+
+Wheregoes? - A tool for tracing the redirect path of URLs
+
+Super simple tool anyone can use to put a URL and see where it will take you. I like that it indicates a when a site drops a marketing cookie as well. Put any link for an ad in here to see an example.
+
+Covid-19: The global crisis — in data
+
+This is an incredible set of charts and visual displays of quantitative information. The video of the virus spread across the US tells a tough story.
+
+Lidar used to cost 75,000 dollars—here’s how Apple brought it to the iPhone | Ars Technica
+
+This is a super interesting read highlighting how companies are dropping the price of Lidar so much. The iPhone 12 now has Lidar which I expect is going to be a huge benefit for computational photography. When I read about all this innovation in Lidar I kept thinking how Tesla is, if I remember correctly, the only company pursuing autonomous cars and not using LIdar. They have felt the cost is too high and have preferred a pure vision based system. That will be an interesting bet to look back on over the years.
+
+What is expected of a Engineering Manager? · Rodrigo Flores's Corner
+
+This is a concise, and easy to digest view of the role of an engineering manager.
+
+Quote.
+the three things I expect from an engineering manager are: 1. Support the members of your team and help them grow. 2. Follow along the deliveries, setting quality standards, making sure the team has the support they need and upper management the feedback they need. 3. Keep a constant practice of creating, improving or eliminating team or company processes.
+End quote.
+
+I would agree with those three as the fundamentals. I think you can layer on additional aspects too, but get those three things first.
+
+A review of consensus protocols
+
+Clustered high-availability software often has to solve the problem of multiple computers agreeing, getting consensus, on certain state information. This overview of four of these protocols provides some solid depth, with code, for how these work. Most likely your not writing these systems, but background is interesting if only to understand the solution better.
+
+That's the end of Recommended Links.
+
+Now, the Stream section.
+
+Wednesday @ 10:41 PM
+
+I did a 10-min full body stretching program on Peloton tonight. My flexibility is very lacking. Ouch. #FitByFifty
+
+Wednesday @ 7:17 PM
+
+With a team in Kyiv I’ve been keeping an eye on COVID-19 cases in Ukraine. Infection rates have been growing steadily since mid-summer.
+
+Wednesday @ 7:11 PM
+
+Just updated my list of newsletters I subscribe to with some recent additions and changes. We need more ways to discover newsletters so this is my ”newsletter-roll”.
+
+Tuesday @ 3:18 PM
+
+My boat motor won’t run and its been a saga. The shop is coming to fix it, or tow it, later this week. In the meantime, snowy boat.
+
+Tuesday @ 3:16 PM
+
+First significant snowfall for Twin Cities. This should all melt and let us get back to raking.
+
+Sunday @ 11:03 PM
+
+Trying tagging people whose articles I am commenting and sharing in the Weekly Thing. Example on LinkedIn and Twitter for issue 161. Will be watching to see if this is appreciated or seen as tag spam, and if it results in additional awareness.
+
+Sunday @ 10:55 PM
+
+Cashed in a chip with the kids and got them to watch Star Wars I: The Phantom Menace. They have resisted Star Wars but this one was their favorite over episode IV. There is still hope.
+
+Sunday @ 10:52 PM
+
+Made a 3 ½ lb tenderloin special dinner tonight. Cubed the tip and fried with olive oil and garlic. Put the rest in Sous Vides for 3 hours and a finish sear in Big Green Egg. Scalloped Potatoes and homemade Peanut Butter Pie for desert.
+
+Saturday @ 8:21 AM
+
+October in Cross Lake, MN. Bikes collecting snow.
+
+Saturday @ 5:36 AM
+
+41% of voters already completed voting seems high for the middle of October. I wish this had a comparison to previous years.
+
+Quote.
+As of Oct 15, 68 percent of Edina residents have applied for an absentee ballot and of this total, 60 percent have returned their ballot or, 41 percent of registered voters. - Edina Friday Report for Oct 16, twenty twenty
+End quote.
+
+Friday @ 11:50 PM
+
+Lake Superior selfie.
+
+Friday @ 11:49 PM
+
+First time visiting Black Beach today, just outside of Silver Bay.
+
+Friday @ 11:44 PM
+
+Technically we did hike some of the Superior Hiking Trail today.
+
+Friday @ 11:42 PM
+
+We had a great hike up the Temperance River Falls today.
+
+Friday @ 11:06 PM
+
+Upper Falls of the Temperance River.
+
+Friday @ 10:54 PM
+
+Looking at a Winter Snowstorm warning with 3-5 inches of snow we decided to end our MEA weekend early. We detoured back to Cross Lake and are going to dry camp in the parking lot and head home tomorrow. Also, the Weekly Thing will be delayed a day!
+
+Friday @ 3:05 PM
+
+My Theory of RVs:
+
+All RVs represent a giant set of compromises to make the space work.
+The key an RV you love is finding one where you agree with the compromises.
+
+Friday @ 11:00 AM
+
+Getting World's Best Donuts in Grand Marais. They close for the winter tomorrow!
+
+That's the end of Stream.
+
+Now, for your information.
+
+Gowalla | Coming twenty twenty one | A Social Game in the Real World
+
+Nine years after shutting down Gowalla is going to be launching new! Clearly trying to align on a post-pandemic surge in activity outside.
+
+Delta — Offset Your Flight
+
+I didn’t realize that Delta has a service to buy CO2 offsets for your flights. I wish they would integrate it right into the buying process for the ticket.
+
+SVG Favicon Maker
+
+Super simple way to get a super simple favicon.
+
+Global coronavirus rise by one-day record of 400,000
+
+Sadly I don't think this record will hold for very long.
+
+YouTube bans QAnon, other conspiracy content that targets individuals
+
+That's the end of the FYI section.
+
+Now, the Reply All section.
+
+Here are some replies from Weekly Thing #161 / Letter, Asterisk, You Should Write.
+
+Rob B saw the reference to Letter and shared a similar site Pairagraph. They are incredibly similar concepts, and both have notable names writing on the sites. I like both of them.
+
+That's the end of Reply All.
+
+Now, the Local section.
+
+Legendary columnist Sid Hartman dies at 100 - StarTribune.com
+
+Hartman was a sports legend in the Twin Cities. I once bought two seats in the press box for a Vikings Game from him at a charity auction. What an amazing life and career.
+
+You're still on Facebook?
+Well, if you must, but you can make the world a little bit better by sharing the Weekly Thing to those that perhaps need it most!
+
+That's the end of Local.
+
+Now, the Fortune section.
+
+You've made it all the way to the end! Here is your fortune for this week.
+
+Is this really happening?
+
+Thank you for subscribing to the Weekly Thing!
+
+That brings us to the end of the Weekly Thing, issue 162. Thanks for listening, and I'll see you next time.

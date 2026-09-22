@@ -1,0 +1,434 @@
+The Weekly Thing, issue 256. Bitcoin, Kagi, Brink. Published May 27, twenty twenty three. By Jamie Thingelstad. In this issue: Google I/O, AI battles, ad-tech, Ethereum staking, Logic Pro for iPad, Final Cut Pro for iPad, Kagi Search, bookmarking data model.
+
+Welcome to issue 2^8 or 256 if it is too early for math. 256 is one of those great numbers that all techies know.
+
+2, 4, 8, 16, 32, 64, 128, 256, 512, 1024, 2048, 4096, 8192… that is super easy to recall from memory because they are all powers of 2. The magic of binary. That is also the number of "mega" in "giga" and "tera" on your hard drives. But oddly not your network bandwidth, which decided to stay base 10.
+
+A fun observation, 8-bit computers can’t actually get to 256. 8-bit 11111111 is 255. But computers start counting at 0, so you have 256 "slots" even though the max number is 255.
+
+I still fondly remember getting my Macintosh IIcx with the 32-bit graphics card that everyone knew had "16 million" colors. 16,777,216 colors per red, green, blue. Not really 32-bit, but 24-bit with 8-bit for alpha transparency.
+
+2 and its various powers are fun numbers for techies. Probably like various large primes are fun numbers for encryption folks, but you can’t remember those off the top of your head.
+
+Many interesting links (not 256!) and many (too many? ) posts and photos from the Bitcoin twenty twenty three conference this week! Due to how I assemble the journal it is in reverse chronological order. Reading "bottom up" may be helpful.
+
+"Privacy is a human fight, not a human right anymore." — BTC Zelko
+
+Now, the Featured section.
+
+Link one. "Google I/O and the Coming AI Battles – Stratechery by Ben Thompson"
+
+Thompson starts with a pretty simple reflection on Google and AI, transitions through a really compelling strategic framing, and ends with a view on Protestantism and Reformation? Yes he does.
+
+His clarification of "disruptive innovation" and "sustaining technology" is a very interesting take.
+
+Quote.
+Or maybe not. I tend to believe that disruptive innovations are actually quite rare, but when they come, they are basically impossible for the incumbent company to respond to: their business models, shareholders, and most important customers make it impossible for management to respond. If that is true, though, then an incumbent responding is in fact evidence that an innovation is actually not disruptive, but sustaining. To that end, I take this Google I/O as evidence that AI is in fact a sustaining technology for all of Big Tech, including Google. Moreover, if that is the case, then that is a reason to be less bearish on the search company, because all of the reasons to expect them to have a leadership position — from capabilities to data to infrastructure to a plethora of consumer touch points — remain. Still, the challenges facing search as presently constructed — particularly its ad model — remain.
+End quote.
+
+I have said, as have many, that AI will disrupt industries. But Thompson's take on why AI is very likely "sustaining technology" is a compelling one. Can there be both? I think yes, but perhaps a sustaining technology disrupts industries because some companies are better at adopting than others? Said another way, it becomes table stakes everyone has to have and it takes the slow and weak out, but doesn't fundamentally allow a breakout from "the front"?
+
+The mere speed at which established tech companies are bringing AI into their solutions certainly reinforces the view that it is sustaining technology. The web wasn't adopted this fast. And consider how slow crypto adoption has been in big tech, is that a sign of disruptive innovation?
+
+The shift towards the second half of this essay into regulation and reformation is also interesting. I think we've seen this play out enough that it is fair to assert that when you have big established companies asking for regulation they see it as a way of securing their market position. The more AI is regulated at this point, the less innovation and disruption we'll see.
+
+Very thought provoking.
+
+I love to see new blogs started. Every time a blog is started, an angel gets their wings. I was excited to see that Micro.blog is doing a Summer of Blogging promotion to get a hosted blog for just 1 dollar per month! I think Micro.blog is one of the easiest blogging solutions out there, and it is incredibly powerful at the same time. I simply know of no better way to get a photo and some text from my phone to the Internet easier.
+
+Sign up with code SUMMER
+
+This is not a paid advertisement. I like micro.blog, and I like blogging, and I wanted to promote this on my own.
+
+That's the end of Featured.
+
+Now, the Notable section.
+
+Link one. "To Save the News, We Must Shatter Ad-Tech | Electronic Frontier Foundation"
+
+The "original sin" of the Internet is that it was built nearly exclusively on advertising revenue. In addition to creating a set of incentives that do not benefit people, it created an incredibly complex ad-tech stack where Google, Meta, and one or two other companies own the entire market. This gives a good example:
+
+Quote.
+That means that there are millions of transactions every single day in which Google (representing a publisher) tells Google (representing the marketplace) about an ad-slot for sale; whereupon Google (representing many different advertisers) places bids on that ad-slot. Once the sale is consummated, Google earns three different fees: one for serving as the seller's agent, another for serving as the buyer's agent, and a third for the use of its marketplace.
+End quote.
+
+This creates many problems.
+
+Quote.
+The ad-tech market isn't a market at all: it’s a big store con where everyone the publisher sees is in on the game: the buyer's agent, the seller's agent and the marketplace where they bring the publisher's product are all run by a single company, or by two companies that have secretly agreed not to compete. If you can’t spot the sucker at the poker-table…you're the sucker. That's how ad-tech grew to consume more than half of all the ad dollars spent. They stole it. This needs to be fixed. The actually illegal stuff - market rigging - is the kind of thing that antitrust enforcers frequently look after. They're on it.
+End quote.
+
+This approach to break these functions into different organizations could be a benefit, but I’m highly skeptical we'll see it happen. These are the most valuable companies that have ever existed.
+
+Instead of reforming advertising, I think that "original sin" needs to be shed entirely. Even if the various parts of this stack were not self-dealing, it still creates bad incentives to drive page views over everything else and ever more sensational content. Micropayments solutions like Bitcoin Lightning that are immediate, free, and censorship resistant could be huge for news organizations. Not only ridding themselves of the page view incentive, but also making them resilient to their funding being disintermediated.
+
+Link two. "Generative Fill – Rands in Repose"
+
+Newest version of Photoshop has added an AI powered "Generative Fill" option. This example is pretty wild.
+
+Quote.
+It drew the goddamn bike. Click on the image and look at the larger size. It took a good swing at an appropriate color palette, and it drew the goddamn bike. Sure, it hallucinated the back of the bike into the tree, and there are other weird artifacts, but this is a beta. This is the first iteration. And this is 30 seconds of effort on my part.
+End quote.
+
+Here is the official announcement. Generative AI is on its way to so many products right now.
+
+Link three. "How to spend your life force as a product manager"
+
+This article is ostensibly about product managers focus, but can be for anyone. Bucketing work on an ease v. impact scale.
+
+Quote.
+Which leads me to my main point. It’s in the combination of the ease/effort involved in a task, as well as our known sphere of influence, that we are able to make the best decisions about where to spend our life force.
+End quote.
+
+Link four. "News from Google Marketing Live twenty twenty three"
+
+The largest advertising company in the world, Google, is now making it easy to use AI to create "automatically created assets". AI generated content to manipulate you through direct and indirect methods has already been happening with the algorithms social media companies use. They have been wildly effective. This is the next step, generating the content whole cloth to convince you to buy something.
+
+The nod at the end to privacy is comically insincere.
+
+Link five. "A Claim in the Ether: Tracking the Soaring Demand for Ethereum Staking"
+
+When Ethereum enabled withdrawals for takers there was some hand wringing about the price of Ethereum collapsing and validators exiting en-masse after being unable to withdraw before that. There were some, but the price of Ethereum remained stable and now there is a two month wait for new Ethereum stakers to begin.
+
+Link six. "The Freedom To Innovate - AVC"
+
+Wilson commenting on the scrutiny, pressure, and obfuscation strategically being used against crypto:
+
+Quote.
+To which I responded: > When they want to shut it down, I say double down The most powerful technologies send waves of fear through the establishment. When you see that fear in their eyes, invest in the cause of that fear.
+End quote.
+
+Technological innovation, once out in the wild, is very difficult to stop. It is a huge lever.
+
+Link seven. "MacStories Hands-On: Podcast Editing with Logic Pro for iPad - MacStories"
+
+Podcast production on iPadOS hits a new level with Logic Pro for iPad. Pretty cool that with a good Zoom mobile recording setup you could easily capture, dump the files into Logic Pro on your iPad and have a final podcast with a very mobile setup.
+
+Link eight. "First Impressions: Final Cut Pro for iPad - MacStories"
+
+Unfortunately my iPad Pro is too old to run this newest "pro" application to come to iPadOS, but it looks really great. I particularly liked this highlight:
+
+Quote.
+The jog wheel and Apple Pencil hover support are two of my favorite features of the app. When the jog wheel is expanded, it’s incredibly fast to select a precise edit point, moving quickly by spinning the wheel with a fast swipe or slowly advancing the frames one by one.
+End quote.
+
+Precise editing with a touch interface is difficult in every app I've used. It sounds like Apple put some effort into making touch work for precise controls with some special UX.
+
+Link nine. "You're Getting Old!"
+
+I shared this site with some friends and the reaction was mixed — some didn’t like it and some thought it was fun and interesting. Either way, the facts of your age and time are just that, facts. Insert various references to finitude and 4,000 weeks here.
+
+I plugged my date of birth in and found some fun things. I didn’t realize that Pong was released the same year I was born. I did like that 91.8% of the people born on the day I did are still living, but 85% of the people that visit this website are younger than me.
+
+Link ten. "Kagi Search - A Premium Search Engine"
+
+I was sad to hear that Neeva is shutting down. I have no interest in returning to the surveillance economy for search, so I’m looking for new options. Gruber mentioned Kagi and I know he is pretty picky so that is a notable signal for me. I’m giving Kagi a try to see how I like it. So far it is working well.
+
+Link eleven. "six thousand sits – Cats Will Eat You"
+
+Matt Semke, also known as Cats Will Eat You, reached the incredible milestone of 6,000 consecutive days creating new artwork. Doing anything 6,000 days in a row is incredible, but creating a new creative work that long is like being a perpetual creation machine. I’m wildly impressed.
+
+Link twelve. "What is a friend? | always happy; never satisfied"
+
+Friendship is something most take for granted.
+
+Quote.
+I suspect that the best way to make true friends – friends who live at the top of the friend pyramid – is to be a true friend yourself. Water finds its own level. If I want a friend who would sacrifice for me, push me to greatness, fight for me, or die for me, then I must be that friend first. That is the main takeaway I have. I am extremely grateful for the true friends in my life, and am committed to being a better friend to them. They are truly the best part of life.
+End quote.
+
+I greatly enjoyed the mix of anecdote, data, framework, and even poem in this essay on friendship.
+
+Link thirteen. "The Bookmarking Data Model Is Wrong For Highlighting"
+
+I feel like the name "bookmark" is overloaded with two very different use cases. There are bookmarks (or even favorites) that you add to your browsers navigation system because you use it frequently. Then there is this other version of bookmark which is to store a reference to something interesting, often with some additional commentary, for possible use later. That second use case really hasn't had a lot of thought put toward it. There is a niche market serviced by bookmarking tools like this, but it is pretty stagnate. I use one of the most well known solutions in that space, Pinboard, to capture and annotate links for the Weekly Thing.
+
+Quote.
+If you liked the ethos and design of Pinboard, but feel like the feature set has not kept up with the competition, there’s a pretty good chance you’ll like Notado. If you’re a hacker who likes to build, Notado also has an extensive and fully documented GraphQL API for you to play with.
+End quote.
+
+I’m going to add a research task to OmniFocus to dig into Notado more to explore this "content first" data model.
+
+Link fourteen. "Rooms.xyz"
+
+This looks like an interesting "experience" to play with. It reminds me a bit of Minecraft. There are all these rooms, and you can place various objects to interact with in them. You can even make mini-games in them, as well as attaching your own code to affect behavior. Neat! (Note: does seem to much prefer Chrome.)
+
+That's the end of Notable.
+
+Now, the Journal section.
+
+Thursday @ 9:22 PM
+
+Lightning Ideas
+
+Having finally gotten first-hand experience with Bitcoin Lightning, a workable and functioning micropayments option, it opens up a variety of interesting and fun use cases.
+
+1. Create a circular economy at home. Set your kids up with Bitcoin Lightning wallets and create bounties for projects and milestones they earn Satoshis for. Earn your allowance in Bitcoin. You are the bank to offramp back to USD as they want.
+2. Send Satoshis as Antispam. AI is going to make spam detection ever more difficult. You could send Satoshis to an address and then reference the receipt in an SMTP header that the recipient could use to validate the email. More Satoshis could be more priority? Even works for newsletters since a few thousand Satoshis is about 1 dollar.
+3. Little Free Library Support. There are many Little Free Libraries in our neighborhood. Since "things" can have a lightning wallet, put a QR code on the library so people can send some Satoshis to support the library as an optional Thank You.
+4. Lightning as Creator Support. Send tips to creators you appreciate, potentially triggered on events. When a newsletter is received send 3,000 sats. When this RSS feed has a new item send 1,000 sats. Many Lightning wallets are adding support for automated sends under a user set threshold to remove friction for micropayments.
+5. Subscriptions with Privacy. Lightning invoices can be paid by any wallet, and the payment is immediate. Instead of subscribing to a service and needing an address and credit card details just get what you need and present an invoice to immediately pay. Fast, easier, and private.
+6. Buy a fridge with a year of electricity. Since "things" can have wallets, create one for each fridge. The fridge meters it’s electrical usage, uses a lookup to determine cost, and the fridge manufacturer sends Satoshis via Lightning to offset the first year of electricity.
+
+Thursday @ 9:05 PM
+
+Board Search Criteria
+
+A friend shared this Board Search Criteria used by Constellation Software and highlighted in their twenty seventeen President's Letter. I thought these dimensions were interesting and a good model. Recreated the primary points of the table below.
+
+Quote.
+THE ROLE Thought Partner: Thought partner for senior leadership. Long-term Orientation: Unfazed by short term pressure. Focused on CSI's long-term issues. Timeframe: Able to serve on the board for 20+ years. Investment in CSI: Willing to make a significant equity investment in CSI, above and beyond board comp. THE CANDIDATE High Quality Business: Understands what constitutes a high quality business. Autonomy: Appreciates the motivational power of autonomy, decentralisation. Cultural Fit: Respects and gets along with the current senior CSI management as well as the board. Ownership: Believes in the motivational power of equity ownership. High Impact / Low Ego: Will intervene when necessary, contribute meaningfully, but not dominate discourse. Out of Kitchen: Can resist the urge to get into the kitchen when there's a chef already in there. EXPERIENCE Builder: Helped build or maintain (as a director, manager or major shareholder) a large organisation (>1000 employees) over an extended period, while providing a superior return to owners (ideally including employee owners). Decentralized: Experience with a decentralised company (nice, not necessary). Capital Allocation: Experience in a capital allocation role (nice, not necessary).
+End quote.
+
+Thursday @ 8:41 PM
+
+"Bison and Bitcoin"
+
+I recently threw the term "Bison and Bitcoin" out with some friends. I love bison. The name kept bouncing back to me and I thought that would be a fun newsletter. Generative AI is an amazing brainstorming partner, so for kicks I asked GPT-4 to elaborate and DALL-E to make a cover image.
+
+Prompt: Create a description for a newsletter called "Bison and Bitcoin". The newsletter has primary themes of innovation, sustainability, and self-reliance, and highlights the shared properties of resilience and strength that Bison and Bitcoin share.
+
+"Bison and Bitcoin" is a remarkable newsletter that transcends traditional boundaries, blending the worlds of ecology and finance through the lens of innovation, sustainability, and self-reliance. It's an exploration of the innate resilience and strength shared by the American Bison, an enduring symbol of the wilderness, and Bitcoin, the pioneering force in cryptocurrency.
+
+This newsletter is published bi-weekly, each edition shedding light on the enduring strength and adaptability of these two entities. For the Bison, readers get to delve into the animal's natural history, their journey from near-extinction to resurgence, and the significance of their role in promoting sustainable ecosystems. This deep dive into the life of Bison underscores themes of resilience, offering inspiring insights into nature's ability to recover and thrive.
+
+Simultaneously, the Bitcoin section dissects the resilience of this digital currency amidst the volatile economic landscape. It explores the trajectory of Bitcoin's development, its role in driving financial innovation, and how it embodies self-reliance in the increasingly digital economy. It takes readers through market trends, tech advancements, regulatory changes, and how Bitcoin continues to thrive despite these challenges.
+
+By drawing intriguing parallels between Bison and Bitcoin, the newsletter encourages readers to perceive resilience and strength in a new light, and apply these principles in their own lives for a sustainable future. Ultimately, "Bison and Bitcoin" is not just a newsletter; it’s a bi-weekly exploration of resilience in the natural and financial worlds, providing compelling content that provokes thought and inspires action.
+
+Wednesday @ 9:30 PM
+
+Did 10 stair repeats on our walk tonight. 320 steps. Also breaking in new boots for our hiking trip this summer. Tammy joined me and Mazie decided to run them many, many times.
+
+Tuesday @ 11:17 PM
+
+Ordered one of these orange Bitcoin Miami twenty twenty three Special Edition Worlds Smallest Bitcoin Hobby ATM. I was blown away by this project at the show. It will be fun to be able to share how fast and fun Bitcoin Lightning is!
+
+Tuesday @ 9:42 PM
+
+Another example of generated content fooling people. We are going to see a massive acceleration of this. We need to start signing content to have any hope of proving it is real.
+
+Quote.
+A fake image showing an explosion near the Pentagon went viral on Twitter, triggering a brief dip in stockmarkets. The picture, which appears to have been generated by AI, was shared by several verified accounts on the social-media platform including one that falsely claimed to be associated with Bloomberg News. The image was probably tweeted first by an account promoting the QAnon conspiracy theory. — The Economist Espresso on May 23, twenty twenty three
+End quote.
+
+Sunday @ 4:01 PM
+
+Bitcoin Lightning: Fun, Fast, and Free-ish
+
+I've been casually investigating Bitcoin Lightning for a while. Lightning is a Layer 2 network on-top of Bitcoin and promises nearly free instantaneous transactions. Apps like Strike and Cash support Lightning, but I got frustrated with them because it wasn't clear where Lightning was doing the work. Perhaps a good thing for normal use, but not great for learning the tech.
+
+As Bitcoin twenty twenty three approached one of the objectives I had was to get first-hand experience with Lightning. I did some digging before getting to Miami and had Wallet of Satoshi installed, and via Strike transferred 100,000 or so Satoshis.
+
+Before going further, a Satoshi is the smallest unit of Bitcoin and it is named after the creator of Bitcoin. 1 bitcoin = 100,000,000 satoshis. At current market 1 Satoshi is worth 0 point 00027 dollars, and 0 dollars and 1 cents is worth 37 Satoshis. Satoshis are often referred to as "Sats". Sometimes people will say "Stacking Sats" which is to imply slowly building value in Bitcoin with small dollar purchases.
+
+First Transaction
+
+We arrived at the Miami Beach Convention Center early on Friday and desperately needed coffee. We queued up and noticed that they (and we would realize all vendors here) had IBEX terminals to accept Bitcoin payment using Lightning.
+
+A little background, in twenty fifteen I had gone on a mission to buy something with Bitcoin in Minneapolis. I couldn't find any merchant selling anything that would accept Bitcoin. I've long felt that Bitcoin is a great store of value, but have many times said that you would never use Bitcoin for day-to-day purchases. Transaction fees are high, and block times are not deterministic so you can’t confirm payment immediately.
+
+Lightning proved me totally wrong. Thanks to Kerry for whipping out his phone to catch my very first Lightning purchase for some coffees and empanadas on video.
+
+The payment is instantaneous, and the fees are nearly free. The merchant put in the total amount I owed on their device, it generated a Lightning "invoice" that I scanned with my wallet, and after confirming payment it was done in a flash.
+
+Amazing.
+
+Nostr and Damus
+
+So how is it that I showed up in Miami with Wallet of Satoshi setup and ready to make Lightning transactions?
+
+* I knew Nostr was particularly popular in the Bitcoin world and thought it may be a good way to communicate at the event.
+* Some micro.blog folks were playing around in Nostr using Damus on iOS, and Damus looked very polished.
+* Damus connects with Lightning to allow "Zaps" on posts so you can "zap" some amount of Satoshis to other peoples posts.
+
+Setup was pretty simple actually. I downloaded Damus and it walked be through getting my Nostr public and private keys setup. Damus had a list of Lightning wallets that worked with it and Wallet of Satoshi was the best rated in the App Store. And then I stumbled a bit but finally figured out how to send some Satoshis from Strike to Wallet of Satoshi.
+
+Off to the races!
+
+This is the first application experience I've ever used where micropayments really work.
+
+This is truly exciting to me as a potential way to fix the Original Sin of the Internet — building everything off of a surveillance economy funded by advertising! Traditionally micropayments are far too cumbersome to work. Zaps powered with Bitcoin Lightning are completely friction free.
+
+At the show Damus was selling (for 27,800 Sats) "Zap Me" buttons with an embedded NFC chip. When you bought it they associated the chip with your profile so people could tap the button with their phone and automatically be brought to your profile where they could send you a Zap!
+
+PS: I’m planning to add Lightning options to thingelstad.com and the Weekly Thing to encourage folks to experiment.
+
+Login and Signing
+
+Finally, Lightning also brings some functionality to Bitcoin that I've enjoyed for a long time with Ethereum. You can use your Lightning wallet to authenticate with a service, as well as signing messages.
+
+Over dinner I was able to authenticate and provision a Bitcoin mining unit just by signing in with Lightning.
+
+Moving beyond passwords, and digital signatures to prove validity of content, are going to increase in significance over time and it is great to see Lightning bring that capability to the Bitcoin ecosystem.
+
+*
+
+During the 2 days of Bitcoin twenty twenty three I relied almost exclusively on Bitcoin to pay for lunches, coffees, and anything else I wanted. I also took the opportunity to send Satoshis to some of the speakers and people that I met at the event. It was incredible. It gave me all the privacy and benefit of cash, along with all the benefit of digital money.
+
+So my earlier assertion that Bitcoin is a store-of-value but not useful for day to day purchases? Wrong.
+
+In fact I’m on the hunt to get a Lightning coin machine like the one at the event to have in my house. I'd love to be able to have people come over and get their first Bitcoin experience by installing a free Lightning Wallet, putting a quarter in a box and scanning a QR code to leave with 1,000 satoshis!
+
+Sunday @ 11:51 AM
+
+I got my Blockclock Mini at Bitcoin twenty twenty three in Miami and have it setup at my desk. I’ve wanted one of these for a while and now I can remember the conference with it.
+
+Sunday @ 9:07 AM
+
+My QR Codes
+
+At Bitcoin twenty twenty three we were talking with some folks from New York at our table while enjoying some Cuban chicken and rice. At the end of the conversation one of the guys showed everyone his phone with a QR code for his LinkedIn profile so we could connect. Everyone loved it — very easy.
+
+I’d like to be able to do that, and I know Shortcuts makes it very easy to do. So I whipped up My QR Codes. Tap on that and it should allow you to add that to Shortcuts. The shortcut is very simple, and you will want to modify the Dictionary at the very top with your own list of links and names.
+
+After you have customized it, add it to your Home Screen using the share function and you have a super simple way to share your most common links with people.
+
+Sunday @ 6:37 AM
+
+Good morning Miami! Learned a lot and enjoyed Bitcoin twenty twenty three. Heading home this morning.
+
+Saturday @ 6:53 PM
+
+Oh no! Neeva is shutting down. I'm saddened by this — I've enjoyed not having advertising alongside search results and seeing what an innovative search company would do. Sadly they didn't make it.
+
+Saturday @ 4:53 PM
+
+Clever — Fiat House of Cards.
+
+Saturday @ 4:43 PM
+
+The final session for Bitcoin twenty twenty three on Nakamoto Stage "The Biggest Bulls" with Matt Odell, Adam Back (Blockstream), and Jack Mallers (Strike).
+
+Saturday @ 4:15 PM
+
+Zoltan Pozsar (Credit Suisse) and Arthur Hayes (100x Group) on Nakamoto Stage at Bitcoin twenty twenty three on “New Monetary Order”.
+
+Saturday @ 4:11 PM
+
+Good macro session at Bitcoin twenty twenty three with Mark Moss, Lyn Alden, and Preston Posh.
+
+Saturday @ 3:56 PM
+
+Good session on “Bitcoin Core Maintainers and the Path Forward” at Bitcoin twenty twenty three. I appreciated three things:
+
+1. Loved that this was an all women panel!
+2. Great call out to help fund Bitcoin Core development via Brink. Donate!
+3. Call to action for Bitcoin Legal Defense Fund. Donate!
+
+Really great!
+
+Saturday @ 3:50 PM
+
+Interesting technical solutions to identity and privacy in the Web 5: Open to Build session at Bitcoin twenty twenty three.
+
+Saturday @ 3:42 PM
+
+The Bitcoin Mining Museum was a fun time. The USB miners were a crazy flashback. And the very first mining rig, the Avalon1.
+
+Saturday @ 2:29 PM
+
+Apparently I’m at the age where I have to hang my sunglasses and my readers from my shirt.
+
+Saturday @ 11:58 AM
+
+The Art Gallery at Bitcoin twenty twenty three is a cool experience with a lot of interesting art.
+
+Saturday @ 9:46 AM
+
+Worlds Smallest Bitcoin Hobby ATM
+
+This Bitcoin ATM is one of my favorite things I’ve seen at Bitcoin twenty twenty three. You put coins in the device, I put 3 pennies. You tap the screen and it gives you a Lightning code to scan and I got 99 sats in my wallet.
+
+Update (May 23):
+
+I did some digging and found that "Tortcher" is the one who made this awesome device. I found him online and was excited to see that he is selling the World's Smallest Bitcoin Hobby ATM. I've ordered the Multi-ATM and can't wait to show people how fun, easy, and fast Bitcoin and Lightning can be with it! Oh yeah, and Tortcher lives in the Twin Cities area — small world! The code is on GitHub as well.
+
+Saturday @ 10:25 AM
+
+Hot tub heated by a Bitcoin miner.
+
+Friday @ 6:16 PM
+
+Google Cloud and Voltage party at Backyard.
+
+link
+
+Jack Mallers of Strike closed out Friday at Bitcoin twenty twenty three with massive announcement of global expansion and Lightning improvements.
+
+link
+
+Excited to see Arthur Hayes and Michael Lewis on stage at Bitcoin twenty twenty three.
+
+link
+
+Lyn Alden taking Nakamoto Stage with Natalie Smolenski at Bitcoin twenty twenty three sharing deep financial insights.
+
+link
+
+Michael Saylor of MicroStrategy with Bill Miller IV on Nakamoto Stage at Bitcoin twenty twenty three.
+
+“The universal frequent flyer mile is the Satoshi.” Interesting concept of using Sats to enable very different systems.
+
+link
+
+Got a signed book from Bobby Lee of Ballet Crypto.
+
+link
+
+Connected with Vlad Stan of LNBits after the Nostr session and got one of the DIY signing kits he was sharing. Love a group huddled around a laptop with devices geeking out.
+
+link
+
+Got to meet Will Casarin, developer of Damus, after the Nostr session.
+
+link
+
+"The Future of the Creator Economy" session with Layah Heilpern and Zuby moderated by Justin Rezvani on Nakamato Stage at Bitcoin twenty twenty three.
+
+link
+
+Great session “Nostr versus Everything” with Will Casarin, Vlad Stan, and Pablo Fernandez moderated by Rockstar Dev at Bitcoin twenty twenty three.
+
+link
+
+Hector, Kerry, and I kicking off the day at Bitcoin twenty twenty three in Miami!
+
+That's the end of the Journal.
+
+Now, the Briefly section.
+
+Link one. "Manage process before people"
+
+Great examples of system thinking to make organizations more effective and efficient.
+
+Link two. "ISRG’s tenth Anniversary - Let's Encrypt"
+
+Internet Security Research Group (ISRG) marks 10 years since it was incorporated, with the initial goal to launch Let's Encrypt. I think it would be hard to name an organization that has done more to make the web better in the last 10 years than ISRG.
+
+Link three. "Microsoft Build twenty twenty three: The 5 biggest announcements - The Verge"
+
+"Add AI to everything. Thanks."
+
+Link four. "Brink"
+
+Brink is a non-profit that supports Bitcoin core contributors. Have added this to the list of organizations we support.
+
+Link five. "Bitcoin Legal Defense Fund – Legal Defense By the Bitcoin Community, for the Bitcoin Community"
+
+This soon-to-be non-profit is defending people that work on Bitcoin from legal threats. It reminds me of a specialized version of the EFF. Will definitely be donating to them once they finalize 501(c)(3) status.
+
+Link six. "Landmark crypto rules make exchanges liable for customer losses in EU | Ars Technica"
+
+I’m not sure about the details here but moving forward with a clear documented framework should be a good step.
+
+That's the end of Briefly.
+
+Now, the Signature section.
+
+"Weekly Thing #2^8 / Bitcoin, Kagi, Brink" is signed…
+
+Fortune
+
+Don't worry so loud, your roommate can't think.
+
+That brings us to the end of the Weekly Thing, issue 256. Thanks for listening, and I'll see you next time.

@@ -1,0 +1,211 @@
+The Weekly Thing, issue 108. Jun 1, twenty nineteen. Published June 1, twenty nineteen. By Jamie Thingelstad. In this issue: CIOs on corporate boards, US electric car sales, Chrome ad blocking extensions, distributed data mesh, CQRS event sourcing, Aaron Franklin Texas BBQ.
+
+I've been continuing my focus on developing a meditation practice, and have crossed over 100 consecutive days meditating. I've been using Headspace and I like the daily meditation which allows me to only answer one question, how many minutes do I want to meditate?
+
+Part of the guided meditation is to do a body scan. With your eyes closed, after focusing on your breathing for a bit, you slowly scan from the top of your head to your toes, actively engaging your body to see how it feels. I find this part of the process interesting and revealing. It’s a little odd to think that this question is almost never asked. Before meditation I didn’t think, "That left lower leg has a slight ache." At least for me, I would wait until my body told me loudly that I needed to pay attention with some acute pain.
+
+It seems simple but it connects you to your physical self in a very important way, and raises your own awareness. Even if you don't meditate, give it a try. Take 1 minute to close your eyes, and slowly scan your own body. How is it doing? Any surprises? I’m often surprised where stress is sitting and that I didn’t feel it until I did the scan.
+
+Now, the Featured Links section.
+
+Link one. "Why CIOs Make The Perfect Corporate Board Members"
+
+I've been exploring board opportunities for a while and feel strongly that a CTO/CIO is of growing importance for boards. This piece hits it spot on.
+
+CIOs have a breadth and depth of understanding of their companies and industries that give them an exceptionally valuable ability to contribute to the broader boardroom agenda. Adept at business case building to justify their budgets they also naturally execute in a team-based environment with other executives. Digital and technology savvy, strategic and operational business aptitude, governance aware, team-oriented, risk versed, well rounded, deeper and broader than a CFO or CEO, CIOs need to be on every corporate board.
+
+I expect that in coming years having a CTO/CIO on the board will be considered absolutely necessary.
+
+That's the end of Featured Links.
+
+Now, the My Weekly Photo section.
+
+Three kayakers on a sunset paddle.
+May 26, twenty nineteen at 8:02 PM
+Cannon Lake, MN
+
+That's the end of My Weekly Photo.
+
+Now, the Notable Links section.
+
+Link one. "Visualization: twenty twelve–twenty nineteen US Electric Car Sales (This Is A Must See) | CleanTechnica"
+
+This visual of EV car sales over time is pretty amazing. It puts the importance of the Tesla Model 3 into perspective!
+
+Link two. "Chrome to limit full ad blocking extensions to enterprise users - 9to5Google"
+
+This is exactly why I will not use Chrome as my primary browser. It is a great browser, and every other browser is better because of the amazing job it did with Javascript performance. But they were the last to support Do Not Track, and with this decision they are making it very clear that protecting your privacy is not aligned with their mission.
+
+Link three. "Announcing Minnestar's Newest Board Members - Minnestar"
+
+I’m so happy to welcome these new members to the Minnestar board!
+
+Link four. "ongoing by Tim Bray · On SQS"
+
+Bray knows a lot about writing great software, and I like his rounded view on queues.
+
+The proportion of services I work on where queues are absolutely necessary rounds to 100%. And if you look at our customers, lots of them manage to get away without queues (good for them!) but a really huge number totally depend on them. And I don’t think that’s because the customers are stupid.
+
+I've been on the wrong end of queues many times. It’s a massive problem when you have a production queue that is backed up and you have to somehow get the data off and moving safely. I've probably been dealing with queues for 25 years at this point. But all in, they have a very valid place in systems. Just like everything in software though, they are not magical.
+
+Link five. "Rethinking Brand You"
+
+I enjoy Tom Peters writing on leadership and business. His "personal brand" message is often taken the wrong way.
+
+Yes. You give a shit, and it shows. You build your brand as a leader, not by making great speeches to thousands of people, but in conversation after conversation, one by one by one, making a small difference each time. That’s the best aspiration you can hope for, in most jobs, and probably the longest lasting.
+
+Be authentic and genuine!
+
+Link six. "OKRs from a development team’s perspective – ZAFU LABS"
+
+We've been adopting OKR's in our team at SPS and I think there are some substantial benefits from having it. This article highlights a level that I don't think would make a lot of sense. Tying spring backlog items to OKR's seems like an odd thing.
+
+Shouldn’t we be using the OKRs to drive coming up with ideas in the first place instead of just wedging them in afterwards?
+
+Yes. That is how it should work.
+
+Link seven. "You got this. | Zeldman on Web and Interaction Design"
+
+I can totally relate to this post from Zeldman and his feelings around learning new technology.
+
+Link eight. "How to Move Beyond a Monolithic Data Lake to a Distributed Data Mesh"
+
+This is a very dense article, and has some interesting thoughts on getting leverage from data.
+
+So what is the answer to the failure modes and characteristics we discussed above? In my opinion a paradigm shift is necessary. A paradigm shift at the intersection of techniques that have been instrumental in building modern distributed architecture at scale; Techniques that the tech industry at large has adopted at an accelerated rate and that have created successful outcomes.
+
+I suggest that the next enterprise data platform architecture is in the convergence of Distributed Domain Driven Architecture, Self-serve Platform Design, and Product Thinking with Data.
+
+I think I'd have to read this a couple of times along with some others to really grok it.
+
+Link nine. "How Data (and Some Breathtaking Soccer) Brought Liverpool to the Cusp of Glory - The New York Times"
+
+Good read for Liverpool fans coming into the UEFA Champions League this weekend. It's nice to see the data driven analysis made famous in Moneyball is thriving in soccer too!
+
+(Don't Fear) The Reaper
+www.highcaffeinecontent.com
+
+Next week Apple WWDC twenty nineteen will likely begin the transition to an entirely new UI framework for macOS. This article does a good job putting that in context and looking at the last time that happened, when NeXT OPENSTEP was in the mix.
+
+In two thousand seven, Apple got the chance for a complete do-over of Mac OS X with a modern architecture optimized for touchscreen devices with powerful GPUs, but with thermal, resource, and battery constraints. That do-over was, of course, iPhone OS. […]
+
+With macOS 10.15, UIKit is finally coming back to the Mac to serve as a top-tier native application development framework alongside AppKit. This is the start of Apple's next transition, and just like last time, it's almost unfathomably difficult to see how these two completely different architectures will cooperate and find common ground.
+
+I think this will be a fun ride.
+
+Link ten. "CQRS and Event Sourcing Intro For Developers - Software House ASC"
+
+Detailed and well-written overview of this powerful architectural pattern.
+
+Link eleven. "Available on MasterClass: "Aaron Franklin Teaches Texas-Style BBQ" — Tools and Toys"
+
+OMG this is so amazing and awesome! I experienced the magic of Franklin Barbecue and this series of classes with Aaron Franklin are exceedingly well done. I've also got a bit of a 'man crush' on Franklin. I'd love to hang out for a day of smoking BBQ with him. I'd even bring the beer!
+
+Link twelve. "Interactive presentation software - Mentimeter"
+
+This looks like a solid tool
+
+Mentimeter is an easy-to-use presentation software used by more than 25 million people. With Mentimeter you can create fun and interactive presentations. We help you make your events, presentations, lectures, and workshops innovative and memorable.
+
+Thanks Paul Birkbeck.
+
+That's the end of Notable Links.
+
+Now, the Give Back section.
+
+The Electronic Frontier Foundation is the leading nonprofit organization defending civil liberties in the digital world. I have been a member of the EFF for years. Not only is the EFF working hard to protect you on the Internet they have also Privacy Badger and the critically important Let's Encrypt service to make encrypting web servers free to anyone. Support the EFF with a donation!
+
+That's the end of Give Back.
+
+Now, more links.
+
+- What's New in Alfred 4 www.alfredapp.com
+I use Launchbar but Alfred tempts me with some of it’s cool capabilities.
+- Photographer Jun Yamamoto Captures The Magic Of Japan Streets At Night designyoutrust.com
+Incredible photography.
+- SR-71 Online - SR-71 Flight Manual www.sr-71.org
+When I was a kid the SR-71 Blackbird was one of those amazing, nearly mythical things. How fun to be able to read the flight manual now!
+- PugSQL:: SQL is Extremely Good, Actually pugsql.org
+Nice, KISS, approach to keeping your database interfaces simple in Python.
+- Introducing Mercury OS – UX Collective uxdesign.cc
+Cool conceptual framework for a different way of thinking about an operating system and the user experience for it.
+- H.264 is magic: a technical walkthrough of a remarkable technology. sidbala.com
+Deep dive into the video compression method that is likely powering everything you watch.
+- Yes, This Photo from Everest Is Real | Outside Online www.outsideonline.com
+Summiting Everest is perhaps too popular now!
+
+That's the end of More Links.
+
+Now, the Microposts section.
+
+Wednesday @ 7:05 PM
+
+That first time starting the lawn mower each year is such a pain. Just start already!
+
+Monday @ 8:22 PM
+
+We saw A Dog’s Journey — it was a good movie but you’ll need some tissues.
+
+Sunday @ 10:20 PM
+
+Airboat out bow fishing for carp at night.
+
+Sunday @ 9:04 PM
+
+S’mores time!
+
+Sunday @ 6:49 PM
+
+First try at smash burgers on the flat top. End product was delicious! Wow! It goes very fast! Need everything ready and move fast!
+
+Sunday @ 11:31 AM
+
+First breakfast on flat-top grill came out good. Still need more practice!
+
+Saturday @ 9:03 PM
+
+Cue WONDERWALL! Loons win 1-0! #MNUFC #MINvHOU
+
+Saturday @ 8:56 PM
+
+Beautiful Game! #MNUFC #MINvHOU
+
+Saturday @ 8:01 PM
+
+Ground crew out giving Allianz Field some TLC! #MINvHOU #MNUFC
+
+Saturday @ 7:59 PM
+
+Darwin Quintero getting a concussion check! All good! #MINvHOU #MNUFC
+
+Saturday @ 7:32 PM
+
+Minnesota United celebrating goal against Houston! 1-0 #MINvHOU #MNUFC
+
+Saturday @ 7:31 PM
+
+Kickoff for Minnesota United v Houston Dynamos! #MINvHOU #MNUFC
+
+Saturday @ 1:29 PM
+
+Flying the Planet Kubb banner while the kids play some Kubb!
+
+Saturday @ 9:43 AM
+
+It’s boat day! Taking the pontoon out of storage and heading up river to the lake!
+
+Friday @ 8:53 PM
+
+Nice spot to get tomorrow’s Weekly Thing ready!
+
+That's the end of Microposts.
+
+Now, the Fortune section.
+
+You've made it all the way to the end! Here is your fortune for this week.
+
+You enjoy the company of other people.
+
+Thank you for subscribing to the Weekly Thing!
+
+That brings us to the end of the Weekly Thing, issue 108. Thanks for listening, and I'll see you next time.

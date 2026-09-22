@@ -1,0 +1,167 @@
+The Weekly Thing, issue 218. An unscheduled break. Published April 2, twenty twenty two. By Jamie Thingelstad. In this issue: Zelensky on defeating Putin, Ukraine cyber guerrilla army, Slack etiquette tips, token compensation, Internet Archive at 25, TLS 1.3 connection.
+
+Hello there!
+
+We are getting ready to head out on our Spring Break trip. Atypical for us, we have very little planned other than a delightful location with amazing beaches just a short walk away. I am planning to spend a lot of time relaxing, and also reconnecting with photography. I enjoy how photography pushes me to engage my creative senses.
+
+Also, I’m going to take an unscheduled break from publishing the Weekly Thing for a few weeks. The last couple of months, and the last weeks particularly, have been overwhelming and I've often felt like I’m barely keeping up. Maybe even falling behind. I enjoy sending this weekly packet of links, reflections, photos and images. But I need to give myself some buffer…
+
+I'll spare a Terminator "I'll be back" reference, but I will be. See you in a few weeks!
+
+Now, the Featured section.
+
+Link one. "Volodymyr Zelensky on why Ukraine must defeat Putin | The Economist"
+
+An intimate interview with Ukraine's President from The Economist.
+
+Quote.
+But if weakness means humanity, then it is this weakness that makes Mr Zelensky strong—and it is why the Ukrainian flag flies over both Whitehall and Pennsylvania Avenue. He celebrates how ordinary Ukrainians "waved their hands in the middle of the streets in order to stop tanks" as they did in Kherson, one of the cities now occupied by Russian forces. "They decided to stand up and do this of their own volition. I could not have ordered them not to do it or to throw themselves under the tank treads," he says. "I will stay with these people until the end."
+End quote.
+
+The video outtakes embedded in the article are worth watching as well.
+
+That's the end of Featured.
+
+Now, the Currently section.
+
+Reading: Every day at 4pm ET I read the The War Diary Of Yevgenia Belorusets. Her writing about Ukraine is touching and a reminder of the personal impact of the war.
+
+That's the end of Currently.
+
+Now, the Journal section.
+
+Thursday @ 4:48 PM
+
+I could pass on any additional nasopharyngeal COVID tests.
+
+Sunday @ 3:01 PM
+
+Support Ukraine
+
+There are many organizations doing good work in Ukraine. I am going to maintain this list and update it as I find anything new.
+
+The people of Ukraine need the worlds help as they struggle through the invasion of their country. Please consider helping with a financial donation to these causes.
+
+Fiat
+
+Ukrainian Red Cross: All funds will be used to help those in need, affected by armed conflict, blood collection, mobilization of volunteers and resources, and emergency activities.
+1 thousand dollars Project: Sponsor a Ukrainian family in need.
+Samaritan's Purse: Samaritan's Purse has deployed an Emergency Field Hospital to Ukraine.
+International Rescue Committee: Over 3.5 million refugees have been forced to flee Ukraine. Help the IRC send vital supplies to displaced children and families.
+Convoy of Hope: Whether it’s after a disaster, feeding a hungry child, or helping a parent put food on the table, Convoy of Hope is proud to deliver your kindness to those who need it most.
+Nova Ukraine: Dedicated to providing humanitarian aid to the people of Ukraine and raising awareness about Ukraine in the United States as well as in the rest of the world.
+Humanitarian Aid Account of the National Bank of Ukraine: Meant for charity contributions from Ukraine and from abroad. The Ministry of Social Policy will channel the raised funds to support Ukraine’s citizens severely affected by the war.
+Voices of Children: Providing non-stop assistance to affected children and families from all over the country, providing emergency psychological assistance, and assisting in the evacuation process.
+USA for UNHCR: UNHCR is on the ground scaling its response to provide assistance and ensure those displaced find safety in welcoming arms in this moment of crisis.
+Razom for Ukraine: Razom creates spaces where people meet, partner and work together to unlock the potential of Ukraine.
+United Help Ukraine: Help us provide medical aid and humanitarian relief to brave Ukrainians defending themselves! Stand with the people of Ukraine!
+Care.org Ukraine Crisis Fund: Give now to send lifesaving food, water, and hygiene kits to the most vulnerable in Ukraine.
+Direct Relief: Direct Relief is working with Ukraine’s Ministry of Health and other groups in the region to provide requested medical aid—from oxygen concentrators to critical care medicines—while preparing to offer longer-term aid to people displaced or affected by the war.
+World Central Kitchen: Providing meals to Ukrainian families in need.
+UNICEF: Help UNICEF deliver aid to hundreds of thousands of children in eastern Ukraine impacted by violence — and to hundreds of thousands more as UNICEF races to meet increasingly urgent needs across the country.
+
+Verticals
+
+Media Lifeline Ukraine: Coalition to keep the flow of reliable information alive in and around Ukraine. We work hard to support journalists working in extreme circumstances to bring reliable information.
+Kyiv Independent: Support independent journalism in Ukraine. Choose one-time or ongoing support.
+Lifeline Ukraine: Suicide prevention support line.
+Doctors Without Borders: We have teams in Ukraine, Poland, Moldova, Hungary, Slovakia, Russia, and Belarus. We are an independent and impartial organization committed to providing medical humanitarian assistance to people affected by the war no matter who they are or where they are.
+
+Crypto
+
+Donate Crypto to Ukraine: Support people in their fight for freedom.
+Aid for Ukraine: Aid for Ukraine is a collaboration between the Government of Ukraine, Everstake (a Ukraine-based web3 company), and friends from the crypto community around the world.
+
+Thank you!
+
+Sunday @ 8:17 AM
+
+Enjoying this incredible Double Fermented Gesha special second Anniversary Coffee from Pair Cupworks.
+
+Quote.
+Strawberry, Vanilla, and Bananas Foster! - It's a celebration! This gesha varietal coffee is grown by El Vergel Farm and double fermented by producers Elias and Shady Bayter, located in Tolima, Colombia. In celebration of our cafe's second anniversary, we are happy to present this super limited release!
+End quote.
+
+Saturday @ 8:01 AM
+
+Market Value up 12.4%
+
+Our city shared this update on the assessed market value of property.
+
+Quote.
+twenty twenty two Assessment Report
+End quote.
+
+The twenty twenty two Assessment Report is in. Edina’s total Estimated Market Value rose from 13.76 billion dollars in twenty twenty one to 15.45 billion dollars in twenty twenty two. Overall, that’s a 12.4 percent growth in value from January twenty twenty one to January twenty twenty two. Total percentage growth in twenty twenty two exceeds total percentage growth for twenty nineteen, twenty twenty and twenty twenty one combined.
+
+That much growth in one year doesn't make sense. Is the market catching up? Or getting ahead? Inflation?
+
+Friday @ 11:30 PM
+
+Taylor Hawkins drum solo from Oct. 18, twenty eighteen Foo Fighters show. RIP.
+
+Friday @ 11:19 PM
+
+Shocked and saddened to hear that the Foo Fighters Taylor Hawkins has died. He and Grohl are the soul of the Foos. Ugh. Only 50!
+
+That's the end of the Journal.
+
+Now, the Briefly section.
+
+Link one. "Ukraine Latest news on live map"
+
+The latest data on the war in Ukraine, overlaid on a map.
+
+Link two. "Syndicate"
+
+Simple platform to create your own DAO.
+
+Link three. "Collaborate with kindness: Consider these etiquette tips in Slack | Slack"
+
+These are great recommendations for Slack.
+
+Link four. "Why Tension Spreads Through Relationships and Organizations"
+
+This makes sense, and a worthy question to ask "Do I do this?"
+
+Link five. "Token compensation: a brief explainer for job candidates - Paradigm"
+
+An interesting variable to consider for crypto companies.
+
+Link six. "After 25 years, Brewster Kahle and the Internet Archive are still working to democratize knowledge | Nieman Journalism Lab"
+
+I’m a big fan, and supporter, of the Internet Archive.
+
+Link seven. "Programmable Notes"
+
+This feels overly complicated to me, but I also think it is what people have loved about Obsidian.
+
+Link eight. "Disinformation and Fooled by Randomness"
+
+You cannot extrapolate broad assertions from specific details. I feel like I should reread Fooled by Randomness. It has been a very long time, and still strikes me as one of Taleb's best books.
+
+Link nine. "The Illustrated TLS 1.3 Connection: Every Byte Explained"
+
+I dig these detailed walk throughs.
+
+Link ten. "I built a receipt printer for GitHub issues - Andrew Schmelyun"
+
+Github issues as a short order cook?
+
+Link eleven. "Taylor Hawkins, Foo Fighters’ Drummer, Dies at 50"
+
+Link twelve. "Inside Ukraine′s cyber guerrilla army"
+
+You can now volunteer to fight on your keyboard.
+
+That's the end of Briefly.
+
+Now, the Fortune section.
+
+Here is your fortune…
+
+Stay away from flying saucers today.
+
+Thank you for subscribing to the Weekly Thing!
+
+That brings us to the end of the Weekly Thing, issue 218. Thanks for listening, and I'll see you next time.

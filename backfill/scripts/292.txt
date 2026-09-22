@@ -1,0 +1,212 @@
+The Weekly Thing, issue 292. Signal, Checkboxes, Hope. Published September 7, twenty twenty four. By Jamie Thingelstad. In this issue: Section 230 ruling, political spam texts, Signal and Meredith Whittaker, One Million Checkboxes, Founder Mode, hope for the web, writing About the Author.
+
+Hello there!
+
+Summer is winding down. Kids are back to school. The weather is starting to turn. And here I am back in your mailbox with the Weekly Thing!
+
+I hope your summer was fun and filled with everything you hoped it would be. Summer tends to go so fast and become a blur of activity. Summer is also filled with adventure and new experiences to pepper on top of many celebrated traditions! I hope to capture enough of it to remember and cherish the extra time with friends and family well into the future.
+
+I always feel like I get out of practice over the summer when I’m not sharing these emails each week. So best to just get onto the links and say thanks for reading along with me!
+
+Cheers!
+
+Now, the Featured section.
+
+Link one. "Judges Rule Big Tech's Free Ride on Section 230 Is Over"
+
+Interesting movement and a decent background on Section 230 of the Communication Decency Act and the role it plays in social media. Let me first get a gripe out of the way. I strongly dislike the authors use of "Big Tech" here. More appropriate would be "Social Media". I don't equate those things — Apple, Amazon, and Google have no social media offerings of note. With that out of the way, I’m generally in strong support that Section 230 needs a massive revamp and I think where this is going makes sense.
+
+Quote.
+Because TikTok’s “algorithm curates and recommends a tailored compilation of videos for a user’s FYP based on a variety of factors, including the user’s age and other demographics, online interactions, and other metadata,” it becomes TikTok’s own speech. And now TikTok has to answer for it in court. Basically, the court ruled that when a company is choosing what to show kids and elderly parents, and seeks to keep them addicted to sell more ads, they can’t pretend it’s everyone else’s fault when the inevitable horrible thing happens.
+End quote.
+
+There are many discussions where speech and amplification are being intertwined in ways that make the conversation confusing, and Section 230 is one of them. First, remember that Section 230 was ratified in 1996. Back then we were thinking about Internet message boards and forums, or email. Should an online service provider be held liable for stuff that you write in your email? No, and in fact they shouldn't even be able to know what I write in my email. And message boards are largely if not all time based presentation. The newest thing here, and so on.
+
+This all goes completely haywire with algorithmic feeds. I shared this in the intro to Weekly Thing 152:
+
+Quote.
+Anytime that you are looking at content in something other than time order, ask yourself what the goal of the system behind it is.
+End quote.
+
+There is no neutral way to present content using an algorithm. The algorithm must have a goal.
+
+And folks, I’m my opinion, that goal removes Section 230 protection.
+
+To have a goal is a form of opinion, and you are now exerting an opinion on other content (that content itself may be protected), but the culmination of the sorting is itself not protected.
+
+That's the end of Featured.
+
+Now, the Notable section.
+
+Link one. "Daring Fireball: What to Do With Unwanted Political Spam Texts"
+
+I share Gruber's disdain for all of these automated text messages. I’m happy to report though that for years I've been doing the simple "STOP" reply to these and in my experience it works very well. I reply STOP to all of them and they don't come back. I also actively unsubscribe from email lists. It feels tedious but it also works.
+
+A little bit of effort on a regular basis can have a big impact on the amount of junk that comes in via text and email.
+
+Link two. "Signal Is More Than Encrypted Messaging. Under Meredith Whittaker, It’s Out to Prove Surveillance Capitalism Wrong | WIRED"
+
+Interview is more about Whittaker than Signal, but I appreciated reading it as she has been outspoken about Signal and I've generally liked the direction she is taking the conversation on privacy. I’m a casual user of Signal, but happy to pay a monthly donation for such a critical service. We need services like Signal and leaders like Whittaker out there fighting for privacy.
+
+Link three. "The secret inside One Million Checkboxes | eieio.games"
+
+I spent a few minutes looking at One Million Checkboxes when it launched and thought it was a nifty piece of "social art" for the web. I dig this kind of oddball stuff. Keep the web weird and all that. But I didn’t give it much more thought.
+
+This article then dives down what some very fun hackers, and I’m using that term in the positive sense of folks that love playing with stuff, did with it. It is a delightful read and the kind of thing that warms my heart on the web.
+
+Link four. "Founder Mode"
+
+This recent essay from Graham has gotten a ton of attention. There are good parts, and in general I prefer Tobi Lütke perspective on this focusing on "legitimacy". I shared this in Weekly Thing 236. Founders have "legitimacy" that allows them to operate differently. Graham's take is too reductive in my view. This is good, that is bad. It isn't as simple as that in my experience.
+
+Link five. "Hope for the web | James' Coffee Blog"
+
+I love the spirit of this and a more people-focused web is something I will always strive for.
+
+Quote.
+I think having a personal website is a vote for a different future: one where you can craft a little place online that’s yours, made in the way that you want.
+End quote.
+
+Love it.
+
+Link six. "How to write "About the Author" - Josh Bernoff"
+
+Most people aren't authors, but I do think most people find it very difficult to write an introduction for themselves. I think the "About" page of most websites, or the "Bio" block on a profile, stops many people in their tracks. Some of what Bernoff has here could be useful for thinking about those writing tasks.
+
+[Matthew Dicks: How to Tell a Story so That Everyone Listens [The Knowledge Project Ep. #202]](
+
+I loved this podcast with Matthew Dicks about telling stories. Honestly you should just add Episode 202 of The Knowledge Project into your podcast playlist and give it a listen.
+
+Stories are powerful. Stories are what people latch onto and learn from more than anything else. Computers run programs, and in a way people run stories. The ability to craft stories is something that I truly admire and seek to learn about.
+
+In this podcast Dicks talks through what a story even is, what the keys to telling a great story are, and demonstrates it in realtime during the podcast itself. This is one I'll listen to a couple of times.
+
+That's the end of Notable.
+
+Now, the Journal section.
+
+Journal entry one.
+
+First challenge for my lake camera was getting it off the ground to keep the raccoons from playing with it.
+
+Second was protecting the cable from water and making sure that the cords were waterproof.
+
+Now the third issue is keeping the lawn guys from shredding the USB cable with the weed whipper.
+
+Journal entry two.
+
+I currently have 326 different Masked Email addresses set in Fastmail. It takes effort but is a powerful way to limit tracking and increase security.
+
+Journal entry three.
+
+The Singing Sakatah Hills State Trail is closed right by Highway 60 and Dalton Ave near Cannon Lake. They have a section fenced off where the trail edge has collapsed. The record rains must have been too much for this area. Couple of trees down too.
+
+Journal entry four.
+
+We watched The Fall Guy tonight! Tons of action and a fun movie overall.
+
+Journal entry five.
+
+Good morning! September is starting with a chill in the air.
+
+Journal entry six.
+
+Was feeling motivated this morning and published a robust iteration of my blogroll that has more sites and context on why I follow it.
+
+Journal entry seven.
+
+Big week for my Famous Foxes mission chests!
+
+Journal entry eight. My GTD Structure
+
+I suppose I'm a “list person”. Although I would say I'm a GTD practitioner. I like the sound of that better. And my lists, or GTD system, is managed with OmniFocus. Since my Omni Show appearance I’ve had several email exchanges with fellow “list people” about how I structure my lists. I thought I would share a more complete view.
+
+Before getting to the lists themselves a comment. The structure that I have in my system, “the stuff” as it were, the things to do and how I organize them, is fluid. I don’t change tools often but the content and structure I refactor when it suits me. With that said though, these top level folders for my lists have endured in largely this structure for a decade.
+
+They have endured because they are specifically aligned around dimensions of my life. If the dimensions of my life change then these would change. But really this big picture stuff doesn’t change frequently. Also note that these folders may at times have only a couple projects, which may be a signal to me that I should be doing more there.
+
+In OmniFocus these dimensions or groups are stored as folders, and these folders contain projects. You could use this structure in most any list manager.
+
+- Tasks: Contrary to the sentence directly above, this is a project and not a folder. It is the only project I have at the top level. This is my generic bucket of action items that are specifically not a project and should move through my system quickly. Examples could include “Get groceries”, “Call about electric bill”, or “Schedule coffee with Jim”.
+- Self: Projects that are specifically about me. Two notable projects in here are “Personal Routines” and “Technology Routines”. I use projects like this for repeating tasks like “Schedule a haircut” or “Do blog gardening”. In OmniFocus these are single-action projects that never complete.
+- Family: Projects regarding our family. These can be things like “Labor Day Weekend at the Cabin”, “Celebrate Tammy’s Birthday”, or “Send Christmas Cards”.
+- SPS: Here is everything about me being CTO at SPS Commerce. There are a lot of projects here and subfolders for different aspects of that dimension.
+- Professional: This is for projects about me being a CTO but not about SPS. For example, I'm a board member at Air T. If I'm speaking at a community event that would go in here. It is “everything else” about me as a CTO.
+- Home: Projects about our home. The anchor project here is “Maintain Home” which contains recurring tasks about, you guessed it, maintaining the home. And then there are various projects for things we do. A project that will show up in here soon via a template is “Prepare home for winter”.
+- Cabin: Same as above, but for our cabin. Notably, if we are entertaining a group at our cabin on a weekend I create that as a project in Family, not in Cabin. This is about the Cabin.
+- Travel: This is the newest folder I have and it has projects for trips that we take. I have templates that I'm regularly improving to populate these since I tend to forget things, or worry I did. I may have a project in here a year before we go and is a fun way to group things for those upcoming travel events. I'm still completing a couple of tasks for “Vacation to Ireland” that we did in June.
+- Financial: Projects related to managing finances. Every year this is going to get a “Prepare taxes” project, again built off of a template. I have a “Teach kids about the markets” project in there now.
+- Social: Projects that are about giving back. I'm on the MnTech board and I put that activity here. We also hold our annual Things 4 Good candle sale supporting non-profits and that project goes in here.
+- Hobbies: Projects for my hobbies. This one does have three notable subfolders: Reading, Weekly Thing, Websites. I currently am wrapping up a project here for “Help Josh with website” that I used to get Rambling Josh setup for my cousin.
+
+Those are my “working” folders and projects. I do have three more folders that are a little different.
+
+- Ticklers: Used for lists to remind me about things, or nudge me. One example I have in here is a project for “Use Gift Certificates, Credits” that gets an entry for any of those I’ve received so I don’t forget. I’ve got a task in there now with a due date to use a credit I got from a store. I also have a very special “Repeating Projects” project here that has single actions on a repeating schedule to create projects. Examples include “Create project for Pi Day”, “Create project to winterize house”, and “Create project to adjust clocks for DST”. These usually have links in the notes to go to Drafts and open that template, or to a Shortcut that creates the project itself.
+- Someday, Maybe: Someday lists are powerful, especially for folks that have more ideas than time which is probably more common than not. I wasn’t sure how to structure these though so that the reviews made sense. I finally came upon the idea of having a separate Someday, Maybe list for each folder above. So this folder contains 10 single-action projects, all paused, for each of those.
+- Lists: This folder contains my general reference lists. Nothing in this folder is actionable and never has tags. Things don’t get completed in these projects, they instead would get moved or copied somewhere else. This includes projects like “Books to consider”, “Shows to watch”, “Restaurants to go to”, and “Questions for Doctor”.
+
+That is all of it! This structure has served me well for a while now and maybe you’ll get some value out of it as well.
+
+Journal entry nine.
+
+My Grandpa Ardell was a “John Deere man”, so whenever I see these green tractors at the Minnesota State Fair I take a moment to look them over. I’m pretty sure he had one very similar to this one.
+
+Journal entry ten.
+
+We made three trips to the Minnesota State Fair this year and the third visit really happened just because of Peachey’s Donuts. We wanted to go back and try them fresh. The line was crazy long and it indeed took an hour, but these warm and tasty donuts are incredible.
+
+Journal entry eleven.
+
+Seeing the “Butterheads” in the Dairy Building at the State Fair is a must for me. As a bonus for going on the last day, I got to see all of them finished!
+
+Journal entry twelve.
+
+We went to the Minnesota State Fair three times this year, a record for all of us. Are we becoming “fair people”? Maybe. People complain about the crowds, but that is just part of it. The sea of people every way you look is what makes it the fair. We’ll be back again next year!
+
+Weekly Thing Forum
+
+Join Tom Mungavan, Patrick Hambek, Justin Porter, Aleksei Drokin, Andre Burgaud, and many other Weekly Thing readers in the Weekly Thing Forum. Recent topics include:
+
+- Rambling Josh
+- Racoons?
+- Email Distribution Lists
+- Ireland Trip
+- Omni Show 136: How Jamie Thingelstad Uses OmniFocus
+
+That's the end of the Journal.
+
+Now, the Briefly section.
+
+Link one. "Is My Blue Your Blue?"
+
+This is a fun little test to see what you define as blue. My family likes to give me a hard time about not seeing colors "right". I’m not color blind, but I have a touch of it. It turns out my blue is much more blue than the average, and much more than the others in my family.
+
+Link two. "Announcing The Assistant | Kagi Blog"
+
+It is fun to see innovation in search from Kagi. Well worth 5 dollars a month for me to use this.
+
+Link three. "Graphic Truth: The rise of US school shootings - GZERO Media"
+
+Why isn't this graph front page news and driving a solution. Yes it makes me sad, but even more it makes me angry that school shootings have become so common.
+
+That's the end of Briefly.
+
+Now, the Fortune section.
+
+Here is your fortune…
+
+Don't you feel more like you do now than you did when you came in?
+
+Thank you for subscribing to the Weekly Thing!
+
+That's the end of Fortune.
+
+Now, the Want to support the Weekly Thing? section.
+
+First — thank you for subscribing and reading. Here are some things you can do that would be great…
+
+- Share Weekly Thing 292 / Signal, Checkboxes, Hope with others you know!
+- Post about the Weekly Thing and let others know about it.
+- Join the Weekly Thing Forum and connect with others.
+- Email me comments, feedback, or just to say Hi!
+
+That brings us to the end of the Weekly Thing, issue 292. Thanks for listening, and I'll see you next time.

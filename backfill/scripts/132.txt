@@ -1,0 +1,182 @@
+The Weekly Thing, issue 132. Backdoors, Espresso, Technical Debt, Coaching, Studio Ghibli. Published January 25, twenty twenty. By Jamie Thingelstad. In this issue: Backdoors and golden keys, Phil Zimmerman, Clipper chip, brewing better espresso, technical debt Tetris, GraphQL versus REST, MindNode 7.0.
+
+Welcome to #132 and the second issue after the upgrades I made over the holidays. It turns out I hadn't gotten dark mode figured out. Thanks for the feedback! I thought it was working, but it turns out that iOS will do its dark mode for HTML emails that do not have images. All of my tests didn't have images, crappy tester! So, I did some digging, and I think I got it now. Hopefully, if you are reading this with dark mode on, you are seeing pleasant dark hues.
+
+I also want to welcome a bunch of new subscribers! Hop on in, the water is excellent!
+
+Now, the Must Read section.
+
+Link one. "Backdoors, Golden Keys: Here We Go Again - Monday Note"
+
+A good overview with links to other articles on the key issues around encrypted communication and the government's desire to have access to it. None of this is new to those that have been following it. The US Government took Phil Zimmerman to court over the creation of encryption they could not break. It was classified as a munition! The Clipper chip debacle was, to my knowledge, the only time the government actually required this. Unfortunately, the track record suggests that backdoors are desired to surveil everyone, and these flashpoints with terrorists are great ways for the government to try and shift the focus.
+
+That's the end of Must Read.
+
+Now, the Currently section.
+
+Reading: Poetry! A few months ago, a colleague of mine, Juselly French, shared a poem with me, and I think that might be the first time that has happened. I read it, and something about that poem stuck in my head. I had searched for it, but I could not find it, and I finally asked her if she remembered what it was. It was Harrowing by Parker J. Palmer. Something still hits me about that poem. Fast forward! Shortly before Christmas, I had a happy hour with Matt Norman. We were having an expansive conversation, one of those awesome talks that range far and wide. The topic of poetry came up, and I commented that I haven't really read poetry, but I have been thinking about it. Fast forward! I mentioned poetry to Tammy, wondering if we had any. She pointed me to a book of poems by Jim Morrison that we have in our cabin, but that didn’t feel like the right place for me to start. To get me started, she put three books of poetry as part of my birthday present. I’m sampling from these, reading a poem here and there, and experimenting. I have Dumpty: The Age of Trump in Verse by John Lithgow, which is pretty funny. I Will Destroy You: Poems by Nick Flynn which I haven't cracked open yet. 101 Famous Poems by Roy Cook, which has a wide variety and seems classical. I also got a book in the mail from Matt, The Rag and Bone Shop of the Heart: A Poetry Anthology by Robert Bly, James Hillman, and Michael Meade which I’m starting to dig into. Wish me well as I wander down this rabbit hole!
+
+Installing: The new MindNode 7.0 release on both macOS and iOS with some great new features like visual tags and additional styles. A well-timed release as I have been considering how to make better use of mind mapping.
+
+Playing: I found this new game Two Spies for iOS. Fun to play and novel, relying on not knowing the other player's actions or location, so perfect for Internet play. The games are quick and have a good amount of strategy to them.
+
+Listening: My brother-in-law turned me (back) on to Pivot with Kara Swisher and Scott Galloway. The combination of those two results in a pretty interesting podcast on a variety of topics. It makes for a great listen to while commuting.
+
+That's the end of Currently.
+
+Now, the Photog section.
+
+Know someone who'd like good reads like this?
+Forward this on and encourage them to subscribe.
+
+That's the end of Photog.
+
+Now, the Recommended Links section.
+
+My Must-Have Apps, twenty nineteen Edition - MacStories
+
+Federico Viticci is my spirit guide when it comes to power user capabilities with iOS and iPadOS. I'll be spending some significant time picking over this list.
+
+The math of brewing a better espresso | Ars Technica
+
+Okay, I came for the science and the cool charts. But then reading this is just straight-up heresy!
+
+Quote.
+"The real impact of this paper is that the most reproducible thing you can do is use less coffee," said Hendon. "If you use 15 grams instead of 20 grams of coffee and grind your beans coarser, you end up with a shot that runs really fast but tastes great. Instead of taking 25 seconds, it could run in 7 to 14 seconds. But you end up extracting more positive flavors from the beans, so the strength of the cup is not dramatically reduced. Bitter, off-tasting flavors never have a chance to make their way into the cup."
+End quote.
+
+7 seconds! Runs really fast? Stay away!
+
+This Is True History: One of the Internet’s Oldest Newsletters
+
+Are newsletters the new hotness? Or are Podcasts? Maybe both. Everyone seems to have one of each. This story is about a newsletter that has been published since 1994! 25 years and still going!
+
+Quote.
+"I had 2,000 printed, and I told my readers this story. This was before I had PayPal, this was before I had a shopping cart," he explained. "And I said, 'You know, if you’re tired of people telling you what to believe and how to think, send me a buck, I’ll send you 10 cards.'" His wife thought he was crazy, that he just wasted his money on a box of parody cards. Instead, his reader base sent him money through the mail for these cards. He sold so many that he had to start ordering them in sets of 10,000. In two decades, Cassingham has sold more than 2.2 million cards.
+End quote.
+
+Maybe I need to order some Weekly Thing cards!
+
+Technical Debt Is like a Tetris Game - Fluent C++
+
+A surprisingly good analogy for a complicated, and often invisible, problem. Plus I like the fact that it’s extensible. "Is that bad like an open row with one block missing? Or like an L-shape piece messing up the top of the pile?"
+
+Introducing Deepnews Distills - Monday Note
+
+This is an interesting new news product. The idea is using learning technology to provide relevant and accurate information on a topic.
+
+Quote.
+The whole idea behind Deepnews Distills is to develop a scalable, agile and largely automated newsletter system. In short, we identify a worthy subject, we curate and vet a set of sources, we fine-tune the query that yields the best results in the crawling process and we let the algorithm work its magic. We can design a new vertical, integrate it in our dedicated CMS, test it and launch in just a week.
+End quote.
+
+Subscription model, delivered via email. Interesting that they choose email.
+
+GraphQL: the REST is history? - Stav Barak - Medium
+
+Basic intro to GraphQL. Technologists get so hung up in the X versus Y debate. GraphQL fundamentally solves a different problem than REST. I think it’s clear there is room for both, and there are very hard problems in REST that GraphQL makes very easy. The non-deterministic performance of GraphQL also deserves to be highlighted over and over. You need to be cautious about how queries are constructed.
+
+Coaching - Happiness | Silicon Valley Product Group
+
+Basic reminders that every manager should make sure that they are remembering to do. As a manager, read these and think to yourself, "Which one of these am I likely to forget?" Then make a note in your task manager and set it to repeat weekly.
+
+Nothing Changes Until You Do
+
+Good context setting on everyone's role in cultural changes.
+
+Quote.
+There is nothing quite as humbling and powerful to self-reflect and ask yourself: how am I contributing to this environment? How am I showing up? Is my behavior getting the best out of people? If not, why? These are the questions I continuously have leaders ask themselves. I challenge anyone, not just leaders, to ask these questions. Get curious versus judgmental and see what shows up, I bet you will surprise yourself.
+End quote.
+
+A lot of references to learning and vulnerability too.
+
+Look Busy
+
+Some folks know I wrote a Shortcut that automates creating block time on my calendar. I need to do that, or all of my time will get taken by meeting requests. This app does that, with a masquerade twist!
+
+Quote.
+Look Busy fills your work calendar with realistic-looking (but secretly fake) work events. Your co-workers won’t schedule conference calls and meetings, so you can get actual work done.
+End quote.
+
+There is a totally valid use case for something like this! I think I will stick with my Shortcut automation.
+
+Netflix Releases 21 Studio Ghibli Masterpieces Around The World
+
+This is awesome! I keep a DVD player in a closet just to get out and play Studio Ghibli movies! I think we may make a list and watch all of these!
+
+That's the end of Recommended Links.
+
+Now, the Reply All section.
+
+Here are some replies from Weekly Thing #131 / GoatCounter, Hobbies, AR, Leadership, Ring.
+
+Josh Ellis, a professor at Chadron State College and more important to me, my cousin, says:
+
+Quote.
+I have my students use mind mapping occasionally to increase their understanding of some concepts. The research on it has shown that it is most effective when done by hand on paper, whiteboard, etc., rather than electronically.
+End quote.
+
+That research resonates with me. Attaining a state of flow feels important to good mind mapping, and there are way too many distractions and friction on most electronic devices. Though there are benefits! A digital version can adjust to changes in structure and rapid adjustments to the map, removing limitations from mind mapping. There is some sweet spot where a digital version that removed friction would be the best. The closest I’ve found to this is using Mindnode on an iPad Pro with an Apple Pencil, and using MyScript Stylus handwriting keyboard, which has sadly been retired.
+
+A number of people appreciated my callout of Streaks and had started using it. That's great! If Streaks doesn't scratch your itch, Productive is a similar app with many more features and more complicated. I've also been enjoying When Did I…? as a compliment to something like Streaks. This app is all about helping you track much less frequent things, and serves as a good reminder for me to check during a weekly review to see if there is something I should do.
+
+That's the end of Reply All.
+
+Now, the Status Updates section.
+
+Tuesday @ 9:57 AM
+
+The dentist let me check out the machine that milled my crown from a block of porcelain. The 3D scanning and modeling software was very impressive too.
+
+Sunday @ 11:35 PM
+
+Saw Tina Schlieske at the Aster Cafe tonight. Intimate evening of new material. Unfortunately had the second worst seat in the house. Otherwise was very good.
+
+That's the end of Status Updates.
+
+Now, for your information.
+
+PHP in twenty twenty - stitcher.io
+
+PHP is routinely criticized, but many don't realize how far the language has come in recent years.
+
+Crew Dragon Launch Escape Demonstration | SpaceX
+
+SpaceX continues to impress.
+
+TheCodingMonkeys News: Farewell, Carcassonne!
+
+I learned Carcassonne by playing the Coding Monkeys version on iOS. Bummer to see them lose the license. I like the authentic board game approach they used.
+
+The Flask Mega-Tutorial Part I: Hello, World! - miguelgrinberg.com
+
+Very thorough tutorial.
+
+LaunchCuts Review: A Better Way to Organize Your Shortcuts with Folders, Advanced Search, and Custom Views - MacStories
+
+Shortcuts should do these things already. Some folders or tagging structure would help power users. This fills a gap until then.
+
+Want smarter friends?
+Forward them this email and suggest they subscribe!
+
+That's the end of the FYI section.
+
+Now, the Fortune section.
+
+You've made it all the way to the end! Here is your fortune for this week.
+
+Tonight's the night: Sleep in a eucalyptus tree.
+
+That's the end of Fortune.
+
+Now, the About section.
+
+The Weekly Thing is a weekly newsletter highlighting helpful, interesting, or insightful articles from the week. I am a voracious reader of technology, culture, leadership, privacy, and many other topics as my interests roam. Each article I share is framed with personal commentary combining my decades of experiences. My goal is to impact your journey with knowledge and insight.
+
+Website
+Microblog
+Photos
+Link Blog
+LinkedIn
+Twitter
+
+That brings us to the end of the Weekly Thing, issue 132. Thanks for listening, and I'll see you next time.

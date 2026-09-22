@@ -1,0 +1,202 @@
+The Weekly Thing, issue 286. Cypherpunk, Printing music, Rabbit. Published May 4, twenty twenty four. By Jamie Thingelstad. In this issue: Digital legacy planning, Cypherpunk's Manifesto, finding new music, a different web, eldest daughters' happiness, moving onchain.
+
+Hello from Webster, Wisconsin! We are here for the annual gathering with Tammy's side of the family. Much going on, but I still got a chance to get the Weekly Thing out in your mailbox.
+
+Hope you have a great weekend and enjoy the links!
+
+Now, the Currently section.
+
+Reading: My book club has just started reading The Power Law: Venture Capital And The Making Of The New Future. I’m early in the book still but have been enjoying it. Many of the stories (so far) of early technology company success I've heard before, but The Power Law shares the perspective from the newly created (ad)venture capital perspective. Good read thus far!
+
+That's the end of Currently.
+
+Now, the Notable section.
+
+Link one. "Preparing for the Unthinkable: A Brief Guide to Digital Legacy Planning - TidBITS"
+
+Our computing lives get ever more complicated, and with that complication they become ever more integrated into our lives. Considering the destiny of our digital assets after we are gone is getting more complicated. This article does a decent job of going over the primary points. I do wonder if there isn't a new market here for a digital estate service. I could imagine a service that I give access to my password database, and inventory of various assets, that is able to bring the variety of expertise to bear to assist with transitioning your digital estate. Crypto is a great example. I’m not sure how comfortable Tammy would be able to transfer my digital assets from various wallets. I think we need to not rely on documentation, and instead thing about something more professional.
+
+Link two. "A Cypherpunk's Manifesto"
+
+This was written in 1993 — thirty one years ago — by Eric Hughes.
+
+Quote.
+Therefore, privacy in an open society requires anonymous transaction systems. Until now, cash has been the primary such system. An anonymous transaction system is not a secret transaction system. An anonymous system empowers individuals to reveal their identity when desired and only when desired; this is the essence of privacy. Privacy in an open society also requires cryptography. If I say something, I want it heard only by those for whom I intend it. If the content of my speech is available to the world, I have no privacy. To encrypt is to indicate the desire for privacy, and to encrypt with weak cryptography is to indicate not too much desire for privacy. Furthermore, to reveal one's identity with assurance when the default is anonymity requires the cryptographic signature. We cannot expect governments, corporations, or other large, faceless organizations to grant us privacy out of their beneficence. It is to their advantage to speak of us, and we should expect that they will speak. To try to prevent their speech is to fight against the realities of information. Information does not just want to be free, it longs to be free. Information expands to fill the available storage space. Information is Rumor's younger, stronger cousin; Information is fleeter of foot, has more eyes, knows more, and understands less than Rumor.
+End quote.
+
+I hadn't run across this essay before and find it incredible prescient to the current state of the digital world.
+
+Link three. "When Do We Stop Finding New Music? A Statistical Analysis"
+
+Good article with data framing how we explore new music in our youth, and then settle into a set of music that we are comfortable with and then stay there.
+
+Quote.
+Survey research from European streaming service Deezer indicates that music discovery peaks at 24, with survey respondents reporting increased variety in their music rotation during this time. However, after this age, our ability to keep up with music trends typically declines, with respondents reporting significantly lower levels of discovery in their early thirties. Ultimately, the Deezer study pinpoints 31 as the age when musical tastes start to stagnate.
+End quote.
+
+I personally try to explore new music. I find it harder than I think it should be, but it does happen. Brandi Carlile is someone that Tammy and I adore and she is a newer artist. A lot of the EDM I like I've gotten after my mid-30s. But I do find that I have to sort of "work at it" to adopt new things.
+
+Link four. "We can have a different web"
+
+White does a great job telling the story of the evolution of the web through analogy. It is very easy to follow. I sympathize with her perspective. I love the web, and will continue to inhabit the web on that layer. Indieweb services, run by real people, with genuine authors publishing real things.
+
+Quote.
+But some of this is certainly based in the feeling that the web was just better back then. Fewer trolls, and a lot fewer bots. Google search results that actually returned what you were looking for, not just the sites that paid the most. Cobbled-together blogs and LiveJournal pages written by people who felt authentic, who maybe wanted to attract more visitors to tick up their pageview counters or add entries to their guestbook pages, but who weren't trying to cultivate a persona as an influencer or a thought leader, "build a brand", or monetize their audience.
+End quote.
+
+Her point that you can choose to have this web is spot on. We all can make this choice. It really isn't hard. And I can tell you, the water is so much better out here.
+
+Link five. "What Therapists Say Harms Eldest Daughters’ Happiness Most | HuffPost Life"
+
+There are unique aspects to being the oldest, youngest, or middle child in any family. Also unique components of age gaps as well. This eldest daughter analysis is interesting and certainly doesn't seem far fetched.
+
+Quote.
+Are you too responsible for your own good? Are you highly critical of any mistake you make? Are you a perfectionist? You must be an oldest daughter. All jokes aside, while there are certainly youngest children, middle children and only children who also possess these characteristics, these traits are most closely associated with eldest daughters ― a concept known as eldest daughter syndrome. A recent study about the topic found that firstborn daughters actually mature faster than other children because of the stress their moms experienced while pregnant.
+End quote.
+
+Interesting.
+
+Link six. "I've Moved Onchain | AVC"
+
+I have followed Fred Wilson's blog for decades. I have always admired how he engages directly in the tech that he is investing in. I saw that he was mirroring his blog posts on a web3 service for a while, but I didn’t realize he had switched his publishing entirely to that now. Wilson articulates the things that he was trying to solve by doing this.
+
+Quote.
+First, the posts are stored in a closed database hosted by me in the cloud. Second, the services that I use to create AVC.com are not "composable" meaning that others cannot build things on top of AVC.com and the services that create and display the posts I create here. Third, the identities of the authors (me) and readers (you) here at AVC.com are not tied to any sort of portable identity and reputation system. While none of these issues may seem like a big deal to you, they are huge deal to me as I will explain in a bit.
+End quote.
+
+As a nearly two-decade blogger I also see these issues as problems. I would also like to make sure that my blog lasts as long as I can possibly make it. Hopefully much longer than I last. I still find the web3 publishing services to be difficult to use, but I have confidence that with time they will be just as easy as any else. I’m glad to see Wilson making this jump.
+
+That's the end of Notable.
+
+Now, the Journal section.
+
+Journal entry one.
+
+Happy Birthday to Tammy! I took the afternoon off for Tammy’s birthday. Mazie wasn’t able to be at home so we drove to St. Olaf and took a nice walk through the Natural Lands with her. We then returned home and got Tyler from school, opened present, had a nice dinner at Pajarito and then a movie at the Edina 4 Theatre!
+
+Journal entry two. Hard Miles
+
+We saw Hard Miles at Edina 4. Based on a true story, it tells the story of a counselor taking four young men in a correctional school on a long bicycle ride to find themselves. Their destination is the Grand Canyon (which kept reminding me of a similar theme in the movie Grand Canyon). I have a soft spot for movies that prominently feature cycling. Plus Matthew Modine who I first remember from Vision Quest was great in it. His character goes through his own emotional journey in the trip as well. Recommended!
+
+Journal entry three. My Morning
+
+1. Woke up around 5:30a to the chirps of a CO detector telling me the 9V backup battery is low.
+2. Let Lucky out and then realize a neighbor with two dogs is walking down the alley triggering Lucky to start barking and running around like a crazy animal.
+3. Get keys to run an errand and accidentally activate car alarm while putting shows on.
+
+Journal entry four.
+
+For fun I added my website to the IndieWeb Webring. I also added an h-card microformat tucked away in the footer of my site. I styled it not to display but the validator picks it up fine.
+
+Journal entry five.
+
+We had a delightful afternoon at the Minnesota Landscape Arboretum. Tulips are blooming!
+
+Journal entry six.
+
+We attempted to solve the Utopia room at Lock and Key Escape Rooms today -- alas we didn’t quite get there. It is there hardest room, and we skipped hearing the solution so that we could make a return trip and try again with Mazie there too!
+
+See list of escape rooms.
+
+Journal entry seven.
+
+We watched Champions tonight. Great movie and touching story.
+
+Journal entry eight.
+
+Recent concert that I most regret not going to -- Bruce Springsteen.
+
+Journal entry nine.
+
+At St. Olaf enjoying Mazie singing in Manitou Singers for the Spring Concert featuring Andrea Ramsey’s Suffrage Cantata.
+
+Journal entry ten. Constellation Fund Bright Night twenty twenty four
+
+Tammy and I had an enjoyable evening at Constellation Fund Bright Night twenty twenty four. Constellation Fund uses a data-driven approach to fund a variety of non-profits in the Twin Cities area with the goal to eliminate poverty. Constellation takes an approach similar to Robin Hood in New York or Tipping Point in San Francisco. Bright Night is their annual even to celebrate the great work the organization is supporting.
+
+Bright Night was held at the Uptown Theater amidst a complete chaos of road construction. It was the first time I’ve been there since the massive renovation and it is very nice!
+
+Hanging out with friends Julie Berman and Hal Kaufman.
+
+Constellation had this setup to show how they use metrics to drive impact-based decisions.
+
+Unfortunately I don’t remember the name of the band that opened the evening but they were good.
+
+I’ve always wanted to…
+
+Andrew Dayton addressing the group and sharing progress of Constellation Fund.
+
+Ran into Greg Blasko at the event, one of the founders of SportNgin.
+
+Tammy and I were both excited to see that Laamar was closing the night out!
+
+See Bright Night from twenty twenty one, twenty twenty three, and twenty twenty four.
+
+Weekly Thing Forum
+
+Join Patrick Hambek, Tom Mungavan, Barry Hess, Eric Walker, Brad Armstrong, and many other Weekly Thing readers in the Weekly Thing Forum. Recent topics include:
+
+- AI controlled F16 fight humans
+- Ukraine Aid
+- NASA’s Voyager 1 Resumes Sending Engineering Updates to Earth
+- Mastodon Instance Recommendation
+- A few thoughts on this weeks Weekly Thing
+
+That's the end of the Journal.
+
+Now, the Briefly section.
+
+Link one. "Rabbit’s R1 is a little AI gadget that grows on you | TechCrunch"
+
+I have pre-ordered a Rabbit R1 and am looking forward to playing with it. Looks like fun!
+
+Link two. "The web is not dying – Manu"
+
+Strong agree.
+
+Link three. "Bill Gates, Man United and 20 other sites that ban linking to them – Malcolm Coles"
+
+Websites have all sorts of silly and confusing terms of service, but I didn’t know that some say you need permission before you can link to them? That is just dumb. I’m guessing the intent is they don't want the hyperlink to be in a negative context, but you have no control over what other people do with links.
+
+Link four. "Printing music with CSS Grid – web development agency in Lausanne"
+
+This looks pretty incredible. Like MathJax but for music!
+
+Link five. "ffs: the file fileystem | ffs"
+
+Wild way to mount a JSON structure as a file system. Not sure what you would do with this but it is kind of wild.
+
+Link six. "A recent security incident involving Dropbox Sign - Dropbox Sign"
+
+Got full access to user info but not files. Not the core Dropbox product.
+
+Link seven. "Calendar types in Watches"
+
+I have a thing for mechanical watches. Not too bad. I don't have any winders or anything. But this dive into the calendar mechanisms in mechanical watches is really wild. So complicated!
+
+Link eight. "How to improve the AI panel at your event - Josh Bernoff"
+
+Every conference has one or even several AI panels. This advice from Bernoff is spot on. Actually, it is spot on for every panel.
+
+That's the end of Briefly.
+
+Now, the Fortune section.
+
+Here is your fortune…
+
+Don't read everything you believe.
+
+Thank you for subscribing to the Weekly Thing!
+
+That's the end of Fortune.
+
+Now, the Want to support the Weekly Thing? section.
+
+First — thank you for subscribing and reading. Here are some things you can do that would be great…
+
+- Share Weekly Thing 286 / Cypherpunk, Printing music, Rabbit with others you know!
+- Post about the Weekly Thing and let others know about it.
+- Join the Weekly Thing Forum and connect with others.
+- Email me comments, feedback, or just to say Hi!
+
+That brings us to the end of the Weekly Thing, issue 286. Thanks for listening, and I'll see you next time.

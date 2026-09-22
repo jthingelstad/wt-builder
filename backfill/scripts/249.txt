@@ -1,0 +1,217 @@
+The Weekly Thing, issue 249. GPT, Privacy, Crypto. Published April 8, twenty twenty three. By Jamie Thingelstad. In this issue: Steve Blank on ChatGPT, BloombergGPT, LinkedIn ghostwriters, S-GPT shortcut, Tim Cook on Apple, smart locks privacy, Stripe twenty twenty two letter.
+
+Hello there!
+
+Last night Tyler and I spent a few hours playing with ChatGPT and DALL-E. It was super fun. We asked it serious and silly questions alike. We had it create ridiculous images of a "giant white Bernadoodle towering over the skyline of Minneapolis" which made us laugh out loud for real. We had a ton of fun world building and asking ChatGPT to "create a world filled with Pokémon". That world is called "Pokétopia" by the way. Tyler found a reference to the "hardest programming language" and we had it "Write a script in Malbolge". We had it do some word problems with us "If a feather fell at 32 newton from 5.6 feet in the sky with 1.5 mph winds how long would it take for the feather to hit the ground". GPT-4 critiqued our word problem. We even asked it to help design "a romantic date night for 50 year old couple".
+
+We had a great time but even more importantly we were learning what it did well, and it was helping us explore different ideas. ChatGPT can be an incredible brainstorming partner. It is an infinite idea generator!
+
+I've given both of our kids access to ChatGPT because I want to them to explore with it. They are going to be in a world where this technology is common. Knowing how to collaborate with it is going to be important, the same way that people collaborate with spreadsheets today.
+
+Learning new technology through direct play is one of my favorite things especially when you can do it together! And it works really well.
+
+Now, the Currently section.
+
+Installing: I installed MacGPT which lets you interact with the ChatGPT engine natively on your Mac, including using it for text expansion in applications. I’m curious to see what it is like to have the power of ChatGPT just a click away in the menu bar.
+
+That's the end of Currently.
+
+Now, the Notable section.
+
+Link one. "Steve Blank Playing With Fire – ChatGPT"
+
+Steve Blank has been around innovation in Silicon Valley since 1978 and has seen a lot. His reflections on ChatGPT-4 and the coming wave of AI innovation are worth reading.
+
+Quote.
+This year with the introduction of ChatGPT-4 we may have seen the invention of something with the equivalent impact on society of explosives, mass communication, computers, recombinant DNA/CRISPR and nuclear weapons – all rolled into one application.
+End quote.
+
+That is a big statement.
+
+Quote.
+In addition to its outstanding performance on what it was designed to do, what has surprised researchers about ChatGPT is its emergent behaviors. That’s a fancy term that means "we didn’t build it to do that and have no idea how it knows how to do that." These are behaviors that weren’t present in the small AI models that came before but are now appearing in large models like GPT-4.
+End quote.
+
+We don't totally know what all is happening here, and where it will be in just a few months. Hold on!
+
+Link two. "LinkedIn power users are turning to ghostwriters - Vox"
+
+I’m over here wondering how social platforms are going to be impacted by AI generated text, and it turns out that there is an entire market of ghostwriters for LinkedIn creating content for people already. It has always been the case that some LinkedIn content is clearly written by marketing teams on behalf of people, but this is the person themselves hiring someone to build an audience for them. Not for me.
+
+Link three. "Gnosis Ecosystem (PDF) - Google Drive"
+
+This PDF covers the history of Gnosis and the various projects that have spun out of Gnosis DAO particularly. I run a Gnosis Validator and am a home staker. I find the "vibe" of Gnosis to be a great fit for me, and it is a wonderful ecosystem to explore and learn in.
+
+Link four. "Tim Cook on Shaping the Future of Apple | GQ"
+
+In full disclosure if there were a Tim Cook fan club, I'd be a card carrying member. I've also been a long-time customer of Apple and enjoy their products which certainly has a halo effect for Cook himself. What I really admire about Cook though is how he leads with values. I also think his calm and reasoned persona is a great model, and oddly iconoclast, to so many leaders in technology. Including his predecessor Steve Jobs!
+
+Quote.
+Being out in nature is a "palate cleanser for the mind." Actually, it’s even more than that, Cook says, casting aside his measured nature for a moment. "It’s better than any other thing you can possibly do!"
+End quote.
+
+Apple has made privacy one of those core values, and I truly believe in part because it is a personal value of Cook and many of the leaders. It is also a market differentiating strategy for the company.
+
+Quote.
+In his tenure as CEO, Cook has rarely missed an opportunity to decry, usually with a fair amount of heat in his voice, what he describes as the "data-industrial complex"—a complex built of companies (and Apple competitors) who profit from the use and sale of their consumer’s personal information and data. This practice, Cook said in another public moment, "degrades our fundamental right to privacy first, and our social fabric by consequence," and helps build an ecosystem full of "rampant disinformation and conspiracy theories juiced by algorithms."
+End quote.
+
+The interview highlights the incongruity of the CEO of Apple focusing on privacy and device addiction. It is isn't incongruous if you start by leading with your values.
+
+Link five. "Introducing S-GPT, A Shortcut to Connect OpenAI's ChatGPT with Native Features of Apple's Operating Systems - MacStories"
+
+This is an incredibly advanced Shortcut that brings ChatGPT features into a number of cool areas on your Mac or iPhone. One of the coolest features is having ChatGPT create playlists for you in Apple Music. It did a great job with the few tests I gave it.
+
+Link six. "Think of language models like ChatGPT as a "calculator for words""
+
+This is a super interesting mental model for thinking about ChatGPT and LLMs.
+
+Quote.
+I like to think of language models like ChatGPT as a calculator for words. This is reflected in their name: a "language model" implies that they are tools for working with language. That's what they've been trained to do, and it’s language manipulation where they truly excel. Want them to work with specific facts? Paste those into the language model as part of your original prompt!
+End quote.
+
+It does however make me wonder how quickly that "calculator" turns into a spreadsheet, and from their into something even more. The parameters of this mental model may have a very short shelf life.
+
+Link seven. "Introducing BloombergGPT, Bloomberg’s 50-billion parameter large language model, purpose-built from scratch for finance | Bloomberg LP"
+
+Domain specific Generative Pre-trained Transformers are an obvious next step.
+
+Quote.
+This data was augmented with a 345 billion token public dataset to create a large training corpus with over 700 billion tokens. Using a portion of this training corpus, the team trained a 50-billion parameter decoder-only causal language model. The resulting model was validated on existing finance-specific NLP benchmarks, a suite of Bloomberg internal benchmarks, and broad categories of general-purpose NLP tasks from popular benchmarks (for example, BIG-bench Hard, Knowledge Assessments, Reading Comprehension, and Linguistic Tasks). Notably, the BloombergGPT model outperforms existing open models of a similar size on financial tasks by large margins, while still performing on par or better on general NLP benchmarks.
+End quote.
+
+Will these have staying power or will it be more useful to have a broader data set?
+
+Link eight. "Smart Locks Endanger Tenants’ Privacy and Should Be Regulated | Electronic Frontier Foundation"
+
+I haven't adopted that much "smart home" infrastructure, in part because of the privacy concerns. I've thought several times that having a smart lock at our cabin would be great, but yet another stream of data that can be sold and shared without our knowledge is enough to keep me away.
+
+Quote.
+- This data could give law enforcement a powerful new stream of data to be obtained without your knowledge. - Landlords could use this data to harass or penalize tenants. - Private companies who manage this data could sell it. - Both the smart lock itself and the system used to store the data could be hacked. - Finally, smart lock users themselves may be able to abuse the data.
+End quote.
+
+The growing use of technology in our homes, a place that is recognized under our constitution in special ways, without privacy considerations is a problem.
+
+Link nine. "Leverage is brittle | Seth's Blog"
+
+Choosing and being careful about where you use leverage is important. It is also worth considering that not all forms of leverage are financial. The same concepts can apply to time and relationships.
+
+Link ten. "Implications of Open Monetary and Information Networks - Lyn Alden"
+
+Another very well done article from Alden this time comparing centralized versus decentralized approaches to money and information. Alden's career is in finance and her framing starts with that, and then continues to information. I think her conclusions are right on, including the boundaries that she sets for decentralized technology.
+
+Quote.
+Along these lines, way more things are advertised as benefiting from a blockchain than really do. A blockchain helps different entities come to a global consensus on something, and that's an expensive process that only needs to be applied to things that truly need it.
+End quote.
+
+Her view of Web3 is similar to mine, and she also see's a "long debate" ahead, similar to my view on polarizing technology.
+
+Link eleven. "Stripe’s twenty twenty two annual letter"
+
+Annual letter from the founders of Stripe. Stripe is one of the technology companies that I always keep an eye on. They are building enabling technology that is impressive for payments, but equally important is how they build it and how they take that to market. The amount of innovation that is enabled by Stripe is incredible.
+
+Quote.
+More than 100 companies now handle more than 1 billion dollars in payments with Stripe every year. This set continues to grow rapidly, expanding by more than 50% each year since twenty eighteen. Some of this expansion is about established titans, but most isn't. Part of the joy of working at Stripe is partnering with early startups on their way to meteoric success. Of these 100+ category leaders, more than half have grown their revenue 10x while on Stripe, and over a quarter have grown 100x. Many now-household names, such as Instacart, Substack, and DoorDash (originally known as "Palo Alto Delivery") charged their customers with us from the very beginning. In total, the number of new businesses coming to Stripe increased by 19% in twenty twenty two, with an average of more than 1,000 new ventures launched every day. While the US is currently our largest market, 55% of the businesses that joined Stripe last year were based outside of the US. Stripe now supports businesses in more than 50 countries.
+End quote.
+
+And how about this line at the end of the letter.
+
+Quote.
+One in ten people in the world transacted with a business powered by Stripe in twenty twenty two.
+End quote.
+
+Incredible.
+
+Link twelve. "A Deep Dive into the ENS Name Wrapper — ENS"
+
+The Ethereum Name Service is both a great utility for users, as well as breaking new ground for how you run decentralized services and organizations. It has always been the case that ENS names like thingelstad.eth are completely decentralized and "owned" by the owner. However, that wasn't true for subdomains like tammy.thingelstad.eth. This new Name Wrapper opens up a tremendous set of opportunities to decentralize ENS names at every level. The video here is the easiest way to understand this.
+
+Link thirteen. "Printing daily.baty.net – Baty.net"
+
+Cool to see how Baty has automated pulling his blog posts into nice looking printed artifact. One of my things to do is to figure out how to have my blog live for as long as possible. It is a harder problem than one might think. The funny thing though is that printing it out on paper and having a bunch of copies made is one of the easiest ways to do it.
+
+Link fourteen. "Review: Aura’s digital photo frame is solid, if not quite picture perfect – Six Colors"
+
+I've had an Aura frame for a couple of years now and I’m happy with it. The best thing about it is it just works, and doesn't take management. I've never had to do anything beyond sending photos to it. I’m considering getting more of them.
+
+That's the end of Notable.
+
+Now, the Journal section.
+
+Wednesday @ 8:10 PM
+
+Complete Collection of 612 Series
+
+One of my favorite NFT projects is the 612 Series by Erik Halaas of StayNftyMpls. I like that it is a local project, made by a local artist, and the landmarks are nearly all places that I have been to and have distinct memories of.
+
+I decided that I wanted to get a complete collection of all 32 landmarks.
+
+The rarest one of these is Al's Breakfast, which there are only 2 of, so it is unlikely there will be any other complete collections of this series.
+
+Sunday @ 8:52 PM
+
+A big thank you to my bro-in-law Hector for nabbing me one of the first run NFTy FIGs of the Bored Ape Yacht Club. Mine is 619 of 5,000.
+
+It is a model of BAYC #7663 which was last sold for 62 ETH on Feb 25, twenty twenty two.
+
+I dig it.
+
+Saturday @ 9:31 PM
+
+We took a quick trip to Grand Rapids to see Annie Jr. at the Reif Center. Our nephew was playing one of the main roles. The performance was great. They had 70 kids as orphans which made for awesome orphanage scenes. A fabulous time for all!
+
+Saturday @ 7:32 AM
+
+The several inches of snow last night is a big April Fools joke right? If we just wait a while we will get a big laugh and it will disappear?
+
+That's the end of the Journal.
+
+Now, the Briefly section.
+
+Link one. "Ask Your PDF"
+
+Another tool to use AI to analyze collections of PDFs.
+
+Link two. "Reply to Everyone — How we built something useful"
+
+I’m not going to move email, but a feature like this would be nice for a small set of circumstances.
+
+Link three. "The Bitcoin Whitepaper Is Hidden in Every Modern Copy of macOS - Waxy.org"
+
+Wow! I verified this on my machine and sure enough there it is. Somebody at Apple is into Bitcoin. I'll be curious to see if this is changed.
+
+Link four. "How to have buckets of time"
+
+An interesting approach to serializing work into chunks to improve efficiency and reduce task switching. This is very GTD-friendly. These buckets could easily be GTD contexts.
+
+Link five. "Google for Startups Ukraine Support Fund: One year on"
+
+Cool to see what Google continues to support in Ukraine.
+
+Link six. "Ethereum Guatemala Update"
+
+Cool to see this first Ethereum event in Guatemala.
+
+Link seven. ""I’ll Walk Away From Anything": Kara Swisher Calls the Shots | Vanity Fair"
+
+I enjoy listening to Swisher's podcasts. She is a powerhouse personality.
+
+Link eight. "Blog posting frequencies (ooh.directory)"
+
+I dig the kind of geeky stuff that is happening around blogs.
+
+Link nine. "Rebranding Announcement - Fueled Collective"
+
+It makes me so happy that the Coco brand is coming back to Minneapolis!
+
+That's the end of Briefly.
+
+Now, the Fortune section.
+
+Here is your fortune…
+
+You will attract cultured and artistic people to your home.
+
+Thank you for subscribing to the Weekly Thing!
+
+That brings us to the end of the Weekly Thing, issue 249. Thanks for listening, and I'll see you next time.

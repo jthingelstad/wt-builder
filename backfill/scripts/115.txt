@@ -1,0 +1,152 @@
+The Weekly Thing, issue 115. Aug 31, twenty nineteen. Published August 31, twenty nineteen. By Jamie Thingelstad. In this issue: Technical women careers, toxic internship interviews, Google tracking protection, GitHub SOC 2, Apple Card versus Chase Visa, nushell.
+
+Welcome to Labor Day weekend and for many families the last weekend before school starts again. This week I got to attend the parent session for Freshman orientation. It doesn't seem that long ago that it was the first day of kindergarten, and now they are talking about college counselors and when you might start taking the PSAT! Time flies!
+
+There are still a couple of final things to check off the summer To Do list. We are planning on getting as many of them as we can.
+
+Now, the Featured Links section.
+
+Link one. "Sharing the Data: How Technical Women Navigate Their Career | Developer Resources"
+
+Good insights and data from Automattic, the makers of WordPress, and what they learned about how women navigate the technology industry. I found this highlight interesting:
+
+Respondents read job descriptions almost exclusively for red flags; for instance, they search for language encouraging all relevant employees (not just women) to take parental leave.
+
+I've highlighted other articles in the past that showed changing the style of job postings had a radical impact on the pool of candidates that companies got.
+
+Link two. "For Young Female Coders, Internship Interviews Can Be Toxic | WIRED"
+
+Men working in the technology industry, especially those in leadership roles, need to read articles like this that share the experience that women in technology have. This article is even more troubling as it is focused on internships!
+
+More than half of the respondents said they either had a negative experience while applying for engineering internships or knew another woman who had a negative experience, such as being subjected to gender-biased interview questions and inappropriate remarks, or observing a noticeable lack of diversity when they interacted with company representatives during the interview process.
+
+Although the survey did not explicitly ask about sexual harassment and discrimination, respondents raised both issues in written responses at the end of the survey. They described instances where a male interviewer flirted with them during the interview, sent an unsolicited photo of himself, asked if they had a significant other, or made sexual remarks in their presence. The respondents also reported feeling dismissed or demeaned because of their gender. One respondent was asked why she would want to go into tech as a woman; in another instance, a male interviewer laughed when the candidate said she saw herself becoming a software engineer in five years.
+
+The inappropriate behavior they describe is alarming considering that the average age of the respondents was 19 and, for the most part, they’re describing interactions with grown men who have some control over their access to opportunity.
+
+The scale of this problem is big, but it cannot be ignored.
+
+Link three. "Deconstructing Google’s excuses on tracking protection"
+
+Last week the WebKit team published their position on trackers and blocking them, focusing on improving privacy for those using the web. Google came out with an oddly titled response, Building a more private web, which got a good Daring Fireball writeup.
+
+This look at the statements Google is making is thorough.
+
+Google is trying to thread a needle here, implying that some level of tracking is consistent with both the original design intent for web technology and user privacy expectations. Neither is true.
+
+If the benchmark is original design intent, let’s be clear: cookies were not supposed to enable third-party tracking, and browsers were supposed to block third-party cookies. We know this because the authors of the original cookie technical specification said so (RFC 2109, Section 4.3.5).
+
+Google gets in tough spots when they have to address privacy. Everyone knows that they thrive on user data. Limiting the ability to collect user data directly, negatively, impacts they're revenue.
+
+That's the end of Featured Links.
+
+Now, the My Weekly Photo section.
+
+Tables line downtown Northfield for a Community Dinner.
+Aug 25, twenty nineteen at 6:34 PM
+Northfield MN
+
+That's the end of My Weekly Photo.
+
+Now, the Notable Links section.
+
+Link one. "Inno-Versity Presents: Greatness by David Marquet - YouTube"
+
+This is the author of Turn the Ship Around!, which I've seen recommended many times but has never made it to the top of my reading list. This is a great 10 minute version of the concept with a well done video.
+
+Link two. "GitHub has SOC 1 and SOC 2 Type 2 reports - The GitHub Blog"
+
+A few years back I went looking for GitHub's certifications and was pretty surprised, particularly at their size and the function they provide, that they didn’t have any independent certifications. it’s great to see them now doing this.
+
+Link three. "Credit card privacy matters: Apple Card versus Chase Amazon Prime Rewards Visa - The Washington Post"
+
+When you start looking at where your activity is tracked, it seems like there is no end of it.
+
+What I learned: The card data business is booming for advertisers, for aiding investors and for helping retailers and banks encourage more spending. And there are many ways a card swipe can be exploited that don’t always require a transaction being “sold” or “shared” in a way that fully identifies you. Data can be aggregated, anonymized, hashed or pseudonymized (given a new name), or used to target you without ever technically changing hands.
+
+Link four. "Things I Learnt from a Senior Software Engineer | Neil Kakkar"
+
+It’s notable to me that things like deploying, monitoring, and derisking are on this list. These are the things you learn from writing, and more importantly, supporting your code in a 24x7 production environment.
+
+Link five. "The Official Bulletproof Coffee Recipe - It's Not Just Butter Coffee"
+
+I feel like I’m wired in on nearly every way of making and drinking coffee, but this one was not at all on my radar! I haven't tried it yet, but plan to, and folks I know that drink this love it.
+
+Link six. "How to manage up effectively - Know Your Team | Blog"
+
+Good practical suggestions here. But you could probably just anchor on the very first sentence.
+
+You want to manage up – but what you really mean is that you simply want to work well with your boss.
+
+Link seven. "Facebook wants to manage Wi-Fi on your phone"
+
+Utterly deceptive capabilities used to undermine your privacy while pretending to offer you value. Just like the rest of Facebook!
+
+Link eight. "Michael Tsai - Blog - Amazon Has Ceded Control of Its Site"
+
+Most people I know that use Amazon get frustrated with this. Personally I pay close attention to who the product is sold by and fulfilled by when shopping on Amazon. If it’s not fulfilled by Amazon, I won't buy it from them. I go somewhere that does it themselves. And I'd prefer it is sold by them too, otherwise go to that site and get it from them.
+
+Link nine. "Introducing nushell"
+
+I love that people are still innovating with shells and lower level geeky stuff. I've never played with PowerShell but am familiar with it’s concepts. This new shell, which borrows from PowerShells concepts, looks interesting. I'll likely still stick to fish, but I bet there are some things that nushell would do very well.
+
+That's the end of Notable Links.
+
+Now, more links.
+
+- You can heal the internet - Signal v. Noise
+I’m with DHH on this one. Best way I can think of, put your content on your own website.
+- Mario Kart Tour Coming to iOS September 25 - MacStories www.macstories.net
+Mario Kart is one of my favorite Nintendo titles on nearly every platform. It will be fun to play this on iOS!
+- SPS Commerce Acquires MAPADOC - MarketWatch www.marketwatch.com
+Team SPS gets bigger and better! Also article on Star Tribune.
+- Drive A Tank - Tank Driving, Car Crushing, Machine Gun Shooting www.driveatank.com
+Who wants a tank?
+
+That's the end of More Links.
+
+Now, the Microposts section.
+
+Sunday @ 5:51 PM
+
+Enjoying Northfield Shares a Dinner!
+
+Sunday @ 5:40 PM
+
+Thank you to all the organizations making Northfield Shares a Dinner happen!
+
+Sunday @ 5:37 PM
+
+Had an amazing coffee at the new Little Joy Coffee in Downtown Northfield. Amazing coffee, great shop, and top notch barista! Tim the owner is super knowledgeable about all things coffee. Go here!
+
+Sunday @ 5:08 PM
+
+Having dinner with the city of Northfield! Thanks to Northfield Shares a Dinner!
+
+Sunday @ 3:32 PM
+
+Wisco-Pop! Cherry Soda is one of the best sodas I’ve ever had! The cherry flavor is amazing.
+
+Sunday @ 11:39 AM
+
+Allergies hit me like a freight train! Feels early in the year. Time to start the Claritin-D program.
+
+Sunday @ 9:58 AM
+
+Good morning Minnesota!
+
+Saturday @ 7:17 PM
+
+Simple dinner on Big Green Egg tonight.
+
+That's the end of Microposts.
+
+Now, the Fortune section.
+
+You've made it all the way to the end! Here is your fortune for this week.
+
+Do not overtax your powers.
+
+Thank you for subscribing to the Weekly Thing!
+
+That brings us to the end of the Weekly Thing, issue 115. Thanks for listening, and I'll see you next time.

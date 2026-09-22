@@ -1,0 +1,189 @@
+The Weekly Thing, issue 58. Jun 16, twenty eighteen. Published June 16, twenty eighteen. By Jamie Thingelstad. In this issue: Siri Shortcuts iOS automation, Tim Cook interview, psychology of dread tasks, Living APIs GraphQL, Intelligent Tracking Prevention 2.0.
+
+Hello from Bayfield, Wisconsin! We are here to see Brandi Carlile play at the Big Top Chautauqua. It looks like the other thing we'll be doing is getting rained on. No trip to Bayfield would be complete without a visit to the Candy Shoppe as well for some delicious wine bread.
+
+Now, the Featured Links section.
+
+Link one. "Say the Hard Thing – Rands in Repose"
+
+Some very practical and useful suggestions for giving and receiving candid feedback.
+
+Your goal in life is to make feedback in all directions no big deal. You and your team never start in this state, they earn it. They start with small spoken observations that slowly turn into more useful feedback. They watch to see if each other are listening to the feedback and eventually acting on it.3 Once everyone has seen that feedback is both shared and acted on, they begin to feel more comfortable sharing large, more complex, and harder feedback. Why? Trust.
+
+This sentiment definitely resonated with me.
+
+We exacerbate the problem because we don’t want to say the hard thing because we have the same voice in our head telling them, “It would be hard for me to hear this, so I don’t want to say it.”
+
+It’s hard to give and get candid feedback. I tend to think we all feel we are better at it than we are. Leaders particularly have to focus on this all the time.
+
+Link two. "Why Do We Care So Much About Privacy? | The New Yorker"
+
+In a recent dialog about privacy I was asked "Why do you care so much about privacy?" and I my argument kept going back to "because it’s my right", which wasn't doing it for the person I was talking to. This article, and this argument, resonated with me.
+
+Possibly the discussion is using the wrong vocabulary. “Privacy” is an odd name for the good that is being threatened by commercial exploitation and state surveillance. Privacy implies “It’s nobody’s business,” and that is not really what Roe v. Wade is about, or what the E.U. regulations are about, or even what Katz and Carpenter are about. The real issue is the one that Pollak and Martin, in their suit against the District of Columbia in the Muzak case, said it was: liberty. This means the freedom to choose what to do with your body, or who can see your personal information, or who can monitor your movements and record your calls—who gets to surveil your life and on what grounds.
+
+I care about my privacy because I care about my liberty!
+
+That's the end of Featured Links.
+
+Now, the My Weekly Photo section.
+
+Windy evening on Lake Harriet.
+Jun 14, twenty eighteen at 6:49 PM
+Lake Harriet, Minneapolis, MN
+
+That's the end of My Weekly Photo.
+
+Now, the Notable Links section.
+
+Link one. "Meetup Architecture Principles | Lara Hogan"
+
+I like everything about this -- the method they went about doing it and the outputs. I think it’s a very good idea to have these sort of aligning principles for technology teams.
+
+Link two. "The David Rubenstein Show: Tim Cook – Bloomberg"
+
+The more I hear from Tim Cook, CEO of Apple, the more impressed I am with him.
+
+Link three. "Quitting Nail Biting Can Be Harder Than It Seems - Racked"
+
+I used to bite my nails, at times badly. Very clearly correlated with stress. I kicked the habit only three years ago or so.
+
+“Ironically, nail biters may be more perfectionist and more prone to be dissatisfied with themselves and their performance,” O’Connor said. “This may trigger biting.”
+
+No comment.
+
+Link four. "The Psychology of Dread Tasks - Daniel Gross"
+
+We all have stuff that we don't want to do but need to do, and if your like me you tend to procrastinate those items. I like the suggestions here.
+
+Thankfully, these predictions are frequently wrong. All you need to do is reverse engineer your thought patterns. Here are some strategies I find useful for tricking myself into doing what I need to do.
+
+I also like the style of this website with the highlighting in the post.
+
+Link five. "Shortcuts: A New Vision for Siri and iOS Automation – MacStories"
+
+Viticci is one of the most advanced Workflow users I know. It was by looking at his use cases that I realized I could do so much more with Workflow. Now that I've built capability on it I was very glad to see this:
+
+In conversations I had last week, it appears that Apple's goal is to offer full compatibility with existing workflows previously created in the Workflow app. My understanding is that Apple is very much aware of the fact that a sizable portion of the pro/prosumer community relies on Workflow to enhance their iOS experience in key ways; they don't want to change that relationship for the worse.
+
+If your curious to know as much as possible on the Siri Shortcuts, Shortcuts app evolution this is the definitive read.
+
+Link six. "Apple Tries to Stop Developers From Sharing Data on Users’ Friends - Bloomberg"
+
+I continue to see Apple pushing privacy as a long term strategy. Even if this is hard to enforce, putting it in place sets the guidelines and makes expectations clear.
+
+Link seven. "Episode #41: David Allen Talks with General Randal Fullhart - Getting Things Done®"
+
+I like this podcast and this episode I enjoyed a lot. I’m a practitioner of GTD, and listening to how this General uses GTD to improve his effectiveness was interesting. I was particularly interested in how he has tried to use it organizationally.
+
+Link eight. "How Siri Shortcuts Can Revolutionize iOS Automation — macsparky"
+
+A lot of what I do with automation I've learned from macsparky and his enthusiasm for Siri Shortcuts is good to see. I use Workflow a lot. I have entire projects that run on Workflow. So, I’m eager to see the new Shortcuts app and also a little anxious that it doesn't drop support for any features I rely on.
+
+Link nine. "Coinholder Club"
+
+This is a fun project from Elwin Loomis and I’m proud to have been given a coin! I also got a second coin to recognize someone else. I love the spirit this embodies.
+
+Link ten. "Be a Better Scrum Master: 10 Practices to Take to Heart"
+
+I think of scrum master as a role, not a job, and this is a good starting point for someone jumping into that role.
+
+Link eleven. "Living APIs, and the Case for GraphQL — Brandur Leach"
+
+Thoughtful reasoning for using GraphQL as your API structure of choice.
+
+A vanilla installation of GraphiQL is a more powerful integration tool for users than what 99% of REST providers have, and it’s available automatically, and for free.
+
+I’m not sure if this happens in other industries, but this does seem to argue for a REST v. GraphQL. Does it have to be versus? It would seem likely that we could suggest REST is better for what it does, representational state transfer, and GraphQL would be best for what it does, deal with connected data?
+
+Link twelve. "Interviewing is a noisy prediction problem · Erik Bernhardsson"
+
+Interesting perspective on the interview process, the goals and optimizing for success. I particularly liked the code reading as opposed to writing example.
+
+Link thirteen. "Intelligent Tracking Prevention 2.0 | WebKit"
+
+Thorough breakdown of how Safari is helping protect your privacy. Just reading about some of the scenarios highlights how nefarious this activity is on the web.
+
+Link fourteen. "The Piggyback Guy — Rhoneisms"
+
+A very good illustration of what depression feels like from my friend Patrick Rhone. He achieves his goal of informing you what it feels like to live with depression.
+
+Link fifteen. "Automate Your Context - twenty eighteen Monitorama - YouTube"
+
+Andy Domeier of #TeamSPS gave a great talk at Monitorama twenty eighteen about automating release management processes. "Ship Fast and Ship Often" is a core value for us.
+
+That's the end of Notable Links.
+
+Now, the Now Reading section.
+
+Collapse: How Societies Choose to Fail or Succeed: Revised Edition ()
+by Jared Diamond
+
+In Jared Diamond’s follow-up to the Pulitzer-Prize winning Guns, Germs and Steel, the author explores how climate change, the population explosion and political discord create the conditions for the collapse of civilization.
+
+My book club is going back to Jared Diamond for a third time. Looking forward to this read, hopefully as a guide of what not to do.
+
+That's the end of Now Reading.
+
+Now, the Give Back section.
+
+The Electronic Frontier Foundation is the leading nonprofit organization defending civil liberties in the digital world. I have been a member of the EFF for years. Not only is the EFF working hard to protect you on the Internet they have also recently launched solutions like Privacy Badger and the critically important Let's Encrypt service to make encrypting web servers free to anyone. Support the EFF with a donation!
+
+That's the end of Give Back.
+
+Now, more links.
+
+- Google Cloud Platform Blog: Introducing QUIC support for HTTPS load balancing cloudplatform.googleblog.com
+I applaud the work that Google does in this fundamental layer of the web.
+- Bash One-Liners www.bashoneliners.com
+This is a gallery of why Unix is awesome.
+- How to Migrate Existing Microservices to Serverless - Binaris Blog blog.binaris.com
+- How to GraphQL - The Fullstack Tutorial for GraphQL www.howtographql.com
+Another GraphQL tutorial, learning guide. Very thorough too.
+- Rolla Roaster Campfire Roasting Forks — Tools and Toys toolsandtoys.net
+I've had six of these for a long time and I love the twirling feature.
+- Fathom · simple, trustworthy website analytics usefathom.com
+A new entrant into web analytics that is not connected to big tech and mining your privacy.
+- The Most Honest Out-of-Office Message - The Atlantic www.theatlantic.com
+Twenty years in and we are still figuring out how to deal with email.
+- Hjson, a user interface for JSON hjson.org
+- IBM, Department of Energy Unveil World's Fastest Supercomputer - ExtremeTech www.extremetech.com
+200 petaflops per second over 200,000 CPU cores with over 27,648 GPUs. NY Times article has a bunch more details.
+- Management books in review – Built to Run kimmoir.blog
+Compilation of management books focused for technology leaders.
+- 10 weird and wonderful derailleurs – and how they changed cycling | Environment | The Guardian www.theguardian.com
+I like bicycles and these photos of derailleurs and their backstory is fun.
+- Facebook bug set 14 million users' sharing settings to public money.cnn.com
+I don’t get why anybody trusts this company or their platform.
+
+That's the end of More Links.
+
+Now, the Microposts section.
+
+We had a delightful dinner at Freehands Farm outside Ashland, WI. True farm to table dining - on the farm!
+
+Nice family bike ride around Lake Harriet tonight.
+
+Got a Silicon Dust HDHomeRun Extend today. I am very impressed with how easy setup was. Easily paired it with Plex on my Synology for DVR.
+
+Idyllic evening.
+
+The new capabilities of OmniFocus 3 are great, but I will be happy to get it on macOS so I can take full advantage of them. Having perspectives and tags so different across the platforms limits how I can modify my workflows.
+
+Plugged my Jawbone Jambox into my laptop to change the configuration and found out that Jawbone went out of business. Since their configuration app was web based, it looks like I’m sticking with the config I have — forever!
+
+Got the pork shoulders on just as the rain started to pour! Hoping to smoke through 5 hours of rain just in time for dinner.
+
+Nice talk on Automate Your Context at Monitorama twenty eighteen from Andy Domeier (Twitter: @ajdomie) of #TeamSPS! Teams that ship more, win more!
+
+That's the end of Microposts.
+
+Now, the Fortune section.
+
+You've made it all the way to the end! Here is your fortune for this week.
+
+You are only young once, but you can stay immature indefinitely.
+
+Thank you for subscribing to the Weekly Thing!
+
+That brings us to the end of the Weekly Thing, issue 58. Thanks for listening, and I'll see you next time.

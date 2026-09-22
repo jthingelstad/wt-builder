@@ -1,0 +1,152 @@
+The Weekly Thing, issue 83. Dec 8, twenty eighteen. Published December 8, twenty eighteen. By Jamie Thingelstad. In this issue: Facebook trust, mindfulness and busyness, Stripe Atlas scaling engineering, Kubernetes events, Marriott data breach, Magnus Carlsen chess champion.
+
+I've been putting a fortune at the very bottom of the Weekly Thing for a while now. It's a surprise for those that read all the way to the end! I was using a service for that that was mostly fine but occasionally gave bad fortunes that I would replace. Last week I didn't catch a bad one, so I rebuilt the fortune process and it now is part of my editorial selection. Better fortunes from now on!
+
+Now, the Featured Links section.
+
+Link one. "New Documents Show That Facebook Has Never Deserved Your Trust | Electronic Frontier Foundation"
+
+Everything you ever thought Facebook might do with your data that you don't want them to, they are doing. The end of this article hits it right:
+
+No matter how Zuckerberg slices it, your data is at the center of Facebook’s business. Based on these documents, it seems that Facebook sucked up as much data as possible through “reciprocity” agreements with other apps, and shared it with insufficient regard to consequences for users. Then, after rolling back its permissive data-sharing APIs, the company apparently used privileged access to user data either as a lever to get what it wanted from other companies or as a weapon against its competitors. You are, and always have been, Facebook’s most valuable product.
+
+I continue to happily live in an Internet, with my 1Blocker setup, that doesn't include any Facebook properties. They simply cannot be trusted with any data, and they have the most of it.
+
+Link two. "The Total Incompatibility of Mindfulness and Busyness"
+
+Article from Jon Kabat-Zinn, one of the leaders of mindfulness practices.
+
+Precisely because if we are overloaded to the point of being overwhelmed, it is likely that we will be so agitated, so distraught, so self-preoccupied that we won’t be able to meet anybody or any situation from a place of ease within the fullness of our own being in that moment, and that includes, most importantly, even an authentic meeting of ourselves and those we most care about.
+
+This is worth reading a few times, just to make sure it sinks in. Via Leah Cunningham.
+
+That's the end of Featured Links.
+
+Now, the My Weekly Photo section.
+
+Beautiful scene with snow covered tree.
+Dec 2, twenty eighteen at 10:26 AM
+Cannon Lake, Minnesota
+
+That's the end of My Weekly Photo.
+
+Now, the Notable Links section.
+
+Link one. "Stripe Atlas: Guide to scaling engineering organizations"
+
+Very thorough and detailed overview of how Stripe builds out their technology teams from recruiting to onboarding. A lot of great practices!
+
+Link two. "Events, the DNA of Kubernetes · Do not go gentle into this good night. Rage."
+
+Very approachable read on how Kubernetes handles internal communication.
+
+Event-driven design has many more advantages and can address a lot of problems in distributed systems (back-pressure, queuing, retries, scale-out, etc.). However, it’s not a new idea. Not at all! For example, relational databases work the same way (transaction log). The database is said to be the (stale) cache of the immutable log.
+
+Neat!
+
+Link three. "5 books I loved in twenty eighteen | Bill Gates"
+
+Educated has shown up on a lot of book lists. I’m not sure about the Harari book. My book club read Sapiens and liked it, but then read followup materials that suggested it was not sound science. It’s crazy to me that I'm a Headspace subscriber but didn’t know that there was a book!
+
+Link four. "Software Sprawl, The Golden Path, and Scaling Teams With Agency – charity.wtf"
+
+I like the concept that Majors' puts forward here. It’s all carrot and no stick. I do a similar concept in tech teams. There are great support options to help your team, but to get them you need to adopt certain patterns and technologies.
+
+Link five. "Gendered Linguistics: Why Words Matter - YouTube"
+
+Gendered language is something that I have thought about a number of times lately. The topic is coming up more in job postings when recruiting, and I've also considered it when companies write policies or training material. This talk is thought provoking regarding where gender coding of language comes from. Is it the language or the usage?
+
+Link six. "Twilight of the Taj - BBC News"
+
+I got to visit the Taj Mahal when I was in India this year. It’s an amazing site and I hope that the government of India takes action to reverse these issues.
+
+Link seven. "How to Start Amazon FBA - My FBA Experiment twenty eighteen - Updated Regularly"
+
+This is an interesting journal of all the activity this person is taking to sell a product on Amazon. It goes through each step in the process, and highlights the myriad of things that need to be dealt with. It’s an interesting read.
+
+Link eight. "@bfeld v53.0 - Feld Thoughts"
+
+Writing letters to yourself on your birthday, or commemorating the year and looking ahead, is a fun thing and I like reading these when people share them. It is a way to capture a little bit of wisdom for free.
+
+Link nine. "After 12 draws, Magnus Carlsen is once again the chess world champion - Time is of the essence"
+
+The state of Chess at the highest level is amazing.
+
+The result is human chess that increasingly resembles computer chess. Chess.com has developed a metric, Computer Aggregated Precision Score (CAPS), which compares a player’s moves to those of a top engine. Mr Carlsen scores higher than any other champion; his moves parallel those of the engine’s more than 85% of the time, and his overall choices are better than 98% as effective as those of the computer.
+
+These players are literal human computers.
+
+Link ten. "Marriott: Data on 500 Million Guests Stolen in 4-Year Breach — Krebs on Security"
+
+This is a giant and deep breach.
+
+Marriott said the breach involved unauthorized access to a database containing guest information tied to reservations made at Starwood properties on or before Sept. 10, twenty eighteen, and that its ongoing investigation suggests the perpetrators had been inside the company’s networks since twenty fourteen.
+
+Four years is an incredibly long time for an attacker to have access.
+
+Link eleven. "PlugShare - EV Charging Station Map - Find a place to charge your car!"
+
+This is the most comprehensive map I've found of charging stations for electric cars. I was looking for one in Faribault by our cabin and this is the only one that had the single station there.
+
+Link twelve. "Dogs Catching Treats - Vieler Photography - Fotos Frei Schnauze"
+
+What awesome pictures – they crack me up! Via Kottke.org.
+
+That's the end of Notable Links.
+
+Now, the Give Back section.
+
+Let's Encrypt is a free, automated, and open certificate authority, run for the public’s benefit. All connections to web servers should be encrypted! The biggest challenge with encrypting the web historically has been the cost and hassle of getting an SSL certificate. Let's Encrypt has changed that entirely by being a free certificate authority. Let's Encrypt is possibly one of the most important things to happen on the web in recent years. Donate to Let's Encrypt today!
+
+That's the end of Give Back.
+
+Now, more links.
+
+- Day One Version 3.4: Drawing, Fonts, and Photo Layout | Day One dayoneapp.com
+Nice enhancements to the best journal app on iOS.
+- Fujitsu ScanSnap 64-bit Software Update — macsparky www.macsparky.com
+I have a ScanSnap scanner and was worried they were not going to make a 64-but release! Whew.
+- Apple ID Data and Privacy privacy.apple.com
+I didn’t know Apple had this tool to allow you to get at your data, and even have it deleted if you wish.
+- Show your skills with Pokémon GO Trainer Battles! - Pokémon GO pokemongolive.com
+Trainer Battles in Pokémon Go look like a great addition to the game!
+- Apple presents the best of twenty eighteen - Apple www.apple.com
+Many "Best of…" content lists for twenty eighteen.
+- Hackers breach Quora.com and steal password data for 100 million users | Ars Technica arstechnica.com
+Another day another giant breach. This reminds me I don't need a Quora account since I don't use it.
+- Tesla API www.teslaapi.io
+First car I’ve had with an API.
+
+That's the end of More Links.
+
+Now, the Microposts section.
+
+Tuesday @ 9:53 PM
+
+Finally got my Bluetooth blood pressure monitor to re-pair with my phone, after much troubleshooting. It’s the little things.
+
+Sunday @ 8:44 PM
+
+There was a lot of very pretty looking snow to deal with this morning.
+
+Saturday @ 7:08 PM
+
+Cabin Christmas Tree up with cabin themed decorations!
+
+Saturday @ 2:16 PM
+
+To all Music services:
+
+Why can’t I find any Christmas channels, playlists, stations, etc. that our family enjoys?
+
+That's the end of Microposts.
+
+Now, the Fortune section.
+
+You've made it all the way to the end! Here is your fortune for this week.
+
+Try the Moo Shu Pork. It is especially good today.
+
+Thank you for subscribing to the Weekly Thing!
+
+That brings us to the end of the Weekly Thing, issue 83. Thanks for listening, and I'll see you next time.

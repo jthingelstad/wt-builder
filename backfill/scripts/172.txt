@@ -1,0 +1,254 @@
+The Weekly Thing, issue 172. Blockchain, Bezos, Privacy. Published February 6, twenty twenty one. By Jamie Thingelstad. In this issue: Tim Cook condemns Facebook, IBM Blockchain collapse, Generation X saves web, LAMBDA Excel function, simple HTML effectiveness, social media teen mental health.
+
+Hello from Arizona! We are just wrapping up our first week here in Mesa. Everything has worked out really well. We had a very long two days of driving to get here. It was over 27 hours of driving but everyone did great. Tammy put notes in envelopes that the kids opened up at the top of each hour. Each note had an activity, game, or something to listen to like a This American Life segment or one of the kids getting a DJ slot to run the music. This gave everyone something to look forward to as we made our way across the country.
+
+The house we are renting for our stay is great. Even Lucky has gotten settled in. I've converted one of the bedrooms to my office and the Internet connection has proven to be stable and reliable. Mazie is doing school online as well. Everything has worked out well and we've been able to enjoy some wonderful days in the upper 70's and get some great walks and hikes in the desert in. It’s a fun adventure for all.
+
+Now let us get onto some links from the week…
+
+"What I cannot create, I do not understand." — Richard Feynman
+
+Now, the Must Read section.
+
+Link one. "The Focus to Say No"
+
+Short reminder about focus. I love this reference to speed versus velocity.
+
+Quote.
+Confusing speed and velocity causes trouble. When you say yes to something it should move you closer to your destination. Sometimes we say yes to things that just move us in a circle — we work hard but we don’t get anywhere.
+End quote.
+
+This would be a good short read before you do your GTD Weekly Review.
+
+Link two. "Tim Cook condemns Facebook business model, says valuing engagement over privacy leads to ‘polarization' and 'violence’ - 9to5Mac"
+
+I admire that Tim Cook is outspoken on privacy and pushing for real activity to help consumers.
+
+Quote.
+"As I’ve said before, if we accept as normal and unavoidable that everything in our lives can be aggregated and sold, we lose so much more than data, we lose the freedom to be human. And yet, this is a hopeful new season, a time of thoughtfulness and reform."
+End quote.
+
+I know that many people are cynical and see Apple in the same light as Google and Facebook. I disagree. I suggest that Apple has identified a huge market in health and fitness capabilities built around the Apple Watch. In order to pursue that market, they have identified that privacy is paramount. So, I don't see them doing this because they are good guys, but instead because they see it as key to their growth. At least for Facebook, growth comes from taking more and more of your privacy. Don't trust companies to do something that is against their self interests.
+
+The audio of this is not great. Would have been better for Cook to have wore a microphone.
+
+That's the end of Must Read.
+
+Now, the Recommended Links section.
+
+Opinion | Michael Goldhaber, the Cassandra of the Internet Age - The New York Times
+
+Goldhaber seems very clairvoyant. His premise, or foundation for how he thinks about all this is all based on attention.
+
+Quote.
+His biggest worry, though, is that we still mostly fail to acknowledge that we live in a roaring attention economy. In other words, we tend to ignore his favorite maxim, from the writer Howard Rheingold: "Attention is a limited resource, so pay attention to where you pay attention."
+End quote.
+
+Consider that you are playing that attention game against an infinite scale machine-learning environment that is playing simultaneously with a hundred million other people. You will lose that game. The best thing I do to manage attention is to avoid any system that uses algorithms to present content to me. I prefer content to be presented in time order, and nothing else.
+
+OKAY | Engineering productivity can be measured - just not how you'd expect
+
+Engineering productivity is a Pandora's box. There is no magic to turn hours at a computer into amazing software. It isn't linear. Engineers are not fungible. It is much more art than science. Too often this results in a metrics desert. One of the things I like about Agile and Scrum is that it has built in some metrics around delivery that are meaningless on an absolute basis but are worthwhile to use relative to themselves. However, recent innovation in this space has brought a number of metrics that are actually meaningful, more focused on outcomes. Long gone are the days of looking at code output. I like this articles focus on looking at blockers. There are actually many metrics that teams can look at to improve overall value delivery.
+
+IBM Blockchain Is a Shell of Its Former Self After Revenue Misses, Job Cuts: Sources - CoinDesk
+
+IBM bet big on blockchain a couple of years ago. That bet isn't working.
+
+Quote.
+the company failed to meet its revenue targets for the once-fêted technology by 90% this year
+End quote.
+
+Don't confuse Bitcoin prices with blockchain market opportunity. I've looked at blockchain extensively. I get asked about it a lot. I believe that if you need a technology solution for a lack of trust, it is a great solution. However, outside of cryptocurrency there are relatively few solutions that need a solution for trust. At least today…
+
+What I Really Think of Bitcoin
+
+Interesting to read Ray Dalio's take on Bitcoin. I agree with his comparison to "gold-like asset". I think that is a fair way to look at BTC. His assessment is at the end.
+
+Quote.
+Bitcoin looks like a long-duration option on a highly unknown future that I could put an amount of money in that I wouldn’t mind losing about 80% of.
+End quote.
+
+Why Generation X will save the web - Hi, I'm Heather Burns.
+
+Heather Burns with a commentary, or perhaps a call-to-action, for those that experienced the open web to get engaged in the regulatory and political activities starting to get some momentum.
+
+Quote.
+We – the GenXers – think of the internet as the open web. The land of dialup telnet Unix systems, the days of table layout, the days of dot com, the days of early tech startups, the days of the internet as a connector, the days of the internet as a business opportunity, the days of the internet as a path to social justice and revolutions, the days of the internet as a light in the darkness. That’s all we have ever known. Today’s policy facilitators – the millenials – think of the internet as MySpace and Facebook. The closed web. The land of always-on broadband and wifi, the days of content management systems, the days of tech bros, the days of the internet as a divider, the days of the internet as an acquisition for the giants, the days of the internet as a path to radicalisation and hatred, the days of the internet as petrol on a spark. That is all they have ever known.
+End quote.
+
+I hadn't really considered that, but I suspect she is spot on. These senators are not writing this stuff, their aides are and they never even knew the open web.
+
+Quote.
+The truths I held to be self-evident are things they have never known. And, politically, they are in the driving seat. They are running the show. Not me. Not the old folks. Them.
+End quote.
+
+Hmm…
+
+7 behaviours to avoid in a software architecture role | Daniel Watts
+
+Some great recommendations for software architects to be effective in their role. Like most things, software architecture can be done very well or very poorly. Unfortunately, many organizations lack the maturity to do it well, and the architecture job itself is often confused with power and authority. As an industry though, we are getting better at it.
+
+LAMBDA: The ultimate Excel worksheet function - Microsoft Research
+
+Deeper dive into LAMBDA in Excel.
+
+Quote.
+Moreover, LAMBDA is the true lambda that we know and love: a lambda can be an argument to another lambda or its result; you can define the Church numerals; lambdas can return lambdas, so you can do currying; you can define a fixed-point combinator using LAMBDA and hence write recursive functions; and so on.
+End quote.
+
+Yes, but should you?
+
+Opinion | As Jeff Bezos Takes Off, Meet His Earthbound Successor - The New York Times
+
+I like this take from Kara Swisher on Andy Jassy taking over from Jeff Bezos. Ben Thompson also did a good article on Relentless Jeff Bezos and Tim Carmody did a whole Jeff Bezos Exits Stage Right issue of his Amazon Chronicles newsletter.
+
+I'll leave this as all the links you need, actually more than you need, on this story.
+
+Has it hit anyone else that he's stepping aside just in time to skip all the anti-trust activity that is likely coming in the next couple of years? Amongst all these articles praising Jeff Bezos legacy and handing the reigns over to Andy Jassy, I’m guessing that Jassy's calendar is going to have some challenging government meetings coming up.
+
+The Chief People Officer—The CIO’s Partner in Change | AWS Cloud Enterprise Strategy Blog
+
+Great highlight on how technology leaders, who are always affecting organizational change, can partner with the CPO, or head of Human Resources, in their companies.
+
+Strategy and tactics and Powerpoint | Seth's Blog
+
+Simple approach to building a more meaningful presentation. Love how simple Godin makes this.
+
+Quote.
+Overall question: Who is this presentation for? And the follow-up: What change are we seeking to make? If you’re not trying to cause an action or some other change in attitude or belief, then what’s the purpose of the deck?
+End quote.
+
+Sounds easy enough, but it’s hard to do right. This should be at the beginning of your thought process for every presentation you build.
+
+An Important Todo List Mistake | Being Productive
+
+I dig Kourosh Dini's reflection on the purpose of your todo list. I haven't thought deeply like this, but I do find that after doing GTD for a decade and keeping various lists I tend to always think that my system is a work in process.
+
+Quote.
+Instead of thinking it should be perfect, realize instead that, of course, it needs to be updated. The world has changed since you were last there. Your lists and ideas decay just like anything else. Making that realization is a game changer. It means that you are now free, in the moment, to make changes. You can now see where the problems are and where you may have over promised yourself. More subtly, for example, you might see where feelings of guilt have resulted in squeezing out things that you want to do. Or, more positively, you might realize that several ideas can come together into a single action.
+End quote.
+
+Great reflection.
+
+The unreasonable effectiveness of simple HTML – Terence Eden’s Blog
+
+I like the sentiment here, and it is good old "Keep It Simple, Stupid" being applied again. I love that many modern blogs using static site generators are plain old HTML. Make it easy.
+
+That's the end of Recommended Links.
+
+Now, the Journal section.
+
+Thursday @ 8:41 PM
+
+Day 4 of the February Photoblogging Challenge: Layers.
+
+Pancakes layered on top of each other.
+
+Wednesday @ 4:56 PM
+
+Day 3 of the February Photoblogging Challenge: Comfort.
+
+Nice comfortable spot to enjoy the day.
+
+Tuesday @ 7:51 PM
+
+Gorgeous warm day for a quick walk at Desert Trail Park.
+
+Tuesday @ 7:47 PM
+
+Day 2 of the February Photoblogging Challenge: Morning beverage.
+
+Delicious Guatemalan coffee from Pair Cupworks. Big carafe, thermos, cup.
+
+Monday @ 8:05 PM
+
+This is my workstation setup for our February stay in Mesa, AZ. The mStand is critical to getting the screen and camera at a good height. The 12.9” iPad Pro does great double duty as a second display using Sidecar.
+
+Monday @ 8:01 PM
+
+Day 1 of the February Photoblogging Challenge: Close up.
+
+It is novel for us Minnesotans to see lemons growing in the yard of this rental that we are staying in Mesa, AZ.
+
+Sunday @ 10:25 AM
+
+Fun to see a wind generator blade getting transported down the road. It had a pilot vehicle in front and behind as well.
+
+Sunday @ 9:40 AM
+
+I thought North Dakota had the record for roads that go straight as far as the eye can see. It turns out Arizona gives it a very good run for the prize! This is I-40 heading West.
+
+Sunday @ 8:56 AM
+
+Today’s point of view for the next several hours. Impressive volume of semi-trucks on I-40.
+
+Sunday @ 8:31 AM
+
+Day two on way to Mesa, Arizona departing from Elk City, Oklahoma. 835 miles, 12.5 hours, 4 states.
+
+5:57a Left Elk City, OK
+6:33a entered Texas
+8:54a entered New Mexico and mountain time
+12p lunch at Green Jeans
+TAL Ship
+TAL Fiasco
+1:58p enter Arizona
+
+Saturday @ 9:24 AM
+
+These Duke’s Hatch Green Chile sausages are delicious. Great flavor and the Hatch chiles are great.
+
+Saturday @ 9:20 AM
+
+Family selfie by Clear Lake, IA on the road with the Honda Pilot stuffed full!
+
+Saturday @ 4:27 AM
+
+Big road trip to Arizona this weekend. Today’s drive is to Elk City, Oklahoma from Minneapolis, Minnesota! 913 miles, 13 hours, and 5 states.
+
+Log
+
+6:04 Left home
+6:45 Played Trace
+7:33 Entered Iowa
+8:55 Gas and stretch in Ellsworth, IA
+10:10 TAL: Kids Logic
+10:48a Enter Missouri
+12:15p Culver's in Lincoln
+4:35 Entered Oklahoma
+
+That's the end of the Journal.
+
+Now, for your information.
+
+MOON in Real Time I - YouTube
+
+This is a perfect Zoom video background.
+
+Archivy
+
+Another interesting open-source self-hosted solution to archive web content locally. This is super easy to install as a Python package.
+
+Text Case Adds Customizable Flows: User-Created, Multi-Step Text Transformation - MacStories
+
+Text Case is a very powerful utility for iOS, particularly combined with Shortcuts. Now that it has it’s own multistep Flows it gets even more power. Handy for automators who get a lot done on their iPhone.
+
+Google researcher discovers new iOS security system | ZDNet
+
+This "Blast Door" tech is pretty cool. The Project Zero writeup has all the technical details.
+
+Social media damages teenagers' mental health, report says - BBC News
+
+TL;DR: Stay off social media, particularly for teen girls. Get some movement and exercise.
+
+That's the end of the FYI section.
+
+Now, the Fortune section.
+
+Here is your fortune…
+
+Don't let your mind wander — it's too little to be let out alone.
+
+Thank you for subscribing to the Weekly Thing!
+
+That brings us to the end of the Weekly Thing, issue 172. Thanks for listening, and I'll see you next time.

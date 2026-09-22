@@ -1,0 +1,287 @@
+The Weekly Thing, issue 200. Developers, Org Design, Types. Published October 23, twenty twenty one. By Jamie Thingelstad. In this issue: Junior developers, org design, SaaS metrics, type hints, search knowledge, M1 Pro MacBook Pro, permanent web, NFT games, open source finance.
+
+Welcome to the 200th issue of the Weekly Thing!
+
+We've been on vacation this week taking advantage of the MEA school break. We've been having a wonderful road trip visiting Louisville and Indianapolis. Many details in the journal section. Going to keep it brief and get on to the links this week.
+
+Now, the Featured section.
+
+Link one. "Why nobody hires junior developers anymore"
+
+The lack of good on-ramps for people seeking a technology career is a major issue. This article hits on many of the issues that create this problem. This is a topic that all technology teams need to address though, because the lack of those on-ramps will be debilitating over the long-term.
+
+Too often I hear technology teams boast about how difficult the problem that their team solves is. How detailed and extravagant the deployment process is. They quite simply cannot have anybody but the most experienced engineers work on it.
+
+I like to challenge that. Perhaps the problem is hard, but is it also possible that the documentation is poor. That the unit tests are lacking. That the deployment process isn't documented or even well understood.
+
+Technology teams can make significant progress in making their code base and deployments simpler, safter, and easier-to-understand. That then enables them to access a broader range of talent.
+
+Link two. "The Skill of Org Design - The Commoncog Blog"
+
+I greatly enjoyed this article and the practitioner approach it takes to such a complicated topic. I love that it starts not with companies, but with clubs. There is a lot of wisdom here.
+
+I would add to it the idea of creating multi-dimensionality in an organization. You can make a structure very robust by making sure that there are as many overlapping support structures as possible, without causing confusion or conflict in those dimensions. By having a social dimension in addition to a process dimension, you create a more robust organization.
+
+That's the end of Featured.
+
+Now, the Currently section.
+
+Watching: We have been watching the Countdown: Inspiration4 Mission to Space series on Netflix. It’s a great background on the mission and the people. We are just getting to the part where they will launch!
+
+That's the end of Currently.
+
+Now, the Notable section.
+
+Link one. "The SaaS Metrics That Matter - Bottom Up by David Sacks"
+
+This is a great primer of key performance metrics you are going to hear about in SaaS businesses. Some of them are more focused on startups, but all are meaningful.
+
+Link two. "Tests aren’t enough: Case study after adding type hints to urllib3 — sethmlarson.dev"
+
+The debate over type safety in loosely-typed languages like Python has raged for decades. This case study from the maintainers of urllib3 is a good argument for making the investment.
+
+Quote.
+When we originally started this journey our primary goal was to provide a good experience for users who wanted to use type checking tools with urllib3. We weren’t expecting to find and fix many defects. After all, urllib3 has over 1800 test cases, 100% test line coverage, and is likely some of the most pervasive third-party Python code in the solar system. Despite all of the above, the inclusion of type checking to our CI has yielded many improvements to our code that likely wouldn't have been discovered otherwise. For this reason we recommend projects evaluate adding type hints and strict type checking to their development workflow instead of relying on testing alone.
+End quote.
+
+The "What we learned" section is particularly good.
+
+Link three. "What every software engineer should know about search"
+
+Good article to keep in mind anytime a conversation lends to "Let's just add search to this." First, "just" is a four letter word. Also, search is a complicated space surrounded by edge cases that need to be at least considered.
+
+Link four. "Apple Unveils the New 14 and 16-Inch MacBook Pros Powered by the M1 Pro and M1 Max Systems-on-a-Chip - MacStories"
+
+These new laptops are amazing! The processors specs, the batteries, the re-appearance of some of our "BFF" ports like HDMI. While the Touch Bar had a certain flare to it, sadly it was all flare and no value. I almost never use it. I don't expect anyone will miss it in these new laptops. The core count and chip performance is still mind-blowing.
+
+Link five. "HTTP is obsolete. It's time for the distributed, permanent web"
+
+I find the immutability of IPFS hard to wrap my head around. Mostly when I've built services for the web mutability was a helpful thing. But, I do appreciate that immutability allows you to design and build in a much different way. I keep wondering how long it will be before browsers allow direct connections to IPFS, not routing through an HTTP gateway. Either way, this article is a good overview of what web3 transport will likely look like.
+
+Link six. "Raya and the Promise of Private Social Media | The New Yorker"
+
+I had never heard of Raya before, which I guess means I’m not a celebrity or influencer or whatever this thing is targeted for. Interesting article to read just because it is like a peek into some party or club that is trying a different approach to building a community.
+
+Link seven. "Steam is removing NFT games from the platform"
+
+It seems pretty obvious that Steam would do this to keep their ability to capture revenue intact. If they allow NFTs in these platforms they are making it possible for players to buy and sell value in the open, and not pay a piece to Steam.
+
+Link eight. "Open Source Is Finally Coming to Financial Services - Future"
+
+I find technology adoption in financial services to be this odd mix. Financial services, particularly trading, was incredibly aggressive to adopt technology because it literally made them more money. Other areas, particularly in banking, are very outdated. It is actually less of an argument about adoption, and more about how do you continuously reinvent and change. In many ways financial services is the most dated in part because they were the first to adopt and the only thing harder than creating new services, is large scale change to existing ones!
+
+Link nine. "How to be a man | Psyche Guides"
+
+I found this article compelling. I might read the book as well.
+
+Quote.
+In research for my book, I asked many boys and men where they turned for emotional support. For those who confided in a male friend, the approaches were often similar – they carefully vetted the problems they shared, typically sticking to problems that might not lead to judgment or rejection (‘targeted transparency’ I call it). Always, they received advice and solutions for problems from these male friends. Again, I’d ask, where did they turn for emotional support? Their response: to female friends, girlfriends, mothers, wives. Or they handled it themselves. Why didn’t they turn to male friends? The most common reasons were that they feared their friends wouldn’t feel comfortable discussing such things, or they didn’t want to ‘burden’ anyone with their problems. So, to keep everything ‘chill’, many males stick to bonding with buddies over beer and sports or other activities that can prevent us from developing deeper emotional trust and intimacy.
+End quote.
+
+That's the end of Notable.
+
+Now, the Journal section.
+
+Thursday @ 10:33 PM
+
+MEA twenty twenty one Road Trip Day 6: Cake Bake and Dune
+
+Weather: Cool today, and pretty blustery in the afternoon. Needed a light jacket for the first time.
+
+* Coffee and pastries at Coat Check Coffee.
+* Fun time at the Children's Museum of Indianapolis, mostly in the sports section.
+* Lunch at Cake Bake Shop. Fancy, frilly food and deliciously famous cakes.
+* So much art at Newfields.
+* First time Duckpin Bowling.
+* Opening night for Dune.
+
+Part of MEA twenty twenty one collection.
+
+Thursday @ 10:30 PM
+
+We went to see Dune tonight (opening night!) at Living Room Theaters here in Indianapolis. I loved it and it made me want to re-read the books again. The story came to life with wonderful depth and you really felt like you were in Arrakis.
+
+Thursday @ 10:26 PM
+
+We tried Duckpin Bowling for the first time today at Pins Mechanical. It was a lot of fun and more relaxed than normal bowling. Recommended!
+
+Thursday @ 10:22 PM
+
+We took in a lot of art today at Newfields.
+
+Thursday @ 10:18 PM
+
+We had a delicious lunch at the Cake Bake Shop in Indianapolis. This place is famous for their cakes and we would agree they are amazing.
+
+Thursday @ 10:15 PM
+
+The Fireworks of Glass Tower in the Children's Museum of Indianapolis is amazing. And underneath it the ceiling is clear and layered with amazing glass pieces.
+
+Thursday @ 10:12 PM
+
+We visited the Children's Museum of Indianapolis today and I was blown away by the sports activities they had outdoors. Tons of opportunities for kids(and parents) to engage in sports stuff.
+
+Thursday @ 10:04 PM
+
+Delightful flat white this morning at Coat Check Coffee in Indianapolis.
+
+Wednesday @ 11:18 PM
+
+MEA twenty twenty one Road Trip Day 5: Hermitage Farm
+
+Weather: Perfect.
+
+* Check out of the Holy Goat.
+* Breakfast at Con Huevos.
+* Walk around neighborhood.
+* Heine Brothers Coffee
+* Ali Center
+* Ice Cream
+* Tour of Hermitage Farm.
+* Shop at farm store.
+* Dinner at barn8 at Hermitage Farm.
+* 7:25p Entered Indiana.
+* 9:00p Arrive at Airbnb in Indianapolis.
+
+Part of MEA twenty twenty one collection.
+
+Wednesday @ 11:16 PM
+
+Last stop in Kentucky we grabbed this family selfie with a gorgeous sunset at Hermitage Farm. Off to Indianapolis!
+
+Tuesday @ 10:36 PM
+
+MEA twenty twenty one Road Trip Day 4: Explore NuLu and The Holy Goat
+
+Weather: Incredible. Just perfect. Couldn't dial it in any better with a knob.
+
+* Delicious Cortado and brew at Quills Coffee.
+* A bonus-round of biscuits at Biscuit Belly.
+* Bourbon tour and tasting at Rabbit Hole.
+* Louisville Cream was closed, so Please and Thank You for cookies.
+* Back to Quills Coffee for an Espresso Old Fashioned and coffee beans for home. Very odd drink. Not a fan.
+* Browsing stores in Nulu: Buff City Soap, Mamili, Hazel + Hunt, White's Mercantile, Revelry Boutique and Gallery, Peace of the Earth.
+* Dozen macarons at Macaron Bar.
+* Dinner at Emmy Squared.
+* Watched Secretariat. Great movie about an incredible horse.
+
+Part of MEA twenty twenty one collection.
+
+Tuesday @ 10:34 PM
+
+I did a tour and tasting at Rabbit Hole distillery today. It was a great tour and you got to see the whole process up close. Amazing operation. I’m bringing home a bottle of the Dareringer.
+
+Tuesday @ 10:22 PM
+
+Visited Churchill Downs yesterday. Hanging out in Kentucky. Seems appropriate to watch Secretariat.
+
+Tuesday @ 3:20 PM
+
+Damn fine Chocolate Chip Cookies from Please and Thank You in Louisville.
+
+Tuesday @ 2:46 PM
+
+Poetry by Boots work discovered while walking around NuLu Louisville today.
+
+Monday @ 8:51 PM
+
+MEA twenty twenty one Road Trip Day 3: Tour Day
+
+Weather: Perfect. Couldn't have asked for much better.
+
+* Breakfast at Biscuit Belly.
+* Tour at Churchill Downs.
+* Tour of Louisville Slugger factory.
+* Tour of Copper and Kings distillery.
+* Dinner at The Mayan Cafe.
+
+Part of MEA twenty twenty one collection.
+
+Monday @ 8:48 PM
+
+Artwork on the side of The Holy Goat in Louisville, KY.
+
+Monday @ 8:46 PM
+
+Fun Brandy Tour today at Copper and Kings distillery. It was interesting to see how different a distillery is from a brewery.
+
+Monday @ 8:38 PM
+
+We went to the Louisville Slugger Museum and Factory today. Learned that it takes 47 seconds for a computer to lathe a professional bat. And the many batters have custom specifications that their bats are made to. Very cool place.
+
+Monday @ 8:31 PM
+
+We visited Churchill Downs today and took the Superstars and Spires Tour. The history of the race, the venue, and the horses. It made me want to go to the Kentucky Derby someday!
+
+Sunday @ 9:37 PM
+
+Just bought tickets to see the new Dune on Thursday when we are staying in Indianapolis. I'm super excited to see it. The whole family is going.
+
+Sunday @ 9:16 PM
+
+MEA twenty twenty one Road Trip Day 2: Chicago to Louisville
+
+Weather: Wonderful weather. Sunny in Chicago. Clear weather for entire drive.
+
+* 7:30a Good morning! Coffee at Fairgrounds.
+* 8:40a Breakfast at Wildberry. 30 min wait for table already.
+* Walk all around "The Bean", Millennium Park and surrounding area.
+* 1:00p Pick up car.
+* 1:22p First time at Home Run Inn pizza.
+* 2:34p Enter Indiana.
+* 3:04p Visit Albanese Candy Factory.
+Now in Eastern Time.
+* 6:13p Pass Through Indianapolis.
+* 7:45p Gas and snack stop in Columbus, IN.
+* 8:54p Enter Kentucky, crossing the Ohio River.
+* 9:18p Checked into the coolest Airbnb in Louisville, KY.
+
+Part of MEA twenty twenty one collection.
+
+Sunday @ 9:13 PM
+
+Checked in to the coolest Airbnb we have ever stayed at, a restored 175 year old church! Incredible space detailed and appointed perfectly.
+
+Sunday @ 6:22 PM
+
+Construction on I-65 down to a single lane south of Indianapolis causing a 45-minute backup of traffic.
+
+That's the end of the Journal.
+
+Now, the Briefly section.
+
+Link one. "The Top 50 Texas BBQ Joints: twenty twenty one Edition – Texas Monthly"
+
+I've been to Franklin BBQ and was blown away. This would make a great top 10 list to try.
+
+Link two. "Diagon: ASCII art diagram generator"
+
+Sort of weird experiment in doing things in ASCII.
+
+Link three. "Read Something Great"
+
+Cool idea for a list of high quality content online to read the next time you feel like scrolling mindlessly in social media.
+
+Link four. "Carp: A statically typed lisp, without a GC, for real-time applications"
+
+I don't tend to think of lisp languages and real-time systems, but this one is.
+
+Link five. "Carbon | Create and share beautiful images of your source code"
+
+Neat tool to make an image out of your source code. Not sure why you would need to do that?
+
+Link six. "Tekne Awards Lifetime Achievement Recipients » MnTech"
+
+Two people greatly deserving of this recognition!
+
+That's the end of Briefly.
+
+Now, the Fortune section.
+
+Here is your fortune…
+
+Your talents will be recognized and suitably rewarded.
+
+Thank you for subscribing to the Weekly Thing!
+
+That brings us to the end of the Weekly Thing, issue 200. Thanks for listening, and I'll see you next time.

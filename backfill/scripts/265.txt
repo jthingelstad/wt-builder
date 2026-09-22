@@ -1,0 +1,196 @@
+The Weekly Thing, issue 265. Magic, Copilot, Shortery. Published October 14, twenty twenty three. By Jamie Thingelstad. In this issue: iPhone 15 Pro Max camera, AI for business authors, Steve Jobs on our industry, hybrid strategy, face-scanning search engines, tokenized Pokémon cards.
+
+Hello!
+
+Hope you have a good weekend and can start it out with a relaxing morning, a cup of your favorite beverage, and people you care about and love.
+
+There were fewer links that caught my attention this week, but I did write a blog post about how I find the links that I write about. Also, there are fun discussions ongoing in the Weekly Thing Forum!
+
+Now, the Currently section.
+
+Dining: We had a delightful dinner at Guacaya Bistreaux this week with friends. The menu is filled with delicious tapas. The GB Old Fashioned was great. And the Tres Leches was a delicious way to end dinner. Recommended!
+
+Weekly Thing Forum
+
+Join Jim Cuene, garrickvanburen, Kyaw Za Zaw, Shawn Liu, Justin Porter, and many other Weekly Thing readers in the Weekly Thing Forum. Recent topics include:
+
+- Podcast Recommendations
+- Ask Me Anything about the Weekly Thing
+- 264 / Dazed, Zany, Llama
+- 263 / Copilot, Del.icio.us, Pancake
+
+That's the end of Currently.
+
+Now, the Notable section.
+
+Link one. "iPhone 15 Pro Max Camera Review: Depth and Reach"
+
+Great article with beautiful photos showing the iPhone 15 Pro Max camera performance. The star of the show here is the 5x Telephoto lens. Several of the example photos are at dusk or at night in very low light conditions.
+
+Quote.
+Getting a handheld shot, at night, without a tripod, or really too much effort on my part on a 120mm-equivalent lens is magic. There's no other word for that, because there's such complicated technology involved on a hardware and software level that it makes my head spin.
+End quote.
+
+The shot out of the airplane window is impressive. It is truly amazing how far camera technology has come on these small devices.
+
+Link two. "How successful business authors work better with AI - Josh Bernoff"
+
+Great examples how professional writers are using ChatGPT and other AI tools to improve their writing, brainstorm, and overall create a better final product. All of these use cases are collaborative. Using AI tools as a constantly available, never tired collaborator is really powerful.
+
+Link three. "What Would Steve Jobs Have Thought of Our Industry Now? – On my Om"
+
+Malik reflecting on the 12 year anniversary of Steve Jobs death. He suggests that Jobs played a role as a visionary for not just Apple, but the entire technology industry. And also suggests that we need that more than ever with the continued advancements.
+
+Link four. "Does Your Hybrid Strategy Need to Change?"
+
+Remote work, hybrid, in-office continues to be such a challenging, multi-faceted issue. This article does a good job of capturing a data driven way to look at it. I also tend to agree with the thought of pushing these decisions closest to where the work occurs.
+
+Quote.
+However, this orchestration requires two new managerial muscles. The first is one that was not needed before Covid, when work was done in the office by default, nor during Covid, when remote work was predominant for many office-based professionals. Managers now need to facilitate discussions with and align their teams on where, when, and how work gets done. They need to hold weekly retrospectives on what worked, what didn’t, and what to change in how they work the next week. The second muscle is one that managers arguably needed before Covid, since working with distributed teams isn’t new. Managers need to build their ability to create connection and culture as well as develop, inspire, mentor, and coach across distributed and hybrid teams.
+End quote.
+
+Technology teams have been distributed around the globe for years, and I think to be a technology leader you have to know how to lead through digital solutions.
+
+Link five. "Why a search engine that scans your face is dangerous: NPR"
+
+It seems inevitable with the amount of computing power, storage, and metadata that we have there will be services that allow you to point your phone at any random person on the street and know who they are. Extending that to automated surveillance freaks me out. This should be one of the things that drives privacy legislation in the US.
+
+Link six. "Magic Eden Dropping Tokenized Pokémon Cards"
+
+My brother-in-law Max is really into sneakers. He's regularly buying and selling sneakers, and when NFTs were first hitting the market we had a few chats thinking about some certified storage place that would hold sneakers for you, and issue you an NFT that you could buy and sell that sneaker while it physically stayed safe in some vault.
+
+This is now a thing with RWAs, or Real World Assets, traded via NFT. This drop has nothing to do with Pokémon officially, but instead of a vaulted, secured collection of graded cards that are each issued an NFT. You can burn the NFT and get the card, or buy and sell the NFT as you wish. I like this use case.
+
+Recommend
+
+People and Blogs is a wonderful project by Manuel Moreale, highlighting "wonderful human beings and their blogs". Manuel's goal is to promote a healthier way to inhabit the web. I love blogging, and I love how People and Blogs shines a spotlight on it. I’m a supporter of the project via Ko-Fi. I'd recommend subscribing to get new issues each week!
+
+That's the end of Notable.
+
+Now, the Journal section.
+
+Journal entry one.
+
+We got our tickets to the twenty twenty three New Standards Holiday Show! I was amazed that within 6 minutes of the event going on sale all main floor tickets were effectively gone for both evening shows.
+
+Previous Holiday Shows: twenty twenty one, twenty nineteen, twenty eighteen, twenty thirteen, and twenty twelve.
+
+Journal entry two.
+
+We had a fun time with hypnotist Chris Jones tonight at St. Olaf's family weekend. There were many people hypnotized and doing interesting things.
+
+Journal entry three. How I Find Links for the Weekly Thing
+
+The most common question I'm asked about the Weekly Thing is how I find the links for each week's issue. I’ve already shared how I build the Weekly Thing and the task management for each issue. Let's dive into this part as well!
+
+I find this the hardest question to answer because to me it is the same as asking “How do you learn about new stuff?” or “How do you read the Internet?” This isn’t something that I do for the Weekly Thing but is instead something I’ve always done. The Weekly Thing is a result of this activity. If you read my Weekly Thing introduction from twenty seventeen you can see this. My link archive on Pinboard currently has 14,181 links with the first one dated August 2, two thousand five, twelve years before the first Weekly Thing! How terrifically nerdy is it that the first link is to the now defunct Make Magazine.
+
+This article doesn’t cover the writing I do on my blog, or what shows up as my Journal, in the Weekly Thing. That is just my writing on whatever I blog about syndicated into the Weekly Thing.
+
+Collecting and curating links that show up in the Weekly Thing isn’t a technical process like building it and there is no task management. However, there is a process and there are three distinct “actions”. This does not have to be a linear process. I can skip all the steps and jump straight to curating an article.
+
+Collecting
+
+New links, articles, and information is showing up all the time. It can arrive as an email, a link that a friend shared, or via some feed. It is very rare that I have the time to even give a cursory read of this stuff when it shows up so I tend to collect these links to review later. I’m an avid user of Safari Reading List for this. Adding something to Reading List is usually just a long press and I'm done. At most it requires two taps or clicks. Technically any “read it later” capability, which there are many, would work for this. I'm just using the one that is the fastest and easiest for the platforms I use.
+
+The biggest issue most people have with “read it later” systems is that later never arrives. I had the same issue. This is one area where the process of publishing the Weekly Thing helps me. If I haven’t read it in that week I'm probably never going to read it and it gets deleted. These “read it later” queues can be infinitely long. For me, no link stays here for more than a week. Even if you aren’t publishing your links, I’d encourage the same process. An infinite “read it later” queue can be mentally exhausting.
+
+The most important way that I keep up-to-date and identify links to read is Feedbin. Feedbin is a paid service that I use to subscribe to RSS feeds from various websites. I share my list of RSS subscriptions if you are curious. If a site refuses to share updates via RSS, I'm likely not going to see it. That is fine with me. The majority of sites do this, even though they may not advertise it that much.
+
+Also, not all RSS feeds are a single website. Some aggregation services also create RSS feeds. One of my favorites like this is the Pinboard Popular feed. Since I also use Pinboard to store my bookmarks, I'm part of this feed. This listing of the most frequently bookmarked links is one of the ways that I pull in interesting links from this small community from around the Internet. It also allows me to get a filtered list of other sites. For example, I don’t follow Hacker News but many Pinboard users do. By watching Pinboard Popular, I'm getting the filtered view of Hacker News that just pulls the stuff that has resonated enough I might care to see it.
+
+Lastly, I also subscribe to many newsletters. I share my list of newsletters, but that can be out of date and incomplete. I love the newsletter medium and find it a refreshing and relaxing way to learn and read.
+
+Reading and Filtering
+
+At various times I have gaps of time, or sometimes in the evening I may want to just explore. For me that usually involves looking at my Safari Reading List and grabbing something to check out. Now I have a bit of time and can dig in. This could be 5 minutes, or an hour with the iPad on the couch.
+
+There is nothing fancy here other than reading and learning. If the article isn’t interesting, I delete the link from Reading List and move on. If it is interesting, I mentally note that and leave it to curate. Sometimes I'm not sure, and I’ll just leave it to revisit again.
+
+Curating
+
+The last thing after collecting a link and then reading and reviewing it is optionally curating it. For years curating for me just meant adding to Pinboard and then moving on. When I did a link blog I started using the “description” text in Pinboard to be a bit of a blog post. I extended that for the Weekly Thing and realized that I can easily use markdown in that description so I can have links, some formatting, and excerpts.
+
+To curate I take the link from Safari Reading List, usually add a paragraph or two, possibly an excerpt, and add that to the description in Pinboard. I then delete it from Safari Reading List. That link is now in link archive permanently. To me this feels like an ever growing database of knowledge. I’d love to do more with this database and have some ideas on my “Someday, Maybe” list.
+
+Going back to how I build the Weekly Thing I then pull this information via the Pinboard API and it becomes part of each issue. Pinboard allows me to add a tag to a link. If I want the link in the Featured section I add the feature tag, and if it goes in the Brief list on the bottom I add brief. Why the underscore? I use to tag my links in Pinboard with topics so the underscore was used to indicate these are “special” tags.
+
+Summary
+
+That should give you a feel for how I find links to include, and overall covers how I “read the Internet”. I’ve done something very similar to this for nearly two decades now.
+
+You may be curious to see social media not referenced. I don’t get links from social media platforms because I don’t use them. Even when I did, I didn't use it that way. The algorithms and advertising influence made me skeptical of why I was getting the link in the first place.
+
+Lastly it is worth noting that the publishing deadline of the Weekly Thing can compress the reading and curating. Ideally this is all happening throughout the week and I pull each link through these steps in little bits. It is hopefully “just in time”. But if it is a particularly busy week I may end up on Thursday night with 20 links in my Reading List and nothing curated. That usually means I sit down and spend a couple of hours scanning, reading, and then curating. That is an effort but it is also critical to continuing the process of being a life long learner!
+
+Journal entry four.
+
+On Melby Yard at St. Olaf Homecoming and Family Weekend.
+
+Journal entry five.
+
+Homecoming Battle: Carleton Knights versus St. Olaf Oles!
+
+Journal entry six.
+
+Sidewalk poetry found walking from Carleton back to St. Olaf.
+
+Journal entry seven.
+
+We found this Thankful Tree on our walk and Mazie took the opportunity to add one.
+
+Journal entry eight.
+
+Look up.
+
+Journal entry nine.
+
+I did my 400th Peloton spin class this morning! 30 min Classic Rock Ride with Matt Wilpers.
+
+Journal entry ten.
+
+Making another batch of candles for the third Annual Things 4 Good Fall Fundraiser!
+
+Journal entry eleven.
+
+We got our Eight Sleep setup and ready to use. First night using it! Currently cooling my side, and warming Tammy's. I'm very hopeful that this helps me get better quality and duration of sleep.
+
+That's the end of the Journal.
+
+Now, the Briefly section.
+
+Link one. "Shortery"
+
+Handy utility that allows you to trigger a Shortcut to run at a variety of different times or events. Great automation add-on!
+
+Link two. "tldraw"
+
+Super slick React library for creating whiteboards and other infinite canvas experiences. Very fast and easy to use.
+
+Link three. "Satya Nadella Says Copilot Will Be as Significant as the PC | JD Meier"
+
+Article is sort of about Copilot, but it is really about how Satya Nadella crafts a story and a vision to lead Microsoft towards this compelling future.
+
+Link four. "Circle's Silver Lining: Unpacking USDC's Supply Drop in an Era of Rising Rates"
+
+Deep dive into USDC, backed by Circle, and the stablecoin I prefer to use when needed. I didn’t realize the drop in supply, but did know there were concerns over exposure to Silicon Valley Bank. Interesting read to understand how this works as a business.
+
+Link five. "Free Online Graph Paper / Asymmetric and Specialty Grid Paper PDFs"
+
+Fun library. Wonder if these could be used on the remarkable.
+
+Link six. "How to Use ChatGPT as Your Personal Assistant for Work"
+
+Some interesting examples to use ChatGPT, particularly around tasks. I’m intrigued to use a Shortcut to pull certain calendar data and have ChatGPT help with analysis. Stay tuned…
+
+That's the end of Briefly.
+
+Now, the Fortune section.
+
+Here is your fortune…
+
+Expect a letter from a friend who will ask a favor of you.
+
+Thank you for subscribing to the Weekly Thing!
+
+That brings us to the end of the Weekly Thing, issue 265. Thanks for listening, and I'll see you next time.

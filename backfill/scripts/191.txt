@@ -1,0 +1,279 @@
+The Weekly Thing, issue 191. Decentralizing, Coffee, Future. Published June 19, twenty twenty one. By Jamie Thingelstad. In this issue: Yield farming, NFT metadata, AWS Step Functions, iCloud Private Relay, Google FLoC, mRNA flu vaccines, Pulitzer for George Floyd reporting.
+
+Happy Juneteenth and the first year it is being observed as a national holiday!
+
+This was a big week for our family with our daughter's sixteenth birthday! She planned her day with a to do list of 22 items. The first one was " 7:00 wake up". It was an action packed day ending with the last item on the list " Go to bed". The family checked everything off the list through the day. It seems that she is definitely a list-making person. I got her GTD for Teens years ago, maybe her and I should revisit it.
+
+Happy early Father's Day to all the Dad's! I hope you all get to enjoy the day with the biggest treasure us Father's have, our kids. It is the most important role that we have in life. My recommendation for Dads on Father's Day? Check out Ryan Holiday's fabulous Daily Dad newsletter. It is a great reminder of the most important role we have each day. And then spend as much time as you can with those awesome people that call you Dad…
+
+"If you are not paying for it, you're not the customer; you're the product being sold." — Andrew Lewis aka blue_beetle
+
+Now, the Featured section.
+
+Link one. "The Brilliance of Yield Farming, Liquidity Providing and Valuing Crypto Projects | blog maverick"
+
+Great post and perspective from Mark Cuban on DeFi projects.
+
+Quote.
+Yes, every single DeFI project, is at its core, just another business. They may or may not know what business they are in, but they are just another business that happens to be using a blockchain and smart contracts to host and program their business processes.
+End quote.
+
+Cuban is hitting directly on something I've been thinking about a lot. Folks that are cynical about crypto projects tend to suggest they represent no value. But would these folks think the same thing about shares in a private startup? Maybe, if they are being logical, they should. Owning and holding tokens of a DeFi project is similar to investing in an early stage company.
+
+Quote.
+In the crypto/DeFi world, organizations don’t require near as much capital to start and operate. Rather than raising money in a traditional sense, they can sell tokens to raise capital, they can reward Liquidity Providers instead of having to raise liquidity for financial transactions, they can reward stakers who support Validators, they can operate on a blockchain where most of the CapEx/Infrastructure and much of the critical security is provided by Miners or Validators. They can build communities that replace layers and layers of bureaucracy. And what I’m about to say is what makes the crypto world so dramatically different and why it’s a model for future technology businesses and possibly all businesses.
+End quote.
+
+This is a different way to capitalize and operate a company. Is it fundamentally better? Maybe. Is it better for some businesses? Yes. Will it make other models go away? No.
+
+That's the end of Featured.
+
+Now, the Notable section.
+
+Link one. "Guiding Positive Change | Feel The Byrn"
+
+There is a lot of wisdom in this post from Gordo Byrn. Fitness, parenting, approach to life. I think it is worth a few reads.
+
+Link two. "Decentralizing NFT metadata on OpenSea"
+
+When I started minting some NFTs on OpenSea I wondered where OpenSea uploaded the image file for the NFT. It turns out it is stored in Google Cloud. That didn’t make any sense to me. I’m doing this great web3 decentralized stuff, but it is using the ultimate in centralized storage. Why not use IPFS? Well…
+
+Quote.
+OpenSea has supported NFTs with decentralized metadata since we launched in twenty seventeen. Today, we’re announcing the ability for creators to decentralize their metadata using the Interplanetary File System (IPFS) and Filecoin when creating on the platform. We’re also providing a way for collectors to see when the metadata for an NFT is immutable or not, further augmenting the toolkit that OpenSea collectors have at their disposal when valuing NFTs.
+End quote.
+
+This is a great step and I a great use for Filecoin to preserve these assets forever. Also see Filecoin's announcement as well.
+
+Link three. "AWS Step Functions Workflow Studio | AWS News Blog"
+
+Lambda and Step Functions are incredible cloud capabilities, and this new capability should lower the barrier to building step functions significantly.
+
+Quote.
+Today, we are launching Workflow Studio, a low-code visual tool that helps you learn Step Functions through a guided interactive interface and allows you to prototype and build workflows faster.
+End quote.
+
+The server less environment behind lambda combined with the power of step functions opens up tremendous possibilities, and with this tool it opens to a lot more people.
+
+Link four. "The Health Benefits of Coffee - The New York Times"
+
+Makes me feel great about my morning cup of coffee.
+
+Quote.
+All of us should be happy to know that whatever it took to secure that favorite cup of Joe may actually have helped to keep us healthy. The latest assessments of the health effects of coffee and caffeine, its main active ingredient, are reassuring indeed. Their consumption has been linked to a reduced risk of all kinds of ailments, including Parkinson’s disease, heart disease, Type 2 diabetes, gallstones, depression, suicide, cirrhosis, liver cancer, melanoma and prostate cancer.
+End quote.
+
+Link five. "Future - Understand the Future, How Tech Shapes It, and How We Build It"
+
+Great new site and newsletter published from Andreessen-Horowitz highlighting content from people creating this services.
+
+Link six. "Compute North | Cryptocurrency Mining Colocation"
+
+We've known for a long time that it is cheaper to bring computers to bandwidth than to bring bandwidth to computers. For blockchain mining the same is true for power. This company places mining rigs directly at power company sources. Check out the size of the fans on the units. Wow.
+
+Link seven. "Day One at Automattic – Matt Mullenweg"
+
+I've been using Day One for many years. In my opinion it is the best journaling app on the iPhone. I groaned when I saw the headline that they had sold the product, but when I heard it was Automattic, WordPress, and Matt Mullenweg I was excited. Mullenweg is so focused on creating ways for people to share their thoughts.
+
+Also The Next Chapter of Day One at Automattic and Day One, the Journaling App, Joins Automattic.
+
+Link eight. "Moderna to take mRNA flu and HIV vaccines into Phase 1 trials this year"
+
+Wow, could we see an HIV vaccine? That would be amazing. Also, a combo shot would be great.
+
+Quote.
+Beyond this, it wants to explore potential combination vaccines against flu, SARS-CoV-2, RSV and human metapneumovirus (hMPV).
+End quote.
+
+Link nine. "Digging into Apple's iCloud Private Relay - The Mac Observer"
+
+A bit more depth on the new iCloud Private Relay feature coming in iOS 15. I'll have to use it and dig a little deeper before I know for sure, but I like what I see here.
+
+Quote.
+iCloud Private Relay works really well, and seems very well thought out by Apple. Quite frankly, this is one of the reasons I’ll be recommending folks upgrade to the latest operating systems come release-time this fall.
+End quote.
+
+Link ten. "Privacy watchers see fears coming true with Google's FLoC"
+
+This little dance Google is trying to do about getting rid of tracking cookies while at the same time trying to role out a brand new way of tracking is a bit ridiculous to watch. I suspect FLoC is doomed, but Google can push a lot of things through just by supporting it on their own sites.
+
+Link eleven. "TryAPL"
+
+I've never written or read a line of APL, and it makes my head hurt to look at it really.
+
+Quote.
+APL is an array-oriented programming language that will change the way you think about problems and data. With a powerful, concise syntax, it lets you develop shorter programs that enable you to think more about the problem you're trying to solve than how to express it to a computer.
+End quote.
+
+Object-oriented languages? Got it. Functional? Sure. Procedural? Yep. Array-oriented? Huh?
+
+Link twelve. "Star Tribune wins Pulitzer for George Floyd reporting; Darnella Frazier also cited - StarTribune.com"
+
+Fabulous to see the excellent reporting by our local newspaper on the murder of George Floyd being recognized with a Pulitzer.
+
+Link thirteen. "The Circles of Friendship"
+
+I’m a big believer in Dunbar's Number and I’m super interested to hear that he has a new book out, Friends: Understanding the Power of Our Most Important Relationships. I particularly find it interesting to consider how our work relationships and social media occupy space in these circles. The full interview is a good read.
+
+Do you enjoy books? We do too! I have another newsletter, one that I share with Tammy and our kids, that is all about books. You should subscribe to Reading Things! One issue per quarter will arrive in your inbox!
+
+That's the end of Notable.
+
+Now, the Journal section.
+
+Wednesday @ 9:49 PM
+
+I love when friends surprise you with the gift of a good book! I’m looking forward to reading Tiny Habits. Thanks Nick!
+
+Wednesday @ 9:38 PM
+
+My book club met in person for the first time since Jan 30 twenty twenty. It was great to see everyone “IRL” and discuss Ishiguro’s “Klara and the Sun”. Great book, great conversation, and a great group of people to be with.
+
+Tuesday @ 10:25 PM
+
+Crypto Links
+
+Balaji Srinivasan shared these links in a tweet. I'm putting them here for reference, with a couple of my own added.
+
+Main List
+
+* Mastering Bitcoin second Edition - Programming the Open Blockchain
+* Mastering Ethereum
+* Resources from a16z for Understanding Crypto
+* Crypto Startup School
+* Crypto Reading
+* Learn to Code Blockchain DApps By Building Simple Games
+
+Extended
+
+* Bitcoin Block Explorer
+* Ethereum Block Explorer
+* DeFi Pulse
+* Crypto Fees
+* Open-Orgs
+
+My adds
+
+* Gas Now
+* Filecoin Explorer
+* Bitclout
+
+Monday @ 10:30 PM
+
+Yellow Biser typewriter.
+
+Monday @ 8:46 PM
+
+Makes me very happy to see people back in the park listening to music at the Lake Harriet Bandshell.
+
+Monday @ 8:43 PM
+
+Great evening for a bike ride around Lake Harriet.
+
+Sunday @ 3:32 PM
+
+848 Day Streak
+
+Yesterday ended my 848 day meditation streak.
+
+Streaks are a great way to build habits. They can also become obsessions. I had certainly been there, sometimes squeezing in a meditation right before bed.
+
+I told a friend that I would purposefully break the streak at 1,000 days.
+
+The streak ended the best way possible. I just forgot. We had a great pool party with family for Mazie's upcoming birthday and it was an amazing and packed day. Action from dawn to dusk.
+
+And thus the streak ends, and with it no need to obsess. Perfect.
+
+Saturday @ 8:49 PM
+
+Sunset on Cannon Lake.
+
+Saturday @ 8:05 PM
+
+I love our new Escher inspired log “tables” for our fire area. These were logs left over from the Peanuts Tree that Adam Gale carved. Another great project with Rust n Grain!
+
+Saturday @ 8:04 AM
+
+I’m so happy to have our Andrew Carson wind sculpture back up after being in storage a couple of years. It is one of my favorite pieces of art. It is the centerpiece of the raised garden beds.
+
+[
+watch video ](
+
+Saturday @ 6:35 AM
+
+I didn't get the Weekly Thing done last night, but I got up early this morning and finished issue 190 with 28 minutes to spare!
+
+That's the end of the Journal.
+
+Now, the Reply All section.
+
+Here are some replies from Weekly Thing #190 / WWDC, Passport, Roll.
+
+Dan F wrote to ask for some more actions that I would tie to the article on cloud expenses that I shared.
+
+Quote.
+If I simplify (over-simplify?), you said: the cloud is great at first, then later gets very expensive, when it's hard to do anything about it. I've seen a number of examples that seem to agree with this. If so.. what do we do about it?
+End quote.
+
+Here are the key things I took away.
+
+1. If you are spending less than 10 million dollars/year on cloud (maybe more?), I don't think this is worth your time. The agility of the cloud is critical to building a successful product these days. The gains will far outstrip any financial benefit. You cannot save enough actual money.
+2. If cloud is a material cost for your company as CTO or other technical leader, you should be informed on the impact to your financials from cloud. You should be able to answer what percent of revenues is your cloud expenditure? What is the gross margin impact of your cloud spend? What is the rate of growth and how does that compare to the growth of revenue? And how does that all effect your market cap?
+3. If you are spending a very large amount and the impact to your financials is meaningful, the article suggested that for at least some companies the return on investment of building your own infrastructure was as short at two years. So while it is a daunting prospect, it can be done.
+
+In short the article is really less about deployment model and more about outsourcing. I would suggest that every company that was highlighted in effect built their own cloud company inside their company. They were spending so much that they could justify building it themselves, advantaged by the costs shifting to the balance sheet and off the P and L and using a mountain of open source software and staff. This isn't an argument that you should hire two site reliability engineers and order some gear to put in a data center. You will fail not having the scale and losing the agility that the cloud provides.
+
+That's the end of Reply All.
+
+Now, the Briefly section.
+
+Link one. "Unread 2.6 Adds Full-Text Search, a Compact Article List Option for iPhone, and More"
+
+Unread is my feed reader of choice. I pair it with Feedbin. The combo is highly recommended. If you are looking for things to subscribe to I publish my list of subscriptions.
+
+Link two. "Solana (SOL), Chiliz (CHZ) and Keep Network (KEEP) are now available on Coinbase | The Coinbase Blog"
+
+Coinbase is adding new crypto tokens at a blistering pace. I was excited to see Solana (SOL) as that is a project I've been very interested in. I also was happy to see Polkadot (DOT) added.
+
+Link three. "modern-unix: A collection of modern/faster/saner alternatives to common unix commands"
+
+I hadn't heard of most of these before. Some interesting tools here.
+
+Link four. "The quiet rise of E Ink Tablets and Infinite Paper Note Takers - Scott Hanselman's Blog"
+
+Review of the newest e-ink notebook products.
+
+Link five. "Stripe Identity: Verify identities with confidence"
+
+Makes sense that Stripe would get into Identity.
+
+Link six. "Stripe Tax: Automate tax collection on your Stripe transactions"
+
+Did Stripe only now come out with a sales tax solution?
+
+Link seven. "A Once-in-a-Lifetime Chance to Start Over | You Need A Budget"
+
+We use YNAB for our personal finances, and this article from them about applying learnings from the pandemic is a good guide.
+
+Link eight. "Inside The Manufacture: Inside All Four Rolex Manufacturing Facilities - HODINKEE"
+
+What does it look like to do something to the highest standards possible? This.
+
+That's the end of Briefly.
+
+Now, the Fortune section.
+
+Here is your fortune…
+
+Don't read everything you believe.
+
+Thank you for subscribing to the Weekly Thing!
+
+Recent issues of the Weekly Thing…
+
+- Weekly Thing #190 / WWDC, Passport, Roll
+- Weekly Thing #189 / TiddlyWiki, JsonLogic, Smiling
+- Weekly Thing #188 / Ethereum, Emulator, Ephemerality
+- Weekly Thing #187 / AirTags, M1 iPad Pro, Flamingo
+- Weekly Thing #186 / Blockchain, Pairing, Sharding
+
+That brings us to the end of the Weekly Thing, issue 191. Thanks for listening, and I'll see you next time.

@@ -1,0 +1,205 @@
+The Weekly Thing, issue 209. PGP, Soulbound, Mosey. Published January 29, twenty twenty two. By Jamie Thingelstad. In this issue: PGP origins, cracking a crypto wallet, Google FLoC replacement, covidtests.gov architecture, Roblox outage, personal velocity.
+
+Hey there!
+
+This week has been a bit of a whirlwind for me — moving a lot of things forward all at once.
+
+Some quick things…
+
+- I set myself up on Strava and have decided to use it with fitness activity. If you are on Strava feel free to connect with me. I don't mind using social dynamics when I know the outcome of them is good for me.
+- A while back I created a listing for the Weekly Thing on Readsom. I love when new people find this project, and if you are a fan of the Weekly Thing I would greatly appreciate leaving a review on Readsom to help more people discover it.
+- And while I’m in a marketing mood the Winter issue of Reading Things is coming real soon now. Subscribe now if you are into books and reading!
+
+Hope you have a great weekend!
+
+Now, the Featured section.
+
+Link one. "Why I Wrote PGP"
+
+I was sharing with some friends that I have been surprised at how political conversations around crypto technology end up becoming, but that upon reflections perhaps that was appropriate as crypto has the potential to disrupt politics. I was trying to think if any other technology had a similar experience and it hit me that public key encryption has many similar characteristics. Encryption and Crypto both have potentials to threaten power structures. Encryption battles started in earnest in the 90's and we are still arguing about it. Should the government have a backdoor to your phone? That argument has been around for 30 years.
+
+Anyway, this got me following many links around PGP and going back to Phil Zimmerman, who the government threatened litigation against. I found this article from 1991 (updated in 1999) where Zimmerman shared why he wrote PGP.
+
+Quote.
+Advances in technology will not permit the maintenance of the status quo, as far as privacy is concerned. The status quo is unstable. If we do nothing, new technologies will give the government new automatic surveillance capabilities that Stalin could never have dreamed of. The only way to hold the line on privacy in the information age is strong cryptography.
+End quote.
+
+I love that this is now 30 years old, and the topics and themes are still as clear today as they were then.
+
+That's the end of Featured.
+
+Now, the Currently section.
+
+Watching: Imagine The Office, but have it set in an elementary school and you have Abbott Elementary. This has been a fun family show that we all enjoy watching.
+
+Playing: Like so many others we recently discovered Wordle and have been playing it once a day. We even have a group text with some others where we share our results each day. I keep a list of Wordle games on my blog too. Not sure how long we will play, but I love that there is only one opportunity to play each day.
+
+Wearing: While doing Christmas shopping this year I decided to get Tammy a pair of Glerups shoes (slippers) with natural rubber sole for around the house. In a first for me, I wanted a pair too so I decided to get her a surprise gift for me too. I love these incredible wool slippers. They don't get too hot, are very comfortable, and so nice to wear. Highly recommended.
+
+That's the end of Currently.
+
+Now, the Notable section.
+
+Link one. "On Meditation and the Unconscious: A Buddhist Monk and a Neuroscientist in Conversation | The MIT Press Reader"
+
+It is amazing to me how much Buddhism and the practice of meditation got right about the brain, and we are now validating with advanced technology today.
+
+Quote.
+True meditation, however, is not just taking a break. It is not simply closing one’s eyes to the problem for a while. Meditation goes to the root of the problem. You need to become aware of the destructive aspect of compulsive attachment and all of the conflictive mental states that you mentioned. They are destructive in the sense of undermining your happiness and that of others, and to counteract them you need more than just a calming pill. Meditation practice offers many kinds of antidotes.
+End quote.
+
+In my experience, "training the mind" has been very rewarding.
+
+Link two. "Advice You Will Ignore - Humidity and Hope"
+
+Hugh Hollowell sharing advice for maintaining your focus and energy over the long haul.
+
+Quote.
+Here are some things, in no particular order, that I wish I had learned and taken seriously early in my career. Many of them I have shared before, while others I have only recently learned. None of them are definitive – in most cases, they are starting points for you to investigate. Most of them are inexpensive, or can be budgeted for. None of them involve spa-days or pedicures.
+End quote.
+
+Simple list of 22 things. A good list to turn into actions.
+
+Link three. "Soulbound"
+
+I don't like the World of Warcraft term that Buterin uses to describe non-transferrable NFTs, but the idea is something that I’m very intrigued by and have been for a while. There are a lot of use cases that open up if you know that the NFT a user has was not purchased from someone else, but granted directly to them. Think certifications, diplomas, licenses.
+
+One way to do this that seems interesting to me is to look at on-chain activity for each NFT and validate that the issuer is the owner previous to the current owner. If there was another wallet in the middle, invalidate the NFT. So, if MNDMV.eth sent me my drivers license NFT, but then I sent it to someone else, it could be invalidated immediately.
+
+I also love that he highlights POAPs in this article. It is one of my favorite crypto projects.
+
+Link four. "Google kills FLoC, unveils new plan to replace tracking cookies — here's how it works | Tom's Guide"
+
+You'll remember that Google decided that tracking cookies were a bad idea once they had come up with FLoC, which is even worse for privacy online. Happily they are ditching FLoC, but Topics just seems like magical handwaving. All good reasons to not run Chrome. Seriously, why would you run the web browser made by the company that sells more online ads than anyone else?
+
+Link five. "Cracking a 2 million dollars crypto wallet - The Verge"
+
+The issue of "lost coins" is a real one. Knowing how hard it is for people to even keep digital photos around, I worry that self-custody of digital money is just too difficult. Relying on "crypto banks" may be a much better answer for most people.
+
+It also raises one issue with Bitcoin that I don't have a good answer for… over time more and more Bitcoin will be lost. The keys will be irretrievably gone. How do you handle this loss in a mathematically finite system like Bitcoin. Over time, the coins get more valuable just because of the lost coins. But it is also very hard to identify a lost coin…
+
+Link six. "On Covid"
+
+I think Wilson's take on this is about right…
+
+Quote.
+There are three primary reasons why Covid, as we have known it, is coming to an end in the wealthier parts of the world. First, we have less severe variants now. Second, most people in the developed world who want to be vaccinated have been vaccinated, many multiple times. And third, we have antivirals that can protect those who get very sick.
+End quote.
+
+I would add though that no matter what time only goes in one direction, forward. "Going back" should be disregarded as much as anything else. We are here now, and it is time to move forward… but we can do that without COVID being the centerpiece of everything.
+
+Link seven. "Personal velocity"
+
+I love this post from Godin and the analogy.
+
+Quote.
+But life isn’t a bike. It works fine if we take a moment and leave space for the person next to us to speak. Are you going fast without getting anywhere?
+End quote.
+
+There is more to our lives that is carried on my momentum than we probably know. One of the things the incredible events of the last two years did was force that momentum to stop or change, and people did look around.
+
+How about we all build into our journeys rest stops, places to intentionally stop, get off the bike, and look around. Get back on the bike when ready…
+
+Link eight. "Show your children who you are - Austin Kleon"
+
+I love this essay and fully embrace the idea. One of the things I hope to show my kids and beyond via my blog, newsletter, and other archives is who I really am.
+
+Link nine. "Examining the covidtests.gov architecture - Ad Hoc"
+
+How do you design a site that millions of people are going to go to and submit a request on the same day? Keep it simple, stupid. This article highlights the very good design decisions, and solutions involved, to let everyone in the US order free COVID tests.
+
+Quote.
+This is a very common overall design in the modern web services stack; nothing out of the ordinary here. Indeed, the relative "boringness" of the architecture and seeking managed services from ISPs like AWS and Akamai, who are proven at the largest scales, was likely a desired aspect of this implementation.
+End quote.
+
+Well done.
+
+Link ten. "Scaling with Process versus People"
+
+I don't agree with all of what Cagan puts out, but this general comment on process-focus is a real thing and one that I think particularly leaders have to keep front and center. You must always focus on the value, creating amazing things. Everything else must bend to that.
+
+Link eleven. "Mosey"
+
+This is a brilliant B2B SaaS offering. You need to hire people in various states? Mosey aggregates the State requirements and helps you be compliant wherever you need to be.
+
+Quote.
+Mosey makes it easy to set up and manage compliance in every state so you can hire anywhere with confidence.
+End quote.
+
+This is such an obvious need. Plus, bonus points for the fun company name.
+
+Link twelve. "Roblox Return to Service 10/28-10/31 twenty twenty one - Roblox Blog"
+
+Roblox had a tremendous 73 hour outage right before Halloween and they have now published a public incident report on it. I was very curious to read this. I remember thinking at the time that whatever was causing the problem must be horribly complicated, or was it a security issue? This writeup is very well done, and is a good read for anyone that is seeking to understand the incredible complexity of running very large scale services. Reading this made my palms sweaty in places because of situations I've been in the past, or just thinking what options the Roblox team had at various points.
+
+Link thirteen. "The Internet Changed My Life | Pointers Gone Wild"
+
+What a great, heartfelt recounting of the huge positive impact that the Internet had on Chevalier-Boisvert's childhood and early adulthood.
+
+That's the end of Notable.
+
+Now, the Journal section.
+
+Thursday @ 8:19 PM
+
+We are looking forward to our first Minnesota Aurora soccer game! — Thingelstad Family, Community Owners
+
+Saturday @ 11:44 AM
+
+I signed up for a year of Neeva Premium. I've been using Neeva for several months and have valued the ad free experience. I'm very curious to see how they continue to evolve. If you haven't tried Neeva it is worth a go. Plus, they are giving an exclusive NFT to Premium subscribers — how fun!
+
+Saturday @ 11:32 AM
+
+My first ever proposal for a DAO was voted on and approved! elfDAO will be including Toys for Tots in their distribution this year. Now to add three more organizations.
+
+Saturday @ 9:02 AM
+
+Adding Solana (SOL) and Polygon (MATIC) tokens during this crypto market downturn. I’m very impressed with Solana and the solutions people are building on it. Polygon is doing very well as L2 for Ethereum.
+
+That's the end of the Journal.
+
+Now, the Briefly section.
+
+Link one. "First Look: New Emojis in iOS 15.4"
+
+I’m already excited to use melting face and dotted line face.
+
+Link two. "Trailing Slashes on URLs: Contentious or Settled?—zachleat.com"
+
+Nearly 30 years on the web and I still get this wrong all the time.
+
+Link three. "My new job at Hearst"
+
+Congrats to very smart CTO, and Weekly Thing reader, Rajiv on this new position!
+
+Link four. "systemd by example - the systemd playground"
+
+These interactive tutorials are so impressive and a great way to learn complicated technology topics.
+
+Link five. "Better Results in your Home Gym, 22"
+
+I've been doing more strength and agility workouts at home and this list of 22 items to keep in mind is a good one.
+
+Link six. "EconGraphs"
+
+Fun graphs but more fun because you can move the inputs and see the formulas and graphs update in realtime.
+
+Link seven. "Retailers unwrap a successful twenty twenty one holiday season with Google’s Black Friday/Cyber Monday program"
+
+It is very interesting how Google Cloud is adopting industry specific practices like this. I don't see AWS or Azure doing this yet.
+
+Link eight. "Russia proposes ban on use and mining of cryptocurrencies • Reuters"
+
+It is not surprising to see countries like Russia and China taking action against crypto given the power it has and neither of them care about being seen as open countries that embrace the rights of their people.
+
+That's the end of Briefly.
+
+Now, the Fortune section.
+
+Here is your fortune…
+
+Chicken Little was right.
+
+Thank you for subscribing to the Weekly Thing!
+
+That brings us to the end of the Weekly Thing, issue 209. Thanks for listening, and I'll see you next time.

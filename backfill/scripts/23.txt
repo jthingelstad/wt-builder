@@ -1,0 +1,163 @@
+The Weekly Thing, issue 23. Weekly Thing for October 14, twenty seventeen. Published October 14, twenty seventeen. By Jamie Thingelstad. In this issue: Pierre Omidyar democracy threat, password best practices, CSV injection dangers, ARKit Sudoku Solver, Perl turns 30, smartphone dystopia.
+
+Big change this week – and hopefully you don't notice! I decided to move the Weekly Thing from TinyLetter to MailChimp. TinyLetter is a simple platform and was a great place to experiment and try things but I heard from a number of people that the Weekly Thing was going in there spam folders. I also had a couple of instances of failed delivery. MailChimp is a bit more complicated, but seems much more powerful. I can also now send the Weekly Thing from my domain so I hope that that will improve deliverability.
+
+This does change how some of my automation works to create the newsletter. It also means the archive will be in two places, but I know this is a good change for the long haul. Hopefully some of you that haven't been consistently getting this now do and that it just works for everyone else.
+
+Now, the Photog section.
+
+MN United fans cheering during a corner kick at the last home game of the season!
+
+Oct 7, twenty seventeen at 7:43 PM
+two thousand one sixth St SE Minneapolis MN 55455
+
+That's the end of Photog.
+
+Now, the Links section.
+
+Link one. "High Sierra - Terminal lags if background opacity is set - Ask Different"
+
+This bug in High Sierra is really bad for terminal. I have a MacBook Pro (Retina, Mid twenty twelve) and with opacity set to 90% on terminal windows they are unusably slow. If I don't use transparency it works fine. Oddly enough when the window is in the background it seems to go faster.
+
+Link two. "Pierre Omidyar: 6 ways social media has become a direct threat to democracy - The Washington Post"
+
+Pierre Omidyar highlights six very strong reasons to opt-out of social media. A quick, straight-to-the-point read that highlights very real and not talked about issues in social media.
+
+Link three. "Cytoscape.js"
+
+Cool Javascript library to do network / graph visualization. This could be used to do some fun data visualization in the browser. It would be really cool to build a network visualization of all my links.
+
+Link four. "A Little Story About the yes Unix Command | Matthias Endler"
+
+This is one of those delightful blog posts that dives into one of the most esoteric Unix commands out there, yes and then looks into how it is so incredibly fast!
+
+Link five. "Jamf to Receive Majority Investment from Vista Equity Partners | Jamf"
+
+Congratulations? I think? Jamf seems to be doing very well as macOS continues to grow in the enterprise. This is also one of the Twin Cities success stories. I sure hope this doesn't see it move out of this market.
+
+Link six. "Changes in Password Best Practices - Schneier on Security"
+
+Password expiration and special character requirements should go away in favor of long pass phrases. Any guess on how many years it will take security certification and audit functions to catch up to this wisdom? My guess is 5 years.
+
+Link seven. "Perl turns 30 | Opensource.com"
+
+I like to give Perl code a hard time because so much of it is so sloppy. However, truth be told some of the very first coding I did on the web was all Perl CGI code doing really goofy things on the web. The block of Perl that I wrote for BigCharts was some of my favorite. It’s amazing that Perl is now 30 years old. These days I definitely prefer Python but Perl does deserve some respect at least for it’s regular expression capabilities.
+
+Link eight. "The Importance of Thinking Time — MyProductiveMac"
+
+In the realm of actively managing your schedule this is an important aspect to consider scheduling. That’s it, nothing else. Make sure you know when you’re going to take the opportunity to down tools, take a break and just - think. Just - be.
+
+Link nine. "Behind the Magic: How we built the ARKit Sudoku Solver"
+
+Cool use of ARKit and the writeup on how they built it is a good read. Some good insite into real world AR challenges.
+
+Link ten. "Replacing our search with Algolia | Netlify"
+
+Netlify shares how they moved from Lunr.js search using JavaScript to Algolia using their hosted service and JavaScript library. I used Lunr.js to put search in Link Thing but searching 8,000+ documents is far too much for a client-side search solution.
+
+Link eleven. "Algolia | The Most Reliable Platform for Building Search"
+
+This looks like a very powerful Search service that you can use for personal use for free.
+
+Link twelve. "The Absurdly Underestimated Dangers of CSV Injection"
+
+Interesting writeup on injecting formulas into CSV data to affect the behavior of the software that is reading the CSV. This example uses the preference that spreadsheets have to interpret formulas embedded in CSV files. Security risks like this can be surprising, even to very technical people, since the data isn't an executable itself.
+
+Link thirteen. "What Sephora Knows About Women in Tech That Silicon Valley Doesn’t - WSJ"
+
+Highlighting how Sephora has defied technology trends regarding gender diversity in technology. This reference to EEOC data is sobering: Women hold 23% of roles in the technical ranks at the top 75 Silicon Valley companies, according to the U.S. Equal Employment Opportunity Commission. A report from the commission attributes the scarcity of women in those roles to inhospitable work cultures, isolation, a “firefighting” work style, long hours and a lack of advancement. Take a look at the 'Industry Pipeline' graphs and note that the only industries with lower representation of women than tech is ‘automative and industrial manufacturing’ and ‘energy and basic materials’. There is a lot of room to improve! Thanks @anna_picchetti for the link!
+
+Link fourteen. "The Value of Optimizing for Resilience - DZone Performance"
+
+Good read and I like this term resilience better than survivability, which is what I typically use to describe these qualities. I also like the concept that this is built into the services but also the teams behind them. If the checkout team adopted Defensive Architecture techniques they could combine a Circuit Breaker, a Bulkhead, and a Feature Toggle in anticipation of registration errors. If the registration service struggled under load the Circuit Breaker would regulate registration requests to allow a percentage to succeed, and the Bulkhead would warn the checkout frontend to skip registration for some customers. Great terms and concepts to consider in system and team design!
+
+Link fifteen. "MenuetOS"
+
+An entire OS written in x86 assembly? That sounds like a task you would give some CSci students in college to drive them slowly insane. You can boot it on a USB drive if you want to be an operating system tourist and take a peek. Notably this is one of those real-time operating systems that is likely behind the navigation system in your car.
+
+Link sixteen. "Min | A smarter, faster web browser"
+
+It is fun to see experimentation in new web browsers and what they include by default. Brave for example chooses to block trackers and ads by default. I like the idea of dimming tabs not in use (although I practice good tab hygiene). This browser also deals with low bandwidth situations directly. In some ways this reminds me of a modern day lynx browser, which I’m shocked to see is still in development.
+
+Link seventeen. "Azeem Azhar: The Exponential View"
+
+This newsletter from Azeem Azhar is a real treat every week. This is one that I usually save and sit down with a good bit of time and my iPad to learn all sorts of new things. Subscribing recommended!
+
+Link eighteen. "Silicon Valley | Asymco"
+
+Wait, what? Currently Apple ships more microprocessors than Intel. I guess that makes sense when you consider all the iPhones walking the world but still that statement is striking. Nobody things of Apple as a semiconductor company.
+
+Link nineteen. "Blockchains: How They Work and Why They’ll Change the World - IEEE Spectrum"
+
+Thorough background and introduction to blockchain technology along with a number of great examples beyond cryptocurrencies.
+
+Link twenty. "Workflow to Collect All Links"
+
+This is a great example of the power of Workflow. I have a number of workflows like this and they are surprisingly easy to do on iOS, and really not easy to do on any other platform. I have several workflows that increase my efficiency significantly. I find inspiration in seeing what other people do with this powerful tool.
+
+Link twenty one. "Overland GPS Tracking App for iPhone"
+
+Aaron Parecki released the iOS app that he uses to record his location and use on his website. If you love location tracking but what to own your data this is a cool option. This is only the client though, you have to have a server to send the events to. It would be perfectly paired with a cloud-based serverless API to receive these events, record them and serve them up to other services. Someone want to make that?
+
+Link twenty two. "Licensed Mugs From Star Wars, Marvel, and More | Geeki Tikis"
+
+We got some of these for my brother-in-law for Christmas and I was checking out his full collection yesterday. Perfect gift for the geek you know. Wish they would make some Game of Thrones ones.
+
+Link twenty three. "'Our minds can be hijacked': the tech insiders who fear a smartphone dystopia | Technology | The Guardian"
+
+Read this article! I've had discussions close to many of the topic in this article with many of my most tech focused friends. There is something to take note of when the most aggressive adopters of new and interesting tech (for no reason than the tech itself) start abandoning an entire type of application. Is it a canary warning everyone? I think it is.
+
+Link twenty four. "security.txt"
+
+This seems like a good idea. I don't know that anyone would ever need to notify me, but I went ahead and created a security.txt anyway. It complements my robots.txt and humans.txt.
+
+That's the end of Links.
+
+Now, the Promotion section.
+
+Let's Encrypt is a free, automated, and open certificate authority, run for the public’s benefit. All connections to web servers should be encrypted! The biggest challenge with encrypting the web historically has been the cost and hassle of getting an SSL certificate. Let's Encrypt has changed that entirely by being a free certificate authority. Let's Encrypt is possibly one of the most important things to happen on the web in recent years. Donate to Let's Encrypt today!
+
+That's the end of Promotion.
+
+Now, the Featured App section.
+
+Through the Ages
+
+by Czech Games Edition
+
+The official adaptation of Vlaada Chvátil’s strategy classic, the second best board game ever according to the Board Game Geek website. You begin with a small tribe. As you expand your farms and mines, you lay the groundwork for technological advancements, better governments, and grand wonders. Your military might supports your political skill as you guide your civilization to greatness.
+
+If you are into complicated board games this is a great one and it has a great tutorial to get you started. Amazing game, but it has a steep learning curve.
+
+9 dollars and 99 cents 5/5 stars
+
+That's the end of Featured App.
+
+Now, the Microblog updates section.
+
+- Missing #Minnedemo tonight — coached Tyler’s soccer and home stuff. Have a great event!
+- Battery life on Series 3 Apple Watch is impressive - 75% after full day.
+- Really enjoying that Curb Your Enthusiasm is back with new episodes!
+- PSA: The Canadian Girl Guide Mint Cookies are vastly superior to Girl Scout Thin Mints.
+- When @keating_isaiah told me he really liked the flashlight in watchOS 4 I thought he was nuts. Used it now a few times and he’s right!
+- This ridiculous route home from MN UFC game courtesy of crazy MN road construction!
+- See you on the pitch next year!
+- Thank you for a great inaugural MLS season MN United! We’ll be back next year!
+- Despite the refs best attempts MN UFC pulled out a 1-1 tie.
+- GOAL!!! MN UFC!!! 1-1
+- Yellow team! You need some help!
+- Sold out game for MN United tonight! North rising!
+- Huge applause for the 4-time WNBA Champion Minnesota Lynx at MN United halftime!
+- MN UFC corner kick — scarves flying!
+- MN UFC!!! MN UFC!!! MN UFC!!!
+- Mazie and I closing out the MN United home season!
+- After being late to MN United game, U of MN parking screwed up and my reserved parking lot was sold out! Added even more delay.
+- Forgot about I-35W being closed and missed first 20 mins of MN United game!
+- Happy first Birthday to my nephew Garrett!
+- Recommend registering your email at ’;–have i been pwned?. Great awareness tool of data breaches!
+
+That's the end of Microblog updates.
+
+Thank you for subscribing to the Weekly Thing! If you know of people that would like the Weekly Thing please forward it along!
+
+That brings us to the end of the Weekly Thing, issue 23. Thanks for listening, and I'll see you next time.

@@ -1,0 +1,197 @@
+The Weekly Thing, issue 208. GPS, Intel, Omicron. Published January 22, twenty twenty two. By Jamie Thingelstad. In this issue: GPS explainer, Intel split, Bitcoin price manipulation, NFT profile pictures, crypto browser, Omicron symptoms, hiring engineers, customer support stats.
+
+Hey there!
+
+It is great to be back from my Winter Break. It has only been six weeks but much has happened…
+
+We had a wonderful holiday season and I hope you all did as well. After capping off the season of merriment and singing Auld Lang Syne it was time for a big birthday for me. Jamie v5.0.0 arrived on January third and my family arranged a tremendous day. I also noted a couple of thoughts.
+
+We all took the day off and had fun presenting, hiking, and escaping! I even got my very own song, the Big 5 O! You can listen on Apple Music, Spotify, and YouTube. I mean, how cool is that!
+
+Unfortunately to wrap up my birthday the next morning I got COVID-19. That is a crappy birthday present. Over the next few days our whole family went through COVID-19 and all are fine. We were all vaccinated so hopefully that helped with the symptoms. We mostly felt like we had a cold, but I had a lot of fatigue as well.
+
+So yeah, a lot has been happening. But now we are here, back with Weekly Thing #208 and let's get back to some fun links and whatever has been catching my eye to share with you all.
+
+Now, the Featured section.
+
+Link one. "GPS – Bartosz Ciechanowski"
+
+Even if you know how the GPS system works this article is worth spending some time on. It is an incredibly well done explainer of the location techniques used by GPS, and the interactive diagrams do a great job of illustrating the concepts right in front of your eyes. This will give you a detailed understanding of how these little devices can tell you where you are, anywhere in the world.
+
+Link two. "The Intel Split – Stratechery by Ben Thompson"
+
+Intel is in a tough place right now, and new CEO Pat Gelsinger is making some pretty incredible bets to turn the ship around. I can’t help but want to root for Intel. They are a stalwart of technology, and we need to have multiple companies innovating for the best circuits.
+
+It is pretty interesting to read this take from Thompson, and the extensive excerpts he pulls in.
+
+Quote.
+The problem is that Intel, used to inventing its own tools and processes, gradually fell behind the curve on standardization; yes, the company had partnerships with EDA companies like Synopsys and Cadence, but most of the company’s work was done on its own homegrown tools, tuned to its own fabs. This made it very difficult to be an Intel Custom Foundry customer; worse, Intel itself was wasting time building tools that once were differentiators, but now were commodities.
+End quote.
+
+So Intel became too vertically integrated and as a result couldn't take advantage of the innovation happening all around it? That can be okay if you are leading in all categories, but if any one of your capabilities falters everything goes down with it.
+
+Quote.
+Intel is obviously not splitting up, but this TSMC investment sure makes it seem like Gelsinger recognizes the straitjacket Intel was in, and is doing everything possible to get out of it. To that end, it seems increasingly clear that the goal is to de-integrate Intel: Intel the design company is basically going fabless, giving its business to the best foundry in the world, whether or not that foundry is Intel; Intel the manufacturing company, meanwhile, has to earn its way (with exclusive access to x86 IP blocks as a carrot for hyperscalers building their own chips), including with Intel’s own CPUs.
+End quote.
+
+This is a huge bet. I hope it works out!
+
+Link three. "Coronavirus: Game Over - by Tomas Pueyo"
+
+Omicron is sweeping the country. At this point every day I hear people that have tested positive. It is just everywhere. I think this article does a good job articulating where we are hopefully heading. How are we all going to adapt?
+
+Quote.
+The world we’re entering is not a continuation of the last two years. You should think about your next few months the way you should think about your next few decades.
+End quote.
+
+The data is changing, the risks are changing. As we've done through the whole pandemic, we must continuously re-evaluate and assess how we went to move forward.
+
+That's the end of Featured.
+
+Now, the Currently section.
+
+Watching: It took us a while to return for Season 3 of Succession and I still find the show delightful. We still have a couple more episodes but the Roy family and their massive dysfunction makes for good TV for me.
+
+Installing: When I first read about Noir I didn’t think much of it. I didn’t think I needed a Safari Extension that brings dark mode to all websites. Then I read a review of it and thought I would give it a try. I immediately made sure it was on all of my devices. It does a great job!
+
+Reading: This summer we are traveling to Iceland and I’m already very excited about it. I’m currently finishing up How Iceland Changed the World by Egill Bjarnason. It is a fun read highlighting key roles that Iceland has played over the last 1,200 years! It is only making me even more excited for the trip!
+
+That's the end of Currently.
+
+Now, the Notable section.
+
+Link one. "Twitter brings NFTs to the timeline as hexagon-shaped profile pictures - The Verge"
+
+This seems like an obvious way for Twitter to dip their toes into some web3 ownership concepts. The hexagon is needed to tell it is a different type of profile. It would be even cooler if they connected this to your ENS profile, and used NFT Avatar support from ENS to configure.
+
+Link two. "Opera launches a dedicated crypto browser | Engadget"
+
+I dig what Opera is doing with this experiment and it is one of the clear next steps we need to see to make the crypto stack more accessible.
+
+Quote.
+Opera has launched its Web3 "Crypto Browser" into beta with features like a built-in crypto wallet, easy access to cryptocurrency/NFT exchanges, support for decentralized apps (dApps) and more. The aim is to "simplify the Web3 user experience that is often bewildering for mainstream users," Opera EVP Jorgen Arnensen said in statement.
+End quote.
+
+It is worth reading the full announcement for all the details. Opera has been experimenting in this space for a while.
+
+Link three. "Call to Arms: Make customer support stats public"
+
+This is a first that I have ever seen.
+
+Quote.
+Many companies publish "status pages" showing downtime, incidents, and so on. This is a real-time "status page" for Rippling’s support quality and responsiveness.
+End quote.
+
+It is an interesting idea, but I’m not sure how useful it really is. Status Pages are helpful for communicating the real-time status of things, but they are not good at providing historical availability data. Go to any status page and you will know what is going on now, but you really don't have a sense of availability over time.
+
+Additionally with support there are a lot of differences in what good support looks like and how companies measure it. It also could drive very poor behavior like providing a first response to live chat, and then ignoring for several minutes. Support is a very complicated domain and hard to compare as they are suggesting.
+
+Link four. "Becoming a Better Writer in Tech - The Pragmatic Engineer"
+
+Written text is still the best way of communicating our ideas. In fact, it is also a great way to vet our own ideas. I agree with Orosz and think that writing is key to so many things.
+
+Quote.
+The greater the influence of your position, the more people your writing will reach. In senior leadership positions, writing skills are yet more important.
+End quote.
+
+I like the steps and practical suggestions he makes. I also use Grammarly for my writing. On of the benefits I hope to get from publishing the Weekly Thing is to become a better writer over time.
+
+Link five. "An Anatomy of Bitcoin Price Manipulation – Single Lunch"
+
+This is a very detailed analysis of some material price movement in Bitcoin and how manipulation may have move the market. I’m reminded how sophisticated the trading algorithms are, and in crypto they are even more aggressive. I’m bullish on crypto tech, but if manipulation like this is happening it needs to be addressed.
+
+Link six. "POAP inc. raises 10 million dollars to accelerate human development | POAP"
+
+POAP is one of my very favorite crypto projects out there. I like collecting things, and creating events and distributing tokens to friends around things that happen in-real-life is fun. I've created POAP events for many things. The project is very successful and has struggled to deal with growing pains. In the last 3-4 months they started to make some significant changes to set themselves up for the next phase. Overall, I’m excited for the team that they have formalized the project to a company, and they have successfully raised funding to help make it all work. TechCrunch article is also good.
+
+That's the good.
+
+However, I scratch my head at why crypto projects like POAP take a traditional approach like this. POAP could have also formalized itself around a DAO. It could have allowed people to buy in and be part of it. Instead they pursued a closed, traditional means of raising money. Opensea also did this recently. I can give Opensea a bit of a pass because they are so much bigger, but I think POAP could have taken a different path. Maybe they will get there and transition similar to how ENS has…
+
+Link seven. "How Omicron Symptoms Differ From Delta, Past COVID-19 Variants"
+
+All the symptoms I experienced were spot on with Omicron. Most notable symptom for me was the fatigue. I was incredibly tired.
+
+Link eight. "Living on 24 Hours a Day | Justin Fuller"
+
+This reflection of How to Live on 24 Hours a Day hits on something that I know I feel. Don't fractionalize your attention. Don't do three things a little bit. You don't get the value of any of them.
+
+Quote.
+He suggests that we use the evenings for learning. About what? It doesn’t matter, really. But you should spend your time learning about something. Ideally, something you care about. If you have a hobby or interest, learn about that. It could be music, movies, sports, or anything else. The point is that you spend your time learning about something you’re interested in so that you experience it more deeply. Perhaps you don’t have hobbies, or you’re looking for something a little deeper. Here, he suggests learning about science, history, or philosophy. Spending a few hours each night reading Epictetus, Epicurus, and others can help you develop a framework for thinking about life in a deeper and more meaningful way. And that’s exactly the point of the morning time he asks us to set aside. To think about life and reflect. Now, this isn’t meant to be idle thinking. Instead, it should be dedicated and focused reflection. It will require focus, which may be tough at first (it’s still tough for me).
+End quote.
+
+Link nine. "I Think I Know Why You Can't Hire Engineers Right Now"
+
+There is a lot of truth in this article.
+
+Quote.
+The more I think about it, you need to offer engineers some combination of these three things to pique their interest: 1. Cool stuff to work on. 2. Smart people to work with. 3. Some degree of repeatability in work environment. Without those, getting an engineer to join your company is gonna be a hard sell.
+End quote.
+
+The last line of this is pure gold.
+
+Quote.
+Pitch them the truth: that you want to do good work, sustainably, for as long as you can - ideally with them on your team.
+End quote.
+
+Love it, and this is the right way to do it.
+
+That's the end of Notable.
+
+Now, the Journal section.
+
+Thursday @ 5:18 PM
+
+Peloton has given back all of the pandemic gains experienced. Either $PTON was overvalued in Q1 twenty twenty, or it is oversold now. Still an exceptional product and service.
+
+Sunday @ 10:41 AM
+
+Instead of posting Wordle games regularly I made a list of Wordle games.
+
+Saturday @ 4:48 PM
+
+After three months of very little activity, The Divine project finally took off today! I have Divine 1211 and I decided to mint three more (4040, 4041, 4042) before the mint closes out, which should be today at this rate.
+
+Saturday @ 7:13 AM
+
+I am greatly enjoying How Iceland Changed the World by Egill Bjarnason. Interesting history and stories. It is also a great prelude to our trip there this summer!
+
+Friday @ 10:28 PM
+
+When I read articles from people sharing their bespoke Obsidian setups I think one of the best things I’ve done for my productivity is to completely ignore Obsidian.
+
+That's the end of the Journal.
+
+Now, the Briefly section.
+
+Link one. "Using Shortcuts and Data Jar to Store and Share Multiple Links"
+
+I use Data Jar extensively with Shortcuts. Having a cloud synchronized shared data store that you can use between various Shortcuts is a game changer. This article is just one example of what you can do.
+
+Link two. "TinyBase"
+
+Powerful and extremely small "only costs 2.6kB - 5.6kB when compressed, and has zero dependencies" library to manage state data in Javascript.
+
+Link three. "Introducing the NFT Security Group"
+
+Interesting to see the layers that this new group is going to focus on. Given the amount of investment in NFTs this make sense.
+
+Link four. "Empirical Analysis of EIP-1559: Transaction Fees, Waiting Time, and Consensus Security"
+
+Incredible detail on the impact EIP-1559 has had on Ethereum transactions.
+
+Link five. "Filecoin in twenty twenty one: Looking Back at a Year of Exponential Growth"
+
+Total capacity in Filecoin network has grown more than 7x, but utilization is extremely slow and grown less than 2x in same period. Overall storage utilization is very low at just 1.7%.
+
+That's the end of Briefly.
+
+Now, the Fortune section.
+
+Here is your fortune…
+
+It's all in the mind, ya know.
+
+Thank you for subscribing to the Weekly Thing!
+
+That brings us to the end of the Weekly Thing, issue 208. Thanks for listening, and I'll see you next time.

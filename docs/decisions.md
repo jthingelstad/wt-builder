@@ -202,6 +202,31 @@ CDN and referenced from the website's issue record. They are not sent to
 rendered from, and the timings describe one rendering of it. (The archive's
 WT349 transcript directory is a Studio-era artifact and is not a precedent.)
 
+## The spoken pieces are stored, not cached (2026-09-22)
+
+Synthesis is the one paid step in the audio edition, and until today its
+output lived only in `data/tts-cache/` on one Mac — git-ignored, and outside
+the critical-state backup despite a comment saying otherwise. Every piece is
+now written to the CDN bucket (`weekly-thing/tts/<key>.mp3`) before it is
+written locally, and read back from there on a local miss. The local
+directory is a cache of the store and can be emptied at any time.
+
+Why a store and not a manifest: the key already says everything about a
+piece — model, voice, speed, and the exact text — so the pieces index
+themselves. A per-block manifest, an assets table in SQLite, and S3 copies of
+either were considered and rejected as second sources of truth beside the
+website's frontmatter, which already names every published asset and is what
+the site actually serves from. "What do we have for WT-N" is answered by
+reading `archive/N.md` and HEAD-ing three URLs.
+
+The consequence Jamie asked for: a change to pauses, mastering, chapters, or
+art re-assembles for free, on any machine. Only a changed voice, model, speed,
+or word is new speech. `TTS_SPEED` is settled at 1.0 for that reason — every
+podcast player gives the listener a speed control.
+
+The back catalogue (issues 1–349) is rendered from the frozen scripts in
+`backfill/` through the same assembler; see `backfill/README.md`.
+
 ## The cutoff is always midnight (settled 2026-08-28)
 
 Jamie: "The content cutoff is always midnight. It is typically Friday to

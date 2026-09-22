@@ -1,0 +1,169 @@
+The Weekly Thing, issue 41. Weekly Thing for February 17, twenty eighteen. Published February 17, twenty eighteen. By Jamie Thingelstad. In this issue: Blotter.js, Popcorn Notify, usernames, Structured Logging, Facebook Protect, AMP in Gmail, Solid, Kottke.org at 20, Let's Encrypt 50 million certificates.
+
+This past week has been a blur with my brother and his family visiting, my son's birthday, Valentine's day and our annual company party! I’m looking forward to catching up on some things this weekend, including my to do list and some sleep.
+
+Giant THANK YOU in lights at the SPS Social.
+
+Feb 16, twenty eighteen at 7:25 PM
+80 Church St SE, Minneapolis MN
+
+Now, the Programming section.
+
+Blotter.js
+
+"A JavaScript API for drawing unconventional text effects on the web." Interesting capabilities and fun display, but I noted the fan on my laptop spun up to 100% as I looked at the effects and you could nearly watch your battery drain in realtime.
+
+Popcorn Notify
+
+"Send simple emails and text messages from one API." Handy library to have, particularly for utility functions or scripts that automate activities. However, a good reminder that email is not a good way to deal with anything at scale.
+
+Let's talk about usernames
+
+If you are writing software for usernames this is an interesting dive into edge cases. If you know programmers and wonder why they are so weird, this is a good illustration of the kind of edge cases that programmers need to readily understand how to predict and then design for.
+
+Structured Logging and Your Team | Honeycomb
+
+Some very good best practices to consider when designing how your applications logs. I love the human side of this call to action.
+
+Teach your code to communicate with your team, and you will reap the benefits for as long as the code lives!
+
+Teach and communicate.
+
+That's the end of Programming.
+
+Now, the Software section.
+
+Evergreen
+
+I like what Brent Simmons is doing with this project. I'm a big user of feed readers. I use Feedbin along with ReadKit and Unread. Brent has a history with readers having created NetNewsWire in two thousand two. I also love the story behind the name.
+
+But the name is a prayer for the open web — may it remain evergreen.
+
+That's the end of Software.
+
+Now, the Privacy section.
+
+Facebook’s “Protect” Feature —Michael Tsai
+
+You'd have to be absolutely bonkers to use Facebook as a VPN service.
+
+That's the end of Privacy.
+
+Now, the Font section.
+
+Signato
+
+I’m not a fan of script typefaces typically but this one is very well done.
+
+Signato is a font constructed on the basis of the manuscript of the Act of Independence of Lithuania. It is a gift to all independent people celebrating the hundredth anniversary of the restoration of the State.
+
+Also a really cool idea behind it.
+
+That's the end of Font.
+
+Now, the Web section.
+
+Bringing the power of AMP to Gmail
+
+Ugh. AMP was a bad idea to start with and extending it into email, effectively putting a little website into an email, is a terrible idea for privacy or even just our sanity as advertisers will use this to put all sorts of digital Jack In The Box traps in our email!
+
+Solid
+
+It’s not very clear what this is attempting to do, but I like the blurb.
+
+Solid (derived from "social linked data") is a proposed set of conventions and tools for building decentralized social applications based on Linked Data principles. Solid is modular and extensible and it relies as much as possible on existing W3C standards and protocols.
+
+Tim Berners-Lee is involved.
+
+Last blog standing, “last guy dancing”: How Jason Kottke is thinking about kottke.org at 20 » Nieman Journalism Lab
+
+Kottke.org defined for many people what a blog is. Now at 20 years old this interview with Kottke is an interesting read.
+
+Let's Encrypt Hits 50 Million Active Certificates and Counting | Electronic Frontier Foundation
+
+The web has 50 million more secure HTTPS endpoints now in part thanks to Let's Encrypt. I continue to believe Let's Encrypt is one of the best things to happen online in the last couple of years. My sites are secured with free certificates from Let's Encrypt. You should support this, even if you aren't publishing content. Securing web sites is important for your privacy and security!
+
+That's the end of Web.
+
+Now, the Apps section.
+
+New Apps for twenty eighteen – MacStories
+
+I always am curious to hear what apps Viticci is using and I love that he's highlighting some apps to improve himself, reminds me of my article on apps that make you better. I use Headspace and Streaks as well, and should look at Workouts++.
+
+That's the end of Apps.
+
+Now, the Business section.
+
+How Apple Plans to Root Out Bugs, Revamp iPhone Software - Bloomberg
+
+Apple realizing that they need to slow down a bit. Articles like this serve as a reminder to me that nobody has this technology thing figured out. The largest sites on the planet go down at times, and one of the worlds leading software companies has to adjust due to market issues. This stuff is all really hard.
+
+Mall game
+
+Fun and insightful way to show the challenges of managing an American Shopping Mall. Learn by playing!
+
+Why I stopped using roadmaps and switched to GIST instead
+
+I spend a lot of time reviewing roadmaps, identifying how roadmaps connect, exploring what they could be, etc. I have always found the serial, "waterfall-like" format, challenging but time operates in one arrow so why not. This exploration on an alternative, more agile approach, is intriguing.
+
+The system is called GIST after its main building blocks: Goals, Ideas, Step-projects, and Tasks. Each has a different planning horizon and frequency of change, and may use different tools to track, but together they constitute all the core planning any company and team needs to do.
+
+That's the end of Business.
+
+Now, the Tech section.
+
+Tech’s Ethical ‘Dark Side’: Harvard, Stanford and Others Want to Address It - The New York Times
+
+It’s happening! Ethics is coming to computer science curriculums!
+
+And at Stanford University, the academic heart of the industry, three professors and a research fellow are developing a computer science ethics course for next year. They hope several hundred students will enroll.
+
+This is a much needed facet for people that are developing the software that many people live inside of for significant parts of their days.
+
+That's the end of Tech.
+
+Now, the Games section.
+
+Pre-Order Alto’s Odyssey —Tools and Toys
+
+Alto's Adventure is one of the few iOS games that I still play years after it’s initial release. The game has a Zen feel to it that I really enjoy and the visuals are artful. I already pre-ordered Alto's Odyssey!
+
+That's the end of Games.
+
+Now, the Management section.
+
+Meeting Blur – Rands in Repose
+
+What a great term! I've experienced this myself on many occasions!
+
+Meeting Blur. When the number of meetings exceeds your ability to remember what was said by whom, when, and where. Let’s forget for a moment why there are so many meetings2 and focus on your mental state. You’re a bright emotionally intelligent human. You walk into a meeting and have a credible mental profile of each human at the table. Why are they here? What do they want? How do they feel about the topic at hand? All of this information is front of mind and readily accessible.
+
+For me, this is where my trusted GTD system can help. I've also tried to use a note taking system but I've yet to get the return on that that I would like.
+
+Let's Encrypt is a free, automated, and open certificate authority, run for the public’s benefit. All connections to web servers should be encrypted! The biggest challenge with encrypting the web historically has been the cost and hassle of getting an SSL certificate. Let's Encrypt has changed that entirely by being a free certificate authority. Let's Encrypt is possibly one of the most important things to happen on the web in recent years. Donate to Let's Encrypt today!
+
+OmniOutliner 3
+
+by The Omni Group
+
+OmniOutliner 3 for iOS brings structured writing to a wider audience with the introduction of OmniOutliner Essentials and adds highly anticipated features to OmniOutliner Pro.
+
+OmniOutliner got a major upgrade to version 3 and with it they have made it very easy to get started with the Essentials option. If you have never used an outliner you should check OmniOutliner out. Outliners are fabulous for brainstorming, taking notes in meetings or working through tasks.
+
+Free 4.5/5 stars
+
+- Now I sort of want one of these Loog Pro Electric guitars.
+- We got Tyler a Loog Pro Electric Red guitar and little Fender Mini Amp for birthday. Huge hit!
+- Espresso.
+- Looks like Adobe has put Lightroom out of it’s misery. I’m going to have to rethink my entire photo collection. Ugh.
+- The Greatest Showman was a fabulous movie! Really enjoyed the story and the music. Very well done.
+- Saw preview for Isle of Dogs — looks fabulous!
+- Tammy makes a Family Yearbook each year and I made the cover this year!
+- Hosted Tyler’s bowling birthday party! kids had a great time. Could use a nap now.
+
+That's the end of Management.
+
+Thank you for subscribing to the Weekly Thing! If you know of people that would like the Weekly Thing please forward it along!
+
+That brings us to the end of the Weekly Thing, issue 41. Thanks for listening, and I'll see you next time.

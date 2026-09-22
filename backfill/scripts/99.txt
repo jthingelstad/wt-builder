@@ -1,0 +1,114 @@
+The Weekly Thing, issue 99. Mar 30, twenty nineteen. Published March 30, twenty nineteen. By Jamie Thingelstad. In this issue: Apple Card, brain on exercise, Shortcuts 2.2, Drafts for Mac, privacy not an abstraction, most important writing lesson, Distinguished Engineer.
+
+More travel this week! I've been visiting #TeamSPS in Little Falls New Jersey! It’s been great to be here and see everyone, and far too long since I've visited. No board game night on this trip, next time! I've definitely been on planes a lot lately, and I’m only about halfway through. We are heading to Texas for Spring Break this weekend. We'll be in Austin, San Antonio and Waco! Yes, barbecue is on the agenda!
+
+Not a ton of links this week. A bunch of folks have been asking me about the Apple Media event from earlier this week. In general it didn't get me that Apple Card will probably be a slow start but meaningful, and Apple Arcade looks really cool. The rest? Well, it isn't even out yet so who knows. I won't be getting rid of YouTube TV anytime soon.
+
+Now, the Featured Links section.
+
+Link one. "How Apple Card works | TechCrunch"
+
+A lot of good details answered here on how the Apple Card will work. MacStories has a very good writeup as well. I’m more intrigued about what Apple is doing here than I thought I would be. If you go way back to when the iPhone was introduced, Apple introduced Visual Voicemail. Today that is all just assumed, but back then voicemail worked with key presses. Apple changed the usability of voicemail in a big way, and made that the default. What they are doing with credit cards feels a little bit like that.
+
+Link two. "Don’t solve the problem. - Signal v. Noise"
+
+I know I've fallen into this trap many, many times. I see others do it a good amount as well. I have a feeling in technology disciplines this might happen more frequently than others.
+
+What you’ll notice when you ask these questions is that most employees already have an answer (or several answers!) to a given problem. But they were uncomfortable with it, or they were worried about getting it “wrong.”
+
+Part of asking the questions isn’t just to help them think through the problem more clearly, but also to help them realize they know more than they think, they’re more capable than they think, and that they’ve mitigated the risks better than anticipated.
+
+Your job as a leader isn’t to just help clarify thought process – but to give confidence in their thinking.
+
+The questions suggested here are a good set to start with, but the more fundamental concept is rethinking how you engage in problem solving as a leader.
+
+Link three. "This Is Your Brain on Exercise | Outside Online"
+
+Exercising is good for the noodle as well.
+
+These structural changes in the brain generally take at least a few weeks to develop but lead to long-lasting improvements in regions of the brain associated with cognitive tasks, like working memory. “A lot of intervention studies that are out there show that aerobic exercise increases neurogenesis in the hippocampus, for example” says Giesbrecht. “The hippocampus is really critical for memory.”
+
+That's the end of Featured Links.
+
+Now, the My Weekly Photo section.
+
+All lights on the drummer!
+Mar 26, twenty nineteen at 9:59 PM
+Ames Center, Burnsville MN
+
+That's the end of My Weekly Photo.
+
+Now, the Notable Links section.
+
+Link one. "Shortcuts 2.2 Brings New Apple Notes Actions, Travel Time Enhancements – MacStories"
+
+I love seeing continued improvement in Shortcuts. I get a ton of value out of the Shortcuts that I've built, and these enhancements helped me tweak a couple of mine to have some nicer capabilities.
+
+Link two. "Drafts for Mac: The MacStories Review – MacStories"
+
+Drafts has been a powerful tool for me on my mobile, and I've been using the beta of Drafts for Mac for a bit. It’s nice to see this out in release and will support some additional use cases for me. Honestly I find that I have almost too many places to deal with text on my devices. It seems like iA Writer, Drafts and Ulysses are the ones worth thinking hard about.
+
+Link three. "Privacy's not an abstraction"
+
+This article does a good job of highlighting what privacy concerns look like from different perspectives.
+
+On a more basic level, infringing on people’s privacy for your own purposes is exploitative. The assignment reflects the logic of digital platforms, which treats people’s data as raw material to be extracted and put to one’s own uses. While this extraction is currently legal, it is a “norm” inflicted upon us by platforms such as Google, Facebook, and Amazon. This kind of extraction is surveillance, and whether it is done online or in the “real world,” it intrudes upon people’s rights to move about in public in relative obscurity if they so wish.
+
+The author introduces the idea of "luxury surveillance", where you are being watched with at least a partial intent to help you. I think we should also consider the idea that there is a surveillance that is forced onto people if they don't have the technical understanding to counter it.
+
+Link four. "The Most Important Writing Lesson I Ever Learned – Steven Pressfield"
+
+As someone that writes a blog, a newsletter and comments on links regularly I enjoyed this read the lesson it contains.
+
+When you understand that nobody wants to read your shit, your mind becomes powerfully concentrated. You begin to understand that writing/reading is, above all, a transaction. The reader donates his time and attention, which are supremely valuable commodities. In return, you the writer, must give him something worthy of his gift to you.
+
+Channel your inner Hemingway.
+
+Link five. "Jessie Frazelle's Blog: Defining a Distinguished Engineer"
+
+This is a great set of desires traits for technical leaders, and most apply to all leadership roles.
+
+That's the end of Notable Links.
+
+Now, the Give Back section.
+
+Minnestar is the technology community for Minnesota. If you are passionate about technology you need to go to Minnebar and Minnedemo. Did you know that Minnebar is the largest BarCamp in North America and one of the largest in the world? Its also been going on for over 10 years? Minnedemo is the best place to hear about innovative tech and fun projects in the Twin Cities area. I am on the Minnestar board and I focus on Minnestar as one of the driving forces improving and expanding the technology community in the area. Minnestar is a 501c3 non-profit. Become a Community Supporter today!
+
+That's the end of Give Back.
+
+Now, more links.
+
+- Why Fastly loves QUIC and HTTP/3 www.fastly.com
+Some key reasons to be excited about HTTP/3.
+
+That's the end of More Links.
+
+Now, the Microposts section.
+
+Tuesday @ 7:17 PM
+
+Tyler and I are having a great time at One Night of Queen! He is a huge Queen fan!
+
+Monday @ 6:42 PM
+
+iOS update fest.
+
+Sunday @ 12:11 PM
+
+Sous Vide tenderloin started!
+
+Saturday @ 5:15 PM
+
+Enjoying an evening with The New Standards at The Dakota.
+
+That's the end of Microposts.
+
+Now, the Fortune section.
+
+You've made it all the way to the end! Here is your fortune for this week.
+
+A gift of a flower will soon be made to you.
+
+Thank you for subscribing to the Weekly Thing!
+
+That brings us to the end of the Weekly Thing, issue 99. Thanks for listening, and I'll see you next time.

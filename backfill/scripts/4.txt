@@ -1,0 +1,185 @@
+The Weekly Thing, issue 4. Weekly Thing for June 3, twenty seventeen. Published June 3, twenty seventeen. By Jamie Thingelstad. In this issue: Fuck Facebook, Pinboard acquires Delicious, enough microservices, Siri Speaker, Halide, Airbnb data science, blockchains ground up.
+
+No new sections to the Weekly Thing this week, I think the format is pretty well settled and I’m planning this week to more broadly spread the word about this. I need a better subscribe page on my main website for it. Feedback is still desired, just reply to this email if you have suggestions or just want to say hello!
+
+A lot of links this week again. Next week we have Apple's Wordwide Developer Conference. I’m eager to see what get's announced. New macOS and iOS versions are a given and the rumored Siri Speaker has my interest piqued.
+
+Now, the Blog posts section.
+
+Turing Tumble on Kickstarter
+
+Very cool Kickstarter project to learn the fundamentals of how computers work! Made by Paul Boswell right here in Minneapolis. Hit it’s funding goal on the first day.
+
+That's the end of Blog posts.
+
+Now, the Photog section.
+
+There is a dirt path that follows Minnehaha Creek as you come down Logan Ave heading south. Just after walking over a small bridge it veers off the sidewalk and heads to Morgan Ave, our street. It’s short and sometimes can be a bit muddy if it’s rained a lot. I love taking that path whenever I can. It is like a little escape, a momentary pause from the city. If you look the right direction you feel like your in the woods. Stop for a moment, take a breath, listen to the water.
+
+Jun 1, twenty seventeen, 7:31 PM 5100 Logan Ave S Minneapolis‎ MN‎ 55419 United States.
+
+That's the end of Photog.
+
+Now, the Links section.
+
+Link one. "There are bots. Look around."
+
+Quote.
+The marketplace of ideas is now struggling with the increasing incidence of algorithmic manipulation and disinformation campaigns.
+End quote.
+
+Link two. "Daring Fireball: Fuck Facebook"
+
+Quote.
+You might think it’s hyperbole for Winer to say that Facebook is trying to kill the open web. But they are. I complain about Google AMP, but AMP is just a dangerous step toward a Google-owned walled garden — Facebook is designed from the ground up as an all-out attack on the open web.
+End quote.
+
+Link three. "Enough with the microservices | Adam Drake"
+
+Provocative post that you could write about whatever the tech 'fad' of the moment is. While it could be seen as a cynical perspective, it’s worth keeping this in your mind. Technology can at time love fads, and fetishize complexity.
+
+Link four. "Disposable AppleScripts - All this"
+
+Nice writeup to remind us to consider the scripting engines of Mac OS as quick hit power tools. Often people only consider these ways to automate very frequent tasks. They can be crazy powerful for one off things too.
+
+Link five. "Change goes away | The IT Skeptic"
+
+Quote.
+What does IT operational production change management look like in a highly DevOps-driven organisation? It doesn't. It vanishes.
+End quote.
+
+Link six. "The Always On Architecture - Moving Beyond Legacy Disaster Recovery - High Scalability"
+
+Quote.
+Failover does not cut it anymore. You need an ALWAYS ON architecture with multiple data centers. Failover, switching to a redundant or standby system when a component fails, has a long and checkered history as a way of dealing with failure.
+End quote.
+
+Link seven. "Github / face_classification"
+
+Remember this technology every time you interact with a digital advertising display in a store.
+
+Link eight. "Pinboard Acquires Delicious"
+
+Pinboard has always been a scrappy little 1-person 'solopreneur' company. It’s founder has built a solid small business. Delicious was the first big website for bookmarks. It was, at various times, worth millions of dollars. Now Pinboard still stands, and is growing slowly but consistently. And Delicious is now owned by Pinboard. It all comes full circle.
+
+Link nine. "No Assistant, No Problem: Using a Calendaring Service"
+
+I use Calendly in a similar way to how Kati describes in this post. It’s been a great service for me!
+
+Link ten. "twenty seventeen Internet Trends — Kleiner Perkins Caufield Byers"
+
+Mary Meeker has been publishing her annual perspective on the web for years now. Always a good read.
+
+Link eleven. "People You Want to Work With - Allen Pike"
+
+Quote.
+You should have a Hire List.
+End quote.
+
+Link twelve. "How Facebook's tentacles reach further than you think - BBC News"
+
+Quote.
+Facebook's collection of data makes it one of the most influential organisations in the world. Share Lab wanted to look "under the bonnet" at the tech giant's algorithms and connections to better understand the social structure and power relations within the company.
+End quote.
+
+Link thirteen. "Dual Track Development is not Duel Track - Jeff Patton"
+
+Quote.
+That’s our bet, our best guess, our belief, our hypothesis. All of those are uncomfortable words for people who believe they’re building the right thing. But, the truth is, we’re always making a bet that we’ll get value. Embedded in that bet are lots of assumptions, risks, and maybe some questions. To focus our learning, we’ll choose the assumption, risk, or question that scares us the most and identify an experiment or method to learn. Then do it. Then use what we’ve learned to change all those going-in beliefs about problems and solutions.
+End quote.
+
+Link fourteen. "Welcome to Cast"
+
+This has to be one of the easiest ways to create your own podcast.
+
+Link fifteen. "Apple Is Manufacturing a Siri Speaker to Outdo Google and Amazon - Bloomberg"
+
+Quote.
+Device enters overseas production ahead of annual conference Company seeks differentiation with surround sound, Apple Music Apple Inc. is already in your pocket, on your desk and underneath your television.
+End quote.
+
+Link sixteen. "Airbnb is running its own internal university to teach data science | TechCrunch"
+
+Quote.
+Tech companies, and increasingly even non-tech companies, are struggling with the fact that there are not enough trained data scientists to fill market demand. Every company has their own strategy for hiring and training, but Airbnb has taken things a step further — running its own university-style program, complete with a custom course-numbering system.
+End quote.
+
+Link seventeen. "Clutter – a n n i e m u e l l e r"
+
+Clutter v. Messes.
+
+Link eighteen. "Halide —Daring Fireball"
+
+Quote.
+It takes some real grit to create a new iPhone camera app in twenty seventeen. To say that “camera apps” constitute a crowded category in the App Store is an understatement, and every camera app is competing against the system’s built-in Camera app, which (a) is very good, and (b) has built-in advantages — like being accessible from the lock screen by swiping right — that third-party apps can’t match.
+End quote.
+
+Link nineteen. "Halide"
+
+Quote.
+Smartphones feature excellent camera sensors, but the experience of taking photos is still far less pleasant than using a physical camera. Halide gives you a tactile, intuitive, yet powerful way to take beautiful photos.
+End quote.
+
+Link twenty. "On Time Blocking | Using OmniFocus"
+
+Quote.
+What is time blocking? Time blocking is the act of scheduling sessions of work on a calendar. By deliberately assigning work time on a calendar, we automatically acknowledge the immutable resource of time.
+End quote.
+
+Link twenty one. "Linea + iCloud: Your Sketches, Everywhere You Need Them • The Breakroom"
+
+Nice improvements in a very solid drawing app for the iPad Pro.
+
+Link twenty two. "Blockchains from the ground up: Part 1 - John Mathews"
+
+Quote.
+Using a scenario that begins with the exchange of apples for oranges, understand the essential concepts and advantages of blockchains. This is part 1 of an introduction to the key features of a generalised blockchain.
+End quote.
+
+Link twenty three. "Yoink"
+
+Quote.
+Simplify and Improve Drag and Drop on your Mac and speed up your daily workflow.
+End quote.
+
+Link twenty four. "WhereGoes?"
+
+Quote.
+WhereGoes does 1 thing: it takes a URL and shows you the entire path of redirects and meta-refreshes that leads to the final destination. It's a unique utility that lets you troubleshoot links and perform competitive intelligence in a way that wasn't possible before.
+End quote.
+
+Link twenty five. "Platform Tech Strategy: The Three Layers | ThoughtWorks"
+
+Quote.
+It feels like everyone is talking about platforms. Platform Thinking, Platform Strategies even the Platform Revolution. Platforms, it is argued, are the disruptive secret upon which a digital business is formed.
+End quote.
+
+That's the end of Links.
+
+Now, the Promotion section.
+
+Minnestar is the technology community for Minnesota.  If you are passionate about technology you need to go to Minnebar and Minnedemo. Did you know that Minnebar is the largest BarCamp in North America and one of the largest in the world? It’s also been going on for over 10 years? Minnedemo is the best place to hear about innovative tech and fun projects in the Twin Cities area. I am on the Minnestar board and I focus on Minnestar as one of the driving forces improving and expanding the technology community in the area. Minnestar is a 501c3 non-profit. Become a Community Supporter today!
+
+That's the end of Promotion.
+
+Now, the Microblog updates section.
+
+- Walked around the block in an attempt to close my activity rings. Stubbornly stuck with 1 minute to go.
+- Minnehaha Creek.
+- Fidget spinner thing happened.
+- Backed Turing Tumble on Kickstarter! Looks like a really fun game to play and learn with kids!
+- Lost my leather coin purse. Good thing I inventoried some replacements.
+- Holiday weekend. Mandatory grilling. Big Green Egg for the win!
+- Some cold fishing for crappies this morning off the dock.
+- Evening bike ride with the kids to Shager Park beach on Cannon Lake.
+- Trying to figure out how to throw a horseshoe. Still more work to do.
+- Today was a 10 out of 10. Way to go everyone!
+- Got the bags out too. Quest to have all the yard games!
+- Nice afternoon on Cannon Lake.
+- Ringer! #horseshoes
+
+That's the end of Microblog updates.
+
+Thank you for subscribing. If you know of people that would like the Weekly Thing please forward it to them and spread the word! The archive is also available to see this and all past issues.
+
+That brings us to the end of the Weekly Thing, issue 4. Thanks for listening, and I'll see you next time.

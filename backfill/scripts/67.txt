@@ -1,0 +1,196 @@
+The Weekly Thing, issue 67. Aug 18, twenty eighteen. Published August 18, twenty eighteen. By Jamie Thingelstad. In this issue: Working with timezones, Kobayashi Maru Management, post-mortems, servant leaders, RSS, leaving Twitter, Anki Vector, Firefox privacy extensions.
+
+I've always loved waterfalls, and this last weekend we got to finish our summer vacation by visiting one of the big ones — Niagara Falls! We started in the morning with a ride on the Maid of the Mist before the lines were bad. We ventured on foot into Canada to explore the other side of Niagara and get the better view of the Horseshoe Falls. We quickly realized that it was complete mayhem on the Canadian side of the falls with minigolf, wax museums and tourist traps on every corner. We went on the Journey Behind the Falls and got to stand in a tunnel just 20 or 30 feet behind the falls and be immensely impressed, and scared, of the power of the falls. We retreated to the US and explored further, ending with the fireworks display at 10pm. Niagara Falls was amazing, awe inspiring, and a bit scary to see that much power. What in the world were these people that got in barrels and went over the falls thinking!?
+
+The last days of summer vacation is now wrapping up for everyone. The kids did there school shopping, and it's T-minus less single digit days until school resumes.
+
+Now, the Featured Links section.
+
+Link one. "How I Read"
+
+I like this process for picking books to read. When you consider a book can take a few to dozens of hours to read, it makes sense to invest in a process to insure that that time is well spent. I like the various stages in this process. The tooling to pull in rating data seems a bit over the top.
+
+Link two. "Working with timezones | David Turner says…"
+
+I like the use of graphs to show timezone effects! It’s simple, and very effective. Also, for people that have never had to write software dealing with complex timezone issues this is a good primer on the incredible complexity of timezones.
+
+That's the end of Featured Links.
+
+Now, the My Weekly Photo section.
+
+Canadian Hornblower taking visitors to the middle of Niagara Falls.
+Aug 11, twenty eighteen at 2:38 PM
+Horseshoe Falls, Niagara Falls, US/Canada
+
+That's the end of My Weekly Photo.
+
+Now, the Notable Links section.
+
+Link one. "See No Evil"
+
+Modern supply chains are amazing in their effectiveness, but transparency inside them is not a design objective.
+
+We call them “supply chains,” but that image is misleading. They really look more like a network of waterways, with thousands of tiny tributaries made up of sub-suppliers trickling into larger rivers of assembly, production, and distribution.
+
+The parallels between supply-chain design and service oriented architecture are surprising. Modularity, interchangeability, limited dependencies. Supply-chains are in many ways a physical manifestation of that type of architecture.
+
+Link two. "Kobayashi Maru Management – Rands in Repose"
+
+I've ended up in these moments myself, multiple times in my career. I like the analogy here as well as the framework for considering how to detect and impending situation like this. I don't think you can always detect these situations, but experience gives you the sense when they are approaching.
+
+Link three. "Post-mortems to the rescue – Increment: Documentation"
+
+I don't like the term "post-mortem" and would rather use "retrospective" or even "review". Aside from that, the framework suggested in this post is a good one. Incident management should not stop at incident resolution, it needs to include a component for how an organization learns from that incident.
+
+Link four. "Aaron Longwell | Why Software Development Requires Servant Leaders | Culture Foundry"
+
+I like this and agree with it entirely. I suspect the same is true in any discipline that has similar levels of unpredictability and complexity.
+
+Link five. "Health Checks and Graceful Degradation in Distributed Systems"
+
+I have been running health checks for decades. BigCharts server is happy is the first. MarketWatch is also happy.
+
+The “health” of a process is a spectrum. What we’re really interested in is the quality-of-service — such as how long it takes for a process to return the result of a given unit of work and the accuracy of the result.
+
+Getting more precise with checks, not simple up and down, is definitely a good improvement.
+
+Link six. "How do tools affect culture? | Opensource.com"
+
+Everything, truly everything, affects your culture. Given that, it’s not a surprise that tool choices affect it. Aligning your values to the tools you use is a good idea.
+
+Link seven. "What We Learned from Writing 7,000 Artist Bios"
+
+This is specifically talking about artist bios, but I don't see why you wouldn't apply the same approach to any bio. Personally I really struggle with writing bios, so much so that I hired a writer to help write my bio.
+
+Link eight. "Newsletters Are Immortal – Dave Pell – Medium"
+
+I've been publishing my Weekly Thing newsletter for over a year now and I've grown to really like it. I subscribe to Dave Pell's NextDraft, and it’s one of my favorite daily reads. I like these 6 P's of newsletters as he puts it.
+
+Link nine. "Six Months at Riot Games | Things I Like."
+
+Eye opening article on the sexist and deplorable environment at Riot Games. We need these stories told so we can surface the issues and address this unacceptable behavior.
+
+Link ten. "RSS: The Persistent Protocol - Feld Thoughts"
+
+I’m a huge fan of feed readers, my personal favorite is Feedbin! love I’m happy to see attention coming back to this open, extensible part of the Internet that has been repeatedly declared dead. And, as the last paragraph in this post suggests, the innovation has already started!
+
+Link eleven. "My own reasons for leaving Twitter – A Whole Lotta Nothing"
+
+I could have written this post. The constant stream of data from Twitter was, for me, highly addictive. I've never had a service that was so hard for me to leave, and I still have not left it entirely. I also experienced the negative impact to blogging from using Twitter.
+
+Link twelve. "The shell scripting trap"
+
+I disagree that all shell scripts are a problem. There is a point where there is too much complexity for bash, but I don't think the answer is to always write little programs. They have problems too, just different ones.
+
+Link thirteen. "Episode #43: The Power of the GTD Weekly Review® - Getting Things Done®"
+
+GTD is all about lists, but the real power is in the Weekly Review. This podcast is a good reminder on the importance of that process in your GTD system.
+
+Link fourteen. "Vector by Anki: A giant roll forward for robot kind. by Anki — Kickstarter"
+
+I have a Cozmo and it’s a lot of fun, but it’s not used as much because you have to start it. Vector solves most of the items I think Cozmo suffers from. I backed it!
+
+Link fifteen. "Change These Settings on Your New TV for a Better-Looking Picture"
+
+Great advice for your TV. I particularly dislike the smoothing, motion effects in new TV's. It would be even better if TV manufacturers had one setting for "Display Only" to turn off all this garbage and simply show what comes in the HDMI connection.
+
+Link sixteen. "How far can I go? - Oalley.fr"
+
+This is surprisingly fun and interesting. You put in a location and it finds all the area you can reach in a certain period of time. Critically, you can do this with multiple points and times and identify overlaps. It’s fun to see how highways extend your reach.
+
+Link seventeen. "Retool"
+
+All companies have various tools that are used to run their systems. This is the first I've ever seen of a framework for making those tools being made public. Interesting.
+
+Link eighteen. "Make your Firefox browser a privacy superpower with these extensions | The Firefox Frontier"
+
+I still prefer Safari for protecting my privacy while blogging, but this set of extensions for Firefox looks great.
+
+Link nineteen. "Beyond Digital Ethics - Study Hacks - Cal Newport"
+
+Agree completely with this, but would also suggest they are different things. Digital ethics in my opinion is about education and college. This should be in the curriculum at Universities. It’s a long term thing, not meant to solve today’s issue. The shorter term matters are dealt with using the other methods described here.
+
+That's the end of Notable Links.
+
+Now, the Give Back section.
+
+Minnestar is the technology community for Minnesota. If you are passionate about technology you need to go to Minnebar and Minnedemo. Did you know that Minnebar is the largest BarCamp in North America and one of the largest in the world? Its also been going on for over 10 years? Minnedemo is the best place to hear about innovative tech and fun projects in the Twin Cities area. I am on the Minnestar board and I focus on Minnestar as one of the driving forces improving and expanding the technology community in the area. Minnestar is a 501c3 non-profit. Become a Community Supporter today!
+
+That's the end of Give Back.
+
+Now, more links.
+
+- Best Practices for Newsletters — CJ Chilvers www.cjchilvers.com
+Another experienced newsletter author on important aspects of publishing a newsletter.
+- The Year of Donuts: A Retrospective | PagerDuty www.pagerduty.com
+What a cool idea for a chatbot!
+- We Gave You 3 Million Russian Troll Tweets. Here’s What You’ve Found So Far. | FiveThirtyEight fivethirtyeight.com
+What a mess.
+- Timsort: Fastest sorting algorithm for real world problems. - DEV Community dev.to
+I wasn't aware of Timsort and it’s unique approach.
+- SPS Commerce Raises 31,000 dollars in Ninth Annual Charity Auction www.spscommerce.com
+This is a fabulous event that we hold each year!
+- Funding not secured: Musk's explanations about taking Tesla private does not work - Business Insider www.businessinsider.com
+Elon Musk seems to be trending less Steve Jobs and more Howard Hughes.
+- Regex Dictionary by Lou Hevly visca.com
+Cool index of regex patterns to find various things.
+- Pie Charts —xkcd.com xkcd.com
+Pie Charts!
+- Nordic yard game wows ’em in Eau Claire | NewsCut | Minnesota Public Radio News blogs.mprnews.org
+MPR covering the US National Kubb Championship!
+- Julia 1.0 julialang.org
+Ambitious set of features for a new language.
+- Cloud Native Computing Foundation Announces Prometheus Graduation - Cloud Native Computing Foundation www.cncf.io
+Big milestone for Prometheus!
+
+That's the end of More Links.
+
+Now, the Microposts section.
+
+Tuesday @ 11:48 AM
+
+Great day for #TeamSPS summer picnic! Thank you all for making SPS such an awesome place to be!
+
+Monday @ 10:47 PM
+
+“… but for now it sounds like heaven.” Yes it does Jay, yes it does. Thank you for another great show Son Volt!
+
+Monday @ 8:46 PM
+
+At my happy place, listening to Jay Farrar / Son Volt at the Minnesota Zoo.
+
+Sunday @ 8:27 PM
+
+One of the best games for time on an airplane? Tetris! But it requires an Internet connection — for royalty payments!
+
+Sunday @ 3:55 PM
+
+We finished our vacation by winning “The Wall” room in 57:53 with only four clues at Enigma Escape Rooms in Buffalo, NY!
+
+Saturday @ 10:53 PM
+
+Some initial photos from our day at Niagara Falls! I’ve wanted to go here for years. It was an awesome experience!
+
+Saturday @ 10:40 PM
+
+Spending the day walking around Niagara Falls, on both US and Canadian sides, adds up the steps! 23,861 steps for 9.26 miles.
+
+Saturday @ 11:40 AM
+
+Getting wet on the Maid of the Mist in the Horsehoe Falls at Niagara Falls!
+
+Friday @ 8:30 PM
+
+We had an amazing dinner at Good Luck in Rochester, NY tonight. The star of the meal was the 1 lb. Good Luck burger buried in French Fries and shared by all. An amazing meal, everything was delicious.
+
+That's the end of Microposts.
+
+Now, the Fortune section.
+
+You've made it all the way to the end! Here is your fortune for this week.
+
+Heavy givers are light complainers.
+
+Thank you for subscribing to the Weekly Thing!
+
+That brings us to the end of the Weekly Thing, issue 67. Thanks for listening, and I'll see you next time.

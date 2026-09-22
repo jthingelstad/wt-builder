@@ -1,0 +1,215 @@
+The Weekly Thing, issue 75. Oct 13, twenty eighteen. Published October 13, twenty eighteen. By Jamie Thingelstad. In this issue: Tesla Model 3 safety, OpenID decline, Instagram bullying, Apple Frames shortcut, RECaf caffeine tracking, Halide RAW camera, senior engineer's job.
+
+You could call this the New York issue of the Weekly Thing. For years I’ve told my kids that when they turn 13 I will take them on a trip, just Dad and them, to New York City to see the sights. Mazie is 13 so we boarded our flight to Newark on Friday and spent the weekend seeing NYC in all of it’s grandeur.
+
+It was so great to see the city through her eyes. She loved the experience of New York. For sure, School of Rock: The Musical was a big highlight for her. We saw the Statue of Liberty and also looked up my Great Grandfather Josef Gins in Ellis Island. It was amazing for my daughter to think of him at 15 years old, just two years older than her, immigrating to the United States all on his own.
+
+We had a fabulous time and we need to make this the first, not the last, of trips like this.
+
+I also want to welcome a group of subscribers that discovered the Weekly Thing via Azeem Azhar's Exponential View! I subscribe to EV and they welcome subscribers to share things they are working on. In issue #186, there is a mention of the Weekly Thing in the “What you are up to” section. Welcome to my little spot in your mailbox to share what was interesting to me over the last week. I hope you enjoy it!
+
+Now, the Featured Links section.
+
+Link one. "How Tesla Made the Model 3 So Safe"
+
+This article highlights some of the amazing safety aspects of the Tesla Model 3.
+
+So basically, when Tesla says its Model 3 has the “lowest probability of injury” ever tested by NHTSA, it means that the overall VSS score (which represents the “relative risk of injury with respect to a baseline of 15 percent”) of 0.38 is lower than that of any car ever tested.
+
+That’s impressive, any way you slice it.
+
+Lowest ever is very impressive!
+
+Link two. "Tech Workers Now Want to Know: What Are We Building This For? - The New York Times"
+
+It’s about time that technology workers factor the outcome of their work into their decision to work on it.
+
+Across the technology industry, rank-and-file employees are demanding greater insight into how their companies are deploying the technology that they built. At Google, Amazon, Microsoft and Salesforce, as well as at tech start-ups, engineers and technologists are increasingly asking whether the products they are working on are being used for surveillance in places like China or for military projects in the United States or elsewhere.
+
+That’s a change from the past, when Silicon Valley workers typically developed products with little questioning about the social costs.
+
+This is a good thing.
+
+That's the end of Featured Links.
+
+Now, the My Weekly Photo section.
+
+View of Manhattan skyline from Ellis Island with sailboats going by.
+Oct 7, twenty eighteen at 1:08 PM
+Ellis Island, New York
+
+That's the end of My Weekly Photo.
+
+Now, the Notable Links section.
+
+Link one. "The Decline of OpenID"
+
+It bums me out that OpenID failed. I was a big fan of OpenID when it came out and wanted to see it grow and succeed.
+
+Link two. "Teens Are Being Bullied 'Constantly' on Instagram - The Atlantic"
+
+There are a lot of kids on Instagram and this article highlights some of the dark sides of cyber bullying.
+
+Link three. "Apple Frames: A Shortcut for Framing Screenshots from Every Apple Device — MacStories"
+
+This is a very specialized shortcut, and great for bloggers. It’s also a brilliant example of the cool capabilities that you can achieve with a Shortcut.
+
+Link four. "RECaf Review: Effortless Caffeine Tracking — MacStories"
+
+This app is a great tool for those that want to track their caffeine intake. It’s also a great example of using the newest capabilities in iOS 12 to connect to things like Siri Shortcuts and put actionable items directly in notifications.
+
+Link five. "The Game of Kubb on Vimeo"
+
+My friend Garrick sent me this humorous and fun introduction to the awesome game of Kubb.
+
+Link six. "Help us Build Ping.MN – ping.mn – Medium"
+
+I’m curious to see how this new publication takes off. They just had their first meeting and I like the general direction they are taking with this. Subscribed!
+
+Link seven. "Halide 1.10: The Smartest RAW – Halide"
+
+The Halide team is doing some amazing work with the new camera technology in the iPhone XS!
+
+Link eight. "What's a senior engineer's job? - Julia Evans"
+
+It’s a little surprising that 20-30 years into the discipline of software engineering we are still debating what different levels mean, but there is a lot of ambiguity and difference between organizations on this.
+
+That's the end of Notable Links.
+
+Now, the Give Back section.
+
+The Electronic Frontier Foundation is the leading nonprofit organization defending civil liberties in the digital world. I have been a member of the EFF for years. Not only is the EFF working hard to protect you on the Internet they have also recently launched solutions like Privacy Badger and the critically important Let's Encrypt service to make encrypting web servers free to anyone. Support the EFF with a donation!
+
+That's the end of Give Back.
+
+Now, more links.
+
+- Rosie Pattern Language: Improving on 50-year Old Regular Expression Technology - Strange Loop
+I didn’t even know there was an alternative to regular expressions like this.
+- The Pixel 3: Everything You Need To Know About Google's New Phone
+Google’s newest incarnation of their flagship phone. Some cool innovations.
+- Latest Revision to ARM Instruction Set Includes Optimizations Just for JavaScript — Daring Fireball twitter.com
+This explains why Javascript is so fast for certain benchmarks on the iPhone XS!
+- The Internet’s keepers? “Some call us hoarders—I like to say we’re archivists” | Ars Technica arstechnica.com
+I’m a fan of Internet Archive.
+- Facebook announces Portal, an Echo Show rival focused on video chat - The Verge www.theverge.com
+I’m skeptical of these "Smart Screens". I’m downright cynical of one made by Facebook.
+- Statement from DHS Press Secretary on Recent Media Reports of Potential Supply Chain Compromise | Homeland Security www.dhs.gov
+This story of Chinese security backdoor on the silicon level just keeps getting more confusing.
+- DeleteMe - Privacy Protection Services abine.com
+Services like this are needed, but I constantly wonder how many of them are just backdoor ways to mine your private data even more.
+- Scaling Engineering Teams via Writing Things Down and Sharing - aka RFCs blog.pragmaticengineer.com
+Perhaps the key to scaling isn’t as complicated as we make it — just write things down!
+- A Banksy Painting 'Self-Destructed' After Being Auctioned for 1.1 million dollars - VICE www.vice.com
+
+That's the end of More Links.
+
+Now, the Microposts section.
+
+Thursday @ 7:11 PM
+
+Excited for #Minnedemo 30 tonight! And always proud to have SPS Commerce as a Terabyte sponsor!
+
+Wednesday @ 10:36 PM
+
+Nice opportunity to network with other technology leaders, and try some delightful wines tonight!
+
+Tuesday @ 11:52 PM
+
+Just used the new iOS Shortcuts “Run JavaScript on Web Page” feature to automate a task that had no API endpoint before. It’s a very interesting capability. You can shove stuff in and out of the page and trigger other events while doing it.
+
+Monday @ 8:22 PM
+
+Mazie and I returned home from our Daddy/Daughter trip to NYC. We brought a Birthday Cake from Milk Bar home for everyone.
+
+Monday @ 8:19 PM
+
+The southern edge of Central Park.
+
+Monday @ 8:18 PM
+
+This building is going to very cool when completed.
+
+Monday @ 8:17 PM
+
+Mazie and I hiked the length of the High Line in Manhattan today. We started on thirtieth street and walked south to the end. It was a delightful way to spend the morning, and a nearly perfect photo walk opportunity. It was a great place to exercise the iPhone XS camera.
+
+Sunday @ 10:20 PM
+
+Mazie and I went to School of Rock on Broadway tonight and loved it! Great music, amazing acting from such young actors! The kids play all the music and are amazing! Highly recommended!
+
+Sunday @ 10:16 PM
+
+I returned to Molyvos for the first time in probably 10 years. I can report the Lamb Shank Yuvetsi is still amazing and the rolled Baklava is delightful.
+
+Sunday @ 10:12 PM
+
+The Seaglass Carousel in Battery Park.
+
+Sunday @ 10:07 PM
+
+Exploring Ellis Island with Manhattan in the background.
+
+Sunday @ 10:05 PM
+
+It was great to finally visit the Statue of Liberty. We also went to Ellis Island and looked up the entry records for my great grandfather Josef Gins who came to the United States when he was 15.
+
+Sunday @ 11:31 AM
+
+Mazie and I got to meet Lady Liberty today!
+
+Saturday @ 10:08 PM
+
+Steam chimneys in NYC.
+
+Saturday @ 10:04 PM
+
+Mazie and I explored Times Square tonight! 16,687 steps today.
+
+Saturday @ 10:02 PM
+
+Driving a Ferrari in Manhattan? Seems like a crazy idea to me.
+
+Saturday @ 10:00 PM
+
+Mazie and I got to hang out with my great friend from college, Greg, and his fabulous family today in NYC. It was fun to go back to stories some 25 years ago now!
+
+Saturday @ 9:54 PM
+
+Gorgeous Bonbons at Stick With Me chocolates.
+
+Saturday @ 9:51 PM
+
+Grand Central Station in Manhattan.
+
+Saturday @ 9:49 PM
+
+Subways and long exposure capabilities on iPhone XS was a lot of fun today.
+
+Saturday @ 9:45 PM
+
+Mazie and I were very impressed with the 9/11 Memorial and Museum today. An event that was so important and a life event, but happened before she was born. It was interesting to see her taking it all in. It does an amazing job of reliving that day.
+
+Saturday @ 1:44 PM
+
+Mazie and I getting some coffee at Blue Bottle Coffee by World Trade Center.
+
+Saturday @ 10:53 AM
+
+Freedom Tower.
+
+Friday @ 6:03 PM
+
+Mazie and I are heading to New York for a Daddy/Daughter trip!
+
+That's the end of Microposts.
+
+Now, the Fortune section.
+
+You've made it all the way to the end! Here is your fortune for this week.
+
+Never let the sun set on angry heart.
+
+Thank you for subscribing to the Weekly Thing!
+
+That brings us to the end of the Weekly Thing, issue 75. Thanks for listening, and I'll see you next time.

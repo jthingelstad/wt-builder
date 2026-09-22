@@ -1,0 +1,288 @@
+The Weekly Thing, issue 184. UML, Vizy, Markdown. Published May 1, twenty twenty one. By Jamie Thingelstad. In this issue: UML's death, NFT Storage on IPFS, Nexon Bitcoin purchase, 1Blocker firewall, handwriting beats typing, Emojis as Favicons.
+
+This last week has been incredible. We had tremendous fanfare around a "big birthday" in our family and it felt like the ramp of activities into Summer was starting for real.
+
+Not a ton of additional things to write this week, so let's get right to the links below!
+
+Have a great weekend!
+
+Now, the Must Read section.
+
+Link one. "Has UML died without anyone noticing? | Ernesto Garbarino"
+
+Ostensibly about Unified Modeling Language (UML), but the Garbarino correctly pivots right away to the actual trend which is to focus less on design and just get things into production. He points to Agile as the "assassin".
+
+Quote.
+Today’s paradigm, though, is that we are hopeless at understanding the problem anyway. Digital transformation gurus tell us that we should deploy into production and let the users tell us what the business requirement is, rather than formulating it ourselves a priori. We can take multiple shots until we get it right. Yes, fail fast, and often.
+End quote.
+
+Building software is a complex process, and the reality is that there is no one method that is best for all software. I would point less to Agile as the author does, and ask project teams building solutions to consider the cost of refactoring. If it is possible to build your solution from start to finish and maintain a low cost of refactoring, by all means, let us ship fast and early! However, if your cost of refactoring is not low, or increases over time, using a formal design process, potentially even something as formal as UML, may be very needed. Also, that cost of refactoring needs to be considered with external use cases as well.
+
+Link two. "Vizy"
+
+This is an amazing project. It is made even more amazing by the entry-level commodity hardware that powers it!
+
+Quote.
+You can think of Vizy as a powerful platform for AI, scientific and vision applications and a great way to become familiar with and learn AI and image processing.
+End quote.
+
+This is an interesting "edge model" where the intelligence is on the device, and then the code running locally can make decisions and act on it. Look at the example on the website of the camera watching a bird feeder, detected a squirrel, and then spraying only squirrels with water.
+
+This is an interesting, commodity platform with open source tools to power an extremely broad array of solutions.
+
+"We learn more from people who challenge our thought process than those who affirm our conclusions. Strong leaders engage their critics and make themselves stronger. Weak leaders silence their critics and make themselves weaker." — Adam Grant "Think Again" (p 86)
+
+That's the end of Must Read.
+
+Now, the Recommended Links section.
+
+NFT Storage - Free decentralized storage and bandwidth for NFTs on IPFS and Filecoin
+
+The Filecoin project created this service to provide an API "gap filler". It allows a simple REST API to put digital assets into IPFS.
+
+PrinciplesYou
+
+Ray Dalio and Adam Grant partnered up to create this new personal assessment tool to better understand your own preferences. There are a mountain of these. My favorite that I have used with hundreds of people is Insights Discovery. It is interesting to poke at new ones thought to see what else they may offer.
+
+swimlanes.io
+
+Neat project that allows you to write text with Markdown and turn that into a swim lane diagram. The full syntax has a lot of powerful capabilities. This could be useful for designing a process and not having the tool get in the way of the thinking.
+
+Listening is the Overlooked Tool of Leadership | Leadership Freak
+
+Simple guidance and suggestions on how to listen better. I think his "waiting-listening" is one of the most common challenges out there. Are you really listening?
+
+Nexon’s Purchase of Bitcoin by Owen Mahoney | NEXON | Apr, twenty twenty one
+
+Another publicly traded company, NEXOY, announcing that they are holding BTC on their balance sheet. They purchase 100 million dollars, or 1,717 coins at an average price of 58,226 dollars.
+
+Quote.
+We are not making a prediction on the future of interest rates. We are, however, fiduciaries of our shareholder’s capital, and as such we need to think seriously about the future buying power of our cash in a world of potential currency debasement. So we watch our currencies very closely.
+End quote.
+
+Markdown to Slideshow: MarkShow
+
+Neat service to render a slideshow out of markdown. This is built on Reveal.js. This can be an easy way to create online slides. An interesting thing about using Markdown as the source is the ability to automate markdown generation. You could easily create a Shortcut on your iPhone that combines several different data sets into one Markdown output, and then copy/paste that into this tool and you have a generated slideshow!
+
+1Blocker 4.0 Adds In-App Tracker Blocking with Its New Firewall Feature - MacStories
+
+I've been a user of 1Blocker for years now. 1Blocker is one of my primary tools to protect my privacy on the web. However, it has historically only been useful as a content blocker in Safari. Now this new version has introduced an on device firewall capability that is super interesting. You have always been able to use a third party VPN service to protect privacy, but I don't use this as I find the performance and usability impact too severe. This firewall operates totally on device, so performance is solid and it enables a blocking function at the network stack layer. This is an exciting new capability and will significantly improve privacy protections.
+
+The Types of Product Team Organizational Structures | Casey Accidental
+
+Concise overview of different methods of organizing product teams and very importantly Winters' shares his perspective on the advantages and challenges with each. However, the most important line in the entire article is the last one.
+
+Quote.
+What is most important is aligning this structure between engineering, product, and design as much as possible to the teams work in unison.
+End quote.
+
+If you choose different models, not even necessarily conflicting, just different between these functions you are going to have a lot of strife.
+
+You can’t beat the algorithm | Seth's Blog
+
+Godin with sage advice on seeking to leverage "the algorithm".
+
+Quote.
+We have a chance to do work we’re proud of, and to do it for people who care. And maybe we can do it in a way that will lead them to tell the others. Traffic from an algorithm isn’t the point, it’s a random bonus.
+End quote.
+
+Focus on making things that have quality and be patient.
+
+An open letter to the Linux community - April 24, twenty twenty one | Department of Computer Science and Engineering | University of Minnesota
+
+The Computer Science department at the University of Minnesota engaged in a research project to introduce adversarial commits to the Linux kernel. Once discovered, this was understandably not well received.
+
+Quote.
+Our goal was to identify issues with the patching process and ways to address them, and we are very sorry that the method used in the "hypocrite commits" paper was inappropriate.
+End quote.
+
+Linux Kernel committers have talked about banning all contributions from the University of Minnesota. Given the central role of Linux, the core concept of open source, and the reputation of the University's Computer Science department there is some work for the University to do to restore its reputation.
+
+Embrace your inner incident commander – Increment: Reliability
+
+Great introduction to the role of an Incident Commander in the tech context. A formalized, documented, and practiced incident management framework is a key part of any technology team these days. The history back to firefighting in the 1970s was new to me.
+
+Why you need a platform team for Kubernetes — Polar Squad
+
+This is a known thing now, yes you need to have a team that owns this part of your technology stack. The TL;DR version could simply be: "Kubernetes is complicated, why would you make everyone learn it." The hard part to me is knowing how far that platform function should go vertically. Yes, have one team that manages it like a product. That is horizontal. But what features and functions vertically should they defer to the infrastructure below, and the applications above.
+
+Some useful regular expressions for programmers – Daniel Lemire's blog
+
+I’m a sucker for nearly any link about regular expressions. I expected this to be regex patterns for common programming challenges, but it isn't at all that. Instead this is regex patterns to help you make sure your code is clean or to navigate it easily. Some good stuff!
+
+Rethinking Ecommerce as Commerce at Home | Loup Ventures
+
+This 2x2 framework for thinking about retail is interesting, along this
+convenience versus experiential dimension. I also think the "at home" moniker and how they apply that to various solutions is a more apt, and more thought provoking way of thinking about various solutions.
+
+That's the end of Recommended Links.
+
+Now, the Journal section.
+
+Wednesday @ 9:24 PM
+
+Four Great Years of Micro.blogging!
+
+When people write about blogging platforms or services they often focus on features and functions. I say hogwash to that. There is only one thing that matters about a blogging solution — does it create an environment where you want to write? For me, micro.blog does that better than any other service I've used. I'm happy to mark today as my fourth year using micro.blog. Four years ago I was poking around having waited for my invite code. This has been my favorite four years of blogging since I started in two thousand four.
+
+Over those 17 years I've used: .Text WordPress SquareSpace Pelican Jekyll micro.blog. (those are all links to the relevant posts )
+
+Micro.blog let's me pull out my phone and with extraordinarily low effort put a picture or two along with some text on the web. Nothing is faster and easier. I love that Micro.blog is built on a static blog engine, Hugo, since I never have to worry about performance. It is fast. It is great that I can hit a link in my favorites and have a text area on a web page to type and post. It is awesome that it can handle short things, a couple sentences, and really long things. The pages function is simple, but really powerful. I have 124 pages of content that goes with my blog. My lists are my favorite. Automatic categories based on text patterns in the posts is a very powerful feature. It doesn't have tags, I’m fine with that, I curate collections instead. There is no library of 5,000 plugins, good. This just lets me focus more on writing.
+
+2,039 posts. That is what micro.blog has enabled since April twenty seventeen. I love micro.blog. Thank you Manton and Jean for making such a great service!
+
+Now 2,040 posts…
+
+Wednesday @ 8:59 PM
+
+Sooki and Mimi
+
+Tammy and I went to Sooki and Mimi for the first time and had their Prix Fixe Menu, titled "A Celebration Of Spring Flavors And Nixtamal." The dining room was great with a nice warm feeling. The wait staff were top notch, and extremely informed on the menu and the preparations.
+
+Aguachile Verde
+
+This cold soup was a nice way to start the meal. I'm not a huge fan of cold soups, but this had a really good flavor combination and the green was visually striking.
+
+Mackerel Gravlax Tostada
+
+The tostada had a rich medley of flavors that kept me intrigued through the whole thing. No one thing stood out. It instead delivered this combination that was very satisfying.
+
+Walleye Tacos
+
+Delicious tacos. Neither Tammy or I are big fans of Tartar Sauce, but it didn’t detract from the delightful fish. Yum.
+
+Kimchi Mandu
+
+These were vegetarian and I’m not sure how the Kimchi was prepared but it was tasty and complex.
+
+Hibiscus Rhubarb Bar
+
+This was the perfect flavor combination to end the meal with!
+
+Monday @ 10:09 PM
+
+We had an amazing day celebrating Tammy’s 50th Birthday! 5⃣0⃣ Cycling, Tennis, Patrick’s Bakery, Heather’s, 50 Balloons, Milk Bar Birthday Cake, Birthday Video, Custom Puzzle, Handcrafted Cards, and fun presents!
+
+Monday @ 7:48 PM
+
+Fifty Puzzle
+
+Tammy enjoys doing puzzles. The kids and I have started a tradition of making her a custom Christmas puzzle each year. This year we decided to do one for her "big birthday" and we decided to take a completely new approach.
+
+Here is the final version and I'll share with you how we got here.
+
+To make this we started with a hand drawn image that Mazie framed out and then her and Tyler filled in. This allowed them to work with pencil and paper and the clear borders for the initial idea. Puzzles are pretty close to 8.5x11 ratio, but not exactly. After scanning I do a stretch on the size to get it just right.
+
+Now that we scanned the original pencil drawing, we needed to recreate the entire image in digital format. We loaded up Procreate and put the original scan on a layer and made it 50% transparent, and then used the iPad Pro with Apple Pencil to trace a copy of the image on a fresh layer above. This made a perfectly clean digital version, and allowed us to clean up the image a bit. There were detail areas that were too small to do with the pencil but by zooming into the canvas on the iPad Pro they were able to get it just right.
+
+After the image was traced we created two layers for coloring. One layer was "under the lines" and is where most of the coloring was done. We had another "over the lines" layer for select sections. We also segmented off the backgrounds and the "50" numbers into their own layer.
+
+One of the super cool features of Procreate is the ability to share a video fo the drawing being created. Here you can see the entire process unfolding, as well as the couple of versions we tried for the "50" colors before we landed on the rainbow. Our creative process took 3-4 weeks and here you get it in 9 minutes.
+
+Go to original post to see video.
+
+The project took a while but the finished product worked out great. Plus the kids got to learn how to create digital art and got really adept at working with multiple layers and understanding how to use them to create different effects. Mazie got into the various brushes as well.
+
+The only mistake we made was mine. I forgot that I needed to create a margin on the edge for the printer. We didn’t factor that in, so the finished puzzle lost about ¼" of the image on all sides. On the top we had sky so that was fine, but on the bottom we had this cool seascape and a lot of that got trimmed off. Next time I'll remember to mark a "safe zone" there so nothing critical is in that area.
+
+Sunday @ 10:08 PM
+
+Tammy has a “big birthday” tomorrow and the kids and I have been busy for a few weeks getting things ready for it! We are all super excited to celebrate with her tomorrow!
+
+Sunday @ 9:13 PM
+
+Used the relatively low Ether gas prices today to register weeklything.eth on the Ethereum Name Service, including reverse. I already have thingelstad.eth and reverse. This still falls in the category of playing and learning.
+
+Sunday @ 10:03 AM
+
+I love how the Bike Vault Airbnb is completely themed around bicycles and even uses bikes as artwork. They have notes with each bike highlighting what is interesting about it. Includes Trek's first mountain bike from 1983!
+
+Sunday @ 8:55 AM
+
+Trying to get one of my ICANN domain names, thingelstad.xyz, registered on Ethereum Name Service but stumped on DNSSEC error message from ENS, but DNSSEC tests out fine.
+
+Saturday @ 7:54 PM
+
+Galloping Goose MTB Trail
+
+I haven't been mountain biking for over 10 years. My Specialized M4 StumpJumper has seen a lot of neglect over the last decade. But yesterday we all hit the Cayuna Lakes MTB trails and had a blast on the single track!
+
+We did the full Galloping Goose trail around Huntington Mine lake. The bike crew at Red Raven recommended it as a great route for a family with a lot of fun as well as easy access to regular trails if you need a break.
+
+I hadn't been on single track for several years, and it was the first time that Tammy or the kids had gone. They had an absolute blast! Mazie and Tyler were laughing and having a great time on the rolley trails.
+
+We did a total of 12 miles with over half of that on single track. The weather and trail conditions were fabulous. This was the nicest trail I've been on. They have built up banks on a lot of the turns so you can hold a lot of speed going through them.
+
+We'll definitely be back again!
+
+Saturday @ 1:40 PM
+
+Cold day, but still on a vacation-y trip, so afternoon ice cream from Rave Creamworks!
+
+Saturday @ 1:37 PM
+
+This Cayuna Lakes mural by Adam Turman right by Victual (go there) is fabulous.
+
+Saturday @ 12:18 PM
+
+Victual
+
+We shopped for a bit in Victual in Crosby, MN this morning. The passion of the owners and the quality experience were great. If you are in the area a stop here is required. Many locally sourced products.
+
+Saturday @ 10:16 AM
+
+I dig this art piece by Matt Postier of Cykel in Ironton, MN. Made of reclaimed cogsets welded together.
+
+Friday @ 9:57 PM
+
+From the Bike Vault in Crosby, MN.
+
+I am bikesexual. I'll ride just about anything.
+
+That's the end of the Journal.
+
+Now, for your information.
+
+Why handwriting beats typing – On my Om
+
+Malik's reasons for writing are why I’m considering getting a reMarkable.
+
+iOS and iPadOS 14.5: The MacStories Overview - MacStories
+
+App Tracking Transparency is finally here!
+
+Emojis as Favicons | CSS-Tricks
+
+Love this. Emoji are perfect for Favicons. Plus the way this is implemented you would get a platform native Emoji.
+
+How to Successfully Hand Over Systems | SoundCloud Backstage Blog
+
+Good checklist of processes and topics to review when moving ownership of a service and it’s codebase from one team to another. Also a useful framework for doing due diligence on a system.
+
+DbGate | Your database management tool
+
+Free open-source database management tool.
+
+CoinShares Launches The First Litecoin ETP
+
+For some reason Litecoin has a soft spot in my heart. This ETP is interesting, but since each share is just 1/8 of a LTC, why not just buy the LTC directly instead of this instrument?
+
+Garry Kasparov launches a community-first chess platform | TechCrunch
+
+Makes sense for Kasparov to do something like this, particularly coming off of the wild success of Netflix's The Queen's Gambit.
+
+LEGO IDEAS - Macintosh Plus Apple
+
+I would love this LEGO kit to become a reality.
+
+That's the end of the FYI section.
+
+Now, the Fortune section.
+
+Here is your fortune…
+
+You have a deep appreciation of the arts and music.
+
+Thank you for subscribing to the Weekly Thing!
+
+That brings us to the end of the Weekly Thing, issue 184. Thanks for listening, and I'll see you next time.

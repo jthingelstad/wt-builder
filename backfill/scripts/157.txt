@@ -1,0 +1,249 @@
+The Weekly Thing, issue 157. Superpower, Dune, Three Year Rule. Published September 19, twenty twenty. By Jamie Thingelstad. In this issue: Snowflake IPO, Apple One subscriptions, App Sprawl, Dune trailer, Ugh fields, Underwater datacenters, Brandi Carlile, Wikipedia Widgets.
+
+Hello everyone!
+
+Hope you all have had a good week. I was contemplating what I wanted to write in the introduction to the newsletter this week and I decided to ask the kids. They are full of ideas and very creative, so I figured I would get some great suggestions. They both first suggested that I write about them. The very next idea they threw out was that I could write about my receding hairline. I thanked them for their input and moved on.
+
+I’m going to spare you any detailed analysis of my hairline, and instead let's get right on with the links. I seem to have been a little more verbose in the links and my blog stream this week.
+
+Have a great weekend!
+
+Now, the Must Read section.
+
+Link one. "Apple Watch’s Sensory Overload — On my Om"
+
+This read from Om hits exactly where the Apple Watch has fit in for me.
+
+Quote.
+The more aggregated data Apple provides, the better informed I will be about my health. And that is, perhaps, the right role for the Apple Watch. The device is not about giving the most accurate information or replacing the official medical devices. Instead, it becomes a useful observer of the body’s functions and peculiarities.
+End quote.
+
+The initial use case for the Apple Watch for me was to have my calendar and limited notifications on my wrist. That was enough value to displace my mechanical watch, most of the time. The second phase included some apps getting better and developers learning how to use the platform, along with basic fitness use. It feels like we are now in a third phase where the fitness and physical information is becoming more meaningful and actionable, all the while apps are getting even better.
+
+The Apple Watch as a dashboard for your health is to some extent already here. I’m very interested to see where this continues to go. Blood oxygen is certainly interesting. If they had the ability to read blood sugar levels throughout the day this would be an instant buy. Same for blood pressure.
+
+Link two. "The Three Year Rule: How To Stay Motivated Working On A Long-Term Project | Durmonski.com"
+
+Things that are worth doing often take continued effort to create. Extending your horizon is a good idea for real value creation.
+
+Quote.
+There’s nothing fancy about this command. It will simply give you a different perspective when you want to make a project successful or make some positive changes in your life. Instead of hoping to succeed till the end of the month, and be disappointed when this doesn’t happen, give yourself the opportunity to make it. Give yourself three years.
+End quote.
+
+I have my own version of this, that is more than three times longer. I think of Decade Projects. I find this idea good for all the reasons in this article, but also to give yourself more time and not feel like you have to do everything at once. I think of the Weekly Thing as a Decade Project. My websites are Decade Projects. What's your Decade Project?
+
+That's the end of Must Read.
+
+Now, the Currently section.
+
+Watching: We started watching Woke on Hulu and are enjoying it a lot. It has a really good mix of humor and serious. We liked Lamorne Morris when he was in New Girl, and he's good here too.
+
+Installing: iOS 14 on four iPhones, 3 iPads. watchOS 7 on two watches. tvOS on 4 Apple TV's.
+
+Drinking: I recently ordered some coffee beans from Stumptown and decided to give their Cold Brew OATLY a try. I ordered the variety pack and they taste really good. It’s dairy free to boot. Recommended if you are looking for a fun coffee drink at home.
+
+That's the end of Currently.
+
+Now, the Photograph section.
+
+Fishing boat gently floating down the Root River.
+
+Sep 12, twenty twenty
+Richard J. Dorer Memorial Hardwood State Forest
+Root River State Trail
+Lanesboro MN
+
+Learning from this email?
+Help others learn by sharing on LinkedIn.
+
+That's the end of Photograph.
+
+Now, the Recommended Links section.
+
+Living in a Conspiracy Nation
+
+Conspiracy theories have existed forever, but when they came to Facebook they found new vectors for their memes to grow unbounded, in leaps and bounds. I don't know how we get connected back to reality. For sure a good first step is to stop all cable news, and all social media.
+
+Snowflake Announces Pricing of Initial Public Offering — Snowflake
+
+Snowflake went public this week with a stunning valuation. I need to go check the calendar, is it 1999?
+
+Apple One makes enjoying Apple subscription services easier than ever - Apple
+
+The long rumored Apple bundle is finally announced and for many people I suspect this will save them money. Our family spends 30 dollars/mo on just iCloud storage and Apple Music subscriptions for everyone. It’s a no brainer for us to move to this and then get TV+, Apple Arcade, Fitness+, and even News+ for no additional cost.
+
+What’s Your Superpower | Gordo Byrn
+
+I was nodding when I read much of this.
+
+Quote.
+So whether it’s a training plan, a home school schedule, a list of household cleaning tasks, a project management assignment… I need it written down.
+End quote.
+
+I like his approach. When I’m at my best I’m doing many of the same things. I calendar everything. I have lists on lists in my trusted system. Made me want to order a squat rack.
+
+Our third decade of climate action: Realizing a carbon-free future
+
+Good to see Google making this such a priority.
+
+Quote.
+As of today, we have eliminated Google’s entire carbon legacy (covering all our operational emissions before we became carbon neutral in two thousand seven) through the purchase of high-quality carbon offsets. This means that Google's lifetime net carbon footprint is now zero. We’re pleased to be the first major company to get this done, today.
+End quote.
+
+If You’re Already Dreading Winter, Here Are Some Small Ways to Prepare Now
+
+Yes. Yes we are. Most everyone I talk to in Minnesota is worried about the combination of Minnesota's typical dark and cold winters and the Coronavirus pandemic. This is a good set of questions to go through in your mind to prepare. We are already planning that we will need to have more outdoors activities than we usually do in the winter. And maybe an extended getaway to a warmer location, something we typically don't do. Via Patrick Rhone.
+
+Frank Chimero · App Sprawl
+
+I just kept nodding reading Chimero's article on software and app sprawl. I specifically appreciate his example since I am a Headspace subscriber and I have no interest in all of the additional stuff they have layered into the experience. It has made the application less usable for me. For now, the content is still differentiated enough that I don't want to jump ship. But when Facebook goes down and I cannot login to meditate, or when I can’t find what I’m looking for because there is a big sleep button and a focus area, it is frustrating. Oh, and now John Legend is their Chief Music Officer. What?
+
+I then flip the channel and use something like Oak which is like a case study in simple and minimal and it is like a breath of fresh air.
+
+It seems sometimes we cannot let well enough alone.
+
+How 9/11 looked on a newly created Internet on that day | by Larry Kramer | Sep, twenty twenty | Medium
+
+Larry Kramer shared these screen grabs of the front page of MarketWatch.com on 9/11. I am struck by how readable the content was and how it captured as best it could that horrible day. As CTO of MarketWatch I loved reading Larry's reflection on our availability:
+
+Quote.
+We were able to keep our site up all day, while all the major news sites were crashing under the loads of sudden demands. We were made to withstand large bursts of traffic because we had them often when the stock market moved in big ways, which it was doing often in those days.
+End quote.
+
+I wasn't at MarketWatch when 9/11 struck so I wasn't in the heart of the operation on that day. But the technology and even more importantly the team we had built performed so admirably.
+
+'Ugh fields', or why you can’t even bear to think about that task | Medium
+
+I had not heard the term Ugh fields, but I sort of knew what it was just by the name. I suppose you would consider this a specific form of procrastination. I have to admit that I've experienced exactly the cycle described on more than a handful of occasions. I like the listed ways to work through this pattern.
+
+Dune Official Trailer - YouTube
+
+I'll be eager to see this newest Dune (twenty twenty) movie. I've seen the David Lynch directed Dune (1984). I've also seen the 3-part miniseries Dune (two thousand). This newest one looks like it will be amazing, and there is already chatter about a second movie. I might need to re-read the first book again.
+
+15 years of blogging (and 3 reasons I keep going) - Austin Kleon
+
+I would include at least these three aspects that Kleon highlights about his blog. Along the idea of the days stacking up. I've been making it a habit to go to my On This Day page everyday. It is a wonderful way to remember all variety of things going back as many as 20 years! I highly recommend finding your own corner on the web and publishing.
+
+Daring Fireball: Dickhead of the Week: Instagram CEO Adam Mosseri
+
+I seriously cannot add anything to Gruber's commentary on this positioning from Facebook and Instagram with Apple. Let's be clear, nobody deserves pity here. It is in Apple's interest and revenue motive to protect user data. Facebook's interest are to collect and exploit that data. The rest is just spin.
+
+That's the end of Recommended Links.
+
+Now, the Stream section.
+
+Thursday @ 10:34 PM
+
+The final thing we needed to do for our pool project was replace the septic system at our cabin. I think it’s good that I wasn't there when they did it and cut through gas and water lines, irrigation lines, and even low voltage lines. I just checked in at times on the NestCams. Hard to dig a giant hole out and put a big thing in it without disturbing a bunch of stuff.
+
+Wednesday @ 5:42 PM
+
+Many thanks to Slalom Consulting for their Slalom Presents: Realizing Racial Equality program. Hearing the more complete story from Ruby Bridges in her school desegregation experience, Dr. Condoleezza Rice and her views on race and education, and a musical closing from Leon Bridges was a good backgrounder on the work we are pursuing to address racism in our society.
+
+Tuesday @ 8:29 PM
+
+Last night as we were getting ready to go to sleep I noticed that a helicopter had been circling overhead for a while. It was circling large swaths around Highway 62 and France Ave, just a few blocks from our house. Tammy found out via NextDoor what as up, and we quickly heard what turned out to be a mugging attempt that turned into a shooting at Fairview Southdale. We later learned the victim survived despite a gunshot to the head, but the suspect fled on foot and was "at large". The helicopter was searching. The police asked everyone to leave their exterior lights on which we did. They didn’t catch the suspect, and still haven't.
+
+Quote.
+EDINA: CONFIRMED SHOOTING outside Southdale Medical Center, 6545 France Ave. S. - A male victim was shot in the head while in the west ramp, on the second level. The hospital is in lockdown and several roads around the hospital have been shut down. pic.twitter.com/SkseYZKHrw -- TC Crime Watch (@TCCrimeWatch) September 15, twenty twenty
+End quote.
+
+Links to local news coverage:
+
+* Edina's Fairview Southdale Hospital locked down, roads closed after doctor shot in parking lot; suspect on the loose | Star Tribune
+* Reward Offered To Find Gunman Who Shot Doctor In Head Outside M Health Fairview Southdale – WCCO | CBS Minnesota
+* Doctor released from hospital after attempted robbery, shooting in Southdale Hospital parking ramp
+* Search for suspect underway after Edina hospital parking lot shooting
+* Minneapolis St. Paul News, Weather, Traffic, Sports | Minneapolis, Minnesota | kare11.com
+* Reward offered for capture of man who shot doctor during attempted robbery outside Edina hospital | Star Tribune
+
+Tuesday @ 7:48 PM
+
+It was great to be on a panel today as part of Twin Cities Startup Week talking about Managing Global Teams During a Pandemic. Many thanks to the organization and fellow panelists Shivani Stumpf, Teddy Bekele, Jadee Hanson, and Amy Patton!
+
+Monday @ 6:40 PM
+
+Two Second Test
+
+I spent a lot of my career in media and publishing on the web. During that time one of the things that I came to appreciate more completely was the unique journalistic voice that news organizations have. Being responsible for the websites of a number of these sites, I felt it was absolutely critical that whatever Content Management Systems (CMS for those in the business) and other publishing systems we had must allow the journalists to express that unique voice to the reader, via the website. To this end I coined something that I called the Two Second Test.
+
+The Two Second Test is simple. You should be able to show any person the front page of a news website for just two seconds and they should be able to have a feel for what is happening at that moment. Is there big news? Did something great just happen? Something bad? You should be able to intuit it from just those two seconds.
+
+I was reminded of this concept recently when Larry Kramer shared How 9/11 looked on a newly created Internet on that day. His article includes pictures of two framed screen grabs of the MarketWatch page from that day.
+
+I looked at those in Two Seconds you knew something big was happening.
+
+This might seem easy, but the vast majority of news websites even today fail this test. Pick your favorite sites and go to them, look for two seconds, and see what you know. Ask yourself if you know anything? Mostly you don't.
+
+Most organizations fail this test because of the constraints of their content management system. In order to make their sites work, they have dozens of templates, and they flow articles and blurbs from their CMS into various templates. They change the template for what is going on in the world, but they are always working in a template.
+
+In order to pass the Two Second Test you have to give your newsroom a canvas to work on, not a color-by-numbers template. Along with that power comes risk. The newsroom could put something on the site that has a technical flaw of some sort. Having a strong operational connection between the newsroom and the technology team limits that risk though.
+
+Sunday @ 8:05 PM
+
+Before leaving the Lanesboro area we stopped at Eagle Bluff Environmental Learning Center and did a casual hike on their trails. We hiked down to the Root River on a forested loop.
+
+We had the place all to ourselves, plus a lot of bugs, two snakes, and some frogs and toads.
+
+Sunday @ 7:59 PM
+
+Orchards aren’t doing U-pick this year but Honeycrisp Apples are ready. We got some apples and delicious snacks at Blossom Hill Orchard and Farm in Preston, MN.
+
+Saturday @ 9:29 PM
+
+Root River Trail, Lanesboro to Peterson
+
+Tammy and I had a great 28 mile out-and=back ride on the Root River Trail today. We went east from Lanesboro and rode to Peterson. With Covid-19 some places were closed. We were bummed to find Aroma Pie Shoppe, our favorite stop for pie in Whalan, was closed for the season. We did get a snack in Peterson at Burdey's Cafe and turned around.
+
+The trail was in fabulous shape and the temperatures where in the mid-60's all day. It was a great day for riding. The rain held while we were on the trail too!
+
+Saturday @ 9:22 PM
+
+Lanesboro is a great central location on the Root River Trail to explore a variety of different cities in Southern Minnesota.
+
+Saturday @ 9:19 PM
+
+Picture stop at the Lanesboro Dam, built in 1868. Long exposures taken with Spectre.
+
+Saturday @ 9:16 PM
+
+We took a morning walk around Lanesboro. It had just finished raining and everything looked nice and there weren't very many people out. We spent some time in Lanesboro Arts. They always have interesting work from local artists.
+
+Saturday @ 9:12 PM
+
+Tammy and I are spending the weekend in Lanesboro and staying at the wonderful Habberstad House Bed and Breakfast. We have the Carriage House for the weekend. Lanesboro is a great place for cycling and has a number of unique places to stay.
+
+That's the end of Stream.
+
+Now, for your information.
+
+Wikipedia's Widgets Bring Daily Updates to Your iOS 14 Home Screen - MacStories
+
+The new widgets in iOS 14 are bringing a lot of creative uses, and I liked seeing what Wikipedia is doing here. Particularly the image of the day example.
+
+Microsoft finds underwater datacenters are reliable, practical and use energy sustainably | Innovation Stories
+
+This sounds pretty sci-fi and the cooling certainly would be easier. Although maybe we would just warm the oceans even faster. Either way, I don't know that I would want huge racks of servers underwater.
+
+Trump officials interfered with CDC reports on Covid-19 - POLITICO
+
+Politicians should not be allowed to be in the middle of scientific communication of any kind.
+
+Episode 58 - Brandi Carlile — Broken Record
+
+I’m a big fan of Brandi Carlile and this interview with Rick Rubin has all sorts of background stories.
+
+Tweet often?
+Help put out the dumpster fire and share this on Twitter.
+
+That's the end of the FYI section.
+
+Now, the Fortune section.
+
+You've made it all the way to the end! Here is your fortune for this week.
+
+Cheer Up! Things are getting worse at a slower rate.
+
+Thank you for subscribing to the Weekly Thing!
+
+That brings us to the end of the Weekly Thing, issue 157. Thanks for listening, and I'll see you next time.

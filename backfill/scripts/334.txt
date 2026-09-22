@@ -1,0 +1,232 @@
+The Weekly Thing, issue 334. Privacy, Shopping, Consciousness. Published November 29, twenty twenty five. By Jamie Thingelstad. In this issue: Gemini 3 Pro image generation, agent design, LLM council, AI chat with every LLM, personal business, trust and safety work, Writer Coin.
+
+Good morning!
+
+If you were celebrating Thanksgiving like we did I hope you had a great one. We have so much to be thankful for! Some year I will cook turkey and feel really proud of the finished product. That eluded me again this year. There must be some magic involved that I’ve yet to discover.
+
+With the Weekly Thing Forum going away alongside Ponder shutting down I decided to lean into the r/WeeklyThing subreddit. I've been cross-posting the RSS feed of these emails there to nobody for a while now. I've known all along that this isn't a good structure for Reddit. Reddit has a native flow and giant emails are not it. So along with some nudging from my cousin, I decided to try something different.
+
+If you are a Reddit user and want to play along join r/WeeklyThing. In addition to new issues of the Weekly Thing, I’m also sharing each of the notable links. You can read more on the welcome post. Also, until the end of the year folks that comment there will get this Reddit Revival POAP sent as well. Of course I made a POAP!
+
+That is all for now. Have a great start of the official holiday season! And enjoy the rest of your weekend!
+
+Now, the Notable section.
+
+Link one. "Nano Banana Pro aka gemini-3-pro-image-preview is the best available image generation model"
+
+Willison has an initial take on Gemini 3 Pro's "Nano Banana" image generation. I've now used this as well for a few tests as well as a recent POAP I made. I've done a lot of image generation with ChatGPT and DALL-E, and so far Nano Banana definitely does a better job. The larger sizes are a nice addition, and it generally has gotten the images better and seems to show a better understanding of the prompts. I have seen it give me the same image back when I ask for edits and I've had to ask it to try again. Like other AI image generators I find it gets confused after several iterations and I need to start a new conversation with a fresh prompt. Also see Google suggestions on using Nano Banana.
+
+Link two. "Writer Coin - Next Day Thoughts"
+
+Wilson started mirroring his (very good) blog onto Mirror a long-time ago. Mirror and Paragraph recently finished merging and now provide the most complete crypto enabled publishing platform. I was also a Mirror user and now have blog.thingelstad.xyz which is cross-posts content from my blog and I also have a writer coin wonderfully named $THING that I’m still learning about. I’m dubious this stuff does anywhere but I applaud the attempt to bring an economic model that isn't attention-based.
+
+Link three. "Agent Design Is Still Hard | Armin Ronacher's Thoughts and Writings"
+
+Building agents is a whole different ballgame than using them and creating product value around them has a bunch of new things for developers to solve. This article hits on a number of the challenges when creating productized agent capabilities. Managing context and testing are the ones that I suspect will continue to be hard for a while.
+
+Link four. "Personal Business | Are.na Editorial"
+
+I want an Internet that has this.
+
+Quote.
+Part of what prevents people from starting their own software company is the pervasiveness of a singular popular narrative: the idea that money is the primary reason to do so. That the way to make software profitable is to scale, and the way to scale is to get investment from VCs. Software, for better or for worse, plays an increasingly primary role in determining how we view the world, which in turn determines how the world actually works. There should be more than just one prominent funding model facilitating those experiences. There should be more businesses that represent a diversity of people and potential outcomes. It would be a much better internet if there were.
+End quote.
+
+I use and pay for a lot of IndieWeb or solopreneur services. The Weekly Thing is sent from one, Buttondown. My blogs run on one, micro.blog. All the links I archive and write about are on one, Pinboard. My feed reader is one, Feedbin. Every one of these services I've emailed directly with the founders about.
+
+I love voting with my spending and I’m doing that to help make more personal business online.
+
+Link five. "llm-council: LLM Council works together to answer your hardest questions"
+
+This idea of having multiple LLMs explore a topic and dialog amongst each other is super interesting to me. It reminds me a bit of TinyTroupe (shared in WT301).
+
+Quote.
+The idea of this repo is that instead of asking a question to your favorite LLM provider (for example OpenAI GPT 5.1, Google Gemini 3.0 Pro, Anthropic Claude Sonnet 4.5, xAI Grok 4, eg.c), you can group them into your "LLM Council". This repo is a simple, local web app that essentially looks like ChatGPT except it uses OpenRouter to send your query to multiple LLMs, it then asks them to review and rank each other's work, and finally a Chairman LLM produces the final response.
+End quote.
+
+So how does it work?
+
+Quote.
+In a bit more detail, here is what happens when you submit a query: 1. Stage 1: First opinions. The user query is given to all LLMs individually, and the responses are collected. The individual responses are shown in a "tab view", so that the user can inspect them all one by one. 2. Stage 2: Review. Each individual LLM is given the responses of the other LLMs. Under the hood, the LLM identities are anonymized so that the LLM can't play favorites when judging their outputs. The LLM is asked to rank them in accuracy and insight. 3. Stage 3: Final response. The designated Chairman of the LLM Council takes all of the model's responses and compiles them into a single final answer that is presented to the user.
+End quote.
+
+I dig this and it would be exactly what I want to have if instead of just interacting directly with the LLMs you could define agents in front of them. I think there are several use cases where I would like to define a bespoke set of agents, with different perspectives and goals, and ask them for feedback and debate on something. There is often as much if not more insight from listening to a topic being debated as there is to being in the debate.
+
+Link six. "onyx: AI Chat with advanced features that works with every LLM"
+
+Robust chat front-end that can connect with any LLM of your choice. This is an interesting way to bypass various companies having your entire chat history and still access LLMs of your choosing. You could even imagine using a round-robin approach so that no LLM provider ever saw your entire conversation chain even on a single topic.
+
+Link seven. "X’s New Feature Reveals Why Trust and Safety Work Was Never About The ‘Censorship Industrial Complex’ | Techdirt"
+
+I have so many thoughts related to this article. Should identity verification be required online? I do not think so. Should your location, even just your country, be revealed? I don't know. How do we know accounts are not bots attempting to influence us? That is impossible now. However, the part that isn't complicated is to focus on simple explanations and follow the money. If economic incentives exist, they will be exercised particularly when you have global reach. Perhaps this is less surprising to me because it is so common in crypto.
+
+Two data points that I would argue are facts.
+
+- If gaining an audience can generate income at any amount, actions will be taken to create audience independent of any value for that audience.
+- Creating and spreading information digitally is incredibly cheap and requires very little return to justify the costs.
+
+That's the end of Notable.
+
+Now, the Journal section.
+
+Journal entry one.
+
+I don’t know when or what app did this but I finally purged a bunch of Twitter “profile” values from my Contacts database. Little housecleaning. Related.
+
+Journal entry two.
+
+“Oh, I know I have that Pokémon card in here somewhere. Just let me look in this pile.” at MN Poke Pulls TCG.
+
+Journal entry three.
+
+After we've made hundreds of candles for the Candle Fundraiser it is fun to casually pour a bunch of individual scents to try out. Ten scents poured tonight for the twenty twenty five Scent Survey.
+
+Journal entry four.
+
+Tyler and I opened our first Pokémon Ultra-Premium Collection tonight. No big pulls but some good fun.
+
+Journal entry five.
+
+Commanding performance by Verstappen to take the lead on the first turn and never let up the entire Las Vegas GP -- winning by 17 seconds. Impressive!
+
+Journal entry six. Pokémon Card Shop Saturday
+
+Tyler and I went on a drive around the cities yesterday to check out some Pokémon card shops in town. This was a similar trip to our Game Store Tour in February. This was focused solely on Pokémon!
+
+Viral Card Games
+
+Our first stop was Viral Card Games in Fridley. We both liked this shop a lot. It was likely the most organized and well structured card shop that we had been in. They had a several glass cases with graded and raw cards on display in a wide range of prices. They were super helpful pulling cards out to give them a closer look.
+
+The big differentiator for Viral Card Games was their bulk management. Most card shops simply have dozens of boxes filled with thousands of cards grouped by their sets. The team at Viral has fully embraced the TCG Player system with two very large screen kiosks in the store so you can search their entire bulk collection with ease, add the cards you are looking for, and then they will bring those out for you. With a couple searches I was able to grab the first 3 of a 9 card illustration set that I'm looking for.
+
+I also grabbed the final card for a 3-card illustration set.
+
+This is also the only downside that Tyler and I had. The tradeoff of amazing bulk management is less fun flipping through binders and browsing different things. If Viral also had several binders to bridge the gap between the amazing bulk system they have and the singles under the counter it would be about perfect.
+
+Ultimate Collectibles Warehouse Sale
+
+Our second stop was a tip from my brother-in-law Max -- Ultimate Collectibles was having their “Warehouse Sale” at the Hopkins VFW. We had no idea what to expect but were excited to head over and check it out. There was no real signage but the full parking lot on a Saturday afternoon was a sign we were in the right spot.
+
+Ultimate has a lot of sports memorabilia and more than half of the sale was that, but if you watched the foot traffic the vast majority of that was there for the Pokémon sets they were selling. They had a huge collection on display and the prices were pretty good -- above retail but not typical card shop pricing.
+
+Ultimate is the more typical card shop experience with just piles of stuff and you need to dig around to find what you want. The warehouse sale was just piles of boxes on folding tables. They also had a good selection of singles on display but the focus for this event was moving large boxes.
+
+It was awesome to check out and Tyler and I got our first Ultra-Premium Collection box ever here -- snagging one of the last three left before they all were taken.
+
+MN Poke Pulls
+
+After a quick coffee stop in Hopkins, we made our way to MN Poke Pulls in Plymouth timed just after their pretty late 2:00 PM opening time. We had planned to start here until we realized they weren’t even open until much later. That is a pretty late starting time, especially given that they don’t host tournaments, but I suspect it is because of the origin of the store around Whatnot.
+
+So a quick Whatnot detour if you, like me, have no idea what this is. The owner of this store started on Whatnot by streaming Pokémon boxes that viewers auction for in real-time. Once the auction is won, the box is immediately opened and they go through all the packs. The purchaser of the box then gets the cards that are valuable sent to them.
+
+To me this seems strange as I would want to open the box and packs together at home. Tyler and I have fun doing that. But if you are a big collector and you have opened 10,000 packs already it is different. Here you get to outsource the opening part as well as the raw management of all the bulk that you get. You just get the stuff that you really want. Meanwhile the Whatnot viewers all get to share in the fun of opening and the “hits” when opening the packs.
+
+With that backdrop this store had huge volume of packs as that is what they need to run the Whatnot events. They had a few cases with singles and graded cards, but not a ton. They didn't have prices on anything which Tyler and I both dislike. They also have a giant messy pile of bulk cards for 0 dollars and 10 cents each if you want to do that.
+
+Overall a fun place to stop but it is like a warehouse inside and you wouldn’t spend a ton of time hanging out and browsing.
+
+Lost Zone Cards
+
+Our last stop was Lost Zone Cards in Bloomington. This ended up being the least Pokémon focused shop of the day, and unfortunately was even more so when we arrived and heard their Pokémon stuff was gone that day for a show in Wisconsin. The photo below you can see the left-most case is empty.
+
+Overall this seemed like a great place for a variety of card games and they had a big area for tournaments -- but was the least exciting of the day for Pokémon collectors.
+
+We have a lot of fun exploring these places. On our list for shops to check out still are Krakenhits in Fridley and The Forge in Chaska.
+
+Journal entry seven.
+
+Having fun preparing for the Things 4 Good twenty twenty six Scent Survey. I have 10 new scents ready for folks to check out and share their feedback over the holidays. A special POAP to all who participate. This is how we added Charcoal Rose last year.
+
+Journal entry eight.
+
+Tammy and I saw Davina and the Vagabonds at The Dakota tonight. It was my first time seeing them and it was really good. Great performance with a ton of energy -- wonderful live band. We’ll definitely be back.
+
+Journal entry nine.
+
+Bummer that the United's season comes to an end tonight with a loss in San Diego but they played hard and it was a 1 goal game. Next year!
+
+Journal entry ten.
+
+POAP 7529255 at Things 4 Good -- twenty twenty six Scent Survey.
+
+Journal entry eleven. 1,000th candle
+
+We were talking over dinner about the Things 4 Good Candle Fundraiser and thinking we should make note when we sell the 1,000th candle. It turns out we already did -- this year!
+
+| Year | Candles |
+| ---- | ---- |
+| twenty twenty one | 134 |
+| twenty twenty two | 180 |
+| twenty twenty three | 226 |
+| twenty twenty four | 264 |
+| twenty twenty five | 321 |
+
+We’ve already sold 1,125 candles!
+
+So who got the 1,000th candle? We had 804 sold before this year’s event.
+
+The 196th candle of the twenty twenty five sale, the 1,000th candle, was in the 40th transaction of the event!
+
+Journal entry twelve.
+
+Happy Thanksgiving!
+
+Journal entry thirteen.
+
+Happy Thanksgiving from my Mom and I!
+
+Also see twenty twenty one and twenty fifteen.
+
+Journal entry fourteen.
+
+Turkey's ready!
+
+That's the end of the Journal.
+
+Now, the Briefly section.
+
+Link one. "Utrecht - World’s Best Cycling City | Arnold Hoogerwerf"
+
+I visited Utrecht when I was in the Netherlands.
+
+Link two. "Kevin Boone: The privacy nightmare of browser fingerprinting"
+
+This is one of the most insidious methods of tracking people.
+
+Link three. "Introducing shopping research in ChatGPT | OpenAI"
+
+Apparently I’m not the only one that has been doing this kind of research in ChatGPT.
+
+Link four. "Pearl Jam helps pay for Zamboni for Two Harbors, Minnesota"
+
+I love this.
+
+Link five. "Introducing advanced tool use on the Claude Developer Platform Anthropic"
+
+It gives me a big chuckle to realize we are shoving regex patterns into the most sophisticated agentic toolchains that have ever existed to save context.
+
+Link six. "13 Signs of High EQ Leadership | LinkedIn"
+
+I don't do much linking to LinkedIn, but this is a pretty great list.
+
+Link seven. "Software Failures and IT Management's Repeated Mistakes - IEEE Spectrum"
+
+Large-scale software transitions are incredibly hard and don't seem to be getting easier. There is a big component of Gall's Law here. I would also highlight that no large-scale software transition is just a technology effort — they are all human change efforts as well and that is complicated.
+
+Link eight. "What's the difference between an artist and a creator?"
+
+I hadn't though that much about this but found this an interesting read.
+
+Link nine. "Universal consciousness as foundational field: A theoretical bridge between quantum physics and non-dual philosophy | AIP Publishing"
+
+Maybe Buddhism has had it right all along?
+
+A haiku to leave you with…
+
+Nano banana
+Creates images with great flair
+Pixels dance with joy
+
+Join r/WeeklyThing on Reddit
+
+That brings us to the end of the Weekly Thing, issue 334. Thanks for listening, and I'll see you next time.

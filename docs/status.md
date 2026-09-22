@@ -105,6 +105,12 @@ finished, what is half-finished, and what has never run.
   block in email, and Thingy's own voice (nova) in audio. `VOICE_ID` records
   both voices. Heard in WT350's send (2026-09-20).
 
+- **The spoken pieces are stored** (2026-09-22) — `speakCached` writes every
+  new piece to `weekly-thing/tts/` on the CDN bucket before the local cache,
+  and reads back from there on a miss; the 132 pieces already on disk were
+  pushed. A lost `data/tts-cache/` now costs nothing. `backfill/` holds the
+  frozen scripts for issues 1–349 and the retired transform that made them;
+  the block adapter that reads them is the next step.
 - **The audio edition, assembled** (2026-09-21) — after Jamie listened to
   WT350: one synthesized piece per script block, placed with silence by
   boundary (`PAUSE`), the two voices gain-matched, pieces cached in

@@ -1,0 +1,128 @@
+The Weekly Thing, issue 93. Feb 16, twenty nineteen. Published February 16, twenty nineteen. By Jamie Thingelstad. In this issue: Billion-dollar company failure, blockchain and trust, Amazon acquires eero, Bob Costas out at NBC, one on ones, Big Four ARPUs.
+
+I'm slowly creeping up on issue #100 of the Weekly Thing! Just 7 more and we'll hit that fun milestone! I've been contemplating some tweaks and refinements of this weekly cornucopia of content. I'd like to ask you, the most awesome reader ever, to take a moment for two things.
+
+I would love to hear any feedback you have! I’m all ears! I've done less app and book stuff as of late. I think the different ways of showing links work well. But most importantly it would be great to know what you think. So, what's up? Reply to this email and let me know!
+
+Also, I've been lucky to be joined by about 650 of the finest people on the Internet for the Weekly Thing. One of my favorite things, is seeing new people joining our little club. If you would take a moment to spread the word to a friend, colleague, relative, or anyone else that might like it that would be awesome! I think the easiest thing is to send them to to see the archive and subscribe! Cool? I have this thought that 1,000 people would be really neat.
+
+Now I'll get back to ruminating on some of these evolutions, and meanwhile let's jump into things.
+
+PS: I’m happy to say goodbye to this double-cold sequence that I had the misfortune to endure the last two weeks. I woke up on Thursday and finally felt like the parking brake wasn't on.
+
+Now, the Featured Links section.
+
+Link one. "Reflecting on My Failure to Build a Billion-Dollar Company"
+
+Reflections from the CEO and Founder of Gumroad on building the business and the significant ups and downs. He grounds back to delivering value. It seems obvious, but that is really what matters.
+
+That's the end of Featured Links.
+
+Now, the My Weekly Photo section.
+
+Fresh blanket of snow.
+Feb 10, twenty nineteen at 4:58 PM
+Edina, MN
+
+That's the end of My Weekly Photo.
+
+Now, the Notable Links section.
+
+Link one. "Blockchain and Trust - Schneier on Security"
+
+Schneier is very savvy and smart, and this direct takedown of blockchain is to the point. I've gotten more comfortable with the idea that blockchain is a technology solution for trust, but Schneier's arguments for why that simply isn't true are strong.
+
+Link two. "Amazon to Acquire eero to Help Customers Better Connect Smart Home Devices | Amazon.com, Inc. - Press Room"
+
+I use eero devices at home. I always suspected that eero would be purchased by a bigger company. I didn’t think it would be Amazon though.
+
+Link three. "Inside story of how legendary NFL broadcaster Bob Costas ended up excised from football and out at NBC -- ESPN"
+
+I've always enjoyed Bob Costas. I’m not a huge sports person, but Costa's has a way of bringing stories together in a way that is very compelling. The reaction to him speaking out about brain injury issues in the NFL is at best dissapointing.
+
+Link four. "Coaching Tools - The One on One | Silicon Valley Product Group"
+
+This article is written referring to product management, but nearly all of it can be applied to any 1:1 context. This is a topic I keep wanting to investigate as it is not well defined in most companies. Just the statement here referring to 1:1's as a "coaching technique" is a compelling way to frame these sessions.
+
+Link five. "The Observation Deck » Reflecting on The Soul of a New Machine"
+
+Reading this, along with Jess Fraz's writeup makes me want to go and re-read Soul of a New Machine again too! It’s a great book.
+
+Link six. "Bloomberg London: Workplace of the Future - YouTube"
+
+If you find buildings and architecture interesting this is an amazing look at the new Bloomberg London location. The first half was the most interesting to me covering the mechanics of the building. Amazing space. Thanks to Nick for the link.
+
+Link seven. "The ARPUs of the Big Four Dwarf Everybody Else – Monday Note"
+
+These ARPU numbers are amazing.
+
+For each dollar of digital ad growth between twenty eleven–twenty eighteen, Google took 1 dollar, Facebook 3 dollars and 70 cents, while the NYT took only 32 cents.
+
+Link eight. "Executive coach: 7 secrets to lasting career satisfaction"
+
+These seem like worthwhile actions to make sure you are adjusting your trajectory in a thoughtful way.
+
+That's the end of Notable Links.
+
+Now, the Give Back section.
+
+Let's Encrypt is a free, automated, and open certificate authority, run for the public’s benefit. All connections to web servers should be encrypted! The biggest challenge with encrypting the web historically has been the cost and hassle of getting an SSL certificate. Let's Encrypt has changed that entirely by being a free certificate authority. Let's Encrypt is possibly one of the most important things to happen on the web in recent years. Donate to Let's Encrypt today!
+
+That's the end of Give Back.
+
+Now, more links.
+
+- Brandi Carlile - The Joke LIVE at the 61st GRAMMYs - YouTube
+We've been fans of Brandi Carlile for a while, and this performance at the Grammy's was amazing!
+- Letting neural networks be weird — Candy Heart messages written by a neural network aiweirdness.com
+Good reminder for everyone preparing for machine learning to take over the world. Let's first figure out Valentine's sayings.
+- Leave Me Alone - Take back control of your inbox leavemealone.xyz
+Neat tool to specifically help you with unsubscribing from bulk mail. Sadly it only seems to work with Gmail at the moment.
+- Python Itertools: For a faster and memory efficient code – Kanoki kanoki.org
+Slick examples of what you can do with Python's itertools.
+- No thank you, Mr. Pecker – Jeff Bezos – Medium
+Is "complexifier" a word? If not, I want it to be one. What a bunch of slime ball stuff. Glad Bezos didn’t capitulate.
+- National Park Typeface nationalparktypeface.com
+I dig cool little font projects like this.
+- Video Game Controller Cufflinks by ElegantLocketShop (Etsy) —Tools and Toys
+The first cuff links I would actually enjoy wearing!
+
+That's the end of More Links.
+
+Now, the Microposts section.
+
+Sunday @ 4:13 PM
+
+Bit of snow out there.
+
+Sunday @ 2:39 PM
+
+Big space, and a great respite from the cold and snowy winter.
+
+Friday @ 11:05 PM
+
+Watched FYRE: The Greatest Party That Never Happened tonight. I didn’t follow this story when it happened. Unbelievable mess, fraud.
+
+Friday @ 9:03 PM
+
+Tesla, your HTML encoding is showing. and
+
+Friday @ 8:53 PM
+
+Started reading Digital Minimalism by Cal Newport tonight.
+
+Friday @ 6:45 PM
+
+Checking out the Life Time Sport at Winter Park. Super cool pick-up soccer for the kids!
+
+That's the end of Microposts.
+
+Now, the Fortune section.
+
+You've made it all the way to the end! Here is your fortune for this week.
+
+You are standing on my toes.
+
+Thank you for subscribing to the Weekly Thing!
+
+That brings us to the end of the Weekly Thing, issue 93. Thanks for listening, and I'll see you next time.

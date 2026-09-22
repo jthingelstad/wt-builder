@@ -1,0 +1,292 @@
+The Weekly Thing, issue 305. Lighthouse, Willow, Artemis. Published December 15, twenty twenty four. By Jamie Thingelstad. In this issue: RCS in iOS 18, Death of Intel, Willow quantum chip, Lighthouse inbox zero for RSS, itch.io AI phishing, global IT outage twenty twenty five.
+
+Weekly Thing 305 spreading Christmas cheer by sharing links for all to read from Faribault, MN.
+
+Good morning!
+
+Welcome to the final Weekly Thing of twenty twenty four! We are still relatively snowless here in Minnesota and hoping that we soon get a few inches as we celebrate Christmas and New Years with friends and family.
+
+I would still like to put a blog under a few Christmas trees! Maybe yours?
+
+As I shared last week I’m going to be gifting a one year micro.blog subscription to five Weekly Thing readers to start a blog in the new year. Micro.blog is what I use to publish my website and I don't know of any service that makes it easier to put a few sentences and an image on the web.
+
+If you are considering writing more for a New Years Resolution, or using social media less, or would just like to publishing on your own reply to this email and put your name in the hat. I am going to randomly select five people on Saturday, December twenty first to get a one year subscription to micro.blog.
+
+Sounds like fun? I think so. Reply now to add your name! You'll have a few weeks to get your blog going. I’m planning on sharing links to those awesome new blogs in January.
+
+When a blog is created an angel gets its wings.
+
+While the Weekly Thing is on break I’m going to be making some improvements to it. I've got some ergonomics issues to work out with the automation. This is when I typically do that kind of work. No major refactors, just smoothing out some sharp edges.
+
+My best wishes to you at this wonderful time of year. See you in twenty twenty five!
+
+Now, the Featured section.
+
+Link one. "Is there more to burnout than working too hard?"
+
+Gift Link. I found this article a good read and was helpful to differentiate between being busy and doing a lot of things versus patterns that will result in burnout.
+
+Quote.
+You feel burnout when you’ve exhausted all your internal resources, yet cannot free yourself of the nervous compulsion to go on regardless. Life becomes something that won’t stop bothering you. Among its most frequent and oppressive symptoms is chronic indecision, as though all the possibilities and choices life confronts you with cancel each other out, leaving only an irritable stasis.
+End quote.
+
+I've had a couple of times where I really did hit burnout. For me it showed up as really struggling with decisions. I think this point of burnout not just coming from work but also from the stuff that we willingly pull ourselves into. The constant texts, alerts, notifications, etc.
+
+Quote.
+But it is not just our jobs that overwork our minds. Electronic communication and social media have come to dominate our daily lives, in a transformation that is unprecedented and whose consequences we can therefore only guess at. My consulting room hums daily with the tense expectation induced by unanswered texts and ignored status updates. Our relationships seem to require a perpetual drip-feed of electronic reassurances, and our very sense of self is defined increasingly by an unending wait for the verdicts of an innumerable and invisible crowd of virtual judges.
+End quote.
+
+I loved this callout.
+
+Quote.
+Burnout is not simply a symptom of working too hard. It is also the body and mind crying out for an essential human need: a space free from the incessant demands and expectations of the world.
+End quote.
+
+A regular meditation practice can help identify those signals of your body and mind "crying out".
+
+That's the end of Featured.
+
+Now, the Notable section.
+
+Link one. "Michael Tsai - Blog - RCS in iOS 18"
+
+Some grounding: SMS is basic texting that was invented decades ago and never meant for what we do with it. MMS was a failed attempt to bring multimedia to that. RCS is a modern, open standard meant for interoperability. iMessage is Apple's proprietary messaging service that is fully encrypted.
+
+RCS is now in iOS 18 and for some of the interactions I have with non-Apple devices it is amazing. It brings a lot of parity to group messages, handles images well, allows for emoji responses. Great stuff. However, support in Android devices is frustratingly variable. Not all RCS is the same. I've been surprised at how many Android folks I know don't even have this on.
+
+This writeup is a good overview of various RCS aspects in iOS 18 and a good reference for those that do a lot of cross-platform messaging. It drives me crazy that carriers are also a variable in this.
+
+Link two. "The Death of Intel: When Boards Fail - by Doug O'Laughlin"
+
+Great writeup about what has been happening in the Intel board while the company has been falling apart. Sadly it is a reasonable look at how all corporate governance seems to work these days. The reality is that the vast majority of shareholders are passive and voting their shares and governance is actually a chore they would rather avoid. Who wants accountability for those votes? Instead follow ISS.
+
+Quote.
+The ship captain (shareholders) are asleep, and most who are smart enough to care to know to avoid the neighborhood that's Intel. Meanwhile, the board made voting recommendations yearly, and Glass Lewis and ISS went with the board. Intel's board is being run on autopilot, and that's how we got the list of supremely unqualified board members. This is an excellent example of how boards fail. No one raised their hand to stop the autopilot, and now the formerly greatest American semiconductor company is in shambles.
+End quote.
+
+There are some recent good changes. We'll see if it is enough.
+
+Quote.
+Things are changing fast. They just appointed two new board members, the former CEO of ASML and the current interim CEO of Microchip, to the board. This is an excellent step in the right direction, but it's like hiring a surgeon and an oncologist after the cancer has moved to stage 4. It might be too late, but it sure is the right direction.
+End quote.
+
+I don't feel like this is all just an interesting story to watch. Intel is a critical US company in the space. It is hard to see how the US can continue with the strong position we've had without domestic companies like Intel. Relying on others, particularly foreign companies, for such a critical industry doesn't seem wise. We need Intel to turn around.
+
+Link three. "Lighthouse - Inbox Zero for RSS Feeds"
+
+Another RSS feed system. This one uses an Inbox metaphor, more like an email flow. If you have a relatively low volume of feeds this may work well. For me it didn’t work at all. I have hundreds of items a day. Your mileage may vary though.
+
+Link four. "Itch.io went offline due to a ‘trash AI-powered’ phishing report - The Verge"
+
+This article is another example of the incredible fragility in the DNS and Registrar layer of the web. It is shockingly easy to socially exploit the companies that operate in this space. There is a complete lack of controls for proving your identity and authenticity to make requests. Frankly I’m surprised this doesn't happen even more. It also makes me think that the potential for the Ethereum Name Service (ENS) is bigger than we think. DNS and ENS can and should merge into one hybrid system, and ENS has much better controls for the governance layer than DNS.
+
+Link five. "How to Think About Time"
+
+This article does a great job highlighting how complicated the basic matter of time is while programming. For non-programmers it is an interesting read to go deeper on why this is much more complex than one may think. For programmers this document is a culmination of best practices developed to avoid bugs in time based logic in software. The differentiation between "physical time" and "civil time" is an interesting one.
+
+Quote.
+Civil time is the patchwork of made-up human concepts such as “months”, “common era”, “leap days”, “weekend”, “cold November rain”, and so on. Civil time is very important. It makes communication easier, and enables us to organize our daily lives in a reasonable way. And no one is going to bake you any special cake or sing you any excruciatingly bland song off-key while you exhale rapidly onto flaming wax if we don’t have civil time. Civil time always requires a calendar system.
+End quote.
+
+Fun stuff.
+
+Link six. "Meet Willow, our state-of-the-art quantum chip"
+
+It is certainly a "moon shot" for Google to be working on this. IBM is the one that is usually making noise about quantum computing. Cool milestone…
+
+Quote.
+Second, Willow performed a standard benchmark computation in under five minutes that would take one of today’s fastest supercomputers 10 septillion (that is, 10^25) years — a number that vastly exceeds the age of the Universe.
+End quote.
+
+Quantum, AI, Crypto — these are all long bets that I suspect we will see come to fruition over the next couple decades. We are already well down the way with AI and Crypto isn't far behind.
+
+Link seven. "He was suicidal and needed help. A 15-year-old girl pushed him to kill himself on a live stream. - The Washington Post"
+
+Gift Link. This article hit me really hard. Maybe it is that this guy is from Minnesota. For sure I know all these services. But I also found it a sad look into some of what people are doing online. How can any human see someone suffering and struggling and instead of trying to help encourage them to go further down. Terrible.
+
+Link eight. "Survey: 88% of Execs Expect Large Global IT Outage in twenty twenty five | PagerDuty"
+
+Maybe this group of leaders is a bit more pessimistic than the average?
+
+Quote.
+Perhaps the most striking revelation from the survey is that 88% of executives believe another major incident — comparable to the July global IT outage — will occur within the next 12 months. This sentiment is consistent across key markets, with a strong majority in the U.K. (91%), U.S. (89%), Australia (88%), and Japan (78%) viewing service disruptions as inevitable.
+End quote.
+
+When that bad Crowdstrike update took so many systems down at least some folks thought "I’m amazed this doesn't happen all the time." The reality is that our understand of resiliency in distributed systems is still very immature. As an industry we are learning, but we are still in the early phases of this journey.
+
+Link nine. "ntfy.sh | Send push notifications to your phone via PUT/POST"
+
+This looks like a great, simple way to go from simple shell scripts and automation to a push notification on your phone. Very easy to use. I need to keep this around for potential use cases.
+
+Link ten. "Artemis, a calm web reader, is available (in beta) | James' Coffee Blog"
+
+I love seeing continued innovation in the RSS ecosystem. New feed readers usually catch my attention and when I read first Impressions of Artemis I wanted to give it a try. I've used Feedbin for many years but it is also the case that not all feeds are the same and Artemis right away seemed like something for slower content, specifically like personally blogs. I love the fact that it links out instead of giving you a direct reader experience. I've setup a couple dozen personally blogs in it and am using it just for those and I’m enjoying the overall experience. I also find it fun that it only updates once a day. It is strongly opinionated.
+
+That's the end of Notable.
+
+Now, the Journal section.
+
+Journal entry one.
+
+The twenty twenty four holiday season can now officially start with another great New Standards Holiday Show tonight. Dessa was the big guest appearance this year.
+
+Journal entry two.
+
+The Magic Pines Retreat is up and running. First time getting to use the spa and sauna.
+
+Journal entry three.
+
+Nice treasure when I opened my chests from last week’s missions on Famous Fox Federation. By far my favorite NFT project still thriving.
+
+Journal entry four.
+
+Did some work today with my new EGO Power+ 18" chain saw and thought it was awesome. Electric is so much easier for this, and it sliced through logs with no issues at all. Good weight and felt super comfortable to work with.
+
+Journal entry five.
+
+The start of a list. Social media is…
+
+- Antisocial
+- Totalitarian
+- Addictive
+- Controlling
+
+Journal entry six.
+
+Trying Five Farms Irish Cream Liqueur for the first time. Delicious! The cream is incredible. The whiskey smooth. Straight from County Cork. Even the bottle is cool. This may ruin me from regular Bailey's.
+
+Journal entry seven.
+
+I was excited to see there is now a watchOS app for Tesla! It can access all car functions and pair as the key to the car. Unfortunately I need to wait for an update to the cars before it will work though. Soon!
+
+Journal entry eight.
+
+When I decided to get a hot tub one of my buying criteria was making sure I can monitor and control the spa from my phone. Yesterday I got the Bullfrog X8 connected. The app itself isn’t fancy but does the things you need it to do including changing modes and locking the controls.
+
+Journal entry nine.
+
+On our walk around Lake Harriet this morning Tammy and I saw this rare Bald Eagle in the city. It was perched and analyzing the ice line for easy prey.
+
+Journal entry ten.
+
+The twenty twenty four St. Olaf Christmas Festival was amazing today! Mazie is in the St. Olaf Chapel Choir and was part of the Christmas Festival this year. It was a great program with beautiful performances by all.
+
+The performance we saw was recorded and will be available online on December eighteenth.
+
+Journal entry eleven.
+
+I made Banana Bread tonight. It seems I cook so rarely that everyone else was flabbergasted that I did it. So I decided it should get a blog post since it was such a special event.
+
+Journal entry twelve.
+
+I have half-jokingly said for years that I wish there were professional scratchers, sort of like massage therapists, but to scratch your back! Then in today’s NextDraft:
+
+Quote.
+“A small but growing field of scratchers are making a living off their nails, hoping there’s a healthy market of people who will pay 100 dollars or more an hour to do what a spouse or wooden spoon will do for free. Professionals contend they’re not just scratching itches. They say they’re helping people achieve a level of relaxation that is beyond the reach of a kitchen utensil or loved one. They drum up interest by posting videos of clients oohing and aahing in candlelit rooms.” WSJ (Gift Article): How to Make 100 dollars an Hour Scratching Someone’s Back.
+End quote.
+
+Journal entry thirteen.
+
+Getting a massive overhaul of Shortcuts support in OmniFocus 4.5 this morning is like an early Christmas present! I whipped up a quick "Add to List" shortcut to try it and love the new interfaces. They are significantly more intuitive.
+
+Journal entry fourteen.
+
+Appears that OpenAI isn’t keeping up with the ChatGPT Extension launch in Apple Intelligence today. Trying to sign in with my account for the extension.
+
+Journal entry fifteen.
+
+Tammy’s sisters and the husbands went to Jingle Bar at Brit’s Pub tonight. I think this may become a tradition. Everyone wore Christmas apparel, but Corinne and Denny went above and beyond as the Grinch and Cindy-Lou Who and won the prize for the best costume of the evening!
+
+Journal entry sixteen.
+
+This celebration of Dick Van Dyke’s 99th birthday with Chris Martin of Coldplay and All My Love is incredible.
+
+Journal entry seventeen. Cookie Decorating
+
+Tammy’s sister Corinne and her husband Denny hosted a cookie decorating class. They made a hundred cookies ahead of time and had a variety of different colors of Royal Icing. Denny even had pages printed of patterns for us to learn the proper technique. His cookies came out incredibly nice.
+
+We had a wide variety of skill.
+
+I did three. My gnome was my favorite and I thought it was reasonable for a first go at it. The sweater was fine but a tad boring. The snowman however looked like it was straight out of Nightmare Before Christmas. Looked like some scary evil thing.
+
+So, I had to eat the snowman.
+
+Journal entry eighteen.
+
+Wait a second… Connections can use pictures?
+
+Weekly Thing Forum
+
+Join Patrick Hambek, Jim Cuene, Michael Josephson, garrickvanburen, Tom Mungavan, and many other Weekly Thing readers in the Weekly Thing Forum. Recent topics include:
+
+- Newsletter 304 and Blog Thoughts
+- Favorite / "Keeper" articles from twenty twenty four?
+- Kagi Search for Free
+- So, How's The Sabbatical Going?
+- Straw Poll - Quitting Social Media
+
+That's the end of the Journal.
+
+Now, the Briefly section.
+
+Link one. "The Tube Computer"
+
+Making a computer the old way. Also you can heat your house with it.
+
+Link two. "Introducing ChatGPT Pro | OpenAI"
+
+At first I thought a 200 dollars/month offering made no sense from ChatGPT. Then I thought about it more and read about what it actually offers. The deeper analysis that the LLM does has a lot of potential. For many use cases, this could be a really great offering.
+
+Link three. "The Rage and Glee That Followed a C.E.O.’s Killing Should Ring All Alarms - The New York Times"
+
+The reaction to this killing has been nothing like what I would have expected. Gift Link.
+
+Link four. "15 Times to use AI, and 5 Not to - by Ethan Mollick"
+
+Still thinking about where you can use AI? Good list here. I don't agree with his "not to" about learning though. I've found having a voice conversation with ChatGPT exploring a topic is a great way to learn.
+
+Link five. "Just Programmer's Manual"
+
+A long time ago make was created to help programmers build source code. Over the years make was used in many ways that it wasn't intended for. Those use cases are what just is focused on. Handy and simple utility.
+
+Link six. "Cotton-and-squid-bone sponge can soak up 99.9% of microplastics, scientists say | The Guardian"
+
+I’m wary of microplastics and I suspect we are going to learn over the next several years that they are particularly harmful for us. Great to see that there is progress being made on filtering it out.
+
+Link seven. "Sora is here | OpenAI"
+
+Sora is now available to create AI generated video. If you have a ChatGPT+ subscription you can sign in and start using it right away.
+
+Link eight. "How Much Stretching It Takes to Make You More Flexible, According to Science | Lifehacker"
+
+Four minutes a muscle. More than most people probably do.
+
+Link nine. "iOS and iPadOS 18.2: Everything New Besides Apple Intelligence - MacStories"
+
+Many details on additions in the newest version of iOS.
+
+Link ten. "Apple Intelligence in iOS 18.2: A Deep Dive into Working with Siri and ChatGPT, Together - MacStories"
+
+Great overview of all the new Apple Intelligence features.
+
+Link eleven. "Automators Podcast Obsidian Vault - Next Steps | ThoughtAsylum"
+
+I listened to many episodes of Automators. The podcast is now done, but I love what this listener did with the content and creating a knowledge base. It would be really interesting to do something similar with the links from the Weekly Thing.
+
+Link twelve. "The state of my Home Assistant in twenty twenty four – Tomi's place"
+
+Wild amount of devices and automations. Fun to just see what is possible.
+
+Link thirteen. "Making “Social” Social Again. Announcing Mozi | Medium"
+
+I’m not sure about Mozi but I thought I would give it a try. You can connect with me there. This writeup is good context for it.
+
+That's the end of Briefly.
+
+Now, the Fortune section.
+
+Here is your fortune…
+
+Don't look back, the lemmings are gaining on you.
+
+That brings us to the end of the Weekly Thing, issue 305. Thanks for listening, and I'll see you next time.

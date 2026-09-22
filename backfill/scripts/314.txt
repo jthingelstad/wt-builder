@@ -1,0 +1,280 @@
+The Weekly Thing, issue 314. Interfaces, π, Bubbles. Published March 22, twenty twenty five. By Jamie Thingelstad. In this issue: Normal engineers, Ozempocalypse, lost senses in interfaces, fooling self-driving cars, HTTP/3, Sam Altman interview, digital hygiene.
+
+Engineers as learners, self-driving tech tradeoffs, reflections on building better teams, safer innovation, and rediscovering the pleasure of deep thinking.
+
+Good afternoon!
+
+I hope you are having an amazing weekend.
+
+I just can’t help myself but to be excited at the incredible serendipity that this issue — issue three hundred and fourteen — includes π Day.
+
+Wait a moment, you say? π day, March fourteenth, was last week. Oh yes, very true.
+
+But the way I create these emails, they include items up to Thursday night. So, actually, March fourteenth — the most amazing π Day — is actually in this issue!
+
+Which is, miraculously and stupendously, issue three hundred and fourteen.
+
+314!
+
+Issue π.
+
+Irrationally.
+
+I have nothing else to say — because what more could be said than to just enjoy this perfect numerical alignment?
+
+Now, the Notable section.
+
+Link one. "Why "Normal" Engineers Are the Key to Great Teams - IEEE Spectrum"
+
+Charity Majors with a great article about engineering teams and what makes great engineering organizations. A quip I think about a lot: All great technology organizations are learning organizations. I think you see that in what Majors suggests here. It is about making the act of being an engineer approachable and learnable. Creating build and CI systems that allow innovation to be done safely and quickly. Shipping frequently. It is about the team that delivers great software.
+
+Link two. "The Ozempocalypse Is Nigh - Scott Alexander"
+
+I started semaglutide on March 7 using a compounding pharmacy, after the FDA had already declared the shortage over. In the couple weeks since then the price of Wegovy was dropped by over 60% for self-pay. It seems impossible that some negotiation on pricing wasn't part of declaring the shortage over. This article highlights interesting ways that compounding may still be attempted with various unique dosage levels or additives.
+
+Quote.
+But overall, I think the past two years have been a fun experiment in semi-free-market medicine. I don't mean the patent violations - it's no surprise that you can sell drugs cheap if you violate the patent - I mean everything else. For the past three years, ~2 million people have taken complex peptides provided direct-to-consumer by a less-regulated supply chain, with barely a fig leaf of medical oversight, and it went great. There were no more side effects than any other medication. People who wanted to lose weight lost weight. And patients had a more convenient time than if they'd had to wait for the official supply chain to meet demand, get a real doctor, spend thousands of dollars on doctors' visits, apply for insurance coverage, and go to a pharmacy every few weeks to pick up their next prescription
+End quote.
+
+I think it would be too simple to apply this to a wide array of drugs, but there are likely some it could.
+
+Link three. "Our interfaces have lost their senses — Amelia Wattenberger"
+
+This article is worth exploring not just for its message but also for the stunning design and visuals. The concepts are also meaningful. Standardizing everything also makes everything the same. We need to bring weird back to parts of our computing.
+
+Link four. "Can You Fool A Self Driving Car? - YouTube"
+
+Mark Rober with a well done video demonstrating what LiDAR can do and how effective it is for self-driving cars. This is pushing on one of Tesla's biggest bets for self-driving, which is relying only on visual camera systems. You can follow the assertion. People drive cars using only visual input so why can’t a computer. Maybe, but you can also argue that computers could drive even better using LiDAR. Personally I'd rather Tesla was using LiDAR as well. Also this video leaves me wanting to get one of these portable LiDAR units to play with. The 3D model of Space Mountain is awesome too.
+
+Link five. "HTTP/3 is everywhere but nowhere"
+
+I've not followed HTTP/3 adoption and this article pointed out how it was both more adopted than I thought and less.
+
+Quote.
+This is one example of the difference in fundamental pressures of the two tiers of organizations on the web here: open-source tools can't break things like this, and the libraries available to the long-tail are fragmented and uncoordinated. Meanwhile hyperscalers can make decisions quickly and near-unilaterally to set up implementations that work for their environments today, allowing them to get the benefits of new technologies without worrying too much about the state of the open-source common ecosystem for everybody else.
+End quote.
+
+It would surprise me if open source doesn't get there, but how long will it take? It also highlights how significantly HTTP/3 breaks from prior versions, making incremental software adaptation more difficult.
+
+Link six. "A Pi API - Happy Pi Day"
+
+I was so excited to see that there is a π API that uses the 100 trillion calculated digits of π and allows you to index into it and get sets of numbers of π as you wish. It's such a delightful and geeky tool.
+
+Link seven. "An Interview with OpenAI CEO Sam Altman About Building a Consumer Tech Company – Stratechery by Ben Thompson"
+
+Deep interview with Sam Altman from the very astute Ben Thompson. Includes background on Altman and the origin story back to OpenAI and Altman's thoughts on Y Combinator and building ChatGPT.
+
+Link eight. "The Lost Art of Research as Leisure - Mariam Mahmoud"
+
+This article serves as a reminder of the importance of reading, of curating questions in our mind, and the delight in pursuing those answers through "leisure." The importance of reading is highlighted in the article with examples from the Quran. It reminded me of a similar impact of Protestantism highlighted in The WEIRDest People in the World (one of my absolutely favorite books!) where practitioners of the faith are called to directly read the Bible, which resulted in a huge spike in literacy which also resulted in other pursuits of learning.
+
+The article also comments on the impact of reading less on culture…
+
+Quote.
+Today, we find ourselves in precisely the cultural crisis that Woolf, White, and Sontag anticipated--not a world without books, but a world where fragmented attention and superficial engagement have eroded the foundations of shared meaning and cultural coherence. The definition of "culture" is as liquid as the phenomenon it seeks to describe. In Princes and Powers, James Baldwin observes that only a culture in crisis would ask for a definition of "culture." We are a culture in crisis. We lack, as Byung-Chul Han articulates in The Disappearance of Rituals, the structures and forms that make meaning possible, leading to cultural fragmentation. The result is a sense of civilisational ADHD. A generational restlessness, inattentiveness, and excessive movement in no direction, with insight elusive and ephemeral.
+End quote.
+
+That saying "excessive movement in no direction" is impactful. And the article suggests it really is in the pursuit of an answer to a question, not just any reading.
+
+Quote.
+For some, the compulsion to read manifests as a productivity hack, or as the passive consumption of viral self-help books and novels. These readers treat reading not as a tool to discern the reality around them, but as an obligation to signal productive virtue or as mere entertainment, no different from a reality TV show.
+End quote.
+
+I like that the article frames an approach to this.
+
+1. Cultivate Curiosity
+2. Develop a Question
+3. Gather Evidence
+4. Develop an Answer
+5. Community of Knowledge
+
+Quote.
+What distinguishes research as leisure from idle browsing is precisely this movement toward creation. However modest, your answer must contribute to the conversation rather than merely consuming or repeating what others have said.
+End quote.
+
+I'd like to think this is a small component of what I’m doing in these emails.
+
+What is the question you are asking?
+
+Link nine. "The Product Engineer – Rands in Repose"
+
+This article starts with a salacious assertion on not needing product managers that I wouldn't agree with, but it is a good attention grab for the actual point of it. In reality you have many disciplines involved to creating a great product, and this dives into three of those: product manager, designer, and engineer. I've seen and experienced every one of the scenarios described. The scenario around "designer island" literally made me laugh out loud in the "yeah, I've seen that one too" kind of way. The punchline of the engineer scenario is the most damning.
+
+Quote.
+Extend this passive-aggressive product-hostile situation over a few years, and our bright and eager Engineer becomes the Disconnected Engineer. The human accountable for building the product with their hands exists as a semi-motivated engineer who is grabbing bullets as they come over the fence and combining them with misaligned and misinformed design from the island, which results in strangely constructed features that… work. I mean, they look like features, but when I asked this engineer why she chose this approach, she said the thing that crushed my soul, "They told me to do it this way." Unacceptable.
+End quote.
+
+If the people writing the actual code don't understand the problem they are helping the customer solve you can’t possibly build a great solution. This is super critical in B2C software, but in B2B software companies ignore it to their peril. It matters everywhere.
+
+The conclusion of this is to embrace a more meaningful way of thinking about product builder.
+
+Quote.
+A Product Engineer: - Uses the product every day and reports bugs aggressively when they find them. - Intimately knows how the products work and can explain any feature or inner workings to anyone. When they find a gap in their knowledge, they fill it. - Have a deep understanding of how users perceive their features and how their changes would affect their perception. They can wear the customer mindset. - Remember the debates around the most complex decisions and why we chose this path. - Have living breathing code in the product -- right now. - Can effectively argue with anyone on the team regarding the product. Will defer to their team members when the argument is sound, but they will continue to argue until there is product clarity. - Communicates well in every direction because they've developed professional relationships in all those directions. - Are aggressively curious and willing to learn anything relevant to the design and development of the product, especially when it's outside of their area of expertise. A Product Engineer is accountable for the product.
+End quote.
+
+This is a good approach, but I think it would fail at some level of scale. And in the B2B world it can be difficult to impossible to be using your product everyday. But the intentions here are right, and figuring out how you bring this "one team" feel to all the disciplines involved in a product is key.
+
+It all circles back to shared goals, and one of my favorite metaphors drives this home. What is the objective of the goalie on a soccer team? Nearly everyone will say to stop the ball from getting in the net. Wrong. The objective is to win the game.
+
+The objective of everyone building a product needs to be to create a great product.
+
+Link ten. "Digital hygiene | karpathy"
+
+Great overview of services and tools. I use many of the services on here except for VPN. I've found that to just be too annoying for me. And I use Fastmail but do have an account with Proton Mail just for encryption. I've tried using Yubikeys but don't currently use one.
+
+That's the end of Notable.
+
+Now, the Journal section.
+
+Journal entry one.
+
+Happy π Day! 3/14 @ 3:14
+
+Journal entry two.
+
+Traditional π Day dinner is all pies! Tonight Tammy's completely homemade chicken pot pie and a new pie for dessert -- Samoa Pie themed off of the Girl Scout cookie.
+
+Journal entry three.
+
+I “watched” the Apple Immersive Metallica concert experience tonight and was completely blown away. I turned the volume all the way up and had James Hetfield singing right in my face. You get to see Lars Ulrich drum while watching right behind his shoulder. Incredible!
+
+Journal entry four.
+
+Lockers.
+
+Journal entry five. The Hospital at Puzzleworks
+
+We did our 65th escape room this morning solving Puzzleworks “The Hospital” room in 54m 47s! We all particularly enjoyed this room. The puzzles were well done, hard enough to get you going but not so hard to get frustrated. Tammy thought it was one of her “top 10” rooms. I thought the use of an “elevator” in the room was fun and very well executed. We had to call for one clue and realized we had made one completely ridiculous miss in the room. It was a great time!
+
+Journal entry six.
+
+Very good affogato at Mothership Pizza Paradise today. The ice cream from Minnesota Dairy Lab was so smooth and creamy The food here has been incredible on every visit.
+
+Journal entry seven.
+
+We had a fun time seeing the matinee of Paddington in Peru today. He is an incredibly cute bear.
+
+Journal entry eight.
+
+Yesterday Tyler was talking about 3D printers. We had an entry level 3D Printer in twenty nineteen and realized it was missing very fundamental features to do complex prints -- notably the platform wasn’t heated. I’ve been researching a bit and these printers have come a long way since then.
+
+Journal entry nine.
+
+We’ve been long delayed watching Succession S4. The Logan Roy character played by Brian Cox has to be one of the best characters on a show. Right up there with Tony Soprano.
+
+Journal entry ten. Reconciled List of Escape Rooms
+
+Our family enjoys escape rooms and I have maintained a list of the rooms we had done on my website for a bit. I knew it was mostly complete and for sure it had gaps. We were talking to another Escape Room Enthusiast recently and I decided it was time to get our list right. How many rooms have we done? This needed to be answered. But how?
+
+The list I had was created from blog posts I had of rooms which was good but not complete. These days I blog pretty much every room we do, but I didn't early on. Then I realized I had four sources of good information:
+
+1. My Blog: This was the source of my original list. I know these entries are accurate.
+2. Photos: We almost always, if not always, get a photo at the end of an escape room -- but not always with our camera. Either way, my photo collection should have most rooms.
+3. YNAB: We use YNAB for personal finances and we’ve certainly paid for every escape room we’ve done. We’ve never paid in cash. Also, we have kept one YNAB file for a very long time so searches for rooms should match.
+4. Calendar: We’ve kept the same Apple iCloud accounts and calendars for a very long time as well, and that old data is still there. And we are diligent about keeping our calendars accurate even on trips. This was particularly useful for entries found in YNAB where we almost never paid on the same day we did the room.
+
+After a very thorough and comprehensive scouring of all of these sources we now have 50% more rooms. We previously identified 43 and after a thorough review we are now at 65 escape rooms!
+
+I still want to improve the information in the list. I have a spreadsheet now that is my source of truth and I'm using an overly complex formula to produce the Markdown I can use to update the website. It could also be fun to do some blog pensieve posts for some of the older rooms where I have a photo.
+
+So now, our full and complete List of Escape Rooms!
+
+Journal entry eleven.
+
+My post on Using AI in the Weekly Thing was highlighted in Josh Spector’s For the Interested 456 this week! Thanks to CJ Chilvers for the heads up.
+
+Journal entry twelve.
+
+Tyler's first time behind the wheel with basics in a parking lot.
+
+Journal entry thirteen.
+
+Guinness Chocolate Cake from Lynette. Treat for completing tax work.
+
+Journal entry fourteen.
+
+We stopped into Microcenter today and they didn't have a single Nvidia GPU in stock. Every case was empty. In fact they only had five individual GPUs of any brand!
+
+Journal entry fifteen. Twitter Interview from 16 Years Ago
+
+While doing my blog gardening today I noticed that it was 16 years ago today that I was a guest on MPR’s Midmorning show talking about Twitter! I decided to give it a listen, and while I was at it I ran the audio through Whisper Transcription and added a transcript to the post. Listen or read!
+
+It all seems very quaint in retrospect. I had been on Twitter at that time for 27 months and as John Moe shares in the intro it had 8 million users at the time. Moe quotes Joe Sucheray saying Twitter was “the end of the world.” He was maybe seeing better than Julio Ojeda-Zapata, my fellow panelist and I. I had almost forgot that John Hodgman joined us on the phone and that one of the callers “Dave” who teaches “Greek and Latin” is a friend of mine!
+
+Hashtags weren’t a thing. Moe even says “number sign”. The word “tweet” was only just forming. I refer to the “Twitterverse” at one point.
+
+It did give me a big warm smile at the end though when I got a plug in for using RSS! As Tammy reflected, some things never change! ￼￼
+
+Journal entry sixteen.
+
+We saw Suzanne Vega tonight at the Dakota. She played a variety of old and new songs and it was all very good. We even got the very first performance of a new song -- Galway!
+
+Journal entry seventeen.
+
+What a great POAP for SPS Tech Connect twenty twenty five!
+
+Journal entry eighteen.
+
+This morning we had a great kick-off to our annual #TeamSPS TechConnect twenty twenty five event! Team members from four continents powering the connections that move the world of commerce forward. Bonus points for special zoom background that creates connections between everyone!
+
+Journal entry nineteen.
+
+I had a great time watching the Timberwolves play the Indiana Pacers. The Wolves fell asleep a bit in the second quarter but came back in the third. The game tied and went to overtime, unfortunately with the Pacers winning 132-130.
+
+Journal entry twenty. Are We Merely Machines?
+
+I attended a public lecture hosted by Anselm House on Are We Merely Machines? tonight featuring Rosalind W. Picard of the MIT Media Lab. It was an interesting talk covering materialism, scientism, and ontology. Picard’s view is that we are not, and that we should not, attempt to blur the lines between machine and human, and that humans are always ontologically the maker.
+
+I’m challenged to find the difference so stark.
+
+One argument often asserted is that machines using artificial intelligence only know what they know because they have learned it from what people have done. However isn’t that equally true for people? Nobody is born a poet, they learn from poets. You are not born a Chess Grandmaster, you learn from chess players. AI and people do the same thing. The incremental small improvements in knowledge are mostly unmeasurable.
+
+Another assertion is that LLMs are just statistical models of language and they put words together branching on simple math. How can we assert that people don’t do the same thing? The structure of language itself limits the structure, and isn’t our brain doing something somewhat similar to the LLM?
+
+Which isn’t to say that I believe an AI is a person. I do not. I think it is likely more accurate to say I lack the philosophical depth to explore the points in detail.
+
+That's the end of the Journal.
+
+Now, the Briefly section.
+
+Link one. "RCS Encryption: A Leap Towards Secure and Interoperable Messaging"
+
+It is good to see encryption coming to RCS but I've also been a bit annoyed at how uneven RCS support is between different devices. Hopefully this will improve along with encryption support.
+
+Link two. "‘AI will become very good at manipulating emotions’: Kazuo Ishiguro on the future of fiction and truth | The Guardian"
+
+Never Let Me Go was the first Ishiguro book I read and thought it was great. A friend of mine commented that Ishiguro is "all pathos". That might suggest Ishiguro is an astute observer on the topic of AI manipulating emotions.
+
+Link three. "No one knows what the hell an AI agent is | TechCrunch"
+
+AI agents are a marketing concept at this point.
+
+Link four. "Bubbles!"
+
+Super simple game that is oddly engaging. Best played on touch device but works on anything.
+
+Link five. "30 Charts That Show How Covid Changed Everything in March twenty twenty - The New York Times"
+
+I love telling stories with charts and these are great examples. Gift Link.
+
+Link six. "California’s A.B. 412: A Bill That Could Crush Startups and Cement A Big Tech AI Monopoly | Electronic Frontier Foundation"
+
+Another case of regulation that many would argue is great but could then only help large, established companies continue to dominate. Privacy is filled with this stuff.
+
+Link seven. "How Fast the Days Are Getting Longer – Joe Antognini"
+
+Visuals and math on calculating the rate of change of daylight over the seasons. My latitude is 45°.
+
+Link eight. "the Seneca – Norbauer and Co"
+
+What would a 3,600 dollars keyboard be? This.
+
+That's the end of Briefly.
+
+Now, the Fortune section.
+
+Here is your fortune…
+
+Research for fun. Discover for life.
+
+That brings us to the end of the Weekly Thing, issue 314. Thanks for listening, and I'll see you next time.

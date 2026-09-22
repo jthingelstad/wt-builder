@@ -1,0 +1,173 @@
+The Weekly Thing, issue 29. Weekly Thing for November 25, twenty seventeen. Published November 25, twenty seventeen. By Jamie Thingelstad. In this issue: AlphaGo Zero, brilliant jerks in engineering, net neutrality repeal, Uber data breach, pingfs ICMP storage, Pi-hole, products over projects.
+
+I want to welcome a bunch of new subscribers to the Weekly Thing -- Hello! My friend David Hussman shared this, and a bunch of new people signed up. Thank you for all for jumping in, and I hope you enjoy this as much as I enjoy sharing it. (Also, thank you, David!)
+
+We finished a great Thanksgiving this week! We had a great time with family and ate our fill of all the traditional eats. By the way, I learned that "Alexa" will also frequently answer to "Lefse"! We've kicked into full tradition mode as of Friday and put our tree up and did our annual watching of Elf. I hope you all are having a great start to the holidays as well!
+
+Heads up, there are a lot of links this week.
+
+Now, the Blog posts section.
+
+Deer Strike
+
+Ran into a deer crossing the road. Everyone was okay but shooken up. Not sure what happened to the deer.
+
+That's the end of Blog posts.
+
+Now, the Photog section.
+
+The holiday season is now officially here with the Christmas Tree going up and the wonderful ornaments from the years going up, told with stories for the kids.
+
+Nov 24, twenty seventeen at 12:29 PM
+Minneapolis MN
+
+That's the end of Photog.
+
+Now, the Links section.
+
+Link one. "CEOs Don’t Steer"
+
+Interesting and thought provoking article on the role of a CEO. The primary CEO function, and the trait the good ones are selected for, is to provide the gyroscopic stability required to keep a company vectored in the chosen direction. There is a lot that makes sense in this article, and a lot I’ve seen up close many times.
+
+Link two. "DOES17 San Francisco - How Your Systems Keep Running Day After Day - John Allspaw - YouTube"
+
+Very good talk by John Allspaw from DOES17 (DevOps Enterprise Summit) addressing the various aspects of running software in a production environment 24x7. I like the "Above the Line" and "Below the Line" concept of systems instrumentation and observability.
+
+Link three. "Kitchen Soap – On Being A Senior Engineer"
+
+John Allspaw with a very thoughtful look at the key aspects of being a mature engineer. I would apply this to the senior level of nearly all positions in tech.
+
+Link four. "Brilliant Jerks in Engineering"
+
+I know a lot of managers in the technology field who would repeat the conclusion in this article. Early on in my career, I supported brilliant jerks of any type and thought they were worth it. I was wrong. I did that too. Always have to think about the team impact.
+
+Link five. "AlphaGo Zero – How and Why it Works – Tim Wheeler"
+
+Interesting and approachable article reviewing how Alpha Go Zero taught itself how to play Go, and how these techniques can be used for a number of discrete games. The last paragraph put an interesting spin on the advances in AI. It is interesting to see how quickly the field of AI is progressing. Those who claim we will be able to see the robot overlords coming in time should take heed - these AI's will only be human-level for a brief instant before blasting past us into superhuman territories, never to look back.
+
+Link six. "Against Productivity – The Message – Medium"
+
+This is going to sound a little weird but this article totally made me think of GTD and the concept of "mind like water". In many ways foolishness isn’t the opposite of wisdom, but its absence. Productivity is the opposite of wisdom. Humanity is a creature of time and imagination. From these things our fruits are born more than manufactured. Productivity is a quality of perfect robots. Stories, adventures and all new things still have to come from messy humans. It probably sounds confusing that an article condemning the focus on productivity reminds me of a productivity framework. However, the true goal of GTD is to give your mind space and time. Not to get more done, but to get more off your mind. To have a mind like water. This is a part of GTD that people tend to not focus on enough.
+
+Link seven. "Bob Lutz: Kiss the good times goodbye"
+
+A vision piece describing the next 20 years of the automotive industry. Notable as it’s written by the former Vice Chairman and Head of Product Development for General Motors. The era of the human-driven automobile, its repair facilities, its dealerships, the media surrounding it — all will be gone in 20 years. 20 years seems too aggressive to me. But the end state is hard to argue.
+
+Link eight. "Decision making under stress - Centre for Research and Evidence on Security Threats"
+
+Running technology platforms 24x7 means you have incidents, and stress, and decisions that must be made. Being aware and knowing how that impacts decisions is important knowledge to have. The research is clear: the best way to protect yourself from making poor decisions under stress is to train and prepare for it. Training enhances both skills and self-efficacy, enabling you to make better decisions and giving you the confidence to carry them out with minimal hesitation. Add to that sleep deprivation as another potential risk.
+
+Link nine. "User experience design for APIs"
+
+Great topic that more thought should be going to. API design is largely an afterthought for many services. You can tell API's that are just a dump of internal objects. They are hard to use and equally hard to understand. This article shows a good start to doing this right.
+
+Link ten. "pingfs: Stores your data in ICMP ping packets"
+
+This is completely bizarre -- a file system that stores the data in an ICMP packet stream ephemerally bouncing around via ping.
+
+Link eleven. "The End Of Net Neutrality As We Know It – AVC"
+
+Fred Wilson highlighting the Net Neutrality changes being proposed by the FCC and also providing a worthwhile four steps that we as consumers can look for to take action beyond protesting the FCC action.
+
+Link twelve. "The Race for Real-Time Data | Jenny Kray, CFO, Calabrio - CFO Thought Leader"
+
+Fun interview with my former colleague, and now CFO at Calabrio, Jenny Kray.
+
+Link thirteen. "gtop: System monitoring dashboard for terminal"
+
+Very fancy terminal based tool for monitoring system performance.
+
+Link fourteen. "No, you’re not being paranoid. Sites really are watching your every move | Ars Technica"
+
+This is exhibit #1 for why you need to use a content blocker on the web. This article goes into great detail on the capabilities that companies have, but take a moment to watch the video that demonstrates a user and what the site owner can see. Now consider that level of collection on every site you ever visit. Defensive techniques are needed for such invasive technologies.
+
+Link fifteen. "FCC unveils plan to repeal net neutrality rules - The Washington Post"
+
+Ajit Pai is doing exactly what everyone would expect him to be doing as Chairman of the FCC. Vertically integrated media and broadband companies (Verizon, Comcast, AT and T) will enjoy his FCC much more than anyone else. The misleading politics on Net Neutrality are infuriating to those closer to the issue.
+
+Link sixteen. "Uber Paid Hackers to Delete Stolen Data on 57 Million People - Bloomberg"
+
+Wow. This incident doesn't take along to start thinking of words like "criminal intent". Add this to the long stack of reasons why I don't use Uber. Without Bullshit has a good writeup on the communication from Uber.
+
+Link seventeen. "Real-life AWS cost optimization strategy – Teads Engineering – Medium"
+
+Managing cloud infrastructure expense is a real challenge. I've experienced and seen everything in this article and more. This dynamic is entirely new to pre-cloud technology organizations that bought hardware and then just used that sunk cost. In the cloud, cost has to be an architectural consideration in ways it has never been before.
+
+Link eighteen. "GitHub - Introducing Team discussions"
+
+New capability that makes total sense for GitHub to add. I’m guessing this was pretty easy for them too given all the infrastructure they have for GitHub Issues.
+
+Link nineteen. "Pi-hole®: A black hole for Internet advertisements"
+
+Nice open source project to run your own DNS server at home that will blacklist ad networks. Nice to see people working on efforts like this. I'd rather pay a few bucks and use something like Eero Plus but this is great for people that want more control.
+
+Link twenty. "“One Damn Slide After Another”: PowerPoint at Every Occasion for Speech: Computational Culture"
+
+Wow! This is a tour de force on the evolution and use of slides and presentation software evolution. It's a long read but pretty interesting and importantly balanced. It is not a takedown of PowerPoint but instead a robust exploration of the act of presenting and persuading. This essay critically contextualizes PowerPoint. We argue that many of the stylistic conventions associated with slideware have long been part of business communications. Personal computing, however, scaled up the production of presentations. Doing so linked knowledge work with personal expression. The result has been the rise of presentation culture. In an information society, nearly everyone presents. Analyzing presentation software makes visible the largely under-appreciated reliance on performative authority in knowledge production. The conclusion brings it home. I've never thought of PowerPoint as a part of visual culture! PowerPoint is not a slide projector without a slide tray. It is not a
+neutral automation of existing processes. It is a part of visual culture, an increasingly everyday experience at every kind of occasion for speech. Worth reading. Even if you skim sections like I did.
+
+Link twenty one. "A Year of Tech Solidarity | Civicist"
+
+Politics and tech are largely a strange null set. Maciej Ceglowski, the owner of Pinboard which I use to keep all my bookmarks on, has been actively working to change that through basic, old school organizing. This article is a reflection on the slow going he's had in the first year doing that.
+
+Link twenty two. "Move Slowly and Fix Things – Signal v. Noise"
+
+This article embodies many of the concepts that I highlight for ethics training for people that build software ecosystems. We spend more and more of our life inside, or alongside, a software ecosystem designed by builders with little thought to the social impact it has on people.
+
+Link twenty three. "Products Over Projects"
+
+I've operated all of the tech organizations I've led in this product mode. Ive found it much simpler to insure that investment follows opportunity and to give teams clear ownership of their deliverables. You build services differently when you know you own them for the long haul.
+
+Link twenty four. "The twenty seventeen Christmas Catalog — Tools and Toys"
+
+Well thought through list of Christmas presents for people that like a certain kind of thing. I’m actually not sure what that is, but I would fit in that category.
+
+Link twenty five. "Your personality and your brain | Scott Schwefel | TEDxBrookings - YouTube"
+
+I’m a big fan of Insights Discovery and an equally big fan of Scott Schwefel. I met Scott when we were both on the CaringBridge board and got exposed to the Insights program in an offsite we did with that board. I've brought more than a hundred people through the program at SPS and I find it an immensely valuable training and tool. I didn’t know that Scott did this TEDx talk. He's a great presenter with equally great content.
+
+That's the end of Links.
+
+Now, the Promotion section.
+
+Creative Commons helps you legally share your knowledge and creativity to build a more equitable, accessible, and innovative world — unlocking the full potential of the internet to drive a new era of development, growth, and productivity. I have been a supporter of Creative Commons for years. Larry Lessig, the founder of Creative Commons, has done the world a great thing by creating a legal structure to help authors and creators encourage remix culture. In addition to donating, you should consider making your content under a Creative Commons license. Donate to Creative Commons today!
+
+That's the end of Promotion.
+
+Now, the Featured App section.
+
+SleepTown
+
+by ShaoKan Pi
+
+SleepTown is another incredible app from the developers of Forest app. Its sole purpose is to help you attain a healthy, regular sleep schedule. Construct amazing buildings just by achieving your bedtime and wake-up goals every day. Start tonight, put down your phone before going to bed and build your own Sleep Town while asleep.
+
+I've had fun playing with Forest from time-to-time and it really does work. It fights against that habitual checking of your phone. Having an app to do a similar thing through the night would be a good cure for the 3am "I'll just check this real quick…"
+
+1 dollar and 99 cents 4/5 stars
+
+That's the end of Featured App.
+
+Now, the Microblog updates section.
+
+- Official start of Christmas with tree up and watching Elf tonight.
+- 56k modem for the win! .net Monopoly.
+- I had to buy Sun Microsystems in .com Monopoly.
+- Google and Amazon are not on The .com Edition Monopoly board.
+- Playing The .com Edition of Monopoly, of course. Hilarious tiles. Game starts with 1.5 billion dollars per player. CBS MarketWatch has a tile, right next to Sun Microsystems!
+- Very true “You are either building a learning organization, or you are losing to one who is.” — John Allspaw @allspaw
+- Christmas Tree decorating and reminiscing.
+- I don’t get 1000%+ price increase in BTC.
+- Finished Stranger Things 2 tonight. Very good.
+- US Internet won’t be able to finish my fiber install until spring. Ground is freezing and not enough time left. The communication on status has been great though.
+- Family time to watch A Charlie Brown Thanksgiving. Traditions!
+- Making the Wassail Tea for Thanksgiving!
+- Signed up for Shawn Blanc’s The Focus Course. Looking forward to learning and improving.
+- I’ve got Eero Plus subscription service on my Eero home network. Turned on beta ad and tracker blocking on the whole network. Working well so far.
+- Fair State Coop Brewing Keller Kazbek. Delicious!
+
+That's the end of Microblog updates.
+
+Thank you for subscribing to the Weekly Thing! If you know of people that would like the Weekly Thing please forward it along!
+
+That brings us to the end of the Weekly Thing, issue 29. Thanks for listening, and I'll see you next time.

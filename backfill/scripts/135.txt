@@ -1,0 +1,144 @@
+The Weekly Thing, issue 135. Spy Emails, Engineering Strategy, True Fans. Published February 15, twenty twenty. By Jamie Thingelstad. In this issue: Hundred-Year Marathon, engineering strategy, mailing list spying, single .txt file, 100 True Fans, Voyager 2 online, Brandi Carlile.
+
+Happy Valentines Day to all of you! Our Valentine's Day was surprisingly great. I don't mean that to imply that previous years were not good, but this year seemed different. Tammy stated it best that everyone kind of quietly planned their own thing, and then it all came together adorably. It is so fun to watch your kids come into their own personalities and to express their own love for each other.
+
+On the same day, I hit a goal I've been working towards in my meditation — 365 days in a row!
+
+I decided a while back that I wanted to meditate every day for a year, and after that would revisit the practice and see how I might want to modify it. In addition to daily meditation, I also attended two half-day meditation retreats at Common Ground Meditation Center. I have no intention of stopping. However, I do plan on being more lenient with my schedule. Streaks are great, but like anything, you can take it too far. I’m thrilled to have achieved this goal!
+
+Now, the Currently section.
+
+Watching: We've started watching LEGO Masters, and it is pretty brilliant! It is fun to watch for the entire family, and great to see the cool things that they come up with! Plus, the golden brick!
+
+Reading: My book club has just started reading The Hundred-Year Marathon by Michael Pillsbury. I just started reading it, but I am enjoying it so far.
+
+That's the end of Currently.
+
+Now, the Photog section.
+
+Neighborhood getting covered in snow.
+
+Thank you for reading!
+Please share this with a friend. Cool, thanks!
+
+That's the end of Photog.
+
+Now, the Recommended Links section.
+
+How Big Companies Spy on Your Emails - VICE
+
+So a company that positions its product as being "privacy-first" is then mining your email and selling the data to other firms. This isn't just bad behavior, isn't this fraud?
+
+paperplanes. On Drafting an Engineering Strategy
+
+A good overview of the tactics and components of making an engineering strategy. Note, I wouldn't call this a technology strategy. This is specifically focused on the development components.
+
+You All Instead of You Guys - Feld Thoughts
+
+I started to eliminate this overuse of the term "guys" years ago. It’s a crazy deep habit, but I've primarily kicked it now. It’s not necessary, there is no requirement to use the term. And it is small, but a meaningful nod to making sure everyone feels included.
+
+Mailing list software should stop spying on subscribers - Signal v. Noise
+
+Not surprisingly, I wholeheartedly agree with this. Nearly all mailing list software defaults to tracking email open rate as well as creating unique tracking codes to monitor every link in the email. Mailchimp allows you to disable this, but you have to do it for every email, err, campaign. Buttondown, which I’m using now, has a global setting for your account to opt-out of analytics, which is much better. Set it once and never need to think about it again.
+
+I also agree that most people have no idea that they are being tracked in email, yet it is very pervasive.
+
+Never been promoted? You’re not alone.
+
+Another critical article reflecting on various issues that women face in technology. This is essential reading for men in technology, to gain awareness, understanding, and develop means to overcome these problems. The Twitter poll that starts this off is far from a statistically relevant sample. Still, the read is enlightening for the experiences and perspectives shared.
+
+My productivity app is a single .txt file
+
+If you desire a productivity solution that meets the KISS principle this is for you. I admire the arcana of it and love the flexibility of simple text. This wouldn't satisfy my particular strand of OCD, though.
+
+1,000 True Fans? Try 100
+
+Interesting read looking at creating a high-value service for a small audience, and how to go about it. Interesting.
+
+What We Link to When We Link to Books | Dan J’s IndieWeb Headquarters
+
+I've wrestled with this issue myself. I find it odd when I write about a book to link to Amazon. A lot of people used to, or still, do so that they generate affiliate revenue. I don't do that, and why when linking to something to I link to a store? I tend to follow the advice here already, but I wish there were something even more open and public focused. It would be a compelling space for Wikimedia Foundation to start a project.
+
+That's the end of Recommended Links.
+
+Now, the Status Updates section.
+
+Wednesday @ 10:14 PM
+
+Brandi Carlile opened the new Fillmore Minneapolis tonight with an amazing sold-out acoustic performance. So good! She is an amazing talent!
+
+Wednesday @ 9:59 PM
+
+Courtney Marie Andrews did an amazing opening set for Brandi Carlile. Check her out!
+
+Wednesday @ 8:31 PM
+
+Family selfie at the Fillmore Minneapolis!
+
+Wednesday @ 8:16 PM
+
+The chandeliers at the Fillmore Minneapolis are a classy touch.
+
+Wednesday @ 7:23 PM
+
+Excited for opening night at the Fillmore Minneapolis with an acoustic set from Brandi Carlile!
+
+Wednesday @ 2:32 PM
+
+Impressive progress in Minneapolis development shared at the Mpls Downtown Council Annual Meeting! Mayor Jacob Frey, Karin Lucas (go #TeamSPS), and Steve Cramer amongst the speakers hosted by Amelia Santaniello! #mymplsdt
+
+Wednesday @ 12:15 PM
+
+Great to see Jeremy Messersmith playing at the Mpls Downtown Council event! #mymplsdt
+
+Wednesday @ 12:13 PM
+
+Grateful to be able to partake in the Annual Business Meeting of the Mpls Downtown Council! #mymplsdt
+
+Sunday @ 7:41 PM
+
+Family selfie at Minnesota Wild game! Go Wild! #mnwild
+
+Sunday @ 7:20 PM
+
+Minnesota Wild v Colorado Avalanche tonight! Go Wild!
+
+That's the end of Status Updates.
+
+Now, for your information.
+
+NASA brings Voyager 2 fully back online, 11.5 billion miles from Earth
+
+This just amazes me that we have hardware and software that is beyond our solar system having failure events and then recovering.
+
+I love email… – Rhoneisms
+
+I’m with Patrick Rhone on this. I've had the same email address for over 20 years now. I actually unsubscribe from bulk email with regularity, and I tend to a small number of mail rules and add the power of Sanebox to make for a very useful email space.
+
+Learning from this email?
+Help others learn by sharing on LinkedIn.
+
+That's the end of the FYI section.
+
+Now, the Fortune section.
+
+You've made it all the way to the end! Here is your fortune for this week.
+
+You will soon forget this.
+
+Thank you for subscribing to the Weekly Thing!
+
+That's the end of Fortune.
+
+Now, the About section.
+
+The Weekly Thing is a weekly newsletter highlighting helpful, engaging, or insightful articles from the week. I am a voracious reader of technology, culture, leadership, privacy, and many other topics as my interests roam. Each item I share is framed with personal commentary combining my decades of experiences. My goal is to positively impact your journey with knowledge and insight.
+
+Website
+Microblog
+Photos
+Link Blog
+LinkedIn
+Twitter
+
+That brings us to the end of the Weekly Thing, issue 135. Thanks for listening, and I'll see you next time.

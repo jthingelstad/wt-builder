@@ -1,0 +1,337 @@
+The Weekly Thing, issue 250. LLM, Shanghai, Wing. Published April 16, twenty twenty three. By Jamie Thingelstad. In this issue: Free Dolly open LLM, Ethereum Shanghai staking withdrawals, ChatGPT Code Interpreter, Wing Programming Language, Tesla car cameras privacy.
+
+I have always liked the act of signing your work. Painters sign their art. Developers include a comment with their name. We all sign our emails.
+
+Signing is something people do.
+
+Communication from abstract entities feels very different. It isn't signed because those entities aren't people. You don't know who the author was.
+
+As I've been experimenting with AI I've been extremely impressed. ChatGPT can generate such a wide range of content on different topics. And with enough training, it can generate that information as if it were someone else — provided there is some training data to use.
+
+With nearly 250 issues of the Weekly Thing, and 20 years of blog posts, there is ample text on the Internet to have a model write like me. But of course that wouldn't be me.
+
+We have entered a time where the cost of content creation will trend to zero. To be clear, I didn’t say great content, or insightful content. Just content. We already have far more than we can ever consume, and with generative AI we will have even more.
+
+I believe it is going to be very hard to know what is created by an AI, and what a person made.
+
+Signing our writing, or whatever else we create, is going to become significantly more important. There will be no other way to show the provenance of information.
+
+The wonderful thing is that crypto provides a solution that millions of people are using already. Every Ethereum wallet provides the ability to cryptographically sign messages. Providing a signature that is associated with a wallet address and Ethereum Name like thingelstad.eth gives provenance to what is signed. You can also inspect the assets associated with that address for additional veracity.
+
+I’m going to start including my signature in the Weekly Thing.
+
+Now, what to sign? I don't want to sign the entire email because that introduces all sorts of complexity around formatting. I want something that is really simple, so that the signature is easily verifiable.
+
+The subject.
+
+Email subjects are simple text. There is no formatting allowed. No hyperlinks to worry about. Very simple.
+
+I’m going to include my Ethereum Signature of the Weekly Thing subject by thingelstad.eth in each issue. This signature can be verified independently by anyone that wishes. An additional fun capability is that multiple signatures can be provided. So I can provide both my personal signature, as well as the weeklything.eth one. If there were a guest column by someone else? They could sign too.
+
+Signing our work. I like it. It feels very human.
+
+Now, the Featured section.
+
+Link one. "An example of LLM prompting for programming"
+
+This is an incredible example of creating a solution using ChatGPT. I've done many examples of having ChatGPT write code, but this approach creates a solution that can be debated and improved before you just spit out code.
+
+Quote.
+A common way of interacting with an LLM is to give it a problem and ask it to generate some final product, whether than be prose or (in this case) code. With Generated Knowledge we split our interaction into separate steps: first ask the LLM to generate some useful information about the problem, and then we feed that information back into the LLM to generate the final product.
+End quote.
+
+This is a super interesting way of working with another system in a pair-programming manner.
+
+Quote.
+My take away from this discussion was that using chain of thought and generated knowledge prompting approaches can be a significantly useful tool for programming. In particular it shows that to use LLMs well, we need to learn how to construct prompts to get the best results. This experience suggests that it’s useful to interact with the LLM like a junior partner, starting them with architectural guidelines, asking them to show their reasoning, and tweaking their outputs as we go.
+End quote.
+
+This is whole thing is incredible.
+
+"Before we scramble to deeply integrate LLMs everywhere in the economy, can we pause and think whether it is wise to do so?
+
+This is quite immature technology and we don't understand how it works.
+
+If we're not careful we're setting ourselves up for a lot of correlated failures." — Jan Leike, Alignment Team Lead, OpenAI
+
+Emphasis is mine. This quote is most notable for who is making it.
+
+That's the end of Featured.
+
+Now, the Notable section.
+
+Link one. "Amazon twenty twenty two Shareholder Letter (PDF)"
+
+Andy Jassy's second annual shareholder letter as Amazon CEO. It covers a lot of ground, and in general has a tone of lower risk appetite, focused on efficiency, and managed investment in growth.
+
+Quote.
+AWS has an 85 billion dollars annualized revenue run rate, is still early in its adoption curve, but at a juncture where it’s critical to stay focused on what matters most to customers over the long-haul. Despite growing 29% year-over- year ("YoY") in twenty twenty two on a 62 billion dollars revenue base, AWS faces short-term headwinds right now as companies are being more cautious in spending given the challenging, current macroeconomic conditions.
+End quote.
+
+I think this is the first time that AWS has seen demand stay relatively flat. The reasoning makes sense given the optimization on spend that all companies are doing in the current environment.
+
+As always the whole letter is a good read, and given the size and breadth of Amazon's business is an overall assessment of numerous industries.
+
+Link two. "Ethereum’s Shanghai Upgrade Is Complete, Starting New Era of Staking Withdrawals"
+
+I think Ethereum has tremendous potential. It is the most exciting thing in crypto to me. After a successful move to proof-of-stake, Ethereum is now allowing staking withdrawals.
+
+Quote.
+Ethereum's Shanghai hard fork, also referred to as "Shapella," has been finalized, enabling withdrawals for users who have "staked" their ether (ETH) to secure and validate transactions on the blockchain. The Shanghai upgrade was triggered at 22:27 UTC, and finalized at about 22:42 UTC. Roughly half an hour after the Shanghai upgrade was activated, some 285 withdrawals in epoch 194,408 had been processed, for about 5,413 ETH (10 million dollars worth), according to beaconcha.in.
+End quote.
+
+This is another huge milestone and creates a level of sustainability in the staking ecosystem for Ethereum that should give it incredible durability for a very long time.
+
+Link three. "Free Dolly: Introducing the World's First Open and Commercially Viable Instruction-Tuned LLM - The Databricks Blog"
+
+Open-source options for building out LLM features.
+
+Quote.
+We are open-sourcing the entirety of Dolly 2.0, including the training code, the dataset, and the model weights, all suitable for commercial use. This means that any organization can create, own, and customize powerful LLMs that can talk to people, without paying for API access or sharing data with third parties.
+End quote.
+
+This has a new training set that is open for others to use.
+
+Link four. "Replacing my best friends with an LLM trained on 500,000 group chat messages"
+
+This is a wild AI project using a 6 person group chat with over 500,000 messages.
+
+Quote.
+This has genuinely provided more hours of deep enjoyment for me and my friends than I could have imagined. Something about the training process optimized for outrageous behavior, and seeing your conversations from a third-person perspective casts into stark relief how ridiculous and hilarious they can be. It really, really nailed the voice and perspectives of my friends, and actually retains a ton of information on their preferences, lives, etc. I had considered attaching an embedding database to actually give the boys a knowledge store, but found this to be unnecessary.
+End quote.
+
+There have been many examples shared of people doing something like this with a single person (sometimes deceased!), but I haven't seen a group version before. It is interesting that it works so well even though all five of the people are trained in a single model. Perhaps that makes it better than if they were separate? Would be interesting to see the comparison.
+
+Link five. "Running Python micro-benchmarks using the ChatGPT Code Interpreter alpha"
+
+This is an incredible way to use ChatGPT. It requires some alpha plug-in access most people don't have.
+
+Quote.
+Here's the initial prompt I sent it: > In Python create an in-memory SQLite database with 100 tables each with 10 columns. > Time how long it takes to execute PRAGMA schema_version against that database 100 times. > Then add another 100 tables and time PRAGMA schema_version 100 times again. > Now run the whole benchmark a second time, but instead of PRAGMA schema_version time how long it takes to run hashlib.md5(db.execute("select group_concat(sql) from sqlite_master").fetchall()[0]).hexdigest() instead
+End quote.
+
+Okay, that is a wild set of requirements that would take a significant amount of time to write a testing harness for.
+
+Quote.
+From start to finish, this entire benchmarking exercise took me less than five minutes—because ChatGPT did almost all of the work for me.
+End quote.
+
+Willison goes on to tweak and modify this benchmark to make it more useful.
+
+This whole process is remarkable.
+
+Link six. "How to plan as an engineering executive. | Irrational Exuberance"
+
+Another great post from Larson this time about three core planning processes that teams need to engage in.
+
+Quote.
+As you take these ideas into your next planning process, my biggest hope is that you remember the first section: planning is an infinite game, and there’s always a bit of mess at every stage. The key thing is to continue improving bit by bit!
+End quote.
+
+A lot of great information here.
+
+Link seven. "Leading From The Heart - AVC"
+
+Wilson has worked with hundreds of leaders in many different environments.
+
+Quote.
+A leader can be the most brilliant product person, strategist, entrepreneur, and business builder, but if they cannot get people to follow them, trust them, and care for them, they will not be an effective leader.
+End quote.
+
+continued…
+
+Quote.
+… more transparency, more vulnerability, and more honesty is the winning formula and when you are choosing between the two, choose these things.
+End quote.
+
+Absolutely agree with this, and it isn't easy to do. But leadership isn't easy, particularly authenticate and genuine leadership.
+
+Link eight. "Wing Programming Language"
+
+Interesting language that automatically connects with cloud infrastructure to create what the code needs on its own.
+
+Interesting but seems like a lot of surface area to cover for one tool
+
+So this could let ChatGPT write its own code that just runs in its own cloud right?
+
+Link nine. "DevOps uses a capability model, not a maturity model - Octopus Deploy"
+
+Great way of thinking about continuous improvement of DevOps practices.
+
+Quote.
+A capability model: - Focuses on continuous improvement - Is multi-dimensional, dynamic, and customizable - Understands that the landscape is always changing - Is outcome-based When you use a capability model, you accept that high-performance today won't be sufficient in the future. Business, technology, and competition are always on the move and you need a mindset that can keep pace.
+End quote.
+
+Would all methodologies be better served by a capability model versus maturity? Could Agile be viewed the same way?
+
+Link ten. "Why I Blog"
+
+Guo has a great set of reasons to blog: Clarify My Thinking, Share Knowledge and Ideas, Learn Things, Practice Writing, Learn How I'm Wrong, Be Able to Provide a Link, Vanity, Unexpected Opportunities, and Monetization. I particularly like and agree with the first four. The other reasons are all good too, but they rely on having an audience and in some cases a feedback loop. Personally I would like to focus on value that I get without a dependency on an audience.
+
+Link eleven. "Tesla workers shared images from car cameras, including "scenes of intimacy" | Ars Technica"
+
+Ring had the same issue. If your company captures images of customers, you should really determine why you are ever storing them. Assume your employees cannot resist the desire to share them and get laughs.
+
+Link twelve. "I’m an ER doctor: Here’s what I found when I asked ChatGPT to diagnose my patients | Medium"
+
+Interesting assessment by an ER doctor having ChatGPT trying to diagnose. It did better than expected, but missed outliers.
+
+Quote.
+In short, ChatGPT worked pretty well as a diagnostic tool when I fed it perfect information and the patient had a classic presentation.
+End quote.
+
+This is pretty wild since it would presume that for some large number of cases it could do a "good enough" job.
+
+Quote.
+The art of medicine is extracting all the necessary information required to create the right narrative.
+End quote.
+
+The article goes on to highlight ways that it can add value. There isn't a mention though that the patient might actually be more open and truthful with an AI than with the human doctor. When we look at what people type into Google, they seem to share things that they may be otherwise embarrassed to share. An AI Doctor might better at getting all the right information.
+
+Link thirteen. "Memory Dividends - POAP Blog"
+
+This post captures the thing I like the most about POAPs.
+
+Quote.
+Fortunately, we now have The Proof of Attendance Protocol (POAP), a technology that allows anyone to create digital collectibles (POAPs) to commemorate their precious moments of life. POAPs provide many of the same benefits as photographs, letters, and physical mementos, as the issuer has the ability to attach both beautiful imagery and detailed written descriptions. In addition, POAPs remove many of the drawbacks associated with other analog memory activation tools. They require no physical storage and can’t be destroyed since they are digitally native and secured by blockchain technology.
+End quote.
+
+That's the end of Notable.
+
+Now, the Journal section.
+
+Thursday @ 9:23 PM
+
+We are going to Brandi Carlile’s Mothership Weekend — gonna be great!
+
+Thursday @ 9:19 PM
+
+The ice is nearly gone on Lake Harriet, and the north shore of the lake was like a giant slushie with small chunks of ice. As the waves tossed them around they made the coolest tinkling noises, like millions of pieces of glass clinking together.
+
+Thursday @ 9:15 PM
+
+Doubled my exercise volume for the last 15 weeks.
+
+Wednesday @ 9:26 PM
+
+twenty twenty two Minnesota Aspirations in Computing Award Ceremony
+
+It was great to join the Aspirations in Computing annual award ceremony and celebrate the impressive accomplishments of these young women. We are also excited to welcome four award winners to internships with TeamSPS this summer!
+
+See: twenty twenty one, twenty twenty, twenty nineteen, and twenty sixteen events.
+
+Wednesday @ 9:18 PM
+
+Attended a presentation of the American Service (also see American Service in Ukraine) from Aswar Rahman. What they are doing to help Ukrainians that are trying to get to America and get established is very impressive!
+
+Sunday @ 7:20 PM
+
+Fun seeing The Super Mario Bros. Movie tonight! I thought the movie was a lot of fun. I enjoyed how they brought the characters to life.
+
+Sunday @ 2:41 PM
+
+Happy Easter from the Thingelstad Family!
+
+Sunday @ 9:07 AM
+
+Easter Bunny partnered with MrBeast this year and brought all the Feastables for us to try!
+
+Sunday @ 8:04 AM
+
+Watching the 120th edition of Paris-Roubaix through the Trouée d'Arenberg.
+
+Saturday @ 10:07 PM
+
+Tammy and I had a great evening at the Tina Schlieske show at The Dakota tonight. It was my favorite show of hers ever, but I've only seen her about eight times compared to Tammy's 100 plus! It was a rocking show too!
+
+Saturday @ 3:05 PM
+
+Digging my new Roll Bicycle C:1 City Bike from Tangletown Bike Shop. I've got a bunch of bikes, but I wanted to get a simple city bike to ride around for fun. This perfectly fit the bill, and the folks at the bike shop were great.
+
+Saturday @ 1:43 PM
+
+I liked the contrast of the trees and organic waiting to bloom now that the snow is gone with the concrete and graffiti.
+
+Saturday @ 1:16 PM
+
+Nice Saturday morning in St. Paul: Hot Hands for delicious Chicken Pot Pie. Roots Roasting for a delightful cup of coffee. A nice walk in Hidden Falls Regional Park.
+
+That's the end of the Journal.
+
+Now, the Briefly section.
+
+Link one. "Eight Things to Know about LLMS - Marginal REVOLUTION"
+
+Interesting.
+
+Link two. "Principles for Creating with AI"
+
+Good list for framing thoughts on using AI.
+
+Link three. "The one good HomeKit-capable wall switch you should get – A Whole Lotta Nothing"
+
+I put some Lutron Caseta switches in our house and like them, but I agree that the button layout is not great. The newest generation looks much better.
+
+Link four. "Importing tweets to Micro.blog - Manton Reece"
+
+Micro.blog can again import tweets, with a massively upgraded approach. I pulled all my Tweets off of Twitter and into micro.blog using the original import. I’m undecided about the future value of Tweets. Often Tweets don't hold up on their own, and instead just seem like a fragment.
+
+Link five. "The AI singularity is here | InfoWorld"
+
+Great examples of why code generation may be a great place to get the first benefit from LLMs. Code has to pass all sorts of tests before it can be used. All of those tests operate as filters for errors.
+
+Link six. "Crypto (Could) Fixes This - Not Boring by Packy McCormick"
+
+Great examples of ways that crypto can add tremendous value — and why I continue to learn and work with it.
+
+Link seven. "Uptime Guarantees — A Pragmatic Perspective"
+
+Reminder to consider the cost of increased availability, and make sure that the tradeoffs make sense.
+
+Link eight. "I don't want streaming music, I just want to stream my music • Cory Dransfeldt"
+
+It is frustrating when new capability like streaming music on any device anywhere — doesn't work with a previous model like owning music that sits on your own hard drive.
+
+Link nine. "Codeberg.org"
+
+A privacy-focused, non-profit member owned Github alternative based out of Germany. It is good to see growing interest in tech about longer term matters for important things like this.
+
+Link ten. "Twitter now disables likes, replies, and retweets if a tweet has Substack links - The Verge"
+
+Disappointing.
+
+Link eleven. "ChatGPT is making up fake Guardian articles. Here’s how we’re responding | Chris Moran | The Guardian"
+
+ChatGPT doesn't need to be bound by facts.
+
+Link twelve. "Simply explained: how does GPT work? | Confused bit"
+
+Simplified explanation of how ChatGPT works.
+
+Link thirteen. "New decisions based on new information | Seth's Blog"
+
+It’s okay to change your mind.
+
+That's the end of Briefly.
+
+Now, the Signature section.
+
+"Weekly Thing #250 / LLM, Shanghai, Wing" is signed…
+
+Signed by thingelstad.eth:
+0x542baf5f1a70217f352248d378422b6590e299425f0e0f1d7170bb3bdf0745075940bd2c38418b1238ac821feff366c26178a06e9d366fd89e9a7f6838da26b41c
+
+Signed by weeklything.eth:
+0xf14546e995d50a61e06f91431326bf01304e6b154d030bb3d2784b49dd2e6a800495e2d820e5cc4c4004d82a2d43ce6d65964aa8e322d8f2cb47516d01af57f21c
+
+That's the end of Signature.
+
+Now, the Fortune section.
+
+Here is your fortune…
+
+Save energy: be apathetic.
+
+Thank you for subscribing to the Weekly Thing!
+
+That brings us to the end of the Weekly Thing, issue 250. Thanks for listening, and I'll see you next time.

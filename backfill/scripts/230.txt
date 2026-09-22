@@ -1,0 +1,215 @@
+The Weekly Thing, issue 230. Calendar, Fractal, Reminiscing. Published October 15, twenty twenty two. By Jamie Thingelstad. In this issue: Computer science education Minnesota, diminishing returns calendar culture, colonoscopy cancer deaths, Nouns Name Service, Arctic Wolf 401 million dollars financing.
+
+I wish that there were 28 hours in a day.
+
+If I add up what I want to get done each day, along with sleeping, family, work, hobbies, etc. 24 hours just isn't enough.
+
+28 seems like it would be just right. I would flex those four additional hours into a lot of interesting things, and not forego sleep.
+
+28 seems like it would be just right.
+
+Tammy also wanted some more time. She felt 25 hours would be just right for her.
+
+How many hours would you ideally want in a day?
+
+We are on vacation this week at the Magic Kingdom! There will not be an issue next week.
+
+Now, the Featured section.
+
+Link one. "A Bad Report Card for Computer Science Education in Minnesota | Twin Cities Business"
+
+This is an abysmal report for computer science education in my home state of Minnesota.
+
+Quote.
+According to the twenty twenty two State of Computer Science Education report by nonprofit Code.org, Minnesota ranked dead last in the nation for the percentage of public high schools offering foundational computer science courses. Just 21% of public high schools in the North Star State offer such courses, according to the report, which was released late last month.
+End quote.
+
+Wait, it gets worse. Minnesota still hasn't even declared that some level of computer science is necessary to graduate.
+
+Quote.
+Minnesota is also among the states that don’t require high schools to even offer computer science courses. In total, 27 states now require their high schools to at least offer the classes.
+End quote.
+
+I’m lucky to serve on the board of the Minnesota Technology Association which is led by Jeff Tollefson, who is quoted extensively in the article. There are three main areas the organization is focused on, and this is one of them. However, there needs to be much more awareness of how poorly our state is doing and a push from parents and industry to drive this as a priority.
+
+Link two. "The Diminishing Returns of Calendar Culture"
+
+This article on calendars and the systems behind them piqued my interest right away. I have an exceptionally busy calendar. I would be lost without it. It is where I plan, execute, and reflect. The interesting topics that Petersen brings up in this article were thought provoking to me.
+
+Quote.
+There are, instead, schedules. Schedules whose form — particularly when it comes to digital ones — is borrowed from the work day. All events should be set in 15 minute increments. All purposes should be legible. All time is open for colonization by activities intended to make you a better student, a better resume, a better job candidate. All play should be scheduled. It’s not about the quality of the activity but the quantity; it’s not about the effects of doing it all but the fact that you are doing it.
+End quote.
+
+This all made me think. I hadn't considered the mental model that our calendars display puts in front of us. How does that mental model the influence how we use our calendar, or more specifically, how we use our time.
+
+She writes in the article about shared calendaring and I do think there are big trade offs there that are not well understood too. Opening your calendar is opening your most precious, non-renewable thing — time. It has struck me for years as a backwards way to manage such a critical thing. Do others know best where your time should be spent?
+
+Quote.
+Or what about a calendar that was simply, as one reader imagined, oriented around protecting time, instead of filling it? What would an un-calendar be?
+End quote.
+
+This article didn’t leave me with a to do, but it left me with a lot of questions. On my opinion our calendars have a tremendous amount of value to still unlock. Why? Because they know the future! Our calendars should be helping us, not just being a fancy database. But then of course we hit another important issue, helping us in what way?
+
+That's the end of Featured.
+
+Now, the Currently section.
+
+Listening: Anytime I see Ian Bremmer is on a podcast I queue it up right away. Bremmer's perspective is very interesting, and this The State of the World episode on the Prof G Pod with Scott Galloway is great.
+
+Dining: We got to try the delicious pizza at Mario's in St. Paul. Highly recommended!
+
+That's the end of Currently.
+
+Now, the Notable section.
+
+Link one. "In gold-standard trial, colonoscopy fails to cut rate of cancer deaths - STAT"
+
+Having just turned 50 and recently become first-hand familiar with colonoscopies, this piqued my interest.
+
+Quote.
+The trial’s primary analysis found that colonoscopy only cut colon cancer risk by roughly a fifth, far below past estimates of the test’s efficacy, and didn’t provide any significant reduction in colon cancer mortality. Gastroenterologists, including Bretthauer, reacted to the trial’s results with a mixture of shock, disappointment, and even some mild disbelief.
+End quote.
+
+Main conclusion is that it is still good to get a colonoscopy, but it isn't as big of a clear check as one might hope.
+
+Link two. "Fractal Garden"
+
+Fractals are amazing. They should get more attention.
+
+In here the Sierpinski Triangle had me reminiscing. The very first program I ever wrote that did graphics was that algorithm. In fact, I made multiple iterations because it turns out you can introduce randomness and still get the infinite triangles. I wrote it in Turbo Pascal on some version of Windows.
+
+Link three. "How to plan? | Kellan Elliott-McCrea"
+
+Interesting observations on creating an annual plan, and the key aspects of successfully creating one.
+
+Link four. "I wish my web server were in the corner of my room (Interconnected)"
+
+I love this article because it falls into that wonderful place of making the Internet small, and all about people.
+
+Quote.
+It is boundary-violating, to have a website in the corner of your bedroom. Websites are meant to be in the cloud. Eternal, somehow, transcendent, like the voice of code floating down from the sky. But no, there it is. It is real! I can kick it! Argumentum ad lapidem.
+End quote.
+
+He has me wanting to run my website from my house.
+
+I used to run a bunch of stuff in my house, including my website. The problem was the bandwidth. It was just too slow. But now with fiber maybe I should reconsider.
+
+I never had my web server play Mooo sounds or music though. That would have been delightful.
+
+In this spirit, I am running a Gnosis Chain validator in my house and it gives me many of these same feels.
+
+Link five. "Reminiscing: the retreat to comforting work. | Irrational Exuberance"
+
+I like Larson's framing here, "reminiscing". it sounds so much more appropriate than other more negative terms. I would suggest that everyone goes to this kind of "reminiscing" work from time to time. I like his suggestions for being mindful about it.
+
+Link six. "I’m not OK (and that’s OK). – Rhoneisms"
+
+My friend Patrick sharing on Mental Health Awareness Day that he is not okay. Mental health is a big deal, and there is way too much stigma around it. My father had many mental health issues and I've been lucky to avoid them. We need to make these topics okay, and remove the worries that come from even speaking about them.
+
+Link seven. "WTF is NNS? — Nouns Name Service"
+
+I own thingelstad.◨-◨ and WeeklyThing.◨-◨. I find the experimentation in the Noun ecosystem tremendously interesting and the idea that a part of the crypto universe can create there own name system is pretty wild. PS: I can also rightly use the term "own" since NNS names are purchased permanently and have no renewal like ENS, or traditional DNS.
+
+Link eight. "Ukraine’s Path to Victory | Foreign Affairs"
+
+This article goes into depth on a number of factors that give Ukraine a strategic advantage. Overall the suggestion is that Ukraine has a much more agile and modern military approach, although it is much smaller.
+
+Quote.
+Ukraine’s repeat successes are not coincidences. The country’s military has structural advantages over its Russian adversary. The Russian military is extremely hierarchical and overly centralized; its officers are unable to make critical decisions without getting permission from senior leaders. It is very bad at multidirectional planning, incapable of focusing on one segment of the frontline without distracting from its operations in another. Ukraine, by contrast, is quick to adapt, with a NATO-style "mission command" system that encourages lower-ranking officers and sergeants to make decisions. Ukraine has also carried out many successful multidirectional attacks. The country’s counteroffensive in the south, for example, diverted critical Russian resources away from Kharkiv, allowing Ukrainian units to advance there with ease.
+End quote.
+
+The fact that their motivation is so much stronger is also critical.
+
+Quote.
+Ukraine has also suffered serious casualties, and its soldiers will continue to fall in combat. But unlike the Russians, who are fighting a "special military operation" fueled by Putin’s imperial delusions, the Ukrainians are fighting a total war to save their country.
+End quote.
+
+Link nine. "The GIF Is on Its Deathbed - The Atlantic"
+
+It dates me, but I was a little surprised that this article made no mention of the patent battles that Unisys tried to assert regarding GIF. They had their lawyers all over at the beginning of the web trying to get everyone to pay a royalty. At BigCharts we served charts as GIFs, and they came knocking on our door. I’m still proud of my reply. Their patent covered the compressing and decompressing of GIFs. We never decompressed, so I suggested we didn’t violate their patent. It worked well enough to get them to move along to other people.
+
+It is also fun to see Matt Semke, aka Cats Will Eat You quoted here. He is a notable local artist and has created a new piece of art every day for more than 15 years.
+
+Quote.
+GIFs—as a file format, not as a category of thing you could use to express an opinion without formulating one—were special. "This was an art form that was native to the internet," Matt Semke, a GIF artist who works under the name Cats Will Eat You, told me. "Videos existed in other places; paintings, photos existed in other places. GIFs just didn’t exist anywhere until the internet." And they were beloved because of the seamless animated loop, which was not possible with any other file format. Because of their unwieldiness and antiquation, today, many GIFs are converted to MP4 video files, which look good and make life easier but do not loop perfectly. There is always a tiny hiccup when the video has to restart, making them inferior.
+End quote.
+
+Is it possible that GIFs are the vinyl record of the Internet? Not as convenient, not as fast, not as smooth — but so what!?
+
+Forever is a really big word, but I would feel very confident saying that GIF is a file format that will be around forever.
+
+Link ten. "Eden Prairie Cybersecurity Firm Arctic Wolf Lands 401 million dollars in Financing | Twin Cities Business"
+
+Notable to me that this financing is debt and not a simple equity purchase. There is a lot of money being invested in security, and while the total spend going into that industry is growing I wonder if it is growing fast enough for the capital being put in.
+
+That's the end of Notable.
+
+Now, the Journal section.
+
+Thursday @ 7:42 PM
+
+At today’s MnTech board meeting we heard presentations from the twenty twenty two ACE Leadership participants as they finished the program. Wonderful group of gifted leaders bringing innovative ideas forward.
+
+Sunday @ 7:01 PM
+
+Celebrating the Minnesota United victory — with a photobomber!
+
+Sunday @ 5:25 PM
+
+Watching the irrigation techs during halftime at Allianz Field is one of my favorites. Don’t know why.
+
+Sunday @ 5:24 PM
+
+Minnesota United v Vancouver Whitecaps starting second half. United leading 1-0, and playoff bound?
+
+Sunday @ 2:42 PM
+
+Project “Float the Boat” is successful! Dock crew attached cables to the pontoons and pulled it back into the water with the winch. Once it was moving the front SeaLegs came free. Smart that the SeaLegs fold up towards the front of the boat.
+
+Sunday @ 11:44 AM
+
+Got our Halloween pumpkins at Little Hill Berry Farm by Northfield this morning. They also had a delicious Blueberry Pancake breakfast.
+
+Saturday @ 6:57 PM
+
+S’mores.
+
+Saturday @ 5:21 PM
+
+Cats Will Eat You created "Eleven Virtual Faces" collection and I liked all of them. I decided to get Virtual Face XI to add to my collection from him. He does these paintings in VR, and the look is incredible.
+
+Saturday @ 5:10 PM
+
+Fall is upon us.
+
+Saturday @ 3:41 PM
+
+Project “Float the Boat” has gotten harder. Cannon Lake is down another couple inches. The rear SeaLeg is up, but the front is stuck in the muck. Spent 30 mins trying to clear it with no luck. Tomorrow the dock guy comes. Hoping for a breakthrough.
+
+Friday @ 7:55 PM
+
+Beautiful night for a campfire with a nearly full moon.
+
+That's the end of the Journal.
+
+Now, the Briefly section.
+
+Link one. "tremor"
+
+Great looking library for creating dashboards.
+
+Link two. "Things versus OmniFocus versus Todoist: A comparison of the best GTD app suites"
+
+I've been an OmniFocus user for as long as it has existed. I did play with Things at one point. I would concur with the conclusions here on these different tools.
+
+That's the end of Briefly.
+
+Now, the Fortune section.
+
+Here is your fortune…
+
+You have a truly strong individuality.
+
+Thank you for subscribing to the Weekly Thing!
+
+That brings us to the end of the Weekly Thing, issue 230. Thanks for listening, and I'll see you next time.

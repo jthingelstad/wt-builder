@@ -1,0 +1,224 @@
+The Weekly Thing, issue 206. Omicron, Overengineering, Endaoment. Published December 4, twenty twenty one. By Jamie Thingelstad. In this issue: Omicron variant, financialization of everything, hybrid leadership, Bitcoin mining ban, crypto bullshit, overengineering products, buying an ebike.
+
+The retail industry put Cyberweek twenty twenty one in the books this week which is always a big week for everyone. It is great to see everything scale up, processes humming along, and years of expertise come together to deliver great results.
+
+Let's get right onto the links shall we!
+
+Now, the Featured section.
+
+Link one. "The Omicron situation - by Noah Smith - Noahpinion"
+
+The graphic in this article showing the genetic difference of Omicron versus other COVID-19 variants is stark. It is in another path entirely. What we know about this new variant is much less than what we don't know. We've been masking much more again, and happily we now have all of our family fully vaccinated and soon boosters too. Stay safe and maintain some cautions is my take.
+
+That's the end of Featured.
+
+Now, the Notable section.
+
+Link one. "SPS Commerce CEO: How A Miserable Job Can Pay Off | Investor's Business Daily"
+
+This is a great interview with our CEO Archie Black. Everything in here is spot on and Archie's focus on our local community comes through very strong. Lead the way #TeamSPS!
+
+Link two. "The Financialization of Everything - The Atlantic"
+
+Broad and accessible overview of some theories around tokenization of some very unfamiliar things, like social tokens. This is an interesting taste. If it is interesting I'd recommend the book Radical Markets for a much more thorough exercise of bringing market dynamics into new places. Some of this is interesting, and some feels like it would be a mistake. Not sure which is which though.
+
+Link three. "How to Become an Awesome Hybrid Leader - Matt Norman"
+
+My friend Matt Norman and I were catching up and we got to talking about engaging in hybrid environments and maintaining connections during these times of great change. He wrote up a great post that hits on some of the key points.
+
+Link four. "Ten trends to watch in the coming year | The Economist"
+
+This list of ten trends to watch in twenty twenty two seems spot on.
+
+Quote.
+1. Democracy v autocracy. 2. Pandemic to endemic. 3. Inflation worries. 4. The future of work. 5. The new techlash. 6. Crypto grows up. 7. Climate crunch. 8. Travel trouble. 9. Space races. 10. Political footballs.
+End quote.
+
+All big stuff with large potential impacts.
+
+Link five. "Thanksgiving’s biggest online shopping day was Cyber Monday, but other days were close behind"
+
+Interesting analysis of aggregate e-commerce traffic around Cyber Monday.
+
+Quote.
+The Black Friday week definitely had a big impact on e-commerce traffic, but besides the clear winner, Cyber Monday, the podium was actually completed with the first two days in November. Those days have a big traffic peak, but the Black Friday week has more sustained traffic over five days.
+End quote.
+
+It is interesting that there were such high volume days earlier in November. It certainly seems that something pushed more buying activity earlier in the season than normal. My best guess is that all the news of supply chain issues got many shoppers to place orders significantly earlier than they normally would. Retailers have also been attempted to "flatten the curve" for years and perhaps they had more success this year than they have in the past.
+
+Link six. "New Concerning Variant: B.1.1.529 - by Katelyn Jetelina - Your Local Epidemiologist"
+
+Early reaction to the findings around what we now know as Omicron.
+
+Quote.
+Of these, some mutations have properties to escape antibody protection (that is outsmart our vaccines and vaccine-induced immunity). There are several mutations association with increased transmissibility. There is a mutation associated with increased infectivity.
+End quote.
+
+Keep your masks around, and get your booster shots.
+
+Link seven. "The Internet is Held Together With Spit and Baling Wire"
+
+It is incredible that MAIL-FROM was ever considered a valid means of authenticating a message between the operators running the backbones connecting the internet. It is an interesting problem, how do the core network backbone operators share the running configuration of the Internet and affect changes without opening up compromise vectors.
+
+Link eight. "Europe must ban Bitcoin mining to hit the 1.5C Paris climate goal, say Swedish regulators | Euronews"
+
+People often highlight a threat to crypto is governments shutting it down. I’m dubious of more open governments doing that mostly because it wouldn't play well. However, there is this growing climate change storyline that is being built around crypto and I would be watching for politicians attempting to use this to try and block something that they worry may cause them some loss of control.
+
+Link nine. "Is Crypto Bullshit? - Will Wilkinson, Model Citizen"
+
+I wish I would have written this blog post, because my experience mirrors it completely. And in all areas. Wilkinson first addresses the strong opinions that people have on crypto tech.
+
+Quote.
+Right away I noticed something essential about polarized attitudes about crypto: it’s driven to a large extent by vexed will-to-obliviousness on one side and self-dealing, book-talking, investment-pumping, hand-waving performative optimism on the other.
+End quote.
+
+I think he identifies the attitudes right, but it is still shocking to me how "passionate" some folks get on the topic. I've never talked about technology topics and been accused of being a horrible person, and I actually built stuff in social media for a while!
+
+The key to Wilkinson's opinion is the same as mine…
+
+Quote.
+Naturally enough, this was all impossible for me to see before I started to seriously dabble, which made me genuinely curious about how it all works and finally drove me to read a number of extremely dry but profoundly informative white papers.
+End quote.
+
+It is so important to make time to directly engage with new technologies.
+
+Link ten. "Overengineering can kill your product - Mind the Product"
+
+Good article and a topic that I often doesn't get enough attention. I've seen projects fail because of this. I particularly appreciate the early optimization pattern highlighted.
+
+Quote.
+Premature optimization is often another typical example of overengineering. A common situation is preparing a system to absorb a large amount of traffic with an overly complicated infrastructure setup when you still don’t have users. In most cases, having a monolith running on a single server is all you will need to validate your business model.
+End quote.
+
+If you are optimizing before you are in production and have real data it is likely too early.
+
+The other pattern I've seen is Excessive Abstractions, where engineers seek to make a very agile and extensible solution, but then end up building abstractions on abstractions over and over, until you cannot even see the problem that you are solving anymore.
+
+Link eleven. "Crypto design challenges"
+
+This is a great overview of all the issues that need to be overcome for crypto to be able to gain mass adoption. We are still in early times and many of these friction points limit use to only technical folks or people that are particularly motivated.
+
+Link twelve. "11 rules for buying an ebike, and the 11 ebikes to buy now"
+
+Great overview of things to consider when buying an ebike. It feels like there is a tremendous amount of innovation to happen with ebikes. I didn’t realize that some of them are building in anti-theft systems. That would be a huge deal. Leaving your bike when you run errands is always worrisome.
+
+That's the end of Notable.
+
+Now, the Journal section.
+
+Thursday @ 9:48 PM
+
+Got my Pfizer booster dose tonight! I’m happy I was able to get it two weeks earlier than I was scheduled for.
+
+Thursday @ 10:14 AM
+
+Nov 11: Variant identified in Botswana.
+Nov 14: Identified in South Africa and Hong Kong.
+Nov 23: Designated name B.1.1.529.
+Nov 26: WHO Classifies Omicron.
+Dec 1: CDC confirms Omicron in the United States.
+Dec 2: MDH confirms Omicron in Minnesota.
+
+Sunday @ 7:16 PM
+
+These Angry Bunnies keep multiplying. Had six, now eleven. My Minnesota is showing with all the plaid. Details on each NFT. Saving the last spot for a special one.
+
+Sunday @ 5:32 PM
+
+Whoever came up with putting grid lines on the back of wrapping paper is a genius.
+
+Sunday @ 4:01 PM
+
+Things 4 Good on Endaoment
+
+I had been thinking it would be really cool if Donor Advised Funds (DAF) were open to accepting crypto tokens as deposits. There has been a lot of wealth built up in crypto and it would be very beneficial to create simple means to move some portion of that to non-profit organizations. Shortly after this I stumbled upon Endaoment.
+
+Endaoment describes itself as "We're a tax-exempt Community Foundation built for decentralized finance and focused on social impact." Endaoment is a DeFi version of a DAF like Schwab Charitable. This morning, while Ethereum gas prices were predictably low, I sat down to play with this first hand.
+
+Setting up your Fund
+
+I went to Endaoment and connected to my wallet. Easy enough, just like any other Web3 application. I then created my own fund. This was super simple. I needed a name, I chose Things 4 Good. Gave it a tagline. I then associated my name and address. There were no credit checks, no social security numbers, just basic contact information. After this I submitted a transaction that deployed the smart contract for my DAF.
+
+Now I had my own contract associated with Things 4 Good, and it was time to provide an initial deposit to the fund. Endaoment requires a minimum 500 dollars transfer so I sent in 0.15 ETH. When Endaoment receives the ETH they immediately transfer that to USD Coin (USDC). They sent me a receipt for tax purposes for the full value of the 0.15 ETH. Endaoment takes a 0.5% transaction fee, and there are some fees associated with the transactions to USDC, which are taken out after.
+
+With that done, my DAF was fully established on the Ethereum mainnet, funded, and ready to use.
+
+Granting Funds
+
+Now that Things 4 Good was setup I wanted to try issuing a grant. The Internet Archive is an organization I have supported for a long time and I thought it would be a fitting organization to make a first donation to. I picked them off the list of organizations registered on Endaoment. This was fun to me, because this is also on-chain, so to send the grant you interact with the smart contract.
+
+I appreciated this as it felt like a much different level of control than a typical DAF. We use Schwab Charitable and you make recommendations, they send checks, and you get emails saying it all happened but you can’t actually see it yourself. With Endaoment I can see my transaction and know exactly what happened when.
+
+With very little effort I have my DAF setup on the Ethereum mainnet, funded, and already distributed a grant. This is holy crap amazing.
+
+This seems like a powerful and needed capability as you manage your crypto assets. Plus it is an incredible example of the power of DeFi applications built on Web3 technology.
+
+Deploying Organizations
+
+After chatting with some of the Endaoment team on Discord they showed how you can deploy any existing 501(c)(3) organization. Any user can fund the deployment of the smart contract for that group. So I went ahead and deployed Constellation Fund and Minnestar on Endaoment.
+
+Sunday @ 3:26 PM
+
+Now that Apple has Shortcuts working on all platforms, I would like to renew my wish list item of having my Mail.app signature be a Shortcut so that I can have fun with dynamic signatures.
+
+Sunday @ 10:31 AM
+
+Mazie is making steady progress learning to drive. This is not a view I’m used to.
+
+Sunday @ 8:27 AM
+
+Extended my registration periods for thingelstad.eth and weeklything.eth so the tokens would be upgraded to the new ENS Metadata Service. Instead of boring colored box, they now have complete metadata. See Lazy profile.
+
+Sunday @ 8:06 AM
+
+Now that you can register any DNS .com domain on ENS I would love to dual-register thingelstad.com but the gas is beyond ridiculous. The registration is 25 dollars, but even at 85 Gwei, the gas fees to cross register would be 1,341 dollars!
+
+Saturday @ 9:26 PM
+
+Booked my appointment for my Pfizer booster shot today. I was surprised that the earliest I could practically get in was three weeks from today. I guess the good news is a lot of people are getting vaccines!
+
+Saturday @ 9:09 PM
+
+We all enjoyed watching A Boy Called Christmas tonight. Mazie and Tyler had read the book. It was a great new Christmas movie for all.
+
+That's the end of the Journal.
+
+Now, the Reply All section.
+
+Here are some replies from Weekly Thing #205 / Hurl, Faster, Web3.
+
+Quote.
+Deleted my Facebook account thanks to your note.:)
+End quote.
+
+That's the end of Reply All.
+
+Now, the Briefly section.
+
+Link one. "Give the gift of crypto this holiday season"
+
+Smart new offering from Coinbase. Send some crypto to friends for Christmas!
+
+Link two. "Townscaper on the Web"
+
+Townscaper is a fun Zen game where you build these cities. The author decided to make a surprisingly workable demo version that you can run in any web browser. It takes a while to load.
+
+Link three. "Square changes corporate name to Block"
+
+Now that Dorsey is just focused on Square and no longer doing part-time at Twitter, I think we will see, err, Block move faster on crypto efforts.
+
+Link four. "Why We Need to Upgrade Our Face Masks--and Where to Get Them - Scientific American"
+
+Our whole family uses Enro masks. But if I’m going to be in an environment that I think is particularly higher risk, I try to make sure I have a N95.
+
+That's the end of Briefly.
+
+Now, the Fortune section.
+
+Here is your fortune…
+
+You are a bundle of energy, always on the go.
+
+Thank you for subscribing to the Weekly Thing!
+
+That brings us to the end of the Weekly Thing, issue 206. Thanks for listening, and I'll see you next time.

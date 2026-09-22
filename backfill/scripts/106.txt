@@ -1,0 +1,154 @@
+The Weekly Thing, issue 106. May 18, twenty nineteen. Published May 18, twenty nineteen. By Jamie Thingelstad. In this issue: Privacy rights, data collection, Maciej Cegłowski, Senate testimony, Paul Ford, love of tech, blank canvas, strong opinions loosely held.
+
+This last week was a crazy, busy week for me. The kind of week that required everything planned out and to go on autopilot from meeting to meeting and event to event. I’m pretty happy to be on the other side of it watching the Twins play baseball and putting together this weeks Thing!
+
+Now, the Featured Links section.
+
+Link one. "Idle Words - Talks - Privacy Rights and Data Collection in a Digital Economy (Senate hearing)"
+
+Very well stated position on privacy from Pinboard's Maciej Cegłowski about privacy. I particularly like the enumerated goals for privacy legislation.
+
+The final, and paramount goal, of privacy regulation should be to preserve our liberty.
+
+Well stated.
+
+Link two. "Why I (Still) Love Tech: In Defense of a Difficult Industry | WIRED"
+
+I enjoyed reading this article from Paul Ford reflecting on the "magic" that we sometimes forget, and occasionally misuse, in the technology industry.
+
+And of course I rarely get to build software anymore.. I would like to. Something about the interior life of a computer remains infinitely interesting to me; it’s not romantic, but it is a romance. You flip a bunch of microscopic switches really fast and culture pours out.
+
+The emphasis is mine there. I simply loved that turn of phrase – that culture pours out. How delightful.
+
+And here I squirm and twist. Because—because we have judged you and found you wanting. Because you do not speak with a confident cadence, because you cannot show us how to balance a binary tree on a whiteboard, because you overlabored the difference between UI and UX, because you do not light up in the way that we light up when hearing about some obscure bug, some bad button, the latest bit of outrageousness on Hacker News. Because the things you learned are already, six months later, not exactly what we need. Because the industry is still overlorded by people like me, who were lucky enough to have learned the etiquette early, to even know there was an etiquette.
+
+That is a great way to capture the lack of inclusion in technology culture. it’s completely spot on as well.
+
+A new computer is the blankest of canvases. You can fill it with files. You can make it into a web server. You can send and receive email, design a building, draw a picture, write 1,000 novels. You could have hundreds of users or one. It used to cost tens of thousands of dollars, and now it costs as much as a fancy bottle of wine.
+
+I loved this idea of a computer as a blank canvas as well. Really the entire article is a delight to read. Do yourself a favor and give it a read, particularly if you have always been drawn to computers.
+
+That's the end of Featured Links.
+
+Now, the My Weekly Photo section.
+
+Grill extravaganza!
+May 15, twenty nineteen at 5:29 PM
+Kitchen Window, 3028 Hennepin Ave, Minneapolis MN 55408
+
+That's the end of My Weekly Photo.
+
+Now, the Notable Links section.
+
+Link one. "Strong Opinions Loosely Held Might be the Worst Idea in Tech - The Glowforge Blog"
+
+This is a concept that Amazon particularly has highlighted as a good thing.
+
+What really happens? The loudest, most bombastic engineer states their case with certainty, and that shuts down discussion. Other people either assume the loudmouth knows best, or don’t want to stick out their neck and risk criticism and shame. This is especially true if the loudmouth is senior, or there is any other power differential.
+
+Diverse members of your team may be less likely to have experienced the collegial, open debate environment, and may feel uncertain of their position. This means you might not hear their ideas. Given the extensive research that shows diverse teams make smarter decisions, this is tragic.
+
+I think there is some truth to this.
+
+Link two. "Amazon’s Away Teams laid bare: How AWS's hivemind of engineers develop and maintain their internal tech • The Register"
+
+These concepts that Amazon has built into the AWS engineering organization are really interesting, and you can see how they are directly designed to fight against bad patterns. The 'away team' concept I think could also be called 'inner source'. I dig the idea that if your team is the last and only team using a service, you now own the service. It encourages folks to move forward with deprecation. The thing I wonder on articles like this is if a design that works for a giant organization growing so fast has any applicability to 99% of the rest of organizations out there.
+
+Link three. "Bunch, a batch app launcher for your Dock - BrettTerpstra.com"
+
+For years I've used a script in AppleScript ( called "Launch Apps.scpt" and when I get to work I run it to start the dozen or so applications that I run all day, every day. Bunch is an app version of that, and has some fun additional features. A fun project that Brett Terpstra ( has added to his list (.
+
+Link four. "Millions of people uploaded photos to the Ever app. Then the company used them to develop facial recognition tools."
+
+We need a name for services like this that provide some utility to a user, almost always for free, and then use the data provided to run a completely unrelated, often surveillance focused business on the other side. How about Doppelgänger ( business?
+
+What isn’t obvious on Ever’s website or app — except for a brief reference that was added to the privacy policy after NBC News reached out to the company in April — is that the photos people share are used to train the company’s facial recognition system, and that Ever then offers to sell that technology to private companies, law enforcement and the military.
+
+The Ever AI screenshots in the article looks like a Doppelgänger of the Ever one.
+
+Link five. "PHP in twenty nineteen - stitcher.io"
+
+This is a good recap of the massive improvements made in PHP since the jump to 7.x. I think of PHP as "The People's Language". It’s approachable, and frankly the web is probably run by PHP more than any other language (every WordPress site, every MediaWiki site, including Wikipedia, etc.) PHP does have a terrible reputation, half of which is deserved because the language did have many issues, the other half it gets because so many developers learn to code in PHP and thus the poor practices of novice developers show up a lot. In truth, an experienced developer using PHP 7.x can write elegant solutions.
+
+Link six. "Cooking As A Service – danco.blog"
+
+Interesting data on trends around food and cooking. I certainly enjoy dining out, but I read this article on the merits of "outsourcing" food preparation and wonder when you need to look at it differently, and just be clear that making some portion of your food is just called being human.
+
+Link seven. "API design: Why you should use links, not keys, to represent relationships in APIs | Google Cloud Blog"
+
+I am a fan of this concept and have advocated for it in platforms for a while, particularly large and complicated platforms, which most are.
+
+Viewed from an implementation point of view, replacing all the database keys with links is a fairly simple change—the server converted the database foreign keys into URLs so the client didn't have to—but it significantly simplifies the API and reduces the coupling of the client and the server. Many URI templates that were essential for the first design are no longer required and can be removed from the API specification and documentation.
+
+Think of your platform as a little web (lowercase w) of it’s own, and using links to establish the relationships.
+
+Link eight. "Disrupting the Tech Profession’s Gender Gap"
+
+This is a shocking statistic.
+
+In twenty sixteen, technology industry recruiter Speak With a Geek sent out 5,000 resumes with identical information to companies. One set of resumes included gendered names and biographical information, and the other set omitted those details. When those identifying aspects were removed from the resumes, 54 percent of the women received interview offers; when gendered names and other biographical information were provided, only 5 percent of them did.
+
+54% to 5% with no difference in the data itself?
+
+The article highlights what I think is one of the keys to improving technology teams, creating an inclusive culture and environment. Yes, you need to do the structural things, but nurturing an inclusive culture is critical to sustained improvement, on a number of different areas. Thanks to Mike Carey ( for the link!
+
+Link nine. "The Time of Day Has a Significant Effect on Your Productivity"
+
+I've been wanting to read When: The Scientific Secrets of Perfect Timing ( by Daniel Pink for a while and this article makes me want to read it more. It feels like there is something here. I see it in business, when people schedule meetings dependent only on availability. There are times that just don't work for certain conversations.
+
+Link ten. "What’s happening at Nest? | Nest"
+
+I was a Dropcam customer, and the product was great. Then that became Nest. And then Nest became Google. Now Google is completing the assimilation.
+
+We want to unify our efforts around third-party connected home devices under a single developer platform – a one-stop shop for both our developers and our customers to build a more helpful home. To accomplish this, we’ll be winding down Works with Nest on August 31, twenty nineteen, and delivering a single unified experience through the Works with Google Assistant program.
+
+So from a data perspective this lowers the barriers to Google using the data from these devices to augment their profile of a user.
+
+That's the end of Notable Links.
+
+Now, the Give Back section.
+
+Minnestar ( is the technology community for Minnesota. If you are passionate about technology you need to go to Minnebar and Minnedemo. Did you know that Minnebar is the largest BarCamp ( in North America and one of the largest in the world? Its also been going on for over 10 years? Minnedemo is the best place to hear about innovative tech and fun projects in the Twin Cities area. I am on the Minnestar board and I focus on Minnestar as one of the driving forces improving and expanding the technology community in the area. Minnestar is a 501c3 non-profit. Become a Community Supporter today! (
+
+That's the end of Give Back.
+
+Now, more links.
+
+* Denver votes to decriminalise magic mushrooms by razor-thin margin - BBC News ( www.bbc.com
+I bet this vote doesn't go this way without Michael Pollan's recent book How to Change Your Mind (. It’s a good and enlightening read.
+* Amazon S3 Path Deprecation Plan – The Rest of the Story | AWS News Blog ( aws.amazon.com
+Changing how S3 handles paths is a huge migration effort for a large part of the internet.
+* Why Go? – Key advantages you may have overlooked · YourBasic Go ( yourbasic.org
+Arguments for Go with comparisons to Java and Python.
+
+That's the end of More Links.
+
+Now, the Microposts section.
+
+Wednesday @ 9:46 PM (
+
+We had a fabulous #TeamSPS Tech Leader outing tonight making a delicious meal at Kitchen Window (! We were joined by some awesome guests too! Such a great team, and a super fun evening! Teams the cook together, win together!
+
+Sunday @ 8:01 PM (
+
+My sister and I had a great dinner with our Mom — Happy Mother’s Day! She has taught me so much, and continues to. Thank you Mom for everything, including the stuff I don’t even know about! @ChrestRosalin
+
+Saturday @ 10:14 PM (
+
+New PR for 45 min spin ( today! 14% in Zone 5 HR! #peloton
+
+Friday @ 3:09 PM (
+
+Time for demos at the end of the #TeamSPS Tech Jam twenty nineteen Hackathon! 13 teams built creative, fast, and new projects to share! #SPSTechJam
+
+That's the end of Microposts.
+
+Now, the Fortune section.
+
+You've made it all the way to the end! Here is your fortune for this week.
+
+Excellent day for putting Slinkies on an escalator.
+
+Thank you for subscribing to the Weekly Thing (!
+
+That brings us to the end of the Weekly Thing, issue 106. Thanks for listening, and I'll see you next time.

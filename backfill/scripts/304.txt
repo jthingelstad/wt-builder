@@ -1,0 +1,326 @@
+The Weekly Thing, issue 304. Connections, Vince, Markwhen. Published December 8, twenty twenty four. By Jamie Thingelstad. In this issue: Real costs of free search, Minecraft AI town, Honeycrisp apples, YouTube ate podcasting, Andy Grove was right, encrypted apps urged.
+
+Weekly Thing 304 put together between great shopping deals and revising wish lists from Minneapolis, MN.
+
+Good morning!
+
+I hope you have been having a great weekend. Welcome to the official start of the holiday season! We got our tree up and were able to partake in the first of our favorite holiday traditions.
+
+There are a lot of links this week so I’m going to keep things short "up top". Also, make sure to check out the Holiday Blog Gift!
+
+"In Technology, whatever can be done will be done" — Andy Grove
+
+Now, the Currently section.
+
+Installing: I just adore Festivitas from Simon Støvring. Why not spend a few bucks and bring some Christmas fun to your Mac. When I logged onto my Mac today it made me laugh out loud to see the Christmas lights under the menu bar. Delightful. Thank you Simon!
+
+Listening: I really enjoyed Shane MacGowan: The Old Main Drag on BBC Sounds. MacGowan was an amazing songwriting. He died last year of pneumonia and living a hard life. If you haven't seen the performance of "Fairytale of New York" from his funeral take 5 minutes to watch it now. I'll warn you that after listening to this I can’t stop listening to The Pogues every chance I get.
+
+Watching: Antarctica is a mesmerizing and beautiful video. What is it about snow covered cold places that is so stunning? Water, snow, and ice. Whales too. Via LISB.
+
+That's the end of Currently.
+
+Now, the Want to start a blog? section.
+
+I love seeing new blogs created. Do you want to start a blog but are looking for a good nudge to get started? Well, I’m giving away five 1-year Micro.blog memberships to Weekly Thing readers! If you would like a blog under your Christmas tree, reply to this email and share a sentence or two about the blog you'd like to start. I'll randomly select five names from the responses. Each winner gets a full year to start their own corner of the web with Micro.blog.
+
+Of course I’m going to be your first reader! And, when the Weekly Thing returns in January I will share the links to each of these five blogs along with an introduction to the authors of each one.
+
+Sounds like fun? I agree! Let's start some new blogs in twenty twenty five!
+
+That's the end of Want to start a blog?.
+
+Now, the Notable section.
+
+Link one. "Interview: The Real Costs of Free Search Engines | 1Password"
+
+I've been a customer of Kagi for a while now and I've been happy with it. This interview with the CEO is a good read. The first things I insisted on paying for due to privacy concerns were email, feed readers, and storage. But as soon as paid search options were good enough it was obvious to me to make that switch for many reasons including this one.
+
+Quote.
+In every transaction, there is a currency. Because the price of using a search engine is zero, people assume there is no currency involved because we usually measure value in monetary terms. The truth is that the currency used here is your time. Your mental cycles, your productivity, the fact that every search you make and every website you visit is being tracked.
+End quote.
+
+I also like this highlight
+
+Quote.
+There is this wonderful quote by Ian Bremmer, a political scientist. He said: “The fact that we as citizens are getting information from the world’s largest advertising company is my definition of dystopia.” So, it’s not just the individual – society as a whole is paying a pretty big price by outsourcing the information consumption to what is the world’s largest advertising company.
+End quote.
+
+Considering the role that search plays in how you inform yourself and discover content online getting search that is incentivized to help you versus an advertiser seems like a good idea.
+
+Link two. "A Minecraft town of AI characters made friends, invented jobs, and spread religion | MIT Technology Review"
+
+Super interesting way to experiment with large scale AI "agent" interactions.
+
+Quote.
+The team scaled up, pushing the number of agents in each simulation to the maximum the Minecraft server could handle without glitching—up to 1,000 at once in some cases. In one of Altera’s 500-agent simulations, they watched how the agents spontaneously came up with and then spread cultural memes (such as a fondness for pranking, or an interest in eco-related issues) among their fellow agents. The team also seeded a small group of agents to try to spread the (parody) religion Pastafarianism around different towns and rural areas that made up the in-game world, and watched as these Pastafarian priests converted many of the agents they interacted with. The converts went on to spread Pastafarianism (the word of the Church of the Flying Spaghetti Monster) to nearby towns in the game world.
+End quote.
+
+It is incredible to me that some of the emergent things we see human society create happened here as well.
+
+Link three. "Can you lose weight by just exercising? Science says it rarely works. - The Washington Post"
+
+Gift Link. This interview was super interesting to me. The suggestion is that metabolism is completely connected to the number of cells you have.
+
+Quote.
+So, how to begin? The main determinant of how many calories you burn every day is how many cells you have at work. Bigger people burn more calories. The type of cells matters, too. Fat cells burn a little energy, but not much. So, when we look at women versus men, men will burn more calories than women, but it’s because men tend to be a bit bigger and carry a bit less fat. If I compare a man and woman who have the same body size and same fat percentage, I would expect exactly the same energy expenditure per day.
+End quote.
+
+Super interesting stuff. Goes on to highlight that age impacts things different than we think.
+
+Link four. "How Honeycrisp Apples Went From Marvel to Mediocre"
+
+In Weekly Thing 299 I shared an article about the incredible Minnesota-made Honeycrisp apple. It highlighted how Honeycrisp swept the Apple market. But I don't recall it highlighting how "Made for Minnesota" the Honeycrisp apple is.
+
+Quote.
+To satiate the public’s hunger for the Honeycrisp, a once highly seasonal apple available only in Minnesota, growers have made the apple variety available year-round by planting enough fruit to store for long periods of time. Planting the Honeycrisp in Washington marked not only the shift of the apple from its place of origin—Minnesota—to a growing region it wasn’t well suited to, but was also a shift from a more small-scale, local apple industry to one that was geared towards Big Apple from the start.
+End quote.
+
+Get your Honeycrisp Apples right here in Minnesota.
+
+Link five. "Generating Worlds"
+
+What if you could take a single picture or drawing and from that generate an entire 3D world that you can move around in and explore? That is what this does. This seems almost magical and could be amazing to explore fictional worlds on the fly.
+
+Link six. "7 Databases in 7 Weeks for twenty twenty five"
+
+A high level overview of the strengths of seven different databases as well as a guide to focus on if you were to dive deeper and spend a few days running it. The databases covered are:
+
+- PostgreSQL
+- SQLite
+- DuckDB
+- ClickHouse
+- FoundationDB
+- TigerBeetle
+- CockroachDB
+
+It is cool that there is still so much innovation happening in databases.
+
+Link seven. "What I would love to see in a wallet"
+
+I've gone pretty deep in crypto and one of the conclusions that I have is that the wallet software, the final interface between the user and the blockchain, is a huge limiter for crypto adoption. There is a ton of innovation that needs to happen here as well as a radical improvement to the user experience. Buterin's list hits on a lot of multichain and multiaddress capabilities which are important but I would also highlight just plain usability.
+
+My hope is that someday we'll get the big software houses like Google and Apple to built crypto capability directly into the Wallet applications that are already on our mobile phones. The experience that these organizations have building user experiences that scale for millions of users is needed. Sadly I think that is still several years away. In the meantime, wallets like Rainbow and Family are on a good path. I suspect wallet development gets a lot less attention because there are no tokens and fees to go after. The economics are not obvious.
+
+Link eight. "How YouTube Ate Podcasting"
+
+Earlier this year Anil Dash wrote how the statement "Wherever you get your podcasts" is radical. His point is that the open ecosystem of podcast hosting, RSS feeds, directories, and players is incredible. There is no lock in here like we have with social networks. But more and more YouTube is becoming where many get podcasts and that doesn't seem great for this open ecosystem.
+
+Link nine. "Andrew Grove Interview - CEO of Intel - Quotes about Corporatoins and the Internet"
+
+With Intel CEO Pat Gelsinger out there have been a lot of references to legendary Intel CEO Andy Grove. This quote from him is from two thousand six!
+
+Quote.
+Privacy is one of the biggest problems in this new electronic age. At the heart of the Internet culture is a force that wants to find out everything about you. And once it has found out everything about you and two hundred million others, that's a very valuable asset, and people will be tempted to trade and do commerce with that asset. This wasn't the information that people were thinking of when they called this the information age.
+End quote.
+
+Spot on and very early. Via Daring Fireball link on other items
+
+Link ten. "Daring Fireball: Andy Grove Was Right"
+
+Gruber's take on Intel downfall is a good read and he invokes one of my very favorite quotes from former Intel CEO Andy Grove "Only the paranoid survive". He goes on to highlight how Intel stopped being paranoid. Intel survived one massive miss when they entirely lost the mobile market. Intel had a chance. Apple themselves would have worked with them on the iPhone. But Intel wasn't willing to do it. After missing the mobile wave, now they have completely missed the GPU. I still think Intel will survive but the path is going to be horrible and may take a decade or more.
+
+Link eleven. "They See Your Photos"
+
+A simple tool where you can upload a photo and it will tell you what information can be retrieved from it and how that might be used. It uses the Google Vision API. I uploaded a photo I took at a conference and it got all the obvious metadata like the exact address it was taken at, the model of my iPhone and when. The final paragraph highlights details in the example I gave it:
+
+Quote.
+Many small details are visible if one looks closely enough. For example, some audience members have coffee cups in front of them. The presenter's attire -- a suit and tie -- speaks to a professional and formal presentation. The screen's resolution is high, and the text displayed is clearly visible, implying the quality of the equipment used for the presentation. The lighting of the room is uniformly balanced, ensuring optimal visibility for both the presenter and the attendees. The design of the room is contemporary with a clean color scheme.
+End quote.
+
+I've talked to many friends about using services like Google Photos. The amount of information that can be retrieved from your photos is rather incredible. It goes well beyond the metadata and specifically to the brands of appliances you have, types of things that are in your house, the list goes on and on. There is so much data in your photos.
+
+Link twelve. "Should you reuse single-use plastics? Experts say it’s a health risk. - The Washington Post"
+
+With what I've read about microplastics and what we generally know about plastic and food I think we are going to continue to learn that this has been very bad to us and plastic should stay as far away as possible from anything we eat. Gift link.
+
+Link thirteen. "The Curse of Markdown | Code Hike"
+
+Interesting take a the limits of expression based on the tool that you create in. The rather sensational title is really just highlighting that while Markdown is great for what it does, it limits how you can express yourself. And the point that Pombo makes is that then making the jump to something where you can do those things is too big. We need a more gradual curve to adopt more expressive capabilities. Thought provoking.
+
+Link fourteen. "U.S. officials urge Americans to use encrypted apps amid cyberattack"
+
+Wow, this is wild.
+
+Quote.
+The hacking campaign, nicknamed Salt Typhoon by Microsoft, is one of the largest intelligence compromises in U.S. history, and it has not yet been fully remediated. Officials on a news call Tuesday refused to set a timetable for declaring the country’s telecommunications systems free of interlopers. Officials had told NBC News that China hacked AT and T, Verizon and Lumen Technologies to spy on customers.
+End quote.
+
+For sure we should be using end-to-end encrypted solutions anyway. iMessage is. Otherwise use Signal. Also wee Gruber writeup.
+
+That's the end of Notable.
+
+Now, the Journal section.
+
+Journal entry one.
+
+I find this growing trend of sending a one-time code via email to login very annoying. Especially when companies make it the default. I'm good with 1Password.
+
+Journal entry two.
+
+First time Christmas tree shopping at the Minneapolis Farmers Market Annex. Was weird to go downtown to get a tree but we found a good one!
+
+Journal entry three.
+
+Per tradition we got our Christmas Tree up and decorated today. It is always fun to recount past memories with the ornaments.
+
+Journal entry four.
+
+The last part of our day-after Thanksgiving tradition is watching Elf! What a great movie!
+
+Journal entry five.
+
+I made the best pan of Toffee Bars I’ve ever made. These are a holiday favorite of mine. My Mom has made them for me many times. My Grandma Rose would always seem to have a pan of them when we would visit the Farm. Just six ingredients. This batch was perfectly firm but soft.
+
+Journal entry six.
+
+It is only 11 °F but it was the best day for me to fill the hot tub and burn in the sauna. Plan is next time we can use them.
+
+Journal entry seven.
+
+We saw The Best Christmas Pageant Ever tonightt. Well done and great start to the holidays.
+
+Journal entry eight.
+
+Ready for the Vikings v Cardinals today!
+
+Journal entry nine.
+
+Now THAT is a giant flag!
+
+Journal entry ten. Vikings v Cardinals
+
+We went to the Vikings v Cardinals game today. Tammy decided that we should take in a football game and got us all set up. We had seats on club level right at the 50 yard line.
+
+The first three quarters of the game were frankly a yawn. A collection of 6 field goals left the Cardinals ahead 12 to 6. Seriously watching teams just go back and forth and score field goals was not thrilling.
+
+Then the Cardinals scored a touchdown and made it 19 to 6. That seemed to wake the Vikings from their slumber. They scored a touchdown getting to 19 to 13. Then some more field goals put the game at 22 to 16 with the Vikings finally taking the lead for the very first time in the final minutes of the game with a touchdown taking them to 23 to 22. The Cardinals had a possession and time, great defense held them and then they threw an interception in the final minute shutting the game down.
+
+The first three boring quarters were all forgotten with that excitement!
+
+Journal entry eleven.
+
+I saw this graph on Tyler Cowen’s blog and it blew my mind how much is “alone”. In the comments someone did a stack area version which is much more readable.
+
+We need to spend less time alone. If that isn’t possible, this is one area I think AI could be “helpful”. Spend time talking to AI?
+
+Journal entry twelve.
+
+The SPS Observation Station is ready for Cyber Monday twenty twenty four!
+
+Journal entry thirteen. People and Blogs List on BlogFlock
+
+I ran across BlogFlock, a new service by Raphael Kabo that takes a social approach to RSS feeds, and decided to give it a look. BlogFlock is entirely built on open RSS feeds and allows users to create lists of RSS feeds that others can then follow. Think of it as a way to build a custom timeline using RSS in the open. It isn’t a Feed Reader because it isn’t just your feed or list and there is no read or unread status. It is more in the spirit of a “river of news” feed that anyone can use.
+
+I was having fun with it and decided to create a list I’ve always wanted for Manuel Moreale’s excellent People and Blogs project. I created a BlogFlock list for People and Blogs and yes, I actually added all 66 blogs to the list (some exceptions noted below). That wasn’t super fun but it is done and adding each new one is simple enough.
+
+I had previously thought of doing something like this in Feedbin but it isn’t public so it kind of missed the point. I wanted something more like a “river of news” for it. So BlogFlock was a perfect approach.
+
+It seems to be working really well and I like the way it works. Check out the People and Blogs List and give it a look.
+
+Some notes for BlogFlock.
+
+1. You should be able to subscribe to the RSS feed for the list itself. In this way BlogFlock could be an aggregator and then I could add that lists aggregated RSS feed to my feed reader.
+2. You for sure should be able to create a list by importing an OPML file.
+3. Lists should be exportable via OPML as well.
+4. The description for a blog in a list is hopefully scoped just to that list. So if I add the same feed to two different lists I would want a different description for each one.
+5. You should be able to manually reorder the blogs in a list.
+6. It could handle posts without titles a bit better.
+
+On this list itself it contains all 66 blogs that have been highlighted in People and Blogs thus far, with these exceptions:
+
+- P and B 9: Ray Thomas has no RSS feed.
+- P and B 43: Devastatia has adult content so I left it out.
+- P and B 60: Steyn Viljoen has no RSS feed.
+
+PS: It turns out Manu has a similar People and Blogs List on Feedland.
+
+Journal entry fourteen.
+
+I created a Twin Cities IndieWeb list on BlogFlock. Let me know if you have sites that should be added! I feel a desire to get an IndieWeb meetup going in the Twin Cities.
+
+Journal entry fifteen.
+
+Bitcoin crossed 100,000 dollars USD for the first time ever on December 4, twenty twenty four!
+
+Weekly Thing Forum
+
+Join Jim Cuene, Michael Josephson, garrickvanburen, Tom Mungavan, Jim Bernard, and many other Weekly Thing readers in the Weekly Thing Forum. Recent topics include:
+
+- Favorite / "Keeper" articles from twenty twenty four?
+- Kagi Search for Free
+- So, How's The Sabbatical Going?
+- Straw Poll - Quitting Social Media
+- Lefse review from your blog
+
+That's the end of the Journal.
+
+Now, the Briefly section.
+
+Link one. "Why pipes sometimes get "stuck": buffering"
+
+I didn’t realize that a Unix pipe does buffer like this. Interesting.
+
+Link two. "vince - Self Hosted Alternative to Google Analytics"
+
+Great to see continued options for web analytics that don't rely on giant companies and support privacy preservation.
+
+Link three. "‘By 8pm it is time to head home’: whatever happened to the big night out? | The Guardian"
+
+It turns out it is cool to go to bed early now?
+
+Link four. "The Connections Puzzlemaker Welcomes Your Hate - The Atlantic"
+
+Tyler got me into playing Connections on a regular basis. I was terrible for the first few and then started getting the hang of it. But I think I still fail about half the time. Gift Link.
+
+Link five. "The Paris Review - Waclaw Szpakowski Made Labyrinthine Drawings from Single, Continuous Lines"
+
+Mesmerizing drawings.
+
+Link six. "Markwhen"
+
+There are a number of projects that extend the simplicity of Markdown in different ways. This is interesting, and I’m a fan of things like timelines, but the format seems a bit complicated.
+
+Link seven. "Speed, creativity and AI | Seth's Blog"
+
+Great take from Godin on what may be achieved with creative output and AI.
+
+Link eight. "BlogFlock"
+
+Simple site that allows you to takes lists of RSS feeds and put them together as a group. Others can follow those lists and the result is a big "river of news" style feed. Love it. I played with this and like it.
+
+Link nine. "The Best Goals in Football for twenty twenty four"
+
+Link ten. "The Giving Game – recursion by Luke Francl"
+
+Francl came up with a great way to teach his kids about giving. Our kids are older but this is one of the things I love about the Things 4 Good sale we do — everyone has to research and identify charities they want to give to.
+
+Link eleven. "Amid Europe’s energy crisis, this Dutch tulip farmer is swapping gas for heat from Bitcoin mining | Euronews"
+
+We need to do more of this, and it is pretty obvious. Too much heat from servers? Put it with something that needs that heat.
+
+Link twelve. "For Starters #39: Pros and Cons of 6 Innovation Practices"
+
+My friend Garrick shares strengths and weaknesses of six different methods to favor innovation. Good list to consider and explore if you want to create a more innovative environment.
+
+Link thirteen. "Online holiday sales set record, driven by higher-income shoppers - The Washington Post"
+
+Online sales up 8.1% over last year. Gift Link.
+
+Link fourteen. "Brian Thompson, UnitedHealthcare CEO, Is Fatally Shot in Midtown Manhattan: Live Updates - The New York Times"
+
+UnitedHealthcare is headquartered here in Minneapolis and this news hit our local community very hard.
+
+Link fifteen. "Who owns your words? | Seth's Blog"
+
+I shared this same sentiment in twenty twenty two with Not your domain, not your words.
+
+That's the end of Briefly.
+
+Now, the Fortune section.
+
+Here is your fortune…
+
+You have a truly strong individuality.
+
+That brings us to the end of the Weekly Thing, issue 304. Thanks for listening, and I'll see you next time.

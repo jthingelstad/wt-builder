@@ -1,0 +1,255 @@
+The Weekly Thing, issue 199. Revolutions, Dopamine, Reconsolidation. Published October 16, twenty twenty one. By Jamie Thingelstad. In this issue: Technological revolutions, Coinbase NFT, dopamine and smartphones, Apple Watch Series 7, death of the newsfeed, iOS Focus Modes.
+
+Fall is in full swing and I’m feeling like I've got a lot of balls in the air, but it’s all good and a lot of fun things on the way. Here we are at issue 199 with a milestone issue coming next week! I have been noodling a fun thing to do next week to commemorate the 200th issue. Stay tuned on that, and in the meantime if you have some friends that you think would enjoy the Weekly Thing, send them a note to sign up so they can be part of issue 200 too!
+
+Now, the Featured section.
+
+Link one. "The Death and Birth of Technological Revolutions – Stratechery by Ben Thompson"
+
+This is a thought provoking piece by Thompson reflecting on Carlota Perez's book Technological Revolutions and Financial Capital: The Dynamics of Bubbles and Golden Ages. This article has put this book on my reading list. I love the longer perspective she provides on "technological revolutions".
+
+Quote.
+> Meanwhile, in the world of big business, markets are saturating and technologies maturing, therefore profits begin to feel the productivity constriction. Ways are being sought for propping them up, which often involve concentration through mergers or acquisitions, as well as export drives and migration of activities to less-saturated markets abroad. Their relative success makes firms amass even more money without profitable investment outlets. The search for technological solutions lifts the implicit ban on truly new technologies outside the logic of the now exhausted paradigm. The stage is set for the decline of the whole mode of growth and for the next technological revolution. That seems awfully descriptive of the current era, no? Products that break through reach saturation in record time (see TikTok reaching a billion users in three years, or DTC companies that seem to max out in only a couple of years), while the future of established companies seems to be quagmire in legislators and the courts, even as profits continue to pile up without obvious places to invest. And if the government’s response to the revolution has been disappointing, that also may be because of the revolution itself.
+End quote.
+
+There is so much in here that I could highlight, you should just read the whole article.
+
+That's the end of Featured.
+
+Now, the Notable section.
+
+Link one. "PrivacyTests.org"
+
+This is interesting, a series of tests to run against a browser and measure how it does with privacy.
+
+Quote.
+PrivacyTests.org is an open-source testing program that measures browser privacy characteristics, and a website that renders the results for human consumption.
+End quote.
+
+The code is on Github.
+
+Link two. "Digital Asset Policy Proposal: Safeguarding America’s Financial Leadership | The Coinbase Blog"
+
+Coinbase knows that some form of regulation is going to come to the crypto markets, so why not take a run at telling the regulators what it should be structured like. It does seem absolutely crazy to me that a regulation framework for crypto, that makes sense, could come from organizations that do not have the depth and expertise in the technology. Hopefully this can be done in cooperation with key players like Coinbase, and others.
+
+Link three. "Dopamine, Smartphones and You: A battle for your time - Science in the News"
+
+Basic overview of some of the brain science tricks that some products use to capture your attention and make you addicted. A good example from the article:
+
+Quote.
+Other examples highlight a more deliberate effort to monopolize your time. Consider Instagram’s implementation of a variable-ratio reward schedule. As explained in this 60 Minutes interview, Instagram’s notification algorithms will sometimes withhold "likes" on your photos to deliver them in larger bursts. So when you make your post, you may be disappointed to find less responses than you expected, only to receive them in a larger bunch later on. Your dopamine centers have been primed by those initial negative outcomes to respond robustly to the sudden influx of social appraisal. This use of a variable reward schedule takes advantage of our dopamine-driven desire for social validation, and it optimizes the balance of negative and positive feedback signals until we’ve become habitual users.
+End quote.
+
+This is a good read to make sure you are educated on the basic tactics. Knowing this stuff can help you defend yourself. I wrote a similar piece to Identify Addictive Application Patterns for the same reason. Knowing is the first step to fighting addiction, or breaking an existing one.
+
+Link four. "Daring Fireball: Apple Watch Series 7"
+
+I have a Series 6, but if I had something further back I would be very tempted to upgrade.
+
+Quote.
+The knock on Series 7 is that there’s nothing new but a bigger display. But it’s a much bigger display. It’s the one new thing that everyone will notice, and it’s very noticeable. Nothing new but a bigger display is enough to establish Series 7 as a landmark new design.
+End quote.
+
+I’m not sure you could get the screen much bigger in the watch.
+
+Link five. "The 3 Best RSS Feeders (twenty twenty one): Feedly, Inoreader, and Tips | WIRED"
+
+Oh it warms my heart so to see a big mainstream publication like WIRED talking about RSS Feed Readers. It wasn't that long ago any RSS article in WIRED would have been the classic "RSS is dead" meme. I’m a big fan of Feedbin. I've heard good things about Feedly. I tried Inoreader and I didn’t like it at all.
+
+Link six. "Coinbase NFT is coming soon by Coinbase | The Coinbase Blog"
+
+Coinbase wants to get a piece of the NFT action so they are coming out with something that will compete directly with OpenSea.
+
+Quote.
+Today, we’re announcing Coinbase NFT, a peer-to-peer marketplace that will make minting, purchasing, showcasing, and discovering NFTs easier than ever. Just as Coinbase helped millions of people access Bitcoin for the first time in an easy and trusted way — we want to do the same for the NFTs.
+End quote.
+
+Brian Armstrong said they had 1 million people sign up in the first day.
+
+Link seven. "How We Make Decisions at Coinbase | The Coinbase Blog"
+
+Simple overview of Coinbase's decision making process.
+
+Quote.
+One of the top three questions I get from candidates is: "how do you make decisions at Coinbase?" What they’re getting at is, how do we break through politics and bureaucracy to get things done quickly? We use two tools at Coinbase that help cut through the noise and address issues that we’re grappling with: 1. Problem/Proposed Solutions are great for tackling issues that come up in the normal course of work. 2. RAPIDs are great tools for breaking through tough decisions and getting good decisions actually made. Here’s how we use each of these tools.
+End quote.
+
+Keys to their solution:
+
+1. Keep the number of people as low as possible.
+2. Make sure solutions are written down and complete thoughts.
+
+Link eight. "The death of the newsfeed — Benedict Evans"
+
+Great overview of the fundamental problem with newsfeeds like many social apps use. Understanding these dynamics makes it easier to interpret what you are being fed by the algorithm sitting between you and your friends.
+
+Link nine. "Your Money and Your Life by Edward Snowden - Continuing Ed"
+
+Snowden dives into Central Bank Digital Currencies (CBDC).
+
+Quote.
+Instead, a CBDC is something closer to being a perversion of cryptocurrency, or at least of the founding principles and protocols of cryptocurrency—a cryptofascist currency, an evil twin entered into the ledgers on Opposite Day, expressly designed to deny its users the basic ownership of their money and to install the State at the mediating center of every transaction.
+End quote.
+
+I do worry that the motives for governments to adopt CBDCs are far from pure. It is easy for us to look at China and the Digital Yuan and clearly see that it is a way to surveil and control all financial activity in China. That also is a pretty good reason for China to push out all other crypto assets.
+
+Link ten. "Orion Browser by Kagi"
+
+Interesting browser option for macOS and iOS. It is built on WebKit, just like Safari. Although it claims to be faster than Safari and better integrated. Notably it supports Chrome and Firefox extensions, which is a pretty big deal. There are a handful of things I do that have Chrome extensions but no option in Safari. Worth taking a look.
+
+Link eleven. "How I’m Using iOS Focus Modes to Reduce Daily Distractions — Hulry"
+
+Nice overview of how Chowdhury is using Focus Modes. I've set up a couple of these but haven't dug in deep enough. Focus Mode has me wanting to change the layout of my apps so that I can turn pages of apps on and off for more focus. My biggest win with Focus Mode so far is to silent everything when my meditation app is running. This is a good read to get an understanding of what you can do with Focus Modes.
+
+Link twelve. "Computer Game Play Reduces Intrusive Memories of Experimental Trauma via Reconsolidation-Update Mechanisms"
+
+First, let me say that I really like playing TETRIS™. It is still one of my favorite games to play. I don't need the fancy complications that have been added over the years. I can just sit and play Marathon mode for a long, long time. Eventually my eyes hurt because I don't want to blink and I feel like I am a tetromino. So this article caught my eye.
+
+Quote.
+Memory of a traumatic event becomes consolidated within hours. Intrusive memories can then flash back repeatedly into the mind’s eye and cause distress. We investigated whether reconsolidation—the process during which memories become malleable when recalled—can be blocked using a cognitive task and whether such an approach can reduce these unbidden intrusions. We predicted that reconsolidation of a reactivated visual memory of experimental trauma could be disrupted by engaging in a visuospatial task that would compete for visual working memory resources. We showed that intrusive memories were virtually abolished by playing the computer game Tetris following a memory-reactivation task 24 hr after initial exposure to experimental trauma. Furthermore, both memory reactivation and playing Tetris were required to reduce subsequent intrusions (Experiment 2), consistent with reconsolidation-update mechanisms. A simple, noninvasive cognitive-task procedure administered after emotional memory has already consolidated (that is, > 24 hours after exposure to experimental trauma) may prevent the recurrence of intrusive memories of those emotional events.
+End quote.
+
+Wait, what? This is a whole paper that is very long, but the punchline is fabulous. It makes sense too. Give the brain a heavy cognitive task that requires focus now, and it cannot expend the energy to store some recent prior event.
+
+It does leave me wondering what happened when I would study some subject in college and then play TETRIS a bunch.
+
+Link thirteen. "Revenge Bedtime Procrastination by Anne Helen Petersen - Culture Study"
+
+I have never heard this term before, but it is an interesting read, and I’m pretty guilty myself of grabbing my phone at night after turning in.
+
+Quote.
+Or you’re actually doing something you really like: reading for hours, playing a video game you actually enjoy, quilting in the quiet hours of the night, leafing through a new cookbook. It matters less what you’re doing and more that you’re doing it instead of what you’d planned to do: go to bed so as to sleep long enough to feel legitimately rested before you go through it all again. You’re revenge bedtime procrastinating.
+End quote.
+
+I don't have social apps, but I have been known to scroll through my RSS feeds. Luckily they have an end.
+
+Link fourteen. "Hello IPv6: a minimal tutorial for IPv4 users"
+
+This is a very good overview of the key differences in IPv6 versus IPv4. The main sections are:
+
+Quote.
+Here is an extremely short summary. - IPv6 has a different Ethernet frame type. - IPv6 address is 128-bit with 64-bit (network) prefix and 64-bit interface id. - IPv6 does not use ARP but NDP. - IPv6 has no broadcast address concept; some multicast addresses play this function. - IPv6 addresses can be dynamically configured like DHCPv4 but also, and probably more often, they can be configured without keeping a state, using a combination of DHCPv6, RA, PD, and SLAAC. - NAT is not necessary for IPv6. - If needed, for privacy reasons, a random and temporary IPv6 address can be used.
+End quote.
+
+The most obvious thing between the two is what the addresses look like, but the actual differences are much deeper.
+
+Link fifteen. "12ft Ladder"
+
+Website allows you to prepend "12ft.io/" to a URL that is paywalled and it will try to get the content for you.
+
+Quote.
+Prepend 12ft.io/ to the URL of any paywalled page, and we'll try our best to remove the paywall and get you access to the article.
+End quote.
+
+Handy.
+
+Link sixteen. "Facebook banned me for life because I created the tool Unfollow Everything"
+
+Tools that help people disengage on social platforms can be helpful. I guess they can also get you banned.
+
+Quote.
+If someone built a tool that made Facebook less addictive—a tool that allowed users to benefit from Facebook’s positive features while limiting their exposure to its negative ones—how would Facebook respond? I know the answer, because I built the tool, and Facebook squashed it. This summer, Facebook sent me a cease-and-desist letter threatening legal action. It permanently disabled my Facebook and Instagram accounts. And it demanded that I agree to never again create tools that interact with Facebook or its other services.
+End quote.
+
+This is all entirely predictable. So if you are on Facebook and you decide to use a nice tool to help you get a bit less addicted, Facebook is going to take legal action against the tool provider. I guess we should leave the life preservers at home.
+
+Link seventeen. "How to safely think in systems | Irrational Exuberance"
+
+I've read Thinking in Systems myself but this article makes me want to re-read it (and maybe Don't Think of an Elephant). The callouts to three issues to watch for in Systems Thinking (err models) is worth consideration.
+
+That's the end of Notable.
+
+Now, the Journal section.
+
+Tuesday @ 9:51 PM
+
+My book club enjoyed a delightful walk in Wood-Rill SNA tonight discussing Nature and Walking by Emerson and Thoreau.
+
+Monday @ 7:22 PM
+
+Mazie did some parking lot driving for the first time tonight! We found an empty parking lot and did start / stop, figured out some basic turning, and a little backing up. She did really great!
+
+Sunday @ 10:05 PM
+
+Tyler introduced the family to Machi Koro tonight and we had a great time playing it. Easy to learn, fast to play, and fun strategy options.
+
+Sunday @ 7:41 PM
+
+Mazie doing homework.
+Mazie: Dad, do you know what a polyatomic ion is?
+Me: Ahhhh, no.
+Me now reading Wikipedia.
+
+Officially entered into that stage where your kids homework is too hard for me.
+
+Saturday @ 10:50 PM
+
+We had a nice campfire tonight and then decided to watch a DVD in the camper. We picked The Great Outdoors. Some good laughs, but a lot of pretty bad movie in between.
+
+Saturday @ 10:47 PM
+
+We visited Willow River State Park in Wisconsin for the first time today. We all were impressed with the falls. I even got to watch some trout working their way upstream.
+
+Saturday @ 6:09 PM
+
+These Kunekune pigs are so friendly and filled with character. They like their tummies scratched just like a dog. At Sunrise Farm.
+
+Saturday @ 5:48 PM
+
+Hanging out with Nigerian Dwarf goats today. Yes, the goat jumped into the Tesla trunk all on his own. At Sunrise Farm.
+
+Friday @ 9:04 PM
+
+The extent to which Shortcuts on iOS 15 is broken is shocking. Any moderately complex shortcut will randomly fail from one execution to another, with multiple different error conditions. It is unusable in current form.
+
+That's the end of the Journal.
+
+Now, the Briefly section.
+
+Link one. "Major Refresh of NFT Images and Metadata for ENS Names | The Ethereum Name Service"
+
+I dig that the Ethereum Name Service is making the NFT's that represent domain names more NFTy.
+
+Link two. "How to Run Shortcuts From the Menu Bar – The Sweet Setup"
+
+I so love Shortcuts because it gives me super powers. I cannot wait to have it on macOS!
+
+Link three. "Onyx Boox Nova Air Review: A Practically Perfect E Ink Tablet"
+
+Another option in the digital notebook space. Some interesting things, but I think it lacks the polish I would want in one of these devices. I'd still stick with the reMarkable 2.
+
+Link four. "POAP NYC"
+
+This event looks like a ton of fun, it would be neat to be in New York for it. I’m hopeful we may see similar events happen in other cities.
+
+Link five. "Xterm.js"
+
+Need a terminal in your browser?
+
+Link six. "DEGEN: The Robotic Powerhouse That Automates Backend Processes for Your DAO — Mirror"
+
+Interesting reading on the automation infrastructure being created to make DAO's operate easily.
+
+Link seven. "How to hand over your cryptocurrency | 1Password"
+
+What happens to your crypto assets when you die? Interesting look at some of the options for both cold and hot wallets.
+
+Link eight. "Facebook is nearing a reputational point of no return | The Economist"
+
+Nearing?
+
+Link nine. "Thoughts on chess improvement, after gaining 600 points in 6 months (1200-1800)"
+
+I would like to be better at chess. I know how to play, but mostly I lose. This might be a good reference for a future date when I can do some deliberate practice.
+
+That's the end of Briefly.
+
+Now, the Fortune section.
+
+Here is your fortune…
+
+You own a dog, but you can only feed a cat.
+
+Thank you for subscribing to the Weekly Thing!
+
+That brings us to the end of the Weekly Thing, issue 199. Thanks for listening, and I'll see you next time.

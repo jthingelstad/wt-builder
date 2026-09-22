@@ -1,0 +1,204 @@
+The Weekly Thing, issue 279. Nushell, BlackCat, Daemons. Published March 10, twenty twenty four. By Jamie Thingelstad. In this issue: Endatabas, writing Unix daemons, Nushell, BlackCat ransomware implosion, missing data type, REST meaning, privacy and competition.
+
+Good morning!
+
+I love that the days are getting longer. I don't mind the cold of winter but I do miss the sun and it is great to see more of it. It is one of the things I look forward to when we do this collective clock moving around dance in the spring.
+
+Hope you have a great weekend and enjoy some interesting links!
+
+Now, the Notable section.
+
+Link one. "Endatabas"
+
+I hadn't heard of Endatabas and this summary from Willison hits on some great highlights.
+
+Quote.
+It uses a variant of SQL which allows you to insert data into tables that don’t exist yet (they’ll be created automatically) then run standard select queries, joins etc. It maintains a full history of every record and supports the recent SQL standard “FOR SYSTEM_TIME AS OF” clause for retrieving historical records as they existed at a specified time (it defaults to the most recent versions).
+End quote.
+
+Pretty cool stuff.
+
+Link two. "Some Reflections on Writing Unix Daemons - Laurence Tratt"
+
+Tratt goes through three different daemons that he has created for Unix systems and discusses the approach. Concludes with suggestions on how best practices for designing daemons, why they should be considered for solutions, and how to implement them. I’m always blown away by how many daemons run on a modern macOS machine. I just did a quick ps -e | grep 'd$' on my laptop and it catches 191 instances. Not all of them are daemons, but most are.
+
+Link three. "In praise of Nushell"
+
+I had not heard of Nushell but I find it fun to read about new takes on foundational Unix tools. This one looks pretty cool. It is a significant break from the traditional look of a shell.
+
+Quote.
+Unlike bash or zsh, Nushell is built around the idea of structured data. It has a range of basic types including numeric types, strings, dictionaries and lists -- in short, the types a modern programming language is built on. It adds to them support for tables, which are built from any sequence of dictionaries.
+End quote.
+
+Prett nifty!
+
+Link four. "BlackCat Ransomware Group Implodes After Apparent 22 million dollars Payment by Change Healthcare – Krebs on Security"
+
+This ransomware attack is a big deal, and interesting that they seem to have actually paid the ransom.
+
+Quote.
+On March 1, a cryptocurrency address that security researchers had already mapped to BlackCat received a single transaction worth approximately 22 million dollars. On March 3, a BlackCat affiliate posted a complaint to the exclusive Russian-language ransomware forum Ramp saying that Change Healthcare had paid a 22 million dollars ransom for a decryption key, and to prevent four terabytes of stolen data from being published online.
+End quote.
+
+After paying the mess just gets worse.
+
+Link five. "The Hunt for the Missing Data Type"
+
+Wayne writes about how common graph relationship problems show up in programming and wonders why we don't have much more robust support for graphs built-in to languages. Fundamentally he comes to a conclusion on why generic support for graphs is not suitable.
+
+Quote.
+So, the reasons we don't have widespread graph support: - There are many different kinds of graphs - There are many different representations of each kind of graph - There are many different graph algorithms - Graph algorithm performance is very sensitive to graph representation and implementation details - People run very expensive algorithms on very big graphs.
+End quote.
+
+Hou then writes a great response that there is a great language for graphs in The "missing" graph datatype already exists — Datalog, a declarative logic programming language.
+
+Both articles are a good read.
+
+Link six. "How Did REST Come To Mean The Opposite of REST?"
+
+Good writeup clarifying that REST interfaces are not just JSON over HTTP.
+
+Quote.
+From there, an API could be considered more "mature" as a REST API as it adopted the following ideas: - Level 1: Resources (for example a resource-aware URL layout, contrasted with an opaque URL layout as in XML-RPC) - Level 2: HTTP Verbs (using GET, POST, DELETE, etc. properly) - Level 3: Hypermedia Controls (for example links) Level 3 is where the uniform interface comes in, which is why this level is considered the most mature and truly "The Glory of REST"
+End quote.
+
+Nearly everyone stops at level 2.
+
+Link seven. "Privacy First and Competition | Electronic Frontier Foundation"
+
+EFF on all the many ways that privacy legislation could help us.
+
+Quote.
+Privacy isn't dead. Far from it. For a quarter of a century, would-be tech monopolists have been insisting that we have no privacy and telling us to "get over it." The vast majority of the public wants privacy and will take it if offered, and grab it if it's not.
+End quote.
+
+This is one of the most profound areas where our lawmakers are failing to do their job.
+
+That's the end of Notable.
+
+Now, the Journal section.
+
+Journal entry one. Getting Tesla Model Y
+
+Yesterday we purchased a twenty twenty four Tesla Model Y! This will be my primary car replacing the Mazda CX-9. Our Model 3 has become Tammy’s primary car since the pandemic when she started driving it more. Before then the Model 3 was always with me at the office.
+
+We test drove the Model Y, Model S, and Model X. I find the Model 3 to be uncomfortable to get in and out of and the Model S was nearly identical. We all loved the Model X but the price jump is huge -- you can buy two Model Y’s for the price. Additionally, with our small South Minneapolis garage I was very doubtful the Model X doors would work.
+
+We did consider the idea of getting a non-Tesla EV, but the infrastructure upgrades to add another model of charger into our garage was going to be very difficult. We would have had to jump from 200A to 400A service for the house, install an additional main panel, have utility work done in the yard. The dollars add up quick on that stuff. The benefit of using the same charging setup at home was a big win. If we had a bigger garage and the power wasn’t an issue we would have looked hard at the Rivian.
+
+I decided to get the Stealth Grey and the standard 19" wheels. I also went for the Black and White interior which is very white. It looks great, and I’m hoping I’ll still think it looks great after three or four years of wear. Fingers crossed on that. Dual Motor and long range battery. Tow hitch for bike rack. I also opted into Enhanced Autopilot so it has the same capability as the Model 3 does. I continue to view Full Self Driving as a better monthly “add on” for trips. The Model 3 computer would need an upgrade to use it, so the Model Y will be our first time to try it.
+
+I continue to be blown away by Tesla’s purchasing process. It took 5 minutes at the dealership after I did the test drive to put down the deposit. Within seconds of that transaction completing I loaded the Tesla app on my phone and it already showed the second car in my profile. I completed the purchase process while I was brewing my coffee at home this morning. The comparison to the buying process for the Mazda where I sat at the dealership for 90 minutes is shocking.
+
+The Model Y is on the way and I will pick it up next week!
+
+Journal entry two. Dune: Part Two
+
+After multiple delays Dune: Part Two arrived in theaters! Tammy got us all tickets for last night’s sold-out showing at Edina 4. I’m the Dune fan in the family, but since we saw the first one as a family we decided to all go again.
+
+I thought it was breathtaking. It would be difficult for me to pull out one specific area to highlight. The movie was 2h 46m but I never once took note of the time. I was completely there, engaged in this epic story. I read all six books of the Dune series in college and just like that last movie this makes me want to read them all again. The complex world of Dune and all of the interconnections is incredible.
+
+Now, the rest of the family? This will be their last Dune movie. Tammy just doesn’t vibe with this kind of epic sci-fi story. Tyler found it just too long and slow. The violence was much more than Mazie wanted. Overall the Harkonnen’s were super-creepy, dark, and violent for all of us really. I keep thinking that having read the book maybe I experience the movies different than the rest of the family. I also do think feel that Villeneuve’s interpretations of Dune have a lot more violence than the original story, but I would need to re-read the books to see if that is really the case.
+
+Dune: Part Three is in development now. I can’t wait to see it!
+
+Journal entry three. Home Electric Upgrade
+
+We’ve had a crew from Advantage Electric at our house for the last couple days and hopefully we’ll be wrapped up tomorrow. A wide variety of improvements. They put a number of the Lutron Caseta switches in today and I’m already realizing how nice it is when all the lighting is in that system. I’m excited about all of these things.
+- Hang 7 replacement light fixtures.
+
+- Install recessed electric receptacle for TV.
+- Replace 2 under-cabinet halogen lights with LED.
+- Replace 4 under-cabinet halogen lights with LED.
+- Replace 6 fluorescent lights with LED.
+- Replace 3 fluorescent closet lights with LED.
+- Replace 2 fluorescent utility lights with LED.
+- Remediate 2 dangerous electric receptacles.
+- Replace exhaust fan that doesn’t shut off.
+- Install 5 electric receptacles with USB C power.
+- Modernize electric receptacles on main floor and basement.
+- Install Lutron Caseta light switches on main floor and basement.
+- Remount electric meter to exterior wall, add emergency disconnect.
+- Replace main electric panel, add whole home surge protection.
+
+Journal entry four.
+
+Bitcoin near or at new all-time highs today.
+
+Journal entry five.
+
+My friend Jim and I had a great time watching the Timberwolves beat the Trail Blazers tonight! 119 - 114
+
+Journal entry six.
+
+Power has been shut off to the entire hose now for nearly an hour for the electrical upgrades. Happy to see that the combination of UPS batteries and PoE for infrastructure has left the network and fiber connection online!
+
+Journal entry seven. Bee Lab at University of Minnesota
+
+When Tammy’s Dad passed away one of the organizations that he supported was the Bee Lab at the University of Minnesota. As a thank you from the Bee Lab Tammy and I were able to visit today, meet Dr. Marla Spivak, and get a tour of the facility.
+
+It was cool to see how Dr. Spivak had designed the lab and to see some of the work they are doing with the incredible variety of bee species in Minnesota and elsewhere.
+
+For more about Dr. Spivak and her work with bees watch her TED Talk on why bees are disappearing and an interview about her research on Propolis and Honey Bees.
+
+Journal entry eight.
+
+Fun night out seeing Gaelic Storm and The High Kings at the Pantages with my cousin Josh and his wife Dawn. Dinner at The Local before. Full Irish experience.
+
+Weekly Thing Forum
+
+Join Patrick Hambek, Barry Hess, Tom Mungavan, David O'Hara, Jim Cuene, and many other Weekly Thing readers in the Weekly Thing Forum. Recent topics include:
+
+- 277 / Privacy, Scammed, OmniFocus
+- 276 / Contextual, Copilot, Collections
+- 275 / Vision, Sense, Magic
+- Blogging: A topic and an announcement
+- Archives now with comments
+
+That's the end of the Journal.
+
+Now, the Briefly section.
+
+Link one. "TinyLetter: looking back on the humblest newsletter platform - The Verge"
+
+TinyLetter is the service I first used to publish the Weekly Thing.
+
+Link two. "Serving my blog posts as Linux manual pages | James' Coffee Blog"
+
+I love how geeky this is.
+
+Link three. "An HTML Switch Control | WebKit"
+
+Is there any functional difference between a checkbox and a switch? I don't think so, but they are a very common and modern UI element. The suggestion is a switch is "on or off" and a checkbox is something to select. Makes sense.
+
+Link four. "iOS 17.4 Emoji Changelog"
+
+It is always interesting to see the continuous expansion and evolution of emoji. What did we do before emoji?
+
+Link five. "Kagi + Wolfram | Kagi Blog"
+
+I’m a subscriber to Kagi and am excited to see this connection with Wolfram Alpha!
+
+That's the end of Briefly.
+
+Now, the Fortune section.
+
+Here is your fortune…
+
+Keep emotionally active. Cater to your favorite neurosis.
+
+Thank you for subscribing to the Weekly Thing!
+
+That's the end of Fortune.
+
+Now, the Want to support the Weekly Thing? section.
+
+First — thank you for subscribing and reading. Here are some things you can do that would be great…
+
+- Share Weekly Thing 279 / Nushell, BlackCat, Daemons with others you know!
+- Post about the Weekly Thing and let others know about it.
+- Join the Weekly Thing Forum and connect with others.
+- Send Bitcoin via Lightning! This will be used to support something good. weeklything@getalby.com
+- Email me comments, feedback, or just to say Hi!
+
+That brings us to the end of the Weekly Thing, issue 279. Thanks for listening, and I'll see you next time.

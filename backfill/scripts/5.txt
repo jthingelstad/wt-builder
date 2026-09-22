@@ -1,0 +1,185 @@
+The Weekly Thing, issue 5. Weekly Thing for June 10, twenty seventeen. Published June 10, twenty seventeen. By Jamie Thingelstad. In this issue: End-to-End Encryption FAQ, UUID history, iOS 11 iPad features, macOS High Sierra, watchOS 4, AirPlay 2, Monument Valley 2, printer tracking dots.
+
+Welcome to another Weekly Thing! There are a lot of links for announcements from Apple's Worldwide Developer Conference this week. There were many interesting announcements this week.
+
+I decided to create a projects section on my website as a place to capture current and past projects I've worked on. I grabbed the 9 episodes of the Open Loop podcast that Garrick van Buren and I did and put the Open Loop archive online. Check it out and give a listen.
+
+Now, the Blog posts section.
+
+OmniFocus Tip: Using Context Notifications
+
+Selectively notify yourself of important tasks in frequently used contexts.
+
+Thinking in Decades
+
+Deleting my Flickr account of over a decade before it gets transferred to Verizon. Why I feel it's important to own my content.
+
+That's the end of Blog posts.
+
+Now, the Photog section.
+
+We were biking around Lake Harriet as the sun was setting and looked back to see this gorgeous yellow sunset over the water.
+
+Jun 3, twenty seventeen, 8:49 PM 4800–4838 E Lake Harriet Blvd Minneapolis‎ MN‎ 55409 United States.
+
+That's the end of Photog.
+
+Now, the Links section.
+
+Link one. "End-to-End Encryption FAQ | Day One Help"
+
+It is great to see more and more applications adopting strong, end-to-end encryption. Especially something like Day One!
+
+Link two. "Microblogging with GitHub Pages from iOS"
+
+Nice to see people exploring more options for putting micro-content directly in there existing sites. Something like this might be where I move to. I can clearly see a way that I could put blog posts, microblog posts, photos, bookmarks and other content forms in my one site.
+
+Link three. "Uber CEO Kalanick advised employees on sex rules for a company celebration in twenty thirteen ‘Miami letter’ - Recode"
+
+Seriously, this company is disgusting.
+
+Link four. "Getting Things Done, Ten Years In"
+
+I've practiced GTD for about 10 years now as well and definitely parts of it have become routine. I have also decided to focus on this as a lifelong skill and something I will continue to patiently improve upon.
+
+Link five. "Options versus cash"
+
+Thorough writeup on the value of options in early stage companies. This is a topic that few understand as well as they should.
+
+Link six. "A Brief History of the UUID · Segment Blog"
+
+I've used UUID's in systems for years but I never have asked where these came from. I always assumed they got there start with Ethernet MAC addresses but that is just a tiny part of the story.
+
+Link seven. "Local educators get big response on Kickstarter for computing game | Star Tribune"
+
+Fun writeup on Turing Tumble in the Star Tribune.
+
+Link eight. "Meet A Minnesota Tech CFO: Kim Nelson, SPS Commerce —TechDotMN"
+
+Nice interview with our CFO Kim Nelson.
+
+Link nine. "The Second Coming Of iPad"
+
+I’m extremely confident that there will be a time when most people (probably not all) at work will be using tablets, probably iPads. I think Apple is playing a long game here and I am enjoying being part of it.
+
+Link ten. "Top Skills for an Incident Commander —PagerDuty"
+
+So much good information here. And completely agree with the thesis that incident command is a thing on it’s own, and not inherently a strongly technical role. The 'time boxing is critical' part is something I see people forget a lot.
+
+Link eleven. "Mike Rowe on Efficiency versus Effectiveness - Study Hacks - Cal Newport"
+
+Space, to think and be, is more important that productivity. Good GTD and productivity skills should focus on the impact to you, the practitioner, not on your volume of output.
+
+Link twelve. "macOS High Sierra Brings Current Improvements, Future Developments – MacStories"
+
+Nice recap of updates coming in the awkwardly named macOS High Sierra.
+
+Link thirteen. "‘Monument Valley 2’ for iOS —Tools and Toys"
+
+Tyler and I have been playing Monument Valley 2. Actually he's already completed it. It’s a great followup to the first one.
+
+Link fourteen. "Monica - a CRM for your friends and family"
+
+Oh my, this is the kind of horrible thing that happens when introverted techies try to solve social savvy.
+
+Link fifteen. "watchOS 4 Introduces Proactive Watch Face, Streamlined Navigation, and Fresh Refinements – MacStories"
+
+This looks interesting, but will have to be experienced. watchOS is definitely a fabulous place to put intelligence.
+
+Link sixteen. "Facebook is broken | TechCrunch"
+
+Yes, of course Facebook is broken. And it’s breaking you too. I've not regretted deleting my account 4 years ago. Opt out.
+
+Link seventeen. "Apple AirPlay 2 adds multi-room audio capabilities —Apple World Today"
+
+I use AirPlay a lot. That is the primary way I listen to music at home. All of my "zones" are AirPlay capable. Only being able to send to multiple AirPlay locations from a Mac is a definite limit for me. Sending to multiple from iOS will be nice, but it’s also not clear to me that old AirPort Express units will be able to deal with AirPlay 2. Hmm… let's hope there is a firmware upgrade to get them AirPlay 2.
+
+Link eighteen. "iOS 11: The MacStories Overview"
+
+Great roundup of all the great new things in iOS 11.
+
+Link nineteen. "twenty seventeen State of DevOps Report | Puppet"
+
+Very good annual read on trends in the DevOps world.
+
+Link twenty. "List of Printers Which Do or Do Not Display Tracking Dots | Electronic Frontier Foundation"
+
+Turns out your printer is making it possible to track you as well? Where is the ethics in tech!
+
+Link twenty one. "Pipes"
+
+Yahoo! Pipes was super helpful for certain tasks. This could be similarly useful. In it’s current incarnation it’s pretty limited in features, but will be interesting to keep an eye on.
+
+Link twenty two. "iOS 11 will offer some iPad-specific features —Apple World Today"
+
+Some? A lot of great things in iOS 11 for people that are using their iPad's in a work environment.
+
+Link twenty three. "HomePod raises the bar for smart speakers —Apple World Today"
+
+I wish HomePod was cheaper, but I’m glad that Apple entered this space. I'd be interested in a more direct competitor to the Amazon Echo. I do suspect I'll be getting one, or two, or three anyway.
+
+Link twenty four. "Initial Thoughts on iOS 11 iPad Improvements —macsparky"
+
+A lot here for people that do more intensive work on their iPad.
+
+Link twenty five. "The story of RSS-in-JSON —Scripting News"
+
+Dave Winer doing some stuff with RSS-in-JSON. Have to say I’m disappointed that he isn't using JSON Feed. Seems stubborn, perhaps prideful and bad for the ecosystem.
+
+Link twenty six. "Getting Things Right With Checklists – Production Ready – Medium"
+
+I’m a huge fan of Gawande's Checklist Manifesto. It highlights many ways to use checklists to improve processes and outcomes. Good read on using checklists in tech.
+
+Link twenty seven. "Sisyphus Industries"
+
+I got to see these tables in action at the Maker Faire and I was blown away. They use sand like a Zen Garden toy under glass and then control a marble magnetically with an Arduino device. It uses the marble to slowly create these amazing patterns in the sand. Mesmerizing! Felt similar to when you gaze into a fire. Amazingly successful Kickstarter too raising 2 million dollars!
+
+Link twenty eight. "Omni Archive | OMNI"
+
+I love OMNI magazine as a kid. In fact, I still have about a dozen copies that I've archived that I thought were the coolest things ever when I was a kid. Cool that you can now get these.
+
+Link twenty nine. "In the Kingdom of the Blind —Bridget Kromhout"
+
+Lucky to know Bridget and I really like her writing on diversity. Read all of this and take time to think it through.
+
+Link thirty. "Cloud and Finance – Lessons learned | Expedia Engineering Blog"
+
+Cloud technology is making technology teams thing about costs in a different way. It’s not always an easy path, but it’s good and it’s interesting to read as organizations work through this new dimension.
+
+That's the end of Links.
+
+Now, the Promotion section.
+
+Wikitribune is a news platform that brings journalists and a community of volunteers together. Wikitribune just got funded and I became a backer. I’ve been impressed with Wikipedia and am excited about Jimmy Wales and team focusing on the news ecosystem. I'll be very curious to see how they realize these objectives. I've previously thought about how news can be reinvented. I focused more on the open source model instead of wiki, but either way I feel like a fundamental rethink is possible! Let's see how they tackle this. Become a supporter today!
+
+That's the end of Promotion.
+
+Now, the Microblog updates section.
+
+- Monument Valley 2 is really nice. High quality puzzle game.
+- Nice evening in the neighborhood.
+- Beautiful Clematis flowers in our back yard.
+- Attending my first GTD workshop today. Have been doing GTD for a long time and am looking to reinforce and deepen core concepts.
+- The David Lynch Documentary Kickstarter I backed in April twenty twelve with a delivery in May twenty thirteen may finally get to me in June twenty seventeen! Better 4 years late than never?
+- Good morning espresso!
+- SiriKit supports tasks and OmniFocus 2 is on the slide? Yes please!
+- Apple Pay person-to-person is going to be very significant. Opens up a lot of potentials and nice implementation right inside iMessage.
+- iMac Pro is impressive! Amazing specs that I doubt I could tax, but I sure want one…
+- Music Tornado!
+- Hula Hoop!
+- Sunset over Lake Harriet on a great day.
+- Mess-o-Bikes!
+- Family walk down Minnehaha to Mississippi River.
+- Minnehaha Falls roaring.
+- Hanging with R2-D2 at Maker Faire.
+- Got to congratulate Paul Boswell in person on his successful Kickstarter for Turing Tumble! Looking forward to getting mine!
+- USS Missouri in Legos from Brickmania!
+- Found a TARDIS at Maker Faire!
+- Gold Medal Flour.
+- Very long escalator @ Guthrie Theatre.
+
+That's the end of Microblog updates.
+
+Thank your or subscribing. If you know of people that would like the Weekly Thing please forward it to them and spread the word!
+
+That brings us to the end of the Weekly Thing, issue 5. Thanks for listening, and I'll see you next time.

@@ -1,0 +1,153 @@
+The Weekly Thing, issue 70. Sep 8, twenty eighteen. Published September 8, twenty eighteen. By Jamie Thingelstad. In this issue: Tesla disruption, lean startup, startup sales, new executive advice, BBQ science, Canon EOS R, Arial versus Helvetica quiz, Auth0 multi-cloud architecture.
+
+I'm ready to put this year's Fall allergy season into the Guinness Book of World Records. Even with loratadine and pseudoephedrine I've been struggling with watery eyes, congestion and itching. I've been having to tell people that while they are very important to me, in fact, I am not crying upon seeing them.
+
+The kids told me a joke this week that I'm still chuckling when I think about. Never trust an atom — they make up everything!
+
+Now, the Featured Links section.
+
+Link one. "Sprints, marathons and root canals"
+
+This is how I tend to think about this type of team driven work in a product backlog. I like the name "sustainability tasks" and also agree with the sentiment that these may or may not appear in a backlog.
+
+Putting regular sustainability tasks into a calendar would just create noise. Putting sustainability tasks into a product roadmap has the same effect. Having a budget removes the pressure to plan, prioritise or estimate such tasks, and avoids the need to compare them to features that bring immediate value.
+
+Allocating budget and thinking about sustainability as an investment criteria works well, and gives you a more direct way to think about that work. You may even change that investment rate from time to time.
+
+Link two. "Tesla, software and disruption — Benedict Evans"
+
+This article captures part of the intrigue I have about Tesla, and what got me to place the order for my Model 3. I’m particularly interested in the integrated nature of the software stack in a Tesla, and the fact that Tesla is so far ahead of any other automotive company in how they change it. I think of what Apple did with the iPhone. Before the iPhone, the phone you bought was the same forever. With the iPhone, you bought a phone and it got better with software. The thing you already owned did new stuff it didn’t do when you bought it. Tesla has that potential, and I want to be part of it.
+
+That's the end of Featured Links.
+
+Now, the My Weekly Photo section.
+
+Fairy House at Minnesota Renaissance Festival. The door is about 3 feet tall.
+
+Fairy House at Minnesota Renaissance Festival.
+Sep 3, twenty eighteen at 1:00 PM
+Renaissance Festival, Shakopee, MN
+
+That's the end of My Weekly Photo.
+
+Now, the Notable Links section.
+
+Link one. "All Things Sales! 16 Mini-Lessons for Startup Founders – Andreessen Horowitz"
+
+This is a great intro to a variety of sales topics. This was made focusing on technology-minded startup founders, but I think is a great primer for anyone in technology that doesn't understand how sales organizations work.
+
+Link two. "Steve Blank Is the Lean Startup Dead?"
+
+This falls in the category of indeed, you can have too much money in your startup. Constraints are valuable.
+
+Link three. "Techie to tech lead: My five biggest mistakes | ThoughtWorks"
+
+This is a great read for individual contributors that are moving into their first lead or even management role.
+
+Link four. "Advice for a new executive | Lara Hogan"
+
+Every bit of this is absolutely great. I particularly like the recommendation to "Always have a story".
+
+Link five. "The secret to successful BBQ pork butt and brisket is science | Ars Technica"
+
+What!? I have read so many BBQ books and it is absolutely considered fact that the smoking plateau is when you are breaking down collagen. But hold up, a water soaked sponge shows the same plateau!
+
+Link six. "Breaking Bad News"
+
+This is one of the skills that I tend to find managers, particularly new ones, find really hard. I know I did, and I still do, it’s never easy. However I agree with this article. Own it, be direct, and show respect.
+
+Link seven. "The Canon EOS R isn't a mirrorless 5D IV, but it's a start: Digital Photography Review"
+
+This is the first new Canon camera that has piqued my interest in years. For sure mirrorless is the way to go for cameras, but after you have a full-frame sensor like I do on my now ancient 5D Mark II you really don't want anything less. This camera looks really great to me, despite the somewhat tepid review. Plus you can continue to use your existing EF lenses with an adapter.
+
+Link eight. "Ironic Sans: So you think you can tell Arial from Helvetica? Quiz"
+
+Fun quiz to give the Helvetica snobs in your life. I got 19 out of 20. The all caps ones were the trickiest for me. The give away is the straight lines of Helvetica.
+
+Link nine. "The full stack product manager – UX Collective"
+
+Interesting reflections on the different definitions of the role of a Product Manager, along with links out to a number of other articles on the topic. No great conclusion, the role will be different based on company, product, market, etc. The main takeaway I have from this is to know that the title can mean so many different things, and that it can’t mean all these things or you can’t possibly succeed.
+
+Link ten. "Product Ownership: Explained"
+
+Nice set of slides highlighting the Product Ownership role. I like that this touches both on the job of product owner, as well as the Scrum role of product owner.
+
+Link eleven. "Auth0 Architecture: Running In Multiple Cloud Providers And Regions"
+
+They increased availability, performance and reduced cost by consolidating on one cloud provider. This is an interesting argument about regionality within a single provider versus multi-cloud. There are big tradeoffs there.
+
+That's the end of Notable Links.
+
+Now, the Give Back section.
+
+The mission of Hack the Gap is to amplify the voices and cultivate talents of underserved people in our community. I serve on the board of Minnestar with Jenna Pederson, one of the founders of Hack the Gap, and I love what this organization is focusing on. Gender diversity in tech is a real problem and it’s far too often brushed off as some endemic issue that cannot be solved. That isn't the case at all. Hack the Gap is creating a way for people to get into the technology industry and breaking down barriers. Donate to Hack the Gap today!
+
+That's the end of Give Back.
+
+Now, the Highlighted iOS App section.
+
+Libby, by OverDrive
+
+by OverDrive, Inc.
+
+Meet Libby. Did you know your local library has thousands of ebooks and audiobooks? You can borrow them, instantly, for free, using just the device in your hand.
+
+I found this app via another newsletter and think it's just great! I've had a nearly unused Hennepin County Library card for a while. I installed this app, punched in my Library Card information and instantly had access via a great interface to so many books. It integrates perfectly with putting books on hold and then puts the ebook on your phone immediatley when available. If you don't have a library card, this app is good enough that you should make a trip and get one.
+
+That's the end of Highlighted iOS App.
+
+Now, more links.
+
+- Serverless Microservice Patterns for AWS - Jeremy Daly
+19 patterns used by teams to build production microservices.
+- Why does everyone hate Read Receipts? We did some research to find out.
+So I’m in the majority on my dislike of this feature.
+- Reboot Your Dreamliner Every 248 Days To Avoid Integer Overflow www.i-programmer.info
+- bat: A cat(1) clone with wings. github.com
+Syntax highlighting and other advanced capabilities.
+- How to Manage Your Mood by Managing Your Mind —Matt Norman www.mattnorman.com
+A personal story about what you can do with those negative thoughts in your head.
+- The Early History Of Smalltalk worrydream.com
+Smalltalk was an important development in the history of computer science and languages.
+- Symbol in Ruby – Mehdi Farsi – Medium
+Symbols were always the cool kid thing in Ruby that bothered me. This writeup helps clarify what they are.
+
+That's the end of More Links.
+
+Now, the Microposts section.
+
+Thursday @ 10:28 PM
+
+Just got invitation to OmniFocus 3 for Mac beta. Impressive and big redesign. I have a feeling multiple windows will be better used in this version. Nice to have powerful Perspectives on all platforms.
+
+Monday @ 7:58 PM
+
+We had a great time at the Minnesota Renaissance Festival today!
+
+Sunday @ 3:58 PM
+
+“Gone Bananas” at MN Nice Cream.
+
+Sunday @ 11:59 AM
+
+Rainy morning of Snap Circuits (#562 Solar Space War) and Turing Tumble (#18 Entanglement).
+
+Friday @ 8:58 PM
+
+Only two episodes in, and I’m already very into Succession.
+
+Friday @ 8:53 PM
+
+We are enjoying Making It for family TV.
+
+That's the end of Microposts.
+
+Now, the Fortune section.
+
+You've made it all the way to the end! Here is your fortune for this week.
+
+It's not over till it's over.
+
+Thank you for subscribing to the Weekly Thing!
+
+That brings us to the end of the Weekly Thing, issue 70. Thanks for listening, and I'll see you next time.

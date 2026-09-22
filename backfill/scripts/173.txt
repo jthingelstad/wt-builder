@@ -1,0 +1,225 @@
+The Weekly Thing, issue 173. Minot, Unicorn, Bunch. Published February 13, twenty twenty one. By Jamie Thingelstad. In this issue: RSS still useful, DEVONthink To Go 3.0, Let's Encrypt 200 million certificates, Disqus dark commenting, Planetary social media, DESI billion galaxies.
+
+There is a lot in this weeks issue with great links and various updates from Arizona. We are enjoying exploring the area and experiencing the desert. I'm going to jump right into it and leave reading time for all the good things below, including some great photos of wild horses!
+
+"Come back to the actual experience, rather than the thinking and the story around the experience." — Andy Puddicombe, Headspace
+
+Now, the Must Read section.
+
+Link one. "Inside the Worst-Hit County in the Worst-Hit State in the Worst-Hit Country | The New Yorker"
+
+I have greatly enjoyed Atul Gawande's writing (Being Mortal and Checklist Manifesto are incredible reads) so when I saw that he wrote about my hometown, Minot, North Dakota, it got my attention right away. This is a long read but follows the pandemic as it comes into Minot, the community's initial reactions, and then the huge surge that was experienced in late summer when it was a giant hot spot. Gawande presents the journey well, and I appreciated how he framed the positions of various people as they navigated the pandemic. "When an entire community must decide how to tackle a serious problem—must choose what it is and is not willing to sacrifice—matters get more complicated."
+
+Link two. "iPhone versus Camera: No Contest – On my Om"
+
+When I bought my Canon EOS R I belabored it a long time. What Malik is commenting on regarding stand-alone cameras is absolutely true. That entire category of product is being decimated by the amazing photography we can all do with our phones. The graphs here show how big of a change it has been. 90% drop in unit sales in 10 years.
+
+The computational photography on a phone is better than the majority of those stand-alone cameras. But, when I pick up my Canon EOS R, and put a 200mm lens on it, I’m reminded of the amazing photographs that you can take with pro gear. Of course it also weighs over 3 pounds and decidedly will not fit in my pocket. The trouble is that the industry needed those cheap digital camera sales to make the high-end of the market work. Sounds an awful light like news doesn't it? The classified ads for the garage sale are what funded high quality journalism. As markets evolve, we learn that certain components of markets have never been able to stand on their own P and L.
+
+The net is professional cameras will cost more, and likely have less innovation. And that is likely going to bump high-end amateurs out. Which is a bummer.
+
+Link three. "Why I Still Use RSS | atthislink"
+
+Nearly all of the content that you see me sharing in the Weekly Thing comes to me via RSS. I use Feedbin and it’s the best 30 dollars I can spend online each year. I use Unread on my iPhone as well, but that is optional. I could use Feedbin directly.
+
+RSS is an open-protocol. RSS readers that I pay for have a simple financial incentive with me as the customer. There is no algorithm between me and the content I’m getting. Know that all algorithms have a job, usually to increase your time spent, to make more money. I try to keep all of my content in a neutral time-ordered feed.
+
+Some services don't support RSS. Trust me, RSS is easy to support. If they don't, take that as a signal for how they view your privacy and opt-out. I keep a list of my RSS subscriptions on my site if you are looking for inspiration.
+
+That's the end of Must Read.
+
+Now, the Recommended Links section.
+
+DEVONthink To Go 3.0
+
+DEVONthink has now upgraded the iOS app to the same level as the macOS version. I use DEVONthink for projects that have a high volume of documents, benefit from annotation, and powerful searching. It is often paired, using easy URLs, to projects in OmniFocus. The updates here are great and was easily worth the upgrade price for me. Adding CloudKit sync for iOS and 3.6.2 for macOS is also a big improvement. Also see MacSparky comments on the new version.
+
+Preparing to Issue 200 Million Certificates in 24 Hours - Let's Encrypt
+
+I absolutely love that Let's Encrypt has been so successful that they have to work so hard on scaling their certificate authority! If you want to support a more encrypted web, and particularly if you use Let's Encrypt certificates on your website, join me in supporting them with a monthly contribution.
+
+No Free Plan
+
+Set of arguments against offering a free plan for your SaaS product. Published just days apart, you also should read How to Kill a Unicorn which argues that a free plan is exactly how you do that.
+
+tusk - anonymous feedback
+
+TUSK is an acronym for "thought you should know" and this service claims to be a completely ephemeral solution to collect anonymous feedback. It is very plain, but easy to create a URL that will collect feedback for three days and then disappears. Give it a try!
+
+Introducing Clerk: All of user management, not just authentication
+
+There is a ton of non-differentiating work that every product and company has to solve in this user management space. Some frameworks have solved this with scaffolding in the past, but having a service do it is interesting. I would be hesitant though, because this is moving way up the value-stack over simple authentication and could be an initial accelerator, but then slow you down if it isn't able to extend with the features and capabilities you want to bring to the market.
+
+Quote.
+Our launch today includes UI components for Sign Up, Sign In, User Profile, and what we're calling the "User Button." They can be mounted directly in your application, or you can redirect users to a Clerk-hosted page on accounts.yourdomain.com.
+End quote.
+
+Part of the perpetual build v. buy tradeoff.
+
+How to Kill a Unicorn - Chris Frantz
+
+Argues that a free plan is the way to infiltrate a market and take over a dominant player. Shows trend data of insurgents taking over incumbents. For a completely different take, see No Free Plan which suggests that a free plan is a terrible idea.
+
+Stop Swiss Cheesing your calendar - Thinking Through
+
+I've often called this Calendar Tetris but I like the Swiss cheese metaphor just as much. The method described here is one approach, but the main thing is to actively manage your calendar. If you don't, others will, and that will have no regard to your objectives.
+
+The Unifying Theme of Strong Leadership - Matt Norman
+
+The best leaders that I have worked with nearly always have fundamental principles that drive the many decisions they have to make. Principles. Frameworks. Identity. There are a lot of ways to describe this, but I believe it is foundational to leadership. It is very hard to lead if you are inconsistent. I like how Norman presents this characteristic in this article. It takes years, perhaps decades, to build but intentionally doing so is critical. Books like Jim Loehr's Leading with Character with the 180-day journaling exercise are also good ways to work on this.
+
+Cognitive Load and Domain Complexity - Leah Cunningham
+
+Good article from my friend Leah on an important aspect of team design and making sure that the logical domain that a team owns is manageable. I like her suggestion on how to determine if it is too big.
+
+Disqus, the dark commenting system
+
+Disqus should be considered malware. I've known it injected a lot of things into sites that use it, but I was blown away at how much it injects. 76 web requests? Injecting 11 third-party trackers? You should use your content blocker to block all Disqus instances online. 1Blocker does this really well.
+
+Bunch
+
+Bunch recently added scheduling and other new features that caught my eye. I used Bunch to launch applications and had stopped in favor of some AppleScripts. However, Bunch's new features look powerful. Bunch is a great app for launching suites of applications. My most common use case is launching the half-dozen apps that I use all day while I work.
+
+Jassy Talking Points - Tim Bray
+
+I’m a fan of Tim Bray's writing and while so much was written about Andy Jassy taking over at the helm of Amazon I enjoyed reading Bray's perspective. He highlighted one point I brought up as well:
+
+Quote.
+Now that Andy’s been promoted, he’s got a new responsibility: Testifying to Congress. It’s not going to be fun.
+End quote.
+
+I like the anecdotes that he shared.
+
+Planetary - Social media for humans, not algorithms.
+
+Planetary has just launched and looks like the very first Scuttlebutt decentralized social network client that is easy-to-use for regular folk. I've been intrigued by Scuttlebutt since I first ran into it being used by people that sail a lot and are only rarely online. Scuttlebutt can work in these disconnected environments. I installed Planetary to try it but I would want to use micro.blog to syndicate content to it, and that isn't happening soon.
+
+That's the end of Recommended Links.
+
+Now, the Journal section.
+
+Thursday @ 7:29 PM
+
+Day 11 of the February Photoblogging Challenge: Machine.
+
+This new M1 MacBook Pro is an incredible machine.
+
+Wednesday @ 6:57 PM
+
+Day 10 of the February Photoblogging Challenge: Energy.
+
+Electrical energy into light.
+
+Tuesday @ 9:21 PM
+
+Day 9 of the February Photoblogging Challenge: Mudy.
+
+While visiting the Salt River wild horses today I noticed this horse that had been having some time in the mud recently.
+
+Tuesday @ 9:19 PM
+
+Salt River Wild Horses
+
+Today we visited Coon Bluff Recreation Area to see the Salt River wild horses. The non-profit Salt River Wild Horse Management group helps provide for these wild horses, and they are currently putting out hay for them each day. You can visit while they do this and walk among these wild horses but you need to be slow and calm, and keep your distance. The horses themselves were skirmishing a bit. It gets your attention when twenty horses start stirring and running around you. I brought the good camera with a long lens to catch some photos of these beautiful horses.
+
+Monday @ 6:40 PM
+
+Day 8 of the February Photoblogging Challenge: Hope.
+
+This is the first Saguaro cactus flower, arriving over a month early, showing hope for another spring.
+
+Sunday @ 8:39 PM
+
+Saguaro National Park
+
+We visited Saguaro National Park today. We didn’t have a ton of time so we only (and accidentally actually) went to the East park. We did a quick hike but it was our second hike of the day so we didn’t go too far. It looked like an incredible set of trails for hiking and the loop road was very popular with cyclists.
+
+Sunday @ 3:47 PM
+
+Sabino Canyon
+
+We visited the Sabino Canyon Recreation Area today on our day trip to Tucson. We took the shuttle to the top of the trail and then made our way down stopping at several locations. It was a very pretty walk and fun to see the spring creek with running water down the canyon. We had to cross it barefoot and the water was very cold!
+
+Sunday @ 9:31 AM
+
+Day 7 of the February Photoblogging Challenge: Craving.
+
+Treats from Mesa Donuts.
+
+Sunday @ 8:33 AM
+
+Driving to Tucson for the day and introducing the kids to some country music with Hank Williams Sr., Willie Nelson, Merle Haggard, and even The Cactus Blossoms. Tyler declared it “not modern” and I fully agreed.
+
+Saturday @ 7:31 PM
+
+Day 6 of the February Photoblogging Challenge: Sport.
+
+Wasn’t a lot of “sport” options today but Tyler likes to wear Bayern gear nearly everyday.
+
+Saturday @ 11:30 AM
+
+Great Coffee at Pair Cupworks
+
+I had a great start to the day with a visit to Pair Cupworks this morning. I had a top notch cappuccino followed by a cup of Costa Rica pour over. The brown sugar and plum flavors in the pour over were great.
+
+I left with some Guatemalan coffee by Adrián Hernández from La Galera Farm in the village of La Pinada, Guatemala as well as Ethiopian coffee from the Mijane Family and the Halo Hartume Station.
+
+I spent an hour chatting with the owner Kimhak En who runs the business with his wife Eugenia Tai. He was very nice and had a ton to share on great coffee shops around the country, different techniques and equipment, and their journey starting their own shop.
+
+Friday @ 7:07 PM
+
+Today I learned that these cactus are incredibly sharp. The needles will go right through light hiking shoes. Ouch. They are very pretty though, particularly when the sun lights them up.
+
+Friday @ 7:03 PM
+
+We had a nice hike on Lost Dog Wash trail today. 3.3 miles. Took multiple wrong or missed turns though.
+
+Friday @ 6:51 PM
+
+Day 5 of the February Photoblogging Challenge: Pets.
+
+Lucky taking a break during our hike at Lost Dog Wash trail.
+
+That's the end of the Journal.
+
+Now, for your information.
+
+Announcing a New Release of SAFe 5! - Scaled Agile Framework
+
+I like the changes to the big picture and like the continual improvements being made to SAFe.
+
+The DESI 10-terapixel sky survey map has a billion galaxies in it.
+
+The universe is so big.
+
+How to write digital products with personality by Nick DiLallo
+
+Great reminder that your product should have a voice, a persona, and the difference that can make when people engage with it. Via For The Interested #242.
+
+Book recommendations for business leaders: 2/8/21
+
+Good books to consider, and each one links to a write-up about the book if you want to dig deeper.
+
+ARCHITECTURE.md
+
+Simple and easy convention to convey the key architectural principles of a software project. Makes a lot of sense.
+
+fusuma: Fusuma makes slides with Markdown easily.
+
+Markdown is pretty easy to automate, and combining with a presentation library like this could be handy for certain projects.
+
+Queen’s Gambit Garry Kasparov interview: The former world chess champion on what the Netflix series gets right.
+
+I enjoyed reading this background on the chess parts of The Queen's Gambit.
+
+That's the end of the FYI section.
+
+Now, the Fortune section.
+
+Here is your fortune…
+
+The time is right to make new friends.
+
+Thank you for subscribing to the Weekly Thing!
+
+That brings us to the end of the Weekly Thing, issue 173. Thanks for listening, and I'll see you next time.

@@ -1,0 +1,315 @@
+The Weekly Thing, issue 48. Apr 7, twenty eighteen. Published April 7, twenty eighteen. By Jamie Thingelstad. In this issue: Hamilton, Chicago Cloud Gate, Little Snitch, 1Blocker, Facebook privacy, Stallman, 1Password Business, Cloudflare DNS, Sinclair propaganda.
+
+It was "Spring" Break this week, and I put Spring in parenthesis due to significantly below average temperatures here for the last week. We split our week away between the Wisconsin Dells and Chicago. We had a great time doing water park things in the Dells and then seeing museums and culture in Chicago.
+
+We saw Hamilton, and before you ask, yes it was amazing. I've never been moved by a musical like that. I instantly wanted to see it again. It helped that we had listened to the soundtrack and new most of the songs, although seeing the production connected a lot of dots in the story. Everyone liked it a lot. If you get a chance to go, it's worth shelling out some extra cash to see.
+
+Now, the Photo section.
+
+The Chicago Cloud Gate in Millennium Park.
+
+Apr 5, twenty eighteen at 10:43 AM
+Millennium Park, Chicago IL
+
+That's the end of Photo.
+
+Now, the Security section.
+
+Radio Silence | Network monitor and firewall for Mac
+radiosilenceapp.com
+
+I like the simplicity of this app. I have long felt that I should be using Little Snitch to keep applications on my computer from doing things I don't like. Little Snitch is really complicated though, and Radio Silence has a much simpler interface. I’m giving this a try on the free trial.
+
+That's the end of Security.
+
+Now, the Social Media section.
+
+Trump's Campaign Said It Was Better at Facebook. Facebook Agrees - Bloomberg
+www.bloomberg.com
+
+Wow — 5.9 million different versions of ads? That is incredible.
+
+Trump ran 5.9 million different versions of ads during the presidential campaign and rapidly tested them to spread those that generated the most Facebook engagement, according to the paper. Clinton ran 66,000 different kinds of ads in the same period.
+
+Independent of the politics, you should assume that whatever advertising message you are getting on the Internet you may be the only one getting it, and it may be targeted to take advantage of specific information known only about you. Also, run an ad blocker. I use 1Blocker.
+
+Instagram suddenly chokes off developers as Facebook chases privacy | TechCrunch
+techcrunch.com
+
+I know a lot of people that worry about Facebook but don't seem to worry at all bout Instagram. Remember, Instagram is owned by Facebook. Use at your own risk. I won't use Intagram as their Terms of Service take ownership and give them all rights to repurpose all of your photos for any use they want, including selling them. Gross.
+
+Top Facebook Executive Defended Data Collection In twenty sixteen Memo — And Warned That Facebook Could Get People Killed
+www.buzzfeed.com
+
+If you need more convincing that Facebook is a company without any principles…
+
+That's the end of Social Media.
+
+Now, the Photography section.
+
+Halide, Darkroom and Rekindling Photography as a Hobby - the candler blog
+www.candlerblog.com
+
+I've been slow to adopt RAW photography on my iPhone, even though I did all RAW photography on my Canon 5D Mark II. I didn’t realize how well Halide and Darkroom were working together. I bought and setup both of them and love the power it gives me on my phone. Beware though, fiddling with RAW photos eats up battery quick.
+
+Earth’s Wonders Like You’ve Never Seen Them Before – Planet Stories – Medium
+medium.com
+
+Very cool satellite imagery of a number of cities and mountain ranges. Satellite images but at an angle so you can see the topography,
+
+That's the end of Photography.
+
+Now, the Culture section.
+
+A radical proposal to keep your personal data safe | Richard Stallman | Opinion | The Guardian
+www.theguardian.com
+
+I really want to like Stallman 's perspective on privacy, but I find his positions to be disconnected from reality. I once got the opportunity to have lunch with Stallman when he was in Minneapolis and I asked him how his positions extended to services over the web. He flatly just said he doesn't use them because it’s not free open source software. I insist that there must be a position in the middle, as Stallman's view is not workable.
+
+That's the end of Culture.
+
+Now, the Food section.
+
+Sushiya No Nohachi: Tiny Sushi Made with One Grain of Rice
+www.tofugu.com
+
+This is an amazing form of edible art.
+
+That's the end of Food.
+
+Now, the Software section.
+
+Introducing 1Password Business —AgileBits Blog
+blog.agilebits.com
+
+This new service makes total sense from AgileBits. 1Password for Teams and 1Password for Families are great services, but were designed for small groups of people. This new service adds a number of features to work for very large groups of people. I continue to be very happy with 1Password.
+
+That's the end of Software.
+
+Now, the Tech section.
+
+Daring Fireball: Apple Hires Google’s A.I. Chief, John Giannandrea
+daringfireball.net
+
+This seems like a huge talent move by Apple.
+
+Announcing 1.1.1.1: the fastest, privacy-first consumer DNS service —Cloudflare Blog
+blog.cloudflare.com
+
+Cloudflare continues to impress me and I love what they have done with this new DNS service. A long time ago I used OpenDNS but stopped using it when I realized they were selling data on your DNS queries. You should know that your ISP is doing that already. Comcast is looking at DNS queries to profile the services used in your house and then target advertising to you. Using a safe, secure and private DNS service is a very good idea.
+
+The Critical Missing Piece of DevOps…And How to Find It | AWS Cloud Enterprise Strategy Blog
+aws.amazon.com
+
+Great article highlighting the challenges between vertical and horizontal alignment of work. One view of DevOps would leave no central service to manage processes. This is maybe okay in a very small organization, but fails very quickly. Another view suggests everything should be done horizontal via SOP and escalations, completely devoid of the benefits of DevOps thinking. The right answer is to do a bit of both, and take the best parts of each. That is possible.
+
+That's the end of Tech.
+
+Now, the Media section.
+
+Anchors Reciting Sinclair Propaganda Is Terrifying in Unison
+nymag.com
+
+This is why we shouldn't have single entities controlling what appear to be a distributed channel of media. It appears locally sourced, but that isn't necessarily true. The video showing the various anchors saying the same thing is worrisome.
+
+That's the end of Media.
+
+Now, the Games section.
+
+Our Favorite Board Games for Adults: Reviews by Wirecutter | A New York Times Company
+thewirecutter.com
+
+Some favorites of mine on here. It’s affirming for me to see Carcassonne and Ticket to Ride listed as easier than Catan. I've never really gotten the hang of Catan, but the others I completely get. Good gift ideas here.
+
+That's the end of Games.
+
+Now, the People section.
+
+Episode 4: @patrickrhone
+monday.micro.blog
+
+My friend Patrick Rhone was featured on Micro.blog's Micro Monday podcast. As always, very insightful comments on the philosophy of software and services and why he authors his content where he does.
+
+That's the end of People.
+
+Now, the Research section.
+
+How Do You Make or Maintain Friends? Put in the Time. | Psychology Today
+www.psychologytoday.com
+
+Making friends takes time. It’s interesting to see it quantified to such a granular level.
+
+He found that it took about 50 hours of interaction to move from acquaintance to casual friend, about 90 hours to move from casual friend to friend, and more than 200 hours to qualify as a best friend.
+
+Now you know why it was so easy to make friends when you were in the college dorm with nothing else to do.
+
+That's the end of Research.
+
+Now, the Funny section.
+
+The Shallot twenty eighteen
+theshallot.org
+
+The twenty eighteen edition of a tech focused satire paper in the spirit of The Onion. Great with by David Hussman and friends.
+
+That's the end of Funny.
+
+Now, the Business section.
+
+The Most Common Type of Incompetent Leader
+hbr.org
+
+This is an important read.
+
+Absentee leaders are people in leadership roles who are psychologically absent from them. They were promoted into management, and enjoy the privileges and rewards of a leadership role, but avoid meaningful involvement with their teams.
+
+This is why you your personal engagement as a leader is so important. If you are not engaged, you cannot possibly be a leader. If you ever feel disconnected from the mission of your work, as a leader you should step aside.
+
+That's the end of Business.
+
+Now, the Web section.
+
+feedBase
+feedbase.io
+
+I love this idea. Feed discovery is one of the bigger challenges of the open web.
+
+Welcome to feedBase, which as its name implies, a database of feeds. I'm asking people who read my blog to upload their OPML subscription lists, so we can mash them together and produce a graph of users and feeds that you can walk, learn from, and discover new feeds to subscribe to.
+
+I signed up and uploaded my OPML to see how it works. I like this, but think it is probably a bigger project than Winer may be envisioning.
+
+Facebook and Cambridge Analytica - Schneier on Security
+www.schneier.com
+
+Schneier is absolutely right to highlight that Facebook is not the only company doing pretty unsavory things with your data. Put this as a perfect example for why I believe you need to use a content blocker in your web browser. Surfing the web without a content blocker is like trying to deal with email with no spam protection.
+
+RSS Readers Are Due for a Comeback: Feedly, The Old Reader, Inoreader | WIRED
+www.wired.com
+
+I’ve never left the feed reader world and am a very happy user of Feedbin. This article is a good overview of the RSS ecosystem and various services. Feed discovery is still the biggest issue here. Innoreader helps with that, and I’m curious how Dave Winer’s new feedbase project works out.
+
+That's the end of Web.
+
+Now, the Promotion section.
+
+The Electronic Frontier Foundation is the leading nonprofit organization defending civil liberties in the digital world. I have been a member of the EFF for years. Not only is the EFF working hard to protect you on the Internet they have also recently launched solutions like Privacy Badger and the critically important Let's Encrypt service to make encrypting web servers free to anyone. Support the EFF with a donation!
+
+That's the end of Promotion.
+
+Now, the App section.
+
+Darkroom – Photo Editor
+
+by Bergen Co.
+
+Save yourself from the multi-app workflow and discover the most well-designed, integrated, and powerful editing app for iOS. We skip fantasy and novelty and focus on what matters for photographers.
+
+You can use this app for free but you'll have to buy the filters and tools. It's a paltry 7 dollars to get every feature it has and if it does amazing work with your photos. If you pair it with RAW photos you can do even more, but it is amazing with normal JPEG photos as well.
+
+Free 4.5/5 stars
+
+That's the end of App.
+
+Now, the Status section.
+
+Friday @ 9:02 PM
+
+“You can find us on Twitter, Safari and Duck Duck Goose.” — my kids introducing their circus acts Internet presence
+
+Friday @ 7:50 PM
+
+Went to setup Cloudflare’s new 1.1.1.1 DNS service and it looks like Eero Plus must work in part using DNS as well. Seems I cannot have Eero Plus and use 1.1.1.1.
+
+Friday @ 7:45 PM
+
+Visited the Michigan Avenue Apple Store when we were in Chicago. Amazing architecture. The building feels invisible.
+
+Friday @ 7:40 PM
+
+Family selfie from the top of the John Hancock Tower.
+
+Friday @ 7:39 PM
+
+The view from the 360 Chicago deck on the John Hancock Tower was incredible.
+
+Friday @ 7:35 PM
+
+The Thorne Miniature Rooms at the Art Institute of Chicago are incredible. You can find detail in each one over and over.
+
+Friday @ 2:28 PM
+
+Chicago Cloud Gate.
+
+Friday @ 2:27 PM
+
+Inside the Chicago Cloud Gate.
+
+Friday @ 2:26 PM
+
+Chicago Cloud Gate sculpture.
+
+Wednesday @ 8:53 PM
+
+Chicago.
+
+Wednesday @ 1:16 PM
+
+Time for Hamilton!
+
+Wednesday @ 11:52 AM
+
+Willis Tower.
+
+Wednesday @ 10:58 AM
+
+1 million dollars three different ways (1 dollar, 20 dollars, and 100 dollars bills) at Chicago Fed Money Museum.
+
+Wednesday @ 9:38 AM
+
+Delicious espresso at Caffe Umbria this morning.
+
+Tuesday @ 8:34 PM
+
+Array of 3D printers at Museum of Science and Industry.
+
+Tuesday @ 8:32 PM
+
+I love watching the Tesla coil at the Chicago Museum of Science and Industry.
+
+Tuesday @ 8:26 PM
+
+Tammy has our summer vacations planned out for the next 5 years. Now that is planning!
+
+Monday @ 6:49 PM
+
+Forty minute wait for deep dish? Sure.
+
+Monday @ 4:24 PM
+
+Ready for Sharks 4D movie at Shedd Aquarium!
+
+Monday @ 1:04 PM
+
+Delicious unfiltered Foiken Haze New England IPA at ERIS Brewery and Cider House.
+
+Sunday @ 8:11 PM
+
+We had a blast at Wizard Quest today and completed our challenge with a rating! This was a really fun time for everyone.
+
+Sunday @ 8:07 PM
+
+We won “The Circus” room at D.O.A. Room Escape today with a few minutes to spare! It was fun to do a room where the kids led the way!
+
+Sunday @ 10:03 AM
+
+“Listicles ” turned into slide shows should be considered Adware.
+
+Saturday @ 9:46 PM
+
+We had a great time at the Rick Wilcox Magic Show tonight! I got to go onstage for one of the segments! The kids got signatures at the end.
+
+Saturday @ 5:53 PM
+
+Dinner at Moosejaw Pizza and Brewing.
+
+That brings us to the end of the Weekly Thing, issue 48. Thanks for listening, and I'll see you next time.

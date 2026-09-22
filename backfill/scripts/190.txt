@@ -1,0 +1,357 @@
+The Weekly Thing, issue 190. WWDC, Passport, Roll. Published June 12, twenty twenty one. By Jamie Thingelstad. In this issue: Cloud trillion dollar paradox, Fastly crippled the Web, iCloud Private Relay, WWDC Shortcuts for Mac, end the data economy, Bitcoin Water Trust.
+
+Perhaps the "truest" indicator of where we are as the pandemic recedes in Minnesota is our calendar. If so, this last week is the first time we've had plans every evening of the week. It seemed like "wow, so much stuff!"
+
+The school year wrapped up this week, which was part of those plans. I kept thinking back to being a kid and how incredibly awesome it was when summer arrived and you had this huge swath of time with friends, outside, and uninterrupted fun. Our kids were very excited to count the days down. Tammy and I also passed the milestone of being done with elementary schools. Time keeps on slipping slipping, slipping… into the future… as the song goes…
+
+A lot of links this week. Apple had their annual WWDC event which means we get to find out what is coming up. There are also three links that feature Weekly Thing readers! Shout outs to Hector Fernandez, Rajiv Pant, and Dan Frankowski.
+
+Have a great weekend!
+
+"If a business is built on misleading users, on data exploitation, on choices that are no choices at all, then it does not deserve our praise. It deserves reform.
+
+We should not look away from the bigger picture.
+
+At a moment of rampant disinformation and conspiracy theories juiced by algorithms, we can no longer turn a blind eye to a theory of technology that says all engagement is good engagement — the longer the better — and all with the goal of collecting as much data as possible."
+
+— Tim Cook, CEO of Apple, "Computers, Privacy, and Data Protection Conference"
+
+Now, the Featured section.
+
+Link one. "The Cost of Cloud, a Trillion Dollar Paradox - Andreessen Horowitz"
+
+This is an incredible article and a must read for any senior technology leader in a public company, or any large organization. This is a deep dive on how cloud spend shows up on the P and L versus traditional technology infrastructure which is an asset that sits on the balance sheet. The cloud has huge benefits in many areas, and leveraging them is absolutely key to building solutions quickly. However, you build on a permanent level of leverage that is very hard to unwind.
+
+Quote.
+However, as industry experience with the cloud matures — and we see a more complete picture of cloud lifecycle on a company’s economics — it’s becoming evident that while cloud clearly delivers on its promise early on in a company’s journey, the pressure it puts on margins can start to outweigh the benefits, as a company scales and growth slows. Because this shift happens later in a company’s life, it is difficult to reverse as it’s a result of years of development focused on new features, and not infrastructure optimization. Hence a rewrite or the significant restructuring needed to dramatically improve efficiency can take years, and is often considered a non-starter.
+End quote.
+
+Before you read this and jump to quick conclusions, the framing is important. This analysis is looking at places where cloud is a huge part of the cost of goods sold. 34%!
+
+Quote.
+Dropbox gross margins increased from 33% to 67% from twenty fifteen to twenty seventeen, which they noted was "primarily due to our Infrastructure Optimization and an… increase in our revenue during the period."
+End quote.
+
+Again, scale matters. But interesting that 100 million dollars of OpEx can be 50 million dollars of costs in two years. That is a big swing, but they are also big numbers.
+
+Quote.
+estimates that repatriating 100 million dollars of annual public cloud spend can translate to roughly less than half that amount in all-in annual total cost of ownership (TCO) — from server racks, real estate, and cooling to network and engineering costs.
+End quote.
+
+The article is an interesting read just to get a sense of how much the cost of revenue is cloud spend at some companies.
+
+Quote.
+A billion dollar private software company told us that their public cloud spend amounted to 81% of COR, and that "cloud spend ranging from 75 to 80% of cost of revenue was common among software companies".
+End quote.
+
+That is an eye popping number.
+
+There is so much good data here, and informative for how very large tech organizations with predictable loads should be looking at cloud spend. There is a top end, but it is pretty high up there.
+
+That's the end of Featured.
+
+Now, the Notable section.
+
+Link one. "Fastly crippled much of the Web, then issued the perfect apology - without bullshit"
+
+This Fastly outage had a big impact on the entire Internet.
+
+Quote.
+You can’t control when and how problems with your company affect customers. What you can control is what you do when there is a problem. Communication with customers should be fast, clear, contrite, and not overly defensive. Fastly’s blog post is practically a template for how to do it right.
+End quote.
+
+I agree completely. I've had to write my fair share of Incident Reports and the basic structure here is what I have found the best. Be clear. Be completely transparent -- even when that is really hard. Always have a timeline. And explain what actions you are going to be taking as a result of the incident.
+
+Link two. "iCloud Private Relay and other Apple WWDC privacy features"
+
+This iCloud Private Relay sounds interesting, but I’m going to need to play with it first hand.
+
+Quote.
+This is where iCloud Private Relay comes in—and puts VPNs to shame. iCloud Private Relay uses a dual-hop architecture. When you navigate to a website through Safari, iCloud Private Relay takes your IP address, which it needs to connect you to the website you want to go to, and the URL of that site. But it encrypts the URL so not even Apple can see what website you are visiting. Your IP and encrypted destination URL then travels to an intermediary relay station run by a third-party trusted partner. Apple would not name these trusted partners, but says the company is working with some of the largest content providers out there. Before getting to this relay station, however, your IP address is anonymized and randomized, so the relay partner can’t identify you or your device. Then at the relay station, the destination URL is unencrypted, so the third-party provider can send you on to the website you want to go to.
+End quote.
+
+This almost has a flavor of Tor to it. Very interesting.
+
+Link three. "Don't let Social Media Think for You"
+
+Well told story that highlights many of the fundamental negative cycles of social media.
+
+Quote.
+And herein lies my biggest gripe with social media. There is no room for nuance, there is no room for grey. Every interaction is based on reaction alone - reflection is rendered moot, because there will always be another scandal that needs attending to.
+End quote.
+
+… and …
+
+Quote.
+These pluralities are unable to exist on social media. There must always be objective truth, there must always be a side that wins, a side that loses, and there are extra points to whoever gets there first, never mind the consequences.
+End quote.
+
+I know people still like to defend social media, and positive aspects. I don't buy it. I think the ROI is extremely upside down.
+
+Link four. "Condorsay"
+
+Dan Frankowski, a friend (and Weekly Thing reader! ) is co-founder and CTO at Condorsay. This caught my eye in part as I was actively reading the chapter on quadratic voting in Radical Markets. Condorsay takes a different approach, but promises to deliver better decisions than other survey methods.
+
+Link five. "MicroStrategy Boosts Bitcoin-Linked Junk Bond to 500 million dollars - Bloomberg"
+
+They originally were going to raise 400 million dollars, but took 500 million dollars. Even more they "received about 1.6 billion dollars in orders for the offering". There is a strong appetite for institutional investors to gain access to crypto. In the meantime, structures like this are offering a bridge, but with significant costs and inefficiencies to the investors.
+
+Link six. "The Modern Trap of Feeling Obligated to Turn Hobbies Into Hustles"
+
+"We live in the era of the hustle." I despise how this word "hustle" has entered the technology space. Hard pass.
+
+Quote.
+We don’t have to monetize or optimize or organize our joy. Hobbies don’t have to be imbued with a purpose beyond our own enjoyment of them. They, alone, can be enough.
+End quote.
+
+Yes.
+
+Link seven. "WWDC twenty twenty one: Shortcuts for Mac – Six Colors"
+
+Shortcuts coming to macOS! I’m a very frequent user of Shortcuts on iOS and iPadOS. I build the Weekly Thing using a sequence of Shortcuts. Bringing shortcuts to the Mac is huge, and will open up so many great options for automation. I love where automation across all of Apple's platforms are heading.
+
+Link eight. "A Lifetime of Systems Thinking - The Systems Thinker"
+
+Some reflections from Russel Ackoff at 80.
+
+Quote.
+Systems thinking not only erases the boundaries between the points of view that define the sciences and professions, it also erases the boundary between science and the humanities. Science, I believe, consists of the search for similarities among things that are apparently different; the humanities consist of the search for differences among things that are apparently similar. Science and the humanities are the head and tail of reality—viewable separately, but not separable. It is for this reason that I have come to refer to the study of systems as part of the "scianities."
+End quote.
+
+A lot fo things in this that will make you think.
+
+Link nine. "Can senior leaders make friends at work? | Irrational Exuberance"
+
+I can definitely relate to the central theme of this article.
+
+Quote.
+I’ve also found that tenured managers eventually run into perspective-altering events at work that make them cautious about developing work friendships. A few from my own experience: an acquaintance who interviewed with us, wasn’t given an offer, and took their life shortly thereafter; a friend who I managed, started giving performance feedback, a brief punctuation when they threw their resignation paper in my face, and never speaking again; hiring your mentor, them struggling, giving them feedback, and them abruptly disengaging from you; ending up managing a former peer who takes it poorly. Each of these taught me a bit about the obstacles that work friendships face where other friendships generally wouldn’t.
+End quote.
+
+Everyone can take their own path. But beware that things may not work out well.
+
+Link ten. "Coin Metrics"
+
+Coin Metrics is like a modern version of BigCharts but for crypto. Great tools and data. This is a space I’m very familiar with from the work I did at Dow Jones, MarketWatch, and BigCharts. Cool stuff.
+
+Link eleven. "Tank Man - Jeff Widener"
+
+This is an incredible story and background from the photographer that took the incredibly powerful photo of "Tank Man" in front of a line of tanks in the 1989 Tiananmen Square protests
+
+Quote.
+I went out to the balcony and crouched behind the metal railing. There was a long line of tanks approaching from the Square and I thought it might be a nice compression shot. Then suddenly a man in a white long sleeved shirt with two shopping bags, walked into the middle of the Chang'an Boulevard directly in front of the tanks. I complained to Kirk and said "This guy is going to screw up my composition". Kirk yelled "They are going to kill him!" My head was still in a daze so compared to what I had witnessed over the previous day, a guy standing in front of a row of tanks seemed normal. The unfolding drama was very far away. I waited for the instant the man would be shot or run over. But nothing happened. He unbelievably crawled up on the tank and I looked back at the bed where my teleconver was. I had to make a quick decision as to whether to risk getting a closer, clearer image or possibly miss a photo completely. I made one of the biggest gambles in my life and dived for the bed. I grabbed the teleconverter, attached it to the 400mm lens which now made it an 800mm focal length, eyeballed the light and opened the aperture ring for an estimated exposure of 1/250 of a second at F11. It was a rather slow shutter speed for such a powerful telephoto lens but, I felt I could manage it. Since the next hotel room wall jutted out, I was partially blocked so I had to risk exposing myself to gunfire by leaning over the balcony and shooting around the wall. The man jumped off the tank and made one last stand. I snapped an image, then a second, then a third. In shock, I noticed the automatic shutter speed needle was pointing at between 1/30 and 1/60 of a second and not 1/250. Before I could figure out what happened, the lone man was carried off by bystanders and was never seen again.
+End quote.
+
+I love the story. Journalists and photojournalists do incredible things.
+
+Link twelve. "Why We Should End the Data Economy - The Reboot"
+
+Good call to action for why we need to manage our privacy online.
+
+Quote.
+Privacy is important because it protects you from the influence of others. The more companies know about you, the more power they have over you.
+End quote.
+
+I want to know that my decisions are mine. Not some advertisers.
+
+Link thirteen. "Production values | Seth's Blog"
+
+The medium matters.
+
+Quote.
+Does the increase in drama, tension and fear that these production values create produce anything of value? Would it be possible to be an informed citizen without it? Even more so: Is it possible to be an informed citizen with it?
+End quote.
+
+Read Amusing Ourselves to Death.
+
+Link fourteen. "The Bitcoin Water Trust"
+
+I love what Charity Water is doing here. I've been donating to them for a few months now and I like their mission and approach. I really like this innovative fundraiser taking Bitcoin, HODL-ing it for a while, and then putting it to work. The Winklevoss twins are matching the first 50 BTC. Love seeing Scott Galloway of Pivot, and Hector Fernandez on the donor list!
+
+Link fifteen. "The self is not singular but a fluid network of identities | Aeon Essays"
+
+Continuing reading on identity and how you think about yourself.
+
+Quote.
+The point is that who you are is more complex than any one of your identities. Thinking of the self as a network is a way to conceptualise this complexity and fluidity.
+End quote.
+
+This seems conceptually right to me. If you want to better understand your own identity, or identities, thinking about these networks could be very useful.
+
+Link sixteen. "DeAll: The Air of Decentralization in twenty twenty one | Hector Fernandez | LinkedIn"
+
+Thought framework from Hector Fernandez on how he is thinking about decentralization of, well, everything.
+
+Quote.
+The mental model for #DeAll that I’ve tried to develop since Covid summer of twenty twenty is informed mostly by institutional sources and academic/white papers, and very little by reddit/crypto and fintwit Twitter/YouTube gems. I come at it blending investing in early 00s (Internet), Wall St. tech/media/telco/consumer (Mobile), entering executive world at world’s largest private co (Cloud), and then reminiscing on my time running a #derivatives solution shop at global scale with dozens of markets.
+End quote.
+
+Worth reading a few times through. Hector has thought very deeply on this topic and his perspective is unique. Hector is also a Weekly Thing reader!
+
+Link seventeen. "The CTO Show with Rajiv Pant | Cloudflare TV"
+
+Great interview with Rajiv Pant. I met Rajiv years ago when he was at Conde Nast and he has always been someone to learn from. His "3 Roles of a CTO" article was hugely influential to me. He's also a Weekly Thing reader!
+
+Link eighteen. "Passport – Stratechery by Ben Thompson"
+
+Cool project from Thompson to power his own businesses, but built completely on open standards. Love how he approached this and how the solution works. It is interesting that Passport uses unique URL's to grant access to content.
+
+Quote.
+every link is unique to that user, making the integration with the Stratechery website completely seamless
+End quote.
+
+He put an interesting ability to sell subscriptions across multiple Passport sites too.
+
+Quote.
+A Passport-powered site like Stratechery can sell subscriptions to a different Passport-powered site like Dithering (with permission, of course).
+End quote.
+
+This seems like it could be a big deal. Allowing groups of creators to sell bundles of content between them could be a very powerful way to gain more subscribers.
+
+Link nineteen. "Roll - The new standard in social money"
+
+Easy platform to create a coin and manage the vesting of it, etc.
+
+Quote.
+The Roll network mints branded digital tokens unique to your online presence, allowing you to own, control and coordinate the value you create across platforms.
+End quote.
+
+It looks like a great solution, but you have to apply and they are only accepting already established communities.
+
+That's the end of Notable.
+
+Now, the Journal section.
+
+Thursday @ 9:53 PM
+
+Was so impressed with Everything Legendary vegan burgers while watching Shark Tank S12 E15 that I placed an order before the segment was done. Can’t wait to try them!
+
+Wednesday @ 9:30 PM
+
+Great evening with The New Standards at Crooner’s Lounge. Rupert made an appearance! And was then taken off the stage by the venue!
+
+Wednesday @ 7:14 PM
+
+Launching the Tesla app gives this error. Force quit doesn’t help. Hmm…
+
+Tuesday @ 9:32 PM
+
+I dig the “scooper wall” at the new Sweet Science at 50th and France.
+
+Tuesday @ 10:00 AM
+
+I've been testing the new calendar integration with Craft and after a week have decided to upgrade and keep exploring. I've been using Agenda for a couple of years and it is great. But I’m finding Craft’s environment more productive. Both are great apps though.
+
+Sunday @ 8:19 PM
+
+Our daughter has a job this summer, and in preparation we got her a checking account and a check card. To test it out tonight she took us out to dinner and paid the bill with her card. Notable milestone.
+
+Sunday @ 7:10 AM
+
+Our garden is in and hoping all the plants enjoy their new home. Tomatoes, squash, carrots, Brussels, blueberries, lettuce, beans, and more.
+
+Friday @ 9:38 PM
+
+Our raised garden beds are mostly in. We’ll be preparing the soil and planting shortly. Final step will be placing our Andrew Carson wind sculpture in the middle.
+
+Have you ever hiked 25.5 miles in one day? Me neither! But Tim Dean did last year and he is going to do it again this year to help raise money for CureSearch, an organization that funds the fight against pediatric cancer. By the way, Tim is also a Weekly Thing reader! Join me in supporting him and CureSearch!
+
+That's the end of the Journal.
+
+Now, the Briefly section.
+
+Link one. "WWDC twenty twenty one: MailKit set to offer new Mail extension possibilities – Six Colors"
+
+I've avoided Mail extensions forever. They have always seemed brittle and buggy to me. Hopefully MailKit makes these solutions work better!
+
+Link two. "Bitcoin: El Salvador makes cryptocurrency legal tender - BBC News"
+
+El Salvador made a huge announcement at the Bitcoin Miami conference and now the law has officially passed. Bitcoin is now an official currency in a country.
+
+Link three. "watchOS 8: The MacStories Overview - MacStories"
+
+Good overview of updates to watchOS!
+
+Link four. "WWDC twenty twenty one: All The Small Things in Apple's Upcoming OS Releases - MacStories"
+
+I love these recaps of all the little details in upcoming releases.
+
+Link five. "Open Broadcaster Software"
+
+Open source software to manage your webcasts with more powerful features.
+
+Link six. "Playdate Update — 6/8/twenty twenty one - YouTube"
+
+I can’t wait to get my hands on a Playdate.
+
+Link seven. "macOS Monterey: The MacStories Overview - MacStories"
+
+Great features coming to the next version of macOS!
+
+Link eight. "iOS and iPadOS 15: The MacStories Overview - MacStories"
+
+I want more from iPadOS, but the trend is the right way. Looking forward to upgrading this fall!
+
+Link nine. "Types of Blogs"
+
+I aspire to something sort of like his "Voice" category.
+
+Link ten. "This one email explains Apple | TechCrunch"
+
+I love Panzarino's breakdown of this email and quick interchange that launched the App Store.
+
+Link eleven. "Jsonmatic"
+
+JSON CSV, and CSV JSON. Handy tool.
+
+Link twelve. "NonFungible.com | Analyze, track and discover NFTs and collectible art markets"
+
+Place to find NFT's, look at collections, and see how much NFT activity is occurring across Ethereum.
+
+Link thirteen. "Can I Trust YNAB? Why We Don't (and Won't) Share Your Data"
+
+This post makes me happy to continue to be a customer of You Need a Budget. This is what we use to manage all of our personal finances. It is a great app!
+
+Link fourteen. "A beginner's guide to NFTs — Mirror"
+
+Good and reasonably broad description of various NFT use cases.
+
+Link fifteen. "Coinvise"
+
+Still getting built but interesting platform for creating social coins, NFTs, and DAOs.
+
+That's the end of Briefly.
+
+Now, the Reply All section.
+
+Here are some replies from Weekly Thing #189 / TiddlyWiki, JsonLogic, Smiling.
+
+Last week I asked folks if they would share, in effect, the text of an ad for the Weekly Thing. Huge thanks to Michael Gorman, David O'Hara, Steven Owens for the replies!
+
+Quote.
+The Weekly Thing is about tech, life, and whatever else catches Jamie’s eye. Great links, photos, and anecdotes. Subscribe now, you won’t regret giving it a spot in your inbox.
+End quote.
+
+Quote.
+A fun and insightful weekly glimpse at what Jamie Thingelstad found worth sharing. Easy to skim, and it’s always worth diving into some of the links he shares.
+End quote.
+
+Quote.
+My name is Jamie Thingelstad. I am a technologist, a humanist, a father and a Minnesotan. The Weekly Thing reflects each of these facets of my life and curiosities. Welcome.
+End quote.
+
+I went with a fairly minor edit of the first one — thank you Steven Owens! The results? Well, Steve's call to action resulted in more than a 150% higher performance than what I had created. Nice!
+
+It was also fun for me to read how all three of these folks described the Weekly Thing. I think going forward I’m going to start with "The Weekly Thing is not like most newsletters…" and then fully embrace the unique aspects.
+
+That's the end of Reply All.
+
+Now, the Fortune section.
+
+Here is your fortune…
+
+You own a dog, but you can only feed a cat.
+
+Thank you for subscribing to the Weekly Thing!
+
+That brings us to the end of the Weekly Thing, issue 190. Thanks for listening, and I'll see you next time.

@@ -1,0 +1,232 @@
+The Weekly Thing, issue 196. iPhone 13, iOS 15, watchOS 8. Published September 25, twenty twenty one. By Jamie Thingelstad. In this issue: iPhone 13 Pro Tanzania, iPhones 13, machine learning, calendar as archive, Google location warrants, prehistory of DAOs, Bitcoin energy usage.
+
+Okay, it was a little perilous to get this issue of the Weekly Thing to all of you. You see, I use Shortcuts extensively to generate the newsletter. It has evolved a lot since the I first shared the setup and now relies on about 20 shortcuts that work together. With the upgrade to iOS 15 this week some of my hooks to other apps stopped working. PANIC!
+
+One of the nice things about Shortcuts though is you can bang around in them pretty easy. After some workarounds, and then a final swap out of Toolbox Pro for Data Jar I was able to get the thing to generate. It was touch and go, and I've got some cleanup to do to fix things, but here it is! Winning!
+
+Now, the Featured section.
+
+Link one. "iPhone 13 Pro Camera Review: Tanzania — Austin Mann"
+
+If I want to read about the camera capabilities of any new iPhone, I want to read what a photographer has to say, and that is almost always Austin Mann.
+
+Quote.
+Although the iPhone 13 Pro still only has three lenses, the addition of macro capability is like adding a new lens altogether, and for the serious photographer I think it’s perhaps the strongest advancement in this year's camera system.
+End quote.
+
+His photos and video are incredible here. The focal length on the 3x is a big deal.
+
+Link two. "Daring Fireball: The iPhones 13"
+
+When it comes to reviews of new iPhones I typically rely on John Gruber's take.
+
+That's the end of Featured.
+
+Now, the Currently section.
+
+Watching: We got started a bit late on season two of Ted Lasso. We are mostly caught up now and still loving the show and the characters.
+
+Reading: First time I’m reading Ralph Waldo Emerson and Henry David Thoreau with Nature and Walking. I’m not sure I know how to read this. So far I've found Nature more abstruse than Walking.
+
+That's the end of Currently.
+
+Now, the Notable section.
+
+Link one. "20 Reasons To Quit Social Media - Durmonski.com"
+
+People often ask me where I find the time to create the Weekly Thing. Well, one way, I spend nearly zero time on social media (see reason 1). All twenty of these are great.
+
+Link two. "The First Rule of Machine Learning: Start without Machine Learning"
+
+I hope at this point most people understand that machine learning isn't an exotic spice you can add to any problem to make it better. This article does a good job of highlighting other ways to solve similar problems, that are often easier and cheaper. And I like the key qualifier for deciding when the problem you are working on is ready for machine learning techniques.
+
+Quote.
+Having robust data pipelines and high-quality data labels also suggests you’re ready for machine learning.
+End quote.
+
+If you are building a solution that you know will be at a scale that will require machine learning, getting those data pipelines right early on is very important.
+
+Link three. "Why This St. Paul Startup CEO Moved to Dallas | Twin Cities Business"
+
+This brief interview with Clarence Bethea is an important read. He's moved away from our community, even though his company is staying in St. Paul.
+
+Quote.
+But I’ve been called the "N word" at startup events. I’ve been held out of things because I’m loud. There are opportunities I know I’m missing out on because I’m a loud Black man.
+End quote.
+
+This is not acceptable.
+
+Link four. "Your Calendar as Both Planning and Archive Tool — MacSparky"
+
+I do this type of thing with my calendar as well.
+
+Quote.
+However, as part of my overall effort to track my time and attention, I'll adjust my calendar to match what happened as the day goes by (or at least at the end of the day). So in the moment of "now", my calendar moves from a planning tool to an archive tool.
+End quote.
+
+Your calendar is just the best place to track information laid out in a sequence of hours and days. It can do a number of things that people don't naturally consider a calendar tool for.
+
+Link five. "Newly Finite Themes — Mirror"
+
+Interesting things you can do on Mirror. TechDirt using Mirror to raise funds via Ethereum to support an in-depth research article they are doing on NFTs. I joined with a small 0.03 ETH send. You can see @thingles on the leaderboard and my thingelstad.eth wallet address. I also received 30 $TDNFT for my fractional ownership for part of the final paper.
+
+Link six. "watchOS 8: The MacStories Review - MacStories"
+
+The one read you need to find out all the new stuff in watchOS 8, which frankly isn't much. "watchOS 8 is the sleepiest update we’ve seen for the Apple Watch thus far." Agree.
+
+Link seven. "iOS and iPadOS 15: The MacStories Review - MacStories"
+
+You may not be looking for a 23 "page" writeup on the new version of iOS but these reads are by far the best way to know what all has changed, and MacStories does these better than anyone else. The stuff I’m most excited about…
+
+- Focus and Notifications is big. I love the idea of focus modes.
+- The revamped multitasking interface for iPadOS.
+- I’m a Shortcuts power user, so the changes there are important.
+- Safari Extensions coming to iOS is a big deal.
+- Reminders getting support for tags makes me think it may be useful, but I still will rely on OmniFocus.
+- Live Text looks handy.
+
+If this isn't enough, Six Colors review is also good.
+
+Link eight. "Jumping the SPAC | No Mercy / No Malice"
+
+This writeup of Aspiration just delivers crazy after crazy.
+
+Quote.
+Smearing more vaseline on the lens of the actual business fundamentals, Aspiration turns to creative accounting. Specifically, it leans heavily on a profitability measure called EBITDAM. EBITDA is the familiar "earnings before interest, taxes, depreciation, and amortization." It’s a measure of how profitable a company’s core operations are before the vagaries of capital structure, tax strategy, and accounting charges. EBITDAM excludes all those things … and then also excludes marketing spend.
+End quote.
+
+The comparisons to WeWork are interesting, but of course WeWork was at an entirely different scale.
+
+Link nine. "The Algorithm Tweaks Won't Save Us by Charlie Warzel - Galaxy Brain"
+
+I've previously suggested that algorithms that sort content are inherently driven by some goal. The only way to order content that is devoid of a goal, I would suggest, is in strict time order or random. Anything else, necessarily, must be programmed to some optimization target. You cannot create an algorithm without that.
+
+Quote.
+As former Facebook Civic Engagement team leader Samidh Chakrabarti noted on Twitter, this work essentially requires a set of philosophical and ethical values about what ‘good’ and ‘bad’ content is and what the network should do to promote the former.
+End quote.
+
+How can one platform do all of that for the entire world. At Facebook's scale, this is not possible.
+
+Quote.
+What seems rather indisputable is that as currently designed (to optimize scale, engagement, profit) there is no way to tweak the platform in a way that doesn’t ultimately make people miserable or that destabilizes big areas of culture and society.
+End quote.
+
+Link ten. "What I learned from a year on Substack by Casey Newton - Platformer"
+
+Casey Newton made news when he left The Verge and "went direct" using Substack. These reflections on the first year doing that are interesting.
+
+Link eleven. "The new warrant: how US police mine Google for your location and search history | The Guardian"
+
+Location data and keyword search data used without any other probable cause.
+
+Quote.
+In other words, with reverse search warrants law enforcement is still looking for their suspect and they’re asking tech companies to give them a list of people to investigate. For geofence warrants, anyone in a certain place at a certain time becomes a suspect and is subject to further investigation which could mean giving police even more of their user data. For keyword search warrants, another relatively new mechanism to obtain user information that has emerged, anyone who searched for a certain phrase or address becomes a suspect.
+End quote.
+
+I knew about the geofence warrants, but I didn’t realize that was happening with keyword searches too. Good idea to to switch to Duck Duck Go and stop using Google for search.
+
+Link twelve. "A Prehistory of DAOs — Mirror"
+
+I continue to be fascinated with Decentralized Autonomous Organizations and how they may enable collective action by people. This history piece dives into a number of examples of DAOs.
+
+Quote.
+Although many DAOs would not embrace the label of digital cooperative, one could say DAOs embrace cooperativism as a protocol, meaning an evolving set of relational practices that are distinct from traditional corporate structures or decentralized autonomous corporations, because they prioritize member ownership. The label cooperative is further qualified here by digital because today DAOs act primarily to coordinate around digital assets. However, as the concept of DAOs evolves in practice, its digital primacy will fade. DAOs, as we will see, also introduce new dimensions that exceed what the operating principles of a digital cooperative notionally encompass.
+End quote.
+
+Some great, specific, examples of how DAOs are operating today as well.
+
+Link thirteen. "Tampa police called for hundreds to be evicted. Entire families lost their homes."
+
+I recently read Evicted so this story caught my eye with a bit more insight than I had before. The book highlights some of the public safety causes that the police can use to cause evictions.
+
+Link fourteen. "Bitcoin’s Energy Usage Isn’t a Problem. Here’s Why."
+
+Bitcoins energy footprint is a common knee-jerk answer for many on why it is bad. This article does a great job of providing broader context and highlighting the unique ways in which Bitcoin can use energy.
+
+That's the end of Notable.
+
+Now, the Journal section.
+
+Tuesday @ 9:25 PM
+
+It was a stellar evening to connect, for the first time in two years, with this great group of local CIOs and CTOs. Kraus-Anderson was nice enough to share their balcony space with the group (Thanks Tony Peleska). The weather was perfect. A big thank you to Dee Thibodeau, Nick Hernandez, and Nate Haines for making this happen. And the wine overviews from Chuck Kanski of Solo Vino Wines were great, as always.
+
+Monday @ 3:42 PM
+
+Starting my first iOS and iPadOS 15 upgrades! I skip the public betas in large part so I can have the fun of doing big OS upgrades like a present.
+
+Saturday @ 10:39 PM
+
+I get mesmerized watching the sprinklers at Allianz Field during half time. There is something very serene about it.
+
+Saturday @ 10:37 PM
+
+What a great Minnesota United game tonight! They defeated LA Galaxy 3-0! Great goals. Strong defense. Loved it! Cue Wonderwall!
+
+Saturday @ 10:31 PM
+
+Our garden at the cabin has gone a bit wild on us. We haven’t been around enough to keep it well managed. The tomato plants are seemingly everywhere. I had no idea what broccoli does when you let it seed out. There was some giant stuff. We did get one of the beds cleared of everything except strawberries and the runners are going crazy. We are hoping for a big bounty of strawberries next year. We also got the blueberries with room to grow. The squash and tomatoes we are letting run free for now.
+
+Saturday @ 10:26 PM
+
+Today was that sad day when I take the boat out for winter. I got 134 days on the water since I took it out. I went across Cannon Lake, across Wells Lake, and then down the Cannon River to La Cannes Marine for storage. Until next spring…
+
+Friday @ 7:40 PM
+
+Nice cool evening for a campfire and sunset on Cannon Lake.
+
+That's the end of the Journal.
+
+Now, the Briefly section.
+
+Link one. "Crush Facebook - without bullshit"
+
+I agree with a lot of this, but not the part about asking governments to shut it down. People need to vote with their feet (or phones, as it were).
+
+Link two. "Of all the iPhone(s) 13, Pro seems to be perfect. – On my Om"
+
+iPhone 13 Pro will be my next phone.
+
+Link three. "Modoboa, Open Source email server"
+
+I'll stick with paying Fastmail a reasonable subscription for a great service. But if you wanted to host your email this looks like a good option.
+
+Link four. "Arthur Ventures Raises 375,000,000 dollars in New Capital — Arthur Ventures"
+
+Congrats to local fund!
+
+Link five. "The Perils of an .xyz Domain"
+
+Good examples of how DNS reputation can impact your service.
+
+Link six. "Q and A With Co-Creator of the 6502 Processor - IEEE Spectrum"
+
+The 6502 is the only assembly language work I've ever done, and the instruction set is well done.
+
+Link seven. "Multiperspective System Architecture Diagramming · Ilograph developer blog"
+
+Interesting way to show systems from many different views. Includes how to construct the data model for it.
+
+Link eight. "Chris Gilliard aims to abolish Silicon Valley’s surveillance machine - The Washington Post"
+
+I wasn't aware of Gilliard's work, but this background is both a good primer on the issues around privacy and surveillance, as well as what he has focused on.
+
+Link nine. "15 episodes in and still have no idea what works to make a podcast popular - Summation by Auren Hoffman"
+
+I’m 195 issues into the Weekly Thing and I still feel this way when I send an issue.
+
+Link ten. "borb | Read, write, and edit PDF files with borb, a pure python library"
+
+If you need to work with PDF files this Python library looks phenomenal. Easy to use and easy to read.
+
+That's the end of Briefly.
+
+Now, the Fortune section.
+
+Here is your fortune…
+
+Blow it out your ear.
+
+Thank you for subscribing to the Weekly Thing!
+
+That brings us to the end of the Weekly Thing, issue 196. Thanks for listening, and I'll see you next time.

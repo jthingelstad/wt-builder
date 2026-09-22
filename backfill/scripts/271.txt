@@ -1,0 +1,242 @@
+The Weekly Thing, issue 271. Imperfectionist, Zeitgeisty, Inko. Published November 25, twenty twenty three. By Jamie Thingelstad. In this issue: Exploring GPTs, Signal costs, AI changing computers, ad blockers, sleep data collection, Binance guilty plea, posting online manifesto.
+
+Good morning!
+
+This week we celebrated Thanksgiving which has always been one of my favorite holidays. Time to spend with family, have a delicious meal together, and take a moment to recognize all that we are thankful for.
+
+I hope you had a great time as well, and if you aren't someplace that celebrates Thanksgiving you can skip the turkey and still spend some time with family, have a meal, and take a moment to reflect.
+
+Have a great weekend!
+
+Now, the Currently section.
+
+Using: I signed up for Anthropic's Claude so I can explore further some of the LLMs beyond ChatGPT. Seth Godin highlighted some things Claude can do with longer documents.
+
+That's the end of Currently.
+
+Now, the Notable section.
+
+Link one. "Exploring GPTs: ChatGPT in a trench coat?"
+
+This is a great deep dive into creating custom GPTs with ChatGPT. Willison has a deep background in this tech. He also shares how he has written some of his own GPTs prompts. This is a good example to use to create your own.
+
+Link two. "The Imperfectionist: A cupboard of tools"
+
+Burkeman, author of Four Thousand Weeks, had this gem in his recent newsletter reflecting on the fact that no one productivity "system" is going to solely be the answer.
+
+Quote.
+We do this, I suppose, for the same reason people join cults or embrace rigid political ideologies: because it’s more scary to acknowledge the reality, which is that you're in charge of your own life, whether you like it or not, and there's no system or method that could lift that responsibility from your shoulders. You have to choose the tools for each job, day in day out, and you can’t wriggle out of that by resolving to use time-blocking or the Pomodoro Technique or bullet journalling to run your life. There's no system that will live life on your behalf. The master key is never going to be found.
+End quote.
+
+His article made me think of nutrition advice. Often folk just want to be told what to eat. In reality, it is way more complicated. My favorite version of this was reading about macrobiotic diets and thinking that made sense, and that I could get 90% of the benefit just by eating a yogurt a day.
+
+My "system" of choice is Getting Things Done, or GTD. It doesn't have all the answers, but it does just what he suggests: It helps me keep in control.
+
+Whatever does that seems like a good thing.
+
+Link three. "Privacy is Priceless, but Signal is Expensive"
+
+I keep a profile on Signal and I have it on my iPhone so that folks can reach me as desired. I respect Signals mission and the technology that they are creating. I even pay for Signal monthly just because I want to support their mission.
+
+This post details some of the cost structure for running Signal.
+
+Quote.
+We estimate that by twenty twenty five, Signal will require approximately 50 million dollars a year to operate — and this is very lean compared to other popular messaging apps that don’t respect your privacy.
+End quote.
+
+I am very familiar with technology costs to run services, and I was still reasonably surprised at some of these numbers. 6 million dollars a year to send SMS verification codes is wild.
+
+Donate to Signal on their website.
+
+Link four. "AI is about to completely change how you use computers | Bill Gates"
+
+Gates connecting the concept of software agents to the current tech of LLMs.
+
+Quote.
+Agents are not only going to change how everyone interacts with computers. They’re also going to upend the software industry, bringing about the biggest revolution in computing since we went from typing commands to tapping on icons.
+End quote.
+
+I’m not sure about connecting this so strongly to the term "agent", but the scenarios he describes in each of these fields is very real. I've already been playing with GPTs to create custom coaches for myself. These are very possibly an agent as Gates describes. I think there is a lot to determine if this concept will be long-lived and broad, or will an agent be something you create for a task at hand, and then get rid of. Probably a bit of both.
+
+I do believe there is a huge shift coming with the incredible unlock that LLMs provide to something that is, close enough, to expertise for others to learn and benefit from.
+
+Link five. "On Ad Blockers – Manu"
+
+Moreale sharing his perspective on why he feels fine blocking ads in his browser. He limits the topic to just ad blocking, which I think is fine but keeps out the entire stack of surveillance software that comes along with ads. The argument that people running ad blockers are somehow hurting creators may in fact carry some water, but in my opinion no where near enough to change my mind.
+
+I would argue that give the incredibly complex surveillance engines that watch us online, not using a content blocker and other privacy protecting software is just a bad idea.
+
+Let's use a comparison.
+
+1. By running anti-spam software I’m technically harming all these spammers that wish to get some value out of shoving emails in my inbox. Is anti-spam software bad?
+2. By protecting myself from ransomware I’m technically limiting the revenue of criminal organizations looking to lock my computer on me and get some Bitcoin.
+
+The argument is the same. The only difference is that one group is "good guys" and the other is "bad guys". The world is more grey than that.
+
+If you have a simple ad network that doesn't surveil users I’m happy to let this ads in. However, I don't know anyway to test that. So in the meantime, I absolutely encourage the use of all forms of privacy software that you wish to use.
+
+My current list: 1Blocker and Little Snitch Mini do most of the protecting for me, and of course I only use Safari.
+
+Link six. "CEO Reminds Everyone His Company Collects Customers' Sleep Data to Make Zeitgeisty Point About OpenAI Drama"
+
+As a relatively new owner of an Eight Sleep Pod this article caught my eye.
+
+Quote.
+The top of Eight Sleep's terms of service states "At Eight Sleep we pledge to respect your privacy and to keep your data safe. We only collect data that helps us improve our products and services." Both Eight Sleep’s privacy policy and terms of service then go on to note that the company collects a huge amount of data that can be used for a wide variety of purposes, including marketing, retargeting, and scientific studies. It can also, apparently, be used by the CEO for commenting on the day’s tech news.
+End quote.
+
+When a product is free I know to take a pause and look at how they use data. If I am not paying, someone is, and I want to know why. Then you have a product like the Eight Sleep that costs 2,295 dollars and has an annual subscription fee as well. Of course it uses data, but I'd like to think that given the purchase and subscription my data is used sparingly to provide the value I paid for.
+
+This is a great example of why we need privacy legislation. Managing and protecting our data isn't going to happen any other way. There is so much complexity and legalese for companies to hide behind.
+
+Link seven. "Binance and CEO Plead Guilty to Federal Charges in 4 billion dollars Resolution | United States Department of Justice"
+
+Does crypto create crooks? I don't think so. Does it create an environment that attracts crooks? Yes, for sure.
+
+Summary of the ruling from NYDIG in "A Big Overhang is Lifted as Binance and CZ Plead Guilty":
+
+Quote.
+Binance agreed to 4.3 billion dollars in penalties and forfeitures to settle the charges, while CZ agreed to individually pay a 50 million dollars fine. Binance agreed to a 5-year monitorship by regulators and to exit the US market entirely. CZ, the omnipresent figure since Binance’s rise to prominence in twenty seventeen, agreed to step down as CEO as part of the deal, with Richard Teng taking over as CEO.
+End quote.
+
+Unfortunately for blockchain and crypto the lack of any regulation just means that we continue to have crooks like this. I wonder at this point if not regulating crypto is the most effective way governments have to hurt it.
+
+Link eight. "Manifesto for posting online in twenty twenty three"
+
+A lot of good advice here. Some of it is similar to how I engage, some not. I like that Tasker enumerated this and put it out there for others to gain from her experience.
+
+That's the end of Notable.
+
+Now, the Journal section.
+
+Journal entry one. Good Leadership Breakfast: Archie Black
+
+It was great to hear from Archie Black at the Good Leadership Breakfast this morning. I had never been to a Good Leadership event and I thought it was great: informative, fun, and the format was engaging. I’ll definitely be back.
+
+The discussion with Archie is what brought me there which was fabulous. Good Leadership even collected feedback on Archie’s success habits.
+
+Success Habits
+
+1. People first: training and education matter
+2. Stay focused: don’t do things that don’t fit in the bullseye
+3. Stay calm: when did “hard” become “bad”?
+
+Journal entry two.
+
+We “successfully” solved Bigfoot’s Backyard Escape Room and helped Bigfoot find Littlefoot. The room had some challenges, but we still had a good time and were laughing up a storm at the end.
+
+Journal entry three.
+
+We had a nice hike in the woods of the Bass Brook WMA just across the dam at the Pokegama Dam and Rec Area. It was a nice way to enjoy the late fall afternoon.
+
+Journal entry four.
+
+While having dinner at Rapids Brewing we got to hear the beginning of Grant Glad’s set and I liked what he was playing a lot.
+
+Journal entry five.
+
+We had a great time seeing my nephew Andrew Keating perform in Matilda Jr. at the Reif Center. He played the role of Mr. Harry Wormwood, Matilda’s mean father. He did a great job as did the entire cast. Andrew was even asked for his autograph on the playbill!
+
+Journal entry six. Prediction: Microsoft will acquire OpenAI
+
+I’ve been following the self-created chaos at OpenAI since Friday’s shocking announcement that the OpenAI board fired Sam Altman. I thought it was a made up headline at first, probably AI generated. My son asked me what I thought would happen and there were three paths I felt were likely.
+
+1. Every venture firm in Silicon Valley would be offering blank checks to Altman to create a new AI company not limited by the non-profit aspects of OpenAI.
+2. Satya Nadella at Microsoft would offer Altman to join Microsoft and lead all things AI with an unlimited investment budget.
+3. OpenAI would hire Altman back because they can’t move forward without him.
+
+On Sunday night Nadella announced Altman was joining Microsoft, along with others. Option 2 seems to be the choice.
+
+However, now we know that Altman hasn’t signed any agreement with Microsoft. We also know that 700 of 770 employees at OpenAI have requested the board to resign and for Altman to return.
+
+The OpenAI board seems to be fairly clueless here. With the firing of Altman, they effectively pushed Humpty Dumpty off the wall and broke OpenAI into pieces. I suspect that right now Nadella and Altman are the ones trying to figure out how to put it back together again. And I suspect there is only one real option:
+
+Prediction: Microsoft will acquire OpenAI.
+
+1. Altman can’t be two places.
+2. Microsoft is a big investor and partner in OpenAI.
+3. There would be collateral damage to letting OpenAI fail.
+
+In the end Nadella wins in every dimension here. He ends up being the adult in the room putting Humpty Dumpty back together. Altman continues as the visionary AI leader he is. OpenAI remains as a strongly recognized brand. The OpenAI board is dismissed and noted for smashing the bottle after they captured lightning in it.
+
+Journal entry seven. OpenAI Rewind: New Board, Altman Returns
+
+Wow. First OpenAI…
+
+Quote.
+We have reached an agreement in principle for Sam Altman to return to OpenAI as CEO with a new initial board of Bret Taylor (Chair), Larry Summers, and Adam D’Angelo. -- OpenAI
+End quote.
+
+Then Sam Altman…
+
+Quote.
+i love openai, and everything i've done over the past few days has been in service of keeping this team and its mission together. when i decided to join msft on sun evening, it was clear that was the best path for me and the team. with the new board and w satya's support, i'm looking forward to returning to openai, and building on our strong partnership with msft. -- Sam Altman
+End quote.
+
+Then Satya Nadella…
+
+Quote.
+We are encouraged by the changes to the OpenAI board. We believe this is a first essential step on a path to more stable, well-informed, and effective governance. Sam, Greg, and I have talked and agreed they have a key role to play along with the OAI leadership team in ensuring OAI continues to thrive and build on its mission. We look forward to building on our strong partnership and delivering the value of this next generation of AI to our customers and partners. -- Satya Nadella
+End quote.
+
+All messages posted in a 6 minute period. Is Humpty Dumpty together again?
+
+DALL-E rendition of Satya Nadella and Sam Altman celebrating after successfully putting Humpty Dumpty back together.
+
+Related Links
+
+If you want to read more than you really ever could justify reading about this.
+
+- Foundational Risks of OpenAI -- On my Om
+- More on Sam Altman's Sudden Departure from OpenAI -- 512 Pixels
+- Details emerge of surprise board coup that ousted CEO Sam Altman at OpenAI | Ars Technica
+- Daring Fireball: More on Sam Altman's Ouster From OpenAI
+- OpenAI announces leadership transition
+- Microsoft hires former OpenAI CEO Sam Altman - The Verge
+- How ChatGPT Fractured OpenAI - The Atlantic
+- OpenAI's Misalignment and Microsoft's Gain -- Stratechery by Ben Thompson
+- Daring Fireball: OpenAI Drama Continues
+- Even After Freaky Friday, Microsoft is Still the AI King -- On my Om
+- OpenAI drama is over. -- On my Om
+
+Journal entry eight.
+
+Happy Thanksgiving!
+
+Weekly Thing Forum
+
+Join Barry Hess, Jim Bernard, Peter Clark, Kyaw Za Zaw, Andrew Eklund, and many other Weekly Thing readers in the Weekly Thing Forum. Recent topics include:
+
+- 270 / Panoramic, RCS, Finnegans
+- 269 / Phind, Textcasting, Tailspin
+- 268 / Schema, Achtung, Gamification
+- Did the email for Weekly Thing 267 get to you?
+- 267 / Generative, Ghibli, Mermaid
+
+That's the end of the Journal.
+
+Now, the Briefly section.
+
+Link one. "Inko Programming Language"
+
+A concurrent language that "features deterministic automatic memory management, move semantics, static typing, type-safe concurrency, efficient error handling, and more".
+
+Link two. "Microsoft Ignite twenty twenty three Book of News"
+
+Crazy long comprehensive listing of all the announcements made at Ignite twenty twenty three.
+
+Link three. "Introducing the Functional Source License: Freedom without Free-riding"
+
+A new license framework, derived from Business Source License, and optimized for SaaS companies.
+
+That's the end of Briefly.
+
+Now, the Fortune section.
+
+Here is your fortune…
+
+Do what comes naturally. Seethe and fume and throw a tantrum.
+
+Thank you for subscribing to the Weekly Thing!
+
+That brings us to the end of the Weekly Thing, issue 271. Thanks for listening, and I'll see you next time.

@@ -1,0 +1,160 @@
+The Weekly Thing, issue 85. Dec 22, twenty eighteen. Published December 22, twenty eighteen. By Jamie Thingelstad. In this issue: US Air Force and Santa, ant colony memories, social media value, paying users to stop Facebook.
+
+It's just a couple more days until Christmas and twenty eighteen is now winding down. The Christmas Cards have been sent, the presents are ready, and we will be enjoying time with family and friends as we celebrate the holidays, enjoy our traditions, open presents and spend time together. That last one is particularly important.
+
+Now, the Featured Links section.
+
+Link one. "Why the US Air Force believes in Santa"
+
+An absolutely delightful article for Christmas on NORAD and Santa Claus…
+
+This year, 1,500 volunteers at Peterson Air Force Base in Colorado Springs will, once again, answer over 150,000 telephone calls and thousands of emails from children all over the world. And the NORAD Santa Tracker itself will receive over 20 million visits.
+
+Via Chad Burdette.
+
+Link two. "Ant Colonies Retain Memories That Outlast the Lifespans of Individuals | Science | Smithsonian"
+
+Insect colonies do some pretty incredible things:
+
+The Finnish myrmecologist Rainer Rosengren showed that when the ants emerge in the spring, an older ant goes out with a young one along the older ant’s habitual trail. The older ant dies and the younger ant adopts that trail as its own, thus leading the colony to remember, or reproduce, the previous year’s trails.
+
+My book club read Ant Encounters several years ago and it had several incredibly interesting insights into how ant colonies work and learn.
+
+That's the end of Featured Links.
+
+Now, the My Weekly Photo section.
+
+Christmas ball selfie, in this red Christmas tree.
+Dec 21, twenty eighteen at 6:01 PM
+Red Rabbit, Minneapolis, MN
+
+That's the end of My Weekly Photo.
+
+Now, the Notable Links section.
+
+Link one. "How much is social media worth? Estimating the value of Facebook by paying users to stop using it"
+
+That's the end of Notable Links.
+
+Now, the Oh my… section.
+
+Though the populations sampled and the auction design differ across the experiments, we consistently find the average Facebook user would require more than 1000 dollars to deactivate their account for one year.
+
+As Facebook Raised a Privacy Wall, It Carved an Opening for Tech Giants - The New York Times
+
+This should surprise nobody.
+
+For years, Facebook gave some of the world’s largest technology companies more intrusive access to users’ personal data than it has disclosed, effectively exempting those business partners from its usual privacy rules, according to internal records and interviews.
+
+Facebook is a surveillance engine, not a company or a social network. It’s goal is to surveil you and to profit from that. Preferably addict you as well.
+
+How to Take Great Holiday Photos – The Sweet Setup
+
+Just in time for the holidays some simple tips on better photos. It misses one that I think is very important, particularly with kids, which is to get to eye level with your subject. Kids are often taken pictures from "above" them. It’s better if you get your camera right at eye level for the subject.
+
+Launch Center Pro 3.0 Review: Universal Version, New Business Model, NFC Triggers, and More – MacStories
+
+It never made sense to me that this wasn't universal since it messed up syncing. I’m giving this app another try since it seems like something I would like, but I've never gotten into the habit of using it.
+
+SPS Commerce Acquires CovalentWorks - MarketWatch
+
+Some acquisition news from SPS Commerce!
+
+Senate Intelligence Reports On Russia Detail Broad Disinformation Plan: NPR
+
+Instagram doesn't get the focus that Facebook does regarding potential misuse, but it should. And please remember, it’s all just Facebook since they bought Instagram.
+
+The new research also points to the previously underappreciated prominence of the IRA's use of Instagram. It notes that IRA posts on the photo-sharing platform received 187 million engagements, which dwarfed the 76.5 million engagements that IRA posts received on Facebook.
+
+That's pretty amazing engagement.
+
+Introducing MacStories Selects: The Best New Apps, App Updates, and iOS Games of twenty eighteen – MacStories
+
+MacStories produces some of the most in-depth looks at iOS apps out there. The idea of an annual award is a little gimmicky, but from them I'll pay attention. I've played with Agenda, which they pick as the top app, but it hasn't resonated with me. I might give it another go given their enthusiasm. Scriptable here is a nice nod to it’s potential, but it’s still far too complicated for even most power users.
+
+Darkroom For iPad: Faster. Easier. More Powerful. – Dispatches From Darkroom – Medium
+
+I've been impressed with Darkroom on iOS since I first used it. I had two issues that kept me from using it a lot: it was buggy and crashed somewhat frequently, and it had no iPad app. The bugs got better, and today we get an iPad app that looks great! This continues to be an incredible impressive RAW editing app for iOS.
+
+ongoing by Tim Bray · SF-4: Serverless Latency?
+
+Tim Bray's entire set of essays on Serverless are fabulous. He's incredible knowledgable in this domain. This one on latency I thought was particularly informative to help the reader think about the problem in a more precise way.
+
+Amazon’s Disturbing Plan to Add Face Surveillance to Your Front Door | American Civil Liberties Union
+
+The headline here is intentionally overstated. Technology companies file patents constantly for stuff that they have no plan to make. With that said, the patent described here is straight out of some Orwellian surveillance state.
+
+Imagine if a neighborhood was set up with these doorbell cameras. Simply walking up to a friend’s house could result in your face, your fingerprint, or your voice being flagged as “suspicious” and delivered to a government database without your knowledge or consent. With Amazon selling the devices, operating the servers, and pushing the technology on law enforcement, the company is building all the pieces of a surveillance network, reaching from the government all the way to our front doors.
+
+It’s not obvious to most people that a bunch of houses with fancy "smart doorbells" can result in a surveillance state, but it surely can.
+
+Martin Tomsky - Illustrator - Gallery
+
+Featured in Dec/Jan twenty nineteen Make magazine. Incredible pieces of art.
+
+That's the end of Oh my….
+
+Now, the Give Back section.
+
+Creative Commons helps you legally share your knowledge and creativity to build a more equitable, accessible, and innovative world — unlocking the full potential of the internet to drive a new era of development, growth, and productivity. I have been a supporter of Creative Commons for years. Larry Lessig, the founder of Creative Commons, has done the world a great thing by creating a legal structure to help authors and creators encourage remix culture. In addition to donating, you should consider making your content under a Creative Commons license. Donate to Creative Commons today!
+
+That's the end of Give Back.
+
+Now, more links.
+
+- Stripe Atlas: Writing copy for landing pages stripe.com
+Quick primer for non-marketing types to help write better copy to engage.
+- What Leadership Really Feels Like mailchi.mp
+A good explainer on why telling stories that connect to the future matters so much!
+- The Gun Violence Map: Five Years of American Shootings www.thetrace.org
+Eye opening way to show gun violence.
+- Darkroom 4.0: The MacStories Review – MacStories www.macstories.net
+Darkroom is amazing but it badly needed an iPad version, and now there is one!
+- AutoSleep 6: Effortless Sleep Tracking More Accessible Than Ever – MacStories www.macstories.net
+I use this app passively to get approximate data about sleep patterns. You can get reasonably good data by just installing it and letting it go.
+- A random emoji in your terminal prompt. How and Why! loige.co
+A nice way to add some fun to your command line!
+
+That's the end of More Links.
+
+Now, the Microposts section.
+
+Wednesday @ 10:13 PM
+
+Tesla twenty eighteen.48.12.1 update applied!
+
+Wednesday @ 9:27 PM
+
+Great #TeamSPS dinner tonight at Salut St. Paul – what an awesome group! Good food, company and best of all great laughs!
+
+Wednesday @ 9:24 PM
+
+Had a great time competing in the Spies v Spies rooms at Trapped Puzzle rooms with #TeamSPS tech leaders! Orange team FTW!
+
+Tuesday @ 7:02 PM
+
+Stop and go traffic is by far my favorite use case for Tesla Auto Pilot. Way less stress!
+
+Sunday @ 9:43 PM
+
+My daughter taught me a new typography fact tonight! Uppercase letters are called that because they were kept in an “upper case”, above the “lower case”, that had the lowercase letters in it! Wikipedia backs it up – Fun!
+
+Sunday @ 1:24 PM
+
+Early Christmas today – Weekly Thing pen!
+
+Friday @ 4:42 PM
+
+Family selfie from our new house. We don’t move until January, but are exploring today!
+
+That's the end of Microposts.
+
+Now, the Fortune section.
+
+You've made it all the way to the end! Here is your fortune for this week.
+
+A day for firm decisions!!!!! Or is it?
+
+Thank you for subscribing to the Weekly Thing!
+
+That brings us to the end of the Weekly Thing, issue 85. Thanks for listening, and I'll see you next time.

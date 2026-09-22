@@ -1,0 +1,164 @@
+The Weekly Thing, issue 105. May 11, twenty nineteen. Published May 11, twenty nineteen. By Jamie Thingelstad. In this issue: One-on-ones meetings, Chromium privacy, LookUp 5.2 Watch app, OmniFocus Today Lists, LIDAR range imaging, Stripe Remote hub, CC Search.
+
+I've now officially published the Weekly Thing for two years. It’s pretty cool to go back and look at Weekly Thing #1 and see how far this effort has come! Thank you all for subscribing, and if you know of others that you think would like it please send them to the Weekly Thing website and they can subscribe.
+
+Now onto the links this week. A little less than normal.
+
+Now, the Featured Links section.
+
+Link one. "One-on-ones are my most valuable meetings; here’s how I run them"
+
+I like to read about how leaders use one-on-one meetings and this is an excellent, and simple one.
+
+If done effectively, these one-on-ones are an opportunity to show my team that I care about them, their professional success, and their overall happiness. It gives them an opportunity to step back and think about what they need to be successful, and to hold me accountable to setting them up for this success.
+
+Mathilde Collin writes about three distinct types of one-on-ones, with various structure and objectives. This looks amazing, and definitely requires good preparation ahead of time. I’m going to try and cherry pick some things from this.
+
+That's the end of Featured Links.
+
+Now, the My Weekly Photo section.
+
+Looking good Minneapolis!
+May 9, twenty nineteen at 9:58 AM
+333 S seventh St, Minneapolis MN
+
+That's the end of My Weekly Photo.
+
+Now, the Notable Links section.
+
+Link one. "Chromium Blog: Improving privacy and security on the web"
+
+I’m still not going to use Chrome but it’s good to see them finally adopting some of the anti-tracking technology that Safari has had in place for years now.
+
+Link two. "Homegrown family business embraces EDI to sell to large retailers | SPS Commerce"
+
+SPS Commerce customer story that I just loved watching. What a great success story these two young women have created!
+
+Link three. "LookUp 5.2 Brings New Watch App, Handoff Support, and Instant Search – MacStories"
+
+I’m not sure why but I like to have a good dictionary app on my iPhone. I'd previously used Terminology but I really like the modern feel of LookUp.
+
+Link four. "Trouble with Today Lists | Using OmniFocus"
+
+Segmenting and slicing the many, many projects and tasks I have is the primary job of perspectives in OmniFocus.
+
+Link five. "Crappy Range Imaging for < 175 dollars, But Still No Moore's Law for LIDAR. Yet. | LinkedIn"
+
+I met Peter when he was CTO of Datek and I love that he's still hacking away on tech, this time creating his own low cost LIDAR system to see how it worked.
+
+Link six. "The 5 Whys of Organizational Design. | Kellan Elliott-McCrea"
+
+Some really good prompting questions, particularly for technology teams, about your organizational layout and what could be causing problems. These questions might prompt some good actions.
+
+Link seven. "How to Create a Great Team Culture (and Why It Matters) - ACM Queue"
+
+Some solid thoughts and practices on how to create a desirable team culture.
+
+Every day, people are looking for signals in their environment about what is the norm. As a leader, it is part of your job to set the example for those around you.
+
+So very true!
+
+Link eight. "Stripe’s fifth engineering hub is Remote"
+
+I like this approach to thinking about remote team members. I also like the structure they've put into this.
+
+Link nine. "CC Search"
+
+I’m a fan of Creative Commons, and donate to it annually. I’m glad to see them offering an image search service directly.
+
+That's the end of Notable Links.
+
+Now, the Give Back section.
+
+Creative Commons helps you legally share your knowledge and creativity to build a more equitable, accessible, and innovative world — unlocking the full potential of the internet to drive a new era of development, growth, and productivity. I have been a supporter of Creative Commons for years. Larry Lessig, the founder of Creative Commons, has done the world a great thing by creating a legal structure to help authors and creators encourage remix culture. In addition to donating, you should consider making your content under a Creative Commons license. Donate to Creative Commons today!
+
+That's the end of Give Back.
+
+Now, more links.
+
+- Beam: A Distributed Knowledge Graph Store www.ebayinc.com
+Interesting to see concepts like RDF and SPARQL from the Semantic Web continuing to move along.
+- 1Password for Journalism | 1Password 1password.com
+I like seeing 1Password creating programs specifically for people that have higher risks.
+- Unraveling The JPEG parametric.press
+Super geeky deep dive into the JPG format.
+
+That's the end of More Links.
+
+Now, the Microposts section.
+
+Thursday @ 1:37 PM
+
+SPS Tech Jam twenty nineteen! #TeamSPS #SPSTechJam
+
+Thursday @ 1:36 PM
+
+Great talks at Tech Jam twenty nineteen, and incredible breadth. How about a lightning talk on emotional intelligence? #TeamSPS #SPSTechJam
+
+Thursday @ 12:32 PM
+
+SPS Tech Jam twenty nineteen! #TeamSPS #SPSTechJam
+
+Thursday @ 11:47 AM
+
+Break time hacky sack - great way to stretch between sessions! #TeamSPS #SPSTechJam
+
+Thursday @ 10:54 AM
+
+Awesome that we have presenters at Tech Jam from Minneapolis, Kiev, Toronto, and New Jersey! Global teams FTW! #TeamSPS #SPSTechJam
+
+Thursday @ 9:47 AM
+
+Inspiring keynote from Chris Williams of Badass Agile at Tech Jam twenty nineteen! Good way to start off the day! #TeamSPS #SPSTechJam
+
+Thursday @ 8:48 AM
+
+A huge thank you to the amazing organizers of Tech Jam twenty nineteen! Community events cannot happen without individuals that are willing to put personal passion and energy to make them happen! #TeamSPS #SPSTechJam
+
+Thursday @ 8:25 AM
+
+“One of these cords isn’t working right!” Thad making it all work for #TeamSPS #SPSTechJam.
+
+Thursday @ 8:09 AM
+
+I love the creativity that our team puts into our #TeamSPS activities, and I just love this Tech Jam "comic" sticker! So nicely done @ken_korth! #SPSTechJam
+
+Thursday @ 8:06 AM
+
+Today is #TeamSPS Tech Jam twenty nineteen, where we collect as a community to share and learn from each other! We have presenters covering a wide range of topics, and representing many parts of our team! #SPSTechJam
+
+Sunday @ 9:38 PM
+
+Had fun playing board games with friends today: Carcassonne and Betrayal at House on the Hill.
+
+Sunday @ 10:38 AM
+
+Currently 564/2,591 on this mornings spin! The Peloton leaderboard definitely gets me pushing harder.
+
+Sunday @ 10:17 AM
+
+Enjoying a classic rock morning: Drift Away by Dobie Gray, Pink Houses by John Mellencamp, American Pie by Don Mclean.
+
+Saturday @ 7:37 PM
+
+Seconds before Minnesota United GOAL! 1-0 #MNUFC
+
+Saturday @ 7:15 PM
+
+Minnesota United v Seattle Sounders! #MNUFC
+
+Saturday @ 7:13 PM
+
+We found our name on the big MNUFC sign at Allianz Field! #MNUFC
+
+That's the end of Microposts.
+
+Now, the Fortune section.
+
+You've made it all the way to the end! Here is your fortune for this week.
+
+You own a dog, but you can only feed a cat.
+
+Thank you for subscribing to the Weekly Thing!
+
+That brings us to the end of the Weekly Thing, issue 105. Thanks for listening, and I'll see you next time.

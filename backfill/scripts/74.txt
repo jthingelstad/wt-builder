@@ -1,0 +1,158 @@
+The Weekly Thing, issue 74. Oct 6, twenty eighteen. Published October 6, twenty eighteen. By Jamie Thingelstad. In this issue: iPhone XS camera, Wi-Fi 6, Datasette ideas, Google user trust, Privacy Badger tracking, Bloomberg's Big Hack, OKR introduction, Putin's war Ukraine.
+
+It’s one of my favorite times in Minnesota — fall! I was delighted to stop at Fireside Orchard and find the Honeycrisp Apples are now ready. Allergies are starting to subside, but sadly it’s time to take in the boat and prepare for the upcoming winter.
+
+I’m going to keep this short this week. Mazie and I just got into Manhattan for our long-planned Daddy/Daughter trip here to see the sites! I expect there will be many NYC photos next week!
+
+Now, the Featured Links section.
+
+Link one. "The Feeling That You’re Always Behind on Work: zen habits"
+
+I know that feeling!
+
+Many of us have a constant neverending feeling that we’re always behind on what we need to get done.
+
+Okay, now you got my attention.
+
+And all of a sudden, you’re not behind on anything. Because what you’re doing right now is enough. And it’s all you have. Which is perfect, as it is.
+
+A very Zen view on contentment. There is a lot of truth here, particularly the part about us creating our own anxiety rushing to the next thing.
+
+Link two. "iPhone XS: Why It’s A Whole New Camera – Halide"
+
+In my opinion, Halide is the most powerful camera app on iOS, and this take on the new camera system in the iPhone XS from the author of Halide is a great overview of the new system. This new Smart RAW approach looks nice. I’m still completely blown away by the level of photo you can pull of an iPhone now.
+
+That's the end of Featured Links.
+
+Now, the My Weekly Photo section.
+
+Pumpkins at Fireside Orchard (
+
+Pumpkins at Fireside Orchard.
+Sep 30, twenty eighteen at 1:36 PM
+2225 330th St W, Northfield MN 55057
+
+That's the end of My Weekly Photo.
+
+Now, the Notable Links section.
+
+Link one. "The interesting ideas in Datasette"
+
+I like this set of highlights from the creator of Datasette on the main concepts that he used to create the project, and how those concepts allowed him to do some very cool things easily.
+
+Link two. "Google is losing users’ trust."
+
+Fair and balanced article highlighting the good things that Google has done for privacy and security online, but also critical where they have not done well with privacy. I don’t store any private data with Google and blog their trackers. I recommend everyone else should too.
+
+Link three. "Privacy Badger Now Fights More Sneaky Google Tracking | Electronic Frontier Foundation"
+
+"Don't be evil." Wait, there is an HTML attribute just to spy on people now? What is this ping!
+
+Link four. "Daring Fireball: Bloomberg’s ‘The Big Hack’"
+
+This Bloomberg report on rogue chips from Supermicro infiltrating Amazon and Apple is pretty amazing. Gruber’s take on it is a good summary.
+
+I see no way around it: either Bloomberg’s report is significantly wrong, at least as pertains to Amazon and Apple, or Apple and Amazon have issued blatantly false denials.
+
+Apple and Amazon both vehemently deny this report. Apple even issued a second statement about it. It’s hard to know what really happened, but it’s notable to me that espionage at this level is known, and will impact how we can build new technology for certain purposes.
+
+Link five. "Mike Bollinger is stepping down from TECHdotMN - TECHdotMN"
+
+This looks to be some fallout from a controversial article published by Mike’s cofounder of TECHdotMN. Unclear where this leaves the local publication. I admire what they have been trying to do.
+
+Link six. "Wi-Fi now has version numbers, and Wi-Fi 6 comes out next year - The Verge"
+
+Moving to version numbers for Wi-FI makes a lot of sense. I keep an eye on this stuff and still have a hard time keeping track of what letters are the fastest.
+
+Link seven. "Putin’s war is transforming Ukraine - The Washington Post"
+
+I started traveling to Ukraine twice a year right after the conflict with Russia began. I’ve always found it very jarring when I read coverage of all the fighting, and then go there and it seems completely normal in the capital. I’m not sure about the trends in this article, but I would like it if this were the case.
+
+Thanks to the war, and to their anger at its perpetrators, Ukrainians themselves are choosing to speak Ukrainian — more say they do every year. Thanks to the war, the different regions of this vast country are drawing more closely together
+
+Link eight. "Mission, Strategy, and Tactics"
+
+Good clarifying post on the purpose and approach for mission, vision, strategy, etc. The last paragraph resonated with me.
+
+Interestingly, this post is an example of something even more paramount than having a mission: providing a common language for the team to use that everyone understands. Ensuring people use terms consistently isn’t just pedantry, it is potentially critical to scaling execution.
+
+This is so true. In a larger organization simply getting everyone talking using similar definitions is a big deal. The language and definitions behind it will fundamentally alter how people use these things.
+
+Link nine. "Introduction to OKRs"
+
+Short, free e-book overview of Objectives and Key Results. Good for those that prefer to read instead of watching an overview video. This also has some nice practical implementation details about setting them up, reporting on them, etc.
+
+Link ten. "Some possible career goals — Julia Evans"
+
+This is a good list to keep around for reference. I’ve had many experiences talking with people about their career objectives and next steps, and one of the most challenging situations can be when someone has aspirations for something new or different, but they aren’t able to express it. This list could be a good way to explore potentials in that situation.
+
+Link eleven. "Here's the One iPhone XS Feature That Justifies an Upgrade"
+
+I’ve been shooting with my iPhone XS for about two weeks now and I have to agree that of the capabilities of the new camera system, the Smart HDR capability is amazing.
+
+In short, the iPhone XS is the best iPhone by far at approximating what you'd see with your own eyes. And most of the time, isn't the ultimate goal of photography to capture something we've seen and keep it forever?
+
+I’ve had several pictures come off the phone that I’ve marveled at the natural exposure of the photo.
+
+That's the end of Notable Links.
+
+Now, the Give Back section.
+
+Let's Encrypt is a free, automated, and open certificate authority, run for the public’s benefit. All connections to web servers should be encrypted! The biggest challenge with encrypting the web historically has been the cost and hassle of getting an SSL certificate. Let's Encrypt has changed that entirely by being a free certificate authority. Let's Encrypt is possibly one of the most important things to happen on the web in recent years. Donate to Let's Encrypt today!
+
+That's the end of Give Back.
+
+Now, more links.
+
+- DuckDuckGo Traffic duckduckgo.com
+I use DuckDuckGo for search on all of my devices, and I’m glad to see it continuing to grow!
+- Fibaro HomeKit-enabled Flood Sensor can minimize costly water damage — Apple World Today www.appleworld.today
+I’ve dealt with water issues at our cabin twice now. I think I need a couple of these.
+- plus+codes: Personal Postcodes plus.codes
+Sure seems easier to use than addresses, although much less human usable.
+- FreshRSS, a free, self-hostable aggregator… freshrss.org
+It makes me happy to see open source RSS projects. I'll still stick with Feedbin though.
+- The design and implementation of modern column-oriented The design and implementation of modern column-oriented database systems blog.acolyer.org
+Dive into how modern databases store column data.
+- SEC charges Tesla CEO Elon Musk with fraud www.cnbc.com
+Yikes! Don’t mess with the SEC!
+- No More Google nomoregoogle.com
+So many options other than Google.
+- Building With Workers KV, a Fast Distributed Key-Value Store — Cloudflare blog.cloudflare.com
+Cloudflare is creating some great technology to surround their Workers and provide more functionality.
+
+That's the end of More Links.
+
+Now, the Microposts section.
+
+Wednesday @ 8:16 PM
+
+My Apple Watch has gotten very confused with 8 duplicates of all calendar events. Can’t figure out how to clear or reset this yet.
+
+Monday @ 9:22 PM
+
+Picked up my Tesla Model 3 today! Wow!
+
+Monday @ 6:28 AM
+
+Espresso.
+
+Saturday @ 8:00 PM
+
+Campfire.
+
+Saturday @ 10:13 AM
+
+We need a movement to ban cable news from common waiting areas.
+
+That's the end of Microposts.
+
+Now, the Fortune section.
+
+You've made it all the way to the end! Here is your fortune for this week.
+
+Never let the sun set on thy wrath.
+
+Thank you for subscribing to the Weekly Thing!
+
+That brings us to the end of the Weekly Thing, issue 74. Thanks for listening, and I'll see you next time.

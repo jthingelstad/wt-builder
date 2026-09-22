@@ -1,0 +1,356 @@
+The Weekly Thing, issue 203. Discord, Family, Names. Published November 13, twenty twenty one. By Jamie Thingelstad. In this issue: ENS claiming, Filecoin Virtual Machine, Luau open-source, learning Rust, falsehoods about names, 750-mile bicycle route.
+
+Last weekend we hosted the Things 4 Good Fall Fundraiser and it was a great success! We had more than 100 people stop in to buy hand-crafted Wicky Thing Candles, a custom Jiggy Thing Puzzle, Four Bees Honey, and fresh baked cookies. It was great fun hosting everyone, and the kids particularly enjoyed walking guests through the various options and checking them out. Plus we had awesome custom shirts!
+
+All the sales are going to non-profits, and so far we have raised…
+
+4,395 dollars
+
+Each one of us picked a non-profit to include, and people directed their purchase to any number of the great organizations: Constellation Fund (Donate), Free Bikes 4 Kidz (Donate), Appetite for Change (Donate), and Feed My Starving Children (Donate). I'll leave it open for you to guess which of us picked which organization.
+
+It seems that non-profits closest to kids and food got more engagement than the others.
+
+We made four distinct Wicky Thing Candles for the event:
+
+- Oh My Darling: Sugar-y and Citrus-y, this candle will brighten and energize your day as soon as you set it burning!
+- Mind Like Water: Made with a calming cashmere vanilla fragrance, this candle will have you deep in meditation in minutes.
+- Apple of my Eye: And this candle is sure to be the apple of yours! Heavenly apple and cinnamon scents combine to create that rich, full aroma we all love!
+- Winter Wonderland: Crisp and pine-y, this fragrance will transport you directly to that snow-covered pine forest of your dreams!
+
+We also sold our very first Jiggy Thing Puzzle #001 "Celebration City"! Sure to be a collectors item. Hand drawn digital art, 500-piece puzzle perfect for anyone.
+
+Tammy and the kids made a bunch of cookies which was a great touch so people could have a little something fun to eat as they left. Tammy's sister Angie was also kind enough to allow us to resell some of her amazing Four Bees Honey that she makes with the bees in her yard!
+
+It was a super event, and a fun thing to do as a family! I think this may become an annual event.
+
+Now, the PROMOTION section.
+
+We still have some Jiggy Thing Puzzle #001 "Celebration City" available! These 500-piece jigsaw puzzles are fun to do, filled with details, and make great gifts. They are printed on high-quality Eska and reg; board and are in a custom designed box. The detail in this puzzle is incredible.
+
+You can still be part of the Fall Fundraiser and donate to these great organizations with the purchase of a puzzle for 35 dollars! If you are not in the Minneapolis area we can ship them for another 10 dollars. Reply to this email and we will get you a puzzle! There are also just 16 Wicky Thing Candles left: Mind Like Water and Oh My Darling. If you are interested in a candle they are 25 dollars!
+
+With these final sales you can help us raise another 1,000 dollars for these great causes!
+
+Doesn't that look fun?
+
+Now let us get onto the links for Weekly Thing #203!
+
+"Unequal knowledge about us produces unequal power over us " — Shoshana Zuboff, You Are Now Remotely Controlled
+
+That's the end of PROMOTION.
+
+Now, the Featured section.
+
+Link one. "Discord: Imagine a Place - Not Boring by Packy McCormick"
+
+I've bumped into Discord over the last few years and frankly I pretty much ignored it. What I understood was that Discord is a thing for gamers to connect around their clan or gaming group. That is where Discord started, and where most of its users still are, but I've slowly started dipping into Discord recently because it is being used by a handful of communities that I’m part of. Club MacStories has a Discord. Matthew Cassinelli Shortcuts Membership has a Discord. Crypto projects like POAP, ENS, Angry Bunny Club. Anyway, you get the point.
+
+So, this article landed on my radar and it is a great backgrounder on the history of Discord and the people behind it. The pivots that they have made are interesting. And the growth in recent years is simply incredible!
+
+Quote.
+Last year, there were 6.7 million weekly active servers, essentially spaces with at least some conversation in a given week. This year, there are 19 million weekly active servers -- 3x YoY growth -- and the year isn’t even over yet.
+End quote.
+
+……
+
+Quote.
+More servers means more users. In twenty seventeen, Discord had 10 million monthly active users (MAUs). This year, just four years later, it boasts 150 million. For those keeping score at home, that’s 15x growth in four years, or a 96.8% CAGR.
+End quote.
+
+……
+
+Quote.
+Discord’s revenue growth has outpaced even its user growth. From 5 million dollars in twenty sixteen, Discord grew revenue to 130 million dollars in twenty twenty, good for an astonishing 126% CAGR over four years.
+End quote.
+
+That revenue is just driven by the Discord Nitro subscription which is all end-user supported.
+
+Quote.
+Discord is a social platform with a fast-growing user base and recurring revenue subscription product plus one of the most strategically important positions in the web3 value chain. The question is: will it respond to web3’s siren call? And if it does, how?
+End quote.
+
+The CEO of Discord recently shared a screenshot connecting to an Ethereum wallet. It will be very curious to see how Discord pursuits this web3 area and how.
+
+Link two. "$ENS Now Available for Claiming — Mirror"
+
+Okay, this is seriously one of the coolest things I think I've seen on the web in over two decades.
+
+Imagine if back in the 1990s as the Web was being born, we were able to take the Domain Name System, one of the most critical components of the web, the thing that turns www.thingelstad.com into the numbers your computer needs to find my website, and make it a public good managed in part by the community of the web. Instead, DNS is controlled by a variety of companies that manage it for us. We don't even get much of a vote really. Well, the Ethereum Name Service just flipped itself into a Decentralized Autonomous Organization and granted ENS nameholders governance tokens for 25% of the voting power of the organization. See $ENS Token Allocation.
+
+This writeup from NiftyTable on ENS has some incredible data on this change and the size of ENS already. It is pretty amazing.
+
+I’m a member.
+
+Link three. "The Real Benefits Of Staying Off Social Media - Durmonski.com"
+
+A very well written article going to the deeper aspects of social media.
+
+Quote.
+Yes, quitting social media or doing a social media detox will calm your senses and increase your well-being. Plus, you keep your personal data for a little longer. But there is something else. Something I don’t see others acknowledging. The main benefit of taking a break from social media is that you stop living in a fictional world and finally start dealing with your own reality.
+End quote.
+
+This is something I think about a decent amount. I know I do it at times. Sometimes you pick up your phone just because you would rather be "there" than where you are. it is a form of digital escapism.
+
+My favorite example of this is getting on an elevator. I've made it a practice to not get my phone out when I’m waiting for an elevator or on one. When you do that, you notice how many people do. Why? It lessens the awkward engagement with others on the elevator. But wait a second, phones don't work so well in elevators? I've watched people "pull to refresh" some feed on some never ending drivel of stuff and it won't update. You're in a metal box! But even when the damn phone isn't working the way it is supposed to, that is better than accidentally getting eye contact with someone else.
+
+Quote.
+People will do anything than consider their dreadful reality. The greatest source of suffering for the modern man is the most banal: Boredom. We can’t survive even a minute without doing something. That’s why social media websites are so popular and so hard to quit.
+End quote.
+
+When was the last time you were bored?
+
+That's the end of Featured.
+
+Now, the Currently section.
+
+Watching: Like a show that will never end Curb Your Enthusiasm is back with Season 11. Larry David always cracks me up.
+
+That's the end of Currently.
+
+Now, the Notable section.
+
+Link one. "Introducing the Filecoin Virtual Machine"
+
+This is a year away still but it is interesting to see additional blockchains adopting Ethereum VM compatibility.
+
+Quote.
+Also to be noted is that EVM compatibility is targeted at the bytecode layer, hence preserving the ability to fully leverage the mature Ethereum toolchain in the context of Filecoin, for example Truffle, Remix, Hardhat, VSCode plugins, and more. Besides deploying existing smart contracts, developers can write new actors in Solidity to get going quickly, or upgrade to use native actors if they require performance optimization.
+End quote.
+
+For Filecoin, the idea of being able to run code close to the data makes a lot of sense. Or having NFTs where the smart contract, or actor, is on the same blockchain as the assets.
+
+Link two. "Why We’re Building A New Product To Change The Way We Read Online | Medium"
+
+I’m very vocal about how social media platforms have figured out how to grab your attention and never let go, but it is equally true that media organizations have as well. When I've thought about how to make a new kind of media company, one that has proper incentives, and isn't driven by clicks and attention, I actually thought that creating such an entity as a DAO may be a smart approach.
+
+Here, the former CEO of GoodReads, is starting a new organization to tackle these stated 5 problems in media:
+
+Quote.
+Problem #1: We don’t agree on truth. Problem #2: The business model of digital advertising does not incentivize high quality, accurate content. Problem #3: It’s too hard to find good stuff to read in the limited time I have. Problem #4: Most of us are reading reactively, not proactively. Problem #5: Most of us are getting our information from too few sources.
+End quote.
+
+The article doesn't touch on how they are going to solve these, but does go to the same place my head went…
+
+Quote.
+We looked at these problems and asked ourselves: Why is there no dedicated application for reading news that helps to alleviate these problems? We are working on just that! We are building this using a combination of machine learning and community to curate, and as such we will eventually be structured not as a company but a nonprofit, community owned, decentralized autonomous organization (DAO).
+End quote.
+
+The part I raise my eyebrow at is this says "reading news", not "creating news". I’m not sure just focusing on reading is sufficient. Either way, I will be curious to see how this evolves. (Also, odd that Chandler posted this on Medium and not Mirror.)
+
+Link three. "How Newsletters Survived Technology - The Atlantic"
+
+A bit of a love letter to the newsletter from Dave Pell who writes one of my favorite daily newsletters NextDraft.
+
+Quote.
+Cut to twenty twenty, when the 14 million customers of a single email platform called Mailchimp sent out 333,635,013,035 newsletters that, among other things, drove more than 64 billion dollars in revenue.
+End quote.
+
+He highlights the key reasons that he finds newsletters to be durable in ways that many other products are not. I did find this call out about your Inbox very funny.
+
+Quote.
+Sure, people complain about having too much email. But compared with everything else online, your inbox is the Walden Pond of the internet.
+End quote.
+
+I do think there is a "home field" advantage that we as a reader have in our Inbox. And the relationship that can be built with a newsletter is definitely more personal than many other means.
+
+Link four. "Buying Crypto Assets - AVC"
+
+I've been following Fred Wilson's blog for as long as I've used an RSS reader. Here is his current advice on how he recommends buying into crypto.
+
+Quote.
+Today, my answer is "open a Coinbase account and buy a diverse set of crypto assets."
+End quote.
+
+His writeup is pretty similar to what I shared in Feb twenty twenty one.
+
+Link five. "Work, Family, Scene: You Can Only Pick Two - RyanHoliday.net"
+
+Good perspective on trade-offs and prioritization from Ryan Holiday.
+
+Link six. "Kyiv Post shuts down; staff says this is the owner's act of vengeance | Euromaidan Press"
+
+We have a large and growing team in Kyiv and I subscribe to the Kyiv Post so that I can keep informed on what is happening there. Getting fair reporting in Ukraine is not easy, and it looks like there was a conflict between the oligarch that bought the paper and the newsroom. Whatever issues people may have with media organizations, I’m glad that they are not in situations like the Kyiv Post found itself in. Also see.
+
+Link seven. "The Omni Show: How GTD Focus President Meg Edwards Uses OmniFocus - The Omni Group"
+
+Meg Edwards is the President of GTD Focus and has been a long-time user of OmniFocus. Meg knows her stuff incredibly well, so hearing how she personally uses OmniFocus is pretty interesting stuff.
+
+Link eight. "Falsehoods Programmers Believe About Names - With Examples - Shine Solutions Group"
+
+Another one of those examples of edge cases that programmers have to take into account when they design things that many people would assume are very simple, like a name. The "wrap up" section of this one is great as it gives you real recommendations on things to consider when writing code to deal with names.
+
+Link nine. "A half-hour to learn Rust"
+
+This is an incredibly well done post with very clearly written code snippets that walk you through learning Rust. Honestly, even if you aren't a coder but were curious to just better understand how code is structured and laid out this is a great intro. It’s a bit terse due to it being Rust, but I maybe if you give it two hours instead of 30 minutes anyone can make it through this and come out with a deeper understanding.
+
+Link ten. "The 22 best board games, a revised list of Polygon’s favorites"
+
+Tammy likes to remind me that we like buying board games more than playing board games. By the frequency of play she is right. I still find it fun to see all the innovation in board games. This is a good reference for holiday shopping too.
+
+Link eleven. "MarineTraffic: Global Ship Tracking Intelligence"
+
+Near real-time map of marine vessels around the world. I've seen this for flights before but this marine version is fun. Filter the vessel type to "Pleasure Craft" and you can see many of the ships have pictures associated with them.
+
+Link twelve. "Facebook … What To Do? | No Mercy / No Malice"
+
+I reserve the right to change my mind but I’m not in the camp of regulating Facebook. Rather than regulate, I fundamentally think we need to change public opinion. Using Facebook and social apps in general needs to become a bit like smoking. Just not cool. Galloway's take on the various ways to tackle Facebook's many issues is an interesting exploration.
+
+Link thirteen. "Kinds of projects | Seth's Blog"
+
+I like Godin's point here that there are a lot of different kinds of projects, and they have different outcomes.
+
+Quote.
+As our world gets more connected, the projects that change us are more and more likely to have a form that would be hard to recognize just a generation ago. But inventing and choosing and supporting these projects is now on us, and it begins by recognizing that they even exist.
+End quote.
+
+My friend Garrick and I have used the term "Decade Project," which is just a way to say that we are committing to something for a long time and have trust that we will find the right path as we go. I actually think of the Weekly Thing as a Decade Project.
+
+Link fourteen. "Six Ways to Be a More Disciplined Person - Matt Norman"
+
+I know Matt and he is an incredibly focused person. It is hard for me to believe that he doesn't wake up with 100% energy every day! I like his practical advice in this article. I know that I pretend like "Start with 7 + 1.5" is actually "Start with 5.5 + coffee". I think his biggest callout here though is identifying with being disciplined. Identity is at the root of so much, and the scariest thing for us as people to engage with.
+
+Link fifteen. "There’s a New 750-Mile Bicycle Route in New York. - The New York Times"
+
+This summer when we were in New York we rode 8.1 miles of this trail. It was a great ride. I didn’t realize the whole Empire State Trail was 750-miles long. This would be a great way to spend 2 weeks riding a little over 50 miles a day.
+
+Link sixteen. "Luau Goes Open-Source"
+
+I didn’t realize that Roblox was built on Lua, or now Luau.
+
+Quote.
+A few years ago, we started looking into how we can evolve Lua to be even faster, have better ergonomics, make it easier to write robust code and to unlock an ecosystem of rich tooling—from better static analysis to IDE integrations. This is how Luau was born.
+End quote.
+
+It seems this is backward compatible with Lua? Curious why this isn't just Lua 6? Maybe the Lua team will merge this in and un-fork it.
+
+Link seventeen. "Soccer Looks Different When You Can’t See Who’s Playing | FiveThirtyEight"
+
+What happens when you take actual footage of a soccer game and turn It into telemetry and then show people a computer generated version of the data?
+
+Quote.
+Of the 47 sports fans who watched a two-minute clip of the World Cup TV broadcast, 70 percent said that Senegal, whose players were all Black, was "more athletic or quick." But of 58 others who saw an animation of the same two minutes without knowing which teams they were watching, 62 percent picked Poland, whose players were all white, as the more athletic side.1 The physical advantages that supposedly defined the African team’s style of play disappeared as soon as their skin color did.
+End quote.
+
+What an interesting example of unconscious bias!
+
+That's the end of Notable.
+
+Now, the Journal section.
+
+Thursday @ 10:20 PM
+
+Angry Bunny Club
+
+I've been wanting to find an NFT project that I could be part of to learn and see first-hand what these are like. I wanted to find a project that was fun. I wanted something where the NFT appealed to me on its own. I wanted something that was affordable. I also was curious to have it not be on Ethereum, preferably Polygon or Solana. When I found the Angry Bunny Club it checked all the boxes.
+
+The initial minting was over but Magic Eden is the official marketplace for Angry Bunny Club and there were a number of bunnies listed for 0.25 to 0.3 SOL. I got a couple, then a couple more, and now I have six. I had to get a Santa one.
+
+Left to right: 338, 3069, 4801, 1308, 3680, and 3678. You can also see all bunnies in my wallet.
+
+Like many NFT projects, the Angry Bunny Club is creating a number of different expereinces from these Bunnies, and then the community shares in the proceeds from those activities. They are working on some casual games that will feature the bunnies. There is also discussion of some publishing projects. 50% of the proceeds from those projects go back to Bunny owners.
+
+They also distribute 50% of the resale fee from Bunny sales to holders on a weekly basis. This week that was 0.006 SOL for 6 bunnies. If that rate stayed the same it is 0.312 SOL a year. The purchase cost of the six Bunnies I have is 1.8 SOL. So if that stays flat that would be a 17% return. It is interesting to see these mechanics and to have an Airdrop land in your wallet each week.
+
+Like nearly all of these projects it also has a Discord server, along with some channels that are only available to people with Bunnies in their wallet. There is a feeling of being in a club with others.
+
+This is all learning for me. I picked this project because I think the NFTs themselves are fun, and the learning is just upside.
+
+Thursday @ 8:15 PM
+
+I’m a Member of the ENS DAO!
+
+I just claimed my $ENS governance tokens and am now a voting member of the Ethereum Name Service DAO. I decided to not delegate my tokens at this time. My primary ENS name is thingelstad.eth.
+
+This transition of ENS into a DAO has been incredible to watch. NiftyTable has a great writeup on it.
+
+Quote.
+ENS is one of the best case studies for why people should care. The community now owns and governs a public good they use everyday that has billions of dollars in treasury.
+End quote.
+
+ENS is leading by example how a decentralized entity can operate, provide real value, and be sustainable.
+
+For comparison, this would be like going back to the early 1990's and having the community involved in the structure of the DNS system.
+
+Tuesday @ 9:22 PM
+
+The recent Tesla updates allow you to look through the cars cameras when Sentry Mode is activated. I'm not sure if there is much utility in this, but it is a neat trick. You can look through any of the cameras, not just the front one.
+
+Tuesday @ 9:18 PM
+
+I now have two crypto-based debit cards. The Coinbase one uses USD Coin (USDC). The Litecoin card is funded with Litecoin (LTC) that is liquidated for USD as needed. Two very different models. Who says fiat and crypto can't work together?
+
+Tuesday @ 12:34 PM
+
+The new v2 Grammarly App for iOS is a huge step forward. Finally you can work with documents and not just via a custom keyboard. Now if we can get Shortcuts support to bring Grammarly into other tools!
+
+Monday @ 7:01 PM
+
+Nobody does project updates like Paul Boswell does. I love how he goes into details and pulls you along in the story. I'm looking forward to getting my Spintronics!
+
+Saturday @ 3:35 PM
+
+We had a great first day of the Things 4 Good Fall Fundraiser! We had a steady stream of people most of the day and sold a lot of Wicky Thing Candles, Jiggy Thing Puzzles, Four Bees Honey, and fresh baked goods to raise money for good causes! Open tomorrow too!
+
+Friday @ 7:11 PM
+
+All four of us "Things" are working away getting ready for this weekends Things 4 Good Fall Fundraiser! Wicky Thing Candles being labeled, fresh cookies baking, and signage being produced.
+
+That's the end of the Journal.
+
+Now, the Briefly section.
+
+Link one. "Eric Adams: "I’m going to take my first THREE paychecks in Bitcoin when I become mayor.""
+
+It is interesting to see various Mayors embracing Bitcoin and moving their cities to crypto-friendly policies. Like many other things, perhaps our policy will be shaped by these early movers.
+
+Link two. "NocoDB | Turns your SQL database into a Nocode platform. Free and Open Source"
+
+This looks like a very comprehensive solution if you want something like Airtable but open source and hosted on your own.
+
+Link three. "Rows — The spreadsheet where teams work faster"
+
+This seems like an Anaplan Lite. Make super-charged, connected spreadsheets that your team can recombine to make very powerful solutions with.
+
+Link four. "Playdate Owners Update #1"
+
+Making physical things with batteries and chips is hard stuff. Bummer to see this pushed out, but I have total confidence Panic! is making the right tradeoffs here and communicating well.
+
+Link five. "What Is A Project Communication Plan And How To Create One?"
+
+Not a project plan, a project communication plan. Very specific thing to define the cadence and structure of communication in the project.
+
+Link six. "West Yellowstone Buffalo Stampede on entrance road. - YouTube"
+
+I love bison. This isn't a stampede, it’s just a herd moving around. This is a big group, bigger than any group we saw when we visited. Mute the audio for a better experience.
+
+Link seven. "NFT sales surge to 10 point 7 dollars bln in Q3 as crypto asset frenzy hits new highs | Reuters"
+
+The interesting thing will be the data for October. September is a big drop from August, but I suspect it will plateau at a level at least 10-25x pre-June levels.
+
+Link eight. "Pause Button for Peloton now available! - Peloton Buddy"
+
+"Finally!"
+
+Link nine. "Bamboolib: One of the Most Useful Python Libraries You Have Ever Seen | Towards Data Science"
+
+I had not heard of this library but the examples are really powerful. If you routinely are needing to do analysis on various datasets this could be very useful.
+
+Link ten. "5 Anti-Patterns to Avoid in Lambda based Apps"
+
+Good advice to consider when designing solutions that use Lambda functions.
+
+Link eleven. "Actions | Sindre Sorhus"
+
+Another powerful utility application that does nothing but contribute actions to Shortcuts to make automation more powerful.
+
+That's the end of Briefly.
+
+Now, the Fortune section.
+
+Here is your fortune…
+
+You are fair minded, just and loving.
+
+Thank you for subscribing to the Weekly Thing!
+
+That brings us to the end of the Weekly Thing, issue 203. Thanks for listening, and I'll see you next time.

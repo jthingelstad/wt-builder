@@ -1,0 +1,151 @@
+The Weekly Thing, issue 120. Oct 5, twenty nineteen. Published October 5, twenty nineteen. By Jamie Thingelstad. In this issue: What executives do, Amazon's most important email, Apple's New Map Northeast, tvOS 13 review, WeWork unloading Adam Neumann.
+
+I seem to be on a run lately where I’m running pretty late into my cut off time to get the Weekly Thing out to everyone. Summer is behind us but we've jumped right into back to school, fall sports, and a regularly busy season at the office.
+
+I spent Friday evening at my Mom's celebrating her birthday but also very much watching the Twins try to battle it out with the Yankees, only to have the hope fizzle out as the Yankees ran away with the game in the sixth and seventh innings. I'm hopeful for one win tomorrow and then taking home field advantage for the next two games.
+
+I've got a growing list of changes I’m thinking about for this newsletter, including some tweaks to the design. I’m not sure when I'll be able to get those things done but it’s written down for when I can. The new version of Shortcuts is awesome, which is what I largely use to build this, but it’s also got a bug that I hope gets resolved soon that I have to manually work around until it gets resolved. Always some excitement with new bits!
+
+I hope you all are having a great beginning to Fall and have a spectacular weekend!
+
+Now, the Featured Links section.
+
+Link one. "What do executives do, anyway? - apenwarr"
+
+I've had Andy Grove's High Output Management on my book list for a while but I haven't yet read it. This article is an interesting summarization of part of it.
+
+To paraphrase the book, the job of an executive is: to define and enforce culture and values for their whole organization, and to ratify good decisions.
+
+That's all.
+
+Not to decide. Not to break ties. Not to set strategy. Not to be the expert on every, or any topic. Just to sit in the room while the right people make good decisions in alignment with their values. And if they do, to endorse it. And if they don't, to send them back to try again.
+
+There's even an algorithm for this.
+
+Good writeup, and the epilogue, doubilogue, all the way to quadrilogue are good too.
+
+That's the end of Featured Links.
+
+Now, the My Weekly Photo section.
+
+Fountain at the National Eagle Center in Wabasha flowing into the Mississippi River.
+Sep 28, twenty nineteen at 5:22 PM
+100 Lawrence Blvd W, Wabasha MN
+
+That's the end of My Weekly Photo.
+
+Now, the Notable Links section.
+
+Link one. "Opinion | I Used to Fear Being a Nobody. Then I Left Social Media. - The New York Times"
+
+There is a lot of social fatigue out there.
+
+I grow weary when I think of this as the new normal for what is considered to be a fruitful personal life. Social media is no longer a mere public extension of our private socialization; it has become a replacement for it.
+
+I suspect that is part of that fatigue.
+
+Link two. "The Single Most Important Internal Email in the History of Amazon"
+
+An interesting read looking at organizational design along synchronous v. asynchronies, and co-located v. distributed, and the advantages and disadvantages of each of those.
+
+Link three. "52 Things I Know At 52 – Rhoneisms"
+
+My friend Patrick Rhone reflecting on his 52nd birthday, or version 52.0.0 (what?).
+
+Link four. "Beachheads and Obstacles – Stratechery by Ben Thompson"
+
+Great writing, as always, from Ben Thompson on Amazon and Facebook's recent product announcements and how they are trying to strategically vie with Apple and Google.
+
+Link five. "Apple’s New Map, Expansion #5: Northeast U.S."
+
+I’m not really that into maps, and I’m guessing not many of you are either, but this is a really interesting read that highlights the incredible technology that goes into creating the amazing maps that Google has and Apple is trying to catch up to and pass ahead. There is an amazing amount of innovation here.
+
+Link six. "Agenda Gains Drawing and Handwriting Features, Plus Document Scanning and Dark Mode Enhancements - MacStories"
+
+Agenda is the application I use to keep notes from various meetings that I attend throughout the day. I've tried a lot of different tools, and Agenda's unique view of notes and calendar being intertwined is awesome for business. Adding pen input was one of my wishlist items for the product.
+
+Link seven. "tvOS 13: The MacStories Review - MacStories"
+
+Apple continues to make pretty big changes in the tvOS environment. Multi-user being added is a big deal, and most notably is there to enable Apple Arcade to extend easily to the TV. This platform still feels like it’s finding its way, but is evolving in an interesting place and has a lot of utility as it is.
+
+Link eight. "Self-serve first: the overlooked but essential paradigm underlying great software companies"
+
+Reducing friction to all parts of a business can yield tremendous results.
+
+Most self-serve first products start being used by small customers (typically entrepreneurs or developers) that are overlooked by the incumbents since they are too hard (for said incumbents) to acquire and cost-effectively serve. This initial footprint serves as the beachhead for the company, helping it developing strong customer loyalty and word-of-mouth acquisition through great experiences, as well as a much lower cost to serve them. In some ways, it serves as the base camp for the assault on the incumbents’ bread and butter, financed by the profitable low end customer base. As the company inexorably acquires larger customers and creeps upmarket, the lower cost of customer acquisition — powered by word-of-mouth — coupled with higher customer loyalty and retention and lower cost of serving the customer, makes it an extremely formidable competitor for incumbents to compete with. This is the definition of disruption.
+
+This is a solid playbook for many markets.
+
+Link nine. "WeWork Is Unloading Adam Neumann's Cronies—and His Private Jet | Vanity Fair"
+
+Maybe I should stop reading all the crazy stuff coming out of WeWork, but this is just too good.
+
+A group of 10-plus staffers referred to internally as the “oval office” will also be exiting the company, according to the Journal, including several friends who worked on Neumann's personal deals.
+
+and then…
+
+One of the biggest hallmarks of Neumann's WeWork legacy set to leave the company in his wake, though, is the former CEO's 60 million dollars private jet, which the post-Neumann WeWork is now planning to sell.
+
+oh, and you don't think there is more…
+
+Neumann spent even more money by renovating the jet, adding two bedrooms and Apple TVs—complete with shows and movies that staff members spent “three days straight” downloading—to the private jet, which the then-CEO frequently used as a meeting space. “I know of instances where people got on the plane, flew across the country, and flew commercial home,” one executive told Business Insider.
+
+Wow. Just wow.
+
+That's the end of Notable Links.
+
+Now, more links.
+
+- How to find the hours to make it happen – Derek Sivers
+- Bike crash left Spokane man unconscious, so his Apple Watch Bike crash left Spokane man unconscious, but his Apple Watch called 911 — The Seattle Times
+Cool how some wearable tech is having a significant impact for people.
+- Daring Fireball: Richard Stallman’s Disgrace daringfireball.net
+More on Stallman's interactions and behavior.
+
+That's the end of More Links.
+
+Now, the Microposts section.
+
+Thursday @ 9:11 PM
+
+Did the first Jess King Live workout on Peloton tonight. Wiped me out! Wow. Live DJ takes the music up a notch! Got the badge.
+
+Sunday @ 8:58 PM
+
+This never gets old. Tesla Version 10 on the way!
+
+Sunday @ 8:40 PM
+
+Great job Minnesota United taking LAFC to a 1-1 tie! #MNUFC
+
+Sunday @ 4:06 PM
+
+Had two Infratech heating units installed in porch to make Fall Baseball and Premier League mornings not so cold.
+
+Saturday @ 9:03 PM
+
+Mighty Mississippi at Wabasha, MN.
+
+Saturday @ 8:57 PM
+
+We continued our farm food tour today with crazy good pizza from The Nelson Stone Barn! Long wait, but the pizza is great and Spotted Cow Ice Cream for dessert.
+
+Saturday @ 3:55 PM
+
+We drove out to Together Farms and had yummy cheeseburgers, Wisconsin Cheese Curds, and a beer!
+
+Saturday @ 10:46 AM
+
+Pie for breakfast at Stockholm Pie Company. Delicious.
+
+That's the end of Microposts.
+
+Now, the Fortune section.
+
+You've made it all the way to the end! Here is your fortune for this week.
+
+Cold hands, no gloves.
+
+Thank you for subscribing to the Weekly Thing!
+
+That brings us to the end of the Weekly Thing, issue 120. Thanks for listening, and I'll see you next time.

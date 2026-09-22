@@ -1,0 +1,309 @@
+The Weekly Thing, issue 150. Speed, Insane Videoconferencing, OmniFocus, LaTeX. Published May 30, twenty twenty. By Jamie Thingelstad. In this issue: Facebook algorithms divided users, Small Web, Obsidian, OmniFocus Omni Automation, Mongolia Covid-19 response, LaTeX.css, Deno guide, coronavirus bots.
+
+Welcome to Weekly Thing #150! I started this project on May 13, twenty seventeen and here we are just over three years later. I wasn't exactly sure where I was going with this project, and the form has evolved significantly in both small and big ways. I love getting replies from people on what they find interesting. I've been able to build connections with people that are deeper and broader than I would have otherwise. Thank you for being part of this journey. And a super thank you to the couple dozen subscribers that have been here since issue #1! My only ask of you? Spread the word to others that you think may like this content. I love seeing new people joining the list.
+
+A fun thing happened on Tuesday that highlighted the impact small gestures can have. Tuesday was a busy day, and I wanted to get a spin class on the Peloton in the morning. However, when I got up I wasn't feeling very good. Too much pulled pork from Memorial Day. I also had some work stuff I wanted to dig into right away so I decided "No big deal, I'll push my workout to after work." That rolled around and I ended up not getting away from work until dinner was ready to go, so no spin class and no workout. I don't like to workout at night, so I resigned myself to not working out.
+
+After dinner I was texting with a friend and I mentioned that I was "Heading to a 7:30p class…" He replied "Dude - you’re taking control my man. Impressive. And I’m cheering you on." The funny thing about that reply is he assumed I was going to be working out, but I was actually signing into a meditation class from Common Ground Meditation Center. His message inspired me though. I committed to myself to make sure that I got that workout in. So, at 9pm when I finished the meditation class I did something I never do, got on the spin bike and hammered out a 30 minute class before bed. I even hit a new personal record! I can guarantee you without that comment I wouldn't have gotten myself on the bike. It was a little thing, but had a big impact. Thank you! By the way, I've recently filled out the FitByFifty project on my website. I've got a roadmap and public accountability to all of you. And stickers… see below.
+
+As we end this week our hometown has been rocked by the killing of George Floyd in the hands of the Minneapolis Police Department. Thursday night saw protests, riots, and looting around the city. This tragic event has felt like a spark lighting an incredible amount of pent up anger, along with the further accelerant of the global pandemic and the highest unemployment levels we've seen in decades. The vast number of properties damaged is shocking.
+
+This has all made challenging times even harder. Many people I've talked with have been very anxious and impacted by these events. The impact feels even bigger than the pandemic. The pandemic is this invisible thing out there. There is nothing invisible about the pain and hurt in our community. As I type this on Friday night I’m hoping for peaceful events. We tried to go to a grocery store today and couldn't. Kowalski's on 54th and Lyndale was boarded up and had a delivery van parked in front of the door. The Autozone across the street was also boarded up. The BP gas station on the other corner was being boarded up. All of the cities have declared curfews. Let's all hope for a peaceful and meaningful path through this, that results in real change to address the problems underneath this horrible event.
+
+Now, the Must Read section.
+
+Link one. "Facebook reportedly ignored its own research showing algorithms divided users - The Verge"
+
+Facebook knows very well how negatively their product affects people, society, and most everything else they touch.
+
+Quote.
+"Our algorithms exploit the human brain’s attraction to divisiveness," one slide from the presentation read. The group found that if this core element of its recommendation engine were left unchecked, it would continue to serve Facebook users "more and more divisive content in an effort to gain user attention and increase time on the platform." A separate internal report, crafted in twenty sixteen, said 64 percent of people who joined an extremist group on Facebook only did so because the company’s algorithm recommended it to them, the WSJ reports.
+End quote.
+
+They know all of this. The subscription link at WSJ has all the details. They will never fix this because they have built an addictive surveillance engine that turns your privacy and time into revenue. To fix it, would be to break it. There is no value underneath it.
+
+As a consumer, you should seek to not have algorithms mediating your content!. This is one of the reasons I avoid these platforms. They are controlling the information diet into your brain, and as a result, they can control you.
+
+I’ve commented in the past that I suspect social media, particularly Facebook, will be like smoking. At one time, everyone did it. Now it’s seen as gross. The big blue Facebook icon on your phone is the future Marlboro unfiltered. Additionally, we will find that these companies knew how bad their products were for people and hid it, just like tobacco CEO’s testifying in congress that their products were not addictive. All the while they knew full well that they were.
+
+Link two. "To lead, you have to follow."
+
+Short, but powerful message for anyone in a leadership role. I think this is one that is often overlooked too. Something that perhaps you only get after messing up more than a handful of times.
+
+Quote.
+If this is something you’ve struggled with, I’m sympathetic, I’ve struggled with it too. When you have a strong enough worldview to lead, you’ll start to collect others around you who rely on you maintaining that world’s physics, and tolerating any deviation from your vision can feel like you’re letting them down. But this is the epitome of something that’ll get you to one level of success but block the next: continued growth requires learning to incorporate your worldview into the worldviews of those around you, accelerating overall progress around you even if it means tolerating a detour from your vision.
+End quote.
+
+An easy way to think about this is how much time do you put in maintaining your peer connections and adopting their objectives. In a leadership team, you must at times be following the other leaders around you. There is some ability to segment this on functional boundaries, but be careful about that as it can be far too limiting to your ability to have impact.
+
+This is one that I’ve struggled with for a long time and still work on doing better. I think it took me a decade plus in leadership to even understand it.
+
+That's the end of Must Read.
+
+Now, the Photograph section.
+
+Heavy fog on Cannon Lake at sunrise.
+
+May 24, twenty twenty at 5:59 AM
+
+Your friends already read this?
+Recommend it to strangers, have them join us here, and you'll be BFF's forever!
+
+That's the end of Photograph.
+
+Now, the Recommended Links section.
+
+Prof. Scott Galloway talks to Anderson Cooper | How the pandemic could disrupt higher education - YouTube
+
+Galloway has been very vocal of the economics involved in college education and the return on that investment. This video captures the gestalt of his position very well. Higher education needs a complete rethink of delivery and value. Worth 7 minutes.
+
+Speed
+
+Speedtest is the old standard for testing the performance of your Internet connection. I still use it regularly when I feel like performance is off, or working on network stuff. Netflix rolled out Fast a while back. It is simple and easy to use. Good URL too. This new offering from Cloudflare got my attention because I’ve been very impressed with Cloudflare. I like the more detailed data it gives.
+
+Hyperdeck Markdown Presentations for iPad and macOS
+
+I’ve played around with different ways to make presentations before, mostly Javascript frameworks that relied on HTML. Using Markdown seems appealing, in part it should be very easy to automate and fast to use.
+
+Supabase
+
+There have been a number of attempts at databases that expose ready-to-use API's. This one looks pretty compelling.
+
+Quote.
+Supabase is a service to: - listen to changes to your PostgreSQL database - query your tables, including filtering, pagination, and deeply nested relationships (just like GraphQL) - create, update, and delete rows It does all of this without you having to write a single line of code.
+End quote.
+
+"The open source Firebase alternative."
+
+The Small Web
+
+I love this.
+
+Quote.
+Most websites today are built like commercial products by professionals and marketers, optimised to draw the largest audience, generate engagement and 'convert'. But there is also a smaller, less-visible web designed by regular people to simply to share their interests and hobbies with the world. A web that is unpolished, often quirky but often also fun, creative and interesting.
+End quote.
+
+This is what all of the web used to be like. Let's keep it alive. This is what I feel like I’m doing with my own website.
+
+Obsidian
+
+This looks like a very interesting wiki like desktop tool. Also seems to do with Notion does but locally. I like the fact that the data is all plaintext markdown, so it feels like you would have full and unfettered access to your data. It would also open up potential to add your own scripting and automation.
+
+Insane Videoconferencing at Home
+
+I have a Canon EOS R and it is super tempting to set something like this up at home. It would be fun just to have that crisp video image of yourself in Zoom.
+
+OmniFocus 3.8 Launches with Support for Omni Automation —The Omni Group
+
+I've been eagerly waiting for this feature to come to OmniFocus for a while. I've been using project templates for a while, and those are a great candidate to implement with this Automation. I've already got a list of a number of templates, and more complicated automations that I've done with Shortcuts, that I know I can make more powerful by writing it in Automation. Additional writeup on Automation at Learn OmniFocus.
+
+The Country with the Best Covid-19 Response? Mongolia.
+
+Mongolia took things very seriously.
+
+Quote.
+Let’s have that again: 3.17 million people, 0 local cases, 0 deaths. How did they do it?
+End quote.
+
+I expected the punchline of this to be in part because there just isn’t that much travel to Mongolia. But that is far from it. They took immediate and direct action and were successful, thus far, in keep Coronavirus out of the country.
+
+The awesome Mac OS Catalina fonts you didn’t know you had access to - Journal - Typography.Guru
+
+Turns out there are a decent chunk of new fonts that you can download for free in Catalina. Use the list in the article though so you don't waste space with non-Latin fonts, unless you have a use for those.
+
+Looking Back on Four Years at The Times - The Startup - Medium
+
+Great retrospective front he outgoing CTO of The New York Times. I love how he defines success.
+
+Quote.
+First, while intermediate metrics like productivity metrics or performance metrics can be useful diagnostics, in the end the business results — in our case, subscription growth — are what matter. And focusing on the core KPIs of the business forces you to think hard about how to tie those intermediate metrics, and the work itself, to real impact. Second, alignment is gold, and non-alignment is poison. A Tech team performing masterfully against misaligned goals is, just, a terrible situation. Sacrificing alignment in the service of self-defined functional glory is never the answer — fighting through the often painful process of alignment almost always is.
+End quote.
+
+There is a lot to chew on here. Highly recommended reading.
+
+Platforms in an Aggregator World – Stratechery by Ben Thompson
+
+Thompson as lucid as ever on the strategic Interplay of Facebook Shops and Shopify’s new Shop offering.
+
+Your defining moment | Seth's Blog
+
+An inspirational view from Seth Godin.
+
+Quote.
+Our work is what happens in all the moments. Leadership doesn’t simply appear when the script announces it does: it is the hard work of showing up when we’re not expected to, of seeing what’s possible when few are willing to believe. Your defining moment is whenever you decide it is, and you get a new chance to lead every day.
+End quote.
+
+Keep that in mind for the days you wake up and just don’t see how it’s worth it. Days when you aren’t sure how pushing that rock up a hill helped. The bold at the end is my addition, I love that thought.
+
+How the biggest consumer apps got their first 1,000 users - Issue 25 - Lenny's Newsletter
+
+I found it interesting that all of these services filtered down to just seven distinct ways of getting their initial users. Makes it a pretty small list to explore as you think about building audiences for new things.
+
+Should I Block Ads?
+
+100% yes you should! I use a double-decker defense of 1Blocker in Safari, with Pi-Hole on the DNS level as well. A full 20% of all DNS activity on my home network is surveillance technology being blocked, and that is what made it past 1Blocker! This question should be answered in the same way as "Should I use spam protection for email?". That isn’t even a sensible question these days. Surfing the web without some blocking technology is exposing yourself to unknown levels of surveillance, security problems, and overall risk that is well beyond what you should accept.
+
+Want to Be More Productive? Try Doing Less.
+
+I don't know that this is about doing less, but it is instead about connecting cause and effect. Seems like a reasonable way to approach evaluating your projects though.
+
+LaTeX.css — Make your website look like a LaTeX document
+
+I have this strange admiration of the design effect of LaTeX. I'd be a sucker for building a blog theme off of this. However, I've learned a long time ago I lack all the design skills to do such a thing.
+
+Real reasons why tech giants are hugging "Remote Work" – On my Om
+
+Om looks at the economics of having people work from home. He’s aggressive in his position here, but he is right. It can be a further shift of economics to workers.
+
+Gradually, Then Suddenly – Matt Mullenweg
+
+Mullenweg has been a vocal proponent of virtual companies for years. Automattic has been one for, i believe, forever. Here he reflects on how this change can continue to happen in companies.
+
+COVID Shield
+
+There was a lot of excitement about the work Google and Apple were doing to help with COVID-19 exposure. That has now shipped, but it is only a framework, and nobody has apps yet on top of it. Honestly, I would have rather Google and Apple did the whole thing. This app is a reference implementation intended to let others build on.
+
+John Krasinski's 'Some Good News' Sells to ViacomCBS Following Massive Bidding War | Hollywood Reporter
+
+I guess this is cool, but I sort of thought that Krasinski was doing this as a fun thing to do during the pandemic, not a "side hustle" that he was looking to flip. But, I guess whatever works…
+
+What do executives do, anyway?
+
+Another article highlighting great excerpts from Andy’Grove’s High Output Management.
+
+Quote.
+Not exactly. It's harder than that. What executives need to do is come up with organizational values that indirectly result in the strategy they want. That is, if your company makes widgets and one of your values is customer satisfaction, you will probably end up with better widgets of the right sort for your existing customers. If one of your values is to be environmentally friendly, your widget factories will probably pollute less but cost more. If one of your values is to make the tools that run faster and smoother, your employees will probably make less bloatware and you'll probably hire different employees than if your values are to scale fast and capture the most customers in the shortest time. Why will employees embrace whatever weird organizational values you set? Because in every decision meeting, you enforce your values. And you fire the people who don't line up. Recursively, that means executives lower down the tree will do the same, because that itself is one of the values you enforce.
+End quote.
+
+I must admit I’ve still not read this book, but I must. It feels like it is as canonical to many organizational theories as anything that Peter Drucker has written. I also appreciated the logical analysis at the bottom of this about why this doesn’t exactly apply in smaller companies.
+
+That's the end of Recommended Links.
+
+Now, the Stream section.
+
+Thursday @ 9:28 PM
+
+I wanted to keep my FitByFifty objective very front and center for me throughout the day. I created a simple graphic and ordered some custom stickers from Sticker Mule. Love it!
+
+Thursday @ 6:45 AM
+
+I am excited to try out Omni Automation inside of OmniFocus! I’ve automated OmniFocus for years with Shortcuts and x-callback-urls for. But being able to execute JavaScript inside of OmniFocus could be super powerful!
+
+Thursday @ 6:41 AM
+
+Tammy unlocked a perfect pandemic evening for us last night. First, get a bottle of a beverage of choice. We had a bottle of Moscato d'Asti. Second, place a to go order at Station Pizzeria. Get your pizza at the scheduled time, and park in Burwell Park about a block away. Enjoy said beverage with your pizza along the shore of Minnehaha Creek, the sound of rushing water in the background. Afterward, walk back where you were and get dessert at the Dairy Queen and have a casual stroll back to the park with your ice cream.
+
+5 stars! Would do again!
+
+Wednesday @ 3:19 PM
+
+Bummer that the SpaceX / NASA launch is scrubbed for today. Next time! The control panel of the capsule is amazing looking.
+
+Tuesday @ 9:31 PM
+
+I hit a new 30-min PR doing Jess King’s House Ride tonight. I pushed hard, the music was great. #FitByFifty
+
+Monday @ 10:14 PM
+
+We watched The Biggest Little Farm tonight. This was part of a school assignment Mazie had to watch one of a list of movies and then write an essay on it. We all enjoyed it. This type of farming is a hard path, but a rewarding one when it works.
+
+Monday @ 8:05 PM
+
+I made Sous Vide burgers tonight. I have wanted to try these for a long time since everything else has been so good on the Sous Vide, but I was intrigued by how this would all work.
+
+I kept it simple, 1 lb of ground beef, 1 egg, salt and pepper. We cooked in the water bath and then fried with butter in a hot pan, constantly basting 30 seconds on each side. I also managed to set off the smoke detectors in the process.
+
+The end product was a very juicy, perfectly medium-rare burger. But I didn't find the output to be worth what you have to put into it. I can do burgers on the Big Green Egg much easier. Even Smashburgers on the flat-top are easier. Going to stick to traditional burgers.
+
+No photos since nothing was really picture worthy.
+
+Sunday @ 5:01 PM
+
+Working through my first pool “issue”. The Saltwater Chlorine Generator was set too low (6%) while we were gone and the chlorine level dropped to near nil. Water was cloudy, but no color. I got HTH® Super Shock! Treatment and added 6.9 lbs to the pool. The water turned green right after adding the granules. Now waiting and hoping it all works out okay.
+
+Added another 2.3 lbs of Super Shock! Treatment later in the evening. Can smell chlorine now, before there was no pool chlorine smell. Did a water test and the Total Chlorine was around 10 ppm, but Free Chlorine is still near 0.
+
+Next morning the water is much less green, but still very green. The cloudy seems to be gone. Water test shows total chlorine around 5 ppm but free chlorine at 0. I thought I didn’t add enough chlorine so added 4.16 lbs HTH Shock Treatment. We had to take off so I left the Chlorine Generator in Boost Mode, it will go back to 20% after the bost. I also added about 2/3 gallon of muriatic acid since the pH level was very high.
+
+Sunday @ 3:54 PM
+
+I don’t seem to ever get tired of looking at meat smoking on the Big Green Egg. Surly Hell is going perfect today too!
+
+Sunday @ 1:03 PM
+
+Little snippet of an in-process project. Fun watching this take shape.
+
+Saturday @ 12:16 PM
+
+Grateful to get to watch live Bundesliga with Bayern v Frankfurt today. It is very strange though with the stands completely empty.
+
+55m: Yikes, two goals in quick succession from Frankfurt bring it to 3-2 with Bayern leading by just one!
+
+Final: Bayern prevailed winning 5-2!
+
+Friday @ 8:24 PM
+
+Tyler has gotten to Calamity Ganon in Legend of Zelda. Super difficult stage. He’s not going to finish him tonight.
+
+Friday @ 7:28 PM
+
+Another visit to the Backyard Pandemic Barbershop! Learned tonight that the leaf blower works really well to get the hair off of you at the end.
+
+Friday @ 5:24 PM
+
+Hit a new 30-minute PR this morning on my Peloton Bike! Felt great too! #FitByFifty
+
+Friday @ 12:35 PM
+
+Minnesota State Fair is officially cancelled for twenty twenty due to Covid-19. That seemed like the only possible outcome, but feels notable nonetheless.
+
+That's the end of Stream.
+
+Now, for your information.
+
+Introducing MacStories Perspective Icons: 20,000 Custom Perspective Icons for OmniFocus Pro — MacStories
+
+In celebrations of OmniFocus 3.8 coming out, and in support of MacStories, which is a great website, I decided to grab these very well designed icons.
+
+Minnesota CEOs join Children's Minnesota in response to recent tragedy
+
+I’m happy to see SPS Commerce and Archie Black on this, along with so many other leading Minnesota companies.
+
+DuckDB
+
+This sort of seems like an analytics version of SQLite to me. "DuckDB is an embedded database designed to execute analytical SQL queries fast while embedded in another process. It is designed to be easy to install and easy to use."
+
+What a typical 100% Serverless Architecture looks like in AWS!
+
+Designing services with a serverless architecture requires an often radically different approach. Complex, but the benefits are strong.
+
+Deno: A Simple Guide - martinmck.com
+
+Deno, a better NodeJS. Good overview.
+
+1Password command-line tool 1.0: More commands, more power | 1Password
+
+I like seeing 1Password adding tools like this. It opens the solution up to automation and many more solutions!
+
+Copilot — A Smart Budgeting App for iPhone — Tools and Toys
+
+This doesn't look appealing enough to pull me from YNAB, but the design looks great and if you are looking for more of a financial dashboard this looks solid.
+
+Researchers: Nearly Half Of Accounts Tweeting About Coronavirus Are Likely Bots: Coronavirus Live Updates: NPR
+
+Simple reality is that unless you know the person and their account, you probably have no idea if Tweets you are reading are from humans or robots. This should explain why Twitter is not a place to look for news.
+
+Thank you for reading!
+Please share this with a friend. Cool, thanks!
+
+That's the end of the FYI section.
+
+Now, the Fortune section.
+
+You've made it all the way to the end! Here is your fortune for this week.
+
+You have Egyptian flu: you're going to be a mummy.
+
+Thank you for subscribing to the Weekly Thing!
+
+That brings us to the end of the Weekly Thing, issue 150. Thanks for listening, and I'll see you next time.

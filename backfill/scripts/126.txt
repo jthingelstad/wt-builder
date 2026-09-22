@@ -1,0 +1,188 @@
+The Weekly Thing, issue 126. Nov 16, twenty nineteen. Published November 16, twenty nineteen. By Jamie Thingelstad. In this issue: Lifelong networking, 1000 True Fans, Salesforce on Azure, Private Equity acquires .Org, Toolbox Pro, XML versus JSON, Yahoo Groups deletion, Postgres pub/sub.
+
+Like clockwork cold weather arrived and I got a low-grade cold. Not the kind of cold that takes you out of commission. More the kind of cold that feels like the parking brake is half-way applied all the time, and makes you cough and sneeze, but not all the time. I'm trying to drown it out with a barrage of vitamins. Premium Insurance Caps combined with Emergen-C. It was one of those weeks where I needed to be fully ON for a full raft of things on both the work and home calendars. I’m looking back now from Friday night and am happy that I successfully made it through.
+
+Let's jump right into the links now, and there is a lot of micro posts at the end…
+
+Now, the Featured Links section.
+
+Link one. "How to cultivate a lifelong network when you suck at networking - without bullshit"
+
+I enjoyed this read because I also am terrible at networking. When faced with a room of people mingling and having small-talk about whatever it is people have small-talk about, I tend to want to avoid it all.
+
+If you want to rapidly build your network, my advice is useless to you, because it takes lots of time — decades.
+
+But if you want to build a solid network, it may help. My advice is based on being curious, being helpful, and doing a good job. Even if you suck at networking, as I do, you need to do your job. These are just a few tips on how to do it in a way that will support you later in your career.
+
+I haven't been intentional about it, but I think I've been doing something similar to what he describers here.
+
+Link two. "How to Build an Audience of 1000 True Fans in a Noisy World - Unmistakable Creative"
+
+I hadn't encountered this concept of "1,000 True Fans" before, but I really like it. It’s an interesting approach to a project, a hobby, or even a business.
+
+Building your audience this way is a commitment to showing up day after day, year after year, and being ok with the fact that you might not hit a home run, but instead you'll win through a lot of base hits. It might take you 1000 days to reach 1000 true fans.
+
+This deserves a read and some thinking through.
+
+That's the end of Featured Links.
+
+Now, the My Weekly Photo section.
+
+Mushrooms being grown in a special mushroom grower for food.
+Nov 9, twenty nineteen at 11:34 AM
+902 seventh St W, Saint Paul MN 55102
+
+That's the end of My Weekly Photo.
+
+Now, the Notable Links section.
+
+Link one. "Salesforce announces it’s moving Marketing Cloud to Microsoft Azure | TechCrunch"
+
+This is a big win for Azure. I don't know how meaningful these megadeal announcements with cloud providers that are obviously negotiated at the CEO level really mean, but they do give credibility to providers.
+
+Link two. "Breaking: Private Equity company acquires .Org registry - Domain Name Wire | Domain Name News"
+
+The physical world works better because we have zoning — residential, commercial, industrial, etc. You don't expect to be sold things when in a park. You shouldn't expect privacy and freedom of speech in a commercial zone. I wish the domain name systems served a similar purpose, but it seems we are getting even further away from that.
+
+Link three. "Calendar Strength Training - Next Action Associates"
+
+I use a bit of this calendar blocking technique myself. Depending on your role and the organization you are in defending your calendar, your time, can be critically important to your success.
+
+People seem to treat their diaries as though they have no say in them anymore, and they simply have to obey what is in there – even if someone else has put it there.
+
+To take this up a level, I recommend using Shortcuts (on iOS) to automate the creation of these blocks, rather than creating repeating events that become routinized and forgotten.
+
+Link four. "Toolbox Pro Review: A Must-Have Companion Utility for Shortcuts Power Users - MacStories"
+
+This is for sure a power user tool for Shortcuts users, but what an awesome tool it is! This was an instant buy for me and I've already made some great enhancements to my Shortcuts using it. It also has a cool Global Variable feature, that allows you to set and get variables between devices and scripts. I've done this before using iCloud files, but Toolbox Pro's global capabilities are nicer.
+
+Link five. "Let's Not Misuse Refactoring"
+
+Interesting clarification. I've used the word refactor to just mean "larger than normal" change. I guess the proper usage is to make a change in the implementation without changing the behavior of the software.
+
+Link six. "When XML beats JSON: UI layouts - Instawork Engineering"
+
+I do think a lot of developers are biased that XML is just "bloated and bad". This article makes a good point, it’s a different thing than JSON.
+
+Both XML and JSON can represent complex nested data structures, but they excel at different types of structures. JSON’s origins as a subset of JavaScript can be seen with how easily it represents key/value object data. XML, on the other hand, optimizes for document tree structures, by cleanly separating node data (attributes) from child data (elements).
+
+Link seven. "The Deletion of Yahoo! Groups and Archive Team's Rescue Effort – Waxy.org"
+
+Looks like the Archive Team is going to be busy again. We mostly think of things on the Internet being permanent, but they really aren't.
+
+Link eight. "System design hack: Postgres is a great pub/sub and job server"
+
+This falls into the category of using boring, proven technology to solve a critical, behind-the-scenes task. I don't think many teams would come up with this answer when faced with this need, but probably more should.
+
+Link nine. "Episode #54: David Allen on Someday/Maybe and Incubation Best Practices - Getting Things Done®"
+
+I haven't spent a lot of time thinking about my Someday/Maybe structure, and this talk gave me a bunch of good ideas. Afterwards I restructured entirely how I was doing Someday/Maybe and it’s a marked improvement.
+
+That's the end of Notable Links.
+
+Now, the Microposts section.
+
+Thursday @ 9:16 PM
+
+Wild go ahead 2-1 over Coyotes after Parise goal! Oh wait, now Coyotes tie it back up 2-2.
+
+Thursday @ 7:25 PM
+
+Let’s go Wild! Wild v Coyotes tonight at Xcel Center!
+
+Thursday @ 2:25 PM
+
+Afternoon workshop and training on Essential SAFe for our Technology and Product leaders! #TeamSPS
+
+Tuesday @ 4:03 PM
+
+Congratulations to the four #TeamSPS members that we recognized for over twenty years with SPS Commerce today! Your contributions continue to add value each and every day!
+
+Tuesday @ 3:58 PM
+
+John Sweeney gave a thought provoking and actionable keynote for #TeamSPS today on bringing an innovative mindset to everything we do! Loved all of it!
+
+Tuesday @ 3:56 PM
+
+We had a great time today at #TeamSPS celebrating our wins from twenty nineteen, and looking forward to the great work we are planning in twenty twenty!
+
+Tuesday @ 3:50 PM
+
+Selfie with #TeamSPS before our twenty twenty Growth Summit!
+
+Monday @ 9:26 AM
+
+Our newest floor opened up in SPS Tower today! Great setup to enable #TeamSPS to continue winning. I love the conference room names from Women Who Code. The text on the quiet room desks? EDI. The team moves in soon!
+
+Sunday @ 4:04 PM
+
+Congratulations to the Seattle Sounders FC for winning the twenty nineteen MLS Cup! Exciting game! Toronto wasn’t able to convert, and Seattle opened it up. 3-1!
+
+Sunday @ 11:41 AM
+
+For the third time in four years we’ll be watching the Seattle Sounders play Toronto FC in the MLS Cup.
+
+Sunday @ 8:15 AM
+
+Missing James Whatley’s (@Whatleydude ) Five Things on Friday during its “odd hiatus ” — looking forward to the return.
+
+Saturday @ 9:48 PM
+
+We went to the Children’s Theatre production of Cinderella today and were completely blown away by how great it was! Engaging, modernized with current music, funny — a great theatre experience! Recommended!
+
+Saturday @ 9:44 PM
+
+Checked out the First Avenue special exhibit at the Minnesota History Center today. Loved the special highlights of Hüsker Dü, The Replacements, and Soul Asylum. Of course Prince too. Hüsker Dü being described as “candy-coated razor wire” made me chuckle.
+
+Saturday @ 12:57 PM
+
+We went to Keg and Case for the first time and had a fabulous market lunch!
+
+Saturday @ 12:47 PM
+
+Impressively large US flag at Minneapolis VA Health Care System.
+
+Friday @ 9:33 PM
+
+Wow! Wolves get a jump ball and score to tie at 110-110 and send this Warriors game to overtime! Great game!
+
+Friday @ 8:28 PM
+
+Great first half for Timberwolves v Warriors game! Wolves trailing by 1, 60-61.
+
+Friday @ 7:10 PM
+
+Tip-off! Go Wolves!
+
+Friday @ 6:54 PM
+
+Family selfie from Timberwolves v Golden State Warriors basketball game!
+
+Friday @ 6:53 PM
+
+Ready for the Timberwolves v Golden State Warriors basketball game!
+
+That's the end of Microposts.
+
+Now, more links.
+
+- Sketchviz - Create and publish Graphviz graphs on the web for free sketchviz.com
+This creates some nice looking graphs.
+- The Pac-Man Rule at Conferences — Eric Holscher - Surfing in Kansas www.ericholscher.com
+This is a great idea for indicating openness to newcomers in many situations.
+- Portrait of Lotte, 0 to 20 years - YouTube www.youtube.com
+What a cool project. Wow.
+- Airbnb Promises to Verify All 7 Million Listings After VICE Report Exposes Scam - VICE www.vice.com
+This feels like a strong response from a company on an important topic.
+
+That's the end of More Links.
+
+Now, the Fortune section.
+
+You've made it all the way to the end! Here is your fortune for this week.
+
+Do not overtax your powers.
+
+Thank you for subscribing to the Weekly Thing!
+
+That brings us to the end of the Weekly Thing, issue 126. Thanks for listening, and I'll see you next time.

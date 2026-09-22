@@ -1,0 +1,297 @@
+The Weekly Thing, issue 266. Obsessed, DiceRight, Omnivore. Published October 21, twenty twenty three. By Jamie Thingelstad. In this issue: GitHub Engineering communication, fixing the internet, NPR left Twitter, cryptography intuition, social internet is dead, FreeTube private YouTube.
+
+Hello there!
+
+I’m sending this to you from the beautiful Ozark Mountains just outside of Springfield, MO at Big Cedar Lodge. The scenery is amazing, the weather is ideal, and the resort has a ton of fun activities for all to take part in. In fact, I’m going to keep this short so we can get back to those fun times.
+
+I hope you have a wonderful weekend!
+
+Now, the Featured section.
+
+Link one. "How GitHub Engineering communicates"
+
+Interesting read from GitHub Engineering on how they desire to communicate amongst each other.
+
+Quote.
+This document is intended to encourage consistency over preference by outlining a common core of shared internal communication practices for all of Engineering in the form of opinionated guidance, and it was informed by a survey run within the Engineering organization in March twenty twenty three. Teams are still encouraged to adapt the practices for their unique circumstances, maintaining a common "API" to interface with other teams.
+End quote.
+
+The key points are:
+
+- Be asynchronous first
+- Write things down
+- Make work visible and overcommunicate
+- Prefer GitHub tools and workflows
+- Embrace collaboration
+- Foster a culture that values documentation maintenance
+- Communicate openly, honestly, and authentically
+- Remember practicality beats purity
+
+Three things that stand out to me:
+
+1. Writing things down, being visible, overcommunicating, being asynchronous are expensive. Getting up on a whiteboard, scribbling in realtime, is fast and cheap. However, you will end up doing that 100 times. If you take the time to "write things down" you avoid the repetition.
+2. If you need proof that engineering is a team activity and not a lone coder with a hoody in a dark room, here it is. Nothing of substance gets built by a single person.
+3. Remember that you are communicating with people who have different backgrounds, experiences, and cultures to you. You need to write and structure your thinking in a way that will work across all of those people.
+
+A good representation of "write things down" to put this together.
+
+Link two. "How to fix the internet | MIT Technology Review"
+
+I generally agree with Notopoulos take on this, but I would clarify and extend a bit. In general, the explanation of "what is wrong" with the Internet is not much different than "what is wrong" with any large scale system or society. In a way, I don't know that we can anymore differentiate the Internet from society and culture. It is just another place that those things are expressed, no different than our physical places or the memes (to invoke the original Dawkins intent here) that exist in human societies. The internet is just us, and we are it.
+
+I do disagree with the way that Notopoulos invokes the term "freedom" here. It is a bit of a nod to the Free Software Foundation idea of "free as in beer, not free as in speech". There is nothing wrong with an insistence on freedom in my view, but I do agree that the lack of commercial mechanisms is a problem.
+
+Quote.
+The internet's original sin was an insistence on freedom: it was made to be free, in many senses of the word. The internet wasn't initially set up for profit; it grew out of a communications medium intended for the military and academics.
+End quote.
+
+The issue with commercialism on the web is bigger than the article suggests though.
+
+1. Yes, there was generally a push for free things and a non-commercial space. I think that was likely reinforced by the heavy academic hand in the early Internet.
+2. It was also true that credit cards were not as dominant at that time, and the security of the web was terrible and it would have been a bad idea to type your credit card number into a browser.
+
+So you combine a lack of desire to build financial capability into the core protocols, and a lack of security to make it work for people to put credit cards online, but a need and desire to build businesses and the answer is, drum roll, advertising!
+
+Quote.
+When we think of what's most obviously broken about the internet--harassment and abuse; its role in the rise of political extremism, polarization, and the spread of misinformation; the harmful effects of Instagram on the mental health of teenage girls--the connection to advertising may not seem immediate. And in fact, advertising can sometimes have a mitigating effect: Coca-Cola doesn't want to run ads next to Nazis, so platforms develop mechanisms to keep them away. But online advertising demands attention above all else, and it has ultimately enabled and nurtured all the worst of the worst kinds of stuff. Social platforms were incentivized to grow their user base and attract as many eyeballs as possible for as long as possible to serve ever more ads. Or, more accurately, to serve ever more you to advertisers. To accomplish this, the platforms have designed algorithms to keep us scrolling and clicking, the result of which has played into some of humanity's worst inclinations.
+End quote.
+
+This broken economic system with a third party, the advertiser, paying for the service that you as a customer are enjoying does need to change.
+
+Quote.
+Anil Dash, a tech entrepreneur and blogging pioneer who worked at SixApart, the company that developed the blog software Movable Type, remembers a backlash when his company started charging for its services in the mid-'00s. "People were like, 'You're charging money for something on the internet? That's disgusting!'" he told MIT Technology Review. "The shift from that to, like, If you're not paying for the product, you're the product… I think if we had come up with that phrase sooner, then the whole thing would have been different. The whole social media era would have been different."
+End quote.
+
+Notopoulos suggests two solutions for making things better: paying for things you use and less centralization.
+
+The part that she misses on the financial side is that we need something that removes big platforms from the economics too. This is where the beauty of a digital cash like Bitcoin Lightning opens up a world of options that are amazing. If we insist on non-digital cash, mediated by Visa and other private companies, we are ultimately going to limit our freedom in the speech version, not the beer one. See my Lightning: Fun, Fast, and Free-ish and Lightning Ideas for my thinking here.
+
+On the big, I think that bringing economics to the Internet deeply, fundamentally into the protocols, is the cure for many ills. I keep thinking how much different (and better) email would be if there was a Lightning transaction required for every email. You could send 30 emails for one cent, not much. But it would radically redo how our mailboxes behave.
+
+I agree as well regarding reduced centralization, but I think that isn't just about federation. I think that the tech community can do more here to create services that you pay for, and then help you build your own individual services to operate off of.
+
+That's the end of Featured.
+
+Now, the Currently section.
+
+Making: Many wooden wick candles in preparation for the Things 4 Good Candle Fundraiser!
+
+That's the end of Currently.
+
+Now, the Notable section.
+
+Link one. "Six Months Ago NPR Left Twitter. The Effects Have Been Negligible - Nieman Reports"
+
+NPR shares the data on traffic impact from not being on Twitter.
+
+Quote.
+Six months later, we can see that the effects of leaving Twitter have been negligible. A memo circulated to NPR staff says traffic has dropped by only a single percentage point as a result of leaving Twitter, now officially renamed X, though traffic from the platform was small already and accounted for just under two percent of traffic before the posting stopped.
+End quote.
+
+Twitter, now X, has never been a great platform to drive advertising click throughs. Facebook was better. LinkedIn was better. Twitter was attractive because of the people that were on it, but it was never a great medium to drive engagement.
+
+Link two. "ProfG.AI"
+
+Scott Galloway's new AI that is trained on all of his writing and podcasts in an attempt to allow you to ask him (or an LLM trained like him) questions. It is okay, but misses some things I’m surprised by. For example, Galloway often refers to himself as "the Dog", and when asking ProfG.AI about "the Dog" it totally misses and thinks you are asking about actual dogs. However, it does suggest his favorite stock is Amazon and that is probably an accurate answer. This is an interesting experiment either way. Add in voice training using the hours of podcasts that Galloway has produced and this could be really compelling.
+
+Link three. "Intuition for Cryptography | Azeem Bande-Ali | azeemba.com"
+
+Simple overview of the key qualities of different encryption processes.
+
+Quote.
+Cryptography is how we make digital locks: it allows us to make an action selectively easier for some and harder for others. Instead of mechanical engineering, cryptography uses mathematics to build the locks. And just as we didn’t need to understand the internal mechanics of physical locks, we don’t need to understand the internal mathematics of cryptography to build intuition around it.
+End quote.
+
+Good overview.
+
+Link four. "Social Internet Is Dead. Get Over It. – On my Om"
+
+Om Malik has been around the web for a very long time, well before the beginning of social media.
+
+Quote.
+As social media platforms increasingly shift from human interactions to algorithms, it’s no surprise that we all feel overwhelmed by internet noise. Consequently, the proliferation of spam, bots, irrelevant content, and ads has become (or should become) more apparent than ever. This is precisely why the internet feels less enjoyable. Social media seems less social, and lately, it feels even less like “media.”
+End quote.
+
+I’m in the same camp as Malik.
+
+Link five. "Omnivore"
+
+I’m trying this service out. It could be a better way to read as I collect links. I've got two issues right away though:
+
+1. They don't charge for the service so I don't understand that value they are creating.
+2. I don't like not seeing the site that I’m reading on. Seeing the site is important to understanding what I’m reading.
+
+It does look like a much better "read later" service, but I’m not sure it will have enough value over Safari's Reading List for me.
+
+Link six. "Introducing the New Kottke.org Comments"
+
+Kottke.org is one of the bellwether blogs of the Internet and it is exciting to see it bringing comments back. I also think the idea of requiring a subscription for comments is a smart way to still create open content, but also create a business model for a pro blog like this.
+
+Link seven. "On Disruption and Distraction - Cal Newport"
+
+Newport reminding the reader about the distraction machine that can be social media.
+
+Quote.
+This relief delivered by our phones is not always about amplifying feelings. It can also be delivered in the form of numbness: drips of endless, meaningless, shiny, shallow distraction that take the edge off your distress. TikTok specializes in this style of deliverance: swipe, swipe, swipe, until you temporarily dislocate from the moment.
+End quote.
+
+In a small view we all use our smartphones to avoid feeling lonely or bored. Neither of those are feelings we enjoy, however they may bring us value. Push us to talk to strangers and do things in the real world that are better for us. If we never feel bored, what do we miss?
+
+In a bigger sense, they may keep us from taking real action in the world that may better express our desires, interests, and goals. There is a George Orwell 1984 reference here that comes to mind.
+
+Link eight. "Don Norman on how design fails older consumers"
+
+I've read Norman's "Design of Everyday Things" and he and Bruce Tognazzini were key designers behind Apple's famous Human Interface Guidelines and Apple's Advanced Technology Group. Norman is now 83 and observes how poorly modern design serves older people. This seems like something that deserves more attention.
+
+Link nine. "FreeTube - The Private YouTube Client"
+
+YouTube has so much content, and it isn't possible to categorically segment it. There is good stuff, and less good stuff. But there is so much good stuff that blocking YouTube comes with so much downside that you really don't want to do it. What is one to do if you want to have access to the world's largest collection of video, but still preserve your privacy?
+
+Quote.
+Every day something new is being created to take advantage of you and your data. Many of those that are aware of these violations feel helpless and eventually accept the new normal. These same people might even be aware that alternatives exist however they find difficulty switching due to one reason or another. YouTube has become one such platform where those that use it still enjoy the service however they're not pleased with the misuse of their information when using the platform. Alternatives that are out there won't have the same content creators as the ones you are used to. With FreeTube, our mission is to provide a happy medium for these people where they can use YouTube on their own terms. We aim to show those that struggle with privacy that privacy can be easy and achievable. We want FreeTube to be accessible to all types of users by being as user-friendly and as feature-rich as possible while also maintaining as much privacy as possible while using YouTube.
+End quote.
+
+Awesome that this exists, and I think it is worth taking the time to check it out and see if it can help you still get access to the amazing wealth of knowledge and entertainment on YouTube, but do it while maintaining more of your privacy.
+
+Recommend
+
+People and Blogs is a wonderful project by Manuel Moreale, highlighting "wonderful human beings and their blogs". Manuel's goal is to promote a healthier way to inhabit the web. I love blogging, and I love how People and Blogs shines a spotlight on it. I’m a supporter of the project via Ko-Fi. I'd recommend subscribing to get new issues each week!
+
+That's the end of Notable.
+
+Now, the Journal section.
+
+Journal entry one. Youth in Music twenty twenty three
+
+We went to the twenty twenty three Youth in Music Show at US Bank Stadium today to see my nephew perform in the Marching Band competition for Grand Rapids High School. We saw all the AAA and AAAA performances.
+
+- Papillion-La Vista South HS (Papillion, NE)
+- Grand Rapids HS (Grand Rapids, MN)
+- Farmington HS (Farmington, MN)
+- Irondale HS (New Brighton, MN)
+- Marshall HS (Marshall, MN)
+- Millard West HS (Omaha, NE)
+- Brandon Valley HS (Brandon, SD)
+- Millard North HS (Omaha, NE)
+- Sioux Falls Lincoln HS (Sioux Falls SD)
+- Eden Prairie HS (Eden Prairie, MN)
+- Eastview HS (Apple Valley, MN)
+- Rosemount HS (Rosemount, MN)
+
+The performances were impressive and each one is like a 10 minute show. For the finale, Iowa State University MB (Ames, IA) gave an exhibition performance with a Metallica theme that was incredible.
+
+Journal entry two. Comparing Sleep Stages with Eight Sleep and Oura Ring
+
+I find sleep data to be notoriously hard to correlate to reality. I’ve used a variety of devices over the years to track sleep and sometimes it is really hard to correlate it with my actual experience. Thus far, the Oura Ring has been better at this than any other device I’ve used. What it shows me aligns well with my perceived experience.
+
+This week we setup the Eight Sleep and just like the Oura Ring, it also tracks your sleep and gives you a view of the various stages of sleep. I was super intrigued to see if the Oura Ring and the Eight Sleep would agree at all. I was skeptical and was expecting that they would produce very different data. I looked at three nights of data and to my surprise it was more correlated than I expected.
+
+Some observations:
+
+1. The Eight Sleep generally interprets more Deep Sleep than the Oura Ring. I have no independent way to assess Deep Sleep.
+2. Generally the Oura Ring sees my waking periods much longer than the Eight Sleep. This is a little easier for me to asses, and I think neither is spot on. Both got some of this right and some wrong. Overall, the Eight Sleep data seems closer to reality.
+3. On the whole, the Oura Ring data presents a “less good” picture of my sleep patterns.
+
+There isn’t a conclusion to draw from this since this isn’t a controlled study. However, the two data sources align much more than I expected. Comparing price of the two solutions isn’t meaningful since they do very different things. However, it is notable that a little ring on my pinky finger gets pretty close to a grid of sensors that is under my entire body as I sleep.
+
+Journal entry three. DeFi with Agave sDAI on Gnosis Chain
+
+The recent announcement that Agave launched their Savings xDai on Gnosis Chain piqued my interest. This is connected with MakerDAO, the backers of the Dai stablecoin amongst other things. I generally find MakeDAO interesting and already had some xDAI so I deposited 100 xDai and now have have Agave sDai tokens that earn interest. Current APY 7.521%.
+
+Quote.
+The DAI Savings Rate (DSR is an addition to the Maker Protocol that allows any DAI holder to earn savings in DAI. It is a premium reward by MakerDAO for users depositing DAI, bolstering user benefits and rewards in the ecosystem. sDAI tokens represent DAI stablecoins deposited in MakerDAO’s DSR module. With the launch of sDAI on Gnosis Chain and SparkLend, users can now deposit xDAI to receive sDAI on Gnosis Chain.
+End quote.
+
+I don’t do a lot of DeFi experimentation but this being native on Gnosis Chain I wanted to give it a try and see how it worked.
+
+Journal entry four.
+
+Mazie is home for a short break and made some fresh St. Olaf Cookies tonight. These are so delicious!
+
+Journal entry five.
+
+We went to Cookin' at the Children's Theatre today and it was incredible. 90 minutes filled with action, story, and fun. This is a traveling performance and worth trying to go to!
+
+Journal entry six.
+
+We all made 60 Winter Wonderland candles for the twenty twenty three Things 4 Good Candle Fundraiser tonight!
+
+Journal entry seven.
+
+Halfway through the day and I just realized I've had my undershirt on backwards.
+
+Journal entry eight.
+
+On our way to Big Cedar Lodge for MEA weekend. Departed at 6:07 am and will be driving for 9 hours with a lunch stop at Culver's in Liberty, Missouri.
+
+Journal entry nine.
+
+Found some mathematically significant road signs on our drive for Road Sign Math! There were a few good ones I wasn't able to get a photo for too.
+
+(On micro.blog @roadsignmath and note the MathJax doesn't render on the timeline.)
+
+Journal entry ten.
+
+Driving through Springfield, MO and into the Ozarks so have to listen to Big Smith (Apple Music). Great Bluegrass music!
+
+Journal entry eleven.
+
+Giant pretzel from Uncle Buck's at Big Cedar.
+
+Weekly Thing Forum
+
+Join Shawn Liu, Justin Porter, Patrick Hambek, Jim Bernard, Kyaw Za Zaw, and many other Weekly Thing readers in the Weekly Thing Forum. Recent topics include:
+
+- Making Sense: The Low-Trust Society with David Brooks
+- 265 / Magic, Copilot, Shortery
+- Podcast Recommendations
+- Ask Me Anything about the Weekly Thing
+- 264 / Dazed, Zany, Llama
+
+That's the end of the Journal.
+
+Now, the Briefly section.
+
+Link one. "Roll Your Own All-Sky, Raspberry Pi Camera - IEEE Spectrum"
+
+I had no idea what a AllSkyCams were until I saw this article. I bet there would be really cool views from one of these.
+
+Link two. "Welcome to Metric-time.com"
+
+If you could redo time entirely would a metric approach based on 10's be better? Interesting, but this little display skips the implications to timezones. Fewer hours would make it much harder to have a common "daylight experience" across the world.
+
+Link three. "DiceRight"
+
+Web app that allows you to manage a table-top role playing game efficiently.
+
+Link four. "Open Textbook Library"
+
+Index of textbooks that are licensed openly. Good resource to make it easier to discover these resources. Happy to see this being hosted by the University of Minnesota too!
+
+Link five. "The Compact Calendar twenty twenty three-twenty twenty four – DSri Seah"
+
+I dig these "continuous" calendars that ignore the month boundaries and instead focus on the flow of weeks. Many are very large for the wall. This one is the size of a page which could be great for planning.
+
+Link six. "People are obsessed with Obsidian, the darling of notetaking apps"
+
+I've actively avoided diving into Obsidian because it seems like it would take a massive amount of time and I don't think I have a problem I need it for. I do like the ethos of the developers behind it, and it sure tempts me at times.
+
+Link seven. "Words that deserve wider use - Word Warriors - Wayne State University"
+
+I keep a list of words I don't like. This is a fun list of words that should get more use!
+
+Link eight. "Ferrari to accept crypto as payment for its cars in the US | Reuters"
+
+So it is fun that Ferrari is accepting crypto, but the massive stereotype reinforcement of "crypto bros" driving Ferraris brings a massive eye roll.
+
+That's the end of Briefly.
+
+Now, the Fortune section.
+
+Here is your fortune…
+
+You have an unusual magnetic personality. Don't walk too close to metal objects which are not fastened down.
+
+Thank you for subscribing to the Weekly Thing!
+
+That brings us to the end of the Weekly Thing, issue 266. Thanks for listening, and I'll see you next time.

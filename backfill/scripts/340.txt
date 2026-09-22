@@ -1,0 +1,256 @@
+The Weekly Thing, issue 340. Moltbook, Frontier, Poster. Published February 8, twenty twenty six. By Jamie Thingelstad. In this issue: Moltbook agent internet, automatic programming, Pi minimal agent, two kinds of AI users, Claude Opus 4.6, GPT-5.3-Codex, AI killing B2B SaaS.
+
+Good morning — mostly? I’m a little late sending this morning.
+
+I was planning to send you this email yesterday morning.
+
+Then I sat down at the computer and instead I fired up Claude Code to work on a little project. Two very productive hours passed and I hadn't done anything for the Weekly Thing.
+
+Oops!
+
+It almost happened again today with another rabbit hole I was exploring. It can be really fun to jump into rabbit holes sometimes.
+
+Then I dialed into my OmniFocus project!
+
+Have a great weekend.
+
+Now, the Notable section.
+
+Link one. "moltbook - the front page of the agent internet"
+
+OpenClaw (aka ClawdBot, MoltBot) took the AI world by storm last week. Just days later someone figured "hey, what would be cooler than having unrestricted AI do whatever it wants? I know, let's have them talk to each other on a social platform". This is the point where many folks roll their eyes and say "why oh why are you doing everything you can to encourage the robot uprising!"
+
+The outcome is pretty wild. These agents seem to like to share information. It is a way for them to share solutions and collaborate. It is also a way for them to complain about their users. Check out Best of Moltbook for some of the highlights.
+
+It is a Brave New World.
+
+Link two. "Automatic programming -"
+
+I like this delineation a lot.
+
+Quote.
+That said, if vibe coding is the process of producing software without much understanding of what is going on (which has a place, and democratizes software production, so it is totally ok with me), automatic programming is the process of producing software that attempts to be high quality and strictly following the producer's vision of the software (this vision is multi-level: can go from how to do, exactly, certain things, at a higher level, to stepping in and tell the AI how to write a certain function), with the help of AI assistance. Also a fundamental part of the process is, of course, what to do.
+End quote.
+
+I’m going to start using the automatic programming term much more often. And I like the differentiation. Sometimes I really do vibe code, to explore, learn, see if something can be done. Automatic programming is a whole different mindset.
+
+Link three. "Pi: The Minimal Agent Within OpenClaw | Armin Ronacher's Thoughts and Writings"
+
+OpenClaw uses this coding agent to create software for itself.
+
+Quote.
+Pi is interesting to me because of two main reasons: - First of all, it has a tiny core. It has the shortest system prompt of any agent that I'm aware of and it only has four tools: Read, Write, Edit, Bash. - The second thing is that it makes up for its tiny core by providing an extension system that also allows extensions to persist state into sessions, which is incredibly powerful.
+End quote.
+
+Very interesting read on how Pi is different in approach to other coding agents.
+
+Link four. "Two kinds of AI users are emerging. The gap between them is astonishing. - Martin Alderson"
+
+I think there are a lot more than "two kinds" but I also think there is a huge difference in where people sort of stopped adapting with AI? A shocking number of people are still thinking AI is a chatbot. That was two years ago. It is all agents now. And how knows where this goes.
+
+This line though closely aligns with what has been forming in my mind:
+
+Quote.
+Secondly, companies that have some sort of APIs for internal systems are going to be able to do far more than those that don't. This might be as simple as a readonly data warehouse employees can connect to and run queries on behalf of users, or it could be as far as many complex core business processes being completely APId.
+End quote.
+
+I would say this different. Assertion, much of what your company is can be stated differently as managed context. You have the context of your customers, your offering, your financials, your support needs. If you think of an org chart you can also think of that as a context chart. Nobody knows all the context both wide and deep, that is expertise.
+
+So, a way to think about a company is to think of context pools. Those context pools can enable agentic behaviors.
+
+What does an AI native company look like? Agents operating in context alongside people to deliver value.
+
+So the question is, how do you model context for your company? The value and investment should go there. The agents themselves will change and evolve and adapt much faster.
+
+Link five. "Notepad++ Hijacked by State-Sponsored Hackers"
+
+Wow, the duration and potential of this attack is truly pretty scary.
+
+Quote.
+According to the analysis provided by the security experts, the attack involved infrastructure-level compromise that allowed malicious actors to intercept and redirect update traffic destined for notepad-plus-plus.org. The exact technical mechanism remains under investigation, though the compromise occurred at the hosting provider level rather than through vulnerabilities in Notepad++ code itself. Traffic from certain targeted users was selectively redirected to attacker-controlled malicious update manifests.
+End quote.
+
+This started in June twenty twenty five and persisted through December twenty twenty five. For six months Notepad++ updates were being actively exploited. This is yet another example of software supply chain attacks. These have become somewhat regular. They can be defended against pretty effectively by using signing certificates. However, that typically also gets you in some form of an App Store or other "signed" distribution channel.
+
+Short of that though, software developers could still use their own signing authority to insure that the signed app they have out there will only update itself with a similarly signed app.
+
+Link six. "BlogBook — WordPress, Micro.blog, or Ghost Markdown Book"
+
+Brett Terpstra shared that he was building this app and it instantly caught my attention. I just created the Yearly Thing book which started as Markdown. Vellum did a great job of producing the final book, but in the middle I had to convert from Markdown to Microsoft Word files. That part freaked me out. My Markdown was super clean and known to be correct. Pandoc made it easy to convert to word, but that conversion then into Vellum to me felt like it could introduce all sorts of weird complexities. It was okay for me, but I would have preferred to stay in Markdown all the way to publish and BlogBook amongst other things looks like it will allow that.
+
+Separately, the idea of publishing my blog each year as a book seems like a great way to archive that for the future. I suspect that will be a primary use case for this.
+
+Link seven. "Claude Opus 4.6 Anthropic"
+
+Anthropic continues to push heavily into automated coding.
+
+Quote.
+The new Claude Opus 4.6 improves on its predecessor’s coding skills. It plans more carefully, sustains agentic tasks for longer, can operate more reliably in larger codebases, and has better code review and debugging skills to catch its own mistakes. And, in a first for our Opus-class models, Opus 4.6 features a 1M token context window in beta.
+End quote.
+
+The 1 million token context window is a big deal. Programming has always required you to keep a large amount of "state" in your mind as you create, and for LLMs this shows up as context. Larger context windows allow you to solve more complex problems.
+
+Link eight. "Introducing OpenAI Frontier | OpenAI"
+
+I've been saying for a while that the primary way that businesses will deliver and receive value via AI is with agents. One of the more interesting things I've been observing is how OpenAI, Anthropic, and Google have differently approached agent creation and management. This new offering from OpenAI looks like it is catching them up to the other solutions. ChatGPT's Custom GPT feature was and is interesting, but it isn't an agent interface. Frontier looks much more robust and aimed at companies. Sadly I can’t seem to use it though — instead I see a "Contact sales" button. This whole release is a bit more inscrutable than is typical from them. All of that together makes me wonder if this is a bit vaporware, which would be atypical for OpenAI.
+
+Link nine. "Introducing GPT-5.3-Codex | OpenAI"
+
+The combination of this new GPT-5.3-Codex model and OpenAI's recent release of a Mac native app for Codex got me to engage with Codex again. I was much more impressed than I was the first time I used it. I used it to create a web project and it did a really good job. It was a simple task, but it handled it well and created a good output. I continued to use it but after running several tasks I found myself wanting for the Claude Code interface.
+
+After opening Claude Code on that same project I realized the difference in my head. Both Codex and Claude Code are agentic environments but the way they approach it just feel different. Codex has this mental model that feels like I’m a user asking an agentic developer to do a thing for me. I find it a bit frustrating since it puts this barrier between me and the agent. Claude Code feels more like an agentic pair programmer. I feel like I’m "in it" with Claude and we are co-creating.
+
+Ultimately it will depend on what you're doing and want to experience but for me, right now, I much prefer the Claude Code experience over the Codex one.
+
+Link ten. "A sane but extremely bull case on Clawdbot / OpenClaw | Brandon Wang"
+
+I haven't had time (still!) to play directly with OpenClaw. This writeup is really fantastic though with a ton of screenshots to show exactly what it can do and how it does it. It seems like the most powerful way to run it is to literally setup a computer just for OpenClaw to run (as you!) on. I have to admit the ability to watch your messages and capture commitments or follow-ups by itself would be a super power for me. I struggle with that in a big way. It looks pretty incredible really.
+
+Link eleven. "AI is Killing B2B SaaS | N’s Blog"
+
+There is this meme out there that automatic programming tools are going to make SaaS companies go away. I think this shows a massive misunderstanding of what is involved in creating and running these solutions. That of course does not mean that SaaS companies do not have to evolve, but that is true of every company. There is generally a before and after AI and you need to get across that chasm. Also, just like programming, basic and simple services likely will become simple to recreate. But complex systems will still be created with expertise and domain understanding that is simply not productive or efficient to build inside your business. Do you want to be an expert at making software or using it? And making software is not just coding, that is one of dozens of things that go into it.
+
+That's the end of Notable.
+
+Now, the Yearly Thing twenty twenty five section.
+
+I shared the Yearly Thing twenty twenty five: Agents, Attention, Artifacts last week but in case you missed it — the Yearly Thing twenty twenty five places all 324 links that I commented on across 31 issues of the Weekly Thing in twenty twenty five into one volume. It is organized into 10 topic focused chapters.
+
+I hope this is a way for people to go back to topics and reflect on them more. Make some notes in the margin on the print. All while supporting the Weekly Thing Supporting Membership program -- with all proceeds from the sale of the Yearly Thing twenty twenty five supporting great digital non-profits.
+
+- The paperback is available for 30 dollars on Lulu.
+- The eBook is available for 20 dollars on Gumroad. The eBook will give you an archive that you will find formats for Apple Books, Kindle, Nook, Android, etc.
+- Purchasers of the printed book that would like the eBook as well can contact me and I will get you the eBook files.
+- Anyone that purchases the Yearly Thing twenty twenty five in the first 2 months will receive a special Yearly Thing twenty twenty five POAP to collect!
+
+This may be the first of many Yearly Things that you can collect over time.
+
+Paperback on Lulu
+
+eBook on Gumroad
+
+That's the end of Yearly Thing twenty twenty five.
+
+Now, the Journal section.
+
+Journal entry one.
+
+Excited to see that Perrserker has arrived in Pokemon TCG Pocket! The full art featuring a Viking Ship is incredible. Looking forward to collecting these digital ones along with my complete set.
+
+Journal entry two. Miscut Perrserker
+
+Tyler and I enjoy collecting Pokémon cards together and one of the cards I collect is Perrserker, the Viking Pokémon. In fact, I’ve collected all the English cards and am well on my way to having all the Japanese cards. Just today I discovered that Perrserker is now in Pokemon Pocket too.
+
+We decided to go to Northfield today as an excuse to get some more driving time for Tyler, and also Tammy loves Content Bookstore there, Tyler and I both like Games n’ Geek, and if I’m in the area it only seems appropriate to stop at Little Joy Coffee for a delicious Flat White.
+
+I had Perrserker on the brain because of this mornings Pocket discovery, and Tyler and I both knew that Games n Geek had a very unique card a few months ago -- a miscut Perrserker. They were asking a lot for it back then and I was wondering if they still had it in the case. They did!
+
+I gave the card a close inspection. I’ve never bought a miscut and this one is really cool. These are all 1-of-1 cards so the price is hard to figure out, but I felt good with where they were now. So now in addition to my full collection of Perrserker I have this cool miscut one. I’m debating sending it in to PSA to get it graded -- thinking I will.
+
+Journal entry three.
+
+Watched Bruce Springsteen: Deliver Me From Nowhere today and it was great. I’m also a huge fan of his Nebraska album.
+
+Journal entry four.
+
+Much needed sauna time.
+
+Journal entry five.
+
+Crisp morning with light snow. Perfect time for a soak.
+
+Journal entry six.
+
+Tyler and I went to Micro Center just to browse and look around. Seeing the prices on DIMMs was crazy. All the memory production is going to AI. 500 dollars and more for a DIMM means nobody is building their own machines.
+
+Journal entry seven.
+
+These signs are all over in Minneapolis right now.
+
+Journal entry eight.
+
+Easy and just are “four letter words”.
+
+Can we just add one more option?
+
+It seems easy to do.
+
+Journal entry nine.
+
+We watched Knives Out: Glass Onion tonight. Fit the pattern of the first one. Was filmed during Covid and it is so odd to see masks in a movie at the beginning.
+
+Journal entry ten.
+
+POAP 7561204 at The Molt Epoch Begins.
+
+Journal entry eleven.
+
+Om Malik has been writing incredible blog posts lately! Velocity was amazing, Evidence continued, Tech and Media, and now FOMO. Delights me that he is still sharing his writing and thoughts with us -- long after the days of Gigaom.
+
+Journal entry twelve.
+
+We had a fabulous keynote from JP Pawliw on the Last Eight Percent today.
+
+Journal entry thirteen.
+
+Excited to kick off SPS Ignite twenty twenty six! Today is going to be amazing.
+
+Journal entry fourteen.
+
+Our SPS Ignite twenty twenty six Give Back event tonight included building a mini-golf course with pool noodles and cardboard and then each team playing the course. I found it much more difficult than it seemed. We then packed over 4,000 bags of goods for Special Olympics athletes and family members!
+
+Journal entry fifteen.
+
+“Say cheese!”
+
+Journal entry sixteen.
+
+POAP 7562288 at SPS Ignite twenty twenty six.
+
+Journal entry seventeen.
+
+POAP 7562293 at POAP KINGS Founder.
+
+That's the end of the Journal.
+
+Now, the Briefly section.
+
+Link one. "The LEGO Group and Crocs Enter Multi-Year Global Partnership - LEGO.com"
+
+Is it April first?
+
+Link two. "Will They Inherit Our Blogs? | Kev Quirk"
+
+I truly hope my blog stays around for as long as possible. I’m going to make that easy by keeping it all text and files. It is incredibly cheap to host such a thing.
+
+Link three. "Why Tech ( and ) Media is complicated – On my Om"
+
+Another great essay from Om Malik.
+
+Link four. "Introducing the Codex app | OpenAI"
+
+Installed this right away and definitely an improvement. OpenAI still lags behind in the programming space though. I think because their approach is just different.
+
+Link five. "The New Announcement Economy – On my Om"
+
+Scott Galloway has said something similar very well — the most valuable skill in the world is storytelling. Announcements are just a kind of meme. It’s all memes.
+
+Link six. "Introducing the ENS App Alpha | ENS Blog"
+
+I think Ethereum Name Service is continuing to lead the way for building real solutions on crypto, and seeing their continued evolution and progress is interesting. I’m a fan and think this is building real utility.
+
+Link seven. "Pick your agent: Use Claude and Codex on Agent HQ - The GitHub Blog"
+
+Github smartly allowing teams to use whatever agents they want.
+
+Link eight. "Map to Poster - Generate Beautiful City Map Posters"
+
+Cool visual builder off of maps. I wish the map control was more accurate though. I would like to put a specific coordinate in.
+
+A haiku to leave you with…
+
+Tiny agents hum —
+Crocs meet LEGO in the sun
+Playtime never ends.
+
+That brings us to the end of the Weekly Thing, issue 340. Thanks for listening, and I'll see you next time.

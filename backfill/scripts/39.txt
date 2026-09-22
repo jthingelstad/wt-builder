@@ -1,0 +1,182 @@
+The Weekly Thing, issue 39. Weekly Thing for February 3, twenty eighteen. Published February 3, twenty eighteen. By Jamie Thingelstad. In this issue: Python in Pythonista, Network Effects Manual, multitasking meetings, Micro.blog versus App.net, quitting Twitter, Chaos Engineering, Apple Watch.
+
+I've been thinking that making links easier to go through would be an improvement to the Weekly Thing, both for you the reader, and for me the author! I've had to manually deal with blockquotes that I put into the links (and sometimes miss some). I figured out how to move the links section to some Python code in Pythonista and with that I got it to format the content better (yeah for me!) and even better I now put the links into groups by topics! This will make it easier for you the reader to see what you like, and importantly, skip what isn't interesting to you.
+
+The Kubbchucks made our sixth annual appearance at the largest winter Kubb tournament in the world! We enjoyed a day of throwing wood on frozen Lake Calhoun!
+
+Jan 27, twenty eighteen at 11:57 AM
+Lake Calhoun, Minneapolis, MN
+
+Now, the Business section.
+
+The Network Effects Manual: 13 Different Network Effects (and counting)
+
+Long article that goes into classifying the different types of network effects that businesses can achieve.
+
+Our three-year study, which we released recently, shows that nfx are responsible for 70% of the value created by tech companies since the Internet became a thing in 1994. Even though they are only a minority of companies, companies with nfx end up creating the lion’s share of the value.
+
+Understanding if you have a network effect is neat, but the type of network effect is critical to understanding how to take full advantage of it.
+
+Old School Management Techniques That Still Matter | Robert Blogs Here
+
+In response to my expert fatigue, I’ve compiled a list of my favorite old school management techniques. Included are the stories of the folks that told me about them.
+
+Some good stuff in here to adopt and fold into your management practices.
+
+If You Multitask During Meetings, Your Team Will, Too
+
+Interesting to see some analysis on being distracted in meetings and the tone it sets.
+
+This sends the signal, “It’s OK to not pay attention.” Managers that frequently send emails during meetings are, according to our analysis, are 2.2 times more likely to have direct reports who also multi-task in meetings.
+
+This makes a lot of sense. I try to stay focused and not get distracted in meetings, and this gives even more reason to make that a priority.
+
+That's the end of Business.
+
+Now, the Meditation section.
+
+Mental Noting: Insight Meditation Center
+
+I've been exploring meditation and through that have gotten some exposure to mental noting.
+
+In contrast to most thinking, noting is not discursive. It does not involve analysis or judgment. Rather, we simply give our current experience a one-word label. For example, upon hearing a sound we note ‘hearing’ without thinking further about the sound. Other common mental notes are ‘seeing’, ‘touching’, ‘feeling’, and ‘thinking’.
+
+I've found this to be an interesting technique and even apply it to thoughts beyond meditation. I’m a novice to be sure at it but the concept is interesting.
+
+That's the end of Meditation.
+
+Now, the Programming section.
+
+Stimulus: A modest JavaScript framework for the HTML you already have.
+
+This looks pretty handy. Small and lightweight, very easy to implement.
+
+Stimulus is a JavaScript framework with modest ambitions. It doesn't seek to take over your entire front-end—in fact, it's not concerned with rendering HTML at all. Instead, it's designed to augment your HTML with just enough behavior to make it shine.
+
+That's the end of Programming.
+
+Now, the Social Media section.
+
+inessential: Why Micro.blog is Not Another App.net
+
+I've been a Micro.blog user since launch and that is where my microblog is managed. I love this writeup on why micro.blog is architectural not just another social network. It’s actually something fundamentally different.
+
+With teen mental health deteriorating over five years, there's a likely culprit
+
+What happened so that so many more teens, in such a short period of time, would feel depressed, attempt suicide and commit suicide? After scouring several large surveys of teens for clues, I found that all of the possibilities traced back to a major change in teens’ lives: the sudden ascendance of the smartphone.
+
+Oh no. It is really hard to separate the smartphone and social media.
+
+Those who avoided Facebook reported feeling less depressed at the end of the week.
+
+Twitter Quitter - curtclifton.net
+
+Hey look, more people quitting Twitter.
+
+After some reflection, I’ve concluded that even posting to Twitter is just providing content to a platform for hate and anger. I can’t fix that problem, but I can stop contributing to the platform. And so I will.
+
+This is the argument that I can't square myself.
+
+I Quit Twitter and It Feels Great - The New York Times
+
+A high-profile Twitter user signing off.
+
+I’m frequently approached by colleagues, usually women, who ask me about quitting Twitter with hushed titillation, as if I’ve escaped a cult or broken a particularly seductive taboo.
+
+That's the end of Social Media.
+
+Now, the Tech section.
+
+The full-time job of keeping up with Kubernetes
+
+Good dive into the Kubernetes release philosophy and various approaches to keeping up with the pace, or choosing not to.
+
+The Data Warehouse Built for the Cloud | Snowflake
+
+We've been doing some testing with this and the performance has been very impressive!
+
+Principles of Chaos Engineering
+
+Reminds me of the Agile Manifesto, but for Chaos Engineering:
+
+Chaos Engineering is the discipline of experimenting on a distributed system in order to build confidence in the system’s capability to withstand turbulent conditions in production.
+
+Above Avalon: Apple Watch Is a Bridge to the Future
+
+Interesting theory on how Apple may be thinking about the Apple Watch and the wearable space. Seems pretty far fetched to me but thought provoking either way.
+
+Regexper
+
+Yet another regular expression tool in your browser. This one has a cool visual aspect.
+
+The images generated by Regexper are commonly referred to as "Railroad Diagrams". These diagram are a straight-forward way to illustrate what can sometimes become very complicated processing in a regular expression, with nested looping and optional elements.
+
+That's the end of Tech.
+
+Now, the Culture section.
+
+Empathy Mapping: The First Step in Design Thinking
+
+Wow, this is pretty interesting and seems like it would be useful.
+
+Visualizing user attitudes and behaviors in an empathy map helps UX teams align on a deep understanding of end users. The mapping process also reveals any holes in existing user data.
+
+In the DevOps movement there is a lot of discussion of empathy. I've personally put teams or projects together to specifically encourage developing empathy. A tool that you can use to map out empathy seems like it would be very useful.
+
+That's the end of Culture.
+
+Now, the Games section.
+
+Nintendo reveals Mario Kart Tour for smartphones, Switch Online details —Six Colors
+
+love Love everything here! Mario Kart coming to iOS is an instant-buy for me — I just wish it was coming sooner! I also love the idea of the Switch Online plan including access to virtual "classic games". Given Nintendo's catalog that could be great and the price seems very reasonable!
+
+That's the end of Games.
+
+Now, the Funny section.
+
+Welcome to Minnesota: A Primer - Surly Brewing Co.
+
+Very funny introduction to Minnesota for Super Bowl visitors from Surly.
+
+Welcome to Minnesota. You probably have a lot of questions. We don’t blame you. It’s cold (it’s been colder, as someone already told you) and there are giant piles of snow and people keep talking about “Juicy Lucy” and you don’t even know a Lucy. Here’s what we can tell you.
+
+That's the end of Funny.
+
+Now, the Productivity section.
+
+Omni Roadmap twenty eighteen - The Omni Group
+
+Half of this twenty eighteen roadmap for Omni Group is about the future of OmniFocus! love I'll be one of the first to upgrade. I like all that they are adding here! Wonder why the Apple Watch isn't on this list.
+
+Why Buddhism is True: The Science and Philosophy of Meditation and Enlightenment
+
+by Robert Wright
+
+From one of America’s greatest minds, a journey through psychology, philosophy, and lots of meditation to show how Buddhism holds the key to moral clarity and enduring happiness.
+
+I've just started into this book but I'm already pretty excited about it. This topic is interesting to me and I'm looking forward to learning more. Even better, this is my book club read for the month and I'm eager to discuss it at our next meeting!
+
+Internet Archive is a non-profit library of millions of free books, movies, software, music, websites, and more. I have been a supporter of the Internet Archive for many years and I think their mission is fabulous! The web is a major part of our culture and it the content that we put on it is sadly ephemeral. The Internet Archive is working hard to capture that information and keep it for history. Donate to Internet Archive today!
+
+- The Cactus Blossoms at the Turf Club. So good!
+- First run with the Sous Vide worked great! Perfectly done tenderloins that were incredibly flavorful! Now I know what the steakhouses I like are doing!
+- First run with the Sous Vide. Making beef tenderloin.
+- When you clean that black crud out of the bottom of your espresso machine’s portafilter it makes you pause a moment on what you are drinking — and then you make another espresso.
+- Sunday morning project: Figured out how to connect Workflow and Pythonista and rewrote the links section of the Weekly Thing in Python so I can structure it better.
+- I win!
+- Ticket to Ride!
+- Kubbchucks went 3-2 in morning round robin. Onto afternoon round robin!
+- Kubb on frozen Lake Calhoun!
+- Winter Kubb at its finest. Nice sunny day.
+- Kubbchucks at our sixth Minnesota Kubb at the Loppet!
+- Eric Goplin kicking off Minnesota Kubb tournament!
+- Winter Kubb basecamp!
+- Warming up for a day of winter Kubb!
+- Excited to head to the world’s largest winter Kubb tournament at the Loppet today! Go Kubbchucks!
+
+That's the end of Productivity.
+
+Thank you for subscribing to the Weekly Thing! If you know of people that would like the Weekly Thing please forward it along!
+
+That brings us to the end of the Weekly Thing, issue 39. Thanks for listening, and I'll see you next time.

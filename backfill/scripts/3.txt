@@ -1,0 +1,233 @@
+The Weekly Thing, issue 3. Weekly Thing for May 27, twenty seventeen. Published May 27, twenty seventeen. By Jamie Thingelstad. In this issue: 1Password Travel Mode, largest Git repo, JSON Feed, Gary Gygax D and D, Mister Rogers cardigans, Hello Weather iOS, Anker beating Apple.
+
+This week there are a couple of changes to the Thing. The first thing is the photo of me. My wife Tammy reads this as well and last week her first comment was about the photo I added. She had some colorful suggestions that I completely agreed with. Going with a more relaxed image from now on. The other addition this week is a new Photog section to highlight a photo from the week. I loved this shot from this week so that inspired me to add this. I’m not sure if I'll be able to consistently have a great shot but I'll try.
+
+I’m finding the Weekly Thing a fun project. I've gotten a lot of good and constructive feedback so keep that coming. Subscriber count has slowly grown through private sharing. Please feel free to forward this to others that you think may be interested. I’m probably going to "officially" announce this on my blog and encourage public signups this week or next. There are a lot of links this week…
+
+Now, the Blog posts section.
+
+Speaker Suggestions
+
+Three repeated anti-patterns that I see when speakers present.
+
+That's the end of Blog posts.
+
+Now, the Photog section.
+
+May 23, twenty seventeen, 8:22 PM 4317–4363 W Lake Harriet Pkwy Minneapolis‎ MN‎ 55409 United States.
+
+We were driving around Lake Harriet as the sun was setting this week and the light was catching the trees on the opposite side of the lake making them glow off of the water. The scene caught my eye so much that I stopped the car, got out and took the shot.
+
+That's the end of Photog.
+
+Now, the Links section.
+
+Link one. "The Architect Elevator — Visiting the upper floors"
+
+Quote.
+“Most of what architects have traditionally done should be done by developers, by tools, or not at all” proclaimed Martin Fowler and Erik Doernenburg at a recent meetup. This may come as a surprise to many architects who are proud to carry their hard-earned title.
+End quote.
+
+Link two. "Wikitribune: work in progress – Impossible – Medium"
+
+Quote.
+It’s been a month since Jimmy Wales, in partnership with Impossible, launched a crowdfunding campaign for Wikitribune — a new type of news platform that combines professional journalism and crowdsourced fact checking.
+End quote.
+
+Link three. "Book Excerpt: 'Rise of the Dungeon Master: Gary Gygax and the Creation of D and D' | WIRED"
+
+Quote.
+Creation of D and D The following excerpt is from Rise of the Dungeon Master: Gary Gygax and the Creation of D and D. The graphic novel is based, in part, on a two thousand eight story that David Kushner wrote for WIRED.
+End quote.
+
+Link four. "AgileBits Blog | Introducing Travel Mode: Protect your data when crossing borders"
+
+Quote.
+We often get inspired to create new features based on feedback from our customers. Earlier this month, our friends at Basecamp made their Employee Handbook public. We were impressed to see they had a whole section about using 1Password, which included instructions for keeping work information off their devices when travelling internationally.
+End quote.
+
+Link five. "The Father Of “Getting Things Done”: You’re Getting Me All Wrong"
+
+Quote.
+Productivity guru David Allen on Zen, doing nothing, and why some people need to “stop focusing on their goals and actually get shit done.”
+End quote.
+
+Link six. "Premortems: The Art of Negative Visualization – Production Ready – Medium"
+
+Quote.
+I’ve become a big fan of Ryan Holiday’s work. It comes as no surprise that one of his books, Ego Is The Enemy, has inspired me to write Every Day We Must Sweep a couple of weeks ago. I couldn’t help it and also read the critically acclaimed predecessor, The Obstacle Is The Way, shortly after.
+End quote.
+
+Link seven. "Minnesota's biggest employers have a real need for skilled hands and minds - StarTribune.com"
+
+Quote.
+Minnesota’s aging workforce has tightened the current job market near its “full potential,” meaning nearly one job for every applicant. If trends continue, by mid-twenty eighteen, there will be more jobs than people looking for them.
+End quote.
+
+Link eight. "‘The Internet Is Broken’: @ev Is Trying to Salvage It - The New York Times"
+
+Quote.
+The trouble with the internet, Mr. Williams says, is that it rewards extremes. Say you’re driving down the road and see a car crash. Of course you look. Everyone looks. The internet interprets behavior like this to mean everyone is asking for car crashes, so it tries to supply them.
+End quote.
+
+Link nine. "The Calculus of Service Availability - ACM Queue"
+
+Quote.
+You're only as available as the sum of your dependencies.
+End quote.
+
+Link ten. "Silicon Prairie Online Is A Minnesota Moonshot"
+
+I saw David give a talk on blockchain technology at Minnebar this year and it was very well done.
+
+Link eleven. "“Hello Weather” for iOS"
+
+I've been using Hello Weather for a while now and I really like it. The information is presented in a very intuitive way and easy to understand. Powerful enough, while not being difficult to use.
+
+Link twelve. "TripMode 2 released for Mac | TripMode | Your mobile data savior."
+
+Great example of an app that was built for one specific thing elegantly expanding to solve a wider area.
+
+Link thirteen. "Target and Elasticsearch: Maintaining an ELK stack over Peak Season"
+
+Quote.
+One of the strongest benefits of launching an application into the cloud is the pure on-demand scalability that it provides. I’ve had the privilege of working with the ELK stack (Elasticsearch, Logstash, Kibana) for purposes of log aggregation for the past two years.
+End quote.
+
+Link fourteen. "Shadowing Customer Support for a Day"
+
+Quote.
+Zayna Shahzad is a Software Engineer at PagerDuty on the Mobile Team. She works on the Android and iOS PagerDuty apps offered through the App Store and Play Store. In this post, she shares her experience shadowing our Customer Support team.
+End quote.
+
+Link fifteen. "Wemo will support Apple’s HomeKit"
+
+Quote.
+Wemo, the smart home brand from Belkin International, plans to enable Apple HomeKit compatibility to more than two million Wemo solutions on the market. HomeKit is a framework that allows control of compatible home automation devices through iOS and Siri.
+End quote.
+
+Link sixteen. "Bear 1.2 is out with sketching, custom icons, and more!"
+
+My biggest issue with Bear was lack of support for sketching. May have to dive back in and give this a try. Automation support is great…
+
+Link seventeen. "The largest Git repo on the planet | Brian Harry's blog"
+
+Quote.
+It’s been 3 months since I first wrote about our efforts to scale Git to extremely large projects and teams with an effort we called “Git Virtual File System”. As a reminder, GVFS, together with a set of enhancements to Git, enables Git to scale to VERY large repos by virtualizing both the .git folder and the working directory.
+End quote.
+
+Link eighteen. "First week of JSON Feed | Manton Reece"
+
+Quote.
+I’ve been impressed with how quickly people have adopted JSON Feed. There are a bunch of feeds in the wild now, as well as code and templates for popular languages and web frameworks. The next step is support in feed readers, including brand new feed readers, which is already happening.
+End quote.
+
+Link nineteen. "Feel like you belong"
+
+So much truth to this image.
+
+Link twenty. "Stack Overflow: Helping One Million Developers Exit Vim - Stack Overflow Blog"
+
+In the last year, How to exit the Vim editor has made up about .005% of question traffic: that is, one out of every 20,000 visits to Stack Overflow questions. That means during peak traffic hours on weekdays, there are about 80 people per hour that need help getting out of Vim.
+
+Link twenty one. "5 Good Summer Reads | Bill Gates"
+
+Quote.
+Summer is a great time to escape: to the beach, to the mountains, or to the world of a great book. This year, I found myself drawn even more than usual to books that took me outside (and I don’t mean the great outdoors).
+End quote.
+
+Link twenty two. "In The Shop: The Marc Newson Hourglass For HODINKEE"
+
+Quote.
+This limited edition timekeeper sits at the nexus of art, design, and engineering. Sometimes you see an object and it just captivates you. You can't look away.
+End quote.
+
+Link twenty three. "How AWS Cloud is demolishing the cult of youth – James Governor's Monkchips"
+
+Quote.
+We live in a society obsessed with youth. Tech is no different from the wider culture. Startup culture in particular thrives on the idea that you’re past it by the time you’re 30.
+End quote.
+
+Link twenty four. "1Password Adds ‘Travel Mode’ Feature for Added Security While Traveling – MacStories"
+
+Quote.
+AgileBits has announced a new 1Password feature launching today that travelers will appreciate. Rick Fillion shares the details: Travel Mode is a new feature we’re making available to everyone with a 1Password membership.
+End quote.
+
+Link twenty five. "How Anker is beating Apple and Samsung at their own accessory game - The Verge"
+
+Anker is the company I prefer to buy my USB and battery related accessories from. Interesting to read the background on the company.
+
+Link twenty six. "Supreme Court limits locations of patent lawsuits - The Washington Post"
+
+This is a good thing. Patent trolls plague the tech industry and this should remove some of the gaming. There is still a long way to go on patent reform though. This line caught my eye though. That has resulted in nearly half of the lawsuits being filed in the Eastern District of Texas in Marshall, where cases move quickly and the court is seen as sympathetic to plaintiffs. That by itself should be enough to validate that we need some significant focus on improving patent litigation.
+
+Link twenty seven. "Software Engineering Professionals (SEP) Acquires Visual Story Mapping Software, CardBoard | Business Wire"
+
+Congratulations to my friend David Hussman on this! Will be fun to see what they do with CardBoard!
+
+Link twenty eight. "Feedbin Supports JSON Feed! —Feedbin"
+
+I’m a Feedbin subscriber and was happy to see them jump quickly on the JSON Feed bandwagon!
+
+Link twenty nine. "Star Tribune 50: The twenty sixth Annual Report"
+
+The Star Tribune 50 is a measure of the largest publicly held companies with headquarters in Minnesota ranked by revenue.
+
+Link thirty. "Every Color Of Cardigan Mister Rogers Wore From 1979–two thousand one"
+
+This is the kind of project that makes me love the Internet.
+
+Link thirty one. "The Andon cord and ITSM’s DevOps challenge – Jon Hall – Medium"
+
+This is Andon, automated: nothing gets to production if anything is going to break production.
+
+Link thirty two. "Salesforce, already committed to hiring 800 in Indianapolis, plans to add 500 apprentices"
+
+Quote.
+Salesforce is expanding its hiring plans in Indiana beyond the 800 staff positions it has committed to adding in the coming years. The San Francisco-based cloud company wants to add 500 apprentices by twenty twenty.
+End quote.
+
+Link thirty three. "My social media fast"
+
+Quote.
+Last week (approx. May 7-14), I stopped using social media for an entire week. I logged out of all the sites and deleted the apps from my phone.
+End quote.
+
+Link thirty four. "iOS 11: iPad Wishes and Concept Video – MacStories"
+
+Quote.
+Once heralded as a promising sign of Apple's renewed commitment to the iPad, iOS 9 has begun to feel like a one-hit wonder. iOS 9 represented a profound change for Apple's approach to the iPad. After years of stagnation and uninspired imitation of iPhone interface paradigms, iOS 9 allowed the iPad to explore the true potential of its large canvas; for the first time since the original tablet, Apple was creating new iPad-only features rather than adapting them from the iPhone.
+End quote.
+
+That's the end of Links.
+
+Now, the Promotion section.
+
+Creative Commons helps you legally share your knowledge and creativity to build a more equitable, accessible, and innovative world — unlocking the full potential of the internet to drive a new era of development, growth, and productivity.  I have been a supporter of Creative Commons for years. Larry Lessig, the founder of Creative Commons, has done the world a great thing by creating a legal structure to help authors and creators encourage remix culture. In addition to donating, you should consider making your content under a Creative Commons license. Donate to Creative Commons today!
+
+That's the end of Promotion.
+
+Now, the Microblog updates section.
+
+- Tyler and I having real All-American drive in dining at A and W!
+- Update on car repair: replace front right ball bearings, bent front right rim, damaged front tires, bent left rear rim, rear brakes and pads, alignment, oil change, brake fluid flush.
+- Bear Notes added sketching support. Looks nice. Time to give it another look.
+- The Mini Cooper loaner I have shines the Mini logo on the ground by the drivers side. Makes me smile.
+- The giant display on the right is supposedly a monitor. Looks like a home theatre. #TeamSPS
+- Cool to see the Star Tribune’s immense globe back in their lobby for the 150 year celebration.
+- Remember to look up from time-to-time.
+- Taking car to the shop this morning. Will get to learn what the terrible noise is coming from the front-passenger wheel. My bet is something related to ball bearings.
+- Feel bad for Ramirez. Ugh.
+- MN United, own goal.
+- This United crowd is crazy today! Wow! ENERGY!
+- Shuttleworth should always wear the face guard. Makes him look crazy.
+- Tyler and I at the Minnesota United game. Both sporting our United gear!
+- Mazie and Tammy playing some Scrabble at Blackeye Coffee.
+- Fabulous spin class this morning. High intensity, felt good.
+
+That's the end of Microblog updates.
+
+Thank you for subscribing. If you know of people that would like the Weekly Thing please forward it to them and spread the word!
+
+That brings us to the end of the Weekly Thing, issue 3. Thanks for listening, and I'll see you next time.

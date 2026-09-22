@@ -1,0 +1,158 @@
+The Weekly Thing, issue 27. Weekly Thing for November 11, twenty seventeen. Published November 11, twenty seventeen. By Jamie Thingelstad. In this issue: RSS case, workplace surveillance, retail apocalypse, Facebook exploiting weakness, Al Franken big tech speech, iPhone X impressions, Hüsker Dü legacy.
+
+First thing, there is no photo this week. I only put photos in the Weekly Thing that are from that week and this week I didn’t capture anything. I could put some pictures I took from a couple events this week, but that would just be filling a slot. Another tactical thing I’m thinking about is better ways to show links in the Weekly Thing than just a list. Maybe highlighting a Top 3 or even putting in categories. Watch that space for some experiments.
+
+This week I did make a simple website for the Weekly Thing with a very easy to share URL of weekly.thingelstad.com. If you know people that would enjoy the weekly thing please send them that link. Thank you!
+
+Now, the Links section.
+
+Link one. "The Case for RSS — MacSparky"
+
+I've always been a big user of RSS. Nearly all of the content I discover on the web every week come from RSS. I like that Sparks is highlighting his use and advocating for it. I've been thinking that we need to make these tools more visible for people.
+
+Link two. "Big Brother isn't just watching: workplace surveillance can track your every move | World news | The Guardian"
+
+Employee monitoring is an entire industry in itself. I have usually seen this for monitoring website activity to protect companies against security threats and to restrict access to inappropriate content. It’s not a big leap to take that further into general productivity monitoring and even into recommending productivity improvements for people. This is an interesting article to read just to consider what your employer may know about what is going on on your computer. Once you leave the realm of protecting your organization and start monitoring what people are doing by keystrokes or time in applications I think you need to be really careful and I'd recommend against doing it entirely.
+
+Link three. "America’s ‘Retail Apocalypse’ Is Really Just Beginning"
+
+Enlightening read on the debt issues that many retailers are facing. Also a great example of telling a story with charts.
+
+Link four. "Culture is the Behavior You Reward and Punish – jocelyngoldfein"
+
+This is a great way to get at a topic that can sometimes seem hard to quantify. I've done this with teams before but slightly different by asking people to describe our culture in writing and then frequency match that. I think that approach probably biases to positive outcomes. I like this one since it takes a less obvious path.
+
+Link five. "Gremlin - Break things on purpose."
+
+Interesting tooling to allow you to inject failure conditions into an environment at the infrastructure level. Saw this at Chaos Community Day and it struck me as a really interesting and quick way to get started with chaos testing.
+
+Link six. "How Balanced does Database Migrations with Zero-Downtime » Balanced: Blog"
+
+On one hand it’s sort of amazing that it’s twenty seventeen and we are still figuring out the best way to do database migrations in production. On the other hand, it’s really hard to do and has a lot of edge cases that are specific to your problem domain and solution. I think it’s interesting to see how organizations do these with little to no downtime. It’s not easy to do.
+
+Link seven. "walrus — redis toolkit for python"
+
+Very nice Python library to provide easier to use objects backed by Redis. Some of the examples would be very useful to bootstrap a new project very quickly.
+
+Link eight. "How Facebook Figures Out Everyone You've Ever Met"
+
+There is an aspect of social networks, particularly big ones like Facebook, that most people don't think of at all – the information you are giving up on your friends and family. Most think they are trading their privacy for value, but in reality you are also trading your friends and families. Behind the Facebook profile you’ve built for yourself is another one, a shadow profile, built from the inboxes and smartphones of other Facebook users. Contact information you’ve never given the network gets associated with your account, making it easier for Facebook to more completely map your social connections. You think you are "off" social media and never created a profile? No way. If any of the people you ever email or chat with are on social media you are. And you are connected to them. This activity is some of the worst to me because you do not know it is happening and there is no way to opt out.
+
+Link nine. "The Booming Japanese Rent-a-Friend Business - The Atlantic"
+
+Ahh, what? You can hire an actor to be a fake father to your child? Or hire an entire half of a marriage ceremony?
+
+Link ten. "Orion Icon Library"
+
+In the category of shiny objects I like to check out icon libraries are close to charting libraries and typefaces. This one is pretty interesting since it is all SVG based. Plus, the animation on the first load is amazing.
+
+Link eleven. "Sean Parker unloads on Facebook "exploiting" human weakness"
+
+Sean Parker was the first President of Facebook and was there for the origin. He's now become a "conscientious objector" to social media. "The thought process that went into building these applications, Facebook being the first of them,... was all about: 'How do we consume as much of your time and conscious attention as possible?'" When I see things like this I wonder how different is this than the tobacco industry? Tobacco is naturally addicting, but social media was designed to be addicting knowing the feedback cycles of the brain. In one case the companies got lucky with tobacco, in another Facebook designed a product with every intent to create addiction. Is there a big difference? Which is worse? It’s also notable how many tech leaders and innovators have turned off social media over recent years. Many have opted out entirely, others have clearly determined it a PR channel that they use for a specific objective.
+
+Link twelve. "Al Franken Just Gave the Speech Big Tech Has Been Dreading"
+
+It makes me very proud that our MN State Senator Al Franken has a passion for digital issues. He's been vocal about Net Neutrality for many years.
+
+Link thirteen. "Apache Mesos Helps SPS Commerce Focus on Business and Build Tech Stack - Mesosphere"
+
+Nice feature on our use of Mesos at SPS Commerce and Q and A from Andy Domeier.
+
+Link fourteen. "Field Nation CFO Lillemoe guides tech firm through explosive growth - Minneapolis / St. Paul Business Journal"
+
+I got the pleasure of working with Kent when I was at 8thBridge and have been recently been able to do so again as an advisor to Field Nation. Well deserved recognition!
+
+Link fifteen. "wiby.me - the search engine for old school websites"
+
+What was the web like a decade ago? This search engine only indexes sites that comply with "old school" practices on the web.
+
+Link sixteen. "Do You Remember? The Life and legacy of Hüsker Dü: NPR"
+
+I've been listening to this 5-part series from The Current about Hüsker Dü. I never got to see them play live but have all of their albums. One of the iconic Minneapolis bands.
+
+Link seventeen. "Qeepsake - Text Msg Baby Journal"
+
+One of the first pitches I’ve seen on Shark Tank that seemed like a good idea.
+
+Link eighteen. "A Few Random Thoughts After 24 Hours of iPhone X — MacSparky"
+
+Some more initial reactions on iPhone X, this time from David Sparks. Curious to see his highlights. Notable that he doesn't like the notch, and also that Face ID seems to work very well.
+
+Link nineteen. "The Existential Terror of Battle Royale —Coding Horror"
+
+I don't do a lot of multiplayer gaming but reading this got me caught up with how evolved the world of gaming has gotten. This made me think of the Hunger Games. I didn't intend for this to happen, but to me, the Battle Royale game mode perfectly captures the zeitgeist of the current moment, and matches my current state of mind to a disturbing degree. It's an absolutely terrifying experience of every human for themselves, winner takes all, with impossible odds. There are moments it can be thrilling, even inspiring, but mostly it's harsh and unforgiving.
+
+Link twenty. "Grammarly Keyboard for iOS — Tools and Toys"
+
+I’m a subscriber to Grammarly and find it very useful, particularly for professional things. I grabbed this iOS keyboard app right away and it is really good for a first iteration!
+
+Link twenty one. "iPhone X: Some Early Impressions – Om Malik"
+
+Some great first-hand observations from Om Malik on his early impressions of the iPhone X. Om is a solid photographer and his praise of the screen and camera is enticing. I also was happy to read his more real world feedback on Face ID and that it mostly just works.
+
+That's the end of Links.
+
+Now, the Now Reading section.
+
+Daemon
+
+by Daniel Suarez
+
+Daemons: computer programs that silently run in the background, waiting for a specific event or time to execute. They power almost every service. They make our networked world possible. But they also make it vulnerable...
+
+This book has been on my list for years and I’m excited that my book club picked it this month!
+
+That's the end of Now Reading.
+
+Now, the Promotion section.
+
+WikiTribune is a news platform that brings journalists and a community of volunteers together. WikiTribune just got funded and I became a backer. I've been impressed with Wikipedia and am excited about Jimmy Wales and team focusing on the news ecosystem. I am very curious to see how they realize these objectives. I've previously thought about how news can be reinvented. I focused more on the open source model instead of wiki, but either way I feel like a fundamental rethink is possible! Let's see how they tackle this. Become a supporter today!
+
+That's the end of Promotion.
+
+Now, the Featured App section.
+
+Forest by Seekrtech
+
+by ShaoKan Pi
+
+Have you ever been addicted to your phone and just cannot put it down? Forest provides an interesting solution to beat your phone addiction. You can plant a seed in Forest. In the following time, this seed will gradually grow into a tree. However, if you cannot resist the temptation and leave this app to check Facebook or play a game, your tree will wither away.
+
+Forest is an interesting app to gamify not using your phone. I've used it off and on. It is a very easy way to realize how often you check your phone without even looking. Plant a seed for 2 hours and get two hours of time pushed away from the glowing rectangle in your pocket.
+
+1 dollar and 99 cents 5/5 stars
+
+That's the end of Featured App.
+
+Now, the Microblog updates section.
+
+- When will chaos engineering have been successful? When we are comfortable dancing on air.
+- Casey Rosenthal sharing a lightning talk at Chaos Community Day.
+- “The” Kent Beck sharing a lightning talk at Chaos Community Day.
+- Next up Andy Fleener from local tech Sports Engine on Chaos Engineering.
+- There should be a way to declare a namespace for @ references. Something like twitter:@ to steal from URI’s. Then microblog:@ could be smarter. /cc @manton
+- “So we picked C. And then we realized we didn’t want to write anything in C.” @callmeforni
+- Is Chaos Engineering related to DevOps the same way Extreme Programming is to Agile? Seems like it could be.
+- Fabulous agenda for Chaos Community Day.
+- David Hussman and Leah Cunningham kicking off Chaos Community Day. Have already connected to many awesome people!
+- Fun to have this Erik Sletten painting back up after years! Just fits!
+- Excited to attend (and sponsor) Chaos Community Day tomorrow! Looking forward to learning how chaos engineering is driving improvement!
+- Great day at the #TeamSPS GrowthSummit18! So many great things to celebrate as we get ready for twenty eighteen!
+- I created an easy to share landing page for people to sign up to my Weekly Thing newsletter!
+- Tyler and I playing some Five Crowns.
+- Home networking: Mesh WiFi is all cool and everything, but I still prefer the “blinky lights” of Cat 6 and Gigabit switches.
+- Dave Pell’s NextDraft has become a true daily read for me, top to bottom. Recommended!
+- Had a great time seeing David Sedaris with my mom tonight!
+- There should be a proper espresso demitasse emoji. misses the point.
+- Being able to raise your wrist and say “Hey Siri, turn espresso on” a few miles from home on a cold bike ride is so great!
+- Nice, chilly bike ride around the Minneapolis lakes today. Had to get the balaclava out! The Defiant One is still great!
+- My book club is reading Daemon by Daniel Suarez this month! I’ve wanted to read this one for a while.
+- My biggest ask for Workflow is to put groups of workflows in folders.
+- Got Workflow working with the Mailchimp API. Weekly Thing automation leveling up!
+- The Kubbchucks are registered for the twenty eighteen MN Kubb Winter Tournament! #kubb
+
+That's the end of Microblog updates.
+
+Thank you for subscribing to the Weekly Thing! If you know of people that would like the Weekly Thing please forward it along!
+
+That brings us to the end of the Weekly Thing, issue 27. Thanks for listening, and I'll see you next time.

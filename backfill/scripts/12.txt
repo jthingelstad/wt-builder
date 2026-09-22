@@ -1,0 +1,144 @@
+The Weekly Thing, issue 12. Weekly Thing for July 29, twenty seventeen. Published July 29, twenty seventeen. By Jamie Thingelstad. In this issue: Marketo outage, Bitcoin fork, historic Mission Control, Roombas mapping homes, Bear notes app, Stripe culture, Pokémon GO Fest Chicago.
+
+One of the links I found this week is to Incogneato, which collects anonymous feedback and allows you to continue the dialog. It’s like a comment box with superpowers for the web. To give at a try, I setup a comment box for the Weekly Thing.
+
+We are at the high point of summer here in Minnesota. This is the time of year that I start to feel like you have to scoop up as much as you can and put it in reserve for the rest of the year.
+
+Now, the Blog posts section.
+
+Driving Change
+
+The newest episode of Driving Change with Jeff Martin of Collective Genius is out with yours truly!
+
+That's the end of Blog posts.
+
+Now, the Photog section.
+
+I've been known to share some photos online with the caption of "look up". I like to take a moment to just look up and take in the beauty of what is around us. Mostly trees, but sometimes other things.
+
+Jul 23, twenty seventeen, 7:39 PM Oxford St Hopkins‎ MN‎ 55343.
+
+That's the end of Photog.
+
+Now, the Links section.
+
+Link one. "How to avoid Marketo's outage and the twitter storm —LogicMonitor"
+
+Monitoring your DNS expiration and renewal with your registrar is very similar to monitoring SSL certificate renewal. I always monitor SSL certificates but have never monitored the domain name and registrar for registration. The failure cases seem small, and most business domains are on auto-renewal, but you could have a payment failure and an unmonitored email address case a big problem.
+
+Link two. "National Do Not Call Registry"
+
+Make sure to register all your phone numbers here.
+
+Link three. "What is a Bitcoin fork? – The Coinbase Blog"
+
+This seems pretty horrible for the BTC world -- very confusing to anyone not closely involved in the process.
+
+Link four. "Restore Historic Mission Control by Space Center Houston — Kickstarter"
+
+This is the coolest thing! Will definitely be backing this project. Once the restoration is done this will be a cool thing to build a trip around to see. Very smart to have Gene Kranz involved.
+
+Link five. "The Scientifically Proven Way To Have The Best Vacation Ever"
+
+The last three items on this list are better in psychological data. How something ends is very impactful to how we remember it. 'Ending on a high note' will bias you to remembering any event better than it was. It's also fun to think of the 'memory value' of a vacation. In an odd way, vacations are an investment into your future as you remember them in the past.
+
+Link six. "Leading with GTD —Next Action Associates"
+
+This is a great list and something I've been asked about a lot. I practice GTD and I lead a large team. People have asked me many times how you bring GTD into an organization. This list is a great set of ways to put it into practice, without pushing a process on others.
+
+Link seven. "Incogneato Anonymous Box || The Easiest Online Suggestion Box"
+
+Cool new offering by Ben Edwards of minnestar and SmartThings fame. I could see using this.
+
+Link eight. "Turning a page: Leadpages co-founder Collins taps his own CEO successor - StarTribune.com"
+
+Big changes at one of the more widely known startups in the Twin Cities.
+
+Link nine. "Story of a successful migration to Google Cloud Platform"
+
+A lot of good advice here that I've given myself. One of the main concepts I recommend is to not rearchitect applications and keep things stable as much as possible. Do the improvements when you get to the cloud.
+
+Link ten. "Roombas have been busy mapping our homes, and now that data could be up for sale - The Verge"
+
+This is a great example of hidden garbage in terms of service. Nobody has ever bought a Roomba thinking that they would expose the layout of their home to iRobot for them to then do anything with, much less sell it.
+
+Link eleven. "AWS CloudFormation Supports Multiple Account and Region Provisioning with StackSet"
+
+Nice add to the AWS toolset and clearly a win as customers, particularly large ones, use AWS accounts as an ultimate isolation and cost management tool.
+
+Link twelve. "The Best Notes App for iPhone and iPad: Bear — The Sweet Setup"
+
+Nice overview of the notes app that I use for meeting notes. I've gotten comfortable with multiple notes locations, mainly Bear and Apple Notes. I use Bear for meetings and professional things, and Apple Notes for everything else. The tagging and automation features of Bear are a huge win in a work context, but the Note sharing and ease-of-use of Apple Notes wins out at home and for personal items. I actually really like segmenting these.
+
+Link thirteen. "Managing Check Lists —Macdrifter"
+
+Overview of a lot of different ways to manage lists, specifically focused on what the author is looking for. Useful overview of a bunch of different list managers. It seems like OmniFocus with a project template solution would meet the requirements but that isn't listed in his solutions.
+
+Link fourteen. "Magma"
+
+A completely secure, in transit and rest, open-source email system born from the ashes of Lavabit, which you may remember as the email service that Edward Snowden used and which was shut down from legal threats and protecting it’s users email. I have long argued that email is no longer something 'citizens' can do, it's a professional activity filled with spam and virus threats. However, I'm also a big fan of encrypted email and massively distributed email. The more encryption and the more distributed email is (not centralized at one or two providers) the harder it is for people to harvest and monitor it. An open-source encrypted email system is a nice step in that direction. Even better would be for it to be containerized so you could run it with little technical knowledge.
+
+Link fifteen. "Trust - Our World In Data"
+
+Huge article that I mostly skimmed for the graphs. I like the visuals, and the data itself is very interesting. Seems notable that trust in other people has droped 15% in last 40 years in the United States. It's also more variable than I would have thought. Compare that to Sweden. The entire site is full of stuff like this, you could spend a lot of time here. Thanks @swensn for the link.
+
+Link sixteen. "The Rules of Creation – a n n i e m u e l l e r"
+
+Great thoughts on how to think about the creative process. I think you could apply this to any creative endeavor, but I like to think about how it applies to the creation of software (which is a creative endeavor!).
+
+Link seventeen. "Sustainability - Give Your Amazon Box New Life"
+
+I had no idea that your old Amazon boxes can be filled with things you no longer need and mailed to a charitable organization!
+
+Link eighteen. "A quick guide to Stripe’s culture"
+
+Technology firms have taken great effort to be very specific in thinking about their culture. I do this as well and think it is critical to organizations. As a result, the culture statements are often more verbose than you may think. This one from Stripe is interesting both for it’s verbosity as well as the 'Questions you should ask yourself' sections. Interesting content, I’m not sure about all of it but I like that they have a defined way to share feedback and it’s open to the public.
+
+Link nineteen. "What Google Learned From Its Quest to Build the Perfect Team"
+
+Long article that could use a TL;DR section but nothing hugely surprising here. Highlights the need for dependability, structure and clarity, meaning, impact and psychological safety.
+
+Link twenty. "Niantic Pokémon GO Fest Chicago Update - Pokémon GO"
+
+The first ever Pokemon GO Fest was in Chicago this last weekend. The event was interesting with a lot of special activities surrounding it. Even with what I’m sure was detailed planning and any amount of cloud infrastructure needed the service still ran into performance issues. They took action on it right away but another data point on how hard it is to scale technology infrastructure and systems for events.
+
+That's the end of Links.
+
+Now, the Promotion section.
+
+WikiTribune is a news platform that brings journalists and a community of volunteers together. WikiTribune just got funded and I became a backer. I've been impressed with Wikipedia and am excited about Jimmy Wales and team focusing on the news ecosystem. I am very curious to see how they realize these objectives. I've previously thought about how news can be reinvented. I focused more on the open source model instead of wiki, but either way I feel like a fundamental rethink is possible! Let's see how they tackle this. Become a supporter today!
+
+That's the end of Promotion.
+
+Now, the Highlighted iOS App section.
+
+Bear
+
+by Shiny Frog
+
+Bear is a beautiful, flexible writing app for crafting notes, prose, code and now sketches!
+
+I use Bear for one specific task, taking notes during meetings. I also use other applications for managing text but Bear's automation, tagging and sketching capabilities have made it a perfect tool for me to capture information and tasks during meetings. For example, I tag all notes with the week and day of the meeting, as well as the people in it. Want to see all meetings with a certain person? Easy with a tag. All notes from a given week? Another tag.
+
+Free 4.5/5 stars
+
+That's the end of Highlighted iOS App.
+
+Now, the Microblog updates section.
+
+- Dusty’s – time for a dago!
+- B-Squad softball.
+- For those that saw the kitten item from this weekend, the Humane society put it to sleep. We were too late for it.
+- Sad to be missing #devopsdays MSP. From the Tweets it looks like a great went, as usual! Huge thank you to the organizers!
+- The lost kitten we found wasn’t doing well. We surrendered him to the MN Humane Society. Hoping he gets better.
+- Look up!
+- Time to wrap pork butt and finish with Apple cider on Big Green Egg.
+- Big Green Egg pork butts. Extra smokey.
+- Found a lost and very hungry kitten when we got to the cabin. Gave some ice cream and will check in the morning.
+- Super hot soccer MN United v NY Red Bulls.
+
+That's the end of Microblog updates.
+
+Thank you for subscribing to the Weekly Thing! If you know of people that would like the Weekly Thing please forward it along!
+
+That brings us to the end of the Weekly Thing, issue 12. Thanks for listening, and I'll see you next time.

@@ -1,0 +1,131 @@
+The Weekly Thing, issue 10. Weekly Thing for July 15, twenty seventeen. Published July 15, twenty seventeen. By Jamie Thingelstad. In this issue: Scheduling secrets, bullshit detection, Caddy HTTPS server, OmniGraffle 3.0 for iOS, Scapple, DRM toxic to culture, microservices design patterns, Acorn 6.
+
+This week was absolutely bananas!  One of those weeks where you just hold on tight and manage to the end as best you can. Don't get me wrong, all good stuff, just a lot of it! Some sugar on top of it all -- Minnestar launched a brand new website, and we had another great Minnedemo event this week!
+
+This week brings a brand new section to the Weekly Thing, a highlighted iOS application. I will use this to share a recent iOS application that I have found valuable and why. I think this will be a lot of fun. I’m always trying out new applications and I’m looking forward to sharing them.
+
+Now, the Photog section.
+
+Minnedemo happens at a wide variety of venues, but it’s always a lot of fun to have it in a busy place like Downtown Minneapolis and to see the event name 'up in lights'!
+
+Jul 13, twenty seventeen, 6:53 PM 730 Hennepin Ave Minneapolis‎ MN‎ 55403 United States.
+
+That's the end of Photog.
+
+Now, the Links section.
+
+Link one. "Eleven Experts Share The Secrets of Scheduling Everything in Your Calendar – The School for Scheduling Everything"
+
+Managing your calendar is an important task most of us. I was also excited to see my friend Garrick Van Buren in here! I've thought a lot about calendaring methods and tools. The one outcome I have so far is it is very personal and has to be appropriate for your demands. One size certainly does not fit all in this area.
+
+Link two. "Introductory bullshit detection for non-technical managers"
+
+Good article that, by the way, isn't just for non-technical managers. I've seen many technical managers get sidelined working through projects.
+
+Link three. "The Learning Water Meter - FLUID"
+
+I saw this Minnesota-made product at Minnedemo this week and it looks great! There are a number of devices like this for electricity, but I hadn't seen one for measuring and monitoring water use.
+
+Link four. "Caddy - The HTTP/2 Web Server with Automatic HTTPS"
+
+I hadn't heard of this web server but it looks fabulous! Every feature looks great and it looks super simple to run. I’m trying to not run any of my own infrastructure, but apps like this make it compelling and really easy if you do.
+
+Link five. "OmniGraffle 3.0 Brings the Power of Its macOS Counterpart to iOS – MacStories"
+
+It’s great to see what OmniGroup is doing with there applications on iOS. They are innovating in user experience, capability and business model. If you are wondering how professional software will look in 10 years, look at OmniGroup. I’m also very excited about the launch of Omni Automation, their Javascript automation framework here. I can’t wait to see that appear in OmniFocus.
+
+Link six. "asocialfolder | Markdown-based, Dropbox-enabled website hosting"
+
+What a cool concept, use Dropbox to put static markdown files in and publish them right away to the web. For simple sites this would be a very easy way to get content online.
+
+Link seven. "Going beyond the basic checklist - Next Action Associates"
+
+Nice summary of a book I think everyone should read, Checklist Manifesto!
+
+Link eight. "prooffreader.com: Graphing the distribution of English letters towards the beginning, middle or end of words"
+
+Fun data analysis of english text. I like the use of sparklines to show small multiples.
+
+Link nine. "Network Effects"
+
+Very well done overview of network effects by Andreessen Horowitz Anu Hariharan. Great introduction of what network effect is, what the different classifications and terms are and how to think about it. I love the definition of platform in network context here. via @sk_shivani
+
+Link ten. "Scapple for macOS and Windows"
+
+Ran into this application and was intrigued. It seems like the easiest tool to make Wardley Maps that I've seen.
+
+Link eleven. "DRM Is Toxic To Culture | Meshed Insights Ltd"
+
+More on how DRM is bad for everyone.
+
+Link twelve. "Processing Points - Why We Need Them — MyProductiveMac"
+
+I don't use this term of 'processing points' very often but I like the concept.
+
+Link thirteen. "Eight Years of Victory (Pinboard Blog)"
+
+I like how Maciej of Pinboard is very open about the key metrics of Pinboard. Another view of the indie software world as a business and how they can slowly build and become nicely profitable.
+
+Link fourteen. "Acorn 6 Released"
+
+I use Acorn and love what Gus Mueller is doing with this. It’s also fun to watch as an indie developer goes right at Adobe Photoshop -- one of the largest, most established pieces of software.
+
+Link fifteen. "The Future of Operations: A Developer | Forrester Blogs"
+
+Good article on the blurring that is occurring in traditional roles between what has been operations and development.
+
+Link sixteen. "Design patterns for microservices | Blog | Microsoft Azure"
+
+I've always admired Microsofts architecture guidance. Nice to see them doing this work for microservices as well.
+
+Link seventeen. "The W3C has overruled members' objections and will publish its DRM for videos / Boing Boing"
+
+A few years ago it felt like our industry had pushed DRM back a bit and it was receding. In music DRM was all but gone after Apple forced the industry there. Now with the move to streaming music everything is DRM blocked again. The role of the W3C with DRM is a sticky one, but this doesn't look very good.
+
+That's the end of Links.
+
+Now, the Promotion section.
+
+Internet Archive is a non-profit library of millions of free books, movies, software, music, websites, and more. I have been a supporter of the Internet Archive for many years and I think their mission is fabulous! The web is a major part of our culture and it the content that we put on it is sadly ephemeral. The Internet Archive is working hard to capture that information and keep it for history. Donate to Internet Archive today!
+
+That's the end of Promotion.
+
+Now, the Highlighted iOS App section.
+
+Better by Ind.ie
+
+by Ind.ie
+
+Better is a web privacy tool for Safari on iPhone, iPad, and Mac. It protects you from tracking and behavioural advertising on the web by enforcing the principles of the Ethical Design Manifesto (ind.ie/ethical-design).
+
+The web has (sadly) evolved to a place that you need to defend yourself against malicious and predatory activity. These days you would never use email without spam filters and blockers, truthfully the same is true for the web. I can’t recommend using a blocker enough, and if you are using a free ad blocker you are being duped. I like Better for it’s great design, built by an indie developer team and no malicious master plan. Ethics for the win!
+
+4 dollars and 99 cents 4.5/5 stars
+
+That's the end of Highlighted iOS App.
+
+Now, the Microblog updates section.
+
+- It was great to see so many friendly new and familiar faces at #minnedemo tonight! I love our tech community!
+- Look up!
+- minnedemo
+- Excited for another great #minnedemo tonight!
+- Love my presenter page on the new @minnestar website!
+- Signing off from the twenty seventeen Winnipeg Folk Festival! Will be back!
+- Peter Yarrow leading a workshop and the crowd in a rendition of Blowin’ in the Wind. I’ll take that for my finale!
+- Richard Inman on Little Stage in the Woods. Winnipeg Folk Festival. Great!
+- Peter Yarrow: “I changed the ending of Puff the Magic Dragon. You want to know why? … Cause I can!” Puff doesn’t die anymore.
+- Peter Yarrow blew us away. Playing the family tent, pure folk music. A high point of the Winnipeg Folk Festival. Legend.
+- Parachute at Winnipeg Folk Festival family area.
+- Peter Yarrow called all the kids on stage to sing Puff the Magic Dragon with him. Mazie and Tyler to his right. So great!
+- Awesome to see Peter Yarrow, of Peter, Paul and Mary, playing at family tent!
+- This giant sandpit / beach area is a great idea for Winnipeg Folk Festival kids area.
+- Kids made finger puppets at the Winnipeg Folk Festival kids tent.
+- My Mom has been embroidering on this Folk Fest chair for over a decade. She adds new things every year she comes.
+- What reward is on my ankles that makes this fly risk his life repeatedly to obtain? #camping
+
+That's the end of Microblog updates.
+
+Thank you for subscribing to the Weekly Thing! If you know of people that would like the Weekly Thing please forward it along!
+
+That brings us to the end of the Weekly Thing, issue 10. Thanks for listening, and I'll see you next time.

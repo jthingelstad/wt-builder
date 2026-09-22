@@ -1,0 +1,154 @@
+The Weekly Thing, issue 86. Dec 29, twenty eighteen. Published December 29, twenty eighteen. By Jamie Thingelstad. In this issue: Hyperlink to the Stream, government blocking on Twitter, Yoda of Silicon Valley, Facebook-free business, circuit breakers or retries, must-have iOS apps.
+
+Welcome to the final Weekly Thing of twenty eighteen! We had a great Christmas. One of my favorite traditions is each family member getting a project that we do over Christmas break. The kids each got big Lego projects: a Ferris Wheel, an Old Fishing Store. Tammy got an Earth Puzzle that was much harder than I expected. I'm assembling a UGears Steam Locomotive! Each person has their work area and gets plenty of time to get their project done.
+
+My Blog Posts
+
+Book: When Breath Becomes Air
+
+I’ve had “When Breath Becomes Air” sitting at our cabin for a while, but decided to pick it up and read it on winter break.
+
+Now, the Featured Links section.
+
+Link one. "From the Hyperlink to the Stream: Hossein Derakshan’s Critique of the Internet in the Age of Social Media - Study Hacks - Cal Newport"
+
+I really like this metaphor and insight. I went back and read the original post that Newport is highlighting as well. The "web" versus "stream" thought deserves further consideration. Organic webs of links feel very much like our brain, very human, even organic. A stream of stuff is very robotic, very mechanical, not human.
+
+Link two. "Can the Government Block Me on Twitter?: twenty eighteen Year in Review | Electronic Frontier Foundation"
+
+I continue to find this topic interesting, and I wish it would be taken a level higher. Why is it okay for government to use a service like Facebook to share information with citizens? Facebook and Twitter require you to create an account and be surveilled. Why is it okay for a government elected by citizens to choose a medium that requires creating an account with a for profit entity and then being surveilled to get information. Email doesn't suffer this problem, and works just fine. And, I don't think a government we elect should be allowed to block us. That takes it to the extreme of requiring surveillance to get the information, and then blocking citizens from even seeing the information.
+
+That's the end of Featured Links.
+
+Now, the My Weekly Photo section.
+
+Christmas figurines at the ready.
+Dec 27, twenty eighteen at 1:58 PM
+Cannon Lake, Minnesota
+
+That's the end of My Weekly Photo.
+
+Now, the Notable Links section.
+
+Link one. "The Yoda of Silicon Valley - The New York Times"
+
+I love that Knuth got such an expansive writeup in the New York Times. He's a pioneer and someone that all of us in the computing field should admire. I have the first three volumes of The Art of Computer Programming. I'll admit I've not read them, but I love that it is titled Art, as that is what programmers should strive to create. Link from my friend Michael Rock.
+
+Link two. "How to Write a Novel With Ulysses, Part I: Organization and the Writing Process | Ulysses Blog"
+
+Interesting insight into how Gemmel organizes his books in Ulysses. Independent of the writing part, just technically authoring and structuring a book must be difficult. This is an interesting model. I have thoughts of someday writing a book, will file this away for reference later.
+
+Link three. "TED Talk on Getting Things Done for Teens - Getting Things Done®"
+
+This talk doesn't actually identify itself as GTD for Teens, but it is given by one of the authors of the book. As a Twin Cities resident I was also surprised that I had no idea there was a TEDxEdina event just a few miles from my house. I also didn’t know that Mark Wallace, one of the GTD for Teens authors and a speaker at this event lived in the Twin Cities! I watched this talk with my teenage daughter and it sort of interested her, but not enough for me to light a shared spark of GTD-ness yet.
+
+Link four. "8 Powerful Evening Habits That Will Prepare You For a Better Tomorrow"
+
+A lot of people write about creating powerful "morning routines". It strikes me an evening routine might be even more important though.
+
+Link five. "Designing resilient systems: Circuit Breakers or Retries? (Part 1)"
+
+A deeper dive into how Hystrix implements the circuit breaker pattern.
+
+Link six. "Istio versus Hystrix"
+
+Good introduction to the circuit breaker design pattern and how to implement it in two different platforms.
+
+Link seven. "Become A Facebook-Free Business – Signal v. Noise"
+
+This is an interesting idea. I wonder if a broader push like this might be successful. Companies could proclaim how they respect your privacy as part of their value proposition.
+
+Link eight. "My Must-Have Mac Apps, twenty eighteen Edition – MacStories"
+
+Great inventory of apps for macOS.
+
+Link nine. "My Must-Have iOS Apps, twenty eighteen Edition – MacStories"
+
+Viticci knows iPad productivity better than anyone else I know. HIs list of apps that he's using is a great place to find new tools. I follow his writing pretty closely and still found three or four new apps in this list.
+
+Link ten. "Timing twenty eighteen.4: Calendar Integration, "Weekend Mode", Project Colors, and More! — Timing Time Management Blog"
+
+I continue to believe that there is hidden insights locked away in our calendars, and software should help us get more from it. Timing has now added calendar integration. I still don't like using Timing or Rescue Time. Knowing that I have software watching me feels creepy, even when it’s software I’m using to watch myself.
+
+Link eleven. "Ethical Hypocrisy and Social Networks – Leah Cunningham – Medium"
+
+My friend Leah Cunningham has decided she's done with Facebook properties, and shares why.
+
+Link twelve. "Away from Keyboard #10: Maria Boland Ploessl found her home in technology"
+
+Fun interview with the ED of Minnestar, Maria Boland Ploessl about minnestar and her transition into parenthood.
+
+That's the end of Notable Links.
+
+Now, the Give Back section.
+
+Let's Encrypt is a free, automated, and open certificate authority, run for the public’s benefit. All connections to web servers should be encrypted! The biggest challenge with encrypting the web historically has been the cost and hassle of getting an SSL certificate. Let's Encrypt has changed that entirely by being a free certificate authority. Let's Encrypt is possibly one of the most important things to happen on the web in recent years. Donate to Let's Encrypt today!
+
+That's the end of Give Back.
+
+Now, more links.
+
+- The Hidden Struggle to Save the Coffee Industry From Disaster medium.com
+It turns out coffee is a giant monoculture, susceptible to many bad things.
+- Python [gets a new governance model [LWN.net]]( lwn.net
+An interesting read to see how the Python language will be governed now that the BDFL has stepped aside.
+- 16 (x4) Books We Read Winter twenty eighteen – Andreessen Horowitz a16z.com
+Expansive book list. I find these fun to browse for inspiration.
+- Minnesota United FC on Twitter: "DING DONG DING DONG SOUND ON … " twitter.com
+I really don't like linking to Twitter, but this video is fun and I can’t find it on the open web. I can’t wait to see games in twenty nineteen at Allianz Field!
+
+That's the end of More Links.
+
+Now, the Microposts section.
+
+Thursday @ 1:21 PM
+
+We all really enjoyed My Neighbor Totoro on Christmas. Great Studio Ghibli film.
+
+Wednesday @ 2:05 PM
+
+We played Photosynthesis for the first time and had a great time. Recommended game with a lot of strategy, but still playable by younger kids.
+
+Monday @ 5:32 PM
+
+Time for traditional Christmas Eve dinner off the grill! First, have to “bottom start” the Big Green Egg to unfreeze the lid! Always leave charcoal in your Egg in the winter!
+
+Sunday @ 8:14 PM
+
+Surprised the kids with a Home Free concert tonight, the last show on their Christmas Tour, at Treasure Island.
+
+Sunday @ 6:03 PM
+
+Went to King’s Bar in Miesville. Burger Flight: Homerun (Ham, Swiss Cheese, Lettuce, Tomato, Mayo), Dugout (Peanut Butter, Lettuce, Mayo), Slider (Fried Egg, American Cheese, Bacon), and Bases Loaded (Bacon, Cheddar Cheese, Swiss Cheese, Pepper Jack, Jalapeños, Sour Cream, Salsa)
+
+Sunday @ 11:54 AM
+
+Tyler’s teaching me to play Pokémon and we figured poker chips work to track damage.
+
+Saturday @ 9:58 PM
+
+One of my favorite places to be.
+
+Saturday @ 9:57 PM
+
+We watched The Christmas Chronicles tonight and really enjoyed it. It would be a great movie for Christmas Eve!
+
+Saturday @ 8:54 AM
+
+We saw Instant Family last night. Fun, family-focused movie.
+
+Friday @ 4:05 PM
+
+I’m going to give Agenda a solid workout to see if it’s a better solution for tracking work related notes and activities. Keep looking for something that works with the way I work, and this might be it.
+
+That's the end of Microposts.
+
+Now, the Fortune section.
+
+You've made it all the way to the end! Here is your fortune for this week.
+
+Someone is speaking well of you.
+
+Thank you for subscribing to the Weekly Thing!
+
+That brings us to the end of the Weekly Thing, issue 86. Thanks for listening, and I'll see you next time.

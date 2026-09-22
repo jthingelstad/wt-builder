@@ -1,0 +1,150 @@
+The Weekly Thing, issue 78. Nov 3, twenty eighteen. Published November 3, twenty eighteen. By Jamie Thingelstad. In this issue: Screens and kids, OmniFocus for the Web, Mac mini overview, iPad Pro overview, voting machines on eBay, logs with Rust, Tesla Model 3 teardown.
+
+Last week the moving train was going and now it has fully left the station and is chugging down the tracks at a good clip! We signed the purchase agreement and have a close date for the new house. We won't be moving until January, but will close in the middle of December. Now job #1 is to sell our current house! Know anyone that wants a great house in South Minneapolis?
+
+The last few weeks have been a challenge for me to keep on top of things. I have a good system and try to keep projects moving along, but some balls have been dropped. If you've emailed me and not got an answer, that is why!
+
+A quick report on the Tesla Model 3 after a few weeks, I still am enamored with it! If you sat down and designed a car, just for me, a market of one, I don't know what you would do different than the Model 3.
+
+Now, the Featured Links section.
+
+Link one. "A Dark Consensus About Screens and Kids Begins to Emerge in Silicon Valley - The New York Times"
+
+This is such a hard issue. I feel very conflicted about it. I used to spend a lot of time on my Apple //c back in the day, but what you could do was so different. Now I find my son sitting on his iPad and in reality all he's doing is watching TV. No brain stimulation.
+
+“I try to tell him somebody wrote code to make you feel this way — I’m trying to help him understand how things are made, the values that are going into things and what people are doing to create that feeling,” Mr. Lilly said. “And he’s like, ‘I just want to spend my 20 bucks to get my Fortnite skins.’”
+
+It is perhaps too nuanced, but I think you have to move beyond just "screen time" and really look at the activity. What is your child doing on the device? Are they programming? Diving into the tarpits of social media disgust? Watching TV mindlessly? Reading a book? Reading the largest encyclopedia in the world? Learning how to build a robot?
+
+That's the end of Featured Links.
+
+Now, the My Weekly Photo section.
+
+Dock reflecting on the cool, still water of fall.
+Oct 27, twenty eighteen at 8:35 AM
+Cannon Lake, Faribault MN
+
+That's the end of My Weekly Photo.
+
+Now, the Notable Links section.
+
+Link one. "Clipboard Shortcuts with Siri"
+
+Cool ideas for manipulating your clipboard with Shortcuts.
+
+Link two. "The five types of mentors you need in your life"
+
+I like this approach to thinking strategically about the kind of advice and feedback you need in different aspects of your life.
+
+Link three. "How We Built OmniFocus for the Web"
+
+Most of this is not all that interesting except for people that are into Omni and their software. However, the part where they talk about building a "headless" version of OmniFocus that runs on the server and handles the API connections from OmniFocus for the Web made me do a double take. I can’t tell if it’s novel and interesting, or downright crazy!
+
+Link four. "Mac mini: The MacStories Overview – MacStories"
+
+The Mac Mini hasn't gotten an update in a very, very long time. This new one looks pretty great. It has a significant number of configuration options. I could easily see this being a great option for many people.
+
+Link five. "The New 12.9- and 11-inch iPad Pros: The MacStories Overview – MacStories"
+
+The new iPad Pro's look amazing. I do the majority of my computing on an 11" iPad Pro at home, and a 12.9" iPad Pro at work. I've already pre-ordered the new more compact iPad Pro for the office, and I’m ready to upgrade at home and am considering going for the larger one as well. The previous 12.9" with it’s large bezel and weight was just too big, but this new one looks very compelling. I’m wondering if I couldn't do with one of these instead of a laptop at home. The fact you can plug a monitor into the USB-C port is pretty compelling as well for photo editing.
+
+Link six. "IBM’s Old Playbook – Stratechery by Ben Thompson"
+
+Some great analysis of IBM's position with Red Hat.
+
+This is the bet: while in the 1990s the complexity of the Internet made it difficult for businesses to go online, providing an opening for IBM to sell solutions, today IBM argues the reduction of cloud computing to three centralized providers makes businesses reluctant to commit to any one of them. IBM is betting it can again provide the solution, combining with Red Hat to build products that will seamlessly bridge private data centers and all of the public clouds.
+
+Thompson has a great take on this.
+
+Link seven. "Don't Be Evil"
+
+A deep dive into the culture and memes of Silicon Valley.
+
+Link eight. "I Bought Used Voting Machines on eBay for 100 dollars Apiece. What I Found Was Alarming | WIRED"
+
+This whole article is concerning. It shouldn't be this easy to get these devices and dissect them for flaws.
+
+If getting voting machines delivered to my door was shockingly easy, getting inside them proved to be simpler still. The tamper-proof screws didn’t work, all the computing equipment was still intact, and the hard drives had not been wiped. The information I found on the drives, including candidates, precincts, and the number of votes cast on the machine, were not encrypted. Worse, the “Property Of” government labels were still attached, meaning someone had sold government property filled with voter information and location data online, at a low cost, with no consequences. It would be the equivalent of buying a surplus police car with the logos still on it.
+
+Eek.
+
+Link nine. "Driven to Distraction – the future of car safety"
+
+Being a very happy owner of the new Tesla Model 3 I read this article with much interest. The comparison of airplane cockpits as they became more autonomous is interesting.
+
+Link ten. "Parsing logs 230x faster with Rust"
+
+This is a fun read walking through a high performance solution and the best way to solve it. The way this references cost is a good example of considerations engineers need to keep in mind in the cloud.
+
+Link eleven. "What Engineers Found When They Tore Apart Tesla's Model 3"
+
+This is an interesting take on the Model 3. They seem to have good points on the body and challenges with assembling that. They were very impressed with the motor.
+
+That's the end of Notable Links.
+
+Now, the Give Back section.
+
+Let's Encrypt is a free, automated, and open certificate authority, run for the public’s benefit. All connections to web servers should be encrypted! The biggest challenge with encrypting the web historically has been the cost and hassle of getting an SSL certificate. Let's Encrypt has changed that entirely by being a free certificate authority. Let's Encrypt is possibly one of the most important things to happen on the web in recent years. Donate to Let's Encrypt today!
+
+That's the end of Give Back.
+
+Now, more links.
+
+- October 21 post-incident analysis | The GitHub Blog blog.github.com
+Detailed and thorough writeup of GitHub's recent production issue.
+- turtle.audio turtle.audio
+What happens when the turtle from logo meets music?
+- Shortcuts 2.1 Brings New Weather and Clock Actions, iCloud Sharing Improvements, and More – MacStories www.macstories.net
+The addition of weather data for Shortcuts is surprisingly nice!
+- Red Hat + IBM: Creating the leading hybrid cloud provider www.redhat.com
+Big move from IBM!
+- All of the Apple logos from the October thirtieth event invites - Album on Imgur imgur.com
+What a cool collection of Apple logo art.
+
+That's the end of More Links.
+
+Now, the Microposts section.
+
+Wednesday @ 6:47 PM
+
+I found my trick-or-treat! Thanks @ajdomie! White Oak Jai Alai IPA – such a great IPA!
+
+Wednesday @ 6:36 PM
+
+Achievement Unlocked: Giving out full-size candy bars for Halloween!
+
+Wednesday @ 6:19 PM
+
+Happy Halloween!
+
+Wednesday @ 4:00 PM
+
+We opened up the sixteenth floor in SPS Tower this week! What an amazing space for our growing team! The Library space, bright colors and fun references in the space are great!
+
+Tuesday @ 8:58 PM
+
+We all got our pumpkins carved!
+
+Sunday @ 10:27 PM
+
+Had a fabulous evening learning and tasting Bourbons, Whiskey, and Scotch with Rich Howard tonight!
+
+Saturday @ 10:51 PM
+
+Awesome campfire tonight.
+
+Friday @ 8:42 PM
+
+The PIXL Magnetic Building System looks really cool. Backed it! Fun to see the Fidget Cube team back at it.
+
+That's the end of Microposts.
+
+Now, the Fortune section.
+
+You've made it all the way to the end! Here is your fortune for this week.
+
+Open confession is good for the soul.
+
+Thank you for subscribing to the Weekly Thing!
+
+That brings us to the end of the Weekly Thing, issue 78. Thanks for listening, and I'll see you next time.

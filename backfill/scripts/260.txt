@@ -1,0 +1,289 @@
+The Weekly Thing, issue 260. Rash, Hashing, Arguably. Published July 1, twenty twenty three. By Jamie Thingelstad. In this issue: privateGPT, Safari 17 Profiles, styling RSS feeds, AI new UI paradigm, Richard Stallman, ChatGPT treating patients, Anti-Meta Fedi Pact, death in 7 gigabytes.
+
+Good morning!
+
+So, how about last weeks email? Wasn't that great. Oh, wait, you didn’t get it? Right. Hmm. It seems I didn’t send it. A lot going on at the moment.
+
+I ran out of time and energy. But here I am, back at it… and since I missed last week the Journal section actually covers two weeks. Look what you made me do.
+
+And here we are in July. For those of you that are new to the Weekly Thing, I take two breaks each year. I don't send the Weekly Thing in July and August. Your inbox will be a little less exciting for the next couple months.
+
+A lot of big stuff happening this summer. And while I don't publish the Weekly Thing, I do still blog. So if you want to head over to www.thingelstad.com I’m sure there will be regular posts. We are heading to Switzerland and Italy for vacation this year. That is going to be epic.
+
+I'll be back with Weekly Thing #261 on September ninth! Going to pull Labor Day into summer break this year.
+
+PS: Summer is also when I tend to make improvements and changes. If you have suggestions or feedback on any part of the Weekly Thing, press reply and send me a note! Cheers!
+
+Now, the Notable section.
+
+Link one. "privateGPT: Interact privately with your documents using the power of GPT"
+
+Want to run your own private LLM on your own data? This repo has all you need, and there is a handy video walkthrough as well.
+
+Link two. "Safari 17 Profiles"
+
+It took me a while to figure out what Tab Groups would be useful for, and then I started using them for projects and found them great. I've started to associate tab groups with OmniFocus projects. Profiles sounds like something I would put to good use right away. I use Safari for all my browsing, and if I could activate a profile possibly tied to a Focus Mode that would be great.
+
+Link three. "Style your RSS feed"
+
+I love RSS so much, but it is confusing to users if you accidentally load an RSS feed and are staring at a bunch of XML in your browser. This styling "how to" is really simple and makes RSS feeds both intelligible, as well as nearly usable standalone without a feed reader.
+
+Link four. "Project management | Seth's Blog"
+
+I like Godin's framing of a "project is a promise". Very good.
+
+Quote.
+The most exciting thing about professional project management is that it trades away excitement for systems thinking and intentional action. We make heroes out of people who show up with the last-minute save, but the real work is in not needing the last minute.
+End quote.
+
+Project management is something we all do. One of the things I like about GTD is the project framework that it is built around. Weekly Reviews are a form of project oversight and assessment.
+
+Link five. "We need more of Richard Stallman, not less"
+
+Stallman wasn't a great leader of the FSF in my view, but he was a great visionary and passionate advocate. I think it would have been better if he would have focused his effort there and let others do the organizational bits. As our world fills ever more with software, the articles assertions of the importance of the Free Software movement are accurate.
+
+Quote.
+The four freedoms and one obligation of free software - The right to use the software at your own discretion - The right to study the software - The right to modify the software - The right to redistribute the software, including with modifications - The obligation to keep those four rights, effectively keeping the software in the commons.
+End quote.
+
+If you are looking for organizations to support here, Creative Commons is a good one.
+
+Link six. "AI: First New UI Paradigm in 60 Years"
+
+Interesting perspective on AI as the primary user interface. It is really interesting to consider how this could change how we engage with computers.
+
+Quote.
+As I mentioned, in command-based interactions, the user issues commands to the computer one at a time, gradually producing the desired result (if the design has sufficient usability to allow people to understand what commands to issue at each step). The computer is fully obedient and does exactly what it’s told. The downside is that low usability often causes users to issue commands that do something different than what the users really want. With the new AI systems, the user no longer tells the computer what to do. Rather, the user tells the computer what outcome they want. Thus, the third UI paradigm, represented by current generative AI, is intent-based outcome specification.
+End quote.
+
+I do find that working with ChatGPT feels so very different, even than previous voice systems that are really command-like. ChatGPT is the first interface where I often find myself saying Please and Thank You.
+
+Link seven. "ANTI-META FEDI PACT"
+
+Apparently the Fediverse is open, well, mostly. I’m a bit divided on this. It is well known I’m no fan of Facebook, but I think that protocols should be open. The Fediverse is a protocol, and I think anyone should be able to use it. Just like SMTP. Now, if node operators don't want to transmit the data? Hmm. That would be similar to an SMTP server deciding it will not accept email from Gmail. Which the host could do. It isn't in the protocol.
+
+Link eight. "I’m an ER doctor. Here’s how I’m already using ChatGPT to help treat patients. | Inflect Health"
+
+Interesting real-world learnings productively using ChatGPT in an ER scenario, but probably not for what you are thinking.
+
+Quote.
+Since this incident, I’ve taken to using ChatGPT to help empathically explain specific medical scenarios to patients and their loved ones. It’s become an invaluable resource for the frequent situations where my ER ward is too busy or short-staffed for explaining complex medical diagnoses in a way that is accurate but easy to understand.
+End quote.
+
+Using ChatGPT as a bridge between the hurried expert Doctor and the family that needs it explained in simpler terms, with more patience. Interesting use cases.
+
+Link nine. "Rash - The Reckless Racket Shell"
+
+I love that there is still broad experimentation in shells. I hadn't heard of Racket before but it is a Lisp language based on Scheme. The wild thing about Rash is that you can mix and match shell operators, pipes, and Racket code completely inline. The demo video is an easy introduction to some of the capabilities. It feels a bit like Rash is to Racket like Emacs is to Lisp. The tool and the language blend in ways that are hard to even distinguish.
+
+Link ten. "My Father’s Death in 7 Gigabytes | WIRED"
+
+The authors Dad, Frank, requested his archive of writing be uploaded to the Internet Archive. I’m a big fan of the Internet Archive.
+
+Quote.
+My father’s last decade was one of relentless downsizing, from apartment to assisted living to nursing home, shedding belongings, throwing away clothes and furniture. And at the end: Two boxes and a tiny green urn. The ultimate zip file. After I parsed and processed and batched his digital legacy, it came to 7,382 files and around 7 gigabytes.
+End quote.
+
+Storing legacy digital content with the Internet Archive is a good strategy. I have work to do to figure out how I’m going to preserve my blog and newsletter archive. I want them to stay online for as long as I can figure out how to do it.
+
+That's the end of Notable.
+
+Now, the Journal section.
+
+Wednesday @ 7:55 PM
+
+Excited for this season’s international “friendly” MNUFC versus FC Kaiserslautern!
+
+Wednesday @ 7:52 PM
+
+Happy Tau Day everyone!
+
+Tuesday @ 9:34 PM
+
+I didn’t realize that Athletic Brewing had so many unique NA beers if you ordered direct. I got my first variety shipment today. The Tropical Sour was great. Will definitely be ordering direct more.
+
+Sunday @ 9:03 PM
+
+Ominous.
+
+Sunday @ 4:12 PM
+
+28 min 39 sec
+
+We grabbed this final family selfie as we were leaving the floor of the Taylor Swift show at 11:21:50 PM.
+
+We had to wind through a fairly long winding walkway, and then luckily they let us back into the stadium so we didn't have to go out into the pouring rain. We also found a merch table!
+
+I looked down at the floor, 28 min 39 sec after the first picture, at 11:50:29 PM.
+
+The tear down crew is fast!
+
+Sunday @ 3:56 PM
+
+Taylor Swift: The Eras Tour
+
+On Saturday afternoon we had big plans for that night. We were going to make dinner for Tammy's folks and visit, but that was it. The night before my brother-in-law Hector had got a last minute ticket to go to the Taylor Swift show. His report was glowing, and Hector has been to a lot of shows. Tammy threw out the idea that we should see about last minute tickets.
+
+At 6:24pm I grabbed four floor tickets (FLOOR A9, ROW 9) on SeatGeek and at 6:29pm Ticketmaster transferred them to my account. We were at Tammy's folks house, and Tayler goes on stage at 7:50pm. We needed to stop at home too.
+
+YOLO!
+
+See the blog post for more photos.
+
+Sunday @ 11:45 AM
+
+Tasty morning waffles for Graduation Party from YOUniverse Foodie Waffles!
+
+Friday @ 11:39 PM
+
+Got to see a living legend tonight — Willie Nelson and Family headlining the Outlaw Music Festival twenty twenty three in Somerset Amphitheater. At 90 he still can bring it. What an amazing musician.
+
+Friday @ 9:00 PM
+
+Robert Plant and Alison Krauss at the Outlaw Music Festival twenty twenty three. Great stuff.
+
+Friday @ 8:10 PM
+
+The decision to not get dinner before this show and get food here, in hindsight, was very consequential.
+
+Friday @ 8:03 PM
+
+Guy gave me his hat while waiting in line for pizza at Somerset Amphitheater. Said he bought it today and it was too big for him. Fit me good. Is this typical in Wisconsin?
+
+Friday @ 7:52 PM
+
+I have never seen such slow and long lines for food at an event. Outlaw Music Festival twenty twenty three, Somerset Amphitheater — food trucks are not fast enough for a massive concert crowd.
+
+Friday @ 7:15 PM
+
+Trampled By Turtles on stage at the Outlaw Music Festival twenty twenty three at Somerset Amphitheater.
+
+Monday @ 9:56 PM
+
+I'm digging this new Alabaster Chess Set from Scali Alabastro that I got for Father's Day. Tyler and I have already played a game on it. I've always wanted a more substantial chess set and this is it.
+
+Monday @ 9:51 PM
+
+Juneteenth
+
+We had a great Juneteenth celebration for TeamSPS today! It was a fun event, with delicious snacks and beverages, ice cream, games, and a raffle. Thanks to these Black-owned businesses for being part of it:
+
+* 3 Leche Kombucha
+* Michael Lavelle Wine
+* Montgomery Brewing
+* The Dripping Root
+* Old Southern Smokehouse
+* Symphony Potato Chips
+* 2 Scoops Ice Cream Eatery
+* Candy with a Twist
+* Tabitha Brown
+
+Sunday @ 10:38 PM
+
+We finished off Father's Day with a movie at home — my pick. I had wanted to watch 14 Peaks: Nothing is Impossible for a while. What an amazing accomplishment by Nims and his team.
+
+Sunday @ 8:01 PM
+
+Happy Fathers Day twenty twenty three!
+
+Sunday @ 3:40 PM
+
+We had a 4.6 miles hike at Lebanon Hills Regional Park today. We took a significant part of the Voyageur trail. The weather was nice, no bugs to worry about. Overall great day to lace up the hiking boots.
+
+Sunday @ 12:42 PM
+
+I decided to get the Leica Q2 out and do some family photos in the front yard. Father's Day was a good enough excuse. Love how these came out.
+
+See the blog post for more photos.
+
+Saturday @ 8:30 PM
+
+Awesome night for MN Aurora FC v Bavarian United. Aurora with a commanding 3-1 lead in 58th minute.
+
+Saturday @ 2:53 PM
+
+I've been collecting ekekonfts.eth " Ŝԝ𝞘ፐc₶" collection on Nifty Ink. I dig these and think the collection is a lot of fun. I want to create a backstory for each one of these characters.
+
+Friday @ 9:03 PM
+
+Bike ride to Lake Harriet Bandshell Music in the Park and ice cream from Bread and Pickle. Summer!
+
+That's the end of the Journal.
+
+Now, the Briefly section.
+
+Link one. "arguably: The best Python CLI library, arguably"
+
+If you are making some Python utilities it is great to have modules like this that give you robust command line functionality for free.
+
+Link two. "Ideas in progress: David O'Hara on interdisciplinary humanities, sustainability, and bees"
+
+Nice interview with professor, and Weekly Thing subscriber, David O'Hara.
+
+Link three. "10 Things I Wish I’d Known Before Fulltime RVing… – Wheeling It"
+
+Filing this away for future reference if that RV thing ever becomes a reality.
+
+Link four. "Damus Zaps versus the App Store"
+
+I feel like Apple got this completely wrong. Zaps in Damus are more like sending micropayments in Venmo. You aren't buying an asset. You're not buying anything. It is a tip.
+
+Link five. "Hashing"
+
+If you are curious how hashing works this is a good explainer.
+
+Link six. "Waterllama: Water tracker app and drink water reminder"
+
+I always need to drink more water but water trackers haven't been very effective for me. They mostly are annoying. This one looks fun, and I’m going to give it a try. Plus the developers are from Ukraine which makes me even happier to give it a go.
+
+Link seven. "Gerty - Your Bitcoin Assistant - LNbits Web Shop"
+
+I have a Blockclock Mini and I love having it on my desk. Gerty is a much smaller and simpler device, with a bunch of additional functions.
+
+Link eight. "Apple adds passkeys to Apple ID, iCloud logins – Six Colors"
+
+I need to learn more about passkeys.
+
+Link nine. "Oh My Git!"
+
+A game to learn Git? Sounds like a great idea. Tyler is exploring git with this right now.
+
+Link ten. "The Reddit Blackout Is Breaking Reddit | WIRED"
+
+It is absolutely wild what is happening at Reddit.
+
+Link eleven. "DeepStateMAP | Map of the war in Ukraine"
+
+This site hosts very detailed maps of the battle lines in Ukraine. I was amazed to see that it even includes detail fortifications so you can see the lines of reinforcement directly.
+
+Link twelve. "Finding agency | Seth's Blog"
+
+Short essay differentiating freedom from agency.
+
+Link thirteen. "ChatGPT prompts: How to optimize for sales, marketing, writing, and more | TechCrunch"
+
+Great example ChatGPT prompts to use in different scenarios. This is worthwhile to build an index to reference for yourself.
+
+Link fourteen. "Electric bikes are the most climate-friendly way to travel - Triangle Blog Blog"
+
+Bikes start with being the most efficient form of human movement, not a big surprise that an electric bike is most emission friendly. Hopefully prices come down fast.
+
+Link fifteen. "Software effort estimation is mostly fake research"
+
+Keep this in mind if you read "research" about estimation.
+
+Link sixteen. "Beeper — All your chats in one app. Yes, really"
+
+I try to use as few chat applications as possible so this app isn't for me. But if you're a multi-platform chat user this might be convenient.
+
+That's the end of Briefly.
+
+Now, the Signature section.
+
+"Weekly Thing #260 / Rash, Hashing, Arguably" is signed…
+
+Fortune
+
+You have a reputation for being thoroughly reliable and trustworthy.
+
+That brings us to the end of the Weekly Thing, issue 260. Thanks for listening, and I'll see you next time.

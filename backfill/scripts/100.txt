@@ -1,0 +1,180 @@
+The Weekly Thing, issue 100. Apr 6, twenty nineteen. Published April 6, twenty nineteen. By Jamie Thingelstad. In this issue: Mark Zuckerberg internet rules, attention management, Tesla autopilot stickers, Apple News+ magazines, AirPower canceled, servers in Iceland.
+
+Welcome to Issue #100 of the Weekly Thing! I'm a little surprised that I've been putting this out every week now for one hundred weeks. I wasn't sure at all where this would go when I started it. I had some ideas of putting some new elements in and streamlining some things but just haven't had the time to make any of that happen. Maybe we'll wait for the two year anniversary. We'll see!
+
+We've been exploring Texas this week. The links are a little lighter and you'll see there are a lot of pictures in the bottom section. If the pictures aren't your think, it'll be pretty short this week. We've been to Waco, Austin, and I’m writing this from San Antonio. Texas has been a lot of fun, although the weather has been a bit colder than usual for the first half of our time here.
+
+TTFN! Have a great weekend and enjoy some fun links this week!
+
+Now, the Featured Links section.
+
+Link one. "Mark Zuckerberg: The Internet needs new rules. Let’s start in these four areas. - The Washington Post"
+
+I’m far too cynical of Facebook to believe that this is real. It strikes me that Facebook has realized something will happen, so they should get on the right side of the fence before the decision comes. I’m guessing there is also an unfortunate byproduct here that more regulation will actually help the established players, and make it harder for challengers to Facebook to grow to anything meaningful. If you got your advantage under a different set of rules, it may help you forever.
+
+Link two. "Productivity Isn’t About Time Management. It’s About Attention Management. - The New York Times"
+
+This is what I like about GTD. GTD isn't about getting more done, it’s about having attention and space to focus on what is present at the time.
+
+That's the end of Featured Links.
+
+Now, the My Weekly Photo section.
+
+Antique green Jeep at Magnolia Silos.
+Apr 1, twenty nineteen at 5:20 PM
+Magnolia Silos, 601 Webster Ave, Waco TX 76706
+
+That's the end of My Weekly Photo.
+
+Now, the Notable Links section.
+
+Link one. "Small stickers on the ground trick Tesla autopilot into steering into opposing traffic lane / Boing Boing"
+
+Okay, I really would hope that nobody would do this but it does make you wonder about what malicious attacks could be put against self-driving cars.
+
+Link two. "Apple News+ could lead to a massive value destruction for the magazine industry"
+
+This is an interesting way of looking at the value that Apple News+ will create, or as the author suggests, destroy. I’m guessing a similar analysis of the music industry would have looked similar before new technology.
+
+Link three. "Low-tech Magazine: The Printed Website | LOW←TECH MAGAZINE"
+
+I dig that this website runs on solar power and goes offline if it is out of battery. Makes sense that they would go for a battery-safe alternative, paper.
+
+Link four. "Your boss is 90% of the 'Employee Experience'​. Nothing else comes close. | LinkedIn"
+
+Funny anecdotes here but mostly just something that I agree is absolutely true.
+
+But there's that other 90% that keeps nagging me. The part that simply will not change unless corporations do some dramatic work to focus on the major element in employee experience. Your boss is your employee experience. I am not alone in this assertion. Researchers in organizational development find this to be true.
+
+Important for everyone in organizations to consider.
+
+Link five. "The Eight Best Ulysses Superpowers – The Sweet Setup"
+
+I keep flip flopping between iA Writer and Ulysses. I like the "bare" experience that iA Writer provides, but Ulysses has some amazing capabilities.
+
+Link six. "Why I Replaced Disqus and You Should Too - victorzhou.com"
+
+I’m using Commento on my Link Blog because it aligns with my view on privacy. It’s great to see it’s also lightweight and fast.
+
+Link seven. "Why we moved our servers to Iceland · Simple Analytics"
+
+Surveillance pushing data to other countries.
+
+Although, Iceland is somewhat following the laws of the European Economic Area, it has its own approach to privacy. For example, the Icelandic Data Protection Act encourages anonymity of user data. ISPs and content hosts are not held legally liable for the content that they host or transmit. According to Icelandic law, its not the domain name provider, but the registrant of an .is domain name that is responsible for ensuring the use of the domain is within the limits of the law (ISNIC). The government does not place any restrictions on anonymous communication and no registration is required when purchasing a SIM card.
+
+Iceland has been making strides to be a data haven for digital rights. I do wonder how they can have enough bandwidth for serious use though, given they are a remote island in a very difficult climate.
+
+Link eight. "Apple cancels AirPower product, citing inability to meet its high standards for hardware | TechCrunch"
+
+Seems like there was at least some “magical thinking” involved with this planned product, and surprising cancelation of it when it was referenced just a couple weeks prior in the release of another new product.
+
+That's the end of Notable Links.
+
+Now, the Give Back section.
+
+Let's Encrypt is a free, automated, and open certificate authority, run for the public’s benefit. All connections to web servers should be encrypted! The biggest challenge with encrypting the web historically has been the cost and hassle of getting an SSL certificate. Let's Encrypt has changed that entirely by being a free certificate authority. Let's Encrypt is possibly one of the most important things to happen on the web in recent years. Donate to Let's Encrypt today!
+
+That's the end of Give Back.
+
+Now, more links.
+
+- bsed: Simple SQL-like syntax on top of Perl text processing. github.com
+Kind of weird. Stream editor that allows SQL-like operations. Huh.
+- The one-salary experiment, ten years in iwantmyname.com
+I've never heard of a company doing this. Pretty interesting experiment.
+- Leica SL: A Love Story – On my Om om.co
+I have a growing desire for a Leica digital.
+- Apple Card Doesn't Need to Be Revolutionary to Be a Hit www.tomsguide.com
+More thoughts on the new Apple Card.
+- Editor.js editorjs.io
+If you need a web based editor, this looks very solid and extensible.
+- These stunning drone photos really put humanity in its place - The Verge www.theverge.com
+Amazing photography.
+- Facebook: Old posts by Mark Zuckerberg have disappeared - Business Insider www.businessinsider.com
+The really surprising thing here is that Facebook ever deletes anything. I didn’t think they did. Huh.
+- World Map of World Religions - Big Think bigthink.com
+Very cool way to look at this data.
+
+That's the end of More Links.
+
+Now, the Microposts section.
+
+Thursday @ 7:49 PM
+
+I had no idea about the San Antonio River Walk and was blown away exploring it today. A great setting to walk, explore, and relax.
+
+Thursday @ 7:43 PM
+
+We had a good time learning and exploring The Alamo today. So much history!
+
+Wednesday @ 9:47 PM
+
+Tyler and I got to throw knives and axes today!
+
+Wednesday @ 9:42 PM
+
+A trip to Austin, TX seems like it should have live music. We saw Bob Mould play at the Mohawk tonight. Great show and cool venue!
+
+Wednesday @ 9:38 PM
+
+Franklin BBQ was amazing today. The brisket was the best I’ve ever had by a bunch. The ribs were delicious. The pulled pork was good. Also tried the Turkey special which was tasty.
+
+Wednesday @ 8:40 AM
+
+Full fanboy mode waiting in line at Franklin BBQ! Brisket, ribs, and sausage on the way. Couple of hours waiting in line.
+
+Tuesday @ 2:45 PM
+
+Lick Honest Ice Cream is todays Vacation Ice Cream stop! Delicious! Some of us may have even got a second cone.
+
+Tuesday @ 2:42 PM
+
+We had a fun time seeing Austin on 2-wheels with Your Biker Gang today! Super cool electric bikes too!
+
+Monday @ 8:57 PM
+
+We attempted the “Incoming Transmission” room at Perplexium in Austin. It was a really unique puzzle room. A lot of fun, but proved too difficult for us today.
+
+Monday @ 8:52 PM
+
+Final piece of “Magnolia Day” in Waco was the Brazos Tours “Fixer Upper Tour of Waco”. We visited the 3 Little Pigs House (S3E12), with a stop inside. We also went met Jimmy Don, who does the iron work for Fixer Upper.
+
+Monday @ 8:42 PM
+
+We continued “Magnolia Day” in Waco with a visit to the Magnolia Silos. Went in the morning and in the afternoon.
+
+Monday @ 8:32 PM
+
+We started “Magnolia Day” in Waco with an early breakfast at Magnolia Table. Good food, and a lot of it.
+
+Sunday @ 4:23 PM
+
+Heritage Creamery was today’s Vacation Ice Cream stop. The Salted Caramel was very good, and the homemade waffle cones were amazing!
+
+Sunday @ 4:19 PM
+
+The snakes at Cameron Park Zoo Cameron Park Zoo in Waco was great. So many snakes! I had no idea there were dozens of types of Rattle Snakes!
+
+Sunday @ 4:13 PM
+
+We had a great morning at the Cameron Park Zoo in Waco this morning. Impressive natural settings for the animals.
+
+Saturday @ 11:43 AM
+
+Departing for Texas Spring Break! Visiting Austin, San Antonio, and Waco.
+
+Friday @ 7:09 PM
+
+Great night celebrating with #TeamSPS Little Falls at their SPS Social!
+
+That's the end of Microposts.
+
+Now, the Fortune section.
+
+You've made it all the way to the end! Here is your fortune for this week.
+
+You will soon forget this.
+
+Thank you for subscribing to the Weekly Thing!
+
+That brings us to the end of the Weekly Thing, issue 100. Thanks for listening, and I'll see you next time.

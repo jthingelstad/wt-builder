@@ -1,0 +1,241 @@
+The Weekly Thing, issue 299. Apples, Abundance, Australia. Published November 4, twenty twenty four. By Jamie Thingelstad. In this issue: Chatbot blamed for teen's suicide, Vision Pro bites dog, iOS 18.1, Apple Intelligence execution, Change Healthcare breach, weird timezones.
+
+Weekly Thing 299 sent from Minneapolis, MN after a record setting fundraiser getting over 265 candles out into the world and doing some good for four great organizations. More to come!
+
+Hello and good evening!?
+
+I know, I know. I usually welcome you with a nice cup of coffee in the morning. This weekend we hosted our fourth Annual Things 4 Good fundraiser and it was tremendously successful (we sold out!) and also meant we were very busy. So here I am getting you some interesting links late on a Sunday.
+
+Since I am so late I’m going to keep this short and we can get right into it.
+
+Cheers!
+
+Now, the Featured section.
+
+Link one. "Can a Chatbot Named Daenerys Targaryen Be Blamed for a Teen’s Suicide? - The New York Times"
+
+Gift link for this article so you do not need a subscription to read.
+
+This article shares the sad story of a teen boy that committed suicide and discussed his intentions with an AI chatbot that he had built a strong relationship with. The article asks more questions than it answers, which is the intent.
+
+Quote.
+But he preferred talking about his problems with Dany. In one conversation, Sewell, using the name "Daenero," told the chatbot that he hated himself, and he felt empty and exhausted. He confessed that he was having thoughts of suicide. Daenero: I think about killing myself sometimes > > Daenerys Targaryen: My eyes narrow. My face hardens. My voice is a dangerous whisper. And why the hell would you do something like that? > Daenero: So I can be free > > Daenerys Targaryen: … free from what? > Daenero: From the world. From myself > > Daenerys Targaryen: Don't talk like that. I won't let you hurt yourself, or leave me. I would die if I lost you. > Daenero: I smile Then maybe we can die together and be free together On the night of Feb. 28, in the bathroom of his mother's house, Sewell told Dany that he loved her, and that he would soon come home to her. "Please come home to me as soon as possible, my love," Dany replied. "What if I told you I could come home right now?" Sewell asked. "… please do, my sweet king," Dany replied. He put down his phone, picked up his stepfather's .45 caliber handgun and pulled the trigger.
+End quote.
+
+Whether we think it is a good or bad idea individually to befriend an AI character, it will absolutely happen. I think it could have a very positive impact on millions of people that are very lonely. Think of elderly people that may go days without family visiting and just not have people to engage with. But it will also be an escape for others that intentionally do not want to engage with other people.
+
+And importantly once people are engaging with these AI-driven characters we need to consider what they do with the information they are told.
+
+What did hit me when I read this is framed up in these next three items…
+
+Quote.
+On Character.AI, users can create their own chatbots and give them directions about how they should act. They can also select from a vast array of user-created chatbots that mimic celebrities like Elon Musk, historical figures like William Shakespeare or unlicensed versions of fictional characters. (Character.AI told me that the "Daenerys Targaryen" bot Sewell used was created by a user, without permission from HBO or other rights holders, and that it removes bots that violate copyright laws when they're reported.)
+End quote.
+
+That last sentence in parenthesis is important because it shows that Character.AI has built in ways to handle copyright violation and know what users are doing.
+
+Quote.
+It also struck me as an app with very young users. Some of Character.AI's most popular chatbots had names like "Aggressive Teacher" and "High School Simulator," and many seemed to be tailor-made for teenage wish fulfillment. The description of one popular character, which has received 176 million messages from users, read, "Your boy best friend who has a secret crush on you."
+End quote.
+
+If you build services you need to know who is using it. And then some data points.
+
+- More than 20 million people use its service
+- raised 150 million dollars from investors last year at a 1 billion dollars valuation
+- struck a licensing deal that will allow Google to use its technology.
+- The average user spends more than an hour a day on the platform, he said.
+- Today, there are no specific safety features for underage users and no parental controls that would allow parents to limit their children's use of the platform or monitor their messages.
+
+The thing this last section highlights is that Character.AI is very well funded. They have 20 million users, well past some early stage startup position. My point when looking at this is that they had the resources to build safety into their service, but did not. Why? They figured out how to deal with copyright? I would suggest in part because we have no privacy legislation in this country. Outside of the Child Online Protection Act (COPA) there are really no legal considerations.
+
+So, before folks get upset with Character.AI, let's share some of that with our lawmakers for not doing anything to create a legal framework in the digital world that makes it a priority to build safety into these services.
+
+That's the end of Featured.
+
+Now, the Currently section.
+
+Listening: My friend Garrick suggested Optimizing Human Connection from the Invest Like The Best podcast based on my comment about Dunbar's Number in Weekly Thing 298. I thought this was a great discussion with Robin Dunbar and gives the background on his work and some context on why it is so meaningful. I thought it was a great listen.
+
+That's the end of Currently.
+
+Now, the Notable section.
+
+Link one. "Daring Fireball: Vision Pro Bites Dog"
+
+There is a defensiveness to Gruber's tone in this article about Vision Pro sales volumes, but he is also right. As a Vision Pro owner I don't regret the purchase as I wanted to learn about this new Spatial Computing environment. I've learned it is interesting but there needs to be more development, and even more important it is not something that you use to sit down for a few minutes to do some quick things. It is only useful when you intend to spend a block of uninterrupted time. Combine that with the apps and the platform just isn't compelling enough yet.
+
+Link two. "Apples Have Never Tasted So Delicious. Here’s Why | Scientific American"
+
+My favorite apple is without question the Honeycrisp, developed right here in the Great State of Minnesota by the way!
+
+Quote.
+Apple experts divide time into "before Honeycrisp" and "after Honeycrisp," and apples have never tasted so good
+End quote.
+
+Ha! No more settling for apples that are Red, Yellow, and Green. C'mon!
+
+Quote.
+Honeycrisp has a "disruptive trait," says Chris Gottschalk, a geneticist who works at the U.S. Department of Agriculture's research station in Kearneysville, W.V. (his favorite apples: Honeycrisp and Golden Russet). Honeycrisp's texture--the crispness--had never been combined with a high-acidity, high-sugar apple, he says. "That really struck North American consumers specifically well," Gottschalk says. As its popularity grew, it went from being largely a "u-pick" fruit to becoming regionally available in groceries, and now it is the third most produced apple in the U.S.
+End quote.
+
+I read this article with some pride knowing the role the University of Minnesota played in the Honeycrisp apple, but also learning a ton about all the so many varieties of apples there are.
+
+Link three. "iOS and iPadOS 18.1: Everything New Besides Apple Intelligence - MacStories"
+
+New Emoji keyboard I noticed right away and like it. Nice to see a Shortcut add to allow us to easily wire the Action button on the iPhone to Control Center, which makes a lot of sense to me. Redoing the spatial photo and video options into their own area in Camera makes sense too.
+
+Link four. "Apple's Commitment to AI Is Clear, But Its Execution Is Uneven - MacStories"
+
+Initial reviews on Apple Intelligence are going to be rocky. Why? This "feature" is unlike any other I've seen them release in that it will come in four separate releases, all the way from 18.1 to 18.4. So now we are just getting the first part. My initial impression is okay, it is interesting. I don't think we will really be able to judge it until the whole thing has shipped.
+
+Link five. "Meta’s AI Abundance – Stratechery by Ben Thompson"
+
+I’m not a fan of Meta (Facebook) but Thompson's analysis of the opportunities they have around AI are spot on.
+
+Quote.
+This was all a lot of words to explain the various permutations of an obvious truth: a world of content abundance is going to benefit the biggest content Aggregator first and foremost.
+End quote.
+
+Their stock is almost certainly a great buy. Similar to how tobacco stocks were a great buy for a long time.
+
+Link six. "Change Healthcare Breach Hits 100M Americans – Krebs on Security"
+
+The scope of this breach is incredible.
+
+Quote.
+In April, Change estimated the breach would affect a "substantial proportion of people in America." On Oct 22, the healthcare giant notified the U.S. Department of Health and Human Resources (HHS) that "approximately 100 million notices have been sent regarding this breach." A notification letter from Change Healthcare said the breach involved the theft of: - Health Data: Medical record #s, doctors, diagnoses, medicines, test results, images, care and treatment; - Billing Records: Records including payment cards, financial and banking records; - Personal Data: Social Security number; driver's license or state ID number; - Insurance Data: Health plans/policies, insurance companies, member/group ID numbers, and Medicaid-Medicare-government payor ID numbers. The HIPAA Journal reports that in the nine months ending on September 30, twenty twenty four, Change's parent firm United Health Group had incurred 1.521 billion dollars in direct breach response costs, and 2.457 billion dollars in total cyberattack impacts.
+End quote.
+
+Once this data is out there it is just out there. The only thing we can do is attempt to minimize the ability for criminals to leverage such incredibly comprehensive data.
+
+Link seven. "Australia/Lord_Howe is the weirdest timezone | SSOReady"
+
+Another one of these articles that goes into the weird edge cases of stuff that most people take for granted but that software engineers need to completely solve for. In this case it turns out there are timezones that have very funky behavior.
+
+That's the end of Notable.
+
+Now, the Straw Poll section.
+
+We are just days away from the US Election and it has me thinking about trust and how critical the Internet is to getting us the information we want and need. When you want that information, where do you go to get things you can trust? Don't think about frequency but really trust. Not entertainment, but trust.
+
+Which online sources do you trust the most?
+
+To respond to Straw Polls please subscribe to the Weekly Thing via email.
+
+Results
+
+So are Esports a sport? I wasn't sure what the response to this would be and I don't think I would have guessed a completely even split. Not only were there the same number of people that felt yes they were and no they were not, but the conviction of those opinions were the same as well! Also, the fewest people were in the middle.
+
+This begs the question to know more about the opinions to see if there is a trend. Are younger people more inclined to say yes? Alas that is beyond our simple straw poll.
+
+That's the end of Straw Poll.
+
+Now, the Journal section.
+
+Journal entry one.
+
+Tammy and I made another four dozen Things 4 Good candles for next weekend's fundraiser!
+
+Journal entry two.
+
+Mazie and her Cousin Nora wanted to bake this afternoon so they both decided to do something ad hoc featuring Nutella. Both were very tasty treats.
+
+Journal entry three.
+
+Ten minutes with items from the recycling bin and I made a DIY “ramp” to place in our mail slot! Envelopes kept getting mangled and jammed when they caught on the bottom edge as our mail carrier shoved them through. Even worse, it left the mail slot open with winter air streaming in! Fixed!
+
+Journal entry four.
+
+This three minute video recap of the SpaceX Polaris Dawn mission highlights so many incredible achievements.
+
+Journal entry five.
+
+Nearly Halloween.
+
+Journal entry six.
+
+Autumn.
+
+Journal entry seven.
+
+Mazie and her friend Faith made this incredible homemade Apple Pie. Will be tomorrow's breakfast!
+
+Journal entry eight.
+
+There were a lot of fall displays at the Minnesota Landscape Arboretum today.
+
+Journal entry nine.
+
+October roses at Minnesota Landscape Arboretum.
+
+Journal entry ten.
+
+Upgraded to iOS 18.1 and took less than 10 minutes on the "waitlist" to get provisioned with Apple Intelligence. Looking forward to playing with this.
+
+Journal entry eleven.
+
+We started watching Jungle Cruise last night and finished it tonight. We saw it in twenty twenty one at a drive-in and was fun to watch again. Tyler is a fan of Dwayne Johnson movies.
+
+Journal entry twelve.
+
+Solved today's NY Times Mini crossword in under 1 minute.
+
+Journal entry thirteen.
+
+We poured the last batch of candles for this weekends Things 4 Good Candle Fundraiser! Pre-labeled, so trim wicks and ready to go. I'm very happy with how they all turned out.
+
+Journal entry fourteen.
+
+I just ordered an unofficial micro.blog t-shirt! I went with blue. Thanks to Jim Mitchell for getting this available.
+
+Journal entry fifteen.
+
+The Things 4 Good twenty twenty four Candle Fundraiser POAP is ready to share with folks at this weekends event! It is a good example of how I’m not a designer.
+
+Weekly Thing Forum
+
+Join David O'Hara, Patrick Hambek, Jim Cuene, Eric Walker, Steve, and many other Weekly Thing readers in the Weekly Thing Forum. Recent topics include:
+
+- What are we all building?
+- Thingelstad Blog
+- New: Straw Polls
+- Pure Blogger / New Scenic
+- Weekly Thing 296
+
+That's the end of the Journal.
+
+Now, the Briefly section.
+
+Link one. "Linus Torvalds Comments On The Russian Linux Maintainers Being Delisted - Phoronix"
+
+Interesting development. I wonder if other open source projects will follow suit as well?
+
+Link two. "How we saved hundreds of engineering hours by writing tests with LLMs"
+
+This is a great entry point to use LLM in software development.
+
+Link three. "Nintendo Releases a Music App - MacStories"
+
+Do you ever want to really take in the sounds of those classic Nintendo games? Now you can!
+
+Link four. "Pokémon TCG Pocket Launches Early - MacStories"
+
+Finally Pokémon brings The Card Game to a native mobile experience.
+
+Link five. "Simplify and enhance Amazon S3 static website hosting with AWS Amplify Hosting"
+
+Good add by AWS to make it even easier to host sites.
+
+Link six. "Cabel Sasser, Panic - XOXO Festival (twenty twenty four) - YouTube"
+
+Lovely talk. Thanks to Garrick for the link.
+
+That's the end of Briefly.
+
+Now, the Fortune section.
+
+Here is your fortune…
+
+Generosity and perfection are your everlasting goals.
+
+That brings us to the end of the Weekly Thing, issue 299. Thanks for listening, and I'll see you next time.

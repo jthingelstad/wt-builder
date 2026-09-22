@@ -1,0 +1,263 @@
+The Weekly Thing, issue 202. Goalies, Curves, Spiders. Published November 6, twenty twenty one. By Jamie Thingelstad. In this issue: Twenty-year truck driver, crypto cities, do-nothing scripting, Netflix Games Android, MacBook Pro twenty twenty one review, Tesla live camera streaming.
+
+Let's talk briefly about, err Facebook. I had flagged a handful of articles about the name change and Zuckerberg's demo videos and I couldn't even get past the initial paragraphs. Why? Call my cynical, but I think this is just a massive head fake to get away from all of the negative news about the real impacts Facebook has on people and society, and how they have evaded accountability for years. I’m sure that Zuckerberg is into the metaverse, he did buy Oculus however long ago. But it feels like this whole strategy was a "break glass in case of emergency" situation. I’m not reading or sharing those articles because I think it’s just falling prey to their head fake. I suspect that we'll see a CEO of Facebook hired. I don't think that will happen soon, but the structure is now in place.
+
+Now onto other links that are way more interesting.
+
+Now, the Featured section.
+
+Link one. "I’m A Twenty Year Truck Driver, I Will Tell You Why America’s "Shipping Crisis" Will Not End by Ryan Johnson | Medium"
+
+Great first-hand account of the dynamics going on in ports and shipping yards causing massive backups in supply chains.
+
+Quote.
+From personal experience, what used to take me 20–30 minutes to pick up at a warehouse can now take three to four hours. This slowdown is warehouse management related: very few warehouses are open 24 hours, and even if they are, many are so short staffed it doesn’t make much difference, they are so far behind schedule. It means that as a freight driver, I cannot pick up as much freight in a day as I used to, and since I can’t get as much freight on my truck, the whole supply chain is backed up. Freight simply isn’t moving.
+End quote.
+
+His conclusion is pretty bleak.
+
+Quote.
+My prediction is that nothing is going to change and the shipping crisis is only going to get worse. Nobody in the supply chain wants to pay to solve the problem. They literally just won’t pay to solve the problem. At the point we are at now, things are so backed up that the backups THEMSELVES are causing container companies, ports, warehouses, and trucking companies to charge massive rate increases for doing literally NOTHING.
+End quote.
+
+It is hard to see how the incentives could be that misaligned, but it’s certainly possible.
+
+Link two. "Crypto Cities"
+
+I enjoy that Buterin chooses to write long form blog posts and eschews little quips on social media. He thinks deeply about these topics and his perspective is always enlightening. Here he dives into Crypto Cities and goes through some specific experiments that cities could try.
+
+Quote.
+I would argue that there are two distinct categories of blockchain ideas that make sense: 1. Using blockchains to create more trusted, transparent and verifiable versions of existing processes. 2. Using blockchains to implement new and experimental forms of ownership for land and other scarce assets, as well as new and experimental forms of democratic governance.
+End quote.
+
+He dives into City Coins with more depth and the way he frames it up seems like a pretty interesting idea. The parallel to home ownership, and lowering the barriers to participate in the equity of the community you are part of, all seem compelling. He also shares some cautions as well.
+
+That's the end of Featured.
+
+Now, the Currently section.
+
+Buying: Have grabbed a couple of the Angry Bunny Club NFTs so I can get a better sense how these work, what the community is like, how royalties work, voting, etc.
+
+That's the end of Currently.
+
+Now, the Notable section.
+
+Link one. "Inside the mind of Kraken netminder Chris Driedger"
+
+Being a goalie in hockey or soccer is a position that I assume must require more emotional fortitude than the average player. I found the snippets in this article interesting, and particularly this line.
+
+Quote.
+Driedger does not aim to stay focused on what is happening in the game. Instead, he tries to keep his mind completely clear throughout. No thoughts, no distractions.
+End quote.
+
+I don't know if Driedger practices meditation, but that sure sounds like a meditative state. I also liked that he refers to routines, not superstitions, in effect because he sees routines being more resilient to unknowns.
+
+Link two. "Apple: Ten Years Forward. by Jean-Louis Gassée | by Jean-Louis Gassée | Oct, twenty twenty one | Monday Note"
+
+When you are one of the biggest market cap companies in the world where do you grow for growth. You need big opportunities, and I agree with Gassée.
+
+Quote.
+We now turn to what I think holds substantial potential without a need for new use cases, science-fiction AI feats, or bitter fights in lower-margin markets: Healthcare.
+End quote.
+
+I think health and wellness is where Apple sees a big enough opportunity, with slow to no innovation, and financial structures that make little sense.
+
+Link three. "Do-nothing scripting: the key to gradual automation – Dan Slimmon"
+
+Cool idea to make even a simple written SOP into a piece of code. Why? You reduce the friction required if someone in the future wants to take a component of the SOP and write automation for it.
+
+Link four. "Curves and Surfaces – Bartosz Ciechanowski"
+
+Crazy detailed and incredibly interesting article showing how very elegant shapes are modeled with math. The article is fun just to look at the figures and move the interactive sliders around.
+
+Link five. "Netflix Games starts global rollout on Android, with iOS ‘on the way’ - The Verge"
+
+Netflix getting into games is a pretty obvious expansion for them. I'll be curious though if they stick with original titles like this or if they extend into existing game titles.
+
+Link six. "Guardo.io — All of yours get back to stored in one place"
+
+Another bookmarking service. Some interesting features. I still use Pinboard and find Raindrop very interesting, but my workflows are so tied into Pinboard it would be a lot of work to switch.
+
+Link seven. "Tesla owners can now remotely stream live footage from their car’s cameras - The Verge"
+
+I turned this feature on in my Model 3 and just like that I can see out any of the four cameras. It hasn't been super reliable, but it is a first release. The next feature should be to allow me to view previously recorded Sentry video clips from my phone.
+
+Link eight. "Kingfisher and Wombat: I have been playing around with Townscaper…"
+
+I've been playing with Townscaper a bit too and it is a mesmerizing experience. I hesitate to call it a game. It feels like a form of adult coloring that I can groove with. This comic strip is created from the game.
+
+Link nine. "We’re ready to rip out the beating heart of the disinformation economy"
+
+I was reading this and thinking "Wow, this sounds like what Sleeping GIants was doing." and then I saw the two people doing this were part of the founding of Sleeping Giants. I think this is smart effort, and if done well I suspect it could have real impact. The truth is that the incredibly complex algorithmic advertising platforms online make it nearly impossible for advertisers to know what content their ads are appearing alongside. There are many stories of well known brands being shown next to particularly caustic things. The premise here is to cut the revenue chain by making brands aware of what their content is supporting.
+
+Link ten. "Programmer’s emotions – sidebits"
+
+This seems like a pretty complete view of the emotions that many developers feel as they do their craft.
+
+Link eleven. "Apple MacBook Pro 14 and 16 (twenty twenty one) review: return to form - The Verge"
+
+Great review of these amazing new MacBook Pro's.
+
+Quote.
+Let's start simply: the new MacBook Pros with M1 Pro and M1 Max chips are incredible — the fastest laptops we’ve ever tested in some tasks, with some of the longest battery life we’ve ever seen. Apple’s big bet on moving away from Intel CPUs and AMD GPUs in favor of its own Apple Silicon chips is paying off in meaningful ways, and if you can afford one of these machines, you will be very happy with them. They’re great.
+End quote.
+
+These will go down as epic laptops.
+
+Link twelve. "MetaJob – On my Om"
+
+Om Malik doesn't mince any words on his view of Facebook's situation.
+
+Quote.
+That said, it doesn’t solve the one big hairy problem: young people don’t give a shit about Facebook, no matter what banner they hang outside their headquarters.
+End quote.
+
+This is all a massive head fake on Facebook's part.
+
+Link thirteen. "MLOps-Basics"
+
+Code repo to walk you through the fundamentals of a machine learning pipeline, using a classification problem.
+
+Quote.
+The goal of the series is to understand the basics of MLOps like model building, monitoring, configurations, testing, packaging, deployment, cicd, etc.
+End quote.
+
+Link fourteen. "Catalog"
+
+Interesting approach to selling songs as NFTs.
+
+Quote.
+One of one digital records. Owned by you. Free from platforms. A blank canvas for a new world of music ownership.
+End quote.
+
+The FAQ answers a ton of questions. The NFT itself is mostly a metadata pointer, and the song file is hosted on IPFS which is a great way to do this. Just like any other NFT the song can be resold, and anyone can listen to the song even though only one person owns it. There is no way for the NFT owner to get value from the plays of the song, and Catalog is explicit that "No rights are included", so owning the NFT is simply a form of collecting or being a fan.
+
+The interesting thing would be to take this a step further and enable sharing of royalty, and allow more than a single NFT holder. It is super curious experimentation of a Web3 approach for music. Found via NiftyTable.
+
+That's the end of Notable.
+
+Now, the Journal section.
+
+Thursday @ 2:48 PM
+
+Tom Wujec (Twitter: @tomwujec) gave a great keynote at #TeamSPS Growth Summit twenty twenty two! Technology advancement, innovation acceleration, fast feedback loops with a handful of great mental models to help build the future!
+
+Thursday @ 10:55 AM
+
+It is incredible to be together with so many members of #TeamSPS today for Growth Summit twenty twenty two!
+
+Wednesday @ 8:44 PM
+
+Tammy creates a family yearbook each year. The twenty twenty one took a bit but arrived today and it is awesome. These are family treasures. She always keeps one for each kid shrink wrapped and stored away for them.
+
+Sunday @ 9:47 PM
+
+Punk Rock Candle
+
+When we make candles we measure out all the wax and scent, and then measure again as you pour into the various vessels. There is usually a little bit of wax left in the melting pot on each batch and we usually pour that into a potpourri candle, little bits at a time.
+
+We were making candles recently and I had no jars to fill, but we still had the leftover bits of wax from each batch. We also had a bunch of wood wick trimmings laying around. So I decided to embrace the Punk Rock ethos and make a Punk Rock Candle.
+
+Vessel? I have tinfoil. Wicks? I have these trimmings from other candles. Scent? Whatever. Came out about 8” wide with three 3/4” wood wicks.
+
+I kind of dig it. Burns well too!
+
+Sunday @ 8:56 PM
+
+We just published the Fall twenty twenty one issue of Reading Things! In this issue: This Is Your Mind on Plants, Calvin and Hobbes, Locally Laid, Ghost, Evicted, The Honey Bus, and Nature and Walking.
+
+Sunday @ 8:27 PM
+
+Halloween count of Ring doorbells: 12
+
+Sunday @ 8:18 PM
+
+Jack o’ Lanterns for Halloween twenty twenty one!
+
+Sunday @ 3:48 PM
+
+We had a great time watching the United defeat Sporting KC today 2-1! It was a great last regular season home game. It was only 47 °F and 3 of the 4 of us were woefully underdressed but we still belted out Wonderwall at the end!
+
+Sunday @ 3:41 PM
+
+Lucky wanted to drive today.
+
+Saturday @ 7:40 PM
+
+We stopped in at SI Hobby in downtown Faribault for their grand opening today! Tyler got a few Pokémon card packs. We arrived about 10 minutes after they opened the doors and there was already a good crowd of people there.
+
+Saturday @ 6:20 PM
+
+Time for s’mores!
+
+Saturday @ 6:19 PM
+
+Our first year with the garden was a good success. We learned a lot and had successes and misses. Tammy and Mazie reset everything so we are ready to plant in the spring. We are giving one box just to strawberries.
+
+Saturday @ 4:45 PM
+
+I really dig the clear vinyl of Brandi Carlile’s newest album.
+
+Saturday @ 9:51 AM
+
+The Detritus of Fall.
+
+Friday @ 10:57 PM
+
+Tyler and I had an awesome time at the Dude Perfect twenty twenty one Tour! We got tickets two years ago but it was moved due to COVID-19. The show was great. Funny skits, great tricks. Awesome Father-Son time! Shake Shack for dinner before.
+
+That's the end of the Journal.
+
+Now, the Briefly section.
+
+Link one. "Working on your emotional intelligence? Try these CIO tips | The Enterprisers Project"
+
+Brief tips from seven CIO's, including me, on EQ.
+
+Link two. "SPS Commerce Acquires Genius Central - MarketWatch"
+
+Welcome Genius Central to #TeamSPS!
+
+Link three. "9 Ways to ‘Rewild Your Attention’ | by Clive Thompson | Oct, twenty twenty one | Forge"
+
+Good suggestions to get out of your bubbles and get some random inputs into your regular routine.
+
+Link four. "A new app for books: Epilogue — Manton Reece"
+
+I love the continued innovation that I see in micro.blog!
+
+Link five. "Maurice Parker - Shortcuts for Micro.blog"
+
+I love seeing little "Unix-like" tools like this that do nothing other than bridge services into Shortcuts.
+
+Link six. "Niantic’s Pikmin Bloom is rolling out globally starting today - The Verge"
+
+I've been trying this game out just because I find these games that occur in the real world interesting.
+
+Link seven. "Spiders are much smarter than you think | Ars Technica"
+
+Spiders totally freak me out and this all just makes me even more freaked out.
+
+Link eight. "LaunchBar/Run-Shortcut at master · Ptujec/LaunchBar · GitHub"
+
+I have to imagine that native support for Shortcuts will be in LaunchBar very soon, but in the meantime this will do it.
+
+Link nine. "The Fatiguing Effects of Camera Use in Virtual Meetings: A Within-Person Field Experiment - PsycNET"
+
+We now have proper research that shows that camera use during virtual meetings does indeed fatigue people. I don't think this is an obvious reason to then not use cameras. There is real value conveyed via the video, but there is also a cost to consider.
+
+Link ten. "computer–1 - teenage engineering"
+
+If I was still into building my own PC's, this is the case I would get.
+
+That's the end of Briefly.
+
+Now, the Fortune section.
+
+Here is your fortune…
+
+A vivid and creative mind characterizes you.
+
+Thank you for subscribing to the Weekly Thing!
+
+That brings us to the end of the Weekly Thing, issue 202. Thanks for listening, and I'll see you next time.

@@ -1,0 +1,226 @@
+The Weekly Thing, issue 348. WT348 — Agents as Collaborators. Published May 17, twenty twenty six. By Jamie Thingelstad. In this issue: Mythos kernel exploit on Apple M5, Firefox hardening, curl vulnerability, AI maintenance costs, flow state lament, Claude for Legal, Signal Foundation.
+
+Welcome to the year nine of the Weekly Thing! Thank you all for joining this journey with me. Also, a big shout out to the bunch of new readers from Dense Discovery! I'm a reader and supporter of that great newsletter and it has become a tradition of mine to place a classified ad for the Weekly Thing on the anniversary.
+
+Since this is the first issue for year nine we also have a new non-profit for the Supporting Membership program. The inaugural year we supported Creative Commons. Last year was the Electronic Frontier Foundation.
+
+This year we are supporting the Signal Foundation. I'm a Signal user, and I am really happy that we have a service like Signal. Privacy is so important to me and Signal is at the forefront creating software to make that a reality. I also love that it is backed by a 501c3 non-profit at the same time. Thank you to all the supporting members now and in the future for joining me in support of the Signal Foundation.
+
+Now let's get to the links from the last week!
+
+Now, the Currently section.
+
+Listening: The new Noah Kahan album, The Great Divide. I'm really enjoying it. I don't have all the words memorized yet like the kids do. But I'll know it well enough for when we see him in concert soon.
+
+Watching: Finished watching Season 3 of Shrinking on Apple TV. Tammy and I have really gotten into this show. The characters are great and the story is well done. Looking forward to next season!
+
+Minnehaha Creek rushing towards the Mississippi River just after the Falls.
+
+May 10, twenty twenty six
+Minneapolis, MN
+
+The Weekly Thing Team
+
+I've been publishing the Weekly Thing for nine years and automation is one of the things that has made that possible. I shared a while back how I find content, assemble the issues, and my project structure. Without these well defined workflows there is no way I could continue this project.
+
+The structure I have has worked well but it isn't autonomous. It only runs when I engage with it. It is also brittle and "one way". I can only easily run it one time. Additionally I think I could use some help getting things collected and reviewing the in process writing.
+
+To this end I decided to create my support team for the Weekly Thing!
+
+My starting points were:
+
+- Based on Elixir I know that Discord is a reasonable place for an agent to run.
+- Based on building Thingy I know that my Weekly Thing archive is a robust knowledge base to build off of.
+- Based on sending issues that meander and are just too long sometimes I know an editor would be helpful.
+- Based on my own time crunch that I get into when I'm trying to make a whole issue happen in one Saturday morning I know I could use some help making it more iterative.
+
+This is the genesis of my Workshop and the four agent team that I have now created to assist me.
+
+One thing worth being clear about: I have stated many times that "My words are mine!" and not AI's and that is still the case. I don't have any of these agents working to write content for me. They are my support team. The words are still mine. The only case where an LLM is "writing" or engaging with anyone is Thingy, the librarian for the Weekly Thing, and the Supporting Membership program where I have an explicit preference that that be a different voice than mine.
+
+Here is the broad outline of the multi-agent solution that allows me to have dedicated agents that focus on different aspects of publishing the newsletter each week. This allows me to focus more on writing and commentary!
+
+Each of these agents are operating with a full set of tools that include the entire archive of the Weekly Thing. As a result they are much more tuned to the job at hand than a generic LLM.
+
+- Eddy is my editor who reviews everything that goes in the newsletter. Eddy assembles a working draft of the current issue of the newsletter every day and then does an editorial review of the content. Eddy shares a status and progress indicator with me in Discord.
+- Linky is my researcher who assists with assessing the links I flag to go into the issue. Linky does recon to allow me to filter faster. Linky doesn't ever look at the current issue and is just assisting with curation. Linky shares these in Discord. I've made it so I can reply to Linky with my commentary and it sync's it back to Pinboard. This has allowed me to turn my commentary into a conversation.
+- Marky focuses on the most recent issue of the Weekly Thing that has been published and raising awareness. I've done the least with Marky so far, but the goal is to get the Weekly Thing to new readers.
+- Patty is the supporting membership manager who helps create call to action to bring new members in and raise money for the nonprofit we have selected. Patty operates on the annual cycle of the membership program and is the only agent that will draft content that does appear (properly sectioned) in the Weekly Thing. Patty understands the goal of the program, the organization that we are focused on this year, and what I have been writing about.
+
+I'm focused mostly on Eddy and Linky right now as they are core to my authoring cycle. I can already see that this is going to allow me to focus on the content more, will be a quality of life improvement to get more incremental content and less scrambling at the end of the publishing cycle, as well as a more readable final email to subscribers.
+
+That's the end of Currently.
+
+Now, the Notable section.
+
+Link one. "You Need AI That Reduces Maintenance Costs"
+
+Most folks just think about the cost of turning ideas into software, but the reality is that software lives forever and has a cost to keep it running. I've commented many times that companies put software as an "asset" on their balance sheet. Most technologists know that the reality is sofware is a "liability" that must be maintained and your team is the "asset" that you balance against that. So now with agents making software, if we increase materially the rate of software we are making, that maintenance must be dealt with.
+
+Quote.
+The math only works if the LLM decreases your maintenance costs, and by exactly the inverse of the rate it adds code. If you double your output and your cost of maintaining that output, two times two means you’ve quadrupled your maintenance costs. If you double your output and hold your maintenance costs steady, two times one means you’ve still doubled your maintenance costs.
+End quote.
+
+Provocatively I will say that I think agentic coding will result in software that is easier to maintain. Many bugs aren't resolved because they are just too hard to find and fix. If agents can do that faster, the bugs can get resolved. Plus agents are way better at getting deployments robust. And ultimately agents can babysit software for you. I've been building a new Discord agent and for the entire week I've had Claude Code not just coding it but running it. It is seeing all the logs, errors, anything on stderr and taking action. This is resulting in more maintainable software.
+
+Link two. "First public macOS kernel memory corruption exploit on Apple M5"
+
+First known exploit of Apple's silicon memory protection in the M5 chip.
+
+Quote.
+The latest flagship example is MIE (Memory Integrity Enforcement), Apple's hardware-assisted memory safety system built around ARM's MTE (Memory Tagging Extension). It was introduced as the marquee security feature for the Apple M5 and A19, specifically designed to stop memory corruption exploits, the vulnerability class behind many of the most sophisticated compromises on iOS and macOS. Apple spent five years building it. Probably billions of dollars too. According to their research, MIE disrupts every public exploit chain against modern iOS, including the recently leaked Coruna and Darksword exploit kits.
+End quote.
+
+Mythos played a key role here:
+
+Quote.
+We didn't build the chain alone. Mythos Preview helped identify the bugs and assisted throughout exploit development. Mythos Preview is powerful: once it has learned how to attack a class of problems, it generalizes to nearly any problem in that class. Mythos discovered the bugs quickly because they belong to known bug classes. But MIE is a new best-in-class mitigation, so autonomously bypassing it can be tricky. This is where human expertise comes in. Part of our motivation was to test what's possible when the best models are paired with experts. Landing a kernel memory corruption exploit against the best protections in a week is noteworthy, and says something strong about this pairing.
+End quote.
+
+The bolding is mine. Apple spent five years creating this defensive structure and this small team armed with Mythos found a vulnerability in five days. We can, and probably should, look on the bright side that going forward every company building stuff like this will be using Mythos (or better) on their solutions before they are released. So we should raise the bar materially that solutions are secure.
+
+There has to be a finite number of security vectors. Maybe we end up in a great place after uncovering these issues.
+
+Link three. "For thirty years I programmed with Phish on, every day. In twenty twenty six, the music is out of phase with the work."
+
+It is hard to explain to people outside of software how profound the changes are in the software world right now. This essay from an engineer explaining how the work has changed hits it well.
+
+Quote.
+I’m sad. I don’t get into that state anymore. I don’t know how to be honest about this without sounding like I am complaining about progress, but I can’t pretend that something hasn’t been taken. The flow state I had for thirty years is not part of my workday now. The creativity that lived inside it is not there either. I do useful things. I do not feel what I used to feel while doing them.
+End quote.
+
+This all lands different for different people. For me personally, I find I can lose all track of time and get extremely engrossed (flow!) working with a number of agents. However, I do note if I have three or four agents in different projects I start to lose track of the context of each one. But either way, this is very different work that putting on your headphones and writing code.
+
+Link four. "This is what free costs"
+
+This website does a great job of showing you how various data elements are collected from your browser and how fast. You are "digitally fingerprinted" within seconds of visiting a website. You can, and I do, run software to defend against this activity. But this is a great example of why we need privacy legislation.
+
+That's the end of Notable.
+
+Now, the Journal section.
+
+Saturday @ 5:32 PM
+
+My two thousand six Deoxys Holon Phantoms first Edition PSA 10 card (PSA cert #67755632) has shot up in value in recent weeks. First time listing one of my cards on eBay!
+
+Saturday @ 8:00 PM
+
+Happy (early) Mother's Day to my Mom and my sister! We had a nice dinner out at my Mom's favorite Indian restaurant.
+
+Sunday @ 12:00 PM
+
+Mother's Day bike ride along Minnehaha Creek to Lynette for brunch!
+
+Sunday @ 1:00 PM
+
+Happy Mother's Day to Tammy!
+
+Sunday @ 5:30 PM
+
+We completed The Vault today (Mother's Day Escape Room!) which was also the last room we hadn't done at Puzzleworks. Room 105!
+
+Sunday @ 10:30 PM
+
+Tyler and I got to see the Wolves win at home in the playoffs. As a bonus we got to briefly see my brother-in-law Hector and his kid at the game too!
+
+Journal entry one. The Sheep Detective
+
+Monday @ 9:21 PM
+
+We went to The Sheep Detectives tonight at Willow Creek and thought it was fabulous. Tyler and I were at another movie and saw the preview of this and he thought right away that Tammy would like it so we landed it close to Mother's Day and brought her Mom with us as well. The premise sounds silly and we were skeptical, until we saw the Rotten Tomatoes ratings.
+
+In reality it is an incredibly touching story, wrapped into a "whodunnit", with sheep playing many of the principal characters. I think the sheep make the story land even better.
+
+We all loved it. Highly recommended!
+
+Tuesday @ 11:00 AM
+
+Bemis Well Drilling made quick work of digging down about 10 feet to fix our well issue. The electric, natural gas, and fiber connections are all right under the backhoe there. They did a great job and got us back "in water" only about a week after the issue.
+
+Tuesday @ 5:00 PM
+
+I was ecstatic to share with TeamSPS that we now have an enterprise agreement for Claude. It was fun to get to share the stage with Erica Koenig to make the announcement noting the incredible capabilities we are putting into peoples hands. This is just the beginning.
+
+Wednesday @ 9:30 PM
+
+Our first MN United game of the season with the whole family there! Let's go United!
+
+Thursday @ 5:30 PM
+
+A fun thing about having a 3D printer is being able to take something that appears only "on screen" and make it exist "in real life". I printed some of these Clash Royale Crowns for Tyler and I, as well as some for friends that play the game.
+
+Thursday @ 6:00 PM
+
+So I'm wondering "Is there a way to store hats on a hanger like thing in the closet?" After a quick search on Maker World I printed a Hat Hanger.
+
+Journal entry two. Suburbs @ The Parkway
+
+Thursday @ 10:00 PM
+
+Somewhat even to our surprise Tammy and I hadn't been to a Suburbs show. Neither of us connected with the band when they were first on the scene. We see Chan play all the time with The New Standards. So we decided it was time to fix that and saw them play at the Parkway. Good show and clearly we were in the midst of a ton of super fans. Seemed like half the audience had the black Suburbs shirts on.
+
+Friday @ 3:18 PM
+
+From a chat with Claude today...
+
+"everything else is scope creep dressed as ambition"
+
+Statistical word model or not, that was an insightful comment.
+
+That's the end of the Journal.
+
+Now, the Briefly section.
+
+Link one. "Behind the Scenes Hardening Firefox with Claude Mythos Preview - Mozilla Hacks"
+
+You should open this article just to scroll down and see the graph of bug fixes by month. This seems like validation that Mythos really is that powerful of a model.
+
+Link two. "Mythos finds a curl vulnerability | daniel.haxx.se"
+
+I wonder if some embargo was recently released and people are talking about issues identified by Mythos. This one is a bit different than the Firefox report in that it only found one notable issue. Also curl seems like a very hardened code base.
+
+Link three. "Claude for Legal"
+
+Vertical AI solutions are the next step for companies like Anthropic and OpenAI. In many ways, it is a system prompt turned into a product.
+
+Link four. "Claude AI recovers an 11 yrs old BTC wallet holding 400k USD"
+
+"Claude saved my crypto!"
+
+Link five. "Lua as a practical "soft-bedrock" language"
+
+I need to spend some time making Lua with Claude.
+
+Link six. "How I restarted using RSS, and actually noticed! – Six Colors"
+
+My weekly plug on why RSS is so great. You should be using this to "read" the web.
+
+Link seven. "Ideas for web readers"
+
+Lovely feature exploration of things that feed readers could do.
+
+Link eight. "On likes, reposts, and bookmarks"
+
+Clear semantics on what these actions really can or should mean.
+
+Link nine. "Love Letter to IndieWebClub"
+
+Want an actual social web with real people? Here you go.
+
+Link ten. "Understanding Wi-Fi 4/5/6/6E/7/8 (802.11 n/ac/ax/be/bn)"
+
+This is an incredibly detailed exploration through all things WiFi. Radio frequencies, physical layers, more than you probably ever knew existed.
+
+Along with other new things behind-the-scenes with the Weekly Thing I've added this area where I can put some stuff at the end of each email.
+
+You'll note that I've switched the subject line for these emails. The new format lands on the shorthand I'm using to reference an issue WT and the number. This is WT348. And then instead of the three words I've used we are gonna do something that is a little more of a peak of what is inside.
+
+Simpler. More readable. Shows up better on your phone.
+
+A haiku to leave you with…
+
+Crowns on the printer,
+kernels falling in a week —
+Mother's Day, slow creek.
+
+That brings us to the end of the Weekly Thing, issue 348. Thanks for listening, and I'll see you next time.

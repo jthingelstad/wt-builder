@@ -1,0 +1,216 @@
+The Weekly Thing, issue 133. Clayton Christensen, iPad at 10, Ukraine, Nintendo Switch, Apple Map Expansion. Published February 1, twenty twenty. By Jamie Thingelstad. In this issue: Developer coefficient, global GDP impact, women in tech, Nintendo Switch sales, Apple Maps expansion, Tetris 99, sign stealing scandal.
+
+How have you been this week? I’m still having a lot of fun with this updated system I've setup for the Weekly Thing and some of the fun new sections. I’m having a good amount of fun with the Currently part. I like having this space to try things, experiment, and then hear from those of you that find that cool.
+
+Sometimes the hardest part for me is how to introduce the week. I sit there and stare at this blinking cursor, just maddeningly insisting that I put some letters to the left of it. Flashing at me as if to taunt. But then you just need to start typing and see what happens.
+
+I've been finding myself already pining for summer. Given that we are just now turning the calendar to February that isn't a good sign. There is a lot of snow and early darkness between me and hanging out outside enjoying the sun. I don't mind the cold of winter. However, the lack of sun does get to me. Having the daylight come and go while you sit in an office with all that fluorescent light can be a drag. So here we are on a Saturday morning — let's get outside shall we?
+
+Now, the Must Read section.
+
+Link one. "How Will You Measure Your Life?"
+
+Clayton Christensen, author of The Innovators Dilemma, passed away last week, and many people were sharing talks and articles by him. This article was by far the most recommended, and I had not read it. I strongly encourage reading it, maybe multiple times.
+
+Quote.
+I have a bunch of "businesses" that compete for these resources: I’m trying to have a rewarding relationship with my wife, raise great kids, contribute to my community, succeed in my career, contribute to my church, and so on. And I have exactly the same problem that a corporation does. I have a limited amount of time and energy and talent. How much do I devote to each of these pursuits? Allocation choices can make your life turn out to be very different from what you intended. Sometimes that’s good: Opportunities that you never planned for emerge. But if you misinvest your resources, the outcome can be bad. As I think about my former classmates who inadvertently invested for lives of hollow unhappiness, I can’t help believing that their troubles relate right back to a short-term perspective.
+End quote.
+
+That resource of time, and where you put it, is so critical.
+
+Link two. "Stripe — The Developer Coefficient: Software engineering efficiency and its 3 trillion dollars impact on global GDP"
+
+Some fascinating economics outlined here, but the major punchline is:
+
+Quote.
+While it’s a priority for senior executives to increase the productivity of their developers, the average developer spends more than 17 hours a week dealing with maintenance issues, such as debugging and refactoring.
+End quote.
+
+There probably is no such thing as a Unicorn valley of mystical code that requires no refactoring, however, thinking about the costs here does highlight some things:
+
+1. Having some developers work on just making other developers more productive is probably an outstanding ROI. I wish there were more published on this, but there is some non-linear curve that would show the number of engineers that should work to make other engineers more productive.
+
+2. The initial investment for good tests, build pipelines, deployment practices, and many other things are probably very, very cheap compared to the permanent increase in maintenance expenses.
+
+Add to the mix that all software development is still such an imprecise and immature craft, and you see a lot of potential for improvement over time. The kicker, though, is that even with the potential improvement, the growth in demand likely still outstrips the potential growth in efficiency.
+
+Link three. "Sexism: Just Another Day as a Woman In Tech - Snort Out Loud"
+
+Male leaders and executives read this.
+
+Quote.
+Based on my life’s experiences, there is no way this male executive would have treated another male executive the same way. He questioned my capabilities and my experience, even though my team informed him of my title and role; and my experience.
+End quote.
+
+It is important to read articles like this so that we can help others get better, and recognize our own biases, regardless of how advanced you may think you are.
+
+That's the end of Must Read.
+
+Now, the Currently section.
+
+Watching: The Morning Show is currently on Tammy and my queue. We are almost done with S1, and it is a very well done drama. Great story and a plotline that makes you think and question a lot.
+
+Eating: Tammy and I went to Kyatchi with friends this last week. It was the first time there, and I loved the food. The oshizushi (pressed sushi) is phenomenal. Also, recommend the yakisoba hot dog. They have a fabulous Old Fashioned too!
+
+Listening: I first heard Richard Inman at the Winnipeg Folk Festival in twenty seventeen. I bought two of his CD's at the festival, and was happy I did since at that time I couldn't find is music on any of the online services. His music is simple and from the heart. His sound reminds me of Kris Kristofferson. His new album, Hasta La Vista has been on heavy rotation, along with the rest of his recordings.
+
+Playing: I have always liked Tetris, and Tetris 99 on the Nintendo Switch is, in my opinion, now the best implementation of Tetris that I've played in years. The world of Tetris is difficult since The Tetris Company is extremely aggressive with IP protection. Tetris 99, with the in-app purchase to enable Marathon mode, is delightful to play and has perfect control options.
+
+That's the end of Currently.
+
+Now, the Photog section.
+
+Want smarter friends?
+Forward them this email and suggest they subscribe!
+
+That's the end of Photog.
+
+Now, the Recommended Links section.
+
+Sign Stealing Scandal
+
+This is brilliant and seems so absolutely fitting for the obsessively data-driven sabremetricians of baseball.
+
+Quote.
+My name is Tony Adams. I’m an Astros fan. In November twenty nineteen, when the videos of the banging during some Astros twenty seventeen games came out, I was horrified. It was clear within a minute of watching it was true — my team had cheated. To understand the scope of the cheating and the players involved, I decided to look at each home game from that season and determine any audio indicators of the sign stealing. I wrote an application that downloaded the pitch data from MLB’s Statcast. This data has a timestamp for every pitch. I then downloaded the videos from YouTube and, using the timestamp, created a spectrogram for every pitch. A spectrogram is a visual representation of the spectrum of frequencies in an audio file. I could then playback the video of the pitches and, helped by the visual of the spectrogram, determine if there was any banging before the pitch.
+End quote.
+
+Of course! Via great highlight from Daring Fireball.
+
+Nintendo Switch overtakes SNES with more than 52 million sold - The Verge
+
+It’s great to see the Switch being recognized for the great gaming machine it is. I continue to respect Nintendo for taking a different path and not just competing on hardware.
+
+Apple’s New Map, Expansion #7: Final Parts of the Continental U.S.
+
+Finally, the new Apple Maps data is here for Minnesota! The detail difference is amazing. There are a couple of before/after views in this link that show the detail. I looked at several lakes, our house, our cabin -- the improvement is very impressive. Also, now Apple is officially announcing the new map data.
+
+The CIO challenge: Modern business needs a new kind of tech leader | McKinsey
+
+These recommendations all make sense. This can serve as a decent checklist or assessment for a CIO or CTO to see if there is anything you are not putting enough focus toward.
+
+Into the Personal-Website-Verse · Matthias Ott – User Experience Designer
+
+A great call to action for everyone to think about how you want to engage with sharing your own voice on the web. I agree with and do most everything in this letter. The one thing I disagree with is the technical assumption that learning about web techniques is positive. The reality is we need to be able to do all of this without offering that "benefit" of learning. Most people don’t have any interest in learning CSS or the dozen other acronyms. We need to keep working on making the Indieweb easy!
+
+Ring Doorbell App Packed with Third-Party Trackers | Electronic Frontier Foundation
+
+Ring doesn't respect your privacy, and even though you've paid for the service surveils you and shares your information with a variety of companies?
+
+Quote.
+An investigation by EFF of the Ring doorbell app for Android found it to be packed with third-party trackers sending out a plethora of customers’ personally identifiable information (PII). Four main analytics and marketing companies were discovered to be receiving information such as the names, private IP addresses, mobile network carriers, persistent identifiers, and sensor data on the devices of paying customers.
+End quote.
+
+This shouldn't surprise anyone. Amazon bought Ring, and they should be cleaning the house here. They also bought Nest and want customers to believe that they will not surveil their private browsing activity at home? The behavior of Ring doesn't provide any support for the brand promises being made by Nest.
+
+WTFosdem · Cloud Atomic Laboratory
+
+I don't know much of anything about FOSDEM, but I was having tea with Donnie Berkholz, and he mentioned he tries to go every year and finds it immensely valuable. This read is more about logistics, but it sounds like a very interesting event. Too late to go this year, but perhaps part of my twenty twenty one itinerary. From Justin Cormack via Donnie Berkholz.
+
+Steve Blank: Clayton Christensen
+
+A heartfelt reflection on the passing of Clay Christensen and some of the areas he contributed too for so many.
+
+A Radical Guide to Spending Less Time on Your Phone – RyanHoliday.net
+
+If you are looking to spend less time on your phone and more time with the world, this is a good guide. I have an Apple Watch Series 5 with cellular activated and have a personal goal to leave the phone behind more. The one thing that keeps it with me is photography.
+
+Daring Fireball: The iPad Awkwardly Turns 10
+
+Gruber doesn't pull punches when he thinks Apple has it wrong, but I felt this write-up was overly focused on the admittedly poor multitasking interface in iPadOS.
+
+Quote.
+The iPad at 10 is, to me, a grave disappointment. Not because it’s "bad", because it’s not bad — it’s great even — but because great though it is in so many ways, overall, it has fallen so far short of the grand potential it showed on day one. To reach that potential, Apple needs to recognize they have made profound conceptual mistakes in the iPad user interface, mistakes that need to be scrapped and replaced, not polished and refined. I worry that iPadOS 13 suggests the opposite — that Apple is steering the iPad full speed ahead down a blind alley.
+End quote.
+
+I agree with him about multitasking. It is confusing, messy, and not at all intuitive. But to ignore every other dimension of the iPad's march forward seems a bit much. For so many things, it is an amazing device.
+
+Can you point to Ukraine on a map? / Chris Zubak-Skees / Observable
+
+Given how much Ukraine is coming up in the US news lately, this is a fun little test. Some of these dots can’t be serious. Obviously, people know Ukraine isn't in South America, right?
+
+Ted Stein on Twitter: "Unintended Tesla app purchases, explored."
+
+I try to not link out to Twitter threads (people, blogs exist for a reason. Following some thread is just ridiculous!), but this one I can’t resist because it involves Tesla, Elon Musk, and randomly Nicholas Taleb! The generally negative view of Tesla's practices here is deserved. via Daring Fireball.
+
+A bird’s-eye view of Kyiv | KyivPost - Ukraine's Global Voice
+
+This is a beautiful tour of Kyiv. I've been to some of these places on foot while traveling there. It’s very cool to see from this perspective.
+
+That's the end of Recommended Links.
+
+Now, the Status Updates section.
+
+Wednesday @ 11:47 AM
+
+We’ve had a great first-half for our #TeamSPS Tech Summit twenty twenty! Streaming live to all locations too!
+
+Saturday @ 5:44 PM
+
+We had a lot of fun at Twins Fest today. It was our first time going. Lots of lines, and definitely know how to do it better next time. Was cool to see players and there are so many fans!
+
+Are you a LinkedIn Power User?
+Use your power for good, share this on LinkedIn.
+
+That's the end of Status Updates.
+
+Now, for your information.
+
+iOS Calendar Automation with Shortcuts and Fantastical 3 – The Sweet Setup
+
+All of these great automation capabilities exposed through Shortcuts is the first thing to make me intrigued by Fantastical 3.
+
+Google AI Blog: Towards a Conversational Agent that Can Chat About…Anything
+
+Undoubtedly cool tech, but more and more, I start to wonder, why do we need this?
+
+Manton Reece - Replies hosted at your own blog
+
+I continue to like with Reece is doing with micro.blog, and these enhancements around replies are good to see. If you are looking for a simple, lightweight blogging solution, this is a good one.
+
+Finland is winning the war on fake news. Other nations want the blueprint
+
+I just finished reading The Nordic Theory of Everything: In Search of a Better Life and this was an interesting follow-on to many of the points in that book.
+
+JavaScript Libraries Are Almost Never Updated Once Installed
+
+This isn't surprising to anyone that has built things with JavaScript libraries. Sadly, there are some version upgrades that are probably easy, but it’s rarely seen as worth the effort.
+
+iPad at 10. An affair forever – On my Om
+
+I agree with Om, "Ten years later, the iPad still is magic." The iPad is the only computing device I have that sort of disappears when you use it.
+
+That's the end of the FYI section.
+
+Now, the Reply All section.
+
+Here are some replies from Weekly Thing #132 / Backdoors, Espresso, Technical Debt, Coaching, Studio Ghibli.
+
+I was surprised at how many people replied with poetry recommendations! It turns out a lot of you read some poetry.
+
+However, I was even more surprised by how many of you were flabbergasted by the idea of me reading poetry? I’m not a robot!
+
+That's the end of Reply All.
+
+Now, the Fortune section.
+
+You've made it all the way to the end! Here is your fortune for this week.
+
+You are the only person to ever get this message.
+
+Thank you for subscribing to the Weekly Thing!
+
+That's the end of Fortune.
+
+Now, the About section.
+
+The Weekly Thing is a weekly newsletter highlighting helpful, engaging, or insightful articles from the week. I am a voracious reader of technology, culture, leadership, privacy, and many other topics as my interests roam. Each item I share is framed with personal commentary combining my decades of experiences. My goal is to positively impact your journey with knowledge and insight.
+
+Website
+Microblog
+Photos
+Link Blog
+LinkedIn
+Twitter
+
+That brings us to the end of the Weekly Thing, issue 133. Thanks for listening, and I'll see you next time.

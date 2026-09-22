@@ -1,0 +1,230 @@
+The Weekly Thing, issue 142. Signaling, Zoom, Bill Gates, Decision Journal. Published April 4, twenty twenty. By Jamie Thingelstad. In this issue: Bill Gates coronavirus response, corporate socialism, government bailouts, signaling as a service, bailing out investors, managers not you.
+
+Like many of you I've been spending a lot of time at home. We have adopted some good routines to keep things going smoothly, as well as introducing a lot of random by getting a puppy! Lucky has now been with us for nearly two weeks and she is everything one expects of a puppy. She likes to bite things. She can pee anywhere in a split second. Like so fast you can be watching her and before you realize what's going on you're going to get paper towels. She is also as cute as they come. The kids are over-the-top excited about her and love her just "soooo much". I have a good feeling, she's going to be a great dog. We just have to get through the puppy part. And to be clear, Tammy's driving the bus on that and doing a great job.
+
+In addition to dealing with pandemic related things and economic upheaval, I've been tackling my fitness. I had thought I would be writing about this more in this spot but then a whole ton of other things started to happen. I’m sure you've noticed. Anyway, I've started on a mission that I've given a name to. Being very trendy, I even gave it a hashtag, #FitByFifty. I've embarked on the first of a series of 90-day missions to get my physical self in a better spot. My first mission involves exercise and food logging. I’m feeling great after a month, and have already made some great progress. If you happen to be a Peloton user, connect with me, my username is "JThingelstad".
+
+Let's get on with the rest of it now…
+
+Now, the Must Read section.
+
+Link one. "Signaling as a Service « julian.digital"
+
+This is a very thought provoking article. Scott Galloway often uses the term "virtue signaling", which triggered my attention to this blog post.
+
+Quote.
+There are many more examples in the book (and I recommend reading the whole thing), the point the authors are trying to make is clear: Almost everything has a signaling component – we are just not aware of it. In fact, Hanson believes that "well over 90 percent" of human behavior can be explained by signaling.
+End quote.
+
+I think I should read this book. Wouldn't it be a great signal? Heck, isn't this whole newsletter a big signal?
+
+Link two. "How we must respond to the coronavirus pandemic | Bill Gates - YouTube"
+
+Very good TED interview with Bill Gates on Coronavirus. This is absolutely worth your time.
+
+Link three. "Corporate Socialism: The Government is Bailing Out Investors and Managers Not You"
+
+Taleb is full of himself, but he's also smart and often right.
+
+I appreciate his specific callout that a pandemic is not a Black Swan.
+
+Quote.
+Had they read that book, they would have known that such a global pandemic is explicitly presented there as a white swan: something that would eventually take place with great certainty.
+End quote.
+
+Also an interesting take that if your industry is bailed out, by definition you are a utility and should operate differently.
+
+That's the end of Must Read.
+
+Now, the Currently section.
+
+Watching: For some reason our kids have really gotten into watching Parks and Recreation. I think it stems from watching Amy Poehler and Nick Offerman on Making It. Anyway, we've been going back to Season 1 and watching episodes with them. It is a great show, even the second time through.
+
+Walking: Having our new puppy Lucky means getting a lot more walks in. We've been making our way through Pamela Park and a lot of walking around the neighborhood.
+
+That's the end of Currently.
+
+Now, the Photog section.
+
+This Lorraine Motel sign by Chris Larson is one of the more striking installations at the Franconia Sculpture Garden.
+
+That's the end of Photog.
+
+Now, the Recommended Links section.
+
+Harden Your Zoom Settings to Protect Your Privacy and Avoid Trolls | Electronic Frontier Foundation
+
+A lot of people are suddenly being asked to be experts using Zoom. This article, from a very trusted source, has a great set of recommendations.
+
+‘War Dialing’ Tool Exposes Zoom’s Password Problems — Krebs on Security
+
+The huge proliferation of Zoom usage has people exploiting weak defaults. Set a password for your Zoom meetings. Nothing complicated needed. Feel free to use "monkey123" or "password". You just need something that puts whatever minimal lock on the door. Now Black Hat tools are being created to make it even easier.
+
+Introducing 1.1.1.1 for Families
+
+So, for those that don't want to run a Pi-hole of their own, this seems like a great way to block certain content from your home network. I have a lot of respect for the work that Cloudflare does.
+
+Stop Trying to Be Productive - The New York Times
+
+The short version: there is a GLOBAL PANDEMIC! Recognize it, and stop thinking that you are turning all of your "free time" into amazing projects. Make time for self-care, and be real with yourself.
+
+Today Google stops funding climate change deniers
+
+I honestly don't know what to make of this. I think it’s good that Google has decided to stop supporting these organizations. It seems an odd or maybe opportunistic time to do it. I’m guessing few people are going to pick on them with a global pandemic going on. However, the helplessness that I see society faced with when dealing with the pandemic does make me wonder if it would, or will, be the same when the time comes for us to pay the piper on climate change.
+
+Bill Gates: Here’s how to make up for lost time on covid-19 - The Washington Post
+
+Bill Gates is providing cogent, calm leadership that we should be seeing from more people in leadership roles. He's obviously thought hard about these topics, and somewhat famously called out our Pandemic preparedness in a TED talk years ago.
+
+Download Ventilator Files | Medtronic
+
+Nice to see Medtronic opening up the design for their ventilators and letting other companies manufacture them.
+
+Quote.
+Medtronic is publicly posting design specifications for the Puritan BennettTM 560 (PB560) to allow innovators, inventors, start-ups, and academic institutions to leverage their own expertise and resources to evaluate options for rapid ventilator manufacturing. Our goal has been to release this information in phases over the course of a brief period.
+End quote.
+
+The Three Crises - Feld Thoughts
+
+Recognizing that there are multiple things going on, at different levels, might help work through matters in a more effective way.
+
+Quote.
+The three crises are (1) a health crisis (Covid-19) that has generated a (2) financial crisis, each of which has generated massive societal disruption which will generate a (3) mental health crisis. In addition, these are both localized (in a community), at a state level, a national level, and a global level. Yeah – that’s a lot.
+End quote.
+
+The first and second are pretty obvious. The third I think we are just now starting to see.
+
+Dark Sky Has Been Acquired by Apple and Its API Will Be Discontinued at the End of twenty twenty one - MacStories
+
+I've used Dark Sky for years. I like the customizable notifications and alerts. It will be curious to see what Apple does with this.
+
+The Underappreciated Impact of the Attention Redistribution Revolution - Study Hacks - Cal Newport
+
+Newport's analysis of why social media eclipsed traditional blogs is, I think, spot on.
+
+Quote.
+This attention redistribution was the hidden revolution instigated by social media. It solved a remarkably big problem facing the social internet: how to move beyond efficiently spreading bytes over networks to also efficiently spreading attention. And by doing so, it completely transformed the cultural landscape.
+End quote.
+
+The social addiction created with "Like" buttons and affirmation from your friends is an incredible drug. The closest blogging could get was basic web analytics, which is nothing in comparison.
+
+How a Decision Journal Changed the Way I make Decisions (Template Included)
+
+I've never heard of a decision journal before but I dig the idea and the included template. This could be done very easily in Day One. Something worth considering.
+
+How Will the Coronavirus End? - The Atlantic
+
+Sobering look at how things will look as we navigate through this pandemic.
+
+Quote.
+The third scenario is that the world plays a protracted game of whack-a-mole with the virus, stamping out outbreaks here and there until a vaccine can be produced. This is the best option, but also the longest and most complicated.
+End quote.
+
+There are no easy paths.
+
+Army Corps of Engineers gives options to states facing COVID crush
+
+Lt. Gen. Todd Semonite, Chief of Engineers. He oozes credibility. This video is like a case study in clear communication from a leader. He uses simple concepts. He has a strong presence, clear grasp of the matters. I’d follow the Lt. Gen. pretty much anywhere. Plus, he gets the title Chief of Engineers? Love that.:-)
+
+How to Keep the Party Crashers from Crashing Your Zoom Event - Zoom Blog
+
+A lot of people are hosting gatherings for friends and communities on Zoom, but are not aware that the default Zoom settings allow attendees to do pretty extensive things like sharing their screen and showing images that you would rather they not. This guide from Zoom shows how to configure an event to protect against malicious actors.
+
+That's the end of Recommended Links.
+
+Now, the Status Updates section.
+
+Thursday @ 11:19 PM
+
+GTD practitioners, what project names have you created as we have fallen into this pandemic? I’ll start, one called “Grow through the pandemic”. You?
+
+Thursday @ 7:17 PM
+
+Great 30 min spin class on Peloton today! #FitByFifty
+
+Wednesday @ 5:31 PM
+
+With apologies to my regular barber Gene, I still need to keep it high and tight! Mazie and Tyler did the clipper honors today!
+
+Tuesday @ 9:50 PM
+
+My friend @mrock911 has picked up posting on his micro.blog (and Twitter by syndication). If your curious to see and here a bit from a Dr. perspective with Covid-19, give him a follow. Plus expect some great non-medical stuff too.
+
+Sunday @ 8:33 PM
+
+Today is Lucky's 3-month birthday, and the completion of her first week as part of our family. She is reminding us what having a puppy involves! Tammy has been working with her with extreme diligence about going outside for the bathroom. She so far doesn't seem super excited about treats. The kids absolutely adore her. She is slowly getting used to sleeping in her crate at night. She's super cute and loves to play a lot. She enjoys walks, although she is very distractible. Not sure how many photos there will be of her being held like this, she's already 16 lbs!
+
+Saturday @ 7:50 PM
+
+I had a redo of candle making today. I messed up the first attempt. I did the fragrance all wrong and added about 20x more of it than I should have. And to make matters worse, the fragrance I chose made me nauseous and gave me a terrible headache. I had to put the candles outside to feel better. Today I took a knife and cut out all the wax from the vessels, and threw the stinky stuff away. Take two with a different fragrance at a much lower dose! So far they are great. Will light them tomorrow.
+
+Saturday @ 7:44 PM
+
+Did a great 45-minute spin class on Peloton today! #FitByFifth
+
+Saturday @ 5:19 PM
+
+Sitting in our covered porch listening to it rain and thunder is one of my favorite things about spring.
+
+Friday @ 8:32 PM
+
+I set a new 20-min PR on Peloton today! #FitByFifty
+
+Friday @ 6:56 PM
+
+Lucky chewing on a stick.
+
+Friday @ 12:34 PM
+
+It seems that Lucky enjoys reading the classics.
+
+That's the end of Status Updates.
+
+Now, for your information.
+
+Why It’s So Freaking Hard To Make A Good COVID-19 Model  | FiveThirtyEight
+
+Yeah, there are a lot of variables and the data is messy.
+
+Clutterfree App - Love your home.
+
+Guided app to declutter your home. Hmm.
+
+New York Attorney General Looks Into Zoom’s Privacy Practices - The New York Times
+
+Zoom is getting a lot of folks looking at it. They need to act quickly and decisively on these matters.
+
+MIT Will Post Free Plans Online for an Emergency Ventilator That Can Be Built for 100 dollars
+
+This is amazing to see. MIT E-VENT!
+
+The Unicode Standard Now Includes CC License Symbols - Creative Commons
+
+This is great to see! I’m a supporter of Creative Commons and perhaps this will raise awareness and adoption.
+
+That's the end of the FYI section.
+
+Now, the Local section.
+
+Minneapolis closes beaches, pools and programs for entire summer | Star Tribune
+
+This makes total sense given the pandemic, but it’s a real gut punch.
+
+The Big Coloring Book of First Avenue - Coloring Books For A Cause
+
+Ordered two of these. Hoping for the best for places like First Avenue.
+
+Are you a LinkedIn Power User?
+Use your power for good, share this on LinkedIn.
+
+That's the end of Local.
+
+Now, the Fortune section.
+
+You've made it all the way to the end! Here is your fortune for this week.
+
+Exercise caution in your daily affairs.
+
+Thank you for subscribing to the Weekly Thing!
+
+That brings us to the end of the Weekly Thing, issue 142. Thanks for listening, and I'll see you next time.

@@ -16,7 +16,9 @@
  * come from.
  *
  * Pieces are cached by content: regenerating an issue after a wording fix
- * pays for the blocks that changed and nothing else.
+ * pays for the blocks that changed and nothing else. The cache of record is
+ * the CDN bucket (`TTS_STORE_PREFIX`); the directory on this disk is a cache
+ * of that, so a lost disk costs time and not money.
  */
 
 import { spawn } from 'node:child_process';
@@ -26,7 +28,7 @@ import { existsSync } from 'node:fs';
 import { tmpdir } from 'node:os';
 import { join } from 'node:path';
 
-import { PutObjectCommand, S3Client } from '@aws-sdk/client-s3';
+import { GetObjectCommand, PutObjectCommand, S3Client } from '@aws-sdk/client-s3';
 import NodeID3 from 'node-id3';
 
 import type { IssueDoc } from '../../shared/types.ts';
@@ -172,16 +174,51 @@ export function pieceKey(text: string, voice: string, model = TTS_MODEL, speed =
 }
 
 /**
- * Speak one block, from the cache when it has been said before. Rate limits
+ * Where every spoken piece lives for good: the CDN bucket, one prefix, each
+ * piece under its key. Synthesis is the only paid step in the audio edition,
+ * and until 2026-09-22 its output lived only in `data/tts-cache/` on one Mac,
+ * outside every backup. A piece is written here before it is written locally,
+ * so a piece on this disk is always a piece in the store; the local directory
+ * is a cache of the store and can be emptied at any time. Public like the
+ * rest of the bucket, unenumerable like the rest of the bucket, and each is a
+ * fragment of a transcript that is already published.
+ */
+export const TTS_STORE_PREFIX = 'weekly-thing/tts';
+
+let storeClient: S3Client | undefined;
+const store = () => (storeClient ??= new S3Client({ region: config.awsRegion }));
+
+/** The stored piece, or null when it has never been said. */
+async function storedPiece(key: string): Promise<Buffer | null> {
+  try {
+    const res = await store().send(new GetObjectCommand({ Bucket: CDN_HOST, Key: key }));
+    return Buffer.from(await res.Body!.transformToByteArray());
+  } catch (err) {
+    if ((err as { name?: string }).name === 'NoSuchKey') return null;
+    throw err;
+  }
+}
+
+/**
+ * Speak one block: from the local cache, else from the store, else from the
+ * synthesizer — and into the store and the cache when it is new. Rate limits
  * are retried with a backoff; anything else is the caller's failure.
  */
 async function speakCached(text: string, voice: string, cacheDir: string): Promise<{ path: string; fresh: boolean }> {
-  const path = join(cacheDir, `${pieceKey(text, voice)}.mp3`);
+  const name = `${pieceKey(text, voice)}.mp3`;
+  const path = join(cacheDir, name);
   if (existsSync(path)) return { path, fresh: false };
+  const key = `${TTS_STORE_PREFIX}/${name}`;
+  const stored = await storedPiece(key);
+  if (stored) {
+    await writeFile(path, stored);
+    return { path, fresh: false };
+  }
   let attempt = 0;
   for (;;) {
     try {
       const audio = await speak(text, { voice, speed: TTS_SPEED });
+      await store().send(new PutObjectCommand({ Bucket: CDN_HOST, Key: key, Body: audio, ContentType: 'audio/mpeg' }));
       await writeFile(path, audio);
       return { path, fresh: true };
     } catch (err) {

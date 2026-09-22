@@ -1,0 +1,145 @@
+The Weekly Thing, issue 8. Weekly Thing for July 1, twenty seventeen. Published July 1, twenty seventeen. By Jamie Thingelstad. In this issue: Sorting Lego, iOS 11 beta, Let's Encrypt 100 million certificates, Day One premium, Affinity Photo iPad, .feedback scam, data-driven culture.
+
+Hello from the wonderful West Coast of Michigan! We've been here for a week of vacation staying in Saugatuck. This is our second time here, the first was four years ago and we've loved it both times. This time we took full advantage of the gorgeous beaches and spent a few hours everyday at the beach just hanging out. The kids had so much fun!  It was a joy just to be part of it with them. If you haven't been to this area we highly recommend it. There are a lot of microblog entries from the beach.
+
+When I designed my workflow for Weekly Thing I wanted to make sure I could do it on my iOS device anywhere I happened to be. This trip was a test for that. I left my laptop at home and just had my iPad Pro and a Magic Keyboard for periods of more typing. It’s worked out just fine. No blog post this week, blame vacationing. I did add a new section this week, Now Reading. I'll include this occasionally when I want to share a book I’m currently reading.
+
+A big thank you to all of you for spreading the word to others. Weekly Thing has now blown past 100 subscribers! Thank you for reading and sharing! Feel free to continue to spread the word and people can sign up on the Weekly Thing page.
+
+Now, the Photog section.
+
+High winds and threatening clouds coming into the West Coast of Michigan, water looking threatening as the sun sets.
+
+Jun 24, twenty seventeen, 7:36 PM 2727 Lakeshore Dr Saugatuck township‎ MI‎ 49408 United States.
+
+That's the end of Photog.
+
+Now, the Links section.
+
+Link one. "Tracy Chou, leading Silicon Valley engineer, explains why every tech worker needs a humanities education — Quartz"
+
+This is a start, but I think we need to go further. Code: And Other Laws of Cyberspace by Larry Lessing makes this point in a big way. If technologists are creating the worlds in which we interact, the structure of those worlds is important in more ways than we know. Ethics is completely missing in this discussion inside our industry.
+
+Link two. "eero, plus peace of mind —Eero Blog"
+
+I've had my eero WiFi routers for a few months now and really like where they are going. This newest offering to bring better family controls and security at the network level makes a lot of sense. I’m not sure I love the idea of my WiFi network becoming a subscription though.
+
+Link three. "A couple weeks with the iOS 11 beta —Six Colors"
+
+The reviews of iOS 11 on the iPad are so compelling I’m tempted to install the betas for the first time. I've always waited for the big reveal on the final release. The iPad specific improvements here look amazing.
+
+Link four. "Perfect Ten —Daring Fireball"
+
+Gruber writeup going back and reflecting on the iPhone 10 years after it’s launch. I think he's right that the iPhone is the most impactful device that the technology industry has shipped thus far.
+
+Link five. "SmartGo Blog • SmartOthello Postmortem"
+
+Reading about success stories is fun, but you don't learn as much. This very thorough and transparent writeup from Anders Kierulf on the unsuccessful launch of SmartOthello is a worthwhile read. Certainly a couple of the issues he hit were just bad timing, but there is definitely stuff to learn from in this.
+
+Link six. "Working hard or hardly working? Loons have GPS device that tells all | Star Tribune"
+
+Interesting insight into some of the telemetry sports teams get off players. I’m sure this is absolutely the most basic stuff out there, but it made me think of what the data people in major league sports must be collecting from the players and using it to make better decisions.
+
+Link seven. "Sorting 2 Tons of Lego, Many Questions, Results · Jacques Mattheij"
+
+This is awesome, and you should look at parts 1 and 2 as well. Everything about this is great.
+
+Link eight. "The .feedback scam - Tom Limoncelli's EverythingSysadmin Blog"
+
+This is the kind of scam/garbage that was warned about when top-level domains were opened up for sale. Now we have an entire TLD that is nothing other than a scam. C'mon people, we can do better than this.
+
+Link nine. "Milestone: 100 Million Certificates Issued - Let's Encrypt - Free SSL/TLS Certificates"
+
+I’m a big fan of Let's Encrypt and I’m very happy to see it being adopted as widely as it has been. Amazing success story and what a great mission. Let's Encrypt is a major milestone to a completely encrypted web. Also worth reading the EFF writeup on this milestone.
+
+Link ten. "Day One Goes Premium – Day One – Medium"
+
+I've wondered when Day One would introduce a premium offering. I use their sync service for my Day One journals and I currently use 1.07 GB of storage that I've never paid a dime for. I'd love to see them continue to add more server based capabilities. I expect this is one I will sign up for.
+
+Link eleven. "Inclusive Technology at PagerDuty —PagerDuty"
+
+Interesting writeup of tooling that PagerDuty uses to support a diverse and inclusive workplace. This also falls in the category of improvements that everyone benefits from.
+
+Link twelve. "On The Life Changing Magic of Tidying Up"
+
+I really enjoy Kourosh Dini's writing on GTD and OmniFocus. He's also an amazing pianist and author. This article on "tidying up" and how that applies not just to our physical space but also our GTD space is a worthwhile read.
+
+Link thirteen. "A Few Tips for Making Drafts a Writing Environment on iPad and iPhone —Macdrifter"
+
+I've had Drafts on my iOS devices for a long time but I've never really "got it". I recently tried some Workflows that used Drafts and gave me a glimpse into it’s power, but this article goes deeper into how to use Drafts in even more ways.
+
+Link fourteen. "Five building blocks of a data-driven culture | TechCrunch"
+
+Building a data-driven culture and organization is something I've been thinking about a lot lately. I think I know the basic ways to get that into technology organizations pretty well, but successful companies now have to get that culture organization wide and the technology team plays an important leadership role in doing that. This writeup has some good fundamentals to consider.
+
+Link fifteen. "Howtoons"
+
+I love everything about this. A DIY project kit delivered to you once a month to do with your kids. I also love the addition of "Arts" into STEM, making it STEAM!
+
+Link sixteen. "What can developers learn from being on call? - Julia Evans"
+
+Great blog post sharing insights that developers learn when supporting their systems in production. Honestly this seems like basic stuff, but it’s worth reading again and again.
+
+Link seventeen. "David “DHH” Heinemeier Hansson: The Entrepreneurial and Unstoppable Stoic"
+
+I’m certainly not a member of the "DHH Fan Club" (although I did interview him at Minnebar once), but this is a nice read on stoicism. The more I read about stoicism the more I want to learn.
+
+Link eighteen. "Affinity Photo - Professional photo editing for iPad"
+
+I took a flyer and got this app for my iPad to see how it compared with the power tools for photo editing. It’s amazing. The touch interface is so intuitive and it is extremely responsive.
+
+That's the end of Links.
+
+Now, the Now Reading section.
+
+American Eclipse: A Nation's Epic Race to Catch the Shadow of the Moon and Win the Glory of the World
+
+by David Baron
+
+Richly illustrated and meticulously researched, American Eclipse ultimately depicts a young nation that looked to the skies to reveal its towering ambition and expose its latent genius. On a scorching July afternoon in 1878, at the dawn of the Gilded Age, the moon’s shadow descended on the American West, darkening skies from Montana Territory to Texas.
+
+We are going to St. Louis later this summer to experience the total eclipse this year. I’m very excited about the trip and am already thinking about how I can capture the kids reaction for them to see in the future. Tammy got me this book to read on the history of the last total eclipse in America. I've just gotten started with it but it’s a fun read thus far!
+
+That's the end of Now Reading.
+
+Now, the Promotion section.
+
+Minnestar is the technology community for Minnesota. If you are passionate about technology you need to go to Minnebar and Minnedemo. Did you know that Minnebar is the largest BarCamp in North America and one of the largest in the world? Its also been going on for over 10 years? Minnedemo is the best place to hear about innovative tech and fun projects in the Twin Cities area. I am on the Minnestar board and I focus on Minnestar as one of the driving forces improving and expanding the technology community in the area. Minnestar is a 501c3 non-profit. Become a Community Supporter today!
+
+That's the end of Promotion.
+
+Now, the Microblog updates section.
+
+- Go fly a kite!
+- Ordering a Pickleball kit to try over the fourth of July at the cabin!
+- We got to put the very first pin for the entire state of Minnesota on the wall at Grand Haven Room Escape!
+- Family had a great time, and escaped from The Barbershop, at Grand Haven Room Escape!
+- Grand Haven Beach, Michigan.
+- Celebrating 10 years of iPhone, my blog post from 10 years ago on getting my first iPhone.
+- Mölkky requires counting skills.
+- Trying Mölkky for the first time today. Fun alternative to Kubb. Everything is fun on the beach.
+- Rained out at the beach.
+- Family crafting time at Express Yourself Art Barn outside of Saugatuck.
+- More beach Kubb.
+- Holland Beach, Michigan.
+- Goat!
+- Super fuzzy bunny!
+- Very impressed with Affinity Photo! Intuitive and very powerful iPad photo editing.
+- Tammy and I walking on the beach, Lake Michigan.
+- Now have over 100 subscribers to my Weekly Thing newsletter! The more the merrier…
+- Top of the dune on the Saugatuck Dune Ride!
+- Wow, The Southerner in Saugatuck, MI is crazy good. Recommended!
+- Got this awesome robot by Bechler Pottery at the Grand Haven Art Festival.
+- Listening to MN United game online via 1500 ESPN with data from FotMob. Good experience actually.
+- Reading American Eclipse and thinking about our upcoming trip to see the eclipse later this summer.
+- Tammy and I starting our family vacation to Saugatuck by checking out the lakeshore.
+- Our view for the week. Lake Michigan looks great. Just after sunset.
+- Cairns on the Lake Michigan shoreline near where we are staying this week.
+- Our cottage on the shore of Lake Michigan for the week. Very pleasant here.
+- Going iPad only on this vacation!
+
+That's the end of Microblog updates.
+
+Thank you for subscribing to the Weekly Thing! If you know of people that would like the Weekly Thing please forward it along!
+
+That brings us to the end of the Weekly Thing, issue 8. Thanks for listening, and I'll see you next time.

@@ -1,0 +1,215 @@
+The Weekly Thing, issue 170. MeetingBar, Platforms, Wikipedia. Published January 23, twenty twenty one. By Jamie Thingelstad. In this issue: Amanda Gorman inauguration, Wikipedia 20 years, Archive Box, My Engineering Axioms, Dropbox workforce cut, Decoding Peloton, IPFS in Brave.
+
+Hello and welcome to the first Weekly Thing of twenty twenty one! I’m getting the gears going on the Weekly Thing after what felt like a long break. It’s nice to be back in your inbox. Thanks for having me. Also, over the break a number of new people signed up and there are now over 1,000 of the most awesome people getting this. Thank you for making this part of your weekend!
+
+Since the last issue we've had Christmas and New Years. I turned 49 and inched ever closer to my Fit By Fifty deadline. We got a new President in the US. A lot of goings on! Really too much to cover, so I’m going to instead get on with the links!
+
+"Personal growth has no real speed limit." — Tobi Lütke, Shopify
+
+This quote is from a wide ranging interview I read with Lütke.
+
+Now, the Must Read section.
+
+Link one. "Poet Amanda Gorman Speaks at the Biden-Harris Inauguration twenty twenty one - YouTube"
+
+Amanda Gorman's reading of her poem "The Hill We Climb" at the Inauguration this week was incredibly powerful and a moment I will remember for a long time. I've come to appreciate the power that can be in poetry, and this is an incredible example of that. Anderson Cooper's interview with Gorman has interesting back story and history behind it, and the NY Times writeup is a good read as well. Brad Feld posted the text of the poem in his post if you want to read it.
+
+Gorman also has a TED Talk from twenty eighteen (when she must have been just 20 years old?) titled Using your voice is a political choice that is powerful as well. Check out her Wikipedia page for more information.
+
+Link two. "Celebrating 20 years of Wikipedia – Wikimedia Foundation"
+
+Wikipedia is one of my favorite things to come from the Internet. If the whole Internet was created and Wikipedia was the only thing to come out of it, it might still be worth it. Twenty years is a great milestone, but it is just getting started. Also check out Wikipedia is 20, and its reputation has never been higher on The Economist.
+
+And how about a birthday present? Make a donation to Wikipedia for another twenty years!
+
+That's the end of Must Read.
+
+Now, the Fit By Fifty section.
+
+My Fit By Fifty project has less than 12 months left as I flipped through my 49th birthday in January. I’m going to have a regular Fit By Fifty section in the Weekly Thing this year. This gives me a place to share my progress, and in a way make all 1,000 plus of you my accountability partners. Thanks partner!
+
+I will play with adding information to this and changing it up. I’m going to start with listing out my workouts for the week.
+
+Workouts
+
+- Peloton Bike for 10.85 miles on Friday for 30 minutes, 603 kcal.
+- Walking 0.99 miles on Saturday for 39.3 minutes, 193 kcal.
+- Peloton Bike for 10.45 miles on Saturday for 30 minutes, 583 kcal.
+- Walking 2.11 miles on Sunday for 56.8 minutes, 299 kcal.
+- Walking 5.43 miles on Monday for 127.6 minutes, 782 kcal.
+- Peloton Bike for 10.54 miles on Wednesday for 30 minutes, 584 kcal.
+- Walking 2.00 miles on Wednesday for 42.2 minutes, 252 kcal.
+- Peloton Bike for 10.28 miles on Thursday for 30 minutes, 581 kcal.
+- Walking 1.58 miles on Thursday for 36.1 minutes, 219 kcal.
+
+That's the end of Fit By Fifty.
+
+Now, the Recommended Links section.
+
+The Essential Weekly Review — MacSparky
+
+I am a GTD practitioner and the Weekly Review is a core concept of Getting Things Done. However, it is also the thing that I think many don't put enough time into, including myself. I love this writeup from Sparks on how he approaches his weekly review, the questions he asks, and what makes it successful.
+
+MeetingBar: Your next meeting always before your eyes in the macOS menu bar
+
+Simple utility that puts your daily meetings in the menu bar on your Mac, and then easily lets you connect to Zoom, Teams, or whatever you need to join the meeting. There have been a few apps like this and this is the first one I like. Pro tip, you can set a keyboard shortcut to "Join the next meeting". Now I press ctrl-opt-cmd M and I’m in my next meeting. Love it.
+
+MuscleWiki
+
+This is a fabulous website for exercises for different muscles. I like that it focuses first on the muscle, and then you can see stretches as well as ways to work it. As a bonus, there are both dumbbell and kettlebell movements!
+
+Make Your Own Internet Archive With Archive Box – NixIntel
+
+Cool open source solution to archiving websites. I pay Pinboard to do this for all of my bookmarks which I like and is easy. A thought I had with Archive Box would be to possibly point it at my own websites as a way to keep a history of them.
+
+Motion versus action: an important reminder for writers who want to actually write - annie mueller
+
+I just recently read Atomic Habits and Mueller's reflection on the "motion versus action" argument in it applied to the act of writing is good. I like that she includes her three success criteria as well: daily word count, time, and clear goals.
+
+My year in data
+
+This article had me at "I logged my activities at 15-minute intervals for the whole year." I have been doing this kind of time tracking for three years now but only focusing on my work calendar, and I use my calendar not 15-minute blocks. I found the categories used interesting.
+
+A long read on vulnerability, an honest account of twenty twenty, and an ask for help. | LinkedIn
+
+My friend Dan Grigsby wrote deeply and honestly about his experiences in his recent positions and his own search for how he wants to engage and add value to organizations or efforts. Dan is an incredible person, take a read.
+
+How to present to executives.
+
+Sometimes I feel like I want to share nearly everything that Will Larson publishes. I would highly recommend subscribing to his blog. This is another gem, and I would agree with everything he suggests here. I also like how he thinks of success.
+
+Quote.
+For the presentation itself, set a clear agenda, but don't focus on rote conformance. A great meeting with executive leadership is defined by engaged discussion, not addressing every topic on the agenda.
+End quote.
+
+I’m very intrigued by the Minto Pyramid Principle that he references too. I haven't heard of that before, and it looks interesting.
+
+My Engineering Axioms
+
+A list of 25 very solid recommendations for engineers to adopt and consider int their career. There is a lot of wisdom here.
+
+Dropbox to cut 11% of its global workforce
+
+I’m not bullish on Dropbox. There was a time when I really liked their solution. The sync used to be butter smooth and it was great between various devices. Over the years though tons of competition has arrived that is more tightly integrated into other services. Meanwhile, Dropbox has bloated itself with odd features. I dropped the service years ago, and many that I know have as well. Sadly I think selling to Apple would have been a much better choice for them. Also, 11% of workforce is 315 people — they have 3,000 people? Among Us has 4 employees.
+
+Decoding the Peloton (PeloMon, Part I)
+
+Some serious hardware geekery here.
+
+Quote.
+I’ve decoded (most of) the protocol that the Peloton bike uses to communicate with its head unit tablet and built a device, the PeloMon, that takes that data during a ride, without interfering with the Peloton software, to broadcast it over Bluetooth LE to whatever devices you’d like — a watch, Zwift, Wahoo, whatever. Stick around for logic analyzer traces, hardware diagrams, cursing at Bluetooth, and some nice interfaces.
+End quote.
+
+Interesting to open up the excellent Peloton hardware to other services for tracking.
+
+How to Lead When Your Team Is Exhausted — and You Are, Too
+
+Great article highlighting the difference in leading during the first part of the pandemic, and where we are now.
+
+Quote.
+Personal resilience in the second wave is a different story because it relies on psychological stamina. Psychological stamina rests on more deep-seated emotional patterns shaped by our individual needs, histories, and experiences. Stamina is required because, frankly, the second wave is not exciting at all. People report feeling bored, disconnected, and unnerved. In contrast to the skin-deep reactions of the first wave, the second wave requires perseverance, endurance, and even defiance against the randomness, gloom, and burden of the pandemic.
+End quote.
+
+There is a lot here for anyone that leads teams to think about. It makes sense that as a situation like the pandemic goes on for a long time, the emotions and feelings we have will change. I definitely have felt and seen some things that this article highlights. Thanks to Cecil Johnson for the link.
+
+What the $%#! is a Platform Company | LinkedIn
+
+Stellar writeup on some of the core aspects that drive platform companies, and what makes them different than others. I like the way that Kermisch frames this, it’s spot on.
+
+Quote.
+There is a paradigm shift that can help companies make the turn. That is to treat yourself as the very first customer of your service. Shifting to a customer mindset, you will start to think about the features you would want from the service to maximize its value.
+End quote.
+
+Getting closer to your customer, and truly understanding their need, is critical. Broadly defining the concept of customer is also important, this is more than just your current end customers. Your team is your customer. Thanks to Jason Schlapkohl for the link.
+
+That's the end of Recommended Links.
+
+Now, the Journal section.
+
+Monday @ 10:47 PM
+
+As part of our Martin Luther King day we all watched Selma tonight. It is a powerful movie and a stark reminder of how recent the events of the civil rights movement are. The portrayal of Dr. King is wonderful as well.
+
+Monday @ 7:39 PM
+
+Starting to read The WEIRDest People in the World by Joseph Henrich. My book club is reading this. Looks interesting, and long.
+
+Monday @ 4:52 PM
+
+Tammy, Mazie and I were looking for a long hike today so we drove to Lebanon Hills Regional Park and hiked the Voyager Trek Loop for 5.4 miles. It was Lucky's longest hike and she did great.
+
+Trail selfie, with my silly looking scarf.
+
+It was very pretty out. This was our first time hiking in Lebanon Hills but definitely will not be our last. We definitely want to retun in the summer.
+
+Monday @ 11:12 AM
+
+twenty twenty one Dr. Martin Luther King Jr. Holiday Breakfast
+
+I was able to attend the twenty twenty one Dr. Martin Luther King Jr. Holiday Breakfast this morning. It was a great way to reflect on the messages of King as part of the holiday.
+
+I was impressed that this was the thirty first year of this event. General Mills took some incredible leadership in making this event happen, and in bringing diversity and equity to their organization. It was also great to see the fabulous work of the UNCF highlighted.
+
+Sunday @ 10:32 PM
+
+We watched Trolls World Tour tonight. It was fun and I liked all the music in it. Tiny Diamond cracked us up a lot. The story has very obvious messages about valuing differences told through music. Everyone liked it.
+
+Saturday @ 10:38 PM
+
+We had a John Hughes movie night with my brother and his family with Ferris Bueller's Day Off. There is more swearing than I remembered, or at least you notice it more with a 10, 12, and 15 year old watching. Mazie still liked it.
+
+Saturday @ 2:33 PM
+
+My brother Isaiah and his family visited this last weekend and on we noted the fifth year since we first met. In those five years we have gotten to know each other really well. We even took a trip to Chicago together. Our families have also gotten close and our kids have great cousin time together.
+
+It would have been easy for us to go through our whole lives having never met. I’m really glad that we did and that we have gotten to know each other so well.
+
+Plus it is fun that I get to be the older brother.
+
+Saturday @ 1:12 PM
+
+Lucky and I at Victoria-Evergreen Park in Minnetonka.
+
+That's the end of the Journal.
+
+Now, for your information.
+
+Why webcams aren’t good enough
+
+Deep dive with a ton of comparison photos of various webcams. TL;DR: none of them are good. If you want quality, find a dedicated camera and route it into your computer.
+
+50 Funniest Bernie Sanders Inauguration Memes
+
+These are so great. My personal favorites include Shining Bernie (26), Totoro (41), and of course the Minor Thread (43) and Replacements (45) ones. Well done Internet!
+
+Write code. Not too much. Mostly functions. | Brandon's Website
+
+Witty translation of Michael Pollen's pragmatic advice for eating applied to coding.
+
+IPFS Support in Brave
+
+IPFS has seemed like an interesting technology but support is limited. Nice to see Brave adding it.
+
+Understanding Envoy Rate Limits – Wayfair Tech Blog
+
+Detailed overview of using Envoy rate limits in your micro-service environment.
+
+Habit Tracking: The Best Habit Apps For Your iPhone — The Sweet Setup
+
+I am a bit fan of Streaks and have used it for years. If you are looking at a tracker for habits this is the one I would recommend too.
+
+Online speech and publishing — Benedict Evans
+
+This article doesn't have answers, but it doesn't a good job of illustrating the complicated matters around what content is allowed on what services online.
+
+That's the end of the FYI section.
+
+Now, the Fortune section.
+
+Here is your fortune…
+
+Change your thoughts and you change your world.
+
+Thank you for subscribing to the Weekly Thing!
+
+That brings us to the end of the Weekly Thing, issue 170. Thanks for listening, and I'll see you next time.

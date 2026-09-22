@@ -1,0 +1,176 @@
+The Weekly Thing, issue 20. Weekly Thing for September 23, twenty seventeen. Published September 23, twenty seventeen. By Jamie Thingelstad. In this issue: Relicensing React and Jest, A11 Bionic chip, iOS 11 review, iPhone 8 camera, Apple Watch Series 3, Swift 4.0, Facebook's war on free will.
+
+This was a big week for people that have a lot of iOS devices with the launch of iOS 11 along with watchOS 4 and tvOS 11. You'll see a flood of Apple related links this week. More than any normal person would ever want to read, but where is the fun in being normal?
+
+Now, the Photog section.
+
+We were taking in some of the final days out on the water before we officially say goodbye to summer and put the boat in for the winter and caught these gorgeous rays of light streaking through the clouds.
+
+Sep 16, twenty seventeen at 4:34 PM Cannon Lake, Warsaw MN.
+
+That's the end of Photog.
+
+Now, the Links section.
+
+Link one. "Relicensing React, Jest, Flow, and Immutable.js | Engineering Blog | Facebook Code | Facebook"
+
+Facebook moved really fast on this quickly growing license concern around React. Moving to MIT License should quell the concerns around those looking at adopting React.
+
+Link two. "Superaccurate GPS Chips Coming to Smartphones in twenty eighteen - IEEE Spectrum"
+
+Having a GPS in so many devices has been a revolution bigger than I would have expected. Moving the accuracy of GPS locations from 5 meters to 30 centimeters would enable a whole new class of use cases. It’s surprising to me that this is even possible!
+
+Link three. "iPhone 8 Plus Camera Review: India — Austin Mann"
+
+Austin Mann writes about cameras as a working photographer does, not megapixels, but the photographs it takes. The portrait lighting mode looks amazing in the new iPhone 8. Adding Slow Sync flash is another big advance.
+
+Link four. "watchOS 4: The MacStories Review"
+
+Very thorough overview of all of the improvements in watchOS 4. Take for a read if you have an Apple Watch since some of the improvements are subtle and sometimes hard to discover on the very small screen.
+
+Link five. "iPhone 8 Is World's Fastest Phone (It's Not Even Close)"
+
+Apple purposefully doesn't tout CPU benchmarks on their machines and will usually just reference a multiple on other devices. The benchmarks in this article show how far ahead the A11 Bionic chip is in raw compute. An iPhone 8 benchmarks faster than a recent MacBook Pro!
+
+Link six. "The inside story of the iPhone X 'brain,' the A11 Bionic chip"
+
+What Apple is doing with the silicon behind the iPhone is amazing. They are miles ahead of anyone else in mobile. You could be forgiven if, after Apple’s giant, two-hour product launch event on Tuesday, the only thing you remembered is the stunning iPhone X. It is special. It’s also nothing without the A11 Bionic CPU. As an aside, it’s surprising to see how many companies Apple has purchased in the hardware and fabrication space.
+
+Link seven. "Anatomy of a Moral Panic"
+
+So much truth in this article. I spent years in media and the incentives and revenue systems that have evolved there are not good for the mission of news organizations. And reporters have no choice but to chase clicks. Because Google and Facebook have a duopoly on online advertising, the only measure of success in publishing is whether a story goes viral on social media. Authors are evaluated by how individual stories perform online, and face constant pressure to make them more arresting. Highly technical pieces are farmed out to junior freelancers working under strict time limits. Corrections, if they happen at all, are inserted quietly through ‘ninja edits’ after the fact. That pretty much sums up the status quo.
+
+Link eight. "SPS Academy | Elimisha Children's Project"
+
+SPS Commerce partnered with the Elimisha Children's Project and helped fund the reconstruction of this new school in Kitui!
+
+Link nine. "You Might Be Evil —Tim Bray"
+
+Tim Bray catching on a number of articles that I've also seen. When I read articles like this I can’t help but going back to the root of things and reminding everyone that there are no ethics classes taught to technologists. Our industry is one that rarely even puts that topic on the table. We are creating a world of software and hardware that many people live inside of without really understanding what we are doing, and the tradeoffs implicit in it.
+
+Link ten. "Apple does right by users and advertisers are displeased —EFF Updates"
+
+Happy to see the EFF express their opinion on this. Also gives me even more confidence that this approach has been vetted by more people. Intelligent Tracking Prevention looks great!
+
+Link eleven. "iOS 11, thoroughly reviewed | Ars Technica"
+
+Ars always does super detailed reviews of new releases of iOS. This is almost book length.
+
+Link twelve. "tvOS 11: The MacStories Review – MacStories"
+
+In this weeks flurry of new software for the Apple ecosystem tvOS also got a major version upgrade. As someone who has 3 Apple TV devices using tvOS I can attest that Home Screen Syncing is a bigger deal than your would think. Everything else is pretty minimal updates.
+
+Link thirteen. "Visual Codes Generates QR Codes for iOS 11’s New Camera Features – MacStories"
+
+Alright, so I've said many times that QR codes are dumb and have no utility. I may have to take some of that back. Putting a QR code in the house that a visitor can hit with their camera and jump on the WiFi network is a pretty slick use case. I'll put one up and see if anyone is able to use it. I still love Pictures of People Scanning QR-codes!
+
+Link fourteen. "Apple Watch Series 3 —Daring Fireball"
+
+Quote.
+With the addition of cellular networking in Series 3, Apple Watch gains something essential: independence. It’s not just a cool feature. It’s aimed smack dab in the middle of the two things people like best about Apple Watch: notifications and fitness.
+End quote.
+
+Link fifteen. "Facebook’s war on free will | Technology | The Guardian"
+
+The long read: How technology is making our minds redundant
+
+Link sixteen. "How Useful is Tufte for Making Maps? | Making Maps: DIY Cartography"
+
+John Krygier, a cartographer and professor, takes Tufte's visual display guidelines. The 20 Tufteisms and the Six Commandments are superficially less than I expected, from the perspective of practical guidelines. But, upon reflection, they do touch on many of the fundamental issues that determine if a map design is going to work or not, and what could more practical than that? Not a takedown per se, but a detailed breakdown of how you would practically apply these techniques.
+
+Link seventeen. "Satya Nadella Rewrites Microsoft’s Code"
+
+Quote.
+Microsoft’s CEO has stopped infighting, restored morale, and created more than 250 billion dollars in market value. All it took was focusing on what matters most.
+End quote.
+
+Link eighteen. "Analyzing One Million robots.txt Files"
+
+This is a delightfully fun read analyzing the robots.txt files of the top million websites. Interesting history about the origins of the robots specification and the fact that it was never standardized. There isn't even an RFC for it! As a bonus the code excerpts to show the analysis are all in Python and was the first time I've seen the collections module.
+
+Link nineteen. "Swift.org - Swift 4.0 Released!"
+
+I still haven't coded anything in Swift but I continue to watch the language evolve from the sidelines. I find it interesting to see how the Swift community is forging this language.
+
+Link twenty. "Use OmniFocus with Drag and Drop and Siri on iOS 11 —Learn OmniFocus"
+
+Nice, quick primer to using the new drag and drop feature in iOS 11 inside of OmniFocus. Many of the use cases that are highlighted for drag and drop are between applications but this shows how powerful these features are inside one application.
+
+Link twenty one. "The iPhones 8 —Daring Fireball"
+
+Quote.
+These are solid year-over-year updates — at least as impressive as the iPhone 7 was over the iPhone 6S. If they hadn’t debuted alongside the iPhone X we’d be arguing about whether these are the most impressive new iPhone models since the iPhone 6.
+End quote.
+
+Link twenty two. "Here are 11 quick tips for using iOS 11 —The Sweet Setup"
+
+Good list of features in iOS 11. Take a read and see some of the things that you may not know about.
+
+Link twenty three. "watchOS 4 now available for download —Apple World Today"
+
+I switched to the Siri face immediately after updating to watchOS 4. I’m curious to see how it does anticipating what information I will need throughout the day.
+
+Link twenty four. "tvOS 11 rolls out with AirPlay 2 support —Apple World Today"
+
+Multi speaker support in AirPlay 2 is a big deal. I have 5 AirPort destinations and only iTunes on my Mac can send to multiple.
+
+Link twenty five. "iOS 11: The MacStories Review – MacStories"
+
+The monster iOS 11 review from MacStories!
+
+Link twenty six. "AUTOMATICA - Nigel Stanford"
+
+Programming robot control arms to play music! It’s a good song too. Nigel Stanford spent a month programming these robots to play this. Hat tip to my friend Dennys for this link.
+
+Link twenty seven. "Second-Hand Misogyny – Transposit"
+
+This article from a male co-founder reflecting on how his female co-founder was dismissed and not recognized by people they met with is illuminating. This stuff happens all the time in tech and I found this an illuminating article.
+
+Link twenty eight. "An open letter to the W3C Director, CEO, team and membership | Electronic Frontier Foundation"
+
+I linked to this W3C DRM decision and now we see the EFF reaction to endorse "Encrypted Media Extensions", to make DRM possible, on the web.  You have to search long and hard to find an independent technologist who believes that DRM is possible, let alone a good idea. Yet, somewhere along the way, the business values of those outside the web got important enough, and the values of technologists who built it got disposable enough, that even the wise elders who make our standards voted for something they know to be a fool's errand. I’m not sure what I think about leaving the W3C to protest this but I do believe the EFF is on the right side of this position. Check out Gruber's comments on the same article.
+
+Link twenty nine. "Netlify: All-in-one platform for automating modern web projects."
+
+Impressive platform for hosting static web projects. Some interesting hooks for things like Identity and Form handling as well which can be very tricky in a static site.
+
+Link thirty. "Migrating from Jekyll+Github Pages to Hugo+Netlify"
+
+I looked into Hugo a while back and was very impressed, but Github Pages native support for Jekyll keeps things really simple. This post highlights an interesting path to make a transition and introduced me to the very impressive Netlify service. I will very likely be moving Link Thing to Hugo for performance reasons alone.
+
+That's the end of Links.
+
+Now, the Promotion section.
+
+The Electronic Frontier Foundation is the leading nonprofit organization defending civil liberties in the digital world. I have been a member of the EFF for years. Not only is the EFF working hard to protect you on the Internet they have also recently launched solutions like Privacy Badger and the critically important Let's Encrypt service to make encrypting web servers free to anyone. Support the EFF with a donation!
+
+That's the end of Promotion.
+
+Now, the Microblog updates section.
+
+- Wow! Words and Music by Dan Wilson tonight was magical. So good!
+- Rachel Ries did a very nice opening set for Dan Wilson at the Fitzgerald.
+- Let’s share activity on Apple Music. Connect to my profile.
+- Trying out the Siri face in watchOS 4. Curious to see how it adapts and responds.
+- Updated iPhone and iPad to iOS 11. Now the slow, slow process of watchOS 4 upgrade.
+- Good morning! Espresso crema…
+- Have a bit of a nameserver fiasco with thingelstad.com. Just fixed things up but think it may take 24 hours to heal.
+- Minnesota Honeycrisp Apples are in at the orchards!
+- Learning how to play cribbage so I don’t lose my Minnesota cabin license.
+- Mazie beat me at checkers with a passive aggressive strategy making it impossible for me to move.
+- It’s amazing how fast name server changes are propogated today. Floors me to think about the days and days it took in late ’90s.
+- Just switched my nameservers for thingelstad.com to Netlify. Triple checked DNS values but if you see something not working let me know.
+- Campfire!
+- Beef tenderloin on Big Green Egg tonight.
+- Clouds and Water.
+- Fall sailing.
+- Sailboat on Cannon Lake. Not a typical sight.
+- Fresh haircut!
+- Building Link Thing, a Jekyll website with 9,000 posts, is just slow. No matter what.
+- Moved two small static sites to Netlify and am very impressed. Powerful and easy. Plus opens Hugo as an option.
+
+That's the end of Microblog updates.
+
+Thank you for subscribing to the Weekly Thing! If you know of people that would like the Weekly Thing please forward it along!
+
+That brings us to the end of the Weekly Thing, issue 20. Thanks for listening, and I'll see you next time.

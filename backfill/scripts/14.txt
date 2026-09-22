@@ -1,0 +1,141 @@
+The Weekly Thing, issue 14. Weekly Thing for August 12, twenty seventeen. Published August 12, twenty seventeen. By Jamie Thingelstad. In this issue: Coco Framework blockchain, James Damore Google manifesto, Ulysses subscription pricing, smartphones destroyed a generation, Bloomington Islamic center bombing.
+
+Summer has been in hyperdrive and this weekend I’m enjoying a respite of sorts. We had plans with my sister and stepfather but we ended up changing those and we were able to downshift to a much needed weekend of relaxation and some small projects at home. The kids go back to school in just 2 more weeks! Summer has gone quick!
+
+I want to take a moment to highlight another newsletter -- Patrick Rhone's One more thing. I've been lucky enough to get to know Patrick and he's a delightful person that brings depth of thought to every conversation. He's one of those folks that you leave smarter from each interaction. His newsletter is one that I look forward to reading each time arrives. Check out the archive and subscribe if it strikes your fancy! Patrick is also currently on a yearlong sabbatical from the Internet and his newsletter is the only place to get this thoughts during that time.
+
+Now, the Photog section.
+
+We were back in Lignite, North Dakota and we were able to stop at my Grandparents farm. Nobody has lived here now for over four years and the place is quickly deteriorating. This tractor is a reminder of the constant activity that used to be here in my childhood.
+
+Aug 7, twenty seventeen, 2:40 PM 94th St NW Lignite‎ ND‎ 58752 United States.
+
+That's the end of Photog.
+
+Now, the Links section.
+
+Link one. "Announcing the Coco Framework for enterprise blockchain networks | Blog | Microsoft Azure"
+
+Microsoft joining IBM and others in providing blockchain services for companies to build off of. I continue to watch this space. It still feels like a solution looking for a problem, but due to cryptocurrencies it definitely isn't going away. There definitely could be something here for other systems too.
+
+Link two. "SPS Commerce to host Hack the Heat Minneapolis | SPS Commerce"
+
+I love love that we can host this great event for high school students to learn and build!
+
+Link three. "Swarm Shifts Focus to Become a Personal Travel Timeline – MacStories"
+
+My interest was piqued on this recent release of Swarm (from what we used to think of as Foursquare) because a number of IndieWeb people I follow use it. That surprises me since this seems like a privacy nightmare, but the app has evolved to be less social and more private/journal focused. I would however give the Terms and Service and Privacy Policy a detailed read before I did anything with this. I would assume they are selling all your movement and location data to any number of ad networks.
+
+Link four. "The James Damore Google manifesto is a toxic exercise in generalization - without bullshit"
+
+I like Josh Bernoff site and how he cuts through the bullshit of documents. This sexist manifesto has been making the rounds this week and his analysis of it is solid.
+
+Link five. "'Franklin Barbecue: A Meat-Smoking Manifesto' by Aaron Franklin and Jordan Mackay — Tools and Toys"
+
+I must have this book. Must!
+
+Link six. "Why you (yes, you) need to be a better writer (and how to get started) - a n n i e m u e l l e r"
+
+I really enjoy Annie Mueller's blog and writing, so I definitely wanted to read her thoughts on being a better writer!
+
+Link seven. "TECHdotMN The Nerdery's CEO Tom O'Neill Is Stepping Down - TECHdotMN"
+
+Significant changes at the Nerdery. They have made R. J. Nicolosi as interim CEO.
+
+Link eight. "Implementing Webmentions"
+
+There continues to be significant thought on how to create the goo things about the social web in the open or IndieWeb. Webmentions are a modern take on the old blog pingbacks. I've enabled my site with them using webmention.io.
+
+Link nine. "Ulysses Is Switching to Subscription Pricing"
+
+I use Ulysses and have purchased it on both iOS and macOS. They, like Bear, have become another subscription based writing / note taking app. I subscribed. I get the economics and I want to support key software that I find valuable.
+
+Link ten. "Chalice – 1.0.0 GA Release | AWS Developer Blog"
+
+Another serverless framework, this time from AWS themselves.
+
+Link eleven. "Jeff Atwood | Civilized Discourse... But How? | Heavybit"
+
+Jeff Atwood is a big part of the brains behind Discourse and previously Stack Overflow. He has spent more time than the vast majority of people online trying to figure out how to build healthy communities online.
+
+Link twelve. "Encourage children to spend more time online, says former GCHQ head | Society | The Guardian"
+
+A contrarian view to the smartphones are terrible for kids comment. I think there is some truth here, being digitally capable is very important. However, I also think that we are long past the time where just using a computing device makes you more capable. There are plenty of ways to do things on your device that provide no benefit other than entertainment.
+
+Link thirteen. "Have Smartphones Destroyed a Generation? - The Atlantic"
+
+Continuing the dialog around the impact of smartphones on people.
+
+Link fourteen. "iPhone addiction, Scrooge and regret – 52 Tiger"
+
+Some personal reflections on the addiction to smart phones and this persons reflections on how that has impacted his family.
+
+Link fifteen. "Home Screens - Sal Saghoian —macsparky"
+
+I really enjoy MacSparky's home screen series. I tend to always find some new app or new way of thinking about things. Sal Soghoian is notable as the author of AppleScript so I took particular note on this one. I also love how he considers the privacy angle of his smart phone.
+
+Link sixteen. "4 Things That Set Successful CEOs Apart"
+
+Good fodder for leaders to consider in how they approach their work and their teams.
+
+Link seventeen. "FBI: 'Improvised explosive device' caused blast at Bloomington Islamic center | Star Tribune"
+
+I just get more and more worried about us as a society. Terrible act of violence.
+
+Link eighteen. "Why Onboarding is the Most Crucial Part of Your Growth Strategy —Casey Accidental"
+
+Good ideas and thoughts on how you introduce users to a new product or service. Also good discussion of key metrics.
+
+Link nineteen. "YC’s twenty seventeen Summer Reading List"
+
+Not necessarily an endorsement of Y Combinator, but I do like seeing what smart folks highlight as recommended reads.
+
+That's the end of Links.
+
+Now, the Now Reading section.
+
+Peak: Secrets from the New Science of Expertise
+
+by Anders Ericsson
+
+Anders Ericsson has made a career studying chess champions, violin virtuosos, star athletes, and memory mavens. Peak distills three decades of myth-shattering research into a powerful learning strategy that is fundamentally different from the way people traditionally think about acquiring new abilities. Whether you want to stand out at work, improve your athletic or musical performance, or help your child achieve academic goals, Ericsson’s revolutionary methods will show you how to improve at almost any skill that matters to you.
+
+My book club is reading Peak this month and I’m finding it pretty great. It’s an interesting read to extrapolate how you can improve abilities in a variety of different domains. Ericsson's writing is good and he creates a pretty clear path for designing systems to create continual improvement.
+
+That's the end of Now Reading.
+
+Now, the Promotion section.
+
+The Wikimedia Foundation, Inc. is a nonprofit charitable organization dedicated to encouraging the growth, development and distribution of free, multilingual, educational content, and to providing the full content of these wiki-based projects to the public free of charge. The Wikimedia Foundation operates some of the largest collaboratively edited reference projects in the world, including Wikipedia, a top-ten internet property. Donate to Wikimedia today!
+
+That's the end of Promotion.
+
+Now, the Highlighted iOS App section.
+
+Signal - Private Messenger
+
+by Open Whisper Systems
+
+Privacy is possible, Signal makes it easy. Using Signal, you can communicate instantly while avoiding SMS fees, create groups so that you can chat in real time with all your friends at once, and share media all with complete privacy. The server never has access to any of your communication and never stores any of your data.
+
+iMessage has really great encryption for communication between iOS devices but if you want to send messages to people on other platforms you need something like Signal. Signal is the messaging platform used by Edward Snowden and is well regarding by a number of security experts. Feel free to reach me on Signal at 612-810-3699.
+
+Free 4.5/5 stars
+
+That's the end of Highlighted iOS App.
+
+Now, the Microblog updates section.
+
+- Bowbells Hotel.
+- Thinking about my grandparents legacy: 6 kids, 15 grandchildren and 21 great grandchildren (so far…)
+- Tomatoes doing very well.
+- Look up — at hops!
+- My Uncle Tim’s hops are doing very well! Posts are 16’ high.
+- Figured out how to digitally sign git commits. Cool capability. See verified label on 85ce711.
+- Bought a trivial amount of BTC and ETH. If previous patterns repeat, the price should drop precipitously now.
+
+That's the end of Microblog updates.
+
+Thank you for subscribing to the Weekly Thing! If you know of people that would like the Weekly Thing please forward it along!
+
+That brings us to the end of the Weekly Thing, issue 14. Thanks for listening, and I'll see you next time.

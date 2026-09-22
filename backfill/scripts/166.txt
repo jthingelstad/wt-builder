@@ -1,0 +1,269 @@
+The Weekly Thing, issue 166. Chess, Disruption, M1 Macs, Five Hindrances. Published November 21, twenty twenty. By Jamie Thingelstad. In this issue: M1 Macs, Intel's disruption, macOS Big Sur, iPhone 12 Pro Max, OpenStreetMap, personal data warehouses, Fairness Doctrine social networks.
+
+This week I did a webinar for our team at work and I got a green screen so that I could have a really nice virtual background. I've also invested in a great microphone. There is a bunch of stuff that is harder to do remote, but it also opens up new possibilities. As we are looking forward to a pandemic Thanksgiving and trying to navigate a holiday season during a raging virus it is easy to focus on what we can’t do, or shouldn't do. It is easy to miss that, because we know that. But, what new opportunities does it open up? Maybe we can celebrate in some ways that bring new traditions. Some new potentials that we could explore? Not sure yet, but I’m thinking about that and feel that there is definitely some upside here for us to find over our first PANDEMIC holidays.
+
+Now, the Must Read section.
+
+Link one. "The Sane Person’s Winter COVID Survival Guide | by Susie Bright | Oct, twenty twenty | Medium"
+
+I love this article. Bright suggests a data driven framework for how we manage through the upcoming winter. Here in Minnesota everyone is concerned about how we are going to make it through a dark and cold, snowy winter without seeing people inside. This risk adjusted approach seems smart. I've been thinking about the pandemic as a risk budget, and we spend it. This article tells you how to spend that risk well.
+
+Quote.
+HOW TO HAVE INDOOR PARTY Check your community transmission ratio. — Is it under 20 cases per 100,000 people? — Even better, under 10? You are in good shape. Let your guests know, too. Don’t have indoor parties if you’re seeing ratios of more than 25 per 100k. Switch to outdoor gatherings and work on getting those numbers down as a community.
+End quote.
+
+Read this. Read it again. Print it out. Reference it.
+
+Link two. "Daring Fireball: The M1 Macs"
+
+If you read just one article about the new M1 Apple Silicon Macs this is the one to read. Gruber has a long history in the Apple world, and focuses on the things that matter. I love his reference to the strategy with the M1 as compared to the Mac moving to Intel chips before.
+
+Quote.
+The logic behind Apple’s transition then to Intel boiled down to another old axiom: If you can’t beat them, join them. The logic behind Apple’s transition now to Apple Silicon is this: If you can beat them handily, do it. The M1 Macs are such better machines than their Intel-based predecessors it’s hard to believe. Apple’s battery life braggadocio is warranted. The battery just lasts and lasts and lasts. I’ve been using this MacBook Pro almost exclusively on battery power all week, doing both all my normal work and running benchmarks and performance-stressing tasks, and I can’t come close to depleting it in a full day of work.
+End quote.
+
+The power efficiency in these chips is a game changer. We may finally be getting to the point where we can get laptops that will always go the whole day, even under intense usage, on a single charge.
+
+The there notable thing here is stuff that the M1 does in the chip and is the marriage of the software and hardware working together so tightly.
+
+Quote.
+Broadly speaking, this is a significant reason why M1 Macs are more efficient with less RAM than Intel Macs. It’s the combination of software and hardware designed together.
+End quote.
+
+I can’t wait to get my hands on one fo these.
+
+Link three. "How to Be at Home (twenty twenty) - YouTube"
+
+A beautiful poem from Tanya Davis about being at home during the pandemic, with illustrated video from Andrea Dorfman. Bookmark this to come back to from time to time.
+
+Link four. "Master Shi Heng Yi – 5 hindrances to self-mastery | Shi Heng YI | TEDxVitosha - YouTube"
+
+I've now watched this video three times, so it obviously resonated with me. As I've been working on my FitByFifty missions with success and setbacks, these 5 Hindrances were interesting to me. The words require some introspection. We think cravings, willpower, versus words like sensual desire — but it is the same thing. I find value in naming these hindrances because it allows me to identify them, tag them (a meditation technique), and then disconnect from them. I also like the RAIN concept: Recognize, Accept, Investigate, and Non-identify. Give it a watch and see what you think.
+
+Digging Digg?
+Dig the Weekly Thing? Share it with your friends on Digg!
+
+That's the end of Must Read.
+
+Now, the Currently section.
+
+Watching: This week we were browsing around our streaming services and Tammy decided to play the first episode of The Brady Bunch. The kids loved it, and Tammy and I were reminiscing about watching episodes when we were kids. We've watched a few episodes now and everyone loves it.
+
+That's the end of Currently.
+
+Now, the Photography section.
+
+The Yellowstone River carving out the Grand Canyon of the Yellowstone.
+
+Jul 24, twenty twenty at 12:12 PM
+Grand Canyon of the Yellowstone
+
+I try to get a picture each week to share but this week I spent nearly the entire week inside, and it’s dark now at 4:30p so the opportunities for photos are fleeting. I decided to go back to the summer and bring one of those photos forward.
+
+That's the end of Photography.
+
+Now, the Recommended Links section.
+
+Six months of Tiny Projects | Tiny Projects
+
+What an incredibly ambitious objective, and what a great way to learn what works and doesn't work on a small scale. I applaud the ambitious creativity.
+
+OpenStreetMap is Having a Moment. The Billion Dollar Dataset Next Door | by Joe Morrison | Nov, twenty twenty | Medium
+
+I had no idea that companies like Apple, Amazon, Facebook, and Microsoft were contributing content to OpenStreetMap. I love that OSM is a project, we need an openly licensed high-quality set of map data, but given the billions that Apple and these other companies are putting into generating their own map data why do this?
+
+Quote.
+The concept is simple: undermine your competitors’ intellectual property advantage by collaborating with aligned entities to cheapen it with a free and openly licensed alternative. I would wager that corporate participation in OSM is less about directly monetizing souped-up versions of OSM data provided as modern web services and more about desperately avoiding the existential conflict of having to pay Google for the privilege of accessing their proprietary map data.
+End quote.
+
+It is notable that Google isn't participating at all here. I will be interested to see how this continues to evolve.
+
+On Exactitude in Technical Debt – O’Reilly
+
+Good overview of how to think about technical debt.
+
+Quote.
+Technical debt is not the cost of repaying the debt: it is the cost of owning the debt. These are not the same. That is the message of the technical debt metaphor: it is not simply a measure of the specific work needed to repay the debt; it is the additional time and effort added to all past, present, and future work that comes from having the debt in the first place.
+End quote.
+
+Informative for those that need to manage this concept. Anyone writing software is managing this.
+
+ten recent thoughts – rebeccatoh.co
+
+Some great thoughts to keep in mind as we seek to better ourselves.
+
+A Rose by Any Other Name? | by Peter Stern | Voyant Photonics | Nov, twenty twenty | Medium
+
+I first met Peter Stern when he was CTO of Datek and BigCharts was providing great stock charts for their website. Peter is an amazingly smart technologist and business builder that is now focusing on bringing low-cost LiDAR into the market. He is also, as am I, a Tesla owner and lover. This is his open letter to Elon Musk to reconsider his disregard for LiDAR sensors. Peter is President of a company focusing on LiDAR technology, so…
+
+Cancel Thanksgiving: How to Safely Celebrate in a Pandemic - The Atlantic
+
+Many families are struggling with the approaching Holidays and managing a raging pandemic. Let's first look at data. According to this COVID-19 Event Risk Assessment Planning Tool where I live if you held an event with 10 people, about the size of an average Thanksgiving dinner, you have a 34% likelihood of having a COVID positive attendee. That is just data. If you do the same in my hometown of Minot, ND it is 76% likely that someone has COVID. Those are bad numbers.
+
+The other thing I think about here is that every single year we have Americans that are not with their family on the holidays, they are our men and women in uniform. They are deployed around the world on Thanksgiving and are not seeing their own children on Christmas. We call that being a patriot. We need to be patriots this holiday season.
+
+Best aspects of C language | Joren
+
+My brother is getting a Computer Science degree and has been learning C in that class. I scratched my head a bit since I know so few people that program C professionally. Frankly it is just too expensive for most normal development. But this article does a good job of explaining why it is, even at nearly 50 years old now, still a good language.
+
+About 90K sex abuse claims filed in Boy Scouts bankruptcy | Star Tribune
+
+I was a Cub Scout, a Webelo, and a Boy Scout. I went to some Jamborees. Earned the Arrow of Light. I haven't been following this sex abuse story and the Boy Scouts closely but the 90,000 claims is stunning, depressing, disheartening…
+
+On Learning Chess as an Adult – From 650 to 1750 in Two Years – Jacob Brazeal
+
+Something I’m sort of embarrassed to admit is I’m pretty bad at chess. I've never put in the investment to be good at it, but for some reason I always feel like I should be better at chess than I am. I've long had on my long list a goal to get better at chess. So this article caught my eye. Then this.
+
+Quote.
+I spend about two hours per day on chess, broken into three periods.
+End quote.
+
+Ahhh, maybe I’m okay not being great at chess?
+
+The iPhone 12 Pro Max: Real Pro Photography | by Sebastiaan de With | Nov, twenty twenty | Halide
+
+Oh my the camera in the iPhone 12 Pro Max is so compelling. I do a lot of photography on my phone, and this makes me drool. I really want one, but every attempt I've made at the "big" phones has been a problem since I carry it everywhere with me. Ugh.
+
+Hello, Mac. The same Apple Design Award-winning app… | by Majd Taby | Dispatches From Darkroom | Nov, twenty twenty | Medium
+
+I've been looking for something to replace Adobe Lightroom and now that Darkroom is on the Mac I may have an answer. Darkroom is powerful, but even more importantly it natively connects to the Apple photo ecosystem. I'll be moving everything out of Lightroom and using Darkroom this winter.
+
+How the Fairness Doctrine should apply to social networks - without bullshit
+
+I’m also not a proponent of breaking up Facebook. I don't think it will do much to help with the problems they have created. I do like the idea of treating them as a media company. Their position of not being accountable for content is unacceptable.
+
+Quote.
+Simply put: social networks like Facebook are contributing to the polarization of American politics. The solution is not to break them up. The solution is to require them to expose members to a diversity of viewpoints. Why is America so divided? Why, even now, are there partisans so desperately afraid of Biden’s election that they are willing to try almost any strategy to undo it? I think the reason is that reality itself is fractured. Each of us has our own reality.
+End quote.
+
+I think this is definitely worth a shot, but I doubt it would happen. I’m still of the mind that we need to take an arc like smoking with social networks. We need to get to the point where we recognize that these platforms are not good for us, and that we need to take our own accountability for solving that by quitting them.
+
+gping: Ping, but with a graph
+
+Very cool terminal based ping tool that graphs! It is pretty common when debugging some WiFi issue or other routing issue that I will need to start multiple pings going at the same time to different hosts. Now I can use the visuals to help see what is happening. Nice.
+
+Personal Data Warehouses: Reclaiming Your Data
+
+Simon Willison created Django, and most recently I've been following his incredible work on Datasette. This talk about creating a personal data warehouse is super cool. I love the idea, now to make things like this easier to do and still protect your privacy. I consider my links part of my personal data warehouse, but it’s not setup that way yet.
+
+Intel’s Disruption is Now Complete | by James Allworth | Nov, twenty twenty | Medium
+
+What an interesting read specifically with Andy Grove and the work that Clay Christensen did with Intel on disruption.
+
+Quote.
+He might not have realized it at the time, but when Grove was reading Christensen’s work, he wasn’t just reading about how Intel would go on to conquer the personal computer market. He was also reading about what would eventually befall the company he co-founded, 25 years before it happened.
+End quote.
+
+Intel missed the performance per watt that was happening here. The A-series of chips, even when they were way less powerful than anything Intel had, were always more efficient. That is the wedge that Apple is now driving into the M1, and displacing Intel from the most valuable computer company in the world. Intel isn't out, they will continue to have space in the server and PC market obviously, but this is a big blow.
+
+They need to disrupt themselves now. And they should not have said no to Apple on the iPhone, but it’s hard to see how they could have been successful there.
+
+"Other countries have social safety nets. The U.S. has women." - Culture Study
+
+This is one of those articles that I’m pretty sure women will read and just shake their heads at the obvious truth of it all. And men, or at least myself, read it and raise our awareness of the lack of equity in so much that is around us.
+
+Quote.
+Other countries have social safety nets. The U.S. has women. Women in the U.S. have long done a disproportionate share of the unpaid service work in institutions and at home. They’re the ones who run the bake sales so the school can have an art teacher or enough books to go around. They’re the ones who run church outreach programs to attract new families and serve community members in need. They’re the ones who check in on sick coworkers, remember birthdays, and help their colleagues feel like part of a team. Women do all of that unpaid service for the institutions in their lives, and then they go home and do even more.
+End quote.
+
+The Flix Programming Language
+
+It is fun that there is still so much experimentation and innovation happening in programming languages.
+
+Quote.
+Flix is a principled and flexible functional-, logic-, and imperative- programming language that takes inspiration from F#, Go, OCaml, Haskell, Rust, and Scala. Flix looks like Scala, but its type system is closer to that of OCaml and Haskell. Its concurrency model is inspired by Go-style processes and channels.
+End quote.
+
+Learning from this email?
+Share the love and help others learn by sharing this on LinkedIn.
+
+That's the end of Recommended Links.
+
+Now, the Stream section.
+
+Wednesday @ 7:49 PM
+
+I set a new PR tonight in Kendall Toole's 45-min Metallica Ride! 571 kJ, +18 over previous. I pushed very hard on this one. 87% of time at threshold or higher. Great music! #FitByFifty
+
+Wednesday @ 11:40 AM
+
+I leveled up my webinar broadcasting capabilities with the addition of a green screen. This setup worked incredibly well with Zoom for our all team meeting today.
+
+Here is what it looks like in Zoom with a virtual background applied.
+
+The theme for the team meeting was a live show where I was the host in the control room. It was a lot of fun to do.
+
+Monday @ 9:16 PM
+
+Happy that Noodlesoft has made Hazel 5 a regular application, and no longer part of System Preferences!
+
+Sunday @ 10:58 PM
+
+Tammy and I watched Brittany Runs a Marathon tonight. Fine movie with a happy ending. May make you want to run a marathon.
+
+Sunday @ 10:47 PM
+
+Family game time this afternoon. First Five Crowns which Tyler won. Then a game of Blokus that Mazie won (Yellow) and for the first time played all of her pieces, with bonus for the single piece last!
+
+Sunday @ 10:17 PM
+
+We had a nice 4.4 mile hike around Pike Island at Fort Snelling State Park today. This is 15 mins from our house but we had never been here! We will definitely be back, maybe with snow shoes next time.
+
+Saturday @ 10:17 PM
+
+Family movie night with Call of the Wild. We all enjoyed it. We also tend to love dog movies.
+
+Saturday @ 10:15 PM
+
+Family time with Monopoly: Yellowstone edition.
+
+Saturday @ 10:13 PM
+
+We volunteered at Feed My Starving Children today for the first time since the pandemic. They have modified the process to make it a safe as possible. We set a new post-Covid record of 133 boxes packed. Enough to feed 79 kids for a year!
+
+Saturday @ 10:07 PM
+
+Tyler and I have been playing Animal Crossing: New Horizons and we roped Tammy and Mazie in with us. Today all four of us played at the same time and we got an Animal Crossing family photo around the fire! Left to right: Tyler, Tammy, me, Mazie.
+
+Friday @ 10:55 PM
+
+I upgraded two iMacs and a MacBook Air to macOS Big Sur. One of the iMacs was not happy after upgrade but booting into rescue mode and reinstalling Big Sur fixed whatever was ailing it. My initial impression is positive. I like the UI changes and the updates to core applications. Performance seems a little slower but gets faster after apps have been used a couple times. Might be some data migrations happening in the background? Bringing Widgets and Control Center to macOS seems like a win. I have a lot fewer menu bar icons.
+
+That's the end of Stream.
+
+Now, for your information.
+
+drumbit | Online drum machine
+
+Fun to play with.
+
+Industry leader says e-commerce changes at retailers is here to stay | Star Tribune
+
+Great interview with Archie Black about the incredible rate of change in the retail industry.
+
+WindowSwap
+
+This is a cool project that lets you look out windows around the world. I’m tempted to submit my own window.
+
+Metatrends shaping the next decade | by Peter Diamandis | Nov, twenty twenty | Medium
+
+Expand your thinking about the future potentials…
+
+macOS 11.0 Big Sur: The Ars Technica review | Ars Technica
+
+Super deep review in Ars Technica tradition on the new macOS Big Sur.
+
+Share the Weekly Thing?
+More people sign up from LinkedIn than anywhere else! Please spread the word by sharing on LinkedIn and encourage your connections to subscribe.
+
+That's the end of the FYI section.
+
+Now, the Fortune section.
+
+You've made it all the way to the end! Here is your fortune for this week.
+
+Courage is your greatest present need.
+
+Thank you for subscribing to the Weekly Thing!
+
+That brings us to the end of the Weekly Thing, issue 166. Thanks for listening, and I'll see you next time.

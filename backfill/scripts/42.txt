@@ -1,0 +1,259 @@
+The Weekly Thing, issue 42. Feb 24, twenty eighteen. Published February 24, twenty eighteen. By Jamie Thingelstad. In this issue: Quitting Twitter, AWS network diagrams, serverless open source cloud, Steven Pinker interview, Hyper-Scheduling Experiment, SaaS as a business.
+
+I am a bit more excited than usual to send this issue of the Weekly Thing. When I moved to MailChimp I picked one of the default templates. It was okay, but there was a lot I didn’t like about it. Over the last couple weeks I built my own template up that has the capabilities I want and this issue (#42 by the way!) is the first to use it! See my blog post for more on these changes.
+
+With all of these changes it’s possible there could be some display bugs! If you see something that seems off reply and let me know. I hope you enjoy the new look! Now onto the content!
+
+Now, the Blog section.
+
+Weekly Thing Enhancements
+
+Big improvements to Weekly Thing template and better content display.
+
+That's the end of Blog.
+
+Now, the Photo section.
+
+The gorgeous copper pizza oven at Pizzeria Lola.
+
+Feb 20, twenty eighteen at 8:15 PM
+5557 Xerxes Ave S, Minneapolis, MN
+
+That's the end of Photo.
+
+Now, the Social Media section.
+
+The #1 reason Facebook won’t ever change – Om Malik
+om.co
+
+Om's written about tech for longer than most people and I completely agree with his view of Facebook's DNA. The last line says it all:
+
+Facebook is about making money by keeping us addicted to Facebook. It always has been — and that’s why all of our angst and headlines are not going to change a damn thing.
+
+Quitting Twitter
+www.jordanmerrick.com
+
+Another person reflecting on opting out of Twitter.
+
+Quitting Twitter has been a genuine quality of life improvement for me. It's as though a dark, heavy cloud of negativity has lifted, and I no longer get worked up about whatever might be the trending shitstorm du jour. I feel more focused and positive, and generally in much better mental health.
+
+Tristan Harris on how Facebook and Twitter bring out the worst in us - Vox
+www.vox.com
+
+Tristan Harris seems to be the go to interview for any article on the evils of social media.
+
+That's the end of Social Media.
+
+Now, the Tech section.
+
+Life on an iPad | The Overspill: when there's more that I want to say
+theoverspill.blog
+
+Good assessment on trying to do everything on an iPad instead of a laptop. Still many things that are hard to do, but there are an equal number of things that are easier to do too.
+
+Developing SaaS? Forget Scrum, Check Out Kanban and Similar Approaches | On SaaS Products
+onsaasproducts.wordpress.com
+
+Thorough overview of one firms approach to shipping their product on a regular basis, and not being overly obsessed with scrum over other methods.
+
+cloudmapper: CloudMapper creates network diagrams of AWS environments
+github.com
+
+Interesting tool to create a visual diagram of the virtual networks in your AWS environment.
+
+Apache OpenWhisk is a serverless, open source cloud platform
+openwhisk.apache.org
+
+Apache OpenWhisk (Incubating) is a serverless, open source cloud platform that executes functions in response to events at any scale.
+
+Great to see Apache getting into the serverless space with an open source solution.
+
+Why Decentralization Matters – Chris Dixon – Medium
+medium.com
+
+Detailed write up from Chris Dixon connecting decentralization with blockchain.
+
+The lesson is that when you compare centralized and decentralized systems you need to consider them dynamically, as processes, instead of statically, as rigid products. Centralized systems often start out fully baked, but only get better at the rate at which employees at the sponsoring company improve them. Decentralized systems start out half-baked but, under the right conditions, grow exponentially as they attract new contributors.
+
+I wish I understood better how the blockchain tech would power these apps. I think it’s also possible we can get a decentralized solution on the existing Internet still as well.
+
+That's the end of Tech.
+
+Now, the Interview section.
+
+Episode 315 | David Hussman - From Success to Fulfillment
+developeronfire.com
+
+Take an hour and listen to this fun podcast interview with my friend David Hussman. David's chill vibe is a stark contrast to the person doing the interview, but it’s great to hear David's perspective and comments on all of these topics and more about his history and path to where he is now.
+
+The TLS interview: Twenty Questions with Steven Pinker
+www.the-tls.co.uk
+
+Curious what Steven Pinker reads? Here you go.
+
+That's the end of Interview.
+
+Now, the Culture section.
+
+Be a Pal, My Dudes – Mule Design Studio – Medium
+medium.com
+
+Some very clear and practical tasks that men in the technology field can do to make it a more inclusive and open environment for women. Read this and take action.
+
+That's the end of Culture.
+
+Now, the Business section.
+
+Stripe Atlas: Software as a Service, as a business
+stripe.com
+
+If you are not familiar with Software as a Service business models and how SaaS companies work this primer from Stripe covers on all the main concepts.
+
+… we’ll take you through a whirlwind tour of the state of play of SaaS businesses. You should gain a better understanding of the SaaS business model, be able to anticipate whether to sell your product on a low-touch or high-touch model, and be able to evaluate its health and start improving it.
+
+5 Ways to Close the Strategy-to-Execution Gap
+hbr.org
+
+Some things to think about connecting your companies strategy to execution.
+
+The companies’ executives eschew conventional wisdom, not for the sake of nonconformity in itself, but because they are focused on the fundamental questions about a company’s strategy, such as: Who do we want to be? What is our chosen value proposition? And they’re just as focused on fundamental questions of execution: What can we do amazingly well that no one else can? What other capabilities do we need to develop? How will we blueprint, build, and scale those capabilities — and put them to use?
+
+Thanks to Juselly French for the link.
+
+That's the end of Business.
+
+Now, the Productivity section.
+
+The Hyper-Scheduling Experiment — MacSparky
+www.macsparky.com
+
+For the last month, I have been conducting an experiment with more deliberate scheduling of my time. For lack of a better word, I have been calling it hyper-scheduling.
+
+I've tried scheduling with this level of precision and it doesn't work at all for me. But there are a number of other people that I know who swear by this.
+
+Things 3.4 Brings Powerful New Automation Features and App Integrations – MacStories
+www.macstories.net
+
+Things has now added iOS automation capabilities. If I were not a OmniFocus user, I'd probably be a Things user. The user experience looks great and now with automation capabilities it could do what I want well.
+
+That's the end of Productivity.
+
+Now, the Programming section.
+
+IBM Java CTO: Devs shouldn't have to learn Docker, K8s, 30 other things to deploy an app • The Register
+www.theregister.co.uk
+
+I couldn't read this article without coming to the conclusion that IBM isn't aware that go exists.
+
+Norris Numbers
+www.teamten.com
+
+Interesting observations on the size of a codebase and the difficulty for programmers to manage it.
+
+At DreamWorks we had 950 programs for animators to use, and a line count showed that the larger ones all hovered around 20,000 to 25,000 lines. Beyond that it was just too much effort to add features.
+
+Hyrum's Law
+www.hyrumslaw.com
+
+Taken to its logical extreme, this leads to the following observation, colloquially referred to as “The Law of Implicit Interfaces”: Given enough use, there is no such thing as a private implementation.
+
+If you have enough consumers you can’t change anything. This is why eBay's website can’t be changed.
+
+Moving a large and old codebase to Python3 – Anders Hovmöller – Medium
+medium.com
+
+Good overview of one companies work to move their Python 2 codebase to Python 3. How they did it and what issues they saw.
+
+That's the end of Programming.
+
+Now, the Security section.
+
+Troy Hunt: I've Just Launched "Pwned Passwords" V2 With Half a Billion Passwords for Download
+www.troyhunt.com
+
+I use Have I Been Pwned and am impressed with it. I didn’t realize that the creator of that had done this other project as well, to create a database of bad passwords. Interesting to read about it and how he suggests using it for good.
+
+gitleaks: Searches full repo history for secrets and keys
+github.com
+
+Very cool project to aid in identifying secrets that accidentally get added to source code repositories.
+
+That's the end of Security.
+
+Now, the Games section.
+
+Alto’s Odyssey: A sequel to one of our favorite iOS games
+thesweetsetup.com
+
+Alto's Adventure still is a great game after multiple years on iOS. I got Alto's Odyssey right away and had fun exploring similar game play in a new scene with some very fun twists. Highly recommend this game for casual entertainment on your phone and iPad.
+
+That's the end of Games.
+
+Now, the Photography section.
+
+twenty eighteen winning images - Underwater Photographer of the Year
+www.underwaterphotographeroftheyear.com
+
+Amazing photographs. Underwater photography is still pretty esoteric since so few people go there. Some very captivating images here.
+
+That's the end of Photography.
+
+Now, the Promotion section.
+
+Let's Encrypt is a free, automated, and open certificate authority, run for the public’s benefit. All connections to web servers should be encrypted! The biggest challenge with encrypting the web historically has been the cost and hassle of getting an SSL certificate. Let's Encrypt has changed that entirely by being a free certificate authority. Let's Encrypt is possibly one of the most important things to happen on the web in recent years. Donate to Let's Encrypt today!
+
+That's the end of Promotion.
+
+Now, the App section.
+
+Alto's Odyssey
+
+by Snowman
+
+Just beyond the horizon sits a majestic desert, vast and unexplored. Join Alto and his friends and set off on an endless sandboarding journey to discover its secrets.
+
+This sequel to Alto’s Adventure was an instant purchase for me and it’s been a lot of fun to play. There are many new concepts in the game but it maintains the great fun and visual beauty of the first episode.
+
+4 dollars and 99 cents 5/5 stars
+
+That's the end of App.
+
+Now, the Status section.
+
+Thursday @ 9:05 PM
+
+Alto’s Odyssey is a beautiful game experience.
+
+Thursday @ 8:55 PM
+
+Eero update today to support IPv6 and I can now go full IPv6 all the way online. Very nice!
+
+Tuesday @ 9:32 PM
+
+It’s all twizzles on the Olympic Ice.
+
+Sunday @ 11:48 PM
+
+Using the Get and Set Clipboard actions in Workflow to pass more than just “Workflow input” between different workflows is awesomely great (and a total hack).
+
+Sunday @ 8:26 PM
+
+I love these photos of Tammy and I from our annual SPS Commerce Social!
+
+Sunday @ 6:05 PM
+
+Went down a rabbit hole automating MailChimp for my Weekly Thing newsletter. Wrestled control on my template.
+
+Sunday @ 9:21 AM
+
+At times while trying to quiet my mind, it is like thoughts are bouncing around like a popcorn maker with kernels popping all over. Then I realize it helps to consider thoughts through that lens, and it helps quiet the mind.
+
+Saturday @ 2:49 PM
+
+Beef tenderloin into the Sous Vides bath.
+
+Saturday @ 2:34 PM
+
+I guess I exceeded the temperature for the spatula.
+
+That brings us to the end of the Weekly Thing, issue 42. Thanks for listening, and I'll see you next time.

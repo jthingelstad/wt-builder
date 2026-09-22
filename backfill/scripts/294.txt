@@ -1,0 +1,356 @@
+The Weekly Thing, issue 294. Vaporizing, Intelligence, Contraption. Published September 28, twenty twenty four. By Jamie Thingelstad. In this issue: Minneapolis street grid, iOS 18, macOS Sequoia, visionOS 2, iPhone 16 Pro camera, Meta Orion AR glasses, social media surveillance.
+
+Weekly Thing 294 double issue with more links than you could ever realistically want to go through but I’m sending them anyway!
+
+Good morning!
+
+So about last week. There was a lot going on. I had things I was interested to read but not enough time. We had a fun weekend away with Tammy's sister and her family. And indeed there was no Weekly Thing.
+
+But… I've persevered and bring you a famed double issue this week. Nothing amiss. Enjoy with two cups of coffee. Or split it up between Saturday and Sunday. So many options, and so many links.
+
+Hope you are awesome and have a great weekend!
+
+Now, the Notable section.
+
+Link one. "The Minneapolis Street Grid: Explained - Streets.mn"
+
+I've lived in Minneapolis for over 30 years and the oddities that are highlighted in this article hadn't stuck out to me, but I wish it would have. I thought this was a fun read and interesting to learn a bit more about how cities label their street grids.
+
+Link two. "Storyworth - Everyone has a story worth sharing"
+
+Services that prompts you with email messages that you reply to and over the course of a year it builds the content to publish a book about you. It is an interesting way to build something to preserve your legacy. The fact that it is bound to text and email seems very limiting though. I'd be curious to see something like this that uses a conversational dialog, possibly with an AI, to create the content and then derive that into text as well as audio recordings to capture your voice and get a more personal connection. Or, just start writing a blog!
+
+Link three. "iOS and iPadOS 18: The MacStories Review - MacStories"
+
+Super detailed review of iOS 18. Fourteen "pages" in fact. Read this if you want every little detail. Here are the things I've liked since upgrading.
+
+- RCS is a big deal. With iOS 18 supporting RCS the "green bubble" SMS conversations I have are switching to RCS and are so much better! You can have a richer experience and it is much faster. Pictures come through in full size. Great improvement! It works in group messages too if everyone is upgraded.
+- Require Face ID for apps on launch is nice. I've turned this on for all my banking and crypto applications. I like that if I hand my phone to someone I know that these apps are still protected. There is even a feature where you can hide the app which might be nice for banking apps.
+- Home Screen customization and moving icons wherever you want them is interesting. Honestly as a longtime iPhone user though I feel like it is messy. I have some apps put in places of their own and my mind immediately wants to "clean it up".
+- Control center is interesting and I like the Shortcuts integration and various app support. I’m going to try getting used to using this. I've struggled to ever be a frequent user of widgets and this is sort of similar, but it seems to have more powerful features. I'd love to see Tesla add climate to this.
+
+Link four. "visionOS 2: The MacStories Review - MacStories"
+
+Details on the improvements in the new version of visionOS. I've played around with this on my Vision Pro. Some reactions:
+
+- New gestures are really good. Being able to bring the Home Screen without reaching up for the Digital Crown is great. Just look at your hand and a button appears to pinch. It does make me chuckle that they took the physical button off of the phone, and added a virtual button to visionOS.
+- More native apps including Notes, Passwords, and others. However Calendar is still an iPad app. Ugh! Calendar needs to be native.
+- Home Screen customization finally! I have four pages of apps in visionOS and they were in no worthwhile arrangement.
+
+Link five. "macOS Sequoia: The MacStories Review - MacStories"
+
+Full review of all the new capabilities in the newest macOS. Some things that I have found interesting right away.
+
+- iPhone mirroring seemed like a gimmick to me but maybe this is helpful? I've found myself using YNAB with it, or accessing email accounts not on my Mac, or getting at my iPhone in my pocket quick. I’m leaving it in the dock to make it easy to use.
+- Passwords app is a nice add and now all Apple users have a password manager built in, but not as powerful as 1Password. I like that WiFi networks show up in here. I deleted about 500 WiFi networks that I've used at some point in the last decade.
+- Calendar app got some small design tweaks, but I love them. It really wasn't much, but I find the app so much more visually pleasing. I use this all the time so it is a big deal for me.
+- Window TIling is nice and I've used Moom for a while to do something similar. The built-in system I’m still getting used to but I think there is a lot of potential here for all users.
+
+Link six. "watchOS 11: The MacStories Review - MacStories"
+
+MacStories now publishes the most in-depth reviews of new Apple operating systems. I've upgraded of course and on the watch the things I like and look forward to include:
+
+- Hiking Routes: these can accommodate being offline and are better for navigating in the woods.
+- Live activities and Sports: I like this since it puts information that I’m interested in more prominent on the watch.
+- Activity Rings: I’m not overly focused on these rings but I like that you can now pause them and set specific day targets. Turning them off for a week on a trip is nice, and knowing that weekends are different than weekdays.
+
+Link seven. "Daring Fireball: The iPhones 16"
+
+Gruber is my go to for reading about new Apple hardware, particularly new iPhones. He goes on a long time in this review about removing buttons and how big of a deal it is that a button was added to the iPhone 16. Everything about the new model looked great. Great enough that I’m upgrading a year ahead of when I would usually. I want to experience the Apple Intelligence features first-hand.
+
+Link eight. "iPhone 16 Pro Camera Review: Kenya - Austin Mann"
+
+Of course every new iPhone has new camera features. For me, I always look for Mann's review of the camera. Mann is an incredible photographer and he puts the camera through real tests in the field. The improvements in the wide-angle are a big deal. Photographic styles look really good. And the dedicated shutter button is a nice convenience. I take a lot of photos on my iPhone and the camera is a big part of what got me to upgrade.
+
+Link nine. "FTC Staff Report Finds Large Social Media and Video Streaming Companies Have Engaged in Vast Surveillance of Users with Lax Privacy Controls and Inadequate Safeguards for Kids and Teens | Federal Trade Commission"
+
+This should surprise absolutely nobody.
+
+Quote.
+“The report lays out how social media and video streaming companies harvest an enormous amount of Americans’ personal data and monetize it to the tune of billions of dollars a year,” said FTC Chair Lina M. Khan. “While lucrative for the companies, these surveillance practices can endanger people’s privacy, threaten their freedoms, and expose them to a host of harms, from identity theft to stalking. Several firms’ failure to adequately protect kids and teens online is especially troubling. The Report’s findings are timely, particularly as state and federal policymakers consider legislation to protect people from abusive data practices.”
+End quote.
+
+Still waiting for comprehensive privacy legislation in the US.
+
+Link ten. "Reviewing iOS 18 for power users: Control Center, iCloud, and more | Ars Technica"
+
+If you are curious to learn more about Control Center this has a more detailed look. There is a lot of power here but it requires you to customize it to get there. This also highlights the Hidden and Protected apps features.
+
+Link eleven. "Vaporizing plastics recycles them into nothing but gas | Ars Technica"
+
+The amount of energy it takes to break down plastic, if we even can break it down, is ridiculous.
+
+Quote.
+In both plastics, exposure to sodium on alumina broke each polymer chain into shorter polymer chains and created breakable carbon-carbon double bonds at the ends. The chains continued to break over and over. Both then underwent a second process known as olefin metathesis. They were exposed to a stream of ethylene gas flowing into a reaction chamber while being introduced to tungsten oxide on silica, which resulted in the breakage of the carbon-carbon bonds. The reaction breaks all the carbon-carbon bonds in polyethylene and polypropylene, with the carbon atoms released during the breaking of these bonds ending up attached to molecules of ethylene."The ethylene is critical to this reaction, as it is a co-reactant," researcher RJ Conk, one of the authors of the study, told Ars Technica. "The broken links then react with ethylene, which removes the links from the chain. Without ethylene, the reaction cannot occur."
+End quote.
+
+No this doesn't mean you should use more plastic, but at least there is some progress on a path to break it down.
+
+Link twelve. "Open-Source Journalism – Doc Searls Weblog"
+
+Searls doesn't go deep in here, but the term he used caught my eye. There has been much effort put toward crowdsourcing news. I don't think that is the best approach, and I believe that has proven out. Using open-source models though could be much more powerful. Open-source can create incredibly complicated assets in software produced by hundreds of people. There is an orchestration and system needed to make it work. I'd love to see an open-source framework for news.
+
+Link thirteen. "Hands-on with Orion, Meta’s first pair of AR glasses - The Verge"
+
+This is an impressive demo and ultimately using screens you can see through is going to be the right approach. The tech is just extremely hard right now. Supposedly these would cost 10,000 dollars each to make. I found Ben Thompson's read of them interesting. He highlighted that the reduced resolution of the digital parts didn’t matter as much when there isn't a screen between you and the real world. That makes sense to me.
+
+That's the end of Notable.
+
+Now, the Journal section.
+
+Journal entry one.
+
+I took the pontoon back to La Canne’s for winterization and storage. I got it out on May tenth this year for 127 days on the water. With the flooding this year we have done very little boating. I tried to avoid the rain but ended up getting pretty soaked on the ride in.
+
+Journal entry two. Sauna on the way!
+
+For many years I’ve had the desire to get a sauna. Usually this has two peaks -- one predictably in the winter when I think it would be so nice to have a good sweat, and the other time is during the Minnesota State Fair when we invariably end up looking at multiple sauna on display and even talking through the logistics with some of the builders. This year at the fair was no different and when we walked into the Dairy Building to see the Butter Heads and get our official American Dairy Association of Minnesota Ice Cream we happened upon Urban Wing NorthUp Sauna.
+
+They had two saunas on display and they immediately caught my eye. They didn't look like other saunas with their translucent walls. One was built on trailer wheels and mobile, the other was on a skid like an ice house. We went inside it and I found the design great, and those translucent walls meant that a lot of ambient light came in easily. My sauna desire was steadily climbing, and fast.
+
+I put myself on the mailing list and grabbed the website address so I could check it out more, which I did.
+
+When we returned to the fair for the third time we again saw the Butter Heads and this time on the way back we stopped and talked to Darin, the owner of Urban Wing, for a while and got a bunch of questions answered. The sauna desire was climbing even more. Uh oh. I scheduled a call with Darin for later in the week to learn more.
+
+Long story short after a couple of calls and detailing the specific sauna configuration that I wanted for our cabin I took the leap and placed the order! The sauna will be delivered in November or December, with plenty of time to get ready for winter saunas. I'm super excited to take the leap.
+
+Now I have to decide if I'm going to do the “sow-nah” or “sau-nah” pronunciation. Darin is a “sow-nah” guy. I may just go with the Old Norse of Baðhús.
+
+Journal entry three.
+
+Triple smashburgers for Tyler and I tonight!
+
+Journal entry four.
+
+We watched Tetris and it was great. Tetris is my favorite game ever. I can still get completely lost playing Tetris. We even had a Tetris shower! The movie tells the story of getting the right to distribute the game and is filled with suspense and intrigue.
+
+Journal entry five.
+
+Apple updates tonight:
+
+4 Macs
+3 iPhones
+4 Apple TVs
+3 HomePods
+2 Apple Watches
+iPad Pro
+Vision Pro
+
+Journal entry six.
+
+Ran into Justin Porter as I arrived at Minnedemo 40! FORTY!
+
+We got a similar photo at Minnedemo 39!
+
+Journal entry seven.
+
+Was great to run into this amazing group of Minnestar superstars at Minnedemo 40: Adrienne Peirce, Lindsi Gish, Jenna Pederson, and Justin Porter!
+
+Journal entry eight. Minnedemo 40
+
+The 40th installment of Minnedemo had me wondering about the first one -- I was there for Holiday Minnedemo in October of two thousand six! I have a lot of Minnedemo blog posts.
+
+HabitAware
+
+Aneela Idnani + Sameer Kumar
+
+App along with a bracelet that attempts to interrupt someone that is habitually picking on their skin, pulling their hair, or some other body-focused repetitive behavior (BFRB). One of the founders successfully used this to stop a hair pulling habit. They demoed their solution now working as an app on an Apple Watch. They also have a new version of the bracelet on the way.
+
+OmegaVR
+
+Dagmawe Mamo, Mahamud Hussien + Keleabe Mamo
+
+Focused on creating accessible technology specifically to allow VR usage for people that have mobility limitations. Allow user to move around VR space with eye tracking and other assistive methods. Uses EEG to monitor brain activity to allow navigation via thought.
+
+tinkl: Pee in Peace
+
+Essie Schlotterbeck
+
+Not a launched app but will be soon. The app uses an established database with user generated content layered on to help locate gender neutral bathrooms. The app was originally built as part of Prime Academy program. Great name!
+
+Attentio: Latent Signal Descent and Context Stacking
+
+Lukas Valine
+
+Platform to allow training and custom weights of an LLM using plain text. You can simply describe facets and data and then tell the LLM to save that and it will respond with that from then on. It was a good demo. It wasn’t clear to me how different it is from a Custom GPT in ChatGPT. It does work on significantly smaller and cheaper models.
+
+Abe
+
+Isaac Kamsin
+
+Platform that connects DIY home repair people to others to help them solve problems in the home via online video sharing. Buy on demand expertise that can help you navigate projects. Particularly good where YouTube videos just don’t address the specific questions you have. Much cheaper than a handyman or tradesperson visiting, and perhaps a way for a tradesperson to generate additional income? The demo was replacing a flapper in a toilet.
+
+HLRBO
+
+Heath Schubert + Cookie Lithyouvong
+
+Interesting idea that has market traction and raised investment round. Like VRBO, but for Hunting Leases. Provides a market for landowners to put the hunting rights up for lease, and provides the legal lease documents as well as hosting assets to better explain the plot of land. Seems like a solid idea taking an existing proven model and applying to a different asset.
+
+The Poopcopter
+
+Caleb Olson
+
+Olson presented a classic Minnedemo that will be remembered for years -- a drone that flies around and finding and removing dog poop. He has an operational drone that uses computer vision to spot dog poop, then descends onto it and uses a twisting motion to close a custom designed “scoop” which then flies away to collect it. Practical? No. Fun? Absolutely!
+
+Journal entry nine.
+
+On the corner of Get Outside Trail and Smore Fun Way at Quarterdeck Resort.
+
+Journal entry ten.
+
+The sauna at Quarterdeck Resort is incredible. Enjoyed a couple of cycles through here on our stay.
+
+Journal entry eleven.
+
+Nice evening for a fire at Quarterdeck Resort.
+
+Journal entry twelve.
+
+Ordered an iPhone 16 Pro today. I currently have an iPhone 14 Pro. I typically wait three years between upgrades. The camera improvements and ability to use Apple Intelligence pushed me to upgrade earlier.
+
+Journal entry thirteen. ENS Continued Progress
+
+I continue to believe that despite the volume of scammers in crypto there is real value and important capability in this technology. Ethereum Name Service (ENS) is a key component of that and these three highlights stood out to me in ENS DAO Newsletter #70, Sept 24 twenty twenty four
+
+ENS Domains Now Supported on PayPal and Venmo…
+
+Quote.
+ENS is now integrated with PayPal and Venmo, allowing users to simplify crypto transfers by entering their ENS name. This feature eliminates the need for copying long wallet addresses and enables secure, user-friendly transactions. An Address Book feature also allows users to save and recall frequently used ENS names and wallet addresses for faster transfers. This service is currently available in the U.S.
+End quote.
+
+Eth.Link Operating Again…
+
+Quote.
+The eth.link gateway is now officially powered by eth.limo, reviving its role as a key ENS gateway for decentralized websites.
+End quote.
+
+POAP Providing Free ENS…
+
+Quote.
+The latest release of the POAP Home app includes a feature allowing collectors to claim a free ENS subname.
+End quote.
+
+And how about these incredible August twenty twenty four DAO financials:
+
+Quote.
+- Revenue > Cash Burn, Runway: 140 months - Revenue: 1.9 million dollars (versus 2.4 million dollars last month) - Cash Inflow: 1 million dollars (versus 1 million dollars last month) - Normalized Cash Burn: 0.8 million dollars - Reserves: 113 million dollars (ETH: 101M, USDC: 12M) - Total Endowment: 79.7 million dollars - P and L: -15.7 million dollars (ETH mark-to-market)
+End quote.
+
+All powered as an operating DAO.
+
+Journal entry fourteen. Fall CIO Wine Tasting Evening
+
+Another incredible evening for the CIO Wine Tasting event hosted by Dee Thibodeau of Charter Solutions and Terri Naughtin of Naughtin Group. Tony Peleska of Kraus Anderson provides a stunning venue on their balcony in downtown Minneapolis. What a wonderful group of technology leaders to connect with. And the highlight of the evening is Chuck Kanski of Solo Vino providing an incredible array of unique wines with the background on each of the grapes.
+
+Weekly Thing Forum
+
+Join Patrick Hambek, Tom Mungavan, nadelm@duck.com, garrickvanburen, Makis Malioris, and many other Weekly Thing readers in the Weekly Thing Forum. Recent topics include:
+
+- No Thing This Week
+- Weekly Thing Forum Anniversary
+- Last 2 Weekly Thing Letters
+- Timing is (almost) everything?
+- Reading Human History and Evolution — Harari's View
+
+That's the end of the Journal.
+
+Now, the Briefly section.
+
+Link one. "Apple’s AirPods Pro 2 could forever change how people access hearing aids - The Verge"
+
+It does seem incredible that an iPhone and some AirPods are all you need to have at least some solution to hearing issues.
+
+Link two. "Why do I blog? | gru:Bz"
+
+I like reading why bloggers blog.
+
+Link three. "Walking From Manhattan to the Catskills on the ‘Long Path’ - The New York Times"
+
+I had no idea there was a 358 mile hiking trail that you can start by getting off of a Manhattan subway stop! The Long Path seems pretty cool.
+
+Link four. "Introducing Little Snitch 6 – Elevating Mac Privacy Protection to the Next Level"
+
+Given how much I care about privacy I should probably take the leap to this. I've been running Little Snitch Mini which is great but less powerful. I tried the full Little Snitch in twenty sixteen and found it too complicated.
+
+Link five. "Voyager 1 survives clogged thruster issue billions of miles away | CNN"
+
+I’m truly in awe of what the original designers and current engineers that are communicating with Voyager 1 are able to do. Incredible.
+
+Link six. "Dune Shell"
+
+Cool and interesting approach to a shell.
+
+Link seven. "The Lego Great Ball Contraption"
+
+This video left me flabbergasted at all the different ways of moving balls around with LEGO. So very cool.
+
+Link eight. "Swift 6 - Michael Tsai"
+
+Concurrency is a super hard problem in coding. The reactions to initial Swift 6 concurrency features made me chuckle.
+
+Link nine. "Behold, the black Apple Watch Ultra 2 - The Verge"
+
+When I saw this new black Ultra 2 in the launch video I gasped a bit. It looks amazing. And the photos in this article aren't even with the amazing matched link bracelet.
+
+Link ten. "LinkedIn is training AI models on your data - The Verge"
+
+Another example of why I won't trust LinkedIn — they are very fast and loose with your data and (always?) default permissions in their favor. I highly recommend checking your LinkedIn privacy settings every few months.
+
+Link eleven. "Google calls for halting use of WHOIS for TLS domain verifications | Ars Technica"
+
+I shared in Weekly Thing 293 about the lack of security in WHOIS so this makes sense.
+
+Link twelve. "Apple Intelligence Features Expected to Roll Out in This Order Between iOS 18.1 and iOS 18.4 - MacRumors"
+
+This is an incredibly drawn out release cycle. It is going to be confusing for users in the middle of it.
+
+Link thirteen. "Fooda Acquires Foodsby, Joining Forces to Create New Opportunities for Clients and Local Restaurant Partners | Fooda"
+
+I've been a customer of Foodsby for years now and it is a really good service. Plus a company founded here in Minneapolis.
+
+Link fourteen. "OpenFreeMap"
+
+Totally open and free mapping resources.
+
+Link fifteen. "The Intelligence Age"
+
+Sam Altman describing his view of the amazing future we have with deep learning.
+
+Link sixteen. "diffdiff.net"
+
+Super simple visual diff tool on the web.
+
+Link seventeen. "Meta Connect twenty twenty four: biggest news and announcements - The Verge"
+
+Facebook continues to push into the Quest Pro and even more VR and AR technology.
+
+Link eighteen. "Jonas Hietala: Why I still blog after 15 years"
+
+What a great list because it shows all the great things blogging can deliver for the author.
+
+Link nineteen. "Daring Fireball: X Blocks Links to Stolen J.D. Vance Dossier"
+
+Yep. And Michael Tsai goes deeper.
+
+That's the end of Briefly.
+
+Now, the Fortune section.
+
+Here is your fortune…
+
+You will be reincarnated as a toad; and you will be much happier.
+
+Thank you for subscribing to the Weekly Thing!
+
+That's the end of Fortune.
+
+Now, the Want to support the Weekly Thing? section.
+
+First — thank you for subscribing and reading. Here are some things you can do that would be great…
+
+- Share Weekly Thing 294 / Vaporizing, Intelligence, Contraption with others you know!
+- Post about the Weekly Thing and let others know about it.
+- Join the Weekly Thing Forum and connect with others.
+- Email me comments, feedback, or just to say Hi!
+
+That brings us to the end of the Weekly Thing, issue 294. Thanks for listening, and I'll see you next time.

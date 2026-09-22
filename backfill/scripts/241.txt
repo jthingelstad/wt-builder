@@ -1,0 +1,270 @@
+The Weekly Thing, issue 241. Wildebeest, Reputation, Zero. Published February 11, twenty twenty three. By Jamie Thingelstad. In this issue: Mastodon commons, Wildebeest Fediverse, Twitter plan, Google new CEO, Fed went broke, zero time habits, one-page calendar.
+
+Hello there!
+
+Have you noticed the sun is coming up earlier in the day? Today it seemed more noticeable to me for some reason. And it made me really happy to think about the longer days ahead.
+
+I don't mind the cold of winter. I don't mind the snow. Snow can be really fun.
+
+But I do miss the sun in the morning and evening. And it was nice to see the dawn a bit earlier this morning.
+
+Enjoy some good links this morning, with the dawn in full swing, and hopefully a delicious cup of coffee if that suits you.
+
+Cheers!
+
+Now, the Featured section.
+
+Link one. "Is Mastodon a commons? · Doc Searls Weblog"
+
+Doc Searls is deeply thoughtful on many Internet "systems" and when I saw him invoking the commons it made me want to read on. I particularly like that he pulled in Elinor Ostrom's characteristics of a commons from Governing the Commons, work that she won a Nobel prize for.
+
+This "commons" term is thrown around a lot, often times along with things like freedom of speech, but it lacks a specific meaning of what a commons is. I feel strongly that a commons is not certain things, like it isn't Twitter. A commons cannot be a company that has a market cap. It isn't a mall. Searls takes a look at these and tests them with Mastadon.
+
+Quote.
+1. Clearly defining the group boundaries and the contents of the common pool resource. 2. The appropriation and provision of common resources that are adapted to local conditions. 3. Collective-choice arrangements that allow most resource appropriators to participate in the decision-making process. 4. Effective monitoring by monitors who are part of or accountable to the appropriators. 5. A scale of graduated sanctions for resource appropriators who violate community rules. 6. Mechanisms of conflict resolution that are cheap and of easy access. 7. Self-determination of the community recognized by higher-level authorities. 8. In the case of larger common-pool resources, organization in the form of multiple layers of nested enterprises, with small local common pool resources at the base level.
+End quote.
+
+Reflecting on that list it is notable that a commons is intertwined with some resource, and that resource is finite. What is the finite resource of a commons that is about speech? That is a question mark for me.
+
+The above requirements are incredibly well suited to a DAO. That is interesting to me.
+
+Isn't the web a commons? The web with its millions of websites seems to meet these requirements. Don't we have a commons already? Haven't we had one since the creation of the web and blogging platforms?
+
+That's the end of Featured.
+
+Now, the Notable section.
+
+Link one. "7 Relationship Building Rules for Results-Driven Leaders - Leadership Freak"
+
+I dig this simple rundown of focus areas for leaders to build relationships.
+
+Quote.
+1. Value relationships 2. Move first 3. Lower the bridge 4. Practice liking 5. Leverage joy 6. Maintain high standards 7. Develop a relationship building strategy
+End quote.
+
+Good ideas that would be straightforward to put into action.
+
+Link two. "What is a Journal? Why You Should Start One Today"
+
+Day One sells a journaling product so it isn't a surprise they are advocating for journling. However, this article hits on a number of good factors and reasons for journaling. I've gone on-and-off with journaling over the years. I’m a Day One subscriber.
+
+Link three. "Does Google need a new CEO? – On my Om"
+
+Malik reflecting on the state of affairs at Google. If this was just any random blogger I wouldn't give it a nod, but Om founded GigaOm and has been covering tech for a couple decades.
+
+Quote.
+Google is dancing, for sure — after sleepwalking for a long time. The company that seems to be in a reactive mode — OpenAI and its relationship with Microsoft, InstructGPT, and ChatGPT have been hovering in the background for the past six to nine months. And yet, Google seems to have dragged its feet. The botched demo and lack of action around AI are symptoms of a bigger disease — a company entrapped in its past, inaction, and missed opportunities.
+End quote.
+
+To me Google is, for the first time really, facing a classic Innovators Dilemma. They have to start disrupting themselves, and that is going to take a conviction that they haven't shown… really ever?
+
+Link four. "Welcome to Wildebeest: the Fediverse on Cloudflare"
+
+Cloudflare continues to impress me with the breadth and depth of their offerings. This new open-source Mastadon server is another great example of that.
+
+Quote.
+Wildebeest serves two purposes: you can quickly deploy your Mastodon-compatible server on top of Cloudflare and connect it to the Fediverse in minutes, and you don't need to worry about maintaining or protecting it from abuse or attacks; Cloudflare will do it for you automatically.
+End quote.
+
+The whole article goes into detail on how they created the solution using many different components of the Cloudflare Supercloud. Incredible mount of functionality in there, and a powerfull add to the Fediverse stack.
+
+Link five. "Don’t build a personal brand, build a reputation"
+
+I love the sentiment of this post.
+
+Quote.
+I’m so much less interested in "building a brand" than I am in just… having fun and, well, being a person.
+End quote.
+
+That is the spirit I try to bring to what I do with the Weekly Thing. It isn't topical on purpose. It meanders with my interests. It isn't a "side hustle". It’s just me.
+
+Link six. "Zero Time Habits – Shawn Blanc"
+
+I love this term for this type of change.
+
+Quote.
+Think of a Zero Time Habit as something you don’t do so that you can do more of what you want.
+End quote.
+
+Nice.
+
+Link seven. "The Alternative To Agile Coaches - Silicon Valley Product Group"
+
+This post from Cagan vibes so much with me. I've long struggled with having dedicated Agile Coaches or Scrum Masters. There have been several times when I have had those roles in organizations, but I see that as a training moment for managers and leaders to learn from them how to do it themselves.
+
+Quote.
+So if Team Blue is actually Agile, yet they don’t have any Agile coaches and never have, how did they become this way? The answer is that this is what competent managers do at good product companies. The engineering managers (along with the more senior engineers) have a responsibility to coach and develop their engineers to learn difficult skills such as getting to the point where the team can ship frequent, small, reliable, uncoupled releases. Similarly, the managers of product management and product design have a responsibility to coach and develop their product managers and product designers to work with engineering to consistently and responsibly discover solutions to the problems they’ve been asked to solve.
+End quote.
+
+This is the model that I think is needed. Managers have the accountability to the organization for what their teams are delivering, and it only makes sense that they serve these roles directly. Said another way, I don't think you would want to hand over something so critical to other people that don't have that responsibility.
+
+Link eight. "How the Fed "Went Broke" - Lyn Alden"
+
+Alden looks deep at financial trends (macro?) and I find the perspective interesting. This assessment of the Federal Reserve now operating at a financial loss is an interesting read. The assessment is the short term impact is not much, but that it is a step in a bad direction for the overall economy.
+
+Quote.
+By the end of this decade, I have considerable concerns regarding a fiscal spiral occurring in the United States and other developed countries, meaning that a combination of high deficits, high debts, and high interest rates on those debts, will all work together to create structural inflation and money supply growth. The Federal Reserve entering into negative tangible equity is just another piece of that process unfolding, since it contributes to larger federal deficits by taking away Treasury remittances.
+End quote.
+
+The article goes into the history of Central Bank assets and liabilities, and the gold standard and such. This paragraph did give me a moment of pause.
+
+Quote.
+The financial system in the United States, and for most of the rest of the world for that matter, can basically be thought of as an Excel spreadsheet managed by the Federal Reserve. That’s all it really is. Some of the cells on the spreadsheet are assets, and some of the cells are liabilities. It’s just a ledger that they administrate, and that we all use. They do, however, have to follow certain laws regarding the administration of their ledger.
+End quote.
+
+So how is it that crypto is so much less reliable than this?
+
+Link nine. "Want anonymity? Make a persona not a mystery. | Derek Sivers"
+
+Advice from Sivers on achieving anonymity through a persona.
+
+Quote.
+So for real anonymity, don’t create a mystery. Create a believable persona. Then nobody will wonder.
+End quote.
+
+This article made me wonder if Sivers has an alternative persona.
+
+That's the end of Notable.
+
+Now, the Journal section.
+
+Wednesday @ 5:16 PM
+
+Three Kinds of Listening
+
+I loved the framing of these three kinds of listening from Carolyn Coughlin "Become a Better Listener" in episode 157 of the Knowledge Project Podcast.
+
+Listening to Win: Let me make the problem go away, by telling you don't have a problem.
+
+Listening to Learn: Getting underneath what is being said and reflecting back to the person.
+
+Listening to Fix: Let me take your problem and solve it for you.
+
+Wednesday @ 4:52 PM
+
+Minneapolis Downtown Council Annual Meeting
+
+I was able to attend the Minneapolis Downtown Council Annual Meeting today. I believe this was the first back in the Armory since the twenty twenty meeting.
+
+The outgoing chair Mike Ryan gave a good overview of the improtance of downtown and the council, and also welcomed the new chair Karin Lucas from SPS Commerce!
+
+SPS is the tenth largest employer downtown with 1,346 people!
+
+I enjoyed the session that Amelia Santaniello led with Steve Cramer, Greg Cunningham, and Mayor Jacob Frey. Frey got up at one point and gave a stump speech for Minneapolis which was great.
+
+Sunday @ 10:30 PM
+
+Why are your eyes
+cast down? Look up
+and listen. The world
+offers its own poetry.
+
+Sidewalk poetry in Northfield, MN.
+
+Sunday @ 3:31 PM
+
+Fun and busy afternoon at REM5VR.
+
+Sunday @ 3:28 PM
+
+Not Writing for the Timeline
+
+I’m done writing for the timeline.
+
+There is a concept in Indieweb communities called POSSE. The acronym stands for publish on your own site, syndicate everywhere. This approach is an attempt to give you the best of all worlds. You can own your own content. Solve the not your domain, not your words problem. Then use various tools to syndicate your content to other services.
+
+It is a fine idea but in practice I think it is broken.
+
+The medium affects the message. Ultimately how you write and publish affects your writing. Social media brought with it whole new norms. No titles for content. Short posts. No rich markup so images and links are handled as metadata.
+
+Some of this, like titles being optional and brevity, are probably good things.
+
+But others are not. And when you syndicate to various platforms it is hard to not have that ultimate destination impact your writing.
+
+What does this look like?
+
+On micro.blog limiting myself to four photos because I know that when it syndicates to Twitter it will only include the first four.
+
+Being cautious about which hyperlink to use first because that is the one that will show up on Twitter regardless if it makes sense for the content.
+
+Not using titles because it changes how syndication works.
+
+I've even seen posts use hashtags and @username conventions on a platform that is ignorant to them, but are solely intended for the service it is syndicated.
+
+*
+
+I disconnected my blog from all syndication and it is interesting how freeing it has felt.
+
+I use titles more. I use the number of photos I want. I add links where they make sense.
+
+*
+
+Writing for a timeline is a job. The timeline is a distilled and sterile system to give the algorithms an equal chunk of content to drive engagement. The limits of those chunks are non-sensical outside of that timeline.
+
+Let's break free of the timeline.
+
+Let's make the web weird again.
+
+Saturday @ 10:38 PM
+
+Mrs. Harris Goes to Paris
+
+We all enjoyed Mrs. Harris Goes to Paris. If your looking for a delightful and fun story this will hit the spot.
+
+Saturday @ 5:30 PM
+
+Art Shanty Projects
+
+We went to the Art Shanty Projects on Lake Harriet today. Tammy has been to this many times, but it was my first. I do like events like this that make for fun days in the cold of winter. The Shanties themselves were very cool. Notable highlights:
+
+re(center)ed which provided an opportunity for people to write a message on a piece of wood and then hang it anonymously on the wall. Every few hours the curator would pull them down and burn them in a "pyre", releasing the sentiment.
+Archive of Collective Memory that allowed you to submit a message via the web that was then turned into an audio loop and played through a wooden wall that you had to put your ear against to hear it.
+Blankets of Ice which had a bedroom set in the middle of the snow with a "quilt" pattern made of colored ice blocks.
+Chapsicle of Love provided marriage service at the event.
+Techno From the Sun was a shanty powered only by solar energy with people DJ'ing techno music inside. You could modify and add to the mix by moving levers and dials on the outside of the shanty.
+
+I was left wanting to have a Shanty next year that distributed a POAP and allowed people to record a memory of the event in some way.
+
+Friday @ 3:58 PM
+
+Echo Forest Launch
+
+Today is the launch of Echo Forest. This NFT project has Minneapolis connections being led by Brooks Clifford and Matt Benesch.
+
+I minted two Wolf Healers, 18 and 19. I really dig the artwork and I'm excited to see how the utility evolves. Plus it is a great opportunity to be involved in a local project.
+
+That's the end of the Journal.
+
+Now, the Briefly section.
+
+Link one. "The Plan for Twitter"
+
+Example of how hard it is to run any service that attempts to connect to Twitter with no lack of clarity on what they are doing.
+
+Link two. "Pay Attention to the Little Things that Signal Big Trust - Matt Norman"
+
+I love this list of 30 things that help build trust! So good.
+
+Link three. "The simple, one-page calendar that lasts all year - Big Think"
+
+This is a cool "map" of an entire year calendar that makes it really easy to lookup days associated with various dates, or vice versa.
+
+Link four. "Mastodon: A New Hope for Social Networking - TidBITS"
+
+Detailed and thorough overview of Mastodon for those interested in exploring deeper.
+
+Link five. ""two thousand one: A Space Odyssey" directed by George Lucas? - YouTube"
+
+Exquiset video giving a Star Wars feel to two thousand one. I was left wanting many more scenes.
+
+That's the end of Briefly.
+
+Now, the Fortune section.
+
+Here is your fortune…
+
+You will be honored for contributing your time and skill to a worthy cause.
+
+Thank you for subscribing to the Weekly Thing!
+
+That brings us to the end of the Weekly Thing, issue 241. Thanks for listening, and I'll see you next time.

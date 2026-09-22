@@ -1,0 +1,186 @@
+The Weekly Thing, issue 290. Kino, Krebs, Kagi. Published June 1, twenty twenty four. By Jamie Thingelstad. In this issue: Daylight caring computer, Micro.blog audio narration, EcoFlow PowerStream, Google Cloud GCVE incident, over GraphQL, Kino, three laws of software complexity.
+
+Good morning!
+
+Hope your weekend is starting off well. It has been particularly soggy here with a good amount of rain. After having nearly no snow this winter we certainly can use the water, but the sump pump is working overtime and I keep wondering about flooding at lakes.
+
+Every summer I take a break sending the Weekly Thing in July and August. I think it is good to build in breaks for a hobby such as this. That summer break also aligns well with family trips and other activities. However this year we are taking a trip in June so I decided to extend that summer break this year and start now. I may decide to send a surprise issue during break.
+
+I'll be back with regular Weekly Things in September. And while I don't send these emails during the summer I do still regularly blog so feel free to check my website if you wish.
+
+Wishing you a great summer!
+
+Now, the Notable section.
+
+Link one. "Daylight | A More Caring Computer"
+
+This new tablet gives me strong vibes of my reMarkable 2, but at least from the videos it appears to be radically faster. That is interesting since the speed of the reMarkable 2 is a big limiter. This also costs nearly 2x what a reMarkable costs. I find it interesting that the sales video drives home privacy and distraction. It looks super interesting but I think it is so hard for a brand new platform to enter the space. App support is always a big issue. Regardless of that though, the screen technology here is very cool.
+
+Link two. "Manton Reece - Audio narration in Micro.blog"
+
+I love that micro.blog is playing with new ways to express yourself on your blog. Narrating blog posts is interesting to me for two things:
+
+1. It allows a reader to instead be a listener and hear the nuance in your voice. This was a big "aha" I took from playing with Airchat — when you can hear the person speaking the message just lands different. Their humanity comes across. I like that a lot.
+2. It would allow a blog to be listened to in a podcast feed. I don't know about that since it might be pretty boring to listen to narration that way. But I can see times I would absolutely do that.
+
+I've given this a test run and narrated my Reflections on No Coffee and First Coffee in 54 Days posts. If you click on them you can listen to me instead. I’m playing with this in a hope to get better with audio. I find it intimidating and feel I’m overly stiff doing it, but maybe through more narration I'll get more comfortable with it.
+
+Adding features like this is one of the many things I love that micro.blog continues to do!
+
+Link three. "EcoFlow’s 200 dollars PowerStream is so clever, you might buy a 4,000 dollars solar generator - The Verge"
+
+This looks like really cool tech but sadly we cannot use in the US yet. Innovation like this and even things like the Tesla Powerwall make me wonder about two trends:
+
+1. Improvements in local storage and battery technology, along with more solar output and "grid shifting" by offsetting power consumption.
+2. Continued reduction of power demand in households.
+
+Might reduction of our carbon footprint for energy come from making all houses standalone, or nearly standalone. What if the grids only job is to backup and assist your homes own electrical subsystem.
+
+Link four. "Details of Google Cloud GCVE incident | Google Cloud Blog"
+
+I shared this event in Weekly Thing 289 where Google Cloud literally deleted the account of a customer erasing all information with no backups. Google released this note about what happened.
+
+Quote.
+During the initial deployment of a Google Cloud VMware Engine (GCVE) Private Cloud for the customer using an internal tool, there was an inadvertent misconfiguration of the GCVE service by Google operators due to leaving a parameter blank. This had the unintended and then unknown consequence of defaulting the customer’s GCVE Private Cloud to a fixed term, with automatic deletion at the end of that period.
+End quote.
+
+This reminds me of an AWS S3 outage a few years ago also caused by a maintenance activity and an engineer putting the wrong value in a field. These maintenance programs are places where corners often get cut. The team will think "Hey, we have professionals using this. It is okay. if we don't catch every error scenario." But even professionals make mistakes. There is no truly "safe" user.
+
+Link five. "Why, after 6 years, I’m over GraphQL"
+
+GraphQL is an attractive technology but it has never really taken off the way I thought it might have. For some use cases I think it may still make sense, but it is no JSON replacement. Note complexity is showing up here as well.
+
+Link six. "Introducing Kino"
+
+I am much more comfortable with photos versus video, but I did buy this because I have a bunch of respect for Halide and the color grading feature looks crazy good. if you want to take better looking video this is worth looking at.
+
+Link seven. "Three Laws of Software Complexity (or: why software engineers are always grumpy) | mahesh’s blog"
+
+What I think this article gets very right is that complexity is a fundamental challenge in software systems. The more complex the system, the harder it is to do everything with it. Harder to modify. Harder to support. Harder to keep running. So, it follows that removing complexity should result in easier for all of those things. This is perhaps the foundational belief that drives micro-services. Limit complexity in each service and overall average complexity through the entire system. Balakrishnan highlights three principles.
+
+1. A well-designed system will degrade into a badly designed system over time.
+2. Complexity is a Moat (filled by Leaky Abstractions).
+3. There is no fundamental upper limit on Software Complexity.
+
+This line caught my eye.
+
+Quote.
+The second derivative of code is always negative in the wild: the rate at which code can change goes down over time.
+End quote.
+
+I think the always in that is too far. This is where the work that DORA has focused on can help. Left unmonitored I agree, the rate of change does go down. Left unmaintained it also will go down. One of the nasty things with software is that when you stop changing it you lose the confidence to change it.
+
+I’m not going to suggest there is a known process for keeping code agile for decades, but for several years applying the right practices can keep things in a "good enough" state.
+
+That's the end of Notable.
+
+Now, the Journal section.
+
+Journal entry one.
+
+Tough losses for the Timberwolves against the Mavericks. Tonight was heartbreaking with a bad call at the end and Naz Reid just barely missing the final three attempt. Hard fought games.
+
+Journal entry two. First Coffee in 54 Days
+
+This morning I had my first cup of coffee since April first -- 54 days without the Black Gold in my cup. I was curious to see what the experience would be like. I’ve not had any coffee during this period. I have had tea three or four times that did have caffeine in it and I noted that I felt the caffeine in that tea much more than I ever did before. But coffee? The real deal? Hadn’t had any.
+
+I had some great beans from Fika Coffee. The smell of the beans tickled my memories. My first reaction was that the feel of the warm cup, the smell of the brew all was very familiar but not as revelatory as I thought it might have been. The sky did not open, the clouds did not part. There were no trumpets. It was a delightful sip of coffee but that was about it. Good, but not an out-of-body experience.
+
+I finished the cup outside on the deck and it was nice. I was a bit confused because I didn't seem to be feeling the caffeine. That didn't make any sense to me, but we continued with our morning and headed into Faribault to visit Crack of Dawn. When I started to drive off I felt like I was on a rocket blasting into the stratosphere. The caffeine had arrived and it was serious! Nothing like I would have felt before, this was actually a bit disconcerting. I can't say I enjoyed it. Imagine a squirrel in a wheel running very fast and going nowhere.
+
+Eventually that blast off ebbed. I was shocked at how profound that felt. As I thought when I stopped drinking my 12 oz of coffee a day and the withdrawal was significant -- this caffeine stuff is serious. And this less than 12 oz that I had this morning was serious too!
+
+All that in that little mug of Black Gold.
+
+Journal entry three.
+
+Tammy and I have a highly optimized team approach to making smash burgers. It is a complex choreography that ends with delicious burgers. This years Blackstone upgrade added air fryer so tater tots and french fries now included! It was five years ago we made these for the first time. Our technique is much better!
+
+Photos courtesy of Tammy’s sister Angie Lundeen.
+
+Journal entry four.
+
+Max and I enjoying a Grain Belt Premium at Pleasant Grove Pizza Farm.
+
+Journal entry five.
+
+A dozen bikes parked in the garage today.
+
+Journal entry six.
+
+I’m giving micro.blog’s new audio narration feature a try. I used the new Zoom H1 Essential to record and added narration to my First Coffee in 54 Days post, and Tiny Theme added support just in time.
+
+Journal entry seven.
+
+Soon we start our trip to Ireland and I thought it would be fun to make a POAP for it. DALL-E got me started and I finalized it. I think it would be fun to share this with people we meet on our trip. We’ll see if I actually do it but I’m ready when the opportunity arises!
+
+See list of POAPs.
+
+Weekly Thing Forum
+
+Join Peter Clark, Tom Mungavan, Barry Hess, Lou Plummer, Patrick Hambek, and many other Weekly Thing readers in the Weekly Thing Forum. Recent topics include:
+
+- Destroying Young People's Future
+- Weekly Thing 287
+- AI controlled F16 fight humans
+- Ukraine Aid
+- NASA’s Voyager 1 Resumes Sending Engineering Updates to Earth
+
+That's the end of the Journal.
+
+Now, the Briefly section.
+
+Link one. "Stark Industries Solutions: An Iron Hammer in the Cloud – Krebs on Security"
+
+Great research from Krebs highlighting one of the largest hosting providers supporting malicious groups attacking other services. Worth a read just to get a sense of how criminal and state actors deploy these attacks.
+
+Link two. "The Sea Change on Crypto-Regulation - Marginal REVOLUTION"
+
+Interesting developments helping crypto over recent weeks.
+
+Link three. "My Morning Routine - zen habits"
+
+I like reading about peoples morning routines. I've recently completely redone mine supported by removing coffee. Although I often wonder how people find the time for all of it. I struggle to get more than about an hour of activities in the morning.
+
+Link four. "A root-server at the Internet’s core lost touch with its peers. We still don’t know why. | Ars Technica"
+
+Few folks know how DNS works — the system that turns something like www.thingelstad.com into an address that your computer understands. Even folks that know how DNS works may not know the role of root-servers. They resolve the root name of ".", that is core to any of name resolution working. So it is a big deal if one of them gets confused.
+
+Link five. "How it feels to get an AI email from a friend"
+
+There are contexts that we should not allow technology to disintermediate. Friends and family are definitely one of those.
+
+Link six. "AI Integration and Modularization – Stratechery by Ben Thompson"
+
+Interesting observation on the patterns different tech firms are taking with AI.
+
+Link seven. "What We Learned from a Year of Building with LLMs (Part I) – O’Reilly"
+
+A lot of learnings about how to build product around LLMs.
+
+Link eight. "What's next for Kagi? | Kagi Blog"
+
+I've been a paying customer of Kagi since Neeva went under (err, got bought by Snowflake). I like the tuning that Kagi supports and it is very clean, fast, and simple. I’m happy to pay for it but I sure wish there were more options for paid search.
+
+That's the end of Briefly.
+
+Now, the Fortune section.
+
+Here is your fortune…
+
+In the stairway of life, you'd best take the elevator.
+
+Thank you for subscribing to the Weekly Thing!
+
+That's the end of Fortune.
+
+Now, the Want to support the Weekly Thing? section.
+
+First — thank you for subscribing and reading. Here are some things you can do that would be great…
+
+- Share Weekly Thing 290 / Kino, Krebs, Kagi with others you know!
+- Post about the Weekly Thing and let others know about it.
+- Join the Weekly Thing Forum and connect with others.
+- Email me comments, feedback, or just to say Hi!
+
+That brings us to the end of the Weekly Thing, issue 290. Thanks for listening, and I'll see you next time.

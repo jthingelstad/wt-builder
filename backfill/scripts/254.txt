@@ -1,0 +1,175 @@
+The Weekly Thing, issue 254. Redis, Dooce, Batteries. Published May 13, twenty twenty three. By Jamie Thingelstad. In this issue: SpaceTraders API, Redis and antirez, Learning DNS, Bluesky federation architecture, Mojo programming language, Google no moat, kids and smartphones.
+
+Good morning!
+
+This weekend is Mother's Day and I want to wish Happy Mother's Day to my Mom, to Tammy, and all of the Mom's out there. You make the world a great place!
+
+Mom's are the centers of many families. Y'all keep everything together connected with love and family.
+
+" Learning is to your mind,
+
+as moving is to your body.
+
+Both are key to thriving." — Me
+
+Now, the Notable section.
+
+Link one. "SpaceTraders API"
+
+A game which is only accessible via a REST API — I've never seen that before! You can play it by directly interacting with the API, and community members are creating their own interfaces and applications on top of it.
+
+Quote.
+SpaceTraders is an API-based game where you acquire and manage a fleet of ships to explore, trade, and fight your way across the galaxy. Use any programming language with our API to control the most powerful fleet in universe.
+End quote.
+
+Wild!
+
+Link two. "News Minimalist — Only significant news"
+
+Use ChatGPT to gauge the "importance" of news, and simply filter out at a level of significance you set and even get that in a newsletter. Editors have been doing this forever, and I don't know about an AI doing it better. And I think AI has been sort of doing this based on click-through and engagement, but doing it based on the content is "better."
+
+Link three. "Story: Redis and its creator antirez"
+
+This is a fun story of Redis, which is a pretty incredible and widely-adopted solution these days. I played with Redis a long time ago, and I still remember how clean it was to build. You could grab the source, configure and make, and it was a delight how clean it all worked. And the software itself was so stable. Good stuff.
+
+Link four. "New talk: Learning DNS in 10 years"
+
+This is a great article to learn about details of DNS, but is also a fun read about how standards are set and "learning hard things". And Evans publishes this "how to" as a zine as well for a mere 12 dollars.
+
+Link five. "Goodbye, Dooce - Waxy.org"
+
+In the early days of blogging Dooce was one of the blogs that I followed along with many others. We were watching a whole new medium being created by these early bloggers. Armstrong is often referred to as the original "mommy blogger", but I would say that she was just one of the groundbreaking bloggers of the era. Her blog was funny and a great read. When I heard that she had died I was worried it was suicide and it was. I had read that she battled with depression for years. Also Heather Armstrong, influential mommy blogger also known as Dooce, dies at 47.
+
+Link six. "Dr. Jayshree Seth on Empowering Our Future With Science"
+
+Afternoon keynote from Dr. Jayshree Seth at MnTech Tech Connect twenty twenty three. Her talk was really powerful and filled with great data and insights.
+
+Link seven. "The Imperfectionist: Just go to the shed"
+
+I need to revisit this article and read it a few more times, because if I reflect on it this idea of "just go there" to things that you are pushing off, procrastinating, or just not wanting to do for some reason may be the thing that works the best for me.
+
+Quote.
+It's worth noting how the advice to "just go there" differs subtly from the well-worn idea that the way to get started on intimidating projects is to break them into smaller chunks. That's a useful strategy! But the way it works is to alleviate anxiety by reducing the size of the "threat", whereas we're talking here about transforming the threat into something else entirely.
+End quote.
+
+This is counter to the typical "eat the frog" idea. And I think it is psychologically more productive.
+
+Link eight. "Assembly time is where you have the most control of an incident | FireHydrant"
+
+I like the focus of this article, and particularly like giving this phase of an incident a name like "assembly time". It is really hard to manage incidents in a timely fashion if assembly time takes a long time by itself. Anything you can save on assembly time, which as the article highlights can be practiced and modeled ahead of time, gives you more time to work the actual problem.
+
+Link nine. "Federation Architecture Overview - Bluesky"
+
+I’m curious about Bluesky but it seems very early still. The architecture described here is pretty simplistic. It seems there is a lot more to figure out, compared to working systems like Mastodon and Nostr.
+
+Link ten. "Mojo may be the biggest programming advance in decades"
+
+This is interesting if only because it is from Chris Lattner who created LLVM, Clang, and Swift — now bringing his attention to the Python world.
+
+Quote.
+Existing Python code should work unmodified, but it also adds features that enable performant low-level programming—like "fn" for creating typed, compiled functions and "struct" for memory-optimized alternatives to classes.
+End quote.
+
+Also see Michael Tsai's Mojo Programming Language roundup.
+
+Link eleven. "Leaked Google document: "We Have No Moat, And Neither Does OpenAI""
+
+Interesting read from an internal assessment at Google about the strategic path for LLMs. In part due to Facebook's LLaMa there is an incredible amount of innovation happening everywhere with AI. An AI LLM that lives on your phone and you have a sustained "relationship" over time seems like it will be here faster than we can imagine. So is there a long term strategic win for companies like OpenAI if open source proliferates so fast? We'll have to wait to see.
+
+Link twelve. "On Kids and Smartphones - Cal Newport"
+
+Newport digs through the data on this question and provides some context on the conclusions.
+
+Quote.
+Over the last few years, a rough consensus has emerged that there really are significant harms in giving young people unrestricted access to the internet through smartphones. This is particularly true for pre-pubescent girls. This consensus arose in part because the main critiques raised during The Data Wars were resoundingly answered, and because, more recently, multiple independent threads of inquiry (including natural experiments, randomized controlled trials, and self-report data) all pointed toward the same indications of harm.
+End quote.
+
+There is a full podcast on it too in Deep Life #246.
+
+That's the end of Notable.
+
+Now, the Journal section.
+
+Wednesday @ 12:37 AM
+
+Thinking about making a crypto themed Wicky Thing Candle that you can only purchase via a L2 crypto network: Bitcoin Lightning, Gnosis, Arbitrum, Optimism, or Polygon.
+
+Wednesday @ 12:31 AM
+
+Created a nostr account to play and see how it works. Using Damus on iOS for client. My public key is npub19qj5v5hx54pm7gqtn5zallvrtc2pf4mudgvyj3x9y97ggtse8nmq0tas0s.
+
+Tuesday @ 11:40 PM
+
+Finally figured out Bitcoin Lightning transactions. Ready to use Lightning at Bitcoin Miami. Want to try? Send some Sats to sinfuljam38@walletofsatoshi.com or jthingelstad@strike.army.
+
+Tuesday @ 9:24 PM
+
+I applaud the Gnosis Chain Weekly moving to Ghost from Substack.
+
+Crypto and web3 projects oddly decide to have this extreme reliance on the most centralized platforms the Internet has — Twitter and Substack. Meanwhile we have perfectly good, open, censorship resistance methods like email and RSS sitting unused.
+
+RSS should be widely adopted in Web3.
+
+Tuesday @ 8:08 PM
+
+The first attempt to keep the squirrels out of these snacks we leave at the door failed in a single day.
+
+Tuesday @ 7:42 PM
+
+I claimed my ENS sixth Anniversary POAP for: thingelstad.eth, weeklything.eth, 0xjjt.eth, and magicpines.eth. Unfortunately I don't have avatar records set for all my ENS domains. Get yours at the ENS Anniversary site.
+
+Saturday @ 10:21 PM
+
+Tyler got to perform as part of the MN Statewide Honors Choir today. It was a lot of work but he enjoyed being part of it and the perfermance was great.
+
+Saturday @ 2:28 PM
+
+Minneapolis/St. Paul Business Journal's Largest Software Development Firms in the Twin Cities ranked by software developers.
+
+Saturday @ 10:18 AM
+
+Ethereum gas prices have been very high and sustained for a week now. This seems like the highest since the merge and the crazy highs of twenty twenty. I would like to upgrade all my ENS domains to the v3 wrapper but not at 100+ gwei!
+
+Friday @ 8:25 PM
+
+Thanks to an invite from Hector, I was able to join the Economic Club of Minnesota luncheon today with James Bullard, the President and CEO of the Federal Reserve Bank of St. Louis in discussion with Neel Kashkari, President and CEO of the Minneapolis Fed.
+
+That's the end of the Journal.
+
+Now, the Briefly section.
+
+Link one. "Python's Missing Batteries: Essential Libraries You're Missing Out On | Martin Heinz | Personal Website and Blog"
+
+Great list of Python libraries for a wide variety of things. A lot of new libraries I wasn't familiar with.
+
+Link two. "Shopify offloads logistics business to Flexport"
+
+Shopify changing course with logistics efforts.
+
+Link three. "See this page fetch itself, byte by byte, over TLS"
+
+Cool byte-level view of a web request over TLS, with annotation.
+
+Link four. "strike.army | Strike + LNURL = <3"
+
+Strike supports Bitcoin Lightning, but it works really hard to hide it from the user. This little tool helps you create the links and addresses to easily share Lightning information with others.
+
+Link five. "In Memoriam: Atomic Data Co-Founder Jim Wolford | Twin Cities Business"
+
+Very sad to lose an important entrepreneur and community leader in our community. Jim was only 55 years old too.
+
+Link six. "Gnosis Chain spends 5 million dollars on validator incentive program for decentralization"
+
+Gnosis, like Ethereum, is seeking to have very decentralized validators. I've found it odd that while this is a desire there have been no attempts, until this one, to incentivize this. I’m glad to see Gnosis attempting to make this more than just a hope.
+
+That's the end of Briefly.
+
+Now, the Signature section.
+
+"Weekly Thing #254 / Redis, Dooce, Batteries" is signed…
+
+Fortune
+
+It's all in the mind, ya know.
+
+That brings us to the end of the Weekly Thing, issue 254. Thanks for listening, and I'll see you next time.

@@ -1,0 +1,241 @@
+The Weekly Thing, issue 283. Betula, Blocky, Tables. Published April 13, twenty twenty four. By Jamie Thingelstad. In this issue: IRC client in motherboard, go players after AI, Digital Equipment Corp saved Ethernet, Twitter pivot to X.com phishers, follow the CAPEX.
+
+Hello there!
+
+I got many emails from y'all last week about my decision to abstain from coffee and caffeine for a bit. It turns out that many of you have done this or even do this regularly. Some thought I was truly crazy for depriving myself of the delicious bean. And a few were genuinely worried about my well-being. Don't worry. I’m okay.
+
+I can report that the second week without coffee was much easier than the first. While I cannot show any improvement in blood pressure yet I can attest that sleep comes easier at night, sometimes much easier, barely making it to 10p. Even better I feel more energetic waking up. I suspect I’m getting 30 to 60 minutes more sleep a night than before. That is pretty big.
+
+I wish I could share some wonderful analytics from 8Sleep to show some changes in sleep patterns however our pad failed right when I started this journey and has been reporting completely inaccurate data. 8Sleep sent a new pad free of charge so once I swap that out I may get some data driven insights.
+
+Coffee or not it is great to be seeing the sun so much more and feeling the warmth in the air. Ah, summer is on the way!
+
+Now, the Currently section.
+
+Watching: We finally finished watching Season 3 of The Morning Show. I thought it was great. Now maybe I'll finally get to Season 4 of Succession.
+
+Reading: I’m reading The Dictionary People by Sarah Ogilvie about the creation of the Oxford English Dictionary. I have been enjoying learning more about this pre-digital crowdsourced project that created such an important reference.
+
+That's the end of Currently.
+
+Now, the Notable section.
+
+Link one. "An IRC client in your motherboard | Phillip Tennen"
+
+UEFI is the modern replacement for BIOS and this trick of creating an IRC client that runs in it is pretty wild. It also freaks me out considering how IRC can be used as a command-and-control network for ransomware and what if that stuff embedded itself into the UEFI portion of your computer?
+
+Link two. "After AI beat them, professional go players got better and more creative"
+
+It is cool to see how professional Go players have adapted since AlphaGo beat Lee Sedol.
+
+Quote.
+After a few years, the weakest professional players were better than the strongest players before AI. The strongest players pushed beyond what had been thought possible.
+End quote.
+
+And they weren't copying the AI.
+
+Quote.
+And it wasn't simply that they imitated the AI, in a mechanical way. They got more creative, too. There was an uptick in historically novel moves and sequences. Shin et al calculate about 40 percent of the improvement came from moves that could have been memorized by studying the AI. But moves that deviated from what the AI would do also improved, and these "human moves" accounted for 60 percent of the improvement.
+End quote.
+
+AI shattering the preconceptions caused players to through out the old and reinvent their game. Very cool.
+
+Link three. "How Engineers at Digital Equipment Corp. Saved Ethernet - IEEE Spectrum"
+
+This is a great story about the creation of the very first Ethernet bridge, or what we now call a switch. I've got five switches in my house right now making sure my Ethernet network runs super fast. I didn’t realize that Ethernet and I are about the same age.
+
+Quote.
+The next morning he came in with an idea for a learning bridge (also known as a Layer 2 switch or simply a switch). The bridge would connect to two Ethernet LANs. By listening to all traffic on each LAN, the device would learn the MAC addresses of the computers on both Ethernets (remembering which computer was on which Ethernet) and then selectively forward the appropriate packets between the LANs based upon the destination MAC address. The computers on the two networks didn't need to know which path their data would take on the extended LAN; to them, the bridge was invisible.
+End quote.
+
+How amazing that DEC green-lit the project in a day!
+
+Quote.
+I took our idea to three levels of management, looking for approval to build a prototype of the learning bridge that Mark envisioned. Before the end of the day, we had a green light with the understanding that a product would follow if the prototype was successful.
+End quote.
+
+I remember token ring networks and even remember Ethernet networks that were running on coax connections but I only saw the very end of that generation of technology. Frankly it is amazing how far Ethernet has evolved and innovated over the years.
+
+Quote.
+To me, Mark saved Ethernet.
+End quote.
+
+Thank you Mark!
+
+Link four. "Twitter’s Clumsy Pivot to X.com Is a Gift to Phishers – Krebs on Security"
+
+So X has decided that they really want people to start saying X and not saying Twitter anymore. Someone tells a developer to make that happen. So they start replacing "twitter.com" with "x.com" but don't bound the match at all? Seriously, this is beyond amateur hour, and exposes users to super-simple phishing attacks. C'mon — even an associate fresh on the job should have known better.
+
+Link five. "Notes on how to use LLMs in your product. | Irrational Exuberance"
+
+Will Larson shares his "notes" as he has been working on adding LLM capabilities to products. There are some really good thoughts here that should help product people figure out how to approach this and result in better outcomes.
+
+Some highlights I pulled out…
+
+Quote.
+My belief is that many existing products will find they can only significantly benefit their user experience from LLMs by rethinking their workflows. … This makes a lot of sense, and the two phase combination of an unsophisticated algorithm to get plausible components of a response along with an LLM to filter through and package the plausible responses into an actual response works pretty well. … Because you cannot rely on LLMs to provide correct responses, and you cannot generate a confidence score for any given response, you have to either accept potential inaccuracies (which makes sense in many cases, humans are wrong sometimes too) or keep a Human-in-the-Loop (HITL) to validate the response. … Every large-scale adoption of LLMs today is being done in a mode where it shifts responsibility for the responses to a participating human.
+End quote.
+
+Not a single line in this that I would disagree with. Great stuff.
+
+Link six. "Platformonomics - Follow the CAPEX: The Clown Car Race Checkered Flag"
+
+Great article that looks at the capital investment being made by cloud providers to check their PR messaging with the investment. The article is fundamentally highlighting that Oracle and IBM are just not in this market in any real way, but the real amazing thing to me is the amount of capital that AWS, Microsoft, and Google are continuously driving into their massive cloud operations.
+
+Quote.
+In twenty twenty three, AWS spent 24.8 billion dollars on CAPEX (over four times Oracle), Google spent 32.3 billion dollars (over five times Oracle), and Microsoft 41.2 billion dollars (almost seven times Oracle). Microsoft spent more on CAPEX in just twenty twenty three than Oracle has in its entire nearly 50 year history.
+End quote.
+
+Amazon and Microsoft are gradually driving more — from about 4% of revenue in two thousand one-two thousand six and now ramped up to 14-16% of revenue. So to compete in this market at scale you would need to pump 150 billion dollars into capital? Incredible.
+
+That's the end of Notable.
+
+Now, the Journal section.
+
+Journal entry one.
+
+We watched Howl’s Moving Castle tonight. I think it is one of my favorite Studio Ghibli movies. I think we’ve seen about half of the Miyazaki movies.
+
+Journal entry two. Semisonic at the Palace Theatre
+
+Last night Tammy and I went over to St. Paul to see Semisonic at the Palace Theatre. I have no idea how many times we’ve collectively seen Semisonic but we were excited to go again. Their newest album Little Bit of Sun released in twenty twenty three, just 22 years after their last album, is very good.
+
+Before we get to Semisonic though, we were both also excited to see that Laamar was opening for them.
+
+Laamar
+
+We first saw Laamar at the Dakota about six months ago. Then we saw him again when we saw Dan Wilson at the Women’s Club in February.
+
+Geoffrey Lamar Wilson fronts Laamar and just has a great vibe when he performs. He has been a musician for a while and returned to Minneapolis after growing up here in twenty sixteen. We’ve enjoyed his music when we’ve seen him and I'm excited to hear that a full length album is in the works for the fall. I think Laamar is going to go places.
+
+See this recent interview with Laamar on The Current for more. Sadly Laamar doesn’t have a website of their own, an issue that is hopefully soon to be fixed.
+
+Semisonic
+
+Semisonic took the stage and played a great set. They hit on many of the hits of the past and pulled in songs from the new album as well. Even with Wilson at 62, Munson at 57, and Slichter at 63 they still put on a great performance. The title song off of the new album is delightful but I wish it was longer. I loved that they played Across the Great Divide. Of course they closed with Closing Time.
+
+They paid special homage to playing in St. Paul. Munson highlighted the environmental recovery of the Mississippi River and they auctioned off the Semisonic bass cover from that night in support of the Mississippi Watershed Organization. The show poster also included an image of Otters and they shared that once again Otters are in the Mississippi River.
+
+Wilson is a prolific songwriter well beyond his own work and since Chris Stapleton was playing last night as well at US Bank Stadium they played White Horse which he cowrote with him in the encore.
+
+Setlist for the show:
+
+1. Chemistry
+2. F.N.T.
+3. Little Bit Of Sun
+4. Keep Me in Motion
+5. Across the Great Divide
+6. Secret Smile
+7. In Another Life
+8. Don’t Fade Away
+9. DND
+10. If You Say So
+11. Never You Mind
+12. The Rope
+13. This Will Be My Year
+14. You’re Not Alone
+15. Closing Time
+
+Encore:
+
+16. Beautiful Sky
+17. White Horse (Chris Stapleton cover)
+18. Singing in My Sleep
+19. Gone to the Movies
+
+Journal entry three. Gabe Mollica "Solo" at the Parkway
+
+Tonight Tammy and I saw Gabe Mollica perform Solo: A Show About Friendship at the Parkway Theater.
+
+First Ben Katzner opened things up. Katzner recently moved to Minneapolis from New York. Katzner. He also had dinner at Creekside Supper Club right before the show because we ran into him at the front door as we were going in for dinner. I liked his comedy.
+
+Then Mollica took the stage for his show. It was one epic story connecting many smaller stories together all about his bros. I don’t know if it is fair to compare Mollica to Mike Birbiglia but the style is similar. We enjoyed the highs and lows and many good laughs along the way.
+
+Towards the last part of the show Mollica shares that part of this story is told on This American Life 810: Say It To My Face. At that point Tammy realizes that she had heard that episode and a bunch of dots were connected for her.
+
+Very good evening. Shame the theater wasn’t sold out.
+
+Journal entry four.
+
+These new custom perspective capabilities in OmniFocus 4.2 are very welcome. I’ll be able to do some long desired use cases with these!
+
+Quote.
+- Custom Perspectives [Pro] – New “Has date in range” rule type enables filtering a perspective by assigned date range. - Custom Perspectives [Pro] – New “Is repeating” rule enables filtering repeating tasks. - Custom Perspectives [Pro] – New “Is project, group, or neither” rule type enables filtering for projects or groups. - Custom Perspectives [Pro] – New “Is in single actions list” rule type enables filtering for items in single action lists.
+End quote.
+
+Weekly Thing Forum
+
+Join Barry Hess, Eric Walker, Brad Armstrong, Patrick Hambek, Tom Mungavan, and many other Weekly Thing readers in the Weekly Thing Forum. Recent topics include:
+
+- Mastodon Instance Recommendation
+- A few thoughts on this weeks Weekly Thing
+- Take Ownership Of Your Future Self
+- Milwaukee
+- Tron Movies
+
+That's the end of the Journal.
+
+Now, the Briefly section.
+
+Link one. "Vision Pro App Spotlight: Seasons Weaves Immersive Conditions Into a Comprehensive Weather App - MacStories"
+
+Weather apps were a source of much innovation in the early days of mobile. I wonder if we'll see a similar thing with the Vision Pro?
+
+Link two. "great_tables"
+
+Creating tables in code (or really anywhere) is fussy and annoying. This is a great Python module to make it all much easier.
+
+Link three. "Betula"
+
+Another self-hosted bookmarking service. Thing I thought was notable is Fediverse support to you can subscribe to links from it.
+
+Link four. "How College Consultants Invent Perfect Ivy League Applicants"
+
+This article just seems like "crazy town" in every way possible.
+
+Link five. "EchoFeed"
+
+Simple utility that watches an RSS feed and publishes items from that feed to another service. I love little RSS utilities like this.
+
+Link six. "Deckset iOS"
+
+I do all my web facing writing in Markdown. My blog is Markdown. I write the Weekly Thing in Markdown. Using it for presentations could be really nice.
+
+Link seven. "faces.js - A JavaScript library for generating vector-based cartoon faces"
+
+This library totally reminds me of the Mii stuff for the Wii U. Seems like a nice solution to create profile images with.
+
+Link eight. "blocky"
+
+Similar to PiHole but this is a proxy versus being its own DNS service. This is where you can add so much security and privacy to your network.
+
+Link nine. "oisd | domain blocklist"
+
+Love the good work going into crowdsourcing domain blocklists to protect against surveillance and many other threats.
+
+Link ten. "The Best Photos and Videos of the twenty twenty four Solar Eclipse"
+
+Some great images of the recent eclipse.
+
+That's the end of Briefly.
+
+Now, the Fortune section.
+
+Here is your fortune…
+
+Living your life is a task so difficult, it has never been attempted before.
+
+Thank you for subscribing to the Weekly Thing!
+
+That's the end of Fortune.
+
+Now, the Want to support the Weekly Thing? section.
+
+First — thank you for subscribing and reading. Here are some things you can do that would be great…
+
+- Share Weekly Thing 283 / Betula, Blocky, Tables with others you know!
+- Post about the Weekly Thing and let others know about it.
+- Join the Weekly Thing Forum and connect with others.
+- Email me comments, feedback, or just to say Hi!
+
+That brings us to the end of the Weekly Thing, issue 283. Thanks for listening, and I'll see you next time.

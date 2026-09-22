@@ -1,0 +1,172 @@
+The Weekly Thing, issue 95. Mar 2, twenty nineteen. Published March 2, twenty nineteen. By Jamie Thingelstad. In this issue: Halide Spectre, Huawei Mate X foldable, Facebook moderators, YouTube ad boycott, Day One 3.0 Mac, apps sharing data with Facebook.
+
+This is one of those weeks where I’m pretty behind. I just got done going through my queue of links and getting things all spiffed up! We have family in town for the weekend and a ton of fun stuff planned. I can’t wait! So this is going to be quick and get on with the rest of the weeks links!
+
+Now, the Featured Links section.
+
+Link one. "The Power of Full Engagement: The Four Energy Management Principles That Drive Performance"
+
+My friend Garrick recommended this book and I thorough enjoyed it. This writeup captures the theme well. Over the years I have made great strides in optimizing my time and insuring that I have slots available for things I need to do. However, It’s common that I get to that time and lack all motivation and energy to actually do it! This sucks. The idea of managing time and energy efficiently is an important one. I like the pyramid that this book considers for building energy into your day.
+
+That's the end of Featured Links.
+
+Now, the My Weekly Photo section.
+
+Pokémon Go added augmented reality photo capabilities. It’s pretty fun to see the scale of Pokémon in your house!
+Feb 23, twenty nineteen at 2:00 PM
+Edina, MN
+
+That's the end of My Weekly Photo.
+
+Now, the Notable Links section.
+
+Link one. "Introducing Spectre – Halide"
+
+This photo app looks interesting for long exposure shots. I've been very impressed with their other camera app Halide, so this was an "instant buy" for me. MacStories has a good writeup as well.
+
+Link two. "Minnesota Compass - Measuring Progress Inspiring Action"
+
+I've seen Allison Liuzzi of Compass present some very good demographic data for the State of Minnesota. I finally went to their website and they have a ton of data available.
+
+By tracking and analyzing trends in topics that affect our quality of life, Compass gives everyone in our state – policymakers, business and community leaders, and concerned individuals who live and work here – a common foundation to act on issues to improve our communities.
+
+Wealth of data here. Good resource.
+
+Link three. "Huawei Mate X hands-on: our foldable future - The Verge"
+
+I've been totally uninterested in foldable phones, but seeing these pictures is sort of interesting. Having something fold out into a much bigger display could be pretty interesting. Sort of magic!
+
+Link four. "Why the Siri Face Is All I Need from My Apple Watch – MacStories"
+
+I've been using the Siri face ever since it came out on watchOS and my thought is very similar to this article. I like how it puts stuff in a stream for me throughout the day. My calendar is the bedrock, but I like that it sprinkles in other things. It’s by far my favorite way to keep tabs on the few sports teams I follow.
+
+Link five. "The secret lives of Facebook moderators in America - The Verge"
+
+What a horrible stream of bile to deal with, and the trauma it causes for the people that are paid to inspect and judge that stream of bile. I’m so happy to have nothing to do with these social platforms.
+
+Link six. "AT and T Suspends YouTube Ad Spending as Boycott Over ‘Pedophilia’ Videos Scandal Widens"
+
+Don't let your kids publish videos on YouTube, don't publish videos of them on YouTube. Probably just don't publish stuff on YouTube.
+
+Link seven. "Gopher: a present for Redis -"
+
+I totally thought this was an April fools joke, and then…
+
+I’ll use the ten years of Redis as an excuse to release something I played a bit in the previous days, thinking to use it for the first April fool: but such date is far and I want to talk to you about this project now… So, happy birthday Redis! Here it’s your present: a Gopher protocol implementation.
+
+I love Redis and it’s fun to see this. Made me think I would like to make a Gopher version of my website.
+
+Link eight. "How to Create a Morning Routine that Works for You – SaneBox Blog"
+
+I really don't understand how all this time is supposed to be made for a morning routine. I can’t see getting up at 3am so I can read, meditate, exercise all before heading into the office for an early meeting.
+
+Link nine. "Day One 3.0 for Mac Introduces Cleaner Design and Simplified UI – The Sweet Setup"
+
+My preferred journal application for macOS and iOS got a big step up on the Mac. Official Day One 3.0 announcement. I like the improvements.
+
+Link ten. "How to Be a Good Board Member – Both Sides of the Table"
+
+This is a solid set of recommendations, easy to parse and follow. Good stuff. Via AVC.
+
+Link eleven. "HQ2: Understanding What Happened and Why - The Big Picture"
+
+Compelling recap of the HQ2 process that Amazon has being going through.
+
+From the start, the entire HQ2 optics have been terrible. When the world’s wealthiest man happens to run the world’s most most valuable company goes looking for a new place to call home, perhaps compelling self-flagellation by states and local officials to win his business... well, let’s just say that is not the greatest look.
+
+Totally agree. Via Daring Fireball.
+
+Link twelve. "Payroll Provider Gives Extortionists a Payday — Krebs on Security"
+
+This is a very scary ransomware story. If you are in charge of a bunch of computers, you need to be thinking about ransomware.
+
+Link thirteen. "You Give Apps Sensitive Personal Information. Then They Tell Facebook. - WSJ"
+
+These are profound violations of trust and privacy.
+
+In the Journal’s testing, Instant Heart Rate: HR Monitor, the most popular heart-rate app on Apple’s iOS, made by California-based Azumio Inc., sent a user’s heart rate to Facebook immediately after it was recorded.
+
+Flo Health Inc.’s Flo Period and Ovulation Tracker, which claims 25 million active users, told Facebook when a user was having her period or informed the app of an intention to get pregnant, the tests showed.
+
+Real-estate app Realtor.com, owned by Move Inc., a subsidiary of Wall Street Journal parent News Corp, sent the social network the location and price of listings that a user viewed, noting which ones were marked as favorites, the tests showed.
+
+None of those apps provided users any apparent way to stop that information from being sent to Facebook.
+
+Via Daring Fireball.
+
+That's the end of Notable Links.
+
+Now, the Give Back section.
+
+Internet Archive is a non-profit library of millions of free books, movies, software, music, websites, and more. I have been a supporter of the Internet Archive for many years and I think their mission is fabulous! The web is a major part of our culture and it the content that we put on it is sadly ephemeral. The Internet Archive is working hard to capture that information and keep it for history. Donate to Internet Archive today!
+
+That's the end of Give Back.
+
+Now, more links.
+
+- k3s - Lightweight Kubernetes | k3s k3s.io
+Kubernetes on a diet?
+- bullet: Beautiful Python Prompts Made Simple
+Nice library for building menus in CLI tools.
+- Carrot | Leadership communication for fast-growing and remote teams.
+This looks interesting but I don't totally get how the product work, and where Slack ends and it starts.
+- AWS API Performance Comparison: Serverless versus Containers versus API Gateway integration www.alexdebrie.com
+Performance metrics of various API methods in AWS. Some nice data.
+- Intelligent Tracking Prevention 2.1 | WebKit webkit.org
+More improvements to WebKit's baked in privacy protections.
+
+That's the end of More Links.
+
+Now, the Microposts section.
+
+Thursday @ 11:23 PM
+
+My mind was blown tonight when I was introduced to ”fractal” Romanesco broccoli!
+
+Thursday @ 4:39 PM
+
+It was great to be able to share the impressive work we’ve done at SPS Commerce to make a technology career more inclusive and accessible. A lot of progress and momentum for more! Thanks to @pattonamyj for the picture!
+
+Thursday @ 4:29 PM
+
+Improving diversity In tech: York Solutions; Genesis10; Prime Digital Academy; Creating IT Futures; Software Guild; Summit Academy; Minnesota State IT Center of Excellence; Dougherty Family College; Apprenti; Keyot Crew212; Twin Cities Rise; Genesys Works; SciTechsperience
+
+Thursday @ 12:30 PM
+
+Some very insightful data being shared this morning at MHTA Tech Talent event from Deb Broberg of RealTime Talent, Allison Liuzzi of Minnesota Compass Project, Matt Lewis of Make It. MSP.!
+
+Thursday @ 8:47 AM
+
+At MHTA Tech Talent event today, participating in panel shortly. Mike McNamara, CIO of Target, kicking it off. Event focused on efforts to increase diversity and inclusion in technology. Looking forward to sharing our progress at SPS Commerce.
+
+Monday @ 7:15 PM
+
+Timberwolves v Kings jump ball!
+
+Monday @ 7:14 PM
+
+Basketball teams always have impressive pregame experiences.
+
+Monday @ 6:51 PM
+
+Fun to be courtside watching the Timberwolves warmup.
+
+Sunday @ 12:08 PM
+
+With all the amazing computational photography power of an iPhone XS, why can’t it properly expose a picture with a lot of snow? This seems like it should be solvable.
+
+Saturday @ 11:25 PM
+
+Tonight was the first time since having a 3D printer that I realized something I was thinking of buying I could instead print.
+
+That's the end of Microposts.
+
+Now, the Fortune section.
+
+You've made it all the way to the end! Here is your fortune for this week.
+
+You are number 6! Who is number one?
+
+Thank you for subscribing to the Weekly Thing!
+
+That brings us to the end of the Weekly Thing, issue 95. Thanks for listening, and I'll see you next time.

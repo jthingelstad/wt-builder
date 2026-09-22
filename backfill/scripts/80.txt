@@ -1,0 +1,174 @@
+The Weekly Thing, issue 80. Nov 17, twenty eighteen. Published November 17, twenty eighteen. By Jamie Thingelstad. In this issue: Reclaiming RSS, skill stacking, Steve Blank on company growth, online tracking data, PagerDuty incident response, Radio Garden, Incredibles 2 graphic art.
+
+I've been traveling in Kiev, Ukraine this week. As I queued at passport control, I counted up my stamps and noted that this is my ninth time to Ukraine. We have a technology office here that I visit twice a year to check in with the team. I commonly get asked by people back home about traveling here, thinking from the news in the US that it must be a very difficult place to go to. It isn't. The conflict with Russia has been roiling ever since I started to come here. My first time to Ukraine was during the protests in Independence Square, on that trip our final destination was to Kharkiv, on the eastern side of Ukraine. We moved our office to Kiev shortly thereafter.
+
+While we read about conflict in Eastern Ukraine it can be confusing to then fly into Kiev and see dozens of buildings under construction. In the time I've been coming here traffic is notably busier as the economy of Kiev has continued to grow. All while this cloud of uncertainty hangs over political matters, but to Ukrainians that is just normal.
+
+There is a lot that is normal for me in Ukraine. The weather here is nearly the same as Minneapolis. If it's snowing at home, it's snowing in Ukraine. If anything, Minneapolis is a touch colder. Most people in Ukraine are a generation or two off of the farm, similar to the Midwest. The connection to agricultural is still close. There is a strong desire to innovate and create, amongst the technologists I've met here they have a similar passion and excitement for technology.
+
+I've not explored the history of Ukraine as much as I would like, but it's a difficult one. The famines, and regular military takeovers of the country have left deep marks. The people though are friendly and focus on the areas that they can make better, and move things forward in their way. And the churches of Kiev are gorgeous landmarks.
+
+Now, the Featured Links section.
+
+Link one. "Steve Blank How to Keep Your Job As Your Company Grows"
+
+I think people have heard this advice before but it’s worth repeating, as it still catches everyone off guard.
+
+What I wish I knew was that if you’re an early company employee, it’s not likely that the skills you have on day one are the skills needed as the company scales to the next level. This sentence is worth reading multiple times as no one – not the person who hired you, the VC’s or your peers -is going to tell you when you’re hired that the company will likely outgrow you.
+
+If you want to read a whole book on this topic pick up The Leadership Pipeline where it highlights that you need to be very thoughtful when you move into a new role, specifically on what you are going to stop doing, so you can be successful. By the way, sometimes the stuff you may need to stop doing is stuff you really like.
+
+I’ve personally done an annual inventory every year for the last twenty years or so where I try to objectively ask myself what I need to start or do more of than I’m doing now, and what I need to do less of or completely stop doing. Companies, successful ones at least, grow much faster than the talent in them often can. By willfully giving up things and reassessing your own skills to the organizations needs, you stand a much better chance of continuing to stay relevant in the organization.
+
+Link two. "I asked an online tracking company for all of my data and here's what I found | Privacy International"
+
+There have been a number of articles where people have gotten their personal data from Facebook or Twitter and shown the shocking level of detail in the data. This article is even more interesting because it is looking at Quantcast and the data it collects.
+
+My Quantcast data, for instance, gives an eerily specific insight into my work life at Privacy International. From my browsing history alone, companies like Quantcast don’t just know that I work on technology, security, and privacy – my news interests reveal what exactly it is that I am working on at any point in time. My Quantcast data even reveals that I have a personal blog on Tumblr.
+
+There are hundreds of firms like this that sit behind every website you visit and track incredible amounts of data on everything you do. I would highlight that every URL can then be mined to generate even more insight into you.
+
+I block Quantcast and tens of thousands of other trackers on every browser I use with 1Blocker. I can’t recommend strongly enough that you should use a tool like 1Blocker. Surfing the web without privacy protection exposes you to incredible levels of surveillance.
+
+That's the end of Featured Links.
+
+Now, the My Weekly Photo section.
+
+Boulevard in a recently constructed historical inspired neighborhood in Kiev.
+Nov 15, twenty eighteen at 12:01 PM
+Kozhumiatska Street, Kiev, Ukraine
+
+That's the end of My Weekly Photo.
+
+Now, the Notable Links section.
+
+Link one. "Diversity and inclusion update: The journey continues - The Official Microsoft Blog"
+
+This data highlights how much work there is yet to do in this area in tech, and it’s also humbling how slow the progress is even for a company with as many resources as Microsoft has to work on this.
+
+Link two. "The Haunting of 657 Boulevard in Westfield, New Jersey"
+
+This headline got me. When I was a kid my family moved into an honest-to-goodness haunted house. That however is a story for another time. The headline is a bit of a tease here, there isn’t any direct evidence of the supernatural. But it’s a super creepy story.
+
+Link three. "Reclaiming RSS – Aral Balkan"
+
+Another call-to-action to support some of the original plumbing of the web around syndication. I found the term surveillance capitalism novel here. I do think that using the term surveillance as opposed to privacy is a good idea. People seem to not value their privacy, but they don’t want to be surveilled. I’m a big fan of RSS and highly recommend Feedbin for anyone looking to get their content direct, with no algorithms and surveillance in the middle.
+
+Link four. "Open-Sourcing Our Incident Response Training | PagerDuty"
+
+I like this continued trend of opening up incident management information from PagerDuty. It has obvious commercial benefit to them, but importantly will help a lot of team not have to learn from the same exact mistakes that others have already made.
+
+Link five. "Fast Poll - Create instant, real-time polls for free!"
+
+This looks like a simple, fast, and easy solution for doing polls, so you can ask people all sorts of questions. The privacy policy looks reasonably friendly.
+
+Link six. "Puzzle Montage by Tim Klein"
+
+These images are really cool!
+
+Jigsaw puzzle companies tend to use the same cut patterns for multiple puzzles. This makes the pieces interchangeable, and I sometimes find that I can combine portions from two or more puzzles to make a surreal picture that the publisher never imagined.
+
+Impressive!
+
+Link seven. "How I Use and Manage Apple Photos – The Sweet Setup"
+
+It’s surprising to me that we are still struggling with digital photos. Our solutions for managing and finding them have gotten so much better, but the ease by which we can capture photos has gotten easier as well. So, the solution is better than ever, but the problem is bigger than ever.
+
+I’m also very close to going all in with Apple Photos. I still maintain a large library of images in Lightroom catalogs, but I’m frustrated with Lightroom. Unfortunately Apple Photos cannot load a raw DNG file, so I either have to change the file formats, or find a different solution. Ugh.
+
+Link eight. "Radio Garden"
+
+This is a cool mashup of map data and streaming radio. You could spend a lot of time listening to radio streamed around the world here.
+
+Link nine. "Skill Stacking: A Practical Strategy To Achieve Career Success - Darius Foroux"
+
+I regularly talk with people about developing their careers and this stacking concept is aligned with the direction I give. People mistakenly look at their careers as a single arrow going in one direction. That usually isn’t how things work out. Looking at your capabilities as a set of complementary skills is much more agile, and more effective in real application.
+
+Link ten. "The Graphic Art of Incredibles 2 — Josh Holtsclaw"
+
+This is a fun behind-the-scenes look at the research that went into the graphics in Incredibles 2. I liked seeing the real places that served as the inspiration for the completely made up, animated world of The Incredibles.
+
+That's the end of Notable Links.
+
+Now, the Give Back section.
+
+Creative Commons helps you legally share your knowledge and creativity to build a more equitable, accessible, and innovative world — unlocking the full potential of the internet to drive a new era of development, growth, and productivity. I have been a supporter of Creative Commons for years. Larry Lessig, the founder of Creative Commons, has done the world a great thing by creating a legal structure to help authors and creators encourage remix culture. In addition to donating, you should consider making your content under a Creative Commons license. Donate to Creative Commons today!
+
+That's the end of Give Back.
+
+Now, more links.
+
+- Delay, Deny and Deflect: How Facebook's Leaders Fought Through Crisis - The New York Times
+An expose into the messy response inside Facebook to the last year.
+- Mosaic Versions | National Center for Supercomputing Applications (NCSA) at the University of Illinois
+It’s been 25 years since Mosaic v1.0 shipped. Wow!
+- Front-end Web Development on iPad Pro (twenty eighteen) – Craig Morey – Medium
+This is a robust breakdown of the limits of using iOS for development like work. Most things in here would apply to other intense workloads.
+- The History of Unix, Rob Pike www.youtube.com
+Fabulous presentation from Rob Pike. Such a rich history here.
+- Building Your Color Palette refactoringui.com
+More realistic view on assembling a comprehensive color scheme.
+
+That's the end of More Links.
+
+Now, the Microposts section.
+
+Wednesday @ 9:13 PM
+
+Had a great evening with #TeamSPS in Kiev tonight!
+
+Wednesday @ 12:11 PM
+
+First snow in Kiev!
+
+Tuesday @ 8:49 AM
+
+Waiting for the sun to come up at Paris CDG.
+
+Tuesday @ 3:54 AM
+
+I’m finding myself frustrated with pure static hosting. It adds too much friction to publishing. I’m intrigued by Statamic as a ‘best of both worlds’ option. If people have experience with it, I’d love to hear those.
+
+Tuesday @ 1:22 AM
+
+The new 12.9” iPad Pro with the attached keyboard is a good size for an airline seat tray. The previous generation 12.9” I found too large for flights and used the smaller one. This one works fine with keyboard.
+
+Monday @ 5:27 AM
+
+Long international flight tomorrow of course you update the firmware on your headphones!
+
+Monday @ 4:59 AM
+
+Wait, the newest version of Apple Photos cannot import DNG files? What the …
+
+Monday @ 4:16 AM
+
+After a couple calls it sounds like Ukraine is fine with a passport expiring within 6 months, as long as it’s valid for your trip. Should be good to go!
+
+Monday @ 2:51 AM
+
+I might be learning the hard way about flying internationally when your passport expires within 6 months.
+
+Sunday @ 6:47 AM
+
+Family movie night – watched Ferdinand. Good movie, but upon learning what bullfighting is the kids thought that was crazy.
+
+Saturday @ 11:12 PM
+
+Got my tickets to the twenty nineteen CONCACAF Gold Cup (Group D) matches at Allianz Field! Can’t wait to cheer on the US Men’s National Soccer Team!
+
+Saturday @ 9:15 PM
+
+Carcassonne is such a great game. Introduced the kids to it today.
+
+That's the end of Microposts.
+
+Now, the Fortune section.
+
+You've made it all the way to the end! Here is your fortune for this week.
+
+Patience is a virtue.
+
+Thank you for subscribing to the Weekly Thing!
+
+That brings us to the end of the Weekly Thing, issue 80. Thanks for listening, and I'll see you next time.

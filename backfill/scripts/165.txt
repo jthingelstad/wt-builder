@@ -1,0 +1,262 @@
+The Weekly Thing, issue 165. Sessions, Friluftsliv, Everlong. Published November 14, twenty twenty. By Jamie Thingelstad. In this issue: Apple M1 Macs, iPhone 12 Mini and Pro Max, macOS Big Sur review, COVID vaccine 90% protection, Let's Encrypt independent, digital gardens.
+
+I’m not sure what happened this week but this Weekly Thing has way more than the usual number of links to videos. In fact, all the featured links are videos so I coined it "Must Watch" this week.
+
+Now, the Must Watch section.
+
+First Friday with Archie Black and Dr. Yohuru Williams - YouTube
+
+I greatly enjoyed this First Friday conversation between Archie Black and Dr. Yohuru Williams on racial equality. Great information and thought provoking as we work to reduce system racism, and become anti-racist. I was able to spend time with Dr. Williams and appreciated all he shared with us.
+
+Everlong by the Foo Fighters Drum Cover - YouTube
+
+This video fills me with joy. Nandi Bushell's drumming is so enthusiastic and delightful. I found this via a NY Times article and the fact that Dave Grohl accepted the challenge only increases the "man crush" I have for him. Grohl just seems like an exceptional person.
+
+Designing Your Life | Bill Burnett | TEDxStanford - YouTube
+
+This talk resonated with me. I've taken a Stanford D School workshop before focused on product innovation and I found it useful. Applying those same concepts to designing your life seems useful. The overall message of this talk was great.
+
+Share the Weekly Thing?
+More people sign up from LinkedIn than anywhere else! Please spread the word by sharing on LinkedIn and encourage your connections to subscribe.
+
+"Aim to be great in 10 years. Build health habits today that lead to a great body in 10 years. Build social habits today that lead to great relationships in 10 years. Build learning habits today that lead to great knowledge in 10 years. Long-term thinking is a secret weapon." — James Clear
+
+That's the end of Must Watch.
+
+Now, the Photograph section.
+
+Lucky looking very regal.
+
+Nov 8, twenty twenty at 2:01 PM
+Cannon Lake, MN
+
+That's the end of Photograph.
+
+Now, the Recommended Links section.
+
+Daring Fireball: One More Thing: The M1 Macs
+
+We are now officially on the path to the new Apple Silicon and off of Intel chips. It is interesting how much of this is about computing power per watt.
+
+Quote.
+These are, by all accounts and measures, far faster machines than the Intel-based Macs they’re replacing. But the big win, and clear focus from Apple, isn’t speed but battery life. Apple’s quoted battery life times for the Intel-based MacBook Air from March of this year for "wireless web browsing" and "Apple TV app movie playback" were 11 and 12 hours, respectively. The new M1 MacBook Air pushes those times to 15 and 18 hours. The difference is even more striking with Apple’s specs for the new M1 MacBook Pro, which claim battery life of 17 and 20 hours for web browsing and movie playback. The current Intel-based 13-inch MacBook Pro gets just 10 hours on each of those tests. That’s very close to double the battery life. Double!
+End quote.
+
+Doing more with less power is how Apple did so much in the A-series chips in the iPhone and iPad. Now that is coming to the M-series in the Macs. I can’t wait to get my hands on one of these to see how they feel in real use.
+
+Does Waking Up at 5:30 A.M Make You More Successful? (A Better Way To Get Up Early) | by Thomas Oppong
+
+TL:DR; No. What is important? Being intentional with your time, and designing a routine that biases you to successful outcomes, whatever you define those to be.
+
+One in five COVID-19 patients develop mental illness within 90 days - study | Reuters
+
+There is still so much to learn about COVID-19.
+
+Quote.
+In the three months following testing positive for COVID-19, 1 in 5 survivors were recorded as having a first time diagnosis of anxiety, depression or insomnia. This was about twice as likely as for other groups of patients in the same period, the researchers said.
+End quote.
+
+A Quick Guide to Scheduling Office Hours with Doodle’s Bookable Calendar - Doodle Blog
+
+Step-by-step instructions on setting up an office hours capability with Doodle. I’m putting this on my To Do list. I have a license to Doodle, and I've been meaning to try office hours since the pandemic hit and I lost the ability to easily connect with people throughout the day in the office.
+
+My notes on Apple’s M1 Chip – On my Om
+
+Quick recap from Om Malik on the new M1 chip. I didn’t realize this about memory access
+
+Quote.
+If you are a developer and want access to the same data with the CPU and GPU, you don’t have to copy it back and forth over PCI Express. It enables better performance for the application.
+End quote.
+
+That could be a big deal for certain use cases.
+
+Introducing Sessions, a New Way to Work Out With the Peloton Community | The Output
+
+I’m a little excited about this, and every Peloton ride I've done has been a Session since this feature was rolled out.
+
+I love Sessions!
+
+Sessions are a great feature. It adds a whole new class type to Peloton. Before we had Live classes, which you had to take at a specific time. On-Demand which you can take anytime, but have less useful leaderboard and social features with other riders. And then Encore classes which were scheduled replays with a new leaderboard. Now Sessions allow you to have a new leaderboard and ride with a smaller group that is all at the same place in the ride as you. It feels more like taking a spin class at a studio, with 30-50 other riders versus thousands.
+
+My wishlist is for Private Sessions. I want to be able to setup a Session with my friends and ride a small ride with just that group, and a live leaderboard for fun competition. I hope they add that.
+
+Attention Is My Most Valuable Asset for Productivity as a Software Developer | zwbetz
+
+Great recommendations on maintaining focus for anyone that is looking to do that, including Software Developers.
+
+Bookshop: Buy books online. Support local bookstores.
+
+I'd seen Bookshop mentioned but hadn't checked it out, then I read this article in the Guardian about it and was intrigued. I setup an account and placed an order. I like that it is a B-Corp and the website is very nice to use. I even setup my own store that I may put some books on that I recommend.
+
+Raindrop.io — All-in-one bookmark manager
+
+I spent some time checking out Raindrop after a writeup in Dense Discovery #113 about it. I've been a Pinboard user for over a decade and have over 11,500 links stored in it. I've also built a tons of automation on it for the Weekly Thing and my Link Blog. All of which is to say that moving off of Pinboard would be a huge deal for me. Raindrop is compelling though. The API is robust. It has features like Collections that are sorely missing on Pinboard, and overall it is getting more improvements faster. I’m going to defer a review for after Christmas and see if I want to attempt to move my automation and archive over to it.
+
+If you are just getting started with a solution though, this is likely what I would recommend.
+
+Daring Fireball: The iPhone 12 Mini and iPhone 12 Pro Max
+
+I tend to prefer Gruber's iPhone reviews. If you are curious to know more about the new Mini and Max, here you go.
+
+Michael Tsai - Blog - iSH and a-Shell versus the App Store
+
+I haven't thought as much as I should about the iOS App Store and the policies Apple employs. I know they seem unpredictable at best. I also appreciate the editorial and quality reviews behind it. But, this thread of limiting tooling I find frustrating.
+
+iPhone 12 Pro Max Camera Review Zion — Austin Mann
+
+Field review of the new iPhone 12 Pro Max with its upgraded camera hardware. Mann's reviews are always filled with beautiful photos as a bonus.
+
+Karens and Cancel Culture w/Chelsea Handler - Uncomfortable Conversations with a Black Man Ep.10 - YouTube
+
+Newest edition of Uncomfortable Conversations with a Black Man. This one is with Chelsea Handler. I’m not familiar with her, but I appreciated her candor in this. Acho also just released a book that I've already pre-ordered.
+
+U.S. election maps are wildly misleading, so this designer fixed them
+
+Watching the election coverage we got our every-four-year dose of those massive red and blue election maps. They always have frustrated me because they show area, not vote count. It massively overstates rural America and makes it look incredibly lopsided. This view that brings population into the visuals is much more informative. The original post has some additional permutations.
+
+Digital gardens let you cultivate your own little bit of the internet | MIT Technology Review
+
+I hope this is a trend and it grows. I disagree with the reference to blogging being about large audiences. That was only for "Pro Bloggers" back in the day. There were always millions of blogs with only a handful of visitors. Get yourself a digital garden, errr, a website. It’s a lot of fun here and the water is great!
+
+‘We belong out there’: How the Nordic concept of friluftsliv — outdoor life — could help the Pacific Northwest get through this COVID winter | The Seattle Times
+
+I've already been thinking that this pandemic winter is going to need a dose of hygge, and now we can add friluftsliv to that as well. We need to plan significant time outdoors through the whole winter.
+
+Standing on Our Own Two Feet - Let's Encrypt - Free SSL/TLS Certificates
+
+Another great milestone for Let's Encrypt as they continue their mission to make the Internet more secure for everyone.
+
+Quote.
+Now, those software platforms have trusted our root certificate for years. And the DST Root X3 root certificate that we relied on to get us off the ground is going to expire - on September 1, twenty twenty one. Fortunately, we’re ready to stand on our own, and rely solely on our own root certificate.
+End quote.
+
+That's the end of Recommended Links.
+
+Now, the Stream section.
+
+Thursday @ 8:58 PM
+
+Delicious Barbera d’Asti.
+
+Tuesday @ 10:22 PM
+
+Growth Summit twenty twenty one
+
+Today #TeamSPS joined together around the world for Growth Summit twenty twenty one! We had a great event, with the show being broadcast live from the Minneapolis Convention Center. We had a ton of precautions to keep things as safe as possible with the pandemic.
+
+The event was fabulous, and the team was engaged with online activities that were paired up with the sessions. Truly a great online experience.
+
+We had a thought provoking keynote from Greg Bell on the power of a simple question, What is Going Well?
+
+I loved some of the behind the scenes stuff. I'd like to play around with all this gear.
+
+Had to get made up for the big event.
+
+What a great day #TeamSPS! It is going to be a great twenty twenty one!
+
+Sunday @ 10:22 PM
+
+Link Blog Relaunched
+
+I got my Link Blog up and running again. It is still plenty rough around the edges. This gives the links that I share in the Weekly Thing a permanent home on the web.
+
+As an experiment I've also put the Commento commenting system on it to see if that is interesting.
+
+I also created Index pages for sites so you can see all links I’ve save for a site. See this Index for the EFF website as an example.
+
+On my to do list is Annum pages that show statistics for each year.
+
+Sunday @ 1:24 PM
+
+Just tried Buildzi for the first time. This is a great, fast family game. You can give the younger ones a head start too. A lot of family fun.
+
+Saturday @ 10:07 PM
+
+I am very proud that we have elected our first ever Woman Vice-President, Kamala Harris. I learned a bit as well from her wearing a “Suffrage White” suit, and connecting back to the 100 year anniversary of the nineteenth Ammendment.
+
+Saturday @ 9:57 PM
+
+I love our outdoor patio space at night. A warm November day bonus with no bugs! The Yellow Table is a recent addition. I hung the yellow Herrnhuter today. We should add some blue to make the Swedish connection.
+
+Friday @ 7:12 PM
+
+S’mores!
+
+Friday @ 7:12 PM
+
+Incredibly nice weather today. We got to do a November family bike ride!
+
+Friday @ 7:09 AM
+
+Dave has a good plan for today.
+
+Quote.
+Today I plan to read something good, take my students seriously, teach outdoors, try to be kind, spend time with my wife, spend some time being silently mindful of those who suffer, send some good things to people who need them. Seems like a full day, and a good one. -- Dave O'Hara (@Davoh) November 6, twenty twenty
+End quote.
+
+That's the end of Stream.
+
+Now, for your information.
+
+The COVID Tracking Project | The COVID Tracking Project
+
+Good site for charts and data. Appears to have a simple API to build on as well.
+
+macOS Big Sur: The MacStories Review - MacStories
+
+Everything you could ever want to know about macOS Big Sur.
+
+With North Dakota hospitals at 100% capacity, Burgum announces COVID-positive nurses can stay at work | Grand Forks Herald
+
+North Dakota, my home state, is struggling to respond to the pandemic.
+
+Marvel Pinball - Arcade1Up
+
+I have thought about a virtual pinball table for a long time, and this seems like a great option for a good price. Just in time for Christmas too.
+
+TikTok says the Trump administration has forgotten about trying to ban it, would like to know what’s up - The Verge
+
+I’m no fan of TikTok. Many people thought this was a publicity stunt from the very beginning. The lack of followup rather proves that point.
+
+The Importance of Leader Humility in a Downturn | Leadership Freak
+
+Good reminder. Don't shy away from vulnerability. We are all human.
+
+Covid vaccine: First 'milestone' vaccine offers 90% protection - BBC News
+
+Big step to getting to the other side of this pandemic!
+
+dog: Command-line DNS client
+
+Compelling tool for working with DNS records. Improvement over dig.
+
+Apple Unveils New M1 Apple Silicon Chip for Macs - MacStories
+
+Just the right level of overview on the new Apple Silicon and what is unique about it.
+
+RemoteRetro — make retros easy!
+
+Specialized tool just for running retrospectives, or any kind of feedback session. This caught my eye since I usually find retrospectives to be the thing teams will stop doing first, and they are one of the most important Agile activities in my opinion.
+
+That's the end of the FYI section.
+
+Now, the Local section.
+
+Tekne Awards for Lifetime Achievement to be Presented to Rick King and John Santelli at November eighteenth Event » MnTech
+
+Very well deserved recognition for two technology leaders in our community.
+
+Share the Weekly Thing?
+More people sign up from LinkedIn than anywhere else! Please spread the word by sharing on LinkedIn and encourage your connections to subscribe.
+
+That's the end of Local.
+
+Now, the Fortune section.
+
+You've made it all the way to the end! Here is your fortune for this week.
+
+You are fair minded, just and loving.
+
+Thank you for subscribing to the Weekly Thing!
+
+That brings us to the end of the Weekly Thing, issue 165. Thanks for listening, and I'll see you next time.

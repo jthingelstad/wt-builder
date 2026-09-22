@@ -1,0 +1,213 @@
+The Weekly Thing, issue 98. Mar 23, twenty nineteen. Published March 23, twenty nineteen. By Jamie Thingelstad. In this issue: Death of the calorie, toxic truth about modern food, cities stop recycling, Facebook passwords in plain text, Kickstarter unionizing, Stadia.
+
+I spent this week in Australia visiting our office in Melbourne. After you get over the 24 hours of travel to get there, the city greets you with all sorts of cool stuff. I had a really great time. While I was there I got to take in Round 1 of the twenty nineteen Australian Football League, or as everyone there calls it, Footy. I was a bit in awe as we entered the Melbourne Cricket Grounds. The size of the field is just enormous! The game took a bit to understand, but it started making sense after some locals answered some particularly simple questions. Footy reminded me of merging Soccer and American Football, and splashing in some Basketball concepts for fun. There were 84,000 excited Australian Footy fans cheering on the start of the season. Victoria is the heart of Footy, and this Richmond v Carlton game
+( was a highly anticipated start to the season, even as Richmond ran away with the score.
+
+I don't often take in sports events when I travel, but it sure was a great way to get a feel for the place, and to meet and chat with some new folks from the other side of the world.
+
+Now, the Featured Links section.
+
+Link one. "Death of the calorie | 1843"
+
+I've read so much on food, and it’s very clear that we have this false sense of understanding of how food works. Michael Pollan describes this well in "In Defense of Food". This article does a good job of breaking down the false illusion that precise calorie metrics give us.
+
+The calorie system, says Camacho, lets food producers off the hook: “They can say, ‘We’re not responsible for the unhealthy products we sell, we just have to list the calories and leave it to you to manage your own weight’.” Camacho and other calorie dissidents argue that sugar and highly processed carbohydrates play havoc with people’s hormonal systems. Higher insulin levels mean more energy is converted into fat tissues leaving less available to fuel the rest of the body. That in turn drives hunger and overeating. In other words the constant hunger and fatigue suffered by Camacho and other dieters may be symptoms of being overweight, rather than the cause of the problem. Yet much of the food industry defends the status quo too. To change how we assess the energy and health values of food would undermine the business model of many companies.
+
+Maybe not rely on those labels so much.
+
+Link two. "As Costs Skyrocket, More U.S. Cities Stop Recycling - The New York Times"
+
+I’ve read a few articles on the issues with recycling now that China has set lower limits for contamination. When you read this it sounds a lot like the entire economic system of recycling is broken.
+
+Prompting this nationwide reckoning is China, which until January twenty eighteen had been a big buyer of recyclable material collected in the United States. That stopped when Chinese officials determined that too much trash was mixed in with recyclable materials like cardboard and certain plastics. After that, Thailand and India started to accept more imported scrap, but even they are imposing new restrictions.
+
+If recycling is “upside down” we need to get more serious about the sources, particularly for plastic.
+
+That's the end of Featured Links.
+
+Now, the My Weekly Photo section.
+
+I got to meet this cuddly Koala at the Healesville Sanctuary in Australia. He looked like a real-life teddy bear.
+
+Koala at the Healesville Sanctuary in Australia.
+Mar 20, twenty nineteen at 10:15 PM
+Healesville Sanctuary, Badger Creek VIC 3777, Australia
+
+That's the end of My Weekly Photo.
+
+Now, the Notable Links section.
+
+Link one. "Good enough to eat? The toxic truth about modern food | Books | The Guardian"
+
+Solid overview of numerous issues related to our modern food system.
+
+… it’s becoming abundantly clear that the way most of us currently eat is not sustainable – either for the planet or for human health.
+
+Having just read Growing a Revolution, these topics hit a strong note with me.
+
+Link two. "Facebook Stored Hundreds of Millions of User Passwords in Plain Text for Years — Krebs on Security"
+
+You could definitely put this in the bucket of 'Hey, people make mistakes'. I would be surprised if Facebook engineers intentionally stored passwords in plain text, but this data wasn't just sitting on a server somewhere.
+
+The Facebook source said the investigation so far indicates between 200 million and 600 million Facebook users may have had their account passwords stored in plain text and searchable by more than 20,000 Facebook employees. The source said Facebook is still trying to determine how many passwords were exposed and for how long, but so far the inquiry has uncovered archives with plain text user passwords in them dating back to twenty twelve.
+
+The article says "logs showed some 2,000 engineers" accessed this data. How is it that nobody reported this? It’s much more concerning to me that none of these 2,000 engineers seemed to see this as a problem.
+
+Link three. "Executive Presence when declining a meeting"
+
+Things change, and we all have to decline things, sometimes frequently. This is a good reminder to think about how you do that.
+
+One of the largest human fears is rejection. We are not normally conscious of the strong tie. It comes out in less obvious ways. A gracious decline can reduce or even eliminate the rejection emotion if the message affirms the desire to meet at a future time.
+
+Think about the person on the other side of the screen. It might help avoid problems or frustration.
+
+Link four. "Meritocracy doesn't exist, and believing it does is bad for you"
+
+This is one of those counter-intuitive revelations. When I read Thinking Fast and Slow it was filled with this kind of stuff.
+
+… a growing body of research in psychology and neuroscience suggests that believing in meritocracy makes people more selfish, less self-critical, and even more prone to acting in discriminatory ways.
+
+Totally the opposite of what one would desire to happen.
+
+They found that, in companies that explicitly held meritocracy as a core value, managers assigned greater rewards to male employees over female employees with identical performance evaluations. This preference disappeared where meritocracy was not explicitly adopted as a value.
+
+That is surprising.
+
+Link five. "One-third of the web! — WordPress"
+
+This is amazing!
+
+WordPress now powers over 1/third of the top 10 million sites on the web according to W3Techs.
+
+I could nitpick about WordPress but this is an amazing achievement and I’m glad so many sites are using software with a good ethos.
+
+Link six. "Kickstarter’s staff is unionizing - The Verge"
+
+This made me do a triple-take. Kickstarter is already a B-Corp. I can’t say I understand this at all. In a previous role I had technology teams that were union members because unions are setup by location. None of the tech people saw any value in it.
+
+Link seven. "Stadia: a new way to play"
+
+I fully expect cloud-based multiplayer gaming is going to be a huge deal.
+
+When we designed the Stadia controller, we listened to gamers about what they wanted in a controller. First, we made sure to develop a direct connection from Stadia controller to our data center through Wi-Fi for the best possible gaming performance. The controller also includes a button for instant capture, saving and sharing gameplay in up to 4k of stunning resolution. And it comes equipped with a Google Assistant button and built-in microphone.
+
+The whole thing is the controller. I don’t get how they are dealing with latency though. Milliseconds matter in games, and WiFi is full of it. Not to mention speed-of-light limitations in moving packets from data centers.
+
+Link eight. "One year in, Facebook’s big algorithm change has spurred an angry, Fox News-dominated — and very engaged! — News Feed » Nieman Journalism Lab"
+
+What an incredible mess. This data doesn’t bode well for these attempts to “improve” civility in social networks. I continue to suspect that the premise of these platforms is just undesirable by design.
+
+Link nine. "7 Commandments for Event-Driven Architecture | RJ Zaworski"
+
+All good practices to keep in mind when building distributed services.
+
+Link ten. "Privacy on iPhone — Private Side - YouTube"
+
+This is the first time to my knowledge that Apple has put privacy front and center in their marketing. I expect we’ll see more of this.
+
+That's the end of Notable Links.
+
+Now, the Give Back section.
+
+Let's Encrypt is a free, automated, and open certificate authority, run for the public’s benefit. All connections to web servers should be encrypted! The biggest challenge with encrypting the web historically has been the cost and hassle of getting an SSL certificate. Let's Encrypt has changed that entirely by being a free certificate authority. Let's Encrypt is possibly one of the most important things to happen on the web in recent years. Donate to Let's Encrypt today!
+
+That's the end of Give Back.
+
+Now, more links.
+
+- Crypto Canon – Andreessen Horowitz a16z.com
+A bonkers list of content about crypto / blockchain stuff.
+- countdown github.com
+Could be handy.
+- Dumbass Home 2.0:: Internet of Things. How to Automate Your Rented Box Today:: vas3k's blog vas3k.com
+Good (and funny) overview of Smart Home tech.
+- Create UML diagrams online in seconds, no special tools needed. yuml.me
+But why? Why?
+
+That's the end of More Links.
+
+Now, the Microposts section.
+
+Thursday @ 8:59 PM
+
+Enjoyed watching First Man. Amazing story about an amazing time.
+
+Thursday @ 4:25 PM
+
+International travel is hard on sleep.
+
+Thursday @ 5:01 AM
+
+Melbourne Cricket Grounds at night.
+
+Thursday @ 4:10 AM
+
+Richmond 14-13-97 beats Carlton 9-10-64! Great game! Footy fan now!
+
+Thursday @ 2:53 AM
+
+Richmond 7-8-50 over Carlton 4-4-28 at half! Starting to understand Footy. Fun, fast game!
+
+Thursday @ 2:22 AM
+
+Taking in my first game of AFL Footy at Melbourne Cricket Ground!
+
+Thursday @ 1:08 AM
+
+I tried a Melbourne "Magic" today. I would have a hard time telling the difference between a Magic and Cappuccino.
+
+Thursday @ 12:48 AM
+
+I got a new Kangaroo friend! This one from Kangaroo Island was very friendly with super soft fur.
+
+Thursday @ 12:44 AM
+
+Appreciate the warm welcome and hospitality from our #TeamSPS Australia leadership team!
+
+Thursday @ 12:42 AM
+
+It was great to spend the last couple of days with #TeamSPS Technology in Melbourne! Great team and exciting things to come!
+
+Thursday @ 12:31 AM
+
+I got a selfie with a Koala today!
+
+Wednesday @ 5:28 PM
+
+Just got tickets to go see the Carlton v Richmond AFL season opener tonight! Will finally get to experience a Footy game!
+
+Wednesday @ 4:01 AM
+
+Joined #TeamSPS Melbourne for game night this evening. They even had a brand new copy of Ticket to Ride. Came in second this time. Also had some Exploding Kittens going.
+
+Tuesday @ 2:23 AM
+
+I had a fabulous dinner tonight at Steak Ministry with the #TeamSPS leadership team in Melbourne!
+
+Monday @ 10:27 PM
+
+I did a Town Hall session with #TeamSPS Melbourne, and Sydney on videoconference today. Great team, good conversation, and same SPS spirit!
+
+Sunday @ 6:27 PM
+
+Happy St Patrick’s Day! I searched LAX extensively but could not find a Guinness. I finally settled for a Fat Tire Ale. Cheers!
+
+Sunday @ 5:30 PM
+
+Hanging out in LAX for a bit on the way to visit #TeamSPS in Melbourne!
+
+Friday @ 8:36 PM
+
+Great night at the #TeamSPS twenty nineteen Social!
+
+That's the end of Microposts.
+
+Now, the Fortune section.
+
+You've made it all the way to the end! Here is your fortune for this week.
+
+You will win success in whatever calling you adopt.
+
+Thank you for subscribing to the Weekly Thing!
+
+That brings us to the end of the Weekly Thing, issue 98. Thanks for listening, and I'll see you next time.

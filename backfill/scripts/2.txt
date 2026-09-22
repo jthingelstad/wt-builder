@@ -1,0 +1,121 @@
+The Weekly Thing, issue 2. Weekly Thing for May 20, twenty seventeen. Published May 20, twenty seventeen. By Jamie Thingelstad. In this issue: Twitter privacy opt-out, iPhone 7 photography, Things 3 task manager, JSON Feed, Micro.blog, Machine Learning xkcd, NASA coding commandments.
+
+I got great comments from the first Thing last week. This week I modified the structure a bit of the links area to try and make it more obvious when I was writing a comment on a link versus when I was excerpting a section of the link itself. I'm also adding this snazzy image so you know who this is from and I added a Promotion section where I can highlight something that I think others should check out. I plan on using this to promote non-profits and projects that I think are great.
+
+I've streamlined the way I create this and have a couple more content blocks I'm thinking about. In the meantime, I have a request. I'd like to expand the experiment to some more people. If you know a person or few that you think may want to subscribe to Weekly Thing go ahead and forward this to them! I plan to "announce" this via my blog and Twitter in another week or two.
+
+Now, the Blog posts section.
+
+Using Project Templates
+
+An introduction to project templates and the areas that I have found them very useful.
+
+Horseshoe Pits Completed!
+
+Last weekend we finished putting in the horseshoe pits at the cabin and I'm very pleased with the result!
+
+That's the end of Blog posts.
+
+Now, the Links section.
+
+Link one. "How to Opt Out of Twitter's New Privacy Settings --- EFF Updates"
+
+Twitter has decided they will no longer honor browser Do Not Track settings and have moved all of their creepy privacy invasion into your profile with bad defaults. I thought Facebook was the one that did this type of thing? Take 2 minutes to log into Twitter and protect your privacy. This EFF guide is a good overview.
+
+Link two. "Why Apple's new in-store experience aims to fuel creativity in everyone | Angela Ahrendts | Pulse | LinkedIn"
+
+Apple has continued to buck trends in retail. Their network of stores is an evolving asset that they are using to better connect with customers. The cynic in me wonders when Apple will start hiring barista's and serving high-end macchiato's in their stores as part of this community -- but it's great to see this evolution.
+
+Link three. "How to shoot on iPhone 7 - Photography - Apple"
+
+Good collection of information on how to shoot better photos.
+
+Link four. "jq"
+
+jq is like sed for JSON data - you can use it to slice and filter and map and transform structured data with the same ease that sed, awk, grep and friends let you play with text. jq is written in portable C, and it has zero runtime dependencies.
+
+Link five. "Things 3: Beauty and Delight in a Task Manager -- MacStories"
+
+I'm a OmniFocus user but it's interesting to see what other task managers are doing.
+
+Link six. "Cookie dough craze comes to Minnesota with not one, but two food trucks - StarTribune.com"
+
+The cookie dough craze that started on the East Coast and has taken social media by storm has finally worked its way to Minnesota. A safe-to-consume version of the stuff everyone loves to eat out of the mixing bowl --- even though they're not supposed to --- is just the latest fad food to take over cupcakes' one-time reign.
+
+Link seven. "Intro to Micro.blog | noahread.net"
+
+The long anticipated time has arrived. Manton Reece's Micro.blog is rolling out to Kickstarter backers. I've been on the platform for a while, but it is a lot of fun to see new folks showing up every day and talking to each other.
+
+Link eight. "JSON Feed: Version 1"
+
+The JSON Feed format is a pragmatic syndication format, like RSS and Atom, but with one big difference: it's JSON instead of XML. For most developers, JSON is far easier to read and write than XML. Developers may groan at picking up an XML parser, but decoding JSON is often just a single line of code.
+
+Link nine. "A New Kind of Science: A 15-Year View -- Backchannel"
+
+Starting now, in celebration of its fifteenth anniversary, A New Kind of Science will be freely available in its entirety, with high-resolution images, on the web or for download
+
+Link ten. "Machine Learning ---xkcd.com"
+
+"Just stir the pile until they start looking right."
+
+Link eleven. "Storage Startup Vets Return w/ 8.65 million dollars A for Atavium ---TechDotMN"
+
+Atavium's revolutionary data management system gives its customers the ability to automate the lifecycle of their data, even before the data is created. Atavium will use this investment to build its engineering team and bring the product to market.
+
+Link twelve. "Exponential growth devours and corrupts -- Signal v. Noise"
+
+There is no higher God in Silicon Valley than growth. No sacrifice too big for its craving altar. As long as you keep your curve exponential, all your sins will be forgotten at the exit.
+
+Link thirteen. "Logs and Metrics -- Cindy Sridharan -- Medium"
+
+Both logs as well as metrics, on the other hand, are examples of whitebox monitoring, which refers to a category of monitoring tools and techniques that work with data reported from the internals of a system. Together with distributed request tracing, metrics and logs form the three pillars of observability.
+
+Link fourteen. "What does sponsorship look like? | Lara Hogan"
+
+What members of underrepresented groups in tech often need most is opportunity and visibility, not advice. They have to work extremely hard and be extremely good at what they do to combat the systemic privilege and unconscious bias at play in our work environments. They are consistently under-promoted and under-compensated for this work, even though it's excellent work.
+
+Link fifteen. "Carbon dioxide in carbonated beverages induces ghrelin release and increased food consumption in male rats: Implications on the onset of obesity. - PubMed - NCBI"
+
+You gotta be kidding me! I love my charged water (no flavor, no sugar, just water).
+
+Link sixteen. "Loog Pro"
+
+This looks like a great way to learn to play guitar. Looks very well done. Could be a great gift for kids or adults that want to learn.
+
+Link seventeen. "DigitalGlobe moves to the cloud with AWS Snowmobile | DigitalGlobe Blog"
+
+During our AWS Snowball experience, we developed a strong working relationship with AWS. When they approached us to be the inaugural user of the AWS Snowmobile, we climbed onboard. AWS Snowmobile is an exabyte-scale data transfer service used to move extremely large amounts of data to AWS. You can transfer up to 100PB per Snowmobile, a 45-foot long ruggedized shipping container, pulled by a semi-trailer truck.
+
+Link eighteen. "Introducing Badger: A fast key-value store written natively in Go - Dgraph Blog"
+
+We have built an efficient and persistent log structured merge (LSM) tree based key-value store, natively in Go language. It is based upon WiscKey paper included in USENIX FAST twenty sixteen. This design is highly SSD-optimized and separates keys from values to minimize I/O amplification; leveraging both the sequential and the random performance of SSDs.
+
+Link nineteen. "NASA's ten coding commandments - JAXenter"
+
+NASA has produced its own set of coding standards to ensure code quality and safety among all NASA applications. These standards have evolved from their own guidelines and are set to be applicable to the greater software development industry.
+
+That's the end of Links.
+
+Now, the Promotion section.
+
+The Electronic Frontier Foundation is the leading nonprofit organization defending civil liberties in the digital world. I have been a member of the EFF for years. Not only is the EFF working hard to protect you on the Internet they have also recently launched solutions like Privacy Badger and the critically important Let's Encrypt service to make encrypting web servers free to anyone. Support the EFF with a donation!
+
+That's the end of Promotion.
+
+Now, the Microblog updates section.
+
+- Typing on an Apple Wireless Keyboard after getting fully used to an Apple Magic Keyboard feels really weird. The keys seem to move a massive distance when pressed.
+- Great @Minnestar board meeting today! Very exciting things in the works over the next few months!
+- Why is it that when Twitter updates their Privacy Policy I get email notices for Twitter accounts that I supposedly deleted years ago.
+- Spiffed up my JSON Feed with additional fields. Nice capabilities. See it in JSON Feed Viewer
+- Added JSON Feed to my main blog - feed.
+- My mother sent me this photo of a "bike mower" that she saw at a garden show today. What kind of horribleness is this!?
+- First afternoon on Cannon Lake for twenty seventeen! Cooled off at the sandbar.
+- One of our trees didn't make it through the winter.
+- Got both horseshoe pits in!
+- Smoking ribs for dinner. Great day for the Big Green Egg.
+- Attempting to bake cookies in a solar oven.
+
+That's the end of Microblog updates.
+
+That brings us to the end of the Weekly Thing, issue 2. Thanks for listening, and I'll see you next time.

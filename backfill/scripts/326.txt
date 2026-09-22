@@ -1,0 +1,227 @@
+The Weekly Thing, issue 326. Tempo, Seedship, Refraction. Published September 14, twenty twenty five. By Jamie Thingelstad. In this issue: Claude Code Interpreter, Etsy buyer profiles with LLMs, Tempo blockchain for payments, modernizing kernel drivers, Extreme Programming and AI.
+
+Hey there! Good morning!
+
+How has your summer been? Mine was packed.
+
+We did some travel including our Quebec - Montreal - Stowe - Bismarck trip.
+
+I paired up with AI and Vibe Coded POAP2RSS, a service I have wished existed for years and made a reality.
+
+I also found myself in Amsterdam for the SAIL twenty twenty five event and loved seeing the Sailboat Parade.
+
+Lastly I ran the 612 POAP Challenge and thought that was great too. It was fun to do a Summer event like that and am already thinking about doing another POAP Challenge next year.
+
+It takes me a bit to get the words flowing again after the Weekly Thing summer break but I got here, technically a week behind. Let's get to it… but first.
+
+Our city is still reeling from the tragedy on August twenty seventh with the shooting at Annunciation. This hit very close to home for me — we live just 1 mile from the school. We drive by there all the time. We know many people who have family that go there, volunteer there, or work there. We have close friends that have been impacted forever by this horrible event. The outpouring of support has been strong, and it can never be too much.
+
+Please join us in supporting the Annunciation Hope and Healing Fund on GoFundMe or you can donate directly to the fund via the Catholic Community Foundation of Minnesota. You can donate with cash or via Donor Advised Fund on the website.
+
+Thank you!
+
+Now, the Currently section.
+
+Listening: I’m a fan of The High Kings and had heard this new song at a show of theirs. I particularly like how it ends, on the 77A.
+
+Using: I absolutely adore RSS and with the launch of my own POAP2RSS I was able to easily configure Micro.blog so that anytime I mint a new POAP it will create a blog post on my site for it. Something I've wanted to have for a very long time. They all site in a POAP Claims category too.
+
+Watching: I recently saw Linkin Park on tour and it got me digging into the story of their new lead singer and the band coming back together. I really liked this interview, Creating and Reinventing Linkin Park, with Mike Shinoda.
+
+That's the end of Currently.
+
+Now, the Notable section.
+
+Link one. "My review of Claude’s new Code Interpreter, released under a very confusing name"
+
+Deep dive on Claude's new ability to run code. It is super interesting to me that you can add additional packages to the runtime on the server.
+
+Link two. "Five for 50 - Anil Dash"
+
+Anil Dash reflecting on ways to have positive impact on his 50th birthday.
+
+Quote.
+1. Give to those who help the people who are most in need in your immediate community. 2. Invest the time in exploring, preserving, sharing, and promoting the subject of your passions. 3. Fight for the ability to create, and to own and control what you make. 4. Be kind and forgiving to yourself, and treat yourself like a friend. 5. Don't wait until they're dead.
+End quote.
+
+Some good stuff to think about.
+
+Link three. "Building Etsy Buyer Profiles with LLMs | Etsy Engineering"
+
+It is interesting to me how LLM's are so different than Machine Learning models to architect solutions. Personally I've been able to "think different" about these approaches when I scale a large data problem down to a single instance and then think "How would a person do this for one thing?" In general that answer is a reasonable parallel to how an LLM could do it. Notably, it is very different than how a traditional Machine Learning and Big Data approach would work.
+
+Of course the issue than is how you scale it, but there are many ways to approach that that they go over.
+
+Quote.
+Initially, using this method to generate profiles for our roughly 90 million buyers would have been exceedingly costly and taken weeks to update. We optimized this by: - Shifting our listings data source from API endpoints to BigQuery tables that are clustered and partitioned for efficient querying. - Decreasing the volume of input tokens. Initially, we were including about 2 years of session data. Now, we've reduced this to just the last 9 months. The 9 month timeframe also allowed us to lighten the prompt corrections (and cached input tokens) by reducing the weight of holiday shopping. - Increasing LLM and BigQuery batch sizes for data processing. - Introducing parallel processing with managed concurrency to avoid request rate limits. - Scaling up computational resources for session data retrieval and LLM processing tasks. These improvements reduced buyer profile generation time dramatically -- from 21 days down to 3 days for 10 million users. Cost management was also crucial. By adjusting the prompt to get high quality results with a smaller model, we significantly lowered the cost and made large-scale personalization economically feasible. Through these various cost management techniques, we were able to reduce the estimated cost by 94% per million users.
+End quote.
+
+The magical things I’m noting in these solutions is the ability to control the amount of data you bring to the LLM, the frequency, and even the cognitive effort the LLM will put towards it with a token budget.
+
+Link four. "Tempo: The Blockchain Designed for Payments"
+
+Interesting new L1 blockchain backed by Stripe and Paradigm.
+
+Quote.
+Tempo is a purpose-built, layer 1 blockchain for payments, developed in partnership with leading fintechs and Fortune 500s. With support for all major stablecoins, Tempo enables high-throughput, low-cost global transactions for any business use case.
+End quote.
+
+Not sure why they needed to make another L1 blockchain versus using one of the established ones but it does have some specific features for payments. Bitcoin Lightning has similar capabilities already.
+
+Link five. "i ran Claude in a loop for three months, and it created a genz programming language called cursed"
+
+This language, which is real and will build, makes me laugh out loud for real when I read the "Gen Z" code. Yeet? Slay? Sus? Bestie? The crazy part is it mostly makes sense.
+
+Link six. "Using Claude Code to modernize a 25-year-old kernel driver – Dmitry Brant"
+
+How to bring a device with no driver support into the modern era? A great task to throw at AI.
+
+Quote.
+And after several iterations of "combobulating" and whatever else Claude claims to do, I suddenly had a kernel driver that was compiling without errors. This is because Claude is able to take the compiler output and feed it back into itself, until the compilation works correctly. There was a laundry list of kernel functions and structures that were understandably deprecated or replaced, in the eternity that elapsed between kernel version 2.4 and version 6.8. Amazingly, Claude found all the outdated bits and replaced them with the correct modern equivalents, requiring just a few manual touch-ups of the code (a bit more on this later).
+End quote.
+
+This problem is particularly well suited to a tool like Claude Code.
+
+Link seven. "Should we revisit Extreme Programming in the age of AI?"
+
+We are right in the midst of rethinking how we create products using AI and this article hits on big themes that matter.
+
+Quote.
+As we enter the next phase of software acceleration, three things become clear: 1. Output creation is no longer the constraint. We can produce code faster than we can validate or align it with real-world needs. 2. We must invest in outcome-generating capabilities. Stronger feedback loops, clearer product direction, tighter team collaboration, and greater design discipline. 3. The process needs to become more human, not less. Even as AI capabilities expand, sustainable delivery will always depend on human collaboration. Our view of the Product Operating Model is built on this principle: technology only delivers when teams are optimised for collaboration, clarity, and flow. By aligning product strategy, operating rhythms, and engineering practices around people, not just platforms, you create the conditions for sustainable delivery in the AI era.
+End quote.
+
+I particularly like the "process needs to become more human". The future isn't sending off a user story to an LLM but instead rethinking how we build software and bringing everyone — programmers, designers, product, maybe even customer — and putting AI in the middle of all of it. The artifacts of software will be part of what we have previously considered "the code".
+
+Link eight. "Working for advertisers | Seth's Blog"
+
+I love the way Godin frames running an ad supported business. It fundamentally puts you in conflict with so many things that your actual customers probably want. I really hope that the next wave of AI companies continue to charge a fee for service instead of monetizing attention. The temptation is going to be really strong to do both.
+
+Link nine. "You Need to Be Bored. Here’s Why."
+
+When was the last time you were bored? If your like many, it has been a while. The lack of boredom is, in my opinion, one of the biggest impacts that mobile devices and constant access to the Internet has given us. Before that cigarettes were one of people's best escape hatches from boredom. I’m not bored, I’m just looking at my phone. I’m not bored, I’m just having a cigarette. More similarities than we may like in those two statements. People hate boredom and we now carry a device that can stop it at any moment, but that deprives us of a feedback loop that is important.
+
+I meditate most every day which gives a wonderful opportunity to observe your brain, but it still is an activity and is not boredom. Boredom today is like being lost — something that we can choose to never be. But "Being bored can lead you to ask big questions."
+
+I like Brooks recommendations:
+
+Quote.
+Break Your Phone Addiction - No devices after a certain point in day - No devices during meals - Regular device cleanses or fasts
+End quote.
+
+I loved his comment on emergencies — "Here's something that's not an emergency — what's going on on Twitter?"
+
+So yeah, put down the phone. And for bonus points, go and get lost someplace.
+
+Link ten. "The Last Programmers || Xipu Li"
+
+Thought provoking piece on how developing software is evolving. There is a core theme here that resonates strongly with me:
+
+Quote.
+But here's what I've realized watching them: they're not lazy. They're just following the natural path that technology has always followed. Every major advancement in programming has been about abstracting away complexity so humans can focus on higher-level problems. We moved from machine code to assembly to high-level languages to frameworks to libraries. Each step made things "easier" and each step had people complaining that developers were getting soft.
+End quote.
+
+The reality today is that every modern developer is building on dozens of layers of abstraction. With the complexity of software today nobody, really nobody, understands what is happening on the lowest level of the machine. I like to think of your average Python developer creating a dictionary object. Do they know what just happened in memory and how that is going to evolve as they shove more and more data into it? Most have no clue.
+
+And, honestly, that is fine. Even better. Worrying about those details limit your ability to see the broader scope. It focuses you on the "how" over the "what" too much.
+
+However, there is a time when that detail can matter. It is typically around performance, security, and reliability. Then it gets harder. Those problems will still exist, but how we solve them will evolve.
+
+The archetypes of Experimenters and Guardians are definitely real examples. On the whole, this direction suggested is likely accurate, but I would suggest not as extreme.
+
+That's the end of Notable.
+
+Now, the Journal section.
+
+Journal entry one.
+
+Delicious Kingfield Lattes this morning at Five Watt with my brother.
+
+Journal entry two.
+
+Visited the Wabasha Street Caves in St. Paul for the first time this morning.
+
+Journal entry three.
+
+I may have almost pulled off a coordinated look today?
+
+Journal entry four.
+
+The roses at the Minnesota Landscape Arboretum today were incredible.
+
+Journal entry five.
+
+Lovely.
+
+Journal entry six.
+
+We stopped at the Arboretum's AppleHouse today and picked up a bag of First Kiss Apples today. I love Honeycrisp but this early season variety is really good! Very juicy, crunch, and tart. Not as sweet but available a month earlier!
+
+Journal entry seven.
+
+I am trying to get every possible Peach I can as the season winds down. The Colorado Mountain Gold peaches that Tammy's Mom gets from BoB's Produce are heaven.
+
+Journal entry eight.
+
+Updating my Rabbit r1 to rabbitOS 2. Going through many update cycles as the device has been powered off for months. Curious to see how they have “completely revamped” it.
+
+Journal entry nine.
+
+Awesome day for the seventh Annual Team SPS Kubb Tournament! Bonus for me to fulfill my wish of being a Kubb tournament director. ￼￼
+
+Journal entry ten.
+
+POAP 7450052 at SPS Kubb Tournament twenty twenty five.
+
+That's the end of the Journal.
+
+Now, the Briefly section.
+
+Link one. "Signal >> Introducing Signal Secure Backups"
+
+I’m happy to see Signal adding this. It is very hard to preserve chat history with Signal and this is a step in the right direction. I think it is also good that they are adding it as a paid offering.
+
+Link two. "Is ‘The Wizard of Oz’ at Sphere the Future of Cinema? Or the End of It? - The New York Times"
+
+This sounds like an incredible experience. Gift Link
+
+Link three. "microdot: The impossibly small web framework for Python and MicroPython"
+
+Web framework to use on very resource limited devices.
+
+Link four. "The Hot Investment With a 3,000% Return? Pokémon Cards - WSJ"
+
+Indeed Pokémon cards outperformed the SP500. I’m guessing Bitcoin outperformed the cards though. Gift Link
+
+Link five. "Liquid Glass in the Browser: Refraction with CSS and SVG — kube.io"
+
+Create glass effects in CSS similar to the new Liquid Glass effects.
+
+Link six. "Memory Integrity Enforcement: A complete vision for memory safety in Apple devices - Apple Security Research"
+
+Comprehensive overview of how the newest devices are protecting memory space which stops attack vectors from gaining access to devices. It is incredible how sophisticated these security mechanisms have gotten over the years.
+
+Link seven. "Seedship"
+
+Interesting game to play in the browser.
+
+Link eight. "RSL"
+
+A licensing model for websites to adopt to "force" AI models to have to license content. It is coded in XML to make it machine readable. Reminds me a lot of Creative Commons. How much impact will something like this have? I doubt a lot.
+
+Link nine. "Albania appoints AI bot as minister to tackle corruption | The Straits Times"
+
+Everyone start working on prompt injection in RFP responses.
+
+That's the end of Briefly.
+
+Now, the Fortune section.
+
+Here is your fortune…
+
+You possess Kernel wisdom, ageless yet full of spark.
+
+- Join the private Weekly Thing Forum
+- r/WeeklyThing on Reddit
+- Sign the Weekly Thing Guestbook
+
+That brings us to the end of the Weekly Thing, issue 326. Thanks for listening, and I'll see you next time.

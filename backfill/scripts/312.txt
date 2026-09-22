@@ -1,0 +1,206 @@
+The Weekly Thing, issue 312. Tangled, Graphing, Starlink. Published March 8, twenty twenty five. By Jamie Thingelstad. In this issue: LLM hallucinations in code, troubleshooting skills, real-time Starlink tracker, graphing calculator story, managers who code.
+
+Dive into troubleshooting, deep research, and the never-ending debate on whether managers should still code — plus Starlink satellites in real time!
+
+Good morning!
+
+The constant torrent of news lately is easily overwhelming. It has been pushing the boundaries of my system, but the system has held okay. The goal of my system is to create a constraint on news so I don't get overly engaged.
+
+1. The medium matters, so I only read news, no video or audio formats.
+2. Get news from sources I’m willing to pay for and subscribe to.
+3. Read nearly all via email newsletters that are at most daily.
+4. Absolutely no breaking news bulletins. No apps. No push notifications. No social media.
+
+This creates a "box", a finite amount of space, which operates as a limiter to not "live in the news".
+
+Sharing in case you might be looking for a way to engage with the news differently.
+
+Now how about some interesting links!
+
+Now, the Currently section.
+
+Waiting: I have fond memories of Digg and when I heard it was being "rebooted" I made sure to sign up on the waiting list!
+
+That's the end of Currently.
+
+Now, the Notable section.
+
+Link one. "Hallucinations in code are the least dangerous form of LLM mistakes"
+
+That fact that code has to be structured right and executed by interpreters or compiled is the unlock that has made LLM's work for coding. LLMs get it wrong, but their partner, the compiler, tells them when they got it wrong and allows easy iterations. This is good and bad. Good in that you get super fast feedback loops to fix it. Bad though since syntax isn't the only thing that matters. Your code may compile, but is it actually right? That still takes the developer.
+
+Link two. "Troubleshooting: The Skill That Never Goes Obsolete — The Autodidacts"
+
+If you build software you also run software, and if you run software that stuff is going to break, guaranteed. And when it does you jump in and start troubleshooting. Historically the great troubleshooters in technology teams were your ops teams, but these days everyone needs troubleshooting skills. I often have heard grizzled vets in tech shake their heads when seeing more junior engineers troubleshoot. It is a skill that is often learned in the crucible of a problem. It is mostly taught through apprentice-like functions. This post does a good job of breaking down the components.
+
+Quote.
+I'll define troubleshooting as systematically determining the cause of unwanted behaviour in a system, and fixing it. Troubleshooting is often learned tacitly, in the process of explicitly learning "the skill". Troubleshooting is rarely discussed as a skill unto itself. But many features of an effective approach to troubleshooting are domain-agnostic. Realizing that I spend more time troubleshooting than I do building or doing, and that the skill of troubleshooting can be honed separately from the domain it's applied to, I decided to try to figure out how to improve my troubleshooting skills -- and as a result, my effectiveness in multiple domains.
+End quote.
+
+Learning troubleshooting as a skill, a discipline that you can refine over time, will benefit anyone working in technology. And probably other careers too…
+
+Link three. "The 100 trillion dollars Disruption: The Unforeseen Economic Earthquake"
+
+This article goes deeper on the affects of GLP-1 drugs and the resulting change in behavior and what that could mean.
+
+Quote.
+Early consumer data on GLP-1s shows: - 65% reduction in response to food advertising - 40% lower click-through rates on impulse products - 85% decrease in late-night online shopping
+End quote.
+
+I find this potential shift fascinating.
+
+I think we under-appreciate how monumental it was a few decades ago when we really started to understand how people's thinking worked, how to influence and manipulate, and ultimately how identity worked for people. Since then it is a losing battle trying to keep your own thoughts and ideas independent of the messaging that we get constantly. Is it possible that GLP-1 drugs are an escape hatch to fight back against those messages to drive consumption in general. It seems like they may be.
+
+And if the impact of that consumption message is lessened, what is the outcome? People eat less sure. People buy less? Maybe. What else.
+
+Link four. "STARLINKMAP.ORG - Real-Time Starlink Satellite Tracker"
+
+I’m very familiar with Starlink and even considered becoming a customer for our cabin until I found out fiber service was going to be an option. I also get that there are a lot of satellites, but I didn’t fully appreciate there are 5,601 of them! And this service that shows the visual map of all of them in space is a big jaw dropping. The scale of this network is astounding. This visual shows them all and allow you to see the orbit path of each individual satellite. It is amazing, and kind of creepy too.
+
+Link five. "Graphing Calculator Story"
+
+This is such a delightful story about the cool Graphing Calculator app that shipped on the first Macs that had the PowerPC chips.
+
+Quote.
+Once we had a plausible way to ship, Apple became the ideal work environment. Every engineer we knew was willing to help us. We got resources that would never have been available to us had we been on the payroll. For example, at that time only about two hundred PowerPC chips existed in the world. Most of those at Apple were being used by the hardware design engineers. Only a few dozen coveted PowerPC machines were even available in System Software for people working on the operating system. We had two. Engineers would come to our offices at midnight and practically slip machines under the door. One said, "Officially, this machine doesn't exist, you didn't get it from me, and I don't know you. Make sure it doesn't leave the building."
+End quote.
+
+So great. What a wild set of stories. I remember seeing this app running on those first PowerPC machines and being completely blown away by how fast it was.
+
+Link six. "The Differences between Deep Research, Deep Research, and Deep Research"
+
+Good explainer on what the "deep research" models are really doing and why they produce different outputs. I've generally found that the topics and problems I’m bringing to LLMs frankly aren't complicated enough for deep research capabilities.
+
+Link seven. "Should managers still code? - by James Stanier"
+
+This question goes around a decent amount and different leaders have different perspectives of course. The culture of your technology team gets driven in a big way from stuff like this. I did like the difference Stanier makes with "in the code" and "write code".
+
+Quote.
+Should managers be in the code? Yes, absolutely. Should managers write code? Maybe, but it also depends on what you mean by writing code.
+End quote.
+
+The article has a list of "in the code" statements that make a lot of sense to me. Critical in this is a scenario I think is very important — if a leader (at any level!) in a technology team praises the solution to a problem, they better have the means to know if it is praiseworthy as a solution. If a manager isn't "in the code" how could they possibly determine the quality of their team's work?
+
+I think they can be able to write code, but I always highlight that it stops at taking sprint points. A manager should not be pulling stories out of the backlog and executing. At that point they are not adding a multiplier to their team, and not doing what they need to be doing.
+
+I will also comment that managers writing code can be a red flag, a reason for serious concern. For many managers writing code is fun, and dealing with a personnel matter is not fun. As an engineering manager make sure your not resorting to coding because it is comfortable, and you are leaving a much more impactful problem unresolved.
+
+That's the end of Notable.
+
+Now, the Journal section.
+
+Journal entry one.
+
+Cheers to 96 quarters of growth with the Growth Cup at the SPS Social.
+
+Journal entry two.
+
+This view of my Urban Wing sauna is still super pretty for me. Sauna up to 180 °F and ready to sweat.
+
+Journal entry three.
+
+High winds this week blew two of our neighbor's dock sections into our yard.
+
+Journal entry four.
+
+Today I Learned: LLM’s are exceptional at making custom word lists for Pictionary-style games. Just added a couple new word lists to SketchParty TV!
+
+Journal entry five. Sync OmniFocus with Shortcut Automation
+
+OmniFocus 4.5.2 shipped recently and with it was this little snippet in the release notes.
+
+Quote.
+Shortcuts -- Sync OmniFocus action has been added.
+End quote.
+
+This caught my eye and I was sort of looking for it. When I listened to Omni Group’s twenty twenty five Roadmap on the Omni Show Ken Case made a reference to creating an automation to sync his OmniFocus tasks. I thought that was a great idea and tried to figure out how to make that work and didn’t find an easy way to do it. When I saw this new Shortcut action I connected the dots. Case was referring to a not-yet-released version.
+
+Now why would you want such an action? OmniFocus sync is super capable for me. I’ve never had it lose data and it is super stable. With that said, when a device gets very far behind, meaning it hasn’t been synced for days or weeks, the “log of updates” gets longer and longer. This causes sync to get slower on all your devices and the device that is out-of-date takes longer to get caught up. To be fair, none of this really impacts my user experience more than a couple seconds but I like to keep my devices in sync and ready to go.
+
+This is where less often used devices become an issue. I regularly will go a couple of days without using my iPad. And my Vision Pro may go a week or two in between sessions. Both of these devices have OmniFocus natively and the sync backlog could get long -- particularly on the Vision Pro. Using this Shortcut along with a time-based Automation this is no longer anything to be concerned with. Now early in the morning before I’m up my iPhone, iPad, and Vision Pro automatically sync OmniFocus and are ready for each day. No long “log of updates” and when I do go to them it is super fast to get caught up.
+
+Now if I could only do a Shortcut Automation like this on my Apple Watch. That is the last device I have that routinely gets very behind, and sync to OmniFocus on the Watch is slow. I’m sure Omni is working on that!
+
+Journal entry six.
+
+Morning sauna session.
+
+Journal entry seven.
+
+Finbarr Clancy of The High Kings with an incredible performance of “And the Band Played Waltzing Matilda”.
+
+Quote.
+and when I awoke in my hospital bed and saw what it had done, I wished I was dead never knew there were worst things than dying
+End quote.
+
+Wow.
+
+Journal entry eight.
+
+This year’s #TeamSPS Cyberweek Challenge coin was designed as a weightlifting plate. I thought it would be awesome to put it on a barbell and Steve came up with a great way to do it. Six plates is a 600k parcel lift! Swol!
+
+Journal entry nine. Wegovy Price Drop
+
+I’ve been exploring ways to get semaglutide for myself. This update from today’s Economist changes the equation a lot!
+
+Quote.
+Novo Nordisk slashed the monthly cost of Wegovy, its weight-loss injection, from more than 1,300 dollars to 499 dollars for American patients not paying for it through health insurance. Discounted jabs will be sold directly to them through the firm’s own online pharmacy. Competition between weight-loss drugmakers is heating up; last week Eli Lilly reduced the price of some of its Zepbound injections.
+End quote.
+
+I tried getting Wegovy directly and paying out of pocket and the price was crazy of course. I ended up getting a prescription from a reputable compounding pharmacy for just 285 dollars. However you then have to administer the injection yourself, with no injector. At this new price it is about a 200 dollars premium for the Wegovy brand and to get it in an injector.
+
+That's the end of the Journal.
+
+Now, the Briefly section.
+
+Link one. "JavaScript Fatigue Strikes Back - Allen Pike"
+
+Reflections on the constantly changing world of front-end frameworks. It is getting better.
+
+Link two. "Trump administration retreats in fight against Russian cyber threats | US national security | The Guardian"
+
+Cybersecurity programs will need to necessarily follow where attacks come from, and many of those come from Russia.
+
+Link three. "Faster Go maps with Swiss Tables - The Go Programming Language"
+
+Cool reading on the implementation details of maps in Go. Very few engineers ever need to write this kind of code, but there are also far too many engineers that have no idea what is happening in the machine when they declare that dictionary in Python.
+
+Link four. "Angie Conley Appointed Director of the Venture Center at the University of Minnesota | RIO"
+
+I missed this post from a couple weeks ago — congrats to Conley on this new position!
+
+Link five. "Kaguya | Track, Review and Discover Books"
+
+Another service to track your books. I think I’m done with this category of solution. It is nice to have a way to know this, but the privacy and surveillance aspects of book databases like this are massive.
+
+Link six. "Minnesota Technology Association Announces Leadership Transition » MnTech"
+
+Congratulations to Joel Crandall as he steps into the CEO role at MnTech! I’m on the board and am taking on the role of Executive Chair as well.
+
+Link seven. "introducing tangled"
+
+A decentralized approach to code collaboration using Git with the AT Protocol in the middle. Sure Github is generally great, but it is massively centralized which makes it a prime target for disruption.
+
+Link eight. "A Map of Python — The Fiefdom of Files"
+
+This is a cool visualization of hundreds of thousands of Python packages and their dependency paths. Good example of graph visualization. I had to use Chrome to get the graph to work right.
+
+Link nine. "Mox: modern, secure, all-in-one mail server"
+
+I’m still going to keep using Fastmail for my mail service but I continue to appreciate new solutions open-source solutions that we can run on our own.
+
+Link ten. "Goodbye Clicks, Hello AI: Zero-Click Search Redefines Marketing | Bain and Company"
+
+AI search engines just give you the answer. What about all the activities that have been surrounding that search click world that is rapidly changing.
+
+That's the end of Briefly.
+
+Now, the Fortune section.
+
+Here is your fortune…
+
+JavaScript fatigue is real—take a break, not a callback.
+
+Join the Weekly Thing Forum and connect with others.
+
+That brings us to the end of the Weekly Thing, issue 312. Thanks for listening, and I'll see you next time.

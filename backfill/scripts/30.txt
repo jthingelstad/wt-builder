@@ -1,0 +1,161 @@
+The Weekly Thing, issue 30. Weekly Thing for December 2, twenty seventeen. Published December 2, twenty seventeen. By Jamie Thingelstad. In this issue: Microservice Architecture, Kubernetes, avoiding state surveillance, Panopticlick, macOS High Sierra root bug, Joplin note taking, MindNode 5.
+
+This week marked the official start of the Christmas shopping season and a lot of you all went to stores and websites and bought things. I know because we were on high alert at work to make sure all of that stuff worked as it should, which we did very well!
+
+Amazon Web Services also had their annual event this week and announced an impressive array of new capabilities. I continue to be amazed at their pace of innovation, even as they get bigger.
+
+Now I need to get going on my Christmas shopping!
+
+Now, the Blog posts section.
+
+AWS re:Invent twenty seventeen Keynote Notes
+
+Notes from the announcements at the Amazon Web Services twenty seventeen Keynote.
+
+Envisioning a Cloud Native Wiki
+
+What would a modern, cloud-native approach to re-energize the wiki movement look like?
+
+That's the end of Blog posts.
+
+Now, the Photog section.
+
+Leaves are all gone, the days are short. Only a few more days until we have snow come for the rest of the winter.
+
+Dec 1, twenty seventeen at 4:10 PM
+Minneapolis MN
+
+That's the end of Photog.
+
+Now, the Links section.
+
+Link one. "Microservice Architecture: All the Best Practices You Need to Know | Coding Sans"
+
+Long but good post describing the various aspects of microservices architecture.
+
+Link two. "Kubernetes: Getting Started"
+
+Good index of starters into the various aspects of the Kubernetes ecosystem.
+
+Link three. "The Motherboard Guide to Avoiding State Surveillance - Motherboard"
+
+Practical advice in a number of areas to protect yourself against surveillance. There is almost certainly one or two things nearly anyone could apply from this.
+
+Link four. "ongoing by Tim Bray · Unapocalyptic Software"
+
+I love this writeup by Tim Bray on what software development is actually like. It’s like this: You sit down to improve a piece of software, make a couple of changes, and suddenly a lot of unit tests are failing, leaving ugly red trails on your screen. (In fact, if you made changes and didn’t break unit tests, you worry that something’s wrong.) But then you dig into them one by one, and after not too long, it’s all back to green; which is really a good feeling. Fun read, and very accurate.
+
+Link five. "Illimat"
+
+I’m a big fan of The Decemberists and a friend said this game was really awesome. On the Christmas list!
+
+Link six. "Panopticlick"
+
+Very cool website that allows you to see what information your browser is giving away on you and how well it fights against advertising and tracking technology. I had no idea this existed and it’s great that it does. Found it via this announcement about the new version.
+
+Link seven. "Quit social media | Dr. Cal Newport | TEDxTysons - YouTube"
+
+Cal Newport has made it a mission of his to get folks off of social media. This is a worthwhile 14 minutes to consider all aspects of this medium.
+
+Link eight. "App: The Human Story - A documentary coming soon."
+
+This documentary looks pretty interesting. I like the focus of the intersection of how people use digital tools. Not just the human or digital side, but the power of both used positively together.
+
+Link nine. "Joplin - an open source note taking and to-do application with synchronisation capabilities"
+
+A FOSS option for managing notes and to do's. Joplin is a free, open source note taking and to-do application, which can handle a large number of notes organised into notebooks. The notes are searchable, can be copied, tagged and modified either from the applications directly or from your own text editor. The notes are in Markdown format.
+
+Link ten. "macOS High Sierra 'root' security bug: Stop and do this NOW | iMore"
+
+This is a massively embarrassing security hole for Apple. Now patched.
+
+Link eleven. "Strongbox"
+
+Another option for storing secrets for your systems and infrastructure.
+
+Link twelve. "MindNode 5 - It starts with a thought - MindNode"
+
+New major release of one of my favorite mind mapping tools (the other is iThoughts ). I like MindNode's simpler and light user interface. It’s a great place to do brainstorming. Also, a good review of this on MacStories.
+
+Link thirteen. "MediaWiki Pivot Skin"
+
+Very impressive skin/template for MediaWiki by Tom Hutchison. Tom and I collaborated extensively on the Foreground skin when I was working on that for WikiApiary. Pivot looks great!
+
+Link fourteen. "Chaos Toolkit"
+
+Nice to see more general tooling coming to the chaos engineering space. The Chaos Toolkit aims at simplifying your journey through the Principles of Chaos Engineering and more generally considers that you should embrace continuously observing and poking your system to empower your team in face of adversity.
+
+Link fifteen. "Sugar industry accused of hiding evidence of sucrose's negative health effects 50 years ago | The Independent"
+
+This behavior sounds really familiar —! Food research and health effects are notoriously fuzzy and change over time so it’s easy to discount this stuff. However, an industry acting to cover-up data is alarming no matter what the outcome is.
+
+Link sixteen. "RememBear: Secure Password Manager"
+
+A new entrant into the Password (Secret) Manager space. I've been a 1Password user for years (and the whole family is safe with 1Password for Families ) and will stick with it. This is from the same company that makes the TunnelBear VPN offering which I have used in the past.
+
+Link seventeen. "Carp | Veit's Blog"
+
+I find it fun to read through takes on various computer languages. There are so many languages and the vast majority never got any traction. A thorough blog post reviewing a language is sort of like a vacation to another country to explore it’s traditions and taste the flavors and importantly come back home shortly after. I had never heard of Carp but this is a thorough review of it. A Lisp language that compiles down to C to then be compiled natively.
+
+That's the end of Links.
+
+Now, the Promotion section.
+
+Let's Encrypt is a free, automated, and open certificate authority, run for the public’s benefit. All connections to web servers should be encrypted! The biggest challenge with encrypting the web historically has been the cost and hassle of getting an SSL certificate. Let's Encrypt has changed that entirely by being a free certificate authority. Let's Encrypt is possibly one of the most important things to happen on the web in recent years. Donate to Let's Encrypt today!
+
+That's the end of Promotion.
+
+Now, the Featured App section.
+
+MindNode 5
+
+by IdeasOnCanvas GmbH
+
+A clean interface and focused feature set enable you to develop your project. Start with a thought, then take your project from first steps, to the next level, and into action.
+
+If you are looking for a solid mind mapping app for iOS this is the one I would recommend to everyone. There are more powerful ones on the market but this one is by far the easiest to use and has a great, intuitive user experience. Also available on macOS.
+
+Free 5/5 stars
+
+That's the end of Featured App.
+
+Now, the Microblog updates section.
+
+- 88th Annual Lutefisk Dinner at Mt. Olivet Church. Wow.
+- There is perhaps nothing more Midwest than a Lutefisk Dinner in a church basement.
+- Espresso shower head and gasket certainly needed replacing.
+- Watching the AWS re:Invent day 2 keynote and I keep noting that the they spend a lot of time talking and describing a problem, and then much less time talking about how the problem is solved. Should flip that around to focus on the solution.
+- AWS Cloud 9 IDE is a pretty interesting announcement. Pushes AWS into some of the space that Azure does well at.
+- You can import and export 1Blocker packages. I put my custom packages on GitHub so I can version them and share with others.
+- In our chat room today TeamSPS decided I needed some Christmas cheer!
+- I finally got my first house in SleepTown. Interesting app concept from the makers of Forest. Every house represents my persistence to achieve my sleeping goal!
+- I wish 1Blocker had a built in system for sharing and subscribing to custom packages made by other users. Similar to Workflow and TextExpander. I know there would be packages I would want to subscribe and share.
+- I’m still new to my Audible subscription but am liking it thus far. Think it will result in listening to more books.
+- Thanks to @jbwhaley I have a nice little Python script so I can easily update micro.blog without getting distracted. Now to wire it into LaunchBar!
+- Looking forward to speaking at the MHTA Annual CIO Panel next week!
+- 2h 46m AWS Keynote. Too long.
+- New AWS Transcribe should enable some nice speech-to-text features in various applications.
+- AWS DeepLens looks like a solution looking for a problem. Cool tech, don’t need it at all.
+- AWS SageMaker has promise to bring machine learning to complex problems faster and cheaper.
+- AWS S3 Select sounds very cool.
+- The house band idea during the AWS re:invent keynote seems really odd. Skip…
+- AWS Neptune has some promise to make graph databases more reliable and usable for applications.
+- Multi-master multi-region Aurora sounds great.
+- The new AWS EC2 Bare Metal Instance seems like an RFP checkbox requirement. Or very rare edge case need.
+- AWS ECS for Kubernetes announcement makes total sense. Expected and good to see them adopting this.
+- BTC went up 21% in the last week!
+- I just donated to @internetarchive. Support free access to knowledge! Donate!
+- Happy to support Let’s Encrypt on it’s mission to provide free SSL for anyone! Donate!
+- I @creativecommons! I’m a proud donor of CC. Join me in building a vibrant global commons - donate now!
+- Join me in supporting the Electronic Frontier Foundation in their twenty seventeen fundraising campaign with matching challenge grant!
+- Gas station on my commute just added Apple Pay to pumps. Hope that is a trend that accelerates.
+- Realized today that the group gasket and shower screen on my espresso machine is supposed to be replaced every year. I guess 10 times that long isn’t too bad. Replacements on the way!
+- 32-bit color.
+- Got my ScanSnap iX500 setup tonight. Cloud scanning seems to be working well.
+- Family night out with dinner at Bacio and then went to Coco. What a great movie! Highly recommended!
+
+That's the end of Microblog updates.
+
+Thank you for subscribing to the Weekly Thing! If you know of people that would like the Weekly Thing please forward it along!
+
+That brings us to the end of the Weekly Thing, issue 30. Thanks for listening, and I'll see you next time.

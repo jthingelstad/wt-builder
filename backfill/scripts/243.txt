@@ -1,0 +1,333 @@
+The Weekly Thing, issue 243. Montaigne, Ordinals, Salsa + Ukraine Fundraiser!. Published February 26, twenty twenty three. By Jamie Thingelstad. In this issue: Social media teen girls, LED lights killing you, cargo cult Agile, Apple glucose testing, cloud exit savings, ChatGPT explained.
+
+Hello!
+
+On Friday there was much reporting of Russia's attacks on Ukraine now lasting for a year. It is remarkable to think back a year and all that was going on in those initial days and weeks. The strength and resolve of the people of Ukraine has been remarkable and inspiring.
+
+I regularly meet with many Ukrainians every week. I get to hear their firsthand accounts of what is going on around them. Sometimes what they are experiencing is worse than what I read in the news, more often than not it is better. The extreme power issues were very difficult and it has been a huge help that power has been stable in Kyiv the last couple of weeks.
+
+The thing that I've come to appreciate the most though is that life must always go on. When you watch the History channel they only talk about the military, but what are the civilians doing? They are working hard to continue to move forward. There are jobs still to be done. The baker still needs to bake. People still need to celebrate their kids birthday. They still want to do the things that used to be so easy.
+
+People are eager to see this war end, but they are also not waiting for that. They are continuing to move forward.
+
+The people of Ukraine need our help. Let's come together and raise some money for organizations providing that help!
+
+These data points from GZERO Daily, Feb 24 drive home the economic and human impact in Ukraine.
+
+Quote.
+Russia’s invasion of Ukraine has decimated the country economically, with roughly 60% of Ukrainians now living below the poverty line, compared to 18% before the war. Ukraine’s GDP has diminished by 35%, and Russian targeted attacks are slamming the country’s infrastructure, having caused US139 billion dollars worth of damage (so far). Well over a third of the country is now dependent on humanitarian aid to live. A reported 8,087,952 Ukrainian refugees are now spread across Europe, with close to 5 million seeking temporary asylum. Millions more are displaced within Ukraine.
+End quote.
+
+As the nations of the world support the Ukraine government in its fight, we also need to continue to support the organizations that are helping the people of Ukraine.
+
+We can do that by helping directly as well as donating to organizations that are supporting the people of Ukraine.
+
+Let's do some good and raise some funds for these great organizations!
+
+I will match up to 5,000 dollars in donations from Weekly Thing subscribers to organizations that are supporting Ukraine!
+
+If you are looking for an organization to support I have a list that you can reference.
+
+However, I am going to keep this open as a way to discover additional organizations doing great work. So I'll follow your lead. You pick the organization and send me the receipt. I will share the list of organizations in a future issue as well!
+
+Lastly, for those that participate in this fundraiser I will issue a special POAP token just for Weekly Thing readers that participated!
+
+1. Send a donation to an organization supporting Ukraine.
+2. Forward the receipt via email to me.
+3. I'll match your donation to the same organization!
+
+I am sharing this reflection that I wrote on February 26, twenty twenty two in Weekly Thing 213.
+
+Nine years ago I knew very little about Ukraine. In the time since, I’ve had the opportunity to work very closely with so many great technologists and professionals in Ukraine. I’ve learned much about the history, the people, and the rich culture.
+
+I’ve been there close to twenty times. I’ve experienced some of the traditions, and the deep history of a grand city like Kyiv.
+
+As someone who grew up in the midwest of the United States I was surprised to find how much I shared with the Ukrainians I have met.
+
+If it is cold and snowy in the midwest, it is cold and snowy in Ukraine. You don’t need to think about what you pack for a trip, it’s the same as what you would wear in Minnesota.
+
+Most people in the midwest are just a generation or two off the farm. My grandpa was a farmer. Most people in Ukraine are just a generation or two off the farm.
+
+My grandpa farmed wheat. Ukrainians farm wheat.
+
+There are profound differences as well.
+
+I once asked if locals knew that I was an American when I was walking along the sidewalk. I was instantly told “For sure, yes.” When inquiring why I was immediately told “Because you are smiling!”
+
+When you visit Kyiv there is a lot of Ukrainian pride. The blue and yellow colors are frequently used on buildings, signage, clothing. The Ukrainian Trident makes regular appearances.
+
+The Ukrainians I’ve met have always struck me as proud, but not prideful. As restrained, but generous with all. Direct, but in a caring way.
+
+Russia’s decision to invade, and cause so much pain to so many people saddens me greatly.
+
+Now, the Featured section.
+
+Link one. "Social Media is a Major Cause of the Mental Illness Epidemic in Teen Girls. Here’s The Evidence."
+
+This analysis of 55 different studies of social media use and mental health is a tremendous read. Everyone should read this and consider it, particularly parents, especially those of teen girls. Some highlights here. The bold is my addition.
+
+Quote.
+Granted, these correlations don’t prove causation, but the frequent finding that the correlations are consistently higher for social media, and higher for girls, tells us that we’re not just looking at random noise here. There is a consistent story emerging from these hundreds of correlational studies.
+End quote.
+
+and …
+
+Quote.
+But 33 studies used a month or more (20 were annual) and of these, 24 found a significant effect. So a simple dose-response model in which social media is like poison (where cutting consumption on Monday makes you feel better on Tuesday) does not seem to be supported. But 73% of the studies that looked for causal effects a month or more in the future found them.
+End quote.
+
+and …
+
+Quote.
+For example, Hunt, Marx, Lipson and Young (twenty eighteen) randomly assigned college students to greatly reduce the use of social media platforms (or not reduce) and then measured their depressive symptoms four weeks later. They found that " The limited use group showed significant reductions in loneliness and depression over three weeks compared to the control group."
+End quote.
+
+and …
+
+Quote.
+As the company expanded to new colleges, did mental health change in the following year or two at those institutions, compared to colleges where students did not yet have access to Facebook? Yes, it got worse. The authors say: > We find that the roll-out of Facebook at a college increased symptoms of poor mental health, especially depression, and led to increased utilization of mental healthcare services. We also find that, according to the students' reports, the decline in mental health translated into worse academic performance. Additional evidence on mechanisms suggests the results are due to Facebook fostering unfavorable social comparisons.
+End quote.
+
+and to finish it off.
+
+Quote.
+There is one giant, obvious, international, and gendered cause: Social media. Instagram was founded in twenty ten. The iPhone 4 was released then too—the first smartphone with a front-facing camera. In twenty twelve Facebook bought Instagram, and that’s the year that its user base exploded. By twenty fifteen, it was becoming normal for 12-year-old girls to spend hours each day taking selfies, editing selfies, and posting them for friends, enemies, and strangers to comment on, while also spending hours each day scrolling through photos of other girls and fabulously wealthy female celebrities with (seemingly) vastly superior bodies and lives. The hours girls spent each day on Instagram were taken from sleep, exercise, and time with friends and family. What did we think would happen to them?
+End quote.
+
+To me the answer here is obvious. Social media is toxic, particularly to kids developing their identity still.
+
+It feels like we are watching the same story that unfolded with tobacco use and cancer. The companies selling these products seem to be taking a very similar playbook.
+
+Some thoughts that I was left with.
+
+1. I’m really glad that both of our kids have opted out of social media in all forms.
+2. While the term selfie isn't used a lot in this article, the specific role of photo-based social media like Instagram combined with the advent of front-facing "selfie" cameras is interesting. It seems like an optimization that meaningfully increased the negative properties.
+3. These studies routinely suggest the impact on boys is less, and I’m very curious why. Stereotypically we know that boys spend more screen time on gaming and YouTube. And the studies do highlight that screen time is not the same as social media usage. So the devices and the Internet seem much less of the issue than specifically social media.
+4. Given the impacts on young people and teen girls, what do you suppose these same mechanisms do to adults. Nothing seems a completely untenable answer.
+
+That's the end of Featured.
+
+Now, the Notable section.
+
+Link one. "How Your LED Lights and Screens are Killing You"
+
+Interesting read on the impact of LED lighting to your body.
+
+Quote.
+The summary is simple enough: LED lighting badly suppresses human melatonin production at night, which impacts sleep quality. Poor sleep quality has all sorts of nasty effects on human health - but it’s worse. Melatonin is also involved in the suppression of tumors and cancers. If your melatonin levels are low at night (from disruption or from simple night shift work), your risk of various cancers goes up by somewhere in the 30-80% range, depending on the cancer and study.
+End quote.
+
+The article goes on to illustrate how LED lights produce white light. For the more technical you may know that the unlock for LED lighting was the development of cheap and efficient blue LEDs. We had green and red for a very long time. There are no white LEDs. The mass market solution of blue LEDs allowed the combination of RGB to give us what appears to be white light. But it isn't really white light, it is RGB light coming together. This difference may be more profound than we realize?
+
+I also like the overall message about Human Centered Technology.
+
+Quote.
+Do we exist to serve the needs of our technology, or does our technology exist to serve the needs of humans? It’s an important question!
+End quote.
+
+Link two. "The age of cargo cult Agile must end. | Jason Yip"
+
+Yip responding to many misconceptions in arguments against Agile methodology. There are dozens of corrections made here and reading them is a great reminder of the core of agile methods and what we are really trying to do when we use them to create great software.
+
+Link three. "Salsa Meet and Chat through POAPs"
+
+One of the reasons I dig POAPs are all the things that could be built on them, and Salsa is an awesome example of that. Salsa allows you to connect with people that you share POAPs with. There is interesting potential here to build continued experiences with people that you met at various events.
+
+Link four. "It’s not about the land… – Rhoneisms"
+
+My friend Patrick's reflections on the long-term value of certain assets.
+
+Quote.
+People think of inheritance as stuff – money, furniture, property. And, while these things are important, they are simply things. Real inheritance is the freedom owning such things allows.
+End quote.
+
+Link five. "On Section 230 and the Dream of a More Human Internet - Cal Newport"
+
+Newport highlights that the services that would be most negatively impacted by Section 230 being weakened are precisely the ones that do the most damage to people and society. I think that Section 230 makes sense for many uses. However, when a platform starts using an algorithm to prioritize some content over the other, I believe it is completely appropriate that the Section 230 protections should be lessened or removed. If you operate as pure plumbing, simply routing characters around that is way different than was most social platforms do today.
+
+Link six. "Report: Apple working on non-invasive glucose testing device – Six Colors"
+
+I think there are two "moonshot" projects in the wearable tech space. The first is a way to continuously monitor blood glucose level, the other is to do the same for blood pressure. Both of these metrics change frequently and are very responsive to the things we eat, activities we do, and our environment. If a device like a watch were able to track these things with reasonable frequency it could give very actionable feedback to people on ways to improve their health in the short and long term. It isn't clear that this is even possible to do though, but it is great to see continued research to try.
+
+Link seven. "We stand to save 7 million dollars over five years from our cloud exit"
+
+This analysis is comparing a lot of and, but it is still a worthwhile read. What I like here is not just assuming that for all workloads the cloud is the best approach. For some it is, for others it isn't. You can’t look at this as one size fits all. I also liked the related five values guiding their transition.
+
+The things that are not mentioned in here are the cost of running everything, the leverage of using managed services, and much more. Doing specific analysis on the cost model is great. In addition, I also like to think about how much of the most precious resource an organization has, which is its people, are working on market differentiating capabilities.
+
+Link eight. "Montaigne"
+
+This may be the simplest interface I've ever seen for making a blog or website. You create a folder in the Notes app on your iPhone or Mac, and then share that folder with this website. The notes in that folder are used to create the website. You can even add images and audio to the notes and they will show up on the web too. I wouldn't have even thought this was possible. Services like this that lower the barrier to publishing online are awesome.
+
+Link nine. "Throughout the rich world, the young are falling out of love with cars | The Economist"
+
+When I was a kid I couldn't wait to get my drivers license, and as soon as I could I wanted a car of my own. Why? I suppose that it represented a sort of freedom and independence. Now, our daughter was fine getting her license but wasn't really eager. She has friends that still don't have it. And she isn't pining for a car of her own at all.
+
+The article touches on this, but I think smartphones are part of the reason. The freedom and independence I sought in 1988 can be realized to some extent with the phone that every teenager has in their pocket!
+
+Link ten. "Ordinals | Gamma"
+
+You can now do something similar to an NFT on Bitcoin. This is a bit of a hack, using some metadata associated with an individual Satoshi on the blockchain. Gamma provides an easy interface to mint one of these Ordinals of your very own.
+
+Link eleven. "The Network State Podcast with Balaji Srinivasan"
+
+I always try to listen to podcasts when Balaji Srinivasan is on them. I don't agree with all that he asserts, but I think his comments are challenging and expand the boundaries of how I think about technology. It was an easy choice to subscribe to his new podcast. I've only listened to the first episode with Vitalik Buterin so far. The content is good and high value. Hopefully future episodes bring a little humor and levity too though.
+
+Link twelve. "What Is ChatGPT Doing … and Why Does It Work?—Stephen Wolfram Writings"
+
+Wolfram is an expert at many things, including neural nets and the foundational functions of AI. This writeup is very long (I skimmed it and plan to give it a full read later), but the clarity of the models, the math, and how these Generative AI's and LLMs work is fabulous. I love his analysis of our, meaning us humans, view of the things that ChatGPT is doing (bolding my addition).
+
+Quote.
+But there’s something potentially confusing about all of this. In the past there were plenty of tasks—including writing essays—that we’ve assumed were somehow "fundamentally too hard" for computers. And now that we see them done by the likes of ChatGPT we tend to suddenly think that computers must have become vastly more powerful—in particular surpassing things they were already basically able to do (like progressively computing the behavior of computational systems like cellular automata). But this isn’t the right conclusion to draw. Computationally irreducible processes are still computationally irreducible, and are still fundamentally hard for computers—even if computers can readily compute their individual steps. And instead what we should conclude is that tasks—like writing essays—that we humans could do, but we didn’t think computers could do, are actually in some sense computationally easier than we thought. In other words, the reason a neural net can be successful in writing an essay is because writing an essay turns out to be a "computationally shallower" problem than we thought. And in a sense this takes us closer to "having a theory" of how we humans manage to do things like writing essays, or in general deal with language.
+End quote.
+
+If you find this topic interesting this is a super read, and it helps clearly show the boundaries of this technology. I also love the idea that there are problems that "computationally shallower" than we really think. I wonder how our own view of our unique human-ness plays into that perception.
+
+That's the end of Notable.
+
+Now, the Journal section.
+
+Thursday @ 10:28 PM
+
+Who Invited Charlie?
+
+We continued our "snowpocalypse" movie series tonight. This evening a bit more justified with over a foot of fresh snow on the ground. We watched Who Invited Charlie?. The movie revisits the COVID-19 lockdowns following a wealthy family as they escape New York City to the Hamptons, and their visitor Charlie joins them.
+
+Thursday @ 6:28 PM
+
+MnTech Leadership Forum: Generative AI
+
+Today I hosted the MnTech Q1 twenty twenty three Tech Leadership Forum. The organization is changing the format of this event to have technology leaders run these quarterly forums. I thought it would be fun to focus on the topic that is making so much press lately — Generative AI: Harnessing Disruption into Innovation.
+
+I was lucky enough to get three others to join in the dialog:
+
+Todd Van Nurden, Principal Developer Cloud Architect and Mad Scientist, Microsoft Technology Center's
+Sam Pierson, Chief Technology Officer, Talend
+Tammylynne Jonas, Global CIOGlobal CIO, Donaldson
+
+Some of the topics discussed:
+
+* Why now? AI has been in the works for a long time. Has there been a technological breakthrough recently?
+* How does Generative AI affect how we build software.
+* How does Generative AI benefit from these early releases.
+* Opportunities technologists see to use this capability in their organizations.
+* What are some of the risks to keep an eye on?
+* AI as a coach or mentor?
+
+Since it was an invite only event for members there isn't a video to share.
+
+Of course there is a POAP for the event! And even more exciting, the POAP is also held by POAP.MnTech.eth which is the first POAP that MnTech is officially producing.
+
+Wednesday @ 10:43 PM
+
+Dog Gone
+
+With the "snowpocalypse" bearing down on us we decided to make it a movie night. We all love movies about dogs, especially Tyler. Tammy had Dog Gone on her "to watch" list for a while. Then I saw the Walker family had watched it and suggested we would like it.
+
+Good movie about growing up and the, the relationship between parents and their kids, and of course about a great dog.
+
+Monday @ 9:36 PM
+
+So much fun to watch Amazing Race S34 E11 as they race through Iceland and see many places that we visited this summer!
+
+Monday @ 5:17 PM
+
+Ukraine Stamps
+
+One of our team members from Ukraine was able to visit us here in Minneapolis for the first time since before the pandemic. The team sent three of the Ukrainian postage stamps as a gift. I have these safely stored away until I can get them framed.
+
+The events from left to right in the image are: Russian Warship on Snake Island, the Crimean Bridge blast, and "Kherson is Ukraine!".
+
+Sunday @ 9:33 PM
+
+Florida Man may be the strangest board game I've ever played. With that said, a large group of adults having a few beverages would have a lot of fun with this somewhat silly game.
+
+Sunday @ 1:55 PM
+
+I Adopted Thinking Face Emoji
+
+I ran across this Adopt a Character campaign from the Unicode Consortium and felt like a donation made sense. But what emoji to pick? After thinking through a few I decided Thinking Face.
+
+This is fun, but I think it would be so much cooler if this program worked by selling NFTs. It has all the right characteristics with Gold and Silver levels being limited, and Bronze being "open editions." It would be really fun to have this in my wallet as proof of participation.
+
+Saturday @ 2:39 PM
+
+Macaron Class
+
+We drove an hour out to Buffalo, MN this morning to take a macaron class at Abundant Kitchen led by owner Becki Melvie.
+
+Melvie shared that the recipe was taught to her by Nikkolette of Nikkolette's Macarons, which we have had before and thought were amazing! The recipe had a lot of precision with all ingredients in grams. I didn’t find the macarons that complicated, but they are definitely very fussy. I tend to like things that are fussy, like fancy coffee.
+
+Our blue macaron shells came out well but had a pretty wide variety of sizes. Not bad though for our first try!
+
+The orange shells were made by the instructor and we filled them. This was my very first macaron that I made, and it was all gone in just two bites.
+
+Friday @ 11:45 PM
+
+To Kill a Mockingbird
+
+We went to the Orpheum to see To Kill a Mockingbird with new screenplay by Aaron Sorkin and directed by Bartlett Sher. It was an incredible and powerful performance. Richard Thomas was so engaging as Atticus Finch. Some may remember him as "John-Boy" from The Waltons.
+
+That's the end of the Journal.
+
+Now, the Briefly section.
+
+Link one. "One year of war in Ukraine: Internet trends, attacks, and resilience"
+
+Tons of graphs from Cloudflare showing different activities in Ukraine over the course of the last year of fighting with Russia. Very interesting!
+
+Link two. "Introducing Day One on the Web"
+
+I think Day One is a fabulous journaling application, and I’m glad to see that they now have a proper web version. Recommended.
+
+Link three. "Biden makes surprise visit to Kyiv, meets Zelensky"
+
+I was really pleased to see Biden made this trip to show support for Ukraine.
+
+Link four. "Risk of diabetes rises 58% after COVID, even amid omicron, study finds | Ars Technica"
+
+We are going to continue to learn new things about COVID for years. And some of it will be debunked but in the meantime…
+
+Link five. "The 4 Steps of Coaching Someone to Improve a Skill - Matt Norman"
+
+Another great post from Norman this time on coaching. All leaders are coaches to their people from time-to-time, and this framework is a good way to approach that.
+
+Link six. "Four Technology Leaders Join MnTech's Board of Directors » MnTech"
+
+Welcome Andy Bingenheimer, Lucinda DuToit, Amka Hodzic, and Beth Tschida to the MnTech board!
+
+Link seven. "Lua Programming Gems"
+
+Fun reference and probably a good place to learn Lua techniques.
+
+Link eight. "Scientists find first evidence that black holes are the source of dark energy"
+
+I love cosmology.
+
+Link nine. "Neptyne"
+
+They put Python inside a spreadsheet? Very cool and could be a great way to introduce people to programming. You could also build some pretty powerful data interfaces with this.
+
+Link ten. "Peel — Drum machine in your browser"
+
+Super simple interface to create 16 beat drum machine loops in your browser. Easily shared with a simple URL. Very fun and a great way to familiarize yourself with something so fundamental to EDM.
+
+Link eleven. "staticrypt: Password protect a static HTML page"
+
+Whoa, this is something I've wanted to use on my own website. Can someone please package this up as a micro.blog plugin? k, thx.
+
+Link twelve. "Scribble Diffusion"
+
+Add a sketch with your text prompt and get an AI generated image.
+
+That's the end of Briefly.
+
+Now, the Fortune section.
+
+Here is your fortune…
+
+Write yourself a threatening letter and pen a defiant reply.
+
+Thank you for subscribing to the Weekly Thing!
+
+That brings us to the end of the Weekly Thing, issue 243. Thanks for listening, and I'll see you next time.

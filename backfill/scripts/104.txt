@@ -1,0 +1,130 @@
+The Weekly Thing, issue 104. May 4, twenty nineteen. Published May 4, twenty nineteen. By Jamie Thingelstad. In this issue: Minnebar14 recap, Amazon doorbell crime news, Zuckerberg future is private, Anki robotics shutting down, Cardbox, autism from the inside, refuse to rule.
+
+It’s late, and I got a late start getting the newsletter together. Let's jump straight to the links, and have a great weekend!
+
+Now, the Featured Links section.
+
+Link one. "Refuse to Rule"
+
+I agree that this is an important observation for leaders of teams. There are times when you should defer, and make sure that decisions are not being "delegated up". I have a variant of this. If there is a position being put before me that requires me to pick a winner and a loser, depending on the situation, I may ask the individuals to go back to the whiteboard and keep working. Find a solution that is a win for all.
+
+That's the end of Featured Links.
+
+Now, the Notable Links section.
+
+Link one. "Relive the Action: Minnebar14 Recap - Minnestar"
+
+Great highlights and fun facts about this years Minnebar! It was a great event, as always.
+
+Link two. "A doorbell company owned by Amazon wants to start producing “crime news” and it’ll definitely end well » Nieman Journalism Lab"
+
+I’m no fan of where Ring (owned by Amazon) is trying to take these tools.
+
+Ring already has an app called Neighbors that, judging by its marketing, encourages people living in bucolic suburbs with wrought iron gates to feel like they’re in the last un-zombified neighborhood in The Walking Dead.
+
+This isn't the kind of environment I want to be in. We used to worry about Surveillance State, and then Surveillance Companies. Now with a bunch of ring doorbells we can surveil each other!
+
+Link three. "Facebook CEO Mark Zuckerberg says the ‘future is private’ - The Verge"
+
+Yeah, right, sure. Please nobody believe that Facebook is going to really change their view on your data.
+
+“Now look, I get that a lot of people aren’t sure we’re serious about this,” Zuckerberg said at F8. “We don’t exactly have the strongest reputation on privacy right now, to put it lightly. But I’m committed to doing this well and starting a new chapter for our product.”
+
+Keep in mind that if Facebook can convince you it is private, that will encourage you to share even more detailed and private information, so they can monetize you even more! It’s a huge win for them. And you can be sure that that data will then be sold out to data markets as well.
+
+Link four. "The once-hot robotics startup Anki is shutting down after raising more than 200 million dollars - Vox"
+
+This is sad. I have a Cozmo and a Vector. I have no idea what this will mean for the continued operation of these devices. It’s too bad they weren't able to take off. The article makes me wonder if they were trying to do too much, too fast. I will say that the Vector was a bit underwhelming. I felt like they needed more time to get the software right.
+
+Link five. "Cardbox • The first place to connect"
+
+There were a couple of these services a long time ago on the web. Don't use them. They are free by selling your data.
+
+Link six. "Perfectly Normal, How Autism Feels From the Inside"
+
+A peek into life with autism.
+
+That's the end of Notable Links.
+
+Now, the Give Back section.
+
+The Wikimedia Foundation, Inc. is a nonprofit charitable organization dedicated to encouraging the growth, development and distribution of free, multilingual, educational content, and to providing the full content of these wiki-based projects to the public free of charge. The Wikimedia Foundation operates some of the largest collaboratively edited reference projects in the world, including Wikipedia, a top-ten internet property. Donate to Wikimedia today!
+
+That's the end of Give Back.
+
+Now, more links.
+
+- 3 Machine Learning Books that Helped me Level Up | Data Stuff www.datastuff.tech
+Good reading list.
+- MacMenuBar.com - A curated directory of 200+ Mac menu bar apps macmenubar.com
+I have some handy menu bar apps. It’s cool that there is a directory of them.
+- Darling | macOS translation layer for Linux www.darlinghq.org
+Run macOS applications on Linux. Nifty. Very early, doesn't support GUI apps yet.
+- Report: Tesla to slash solar panel prices to stymie [market-share loss [correction] | Ars Technica]( arstechnica.com
+I would love to see solar panels get way cheaper.
+- The Good and the Bad of Google Cloud Run – A Cloud Guru read.acloud.guru
+Interesting critique of Google Cloud Run.
+- Delta Lake delta.io
+Open-source storage layer that brings ACID transactions to Apache Spark™ and big data workloads.
+- Home Screens — Hugo Castellanos — MacSparky www.macsparky.com
+I like these articles for discovering new apps.
+
+That's the end of More Links.
+
+Now, the Microposts section.
+
+Sunday @ 5:34 PM
+
+Happy with fire pit setup.
+
+Saturday @ 11:37 PM
+
+Burch Old Fashioned.
+
+Saturday @ 9:58 AM
+
+Good open session on Product Management with Adrienne Peirce, Shawn Heller, and Jeremy Moede. Lot of knowledge sharing! #minnebar
+
+Saturday @ 9:50 AM
+
+Good Session 0 at Minnebar 14 with a wake-up call from Sharon Kennedy Vickers on the issues that come from a lack of diversity in technology, and what we can do to improve as an ecosystem! #minnebar
+
+Saturday @ 9:39 AM
+
+We have a growing, thriving technology community in the Twin Cities and Minnebar is an integral part of that community! I’ve been lucky to be involved with this organization since the beginning and love that SPS Commerce is a terabyte sponsor! #minnebar
+
+Saturday @ 8:51 AM
+
+Great energy going into Session 0 at Minnebar 14! Record registrations! #minnebar
+
+Saturday @ 8:49 AM
+
+Minnebar 14 kicking off! Looking forward to learning a ton again this year! love this event, organization, and the community that makes it!
+
+Friday @ 10:12 PM
+
+We had a great time beta testing the opening day for the Video Game Mayhem (Kid Mode) room at Trapped Puzzle Rooms in St. Paul! Mazie and Tyler led us to a 53 minute victory!
+
+Friday @ 6:59 PM
+
+Orangy Old Fashioned at The Copper Hen.
+
+Friday @ 6:06 PM
+
+Happy Birthday to Tammy, my lovely co-pilot in this awesome journey of life!
+
+Friday @ 4:31 PM
+
+I took the day off for Tammy’s birthday and we rented a U-Haul to get a bunch of post-move errands done.
+
+That's the end of Microposts.
+
+Now, the Fortune section.
+
+You've made it all the way to the end! Here is your fortune for this week.
+
+Today is what happened to yesterday.
+
+Thank you for subscribing to the Weekly Thing!
+
+That brings us to the end of the Weekly Thing, issue 104. Thanks for listening, and I'll see you next time.

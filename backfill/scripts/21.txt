@@ -1,0 +1,130 @@
+The Weekly Thing, issue 21. Weekly Thing for September 30, twenty seventeen. Published September 30, twenty seventeen. By Jamie Thingelstad. In this issue: Apple privacy, iPhone X reactions, Microsoft Teams replacing Skype, Amazon hardware event, GraphQL relicensing, Tinder data secrets, API documentation.
+
+This week was a blur with a tremendous amount going on at work as well as at home. I had a great evening hanging out with Steve, Dennys and Layne. We all went to Iceland together several years ago and it’s super fun every time we get together over some good food and beers. Unfortunately Dennys was sick and had to bail last minute. I also had my R/W Book Club meeting this week and we discussed our book and had great conversations. Both of these nights were reminder that even when things are busy, and even more so when they are busy, it’s important to take some time to hang out with friends and chat, laugh and debate. I feel pretty lucky to have those opportunities. I highly recommend it!
+
+Now, the Photog section.
+
+Our cabin is on Cannon Lake and there are a number of float planes that come and go from the lake. It’s always fun to see them taking off or landing.
+
+Sep 24, twenty seventeen at 11:46 AM Warsaw MN
+
+That's the end of Photog.
+
+Now, the Links section.
+
+Link one. "Privacy - Apple"
+
+Apple products are designed to do amazing things. And designed to protect your privacy. Apple outlining the work that they do in various platforms and services to protect your privacy. They don't mention Google here but they don't need to. I continue to believe that Apple has a long-term position that this is important, even if consumers don't value it highly today. The Approach to Privacy page is worth a read too.
+
+Link two. "How Silicon Valley Reacts to Apple's iPhone X - YouTube"
+
+This is really funny — particularly if you watch Silicon Valley. Thanks to my friend @DennysB for the link.
+
+Link three. "A Quick Introduction to Graphviz"
+
+I've played with Graphviz before and it is a very powerful tool for visualizations, and I don't see people using it very often. The nice thing is that the input is textual and easily written by a person or write a small program to output it. This is one of those tools that should be in your tool belt.
+
+Link four. "Microsoft Teams is replacing Skype for Business to put more pressure on Slack - The Verge"
+
+This is a good move! Skype for Business gives the Skype brand a bad name. It’s just Lync with different branding and Lync was a hot mess from the first step. Teams isn't perfect, but Microsoft will have an easier time bringing Teams to where they want to go versus dragging the dead-weight of Lync around.
+
+Link five. "30 Days Timelapse at Sea | 4K | Through Thunderstorms, Torrential Rain and Busy Traffic - YouTube"
+
+I’m a sucker for time-lapse videos but this one spanning a 30 day trip across the Atlantic ocean is epic.
+
+Link six. "The Ten Essentials for Good API Documentation · An A List Apart Article"
+
+Well thought through article thinking about the ten things you should make sure that you do when you publish an API. This is often an overlooked component. The team finishes the service and the last thing to go is to put the API documentation together. Sadly, bad docs and lack of understanding will dramatically impact the adoption of your API!
+
+Link seven. "Peppa Pig Live Surprise"
+
+Our kids loved Peppa Pig when they were younger. Mazie found it when we spent a month in London when she was 3, before it was in the US. Tyler liked it as well. If they were younger we'd definitely go to this, but the characters put into real life honestly look a little scary!
+
+Link eight. "macOS High Sierra Review: A Modern Snow Leopard? – 512 Pixels"
+
+Thorough review of macOS High Sierra. A handful of small tweaks and improvements I wasn’t aware of in here.
+
+Link nine. "The 5 biggest announcements from today’s Amazon hardware event - The Verge"
+
+Amazon clearly knows they have something with the Echo lineup. The Echo Spot is pretty interesting and is a smart targeted play. I could see the benefits of having a cheap voice controlled device on the nightstand. The Echo Button is a total surprise. Sounds like it’s a Bluetooth lighted button that will be used to extend into gaming. I’m impressed with where Amazon is taking this platform, I just wish it could play with the iOS ecosystem better.
+
+Link ten. "Your future cloud is hybrid, and so is Azure —Microsoft Azure Blog"
+
+It’s Microsoft's big week for new announcements to Azure and this specific angle on how they enable hybrid cloud operations is an interesting one. It is aligned with their huge installed base in corporate IT and certainly is an angle where they have a potential edge over Amazon Web Services and Google Cloud.
+
+Link eleven. "I asked Tinder for my data. It sent me 800 pages of my deepest, darkest secrets | Technology | The Guardian"
+
+There are a lot of posts about all that Facebook knows about you — it’s interesting to see one on what Tinder knows about it’s users. This line at the end of the article drew my attention. As a typical millennial constantly glued to my phone, my virtual life has fully merged with my real life. There is no difference any more. That puts Terms of Service and Privacy Policies in a bit of a different light.
+
+Link twelve. "Relicensing the GraphQL specification – Lee Byron – Medium"
+
+Facebook moved quick with the React license and now also has moved GraphQL to a different license.
+
+Link thirteen. "Jared Sinclair | Blog | Apple Watch Series 3 First Impression:..."
+
+This article exactly captures why I decided to order the Series 3 with LTE.
+
+Link fourteen. "Never Give Up, Retry: How Software Should Deal with Failures"
+
+It’s hard to quantify the number of system issues in various systems I've seen through the years that are the result of poor retry logic in code. Retry logic is the close cousin of exception handling and these two areas are where a lot of large system failures cause huge challenges. Pessimistic retries around services you depend on can make a huge difference in real system performance.
+
+Link fifteen. "Tracking compensation and promotion inequity | Lara Hogan"
+
+Some great examples of reports and analysis from the VP of Engineering at Kickstarter to identify compensation inequity in a team.
+
+Link sixteen. "Monitoring and Observability – Cindy Sridharan – Medium"
+
+Curious to understand better what people mean when they say observability and why that isn't just monitoring? This post has good clarification on the differences and how you use them to achieve different objectives.
+
+Link seventeen. "Are Industrial Robot Costs Hitting an Inflection Point?"
+
+The graphs in this article tell the story of the dropping prices of industrial robots. Look at those graphs and then think of the employment in the industrial sector. Now what would the graph of Industrial Robot Cost look like if overlaid on the employment cost of people. It’s concerning where this goes, but seems inevitable. As machine learning and new sensing capabilities impact them, not only will their performance improve but other costs associated with installation and integration should fall as well. For example, they will require little or no human programming and will be able to roam freely instead of being trapped in safety cages and by other barriers.
+
+Link eighteen. "Spend More Time Alone - Study Hacks - Cal Newport"
+
+This post struck a chord with me, particularly the framing of solitude as “the real key to solitude is to step away from reacting to the output of other minds”. Reflect on your day and think how often that happens. Not enough I would guess. When I think of how mobile technology combined with social media has infiltrated our lives I think of spray foam. If you fill a hole with spray foam it’s remarkable to watch it grow, spread and fill every space it can occupy. When we reflexively reach for those inputs, other people’s thoughts, so consistently we drown out even small moments of solitude.
+
+That's the end of Links.
+
+Now, the Promotion section.
+
+Let's Encrypt is a free, automated, and open certificate authority, run for the public’s benefit. All connections to web servers should be encrypted! The biggest challenge with encrypting the web historically has been the cost and hassle of getting an SSL certificate. Let's Encrypt has changed that entirely by being a free certificate authority. Let's Encrypt is possibly one of the most important things to happen on the web in recent years. Donate to Let's Encrypt today!
+
+That's the end of Promotion.
+
+Now, the Highlighted iOS App section.
+
+Cribbage With Grandpas
+
+by Less Than Three Interactive
+
+Play the classic card game cribbage with your grandpa! Cribbage With Grandpas is a relaxing and delightful game you'll love curling up with. It features a grandpa creator which you use to create a grandpa and select what personality they should have (grumpy, silly, sweet, etc.). You can create multiple grandpas with different difficulty and conversational settings for every mood.
+
+Tammy has been teaching me to play cribbage and I wanted too find a way to practice on my own on iOS. I found this game and decided to give it a try and really like it. It’s funny and the whole concept of picking Grandpa's and giving them personalities to play with is really fun. Recommended for anyone from a casual to serious cribbage player.
+
+2 dollars and 99 cents 4.5/5 stars
+
+That's the end of Highlighted iOS App.
+
+Now, the Microblog updates section.
+
+- Got my Series 3 Apple Watch today! Way faster than original. Have LTE setup too!
+- Setup iCloud Family Sharing for storage. Nice to have that option now!
+- Gave another copy of Getting Things Done to a #TeamSPS member. One of my favorite things to do!
+- I added search to my link blog! It uses Lunr.js and is all client side. It takes a bit to load with 9,000 links to index, but is very fast once loaded. Give it a try and let me know what you think. The search as you type method is fun to discover things.
+- Goodbye JPEG. Hello HEIF!
+- Fun book club meeting tonight discussing How to Live: Or A Life of Montaigne in One Question and Twenty Attempts at an Answer.
+- Deleted Sarahah account. In several weeks, I got one valid message that was appreciated, and dozens of bot messages.
+- One of Chase’s favorite spots.
+- Good morning Minnesota!
+- At cabin, kids in bed, Vodskey Moscow Mules, cribbage, tunes.
+- Family bike ride to Baker’s Wife / Angry Catfish was great this morning. We have wonderful bike paths in Minneapolis.
+- Closest I’ll come to a picture with Vanilla Ice!
+- “Feels like” temperator of 93℉ right now? Minne-soh-tans are already in pre-winter mode!
+- I enjoyed the Defiant One fat tire bike so much that I ended up buying one! Took it for an inaugural ride this morning!
+
+That's the end of Microblog updates.
+
+Thank you for subscribing to the Weekly Thing! If you know of people that would like the Weekly Thing please forward it along!
+
+That brings us to the end of the Weekly Thing, issue 21. Thanks for listening, and I'll see you next time.

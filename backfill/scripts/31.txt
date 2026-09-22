@@ -1,0 +1,157 @@
+The Weekly Thing, issue 31. Weekly Thing for December 9, twenty seventeen. Published December 9, twenty seventeen. By Jamie Thingelstad. In this issue: Let's Encrypt SSL, ProtonMail Bridge, Google YouTube Fire TV, AlphaZero Stockfish, iPhone X camera, Facebook Messenger Kids, Oura Ring, Vanilla Mac menu bar.
+
+It’s December and in addition to all the Christmas shopping you are doing, it’s usually the time that we think about donating to charitable organizations. You'll see in my microblog updates that I did a number of those this week. I'd like to highlight Let's Encrypt!
+
+Encrypting traffic on the web is a big deal. Without it, all of your web browsing is easily listened to by anyone. Did you know that Comcast is watching all the content that goes in and out of your house and using it to sell advertising profiles of you? If the traffic is encrypted, this is a lot harder. However, before Let's Encrypt getting the certificate to encrypt a site cost anywhere from 20 dollars/year to more than 100 dollars/year! It was a racket that a few companies were allowed to make a good amount of money on.
+
+Let's Encrypt changed that! I highlighted an article from them below, but it's worth noting that they provided 61 million free encryption certificates in twenty seventeen. A handful of those were to me, allowing all of the traffic to my various sites to be encrypted. This is arguably one of the most important things happening on the web right now, and they need our continued support to further the mission of securing the web.
+
+Join me and donate now. If you don't host any content, I think 10 dollars is a good amount to encourage the continued work. If you use Let's Encrypt certificates, give a little more. Let's Encrypt has changed the web for the better, and we need to continue to push this forward!
+
+Now, the Blog posts section.
+
+Removed Google Analytics
+
+Reasons for removing Google Analytics as the last tracking code I was using on my sites.
+
+That's the end of Blog posts.
+
+Now, the Photog section.
+
+This is the cabin just outside the Old Log Theatre. We went there this last week and this building always catches my eye.
+
+Dec 2, twenty seventeen at 1:24 PM
+Greenwood MN
+
+That's the end of Photog.
+
+Now, the Links section.
+
+Link one. "Looking Forward to twenty eighteen - Let's Encrypt - Free SSL/TLS Certificates"
+
+I’m a big fan of Let's Encrypt and I think they are fundamentally making the web safer and better with their work. They served 61 million unique domains SSL certificates in twenty seventeen! That is amazing. Consider that SSL certificates easily cost 20 dollars/year (on the cheap side) that is over 1.2 billion dollars in value!
+
+Link two. "The twenty seventeen kottke.org Holiday Gift Guide"
+
+Kottke's extremely thorough gift guide!
+
+Link three. "Introducing ProtonMail Bridge, email encryption for Outlook, Thunderbird, and Apple Mail - ProtonMail Blog"
+
+This is pretty cool! Email by default has no security features. And adding encryption to email is shockingly difficult. I've tried doing PGP plugins before and it is a nightmare. ProtonMail makes a very robust and entirely encrypted webmail product, but their limitation to a regular mail client is a big gap. This ProtonMail Bridge is a really ingenious way of delivering secure, encrypted email to Mail clients that have no idea how to deal with security!
+
+Link four. "Google is pulling YouTube off the Fire TV and Echo Show - The Verge"
+
+As you consider the arguments around Net Neutrality being removed take a moment to observe that Google and Amazon can't even agree on selling each others devices. Somehow we are supposed to believe that net neutrality isn't needed?
+
+Link five. "Disqus and Zeta – AVC"
+
+I've considered using Disqus many times. The reality though is that Disqus is a commenting toy that you can deploy on your website while exposing your users to tracking and reducing their privacy. The fact that Disqus was bought by "largest independent marketing cloud" should give you confirmation of what I just said. If you use Disqus on your personal website, you should pull it off. Personally I block the Disqus widgets from loading using 1Blocker.
+
+Link six. "Silicon Valley Is Sneaking Models Into This Year’s Holiday Parties - Bloomberg"
+
+First off, this is a service you can buy? Second, we've got a long ways to go in the tech industry.
+
+Link seven. "Driving Change Episode 16 with Serial Entrepreneur Don Smithmier - YouTube"
+
+New Don Smithmier of Go Kart Labs. (See my Driving Change episode.)
+
+Link eight. "iPhone X: A New Frontier – MacStories"
+
+Long and super detailed review of the iPhone X. If you are thinking about buying one this has every little nit and nat you could ever care about.
+
+Link nine. "Tim O'Reilly's WTF? A book that tells us how to keep the technology baby and throw out the Big Tech bathwater / Boing Boing"
+
+This sounds like an interesting read. Definitely going on my reading list.
+
+Link ten. "How to use Apple Pay Cash - Six Colors"
+
+With the launch this week of Apple Pay Cash this is a nice overview of how to set it up and use it. I've sent 1 dollar around to a bunch of friends. Works amazingly well! I think Apple Pay Cash over iMessage could be a big deal. I could easily see this at Art Fairs and other ad hoc venues to make payment.
+
+Link eleven. "Google's AlphaZero Destroys Stockfish In 100-Game Match - Chess.com"
+
+It’s absolutely stunning that AlphaZero did this well so quickly. Oh, and it took AlphaZero only four hours to "learn" chess. Sorry humans, you had a good run. This is another case where the algorithm just learned by playing.
+
+Link twelve. "iPhone X Camera Review - A Week in Italy — Nanda Kusumadi"
+
+The camera in the iPhone X is amazing. These shots are great and straight off the phone. The only place it isn't going to get it done is a long lens for zoom and something for shallow depth of field.
+
+Link thirteen. "Daring Fireball: Facebook 'Messenger Kids'"
+
+Gruber's take on this is so spot on: > This is like Philip Morris introducing officially licensed candy cigarettes. You’re nuts if you sign your kids up for this.
+
+Link fourteen. "Software, Tech Talent, Diversity, and the Future of Everything | Mark Hurlburt | TEDxFargo - YouTube"
+
+Very good talk from Mark Hurlburt of Prime Digital Academy on bringing more diversity into software development.
+
+Link fifteen. "Vanilla — hide Mac menu bar icons for free"
+
+I've used Bartender for a number of years now and didn't know there was another option. Vanilla is interesting and more subtle. Also has a free version and is only 4 dollars to buy the pro add-ons.
+
+Link sixteen. "A Quick Way to Sort Projects and Contexts | Using OmniFocus"
+
+I had no idea this Sort Once feature was in OmniFocus. That is handy to have. (I skipped all the automation stuff with Keyboard Maestro.)
+
+Link seventeen. "How We Reorganized Instagram’s Engineering Team While Quadrupling Its Size"
+
+More should be written about how technology teams evolve their organizational models as they scale. I liked the goal setting in this one "We picked our top five outcomes, which became our organizational principles." You have to start with something like this and then drive to that objective.
+
+Link eighteen. "A Holiday Gift List of Crap I Don't Regret"
+
+I’m liking some of these holiday gift lists I’m seeing come through my feeds lately. 1. Nintendo Switch is on my list for this year. I continue to hear very good things about the Switch from everyone that I ask. 2. The Magnetic Pencil Sleeve is a good idea. 3. I have AirPods and completely agree that they are amazing. 4. The Caps for Apple Pencil is also a good idea for folks that have more than one. 5. I just got a ScanSnap iX500 myself and it is a great device.
+
+Link nineteen. "MindNode 5 Screencasts by David Sparks - YouTube"
+
+I like David Sparks screencasts and he just produced nearly an hour of new ones for the new release of MindNode 5.
+
+Link twenty. "Oura Ring | Sleep Tracker and Smart Ring with a Heart Rate Monitor"
+
+Some interesting and cool tech. Many (most?) people wear rings all the time. This seems like the simplest, least intrusive option there could be to passively collect biometric data on a person. It’s interesting that they are first focusing on sleep.
+
+Link twenty one. "Is the economy suffering from the crisis of attention? | Bank Underground"
+
+Interesting article theorizing on a possible connection between economic growth and the rise of mobile and social technology. The suggestion is that one of two things is happening: time on social is taking away from productive time or time on social is yielding a distracted population that is less productive. I would suggest both are likely true. Cal Newport gave a thoughtful summary of this article as well.
+
+That's the end of Links.
+
+Now, the Promotion section.
+
+Internet Archive is a non-profit library of millions of free books, movies, software, music, websites, and more. I have been a supporter of the Internet Archive for many years and I think their mission is fabulous! The web is a major part of our culture and it the content that we put on it is sadly ephemeral. The Internet Archive is working hard to capture that information and keep it for history. Donate to Internet Archive today!
+
+That's the end of Promotion.
+
+Now, the Featured App section.
+
+Encrypt.me
+
+by Cloak Holdings LLC
+
+With Encrypt.me's auto-secure feature, you don't even need to remember that you have Encrypt.me -- just connect to that coffee shop, or airport, or hotel, or conference Wi-Fi and trust that Encrypt.me's got your back.
+
+I signed up with Encrypt.me for one feature only, the auto-secure feature. You can identify WiFi networks that you trust and will use directly, but all other networks you can have the encrypt.me VPN turn on automatically. It’s a great way to make sure that local networks are not eavesdropping on you.
+
+Free 4.5/5 stars
+
+That's the end of Featured App.
+
+Now, the Microblog updates section.
+
+- Friday night and I’m drafting up tomorrows edition of the Weekly Thing! Sign up now to get one tomorrow morning.
+- We went to Wonder tonight and it’s a fabulous movie. It tugs at the heart strings all over the place, but the journey is entirely worth it.
+- Great Minnestar board meeting today. It’s very rewarding to think about how far this organization and the events have come. More good things on the horizon! I’m honored to get to be part of such an impactful non-profit!
+- Amazon Prime Video now on Apple TV! I can finally watch The Man In The High Castle without the abomination of UI that other Amazon Video experiences had.
+- I just donated to Wikipedia. Support free knowledge!
+- Eero Plus subscription with security and ad blocking, and now Encrypt.me and 1Password for Families partnerships is a pretty good deal. I’m in!
+- Having fun trying Apple Pay over iMessage with some friends. Sending 1 dollar around. This is pretty nice.
+- Replacement hard drive for one of my Synology RAID units on the way.
+- Hung these shelves in Tyler’s room. They look great but what a pain to hang!
+- After a long hiatus I’m finally watching the last episode of Game of Thrones, Season 7.
+- Scanning “Twitter Moments” is pretty good confirmation that Twitter and I parted ways a long time ago.
+- Family theater this afternoon with Snow White and the Seven Vikings. Good performance at the Old Log Theatre!
+- Had a nice time at Julmarknad at the American Swedish Institute this morning!
+- First trip to Lucky Oven Bakery; very good food, broad menu, good coffee. Very busy though, expect will settle down after a few weeks.
+
+That's the end of Microblog updates.
+
+Thank you for subscribing to the Weekly Thing! If you know of people that would like the Weekly Thing please forward it along!
+
+That brings us to the end of the Weekly Thing, issue 31. Thanks for listening, and I'll see you next time.

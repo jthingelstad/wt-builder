@@ -1,0 +1,126 @@
+The Weekly Thing, issue 112. Jun 29, twenty nineteen. Published June 29, twenty nineteen. By Jamie Thingelstad. In this issue: Jony Ive leaving Apple, Facebook Libra, BGP internet outage, Cloudflare time service, Slack tech stack, engineering management lessons.
+
+Welcome to Weekly Thing #112!
+
+After publishing every week since May 13, twenty seventeen I've decided to build a little break into the Weekly Thing annual schedule. I’m going to be taking the month of July off from sending you wonderful links and other exciting things each Saturday morning. I know, what will you do with your morning coffee? I trust you will be able to find alternatives and I will be eagerly waiting to land in your inbox on August third with issue 113! Cool?
+
+I got the inspiration from James Whatley who writes Five Things on Friday. It’s a pretty great weekly, you should totally subscribe but since he takes July and August of you'll be waiting a bit. But it’s worth it, he's got 100% more animated GIFs than I do in the Weekly Thing. He's at issue 301, so three times ahead of me, and takes a break in the summer. I decided to lean into his wisdom.
+
+While I’m taking the month off July I'd like to see about queuing up a new section for when I come back in August. New section you ask? Yes, new section! I've wanted to try an "Ask Me Anything" section in the Weekly Thing, or an AMA as the Reddit folks say. So let's give it a try, to prompt a question you can simply reply to this email and ask away, or if you'd like you can use this very fancy Weekly Thing Ask Me Anything form I put together. Let the asking of anything begin!
+
+So now that we have that all sorted, let's get onto it!
+
+Now, the Featured Links section.
+
+Link one. "Minneapolis Women in Tech Breakfast with Jennifer Tejada, CEO fo PagerDuty - YouTube"
+
+SPS' own Amy Patton co-hosted this event with Jennifer Tejada of PagerDuty, and led the Fireside Chat Q and A format. I greatly enjoyed the event and Jennifer's experiences as CEO of PagerDuty were insightful and fun to hear. This was the first Women in Tech event that I have attended, but it won't be my last. Having men in technology involved in these conversations is important to our industry making progress.
+
+Link two. "Forget monoliths versus microservices. Cognitive load is what matters. | TechBeacon"
+
+This seems like a much more human way to define what Microservices mean. Focus on boundaries that enable the people working with and on the system to understand it more easily. If the grain gets too small, it's hard to follow, and too big makes it too complex to understand.
+
+That's the end of Featured Links.
+
+Now, the My Weekly Photo section.
+
+Flower fighting some sudden heat.
+Jun 28, twenty nineteen at 7:17 PM
+Edina MN 55424
+
+That's the end of My Weekly Photo.
+
+Now, the Notable Links section.
+
+Link one. "Jony Ive Is Leaving Apple — Daring Fireball"
+
+Wow! John Gruber is probably the best person in the world to write about this news release and what it means. While I think Ive has been pretty disconnected for a while now, I will still miss Ive's white room, voice from nowhere video introductions of new devices.
+
+Link two. "Ethical Principles, OKRs, and KPIs: what YouTube and Facebook could learn from Tukey | Data Science Institute"
+
+Making the case that driving to continuous improvement of objectives and key results, absent of ethical principles, is a recipe to potentially do significant harm. You need to make sure you know where you are going, in addition to how quickly you are getting there!
+
+Link three. "Facebook, Libra, and the Long Game – Stratechery by Ben Thompson"
+
+Ben Thompson with a thorough article about Facebook's Libra and the trade-offs in it's design, as well as where Facebook would win.
+
+To put it another way, Libra has the potential to significantly decrease friction when it comes to the movement of money; of course this potential is hardly limited to Libra — the reduction in friction is one of the selling points of digital currencies generally — but by virtue of being supported by Facebook, particularly the Calibra wallet that will be both a standalone app and also built into Facebook Messenger and WhatsApp, accessing Libra will likely be much simpler than accessing other cryptocurrencies. When it comes to decreasing friction, simplifying the user experience matters just as much as eliminating intermediary institutions.
+
+Good read if you are interested in this new thing that Facebook is going after.
+
+Link four. "How Verizon and a BGP Optimizer Knocked Large Parts of the Internet Offline Today"
+
+Great post from Cloudflare about a large scale routing issue that impacted some big sites on the Internet. it is amazing how much impact a small error like this can have.
+
+Today at 10:30UTC, the Internet had a small heart attack. A small company in Northern Pennsylvania became a preferred path of many Internet routes through Verizon (AS701), a major Internet transit provider. This was the equivalent of Waze routing an entire freeway down a neighborhood street — resulting in many websites on Cloudflare, and many other providers, to be unavailable from large parts of the Internet. This should never have happened because Verizon should never have forwarded those routes to the rest of the Internet. To understand why, read on.
+
+Yikes.
+
+Link five. "Painting a Picture of Your Infrastructure in Minutes | Spotify Labs"
+
+This type of dynamic, graph-based service map work is a big deal in a modern Microservices architecture. This used to be done with documentation, but modern environments change far too fast for that, and the complexity is too much for a people-based process.
+
+Link six. "Stack History: A Timeline of Slack's Tech Stack Evolution | StackShare"
+
+"Nascar shots" of all the tech Slack has used at various stages. I absolutely love that PHP was there in the beginning.
+
+Link seven. "What it’s like to be on House Hunters and House Hunters International"
+
+House Hunters is one of our families guilty pleasures, particularly if we are all in a hotel and winding down for the night. I've always assumed it was embellished, but it's actually much more so than expected.
+
+Link eight. "Introducing time.cloudflare.com"
+
+Cloudflare keeps introducing these foundational services for the Internet. They have incredible technical chops, and seem to be doing amazing work.
+
+Link nine. "A different kind of new manager checklist: The 4 essential questions to ask yourself as a leader - Know Your Team"
+
+Great questions to consider as a leader. I would also think these should be revisited regularly.
+
+Link ten. "44 engineering management lessons | defmacro"
+
+Solid list of short, quick pieces of advice for a new engineering manager.
+
+That's the end of Notable Links.
+
+Now, the Give Back section.
+
+Creative Commons helps you legally share your knowledge and creativity to build a more equitable, accessible, and innovative world — unlocking the full potential of the internet to drive a new era of development, growth, and productivity. I have been a supporter of Creative Commons for years. Larry Lessig, the founder of Creative Commons, has done the world a great thing by creating a legal structure to help authors and creators encourage remix culture. In addition to donating, you should consider making your content under a Creative Commons license. Donate to Creative Commons today!
+
+That's the end of Give Back.
+
+Now, more links.
+
+- How do you delegate to a group of people? www.annashipman.co.uk
+Interesting walkthrough about working across a leadership team.
+- 21wallpaper - Download curated wallpapers for you screen 21wallpaper.design
+Cool website with some creative backgrounds for your devices. Device backgrounds is an interesting way to bring some art into your day to day. Via Dense Discovery 42.
+- Swedish Couple Builds Greenhouse Around Home to Stay Warm and Grow Food All Year Long returntonow.net
+Cool idea for a house where the winters are long. The video is interesting as well and goes through the infrastructure. I wish they would have shown it in the winter though.
+
+That's the end of More Links.
+
+Now, the Microposts section.
+
+Wednesday @ 8:35 AM
+
+Excited to attend the Minneapolis Women in Tech Breakfast with Jenn Tejada, CEO of PagerDuty this morning! #MNWITBreakfast
+
+Saturday @ 10:14 PM
+
+Great performance by USA over Trinidad and Tobago winning 6-0 in CONCACAF Gold Cup. Some great combinations from US team.
+
+Saturday @ 11:49 AM
+
+Blew away previous 45-min PR and spent 17% of the spin in Zone 5! #peloton
+
+That's the end of Microposts.
+
+Now, the Fortune section.
+
+You've made it all the way to the end! Here is your fortune for this week.
+
+Go to a movie tonight. Darkness becomes you.
+
+Thank you for subscribing to the Weekly Thing!
+
+That brings us to the end of the Weekly Thing, issue 112. Thanks for listening, and I'll see you next time.

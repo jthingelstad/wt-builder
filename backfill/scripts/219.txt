@@ -1,0 +1,203 @@
+The Weekly Thing, issue 219. Friendships, FloriNouns, Rich Strike. Published May 14, twenty twenty two. By Jamie Thingelstad. In this issue: Kill-switched Ukrainian tractors, executive dashboards, Rich Strike Kentucky Derby, personal website joys, Atlassian outage review.
+
+Hello, I’m back!
+
+It is nice to be showing up in your inbox again. It has been six weeks since #218. I feel a little rusty. That seems to always be the case when I take a break. The words take a little bit to get going again.
+
+I’m returning with #219 and landing on the five year anniversary of the Weekly Thing. May 13, twenty seventeen was the first issue I sent. I wasn't exactly sure where I was taking this then, and I’m still not completely sure. But I know that I enjoy sharing the things I find interesting, and I hear from many of you that you like coming along on that journey.
+
+It’s nice to be back!
+
+Now, the Currently section.
+
+Playing: I've finally played a bit of Spiritfarer and I have really enjoyed the game. It is very unique, and I like that it plays at a more relaxed pace. I've only gotten a little bit into it so far. Tyler decided to play it as well and of course has already gotten about ten times further than me.
+
+Watching: Our family has gotten into The Middle. I will admit that I wasn't that excited about it in the first few episodes, but the show has grown on me. It has become a regular for us.
+
+That's the end of Currently.
+
+Now, the Notable section.
+
+Link one. "Thinking About Friendships – Rhoneisms"
+
+My friend Patrick writing about friendships.
+
+Quote.
+Even worse, messaging a friend to get together for no reason at all often doesn’t even occur to us as an option. We have some open time in our self-important schedules and in the myriad of things we could choose to do, we don’t even think about spending it with a friend. Friendships, and the time they require for nourishment, never seem to enter the equation. They don’t even make it on our to-do lists.
+End quote.
+
+Patrick's friend that had that heart attack is a good friend of mine as well.
+
+I also am guilty of not giving priority to maintaining friendships.
+
+Link two. "FloriNouns"
+
+There are a number of Noun NFT projects now. FloriNouns is interesting. It is a class project from Florida Gulf Coast University, and the Professor is leading the class through creating this project and also turning it into a DAO.
+
+Quote.
+◨-◨ Big Picture: the class is more than a typical course and will turn into a DAO when completed. Students who pass successfully will have the option to join the DAO which will hopefully fund future student projects in web3, as well as possibly creating some income for these students, allowing for these future entrepreneurs to fund their own ventures.
+End quote.
+
+I love to learn by doing. I think I would like Professor Werder's class.
+
+Link three. "Beyond Power"
+
+I got interested in The Divine NFT project in part because it was one of a collection of women-led efforts of it’s kind. This is another women-led NFT project but extends much broader, granting holders access to content, mentorship, job boards, etc. This sort of NFT/DAO around a specific shared interest or objective is working in many places.
+
+Link four. "Keeping your feed relevant and productive"
+
+LinkedIn is adding even more algorithmic filtering to its newsfeed. They don't use the word "editorial" here, but they should. It is notable that LinkedIn's growth trajectory (time spent specifically) changed dramatically when they made the feed a bigger part of the experience. Now they are needing to do things like "remove politics". I don't claim to know the answer, but they are walking down the exact same path as Facebook, just a few years behind them. It will be curious to see where this goes. Found via Five things on Friday #329, which is great by the way.
+
+Link five. "Some Notes on Executive Dashboards"
+
+A variety of observations on dashboards, not just "executive dashboards", whatever that may mean. The words "executive" and "enterprise" are used often with really squishy interpretations. Anyway, I dig the thoughts in here.
+
+Quote.
+I like this notion of "Player scoreboards" versus "Coach Scoreboards". It reminds me that every single dashboard is, implicitly, an exercise in incentive design. By choosing what goes into the dashboard you’re emphasizing what’s important, and what’s not.
+End quote.
+
+I’m a strong believer that every service team in a software organization should have a dashboard. They own it, create it, maintain it, and make sure it is published and discoverable. They can’t all be experts at making them, so there should be some shared expertise to help with best practices.
+
+Link six. "About those kill-switched Ukrainian tractors | Cory Doctorow"
+
+Great article from Doctorow, and highlights how in our current digital world we don't always really understand what we "own". I also didn’t know how John Deere was collecting all this data while farmers were using their tractors. This seems similar to how TV companies listen to us and sell that data. Or even how trivially simple it would be for Tesla to make it so I could never drive the car sitting in my garage ever again.
+
+Quote.
+Why are John Deere tractors kill-switched in the first place? Here’s a hint: the technology was not invented to thwart Russian looters. No, it was invented to thwart American farmers.
+End quote.
+
+This falls in the not-terribly-well-named bucket of things like Right to Repair. But in general, understanding what we are really buying when we buy something is important.
+
+Link seven. "Day 74. Never Again."
+
+Incredible Address by the President of Ukraine on the Day of Remembrance and Reconciliation. English subtitles added, and full text of speech in the article.
+
+Link eight. "The Joys and Sorrows of Maintaining a Personal Website"
+
+An ode to the many aspects of self-publishing on the web. This captures what I feel is a critical part of the web. It is open to anyone that is willing to put in the effort. The great thing about the web is that openness. Facebook, Twitter, YouTube — these are not the web, they are things that are on the web.
+
+Link nine. "Rich Strike, 80-1 Long Shot, Wins Kentucky Derby in Stunning Upset - The New York Times"
+
+Tammy and I were at the 148th Kentucky Derby to see this amazing 80-1 Rich Strike win the race. What an incredible thing. You can see we didn’t have Rich Strike on our list.
+
+Link ten. "Tales | The easiest way to record your family's memories"
+
+What a fabulous idea! "Our professional interviewers speak with your loved one and deliver a studio-quality audio recording that you'll cherish forever." Creating a personal archive, something to share with family and friends, is hard to do. Having people who are good interviewers and quality tech is a great idea.
+
+Link eleven. "Uncurled"
+
+Daniel Stenberg, the lead developer of cURL, created this book about "everything I know and learned about running and maintaining Open Source projects for three decades". I looked through parts of it and there is great stuff here.
+
+Link twelve. "Post-Incident Review on the Atlassian April twenty twenty two outage - Atlassian Engineering"
+
+A 14-day outage for a major SaaS provider is exceedingly rare, and incredibly painful. This one is even more so as it was an accident.
+
+Quote.
+The script that was executed followed our standard peer-review process that focused on which endpoint was being called and how. It did not cross-check the provided cloud site IDs to validate whether they referred to the Insight App or to the entire site, and the problem was that the script contained the ID for a customer's entire site. The result was an immediate deletion of 883 sites (representing 775 customers) between 07:38 UTC and 08:01 UTC on Tuesday, April fifth, twenty twenty two.
+End quote.
+
+This had to be an incredibly difficult incident report to write-up, but Atlassian deserves credit for being clear with their customers on what happened.
+
+Link thirteen. "How to Put Life on Easy Mode"
+
+Good list from Leo Babauta of things to consider to engage "easy mode" in life. This would be a good list to revisit regularly.
+
+That's the end of Notable.
+
+Now, the Journal section.
+
+Thursday @ 6:54 PM
+
+At Children’s Theatre Company for Diary of a Wimpy Kid: The Musical! Tyler is a big fan of the Diary of a Wimpy Kid series.
+
+Wednesday @ 10:36 PM
+
+I’m the top collector on Nifty Ink. I just have so much fun here. It is one of my favorite web3 sites.
+
+Wednesday @ 10:03 PM
+
+Very intense thunderstorms tonight. Knocked power out for an hour and still counting. AT and T internet service stopped working but just came back.
+
+Sunday @ 5:29 PM
+
+Outdoor sculpture at Hermitage Farm in Kentucky. Delicious Mother’s Day brunch at Barn8.
+
+Sunday @ 10:29 AM
+
+Atwood Farms, Kentucky.
+
+Sunday @ 7:48 AM
+
+Good morning from Goshen, KY. Horse country. Beautiful.
+
+Saturday @ 5:32 PM
+
+Horses we are going for, in order, in the 148th Kentucky Derby: Zandon (10), Cyberknife (16), Smile Happy (5), and Simplification (13).
+
+Saturday @ 1:15 PM
+
+This was a very unique place to stay before going to Churchill Downs for the Kentucky Derby. Woke up in the Airstream to the sound of horses neighing.
+
+Saturday @ 1:12 PM
+
+Race 7, Churchill Downs. Win for Jack Christopher!
+
+Saturday @ 11:48 AM
+
+Mint Julip and Lily. Derby Day!
+
+Saturday @ 11:27 AM
+
+Checking out the horses by the Twin Spires of Churchill Downs. Derby day!
+
+Friday @ 3:26 PM
+
+Boarding flight for the Kentucky Derby!
+
+That's the end of the Journal.
+
+Now, the Briefly section.
+
+Link one. "721"
+
+Interesting utility that lets anyone with a certain NFT in their wallet send a Tweet from an account. Basic idea of NFT-holders gaining access to some privileged functionality.
+
+Link two. "Peloton announces large losses in Q3 twenty twenty two earnings report - Peloton Buddy"
+
+I still enjoy the Peloton product and service a lot. The company however seems to be in a complete tailspin. There is a massive turnaround to do here, and I just hope they are even able to do it! Good product, not a good company, at least right now.
+
+Link three. "How mindfulness can make you a darker person - BBC Worklife"
+
+This headline should be: Mindfulness works. That would get fewer clicks though. Main point, don't use mindfulness techniques to alleviate negative feelings from doing something wrong.
+
+Link four. "Announcement: I’m Going to Miss You, But I Am Taking a Sabbatical"
+
+Jason Kottke has been publishing online for nearly as long as there was an "online". 24 years.
+
+Link five. "See U2’s Bono and the Edge Play Surprise Acoustic Set in Kyiv Bomb Shelter"
+
+U2 deserves a lot of respect for using their music and fame to bring attention and resources to so many humanitarian crisis over the years. I love that they did this performance in Kyiv.
+
+Link six. "OnionDAO - Adding incentive layers to public goods"
+
+Another DAO example, this one creating additional incentives for doing good things. Current one is to incentivize running Tor exit nodes.
+
+Link seven. "World's Best FPV Drone Shot? (Extreme Mountain Biking) - YouTube"
+
+This video is filled with ridiculous mountain biking, and caught with over the top drone flying. Wow. Jump to 8m 13s if you just want to watch the video. Via Five things on Friday #329.
+
+Link eight. "Manor DAO A Poolsuite Offering"
+
+A DAO collectively buying a Manor, err, vacation property? Another example of DAOs enabling collective action in ways that would have been very difficult and expensive before.
+
+That's the end of Briefly.
+
+Now, the Fortune section.
+
+Here is your fortune…
+
+Your object is to save the world, while still leading a pleasant life.
+
+Thank you for subscribing to the Weekly Thing!
+
+That brings us to the end of the Weekly Thing, issue 219. Thanks for listening, and I'll see you next time.

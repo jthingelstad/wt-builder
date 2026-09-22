@@ -1,0 +1,245 @@
+The Weekly Thing, issue 174. Responsively, Underline, Skittish. Published February 20, twenty twenty one. By Jamie Thingelstad. In this issue: Spy pixels endemic, Tim Cook transformed Apple, Texas power outage, smart TV tracking, Clubhouse inevitability, 24-year-old Linux kernel bug.
+
+We are continuing to have a nice February in Arizona, escaping some incredibly cold weather back home. This massive cold streak has caused havoc for so many. I’m glad to see that finally people are getting power and heat restored.
+
+This week was another crazy busy week for me. I’m going to get right on to the links. There are also a bunch of pictures from some hiking and exploring that we did around Joshua Tree National Park.
+
+Hope you had a great Valentine's Day!
+
+"Every action you take is a vote for the type of person you wish to become." — Atomic Habits (p 38)
+
+Now, the Must Read section.
+
+Link one. "Don’t Underestimate the Power of a Walk"
+
+Lucky gets taken on a walk pretty much every day. There is real benefit to walks.
+
+Quote.
+But, when I think about the simplest and most strategic thing I am able to do for myself that’s Covid-safe, it’s walking. When I weigh what activity I can do almost every day, with little preparation, minimal effort, no special equipment, and that can contract or expand to fit the exact amount of time I have available, it’s walking. When I consider what I can do for myself even when my back pain is flaring up, it’s walking. When I want to do something that’s good for my mind, body, and soul, it’s walking. When I want someone’s company (physically distanced, of course) — or just want to be alone, walking works.
+End quote.
+
+Walking meetings are still one of my favorite ways to explore ideas and solutions with colleagues.
+
+Link two. "This Is How Tim Cook Transformed Apple After Steve Jobs - Bloomberg"
+
+This is an interesting read about how Tim Cook has evolved Apple, and put his fingerprint on it in so many ways. It also highlights how deft of a negotiator and communicator he must be.
+
+That's the end of Must Read.
+
+Now, the Recommended Links section.
+
+'Spy pixels in emails have become endemic' - BBC News
+
+These invisible trackers in email are one of the biggest benefits you get using network level privacy tools like Pi-hole. It is unfortunate that, to my knowledge, no email clients have privacy protection capabilities right now. Even as Web browsers have gotten that added. I do like how Hey calls out senders that do this. Hopefully that spurs others to follow suit.
+
+A Web Developer's Browser | Responsively App
+
+This is an impressive tool to help web developers designing responsive applications. The ability to see various layouts simultaneously is incredibly powerful. Wow.
+
+Self-publishing Staff Engineer.
+
+Will Larson shares the nitty gritty details of self-publishing his own book. If you are considering writing and publishing your own book, this is a great resource to frame up how to approach it.
+
+"Naming Things" is a Poor Name for Naming Things • Buttondown
+
+The challenge of naming things is well known in the software world. It’s hard. This article is a good writeup on "why" it is so hard, and provides a framework for how to think about it. Also see Why Is Naming Things Hard? by Neil Kakkar.
+
+Underline
+
+A very simple email newsletter platform. I use Buttondown which I don't think is any more complicated than this. But Underline has good pricing for a simple newsletter solution. It seems comparable, and a lot better than, TinyLetter which MailChimp bought a while ago and is letting slowly atrophy.
+
+Announcing Skittish – Waxy.org
+
+Skittish sounds cool and I hope, and would guess, that there are a number of folks working on solutions to host events online in a more interesting and engaging way. Zoom is wonderful for meetings, but events are not just meeting!
+
+Quote.
+More than anything, I wanted it to be optimized for fun: interesting to explore on its own, make new friends, and a vibrant place for creators and event organizers to bring together their communities in a new way.
+End quote.
+
+I like the concepts here and it seems like a great start. We need a lot of innovation in these services, and there should be room for a number of alternatives.
+
+Want to Reduce Brain Fog And Improve Clear Thinking? Give up These Things Immediately
+
+This is a great set of recommendations. Give up the clutter, Multi-tasking doesn’t work, Give up the urgent distraction, Stop feeding your comfort, Don’t sit still, and Stop consuming media and start creating instead. Sound interesting? At least one of these is worthwhile to take on.
+
+Clubhouse’s Inevitability – Stratechery by Ben Thompson
+
+Thompson frames Clubhouse in the realm of social media in an interesting way. I recently signed up on Clubhouse (@jthingelstad, thanks @hectorguatemala). It is interesting and the experience is well done. It seems very much driven by a small handful of very popular users that host events. It feels a lot like a live podcast.
+
+ongoing by Tim Bray · Recent Code
+
+I like how reading this you can hear how clearly Bray loves the act of coding.
+
+Quote.
+Old-school it may be, but I’m learning cool new Java things like postmodern switch because IntelliJ keeps sneering at my Java 8 idioms and suggesting the new shiny. And I’d forgotten, really, how nice carving executable abstractions into shape feels. Also parsers are particularly fun.
+End quote.
+
+Keep that connection to the passion that you have as a technologist!
+
+Fran Lebowitz Isn’t Buying What Jack Dorsey Is Selling - The New York Times
+
+Tammy and I thoroughly enjoyed this interview with Fran Lebowitz. Her comments were refreshing!
+
+Reminders App is All I Need – The Brooks Review
+
+I like Brooks thinking on using the right tool for the job.
+
+Quote.
+I need a bucket not a warehouse with programmable robots.
+End quote.
+
+I think the important two words here are "I need". Knowing what you need in your tools is critical. For me, I do need a programmable robot when it comes to task management and it is why I use OmniFocus. But, I've never found any of the third party apps to work well for me for Mail or Calendars. They just don't perform. I see a lot of people seeking third party apps for core components, and I think for a lot of them the investment doesn't pay off.
+
+Podcasts had a bumper twenty twenty – On my Om
+
+Wow, this is incredible growth. Personally my podcast consumption has plummeted during the pandemic because I’m not commuting. However, I think I’m an outlier.
+
+That's the end of Recommended Links.
+
+Now, the Journal section.
+
+Thursday @ 9:18 PM
+
+Watching Perseverance land on Mars today was another amazing example of engineering and discovery being done at amazing levels. Perseverance has a drone on board! How cool is that! Congratulations to the team that made this a reality today!
+
+Thursday @ 8:13 PM
+
+Day 18 of the February Photoblogging Challenge: At home
+
+We aren’t at home, so I am doing at Airbnb instead.
+
+Tuesday @ 6:36 PM
+
+Day 16 of the February Photoblogging Challenge: Erudite.
+
+Erudite vibe.
+
+Monday @ 8:13 PM
+
+Noah Purifoy Outdoor Museum
+
+Today we visited the Noah Purifoy Outdoor Museum in Joshua Tree. We weren't familiar with Purifoy, but his background is very impressive and the outdoor museum he created here is unique, interesting, and a little confusing. We spent a while walking around and taking pictures. We didn’t read up about Purifoy until we left which we actually liked since it allowed us to see the art "as is".
+
+Monday @ 7:55 PM
+
+Skull Rock Trail
+
+After hiking Ryan Mountain Trail and checking out the famous Skull Rock, we decided to take a hike amongst the giant rocks along Skull Rock Trail.
+
+The kids had a fabulous time running and climbing up the rocks while I anxioulsy watched worrying someone might fall.
+
+Monday @ 7:26 PM
+
+Day 15 of the February Photoblogging Challenge: Reflection.
+
+Reflection, self-portrait.
+
+Monday @ 6:52 PM
+
+Skull Rock in Joshua Tree National Park.
+
+Monday @ 6:24 PM
+
+Ryan Mountain Trail Hike
+
+Today we got up early and were on the trail at 8am to hike to the top of Ryan Mountain in Joshua Tree National Park.
+
+We hit the trail and were thinking it would be warming up so we had shorts and just shirts on. Immediately we saw people with snowjackets, hats, gloves. I'm not sure who was dressed right, but one of us picked wrong. It was mostly us.
+
+The way up was a 1,000 foot ascent that was pretty much non-stop. It was strenuous but that also made it a great accomplishment when we got to the top!
+
+Sunday @ 7:16 PM
+
+Day 14 of the February Photoblogging Challenge: Compassion.
+
+I struggled to get a photo for this one. I ended up having the kids pose for me as the sun was setting by Joshua Tree, CA.
+
+Sunday @ 7:15 PM
+
+We did the Titanic Room at Escape Room Palm Springs today. They isolate everyone so it's as safe as can be. It was a fun room, it not a bit easy. We finished in 44 min 29 sec and didn't ask for any clues!
+
+This frame they had on the wall made me chuckle.
+
+Sunday @ 7:13 PM
+
+We followed this DIY Modern Architecture Tour of Palm Springs today. One of the stops was Elvis Presley's Honeymoon Hideaway. It was under construction but I got a picture over the fence. So many amazing houses in Palm Springs.
+
+Sunday @ 12:41 PM
+
+Picture with Frank Sinatra’s star in Palm Springs, CA.
+
+Sunday @ 12:09 PM
+
+Happy Valentines Day! My daughter crafted these amazing Valentines cards for us.
+
+Sunday @ 12:07 PM
+
+The morning view from the Art Loft Airbnb in Joshua Tree, California. Inspiring.
+
+Saturday @ 7:22 PM
+
+Day 13 of the February Photoblogging Challenge: Make.
+
+A great place for making.
+
+Saturday @ 5:40 PM
+
+The Cholla Cactus Garden at Joshua Tree National Park. They are pretty but hazardous to touch. Keep your distance.
+
+Saturday @ 11:37 AM
+
+Heading to Joshua Tree National Park for a couple of days. 4h 30m drive.
+
+It is amazing how long it takes to just get out of Phoenix!
+
+That's the end of the Journal.
+
+Now, for your information.
+
+Smart TVs like Samsung, LG and Roku are tracking everything we watch - The Washington Post
+
+Smart TV's should be renamed Surveillance TV's. Never connect these to the Internet. Get an Apple TV and plug that into it.
+
+Clubhouse Bio Generator ― perchance.org
+
+This is fabulous.
+
+Texas power outage: Why natural gas went down during the winter storm | The Texas Tribune
+
+Good background on what is driving the massive power issues in Texas.
+
+How to Buy a Real N95 Mask Online - The New York Times
+
+I've struggled with this because I worry that the quality of masks online is terrible. After reading this, I placed an order for 500 various masks at Bona Fide Masks.
+
+Calvin and Hobbes Search Engine - by Bing
+
+What a super niche but cool idea.
+
+Open source Observability platform | SigNoz
+
+Looks like a good tool. There is still a lot of innovation to happen in this space.
+
+Uncovering a 24-year-old bug in the Linux Kernel – Skroutz Engineering
+
+This is a fun read of a particularly tricky bit of debugging. If you are curious how some of these bugs are so difficult to find, this may give you some deeper appreciation.
+
+Beyond Burned Out
+
+Good perspective on the demands being placed on many and how COVID-19 has made some of them so much worse.
+
+What Every Heart Emoji Really Means
+
+Wow, emoji use can be complicated!
+
+That's the end of the FYI section.
+
+Now, the Fortune section.
+
+Here is your fortune…
+
+You will be successful in love.
+
+Thank you for subscribing to the Weekly Thing!
+
+That brings us to the end of the Weekly Thing, issue 174. Thanks for listening, and I'll see you next time.

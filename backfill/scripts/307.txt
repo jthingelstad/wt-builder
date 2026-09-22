@@ -1,0 +1,221 @@
+The Weekly Thing, issue 307. Attention, Goose, Pulse. Published February 1, twenty twenty five. By Jamie Thingelstad. In this issue: Scaling Ethereum, alienated from attention, FOMO machines, Bear Manifesto, four-digit PIN, Gulf of America, Omni Roadmap twenty twenty five, codename goose.
+
+Weekly Thing 307 sent while drinking a good coffee at the community table of Getaway Motor Cafe in Carver, MN.
+
+Good morning!
+
+Hope all is well with you!
+
+The highlight of this week was taking family pickleball lessons at Lucky Shots. It was fun to finally learn how to actually play the game, plus I found whatever skills I have at ping pong (table tennis?) to be a bit useful. Sure we are late to jump into this super popular activity but better late than never.
+
+Now, the Currently section.
+
+Listening: I enjoyed listening to David O'Hara on How to Lead with Authenticity and Impact on the Leadmore Podcast. The discussion of different types of leaders was great. Plus David is a Weekly Thing reader!
+
+That's the end of Currently.
+
+Now, the Introducing Phil Rodemann's Blog section.
+
+This is the first guest column for the Christmas Blog introductions! This week we'll meet Phil Rodemann as he introduces himself and his new blog. Phil's been posting over the holidays and some trips they've been taking. Read more here and then check out his website!
+
+In trying to come up with something to write about myself I’ve had difficulty thinking of interesting things to say. Then I started thinking about my distant past, and I realized there are plenty of things that are different or interesting about me. I went to 6 different elementary schools while my family moved as my Dad changed jobs so he could climb the corporate ladder. I won a contest to be batboy for the Cincinnati Reds for one night and I got to meet and spend time in the dugout with Johnny Bench, Pete Rose, Joe Morgan, Sparky Anderson, Tony Perez, etc. in the early ‘70s. I graduated from college and had a 40+ year career in bookkeeping/accounting, real estate sales and training, and corporate IT. Once retired, I discovered I’ve had ADHD my entire life. I have a fantastic wife and 2 wonderful kids who are now grown. We live in a southwest suburb of Minneapolis, MN, and despite moving around so much as a child we’ve lived in our current house for 20+ years.
+
+For the life of me, I’ve never been able to consistently carry on a writing habit. Journaling was always recommended to me, but I never felt comfortable writing about my thoughts or myself. I was toying with the idea of using micro.blog as my writing tool as I thought having my writing out in public would help to keep it happening regularly. This was when Jamie announced he was doing the Christmas giveaway for a year of micro.blog, and I thought it was too much of a coincidence for me to not put my name in! Then I found out that I was one of the names that won and I realized that I was now going to have to follow through and make twenty twenty five my year of writing. No pressure!
+
+Right after starting my micro.blog we took a family trip to Costa Rica for a week. This gave me lots of good content to post since all I had to do was post a picture that I was already taking and describe it. Once we came back, I quickly fell off the writing wagon but I do find that I come up with ideas about what to write regularly. All I have to do is capture those ideas. Micro.blog is simple and straightforward so it is easy to use. I will not be able to consistently write if the tool used to put it out to the public isn’t well-designed and simple to use. So far, so good! Thanks to Jamie for his generosity with the contest and thanks to Manton Reece and everyone at micro.blog for their awesome service.
+
+I will keep writing and searching for other interesting micro.blogs. I’m not big into social media any longer, but please don't hesitate to reach out and comment on one of my posts or conversations. I think as humans we tend to be harder on ourselves than others, so maybe my writing WILL interest someone else besides me!
+
+That's the end of Introducing Phil Rodemann's Blog.
+
+Now, the Notable section.
+
+Link one. "Scaling Ethereum L1 and L2s in twenty twenty five and beyond"
+
+Buterin sharing current point-of-view on continued growth and scaling of Ethereum. I continue to be a big proponent of Ethereum and the roadmap. The network-of-networks approach with Layer 1 and Layer 2s makes so much sense. I also love that Ethereum continues to build, build, and build the infrastructure that will enable incredible capabilities. It is a long and complex roadmap.
+
+Link two. "You're Being Alienated From Your Own Attention - The Atlantic"
+
+Gift link! What are you thinking about right now? What has your attention? Why?
+
+Quote.
+Attention is a kind of resource: It has value, and if you can seize it, you seize that value. This has been true for a very long time. Charismatic leaders and demagogues, showmen, preachers, great salespeople, marketers, advertisers, and holy men and women who rallied disciples have all used the power of attention to accrue wealth and power. What has changed is attention's relative importance. Those who successfully extract it command fortunes, win elections, and topple regimes. The battle to control what we pay attention to at any given instant structures our inner life--who and what we listen to, how and when we are present to those we love--and our collective public lives: which pressing matters of social concern are debated and legislated, which are neglected; which deaths are loudly mourned, which are quietly forgotten. Every single aspect of human life across the broadest categories of human organization is being reoriented around the pursuit of attention. It is now the defining resource of our age.
+End quote.
+
+It is worth thinking about these questions and making sure you understand the why.
+
+Link three. "TabBoo"
+
+I love this! Yes you can block websites that you don't want to go to but find yourself continuing to go there. That is what I use 1Blocker for. This Chrome extension lets you go there and then pops a "boo" image at you. Behavior conditioning at work!
+
+Link four. "FOMO Machines - I am BARRY HESS"
+
+One of the great practices that mindfulness brings you is to be aware of your own reaction to things. Why do I feel like this when I am exposed to that? Hess takes a moment of mindfulness with different services. Do this once a day and take action and you'll be happier.
+
+Link five. "The Bear Manifesto | ᕕ( ᐛ )ᕗ Herman's blog"
+
+I love this manifesto from Herman Martinus, the creator of Bear which is a great indie blogging service. He highlights:
+
+1. Bear won't shut down.
+2. Bear won't sell.
+3. Bear won't show ads.
+
+He even goes further to talk about the legal structure and real thought he has put into making sure Bear continues for as long as possible. I love the ethos of this. I'm a very happy micro.blog customer. If I weren't, I'd be a Bear customer.
+
+We need more people building digital services with this mindset.
+
+Link six. "The Art of Calling Out Room Dynamics"
+
+This isn't something I’m great at, but I know other leaders that are really good at this and it definitely works. It is the antidote of "going to silence" or "going to violence" when there is conflict.
+
+Link seven. "Open Heart Protocol"
+
+I like using Emoji reactions in Slack and chat tools. I’m actually all for something like this that would allow you to add emoji reactions to any URL. It seems overly simple though. Like you would get hit with millions of fake messages just because you could.
+
+Link eight. "Almost one in 10 people use the same four-digit PIN - ABC News"
+
+This article is fun to read if only for the PIN visualizations. I like how they did that. Seriously though why do people pick such horrendous PINs? 10% of people use the same PIN? It isn't that hard to do this at least a little right.
+
+Link nine. "We’re Shutting Down The Pika Pulse - Building Pika Out Loud"
+
+Pika is another great blogging service made by the wonderful folks over at Good Enough. Similar to Micro.blog's Discover feed, Pika made the Pulse feed as a way to support discovery of new blogs. It sounds like it was using a random selection of articles.
+
+Quote.
+We're a small team and we want the bulk of our time and energy to be spent building the best software we can. It's not possible for us to read everything on The Pulse and ensure it's suitable to promote to a larger audience. It was a mistake to launch something that deserves to be moderated.
+End quote.
+
+Their decision highlights to me how hard it is to both be a publishing solution and an aggregator at the same time. If you provide a solution to help people put their words and images on the Internet I believe you should have no opinion about what those words and images are as long as it is legal.
+
+However if you are an aggregator you are fundamentally making choices. You are an editor. If you have AI do it, or a random number generator, you are no less an editor you are just using something other than a person to select what to highlight.
+
+Link ten. "Google Maps to show Gulf of America after government updates"
+
+I remember reading about this feature in Google Maps years ago. They had to solve the capability of using different labels for the same thing because governments don't agree. Mostly it is in conflicted areas of the world. But now the U.S. is considered a ‘sensitive country’ like China, Russia and we'll get our own special names that are different than the rest of the globe.
+
+Link eleven. "The Old Family Photos Project: Lessons in creating family photos that people want to keep | Esther Schindler"
+
+I take a lot of photographs. Some for fun, some for documentation, some for art. My library is over 200,000 for sure. How will my descendants look at those photos? This article is a cool perspective. It isn't going to change how I think of my own photos, but it does make me appreciate the photos that I put on my blog and have at least some context on what it is about.
+
+Link twelve. "Omni Roadmap twenty twenty five - The Omni Group"
+
+Given how much I use OmniFocus I’m always interested to see what Omni is thinking. I have no idea if I'll like a Kanban view. We'll see. The tag logic that they are adding seems like a component of a Kanban view as well. A scheduled date could be interesting. I'd like to see them do something with Contacts and being able to associate tasks with people. The same way you can add a location to a tag, let me add a contact to a tag and then do interesting things with that.
+
+Link thirteen. "Introducing codename goose"
+
+This codename goose is an interesting tool.
+
+Quote.
+Powered by your choice of large language models (LLMs), a user-friendly desktop interface and CLI, and extensions that integrate with your existing tools and applications, Goose is designed to enhance your productivity and workflow.
+End quote.
+
+We are going to see a ton of innovative solutions like this.
+
+Link fourteen. "DistroWatch.com: Put the fun back into computing. Use Linux, BSD."
+
+So Facebook has decided they are no longer going to moderate a bunch of posts that have hateful and fake information, but they are going to decide Linux is off limits?
+
+Quote.
+Starting on January 19, twenty twenty five Facebook's internal policy makers decided that Linux is malware and labelled groups associated with Linux as being "cybersecurity threats". Any posts mentioning DistroWatch and multiple groups associated with Linux and Linux discussions have either been shut down or had many of their posts removed.
+End quote.
+
+Seriously what? Facebook — out!
+
+That's the end of Notable.
+
+Now, the Journal section.
+
+Journal entry one.
+
+Mazie brought a variety of chocolate and coffee back from Costa Rica to share with us!
+
+Journal entry two.
+
+Me looking serious on the Ice Throne at Ice Castles.
+
+Journal entry three.
+
+We had another super fun evening at Activate in Roseville playing fun games! Highly recommend checking this place out.
+
+Journal entry four.
+
+Helped my brother transfer his domain name ikeating.com from GoDaddy to NameCheap this morning. We were able to complete the whole process in about an hour. As long as you do all the steps right it wasn't too difficult.
+
+Journal entry five.
+
+Enjoying a Potica Latte with my brother Isaiah at Lynette.
+
+Journal entry six.
+
+Another Ice Throne. This time at the Ice Palace in Delano.
+
+Journal entry seven.
+
+We all had a fun time at Lucky Shot Pickleball taking the beginner class tonight.
+
+Journal entry eight.
+
+Two times this week I attempted to add a link to Pinboard and found out I had already added it. In one case I added it two years ago and in another five years! It always makes me chuckle a little bit when that happens.
+
+Weekly Thing Forum
+
+Join Patrick Hambek, Tom Mungavan, Jim Cuene, Michael Josephson, garrickvanburen, and many other Weekly Thing readers in the Weekly Thing Forum. Recent topics include:
+
+- Weekly Thing #306
+- Newsletter 305 - Professional Scratchers
+- Weekly Thing Logo
+- Newsletter 304 and Blog Thoughts
+- Favorite / "Keeper" articles from twenty twenty four?
+
+That's the end of the Journal.
+
+Now, the Briefly section.
+
+Link one. "You can just hack on ATProto | Vicki Boykis"
+
+You used to be able to just hack on many of these social services until they turned away from innovation to focus on surveillance and lock-in as much as possible. Cool that Bluesky creating a way for people to play, explore, and have fun.
+
+Link two. "Badges"
+
+I love these old school web badges! It makes me want to get some of my own!
+
+Link three. "NYC Subwaysheds"
+
+Don't live in NYC so isn't that interesting but I liked the data visualization.
+
+Link four. "Michael Tsai - DeepSeek"
+
+Tsai does great roundup posts and this one has a ton of links on DeepSeek.
+
+Link five. "A Synchronized Start for Linked Devices — Signal"
+
+This is a much needed feature for Signal. It is frustrating when you setup a new device and have no history.
+
+Link six. "This Habit Is Making You Miserable - RyanHoliday.net"
+
+Great suggestion from Ryan Holiday.
+
+Link seven. "Minnetonka-based E-Commerce Firm Digital River to Shut Down | Twin Cities Business"
+
+Digital River was a power house in Minneapolis at one point. It is a bit sad to see it shutting down.
+
+Link eight. "Making Micro Social - Greg Morris"
+
+Interesting third party app being built on micro.blog.
+
+Link nine. "Hedy - Textual programming made easy"
+
+Simple programming language to teach coding. I like that this runs right in the browser.
+
+Link ten. "Why I still like Sublime Text in twenty twenty five | OhDoyleRules"
+
+I’m not a programmer so I can’t say I need the same power in an editor as those folks, but I’m a happy Sublime Text user still. Also, I need to look into a Markdown LSP.
+
+That's the end of Briefly.
+
+Now, the Fortune section.
+
+Here is your fortune…
+
+Beware of low-flying butterflies.
+
+That brings us to the end of the Weekly Thing, issue 307. Thanks for listening, and I'll see you next time.

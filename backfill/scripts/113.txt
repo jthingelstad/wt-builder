@@ -1,0 +1,138 @@
+The Weekly Thing, issue 113. Aug 17, twenty nineteen. Published August 17, twenty nineteen. By Jamie Thingelstad. In this issue: CTO roles and skills, Cloudflare S-1, Verizon sells Tumblr, YouTube radicalized Brazil, Python programming language, Standard Ebooks.
+
+I’m back! In #112 I shared that I was going to take a break for the month of July. When August came around, things were just a blur and I called an audible and decided to take a couple more weeks off. Now I’m back on the keys excited to reconnect with all of you!
+
+Taking a break was a great idea. We spent a couple of weeks at the lake in July, took a trip to see some European Soccer, and generally enjoyed what I think is going to go down as one of the best summers our family has had. As the kids have gotten older they are digging into summer even more. I have to admit to being a bit jealous some days heading off for the office as everyone else is sleeping in with various fun plans for the day.
+
+Anyway, I’m back in the saddle again and have some ideas to fine tune for the Weekly Thing. In the meantime, have a great weekend and enjoy some fresh links and updates! Cheers!
+
+Now, the Featured Links section.
+
+Link one. "One job, many roles. The different skills needed to be a successful CTO - madewithlove"
+
+I suspect that many roles, particularly leadership roles, have this type of evolution in a growing company. I've personally experienced this type of path being a CTO for more than 20 years now. The important aspect to me is to regularly inventory what you need to start doing, and more importantly what you need to stop doing. Refactor yourself, and you can make the changes needed.
+
+That's the end of Featured Links.
+
+Now, the My Weekly Photo section.
+
+July sun setting over rural Minnesota field.
+Jul 20, twenty nineteen at 8:36 PM
+Dundas, MN
+
+That's the end of My Weekly Photo.
+
+Now, the Notable Links section.
+
+Link one. "Cloudflare S-1"
+
+Cloudflare has begun the process of filing to go public. I've been very impressed with Cloudflare's offerings, the technical depth that they bring to global Internet delivery is amazing. Plus, they are focused on being on the side of good on the Internet.
+
+Link two. "WARREN ELLIS LTD | This Ain’t Walden Pond, Mate"
+
+I like this perspective from Warren Ellis on his engagement with social platforms.
+
+I process a lot of stuff, and keep up with a lot of things, and a shift is required to allow for the career step-change. You can’t be dogmatic about anything. Situations tend to be fluid and dynamic, and you need to be able to flow and adjust in response.
+
+Those adjustments are a good thing.
+
+Link three. "Michael Tsai - Blog - Verizon Sells Tumblr to Automattic"
+
+At this point Tumblr the company has long ceased to exist. Tumblr the Community, finding a home at Automattic with WordPress is by far the best outcome that could have ever happened for it. Mullenweg and team will treat this with care and respect.
+
+Link four. "Deep links to opt-out of data sharing by 60+ companies – Simple Opt Out"
+
+Nice set of links to immediately drop you to the hidden, obfuscated pages to opt-out of various data sharing things. Great reference!
+
+Link five. "How YouTube Radicalized Brazil - The New York Times"
+
+There is a lot of great content on YouTube, but this stuff is far too prevalent.
+
+As his time on the site grew, YouTube recommended videos from other far-right figures. One was a lawmaker named Jair Bolsonaro, then a marginal figure in national politics — but a star in YouTube’s far-right community in Brazil, where the platform has become more widely watched than all but one TV channel.
+
+Last year, he became President Bolsonaro.
+
+It lowers YouTube (Google's) revenue by blocking this stuff. I wouldn't expect much to happen.
+
+Link six. "RSSMailer"
+
+Simple app to send emails when an item appears in an RSS feed. Cool tools like this are just one of the reasons I love RSS.
+
+Link seven. "Python is eating the world: How one developer's side project became the hottest programming language on the planet | ZDNet"
+
+Thorough read on the story behind Python, it’s introduction and rise in popularity. I don't do any professional coding, but I do goof around on things and I nearly always do that in Python.
+
+What Python offered, and still offers, is clear and unambiguous syntax, where indentations group code into blocks, making the code easier for developers to understand.
+
+It is a joy to use and very readable.
+
+Link eight. "How We Keep Learning"
+
+One of my most repeated references is "All great technology companies, are learning companies." You simply cannot be a great tech company without that learning foundation.
+
+Invest in your engineers’ learning. There is no way around the need for this to be an explicit investment by fast growing companies.
+
+Yes, and twice on Sunday.
+
+Link nine. "Standard Ebooks: Free and liberated ebooks, carefully produced for the true book lover."
+
+Very cool project, non-profit, creating high quality digital books from public domain titles. I like that they also make their template available for others to use.
+
+Link ten. "Here’s What Those Phone Charging Lockers Are Doing With Your Personal Information"
+
+Don't go plugging your phone with so much personal information into some random plug at a retail location! Much less let it take a picture of you and collect personal data.
+
+Link eleven. "Why Aren’t We Talking About LinkedIn? - The New York Times"
+
+LinkedIn has adopted all of the addictive patterns of social media, to great affect. The site has continued to grow in every dimension of engagement.
+
+Considering its size and social footprint, LinkedIn has been a notably minor character in major narratives about the hazards of social media. The site hasn’t proved especially useful for mainstreaming disinformation, for example, nor is it an obvious staging ground for organized harassment campaigns. It is unique among its social media peers in that it has not spent the last five years in a state of wrenching crisis.
+
+But LinkedIn is very different since it is a "professional" or business network. it is a vertical network focused on a single dimension. You don't go there for news. The only thing it’s a battleground for is recruiters, not partisans.
+
+Link twelve. "Scaled agile helps modernize Guardian's operations | CIO"
+
+I worked closely with Dean Del Vecchio when I was at Dow Jones. Smart, fast-paced leader. He's been doing some great stuff at Guardian!
+
+That's the end of Notable Links.
+
+Now, more links.
+
+- "Bicycle for the Mind" - Learning By Shipping medium.learningbyshipping.com
+Some great history here.
+- Escape rooms are very big business - Vox
+Our family has done well over 20 Escape Rooms. They are a lot of fun!
+- Tips from 16 years of working from home – A Whole Lotta Nothing
+Good list of things to consider if you work from home regularly.
+- xkcd: E Scooters xkcd.com
+I used my first Lime scooter a few weeks back. The first ride made me a bit nervous. The second ride, I had a ton of fun.
+- Buying Coffee Won't Make You Poor - The Atlantic
+Keep your budget away from my single-origin hand-washed coffee beans.
+
+That's the end of More Links.
+
+Now, the Microposts section.
+
+Wednesday @ 9:28 PM
+
+Violent Femmes at Surly Brewing!
+
+Monday @ 10:16 PM
+
+Dilapidated grain elevator.
+
+Monday @ 10:11 PM
+
+Tammy and I went to Once Upon a Time in Hollywood last night. Enjoyed the movie, felt like classic Tarantino.
+
+That's the end of Microposts.
+
+Now, the Fortune section.
+
+You've made it all the way to the end! Here is your fortune for this week.
+
+Today's weirdness is tomorrow's reason why. -- Hunter S. Thompson
+
+Thank you for subscribing to the Weekly Thing!
+
+That brings us to the end of the Weekly Thing, issue 113. Thanks for listening, and I'll see you next time.

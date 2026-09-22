@@ -1,0 +1,267 @@
+The Weekly Thing, issue 176. Brave Search, Speed, Finger.Farm. Published March 7, twenty twenty one. By Jamie Thingelstad. In this issue: Brave acquires search engine, Google FLoC, small web, NFTs and True Fans, Zoom fatigue, Fastmail spy pixels, ISO 8601, murex shell.
+
+Hey there! I’m supposed to be landing in your mailbox on Saturday morning but this week here we are on Sunday. I know some of you were waiting by your inboxes tapping your fingers. Well, there was much to do this week and we had a busy evening Friday. So, here we are on my backup schedule. I got up early Saturday morning and thought I might have a chance to still get it out, but then a technical issue added an hour of debugging. So it goes sometimes.
+
+We have one final week in Arizona next week. I’m taking the week off and we are going to be in vacation mode. We are also moving from the rental in Mesa to another place in Scottsdale. We've got some hiking and I think we are going to rent mountain bikes at least on
+
+"On average, bad things happen fast and good things happen slow." — Stewart Brand
+
+Now, the Must Read section.
+
+Link one. "Brave acquires search engine to offer the first private alternative to Google Search and Google Chrome on both mobile and desktop"
+
+This is great news, and a total surprise to me!
+
+Quote.
+Today Brave announced the acquisition of Tailcat, the open search engine developed by the team formerly responsible for the privacy search and browser products at Cliqz, a holding of Hubert Burda Media. Tailcat will become the foundation of Brave Search.
+End quote.
+
+I've followed Brave for a while. My friend Hadar was the first person to turn me onto it years ago. It’s never become my everyday browser, that is still Safari as it meets my privacy needs and is fast and easy.
+
+I love that Brave is jumping into the search space. I've used DuckDuckGo for years and it works great. Yes, you can have an Internet without Google folks. But, more options for privacy-first search engines will be great.
+
+Link two. "Speed is the killer feature - bdickason.com"
+
+I love the message of this article and I've seen it missed so many times.
+
+Quote.
+Speed is a killer feature. Speed is a differentiator. Yet teams consistently overlook speed. Instead, they add more features (which ironically make things slower). Products bloat over time and performance goes downhill. New features might help your users accomplish something extra in your product. Latency stops your users from doing the job they already hire your product for.
+End quote.
+
+When I was CTO at media companies we would look at our analytics and people would say "we have 4.2 average page views per session". But that was never really true. In reality, people gave us a certain amount of time and based on our performance that turned into page views. The slower and more bloated our pages, the less page views we would enable.
+
+The other thing is that this is often not about the tech, but is specifically about bloating the service. When I was at MarketWatch our CEO used to ask me frequently why one of our pages was slower than Yahoo! Finances page that did the same thing. I told him Yahoo!'s page had 1/tenth of the images, styling, Javascript, ads, etc. Finally we actually built a clone of Yahoo!'s page on our platform. It looked and did the same things, and was blazing fast.
+
+Performance is an enabler to so many good things.
+
+Link three. "Finger.Farm"
+
+This service won me over right away. It instantly took me back to the 90's sitting in the Computer Science building at the University of Minnesota on some SunOS machines exploring the pre-web Internet. IRC and Talk were the jam back then. And Finger was a great command to see if your friends were online. I haven't used finger in decades but I setup an account on this great site and now have one. Drop to your terminal and do finger jthingelstad@finger.farm to see the awesome-ness. It works on pretty much any Unix-based host. If terminals sound scary, you can see my info on the web. I'll write a blog post later about what is actually on my finger info, it is pretty fun.
+
+That's the end of Must Read.
+
+Now, the Currently section.
+
+Watching: We are late to get to Schitt's Creek but Tammy and I are liking it a lot.
+
+Reading: I’ve started reading Running with Sherman and am enjoying it! This isn't a typical read for me, but Tammy read it and loved it so I’m giving it a read as well. I enjoyed McDougall's other book Born to Run. I’m also now noticing there is no donkey emoji. Oh the injustice!
+
+That's the end of Currently.
+
+Now, the Recommended Links section.
+
+Google’s FLoC Is a Terrible Idea | Electronic Frontier Foundation
+
+While Google's PR team is busy making the most of their decision to not track you on websites and advertise based on that, they are introducing new technologies that can do the same thing via a different means.
+
+Quote.
+FLoC is designed to help advertisers perform behavioral targeting without third-party cookies. A browser with FLoC enabled would collect information about its user’s browsing habits, then use that information to assign its user to a "cohort" or group. Users with similar browsing habits—for some definition of "similar"—would be grouped into the same cohort. Each user’s browser will share a cohort ID, indicating which group they belong to, with websites and advertisers. According to the proposal, at least a few thousand users should belong to each cohort (though that’s not a guarantee). If that sounds dense, think of it this way: your FLoC ID will be like a succinct summary of your recent activity on the Web.
+End quote.
+
+This is going to be a space worth paying close attention to if you are focused on privacy on the web.
+
+Things your manager might not know
+
+Wonderful overview of things that you can and probably should bring up to your manager, many of which you might be assuming they are aware of. I love the detail here.
+
+Mailbag: How to deal with unhappy users on your Internal platform?
+
+Great topic and interesting to hear Larson's take on this. His solution?
+
+Quote.
+Often when folks are frustrated with lack of power, it turns out to be an interface design issue, and I started to focus on the idea of providing pierceable abstractions to allow users to bypass the abstractions as necessary to reach another layer of complexity (for example from container to VM). It's not that you want them to bypass the abstraction, just that it's hard to prioritize every teams' specific needs, and letting them bypass allows you to address their problem on your schedule rather than their schedule.
+End quote.
+
+Interesting. Provide a way out of the value that you are providing so that your end-user, who is super technical, can solve their own problems when their priorities do not match with the platform teams priorities. Makes sense.
+
+Jonah Edwards - Internet Archive Infrastructure
+
+I’m a fan of the Internet Archive and like what they do. This talk gives a great overview of their infrastructure and how they store all that data! Great depth. Watch this, and then join me in being a monthly supporter and donate to the Internet Archive!
+
+OrbitDB
+
+This system is winning some kind of aware for referencing keywords.
+
+Quote.
+OrbitDB is a serverless, distributed, peer-to-peer database. OrbitDB uses IPFS as its data storage and IPFS Pubsub to automatically sync databases with peers. It’s an eventually consistent database that uses CRDTs for conflict-free database merges making OrbitDB an excellent choice for decentralized apps (dApps), blockchain applications and offline-first web applications.
+End quote.
+
+With that said, interesting to read about and explore.
+
+Education, Diversity: Personal Passions for Trustee Archie Black | St. Thomas Newsroom
+
+Great article about our CEO Archie Black's commitment to education and specifically focusing on the racial disparities in education and society as a whole. Lead the way!
+
+The small web is beautiful
+
+A good thought piece praising for simple, small solutions. In truth there isn't one size that fits all for this stuff, but being aware of the tradeoffs that are made as size goes up, solutions scale, and complexity is introduced is important. I’m a big fan of the small web, and why I run my websites all on static-site generators.
+
+Set future performance reviews up for success now | Lara Hogan
+
+Hogan's thinking and writing on these topics is brilliant. I like how she prescribes a method for approaching feedback throughout the year. One thing I have seen often is that 1:1 time can be filled with tactical stuff. I tend to push that out of 1:1's if I can, but it is hard to do. The tactical stuff will get done, the deeper conversations take longer. Being intentional about the cadence, length, and time-of-day for your 1:1s can help this. I've been debating going to monthly 1:1s that are 90-minutes to have the space you need to have a substantive conversation. The tactical stuff will still get done, but that amount of time and space would create a venue for a "real" dialog.
+
+NFTs and a Thousand True Fans - Andreessen Horowitz
+
+Good primer on Non-fungible Tokens (NFTs). I read a bit about these and even went to Zora where you can buy many of these. In order to do that I needed an Ethereum wallet that would work with this, which Coinbase doesn't. So I setup Rainbow and logged into Zora. It’s all pretty interesting. I’m tempted to run an experiment (watch my profile). Related, a 10-second video clip sold for 6.6 million dollars. And Seth Godin suggests NFTs are a trap.
+
+I AM BEZOS
+
+We opened this site and left it open on the table while we had breakfast one morning. While we ate breakfast, a fast breakfast, Jeff Bezos net worth had gained 1 million dollars. It was a good conversation topic for us to discuss.
+
+Focus on Your First 10 Systems, Not Just Your First 10 Hires — This Chief of Staff Shares His Playbook | First Round Review
+
+Very interesting dive into how Hashicorp Chief-of-Staff focuses on designing the systems that run the company. The philosophy is interesting.
+
+Quote.
+"My responsibility is to treat the company like a product, where employees are the user. Like a product manager, I spend my days thinking about what we should build and improve on, owning the components that make the company's culture and productivity come to life," says Fishner.
+End quote.
+
+Just three key systems, but they are well defined and critical.
+
+The Art of Reading More Effectively and Efficiently
+
+I enjoy reading and have desired to do more of it. A number of things in this article are a shortened version of Adler's classic How to Read a Book, which my book club read about a year ago. It is interesting that we aren't really taught methods to read a book, just pick it up and read it. But there are indeed very specific ways to more effectively read books based on the type of book and the intent of your reading.
+
+I've recently been reading a lot more. The key has been to build it into my morning routine, and to read a real book, not an ebook. I take a bit of time after the dog has been fed and the coffee made to sit down with a book. I have a pen nearby to markup the book. I read for the duration of my cup of coffee. It is great.
+
+Stanford study into "Zoom Fatigue" explains why video chats are so tiring
+
+There has been a drop in writing about Zoom fatigue but the affect is still real.
+
+Quote.
+Now, Bailenson has comprehensively articulated his ideas in a new peer-reviewed perspective, published in the journal Technology, Mind, and Behavior. The research suggests four key reasons why video conferencing can be so unusually exhausting and offers several solutions to help make your day of "zooming" less tiring.
+End quote.
+
+This article identifies four main drivers and suggests ways to work around them. I know for me hiding self-view in Zoom is a big help. I've also become very comfortable with standing up and walking around in my home office even with the video on. Moving my body is critical to staying focused and attentive.
+
+MailTrackerBlocker for Mail on macOS
+
+This plug-in for macOS built-in Mail app will block common email trackers. I’m pretty hesitant with Mail plug-ins just because I've not had great experiences, but this is worth the effort. It was easy to install and then activate. It blocks trackers on mail I expected it would. But I was surprised to find some personal emails that were from average senders that it blocked trackers in. If you use Mail on macOS, I would install this.
+
+Clubhouse Wants to Upload Your Contacts’ Phone Numbers - Michael Tsai
+
+I've been playing with Clubhouse (thanks Hector ) a bit. I say playing because it has not really engaged me yet. But I do not like how it is so pushy to get access to your address book. In fact, you cannot use any invites to invite others to join unless you give it complete access to your address book. It then uses that data, very smartly, to show you who in your address book has the most other people on Clubhouse that also have them in their address book. So, it essentially builds a social graph out of your address book and everyone else's. It’s gross, and the thing I dislike the most about Clubhouse.
+
+Every Big Vehicle Should Look Like the Weird New USPS Truck
+
+This is an odd looking car. Honestly if it had a pair of glasses it would look like something out of the movie Cars. But it is interesting how these features make it so much safer and efficient.
+
+Google Analytics: Stop feeding the beast | Caspar von Wrede
+
+Good call to action. I think this perspective is a good one. Putting Google Analytics on your site is you deciding for your users that they will be surveilled.
+
+Quote.
+Google is harvesting data across all of its products, so why pick on Google Analytics? Because for most of the products, if you choose to use them, it’s your data that is harvested. It’s different for Analytics. You as a web developer are making a choice that affects all of your users.
+End quote.
+
+Would you allow a business to survey people before they visited your house?
+
+That's the end of Recommended Links.
+
+Now, the Journal section.
+
+Monday @ 7:51 PM
+
+Day 29 of the February Photoblogging Challenge: Light
+
+Light coming through one pattern and making another pattern.
+
+Sunday @ 5:09 PM
+
+Day 28 of the February Photoblogging Challenge: Up
+
+Mesa has 296 days with sun a year. When you look up you usually see a completely blue sky, dotted by an occasional palm tree.
+
+I suggested today’s prompt!
+
+Sunday @ 2:58 PM
+
+Broken Arrow Trail in Sedona
+
+We had a great hike on the Broken Arrow trail in Sedona today. We were a little hesitant since some folks online had commented that there were a lot of Pink Jeep Tours on this trail. I don’t think they must have hiked very far because it doesn't take that long to get to the point where no vehicles are allowed.
+
+We would have hiked much more, but we had to turn back due to time. We did a total of 1.4 miles out and back with very little elevation. It was a great trail and very scenic. We will take this all the way to Chicken Point the next time we are here.
+
+Sunday @ 12:44 PM
+
+When we were visiting Sedona today we stopped at Tlaquepaque and revisited a spot from the last time we were in Sedona. We remembered a photo we took on the Summer of Love and Mazie and I recreated that photo from 13 years ago. She sure has grown!
+
+Saturday @ 9:35 PM
+
+Day 27 of the February Photoblogging Challenge: Pompasetting
+
+Mazie gave me a "showing off" look. Seemed equal parts sassy to me.
+
+Saturday @ 7:10 PM
+
+Grand Canyon
+
+We took a weekend getaway to Flagstaff, AZ and today we visited the Grand Canyon. It was Tyler's first time here, Mazie's second but the first she will remember, and my third time and Tammy's fourth or fifth. We hadn't been here in the winter before and I can report that the Grand Canyon is cold in February. There was a dusting of snow around that made the place even more scenic.
+
+We only had the day so we spent a few hours on the South Rim and visited the Visitor Center, the Village and drove along the rim and took photos from various places. We did the Trail of Time hike, or walk, along the rim.
+
+As always the Grand Canyon is spectacular and an amazing natural wonder. Tammy and I agreed that the next time we come it is going to be with a permit to go down to the bottom of the canyon and spend a night or two there.
+
+Friday @ 8:48 PM
+
+I am greatly enjoying the Hip Chalet we are staying in Downtown Flagstaff, Arizona. The place has a great vibe to it, and delightful accommodations.
+
+Friday @ 8:35 PM
+
+Day 26 of the February Photoblogging Challenge: Favourite
+
+I went to my archives and am sharing Tammy’s favorite picture of me. I like it too. This picture was taken right after finishing the Chequamegon Fat 40.
+
+Friday @ 5:44 PM
+
+Delicious pizza from Pizzicletta in Flagstaff, Arizona. Great toppings, unique pies. Plus homemade Gelato.
+
+That's the end of the Journal.
+
+Now, for your information.
+
+awesome-cto: A curated and opinionated list of resources for Chief Technology Officers, with the emphasis on startups
+
+Huge curated list of articles for CTO's.
+
+murex: Bash-like $SHELL designed for greater commandline productivity and safer shell scripts
+
+Cool looking shell with very advanced programming capabilities. The interactive shell features are incredible as well.
+
+ISO 8601: the better date format | Kirby Kevinson
+
+There are so many date formats, but I've come to wish that they were all ISO 8601.
+
+Fastmail Keeps You Safe From Spy Pixels
+
+I've used Fastmail to host my personal email for over a decade. I’m happy to support businesses that are aligned with my priorities as a customer.
+
+GamestonkTerminal: The next best thing after Bloomberg Terminal
+
+Of course an open-source Python based stock terminal would be an outcome of all the Gamestock frenzy.
+
+Coinbase is a decentralized company, with no headquarters | The Coinbase Blog
+
+Good read from Coinbase CEO on their decision to decentralize, playing off of the theme of how crypto is decentralized as well.
+
+That's the end of the FYI section.
+
+Now, the Reply All section.
+
+Here are some replies from Weekly Thing #175 / Crontab, Fry's, Daft Punk.
+
+Mike Ebbers shared an incredibly generous recommendation for the Weekly Thing on LinkedIn. Thanks Mike!
+
+Anna K. commented that "It makes no sense to be less U2 and more Coldplay?!?!". I completely agree.
+
+That's the end of Reply All.
+
+Now, the Fortune section.
+
+Here is your fortune…
+
+You will not be elected to public office this year.
+
+Thank you for subscribing to the Weekly Thing!
+
+That brings us to the end of the Weekly Thing, issue 176. Thanks for listening, and I'll see you next time.

@@ -1,0 +1,228 @@
+The Weekly Thing, issue 63. Jul 21, twenty eighteen. Published July 21, twenty eighteen. By Jamie Thingelstad. In this issue: Metrics-based onboarding, ACM computing professionals, event-driven architecture, GraphQL on Postgres, CAP theorem proof, Google Cloud Platform.
+
+I was reminded this week why I should be riding my bike to work on a regular basis. I have this great bike, and my commute to work is nearly all on bike trails along lakes and parkways in the city. I get some fabulous views and it is a delightful route. SPS Tower even has a gym in it where I can change and get ready for the day. But more important than all that, when I ride in I have more energy and am just happier. It is time to make this happen one day a week, and then maybe two.
+
+Now, the Featured Links section.
+
+Link one. "devopsdays Minneapolis twenty eighteen Keynote - Amy Patton, SPS Commerce"
+
+Amy Patton of SPS Commerce delivered a fabulous keynote at devopsdays Minneapolis on adopting DevOps in the enterprise. Great perspective and recommendations for teams looking to be more effective!
+
+Link two. "The P Rules"
+
+Everything in this post is awesome.
+
+Well, my leadership team and I soon learned that people hated our reviews. Folks who hadn't even been to one feared them by reputation. Why? We were overzealous about our own contributions and under-appreciative of the presenting team, which was disrespectful. Luckily, several regular attendees gave us that feedback and we were able to turn things around with what I call “The P Rules,” which I left written on our whiteboard for years.
+
+This is great advice for teams and for leaders.
+
+That's the end of Featured Links.
+
+Now, the My Weekly Photo section.
+
+Cow in front of Fletcher’s Ice Cream shop.
+Jul 15, twenty eighteen at 12:08 PM
+1509 Marshall St NE, Minneapolis MN 55413
+
+That's the end of My Weekly Photo.
+
+Now, the Notable Links section.
+
+Link one. "Putting People First: Metrics-Based Onboarding | PagerDuty"
+
+I've never seen this kind of metrics model for tracking people coming into your company, but I like the idea of bringing a quantitative factor to this process.
+
+Link two. "ACM Affirms Obligation of Computing Professionals to Use Skills for Benefit of Society"
+
+Nice to see ACM update it’s Code of Ethics. Amazing that it hadn't been updated in 26 years. Consider how much the world of computing has changed in 26 years.
+
+After a two-year process that included extensive input from computing professionals around the world, ACM, the Association for Computing Machinery, has updated its Code of Ethics and Professional Conduct. The revised Code of Ethics addresses the significant advances in computing technology and the growing pervasiveness of computing in all aspects of society since it was last updated in 1992.
+
+I applaud the continuing discussion around ethics in computing. It’s nice to see privacy included in the code.
+
+Link three. "Mark Zuckerberg: The Recode interview - Recode"
+
+Kara Swisher interviewing Facebook's Mark Zuckerberg. Swisher is a tough interviewer. Zuckerberg has gotten a lot of training on how to keep on message.
+
+I think the interview gives a picture of an earnest and canny tech leader who is also grappling with the darker side of his creation. At one point, I asked him who was to blame and who should pay the price for the Cambridge Analytica controversy and he rightly named himself, as the person who invented Facebook. “Do you want me to fire myself on this podcast?” Zuckerberg joked. Spoiler alert: He did not.
+
+Zuckerberg is very thoughtful. I’m not a fan of his service, but it was interesting to hear the discussion.
+
+Link four. "Facebook has nothing to do with friendship —James Shelley"
+
+Short and sweet.
+
+Losing friends because you’re not on Facebook is only a valid concern to the extent that your ‘friends on Facebook’ are not really friends at all.
+
+[Python post-Guido [LWN.net]](
+
+It is interesting to watch the self-organizing starting around governance of Python and it’s future direction post Guido van Rossum. Governance, constitutions, voting, quorum all come into play.
+
+Link five. "Event-Driven Architecture – @herbertograca"
+
+Comprehensive (and quick) overview of event-driven architecture and key principles. A good overview and grounding.
+
+Link six. "Feedback Equation | Lara Hogan"
+
+This is very similar to Crucial Conversations training, but succinct and easy to digest.
+
+[TECHdotMN [VIDEO] MinneDemo 29 Presentations - TECHdotMN](
+
+All the demos from Minnedemo 29 on one page!
+
+Link seven. "GraphQL on Postgres | Hasura"
+
+Have Postgres? Add water and you have a GraphQL interface.
+
+Hasura GraphQL Engine is a blazing-fast GraphQL server that gives you instant GraphQL APIs over Postgres. Hasura helps you build GraphQL apps backed by Postgres or incrementally move to GraphQL for existing applications using Postgres.
+
+There are a number of these solutions out there. I’m not sure they are good for real applications, but it would definitely be an easy way to concept something out.
+
+Link eight. "Some reflections on my roadtrip across the western United States"
+
+Jason Kottke took a road trip through the beautiful midwest and visited a number of spots I've been. Nice photos and a well written travelogue.
+
+Link nine. "Designing a GraphQL API"
+
+Shopify sharing their internal best-practices on creating GraphQL interfaces. There is a lot of good learning in here for anyone designing a GraphQL API.
+
+Link ten. "An Illustrated Proof of the CAP Theorem"
+
+If you have heard of the CAP Theorem but aren’t sure what it is, this is a clear rundown.
+
+This guide will summarize Gilbert and Lynch's specification and proof of the CAP Theorem with pictures!
+
+The more you know!
+
+Link eleven. "Hindsight - Matt Gemmell"
+
+Matt Gemmel sharing regret and lessons learned from the most popular article on his blog.
+
+It’s not enough to be sure of your own intent (not that I even was, in this case, which makes it worse). You also have to consider the likely scenarios of use - or misuse - before putting something out into the world.
+
+Let’s be mindful of what we put in the world.
+
+Link twelve. "Sizing engineering teams"
+
+Good overview of how to think about team size. I’d agree with all of it.
+
+These questions were the gateway to the obscure art of organizational design. As I've gotten more exposure, I've come to believe the fundamental challenge of organizational design is sizing teams.
+
+I have come to learn there is a lot more to organizational design than just this, but it is one important aspect of it.
+
+Link thirteen. "Melatonin: Much More Than You Wanted To Know | Slate Star Codex"
+
+I take melatonin very regularly via REM Caps.
+
+Melatonin works on both systems. It has a weak “hypnotic” effect on Process S, making you immediately sleepier when you take it. It also has a stronger “chronobiotic” effect on the circadian rhythm, shifting what time of day your body considers sleep to be a good idea. Effective use of melatonin comes from understanding both these effects and using each where appropriate.
+
+This read goes into more depth on the uses for melatonin.
+
+Link fourteen. "Google Cloud Platform - The Good, Bad, and Ugly (It's Mostly Good) - Deps"
+
+Thorough comparison of GCP based on real-world usage.
+
+I haven’t seen too many experience reports on Google Cloud, so I wanted to share how I’ve found it, what went well, and what still needs improving. I’ve split my thoughts below into good, meh, bad, ugly, and opportunities for improvement. I have compared and contrasted with Amazon Web Services (AWS), the other hosting provider that I have the most experience with, and GCP’s biggest competitor.
+
+Good overview.
+
+That's the end of Notable Links.
+
+Now, the Give Back section.
+
+Let's Encrypt is a free, automated, and open certificate authority, run for the public’s benefit. All connections to web servers should be encrypted! The biggest challenge with encrypting the web historically has been the cost and hassle of getting an SSL certificate. Let's Encrypt has changed that entirely by being a free certificate authority. Let's Encrypt is possibly one of the most important things to happen on the web in recent years. Donate to Let's Encrypt today!
+
+That's the end of Give Back.
+
+Now, more links.
+
+- Things To Read Online - Now and for free thingstoread.online
+Small, curated list of independent content.
+- AWS Kinesis with Lambdas: Lessons Learned · trivago techblog tech.trivago.com
+Lessons on architecting using advanced cloud technologies.
+- Lwan Web Server lwan.ws
+New lightweight web server.
+- World Emoji Day — July 17, twenty eighteen worldemojiday.com
+I had no idea there was a World Emoji Day!
+- Omni Calculator www.omnicalculator.com
+Custom calculators for all sorts of different scenarios. Interesting idea.
+- Walmart establishes strategic partnership with Microsoft to further accelerate digital innovation in retail news.walmart.com
+Walmart inks long-term partnership with Microsoft in the cloud.
+- [[python-committers] Transfer of power]( www.mail-archive.com
+Guido van Rossum, creator of Python, is stepping Benevolent Dictator for Life!
+
+That's the end of More Links.
+
+Now, the Microposts section.
+
+Thursday @ 9:17 AM
+
+Backed Stages Card Game on Kickstarter, a grand tour bicycle race themed card game!
+
+Tuesday @ 4:29 PM
+
+Happy World Emoji Day!
+
+Sunday @ 6:01 PM
+
+Just two numbers from the blackout Grand Prize on the bottom right sheet. Someone else won on the 54th number.
+
+Sunday @ 5:24 PM
+
+Bingo at Stanley’s!
+
+Sunday @ 1:35 PM
+
+Exploring the brand new Bell Museum!
+
+Sunday @ 10:21 AM
+
+Coffee flight at Fairgrounds: Verve (Santa Cruz), Dark Matter (Chicago), and Stumptown (Portland). All delicious.
+
+Sunday @ 10:18 AM
+
+Checking out the new Fairgrounds Craft Coffee and Tea in North Loop. Very good coffee. Fried egg sandwich is amazing.
+
+Sunday @ 8:14 AM
+
+We are having a lot of fun with our Turing Tumble, and the maker extensions of printing your own custom parts are very cool!
+
+Sunday @ 6:57 AM
+
+30% of the total space on my MacBook’s SSD is being used by iOS backups of my iPhone and iPad.
+
+Saturday @ 9:45 PM
+
+I’m looking forward to attaching a Siri Shortcut of “Hey Siri, Loons Win!” to this Workflow in iOS 12.
+
+Saturday @ 9:06 PM
+
+Cue Wonderwall! Glorious 3-2 win Minnesota United! #mnufc
+
+Saturday @ 8:30 PM
+
+That was one of the most beautiful goals of the whole season Minnesota United! Floated right over the keepers reach. 2-0 #mnufc #MINvRSL
+
+Saturday @ 7:31 PM
+
+Minnesota United v Real Salt Lake tonight!
+
+Saturday @ 5:50 PM
+
+Bike ride ice cream stop.
+
+Friday @ 7:22 PM
+
+MN Twins v Tampa Bay Rays!
+
+That's the end of Microposts.
+
+Now, the Fortune section.
+
+You've made it all the way to the end! Here is your fortune for this week.
+
+Grow angry slowly; there's plenty of time.
+
+Thank you for subscribing to the Weekly Thing!
+
+That brings us to the end of the Weekly Thing, issue 63. Thanks for listening, and I'll see you next time.

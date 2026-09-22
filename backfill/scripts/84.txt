@@ -1,0 +1,220 @@
+The Weekly Thing, issue 84. Dec 15, twenty eighteen. Published December 15, twenty eighteen. By Jamie Thingelstad. In this issue: AlphaZero chess and Go, Netflix GraphQL, apps tracking location, Minneapolis zoning, Verizon AOL-Yahoo writedown, Microsoft Edge open source.
+
+I’m writing this sitting on the floor of an empty room that will likely be the office in our new home. We closed today and are celebrating with takeout dinner in an empty house and thinking about how things will be laid out. We aren't moving until January.
+
+Tammy and I have been thinking about big changes like this. We don't want to simply transfer things, routines and habits from our current place. Those things are all good, but shaking it up a bit is good too. Ultimately that is what made me think it was a good idea to move. Time to consider new things, routines and habits.
+
+It seems even more fitting coming at the end of the year. I’m excited about what twenty nineteen will be!
+
+Now, the Featured Links section.
+
+Link one. "Stop Checking Your Email All The Time (How to Break Your Inbox Dependence And Get Real Work Done)"
+
+Everything in this is so true.
+
+The average person checks email 77 times a day, sends and receives more than 122 email messages a day, and spends 28 percent or more of their workweek managing a constant influx of email.
+
+That is a ton of time, and even more when you consider the mental distraction of it all. I find this problem to be very difficult to solve though. Particularly in the workplace people have gotten used to sending emails and expecting immediate awareness. Any time you send an email "Are you coming to this meeting?" you reinforce that in your culture. To some extent, the adoption of messaging in business has been a welcome reprieve from this but not enough.
+
+Personally I use Sanebox to keep emails in different bins, so I can check them on a more appropriate schedule based on the sender and content of the email. It’s a game changer! But I still would like to get to less time in email and more time focused on things that deliver more value.
+
+Link two. "AlphaZero: Shedding new light on the grand games of chess, shogi and Go | DeepMind"
+
+The results of AlphaZero are amazing. It’s shocking how quickly it developed winning strategies only using basic rules and playing games against itself and other algorithms.
+
+However, it was the style in which AlphaZero plays these games that players may find most fascinating. In Chess, for example, AlphaZero independently discovered and played common human motifs during its self-play training such as openings, king safety and pawn structure. But, being self-taught and therefore unconstrained by conventional wisdom about the game, it also developed its own intuitions and strategies adding a new and expansive set of exciting and novel ideas that augment centuries of thinking about chess strategy.
+
+I like how this article positions that human players will be able to develop new tactics and strategies by working with AlphaZero. That hybrid human plus algorithm approach will be common in a number of areas in the future, and already is in many. Before readers assume this means AlphaZero can do anything, remember that games are closed-systems with extremely specific rulesets. The world we all occupy is nothing like that.
+
+That's the end of Featured Links.
+
+Now, the My Weekly Photo section.
+
+The New Standards Holiday Show was fabulous this year.
+Dec 8, twenty eighteen at 10:11 PM
+State Theater, 19 N eighth St, Minneapolis MN
+
+That's the end of My Weekly Photo.
+
+Now, the Notable Links section.
+
+Link one. "Our learnings from adopting GraphQL – Netflix TechBlog – Medium"
+
+Another recap, this time from Netflix, on the successes of using GraphQL.
+
+We have been running GraphQL on NodeJS for about 6 months, and it has proven to significantly increase our development velocity and overall page load performance.
+
+They share some good learnings from the transition.
+
+Link two. "Four Days Trapped at Sea With Crypto's Nouveau Riche"
+
+Crypto-currency boat cruise? No thanks.
+
+I understand why people might want to hire a boat and stuff it with investors: to make money. This cruise measures its takings in old-school pounds and dollars. None of the ship’s bars take bitcoin—fittingly, the only thing you can do with it here is gamble. What I don’t understand is why anyone thought this would make the whole thing look less like a Ponzi scheme with a sleazy post-cyberpunk aesthetic.
+
+Link three. "The State of Technology at the End of twenty eighteen – Stratechery by Ben Thompson"
+
+I like Thompson's take on current affairs.
+
+This, then, is the state of technology in twenty eighteen: the enterprise market is thriving, and the consumer market is stagnant, dominated by the “innovations” that a few large behemoths deign to develop for consumers (and probably by ripping off a smaller company). Meanwhile a backlash is brewing on both sides of the political spectrum, but with no immediately viable outlet through competition or antitrust action, the politics surrounding technology simply becomes ever more rancid.
+
+The stagnation is a real thing. We don't have many new service and apps coming to market in the last year. The giants of the industry haven't left much for the rest of the market.
+
+Link four. "Your Apps Know Where You Were Last Night, and They’re Not Keeping It Secret - The New York Times"
+
+This is a good explanation and examples of how location data can tell organizations so much about you. There is more hidden understanding here than I think people understand.
+
+Link five. "Antifragile"
+
+Bosworth makes a good case here against protecting teams. I tend to agree. I've fallen into this trap myself mostly around acquiring or merging companies. There is a tendency to hold certain things back during that process, and it just delays the inevitable. Better to get out of the way. Protecting causes more problems in most cases.
+
+Link six. "Minneapolis ends single-family zoning, undoing a major component of housing segregation."
+
+Caught my eye to see Minneapolis city matters in Slate. There has been a lot of debate and trepidation around the Minneapolis 2040 plan. I honestly haven't done the work to really understand all the components myself.
+
+Link seven. "Tetris"
+
+There is so much Tetris here! History of the game, variants of it. But most notably, a program to read a Tetris game using a webcam and then "play" it using the standard controls. A computer playing Tetris!
+
+Link eight. "Verizon Admits Defeat With 4.6 billion dollars AOL-Yahoo Writedown - Bloomberg"
+
+4.6 billion dollars writedown. This was always a bad idea. It makes one wonder where does the support for something like this come from?
+
+Link nine. "Introducing the new GitHub Status Site | The GitHub Blog"
+
+GitHub has become part of many automated systems inside of companies. Extending their status site to be more specific, and importantly callable via an API, makes a lot of sense.
+
+Link ten. "Twin Cities-based movement gives retired men a place to talk, give back and feel valued - StarTribune.com"
+
+This seems like a perfect Minnesota thing.
+
+The Men’s Sheds motto: “Men don’t talk face-to-face. They talk shoulder-to-shoulder.”
+
+Actually, isn't this just ice fishing but without the fishing?
+
+Link eleven. "On Blogs in the Social Media Age - Study Hacks - Cal Newport"
+
+Interesting analogy from Cal Newport. Is the open web more of a market based system? I can see the logic behind that, and it does make sense.
+
+As any serious blog consumer can attest, a carefully curated blog feed, covering niches that matter to your life, can provide substantially more value than the collectivist ping-ponging of likes and memes that make up so much of social media interaction.
+
+This is why I don't get any of my incoming information via social media. None of the links I highlight come from social media.
+
+Link twelve. "Glengarry Glen Christmas: Elf Motivation - SNL - YouTube"
+
+I’m a huge fan of Glengarry Glen Ross. I've probably seen that movie 30 or more times. Not just the scenes that everyone talks about, but the whole movie. It turned me on to David Mamet and his amazing dialogue. This Christmas version of it is absolutely hilarious, and done by Alec Baldwin himself. Point of trivia, this scene with Alec Baldwin is one of the most quoted of the entire movie, and it didn’t exist in the original play. It was added for the movie rendition to give additional punch.
+
+Link thirteen. "Microsoft Edge: Making the web better through more open source collaboration - Windows Experience BlogWindows Experience Blog"
+
+In two thousand nine I wrote a blog post on what Microsoft could do to get "nerds" back. I should have titled it "geeks", but oh well. One of the two suggestions was to stop working on their own web engine, at the time Trident. It took 9 years, but Microsoft has announced they shifting their browser engine. Just one thing left, although you might argue that Windows Services for Linux is pretty close to the other recommendation I had.
+
+That's the end of Notable Links.
+
+Now, the Give Back section.
+
+The mission of Hack the Gap is to amplify the voices and cultivate talents of underserved people in our community. I serve on the board of Minnestar with Jenna Pederson, one of the founders of Hack the Gap, and I love what this organization is focusing on. Gender diversity in tech is a real problem and it’s far too often brushed off as some endemic issue that cannot be solved. That isn't the case at all. Hack the Gap is creating a way for people to get into the technology industry and breaking down barriers. Donate to Hack the Gap today!
+
+That's the end of Give Back.
+
+Now, more links.
+
+- TECHdotMN Bootstrapped Software Maker Propelware Scooped Up By Right Networks - TECHdotMN
+Local software company acquired.
+- Scripting API now in public beta! | Minecraft minecraft.net
+I sense a sudden surge of kids learning Javascript!
+- The Year Ahead Planner yearcompass.com
+Nice PDF to walk you through a reflection and planning process for the new year. Via Patrick Rhone.
+- Lime and Bird are each worth 10B+ www.futureengine.org
+What the…
+- Repl.it - Repl.it Multiplayer repl.it
+I wasn't aware of repl.it but multi-user (I like the fun nod with multiplayer) is a great idea!
+- 'Gorogoa' for iOS — Tools and Toys toolsandtoys.net
+I love the new, innovative games that have come to the iPad.
+- Writing Workflows | Title Page processedword.net
+Interesting book on writing and the workflows around it.
+
+That's the end of More Links.
+
+Now, the Microposts section.
+
+Thursday @ 9:59 PM
+
+Made my annual donation to Internet Archive! Join me in supporting this great organization!
+
+Tuesday @ 9:35 PM
+
+Wild win! 7-1!
+
+Tuesday @ 8:20 PM
+
+Wild take 2-0 lead over Montreal!
+
+Tuesday @ 7:55 PM
+
+Hockey time with Amy Patton @pattonamyj, Ian Redlin and Paul Birkbeck @birkbeck!
+
+Tuesday @ 7:29 PM
+
+Minnesota Wild v Montreal Canadiens!
+
+Sunday @ 9:27 PM
+
+Watched Pick of the Litter tonight. Nice movie, particularly for dog lovers. The training guide dogs go through is impressive.
+
+Sunday @ 9:19 PM
+
+We explored the Walker Art Center today. Modern art still makes me go “Huh?” a lot.
+
+Sunday @ 9:17 PM
+
+We had a fun time at the twenty eighteen British Arrows Awards today at the Walker. Liked the Nike, FIFA Soccer and Mini Cooper ads!
+
+Sunday @ 8:54 PM
+
+Solid boxing workout this morning at TITLE Boxing.
+
+Sunday @ 5:46 PM
+
+I know I should be super impressed with our amazing, modern technology, but this happens so often and drives me a bit bonkers.
+
+Sunday @ 4:46 PM
+
+I’m fixing my previous Twitter import and needed to get rid of thousands of existing posts. Little tip, you can use MarsEdit and set the number of posts to get to 9,999 and delete large numbers of posts.
+
+Saturday @ 11:28 PM
+
+Parked at SPS Tower for a concert at the State Theater. Took skyways and skipped jackets on way there. Didn’t think anout skyways being closed later. It was a very frigid walk back to the car!
+
+Saturday @ 11:24 PM
+
+The New Standards brought it home with “Snow Days”, on the permanent playlist for the Holiday Show!
+
+Saturday @ 9:21 PM
+
+First half of The New Standards Holiday Show was awesome. Okee Dokee Brothers, The Owls, Chris Koza, Jeremy Messersmith, Matt Wilson, Dessa, Tina Schleske, and Caroline Steele.
+
+Saturday @ 12:31 PM
+
+The Kingfield at Five Watt is definitely a treat, not an everyday coffee, but it sure is delicious. Fancy coffee time!
+
+Saturday @ 12:25 PM
+
+Tried Boludo Empanadas today — wow! I got three empanadas: Pollo, Carne, and Jamon y Queso. All were delicious! Good review in City Pages.
+
+Friday @ 7:56 PM
+
+Had fun at the 89th annual Mt. Olivet Lutefisk Dinner tonight! Swedish Meatballs, Rice Pudding with Lingonberries, and Lefse for me.
+
+Big Crowd for the Lutefisk Dinner My nephew Garrett and I having lefse. family selfie! family selfie!
+
+That's the end of Microposts.
+
+Now, the Fortune section.
+
+You've made it all the way to the end! Here is your fortune for this week.
+
+Today is the last day of your life so far.
+
+Thank you for subscribing to the Weekly Thing!
+
+That brings us to the end of the Weekly Thing, issue 84. Thanks for listening, and I'll see you next time.

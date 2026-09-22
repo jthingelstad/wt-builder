@@ -1,0 +1,259 @@
+The Weekly Thing, issue 306. Spell, McLarens, Lynch. Published January 25, twenty twenty five. By Jamie Thingelstad. In this issue: Spotify algorithm, RSS feeds, David Lynch tribute, iPhone privacy settings, AI photo geolocation, McLarens CarPlay, Unix Spell 64kB RAM.
+
+Weekly Thing 306 sent from Minneapolis, MN with that new email smell following winter break.
+
+Good morning!
+
+Welcome to the first Weekly Thing of twenty twenty five! I hope the new year is starting off well for you.
+
+Quick update from me:
+
+- The holidays were delightful and filled with family and friends. So good!
+- Mazie spent the New Year and most of January in Costa Rica on a J-Term abroad.
+- We rang in the New Year with fondue and our traditional game of Clue and were barely able to stay up to midnight.
+- I reflected on blogging in twenty twenty four, created some shortcuts for micro.blog's new collection feature, and reflected on blogging in the era of social media.
+- I rang the bell on another year and another birthday POAP.
+
+It is cold and dark out but that is fine with me since I have this delightful cup of coffee. I even have this super fancy Mad et Lan candle burning to go with it.
+
+I hope your weekend is off to a similar vibes!
+
+Introducing the Christmas Blogs
+
+In Weekly Thing 304 I shared that I was gifting a year of blogging to five readers of the Weekly Thing! Folks raised their hands, got some code to randomly pick, and we have our five winners!
+
+Welcome five new blogs to the Internet!
+
+Let me take a moment to introduce them briefly…
+
+- Phil Rodemann: Phil is a retired IT/Trainer/Realtor/Controller and a proud Dad, Husband, Brother, and Human. He is writing to help organize his thoughts. He has some wonderful photos from a recent trip to Costa Rica on his blog.
+- Marcos D Alves: Marcos has written a blog in the past but for a few reasons had to stop. He lives in São Paulo, Brazil, with his wife and two daughters. He spent 35 years in the IT industry and love to tinker. His blog is mostly in Spanish.
+- David O'Hara: David has many hats including being a college professor, amongst many other things. He has had a blog from "back in the day" on Blogger and was feeling restless with social media, newsletters, and other writing tools and wanted to see how micro.blog may fit. Seems like it is fitting great! Also he got a great domain name — davoh.org!
+- Jesse Lang: Jesse is a technologist who has blogged in fits and spurts in the past. He's still getting his site populated but it is there and ready for his musings!
+- Eric Cohn: Eric suggests he is a "GIF Aficionado" and is sharing his "cohntemplations" with the world via his new site. He already has a number of posts and is sharing with the web!
+
+I couldn't pass up the opportunity to make a special Weekly Thing Christmas Blogs POAP as well!
+
+Over the next few weeks I am going to invite each person to introduce their blog with a guest column so you'll get to know a little bit more about each one.
+
+Now, the Featured section.
+
+Link one. "What Spotify took from us by giving us everything - The Verge"
+
+This article is a deep review of Mood Machine by Liz Pelly. We've had an Apple Music Family subscription for a long time. In the last few months I actually decided to give Spotify a try and we added a Family subscription to that. I've also subscribed to Sonos Radio in the past. Spotify is well known for great playlists and I thought Christmas would be great for it.
+
+However, the more I read about Spotify the more I raise an eyebrow and think "yuck". Fake artists names, AI generated music, royalty free stuff slotted into your playlists. This article is an interesting read and this line hit me in a big way. Bolding added.
+
+Quote.
+Instead, Spotify hit on the idea of playlists, a way of curating songs to be background music in life, just as they were in movies and commercials. Pelly quotes a former Spotify employee saying its main competition wasn't iTunes, but silence.
+End quote.
+
+They just need to fill the silence. And the playlists are a great way to do that since you hand the steering wheel over to the algorithm and they can optimize for cost. Not as bad as handing your news to an algorithm, but still not great.
+
+After reading this I was thinking about recent articles I've seen about Facebook using AI agents to create completely generated content on your timeline. It dawned on me that these companies are just following the same playbook Spotify has used.
+
+The competition isn't silence, it is solitude. And solitude is something a lot of people are sadly uncomfortable with.
+
+Will your timeline on social media be filled with generated AI content? Yes it will. They will be better than a bunch of random people (aka, your friends) at providing engaging content.
+
+Back to Spotify though, I feel like I’m in a game where they are trying to trick me at times.
+
+Link two. "People and Blogs: Annie Mueller"
+
+I’m a fan of the People and Blogs newsletter. I was the first supporter of it and was featured in the sixteenth edition. This most recent edition with Annie Mueller is a fabulous read. I liked all of it but this part about who she is really writing for really resonated with me.
+
+Quote.
+I guess that's the other thing I'd do differently: I wouldn't ever worry about who's reading or not reading my blog. All expression craves an audience: that's beautiful and natural and normal and good. We want connection, not a vacuum. But when we focus on the audience, it's so easy to lose our own voice and perspective. We start tuning ourselves unconsciously to please this audience. Then we're not creating, we're performing. And we lose something really essential, the joy of creating for its own sake. And we get resentful, because we've traded something essential, something that's in our control--the process of creating and sharing--for something non-essential and out of our control. Because other people's attention and approval is always out of our control. No one owes me their attention, and certainly no one owes me their approval. But I owe myself the time and space and energy to do what makes me feel most alive, and to contribute something positive, however tiny, to this reality.
+End quote.
+
+There are themes in here similar to what I shared on audience capture but I really like her invocation of "performing". Even if you are not a blogger but you do use social media this all applies just as much, if not even more because of how those platforms weaponize analytics.
+
+That's the end of Featured.
+
+Now, the Currently section.
+
+Listening: I have been following Ian Bremmer for a while now. His G-Zero newsletter is one of my regular reads. But my favorite times to listen to Bremmer are when he's been a guest of Scott Galloway's podcast. This Prof G Pod: Top Geopolitical Risks of twenty twenty five with Ian Bremmer is very interesting. You can also watch this on YouTube.
+
+Watching: Tammy and I have been watching Shrinking on Apple TV and we are both digging it. We actually made it through Season 1 in just a couple of weeks which is like lightspeed fast for us to get through a show. We've started Season 2 now. The Wikipedia page has more info. Good acting, engaging story. Definitely TV-MA though.
+
+Listening: Bob Mould's has a new single " Here We Go Crazy ". I’m a Mould fan all the way back to Hüsker Dü, his solo stuff, and particularly Sugar. The massive guitar riffs are great and this track is solid. We got tickets to see him at The Palace in April.
+
+Listening: This podcast is a couple of months old but is a great listen. Prof G Markets: Why MicroStrategy Bought 40 billion dollars Worth of Bitcoin with Michael Saylor goes all over the place including Saylor sharing the trading strategies around Bitcoin and ending with his assessment of Bitcoin representing the first truly "clean money". Honestly the trading stuff was a bit technical for me, but I thought it was a great listen. You can also watch this on YouTube.
+
+That's the end of Currently.
+
+Now, the Notable section.
+
+Link one. "I Ditched the Algorithm for RSS — and You Should Too - Joey's Hoard of Stuff"
+
+I've shared many posts over the years of how great I think RSS and feed readers are. I use Feedbin and have for years. It is great. But anything that uses RSS skips algorithms and addictive patterns by design. This is another call to action, but there is also bonus here going deep on the RSS feeds that YouTube, Hacker News, and Reddit provide. I’m not a Reddit user but the RSS feeds have a lot of power. Given that Reddit has monetized everything else I wonder if they just forgot these exist and will shut them off when they find out they are still there. But until then…
+
+Link two. "Have a Great Day: David Lynch (1946-twenty twenty five) | Roger Ebert"
+
+It was sad that we lost David Lynch. My first knowledge of Lynch came from watching Twin Peaks in college. I didn’t see it on the air, but borrowed a friend's copies that were recorded on Super VHS. I watched them all in a weekend or so. I also owned all of the Twin Peaks episodes on Laserdisc at one point, with special introductions from the Log Lady. I had actually seen Wild at Heart as a freshman before that but had no idea that was Lynch. I branched in to the Lynch universe and actually really liked his version of Dune that is often panned. I thought it was great and watched it several times. Mulholland Drive was great. I even suffered through Eraserhead once. Blue Velvet, The Elephant Man, Fire Walk With me. All of it was amazing. He was a true artist.
+
+For me though I will always go back to Twin Peaks. That was incredible stuff. The twenty seventeen revisit of Twin Peaks was good as well, but freaked me out.:-)
+
+Link three. "How to: Get to Know iPhone Privacy and Security Settings | Surveillance Self-Defense"
+
+I didn’t know that EFF has these device specific privacy guides. I wouldn't follow everything in here, but I did find settings like "Advanced Tracking and Fingerprint Protection" that I didn’t realize were on for Private Browsing. I want that on for all browsing. I also hadn't run "Safety Check" before and found some old photo shares that I didn’t realize were there and removed them. Good stuff.
+
+Link four. "McLarens and CarPlay | Adam Bell"
+
+I had a great time reading this post. How many times do you get to start with Formula 1 and very nice sports cars like a Lotus or McLaren and then drift into hex codes, reverse engineering protocols, and Raspberry Pis! Never. A fun geeky journey to get nice music integration in a crazy fast sports car.
+
+Link five. "ToS about"
+
+What is a good use for Gen AI? How about reading those ridiculous Terms of Service documents that you are forced to click accept and have no idea what you just accepted.
+
+Some background. A decade or so ago I got the wiki bug in a bad way and one of the use cases I thought made sense was a wiki approach to Terms of Service. I got it started on TOSredux.org with the thought that you could crowdsource a semantic analysis of terms of service and then use a browser plugin to give good feedback to people on what they are accepting.
+
+Using AI for this makes even more sense. The challenge still exists to get the information to the person at the time they are looking at the agreement. Make it "in band" to the process. Will people care? I don't know. But at least we could be better informed.
+
+Link six. "The Powerful AI Tool That Cops (or Stalkers) Can Use to Geolocate Photos in Seconds"
+
+My son likes to play GeoGuessr which drops you in a random place on Google Street View and you get 2 minutes to guess where you are. It is pretty fun and surprising how close you can get with the search engine right there as well. This AI tool is like that but just using a photo. Even photos without GPS data. This is just looking at the content of the photo and determining from that where the photo was taken.
+
+Link seven. "How Unix Spell Ran in 64kB RAM - by Abhinav Upadhyay"
+
+Wow, I had no idea there was this kind of wizardry in the early versions of spell!
+
+Quote.
+Using Golomb's code, a compression scheme designed for geometric distributions, he achieved 13.60 bits per word—remarkably close to the theoretical minimum of 13.57 bits.
+End quote.
+
+Very cool!
+
+That's the end of Notable.
+
+Now, the Journal section.
+
+Journal entry one.
+
+I suspect the reason Apple Intelligence mail categories are only supported on the iPhone is at least in part because of the difficulty with synchronizing that state across multiple devices. Feels similar to People identification in Photos at first, but Apple can’t control the backend on email.
+
+Journal entry two.
+
+We had a great time solving Granny’s Recipe Rescue at Copper Cat Escape in 48m 18s! We had five “rookie” misses that we caused us to “face palm”. We are coming back tomorrow to do another room!
+
+See list of escape rooms.
+
+Journal entry three.
+
+Grand View Lodge on a very cold -7 °F (feels like -22 °F) night.
+
+Journal entry four.
+
+What you do when you're Up North and it feels like -24 °F.
+
+Journal entry five.
+
+I could not care less about Tik Tok, and would consider it an upgrade to the Internet for it to be removed from the US, and frankly everywhere else. The fact people care so much is proof of its intentional addictive design.
+
+Journal entry six.
+
+I set up a Guestbook for my site copying @jimmitchell who saw it at @alexwolfe site. Thanks to Guestbooks by meadow! The CSS is default. Maybe @mtt will want to Tiny Theme it?
+
+Journal entry seven.
+
+Benefit of it being -11 °F? Easy to flash freeze a Rafferty's Veggie Supreme pizza to bring home for Tammy's sister.
+
+Journal entry eight.
+
+Lots of R-rated socks at Zaiser's in Nisswa.
+
+Journal entry nine.
+
+At the Chocolate Ox for January ice cream. Melting? Go outside! -9 °F.
+
+Journal entry ten.
+
+I have multiple UniFi G4 Instant cameras mounted outside and this cold snap is the coldest they have experienced. Well below the -4° F specification. So far they are holding in there.
+
+Journal entry eleven. Deep Woods Cabin Escape Room
+
+Today we returned to Copper Cat Escape Games in Brainerd so that we could try the Deep Woods Cabin room. When we were here yesterday we were talking to Allon after finishing our room and loved his passion for Escape Rooms. He said this Deep Woods Cabin room was his favorite and we wanted to give it a try. We had a great time!
+
+The room has a great backstory and you start in the woods outside of the cabin. Your first task is to figure out how to get in. The story is rich and the puzzles are just perfect. There is a wide variety of things to figure out. Your not just pounding codes into locks but have to really put the scene together.
+
+We were completely immersed from the very beginning. We were challenged but everything connected together. I’m proud to say we completed the room with no clues and 13m 08s on the clock. There were several puzzles that made us smile as they came together.
+
+We were very impressed with Copper Cat Escape Games. If you live in the Twin Cities it is a two hour drive and I think it would be worth it if you like escape rooms. You could book two or three of the rooms. Deep Woods Cabin is definitely one of the best, if not the best, that we’ve done in Minnesota.
+
+See list of escape rooms.
+
+Journal entry twelve.
+
+We completed “The Museum” at Puzzleworks today in 58m 48s. There is a whole genre of escape rooms that are creepy and this was our first that was even a little in that genre. We had a great time solving it with our nephew Levi.
+
+Journal entry thirteen.
+
+School cancelled for tomorrow due to extreme cold. Tyler was ecstatic to hear the news. Forecast is for -15 °F at 8am tomorrow and the cold snap breaks around noon.
+
+Journal entry fourteen.
+
+We watched Inception tonight. Tammy and I are both sure we saw it when it was released but didn’t remember much of anything. Tyler thought it was a really good movie.
+
+Weekly Thing Forum
+
+Join Tom Mungavan, Patrick Hambek, Jim Cuene, Michael Josephson, garrickvanburen, and many other Weekly Thing readers in the Weekly Thing Forum. Recent topics include:
+
+- Newsletter 305 - Professional Scratchers
+- Weekly Thing Logo
+- Newsletter 304 and Blog Thoughts
+- Favorite / "Keeper" articles from twenty twenty four?
+- Kagi Search for Free
+
+That's the end of the Journal.
+
+Now, the Briefly section.
+
+Link one. "No calls"
+
+Fun story how they took a very different approach to enterprise sales. Repeatable? Maybe. Best output? I don't know. But certainly a different way of doing it.
+
+Link two. "You should get a blog"
+
+A call to action to start a blog. This article also has many great suggestions of things to write about. Micro.blog just launched a new micro.one starter blog service for 1 dollar a month. That too much? Email me and we'll get you a blog.
+
+Link three. "Switch 2 sports ~7.9-inch screen, 33% bigger tablet surface - Ars Technica"
+
+Ars Technica did the work of laboriously digging through the video of the Switch 2 to figure out the specs that are not yet published. Can’t wait to get my hands on one, or two, of these.
+
+Link four. "Let’s talk about AI and end-to-end encryption – A Few Thoughts on Cryptographic Engineering"
+
+Overview of encryption approaches and the intersection of encrypted data and building value with AI.
+
+Link five. "Using ChatGPT is not bad for the environment"
+
+Crypto and AI have both been framed as being massive energy drains. Here is some data.
+
+Link six. "Mad at Meta? Don't Let Them Collect and Monetize Your Personal Data | Electronic Frontier Foundation"
+
+Meta changed all their moderation policies in profound ways. A lot of folks are upset about this. You should get off of it if you are. There is a world without Facebook and Instagram. It is delightful.
+
+Link seven. "Daring Fireball: BrikTok"
+
+It is bonkers to me that we lack the fortitude as a country to stand by our law in this case.
+
+Link eight. "Rogan Misses The Mark: How Zuck’s Misdirection On Gov’t Pressure Goes Unchallenged | Techdirt"
+
+This is the kind of thing that happens when entertainers get confused with journalists.
+
+Link nine. "At NRF, retailers talk up expanded uses of AI"
+
+Brief overviews of some use cases of AI in retail.
+
+Link ten. "Master the Art of the Product Manager 'No'"
+
+This made me chuckle.
+
+That's the end of Briefly.
+
+Now, the Fortune section.
+
+Here is your fortune…
+
+Keep it short for pithy sake.
+
+That brings us to the end of the Weekly Thing, issue 306. Thanks for listening, and I'll see you next time.

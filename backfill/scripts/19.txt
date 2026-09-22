@@ -1,0 +1,155 @@
+The Weekly Thing, issue 19. Weekly Thing for September 16, twenty seventeen. Published September 16, twenty seventeen. By Jamie Thingelstad. In this issue: Equifax breach, Safari cookie blocking, iPhone X event, Apple Watch Series 3, Python growth, 1Password command-line beta, Sublime Text 3.0.
+
+I’m doing a new thing -- I’m coaching Tyler's soccer team! We've had a jamboree event to get to know the players, and we just finished our second game today. It’s fun and to everyone's surprise, most of all my own, I've learned all the names of the kids on the team. The kids have a great time and you'd have to try hard to not have fun with them.
+
+Also, my Link Thing website has come a long way. I’m having a lot of fun with it. It’s a real, honest-to-goodness link blog. The links in the Weekly Thing are the same, but if you want to see that in blog format or get each one via RSS, the Link Thing is a good spot. I’m eager to build out my Annum pages where I can show some states for the 12 years that I have links. I’ve also got collections, right now the only useful one is my video collection that has embedded players. I’m even making the entire data set available for others to play with if they wanted. On the feeds and data page, you can download a CSV dump of all the links and play with it however you would like. More to come on this. There are over 8,000 links in there!
+
+Now, the Photog section.
+
+I take a surprising number of pictures of espressos, macchiatos and other coffee paraphernalia. If I search my photo collection by coffee it’s a broad overview of various coffee beverages I've enjoyed over time. Sometimes the espresso comes out and just looks so good that I have to grab a picture. Note the amazingly cool demitasse here too.
+
+Sep 9, twenty seventeen, 10:26 AM Minneapolis MN 55419.
+
+That's the end of Photog.
+
+Now, the Links section.
+
+Link one. "Apple responds to ad group’s criticism of Safari cookie blocking"
+
+Love the first line of Apple's response to this criticism from creepy ad networks "Apple believes that people have a right to privacy…" I don't want to dress Apple up as being only on ethical grounds here. I believe that they have identified a long-term strategy against Google around privacy. Their long bet is that over time people will care. I care today and am really happy to see them continuing to push privacy as a feature!
+
+Link two. "Understanding the prevalence of web traffic interception"
+
+This is more interesting information from Cloudflare: We found that between 4% and 10% of the web’s encrypted traffic (HTTPS) is intercepted. Analyzing these intercepted connections further reveals that, while not always malicious, interception products most often weaken the encryption used to secure communication and puts users at risk. That is more encrypted traffic interception than I would have ever guessed.
+
+Link three. "Mozilla and the Washington Post Are Reinventing Online Comments - The Mozilla Blog"
+
+I didn’t realize that Mozilla was doing work in this space. It makes sense for them to focus on this and perhaps they can make a dent here. In general I suggest avoiding comments at all cost. It’s a tough problem to solve!
+
+Link four. "You Can’t Protect Yourself from the Equifax Breach - TidBITS"
+
+The Equifax breach is different than nearly every other data breach we've seen. The breadth of the data they collect is hard to grasp and it is impossible to not be pulled into their data set. Another highlight that high concentrations of data and private information grow increasingly valuable as they grow in size.
+
+Link five. "Ad groups blast apple for blocking cookies in Safari —Apple World Today"
+
+This pleases me greatly -- that these ad networks are worried about the new Intelligent Tracking Prevention feature in Safari tells me it might have a real impact to protect users privacy. Thematically this is one of the reasons I use Safari. Google has no motivation to work for users privacy in Chrome. Remember Chrome was the last browser to support Do Not Track.
+
+Link six. "Thoughts and Observations on the Products Announced at This Week’s iPhone X Introductory Event —Daring Fireball"
+
+At one time John Siracusa was known for his meticulous reviews of Mac OS X. Now Frederico Viticci is known for his similar reviews of iOS. In my opinion, nobody writes about an Apple event like Gruber. Great stuff, enjoyable everytime.
+
+Link seven. "cPrime Announces Acquisition of DevJam | cPrime"
+
+Big congratulations to my friend David Hussman on the sale of his company to cPrime!
+
+Link eight. "Steve Jobs’ legacy"
+
+Deep writeup from Om Malik on the key benefits of controlling the entire stack in the iPhone. The performance gains that Apple has achieved in their own custom silicon are unmatched and being able to put this all into one cohesively designed package have given them a tremendous advantage.
+
+Link nine. "Jessie Frazelle's Blog: Windows for Linux Nerds"
+
+Fabulous writeup on the fundamentals of Windows Subsystem for Linux. Particularly like this from Jessie Frazelle who brings incredible Linux kernel knowledge to the topic.
+
+Link ten. "Photos: What it was like to attend Apple’s iPhone X event - Recode"
+
+Scan through the pictures to get a feel for the new Steve Jobs Theater, part of the new Apple Campus. Gorgeous building. The spinning elevator is a fun touch! Also that entrance dome with no supports is a feat of engineering!
+
+Link eleven. "Ayuda! (Help!) Equifax Has My Data! — Krebs on Security"
+
+The findings in this Equifax breach continue to be fascinatingly bad! It took almost no time for them to discover that an online portal designed to let Equifax employees in Argentina manage credit report disputes from consumers in that country was wide open, protected by perhaps the most easy-to-guess password combination ever: “admin/admin.”
+
+Link twelve. "Facebook, You Needy Sonofabitch | Brad Frost"
+
+Another day, and more psychological manipulation influencing people in subtle and not-so-subtle ways that get them to do more for the machine.
+
+Link thirteen. "After the flood | Projects | AtF Spark"
+
+Wait a second… sparklines generated from a font! Mind blown!
+
+Link fourteen. "TODO Open Source Program Guides // TODO: Talk openly, develop openly"
+
+Great project to build out a framework to allow companies to more easily create an open source program. I've looked at this and it’s way more complicated than it seems at first. This is a good idea to make things easier for organizations to publish more open source!
+
+Link fifteen. "Principles of Successful Software Engineering Teams"
+
+I like every one of these and I think this is an interesting way of clarifying what is often thought of as the culture of your technology team. I particularly like the "no my code, it’s our code" thought and "leave things better than you found them".
+
+Link sixteen. "AgileBits Blog | Announcing the 1Password command-line tool public beta"
+
+This is cool! You can now build 1Password secrets into automation and a variety of different scripts using their command line tool! CLI FTW!
+
+Link seventeen. "Kitchen Soap – Multiple Perspectives On Technical Problems and Solutions"
+
+John Allspaw writing about the evolution of architecture review processes at Etsy. Some interesting phases to their evolution that I can relate to very well. I like the fundamental definition of engineering not being provably correct or best. That is something that we don't acknowledge enough. I also really appreciate the perspective on the power dynamics of these conversations. Another thing that isn't considered enough.
+
+Link eighteen. "The Incredible Growth of Python - Stack Overflow Blog"
+
+I’m a fan of Python and almost all the (very little) coding I do I do in Python. I find the language approachable, powerful and it has a fabulous ecosystem. With that all said, I’m still amazed at this graph showing Pythons phenomenal growth over other languages. The additional observation that Python is not growing as fast in "non-high-income" countries isn't answered here, but it seems obvious to me that that is driven by outsourcing. Python applications are likely not the norm for outsourcing to global consulting firms. That is still dominated by traditional languages like Java and C#. But given time I would expect that curve to look similar to other regions with a time delay of a couple of years.
+
+Link nineteen. "Equifax Breach Response Turns Dumpster Fire — Krebs on Security"
+
+More background from Brian Krebs on this massive data breach at Equifax. I cannot recall a previous data breach in which the breached company’s public outreach and response has been so haphazard and ill-conceived as the one coming right now from big-three credit bureau Equifax, which rather clumsily announced Thursday that an intrusion jeopardized Social security numbers and other information on 143 million Americans.
+
+Link twenty. "Why the Equifax breach is very possibly the worst leak of personal info ever | Ars Technica"
+
+The incredible gaps in security presented in this breach are amazing!
+
+Link twenty one. "Why Management Needs Philosophers"
+
+Management is about people. People are abstract and unpredictable. It seems obvious that you cannot design an overarching algorithm to drive productive teams. That isn't to say that data should be ignored or not collected, but it should influence not dominate management.
+
+Link twenty two. "I used to think social media was a force for good. Now the evidence says I was wrong | Matt Haig | Opinion | The Guardian"
+
+I think of social media like desert. A cupcake now and again is fine, eating nothing but cupcakes will make you sick and unhealthy. The pervasive use of social media is akin to removing all healthy food from our diet and replacing it with candy.
+
+Link twenty three. "The Story of Two Outages"
+
+Interesting view with some nice traffic graphs showing how Cloudflare sees a government restricting access to the Internet and the impact of a hurricane.
+
+Link twenty four. "Sublime Text 3.0 - News - Sublime Text"
+
+Wow! Sublime Text 3 has been in beta for years! Awesome to see this ship. Already upgraded!
+
+Link twenty five. "Apple Watch Series 3 Goes Cellular - TidBITS"
+
+When the Apple Watch first came out there was a lot of hoping for an LTE version and to be honest I totally played it down. "I always have my iPhone!" I said. But see, sometimes I wish I didn’t have my iPhone. I wish I was connected but with something that didn’t suck me in so easily. I preordered my Series 3 with LTE on launch day.
+
+Link twenty six. "Think, live, be positive aggressive | Phil Soran | TEDxFargo"
+
+Great TEDxFargo talk from Phil Soran, successful tech entrepreneur and also an SPS Commerce board member. His culture view of positive aggressive culture is great. I like naming the culture and having explicit discussions about it.
+
+That's the end of Links.
+
+Now, the Promotion section.
+
+The Electronic Frontier Foundation is the leading nonprofit organization defending civil liberties in the digital world. I have been a member of the EFF for years. Not only is the EFF working hard to protect you on the Internet they have also recently launched solutions like Privacy Badger and the critically important Let's Encrypt service to make encrypting web servers free to anyone. Support the EFF with a donation!
+
+That's the end of Promotion.
+
+Now, the Microblog updates section.
+
+- Tried an idea I had to make Jekyll generate faster for my link blog. Thought using a built-in property (tags) instead of a custom one would be way faster. Profile showed it was actually two times slower. Sometimes computers are confusing.
+- I got the new micro.blog iOS app and I really dig how @manton has implemented subject lines and longer posts in a microblogging platform. The title bar appearing after the body gets to a certain length is a very elegant solution. I still like the idea of having a main blog separate from the fragments on my microblog, but it’s great seeing this evolve in interesting ways.
+- Got my friend @mrock911 setup on a solid Eero network tonight, plus some network debugging.
+- Stainless Steel Series 3 Apple Watch with cellular ordered! Will use stainless steel band from Series 1.
+- Rode bike to work for the first time in years and years. Great route and great ride on Defiant One!
+- Just upgraded my Sublime Text license to 3.0!
+- Out for a ride on Defiant One again. No trailer and not using assist today. Great ride!
+- US Internet here for first step of rescuing us from Comcast!
+- BBBY! MNUFC!
+- Penalty kick. No go. MNUFC!
+- MLS video review. New.
+- Sold out crowd for MN United tonight! That is awesome!
+- Getting ready for kickoff! GO MNUFC!
+- Time for MN United game!
+- Took the Defiant One out for a test run and love it!
+- Our neighbor raises tomatoes and it’s a delight every year to have fresh heirlooms to enjoy. Yum!
+- Sometimes the espresso looks so much more delightful than others.
+- Had morning scrimmage for Fuller Soccer Earthquakes! My first time being a coach!
+- Found out tonight that you cannot badge out of the parking ramp at work if you didn’t badge in.
+
+That's the end of Microblog updates.
+
+Thank you for subscribing to the Weekly Thing! If you know of people that would like the Weekly Thing please forward it along!
+
+That brings us to the end of the Weekly Thing, issue 19. Thanks for listening, and I'll see you next time.

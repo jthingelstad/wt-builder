@@ -1,0 +1,260 @@
+The Weekly Thing, issue 244. Fans, Sameness, Fediverse + Ukraine Fundraiser!. Published March 4, twenty twenty three. By Jamie Thingelstad. In this issue: Stop saying technical debt, LastPass corporate vault hack, Microsoft AI visual puzzles, 1000 True Fans, Ethereum Reflections twenty twenty three, Fediverse already dead.
+
+Last week in recognition of the Ukraine's One Year milestone defending itself against Russian attacks I announced a 5,000 dollars fundraising match to any Ukrainian support organization.
+
+In the first week of the Ukraine Matching Fundraiser we got about two-thirds to the goal! There is still an opportunity to double another 1,744 dollars in donations! Some of the organizations included so far:
+
+- World Central Kitchen
+- Razom
+- International Rescue Committee
+- Samaritan's Purse
+- Doctors Without Borders
+- Voices of Children
+
+If you are able please consider making a donation to a non-profit that is supporting the people of Ukraine. Forward the receipt to me and I will match it to the same organization.
+
+Thank you for being part of this! It would be great to complete the match this week. I'll be sending a POAP token to those that participate in the match once completed.
+
+Now, the Currently section.
+
+Installing: I've been a happy customer of Neeva for over a year, and I’m having fun playing with their new beta app Gist. Why pay for a search service when Duck Duck Go and Google are around? I don't want my personal data mined, I want my search results prioritized on value not revenue, and it is amazing to see a company actually innovating! While everyone else is talking about what AI powered search could be, Neeva is already there with a whole new way to do search. It is pretty neat!
+
+Reading: I’m currently reading To Shake the Sleeping Self by Jedidiah Jenkins with my book club. Tammy read this book not that long ago and she highly recommended it. I’m about half-way through and enjoying it a lot. Jed and Weston are an unlikely pair on an epic journey.
+
+Watching: We finished watching The Mysterious Benedict Society Season 2 on Disney+. Mazie read this whole series, more than once, and we've been watching the shows as a family. They are very well done and the story is great. Highly recommended. We are eagerly looking forward to Season 3!
+
+That's the end of Currently.
+
+Now, the Notable section.
+
+Link one. "Stop saying "technical debt" - Stack Overflow Blog"
+
+This is a great post and is so completely spot on! I feel like I've had this conversation in parts with several technology leaders over time.
+
+Quote.
+Here’s the effect: the minute we trot out the term "tech debt," everyone is upset but no one is listening. Each conversant assumes they know what we’re all talking about, but their individual pictures differ quite a bit.
+End quote.
+
+Said another way, "tech debt" is a sloppy term that can mean anything to anyone. Ignore whatever definitions may be out there to ground on, and instead focus on why the person you are talking to cares. This should be required reading for all leaders of technology teams.
+
+Next word to focus on? "Scale".
+
+Link two. "crul"
+
+This looks like a really powerful tool to mine web pages for various data feeds.
+
+Quote.
+The name crul comes from a mashup of the word "crawl" (as in web crawling), and "curl", one of our favorite tools for interacting with the web. crul was built from the desire to be able to transform the web (open, saas, api and dark) into a dynamically explorable data set in real time.
+End quote.
+
+Interesting set of capabilities to build with.
+
+Link three. "LastPass says employee’s home computer was hacked and corporate vault taken | Ars Technica"
+
+This LastPass breach was widely published a couple of months ago, and now we are getting more details on what actually happened. The vector that the attackers use to get in was only possible with four people? Emphasis mine.
+
+Quote.
+"This was accomplished by targeting the DevOps engineer’s home computer and exploiting a vulnerable third-party media software package, which enabled remote code execution capability and allowed the threat actor to implant keylogger malware," LastPass officials wrote. "The threat actor was able to capture the employee’s master password as it was entered, after the employee authenticated with MFA, and gain access to the DevOps engineer’s LastPass corporate vault." The hacked DevOps engineer was one of only four LastPass employees with access to the corporate vault. Once in possession of the decrypted vault, the threat actor exported the entries, including the "decryption keys needed to access the AWS S3 LastPass production backups, other cloud-based storage resources, and some related critical database backups."
+End quote.
+
+Keeping secrets secure is hard, and even harder when those secrets end up on unmanaged equipment. Painful. See the LastPass announcement for full writeup.
+
+Link four. "Microsoft unveils AI model that understands image content, solves visual puzzles | Ars Technica"
+
+This seems like the obvious next step and something I eluded to earlier in reference to Wolfram Alpha working with ChatGPT to each do their respective part best. The same way the human brain has different regions to do different tasks, why wouldn't we use different AI models in the same way.
+
+Quote.
+While the media buzzes with news about large language models (LLM), some AI experts point to multimodal AI as a potential path toward general artificial intelligence, a hypothetical technology that will ostensibly be able to replace humans at any intellectual task (and any intellectual job). AGI is the stated goal of OpenAI, a key business partner of Microsoft in the AI space.
+End quote.
+
+It seem like a very hard problem to transition concepts between different models. The models are neural nets themselves that do not have a readily decomposable way to describe themselves post training. How does this thing send an object around to different models? Maybe it doesn't need to? They can all just guess and then an executive model can render the final thing together?
+
+Link five. "The Technium: 1,000 True Fans"
+
+I first read the original version of this in twenty nineteen and enjoyed this updated take on the same concept.
+
+Quote.
+Now here’s the thing; the big corporations, the intermediates, the commercial producers, are all under-equipped and ill suited to connect with these thousand true fans. They are institutionally unable to find and deliver niche audiences and consumers. That means the long tail is wide open to you, the creator. You’ll have your one-in-a-million true fans to yourself. And the tools for connecting keep getting better, including the recent innovations in social media. It has never been easier to gather 1,000 true fans around a creator, and never easier to keep them near.
+End quote.
+
+If there is only one thing to take away from this to me it is to focus on the level of engagement. It is really easy with any project we do to get focused on growth, and get discouraged if we don't see that. What if the growth is in depth versus breadth? Might that be even better?
+
+People love to highlight how many followers or subscribers they have. Those are the numbers that social platforms give you. When folks jump out of that caustic ecosystem they often feel lost in a blog with less engagement. The thing to focus on, is the quality of that engagement.
+
+Link six. "Cleaning and graphing baseball data - All this"
+
+I saw Dr. Drang's first post on baseball game durations and the chart in it made my eyes light up. Then the next day I saw this post where he goes through the specifics on how he made the chart. I love the detail and the Python toolchain he used to make this.
+
+Link seven. "Ethereum Reflections twenty twenty three · djrtwo/writing · GitHub"
+
+This article from core Ethereum developer Danny Ryan of the Ethereum Foundation is a good read overall. It highlights how much continued development is possible and likely around Ethereum, but also highlights risks that are out. It is notable to me that many of the risks are not technical, but are about control and governance.
+
+Quote.
+There are now a non-trivial number of well-resourced and sophisticated entities with a deep interest in not only the success but the manipulation of the Ethereum protocol. Such entities do not appear to generally have malice in intent today, but they do have a lot riding on the protocol evolving in certain ways and at certain speeds. To this end, L2s, VCs, exchanges, and dapps have entered into the L1 governance and development process. We are in a unique time in which Ethereum has these special interests forming and coming to the table, but many areas of the protocol, by almost any standard, are not yet sufficient, not yet ossified. This makes the next few years particularly risky.
+End quote.
+
+These risks are real, and this is where having a strong Foundation, strong core developers, and a strong voice like Vitalik are going to be so important.
+
+Quote.
+In short, Ethereum stands stronger than ever. The community building the core infrastructure, the community layering in scaling, and the community building on top are astounding to be a part of and to observe. But, there are still major challenges; there are still immense risks. Ethereum is alive and well. Do your part to keep it that way.
+End quote.
+
+That last line is why I’m looking into becoming a home validator for Ethereum, as I've been doing with Gnosis for several months now.
+
+Link eight. "The Fediverse is Already Dead | Nora Codes"
+
+As I read about the Fediverse I can’t help but think we have had this for a very long time. We have the Web. And we have RSS and Atom. We can publish content, and we can syndicate that to others. What is the problem we are trying to solve here? Why do we need this at all?
+
+Link nine. "The Unbearable Sameness of the Modern Web"
+
+Another in the thread of "Make the Web Weird Again!"!
+
+Quote.
+Also, it’s BORING. It’s BORING AS HELL. Guh, bring back interesting websites, bring back the creativity that the web offers. Bring back frontend devs who aren’t afraid to get down with the mouse event handlers!! There is so much room for creative expression on the web! Standardizing UIs makes sense for large software companies — but please, let’s hold the line with the WWW also being a space for you and me to make weird little sites.
+End quote.
+
+I honestly have that same kind of reaction not just to UI frameworks as the author highlights but whenever I see the common concoction of social contagion. Infinite scroll feeds and engagement actions. Enough already. Somebody do something interesting!
+
+That's the end of Notable.
+
+Now, the Journal section.
+
+Thursday @ 9:57 PM
+
+Nordic Village at Riva Terrace
+
+Tammy and I enjoyed a delicious 7-course Nordic Village experience. The food was great and the individual cabins were really cool with downtown in the background. It was a lot of food though!
+
+Monday @ 11:47 AM
+
+I gave the "Always On Display" feature of the iPhone 14 Pro several weeks to get used to, but have finally turned it off. When the display is on it catches my attention every time I see it. It leaves me wondering if there is something I need to check. No good.
+
+Saturday @ 9:48 PM
+
+Mason Jennings at The Dakota
+
+I don't remember exactly when I heard Mason Jennings first album but it wasn't long after it was out and I played it a lot. It was a real treat that he played a number of those songs at the Dakota this evening, and I was surprised to realize that I still knew the words to nearly all of them after so many years. This show was a real treat.
+
+Saturday @ 3:00 PM
+
+Scene from Potluck MN Food Hall.
+
+Saturday @ 8:00 AM
+
+I minted Cat #2230 of the Ukraine Cats Division. This NFT project is raising funds to help Ukraine defend itself. I think I'll mint a few more and get a Ukraine Cat Platoon going.
+
+Friday @ 10:52 PM
+
+The Bad Guys
+
+We finished our "snowpocalypse" movie series tonight with The Bad Guys. We watched three movies in three nights! That is a very rare thing for the Thingelstad family. This was a fun movie with multiple callbacks to other heist movies like Oceans 11. I may have nodded off a couple of times.
+
+Friday @ 8:35 PM
+
+Family game of Five Crowns tonight. Tyler won with just 66 points! Tammy had 86, Jamie with 108, and Mazie with 178.
+
+Friday @ 7:26 AM
+
+From The Economist, World in Brief, February 24 twenty twenty three.
+
+Quote.
+Sam Bankman-Fried, a former billionaire and founder of FTX, a collapsed crypto exchange, was charged with four new criminal offenses, including conspiracy to commit bank fraud and securities fraud. Prosecutors allege that Mr Bankman-Fried developed a “series of systems and schemes” through which he could “access and steal” billions of dollars of customer deposits. Mr Bankman-Fried has pled not guilty to all of the eight original charges against him.
+End quote.
+
+Bankman-Fried was a criminal mastermind more than any crypto mastermind.
+
+That's the end of the Journal.
+
+Now, the Reply All section.
+
+Here are some replies from Weekly Thing #243 / Montaigne, Ordinals, Salsa + Ukraine Fundraiser!.
+
+LED Lighting
+
+Larry Kramer replied back wondering "are you really concerned about LED lighting?"
+
+I loved this question in part because I know Larry well and I imagine him asking this with a face that implies that the actual question is "are you really crazy?"
+
+Am I really concerned about LED lighting? No. Am I laying awake at night convinced that the blue LEDs in those energy-efficient little bulbs are causing me to suppress melatonin and go slowly crazy to the point where I start rambling about LED light to random strangers? No, I’m not. In fact, according to my Oura Ring my biggest sleep issue is I fall asleep too fast and that means I’m overtired. Wait, maybe those LEDs are getting to me? No, I’m not worried about it.
+
+With that said though I do think that we (all of us, the big we) repeatedly apply a very reductionist, inorganic way of thinking to the things around us, and I think that can cause problems.
+
+The most common example I give of this is food and nutrition information. Let's take a banana. One way to look at a banana is that it has 105 calories. To get those calories we have 14.4g of sugars, 3.1g of fiber, and 1.3g of protein. We have some fun vitamins and minerals too with 10.3mg of Vitamin C and 31.9mg of Magnesium. So with all of this data and numbers, we must really know a banana right? Nope. Not at all.
+
+If we took all of those numbers and we put those specific things in the right quantities in a bowl, do we get a banana? Nope. You might think I’m being overly picky that of course it won't have a yellow peel an be slightly bruised in spots. No, I mean it isn't a banana.
+
+That banana is an organic think that we can approximate, but it is fundamentally irreducible at some level. Why do we care? It matters because our body knows.
+
+We are organic entities. We interface with organic things, eat organic food, and exist in an organic world.
+
+Let's come back to the LED bulbs. Am I worried? No. Do I think that it is a given that the light from LED bulbs affects us the same way as other light? No.
+
+I think this point of reductionism is particularly important as digital tools become ever more part of our life.
+
+Perhaps the best example of this is talking with a friend over Zoom. Yes, the person is right there, but to your body and parts of your mind they are not. That is a moving picture of them. Do the hormones in your body have the same reaction as they would in person? No way. Is it a substitute? Nope. Is it a good thing and another tool to have? Yes.
+
+Knowing what a banana contains, approximately, is helpful. But lets not fool ourselves that we have completely captured it.
+
+Another way to think about it, is that the organic or analog has a bit of magic. A bit of irreducibility. And that magic is delightful to use in various ways.
+
+Very importantly, that irreducibility is not necessarily a problem to be solved, but a wonder to be respected and enjoyed.
+
+So Larry, no, I’m not crazy.
+
+AI Songwriting
+
+Lee Zukor shared this note from Nick Cave about ChatGPT that is just great.
+
+Quote.
+What makes a great song great is not its close resemblance to a recognizable work. Writing a good song is not mimicry, or replication, or pastiche, it is the opposite. It is an act of self-murder that destroys all one has strived to produce in the past. It is those dangerous, heart-stopping departures that catapult the artist beyond the limits of what he or she recognises as their known self.
+End quote.
+
+Love it.
+
+That's the end of Reply All.
+
+Now, the Briefly section.
+
+Link one. "After two decades and more than two thousand% revenue growth, SPS Commerce CEO is retiring"
+
+Our CEO Archie Black has announced his plans for retirement after 22 years of leading SPS Commerce. Particularly love the photo from our tech floor. I've learned so much from him over the last ten years.
+
+Link two. "Why Python keeps growing, explained | The GitHub Blog"
+
+Python is my favorite language, and this is a good outline on many of the reasons why I like it and why I've encouraged it in many different settings.
+
+Link three. "The Camera Shy Hoodie — Mac Pierce"
+
+A hoodie that makes it so cameras can’t record you well? Love it. I wonder if we will continue to see innovation in clothing and other equipment to shield ourselves from the continual passive surveillance that we are subjected to.
+
+Link four. "A Letter from Minnestar Executive Director Maria Ploessl | Minnestar"
+
+After an amazing run as the first Executive Director of Minnestar, Maria Ploessl is stepping down. The search for the next ED starts now…
+
+Link five. "Watch David Letterman ‘Bono and The Edge: A Sort of Homecoming’ Trailer – Rolling Stone"
+
+We will be watching this right away!
+
+Link six. "Introducing POAP Checkout"
+
+I’m a big fan of POAPs, and I have used POAP Checkout to support charitable efforts multiple times during the beta period. It is great to see this now in general release!
+
+Link seven. ""Our neighbor is a lunatic," says Ukrainian journalist a year on"
+
+Interview with a Ukrainian journalist about the last year of covering the attacks from Russia.
+
+Link eight. "Oops, You Wrote a Database"
+
+This made me chuckle. I've definitely been parts of this story unfold.
+
+That's the end of Briefly.
+
+Now, the Fortune section.
+
+Here is your fortune…
+
+You are magnetic in your bearing.
+
+Thank you for subscribing to the Weekly Thing!
+
+That brings us to the end of the Weekly Thing, issue 244. Thanks for listening, and I'll see you next time.

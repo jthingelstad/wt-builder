@@ -1,0 +1,150 @@
+The Weekly Thing, issue 107. May 25, twenty nineteen. Published May 25, twenty nineteen. By Jamie Thingelstad. In this issue: Tesla strategy, data moats, owning your blog, Playdate handheld gaming, human antivenom, Gmail purchase history, quitting Twitter, indie social media.
+
+It’s Memorial Day weekend in Minnesota! For Minnesotans this marks the official end of our long winter months, and the true beginning of the summer. The actual weather may not agree with us, but that doesn't matter. It’s time to declare summer! I’m writing this outside and it is sublime. My main plan for the weekend is to get some more practice sessions on the flat top grill. I need to work on my short order cook skills!
+
+I've been noodling on some new things to include in the Weekly Thing. I haven't settled on anything yet, but I’m playing with some ideas that I think will be fun.
+
+If you are in the US of A I hope you have a fabulous holiday weekend!
+
+Now, the Featured Links section.
+
+Link one. "Tesla: Insane or Clever – Monday Note"
+
+This article captures very well the way I think about Tesla. It’s all about the software.
+
+Turning to mainstream, legacy car companies, we have to ask what they know about software — and do they even care? The Engine Control Unit, the computer that controls ignition and fuel injection, comes from a vendor like Robert Bosch (my autokorrekt wants to write “ogre botch”); the gearbox controller from ZF (as in toothed gears, Zahnrad Fabrik) or Japan’s Aisin; and the entertainment/navigation module from Panasonic and others. And they all use bundled software. To conventional automakers, software is a sourced component, often from the lowest bidder, a hard-to-control annoyance.
+
+It’s a situation that’s reminiscent of the early days of cell phones. Motorola and Nokia had software because they had to, they even boasted about being good at it, only to be displaced by competitors who loved software, namely Google’s Android and Apple’s iOS.
+
+I've told many friends that driving my Tesla Model 3 feels a lot using an early iPhone. The dashboard's emptiness harkens back to the ridicule of the first iPhone, that "it doesn't even have a keyboard!" Yeah, there is no speedometer in the middle of the steering wheel. The car can become completely different with a software update. Just today I got a new software push that changes dramatically some of the on screen displays.
+
+It’s awesome to experience this, and wether other companies catch up to batteries and motors I suspect is a given. But catching up to the unified software platform that Tesla has is going to be exceedingly hard. For everyone that is, except other software companies.
+
+That's the end of Featured Links.
+
+Now, the My Weekly Photo section.
+
+American Flag hanging in the Crystal Court alongside the IDS Center.
+May 18, twenty nineteen at 1:59 PM
+IDS Center, 80 South eighth St, Minneapolis, MN
+
+That's the end of My Weekly Photo.
+
+Now, the Notable Links section.
+
+Link one. "The Empty Promise of Data Moats – Andreessen Horowitz"
+
+Just having data doesn't mean anything if you don't have a use and have structured the data in a way to provide strategic benefit.
+
+None of this is to suggest data is pointless! But it does need more thoughtful consideration than leaping from “we have lots of data” to “therefore we have long-term defensibility”. Because data moats clearly don’t last (or automatically happen) through data collection alone, carefully thinking about the strategies that map onto the data journey can help you compete with — and more intentionally and proactively keep up with — a data advantage. It’s way better to plan for it than being blindsided when an asymptote or point of diminishing returns suddenly hits your company.
+
+Having a data strategy is probably a good place to start.
+
+Link two. "Khoi Vinh on How His Blog Amplified His Work and Career – Own Your Content"
+
+Great story from a well known blogger on the value that his personal website has brought to his career and work.
+
+Link three. "Playdate. A New Handheld Gaming System"
+
+This looks super fun, and Panic is a top-tier company that makes great products. I love the idea that this brand new handheld game unit comes with a "Season 1" of 12 games, delivered every week. Gruber's reaction is worth reading too. Plus, it has a crank! Love that!
+
+Link four. "The Human Antivenom Project | Outside Online"
+
+This is absolutely bananas.
+
+In the video, Friede holds the head of a Papua New Guinea taipan, one of the world’s most potently venomous snakes, against his forearm. Blood is already dripping from fang marks on his right arm, left there moments earlier by a ten-foot-long black mamba. Now the taipan bites. An attack from either snake can stop a person’s heart in a couple of hours. Other symptoms, including drooping eyelids and paralysis of the tongue, develop in seconds. But Friede calmly puts the snake back in its cage and says to the camera, “I love it. I love it. I love it.”
+
+Link five. "Google Gmail tracks purchase history — how to delete it"
+
+It surprises me that people would be surprised that Google would index the email receipts that you receive to augment to your profile for advertising. Of course they would. It’s a cheap and very effective way to see purchasing activity all around the web, and in some cases offline!
+
+Link six. "Novelist Mark Haddon Quit Twitter. Not Because It’s Terrible, But Because It Prevents Him From Being Great - Study Hacks - Cal Newport"
+
+This is spot on. I’m guessing it’s bad form to quote another articles quote, but…
+
+“I am taking a long break because every tweet had begun to feel like a peep of steam through my whistle — Listen to me! Listen to me! — which reduced the boiler pressure I needed to write another novel.”
+
+Blurting out little bits of stuff has exactly this effect for me of letting out the steam. I debate often removing those outlets to force the urge to author to build up to something more substantial.
+
+Link seven. "Olivia Laing: ‘I was hooked and my drug was Twitter’ | Technology | The Guardian"
+
+The emotions that Laing describe in this article are very close to what I feel from Twitter, but certainly not as strong as she describes.
+
+A twenty fourteen study by Dutch neurologists suggests that when people see an accident, they can’t at first empathise, let alone reflect, make decisions or act, because they are bombarded by an instantaneous flight/freeze/fight response, which has to wear off before they can think in more helpful ways. It seems to me now that being on Twitter was like watching a perpetual car crash.
+
+Ever since I've stopped following any profiles and only use Twitter to syndicate to, I've not had this problem, which is great.
+
+Link eight. "Can “Indie” Social Media Save Us? | The New Yorker"
+
+Nice writeup by Cal Newport about IndieWeb solutions. I like that he highlights my own microblogging platform of choice, micro.blog! He's skeptical they can have the scale of the surveillance networks out there today.
+
+Despite its advantages, however, I suspect that the IndieWeb will not succeed in replacing existing social-media platforms at their current scale. For one thing, the IndieWeb lacks the carefully engineered addictiveness that helped fuel the rise of services like Facebook, Twitter, and Instagram. This addictiveness has kept people returning to their devices even when they know there are better uses for their time; remove the addiction, and you might lose the users.
+
+I totally agree, but I also don't think the goal is to be that scale. These services are human scale, and that is part of what makes them great.
+
+That's the end of Notable Links.
+
+Now, the Give Back section.
+
+The Electronic Frontier Foundation is the leading nonprofit organization defending civil liberties in the digital world. I have been a member of the EFF for years. Not only is the EFF working hard to protect you on the Internet they have also recently launched solutions like Privacy Badger and the critically important Let's Encrypt service to make encrypting web servers free to anyone. Support the EFF with a donation!
+
+That's the end of Give Back.
+
+Now, more links.
+
+- Kickstarter will not voluntarily recognize its employee union - The Verge www.theverge.com
+I didn’t realize that Kickstarter had so much internal turmoil.
+- Focused, beautiful and free blogging – Proseful proseful.com
+Another super simple, nicely designed blogging service. It’s never been easier to create your own website!
+- The best cycling hack is a pool noodle — Quartz qz.com
+I've done my share of riding on rural highways and this is a pretty great idea!
+- Google AI Blog: Introducing Translatotron: An End-to-End Speech-to-Speech Translation Model ai.googleblog.com
+Getting closer to creating our very own, non-fiction, Babel Fish!
+
+That's the end of More Links.
+
+Now, the Microposts section.
+
+Thursday @ 11:20 PM
+
+We got to take in some jazz from Patricia Barber at the Dakota tonight. Very good!
+
+Thursday @ 3:16 PM
+
+Minnestar board strategy and future planning session! Great group and an amazing community! @minnestar
+
+Wednesday @ 8:13 PM
+
+At the Minnesota United v Hertha Berlin friendly! #MINvHER #MNUFC
+
+Sunday @ 12:17 PM
+
+Was planning a moderate 60 minute spin, but ended up with a PR! Nice. #peloton
+
+Saturday @ 8:03 PM
+
+There is seriously no better Polish sausage than Kramarczuk’s Deli. Minneapolis institution!
+
+Saturday @ 4:36 PM
+
+Another Saturday, another PR! Plus hit 102% MHR! #peloton
+
+Saturday @ 10:18 AM
+
+Goals from Franck Ribery and Arjen Robben in today’s Bayern game, their final and the title clencher, are amazing.
+
+Saturday @ 9:51 AM
+
+Awesome goal from David Alaba to take Bayern ahead 2-1! And then Renato Sanches to go 3-1! Championship Saturday!
+
+That's the end of Microposts.
+
+Now, the Fortune section.
+
+You've made it all the way to the end! Here is your fortune for this week.
+
+Someone is speaking well of you.
+
+Thank you for subscribing to the Weekly Thing!
+
+That brings us to the end of the Weekly Thing, issue 107. Thanks for listening, and I'll see you next time.

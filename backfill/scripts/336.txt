@@ -1,0 +1,252 @@
+The Weekly Thing, issue 336. Culture, Retention, Transmission. Published December 13, twenty twenty five. By Jamie Thingelstad. In this issue: Crucial exits consumer RAM, AI transforming work at Anthropic, Perl's cultural decline, why RSS matters, Let's Encrypt 10 years, why we need to die.
+
+Good morning!
+
+I hope your weekend is getting off to a great start. We've had what feels like an unusually cold start to our winter. There is already plenty of snow and we are getting below zero temperatures. It is a little bracing!
+
+This is my last Weekly Thing of twenty twenty five. I know, I know. What will you do without a too-long email landing in your mailbox every weekend? Have no worries, I'll be back after January fifteenth with more links and many other things.
+
+In the meantime, if you want to share some links of your own the new version of our forum, r/WeeklyThing on Reddit, has a good number of folks joining and a bit of dialog starting. And a special POAP through the end of the year.
+
+Have a great Christmas and a wonderful New Year! Be back in twenty twenty six!
+
+Now, the Currently section.
+
+Installing: I downloaded Vellum and have been playing around with it to see how difficult it is to create a book. I've got a little project in mind to tinker with.
+
+That's the end of Currently.
+
+Now, the Notable section.
+
+Link one. "After nearly 30 years, Crucial will stop selling RAM to consumers - Ars Technica"
+
+I've bought a number of Crucial memory sticks over the years. The massive demand for memory for AI means no more consumer product.
+
+Quote.
+The fault lies squarely at the feet of AI mania in the tech industry. The construction of new AI infrastructure has created unprecedented demand for high-bandwidth memory (HBM), the specialized DRAM used in AI accelerators from Nvidia and AMD. Memory manufacturers have been reallocating production capacity away from consumer products toward these more profitable enterprise components, and Micron has presold its entire HBM output through twenty twenty six.
+End quote.
+
+Frankly this sucks. The same thing has happened in the GPU market. The margins and revenue are higher selling to large data centers and huge buyers. But the impact to the DIY market to build your own computers is terrible.
+
+Link two. "How AI Is Transforming Work at Anthropic | Anthropic"
+
+We are all learning how agentic AI can help people in their work. This data from Anthropic is interesting and meshes well with my experiences. I also like the callout on work that would never have been done.
+
+Quote.
+27% of Claude-assisted work consists of tasks that wouldn't have been done otherwise, such as scaling projects, making nice-to-have tools (for example interactive data dashboards), and exploratory work that wouldn't be cost-effective if done manually.
+End quote.
+
+I don't know how we'll metric that. The reality is we are doing more, and it isn't a waste. This means we get to explore more ideas, more possibilities. That will result in a more comprehensive and thorough plan and direction, but it is more expensive than the previous one.
+
+We've always seen this. PowerPoint lets you make fancy slides, so now you feel compelled to make fancier, and more expensive in terms of time, slides.
+
+Link three. "Discovering the indieweb with calm tech"
+
+What a lovely idea this is! The challenge that everyone likes to highlight with the web is discoverability. This "Blog Quest" plugin is a super interesting way of solving that:
+
+Quote.
+Blog Quest is a web browser extension that helps you discover and subscribe to blogs. Blog Quest checks each page for auto-discoverable RSS and Atom feeds (using rel="alternate" links) and quietly collects them in the background. When you're ready to explore the collected feeds, open the extension's drop-down window.
+End quote.
+
+I wish this was available for Safari — I would add it in a minute. I love the idea of accumulating feeds with passive browsing.
+
+Link four. "Perl's decline was cultural"
+
+I was there having these same experiences with these languages. Strickland does a great job in this post generally describing the cultures of these various languages, starting with Perl, then Ruby, PHP, and Python. All of these languages are still used and will be for as long as I can imagine. But of them only Python has continued to ascend and is now one of the most popular languages. Strickland's suggestion is this is as much about the culture of these languages than anything else.
+
+Quote.
+When I sketch out this landscape, I remain firmly convinced that most of Perl's impedance to continued growth were cultural. Perl's huge moment of relevance in the 90s was because it cross-pollinated two diverging user cultures. Traditional UNIX / database / data-centre maintenance and admin users, and enthusiastic early web builders and scalers. It had a cultural shock phase from extremely rapid growth, the centre couldn't hold, and things slowly fell apart.
+End quote.
+
+My first websites were dynamic using cgi-bin and mod-perl. I wrote a ton of Perl for BigCharts back in the day. This article hits it right — those early web users were almost all also Unix admins.
+
+Thinking of the culture of programming languages is an interesting thing, and something that groups should be intentional about.
+
+PS: I love that this includes the mess of PHP as well. I've always called that "the people's language". The fact that WordPress and MediaWiki are built on PHP guarantees it a place on the web nearly forever.
+
+Link five. "Why RSS matters"
+
+If you've been reading the Weekly Thing for a while you know nearly everything in here I get via an RSS feed. RSS and a feed reader is my jam. If a site doesn't publish RSS, I’m not reading it. It just is how it is. And RSS can do so much more.
+
+Quote.
+If we want an internet where publishers retain autonomy and readers retain agency, we need to treat RSS not as legacy plumbing but as strategic infrastructure. That means three things: 1. Protect and optimize our existing RSS infrastructure. 2. Build and support better, more sophisticated RSS-powered applications. 3. Consider the intersections between RSS and the wider social web.
+End quote.
+
+The issue to me for RSS and why companies choose to not support it is the same stuff that makes it amazing. It is open. No company can control it. They cannot wrestle it down behind a paywall. They can’t force you to engage with it in a certain way. It shares much of that with email. These mediums give the user power, and sadly for many services they don't like that.
+
+Nearly all social media sites supported RSS when they launched. And they all shut it off after they get enough users. Because they have the power then. Cue enshittification.
+
+Link six. "10 Years of Let's Encrypt Certificates - Let's Encrypt"
+
+Let's Encrypt may be the most important project on the web in the last decade. This recent milestone is mind blowing.
+
+Quote.
+Just at the end of September twenty twenty five, we issued more than ten million certificates in a day for the first time.
+End quote.
+
+This might seem like technical gibberish but this is what makes your web connection secure. Before Let's Encrypt this stuff was so hard, expensive, and effectively off limits to non-commercial users.
+
+Now we have an ever more secure web, open to all, and funded by a non-profit. I love this project and what it has done for the world. I've been a proud supporter since they launched. If you use the web, you should send them a few bucks. Really.
+
+Link seven. "What '67' Reveals About Childhood Creativity - Atlas Obscura"
+
+Interesting history on young adult meme's and the role they play.
+
+Quote.
+The Opies went on, "And through these quaint ready-made formulas the ridiculousness of life is underlined, the absurdity of the adult world and their teachers proclaimed, danger and death mocked, and the curiosity of language itself is savoured." The ridiculousness and pointlessness of "67" is perhaps why it has succeeded so extravagantly as a meme, breaking out of the classroom to become Word of the Year: it perfectly encapsulates everything the Opies understood that kids need out of their private jokes. So is "67" a sign that screens and algorithms are "ruining childhood" with "brainrot?" Far from it--this trend actually shows that despite a screen-mediated culture kids are actually managing to generate new entries in the playground canon.
+End quote.
+
+6 — 7.
+
+Link eight. "Why We Need to Die"
+
+The finitude of life is what makes life, life.
+
+Quote.
+What I'm realizing is that both of these are the same thing. Being fully yourself requires accepting limits - who you are, how much time you have. You can't be everything to everyone, and you can't be forever. The constraint is part of what makes you, you. Choices that cost nothing aren't really choices.
+End quote.
+
+The fact that there is a "last time" of something is what makes it special.
+
+That's the end of Notable.
+
+Now, the Journal section.
+
+Journal entry one.
+
+Clash Royale check-in:
+
+- Just got my first card to Level 15 -- Witch!
+- Heroic Mini P.E.K.K.A. is incredible.
+- Currently playing a “Hog Deck”, I guess?
+
+Stats: 71 days; 7,271 trophies; level 39; arena 19; In-app purchases:. Connect.
+
+Coach: Tyler
+
+Journal entry two.
+
+I love the words play and tinker.
+
+It is very important for me to have projects that I can play and tinker with.
+
+Thankfully I have more than enough of them.
+
+Journal entry three.
+
+Excited for this year's New Standards Holiday Show!
+
+Journal entry four.
+
+Another great New Standards Holiday Show in the books!
+
+Journal entry five. Add to List Shortcut
+
+OmniFocus is my trusted system for tracking all of my commitments, as well as my “someday, maybes” and a number of other lists that I have. A while back I started using a set of “Idea Lists” that work really well for me to capture things like books to consider, shows to watch, restaurants to visit, gift ideas, and whatever else. These lists are a form of a “someday, maybe” because they are not actionable, but they are very specific to a thing where someday buckets are broader.
+
+I want to make it as simple as possible to get things into these lists so I made one of my most simple and frequently used Shortcuts -- “Add to List”. I find this super helpful and thought I would share. It relies on you have a Folder in OmniFocus where you keep these kind of lists. The magic is that it makes it super easy to capture into the right list and stay in the flow of what you are working on. For me, having it display a menu of lists and being integrated into the share sheet removes a lot of friction.
+
+You can add the Add to List shortcut.
+
+Journal entry six.
+
+I created a Connect page on my site that is simply an index of my profiles on various platforms.
+
+Journal entry seven.
+
+We tried out Loon Liquor in Northfield today for lunch. The pizza was really good and the distillery was really great to hang out in. If you are in Northfield give this place a go. They mill their own flour!
+
+Journal entry eight.
+
+We went to our third St. Olaf Christmas Festival tonight. Mazie is in St. Olaf Chapel Choir with the red robes. This is such a great event made even better when your daughter is in it!
+
+Journal entry nine.
+
+This morning’s moment in Waking Up was wonderfully simple.
+
+Quote.
+You have one job, and it consists of two parts. Be a good person, and pay attention.
+End quote.
+
+Two things.
+
+Journal entry ten.
+
+Great dinner at Salut celebrating my friend Jim's birthday and a final visit before Salut closes at the end of the year.
+
+Journal entry eleven. MnTech Outlook twenty twenty six
+
+Interesting comments on big goals for their organizations and the community this morning at MnTech Outlook twenty twenty six.
+
+Some observations:
+
+- No surprise that AI and transformation was top of everyone’s list.
+- Pratt: “we are going to have a reduction in our white collar workforce”
+- Tomes shared his personal experiences vibe coding. Playing and directly engaging with new tech is critical.
+- Bahner: we still need coding cause somebody has to read and verify the code. I agree we need talented developers but I don’t think this is why. Nobody can read machine language or assembly. Abstraction matters. Is agentic developmetn just a new abstraction?
+
+Thanks to Renee Edwards (Optum), Eric Pratt (Senator), Angie Schulke (Star Tribune), Kristin Bahner (Representative), and Tarek Tomes (State of Minnesota) for sharing with everyone.
+
+That's the end of the Journal.
+
+Now, the Briefly section.
+
+Link one. "Fresh - The Terminal Text Editor"
+
+Interesting take on a new text editor for your terminal. The multi-pane interface via curses is interesting. Avoiding having to teach successive generations all the complexity of vim or emacs is a good goal.
+
+Link two. "So What's Going to Happen to Product Management Anyway?"
+
+Thought provoking read specifically about product management functions and how that changes with AI. I’m a big believer in directly playing with the technology, building and tinkering is a must. I wholeheartedly would agree that everyone should do that, not just product managers.
+
+Link three. "Introducing Anthropic Interviewer | Anthropic"
+
+Anthropic now has Claude doing interviews. Makes sense.
+
+Link four. "Frank Gehry's most iconic work in pictures"
+
+Such iconic design.
+
+Link five. "Avoiding the toxic status loop | Seth's Blog"
+
+The crazy thing is that social media doesn't even hide the status game. Your follower count and likes of all your posts are just right there. It is a pure status game, with nothing else for it.
+
+Link six. "The Land of Giants Transmission Towers"
+
+I love these! Mark this as another thing to see the next time in Iceland. Kudos Iceland!
+
+Link seven. "Engineer proves that Kohler’s smart toilet cameras aren’t very private - Ars Technica"
+
+I’m a sucker for smart devices and such, but a camera in your toilet? No. Just no.
+
+Link eight. "Commerce Operations Foundation - A Common Language for Modern Commerce Operations"
+
+New industry group focusing on interoperability along with AI-enablement of retail operations.
+
+Link nine. "How HubSpot "Fixed" Retention | Brian Halligan | LinkedIn"
+
+Main components of how HubSpot totally flipped their focus and in the process made big improvements to core operating metrics — focused on customer outcomes.
+
+Link ten. "The state of enterprise AI | OpenAI"
+
+Massive transformations.
+
+Link eleven. "Meet Pebble Index 01 - External Memory For Your Brain | rePebble Blog"
+
+I liked having my Aura ring and even consider getting one again. But a ring with a button that you press and such seems really awkward. Love the experiment, but feels doomed.
+
+Link twelve. "Alyx: A Fun, Flexible Way to Track Caffeine Intake - MacStories"
+
+Well designed app.
+
+Link thirteen. "Introducing GPT-5.2 | OpenAI"
+
+A notch better… feels like CPU upgrades.
+
+A haiku to leave you with…
+
+RSS feeds the mind
+Let's Encrypt guards web's embrace
+Status loops undone
+
+That brings us to the end of the Weekly Thing, issue 336. Thanks for listening, and I'll see you next time.

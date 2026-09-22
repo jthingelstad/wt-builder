@@ -1,0 +1,198 @@
+The Weekly Thing, issue 251. Moloch, Chess, Protocol. Published April 24, twenty twenty three. By Jamie Thingelstad. In this issue: Meditations on Moloch, transformer models, state of crypto index, prompt injection, teen chess boom, Free Software Foundation, ChatGPT impersonation.
+
+Hey there!
+
+So I usually try to get to you on Saturday morning, and often times it ends up being Sunday morning. But this is the first time it has ever been Sunday evening!
+
+Time, energy, etc…
+
+In the interest of not delaying further, lets get right on with it.
+
+Now, the Featured section.
+
+Link one. "Meditations On Moloch"
+
+I heard this essay referenced on Lex Fridman's podcast with Max Tegmark and found it fascinating. We've all seen situations where market dynamics create incentives that are net negatives for all players involved. Or scenarios we will refer to as a Tragedy of the Commons. This essay personifies that concept into Moloch. Strongly recommended. This one will stick with you for a while.
+
+That's the end of Featured.
+
+Now, the Notable section.
+
+Link one. "4 Tools for Self-Reflection Every Leader Needs - Leadership Freak"
+
+Another short but powerful piece highlighting four important areas to focus on for self-reflection.
+
+Quote.
+1. Awareness of influence 2. Pattern recognition 3. Flow 4. Connection
+End quote.
+
+Interesting areas to focus on for some self-coaching.
+
+Link two. "Chess is booming among teens. Here’s why - Polygon"
+
+It is cool to see Chess growing in popularity, for a multitude of reasons. I've seen this myself. I was a little surprised when Tyler told me he had started playing Chess online a lot. He plays during downtown and plays both people and AI players. I love that he has taken a liking to it, although it highlights that I am a pretty poor Chess player myself.
+
+Link three. "What Are Transformer Models and How Do They Work?"
+
+Simplified overview of how a Transformer like GPT functions. I worry about overdoing the "one word at a time" heuristic that is commonly thrown out. I think it encourages oversimplification, but this does a good job of covering the various layers of the solutions.
+
+Link four. "twenty twenty three State of Crypto Report: Introducing the State of Crypto Index - a16z crypto"
+
+a16z's most recent crypto report. a16z has a lot of investments in crypto and web3 so one should caveat this heavily, but it is still good data and perspective. Key points that the report focuses on:
+
+Quote.
+- Blockchains have more active users, and more ways to engage. - DeFi and NFT activity appear to be rising again as promising new uses and applications emerge. - The number of active developers in the crypto industry has held steady. - Blockchains are scaling through promising new paths. - New technologies, once practically impossible, are becoming very real. - The U.S. is losing its lead in web3. - Zooming out shows progress across key indicators.
+End quote.
+
+My takes:
+
+1. The sustained higher level of active addresses is good. It hasn't dropped even with scandals and a sustained crypto winter. However 15M addresses is still far too small for the technology being built. Adoption is still in the infancy.
+2. The active developer count is meaningful, and fun that you can track this stuff so accurately in blockchain. 30K is still small though.
+3. The scaling solutions around Ethereum are showing growth, which is a good sign for them, but even more importantly a good sign for Ethereum.
+4. I don't see a ton of new Layer 1's as necessarily a good thing. It is more fragmentation of the market. I'd rather see folks focus on building on the Ethereum ecosystem unless there is a specific reason that will not meet the solution.
+5. Love the 99.9% energy reduction of Ethereum highlight as a result of "The Merge" to proof-of-stake. Ethereum uses 0.001% of the energy YouTube uses now.
+6. The market cap graphs are misleading due to an overly long timeline.
+
+Link five. "What Is A Protocol And Why Does It Matter? - AVC"
+
+Wilson attempting to introduce what a protocol is, the functions it performs, and lends a particular bend on what Web3 focuses on with a protocol.
+
+Quote.
+Until recently protocols were mostly free and unmonetized. We all use the HTTP protocol every day to access web pages. We all use the SMTP protocol every day to send email. But these protocols are free to use and don’t make money for any company or project or individual. With the arrival of Bitcoin back in January two thousand nine, we got a protocol that had monetization built in.
+End quote.
+
+I think it is still controversial to have direct financial costs in protocols as all crypto protocols do. But on the other hand, it forces a model that will insure a sustainable future instead of forcing people to fund free protocols with privacy stealing advertising.
+
+Imagine what the world of spam would look like if SMTP had been built with a fee structure implicitly in it. I think it would be hugely better.
+
+Link six. "U.S. Teen Girls Experiencing Increased Sadness and Violence | CDC"
+
+Our kids are not doing well.
+
+Quote.
+According to new CDC data released today, nearly 3 in 5 (57%) U.S. teen girls felt persistently sad or hopeless in twenty twenty one—double that of boys, representing a nearly 60% increase and the highest level reported over the past decade. While all teens reported increasing mental health challenges, experiences of violence, and suicidal thoughts and behaviors, girls fared worse than boys across nearly all measures.
+End quote.
+
+I feel like this issue needs more attention.
+
+Link seven. "Prompt injection: What’s the worst that can happen?"
+
+This is a very good overview of prompt injection. It also seems like a very complicated thing to protect against, in part because ChatGPT can do so much and respond to such a variety of inputs. Prompt injection is going to be hard to tell apart from real requests that are valid.
+
+Link eight. "The Free Software Foundation is dying"
+
+"We", all of us using the Internet and reading an email on it, owe a big debt of gratitude to the work of the Free Software Foundation. The mission that it took on, and the literal software that it helped create and maintain, has been critical to the Internet and computing for decades.
+
+Sadly though I completely agree with DeVault's commentary here.
+
+Quote.
+In its role as the thought-leaders of free software philosophy, the message of the FSF has a narrow reach. The organization’s messaging is tone-deaf, ineffective, and myopic. Hammering on about "GNU/Linux" nomenclature, antagonism towards our allies in the open source movement, maligning the audience as "useds" rather than "users"; none of this aids the cause. The pages and pages of dense philosophical essays and poorly organized FAQs do not provide a useful entry point or reference for the community. The message cannot spread like this.
+End quote.
+
+The FSF has become irrelevant, fighting last decades battles and worrying about attribution. The leadership of the FSF has missed all the critical movements in open source for a long time.
+
+The trouble is, does it matter? Maybe the FSF ran its course and should just go away?
+
+Link nine. "ChatGPT pretends to be me. And that's scaring the crap out of me. - without bullshit"
+
+Interesting dialog Bernoff had with a chat bot trained to be him. The entire dialog is a fun read, and I think Bernoff's take on it is a good one. It makes stuff up, in Bernoff's case a lot, but some of what it makes up is pretty good. It lacks wit, but much of the basics of copyediting it can do well, and will do better.
+
+Link ten. "Beyond Getting Stuff Done - zen habits"
+
+A good system isn't measured by how much you get done.
+
+Quote.
+What would happen if we decided not to play that game? If we could set aside for a moment the fears that drive us, the hope that we’ll ever finish everything, the hope that we’ll somehow get a feeling of being good enough if we are good at getting things done?
+End quote.
+
+It is measured by the calmness you can experience when you have confidence about what is out there. Then you can explore.
+
+That's the end of Notable.
+
+Now, the Journal section.
+
+Thursday @ 9:48 PM
+
+Evening tacos at Los Tacos No. 1 after seeing Life of Pi. Tacos were amazing!
+
+Thursday @ 9:05 PM
+
+Tammy and I enjoyed seeing Life of Pi on Broadway at the Gerald Schoenfeld Theatre. The performance were powerful and it was amazing how they brought the animals to life. Hiran Abeysekera in the lead role of Pi was great.
+
+Tuesday @ 7:46 PM
+
+It was great to join the Twin Cities Business Women in Leadership event and for SPS Commerce to be recognized as well! The data and stories shared from the panel of women leaders was interesting and insightful. Checkout Moving Beyond 'Firsts' for more.
+
+Sunday @ 3:15 PM
+
+Two days ago it was 87 °F, actually hot. Today cold, windy, and snowing.
+
+Sunday @ 6:58 AM
+
+For a technologist, I can think of no better way to spend 20 dollars than a month of experimentation with ChatGPT Plus.
+
+For another 20 dollars the second best is to get a little Ethereum and DAI, create a wallet, and learn how to buy a 1 dollar NFT on NiftyInk.
+
+Saturday @ 12:03 PM
+
+Voted for GIP-82: Gnosis DAO co-fund a community owned forest. I like all the aspects of this project and using a DAO as the organizing entity is very aligned with the potential that I see in DAOs.
+
+Saturday @ 9:09 AM
+
+I've been searching for a super simple way to sign strings of text with my Ethereum wallet and share that proof with anyone online and generally the options have been terrible. I had resigned myself to having to use PGP signatures. And then I found Signatorio which does exactly what I wanted!
+
+Friday @ 11:13 PM
+
+It was great to see Aoife O'Donovan perform Bruce Springsteen's "Nebraska" at the Turf Club tonight.
+
+That's the end of the Journal.
+
+Now, the Briefly section.
+
+Link one. "Apple Card’s new high-yield Savings account is now available, offering a 4.15 percent APY - Apple"
+
+I activated this for my Apple Card to give it a try. It is curious how big Apply has quietly gotten in payments.
+
+Link two. "Cryptographic Best Practices"
+
+Cryptography is a deep topic, and this attempts to give a shallow but broad overview of the important concepts.
+
+Link three. "I'm a Blogger - hutaffe.blog"
+
+Love it.
+
+Link four. "Reddit Moderators Brace for a ChatGPT Spam Apocalypse"
+
+ChatGPT and similar AI platforms are going to take the cost of uniquely generated content to near zero. As a result, we are going to see next level robotically created content.
+
+Link five. "Fleek - Own your $HOME"
+
+Wrapper around Nix to make it easier to maintain your software on different computers.
+
+Link six. "Stand on one leg – and 16 other life-changing daily moves that will keep your body happy | The Guardian"
+
+Wild how much just simply moving around is like medicine for us, even better. Nothing fancy, just move.
+
+Link seven. "LLMs and neurodiversity - Marginal REVOLUTION"
+
+Interesting observation regarding how different people may benefit from interacting with AI models.
+
+That's the end of Briefly.
+
+Now, the Signature section.
+
+"Weekly Thing #251 / Moloch, Chess, Protocol" is signed…
+
+Signed by thingelstad.eth:
+0xd52f935ba52603b64d72a01cfcf3d375d6814466563c929c26926979e3ec7c477f678831bacc09105cdde9fa57aed9f0a3ccedbee5ead457161bde0af64a06121b
+
+Signed by weeklything.eth:
+0x662fd7ad806186d1a6cb7e44f058a5185b4b075c80513a1710d8725bdf42b3a519c03ab29529bd7ad4343efafe76704939d6ffd6917deb7006dd86f571f4d0b11b
+
+Fortune
+
+Here is your fortune…
+
+You have a deep appreciation of the arts and music.
+
+That brings us to the end of the Weekly Thing, issue 251. Thanks for listening, and I'll see you next time.

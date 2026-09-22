@@ -1,0 +1,340 @@
+The Weekly Thing, issue 192. Endemic, Solidify, Zsync. Published June 26, twenty twenty one. By Jamie Thingelstad. In this issue: Bitcoin bubbles, Nassim Taleb, swallowed AirPods, Brave Search, smart contract security, Python future, data brokers, Leica smartphone.
+
+Hello to all the new subscribers that have signed up recently. Welcome aboard!
+
+June is winding to an end, and with that the Weekly Thing is going on summer break. But have no worries, I'll be back on September fourth with issue 193! Until then, I hope you have a fabulous summer and make the most of all of it!
+
+While I’m taking a break I often like to make improvements to the Weekly Thing. I would love to hear from you as I consider updates and refinements. I put together this Weekly Thing Summer twenty twenty one Survey. It is quick and simple! Thank you ahead of time for sharing your feedback, it is a gift!
+
+See you in September! Now onto the links for this week…
+
+Now, the Featured section.
+
+Link one. "Scripting News: They can't see what they can't see"
+
+Dave Winer has written for decades at this point about blogging, the web, and journalism. He wrote Sources go direct in two thousand nine! Here he is hitting on a bigger thing.
+
+Quote.
+So you get the same story, the reality they believe in, developed over centuries, that is radically different from the reality most other people experience. The story recited daily at CNN, MSNBC, The New Yorker, NYT. The world changes, again and again, and the story they tell is how angry this makes them, and how everyone must snap back.
+End quote.
+
+I got here reading Doc Searls "What becomes of journalism when everybody can write or cast?" which adds additional context. I think Winer hit the point more directly.
+
+Link two. "Living normally, with Covid-19: Task force ministers on how Singapore is drawing road map for new normal - The Straits Times"
+
+My view all along has been that Covid-19 will not go away, for sure not in the next decade. But thanks to science and amazing medical talent we will be able to manage Covid-19.
+
+Quote.
+The bad news is that Covid-19 may never go away. The good news is that it is possible to live normally with it in our midst. This means Covid-19 will very likely become endemic. But what does that mean? It means that the virus will continue to mutate, and thereby survive in our community. One example of such an endemic disease is influenza. Every year, many people catch the flu. The overwhelming majority recover without needing to be hospitalised, and with little or no medication. But a minority, especially the elderly and those with co-morbidities, can get very ill, and some succumb.
+End quote.
+
+Pivoting into this new way of managing and reacting to Covid-19 may be challenging but seems like the right path. Oh, and get vaccinated!
+
+Link three. "I swallowed one of my AirPods | The Guardian"
+
+One of my common ways to fall asleep if I’m having a hard time is to put my left AirPod in and select a podcast to listen to. If I need a heavy hammer to get myself to sleep I go straight to On Being because Krista Tippett's voice soothes me to sleep in seconds. Typically the AirPod falls out at some point and I find it in the morning. I have never considered that I could swallow it?
+
+That's the end of Featured.
+
+Now, the Currently section.
+
+Drinking: I tried my very first Athletic Brewing non-alcoholic beer and was pleasantly surprised by how good it was! I've nearly stopped drinking all beer because it just puts me to sleep. Run Wild from Athletic tasted great, was refreshing, and left me feeling the same as before I drank it!
+
+Installing: ExpressVPN! I've gone for a long time without ever using a VPN service but I’m thinking I will add this to my set of services to protect my privacy. I may try to configure it at the router level too.
+
+Watching: We have one more episode of Schitt's Creek and then sadly we will be done hanging out with the Roses. Tammy and I have enjoyed this show so much. Next we are teeing up The Mysterious Benedict Society on Disney+!
+
+Reading: I’m well on my way through Radical Markets, which has been a thought provoking read. I've read four fo the five scenarios and some I take issue with, others I think are great. I’m hoping to wrap this book up this weekend and then start reading Steven Pressfield's Man at Arms!
+
+That's the end of Currently.
+
+Now, the Notable section.
+
+Link one. "Bitcoin, Currencies, and Bubbles by Nassim Nicholas Taleb"
+
+I've read three of Taleb's books. Fooled by Randomness, Black Swan, and Antifragile. All have been fabulous reads, if you can see your way through Taleb's hubris. Taleb tweeted this draft article arguing Bitcoin is worthless. It is good to read all views, particularly on something so innovative and particularly disruptive as crypto.
+
+Taleb seems to delete things off his site so I cached a copy of my own for reference.
+
+Link two. "data-brokers.md · GitHub"
+
+Some data broker got my mobile number and has added it to my profile on their service. I have no idea which one, but the result is that I’m getting hammered with sales calls to my mobile phone. The folks that are calling have no idea it is a mobile, and they are not telemarketers so even though I’m on Do Not Call lists it doesn't apply.
+
+My only remedy? Send opt out requests to data brokers.
+
+Link three. "Introducing Solidify — a tool to automatically detect and classify smart contract security risks | The Coinbase Blog"
+
+This is probably the first of dozens of tools that blockchain developers will need as sophisticated solutions get built out. We have things like this for other domains already.
+
+Quote.
+Solidify uses a large signature database and a pattern matching engine to reliably detect contract features and their risks, standardize and score smart contract risks, suggest mitigation strategies, and generate detailed reports to help inform our decision on whether or not Coinbase should list the asset. Solidify evaluates security risks of hundreds of smart contracts either fully automatically or through identification of unique functions that require additional manual review.
+End quote.
+
+Good stuff.
+
+Link four. "How Shortcuts for the Mac will fit in - All this"
+
+I've been a huge fan of Shortcuts since before Apple bought it and it was called Workflow. With Shortcuts coming to macOS Monterey I’m eager to play around with the bevy of powerful tools added to it. The fact that you can bridge Shortcuts into Unix style automation is incredible.
+
+Quote.
+All in all, this looks like everything I wanted in Mac Shortcuts. As I said in the post two years ago, the ability to run every kind of automation from every other kind of automation is key to making a fluid system, where you can use each tool for what it does best. Also, it means that third-party automation tools like Keyboard Maestro, which has a good AppleScript dictionary for running its macros, will fit in well with the new environment even before they incorporate Intents that are directly accessible from Shortcuts.
+End quote.
+
+I can’t wait to get my hands on this and start creating even more powerful automations! Automation is a super power!
+
+Link five. "Why Python is not the programming language of the future"
+
+I've been a fan of Python for years. Mostly I find it an immensely productive language for teams. Personally I find it very readable and easy to work with. Betting against languages because of sluggishness is a dangerous bet. Javascript was slow as can be at one point. So were many languages.
+
+Link six. "The Dark, Democratizing Power of the Social-Media Stock Market | The New Yorker"
+
+I have been playing with BitClout for a bit, you can find me @jthingelstad. I was curious to read this article and get its take. Notably the ability to transfer BitClout $CLOUT out and back in to Bitcoin and thus cash is now solved, so there is no lock in. I wasn't sure what I would think about Creator Coins, but it seems mostly a good thing so far. My coin price today is 9 dollars and 58 cents. I hold 11 different creator coins in my wallet.
+
+Link seven. "Laura Vanderkam Interview: How To Find Time By Tracking Time"
+
+Time is money. You could read this article and replace every instance of time with money and it would still make sense. Worse with time, there is no more of it. You only get what you got. Use it wisely. You budget your money? Do you budget your time? Do you track it?
+
+Link eight. "Brave Search"
+
+Brave has been working on the Brave Browser for years. There are many innovative ideas, and it was one of the first browsers to take privacy seriously. Now they have launched a search engine that brings those same concepts to search.
+
+I haven't used Google for a long time, I use DuckDuckGo for search and have been very happy with it. Recently I have started using Neeva which is going to be the first subscription search offering (you just pay, no ads, no privacy concerns). Now we have Brave Search. I love that we are seeing some innovation in this market that has been stagnate and declining with Google's complete and utter dominance over it.
+
+Link nine. "zsync"
+
+It has been a long time since I used rsync, but it is a fabulous tool for moving data between machines that you have access to. zsync removes the need for a special server implementation.
+
+Quote.
+zsync is designed for file distribution, with one file on a server to be distributed to thousands of downloaders. zsync requires no special server software — just a web server to host the files — and imposes no extra load on the server, making it ideal for large scale file distribution.
+End quote.
+
+If you need to move a reasonably sized asset to a lot of places this is your solution.
+
+Link ten. "Internet-in-a-Box"
+
+We spend a lot of time thinking about the newest and greatest, but there are still millions of people that do not have access to the web and the vast data most of us take for granted.
+
+Quote.
+Internet-in-a-Box brings the very best of the World’s Free Knowledge (Wikipedia, Khan Academy, OpenStreetMap, E-Books and many others) to those who are offline.
+End quote.
+
+Devices like this are important to bridge those gaps until we can get the web everywhere.
+
+Link eleven. "Courting the common cold"
+
+I've heard multiple folks considering the continuation of mask wearing to fend off other viruses in general. I like this take from Mo Perry.
+
+Quote.
+Our immune system is designed to interact with the world. We are complex ecosystems of mutually dependent microbes and molecules — superorganisms — embedded in a larger ecosystem of diverse life-forms.
+End quote.
+
+… continued …
+
+Quote.
+We need to stay in conversation with the world — the visible, the invisible, the ineffable. We can’t seal ourselves away, kill all the wolves, hide from all the viruses, scrub our guts clean of every bug. Complex life is formed by relationships.
+End quote.
+
+"A ship in harbor is safe, but that is not what ships are built for." Same goes for people.
+
+Link twelve. "Loup TV 096: "Bitcoin twenty twenty one" Further Mainstreams Crypto | Loup Ventures"
+
+Gene Munster interviews Hector Fernandez and Sal Ternullo about Bitcoin and specifically the Bitcoin twenty twenty one event in Miami.
+
+Link thirteen. "The Things That Make Fathers Happiest - The Atlantic"
+
+A great read for Father’s Day.
+
+Quote.
+Fatherhood, for the average man, is a huge source of net well-being. In one study published in the journal Psychological Science in twenty twelve, researchers found that parents enjoyed higher levels of happiness, positive emotion, and meaning in life than nonparents—and this was especially true for fathers.
+End quote.
+
+The whole article resonated with me.
+
+Link fourteen. "BitClout User Posts RSS Feed"
+
+Cool tool to provide RSS feed for a BitClout user. I've been trying BitClout and I am digging it. It is a great example of a decentralized blockchain social platform. This app was just made yesterday.
+
+Link fifteen. "Triple Crown - Stone and Sky"
+
+This blog deservedly could eat up a lot of reading time.
+
+Quote.
+From the moment I stepped foot off of Mt. Katahdin at the end of the Appalachian Trail, I had already begun dreaming of hiking the Pacific Crest Trail and one day the Continental Divide Trail to complete "The Triple Crown." Twelve years later, I found myself celebrating with my wife and friends at the northern terminus of the Pacific Crest Trail. Fast forward another four years, and the celebration was renewed yet again at the southern terminus of the Continental Divide Trail. With the Triple Crown behind me, one chapter in my lifelong love affair with wilderness had come to a close.
+End quote.
+
+Only 482 people have hiked these three giant trails. Amazing.
+
+Link sixteen. "Leica just launched its first smartphone that houses the company’s world-class camera technology | Yanko Design"
+
+A Leica branded smartphone? Yeah, this is actually real. I had to check my calendar and make sure it wasn't April first. Nope! Further looking shows this is a modified Sharp Aquos R6 but that big camera actually looks pretty awesome. Or maybe it is just the red "Leica" circle in the corner.
+
+Do you enjoy books? We do too! I have another newsletter, one that I share with Tammy and our kids, that is all about books. You should subscribe to Reading Things! Next issue comes out in July!
+
+That's the end of Notable.
+
+Now, the Journal section.
+
+Thursday @ 10:05 PM
+
+Crypto Allocation (June twenty twenty one)
+
+Time for another Crypto Allocation update. The last two months have seen a huge draw down in all crypto markets. Here is NYDIG Market Update on June 23, twenty twenty one to put it into context.
+
+Quote.
+The current market drawdown, the peak to trough decline, currently ranks as one of bitcoin’s toughest periods. The current decline of 55.6% is the fifth most severe, following big rallies and subsequent drawdowns in twenty eleven, twenty thirteen (which had two), and twenty seventeen.
+End quote.
+
+So needless to say all crypto assets are down substantially in that period. Here is how my allocation looks as of today, with notes below. I've added some footnotes. Tokens that have no notes are ones that I have made an active decision to hold some invested amount in. Others are either included in my basket, or are tokens I hold for some utility.
+
+* Indicates tokens that Coinbase makes a market in with a 10 billion dollars market cap.
+Indicates a token that does not meet one of my criteria, meaning it is either less than 10 billion dollars in market cap or is not traded on Coinbase, however I have purchased it for some other purpose.
+
+Notes:
+
+Polygon: I got into Polygon with OpenSea's announcement that they were adding it as an alternative blockchain to Ethereum for NFT sales. Polygon is a Level 2 chain with substantially lower costs, and has the very powerful benefit that you can transfer NFTs from Polygon's Layer 2 chain to the Layer 1 Ethereum chain. I’m intrigued by the model of Ethereum as a core blockchain and specialized Layer 2 chains connected to it, and allowing fluid movement of tokens between them all.
+Solana: Solana is an incredibly performant blockchain built on Rust. It support smart contracts and you can even write them in Rust. Solana does not meet my market cap requirement however I bought my minimum to get early exposure to it and to get my wallet setup and play with it.
+Uniswap: Powerful solution to swap any token for any other token. Seems like a core component of the DeFi solution space. Meets the 10 billion dollars market cap threshold.
+Polkadot: Newly listed on Coinbase and meets the 10 billion dollars market cap threshold. Facilitates cross blockchain movement of tokens and data.
+ICP: Newly listed on Coinbase and met 10 billion dollars threshold so added to basket. Promises to offer an amazingly performant blockchain with very good features. Worse performing token I've had now dropping 90%.
+Zcash: Zcash is super interesting to me because it supports multiple types of addresses including a shielded address that is more private. Zcash is one of the few that overs private transfers on its blockchain. Zcash does not meet the 10 billion dollars market cap requirement.
+Tezos: I purchased Tezos just so I could buy some NFT at the REM5 for Good event.
+Bitclout: I've setup a profile on Bitclout, and all profiles on Bitclout hold CLOUT tokens. I also have one for the Weekly Thing. The whole ecosystem of creator coins and "diamonding" posts is pretty interesting. Bitclout can be purchased with Bitcoin, and you can sell Bitclout back to Bitcoin. The Bitclout blockchain is merge mined with Bitcoin. This does not meet the 10 billion dollars market cap requirement, and it is also not traded on Coinbase.
+Basic Attention Token: BAT is the token that the Brave browser uses, and I’m intrigued by Brave and what they are doing to I added it to my basket. This does not meet the 10 billion dollars market cap requirement.
+
+Also see April twenty twenty one and March twenty twenty one allocations, and my approach to crypto.
+
+Thursday @ 9:40 PM
+
+REM5 for Good: Simulacra Two
+
+REM5 for Good ran a digital art event, Simulacra Two, and in addition to other options they offered NFTs of a number of items.
+
+I missed the real event but found out about it before it was all done and picked up four NFTs.
+
+They used Tezos for this and minted and sold the NFTs on H=N. I wasn't setup for that at all so I bought some XTZ on Coinbase, setup a walled on Kukai, and was then able to grab these.
+
+Wednesday @ 8:03 PM
+
+First MN United game since Oct 20, twenty nineteen! So awesome to be here with the chants, drums, and smoke! MN United leading Austin FC 2-0 at half.
+
+19,209 total attendance!
+
+Monday @ 9:42 PM
+
+Random Forecasts
+
+We all try to predict the future. Particularly in business, sports, finance, etc. I like to recall a story that Larry Kramer, CEO of MarketWatch, shared with me a long time ago.
+
+Larry had spent a lot of time in finance, but before that had a deep background in sports. Sports betting is a huge industry and people try to prove that they have the edge in picking the winner of any game. So, anyone that can prove that they are a good picker will get attention, or be able to sell their upcoming predictions. Larry shared one of the strategies that he had seen many times.
+
+1. Take a large group of people, let's say 10,000. Send half of them a message that Team A will win the game this weekend. Send the other have a message that Team B will win the game this weekend.
+2. Whichever team wins, send a message to that group that you were right. Send no further messages to the group you got wrong.
+3. Repeat.
+
+At the end of three cycles you have 1,250 people that have seen you perfectly predict the last three games. You must be a genius! Will they pay you to get your prediction for the next game? You must have an edge.
+
+So what is the lesson? When someone seems like a fantastic forecaster, make sure you aren't just one of the people in that third set of people!
+
+Sunday @ 11:01 PM
+
+We ended Father's Day by watching RV. Loved it. Made me want to go on another long RV trip.
+
+Sunday @ 7:52 PM
+
+We walked through the Lyndale Park Rose Garden on our way around Lake Harriet today. The flowers were beautiful.
+
+Sunday @ 7:44 PM
+
+It was a fabulous Father’s Day twenty twenty one! Waffles with berries and whipped cream to start the day. Family walk around Lake Harriet. Visiting Family. Finished with dinner at Yum!
+
+I am so lucky for these two kids, and my amazing wife Tammy who took the picture.
+
+Saturday @ 11:02 PM
+
+We watched Raya and the Last Dragon tonight. It was a fun movie, great animation, and a classic storyline. The five quests reminded us of Trolls World Tour, but with more complications.
+
+Saturday @ 12:40 PM
+
+Family supply chain overload as demand has dropped precipitously.
+
+Friday @ 6:07 PM
+
+Drinks at Lake and Irving on the patio. fig and rye (fig infused templeton rye, orange bitters, sugar) and bee’s knees (gin, strega, honey, ginger, lemon).
+
+One last time, how about sharing your feedback on the Weekly Thing?
+
+That's the end of the Journal.
+
+Now, the Briefly section.
+
+Link one. "Andreessen Horowitz Launches 2.2 billion dollars Crypto Fund - Blockworks"
+
+Last week it was MicroStrategy raising 500 million dollars while they received interest of 1.6 billion dollars. Now Andreessen Horowitz raises a 2.2 billion dollars fund for investing in crypto.
+
+Link two. "URLs: It's complicated"
+
+Have you ever wondered what all the pieces of a URL are? This is a good overview, and also explains some of the strange parts too.
+
+Link three. "Lifting the mask - Continuing Ed with Edward Snowden"
+
+Edward Snowden has a newsletter now. Instant subscribe.
+
+Link four. "Decentralized Identifiers (DIDs) v1.0"
+
+"DIDs are URIs that associate a DID subject with a DID document allowing trustable interactions associated with that subject."
+
+Link five. "SimCities and SimCrises - International City Gaming Conference keynote"
+
+Love this if only for the history of SimCity. SimCity is one of the few games I ever played seriously. I still wish I could resurrect my old SimCity 3000 city.
+
+Link six. "A from-scratch tour of Bitcoin in Python"
+
+"We are going to create, digitally sign, and broadcast a Bitcoin transaction in pure Python, from scratch, and with zero dependencies." Buckle up!
+
+Link seven. "The phases of remote adaptation | GitLab"
+
+Interesting framework for modeling distributed work environments. I particularly like the "whiteboarding fixation" callout.
+
+Link eight. "Cybereason: 80% of orgs that paid the ransom were hit again | VentureBeat"
+
+Paying doesn't make ransomware go away.
+
+Link nine. "Jay Christensen on Twitter: Glensheen Experience"
+
+Super cool video fly through of Glensheen Mansion in Duluth.
+
+Link ten. "USC professor’s DIY online teaching hack to engage students goes viral"
+
+This lightboard is really cool and a great teaching aid. More generally, I love the approach this teacher took to completely rethinking how she engaged online. There are learnings here for a many business leaders.
+
+Link eleven. "Kats - One stop shop for time series analysis in Python"
+
+Toolkit to analyze time-series data via Facebook. The tutorials look pretty straightforward.
+
+Link twelve. "The 25 Micro-Habits of High-Impact Managers | First Round Review"
+
+Great list with a ton of variety and examples shared by various managers.
+
+Link thirteen. "The Document Culture of Amazon"
+
+First hand commentary on the foundational role that various documents play at Amazon.
+
+Link fourteen. "GraphCDN, the CDN for GraphQL APIs"
+
+Caching solution that understands the semantics of GraphQL.
+
+Link fifteen. "Gently Down the Stream"
+
+Delightfully illustrated kids book that introduces the core concepts of Apache Kafka and streaming software architecture.
+
+That's the end of Briefly.
+
+Now, the Fortune section.
+
+Here is your fortune…
+
+Bank error in your favor. Collect 200 dollars.
+
+Thank you for subscribing to the Weekly Thing!
+
+That brings us to the end of the Weekly Thing, issue 192. Thanks for listening, and I'll see you next time.

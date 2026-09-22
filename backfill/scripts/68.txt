@@ -1,0 +1,145 @@
+The Weekly Thing, issue 68. Aug 25, twenty eighteen. Published August 25, twenty eighteen. By Jamie Thingelstad. In this issue: Notebook innovation at Netflix, descale agile work, Apple Pencil note-taking, code review is manager's job, Global Passport Power Rank, Trans-Siberian Extreme.
+
+This week has been challenging on a couple of fronts. The news of David Hussman's passing spread quickly this last weekend. I've lost one other friend to cancer, and he also seemed to be doing better than expected for a long time, and then his health went downhill very quickly. I don't know if that is common with cancer, but it feels like it is tricking you.
+
+At home, our dog Chase had a difficult week. He tore one of his CCL's, which is the dog version of an ACL, and his right hind leg went lame. He was hobbling around and a couple of days later he tore the other CCL as well, and for a day couldn't walk or even stand. I've been carrying all 80 pounds of him up and down stairs the last few days and trying to get him to rest. He's 11 years old, and on top of this issue he has melanoma. Damnit cancer! He doesn't have a lot of time left and we want to make sure what he has is good. His knees have been slowly improving, and he has some pain medication to help as well. I think he will get past the CCL issues and get some more time.
+
+We are officially saying goodbye to summer now. School starts on Monday, and with it the normal rhythm of the year resumes. Many changes, and behind it all the constant tick-tock of time.
+
+Now, the My Blog Posts section.
+
+Goodbye to my friend, David Hussman
+
+The last time I saw my friend David Hussman we met at Red Wagon Pizza and enjoyed an extended evening of pepperoni pizza and several glasses of a delicious red wine.
+
+That's the end of My Blog Posts.
+
+Now, the Featured Links section.
+
+Link one. "Beyond Interactive: Notebook Innovation at Netflix – Netflix TechBlog – Medium"
+
+The scale of this effort at Netflix is amazing.
+
+Every day more than 1 trillion events are written into a streaming ingestion pipeline, which is processed and written to a 100PB cloud-native data warehouse. And every day, our users run more than 150,000 jobs against this data, spanning everything from reporting and analysis to machine learning and recommendation algorithms.
+
+I haven't used Jupyter but it looks really compelling. I like how Netflix is using them for the exploration, as well as putting them into production pipelines.
+
+That's the end of Featured Links.
+
+Now, the My Weekly Photo section.
+
+Evening fire at the lake.
+Aug 18, twenty eighteen at 8:32 PM
+Cannon Lake, MN
+
+That's the end of My Weekly Photo.
+
+Now, the Notable Links section.
+
+Link one. "7 Leadership Qualities That Make for an Awesome Leader - Toggl Blog"
+
+These are all good areas for leaders to consider and focus on.
+
+Link two. "Want to scale agile? Don’t. Descale the work first. Achieve big through small."
+
+There is some very good thinking here on how to bring agility to organizations.
+
+Link three. "Apple Pencil Note-Taking: Why You Should Use Apple Notes, actually. — Kenneth Reitz"
+
+I have tried a surprisingly large number of iPad note taking apps to use with the Apple Pencil, and I agree with Reitz's conclusion.
+
+Apple Notes is hands-down the most well–designed, thought–through note taking app available for the iPad Pro. It is exceptionally well designed, and if you leave your preconceptions about what a note–taking app should do, I think you'll find yourself agreeing with me, once you give it a real try/chance.
+
+He didn’t mention it in his writeup, but Notes also does limited handwriting recognition as well, which allows searching of notes if your handwriting is legible.
+
+Link four. "Quit wasting your precious energy - a n n i e m u e l l e r"
+
+What a great essay from Annie Mueller!
+
+Energy is the currency of the universe. You don’t do anything to deserve it and you’re free to spend it however you want. I just want you think about it. What do you want? Is that what you’re getting? What bargains have you made?
+
+Energy is necessary for everything, just like time. Time without energy isn't worth much.
+
+Link five. "Code Review Review is the Manager's Job"
+
+Interesting perspective on the critical role that code reviews play in establishing the culture of a team and for individual team members to learn. I would be very skeptical of a manager being the one to do the code reviews, but I do think it makes a lot of sense for managers to stay engaged in the process and participate so they can steer the other aspects of the organization that are impacted by code reviews.
+
+Link six. "The easiest way to keep your web apps accessible: Just use text"
+
+Accessible web pages are often just better web pages. This pattern repeats over and over again, in technology as well as in the world at large.
+
+Link seven. "Time Is Money, Spend It Wisely | YNAB"
+
+Tammy and I have used YNAB for a few years now. I’m a fan of GTD. It’s like peanut butter and chocolate putting these concepts together.
+
+Link eight. "Global Passport Power Rank | The Passport Index twenty eighteen"
+
+I saw this article about traveling the world and it linked to this Passport Power Rank. I hadn't really considered this, but when traveling with some colleagues a while back one of them commented that a US passport comes with significant benefits. Turns out Singapore has the most benefits of all!
+
+Link nine. "Hacker Newsletter - The Hacker News Newsletter"
+
+I don't like the comment section of Hacker News, so this weekly newsletter is a great way to get the curation of Kale Davis for the notable things to see on Hacker News each week.
+
+Link ten. "Red Bull Trans-Siberian Extreme"
+
+I had not heard of this event and it is a monster “15 stages over the course of 25 days and covering a total of 9,100km”. iI reminds me of the Race Across America, but intentionally more difficult in terrain.
+
+That's the end of Notable Links.
+
+Now, the Give Back section.
+
+The Electronic Frontier Foundation is the leading nonprofit organization defending civil liberties in the digital world. I have been a member of the EFF for years. Not only is the EFF working hard to protect you on the Internet they have also recently launched solutions like Privacy Badger and the critically important Let's Encrypt service to make encrypting web servers free to anyone. Support the EFF with a donation!
+
+That's the end of Give Back.
+
+Now, more links.
+
+- PyPy.js pypyjs.org
+Python running in your browser? Yep.
+- Where Vim Came From twobithistory.org
+Interesting to read the lineage of one of my preferred editors.
+- Favorite Sayings web.stanford.edu
+Some fun insights here.
+- (An ((Even Better) Lisp) Interpreter (in Python)) norvig.com
+The title of this says it all. Extremely techie stuff to follow.
+- The eno notation language and libraries eno-lang.org
+Another plaintext format for data, an alternative to JSON, YAML, TOML and others.
+- Publii - Open-Source CMS for Static Website getpublii.com
+Interesting desktop app to create a static-site to then push to a server somewhere.
+
+That's the end of More Links.
+
+Now, the Microposts section.
+
+Tuesday @ 9:37 PM
+
+A few days ago my dog Chase injured his CCL (Dog version of ACL) in his right hind leg. Today he injured the other one and is unable to walk. He’s older and also has melanoma, so surgery isn’t an option. Hoping he gets mobility back in a few days.
+
+Sunday @ 9:13 PM
+
+Started allergy medicine — I don’t remember a year that I had to start this early!
+
+Sunday @ 4:55 PM
+
+Very sad to hear of the passing of my friend David Hussman (@davidhussman). We will all miss you dude! See his CaringBridge site.
+
+Saturday @ 4:39 PM
+
+Very happy with the new stone steps down to our dock!
+
+Friday @ 10:22 AM
+
+Very impressive work being shared by the #TeamSPS summer interns! They delivered significant capabilities in products and services core to SPS! We are lucky to have such talented interns!
+
+That's the end of Microposts.
+
+Now, the Fortune section.
+
+You've made it all the way to the end! Here is your fortune for this week.
+
+I am rubber and you are glue.
+Your words bounce off me and stick to you.
+
+Thank you for subscribing to the Weekly Thing!
+
+That brings us to the end of the Weekly Thing, issue 68. Thanks for listening, and I'll see you next time.

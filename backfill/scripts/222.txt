@@ -1,0 +1,282 @@
+The Weekly Thing, issue 222. Smalltalk, Friendships, Automata. Published June 5, twenty twenty two. By Jamie Thingelstad. In this issue: Lisp and Smalltalk symmetry, shared context friendships, Calendar.txt, Thin Platforms, Felt maps, Electronic Catan LCD tiles, ENS Boom.
+
+Hello there! Here I am hitting your Inbox on a Sunday morning again. What can I say, life has been pretty full lately. That is a good thing.
+
+There is a lot in this issue so I’m going to keep the intro brief. Let's get on with it!
+
+PS: If you have a Weekly Thing POAP, don't miss the gift that has been sent to you! See below…
+
+Now, the Featured section.
+
+Link one. "Lisp, Smalltalk, and the Power of Symmetry | In Search of Secrets"
+
+Programmers have a lot of languages to choose from, but some stand out above others. Lisp and Smalltalk are two that have reverence above and beyond most languages. Most languages are seen as a tool for a job, but Lisp and Smalltalk have an elegance and beauty that inspire and delight.
+
+Quote.
+The real power of Smalltalk’s object system, including its classes, is not inheritance–it’s reflection. Just as Lisp macros are powerful because they can operate on any Lisp code, including themselves, Smalltalk classes are powerful because they themselves are objects. Smalltalk, like Lisp, runs in the same context it’s written in. It’s objects all the way down.
+End quote.
+
+This article gives a flavor of how programmers see that beauty.
+
+Link two. "Friendships form via shared context, not shared activities | Bill Mei"
+
+I think this is spot on.
+
+Quote.
+That’s why friendships formed via shared interests often feel shallow. It’s because a real friend is someone who has things that can’t be listed on a résumé: trust, loyalty, love, belonging, safety, and a sense that they’ll back you up when the times get tough. Real friendships don’t form via shared interests. They form via shared context.
+End quote.
+
+This reminded me of Al Franker's comment
+
+Quote.
+My Dad is fond of saying that kids don’t need quality time with their parents — they need quantity time.
+End quote.
+
+Shared interests can be the beginning hook, but your long-term friends usually have shared a lot of experiences with you. This is probably one of the reasons it is so common to establish friendships with those you work with. You spend a lot of time with them!
+
+That's the end of Featured.
+
+Now, the Gift for Weekly Thing POAP Holders section.
+
+I saw this HELLO "Ink" on Nifty.Ink and I just thought it was a fun image. The author had minted 100 of them for only 0.10 DAI (0 dollars and 10 cents USD) each and an idea sprung into my mind.
+
+I should send one of these to everyone that has minted a Weekly Thing POAP token!
+
+I went to the Weekly Thing #200 and Weekly Thing Five Year Anniversary event pages and downloaded the CSV of the addresses that have it. Deduplicated the list and then proceeded to buy and send a copy of HELLO to every address.
+
+If you hold a Weekly Thing POAP, you will now find that you have HELLO in your wallet on Gnosis chain.
+
+That's the end of Gift for Weekly Thing POAP Holders.
+
+Now, the Notable section.
+
+Link one. "Ukrainian farmers make stop in Minneapolis and appeal for help | Star Tribune"
+
+In Weekly Thing #213 I shared my reflections from being to Ukraine many times, including this comment.
+
+Quote.
+Most people in the midwest are just a generation or two off the farm. My grandpa was a farmer. Most people in Ukraine are just a generation or two off the farm. My grandpa farmed wheat. Ukrainians farm wheat.
+End quote.
+
+Ukraine farms a lot of wheat. And Russia's War is threatening that harvest.
+
+Link two. "Calendar.txt"
+
+I sort of hoped this was an April Fool's joke but, nope. Now, it is an interesting example of using the inherent structure of data to make it easy to search, filter, and navigate. I mean, you could actually make this work with just a text file as the database. But, it seems crazy to try to do anything more than an insanely simple example.
+
+Link three. "Thin Platforms – Stratechery by Ben Thompson"
+
+Thompson is incredible insightful and this analysis of the Microsoft and Stripe approaches doesn't let us down. It is hard to read this and not also see the huge pendulum swing that technology has made between client-server, big centralized mainframes, and highly distributed systems. There is an underlying ebb and flow in our industry around that. The right answer? There is not one. Different solutions work better in different models. There is no one-size-fits-all.
+
+Link four. "Letter in Support of Responsible Fintech Policy"
+
+A number of really smart technologist, including more than a few that I follow very closely, publicly asking the government to be very skeptical of crypto. My view on this is that existing law around insider trading and fraud should and can be enforced in crypto today. I think regulation, particularly around stablecoins should exist. But other than that their should be a "light touch" to allow a lot of experimentation now.
+
+Sadly I think a balanced and nuanced approach is likely impossible as everyone screams from their various bunkers.
+
+Link five. "Shut it Down!"
+
+Good (and entertaining) read on Fed policy and inflation and how the overall market trends impact the crypto markets as well.
+
+Quote.
+The median yearly income for Americans is approximately 50,000 dollars. You know you’ve printed too much money when the median house appreciated more than the median income. That means you made more money sitting in your Lulu jammies than going to work, assuming you own a home.
+End quote.
+
+Also touches on the Terra/Luna meltdown.
+
+Quote.
+TerraUSD tried to pay a very high interest rate (20% on Anchor), fix its price versus the USD (the UST to 1 USD peg), and have an elastic supply (UST supply could rise infinitely). This is akin to a central bank fixing the rate of interest, fixing its fiat currency’s exchange versus the rest of the world, but having an open capital account. It doesn’t work in TradFi, and it (clearly) doesn’t work in DeFi either.
+End quote.
+
+Overall smart take, but who knows what will really happen. No crystal balls available.
+
+Link six. "Felt – The best way to make maps on the internet"
+
+First off, I think maps are great. Maps can tell stories. They can do so much. Unfortunately digital maps are hard to augment with your own story. This service seems incredible. Watch the video overview. You can not just annotate maps but augment them with entirely new information. It look incredible! I may use this to create a map when we go to Iceland.
+
+Link seven. "Intro to the Web Revival #1: What is the Web Revival? | Melon's Thoughts"
+
+Publishing your own website is a great way to be part of maintaining an open and independent web. I disagree with the crypto position in here, and need to write more on that. The hostility of the IndieWeb community to crypto makes no sense to me.
+
+Link eight. "How a Single Raspberry PI made my Home Network Faster"
+
+This is a great overview of the amazing impact that Pi-hole can have on your entire network. I ran a Pi-hole for a long time and it was great to have privacy protection and ad blocking network wide. However, I ultimately ended up removing it. I can’t recommend the Pi-hole because the way it works is to break certain types of requests. Usually that doesn't create a problem, but sometimes it makes websites not work. And when it does, it is nearly impossible for a non-technical user to know what is going on.
+
+Link nine. "Electronic Catan LCD Tiles · Colin Iuliano"
+
+This is an incredibly cool project. I would love to play Catan using interactive tiles. it could bring so many cool new dimensions to the game. It makes me want to have a variety of square, hex, and other shaped tiles that could plug together and then have a programmable interface to create various games on them. You could extend this to many other games.
+
+Link ten. "The Science Is Clear: Gun Control Saves Lives - Scientific American"
+
+I've felt this way forever, and I only agree more as each shooting happens with ever more frequency. Sadly I don't think politicians have any path to get this done. I hate to be cynical, but I think they gain more value from this not being solved, than doing anything productive here.
+
+Link eleven. "The Crypto Wallet: Unlocking Digital Identity"
+
+When you use your wallet to connect to dozens of services and are instantly logged in with a secure connection, no password, and still maintain your privacy it is a game changing experience. This is a component of the web3 stack that I think has a huge potential. At the moment though, the user experience is far too complicated and the software is not simple enough. If you imagine a future where these features are built into a browser you have one of the nicest experiences you could imagine to access services online. Username and password? May not need it at all.
+
+Link twelve. "The age of Scrum is over | Medium"
+
+An argument that Scrum has passed its usefulness. I’m not sure I agree, but I do think that is is appropriate to think of any methodology and it’s solutions in the context of it’s time. There will clearly be a point where Scrum has outlived its utility. Please note that I, and the author, clearly delineate Scrum as different than Agile. Agile is a class of things, Scrum is a specific instance in it.
+
+The particular point that I think scrum misses on over time is engagement outside of the typical developer stack, such as infrastructure as code and service team operation. Also, Scrum lacks a way to think about broader stakeholders and dependencies. The answers Scrum provides for both of these areas are immature and light. Most people end up having to roll-their-own process for these things.
+
+Link thirteen. "Field-Value Automata"
+
+Great essay, really for programmers, on optimizing a specific high-volume use case.
+
+Quote.
+When I introduced Quamina, I described the core trick: You prepare an arbitrary JSON blob for automaton-based matching by "Flattening" it into a list of name/value pairs, then sorting them in name order. Today, a closer look at how you work with the flattened data.
+End quote.
+
+Bray's overview of this solution is interesting and a good example of how programmers have to optimize. One of my favorite things about Bray's writing is that he has run software at massive scale.
+
+Quote.
+Finally, we had the insane luxury of running this in production against millions-per-second event flows and watching what broke. And of hearing from other teams using it about what they had managed to break. I guarantee: Nobody is smart enough to predict the behavior of software under this kind of stress without experiencing it.
+End quote.
+
+The dynamics of immense load on software systems is truly impossible to model.
+
+Link fourteen. "The ENS Boom - Metaversal"
+
+The Ethereum Name Service has broken out as the best solution for friendly names, like thingelstad.eth, to map to Ethereum addresses. This is a really big deal and making this easy is even more important than Domain Name Service that powers website addresses turning into IP addresses. Why? Because ENS names can be used as identity in addition to other things. I’m incredibly impressed with the service. I also love that it is leading the way on how to run a great DAO. It is modeling how web3 can be truly different.
+
+Quote.
++300k of the +1.12M ENS registrations to date have occurred since the start of May twenty twenty two
+End quote.
+
+This is amazing growth. The ENS names I have registered: thingelstad.eth, thinglestad.eth, jamiethingelstad.eth, things4good.eth, thingsforgood.eth, magicpines.eth, knoxave.eth, nightofcrypto.eth, rwbookclub.eth, roadsignmath.eth, weeklything.eth, 0xjjt.eth, web3msp.eth.
+
+Link fifteen. "Is Management Burnout Inevitable?"
+
+Being a manager is an incredibly hard job and one that deserves so much respect and support. This is the crucible where strategy turns into action and outcomes. I do think manager burnout is avoidable. It requires good relationships and dialog with those around you.
+
+That's the end of Notable.
+
+Now, the Journal section.
+
+Wednesday @ 6:19 PM
+
+Joined Lil Nouns DAO
+
+I won the auction for Lil Noun 1416 and am now a member of Lil Nouns DAO, a Decentralized Autonomous Organization. Lil Nouns is a connected project to Nouns DAO. Nouns DAO auctions a new "Noun" once a day, forever. Lil Nouns, launched on May 9, twenty twenty two, does the same, but every 15-minutes, and it is a "Lil Noun". Both projects primarily use the Nouns to create a treasury that is then managed by the DAO, and funds proposals to extend the "Noun Ecosystem", in whichever way the DAO members vote. Noun DAO has a tresury of over 24,000 ETH, or approximately 48 million dollars. Lil Nouns treasury is nearing 1,000 ETH, or nearing 2 million dollars.
+
+The two projects are connected by Lil Nouns DAO sending Nouns DAO a Lil Noun every tenth mint, effectively giving the collective of Nouns DAO an 8% voting stake in Lil Nouns DAO, and Lil Nouns holding in its treasury a couple of Nouns. They also run on effectively the same code with slight modification for timing and the Noun images.
+
+Many NFT projects the NFT is the thing that people really want, and there may be an organization behind it. Nouns and Lil Nouns is a DAO, and the way you gain access is by holding the NFT. The funds from the NFT go to the DAO to manage, not an organization building the NFT. There are already 13 [proposals] the DAO is considering, mostly early formation stuff.
+
+I continue to think DAO's are very interesting, and frame them broadly as a way to organize collective action. I wanted to be part of Lil Nouns because it looks like a great example of doing just that.
+
+Tuesday @ 11:37 PM
+
+Sigur Rós at State Theatre
+
+We saw Sigur Rós at the State Theatre this evening. I first heard of Sigur Rós from their two thousand eight album Með suð í eyrum við spilum endalaust, which I got into after visiting Iceland in twenty twelve and then saw them in twenty thirteen when they played in Minneapolis.
+
+I enjoy their music but with every album it seems to get more "ethereal" or even ambient, and slow. Their newest work is a far leap from that two thousand eight album. It is good, but I wouldn't mind if they picked up the pace on some of the newer albums.
+
+Monday @ 10:27 PM
+
+We all went to Top Gun: Maverick on opening weekend. We saw it at Emagine Willow Creek in the comfortable recliners. Everyone loved the movie! Fabulous. There was a touch of nostalgia for Tammy and I having seen Top Gun years ago, but the kids also thought it was great having no idea about the first movie.
+
+Monday @ 3:28 PM
+
+Magic Pines Summer of twenty twenty two POAP
+
+I'm doing what I consider another fun Proof of Attendance Protocol, or POAP, token! We greatly enjoy our summers at the lake and we have a lot of people join us there. We call our lake place Magic Pines. I love finding ways to commemorate these fun times and I thought it would be fun to give people a POAP token each summer! From that, the Magic Pines Summer of twenty twenty two token was born!
+
+Quote.
+This token celebrates the Summer of twenty twenty two at Magic Pines, the Thingelstad's lake house. The token can only be claimed in-person by visiting Magic Pines between Memorial Day weekend on Saturday, May 28 and Labor Day on Monday, September fifth. The token image was created via a Poapathan competition by kavishsethi#2327. A larger version of the image is on IPFS at CID QmZXjAZvNSP8z4N4f1HzfJFhDvG1TdVLZLsHHqJp96kgLZ.
+End quote.
+
+I love the custom artwork via Poapathon. I'm going to print out "claim sheets" that have instructions for people that have never done this before, which is most everyone. I think it could be cool to issue a new one of these every year with new artwork for that year.
+
+I realized when doing this that Magic Pines itself should have one, so magicpines.eth is all setup now! Maybe it will become a DAO for the family at some point.
+
+Sunday @ 7:28 PM
+
+LEGO World Map
+
+The LEGO World Map is complete!
+
+There are two very notable things about the LEGO World Map.
+
+1. I think this is the ideal LEGO for someone that is really into jigsaw puzzles. The build of this LEGO is not like any other that I've done.
+2. I found this LEGO an overwhelming build. I would typically want to do a LEGO on my own, so I experience it all. This one I needed help, and it really got done because a few others got involved and it was very easy to do each tile in parallel.
+
+At 11,695 pieces this is a big project. I started this project right after Christmas!
+
+Once we got about 80% done with the tiles we could see the end and and there was a strong desire to get it all together. The last half of the build was more fun than the first half for sure.
+
+Thanks to help from Tammy, the kids, and two of their cousins!
+
+Sunday @ 3:03 PM
+
+Afternoon bike ride to Dairy Queen! Perfect 10-mile round trip with an ice cream in the middle.
+
+Saturday @ 7:04 PM
+
+First Smashburgers of twenty twenty two! Delicious.
+
+Friday @ 7:05 PM
+
+Getting pizza at Pleasant Grove Pizza Farm and watching the sunset.
+
+That's the end of the Journal.
+
+Now, the Briefly section.
+
+Link one. "WorldWideWeb, Part II • The Breakroom"
+
+Such a great new app from Iconfactory. Stand-alone app that delivers a directory on your computer as a website. Great developer features like no caching and it handles formats like JSON. Plus, there is an iOS version too.
+
+Link two. "Is Web3 the future of the Web?: Key takeaways from our webinar"
+
+The World Wide Web Foundation with some broad and general comments on Web3 technologies. Mostly "Interesting, and potential, we'll see where it goes". Seems like a fair view to me.
+
+Link three. "The Web's Timeline"
+
+Super cool and ambitious attempt to capture a giant timeline of the Web. It was really fun to look through the various years and see projects from so long ago. Made me wonder when I launched my very first personal website.
+
+Link four. "A belief in meritocracy is not only false: it’s bad for you"
+
+This is a topic I would still like to understand better. I do get the argument, would just like to understand the depth more.
+
+Link five. "Dragonfly"
+
+Redis and memcache are both incredibly powerful and popular tools for in-memory data storage. Dragonfly is attempting to support both of those API's natively, and just give even better performance.
+
+Link six. "A decade of dotfiles"
+
+Great examples of how Unix can be customized to fit just perfectly the problems you are trying to solve.
+
+Link seven. "How To Say No"
+
+It can be really hard to say no. This resource aggregates templates from a variety of people to say no to common requests. This could be a useful resource.
+
+Link eight. "One Way Fastmail Developers Build a Creative Workplace Culture"
+
+First of all, the Vestaboard is super cool and I would love to have one to play with. Creating a web app so teams can send messages to each other is a fun way to build culture across teams.
+
+Link nine. "Tiddlyhost"
+
+I love wikis. TiddlyWiki is a great option that you can even just run on your local laptop. But having a super-simple hosting service like this is great.
+
+Link ten. "Virtual Graph Paper - Sketch on a Grid"
+
+Simple and cool app for diagraming.
+
+Link eleven. "mood"
+
+This app seems super simple which may be the key to actually capturing your mood over time.
+
+That's the end of Briefly.
+
+Now, the Fortune section.
+
+Here is your fortune…
+
+Of course you have a purpose — to find a purpose.
+
+Thank you for subscribing to the Weekly Thing!
+
+That brings us to the end of the Weekly Thing, issue 222. Thanks for listening, and I'll see you next time.

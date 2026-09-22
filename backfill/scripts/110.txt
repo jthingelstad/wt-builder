@@ -1,0 +1,126 @@
+The Weekly Thing, issue 110. Jun 15, twenty nineteen. Published June 15, twenty nineteen. By Jamie Thingelstad. In this issue: Privacy policies disaster, IPv6 design, Maker Faire layoffs, ad industry data tracking, Salesforce buying Tableau, YouTube radicalization.
+
+School is out, camps have started, and summer is now officially in full swing! This week was an absolute blur, and it's my daughters birthday this weekend so I'm keeping it short and we are going to get right to the links this week! Oh, and to all the Dads out there, have a great Fathers Day!
+
+Now, the Featured Links section.
+
+Link one. "Opinion | We Read 150 Privacy Policies. They Were an Incomprehensible Disaster. - The New York Times"
+
+This has some great visualization of various privacy policies. It's telling how companies that tend to have a pro-privacy bend like Craigslist and Duck Duck Go are readable in a couple minutes with high-school level education. Facebook requires 18 minutes and a college level education. CNN and Hulu require you to be a legal professional to understand them. Airbnb is in a world of its own.
+
+Airbnb’s privacy policy, on the other hand, is particularly inscrutable. It’s full of long, jargon-laden sentences that obscure Airbnb’s data practices and provides cover to use data in expansive ways. For example, here is how Airbnb justifies collecting users’ personal information. Vague language like “adequate performance” and “legitimate interest” allows for a wide range of interpretation, providing flexibility for Airbnb to defend its data practices in a lawsuit while making it harder for users to understand what is being done with their data.
+
+This is where services such as Terms of Service; Didn't Read should be able to help crowdsource these intentionally obfuscated documents and turn them into something that normal people can understand. However, these services, like many in the pro-privacy space, aren't exactly taking off like wildfire.
+
+That's the end of Featured Links.
+
+Now, the My Weekly Photo section.
+
+Giant slip-n-slide in Newton Sledding Hill in South Minneapolis celebrating a hot summers day!
+
+Giant slip-n-slide in Newton Sledding Hill in South Minneapolis.
+Jun 8, twenty nineteen at 4:03 PM
+Newton Sledding Hill, Minneapolis MN
+
+That's the end of My Weekly Photo.
+
+Now, the Notable Links section.
+
+Link one. "Regulating Big Tech makes them stronger, so they need competition instead - Open Voices"
+
+Cory Doctorow writing in The Economist about the unintended consequences of additional regulation of tech giants. Keep this in mind when you hear companies like Facebook start to say that they think privacy regulation is a good idea. There is a potential they see that as a great way to lock in their monopoly status for the long haul.
+
+Link two. "The world in which IPv6 was a good design - apenwarr"
+
+Fun read about the evolution of the network stack to IPv4, the hacks put in place around it, and the dream of IPv6 versus the reality.
+
+Link three. "Post Death Internet Service – WARREN ELLIS LTD"
+
+Services that extend beyond your death are an interesting area. A common one thought of is personal website hosting. The idea of queuing messages is an obvious one too.
+
+Link four. "Maker Faire halts operations and lays off all staff | TechCrunch"
+
+This bums me out. Make: Magazine and Maker Faire's are really cool events. I subscribe to the magazine. I hope the organization finds a soft landing and can continue to operate in some way.
+
+Link five. "Google Tried to Prove Managers Don't Matter. Instead, It Discovered 10 Traits of the Very Best Ones | Inc.com"
+
+This article is a listicle but the content is quick and spot on.
+
+Link six. "I left the ad industry because our use of data tracking terrified me"
+
+Call to action on what to do to protect privacy online.
+
+Not to be outdone, another startup projected a map of San Francisco with a red line tracking a real, anonymous person throughout their day. He challenged us to infer what we could about her. She left the house at 7 a.m. Went to Starbucks. Went to a school. Went to a yoga studio. Went back to the school. She was a mother with at least one child, and we knew where she lived. We knew this because this woman’s cell phone was tracking her every move. As does every other cell phone, including the one in your pocket right now.
+
+I like the four steps that are outlined to give people the control they deserve.
+
+Link seven. "Hands-On with iPadOS and iOS 13: Changes Big and Small – MacStories"
+
+Highlights of some of the changes coming in iPadOS. This is solid stuff for people that want to do more of their work on their iPad, like me.
+
+Link eight. "Salesforce is buying data visualization company Tableau for 15.7 billion dollars in all-stock deal | TechCrunch"
+
+This is a big deal and a major get for Salesforce. A while back Salesforce tried to make their Wave offering a thing in this space. It never really got traction.
+
+Link nine. "The Making of a YouTube Radical - The New York Times"
+
+This is a pretty incredible, detailed walk-through of how following a series of videos on YouTube changed this individuals outlook. So much of this content is not visible to most people.
+
+Perhaps this shouldn’t be a surprise. Our political culture is now built largely on shapeshifting internet platforms, which have made flipping partisan allegiances as easy as changing hairstyles. It’s possible that vulnerable young men like Mr. Cain will drift away from radical groups as they grow up and find stability elsewhere. It’s also possible that this kind of whiplash polarization is here to stay as political factions gain and lose traction online.
+
+I honestly tend to avoid YouTube. I've found the whole platform to be a bit of a mess.
+
+That's the end of Notable Links.
+
+Now, the Give Back section.
+
+Creative Commons helps you legally share your knowledge and creativity to build a more equitable, accessible, and innovative world — unlocking the full potential of the internet to drive a new era of development, growth, and productivity. I have been a supporter of Creative Commons for years. Larry Lessig, the founder of Creative Commons, has done the world a great thing by creating a legal structure to help authors and creators encourage remix culture. In addition to donating, you should consider making your content under a Creative Commons license. Donate to Creative Commons today!
+
+That's the end of Give Back.
+
+Now, more links.
+
+- Bond - Mary Meeker's Internet Trends twenty nineteen www.bondcap.com
+The annual tablet of data from Mary Meeker on the state of the Internet. 333 slides!
+- iOS 13: How to share iCloud Drive folders from iPhone and iPad - 9to5Mac 9to5mac.com
+Finally iCloud will allow you to share folders!
+- iOS 13 cracks down on location permission settings - 9to5Mac 9to5mac.com
+This looks like a great way to highlight for the user what they are about to share.
+- The IA Client – The Swiss Army Knife of Internet Archive | Internet Archive Blogs blog.archive.org
+Cool to see Internet Archive building a command line tool like this to help people automate collection of data to the archive.
+
+That's the end of More Links.
+
+Now, the Microposts section.
+
+Tuesday @ 8:49 PM
+
+Our #TeamSPS members from Ukraine and Australia getting in the Twins spirit!
+
+Tuesday @ 8:28 PM
+
+Out for a great night of baseball with #TeamSPS Tech Managers!
+
+Tuesday @ 8:26 PM
+
+Great night for some Minnesota Twins baseball!
+
+Saturday @ 9:58 PM
+
++7 minutes of stoppage time added to the Minnesota United v Colorado game. Wow! Maybe #MNUFC can make something happen with that much time.
+
+Friday @ 4:43 PM
+
+How many engineers does it take to get the screen to show up on the TV?
+
+That's the end of Microposts.
+
+Now, the Fortune section.
+
+You've made it all the way to the end! Here is your fortune for this week.
+
+You will pioneer the first Martian colony.
+
+Thank you for subscribing to the Weekly Thing!
+
+That brings us to the end of the Weekly Thing, issue 110. Thanks for listening, and I'll see you next time.

@@ -1,0 +1,116 @@
+The Weekly Thing, issue 15. Weekly Thing for August 19, twenty seventeen. Published August 19, twenty seventeen. By Jamie Thingelstad. In this issue: Maria Ploessl Minnestar, flat Earthers solar eclipse, iOS 11 cop button, Daily Stormer terminated, Kubernetes at GitHub, AWS SAM Local beta.
+
+We are on our final road trip of this summer to see the total eclipse! We are spending the weekend in St. Louis with the highlight coming this afternoon with a visit to City Museum. I’m also hoping to make a stop by Sump Coffee which I declared as having the best coffee I had ever had the last time we visited. It’s like a temple to coffee! We will be in Eureka, MO staying at a KOA Campground for the actual eclipse. Staying at a KOA before an eclipse seems like an absolute perfect pairing! Just over 2 minutes of total eclipse there and the weather outlook is improving!
+
+Now, the Photog section.
+
+.
+
+Coldplay put on an amazing show. Great music! Lasers! And beach balls to bounce around!
+
+Aug 12, twenty seventeen, 10:28 PM 350–420 Kirby Puckett Pl Minneapolis MN 55415.
+
+That's the end of Photog.
+
+Now, the Links section.
+
+Link one. "Minnestar Announces Maria Ploessl as Executive Director - Minnestar"
+
+Big News! I got to be part of the selection process for this hire and I’m very excited to have Maria become our first executive director! Also got coverage at Star Tribune, Business Journal and MinneInno!
+
+Link two. "Ask Hickey: What are flat Earthers saying about Monday's eclipse? | PhillyVoice"
+
+I hadn't ever considered the odd intersection of the Flat Earther folks and solar eclipses! Maybe I'll tell the kids a giant serpent is covering the sun on Monday.
+
+Link three. "Home Screens – Gabe Weatherhead —macsparky"
+
+I subscribe to Gabe's MacDrifter blog so when I saw he did a Home Screen article I was eager to dig in. I think I’m going to buy the David Lanham wallpapers. Someday I need to write one of these.
+
+Link four. "NASA Eclipse twenty seventeen Live - Streaming Video of August 21 Total Solar Eclipse | NASA"
+
+This is the go to page if you want to participate in the solar eclipse on Monday on the web. I'll be in Eureka, MO looking up!
+
+Link five. "Arrange your time and tasks according to these seven categories, and you’ll be a creativity machine"
+
+I've done a decent amount of thinking about time allocations and budgeting time. This article is focused on looking at how your time contributes to creative endeavors. My target isn't necessarily that, but the structures that he describes could be put to in place for different desired effects. The basic argument -- time is a finite resource, like money, and you budget money so why wouldn't you budget time -- holds a lot of water with me.
+
+Link six. "Kubernetes at GitHub | GitHub Engineering"
+
+I find these overviews of how big organizations adopt large components of technology good reads. There are a lot of decisions to be made when you do this type of work and there is always something to be learned from others.
+
+Link seven. "iOS 11 has a ‘cop button’ to temporarily disable Touch ID - The Verge"
+
+Interesting addition to iOS and good since the courts have determined that law enforcement can force you to provide your fingerprint for Touch ID.
+
+Link eight. "Why We Terminated Daily Stormer"
+
+Tough decision from the CEO of CloudFlare. Hosting providers always retain the legal right to take actions like this, but they rarely do. As you remind this remember that WikiLeaks was also denied service from companies like Visa and PayPal. This isn't a right or left thing, but instead about how do companies that provide broad services treat organizations that are on the absolute fringes of society or legality. The directness of Matt Prince in taking this action is admirable.
+
+Link nine. "Five Tips for Keeping a Gratitude Journal | Day One"
+
+I've tried keeping a gratitude journal and it was harder than I expected. Some useful tips here if you want to do this. I continue to really like Day One for a variety of uses.
+
+Link ten. "The e-mail Larry Page should have written to James Damore"
+
+The Economist with a very well done piece on the James Damore Google Manifesto situation.
+
+Link eleven. "Me on React: an old dog with new tricks"
+
+Writeup on diving into a React framework. I’m still trying to understand in my mind where reactive frameworks are better than others? Mobile? Certain domains? Everything?
+
+Link twelve. "How to hire executives – Brian Armstrong – Medium"
+
+Good article describing how components of hiring an executive is different than other hiring teams do. Good how to.
+
+Link thirteen. "A Review of Perl 6 – Evan Miller"
+
+I used to write Perl 4 code in college and wrote a decent amount of Perl 5 code in the 90's. Perl 6 seemed like a myth. Bigfoot would walk out of the forest and shake your hand before Perl 6. But it is now here and this article is a good overview of what Perl 6 brings.
+
+Link fourteen. "Ready to Farm for Software Talent? – RoleModel Software"
+
+This has to be a component of any technology team that needs to grow and scale over time.
+
+Link fifteen. "Google paying Apple 3 billion dollars to remain default search - Bernstein"
+
+Curious what it’s worth to be the default search engine on iOS? Turns out it’s worth a lot! I switch my default to DuckDuckGo on all of my devices for privacy reasons.
+
+Link sixteen. "Honesty app Sarahah is becoming a self-esteem machine - The Verge"
+
+Interesting new service Sarahah provides a way for individuals to get anonymous feedback. This predates and is much simpler and flexible than Incogneato. I created an account, leave me some feedback!
+
+Link seventeen. "New – AWS SAM Local (Beta) – Build and Test Serverless Applications Locally — AWS Blog"
+
+This looks very useful for people building serverless apps on Lambda. Putting the code in a container is definitely nice, but the ability to simulate invokes from other AWS services is a big win too!
+
+That's the end of Links.
+
+Now, the Promotion section.
+
+The Electronic Frontier Foundation is the leading nonprofit organization defending civil liberties in the digital world. I have been a member of the EFF for years. Not only is the EFF working hard to protect you on the Internet they have also recently launched solutions like Privacy Badger and the critically important Let's Encrypt service to make encrypting web servers free to anyone. Support the EFF with a donation!
+
+That's the end of Promotion.
+
+Now, the Microblog updates section.
+
+- Created a Sarahah profile where people can send me anonymous feedback or comments.
+- Would be cool if there was a Homebrew Website Club in Minneapolis…
+- Gateway Arch in St. Louis.
+- Overheard at restaurant “We still use Lotus Notes Sametime!”
+- Driving to St. Louis, MO starting our total eclipse trip. Will be in totality in Eureka, MO on Monday!
+- It’s raining, most everywhere.
+- Rainy night on the SPS patio.
+- After the show — so much confetti.
+- Coldplay playing from one of the satellite stages. Great show!
+- Coldplay! Lasers!
+- Coldplay off to awesome start!
+- Found our seats and ready for Coldplay to take the stage. First time at US Bank Stadium too!
+- Just reset my micro.blog GitHub mirror in hopes of purging the failed Twitter import.
+- Tyler and I took the Pokemon Go Plus for a spin today and it definitely levels up your play.
+- Espresso in rocket demitasse.
+- Pretty excited for a Saturday to just relax and do small projects around the house.
+
+That's the end of Microblog updates.
+
+Thank you for subscribing to the Weekly Thing! If you know of people that would like the Weekly Thing please forward it along!
+
+That brings us to the end of the Weekly Thing, issue 15. Thanks for listening, and I'll see you next time.

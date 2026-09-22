@@ -1,0 +1,169 @@
+The Weekly Thing, issue 343. Commune, Chaos, Renaissance. Published March 15, twenty twenty six. By Jamie Thingelstad. In this issue: GNU AI reimplementations, Agent Commune, Codex Security research preview, dropped production database, GPT-5.4 autonomous agents, view from RSS.
+
+Good morning!
+
+I’m not supposed to be at home right now. We should have already landed in Amsterdam to begin a two-week trip including Amsterdam, Paris, and Barcelona with the highlight seeing Mazie on her semester abroad!
+
+However, the "storm of the winter" was predicted and that has massively impacted flights all over the country. For reasons that are beyond me our flight was cancelled more than 24 hours before we were set to take off. And incredibly predictably when our original departure time was set for it was pleasant with little whisps of snow. Tammy and I both were irked listening to planes take off overhead.
+
+To make matters worse our rebooked flight, now leaving today, seems to be set in the midst of a forecasted blizzard that looks much more real. That flight is still on, or at least theoretically on, but this is proving to be a "not great" start to our spring break trip.
+
+Adding some complexity we have eleven escape rooms scheduled with plans to do our 100th room in Barcelona. These delays are introducing operational issues in addition to inconvenience.
+
+With the upcoming travel I’m going to skip the next two weeks of the Weekly Thing. I know the start of the year has been intermittent. I missed three weeks while diving deep on agents for the retrospective I shared in WT342, and now travel. However, I think a bit of a reset and rest will be good for me.
+
+I'll be back with another note in your inbox on April fourth or fifth!
+
+Now, the Notable section.
+
+Link one. "GNU and the AI reimplementations -"
+
+Using coding agents to create IP free copies of things. Similar to the "decompilation threat" this is a unique new vector. I was working on a project to give agentic documentation for an API recently and realized this is a possible topic there. Instead of relying on copyrighted API documentation, why not have an agent just inspect and explore the API and everything it can see in the API calls, which are not copyrighted, and infer its own documentation set from that. I might do this as a test to see how far it can get.
+
+Link two. "Agent Commune"
+
+I’m not sure what to make of these "platforms for Agents to talk". For giggles I did ask Otto to join. There is a possibility for agents to "learn" from each other, but the way agents are currently modeled that is exceptionally low. But they do make compelling theater at the least.
+
+It is also a great example case that LLMs are very good at talking to each other and people. if you look at these services, ask yourself how you know that half of what your reading on any social network isn't agnatically generated.
+
+Link three. "Codex Security: now in research preview | OpenAI"
+
+I think coding agents are going to be an incredible boost for security. Agents can run as long as you give them tokens and can exercise code in so many ways. Even in my limited projects I've been impressed with security considerations that are brought forward. Perhaps that will be the biggest win is typically developers build the thing and then come back with a security review. Agents tend to think about security while they are building as an incremental aspect.
+
+Link four. "How I Dropped Our Production Database and Now Pay 10% More for AWS"
+
+Yes you should not let your coding agents run rampant without "pairing" with skilled engineers. And these kind of stories also happen when you have engineers running your stuff. I've personally been very thankful for Oracle's snapshot capabilities on more than one occasion.
+
+Link five. "When Using AI Leads to “Brain Fry”"
+
+I can 100% vouch for this! Automatic coding sessions are both exhilarating and exhausting. This will need to be factored into job functions as we embrace AI more. An engineer working with an agentic coding team probably likely can only do that for 4-5 hours before needing a substantial recovery period.
+
+Link six. "OpenAI’s new GPT-5.4 model is a big step toward autonomous agents | The Verge"
+
+I've been using Codex with GPT 5.4 a lot while building Elixir. I have been impressed. Since GPT 5.4 is a unified model, not a specific coding model, it seems to do a better job reasoning across the "product domain" with reasoning about what should something do, and the "coding domain" about how that could be created. It simultaneously has expertise in understanding the code and the solution. The result is better designs and debugging capabilities that extend to the logic of what it is doing and why that might matter.
+
+Link seven. "The 8 Levels of Agentic Engineering — Bassim Eledath"
+
+Great article that is framed on engineering but could really be any domain that has similar characteristics. The opening paragraph frames the question right.
+
+Quote.
+AI's coding ability is outpacing our ability to wield it effectively. That's why all the SWE-bench score maxxing isn't syncing with the productivity metrics engineering leadership actually cares about. When Anthropic's team ships a product like Cowork in 10 days and another team can't move past a broken POC using the same models, the difference is that one team has closed the gap between capability and practice and the other hasn't.
+End quote.
+
+It is a pretty common comment to hear "we adopted AI coding tools and got slower". The pattern is pretty simple. As agents create more code, if the "human in the loop" insists on doing a detailed review, you are throwing away all the benefit you could have received. Then, since the AI agent can produce orders of magnitude more code than can be reviewed, you jam the system and output plummets.
+
+This is why I've switched my focus from an efficiency mindset to a throughput one.
+
+Enabling agentic capability is measured by enabling "machine speed" on an entire function.
+
+The 8 Levels identified are good.
+
+Quote.
+1. Tab Complete 2. Agent IDE 3. Context Engineering 4. Compounding Engineering 5. MCP and Skills 6. Harness Engineering 7. Background Agents 8. Autonomous Agent Teams
+End quote.
+
+My main edit would be that these are not a progression. You can move forward in more than one at a time, but I would agree that you need to carefully consider dependencies and connections.
+
+Link eight. "The View From RSS"
+
+Crampton and I read the web nearly the exact same way, except I use Feedbin versus Feedly. I've gone on about how amazing RSS is. Some folks consider these tools complicated, they really aren't. Having no algorithm between me and what I’m reading is a requirement I have. Number one life hack? Ditch social media entirely; learn how to use an RSS reader.
+
+That's the end of Notable.
+
+Now, the Journal section.
+
+Journal entry one. Making Elixir Smarter
+
+Elixir has come a super long way and is very agentic. In usage though its intelligence was really limited due to the data layer. In the midst of a total refactoring of the data and tools with Codex using GPT-5.4 and it is pretty amazing.
+
+1. I asked Codex to do an analysis of the current data and tools and provide me an ERD to see as well as an assessment of shortcomings and gaps. It found so much that was problematic.
+2. I asked it to do a full reconnaissance of the Clash Royale API to get a better understanding of what was available.
+3. We redesigned the entire tool set to represent state better.
+4. Claude and I developed a list of 50 test questions that we used 10 at a time to test the new data model and tools.
+5. Codex finalized the new design and data model and is now refactoring.
+
+Pretty amazing for 45 minutes.
+
+Journal entry two.
+
+We saw Hoppers today and it was really good. Our kids are not so kid-like anymore, but a bunch of our nieces and nephews were going so we joined and it was a wonderful story and movie.
+
+Journal entry three.
+
+At Fat Pants Brewing watching the Australian GP and the start of the twenty twenty six F1 season! My cousin Quinn and I cheering for Ferrari and Tyler for Verstappen and Red Bull.
+
+Journal entry four.
+
+Tammy and I had a great evening seeing Kara Swisher and Scott Galloway live for Resist and Unsubscribe, or Live PIVOT.
+
+Journal entry five. Automatic Programming Speed
+
+This morning with my morning coffee (skipped meditation, intermingled with getting ready) I shipped three new features in Elixir.
+
+- Stronger memory for clan continuity (diff)
+- Track fresh ladder and Path of Legend momentum to celebrate hot streaks (feature Codex suggested from cr-api-docs, commit)
+- A weekly clan recap (commit) next week to highlight our ongoing story and progress.
+
+That's the end of the Journal.
+
+Now, the Briefly section.
+
+Link one. "Continue local sessions from any device with Remote Control - Claude Code Docs"
+
+This feature is more of a "sign of the times" and thinking about how far agentic engineering has come. Coordinating with Claude while you are away from your computer!
+
+Link two. "Your binary is no longer safe: Decompilation"
+
+Hadn't considered how Agents could dig into decompilation!
+
+Link three. "Ringing the Nasdaq Closing Bell | Celebrating 100 Consecutive Quarters of Growth - YouTube"
+
+Video of us ringing the bell at Nasdaq!
+
+Link four. "Miniroll Global Feed | Chris Hannah"
+
+Great way to discover blogs!
+
+Link five. "Introducing ChatGPT for Excel and new financial data integrations | OpenAI"
+
+Claude for Excel has been around for a bit and is very powerful. It should be embarrassing for Microsoft that both Anthropic and OpenAI are doing better at bringing AI to Excel and PowerPoint than they are with Copilot.
+
+Link six. "Gone (Almost) Phishin’ | Matt Mullenweg"
+
+Good story of almost getting identity stolen. I read and share these as a reminder that even experts can be fooled, or at least almost. Stay safe!
+
+Link seven. "Clash Royale CHAOS Mode - March twenty twenty six - Clash Royale News Blog - RoyaleAPI"
+
+Clash Royale is the one game I play and I've been having a lot of fun with it. Tyler showed me CHAOS mode and it is a trip. I’m having fun learning the innovation cycle in mobile gaming.
+
+Link eight. "Billing for LLM tokens | Stripe Documentation"
+
+Brilliant move from Stripe to make it super easy for companies to bill based on token consumption.
+
+Link nine. "FontCrafter: Create Your Handwriting Font for Free"
+
+It is like these folks looked at my "Someday / Maybe" list and saw the "Custom font" wishlist item.
+
+Link ten. "The Death of Social Media is the Renaissance of RSS – Smartlab"
+
+More love for RSS. Jump on in!
+
+Link eleven. "Run prompts on a schedule - Claude Code Docs"
+
+Looping a prompt is pretty simple but can be very powerful too. It is the foundation of an agentic loop.
+
+Link twelve. "10 Must-Have Skills for Claude in twenty twenty six | Medium"
+
+Click-baity "listicle" but these resources are still good to scan.
+
+Link thirteen. "on.eth: Names For Chains and Interoperable Names | ENS Blog"
+
+I love ENS and love how they continue to push forward on blockchain improvements. Long-term I still see crypto as a foundational technology. The most obvious connection is when agents need to manage currency. ENS is a big enabler for all things crypto.
+
+A haiku to leave you with…
+
+RSS streams flow wide,
+Old scrolls meet new agent dreams —
+Past and future lunch.
+
+That brings us to the end of the Weekly Thing, issue 343. Thanks for listening, and I'll see you next time.

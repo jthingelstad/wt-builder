@@ -1,0 +1,299 @@
+The Weekly Thing, issue 175. Crontab, Fry's, Daft Punk. Published February 27, twenty twenty one. By Jamie Thingelstad. In this issue: Fry's Electronics closing, Daft Punk break up, email aliases, Apple Mail tracking images, ByteDance censorship machine, Mars Perseverance Rover.
+
+We have been doing a lot of hiking here in Arizona. Nearly every weekend we've gone out in the morning and done a significant hike. There are so many options to choose from in Mesa. You can get in your car and within 30 minutes be at one of hundreds of trails that offer a variety of effort and terrain. I find hiking, particularly with challenging terrain, to be very enjoyable.
+
+In a meditation on Headspace they were connecting being aware of your body and movements. Thinking about and engaging with your body as you go about walking, sitting, standing, laying down, etc. It made me think about how on walks it is common to daydream or be thinking about something else. That can be great, and can be the reason for the walk. But you can also find your mind and your body in radically different places.
+
+One of the great things about a challenging hike is that it forces your mind and body to be in the same place. You have to constantly assess the terrain. You have to determine where you are going to place your steps as you go over a pile of rocks. You have to be present, or you will probably fall. That makes it such a different experience. Connect that to the physical exertion, and you have to be connected and present with your body. I don't know if there is a better way to center yourself.
+
+"A thick life is defined by commitments and obligations. The life well lived is a journey from open options to sweet compulsions." — David Brooks, "The Two Mountains", p. 57
+
+Now, the Must Read section.
+
+Link one. "Fry’s Electronics is shutting its doors for good - The Verge"
+
+Fry's Electronics is, err, was, an institution for computer hobbyists for years. It is sad to see them closing the doors. Fry's wasn't in Minnesota so I couldn't go there, but it was so well known of a destination that we made a visit to the Palo Alto Fry's a part of celebrating MarketWatch being in the Windows two thousand launch.
+
+Om Malik has a great writeup on why Fry's was so important:
+
+Quote.
+If you are a person of a certain age in Silicon Valley, you have a Fry’s story. I said hello to Andy Bechtolsheim while walking the aisles. And there were others. We have all hit up one of the Fry’s stores at an ungodly hour to find a component or just because we couldn’t sleep. During the internet bubble, I ended up in Fry’s Palo Alto store on a shopping spree with folks who would eventually become my sources. It was the only way for them to loosen up.
+End quote.
+
+R.I.P. Fry's!
+
+Link two. "Daft Punk Break Up | Pitchfork"
+
+I was bummed to hear that Daft Punk broke up. Their music has been in my rotation for well over a decade. I remember hearing Homework the first time and loving it right away. Their Epilogue video just makes you realize how much they will be missed. Take a moment and check out Da Funk or Revolution 909. Incredible tracks. Technologic too.
+
+My favorite album of theirs is still Alive. Check out this Alive two thousand seven full visualization.
+
+Will be sorely missed.
+
+Link three. "Don’t Go Down the Rabbit Hole - The New York Times"
+
+This advise captures how I tend to deal with information online. I purposefully do not engage in fringe type content that I perceive as trying to pull my attention, and engagement. If I find myself on a website and it starts to tickle some of my senses about misinformation, I will usually do a whois lookup on the domain name. If it is hidden or anonymous, I leave the site immediately, with the one exception being a personal blog. The overall approach of lateral reading is a good one, but watch out for very broad sets of misinformation that have established a lateral reinforcing network. Stay safe out there!
+
+That's the end of Must Read.
+
+Now, the Currently section.
+
+Listening: I have been enjoying Sway with Kara Swisher quite a lot lately. She has had some incredible guests, and her interviewing style works for me. Tammy insists I like anything she is in.
+
+Reading: I've started reading The Second Mountain: The Quest for a Moral Life by David Brooks. I’m only through the first section but there are plenty of underlines already in the book. Some great insights already.
+
+Watching: We recently signed up for Discovery+ and saw House Hunters: Comedians on Couches. We had to watch it. Our family has a guilty pleasure of House Hunters, and this just seemed too weird to pass up. We were all laughing so hard as we watched a few episodes.
+
+That's the end of Currently.
+
+Now, the Recommended Links section.
+
+Sacha Baron Cohen Has a Message for Mark Zuckerberg - The New York Times
+
+Sacha Baron Cohen is better known for being funny, but his assessment and criticism of social media is spot on. He shares my position that this is not censorship. This interview is a good listen.
+
+10 Things Only Privacy-Conscious People Know about Email Aliases
+
+I started using unique email addresses with all the websites I create accounts on a few years ago. I think this is still too much work for your average user, and if you aren't using a password manager don't even try. But there is a great privacy benefit to using unique email addresses for various services.
+
+Daring Fireball: Apple Mail and Hidden Tracking Images
+
+Apple deserves some criticism here and I hope they take the same privacy focus they have brought to Safari and extend it to Mail. I love the my Pi-hole protects me no matter what platform or app I’m on. But I would love to see user visible notifications of surveillance in email.
+
+By the way, I do not have any tracking in the Weekly Thing. None.
+
+QR Codes - AVC
+
+I've made fun of QR codes for years. One of my favorite laughs is Pictures of People Scanning QR-codes. I do give that QR codes in books seems like a valid use case. However this post is spot on that with the pandemic I've been scanning QR codes routinely to pull up restaurant menus. I also have a QR code at our house that gets you on our guest WiFi network.
+
+Make Boring Plans. You’re probably familiar with the… | by Camille Fournier | Jan, twenty twenty one | Medium
+
+Boring tech meet boring plans.
+
+Quote.
+So leaders, you owe it your teams, and to your users, to free them from the tyranny and stress of uncertainty. You must do the work to go beyond vision, create concrete actions, and make boring plans.
+End quote.
+
+Wisdom here.
+
+Commenting versus making - chiefofstuff
+
+Good perspective.
+
+Quote.
+It is, of course, much easier to complain about how things are bad rather than do anything about it, which is why people prefer to complain. 1/100th the satisfaction, but 1/1000000000000th the effort. Plus, when someone eventually fixes the problem you can pat yourself on the back for having brought attention to it. You can even complain about multiple things in the time it would’ve taken to fix one thing.
+End quote.
+
+This totally made me think of Brené Brown's quote on the arena:
+
+Quote.
+"If you are not in the arena getting your ass kicked on occasion, I am not interested in or open to your feedback. There are a million cheap seats in the world today filled with people who will never be brave with their own lives, but will spend every ounce of energy they have hurling advice and judgement at those of us trying to dare greatly."
+End quote.
+
+Keep on making. Keep on doing!
+
+Checklist: If you want to see if anyone else has access to your device or accounts - Apple Support
+
+I've read some of these stories of spouses spying on their partner using their phones. Super creepy at best. This checklist should get some visibility so anyone can easily see if someone has access to their phones.
+
+Crontab.guru - The cron schedule expression editor
+
+I love cron. The syntax is pretty simple, but some of the more complicated use cases can be confusing to understand. This tool makes it very easy to understand the more complicated configurations.
+
+I helped build ByteDance's censorship machine - Protocol — The people, power and politics of tech
+
+Pretty amazing insight into how political, or even just potential political speech, is moderated and censored.
+
+Quote.
+The team I was part of, content moderation policymakers, plus the army of about 20,000 content moderators, have helped shield ByteDance from major political repercussions and achieve commercial success.
+End quote.
+
+20,000 content moderators?
+
+That's the end of Recommended Links.
+
+Now, the Journal section.
+
+Thursday @ 9:04 PM
+
+Day 25 of the February Photoblogging Challenge: Code
+
+Micro.blog code.
+
+Thursday @ 7:24 PM
+
+Outdoor dining.
+
+Wednesday @ 9:05 PM
+
+This “10 years” Easter Egg in the Apple Store app is fun.
+
+Wednesday @ 2:53 PM
+
+Day 24 of the February Photoblogging Challenge: Baby
+
+Baby Saguaro cactus!
+
+Tuesday @ 7:09 PM
+
+Day 23 of the February Photoblogging Challenge: Banana
+
+Tyler talking on the Banana-phone.
+
+Monday @ 8:55 PM
+
+Day 22 of the February Photoblogging Challenge: Spell
+
+Good way to start the day.
+
+Sunday @ 8:19 PM
+
+Day 21 of the February Photoblogging Challenge: Colors
+
+Technicolor Saguaro Cactus from our hike in Cave Creek. Edited with Procreate.
+
+Sunday @ 3:37 PM
+
+Mazie and I at The Grotto Cafe after our hike in Cave Creek. The Grotto has an amazing outdoor patio space. It was Lucky’s first attempt at joining us at a restaurant and she did well until another dog showed up.
+
+Sunday @ 3:29 PM
+
+Hiking in Cave Creek
+
+This morning we drove to Cave Creek Regional Park to go for a hike. It was about 40 minutes from where we are staying but well worth the drive. We did a loop heading out on Go John Trail, then to Quartz Trail, and then back on Slate Trail. We hiked 3.5 miles, gaining 425 feet, and took a total of 1h 22m.
+
+It was a really nice hike with great views. There were gentle climbs up but overall it was a nice trail that wasn't overly difficult.
+
+There were Saguaro Cactus all over the place.
+
+Family selfie at the intersection of Go John and Quartz trails.
+
+The Quartz Trail has a lot of quartz on it. This huge outcropping of quartz was impressive.
+
+Lucky was tired out and incredibly dusty.
+
+We also added an extra mile of hiking before this hike because we took off down this trail, and didn’t notice the "North" part. After going a half mile we turned around and started over on the right trail. Ooops!
+
+Saturday @ 8:52 PM
+
+If you are in Mesa, Arizona and looking for delicious pizza make your way to Myke’s Pizza. We’ve been there twice now and it is amazing. Pair it with some delicious hard cider from Cider Corps!
+
+Saturday @ 8:41 PM
+
+We watched Finding 'Ohana tonight. Good option for family movie night.
+
+Saturday @ 5:18 PM
+
+Day 20 of the February Photoblogging Challenge: Weather
+
+The weather was gorgeous at Saguaro Lake today.
+
+Saturday @ 4:21 PM
+
+Wind Cave Trail
+
+We hiked up the Wind Cave trail this morning and had a great time. Tammy declared it perhaps her favorite hike ever. It was 1.7 miles with 800 feet of elevation on the way up. It took us just short of an hour.
+
+The views were fantastic and the terrain was challenging and varied. Lucky went up with us and did a great job. The trail was already busy at 8:30a and when we were going down we passed large groups. So get out there early!
+
+Saturday @ 7:09 AM
+
+Approaching Crypto
+
+I've recently clarified my thinking on Bitcoin and related crypto. To be transparent, I've followed this for years and had plenty of opportunities to buy BTC for a few hundred dollars. It's now over 50,000 dollars a coin. So, based on that, you may want to stop reading now.
+
+Focusing on 3+ year horizon / Investing
+
+First, I'm not looking to become an active trader. That isn't my game. So I'm going to look at all crypto investments with a 3+ year horizon. I have a long view that crypto is real and will be a component of corporate and personal balance sheets over the next decade. How large of an element? More than it is now!
+
+Only 10 billion dollars instruments / Limit Risk
+
+I'm only considering crypto that has a total market cap over 10 billion dollars for at least 30 days. I’m also only considering crypto I can trade on Coinbase. Setting a value threshold limits the noise and distraction. I am sure there is positive activity below 10 billion dollars, but I'm choosing to ignore that for now. Based on that limit Bitcoin (BTC) at 1.1 trillion dollars, Ethereum (ETH) at 233 billion dollars, Litecoin (LTC) at 16.2 billion dollars, Chainlink (LINK) at 15 billion dollars, Bitcoin Cash (BCH) at 13.8 billion dollars, and Stellar Lumens (XLM) at 11.8 billion dollars are the only things I'm watching. (Market caps as of Feb 20 twenty twenty one 7:00 AM CT.)
+
+Any crypto over 10 billion dollars in value is worth a nominal investment and puts it on the radar to consider more broadly.
+
+The one exception I am making to that limit is stablecoin. I don't know what to think of stablecoin, and I am tracking USD Coin (USDC) to learn more.
+
+Develop a Model / Diversify
+
+Crypto are very different, with different objectives. You can treat them as a basket for broad crypto investment and a bet on decentralized financial systems. But that is where it ends. I think you should develop a model for each one and why it is applicable for investment. My current thinking is:
+
+| Crypto | Value |
+| --- | --- |
+| BTC | Stored value. I think of it as gold. |
+| ETH | A bet on a different compute model. |
+| LINK | A bet on smart contracts. |
+| LTC | Money in your wallet. You might buy a coffee with LTC. |
+| BCH | Bitcoin version of LTC. Same thesis. |
+| XLM | Financial backend and potentially an alternative to systems like SWIFT. |
+| USDC | Question mark for me right now. |
+
+Overall Allocation / Portfolio
+
+Crypto is super volatile and risky. I like Ray Dalio's comment.
+
+Quote.
+Bitcoin looks like a long-duration option on a highly unknown future that I could put an amount of money in that I wouldn't mind losing about 80% of.
+End quote.
+
+So with that in mind, this shouldn't be your retirement fund!
+
+I've watched this for too long from the sidelines and have not participated other than some small dollars for fun. My brother-in-law Hector made a comment that resonated with me. With a handful of public companies now holding BTC on their balance sheet, others will follow suit. I've also had many people approach me about using BTC as a hedge on inflation.
+
+The net of all this is that crypto has moved from experimental to maturing and I expect we will see a multi-year increase in demand.
+
+I haven't talked about the technology behind it all. I'm entirely confident in that component, and I use Coinbase to manage my wallet for me.
+
+Friday @ 8:45 PM
+
+Day 19 of the February Photoblogging Challenge: Alive
+
+Blooming flowers on their way to be fruit.
+
+That's the end of the Journal.
+
+Now, for your information.
+
+Minnesota music legend Peter Ostroushko dies at 67 | MPR News
+
+I remember hearing Ostroushko on Prairie Home Companion.
+
+Blobs - Generate beautiful blob shapes for web and flutter apps
+
+Generate infinite blobs. I’m not sure why this is fun, but it sort of is.
+
+The Pretty JSON Revolution
+
+Human Style with Colors for the win!
+
+RAWGraphs
+
+Built on top of d3.js and looks like it makes data viz jobs much easier.
+
+I Tracked Down The Girls Who Bullied Me As A Kid. Here's What They Had To Say. | HuffPost
+
+Kids can be so mean to each other, and the scars left last for longer than most think.
+
+Iceberger
+
+This is oddly fun to me. Draw an iceberg shape and watch it float.
+
+Images from the Mars Perseverance Rover - NASA Mars
+
+The raw images coming from Perseverance.
+
+30 Minutes of Relaxing Visuals from Studio Ghibli
+
+I've only seen a small part of Studio Ghibli movies, but I love their style and this is cool.
+
+That's the end of the FYI section.
+
+Now, the Fortune section.
+
+Here is your fortune…
+
+Don't read everything you believe.
+
+Thank you for subscribing to the Weekly Thing!
+
+That brings us to the end of the Weekly Thing, issue 175. Thanks for listening, and I'll see you next time.

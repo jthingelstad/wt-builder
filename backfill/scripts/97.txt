@@ -1,0 +1,132 @@
+The Weekly Thing, issue 97. Mar 16, twenty nineteen. Published March 16, twenty nineteen. By Jamie Thingelstad. In this issue: MBA myth, planned obsolescence coders, ACME Protocol IETF, SimCity city planners, DuckDuckGo guide, 800 million emails leaked.
+
+This week we got our Peloton Bike and Tread delivered. We decided to update our home exercise equipment and Tammy and I both found the gear very impressive, and the live classes online very engaging. I’ve already gotten a couple of rides in and like it a lot. In some ways it’s a better spin class experience than a class in a studio! I love that you can see your performance live with everyone else taking the class. If you are on Peloton, connect with me — my username is jthingelstad!
+
+Now, the Featured Links section.
+
+Link one. "The MBA Myth and the Cult of the CEO | Institutional Investor"
+
+Interesting analysis of well-known business school MBA's and how CEOs with those credentials do in public companies.
+
+But regression results suggest a different result entirely. We tagged CEOs by the MBA programs they attended, formed monthly portfolios of companies broken down by the business school each CEO attended, and compared the returns of these portfolios to the broader market.
+
+We found no statistically significant alphas — despite testing every possible school with a reasonable sample size. MBA programs simply do not produce CEOs who are better at running companies, if performance is measured by stock price return.
+
+What about bankers and consultants?
+
+Lastly, we looked at how CEOs who had previously worked at investment banks and elite consulting firms performed. If Jensen’s core thesis were true, we would expect CEOs with these elite credentials to outperform the market.
+
+We thus formed monthly portfolios for bankers and consultants. As we did with MBAs, we then ran industry-controlled Fama-French three-factor regressions. The result: Neither bankers nor consultants produced statistically significant alphas. We also back-tested portfolios designed to favor ex-bankers and consultants and found no significant edge (though consultants had a statistically insignificant edge on bankers).
+
+That's the end of Featured Links.
+
+Now, the My Weekly Photo section.
+
+We went to the lake this last weekend and I found myself playing Fishin’ in the Dark as we pulled in, and dreaming of summer, sunshine, and open water.
+
+Dreaming of summer.
+Mar 9, twenty nineteen at 2:33 PM
+Cannon Lake, MN
+
+That's the end of My Weekly Photo.
+
+Now, the Notable Links section.
+
+Link one. "Ctrl-Alt-Delete: The Planned Obsolescence of Old Coders"
+
+This is one of the less frequently discussed, but very real, diversity issues in technology.
+
+Link two. "The ACME Protocol is an IETF Standard — Let's Encrypt"
+
+Let’s Encrypt is continuing to push the state of the art for security certificates on the web. Very happy to see this. Now hopefully more CAs will start using ACME.
+
+Link three. "Brief Examples of OmniFocus Perspectives"
+
+This is a good overview of the more advanced things you can do with OmniFocus perspectives. Good examples too!
+
+Link four. "From video game to day job: How ‘SimCity’ inspired a generation of city planners - Los Angeles Times"
+
+I love how impactful SimCity was to some people. I’m not a gamer, but there are a few games I’ve played a lot of. Tetris, Spectre, and a couple others. SimCity is definitely one of those. I had a city I actually upgraded and played for over a decade on and off.
+
+Link five. "The ultimate guide to DuckDuckGo - BrettTerpstra.com"
+
+There are a bunch of DuckDuckGo things I didn’t know even existed. The! searches are a neat feature.
+
+Link six. "How to Reduce Anxiety Through Meditation and Buddhism - The Atlantic"
+
+Some surprising numbers here on how many people are getting into meditation and Buddhist philosophy. I found it a little shallow that the author only points the finger at the classic “everyone is so busy” thought. I think there is a real connection between the near universal adoption of mobile devices along with social media that are driving this.
+
+Link seven. "800+ Million Emails Leaked Online by Email Verification Service - Security Discovery"
+
+I found out about this one thanks to a notice from HaveIBeenPwned. They had four addresses in my domain. The surprise for me was that I’ve never given my email address to this service, but I guess other services I use must have been using them for email validation.
+
+That's the end of Notable Links.
+
+Now, the Give Back section.
+
+Minnestar is the technology community for Minnesota. If you are passionate about technology you need to go to Minnebar and Minnedemo. Did you know that Minnebar is the largest BarCamp in North America and one of the largest in the world? Its also been going on for over 10 years? Minnedemo is the best place to hear about innovative tech and fun projects in the Twin Cities area. I am on the Minnestar board and I focus on Minnestar as one of the driving forces improving and expanding the technology community in the area. Minnestar is a 501c3 non-profit. Become a Community Supporter today!
+
+That's the end of Give Back.
+
+Now, more links.
+
+- Facebook backtracks after removing Warren ads calling for Facebook breakup - POLITICO
+Facebook can’t possibly deal with verifying political ads, but they sure were able to figure out ads that were negative about Facebook?
+- Emma Haruka Iwao smashes pi world record with Google help - BBC News
+31 trillion digits. Wow!
+- Tesla launches new Supercharger with 1,000 mph charging, Tesla launches new Supercharger with 1,000 mph charging, better efficiency, and more - Electrek
+This is an amazing amount of power!
+- Tempad – New Home for Notes tempad.io
+Yet another markdown note app, but completely free. Uses Google for sync.
+
+That's the end of More Links.
+
+Now, the Microposts section.
+
+Thursday @ 6:54 PM
+
+Mazie and I got to play Civil Engineer tonight, creating routes in the snow/slush to route water out of our yard. So much water!
+
+Thursday @ 6:51 PM
+
+π Day Dinner! Chicken Pot Pie with Chocolate Pie! #PiDay
+
+Thursday @ 2:56 PM
+
+Happy π Day from #TeamSPS! 74 pies! #PiDay
+
+Wednesday @ 8:12 PM
+
+Did my first spin workout on my Peloton Bike tonight. I was impressed with the bike and the class. It is a very good home workout experience. I love the data and graphs you get too!
+
+Tuesday @ 9:43 PM
+
+Updated Tesla Model 3 to Firmware Build v9.0 twenty nineteen.5.15 f5def7e (3/7/twenty nineteen). Still love doing that.
+
+Saturday @ 8:44 PM
+
+Watched Free Solo tonight. Wow! Alex Honnold is an amazing climber. My palms were sweating while I sat comfortably on the couch.
+
+Saturday @ 6:02 PM
+
+After raining pretty good for a while it turned into pretty serious snow!
+
+Saturday @ 6:01 PM
+
+I had a great time checking out the fun and creative projects one of our #TeamSPS teams did during a post-release Hackathon! Several API mashups, productivity quick wins, mobile, and of course Slack bots!
+
+Saturday @ 8:33 AM
+
+Tyler and I are cheering on FC Bayern versus Wolfsburg!
+
+That's the end of Microposts.
+
+Now, the Fortune section.
+
+You've made it all the way to the end! Here is your fortune for this week.
+
+If you learn one useless thing every day, in a single year you'll learn 365 useless things.
+
+Thank you for subscribing to the Weekly Thing!
+
+That brings us to the end of the Weekly Thing, issue 97. Thanks for listening, and I'll see you next time.

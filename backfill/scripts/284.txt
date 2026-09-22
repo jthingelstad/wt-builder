@@ -1,0 +1,208 @@
+The Weekly Thing, issue 284. Playdate, Tetris, Calvin. Published April 20, twenty twenty four. By Jamie Thingelstad. In this issue: UX of UUIDs, Peloton media company problems, half-billion GPT tokens, great technical blog, Playdate handheld hardware, Calvin and Hobbes.
+
+Hello there!
+
+I’m on week three without caffeine and am well over the hump now. I won't belabor that further but it has been an interesting experience. Where am I going in regards to coffee? I’m not sure. I’m taking it one day at a time.
+
+It has been a super busy week for me, and I’m headed off to Minnebar 18 this weekend.
+
+Let's jump right along to the links from the week…
+
+Now, the Notable section.
+
+Link one. "The UX of UUIDs | Unkey"
+
+Universally Unique Identifiers are used all over the place in software and often spill out into the user experience as well.
+
+Quote.
+By implementing these improvements, we can enhance the usability and efficiency of unique identifiers in our applications. This will provide a better experience for both users and developers, as they interact with and manage various entities within the system. Whether it's copying identifiers with ease, differentiating between different environments, or achieving shorter and more readable identifier strings, these strategies can contribute to a more user-friendly and robust identification system.
+End quote.
+
+This article highlights a number of ways to make them more friendly for users.
+
+Link two. "Peloton is a media company now, with media company problems"
+
+I got the Peloton Bike in November twenty eighteen. I have always enjoyed spinning and have taken many spin classes over the year. The Peloton Bike appealed to me as the best quality spin bike I'd ever used along with the classes built right on it. All-in-one with great quality. I’m also picky about spin instructors. I want good music that I like. I can’t stand instructors that use negative messages. A super high-quality bike with some of the best spin instructors in the world and music genres that I can pick from? Sounds great.
+
+Tammy isn't a bike fan, she likes Treadmills and we added the Tread+ in February twenty nineteen. Tammy uses a treadmill every weekday and she liked the Bootcamp classes. The Tread+ is also the most robust treadmill I've ever used and can easily handle a big guy like me using it.
+
+We've been a Peloton house since before the pandemic surge, and we still use it regularly. I've tried a couple of other services and the classes just don't hit the mark. I've even considered getting the rower too.
+
+Quote.
+Aside from the instructors, the sense of community with Peloton users is very real. You see it the second you start pedaling via the Leaderboard, where you can see in real time all the other folks taking the same class. You can also "high-five" people in the same class. During classes, you'll also see some hashtags -- some based on user identity, geography, and interests (for example, #PeloDoctors, #PelotonMoms, etc.) and others based on instructors (for example, #JessKingCollective, #BooCrew). Those are meant to help you find other fans or friends to go do live rides with. The hashtags spill over to other social media platforms. There are several hundreds of Facebook groups, too. (My favorite name is the #435amTribe -- the Mothercluckers.)
+End quote.
+
+Peloton definitely has a committed core audience that I don't think will go anywhere. I still think it is the best home workout experience there is. And for spinning? The only thing I miss from spin classes in a studio is the music being SUPER LOUD over the PAs. Everything else I prefer on Peloton.
+
+It is a great product, but not a great stock. Does that matter? It does, but I also don't know how they could have ran the course of the last 6 years any differently.
+
+Link three. "Lessons after a half-billion GPT tokens - Ken Kantzer's Blog"
+
+Kantzer shares some key observations from his work building functionality with LLMs.
+
+Quote.
+1. When it comes to prompts, less is more. 2. You don’t need langchain. You probably don’t even need anything else OpenAI has released in their API in the last year. Just chat API. That’s it. 3. Improving the latency with streaming API and showing users variable-speed typed words is actually a big UX innovation with ChatGPT. 4. GPT is really bad at producing the null hypothesis. 5. “Context windows” are a misnomer – and they are only growing larger for input, not output. 6. Vector databases, and RAG/embeddings are mostly useless for us mere mortals. 7. Hallucination basically doesn’t happen.
+End quote.
+
+He goes into details on each of these points. There is some good learnings here.
+
+Link four. "What makes a great technical blog | notes.eatonphil.com"
+
+Great list of recommendations for technical blogs, but I'd really say most of these apply to any blog!
+
+Quote.
+In short, they: - Tackle hard and confusing topics - Show working code - Make things simpler - Write regularly - Talk about tradeoffs and downsides - Avoid internet slang, memes, swearing, sarcasm, and ranting
+End quote.
+
+Only the second item is specific to a technical blog.
+
+Link five. "The Most Important Thing That Leaders Protect - Matt Norman"
+
+Time. Time is such a critical resource. And our modern world of calendar invites treat time like it is useless. Someday I would like to see a service that really helps you align your time to your goals.
+
+Link six. "GDC Vault - The Playdate Story: What Was it Like to Make Handheld Video Game System Hardware?"
+
+Fun talk from Cabel Sasser about creating the Playdate and all of the many challenges they had bringing this little platform to life. I was one of the people that pre-ordered the Playdate just cause I loved the premise and it looked cool. I barely ever play games and as a result the Playdate doesn't get a lot of use but I still have a soft spot for this little yellow guy. I'll probably still buy the speaker dock when and if that ships!
+
+Link seven. "This is a teenager"
+
+Two things are interesting here. First, the data itself is compelling and tells so many stories. Secondly, the data visualization itself brings the data to life in pretty amazing ways.
+
+Quote.
+In this story, we'll follow hundreds of teenagers for the next 24 years, when they'll be in their late-30s. They're among the thousands of kids who are part of the National Longitudinal Survey of Youth. This means researchers have followed them since their teenage years to the present day -- and beyond.
+End quote.
+
+At the end you can see yourself how various factors are correlated with the experienced people have.
+
+Link eight. "Greg Pierce: Automate SMS Unsubscribing - Mastodon"
+
+There are only a handful of services I’m okay getting automated text messages from. Everything else I reply "STOP" regularly. When I saw Greg Pierce, author of Drafts, share this simple automation using Shortcuts to automatically send STOP to those messages I was delighted. I set the same thing up on my phone! Brilliant!
+
+Link nine. "Why the Short-Lived Calvin and Hobbes Is Still One of the Most Beloved and Influential Comic Strips | Open Culture"
+
+We have The Complete Calvin and Hobbes with every frame of the comic strip in it. I've read parts of it, but Tyler has read the entire four volumes actually multiple times. He thoroughly enjoyed it. There is something truly special about Calvin and Hobbes.
+
+Quote.
+Being six years old has its pleasures, to be sure, but it also comes with strong doses of tedium, powerlessness, and futility, which we tend not to acknowledge as adults. Calvin and Hobbes showed me, as it's shown so many young readers, that there's a way out: not through studiousness, not through politeness, and certainly not through following the rules, but through the power of the imagination to re-enchant daily life. If it gets you sent to your room once in a while, that's a small price to pay.
+End quote.
+
+I think I need to read them all the way through too…
+
+That's the end of Notable.
+
+Now, the Journal section.
+
+Journal entry one.
+
+The open foundation of the Fediverse continues to pique my interest and outweigh my disregard for social applications. I created Mastodon profiles and setup syndication for @jamiethingelstad@mastodon.social as well as @weeklything@mastodon.social. I currently publish to BlueSky and Nostr as well.
+
+Journal entry two.
+
+I’m two weeks into no coffee and this morning I thought I would try a mug of Pu’er Black Tea fully aware that it has caffeine but maybe not too much? I’m surprised by how noticeable the caffeine “surge” felt as I drank it with no caffeine in my system.
+
+Journal entry three.
+
+Tyler practicing hobo packing.
+
+Journal entry four.
+
+Nice afternoon walk in Golden Anniversary State Forest with my brother Isaiah and Tiffany.
+
+Journal entry five.
+
+Guinness at Rapids Brewing Company.
+
+Journal entry six.
+
+Great to see The Little Mermaid Jr. at the Reif Center featuring my nephew Andrew as Grimsby.
+
+Journal entry seven.
+
+Added the new #TeamSPS Cyberweek twenty twenty three challenge coin to my display case. What a collection!
+
+Journal entry eight.
+
+I attempted my first yoga class with Peloton today and learned that my flexibility is not where it needs to be to do yoga. Need to stick with the stretching classes for now.
+
+Journal entry nine. twenty twenty four Minnesota Aspirations in Computing Award Ceremony
+
+The annual Aspirations in Computing event highlights the accomplishments of incredible young women that are doing amazing things in technology. For the eighth year running SPS Commerce has sponsored this program and we’ve hosted dozens of Aspirations interns now, including some that have gone on to be college interns and even then team members! This was also the first year for Aspirations in Computing since finding a new home with the MnTech Foundation and holding the event at the Metropolitan Ballroom.
+
+Many members of TeamSPS volunteer and are engaged with Aspirations in Computing, but special recognition for Amy Patton who has put so much into this great program!
+
+Thank you to all the sponsors of this great program!
+
+The twenty twenty four Aspirations in Computing honorees.
+
+TeamSPS members with our four Aspirations interns for twenty twenty four.
+
+How many people can you get in front of a small photo booth?
+
+Aspirations is fundraising for eight scholarships for winners that need assistance with their next steps to college. If you can, add your support for these amazing young women!
+
+See Aspirations Awards events from twenty sixteen, twenty nineteen, twenty twenty, twenty twenty one, or twenty twenty four.
+
+Weekly Thing Forum
+
+Join Patrick Hambek, Barry Hess, Eric Walker, Brad Armstrong, Tom Mungavan, and many other Weekly Thing readers in the Weekly Thing Forum. Recent topics include:
+
+- Mastodon Instance Recommendation
+- A few thoughts on this weeks Weekly Thing
+- Take Ownership Of Your Future Self
+- Milwaukee
+- Tron Movies
+
+That's the end of the Journal.
+
+Now, the Briefly section.
+
+Link one. "Fizz Creations “Tetris” Waffle Maker — Tools and Toys"
+
+A waffle maker that uses tetromino shapes from Tetris!
+
+Link two. "Kaspersky analysis of the backdoor in XZ | Securelist"
+
+Thorough analysis of the XZ backdoor that almost made it into the wild.
+
+Link three. "Privacy Pro: DuckDuckGo's New 3-in-1 Subscription Service"
+
+Smart product offering from DuckDuckGo. The data deletion service is cheaper than DeleteMe, which is what I’m using, and you get other services too.
+
+Link four. "No Web Without Women"
+
+Well designed site that highlights the critical role that women have played in the creation of the web.
+
+Link five. "An Electric New Era for Atlas"
+
+The Atlas robots from Boston Dynamics are incredible, but this little 30-second clip of the new all electric Atlas is a bit mind blowing. Watch the video of Atlas laying on the floor and getting up.
+
+Link six. "The invisible seafaring industry that keeps the internet afloat"
+
+There have been a couple of articles about the massive cable runs on the bottom of the ocean recently but this one has the most story and a ton of interesting pictures too. What a wild thing to drag cables thousands of miles around the ocean!
+
+Link seven. "The Delta Videogame Emulator Launches on the App Store - MacStories"
+
+App Store rules were changed and now apps like Delta can be distributed. Super fun, but I need to find some ROMs to play.
+
+That's the end of Briefly.
+
+Now, the Fortune section.
+
+Here is your fortune…
+
+You feel a whole lot more like you do now than you did when you used to.
+
+Thank you for subscribing to the Weekly Thing!
+
+That's the end of Fortune.
+
+Now, the Want to support the Weekly Thing? section.
+
+First — thank you for subscribing and reading. Here are some things you can do that would be great…
+
+- Share Weekly Thing 284 / Playdate, Tetris, Calvin with others you know!
+- Post about the Weekly Thing and let others know about it.
+- Join the Weekly Thing Forum and connect with others.
+- Email me comments, feedback, or just to say Hi!
+
+That brings us to the end of the Weekly Thing, issue 284. Thanks for listening, and I'll see you next time.

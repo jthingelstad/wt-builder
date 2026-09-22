@@ -1,0 +1,197 @@
+The Weekly Thing, issue 69. Sep 1, twenty eighteen. Published September 1, twenty eighteen. By Jamie Thingelstad. In this issue: Centralized versus decentralized, Facebook real friends, product management mental models, GraphQL good and bad, WhatsApp privacy, IRC turns thirty.
+
+Minneapolis Public Schools started the twenty eighteen-19 school year this Monday, and with it the kids went off to school and summer break officially came to a close. Summer flew by this year! There was so much going on. It was fabulous, and maybe 10% into the over-scheduled zone, but that's just fine. In our neighborhood the first day of school is a community event. Parents and kids walking to bus stops, or forming walking busses to take kids to school while photos are taken at various moments. The whole thing put a smile on my face, even as the kids were bemoaning the return of homework.
+
+Now, the Featured Links section.
+
+Link one. "What do you believe now that you didn't five years ago? Centralized wins. Decentralized loses. - High Scalability"
+
+There is much truth in this article, even though it’s a little hard for me to like it.
+
+What's more, consumers simply do not care. Users use. Only a small percentage have the technical sophistication to understand why they may want to preferentially use decentralized applications for technical reasons. Saying "It's like X, but decentralized", does not resonate, especially when the services are not as good. We had decentralized Slack way before Slack...yet there's Slack. You know it's bad when GitHub managed to recentralize an inherently distributed system like git.
+
+Unfortunately you could say the exact same paragraph and replace "centralized" with "private".
+
+This article reminded me of one of my most memorable conversations I had with a venture capital friend, Michael Gorman. We were talking about the Internet and I commented that "the Internet prefers decentralization". On one level, a very technical one, that is true. The Internet is a massively distributed system. It can suffer significant outages without having total network failure. But I was mistakenly extending that concept to things being built on the Internet. Michael replied that he saw nothing to support that, that the Internet was full of "winner take all" businesses, with complete centralization and not even room for a second place. He was absolutely right.
+
+Link two. "Is It Okay to Say “Hey Guys”? - The Atlantic"
+
+The gendered nature of the term "guys" was brought to my attention first by Bridget Kromhout. At the time I honestly didn’t really hear what she was saying, but the matter stuck with me and over the last few years I've largely removed "guys" as a reference to a group of people. I think this is important, especially in industries like tech with such large gender imbalances.
+
+I also heard that guys could grate on women working at male-heavy companies. In tech in particular, some told me they saw the word as yet another symptom of a female-minimizing industry. “There are a lot of guys in tech and ‘guys’ is used all the time in my work and social environments by both men and women, but since it doesn't resonate with me anymore, I do feel like I'm not part of the group,” says Amy Chong, a 29-year-old user-experience researcher in San Francisco.
+
+Per the article I don't like using the term "folks". Perhaps it is because I’m from the midwest, but I have the perception that it feels too folksy. I tend to just say sentences differently, so that I can use terms like "everyone" instead. Sometimes I get tripped up, but that is pretty rare these days.
+
+I do now notice much more when people do use "guys" to address groups of men or women. The oddest to me is when I see a woman address a group of all women and use the term "guys". I don't correct these, but I do find it an odd use. The article actually comes to the conclusion that that is all probably fine, and will continue and that "guys" will lose it’s gender even more than it has in the past.
+
+That's the end of Featured Links.
+
+Now, the My Weekly Photo section.
+
+Michael Franti entering the crowd at the Minnesota Zoo.
+Aug 25, twenty eighteen at 9:21 PM
+Minnesota Zoo, Apple Valley, MN
+
+That's the end of My Weekly Photo.
+
+Now, the Notable Links section.
+
+Link one. "Only 150 of Your Facebook Contacts Are Real Friends - Scientific American"
+
+Dunbar’s number proven again!
+
+Study after study confirms that most people have about five intimate friends, 15 close friends, 50 general friends and 150 acquaintances.
+
+This should be termed a law at this point.
+
+Link two. "Product Management Mental Models for Everyone – The Black Box of Product Management"
+
+Good overview of a variety of mental models related to building new products. This is a good entryway to multiple tools to help you make better decisions. The article could use a link to more detail on each of the models.
+
+Link three. "“Do no harm” to Facebook’s business model – Monday Note"
+
+This is a good writeup on the fact that whatever who did with Facebook to influence any events, it isn't hacking, it’s just doing what Facebook was fundamentally designed to do. Facebooks primary purpose is to learn from your behavior and then influence you as their customers (advertisers) wish to.
+
+Link four. "We fired our top talent. Best decision we ever made."
+
+I have met some "Rick's" in my days and I can attest to the positive outcomes of getting people like this off of your team. Building things is a team sport, and if someone doesn't want to be part of the team or brings the rest of the team down — they shouldn't be on the team.
+
+Link five. "Antifragility is a Fragile Concept"
+
+Rosenthal's opinion on Chaos is authoritative, and he clarifies how it is not antifragility.
+
+Antifragile is a confused concept that ignores a wealth of knowledge we have about building and operating resilient systems. Chaos Engineering, by contrast, is a well-defined, pragmatic discipline for navigating complex systems. In my mind, they are quite far apart.
+
+He's also no fan of Taleb's book.
+
+Link six. "How “systems thinking” can level up your work — and your life"
+
+I've read the Thinking in Systems book that this is referring to and agree, it is a fabulous introduction to a sophisticated set of tools to look at systems.
+
+Link seven. "Margin is Not a Luxury – sabbatical.blog"
+
+This is a great way to think about time and commitments. I need to make this a poster as a reminder.
+
+“Yes” and “No” are not right and wrong, good and bad. They’re left and right, up and down. Learn to see the words “Yes” and “No” as directional, not emotional.
+
+Yes!
+
+Link eight. "Why use GraphQL, good and bad reasons · Honest Engineering"
+
+The capabilities related to complex schemas and microservice orchestration are the most compelling justifications for GraphQL. If I were doing more with mobile, I can see how the mobile use case is very helpful. I agree wholeheartedly on the assessment that REST v. GraphQL is a silly debate.
+
+GraphQL and REST are both very different things, GraphQL is a language and a technology, REST is an architecture pattern.
+
+Yes.
+
+Link nine. "How Facebook, Apple and Microsoft are contributing to an openly licensed map of the world – The ODI"
+
+Note who is missing from this? Google. It makes total sense that Apple and Microsoft would be working to commoditize the lead that Google has in base map data. I also found it interesting that Apple is participating in this, but I don't think they are donating their new base map data they are sourcing themselves. Map data is a strategic advantage for a number of services.
+
+Link ten. "Stop Using WhatsApp If You Care About Your Privacy"
+
+My opinion? Your absolutely bonkers to believe that WhatsApp is going to continue to fight for user privacy after Facebook bought it. Simple as that.
+
+Link eleven. "Internet chat system IRC turns thirty | University of Oulu"
+
+I first logged onto IRC via EFnet in 1991. I had no idea it was only created 3 years prior. IRC was one of my first introductions to the world of the Internet and chatting with people around the globe. I called #macintosh and #root home, and had ChanOps in both of them. It was such a fun time back then. I love that IRC is still kicking. It’s the IndieWeb to Slack.
+
+Link twelve. "Mass shootings since Sandy Hook, in one map"
+
+This interactive infographic shows the data on mass shooting events in the last few years. The data speaks for itself.
+
+Link thirteen. "How privacy-friendly is your site?"
+
+I ran my personal site through this and I was impressed with the recommendations it came back with. There were a number of them I had never heard of. This seems like a good tool to have for those looking to understand privacy and the web.
+
+Link fourteen. "Lutron Caseta Wireless Smart Lighting Dimmer Switch (2 count) Starter Kit - Amazon.com"
+
+I didn’t realize that there were HomeKit compatible switches like this that you could use to convert a light to a smart light. There is also a simple on-off version of the same switch.
+
+That's the end of Notable Links.
+
+Now, the Now Reading section.
+
+Zen and the Art of Motorcycle Maintenance: An Inquiry Into Values ()
+by Robert M Pirsig
+
+A penetrating examination of how we live and how to live better A narration of a summer motorcycle trip undertaken by a father and his son, Zen and the Art of Motorcycle Maintenance becomes a personal and philosophical odyssey into fundamental questions on how to live.
+
+When I was at David Hussman 's memorial one of the speakers shared that David's favorite book was Zen and the Art of Motorcycle Maintenance. I've heard much about it, but I've never read it. I figured it was time to read it (or, listen to it since I am using the audiobook) and I'm enjoying it thoroughly.
+
+That's the end of Now Reading.
+
+Now, the Give Back section.
+
+Internet Archive is a non-profit library of millions of free books, movies, software, music, websites, and more. I have been a supporter of the Internet Archive for many years and I think their mission is fabulous! The web is a major part of our culture and it the content that we put on it is sadly ephemeral. The Internet Archive is working hard to capture that information and keep it for history. Donate to Internet Archive today!
+
+That's the end of Give Back.
+
+Now, more links.
+
+- Exclusive: Apple Watch Series 4 revealed — massive display, dense watch face, more | 9to5Mac 9to5mac.com
+Every millimeter matters on a display as small as the Apple Watch.
+- Exclusive: This is ‘iPhone XS’ — design, larger version, iPhone XS' — design, larger version, and gold colors confirmed | 9to5Mac 9to5mac.com
+I know what my next iPhone will be now.
+- dategrep: print lines matching a time range github.com
+Super handy for log files.
+- Sinkholes: When the Earth Opens Up - The Atlantic
+The third one looks like something out of a movie.
+- The Rise and Rise of JSON twobithistory.org
+Cool early history on the birth of JSON.
+- Serverless Best Practices – Paul Johnston – Medium
+Good set of things to consider when designing serverless.
+- Manifesto for Minimalist Software Engineers | Minifesto.org minifesto.org
+10 principles to guide minimal software.
+- A Case Against Optimizing Your Life: zen habits zenhabits.net
+Sometimes you should just do stuff, and stop fussing around about it.
+- The original demo of Imagine by John Lennon kottke.org
+I love the raw sound of this great song. Imagine is such a great song.
+- littleBits: Award-winning electronic building blocks for creating inventions large and small littlebits.com
+Very cool maker minded kits!
+- Picular picular.co
+Google, but for colors.
+
+That's the end of More Links.
+
+Now, the Microposts section.
+
+Wednesday @ 7:31 PM
+
+What a nice evening!
+
+Tuesday @ 9:07 PM
+
+I dig this picture that my neighbor took of me taking first day of school pictures.
+
+Sunday @ 11:39 PM
+
+In recognition of National Dog Day, a picture of Chase from four months ago.
+
+Sunday @ 7:27 PM
+
+Celebrated Tammy’s Dad’s 80th Birthday today! Got a big Olson Family picture too!
+
+Sunday @ 8:52 AM
+
+Michael Franti and Spearhead put on an amazing and inspiring show at the Music in the Zoo last night. It was awesome how he engaged the audience and brought kids on stage to sing and dance. There was so much positive energy!
+
+Saturday @ 8:52 PM
+
+Michael Franti and Spearhead at MN Zoo!
+
+Saturday @ 3:24 PM
+
+Amazing memorial service for David Hussman. A perfect collection of stories, music, poems and reflections — that he helped design. Tears and love shared by everyone.
+
+That's the end of Microposts.
+
+Now, the Fortune section.
+
+You've made it all the way to the end! Here is your fortune for this week.
+
+If you lose your temper, don't look for it.
+
+Thank you for subscribing to the Weekly Thing!
+
+That brings us to the end of the Weekly Thing, issue 69. Thanks for listening, and I'll see you next time.

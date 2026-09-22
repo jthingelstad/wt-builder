@@ -1,0 +1,273 @@
+The Weekly Thing, issue 140. Conversations, Leadership, Remote, iPad. Published March 21, twenty twenty. By Jamie Thingelstad. In this issue: iPad Pro trackpad, new keyboard cover, flatten the curve, pandemic history, managing remotely, skill stacking, virus startup strategy.
+
+There is a really important thing I'm trying this week. Make sure to read the last paragraph in the intro this week so you don't miss it!
+
+A colleague and friend of mine shared a great model to think about developing your career, using the idea of merit badges, like in the Scouts. You earn various merit badges throughout your career, and I would suggest your life. Right now we are all earning our Pandemic merit badge! I would have preferred to skip this one, but we are right here, making it happen.
+
+We've all been home since Tuesday when the schools shut down, and I've been working from home. Tammy has been amazing and created a robust structure for the kids to follow with "home school" and a bunch of other activities that will keep the learning going. I've adapted to working at home reasonably well. And we are all remembering to get outside for some fresh air as well. It’s an absolutely gorgeous spring here in Minnesota, even though we can’t really enjoy it. Mazie updated the chalkboard in our communications center at home with the topic that is on everyone's mind.
+
+I've been thinking about the other side of this pandemic. Perhaps a form of escapism? Covid-19 will have a permanent effect on our society. There are two specific areas that I've been considering this week.
+
+The first is our use of technology to enable distributed work. We are going through the most extensive and expansive work from home exercise that one could imagine. But it’s also not just working at home, it is everything. In the next few days, our kids' school district is going to figure out how to do online learning after years of being a back-burner project that couldn't get funding. Even amongst friends and family, we've started adopting these tools. We got my mother and sister together on a Zoom meeting for an hour the other evening to hang out and catch up. I don't see us rolling back some of these advances. I suspect that we will make a massive step-change in how we use technology that will forever alter how we collaborate, meet, and learn. This could mean a permanent reduction in travel. It could mean a much broader adoption of remote practices in schools and businesses. Even small organizations like Common Ground Meditation Center have jumped in and are now doing classes and meditation sessions online!
+
+The second area that I've been thinking about is biosecurity. I wonder about a future where you walk through a metal detector, and right after, a biological scanner that will detect your temperature, heart rate, and some other biometrics. You can imagine a future where having a fever means you won't be able to board a flight, or won't be able to go to a baseball game. This has a bunch of privacy implications that would freak me out since biodata will need to be relative to some historical view of each person, which means recording and keeping that data. Maybe you could store that on your ID card, encrypted with your fingerprint. That way the data would never exist in the cloud. If you think this is crazy, I will remind you that one person tried to put a bomb in their shoe, and now we all take our shoes off to get on a plane, everywhere, forever.
+
+I am concerned about the impact on local businesses, particularly restaurants, gyms, and other service-industry functions. So many people are losing their jobs as their businesses evaporate. We need to act now to get organizations ready to help. You can see this already, Minnesota charities ramp up efforts to fight hunger amid coronavirus concerns.
+
+So… let's take take some action!
+
+I want to try something I've never done before. Let's join together and help Second Harvest bring food to those in need! I want to match up to 5,000 dollars in donations to Second Harvest from you, the fantastic and awesome people that subscribe to the Weekly Thing. Let's join together to help get food to people that need it. But, it gets better! I mentioned that I was going to do this to our CEO, Archie Black and he wanted to get in on it to, and is going to extend the match, to 10,000 dollars! Make a donation now, and then forward your donation receipt to me via email at jamie@thingelstad.com. I will add up all the donations and match them up to 10,000 dollars! Let's double the good we can all make together and help get food to people in need! I'll share in next week's issue how we do!
+
+Make a donation to Second Harvest now!
+
+Now, the Must Read section.
+
+Link one. "How To Recover When The World Breaks You – RyanHoliday.net"
+
+This last week I have valued my meditation practice. I realize this is about stoicism, but there is some very similar thinking here. It’s been a hard week to practice being present. When there is chaos, it’s an escape to live in the future that you can control.
+
+Quote.
+Stoicism is there to help you recover when the world breaks you and, in the recovering, to make you stronger at a much, much deeper level. The Stoic heals themselves by focusing on what they can control: Their response. The repairing. The learning of the lessons. Preparing for the future.
+End quote.
+
+I like the conclusion of this, to allow the world to break you, but not ruin you. You can only control how you respond and engage.
+
+Link two. "Creating predictability and stability in times of rapid change | Lara Hogan"
+
+Hogan's writeup here is spot-on for what many people are going through in the workplace.
+
+Quote.
+The advice I share in that post is (I hope) still useful during this wild time, but there’s one new thing I want to call out: in addition to our needs around physical safety, our BICEPS core needs are also threatened right now. So let’s talk about what we can do for ourselves and for those around us, to help address those core needs.
+End quote.
+
+This BICEPS model is new to me, but it seems to fit the given situation really well. I can see this being very helpful to diagnose what may be causing some people to feel "off" or disconnected in some way that they may even not be aware of themselves.
+
+That's the end of Must Read.
+
+Now, the Currently section.
+
+Drinking: I ordered some DripDrop Oral Rehydration Solution off of a mention in Kevin Rose's Newsletter, and it is really delicious. I've been looking for alternatives to things like Bai for when I want something other than plain water, and this seems like a good option.
+
+Buying: Placed another order at The Wooden Wick to further my developing candle-making hobby. To be clear, I’m not preparing for the apocalypse and assuming the power will be going out. However, if it does, I'll have 1,000 wooden wicks and 15 pounds of soy wax to make plenty of candles.
+
+Made a donation to Second Harvest yet?
+
+That's the end of Currently.
+
+Now, the Photog section.
+
+This is the first time in months that we are seeing open water on the lake. It won't be long until the ice is off and we can practice our social distancing on the pontoon!
+
+Improve deliverability?
+You can help make sure that you always get each issue of this by adding my email address to your address book! It should be simple, click on my name, and there is probably a button to add to contacts or add to your address book.
+
+That's the end of Photog.
+
+Now, the Recommended Links section.
+
+SPS hosts Girl Scouts to encourage STEM | SPS Commerce
+
+This was just posted, and the event was a couple of weeks ago, which now literally seems like another world. But we will still continue to do outreach like this and figure out how to help our communities! This event is a particularly great one.
+
+COVID-19: How to Manage Remotely with Confidence | Leadership Freak
+
+A lot of managers are jumping into the deep end doing remote management right now. This is a quick and to the point article highlighting some key tactics to do remote management well.
+
+PagerDuty Is for People: Supporting Our Community During COVID-19 | PagerDuty
+
+PagerDuty is working hard to expand its adoption beyond its traditional technology space. Moving to real-time operations is a smart move, and I think there are likely a number of business processes that you can make better using a service like PagerDuty.
+
+Quote.
+In an effort to help companies, large and small, across industries transition to distributed work during the coronavirus crisis, we are offering six free PagerDuty licenses for six months for any business that isn’t already on PagerDuty. Our platform enables businesses to schedule a team of on-call responders and to help them automatically find, troubleshoot, and rapidly solve any problems that could hurt their ability to serve customers.
+End quote.
+
+It’s great to see them making it free for new companies as we all have to deal with critical functions during the pandemic. They also shared some examples of how they use PagerDuty for emergency response.
+
+Daring Fireball: Super Wednesday
+
+In a regular world, this would be huge news, but given the pandemic, this is a simple press release. The new MacBook Airs look really great. I do most of my work on one, and I love the size and weight, but they do get bogged down if you put too much load on them. The new iPad keyboard looks amazing too.
+
+Here’s how the iPad’s new trackpad actually works - The Verge
+
+This new pointer support in iPadOS looks pretty awesome. I feel like this may be a huge change in productivity for iPad users, particularly for productivity work.
+
+The Deep Life: Some Notes - Study Hacks - Cal Newport
+
+There are many models for thinking about our "purpose." I like Newport's framing here.
+
+Quote.
+The tricky part in cultivating a deep life, of course, is figuring out what things matter. This will differ between different people. I strive to divide my focused attention among four categories: - community (family, friends, etc.), - craft (work and quality leisure), - constitution (health), and - contemplation (matters of the soul).
+End quote.
+
+Skill Stacking: Instead of Mastering One Skill, Build a Skill Set
+
+This skill stacking concept could easily be embodied by that same idea of earning merit badges. I like the approach.
+
+Quote.
+Take time to figure out what skills you have right now and what you can learn in the future to take you in a direction that is right for you and your interests. Everyone can benefit from skill stacking.
+End quote.
+
+In addition to creating an inventory of your skills (badges), you should also identify what badges are needed for the things you want to do going forward.
+
+How to Stay Healthy When You Work From Home | Elemental
+
+I've worked from home most of this week, and it’s new for me. I've already realized that I need to start doing many of the things in this article. Most notably, moving more.
+
+Quote.
+The golden rule, according to Cinkay, is to get up every hour and move — go to the bathroom, walk around the room, stretch, get a drink of water or a snack.
+End quote.
+
+Being in an office, and having a job that is mostly meetings ensures that I move most days every 30 minutes or every hour just to get from one room to another. When you do that all on video, you replace that walking with clicking out of one meeting and joining into another. You don't need to move at all. You need to schedule stretch breaks in to keep your body energized!
+
+Apple announces new iPad Pro with trackpad support and a wild keyboard cover - The Verge
+
+Deeper dive on the new iPad. I’m a big fan of the current iPad lineup and the improvements coming in iPadOS.
+
+Infographic: The History of Pandemics, by Death Toll
+
+Okay, first, this infographic is using 3D effects and far too much design, which has the Edward Tufte voice in my head being very skeptical about the data. But let's ignore that for a moment, and just observe the Bubonic Plague.
+
+Mary Dash’s Writing Tips | plainlanguage.gov
+
+This is a phenomenal set of writing tips. I love the examples as well! I love the breakdown of Active and Passive voice and Gobbledygook! Great advice.
+
+A few very dumb COVID-19 corporate messages - without bullshit
+
+So many companies have, in many cases for the first time, had to get messages to their customers regarding Covid-19. I like this framework of what to communicate.
+
+Quote.
+Unless you’re the spokesperson for the CDC or a state governor, don’t try to reassure people in the midst of a pandemic. That is not the job of a company. If you have nothing to say, say nothing. If you have a message with something of substance to say about safety or security, share it — but stick to the actual facts, not weaselly reassurances about "deep cleaning."
+End quote.
+
+If you provide an important service, let people know in real terms that you will be able to continue to provide it. You should be leaving your customers with confidence.
+
+The conversation | Seth's Blog
+
+Seth Godin's calling us to consider not just translating the exact same process that we have had in our office as we work remote, but instead think of how we can try something very different. I love this example!
+
+Quote.
+A standard zoom room permits you to have 250 people in it. You, the organizer, can speak for two minutes or ten minutes to establish the agenda and the mutual understanding, and then press a button. That button in Zoom will automatically send people to up to 50 different breakout rooms. If there are 120 people in the room and you set the breakout number to be 40, the group will instantly be distributed into 40 groups of 3. They can have a conversation with one another about the topic at hand. Not wasted small talk, but detailed, guided, focused interaction based on the prompt you just gave them. 8 minutes later, the organizer can press a button and summon everyone back together. Get feedback via chat (again, something that’s impossible in a real-life meeting). Talk for six more minutes. Press another button and send them out for another conversation. This is thrilling. It puts people on the spot, but in a way that they’re comfortable with.
+End quote.
+
+I just used this breakout function this week for the first time, and I thought it worked really well. It was a training session with 30 or so people. Using it for other types of "conversations" is really interesting. And it’s something you cannot do in a normal, in-person meeting!
+
+Leading in Challenging Times
+
+Yes, this.
+
+Quote.
+Authenticity and transparency with warmth and emotional sincerity – that’s a recipe for leadership success in scary times.
+End quote.
+
+Timeline: Trump's coronavirus statements - The Washington Post
+
+Everyone needs to remember this timeline. The epic failure of the Federal Government to take Coronavirus seriously is going to result in more lives lost, and significantly deeper economic losses. Lies need to have repercussions.
+
+Students Can Respond to Daily Writing Prompts, Inspired by The New York Times, at Home for Free - The New York Times
+
+This is a great activity for older kids that are at home now. Mazie has decided to participate in some of these.
+
+Resources for learning from home during COVID-19 school closures | The Thomas B. Fordham Institute
+
+This is a great set of resources for all the parents that are suddenly finding themselves homeschooling their children with the Covid-19 school closures.
+
+ongoing by Tim Bray · Eventing Facets
+
+The table at the end of this is a great resource to find an eventing system that meets the needs of your solution.
+
+Why outbreaks like coronavirus spread exponentially, and how to "flatten the curve" - Washington Post
+
+The visuals in this article do a good job of showing why the social distancing efforts are so important to lower the growth curve of Covid-19.
+
+That's the end of Recommended Links.
+
+Now, the Status Updates section.
+
+Thursday @ 3:58 PM
+
+After three days of working from home, my daughter (14) asks, “Dad, when do you do your work? All you do is talk to people all day."
+
+Tuesday @ 7:38 PM
+
+I’ve been using my Peloton gear more and would like to have more connections there. If you are on Peloton, send a follow to “JThingelstad.”
+
+Tuesday @ 6:50 PM
+
+Happy St. Patrick’s Day, everyone!
+
+Tuesday @ 4:52 PM
+
+Donated to Greater Minneapolis Crisis Nursery. Organizations like this are going to need to help a lot of people soon. Think about where you might be able to help in your community.
+
+Sunday @ 7:49 PM
+
+We just did our first Family Fitness Challenge while we are staying inside more. A daily challenge for pushups, sit-ups, and plank! #FitByFifty
+
+Sunday @ 4:19 PM
+
+Family movie last night was The BFG. Good family movie.
+
+Sunday @ 4:16 PM
+
+I made my first try making candles. Wood wicks, soy wax. Pretty easy, but not a big fan of the scent I used. Maybe scent-free is the right option.
+
+Saturday @ 7:18 PM
+
+Celebrating π Day! Chicken pot pie followed with Chocolate Peanut Butter pie. All homemade!
+
+Saturday @ 6:21 PM
+
+In this time of Covid-19, it would be a good gesture for Xfinity, AT and T, and other broadband and wireless carriers to remove data transmission caps on customers.
+
+Friday @ 8:25 PM
+
+I'm surprised the NY Times isn't making an animated version of their Coronavirus maps available that shows the progression.
+
+Friday @ 12:51 PM
+
+Currently noticing every single cough in the Orlando airport.
+
+That's the end of Status Updates.
+
+Now, for your information.
+
+Working from home – things no one talks about
+
+Some good practical tips for teams new to remote working.
+
+A Few Small Things You Can Do as a Leader – Rands in Repose
+
+Simple, easy things for managers to do during times of crisis like this.
+
+Steve Blank The Virus Survival Strategy For Your Startup
+
+Specific advice for startups, but themes that can be used for any business.
+
+The (only) three corporate messages that make sense right now - without bullshit
+
+Good, practical advice on what companies should be communicating during the pandemic.
+
+Coronavirus Treatment: Hundreds of Scientists Scramble to Find One - The New York Times
+
+The race is on. God speed!
+
+Take Spring Break At Home For Two Weeks Starting Now - Feld Thoughts
+
+This is what we are going to be doing.
+
+Learning from this email?
+Help others learn by sharing on LinkedIn.
+
+That's the end of the FYI section.
+
+Now, the Fortune section.
+
+You've made it all the way to the end! Here is your fortune for this week.
+
+Don't read everything you believe.
+
+Thank you for subscribing to the Weekly Thing!
+
+Really, make a donation to Second Harvest.
+
+That brings us to the end of the Weekly Thing, issue 140. Thanks for listening, and I'll see you next time.

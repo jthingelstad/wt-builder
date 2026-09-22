@@ -1,0 +1,229 @@
+The Weekly Thing, issue 81. Nov 24, twenty eighteen. Published November 24, twenty eighteen. By Jamie Thingelstad. In this issue: Zapier ARR SEO strategy, no phones allowed, manager READMEs, future of photography, Kubernetes 101, iPad Pro twenty eighteen, Facebook patent ads.
+
+Thanksgiving is here and we officially kick-off the holiday season! I hope you all had a fabulous Thanksgiving filled with good food, friends and warm conversation. My Thanksgiving was a bit questionable this year. I got sick with something after leaving Kiev. I made it home feeling not so great, and then spent the weekend and early part of the week gradually getting better. The delights of travel! I got just well enough to have Thanksgiving dinner.
+
+I have so much to be thankful for. A loving wife who is a great partner. Two great kids that teach me new things about the world on a regular basis. Family and friends that make my life even richer. A challenging and rewarding career with a great team. The list goes on and on …
+
+This is the time of family traditions and we spent the Friday after Thanksgiving decorating for Christmas, drinking leftover Wassail Tea, listening to Christmas Music, and eventually watching Elf!
+
+The next week is a monster week for the retail industry, and a big week at work for our team. It's going to be fun seeing our systems flexing to push through a mountain of data.
+
+Now, the Featured Links section.
+
+Link one. "How Zapier Reached 35 million dollars ARR With This SaaS SEO Strategy"
+
+I like a lot of what Zapier is doing, and this analysis of their search strategy is superb.
+
+Rather than trying to pitch users on the value of integrating tools, Zapier realized early on that people were already looking for specific integrations. To capture this existing intent, Zapier decided to make the app partners in their integration ecosystem the stars of their marketing and piggyback on their success.
+
+I’ve found these landing pages many times from various searches. It’s impressive how well they thought the process through beyond discovery, all the way to initial value!
+
+After creating login credentials, Zapier doesn’t waste that user intent by dropping new users into a central dashboard or control panel. Instead, users are dropped right into the integration set-up flow where they can get the integration from the CTA up and running.
+
+Very impressive and good results. Plus the strategy gets stronger with more connectors!
+
+Link two. "The Simple Joy of “No Phones Allowed”"
+
+This article is a great reflection on how our devices have changed certain events.
+
+People were visibly enjoying the opening band, at least in part because that band no longer compete with the entire internet for the crowd’s attention. Even the crowd’s milling around and chatting between acts was so much more lively. People were either talking to their neighbors, or taking in the room. And everyone taking in the room was taking in the same room. It felt great.
+
+I had heard that Jack White did this for his shows and I have want to go just to experience it, plus the music is great.
+
+That's the end of Featured Links.
+
+Now, the My Weekly Photo section.
+
+Selfie reflection in a Christmas bauble.
+Nov 18, twenty eighteen at 11:27 AM
+Galleria, Edina MN
+
+That's the end of My Weekly Photo.
+
+Now, the Notable Links section.
+
+Link one. "Things I learned from working at Shopify - Yellowstroke.com"
+
+This is a fabulous set of learnings for anyone to think about in their career.
+
+Link two. "I hate manager READMEs – Camille Fournier – Medium"
+
+I’ve never jumped on this bandwagon. I’ve always felt that it was a bit presumptuous, and had the wrong polarity. Your job as a leader is to adapt to your people, not to expect your people to adapt to you.
+
+If you want to build trust, you do that by showing up, talking to your team both individually and as a team, and behaving in an ethical, reliable manner. Over, and over, and over again. You don’t get it from writing a doc about how you deserve their trust.
+
+I’ll pass on this.
+
+Link three. "The future of photography is code | TechCrunch"
+
+I've been amazed at the innovations that have arrived via computational photography and I am sure that there are many more coming. I tend to think that our phones will be able to get amazing pictures, and displace so much of what traditional cameras do. However, I still see nothing that will be able to replicate a long telephoto lens with a really fast shutter. Nearly every other scenario, I think computational photography will likely surpass.
+
+Link four. "Kubernetes 101: Pods, Nodes, Containers, and Clusters"
+
+This is a very easy to understand breakdown of the basic components of Kubernetes. It's a good read if you are just trying to ground yourself with the basic terms. Via Leah Cunningham.
+
+Link five. "A Different Photography Workflow – The Sweet Setup"
+
+I’m in a similar camp with the author of this rethinking my cameras and where I keep my photos. The amazing developments in mobile photography have changed so many of the tools and processes that photographers use today.
+
+Link six. "Home Screen Icon Creator: A Shortcut to Create Custom Icons for Apps, Contacts, Solid Colors, and More – MacStories"
+
+Immensely powerful shortcut from Viticci. This looks like a great addition to Shortcuts, and I’ll bet a good example shortcut to learn from.
+
+Link seven. "Pivot or Fail? – AVC"
+
+I’ve heard startup teams announce that they are pivoting as if it was the next natural step in their plan. That’s never made sense to me. A pivot is recognizing that the original path doesn’t work, and pivoting to a new path.
+
+So my view is if you’ve failed, accept it, announce it, and deal with it. Shut the business down, give back the cash, and rip up the cap table. Then do whatever you want to do next. If it is another startup, do it from scratch and keep as much of it as you can. If it is something else, well then do that too.
+
+I’m surprised Wilson doesn’t highlight to me the main reason people pivot instead of doing what he suggests — to avoid failure. If you pivot, sure there are some downsides, but you didn’t fail, you pivoted. Neat! Do it a couple more times and still, no failure. If you actually do what is suggested here you have to acknowledge the thing you are avoiding at all costs.
+
+Link eight. "When to put down the tools – Mike Monteiro – Medium"
+
+I like this perspective from Monteiro. What is the line for the employees of Facebook and Twitter?
+
+Link nine. "iPad Pro twenty eighteen review: A computer, not a PC - Six Colors"
+
+Very thorough review of the new iPad Pro as a primary device to get things done.
+
+Link ten. "How to Make This the Most Intentional Work Year of Your Life - Matt Norman"
+
+I track my time and categorize it as well, and I dig the learnings that Matt Norman is highlighting here. I’ve had similar realizations from doing this myself. I’d suggest OKR’s over the 90-day sprint idea though.
+
+Link eleven. "Pokemon Let’s Go: Well, I guess my adult ass is going to collect them all | Ars Technica"
+
+This new Nintendo Switch Pokémon game looks like it will be a lot of fun for any Pokémon fans you know. Good Christmas present!
+
+Link twelve. "The Industrial Revolution was the most important event in history - Vox"
+
+Wow! This graph is a great illustration of the extraordinary times that we are living in!
+
+Link thirteen. "A Facebook patent would use your family photos to target ads - The Verge"
+
+I don’t think most users realize how much private data can be gleaned from your photos. I won’t store my photos with Google or for sure a social media company. This patent shows just some of the use cases that companies like Facebook can get from mining your personal photos.
+
+Link fourteen. "Things Nobody Told Me About Being a Software Engineer · Ana Ulin"
+
+What a wonderful list. Some of these made me chuckle, some cringe. A lot of truth here.
+
+Link fifteen. "Tim Bray · Post-REST"
+
+Thoughts from Tim Bray on the points of evolution for API transports on the web. I like the depth of history Bray brings to this.
+
+Link sixteen. "Statusfy - A marvelous Open Source Status Page system"
+
+There are a number of open source status page options, but this one looks more complete than many of them. The paid services that do this need to keep innovating!
+
+Link seventeen. "When is someone ready to manage managers? – Camille Fournier – Medium"
+
+Good direction for managers seeking to move into bigger roles. This part about feedback is critical.
+
+So many line managers think that they are temporarily embarrassed CTOs, and don’t realize that they are lacking in many critical skills. If you bristle at every bit of corrective feedback, if you have an outsized ego that everyone can see, or even if you simply never actually act on the feedback that you get, you’re not going to be top of the list when the opportunities come about.
+
+If the above isn’t happening, you never move ahead because you don’t learn from feedback.
+
+Link eighteen. "Shortcuts Archive – MacStories"
+
+Updated and thorough collection of Shortcuts for iOS. Shortcuts is one of those tools that is best learned bully doing, and checking out examples like these is a great way to learn. Frederico and the MacStories team make some amazing Shortcuts.
+
+That's the end of Notable Links.
+
+Now, the Give Back section.
+
+The mission of Hack the Gap is to amplify the voices and cultivate talents of underserved people in our community. I serve on the board of Minnestar with Jenna Pederson, one of the founders of Hack the Gap, and I love what this organization is focusing on. Gender diversity in tech is a real problem and it’s far too often brushed off as some endemic issue that cannot be solved. That isn't the case at all. Hack the Gap is creating a way for people to get into the technology industry and breaking down barriers. Donate to Hack the Gap today!
+
+That's the end of Give Back.
+
+Now, more links.
+
+- If you want to understand Silicon Valley, watch Silicon Valley | Bill Gates
+Bill Gates watches Silicon Valley? Huh!
+- Mini Kubb | Table Top Block Toppling Game | Scienz Games Co. shop.minibeerpong.com
+None of these table top Kubb games are very playable, but they are still kind of fun.
+- Introducing Chartify: Easier chart creation in Python for data scientists labs.spotify.com
+Nice Python chart library.
+- Nginx Configuration Generator nginxconfig.io
+Handy tool to build nginx.conf.
+- An Infinite Icosahedral Puzzle of the Earth kottke.org
+Fun gift idea.
+- The deadly Camp Fire in California - The Boston Globe www.bostonglobe.com
+
+That's the end of More Links.
+
+Now, the Microposts section.
+
+Thursday @ 11:10 AM
+
+From our family to yours — Happy Thanksgiving!
+
+Wednesday @ 10:04 PM
+
+This new 27” Retina iMac is starved for memory. 64 GB of SO-DIMMs on the way!
+
+Wednesday @ 9:30 PM
+
+Carefully disassembling my single 1.2 TB Lightroom Classic catalog into Lightroom CC and iCloud Photos. Should not have let a single catalog get so big.
+
+Wednesday @ 8:08 PM
+
+I’ve had more spinning beachballs in macOS Mojave than I’ve had in any recent version of macOS.
+
+Wednesday @ 7:45 PM
+
+The Wassail Tea is ready – now Thanksgiving can happen! I love the smell of Wassail in the house.
+
+Wednesday @ 7:43 PM
+
+This Mini Kubb set is a kick, although pretty impossible to play, but still fun!
+
+Sunday @ 4:49 PM
+
+Got sick with something pretty bad right before leaving Ukraine. Got progressively worse while traveling home and have been taken out all weekend. Ugh.
+
+Saturday @ 4:55 PM
+
+Got the new MacBook Air today (Space Gray, 16 GB memory, 500 GB storage). Reminds me how much I liked the form factor on the original MacBook Air. TouchID is great to have, and beautiful Retina display!
+
+Saturday @ 4:43 PM
+
+It’s surprising to me that this five computer limitation is still around in iTunes. iOS devices don’t count against it, what’s special about Macs?
+
+Saturday @ 12:31 PM
+
+Monopoly “The .com Edition” can provide hours of entertainment just by looking at all the companies on the board.
+
+Friday @ 7:17 PM
+
+Back in Minneapolis! Luggage made it through the short transfer too!
+
+Friday @ 10:22 AM
+
+With international travel today, I’m happy to have this weeks Weekly Thing scheduled to go out tomorrow morning!
+
+Friday @ 10:16 AM
+
+I’m going to finally break, and submit to Adobe’s Creative Cloud Photography subscription (1 TB) and Lightroom CC. Sick of being stuck.
+
+Friday @ 9:45 AM
+
+Made my AMS connection. Took 17 min to get from E4, through security, back to main terminal, and finally back to E8!
+
+Friday @ 6:15 AM
+
+First step, we have an airplane! Going to need everything to go perfect, along with some luck, to make my connection. And run! RUN!
+
+Friday @ 5:01 AM
+
+Not good, flight out of KBP is delayed and I now land in AMS when my connecting flight to MSP takes off. Hoping for magic.
+
+That's the end of Microposts.
+
+Now, the Fortune section.
+
+You've made it all the way to the end! Here is your fortune for this week.
+
+Persuasion is better than force.
+
+Thank you for subscribing to the Weekly Thing!
+
+That brings us to the end of the Weekly Thing, issue 81. Thanks for listening, and I'll see you next time.

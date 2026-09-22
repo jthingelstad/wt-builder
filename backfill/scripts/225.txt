@@ -1,0 +1,144 @@
+The Weekly Thing, issue 225. Prestige, WebAssembly, PhizFans. Published June 25, twenty twenty two. By Jamie Thingelstad. In this issue: Prestige Writing, NutritionFacts, Coinbase crypto networks, WebAssembly notes, Seaport OpenSea fees, Markwhen, PhizFans Multisig.
+
+Hello! I hope you are well!
+
+It is time for my regular summer break publishing the Weekly Thing. I take July and August off while summer is in full swing. This summer is going to be even busier as we are moving houses! A house came on the market that we loved, in a neighborhood we know, and we decided to take the leap. All the buying and selling stuff is done, and now it is just time to fill a lot of boxes with our stuff.
+
+I hope you have a fabulous summer, and the Weekly Thing will be back in your mailbox on September third!
+
+Cheers!
+
+Now, the Notable section.
+
+Link one. "Prestige Writing – Rands in Repose"
+
+Writing arcs, and telling a story.
+
+Quote.
+Prestige Writing builds to an unexpected but also familiar ending. The Pledge asks a question, the Turn answer the question, and the Prestige creates something extraordinary. Something you have never seen before.
+End quote.
+
+This sounds much more enjoyable than the typical "vanilla" structure. Thanks Leah for the link.
+
+Link two. "NutritionFacts.org | The Latest Nutrition Related Topics"
+
+Accurate data on nutrition is incredibly difficult to find. This organization is a non-profit, backed by donors. I've listened to the podcast and it is high-quality as well. All science-based information. Thanks to my brother-in-law Max for putting this on my radar.
+
+Link three. "Send and receive crypto on multiple networks, starting with Polygon and Solana | The Coinbase Blog"
+
+Supporting multiple blockchains is important and it is nice to see Coinbase getting there. Eventually the different blockchains need to be abstracted from the end-user, and this is a step in that direction. It is a smart retention move by Coinbase as well. Direct transfer to networks like Polygon and Solana is the main capability that has made me consider going to a different exchange. With Polygon supported you can Hop Exchange to get to many other Layer 2 networks, including Gnosis.
+
+Link four. "Get Yourself Free by Mo Perry - The Unfurling"
+
+Mo Perry on keeping your identity small. Non-identification.
+
+Quote.
+It seems worth noting that all the major spiritual traditions emphasize transcending a focus on the self or the ego. The Buddhist notion of samsara means, essentially, attachment to the illusion of a separate self, and the suffering it creates. The whole goal is to break free, leave the illusion of a self behind. Meanwhile, our culture is doubling down, growing increasingly obsessed with figuring out and labeling one’s "identity," as if it’s a fixed entity, something real, solid, immutable, and true. Mental and emotional health are predictably spiraling in tandem with this trend. […] Life will present plenty of boxes into which you’ll be invited to cram yourself. The label-maker will always be perilously close at hand. Resist it as much and as long as you can.
+End quote.
+
+Deep stuff, and a topic I find very interesting. I love the label-maker reference.
+
+Link five. "Tech Notes: Notes on WebAssembly"
+
+I haven't been following WebAssembly that closely. Notes like this are interesting to see how it is developing and broadly how it works. WebAssembly Everywhere is another good read on the topic exploring where it could go as it evolves.
+
+Link six. "Launching Seaport and Saving the Community Millions in Fees - OpenSea Blog"
+
+Seaport replaces the Wyvern Protocol frequently used to transfer digital assets between wallets (people). It has a number of new features and performance improvements. The savings in gas fees are incredible.
+
+Quote.
+You’ll save an estimated 35% in gas fees for transactions using Seaport. Based on last year’s data, that would amount to more than 460 million dollars in total savings (138k in ETH)!* Plus, new users won’t have to pay a one-time setup fee (proxy deployment) to use OpenSea. By removing the setup fee alone, the OpenSea community could save almost 120 million dollars each year (35k in ETH).
+End quote.
+
+All of this is enabled through open source and protocols that can be deployed independent of the assets themselves.
+
+Link seven. "Markwhen"
+
+Markdown was a great innovation because it allows a writer to stay "in flow" better while authoring for the web. The idea has been extended to many other domains, this one in project planning and Gantt charts. It reminds me of a Chris Rock joke though — "You can drive a car with your feet if you want to; it don't mean it's a good [beep] idea!" Markwhen? A fun trick like driving a car with your feet, but not a good idea.
+
+Link eight. "PhizFans Multisig Experiment"
+
+I so adore this experiment! Superphiz gave a Phiz Fans POAP out. He then took anyone that got that POAP and had an ENS name setup (I suspect to prove some level of familiarity) and made those 52 holders the joint owners of the Phiz Fans wallet! He then transferred an NFT into it. The wallet requires 6 holders to approve any actions. Now they have transferred their own ENS name into it, as well as other assets. Wild!
+
+Link nine. "Software Engineering - The Soft Parts - AddyOsmani.com"
+
+This is an incredibly broad, and insightful, set of recommendations that Osmani has compiled based on 10 years of being a Senior Staff Engineering Manager on Google Chrome. He covers a wide array of topics, and I just kept nodding my head as I read along. It is notable to me how often learning and communication show up.
+
+That's the end of Notable.
+
+Now, the Journal section.
+
+Wednesday @ 7:31 PM
+
+At Chanhassen Dinner Theatres for Footlose! Mazie and Tyler’s first time here.
+
+Tuesday @ 10:14 PM
+
+Today we closed on our new home! We weren’t looking but a truly unique and special property came on the market and we made the leap! We move back to the Lynnhurst neighborhood in a couple weeks.
+
+Sunday @ 6:50 PM
+
+Bringing the hat for Fathers Day. At Mazie’s softball game on 97 °F day.
+
+Sunday @ 11:57 AM
+
+These two make my life such an amazing and wonderful journey. I am one really lucky guy. My best to all Dads to have a great Father’s Day.
+
+Friday @ 9:21 PM
+
+These are the things that work and have a real benefit when I'm feeling drained and want to be kind to myself:
+
+1. Double my usual meditation time.
+2. Anything outside.
+3. Moderate physical exertion.
+4. Time with friends and family.
+
+You can do more than one at a time.
+
+Friday @ 8:30 AM
+
+When left to my own devices, it surprises me how much of my daily food intake turns into a couple bowls of cereal with milk.
+
+That's the end of the Journal.
+
+Now, the Briefly section.
+
+Link one. "Cloudflare outage on June 21, twenty twenty two"
+
+Another large outage tied back to BGP changes. BGP is incredibly necessary, but when you introduce a problem it can have profound impacts.
+
+Link two. "Brave announces Filecoin integration and more preloaded EVM chains in Brave Wallet | Brave Browser"
+
+It is cool to see Brave Browser experimenting and innovating with crypto-based technology. They are also shipping the browser with more Ethereum Layer 2 networks preconfigured.
+
+Link three. "He used to edit political stories at the Chicago Tribune. Now he says the press is failing our democracy. - PressThink"
+
+I've worked with many great journalists when I was at MarketWatch and Dow Jones. It frustrates me that so many disparage the profession, but the profession itself needs to evolve and approach the work differently.
+
+Link four. "Don't Use Kubernetes, Yet"
+
+Argues that small teams do not get a large enough return on investment from Kubernetes. Totally makes sense. Also suggests the opposite, large teams should use it and get significant return, assuming you do make the investment to support the carrying costs.
+
+Link five. "(Not Boring) Habits App | Fun habit tracker that works"
+
+I've used Streaks for years for habit building. Streaks tries to walk a line that is a little to-do list, but based on habits. I’m sure a lot of people use it as a to-do list. I do not. This app is solely focused on Habits. If you clearly distinguish habits and to-do list this might be worth a look.
+
+Link six. "The computers are fast, but you don't know it | Computer Science After Dark"
+
+Fun journey through 5-stages of optimization of a function, using Python and extending into C++.
+
+Link seven. "Skarper - eBike. Transformed"
+
+Imagine a little motor and battery box that you can attach to any bike to make it an e-bike. That is this.
+
+That's the end of Briefly.
+
+Now, the Fortune section.
+
+Here is your fortune…
+
+Courage is your greatest present need.
+
+Thank you for subscribing to the Weekly Thing!
+
+That brings us to the end of the Weekly Thing, issue 225. Thanks for listening, and I'll see you next time.

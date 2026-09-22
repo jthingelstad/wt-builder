@@ -1,0 +1,232 @@
+The Weekly Thing, issue 275. Vision, Sense, Magic. Published February 4, twenty twenty four. By Jamie Thingelstad. In this issue: Vision Pro, childhood end, drones Ukraine frontlines, technology trends twenty twenty four, home energy monitor, privacy in others' hands, message queues, magic moments.
+
+I’m a regular meditator and this morning I tried something new. I sat down in my usual spot and as I started to focus my breath I watched this large ball of what I’m going to call pedals floating in the middle of the room. The ball was about 3 feet wide and it was pulsating and setting a pace for my breathing. After a few breaths the ball of pedals started to get bigger on each pulse and shortly after the room darkened completely and the pedals floated out into my entire visual field. They were a variety of colors and slowly moved along with my breath. After several minutes the pedals started to come back together, the room came back into view, and they returned to the floating ball in the middle of the room.
+
+Shortly after that I was able to learn a bit about rhinos. I was in a grassy preserve in Africa and there were several rhinos gently eating around me. I got to see a baby rhino playing with a young zebra, and learned some of the history of these incredibly ancient animals.
+
+After visiting with the rhinos I did some brainstorming on a blog post by placing ideas floating in space in the room I was sitting in and then moving them around. I explored a jet engine and took the various components apart and even looked inside the engine while it was running. Finally I decided to write this note and figured I would do it from the top of Haleakalā looking down at the clouds, a sunset view that is awe inspiring with me tapping away on a note floating in space in front of me.
+
+By now you have figured out that I spent the morning with my new Apple Vision Pro. It has been an incredible experience so far, particularly for a 1.0 device. I can’t wait to see where this goes…
+
+Have a great day!
+
+"That's the beautiful thing about bullshit, it can’t be outsourced." — Cory Ellison, The Morning Show (S3E4)
+
+Now, the Featured section.
+
+Link one. "Daring Fireball: The Vision Pro"
+
+I always go to Gruber for reviews of new Apple hardware, particularly iPhones. His review of the Apple Vision Pro is detailed and hits on all the key components. I agree with his view that this is the beginning of something very new.
+
+Quote.
+But the conceptual design of VisionOS lays the foundation for an entirely new direction of interaction design. Just like how the basic concepts of the original Mac interface were exactly right, and remain true to this day. Just like how the original iPhone defined the way every phone in the world now works. There is no practical way to surround yourself with multiple external displays with a Mac or PC to give yourself a workspace canvas the size of the workspace in VisionOS. The VisionOS workspace isn't infinite, but it feels as close to infinitely large as it could be. It's the world around you. And it is very spatial. Windows remain anchored in place in the world around you. Set up a few windows, then stand up and walk away, and when you come back, those windows are exactly where you left them. It is uncanny to walk right through them. (From behind, they look white.) You can do seemingly crazy things like put a VisionOS application window outside a real-world window.
+End quote.
+
+The whole writeup is a great overview, including the parts that it doesn't do so well.
+
+Link two. "The end of my childhood"
+
+Vitalek Buterin reflecting on his own role in the crypto ecosystem, and how crypto itself is evolving and maturing.
+
+Quote.
+Is the original "story" of crypto falling further and further behind the times? There are two sensible responses to this conundrum, and I believe that our ecosystem would benefit from embracing both of them: 1. Remind people that money and finance still do matter, and do a good job of serving the world's underserved in that niche. 2. Extend beyond finance, and use our technology to build a more holistic vision of an alternative, more free and open and democratic tech stack, and how that could build toward either a broadly better society, or at least tools to help those who are excluded from mainstream digital infrastructure today.
+End quote.
+
+I enjoyed reading this and Vitalek's personality comes through in the writing. Amongst many other things, Vitalek is a great blogger.
+
+I also liked Vitalik's references to several new and established decentralized services: ENS, Skiff, Status, Fleek, Lens, Farcaster, and of course POAP.
+
+That's the end of Featured.
+
+Now, the Notable section.
+
+Link one. "Cheap but lethally accurate: how drones froze Ukraine’s frontlines | The Guardian"
+
+Ukrainians have gotten very innovative with their use of drone technology. Ukraine even has an Army of Drones with people around the country assisting in assembling and in some cases even printing the drone components.
+
+Link two. "Technology Trends for twenty twenty four – O’Reilly"
+
+Huge increases in AI, Security, and Cloud. Mostly aligns with what you would expect if you looked at the major trends in twenty twenty three. The recap is well stated:
+
+Quote.
+This year was one of the few years that could genuinely be called disruptive. Generative AI will change this industry in important ways. Programmers won’t become obsolete, but programming as we know it might. Programming will have more to do with understanding problems and designing good solutions than specifying, step-by-step, what a computer needs to do. We’re not there yet, but we can certainly imagine a day when a human language description leads reliably to working code, when “Do what I meant, not what I said” ceases to be the programmer’s curse. That change has already begun, with tools like GitHub Copilot. But to thrive in that new industry, programmers will need to know more about architecture, more about design, more about human relations—and we’re only starting to see that in our data, primarily for topics like product management and communications skills. And perhaps that’s the definition of “disruptive”: when our systems and our expectations change faster than our ability to keep up. I’m not worried about programmers “losing their jobs to an AI,” and I really don’t see that concern among the many programmers I talk to. But whatever profession you’re in, you will lose out if you don’t keep up. That isn’t kind or humane; that’s capitalism. And perhaps I should have used ChatGPT to write this report.
+End quote.
+
+Change is the constant in technology.
+
+Link three. "Sense.com – The Sense Home Energy Monitor"
+
+If you, like me, have ever attempted to make a data driven effort to reduce your electric usage you know how poor the data is. I've used plug based meters for specific appliances, but to see the data through your home is very hard. It is great to see innovation here and Sense looks pretty great. You can meter every breaker in your box, no difficult installation. I’m tempted to get it. When you consider this topic in general and how much efficient use of energy could help us, precise usage information should be required.
+
+Link four. "If Your Privacy Is in the Hands of Others Alone, You Don’t Have Any – Doc Searls Weblog"
+
+Doc Searls commenting on Patreon's recent movements to try and repeal an old law around privacy dating from videotape rental times. I’m glad to see the EFF stepping in here. The opposite of Searls headline is my suggestion — take your privacy into your own hands. There are things you can do!
+
+Link five. "The Big Little Guide to Message Queues"
+
+Message queues have been part of every platform I've been around on the Internet. They are a core building block of any distributed systems, and they are more complicated than it may seem, as well as incredibly powerful.
+
+Quote.
+In this guide, we'll talk about: - What message queues are and their history. - Why they're useful and what mental models to use when reasoning about them. - Delivery guarantees that the queuing systems make (at-least-once, at-most-once, and exactly-once semantics). - Ordering and FIFO guarantees and how they effect sequencing, parallelism and performance. - Patterns for fan-out and fan-in: delivering one message to many systems or messages from many systems into one. - Notes on the pros and cons of many popular systems available today.
+End quote.
+
+This article is a great summary and covers the critical points of message queues. More than a couple of times I've had developers approach me, frustrated after dealing with some complicated queue problem, and suggest that we should "build our own" message queue. In the future, I'll just refer them to this article and highlight all of the complexities that make queues so difficult to build and to run.
+
+Link six. "My 4 magic moments with Vision Pro – On my Om"
+
+Malik has been around tech for a very long time and I liked this non-review take on the Vision Pro.
+
+Quote.
+My first magic moment with Vision Pro came when I opened the Safari app and let a giant browser window float right in front. […] My second magic moment came when I used Algoriddim's deejay app. […] My third magic moment came thanks to the much-maligned "Personas" that you have to create for using FaceTime inside of Vision Pro. […] My last magic moment came when the Vision Pro became what I have always wanted -- the future of television (and video.)
+End quote.
+
+This was all based before he got one and was able to experience at length, but I thought these magic moments were a great way of sharing the experience.
+
+That's the end of Notable.
+
+Now, the Journal section.
+
+Journal entry one.
+
+I’ve followed CJ Chilvers writing for years now. His newsletter is one that I learn from and find inspiration in. He just released Principles for Newsletters that brings his 37 years of newsletter experience together in 49 lessons. Just 5 dollars. Instant buy for me.
+
+Journal entry two. Jumping into Obsidian
+
+I recently decided to give Obsidian a serious investigation and voluntarily dive down the “rabbit hole.”
+
+The tipping point for me was this post by Daniel Tan reflecting on his journey with Obsidian and how it has become an “indispensable tool” for him. I once ran my own personal wiki which likely makes me a prime candidate for Obsidian, but the complexity of these setups has always made me steer clear. About two years ago this was my perspective on Obsidian.
+
+Quote.
+When I read articles from people sharing their bespoke Obsidian setups I think one of the best things I’ve done for my productivity is to completely ignore Obsidian.
+End quote.
+
+While I’ve been ignoring it I have noted a lot of continued momentum with Obsidian. Additionally MacSparky has continued to be a big advocate of Obsidian and even released an Obsidian Field Guide. MacSparky’s strong endorsement is a big deal for me, we share OmniFocus enthusiasm and his OmniFocus Field Guide was a game changer for me.
+
+I signed up for a year of Obsidian sync service, have a couple of different “vaults” setup and have started using them mostly via Daily Notes, and I signed up for MacSparky’s field guide so I can accelerate my learning and avoid mistakes. Wish me luck!
+
+Journal entry three.
+
+Trying a Roomba for the first time and have it on a mapping run. I find myself talking to it:
+
+"No, don't go there."
+
+"Avoid that shag rug! You got stuck there before."
+
+"Nice job on that turn."
+
+Journal entry four. Online Handle
+
+Jim Nielsen’s Online Handles blog post caught my eye. I figured I would share too.
+
+Recently I started using jthingelstad just for clarity. However, decades prior I always went by thingles, which was my very first Unix account username at the U of MN. It was just my last name truncated to eight characters, but the list had misspelled and transposed the e and l in my name.
+
+I embraced it, but it aggravated even more the most common misspelling of my name.
+
+Journal entry five.
+
+Today Buttondown released a new comments feature! I’ve turned this on for the Weekly Thing -- it is something I’ve wanted to try for a while. You can leave comments on any issue in the archive.
+
+Journal entry six. Backed Project Tapestry from Iconfactory
+
+Iconfactory launched a Kickstarter campaign for Project Tapestry today. Iconfactory is a great company that has built some of the most delightful experiences (Linea, Frenzic, Twitterific). Tapestry intends to be an open “timeline” of content from a variety of services. I'm intrigued because of the focus on open systems and the world-class skills of Iconfactory. Backed!
+
+Journal entry seven.
+
+A warm welcome to the newest slate of Minnestar board members: Kathryn Frengs, Tim Herby, Muneeb B. Hafeez, Kevin Jansen, Robert Tomb, Matt Decuir, and Valerie Lockhart. I continue to be a big fan of Minnestar and their mission to catalyze the Twin Cities technology community.
+
+Journal entry eight.
+
+I had a great first day of #TeamSPS Sales Kickoff twenty twenty four! So much energy and excitement in the room.
+
+Journal entry nine.
+
+I was using the Internet Archive Wayback Machine and stumbled on the Changes feature. It took a while for the visualization to populate but it is a cool way to see the rate of changes on your blog. I’m a happy supporter of Internet Archive.
+
+Journal entry ten.
+
+Day 2 of #TeamSPS Sales Kickoff twenty twenty four was another great event. We started with an inspiring call to action from our Chad Collins and similar to previous years the Product and Partner Fair was a highlight. Over 30 teams in SPS setup booths to engage with the sales team on our products!
+
+Journal entry eleven. Curious Experts with Diana Kander
+
+The guest keynote for #TeamSPS Sales Kickoff twenty twenty four was Diana Kander. She shared how expertise can slow down innovation and how to keep curiosity alive -- ultimately being curious experts.
+
+She emphasized focusing on big questions when looking at “things to do”.
+
+1. What is the real problem I’m trying to solve? It is really easy to jump into solving and not have a good grounding on the problem.
+2. How would you rank the importance of this, 1-10? Get rid of the good to focus on the great.
+3. Is this a zombie? Zombies are tasks that just exist out of inertia. How would we know if it is a zombie?
+4. How could we reimagine this?
+
+Journal entry twelve.
+
+The #TeamSPS tech team gave out this “I Stopped by the Tech Lab at SKO POAP” in the Product Partner Fair at Sales Kickoff twenty twenty four. We continue to have fun with POAP.
+
+Weekly Thing Forum
+
+Join Barry Hess, David O'Hara, Jim Cuene, Eric Walker, Patrick Hambek, and many other Weekly Thing readers in the Weekly Thing Forum. Recent topics include:
+
+- Blogging: A topic and an announcement
+- Archives now with comments
+- 274 / Gibberish, Happyfeed, Airshow
+- Bluesky Invite Codes
+- Birthday POAP
+
+That's the end of the Journal.
+
+Now, the Briefly section.
+
+Link one. "On Writing on Web - Amit Gawande"
+
+Gawande wondering if anyone actually reads on the web. I think they do. I don't surveil people so am not sure how many. But even if they don't, I do, and it is valuable to me to write.
+
+Link two. "xkcd: Minnesota"
+
+How fun to see our state of Minnesota featured in xkcd — "Minnesota shouldn't be squishy."
+
+Link three. "Conducting the ETH Census - by Kyle Waters"
+
+Interesting read on how to calculate a fairly simple question: how much ether (ETH) is there in Ethereum? I had no idea the staking contract blackholes ETH sent to it, but doesn't actually burn it.
+
+Link four. "Intel’s Humbling – Stratechery by Ben Thompson"
+
+Intel is making big changes, and I truly hope they are successful in finding their footing again. Gelsinger seems like the right person for the job, but it is going to take multiple years.
+
+Link five. "The Endless Acid Banger"
+
+I let this run for a few minutes and it is fun to play with and isn't terrible with the beats.
+
+Link six. "Hypercritical: Spatial Computing"
+
+Siracusa with a thoughtful post on how people relate to user experiences and how that has evolved to be very "direct", and now with VisionOS is a step away from that.
+
+Link seven. "Hack your brain with Obsidian.md - YouTube"
+
+Great 12 minute overview of Obsidian.
+
+Link eight. "Logseq: A privacy-first, open-source knowledge base"
+
+When I shared that I was jumping into Obsidian a friend suggested I check out Logseq too. It has a different model, more like an ever growing outline. Interesting, but I’m keeping my focus on Obsidian due to the rich ecosystem.
+
+That's the end of Briefly.
+
+Now, the Fortune section.
+
+Here is your fortune…
+
+You are standing on my toes.
+
+Thank you for subscribing to the Weekly Thing!
+
+That's the end of Fortune.
+
+Now, the Want to support the Weekly Thing? section.
+
+First — thank you for subscribing and reading. Here are some things you can do that would be great…
+
+- Share Weekly Thing 275 / Vision, Sense, Magic with others you know!
+- Post about the Weekly Thing and let others know about it.
+- Join the Weekly Thing Forum and connect with others.
+- Send Bitcoin via Lightning! This will be used to support something good. weeklything@getalby.com
+- Email me comments, feedback, or just to say Hi!
+
+That brings us to the end of the Weekly Thing, issue 275. Thanks for listening, and I'll see you next time.

@@ -1,0 +1,122 @@
+The Weekly Thing, issue 1. Weekly Thing for May 13, twenty seventeen. Published May 13, twenty seventeen. By Jamie Thingelstad. In this issue: Layne Kennedy, Minnesota Original, Wintergreen Dog Sledding, Amazon ECS, Macron honeypot accounts, Field Nation Minneapolis, James Comey fired.
+
+Welcome to the first Thing! I am trying a newsletter experiment and am excited to see how this develops. A while back I used to collect all my links for the week and publish that as a blog post. A number of people told me they really liked that but I didn’t really like it as a blog post. A newsletter seems like a great medium to use for that so I’m giving it a try and using that anchor to add some other content as well.
+
+I'd love to hear your feedback and suggestions. Just reply to this email and let me know what you think.
+
+Now, the Blog posts section.
+
+Minnesota Original: Layne Kennedy
+
+My friend and photographer Layne Kennedy was recently featured on Minnesota Original. I met Layne when I took his Wintegreen Dog Sledding workshop and he’s a great photographer, teacher and amazing story teller.
+
+That's the end of Blog posts.
+
+Now, the Links section.
+
+Link one. "We switched to Amazon ECS and you won't believe what happened next | Mapbox"
+
+The Mapbox platform is powered by Amazon Web Services — specifically, most of our computing workloads run on AWS EC2. We’re in the process of wrapping up a company-wide migration (led by the Platform team) onto Docker, hosted on AWS ECS (EC2 container service).
+
+Link two. "ongoing by Tim Bray · twenty seventeen Camera News"
+
+Herewith some reportage on the most interesting cameras in the world, with opinions to provoke er entertain people who are up on this stuff, and a basic survey of the landscape for people who like pictures and wonder about cameras.
+
+Link three. "Taking inventory (inputs and outputs) – a n n i e m u e l l e r"
+
+Step 1: Take inventory To understand what is actually happening in your life – which is a step you need to take in order to take control of what is happening in your life – take inventory. Do this first, before you make any changes.
+
+Link four. "iPad Diaries: DEVONthink’s New Advanced Automation – MacStories"
+
+iPad Diaries is a regular series about using the iPad as a primary computer. You can find more installments here and subscribe to the dedicated RSS feed. When I covered DEVONthink To Go in the first iPad Diaries column back in February, I briefly mentioned the app's limited support for URL schemes and automation.
+
+Link five. "'Ladies' Is Gender Neutral – Alice Goldfuss"
+
+However, “ladies” is not gender-neutral. Neither is “guys.”
+
+Link six. "Macron campaign team used honeypot accounts to fake out Fancy Bear | Ars Technica"
+
+"We created false accounts, with false content, as traps," Macron campaign digital director Mounir Mahjoubi told the Times. "We did this massively, to create the obligation for them to verify, to determine whether it was a real account."
+
+Link seven. "TECHdotMN Field Nation Plans To Double The Size Of Minneapolis HQ - TECHdotMN"
+
+Venture-back Field Nation is planning to move headquarters from one part of Minneapolis to the other, according to EVP Teri Calderon.
+
+Link eight. "News Corp earnings Q3 twenty seventeen"
+
+Congrats to my former colleague Marc! News Corp. announced Marc Frons as its new chief technology officer on Monday. Frons had served as interim CTO since October twenty sixteen.
+
+Link nine. "A More Powerful Way to Schedule Tasks in OmniFocus"
+
+Let’s say you need to return a book to the library by Saturday, May 13. If possible, you’d like to return it a few days early while you’re out running errands. Simple, right?
+
+Link ten. "Analyzing a counter intelligence cyber operation: How Macron just changed cyber security forever"
+
+So Macron’s people, and specifically Mounir Mahjoubi, who I want to make sure and meet one day, claim to have fed APT28 false data in a “counteroffensive”. Maybe they have’ maybe they haven’t. Maybe they did something else entirely. Maybe it wasn’t them.
+
+Link eleven. "Microsoft launches Visual Studio twenty seventeen for macOS — Apple World Today"
+
+Developers, take note: Microsoft has released Visual Studio twenty seventeen for Mac.
+
+Link twelve. "F.B.I. Director James Comey Is Fired by Trump - NYTimes.com"
+
+Mr. Comey, who is three years into a 10-year term at the helm of the F.B.I., learned from news reports that he had been fired while addressing bureau employees in Los Angeles. While Mr. Comey spoke, television screens in the background began flashing the news. In response to the reports, Mr. Comey laughed, saying that he thought it was a fairly funny prank.
+
+Link thirteen. "Timing 2 for Mac — MacSparky"
+
+Today Daniel Alm released Timing 2 for Mac, version 2.0 of his popular Mac productivity app. Over the last several months, I have definitely climbed on the timers’ bandwagon. I'm in the process of hiring people to help me out, and the first thing I needed to do was figure out where I was spending my time.
+
+Link fourteen. "Google’s “Fuchsia” smartphone OS dumps Linux, has a wild new UI | Ars Technica"
+
+Google, never one to compete in a market with a single product, is apparently hard at work on a third operating system after Android and Chrome OS. This one is an open source, real-time OS called "Fuchsia."
+
+Link fifteen. "Tradition Tuesday: Wonderwall - DARK CLOUDS"
+
+Tradition Tuesday is a weekly feature where we explore the history, lore, and culture of the Dark Clouds. Confused about why we sing about Hot Nuts? Which Minnesota player coined “Nuts Of A Warrior”?
+
+Link sixteen. "Why Do Americans Smile So Much? - The Atlantic"
+
+On Reddit forums that ask “What’s a dead giveaway that someone is American?” one trait comes up over and over again: big, toothy grins. Here’s how one Reddit user in Finland put it:
+
+Link seventeen. "How Brandi Carlile Got Adele and Obama for a Benefit Album - NYTimes.com"
+
+You might wonder how a critically acclaimed but relatively unknown singer-songwriter recruited Adele, Pearl Jam and Dolly Parton to cover her songs for a benefit album. But the biggest get on Brandi Carlile’s “Cover Stories,” made up of new renditions of the material on her two thousand seven album, “The Story,” comes from outside the music world: Barack Obama.
+
+That's the end of Links.
+
+Now, the Microblog updates section.
+
+- This Surly glass that my Todd the Axe Man came in is really cool.
+- Nice night.
+- Oh no! The dandelions have taken over the yard!
+- Outlook’s new built-in grammar checking is helping me realize I use the word “actually” way, way too much. Actually…
+- Andy @ajdomie and I right before kicking off yesterdays awesome #TechJam. #TeamSPS had a great day learning!
+- Crazy long and inefficient line at all-school picnic.
+- Tough choices: great beer or great beer?
+- Wrapped up #TeamSPS #TechJam with Kubb, beer and burgers!
+- Corbett sharing with #TeamSPS #TechJam the fundamental value of the SPS network. Bringing it home to wrap up the day!
+- Dan talking at #TeamSPS #TechJam about isolation and benefits to systems. Less friction!
+- Travis @travisjgosselin sharing the DevOps journey in our Toronto #TeamSPS office. #TechJam
+- Had a great time doing #TeamSPS VP Jeopardy at #TechJam! Good sports Kent @ktangen, Amy @pattonamyj and Paul @birkbeck.
+- Jez Humble @jezhumble giving remote keynote for #TeamSPS #TechJam on continuous delivery improvements!
+- Cool live coding and running it inside browser / presentation template. Nice!
+- TeamSPS Introduction to Go by Cody! #TechJam
+- Valentin from our Kyiv office presenting at #TechJam about migrating their service to microservices. #TeamSPS
+- Marcell sharing capabilities of the newest editions of Microsoft SQL Server.
+- Nate and Dan sharing how they are using serverless solutions to create scalable and efficient services. #TeamSPS #TechJam
+- Kicking off #TeamSPS Tech Jam community event. Great day of learning and sharing technology solutions ahead.
+- Looking forward to wearing my awesome #TeamSPS hockey jersey!
+- Espresso.
+- Go and express your support for strong net neutrality. Use this link and click on “express” link. gofccyourself.com
+- Took in a great Minnesota United win today with my friend Jim Bernard @bernardjim!
+- Retro.
+- If you work in tech it’s enlightening to sit at the Apple Genius Bar and just listen to the discussions. Things are still not easy and simple enough.
+- Repair trip to the Genius Bar. iMac has a broken spring on the hinge. One AirPod won’t pair.
+- Big effort today in spin class at Urban Cycle.
+- Morning Mojo: lemon, ginger and cayenne. Great way to start the day!
+- Importing 9,000+ tweets from my Twitter archive into my micro.blog @microdotblog.
+- If you mirror your micro.blog @microdotblog to Github suggest setting the topic to micro-blog so that others can find and compare.
+
+That's the end of Microblog updates.
+
+That brings us to the end of the Weekly Thing, issue 1. Thanks for listening, and I'll see you next time.

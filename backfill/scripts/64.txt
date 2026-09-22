@@ -1,0 +1,214 @@
+The Weekly Thing, issue 64. Jul 28, twenty eighteen. Published July 28, twenty eighteen. By Jamie Thingelstad. In this issue: Predicting politics from purchases, Atlassian Slack, writing weeknotes, Google security keys, Data Transfer Project, VW Pikes Peak record.
+
+Tammy and I celebrated 16 years of marriage this week! We celebrated by going out for the evening, starting with a movie. We saw Sorry To Bother You, which was fun, different and very original. We had had a great dinner at Italian Eatery. Their Bucatini is amazing! We finished our night out with a puzzle room at Missing Pieces. We did the Ruin Raiders room, and it was just the two of us. If you've never done a puzzle room, I recommend trying one. With only two people sometimes the sheer number of locks and puzzles to solve can be a challenge. The room was perfect though. There was just enough difficulty in the puzzles to make it very fun, but not so hard as to be frustrating.
+
+It was a fun night that upon reflection had a bit of what being together is about. New and original experiences, with a comforting and delightful bond, working together as we face new puzzles and challenges and then sharing in the joy of accomplishment.
+
+Now, the Featured Links section.
+
+Link one. "Emotional Intelligence Has 12 Elements. Which Do You Need to Work On?"
+
+A good reminder for leaders that emotional intelligence is broader than many people think. You need a solid foundation to engage with people, but in the workplace you also have difficult topics to navigate at times and those take a broader set of capabilities.
+
+Link two. "What we buy can be used to predict our politics, race or education — sometimes with more than 90 percent accuracy - The Washington Post"
+
+Good examples of how a little bit of metadata can be used to make highly accurate assertions about the households and people behind it.
+
+Link three. "Atlassian + Slack | The Official Slack Blog"
+
+This is pretty amazing! Atlassian just gave up in the team chat space.
+
+As part of this partnership, Atlassian will discontinue Hipchat and Stride, and provide a migration path to Slack for all their customers. We are purchasing the IP for Hipchat Cloud and Stride to better support that path to Slack, while Atlassian is making a small, but symbolically important investment in our business.
+
+This Bloomberg article has some of the details on how this went down. I was curious who approached who, and it was Atlassian that approached Slack.
+
+Taking out a competitor is good for Slack, said Butterfield: “There’s fewer choices for people.”
+
+Slack has more leverage to raise prices.
+
+That's the end of Featured Links.
+
+Now, the My Weekly Photo section.
+
+That’s a lot of beer! Towers of beer shooting out of the Surly Beer Hall.
+Jul 25, twenty eighteen at 8:12 PM
+Surly Beer Hall, Minneapolis MN
+
+That's the end of My Weekly Photo.
+
+Now, the Notable Links section.
+
+Link one. "A pre-history of weeknotes, plus why I write them and perhaps why you should too (Week 16)"
+
+I've never thought of weeknotes as a thing, but I guess they are. I guess the Weekly Thing is a weeknote. I found the weeknotes mentioned interesting. I also love this saying in the article In medias res, starting in the middle.
+
+Link two. "Boobs, Muscles and Fairy Wings: Everything I Know About How Humans Design Their Avatar Selves | Hunter Walk"
+
+Observations on the avatars that people created for themselves in the early days of Second Life. This seems like an incredibly rich world for psychology research.
+
+Link three. "How to Fill Out OmniFocus Project Templates with Workflow | Colter Reed"
+
+Project templates are a very smart idea and one I use a lot. It helps you not forget things in the future. This is a brilliant way to deal with project templates in OmniFocus, but I have to get over my resistance to putting the templates themselves into my OmniFocus system. I prefer to keep them outside of it until they are populated.
+
+Link four. "3 ways to make the journaling habit stick • chrisbowler.com"
+
+Journaling is a habit I haven't been successful getting going. I agree on starting small, and I agree on the tool using Day One. Personally I've never liked the automation idea for a journal, as it feels too robotic.
+
+Link five. "How Women Can Succeed by Rethinking Old Habits"
+
+I've come to appreciate the different challenges and biases that women face in leadership roles. This article is a deep dive on how to look at some of those habits and how to change them. I think it’s important to understand these issues so that you can help improve the situations around them. I also couldn't help but think how the main character in this article could have used automation to share her information with her boss.
+
+Link six. "Engineering Ladders at Meetup – Making Meetup – Medium"
+
+I like how Meetup is extending and clarifying the traditional engineering ladder. The maker and manager split is smart and provides good clarification.
+
+Link seven. "Google: Security Keys Neutralized Employee Phishing — Krebs on Security"
+
+I’m surprised to see Google doing this so broadly.
+
+Google has not had any of its 85,000+ employees successfully phished on their work-related accounts since early twenty seventeen, when it began requiring all employees to use physical Security Keys in place of passwords and one-time codes, the company told KrebsOnSecurity.
+
+It seems like there must be some other ways to login. After all, you cannot use a USB token on a mobile phone.
+
+Link eight. "Do you need a service mesh? - O'Reilly Media"
+
+A good introduction to the service mesh concept.
+
+The service mesh is a dedicated infrastructure layer for handling service-to-service communication in order to make it visible, manageable, and controlled. The exact details of its architecture vary between implementations, but generally speaking, every service mesh is implemented as a series (or a “mesh”) of interconnected network proxies designed to better manage service traffic.
+
+This is a very busy area as of late with micro-service adoption so high.
+
+Link nine. "Simple Call Blocker – No business model, no up-sell, no B.S."
+
+Free, simple and solves a gap in call blockers. I subscribe to NoMoRoBo to block 1,001,674 numbers from getting to me, but there are local calls that it cannot block. This call blocker fills that last gap.
+
+Link ten. "Data Transfer Project"
+
+I applaud this effort. It has the potential to recognize that moving large amounts of data between cloud services can sometimes be very difficult, and often involve a slow intermediate broadband connection. Just consider downloading 100,000 photos to your home to then upload to another service. It will be immensely faster for the services to exchange them directly. There is additional detail in the Verge article announcing this.
+
+Link eleven. "Get More Work Done: Eight Ways to Avoid the 'Halfway Zone' - The Simple Dollar"
+
+A writeup in praise of mono-tasking.
+
+Link twelve. "In Praise of Email | Dan Cohen"
+
+Complaining about email is a well-honed skill, but I agree and endorse all of these great, often overlooked, capabilities of email and the open ecosystem around it.
+
+Link thirteen. "This full video shows just how bonkers the VW Pikes Peak record was | Ars Technica"
+
+I loved watching this amazing, custom-built electric race car set a new record up Pikes Peak!
+
+That's the end of Notable Links.
+
+Now, the Now Reading section.
+
+Measure What Matters: How Google, Bono, and the Gates Foundation Rock the World with OKRs ()
+by John Doerr
+
+Legendary venture capitalist John Doerr reveals how the goal-setting system of Objectives and Key Results (OKRs) has helped tech giants from Intel to Google achieve explosive growth—and how it can help any organization thrive.
+
+I'm halfway through this book and I'm having a hard time finishing because I want to take the concepts in it and go put them to work right away. I had heard of OKRs before but I never really dove into them and this book is a wonderful and deep overview of how to put them to work. I find the values and structure very compelling. If you are looking for tools to help align around objectives, at work or otherwise, this is a good model. As an aside, the audiobook for this is a treat as it's read by Doerr and he many of the other people quoted and referenced in the book do their own reading as well.
+
+That's the end of Now Reading.
+
+Now, the Give Back section.
+
+Minnestar is the technology community for Minnesota. If you are passionate about technology you need to go to Minnebar and Minnedemo. Did you know that Minnebar is the largest BarCamp in North America and one of the largest in the world? Its also been going on for over 10 years? Minnedemo is the best place to hear about innovative tech and fun projects in the Twin Cities area. I am on the Minnestar board and I focus on Minnestar as one of the driving forces improving and expanding the technology community in the area. Minnestar is a 501c3 non-profit. Become a Community Supporter today!
+
+That's the end of Give Back.
+
+Now, more links.
+
+- Knative - Built on Kubernetes and Istio | Google Cloud cloud.google.com
+Kubernetes-based platform to build, deploy, and manage modern serverless workloads.
+- Streamline 3.0 – The World's Largest Icon Library streamlineicons.com
+Crazy number of icons for a small fee.
+- Target shifts cloud-computing business to Alphabet's Google - Minneapolis / St. Paul Business Journal www.bizjournals.com
+Another top retailer shifting publicly away from AWS.
+- Venuer github.com
+A distributed, fault-tolerant pipeline for observability data.
+- Tutorial: Getting started with Quantum Computing (Python) | DataEspresso dataespresso.com
+A library that allows you to write Python code like a quantum computer would run it.
+- Beyond Regular Expressions: An Introduction to Parsing Context Free Grammars medium.com
+Most everyone in tech knows about Regular Expressions, but very few consider full blown parsers and grammars.
+- Introducing the Python Language Server – Python at Microsoft blogs.msdn.microsoft.com
+Turns out it’s really complicated to provide programmer hints in the IDE for Python.
+- Google's New Book: The Site Reliability Workbook - High Scalability highscalability.com
+Part two of the Google SRE book. Available for free for a limited time.
+- YC’s twenty eighteen Summer Reading List blog.ycombinator.com
+I enjoy it when people and groups share their reading lists. I usually find some interesting items in them.
+- Masonite Documentation docs.masoniteproject.com
+Looks a bit like Rails for Python.
+- The future of WebAssembly - A look at upcoming features and proposals blog.scottlogic.com
+I haven't been following WebAssembly but it looks intriguing -- or possibly a terrible idea.
+- The Emoji Demo www.youtube.com
+An 8k textmode emoji macOS intro done in terminal, source.
+- Frank's Compulsive Guide To Postal Addresses www.columbia.edu
+More than you ever wanted to know about addresses.
+- Python has brought computer programming to a vast new audience - Programming languages www.economist.com
+Guido van Rossum stepping down as BDFL of Python even made it to the Economist! Yay for Python making the pages of the Economist.
+
+That's the end of More Links.
+
+Now, the Microposts section.
+
+Thursday @ 6:45 PM
+
+I made a Workflow in iOS that pulls a specific budget amount for me from YNAB’s API, then added it to my Today Widget. Super quick access to data. Will be fun to make this a Siri Shortcut!
+
+Thursday @ 8:41 AM
+
+Biked into work today! Two weeks makes the start of a streak.
+
+Sunday @ 7:50 PM
+
+Family having a great time at #MNUFC match, except Tyler who is cheering for LAFC for some reason. 5-1 #MINvLAFC
+
+Sunday @ 7:26 PM
+
+Ibarra! Ramirez! #MNUFC goes 5-1! #MINvLAFC
+
+Sunday @ 7:02 PM
+
+Great first half MNUFC! Top notch play! 3-1! #mnufc #MINvLAFC
+
+Sunday @ 6:35 PM
+
+Totally amazing, gorgeous goal from MN United! Then neutralized in 60 seconds with an answer from LAFC. 1-1 #mnufc #MINvLAFC
+
+Sunday @ 6:31 PM
+
+Great start to MN United v LAFC! Some serious soccer! #MNUFC #MINvLAFC
+
+Saturday @ 6:29 PM
+
+Beef tenderloin on the Big Green Egg tonight.
+
+Saturday @ 6:28 PM
+
+Chase on the boat today.
+
+Friday @ 11:34 PM
+
+Clocks.
+
+Friday @ 8:26 AM
+
+New motor and some related parts on the way from Chris’ Coffee to repair my espresso machine. The technicians at Chris’ Coffee are incredibly knowledgable and patient.
+
+Friday @ 7:11 AM
+
+Pulled the lever to make espresso this morning and to my shock and horror realized the pump in my Andreja Premium Evo has died!
+
+That's the end of Microposts.
+
+Now, the Fortune section.
+
+You've made it all the way to the end! Here is your fortune for this week.
+
+Love is in the offing.
+Be affectionate to one who adores you.
+
+Thank you for subscribing to the Weekly Thing!
+
+That brings us to the end of the Weekly Thing, issue 64. Thanks for listening, and I'll see you next time.

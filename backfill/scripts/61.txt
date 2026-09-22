@@ -1,0 +1,289 @@
+The Weekly Thing, issue 61. Jul 7, twenty eighteen. Published July 7, twenty eighteen. By Jamie Thingelstad. In this issue: Scaling Agile, Apple rebuilding Maps, all code is technical debt, Facebook and Google personal data, Brave private tabs with Tor, one-on-one meetings.
+
+We have been having a wonderful week staying at our cabin and having mulitple groups of friends and family down. We've had a lot of time on the pontoon, tubing and enjoying the new lillypad. For those that are not familiar, this lillypad is 6' by 16' and floats on the top of the lake. It can hold over 1,000 pounds and kids have a great time climbing on it, jumping off, and playing king of the hill. I'm still learning how to wrestle it back out of the water. We had another stupendous display of fireworks. There are a lot of people on Cannon Lake that set off giant fireworks displays on the fourth of July. I hope all of you living the US had a great fourth of July, and our friends to the north a great Canada Day!
+
+Now, the Featured Links section.
+
+Link one. "Scaling Agile FAQ | Silicon Valley Product Group"
+
+I've been reading a lot about SAFe and I know a number of people that are intrigued by what it offers. I've seen the struggles of Scaling Agile beyond a small number of teams and SAFe seems to have a thought for how that can be done. In the interest of sharing the positive over the negative, I came to this link from Marty Cagan 's total and complete takedown of SAFe, Revenge of the PMO (please read in addition to this link)!
+
+He highlights that many organizations, in his view, have yet to truly embrace the most important part of agile.
+
+So then – and still today – in most companies, the stakeholders still provide the teams with roadmaps of what features and projects the stakeholders think best. Even though the teams use Agile methods, the teams are not empowered and accountable in the sense I’m describing. They are there to implement.
+
+Honestly, I would agree with that assertion.
+
+A couple years ago I wrote about the root causes of product failure in product companies and I identified ten key attributes of Waterfall and project-mindset. I went through and compared this list with SAFe, and literally all ten problems exist in SAFe. Indeed, I would argue that all ten problems are inherent in that process.
+
+He does give that there are three areas where SAFe may work well, and I note that one of them is a "big regarding-platforming event". I wonder if this goes back to product versus project organizations?
+
+I strongly endorse his view that tools are not agnostic of culture.
+
+But it’s critical to realize that most tools are not agnostic. Their creators are trying to facilitate a certain way of thinking or working. You need to ensure that’s how you want to think or work.
+
+Both of these articles are worthy reads to make sure that you see all sides of this agile discussion.
+
+Link two. "Apple is rebuilding Maps from the ground up | TechCrunch"
+
+Amazingly deep article on all aspects of Apple's upcoming "reboot" of their Maps effort. Maps have gotten better since the alarmingly poor launch, but that improvement hasn't been able to deal with a fundamental issue of poor data on the bottom.
+
+Decision made, Apple plowed ahead, building a product that relied on a patchwork of data from partners like TomTom, OpenStreetMap and other geo data brokers. The result was underwhelming.
+
+I've always felt this decision was odd for Apple and driven by missing the importance of map data early on. They had to partner so they could get to market, after relying for so many years on Google's maps. But Apple's path has always been to own all parts of the stack. The iPhone is Apple hardware, software and Apple everywhere in between. Maps was a mashup of different data.
+
+It’s interesting to me that the mapping vans have LIDAR on them as well. They are capturing an immense amount of data here. And pulling in more data from the millions of iPhones in use. They are still focusing on privacy as well in the effort.
+
+The results of this are going to be very interesting to see.
+
+That's the end of Featured Links.
+
+Now, the My Weekly Photo section.
+
+Dramatic sunset falling along the lakeside of Cannon Lake.
+Jul 1, twenty eighteen at 8:27 PM
+Cannon Lake, MN
+
+That's the end of My Weekly Photo.
+
+Now, the Notable Links section.
+
+Link one. "All code is technical debt"
+
+I've often shared with technical teams that what we do everyday in technology is create tomorrow's technical debt. I often think it’s wrong that we consider software an intangible asset in most companies. As a CTO, I tend to think of software as a liability that will inevitably need help. The asset against that liability is the team of people that build, run and maintain that software.
+
+Link two. "Capture the Flag: the emergence of complex cooperative agents | DeepMind"
+
+The team behind Alpha Go now creating intelligent agents that can play a capture the flag game. This looks pretty incredible, and also makes me wonder about military uses.
+
+Link three. "How to read | Robert Heaton"
+
+This reminds me how one of my book club friends reads. It also reminds me of Derek Sivers Book pages. I often think I should write a blog post on each book I read. This reinforces that that is a good idea.
+
+Link four. "How Facebook Punked and then Gut Punched the News Biz – Talking Points Memo"
+
+I love it when Josh Marshall of Talking Points Memo turns to the topic of being a digital publisher.
+
+The first should be obvious: you can’t build businesses around a company as unreliable and poorly run as Facebook. Only a year ago, when I would talk to big money players in the digital media world, there was a consistent refrain: social video on Facebook, that’s the whole game. That struck me as crazy at the time, given everything we were seeing in the industry. And it was crazy. There’s no news publisher entitlement to Facebook traffic. And Facebook is a highly unreliable company. We’ve seen this pattern repeat itself a number of times over the course of company’s history: its scale allows it to create whole industries around it depending on its latest plan or product or gambit. But again and again, with little warning it abandons and destroys those businesses.
+
+Wether Facebook is a platform or not, it does not have the maturity and long-term view needed to run a platform that supports a vibrant ecosystem over the long term.
+
+Link five. "Working Backwards - All Things Distributed"
+
+Much has been written about Amazon's processes for making new products. This writeup from Amazon CTO Werner Vogels is brief and to the point on the process.
+
+The Working Backwards product definition process is all about is fleshing out the concept and achieving clarity of thought about what we will ultimately go off and build.
+
+There is a lot to like here. I tend to think the best processes and frameworks for product management push for clarity and insuring that all the connective components of a product are thought out. It’s not hard to identify 3 or 4 big features. The hard work comes in figuring out how it all connects together.
+
+Link six. "My iPhone Photography Kit | Jordan Merrick"
+
+I've been doing a lot of photography with my iPhone, and true photography not just snapshots. I liked reading about what Jordan Merrick is using to get great shots. The DxO One and Moment lenses are high on my wishlist.
+
+Link seven. "The Players on Your DevSecOps Team - CYBRIC"
+
+How is it that this list doesn't include ops? Anyway, I like the distinction between the CIO and CISO roles here.
+
+Link eight. "Coed:Ethics"
+
+I absolutely love that this is a thing!
+
+This is a radically new event championing bottom-up, developer-driven ethics. How can we make technologists the last bastion of defence against unethical products? After all, we design, write and deploy them.
+
+I’m hoping they share videos from the sessions. I’m very pleased to see this conversation happening.
+
+Link nine. "Michael Pollan: "How to Change Your Mind" | Talks at Google"
+
+This talk piqued my interest in Michael Pollan 's new book How to Change Your Mind about psychedelics. Don't be discouraged that the talk is all Q and A style, which I often find meandering and less impactful. The questions are good and the topics covered are interesting. I was surprised to see meditation make a showing in the discussion as well.
+
+Link ten. "My framework for one-on-ones - Engineering Management"
+
+I always like to see how others manage one-on-one meeting time with their teams. This is what happens when a very logic-based engineer attempts to opitimize one-on-one structures. This seems way too formal to me, but interesting snippets.
+
+Itty bitty sites
+(
+RNdl0Tr6HSxjwcNGISk66vPw5WVM2RxDcUJecKKoShy+sLRgZIwYj0YgSM+5NMGTXtBkBxabwiWnxcECQTItyM2XWkNjvIYJyHX5lVKC5z2wJn3yV8KPobM6ky+6l3oMBo2ffIQ4P35hgBU7bTOtF35gH0sxUWeVp+bVQ+Fwwo+v76Gcu1d/ZrXwiSFNfgxeBfE2zKfKeiZKPoJQgUSbwFXjlFgovL4fVjxBtS60mByYJLH/MakoIBlYL0w6mOukdQqv6FsyIj6Hlp4XqIBEydVIUjBSF8tQcPLdSgXxVkJKR1iWOK0tMefTK79Nn+qQE0VhRKmu7wBJeqboC7tnOpISeWc9NvG2GDVEa1W9bP7hEBEj+ThZNaWIkEOiX7PxZe/XmneEJdWyIMEKv2zB7qybBG/wVy1b7lz3wmg84u75TFjUd1hf7/+yOalyXiVvb/zrNAh8B62Hd1yAzlqY0kD2xM69DSKezUZA4seMZ7FEFdUENmkSnZwFMVIKutAgUpiMYG1fTcLHgwb6iWAi5YOrWoBlTcsk3fCDXIMrjFgSKZ/Bgp8PydrcQ2GYgkCtxRaEM4tgTHRheFg06vQdo478dSnhmSobCvF1nghp1ZuNsQvJdk8/eu/ZgeJp8OjJNzPL0Ovk9orPPtoX2uyUFXfP2qJIuVvjsx4opouk4lHrQZzADX3Wg3Tf4+eYos/HWyCeEDn/8Gnr1A=)
+itty.bitty.site
+
+This made me smile and chuckle and I love it. You can create a web page where the content of the page is encoded into the URL. What an interesting way to create content that lives, well, nowhere! You could do some fun things with this!
+
+Link eleven. "The 4 One-on-One Meeting Questions You Should Not Ask Your Employee"
+
+Some good suggestions on four common questions that get asked in one-on-one meetings, and what a better question would be. Continued thinking on how to make one-on-one meetings more effective.
+
+Link twelve. "500px will no longer allow photographers to license their photos under Creative Commons - The Verge"
+
+This stinks and is a good example of why I don't upload my photos to many photo sites. This is a big change. I’m sure there are people that picked 500px because they support Creative Commons. Now 500px is randomly changing that and patterning with existing stock photos organizations.
+
+Link thirteen. "OmniFocus On-The-Go - Digital Tools - Productivity Guild"
+
+I've used contexts (now tags) in OmniFocus for "Home: Arriving" and "Work: Arriving" mainly so that I can use location based notifications. I had never considered adding "Home: Leaving" as the opposite, but it’s a good idea. I have a number of things that are much better on a "Cabin: Leaving" list than anywhere else. I created an "On-The-Go" perspective just like the one described in this article.
+
+Link fourteen. "New Podcast: Automators —macsparky"
+
+I've learned a lot from listening to Mac Power Users and David Sparks. I was excited to hear that he and Rosemary Orchard are launching a new podcast Automators. The focus of this new podcast is just on automation, something I've gotten a lot of value out of. Here is Rosemary Orchard's announcement as well.
+
+Link fifteen. "New analysis shows how Facebook and Google push users into sharing personal data: Forbrukerrådet"
+
+I did not read the 42 page full report, but the synopsis is not surprising and I’m glad that people are looking into these practices more.
+
+Link sixteen. "Why you should not use Google Cloud. – Punch a Server – Medium"
+
+Nearly every tech leader I talk to highlights Google’s inability to engage with businesses in a B2B relationship as a major blocker. This article is a great example of that. GCP needs to spend some time reengineering it’s engagement strategy with customers, not just the tech underneath.
+
+Link seventeen. "Less, More, and None - Jacoby Young"
+
+I like checklists a lot. The pragmatism of a list of less, more and none is a compelling way of making goals more achievable and incremental.
+
+Link eighteen. "The Most Important Skill Nobody Taught You – Personal Growth – Medium"
+
+I believe there is a lot of truth to this thought. I often refer to social media as spray foam for the mind. It fills all the little gaps with stuff, instead of some solitude or plain boredom.
+
+We ignore the fact that never facing this nothingness is the same as never facing ourselves. And never facing ourselves is why we feel lonely and anxious in spite of being so intimately connected to everything else around us.
+
+This but is like a gateway to Buddhist practices. If you face yourself, you need to figure out what self is.
+
+Link nineteen. "Brave Introduces Beta of Private Tabs with Tor for Enhanced Privacy while Browsing | Brave Browser"
+
+The Brave browser continues to do interesting things. Integrating Tor services directly into the private tabs is a powerful idea to bring Tor anonymity to a much larger audience.
+
+Link twenty. "How my role as CTO has changed as we've grown to 100 engineers"
+
+One persons path from sole-developer (aka CTO) in a startup to leading a larger team and managing that transition. I can relate to much of this myself.
+
+Link twenty one. "Maskmail"
+
+I've advocated for strong password management for years, and it’s critical for security. But for privacy one of the key things to do is not use the same email address on every service. There are many anonymous email address services, but frankly most of them are highly suspect and I don't know their revenue strategy. Maskmail looks very legitimate and I like that they have a straight-forward subscription offering. I've started using it and it’s fast, well-designed and just works. 10 dollars/year is cheap.
+
+Link twenty two. "A Reuters Visual Guide: Blockchain explained"
+
+A very well done overview of blockchain technology covering all of the primary concepts of blockchain. This is one of the best of these I've seen.
+
+That's the end of Notable Links.
+
+Now, the Give Back section.
+
+Creative Commons helps you legally share your knowledge and creativity to build a more equitable, accessible, and innovative world — unlocking the full potential of the internet to drive a new era of development, growth, and productivity. I have been a supporter of Creative Commons for years. Larry Lessig, the founder of Creative Commons, has done the world a great thing by creating a legal structure to help authors and creators encourage remix culture. In addition to donating, you should consider making your content under a Creative Commons license. Donate to Creative Commons today!
+
+That's the end of Give Back.
+
+Now, more links.
+
+- Microsoft Releases 125 million Building Footprints in the US as Open Data | Maps Blog blogs.bing.com
+This is very cool and a nice addition to the public map data set.
+- Kubernetes 1.11: a look from inside Google —Google Cloud Platform cloudplatform.googleblog.com
+Kubernetes keeps chugging along.
+- Delivering Amazon Packages to the Top of the World - The New York Times www.nytimes.com
+Seriously?
+- Zivix Just Closed A Half Million Dollar Crowdfunding Campaign —TechDotMN tech.mn
+Congrats to local Minneapolis company on successful funding another product!
+- Agile project management | Top 15 books www.knowledgetrain.co.uk
+Great reading list for Agile.
+- NSA ‘Systematically Moving’ All Its Data to The Cloud - Nextgov www.nextgov.com
+Not public cloud. Wonder what software layer they are using underneath.
+- Fortnite generated a record 318 million dollars in revenue in May - Recode www.recode.net
+1.2 billion dollars in total revenue so far. Amazing. All optional in-game upgrades.
+- Sending your First Webmention from Scratch • Aaron Parecki aaronparecki.com
+Detailed example for implementing webmentuons.
+- Graph-o-Matic / Observable beta.observablehq.com
+DOT to image right in a web page. Cool!
+- Cool New Features in Python 3.7 – Real Python realpython.com
+Data Classes look very helpful.
+- Dog API dog.ceo
+There is an API for dog pictures? Yep.
+
+That's the end of More Links.
+
+Now, the Microposts section.
+
+Thursday @ 8:44 PM
+
+I got a Specialized Crosstrail bike today. Took it for a brief ride tonight and really like it. A great value for the price.
+
+Thursday @ 8:29 PM
+
+Delicious pizza at Dino’s Pizzeria in Mankato tonight. I also got to play with the crayons on the table.
+
+Wednesday @ 2:47 PM
+
+Brisket came off after 15 ½ hours on the Big Green Egg. Internal temperature between 205-210. Rested for 30 mins in tinfoil and was fall-apart delicious on the cutting board.
+
+Wednesday @ 6:45 AM
+
+Keeping an eye on the Big Green Egg and brisket using the iGrill 2.
+
+Tuesday @ 9:26 PM
+
+“Full packer” beef brisket on the Big Green Egg for the night! Time for a good smoke and see where things are in the morning!
+
+Monday @ 9:56 PM
+
+5-player Ticket to Ride tonight! Tyler and I were Blue Team. We played aggressively, but finished tied for third.
+
+Monday @ 6:28 PM
+
+Tenderloins on the Big Green Egg.
+
+Monday @ 5:54 PM
+
+Me on the lily pad with Mazie and Tyler! Plus the remote control boat zooming by in the bacgkround!
+
+Monday @ 9:38 AM
+
+Berry picking!
+
+Sunday @ 9:18 AM
+
+Rainy morning, playing The Magic Labyrinth. Fun game.
+
+Saturday @ 8:54 PM
+
+Got to use the custom can koozies Mazie made me for Father’s Day today.
+
+Saturday @ 7:18 PM
+
+Big Green Egg grilling in the rain!
+
+Saturday @ 5:06 PM
+
+Clouds.
+
+Saturday @ 4:45 PM
+
+The lilypad is a huge hit with the kids!
+
+Saturday @ 8:12 AM
+
+Tyler and Mazie have found a bunch of fun summer destinations in 111 Places in the Twin Cities That You Must Not Miss. We are flipping through it this morning and it’s impressive!
+
+Saturday @ 8:07 AM
+
+It’s amazing to be able to listen to new John Coltrane music. Enjoying Both Directions at Once this morning.
+
+Friday @ 9:54 PM
+
+It’s totally cheating but I listened to Wonderwall on the way home and I felt better. Next time Minnesota United! #mnufc
+
+Friday @ 8:45 PM
+
+Minnesota United can’t find the back, front, side or any other part of the net tonight. #mnufc
+
+Friday @ 7:28 PM
+
+Family selfie at Minnesota United FC soccer game! Too hot for scarves tonight! 94° F #mnufc #MINvDAL
+
+Friday @ 7:21 PM
+
+Time for some Minnesota United FC v FC Dallas soccer!
+
+That's the end of Microposts.
+
+Now, the Fortune section.
+
+You've made it all the way to the end! Here is your fortune for this week.
+
+Do as you would be done by.
+
+Thank you for subscribing to the Weekly Thing!
+
+That brings us to the end of the Weekly Thing, issue 61. Thanks for listening, and I'll see you next time.

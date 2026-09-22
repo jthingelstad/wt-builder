@@ -1,0 +1,203 @@
+The Weekly Thing, issue 296. Awk, Fav, Alarmo. Published October 13, twenty twenty four. By Jamie Thingelstad. In this issue: Internet Archive breach, Automattic employees leaving, Chinese hackers backdoor, patent troll dedicates patents, blood pressure misreadings, CTV surveillance.
+
+Weekly Thing 296 sent behind deadline and barely with a minute to spare from Duluth, MN along the North Shore.
+
+We are up on the North Shore this weekend taking in some fall colors and returning to many regular and some new stops between Two Harbors and Grand Marais.
+
+The week has been packed full and the morning coffee that powered the final push to get this to you is now finished. I’m going to keep it brief and head out into what looks like a very blustery, cold, and wet day!
+
+Now, the Featured section.
+
+Link one. "The Disappearance of an Internet Domain"
+
+The IO top-level domain is used by a large number of technology services. It is a simple play off of the input/output functions in tech. Remember BIOS? Basic Input/Output System. It is a foundational concept and the fact that the British Indian Ocean Territory was also country code IO was a neat coincidence. However, that is changing!
+
+Quote.
+Once this treaty is signed, the British Indian Ocean Territory will cease to exist. Various international bodies will update their records. In particular, the International Standard for Organization (ISO) will remove country code "IO" from its specification. The Internet Assigned Numbers Authority (IANA), which creates and delegates top-level domains, uses this specification to determine which top-level country domains should exist. Once IO is removed, the IANA will refuse to allow any new registrations with a .io domain. It will also automatically begin the process of retiring existing ones. (There is no official count of the number of extant .io domains.)
+End quote.
+
+The article itself was interesting to read the history that IANA and ICANN have dealing with country-level changes. Assuming current policies, everyone is going to have to vacate this top-level domain.
+
+Quote.
+.io has become popular with startups, particularly those involved in crypto. These are businesses that often identify with one of the original principles of the internet--that cyberspace grants a form of independence to those who use it. Yet it is the long tail of real-world history that might force on them a major change.
+End quote.
+
+It is a good reminder that the Internet doesn't live independent of everything else. This article doesn't touch on it but there are also real implications to using domains that are assigned to different countries. There have been previous run ins with countries not allowing registrations for reasons that we generally don't agree with. Or even more simple it can confuse systems based on assumptions. Being from Minnesota, there were a number of organizations that used the .mn TLD which is actually the designation of Mongolia. This could cause emails from those organizations to be treated as if they were coming from Mongolia, not Minnesota.
+
+This is also an area where blockchain could play a crucial role, and specifically Ethereum Name Service (ENS). Why are all these TLD managed by countries? It is a way to allocate trust along a hierarchy. The presence of trust should trigger blockchain as a potential solution. The way that ENS names are resolved versus DNS names is radically different, and the governance model is as well. Don't be confused by the .eth TLD and think it is limited to that. DNS and ENS could merge into a tightly distributed system of both centralized and decentralized systems.
+
+That's the end of Featured.
+
+Now, the Notable section.
+
+Link one. "Patent troll Sable pays up, dedicates all its patents to the public!"
+
+Patent Trolls are often successful because companies do the math and decide it is easier and cheaper to pay them than to fight. Cloudflare however decided not to play ball.
+
+Quote.
+In the end, Sable agreed to pay Cloudflare 225,000 dollars, grant Cloudflare a royalty-free license to its entire patent portfolio, and to dedicate its patents to the public, ensuring that Sable can never again assert them against another company.
+End quote.
+
+They won the filing and they made Sable dissolve their patent rights. Impressive stuff. I also love that they used crowd-sourcing with their Project Jengo to help fight this troll.
+
+Link two. "159 employees are leaving Automattic as CEO's fight with WP Engine escalates | TechCrunch"
+
+Automattic's, or more appropriately Mullenweg's, fight with WP Engine has become a whole drama. I have always thought so highly of Mullenweg and his commitment to the health of the Web. This fight with WP Engine however is inflicting a lot of damage.
+
+Link three. "Daring Fireball: Chinese Government Hackers Compromise 'Back Door for the Good Guys' in U.S. Communication Networks"
+
+Great summery from Gruber highlighting why "back doors" around encryption or security measures are a terrible idea. There is no way to limit their use to only the intended beneficiaries.
+
+Link four. "Ethereum Follow Protocol"
+
+Interesting new protocol for Ethereum that allows you to create a follower concept directly on the blockchain. You follow other wallets by address or ENS name. You can add tags to them as well. The EFP website then lets you follow all transactions for those addresses, but you could build any number of other applications on top of this data. I created an initial set of accounts to follow and it mints an NFT that stores the follower data. If you create a follow group early you can graph a EFP Early twenty twenty four POAP. I got mine!
+
+Link five. "Idiomatic awk"
+
+I have used awk in various scripts to do pretty straightforward things. I've always known it to be significantly more powerful than I am familiar and this article does a great job walking through more complex use cases. It is worth reading since there are many things awk can do out of the box that folks could easily end up writing their own small Python code for. Much simpler to use the tools that exist!
+
+Link six. "Your doctor’s office could be reading your blood pressure all wrong - Ars Technica"
+
+I learned about the correct method of checking blood pressure from an episode of Peter Attia's podcast a while back. It does make a notable difference when you do the test.
+
+Quote.
+According to the American Heart Association and other medical experts, getting an accurate reading requires following a strict set of preparations: You must not eat, drink, exercise, or smoke within 30 minutes of a reading. You must have an empty bladder. You must sit straight up in a chair with back support. Your legs must be uncrossed and your feet must be flat on the ground. The arm to be measured must be rested on a flat surface so that it is at the same level as your heart, not lower, not higher. You must sit calmly, without talking for five minutes to relax before the reading. When it's time, an appropriately sized cuff should be wrapped around your bare upper arm, right above the elbow; it should never be wrapped over clothing. At least two readings should be taken, with the average recorded. Ideally, readings should be taken in both arms, with the highest readings recorded.
+End quote.
+
+The downside of this though is that it means taking your blood pressure goes from a couple of minutes to taking like 15 minutes — which for me at least means I test it much, much less frequently.
+
+Link seven. "CTV industry’s unprecedented “surveillance” - Ars Technica"
+
+I wrote about some of the frustrating privacy issues with Smart TV's in Weekly Thing 295. I was expecting this article to just be a restatement of stuff I’m already very aware of. And then I hit this line.
+
+Quote.
+For example, Amazon Web Services and ad-tech company TripleLift are working with proprietary models and machine learning for dynamic product placement in streamed TV shows. The report, citing a twenty twenty one AWS case study, says that "new scenes featuring product exposure can be inserted in real-time 'without interrupting the viewing experience.'"
+End quote.
+
+So when you watch the show and when I watch it there is going to be different content? In yours the main character will drink a Coke and in mine a Mountain Dew? Because we've been surveilled and preferences are known. Or in one show the character will have Tide sitting out by the laundry, and in another will be an organic earth-friendly product? Creepy and lame. FWIW, this type of content ad targeting is all over the place in podcasts based on dynamically assembling audio segments. But taking it into the content is a whole new level.
+
+I have disconnected all my Smart TV's from WiFi. These devices cannot be trusted. It annoys me since I am a bit OCD about applying firmware updates. But it helps to realize that the software updates for these Smart TV's are most likely surveillance updates.
+
+Link eight. "Internet Archive hacked, data breach impacts 31 million users"
+
+As a technologist I deep down have some hope that there is a moral code to most hackers but there isn't. It’s all about the money, in most cases. Attacking the Internet Archive is terrible. I’ve been a supporter of this non-profit for over a decade. I highlighted them in the list of organizations to support the open internet. And alas they have not just been hacked but have now been down for several days as the result of an aggressive Denial of Service attack. The site just has a banner now saying "Internet Archive services are temporarily offline."
+
+As the hacker suggested I did get notified via Have I Been Pwned that my credentials were stolen. Here is where the work of maintaining good security pays off since the password I use for Internet Archive is completely random and unique. There is no value to it at all. Unfortunately I hadn't switched to using an anonymized email there, which is the only way I was even able to be notified that the credentials had been taken.
+
+If we got better with our password hygiene perhaps these types of attacks would become less common. If what you steal has no market value, why would you steal it? Also, if you haven't signed up to be notified via Have I Been Pwned I recommend you do. It is great at keeping you aware of credential risk.
+
+That's the end of Notable.
+
+Now, the Journal section.
+
+Journal entry one.
+
+The Thingelstad and Fernandez families ready for the TC 5K!
+
+Results
+
+- Mazie (45798): 7:12 min/mile pace -- amazing! Came in twelfth out of 1,335 women and second in her age group! It seems we have a runner in our family!
+- Tammy (45796): Came in seventh in her age group and put in a 8:53 min/mile pace! Impresive!
+- Tyler (45797): Ran the whole thing sub 10 minute pace and building endurance!
+- Jamie (45799): Walked the course and hit goal of sub 15 minute miles -- 14:58! We’ll skip places in divisions for me.
+
+Journal entry two.
+
+We saw The Wild Robot tonight at Edina 4. It was a new story to most of us however Mazie had read the book. I thought the animation style was very unique and fit the story well. Fabulous family movie outing!
+
+Journal entry three.
+
+We had a great time cheering the runners in the Twin Cities Marathon this morning! Our friends host a Marathon morning every year with the highlight being a “Repeat 1” playing of Jump Around by House of Pain -- a favorite with the runners.
+
+Journal entry four.
+
+Tyler and I were joined by Max and Levi at Orchestra Hall today to see the Minnesota Orchestra perform Star Wars: A New Hope In Concert. Tyler and I saw The Last Jedi In Concert in May.
+
+Journal entry five.
+
+Many of the SPS Commerce leadership team took in the Minnesota Business Partnership annual event this evening. We were joined by Megan Tischler who was highlighted in the evening for the work she has done as part of our Women in Technology group and Phil Soran who is one of our board members.
+
+Weekly Thing Forum
+
+Join Patrick Hambek, Tom Mungavan, Eric Walker, garrickvanburen, and many other Weekly Thing readers in the Weekly Thing Forum. Recent topics include:
+
+- Weekly Thing 295
+- Notebook LM Deep Dives Weekly Thing
+- Supersize Double Edition of the Weekly Thing
+- No Thing This Week
+- Weekly Thing Forum Anniversary
+
+That's the end of the Journal.
+
+Now, the Briefly section.
+
+Link one. "Getting my daily news from a dot matrix printer - Andrew Schmelyun"
+
+um — you could just subscribe to an actual newspaper?
+
+Link two. "fav.farm"
+
+Simple site to add favicon to your website.
+
+Link three. "The Medieval Masterpiece, the Book of Kells, Is Now Digitized and Available Online | Open Culture"
+
+When we visited Ireland we went to see this on exhibit and if you got anywhere near your phone to take a picture a security guard was their to promptly stop you.
+
+Link four. "Scripting News at 30 - Michael Tsai"
+
+Great roundup of various posts celebrating Dave Winer for 30 years of blogging. Winer is perhaps the proto-blogger that moved blogs forward!
+
+Link five. "Telehealth remains popular, does not add cost or lower quality of care, report finds"
+
+Sharing this mostly because the Doctor highlighted is a friend and neighbor of mine! Hey Steve!
+
+Link six. "Introducing Kotlin Money"
+
+Nice library for working with money. It might surprise non-programmers that money isn't a native data type in any programming language, and it has very specific rules that make tracking money complicated with the data types that do exist.
+
+Link seven. "Earth’s ‘vital signs’ show humanity’s future in balance, say climate experts | Climate crisis | The Guardian"
+
+All the indicators are in the wrong direction. The science makes sense. But the collective action required to do anything meaningful about it seems more impossible than ever.
+
+Link eight. "Apple Passwords’ Generated Strong Password Format « Ricky Mondello"
+
+I like that these passwords have some pattern to them and I’m trusting it doesn't make them less secure. When you cannot copy/paste a password, a truly random password can be very difficult to input.
+
+Link nine. "Twin Peaks Actually Explained: A 4-Hour Video Essay Demystifies It All | Open Culture"
+
+I was a huge fan of Twin Peaks. I watched the whole thing at least three times. There are still many mysteries. Time to watch this!
+
+Link ten. "How To Write More Blog Posts | Loris Cro's Blog"
+
+I agree with some but not all points in this post. But I think it is a good read if you want to write more on the web but aren't sure how you want to approach it.
+
+Link eleven. "“Submerged” brings immersive narrative to Vision Pro – Six Colors"
+
+I’m looking forward to watching this on the Vision Pro. I found it interesting how different story telling concepts like scenes and cuts may need to be in an immersive experience.
+
+Link twelve. "A closer look at Nintendo’s adorable Alarmo clock - The Verge"
+
+I love that Nintendo created this. Brilliant.
+
+That's the end of Briefly.
+
+Now, the Fortune section.
+
+Here is your fortune…
+
+You will reach the highest possible point in your business or profession.
+
+Thank you for subscribing to the Weekly Thing!
+
+That's the end of Fortune.
+
+Now, the Want to support the Weekly Thing? section.
+
+First — thank you for subscribing and reading. Here are some things you can do that would be great…
+
+- Share Weekly Thing 296 / Awk, Fav, Alarmo with others you know!
+- Post about the Weekly Thing and let others know about it.
+- Join the Weekly Thing Forum and connect with others.
+- Email me comments, feedback, or just to say Hi!
+
+That brings us to the end of the Weekly Thing, issue 296. Thanks for listening, and I'll see you next time.

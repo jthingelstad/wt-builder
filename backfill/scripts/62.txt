@@ -1,0 +1,183 @@
+The Weekly Thing, issue 62. Jul 14, twenty eighteen. Published July 14, twenty eighteen. By Jamie Thingelstad. In this issue: Pseudo-AI humans, disposable straw capitalism, metadata identification, leadership style colors, REST versus GraphQL, brutalist web design.
+
+It has been a busy (good!) return from a very relaxed holiday week. Through an odd sequence of events I'm going to two baseball games and two soccer games in a week! No complaints as I enjoy both a lot.
+
+Shorter collection of links this week in part due to my busy social calendar. One of the treats I get from sending this weekly newsletter is hearing from you! If something stands out to you, or you just want to say "Hi", it is as simple as sending a reply! (Wait, did that rhyme?)
+
+Now, the Featured Links section.
+
+Link one. "Relentlessly Turning Input Knobs To 0 - Feld Thoughts"
+
+I feel like I've been doing this for a few years now. I would add another thought though, which is I would start with turning the input channels as low as possible, and then reduce the number of things in those channels. Right now I only have three channels that are meaningful: email (traditional, regular email), messages (95% iMessage) and feeds (all via Feedbin). Note that social media isn't a channel. Then I filter inside those channels.
+
+Link two. "How the Disposable Straw Explains Modern Capitalism - The Atlantic"
+
+I thoroughly enjoyed this article both for the content and the history covered, but the twist at the end makes you think, a lot. Don't cheat and read the end first!
+
+That's the end of Featured Links.
+
+Now, the My Weekly Photo section.
+
+The corn is definitely "knee high before the fourth of July"!
+
+Cornfield with barn in background.
+Jul 6, twenty eighteen at 2:51 PM
+Warsaw, MN
+
+That's the end of My Weekly Photo.
+
+Now, the Notable Links section.
+
+Link one. "The rise of 'pseudo-AI': how tech firms quietly use humans to do bots' work | Technology | The Guardian"
+
+I wonder how many AI services are augmented or in some cases just done by people.
+
+“Using a human to do the job lets you skip over a load of technical and business development challenges. It doesn’t scale, obviously, but it allows you to build something and skip the hard part early on,” said Gregory Koberger, CEO of ReadMe, who says he has come across a lot of “pseudo-AIs”.
+
+Skipping the hard part could be a cost optimization to get validation quicker, or it could invalidate your entire business model.
+
+Link two. "Managing Digital: Concepts and Practices"
+
+New-ish book from Charles Betz, published in the open on the web.
+
+My answer would be that there is something different happening this time — digital delivery is becoming core, not context. The convergence of an abundance of computing resources, improving software development management, combined with a change in market focus from the supplier to the customer is changing the way we view Enterprise Architecture and IT management, and identifying the need to develop a digital workforce. The defining characteristics of a digital enterprise are becoming clear:
+- Products or services that are either delivered fully digitally (for example, digital media or online banking), or where physical products and services are obtained by the customer by digital means (for example, online car sharing services)
+- A "digital-first" culture, where the business models, plans, architectures, and implementation strategies start from an assumption of digital delivery
+- A workforce who is digitally savvy enough to execute a digital-first approach
+
+I met Charles once at the Chaos Day event here in Minneapolis. He has a comprehensive and deep view on technology.
+
+Link three. "Leadership Style Colors | Lara Hogan"
+
+This article instantly made me think of Insights which I have used through Discovery Yourself many times. I've seen teams get value out of having shared language around colors and style. This suggestion is to build on that to be more comprehensive, and also to try operating in other colors, which I think is something you have to do from time-to-time. I lead red/blue myself.
+
+Link four. "You are your Metadata: Identification and Obfuscation of Social Media Users using Metadata Information"
+
+More research that shows how precise identification cane be on metadata alone.
+
+We demonstrate that through the application of a supervised learning algorithm, we are able to identify any user in a group of 10,000 with approximately 96.7% accuracy. Moreover, if we broaden the scope of our search and consider the 10 most likely candidates we increase the accuracy of the model to 99.22%. We also found that data obfuscation is hard and ineffective for this type of data: even after perturbing 60% of the training data, it is still possible to classify users with an accuracy higher than 95%.
+
+I still don't think this message is widely understood. When people are told that only metadata is kept on their activities, they assume some level of anonymity. You should assume none.
+
+Link five. "9 Tips To Better Networking (Even For Introverts) - Toggl Blog"
+
+Some simple tactics for approaching business networking. This is something that I always have a hard time with.
+
+Link six. "Tools and Craft - Episode 01: Andy Hertzfeld"
+
+Andy Hertzfeld is one of the original designers of the Macintosh computer and this short interview with him has some fun insights.
+
+Link seven. "REST versus GraphQL APIs, the Good, the Bad, the Ugly | Moesif’s Musings on Software"
+
+I love the conclusion in this overview.
+
+In fact, GraphQL versus REST is like comparing SQL technologies versus noSQL. There are certain applications where it makes sense to model complex entities in a SQL Db. Whereas other apps that only have “messages” as in high volume chat apps or analytics APIs where the only entity is an “event” may be more suited using something like Cassandra.
+
+We always do this in tech it seems, too much "versus" as opposed to it’s just different and serves a different solution. Again, pick the right tool for the job.
+
+Link eight. "Exclusive: Twitter is suspending millions of bots and fake accounts every day to fight disinformation - The Washington Post"
+
+Hundreds of millions of Facebook accounts deleted. Now, "Twitter suspended more than 70 million accounts in May and June, and the pace has continued in July". What a mess.
+
+Link nine. "A Guide to Letting Go of Shame and Fear: zen habits"
+
+We all could use better ways of dealing with this little (or not so little) voice in our head.
+
+Link ten. "Currents: A quarterly report on developer trends in the cloud"
+
+Some interesting data on the state of a number of technologies and the industry.
+
+Currents is a quarterly report on developer cloud trends that we created to share our knowledge with the broader community. For the fourth edition, we surveyed nearly 5,000 respondents from around the world about themselves, the tools they use and the challenges they face.
+
+Link eleven. "Brutalist Web Design"
+
+I like this translation of Brutalist Architecture to the web.
+
+That's the end of Notable Links.
+
+Now, the Give Back section.
+
+Minnestar is the technology community for Minnesota. If you are passionate about technology you need to go to Minnebar and Minnedemo. Did you know that Minnebar is the largest BarCamp in North America and one of the largest in the world? Its also been going on for over 10 years? Minnedemo is the best place to hear about innovative tech and fun projects in the Twin Cities area. I am on the Minnestar board and I focus on Minnestar as one of the driving forces improving and expanding the technology community in the area. Minnestar is a 501c3 non-profit. Become a Community Supporter today!
+
+That's the end of Give Back.
+
+Now, more links.
+
+- Apple updates MacBook Pro with faster performance and new features for pros — Apple Newsroom
+Maybe I can finally buy a new MacBook Pro?
+- Road Trip roadtrip.glitch.me
+Interesting web app that highlights points of interest as you drive around.
+- Perspective Icons for OmniFocus 3, by Josh Hughes omnifocusicons.josh-hughes.com
+Nice icons for OmniFocus perspectives. Stylistically match with the new OmniFocus 3!
+- Custom Perspectives for OmniFocus 3 - Learn OmniFocus learnomnifocus.com
+The revamped perspective editor in OmniFocus 3 is enabling some very nice features. Here are some good examples to start with.
+- Tones | Katharos Tones www.katharostones.com
+Cool collection of notification sounds. Nice 10 dollars upgrade for your phone.
+- New Getting Things Done for Teens book - Getting Things Done® gettingthingsdone.com
+My copy of this is on the way. I’m curious to see if it’s something my daughter may like.
+- Betamagic - News Explorer betamagic.nl
+Brand new RSS Reader for the Mac, uses iCloud to synchronize. I'll be sticking with Feedbin but I like to see innovation in this space.
+- Theater of Your Mind Presents: It’s 2:47 AM! - McSweeney’s Internet Tendency www.mcsweeneys.net
+We've all been here.
+- From data to Viz | Find the graphic you need www.data-to-viz.com
+Cool idea. You describe the data you want to visualize, and it recommends the best methods to use for the visualization.
+- Browsh www.brow.sh
+Web browsers running in a terminal have always been a thing, but this is a pretty different take on that. This is using Firefox underneath, and then sort of painting the display in text? Weird.
+- Optimize Website Speed With Chrome DevTools | Tools for Web Developers | Google Developers developers.google.com
+Very deep overview for optimizing site performance.
+
+That's the end of More Links.
+
+Now, the Microposts section.
+
+Wednesday @ 7:37 PM
+
+MN United game! #TeamSPS
+
+Wednesday @ 7:17 PM
+
+Minnesota United FC v Costa Rica’s Deportivo Saprissa! Light crowd tonight. #mnufc
+
+Wednesday @ 6:07 PM
+
+SPS Brew-Off brewers awaiting the announcement of the winner! EDIPA and DC4UIPA had my backing! Orange Creamsicle Beer was delicious too!
+
+Wednesday @ 6:05 PM
+
+SPS Brew-Off with Kubb! Go #TeamSPS!
+
+Monday @ 8:12 PM
+
+Good night for a Twins game! Twins v KC Royals!
+
+Sunday @ 5:26 PM
+
+My Turing Tumble games arrived! I’m looking forward to making some mechanical computers, maybe even with the kids!
+
+Saturday @ 1:43 PM
+
+Mazie and I had a great 18.4 mile bike ride today on the Sakatah Singing Hills State Trail. This has to be one of the nicest rides in the state, with much of it under the shade of trees.
+
+Friday @ 6:33 PM
+
+The distillery at 10,000 Drops. 10k
+
+Friday @ 6:18 PM
+
+Enjoying a cocktail at the brand new 10,000 Drops distillery in Faribault. Delicious drinks! Also pizza from Pizzeria 201 in Montgomery made from their food truck here. Worth a trip!
+
+Friday @ 2:07 PM
+
+The best bike rides have a Dairy Queen in the middle! + =
+
+That's the end of Microposts.
+
+Now, the Fortune section.
+
+You've made it all the way to the end! Here is your fortune for this week.
+
+Do unto others as you would have them do to you.
+
+Thank you for subscribing to the Weekly Thing!
+
+That brings us to the end of the Weekly Thing, issue 62. Thanks for listening, and I'll see you next time.

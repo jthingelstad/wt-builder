@@ -1,0 +1,271 @@
+The Weekly Thing, issue 193. POAPs, DAOs, NFTs. Published September 4, twenty twenty one. By Jamie Thingelstad. In this issue: POAPs, DAO landscape, OpenSea metrics, NFT sales near 900 million dollars, ENS mainnet integration, driver's licenses in Apple Wallet, U.S. Digital Corps, Air Quality Index.
+
+Hello there! I hope you all have had a great summer filled with whatever you would desire it to be. We filled ours with a lot of family time, a fun road trip to Vermont, and new and old summer traditions. It all went by too fast, as it always does. School is resuming, the mornings are cooler, and here I am back in your inbox. Excuse me while I get the fingers moving again.
+
+A couple of weeks ago I was noticing that I was feeling like writing more, and wondered if I should pick up some of the bigger blog articles that I have ideas for. I chuckled when I realized that most likely I was just on break from the Weekly Thing, and my regular outlet for writing and sharing wasn't around. It’s good to be back!
+
+Now, the Featured section.
+
+Link one. "Poaps are a big deal"
+
+I have been having some fun with POAPs. I think it is a very fun way to introduce people to some crypto / web3 technologies without having to spend any money.
+
+Quote.
+August was the biggest month ever for Poap mints with 327k minted; 1.7k on Ethereum mainnet and 325k on xDai.
+End quote.
+
+That is great progress for something that only started in February twenty nineteen. Also, I love how you can use POAP tokens along with other concepts like DAOs.
+
+Quote.
+For example, a DAO could decide to weigh votes on treasury spending proposals with more power going to wallets that hold multiple DAO poaps (Poaps for contributing to the codebase, attending IRL community events, being active in town hall calls, .etc.) instead of weighting voting power according to who holds the most DAO tokens. Poap already has native integrations with Snapshot for DAO governance.
+End quote.
+
+I subscribed to NiftyTable, it seems like a good way to stay in the flow of NFT activity. If you want even more check out the Proof podcast.
+
+Link two. "DAO Landscape — Mirror"
+
+I am incredibly interested in decentralized autonomous organizations (DAOs) on Ethereum to allow people to self-organized communities for a variety of collective actions.
+
+Quote.
+DAOs are internet communities with a shared cap table and bank account. Members work together to create, distribute and capture value relative to a shared mission. Ownership shares economic, social and political components, creating best practices for digital coordination.
+End quote.
+
+I love the examples that this article highlights as well as a comprehensive list of DAO tools and services.
+
+Quote.
+From grants to payroll, token swaps to M and A - expect the next wave of mercenaries to show why web3 governance is a complete paradigm shift. (more on this topic to come in my next post). Very soon, we could see a world where DAOs are the new LLCs.
+End quote.
+
+I think this is a given, and will happen likely faster than we expect. Plus, a DAO will be easier to create than an LLC, and rather than being a bunch of paper in a tax ID number — DAO's have capability and function.
+
+DAO's have the potential for small to large groups of people to self-organize, take action collectively, and deal with all the financial aspects in the blockchain.
+
+That's the end of Featured.
+
+Now, the Currently section.
+
+Installing: I’m trying out Waking Up, a meditation app created by Sam Harris. I've been using Headspace for years now, and I’m interested in a change just to switch things up.
+
+That's the end of Currently.
+
+Now, the Notable section.
+
+Link one. "Don’t Reschedule; Commit or Cancel – Garrick van Buren"
+
+My friend Garrick van Buren giving some "real talk" about managing your time, and not "sort of" committing to activities.
+
+Link two. "Initial Details on Using Driver’s Licenses and State ID’s in Apple Wallet — Daring Fireball"
+
+I've been wondering when more secure forms of identification will be integrated into digital wallets. I wish Minnesota was one of the early adopters. The implementation is interesting, since it is more like a NFC purchase. You don't show your ID on the screen, you allow your ID to be displayed on a device that the requester is using. Like paying with a credit card. Interesting.
+
+Link three. "OpenSea Metrics — Dune Analytics"
+
+Crazy metrics on NFT transactions on OpenSea. 3,424,711,478 dollars in transactions. 3 dollars+ billion! That dollar value was spread across 1,657,229 NFTs with 217,977 wallet addresses buying and selling. Wow.
+
+Link four. ""If software engineering is in demand, why is it so hard to get a software engineering job?" by Curt Corginia | Better Programming"
+
+The way that we go about evaluating and interviewing developers has a lot of challenges. This article highlights just some of them. As an industry, this needs attention, but it’s not a simple problem. Technologists spend all day creating things in code, that you cannot see. There is no good way to determine skill level, and the job is more craft than many appreciate.
+
+Link five. "The Art of Not Taking Things Personally by Dave Bailey | The Founder Coach"
+
+I think we all struggle with taking things personally, I know I do. I can usually manage it, but I like the framework and terms here.
+
+Quote.
+‘Emotional generosity’ is the ability to see past behaviours that we don’t understand and proactively look for compassionate ways to explain them.
+End quote.
+
+Being able to identify patterns could make it easier to provide that generosity.
+
+Link six. "U.S. Digital Corps"
+
+This is a good thing to do, but the cynic in me wonders if bringing in "digital" talent will generate any outcomes when it inevitably runs into legacy, controls, and other friction points.
+
+Quote.
+The U.S. Digital Corps is a new two‑year fellowship for early‑career technologists where you will work every day to make a difference in critical impact areas including coronavirus response, economic recovery, cybersecurity, and racial equity. More than just a job with a competitive salary and benefits, you will change the way people in America are served by their government.
+End quote.
+
+Certainly a good step though!
+
+Link seven. "Nfinita - NFT for social good platform"
+
+Very early stage company looking to help non-profits use NFT sales to raise funds for their organization. "Our mission is to make giving more sustainable and scalable through NFTs, and to enable any NFT to be charitable." This seems like a very good idea. I could see live NFT auctions at events being very interesting.
+
+Link eight. "Bright Moments DAO | Union Square Ventures"
+
+Evidence of the massive potential of DAO's.
+
+Quote.
+Yesterday, USV sent 500 ETH to the Bright Moments DAO and we got back one million Bright Moments DAO (BRT) tokens into our wallet. This is the third time USV has invested in a DAO and we will blog about the other two in the coming weeks. These are token transactions denominated in ETH and ERC-20 assets with no other paperwork. All governance is done inside the DAO (decentralized autonomous organization). In the case of Bright Moments, the DAO voted on our transaction over the weekend and approved it unanimously. This is a new world of business entity, governance, and a lot more that is exciting to USV and we plan to continue investing in it.
+End quote.
+
+500 ETH as of today is 1.86 million dollars. DAO's have the potential to remove so much friction from groups of people organizing together, including traditional corporate entities.
+
+Link nine. "ESG Is The Little Bighorn Of Bitcoin Skeptics | Pantera"
+
+The team at Pantera Capital takes a broad look at environmental, social and governance (ESG) aspects of Bitcoin. Bitcoin uses a lot of electricity, and many people just stop there and say it is environmentally bad. This is a broader look at the entire ESG space for Bitcoin.
+
+Link ten. "An Open Letter to Airbnb. The pitchforks are coming by Jared A. Brock | Surviving Tomorrow"
+
+I don't agree with the authors "recommendations" for Airbnb, they are in no way practical. However, I hadn't given much of any consideration to the impact to the real estate market as a result of Airbnb.
+
+Quote.
+Our whole village is the same way. Nearly every property that comes up for sale is snapped up in days by a holiday rental company for far more money than any local family can afford to pay. If the trajectory continues — and there’s no indication that it won’t — there’s a good chance our local school will close before our child has a chance to attend.
+End quote.
+
+The impact to house prices and inventory is something that cities need to think about.
+
+Link eleven. "NFT Craze Rages On as August Sales Near 900 million dollars - Blockworks"
+
+I am very bullish on NFT technology and the utility capability of NFTs. The collector component of NFTs is incredibly hyped right now. We all thought that the hype in April twenty twenty was a lot, and that is about 1/tenth of what we are seeing in August.
+
+Link twelve. "What is the Air Quality Index? Here's How to Stay Safe - The New York Times"
+
+With the wildfires this year I installed Breathable on my phone and have had a widget to keep informed on the Air Quality Index. It has been helpful to better understand how I’m feeling when I’m outside. This article is a good overview of what the AQI number actually is. During some of the fires this summer the AQI in our area peaked over 200.
+
+Link thirteen. "Why BitClout’s Diamondhands is HODLing to the Moon by Sequoia | Sequoia Capital Publication | Medium"
+
+I've been on Bitclout for about four months now. I am @jthingelstad there. I even have a profile for @WeeklyThing. Bitclout has reminded me in many ways of the very early days on Twitter. It is the first blockchain application I've used that doesn't feel like a blockchain. Anyone could use it without any awareness of that. It does feel in some ways like something truly new.
+
+This interview pulls the curtain back on some of the things looking to be done.
+
+Quote.
+Diamondhands doesn’t go through life in a high-tech Daft Punk disguise. It’s not physical anonymity they’re after, but corporate. There is no CEO, board, or shareholders of BitClout — just token holders. They believe that an open, blockchain-based organization where the direction is set by the community with no corporate entity to compete with — or be shut down by — will outcompete social media’s traditional ads-driven business model.
+End quote.
+
+Sounds like a DAO!
+
+The biggest struggle with Bitclout is getting network effect, and extending outside of people that just use it because it is decentralized. I hope the team continues to push. Looks like my coin value has dropped a little bit.
+
+Link fourteen. "The Story of Playdate"
+
+I ordered my Playdate and can’t wait to get it. The backstory on it is fun to read. I’m planning on creating a game for it called Magic Pines based on the layout of our cabin.
+
+Link fifteen. "Evidence"
+
+Use Markdown to create content, and then embed SQL queries directly into the content with markup on how to visualize it. The data is then live. This is a pretty cool way to create live documents that update in realtime with external data references. Neat!
+
+Link sixteen. "My Kids Will Not Be Home Today: On the Mental Weight We Carry"
+
+I liked this article reflecting on mental space, mental buffer, and the lack of it that many parents have experienced with kids staying home during the pandemic.
+
+Quote.
+My revelation is that margin might just be the key to life. In parenting and finances—we need margin. If you don’t have it, there is light at the end of the tunnel and I wish it for you. For all of us!
+End quote.
+
+Schools are open and kids are heading off for first days. It is a good thing for the kids, and maybe an even better thing for the parents.
+
+Link seventeen. "Full DNS Namespace Integration to ENS Now on Mainnet by Brantly Millegan | The Ethereum Name Service | Medium"
+
+I've been playing with a number of Web3 applications and using a name for your Ethereum wallet makes everything much easier to use. I registered thingelstad.eth and a handful of other names on ENS. I also registered thingelstad.xyz, which is a DNS name but registered on ENS as well. This announcement extends the trust model that ENS built for .xyz and extends it to other DNS top-level domains. The DNSSEC requirements in the step-by-step guide are a little challenging, but only because many DNS providers doin't support the specific requirements. The comparison to ENS registration is a very good read because there are still good reasons to use .eth as well. DNS is centrally controlled, and if some entity could make up a reason to remove my rights to thingelstad.com they could. However, that isn't possible with thingelstad.eth, which is owned in my wallet and is an asset (technically it is an NFT!).
+
+This is a good step towards merging web3 concepts into the existing web. DNS and ENS collaborating, and then getting better wallet integration in browsers, creates a pretty amazing on-ramp for crypto powered capabilities.
+
+That's the end of Notable.
+
+Now, the Journal section.
+
+Thursday @ 6:05 PM
+
+Women's Soccer is coming to the Twin Cities! I love that this is being openly funded on Wefunder. You can buy a share for 25 dollars! Join me as a community owner! 581,253 dollars raised so far.
+
+Thursday @ 5:56 PM
+
+I decided to try a subscription to Sam Harris so that I can get full episodes of the Making Sense podcast. In addition to previous episodes, his 4-hour conversation with Balaji Srinivasan, The Reckoning to Come, got me to pull the trigger.
+
+Tuesday @ 9:52 PM
+
+Made some random candles tonight testing some scent levels and different burns.
+
+Tuesday @ 9:50 PM
+
+Mazie made a Peach Melba Pie today. “I’M A PIE”
+
+Sunday @ 5:21 PM
+
+We went to Canterbury Park to watch some horse racing today. We didn't know it, but they also had Basset Hounds racing for fun which was a blast to watch.
+
+Race 3 featured Bit Coiner. Bit Coiner won the race. An omen, HODL your Bitcoin!
+
+After our visit to Saratoga Race Course I understood much more what was happening and how to read all the information.
+
+Sunday @ 1:13 PM
+
+We went to the Minnesota State Fair today. My brother and his family were in town and we decided to go early so that we could avoid as much of any crowd as possible. We started at 8am and left around noon. It was fun to do some of our normal traditions, and there weren't that many people at that time.
+
+Sunday @ 12:11 AM
+
+After months of little to no rain, it comes in buckets.
+
+Sunday @ 12:11 AM
+
+Just helped my brother escape his overpriced and bloated hosted email service and move his custom domain and all saved mail to Fastmail.
+
+Saturday @ 1:32 PM
+
+I’m a huge fan of Cook. Crazy big pay day. 750 million dollars.
+
+Quote.
+Tim Cook, Apple’s chief executive, received more than 5m shares in the firm and sold most of them, pocketing over 750 million dollars this week. The stock grant—part of a compensation package set in twenty eleven—was contingent on the tech firm meeting various financial targets, which it did. Under Mr Cook’s tenure, Apple’s market capitalisation has risen more than seven-fold. — Economist Espresso, Saturday, August 28.
+End quote.
+
+Saturday @ 1:28 PM
+
+I first heard of Rivian via The Long Way Up. Their trucks look pretty amazing. The valuation seems crazy high, but this might be a good investment still.
+
+Quote.
+Rivian, a California-based electric-vehicle startup, filed confidentially for a public listing, seeking a valuation between 70 billion dollars and 80 billion dollars. Among its planned offerings are a sport-utility vehicle and a pick-up truck. Like Tesla, it wants to bypass dealerships and sell directly to customers. Deliveries were meant to start in June but have been delayed due to the pandemic. — Economist Espresso, Saturday, August 28.
+End quote.
+
+Friday @ 10:38 PM
+
+What do you do when a hard rain comes right as you put the smash burgers on the flat top? Get the umbrellas!
+
+Friday @ 9:19 AM
+
+Our garden at the lake has gone wild! The tomatoes have pulled their cages out of the dirt! The tomatoes and squash are escaping to take over the yard. The strawberries are sending advanced troops out of the beds. Order must be restored.
+
+That's the end of the Journal.
+
+Now, the Briefly section.
+
+Link one. "We Are Definitely Going Back to Normal Right Now. Maybe - McSweeney’s Internet Tendency"
+
+"To prepare for our return to normal, we have set a date that exactly one month from now, everything will be back to how things were."
+
+Link two. "When you monetize your hobby, it looks a lot like a job - Vox"
+
+I think this article is literally every single person that has ever opened up an Aquarium store.
+
+Link three. "A Beginner’s Guide to Craft: Documents, Pages, and Blocks – The Sweet Setup"
+
+There are seriously so many note taking applications out there it is hard to even keep track. I bought a year subscription to Craft and have been enjoying it.
+
+Link four. "Staying Light and Flexible While Traveling - zen habits"
+
+I tend to over pack and bring more stuff than I need. We plan out each day when we travel, but we definitely embrace the flexibility described in 4.
+
+Link five. "If The Truth Be Told | Mitigating Chaos"
+
+Link six. "Turing Pi V2 is here - Turing Pi"
+
+Cool little board that you can mount multiple Raspberry Pi's on and create your own little cluster of computers!
+
+Link seven. "Work hard | What's new"
+
+This article is about pursuing a career in mathematics, but I think you could write the exact same thing for technology. Every one of the comments seems to apply to me.
+
+Link eight. "WebCrate - Organize your Web"
+
+An open-source app to organize bookmarks online. Instead of tags this uses the idea of crates.
+
+That's the end of Briefly.
+
+Now, the Fortune section.
+
+Here is your fortune…
+
+It was all so different before everything changed.
+
+Thank you for subscribing to the Weekly Thing!
+
+That brings us to the end of the Weekly Thing, issue 193. Thanks for listening, and I'll see you next time.

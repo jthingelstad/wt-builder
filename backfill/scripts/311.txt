@@ -1,0 +1,235 @@
+The Weekly Thing, issue 311. WikiTok, Bookmarklets, Tapestry. Published March 1, twenty twenty five. By Jamie Thingelstad. In this issue: Apple Vision Glasses, UK backdoor defiance, iPhone 16e, Bybit 1.5 billion dollars hack, Lazarus Group, software job openings, WikiTok, olmOCR document conversion.
+
+This week's links includes some under-appreciated tools, a massive crypto heist, and encryption battles. There's also a look at learning in public and why bookmarklets can be great.
+
+Good morning!
+
+As a regular reader of these emails I made a thing you may find interesting — I created a Custom GPT populated with the over 310 emails I've sent! You’ll need a ChatGPT account (I think free is fine) and you can go to: Weekly Thing GPT.
+
+You can ask it all sorts of questions about topics in the Weekly Thing and it does a pretty great job with it all. Some things you can try asking it that I thought were fun:
+
+1. What is the Weekly Thing view on social media?
+2. What is worse, Facebook or TikTok?
+3. Summarize issue «topic».
+4. What are the prevailing themes of the Weekly Thing by year?
+5. Show me a list of articles on «topic» along with the issue they were in.
+
+Let me know what you think of it or if you find it behaving particularly odd.
+
+I hope you are having a good start to your weekend!
+
+Now, the Notable section.
+
+Link one. "Garbage — Ridgeline issue 203"
+
+I know and think a bit about garbage and what happens to it because Tammy has a passion for this and has read a good amount about it. I would say that we do a decent job of being aware of the waste we generate. So this essay from Mod was on topic:
+
+Quote.
+Personally, I don’t love carrying my garbage around with me, but I recognize that it wouldn’t exist without my intervention. Nobody ran up and asked me to hold an empty cup. I thoughtlessly bought something. Thoughtlessly consumed it, and now I have to hold onto the detritus for a little while? Great. It’s easy. Easy to embrace that modicum of responsibility for your own waste. This is my protest song, the world’s lamest: I will attend to my garbage without complaint. Maybe give it a try next time you’re in Japan? It’s very exciting — to realize you will not be killed by your garbage, that holding a Snickers’ wrapper will not drain your crypto reserves, that not having piles of everyone else’s garbage all around is quite a nice bonus when walking through a city. And it might just keep you from buying unnecessary junk.
+End quote.
+
+The best way to have less waste is to simply consume less. I liked Mod's take on being responsible for that waste.
+
+Link two. "mdq: find specific elements in a md doc"
+
+This tool made me chuckle because I've always thought one of the cool things about Markdown files is that they have a structure to them per se, and you can use that structure to create things like a table of contents, or build programmatic content off of. For example, mdq would make it very easy for me to generate an index for each issue of the Weekly Thing and let you jump to each specific section or link. Or even just do a find on a directory with all the issues, pipe them through mdq and use simple wc -l to answer questions like "How many links did I share in twenty twenty four?". Cool stuff!
+
+Link three. "WikiTok"
+
+I love Wikipedia so it shouldn't be a surprise that I love this little app too! If you are addicted to "the scroll" and need something to feel better about scrolling, WikiTok is it! Scroll through Wikipedia articles and learn things instead of whatever that stuff is on TikTok. Add this web app to your phone home screen and you are ready to go! So good.
+
+Link four. "Apple Vision Glasses Will Be Irresistible"
+
+I've had my Vision Pro for a year and it is still interesting but is not a core part of my computing world. In fact I can go a week or two without even putting it on. However, when I do take some time to put it on and explore I always have fun. It is enjoyable. And there is a steady drip of new things. This article suggests that a future Glasses product from Apple will be crazy good, and it highlights a way of thinking about where we are that I think is spot on.
+
+For augmented reality to work we need two things: great hardware that really cannot exist yet, and great software paradigms for this new computing model. There are companies working on the first, and then there is only Apple working on the second. It is entirely possible that Apple fully considers the Vision Pro of today to be nothing other than a platform to learn how to build Spatial Computing. And that someday in the future a lightweight and reliable Glasses product will become possible, and then magically you have both the things you need.
+
+The iPhone and Apple Watch didn’t have this challenge. The Apple TV didn’t either. There was more convergence in capability and for the iPhone at this point the hardware is driving faster than the software can.
+
+I also note the word of caution in this article. In the extreme these experiences could be so captivating that we lose ourselves. If we think our social timelines are addictive and escape hatches to the real world, that is nothing compared to the future. How will we handle this?
+
+Link five. "Daring Fireball: Apple Pulls Advanced Data Protection From the UK, in Defiance of UK Demand for Global Backdoor"
+
+Apple responds as many suspected they might to the UK's demand to allow access to encrypted information by removing the capability for that country.
+
+Quote.
+Rather than comply, Apple is choosing instead to pull Advanced Data Protection from the UK. For UK users not already using ADP, the ability to enable it was already turned off before Apple's statement was sent. This report from BBC News has a screenshot of what UK users see if they attempt to enable it today. […] On issues pertaining to security and privacy, Apple always explains its policies and features as best it can. The fact that Apple has offered no hint as to why they're doing this is a canary statementof sorts: they're making clear as best they can that they're under a legal gag order that prevents them from even acknowledging that they're under a legal gag order, by not telling us why they're no longer able to offer ADP in the UK. This sort of read-between-the-lines implicit confirmation that they're under a gag order is the only sort of confirmation they can legally offer, at risk of imprisonment.
+End quote.
+
+Reminder that it wasn't that long ago that the US Government and FBI were suing Apple to break encryption and install backdoors as well.
+
+To reiterate my position on privacy and encryption vis-a-vis Apple. I don't have saintly belief that Apple is mission driven on this per se. I believe they have identified Health as one of their giant markets and they believe that you cannot be successful there unless you have a strong position on privacy and encryption. I believe that Apple looks at requests to compromise on these features as a loss against an entire giant market they believe has a ton of revenue for them. Google, Amazon, Meta (Facebook) have already lost this option.
+
+Link six. "Removing Jeff Bezos From My Bed — Truffle Security Co."
+
+This articles title would be better to describe what is a pretty big backdoor in the 8Sleep product. A friend sent this over to me knowing I’m an 8Sleep customer. I love/hate the product. It for sure brings incredible comfort and improvement to my sleep, and it also gives me the best sleep data I've ever had. However, I also suspect (know?) that it is a privacy disaster and now we see that they have access points into the devices in glaringly bad ways.
+
+Quote.
+What goes too far in my opinion, is allowing all of Eight Sleep’s engineers to remotely SSH into every customer’s bed and run arbitrary code that bypasses all forms of formal code review process. And yes, I found evidence that this is exactly what’s happening.
+End quote.
+
+So based on this articles finding we must assume that any engineer at 8Sleep can know a lot of things.
+
+Quote.
+What Can They Do with This Access? Let's start with the basics: - They can know when you sleep - They can detect when there are 2 people sleeping in the bed instead of 1 - They can know when it's night, and no people are in the bed
+End quote.
+
+I've got some personal experience here. Our first 8Sleep mattress pad malfunctioned at one point so I had to contact support. I never had to call or anything, simply notified them via the app. I got a response a couple days later that a specific sensor in our mattress had malfunctioned. How did they do that? I’m sure that an engineer connected to our unit and ran a diagnostic.
+
+Now that fundamentally isn't a bad thing, but how that person got access, how long they had it, and what controls were over that access are completely unknowable to me. Until this article where now I know there is some group of folks at 8Sleep with an SSH key that gives them 'God mode' access to my bed, and from there access to any devices on our home network.
+
+What is the solve? Privacy protection is for sure part of this. Also companies need to reveal what access they have and how it is protected. However, I’m also going to pursue other solutions. I think I should be able to configure my Unifi network so that the 8Sleep is segmented from the rest of my network and cannot connect to other devices. I would do the same for the Peloton devices and our Tesla cars.
+
+Link seven. "Software engineering job openings hit five-year low? - The Pragmatic Engineer"
+
+Super interesting observations on the state of the job market for software engineering. There is a lot made of AI's impact on software engineering, and a lot of guessing frankly about that impact. This article suggests that the bigger factor is actually changes in interest rates which impact the startup ecosystem the most. Secondly he suggests that tech is particularly reactive to sudden changes, more than other industries. Being close to this topic, I also think observations about what works and doesn't work in scaling engineering teams is interesting.
+
+Link eight. "How the largest crypto exchange hack happened: What Ethereum security experts say about Lazarus' 1.5 billion dollars Bybit attack | The Block"
+
+This 1.5 billion dollars theft from Bybit is the largest crypto attack ever, and notably it doesn't appear to be a compromise of Ethereum, Smart Contracts, or even the Wallets themselves but instead an attack at the interface between the multiple humans that controlled the multi-signature wallet and the transaction.
+
+Quote.
+"This was most probable an infected machine(s) where the attacker was able to intercept and show a fake Safe page so they sign something different from what it was shown," Odysseus, the pseudonymous founder of Ethereum security protocol Phylax, said in a direct message. "They then leveraged the fact that hardware wallets don't show the signed action but just the signature hash." Said simply, Lazarus -- in one way or another, either through phishing, infection via malware or a faulty Chrome plugin -- was able to put a screen in front of the multi-sig holders that made it seem like they were interacting with a familiar platform that was actually a backdoor to drain their funds.
+End quote.
+
+It is still too soon for full forensics to be done on this crime but it is now verified to be a state-sponsored North Korean entity.
+
+On X there was some rumblings that Ethereum may try to roll this back and fork Ethereum, which would have been a monumental thing. I could find no credible reporting on that even being considered and instead found nearly unanimous statements in Ethereum community that that would not be done.
+
+I keep having a thought regarding crypto theft like this — some of the security we experience with money is a result of inefficiency and bureaucracy. Sure banks have security programs and those do a lot, but there is also just the fact that it is slow to send money from one place to another with fiat. And that slowness allows time for things to be caught. If you can send any amount of funds instantly there is no time. And that bureaucracy that many like to rail against? That also requires a bunch of signatures and other blocks that can deter theft.
+
+Operational security of crypto assets, beyond the tech itself, may need to show up as adding inefficiency and bureaucracy to the system.
+
+Link nine. "Bybit Burglarized For a Billion"
+
+This article on the Bybit hack takes the view after the hack and looking at the funds. While it is obviously a bad thing for an exchange to get robbed like this, it is super interesting how crypto technology allowed the ecosystem around it to stabilize and know what happened. The graph of "Fund Flows" that shows the wallets that all of the 401.347 ETH tokens were sent to is incredible. At some point it will not be possible to track these funds, but it is wild how much visibility we can have. It is also interesting to see how everyone could see the 1.5 billion dollars go out of their account, and then validate that they shortly after added 1.3 billion dollars in deposits to provide solvency. This can all be done without relying on auditors, just purely the technology.
+
+Link ten. "Daring Fireball: The iPhone 16e"
+
+Gruber is always my go to reviewer to read up on new iPhone models. I think his conclusion is right on this:
+
+Quote.
+The iPhone 16e is an iPhone for people who don’t want to think much about their phone. But they do want an iPhone, not just any “whatever” phone. A just plain iPhone, with a good screen, good enough (and simple) camera, and great battery life. I think Apple nailed that with the iPhone 16e.
+End quote.
+
+Seems right on. It will be curious to see how this sells since most folks I know do have strong opinions about what they want on their phone. But I’m sure there are many that just want a phone that is good enough.
+
+Link eleven. "olmOCR – Open-Source OCR for Accurate Document Conversion"
+
+Impressive solution for turning PDFs and even photos of handwritten text into text data. Claims to handle tables well which is usually the downfall of all of these types of solutions. Uses a "vision language model".
+
+That's the end of Notable.
+
+Now, the Journal section.
+
+Journal entry one. Mason Jennings at the Dakota
+
+Tonight we saw Mason Jennings play at the Dakota. It was a wonderful show with a wide selection of songs from his portfolio. Plus he always had fun stories to share about the songs. He still has such a unique voice.
+
+Journal entry two.
+
+Good morning!
+
+Journal entry three.
+
+Beautiful day out. Time to heat up the sauna.
+
+Journal entry four.
+
+Great mission chest rewards from Famous Fox Federation today. 0.25 SOL!
+
+Journal entry five. Homemade Marshmallows
+
+My brother-in-law Denny recently decided to make homemade marshmallows. I guess it makes sense that this is something you can make but I honestly had no idea that was even a thing you could do. He made some for this weekend and we decided to take them out to the fire pit and see how they were roasted. He had vanilla and chocolate flavors as well.
+
+These were larger than regular marshmallows and I like the sharp cube shape of them. It reminds me of a fancy cocktail ice cube. They also have more weight than a normal marshmallow. I roasted the first one and tried it plain. I usually don’t care much for marshmallows without the necessary grahams and Hershey’s bars. But these marshmallows were a whole different thing!
+
+The homemade marshmallows were so smooth and gooey. They were delightful with a slight crunch on the outside and the most gooey thing you can imagine inside. Honestly they don’t work well on S’mores -- they are too gooey! A must try if you can get your hands on some.
+
+Journal entry six. Jamie 5.3.53
+
+Right before my birthday I decided use the Shortcut I wrote to calculate my version number and make it a widget on my phone using SuperWidget. I have an automation that runs at 5:00 AM each day to update my version number. It sits right next to my Four Thousand Weeks rings. It has been interesting for me to “feel” that the version number has real meaning to me, in a way the rings don’t. Each day is a new version. Jamie 5.3.53 is today, and will never be again. What do I want for 5.3.54? And how is it already over 1/seventh of the way to 5.4.0!
+
+Journal entry seven.
+
+We finished watching Shrinking S2 and now I'm bummed we have to wait for the next season. This is one of my favorite shows in a very long time.
+
+Journal entry eight. The High Kings at The Fitzgerald
+
+What a wonderful evening of Irish music. It was just under a year ago that we first saw The High Kings with my cousin Josh and his wife Dawn. We saw them a second time in August at the Parkway. This one was the best evening of the three. The Fitzgerald Theater was a great venue for them and I think the crowd knew nearly every word of most every song. They performed “Red is the Rose” and the audience became the performers. It was beautiful.
+
+The High Kings also announced that they would be returning this summer for the Irish Fair of Minnesota!
+
+That's the end of the Journal.
+
+Now, the Briefly section.
+
+Link one. "These were the 15 biggest employers in downtown Minneapolis in twenty twenty four - Bring Me The News"
+
+SPS is number 9 on the list.
+
+Link two. "Apple Intelligence comes to Apple Vision Pro in April - Apple"
+
+I've been wondering when Apple Intelligence would arrive on visionOS! All of these changes are good and I wasn't expecting a Vision Pro iPhone app but that makes a ton of sense. I continue to hope that Apple continues to incrementally invest in visionOS.
+
+Link three. "Introducing Perplexity Deep Research"
+
+The comparison screenshots in this article do a great job of showing how these research models respond.
+
+Link four. "Are We Self-Segregating on Social Media? - Dame Magazine"
+
+This seems obvious to me and was a couple of years ago. All social media products are near clones of each other. The only difference is brand, marketing, and whatever "influencers" they pay to be on their networks. Stop calling any of this stuff "technology". it doesn't deserve the credit.
+
+Link five. "Tapestry: Past, Present, and Future • The Breakroom"
+
+If you are looking for a simple app to "follow" blogs, YouTube, social this is a great option.
+
+Link six. "Migraine is more than a headache — a radical rethink offers hope to one billion people"
+
+Interesting new data on the stages of a migraine attack and what is occurring in the brain.
+
+Link seven. "Introduction to CUDA Programming for Python Developers | PySpur - AI Agent Builder"
+
+Good introduction to massively parallel GPU coding using Python frameworks.
+
+Link eight. "Trump 2.0 Brings Cuts to Cyber, Consumer Protections – Krebs on Security"
+
+This marks the US Government as one of the very, very few organizations I've heard decreasing their investment in cybersecurity.
+
+Link nine. "It is no longer safe to move our governments and societies to US clouds - Bert Hubert's writings"
+
+There are a lot of use cases around money, contracts, and computing where the US is a great solution because we are a country of laws and dependability. Take away that dependability and our "solution" is degraded.
+
+Link ten. "Bookmarklets (and Custom URL Schemes) Are Criminally Underrated | silly business"
+
+I have three bookmarklets that I use dozens of times a day. Being able to pop a little Javascript in your browsers user experience is very useful. I wish more products offered interfaces like this.
+
+Link eleven. "On the benefits of learning in public:: Giles' blog"
+
+Love the message here and hope that I do a bit of this with what I share in these emails.
+
+Link twelve. "NUT on my Pi, so my servers don't die | Jeff Geerling"
+
+I had no idea that Network UPS Tools existed. I've had this same issue myself with multiple devices on a single UPS, but only one device able to communicate with the UPS itself.
+
+Link thirteen. "With Pokémon Champions, Competitive Pokémon 'VGC' May Finally Go Mainstream - MacStories"
+
+Okay I didn’t know that there was a Pokémon Day but sure, I suppose that makes sense. This new Pokémon Champions sounds interesting.
+
+Link fourteen. "Elon Musk’s Starlink Is Keeping Modern Slavery Compounds Online | WIRED"
+
+Reminder: Musk was able to direct Starlink to not work for Ukraine if they were using it too close to Russian territory. They have incredibly granular capability to control what is occurring on their network.
+
+Link fifteen. "The Xonsh Shell — Python-powered shell. Python shell. Python in the shell. Shell in Python. Shell and Python. Python and shell"
+
+This shell does an incredible job of merging Python primitives directly into the command line. I love to see continued innovation on core capabilities like this.
+
+That's the end of Briefly.
+
+Now, the Fortune section.
+
+Here is your fortune…
+
+Your next great idea is hiding in plain text.
+
+That brings us to the end of the Weekly Thing, issue 311. Thanks for listening, and I'll see you next time.

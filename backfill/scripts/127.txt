@@ -1,0 +1,204 @@
+The Weekly Thing, issue 127. Nov 23, twenty nineteen. Published November 23, twenty nineteen. By Jamie Thingelstad. In this issue: Political ad targeting, engineering competency matrix, Google medical data whistleblower, America lost the bison, Why We Sleep errors.
+
+I spent this last week visiting our team in Kyiv, Ukraine. I was traveling with three others, two of whom had never been there before. We had some time on Sunday and we explored the city on foot for a while. It was great to see more of Kyiv. When people come to Kyiv they usually say it isn't what they were expecting. It’s a great European style city growing like crazy! Unofficially, some 5 million people.
+
+Now, the Featured Links section.
+
+Link one. "If You're Busy, You're Doing Something Wrong: The Surprisingly Relaxed Lives of Elite Achievers - Study Hacks - Cal Newport"
+
+Newport is taking a number of different threads here and putting them together well. The idea of deliberate practice was something I read about in Peak: Secrets from the New Science of Expertise and appreciated a lot.
+
+In fact, the more elite the player, the more pronounced the peaks. For the best of the best — the subset of the elites who the professors thought would go on to play in one of Germany’s two best professional orchestras — there was essentially no deviation from a rigid two-sessions a day schedule.
+
+It’s not the total duration that matters as much as the duration times the focus. Lots of time spent messing around will not move you forward.
+
+To me, this is one of the most sinister aspects of social media and mobile devices. The ever present attention economy flitters your time in a way that leaves you never relaxing, and never being deliberate. I've found myself in this space at times, having finished a busy day at the office and feeling like I need recovery time, and then sitting down to messing around on my phone and realizing that my brain and body isn't getting any recovery at all, and the value of what I’m doing is precisely zero.
+
+That's the end of Featured Links.
+
+Now, the My Weekly Photo section.
+
+The People's Friendship Arch in Kyiv, Ukraine. Under the arch are two figures, a Ukrainian and Russian worker standing together. Note the crack that has been painted on the arch.
+
+Nov 17, twenty nineteen at 9:01 AM
+Kyiv, Ukraine
+
+That's the end of My Weekly Photo.
+
+Now, the Notable Links section.
+
+Link one. "7 steps to building an engineering competency matrix - CircleCI"
+
+I was just talking about competency and skills inventories with the leader of our Kyiv office and ran across this article. It was over a decade ago that I last tackled this type of effort. This was a good refresher.
+
+Link two. "It's time to ban all political ad targeting... everywhere - without bullshit"
+
+I can completely get behind this idea.
+
+But if we don’t ban ads outright, why ban targeting? Because everyone should see what political advertisers are doing. I don’t want political advertisers showing one message to Democrats and another to Republicans, or one to men and another to women, or one to people who clicked on a website about abortion and another to those who visited a site about guns.
+
+I agree with the thesis. You can go ahead and advertise whatever you want, but it needs to be in the open where a lot of people can see it. I like the idea of only targeting by geography. That makes sense for political messages. But you shouldn't be able to send some dark message to only your followers.
+
+Link three. "What America Lost When It Lost the Bison - The Atlantic"
+
+I feel a connection with bison. You can see farmed bison pretty easily where I grew up in North Dakota. Their ruggedness and strength have always appealed to me. I often refer to them as my Spirit animal.
+
+Their actions change the landscape. In areas where bison graze, plants contain 50 to 90 percent more nutrients by the end of the summer. This not only provides extra nourishment for other grazers, but prolongs the growing season of the plants themselves.
+
+Amazing to hear how they impacted the land so positively as well.
+
+Link four. "Timery for Toggl Updated with Shortcut Parameter Support and a Refreshed Design - MacStories"
+
+I've been using Toggl via custom Shortcuts for two years now to do calendar analytics. Timery's shortcut additions are nice, and may open up some new data insights for me.
+
+Link five. "L’Affaire Vaperware —Daring Fireball"
+
+App Store bans are super complicated and cause frustration all over the place. The easy answer here is to suggest nothing should be blocked, allowing anything to be published. That results in a huge mess too.
+
+Link six. "An update on our political ads policy — Google"
+
+This is a good step for Google to take, and I like that it puts some pressure on Facebook to revisit their pathetic and destructive approach to political advertising.
+
+Link seven. "How Turkish coffee destroyed an empire | 1843"
+
+The history of coffee, and its spread around the world, is fascinating.
+
+In the coffee houses they were introduced to ideas that spelled trouble for the Ottoman state: rebellion, self-determination and the fallibility of the powerful.
+
+I watched Black Coffee several years ago and it asserts a similar path for the French Revolution as well.
+
+Link eight. "Americans and Privacy: Concerned, Confused and Feeling Lack of Control Over Their Personal Information | Pew Research Center"
+
+I'd agree with the leader here.
+
+Majorities think their personal data is less secure now, that data collection poses more risks than benefits, and believe it is not possible to go through daily life without being tracked.
+
+So basically I take from this article that American's went from first not caring about our privacy, to not understanding, to giving up.
+
+Link nine. "The Service Mesh: What Every Software Engineer Needs to Know about the World's Most Over-Hyped Technology"
+
+Good overview from the author of Linkerd.
+
+If you’re encountering the idea of service mesh for the first time, you can be forgiven if your first reaction is mild horror. The design of the service mesh means that not only does it add latency to your application, it also consumes resources and also introduces a whole bunch of machinery. One minute you’re installing a service mesh, the next you’re suddenly on the hook for operating hundreds or thousands of proxies. Why would anyone want to do this?
+
+There are two parts to the answer. The first is that the operational cost of deploying these proxies can be greatly reduced, thanks to some other changes that are happening in the ecosystem. Lots more on that later.
+
+The more important answer is because this design is actually a great way to introduce additional logic into the system. That’s not only because there are a ton of features you can add right there, but also because you can add them without changing the ecosystem. In fact, the entire service mesh model is predicated on this very insight: that, in a multi-service system, regardless of what individual services actually do, the traffic between them is an ideal insertion point for functionality.
+
+Service mesh is on a maximum in the hype cycle.
+
+Link ten. "Matthew Walker's "Why We Sleep" Is Riddled with Scientific and Factual Errors - Alexey Guzey"
+
+Oh c'mon, "Why We Sleep" is one of my most recommended books! The is only an analysis of the first chapter, and there is a lot that the author of this post argues Walker got wrong.
+
+Link eleven. "RoutineHub • A community for Siri Shortcuts"
+
+An active community site to share Shortcuts. There are some great ready-to-use things here, as well as examples to learn from.
+
+Link twelve. "I'm the Google whistleblower. The medical data of millions of Americans is at risk | Anonymous | Opinion | The Guardian"
+
+How is it that even with HIPPA and other regulatory requirements in place this still happened?
+
+What AI algorithms were at work in real time as the data was being transferred across from hospital groups to the search giant? What was Google planning to do with the data they were being given access to? No-one seemed to know.
+
+Above all: why was the information being handed over in a form that had not been “de-identified” – the term the industry uses for removing all personal details so that a patient’s medical record could not be directly linked back to them? And why had no patients and doctors been told what was happening?
+
+Medical data isn't something I want Google to ever have their hands on.
+
+Link thirteen. "A reflection on scaling Agile | LinkedIn"
+
+This article resonates with me as our team is right in that next phase as well, needing to drive even more transformation and innovation, with a broader impact, and through more of the organization than we ever have before. This means changing our approach. Many of the things mentioned in here are on my to do list as well.
+
+Link fourteen. "Andrew Levitt Recreates Catalina Wallpaper – 512 Pixels"
+
+Something about this makes me smile and grin.
+
+That's the end of Notable Links.
+
+Now, the Microposts section.
+
+Thursday @ 7:17 PM
+
+Sounds great, and I’m having fun trying to virtually follow #KubeCon. Maybe next year I can join the fun!
+
+Packed house listening to AuthN and AuthZ from the @Yelp team sharing their ServiceMesh security story. This is a great talk to think through security requirements you’re trying to solve for with your mesh. I recommend the video! #KubeCon pic.twitter.com/O09hKm80G2
+— Andy Domeier (@AndyJD_) November 21, twenty nineteen
+
+Thursday @ 7:16 PM
+
+Great to see #TeamSPS wrapping up a fantastic trip to #KubeCon!
+
+It's incredibly hard to leave #KubeCon in sunny San Diego. I wish it was here every year! #TeamSPS had an awesome trip filled with tons of learning and new friends. Cheers to the continued growth of a great community! pic.twitter.com/awKFrxse4w
+— Andy Domeier (@AndyJD_) November 22, twenty nineteen
+
+Thursday @ 3:10 PM
+
+International business travel and sleep don’t mix well.
+
+Thursday @ 2:18 PM
+
+On DL163 from AMS to MSP. One of the flight attendants is on her last flight as she retires with 43 years on the job. Her coworkers made the entire flight special for her with a banner, special hats, and buttons. She shared some heartfelt words with everyone and thanked her husband who is on the flight too. The entire plane applauded her milestone. Well done!
+
+Thursday @ 11:50 AM
+
+Watched Avengers: Endgame on my flight. I think nearly all the Avengers movies I’ve seen have been on flights. Very enjoyable movie, but the time travel angle is always a problem in Sci-Fi.
+
+Thursday @ 1:52 AM
+
+Wrapped up another great trip in Kyiv with #TeamSPS Ukraine! Time to head home!
+
+Tuesday @ 9:37 PM
+
+Kubernetes on jets? Neat!
+
+I have to say, I’m really blown away by the #DOD talk at #KubeCon! Really impressive to see the stacks they are using. "We don't run huge clusters, we run many little clusters, weapon systems, business systems, etc… " They are even running #kubernetes #istio on jets! pic.twitter.com/HwmTFi0Qrt
+— Andy Domeier (@AndyJD_) November 19, twenty nineteen
+
+Tuesday @ 10:01 AM
+
+Fantastic twenty twenty Growth Summit today with #TeamSPS in Kyiv!
+
+Monday @ 9:18 AM
+
+I love this #TeamSPS created SPS Commerce logo art in our Kyiv office!
+
+Monday @ 9:16 AM
+
+Dan Juckniess, SPS SVP, Chief Sales Officer, sharing market and go-to-market wins with #TeamSPS in Kyiv, Ukraine.
+
+Sunday @ 2:37 AM
+
+Waiting to depart from Amsterdam to Kyiv on KL1385 and the pilot announced they were boarding two seals onto the plane, which requires some special handling. As far as I know, first time flying with seals.
+
+Saturday @ 10:59 AM
+
+At the Old Log Theatre for The Emporor’s New Clothes.
+
+Friday @ 11:59 PM
+
+We went to Piff The Magic Dragon tonight at The Fitzgerald. It was an odd and funny mix of magic and witty comedy.
+
+That's the end of Microposts.
+
+Now, more links.
+
+- In the last decade board games took off, these were the most important - Polygon www.polygon.com
+Interesting reflection on the evolution of board games.
+- How containers work: overlayfs - Julia Evans jvns.ca
+Simplified and easy-to-understand overview.
+- Apple’s New Map, Expansion #6: Midwest + Western U.S. www.justinobeirne.com
+Still waiting for the updated maps for Minnesota, but it’s very interesting to see how Apple and Google are approaching this massive dataset.
+- The Value in Go's Simplicity | Ben Congdon benjamincongdon.me
+Elegance.
+
+That's the end of More Links.
+
+Now, the Fortune section.
+
+You've made it all the way to the end! Here is your fortune for this week.
+
+Try to relax and enjoy the crisis. -- Ashleigh Brilliant
+
+Thank you for subscribing to the Weekly Thing!
+
+That brings us to the end of the Weekly Thing, issue 127. Thanks for listening, and I'll see you next time.

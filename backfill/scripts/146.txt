@@ -1,0 +1,222 @@
+The Weekly Thing, issue 146. Stoics, Lockdown, MnTech, Learning a Language. Published May 2, twenty twenty. By Jamie Thingelstad. In this issue: Raspberry Pi HQ Camera, skin in the game, hard part of learning a language, remote meetings, board games quarantine, Minnestar at fifteen.
+
+Hello there! Another week of pandemic lockdown is in the books. Minnesota is extending the directive for two more weeks so it will continue to be more of the same here. Spring is here and the weekend ahead looks simply amazing. I'll be spending as much time as possible outside.
+
+I have a treat to share with you all. My friend Garrick van Buren has just launched a new newsletter called Inside Voice and it’s a treat. Sign up now to hear about things that Garrick found around the house during quarantine.
+
+Now, the Must Read section.
+
+Link one. "This is lockdown | Gordo Byrn"
+
+A post that asks us to do a review with ourselves and see how we feel about things a month into the pandemic lockdown.
+
+Quote.
+Resist the urge to point the finger outwards, too much of that happening. How did you do? April took a lot of "things" away from us. Under a high level of stress we fell into our deepest patterns. What did you notice?
+End quote.
+
+This would be a good article to prompt some journaling.
+
+Link two. "Live Lounge Allstars - Times Like These - YouTube"
+
+I love the Foo Fighters and this is such a great video. love it all! Listen to it a few times. So good.
+
+That's the end of Must Read.
+
+Now, the Photograph section.
+
+Downed trees in the Cannon River outside of Red Wing, MN.
+
+Tweet often?
+Help put out the dumpster fire and share this on Twitter.
+
+That's the end of Photograph.
+
+Now, the Recommended Links section.
+
+Raspberry Pi High Quality Camera Review: Interchangeable Lenses, Powerful Sensor | Tom's Hardware
+
+What a cool little camera with interchangeable lenses for Raspberry Pi! This improved camera would seem to open up a number of photography projects for Raspberry Pi use.
+
+Luca Dellanna on Twitter: "We all know the importance of skin in the game for organizations and societies. But what about yourself?"
+
+Gordo Bryn mentioned this in his blog and it resonated strongly with me. I like the construct of "Skin in the game" even if I get a bit tired of the Nassim Taleb fanboy crowd. In fairness I've read nearly all his books, but he's so very full of himself. Anyway, the idea of skin in the game for our own habits, thoughts, beliefs. That deserves some introspection.
+
+Due Adds Modern Shortcuts Support with New Reminder Creation Parameters - MacStories
+
+I used Due for a while for routine tasks like taking the garbage out and household chores. I ended up stopping because the app wasn't good enough at syncing data and it had no automation hooks. Now that it has some of those things solved I might give it another look. If you are looking for a more powerful task tool, but not a full GTD type solution, Due is a good option.
+
+Time is the only real currency we have
+
+Great post focused on developer productivity and how to focus on the things that matter. The section on "Things That Don’t Matter (Time Sinks)" is probably my favorite.
+
+a-Shell
+
+This reminds me a lot of OpenTerm. I like seeing the experimentation with command line interfaces on iOS. I loaded a-Shell though and it comes setup with python3, vim, lua, clang and many other tools. You could probably do some pretty powerful stuff with this.
+
+MHTA Rebrands as Minnesota Technology Association » MnTech
+
+This is a badly needed refresh to such a long-standing institution in the Twin Cities community. This fresh but familiar name better reflects today and the organizations it serves, and the refreshed imagery is great. I just joined the board of MnTech this year too. I’m excited to be part of this pivot we are making!
+
+The Hard Part of Learning a Language • Hillel Wayne
+
+Great reminder that learning a new language is a lot more than the language itself, but the whole ecosystem around it. I also do my hacking in Python.
+
+Not All Gross Margin Is The Same - AVC
+
+I like this additional color on gross margin. It is particularly relevant for software, and maybe even more for SaaS companies.
+
+Quote.
+The trick, I think, is to wrap your head around the cost of revenue or cost of goods sold line item in the income statement and think about what is going on there. If it is very little to no effort, and largely just an accounting entry, then you may have a "low margin business" that is actually a high margin business. On the other hand, if it is a lot of work and capital investment to produce those margins, well then you have what you have and that is often a low margin business.
+End quote.
+
+Almanac - Layne Kennedy Talks Creativity in Trying Times - Twin Cities PBS
+
+Layne is a friend of mine and is such a generous, genuine, and friendly person. He's a joy to spend time with, and his passion can’t help but come through. This is a great video with him.
+
+The Trade Desk | New Survey Suggests 64 Percent of U.S. Households May Lack Long-Term Interest in Cable TV Subscriptions
+
+This should surprise nobody. It’s the same trend we see with all media formats. They "age out".
+
+Quote.
+- 18-34 age group – 74 percent - 35-54 age group – 64 percent - 55+ age group – 56 percent
+End quote.
+
+No surprise that younger people prefer streaming.
+
+Minnestar at fifteen – recursion by Luke Francl
+
+An incredibly kind post from Luke Francl, one of the founders of Minnestar, thanking Adrienne Pierce, Kevin Spreng, and myself for the contributions that we made to the organization that he, Ben Edwards, and others formed and kicked off so long ago. I love what the new board members are bringing to this critical organization.
+
+Why remote meetings don’t feel the same - The Keyword
+
+Five social dynamics to consider for remote meetings. I feel that awareness of these topics helps you compensate for them in the meetings. As I read about "Zoom fatigue" and the causes, I've largely been able to adopt practices to combat it and manage it throughout the day.
+
+Daily Stoic on Twitter: "6 Time Management Techniques from Seneca"
+
+6 basic questions or statements to review how you are using the one resource that we all have the exact same amount of — time.
+
+Don't Wear a Mask for Yourself - The Atlantic
+
+It’s not about you… it’s everyone else.
+
+Quote.
+Masks can be worn to protect the wearer from getting infected or masks can be worn to protect others from being infected by the wearer. Protecting the wearer is difficult: It requires medical-grade respirator masks, a proper fit, and careful putting on and taking off. But masks can also be worn to prevent transmission to others, and this is their most important use for society. If we lower the likelihood of one person’s infecting another, the impact is exponential, so even a small reduction in those odds results in a huge decrease in deaths. Luckily, blocking transmission outward at the source is much easier. It can be accomplished with something as simple as a cloth mask.
+End quote.
+
+That's the end of Recommended Links.
+
+Now, the Stream section.
+
+Thursday @ 10:07 PM
+
+Numskull Ms. PAC-MAN
+
+Tammy loves Ms. PAC-MAN so we got her this Quarter Arcade version for her birthday. It is a perfect replica, small and light but very well built. It even has a battery so you can play it anywhere. The joystick is surprisingly good with solid feedback. The whole family has been having fun playing a quick game.
+
+Thursday @ 10:01 PM
+
+My Defiant One Fat Bike still puts a big smile on my face.
+
+Thursday @ 9:57 PM
+
+I was explaining TV dinners to my kids and the whole concept made no sense to them. I told them my favorite was Hungry-Man Dinners Turkey Dinner, the potatoes, and the cherry stuff. Related, I've figured out what I'm serving the next time it's my turn to cook dinner!
+
+Wednesday @ 7:23 AM
+
+Wasn’t expecting or trying, but surprised myself with a new 20-min spinning PR this morning on Peloton. #FitByFifty
+
+Tuesday @ 7:46 PM
+
+Our new office space in Kyiv, Ukraine is coming along nicely and will be ready for #TeamSPS when we are able to return to the office! The pandemic posed logistical issues but the project team managed through it.
+
+Saturday @ 10:26 PM
+
+We all watched Strike tonight. Fun and a little odd movie. Reminded us a little bit of Fantastic Mr. Fox.
+
+Saturday @ 10:14 PM
+
+We got takeout from Zetta’s tonight and thoroughly enjoyed the “somewhat original flatbread sandwiches”. I recommend checking this place out. The food is very tasty, very portable, and well suited to take out during social distancing.
+
+Saturday @ 10:10 PM
+
+We joined my sister and her family for the Extreme Sandbox Heavy Metal Drive-Thru tonight. We had a fun time watching all the heavy equipment play. There were a lot of very excited little kids in attendance honking horns.
+
+Saturday @ 10:01 PM
+
+We visited the Anderson Center Sculpture Garden today in Red Wing. First time we had been there and it was a fun way to enjoy such a nice day.
+
+Saturday @ 9:56 PM
+
+We had a nice easy hike along the Cannon River by Red Wing today. We also got delicious pizza at Red Wing Brewing and pie at Stockholm Pie in Red Wing. Fun day trip to Red Wing.
+
+Saturday @ 11:31 AM
+
+Another great Peloton spin class with fellow #TeamSPS members this morning — 30 min 80s Rock Ride! #FitByFifty
+
+Saturday @ 10:29 AM
+
+It turns out micro.blog is a pretty excellent live blogging solution. If you use the website you can append repeatedly to a post and just hit publish whenever you want to update. Open another tab for uploading photos and you can do that as well. The post is updated within a few seconds of hitting update.
+
+I wonder if you could pop a little Javascript into the post to automatically reload the post page every couple of minutes.
+
+Saturday @ 10:06 AM
+
+(mini) Minnebar
+
+Attending (mini) Minnebar this morning, the very first online Minnebar! It is awesome to see minnestar pivoting to further its mission during the Covid-19 pandemic. #minnebar
+
+Dan Lew's opening session on "What Tech Can Do About Climate Change" was a great way to get started.
+
+Of course very proud that SPS Commerce is a terabyte supporter!
+
+This is my first time using Crowdcast and the experience is very good.
+
+Joe Karlsson with "An Introduction To IoT (Internet of Toilets ); Or How I Built an IoT Kitty Litter Box Using JavaScript". Fun to see the interesting projects he's doing. Predicts we will see this continuing to grow. For sure!
+
+Having Minnebar online is an interesting tradeoff. Something I could never do that I just did, was send the link to a number of friends, none in the Twin Cities, and suggest they sign on. There is a big inclusivity win with events moving online.
+
+Kisha Delain with "Pair programming: Supporting Your Jr Devs Right". It is so great to see #TeamSPS presenting at Minnebar! Kisha brought some great observations on what works to make pairing work well, which is one of the most critical ways that developers learn.
+
+It is interesting to me that online events tend to have a structured method for facilitating Q and A from the audience. This is one of the things that seems to work way better in online events. Asking questions in an auditorium with 500 people is almost always a bust.
+
+… due to other commitments I had to cut out after the first three talks. I really enjoyed this Minnebar and can't wait to see the next iterations of events from minnestar like this! They even made the playlist available if you dug the tunes!
+
+That's the end of Stream.
+
+Now, for your information.
+
+Life Comes at You Fast. So You Better Be Ready. - RyanHoliday.net
+
+Thoughts on applying stoic principles to the chaos that we are all feeling right now.
+
+StreamYard
+
+Now that more people are creating streaming content tools like this are more interesting to me.
+
+30 board games to play during quarantine with family, two-players, or solo | Ars Technica
+
+We have five of these, and I would add Photosynthesis to the list. Azul is one that we have and is a lot of fun and very unique.
+
+Virtual Stadium - the Zoom live event product we need now - without bullshit
+
+I'd love it if this software existed.
+
+Shop is a new shopping app designed to improve ecommerce for everyone.
+
+Brilliant timing from Shopify to come out with an e-commerce app that merchants can use to reach customers right now.
+
+Miro | Free Online Collaborative Whiteboard Platform
+
+Powerful collaboration platform for distributed teams. Our team at SPS has been using this very effectively.
+
+That's the end of the FYI section.
+
+Now, the Fortune section.
+
+You've made it all the way to the end! Here is your fortune for this week.
+
+You may be recognized soon. Hide.
+
+Thank you for subscribing to the Weekly Thing!
+
+That brings us to the end of the Weekly Thing, issue 146. Thanks for listening, and I'll see you next time.

@@ -1,0 +1,273 @@
+The Weekly Thing, issue 345. Codex, Headless, Wikiwise. Published April 26, twenty twenty six. By Jamie Thingelstad. In this issue: OpenAI Codex App, Cloudflare Email Service, Headless everything for personal AI, Claude Design, Dad brains, ChatGPT Images 2.0, GPT-5.5.
+
+Good morning!
+
+I hope your weekend is off to a great start!
+
+This week was filled with big tech stuff: Apple CEO transition, GPT 5.5, Claude Design. The pace is just moving faster and faster.
+
+I have a long blog post in this issue that is a talk I gave turned into a post that hits on speed and how fast things are changing.
+
+But today we have more important things. Today is Tammy's birthday and we are going to be making the most of it!
+
+Enjoy the links and have a great day!
+
+Now, the Notable section.
+
+Link one. "OpenAI’s New Codex App Has the Best ‘Computer Use’ Feature I’ve Ever Tested - MacStories"
+
+Add this to the long list of things I need to directly play with. I will share that I've been incredibly frustrated with OpenClaw and am about to give up on it. The continued progression of Claude Cowork and now Codex computer-use features seem like they are much more mature and reliable to get work done.
+
+Link two. "Cloudflare Email Service: now in public beta. Ready for your agents"
+
+There are a lot of email services but not many that are fully designed for agents. Agents are going to want email as a core service just like we do, but they are going to want their email inbox to work differently. This is going to happen with many, many services.
+
+I have to share that I have some flashbacks here to the period when we were making "social everything". Social media was the focus and we thought Social ERP and Social HRIS would be a potential tidal wave that would dislodge established players. That was a complete mirage.
+
+I think this time is very different.
+
+Link three. "Headless everything for personal AI"
+
+This "headless" term is pure marketing and I sure hope it blows by, but the concept I agree with completely. Matter of fact I’m already playing here with my mb project. I've been working on a lot of agent building and thinking about how agentic systems compare with typical product building that has been the focus of most things I've done for my career.
+
+Products are designed for people and our huge context windows, visual preferences, and a desire to enable the user to do whatever they want at any time with buttons and events.
+
+Agents have a limited context window, much prefer text interfaces that are easy to parse, and thrive on non-blocking command line calls.
+
+There is overlap between these but less than you might think. Part of the reason that building agentic systems is moving so quickly is removing some extremely expensive and time consuming things that products need. You need a concept, some visual system. You need user testing. You need to consider a whole event model. With agents you don't need any of that.
+
+And on top of that, you can just ask the agent how it is working. You can ask another LLM to generate interactive test data. You can move so much faster.
+
+Link four. "Introducing Claude Design by Anthropic Labs"
+
+Anthropic's newest major capability for Claude is Claude Design. I wanted to get my hands dirty with it so I pointed it at the POAP KINGS website which was entirely created with Claude Code, including the design. I thought the design was okay but I had just added a blog feature and it was getting unruly. I pointed Claude Design at the Github repo and it went to work. I answered a number of questions about what I was hoping for and over the course of several prompts it provided a very solid iteration forward.
+
+The most helpful thing in Claude Design is that you can select a specific element and make a very pointed design comment. It is hard to do that in Claude Code. Overall it was very good at understanding the visual language. And in the end I just hit Share and sent the design to Claude Code which then dutifully updated the site with the new look.
+
+Impressive, particularly for a beta, and the connectedness with Claude Code is very powerful.
+
+Link five. "Dad brains: How fatherhood rewires the male mind"
+
+Interesting read filled with what seems like a decent amount of common sense.
+
+Quote.
+Their findings are not unique. Other teams have also found that drops in testosterone during their partner's pregnancy are also linked with higher investment, commitment and satisfaction after birth, and that this hormone's level was even linked to the men's reactions to baby cries: it made them more alert and responsive. In twenty eighteen, a team in Gettler's lab also concluded that fathers with lower levels of testosterone tend to be more involved in caring for babies and toddlers.
+End quote.
+
+Tons of podcasts and newsletters for men are focusing on keeping your testosterone high and that it is a problem for men as they age. Data also shows that being in a good relationship and having kids drops testosterone levels. We shouldn't ignore either to the disadvantage of the other, but it is also important to not just look at one thing in isolation.
+
+Link six. "Introducing ChatGPT Images 2.0 | OpenAI"
+
+Incredible example images created by the newest image models from OpenAI. I know everyone, including me, is all focused on Anthropic right now but GPT-5.5 and this are pretty impressive.
+
+Link seven. "Mac Power Users #845: Intentional Technology with Patrick Rhone - Relay"
+
+Was great to see the Twin Cities own Patrick Rhone on the latest episode of Mac Power Users!
+
+Link eight. "An MCP server for Fastmail — National Email Day"
+
+This might be the first MCP server that becomes my BFF. I’ve been a Fastmail user for many years and when I saw this I instantly went into Claude and added the connection. It was super-simple and then I asked Claude if it could see my email and there it was. I've not done anything all that advanced with it but I’m very happy with how seamless and easy it is. It is also great that it connects to my Claude account and instantly was available on all of my Claude interfaces. Oh how I wish I had a similar MCP for OmniFocus.
+
+Link nine. "Is Your Site Agent-Ready?"
+
+Tool that inspects a website to see what AI capabilities it is advertising. Useful if you wish to make your site as useful for agents as possible. I’m surprised thought that it didn’t look for llms.txt support.
+
+Link ten. "Introducing GPT-5.5 | OpenAI"
+
+Most of the highlights here are about coding. I fired up codex on Elixir's code and asked it to do a review and assessment. It came forward with strong suggestions and quickly understood everything. The model seemed notably fast to me. Just overall it is still mind-blowing how this is all evolving.
+
+That's the end of Notable.
+
+Now, the Journal section.
+
+Journal entry one.
+
+Tyler and I are going to do a Minnebar session this year -- Elixir: Creating An Ai Agent For Our Clash Royale Clan. This will be a lot of fun to share with everyone and tell some of the POAP KINGS and Elixir story.
+
+Journal entry two.
+
+There is a fox that has been mostly living at our cabin property for a couple of years now. This year she had pups and they sure are cute to see scamper around.
+
+Journal entry three.
+
+It is still such a “wow” when you hit print and go downstairs a few hours later to grab something useful. Tyler and I are having a great time with the Bambu Labs P2S.
+
+Journal entry four.
+
+Cold April night for MNUFC v Portland match.
+
+Journal entry five. Software Is Liquid
+
+This started as a talk I gave internally to a group of technology leaders. I’ve adapted it here, stripping out the company-specific material, because the core ideas apply well beyond any one organization.
+
+I want to throw out some ideas about what I think is changing in our industry. What I’m going to describe is one of the most rapidly evolving, most dynamic changes I have ever seen in a twenty-plus-year career in technology. I believe there are things changing right now that will fundamentally redefine how we practice our craft.
+
+Where we are
+
+Let’s bookmark where we are. Agents are real. I’ve watched one go from nothing – zero, no code, no design – to a working alpha with real users making real decisions on it, in about five weeks. A year ago, this was an idea. Now there are production agents running.
+
+Agentification is the next major milestone our industry is going through.
+
+I’m old enough to say this: there was a time before the web and a time after. A time before mobile and after. A time before the cloud and after. And now, a time before AI and agents and after.
+
+I think this is going to be the most transformative of all of those.
+
+You have to acknowledge one paradox of where we are: we are building the best practices before they exist.
+
+We’ve been here before. Those of us who lived through the cloud transformation remember being ahead of the industry, figuring out how this ephemeral compute stuff works, how to make it all function. There weren’t patterns the industry had settled on. That’s where we are today. There are no clear patterns for how agentification happens. We’re going to build those patterns and learn alongside the industry.
+
+That’s okay. Just be aware of where you are. It’s fine to be out ahead of the curve; you just have to always know when you’re there, because it’s a risky spot. You don’t want to be too far out.
+
+Getting philosophical: software is becoming liquid
+
+I want to get a little philosophical.
+
+For the last two months, I’ve pushed myself into a level of AI engagement that is probably unhealthy long-term, honestly. If you ask my family, they would agree. But what I’ve been trying to do is really wrap my head around the core concepts that I think change how we do what we do.
+
+Connect this back to other transformations. When we adopted a mobile world, we all knew we needed to be mobile users to lead it. Can anybody build a great mobile app if they’ve never used a mobile phone? Obviously not. So to lead through AI agentification, we have to be really close to it. I’ve been pushing myself hard to do that, because as you build experience, it gets harder to refactor how you think.
+
+Here’s something I’ve been thinking a lot about: what is the cost of being wrong? And how do we fold that into how we create things?
+
+Step back for a moment and think about how we do our craft. Say we’re building software. We spend time on discovery. We create stories. We have designers go off and make wireframes. We do all kinds of things to make sure that, when we actually get to the point of building, we know we’re doing the right thing.
+
+Why? Because the act of building software has been incredibly expensive. The last twenty years of my career have been about figuring out how to effectively turn ideas into working software and how to make sure that, when we do, we’re not wrong – that we’re producing valuable capability. That’s what technology teams around the world have been focused on. The teams that do it well do these things better than the teams that don’t.
+
+Here’s how I’ve come to think about it: software has historically been a solid. It’s chiseling something out of granite. We have our ideas, we sit down, it’s hard work, it’s challenging, and we chisel it out of granite.
+
+I think that’s changing. I first heard this from somebody online and it didn’t land for me at first – I thought, that doesn’t make sense. But the more I thought about it, the more I thought it was spot on. The assertion was: software is becoming liquid.
+
+We’ve operated for two decades in a world where software is an incredibly difficult solid to shape. With AI and agentic development – automatic programming – software is becoming malleable. If you’ve worked with agents on software, you’ve had the experience of thinking: I can refactor this code faster than it would have taken me to do all the guardrail work to make sure I didn’t make the wrong decision in the first place.
+
+When the economics of what you do change that profoundly, you have to question everything.
+
+Every paradigm built on “software is expensive” needs re-examination
+
+Go back further. Most of us spent the early parts of our careers in agile flows. Before that, everybody did waterfall. Why? Were they just not as smart? No – they were operating under a different set of assertions. If you made a mistake writing C code, it was really difficult to unwind. You’d take months to refactor a mistake in your domain model that showed up in C code.
+
+Then we got Python, PHP, interpreted environments, continuous integration. The paradigm changed. Suddenly: what if I’m wrong? Fine, I’ll refactor. Refactoring Python is cheaper than refactoring C. That’s just a fact.
+
+So here comes agile. We can do this differently. We can be more responsive.
+
+The cloud is the second part of that story. The cloud says we can do the same thing with hardware – we don’t have to worry about where we put the server. The cost of being wrong, if I put a server in the wrong data center, is not easy to undo. But in the cloud, that’s a couple of commands.
+
+We are in that same spot again.
+
+AI is transforming the cost of creating software in a way that should make us question every single process we have that is fundamentally built on the assertion that creating software is expensive.
+
+I’d argue that maybe proof of concept doesn’t make sense anymore. What we used to call a proof of concept is now discovery. And how do you do discovery? I think you do it in code. Your discovery process is entirely in code. Do you then throw the code away? No. Why would I? It’s liquid. I bend it, move it around, get it where I want it.
+
+The act of discovering through creating changes things pretty fundamentally. That paradigm is going to take us a while to absorb. I really want you to think about what you have in your world that makes assertions that building this stuff is extremely expensive. And when I say “cost,” don’t just think dollars – think organizational cost.
+
+That’s assertion one: software is becoming liquid.
+
+Managers belong in the code
+
+Here’s my second assertion. If you’re a people leader, this one is for you.
+
+I used to have a very firm belief. When I saw a people leader – a director or a manager – in code, that was a warning sign. Almost always, when I saw a director or manager in code, they were probably avoiding something harder that they were supposed to be doing. “Oh, you’re working on the actual software? I bet you have a personnel problem you’re not dealing with.”
+
+I don’t think that’s true anymore. Agentic engineering changes that fundamentally.
+
+The issue historically was a simple one of context window. As a manager, you couldn’t truly know the codebase because it was too complicated. It was a solid asset your craftspeople were working on. You had to focus on the people systems. You just couldn’t hold both of those things in your head and be effective.
+
+Agents change that paradigm entirely. There is no reason, as a director or a manager, why you shouldn’t be talking to an agent and asking about the quality of the asset you’re accountable for. And as a people leader, you are accountable for the assets your people create. So why aren’t you having that conversation?
+
+Why would I ever start a conversation with an engineer with, “how long do you think that’ll take?” I should have had that conversation with Claude Code first – looked at the source, asked: is this a big refactor? If we went this direction, how would that look?
+
+This flips even further on its head when we think about agentification, because increasingly we’re going to be creating software not for people to use, but for agents to use. Think about how that works. You work with an agent to create the software. Another agent uses it. The agent using it gives you feedback on how it’s working. You take that feedback back to the coding agent and ask it to iterate.
+
+What are you in that loop? I don’t know – a product manager, I guess.
+
+I’m doing this today on multiple projects at home – using agents to give each other feedback. This speed and paradigm shift is foundational to how we have to adjust our thinking.
+
+Rethinking velocity
+
+The last thing I want you to really think about: as an industry, we need a step-function change in how we think about velocity.
+
+How long is something going to take? I’d argue every paradigm you have for answering that question is broken now. The cost understanding is broken. The complexity understanding is broken. It’s all broken.
+
+The only way to truly gauge it is through the second thing I mentioned – getting closer to the asset you’re accountable for, getting closer to the code and the product.
+
+Just like mobile – where you couldn’t understand how to build an app until you’d experienced one – you can’t understand agentic transformation until you’ve experienced it firsthand.
+
+Don’t be scared to go close to the code. Don’t be scared to ask your team, “Hey, how do I get that code out of Git? I’d like to look at it and do some analysis.”
+
+These are superpowers. Every single one of us can put a cape on. You didn’t have these before. I think it’s amazing. And the whole industry is going to go through this transformation.
+
+The change curve, and the rate of change
+
+I want to close with something about change itself.
+
+There’s a model called the Satir change curve. Every one of us sits at a different point on it right now. But just like every transformation before it, your progress is gated by your own engagement – by your own willingness to rethink the craft you have and to let go of things that may have been important for the last two decades but aren’t important anymore.
+
+I invite you to come down this path.
+
+Personally, it’s not easy. And what’s not easy is the rate. Think about it: we had two or three or four years to figure out mobile. We had half a decade for cloud. The web took an eternity – it was the first one. Here, we’re trying to do this in about a year.
+
+Why? Because it’s enabled by all the other capability we’ve built, and because the potential is so big. The return on investment, once we identify things, is measured in weeks or months – not years. That’s a completely different thing than any of these previous transformations.
+
+I hope you heard something here that grounds you.
+
+Software is liquid. The fundamental economic paradigms have changed. You are able to lead through this.
+
+Journal entry six. Hypergrowth
+
+This growth is hard to even comprehend.
+
+Quote.
+Anthropic says Claude Code is now growing revenues at a 2.5 billion dollars run-rate, a number that has doubled since January 1. Claude Code was launched in May twenty twenty five. Six months later it was at 1 billion dollars. Its sales are growing faster than a 1980s F1 monster, pulling the whole company along with it. Anthropic hit 14 billion dollars in ARR in February, 19 billion dollars in March, and around 30 billion dollars this month. -- Software Eats Its Own
+End quote.
+
+Even being prepared for that level of scaling is impressive.
+
+Journal entry seven.
+
+We had a great presence from TeamSPS at the Aspirations in Computing awards event tonight and welcomed three of the four high-school interns that will be working with us this summer!
+
+That's the end of the Journal.
+
+Now, the Briefly section.
+
+Link one. "On Ada, Its Design, and the Language That Built the Languages"
+
+Long article but I like these kind of deep-dives into languages. This one makes the case that Ada was well ahead of its time in many ways.
+
+Link two. "Wikiwise — Build your own Wikipedia"
+
+I am a fan of wikis but getting them integrated into your knowledge system isn't easy. Using a wiki to collaborate with an agent seems like a solid path.
+
+Link three. "Changes in the system prompt between Claude Opus 4.6 and 4.7"
+
+It is super interesting to see the changes that AI models get between releases.
+
+Link four. "Daring Fireball: 'Community Letter From Tim'"
+
+I'll miss Tim Cook being at the helm of Apple. I've got a ton of respect for what he has built and how he has led Apple (with a couple of recent exceptions).
+
+Link five. "Noah Kahan: Tiny Desk Concert: NPR"
+
+We have tickets to go see Noah Kahan in Minneapolis this summer. Our whole family is really into his music.
+
+Link six. "Daring Fireball: Trump on Tim Apple"
+
+Nothing much to add.
+
+Link seven. "Daring Fireball: Another Day Has Come"
+
+John Gruber commenting on the CEO transition at Apple. Gruber is my go to for deep Apple insights.
+
+Link eight. "Why Zip drives dominated the 90s, then vanished almost overnight"
+
+This brought me back! I remember being so excited when I got my Zip drive back in the day. It seemed so fast and could hold so much!
+
+Link nine. "Ferrari: The Prancing Horse and the Business of Desire — Acquired"
+
+As a fan of Ferrari and specifically Ferrari Formula 1 I greatly enjoyed this episode of Acquired.
+
+A haiku to leave you with…
+
+Wiki of my own,
+Clouds of email drift in play —
+Agents sip the sky.
+
+That brings us to the end of the Weekly Thing, issue 345. Thanks for listening, and I'll see you next time.

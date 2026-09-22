@@ -1,0 +1,247 @@
+The Weekly Thing, issue 309. Programming, Silence, Drones. Published February 16, twenty twenty five. By Jamie Thingelstad. In this issue: End of programming, iCloud encryption backdoor, Agile as trauma, only way forward is Mac, personal software, sound of silence, stablecoin dollarization.
+
+Welcome to Weekly Thing 309, sent from Minneapolis, MN, where winter still lingers, but the inbox remains warm. This week explores changes in programming, encryption battles, and why drones now have drones!
+
+Good afternoon?
+
+So sometimes I don't get these emails out exactly on schedule, and very rare times I’m even much later than usual. Today is one of those.
+
+So let's get right to it!
+
+Now, the Featured section.
+
+Link one. "The End of Programming as We Know It – O’Reilly"
+
+Tom O'Reilly shares his perspective on the future of programming and how he sees AI impacting this. As many realize, programming has evolved so much in the last fifty years in ways that programmers from "back then" would have no idea how modern programmers do there craft.
+
+Quote.
+AI will not replace programmers, but it will transform their jobs. Eventually much of what programmers do today may be as obsolete (for everyone but embedded system programmers) as the old skill of debugging with an oscilloscope. Master programmer and prescient tech observer Steve Yegge observes that it is not junior and mid-level programmers who will be replaced but those who cling to the past rather than embracing the new programming tools and paradigms. Those who acquire or invent the new skills will be in high demand. Junior developers who master the tools of AI will be able to outperform senior programmers who don't. Yegge calls it "The Death of the Stubborn Developer."
+End quote.
+
+He shares an interesting real world example, possibly even highlighting what could be a future specialization.
+
+Quote.
+"That last mile of taking a cool platform and a bunch of your business processes and manifesting an agent is actually pretty hard to do," Bret explained. "There's a new role emerging now that we call an agent engineer, a software developer who looks a little bit like a frontend web developer. That's an archetype that's the most common in software. If you're a React developer, you can learn to make AI agents. What a wonderful way to reskill and make your skills relevant."
+End quote.
+
+At the end of the day, programming is about solving problems and we are getting entirely new tools to build those solutions with.
+
+Quote.
+"Workflow still matters," Sankar argued, and the job of the programmer will be to understand what can be done by traditional software, what can be done by AI, what still needs to be done by people, and how you string things together to actually accomplish the workflow.
+End quote.
+
+Technology in general requires constant reinvention. I've shared many times that to have a career in technology is to have a career in learning. You always have to be learning today the things that will drive your craft forward in the future. AI is causing an inflection point in that learning that is similar to other major changes. It wasn't that long ago that Cloud Engineering wasn't a thing for example.
+
+The important thing for technologist? Use this stuff. Don't hold back. Engage. Learn. Understand it.
+
+That's the end of Featured.
+
+Now, the Introducing Eric Cohn's Blog section.
+
+Introducing another of the Christmas Blogs with Eric Cohn's "Cohntemplations" today. Eric has set his site up nicely with a solid theme and a lovely short URL to boot co-hn.com.
+
+Hey everyone - Eric Cohn here, checking in from Houston, Texas!
+
+A little about myself. Tech has been more than a career for me -- it's been a lifelong hobby and borderline obsession from the moment I could get my hands on a circuit board (figuratively, maybe literally once or twice.) I've always been a bit of a low-key nerd, geeking out over the latest gadgets, software, and everything in between. Professionally, that passion has translated into a career spent happily immersed in the world of tech companies.
+
+Like many in tech recently, I experienced a layoff -- a "Reduction in Force" as the corporate jargon goes. It happened pretty quickly after recently joining a new company, which, to put it mildly, was unexpected. Suddenly, my professional calendar cleared up by close to 100%. Instead of dwelling on it though, I'm choosing to see this as an opportunity! A chance to breathe, recharge, and most importantly, explore new platforms (hello micro.blog!) and challenges.
+
+Speaking of new platforms and learning curves, let me share a recent, slightly embarrassing, but definitely educational moment. In the immediate aftermath of the layoff, I did what any slightly confused/upset/angry person might do -- I vented a little online. Figuring my reach on micro.blog was relatively small, you know? Lesson learned: always, always double-check your cross-posting settings! Turns out, my "small reach" was a bit larger than anticipated thanks to some micro.blog cross-posting fun I'd been experimenting with. Let's just say my LinkedIn and Bluesky connections got a bit more insight into my immediate post-layoff feelings than perhaps intended. Consider it a public service announcement: kids, manage those cross-posting settings!
+
+I'd been hearing about micro.blog for a while as a reader of Jamie's Weekly Thing each week. (A quick aside: I'm an OmniFocus and Getting Things Done "true believer" and I first heard of Jamie and his newsletter on the Omni Group's podcast where he spoke about his excellent OmniFocus system.) While I was waffling on whether to jump on in, I was so lucky as to win Jamie's Christmas giveaway.
+
+So, what can you expect to find me posting? A little bit of everything, I suspect. Think Houston happenings -- maybe some restaurant reviews or local event coverage. Kid stories -- because, let's face it, they're the best (and sometimes the most frustrating) source of material. Tech musings -- I'm always tinkering with something, so expect some posts about gadgets, and the ever-evolving tech landscape. And, of course, a healthy dose of dad jokes. Definitely dad jokes.
+
+Anyway, that's me in a nutshell. Super excited to be here and join the Micro.blog community! Drop me a line -- I'd love to connect!
+
+That's the end of Introducing Eric Cohn's Blog.
+
+Now, the Notable section.
+
+Link one. "Apple Ordered by UK to Create Global iCloud Encryption Backdoor - MacRumors"
+
+Now it is the UK's turn to go after encryption.
+
+Quote.
+The undisclosed order is said to have been issued last month, and requires that Apple creates a back door that allows UK security officials unencumbered access to encrypted user data worldwide – an unprecedented demand not before seen in any other democratic country.
+End quote.
+
+Encryption needs to be defended as a fundamental right to use. We have the right to secrets, and that should extend to our use of technology as well.
+
+Link two. "Agile as Trauma — Dorian Taylor"
+
+There are a lot of interesting points in this article that Taylor makes about the limitations of Agile. I think a lot of this is spot on. Many organizations and teams just adopt Agile without thinking about the problem they are trying to solve. I continue to see the missing part of this around the cost of refactoring, which isn't mentioned here. Fundamentally I think teams need to understand "What is the 'cost' if we get this wrong?" The cost by the way could be time, actual lost revenue, anything really. If it is very costly to be wrong, you need to build process around that. You should also be thinking how you can change that. Because in general it is always more difficult to change things that have a high cost to mistakes.
+
+Link three. "Once again, the only way forward is the Mac | Macworld"
+
+The different models and control points that manage how software (apps) end up on our devices are interesting, and Apple has via its AppStore some of the most sweeping controls of any. The recent Tik Tok issues highlight how challenging it is when a company limits distribution onto their platform through one point. Snell argues that Apple should pursue a more open model like macOS uses.
+
+Link four. "Personal Software | Lee Robinson"
+
+Is it possible that with AI we could be entering a time where you can have any application you want custom created for you? Is software the opposite of many industries where we start with bespoke and then become increasingly manufactured? What if the future doesn't involving buying or "renting" any software, but just having an AI make what you wish. Like having your own tailor to make all of your clothing just for you.
+
+Quote.
+AI has changed our relationship with software. Software can now adapt to you, not the other way around. Better yet, AI is making it possible for anyone, not just developers, to create single-use or custom applications.
+End quote.
+
+I’m not going to entirely discount this scenario, but it hides a lot of complexity. Yes AI is able to write code and design functions. How far does that scale up? And would we even want software that is made just for us? There is a lot of making software that has nothing to do with writing code or functions. The design of the thing is important. The opinions that go into the structure matter.
+
+And if this applies to software then why would we not apply it to every other craft? Why watch movies for everyone, but have AI make movies just for you. Why read books for everyone, AI can write a book just for you.
+
+If one of those scenarios sounds right and the other wrong… I think there is something amiss in our thinking.
+
+Link five. "The sound of silence | ᕕ( ᐛ )ᕗ Herman's blog"
+
+I loved this post from the creator of Bear blog.
+
+Quote.
+I've come to appreciate time spent with nothing but my thoughts. It's something I'd escaped for years. In the modern age it's so easy to always have some kind of entertainment streaming.
+End quote.
+
+One of my common ways to do this is to drive into work with no music, no podcast, just silence. I often find this a form of GTD mind sweep and end up adding a lot of things to lists to follow-up on.
+
+He doesn't specifically use the word solitude in this blog post but that is the thing.
+
+The combination of mobile devices, always available Internet, and so many algorithms at the ready to shove information at us — solitude is something that we can go a very long time without experiencing.
+
+That is a loss.
+
+Link six. "Will stablecoins herald a broader-based dollarization? - Marginal REVOLUTION"
+
+The potential to use US dollar backed tokens like USDC on existing blockchains is incredibly powerful. All of this tech exists and has been in use for years now. If we got to a point where it was well regulated and remove legal questions it could be a huge economic unlock. This is all independent of the price of Bitcoin or Ethereum mind you. Just think of it as modern banking for the existing USD uses.
+
+That's the end of Notable.
+
+Now, the Journal section.
+
+Journal entry one.
+
+I was excited to see my question, how to choose a donut, answered in latest issue of Mike Monteiro’s Good News!
+
+Journal entry two.
+
+I thought for sure there would not be a Weekly Thing this weekend. Then my afternoon opened up and it is happening. That makes me happy. Will go out tomorrow morning!
+
+Journal entry three. David Francey at Celtic Junction
+
+A couple of months ago my cousin Josh sent me a text that David Francey was coming to Minneapolis and wondering if I’d like to go? I had no idea who Francey was or where he was playing, but after clearing the calendar the answer was an instant yes! Last year Josh had turned me onto the High Kings and they have been on high rotation for me ever since, so I was happy to get introduced to another musician. Josh and Dawn, and their good friends Paul and Jodi, joined Tammy and I to see Francey at the Celtic Junction last night.
+
+It was a great show.
+
+Before we get to Francey there was a short set from Terra Spencer to open the show. Spencer was a great opener with a novel-like background of being a funderal director in a small town. Her songs were captivating. “Coyote” stood out in her songs for me.
+
+For the final song of her set David Francey came on stage and joined her, and then Chris Murphy came on as well and Francey’s set started, with Spencer staying for a couple of songs but the majority of the set was Francey and Murphy.
+
+I had listened to some of Francey’s songs before coming so I was expecting a delightful evening of folk music and we got that and some more. He shared a story for every song he played.
+
+“This Morning” stood out for me. He wrote it on John Prine’s passing and brought in components of Prine’s music into it. I’ve listened to this song several times now. “The Breath Between”, the title song off of his newest album had me rapt as well.
+
+As I listened to him it hit me that his accent and singing reminds me so much of the late Shane MacGowan of the Pogues. Francey doesn’t have the gravel and drunk sound of MacGowan. But the cadence and lilt is very similar.
+
+Lastly, the Celtic Junction was a cool venue. They partner with the Irish Fair of Minnesota and have a nice community center.
+
+Journal entry four. Venusaur Holo
+
+I had never heard of a Gacha before but I was intrigued when Collector Crypt sent an announcement about the Elite Pokémon Gacha Machine. I forwarded it to Tyler to investigate.
+
+The gist is you pay a fixed amount and get a random card with a minimum value. Collector Crypt does this all on the Solana blockchain. We decided to give it a whirl and pulled a Venusaur Holo (1996) with a near-mint 8 PSA rating.
+
+Tyler digs Collector Crypt because they have good Pokémon cards. I dig it for that and that it is a great use of NFT’s and smart contracts. The transaction for this Gacha machine is a complicated one with seventeen different steps.
+
+We will likely “burn” the NFT and have Collector Crypt ship us the nearly 30 year old card.
+
+Journal entry five.
+
+Tyler and I have been having fun with Collector Crypt. I decided to join their Card Club and grabbed an NFT in the market place.
+
+Journal entry six. Super Bowl LIX Ads
+
+Ads that hit home with me from the Super Bowl.
+
+So Win -- Nike
+
+To me this one was the best by a mile. Led Zeppelin as the soundtrack was top notch. Gruber agrees with me.
+
+Take Me Home -- Rocket
+
+Has there ever been ad that directly tied back to the stadium experience? This had us singing along in the ad and then cut to the stadium full of people also singing along with all of the in-stadium advertising connected up. Impressive.
+
+Whatever Comes Your Way -- WeatherTech
+
+I’ve bought WeatherTech floor mats for every car I’ve had for years. In the winter they are a must.
+
+Big Game -- Jeep
+
+Freedom. Jeep. Harrison Ford. Of course.
+
+The Intelligence Age -- ChatGPT
+
+ChatGPT with a “typical” technology company spot.
+
+Journal entry seven.
+
+Excited for TeamSPS SKO twenty twenty five!
+
+Journal entry eight.
+
+We had a fun evening of laser tag at Tactical Urban Combat as part of Tyler's birthday.
+
+Weekly Thing Forum
+
+Join Tom Mungavan, Peter Clark, Patrick Hambek, Jim Cuene, Michael Josephson, and many other Weekly Thing readers in the Weekly Thing Forum. Recent topics include:
+
+- TRMNL
+- Weekly Thing #306
+- Newsletter 305 - Professional Scratchers
+- Weekly Thing Logo
+- Newsletter 304 and Blog Thoughts
+
+That's the end of the Journal.
+
+Now, the Briefly section.
+
+Link one. "Why it makes perfect sense for this bike to have two gears and two chains - Ars Technica"
+
+Incredible bicycle and introduced me to World Bicycle Relief which has brought bicycles to over 4 million people. The video in this article is worth watching.
+
+Link two. "Internet Archive played crucial role in tracking shady CDC data removals - Ars Technica"
+
+The role of Internet Archive continues to grow in importance.
+
+Link three. "Drones are now launching drones to attack other drones in Ukraine - Ars Technica"
+
+Add AI to this and we have true technology led warfare.
+
+Link four. "EFF to Ninth Circuit: Young People Have a First Amendment Right to Use Social Media (and All of Its Features) | Electronic Frontier Foundation"
+
+This is filled with a lot of legalize but I think I may disagree with the EFF on this one. For sure young people should have the right to publish and "create" online. But limiting the impact of surveillance on young people is something I completely agree with, including algorithmic timelines.
+
+Link five. "How Google turned 'I'm not a robot' into a massive surveillance system - Boing Boing"
+
+Ugh.
+
+Link six. "It's Later Than You Think - Hollis Robbins"
+
+A view of AI's impact on teaching and Universities.
+
+Link seven. "Daring Fireball: Fox’s New Scorebug Graphic Design, and Our Innate Resistance to Change"
+
+I enjoy reading Gruber's rare design critiques like this. I noticed the "score bug" was different but I didn’t take it apart like this. Good read.
+
+Link eight. "History’s Largest and Most Famous Disability Access Ramp – Ex Urbe"
+
+When we were in Florence they highlighted this private Medici skyway.
+
+Link nine. "NotebookLM Plus Is Now Available to Google One AI Premium Subscribers - MacStories"
+
+NotebookLM has quietly become a very powerful AI tool for projects.
+
+That's the end of Briefly.
+
+Now, the Fortune section.
+
+Here is your fortune…
+
+Your future is encrypted... unless the UK says otherwise.
+
+That brings us to the end of the Weekly Thing, issue 309. Thanks for listening, and I'll see you next time.

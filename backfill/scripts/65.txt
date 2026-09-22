@@ -1,0 +1,190 @@
+The Weekly Thing, issue 65. Aug 4, twenty eighteen. Published August 4, twenty eighteen. By Jamie Thingelstad. In this issue: Bullshit Web, Facebook evil, great employees leave, crypto firehose, FAST beats SMART, OKRs, Cost of Agile, M.C. Escher prints.
+
+We are starting a week of vacation in the Finger Lakes region of New York! We are flying into Syracuse and staying in Ithaca for most of the week. We are going to see Niagara Falls, which I have wanted to see for a long time! I love waterfalls and that is the big one!
+
+If you have recommendations of things to do in the area send me a reply!
+
+Now, the Featured Links section.
+
+Link one. "The Bullshit Web — Pixel Envy"
+
+A great overview of the mess of junk put in most websites.
+
+So, with an internet connection faster than I could have thought possible in the late 1990s, what’s the score now? A story at the Hill took over nine seconds to load; at Politico, seventeen seconds; at CNN, over thirty seconds. This is the bullshit web.
+
+My personal sites have none of this. And this is why you must run software like 1Blocker. It’s not just about ads, it’s about all this bullshit.
+
+That's the end of Featured Links.
+
+Now, the My Weekly Photo section.
+
+Target Field at night.
+Jul 30, twenty eighteen at 10:05 PM
+Target Field, Minneapolis, MN
+
+That's the end of My Weekly Photo.
+
+Now, the Notable Links section.
+
+Link one. "Is Facebook evil? Everything bad about Facebook is bad for the same reason — Quartz"
+
+You are the product.
+
+But the imperative to “connect people” lacks the one ingredient essential for being a good citizen: Treating individual human beings as sacrosanct. To Facebook, the world is not made up of individuals, but of connections between them.
+
+Facebook makes a lot of revenue on those connections. What is the cost to everyone else?
+
+Link two. "Why Great Employees Leave “Great Cultures”"
+
+A practical definition of what makes up a company's culture:
+
+I’ve been working in HR for over twenty years, and the best companies I’ve worked with have recognized that there are three elements to a culture: behaviors, systems, and practices, all guided by an overarching set of values. A great culture is what you get when all three of these are aligned, and line up with the organization’s espoused values. When gaps start to appear, that’s when you start to see problems — and see great employees leave.
+
+This could work as a good checklist of items to assess if you do have gaps between stated values and actual actions.
+
+Link three. "Drinking From The Crypto Firehose – AVC"
+
+Fred Wilson has financial reasons to view crypto as he sees it, but perhaps he’s right.
+
+Link four. "Mapstr - Your Places, Your World"
+
+Record places that you have been. This concept has been tried before but this implementation is nicer than others.
+
+Link five. "With Goals, FAST Beats SMART"
+
+I love this.
+
+To drive strategy execution, leaders should instead set goals that are FAST — frequently discussed, ambitious, specific, and transparent.
+
+That also sounds very similar to an effective OKR.
+
+Link six. "Week in Review Leadership Comms | Lara Hogan"
+
+I have been publishing a Tech Weekly email to our tech team at SPS using the patterns I’ve built for the Weekly Thing. I like what Hogan highlights here on how she used a similar vehicle. I think it is a meaningful thing to do.
+
+Link seven. "Subscribe to Your Micro.blog Timeline"
+
+This is really cool. Using this and the Twitter capabilities of Feedbin I’m able to read micro.blog feeds and a handful of Twitter users in one simple feed, right in my RSS reader!
+
+Link eight. "The World Wide Success That Is XML | W3C Blog"
+
+It’s popular to bash XML but it has had an amazing and long lasting impact.
+
+Link nine. "The Cost of Agile"
+
+I disagree with this article. The main driver of agile in my opinion is admitting you really don't know exactly what you want to build, and you will keep your refactoring costs low in order to iterate. Efficiency misses the point entirely.
+
+Link ten. "How To Prepare For A One-on-One Meeting As a Manager"
+
+I continue to find various perspectives on effective 1-on-1 meetings worthwhile. There are some useful tidbits here.
+
+Link eleven. "Startup Lab workshop: How Google sets goals: OKRs - YouTube"
+
+Comprehensive video describing how Google implements their OKR framework.
+
+Link twelve. "Business/busyness | Seth's Blog"
+
+A good reminder from Seth Godin to focus on value.
+
+Busy is not your job. Busy doesn’t get you what you seek. Busy isn’t the point. Value creation is.
+
+Measure it.
+
+Link thirteen. "M. C. Escher (1898-1972). Prints and Drawings - Digital Commonwealth"
+
+Like many technologists, I find M. C. Escher's art mesmerizing. This collection of prints from the Boston Library are a great way to experience them. The digitizations are very high resolution. This made me look for M. C. Escher desktop wallpaper for my computer, but everything I found was not high quality.
+
+That's the end of Notable Links.
+
+Now, the Give Back section.
+
+Let's Encrypt is a free, automated, and open certificate authority, run for the public’s benefit. All connections to web servers should be encrypted! The biggest challenge with encrypting the web historically has been the cost and hassle of getting an SSL certificate. Let's Encrypt has changed that entirely by being a free certificate authority. Let's Encrypt is possibly one of the most important things to happen on the web in recent years. Donate to Let's Encrypt today!
+
+That's the end of Give Back.
+
+Now, more links.
+
+- Spect - Fast image browser and organizer for macOS stevenf.com
+Super fast image browsing on the file system.
+- Faust: Python Stream Processing github.com
+Stream and event processing library for Python 3.
+- ApexCharts – Open-Source HTML5 JavaScript Charts apexcharts.com
+Very nice chart library.
+- Google Cloud Platform Blog: Istio reaches 1.0: ready for prod cloudplatform.googleblog.com
+Istio is an important part of te Kubernetes ecosystem. Good to see it in release.
+- Add an "On This Day" feature to a Micro.blog website github.com
+Fun JavaScript to power a look back feature on micro.blog. I created my own On This Day page.
+- HR Software to Motivate, Inspire and Develop Your Workforce | BetterWorks www.betterworks.com
+OKR platform for teams.
+- Employee Productivity Management Software www.newsteer.com
+Team software that enables OKR systems.
+- Perdoo. OKR software for leaders and teams. www.perdoo.com
+An OKR platform for teams.
+- OKR (Objectives and Key results) Software for Teams - Weekdone
+OKR platform along with mobile solution.
+- The Road to QUIC blog.cloudflare.com
+The next step in the evolution of HTTP.
+- Zulip zulipchat.com
+With HipChat collapsing into Slack, it’s good to know that there are still some other team chat options.
+- Keep a Changelog keepachangelog.com
+An entire website advocating people to keep a changelog and highlighting some best practices.
+
+That's the end of More Links.
+
+Now, the Microposts section.
+
+Thursday @ 10:11 PM
+
+These Beanie Boos keep multiplying.
+
+Tuesday @ 7:50 PM
+
+International Champions Cup soccer at US Bank Stadium.
+
+Tuesday @ 7:46 PM
+
+Tottenham Hotspur v AC Milan at US Bank Stadium tonight!
+
+Monday @ 10:08 PM
+
+Twins win!
+
+Monday @ 8:36 PM
+
+Nice sunset hitting downtown Minneapolis from Target Field.
+
+Monday @ 7:26 PM
+
+Twins v Indians tonight!
+
+Sunday @ 4:31 PM
+
+Great fun this afternoon tubing down Minnehaha Creek across the street from our house.
+
+Sunday @ 12:46 PM
+
+Morning kayak on Lake Nokomis.
+
+Saturday @ 4:03 PM
+
+Had a fabulous afternoon at Shady Oak Beach!
+
+Friday @ 11:13 PM
+
+Tammy and I finished the Ruin Raiders room at Missing Pieces all on our own!
+
+Friday @ 9:19 PM
+
+Tammy and I went to Sorry To Bother You tonight. Very fun, and original movie. Enjoyed it.
+
+That's the end of Microposts.
+
+Now, the Fortune section.
+
+You've made it all the way to the end! Here is your fortune for this week.
+
+He that hurts another, hurts himself.
+
+Thank you for subscribing to the Weekly Thing!
+
+That brings us to the end of the Weekly Thing, issue 65. Thanks for listening, and I'll see you next time.

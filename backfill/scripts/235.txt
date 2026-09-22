@@ -1,0 +1,229 @@
+The Weekly Thing, issue 235. TikTok, Busy, Stories. Published November 27, twenty twenty two. By Jamie Thingelstad. In this issue: China digital fentanyl, seven levels of busy, moving away from UUIDs, Bob Iger returns Disney, TikTok weaponization, Infosys AWS keys leak.
+
+Thanksgiving is one of my favorite holidays. I hope you were able to get away and spend time with family and friends. We had some last minute changes due to COVID, but embraced agility and adapted plans.
+
+I always have grand thoughts of how I’m going to prepare the turkey, and then the reality turns into running out-of-time and watching YouTube videos to remind myself how to carve it. The Wassail Tea is much easier.
+
+But the best thing about Thanksgiving is the people you are with, all the special memories and stories, and of course being thankful…
+
+"Anybody who doesn’t change their mind a lot is dramatically underestimating the complexity of the world we live in." — Jeff Bezos
+
+Now, the Featured section.
+
+Link one. "How China Got Our Kids Hooked on ‘Digital Fentanyl’"
+
+Overview of many aspects of TikTok that should concern you greatly. TikTok is growing at tremendous rates, in part because the onboarding process is so low friction. TikTok takes algorithmic feeds to levels that Facebook and Twitter could only dream of. In fact, because of the explicit following and friending actions you take in other social networks, they can’t even do the same thing.
+
+There are many reasons I strongly dislike TikTok and never will use it myself. Let me just share one.
+
+Do you know what the most important signal TikTok uses to determine your interest in a video? Many assume it is playing a video. Or maybe when you play it, how long do you watch. Nope, those are not it. The most important signal that you provide TikTok to feed you content is stopping the scroll. As you swipe down, sometimes you will press on the screen to stop the scroll. Your eye has seen something that your Type 1 brain noticed. Not your higher order mental capacity, but the lizard brain that engages without you thinking. When that causes you to stop, TikTok knows that they won the jackpot on whatever was on the screen.
+
+TikTok observes the most automatic activities of your brain, and then feeds you algorithmic content specifically tuned to that. You have no agency. You aren't specifically following anyone. There wasn't a moment where you decided anything. It is instead like you are in the matrix and the recommendation engine is feeding you whatever you subconsciously engage with.
+
+No thanks. Hard pass.
+
+The lack of agency in selection of what you see is bad enough, but augment that with the clear knowledge that the algorithm must be designed for some objective. Some outcome. The math must have a goal. That content is then influencing my mental state, my view of the world, my context. How do I even know that my thoughts are my own, and not the thoughts placed there via algorithmic selection on TikTok.
+
+If there is a level of bad for you in the digital media landscape. TikTok occupies the top of the podium.
+
+Link two. "The Seven Levels of Busy – Rands in Repose"
+
+I love this enumeration of busy. Seven levels. Not Busy, Stuff to Do, Significant Commitments, At Capacity, Cracks in the Facade, Crushing Commitments, Unsustainable. The descriptions are simple. There is no recommendation of what to do with it, but as an enumeration I dig it.
+
+Reading this, I tend to operate in levels 5 thru 7, mostly in 5.
+
+That's the end of Featured.
+
+Now, the Notable section.
+
+Link one. "Moving away from UUIDs – Neil Madden"
+
+Madden has a delightful post going into depth on the "guessability" of UUIDs. UUIDs are used all over the place in so many systems. They solve a really important issue for programmers, creating a (nearly) guaranteed random number.
+
+But Madden goes to work to see how long it would take to guess a UUID and, uh oh, it could be 35 minutes.
+
+Quote.
+My recommendation is to use a 160-bit (20 byte) random value that is then URL-safe base64-encoded. The URL-safe base64 variant can be used pretty much anywhere, and is reasonably compact.
+End quote.
+
+That takes 17.9 million years to guess. More than 35 minutes…
+
+Link two. "On company size"
+
+When Musk came into Twitter and started firing people by the thousands it brought a lot of attention to how many employees and contractors Twitter actually had. In the case of Twitter, I have no idea how many employees is the right number for them to have.
+
+Fried shared this post looking at company size and various competitors that they have for Basecamp. Not surprisingly, 37 Signals is markedly smaller but at a size that is competitive with these other organizations.
+
+My main thought on this article though is that it again makes one of the biggest mistakes I see in business comparison. Comparisons are made based on total revenue, at the expense of growth rate.
+
+If I want to learn from other companies, I want to first know their growth rate. Other metrics are interesting, but if you grow at a rate much slower of faster than I am, I likely have little to learn.
+
+In fairness, Twitter also isn't growing that fast so that isn't a reason for them to have a lot of staff.
+
+Link three. "3 Reasons Smart Leaders Tell Stories - How You Can Too - Leadership Freak"
+
+There is so much truth to this statement. Nearly all great leaders I've worked with are also storytellers.
+
+I think the reason is pretty simple.
+
+Stories are the programs of the brain. People engage in stories. They are how we remember things. How we teach. How we share.
+
+If you can turn your objectives and goals into stories that people identify with, and engage with, you will see amazing results.
+
+Link four. "Bob Iger Returning as Disney CEO, Bob Chapek Fired by Board – The Hollywood Reporter"
+
+Iger is returning to Disney.
+
+Quote.
+Iger "has agreed to serve as Disney’s CEO for two years, with a mandate from the Board to set the strategic direction for renewed growth and to work closely with the Board in developing a successor to lead the Company at the completion of his term," the board said.
+End quote.
+
+I’m pretty sure "developing a successor" was on his to do list the last time too. Take two now…
+
+Link five. "FBI director says he's 'extremely concerned' about China's ability to weaponize TikTok - CyberScoop"
+
+I have a very long list of things that I despise about TikTok. The threat that it poses from foreign ownership, in my opinion, is real. The algorithmic and behavioral approach that TikTok uses could be easily directed towards a variety of objectives, none of which would be readily discerned without all the data behind the scenes. Could that be weaponized? Very much so.
+
+Link six. "Infosys leaked FullAdminAccess AWS keys on PyPi for over a year | Tom Forbes"
+
+Leaked credentials to cloud services is a huge problem, and it is so easy to make. This is wild that this was publicly exposed for a year!
+
+Quote.
+At the top of the file, embedded as string constants, was an AWS access key and AWS secret key. The rest of the code seemed to be interacting with a S3 bucket in pretty standard ways: pulling data, loading it into pandas and computing some basic aggregates. It seems like this code came from an internal Github instance inside Infosys and was accidentally published. I assumed the key had been revoked (it’s been public for over a year!), but to my great surprise I found it was still active!
+End quote.
+
+Link seven. "Taylor Swift | The Eras Tour Onsale Explained - Ticketmaster"
+
+The service issues related to the most recent Swift concert sale made the news. This article doesn't really explain what the technical issues were. I don't know that much explanation is needed though, the graph in the article tells the whole story.
+
+Staggering sales would have been sensible. It also highlights how even really large technology platforms, designed for scale, aren't ready for "world scale" yet. Handling the demand of the entire world is still the work of science fiction.
+
+Link eight. "Twitter. | Irrational Exuberance"
+
+Larson joined Twitter in March two thousand seven.
+
+I joined in December two thousand six, 4 months earlier. But who's counting.
+
+Larson explains the various periods of Twitter very well. I remember many of these same times. It was like a walk down memory lane reading this. He also highlights negative experiences on the product.
+
+I’m vehement that Twitter is not the "town square" or the "commons". The commons isn't something you can buy and sell, it doesn't have a market cap or a value.
+
+But I’m also not running for the hills. I’m curious to see how the product changes.
+
+Link nine. "Mike Klingensmith: The Exit Interview | Twin Cities Business"
+
+Publisher of our local paper is retiring. Local news is a tough but important business.
+
+Quote.
+Print subscriber attrition has "quickened nationwide," he says. "In the pandemic, people were afraid of print papers and so they traded them out for digital subscriptions." Single-copy sales also took a hit. The problem is that there’s roughly 200 dollars more profit in an annual print subscription (400 dollars) than in a digital one (200 dollars). For every thousand print subscribers who convert, that’s 200,000 dollars in lost profit.
+End quote.
+
+Isn't that a kicker? When you "succeed" in making that jump from print to digital, you lose 50% of the margin.
+
+News and media is still a very difficult place to build a business, unless you are one of the handful of huge, national brands.
+
+Link ten. "Micropayments for content | Seth's Blog"
+
+Godin suggesting that a frictionless micropayment infrastructure is needed for the web. I agree completely. Payment is one of those foundational capabilities that we nee for the web as it continues to evolve.
+
+What Godin describes here is a bit similar to the Brave Rewards system based on BAT, a crypto token. It is worth noting that Web3 tech would address this whole surface area straight on, and keep it direct person-to-person instead of putting VISA in the middle of the world.
+
+After all, you could send me a micropayment anytime you want to thingelstad.eth!
+
+Link eleven. "Having a safe CEX: proof of solvency and beyond"
+
+Buterin theorizing on different approaches to making centralized exchanges safer for users, requiring less trust. There is some interesting ideas here, but we already know the best way is to not keep your funds on an exchange.
+
+Quote.
+In the longer-term future, my hope is that we move closer and closer to all exchanges being non-custodial, at least on the crypto side. Wallet recovery would exist, and there may need to be highly centralized recovery options for new users dealing with small amounts, as well as institutions that require such arrangements for legal reasons, but this can be done at the wallet layer rather than within the exchange itself.
+End quote.
+
+This is really a wallet problem more than anything else. And one of the worst things about the massive fraud at FTX is that it reinforces the idea that crypto is all crooks, and that is going to keep the best user experience teams away from this. I wonder often what a crypto wallet would look like that was embedded into the iOS Wallet. Great companies that know usability are needed to tackle the wallet challenges.
+
+r/WeeklyThing?
+
+Are you into Reddit? I’ve been giving it another go lately. I’ve long thought that it would be really cool to have a place for Weekly Thing readers to comment and connect!
+
+Check out r/WeeklyThing!
+
+That's the end of Notable.
+
+Now, the Journal section.
+
+Thursday @ 8:53 PM
+
+Mazie had an awesome idea and collected things everyone was thankful for and then put it together. Love this!
+
+Thursday @ 3:36 PM
+
+Turkey check mid cook. So far so good. Going faster than expected.
+
+Thursday @ 2:11 PM
+
+From our family to yours, wishing you a very Happy Thanksgiving!
+
+Thursday @ 1:59 PM
+
+What did your Thanksgiving brunch cover?
+
+Mine included a review of Ethereum Layer 2 networks, side chains, how bridges work, and what your wallet really does for Hector and Max.
+
+We moved a nnxyz NiftyInk from Gnosis to Ethereum mainnet.
+
+Tuesday @ 7:56 PM
+
+I was intrigued by the interview on Pivot with Waze founder Noam Bardin on his new offering Post. He's taking the community features that made Waze successful and applying them to social media with a focus on news. I'm on the waitlist.
+
+Tuesday @ 2:52 PM
+
+Looking great today Minneapolis!
+
+Monday @ 9:30 PM
+
+Just ordered 176 pounds of candle wax.
+
+Sunday @ 2:04 PM
+
+I love that This Week in POAP highlighted our Things 4 Good Fall Fundraiser POAP in the Nov 15 edition!
+
+"POAPs for good: a POAP at a family fundraiser."
+
+Sunday @ 9:32 AM
+
+Got my picks with ETHsports for the World Cup! I won the Spain entry via a raffle, and bought Germany (our pick to win), Brazil (tournament favorite), and United States (home team) to have fun following along.
+
+Saturday @ 8:44 PM
+
+Ticket to Ride tonight. Tammy won by just 2 points. Mazie in second. Then a big gap with me and Tyler bringing up the caboose.
+
+That's the end of the Journal.
+
+Now, the Briefly section.
+
+Link one. "D2 Tour | D2 Documentation"
+
+Sometimes the easiest way to create a diagram is to type.
+
+Link two. "It’s Costing Peanuts for the US to Defeat Russia - CEPA"
+
+Supporting Ukraine is right strategically, and the financial cost to the US isn't that big when you put it in context.
+
+Link three. "Tesla teases Apple Music integration coming soon | Electrek"
+
+I've long assumed this just wasn't going to happen, but now I've got a glimmer of hope. I use Apple Music and not having that in the Tesla is about the only gripe I can make about the car. I wish I could get my same music library. This would be a big deal for me.
+
+Link four. "Leaving Twitter's Walled Garden | Electronic Frontier Foundation"
+
+There are a lot of posts lately guiding people through onboarding with Mastadon. I’m mostly sharing this one as I think it is well done, and I’m a longtime supporter of the EFF. If you are looking for a thorough overview, this is it.
+
+That's the end of Briefly.
+
+Now, the Fortune section.
+
+Here is your fortune…
+
+You single-handedly fought your way into this hopeless mess.
+
+Thank you for subscribing to the Weekly Thing!
+
+That brings us to the end of the Weekly Thing, issue 235. Thanks for listening, and I'll see you next time.

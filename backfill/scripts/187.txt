@@ -1,0 +1,305 @@
+The Weekly Thing, issue 187. AirTags, M1 iPad Pro, Flamingo. Published May 22, twenty twenty one. By Jamie Thingelstad. In this issue: Mailed AirTag tracked, M1 iPad Pro, 24-inch M1 iMac, geopolitics of cryptocurrencies, Sublime Text 4, Twitter Blue, cookie poisoned the web.
+
+Hello there!
+
+I enjoy reading CJ Chilvers and his recent piece on newsletter advice resonated so strongly with me and how I think about what you are reading right now.
+
+"It’s far healthier to take your readers on your journey with a beginner’s mind."
+
+That reminded me of the comment my friend Nick made once about the Weekly Thing.
+
+“its a direct feed from Jamie’s brain.”
+
+I loved that so much I put it on the subscribe page. I love the idea of going on a journey together. So let's continue on that journey!
+
+"To unlock the joy of being wrong, we need to detach. I've learned that two kinds of detachment are especially useful: detaching your present from your past and detaching your opinions from your identity." — Adam Grant "Think Again" (p 62)
+
+Now, the Must Read section.
+
+Link one. "Terms and Conditions Apply"
+
+What a fun game.
+
+Quote.
+A mini-game about pop ups, and the deviousness of websites and apps.
+End quote.
+
+You might think the scenarios in this are exaggerations, but then you haven't visited unsubscribe pages and how convoluted they are.
+
+Quote.
+EVIL CORP want you to sign up for everything. You must never accept anything. Answer all 29 questions to find out how well you did.
+End quote.
+
+Here is how I did.
+
+Quote.
+We attempted to access your data 29 times and you were kind enough to give it to us 4 times. That's better than 71% of players
+End quote.
+
+Missed 4 of them.
+
+Link two. "Metric Display Standards. Best practices for presenting numbers… by Tim Sheiner | Salesforce Design | Medium"
+
+Designing dashboards and presenting quantitative data is critically important, particularly when those displays are used to provide feedback to humans operating in an environment.
+
+I love this simple rule he puts forward.
+
+Quote.
+Therefore, the best metric experience - shows users the latest value, - how it has been trending, - and enables them to take actions directly from the display itself.
+End quote.
+
+Get that right, and you should be spot on.
+
+Link three. "I Mailed an AirTag and Tracked Its Progress; Here's What Happened - The Mac Security Blog"
+
+I just got my first AirTags. This McElhearn put one in the mail and sent it away to see how effective you can track an AirTag "in the wild".
+
+Quote.
+This means that someone, either the mailman who picked up the mail and delivered it to the sorting station, or another employee at the sorting station had an iPhone, which spotted the AirTag. Apple touts their network of nearly a billion devices capable of spotting AirTags, and if there are that many, it should be easy to track this envelope across the country.
+End quote.
+
+The device was findable for a large amount of its journey. There are a lot of iPhones out there.
+
+That's the end of Must Read.
+
+Now, the Recommended Links section.
+
+The Geopolitics of Cryptocurrencies with Niall Ferguson — The Prof G Show with Scott Galloway — Overcast
+
+Wide ranging and super interesting conversation with Niall Ferguson. Hits on crypto, inflation, monetary dominance, and much more. References to his new book Doom: The Politics of Catastrophe.
+
+Welcome to Libera Chat
+
+Wow. It’s been two decades plus since I was a regular IRC user but when I was I mostly used Freenode. It looks like Freenode had a hostile takeover of sorts, resulting in people resigning from freenode. Now they are launching a separate IRC network.
+
+Quote.
+Control of freenode infrastructure will soon be transferred to Freenode Limited and its agents. This means your data will soon be available to their personnel. We don’t know these people; neither do most of you. We can’t claim that this is a good or even acceptable outcome, and are loath to entrust your data to a third party, but it appears that we have run out of options.
+End quote.
+
+The only good thing here is because of open standards and open source software it isn't hard for people to pick up their marbles and find a new place to be.
+
+Daring Fireball: The twenty twenty one M1 iPad Pros
+
+I always read Gruber's reviews of new Apple hardware. I think he's right about the hardware aspects of the new M1-based iPad Pros. Now more than ever it feels like we may need to see iPadOS take a sharp turn into a new space.
+
+Quote.
+The elephant in the room is iPadOS. It’s just not good enough. In the same way that Intel’s chips were holding back Macs, iPadOS has been holding back iPad Pros. With Intel chips, the hardware was holding back the Mac platform. With iPads, it’s the software holding the platform back. This hardware is indisputably amazing, and iPadOS is fine for casual use. But it still feels like I’m trying to do fine detail work while wearing oven mitts for my day-to-day work. If you already love iPadOS, well, you’re in luck — go out and buy a new iPad Pro and I assure you, you’ll be delighted. For the rest of us, I have a feeling we need to see iPadOS 15 before we experience the true potential of these new (or any recent) iPad Pros. Three weeks until WWDC.
+End quote.
+
+This could be really exciting. Where or where will the iPad platform go?
+
+BitClout
+
+Link one. "@jthingelstad"
+
+Imagine Twitter built on a blockchain protocol with it’s own native coin. BitClout recently open sourced the entire platform delivering on a completely open and decentralized network. There are a ton of interesting concepts here, and it should be completely bot resistant since each account requires a small Bitcoin transfer. I setup a profile at
+
+I don't think this is going to dislodge Twitter, but it is a very interesting example of a decentralized network.
+
+Mirror
+
+Imagine what a blogging package would look like if it were built directly on top of Ethereum. You can blog like you can anywhere else, but you can also hook into a number of things like showing an NFT, hosting an auction, crowdfunding, and more. I don't have an account yet so not sure exactly where the content is stored. I've followed Fred Wilson's blog AVC for a decade plus, and he has a "mirror" at
+
+iPad Pro M1 for Photographers — Austin Mann
+
+Austin Mann's look at the new M1 iPad Pro. The speed example he gives a video of is impressive.
+
+Quote.
+The new iPad Pro with M1 is not just the most powerful iPad Pro yet, it’s also the fastest device I’ve EVER used to sift through images.
+End quote.
+
+All of his wishes are software limitations of iPadOS.
+
+Daring Fireball: The 24-Inch M1 iMac
+
+These new M1 iMac's set my heart aflutter the instant I saw them. I even went online and figured out trade-in pricing to get a couple. My brain overruled though as I want to wait for a potential M2-based iMac with a larger display. They look fabulous though.
+
+Flamingo …an NFT DAO
+
+Heard about Flamingo on Kevin Rose's Modern Finance episode. It is an impressive example of a Decentralized Autonomous Organization. The DAO collects Non-fungible Tokens. They have 6,930 ETH in value, depending on the day that is 15 dollars-25M in USD. You can see the collection on their site.
+
+#327 Paul Johansen - CTO of Edmentum
+
+Link two. "Paul Johansen"
+
+Great interview with Minneapolis-based CTO
+
+How M1 Macs feel faster than Intel models: it’s about QoS – The Eclectic Light Company
+
+My main computer at home has been an M1 MacBook Pro for a couple of months now and it is an amazing computer. It is super fast, always cool to the touch, and the battery lasts so long I forget it is on battery. How does that happen? This is a good dive into the performance that macOS married with the M1 provides.
+
+ShadyURL - Don't just shorten your URL, make it suspicious and frightening.
+
+Ha! Another art project of sorts. This turns a normal URL into something that you really should not click on!
+
+TextSniper - Capture and extract any text from your Mac's screen
+
+I didn’t realize that I even needed this app. I got it because it sounded interesting and I had remembered a few times I had to retype things that were on my screen. I've now used this a few times nearly every day. Very handy, fast, and accurate.
+
+Twitter to call subscription service Twitter Blue, charge 3 dollars a month, report says - CNET
+
+I hope that Twitter does this. I haven't given up on Twitter, and building a subscription offering might be the first step to the platform getting rehabilitated.
+
+Using Computer Modern on the web
+
+I’m a sucker for typefaces and the TeX typeface is phenomenal. Now you can use them on the web!
+
+CSV Importer For Your Web App, SaaS or API | csvbox.io
+
+Powerful tool to enable tabular data upload to a website. "A drop-in widget to allow your users to upload spreadsheets, map columns, and validate data all with a few clicks. You receive clean and ready to use data in your web app." Nice.
+
+The Memex Method. When your commonplace book is a public… by Cory Doctorow | Medium
+
+Doctorow reflecting on how he things about his blog.
+
+Quote.
+Like those family trip-logs, a web-log serves as more than an aide-memoire, a record that can be consulted at a later date. The very act of recording your actions and impressions is itself powerfully mnemonic, fixing the moment more durably in your memory so that it’s easier to recall in future, even if you never consult your notes.
+End quote.
+
+This resonates strongly with me. I’m often searching my own blog to remember things that we did in years past. It is definitely a Memex tool.
+
+How the cookie poisoned the Web - Doc Searls Weblog
+
+Doc Searls lays a lot of problems on the cookie.
+
+Quote.
+This, however, was not the original idea, which Lou Montulli came up with in 1994. Lou’s idea was just for a server to remember the last state of a browser’s interaction with it. But that one move—a server putting a cookie inside every visiting browser—crossed a privacy threshold: a personal boundary that should have been clear from the start but was not. Once that boundary was crossed, and the number and variety of cookies increased, a snowball started rolling, and whatever chance we had to protect our privacy behind that boundary, was lost. Today that snowball is so large that nearly all personal agency on the Web happens within the separate silos of every website, and compromised by whatever countless cookies and other tracking methods are used to keep track of, and to follow, the individual.
+End quote.
+
+He is correct that the cookie enabled many of these negatives. He's also ignoring that the cookie enabled amazing web applications and incredible experiences on the web. All in, I think the cookie is still a good thing and I’m glad we have a web that is built with it. This is another example of a technology being neutral, but what it enables can be positive or negative.
+
+How PagerDuty Leverages Customer Service Ops to Delight Customers | PagerDuty
+
+I like how PagerDuty is extending their solution into different problem domains. Business processes that are tied to events, escalation times, and critical workflows need robust tools.
+
+That's the end of Recommended Links.
+
+Now, the Journal section.
+
+Thursday @ 9:22 PM
+
+My Apple AirTags arrived today! Two are for special keys. Not sure what other two will be for.
+
+Thursday @ 10:49 AM
+
+Constellation Fund is hosting Bright Night, a free virtual fundraiser tonight at 6:30pm! You can join the stream with just an email address. They are spotlighting great causes and great artists! I'm going to be there. You free tonight? Join online!
+
+Thursday @ 6:54 AM
+
+Paul Boswell, creator of the Turing Tumble, just launched Spintronics on Kickstarter. I'm in! Turing Tumble was brilliant, and this looks equally great! I love how he turns digital concepts and logic into something physical to interact with.
+
+Tuesday @ 9:41 PM
+
+Disintegrating Shoes
+
+Thanks to the miracle of vaccines we were able to enjoy some drinks on a patio this evening with our board members for the first time in over a year. I got on some nice slacks, a good shirt, and some dress shoes!
+
+It was great to see folks that I hadn't seen in-person for so long. As we were mingling and chatting I happened to look down and noticed some black debris on the floor under me. I didn’t know what it was but it didn’t raise any concerns. Some time later I looked down again and I noticed there was more of this debris. Upon closer inspection I realized that the soles of my shoes were disintegrating with every movement!
+
+I was wearing comfortable and high-quality Ecco shoes. As I looked closer I noticed the entire heal was crumbling into pieces! What an embarrassing wardrobe malfunction. I gingerly made my way a few feet so I could chat with some other people. As I was making my way someone asked if my shoes had mud on them. Ugh!
+
+I got myself to the far side of the patio and decided to stake an area out. I managed to stay put for the rest of the evening, with an ever growing pile of debris under my feet. As the night wound down I shared with some folks my shoe catastrophe. It was the source of great laughs!
+
+The shoes went in the garbage as soon as I got home. At least I got a good story out of it.
+
+By the time I got home this is what was left of the soles.
+
+Add this to other wardrobe fiascos like Finding Pants in Manhattan.
+
+Sunday @ 1:25 PM
+
+Minnesota Twins v Oakland A's
+
+Minnesota Twins v Oakland A’s. Great afternoon for a baseball game! Let’s go Twins!
+
+Three run homer for the Twins!
+
+Kramarczuk’s Polish Sausage with Kraut at Target Field. Nothing better.
+
+Tammy and I getting some baseball and sun!
+
+Simmons with two run homer to tie game 6-6!
+
+Saturday @ 8:32 PM
+
+Flooded Forest Kayak Tour
+
+My brother Isaiah and his family were visiting this weekend and we drove to Wabasha for the Flooded Forest Kayak Tour with Broken Paddle Guiding.
+
+Everyone else had nice Solara 135 kayaks and Tyler and I joined up in a Solara 145T Tandem. I enjoyed the kayak. It was one of the most stable kayaks I have been on. There were about 15 people in total on the tour and there were a lot of guides to cover everyone. We took a bike trip a number of years ago with Broken Paddle and we've had nothing but amazing experiences with them. If you are looking for a fun day or weekend trip I would strongly recommend them.
+
+There was a large Bald Eagle checking us out as we paddled down the creek.
+
+We also saw a handful of different snakes swimming in the water. That was a bit creepy.
+
+That's the end of the Journal.
+
+Now, for your information.
+
+Sublime Text 4 - News - Sublime HQ
+
+Sublime Text is my editor of choice and we have a new major version release now!
+
+Filecoin Network Crosses Baseline Sustainability Target for First Time
+
+I've been following Filecoin as part of learning more about IPFS. Nice milestone as the network continues to grow.
+
+A country's worth of power, no more! | Ethereum Foundation Blog
+
+This transition is going to be a huge deal for Ethereum and will hopefully unlock a huge amount of capability for those building on the platform. What will happen to gas prices? It seems they would drop precipitously.
+
+iPad Pro twenty twenty one Review: Future on Standby - MacStories
+
+Do you still want to read more about the M1 iPad Pro. Sure, why not.
+
+Folklore.org: Busy Being Born
+
+Some incredible photos of the very early work Bill Atkinsonwas doing in the late 70's in graphical user interface design. It is cool to see these fundamental concepts at such an early stage.
+
+Learn Datalog Today!
+
+This claims to have "similar expressive power as SQL". I looked at the examples and it seems incredibly confusing and obtuse.
+
+Tesla Model 3 Owners Are the Happiest Car Owners, According to Consumer Reports
+
+Had mine for two years and still my favorite car ever. Like it as much as the day I got it. Keeps getting better with updates too!
+
+"Cocaine and Rhinestones" Returns, to Dazzle Again | The New Yorker
+
+This sounds like a fabulous podcast.
+
+There have been 7m-13m excess deaths worldwide during the pandemic | The Economist
+
+The true impact of Covid-19.
+
+Editing it down - without bullshit
+
+Good advice for writing with more clarity and impact.
+
+Clarity in Darkroom: Enhance Details in Your Photos by Jasper Hauser | Dispatches From Darkroom
+
+Darkroom just gets closer and closer to all the advanced features that used to be just for Photoshop and Lightroom.
+
+Target halts sales of trading cards in stores after customers fight in Wisconsin - StarTribune.com
+
+Okay people, stop losing your damn minds!
+
+That's the end of the FYI section.
+
+Now, the Reply All section.
+
+Here are some replies from Weekly Thing #186 / Blockchain, Pairing, Sharding.
+
+So many of you reached out to say congratulations on the four year anniversary of the Weekly Thing! I’m not going to list everyone out, but it was so great to hear from so many of you. Thank you for the kind words!
+
+That's the end of Reply All.
+
+Now, the Fortune section.
+
+Here is your fortune…
+
+Among the lucky, you are the chosen one.
+
+Thank you for subscribing to the Weekly Thing!
+
+That brings us to the end of the Weekly Thing, issue 187. Thanks for listening, and I'll see you next time.

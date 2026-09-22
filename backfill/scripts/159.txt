@@ -1,0 +1,229 @@
+The Weekly Thing, issue 159. 911 Outage, Small Tech, Workflows. Published October 3, twenty twenty. By Jamie Thingelstad. In this issue: VP of Engineering, 911 outage, Ring Always Home Cam, iOS 14 review, QAnon, Coinbase mission, FTP disappearing, AWS and GCP workflows.
+
+We are in the final stretches of the election season and the news cycle is in constant overdrive. I don't engage in social media, but I suspect that is also in complete chaos. This week I was talking with a couple of friends and I shared my approach to engaging with the news. It’s worked well for me and allows me to be informed but not get sucked in spending too much time and getting anxious.
+
+I've taken Cal Newport's recommendation and expanded it by one. He suggests subscribing to one local newspaper, and one national newspaper. I've added a third, an international newspaper. For me that means subscriptions to the Star Tribune, The New York Times, and The Economist.
+
+Now, how to engage with them? Do not install any mobile apps from any of these services. Also, do I subscribe to any event driven breaking news bulletins. I limit my engagement to a daily email newsletter from each. The Economist Espresso email is my favorite (the email, don't touch the app for it). This daily email has a series of brief updates from around the world, along with a couple of slightly longer things. It takes no more than 10 mins to read. I wish they all had something exactly like that, but the Morning Brief from the Times and Talkers from the Star Tribune are close enough. I’m happy to click through to read something on the sites, but I try hard to just be done then. No clicking around and getting lost.
+
+By doing this I get to stay up-to-date and informed, but control when the information comes to me. It also feels, in a very good way, sort of like reading a morning newspaper in your email. You're in control, not some algorithm.
+
+Now, the Must Read section.
+
+Link one. "Being VP of Engineering is harder than being CEO - Translating Engineering to Executives"
+
+Good article that uses VP of Engineering as the position, but is equally fitting for any VP or CTO level role leading a technology team in a company.
+
+Quote.
+As VP of Engineering we spend most of our time translating between two groups of people in two parallel universes. We’re citizens of both while not fully belonging to either.
+End quote.
+
+There is a lot of truth in here and many lessons that I've learned over the years. The common lexicon section made me chuckle since I've found sharing stories of how great sales teams work, and the parallels to great technology teams, to be very effective. Sales teams close deals. Tech teams ship. Sales teams commit to a quarterly objective with a lot of unknowns. Technology teams estimate and build out plans, but ultimately are committing with a lot of unknowns.
+
+The translation role as leader is a big one, and one that can be hard to keep front and center at all times.
+
+That's the end of Must Read.
+
+Now, the Currently section.
+
+Buying: I’m making the leap to a high-end microphone for my video conferencing needs. The Audio-Technica ATR2100x-USB Cardioid Dynamic Microphone is on the way along with a foam windscreen, and a boom arm with a table clamp. I can’t wait to set it up and see how the sound is.
+
+Drinking: Fall is officially here and I've tried my skills at making an Old Fashioned to enjoy in the crisp air around the fire. I’m pretty pleased with the outcome. Heavy on the orange and the bitters, as well as extra cherries!
+
+Watching: We've returned to Anne with an "E" for the third and final season. This is a good family show for us.
+
+That's the end of Currently.
+
+Now, the Photograph section.
+
+Old Fashioned while enjoying a fire.
+
+Edina, MN
+
+Thank you for reading!
+Please share this with a friend. Cool, thanks!
+
+That's the end of Photograph.
+
+Now, the Recommended Links section.
+
+Rise Above Lousy Teamwork: 7 Competencies of Teams that Work | Leadership Freak
+
+Interesting thoughts on effective teams and the keys to achieving and maintaining Effectivenss.
+
+Quote.
+Effective teams: 1. Generate positive results over time. 2. Work through challenges and bounce back from adversity. 3. Maintain energy, vibrancy, and resources needed for future success.
+End quote.
+
+How to Talk With a Struggling Adolescent — Crucial Skills
+
+I took Crucial Conversations training at SPS. This article about applying these skills to a conversation with your child was really good.
+
+Quote.
+In order to help your son and restore your relationship, remember to: 1. Start With Heart: Know what you really want for him. 2. Validate His Feelings: Let him know it’s okay for him to feel the way he does. 3. Be Curious: Ask, listen, mirror, listen, prime, listen, ask… 4. Declare Your Intent: Let him know what you really want. Be patient. It won’t happen overnight. It will take time, consistency, and persistence.
+End quote.
+
+This would be a good article to go and read when needed.
+
+Python-For-Kids
+
+This could be a fun thing to work through with your kids.
+
+Quote.
+A comprehensive and FREE Online Python Development course FOR KIDS utilizing an official BBC micro:bit Development Board and later an Expressif ESP32 Development Board going step-by-step into the world of Python for microcontrollers.
+End quote.
+
+Who’s Behind Monday’s 14-State 911 Outage? — Krebs on Security
+
+Minnesota was impacted by this 911 outage. It was highly suspicious that it was at the same time as a major Azure outage. However, it sounds like it wasn't related.
+
+Quote.
+Intrado did not respond to multiple requests for comment. But according to officials in Henderson County, NC, which experienced its own 911 failures yesterday, Intrado said the outage was the result of a problem with an unspecified service provider.
+End quote.
+
+Having a single company dependency across 14 different state 911 services seems like a bad idea, no?
+
+Recognize your management wins | Lara Hogan
+
+Managers and leaders could use some more time talking about and reflecting on their wins.
+
+Quote.
+As I scan through this list of themes and examples, it strikes me that a lot of them occurred when things (project work, organizational culture, global changes) were hard. It’s a manager’s job to address inequity and unfairness. To create clarity out of ambiguity and cycles of unending change. To identify a plan for growth when things are stagnating, or when roadblocks appear. To shift team culture and mindsets so that psychological safety and good work can happen. Without serious workplace challenges, there wouldn’t be a lot of work for managers to do.:) I’m being glib, but I’m eager to remind you that during these awful times, there is a LOT of work you can do as a manager. And that work leads to big, important wins on behalf of your teammates.
+End quote.
+
+Good read.
+
+Tips for the most immersive video calls | benkuhn.net
+
+A good read on optimizing your gear and configuration to make video calls work as best as possible. I decided to take this articles advice and ordered a microphone to use, although I went with the newer Audio-Technica ATR2100x-USB version. The audio samples are helpful here.
+
+Small tech
+
+I like the Small Tech term. Related would be the Indie Web as well, or at least a tangent.
+
+Quote.
+Role models matter. So I made a list of small companies that I admire. Neither giants nor startups - just people making a living writing software on their own terms.
+End quote.
+
+I use three of these, and tarsnap I hadn't heard of but sounds very good. I would add to this list micro.blog, blot, and Buttondown.
+
+Now, for business use these solopreneur services may not be great solutions. When just one person runs the service you cannot expect 24x7 support for example. But I have biased my personal services toward these. All of the services I use to publish my blog, send my newsletter, and manage my bookmarks are all solo companies.
+
+We Need to Talk About Talking About QAnon | WIRED
+
+Article talking about engaging with people that agree with the QAnon conspiracy theory.
+
+Quote.
+Beliefs in QAnon and the deep state are unified by one basic factor: their reliance on deep memetic frames. As Ryan Milner and I have explained, these are sense-making orientations to the world. Everyone, regardless of their politics, has a set of deep memetic frames. We feel these frames in our bones. They shape what we know, what we see, and what we’re willing to accept as evidence.
+End quote.
+
+As I read this I’m left feeling like you are talking to someone that has been programmed by a cult, and you have to careful deprogram that and be sure to not reinforce the cult programming that has been adopted already.
+
+Workflows in AWS and GCP — Tim Bray
+
+Tim Bray is probably one of the most authoritative people there are to write on the new Google Cloud Workflows. He designed much of AWS Step Functions after all. This is a good overview and highlights some of the key differences.
+
+Quote.
+While I haven’t been to the mat with GCP to do real work, at the moment I think the AWS approach is a winner here. First of all, I’ve hated global variables — for good reason — since before most people reading this were born. Second, YAML is a lousy programming language to do arithmetic and so on in. Third, and most important, what happens when you want to do seriously concurrent processing, which I think is a really common workflow scenario? GCP doesn’t really have parallelism built-in yet, but I bet that’ll change assuming the product gets any traction. The combination of un-typed un-scoped global variables with parallel processing is a fast-track to concurrency hell.
+End quote.
+
+Overall, it’s just good that Google has added workflows to GCP as it is a critical core service for any cloud provider.
+
+The Ring Always Home Cam Flies Around Inside Your House | WIRED
+
+I shared what I believe is the core of Ring's marketing strategy. This product for commercial use makes sense. Having drones surveil commercial real estate at night makes a lot of sense. Having them fly around my house reporting everything they see to Amazon? That's a hard no.
+
+Quote.
+A surveillance drone that flies around your home—in your home!—is the stuff we could only have imagined 30 years ago, or even just a few years ago. To hear Amazon tell it, it was designed to be a problem solver, a solution for wanting a camera in every corner of your home. A techno-utopian vision of safety. Look at this freaking drone. If only someone could have imagined that our twenty twenty problems would be much greater than this—and in fact, tangled right up in it.
+End quote.
+
+Whatever people that buy this think they are getting, they should also factor in that it is a trivial extension for this thing to inventory all your appliances in your kitchen, send that data to whoever will pay, and then let them market to you knowing everything they ever would want about your household.
+
+That's the end of Recommended Links.
+
+Now, the Stream section.
+
+Thursday @ 8:29 AM
+
+Hit a new 30-min PR and passed 400 kJ of output in Irène Sholz EDM Ride. 402 kJ, +8 over previous PR. 48% of ride at or above VO2 Max range. Was completely gassed by the end. #FitByFifty
+
+Tuesday @ 7:04 AM
+
+I enjoy Dense Discovery and the variety of topics that Kai brings to the newsletter. It was an easy decision to sign up for the new Friend of DD program announced in issue 107.
+
+Tuesday @ 6:49 AM
+
+A “twofer” of geeky humor in one shirt. Stay at home, wear a mask.
+
+Sunday @ 4:23 PM
+
+Finished a much needed organizing and upgrading of my home office setup. This is working much better on every dimension.
+
+Sunday @ 8:38 AM
+
+Amazon's marketing strategy with Ring seems to be:
+
+1. Make you worry about something you weren't worried about yesterday.
+2. Sell you a product to try and counteract that worry they created for you.
+3. Try to distract you with technology that seems from the future.
+4. Give lip service to privacy concerns.
+5. Create a large volume of data to sell you more things.
+
+Saturday @ 8:04 PM
+
+Delicious plate of tomatoes grown by our old neighbor.
+
+Saturday @ 4:07 PM
+
+Enjoying this home brew Belgian Witbier with Coriander and Orange Peel that my friend Garrick gave to me. Refreshing. Tastes like summer.
+
+Saturday @ 8:27 AM
+
+Hit a new 60-min PR in Matt Wilpers Power Zone Endurance Ride this morning! 653 kJ, a 10% jump over previous 591 kJ. It was a Zone 2/3 ride but I felt my zones were a little low so I rode more ¾. Should do a new FTP test.
+
+Friday @ 5:26 PM
+
+Mazie cross country meet today In Chanhassen. Running 5k.
+
+That's the end of Stream.
+
+Now, for your information.
+
+iOS and iPadOS 14 review: iPhone transformation, iPad iteration | Ars Technica
+
+Definitive read on all the new capabilities in iOS 14 and iPadOS 14.
+
+Coinbase is a mission focused company
+
+Interesting read from the CEO of Coinbase clarifying how they apply their mission and the intersection with political and social causes. In part this is an interesting read because Coinbase is actually creating an entirely new financial system that could have so many good effects, as well as negative use cases.
+
+Why FTP Could Soon Disappear from the Internet
+
+FTP is everywhere and this headline is overly sensational. I don't know who uses FTP in their web browser. I’m guessing pretty much nobody. Chrome dropping FTP won't mean a thing. But this is a fun writeup on the history of FTP, created in 1971!
+
+That's the end of the FYI section.
+
+Now, the Local section.
+
+Docker Names Donnie Berkholz to Vice President of Products - Docker Blog
+
+Big congrats to Donnie Berkholz on this new role!
+
+SPS Commerce Donates 300,000 dollars to Sponsor Learning Pod to Address Minnesota’s Racial Achievement Gap | SPS Commerce, Inc.
+
+I was happy to be able to be part of this effort. Creating avenues for kids that do not have the infrastructure to effectively engage in distance learning is critical to keeping the learning gap from spreading even more.
+
+Want smarter friends?
+Forward them this email and suggest they join us!
+
+That's the end of Local.
+
+Now, the Fortune section.
+
+You've made it all the way to the end! Here is your fortune for this week.
+
+Among the lucky, you are the chosen one.
+
+Thank you for subscribing to the Weekly Thing!
+
+That brings us to the end of the Weekly Thing, issue 159. Thanks for listening, and I'll see you next time.

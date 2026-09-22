@@ -1,0 +1,173 @@
+The Weekly Thing, issue 128. Nov 30, twenty nineteen. Published November 30, twenty nineteen. By Jamie Thingelstad. In this issue: Sacha Baron Cohen on Facebook, Contract for the Web, onboarding new hires, developing engineers, WeWork fall, home delivery habit.
+
+For everyone in the United States I hope you all had as great of a Thanksgiving as I was lucky to have! We celebrated in the morning with Tammy's family, and in the evening with my family. This year was the first year that I roasted the turkey! I've done plenty of cooking for larger groups, but being in charge of the star of the show for the "Big Show" made me a bit anxious. Adding in the complexities of taking the cooked turkey to another house made it a little trickier, but all came out just fine! For those that dont know, doing the turkey with the brine, the stuffing, roasting, and carving is a lot of work and takes a good chunk of time. I think a brisket is easier!
+
+Thanksgiving continues to be one of my favorite holidays. All the good family, food, and time together without having to worry about all the presents! But now that Thanksgiving is behind us it’s full speed ahead to Christmas!
+
+This upcoming week is a big one at the office. On Monday people return to the office, flip on their computers, and shop online! Cyberweek drives a lot of activity and I'll be in the office early to help out wherever I can.
+
+I’m adding a new section to the Weekly Thing! A lot of people send awesome replies to the Weekly Thing. Replies, by the way, are one of my favorite things to read on the weekend. I love hearing what people found interesting, or a link to something else that one of my links made them think about, or just a note to say Hi! Well, it dawned on my that a Replies section might be fun, so here we go. If there are replies that I think everyone would enjoy I will include them in the next issue in a Replies section. I don't expect it to be there every week, just when there is something to share.
+
+Now let's get to the links!
+
+My Blog Posts
+
+Kyiv Photowalk
+
+I spent the week in Kyiv, Ukraine visiting the SPS team there. I got to travel with three colleagues, including two that had never been there. We went for a long walk on Sunday night and I decided to treat it a bit like a photowalk.
+
+Now, the Featured Links section.
+
+Link one. "Read Sacha Baron Cohen's scathing attack on Facebook in full: 'greatest propaganda machine in history' | Technology | The Guardian"
+
+Sacha Baron Cohen, of Borat and Ali G fame, gave the keynote at the Anti-Defamation League Never is Now event. Honestly, you should take 25 minutes and watch the full video. This is an incredibly insightful, purposeful take at the negative impacts of social media platforms. I love his statement that "Freedom of Speech is not Freedom of Reach". Social media platforms love to hide behind Freedom of Speech and it’s a completely false argument. Read their Terms of Service and you'll realize there is no freedom of anything. It’s a business! This writeup from the Daily Beast "Sacha Baron Cohen Uses ADL Speech to Tear Apart Mark Zuckerberg and Facebook " is a good overview too.
+
+That's the end of Featured Links.
+
+Now, the My Weekly Photo section.
+
+Hot wax rolling out of the candles and spreading onto the stone.
+Nov 29, twenty nineteen at 9:42 AM
+Edina, MN
+
+That's the end of My Weekly Photo.
+
+Now, the Notable Links section.
+
+Link one. "How to create a good onboarding experience for new hires — Quartz at Work"
+
+I really like the areas of focus that this article highlights. A good onboarding experience has many dimensions. I also agree that many companies do this poorly. One of the things I do is meet with all new hires each quarter, and the first question I ask is to describe their onboarding experience. That results in fabulous feedback to take forward.
+
+Link two. "Relentlessly simplify – Den Delimarsky"
+
+Great guide to keeping the technology part of your life a bit simpler, and in the long haul, easier.
+
+Link three. "Contract for the Web"
+
+It’s hard for me to believe that an effort like this is going to have a real impact on the web and how companies act on it. I'd like to, but I’m very skeptical of it. Perhaps with the pedigree of Tim Berners-Lee it has a better chance. For more background on this, his opinion article in the New York Times is a good overview. The Guardian also has a good overview, "Tim Berners-Lee unveils global plan to save the web ". At least he's trying, and hopefully others will get on board.
+
+Link four. "Braid: Synchronization for HTTP"
+
+This looks really interesting. Synchronization is a huge pain to write, and rewrite, all the time.
+
+The Braid Protocol is a set of extensions to HTTP, which transform it from a state transfer protocol into a state synchronization protocol. When a resource is changed by one client or server, all other clients and servers update. Braid supports Operational Transform and CRDTs at web URLs, enabling peer-to-peer, offline-capable web applications.
+
+It would be pretty amazing if Braid became as well-supported as REST.
+
+Link five. "The care and feeding of software engineers (or, why engineers are grumpy) - Human Who Codes"
+
+Stellar article that gives some great insight into what drives, motivates, and frustrates software engineers.
+
+And here’s the real crux of the problem: software engineers aren’t builders. Software engineers are creators. Building is what you do when you buy a piece of furniture from Ikea and get it home. The instructions are laid out and if you go step by step, you’ll get that comically small table you wanted. Creating is a different process, it’s birthing something without direction or instruction. It’s starting with a blank canvas and painting a masterpiece. Software engineers don’t get into coding because they want someone to tell them what to do, they get into it because they discovered they could create something useful. Every single software engineer fell in love with coding because she made a small, useful program early on and was hooked.
+
+If you have ever wondered what makes software engineers tick, this will fill you in.
+
+Link six. "Developing New Engineers - Karl L. Hughes"
+
+Amazingly detailed and specific skill development framework for engineers.
+
+Link seven. "Yes! and… How to be effective in the theatre of work"
+
+Article is mostly about the book Impro - Improvisation and the Theatre, which thanks to this article is now on my wish list, and how it applies to improving your capabilities at work. This article is particularly serendipitous for me. We just had our all-company meeting at John Sweeney gave the keynote. Sweeney is with Brave New Workshop, an improve theatre, and they have an entire side of their business consulting with companies! Might learning improve be a good next step in my own development?
+
+Link eight. "Data General's Tom West dies • The Register"
+
+I loved reading The Soul of a New Machine and the history of Data General and Tom West. It is too bad that he never experienced that same level of success again.
+
+Link nine. "inessential: You Choose"
+
+Completely agree with Brent Simmons here. My internet doesn't have the vast majority of social media giants, thanks to 1Blocker. I, and you, can choose the internet we want. You are not obligated to any of these platforms.
+
+Link ten. "Using OmniFocus 3.4 with Shortcuts - The Omni Group"
+
+I’m digging these new, very powerful, Shortcut features coming to OmniFocus and I’m looking for even more. The future is bright for automation on iOS with the new Shortcuts and apps adding support for it.
+
+Link eleven. "How our home delivery habit reshaped the world | Technology | The Guardian"
+
+All the stuff that makes that package arrive at your door. Moving activities outside of normal view, where nobody typically sees them, allows companies to automate and drive efficiencies. However, sometimes you wouldn't like what you saw if you knew what was happening.
+
+Link twelve. "Facebook and Google’s pervasive surveillance poses an unprecedented danger to human rights | Amnesty International"
+
+More piling on to Facebook and Google.
+
+Surveillance Giants lays out how the surveillance-based business model of Facebook and Google is inherently incompatible with the right to privacy and poses a systemic threat to a range of other rights including freedom of opinion and expression, freedom of thought, and the right to equality and non-discrimination.
+
+This article brings in the idea of a "public square".
+
+While other Big Tech companies – including Apple, Amazon and Microsoft – have accrued significant power in other areas, it is the platforms owned by Facebook and Google that have become fundamental to how people engage and interact with each other – effectively a new global public square.
+
+This is foundational to my issue with these platforms. They present themselves as the public square, but they are anything but. With that said though, I don't think the right answer is to force them to be a public square. They are private companies and can do as they wish for their shareholders. However, they should have strict rules and regulations, and even more importantly, their users should know they are more like a shopping mall, and nothing at all like a public square. Facebook isn't a church or a park. You have no right to do anything there that they don't want you to, and you have as much right to privacy as you do when you are walking around any other business.
+
+Link thirteen. "“You Don’t Bring Bad News to the Cult Leader”: Inside the Fall of WeWork | Vanity Fair"
+
+You'd be forgiven for thinking enough of WeWork already, but this is a solid article about the whole thing. Neumann is referenced in every article about him as some hyper-charismatic, super-confident leader. Maybe he's actually just delusional?
+
+That's the end of Notable Links.
+
+Now, the Microposts section.
+
+Thursday @ 2:51 PM
+
+Got my Turkey Burn twenty nineteen spin class in this morning! Spinning with over 16,000 people! #Peloton
+
+Thursday @ 12:39 PM
+
+This is my first year making the Thanksgiving Turkey. Looking good so far!
+
+Thursday @ 9:46 AM
+
+From our family to yours — Have a Very Happy Thanksgiving!
+
+Saturday @ 9:23 PM
+
+Watched The Art of Racing in the Rain tonight. Good movie.
+
+Saturday @ 7:28 PM
+
+No fishin’ in the dark, but definitely grillin’ in the dark! Big Green Egg with some delicious tenderloins.
+
+Friday @ 7:08 PM
+
+The Tesla Cybertruck is shocking, and looks awesome! Wow! Looks like a complete rethink. Love it!
+
+That's the end of Microposts.
+
+Now, more links.
+
+- No App for That www.blogchangemasters.com
+When you get good capture devices, like a solid to do list on your phone, you can build an impossibly long list. For me, this is where the Weekly Review in GTD, as well as the Someday/Maybe lists can give you a release valve.
+- A guide to distributed teams – Increment: Teams increment.com
+Key points to making distributed teams effective.
+- Apple Releases Annual Holiday Video 'The Surprise' - MacStories www.macstories.net
+Great 3-minute video that will bring tears to your eyes by the end.
+- 1.2 billion people exposed in data leak includes personal info, LinkedIN, Facebook www.dataviper.io
+The scale of these data leaks is hard to even fathom these days.
+- 110 Nursing Homes Cut Off from Health Records in Ransomware Attack — Krebs on Security krebsonsecurity.com
+This is a horrible example of the very real-world terrible things that can come without a focus on security.
+
+That's the end of More Links.
+
+Now, the Local section.
+
+- Miguel Ibarra's My Friend: The end of an era in Minnesota – FiftyFive.One fiftyfive.one
+Miguel Ibarra has always been one of my favorite Minnesota United players. "The club declined Ibarra’s option in the off-season and unceremoniously the most important player to wear a Minnesota United jersey was shunted off." You will be missed Ibarra!
+
+That's the end of Local.
+
+Now, the Replies section.
+
+Here are some replies from Weekly Thing #127 / Nov 23, twenty nineteen.
+
+Paul Birkbeck shared this video How Wolves Change Rivers after reading the article I shared on Bison. It’s amazing how one change to the food chain can have such broad changes to everything around it!
+
+That's the end of Replies.
+
+Now, the Fortune section.
+
+You've made it all the way to the end! Here is your fortune for this week.
+
+You will experience a strong urge to do good; but it will pass.
+
+Thank you for subscribing to the Weekly Thing!
+
+That brings us to the end of the Weekly Thing, issue 128. Thanks for listening, and I'll see you next time.

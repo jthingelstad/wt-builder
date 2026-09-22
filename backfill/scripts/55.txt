@@ -1,0 +1,238 @@
+The Weekly Thing, issue 55. May 26, twenty eighteen. Published May 26, twenty eighteen. By Jamie Thingelstad. In this issue: Quiet time alone, brain on reading, Abby Wambach remarks, culture of security, AWS migration, Day One journaling, email micro-meetings.
+
+Summer is officially here! Somehow I managed to go to two baseball games this week. The kids are counting the days until school gets out. And the entire state of Minnesota seems to have scattered to cabins around lakes to celebrate Memorial Day and with it our first temperatures well into the 90's.
+
+I hope you all have a moment to take some time this weekend to really disconnect, enjoy friends and family, and maybe enjoy some quiet time just to yourself as well!
+
+Now, the Featured Links section.
+
+Link one. "Second Life: Rethinking Myself Through Exercise, Mindfulness, and Gratitude – MacStories"
+
+Federico Viticci writes is one of my favorite tech authors, and this post has plenty of that, but it’s also a reflection on how he has changed his life after a cancer diagnosis a few years ago.
+
+It's important to me because I can't squander this opportunity. Because life isn't like an arcade – you can't put more coins in to continue – yet somehow I was given the chance for a do-over and I failed to appreciate it at first. Now I have to make sure I can return the favor with positivity and stories that can help others.
+
+This is a great article on its own, but is also a treasure trove of resources for people who want to use technology to make their lives better.
+
+Link two. "Why we owe it to ourselves to spend quiet time alone every day"
+
+I can attest to feeling this and know many friends, particularly technologists, who do as well. I've referred to this as "digital fatigue" in the past.
+
+The destruction of our inner selves via the wired world is an even more recent, and more subtle, phenomenon. The loss of slowness, of time for reflection and contemplation, of privacy and solitude, of silence, of the ability to sit quietly in a chair for fifteen minutes without external stimulation — all have happened quickly and almost invisibly.
+
+I believe this is part of the reason people are seeking out practices like meditation in seemingly larger numbers than the past.
+
+That's the end of Featured Links.
+
+Now, the My Weekly Photo section.
+
+Minnesota Twins playing the Detroit Tigers at Target Field.
+
+Minnesota Twins playing the Detroit Tigers at Target Field.
+May 22, twenty eighteen at 8:17 PM
+Target Field, Minneapolis, MN
+
+That's the end of My Weekly Photo.
+
+Now, the Notable Links section.
+
+Link one. "Your Brain on Reading (Why Your Brain Needs You to Read Every Day)"
+
+I’m currently reading Sapiens and that probably makes this post resonate with me even more, but I love all of the benefits highlighted here from reading on a consistent basis.
+
+Link two. "Abby Wambach, Remarks as Delivered | Barnard College"
+
+Abby Wambach deliveres an amazing, inspiring call to action for the women graduating from Barnard in twenty eighteen. "BARNARD WOMEN—CLASS OF twenty eighteen—WE. ARE. THE. WOLVES."
+
+Link three. "Don't Get Distracted"
+
+A thorough writeup on the authors experience building software used for defense purposes, and the ethical and moral dilemmas associated with it.
+
+Don’t get distracted by deadlines and feature requests. Think about the consequences of what you’re building. Build in safeguards to prevent misuse, or don’t build it at all because it’s too dangerous.
+
+Technologists need to consider this as we continue to build ever more powerful capabilities.
+
+Link four. "5 Steps to Building a Culture of Security | AWS Cloud Enterprise Strategy Blog"
+
+Some great advice on making your processes embody security objectives.
+
+Link five. "Updating Our Technical Interview"
+
+Refining your interviewing process is a constant process. Some interesting observations and changes from thoughtbot on what they have done.
+
+Link six. "Xero reveals the impact of mammoth Amazon Web Services migration - Cloud - CRN Australia"
+
+Not much depth, but interesting highlights of Xero's migration to AWS.
+
+Xero also thanked the AWS migration for improving its gross margin by 81 percent.
+
+Significant improvements and additional functionality unlocked as well.
+
+Link seven. "How I use Day One — and an aside about the differences between Bear and Day One – The Sweet Setup"
+
+I use many of the apps mentioned in this article - including Day One, Bear and Ulysses. I also add the built-in Notes app to the mix. I found it interesting to see how this person thinks about flow between those.
+
+Link eight. "Email, the Micro-Meetings Eating Our Days – 500ish Words"
+
+I think the author is on to something here thinking of emails a bit like a virtual meeting.
+
+At any given moment, upwards of 50 to 75 percent of the email in my inbox (beyond the spammy stuff or newsletters) are actually to-dos from other people.
+
+The critical issue with all asynchronous communications systems is that they allow tasks to come into you without block. Meetings are limited to time and space, you cannot receive a to do outside of the meeting time. Email however has infinite scale ability to receive work, regardless of your time.
+
+Link nine. "NumWorks - The graphing calculator that makes learning math easier"
+
+This looks like a really cool calculator for a high schooler in your life. I love that it can run Python too!
+
+Link ten. "The Cult of the Root Cause - Reinertsen and Associates"
+
+Interesting take on working to alleviate issues and how the well known "5 Why's" approach may lead you astray.
+
+Link eleven. "How to make journaling in Day One even better with automation – The Sweet Setup"
+
+Using automation tools like Workflow can take friction out of journaling. I've tried some of the methods described here in the past with mixed success. I think there is a fine point between journaling and "life logging". Life logging, to me, is a tactical function of recording your day. Journaling feels more introspective. You cannot automate introspection.
+
+That's the end of Notable Links.
+
+Now, the Now Reading section.
+
+Sapiens: A Brief History of Humankind
+
+by Yuval Noah Harari
+
+From a renowned historian comes a groundbreaking narrative of humanity’s creation and evolution—a #1 international bestseller—that explores the ways in which biology and history have defined us and enhanced our understanding of what it means to be “human.”
+
+My book club is reading Sapiens and I’ve really enjoyed every bit of this book so far.
+
+That's the end of Now Reading.
+
+Now, the Give Back section.
+
+Creative Commons helps you legally share your knowledge and creativity to build a more equitable, accessible, and innovative world — unlocking the full potential of the internet to drive a new era of development, growth, and productivity. I have been a supporter of Creative Commons for years. Larry Lessig, the founder of Creative Commons, has done the world a great thing by creating a legal structure to help authors and creators encourage remix culture. In addition to donating, you should consider making your content under a Creative Commons license. Donate to Creative Commons today!
+
+That's the end of Give Back.
+
+Now, the Highlighted iOS App section.
+
+Nomorobo Robocall Blocking
+
+by Telephone Science Corporation
+
+Nomorobo blocks annoying robocalls, telemarketers, spam texts, and phone scammers from calling your phone. Bring peace and quiet back to your life.
+
+I started getting a ridiculous number of robocalls to my mobile and NoMoRobo has been great at making this annoyance go away. The 18 dollars/year subscription is great value for never having a robocall or telemarketer ever making my phone ring.
+
+That's the end of Highlighted iOS App.
+
+Now, more links.
+
+- GDPR — xkcd.com xkcd.com
+GPDR XKCD FTW!
+- Winds 2.0: It’s Time to Revive RSS - The Stream Blog getstream.io
+- 1Password 7 for Mac: The Best Ever — AgileBits Blog blog.agilebits.com
+- Microsoft reveals Xbox Adaptive Controller for players with disabilities - Polygon www.polygon.com
+- Announcing General Availability of Amazon EC2 Bare Metal Instances aws.amazon.com
+
+That's the end of More Links.
+
+Now, the Microposts section.
+
+Friday @ 7:25 PM
+
+Freakish heavy rain, hail and high wind weather came out of nowhere.
+
+Friday @ 6:16 PM
+
+Officially summer now.
+
+Thursday @ 7:51 PM
+
+Getting rid of some old cables.
+
+Thursday @ 6:12 PM
+
+Got my pre-order of OmniFocus 3 in!
+
+Thursday @ 6:06 PM
+
+Had a fun time recording an interview with Matt Norman (@MattNorman) today for his Humble Leadership series.
+
+Tuesday @ 8:34 PM
+
+Kramarczuk’s Polish sausage with sauerkraut! Delicious – must have at Target Field.
+
+Tuesday @ 8:18 PM
+
+Panorama of Target Field.
+
+Tuesday @ 8:03 PM
+
+Enjoying a perfect night for baseball!
+
+Tuesday @ 7:12 PM
+
+Minnesota Twins v Detroit Tigers!
+
+Sunday @ 11:14 PM
+
+The Tesla coil at Museum of Space and Industry in Chicago impresses me every time.
+
+Sunday @ 8:15 PM
+
+Just finished the Mission: Mars room at The Escape Game in Chicago. Loved the room! Best escape room I’ve ever done!
+
+Sunday @ 4:37 PM
+
+Afternoon coffee flight – macchiato with cappuccino at Cafe Umbria.
+
+Sunday @ 3:40 PM
+
+White Sox beat Texas Rangers 3-0! Nice game!
+
+Sunday @ 2:54 PM
+
+Chicago at night from the Hancock building.
+
+Sunday @ 2:52 PM
+
+“The Bean” in Millenium Park.
+
+Sunday @ 2:19 PM
+
+Some scenes from Chicago architectural boat tour.
+
+Sunday @ 2:18 PM
+
+Chicago skyline.
+
+Sunday @ 2:06 PM
+
+Time for lunch. Sox leading 3-0!
+
+Sunday @ 1:12 PM
+
+White Sox v Texas Rangers!
+
+Sunday @ 8:45 AM
+
+Sailboats in Chicago going out to the lake.
+
+Saturday @ 3:38 PM
+
+Stoic.
+
+Saturday @ 12:33 AM
+
+Night in Chicago.
+
+That's the end of Microposts.
+
+Now, the Fortune section.
+
+You've made it all the way to the end! Here is your fortune for this week.
+
+Behind every great man stands a strong woman.
+
+Thank you for subscribing to the Weekly Thing!
+
+That brings us to the end of the Weekly Thing, issue 55. Thanks for listening, and I'll see you next time.

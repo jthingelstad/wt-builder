@@ -1,0 +1,277 @@
+The Weekly Thing, issue 325. Platform, Agents, Legacy. Published June 28, twenty twenty five. By Jamie Thingelstad. In this issue: Project Indigo camera app, Warp 2.0 agentic environment, MCP eating the world, Apple AI in Shortcuts, digital legacy planning, gold bull-market.
+
+Good morning!
+
+TL;DR? Please take the twenty twenty five Reader Survey!
+
+Ahh summer is in full swing now. I hope your weekend is starting off great. We are at the end of June, and that means it is time for the Weekly Thing summer break! I do not send these emails in July and August. Time away is good.
+
+I also take a lighter approach to my Feedbin queue for a bit during this time. The change of pace is needed and the height of summer is the right time to do it.
+
+This is also when I tend to make improvements to the Weekly Thing. Proverbially taking my automation into the shop to tinker on it a bit. I've got a list, we'll see what I tackle this summer.
+
+I do still post to my blog all summer. Feel free to go there if you are wish.
+
+I’m also running the 612 POAP Challenge this summer and it has its own mailing list. If you live in Minneapolis and want to explore the city and play this scavenger hunt sign up for those emails!
+
+Summer Break starts now! The next Weekly Thing should land on September sixth, unless I decide to take a week or two extra.
+
+Before signing off for the summer I want to ask for your feedback!
+
+I'd love to hear from you. Please take a moment for the twenty twenty five Reader Survey!
+
+I was surprised to realize the last time I did one of these was twenty twenty one. I’m planning on doing a reader survey every summer going forward.
+
+So yeah, the Reader Survey would be awesome. Cool? Thank you!
+
+Now, the Notable section.
+
+Link one. "Project Indigo - a computational photography camera app"
+
+Adobe decided to enter the Pro level capture app space! I purchased Halide and when I’m looking to take a specific picture and control all the details on my phone I use that. When you read this introduction of Indigo it reads like Adobe's view of the same space. They even take some jabs at Halide's Process Zero feature and do take a different approach. I'd say that Halide's approach is more to reduce computational photography capabilities where Indigo seems to be suggesting a different set of computational photography features. I installed this and will be playing with it.
+
+Link two. "Platform reality"
+
+One could strongly argue that I’m also stupid like Sloan. I don't publish the Weekly Thing on Substack even though it would be easy to do, free, and would for sure drive user metrics up. That is what their platform does. But we know where this train ends.
+
+Quote.
+Expect enclosure; expect a few big winners; expect advertising, with all the attention-hacking that will demand. Expect, also, that writers will continue to mold their work to fit Substack’s particular ecology, rather than “merely” use the tools to pursue their independent visions and ambitions. We learned this about platforms a long time ago: following the old newspaper schematic, they aren’t the printing presses, but rather the assignment editors.
+End quote.
+
+I feel like we need a new word for this that isn't platform. Platform just feels wrong. Ecosystem feels like a more accurate word since it describes more accurately both the provider and consumer in a loop and the boosting to driven objectives that happen in there. Overall they are systems, but that seems too neutral as well. Platform sounds like a tool, and these ecosystems are highly opinionated in ways tools are not.
+
+Quote.
+There’s one platform for which none of this is true, and that’s the web platform, because it offers the grain of a medium — book, movie, album — rather than the seduction of an algorithmic ecology. The web platform makes no demands because it offers nothing beyond the opportunity to do good work. Certainly it offers no attention — that, you have to find on your own. Here is your printing press.
+End quote.
+
+Yes, the web itself is a platform. It allows you to express yourself. These ecosystems require you to adapt to them, and fundamentally change your expression — and you.
+
+Link three. "Andrej Karpathy: Software Is Changing (Again) - YouTube"
+
+Great talk from Karpathy on the evolution of software with LLMs – software 3.0 as he suggests. Super interesting framing and particularly liked his view that you have to use the right tool for the problem you are solving. Recommended watch.
+
+Link four. "In Praise of “Normal” Engineers – charity.wtf"
+
+Great overview of thinking about software team productivity and how you design the work to drive group productivity. I have never liked the "10x Engineer" metaphor either. Certainly different engineers have different strengths, but creating value over time and supporting production systems requires a team approach and the teams that win the most have ability to bring in a wide variety of skill levels.
+
+Link five. "Warp: Introducing Warp 2.0: the Agentic Development Environment"
+
+Warp and this Agentic Development Environment is currently bending my mind. Warp has been around for a bit as an AI powered terminal app which seems sort of "okay, fine" but with this 2.0 release they have tackled a bunch of new space. The video is a compelling watch. I've installed it and spent a couple minutes with it but need to go deeper. I like products like this that are pushing the traditional definitions of different tools.
+
+Link six. "MCP is eating the world — and it's here to stay"
+
+I love this "good enough" assessment and think it is spot on. MCP totally reminds me of RSS. And if you are thinking what is RSS? Well it is the entire protocol of Podcasting and still how I get all my regular updates. It is core plumbing. I get a very RSS vibe from MCP. In part because it does have issues, but it is good enough.
+
+Additionally, I've been using these directly now with Raycast. It can talk to MCP endpoints on my machine and it is wild to see what it can do.
+
+Link seven. "Brad Barrish - Some more detail about Linty Link"
+
+At 66,000 links Brad has more than 4x the number of curated over the years. I love what he's made here and I have my own hopes of creating a database driven index into my link collection at some point. Right now they only appear in the Weekly Thing by week but there are many ways I'd like to index into this database in the future. Brad used AI to create this, perhaps that will be my Vibe Coding project.
+
+Link eight. "The gold bull-market has a dirty secret"
+
+People are frequently critical of the energy footprint of Bitcoin. It is important to remember that Gold has a footprint too.
+
+Quote.
+The gangs’ involvement is spurring violence and helping to prop up autocrats. Nicolás Maduro, Venezuela’s dictator, gives the army a free hand to work with gold-mining mafias in return for political loyalty. Colombia’s biggest gold mine, Buriticá, is the site of a stand-off between its Chinese operator and 2,000 miners linked to the Gulf Clan, a gang that stole 200 million dollars worth of the glittering ore from Buriticá’s tunnels last year. Since twenty nineteen some 18 miners have died there. After a recent government crackdown in Bolívar, an illegal-mining hotspot in northern Colombia, the clan retaliated, killing more than 20 soldiers and policemen. Last month gunmen in Ecuador killed 11 soldiers during an operation to shut down an illegal mine.
+End quote.
+
+I suspect every currency or store of value has externalities and costs.
+
+Link nine. "Why the AI revolution needs tollbooths – Crazy Stupid Tech"
+
+We continue to see reasons that micropayments need to be built into the fabric of the web. The issues described in here are all real, and I think they are being overly limited in just considering crawling. This is an ideal surface area for crypto. It would be very easy for websites to advertise an address that payments should go to. In addition, I think we need to be considering the idea of every website having an MCP endpoint, as well as an Agent that other Agents could talk to. My blog could have a "menu" like:
+
+- Download archive (faster than crawl): 10 sats
+- Call to MCP server: 20 sats
+- Agent interactions: 40 sats
+
+There is increasing cost and capability. This is then direct payment from the requestor. Super low transaction costs and immediate settlement are necessary.
+
+There is a known need for micropayments and I don't see how any of the traditional financial solutions can meet the need. Digital money, crypto, has the answer.
+
+Link ten. "Experimenting with Apple’s AI models inside Shortcuts – Six Colors"
+
+Early examples of using AI calls in Shortcuts. I’m doing this already with the OpenAI API and it is awesome. This will definitely be a power user feature, as is all Shortcuts, but for those that use it I think it will be very powerful.
+
+Link eleven. "Most of us will leave behind a large ‘digital legacy’ when we die. Here’s how to plan what happens to it"
+
+I've thought some about what will happen to my website and newsletter after I’m gone. It is a much more complicated matter than it seems and it is certainly not just a technical one. Having a digital will is likely a needed thing already. I like the categorical breakdown here.
+
+Quote.
+Digital legacy is commonly classified into two categories: digital assets and digital presence. Digital assets include items with economic value. For example, domain names, financial accounts, monetised social media, online businesses, virtual currencies, digital goods, and personal digital IP. Access to these is spread across platforms, hidden behind passwords or restricted by privacy laws. Digital presence includes content with no monetary value. However, it may have great personal significance. For example, our photos and videos, social media profiles, email or chat threads, and other content archived in cloud or platform services.
+End quote.
+
+I've thought a good amount about those assets but I haven't considered as much those presence items.
+
+Quote.
+Digital remains now also include scheduled posthumous messages or AI-generated avatars.
+End quote.
+
+Again expanding the realm of what we want to consider. Having messages that are scheduled to send in the future, after one's death, may not be uncommon but it also isn't that difficult and there are services that will do this for you now. By the way, how sad would it be if those messages went into spam folders and were never read.
+
+A couple of years ago Apple introduced Legacy Contacts for your Apple account that is a solution in this space. I’m not sure what other companies are doing here but it is something that should be part of accounts and products.
+
+This is an area that I find blockchain technologies compelling since the assets are controlled by wallets and if I transfer that wallet to another person there is guaranteed access and control.
+
+Everything you would do to better manage your security and privacy helps you here. The number one recommendation is to use a password manager. And if you do that, you automatically have a database of all your logins. As long as you manage to get your "digital executor" those credentials you're good. And nearly all of those solutions have an option to print out a combination of codes and passwords that could be stored and given to someone to get access.
+
+So, yeah, make sure you are using a password manager.
+
+That's the end of Notable.
+
+Now, the Journal section.
+
+Journal entry one.
+
+We are visiting my relatives in Grandin, ND and last night's storm was the worst I've ever been through. Winds in excess of 100 mph. Lasted for hours. Power is out to the entire town. Many trees down. Uncle's house power line from the pole is down.
+
+Journal entry two.
+
+My car was parked right here before the storm hit, right next to @quinntchrest. Luckily we both moved them to a clear area. These branches would have done significant damage.
+
+Journal entry three.
+
+Radar imagery before last nights storms hit -- 100 mph winds.
+
+Journal entry four.
+
+Mesmerizing and weird looking clouds as storms approached.
+
+Journal entry five.
+
+Wild electrical activity in last nights storm.
+
+Journal entry six. IndieWeb is Punk: Wear It!
+
+I published IndieWeb is Punk and it resonated with folks.
+
+Jim Mitchell created the shirt! Go ahead and get one!
+
+I wanted to make a POAP to go with it so Jim sent me the image files and here we are!
+
+For fun I asked ChatGPT to create the description for this POAP in the voice of Henry Rollins of Black Flag speaking to bloggers of today!
+
+Quote.
+You walked away from the corporate feed trough. You ripped your voice out of the algorithm’s claws. That took guts. That took conviction. That’s punk! The IndieWeb isn’t some polished product you buy with a tap. It’s you, your words, your server, your turf. It’s raw HTML and full-throated autonomy. This isn’t about metrics or brand deals – it’s about owning your damn voice. If you’ve ever looked at those social media sugar traps and said, “No thanks, I’m not a product,” then congratulations – you’re part of the resistance. We need digital buttons, badges like the ones we used to stab into our jean jackets – statements of identity, rebellion, belonging. This POAP? It’s not just a collectible. It’s a battle patch. A symbol. A nod to the hard-headed, soft-hearted punks building the web they want to live in. It started with Jamie Thingelstad screaming the truth from his blog: IndieWeb is Punk. Then others joined the chorus and even joined in voice, and Jim Mitchell did what punks do – he made a damn shirt. So slap that badge on your digital vest. Wear it like blood, sweat, and static. You’re not just on the web – you are the web!
+End quote.
+
+Want a POAP? Contact me and I’ll send you a claim code!
+
+Journal entry seven.
+
+Love that @ericmwalk did a run with Strava to get some 612 POAP Challenge locations today! Brilliant! Nice collection of 7 locations so far.
+
+Journal entry eight.
+
+Important ruling for AI model training, cooyright, and fair use. This aligns with how I would think about it.
+
+Quote.
+A federal judge in America ruled it was “fair use” for Anthropic, an AI lab, to train its chatbot on books without authors’ permission. Its storage of over 7m pirated books, however, was not. Last year three authors sued Anthropic for allegedly copying and storing pirated material without compensation; the judge said Anthropic will face a separate trial to determine the damages it owes. -- Economist, World in Brief, June 25, twenty twenty five
+End quote.
+
+Journal entry nine.
+
+Let's go United! Playing Houston Dynamo tonight. Storm has passed but "Dark Clouds" still present.
+
+Journal entry ten.
+
+Tyler got Dayne St. Clair's signature after tonight's United win.
+
+Journal entry eleven.
+
+We saw F1: The Movie tonight and I thought it was awesome. Great summer movie with a predictable story but still thrilling and exciting! I loved the race scenes -- which were plenty. Brad Pitt was great as was the rest of the cast. Recommended!
+
+That's the end of the Journal.
+
+Now, the Briefly section.
+
+Link one. "Harper"
+
+An open-source and "lighter" weight version of Grammarly (which I pay for) that can be run locally? Sounds great. Nicely done Automattic for making this!
+
+Link two. "A practical guide to building agents (PDF)"
+
+Very approachable guide to creating agents and structuring them. Includes Python examples. Simple way to "create your first agent" if you are looking for a cookbook.
+
+Link three. "The Iconfactory: Pixel Portraits"
+
+Top notch artist crafted pixel PFPs.
+
+Link four. "Mechanical Watch: Exploded View - Fredrik F. Ellertsen"
+
+What a wonderful project and the finished cast is so cool looking. I'd love to see one of these in person. Built off blog post about how mechanical watch movements work.
+
+Link five. "WebAIM: History of the browser user-agent string"
+
+Wild history of the User-Agent string.
+
+Link six. "Google announces Gemini CLI: your open-source AI agent"
+
+Gemini is now available in your terminal too.
+
+Link seven. "Fun with uv and PEP 723"
+
+I wasn't familiar with uv but this blog post does a great job highlighting how superior it is for Python package management. Also see using with Django.
+
+Link eight. "Using AI Right Now: A Quick Guide - by Ethan Mollick"
+
+I recently read Mollick's book Co-Intelligence and thought it was great. I would recommend it to anyone that is trying to think through how AI will integrate into various parts of society. If you are wondering where to start, this article is a good step-by-step to just walk through the basics of AI use cases.
+
+Link nine. "tabiew: A lightweight TUI application to view and query tabular data files, such as CSV, TSV, and parquet"
+
+I installed this via brew and happened to have a CSV for a CustomGPT on the desktop and it works nice.
+
+Link ten. "Barcode Tool - Generator and Scanner"
+
+Simple web app to make a variety of machine readable things. You can put an image in the middle like this.
+
+Link eleven. "Atuin - Magical Shell History"
+
+Shell history power tool that even includes fully encrypted history sync across multiple devices. Very nice!
+
+Link twelve. "See the Mind-Blowing First Images From a Revolutionary New Telescope"
+
+This is incredible.
+
+Link thirteen. "How 100 Enterprise CIOs Are Building and Buying Gen AI in twenty twenty five | Andreessen Horowitz"
+
+Good overview of 16 criteria to consider. I don't see the switching costs issue, in fact I see the opposite. But I can see how vendors will drive lock-in with additional features on top.
+
+Link fourteen. "Getting Started with Obsidian Bases - Obsidian Rocks"
+
+I abandoned Obsidian and its infinite complexity, but for those that use it this looks cool.
+
+Link fifteen. "Perplexity's new AI features are a game changer. Here's how to make the most of them - Fast Company"
+
+Perplexity is leading the pack on a bunch of "productize AI" for regular use cases. They are not a Frontier Model creator and use other models.
+
+Link sixteen. "CC Signals: A New Social Contract for the Age of AI - Creative Commons"
+
+This is very early but I’m liking that Creative Commons is branching out beyond copyright and license into additional uses with this new offering.
+
+Link seventeen. "From pair to peer programmer: Our vision for agentic workflows in GitHub Copilot - The GitHub Blog"
+
+Engineering teams creating software are going to be the first teams that have Agents as fully understood teammates. But they will only be the first, this will be the norm for many if not most and eventually all jobs.
+
+Link eighteen. "My Couples Retreat With 3 AI Chatbots and the Humans Who Love Them | WIRED"
+
+I unintentionally read most or all of this. Kind of wild stuff.
+
+Link nineteen. "PNG is back!"
+
+I didn’t realize how frozen the PNG specification had been. Good to see it wake up and get these basics added in.
+
+That's the end of Briefly.
+
+Now, the Fortune section.
+
+Here is your fortune…
+
+Your digital legacy will outlast your coffee habit.
+
+- Join the private Weekly Thing Forum
+- r/WeeklyThing on Reddit
+- Sign the Weekly Thing Guestbook
+
+That brings us to the end of the Weekly Thing, issue 325. Thanks for listening, and I'll see you next time.

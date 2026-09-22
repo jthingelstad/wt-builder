@@ -1,0 +1,134 @@
+The Weekly Thing, issue 88. Jan 12, twenty nineteen. Published January 12, twenty nineteen. By Jamie Thingelstad. In this issue: T-Mobile selling location data, Amazon DocumentDB, iPad Pro as main computer, GitHub free private repos, politicians blocking on social media.
+
+This is going to be a short intro this week as we are moving into our new house and everything is all over the place. I won't let that keep me from getting you amazing people your links on time though! Our stuff is in boxes, and the government is shut down, but you will definitely get your links for your weekend enjoyment! I will admit this weeks picture is a bit of a stretch though.
+
+I've also been playing around with a (new to me ) blogging service called Blot. I have been very impressed with it's capabilities and it feels like the right trade off between power and ease-of-use. If you are looking for a new blogging service I recommend giving Blot a try. I have already moved my Link Blog and Photo Blog to Blot, and have a working copy of my thingelstad.com site there too that I will flip to primary soon. I already have a couple of posts (locomotive and moving ) there that aren't in the Weekly Thing since I haven't made that flip.
+
+Now, the Featured Links section.
+
+Link one. "T-Mobile, Sprint, and AT and T Are Selling Customers' Real-Time Location Data, And It's Falling Into the Wrong Hands"
+
+It is obvious that the telecommunications companies know your location when you have a mobile phone, but there is some trust that that data isn't being used for other purposes. We shouldn't trust.
+
+Microbilt buys access to location data from an aggregator called Zumigo and then sells it to a dizzying number of sectors, including landlords to scope out potential renters; motor vehicle salesmen, and others who are conducting credit checks. Armed with just a phone number, Microbilt’s “Mobile Device Verify” product can return a target’s full name and address, geolocate a phone in an individual instance, or operate as a continuous tracking service.
+
+This is a crisis of ethics. How is it justifiable to track your location and sell it to other commercial entities when there is no expectation that that is occurring. This has the additional issue that there is no way for the user to even know that it is or is not happening since it’s on the providers end.
+
+That's the end of Featured Links.
+
+Now, the My Weekly Photo section.
+
+Art by the handful piled up waiting its final placement after moving.
+Jan 10, twenty nineteen at 8:09 PM
+Edina, MN
+
+That's the end of My Weekly Photo.
+
+Now, the Notable Links section.
+
+Link one. "Amazon DocumentDB (with MongoDB Compatibility): Fast, Scalable, and Highly Available | AWS News Blog"
+
+I've been wondering for a long time when AWS would come out with an answer for MongoDB. They must not have been able to reach any deal with MongoDB so developed a compatible solution. Wonder if the lawsuits have been filed yet?
+
+Link two. "Qumulo Announces New Minneapolis Office To Support Growing Demand for Hybrid Storage Solutions | Qumulo | Enterprise Scale-Out NAS"
+
+Another technology company opening up a presence in SPS. This makes sense given the history of successful storage companies in town. Plus, Pete was our CMO at SPS and knows the community here is solid!
+
+Link three. "The Best App for Taking Handwritten Notes on an iPad – The Sweet Setup"
+
+The app space for handwritten notes on the iPad Pro is hotly contested, and constantly improving. I've tended to stick with the KISS approach and just use built-in Notes, but these roundups show an incredible amount of innovation.
+
+Link four. "SQL is No Excuse to Avoid DevOps - ACM Queue"
+
+Many teams have DevOps processes that stop at the database interface. There are a couple of simple things you can do to adopt DevOps practices in databases as well.
+
+Link five. "Using the iPad Pro as my main computer | Hicks Journal"
+
+Another writeup on using the iPad Pro as a primary computer. I find I learn interesting things from reading about peoples experiences doing this. This one is definitely focused on creative work with the Pencil which seems like an area that the iPad Pro is profoundly better than anything else at.
+
+Link six. "Ditching Medium | JJ's JavaScript Blog"
+
+Personally I've never been excited about Medium, it is another attempt to cage the free web in to a corporate silo. Now the premium plans on top of that? I'll pass.
+
+Link seven. "The Complete List of 140 Things You Can’t Say About Assange or WikiLeaks – Emma Best"
+
+Initially I thought WikiLeaks, while potentially a dangerous organization, was ultimately driven by good motives. I don't think so anymore.
+
+Link eight. "Court: Politicians who block citizens on social media violate first Amendment | Ars Technica"
+
+I've been following this topic and as far as I know this is the first ruling from a court on it. It makes sense to me that politicians that choose to use private platforms to communicate with citizens should not be able to block people. Particularly when those people are their constituents!
+
+Link nine. "New year, new GitHub: Announcing unlimited free private repos and unified Enterprise offering | The GitHub Blog"
+
+This is great to see! Hopefully people will still mostly default to public repositories, but having private ones is a great utility for everyone. Please remember that it’s still not a good idea to put passwords and other secrets in revision control, private or not.
+
+Link ten. "Oil Fail - ongoing by Tim Bray"
+
+Interesting post that reminded me of Sustainable Energy Without the Hot Air, a book my book club read a while back. Both that one and this Oil Fail book sound interesting.
+
+Link eleven. "N.O.W. Tone Therapy System"
+
+I got these mindfulness aids for my birthday and have tried them a few times already. They are a nice complement for other meditation practices.
+
+Link twelve. "The twenty eighteen Emoji Report — Rands in Repose"
+
+Emoji continues to be one of my favorite work habits. As I wrote earlier, I initially resisted emoji. But the efficiency of the lightweight communication that occurs via emoji and emoji reactions can’t be denied. It also happens to be fun.
+
+Link thirteen. "Links and Recommendations — On my Om"
+
+Om Malik is starting link blogging. This is guaranteed to be a worthwhile stream of good information.
+
+That's the end of Notable Links.
+
+Now, the Give Back section.
+
+Let's Encrypt is a free, automated, and open certificate authority, run for the public’s benefit. All connections to web servers should be encrypted! The biggest challenge with encrypting the web historically has been the cost and hassle of getting an SSL certificate. Let's Encrypt has changed that entirely by being a free certificate authority. Let's Encrypt is possibly one of the most important things to happen on the web in recent years. Donate to Let's Encrypt today!
+
+That's the end of Give Back.
+
+Now, more links.
+
+- What I learned at work this year | Bill Gates
+I love what Bill Gates is working on now.
+- The simple hack to make meetings better | Torchbox torchbox.com
+Solid framework for improving meeting quality. This stuff is always much easier said than done.
+- Adding a Task Anywhere in Project List on iOS — Using OmniFocus www.usingomnifocus.com
+Very cool usability trick in OmniFocus!
+- Coconut Programming Language coconut-lang.org
+Functional language implemented in Python so you can mix and match.
+- Pokémon GO Caught Nearly 800 million dollars in Global Revenue Last Year, Growing 35% Over twenty seventeen sensortower.com
+35% revenue growth for an established game like this is very impressive.
+- How to Delete Online Accounts You No Longer Need - Consumer Reports www.consumerreports.org
+Handy set of links to delete accounts on a number of big social networks. Via Recomendo 129.
+
+That's the end of More Links.
+
+Now, the Microposts section.
+
+Sunday @ 8:18 PM
+
+Watched Smallfoot, fun family movie.
+
+Sunday @ 8:15 PM
+
+Family friends joined us and we beat the Diagonal Alley room at Trapped North Loop. The room was exceptionally well done, highly recommended!
+
+Sunday @ 8:12 PM
+
+My daughter made me the most amazing birthday card! She made a broken laptop out of cardboard and I had to fix it by connecting cables and putting In the “backup email” to unlock her message! It was a puzzle on its own! So fabulous!
+
+Sunday @ 8:09 PM
+
+We went back to Missing Pieces on Thursday and successfully completed the Final Frontier room after failing in November!
+
+That's the end of Microposts.
+
+Now, the Fortune section.
+
+You've made it all the way to the end! Here is your fortune for this week.
+
+Today is what happened to yesterday.
+
+Thank you for subscribing to the Weekly Thing!
+
+That brings us to the end of the Weekly Thing, issue 88. Thanks for listening, and I'll see you next time.

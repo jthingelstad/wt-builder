@@ -1,0 +1,292 @@
+The Weekly Thing, issue 148. What Day Is It?, Written Communication, Lisp. Published May 16, twenty twenty. By Jamie Thingelstad. In this issue: Lisp programming language, COVID-19 risks, iA Writer Micro.blog, Pi-hole v5, Zoom acquires Keybase, Minnesota COVID-19 model, Dave Grohl rock show.
+
+Hello everyone! I hope you are all doing well and continuing to work your way through these unprecedented times. I’m going to skip writing about the pandemic, staying at home, and navigating an ever changing reboot of our world this week. There is plenty of that in the links this week too. Let me share instead a little about the #FitByFifty hashtag that some of you may have picked up on in some of my posts.
+
+I've declared a campaign and have named that #FitByFifty. I'm 48 now, and thanks to feedback from my wife as well as friends I had a wake-up call to the fact that I needed to pay attention to my physical situation. If I’m honest that wake-up call also came from an inner-voice as well that said, "It really shouldn't be this hard to pick something off the floor right?", "Why does your foot and angle hurt for an hour in the morning?", "Shouldn't you be able to run more than 100 feet?". This all culminated in my visit to the Human Performance Institute in March, just moments before the world changed and we all started hibernating in our homes.
+
+I’m working on structure for this now. HPI recommends structuring 90-day missions with clear objectives. I've mapped this out and I have 7 missions that I can fit in before my 50th birthday. I’ve blocked out the schedules, and am now defining the mission objectives for each of those. I’m putting those mission objectives in the dimensions of Spiritual, Emotional, Intellectual, and Physical. I’m spending time defining what does fit mean? Losing weight is part of that, but not all of it. Continuing and extending my meditation practice, which has become a bedrock item for me, is going to be on there. I’m thinking riding a century (100 mile ride) in twenty twenty one probably should be part of it too.
+
+I've been pleased with my progress on Mission 1. I have one month left and I’m on track to hit my objectives and have pinned most, close to all, of my activity objectives. I don't think I could have waited a minute longer. I've now gotten to feeling the benefits, and their are now days that I think about what I need to do for the day and realize "I need to get a spin session in so I can power through the rest of this."
+
+I’m going to write more about this as I go. I'll share my progress on Mission 1, and likely will blog out my structure for the remaining missions. If you have been looking for a reason to make a big change like this, a world altering pandemic is a pretty good one to leverage!
+
+Have a great weekend — Jamie!
+
+Now, the Must Read section.
+
+Link one. "Economic Club of Minnesota Webinar - Our Economy and Health in Crisis - YouTube"
+
+I was able to attend the Economic Club of Minnesota's webinar today on "Our Economy and Health in Crisis". My brother-in-law Hector Fernandez pointed me to some of their earlier events. It was moderated by Margaret Brennan of Face the Nation, and Neel Kashkari, CEO of the Federal Reserve Bank of Minneapolis, and Dr. Michael Osterholm of the University of Minnesota were the two panelists. I recommend watching. I also blogged about this video.
+
+Link two. "How Lisp Became God's Own Programming Language"
+
+I still fondly (I think fondly?) remember learning Lisp in the Computer Science curriculum at the University of Minnesota.
+
+Quote.
+But there is one language that seems to inspire a peculiar universal reverence: Lisp. Keyboard crusaders that would otherwise pounce on anyone daring to suggest that some language is better than any other will concede that Lisp is on another level. Lisp transcends the utilitarian criteria used to judge other languages, because the median programmer has never used Lisp to build anything practical and probably never will, yet the reverence for Lisp runs so deep that Lisp is often ascribed mystical properties.
+End quote.
+
+When I took this class it was taught by Dr. John Carlis, who sadly passed away in twenty eighteen. I got to know John as an undergraduate partly through my friendship with John Riedl.
+
+Dr. Carlis taught the Lisp class and on the first day of the class he asked the students to raise their hand if they knew one programming language. Of course we all did, it was a CSci class! He kept counting. Two, three, four. As he got up to five there were few hands still up. He went to six and I and a couple of other students still had our hands up. Personally I was pretty proud to be showing off my depth in languages.
+
+Dr. Carlis then looked at us that still had our hands up and emphatically stated that for those of you with your hands still up you will have the hardest time in this class. Lisp requires you to think in an entirely different way. He was right by the way.
+
+Link three. "The Risks - Know Them - Avoid Them"
+
+Very good article explaining how to think about risks of exposure to Covid-19. Big headline here is to stay outside with fresh air.
+
+Quote.
+The principle is viral exposure over an extended period of time. In all these cases, people were exposed to the virus in the air for a prolonged period (hours). Even if they were 50 feet away (choir or call center), even a low dose of the virus in the air reaching them, over a sustained period, was enough to cause infection and in some cases, death.
+End quote.
+
+Everyone should read this and be better informed to manage their own personal risks and exposures. Thanks to my brother-in-law Hector Fernandez for the link. Someday I hope he will have his own newsletter we can all subscribe to.
+
+That's the end of Must Read.
+
+Now, the Currently section.
+
+Watching: We finished watching Season 10 of Curb Your Enthusiasm. Larry David cracks me up.
+
+Eating: We've done the Travail Kitchen Family Meal twice now and have enjoyed it a lot. We did a salmon dinner the first time, and the second one was ribs with the fixins'. The food is a generous portion and we get the dinner for two option which enough for our family to split four ways. It’s just the right amount of cooking that it is all fun. The food tastes incredible to boot! I love seeing the innovation coming out of the restaurant industry!
+
+That's the end of Currently.
+
+Now, the Photograph section.
+
+On an evening walk that these trees with their flowers caught my attention. So many flowers.
+
+May 12, twenty twenty at 6:51 PM
+
+Improve deliverability?
+You can help make sure that you always get each issue of this by adding my email address to your address book! It should be simple, click on my name and there is probably a button to add to contacts or add to address book.
+
+That's the end of Photograph.
+
+Now, the Recommended Links section.
+
+Meta Blog —Tim Bray
+
+Last week I linked to Bray's post on leaving Amazon. Here he reflects on what he saw on his blog from his.
+
+Quote.
+But aren’t blogs dead? Um, nope. For every discipline-with-depth that I care about (software/Internet, politics, energy economics, physics), if you want to find out what’s happening and you want to find out from first-person practitioners, you end up reading a blog.
+End quote.
+
+I love my blog and am so happy I've kept this site running for over two decades now.
+
+Manton Reece - iA Writer adds Micro.blog publishing
+
+iA Writer is a very capable markdown editor for iOS, iPadOS, macOS. It has long supported publishing to some blog platforms, but I was surprised and pleased to see that they added support for Micropub and thus micro.blog as well! Let's keep piling on support for open standards!
+
+Why do social networks focus on the wrong problem? – On my Om
+
+Om Malik is spot on here.
+
+Quote.
+Twitter (and Facebook) can do their very best to label the information on their platforms, but the real problem is not of fake news and manipulated information. It is about bots and fake accounts.
+End quote.
+
+He goes on to answer his own question. It is the exact same answer I would give too.
+
+Quote.
+The only explanation I can offer is that this is inentional, because if they start eradicating the bots, their overall user numbers are going to nosedive. The stopping of fake news will lead to a decline in engagement. And that, in turn, will give a real picture of the activity — or lack of it — on social networks. I hate to say this, but they are equally complicit in the "fake news" crisis that is eroding the trust in society at large.
+End quote.
+
+Social media platforms are rewarded for engagement and time-spent. They turn that into money, a lot of it. They have no incentive to stop this. They will do whatever work they need to do to make it look like they are working on it. All the while nothing will change. It doesn't matter the topic – this isn't just about politics. When you are on these platforms, without knowing it you are in the midst of a massive robot war for your attention.
+
+What Day Is It? - Feld Thoughts
+
+Feld shares the structure of his days.
+
+Quote.
+I seem to have two types of days right now. Type 1 is what happens between Monday morning and Friday afternoon. Zoom call after Zoom call. Lots of exogenous stress and anxiety… Type 2 is the weekend. I stop doing meetings and email Friday night…
+End quote.
+
+Our patterns and schedules have all been massively shifted in the last two weeks. It is worth some reflection on that and how we might want to manage it all differently.
+
+Encouraging a Culture of Written Communication – mcls
+
+Many of us have been thrown into distributed work over the last two months. It will take our cultures a while to transform around that. It is clear to me that the pervasive use of tools like Zoom to "lift and shift" meetings to a distributed environment is a stepping stone. This article highlights the things that develop after that.
+
+Quote.
+More and more people are being exposed to working remotely. One of the key factors for success in a remote workplace is a culture of written communication. It’s not always obvious how to create such a culture, and it takes at least some level of discipline from the people involved to make it a habit.
+End quote.
+
+The analogy comes to mind of "lift and shift" software into the cloud, which foregoes many of the benefits of the cloud, versus developing "cloud native" solutions that are aligned with the natural capabilities. Written text is more aligned with distributed work, but it is a hard transition to make.
+
+Oragono
+
+Slack is all the rage, and the modern chat clients are very nice, but it is great to see continued development on standard IRC servers. Depending on your needs, IRC is a very useful alternative. But, the clients lack many of the fancy stuff of modern chat platforms.
+
+Second-guessing the modern web - macwright.org
+
+Maybe React isn't the thing that we should use for everything. It seems like every framework goes through the same cycle. Can we start skipping this part and pick solutions based on how they help solve the problem?
+
+Pi-hole v5.0 is here! – Pi-hole®: A black hole for Internet advertisements
+
+Great upgrade for Pi-hole. I like the addition of filtering by groups. A lot of people will probably use that to filter differently for their kids and the adults. I would also recommend using it to create groups for home automation, smart speakers, exercise equipment. You can then control what information those devices are sending on you as well. I noticed recently that my Peloton gear tries to send a lot of tracking data but it’s all blocked on my network.
+
+Gocycle’s GXi is a folding e-bike with few equals | Engadget
+
+Fabulous review of a really cool e-bike made right here in Minnesota. Richie Gitler, who I know from his days at Magenic and used to live very close to me in Minnetonka, has been part of this journey for years. There is impressive innovation on this bike. If you are looking at e-bikes this is worth consideration.
+
+Product for Internal Platforms - Camille Fournier - Medium
+
+Some exceptional good advice from Fournier, who I would suggest is one of the most expert in the world on this topic.
+
+‘Finally, a virus got me.’ Scientist who fought Ebola and HIV reflects on facing death from COVID-19 | Science | AAAS
+
+Reading accounts of people that have had Covid-19, particularly those with scientific and medical background, highlights that there is so much we don't know about this virus and what the long-term affects will be.
+
+Managing 185 people in 40 countries. How they do it.
+
+A look at a company that designed itself from the ground up to operate in a completely distributed fashion. Again, writing is a key for communication.
+
+Quote.
+Building such a well-oiled organization doesn’t happen overnight. Actually, it takes years in the making and relies on one key ability: writing.
+End quote.
+
+Their staff retention numbers are amazing, and the cost of recruiting is really low. The number of resumes they got per position is also incredible.
+
+Zoom Acquires Keybase and Announces Goal of Developing the Most Broadly Used Enterprise End-to-End Encryption Offering - Zoom Blog
+
+I didn’t see this coming at all. I’ve been a Keybase user for years, but honestly haven’t used it for much of anything.
+
+Quote.
+We are proud to announce the acquisition of Keybase, another milestone in Zoom’s 90-day plan to further strengthen the security of our video communications platform. Since its launch in twenty fourteen, Keybase’s team of exceptional engineers has built a secure messaging and file-sharing service leveraging their deep encryption and security expertise. We are excited to integrate Keybase’s team into the Zoom family to help us build end-to-end encryption that can reach current Zoom scalability.
+End quote.
+
+I wonder how much of this is all about the people. Keybase had some brilliant crypto talent making some innovative stuff. It always seemed like a utility to me though. Bringing the crypto culture of Keybase to Zoom is a smart move. Good use of cash by Zoom.
+
+Shortcuts Wishlist – Jordan Merrick
+
+I’m a power-user of Shortcuts and Merrick’s recommendations are spot on for what power-users need in Shortcuts. I love that Apple has embraced this app and has made it so much more powerful from when it was Workflow, but these adds would be great.
+
+That's the end of Recommended Links.
+
+Now, the Stream section.
+
+Thursday @ 8:58 PM
+
+We made the jump to an electric lawn mover tonight. We bought the 21" Self-Propelled EGO Power+ from Home Depot. Initial impression is amazing. Much lighter, powerful, easy to use, pretty quiet. Won’t miss pulling on that cord to get it started!
+
+Thursday @ 8:55 PM
+
+Nice spin session on Peloton this morning, 30-min Rock and Roll class with Emma Lovewell! Geeky fun looking at the mPaceline graphs. #FitByFifty
+
+Thursday @ 2:53 PM
+
+All data that I have read points to this pandemic lasting for a long time.
+
+“The World Health Organisation warned that it might take five years to bring covid-19 under control and that the virus may never be fully eliminated. It could become endemic, albeit manageable, in the way that, eg, HIV is. Meanwhile an eagerly awaited study suggested that only 5% of 2m people tested in Spain have been infected; nowhere near herd immunity.” — Economist Espresso for May fourteenth, twenty twenty
+
+Wednesday @ 9:59 PM
+
+Great Season 40 of Survivor “Winners at War”. I wanted Natalie to win though. Tony played a strong game, but Natalie did something nearly impossible!
+
+Monday @ 11:35 AM
+
+“The average number of passengers on a commercial flight within the U.S. right now: just 23. Every day, the airline industry is losing almost 400 million dollars.” — NY Times Monday Briefing
+
+Sunday @ 8:53 PM
+
+Just upgraded one of my Pi-Hole servers to v5.0! All went completely smooth. The new group filtering is interesting. I may put all my Apple TV's in a group and restrict the DNS dramatically for example. Maybe block all for some Smart Home stuff and only whitelist what it needs.
+
+Sunday @ 8:45 PM
+
+Lake and Irving is one of our favorite restaurants and they re-opened last week with a limited takeout menu. They have a great setup for getting it to your car and is completely contactless. The Cheeseburger is so delicious!
+
+Sunday @ 8:44 PM
+
+Family was craving for some Pavarotti ice cream tonight so Tyler and I made a stop at Sebastian Joe's! Cold day but they were doing a steady curbside pickup business.
+
+Sunday @ 3:54 PM
+
+Happy Mother’s Day to my amazing wife Tammy! She is the center of our family. Our very first pandemic Mother’s Day!
+
+Sunday @ 3:48 PM
+
+A very Happy Mother’s Day to my Mom, and to all the Mom’s out there!
+
+Saturday @ 7:53 PM
+
+Just wrapped up my first attempt at doing pulled pork using the Sous Vide. I started the Sous Vide last night. I let it run for 20 hours at 165. When I pulled the bag out the pork had shrunk and there was about 3-4 cups of liquid in the bag. I poured the liquid into a sauce pan to reduce on the stove. I transferred the pork to the Big Green Egg and let it smoke for 3 hours at 280, with some good chunks of hickory for added smoke.
+
+When I pulled the pork off the grill the bone pulled out clean and the meat shredded just by pushing on it. It had nice flavor. After pulling it I poured the reduced liquid over to taste. It was delicious and really easy.
+
+Next time I will add more dry rub before putting it on the grill. Otherwise it was one of the best pork butts I’ve ever made.
+
+Saturday @ 4:18 PM
+
+Transferred the pork butt to the Big Green Egg after 20 hours in Sous Vide. Time for the finish smoke at 280 for 2-2.5 hours. Reducing the liquid from Sous Vide bag to add back to pulled pork.
+
+Saturday @ 11:16 AM
+
+“A good newsletter is usually:
+1. Consistent in frequency
+2. Consistent in format
+3. Endlessly repeatable with new content.” — Austin Kleon
+
+Saturday @ 6:46 AM
+
+First Peloton FTP Test
+
+I did my first Functional Threshold Power test today. This is a good way to measure my fitness progress over time. Peloton doesn't advertise it much, but they have some great built-in capabilities for power. After you do an FTP test ride for example, the bike automatically prompts you to store your average wattage and then in all rides going forward you get a realtime power meter that is customized to you.
+
+There is no good or bad for this. I did struggle with holding my power over the course of the 20 minute test. I felt pretty spent by the time it got to the last exertion level.
+
+The heart rate graph is a little off. I’m using mPaceline for this and it has my Max HR a little higher than it should be. The main thing I took away from HR was that I was giving it my full effort. I also think my HR was higher than it should have been for the Zone 4 and 5 sections.
+
+I’m going to do one of these tests every 6-12 weeks to check-in on progress.
+
+Friday @ 8:08 PM
+
+First time doing a pork butt using Sous Vide. Pork will cook at 165 in the water bath for 20 hours and will finish with a 2 hour smoke on the Big Green Egg tomorrow. Following Serious Eats directions.
+
+That's the end of Stream.
+
+Now, for your information.
+
+Prometheus-Basics: A beginner friendly introduction to prometheus
+
+Metrics are critical to running systems of nearly any size, and Prometheus is the current leader in that pack. This is a good overview.
+
+James Fallows: Flying Will Never Be the Same - The Atlantic
+
+Some thoughts on what we are likely to see when flying in the future.
+
+MN-COVID19-Model/Model_v3: Public code release of the Minnesota COVID-19 Model, version 3.0
+
+It is cool to see states like Minnesota releasing the data and models they are using to make decisions. A form of open source?
+
+AP source: MLB owners OK plan that could lead to July start
+
+Soccer leagues are returning to the field. First the Bundesliga and then Premier League. Now we just need to get baseball going to normalize a bit of summer!
+
+Dave Grohl: The Irreplaceable Thrill of the Rock Show - The Atlantic
+
+Dave Grohl is one of my favorite musicians, and this is his "love letter" to concerts.
+
+Fast or Slow - Global Website Performance Profiler
+
+This site does a nice job of evaluating many aspects of website performance and showing it in a usable, approachable view. Worth taking a look at and pointing at a site you care about to see how it performs.
+
+Cruising Van Nuys Boulevard In The Summer Of 1972 In Stunning Black And White Photos By Rick McCloskey
+
+This is a fun article if only for the pictures. Great shots and amazing cars.
+
+Learning from this email?
+Help others learn by sharing on LinkedIn.
+
+That's the end of the FYI section.
+
+Now, the Fortune section.
+
+You've made it all the way to the end! Here is your fortune for this week.
+
+You should emulate your heroes, but don't carry it too far. Especially if they are dead.
+
+Thank you for subscribing to the Weekly Thing!
+
+That brings us to the end of the Weekly Thing, issue 148. Thanks for listening, and I'll see you next time.

@@ -1,0 +1,134 @@
+The Weekly Thing, issue 18. Weekly Thing for September 9, twenty seventeen. Published September 9, twenty seventeen. By Jamie Thingelstad. In this issue: Chef Camp, Apple Watch health, HomeKit accessories, cryptocurrency ban, AI world domination, Facebook code footprint, Weather Atlas iOS.
+
+This week I got this idea in my head that I just couldn't shake. As part of my workflow for publishing the Weekly Thing I have started to embed markdown into the text I put on Pinboard to capture links. Using markdown I can put other hyperlinks and some formatting into the link descriptions in the newsletter. It dawned on me that that markdown is also the same thing Jekyll would use to make a post. Jekyll can also deal with arbitrary metadata for posts.
+
+I could create a link blog very easily using the Pinboard API and writing markdown files that Jekyll could then use. With that I got an early version of Link Thing live. The is the same content that shows up every week in the Weekly Thing, but here it’s a full website with it’s own navigation and such. There is some fun promise to using Pinboard as a CMS to publish this. I'll keep fiddling with it for fun.
+
+I also had too many great photos this week. It was hard to pick but ultimately went with one that I thought captured best the transition into fall here in Minnesota.
+
+Now, the Photog section.
+
+An awesome evening fire at my brothers cabin with Pokegama Lake in the background. S'mores anyone?
+
+Sep 2, twenty seventeen, 8:20 PM Harris MN 55744
+
+That's the end of Photog.
+
+Now, the Links section.
+
+Link one. "Chef Camp"
+
+A wilderness culinary retreat. Chef-led campfire cooking classes, foraging and gourmet meals mix with classic summer camp activities. This looks like a super fun time! Adding to our to do list for summer twenty eighteen! ︎
+
+Link two. "Recode Your Health - How Apple Engineered Its Watch to Push You to Perform at Your Peak | Men's Health"
+
+It’s great to read about the real sport research and science going into the Apple Watch and fitness applications. I’m optimistic that wearables may be an area where technology truly can make someone a better, healthier, person.
+
+Link three. "HomeKitty - Browse HomeKit Accessories"
+
+Website to crowdsource HomeKit compatible devices.
+
+Link four. "China hits booming cryptocurrency market with coin fundraising ban"
+
+It is really hard to know how much of the recent rise in Bitcoin and Ethereum is due to Initial Coin Offerings but the degree of reaction to this news from China will be one sign. It will be curious if the US takes similar action.
+
+Link five. "Plymouth police: Husband's kidnapping, ransom was a hoax - StarTribune.com"
+
+This cracks me up in so many ways. 140 dollars fake ransom?
+
+Link six. "David Letterman - The Howard Stern Show by Howard Stern | Free Listening on SoundCloud"
+
+Letterman brings back memories of being in high school and staying up for his show. Fun to hear him talking about his career and old shows. I’m not a big Stern fan but he really connects with Letterman in this interview.
+
+Link seven. "Putin says the nation that leads in AI ‘will be the ruler of the world’ - The Verge"
+
+Curious if this is in "black hat" or "white hat" ways. AI to improve systems and efficiencies, or AI to drive new attack vectors. I’m guessing the intent is both, but I worry that we only look at the positive vectors. The massive bot nets of the world could be supercharged with strong AI.
+
+Link eight. "Why 16% of the code on the average site belongs to Facebook, and what that means"
+
+There are many reasons I believe that everyone should run content blockers in their browser. This article does a good job of highlighting some of those reasons.
+
+Link nine. "Keep Calm and Carry On - Scaling Your Org with Microservices"
+
+Bridget Kromhout and Charity Majors presentation from recent SREcon. Good insights into how to evolve into microservices, particularly from an organizational perspective.
+
+Link ten. "The Definitive Crypto guide – For Beginners and Veterans Alike"
+
+Very thorough introduction to the basic concepts and mechanisms behind cryptocurrencies like Bitcoin and Ethereum.
+
+Link eleven. "You Are the Product - London Review of Books"
+
+Extremely well thought through analysis about the attention economy and the ethical challenges being completely unaddressed by the giants of social media.
+
+Link twelve. "Fast-growing Code42 software could be a public company within a couple years | Star Tribune"
+
+Bold plans for local Twin Cities tech company Code42, makers of Crash Plan.
+
+Link thirteen. "This Email From Elon Musk to Tesla Employees Describes What Great Communication Looks Like | Inc.com"
+
+Love and strongly agree with the directness of this message that Musk sent to the Tesla team. Anyone at Tesla can and should email/talk to anyone else according to what they think is the fastest way to solve a problem for the benefit of the whole company.
+
+Link fourteen. "Rapid release at massive scale | Engineering Blog | Facebook Code | Facebook"
+
+I think you have to always be a bit suspect about adopting too much of the practices used by Internet giants, but it is interesting to see how they solve some of these exceptionally unique problems. Not many organizations need to release 1,000 to 10,000 diffs a day to production. I do think you can take learnings from these and it’s interesting to see what is possible.
+
+Link fifteen. "‘Weather Atlas’ for iOS —Tools and Toys"
+
+I've got far too many weather applications but I've always wanted one that used a map as the main way to show information. This does a nice job of presenting weather data. A request would be to show temperature data for places that are not a favorite at various zoom levels.
+
+That's the end of Links.
+
+Now, the Promotion section.
+
+Creative Commons helps you legally share your knowledge and creativity to build a more equitable, accessible, and innovative world — unlocking the full potential of the internet to drive a new era of development, growth, and productivity. I have been a supporter of Creative Commons for years. Larry Lessig, the founder of Creative Commons, has done the world a great thing by creating a legal structure to help authors and creators encourage remix culture. In addition to donating, you should consider making your content under a Creative Commons license. Donate to Creative Commons today!
+
+That's the end of Promotion.
+
+Now, the Highlighted iOS App section.
+
+Weather Atlas: Weather Radar Map + 10 Day Forecast
+
+by Contrast
+
+Weather Atlas is your window into current weather conditions. See layers of weather info right on the map, with forecast data available at a glance.
+
+If you would like to see weather data laid out on a map Weather Atlas is the one for you. I've got far too many weather apps but this one has joined the group with a great UI and grounded on a map layer.
+
+Free 4.5/5 stars
+
+That's the end of Highlighted iOS App.
+
+Now, the Microblog updates section.
+
+- U2 — One.
+- U2 - Elevation
+- U2 Joshua Tree. Bono.
+- Wow. U2 Joshua Tree. Amazing.
+- U2 takes the stage — Joshua Tree tour!
+- Can’t figure out what these boxes are at US Bank Stadium. Lots of them. WiFi? Cell?
+- Wonder how many friends are at U2 show tonight. I’m guessing a lot!
+- Big crowd for Beck.
+- Beck opening up show tonight!
+- Had a great time serving #TeamSPS lunch outside today!
+- For fun put my Pinboard archive into a Jekyll site, instant linkblog! Interesting experiments to try.
+- Had the henna artist play freehand with embellishing my permanent tribal tattoo.
+- Kids and I got our henna tattoos!
+- Great day for the Minnesota Renaissance Festival!
+- The Giant Walleye in Garrison, MN.
+- Me on sandbar on Lake Pokegama.
+- Houseboats on sandbar. Lake Pokegama condos?
+- Tried canoeing again. Not sure that is for me.
+- Mazie having fun on paddle board.
+- Tyler trying paddle board!
+- Chinese Lantern being launched.
+- Campfire and Lake Pokegama.
+- Commute by plane to the lake!
+- Mazie and Tyler tubing!
+- Relaxing afternoon with my brother @keating_isaiah on Lake Pokegama.
+- Tammy and Tiffany out for a quick canoe on Pokegama Lake.
+
+That's the end of Microblog updates.
+
+Thank you for subscribing to the Weekly Thing! If you know of people that would like the Weekly Thing please forward it along!
+
+That brings us to the end of the Weekly Thing, issue 18. Thanks for listening, and I'll see you next time.

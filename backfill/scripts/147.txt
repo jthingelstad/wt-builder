@@ -1,0 +1,354 @@
+The Weekly Thing, issue 147. Do The Work, Good Writing, Bye Amazon. Published May 9, twenty twenty. By Jamie Thingelstad. In this issue: Facebook SDK iOS crashes, Tim Bray leaves Amazon, Airbnb layoffs, virtual WWDC June 22, murder hornets, Bill Gates on COVID-19 vaccine.
+
+Hello everyone! I hope you are all doing well. These turbulent times are throwing changes at us at unprecedented rates. There has never been a time in our life that we need to keep our communities in mind and think and empathize with those around us. The experience through this pandemic and economic crisis is very uneven, and we need to come together in our communities to support each other.
+
+I have a little technical change that you will see in this weeks issue. I've made some changes to my website and am no longer separating my longer blog posts from small micro posts. So, you'll see all that stuff intermingled in that section. Longer posts with titles and multiple paragraphs. Others that are just a picture. All good, and I like it better this way. I've cleared out some digital cruft and streamlined things to make it easier for me to write online. I've become an even bigger fan of micro.blog!
+
+I want to wish all the Mothers out there a very Happy Mothers Day! Most of all to my Mom who of course is a subscriber. I am one lucky son to have a Mom that gave so much to me in spirit and drive, in empathy and compassion. I love you Mom! To everyone else, give your Mom a call on Sunday. Pandemic only means you need to make sure to do it twice as much!
+
+Now, the Must Read section.
+
+Link one. "Facebook SDK Issue Causing Some iOS Apps to Crash - MacRumors"
+
+So the other night Tyler told me he could not get Duolingo to load. He is learning some German and is really liking Duolingo. When he launched the app it would just crash right away. I told him to delete it and reinstall, still did it. We rebooted his device and that didn’t fix it. Then I noticed another app did it on his device. Odd. I gave up and told him I would look more later, and went to meditate and launched Headspace on my phone and it did the exact same thing. Then I started thinking that maybe a new rule was active on my Pi-Hole and that was causing the issue, but I disabled the Pi-Hole briefly and it still didn’t work. Then I saw that Facebook and poor error handling in their horrible SDK was causing a lot of apps to fail. There is an hour I’ll never get back...
+
+Link two. "Opinion | Dave Eggers: Flattening the Truth on Coronavirus - The New York Times"
+
+I love Eggers writing and this is spot on. He calls it all out too.
+
+Quote.
+Having no plan is the plan! Haven’t you been listening? Plans are for commies and the Danish.
+End quote.
+
+Link three. "ongoing by Tim Bray · Bye, Amazon"
+
+I have followed Tim Bray’s blog for years. I enjoy his writing, and have also enjoyed the things he has shared about AWS services he has been working on since joining Amazon. It was a total shock to see this article in his feed, but after reading it you get a clear understanding of his reasoning.
+
+Quote.
+An announcement sent to internal mailing lists on Friday April tenth was apparently the flashpoint. Emily Cunningham and Maren Costa, two visible AECJ leaders, were fired on the spot that day.
+End quote.
+
+This has been picked up by a number of media outlets, including the NY TImes. Tim also wrote an article with Responses to some of the questions that have come since this was written.
+
+That's the end of Must Read.
+
+Now, the Currently section.
+
+Reading: I am just getting started reading Benjamin Franklin: An American Life by Walter Isaacson. My book club picked it and I’m looking forward to learning more about such an influential person in our world.
+
+That's the end of Currently.
+
+Now, the Photograph section.
+
+The kids didn’t have school on Monday of this week and Mazie decided to make a Heart Shaped Rainbow in our front windows for people to see as they walked by.
+
+May 4, twenty twenty at 7:32 PM
+Edina MN
+
+Tweet often?
+Help put out the dumpster fire and share this on Twitter.
+
+That's the end of Photograph.
+
+Now, the Recommended Links section.
+
+Yaneer Bar-Yam on Twitter: "I have lost my mother to COVID. May her light shine bright forever in the places that truly matter." / Twitter
+
+Bar-Yam tweeted the loss of his mother to Covid-19. It’s a sad reflection, worth reading.
+
+Quote.
+The systemic failure is apparent. Every country has its compassion measured in the number of its COVID sick and dead. I have tried to explain how to stop it. The problem is not in the understanding, the problem is in the absence of compassion.
+End quote.
+
+There is truth here.
+
+Do. The. Work. – wonder and beauty
+
+I like this perspective. The only way to move forward is to keep moving forward. Keep doing the things you need to move ahead.
+
+Announcing Micro.blog for teams
+
+I’ve been using micro.blog since it launched and have come to like it very much. I recently consolidated all of my historical blogs onto it and have backloaded all of my archive content. Adding a Team feature is cool, and I like how it is implemented. I think this could be very effective for companies, small businesses, teams, and other groups that want to easily publish.
+
+Brian Chesky lays off 1,900 Airbnb staff... like an actual human being - without bullshit
+
+I appreciate Bernoff’s posts where he analysis communication like this.
+
+Quote.
+Chesky’s email is logical, well organized, makes it clear not just why they made the decision but how they chose who to let go, and explains all the severance details. It’s over 1,500 words long, but sometimes that’s what you need to be clear and empathetic. Let’s see why it works.
+End quote.
+
+He highlights what is done well in this communication, and pulls the key things that could be used in any type of communication.
+
+Apple to host virtual Worldwide Developers Conference beginning June 22 - Apple
+
+I mentioned a few issues back that O’Reilly ending their conferences and pivoting online will be a win because of the increased access. Apple is now hosting WWDC online, and making it free to everyone. Before this was a hard to get ticket with a fee, and travel fees on top of it. I think we will see the increase in access outweighs the hallway track benefits.
+
+peloton-client-library
+
+Peloton has no public API, but fans are trying to figure it out by sniffing behavior. This reminds me of what people do with the Tesla API. I sure would like to see a published, supported API from Peloton as well as supporting some simple web standards like RSS feeds for your workouts.
+
+Minnesota's high-tech trade group is letting go of the 'high' | Star Tribune
+
+Small, but important and well-done modernization of name for the Minnesota Technology Association.
+
+The Huge List Of Code You Need To Write To Start A SaaS
+
+A lot of this list isn’t specific to SaaS but instead to building anything on the web. With that said, there are a number of SaaS primitives around billing, admin functions, and the like that are a pain the neck to code and everybody has to reinvent every single time.
+
+The Technium: 68 Bits of Unsolicited Advice
+
+I love when people write reflections like this.
+
+Quote.
+It’s my birthday. I’m 68. I feel like pulling up a rocking chair and dispensing advice to the young ‘uns. Here are 68 pithy bits of unsolicited advice which I offer as my birthday present to all of you.
+End quote.
+
+68 great points. Maybe write each one down and visit one a day and put it to action?
+
+The inevitable has happened. – On my Om
+
+Scott Galloway was the first that I heard say that the pandemic will "Accelerate the Future". This article is all about that.
+
+Quote.
+But not anymore! Kicking and screaming, they have been brought into the future. "We have seen two years’ worth of digital transformation in two months," noted Microsoft CEO Satya Nadella in a call with Wall Street analysts after reporting earnings that were just shy of astounding. Box CEO Aaron Levie noted that "years of IT acceleration being compressed into months."
+End quote.
+
+Years are happening in months. We just have no idea if we are going 3 years or 10 years into the future!
+
+Working from home surveillance software for your boss - The Washington Post
+
+The software that companies are building, and others buying and subjecting their employees to, is worrisome. Software the turns you webcam on and allows your boss to literally watch you the entire time? Of course the next step will be to have an AI watch you all the time, and then who again are we working for? Privacy in the workplace is not a thing, but this software still bothers me.
+
+Carbon
+
+Cool, simple tool that allows you to turn source code into a nicely formatted and syntax highlighted image file that you can share on platforms where images work better. The only part I don’t get is how do you then get the actual code. I guess you could link it to a blog post or a gist.
+
+Canon Livestream
+
+Very cool to see Canon updating their software to allow you to use the incredible image sensors in their great cameras as a webcam! My Canon EOS R is supported. I want to give this a try.
+
+Ad Aged: Good writing is a business advantage. (An advertisement for myself.)
+
+Writing is a super-power for leaders if exercised well.
+
+Quote.
+First is definition. This is our hardest job. What does a product, service, person or company actually do? How do we define them in a brief, ownable and memorable way. Second is demonstration. Today this is difficult because so many agency people and marketers believe people can’t read and have almost zero attention spans. They do not consider that people pay attention to things that are interesting. (Maybe cheap content badly executed isn’t really cheap.) The third part is dissemination. How do we use the 32 million channels people tune into these days to get our messages out?
+End quote.
+
+That strikes me as a good way to look at the writing and communication that you are doing.
+
+Microsoft Build twenty twenty registration is not only open, it's FREE, it's LIVE, it's VIRTUAL, and it is all FOR YOU - Scott Hanselman
+
+Microsoft is also making their annual developer event online, and open to all for free. Another win for access to a larger audience of developers.
+
+ICANN Board Withholds Consent for a Change of Control of the Public Interest Registry (PIR) - ICANN
+
+This was a big fight, and I’m glad to see that the good side prevailed.
+
+Quote.
+Today, the ICANN Board made the decision to reject the proposed change of control and entity conversion request that Public Interest Registry (PIR) submitted to ICANN. After completing extensive due diligence, the ICANN Board finds that withholding consent of the transfer of PIR from the Internet Society (ISOC) to Ethos Capital is reasonable, and the right thing to do.
+End quote.
+
+Transferring .org to Ethos Capital would have damaged the very top-level domain meant to house non-profit organizations.
+
+That's the end of Recommended Links.
+
+Now, the Stream section.
+
+Thursday @ 12:22 PM
+
+I am so excited to hear that Bundesliga is resuming the season! Tyler and I will be cheering for Bayern on May seventeenth!
+
+Wednesday @ 9:31 PM
+
+Tracking Pre-meal and Post-meal Hunger Level
+
+I’ve been tracking my food using Ate. One of my favorite features in Ate is that you can setup questions to answer about the meals, and tracking pre-meal and post-meal hunger level is useful information to me. However, I didn’t like the options so I made this set of options combined with fun emoji that work really well for me. I have the same options for a pre-meal and post-meal question.
+
+0 - Lost hunger
+1 - Irritable
+2 - Hungry
+3 - Satisfied
+4 - Full
+5 - Sluggish
+6 - Stuffed
+
+The goal is to stay in the values.
+
+Wednesday @ 9:12 PM
+
+The Importance, Accessibility, and Inclusivity of Connecting Online
+
+We have all shifted quickly to online platforms for many of our interactions. It is easy to see some of the challenges with this. Technical barriers. Cognitive confusion leading to "zoom fatigue". There are also some powerful benefits online that were not as obvious before.
+
+Work
+
+For "knowledge workers," most everyone is doing their work distributed, and I have noticed an equalizing aspect to it. The two dimensions that I see the most are geography differences being lessened, and more balance between those that are outgoing versus more introverted. When everyone you work with is in an equally sized video frame right in front of you, geography is only notable to the extent that it may be evening where they are and morning for you. I've had many team members share with me that they have never felt more connected with the members of our various offices. And perhaps more powerfully, our team members in other offices have felt like they can contribute and engage better with the rest of the teams.
+
+This reinforces one of my beliefs about remote versus centralized teams that it is hardest to do both. Fully remote is a considerable leveler, and everyone will have to accommodate. Entirely local is the default that humans have used for millennia. The tricky part is doing both. My hope is that we can take the learnings developed during this pandemic and apply it to improvements and empathy going forward to keep these benefits in place.
+
+Large group gatherings have also surprised me online. They work very well, as long as you keep the time short. And one of my favorite parts is that you can successfully engage in Q and A with the audience. I've held team all-hands meetings for decades, and I long ago decided to not open up time for Q and A because the chances of someone asking a question were near nil. The social dynamics of being that one person in a room of 250 that stands up with a question are just too challenging for most individuals to navigate. Online tools though by necessity must create a feature to do this. They have to enable it. And in doing so, they remove the barriers that inhibit people. I've found much more engagement than I've ever seen in in-person large group meetings.
+
+That's the end of Stream.
+
+Now, the mini minnebar section.
+
+Last weekend was supposed to be the annual Minnebar unconference. Minnebar is one of my favorite events of the year. Over 1,000 technologists, collecting around community-led topics with about 70 sessions throughout the day. Minnestar, the non-profit behind the Minnebar, pivoted online and held mini Minnebar and I thought it was great!
+
+The event was hosted on Crowdcast, and it was impressive. The event had a single track, versus multiple parallel sessions as it usually has. That was just fine to me, and it made me think that there could be five or six events like this throughout the year and get the same quantity of content to an even broader audience.
+
+However, the big win to me was opening the event to a broader geography. One of the sessions I realized my brother would like. He lives three hours away and would usually never be able to attend Minnebar. But since it was online, I sent him the link, and he was on in 5 minutes. The event drew people from around the state. Minnestar has debated for years about how to reach people outside of the metro area. I know from dozens of board conversations. We considered for years bringing our events to other cities, but getting them online and opening up globally brought the program there. There was even a person from Turkey who attended Minnebar!
+
+I also felt a lot of energy from the event. It hit me how important it was that the event happen, in some form. I needed the connection to the technology community to still be there. It was so great to see comments in the stream from friends and give a to them. It filled my day with energy to connect and so what if we couldn't do it in person with happy hour, we still did it. It reminded me how vital these connections are, and we all must forge ahead.
+
+That's the end of mini minnebar.
+
+Now, the A New Way to Mourn section.
+
+My last observation on this topic is from an episode of the Daily called A New Way to Mourn. I highly recommend listening to this. It is a touching story with a powerful message. In short, this highlights that many funerals are being queued into the future. "We will get together to remember Bob when we can connect as a community." There is a massive problem with this. These are essential rituals and are vital to loved ones and friends going through the mourning process. Deferring them to some unknown future date is going to cause significant problems.
+
+This story about mourning and celebrating a departed loved one online is incredible. And again, I note the accessibility component. Some people can't travel for various reasons and may be unable to attend a traditional funeral ceremony. Typically they would be excluded from this critical aspect of the mourning process. Hosting a visitation and funeral over Zoom opens up new avenues and accessibility for loved ones to be part of the process.
+
+Tuesday @ 10:37 PM
+
+Playing with mPaceline to see longer term trends in my Peloton bike work. Love this graph showing that I’m generating more power for same heart rate. #FitByFifty
+
+Tuesday @ 5:39 PM
+
+Lemon Drop Martinis for Cinco de Mayo!
+
+Monday @ 10:25 PM
+
+The graphs that mPaceline makes from your Peloton bike rides are pretty impressive. I am looking for ways to track progress over longer time periods. #FitByFifty
+
+Sunday @ 7:47 AM
+
+The Tetris Shower that we did over a decade ago is still one of my favorite home projects we've done.
+
+Saturday @ 7:56 PM
+
+Lucky and I on the pontoon.
+
+Saturday @ 9:52 AM
+
+Boat Day! Beautiful morning to get the pontoon from storage. Heading up Cannon River to Wells Lake and finally to Cannon Lake!
+
+Saturday @ 8:43 AM
+
+Importing Jekyll site to micro.blog
+
+I successfully migrated my blog archive from Jekyll to micro.blog. I haven't seen much written about this, so let me share how I did it. This definitely requires a bit of hacking but the result worked very well. I followed the general pattern that Manton Reece shared in his Timetable migration to micro.blog post.
+
+You can grab the code and use it as a starting point. The script won't win any prizes for elegance, but it only needed to work once. Here is the Python code as well as the Jekyll template for JSONFeed that I used.
+
+That's the end of A New Way to Mourn.
+
+Now, the Get Content Ready section.
+
+Technically Jekyll is just a collection of Markdown files and image assets. it seems like it should be easy. However, Jekyll markdown files all have a variety of Front Matter metadata that is only meaningful to Jekyll. You almost certainly have Liquid Tags in the content as well. So, let's make Jekyll do the work of helping us out of its issues.
+
+I already had a JSON Feed endpoint. I removed the post limit from it so it would generate a JSON Feed with all blog posts instead of just the most recent 10. I then told Jekyll to generate the site jekyll build and I was pretty much ready. I now had a full JSON Feed file with every blog post with no Liquid Tags either.
+
+I didn’t want to bring categories or tags over, but if you did you could easily add that to the JSON Feed export and catch it in the import.
+
+That's the end of Get Content Ready.
+
+Now, the Content is in HTML section.
+
+The JSON Feed file is great, but the content is in HTML and I need Markdown to give to micro.blog. Pandoc and pypandoc did an awesome job at this. I created a Python 3 script to open the JSON Feed file as a JSON object and then iterate through the posts. I used Pandoc to convert each content_html element into Markdown. Note I for sure would use Python 3 for the sensible handling of UTF-8.
+
+This one line of code just made me gleeful.
+
+md = pypandoc.convert_text(i['content_html'], 'md', format='html')
+
+That's the end of Content is in HTML.
+
+Now, the Images section.
+
+Now that I had Markdown I was getting really close but I have thousands of linked images to import as well. I need to get the images uploaded to micro.blog, and then I need to update the URLs.
+
+I created a regular expression (magic!) match to all image links that pointed to my own website. I could key this off a well defined path, /assets/. Since I was working out of a generated static site those images were all on the local file system so I parsed out the path from the URL, checked to make sure the file was found and uploaded it to micro.blog. I then used the generated URL returned from micro.blog to update the old one in the Markdown. Markdown made this a lot easier without all the HTML cruft.
+
+urls = re.findall(r'(?: md)
+
+Testing if the file exists was a good validator. I found a few issues with my regular expression and a couple of badly formatted blog posts that failed and was able to fix the formatting before importing. Also, since I only needed to run this once for some of the issues it was easier to fix the JSON Feed source instead of coding around it.
+
+That's the end of Images.
+
+Now, the Import! section.
+
+With all posts successfully converting via Pandoc, and all images matching on the file system, I ran the script with a polite sleep(2) wait in the loop to make things easier for micro.blog servers and it all worked like a charm. Imported over 1,600 posts and 800MB of images.
+
+I still have broken links internally. I don't think there would be any way for me to fix internal links between posts because everything is changing for those, but I'll use Integrity to scan for broken internal links and fix them manually.
+
+Friday @ 6:48 PM
+
+Pandemic backyard barbershop tonight. Tammy did the honors. Number 1 plus. High and tight. USMC certified. Semper Fi!
+
+Friday @ 3:45 PM
+
+Tammy and the kids are so awesome — May Day baskets queued up for delivery to friends and family!
+
+That's the end of Import!.
+
+Now, for your information.
+
+sparks
+
+Spark lines meets a typeface. Super cool.
+
+Highlighted: Book Highlighter
+
+If you read and like to highlight excerpts of books this might be a great app for you. Via Patrick Rhone.
+
+Notion encourages busy-work and I’m tired of it - diesdas.direct - Medium
+
+Notion hasn’t caught my imagination at all, but there is a lot of interest in it.
+
+The Secret to Getting Things Done | Leadership Freak
+
+Focus.
+
+501KG Deadlift - Hafthor Bjornsson - YouTube
+
+I watched this several times. That is an amazing feat. I love how there are really no words, just grunts and screams throughout.
+
+‘Murder Hornets’ in the U.S.: The Rush to Stop the Asian Giant Hornet - The New York Times
+
+Come on now! We don’t need murder hornets on top of Coronavirus!
+
+Time on Unix
+
+A delicious deep dive into how Unix systems deal with time, and the various components that interact with time.
+
+The first modern pandemic | Bill Gates
+
+Another perspective from Bill Gates on Coronavirus.
+
+What you need to know about the COVID-19 vaccine | Bill Gates
+
+Bill Gates is writing some of the most coherent things published on Coronavirus.
+
+Deserted Island DevOps – Alt + E S V
+
+Thoughts on hosting a technology event in Animal Crossing. Cool idea.
+
+Got Your Back
+
+Another fun site with virtual backgrounds for Zoom and other services. This one seems more artistic.
+
+Tweet often?
+Help put out the dumpster fire and share this on Twitter.
+
+That's the end of the FYI section.
+
+Now, the Fortune section.
+
+You've made it all the way to the end! Here is your fortune for this week.
+
+Stay away from hurricanes for a while.
+
+Thank you for subscribing to the Weekly Thing!
+
+That brings us to the end of the Weekly Thing, issue 147. Thanks for listening, and I'll see you next time.

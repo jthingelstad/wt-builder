@@ -1,0 +1,196 @@
+The Weekly Thing, issue 60. Jun 30, twenty eighteen. Published June 30, twenty eighteen. By Jamie Thingelstad. In this issue: Formula 1 averages, Legend of Nintendo, a16z crypto, Atul Gawande health care, REST versus GraphQL, Intel integration, machine learning.
+
+I don't have a lot to update on this week, and there are no features or changes to the Weekly Thing for me to share and have a meta update around. Have a great weekend and enjoy the links below!
+
+Now, the Featured Links section.
+
+Link one. "In Formula 1, you have to be amazing just to be average - The Verge"
+
+Some nice pictures and behind the scenes look into Formula 1.
+
+Link two. "How Silicon Valley is responding to the immigration crisis - Recode"
+
+I am often very critical of Facebook, but this is an example of something that would definitely not happen without Facebook. This fundraiser started by trying to raise 1,500 dollars for RAICES to fund legal support for families separated at the border. Within 2 days they had raised 1 million dollars and are now over 20 million dollars! I bypassed Facebook, but appreciated them highlighting this organization and donated myself.
+
+Link three. "The Legend of Nintendo - Bloomberg"
+
+An in-depth background on Nintendo. I find Nintendo a very interesting company with such a rich history. I’m happy that the Switch is experiencing strong growth. Nintendo, for me, captures the essence of fun in games.
+
+That's the end of Featured Links.
+
+Now, the My Weekly Photo section.
+
+When you walk around Lake Harriet in South Minneapolis there is this tree on the south end of the lake that has a fairy house built in the bottom of it. It's such an awesome idea and it adds a little bit of magic to your walk.
+
+Fairy house in the base of a tree.
+Jun 24, twenty eighteen at 8:03 PM
+Lake Harriet, 4869–4899 W Lake Harriet Pkwy, Minneapolis MN
+
+That's the end of My Weekly Photo.
+
+Now, the Notable Links section.
+
+Link one. "Click ‘Delete’ to Save Your Soul - The New York Times"
+
+Review of Jaron Lanier's new book Ten Arguments For Deleting Your Social Media Accounts Right Now. The book itself does not get a glowing review, but it comes with a punch at the end.
+
+Only at the very end does Lanier venture into new territory. His argument, however, is a profound one. He worries that our reliance on big tech companies is ruining our capacity for spirituality, by turning us into robotic extensions of their machines.
+
+If you are less versed in the debate about social media the book may be more novel.
+
+Link two. "Watch Apple CEO Tim Cook Speak at Fortune’s CEO Initiative - YouTube"
+
+I turn into more of a Tim Cook fanboy every time I watch an interview with him. Very eloquent, direct answers to the topics discussed.
+
+Link three. "Paul McCartney Carpool Karaoke - YouTube"
+
+Make your day, just watch the absolute genuine Paul McCartney.
+
+Link four. "Introducing a16z crypto – a16zcrypto"
+
+Andreessen Horowitz launches a new crypto focused fund.
+
+Today we are announcing the launch of a16z crypto, a 300 million dollars venture fund that will invest in crypto companies and protocols.
+
+Link five. "How Atul Gawande landed the most extraordinary job in health care"
+
+I've read a number of Atul Gawande's books and he has always impressed me as an incredibly talented and smart person. He also seems to have an infinite amount of energy. Him joining this very well funded healthcare venture is very interesting.
+
+Link six. "Fear of missing out - Wikipedia"
+
+This is the thing that keeps people from disengaging with social media. It’s good to name it, understand it, so you can manage it.
+
+Link seven. "REST versus GraphQL: A Critical Review – Good API"
+
+An argument for using GraphQL for API development, and that it’s easier than REST.
+
+Here is the idea: If you have never heard about the REST architectural style constraints and their implication on the properties of the resulting distributed system and you do not want to (or can’t) educate yourself, use GraphQL.
+
+Link eight. "Intel and the Danger of Integration — Stratechery by Ben Thompson"
+
+Keen observations on the very difficult spot that Intel is in. For the first time ever they are following others in fabrication.
+
+Link nine. "The Sweet Setup Guide to Cutting the Cord – The Sweet Setup"
+
+Thorough guide to various options for getting rid of cable TV (or satellite TV). I cut the cord in two thousand nine. The options now are great. I've long had an Apple TV attached to each TV we have. I've recently gotten the HDHomeRun referenced here and am using it with Plex on my Synology NAS. We also have Netflix, Hulu and HBO Now subscriptions.
+
+Link ten. "Ways to think about machine learning — Benedict Evans"
+
+A grounded, reality-based view of the potential of machine learning and how we should be thinking about it in solutions.
+
+So, this is a good grounding way to think about ML today - it’s a step change in what we can do with computers, and that will be part of many different products for many different companies. Eventually, pretty much everything will have ML somewhere inside and no-one will care.
+
+I like the pragmatic views in this.
+
+Link eleven. "Zero Tolerance for Zero Tolerance"
+
+The CEO of littlebits, an immigrant and refuge, taking a position on the despicable separation of children from their parents at the border.
+
+History will judge us if we sit still and allow this to happen. Our kids will not forgive us if we don’t stand up for them. Our conscience will not rest if we allow something so basically human to appear partisan. We must speak out.
+
+It’s good to see tech companies taking positions on important matters.
+
+Link twelve. "Why do I procrastinate | And How to Stop Right Away"
+
+Interesting set of questions to categorize why you might not be working on something. I plugged in my perennial favorite "Clean the garage" and got back that "Lack of value" is why I’m not getting it done.
+
+Link thirteen. "To-Do: Find a Better To-Do List | Doodle Blog"
+
+Tips for managing your to do list more efficiently. I do the "If/Then" on my lists. I'll have something like "Take multivitamin, if at home" for example. The "Have-Done" concept is easily done in a tool like OmniFocus. I’m less into ideas like the "1-3-5 list".
+
+Link fourteen. "A Supervised Approach To The Interpretation Of Imperative To-Do Lists"
+
+Interesting machine analysis of "to do" lists. It surprises me that more research hasn't been done in this area, but understandably there is not a lot of data to pull out. To Do's are very short, so understanding intent could be hard.
+
+To-do lists are a popular medium for personal information management. As to-do tasks are increasingly tracked in electronic form with mobile and desk- top organizers, so does the potential for software support for the corresponding tasks by means of intelligent agents. While there has been work in the area of personal assistants for to-do tasks, no work has focused on classifying user intention and information extraction as we do. We show that our methods per- form well across two corpora that span sub-domains, one of which we released.
+
+This approach would also benefit from tuning over time. People tend to develop "shorthands" that they use in their To Do's and a system could learn those and tune to each person over time.
+
+Link fifteen. "Smarter, Not Harder: How to Succeed at Work"
+
+Get focus in what you do. I love the 96 blocks a day idea, and choosing what you do with these.
+
+Link sixteen. "Service Mesh and Cookpad – Envoy Proxy"
+
+I like that this article is written from more of an "average" company perspective. Service mesh is a powerful and useful capability, but it is less interesting to me how giant tech companies use it. I want to know how average companies use it.
+
+Link seventeen. "We’ve Come a Long Way in 30 Years (But You Haven’t Seen Anything Yet!) — Wolfram Blog"
+
+Mathematica has been around for 30 years -- wow! When I read Wolfram's thoughts on Mathematica I always feel like he is onto something much bigger than I can comprehend.
+
+Link eighteen. "An Invisible Rating System At Your Favorite Chain Restaurant Is Costing Your Server"
+
+This is a great example of the unintended consequences of more technology in the workplace, and making uninformed decisions with the technology. People who understand how rating systems work, and the things that influence them, would never suggest you evaluate a servers performance on it.
+
+That's the end of Notable Links.
+
+Now, the Give Back section.
+
+Minnestar is the technology community for Minnesota. If you are passionate about technology you need to go to Minnebar and Minnedemo. Did you know that Minnebar is the largest BarCamp in North America and one of the largest in the world? Its also been going on for over 10 years? Minnedemo is the best place to hear about innovative tech and fun projects in the Twin Cities area. I am on the Minnestar board and I focus on Minnestar as one of the driving forces improving and expanding the technology community in the area. Minnestar is a 501c3 non-profit. Become a Community Supporter today!
+
+That's the end of Give Back.
+
+Now, more links.
+
+- A one size fits all database doesn't fit anyone - All Things Distributed www.allthingsdistributed.com
+Overview of the various database offerings of AWS.
+- macOS Mojave: Back to the Mac - Six Colors sixcolors.com
+Fantastic overview of both big and small new things in macOS Mojave. I wasn't very intrigued by the news on Mojave, but these improvements look solid.
+- molten: modern API framework moltenframework.com
+molten is a minimal, extensible, fast and productive framework for building HTTP APIs with Python.
+- America’s Millennials Are Waking Up to a Grim Financial Future - Bloomberg www.bloomberg.com
+I wish these graphs looked better.
+- How To Fall Asleep And Why We Need More: Shots - Health News: NPR www.npr.org
+I read the book, but this article captures some of the key points in snippet form.
+- Self-Hosted Developer Bliss - Home - Bruno Antunes blog.nootch.net
+Great collection of various tools for running your own infrastructure. I hadn't heard of dokku but it looks great.
+- Young people still love Twitter — as screenshots on Instagram - The Verge www.theverge.com
+The social web of meaninglessness.
+
+That's the end of More Links.
+
+Now, the Microposts section.
+
+Thursday @ 7:32 PM
+
+First clematis flower of the year.
+
+Tuesday @ 9:15 PM
+
+I contributed to RAICES Bond Fund to help reunite immigrant children separated from their families after listening to this podcast on responding to the immigration crisis. They’ve raised over 20 million dollars and still going.
+
+Monday @ 9:39 PM
+
+Introducing Mazie to the 1980’s by watching Ferris Bueller’s Day Off. Classic.
+
+Monday @ 8:38 PM
+
+We had a fun time beating The Search for Atlantis at Escape Frenzy! Another escape room down!
+
+Sunday @ 9:56 PM
+
+We dropped Tyler off for his first overnight camp. Just two nights. Experienced some nervousness and anxiety as we sent him off, but Tyler seemed okay.
+
+Sunday @ 9:35 PM
+
+Tyler scoring a run this weekend.
+
+Sunday @ 9:34 PM
+
+Urban fishing on Lake Harriet tonight.
+
+Saturday @ 6:13 PM
+
+Took my Canon 5D Mark II with the 70-200 f/2.8L to Tyler’s baseball game today. Good reminder of how far iPhone photography has to go.
+
+That's the end of Microposts.
+
+Now, the Fortune section.
+
+Here is your fortune for this week.
+
+Don't blow your own trumpet.
+
+Thank you for subscribing to the Weekly Thing!
+
+That brings us to the end of the Weekly Thing, issue 60. Thanks for listening, and I'll see you next time.

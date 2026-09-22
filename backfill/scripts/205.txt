@@ -1,0 +1,303 @@
+The Weekly Thing, issue 205. Hurl, Faster, Web3. Published November 27, twenty twenty one. By Jamie Thingelstad. In this issue: Hype-free Web3 observations, ConstitutionDAO crypto bid, beartype Python type-checking, reMarkable notebook, Knowledge Graphs, Data Governance branding.
+
+For everyone in the United States I hope you and your families had a wonderful Thanksgiving Day! I had almost forgotten how we spent last year without vaccines and celebrating Thanksgiving by ourselves for the first time. It was nice to be with family again.
+
+Seeing news of a new COVID-19 variant, Omicron, has me wondering what turns the pandemic is about to make. I’m dubious of our ability to stop the spread of a variant. At best we may slow it down.
+
+A lot of interesting links and articles on a wide range of topics this week… let's jump into it!
+
+Now, the Featured section.
+
+Link one. "An Engineer's Hype-Free Observations on Web3 (and its Possibilities)"
+
+I've been playing with a wide variety of web3 technology, multiple crypto projects, different wallets, types of assets, etc. It has been an incredible learning experience and this article is a great summary, with a bend to the technical, of the state of web3. I couldn't find anything I disagreed with here. I also love the opening about how fun it is to see the web being weird again.
+
+Quote.
+Ignoring all the technical details and religious wars about Web3, it’s just plain exciting to watch as the web’s new generation emerges.
+End quote.
+
+I love the experimentation that the web and the Internet enables. Anyway, this is a solid read on the foundational elements and why this may be important stuff.
+
+For context, remember that when Web 2.0 was a think and O'Reilly was having conferences and we were all learning to write "AJAX code" in Javascript… things were about this weird as well. All of that ushered in the current generation of the web. This stuff takes years to happen.
+
+Link two. "42 things I learned from building a production database | mahesh’s blog"
+
+This is a brilliant list that any technology leader or team building a service should keep in mind. I also think it is notable that the first group of items is "Customers" and the very first note of advice is:
+
+Quote.
+[1] Keep your customers happy; else the rest of this document doesn’t matter.
+End quote.
+
+You could almost stop there. But the rest is great too.
+
+That's the end of Featured.
+
+Now, the Currently section.
+
+Watching: I really dig the Tron universe, and Tyler and I are watching Tron: Uprising. Yes, it’s a cartoon but it is still fun to see the story line extending.
+
+Installing: Tyler is really into Pokemon cards and he had over 150 of the code cards that allow you to pull the cards you have bought into the online version of the card game. They all have QR codes, but scanning 150 cards seemed tedious. QRude Scanner to the rescue! This app allowed us to put all the codes face up and simply wave the phones camera over them all. It grabbed every code and easily exported the final list to my app of choice.
+
+That's the end of Currently.
+
+Now, the Notable section.
+
+Link one. "The World’s Deadliest Thing — Anthony Warner"
+
+Never would have guessed botulism if asked this question.
+
+Quote.
+It is perhaps strange that such a rare poisoning event shapes our modern food system so profoundly, but this is perhaps because the toxin produced is one of, if not the, deadliest on earth. It has been estimated that in its pure crystalline form, six grams of botulism toxin, about one teaspoon full, would be enough to kill 200 million people. The lethal dose when consumed orally is around 30 billionths of a gram, which if you want a relatable comparison, is about the same as if you cut a single poppy seed into ten thousand equal pieces and ate one of them. It is an amount so tiny, it really doesn’t make sense.
+End quote.
+
+Link two. "Facebook fed posts with violence and nudity to people with low digital literacy"
+
+Absolutely nothing new here, but it is important to keep everyone remembering how damaging Facebook is to its own users.
+
+Quote.
+In another study, Facebook researchers conducted dozens of in-depth interviews and in-home visits with 18 real people from one city who they’d identified as vulnerable users with low digital literacy skills. The upsetting posts that permeated these users’ feeds, the study determined, caused them to disconnect from Facebook for long periods and exacerbated hardships they were already experiencing. For instance, Facebook repeatedly showed a middle-aged Black woman posts about racial resentment and videos of people bullying children, threatening, and killing other people. A person who joined a Narcotics Anonymous Facebook group started seeing ads, recommendations, and posts about alcoholic beverages. Soon after another person started following coupon and savings pages, their feed became inundated with financial scams.
+End quote.
+
+At this point how can anyone really feel good about using any Facebook property? The usage provided by everyone ignoring all of these horrible things is the revenue to keep driving the company to more and more "impact". You can do something. You can leave the service. When I say that to people they often tell me that all their friends are there. They won't disappear. Group texts, email, there are lots of ways to connect. Ways that don't involve pulling your "friends" into a caustic and damaging information environment.
+
+Link three. "How Complex Systems Fail"
+
+This is generically about complex systems, but it sure reads true for complex software systems. Indexes like this are useful to read so that you don't go down dead ends when trying to work inside of a complex systems, of which much of software is. An example I can relate to is 7 "Post-accident attribution to a 'root cause' is fundamentally wrong". This is why I specifically want to do an Incident Report and not a Root Cause Analysis when a complex system experiences a failure. Root cause is a overly simplistic and often a myth in complex systems. Good stuff. Hat tip to my fellow book club member Loren Terveen for sharing.
+
+Link four. "ConstitutionDAO’s bold crypto bid for US Constitution falls short | TechCrunch"
+
+This article has a good background on the forming of ConstitutionDAO, who was involved, and how the process unfolded. I’m really happy that I got to be part of this, even if it ultimately didn’t work out. I did get a POAP out of it.
+
+There has been some blowback to the core group organizing this and I think it is unfortunate. Everyone can get their refunds back, I did, but there are a number of people that donated small amounts and those small amounts are often less than the gas feeds to withdraw the money. So, now the DAO has from some reports 17 million dollars in funds that make no sense to withdraw because the gas costs are higher than the amount. So, what the heck happens with that Ethereum?
+
+I feel bad for the folks behind this as some are accusing them of running this like a scam and I don't see any shred of evidence to support that. I think this is a project that got a lot of traction and movement and it simply moved too fast for anyone to stay on top of and have thought through everything. They raised 48 million dollars in what, four days?
+
+The most notable thing to me was that this was advertised as a DAO but nothing that happened in it actually ran as a DAO. I think that is because the DAO wasn't going to be created until the Constitution was bought. At that point the PEOPLE tokens would have been issued and voting could have occurred. Until then, it was all up to the core group which has some people worked up.
+
+Link five. "beartype: Unbearably fast O(1) runtime type-checking in pure Python"
+
+This looks like a powerful type-checker for Python.
+
+Quote.
+Beartype brings Rust- and C++-inspired zero-cost abstractions into the lawless world of dynamically-typed Python by enforcing type safety at the granular level of functions and methods against type hints standardized by the Python community in O(1) non-amortized worst-case time with negligible constant factors.
+End quote.
+
+Easy-to-use and claims to be extremely performant.
+
+Link six. "No notebook is perfect, but the reMarkable comes really close"
+
+I've looked at the reMarkable many times and have read many reviews. This article is nice because the person has 6 months of use to reflect on. It is notable that the OCR is not good, but I think I could live with that. What it does well it seems to do very well.
+
+Link seven. "The Joy of Cryptography"
+
+Another free book on the web.
+
+Quote.
+This book is about the fundamentals of provable security. - Security: Cryptography is about controlling access to information. We break apart the nebulous concept of "security" into more specific goals: confidentiality, authenticity, integrity. - Provable: We can formally define what it means to be secure, and then mathematically prove claims about security. One prominent theme in the book is the logic of composing building blocks together in secure ways. - Fundamentals: This is an introductory book on the subject that covers the basics. After completing this course, you will have a solid theoretical foundation that you can apply to most real-world situations. You will also be equipped to study more advanced topics in cryptography.
+End quote.
+
+This would be a fabulous read on fundamental concepts. So many books…
+
+Link eight. "How to Navigate Stress in a Storm | Leadership Freak"
+
+Simple and concise. I like this. I particularly see "#1 Accept the world as it is, not as you wish it was." and "#3 Focus on the way you treat each other." as critical.
+
+Link nine. "Knowledge Graphs"
+
+Deep topic that you can get the whole book free as a web page.
+
+Quote.
+Knowledge graphs are founded on the principle of applying a graph-based abstraction to data, and are now broadly deployed in scenarios that require integrating and extracting value from multiple, diverse sources of data at large scale. The book defines knowledge graphs and provides a high-level overview of how they are used. It presents and contrasts popular graph models that are commonly used to represent data as graphs, and the languages by which they can be queried before describing how the resulting data graph can be enhanced with notions of schema, identity, and context. The book discusses how ontologies and rules can be used to encode knowledge as well as how inductive techniques — based on statistics, graph analytics, machine learning, etc. — can be used to encode and extract knowledge. It covers techniques for the creation, enrichment, assessment, and refinement of knowledge graphs and surveys recent open and enterprise knowledge graphs and the industries or applications within which they have been most widely adopted. The book closes by discussing the current limitations and future directions along which knowledge graphs are likely to evolve.
+End quote.
+
+As an aside, I love when authors remember that the web is a great publishing platform and you don't need to use proprietary formats for something like this.
+
+Link ten. "Hurl, run and test HTTP requests."
+
+Simple tool to run HTTP requests and test web endpoints.
+
+Quote.
+Hurl is a command line tool that runs HTTP requests defined in a simple plain text format. It can perform requests, capture values and evaluate queries on headers and body response. Hurl is very versatile: it can be used for both fetching data and testing HTTP sessions.
+End quote.
+
+The notable thing here is the very simple text file based configurations. You could easily incorporate this into a wide range of tools as needed.
+
+Link eleven. "Think Different. Think Users. - Jessica Livingston"
+
+I love how Livingston frames the act of building out a product and the "feel" you get with your user community.
+
+Quote.
+When you can find something that everyone else thinks is dumb but that a growing number of actual users love, this doesn’t just give you the strength to carry on, but is a sign that you could be onto something really big. That's my fourth point: the bigger the difference between conventional opinion of your idea and users' opinion of it, the more potential it probably has.
+End quote.
+
+This is spot on.
+
+Link twelve. "Mike Osterholm on Covid’s Next Act | Twin Cities Business"
+
+Oosterholm and CIDRAP has been a consistant voice on COVID-19. There is still so much we don't know about how COVID-19 will evolve. It is clear COVID-19 isn't going away.
+
+Quote.
+TCB: Are you back out in the world, or are you still locked down? Osterholm: I’m not back out in the world. TCB: What will it take? Osterholm: I don’t know yet. You know, I got my booster, I feel confident, but at the same time, I don’t.
+End quote.
+
+Also notable to me that people with his level of experience and expertise, and access to all the data, still don't have a super clear guide for how to navigate this virus.
+
+Link thirteen. "Data Governance Has a Serious Branding Problem | Towards Data Science"
+
+Yes, Data Governance has a terrible brand problem. It starts and ends in the second word. Who likes "Governance". It sounds slow, cumbersome, bureaucratic. And just for extra, it sounds expensive. Two thoughts:
+
+1. The article focuses collaboration around data and the like. Perhaps Data Collaboration is a better term. I do like that it better defines the actual problem.
+2. Product thinking has become the norm for many things that are not just products that you buy. There are now product owners for APIs, frameworks, platforms. Could the future of Data Covernance be some form of Data Product Owner role?
+
+Organizations do need to figure this out. While modern tools in the cloud make it easier to modify and change data, even duplicate it at a lower cost, it still adds cost and friction to the process when you have to do that.
+
+Link fourteen. "Brave partners with Solana to integrate it into the browser and make it the default for DApp support"
+
+I’m not a regular user of Brave, but I certainly love that Brendan Eich and team are out there slugging it out to innovate and try new things. One of the biggest challenges in web3 adoption today is managing wallets, so integrating Solana directly into Brave will be an interesting test to see how it changes adoption.
+
+Link fifteen. "Moving faster"
+
+This post is filled with interesting observations the author has on methods used to improve the speed at which tasks get completed. I like that the focus was specifically on moving faster. This is something I've thought of and applied myself. The faster here is very focused on technical tasks and programming. The thought patterns could be applied to many tasks though.
+
+Link sixteen. "Too Much To Do | GTD® - YouTube"
+
+I’m a practitioner of Getting Things Done and I like the perspective flip that David Allen applis in this video. "Too much to do" is probably, for most of us, a representation of all of the optionality that we have achieved in our lives. Allen and GTD references the agreements we make with ourselves often. It is those agreements, often tied around optionality, that can casue anxiety if not managed well. "You can only feel good about what your not doing, when you know what your not doing." I find many people focus on the productivity aspects of GTD, but for me, the ability to clear my mind and rely on a trusted system is by far the biggest value I get out of it. GTD can be applied to "do more stuff", but it can also be applied to "create more space".
+
+Link seventeen. "Endaoment"
+
+This is an incredibly cool DeFi app that allows you to create your own Donor Advised Fund on the Ethereum blockchain, send funds into it and receive tax deductions from that, and then distribute via your custom DAF. Once you create your fund you can send crypto assets directly into the fund in whatever tokens are supported. Endaoment then converts those tokens to USDC, providing tax deduction for the contributor. You can then send the funds into participating non-profits.
+
+That's the end of Notable.
+
+Now, the Journal section.
+
+Thursday @ 8:59 PM
+
+Wishing everyone a very Happy Thanksgiving!
+
+Thursday @ 6:47 PM
+
+Thanksgiving twenty twenty one scene of the crime.
+
+Thursday @ 5:38 PM
+
+Thanksgiving Turkey out of the oven. Now for the rest.
+
+Tuesday @ 6:45 PM
+
+Making Wassail Tea means that it is officially the beginning of the holiday season for us!
+
+Monday @ 5:29 PM
+
+Four Thousand Weeks as Rings
+
+I've been reading Four Thousand Weeks: Time Management for Mortals by Oliver Burkeman. The title comes from the fact that if you live to be 80, you'll have had about 4,000 weeks. Technically it is 4,174 but that wouldn't make a very good title for the book.
+
+I’m still just in the beginning of the book but as I pondered his focus on the finitude of our time, I couldn't help but think of how to visualize this! I knew Shortcuts could do the math for me, and then I realized Charty could do the visualization.
+
+The innermost ring (red) is the current week. It will fill up each day and reset at the end of each week. This ring will fill 52 times for each time the middle ring fills.
+The middle ring (yellow) is the weeks until your next birthday. This ring will fill 80 times until the outermost ring is filled.
+* The outermost ring (green) is the weeks you have lived thus far. Hopefully we even overfill this ring.
+
+It strikes me as an interesting visualization. Something to ponder.
+
+However, I showed it to my family and they didn’t care for it much at all. The common theme seemed to be that "filling ones rings" is seen as a goal, something to look forward to, and filling these rings didn’t seem like a thing to look forward to.
+
+Saturday @ 10:18 PM
+
+Faribault Woolen Mill Tour
+
+We took the tour of the Faribault Woolen Mill today. We learned a ton of interesting things about milling wool as well as the fact that Faribault Mills is the only fully vertical woolen mill in the United States. They have been operating at this location for over 150 years, founded in 1865! The mill is entirely mechanical, almost nothing digital. There are 22 steps that the wool goes from the 800 lb bales to a final product. All happening right there in this one mill.
+
+The mill wasn't running when we toured so we were able to wander a tiny bit more, and touch the wool at various stages. I would love to go back and do the tour when the mill is in full swing to see everything operating.
+
+Faribault Woolen Mill banner celebrating 150 years.
+
+One of the Carding machines taking the wool directly from the bales and aligning all of the strands into something that can be yarned.
+
+Many of the machines were manufactured 100 years ago and are no longer made so there are parts stored in various places for repairs.
+
+A step in the Carding machine.
+
+… see blog post for all photos.
+
+Saturday @ 9:53 PM
+
+Tyler and I played as a team and came in second in Ticket to Ride Japan. It is a fun variant with the community bullet train encouraging some cooperative play.
+
+Saturday @ 5:31 PM
+
+The two most important ingredients when making lasagna are:
+
+1. Italian Opera
+2. Love
+
+Mazie and I made this pan with plenty of love, and the Three Tenors accompanying us!
+
+Saturday @ 3:28 PM
+
+Tammy and I at Keepsake Cidery enjoying a crisp fall day.
+
+Saturday @ 3:22 PM
+
+Firewood delivery moved and stacked.
+
+That's the end of the Journal.
+
+Now, the Briefly section.
+
+Link one. "Exporting Links from Safari Reading List via Shortcuts for Mac - MacStories"
+
+Oh wow! This is a big deal for me. It is generally a good example of the power that Shortcuts provides. But, I use Safari Reading List to queue links up for the Weekly Thing. I then move them to Pinboard for commentary and publishing into the newsletter. Right now I have to do that move by hand. Now I can automate it. Yeah!
+
+Link two. "BookNLP, a natural language processing pipeline for books"
+
+Interesting natural language processor built specifically for books.
+
+Link three. "ummm — organize your thoughts"
+
+There is so much experimentation occurring in note taking software. I can’t imagine all of these will succeed, but it is interesting to see where people are exploring.
+
+Link four. "Icebreakers"
+
+Don't know what to say when meeting new people? Bookmark this?
+
+Link five. "After 35 years, Uptown Minneapolis mainstay Kitchen Window to close - StarTribune.com"
+
+I have taken dozens of cooking classes at Kitchen Window and have over the years even gotten to know the folks that run the place. It is very sad to see the store closing. It is also not great for the Uptown area that is struggling so much.
+
+Link six. "ICU is full of the unvaccinated – my patience with them is wearing thin | Anonymous | The Guardian"
+
+I don't understand the logic of not getting vaccinated against COVID-19. Neither does this Doctor. To be clear, I also agree with this Doctor that I don't like the idea of mandates and forcing either. I think it is worth acknowledging that our information ecosystem is different than it has ever been before.
+
+Link seven. "Why I Hate Password Rules - Schneier on Security"
+
+I've hit this problem before. i use 1Password and have had super complicated password fail some silly requirements.
+
+Link eight. "DAOs, A Canon - Future"
+
+Massive reading list of content on Decentralized Autonomous Organizations from a16z.
+
+Link nine. "Pony Messenger"
+
+Messenger application that delivers messages to you once a day, at your preference. Not sure I would use this but it is an interesting idea.
+
+Link ten. "Welcome to the Meatverse"
+
+Looks much tastier than the metaverse.:-) Thanks Garrick for link.
+
+Link eleven. "The CEO of you | Seth's Blog"
+
+What decisions do you need to make?
+
+That's the end of Briefly.
+
+Now, the Fortune section.
+
+Here is your fortune…
+
+You are deeply attached to your friends and acquaintances.
+
+Thank you for subscribing to the Weekly Thing!
+
+That brings us to the end of the Weekly Thing, issue 205. Thanks for listening, and I'll see you next time.

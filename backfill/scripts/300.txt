@@ -1,0 +1,206 @@
+The Weekly Thing, issue 300. Traceroute, 34x34x34, Typst. Published November 9, twenty twenty four. By Jamie Thingelstad. In this issue: ChatGPT search, 223 privacy settings, election results, traceroute isn't real, narrative thinking, auto-texting STOP to unknown numbers.
+
+Weekly Thing 300 — can you believe I've sent three hundred of these emails out — from Minneapolis, MN.
+
+Good morning!
+
+Super Tuesday has come and gone and we are through election day. The massive amounts of money flowing from campaign coffers can stop for a bit. I don't know about you but I’ve read more than I need and I’m happy to go on with some links and anything else.
+
+This is issue 300! This makes me wonder about things I've done 300 times. How many things I've probably never done anywhere near 300 times. But I've now sent the Weekly Thing 300 times.
+
+How many is that? This is 300 claps.
+
+I’m sure there are a handful of people reading this that have read all 300 of them. Tammy has read them all.
+
+With issue 300 I’m officially going to highlight something I actually soft-launched last week. I’ve created a Supporting Membership for the Weekly Thing. I’m going to use this membership program to support digital non-profits that are doing good things.
+
+The first one is going to be Creative Commons. I've personally supported Creative Commons for years. My blog is licensed using a Creative Commons license, as is the Weekly Thing. Creative Commons helps create a sharing capability and in the process supporting remix culture which I think is great.
+
+So 100% of supporting member dollars will be going to Creative Commons. You can find links to become a member at the end of the email.
+
+If you signup as a supporting member before winter break you'll get a Weekly Thing Early Supporting Member token!
+
+Also, I’m still trying to find a groove with the Straw Poll. If you haven't checked it out please do. This week's question is about AI. I'd really like to get over 100 responses. It couldn't be easier to do, you just tap one of the options to vote. No registration. Just a click or tap. Easy as pie.
+
+This quote resonated with me…
+
+"A society grows great when old men plant trees in whose shade they know they shall never sit."
+
+First, old women can plant trees too and make society great.
+
+Second, I heard this quote on the Prof G podcast attributed to the show After Life. A little searching found this blog post from Roger Pearse that sources it back to a book from 1951.
+
+Now, the Notable section.
+
+Link one. "Introducing ChatGPT search | OpenAI"
+
+ChatGPT is officially in the Search space. I haven't had too many chances to use this. It has very current information. You can ask it questions more like a search engine and it seems to understand them. It shows the sources that it uses. Overall it seems pretty clever. Is this the future of search? Quite possibly. It doesn't feel like the other approaches of using a typically search engine and having AI summarize the results. This "feels" like a more capable approach.
+
+Link two. "Worried about your privacy? This service locks down 223 settings for you. - The Washington Post"
+
+Gift Link!
+
+This service looks useful if you do use these social websites and want to have them scan and make sure your privacy settings are set in ways that benefit you. Many of these companies add new things all the time and default you to on or sharing. Seems like a good tool.
+
+Link three. "How I Followed the Election Results – On my Om"
+
+I mostly did the same as Malik for the election results. TV news has so much filler. I particularly liked the News+ Live Activity unit that updated quickly as election results came in.
+
+The one issue I had with it is that it looked exactly like I was following a basketball or soccer game. I feel like we've brought sports thinking to politics too much — my team, your team, etc. Politics are not sports. But we are making our information around it look nearly identical to each other.
+
+Link four. "Scripting News: Wednesday, November 6, twenty twenty four"
+
+This quote is really from Ben Thompson's subscriber newsletter but via Dave Winer's blog highlighting this excerpt.
+
+Quote.
+Ben Thompson wrote in his Stratechery newsletter: > "What is fascinating is how this fundamentally transforms any attempt to evaluate the Twitter acquisition. From a business perspective it's a massive failure, and might always be: Musk paid too much for Twitter as it was, and in the intervening years the flight of advertisers from the platform has made it worth even less. From a Musk Inc. perspective, however, X played a pivotal role in ensuring that the incoming administration will do whatever Musk needs at the exact moment that SpaceX is gaining the capabilities to actually make a trip to Mars, if only the FAA in particular will give him the freedom to do so. That alone is almost certainly worth 44 billion dollars to Musk!"
+End quote.
+
+I do think most folks looked at Musk buying Twitter as a business move, but what he has done with it makes a lot more sense if you think of it like his personal media company. It is much easier to understand why you would throw a brand that had global name recognition like Twitter away overnight to replace it with X, if you just don't care at all about it as a company. Bezos owns the Washington Post. Musk owns X.
+
+Link five. "Traceroute Isn't Real | Gekk"
+
+I don't use traceroute often but I have used it plenty over the years to see what network path things are taking. I assumed it was some network capability to identify this. It turns out it is completely a hack!
+
+Quote.
+When you send a packet to a destination, it often has to go through multiple routers, or "hops." To prevent packets from cycling indefinitely in a network due to routing loops (router A points to router B which points to router A...) they include a Time-To-Live field, which is set to a reasonably high value when a packet is created, and each machine that the packet passes through decrements that field by one. When the field hits zero, the packet gets thrown away. As a courtesy, the router that's dropping the packet has the option to generate a new packet, using the ICMP protocol, with the subtype "TTL Exceeded," and send it back to the originating machine, to let it know there's something wrong with the network path. These clever fellows in 1987 realized that by manipulating the TTL value, you can choose which router will send that ICMP message. Send a packet with the TTL set to 1. The first router you hit will decrement it to zero. The packet is now "dead", so it drops the packet, and sends back TTL Exceeded. That response will originate from the router's own IP address - congratulations, you now have the IP of the first hop. Now send another with the TTL set to 2. The first router will decrement it to 1 and pass it, and the second one will decrement to zero and drop it. Now you have its IP address. Repeat, increasing TTL each time, until the final hop responds. You now have your complete path.
+End quote.
+
+So, a couple things…
+
+1. I say this is a hack as a form of praise. Delightful way to "solve" the problem.
+2. The way this works is not super resilient so could give you really misleading responses.
+
+I’m gonna chuckle every time I use traceroute from now on.
+
+Link six. "Your life is not a story: why narrative thinking holds you back | Psyche Ideas"
+
+When I went to the Human Performance Institute in twenty twenty one of the frequent sayings was a line from Dr. Jim Loehr, one of the founders:
+
+"If you want to change your life, change your story."
+
+I liked this so much that I even put it up right by my coffee machine where I would see it every morning.
+
+So this article caught my attention because a story is definitely a narrative. And those narratives, those stories that we tell ourselves, can be limiting and can reinforce negative outcomes.
+
+Quote.
+So, what does it mean to reject a narrative? Living in a non-narrative way means rejecting a particular identity, and instead seeing life and meaning as a set of open choices. For the waiter, rejecting his narrative identity would mean acting in a way that reflects his choices and sense of self, not just the story he tells about himself.
+End quote.
+
+But the suggestion here is to think less about a story, and more about a "perspective".
+
+Quote.
+Perspectives, it turns out, don't have a linear, ordered structure. We can't think of them in terms of sequences of events, like stories. In some ways, perspectives are better represented by the non-linearity of poetry. Poems, particularly lyric poems, are inherently perspectival; they unify words, images, thoughts and feelings to express value. Poetry captures a way of seeing and feeling, not just a sequence of events.
+End quote.
+
+So maybe if you want to change your life, read poetry?
+
+Link seven. "Auto-texting STOP to unknown numbers | eieio.games"
+
+First, I have generally found that texting STOP really does work. I know that some worry that responding is just validating that there is a real human at this number and you will get more spam. That has not been my experience with text and STOP.
+
+Second, I've tried to automate this many times and the trigger event never seems to work for me. I found it interesting that this automation is using a space to trigger, so essentially seeing all texts. I don't like how this intersects with the address book and such. I would rather detect a trigger word.
+
+But even without automation it is pretty easy to send "STOP". It does work. Give it a try.
+
+That's the end of Notable.
+
+Now, the Straw Poll section.
+
+I've shared a many articles about all the incredible things you can do with AI tools. I also think that the best way to learn is to directly engage and use these. Learn by playing. I’m wondering…
+
+To respond to Straw Polls please subscribe to the Weekly Thing via email.
+
+Results
+
+What online sources do people trust the most? By a large margin News Websites. It was curious to me to see Wikipedia tied with Search Engines. Nobody picked AI.
+
+That's the end of Straw Poll.
+
+Now, the Journal section.
+
+Journal entry one.
+
+Not one undecillion, but two!
+
+Quote.
+Russia ordered Google to pay a fine of two undecillion roubles (roughly 20,000,000,000,000,000,000,000,000,000,000,000 dollars). The sum is many times bigger than the world’s GDP. The fine is punishment for restrictions on Russian state media on YouTube, a website that Google owns. A Kremlin spokesperson reportedly said that he “cannot even pronounce this number”. -- The Economist, World in Brief, Nov 1 twenty twenty four
+End quote.
+
+Yes an undecillion is a thing. What is the point of a ruling like this?
+
+Journal entry two.
+
+For the very first time ever outside of our private events, Things 4 Good Candle Fundraiser at the Mount Olivet Holiday Boutique! A bit confusing how to setup our table and get folks our message but we are figuring it out.
+
+Journal entry three.
+
+Raking!
+
+Journal entry four.
+
+I burned four of the runes I collected along with 75,000 FOXY to mint my Summoned Fox #9569! Famous Fox Federation is still a super fun NFT project.
+
+Journal entry five.
+
+Day 1 of Things 4 Good sale was great and we sold 67 candles for our charities. Getting ready for Day 2 at our house. Have 93 candles left of the 252 we made.
+
+Journal entry six.
+
+I voted on October 17 via mail and thanks to the impressively well run Minnesota voting system I can confirm my ballot was accepted by the election board to be counted today.
+
+Journal entry seven.
+
+A nice evening for a movie so we watched IF.
+
+Weekly Thing Forum
+
+Join Patrick Hambek, Eric Walker, Jim Cuene, David O'Hara, Steve, and many other Weekly Thing readers in the Weekly Thing Forum. Recent topics include:
+
+- Weekly Thing #299
+- Membership soft launch?
+- What are we all building?
+- Thingelstad Blog
+- New: Straw Polls
+
+That's the end of the Journal.
+
+Now, the Briefly section.
+
+Link one. "Democratising publishing"
+
+Background on the history of Ghost and the non-profit that runs it. A good explanation of other ways to run publishing solutions for the web that have many advantages.
+
+Link two. "Programming Languages That Blew My Mind"
+
+Fun overview of concepts from different languages.
+
+Link three. "Nobody cares about decentralization until they do"
+
+Decentralization is a hard topic in part because you have to think about data and where it is stored and people generally care less and less about that. I'd still argue that collections of blogs and using RSS is fully decentralized and works just like you would want it. Social platforms struggle to get that same level of decentralization we had decades ago.
+
+Link four. "34x34x34 Rubik's Cube Record By Matt Bahner"
+
+This is incredible. A fleet of 3D printers and a whole lot of obsession. The 6 minute video embedded in this page is a must watch. It weighs 94 pounds.
+
+Link five. "Please publish and share more - Jeff Triplett's Micro.blog"
+
+Just write, on the web, using your own domain. Easy enough.
+
+Link six. "Typst: Compose papers faster"
+
+If you need sophisticated typography and collaboration features.
+
+Link seven. "Data Commons"
+
+Interesting data platform powered by Google.
+
+That's the end of Briefly.
+
+Now, the Fortune section.
+
+Here is your fortune…
+
+Make a wish, it might come true.
+
+That brings us to the end of the Weekly Thing, issue 300. Thanks for listening, and I'll see you next time.

@@ -1,0 +1,178 @@
+The Weekly Thing, issue 130. Dec 14, twenty nineteen. Published December 14, twenty nineteen. By Jamie Thingelstad. In this issue: TikTok privacy analysis, Ring's surveillance network, disaster.radio, Lightroom SD card importing, JSON-LD introduction, election news chaos.
+
+Welcome to Weekly Thing #130 and the final issue for twenty nineteen! I’m going to be taking my winter break and will be back on January eighteenth of twenty twenty (wow!) with Weekly Thing #131. I want to Thank You all for subscribing and playing along with me every week. Putting a summer and winter break into the schedule is a good way for me to make it sustainable for the long haul. It’s fun for me to go back to the first one from May 13, twenty seventeen and see how much it’s changed. I have some thoughts of using this winter break to take the automation out for a tuneup and make it better, and I may make some changes to the layout and sections of the Weekly Thing. Stay tuned!
+
+While I’m taking a little break, and while you are seeing your extended relatives and friends, give them the gift of me in their inbox! As your sharing all the great insights you've gleaned send them to the Weekly Thing website to subscribe.
+
+While I won't be in your inbox if you wish you can put a little Christmas Thing in your ears! Inspired by MacSparky's Yule Playlist I put together our family Christmas favorites and shared it via an Apple Music Playlist playfully called Christmas Thing.
+
+Now lets get to all the great links!
+
+Now, the Featured Links section.
+
+Link one. "Privacy Analysis of Tiktok’s App and Website | Rufposten"
+
+I have never used Tiktok, and I don't plan to start ever. This article is an interesting read but don't ignore it just because you don't use Tiktok. Everything they are doing, is probably being done by several other services. It’s very good to be aware of how much targeting, identification, and tracking is being done in these applications. Honestly the app is just a little trinket to get you to fiddle with all of this tracking!
+
+Link two. "Time Machines and Species Failure | No Mercy / No Malice"
+
+Great article highlighting the value of extending or enhancing time that you get from products. Galloway then goes into the horrible tradeoff that a company like Facebook makes in that bargain.
+
+Movies and HBO saved some time, but were relatively expensive. And then came Google, Facebook, and Netflix. I’ll get a year back (time spent not watching ads) in exchange for 4,680 dollars spent on Netflix. How to even think of doing research without Google? Would I have to go to a library and log on to Lexis/Nexis? It’s hard to imagine how much time and life Google has created.
+
+That's the end of Featured Links.
+
+Now, the And… section.
+
+Facebook is now squarely in the red and a net negative for society. The social network held the promise of enhancing our time here, via connection, and has delivered on much of that. However, most time enhancement has been negated, as the social network is depressing our teens and endangering our most precious asset, girls. Teen suicide has skyrocketed — up 77% for older teen girls and up 151% for younger teens (research by colleague Jonathan Haidt ).
+
+Good time for a New Years evaluation to delete Facebook and remove it from your life?
+
+That's the end of And….
+
+Now, the My Weekly Photo section.
+
+So I try hard to get a photo every week to share, but this week I had nothing that I felt I could even pinch hit with. So, excuse this picture from the Amsterdam airport a few weeks ago of all the little KLM houses filled with booze.
+
+Little KLM houses filled with booze.
+Nov 17, twenty nineteen at 1:48 AM
+Amsterdam Airport Schiphol, Netherlands
+
+That's the end of My Weekly Photo.
+
+Now, the Notable Links section.
+
+Link one. "disaster.radio | a disaster-resilient communications network powered by the sun"
+
+Love this project. In a world where I had unlimited free time I'd bite off a big chunk of it to play with Scuttlebutt. It’s a really interesting protocol for rarely connected network devices. The video is a good overview. Maybe this can be my version of prepping.
+
+Link two. "It’s Time to Get Back to Basics – The Blog of Author Tim Ferriss"
+
+I’m not a Tim Ferriss devotee, but I find his stuff interesting, and I like that he's returning to writing.
+
+Equally important, those early years of regular writing helped me to think more clearly and to hone a craft I deeply revere. For me, to write is to become more human. To the extent that I’m sane, writing helped keep me in that lane.
+
+I strongly agree with him. It’s easy to have thoughts and jabber on about them. It’s much harder, and intellectually rewarding, to actually form sentences and paragraphs.
+
+Link three. "In Review: 30 Years Of The World’s Highest Paid Athletes"
+
+The animation in this article showing the highest paid athletes is pretty cool to watch. I had no idea boxers made so much money! And then comes Tiger Woods.
+
+Link four. "Lightroom 5.1 Adds Direct SD Card Importing on iPad and iPhone, Plus New Export Options - MacStories"
+
+This is a huge deal for Lightroom on iPadOS being a powerful tool for a photographer. Being able to skip passed the built-in Photos system and go direct into Lightroom is very important. I hope to give this a workout on some of our travels this summer.
+
+Link five. "Drafts for Mac: It's Action Time - MacStories"
+
+Drafts is the fastest app that I have on both my iOS and macOS devices for capturing random bits of text and then working with it. Actions are super powerful and it’s great to see them coming to macOS now.
+
+Link six. "Ring's Neighbors Data Let Us Map Amazon's Home Surveillance Network"
+
+I despise Ring's marketing tactics. A look at this map shows that it works. It turns out we don't need the government to create a surveillance state. If we sell people fear and tell them they'll be safe violating the privacy of anyone walking in the public spaces around there house that is enough.
+
+Link seven. "Operations and Internal Communication Strategies For Effective CEOs"
+
+A ton of recommendations for different communications inside of a company. It seems like a lot, but there are some really good nuggets in here. Grab one thing and try it out?
+
+Link eight. "An Introduction to JSON-LD | jonm.dev"
+
+I find JSON-LD interesting. JSON is super interesting, but it lacks semantics. That is where JSON-LD comes in.
+
+JSON-LD is a specification being developed in the World Wide Web Consortium (W3C ) as a media type application/ld+json. This means you can still parse it as a plain-ol’ JSON document, but there are some additional conventions that add meaning to the content.
+
+This might bring some of the good parts of XML to the JSON world.
+
+Link nine. "The Product-Minded Software Engineer"
+
+I love this and thing all engineers should try to embody many of these 9 disciplines.
+
+Link ten. "Adding a new teller | queuing theory example"
+
+Nearly every technical system of moderate complexity will use queues at some place, and there will inevitably be a time when those queues backup and cause problems. It can be very hard to explain those issues to non-technical folks. This simple article does a good job highlighting the non-linear behavior of queues.
+
+Link eleven. "Rhoneisms"
+
+Short post from Patrick Rhone about looking at our time and how that defines you. I continue to be intrigued by the idea of calendar analytics. I think there is a very real amount of value that a service could give you from the information on your calendar.
+
+Link twelve. "TWTR: Enough Already | No Mercy / No Malice"
+
+Searing open letter to Twitters board arguing that the poor performance of the company should result in the firing of the part-time CEO Jack Dorsey. I don't know that I care so much, I’m not a Twitter shareholder, but Dorsey does seem more than a bit looney.
+
+Link thirteen. "The Best Apps and Hardware of twenty nineteen – The Sweet Setup"
+
+I like these roundup of apps articles. They are a good way to discover new tools. I grabbed Pixelmator Photo and it is impressive. I already had CalZones and agree it’s a great way for dealing with global time zone management. Drafts, Shortcuts, Day One, Darkroom, GoodNotes are all already in my toolbox.
+
+Link fourteen. "Uncovered: reality of how smartphones turned election news into chaos | Politics | The Guardian"
+
+That's the end of Notable Links.
+
+Now, the What a mess… section.
+
+How GitHub’s CTO Architects Engineering Teams That Scale
+
+This is a fabulous set of 12 recommendations for any technology leaders. This is worth thinking through and developing some thoughts on each one for your own team. Great stuff.
+
+That's the end of What a mess….
+
+Now, the Microposts section.
+
+Thursday @ 4:24 PM
+
+Great #TeamSPS outing to play epic Whirleyball matches!
+
+Saturday @ 9:26 PM
+
+Enjoyed winter fireworks at Loring Park for Holidazzle tonight!
+
+Saturday @ 9:04 PM
+
+We went to Holidazzle for the first time in years and years. Last time we went it was still a parade. It was fun, but there were a lot of people and big lines.
+
+Saturday @ 8:58 PM
+
+A Christmas tradition — the thirteenth Annual New Standards Holiday Show today! Great show with new and returning special guests!
+
+Saturday @ 3:58 PM
+
+We had a ton of fun solving the Nutcracker Nightmare room at Trapped Puzzle Rooms! Very fun puzzles, challenging, but just right for a family to solve!
+
+Saturday @ 1:25 PM
+
+Our first visit to the very impressive Gingerbread Wonderland at the Norway House. My vote for best went to Glensheen Mansion.
+
+Friday @ 5:34 PM
+
+Getting my new 11” iPad Pro setup and I really like this size!
+
+Friday @ 8:52 AM
+
+I like to use emoji to bring fun to unexpected places on my devices. Command line prompts, OmniFocus tags. My new favorite is emoji folder names for my Favorite boomarks in Safari.
+
+That's the end of Microposts.
+
+Now, more links.
+
+- Puddle and Pile—the app that predicts when your puppy needs to go—is freaking amazing – A Whole Lotta Nothing a.wholelottanothing.org
+Okay, there really is an app for everything!
+- Git from the inside out codewords.recurse.com
+More than you ever wanted to know about how Git works.
+- Machine Learning Crash Course | Google Developers developers.google.com
+It’s amazing how much one can learn through completely open and free resources like this. This might be a cool course to take between Christmas and New Years!
+- Why databases use ordered indexes but programming uses hash tables (evanjones.ca) www.evanjones.ca
+Overview of two common and different ways to access data, and the tradeoffs between them.
+- dgsh — directed graph shell www2.dmst.aueb.gr
+I can't say that I completely get it, but it looks cool.
+- AI Dungeon www.aidungeon.io
+Uh oh, Dungeon Masters might be getting replaced by the big learning algorithm!
+
+That's the end of More Links.
+
+Now, the Fortune section.
+
+You've made it all the way to the end! Here is your fortune for this week.
+
+Beware of Bigfoot!
+
+Thank you for subscribing to the Weekly Thing!
+
+That brings us to the end of the Weekly Thing, issue 130. Thanks for listening, and I'll see you next time.

@@ -1,0 +1,200 @@
+The Weekly Thing, issue 288. Hackerverse, Symbolica, Curators. Published May 19, twenty twenty four. By Jamie Thingelstad. In this issue: Link in Bio slow knife, cubic millimetre of brain mapped, TCP_NODELAY, backward walking workout, M4 iPad Pros, GPT-4o omni model, curators of the web.
+
+Good morning!
+
+Welcome to the seven year anniversary of the Weekly Thing! Issue 1 was sent May 13, twenty seventeen and while a lot has changed, much is still the same.
+
+Thank you for inviting me into your inbox! It is an honor to be able to share with you things that I find fun and interesting each week. I thought about doing some analysis of how many links have been shared or words written over these 287 previous emails. I'll skip the effort of that and just say it is a lot.
+
+Have a great day!
+
+Now, the Featured section.
+
+Link one. "“Link In Bio” is a slow knife - Anil Dash"
+
+I've honestly never thought of the link as anything other than a simple utility feature of the web. But maybe it is much more. Maybe it is one of the primary ways to express yourself on the web, not requiring any permission or special access to connect things together wherever you want.
+
+Quote.
+Links represent a threat to closed systems.
+End quote.
+
+Yes! Really aren't links the most fundamentally open thing about the web?
+
+Quote.
+But killing off links is a strategy. It may be presented as a cost-saving measure, or as a way of reducing the sharing of untrusted links. But it is a strategy, designed to keep people from the open web, the place where they can control how, and whether, someone makes money off of an audience. The web is where we can make sites that don't abuse data in the ways that Facebook properties do. Links take us to places where we can make choices that Instagram never would.
+End quote.
+
+I want to give a hallelujah to that!
+
+Quote.
+But I do think coercive methods of controlling people are a danger, and some of the most insidious techniques are when a platform subtly erases empowering opportunities for its users.
+End quote.
+
+I just love everything about what Dash is putting down here. When I look at the sanitized and commercialized interface of every social media platform out there and the controls they put on your ability to express yourself with formatting, links, images, etc it is absolutely a form of control. It makes you fit into the little boxes in their user interface. You can’t naturally express what you are saying because then they cannot make it neutralized and equalized with everything else.
+
+Is it possible that outrage is so common on social platforms because people have been robbed of other forms of expression — you can’t even bold text — that they have to stand out in other ways to attract the algorithm?
+
+And if we wish to continue to believe this idea that social platforms represent freedom of speech (which they do not, they are a commercial space with none of that), or that they are the town square (a position they put forward to alleviate themselves of accountability and seem more important) pause for a moment that none of them allow any links to be published. Even the links do allow you to add are transformed into internal links that they will decide if they want to allow people to go to or not.
+
+Related: How wild is it that we are letting our AI LLM's access the web via links, but social platforms don't let their users share links with other people.
+
+That's the end of Featured.
+
+Now, the Notable section.
+
+Link one. "Hackerverse"
+
+This map of ideas from Hacker News is kind of fun to explore. The blog post introducing and giving overview of it is very interesting as well. The connected-ness of the various topics is fun to explore. I found it accurate for example that it put crypto on a connected island off to the side.
+
+Link two. "Cubic millimetre of brain mapped in spectacular detail"
+
+It is completely amazing how much is happening in this single cubic millimeter!
+
+Quote.
+The 3D map covers a volume of about one cubic millimetre, one-millionth of a whole brain, and contains roughly 57,000 cells and 150 million synapses -- the connections between neurons. It incorporates a colossal 1.4 petabytes of data.
+End quote.
+
+1.4 petabytes in a millimeter? This sort of analysis makes me wonder if there is a concept of a digital brain as compared to an human brain the foundational structures are so different. Might this be where some of the very wild things in quantum computing make a difference?
+
+Link three. "It's always TCP_NODELAY. Every damn time. - Marc's Blog"
+
+Distributed systems are hard to build and scale. There are so many components to making them work. And the depth of knowledge in all the various stacks makes it even harder. Including the network…
+
+Quote.
+The first thing I check when debugging latency issues in distributed systems is whether TCP_NODELAY is enabled. And it's not just me. Every distributed system builder I know has lost hours to latency issues quickly fixed by enabling this simple socket option, suggesting that the default behavior is wrong, and perhaps that the whole concept is outmoded.
+End quote.
+
+Link four. "Backward Walking Is the Best Workout You're Not Doing | TIME"
+
+Tammy and I have been thinking about stability and mobility work and particularly avoiding falls as you age. In fact Peter Attia had a recent episode of The Drive all on foot health that was incredible to listen to. There is a lot going on in our lower leg and feet that we really don't pay much of any attention to. This backward walking exercise sounds really interesting, and we are lucky enough to have a treadmill that can do the neutral feature like they reference. Think I'll give this a go.
+
+Link five. "Daring Fireball: The M4 iPad Pros"
+
+I am sort of in the market for a new iPad so I read this review with a little more anticipation. I always prefer Gruber's write-ups on new Apple hardware. He's got decades of experience with the lineup. He takes a little different trip than other reviewers on this one, spending some time reframing iPadOS and macOS and what the intended market is for these new, incredibly powerful iPads. Am I going to upgrade from my several year old iPad Pro to the new one? Probably. The biggest issue with iPad upgrades is even one that is fairly old still works so great.
+
+Link six. "OpenAI debuts GPT-4o 'omni' model now powering ChatGPT | TechCrunch"
+
+GPT-4 now better in every way. Notable about this release "in OpenAI’s API and Microsoft’s Azure OpenAI Service, GPT-4o is twice as fast as, half the price of and has higher rate limits than GPT-4 Turbo". That is a big deal for people building off of this service. Speed and cost are some of the largest limiters right now. A number of other announcements that feel like OpenAI is getting a better understanding of how you productize the LLM capability.
+
+Link seven. "We Are the Curators of the Web - I am BARRY HESS"
+
+I dig my friend Barry's take on curating the web. Fundamentally he's going to the importance of a vibrant and diverse web, connected with hyperlinks, and all of us sharing what resonates with others. Not in a proprietary social network driven by surveillance. Just on the web.
+
+Quote.
+In my opinion we must look within for the solution. We are the human beings that are meant to curate the web. We should continue to spread the word about how we use the web, which is very personal and as active participants. We should make clear our desire for technologies that are accessible for non-technical people to be able to join us in controlling their own web presence. We build our websites and share our thoughts and link our links. Over time the web becomes surfable to more and more people.
+End quote.
+
+I like to think that this is exactly what I’m doing with the Weekly Thing and my blog.
+
+That's the end of Notable.
+
+Now, the Journal section.
+
+Journal entry one.
+
+Happy (early) Mother’s Day to my Mom! She joined us for an afternoon jaunt to the Minnesota Arboretum to see the tulips blooming and many other pretty flowers.
+
+Journal entry two.
+
+We watched Arthur the King tonight. Our family is a sucker for dog movies and this one was no exception.
+
+Journal entry three.
+
+Helped Mazie create her very first resume. That seems like a milestone.
+
+Journal entry four.
+
+Seeing Purple Lilacs in bloom always reminds me of my Grandma Rose. They were her favorite. They smell lovely too.
+
+Journal entry five.
+
+First Dairy Queen bike ride of the year!
+
+Journal entry six.
+
+First soccer game for Summer twenty twenty four season! Go Cobras!
+
+Journal entry seven. Happy Vyshyvanka Day!
+
+We have celebrated Vyshyvanka Day in our Kyiv office for years now, but this year we also decided to take part in Vyshyvanka Day in Minneapolis as well. Alexander Ivakhnenko and Valentin Kornukh led the event with delicious Ukrainian snacks and treats including: Pierogi (including Potato, Meat, and Cherry), Modovik cake, Kyiv cake, Napoleon Cake, and Kvas to drink. We also had a Ukrainian trivia challenge to learn more about different aspects of Ukraine. It was a great time!
+
+Weekly Thing Forum
+
+Join Tom Mungavan, Barry Hess, Lou Plummer, Patrick Hambek, Eric Walker, and many other Weekly Thing readers in the Weekly Thing Forum. Recent topics include:
+
+- Destroying Young People's Future
+- Weekly Thing 287
+- AI controlled F16 fight humans
+- Ukraine Aid
+- NASA’s Voyager 1 Resumes Sending Engineering Updates to Earth
+
+That's the end of the Journal.
+
+Now, the Briefly section.
+
+Link one. "AI at Work Is Here. Now Comes the Hard Part"
+
+Microsoft has a ton to gain from AI adoption so take with a grain of salt a giant research report from Microsoft about AI and work. However, this is loaded with statistical data and information.
+
+Link two. "Record-breaking increase in CO2 levels in world’s atmosphere | The Guardian"
+
+I struggle with how to put any context around global warming indicators. It is all going "the wrong way" but even as someone that wants to understand it I don't know how to contextualize is, much less action it.
+
+Link three. "Chapter I: The birth of Parquet | The Sympathetic Ink Blog"
+
+Good blog post on the origin of Parquet and what makes it work so well.
+
+Link four. "Symbolica"
+
+Interesting language for algebra. Reminds me a bit of something from Mathematica.
+
+Link five. "Sci-Fi Author J.G. Ballard Predicts the Rise of Social Media (1977) | Open Culture"
+
+Very prescient.
+
+Link six. "Hackers discover how to reprogram NES Tetris from within the game | Ars Technica"
+
+Wild article about injecting code into Tetris running on a console. Amazing what folks can figure out.
+
+Link seven. "Immersive Math"
+
+This is an impressive example of what every textbook should be like. Interactive and easy to explore the concepts.
+
+Link eight. "Manifesto for a Humane Web"
+
+I've seen many of these type of things and don't suspect any get real momentum, but I appreciate the intent and framing that each provide.
+
+Link nine. "The Great Flattening – Stratechery by Ben Thompson"
+
+Thompson's reflections on the backlash around Apple's Crush ad and putting it more in the context of aggregation over the last decades of tech growth.
+
+Link ten. "Bitcoin's Halving Aftermath"
+
+As Bitcoin mining rewards continue to get cut in half every four years the Bitcoin ecosystem will need to transition to a self-sustaining model based only on mining fees.
+
+Link eleven. "Cloudflare’s public IPFS gateways and supporting Interplanetary Shipyard"
+
+IPFS is a technology I want to see work but I find it so difficult to use, and if I think that, well that says something. I've read this a couple of times and Cloudflare seems to try to spin this to a positive but isn't it really just saying that Cloudflare is no longer going to support an IPFS bridge? That doesn't seem good for IPFS.
+
+That's the end of Briefly.
+
+Now, the Fortune section.
+
+Here is your fortune…
+
+You have been selected for a secret mission.
+
+Thank you for subscribing to the Weekly Thing!
+
+That's the end of Fortune.
+
+Now, the Want to support the Weekly Thing? section.
+
+First — thank you for subscribing and reading. Here are some things you can do that would be great…
+
+- Share Weekly Thing 288 / Hackerverse, Symbolica, Curators with others you know!
+- Post about the Weekly Thing and let others know about it.
+- Join the Weekly Thing Forum and connect with others.
+- Email me comments, feedback, or just to say Hi!
+
+That brings us to the end of the Weekly Thing, issue 288. Thanks for listening, and I'll see you next time.

@@ -1,0 +1,313 @@
+The Weekly Thing, issue 160. Unlived Life, Disinformation, Snowflake. Published October 10, twenty twenty. By Jamie Thingelstad. In this issue: Unlived Life, hacking Apple, 100000 Stars, Snowflake value, QAnon ban, mail-in voter fraud disinformation, aerosol spread of Covid-19.
+
+I’m planning on making this weekend the last hurrah of summer of twenty twenty. We have a gorgeous forecast in front of us, and I'm looking forward to spending most if not all of it outside.
+
+My comments last week on how to approach the news got a surprising number of replies and comments. It seems that is something that many of you have also put thought into how to manage.
+
+This last week has been crazy busy in my world so I’m going to keep this weeks intro short and sweet, and get us straight on to the links.
+
+Now, the Must Read section.
+
+Link one. "The Unlived Life – Steven Pressfield"
+
+Short piece from Pressfield that is worth reflecting on.
+
+Quote.
+When you and I know … when we feel in our bones the unrealized self we are or could become and know that we’re not living it out … the result is pain. The result is shame and mortification and self-reproach.
+End quote.
+
+He ties this back to Resistance. His book The War of Art is a deep dive into the Resistance and a wonderful read.
+
+Link two. "Protests and Power (Idle Words)"
+
+Maciej? was in Hong Kong for the recent protests and he reflects that experience with the current American protests.
+
+Quote.
+Instead of approaching the upcoming election as the culminating event in a four-year project to reclaim democracy, we’re treating it as more political weather, keeping a nervous eye on the forecasts, hunkering down, and hoping for the best.
+End quote.
+
+I read this as many of us being politically about flash but not substance. Where are the organizations to do the day-to-day work to affect real change.
+
+That's the end of Must Read.
+
+Now, the Currently section.
+
+Installing: I play very few games, but there were two this week that I have had some fun playing. Up Spell is a fun, quick word game. And, Golf on Mars is the sequel to Desert Golf that is a strangely mesmerizing golf game for the iPhone.
+
+That's the end of Currently.
+
+Now, the Photograph section.
+
+Aerial view of the Stone Arch Bridge with the Mississippi River lowered for a once in 20 year view of the river bottom.
+
+Oct 7, twenty twenty at 6:53 PM
+Stone Arch Bridge, Minneapolis
+
+Are you a LinkedIn Power User?
+Use your power for good, share this on LinkedIn.
+
+That's the end of Photograph.
+
+Now, the Recommended Links section.
+
+We Hacked Apple for 3 Months: Here’s What We Found
+
+This is an incredibly detailed writeup from 3 months of hacking on Apple's services and exposing a number of issues that were remedied.
+
+Quote.
+There were a total of 55 vulnerabilities discovered with 11 critical severity, 29 high severity, 13 medium severity, and 2 low severity reports. These severities were assessed by us for summarization purposes and are dependent on a mix of CVSS and our understanding of the business related impact. As of October sixth, twenty twenty, the vast majority of these findings have been fixed and credited. They were typically remediated within 1-2 business days (with some being fixed in as little as 4-6 hours).
+End quote.
+
+This is a very interesting read to see the kind of vulnerabilities that are out there and how they can be exploited.
+
+100,000 Stars
+
+It blows my mind a bit what you can do in a. web browser. This star browser is incredible. This is listed as a Chrome thing but it worked fine for me in Safari.
+
+Up Games
+
+If you like word games, like I do, you are likely to like this. It is intentionally forgiving on the word choice and includes a very broad list of acceptable words. I think that makes it even more fun. My favorite thing is that you can share a game with others via a URL so it is very easy to challenge someone to beat your score just by sending them a link.
+
+Timery Debuts Powerful Time Tracking Widgets for iOS 14 - MacStories
+
+If you need to track your time for whatever reason TImery backed by Toggl is a very good application. The addition of widgets that can turn timers on and off makes this even more convenient. I use Timery and Toggl to pull data off of my calendar, but don't use direct timers very often.
+
+Facebook bans QAnon across its platforms
+
+Regular readers know that I regularly and frequently bash on Facebook. To put it mildly, I’m not a fan. I told Tammy that was going to have to say something nice about them this week when this news came out that they have banned QAnon across the entire platform. This is a good thing. It is good for Facebook, for all of us, for our country… the list goes on. Now, I could gripe that their refusal to take any action earlier is why QAnon is where it is. I could point out that they selectively wrap themselves in Free Speech arguments that are meaningless in a public company website. But I’m going to just say "Well Done" Zuck and pals.
+
+All Consuming
+
+I’m kind of a sucker for most things that Adam Lisagor does, and I decided to give this new podcast a listen. I listened to the Magic Spoon episode and now I have a four-pack of Magic Spoon cereal being shipped to me.
+
+How we built a 1 million dollars ARR SaaS startup – Canny Blog
+
+Great read of one startups path to 1 million dollars in annual recurring revenue and the lessons learned along the way. I applaud folks that share this type of story. It is incredibly valuable for others to learn from.
+
+Monolith -> Services: Theory and Practice | by Kent Beck | Oct, twenty twenty | Medium
+
+Beck doesn't really answer the how, but does a great job explaining her why this is so hard. It also is a good backgrounder on why software teams work so hard to build agility and dynamic capabilities into their software today.
+
+How to Create Internal Company Newsletters with Proven Examples
+
+We have been doing a every-other-week newsletter in our team for over a year now. I love the specific attention in this article to creating these type of internal company newsletter. There are good recommendations here. I still wish there was a better distribution tool though. Oddly I find the authoring tools for public newsletters to be so much superior.
+
+Why is Snowflake so Valuable?
+
+Snowflake's IPO made a lot of headlines. This article attempts to explain some of the thought behind it’s market cap of 60 billion dollars.
+
+- 121% year over year growth
+- net retention rate is 158%
+- What is Snowflake's NPS score? It’s 71
+- Average contract value (ACV) 165 thousand dollars a year
+- 56 customers that pay them over 1 million dollars a year
+- Gross profit of 62%
+
+"Compared to similar software businesses, Snowflake has god-like metrics." Those are very impressive indeed.
+
+Being Smart is Not Enough
+
+This genius and butterfly analogy is new, but the concept here I think is absolutely spot on. When you build successful teams you need a wide variety of skills and approaches.
+
+Quote.
+The lesson here is to hire both types of people. Know that it’s the Geniuses who innovate, but it’s the Butterflies who spread that innovation around. Both components are required for successfully implementing new, brilliant ideas.
+End quote.
+
+Mail-In Voter Fraud: Anatomy of a Disinformation Campaign | Berkman Klein Center
+
+Disinformation is the right term here. This is an in-depth analysis of the attempt to discredit the upcoming election.
+
+Quote.
+Our findings here suggest that Donald Trump has perfected the art of harnessing mass media to disseminate and at times reinforce his disinformation campaign by using three core standard practices of professional journalism. These three are: elite institutional focus (if the President says it, it’s news); headline seeking (if it bleeds, it leads); and balance, neutrality, or the avoidance of the appearance of taking a side.
+End quote.
+
+The conclusion is spot on. The fix here isn't fact checking, but instead a more disciplined and focused media.
+
+How to Protect Yourself from the Aerosol Spread of Covid-19
+
+It is bonkers that this is being published by going around official venues, but at least the information is out there.
+
+Charty – Create charts from Shortcuts
+
+I’m a huge fan of Shortcuts in iOS and use them for a ton of things. I have whole projects built in Shortcuts. I’m also a fan of charting everything. So, here we get the power of Shortcuts and an a powerful charting solution? This is an instant-buy for me! So cool!
+
+That's the end of Recommended Links.
+
+Now, the Stream section.
+
+Wednesday @ 8:19 PM
+
+Mississippi River Lowered
+
+The U.S. Army Corps of Engineers has lowered the Mississippi River by 12 feet to inspect locks and dams. We went tonight to see what it looked like with the water so much lower. Much of the Stone Arch Bridge is completely out of water. There were a lot of people mingling around.
+
+The view from above showed a lot of riverbed in the main part of the river, and you could see a bunch of people out in the dry areas.
+
+We went down to the water following some paths on the North end of the Stone Arch Bridge.
+
+We were there as the sun set. It was a pretty fun sight to see.
+
+Tuesday @ 9:57 PM
+
+I upgraded the video conferencing setup in my home office. Setup a studio light that I’ve had for photography. Got an Audio-Technica AT2005USB microphone on a mini-boom. The audio is incredibly better. The light is a big help early in the morning.
+
+Monday @ 9:48 PM
+
+Government Websites Should be Surveillance Free
+
+Excuse me while I vent for a moment. Today I tried to visit the State of Minnesota COVID-19 resource page. I wanted to see what the State of Minnesota had shared recently. However, when I visited the page it was blank. Just a white page.
+
+I run multiple layers of software to block surveillance software on the web. It amazes me that this software blocks about 30% of all requests that my browser attempts to make, and by and large websites I visit are unaffected. Just think about that for a second. 30% of all web activity that my browser goes to offers no value to me, but is instead surveilling me for various other activities.
+
+Back to the State of Minnesota though, unfortunately their site breaks entirely if you block this surveillance. I tested it and if I paused blocking it worked, enabled blocking and it was a blank white screen again.
+
+This burns me up because this is my government resource that I want to access, and I do not think that my government should force me to be surveilled by private companies in order to access resources I want as a citizen of my state. I feel the same way when government services are only available via social networks. There should be no circumstance where I should have to submit to surveillance in order to get access to government information.
+
+So, what is all this amazing stuff that the State of Minnesota wants to watch me with? Let's take a look.
+
+First, we have Google Tag Manager which is Google's bundled thing to put nearly anything into a website. Google is all over the web and follows us nearly everywhere I go. I especially dislike the idea of Google seeing what resources I’m looking at from government services. That could lead to some terrible profiling activities. Plus, Google has nothing to do with Minnesota and I don't see why I need to send my data to a company in California to get information from Minnesota.
+
+Registrant Organization: Google LLC
+Registrant State/Province: CA
+Registrant Country: US
+
+Next we have SiteImprove! Now we aren't just getting another state involved but an entire separate country. It turns out that a company in Denmark is also needed to get me my COVID-19 information from Minnesota.
+
+Registrant Organization: Siteimprove AS
+Registrant State/Province:
+Registrant Country: DK
+
+Okay, deep breaths. Now we add cdn.perfdrive.com, which I've never heard of. They don't seem to have an easily available website. Their domain registration is hidden behind a legal proxy, so I have no means to identify who this company is that is getting my data.
+
+Then we have something called btstatic.com. The domain’s whois information shows some entity in Chicago, IL but then an administrative contact in the United Kingdom. With Denmark already in the mix we have a full global action here for me to talk to my State Government.
+
+Registrant Organisation: Signal Digital, Inc.
+Registrant Street: 222 N. LaSalle St.
+Registrant Street: Suite 1600
+Registrant City: Chicago
+Registrant State/Province: IL
+Registrant Postal Code: 60601
+Registrant Country: US
+
+Admin Organisation: Safenames Ltd
+Admin Street: Safenames House, Sunrise Parkway
+Admin Street: Linford Wood
+Admin City: Milton Keynes
+Admin State/Province: Bucks
+Admin Postal Code: MK14 6LS
+Admin Country: UK
+
+Rounding out the fun we also have two additional California companies that are getting my data too. Apparently we are optimizing via optimizely.com and amplifying via amplitude.com! Ugh.
+
+Registrant Organization: Optimizely
+Registrant State/Province: California
+Registrant Country: US
+
+Admin Organization: Amplitude
+Admin State/Province: CA
+Admin Country: US
+
+So to recap, in order for me to get COVID-19 information from the State of Minnesota I need to give my data to three companies in California, one in Denmark, one in Chicago or the UK, and a final one that I have no legal way of identifying.
+
+It should be a requirement that government resources on the web are available without surveillance. Citizens should not be forced to send there data all over the globe to get something that is essential to the services expected.
+
+Sunday @ 10:00 PM
+
+Brandi Carlile’s Campfire Singalong
+
+Streaming Brandi Carlile’s Campfire Singalong. Love the intimate feel, like joining them for a jam session around the fire. It’s great to get some live music; warms the heart.
+
+“The Twins” playing Homeward Bound by Simon and Garfunkel is amazing. Sounds great.
+
+The acoustic cover of Radiohead’s “Creep” amazing as well. We need a Brandi Carlile cover album!
+
+I could listen to Brandi and the Twins singing “The Eye” over and over, and never get tired of it.
+
+Brandi is intent on going on and on, but we are calling it a night after “The Mother”, two hours in. Will have to see tomorrow how long it actually does go!
+
+Sunday @ 8:17 PM
+
+Happy Birthday to my amazing, awesome, and astounding Mom! I would literally be nothing without her. I have been so lucky to have someone to guide, teach, and help me throughout my life.
+
+Sunday @ 6:09 PM
+
+Dancing Bear Chocolate
+
+First time visit to Dancing Bear Chocolate to get treats for my Mom’s birthday. They also made a custom Carrot Cake for her that was delicious and super filling!
+
+Sunday @ 2:25 PM
+
+Cocktail Emoji Triples
+
+I was texting recently and wanted to reference an Old Fashioned and it dawned on me that there was a perfect emoji reference for that drink!
+
+Old Fashioned
+
+It captures the bourbon, and then the two dominate flavors of orange and cherry.
+
+Could Emoji Triples be used to describe any cocktail? So I took a run at some.
+
+Gin and Tonic
+
+Nice drink. Lemons, and something you might drink on a beach.
+
+Mojito
+
+This is definitely an umbrella drink. Coconut implies sweetness. Pineapple?
+
+Moscow Mule
+
+This one seemed harder. Copper mug? Cocktail tumbler. Mule? Bring on a horse. Moscow? Let's use a Russian flag.
+
+Friday @ 7:09 PM
+
+Voted!
+
+I prefer voting by mail. We get the kids involved. We can do research on the smaller down ballot elections and make more informed decisions. It is much more relaxing and allows the electorate to be more informed. I will be delivering the package by hand to the city office.
+
+Friday @ 6:48 AM
+
+It took 6 months for COVID-19 to go from the March lockdowns to the White House. COVID-19 is still less than one year old!
+
+Trump Tests Positive for the Coronavirus
+
+Related, from two days ago, Study Finds ‘Single Largest Driver’ of Coronavirus Misinformation: Trump.
+
+Friday @ 3:31 AM
+
+The covid-19 recession is the most unequal in modern U.S. history.
+
+That's the end of Stream.
+
+Now, for your information.
+
+Explaining the Pandemic to my Past Self Part 3 - YouTube
+
+These videos crack me up.
+
+Google is giving 1 billion dollars to news publishers — to help convince governments not to take a whole lot more than that » Nieman Journalism Lab
+
+"Oh, hey, sorry for breaking, like your whole business model. Here's a big pile of cash. K, thx, g'bye."
+
+Intentional days with Sunsama
+
+Interesting task manager that is tied directly into calendaring. Seems like a good approach for bullet journaling.
+
+My wife recently passed away. I used my time off to build her the giant bookshelf she always wanted. - Imgur
+
+Incredible looking bookshelves, and touching project to remember his wife by.
+
+Your friends already read this?
+Recommend it to strangers, have them join us here, and you'll be BFF's forever!
+
+That's the end of the FYI section.
+
+Now, the Fortune section.
+
+You've made it all the way to the end! Here is your fortune for this week.
+
+You will be surprised by a loud noise.
+
+Thank you for subscribing to the Weekly Thing!
+
+That brings us to the end of the Weekly Thing, issue 160. Thanks for listening, and I'll see you next time.

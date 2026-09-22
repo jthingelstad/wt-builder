@@ -1,0 +1,247 @@
+The Weekly Thing, issue 72. Sep 22, twenty eighteen. Published September 22, twenty eighteen. By Jamie Thingelstad. In this issue: Linux 4.19-rc4 apology, iPhones XS, Apple Watch Series 4, iOS 12 review, 1Password AutoFill, Scriptable JavaScript, decision fatigue, Larry Page.
+
+Ok, this week got a bit heavy on all the announcements around the iPhone XS, Apple Watch Series 4 and iOS 12. I'm waiting for the iPhone XS to get delivered, and should have it in my hands very soon. Tammy and I both upgraded, and after reading the reviews I'm very interested to check out the camera capabilities.
+
+Now, the Featured Links section.
+
+Link one. "LKML: Linus Torvalds: Linux 4.19-rc4 released, an apology, and a maintainership note"
+
+The technology industry has an unusual amount of overly aggressive communication and criticism. Flame wars and such got their start somewhere. Linus Torvalds, the creator of Linux and Git, two of the most important software products of our era, is legend for being a complete jerk to people. This about face and apology is significant.
+
+This week people in our community confronted me about my lifetime of not understanding emotions. My flippant attacks in emails have been both unprofessional and uncalled for. Especially at times when I made it personal. In my quest for a better patch, this made sense to me. I know now this was not OK and I am truly sorry.
+
+This is a really big deal as Linus is a role-model for many technologists. If he thinks it is appropriate to tear people apart over their code, maybe that would be a cool thing to do in a code review at the office! Hell no.
+
+I was also pleased to see this commit to adopt a proper Code of Conduct for Linux Kernel development. To give a sense of how deep Linus' views affect the Linux Kernel team before this Code of Conduct they had a Code of Conflict!
+
+The Code of Conflict is not achieving its implicit goal of fostering civility and the spirit of 'be excellent to each other'.
+
+Glad to see these changes coming.
+
+Link two. "To Cut My Spending, I Used Behavioral Economics on Myself - The Atlantic"
+
+I buy into this approach a lot. Tammy and I use YNAB to track our personal finances and we enter each transaction by hand. I avoid payment methods that are too convenient. I refuse to use the scan to pay features at coffee shops because I know it takes you further from the decision to spend money. Some things should not be low friction. Thought experiment, I've often wondered what if you set your password as a trigger. So, on Amazon if you set your password to "DoYouReallyNeedToBuyThisStuff?" would that trigger your mind to reconsider?
+
+Link three. "Forget the new iPhones, Apple's best product is now privacy"
+
+I have been saying this for a while. I think that Apple has clearly identified protecting user privacy as a long-term focus area and a place they can differentiate and compete against Google, Facebook and many others (except Microsoft, mostly).
+
+Apple’s devices and software–and the company’s ethos–are now steeped in user privacy protections that other tech companies would never dream of embracing. And this isn’t a stance Apple has only recently adopted. It is something that has been building for years at the company, starting under Steve Jobs’ leadership and rapidly accelerating under Tim Cook’s reign.
+
+This is why Apple was willing to take such a public position against the FBI when asked to bypass encryption.
+
+That's the end of Featured Links.
+
+Now, the My Weekly Photo section.
+
+Sun setting on Cannon Lake.
+Sep 15, twenty eighteen at 6:47 PM
+Cannon Lake, MN
+
+That's the end of My Weekly Photo.
+
+Now, the Notable Links section.
+
+Link one. "The David Rubenstein Show: Jeff Bezos"
+
+Great and wide-ranging interview with Amazon's Jeff Bezos. It’s amazing that Bezos still owns 16% of Amazon. I should make a point to watch more of Rubenstein's interviews, his interview with Tim Cook is also great.
+
+Link two. "The Decision Matrix: How to Prioritize What Matters"
+
+A good companion item to decision fatigue -- a framework for evaluating how to approach decisions using a 2x2 matrix. If you can make a finite number of decisions a day, make the right ones and delegate or defer the rest.
+
+Link three. "Occupations and Their Ideologies – Other Life"
+
+This data is much more divided than I would have thought.
+
+Occupations are strongly sorted by ideology. Political scientist Adam Bonica has produced reliable and consistent estimates of ideological placement for a huge number of individuals, politicians, and organizations.
+
+I wonder if these patterns were present much longer ago, 1950's for example.
+
+Link four. "Daring Fireball: Apple Watch Series 4"
+
+Gruber gives a compelling review of the new Series 4 watch. It looks very well done, and while the size changes are in the millimeters I can see how the Series 4 will be very nice. I’m still going to hold off and wait another year to upgrade. At least until I see one in person.
+
+Link five. "What Most Remote Companies Don’t Tell You About Remote Work"
+
+Where and how we work matters a lot, and it’s a complicated thing — not a one size fits all solution.
+
+Link six. "So Good They Can't Ignore You"
+
+Super condensed overview of a book that is on my reading list.
+
+Link seven. "Daring Fireball: The iPhones XS"
+
+Gruber with a very focused review of the iPhone XS and the massive changes in the camera. This goes into some great detail, and I can’t wait to see my own results with the new XS.
+
+But there is one wow factor comparing the iPhone XS to last year’s iPhone X: photography. But the reasons don’t show up in Apple’s comparison spec list (even though some of them could). I’ve focused nearly the entirety of my testing on taking photos and videos side-by-side against my 10-month old iPhone X. Overall, I’m simply blown away by the iPhone XS’s results. Sometimes the difference is subtle but noticeable; sometimes the difference is between unusable and pretty good. The iPhone XS can capture still images and video that the iPhone X cannot.
+
+Some further details on the changes in the camera mechanism.
+
+“32 percent larger sensor”, however, means something very specific, and it should perk up the ears of any photographer — even one who’s skeptical of Apple’s “computational photography” claims. You could sell an upgrade to the XS to iPhone X-owning photo enthusiasts just by telling them the sensor is so much larger.
+
+Absolutely!
+
+Link eight. "watchOS 5: The MacStories Review – MacStories"
+
+The comprehensive review of watchOS 5. This hits on all of the improvements. I was eager to try the Walkie Talkie app and initial impression is cool, but I would only use that with close friends and family. I tried it with my brother and we found it geeky fun. I tried it with Tammy and she looked at me like it was the dumbest thing she’d ever seen. Your mileage may vary.
+
+Link nine. "iOS 12: The MacStories Review – MacStories"
+
+The most comprehensive, more than you ever wanted to know, review of iOS 12.
+
+Link ten. "1Password Extends into the iOS QuickType Keyboard with Password AutoFill – MacStories"
+
+This is one of the little features in iOS 12 but it’s so awesome that it makes me grin every time I get to use it. I have gotten used to years of fast-app switching to 1Password and using it’s Share Sheet widget, but now it just works and I can pull my secure, unique passwords with ease.
+
+Link eleven. "Are Audiobooks As Good For You As Reading? Here’s What Experts Say | Time"
+
+I’ve gotten an Audible subscription and have been listening to more audiobooks than ever before. I have a 20-30 minute drive to work and it’s a great time to listen to some books. I assumed that listening would give less comprehension, but the tests were not as conclusive as I would have thought.
+
+Link twelve. "Scriptable: Use JavaScript to control your iPhone | Rosemary Orchard"
+
+Very cool new app built for Siri Shortcuts in iOS 12. This is like the companion app to Workflow, now Shortcuts, but this one uses JavaScript. You can do an incredible amount with this, but the barrier to entry is higher since you have to know how to code. Shortcuts is very approachable, but a little less powerful. This is a good app to keep an eye on, especially as a community of scripts build up around it.
+
+Link thirteen. "Apple's A12 Bionic is a powerhouse chip with a boosted dose of brains"
+
+In two thousand eight Apple acquired P.A. Semi for 278 million dollars. Apple has also acquired a handful of additional semiconductor companies and they are now one of, if not the, most advanced chip manufacturers in the world. The Neural Engines 5 trillion operations per second is enabling a local approach to machine learning that is very different than everyone else's.
+
+Core ML, Apple machine learning framework, apparently runs some nine times faster on the A12 Bionic, which should mean there's more performance on tap for developers to put AI abilities into their apps.
+
+That is also aligned with the core value of privacy and keeping things local.
+
+Link fourteen. "The Science of Decision Fatigue - Erin Wildermuth"
+
+This is absolutely something I feel regularly. A lot of what I do all day is making decisions, and it is somewhat common for me to get home and feel like any decision is more than I can deal with.
+
+Link fifteen. "Dean Hager Shares Leadership Strategies To Improve Your Company’s Culture"
+
+Solid and comprehensive leadership advice from Dean Hager, the CEO of Jamf.
+
+Link sixteen. "Advice to CEOs: digging out from a jammed calendar | Chad Dickerson's blog"
+
+Fabulous advice for thinking critically about your time. The links to related articles are very good as well. While this is targeted at a CEO, many of the methods are easily adapted for anyone.
+
+Link seventeen. "How to be alone: the difference between loneliness and solitude | The JotForm Blog"
+
+In our, in my opinion, over-connected world I often wonder if solitude is even a thing that exists.
+
+Loneliness is being alone — and not liking it. It’s a feeling.
+
+Solitude is being alone — and content. It’s a choice.
+
+We rarely have an opportunity to embrace that in our lives, unless we make it a priority to have it.
+
+Link eighteen. "Larry Page Is a No-Show With Google Under a Harsh Spotlight - Bloomberg"
+
+This seems like an incredibly bad decision on Google's part.
+
+When the hearing before the Senate Intelligence Committee began on Sept. 5, a black leather chair reserved for him sat empty next to Dorsey and Sandberg. A place card marked “Google,” in front of a blank notepad and muted microphone, served as a blunt reminder of his absence.
+
+Giving congress the ability to get pictures of an empty chair with Google's name in front of it was foolish.
+
+That's the end of Notable Links.
+
+Now, the Now Reading section.
+
+How to Change Your Mind: What the New Science of Psychedelics Teaches Us About Consciousness, Dying, Addiction, Depression, and Transcendence ()
+by Michael Pollan
+
+A brilliant and brave investigation into the medical and scientific revolution taking place around psychedelic drugs--and the spellbinding story of his own life-changing psychedelic experiences
+
+My book club is reading this and I'm enjoying it. I like Pollan's other work, and it's sort of nice to read something from him not about food. The history of psychedelics is pretty interesting. I had no idea about the therapeutic and medical uses of it before it become part of counter-culture.
+
+That's the end of Now Reading.
+
+Now, the Give Back section.
+
+Minnestar is the technology community for Minnesota. If you are passionate about technology you need to go to Minnebar and Minnedemo. Did you know that Minnebar is the largest BarCamp in North America and one of the largest in the world? Its also been going on for over 10 years? Minnedemo is the best place to hear about innovative tech and fun projects in the Twin Cities area. I am on the Minnestar board and I focus on Minnestar as one of the driving forces improving and expanding the technology community in the area. Minnestar is a 501c3 non-profit. Become a Community Supporter today!
+
+That's the end of Give Back.
+
+Now, the Highlighted iOS App section.
+
+Scriptable
+
+by Simon B. Støvring
+
+Scriptable is an automation tool that enables you to write scripts that integrates with native features of iOS such as files, calendars, reminders, documents and much more.
+
+This app is only for the geeks that want to extend automation on their iOS devices. It's incredibly powerful, giving you the full capability of JavaScript to extend and automate on your mobile device. It's like a developer version of Shortcuts, which is limited to it's visual interface. I have some Shortcuts that I "shell out" to Pythonista to use Python, that I could redo in Scriptable if I wanted. My dream would be something like Scriptable with a Python runtime. JavaScript still makes my head hurt too much.
+
+That's the end of Highlighted iOS App.
+
+Now, more links.
+
+- Android 9 Pie, thoroughly reviewed | Ars Technica arstechnica.com
+Deep dive on all things Android 9.
+- Nvidia Takes On The Inference Hordes With Turing GPUs www.nextplatform.com
+The innovation happening in the GPU market is amazing.
+- Thinking about Attention — CGP Grey www.cgpgrey.com
+Start of a trend?
+- iOS 12, thoroughly reviewed | Ars Technica arstechnica.com
+The other very deep review of iOS 12.
+- Sublime Merge - Git, done Sublime www.sublimemerge.com
+I like Sublime Text and was surprised to see a new Git client!
+- Just Because: How Apple's Awesome Motion Watch Faces Are Made www.hodinkee.com
+Cool background video on how the new watch faces for the Apple Watch Series 4 were made.
+- xkcd: Curve-Fitting xkcd.com
+- the xonsh shell — xonsh 0.7.8 documentation xon.sh
+This is a super weird shell.
+- Daring Fireball: Thoughts and Observations on Apple’s iPhone XS/XR and Series 4 Apple Watch Introductory Event daringfireball.net
+John Gruber's take on Apple's fall announcement of the new iPhones and Apple Watch.
+- Python joins movement to dump 'offensive' master, slave terms • The Register www.theregister.co.uk
+Good.
+
+That's the end of More Links.
+
+Now, the Microposts section.
+
+Thursday @ 7:25 PM
+
+It seems that the nVidia GPU in my twenty twelve MacBook Pro 15” Retina is failing fast. Screen goes black, Kernel panic reported from GPU. Somewhat common issue with that laptop. I was planning to upgrade but was hoping to make it to October’s new machines!
+
+Tuesday @ 8:32 PM
+
+Upgraded Nintendo Switch to 6.0 and Tyler and I are trying out Switch Online. It’s fun to play Donkey Kong on yet another modern game platform.
+
+Tuesday @ 8:31 PM
+
+Now have a VIN for my Tesla Model 3 and a scheduled delivery date for the weekend!
+
+Monday @ 7:45 PM
+
+Wired my iOS 12 Shortcut so “Hey Siri, Loons win!” starts playing Wonderwall.
+
+Monday @ 7:04 PM
+
+Have all my relevant Apple devices upgraded to iOS 12, watchOS 5 and related device OS versions.
+
+Sunday @ 7:23 PM
+
+Impressive update for Streaks today! Happy to see iCloud sync arrive and already support for Siri Shortcuts!
+
+Saturday @ 5:19 PM
+
+Our deck project is progressing — and big!
+
+Friday @ 5:51 PM
+
+Time it took AT and T to fix my iPhone Xs upgrade order today: 97 minutes. Time it took my barber to cut my hair: 9 minutes.
+
+Friday @ 3:41 AM
+
+iPhone Xs 256GB Space Grey ordered!
+
+That's the end of Microposts.
+
+Now, the Fortune section.
+
+You've made it all the way to the end! Here is your fortune for this week.
+
+Expect the worst,
+it's the least you can do.
+
+Thank you for subscribing to the Weekly Thing!
+
+That brings us to the end of the Weekly Thing, issue 72. Thanks for listening, and I'll see you next time.

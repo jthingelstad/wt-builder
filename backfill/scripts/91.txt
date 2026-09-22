@@ -1,0 +1,194 @@
+The Weekly Thing, issue 91. Feb 2, twenty nineteen. Published February 2, twenty nineteen. By Jamie Thingelstad. In this issue: AI robotic knee, JSON inspection iOS, principal engineer, MMOs real life politics, malicious shortcuts, HomeKit smart TVs, Steve Jobs iPhones.
+
+We survived the deep freeze! We had three days with the temperature between -27°F (-32.7°C) and -15°F (-26°C), for the high! Wind chills were something silly, like -50°F. I can't remember school ever being cancelled for four days in a row. I know it's particularly old man of me to say, but I don't think it was like that when I was a kid. The kids stayed home and got a bit of cabin fever. It reminded me when I was a kid in Minot, ND and we made the national news because the wind chill was -102°F! I think they cancelled school, that one day. Just sayin'...
+
+The rest of life mostly went on as normal. I had the luck of scheduling my annual team event at the office on Wednesday, what will surely go down as the coldest day of the year. It didn't deter us. We took pride in being in the Bold North™.
+
+Unfortunately I got taken down with a nasty cold at the end of the week and I've mostly been napping and sniffling the last couple of days, along with a headache, sore throat, sneezing – you get the picture. I'm still getting your Saturday links to you though. The Post Office halted mail delivery on Wednesday, but I won't be so easily deterred!
+
+My Blog Posts
+
+Hack the Gap twenty nineteen
+
+Hack the Gap hosted their fifth annual Hackathon for women and non-binary individuals this weekend. I was able to attend the demo event today where each team showcased what they created.
+
+Now, the Featured Links section.
+
+Link one. "AI Helps Amputees Walk With a Robotic Knee - IEEE Spectrum"
+
+This is absolutely brilliant.
+
+Normally, human technicians spend hours working with amputees to manually adjust robotic limbs to work well with each person’s style of walking. By comparison, the reinforcement-learning technique automatically tuned a robotic knee, enabling the prosthetic wearers to walk smoothly on level ground within 10 minutes.
+
+Use AI to get the computer to adapt to the human faster!
+
+That's the end of Featured Links.
+
+Now, the My Weekly Photo section.
+
+A clean, white blanket of fresh snow on Monday made it look like winter was really here.
+Jan 28, twenty nineteen at 7:28 AM
+Edina, MN
+
+That's the end of My Weekly Photo.
+
+Now, the Notable Links section.
+
+Link one. "Inspecting JSON Files on iOS with Jayson – MacStories"
+
+I have the same use case as Frederico, using iCloud to store state for Shortcuts in JSON files. If you need to deal with JSON on iOS this is a nice tool to do it with.
+
+Link two. "On Being A Principal Engineer"
+
+Great reflections on the breadth of responsibilities that come with being a principal engineer.
+
+Link three. "Google will stop peddling a data collector through Apple’s back door | TechCrunch"
+
+This story as well as the one about Facebook is getting a lot of attention. A number of people have seemed to think that Apple pulled the enterprise certificates because of the privacy issues with these applications. I don't think that has anything to do with it. These certificates are meant to be used to distribute internally developed applications to your employees, not outside your company. That is the reason they pulled the certificates.
+
+Link four. "Lawrence Lessig On What MMOs Can Teach Us About Real Life Politics — Seed"
+
+I’m a big fan of Larry Lessig. I had no idea that he was an advisor to Second Life. Seed sounds like SimCity taken to the extreme.
+
+Link five. "Buttondown"
+
+I like seeing new email newsletter platforms popping up that are focused on more grassroots things, versus serving marketing teams. This is a lot more powerful than TinyLetter. Not as powerful as Mailchimp, but it’s also way easier to use. If you are lookin for an easy way to start a newsletter this seems like a good option.
+
+Link six. "Michael Tsai - Blog - Malicious Shortcuts"
+
+I didn’t think of this but it’s right, it would be really easy to make a shortcut that pulled a copy of all sorts of data from your phone and then had the user send it to you. To be clear, the user would have to willingly go along for the ride. It wouldn't be possible to do this automatically. But you could pretty quickly fool people I would think.
+
+Link seven. "Stoop for iOS — An Inbox for Newsletters — Tools and Toys"
+
+There are a few people who subscribe to this newsletter via Stoop. I haven't tried it, and don't plan to. I don't have a problem routing newsletters to the right spot to read when I have time. I would also be paranoid of putting a company in the middle of the content I’m reading. But, I’m sure some will find this a great option for newsletters.
+
+Link eight. "In WSJ Op-Ed, Mark Zuckerberg Speaks Down to Users and Misses the Point | Electronic Frontier Foundation"
+
+I’m a proud supporter of the EFF.
+
+Zuckerberg ends his op-ed with a call for government regulation codifying the principles of "transparency, choice, and control." But in reality, Facebook is tirelessly fighting against laws that might do just that: it is actively battling to undermine Illinois’ Biometric Information Privacy Act in court, and the Internet Association, of which Facebook is a member, has asked California legislators to weaken the California Consumer Privacy Act, and is pushing for a national law only if it "preempts" and rolls back those vital state protections.
+
+Follow the money.
+
+Link nine. "How To Be Successful - Sam Altman"
+
+Altman does reference getting lucky in this, but I would suggest adding a new "0. Get Lucky". I agree with his recommendations, but those simply tip your odds. You also have to get lucky.
+
+Link ten. "Opinion | Steve Jobs Never Wanted Us to Use Our iPhones Like This - The New York Times"
+
+I agree with Newport's primary assertion here, that Jobs' would not have wanted a device to become so constantly integrated into our worlds. Mostly I would say that based on his lifestyle. The fact that he didn’t pitch a store and was downplaying third party apps, I suspect, had to do more with Apple not being ready to pursue that strategy at the time.
+
+Link eleven. "Developer Demos HomeKit’s New Integration with Smart TVs — MacStories"
+
+Seriously, of all the devices I'd like to control with HomeKit my TV would be right up there. Controlling inputs would be dynamite. I’m hoping a bunch of companies add this to their TV's with an update!
+
+That's the end of Notable Links.
+
+Now, the Give Back section.
+
+The Wikimedia Foundation, Inc. is a nonprofit charitable organization dedicated to encouraging the growth, development and distribution of free, multilingual, educational content, and to providing the full content of these wiki-based projects to the public free of charge. The Wikimedia Foundation operates some of the largest collaboratively edited reference projects in the world, including Wikipedia, a top-ten internet property. Donate to Wikimedia today!
+
+That's the end of Give Back.
+
+Now, more links.
+
+- Facebook Moves to Block Ad Transparency Tools — ProPublica
+At this point nothing should really surprise us from Facebook right?
+- Maze Design www.cgl.uwaterloo.ca
+Turns out generating mazes is pretty complex.
+- Omni Roadmap twenty nineteen - The Omni Group www.omnigroup.com
+Basically finish up what they were hoping to get done in twenty eighteen. I do think the JavaScript automation for OmniFocus will be a big deal.
+- Custom Mission Patches - design and print NASA-style mission patch stickers for your team.
+These are a lot of fun!
+- Cronios – tow.com tow.com
+This is really janky and you have to build it yourself with Xcode but I it’s pretty cool to be able to run a Shortcut on a schedule like cron.
+- websocketd websocketd.com
+Neat program to route stdin and stdout to an external process and make it accessible via WebSockets!
+
+That's the end of More Links.
+
+Now, the Microposts section.
+
+Wednesday @ 8:30 PM
+
+Over 50 members of #TeamSPS Tech shared demos, milestones, learnings, and upcoming plans today. It was incredible to see how we are continuing to advance! Great tech organizations are learning organizations, and we learn fast! I am humbled to be surrounded by so much talent!
+
+Wednesday @ 7:54 PM
+
+Hashtags IRL! #SPSTech #TeamSPS Should have gotten this before the Hors d’ouevre’s were cashed!
+
+Wednesday @ 7:52 PM
+
+How do you wrap up the #TeamSPS Tech Summit for twenty nineteen? Trivia Mafia!
+
+Wednesday @ 7:49 PM
+
+Time to socialize and mingle for #TeamSPS Tech!
+
+Wednesday @ 7:46 PM
+
+We finished the fourth session of #TeamSPS Tech Summit twenty nineteen with more service team wins!
+
+Wednesday @ 2:39 PM
+
+Fabulous third session for #TeamSPS Tech Summit twenty nineteen! Service team wins all over the place!
+
+Wednesday @ 2:15 PM
+
+“Worry-as-a-Service” Cloud database engineering managing hundreds of distributed databases for #TeamSPS
+
+Wednesday @ 11:37 AM
+
+Great highlights from more teams at #TeamSPS twenty nineteen Tech Summit! Security, Australian Team, Career Paths, Tech Patterns and Frameworks!
+
+Wednesday @ 10:26 AM
+
+Great start to our #TeamSPS twenty nineteen Tech Summit with sessions from Jim Frome, Dan Juckniess, and Karin Lucas!
+
+Wednesday @ 7:39 AM
+
+Yesterday’s rehearsal for #TeamSPS Tech Summit twenty nineteen! Excited for a great day, braving the Bold North’s -20F!
+
+Wednesday @ 7:37 AM
+
+View from the control room as we get ready to start #TeamSPS Tech Summit twenty nineteen!
+
+Sunday @ 9:34 PM
+
+Schools cancelled. Kids are rejoicing.
+
+Sunday @ 7:49 PM
+
+We saw Spider-Man: Into the Spider-Verse today and I was completely blown away! I enjoyed the story thoroughly and the visuals were amazing. It feels like you are in a comic book! The soundtrack is great too!
+
+Saturday @ 9:32 PM
+
+Everyone had a lot of fun at iFly.
+
+Saturday @ 8:22 PM
+
+Made my signature lasagna tonight. Delicious.
+
+Saturday @ 2:13 PM
+
+Checking out iFly Indoor Skydiving. Wow!
+
+Friday @ 9:59 PM
+
+Delightful dinner tonight at Oceanaire with my brother and his wife. Yum!
+
+Friday @ 9:57 PM
+
+Very first espresso from my new Breville Oracle espresso machine. I’m impressed with the capabilities and the quality of the espresso.
+
+That's the end of Microposts.
+
+Now, the Fortune section.
+
+You've made it all the way to the end! Here is your fortune for this week.
+
+Someone is speaking well of you.
+
+Thank you for subscribing to the Weekly Thing!
+
+That brings us to the end of the Weekly Thing, issue 91. Thanks for listening, and I'll see you next time.

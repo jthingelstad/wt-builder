@@ -1,0 +1,177 @@
+The Weekly Thing, issue 277. Privacy, Scammed, OmniFocus. Published February 18, twenty twenty four. By Jamie Thingelstad. In this issue: Podcast distribution, local news paywalls, connect() slowness, Meta platforms, scam stories, GiveDirectly, OmniFocus 4, privacy rights.
+
+Good morning!
+
+This week was restorative for Minnesotans! Thanks to a Valentine's Day snowstorm that brought a few inches of snow we can now look out our windows and see blankets of the white stuff all over. After several weeks of existential confusion, our "normal" has been restored. We even got to run our snowblowers — if we wished. Finally, order has been restored! Or at least for a bit. The weather forecast has me guessing we'll be back to the "brown grass" look along with the confused search for snow in less than ten days.
+
+If I really want the snow I can put my Vision Pro on and "go immersive" in the Yosemite Valley. There is a profound coating of snow there, with a gentle breeze whirring by thanks to spatial audio somehow placing sounds around my ears. I don't even need a jacket for it. It really is pretty wild.
+
+I've got more thoughts than time right now for updates on spatial computing. I hope to put some words on the keyboard soon.
+
+Now onto the links! No, not those links…
+
+Now, the Currently section.
+
+Using: I decided to take a leap and try DeleteMe. I love the idea of a service that does deep searches and then works on your behalf to remove your information from those services. My worry has always been that it is a front to just collect my information, pretend to do the deletion or maybe even do it a little bit, but then just turn around and sell it. Hopeful that isn't the case. I've signed up and am waiting the first report on data found. I'll blog further about the experience.
+
+Watching: It was so great to watch Jon Stewart back in the The Daily Show anchor chair this week. I'll definitely be watching every Monday. So good!
+
+That's the end of Currently.
+
+Now, the Notable section.
+
+Link one. "“Wherever you get your podcasts” is a radical statement - Anil Dash"
+
+Dash is right that we should celebrate this statement.
+
+Quote.
+But here's the thing: being able to say, "wherever you get your podcasts" is a radical statement. Because what it represents is the triumph of exactly the kind of technology that's supposed to be impossible: open, empowering tech that's not owned by any one company, that can't be controlled by any one company, and that allows people to have ownership over their work and their relationship with their audience.
+End quote.
+
+The same thing applies for RSS feeds — subscribe in your feed reader. Big difference between feed readers and podcasts though is the value of the ad industry inside it. Maybe we need to get more comfortable not linking directly to things. For example, buy this book at your favorite book seller instead of a direct link to Amazon.
+
+Link two. "They gave local news away for free. Virtually nobody wanted it. - Columbia Journalism Review"
+
+The news and media business is very difficult, but nowhere is it more difficult than in local news.
+
+Quote.
+When 2,529 people were offered a free subscription to their local newspapers, the Pittsburgh Post-Gazette and the Philadelphia Inquirer, only forty-four accepted — less than 2 percent — according to an academic study set to be published this year in the American Journal of Political Science.
+End quote.
+
+The spot that these local news organizations filled has been completely replaced with other content. And just like politics, the local is likely way more important to you in practical terms.
+
+Link three. "connect() - why are you so slow?"
+
+Cloudflare has some great investigations into super edge case performance stuff that only matters at their scale. This was a fun sleuth!
+
+Quote.
+At this point, we can summarize that the odd/even port split is what is causing our performance bottleneck. And during the investigation, it was not obvious to me (or even maybe you) why the offset was initially calculated the way it was, and why the odd/even port split was introduced. After some git-archaeology the decisions become more clear.
+End quote.
+
+The odd/even thing here would never have been suspected without the detailed analysis.
+
+Link four. "METAstasis | No Mercy / No Malice"
+
+I highlighted Galloway's comments on Pivot in Weekly Thing 276. He took that same topic to his newsletter.
+
+Quote.
+Since twenty seventeen, Congress has held 40 hearings on children and social media and passed nothing. Democrats and Republicans have introduced legislation, including to age-gate social and to reform Section 230 (which immunizes internet platforms from most litigation), but nothing gets done. Senator Durbin had it right: "The tech industry alone is not to blame for the situation we're in. Those of us in Congress need to look in the mirror."
+End quote.
+
+Galloway can rail on social media even better than I, but we need to stop giving legislatures credit for having hearings and posting clips about heated questions. That means nothing. Do your job and at least protect kids.
+
+Link five. "How I got scammed (05 Feb twenty twenty four) – Pluralistic: Daily links from Cory Doctorow"
+
+This is a great writeup from Doctorow detailing how he got scammed and his credit card was compromised.
+
+Quote.
+One cool thing about banking at a tiny credit-union is that you end up talking to people who have actual authority, responsibility and agency. It turned out the woman who was processing my fraud paperwork was a VP, and she decided to look into it. A few minutes later she came back and told me that the fraud center had no record of having called me on Saturday. "That was the fraudster," she said. Oh, shit. I frantically rewound my conversation, trying to figure out if this could possibly be true. I hadn't given him anything apart from some very anodyne info, like what city I live in (which is in my Wikipedia entry), my date of birth (ditto), and the last four digits of my card. Wait a sec. He hadn't asked for the last four digits. He'd asked for the last seven digits. At the time, I'd found that very frustrating, but now -- "The first nine digits are the same for every card you issue, right?" I asked the VP. I'd given him my entire card number.
+End quote.
+
+This is a good read to just raise your own awareness and be more cautious.
+
+Link six. "Ask security questions"
+
+I've been saying for a bit that with AI able to generate content that looks so genuinely like someone else wrote it that we need to use signatures, likely using Ethereum, to verify authenticity. Then Vitalik, the creator of Ethereum, says that may not be adequate and really we need to ask security questions.
+
+Link seven. "GiveDirectly: Send money to people living in poverty"
+
+Found this non-profit at the end of Making Sense 352 and loved how Stewart described the technology innovation of mobile money and the efficiency and empowerment of giving directly. I wish there was more of this. Crypto would be great for this.
+
+Link eight. "OmniFocus 4 - Michael Tsai"
+
+I like Tsai's blog which is filled with round-up type posts regularly. I don't often link to them mostly because they are "round ups" of other posts, so it seems fairly meta to link there. However here he goes deep on OmniFocus 4. He is clearly an avid user, as am I. I found his writeup good and even learned a couple of things from it — including the 'double tap' gesture on the iPhone.
+
+Link nine. "Privacy Isn't Dead. Far From It. | Electronic Frontier Foundation"
+
+A privacy recap from the EFF, focusing on the things to be optimistic about. I care deeply about privacy online and often people tell me they have given up on privacy online. That it is a lost fight. I would bend more towards the EFF point of view actually. There is plenty of reason to be pessimistic about privacy legislation (but really, we can be pessimistic about all things politics). However, there is an ever growing suite of tools that can empower individuals. And encryption technology is getting deeper and broader. There is much to celebrate. It is far too difficult, and we still need laws, but privacy is not lost. It can be given up, but not lost.
+
+That's the end of Notable.
+
+Now, the Journal section.
+
+Journal entry one.
+
+I got a Magic Keyboard to pair with the Apple Vision Pro. I want to use the Vision Pro for productivity and typing is a must. I hooked it up (it is charging in the picture) and I was surprised to see this typing display that floats above the keyboard. it also knew which keyboard I was using?
+
+Journal entry two.
+
+It seems we were at a stoplight behind a Dungeon Master.
+
+Journal entry three.
+
+It was great to see Mason Jennings at the Dakota tonight. The vibe of the Dakota is perfect for him. I left thinking it would be amazing if he did a residency there for a couple months.
+
+Journal entry four.
+
+Very fun time playing in virtual reality at REM5VR today. Space Pirate and Elven Assassin still favorites.
+
+Journal entry five.
+
+Honored to receive these amazing Ukrainian vyshyvanka from Yuri -- visiting for the first time in five years. I’m looking forwarding to celebrating Ukrainian culture on Vyshyvanka Day in May. They are from Piccolo.
+
+Journal entry six.
+
+We saw Jax Hollow at The Dakota for the first time tonight. Talented musician and performer. I think she is just getting started.
+
+Journal entry seven.
+
+I was very excited to read that OmniFocus is now on TestFlight for Vision OS! I enrolled and am now one step closer to having my core productivity tools in Vision OS.
+
+Journal entry eight.
+
+Watched Monday's Daily Show with John Stewart and wish he was on every night. Seemed like riding a bike for him -- was smooth and funny right away. Felt like good times again.
+
+Weekly Thing Forum
+
+Join Barry Hess, Tom Mungavan, David O'Hara, Jim Cuene, Eric Walker, and many other Weekly Thing readers in the Weekly Thing Forum. Recent topics include:
+
+- 276 / Contextual, Copilot, Collections
+- 275 / Vision, Sense, Magic
+- Blogging: A topic and an announcement
+- Archives now with comments
+- 274 / Gibberish, Happyfeed, Airshow
+
+That's the end of the Journal.
+
+Now, the Briefly section.
+
+Link one. "A look at Internet traffic trends during Super Bowl LVIII"
+
+Fun analysis of Internet activity timed around specific moments in the Super Bowl.
+
+Link two. "Remembering alum David Mills, who brought the internet into perfect time"
+
+A more detailed remembrance of David Mills, the author of NTP, and the wide-ranging impact his work has had.
+
+Link three. "Customer satisfaction and tipping | Seth's Blog"
+
+Tammy and I have been noting how tipping is getting more complicated. With digital payment terminals everywhere prompts to tip are appearing everywhere. It is a mess, even when you think you know what to do.
+
+Link four. "Omni Roadmap twenty twenty four - The Omni Group"
+
+Not a surprise that Omni Group is taking all of their apps to Vision OS, but it was fun to hear their reasoning and how they have always pushed new technologies. I’m now running OmniFocus in Vision OS.
+
+That's the end of Briefly.
+
+Now, the Fortune section.
+
+Here is your fortune…
+
+You are magnetic in your bearing.
+
+Thank you for subscribing to the Weekly Thing!
+
+That's the end of Fortune.
+
+Now, the Want to support the Weekly Thing? section.
+
+First — thank you for subscribing and reading. Here are some things you can do that would be great…
+
+- Share Weekly Thing 277 / Privacy, Scammed, OmniFocus with others you know!
+- Post about the Weekly Thing and let others know about it.
+- Join the Weekly Thing Forum and connect with others.
+- Send Bitcoin via Lightning! This will be used to support something good. weeklything@getalby.com
+- Email me comments, feedback, or just to say Hi!
+
+That brings us to the end of the Weekly Thing, issue 277. Thanks for listening, and I'll see you next time.

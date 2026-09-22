@@ -1,0 +1,246 @@
+The Weekly Thing, issue 154. Giving Feedback, Apple WWDC, Anti-Encryption. Published June 27, twenty twenty. By Jamie Thingelstad. In this issue: Amazon Honeycode, anti-encryption bill, Mac Apple Silicon, iOS 14, macOS Big Sur, GitHub Super Linter, Plausible Analytics, chip wars.
+
+How are you doing?
+
+We've had some nice hot days and I feel like summer has really kicked in. It is all different this summer with the pandemic, but we are taking as much advantage of outdoor activities that we can while still keeping some distance.
+
+As is now tradition, I will be taking July and August off of publishing the Weekly Thing. We have a family vacation planned, and I’m looking forward to a lot of our summer traditions, modified by the pandemic. I hope you all have a great couple of months and I'll be back in your inbox on Saturday, September fifth with issue #155!
+
+Talk to you later!
+
+Jamie
+
+Now, the Must Read section.
+
+Link one. "The Senate’s New Anti-Encryption Bill Is Even Worse Than EARN IT, and That’s Saying Something — Deeplinks"
+
+So some particularly sneaky senators have decided that the thing that they need to focus on in the midst of a global pandemic, record unemployment, and racial injustice is, wait for it, encryption. This is yet another attempt by congress to force technology companies to provide a backdoor to encryption. We should actually say what it really is, it outlaws end-to-end encryption. The governments persistent attempts to outlaw end-to-end encryption are concerning, and the timing of this underhanded attempt is sinister. Please watch this and make sure it doesn't get anywhere near passage. Also see Daring Fireball's link on this.
+
+Link two. "Stuff I've learned about Diversity, Equity and Inclusion over the past few years."
+
+Will Larson with another solid post this time reflecting on work that he has seen and done on diversity. A very solid read for leaders to reflect on themselves.
+
+That's the end of Must Read.
+
+Now, the Currently section.
+
+Watching: We have started watching Space Force on Netflix and have been enjoying it. It is funny and touching. Steve Carell and John Malkovich are fun to watch together.
+
+That's the end of Currently.
+
+Now, the Photog section.
+
+Summer sun setting over a corn field that is showing incredible progress.
+
+Jun 26, twenty twenty at 7:43 PM
+State Trail, Warsaw, MN
+
+Want smarter friends?
+Forward them this email and suggest they join us!
+
+That's the end of Photog.
+
+Now, the Recommended Links section.
+
+Introducing Amazon Honeycode – Build Web and Mobile Apps Without Writing Code | AWS News Blog
+
+This new service from AWS looks interesting, but I haven't built anything with it so I'll hold my full opinion. It reminds me in some ways of Airtable, which I have built a couple of solutions with. However, Honeycode has an entire front-end component that Airtable doesn't even attempt to solve. This could be pretty interesting for simple web applications, particularly those with that need and no developers to build it.
+
+How to Plan Your Day: The Complete Guide to Everyday Productivity
+
+Very comprehensive take on planning out your time. A lot of different techniques highlighted. Good overview.
+
+Lessons Learned: Giving Feedback as an Engineering Manager
+
+Interesting observation about how to build a feedback loop directly into a process. I also like the idea of a Feedback Budget.
+
+Quote.
+One Simple Trick I had stumbled into was that there was a way to get around feedback budgets. Turns out there’s this other, vaster budget to tap into: the budget of process automation. When feedback is automated, it arrives sooner, feels confidential, and lacks judgement. This makes it palatable; this is why the budget is vaster. The technical analogy here is how we use linters. "Nit: don’t forget to explicitly handle the return value" during code review feels mildly frustrating. Ugh. It’s "just a style thing" and "the code works". I’ll make the change, but with slight resentment. Yet, if that same "unhandled return value" nudge arrives in the form of a linter, it’s a different story. I got the feedback before submitting the code for review; no human had to see my minor incompetence.
+End quote.
+
+Good idea.
+
+Facebook creates fact-checking exemption for climate deniers - Popular Information
+
+Hey look, another opportunity for Facebook to do the right thing and then do the complete opposite.
+
+Quote.
+The organization that requested the change, the CO2 Coalition, is celebrating, E and E news reported on Monday. The group, which has close ties to the fossil fuel industry, says its views on climate change are increasingly ignored by the mainstream media. Now it plans to use Facebook to aggressively push climate misinformation on the public — without having to worry about fact checks from climate scientists.
+End quote.
+
+You may think that you can use Facebook and not engage with this type of content so you are fine. But that misses the point that by using Facebook you are helping create the revenue cycle that keeps them in business. The only way to fix this, is to leave Facebook. The open web is so much harder for organizations to skew and distort.
+
+Ad Boycott of Facebook Keeps Growing - The New York Times
+
+I've been saying for a while that the only thing that will get us out of the mess that Facebook has given us is for public opinion to switch. When using Facebook is seen like smoking is today, a bad habit, then we will get improvement. But, there are two other signals that Facebook has shown they will listen to and pay attention to. The first is their own employees realizing the negative impacts of their company and leaving. The second is the all important advertisers, the money that makes the wheel go round. If they walked in large numbers that could have an impact.
+
+How Getting Things Done® (GTD®) Works for Teams — Crucial Skills
+
+I found this interesting as I wrote in the past about Collaborative GTD and essentially took the position that it does't work for teams. My position isn't completely opposite of this article, there are some places that you can use it as a team, but there are some clear areas to steer clear of in my opinion.
+
+The Mac’s Transition to Apple Silicon — MacStories
+
+Good writeup on Apple's announcement that they will be transitioning to their own CPU's for the Mac. This made me think about the long history of the Macintosh. It starting on the Motorola 6500 CPU, then moved to PowerPC, then to Intel, now onto a fourth chip architecture! Exciting stuff.
+
+Everything You Need to Know from Yesterday's Apple Keynote Presentation (WWDC twenty twenty) – The Sweet Setup
+
+Bullet points on the various updates announced at Apples WWDC event this week. Quick and easy to digest.
+
+Addressing racial injustice - The Official Microsoft Blog
+
+Specific and actionable letter from Microsoft CEO Satya Nadella outlining the three main areas that they are focusing efforts to improve racial justice.
+
+Taking On Too Much — Casey Accidental
+
+Thoughts on how to approach periods of your career where you are stretched to a new level.
+
+Quote.
+More responsibility can be a great or a troubling thing. You don’t want to fall over because too much is on your shoulders. Being honest about your capabilities at the time and the mode you need to be operating in can help prevent you from failing by being burdened with more responsibility than you can handle. Tomorrow is in your hands.
+End quote.
+
+I like the structured approach that is outlined here.
+
+5 Things Great Leaders Don’t Do | Leadership Freak
+
+I like this a lot. It is a solid list.
+
+1. Don’t celebrate the misfortune of others.
+2. Don’t belittle incompetence.
+3. Don’t manipulate people with compliments.
+4. Don’t repeatedly talk about the failures and offenses of others.
+5. Don’t affirm high performing jerk-holes.
+
+I would add a couple more, but this is a solid place to focus.
+
+When Will Life Return to Normal From COVID-19?
+
+I shared the article from The NY Times that had this data before, but I like this radial chart visualization that this version has. The event furthest away still per these five hundred epidemiologists? Attend a sporting event, concert, or a play. 64% says a year or more from now.
+
+Juneteenth – Rhoneisms
+
+My friend Patrick Rhone sharing his families history getting to the United States and how they were "always free." Recommended read.
+
+Free Fundraising Platform | Crowdfunding, Donations, Events
+
+A newsletter I subscribe to did a fundraising for a non-profit and used this to manage it. It looks like a great tool to coordinate a fund raising effort amongst a group.
+
+Introducing GitHub Super Linter: one linter to rule them all - The GitHub Blog
+
+Linters can help make better code, but finding the right linter for each language can be a pain. This solution from Github looks great.
+
+That's the end of Recommended Links.
+
+Now, the Stream section.
+
+Thursday @ 10:36 PM
+
+We had a great backyard guitar performance tonight.
+
+Thursday @ 7:43 AM
+
+New 30-minute PR this morning! 378 kJ (+2 from previous). 39% of the time anaerobic! #FitByFifty
+
+Wednesday @ 11:14 PM
+
+This is bad. There are states safely reopening. Others should be following their lead.
+
+Tuesday @ 10:47 PM
+
+Tammy and I had dinner on the patio at Italian Eatery tonight. It was the first time we ate at a restaurant since March fifteenth! I surprised myself by how excited I was to be out somewhere! Super Tuscan red wine, Shaved Root Salad, and Baked Garganelli with Meatballs.
+
+Tuesday @ 10:39 PM
+
+Mazie is growing some peppers, Brussels, herbs, and other food in a raised garden bed this summer. She loves to tend to the plants and even likes weeding. She’s trying this out with an eye towards a full garden in the future.
+
+Sunday @ 10:24 PM
+
+Galaga was one of my favorite arcade games back in the day. I got this awesome Quarter Arcade Galaga Cabinet for Father's Day this year. The game play is a perfect replica!
+
+Sunday @ 10:22 PM
+
+I’m one lucky guy to get to celebrate Father's Day with these two awesome kids and my wonderful wife.
+
+Happy Fathers Day to all the other Father's out there!
+
+Sunday @ 7:51 AM
+
+We had a great day yesterday with my stepdad Bruce, sister Alona, and nephew Garrett! The kids had a great time in the pool!
+
+Break for video games.
+
+And a fabulous boat ride around the lake!
+
+Saturday @ 8:53 AM
+
+Picking strawberries at Straight River Farms this morning.
+
+Friday @ 10:05 PM
+
+We commemorated Juneteenth today by getting dinner from two Black-owned businesses. Main course from Milton’s Vittles, Vino, and Beer and dessert was from B'beri Desserts! All of it was great!
+
+Friday @ 6:58 PM
+
+At Milton’s Vittles, Vino, and Beer to pickup dinner and things are very busy. I think the various Black-owned business lists have been effective in getting the word out!
+
+That's the end of Stream.
+
+Now, for your information.
+
+Everything Changing in Apple Notes and Reminders in iOS and iPadOS 14
+
+Detailed overview of changes coming in two widely used built-in apps.
+
+RegexOne - Learn Regular Expressions with simple, interactive exercises.
+
+Rather than a tool to build regular expressions, this is an interactive tutorial to learn them. It starts very easy and progress to more difficult matches.
+
+tvOS 14: The MacStories Overview - MacStories
+
+I decided to rely on MacStories for my Apple WWDC coverage. This is their take on the new things coming in tvOS..
+
+watchOS 7: The MacStories Overview — MacStories
+
+I decided to rely on MacStories for my Apple WWDC coverage. This is their take on the new things coming in watchOS.
+
+iOS and iPadOS 14: The MacStories Overview — MacStories
+
+I decided to rely on MacStories for my Apple WWDC coverage. This is their take on the new things coming in iOS and iPadOS..
+
+macOS Big Sur: The MacStories Overview — MacStories
+
+I decided to rely on MacStories for my Apple WWDC coverage. This is their take on the new things coming in macOS.
+
+Steve Blank The Coming Chip Wars
+
+Manufacturing capability has been a determinator of military might, going forward the ability to fabricate advanced CPU's could be.
+
+Plausible Analytics | Simple, privacy-friendly alternative to Google Analytics
+
+Looks nice, but also looks like a clone of Fathom Analytics.
+
+That's the end of the FYI section.
+
+Now, the Local section.
+
+SPS Celebrates Pride twenty twenty — SPS Commerce
+
+SPS released this great video in recognition of Pride month.
+
+Webinar Recap: WLiT | A Conversation with Corie Barry, CEO, Best Buy – MnTech
+
+I was able to attend this Women Leading in Technology event and enjoyed hearing Barry's comments. Good stuff!
+
+Know someone who'd like good reads like this?
+Forward this on and encourage them to sign up.
+
+That's the end of Local.
+
+Now, the Fortune section.
+
+You've made it all the way to the end! Here is your fortune for this week.
+
+Be free and open and breezy! Enjoy!
+
+Thank you for subscribing to the Weekly Thing!
+
+That brings us to the end of the Weekly Thing, issue 154. Thanks for listening, and I'll see you next time.

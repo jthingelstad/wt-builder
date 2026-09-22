@@ -1,0 +1,107 @@
+The Weekly Thing, issue 11. Weekly Thing for July 22, twenty seventeen. Published July 22, twenty seventeen. By Jamie Thingelstad. In this issue: Cosette database, serverless hosting comparison, GitHub diversity report, GhostCtrl Android backdoor, Quilt data package manager, Trump Twitter lawsuit.
+
+I had a crazy busy week, all good stuff. It felt like an accomplishment to get to Saturday morning! I’m due for multiple weekly reviews in a row to get back on track.
+
+Our daughter was at camp all week and the whole family missed her. I’m sure she had a great time, and I can’t wait to hear the stories from camp, but what they say about parenting "the days are long and the years are fast" is very true.
+
+Now, the Photog section.
+
+This week our book club went to one of our members cabin for our meeting and had a pleasant evening boat ride to talk about epigenetics! The sunset was gorgeous! This is the kind of thing that makes Minnesota (and even a little of Wisconsin) great.
+
+Jul 20, twenty seventeen, 8:15 PM Wapogasset Lake, WI
+
+That's the end of Photog.
+
+Now, the Links section.
+
+Link one. "Introducing Cosette – University of Washington Database Group – Medium"
+
+This looks like a very powerful tool to analyze SQL queries, particularly when you are optimizing for performance. This seems like it would be extremely difficult to write.
+
+Link two. "How to Make a Strategic, Value-Driven Business Case for Your DevOps…"
+
+Good article focusing on connecting DevOps principles to business drivers. Good reading for technical folks trying to sell the business value of infrastructure work in general. The section on the board of directors is a bit odd to me though. How the work is executed is rarely a board discussion (and is almost always bad if it is), but the values may bubble up to that level of priority.
+
+Link three. "Serverless Hosting Comparison – headmelted"
+
+Nice overview of serverless (cloud function) offerings from various providers.
+
+Link four. "The GitHub Diversity Report — GitHub"
+
+second Diversity Report from GitHub. I like to keep an eye on what tech companies are doing in this area. Diversity and inclusion is a big problem in tech and it starts with getting a handle on the data. Sharing selective data publicly is also a good way to move the tech ecosystem.
+
+Link five. "Micro.blog + Facebook | Manton Reece"
+
+I’m a Kickstarter backer of Micro.blog and all of my status updates are sent using the Micro.blog service. Micro.blog started with syndicating content to Twitter and it has now added Facebook. This does allow for an IndieWeb principle of owning and hosting your content and then send it into the locked garden of Facebook. It’s certainly a better way to engage with Facebook, but it’s not changing my mind about being part of that community.
+
+Link six. "Webmention.io"
+
+Webmention.io is a hosted service created to easily handle webmentions (and legacy pingbacks) on any web page. This is a handy service for static websites that want to catch references from other sites. WordPress natively handles these but static websites cannot, without something like this. I added this to my site so I can capture web mentions.
+
+Link seven. "Tufte CSS"
+
+I had seen a Tufte Jekyll theme that I really liked but it supported Google AMP and I refuse to be part of that. It’s great to see Tufte CSS now as a standalone CSS bundle that can be used independent of the things around it. Created by Dave Liepmann and now contributed directly to Edward Tufte.
+
+Link eight. "Daring Fireball: Public Service Announcement: You Should Not Force Quit Apps on iOS"
+
+I have been known to interrupt people while using their phones and explain to them that they do not need to force quit applications. This will be my new URL to send people to explain why that is a bad practice.
+
+Link nine. "TrendLabs Security Intelligence BlogAndroid Backdoor GhostCtrl can Silently Record Your Audio, Video, and More - TrendLabs Security Intelligence Blog"
+
+The general state of security in the Android ecosystem is really worrisome. While people can argue the other areas of mobile OS's with some debate, I don't know of anyone that suggests Android has a good position on security.
+
+Link ten. "Long-awaited St. Croix bridge is feat of engineering, political will - StarTribune.com"
+
+I've seen this bridge recently and it’s very nice looking. It strikes me as something that will immediately become part of the normal, even though it was fought and argued for decades. I had no idea it was only the second bridge of this type!
+
+Link eleven. "Quilt is a data package manager"
+
+Very cool Python package to bring data sets to do analysis with. This is a great idea!
+
+Link twelve. "Twitter users sue Donald Trump for excluding them"
+
+What a crazy set of intersecting legal questions! Can the President of the United States block a citizen from reading what he says publicly? Even more interesting is the Terms of Service coming into play. “Trump’s account is a stream of communication that’s wholly owned by Twitter”, Mr Feldman writes. How crazy is that?
+
+That's the end of Links.
+
+Now, the Promotion section.
+
+Let's Encrypt is a free, automated, and open certificate authority, run for the public’s benefit.  All connections to web servers should be encrypted! The biggest challenge with encrypting the web historically has been the cost and hassle of getting an SSL certificate. Let's Encrypt has changed that entirely by being a free certificate authority. Let's Encrypt is possibly one of the most important things to happen on the web in recent years. Donate to Let's Encrypt today!
+
+That's the end of Promotion.
+
+Now, the Highlighted iOS App section.
+
+Drafts - Quickly Capture Notes, Share Anywhere!
+
+by Agile Tortoise
+
+Drafts, where text starts. Quickly capture text and send it almost anywhere!
+
+I have had Drafts for a long time but I've never really "got it". I kept looking at it because a number of people that are very focused on iOS productivity work use it extensively. It was even highlighted as an amazing Apple Watch app which seemed odd since it is completely around text entry, something the Apple Watch barely even does! I have dove in in recent weeks and have had several "a ha!" moments with Drafts and can confirm that with dictation it is indeed a very useful Apple Watch app, even earning a spot as a complication on my workday watch face! It is worth taking the time to understand this app and see how it can tie into your workflows. The tagline is exactly right, this is "where text starts"!
+
+4 dollars and 99 cents 4.5/5 stars
+
+That's the end of Highlighted iOS App.
+
+Now, the Microblog updates section.
+
+- I’m trying out the eero plus security service and got my first weekly report. Says it blocked 48 malware and 5 spyware connections. Hmm…
+- Got jekyll-redirect-from setup and can now support some widely used old URL’s on my site.
+- The New Standards at Dakota Jazz Club tonight. So good!
+- Placed my US Internet order for 1G fiber! Plan to be in my neighborhood this fall! Help is on they way!
+- M.… N.… UFC! M.… N.… UFC! M.… N.… UFC!
+- Gorgeous night for some MN United soccer!
+- Amos Lee show at the Minnesota Zoo tonight.
+- Oh no, my wife has started to obsessively look at new houses. There is no way to stop this train!
+- Woman shot by Minneapolis police last night less than a mile from our house.
+- I’m sure there is a prop somewhere in those weeds!
+- Go fly a kite. (All line out!)
+- So close! Shut the box.
+- Boat ride is a nice escape on a hot, hot day.
+
+That's the end of Microblog updates.
+
+Thank you for subscribing to the Weekly Thing! If you know of people that would like the Weekly Thing please forward it along!
+
+That brings us to the end of the Weekly Thing, issue 11. Thanks for listening, and I'll see you next time.

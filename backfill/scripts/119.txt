@@ -1,0 +1,167 @@
+The Weekly Thing, issue 119. Sep 28, twenty nineteen. Published September 28, twenty nineteen. By Jamie Thingelstad. In this issue: Getting Things Done author, Darkroom light mode, Google contractors unionize, WeWork fraud, watchOS 6 review, iOS 13 Shortcuts library.
+
+.. …
+
+?
+
+Now, the Featured Links section.
+
+Link one. "The Father Of “Getting Things Done”: You’re Getting Me All Wrong"
+
+It took me years of practicing GTD to get the "mind like water" mentality. I’m not able to stay there all the time, but when I’m most in tune with my system I can.
+
+Although it’s often seen as a complicated time management system, GTD, according to Allen, is really about creating mental space. “You can’t manage time,” he says. “Time just is. That’s not the big issue. The big issue is really space. When people say they need time management, it’s usually because something is feeling out of control or inappropriately focused.”
+
+That's the end of Featured Links.
+
+Now, the My Weekly Photo section.
+
+50th Street and France Avenue devoid of cars during Open Streets.
+Sep 22, twenty nineteen at 4:47 PM
+50th Street and France Ave, Edina MN
+
+That's the end of My Weekly Photo.
+
+Now, the Notable Links section.
+
+Link one. "A Whole New Look for Darkroom: Light Mode, Multiple Spaces, Shortcut Action, and Sound Effects"
+
+I’m very impressed with what Darkroom is doing with photo editing on iOS platforms. I’m particularly excited to see them adding Shortcut support so quickly. If you grab an iPad Pro and Darkroom you've got a pretty incredible photo editing tool.
+
+Link two. "SportsEngine, Inc. Announces Leadership Transition and Record Growth"
+
+Congratulations to my friend Anna Klombies and the other leaders at SportsEngine on such an amazing run as they transition to the next "generation" of leadership.
+
+Link three. "Google Contractors Officially Vote to Unionize - VICE"
+
+This is actually HCL employees unionizing, not Google employees, the the headline including Google gets more clicks. Just another example of employees in the technology sector organizing more.
+
+Link four. "Every business leader should read Charlene Li's "The Disruption Mindset" - without bullshit"
+
+Very strong endorsement for The Disruption Mindset.
+
+According to Charlene, the three elements of disruptive transformation are:
+1. A strategy inspired by future customers to make big gulp decisions.
+2. Leadership that creates a movement of disruptors.
+3. A culture that thrives with disruption
+
+I’m in! Order placed!
+
+Link five. "Drafts 15 Review: Multiwindow, Shortcuts, and More - MacStories"
+
+Drafts is one of these amazingly powerful iOS apps that hides it’s power, sometimes a little too much. This review is a good read just to see what is possible. iPadOS support for multiple windows is going to be a big deal, and Shortcuts in iOS 13 unlocks so much potential!
+
+Link six. "Opinion | Jaron Lanier Fixes the Internet - The New York Times"
+
+This is a cool video piece from NY Times working with Lanier. This is a decent primer on basic privacy matters. I’m uneasy with the idea that we should get paid for our private data. I'd rather not give it at all.
+
+Link seven. "The Distribution of Users’ Computer Skills: Worse Than You Think"
+
+This is a good read to better understand the likely user of the software you are building. It takes very little complexity to stop most people in their tracks.
+
+Link eight. "jsonbox.io | HTTP based JSON storage"
+
+Fun! "jsonbox.io lets you store, read and modify JSON data over HTTP APIs for free." Not sure about building stuff on this, but it’s a great utility. I wish S3 could do this natively. I've had a feature I've wanted to add to my websites that could be great for this.
+
+Link nine. "A love letter to my website - DESK Magazine"
+
+This is written from the perspective of a designer and using a personal website to express a design perspective. I’m still in the camp that everyone should have their own website.
+
+Link ten. "How it works - Leave Me Alone"
+
+This is a pretty great idea for a little service for your email. It appears to just look at the unsubscribe links in emails you get and makes it easy for you to trigger them. I’m pretty good about unsubscribing, but I know that a lot of people do not. Handy tool!
+
+Link eleven. "watchOS 6: The MacStories Review - MacStories"
+
+watchOS 6 feels like it’s turning a corner towards Apple Watch being it’s own, stand-alone device. The addition of the App Store seems almost silly, but it’s a big deal to go that way. It feels like sometime in the next couple years we'll see an Apple Watch that is a true peer of the iPhone, instead of a younger sibling.
+
+Link twelve. "WeWTF, Part Deux | No Mercy / No Malice"
+
+Want more on the mess that is We Work? Here's more!
+
+Link thirteen. "Is We Work a Fraud? - Henry Hawksberry - Medium"
+
+25 points highlighting the mess at We Work.
+
+WeWork will never ever, in its short history, generate a profit, let alone the tens of billions in revenues necessary to generate anywhere near the 3 billion dollars in earnings required to (even then generously) value the company at £47 billion.
+
+Adam Neumann is no longer CEO. I wonder if the damage can be repaired. They lost 2/3rds of their value in the run to the IPO. ⤵
+
+Link fourteen. "Here’s why so many apps are asking to use Bluetooth on iOS 13 - The Verge"
+
+I've noticed this and have been surprised, and declined, some of the apps asking for this.
+
+Link fifteen. "Breville BDC450 "Precision Brewer" Coffee Maker — Tools and Toys"
+
+I've already got two great coffeemakers, a Ratio 8 and a Bonavita, but if I were looking now I would seriously consider this. I like the addition of these precision coffee makers that can execute repeatable and modifiable programs.
+
+Link sixteen. "Announcing my Shortcuts Library, featuring 150 Siri Shortcuts to use with iOS 13 - Matthew Cassinelli"
+
+I’m a big fan of Shortcuts. I love what iOS 13 has done for Shortcuts. Cassinelli was an early member of the Shortcuts (then Workflow) team. He's made a ton of Shortcuts available to download. There is a lot here that you could use directly, or serve as inspiration.
+
+That's the end of Notable Links.
+
+Now, more links.
+
+- WHAT THE GOLF? whatthegolf.com
+I grabbed this game via Apple Arcade and it is just awesome. It makes you chuckle, it’s lighthearted, and just a fun time. Give it a try.
+- STRML: Projects and Work www.strml.net
+Geeky, but fun for folk that know how web technology works.
+- North America Lost a Quarter of Its Birds in 50 Years - The Atlantic www.theatlantic.com
+Yikes.
+
+That's the end of More Links.
+
+Now, the Microposts section.
+
+Thursday @ 10:57 PM
+
+It’s great to see OmniFocus with iOS 13 Features coming soon! I particularly like seeing some new Shortcut options being added right away!
+
+Wednesday @ 9:58 PM
+
+Amazing come from behind win from MN United tonight to beat Sporting KC and clinch entry into the twenty nineteen playoffs! 2-1 #MNUFC #MINvSKC
+
+Wednesday @ 8:13 PM
+
+First half of MN United v Sporting KC was tough to watch. United need to come out and connect some plays! #MNUFC #MINvSKC
+
+Sunday @ 8:53 PM
+
+Likely the last time in the pool for twenty nineteen!
+
+Sunday @ 3:56 PM
+
+iOS 13 prompts for requesting location data are really good. This feels like you know what is really being shared.
+
+Sunday @ 10:45 AM
+
+Making my Mom’s Swedish Pancakes outside this morning. She did the batter, I’m doing the grill work.
+
+Saturday @ 10:00 PM
+
+Walked into the pool with my AirPods in my pocket. Oops. Hoping they come back to life tomorrow.
+
+Saturday @ 8:40 AM
+
+Tough loss for Spurs this morning to Leicester City 1-2. Ugh. #LCvTOT Now time for Bundesliga with Bayern v Köln. Great Lewandowski goal in second minute to take early lead 1-0! #FCBKOE
+
+Saturday @ 8:03 AM
+
+Premier League VAR rulings for offsides seem impossible for players. It’s impossible to know you are 1” ahead of a player many yards away from you. Does it make the game better? Doesn’t seem too.
+
+Saturday @ 7:52 AM
+
+Harry Kane’s goal while falling this morning was amazing! Brilliant! Go Spurs! 1-0 #LCvTOT #PL
+
+That's the end of Microposts.
+
+Now, the Fortune section.
+
+You've made it all the way to the end! Here is your fortune for this week.
+
+You will reach the highest possible point in your business or profession.
+
+Thank you for subscribing to the Weekly Thing!
+
+That brings us to the end of the Weekly Thing, issue 119. Thanks for listening, and I'll see you next time.

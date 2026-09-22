@@ -1,0 +1,248 @@
+The Weekly Thing, issue 339. OpenClaw, Isometric, Prism. Published February 1, twenty twenty six. By Jamie Thingelstad. In this issue: Isometric NYC, lost art of XML, Claude Code best practices, LED lighting visual performance, OpenClaw personal AI, management as AI superpower.
+
+Hello there!
+
+I had sort of given up on sending an email this week. The week was busy and heavy. My backlog of links to read was lengthy. I was behind on publishing to my blog.
+
+But this morning I woke up at 5am and felt some energy in my fingers. I was eager to brew a cup of coffee, dig into my queue, and write a bit.
+
+The stress in Minneapolis has continued with the killing of Alex Pretti just a week ago. It has been amazing to see our city come together as a community and support each other. There are so many grass roots activities happening to help people.
+
+Protests and support that all needed to happen in one of the coldest times we've had in a while.
+
+Winter here is harsh. At -20 °F the cold bites. Even in modern times it isn't easy to get through harsh winters.
+
+That is just one of the reasons why community isn't a random thing here. If you see a car stuck in the snow, you stop and help. If people cannot leave their homes, you help. You never know when you will need that help. And it is just the right thing to do…
+
+Now, the Yearly Thing twenty twenty five section.
+
+I shared the Yearly Thing twenty twenty five: Agents, Attention, Artifacts last week but in case you missed it — the Yearly Thing twenty twenty five places all 324 links that I commented on across 31 issues of the Weekly Thing in twenty twenty five into one volume. It is organized into 10 topic focused chapters.
+
+I hope this is a way for people to go back to topics and reflect on them more. Make some notes in the margin on the print. All while supporting the Weekly Thing Supporting Membership program -- with all proceeds from the sale of the Yearly Thing twenty twenty five supporting great digital non-profits.
+
+- The paperback is available for 30 dollars on Lulu.
+- The eBook is available for 20 dollars on Gumroad. The eBook will give you an archive that you will find formats for Apple Books, Kindle, Nook, Android, etc.
+- Purchasers of the printed book that would like the eBook as well can contact me and I will get you the eBook files.
+- Anyone that purchases the Yearly Thing twenty twenty five in the first 2 months will receive a special Yearly Thing twenty twenty five POAP to collect!
+
+This may be the first of many Yearly Things that you can collect over time.
+
+Paperback on Lulu
+
+eBook on Gumroad
+
+That's the end of Yearly Thing twenty twenty five.
+
+Now, the Notable section.
+
+Link one. "Isometric NYC"
+
+When I was younger I loved to play SimCity before they ruined that game. So these isometric scenes always remind me of that. This view of New York City is incredible to play around with. But even more incredible is the article about building it! This is an incredible amount of data and detail and it was made possible using agentic tools and LLMs.
+
+Link two. "I'm addicted to being useful"
+
+I love building things. I’m not a software engineer, I’m frankly not nearly good enough at coding to be one. As a result I build things around and with software, and love to work with the amazing people that can make that software exist, run, and be safe. If you have the right culture in your engineering team, the best thing I believe you can do is get the engineers as close to the problems as possible. This article captures why…
+
+Quote.
+It's hard for me to see a problem and not solve it. This is especially true if I'm the only person (or one of a very few people) who could solve it, or if somebody is asking for my help. I feel an almost physical discomfort about it, and a corresponding relief and satisfaction when I do go and solve the problem. The work of a software engineer - or at least my work as a staff software engineer - is perfectly tailored to this tendency. Every day people rely on me to solve a series of technical problems.
+End quote.
+
+For simple problems you can just have the person with the problem and the developer helping them solve it. As you build bigger things you need more skills, but be mindful that you are not reducing or even blocking the signal of the problem to be solved from the ones that solve it.
+
+Link three. "The lost art of XML — mmagueta"
+
+I've been in tech long enough to remember when XML entered the scene, well before JSON. There were all those years of XHTML, before everyone decided to just live with HTML5. It is unfortunate that there are many developers that think of XML and JSON as interchangeable. They really are very different things. Many teams likely have at least some data they are managing with JSON that would be better served as XML.
+
+Quote.
+This is the pattern with JSON. We chose it because it was convenient, because it was already in the browser, because developers already understood object literals. Then, when its limitations became apparent, we spent enormous effort working around them: creating validation libraries, inventing type systems (TypeScript), building code generators for API clients, developing entire frameworks to manage the chaos of untyped data structures. We could have just used XML. The schema validation was already there. The type systems were already there. The tooling was already there. But XML looked ugly, and closing tags felt verbose, so we chose JSON and then spent years rebuilding what XML already provided.
+End quote.
+
+This last line is spot on.
+
+Quote.
+This is not engineering. This is fashion masquerading as technical judgment.
+End quote.
+
+…and is also not new. There is a long tradition of "fashion" in tech pursuing whatever tech because it is cool. That shouldn't be ignored because the crowd is right often, but not always.
+
+Link four. "Best Practices for Claude Code - Claude Code Docs"
+
+This is a robust overview and if you are doing projects with Claude Code it is worth a read. I've been creating a lot of Claude Code projects for things that have nothing to do with coding and many of these still apply. The primary limiter with Claude Code is that you need to be comfortable on the terminal. Sadly that takes a lot of people out, but if you are fine there you really should be diving into this. I made the Yearly Thing with Claude Code. I’m on an association board and I have a Claude Code project for that. There are many other projects I have that I’ve framed out Claude Code projects for. Reading this to learn how to use it best is a good investment of time.
+
+Link five. "Things I’ve learned in my 10 years as an engineering manager"
+
+Great set of less-obvious learnings.
+
+1. The "well-defined engineering manager role" is a myth
+2. Everyone needs to care about the Product
+3. There is no such thing as a free lunch when it comes to processes
+4. Communicating downward requires transparency
+5. Communicating up requires a strategy
+6. You are 10% player, 30% coach, and 60% cheerleader
+7. Your goal is for your team to thrive without you
+8. You can't succeed without trusting your team
+9. Trust, but verify
+10. Eventually delegate everything.
+11. There is no free lunch when it comes to reducing risk
+
+I'd add a giant +1 to this callout on the product.
+
+Quote.
+The most common reason companies fail is creating products that don't deliver value to users, causing them not to pay.
+End quote.
+
+All of this is great advice.
+
+Link six. "LED lighting (350-650nm) undermines human visual performance unless supplemented by wider spectra (400-1500nm+) like daylight | Scientific Reports"
+
+I have heard people suggest that LED lighting isn't as good for people. I've not dug deep but this research is interesting.
+
+Quote.
+Life evolved under broad spectrum sunlight, from ultraviolet to infrared (300–2500 nm). This spectrally balanced light sculpted life’s physiology and metabolism. But modern lighting has recently become dominated by restricted spectrum light emitting diodes (350–650 nm LEDs). Absence of longer wavelengths in LEDs and their short wavelength dominance impacts physiology, undermining normal mitochondrial respiration that regulates metabolism, disease and ageing.
+End quote.
+
+Reading this comes back to two fundamental things I think about a good amount: the fundamental difference of analog and digital, and our habit of reducing things to what we can measure.
+
+I was watching a movie recently with scenes in the 70's of cars that were purely mechanical cars. They sounded different. It made me think how they were, in a way, living. They consumed fuel and spit out exhaust. The act of consuming on thing to create another and notably to exhaust something feels organic in a way. Us, people, we eat, we get energy, and we "exhaust" that food. This feels very different to the digital world with an electrical "air" and information being moved without specific calories or exhaust. Perhaps there are good reasons we can relate to mechanical things in ways that their digital equivalents feel foreign.
+
+On reductionism my thinking starts with food. I logged my food for a very long time recording macronutrients and even micros. But fundamentally what I was eating wasn't captured by this crude instrument. A banana is not just a collection of macros and micros. It is an actual banana. It has so many layers that we cannot see. But I think our bodies do. This is why we cannot just eat a paste of macros. In addition to it being gross.
+
+Is LED lighting another case of reductionism? Look, I can see the light. But what can I not see? And is it fundamentally digital, a place that "we" are foreigners in. Maybe?
+
+Link seven. "OpenClaw — Personal AI Assistant"
+
+OpenClaw (formerly MoltBot, formerly ClawdBot) showed up first from a blogger I follow. He was doing some really interesting stuff so I grabbed the link and checked it out. Then I saw Viticci of MacStories wrote that this showed him what the future of personal AI assistants looks like.
+
+Sadly I still haven't had time to install this myself and now reading some of the newest articles I probably need to think a bit about how I firewall it off so it doesn't do something I don't want it to. In fact the folks at 1Password even jumped on the bandwagon with how to share access with agents which is really them trying to get some social action but also a good point. As we have agents operating on our behalf we are going to want to give them access to our information and doing that with a robust password manager makes a ton of sense.
+
+There are a ton of extensions to this project at ClawHub, and this recap of multiple reactions to OpenClaw from Tsai is a good read too.
+
+Now I just need to play with this — and sadly the week ahead is completely busy.
+
+Link eight. "Management as AI superpower - Ethan Mollick"
+
+This article resonated strongly with me having just finished my Yearly Thing project, which I created alongside Claude Code.
+
+Quote.
+There are three things we can do to make delegating to AI more worthwhile by increasing the Probability of Success and lowering AI Process Time. We can give better instructions, setting clear goals that the AI can execute on with a higher chance of succeeding. We can get better at evaluation and feedback, so we need to make fewer attempts to get the AI to do the right thing. And we can make it easier to evaluate whether the AI is good or bad at a task without spending as much time. All of these factors are improved by subject matter expertise -- an expert knows what instructions to give, they can better see when something goes wrong, and they are better at correcting it.
+End quote.
+
+Once I had an idea of what I wanted the Yearly Thing to be I created a Claude Code project and the first prompt I gave it to do the initial work was not good at all. Through doing the project I experienced all three of the things that Mollick highlights here.
+
+- Better instructions: my first asks were not complete enough. I asked it to do analysis and suggest recommendations but my prompts were not clear if I wanted it to look at everything? How thorough and complete was I expecting?
+- Evaluation and feedback: I quickly started ending all my early prompts with "Please ask me any clarifying questions that would help?" Claude often had great questions that helped me understand what I was being vague about. I also found that Claude wanted to optimize too quickly, and in some cases I just didn’t need to. It took a couple of tasks and happily made subagents to do it in parallel. This caused a ton of problems. I had to be very explicit to not create subagents. Claude even brought it back up halfway through the project and I had to stop it.
+- Confirm results: One of the more interesting things I found was a sorting task I needed Claude to do. I needed Claude to make sure it didn’t miss anything so I told it to first count the number of things it was working with, then report back what group it put each thing in, and then count up the number of things it put into a group and confirm that the first and last count were the same. This gave Claude, and me, the confidence it was doing it right.
+
+Super interesting and all things that require a manager mindset.
+
+That's the end of Notable.
+
+Now, the Journal section.
+
+Journal entry one. Orka Bar
+
+We were watching Shark Tank one night and Orka Bar was one of the products. I thought it sounded good and the reaction on the show was that these were incredible. I placed an order while the show was on, like many thousands of others did apparently. It took a couple of months for them to work through the backlog of orders but today we got our order!
+
+The product is a high-protein ice cream treat that actually tastes good. I tried it and it really is very tasty. The main ingredients are egg whites and cream with whey protein. It has a thin chocolate shell. It tasted really good. My biggest challenge was the chocolate shell is so thin that it cracks a lot and was a touch messy.
+
+They are expensive and being a frozen item hard to ship. They sent it with dry ice and a styrofoam cooler. If these start appearing in the frozen aisle of our grocery store though I will probably get them on a semi-regular basis.
+
+Journal entry two.
+
+We went to Yum! Kitchen to celebrate twenty years of this being one of our regular restaurants. I noted our first visit on my blog in January two thousand six. Mazie is still off in Barcelona but we made sure to recognize this milestone.
+
+Journal entry three.
+
+We had a great time at the TCG only Minnesota Card Show at Canterbury today.
+
+- I got the five remaining cards I needed for the illustration set I was collecting.
+- I traded for a great set of Eevee evolution promo cards.
+- Tyler was on a mission and got a Bubble Mew!
+
+Journal entry four.
+
+We enjoyed watching Finch tonight. The story was surprisingly touching given that it is just one character, Finch, with a dog and a robot (two robots actually).
+
+Journal entry five.
+
+The print copies of the Yearly Thing arrived from Lulu! I’m very happy with how the formatting worked with Vellum and the production from Lulu is terrific. It is really cool to explore the year of the Weekly Thing like this. You can buy your own on Lulu.
+
+Journal entry six.
+
+My cousin Quinn @quinntchrest and I taking in our first game at the new St. Thomas Anderson Arena tonight!
+
+That's the end of the Journal.
+
+Now, the Briefly section.
+
+Link one. "Shadow work in engineering teams - Anton Zaides"
+
+Building software is about so much more than coding. Coding isn't even the majority of it really.
+
+Link two. "“Skip Level” Interview Questions - Paul's Weblog"
+
+Interesting read and smart prep on how to approach a "skip level" interview.
+
+Link three. "City Weather Explorer - 3D Climate Comparison"
+
+I dig this way of looking at the weather between cities. Useful and way better than a table.
+
+Link four. "A Year of 3D Printing"
+
+This is a very risky article for someone that has been eyeing a Bambu Lab P2S 3D Printer for some time.
+
+Link five. "ChartGPU: Beautiful, open source, WebGPU-based charting library"
+
+Robust data visualization in a browser is still not great and is often bogged down with even a small amount of data. This library uses WebGPU to make it much more performant and higher quality.
+
+Link six. "Lolgato: A macOS app that enhances control over Elgato lights"
+
+I have an Elgato Key Light in my home office and it is fabulous for video meetings. Being able to control light color and brightness gives a ton of flexibility. However the included software from Elgato is not great. This app works way better, and is worth it for even just a single feature: you can have the light come on and off with the camera!
+
+Link seven. "EFF Statement on ICE and CBP Violence | Electronic Frontier Foundation"
+
+Happy to be a long-time supporter of the EFF. The EFF is also the organization the Weekly Thing Community Supporter program is raising funds for this year.
+
+Link eight. "Does Evidence Even Matter? – On my Om"
+
+One of my favorite bloggers reacting to the killing of Alex Pretti.
+
+Link nine. "Report: ICE Using Palantir Tool That Feeds On Medicaid Data | Electronic Frontier Foundation"
+
+There are many reasons that the government is now allowed by law to combine certain databases together. These laws need to be enforced.
+
+Link ten. "Beware: Government Using Image Manipulation for Propaganda | Electronic Frontier Foundation"
+
+The EFF has long pursued projects that detect surveillance, increase encryption, etc. I’m hoping they will work on some advanced work to detect manipulated images and videos like this.
+
+Link eleven. "A CEO, Captured. – On my Om"
+
+The origins of technology come from counter-culture, and now technology is culture. The visionaries were in pursuit of a different, in they believed better, world. "It used to believe it could change the world. Now it just hopes the world won’t change its stock price."
+
+Link twelve. "Introducing Prism | OpenAI"
+
+Having AI turn a whiteboard into LaTeX is pretty cool actually.
+
+Link thirteen. "A chaotic confrontation, a gun and 10 shots: A frame-by-frame analysis of the fatal shooting of Alex Pretti"
+
+Very detailed analysis of the fatal interaction between Alex Pretti and ICE agents. Well done to the team at the Star Tribune.
+
+Link fourteen. "Bruce Springsteen - Streets Of Minneapolis (Official Audio) - YouTube"
+
+"The Boss" singing about Minneapolis and performing it at First Ave on Jan 30.
+
+Link fifteen. "12 Expressions of Self-Imposed Stress - Leadership Freak"
+
+Super simple list of things to keep an eye on. Interesting how many of those a mindfulness routine is a good counter to.
+
+Link sixteen. "Comparing the Classic and Unified Views in iOS 26’s Phone App - TidBITS"
+
+I tried the new Unified Phone app on iOS 26 when it first came out and quickly moved back to Classic. This article, and some time, gave me a nudge to go back to the Unified view and see how it feels now.
+
+A haiku to leave you with…
+
+Morning LED glare,
+Prism of new daylight streams —
+Charts bloom like flowers.
+
+That brings us to the end of the Weekly Thing, issue 339. Thanks for listening, and I'll see you next time.

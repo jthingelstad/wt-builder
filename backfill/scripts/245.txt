@@ -1,0 +1,337 @@
+The Weekly Thing, issue 245. Curation, Outcomes, Disturbed. Published March 11, twenty twenty three. By Jamie Thingelstad. In this issue: Phones and teen mental health, content curation, OKRs versus outcomes, 1000 investor reports, SimCity disaster, 8-bit bytes, Playdate Catalog.
+
+Good morning!
+
+I’m so happy to share that in just two weeks we raised 11,156 dollars and 4 cents to support great organizations that are helping the people of Ukraine! Thank you for maximizing all the match!
+
+Matching donations have been made and these great organizations have received additional resources!
+
+- World Central Kitchen
+- Razom
+- International Rescue Committee
+- Samaritan's Purse
+- Doctors Without Borders
+- Voices of Children
+- 1k Project
+- Convoy of Hope
+- Ukrainian Red Cross Society
+
+Thank you for supporting the people of Ukraine as they fight to keep their independence! This great Weekly Thing Ukraine Fundraiser twenty twenty three POAP went out to everyone that took part, featuring a photo I took in Kyiv in twenty seventeen.
+
+Now, the Featured section.
+
+Link one. "Honestly, it's probably the phones - by Noah Smith"
+
+How much data are we going to need to show before we accept it.
+
+Quote.
+But why would devices that make people more connected lead to social isolation? Isn’t that backwards? Doesn’t having access to all of their friends and acquaintances at all times via a device in their pockets mean that kids are less isolated than before? Well, no. As the natural experiment of the pandemic demonstrated, physical interaction is important. Text is a highly attenuated medium — it’s slow and cumbersome, and an ocean of nuance and tone and emotion is lost. Even video chat is a highly incomplete substitute for physical interaction.
+End quote.
+
+Repeating patterns visited frequently:
+
+1. Mobile technology creates a platform that allows us to disengage from those around us.
+2. Social media creates a substitution for social interaction that is saccharin and unfulfilling.
+3. We are organic and social beings that benefit from being around others.
+
+The chart of "Teens who meet up with their friends 'almost every day'" is rough.
+
+The added layer on this issue though is that all the parents have the same problem. I truly think we may be slow to understand the impact on kids because we are having trouble with our own addiction.
+
+With smoking at least we had the population that did not smoke that could question "Hey, maybe that isn't good for you?" Who is outside of this bubble to ask questions?
+
+That's the end of Featured.
+
+Now, the Notable section.
+
+Link one. "Curation — The C Word"
+
+CJ Chilvers has been writing newsletters and blogs for decades and his takes on various approaches are great. I like this one on the value of curation.
+
+Quote.
+But everyone cares that there is a "you." Humanized content beats "personalized" content. Your voice matters. It’s your differentiator. All curation rests on the reputation and voice of the person doing the curation.
+End quote.
+
+And I love the conclusion.
+
+Quote.
+Curation favors individual humans being useful to other individual humans.
+End quote.
+
+Much of what Chilvers describes here is what I attempt to do in the Weekly Thing.
+
+Link two. "Ask Teresa: What’s the Difference Between OKRs and Outcomes? - Product Talk"
+
+This is a nuance to the wording and how to construct a goal, but having seen product teams struggle with OKRs so many times this slight pivot to Outcomes is interesting.
+
+Quote.
+Business outcomes measure the health of the business. Product outcomes measure a change in customer behavior. Product teams don’t typically have direct influence over business metrics like increasing revenue. But they do have the ability to directly influence product outcomes—changes in customer behavior—that can ultimately contribute to business outcomes.
+End quote.
+
+Link three. "Unpacking Adult Mindsets — Willing to Be Disturbed"
+
+In order to progress we have to be willing to enter uncomfortable areas and be willing to "disturb" ourselves.
+
+Quote.
+We can’t be creative if we refuse to be confused. Change always starts with confusion; cherished interpretations must dissolve to make way for the new. Of course it’s scary to give up what we know, but the abyss is where newness lives. Great ideas and inventions miraculously appear in the space of not knowing. If we can move through the fear and enter the abyss, we are rewarded greatly. We rediscover we’re creative.
+End quote.
+
+When was the last time you had your own positions disturbed and looked into the abyss?
+
+Link four. "What I Learned Reading 1,000 Investor Reports · Collab Fund"
+
+I've been in early stage companies and startups and haven't seen this format of a monthly communication. I like the structure. It is simple. Dalton's highlight that it increases the likelihood that others can help is a good one.
+
+Link five. "It's time to take back control of what we read on the internet - The Atlantic"
+
+Wait a second, is this The Atlantic publishing a How To on how to use RSS feeds? Why yes it is. I love it. The article suggests a number of RSS feed readers but missed my personal favorite which is Feedbin. The big win with RSS is that there is no algorithm between you and the content, and the goal isn't to occupy all your time and increase engagement. Via 12ft.io proxy.
+
+Link six. "Hanging out: Americans report fewer friends. Could the cure be simple?"
+
+I found myself just vigorously nodding my head while reading this.
+
+Quote.
+In 1990, 63 percent of Americans reported having five or more close friends. In twenty twenty one, only 38 percent did. On an average day 20 years ago, according to the Bureau of Labor Statistics’ Time Use Survey, 38 percent of Americans socialized or communicated with friends. By twenty twenty one, that number was down to 28 percent. Meanwhile, I see young people struggling every day with an inability to simply get together to do something—or even to do nothing. My daughters, both teenagers, yearn for outside-of-school socializing, yet often neither they nor their friends are willing to take the step of suggesting a get-together.
+End quote.
+
+This article is mostly a nudge for the book which is new and has mixed views, but the statistics and anecdotes still point to trends that we should think about how to change.
+
+Link seven. "SimCity launched a decade ago, and it was so disastrous it killed the series | PC Gamer"
+
+SimCity is one of the very few games I ever played for extended periods of time. Tetris was the other. I loved early versions of SimCity and had a city that I had built and expanded for years of play. I remember actually importing that original city into SimCity two thousand and maybe even SimCity 3000. Then the went downhill as EA shifted it more online, more pay-to-play and ruined many of the original game mechanics. A shame really. It would have been so great to just see that original game get better and better graphics and faster gameplay, instead of going off a cliff.
+
+Link eight. "Some possible reasons for 8-bit bytes"
+
+It seems a little odd, but this very topic came up at my last book club meeting! The question was prompted why bytes are 8-bits and we mostly came up with similar answers to this article. However, I didn’t realize there were all these other byte systems and even some early computers that you could switch the byte size? Weird.
+
+Link nine. "Playdate Catalog"
+
+I’m not a gamer so sadly my Playdate doesn't get used all that much, but I love seeing the innovation and fun that Panic is having with this device. This newest update adds a store via Catalog. So now you can get your games via the Season subscriptions, side loading, or via the official store. This seems like a smart way to have an open channel to get new games to users.
+
+Link ten. "twenty twenty two letter | Dan Wang"
+
+This is a long read, but I enjoyed it quite a bit. I love how Wang's letter starts and ends with the mountains. It is overall good writing. He shares insightful first person experiences during China's COVID lockdowns of twenty twenty two and the abrupt shift from Zero Covid.
+
+Quote.
+Friends spoke about three types of shock. First, the raw novelty of extended physical confinement. Second, the wonder of feeling food insecure in this age and in this city. Third, a disenchantment with government pronouncements.
+End quote.
+
+The details of food insecurity and the details of dealing with pets during government enforced quarantines paint a more complete picture of what people had to endure.
+
+Quote.
+It’s time to level set. China’s growth prospects are off track, but the country retains huge strengths. How do we balance everything? I think that a fair assessment should acknowledge these five propositions. First, business can still be exciting as China continues broad catch-up growth that creates flourishing in particular sectors, even if economic headwinds are stronger too. Second, China’s cities continue to be nicer places to live in (especially Shanghai—Beijingers can ignore this part), offering better provision of parks, healthcare, and retail. Third, doomers have wrongly predicted the collapse of China for 30 years. Fourth, Xi has centralized considerable power, and over the past decade has tightened limits not just on freedom of speech, but increasingly on freedom of thought. And fifth, though cities are more pleasant, a small risk of catastrophe threatens to overturn one’s life.
+End quote.
+
+I found his perspective on China an interesting read.
+
+Quote.
+How should we reflect on twenty twenty two in China? The starting point must be the three most important events of the year. First, zero-Covid: extraordinarily tight controls that were all abandoned in December. Second, the greater centralization of political power under Xi Jinping after the twentieth Party Congress. Third, a declaration of a "limitless friendship" with Russia that had "no forbidden zones" three weeks before its invasion of Ukraine.
+End quote.
+
+His letter goes on to cover books and food topics as well. Found via Tyler Cowen's blog.
+
+Link eleven. "The Limits of L2 - Martin Köppelmann - YouTube"
+
+In this talk from ETHDenver Martin Köppelmann, the leader for Gnosis, highlights the limits of Layer 2 scaling solutions for Ethereum, and advocates that "side chains" (he doesn't use that term) need to be part of the answer. To me what he describes as Ethereumverse is the obvious path. In this scenario, Ethereum is the shared protocol, and assets and transactions can move on mainnet, layer 2s, and side chains all based on the needs of the specific applications. This is the way.
+
+That's the end of Notable.
+
+Now, the Journal section.
+
+Sunday @ 7:36 PM
+
+Mazie and I enjoying the giant snowflakes earlier today.
+
+Sunday @ 11:01 AM
+
+Ekeko, a new artist on Nifty Ink, is a great example of what I dig about this site. It is like I get to see into the artists notebook and follow along in the creative process. Nifty Ink feels like going to a permanent Art Fair.
+
+𝗪ƌ丅𝗲𝖱𝗠트𝐋ѺＮ
+
+೭９ƽ¹９𝟩ꗉ
+
+𝐋í𝗡ỵ𝙚ɽ𝗔
+
+Aguantar
+
+Related: nnxyz collections Nifty Faces and NNOTB.
+
+Saturday @ 10:33 PM
+
+We watched A Man Called Otto tonight and everyone thought it was an incredible story and engaging acting. Didn’t want the movie to end when it was over. Recommended!
+
+Saturday @ 5:24 PM
+
+Hosting Minnebar 17: Creating Digital Community with POAPs
+
+I'm going to host a session at Minnebar 17 on Creating Digital Community with POAPs! It is my first time back to hosting sessions at Minnebar in several years, and I can't wait to share all the fun you can have with POAPs in your projects and communities. If this is interesting, sign up on the Sessionizer and indicate that you might attend this!
+
+Quote.
+Now that you've claimed your Minnebar 17 POAPs, let's talk about how you can use POAP to build digital community for on your own! On June 7, twenty twenty one I claimed my very first POAP and was intrigued. I quickly developed a love of these digital tokens that allow me to collect and remember fun events. I've created over 40 different POAP events for hobbies, personal use, family events, and professional. We will cover: What is a POAP? Examples of POAPs and how they can be used. Review the Minnebar 17 POAP distribution. Discuss additional capabilities and applications built around POAP. * We will even create a POAP in the event so you see how it is done. POAPs are an incredible asset to create digital communities, and there is a vibrant ecosystem built around them to enhance and add utility.
+End quote.
+
+Saturday @ 5:16 PM
+
+Hosting Minnebar 17: How to Newsletter
+
+I'm going to host a session at Minnebar 17 on How to Newsletter: Lessons from 250 Issues of The Weekly Thing. This is my first time presenting at Minnebar in several years. I'm excited to do it again!
+
+If this is interesting to you, register on the Sessionizer and indicate that you might attend this session.
+
+Quote.
+I have been publishing The Weekly Thing since May of twenty seventeen. With 250 issues of the newsletter complete I’m hosting this session to share the common questions that I get about: How do you find the things you put in the Weekly Thing? How do you create each issue? How do you maintain consistency? Additionally I will be covering: My task template that I use for each week The automation that I have created to build each issue The overall toolchain that I use to create it * Specific tactics to maintain sustainability of a long-term project like this This session will be focused on the creator and building. We will not be covering marketing, social media, or anything related to newsletter monetization or subscriptions.
+End quote.
+
+Saturday @ 4:59 PM
+
+Minnebar 17 POAPs
+
+I am excited to share that all attendees to Minnebar 17 will be getting a POAP token! In addition to the traditional t-shirt, there will be a unique claim code given to everyone so that they can claim a permanent collectible from the event.
+
+What is a POAP? Technically it is an NFT that is issued as a collectible for an event or occasion. It is like a digital version of a sticker or shirt. I've collected over 80 of them, see my collection for some examples.
+
+POAP is pronounced "poh-ap".
+
+The POAPs
+
+There will actually be three POAP tokens given at Minnebar 17.
+
+Attendee: All attendees will be given a claim code when they check in on arrival. Everyone that attends will get one of these.
+Presenter: All presenters that sign up via the Sessionizer will have a claim code sent to them.
+Organizer: All organizers who help put the event on will have a claim code sent to them.
+
+Any holder of these POAPs will also be eligible to enter into a raffle at no cost to win something special. Stay tuned for more information on that!
+
+I also plan to have my personal You've met thingelstad.eth tokens ready for distribution. Ask me for one at the event.
+
+How to get ready?
+
+If you want to get ready ahead of time so that you can claim these easily you can do two things.
+
+First, you need an Ethereum wallet and address. If you don't have one, I highly recommend using Rainbow on iOS or Android. It is a very well done wallet and is simple to setup and get started with. It is totally free.
+
+Once you have an address you are ready to go, but if you want to make it even easier you can install the POAP App too. This is also available on iOS and Android. If you configure this with your wallet address you can automatically claim a POAP just by scanning a QR code or tapping an NFC device.
+
+Questions
+
+What is a POAP?
+
+POAP stands for Proof of Attendance Protocol. The POAP website has a good explainer. Functionally they are ERC-721 tokens issued on the Gnosis blockchain. The smart contracts for POAPs have a number of additional applications built around them to add additional utility.
+
+How much does this cost?
+
+Nothing. No funds or crypto are required to collect as many POAPs as you want. All gas fees for minting the POAPs are covered by POAP.
+
+What is the environmental impact?
+
+POAPs are issued on the Gnosis blockchain which uses a proof-of-stake validator mechanism similar to modern Ethereum. As such, it uses minimal power.
+
+Can I sell the POAP?
+
+POAPs are meant to collect and curate memories, not make money. It is strongly discouraged to sell a POAP, but technically you can. As an ERC-721 NFT you can send POAPs from one wallet to another on Gnosis chain. You can also migrate the POAP to Ethereum mainnet, however there is a 0.1 ETH fee for doing that which is largely intended to keep people from attempting to sell them.
+
+Why do some POAP owners have names?
+
+POAPs are held by wallets, and if you buy and configure an Ethereum Name Service name the wallet address can be displayed as a name. If you would like to do this, go to the ENS app and buy your preferred name, remember to set the reverse address lookup, and your name will be shown instead of an address.
+
+If you have other questions, check out the POAP Help Center.
+
+Saturday @ 2:49 PM
+
+Transferring NFTs in Bulk
+
+After I created additional Ethereum addresses for specific applications, I wanted to move existing assets to align with that.
+
+Ethereum Name Service
+
+Moving ENS names is a special case. The ENS address is itself an NFT, but you cannot just send these to another address. You can move them, but you have to do it in the ENS application. For each of the 21 ENS names I have I did an on-chain transaction to move them to ens.thingelstad.eth. It was easy to do, and even though there was no bulk operation it wasn't hard to do. Each move incurred some gas fees.
+
+POAPs and NiftyInks
+
+With over 70 POAPs to move I really didn’t want to do these by hand. And with over 730 Nifty Inks it was out of the question to do it by hand. I looked at how to move POAPs and the FAQ recommended uNFT Wallet. I connected my wallet via Gnosis Chain and uNFT Wallet already had the contract address for POAP and Nifty Ink. I was able to move most of my POAPs with one transaction and a second after doing a test. They are now in POAP.thingelstad.eth.
+
+I had never transferred POAPs between accounts and it is interesting that these now show on POAP as have 2 transactions. Some POAP apps like Salsa no longer show the same connections after doing this. I think that is fine, but it is worth noting.
+
+It was less simple with Nifty Ink since I was moving over 730 NFTs. uNFT Wallet refused to even try and move all of them in one go, and there wasn't a way to select 100 NFTs at a time. So I had to click groups of 60-90 of them and do a transaction each. After doing several of these, there were a handful of stragglers left that I actually used Nifty Ink to send to the other wallet. They are now all in niftyink.thingelstad.eth!
+
+Thanks uNFT Wallet
+
+There is no way I could have done this without a bulk tool like uNFT Wallet. It was an easy choice to buy one of their Limited Edition supporter NFTs to help support the project.
+
+Saturday @ 1:44 PM
+
+Isolating Crypto Assets and Access
+
+For the last couple of years I've done all of my Ethereum activities using my thingelstad.eth address with the associated identity. I've used this for storing value, holding NFTs, collecting POAPs, and everything else. I decided that it was time to create some isolation of access and identity.
+
+I’m still using thingelstad.eth as my primary address and means of authenticating with various services. It also holds a number of my NFTs and crypto assets. But I've also now created two activity-specific addresses.
+
+mint.thingelstad.eth is the address that I’m using specifically just to mint NFTs. When you mint NFTs you have to authenticate with a new smart contract and usually provide some form of limited access to your assets. By using a dedicated address just for minting I can limit the risk of a malicious smart contract.
+
+vault.thingelstad.eth is the reverse of the minting address. This address is specifically to hold NFTs or other assets that I have no intent of selling or transferring. This address will never be used to authenticate to any website. All activities here will be done using wallet transfers.
+
+Additionally, I decided to create some specific addresses for applications that I use a lot. This was inspired in part from Vitalik's conclusion:
+
+Quote.
+That said, it is my view that wallets should start moving toward a more natively multi-address model (eg. creating a new address for each application you interact with could be one option) for other privacy-related reasons as well.
+End quote.
+
+I love the idea of wallets automatically associating a unique address with each application. I do this today by using a masked email addresses with Fastmail and passwords managed by 1Password.
+
+ens.thingelstad.eth is the address I’m using to hold my Ethereum Name Service registrations. ENS has built in capability for one address to register a name, and the control of that name to be delegated. So all of my 21 registered ENS names are now owned by this address, and control of them is delegated to thingelstad.eth. The only app that will ever connect to this address is ENS itself, which protects my name registrations from malicious actors.
+
+POAP.thingelstad.eth is an address I've made just for collecting POAP tokens. I currently hold 90 different POAP tokens in this address. This allows me to have a specific identity and address just for POAP usage. Most activity for this address is on Gnosis Chain since that is what POAP uses natively.
+
+niftyink.thingelstad.eth is an address just for using Nifty Ink. I've collected 736 "inks" on this site and now I have them isolated into an address that I only use for that purpose. This is again a way to limit access from a malicious smart contract.
+
+Technically I also have reddit.thingelstad.eth but was created by necessity since Reddit Vaults are managed differently. However, it serves the same pattern as the other application specific addresses.
+
+Saturday @ 1:13 PM
+
+Mazie's going to be an Ole!
+
+Friday @ 9:03 PM
+
+We went on a tour of St. Olaf today as Mazie works through her decisions on where she wants to go to college. It is a really pretty campus.
+
+That's the end of the Journal.
+
+Now, the Briefly section.
+
+Link one. "How Discord Stores Trillions of Messages"
+
+Good writeup of how Discord changed their data store and handles incredible volume. And added bonus for the graph of message volume correlated with the World Cup Final!
+
+Link two. "Negative and Planning by JP Castlin - Strategy in Praxis"
+
+This negative planning exercise seems like a useful tool.
+
+Link three. "Daring Fireball: Phony Stark Picks on the Wrong Guy, Attempting (and of Course Botching) an HR Exit Interview Live on Twitter"
+
+Link four. "How To Build A Blog Without Social Media – WARREN ELLIS LTD"
+
+Love this and firmly support that you don't need social to build a website. You just need the desire to build one. We had blogs before social media.
+
+Link five. "Dak Language"
+
+Lisp-like language that transpiles (yes, that is a word) to JavaScript. Interesting mostly to expose Lisp and Scheme capabilities in a JavaScript runtime accessible to anyone.
+
+Link six. "1 dataset. 100 visualizations"
+
+The surprising thing here is how few data points are in the source dataset, but it is still straightforward to make 100 different visualizations!
+
+Link seven. "30 Days of Python"
+
+Detailed, step-by-step guide to learn how to write Python code. All free and readily accessible to anyone with a web browser.
+
+That's the end of Briefly.
+
+Now, the Fortune section.
+
+Here is your fortune…
+
+You have a deep interest in all that is artistic.
+
+Thank you for subscribing to the Weekly Thing!
+
+That brings us to the end of the Weekly Thing, issue 245. Thanks for listening, and I'll see you next time.

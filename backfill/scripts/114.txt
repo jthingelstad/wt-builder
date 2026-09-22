@@ -1,0 +1,173 @@
+The Weekly Thing, issue 114. Aug 24, twenty nineteen. Published August 24, twenty nineteen. By Jamie Thingelstad. In this issue: WebKit tracking prevention, WeWork IPO, Apple Card launch, Apple Arcade 4 dollars and 99 cents/month, Automattic on Tumblr, plastic recycling myth.
+
+I've been thinking lately about how great the summer has been and how quickly time just keeps on moving. I’m doing my best to take it all in and make the most of it all. Fall is in the air, the first day of school is just around the corner, and the last of the summer checklist awaits.
+
+Have a great weekend and enjoy some fun links with your Saturday coffee!
+
+Now, the Featured Links section.
+
+Link one. "WebKit Tracking Prevention Policy | WebKit"
+
+Want to know why I use Safari (WebKit) exclusively to browse the web? This is why.
+
+WebKit will do its best to prevent all covert tracking, and all cross-site tracking (even when it’s not covert). These goals apply to all types of tracking listed above, as well as tracking techniques currently unknown to us.
+
+If a particular tracking technique cannot be completely prevented without undue user harm, WebKit will limit the capability of using the technique. For example, limiting the time window for tracking or reducing the available bits of entropy — unique data points that may be used to identify a user or a user’s behavior.
+
+If even limiting the capability of a technique is not possible without undue user harm, WebKit will ask for the user’s informed consent to potential tracking.
+
+Simple and clear. Aligned with the user and what they should get.
+
+Link two. "The WeWork IPO – Stratechery by Ben Thompson"
+
+WeWork filed it’s S-1 to go public and it is drawing a lot of attention. There was a lot written about it, but I could only get time to read one of them so I picked Ben Thompson's. Two other articles worth a look are WeWork isn't a tech company; it's a soap opera - The Verge which is a bit more salicious, and a detailed article What is We!? Understanding the WeWork IPO - Byrne Hobart - Medium by a former banker.
+
+I like Thompson's two-sided Bull and Bear look at WeWork. Comparing it to AWS is good, but I think the demand and adoption curve is so different that the comparison is strained. The references to WeWork Corporate Governance issues are worth noting. After Uber's horrible culture, one has to wonder about a company that seems to have so much self-dealing. Add to that the vast amount of money involved and I wonder if this isn't a future Enron-like story.
+
+That's the end of Featured Links.
+
+Now, the My Weekly Photo section.
+
+Pontoon on Wapogasset Lake at sunset.
+Aug 16, twenty nineteen at 7:28 PM
+Amery WI
+
+That's the end of My Weekly Photo.
+
+Now, the Notable Links section.
+
+Link one. "Sona Mehring - CaringBridge Founder - Twin Cities Business"
+
+I had the privilege of being on the CaringBridge board for 6 years and this is podcast with Sona Mehring is a great background on the organization, it’s mission, and Sona's energy and passion come through loud and clear.
+
+Link two. "Apple's New WebKit Policy Takes a Hard Line for User Privacy | Electronic Frontier Foundation"
+
+Endorsement of WebKits new Tracking Policy from the very important EFF.
+
+Link three. "Apple Card launches today for all US customers - Apple"
+
+I really don't need another credit card. But, I really want to get the new Apple Card. I’m curious to see how the interface works. It seems like a good deal as far as a card goes. Plus, the card is made of Titanium! If you do get it, check out the related You should opt out of the Apple Card's arbitration clause — here's how article.
+
+Link four. "Exclusive: Automattic CEO Matt Mullenweg on what’s next for Tumblr - The Verge"
+
+I don't think there would be a better buyer for Tumblr than Automattic.
+
+Link five. "World's largest EV never has to be recharged"
+
+I so love this!
+
+The dump truck, at 45 tons, ascends the 13-percent grade and takes on 65 tons of ore. With more than double the weight going back down the hill, the beast's regenerative braking system recaptures more than enough energy to refill the charge the eDumper used going up.
+
+It actually ends the day with more electricity than it started! And it's huge!
+
+Link six. "Exclusive: Apple planning 4 dollars and 99 cents/month price for Arcade game subscription service after free trial, works with Family Sharing - 9to5Mac"
+
+If 5 dollars/mo is the price this is would be an easy decision for me. Our family enjoys playing occasional games and having a curated set of new games seems perfect.
+
+Link seven. "Feedbin for iOS"
+
+Feedbin is my RSS reader of choice. It is fast, efficient, and easy to use. With a supportable business model.
+
+Link eight. "'Plastic recycling is a myth': what really happens to your rubbish? | Environment | The Guardian"
+
+So mostly plastic just gets sent somewhere we can’t see it and then, well, nothing really after that.
+
+Link nine. "The Impact of Meditating every day - Pascal Precht's Blog"
+
+I've built a very consistent daily meditation practice, and I would concur with many of these benefits.
+
+That's the end of Notable Links.
+
+Now, more links.
+
+- Amazon Forecast – Now Generally Available | AWS News Blog
+Interesting new offering that could bring more sophisticated forecasting capabilities to a larger audience.
+- Eivind Hjertnes | The “I” in Team hjertnes.social
+- Chart.xkcd | xkcd styled chart lib timqian.com
+I want to make a website and put charts on it just to play with this!
+- WorldCat.org: The World's Largest Library Catalog www.worldcat.org
+This looks like a potential option to link books to instead of feeding visitors straight into an Amazon buy now page.
+
+That's the end of More Links.
+
+Now, the Microposts section.
+
+Thursday @ 10:54 PM
+
+LinkedIn is now prompting you to identify your teammates, and then asks you specifically to reflect your current and past reporting relationships. Isn’t this just a way to mine org chart data from companies?
+
+Thursday @ 10:50 PM
+
+After the twenty nineteen #TeamSPS Kubb tournament a bunch of folks hung out and played, you guessed it, more Kubb! Next year we might introduce Mölkky at the end!
+
+Thursday @ 10:49 PM
+
+After the round robin our #TeamSPS Kubb groups split into brackets with a winner in each bracket! We kept track old school, just like most tournaments do!
+
+Thursday @ 10:46 PM
+
+We had a great time with our twenty nineteen #TeamSPS Kubb Tournament today! We had 20 teams having a lot of fun, getting to know their teammates better, and enjoying a gorgeous day outside!
+
+Wednesday @ 7:04 PM
+
+Gorgeous night for pizza at Red Barn Farm by Northfield.
+
+Tuesday @ 9:54 PM
+
+The Twins are stacking up the runs against the White Sox in the bottom of the eighth. 7 runs and still going! 4-14 now.
+
+Monday @ 8:52 PM
+
+A friend of mine is selling his large Big Green Egg along with the Challenger Designs grill table. This is the same setup I have, and I love it. If you are interested in buying a great grill setup ping me and I can connect you to him.
+
+Monday @ 8:49 PM
+
+The Shortcuts app on iOS should have a setting that causes shortcuts to error if you reference an unknown or undeclared variable. Would help reduce errors and could default to off for folks that do simpler things.
+
+Sunday @ 3:24 PM
+
+Lake O the Dalles in Interstate State Park.
+
+Sunday @ 3:21 PM
+
+St. Croix River at Interstate State Park, from Wisconsin side.
+
+Sunday @ 11:51 AM
+
+Heading West! At Fawn-Doe-Rosa.
+
+Sunday @ 10:35 AM
+
+Deer Selfie.
+
+Sunday @ 10:14 AM
+
+Visiting Fawn-Doe-Rosa!
+
+Saturday @ 1:02 PM
+
+Amery WI farmers market.
+
+Friday @ 8:29 PM
+
+Weekly Thing comes back from summer break tomorrow morning!
+
+Friday @ 7:03 PM
+
+Wapogasset Lake with sun coming down.
+
+Friday @ 5:59 PM
+
+Music in the Park in Amery, WI!
+
+That's the end of Microposts.
+
+Now, the Fortune section.
+
+You've made it all the way to the end! Here is your fortune for this week.
+
+You will pioneer the first Martian colony.
+
+Thank you for subscribing to the Weekly Thing!
+
+That brings us to the end of the Weekly Thing, issue 114. Thanks for listening, and I'll see you next time.

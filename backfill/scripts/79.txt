@@ -1,0 +1,214 @@
+The Weekly Thing, issue 79. Nov 10, twenty eighteen. Published November 10, twenty eighteen. By Jamie Thingelstad. In this issue: iPad Pro A12X chip, Google Chrome users, Flickr free accounts, Google global walkout, Lua design, startup metrics, Apple's new map.
+
+I've been having a lot of fun with Shortcuts the last couple of weeks. I've found some great ways to make routine things easier. I've also reinvigorated my project templates, just in time to use many of my annual holiday templates. I realized that my attempt to create a "generic" Shortcut that could run any template was limiting. I continue to store my templates in TaskPaper format to make them easy to edit, but the power comes in the Shortcut. I've made the project templates even more powerful having them block time on my calendar for the project, and even create draft emails that are ready to finish and send for the project.
+
+A recent powerful Shortcut I made is called "Running Late". When I run this shortcut it finds calendar events that started in the last 30 minutes, or next two hours, and then builds a list of the organizers and attendees of those meetings. I can then select any number of those people and the Shortcut will then find those people in my Contacts, prompt me to pick a number to message them at, and then give me a default text message to send them. It makes it super easy to let someone know I'm running late.
+
+It takes a bit to get Shortcuts, but when you do you can find a lot of ways to automate routine items. MacSparky has Siri Shortcuts Field Guide that is a great introduction and dive into all parts of Shortcuts. I sincerely think every iPhone user would have a variety of things that they could make easier using Shortcuts. If you find this stuff fun, it's worth the time to learn how to make Shortcuts.
+
+Now, the Featured Links section.
+
+Link one. "Developers On Call"
+
+This is a good assessment of many of the angles of an on-call rotation in a technology team. I agree with the conclusions, and also agree with the premise that all team members for a service or set of services should be in the on-call rotation.
+
+Teams where the people creating the software help support the software achieve better quality through aligned incentives and increased awareness.
+
+I like that this article calls out the elephant in the room, that there is a general culture in many organizations that developers are "above" being on-call. That is crap and needs to be dispelled whenever it is brought up. If anything, I would highlight that there are a lot of developers are just aren't all that great at being on-call. The skill argument should go the other way. Great operations engineers know how their software behaves, and they know how to push it and make it do what they want. Often the developers that wrote it have no clue. Also, the general stress and pressure of incidents is something that you need to have the stomach for.
+
+Link two. "Frank Chimero · Everything Easy is Hard Again"
+
+Frank Chimero is typically an enjoyable read and this doesn't let you down.
+
+I wonder if I have twenty years of experience making websites, or if it is really five years of experience, repeated four times. If you’ve been working in the technology industry a while, please tell me this sounds familiar to you.
+
+People will say that technology has a fashion thing. This is what they are referring to.
+
+It seems there are fewer and fewer notable websites built with this approach each year. So, I thought it would be useful remind everyone that the easiest and cheapest strategy for dealing with complexity is not to invent something to manage it, but to avoid the complexity altogether with a more clever plan.
+
+This is what experience brings. Early in their career technologists pile on complexity to solve any problem. After years of supporting those Towers of Babel, simpler solutions tend to look more appealing.
+
+Last month, I had to install a package manager to install a package manager. That’s when I closed my laptop and slowly backed away from it.
+
+Link three. "Google Chrome’s Users Take a Back Seat to Its Bottom Line | Electronic Frontier Foundation"
+
+This article is the biggest part of why I won’t use Chrome.
+
+Google is the biggest browser company in the world. It’s also the biggest search engine, mobile operating system, video host, and email service. But most importantly, it’s the biggest server of digital ads. Google controls 42% of the digital advertising market, significantly more than Facebook, its largest rival, and vastly more than anyone else. Its tracking codes appear on three quarters of the top million sites on the web. 86% of Alphabet’s revenue (Google’s parent company) comes from advertising. That means all of Alphabet has a vested interest in helping track people and serve them ads, even when that puts the company at odds with its users.
+
+Remember, Google was the last browser to support Do Not Track years ago. Nothing has changed regarding Googles incentives. If you value privacy, I don’t see how you can use Chrome.
+
+The article gives Chrome credit for pushing HTTPS adoption on the web. I’m skeptical of that as well. Let’s Encrypt is the service that enabled that, and Google got a huge benefit from HTTPS allowing there bots to get a very strong signal about content quality from the usage of HTTPS.
+
+That's the end of Featured Links.
+
+Now, the My Weekly Photo section.
+
+Red White and Blue for Election Day!
+
+Red White and Blue for Election Day
+Nov 6, twenty eighteen at 4:50 PM
+SPS Tower, 333 S seventh St, Minneapolis MN
+
+That's the end of My Weekly Photo.
+
+Now, the Notable Links section.
+
+Link one. "Calendars of public holidays and bank holidays | Office Holidays"
+
+This looks like a solid reference for holidays around the world. Having team members in the United States, Ukraine, India, Canada and Australia this is a handy tool. It’s always embarrassing to not be aware of major holidays in other countries, and this service has a number of ways to keep you up-to-date.
+
+Link two. "The New iPad Pro for Photographers — Austin Mann"
+
+I love this real world experience with the new iPad Pro. It’s amazing that he’s editing 100 megapixel images on an iPad!
+
+Link three. "Apple walks Ars through the iPad Pro’s A12X system on a chip | Ars Technica"
+
+Some further details and specifications on the A12X chip in the new iPad Pro.
+
+The iPad Pro outperforms every MacBook Pro we tested except for the most recent, most powerful 15-inch MacBook Pro with an eighth generation Intel Core i9 CPU. Generally, these laptops cost three times as much as the iPad Pro.
+
+Apple’s position with custom silicon is super interesting. There has been rumor of them ditching Intel at some point. I think that might actually happen.
+
+Link four. "Theresa Glomb"
+
+Dr. Theresa Gloms presented at our company Growth Summit this year and gave a great talk on improving work. She shared her Let's Make Work Better presentation. It was interesting to hear the research behind it, the overlap with many Getting Things Done concepts as well as Agile concepts.
+
+Link five. "The red flags and magic numbers that investors look for in your startup's metrics - 80 slide deck included! at andrewchen"
+
+This is very long and detailed, but it’s very insightful for anyone building a new product or company — particularly B2C. You would do yourself a favor to print this out, get the entire background deck, and spend a day with it. Product Managers and Marketing teams would also benefit from digging in.
+
+Link six. "Google employees and contractors participate in “global walkout for real change”"
+
+it’s nice to see employees at one of the biggest technology companies in the world organizing and getting a voice on matters like this.
+
+More than 20,000 Google employees and contractors in Google offices located in 50 cities worldwide walked out for real change at 11:10am local time protesting sexual harassment, misconduct, lack of transparency, and a workplace culture that doesn’t work for everyone.
+
+It’s a good trend.
+
+Link seven. "OpenText to Acquire Liaison Technologies, Inc."
+
+OpenText acquires another company in the communications space for EDI. Liaison was trying to become something different with their Alloy platform, but that was a reinvention that they didn’t have the fuel for it seems.
+
+Link eight. "Daring Fireball: The twenty eighteen iPad Pros"
+
+These twenty eighteen iPad Pros look utterly amazing. I can’t wait to get mine.
+
+Link nine. "A Look at the Design of Lua | November twenty eighteen | Communications of the ACM"
+
+This is a good overview of the design goals of Lua and some insight into how Lua approaches a variety of programming concepts.
+
+Lua has a unique set of design goals that prioritize simplicity, portability, and embedding. The Lua core is based on three well-known, proven concepts—associative arrays, first-class functions, and coroutines—all implemented with no artificial restrictions. On top of these components, Lua follows the motto "mechanisms instead of policies," meaning Lua's design aims to offer basic mechanisms to allow programmers to implement more complex features.
+
+I find Lua interesting. I wish there was a good iOS implementation to play with.
+
+Link ten. "Opinion | I Thought the Web Would Stop Hate, Not Spread It - The New York Times"
+
+This article merges the web with social media too much. I’d argue that Swisher’s letter writing example is similar to someone tapping away at a blog. The broad social platforms and their ethics-absent algorithms are the things that have given extreme positions so much visibility.
+
+Swisher misses a key component. Most advertisers have no interest in being associated with such extreme speech. If the people that advertisers want leave these platforms, the dumpster fire that remains is not a business.
+
+Link eleven. "Why we’re changing Flickr free accounts | Flickr Blog"
+
+The team leading Flickr has big challenges to restore what was the most vibrant community for photography on the web. I don’t have an issue with these changes. I might even try Flickr out again.
+
+Link twelve. "Elon Musk: The Recode interview - Recode"
+
+Kara Swisher sits down with Elon Musk. Very good interview.
+
+Link thirteen. "Three Sales Mistakes Software Engineers Make"
+
+I would call these go-to-market mistakes more than sales mistakes, but it’s good advice to people building new products — not just software engineers.
+
+Link fourteen. "A Few Thoughts on Apple Watch Series 4 – 500ish Words"
+
+I had the original Apple Watch and upgraded to the Series 3 with LTE a year ago. The Series 4 looks amazing with it’s larger screen, but the speed is the real winner.
+
+Did I mention the Series 4 is fast? Series 3 was pretty fast. Series 4 is fast in a way that you never think about it; things just work, fast.
+
+if you haven't had a smart watch before it might seem odd that you need so much speed for one, but any delay at all is a big usability challenge for a smart watch. I’m trying to hold off and skip the Series 4, but it’s tempting given how good this new Apple Watch seems to do.
+
+Link fifteen. "Apple’s New Map"
+
+Incredibly detailed post again from Justin O’Beirne detailing incredible detail on Apple's new map initiative. It is an interesting post to go through and see the incredible effort going into mapping, and what a strategic advantage it is for Google in a number of areas.
+
+That's the end of Notable Links.
+
+Now, the Give Back section.
+
+The Wikimedia Foundation, Inc. is a nonprofit charitable organization dedicated to encouraging the growth, development and distribution of free, multilingual, educational content, and to providing the full content of these wiki-based projects to the public free of charge. The Wikimedia Foundation operates some of the largest collaboratively edited reference projects in the world, including Wikipedia, a top-ten internet property. Donate to Wikimedia today!
+
+That's the end of Give Back.
+
+Now, more links.
+
+- Buttercup buttercup.pw
+Free, open source password manager. I’ll stick with 1Password for Families.
+- Sharecuts sharecuts.app
+This site looks like it’s still in development but it promises to be a place to share iOS Shortcuts with other users.
+- The Verge Holiday Gift Guide twenty eighteen - The Verge www.theverge.com
+Gift ideas for the geeks in your life.
+- Event Store eventstore.org
+The open-source, functional database with Complex Event Processing in JavaScript.
+- Citi's Mark May: Amazon relies on robots; less temporary holiday hires www.cnbc.com
+20,000 fewer jobs because the robots can do more.
+- Statamic - Make better, easier to manage websites. Enjoy simplicity like the days of summer. statamic.com
+Interesting website CMS. Seems to be a good mix of easy-to-use and static.
+- What is Tailwind? - Tailwind CSS tailwindcss.com
+This looks like a CSS framework I could actually use.
+
+That's the end of More Links.
+
+Now, the Microposts section.
+
+Wednesday @ 8:45 PM
+
+Thanks to micro.blog new ActivityPub support, Mastadon users should be able to follow me at @jamie@micro.thingelstad.com.
+
+Wednesday @ 8:03 PM
+
+Great day for #TeamSPS at our annual Growth Summit! A great year, and more on the way. Want to be part of #TeamSPS? Join our team!
+
+Tuesday @ 9:01 PM
+
+I tried Tesla’s new Navigate on Autopilot feature tonight. It worked very well on first try.
+
+Tuesday @ 7:54 AM
+
+I Voted! Remember to vote today!
+
+Sunday @ 10:54 PM
+
+iOS has Pythonista for Python, and Scriptable is awesome for JavaScript, but I wish there was a Lua version of one or both of them. Would be fun to use Lua to automate iOS and create helper scripts. All augmenting Shortcuts capabilities!
+
+Sunday @ 7:01 PM
+
+Tammy and I tried Colita for the first time tonight! Started with Papa Noel to drink; then Fish Tacos, Avocado Tostada and finished with Stacked Tostadas, Brussel Sprouts, and Lamb Barbacoa Tacos (amazing!). Finished with Horchata Anglaise. Delicious!
+
+Sunday @ 2:49 PM
+
+Nice win for the Vikings!
+
+Saturday @ 6:59 PM
+
+Know someone wanting to move to South Minneapolis? Our house is for sale! We have loved living here. It is an amazing house and neighborhood!
+
+Saturday @ 6:19 PM
+
+Our new deck is done and I put up the pergola lighting today. I’m very happy with how it turned out.
+
+Friday @ 7:00 PM
+
+Got to do the first remote Tesla software update without being around the Model 3, a feature added in 9.0. Nice convenience feature!
+
+That's the end of Microposts.
+
+Now, the Fortune section.
+
+You've made it all the way to the end! Here is your fortune for this week.
+
+Out of sight, out of mind.
+
+Thank you for subscribing to the Weekly Thing!
+
+That brings us to the end of the Weekly Thing, issue 79. Thanks for listening, and I'll see you next time.

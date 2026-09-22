@@ -1,0 +1,282 @@
+The Weekly Thing, issue 163. BeOS, Management Track, Writing is Thinking. Published October 31, twenty twenty. By Jamie Thingelstad. In this issue: OmniFocus custom perspectives, Zoom end-to-end encryption, Halide Mark II, Apple One bundle, Jon Stewart Apple series, COVID herd immunity.
+
+Happy Halloween! I hope you and your families have all found ways to still have fun, especially for the kids, as we mark off our first pandemic trick-or-treat event. I personally procured 12 lbs of Haribo Gummi Bears. I’m still deciding how much I'll share.
+
+We are also in the final few days before the US Election. I was thinking recently how effective my privacy protection and ad blocking on the web is. I've managed to completely avoid all political advertising, and nearly all advertising in general. Add in the avoidance of social networks and you have a nice and quiet web. A big thank you to 1Blocker and Pi-Hole for that. If you aren't one of the 60 million that have already voted, I hope everything goes smoothly as you visit the ballot box on Tuesday.
+
+Remember to "fall back" with daylight savings time this weekend!
+
+Now, the Must Read section.
+
+Link one. "Choosing the Management Track | blog.danielna.com"
+
+I wish I would have written this article. I agree with nearly all of it. It is a great perspective on the path of engineering management. He hits many topics that I have seen dozens of new engineering managers struggle with.
+
+I agree with his position in managers coding. I tend to see it as an anti-pattern. When managers are coding it has often meant that there are harder problems, often that they feel unsure how to solve, that they are putting off.
+
+Quote.
+My advice: find time to scratch the coding itch outside of work.
+End quote.
+
+Totally agree. Many in engineering managers have loved coding. It can still be a great hobby. Or find ways to use those coding skills to automate tasks in your position. But never take sprint points.
+
+This next point is stated so well.
+
+Quote.
+The power dynamics of management are serious and livelihoods are at stake. Don’t trivialize them with jokes.
+End quote.
+
+I really dislike jokes like this. It is an absolute "no go" zone in my book.
+
+And yes, while you are not coding spent points you absolutely must be up-to-speed on the technical aspects.
+
+Quote.
+But you must have real smells and opinions on how technical projects are delivered, agnostic of their implementation details. And you must be technical enough to know when a project feels like it won’t deliver and intervene appropriately to force it back on track.
+End quote.
+
+The way I often say this is that I think of engineering leaders as great food critics, but not actually chefs.
+
+And this is a great way to think about why this is worth all the effort.
+
+Quote.
+Management is a privileged position to provide that environment for others. And when it’s working - the team is healthy and collaborative, ICs are growing via stretch projects, and you play a role in the development of autonomy/mastery/purpose of a teammate - there is no better feeling in the world.
+End quote.
+
+Seeing teams succeed and win, and being part of making that happen, is one of the greatest things.
+
+Link two. "Writing Is Thinking – A List Apart"
+
+Love this guide on writing better, and the fundamental value of doing it.
+
+Quote.
+When you write about your work, it makes all of us smarter for the effort, including you—because it forces you to go beyond the polite cocktail-party line you use to describe what you do and really think about the impact your work has. Done well, it means you’re contributing signal, instead of noise.
+End quote.
+
+The above makes me think of all the creativity wasted blurting out short snippets on social media. Complete thoughts, in the form of sentences and paragraphs, add value to the world.
+
+Share the Weekly Thing?
+More people sign up from LinkedIn than anywhere else! Please spread the word by sharing on LinkedIn and encourage your connections to subscribe.
+
+That's the end of Must Read.
+
+Now, the Currently section.
+
+Watching: We watched the very first episode of Ted Lasso with the kids and I was reminded that a TV-MA rating is not yet family friendly for us. So, we ended up not watching anymore for a while even though Tammy and I thought it was good. We recently resumed and ended up watching all the other 9 episodes in quick order. This may be one of my favorite TV shows in years. Can’t wait for the next two seasons.
+
+Playing: Tyler and I are building Tyland up like crazy in Animal Crossing: New Horizons. We are having a lot of fun playing together.
+
+Listening: I'm enjoying multiple listens through Bruce Springsteen's new "Letter To You". I’m not a lifelong Springsteen. In fact, I’m most likely to put on his 1982 release "Nebraska". Maybe it’s just the time, but this new album is a delight. Put on some great over-the-ear headphones and turn it up. Even better? Go for a long drive with it loud. You'll be happy you did.
+
+That's the end of Currently.
+
+Now, the Photograph section.
+
+The Charlie Brown Tree is so pretty in the snow.
+
+Oct 25, twenty twenty
+Cannon Lake, MN
+
+That's the end of Photograph.
+
+Now, the Recommended Links section.
+
+The twenty twenty Campaign Is the Most Expensive Ever (By a Lot) - The New York Times
+
+14 billion dollars
+
+That is an astounding amount of money being spent on the election cycle. Makes me think two things.
+
+1. So much good could be accomplished with those resources instead of everyone flinging mud at each other.
+
+2. What is the ROI of these dollars. It makes me think of Lessig's book Republic, Lost which is a great read about the influence of money in politics.
+
+OmniFocus for the Web Adds Support for Custom Perspectives - The Omni Group
+
+I’m a huge fan of OmniFocus and think it is the premier GTD tool in the market. However, I know people that use iOS devices but also have Windows machines and there is no OmniFocus for Windows. The new web version was there, but without Custom Perspectives I couldn't recommend it for serious use. Now that we have this, I may make the leap to the subscription model myself to get the ability to use OmniFocus in a web browser as needed.
+
+Zoom Launches End-to-End Encryption for Free and Paid Users Globally Nasdaq:ZM
+
+Good to see Zoom deliver on this feature that they committed to shortly after the pandemic broke out. It is also interesting to see what features are unavailable when you turn end-to-end encryption on.
+
+This is a test… – Rhoneisms
+
+My friend Patrick describing the test we are all taking. "It’s not a hard test. It’s simply a defining one."
+
+Facebook’s Election-Week War on Accountability is Wrong, Wrong, Wrong | Electronic Frontier Foundation
+
+Facebook this week took legal action to try and limit access by researches to see the ads that politicians are targeting users with.
+
+Quote.
+But rather than embrace the Ad Observatory as a partner that rectifies the limitations of its own systems, Facebook has sent a legal threat to the university, demanding that the project shut down and delete the data it has already collected. Facebook’s position is that collecting data using "automated means" (including scraping) is a violation of its Terms of Service, even when the NYU Ad Observatory is acting on behalf of Facebook's own users, and even in furtherance of the urgent mission of fighting political disinformation during an election that U.S. politicians call the most consequential and contested in living memory.
+End quote.
+
+I think this is different than the typical sleazy profit-over-everything behavior that Facebook typically exhibits. I suspect that they are genuinely concerned that the ads being sent through their systems will be able to show that their platform was used to suppress votes and to materially, and negatively, affect our democratic processes. The last thing they want is a bunch of evidence, that could end up in court, showing that.
+
+Remember as you think about this that ads running on Facebook are often made by algorithms. So, there will be millions of different messages. This is why efforts like the Ad Observatory are so important. Facebook doesn't know the ads running on its own systems.
+
+I am Seriously Considering Going Back to Desktop Computers
+
+Many modern computers are becoming appliances. Overall, I think this is probably a good thing for most people. However, the spirit of creativity that launched the computer industry is too tightly confined in that appliance model. I think of this as a fork, where both paths are good ones.
+
+Fit URLs
+
+API design is hard, and Seemann hits on a particularly important topic here. I would guess that the majority of REST API's you would sample would use ID's of various sorts and URL templates. This works, but is hard to maintain. Using URL's directly in the API response allows for much more agility in the future.
+
+San Francisco's slow coronavirus reopening is paying off - Los Angeles Times
+
+I hadn't heard how San Francisco was handling the pandemic, but this sounds positive.
+
+Quote.
+Experts credit San Francisco’s success to a long partnership between public health officers and universities, most notably during the AIDS crisis. San Francisco is not monolithic, but its residents largely followed health guidelines. Unlike other counties, which may have dozens of mayors and city councils, San Francisco is also a city with only one mayor and a Board of Supervisors, and both have largely deferred to the judgment of health officials.
+End quote.
+
+Following the judgment of health officials. Good call.
+
+Utah’s hospitals prepare to ration care as a record number of coronavirus patients flood their ICUs - The Salt Lake Tribune
+
+I suspect we are going to see more articles like this as cases continue to spread. Thankfully Doctors have figured out how to treat people and reduce the mortality rate. But there are limits to how much that can be scaled.
+
+Large UK Study Delivers Big Blow to Covid Herd Immunity Thesis, Raises Concerns About Vaccine Strategies | naked capitalism
+
+Herd immunity can only develop if antibody resistance is long enough. This data suggests it is similar to the common cold, which we obviously have no herd immunity to.
+
+Literal
+
+Bookmark this for the future. A not-yet-launched alternative to the Amazon-owned GoodReads. I'd still say the best place to share about books you've read is your own blog. But this seems to have the right direction. I’m also intrigued about some mentions of features for book clubs.
+
+Descent Disciples Vol 9 TUNA - YouTube
+
+Holy crap this is bonkers. He hits 58 mph at one point and nearly wipes a couple of times as well. Barely comes to a stop in time to avoid traffic. In Tuna Canyon Park. Via Five things on Friday #317.
+
+What Was BeOS, and Why Did People Love It?
+
+I still remember getting ahold of BeOS installer forever ago and trying out this new OS. There was a lot of excitement around BeOS and the BeBox, but it ultimately never made it. BeOS and NextStep were making a lot of noise at the same time.
+
+Quote.
+With its highly-praised tech and close run-ins with success, BeOS is almost a textbook case of painful tech what-if scenarios. Most famously, in 1996, Apple made an offer to purchase Be and its intellectual property with the intention of making BeOS the core of a new Macintosh OS. Be’s executives balked at the price offered (reportedly, around 120 million dollars), and negotiations soon stalled. When Steve Jobs got wind of the potential BeOS deal, he offered up NeXT and its operating system, which ultimately won. Thus, Apple’s Mac OS X was born, but its impetus could just as easily have been BeOS had Be accepted Apple’s initial offer.
+End quote.
+
+NextStep lives on inside of every Mac sold. I didn’t know that there is still a hobby project of sort keeping BeOS alive in a project called Haiku.
+
+Life and Death | No Mercy / No Malice
+
+I appreciated this article from Galloway sharing some learnings on death and dying.
+
+Housing Market Goes Nuts, Everyone Sees it, But it Can’t Last | naked capitalism
+
+These numbers are bonkers.
+
+Quote.
+But this craziness in the housing market is not sustainable. The National Association of Realtors reported yesterday that sales of existing homes – single-family houses, condos, and co-ops – surged in September by 9.4% from August and by 20.9% from a year ago to a seasonally-adjusted annual rate of 6.54 million homes, the highest since two thousand six.
+End quote.
+
+Zoom Secret Magic Trick - Hide Self View - Feld Thoughts
+
+I've tried this a couple of times but I didn’t try it for long. Based on Feld's comments about how much this helped I've tried doing hiding my self-view for long periods of time and ya know what, it does make a difference. It makes sense that your brain would get really obsessed with observing yourself, regardless of how hard you try to ignore that. Initial result is this helps reduce fatigue and make the conversation more engaging.
+
+How Apple Is Organized for Innovation
+
+Good overview on Apple's functional structure. Most companies switch to a divisional structure as they scale, and push P and L responsibilities lower into the organization. Apple’s ability to maintain this structure at their scale has often been referenced as one of their advantages.
+
+Pro. Camera. Action. Introducing Halide Mark II. | Halide
+
+Halide is by far my favorite "upgraded" camera application for the iPhone. it has many pro level features, but is still easy to work. This new Mark II version looks great. if you are looking to take your photography further on your iPhone Halide is the first step. Also MacStories Halide Mark II Review is a good writeup. I so wish you could change the default camera application in iOS similar to what you can do for Mail and Web browser now. Having Halide be the thing that launches when I long press the camera button on the lock screen would be a huge win.
+
+COVID Finances | Feel The Byrn
+
+Gordo Byrn regarding focus and what matters.
+
+Quote.
+The best investment I made this year was the month I spent weaning myself off social media. It’s difficult to see the net negative return of Facebook/Instagram until you are outside of their feedback loops. At its core, Facebook makes it easier for bullshit to reach me.
+End quote.
+
+Wisdom here.
+
+That's the end of Recommended Links.
+
+Now, the Stream section.
+
+Thursday @ 8:49 PM
+
+Lasagna assembly!
+
+Wednesday @ 9:17 PM
+
+Got a new PR this morning in Kendall Toole’s 30-min Metal Ride. 405 kJ, +3 kJ over prior. Redlined the entire last half of the ride. #FitByFifty
+
+Tuesday @ 8:55 PM
+
+Tyler and I are playing Animal Crossing: New Horizons together and we are using ACNH Exchange to get good prices for Turnips. I'm using it as an opportunity to introduce him to spreadsheets and basic financial concepts.
+
+Sunday @ 7:16 PM
+
+I wonder how many Neural Engines the iPhone will need before it can properly adjust exposure for snow scenes.
+
+Saturday @ 2:13 PM
+
+Won afternoon game of Trekking the National Parks. Me 47, Tyler 42, Mazie 36, and Tammy 33.
+
+Saturday @ 12:58 PM
+
+Birds
+
+We returned from a walk and there was a massive congregation of birds in the pine trees.
+
+Friday @ 4:48 PM
+
+Fun #TeamSPS project for a Friday afternoon. Enlisting the kids to help with decorating.
+
+Friday @ 2:35 PM
+
+Lucky went out during lunch and got herself into a good bunch of mud!
+
+That's the end of Stream.
+
+Now, for your information.
+
+Apple One bundle of services will launch Friday, October 30
+
+I'll be signing up for this right away as I'll get more than I get now, at a lower cost. If you subscribe to iCloud, Apple Music, and one other service this gives you all of the rest for free.
+
+Jon Stewart Returns With Current Affairs Series for Apple (Exclusive) | Hollywood Reporter
+
+Future entry for the Watching section. Can’t wait to see what Stewart is cooking up.
+
+Anki - powerful, intelligent flashcards
+
+This looks like a powerful tool. Also see Augmenting Long-term Memory and Anki as Learning Superpower.
+
+Gig Workers' Only Chance to Pee Is Apparently an App
+
+The whole time I read this article I felt like this was already a Curb Your Enthusiasm episode and sure enough, S10E8 highlights "Leon and Larry go into business providing short term relief for workers who need to use the bathroom during their shifts." They called it Gotta Go.
+
+The story behind Markdown. | Capiche
+
+Everything I write online for my blog, my links, the Weekly Thing, are all authored in markdown. This history is a good background on how it came to be.
+
+Eight Persistent COVID-19 Myths and Why People Believe Them - Scientific American
+
+Some of these myths persistence alone is disheartening, but this is a good quick highlight of key ones.
+
+That's the end of the FYI section.
+
+Now, the Local section.
+
+City Pages is closing, ending the era of alternative weeklies in Twin Cities | Star Tribune
+
+While I haven't read the City Pages regularly for years, I still feel a connection with this brand. City Pages is where you found out where all the punk rock shows were in college. It was very widely read at the University of Minnesota. It is sad to see an institution like this shut down, but also not surprising.
+
+Learning from this email?
+Share the love and help others learn by sharing this on LinkedIn.
+
+That's the end of Local.
+
+Now, the Fortune section.
+
+You've made it all the way to the end! Here is your fortune for this week.
+
+Make a wish, it might come true.
+
+Thank you for subscribing to the Weekly Thing!
+
+That brings us to the end of the Weekly Thing, issue 163. Thanks for listening, and I'll see you next time.

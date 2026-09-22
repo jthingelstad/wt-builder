@@ -1,0 +1,245 @@
+The Weekly Thing, issue 73. Sep 29, twenty eighteen. Published September 29, twenty eighteen. By Jamie Thingelstad. In this issue: Safari Content Blockers, Apple Watch healthcare, Cloudflare Registrar, Facebook shadow contacts, macOS Mojave review, OmniFocus 3 for Mac.
+
+This week has had a mournful undercurrent for me after we said goodbye to our dog Chase. I've never gone through this with a dog before. These four-legged friends can occupy a big place in our hearts.
+
+Life feels like it's in overdrive right now. We are trying to finish up a series of several projects at our cabin before the winter comes. I've been choreographing an upgrade cycle of seemingly everyone's iPhone. This week Tammy and I both made the move to the iPhone XS. The camera is amazing and I expect to level up the picture I send each week.
+
+Final note for a fun thing coming up — I got confirmation that my Tesla Model 3 is ready for me to pickup on Monday!
+
+My Blog Posts
+
+Goodbye Chase
+
+Saying goodbye to our dog after more than 11 great years.
+
+Now, the Featured Links section.
+
+Link one. "Safari Content Blocker Evaluations – 9/26/18 Edition – The Brooks Review"
+
+Like Ben Brooks I use 1Blocker X on all of my iOS and macOS devices. I love how powerful it is and that I can create my own custom blocker rules. I've tried BlockBear but haven't used it a lot. I like Brooks' recommendation of steering less technical users to that one.
+
+Link two. "Steve Blank The Apple Watch – Tipping Point Time for Healthcare"
+
+The potential to have your Apple Watch be like a "Doctor on your wrist" is pretty amazing.
+
+Sooner than people think, virtually all home and outpatient diagnostics will be performed by consumer devices such as the Apple Watch, mobile phones, fitness trackers, etc. that have either become FDA cleared as medical devices or have apps that have received FDA clearance. Consumer devices will morph into medical grade devices, with some painful and well publicized mistakes along the way.
+
+This helps reinforce why Apple has strategically positioned itself on the side of privacy. There is a huge market for this type of capability, but even someone that is happy to let Facebook and Google mine all their email, web searches and private photos, may be very resistant to giving their heart rate, blood pressure and weight to exploitive platforms.
+
+That's the end of Featured Links.
+
+Now, the My Weekly Photo section.
+
+Blooming Rose in the Lyndale Park Rose Garden.
+
+Sep 23, twenty eighteen at 1:36 PM
+Lyndale Park Rose Garden, 1500 E Lake Harriet Blvd, Minneapolis MN 55409
+
+That's the end of My Weekly Photo.
+
+Now, the Notable Links section.
+
+Link one. "Introducing Cloudflare Registrar: Domain Registration You Can Love"
+
+I've been using Namecheap for years as my registrar. I find them reliable and easy to use. Cloudflare has a great reputation and their entry into the registrar service may get me to move.
+
+Here's the promise of the Cloudflare Registrar: we'll follow the best possible security practices and offer you the best possible price. What do we mean by that? From the security side, we promise we'll allow you to enable two-factor authentication, we’ll lock your domain registration by default, and automatically enable best-practice security services like DNSSEC.
+
+From the price side it’s even simpler: we promise to never charge you anything more than the wholesale price each TLD charges. That’s true the first year and it’s true every subsequent year. If you register your domain with Cloudflare Registrar you’ll always pay the wholesale price with no markup.
+
+Cool that they are also allowing people to get earlier access if they make a donation to Girls Who Code!
+
+Link two. "Facebook Is Giving Advertisers Access to Your Shadow Contact Information"
+
+Another in the endless series of findings on how Facebook uses your data to target you.
+
+I was helping him test the theory by targeting him in a way Facebook had previously told me wouldn’t work. I directed the ad to display to a Facebook account connected to the landline number for Alan Mislove’s office, a number Mislove has never provided to Facebook. He saw the ad within hours.
+
+They are even doing this with data you give them for security purposes.
+
+They found that when a user gives Facebook a phone number for two-factor authentication or in order to receive alerts about new log-ins to a user’s account, that phone number became targetable by an advertiser within a couple of weeks.
+
+The EFF highlighted this terrible use of security information for advertising targeting as well.
+
+Link three. "Firefox Monitor"
+
+Right now this is just an alternative front-end to have i been pwned?, but it’s great to see Firefox stepping into this space and I expect they will continue to add more over time.
+
+Link four. "Low←Tech Magazine"
+
+What a cool project -- making a very low-tech, carbon neutral website. "This is a solar-powered website, which means it sometimes goes offline." The website shows its current battery level.
+
+Our new web design addresses both these issues. Thanks to a low-tech web design, we managed to decrease the average page size of the blog by a factor of five compared to the old design – all while making the website visually more attractive (and mobile-friendly). Secondly, our new website runs 100% on solar power, not just in words, but in reality: it has its own energy storage and will go off-line during longer periods of cloudy weather.
+
+Link five. "Exclusive: WhatsApp Cofounder Brian Acton Gives The Inside Story On #DeleteFacebook And Why He Left 850 million dollars Behind"
+
+www.forbes.com
+
+The inside scoop on WhatsApp founders break with Facebook.
+
+His motto at WhatsApp had been “No ads, no games, no gimmicks”—a direct contrast with a parent company that derived 98% of its revenue from advertising. Another motto had been “Take the time to get it right,” a stark contrast to “Move fast and break things.”
+
+Aren't ads, games and gimmicks pretty much all Facebook is? All about the.
+
+Link six. "Instagram’s CEO – Stratechery by Ben Thompson"
+
+Insightful analysis by Ben Thompson on Instagram's founders departures from Facebook.
+
+Or Systrom and Instagram could offload all of those responsibilities to Facebook and continue being “extraordinary product leaders”, and pocket 1 billion dollars to boot (and, to be fair to Systrom and team, that understates their gains; that 1 billion dollars included 700 million dollars in Facebook stock, which today is worth nearly 4 billion dollars). It is a defensible choice (for Instagram anyways; not for the regulators that approved the deal), but the implication is that, title notwithstanding, Systrom was never the CEO of Instagram; to be a CEO is to have a company that can stand on its own.
+
+The difference from Zuckerberg — Instagram’s real CEO — is stark. Facebook launched in February, two thousand four, and sold its first ad two months later. True, “Facebook Flyers” bear little resemblance to the News Feed ads that power the company today, but Zuckerberg’s immediate instinct to build not just a product but a company is notable.
+
+Wether it is Instagram or WhatsApp, the founders that sold those companies were made extraordinarily wealthy. They should not be surprised when the company that made them that wealthy takes the products in exactly the direction that was supremely obvious they would — advertising and mining private data.
+
+Link seven. "macOS 10.14 Mojave: The Ars Technica review | Ars Technica"
+
+Ars continues the in-depth macOS reviews made famous by John Siracusa, and now continued by Andrew Cunningham.
+
+Link eight. "OmniFocus 3 for Mac: Multiple Tags, Enhanced Forecast, Powerful Perspectives – MacStories"
+
+New OmniFocus 3 for the Mac and with that Omni Group has transitioned all the OmniFocus platforms onto the newest solutions! I eagerly bought my license within 5 minutes of the go live last night.
+
+Link nine. "ShortcutsGallery.com - Download or share Siri Shortcuts"
+
+Good place to share user created shortcuts for iOS 12. The Workflow app used to have a place to do this and that went away with Shortcuts. It’s nice to see an independent site picking that up. There are some nice shortcuts in here to use, or take apart to understand how to build your own.
+
+Link ten. "Engineering Productivity – Camille Fournier – Medium"
+
+Productivity of software teams is a very fuzzy space. Companies have tried to figure out some way to evaluate this for 50 years now, and have gotten nowhere. It’s knowledge work, and as such isn't linear at all. Fournier's view of engineering management "… a great engineering manager is capable of creating a highly productive engineering team" is great, and I like the three key factors she highlights for achieving that.
+
+Link eleven. "watchOS 5: The BirchTree Review – BirchTree"
+
+This is a fantastic review of watchOS 5. I've read a couple of detailed reviews and still learned a number of cool things I could do in watchOS 5 in this. I had no idea I could get favorites sports teams into the Siri face for example!
+
+Link twelve. "Strap on the Fitbit: John Hancock to sell only interactive life insurance | Reuters"
+
+Interactive Life Insurance? Oh no. This seems like a terrible thing.
+
+Link thirteen. "Chrome is a Google Service that happens to include a Browser Engine"
+
+I've never used Chrome for privacy reasons, it’s too closely connected to the worlds largest advertising platform with a huge profit motive to collect information. Chrome was the last browser to support Do Not Track while it prided itself on supporting new capabilities before everyone else. Now Google has tied Chrome even closer to it’s services. If you want private browsing Firefox is a good bet with enough extensions, and Safari does more to fight privacy invading trackers than any other browser out of the box. Matthew Greene has a more direct reaction to this, and is done with Chrome. "Don't be evil."
+
+Link fourteen. "Cloudflare Turns 8 — here’s what we mean by a “better Internet”"
+
+This is a great mission piece from Cloudflare. I don't use Cloudflare but I have growing respect for the amazing work and services they provide. I like their values and am curious to see what they release this week!
+
+Link fifteen. "New zine: Help! I have a manager! - Julia Evans"
+
+I love these zines that Julia Evans has been creating and this is a stellar idea to make one for people to better understand what their manager is doing and how to work with them. It’s a managers job to work and coordinate with their team, but this seems like a great idea to help folks learn as well.
+
+Link sixteen. "There is no longer any such thing as Computer Security"
+
+I like this position, computer security is just security, and it’s really easy these days to get exploited. This is a good overview particularly on phishing and what you can most easily do to protect yourself.
+
+Link seventeen. "Google Suppresses Memo Revealing Plans to Closely Track Search Users in China"
+
+Link eighteen. "“Don’t be evil.”"
+
+The memo, authored by a Google engineer who was asked to work on the project, disclosed that the search system, codenamed Dragonfly, would require users to log in to perform searches, track their location — and share the resulting history with a Chinese partner who would have “unilateral access” to the data.
+
+That's the end of Notable Links.
+
+Now, the Give Back section.
+
+Internet Archive is a non-profit library of millions of free books, movies, software, music, websites, and more. I have been a supporter of the Internet Archive for many years and I think their mission is fabulous! The web is a major part of our culture and it the content that we put on it is sadly ephemeral. The Internet Archive is working hard to capture that information and keep it for history. Donate to Internet Archive today!
+
+That's the end of Give Back.
+
+Now, more links.
+
+- Why sell zines? - Julia Evans jvns.ca
+I've enjoyed Julia Evans' zines and this background on why she charges for them is a good read on making a side project sustainable.
+- Hey Siri, Drive My Tesla (How To Use iPhone's New Shortcuts)! - YouTube www.youtube.com
+I’ve been a big fan of Workflow, and now Shortcuts, in iOS for a long time. This video is a easy introduction to automation on your iOS device.
+- GPG Suite gpgtools.org
+I've used GPG Suite at times to encrypt mail, and it’s been sad to me to see how much negativity they are getting over starting to charge a small amount.
+- Walmart Requires Lettuce, Spinach Suppliers to Join Blockchain - CIO Journal. - WSJ blogs.wsj.com
+Subscriber only link. Interesting real world use of Blockchain in retail's. Food seems to be one avenue where blockchain has some immediate use cases.
+- Manyverse www.manyver.se
+I've read about Scuttlebutt before and found it intriguing, but this new application built on that protocol seems to be something normal folks could actually use.
+- macOS Mojave: The MacStories Review – MacStories
+Everything you ever wanted to know about the newest macOS.
+- Apple and Salesforce partner to help redefine customer experiences on iOS - Apple
+Not a lot of details but sounds to some extent like what they announced with IBM a while back.
+- Simple Analytics simpleanalytics.io
+Nice and easy, simple, web analytics offering that respects privacy and just gives you the handful of metrics that actually matter. I’m still on the side of not collecting this data at all unless you really need it.
+
+That's the end of More Links.
+
+Now, the Microposts section.
+
+Thursday @ 10:40 PM
+
+Was looking like the Vikings might tie that game up, then a fumble. Ugh.
+
+Thursday @ 5:03 PM
+
+Winners from #TeamSPS Technology Kubb Tournament: 1. Skubby Doo 2. King Kubbas 3. Kubbernetes. Best team name winner Bring Back Kubbicles Plz!
+
+Thursday @ 4:33 PM
+
+Teams that Kubb together, win together! #TeamSPS
+
+Thursday @ 3:27 PM
+
+Results after round 1 of #TeamSPS Technology Kubb Tournament! Skubby Doo v King Kubbas in the lead!
+
+Thursday @ 3:25 PM
+
+Great day for our #TeamSPS Technology Kubb Tournament! Good luck to all the teams!
+
+Monday @ 9:28 PM
+
+Two of my three Macs are upgraded to macOS Mojave. The last one that is still upgrading is an iMac with Fusion drive and is taking a lot longer than the others. I suspect some APFS twiddling. My ancient MacBook Pro 15” Retina from twenty twelve upgraded fine.
+
+Sunday @ 7:14 PM
+
+Power just got restored at our cabin on Cannon Lake after Thursday nights huge storm. Was out from Thursday at 6:32p to Sunday at 5:28p, at total of 71 hours. That is a long time, but given the severity of storms it’s impressive work from XcelEnergy.
+
+Sunday @ 3:15 PM
+
+Fountain in the Lyndale Park Rose Garden. The iPhone XS camera is very impressive.
+
+Sunday @ 8:46 AM
+
+I had my 200mm lens for the kids soccer games and there were a bunch of planes landing with a clear blue sky.
+
+Saturday @ 9:09 PM
+
+“Hey Siri, Loons win!” Cue Wonderwall! Great game #MNUFC! BBBY for President!
+
+Saturday @ 8:03 PM
+
+Stellar first half from MN United #MNUFC to take a 3-0 lead v Portland Timbers!
+
+Saturday @ 7:28 PM
+
+Gorgeous work MNUFC to take lead 1-0!
+
+Saturday @ 1:11 PM
+
+Saturday morning soccer!
+
+Saturday @ 8:02 AM
+
+Only a few minutes into the “post home button” iOS experience and I can already see that the gesture interface is going to significantly increase my use of fast app switching.
+
+Saturday @ 7:26 AM
+
+Upgrading to the new iPhone XS using iCloud Backup. First time I’ve done this not using iTunes local backup. Also letting it magically move my Apple Watch settings.
+
+Friday @ 11:16 PM
+
+Really enjoyed Hearts Beat Loud. Nice story, good music.
+
+That's the end of Microposts.
+
+Now, the Fortune section.
+
+You've made it all the way to the end! Here is your fortune for this week.
+
+Never let the sun go down on your anger.
+
+Thank you for subscribing to the Weekly Thing!
+
+That brings us to the end of the Weekly Thing, issue 73. Thanks for listening, and I'll see you next time.

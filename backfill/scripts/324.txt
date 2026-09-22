@@ -1,0 +1,372 @@
+The Weekly Thing, issue 324. Agents, Shortcuts, Joy. Published June 21, twenty twenty five. By Jamie Thingelstad. In this issue: Good writing, CTO and CPO in generative AI, Shortcuts app iOS 26, multi-agent research systems, AI agent success rates, conversational SDLC.
+
+Hey there!
+
+Hope you're great. The summer continues to start with a bang here. Very busy!
+
+This week's email was mostly written on my phone. I haven't done that for a long time. It is a nice win though that all the automation I use works equally well on my phone or a laptop. #winning!?
+
+I'll be shocked if you don't find some typos given how much of this I did on my iPhone.
+
+I’m gonna keep it short and let's get right into it.
+
+Now, the Notable section.
+
+Link one. "Good Writing"
+
+Graham reinforcing that "writing is thinking"…
+
+Quote.
+So it's not quite right to say that better sounding writing is more likely to be true. Better sounding writing is more likely to be internally consistent. If the writer is honest, internal consistency and truth converge. But while we can't safely conclude that beautiful writing is true, it's usually safe to conclude the converse: something that seems clumsily written will usually have gotten the ideas wrong too.
+End quote.
+
+… and sloppy writing is likely sloppy thinking. See also: bullet points.
+
+Link two. "The CTO and chief product officer in the Age of Generative AI: A New Playbook for Technology Leadership – rajiv.com"
+
+Rajiv Pant, friend and Weekly Thing reader thinking deeply about how AI is changing the role of chief technology and product roles. Rajiv's thinking on these topics has been leading the way for years. His twenty fourteen article on Three Roles of a CTO still resonates with me.
+
+He highlights five leadership imperatives to drive in this AI transition.
+
+1. Build AI Literacy Throughout Your Organization
+2. Redesign Your Hiring and Development Programs
+3. Experiment with Radical Organizational Models
+4. Develop Your AI Ethics Framework
+5. Cultivate Strategic Patience with Tactical Urgency
+
+This summary says it well.
+
+Quote.
+The CTO role evolves from chief builder to chief orchestrator, conducting symphonies of human creativity and machine capability. The CPO role transforms from feature definer to experience philosopher, crafting meaning in an age of infinite possibility. Both must become bridge builders--between human and artificial intelligence, between present reality and future potential, between what we can build and what we should build.
+End quote.
+
+Great stuff and I think he's on the right track here.
+
+Link three. "dns0.eu — The European public DNS that makes your Internet safer"
+
+DNS is what turns the domain names you know into addresses your computer can use. Without it everything fails. It is also a place that you can surveil what people are doing. It makes sense for the EU to have a standalone DNS resolver to assist with GDPR and to maintain infrastructure autonomy from other regions and countries.
+
+Link four. "Apple's Shortcuts app is getting a huge upgrade in iOS 26 and macOS 26 — here's how it will help you | Tom's Guide"
+
+I’m a big fan and power user of Shortcuts. The Weekly Thing is built using a suite of Shortcuts. I liked the addition of these Apple Intelligence features:
+
+Quote.
+But there's one more action that's the most powerful and likely to make the biggest splash: Use Model. This is an open-ended command that allows you to simply enter a prompt and have it processed with one of three different large language models: the on-device one that resides on your own iPhone, Mac, or iPad; Apple's remote Private Cloud Compute; or ChatGPT.
+End quote.
+
+This is actually similar to what I've done using the OpenAI API, but will be much easier for folks using these methods. I've found it very powerful and brings a "vibe coding" capability to shortcuts to do really out-of-the-box stuff.
+
+Adding Automations support to macOS is also huge. Those triggers will open a ton of options for me. Connect to work WiFi? Automatically launch all my work apps.
+
+Link five. "Disruption and Denial  - Silicon Valley Product Group"
+
+Cagan argues, I believe correctly, that we are in the early rounds of a huge rethink due to AI. Similar in scale and shape to what we saw with the Web.
+
+Quote.
+Fast forward 25 years, and I'm seeing much the same dynamics with AI products.
+End quote.
+
+There is a lot of change needed to do this.
+
+Quote.
+You can either start working to create these intelligent products yourselves, or continue to believe it's not possible, until a new competitor comes along and shows your customers a dramatically better solution.
+End quote.
+
+Let's go!
+
+Link six. "WPP Media Mid-Year Global Advertising Forecast Update: 1.08 trillion dollars in twenty twenty five Ad Revenue and 6% Growth"
+
+Major tipping point.
+
+Quote.
+User-generated content is overtaking professional production: In twenty twenty five, more than half of content-driven advertising revenue will come from platforms like TikTok, YouTube, Kuaishou, and Instagram Reels. Creator-generated revenue will hit 184.9 billion dollars this year, up 20% from twenty twenty four, and is expected to more than double to 376.6 billion dollars by 2030.
+End quote.
+
+Link seven. "The stark difference in smartphone usage among eight-year-olds in less-advantaged and wealthier backgrounds | Irish Independent"
+
+The numbers here are huge no matter how you look at it but the sharp drop of smartphone ownership as income goes up is interesting. A big part of this has to be that the kids are on their own more and that the phone is a lightweight babysitter often.
+
+Quote.
+More than half of Irish eight-year-olds from less advantaged areas now own a smartphone, which is twice the rate of those from wealthier backgrounds, according to new research.
+End quote.
+
+The difference in access also extends to social media accounts. If you have all that time, this is something to do.
+
+Quote.
+The figures also show that 93pc of eight-year-olds from less advantaged areas have created a social media account, compared with 69pc in middle-­class neighbourhoods.
+End quote.
+
+It reminds me of fast food. Families working multiple jobs and stretched don't have time to cook and can’t afford good food so fast food is common. Social media and fast food share a position there.
+
+Quote.
+Overall, three-quarters of Irish 12-year-olds own a smartphone. Similarly, 75pc of those between eight and 12 have a YouTube account, while 74pc of those between 12 and 14 have a TikTok account.
+End quote.
+
+74% of kids have TikTok. Ugh.
+
+Link eight. "Field Notes From Shipping Real Code With Claude - diwank's space"
+
+Experiences of using Claude as part of development and specifically how you message to the LLM how it should work.
+
+Quote.
+Think of CLAUDE.md as a constitution for your codebase. It establishes the fundamental laws that govern how code should be written, how systems interact, and what patterns to follow or avoid. Organizations that invest in developing the skills and capabilities of their teams get better outcomes--and your CLAUDE.md is that investment crystallized into documentation.
+End quote.
+
+Everyone is learning! Wild times.
+
+Link nine. "How we built our multi-agent research system Anthropic"
+
+As we build Agents we need to use a mental model of agents performing tasks that are relatively clear. We can do complicated things by orchestrating these tasks together. That is a multi-agent system with multiple agents coordinating. This article shares how Anthropic is approaching these.
+
+1. Think like your agents.
+2. Teach the orchestrator how to delegate.
+3. Scale effort to query complexity.
+4. Tool design and selection are critical.
+5. Let agents improve themselves.
+6. Start wide, then narrow down.
+7. Guide the thinking process.
+8. Parallel tool calling transforms speed and performance.
+
+This bit out of the agents improving themselves was very interesting to me.
+
+Quote.
+We found that the Claude 4 models can be excellent prompt engineers. When given a prompt and a failure mode, they are able to diagnose why the agent is failing and suggest improvements. We even created a tool-testing agent--when given a flawed MCP tool, it attempts to use the tool and then rewrites the tool description to avoid failures. By testing the tool dozens of times, this agent found key nuances and bugs.
+End quote.
+
+Agent performance, collaboration, and improvement will be an interesting area as we create more of these.
+
+Also see
+Simon Willison's commentary on this.
+
+Link ten. "Is there a Half-Life for the Success Rates of AI Agents? — Toby Ord"
+
+Frankly I’m amazed at the accuracy for these tasks at these durations. I figured it would be a 1 or 5 minute task, not 59 minutes.
+
+Quote.
+For the best model (Claude 3.7 Sonnet) it could achieve a 50% success rate on tasks up to 59 minutes versus only 15 minutes if an 80% success rate was required. If those results generalise to the other models, then we could also see it like this: the task length for an 80% success rate is 1/4 the task length for a 50% success rate. Or in terms of improvement: what is doable with a 50% success rate now is doable with an 80% success rate in 14 months' time (= 2 doubling times).
+End quote.
+
+Also the rate of improvement is fast.
+
+Link eleven. "Yancey Strickler: Forget hustle culture. Behold the Artist Corporation | TED Talk"
+
+Strickler has enabled so many creators with KickStarter and I appreciated his focus on enabling artists. This reminded me a bit of Lessig creating Creative Commons to fix a problem. The structure of these Artist Corporations seems boring but can be a real enabler to creating opportunities. He didn’t reference fans being able to buy shares in the A Corp but that would make sense. The whole time I kept thinking that this should be codified into a DAO and operate on-chain to make it even easier to create and run one.
+
+Link twelve. "Coding agents require skilled operators"
+
+The narrative of having LLMs displace software developers needs to go away. The two are not in opposition, but instead are in an act or co-creation and enabling and supporting human developers to operate at a scale and level of understanding that is not possible otherwise.
+
+My entire career has had one very consistent fact:
+
+Our demand for software seems to have no bound.
+
+I often say we have 20 lbs of flour and a 5 lb bag. It's been like that for decades. Leading software teams is often critically about what you are not going to do since it is entirely impossible to do everything. If we have huge impact on productivity -- I’m very positive we will simply want more.
+
+There is so much to build!
+
+There is another angle that isn't discussed as often. As software and systems have gotten more complex the challenge for engineers has gotten so much harder. It is common for developers to only know their little bit of code and nothing about the rest. This is dangerous but necessary. One brain simply cannot hold all of that context. Remember that when you load a product detail page on Amazon over 1,000 services are engaged to show that. Likely nobody actually knows how that is all related.
+
+AI in our development environments may help scale the ability for developers to actually see and understand these systems. To increase the confidence in what we are creating and modifying.
+
+Link thirteen. "The Conversational SDLC | Joseph Bironas | Medium"
+
+As we bring LLMs into the product development process it isn't just about the engineers doing things differently. All that context in a discovery session is critical for the LLM. How we write and think about features will need to evolve. This article highlights a first look at what that may look like.
+
+Quote.
+The magic isn't the gates; it's the friction they re-introduce in just the right spots, and the context references they produce along the way. - Less ambiguity up front. Writing the prompt contract feels bureaucratic until the first regen loop flies by unnoticed, and the model starts giving subtle clues that it no longer understands what needs to be done because I forgot to specify the prompt context correctly in the moment. - Interruption-aware iterations. Cognitive-science studies and developer surveys agree that fragmentation disrupts flow more than interruptions themselves (blog.stackblitz.com, kjl.name). Capping loops keeps the brain in one piece. - Reviewable reasoning. A reviewer who can read the model's chain-of-thought is far less likely to rubber-stamp copy-paste patterns. - Post-mortem super-powers. Every production incident becomes replayable: prompts, responses, timestamps. Blameless and searchable.
+End quote.
+
+The big thing I’m seeing repeatedly is including the prompt assets and other inputs into the repository right alongside the code itself. This is probably a very good thing in general.
+
+That's the end of Notable.
+
+Now, the Journal section.
+
+Journal entry one.
+
+Tyler and I got the Pokémon cards we sent to TAG Grading back today. My Galarian Perrserker V came back an 8.5. I dig the clear slabs that they use. The grading reports are insanely detailed and driven by algorithm and computer vision. It seems much more accurate than PSA, but also much harder.
+
+Journal entry two.
+
+Mazie wanted to do her first triathlon on her birthday and Tammy signed up to do it with her! They were out of the house before 6am in the cold to get ready for the Rocket Racing Women’s Trifecta in Shoreview. They did great -- see Tammy and Mazie results. Tammy missed a turn and ran longer than needed.
+
+Journal entry three.
+
+Mazie is officially 20!
+
+"Alive since two thousand five!" -- Mazie @mthingelstad
+
+Journal entry four.
+
+Got a recursive selfie while collecting the Grain Belt Sign for the 612 POAP Challenge with the family (see moment).
+
+Favorite quote from Mazie @mthingelstad: “Why is this actually kind of fun?” Love it.
+
+Journal entry five. Stone Arch Bridge Fest
+
+Today was Mazie’s birthday and one of the things she decided we should do is the Stone Arch Bridge Festival. It had been a very long time since we had been to this and I was really impressed by the size of it. There were so many artists and vendors. It felt to me like it had a particular Minnesota flare to it, with a lot of art that was locally inspired. We spent about four hours but could have spent the entire day there.
+
+Some artists that caught our eye:
+
+- Robots in Rowboats
+- A.D. Hogan
+- Bill Nagel
+- Skape Designs
+- James Powell Art
+- CrewlArt
+- Eric Beauchamp
+- H. Ward Miles
+
+Mazie bought a piece of art with her own money -- her very first art purchase from H. Ward Miles
+
+I also really liked these very local artist creating location pieces. Maybe I could get one of them to participate in a future year of the 612 POAP Challenge.
+
+- Little Dipper Art
+- Set Adrift Art
+- Minnesota Awesome
+
+We grabbed some switchel from Hobby Farmer on our way heading back home!
+
+Journal entry six.
+
+Making pizzas on Blackstone pizza oven for first time.
+
+Finished pizza.
+
+Journal entry seven.
+
+Happy Father's Day to all! Love these two -- I'm a lucky Dad!
+
+Journal entry eight.
+
+Surrounded by Tetrominos.
+
+Journal entry nine.
+
+Today Tammy and Tyler completed a 26-mile walk around Lake Geneva, Wisconsin. They started at 6:21 AM and completed at 2:58 PM. Epic. I thought it deserved a POAP -- Lake Geneva Loop Legends! So very impressive.
+
+Journal entry ten.
+
+I am upgrading the charging infrastructure at our cabin for us and guests and decided to get this Anker Prime Charger. The thing is substantial and can output 250 watts. I was surprised to find out it has WiFi and, to my delight, I even got to update the firmware on it.
+
+Journal entry eleven.
+
+While doing blog gardening today I saw a post I wrote 21 years ago about privacy issues. This is a topic I’ve been consistent on for a very long time it seems.
+
+Journal entry twelve.
+
+Wisdom: Things deteriorate -- experiences appreciate.
+
+Journal entry thirteen.
+
+Mazie and I had dinner at Pink Ivy in Hopkins for the first time tonight. The food was great: Roasted Carrots, Roasted Cauliflower, Grilled Salmon, Pineapple-Brown Butter Cake, and Chocolate Mochi Cake.
+
+Journal entry fourteen.
+
+I'm going to be sharing my love of POAPs at the Minnesota Blockchain meetup on June thirtieth -- Creating Community with POAPs! Will include 612 POAP Challenge as an example and will also be sharing a POAP for the evening of course!
+
+Journal entry fifteen. IndieWeb is Punk
+
+Last night, Mazie and I went to Pink Ivy for dinner, and as we pulled out of the driveway, she took control of the music and right away started playing “Basket Case” by Green Day. Mazie has wide-ranging musical interests. She is happy to rock out with me to the Foo Fighters. Lately, Green Day has been rotating in more, but she found that one on her own. We were both digging the song, and I told her how fun it was for me that she was listening to Green Day and shared the Punk Rock roots of the band. We dug further back into my Music Library and found their first two albums on Lookout! Records “1,039/Smoothed Out Slappy Hour” and “Kerplunk.” We listened to “Disappearing Boy” and “At the Library,” and I joked with her that most of the songs were about girls they were too scared to talk to.
+
+She thought the music itself was just okay, and I was like, “Yeah, but that was Punk Rock.” With that, I attempted to summarize the music world of the late 80s and 90s, which was dominated by Top 40 music and record labels controlling distribution. Punk Rock stormed onto the scene and ignored all of that. This led to a meandering listen through some Screeching Weasel and their tributes to the Ramones, then to the Straight Edge scene and Minor Threat. Punk Rock was so fundamentally different from what most people were listening to then. Unfortunately, we arrived at the restaurant before I was able to cover the New Bomb Turks and NOFX.
+
+However, as we discussed the anti-commercial, independent, and community aspects of Punk Rock, it struck me that I could be describing the IndieWeb movement of today in nearly identical terms. As Punk Rock was to the music industry of that era, is the IndieWeb bringing the same ethos to the Web of today -- minus the mohawks?
+
+Punk Rock was famously DIY, playing whatever instruments they could get their hands on. Most were self-taught and just learned to play to make the music. Bad singer? No problem. Do you only know three chords? Perfect. Do you own a drum set but don’t know how to play? Great. Let’s go. This same spirit embodies the IndieWeb as people use open-source tools to create their websites. Need a primary topic for your newsletter? How about I just write? Don’t have flashy features or pixel-perfect design? Doesn’t matter. It works. It’s yours.
+
+IndieWeb creators and providers shun the pursuit of monopoly power and giant profits. Most focus on being small services that charge a fair fee based on the cost of providing the service. No venture capitalist would invest in these projects. Punk Rock didn’t care about selling millions of records. Punk was about creating music and getting it into people’s hands.
+
+Punk was also about community and creating connections. No Punk Rock band stood on their own, and the folks at the shows were part of their community more than an audience. IndieWeb communities share similarities, focusing on related tools and systems and exploring how they can collaborate to empower individuals. The zine movement of Punk Rock was blogging before the Internet! That spirit lives on today.
+
+One of the most significant ways they are similar is they are both counterculture. In the 1990s, listening to Punk Rock was a way to subvert the mass media system. Punk Rock gave the middle finger to that “system” and said, “No.” That’s precisely what IndieWeb folks are saying to the dominant social media platforms today. We opt out of algorithmic surveillance systems and choose to be independent.
+
+The IndieWeb is Punk. I love this image from Matt Downey. CC0 is a public domain dedication license from Creative Commons. Giving away ownership and contributing to the community is Punk.
+
+We don’t need major platforms. We have the Web, keyboards, tools, and community. IndieWeb is Punk! Is it time to bring the Mohawks back?
+
+Journal entry sixteen.
+
+Manton Reece @manton shared he’s pausing blogging on AI because of pushback he receives on his writing. I can empathize based on comments I’ve received about crypto. In twenty twenty two I wrote on polarizing technology. AI is likely to be similar to Encryption and Crypto and I’m going to continue exploring.
+
+Journal entry seventeen.
+
+As AI Agents continue to grow in capability it seems likely that we will want them to have financial resources to take action with. AI Agents will need an account balance, micropayments, and immediate settlement which are all feasible today with crypto. Digital money for digital agents.
+
+That's the end of the Journal.
+
+Now, the Briefly section.
+
+Link one. "If the Moon Were Only 1 Pixel - A tediously accurate map of the solar system"
+
+Get ready to scroll!
+
+Link two. "Than Average"
+
+How do you compare?
+
+Link three. "Why retailers like Amazon and Walmart are looking into stablecoins"
+
+Didn’t expect this but it makes sense on many levels. Also, wallet software is the hardest part of crypto adoption and these retailers could build that into their mobile apps making it very simple.
+
+Link four. "I am disappointed in the AI discourse"
+
+Me too, agree.
+
+Link five. "China’s AI Companies Dodge U.S. Chip Curbs by Flying Suitcases of Hard Drives Abroad - WSJ"
+
+Flying hard drives around. Wow.
+
+Link six. "Design Patterns for Securing LLM Agents against Prompt Injections"
+
+Prompt injection is very difficult to defend against.
+
+Link seven. "kill the metrics in your head | The Roof is on Phire"
+
+Analytics as addiction.
+
+Link eight. "POAP Product Updates - June 25"
+
+So many great updates for POAP!
+
+Link nine. "OpenMCP"
+
+App that bridges an existing API and makes it accessible as an MCP endpoint. Notably has a library of services already defined making it trivial to get to many existing services.
+
+Link ten. "Writing Toy Software Is A Joy | Joshua Barretto"
+
+I love the Feynman quote here "What I cannot create, I do not understand", and I love the spirit of creating for fun and learning. Most of my projects scratch an itch like this for me.
+
+Link eleven. "Scrappy: make little apps for you and your friends"
+
+Fun tool to build little things but also a great one to learn with.
+
+Link twelve. "GifCities"
+
+Spend a few minutes exploring the awsome animated GIFs of the old web.
+
+Link thirteen. "Building Effective AI Agents Anthropic"
+
+Good reading on approach to creating agents.
+
+Link fourteen. "Websites Are Tracking You Via Browser Fingerprinting | Texas A and M University Engineering"
+
+Fingerprinting your browser is so difficult to block. It is akin to profiling and not much you can do to opt-out.
+
+Link fifteen. "CardStock.run"
+
+Inspired by what HyperCard made possible on the Macintosh and bringing that to the web.
+
+That's the end of Briefly.
+
+Now, the Fortune section.
+
+Here is your fortune…
+
+Shortcut your way to joy—upgrade your day!
+
+- Join the private Weekly Thing Forum
+- r/WeeklyThing on Reddit
+- Sign the Weekly Thing Guestbook
+
+That brings us to the end of the Weekly Thing, issue 324. Thanks for listening, and I'll see you next time.

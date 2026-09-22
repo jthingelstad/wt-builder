@@ -1,0 +1,331 @@
+The Weekly Thing, issue 144. Contact Tracing, Stockdale Paradox, John Prine, Goat 2 Meeting. Published April 18, twenty twenty. By Jamie Thingelstad. In this issue: COVID-19 tracing tool, Zoom brand, John Conway dies, iPhone SE, NextDNS, Stockdale Paradox, cold-brew coffee chemistry, COBOL training.
+
+In March I was lucky enough to take the 2.5 day Performance class at the Human Performance Institute in Orlando. The class was very thorough and their program builds on the idea of a pyramid for "full engagement" with physical, emotional, mental, and spiritual layers making up the layers.
+
+During the course one of our instructors drew out a concept that resonated strongly with me. One of my classmates, Cecil, took a good note of it.
+
+The point of this diagram was to highlight that improvement in the physical and spiritual areas came from adding "stress". In the mental and emotional areas, you should consider more "recovery".
+
+I hadn't considered this concept, but when I looked at this and reflected on my own mission and assessment, which focused on the physical and spiritual dimensions, it was compelling to me to apply the word stress. To improve, you have to be challenged. That is what the stress is. And to realize how different this is for the emotional and mental dimensions was interesting.
+
+As we left the class and Coronavirus and Covid-19 started shutting down the world, and adding stress to so many things, I've been successfully transferring that stress into my work on physical and spiritual. Instead of looking at the added stress of uncertainty as a barrier to improvement, I've been able to apply the mental jujitsu of making it an enabler. The additional stress is further fuel for the work to be done. It adds to, rather than detracts from, the mission.
+
+It also made me consider that some activities can be both recovery and stress. For the emotional dimension meditation is a great form of recovery. Centering and being mindful to give yourself time and space to recover. But if you invoke some loving kindness meditation, or focus your meditation on something inward, it can operate as good stress to focus the spiritual dimension.
+
+I think this model is simple but profound. Consider for a moment how you are feeling in each of these dimensions, and from that determine what stress and recovery you may want to consider.
+
+Now, the Must Read section.
+
+Link one. "Beyond the Inbox: Rules for Reducing Email - Study Hacks - Cal Newport"
+
+Three very practical tips for dealing with some common email challenges.
+
+Quote.
+What’s instead imperative is to move more of this work out of your inbox and into other systems that better support efficient execution. You can’t, in other words, avoid this work, but you can find better alternatives to simply passing messages back and forth in an ad hoc manner throughout the day.
+End quote.
+
+I couldn't agree more on scheduling. When I get an email about scheduling something it is all I can do to not simply delete it on the spot since I know how hard that is. I use Doodle for this. I also agree on capturing things outside of email, and as a GTD person I use OmniFocus mostly for that. I've never done office hours, but this article and the current remote work setup has me thinking I might give that a try!
+
+Link two. "The hard way | A Working Library"
+
+A lot of people, myself included, are getting their first experience at remote leadership. But I keep thinking that this isn't just remote leading, this is also leading through a global pandemic, and an economic crisis, with society locked down and an incredible amount of change and stress in everyones lives.
+
+Quote.
+The last lesson comes back to the first: you are not leading a remote team. You are leading a team that is scared, stressed, angry, frustrated, worried, and worse. You are leading parents who desperately need a break from their kids and can’t get it, people who rightly fear for their own lives, people in the throes of trauma and grief. Your first job is to make sure they have everything they need to be healthy and safe; only if that’s achieved can you turn to anything else. And when you do, you better be as clear as possible about what they should focus on, and why, because no one has tolerance for even the slightest bullshit right now. You are going to have to listen fiercely, speak openly, make decisions even when no good options present themselves, and admit that you just don’t know what’s coming. You are going to have to stay calm and present even as the fire rages.
+End quote.
+
+This is all so very true. I was on the phone with a colleague the other day and they were sharing a story with me and commented that their spouse had had to figure this out because they were unemployed. I felt terrible that I didn’t say anything at the time, and just stop the conversation. So I sent a note afterward. I can’t fix their situation, but I can recognize and acknowledge it, and be human with them. I think we all need to listen to the notes behind the things that are happening directly in front of us during these challenging times.
+
+Link three. "Apple and Google are launching a joint COVID-19 tracing tool for iOS and Android | TechCrunch"
+
+This seems like a super important tool to get society opening back up, and it is great to see Apple and Google working cooperatively to make it happen. Getting this capability in iOS and Android phones would cover a huge percentage fo the population. I’m impressed with the security and privacy protection as well.
+
+Quote.
+There is zero use of location data, which includes users who report positive. This tool is not about where affected people are but instead whether they have been around other people. The system works by assigning a random, rotating identifier to a person’s phone and transmitting it via Bluetooth to nearby devices. That identifier, which rotates every 15 minutes and contains no personally identifiable information, will pass through a simple relay server that can be run by health organizations worldwide.
+End quote.
+
+You can also read Apple's announcement as well as Google's announcement. The technical details of the privacy protection is also published, Privacy-Preserving Contact Tracing.
+
+It is notable that Covid-19 spread through the world at breathtaking speed because of the technology that we have to allow people to go from any spot in the world to anywhere else quickly. This kind of technology could bee used to put some protection against the inherit risk in all that leverage.
+
+That's the end of Must Read.
+
+Now, the Photograph section.
+
+Over 6 inches of snowfall in mid-April is never a welcome site. I hope this is the last we see of snow until next Winter!
+
+Improve deliverability?
+You can help make sure that you always get each issue of this by adding my email address to your address book! It should be simple, click on my name and there is probably a button to add to contacts or add to address book.
+
+That's the end of Photograph.
+
+Now, the Recommended Links section.
+
+Goat 2 Meeting — Sweet Farm
+
+I absolutely love this.
+
+Quote.
+Need a fresh face to brighten up your video conference meetings? Want a fun experience for an online Happy Hour? Looking for a virtual tour? The Sweet Farm Animal Ambassadors are here for you. What happens on a call, you say? We will join your call, do a quick intro of the farm and introduce you to the animals on your virtual tour! You can ask us questions or just hang out.
+End quote.
+
+What a great idea and smart way to raise money.
+
+Lexington - A river runs through it | United States | The Economist
+
+Fly fishing and social distancing.
+
+Quote.
+They kept 12 feet apart, mind, while chatting and scrambling down the riverbank. This seemed not only sensible but representative of what fly-fishing is. It is a solo activity. Yet the technical demands of casting a long line to deliver a feathered hook to the water with, ideally, the delicacy of an insect alighting make its practitioners prone to lively exchanges of information: on rods, water, flies and so forth. An American master angler, Lee Wulff, called fly-fishing "the most social of all the solitary sports".
+End quote.
+
+Love it.
+
+iPhone SE: A powerful new smartphone in a popular design - Apple
+
+I am glad to see that Apple keeps updating this small, simple phone. There is a strong niche of people that much prefer this over the giant display phones that barely fit in our pockets.
+
+How to Never Waste a Good Crisis | Leadership Freak
+
+I have seen a lot of humility from the leaders I work with.
+
+Quote.
+Leaders are developing a healthy case of humility during COVID-19. Frankly, it’s a good thing because lousy leadership is rooted in ego. Success followed by admiration tests character. An ancient Jewish proverb puts it this way, "The crucible is for silver, and the furnace is for gold, and a man is tested by his praise."
+End quote.
+
+I like the straightforward tasks outlined in here to ground leaders.
+
+Jim Collins - The Stockdale Paradox
+
+Good reminder for us as we look forward through the unknowable future.
+
+Quote.
+"This is what I learned from those years in the prison camp, where all those constraints just were oppressive. You must never ever ever confuse, on the one hand, the need for absolute, unwavering faith that you can prevail despite those constraints with, on the other hand, the need for the discipline to begin by confronting the brutal facts, whatever they are. We’re not getting out of here by Christmas."
+End quote.
+
+We. Got. This.
+
+How Zoom is reclaiming its brand... and why it will succeed - without bullshit
+
+I agree with this analysis of Zoom's response to recent security and privacy issues.
+
+Quote.
+My experience as an analyst covering technology companies tells me that this is not a typical response. It’s not lip service. It’s cultural change, generated from the top, with actual product engineering changes to match. Zoom is not standing still, it’s not just defending itself with empty statements, it’s actually engaging with critics and re-engineering both the product and the company to be more respectful of security — and doing all of this, while dealing with a massive traffic increase, a massive increase in public scrutiny, and a lockdown that affects everybody’s productivity. This is not business as usual.
+End quote.
+
+It does seem genuine. This is the antithesis of Facebook's constant "I’m Sorry Tours" on privacy.
+
+Also of note, they hired Alex Stamos, former Facebook security chief. He's a serious player, and if the organization doesn't take his direction he is likely to leave. The CEO did the right thing by bringing in a serious security lead.
+
+NextDNS is my new favourite DNS service
+
+I've setup Pi-Hole servers to manage privacy and surveillance at my house. If I didn’t have that, I would probably be using this service.
+
+John Conway Dies From Coronavirus
+
+We lost John Conway to Covid-19 this week. He was a brilliant math mind. Also read this writeup by Terence Tao. Conway created Conway's Game of Life, and XKCD did a wonderful tribute to him too,RIP John Conway.
+
+Purelymail - Cheap email for everyone
+
+Personally I use Fastmail and am a big fan, but you really should pay for your email host and get out of being surveilled all the time. This is a no frills basic mail service for cheap.
+
+The chemistry of cold-brew coffee is so hot right now | Ars Technica
+
+Cold-brew is all about the acid levels, and specifically keeping them lower. This is the first I've seen though that suggests that the darkness of the roast also interacts with the cold brew in a specific way.
+
+Quote.
+For the lighter roasts, Rao et al. found that caffeine content and antioxidant levels were roughly the same in both the hot- and cold-brew batches. But there were significant differences between the two methods when medium- and dark-roast coffee beans were used. Specifically, the hot-brew method extracts more antioxidants from the grind; the darker the bean, the greater the difference. Both hot- and cold-brew batches become less acidic the darker the roast. An academic paper on the results is forthcoming.
+End quote.
+
+Now back to my coffee.
+
+what's reasonable for managers to expect of parents working from home? — Ask a Manager
+
+Good reminder, again, that we are not simply in a work from home environment. We are in a global pandemic with a mandated quarantine.
+
+Quote.
+In the past, it was reasonable to expect people to stay more or less productive throughout the workday. It’s not anymore. That’s not because people are lazy or taking advantage or somehow not understanding what work you expect of them. It’s because there is a global pandemic that has changed everyone’s reality. It needs to change yours too.
+End quote.
+
+This is a different thing entirely, and we all need to work together and be agile and empathetic to the needs of our teams.
+
+Some shirts hide you from cameras—but will anyone wear them? | Ars Technica
+
+It is creepy to me that this is a thing, but I suspect we are going to continue to see image recognition and facial recognition systems advancing and clothing that is specifically designed to trick it into getting confused is a good idea. Certainly isn't fashionable though.
+
+Opinion | Jason Isbell: John Prine Taught Me to Stay Vulnerable - The New York Times
+
+We lost John Prine to Covid-19 this week, and that completely sucks. Prine is an American treasure. This article by the very talented Jason Isbell is a nice reflection of his impact on him, and all of us.
+
+Quote.
+John was in his early 20s when he wrote "Hello in There" from the perspective of an old man sharing an empty nest with his lonely wife. Hearing him sing the song after decades of hard living and surviving numerous illnesses brought new meaning to the lyrics, now delivered by a man who had caught up with the character he created. John always said when he grew up, he wanted to be an old person.
+End quote.
+
+That Prine wrote "Hello In There" when he was in his 20's is simply astounding.
+
+Coronavirus economy plans are clear: No return to normal in twenty twenty - Vox
+
+This is going to be very hard to do.
+
+Pipedream - Integrate your data, APIs, and cloud services in minutes
+
+This looks like a much more technical and developer focused platform for doing things like Zapier or IFTTT. You can plug in your own node.js code as well. Doesn't seem to have any revenue model, which might be a "pipe dream".
+
+Capitalists or Cronyists? | No Mercy / No Malice
+
+Galloway with his typical "no holds barred" writeup on the bailouts. He is highlighting a valid point, that bailing out some of these companies is often pitched as continuing to provide a service to the consumer, but is that really right?
+
+Quote.
+As long as they keep making old people, and younger people want to take their kids to Disney’s Galaxy’s Edge, there will be cruise lines and airlines. Since two thousand, US airlines have declared bankruptcy 66 times. Despite the obvious vulnerability of the sector, boards/CEOs of the six largest airlines have spent 96% of their free cash flow on share buybacks, bolstering the share price and compensation of management … who now want a bailout. They should be allowed to fail. Bondholders will own the firms. Ships and planes will continue to float and fly, and there will still be a steel tube with recirculated air waiting for you post molestation by Roy from TSA.
+End quote.
+
+Certainly for some of these companies they would go bankrupt, somebody would buy the assets, and a new thing would be born.
+
+Nick Saban Just Got Email - Study Hacks - Cal Newport
+
+I only know Nick Saban's name because our COO references him frequently.
+
+Quote.
+Low friction communication makes a lot of modern work easier, because it allows you to avoid the pain of setting up and optimizing systems that organize your efforts. But easy is not the same as effective.
+End quote.
+
+It’s interesting that Saban seems to use some of the techniques that Newport advocates for in Deep Work.
+
+Brand New: A Simplified Time Management Course – The Sweet Setup
+
+Time blocking has never resonated with me, but I signed up for this course so I can give it a more serious look. I've never fully embraced and understood the concepts so I’m hoping this will give me an appreciation and hooks to put it to work, or I can stop thinking about it going forward.
+
+Brandi Carlile Pays Tribute To John Prine: "Hello In There" - YouTube
+
+Brandi Carlile is one of our favorite artists, she is amazing. She also was a big fan of John Prine and this performance is very touching. RIP John Prine, an amazing musician.
+
+Opinion | America Will Struggle After Coronavirus. These Charts Show Why. - The New York Times
+
+The staggering and growing gap between the have's and have not's in America is going to make the damage inflicted by the Covid-19 pandemic uneven, dramatically different, and perhaps even difficult to relate too between people in the same community.
+
+That's the end of Recommended Links.
+
+Now, the Stream section.
+
+Thursday @ 10:03 PM
+
+The climbing jntervals in today’s spin class were epic. Whew. #FitByFifty
+
+Thursday @ 2:46 PM
+
+“Black gold.”
+
+Wednesday @ 7:58 PM
+
+Osmo Coding Duo
+
+Osmo was running a sale recently and I decided to fill out our collection. We got the Hot Wheels™ MindRacers which I didn’t think was going to be that fun, but surprised me by being super fun to play together. I also ordered Coding Duo, in part because we already had Coding Awbie and Coding Jam, so Coding Duo was just another 15 dollars to get two pieces to put it all together. Tyler fired up Coding Duo and has been having a lot of fun with it, and I am very impressed with what a learning experience this is.
+
+Coding Duo uses all of the control pieces of both Coding Awbie and Coding Jam, and introduces the idea of having two characters that you write sequences of code for independently. To play the game, you have to write a distinct sequence of actions for each character, and to make it even more interesting each character has unique capabilities. To complete the levels, Tyler learned a bunch about debugging, getting the programs to interact with each other, and building complex sequences that interact with each other. You can also have two people play together by each writing a program of their own.
+
+It is a very impressive learning environment. I would highly recommend it for any kids that want to explore logic and coding concepts.
+
+Wednesday @ 6:07 PM
+
+What do you do when your new puppy figures out how to jump on the couch?
+
+Tuesday @ 7:07 PM
+
+Had a great 30 minute spin class on Peloton this morning. #FitByFifty
+
+Sunday @ 9:36 AM
+
+As great as yesterday’s weather was, that is how not great today’s weather is. Brrr!
+
+Sunday @ 7:08 AM
+
+We took Lucky on a walk that was just too long for her puppy stamina yesterday so I had to carry her for a while.
+
+Sunday @ 7:07 AM
+
+Awesome pictures of Lucky (3 months old) that Tammy took yesterday. She’s such a cute puppy!
+
+Saturday @ 6:58 PM
+
+I liked the privacy and security benefits of having a Pi-Hole at home so much that I decided to put one in the cabin too. Next up cable management.
+
+Saturday @ 1:54 PM
+
+Warsaw Business's Customer Appreciation Parade
+
+What can a small township in Minnesota do to bring some cheer to people during the Pandemic lockdown? A parade! Minus the throwing candy part of course. Thanks to these Warsaw, MN businesses: Americas Mattress - Dundas, BFB Solutions, Channel Inn, D and L Real Estate, DGC, Doc's Dock Campground, Simple Strategies, Rick and Mary Tonjum, The Upper East Side, and Witte Bros!
+
+Saturday @ 1:51 PM
+
+Gorgeous day — enjoying some time outside with a fire!
+
+Friday @ 6:26 PM
+
+We have most of the Osmo games, and today we got Osmo Hot Wheels™ MindRacers. Kids and adults are having fun!
+
+That's the end of Stream.
+
+Now, for your information.
+
+Library JSON - A Proposal for a Decentralized Goodreads
+
+This is a cool idea, but I think a microformat may be a better solution than asking people to publish raw JSON.
+
+Amid coronavirus shutdown, Yosemite wildlife roams free - Los Angeles Times
+
+This reminded me of the book The World Without Us.
+
+mdBook: Create book from markdown files
+
+Feeling like writing a book during the pandemic? Markdown is very easy to learn and use, and this tool will turn it into an eBook you can distribute!
+
+IBM will offer free COBOL training to address overloaded unemployment systems
+
+If you want to learn some COBOL.
+
+Mini Office
+
+Tired of working from home? Bring a mini office to your home. "Quantities Limited"
+
+markmap-lib
+
+Not sure why you wouldn't just use a great mind mapping tool like Mindnode, but if you have markdown and want a map, this is slick.
+
+There Are No Problems, Only Projects | GTD® - YouTube
+
+GTD founder David Allen applying a key GTD concept to the Coronavirus stay-at-home orders.
+
+How to Make a Hunker-Down Budget in YNAB | You Need A Budget
+
+If you want to manage all the dollars in your budget, YNAB is a great tool.
+
+That's the end of the FYI section.
+
+Now, the Reply All section.
+
+Here are some replies from Weekly Thing #143 / Archetypes, Wear a Mask, Zoom.
+
+John Kelly saw me using the #FitByFifty tag and decided to hit his bike and join me in the journey. Just a couple of days into that, he was stopped by Sharon Yoo of Kare 11 on a ride and got this video snippet!
+
+My friend David Callaway gave the Weekly Thing one huge recommendation in his Callaway Climate Insights newsletter.
+
+Quote.
+Shoutout to Jamie Thingelstad, former CTO of CBS MarketWatch and a good friend for 20 years, for sending subscribers our way from his popular newsletter, the Weekly Thing. Jamie’s weekly offerings of fascinating tech stories and his Keillor-esque descriptions of life in Minnesota make for great reading every Saturday morning. Highly recommended.....
+End quote.
+
+"Keillor-esque" seems a whee bit of a stretch, but hey, I'll take it!
+
+Tweet often?
+Help put out the dumpster fire and share this on Twitter.
+
+That's the end of Reply All.
+
+Now, the Fortune section.
+
+You've made it all the way to the end! Here is your fortune for this week.
+
+You will be awarded some great honor.
+
+Thank you for subscribing to the Weekly Thing!
+
+That brings us to the end of the Weekly Thing, issue 144. Thanks for listening, and I'll see you next time.

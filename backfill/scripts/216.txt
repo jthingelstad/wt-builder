@@ -1,0 +1,219 @@
+The Weekly Thing, issue 216. NFT, DST, PDP. Published March 20, twenty twenty two. By Jamie Thingelstad. In this issue: GISTEMP climate spiral, war diary Belorusets, daylight saving time permanent, NFT rug pull, internet resilience Ukraine, PDP-11 minicomputer.
+
+Sunday delivery has become a bit of a regular thing the last couple of weeks.
+
+I’m a bit behind, and am going to skip right to the links this week.
+
+Now, the Featured section.
+
+Link one. "Nifty Ink"
+
+I loved Nifty Ink as soon as I discovered it via their Gitcoin grant.
+
+"Putting the fun in non-fungible tokens"
+
+Nifty Ink is all about making a super simple NFT creation platform that is usable by anyone. This isn't about buying NFT's and "going to the moon." This is about a super-simple low-barrier platform that allows anyone to create, sell, buy created images for very low costs. Many are 1 dollar. It is implemented on the xDai chain so transaction fees are super low.
+
+All about fun. You can see my collection and I even put one in Mazie's collection.
+
+Link two. "The War Diary Of Yevgenia Belorusets"
+
+Like so many I have been following intently the news from the war in Ukraine. Mostly I get that via established US news sources, and some local sources like the Kyiv Independent. I found Belorusets blog via Dense Discovery 179 (a fabulous newsletter by the way). She has been publishing once a day from Kyiv, and telling a more personal story and sharing the interactions she has with others. Her writing is touching and honest.
+
+That's the end of Featured.
+
+Now, the Notable section.
+
+Link one. "SVS: GISTEMP Climate Spiral"
+
+There are so many visualizations to show how climate has changed in recent years, but this one does a particularly good job of showing that.
+
+Quote.
+The visualization presents monthly global temperature anomalies between the years 1880-twenty twenty one. These temperatures are based on the GISS Surface Temperature Analysis (GISTEMP v4), an estimate of global surface temperature change. Anomalies are defined relative to a base period of 1951-1980.
+End quote.
+
+At the end it tips up and looks like a tornado.
+
+Link two. "How Busy Managers Practice People Development - Leadership Freak"
+
+Collection of simple, short reminders around people development. I would guess any leader, at any level, could look here and find some things that they would benefit from focusing on more. I know I did!
+
+Link three. "What Does Normal Mean Two Years Into Pandemic?"
+
+This idea of moving forward and pulling along what we have learned through the pandemic is something I have been thinking about. "Going back" and "normal" suggest a comforting familiarity, but aside from time only going in one direction it also suggests we would not learn from what we have experienced.
+
+Quote.
+Going back to normal is the wrong direction anyway. We need to move forward, to build new lives, better lives. Lives that address the inequalities laid bare in the pandemic, that pay people doing work we deemed "essential" two years ago wages that reflect it; lives that offer healthcare that doesn’t just address the current emergency but the fact that all of us live on a razor’s edge all the time; lives that give parents the support they desperately need; lives that lift up black and brown people who bore the brunt of the pandemic’s harshest outcomes; lives that feel like they’re worth living, for everyone. It’s possible. I have to believe it’s possible.
+End quote.
+
+We improve by learning from our experiences. And this all doesn't start on the top and come to us as individuals. I think it starts with all of us as individuals.
+
+Link four. "WaterMinder 5.1 Delivers a Ground-Up Redesign of Its Apple Watch App and More - MacStories"
+
+I tried WaterMinder out years ago in an attempt to track my hydration. I often forget to drink enough water. The app was a bit cumbersome though and it never really took. I saw the headlines on this new version, particularly the focus on the Apple Watch app and decided to give it another go.
+
+Link five. "U.S. Senate approves bill to make daylight saving time permanent | Reuters"
+
+I'll admit that I’m one to gripe a bit about daylight saving changes. It is when I notice just how many clocks we have. And I don't love the mild change to our circadian rhythms. However, this bill picks the wrong way. It is already hard in the northern states to deal with the very small amount of light we get in the winter. If this law passed, it would be dark well into the day. While I don't love it being dark at 5pm, I would dislike even more dark at 8:30a!
+
+Link six. "How To Do Less"
+
+Good approach here for product teams building out new capability. Particularly the first aspect of maintenance costs. Reducing maintenance costs is an investment that keeps on paying forever. As those costs go up, your velocity is impaired forever. Related, reducing cycle time is another gift that always keeps giving.
+
+The other component is really about minimizing switching. Context switching is very expensive for development teams. Having fewer things to focus on results in less context switching, and context switching has no customer value.
+
+Link seven. "How to Tell the Difference Between a Legitimate NFT and a Rug Pull"
+
+This is a good thought piece on how to approach the value in any project.
+
+Quote.
+There’s a simple question you should ask if you’re trying to tell whether a crypto or NFT project has a future: What is the core value of the project, seperate from the NFT? You can ask this for any project.
+End quote.
+
+NFTs are a way of showing some component of ownership. If the thing that that is a component of has no value, then you can’t possibly have value in the underlying component.
+
+Link eight. "The Resilience of the Internet in Ukraine | RIPE Labs"
+
+Throughout Russia's attack on Ukraine the Internet in Ukraine has held up very well. This article shares analysis on why that is. TL;DR answer — the market is not centralized and many of the network providers manager their own egress to the broader Internet. Few centralized points of failure. This is a good thing.
+
+Quote.
+Due to low market concentration at multiple levels and the relatively high number of interconnect facilities, there are no obvious chokepoints, or individual networks whose loss would have a crippling effect on the Internet in Ukraine.
+End quote.
+
+The biggeest risk really is power loss. If a region loses power, the Internet infrastructure there goes dark too. And before you think wireless solves all this, remember that all wireless Internet access needs to go terestrial at some point.
+
+This all highlights the key role that communications infrastructure plays, particularly in times of war.
+
+Link nine. "Project POCKIT"
+
+Ever wanted to be able to make computing devices like they were LEGO? Here it is. This looks incredibly cool, and what an awesome way to learn and just play around. The 16 minute overview video has a ton of great information. Super interesting.
+
+Link ten. "Global payment solutions for Web3"
+
+Stripe makes a big move to enable Web3 crypto businesses on their platform.
+
+Quote.
+Stripe gives crypto businesses access to today’s global financial infrastructure. Whether you’re an established crypto business or simply exploring new possibilities, you can process payments for fiat currencies globally through a single integration—with fraud prevention and authorization optimization built in.
+End quote.
+
+The same way that Stripe lowered the barrier for accepting payments from credit cards, they are now doing the same for crypto.
+
+Link eleven. "Russia creates its own TLS certificate authority to bypass sanctions"
+
+Interesting detail with Russia continuing to manager web infrastructure in country. The actions that Russia has taken to close their Internet highlights why we really do need to think about data sovereignty. This work around TLS certificats makes me wonder if we might start seeing governments require a role in the TLS chain of trust.
+
+Link twelve. "Some benefits of simple software architectures - Wave Blog"
+
+Technologists often consider the operational aspects of complicated software architectures, but there are many other trade offs that are much less obvious. Communicating your architecture to others, training in new developers, or even just the limitations those complexities place on your hiring pool.
+
+Link thirteen. "A brief tour of the PDP-11, the most influential minicomputer of all time | Ars Technica"
+
+The PDP-11 has a huge role in the history of modern computing. So much came from this elegant machine.
+
+Quote.
+The first version of UNIX was written in PDP-11 assembler; it had 34 system calls, it was written in 4,200 lines of code, and it ran on 12KB of main memory.
+End quote.
+
+In Hackers, Steven Levy's great book, there are dozens of stories around the PDP-11.
+
+That's the end of Notable.
+
+Now, the Support Ukraine section.
+
+The people of Ukraine need the worlds help as they struggle through the invasion of their country. Please consider helping with a financial donation to these causes.
+
+- Donate Crypto to Ukraine: Support people in their fight for freedom.
+- Ukrainian Red Cross: All funds will be used to help those in need, affected by armed conflict, blood collection, mobilization of volunteers and resources, and emergency activities.
+- 1 thousand dollars Project: Sponsor a Ukrainian family in need.
+- Samaritan's Purse: Samaritan's Purse has deployed an Emergency Field Hospital to Ukraine.
+- Convoy of Hope: Whether it’s after a disaster, feeding a hungry child, or helping a parent put food on the table, Convoy of Hope is proud to deliver your kindness to those who need it most.
+- Doctors Without Borders: We have teams in Ukraine, Poland, Moldova, Hungary, Slovakia, Russia, and Belarus. We are an independent and impartial organization committed to providing medical humanitarian assistance to people affected by the war no matter who they are or where they are.
+- Voices of Children: Providing non-stop assistance to affected children and families from all over the country, providing emergency psychological assistance, and assisting in the evacuation process.
+- USA for UNHCR: UNHCR is on the ground scaling its response to provide assistance and ensure those displaced find safety in welcoming arms in this moment of crisis.
+- Razom for Ukraine: Razom creates spaces where people meet, partner and work together to unlock the potential of Ukraine.
+- Kyiv Independent: Support independent journalism in Ukraine. Choose one-time or ongoing support.
+- International Red Cross: Operations in Ukraine are among the ten largest ICRC operations worldwide with a team of over 600 staff members.
+- United Help Ukraine: Help us provide medical aid and humanitarian relief to brave Ukrainians defending themselves! Stand with the people of Ukraine!
+- Care.org Ukraine Crisis Fund: Give now to send lifesaving food, water, and hygiene kits to the most vulnerable in Ukraine.
+- Direct Relief: Direct Relief is working with Ukraine’s Ministry of Health and other groups in the region to provide requested medical aid—from oxygen concentrators to critical care medicines—while preparing to offer longer-term aid to people displaced or affected by the war.
+- World Central Kitchen: Providing meals to Ukrainian families in need.
+- Lifeline Ukraine: Suicide prevention support line.
+- UNICEF: Help UNICEF deliver aid to hundreds of thousands of children in eastern Ukraine impacted by violence — and to hundreds of thousands more as UNICEF races to meet increasingly urgent needs across the country.
+
+Thank you!
+
+That's the end of Support Ukraine.
+
+Now, the Journal section.
+
+Thursday @ 7:54 PM
+
+We had our #TeamSPS St. Patrick’s Day celebration for the first time since twenty nineteen! Something green, some Guinness, and we even had some Hurling!
+
+Monday @ 8:35 PM
+
+Tammy made our traditional Pi Day dinner: homemade Chicken Pot Pie and Peanut Butter Pie!
+
+Monday @ 8:25 PM
+
+We had a great Pi Day celebration for #TeamSPS. Somehow I managed to take pictures of the setup and forgot to take more when the people showed up!
+
+Sunday @ 10:19 PM
+
+I made the leap today — got a Leica Q2. We have a number of trips this year, and will be getting a lot of shots with this.
+
+Sunday @ 7:53 PM
+
+Went through all my photography gear and filtered out the stuff I no longer need or don’t use. National Camera took it all off my hands for a good price.
+
+Sunday @ 1:55 PM
+
+I’ve been using Telegram more recently to stay in contact with folks in Ukraine. I decided to create a channel for thingelstad.com and a channel for the Weekly Thing. If you like getting things in Telegram, there you go.
+
+Saturday @ 5:17 PM
+
+Tammy’s grandparent’s cuckoo clock is ticking again at our cabin thanks to Blackstone Manor Clock Repair.
+
+That's the end of the Journal.
+
+Now, the Briefly section.
+
+Link one. "'I will go back to help': Women head home to aid war effort | AP News"
+
+So many stories of bravery and courage in the face of war.
+
+Link two. "macOS 12.3: The Magic of Universal Control and More"
+
+Most recent macOS update, which is mostly about Universal Control. Oh, and new emoji too.
+
+Link three. "Palmer Luckey Says Working With Weapons Isn't as Fun as VR | WIRED"
+
+Interesting brief interview with the founder of Oculus who is now working on military technology. I've wondering how they make these complex weapons easy enough for people to use in combat, and I’m guessing it takes a lot of cues for gaming technology.
+
+Link four. "iOS and iPadOS 15.4: Hands-On with Universal Control, Face ID with a Mask, and More"
+
+Detailed overview of the various improvements in the newest iOS release. Universal Control on iPadOS is pretty cool and works very well. It hasn't become part of my regular setup, but it might.
+
+Link five. "5 Energizing Conversation Starters for One-on-Ones"
+
+All good things to go over in one-on-one meetings.
+
+Link six. "Cron best practices | Arabesque"
+
+You can use cron to do so much, and this guide highlights some of the more advanced features of cron that you should be using.
+
+Link seven. "The Beginner's Guide to Intermittent Fasting"
+
+Good overview on something I consider doing, but have never committed to.
+
+That's the end of Briefly.
+
+Now, the Fortune section.
+
+Here is your fortune…
+
+Today is the first day of the rest of your life.
+
+Thank you for subscribing to the Weekly Thing!
+
+That brings us to the end of the Weekly Thing, issue 216. Thanks for listening, and I'll see you next time.

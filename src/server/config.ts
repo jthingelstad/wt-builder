@@ -95,8 +95,10 @@ export const config = {
   /**
    * Synthesized speech, one file per script block, keyed by what was said and
    * how. A wording fix re-synthesizes only the blocks that changed; a failed
-   * run resumes where it stopped. Beside the database, so it is backed up
-   * and ignored with it.
+   * run resumes where it stopped. A cache, not the copy of record: every
+   * piece is also in the CDN bucket under `TTS_STORE_PREFIX` (audio.ts), and
+   * this directory is not backed up — it is git-ignored with the database
+   * but, unlike the database, not in the critical-state backup.
    */
   ttsCacheDir:
     optional('WT_BUILDER_TTS_CACHE') ??

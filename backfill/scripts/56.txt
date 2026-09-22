@@ -1,0 +1,205 @@
+The Weekly Thing, issue 56. Jun 2, twenty eighteen. Published June 2, twenty eighteen. By Jamie Thingelstad. In this issue: CAPEX cloud trends, location data privacy, OmniFocus 3 iOS, data visualization colors, eero public key infrastructure, black Python formatter.
+
+Weekly Thing is now privacy enhanced. By default, MailChimp tracks when people open newsletters and what links you click on. Most of the people that read this know that I value my privacy, and I don't like the idea of being watched. So, in accordance with not being a hypocrite, I've disabled those features. I'm not sure if MailChimp will honor them both, it may still put tracking code on the links, but I know it will not track opens. Enjoy reading with more privacy.
+
+Now, the My Blog Posts section.
+
+Humble Leadership Profile
+
+My thoughts on the topic of Humble Leadership, particularly as it relates to leading technology teams.
+
+That's the end of My Blog Posts.
+
+Now, the Featured Links section.
+
+Link one. "Follow the CAPEX: Separating the Clowns from the Clouds – Platformonomics"
+
+Capital spending by cloud providers is a reasonably good metric for their growth and investment in the future.
+
+As I keep repeating, CAPEX is both a prerequisite to play in the big boy cloud and confirmation of customer success. Both IBM and Oracle are tens of billions of dollars in cloud infrastructure CAPEX behind Amazon, Google, and Microsoft.
+
+The amount that major cloud providers spend on capital is amazing. This article looks at the next rung of cloud providers to see how they compare.
+
+Link two. "Internet Trends Report twenty eighteen"
+
+Mary Meeker's Internet Trend reports are things of legend now. At 294 slides there is a lot here, as always. Interesting observations:
+- 5.9 hours spent online per day. Up from 2.7 in two thousand eight and 5.6 just last year. Wondering where all your time went? There it is.
+- There are 450 million WiFi networks. Wow! Turns out IPv4 lasted longer than we ever thought.
+- China has 500 million mobile payment users.
+- There are over 30 million Amazon Echo devices out there.
+- You are worth 34 dollars/year to Facebook.
+- E-commerce is 13% of all retail sales.
+- Alibaba is clearly an Internet giant that most in the US have little knowledge of.
+- Flexibility is most desired benefit employees seek.
+- Time spent on social media alone, 135 minutes/day.
+
+This is all worth a couple of times through.
+
+Link three. "Why Is Your Location Data No Longer Private? — Krebs on Security"
+
+This is a long article from Krebs but it’s a great read on the real world activity happening behind net neutrality. Additionally, I feel like legislative activity in this area shows the most direct line to lobbying and money-driven votes.
+
+So the carriers are already reneging on their promise to customers that they won’t share location data without customer consent or a court order. But where does that leave us on net neutrality? The answer is that the major wireless carriers are already doing what was expressly prohibited under the FCC’s net neutrality rules: Favoring their own content over competitors, and letting companies gain more favorable access by paying more.
+
+The data that we transmit when we use our mobile devices and broadband services is immensely valuable in the market. Unless legally blocked, this data will be sold. And the sellers and buyers have no interest in your privacy or anything else about protecting you. This is the same argument I often make online with free websites like Facebook. Here I find it more appalling because we all pay, in some cases a lot, for these services! We should have an expectation of privacy.
+
+When I first saw a Carnegie Mellon University researcher show me last week that he could look up the near-exact location of any mobile number in the United States, I sincerely believed the public would be amazed and horrified at the idea that mobile providers are sharing this real-time data with third party companies, and at the fact that those third parties in turn weren’t doing anything to prevent the abuse of their own systems.
+
+So the tinfoil hat people saying that our mobile phones are being used to track us everywhere are right. And it turns out most people seem to not care or not understand.
+
+That's the end of Featured Links.
+
+Now, the My Weekly Photo section.
+
+second grade baseball requires you to climb up on the fence to cheer on your teammates!
+
+ToDo: Photo caption here.
+May 31, twenty eighteen at 6:56 PM
+Minneapolis MN
+
+That's the end of My Weekly Photo.
+
+Now, the Notable Links section.
+
+Link one. "Lambda Cambridge - How Scrum disempowers developers (and destroys agile)"
+
+Interesting point, contrarian to most of my experience, but worth a read anyway. It’s good to read these views and see if any of it resonates with how you do agile/scrum in your team.
+
+Link two. "OmniFocus 3 for iPhone and iPad — MacSparky"
+
+David Sparks authored the OmniFocus Video Field Guide which transformed in fabulous ways how I use OmniFocus. Sparks is my "guru" when it comes to OmniFocus so of course his writeup is interesting.
+
+Link three. "Impressions of OmniFocus 3 – Releasing May 30 on iOS – Kourosh Dini"
+
+Kuorosh Dini is a Zen Master of Getting Things Done, and does it all with OmniFocus. His take is a must read on OmniFocus as well. His book on Creating Flow with OmniFocus is great too.
+
+Link four. "What to consider when choosing colors for data visualization | Chartable"
+
+I think color, and it’s implied meaning, is often overlooked in data visualization. In some industries color has encoded meaning that you have to follow.
+
+Link five. "OmniFocus 3 Review: More Approachable and Powerful, All at Once – MacStories"
+
+It’s OmniFocus 3 release week and I’m a huge user of OmniFocus. Of course MacStories has a very in-depth writeup on it. This is a great overview for people upgrading, but also very good if you are looking for a better task management tool.
+
+Link six. "5 easy ways you can help WikiTribune – WikiTribune"
+
+I was really excited about WikiTribune when it first launched but lost enthusiasm with the way they were running. Now Jimmy Wales has flipped it inside out and made it a wiki, which is what I think most people thought it would be to start with! This project is interesting again, but I also wonder how the new level of fake news can be dealt with in a platform for news that is a straight wiki.
+
+Link seven. "7 Tips to Overcome Fear of Failure in Business - Toggl Blog"
+
+The last two of these resonated with me. It’s a good topic to think about and determine how to manage, particularly for managers and leaders.
+
+Link eight. "The mesh of trust: A public key infrastructure for eero networks - The Download"
+
+What Eero is doing here seems really interesting.
+
+To recap, we’ve added a public key infrastructure to every eero network capable of operating in isolation from the global internet’s TLS system.
+
+That PKI infrastructure on your wireless routers could support improved security for a number of things in your home. It will be fun to see where they go with this.
+
+Link nine. "Daring Fireball: 10 Strikes and You’re Out — the iOS Feature You’re Probably Not Using But Should"
+
+I've always been scared of this feature for exactly the reason Gruber highlights -- kids putting the wrong code in. Now that I understand the delays I've enabled it on my phone.
+
+Link ten. "Halide: One Year Later – Halide"
+
+Halide is the only third party camera app that I have consistently kept using. The writeup on the development of Halide is a good read, as well as the second half of the article focused on the business of making Halide.
+
+Link eleven. "The deceptively complex world of calendar events and RRULEs"
+
+I've hand crafted iCalendar (.ics) files, and it’s amazing how much complexity there is in this specification. This is an interesting read to either amaze you with the complexity, or fill you with fear to run away if you ever need to produce these.
+
+Link twelve. "Retrobatch"
+
+New Mac application that allows you to automate image manipulation in very powerful ways. If you regularly need to create process images through multiple steps this app can save you time.
+
+Link thirteen. "The ultimate Bill Gates book recommendation list — Quartz"
+
+Bill Gates reads a lot, and he regularly recommends books. Quartz put them all in one place for easy reference.
+
+Link fourteen. "China's social credit system blocked people taking 11 million flights - Business Insider"
+
+China creating an "extra-legal" system to punish people outside of the typical legal system. This is empowered by connected data.
+
+Since the debtor list was first created, state-media reports repeatedly described it as the first step toward creating a China-wide social credit score, expected in twenty twenty.
+
+It seems so obvious to include data taken from citizens online activity that it’s hard to believe it wouldn't be in this system already.
+
+Link fifteen. "How digital cameras work"
+
+This is a very approachable article explaining how the digital camera on your phone or other devices works. Some interesting math and depth on how computers capture and interpolate the data from the sensors.
+
+Link sixteen. "black: The uncompromising Python code formatter"
+
+Nice utility that will take your Python and format it in a very precise way.
+
+Black is the uncompromising Python code formatter. By using it, you agree to cede control over minutiae of hand-formatting. In return, Black gives you speed, determinism, and freedom from pycodestyle nagging about formatting. You will save time and mental energy for more important matters.
+
+I like almost all of it but I find the closing bracket "dedenting" odd.
+
+Link seventeen. "We are all trapped in the “Feed” — Om on Tech"
+
+Om has the depth and breadth of experience with the web to provide this perspective. This is a good reason to opt out of “Big Tech” and it’s optimized engagement and seek out personal websites with their quirky and unexpected. I do believe that some feeds, ones that are not machine curated and in time order are fine for efficiency. For me Feedbin is that central place that connects me to the broad web. No ads or engagement metrics to satisfy, because I pay a small annual subscription for the service.
+
+That's the end of Notable Links.
+
+Now, the Give Back section.
+
+Minnestar is the technology community for Minnesota. If you are passionate about technology you need to go to Minnebar and Minnedemo. Did you know that Minnebar is the largest BarCamp in North America and one of the largest in the world? Its also been going on for over 10 years? Minnedemo is the best place to hear about innovative tech and fun projects in the Twin Cities area. I am on the Minnestar board and I focus on Minnestar as one of the driving forces improving and expanding the technology community in the area. Minnestar is a 501c3 non-profit. Become a Community Supporter today!
+
+That's the end of Give Back.
+
+Now, more links.
+
+- Microsoft has leapfrogged Alphabet to become the world's third most valuable company — Quartz
+Under Nadella's leadership Microsoft is doing interesting things. In the last 2 years the market has taken note.
+- PagerDuty + Atlassian: Taking Modern Incident Response in Stride | PagerDuty www.pagerduty.com
+- Incident Management at Spotify | Labs labs.spotify.com
+- 9 Common Email Signature Mistakes You Want To Avoid – SaneBox Blog blog.sanebox.com
+How to make sure the lowly email signature is getting the right attention.
+- Analyst: Apple will launch an iPhone with a triple-lens rear camera in twenty nineteen — Apple World Today www.appleworld.today
+A triple-lens camera system on the iPhone would be a great upgrade.
+- Pokémon: Let's Go for Nintendo Switch: Everything you need to know | iMore www.imore.com
+- Anker PowertPort Solar 21-Watt Charger — Tools and Toys toolsandtoys.net
+I like Anker's products and this would be fun to have just because.
+- WordPress at 15 | Matt Mullenweg ma.tt
+15 years of making the Internet a better place.
+- Microsoft expands data privacy tools ahead of GDPR - The Verge www.theverge.com
+- Will Kubernetes Collapse Under the Weight of Its Complexity? | Blog | InfluxData www.influxdata.com
+- Full Cycle Developers at Netflix – Netflix TechBlog – Medium medium.com
+- Ghostery Email Incident Update - Ghostery www.ghostery.com
+A service that works to defend users privacy, leaks users data, while communicating a change to help protect users privacy.
+
+That's the end of More Links.
+
+Now, the Microposts section.
+
+Great conversation tonight at Meditation and the Science of Human Flourishing with Mingyur Rinpoche and Richard Davidson hosted by Tergar Meditation Community.
+
+Of course we celebrate National Donut Day at #TeamSPS!
+
+Dropped my full cup of Dunn Bros coffee all over my desk, pouring 80% of it all over the place. Quickly wiping off my iPad proceeded to drop the iPad and hit the coffee cup again, spraying the remaining contents 6 feet away on the wall. Then attempting to mute the conference call I’m on, I hit the wrong button and hang up. I need to hit reset on this day and it’s not even 8am.
+
+Firmware updates are the best! I have an irrational excitement about them — always!
+
+My children both tend to pick Comic Sans when picking a type. I have no idea where I went wrong.
+
+Big Green Egg smoking.
+
+First tubing of twenty eighteen today!
+
+Brisket going in the Big Green Egg for an overnight smoke. See ya in the morning!
+
+Look up - sunny!
+
+That's the end of Microposts.
+
+Now, the Fortune section.
+
+You've made it all the way to the end! Here is your fortune for this week.
+
+Blood is thicker than water.
+
+Thank you for subscribing to the Weekly Thing!
+
+That brings us to the end of the Weekly Thing, issue 56. Thanks for listening, and I'll see you next time.

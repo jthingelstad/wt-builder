@@ -1,0 +1,116 @@
+The Weekly Thing, issue 28. Weekly Thing for November 18, twenty seventeen. Published November 18, twenty seventeen. By Jamie Thingelstad. In this issue: Tesla Roadster, Toronto tech rise, Tim Berners-Lee on web, GTD guide, Daniel Kahneman, Atul Gawande, Datasette SQLite API, Firefox Quantum Era.
+
+This week I decided to jump into the Micro.blog Photo Challenge. This was a 7-day challenge with a theme for each day: Squares, Tasty, On the Move, Up Close, Liquid, Seasonal, and Shadow. I shot all the pictures on the day of the challenge. No dipping into my archive of photos. I also shot them all on my iPhone 7. It was a good reminder of how much I like photography and that I need to make time for creative activities like this. Some of the days were a real challenge with the theme. The last day was shadow, and it was rainy and dreary the entire day. There wasn’t a shadow anywhere. But wait, I can make my own with a flashlight. Some assistance from Mazie with the flashlight and I got my shot.
+
+Speaking of photos I got my photography website back online this past week. I’m still not loving the theme but it’s okay for now. I think I have some photos left to link up but it’s very workable. I also heard from a number of people that it was not cool to miss a photo in last weeks Weekly Thing, so I'll make sure that doesn't happen again.
+
+I haven’t written about Micro.blog but I should. I’ve used it exclusively to create all my status messages since it launched. People that follow me on Twitter are seeing a syndication of that content. I no longer author anything on Twitter, so I have full control of my content via Micro.blog. It’s one step away from the dumpster fire of hate known as Twitter. Micro.blog is still requires an invite. I have extra codes if any of you want one send me an email.
+
+Wishing you a very Happy Thanksgiving!
+
+Now, the Photog section.
+
+I participated in the Micro.blog Photo Challenge this week. This is my abstract photo for liquid. The CO2 bubbles streak as they charge up and out of the water.
+
+Nov 15, twenty seventeen at 7:08 PM
+Minneapolis MN
+
+That's the end of Photog.
+
+Now, the Links section.
+
+Link one. "Introducing the New Drip — Kickstarter"
+
+Cool new offering from Kickstarter that is in-line with platforms like Patreon. High quality platforms that can be a means to send financial support to various individuals doing compelling things seem like a good idea. I don't know that they will ever amount to a huge opportunity for creators, but it’s a good channel.
+
+Link two. "Toronto - The Incredible Rise of Tech"
+
+Promotional but good in-depth article about the rapid growth of the technology sector in Toronto. We have an office in Toronto which has given me a very small glimpse into that city. There are numerous companies looking at opening Toronto locations.
+
+Link three. "Roadster | Tesla"
+
+Amazing new version of the Tesla Roadster. 0-60 mph in 1.9 seconds!
+
+Link four. "Fly the airplane: Three practices for effective incident response | ITProPortal"
+
+Key things to consider in incident response to technology issues. I like the callout to Gawande's Checklist Manifesto, a fabulous book!
+
+Link five. "Tim Berners-Lee on the future of the web: 'The system is failing' | Technology | The Guardian"
+
+The inventor of the web is very concerned about the direction things are going. I'd agree with him. We aren't guaranteed a free and open Internet. We have to make that happen.
+
+Link six. "GTD in 15 minutes – A Pragmatic Guide to Getting Things Done"
+
+Simple, approachable guide to the GTD methodology. I like to keep these around since different people like different overviews.
+
+Link seven. "Highlights from Python Marathon by SPS Commerce in Ukraine | SPS Commerce"
+
+Cool even that our team in Ukraine organized for Python developers in Kyiv!
+
+Link eight. "Topicbox: modern group email discussions"
+
+Interesting new offering from Fastmail. I use Fastmail for my personal email. Looks a lot like a message board but tied more tightly to email.
+
+Link nine. "On Being - Daniel Kahneman - Why We Contradict Ourselves and Confound Each Other"
+
+Kahneman is amazing and I greatly enjoyed his Thinking Fast and Slow. It’s one of those books that keeps coming to mind over and over after you've read it.
+
+Link ten. "On Being - Atul Gawande - What Matters in the End"
+
+I’m a big fan of Atul Gawande and this episode of On Being is focused on the material in Being Mortal, a book I think everyone should read.
+
+Link eleven. "Containers Podcast"
+
+Good audio series in the spirit of The Box, which my book club read a long time before I joined. An amazing look into how impactful the containerization of shipping has been on the world. Also on iTunes.
+
+Link twelve. "Datasette: instantly create and publish an API for your SQLite databases"
+
+This is a really cool project to make public data sets available via a JSON API. Datasette dynamically creates an API for any SQLite database, and there is a handy utility for Python to turn any CSV into a SQLite database. This writeup of making a datasette for Polar Bears is a good overview. Super easy and simple project doing a good thing. Listing of datasettes.
+
+Link thirteen. "How Many Robots Does It Take to Fill a Grocery Order? - Bloomberg"
+
+This is worth looking at just for the video of the robots on an elevated grid or matrix moving around and picking things. I strongly believe we are just seeing the beginning of this type of automation, and this isn't even combined with any intelligence. Employment problems lie ahead.
+
+Link fourteen. "Glitch: write fun small web projects instantly - Julia Evans"
+
+Overview of Glitch that sounds pretty awesome for doing small web projects and sharing them.
+
+Link fifteen. "Turn off retweets!"
+
+Simple project from Julia Evans that allows you to turn retweets off for everyone you follow on Twitter. i've long wanted a feature on Twitter to do this. Used this right away and all retweets are disabled.
+
+Link sixteen. "Entering the Quantum Era—How Firefox got fast again and where it’s going to get faster – Mozilla Hacks – the Web developer blog"
+
+I may have to give Firefox a look for the first time in several years. I love the ethos of Firefox, particularly the pro-privacy positions, but the performance has been so bad as to be comical. This is a nice, approachable writeup on how they have focused on performance. Even people that are less technical may find this interesting as it gives a glimpse into how your browser works and the complex processes involved with making software very fast.
+
+That's the end of Links.
+
+Now, the Promotion section.
+
+Creative Commons helps you legally share your knowledge and creativity to build a more equitable, accessible, and innovative world — unlocking the full potential of the internet to drive a new era of development, growth, and productivity. I have been a supporter of Creative Commons for years. Larry Lessig, the founder of Creative Commons, has done the world a great thing by creating a legal structure to help authors and creators encourage remix culture. In addition to donating, you should consider making your content under a Creative Commons license. Donate to Creative Commons today!
+
+That's the end of Promotion.
+
+Now, the Microblog updates section.
+
+- Micro.blog Photo Challenge, Day 7: Shadow. Einstein. /cc @douglane
+- Hanging with @pbacken at #TeamSPS “Hop To It” Brew Off!
+- Fun (and cold!) #TeamSPS Brew Off today. Tailgate style!
+- Micro.blog Photo Challenge, Day 6: Seasonal. /cc @douglane
+- Excited for tomorrow’s #TeamSPS Brew Off! Part of our annual United Way campaign. Give back!
+- Micro.blog Photo Challenge, Day 5: Liquid. CO2! /cc @douglanr
+- Micro.blog Photo Challenge Day 4: Up Close - Espresso! /cc @douglane
+- Micro.blog Photo Challenge, Day 3: On The Move! /cc @douglane
+- Got my photography site back online. Still cleanup to do, but fun to see some of my favorite images.
+- Photo Challenge Day 2: Tasty! Smoking pork belly for bacon! /cc @douglane
+- After putting more complicated theme in Hugo takes 5.2 sec for 9,970 pages. Still a speed demon.
+- Hugo seems like it would be superior for my website needs in every way. May need to dig in and make it happen.
+- Hugo just generated 8,173 pages in 2.4 seconds. Jekyll takes around 500 seconds to do similar. Whoa.
+- Photo Challenge Day 1: Squares /cc @douglane
+- Went to a Bat Mitzvah for the first time today and was taken at the beauty of the ceremony!
+
+That's the end of Microblog updates.
+
+Thank you for subscribing to the Weekly Thing! If you know of people that would like the Weekly Thing please forward it along!
+
+That brings us to the end of the Weekly Thing, issue 28. Thanks for listening, and I'll see you next time.

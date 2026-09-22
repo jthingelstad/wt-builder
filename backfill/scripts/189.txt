@@ -1,0 +1,267 @@
+The Weekly Thing, issue 189. TiddlyWiki, JsonLogic, Smiling. Published June 5, twenty twenty one. By Jamie Thingelstad. In this issue: Twitter Blue subscription, Starlink review, NFTs new frontiers, Timery Mac time tracking, Wikipedia fundraising, Unix Game, Uber app rewrite.
+
+Growing up my Mother didn’t have all that many rules, or at least not that many that I remember. She didn’t let me play with any kind of toy gun. I only remember that because my cousins played cops and robbers all the time and that doesn't work so well without a cap gun. She also was clear that swearing resulted in soap in the mouth. Once I realized that the bar soap could be used to make bubbles. That was short-lived fun and the bar soap was replaced with dish soap. Specifically Dawn detergent. I kept my mouth clean after that.
+
+One rule that I remember well, and I still follow without even knowing it, is that there was no TV before school. The morning was about getting ready and prepared for school, not for watching cartoons or anything else. This rule has stuck with me so much that even now as a middle-aged man I still can't stand a TV being on in the morning.
+
+Lately I've been challenged with my son's habit of getting his iPad out in the morning before school. An iPad is much more capable than a TV, so sometimes he's doing things that are just fine like reviewing something for school or watching educational stuff. But most of the time he's on YouTube or checking in on a game. I've shared with him how I thought it was good that I didn’t watch TV before school, and he nods and goes back to the speed-run video he's watching.
+
+I've been hesitant to put down a true rule and say "No screens before school." As I thought about why, it dawned on me how hypocritical it sounds. I’m regularly scanning my email, checking on various things, and otherwise engaging with my phone in the morning. Some of that is good, focused on fitness and mindfulness. Some of it is nonsense that I have no need for. Either way, he's really just doing the same thing that he sees me doing regularly.
+
+So much parenting advice starts with looking in the mirror. Maybe he and I need the same rules for our morning screens. Or maybe we both just need to take a lead from the women in the house, who do a much better job leaving all that to the side and focusing on what is happening right now, right around us all.
+
+"Nobody wants their worldview torn apart if loneliness is the outcome." — James Clear
+
+Is it also possible that the reverse is true? People will create a worldview to avoid loneliness?
+
+Now, the Featured section.
+
+Link one. "things are a little crazy rn"
+
+Okay, first a little background.
+
+Scheduling events is my kryptonite. I’m terrible at it. I often have a model that if the first run at dates doesn't work, it just wasn't meant to be. Scheduling is likely one of my worst anti-patterns.
+
+So to me this bit of AI generated art is absolutely brilliant… so so great.
+
+Quote.
+This piece simulates scheduling hell by generating infinite and unique combinations of meeting conflicts between two friends. Using GPT-3, a roster of fictional people was created with name, age, occupation, and interests. From these people, the AI generated banal conflicts that arise in their lives.
+End quote.
+
+I can just watch it go on and on… it’s so horribly great. Just the best.
+
+I love that you can buy them as NFTs as well! Fifteen are available to mint, and three have been sold so far. 5,000 dollars though is a big gulp.
+
+Link two. "Identity and ideas | Seth's Blog"
+
+I have been thinking about identity some recently. When you work to improve yourself, change your habits, or otherwise explore new things you end up bouncing up against identity at some point. I dig Godin's comments here.
+
+Quote.
+The most successful problem solvers are people who have embraced this simple method – your current idea isn’t your identity, it’s simply a step closer to a solution to the problem in front of you. One way to define our identity is to fall in love with an idea (often one that was handed to us by a chosen authority). Another is to refuse to believe our identity is embodied in an idea, and instead embrace a method for continually finding and improving our ideas.
+End quote.
+
+Embracing ideas into your identity is both powerful but also potentially very limiting.
+
+How would you introduce the Weekly Thing?
+
+I’m bad at writing my own copy to introduce the Weekly Thing. Maybe you are great at this?
+
+I’m doing a small promotion for the Weekly Thing and need 180 characters of text to tell people why they should subscribe. If that sounds fun, email me your idea. Whoever I pick will be recongized in a cool way!
+
+One thing I feel confident, what you all submit is going to be better than what I came up with!
+
+That's the end of Featured.
+
+Now, the Notable section.
+
+Link one. "Introducing Twitter Blue - Twitter’s first-ever subscription offering"
+
+I was excited that Twitter was coming out with a subscription offering, but there are two things that it should have to me and this has neither.
+
+1. No ads for subscribers. Nothing. Period. I’m paying for the product now.
+2. You should get a verified check.
+
+The features they are offering aren't even mildly interesting to me. Hopefully they keep iterating and getting it better. Also, only launching in Canada and Australia? I don't get that at all.
+
+Link two. "PlayingCards.io Virtual Tabletop"
+
+Interesting web app that simply allows you to put cards on the screen and move them around, so you can play any game that you want. Get a FaceTime call going and then bring this up in a web browser and you have a very playable distributed game table.
+
+Link three. "Timery Comes to the Mac and Makes Time Tracking With Toggl Easier Than Ever - MacStories"
+
+I use Toggl for my calendar analytics, and I know that time tracking is a useful productivity tool. I've tried Timery before but with it on the Mac I’m going to give it another go and see if I find it useful.
+
+Link four. "Wikipedia Endowment: The Site Is Rich. Why Is It Fundraising?"
+
+I’m a big fan of Wikipedia and have donated to the site regularly for years. I plan to continue. I’m glad that they have successfully gotten their endowment funded. I have no issue that they are hiring technology and leadership and paying a competitive market rate. I’m not a fan of this meme that if you choose to be in non-profit you are bound to a life of poverty.
+
+Now, with that said, I do think the organization should be clear on what they are going to put the additional funds to work to do. If Wikipedia can raise beyond it’s own needs, but put those resources toward things that are aligned with their mission, I’m fine with it.
+
+Link five. "Michael Tsai - Blog - Starlink Review"
+
+I haven't been following Starlink that closely but some recent coverage made me look. At our cabin we only have DSL and the performance is not great. Looking at Starlink I can get more than 10x the performance for only about 10% more a month. It turns out I can order Starlink right now, there is enough coverage, but I’m holding off for two reasons.
+
+1. Users say every couple of hours you lose signal for a minute or so while it locks to a new satellite. That would not be good for certain use cases.
+2. I’m looking at using Unifi networking gear and Configuring Ubiquiti Unifi Gear for Starlink involves static routes and other unnatural acts that I have no interest in tackling.
+
+I did come away feeling that Starlink was much more real than I thought it was. And I love the potential disruption this will cause to the broadband market.
+
+Link six. "Five New Frontiers for NFTs. Art is the tip of the iceberg and we… | Electric Capital"
+
+I see a lot of potential for NFTs. This article highlights many of the same possibilities that I have envisioned.
+
+Link seven. "JsonLogic"
+
+Neat way to store rules and other logic in various systems to execute in multiple locations.
+
+Quote.
+JsonLogic isn’t a full programming language. It’s a small, safe way to delegate one decision. You could store a rule in a database to decide later. You could send that rule from back-end to front-end so the decision is made immediately from user input. Because the rule is data, you can even build it dynamically from user actions or GUI input. JsonLogic has no setters, no loops, no functions or gotos. One rule leads to one decision, with no side effects and deterministic computation time.
+End quote.
+
+Seems like a nice implementation agnostic way to store rules.
+
+Quote.
+JsonLogic is, effectively, an abstract syntax tree, so order of operations is unambiguous.
+End quote.
+
+Has parsing libraries for Javascript. Python, PHP, and Ruby.
+
+Link eight. "My Software Estimation Technique - Jacob Kaplan-Moss"
+
+Some great wisdom here, but I would amplify even more the uncertainty aspect. Not only do you need to capture and measure that, you also have to realize that if uncertainty is above a certain level there is no possible time estimate. This is why teams tend to use Fibonacci sequences to estimate complexity. As complexity goes up the solution time and cost goes up much more than linearly, and at some point goes parabolic to the moon.
+
+You have to know reasonably well what you are building and how that will happen before any estimation of time is meaningful at all.
+
+Link nine. "The Unix Game"
+
+This is so amazing and great!
+
+Quote.
+The Unix Game is a fun, low-barrier-to-entry programming contest where players solve coding challenges by constructing "pipelines" of UNIX text processing utilities to compute the solution.
+End quote.
+
+UNIX nerds love to brag about the amazing "command line fu" they come up with. This is a great way to learn, and to develop an appreciation for the kind of things that a CLI still is so great at.
+
+Link ten. "Why Russians do not smile"
+
+I've made over a dozen trips to Ukraine and this smiling thing is true there as well.
+
+Quote.
+In Russian culture the smile is identified with laughter. Russians do not smile unless something funny happens and provides a reason for laughter. This fundamental difference in perception produces many unfortunate misunderstandings.
+End quote.
+
+Reading this reminded me of a conversation I had with Yuri, the Director of our office in Ukraine. I had finished walking to the office from the hotel. It is a simple route and there are a lot of people making their way to their jobs in the morning. I asked him "Do you think people know that I’m not from here when I’m just walking to the office?" and he immediately replied that "Yes, they for sure know.". I wondered how this could be, I was just one of many people walking along the street. I asked him how they would know I wasn't a local and he replied immediately "Because you are smiling."
+
+Link eleven. "Grok TiddlyWiki — Build a deep, lasting understanding of TiddlyWiki"
+
+I think it’s a good idea to know at least one wiki solution and know it well. A number of years ago I dove deep into MediaWiki and learned all about the broad ecosystem behind Wikipedia. This book is an incredibly deep resource for understanding TiddlyWiki, which I think is one of the most appropriate wikis for many personal knowledge systems that people seek out today.
+
+Link twelve. "Funding Friday: The Dirt Newsletter - AVC"
+
+I've been saying for a couple of months that NFTs are going to enable a number of things, including a new revenue model for newsletters. I even tried minting a couple of NFTs for issues of the Weekly Thing, that I ultimately withdrew as I think about it more. This is a cool example funding a season of their newsletter with an NFT issuance.
+
+Link thirteen. "Uber's Crazy YOLO App Rewrite, From the Front Seat - The Pragmatic Engineer"
+
+I've launched a good number of products and platforms over the years and there are parts of this that I resonate strongly with those experiences. But this was pretty far out there. If you don't know how the software on your devices gets written and shipped, you might think it is much more elegant than it is.
+
+That's the end of Notable.
+
+Now, the Journal section.
+
+Wednesday @ 9:02 PM
+
+Decided to take in a gorgeous day and work on our porch today. iPad Pro in Sidecar display is nice to have more desktop.
+
+Tuesday @ 8:53 PM
+
+Got A Calendar of Wisdom from Painted Porch. Discovered the book via Ryan Holiday so figured it should be my first purchase from his book store! Will be making this part of my daily reading habit.
+
+Monday @ 12:12 PM
+
+Weather recovered for Memorial Day! Sun is out!
+
+Sunday @ 11:37 AM
+
+Making breakfast outside is such a blast. And you can make dozens of pancakes in no time at all! Sausage tastes better on the Big Green Egg.
+
+Saturday @ 2:50 PM
+
+EUFA Champions League final!
+
+Manchester City v Chelsea. Chelsea finishes first half with 1-0 lead.
+
+That's the end of the Journal.
+
+Now, the Briefly section.
+
+Link one. "IPFS, Filecoin, and ‘Content Persistence’"
+
+How to store and find content forever.
+
+Link two. "Scaling Ethereum with zkSync | Union Square Ventures"
+
+Tech background on bringing more speed to Ethereum.
+
+Link three. "Dogecoin (DOGE) is now available on Coinbase | The Coinbase Blog"
+
+I previously thought the lack of support for DOGE on Coinbase was because of its lack of seriousness. Let the transaction fees flow. At this point I don't see any reason to hold this token.
+
+Link four. "David Deutsch on Multiple Worlds and Our Place in Them (Ep. 124) | Conversations with Tyler"
+
+I listened to this podcast and it’s either very profound philosophy or complete drivel.
+
+Link five. "Ekow Nimako - Surrealistic, Lego Art | Ekow Nimako"
+
+This is amazing art all created with LEGO
+
+Link six. "JBS Cyber Hack: Meat Supplier Shuts Down Some Slaughterhouses After Attack - Bloomberg"
+
+It feels like these kind of attacks are just getting started.
+
+Link seven. "Now use your Coinbase Card with Apple Pay® and Google Pay™ | The Coinbase Blog"
+
+Connecting crypto with traditional credit card networks should be a way to get more integration between fiat and crypto.
+
+Link eight. "GPT-3 Can Write Disinformation Now—and Dupe Human Readers | WIRED"
+
+We are going to have to get even better and understanding who or what created the things we read online.
+
+Link nine. "rfc.fyi"
+
+Browseable, searchable RFC index. These are the documents that form much of how the Internet works.
+
+Link ten. "How to Ask Useful Questions – Josh Kaufman"
+
+There are patterns here!
+
+Link eleven. "Cargo"
+
+Tool to help you create NFT's on Ethereum, xDai, and Polygon.
+
+Link twelve. "River Runner"
+
+Place a drop of water anywhere on the map and see what waterways it takes. Cool visualization and nice way to show how connected rivers are.
+
+Link thirteen. "Avatar generator playground - Boring Avatars"
+
+Neat project. I like the "Beam" ones.
+
+Link fourteen. "QUIC is now RFC 9000 | Fastly"
+
+A big step forward for an even faster web.
+
+Link fifteen. "Big Mail - Upgrade your inbox"
+
+I get a lot of similar features from Sanebox, but this email client also contains a lot of things that Hey introduced. Interesting.
+
+Link sixteen. "Surviving an In-Flight Anomaly: What Happened on Ingenuity’s Sixth Flight - NASA Mars"
+
+Very cool tech with a happy ending.
+
+Link seventeen. "GameStop Announces That It’s Working on NFTs | HYPEBEAST"
+
+The GME story gets another chapter.
+
+Link eighteen. "New ATH - 28 billion dollars+ Daily Value Sent Over Litecoin Network"
+
+That's a lot of sent over Litecoin!
+
+Link nineteen. "ZeroTier – Global Area Networking"
+
+Super interesting networking service to connect things over the Internet.
+
+Link twenty. "Finally understanding PNG | Compress-Or-Die"
+
+Learn how PNG works inside, particularly with color palettes.
+
+That's the end of Briefly.
+
+Now, the Fortune section.
+
+Here is your fortune…
+
+Everything will be just tickety-boo today.
+
+Thank you for subscribing to the Weekly Thing!
+
+That brings us to the end of the Weekly Thing, issue 189. Thanks for listening, and I'll see you next time.

@@ -1,0 +1,136 @@
+The Weekly Thing, issue 116. Sep 7, twenty nineteen. Published September 7, twenty nineteen. By Jamie Thingelstad. In this issue: Unix at 50, Tetris randomizers, calendar spam, camera sales falling, Just Delete Me, Timeular time tracking, what we get wrong about meetings.
+
+This week marked the beginning of another school year, and with that another opportunity for me to do my Dad routine for the first day. I made Nordic Waffles, one of our family favorites, for the kids to enjoy a delicious breakfast. Whipped cream, chocolate chips, Nutella, Jam, and even good old Pure Maple Syrup were on the offering to put on the waffles. Everyone got firsts and seconds.
+
+After getting a good breakfast in I got out the "big camera", the Canon 5D with the big L-glass for the official first day of school photos. We are in a new house so we had to figure out the specific locations for school photos. The kids suggested that we drive to the old house and take them there too. I decided to skip that. Then Tammy took them to school. Mazie started her first year of High School which has me thinking, "Wow, I’ve got a high school child." and feeling a little old. Tyler went off to fourth grade and what mostly seems like pickup soccer during recess. Apparently he does other things there too, but I never hear about that stuff.
+
+The rest of the week had a bunch of stuff, but the big shift back into the school year is definitely the thing for the week. Four days in an everyone is doing great!
+
+The news this week has me wondering again if there is a phenomenon where each generation thinks things are completely messed up when you are middle aged. Like the world has gone completely off the rails. But the I wonder if humans are just "maximally aware" when middle aged, and that every generation feels like this at this point in life. I’m guessing it's a little of both.
+
+Now, the Featured Links section.
+
+Link one. "Unix at 50: How the OS that powered smartphones started from failure | Ars Technica"
+
+This is a fun read on the early history of Unix. Consider the 50 years of Unix in two ways. it’s truly amazing that every smartphone you see is powered by a Unix-based system that started 50 years ago, that the technology has lasted that long. On the other hand, consider that it’s taken five decades for the combined intelligence of software developers to create a Unix kernel that is as stable as what we have today.
+
+The rest has quite literally made tech history. By the late 1970s, a copy of the operating system found its way out to the University of California at Berkeley, and in the early 1980s, programmers there adapted it to run on PCs. Their version of Unix, the Berkeley Software Distribution (BSD), was picked up by developers at NeXT, the company Steve Jobs founded after leaving Apple in 1985. When Apple purchased NeXT in 1996, BSD became the starting point for OS X and iOS.
+
+Writing an operating system is not for the faint of heart.
+
+That's the end of Featured Links.
+
+Now, the My Weekly Photo section.
+
+The swings at the Kiddie Midway at the Minnesota State Fair.
+Aug 31, twenty nineteen at 8:04 PM
+1358 Underwood St, Falcon Heights MN 55108
+
+That's the end of My Weekly Photo.
+
+Now, the Notable Links section.
+
+Link one. "Minimum Viable Bureaucracy — Acko.net"
+
+A rant of sort on many aspects of modern business environments and tools, with a call to action around writing with clarity.
+
+The best way to capture the necessary mindset is that of Minimum Viable Bureaucracy: we need to make our tools and processes work for us, with a minimum amount of fuss for the maximum amount of benefit, without any illusions that the technology will simply do it for us. It can even save your bacon when the shit hits the fan.
+
+Wikis deserve a lot more credit than people give them.
+
+Link two. "The history of Tetris randomizers - Simon Laroche"
+
+I’m a sucker for anything about the history of Tetris. I honestly hadn't considered that the randomizer for Tetris was anything but random, but it makes sense that it would be specialized with some rules.
+
+Link three. "Spam In your Calendar? Here’s What to Do. — Krebs on Security"
+
+This is one of the most insidious forms of spamming that I see. Easy to follow directions for ways to limit the impact of this garbage.
+
+Link four. "Camera sales are falling sharply – On my Om"
+
+I have made significant investments in Canon camera gear. Expensive lenses, powerful bodies, etc. It’s hard to see any path for this gear outside of the very specific needs of professional shooters.
+
+I have a five-year old camera, and I can’t conceive of a convincing reason to get a new one. The one I own was very good at the start of its life, it cost me a lot of money, and I suspect it has a long life ahead of it. And to be clear, I am extremely fond of my camera. I find absolutely no joy in the demise of the standalone camera.
+
+When someone that put up the money for a Leica is saying that, camera companies must realize they are in a no win spot.
+
+Link five. "Just Delete Me | A directory of direct links to delete your account from web services."
+
+Great resource to easily find pages to delete your profiles places. I like that it also includes an indication of the level of difficulty. If only there were API methods for these kinds of requests!
+
+Link six. "Journaling:: Up and to the Right — Jonathan Borichevskiy"
+
+This idea of multiple "levels" of journaling is worthwhile. I often think level 1 is a waste of time, but maybe a better way to think of it is as a doorway to the other levels.
+
+Link seven. "You’re Not Lazy, Bored, or Unmotivated - Forge"
+
+Not getting to that project, or that thing you want to do?
+
+You’re not lazy. You’re not bored. You’re not unmotivated. What you are — what all of us are — is afraid. And the best advice for overcoming fear is the bland three-word sentence Nike turned into the most successful marketing slogan of all time (after slightly tweaking a serial killer’s last words): Just do it.
+
+This reminds me a lot of what Pressfield calls "the resistance"
+
+Link eight. "Time Tracking with Timeular — MacSparky"
+
+I use my calendar along with some custom Shortcut scripts and Toggl to track my time, and I don't attempt to track non-scheduled time. Capturing your time is a very useful tool though, and having a physical object that you move to different positions seems like something that would actually work to track non-scheduled time.
+
+Link nine. "Tim Harford — Article — What we get wrong about meetings – and how to make them worth attending"
+
+A short essay on meetings.
+
+A good meeting is a good meeting less because of what happens at the time, but because of what came before — and most importantly, what comes after.
+
+This is very true.
+
+That's the end of Notable Links.
+
+Now, more links.
+
+- Apple Music launches a public beta on the web | TechCrunch techcrunch.com
+This works really well, and if you have iTunes Match it even shows your own music.
+- Continuous Compliance | Dave Farley’s Weblog www.davefarley.net
+This is a good set of idea if you need to deal with regulators and compliance as you build software.
+- swissmiss | How To Write by Elizabeth Gilbert www.swiss-miss.com
+Great suggestions for writing. Doesn't matter what you are writing, all of these could be applied.
+- How to plan and write pieces of any length - without bullshit withoutbullshit.com
+Simple advice for writing things, anything.
+- Enigma machine / Tom MacWright / Observable observablehq.com
+Cool visuals.
+- devopsdays Minneapolis twenty nineteen - Megan Tischler - The Art of Continuous Improvement - YouTube www.youtube.com
+One of #TeamSPS doing a lightning talk at DevOpsDays Minneapolis twenty nineteen!
+
+That's the end of More Links.
+
+Now, the Microposts section.
+
+Sunday @ 12:41 AM
+
+There were figurative and literal fireworks going off at tonight’s Brandi Carlile show. She is amazing. I strongly recommend seeing her in concert.
+
+Sunday @ 12:40 AM
+
+Brandi Carlile put on an amazing show at the Minnesota State Fair tonight!
+
+Sunday @ 12:37 AM
+
+We made a quick visit to our favorite spots at the Minnesota State Fair!
+
+Sunday @ 12:32 AM
+
+Minnesota State Fair selfie!
+
+Sunday @ 12:30 AM
+
+We had a fun time visiting the Minnesota Renaissance Festival today! Games, animals, and treats!
+
+That's the end of Microposts.
+
+Now, the Fortune section.
+
+You've made it all the way to the end! Here is your fortune for this week.
+
+Chicken Little only has to be right once.
+
+Thank you for subscribing to the Weekly Thing!
+
+That brings us to the end of the Weekly Thing, issue 116. Thanks for listening, and I'll see you next time.

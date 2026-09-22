@@ -1,0 +1,168 @@
+The Weekly Thing, issue 94. Feb 23, twenty nineteen. Published February 23, twenty nineteen. By Jamie Thingelstad. In this issue: Tetris 99 gameplay revolution, Stephen Wolfram personal infrastructure, WiFi inside a USB cable, WorldWideWeb CERN rebuild, .dev domains, privacy is a commons.
+
+This week we broke the all-time record for February snowfall! It’s fairly easy to tell with the giant piles of snow everywhere you look. I’m busy putting together some last minute things for Tyler’s birthday breakfast that we are hosting tomorrow (Nordic Waffles!) so I’m going to leave it short this week and get straight to the links!
+
+Now, the Featured Links section.
+
+Link one. "Tetris 99 isn’t just a great twist on a classic — it’s a gameplay revolution | Ars Technica"
+
+I put Tetris 99 on my Switch and you may not hear from me for a very long time. It’s super fun! I never would have thought of a Battle Royale version of Tetris!
+
+That's the end of Featured Links.
+
+Now, the My Weekly Photo section.
+
+Heavy snow limiting visibility to a white curtain.
+Feb 17, twenty nineteen at 8:18 AM
+Cannon Lake, Faribault MN
+
+That's the end of My Weekly Photo.
+
+Now, the Notable Links section.
+
+Link one. "Seeking the Productive Life: Some Details of My Personal Infrastructure—Stephen Wolfram Blog"
+
+Stephen Wolfram gives an exhaustive inventory of his personal gear. Wow, just wow.
+
+Link two. "50 Years In Tech. Part 16: From One Ice Floe To The Next"
+
+Jean-Louis Gassée has been writing some very fun retrospectives of his time in tech. If you remember BeOS and the BeBox this is a fun read. I also found this little inside baseball look at NeXTSTEP and Apple's acquisition of NeXT fun.
+
+Later, I learned another version of the story from a NeXT and Apple insider. By 1996, Jobs had given up on NeXTSTEP and had focused the company on WebObjects, a set of tools and building blocks aimed at the design and implementation of high-performance, feature-rich websites. But the noise from the Apple-Be conversations attracted the attention of Avie Tevanian, VP of software at NeXT, who urged Jobs to dust off NeXTSTEP and whip up a demo. The master persuader convinced Gil Amelio to pay the price Apple didn’t want to pay for Be: 429 million dollars for NeXT.
+
+It’s unlikely Apple acquiring BeOS would have been transformational, but maybe. The leadership behind NeXTSTEP was very transformational for Apple.
+
+Link three. "Evolving Microservices with Event Sourcing – Damon Allison – Medium"
+
+Fun writeup on the evolution into Microservices and then adopting Event Sourcing to provide additional capabilities. Good discussion of tradeoffs and benefits. Plus a fun read!
+
+Link four. "Intentionality — MacSparky"
+
+I like this annual review that David Sparks walks through.
+
+Link five. "Commento: A fast, privacy-focused commenting platform"
+
+I've waited and waited for someone to come out with a commenting service that doesn't surveil users, charges a reasonable fee, and isn't filled with ads (I'm looking at you Disqus). This service looks high-quality and respects everyones privacy. I've deployed it on my Link Blog to give it a try.
+
+Link six. "When Kids Google Themselves - The Atlantic"
+
+I've thought about this, but have no great answers. I first read about this back in this twenty eleven blog post on the topic. It is a way bigger topic today, particularly with photos being some prominent.
+
+Link seven. "WiFi Hides Inside a USB Cable | Hackaday"
+
+Holy crap! This is brilliant and frightening. It would be super easy to take over control of a computer by giving someone one of these cables. How do you defend against this?
+
+Link eight. "Scripting News: If I were CEO of the NYT"
+
+Interesting perspective from Dave Winer. Not surprising that it’s focused around blogs.
+
+Link nine. "Password Managers: Under the Hood of Secrets Management - Independent Security Evaluators"
+
+This is all about how password managers deal with unencrypted data in memory. On disk the encryption is all fine, but when running, they should minimize the attack surface. I was expected better outcomes for 1Password, my preferred password manager. Note though that these all require access to a computer and unlocked memory state, so the real risk is low. Nonetheless, I'd like to see this improved.
+
+Link ten. "On being an Engineering Manager | Nick McHardy"
+
+One persons experience trying out the role of being an engineering manager, and then opting to ultimately stay in an individual contributor role. Good breakdown of the decision process he went through.
+
+Link eleven. "Introducing .dev domains from Google Registry"
+
+Interesting way that Google is rolling this out charging very high amounts to register early, avoiding domain squatters trying to take domains and hold them ransom.
+
+Link twelve. "The Weekly Email – AVC"
+
+This is written about startups and founders, but I think it easily applies to a lot of contexts.
+
+But more than anything, writing the weekly email is a tool for the founder to collect themselves, get grounded for the week ahead, and articulate what they and the company are doing and why.
+
+I've been doing this with the Weekly Thing. I've had a pause on the Tech Weekly, which is for our technology team at SPS for the last couple months and I’m planning on retooling it and get it going again.
+
+Link thirteen. "Launch WorldWideWeb CERN twenty nineteen WorldWideWeb Rebuild"
+
+This is very cool.
+
+In February twenty nineteen, in celebration of the thirtieth anniversary of the development of WorldWideWeb, a group of developers and designers convened at CERN to rebuild the original browser within a contemporary browser, allowing users around the world to experience the rather humble origins of this transformative technology.
+
+You can experience the web as it was in the very beginning!
+
+Link fourteen. "Privacy is a commons | TechCrunch"
+
+This is an interesting angle of privacy that I hadn't considered.
+
+The answer is: no, actually, not necessarily; not if there are enough of them; not if the commodification of privacy begins to affect us all. Privacy is like voting. An individual’s privacy, like an individual’s vote, is usually largely irrelevant to anyone but themselves … but the accumulation of individual privacy or lack thereof, like the accumulation of individual votes, is enormously consequential.
+
+Link fifteen. "ongoing by Tim Bray · Tech Office Sketches"
+
+State of the technology company environments from Tim Bray.
+
+That's the end of Notable Links.
+
+Now, the Give Back section.
+
+Minnestar is the technology community for Minnesota. If you are passionate about technology you need to go to Minnebar and Minnedemo. Did you know that Minnebar is the largest BarCamp in North America and one of the largest in the world? Its also been going on for over 10 years? Minnedemo is the best place to hear about innovative tech and fun projects in the Twin Cities area. I am on the Minnestar board and I focus on Minnestar as one of the driving forces improving and expanding the technology community in the area. Minnestar is a 501c3 non-profit. Become a Community Supporter today!
+
+That's the end of Give Back.
+
+Now, more links.
+
+- New Minnetonka restaurant's deep-fried burger is like eating at State Fair year-round | Star Tribune
+Only in Minnesota!
+- COI - Chat Over IMAP www.coi-dev.org
+If this were on April Fool's Day I would be positive it is a joke, but I don't think it is.
+- Tasksaur www.tasksaur.com
+Super simple to do list service.
+- FormSubmit | A Contact Form to Email Service formsubmit.co
+Handy service if you need to collect form data.
+- Janet Programming Language janet-lang.org
+Interesting Lisp-based functional language.
+
+That's the end of More Links.
+
+Now, the Microposts section.
+
+Wednesday @ 9:14 AM
+
+Snowy drive in this morning. There are 5 lanes somewhere there.
+
+Tuesday @ 7:26 PM
+
+Wild hockey game tonight!
+
+Saturday @ 10:29 PM
+
+We saw A Dog’s Way Home today. It was exactly what you would expect it to be. Good movie, particularly for the dog lovers amongst us.
+
+Saturday @ 10:28 PM
+
+We played "Quest for the Amulet" at Escape MSP Lakeville today. It was a cool room, and we were nowhere even close to solving it when the clock rain out.
+
+Saturday @ 10:26 PM
+
+Tyler and I played in our first Pokémon friendly tournament today. I’m glad he knows what he’s doing!
+
+Saturday @ 9:20 AM
+
+Had a majestic bald eagle visit us this morning. Just 50 or so feet away. Surveying the frozen lake, I suspect looking for small animals seeking some open water. There is a natural spring not far from this spot that flows year round.
+
+Friday @ 6:53 PM
+
+Tetris 99 on the Switch is amazing! So far my highest ranking is #4. I’ve never gotten into Battle Royale games, but I love Tetris, and this is crazy fun.
+
+Friday @ 5:20 PM
+
+A giant snow pile is a pretty good thing to play soccer with.
+
+Friday @ 5:14 PM
+
+Little snow isn’t going to keep me from grilling! Big Green Egg time!
+
+That's the end of Microposts.
+
+Now, the Fortune section.
+
+You've made it all the way to the end! Here is your fortune for this week.
+
+Someone is speaking well of you.
+
+Thank you for subscribing to the Weekly Thing!
+
+That brings us to the end of the Weekly Thing, issue 94. Thanks for listening, and I'll see you next time.

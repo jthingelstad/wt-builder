@@ -1,0 +1,286 @@
+The Weekly Thing, issue 255. Lassie, Vore, Alby. Published May 20, twenty twenty three. By Jamie Thingelstad. In this issue: Technical debt careers, GitHub Copilot LLMs, Advanced Data Protection iOS, new TLDs, learning cryptography, Filecoin and IPFS, Web3 digital identity.
+
+I do something that is a bit weird, and that very few people do — I unsubscribe from unwanted email that I get. I've been doing this for a long time, usually in small batches.
+
+When you first start doing it you won't notice any difference. But after a while, you start to see less unwanted email. Less stuff to have to mentally process and delete. Over time, you can win the battle. And really, if you plan to keep your email address it is worth doing this. LLMs are going to make spam detection harder, so it is a good time to get off of mailing lists.
+
+When you do this you get to see how many companies try to trick you and use the worst user experience tricks possible to make it hard to unsubscribe. They use odd language, make you think you are confirming when your really hitting a button that says you "changed your mind". It is a pretty gross example of the worst of the web.
+
+But it is worth it. I recommend doing a few every couple days. It is better than just deleting dozens of emails every day.
+
+Now, the Currently section.
+
+Installing: OpenAI released an official ChatGPT for iPhone. I was previously using GeePeeTee but I like the user experience of the official app better, and that it ties directly in with the conversation that I have already established with GPT.
+
+I love to see new blogs started. When a blog is started, an angel gets their wings. I was excited to see that Micro.blog is doing a Summer of Blogging promotion to get a hosted blog for just 1 dollar per month! I think Micro.blog is one of the easiest blogging solutions out there, and it is incredibly powerful at the same time. I simply know of no better way to get a photo and some text from my phone to the Internet easier.
+
+Sign up with code SUMMER
+
+This is not a paid advertisement. I like micro.blog, and I like blogging, and I wanted to promote this on my own.
+
+That's the end of Currently.
+
+Now, the Notable section.
+
+Link one. "My 20 Year Career is Technical Debt or Deprecated"
+
+In a constantly changing environment like technology, this is almost always the case.
+
+Quote.
+I just laugh because everything is technical debt, eventually. My entire career is now technical debt, or the code has been deprecated.
+End quote.
+
+No reason to be sad about that. We are all building higher and higher, and the new stuff can’t happen without the old stuff being there first.
+
+Link two. "How to Enable Advanced Data Protection on iOS, and Why You Should | Electronic Frontier Foundation"
+
+I’m glad to see the EFF call out this end-to-end encryption capability that Apple has added for their services. I’ve got this enabled and it just feels great to have it in place. I would highly recommend everyone turn it on. Make sure that you take care of the recovery contacts when you set it up just in case. The recovery contacts are also well integrated with the features Apple has added to access iCloud data for people that have died. Another good thing to be thoughtful about.
+
+Link three. "Inside GitHub: Working with the LLMs behind GitHub Copilot | The GitHub Blog"
+
+Fairly shallow article but interesting to read about the progression of approach and model that GitHub Copilot used with OpenAI. It is interesting how they learned to provide additional data to the LLM in order to get better results. I found the file path an interesting one that would not be obvious.
+
+Link four. "New TLDs: Not Bad, Actually – text/plain"
+
+There has been some hand wringing and concern about these new top-level domains like .zip and .mov, because they are the same as file extensions. These are good arguments for why it is fine.
+
+Link five. "CryptoHack – A fun, free platform for learning cryptography"
+
+This looks like a really great site to learn about a variety of cryptography approaches from basic to fairly advanced. I created a profile so I can try it out. This could be a fun one to do with your kids as well. I thought it was funny that they gave you a simple cypher to solve just to register (hint: ROT-13).
+
+Link six. "This time, it feels different - nadh.in"
+
+There have been many advances in AI/ML over the years. I agree with this author that it does feel like we are at a different spot this time.
+
+Quote.
+Cut to twenty twenty three. A few curl experiments later, we did an experimental GPT-4 integration at work in about ~30 minutes, with GPT-4 generating the code to integrate itself, of course. The results were instant and freakishly good with quantifiable benefits. It took little time to identify multiple processes and business functions that could benefit from the same tool. Right tool for the right job. It required no training, no academic R and D, and definitely no nonsensical "powered by AI / ML" marketing. A highly sophisticated, powerful, poorly understood blackbox system that is available as a commodity technology.
+End quote.
+
+I always think of mobile in this regard. I’m old enough that I remember all the "Year of Mobile". Our WAP applications were going to be amazing. It always seemed like there was just one more thing to do and mobile would take off.
+
+We all know it eventually did, with the iPhone. Is ChatGPT the iPhone of AI?
+
+Link seven. "Vore"
+
+I’m almost obligated to dig into this new site just based on it’s intro:
+
+Quote.
+vore.website is a minimal, no-bullshit web-based rss/atom feed reader. vore.website is free for anyone to use, and will never be turned into a vehicle for profit. vore.website is a love letter to the rss world - long live syndication!!!
+End quote.
+
+There is a great blog post to introduce this fun new service. I’m a big fan of RSS so have to play with it a bit.
+
+It is interesting that Vore very much takes the "River of News" approach. All feeds are public, so you can see my river of a few feeds I put in to test. There isn’t a read/unread either. I’ll stick with Feedbin for my RSS service, but it is fun to see this and may use it for some group of feeds.
+
+Link eight. "Introducing Lassie - a retrieval client for Filecoin and IPFS"
+
+IPFS is a very interesting and capable system to store data, but it really needs better tooling so I was curious when I saw this. It is a command line tool, so still not real user friendly, but it is a step in the right direction. You could easily put a list of Content IDs in a file and use this with a script to retrieve it all.
+
+Link nine. "What’s a "techie"? | Seth's Blog"
+
+Godin attempts to define the term "techie", something a lot of people say but don't really specify what it really means.
+
+Quote.
+I'm going to argue that involves a combination of two things: 1. You give technology the benefit of the doubt. You assume that it's interesting, or perhaps benign or even useful. 2. You're interested in what's new. You don't need to be pushed to ask about the next tech thing.
+End quote.
+
+His urge is that for most people these days you cannot choose to opt-out of this.
+
+Quote.
+I think we've long passed the point where an active professional can simply choose to not understand how tech works. You're a user or you're being used. Best to know which.
+End quote.
+
+I think he is mostly right.
+
+Link ten. "The Case for the Total Liberation of Ukraine - The Atlantic"
+
+Anne Applebaum, one of the authors of this was on the Pivot podcast and gave a very good overview of the State of the Russian attacks on Ukraine, and the positive path that Ukraine may have to victory.
+
+Link eleven. "Digital identity – Assessing Web3’s identity building blocks"
+
+Good overview of various components for identity using crypto tech. I find it kind of silly that they enumerate identifiers other than ENS. The web3 ecosystem should follow the lead of Ethereum Name Service and build on that, not compete. Also love the callout to POAPs.
+
+The article correctly highlights the importance of the wallet experience.
+
+Quote.
+Each of the digital identity building blocks discussed above has its individual strengths and challenges. There is no one-size-fits-all. Instead, these building blocks work best in conjunction with one another to form a holistic identity. However, a common enabler for all four building blocks is the digital identity wallet. These wallets are the ‘portal’ where one can link their ENS to their public address, hold their digital collectibles, and view their POAPs, SBTs and VCs. Some digital identity wallets also enable the creation and registration of one’s DID, enabling users to also claim and share their VCs from their wallet. Wallets are the access point that enable users to start building their digital identity. In order to gain scale and adoption, it is critical that digital identity wallets are easy to use and have low barriers to entry.
+End quote.
+
+This is where the most work is needed in my opinion. The wallet UX is still a mess, and very difficult for non-technical users.
+
+That's the end of Notable.
+
+Now, the Journal section.
+
+Thursday @ 8:58 PM
+
+Having free, and reasonably performant WiFi on flights is a real game changer. Paired with a small device like an iPad with a good keyboard it is very workable.
+
+Wednesday @ 8:34 PM
+
+MNUFC v Houston Dynamo tonight. WE ARE UNITED!
+
+Monday @ 9:29 PM
+
+Tyler started playing Legend of Zelda: Tears of the Kingdom tonight and the intro was great. I’m not a gamer, but the story and world of Zelda is great.
+
+Monday @ 6:21 PM
+
+First night of Edina Soccer for Summer twenty twenty three season!
+
+Sunday @ 11:28 PM
+
+Created a new list: List of Brandi Carlile Shows. Suspect I’m missing some but this was a quick assembly of the ones I have blog posts for.
+
+Sunday @ 11:03 PM
+
+Family selfie with rainbow lights and finale fireworks in the background. The first ever Brandi Carlile's Mothership Weekend was great!
+
+Sunday @ 11:02 PM
+
+Brandi Carlile closed out Mothership Weekend tonight with an epic set. After covering many of the recent top songs on Friday night, tonight they went deep in the catalog with tons of great songs. She also brought tons of guest musicians on the stage with her. This was the kind of performance you cannot see anywhere other than a big multi-day festival like this. Wow!
+
+Sunday @ 7:55 PM
+
+After a lightning delay with evacuation and an impromptu dinner at Mezcal (yum!) we returned to the festival to see an abbreviated performance from Emmylou Harris which was great.
+
+Sunday @ 7:52 PM
+
+We didn’t get to see much of Fancy Hagood. We arrived after they started and then lightning came through and they had to stop and have everyone leave the festival for a bit. What we heard was great though!
+
+Sunday @ 5:57 PM
+
+Kids buried me in the sand today. Then we took turns putting each of them in the sand.
+
+Sunday @ 2:50 PM
+
+Happy Mother’s Day from Brandi Carlile’s Mothership Weekend in Miramar Beach, FL!
+
+Sunday @ 2:31 PM
+
+Moo La La Ice Cream — yummy and great on hot day!
+
+Sunday @ 12:50 PM
+
+Magnolia trees are starting to bloom. Such beautiful trees.
+
+Sunday @ 12:49 PM
+
+Have been enjoying delicious coffee at 2 Birds Coffee + Cafe. The food is top notch too!
+
+Saturday @ 9:28 PM
+
+Hozier with a great set to close out Saturday night at Mothership Weekend. First time seeing them live and thought it was very good.
+
+Saturday @ 7:08 PM
+
+Mavis Staples bringing the power in a big way at Mothership Weekend. She ain’t messing around.
+
+Saturday @ 7:05 PM
+
+Have never seen Strawberry Pizza before and it is incredible. Wow! Well done Lost Pizza!
+
+Saturday @ 5:52 PM
+
+Enjoying The Milk Carton Kids at Mothership Weekend. We’ve never seen them perform and like it a lot. Emmylou Harris joining them for a song was incredible.
+
+Saturday @ 5:48 PM
+
+Found Zoltar in Miramar Beach.
+
+Saturday @ 12:48 PM
+
+Brandi Carlile made an impromptu appearance joining an artist on one of the beach stages at Mothership Weekend.
+
+Saturday @ 11:58 AM
+
+I took the opportunity with low Ethereum gas fees this morning to update my primary ENS domains to new resolvers, and also wrapped the four subnames that we have for each of us. It seems I lost the properties on thingelstad.eth in the process. It is cool to see the subnames as full NFTs.
+
+Saturday @ 10:58 AM
+
+Current POV. Miramar Beach, FL.
+
+Friday @ 10:21 PM
+
+Brandi Carlile took the stage to close out Friday night at Mothership Weekend. It was a great show with a full 2-hour set covering songs from a wide range of their catalog.
+
+Friday @ 8:08 PM
+
+Love Wins.
+
+link
+
+Nathaniel Rateliff and The Night Sweats gave a great show. Tons of energy. Great songs with plenty to dance along to.
+
+link
+
+Danielle Ponder started things off at Mothership Weekend. Her vocals were powerful. The songs were great. It was an impressive performance. She ended with a cover of Creep that was incredible.
+
+link
+
+Hello Miramar Beach!
+
+link
+
+tourist
+
+noun
+1. One who travels for pleasure.
+
+2. One who makes a tour; one who makes a journey for pleasure, stopping at a number of places for the purpose of seeing the sights, scenery, etc.
+
+3. One who makes a tour, or performs a journey, especially for pleasure.
+
+link
+
+Just switched thingelstad.com to the new Tiny Theme from Matt Langford. I love the focus on simplicity and speed. The layout is really clean. I also appreciate how much he is focusing on supporting the full feature set of Micro.blog, as well as popular plug-ins.
+
+link
+
+Very excited to be heading to Brandi Carlile's Mothership Weekend today!
+
+Friday: Brandi Carlile, Nathaniel Rateliff and The Night Sweats, and Danielle Ponder
+
+Saturday: Hozier, Mavis Staples, The Milk Carton Kids, and Katie Pruitt
+
+Sunday: Brandi Carlile, Emmylou Harris, Fancy Hagood
+
+This is going to be an amazing weekend of music and fun in Miramar Beach!
+
+That's the end of the Journal.
+
+Now, the Briefly section.
+
+Link one. "pixpaint"
+
+This reminds me of a drum machine but for visual squiggles. I’m not sure what I would do with it, but it is sort of fun to play with.
+
+Link two. "Alby"
+
+A more advanced wallet for the Bitcoin ecosystem. Perhaps a bit like Rainbow is to Ethereum. Supports Lightning, and advanced features to use services like Nostr.
+
+Link three. "Google Cloud Duet AI for developers | Google Cloud Blog"
+
+Google answer to GitHub Copiliot?
+
+Link four. "Map of GitHub"
+
+What a wild visualization of various code "ecosystems" in GitHub and how they are connected together. Pretty fun to explore.
+
+Link five. "the three paths of micro.blog – The Homebound Symphony"
+
+Micro.blog is what I use to run my blog, and this is a good writeup of the three primary ways you can use it. I primarily use it as a publishing platform.
+
+That's the end of Briefly.
+
+Now, the Signature section.
+
+"Weekly Thing #255 / Lassie, Vore, Alby" is signed…
+
+That's the end of Signature.
+
+Now, the Fortune section.
+
+Tomorrow, you can be anywhere.
+
+That brings us to the end of the Weekly Thing, issue 255. Thanks for listening, and I'll see you next time.

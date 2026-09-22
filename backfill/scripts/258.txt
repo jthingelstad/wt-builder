@@ -1,0 +1,405 @@
+The Weekly Thing, issue 258. Vision, Strike, Reputation. Published June 11, twenty twenty three. By Jamie Thingelstad. In this issue: Vision Pro first impressions, Apple Vision, open-source LLMs, HTTP/3 usage, iPadOS Stage Manager, NVIDIA Grace Hopper, GPT-4 in Minecraft, personal brands.
+
+Good morning!
+
+I’m gonna stick with bullets this week…
+
+- Mazie finished High School!
+- My blog turned 19 years old.
+- Apple announced the Vision Pro.
+- The SEC filed to sue Coinbase.
+- A blur of announcements in AI.
+
+So much happening!
+
+The featured section is all about two key articles on the Vision Pro. Am I going to get one? Oh yeah. For sure. You? See the poll below.
+
+Now, the Featured section.
+
+Link one. "Daring Fireball: First Impressions of Vision Pro and VisionOS"
+
+When it comes to new Apple products my go to reviewer is John Gruber of Daring Fireball. Gruber knows the Apple world better than anyone else. He is also demanding of details, and focuses on the experience.
+
+Quote.
+Vision Pro and VisionOS feel like they've been pulled forward in time from the future. I haven't had that feeling about a new product since the original iPhone in two thousand seven. There are several aspects of the experience that felt impossible.
+End quote.
+
+That "felt impossible" is where magic can happen.
+
+His take on the "pass through" view when you put Vision Pro on.
+
+Quote.
+Again, it doesn't look at all like looking at screens inside a headset. It looks like reality, albeit through something like a pair of safety glasses or a large face-covering clear shield. There is no border in the field of vision -- your field of view through Vision Pro exactly matches what you see through your eyes without it. Most impressively, and uncannily, the field of view seemingly exactly matches what you see naturally. It's not even slightly wider angle, or even slightly more telephoto
+End quote.
+
+The ability to present you with a view of the real world that maps exactly with what you see normally seems very important. It should limit any disorientation, and allow you to navigate the environment with little modification.
+
+Quote.
+If anything is going to seem weird or wrong about long-form reading in VisionOS, it's not the visual fidelity, but rather the fact that I've never once in my life read an article or email message in a window that appeared 4 or 5 feet tall.
+End quote.
+
+Multiple times in Gruber's review he goes to the lack of limits when you are in an AR environment. I doubt this can be fully appreciated without experiencing it first hand. But this removal of limits is interesting to me. With a good enough experience, do you trend to a future where you ditch the large monitors and just put a Vision Pro on with a keyboard and do your computer stuff? That seems like a clear path.
+
+Quote.
+Then, a dinosaur -- a velociraptor-looking thing, seemingly about 9 or 10 feet tall -- approached the "portal" in the wall and came halfway through into the room. I was invited to stand up from the couch and approach it. There was a coffee table in front of the couch, a possible shin-banging accident waiting to happen, but the pass-through video experience is so seamless, so natural, so much like just looking through glasses, not looking at a screen inside a headset, that it took no concentration or carefulness at all on my part to stand up and walk around the coffee table and approach the dinosaur. The dinosaur was not pre-recorded. It reacted, live, to me, keeping eye contact with me at all times. It was spooky, and a significant part of my own lizard brain was instinctively very alarmed. I got extremely close to the dinosaur's head, and the illusion that it was real never broke down. Even up close, there was no sign that it was composed of polygons stitched together or something. It looked like a 10-foot tall dinosaur that could kill me with a snap of its jaws, right there in the room with me, as close to my face as the MacBook Pro display on which I'm writing these words is right now.
+End quote.
+
+The dinosaur experience is similar to that done on other headsets, but I’m curious to see if the significantly improved experience of the Vision Pro makes this so much more believable. Existing VR experiences I've done have always been obviously digital, and obviously not real.
+
+Quote.
+I walked away from my demo more than a bit discombobulated. Not because it was disorienting or even the least bit nauseating, but because it was so unlike anything I've ever experienced.
+End quote.
+
+I can’t wait to try this thing myself.
+
+There are a number of other Vision Pro reviews that I thought were good reads as well:
+
+- I wore the Apple Vision Pro. It’s the best headset demo ever. - The Verge
+- Eyes (and head) on with the Apple Vision Pro – Six Colors
+- First impressions: Yes, Apple Vision Pro works and yes, it’s good | TechCrunch
+- Introducing Apple Vision Pro: Apple’s first spatial computer - Apple
+
+Link two. "Apple Vision – Stratechery by Ben Thompson"
+
+Ben Thompson's writeup on the Vision Pro is a great read. I appreciate that he hits on the user experience, as well as the technology, and the worries around isolation.
+
+Quote.
+Apple Vision is technically a VR device that experientially is an AR device, and it's one of those solutions that, once you have experienced it, is so obviously the correct implementation that it's hard to believe there was ever any other possible approach to the general concept of computerized glasses.
+End quote.
+
+Thompson's "so obviously" comment here caught my attention. This is a pattern I've come to appreciate as a technologist. There are times that you use a technology (not read about it, use it) and you realize it is so much better than the existing solution that it is obviously going to replace it. The trick of course is that doesn't mean it will happen fast, or be easy, but it will. My personal experiences in that realm:
+
+- First time I replaced a spinning hard drive with an SSD
+- First time I drove a fully electric car
+- First time I transferred value with crypto
+
+Thompson also goes to a desktop experience for Vision Pro.
+
+Quote.
+At the risk of over-indexing on my own experience, I am a huge fan of multiple monitors: I have four at my desk, and it is frustrating to be on the road right now typing this on a laptop screen. I would absolutely pay for a device to have a huge workspace with me anywhere I go, and while I will reserve judgment until I actually use a Vision Pro, I could see it being better at my desk as well.
+End quote.
+
+I do keep pondering this use case, and Thompson doubles down on it. The Vision Pro experience for work is really interesting. It used to be fancy for office workers to have two good monitors. The productivity benefit is real. How will it feel for a software developer to have their entire coding environment floating in space in front of them with significantly more visual room around them?
+
+Quote.
+To put it even more strongly, the Vision Pro is, I suspect, the future of the Mac.
+End quote.
+
+This is not an obvious path, but I think he is on the right one. Vision Pro isn't a mobile experience really.
+
+Quote.
+I am completely serious when I say that I would pay the NBA thousands of dollars to get a season pass to watch games captured in this way. Yes, that's a crazy statement to make, but courtside seats cost that much or more, and that 10-second clip was shockingly close to the real thing.
+End quote.
+
+I had to pull this out becuase I had the same thought. Experiencing sports on the Vision Pro seems like a giant opportunity. If you can start broadcasting games in 3D the market for people to pay significantly more to "be there" in AR is huge. As a soccer fan if I could experience games from perspectives impossible in any other way I would love it. However, you need a way for multiple people to join in that which could be done online.
+
+How about a completely unscientific poll…
+
+That's the end of Featured.
+
+Now, the Notable section.
+
+Link one. "Strike Infrastructure Update: We Now Serve Customers on Our Own Infrastructure"
+
+A number of new product announcement from Strike, but perhaps even more importantly they have transitioned to running all their own infrastructure.
+
+Quote.
+That’s why as of today, I’m proud to announce Strike now owns and operates all of its own infrastructure for customers. Strike now custodies customer bitcoin and dollars, which means no custodial intermediaries between us and our users.
+End quote.
+
+I think this is a big deal. Depending on the industry you are in you need to consider who you are building on. Strike has big ambitions, and they will be disruptive, and having their own infrastructure means they are less vulnerable.
+
+Quote.
+Strike users can now send sats to any other Strike user, including Global users in all of our new global markets!
+End quote.
+
+I like the model that Strike has embraced and how much friction they are removing from sending money around.
+
+Link two. "Do Personal Brands Matter?"
+
+First, I don't like the term "personal brand" in general. I just don't like the image it brings up. People are not brands. But I do really like how Chilvers flips it, and just moves brand to the side in favor of reputation. That is something I think is critical. His approach and perspective is spot on here. I particularly appreciate the clarity that this is something you get via action. You cannot directly manipulate your reputation.
+
+Link three. "Dedicate Time And Space To Not Doing - Matt Norman"
+
+Norman hits on a good topic here, just making time to not be engaged in things. He has five recommendations for doing this well.
+
+Quote.
+1. Discuss your aspiration with people who depend on you. 2. Determine the best time. 3. Minimize "doing" influences. 4. Don't exchange one set of rules for another. 5. Prioritize availability over productivity.
+End quote.
+
+This might seem overly rigorous to do nothing, but being intentional is usually a key to success.
+
+Link four. "Open-Source LLMs - Schneier on Security"
+
+When Facebook (Meta) open-sourced LLaMa it wasn't obvious to me how big of a strategic thing that was. It has opened up a whole line of innovation with LLMs.
+
+Quote.
+More importantly, these smaller and faster LLMs are much more accessible and easier to experiment with. Rather than needing tens of thousands of machines and millions of dollars to train a new model, an existing model can now be customized on a mid-priced laptop in a few hours. This fosters rapid innovation.
+End quote.
+
+It is good that this alternative path exists in addition to the closed, commercial efforts underway.
+
+Link five. "Some blogging myths"
+
+I love this "encouragement" from Evans for bloggers. People have asked me so many times how to approach blogging and I just tell them to start. That is the key. Just start. Evans myth busting here are good answers to the common refutes to why people cannot just start.
+
+Quote.
+here are the myths: - myth: you need to be original - myth: you need to be an expert - myth: posts need to be 100% correct - myth: writing boring posts is bad - myth: you need to explain every concept - myth: page views matter - myth: more material is always better - myth: everyone should blog
+End quote.
+
+Great stuff.
+
+Link six. "With iPadOS 17, Stage Manager Is (Finally) Moving in the Right Direction - MacStories"
+
+Window managers are surprisingly complicated things to get right, and filled with a ton of personal preference. I tried Stage Manager for a bit, but found it too heavy handed. Or maybe it was just too big of a change. I'll give it another go with the new version. While Apple didn’t reference Stage Manager in visionOS, it sure seemed like the windows in the demos were placed in ways that were inspired by Stage Manager.
+
+Link seven. "Examining HTTP/3 usage one year on"
+
+I’m frankly shocked that HTTP/3 is already 25-30% of connections for people using browsers. I thought this article would be about the non-adoption of HTTP/3. Cloudflare breaks out robotic HTTP requests and shows how far behind that is, with a lot of HTTP/1.1 usage. Either way, at least these protocol changes go faster than IPv4 to IPv6!
+
+Link eight. "Retiring CEO Archie Black on why he had to improve as a leader for today's SPS Commerce"
+
+Great interview with our CEO Archie Black on his retirement and reflecting on his 22 years leading SPS.
+
+Quote.
+The company, which went public during Black's helm, has had a remarkable run of 89 consecutive quarters of revenue increases. In twenty twenty two, the company's annual revenue exceeded 400 million dollars for the first time, and it now ranks as the 45th largest public company in Minnesota. By market value, it ranked twenty third.
+End quote.
+
+Incredible success. And I love that the theme of continual learning and improving is woven into so much of what Archie shared in this interview. If you always focus on getting better, you do, and your likely going to win.
+
+Link nine. "NVIDIA Grace Hopper Superchips Designed for Accelerated Generative AI Enter Full Production | NVIDIA Newsroom"
+
+I haven't followed GPU advancements that close, but this NVIDIA announcement is incredible with the statistics that they are hitting on these systems. The announcement video is a good watch as well. The throughput that these GPUs have is hard to fathom.
+
+Link ten. "Privacy (Part 1): Constantly Under Threat:: Escape Big Tech"
+
+I take a lot of measures to protect my privacy from companies online. I block many social networks entirely, I run blockers in my browsers, and I run an OS level blocker as well. About 20% of the requests various things on my computer want to do get blocked.
+
+While I value my privacy, when asked by others why they should care so much I think this enumeration is spot on.
+
+Quote.
+The importance of privacy as a human right is underscored by its role as a prerequisite for the exercise and enjoyment of other rights. The interdependence of human rights makes privacy crucial to freedom of speech, the right to a fair trial, freedom of thought and conscience, and freedom of association.
+End quote.
+
+This article goes into the perverse tradeoff of giving away Smart TV's at a high cost in order to surveil the people that get them and sell access to them.
+
+Quote.
+The importance of privacy as a human right is underscored by its role as a prerequisite for the exercise and enjoyment of other rights. The interdependence of human rights makes privacy crucial to freedom of speech, the right to a fair trial, freedom of thought and conscience, and freedom of association.
+End quote.
+
+Being aware of these schemes and tradeoffs is a great start, and there is still far too little awareness in the general public.
+
+Link eleven. "They Plugged GPT-4 Into Minecraft—and Unearthed New Potential for AI | WIRED"
+
+How GPT-4 plays Minecraft is interesting, and I wonder if this is one of the few examples where GPT-4 itself is coding the solution and making it better.
+
+Quote.
+The most novel part of the project is the code that GPT-4 generates to add behaviors to Voyager. If the code initially suggested doesn’t run perfectly, Voyager will try to refine it using error messages, feedback from the game, and a description of the code generated by GPT-4.
+End quote.
+
+This generative approach beat out other automated agents.
+
+Quote.
+Over time, Voyager builds a library of code in order to learn to make increasingly complex things and explore more of the game. A chart created by the researchers shows how capable it is compared to other Minecraft agents. Voyager obtains more than three times as many items; explores more than twice as far; and builds tools 15 times more quickly than other AI agents.
+End quote.
+
+That's the end of Notable.
+
+Now, the Journal section.
+
+Thursday @ 10:50 PM
+
+Wish List: Micro.blog plugin to create the static file needed for self-hosted NIP-05 verification. I think this would be really easy to make? And would be a nice compliment to recently added Nostr cross-posting support.
+
+Wednesday @ 10:34 PM
+
+Kakhovka dam
+
+Quote.
+Ukrainian officials estimated that about 42,000 people are at risk from the flooding triggered by explosions at the Kakhovka dam in a Russian-controlled area of southern Ukraine. The UN Security Council held an emergency meeting, during which Russia and Ukraine blamed each other for the blasts. America, Britain and France called for an investigation. Martin Griffiths, the UN's aid chief, warned that the "sheer magnitude of the catastrophe" will be only realised in the coming days. — Economist Espresso, June 7, twenty twenty three
+End quote.
+
+Horrible destruction that will take a decade to rectify.
+
+Quote.
+Efforts to rescue those endangered by the destruction of the Kakhovka dam, located in a Russian-controlled area of south-east Ukraine, continued. Ukrainian officials reported that 29 towns and villages had been flooded, leaving people stranded on their rooftops and without drinking water. Authorities say at least 40,000 people must be evacuated. Russia and Ukraine each blame the other for the blast. Though it is too early to assess the long-term damage, officials are concerned about homelessness, crop failure, energy shortages and displaced landmines. At least three people have died, according to local media. — Economist Espresso, June 8, twenty twenty three
+End quote.
+
+Been in place for 67 years, opening in 1956. Construction started in 1950, six years to build. Generated 1.4 TWh of electricity a year. Kakhovka Reservoir held 18.2 cubic kilometers of water, or 4,807,931,352,918 gallons
+
+Tuesday @ 11:39 PM
+
+Moving 1,000,000 Satoshis (0.01 Bitcoin) between Bitcoin addresses on-chain so I can claim a customized Wallet of Satoshi Lightning address.
+
+Achievement Unlocked:
+
+1. Lightning address is now thingelstad@walletofsatoshi.com.
+2. Nostr LNURL updated with new address.
+
+Thanks Wallet of Satoshi​!
+
+Tuesday @ 10:22 PM
+
+Apple Vision Pro Reactions
+
+We all watched the Apple Vision Pro segment of WWDC tonight. I wanted to watch it again, and I was curious to see what the rest of the family would think.
+
+Tammy: "Looks cool but scared of where it takes us."
+Mazie: "Exciting, extremely cool, but destructive to humankind."
+Tyler: "Wow. I want to try it."
+Jamie: "When can I get one?"
+
+Monday @ 1:56 PM
+
+Foveated Renderer. Oh yeah, always wanted one of those. Apple Vision Pro announcement at WWDC twenty twenty three.
+
+Monday @ 1:25 PM
+
+Apple Vision Pro is a real thing! Can Apple do for headsets what they did for Phones and Watches? Maybe.
+
+Partnering with Disney to bring their incredible catalog of stories to Vision Pro is super smart. Both companies benefit.
+
+The hardware package behind the Vision Pro is wild.
+
+Sunday @ 4:31 PM
+
+Love the street chalk at Edina Art Fair!
+
+Sunday @ 2:17 PM
+
+My cousin Quinn Chrest just got a blog! He is starting his career in technology and I urged him (nudged?) to get going with a domain and micro.blog. I also set him up with quinnchrest.eth for decentralized services! Welcome @quinntchrest!
+
+Saturday @ 10:50 PM
+
+Chess game with Tyler tonight. We both made a couple of major blunders, but he forced me to resign (I was black) and won the match.
+
+Saturday @ 10:48 PM
+
+Edina Art Fair twenty twenty three
+
+We endured the very hot afternoon and visited the Edina Art Fair. This is one of our favorite art fairs every year. Some of the artists that caught our eye while we were there:
+
+* Mark Eliason: These graphic pieces captivated me right away. The "John Wick" one had me staring at the detail for a long while.
+* Neil Russell: Abstract art with intense colors and very pronounced textures.
+* Wired by Bud: These wire sculptures were cool and made us all smile.
+* Wenwen Liao: Incredibly artwork with cool scenes that sparked the imagination.
+* Roth Illustration: These pieces were impressive and I loved how the people and shapes blended in with the wood and the scene.
+* Bloom Key Papercrafts: These were really cool but hard to display as they are lit frames and that is difficult to show in the bright sunlight of an art fair. The scenes were really great and the lighting effects were well done.
+* Barret Lee: I liked these paintings a lot.
+* Faith Mebli: The organic look of the wood carvings that Mebli does is incredible. She had an Octopus that was at least five feet tall and incredibly eye catching.
+* Carla Bank: Tammy and I were both very taken with Bank's work, particularly the Blackbird piece. We really enjoyed all of her work.
+* Hardwood Music Company: These make such cool and rich sounds, and they look amazing.
+* Brian Schmidt: Mazie bought some prints of Schmidt's last year and his style is very cool, the scenes suck you in.
+* Andrew Carson: We've had a windmill from Andrew Carson for years and love it. We stopped by his section hoping to say Hello as he announced he is retiring shortly. I particularly find his kinetic sculptures fascinating!
+* Tiny People Big Laughs: This is a regular at the art fair and the scenes with miniature people are always great.
+* Naomi Tiry Salgado: The detail and scenes in these oil paintings were both modern and classic at the same time.
+* A. D. Hogan: His National Parks Collection really struck a chord with me. I loved the style and bold look. Plus I’m a big fan of the National Parks.
+
+Past years: two thousand four, twenty fourteen, twenty nineteen, and twenty twenty two.
+
+Saturday @ 9:48 AM
+
+This is the first time I've ever failed attestations running my validators on Gnosis Chain. Two things:
+
+1. Only zeroed out about two days of attestations.
+2. Dappnode sent updates on June 1 that corrected the issue and required no action on my part. Yeah for auto-updates!
+
+Friday @ 10:06 PM
+
+Blog turns 19!
+
+Today marks the nineteenth year of my blog at thingelstad.com!
+
+Over those 19 years I've written 8,186 posts totaling 493,751 words. My website is older than the iPhone, Bitcoin, and Instagram.
+
+I love having my own home on the Internet.
+
+You'll note some posts from two thousand to two thousand three, but I don't count them in the timeline as they were added later.
+
+Friday @ 5:05 PM
+
+Today was Mazie's last day of High School! I took her out for our "last" last-day-of-school breakfast at Sun Street Breads before dropping her off at Washburn, and Mom welcomed her home with flowers to celebrate.
+
+That's the end of the Journal.
+
+Now, the Briefly section.
+
+Link one. "Binance was sued by the SEC. It looks like FTX but worse"
+
+Will be curious to see how this unfolds. Is the key to avoid crypto exchanges whose founders are known by initials? SBF. CZ.
+
+Link two. "ZAPLIFE.LOL"
+
+Streaming view of Zaps (Bitcoin Lightning tips) on Nostr, along with leaderboards.
+
+Link three. "Minecraft, now on Chromebook"
+
+A couple decades ago Doom was spread to every platform. Today that is Minecraft.
+
+Link four. "Apple previews new features coming to Apple services this fall - Apple"
+
+All minor things, but so many of these are things I'll get value out of right away. SharePlay in the car will be a win.
+
+Link five. "‘Franklin Smoke’ Cookbook by Aaron Franklin and Jordan Mackay — Tools and Toys"
+
+I have a total "man crush" on Aaron Franklin and the idea of having a book that is just about the technique of smoke and fire may sound odd, but I’m all in.
+
+Link six. "Timechain Calendar"
+
+Visual of time in the context of the Bitcoin blockchain.
+
+Link seven. "GPT best practices - OpenAI API"
+
+Thorough docs on writing better prompts and working with GPT from OpenAI themselves.
+
+Link eight. "WWDC twenty twenty three: watchOS 10’s redesign – Six Colors"
+
+Quiet a few significant UX changes coming to watchOS. Love to see that Apple is still pivoting and adapting with watchOS.
+
+Link nine. "collectif encore — HOURRÉ: MANIFESTE POUR UNE MAISON VIVANTE"
+
+The before and after photos of this old farmhouse are amazing. Via Dense Discovery 241.
+
+Link ten. "It’s not wrong that "".length == 7"
+
+I had no idea how divergent different languages report the length of a Unicode character to be. Wild!
+
+Link eleven. "Photographer Lines Up Great Pyramid, Moon, and Airplane in One Epic Shot | PetaPixel"
+
+My friend Layne quotes the photographer mantra "ƒ/8 and be there". That is this shot.
+
+Link twelve. "generative AI learning path | Google Cloud Skills Boost"
+
+Wide range of learning resources from Google for AI.
+
+Link thirteen. "14 The Inspirational Leader Series: Anna Love — Teresa Brazen"
+
+Anna Love was on our team at BigCharts two plus decades ago. She now leads her own organization and has embraced some incredible leadership practices. Very cool!
+
+Link fourteen. "How to make fancy road trip maps with R and OpenStreetMap | Andrew Heiss"
+
+What a delightful project and I love the clarity of the maps produced. I do this kind of map sharing on my blog. However, I can’t see learning R and doing all this.
+
+Link fifteen. "A Short 100-Question Diligence Checklist"
+
+Thorough list of questions to use when reviewing an organization.
+
+Link sixteen. "Plane - The open source project management tool"
+
+Open source option to commercial solution like JIRA.
+
+Link seventeen. "We need not all be connected, all the time"
+
+Less is more.
+
+That's the end of Briefly.
+
+Now, the Signature section.
+
+"Weekly Thing #258 / Vision, Strike, Reputation" is signed…
+
+Fortune
+
+There is a fly on your nose.
+
+That brings us to the end of the Weekly Thing, issue 258. Thanks for listening, and I'll see you next time.

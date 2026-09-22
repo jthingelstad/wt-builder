@@ -1,0 +1,193 @@
+The Weekly Thing, issue 89. Jan 19, twenty nineteen. Published January 19, twenty nineteen. By Jamie Thingelstad. In this issue: Privacy online, Ring security cameras, Sprint location data, DuckDuckGo, Collection #1 data breach, Nike Adapt BB, engineering management.
+
+Today we transitioned our move into full "looking forward" mode. We closed on the sale of the previous house and now will begin the deliberate process of settling into the new place. I'm glad we have the winter months to do that, and everything will be nicely in place once spring arrives!
+
+Enjoy this weeks links! I think there are some really good ones in here. I've been having a lot of fun with what little time I've had to play with Blot for my blogs. I'm slowly moving all but my microblog there, and I'm really happy with it. While I have you, it would be awesome if you would help spread the word about the Weekly Thing! Send an email (mailto:?subject=Check%20out%20the%20Weekly%20Thing and body=Hello!%0A%0AI%20subscribe%20to%20this%20weekly%20email%20called%20the%20Weekly%20Thing.%20I've%20enjoyed%20it%20a%20lot%2C%20and%20think%20you%20might%20like%20it%20to.%20You%20can%20check%20out%20past%20issues%20and%20subscribe%20at%0A%0Ahttps%3A%2F%2Fweekly.thingelstad.com%2F%0A%0ACheers!%0A) to some friends that you think may enjoy it! Or share a link to via whatever means you prefer!
+
+Now, the Featured Links section.
+
+Link one. "You Deserve Privacy Online. Here’s How You Could Actually Get It | TIME"
+
+Apple's Tim Cook making the case that we need Congressional action on privacy online. I like the idea, but I’m skeptical of it happening anytime soon.
+
+The trail disappears before you even know there is a trail. Right now, all of these secondary markets for your information exist in a shadow economy that’s largely unchecked—out of sight of consumers, regulators and lawmakers.
+
+Let’s be clear: you never signed up for that. We think every user should have the chance to say, “Wait a minute. That’s my information that you’re selling, and I didn’t consent.”
+
+In the meantime I will continue to run software to defend my privacy.
+
+Link two. "What It’s Like to Be A Woman On the Internet – NewCo Shift – Medium"
+
+This is a must read to give some perspective to the experience that many women have on the Internet.
+
+And third, and most importantly, that sometimes being a woman on the internet can be a full-time job. As I mentioned before, my role as a Developer Advocate involves a lot content creation, face-to-face interaction, and requires me to have an online social presence. In the past, I’ve dealt with everything from men commenting on online videos of me saying I should “get a tan”, I’ve been DMed creepy messages on Twitter/LinkedIn/Instagram/etc. with messages like “hi”, “nice smile you got there”, and “your beautiful” (I usually respond “ *you’re ”, on that last one), and have even stumbled upon entire forum posts about me and how as a woman with a non-traditional background I’m unqualified to work in tech. Over the last three years, I have learned to brush it off and I almost always “never read the comments” if I know they’re negative (in fact, I have a necklace and pin of the mantra). But these things add up.
+
+Awareness of this, followed by action by men on the Internet, is important. First step is being aware.
+
+Link three. "For Owners of Amazon's Ring Security Cameras, Strangers May Have Been Watching"
+
+This article had two central themes for me.
+
+First, Ring isn't applying commercially reasonable protection to the video content their users are trusting them with. This data should be encrypted, and they should not be allowing anyone in the company access to the data.
+
+Secondly, the ominous undertones of "Ukrainian" engineers in this seems like it’s trying to imply a lack of trust, or some implicit fear. I don't expect the article would have the same tone if engineers in France or Belgium were looking at the video. It shouldn't be any different.
+
+That's the end of Featured Links.
+
+Now, the My Weekly Photo section.
+
+The cold and frozen soccer fields of Pamela Park.
+Jan 13, twenty nineteen at 4:40 PM
+Pamela Park, Edina MN
+
+That's the end of My Weekly Photo.
+
+Now, the Notable Links section.
+
+Link one. "Sprint to Stop Selling Location Data to Third Parties After Motherboard Investigation - Motherboard"
+
+Last week I shared a link to the article about carriers selling location data. This activity got a lot of attention from people, and a mere week later Sprint is stopping this practice.
+
+Link two. "Thinking Different: Keys to Adopting an iPad-First Workflow – MacStories"
+
+I've been using an iPad for increasingly more of my stuff at the office for the last couple of years. This statement is so true!
+
+But moving to the iPad still involves some growing pains. The longer you've used a traditional computer, the harder an iPad transition can be.
+
+I had to radically rethink how I approached many tasks to get it right on iOS. I will say though, there are now a decent number of things that I get great value out of on my iPad in iOS that I simply cannot do on macOS. Shortcuts is a big part of that.
+
+Link three. "Implicit Gender Bias in Startup Funding - Feld Thoughts"
+
+I really like the promotion and prevention ideas here, and I like Feld's commentary. This is usable advise that I’m positive I can put to use.
+
+Link four. "Nothing Can Stop Google. DuckDuckGo Is Trying Anyway."
+
+I've been using DuckDuckGo for a long time, and this behind the scenes look at the company is pretty great. Via Leah Cunningham.
+
+Link five. "How Pamela Park became the epicenter of east Edina's teardown trend | Star Tribune"
+
+Pamela Park is where we just moved, into one of these new developments. We are on the East side of the park though.
+
+Link six. "Opinion | You Should Meditate Every Day - The New York Times"
+
+More personal stories validating meditating and it’s benefits, particularly with the digital world.
+
+Then, about four months ago, I brute-forced it: I made meditation part of my morning routine and made myself stick with it. I started with 10 minutes a day, then built up to 15, 20, then 30. Eventually, something clicked, and the benefits became noticeable, and then remarkable.
+
+The best way I can describe the effect is to liken it to a software upgrade for my brain — an update designed to guard against the terrible way the online world takes over your time and your mind.
+
+Link seven. "Nike's Self-Lacing Adapt BB Basketball Shoe Is Actually Smart | WIRED"
+
+Okay, so I started reading this with the thought of "Really, who needs Smart Shoes?" Then, as I read about the technologies it started to make sense to me for a lot of applications. Elderly people that cannot tie their own shoes? Smart shoes that lace themselves sound great! I personally have been dealing with plantar fasciitis for longer than I'd care to think, and I wonder if a Smart Shoe couldn't help me with that. Your feet work hard, maybe some sensor and intelligence could help them?
+
+Link eight. "Security Checklist"
+
+This is a good and complete checklist that you could use to review your personal security footing.
+
+Link nine. "Troy Hunt: The 773 Million Record "Collection #1" Data Breach"
+
+This is a huge dump of usernames and passwords. I use 1Password to protect myself from this stuff, and they have a good blog post on this one. Krebs on Security also wrote about this massive dump, highlighting that in the big picture this is far from the biggest breach of its kind.
+
+Link ten. "Jenn on Twitter: "Devops meetup January twenty nineteen #devopsmsp""
+
+A thorough, and nicely contextualized with GIFs, Twitter thread covering Andy Domeier from SPS on SRE teams!
+
+Link eleven. "Engineering Management: The Pendulum Or The Ladder – charity.wtf"
+
+A fabulous read on the engineering manager path in technology organizations. There is so much I'd highlight here that I'll skip highlighting any of it and just suggest you read it. The 10 reasons to think critically about director or executive roles made are hilarious. They are completely true too.
+
+Link twelve. "Tracking Blood Sugar - Eric Jain's Blog"
+
+This is an amazingly detailed analysis of the blood sugar levels this person did. This is "quantified self" to a whole new level. I would have thought some of the blood sugar impacts would be more pronounced though.
+
+Link thirteen. "Stop the presses: How a new publishing platform can help local news"
+
+Google deserves a bunch of credit for the work they are doing to help news organizations create content. There is a totally justified cynical response to that of "Well, after they destroyed it they should!". I would suggest the more pragmatic answer is Google needs content publishers, they need news organizations to have content to send people to!
+
+Link fourteen. "How to See Weather on Lock Screen of iPhone with iOS 12 | OSXDaily"
+
+I noticed this information showing up on my kids iPhones and I was really confused. Turns out it only shows up under a certain set of configurations. I wouldn't mind having this on my phone as well! And yes, I realize Android has done this forever.
+
+Link fifteen. "Four Cool URLs - Alex Pounds' Blog"
+
+This happens to be a thing that I find "artful" as well. A well designed URL structure implies a well thought out architecture and makes it easier for developers, and in some rare cases uses, to understand the service.
+
+Most people don't give them much thought, in part because web browsers increasingly hide URLs away. But some URLs have special powers. Here are some that knock my socks off.
+
+Link sixteen. "How I Finally Hit two thousand on Lichess, and Improved my Chess Rating by 200 Points in 16 Days - Trapeze"
+
+I would like to be better at Chess. Some interesting ideas here for how to do that with a pretty focused effort.
+
+That's the end of Notable Links.
+
+Now, the Give Back section.
+
+The mission of Hack the Gap is to amplify the voices and cultivate talents of underserved people in our community. I serve on the board of Minnestar with Jenna Pederson, one of the founders of Hack the Gap, and I love what this organization is focusing on. Gender diversity in tech is a real problem and it’s far too often brushed off as some endemic issue that cannot be solved. That isn't the case at all. Hack the Gap is creating a way for people to get into the technology industry and breaking down barriers. Donate to Hack the Gap today!
+
+That's the end of Give Back.
+
+Now, more links.
+
+- More PM Problem Areas | Silicon Valley Product Group
+Some areas to look out for development opportunities with product management teams.
+- Why did the PGP Web of Trust fail? – Henry Story – Medium medium.com
+TL;DR? Just way too hard.
+- mailtolink.me | markup generator for mailto links
+Cool utility to generate a mailto link. These are handy and this makes them easy to make.
+- Re-decentralizing the Web, for good this time | Ruben Verborgh ruben.verborgh.org
+This is the best description of what Tim Berners-Lee's Solid is about.
+- The unlikely resurgence of Dungeons and Dragons makes its way to the Inland Northwest | The Pacific Northwest Inlander www.inlander.com
+- The Art of Being an Instagram Husband - The Atlantic www.theatlantic.com
+When did "Influencer" become a profession?
+
+That's the end of More Links.
+
+Now, the Microposts section.
+
+Wednesday @ 9:35 PM
+
+“You’re one of 772,904,991 people pwned in the Collection #1 data breach.” That is a shockingly large amount of credentials compromised. Good blog post describing it. Very happy I use unique, random passwords with 1Password!
+
+Tuesday @ 7:14 PM
+
+Is there anything useful to do with 1,500+ CDs and 200+ DVDs? Going thru stuff after move and filtering. Is there an option better than garbage?
+
+Sunday @ 3:49 PM
+
+Gorgeous day for a smoking session on the Big Green Egg! First smoke at the new house!
+
+Sunday @ 8:26 AM
+
+I just preordered Cal Newport’s Digital Minimalism. I was going to buy it anyway so the additional benefits he added were a bonus!
+
+Saturday @ 11:03 AM
+
+Going back to Xfinity I lose fiber speed. Upside is back on IPv6.
+
+Saturday @ 9:24 AM
+
+Took my new Ratio Eight Coffee Maker and Baratza Virtuoso grinder for a first run this morning, paired with Sump Coffee beans. It’s like an automatic Chemex, delicious brew! Awesome surprise from my amazing and thoughtful wife.
+
+Friday @ 9:34 PM
+
+I have no idea what I’m doing with this 3D Printer! But it’s still fun!
+
+Friday @ 4:47 PM
+
+Internet service up and running at the new house!
+
+Friday @ 6:44 AM
+
+Today is moving day!
+
+That's the end of Microposts.
+
+Now, the Fortune section.
+
+You've made it all the way to the end! Here is your fortune for this week.
+
+You will be winged by an anti-aircraft battery.
+
+Thank you for subscribing to the Weekly Thing!
+
+That brings us to the end of the Weekly Thing, issue 89. Thanks for listening, and I'll see you next time.

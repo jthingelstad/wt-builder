@@ -1,0 +1,256 @@
+The Weekly Thing, issue 233. Versepad, "Just", Mastadon. Published November 13, twenty twenty two. By Jamie Thingelstad. In this issue: FTX collapse, tech layoffs, Zoom on Tesla, Portmaster 1.0, Apple Watch Ultra, decentralized email, Mastodon server, RSS privacy.
+
+Hello everyone!
+
+I hope you are having a great weekend. I'm coming to you on a Sunday this week. We are hosting our annual Things 4 Good Fall Fundraiser event this weekend, and we had a number of things to get ready before opening the doors for the sale on Saturday. So I’m a little past deadline.
+
+I feel like this week was two stories in tech.
+
+1. The massive blow-up of FTX and the apparent fraud of Sam Bankman-Fried. This story is still evolving, or unraveling. It has shook the crypto world hard, and the breadth and depth are still being figured out. There is much to be concerned about, and be mindful of in the future, but I am again impressed by how the crypto markets absorb bad news, correct fast, and then start to work forward.
+2. Musk and whatever his strategy-of-the-day for Twitter is the other big one. Buying verified accounts, not buying them. Are you as tired of this thread as I am? Twitter isn't a protocol, it isn't the web. It is a company, with a product. If the product is bad, move on. It seems like more folks should just move on… you have choices. Start a blog! Or join the flood of folks heading to Mastadon.
+
+That is all for tonight. I’m going to get rested and get ready to be a retailer for another day of candle, honey, and puzzle sales!
+
+“Success is the enemy of curiosity." — Jony Ive
+
+Now, the Featured section.
+
+Link one. "Home invasion"
+
+Since Musk took ownership of Twitter and started his random act of the day strategy, we've seen a massive number of people jumping into Mastodon. Mastadon has been around for a long time, and uses a federation of thousands of servers, each with their own admin and policies, to then federate a Twitter-like experience. It is sort of like Twitter, but it is also very much NOT Twitter. This article highlights the cultural collisions happening as these Twitter refugees come tumbling into Mastadon and bring an entirely different set of expectation and culture into the Fediverse.
+
+I can relate. I was a very active (too active?) IRC user in the 90's when the only way to get on IRC was to get the tarball and compile your own copy on a Unix machine. It was delightful, in part because the technical bar limited those that could get in, and it had a specific culture as a result. Then people started to create Windows and Mac IRC clients. All of a sudden anybody could join IRC. Everything changed… Mastodon is going through that now.
+
+Software is people. And people are culture. Thus, software is culture.
+
+That's the end of Featured.
+
+Now, the Notable section.
+
+Link one. "Versepad"
+
+A text editor for poets? Yep. What does that mean? It is pretty neat to try it. It helps illustrate the structure of the poem, and has a variety of tools to help with poem structure as you edit. How cool.
+
+Link two. "Could FTX’s Collapse Signal Even Tougher Times for Crypto? Here’s What to Know"
+
+I've read a ton about the fall of FTX this week, and it is still playing out. I’m active in crypto and find the tech compelling so have paid close attention. One of the most important tenets of crypto is to self-custody your tokens. "Not your wallet, not your crypto" is how the saying goes. We are again learning that centralized exchanges on a decentralized platform have the potential for big problems.
+
+This article has a good tlmeline. I’m saddened by the losses that many folks are going to take as a result of this. But I also still see the long-term potential in what can be built. Realistically, I think the FTX blow up pushes back crypto 2-3 years in adoption.
+
+Link three. "Layoffs.fyi - Tech Layoff Tracker and Startup Layoff Lists"
+
+There have been a lot of layoffs in technology with challenging market dynamics we are in now. According to this tracker "787 tech companies with layoffs, 120699 employees laid off in twenty twenty two." This site collects data and validates is a database of tech related layoffs.
+
+Link four. "What to blog about"
+
+I love blogging, and one of the questions that people often get stuck on is what to write about. Willison's take on this is great.
+
+Quote.
+You should start a blog. Having your own little corner of the internet is good for the soul! But what should you write about? It’s easy to get hung up on this. I’ve definitely felt the self-imposed pressure to only write something if it’s new, and unique, and feels like it’s never been said before. This is a mental trap that does nothing but hold you back. Here are two types of content that I guarantee you can produce and feel great about producing: TILs, and writing descriptions of your projects.
+End quote.
+
+If you haven't tried before, there is no better time than now to start a blog and create your own "little corner of the Internet".
+
+Link five. "Your Calendar = Your Priorities"
+
+One of the recurring topics I keep gravitating in productivity and leadership is time management. Time is the most finite resource any of us have, and the pure fact that we give a big percentage of that time to anyone that sends us a calendar invite suggests that we may not be as purposeful and planful with our time as might be needed.
+
+Quote.
+Humans are very good at filling up their work days with things that seem important. We’re pragmatic. When we encounter friction in one place, we "flow" to the next task. When we’re stuck, we figure out how to make progress. When there’s a problem, we want to fix it...and we’ll meet with anyone and everyone who can help. If we raise a flag, and nothing happens....we’re smart and make do. I’ve encountered 10x more over-workers than under-workers in tech. And most of the under-workers were geniuses (coincidence?). But time spent and pragmatism is not enough. High performing teams spend more time (and energy) on valuable things.
+End quote.
+
+Another way this is often said is the common quip that "What you don't do is often what makes you successful." Basically, make sure you are working on the most important thing, not all the things. This is just another way to talk about prioritizing time.
+
+Given how important this is, you would think there would be a variety of incredibly powerful calendar analytics solutions to help us manage this incredible resource. Alas, there is not. In the meantime, doing manual analysis, categorization, and evaluation of our calendar and then using that to drive some best practices seems "state of the art".
+
+Link six. "Just Don’t"
+
+This essay from Bray totally resonated with me. And I catch myself using "just" plenty enough as well, in cases that are not helpful. "Just install Foo, and then configure your account and you are in." To many people that is a giant ask, not a "just".
+
+I've said before that "just" is a four-letter word. By the way, so is "easy."
+
+Link seven. "Zoom officially announces its video conferencing app is coming soon to Tesla vehicles - Drive Tesla"
+
+This is totally geeky of me but I love that they are putting Zoom in the Tesla. And the use of the previously unused driver facing camera is brilliant. I’m curious how they will handle safety, I assume that camera cannot be used while driving?
+
+Link eight. "Portmaster 1.0, A New Era for Privacy"
+
+I will be curious to see how this package evolves. It is very similar to Little Snitch which I have used in the past but I always give up on because it is just too much to manage. You quickly realize that all of your apps talk to dozens of things online, and figuring out what to allow and disallow is much too complicated. If Postmaster comes with some more intelligence and out-of-the-box packages, maybe it can bridge that gap? This would be a great capability for privacy.
+
+Link nine. "Mathics"
+
+Mathematica is an incredibly powerful piece of software, and it is awesome to see an open-source alternative coming together.
+
+Quote.
+Mathics is a free, open-source general-purpose computer algebra system featuring Mathematica®-compatible syntax and functions.
+End quote.
+
+Opening access to the power of a system like Mathematica is great.
+
+Link ten. "Your organization should run its own Mastodon server"
+
+Thoughtful article on how you can approach Mastadon and the Fediverse for your company or organization, differently than you do existing social media platforms. I had never considered the idea of hosting employee accounts for example, but that makes a ton of sense and creates a really nice way for companies to operate on the Fediverse.
+
+Link eleven. "The Apple Watch Ultra’s Impact on My Focus and Presence – The Sweet Setup"
+
+I’m due for a new Apple Watch and I have my eye on the new Apple Watch Ultra. Not because I’m going to climb a bunch of mountains, but because it has a ton of power and I think it could change how I use the watch. Ginter seems to think it may be doing that for him.
+
+Quote.
+These three major differences between the Apple Watch Series 4 and the Apple Watch Ultra — the Action Button, fine-tuned notifications, and an optimized App Store — have me smitten with the Apple Watch. The Ultra’s endless battery life makes it that much easier to be the default piece of technology I opt for each day.
+End quote.
+
+Plus I think it would fit me pretty well. The Apple Watch has always been a touch small for my wrist.
+
+Link twelve. "The Death of Decentralized Email"
+
+Love the historical perspective that this article brings to email, going way, way back. It also very clearly shows how email has been largely captured by the big tech players and even though it was designed as an incredibly decentralized and resilient protocol, it has been centralized all in the name of content filtering and managing spam.
+
+Quote.
+Today’s email servers will claim to accept incoming mail but will delete is as soon as it is received, a practice referred to as blackholing. The email servers operated by tech giants permanently blacklist wide swaths of IP addresses and delete their emails without notice. Their back end infrastructure runs algorithms across huge datasets so that most spam doesn't appear on your inbox. Does it work? Sure. But it comes at a great cost that few even realize is being paid.
+End quote.
+
+At the end the article connects this back to Bitcoin and asks the Bitcoin community to be thoughtful on how SMTP went from being this decentralized and open system to something completely centralized and managed by a few companies. There are lessons to be learned. SMTP has spam, and Crypto has rug pulls and wallet attacks. There is much to learn from the journey of email, and avoid.
+
+Link thirteen. "Use RSS for privacy and efficiency"
+
+Longtime readers of the Weekly Thing know that I love RSS and Feedbin is my RSS reader of choice. It is a win for privacy, focus, attention, liberty, agency. I could go on and on. But using an RSS solution to connect you to other platforms works great.
+
+Quote.
+This might sound somewhat selfish but I have stopped subscribing/following anything/anyone online. When every interaction on a site is being tracked and used against you to sell your data, serve targeted ads, I don't think this is surprising. Instead I use my RSS feed reader. There is no need to log into YouTube and "subscribe" to channels to view new uploads from my favorite channels or "join" subreddits to keep up with top posts on Reddit, or "follow" an account on Twitter. These are things that can be managed with a good feed reader.
+End quote.
+
+I use Feedbin to follow a number of Twitter accounts, YouTube channels, and many other things. RSS works beautifully for this… and it is just a protocol.
+
+Link fourteen. "Nouns Builder | Nouns your ideas"
+
+The Nouns ecosystem is based on the main method of creating a sequence of unique NFT's on a schedule, and using those sales to build a treasury that the holders of the Nouns can vote to put to work. With Nouns Builder, anyone can determine a schedule, the graphic assets, and create their own Nouns-like project with the same capabilities.
+
+That's the end of Notable.
+
+Now, the Journal section.
+
+Thursday @ 8:49 PM
+
+The POAP for this weekends Things 4 Good twenty twenty two Fall Fundraiser is ready and it is awesome! This will be a fun collectible for those that come, as well as enabling holders to have input on next years candles!
+
+Thursday @ 8:26 PM
+
+We bottled Sweet Thing Honey tonight getting final preparations for our Things 4 Good Fall Fundraiser this weekend! Labels go on tomorrow.
+
+Tuesday @ 10:44 PM
+
+Ethereum reached another milestone tonight having 0% inflation since the Merge. Ultrasound Money status achieved.
+
+An estimated 650,652 eth (3.6%) would have been created with proof-of-work.
+
+Tuesday @ 8:15 PM
+
+We ended our day in small groups with #TeamSPS building bikes for kids! A fun event and doing a good thing at the same time. Team “Another Double” had a great time!
+
+Tuesday @ 8:13 PM
+
+Geoffrey Moore gave an amazing keynote at Growth Summit twenty twenty three today. His strategies have been our playbook for many years. It was incredible to hear directly from such an influential strategist!
+
+Tuesday @ 8:05 AM
+
+Looking forward to an amazing Growth Summit twenty twenty three with #TeamSPS today!
+
+Monday @ 6:51 PM
+
+Lil Nouns DAO Votes
+
+Some Lil Nouns DAO votes:
+
+Voted for The Lil Nouns Show.
+Voted for Federation.
+Voted against Nouns x MrBeast. I like the idea of Nouns and MrBeast, but I don't like the bounty incentive to get someone to get it to MrBeast.
+
+Sunday @ 10:11 PM
+
+First family movie night in new house. I finally got the family room setup. We watched Enola Holmes 2. Good sequel and looking forward to more.
+
+Sunday @ 6:45 PM
+
+Reddit Vault and ENS
+
+I recently setup a Reddit Vault so that I can play along with Reddit as they try various crypto features in the platform. I love that they did this by creating a full Ethereum wallet, and you can get the seed phrase. I wanted to see if I could even attach an ENS name to my Reddit Vault and it was easy enough to do.
+
+1. I let Reddit setup my vault, and then got the seed phrase.
+2. I used the seed phrase to setup Rainbow with that same address.
+3. I transferred a little ETH and MATIC into the Vault address.
+4. I went into ENS and created a subdomain for reddit.jamie.thingelstad.eth and set the address to my Reddit Vault.
+5. I logged out of ENS as thingelstad.eth, and logged in using the Reddit Vault and set my reverse.
+
+It was super simple to do and now I have a fully setup Reddit Vault account, on it's own seed phrase and totally independent of my thingelstad.eth and related accounts.
+
+Sunday @ 6:28 PM
+
+I just wrapped up another Poapathon contest to get a design for our Things 4 Good Fall Fundraiser. The designers were amazing, creative, and put forward several options that were great fits for our event. If you need design help it is an amazing resource!
+
+Saturday @ 11:12 AM
+
+I've seen a lot of people trying out Mastodon. I use micro.blog and it supports Mastodon, so if you would like to follow my writing follow @jamie@thingelstad.com and I'll be in your Mastodon feed.
+
+Saturday @ 9:03 AM
+
+Early morning frost on the cattail marsh by County Road 11.
+
+Saturday @ 7:09 AM
+
+Morning run to MacDaddy’s Donut Garage in Ironton! Bringing back breakfast for the group.
+
+Friday @ 6:48 PM
+
+Big Dipper. It is really wild to me that I could get this with my iPhone, handheld. Editing in Darkroom was critical.
+
+Friday @ 6:47 PM
+
+Tasty beer flight at Cayuna Brewing.
+
+Friday @ 12:27 PM
+
+The Oura Ring detected I was sick before I did. This is what my second round of COVID looked like as it started. It also noted elevated sleeping heart rate.
+
+That's the end of the Journal.
+
+Now, the Briefly section.
+
+Link one. "Symul FTX/Alameda Dashboard"
+
+Symul released this public dashboard that allows you to look at various wallets that FTX has enchain. It is pretty wild that you can get this level of detail, but also just a built in feature of crypto.
+
+Link two. "Minneapolis tech firm Code42 lays off 15% of workforce"
+
+Another local tech firm doing layoffs. Also in Business Journal.
+
+Link three. "Bright Health Group to Lay Off 99 Employees | Twin Cities Business"
+
+Local firm with pretty significant layoffs. Also in Star Tribune.
+
+Link four. "Debirdify"
+
+There is no formal way to point a Twitter username to a Mastadon account name, but this app will search those you follow for common ways of sharing that information and then present it to you to make it easier to move from Twitter to the Fediverse.
+
+Link five. "The Observation Deck » Twitter, when the wall came down"
+
+Some thoughts from long-time Twitter user Bryan Cantrill on the current state of Twitter. He's also now on Mastadon.
+
+Link six. "It looks like I’m moving to Mastodon"
+
+Wilson also moved to Mastadon, and shared his learnings along the way.
+
+Link seven. "Polygon, Arweave Jump Double Digits as Meta’s Instagram Announces New NFT Tools - Decrypt"
+
+Instagram bringing NFT creation directly into the product. This is the type of innovation that will drive larger adoption of crypto technology.
+
+That's the end of Briefly.
+
+Now, the Fortune section.
+
+Here is your fortune…
+
+Don't feed the bats tonight.
+
+Thank you for subscribing to the Weekly Thing!
+
+That brings us to the end of the Weekly Thing, issue 233. Thanks for listening, and I'll see you next time.

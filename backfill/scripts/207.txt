@@ -1,0 +1,275 @@
+The Weekly Thing, issue 207. Architecture, Contrarian, Storytelling. Published December 11, twenty twenty one. By Jamie Thingelstad. In this issue: Tim Cook's China deal, NSO malware victims, DNS propagation myth, smart home fussiness, zero-knowledge proofs, decentralized startups.
+
+Welcome to the final issue of the Weekly Thing for twenty twenty one! After I hit send on Issue #207 I won't be back to your inbox until January twenty second with issue #208. What will you do to enjoy your Saturday morning coffee without the Weekly Thing? I’m sure you will figure something out.
+
+I really enjoy the holiday season, and try to slow things down. It is the perfect opportunity for me to take some purposeful time to reflect. With the higher than usual level of volatility in our lives over the last couple of years, I think that time for reflection is more needed than ever. I also have this growing feeling that in addition to the volatility, we all have a lot more noise in our lives than we ever had before. There are so many ways for things to get to us. Too many. Solitude may be the rarest commodity of all, even rarer than privacy.
+
+See you in twenty twenty two!
+
+Now, the Featured section.
+
+Link one. "Scaling the Practice of Architecture, Conversationally"
+
+Software architecture is a complicated topic, and one I've actually spent a lot of my career trying to push into teams and not have as a discrete function. However, you reach a point of scale where you need architecture, and in fact you need enterprise architects. Without them I can guarantee you will go slower. However, it is key that those architects determine how to engage with teams in a way that does not slow down delivery, and is empowering to creating great solutions.
+
+Quote.
+Architecture need not be a monologue; delivered top-down from the minds and mouths of a centralised few. This article describes another way to do architecture; as a series of conversations, driven by a decentralised and empowering decision-making technique, and supported by four learning and alignment mechanisms: Decision Records, Advisory Forum, Team-sourced Principles, and a Technology Radar
+End quote.
+
+Yes! That sounds like the way to do it. I like so much of this article and think it hits on many of the ways that I have seen architecture done right in a modern service team model. My only edit would be to remove the word "anarchist" from the article, as I think it is distracting and not the desired intent.
+
+Two things that caught me in this. The first was this line.
+
+Quote.
+Other times the sheer number of folks impacted makes the decide-ee think again. Is this thing which might make their life a little bit easier really worth the effort of consulting all those people? Or, can they split this large decision into multiple, smaller decisions? When decisions do proceed, they are frequently right-sized purely as a matter of expediency.
+End quote.
+
+How interesting, and what a good way to frame up an issue. If you are attempting to make a change that requires you to engage a dozen teams, your change is likely too big! This sounds a lot like story points, if your story points are too big, you probably don't know what you are attempting to do. I think many would see the above as a sign of beuaracracy, but flipping the narrative on it is a much more appropriate view.
+
+I love this bit...
+
+Quote.
+To me, it is this architecture, the one which is in the heads of those writing the code, that is the most important. In adopting this decentralised approach, where the practice of architectural decision-making is much more dispersed, this problem is in many ways, mitigated.
+End quote.
+
+I often refer to this as the mental model that is in your teams head. It is incredibly important that all of your service teams share a macro mental model of how their services are potentially being orchestrated. Teams don't need this in detail for anything beyond their specific services, but the general model, the map, must be known by all.
+
+The tools recommended are compelling and simple..
+
+Quote.
+There are four of them: 1. a thinking and recording tool 2. a time and place for conversations; 3. a light to illuminate and guide towards a unified direction; 4. a means to sense the current technical landscape and climate.
+End quote.
+
+Pragmatic, light, decentralized. Great approach.
+
+Link two. "Contrarians Start Here - by Doug Clinton"
+
+I read this with particular interest because I wonder if as we age, as we have experiences that work, if it isn't harder and doesn't require more effort to remain open to particularly uncomfortable tests of our assumptions.
+
+Quote.
+The importance of non-consensus ideas is often cited in the investment world. By definition, if investors do the same thing as everyone else in the market, whether right or wrong, they will achieve average results. It is the job of professional investors to generate extraordinary results, otherwise the clients of those investors are better off just buying a low-fee market index.
+End quote.
+
+Clinton goes on to illustrate four key concepts, along with additional techniques, to aid in analyzing a topic from a contrarian state of mind.
+
+- The Core Concept: The non-consensus idea is the only way to achieve extraordinary results in anything.
+- Concept 2: Consensus forms around probability and acceptability.
+- Concept 3: To be non-consensus, you must get uncomfortable by defying odds or breaking rules.
+- Concept 4: There are 11 techniques for generating or identifying non-consensus ideas.
+
+I like this final call-out.
+
+Quote.
+Contrarians live with two mandates: 1. Explore the uncomfortable, which is whatever seems unlikely or unacceptable. 2. Be right, whether in conformity or dissent.
+End quote.
+
+This feels like a skill to be mindful of.
+
+That's the end of Featured.
+
+Now, the Currently section.
+
+Listening: Lots and lots of Christmas music!
+
+That's the end of Currently.
+
+Now, the Notable section.
+
+Link one. "Wanting | Feel The Byrn"
+
+Gordon Bryn writes these explorations, almost meandering, on various feeling and thoughts at times. I find them compelling, and they make me think deeply and reflect and learn. I can’t however determine if it just resonates with me, or more broadly. But I found this writing powerful and the concepts in it worthy of consideration.
+
+Link two. "Apple Notifies More Victims Of NSO Malware Hacking Attempts"
+
+I’m glad to see Apple doing this, and it sets a precedent that I think other technology providers and platforms should do. Some platforms use warrant canary techniques to let users know things without violating disclosure requirements. This activity by Apple reminds me of it a bit, but makes me wonder what a individual user warrant canary feature would be like.
+
+Link three. "The Information: ‘Inside Tim Cook’s Secret 275 billion dollars Deal with Chinese Authorities’"
+
+Pointing to Gruber's writeup and not to the entire article as it is quite long. It seems increasingly obvious that the deep connections Apple has in China are an engine of it’s growth, both for production of devices as well as customers. But it is also a giant risk for the company, particularly one driven so publicly by certain values and aspirations, to be connected with a country that is so not aligned with those values.
+
+Link four. "The Future of Crowdfunding Creative Projects — Kickstarter"
+
+I've backed well over a dozen Kickstarter projects, and I also like how Kickstarter built itself on Kickstarter, seeking support for features on their platform as projects that users backed. And now Kickstarter is going to build a Web3 version of itself!
+
+Quote.
+So, today we’re announcing our commitment to a more open, collaborative, and decentralized future. As a first step, we’re supporting the development of an open source protocol that will essentially create a decentralized version of Kickstarter’s core functionality. This will live on a public blockchain, and be available for collaborators, independent contributors, and even Kickstarter competitors, from all over the world to build upon, connect to, or use. We think bringing all that we’ve learned about crowdfunding since two thousand nine to inform the development of a decentralized protocol will open up exciting new opportunities for creative projects to come to life. In the coming weeks, a white paper will be released outlining the technology and plans for the protocol.
+End quote.
+
+This is a long play, but it makes incredible sense to me. Think about it, even today Web3 capabilities like NFTs have a potential to dislodge Kickstarter. Instead of getting a bunch of backers on Kickstarter, I could sell different NFT's for each level of my project and people could redeem them (burn them) for the reward at the end. How interesting that the token could even be sold at a profit or loss, before the project ships. Very interesting stuff, so it makes total sense to me that Kickstarter itself should be here. Notable also that they are choosing a carbon-negative blockchain, Celo, to develop the protocol on.
+
+Link five. "Tisbest Charity Gift Cards Make Charitable Giving Fun"
+
+Very cool service that allows you to give the gift of charity. Send someone else cash that they then get to pick what charity it goes to. This seems like a great thing for professional gifting particularly.
+
+Link six. "Making Something Social Destroys the Truth of It"
+
+Does this apply to other things that we may prepend social to?
+
+Quote.
+Science—at least the natural sciences—was this unique discipline where you could have an individual truth-seeking on behalf of the rest of society. Other individuals verify that they did, indeed, have the best current model of how reality works, and then that could be spread out through inventions to the rest of society. But the social sciences are this virus that crept into academia and have taken over. Social sciences are completely corrupted.
+End quote.
+
+Social Media?
+
+Link seven. "DNS doesn't "propagate""
+
+If your curious to know how the Domain Name System manages records, and in effect runs a giant, always-on, distributed database this has some good info. It also helps to clearly understand the role caching plays in DNS records and why changes can happen fast or slow.
+
+Link eight. "Endgame"
+
+Vitalik Buterin's assessment of multiple ways to scale blockchains like Ethereum to deal with massively larger transactions per second. The sharding and layering techniques he outlines are all being developed right now.
+
+Quote.
+While there are many paths toward building a scalable and secure long-term blockchain ecosystem, it's looking like they are all building toward very similar futures. There's a high chance that block production will end up centralized: either the network effects within rollups or the network effects of cross-domain MEV push us in that direction in their own different ways. But what we can do is use protocol-level techniques such as committee validation, data availability sampling and bypass channels to "regulate" this market, ensuring that the winners cannot abuse their power.
+End quote.
+
+Scaling these technologies is certainly possible. "But it does look increasingly clear how a realistic but bright future for scalable blockchains is likely to emerge."
+
+Link nine. "How to Become a Crypto Person: A Normie’s Guide"
+
+I enjoyed reading this article, and to be clear this has nothing technical in it. It is all about the various components of the crypto ecosystem, where to get info, what norms exist, etc. It is an interesting read and insightful if only to outline that the crypto ecosystem is vast, diverse and not at all monolithic.
+
+Link ten. "Reddit Reads: Book reccomendations from reddit"
+
+I’m not a Redditor and in fact Reddit is on the list of sites that I block. Frankly I just don't get Reddit. However, I know a lot of people do like it and I love projects like this one that aggregate data signals from the flock of users. Here you can see what books are being discussed most frequently on Reddit, and even filter by the Subreddit talking about it. Could be a great way to find good reads.
+
+Link eleven. "PROOF Collective"
+
+This is interesting to me as a great example of how NFT's can be used in novel ways. Kevin Rose is launching this 1,000 member group, and the way in is to buy the NFT and hold it in your wallet. Membership with value, and benefits. This launches soon and it will be intriguing to see how much the auction goes for. My guess is each one is over 10,000 dollars USD, maybe much more.
+
+Link twelve. "100 years of whatever this will be - apenwarr"
+
+What if today's tech trends hold true for a long time…
+
+Quote.
+Regulation is a centralized function. The job of regulation is to stop distributed systems from going awry. Because distributed systems always go awry.
+End quote.
+
+Through the financial crisis and banking we've become used to the term "Too big to fail."
+
+I've been wondering lately, when does "Too big to fail" become a thing for technology. Maybe we are already there.
+
+Link thirteen. "The unbearable fussiness of the smart home - Stacey on IoT"
+
+This article highlights exactly why we have very few smart home devices in our house. There are certain devices that make a ton of sense, like a thermostat. But things that you use frequently, and need instantaneous responses from, like light switches, I tend to avoid making "smart."
+
+Link fourteen. "The Rise of the Decentralized Startup – Elizabeth Yin"
+
+Inside out way of thinking about creating organizations…
+
+Quote.
+But what if we flipped startup-creation on its head? What if you start with a mission and values — not founders?
+End quote.
+
+Link fifteen. "The Universal Structure of Storytelling"
+
+All storytelling has a common arc, and a common set of purposes.
+
+Quote.
+Storytelling is then—in every era and every culture—a dramatization of the everlasting war between the princesses and the tigers. Protagonists struggle to lay down the stitching that binds families, friends, and communities together. Antagonists seek to find those seams and rip them apart. Stories unfold as races: Who can do their work better and faster, the princesses or the tigers? The weavers or the cleavers?
+End quote.
+
+Pulls in a reference to Dunbar's "Grooming, Gossip, and the Evolution of Language" as well. Stories are such a powerful human capability.
+
+Link sixteen. "Understanding Zero-knowledge proofs through illustrated examples | Good Audience"
+
+Very approachable overview of zero-knowledge proofs.
+
+Quote.
+In cryptography, zero knowledge proofs let you convince me that you know something, or have done something, without revealing to me what your secret thing was.
+End quote.
+
+Simple and easy to understand.
+
+Link seventeen. "Proof-of-Stake and Stablecoins: A Blockchain Centralization Dilemma"
+
+Alden's writing on crypto is incredibly deep thorough. Here she takes on, at a foundational level, the tradeoffs of decentralization and how various solutions fall on that spectrum. This is not a Boolean, but instead is a sliding scale that can be optimized to a solution.
+
+Quote.
+Here’s another way to phrase the question. Since we know that there are use-cases for fully centralized databases (for example Twitter or Amazon Web Services), as well as use-cases for fully decentralized databases (for example the Bitcoin network), are there use-cases for a partially-centralized and partially-decentralized database? If the answer is yes, then that’s basically the steel man argument for the existence of base-layer smart contract blockchains like Ethereum, Solana, Avalanche, Algorand, and more. This set of hypothetical partially-decentralized databases wouldn’t conceptually compete with Bitcoin as truly decentralized immutable asset, but could they coexist alongside Bitcoin indefinitely as a semi-open operating system for apps that benefit from partial auditability or partially-decentralized control?
+End quote.
+
+I think that her nod toward a future where we have multiple solutions that have differing levels of centralization and protection is most likely. Based on the problem that you are solving, and the protocol needs, you should develop on a platform that provides you the tradeoffs that make sense. This has been true for everything we build in tech for as long as we've been building.
+
+Link eighteen. "Storm in the stratosphere: how the cloud will be reshuffled · Erik Bernhardsson"
+
+Interesting take specifically parsing the solutions that cloud providers build in-house versus outside parties building for those platforms. Bernhardsson's argument kind of lies on two beliefs:
+
+1. You cannot be the best in the world at all layers in the stack.
+2. Cloud vendors will do better if they outsource the R and D of the higher-level services.
+
+The example used here is how much better Snowflake is than Redshift. That is certainly one that backs up Bernhardsson's point. I don't know how extendable that argument is into other parts of the technology stack though. It is definitely an interesting proposition though.
+
+That's the end of Notable.
+
+Now, the Journal section.
+
+Monday @ 1:58 PM
+
+Taking an at-home COVID-19 test during a break in a meeting while working from home. Very twenty twenty one…
+
+Result: Negative.
+
+Sunday @ 10:08 AM
+
+The kids love it when Dad makes oatmeal. Whipped cream for the win!
+
+Sunday @ 8:13 AM
+
+I'm a fan of POAPs and have created many POAP events of my own. The ConstitutionDAO POAP is the first I decided to migrate from xDai to the Ethereum mainnet. So close and and the POAP is a fun way to remember the history.
+
+Saturday @ 10:34 PM
+
+We watched King Richard tonight and I thought it was fabulous. Will Smith gives an amazing performance that completely pulls you in. The stories of Venus and Serena are incredible. A powerful story of reaching for the stars and getting there. "Fail to plan, plan to fail."
+
+Saturday @ 10:33 PM
+
+We checked out Betty Danger's in Northeast tonight to see Felicia's Navidad! It was like tinsel and decorations exploded everywhere!
+
+Saturday @ 10:31 PM
+
+After last years hiatus it was fabulous to see The New Standards Holiday Show for twenty twenty one today! This is one of our favorite traditions each holiday season. Great music and a great time!
+
+That's the end of the Journal.
+
+Now, the Briefly section.
+
+Link one. "Why Return to the Office if You Can Do Your Job at Home | Leadership Freak"
+
+There is a lot that influences how we work, including where we work. Context matters, always.
+
+Link two. "Just Delete Me | A directory of direct links to delete your account from web services"
+
+Userful directory of quick links, and an assessment of difficulty, to delete your account on various websites.
+
+Link three. "Miniature 3456 LED cube – Willem Pennings"
+
+What a cool project. I would love to play with one of these. It would be fun to have Conway's Game of Life play out on it.
+
+Link four. "Really stupid "smart contract" bug let hackers steal 31 million dollars in digital coin | Ars Technica"
+
+There have been other examples of this and there will be more. There is an incredible pace of innovation and people are trying stuff very fast. Right now the consensus is speed is better than an occasional issue like this.
+
+Link five. "Airline Food"
+
+This may be one of the most ludicrous, and funny, programming languages ever. Thanks to Garrick for sharing with me.
+
+Link six. "Chatter Telephone | Fisher Price"
+
+I remember the original toy version of this from when I was a kid. I’m pretty sure I pulled one around from time to time. How fun to make a real one!
+
+Link seven. "The life and tragic death of John Eyers – a fitness fanatic who refused the vaccine | The Guardian"
+
+These stories are tragic. Protect yourself.
+
+That's the end of Briefly.
+
+Now, the Fortune section.
+
+Here is your fortune…
+
+Your aims are high, and you are capable of much.
+
+Thank you for subscribing to the Weekly Thing!
+
+That brings us to the end of the Weekly Thing, issue 207. Thanks for listening, and I'll see you next time.

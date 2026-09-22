@@ -1,0 +1,225 @@
+The Weekly Thing, issue 124. Nov 2, twenty nineteen. Published November 2, twenty nineteen. By Jamie Thingelstad. In this issue: XML misuse, Guido van Rossum, Go's success, AirPods Pro, iPhone 11 camera, Firefox privacy protections, Facebook News tab.
+
+What a week! So much raking last week and yet there are more leaves to deal with. We watched an immense World Series. Tyler and I were both cheering for the Astros, but the series was filled with so much excitement. It was also amazing to witness the first time World Series where the home team never won a game. How weird is that!
+
+The week ended with Trick or Treating for Halloween. This was the first year that we did Halloween in the new neighborhood. We capacity planned for more people, so we have leftover candy bars. I took the younger one out and we hit every single house in our area, methodically working our way down each side of every street and collecting maximum candy. It also marked the first year that our older one decided to opt out of Halloween and getting candy. The teenage years transition away from the kid stuff, so it was an evening with friends for her. That all made me feel a bit nostalgic, something I don't do much.
+
+I’m trying out a new section of links in the Weekly Thing! Sometimes I find stuff that I'd like to share but it’s only relevant (probably) to people that live in the Twin Cities where I do. I created a new group called Local to share things that are, well, local!
+
+Now, the Featured Links section.
+
+Link one. "DevOps: Tools Can Lead The Culture Change – Alt + E S V"
+
+I think this is a very good, pragmatic perspective.
+
+If you are trying to drive organizational transformation with procurement alone you’re in for disappointment. Tools cannot fix a broken culture. You can’t buy your way out of a culture issue. Tools can’t save you if you’re ignoring underlying issues like internal power struggles, lack of trust across teams, siloed communication, etc. There are no silver bullets.
+
+[…]
+
+Tools can be critical to changing people’s mindset. It’s hard to practice the right behaviors without the right foundational toolset. Tools can enable new ways of working and collaborating.
+
+Not all changes you wish to affect in an organization are the same. Changes that are more "complicated", have tended in my experience to require both a cultural transition and can, at times, require tooling to facilitate that change.
+
+I've recently been working on incorporating OKR's into our team and that is an example to me where tooling is needed. We tried to do it without, and the act of managing and tracking things became so complicated that the hope of cultural change was lost. We realized we need tooling to support that in our environment as well.
+
+That's the end of Featured Links.
+
+Now, the My Weekly Photo section.
+
+Maple tree having given up all of its leaves and ready for the long winter.
+Oct 27, twenty nineteen at 11:32 AM
+Cannon Lake, MN
+
+That's the end of My Weekly Photo.
+
+Now, the Notable Links section.
+
+Link one. "XML is almost always misused"
+
+Most technologists dislike the idea of working with XML, and nearly always prefer JSON. The core of this article is accurate, and comparing XML and JSON is really a misguided comparison.
+
+From time to time someone will do something really strange and compare XML and JSON, proving that they understand neither. XML is a document markup language; JSON is a structured data format, and to compare the two is to compare apples and oranges.
+
+Link two. "Thank you, Guido | Dropbox Blog"
+
+A very sincere and heartfelt thank you to the former Benevolent Dictator for Life (BDFL) of Python, Guido van Rossum, as he retires from Dropbox. Dropbox was pretty lucky to get someone of his background on their team, and reading how much Dropbox uses Python I suspect it was hugely beneficial to him to work with the language he created operating at such scale!
+
+Link three. "5 things Rob Pike attributes to Go's success —The Changelog"
+
+Very few people get the opportunity to create and launch a new programming language. It’s interesting to see the key success criteria that Go 's creators believe were so important.
+
+Link four. "Daring Fireball: AirPods Pro First Impressions"
+
+I would agree with most everything in Gruber's writeup on the new AirPods Pro. I would highlight the comfort in the ear. These AirPods Pro fit in the ear very differently than any previous earbud that I've used.
+
+Link five. "1Blocker for Mac Introduces New Features and a Subscription-Based Business Model - MacStories"
+
+I use 1Blocker through Safari on all of my computers and devices. I pretty much don't browse the web without it, and I love the immense power it gives me. The ability to create custom rulesets that I can use to block content of my choosing is a key feature. Moving to a subscription offering is welcome and was an instant buy for me.
+
+Link six. "Inside the iPhone 11 Camera, Part 1: A Completely New Camera"
+
+Exquisitely detailed examination of the camera capabilities of the new iPhone 11 Pro and it’s computational photography capabilities.
+
+With these huge improvements in processing, the iPhone 11 is the first iPhone that legitimately challenges a dedicated camera.
+
+The test shots show the capabilities and limitations very well. I love seeing these advances in camera technology.
+
+Link seven. "Apple reveals new AirPods Pro, available October 30 - Apple"
+
+These look great, and I badly needed to replace my first generation AirPods after they took a trip in the pool with me. They still worked, but the battery life took an extreme drop. This was an easy order to replace those. I'll be curious how the noise cancelling works, and I’m very interested in the "transparent" mode. AirPods have been one of my favorite products in recent years, and I've gotten into the habit of carrying them with me every day which made me realize I have more use cases for headphones than I thought I did!
+
+Link eight. "Peloton Is Spinning Faster Than Ever"
+
+I enjoy my Peloton spin bike a lot.
+
+The company loaned me one over the summer, and I’ve been taking classes. I was arrogant at first: I’ve been going to SoulCycle for years. I figured it would be cake, that I’d soar calmly to the top of the leaderboard and then gently dry my brow. But Peloton classes are really hard!
+
+I can say with total confidence that the hardest spinning sessions I've ever had have been on my own, on the Peloton, usually in a live streaming class with an eye towards the leaderboard.
+
+Link nine. "Deploy on Fridays, or Don't. - By Dave Mangot"
+
+Personally, I've not been a big fan of Friday afternoon deploys of most things. It’s pretty common that folks are rushing to get to something and might unwittingly shortcut something.
+
+Link ten. "5 Ways To Stop Hating Your To-Do List (According to Science)"
+
+Some solid suggestions on mental tricks to play with your to do list. This isn't GTD focused, but the suggestions work for anyone doing GTD. I’m a particularly big fan of, and practice, the idea of putting all the stuff in the task that you need to complete it including a phone number, sometimes the hours a business is open, etc.
+
+Link eleven. "Skip level meetings: What they are, and exactly how to run them - Signal v. Noise"
+
+This is a good overview on approaching skip level meetings.
+
+For you as a manager, the purpose of a skip level meeting is to get out of your good news cocoon: How are folks on the team really feeling about the work, the culture, and the team around them. What could be better? What needs to be resolved? It’s valuable, sacred time what you truly won’t get any where else.
+
+Skip level meetings are dually beneficial for the employee, as well. It’s an opportunity for them to get aligned and centered around the vision – and ask you valuable questions that helps them with their own work.
+
+By far the thing I like the most here is the list of things you don't do. I do skip level 1:1s, and should do them even more, and it’s critical that you not interfere with or get in the way of the work the direct manager is doing.
+
+Link twelve. "Latest Firefox Brings Privacy Protections Front and Center Letting You Track the Trackers - The Mozilla Blog"
+
+For the first time in what seems like forever Firefox is actually interesting to me. I like this new focus on privacy as a core feature, actually that's too small, capability is a better word. I personally would never use Chrome for privacy reasons. I will likely continue on Safari with 1Blocker to give me additional protection. But I like how Firefox is showing the user what sites are doing. This is a good thing, and I hope more browsers do this. Remember, in todays web, you should not run a browser that doesn't protect you in some way.
+
+Link thirteen. "Why the Facebook News tab shouldn’t be trusted | TechCrunch"
+
+As the author states, this article shouldn't even be needed. Publishers should have learned a long time ago to not trust Facebook.
+
+Link fourteen. "For Fathers of Daughters | Jules Pieri"
+
+I found this article via Brad Feld's post. I appreciate the question that prompted the post. A good read for all men to consider, wether you are a father or not.
+
+That's the end of Notable Links.
+
+Now, the Microposts section.
+
+Thursday @ 6:22 PM
+
+Trick or Treat! Happy Halloween!
+
+Wednesday @ 11:34 PM
+
+Initial impression of AirPods Pro:
+1. Charging case is larger, but still okay in pocket.
+2. They fit in the ear very differently, but feel more comfortable.
+3. Sounds quality is great.
+4. I dig transparent mode!
+
+Wednesday @ 10:47 PM
+
+Has there ever been a 7-game World Series where the home team lost every game?
+
+Wednesday @ 10:05 PM
+
+Game 7 of the World Series between Astros and Nationals is an absolute nail biter. Tyler and I are cheering for the Astros!
+
+Tuesday @ 7:32 PM
+
+Game 6 of the World Series is off to a very exciting start! 2-1 Astros at the bottom of the first!
+
+Monday @ 11:34 AM
+
+My original AirPods were badly in need of replacement after going in the pool with me. Just ordered the new AirPods Pro!
+
+Sunday @ 10:44 PM
+
+First two games Nationals outscored Astro’s 17-7. Next three Astros outscored Nationals 19-3. 46 runs in first 5 games of World Series.
+
+Sunday @ 9:14 PM
+
+I have long resisted adding technology to my Big Green Egg, holding that good BBQ is made with fire, smoke, and love. But these things are getting more interesting. The EGG Genius looks good (it is a Flameboss in a different color).
+
+Sunday @ 5:31 PM
+
+Twenty six bags!
+
+Sunday @ 3:20 PM
+
+Preparing the leaf pile.
+
+Saturday @ 9:40 PM
+
+Huge Grand Slam from Alex Bregman for the Astros. Wow! 8-1
+
+Saturday @ 8:40 PM
+
+Great night for a campfire.
+
+Saturday @ 1:10 PM
+
+I’ve gotten pretty expert at replacing the thermopile in this gas fireplace.
+
+Friday @ 11:12 PM
+
+Finally the Astros win one in the World Series! 2-1 now. Tyler’s spirits are lifted with his team showing some hope!
+
+Friday @ 10:26 PM
+
+Matt Wilson finished up with an always great rendition of Snow Day!
+
+Friday @ 8:36 PM
+
+At The Music Space of Owatonna for Matt Wilson and His Orchestra in the Event of the Century, the Mattastrophe!
+
+Friday @ 7:59 PM
+
+Listening to Matt Arthur and the Bratlanders at The Music Space of Owatonna. Doing a Kris Kristofferson cover right now.
+
+Friday @ 6:02 PM
+
+Very proud of my daughter setting a new 5k personal record in her final cross country meet of the year.
+
+Friday @ 5:59 PM
+
+I like this new feature in the Sanebox digest! Great to get “wisdom of the crowd” benefit.
+
+That's the end of Microposts.
+
+Now, more links.
+
+- Shopify's Global Economic Impact Report www.shopify.com
+Some very impressive numbers here.
+- SLOs Are the API for Your Engineering Team www.infoq.com
+Interesting way to think about this.
+- An Elegant Puzzle: Systems of Eng Management. www.lethain.com
+This looks like a very good book. I have a few copies on the way to the office. Thanks to Sam Pierson for the link.
+- SPS Commerce leads List of Twin Cities-based SaaS companies - Minneapolis / St. Paul Business Journal www.bizjournals.com
+Great to see SPS at the top of this list.
+- Foxconn finally admits its empty Wisconsin ‘innovation centers’ aren’t being developed - The Verge www.theverge.com
+It seems likely these will never open.
+
+That's the end of More Links.
+
+Now, the Local section.
+
+- twenty nineteen Season Recap | Minnesota United FC www.mnufc.com
+Love this, and can’t wait for twenty twenty Season.
+
+That's the end of Local.
+
+Now, the Fortune section.
+
+You've made it all the way to the end! Here is your fortune for this week.
+
+Your lucky number is 3552664958674928. Watch for it everywhere.
+
+Thank you for subscribing to the Weekly Thing!
+
+That brings us to the end of the Weekly Thing, issue 124. Thanks for listening, and I'll see you next time.

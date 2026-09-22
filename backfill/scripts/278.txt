@@ -1,0 +1,353 @@
+The Weekly Thing, issue 278. Groq, GraphRAG, Gasless. Published March 2, twenty twenty four. By Jamie Thingelstad. In this issue: Case against caffeine, U.S. Internet email leak, Vision Pro sharing, building billing systems, Groq, MLS Season Pass, Leap Day bugs, Gasless DNSSEC.
+
+Weekly Thing 278 with twenty-seven links and twenty-three journal entries between Feb 16, twenty twenty four and Mar 1, twenty twenty four. Sent from Minneapolis, MN.
+
+Good morning!
+
+So about last week. Yeah, I went out of town last weekend for a photo workshop. The combination of travel and photography fun meant I ran out of time to send the Weekly Thing. So… this week is a double-issue with two weeks of links and updates. So, um, yeah — that is a lot of stuff.
+
+I’m going to keep it short this week and get on with all the great links and such. Cheers!
+
+Now, the Featured section.
+
+Link one. "The Case Against Caffeine - Insight Axis"
+
+I love my morning cup of coffee. A lot. I love the ritual of it. Grinding the beans and giving them a smell. The slow hand dripped water at 205 °F circling over the filter. Smelling the hot brew. The rich taste of that first sip. As such, I’m certainly biased to read every article I run into about how great coffee is for you. But if I’m learning I should also read articles like this.
+
+Quote.
+I set out on my caffeine-free adventure and stumbled across some unexpected serious benefits. I want to share them now, so you can jump in on them too: - I got way more stuff done, faster. - My feelings of anxiety basically disappeared. - I felt more alert without caffeine, because I slept much better.
+End quote.
+
+A few months ago I cut my coffee from 4 to 2 cups a day, or 44g to 22g of beans, to reduce caffeine intake for overall health but notably blood pressure. I know the impact to sleep and only drink coffee in the morning to minimize that. However I haven't ever read much on caffeine-induced anxiety. And while I don't think I have any anxiety disorder, I am an anxious person for sure.
+
+As much as I love that morning cup of fancy-pants single origin light roasted geisha washed and naturally fermented coffee — I keep thinking that it may be time for me to do a prolonged test of having none.
+
+That's the end of Featured.
+
+Now, the Currently section.
+
+Listening: I subscribe to Sam Harris' podcast and this A Falling World interview with Peter Zeihan blew my mind. Zeihan paints a demographic view of the world that is, well, just give it a listen. (This link allows you to listen to the full episode for free.)
+
+Installing: I have wanted a simple app to get sports scores but so many of them are filled with ads and surveillance, so I was happy to install Apple Sports and get exactly what I was hoping from it.
+
+That's the end of Currently.
+
+Now, the Notable section.
+
+Link one. "U.S. Internet Leaked Years of Internal, Customer Emails – Krebs on Security"
+
+I was shocked to see a headline from Krebs that referenced my own ISP - U.S. Internet!
+
+Quote.
+The Minnesota-based Internet provider U.S. Internet Corp. has a business unit called Securence, which specializes in providing filtered, secure email services to businesses, educational institutions and government agencies worldwide. But until it was notified last week, U.S. Internet was publishing more than a decade’s worth of its internal email — and that of thousands of Securence clients — in plain text out on the Internet and just a click away for anyone with a Web browser.
+End quote.
+
+The writeup and screenshots are shocking. The response from U.S. Internet was also not impressive.
+
+Quote.
+KrebsOnSecurity has been writing about data breaches for nearly two decades, but this one easily takes the cake in terms of the level of incompetence needed to make such a huge mistake unnoticed. I’m not sure what the proper response from authorities or regulators should be to this incident, but it’s clear that U.S. Internet should not be allowed to manage anyone’s email unless and until it can demonstrate more transparency, and prove that it has radically revamped its security.
+End quote.
+
+I use USI for fiber internet and the service is fabulous. I have a great 1 gigabit connection that is rock solid. I don't use them for anything else, and would have preferred there engagement on this incident was more robust.
+
+Link two. "Beautiful Things"
+
+I put on my Vision Pro and had an awesome time at this website grabbing 3D objects and placing them around me, making them bigger and smaller, rotating them. Incredible stuff. Then I decided to put a Tesla Model 3, Macintosh Classic, Hyrulian Shield, Thor's Hammer, and an iPod on my desk for fun.
+
+Link three. "Sharing a Vision Pro with Someone Else Is Too Hard - MacStories"
+
+This is probably my biggest gripe right now with VisionOS — it is single user. Looking at Apple devices we have iOS and iPadOS which are purely single user. watchOS is of course single user. tvOS has recently branched into multi-user in a fairly subtle way that likely very few people use. macOS of course has been multi-user.
+
+Currently visionOS is single user which is frustrating for a device that is so expensive, and has obvious interest in multiple family members using it. The argument against multi-user would be that the device has a personalized fit and that is just for the one person. However, it is easy to swap lenses and the light seal is magnetically attached and easily swapped as well. The Eye ID system could easily handle multiple users.
+
+I hope that Apple takes this as an upgrade in visionOS. It is a software thing only, and would be a big unlock if others in the family could use the Vision Pro without having to be in a guest mode and retraining the device every time.
+
+Link four. "Don't delegate your word"
+
+I've followed this approach 99% of the time.
+
+Quote.
+But there’s one thing you should hold tight and never let go. It’s the thing that should never be delegated. It’s your voice. Speak for yourself. Don’t let anyone speak for you. Don’t have someone else Tweet on your behalf. Or write posts under your name. Or take your calls. Or read or respond to your emails.
+End quote.
+
+I've had many people ask who helps with this email and they are surprised when I tell them nobody. I've had people try to sell me their ability to take over my LinkedIn profile and increase something or other. No thanks.
+
+I like this final call out.
+
+Quote.
+You = you is the equation to solve.
+End quote.
+
+Simple.
+
+Link five. "Groq"
+
+New and incredibly fast AI service. Built using custom hardware and software. The speed is impressive, and would be particularly interesting for conversational use.
+
+Link six. "twenty twenty four MLS season kicks off today exclusively on MLS Season Pass on Apple TV - Apple"
+
+Nothing surprising about the twenty twenty four MLS Season coming to Apple TV, but at the bottom of this release is this gem.
+
+Quote.
+Coming soon, all Apple Vision Pro users can experience the best of the twenty twenty three MLS Cup Playoffs with the first-ever sports film captured in Apple Immersive Video. Viewers will feel every heart-pounding moment in 8K 3D with a 180-degree field of view and Spatial Audio that transports them to each match.
+End quote.
+
+I can’t wait to watch this on the Vision Pro. This is a perfect example where Apple can influence content to drive the experience in their own products.
+
+Link seven. "The 14 pains of building your own billing system - Arnon Shimoni"
+
+This is another one of those great posts that dives into a topic that seems relatively mundane like "We need to bill our customers." and highlights the myriad of edge cases that arise. This often is overlooked in build-buy decisions and can result in underestimating complexity of the solution required. Shimoni highlights 14 pain points: Idempotency, Date Handling, Proration and "Leftovers", Usage Metering, Invoice Formatting, Complex Customer Hierarchy, Payment Collection and Churn Prevention, Pausing and Resuming, Crediting and Refunding, Tax Handling, Custom Deals, Human Error, Selective Pricing Changes, and Revenue Recognition and Accrued Revenue.
+
+Link eight. "Gasless DNSSEC on Mainnet | ENS Blog"
+
+I have stated many times that one of the things I do not like about the Web3 proposition is how it is often positioned in opposition to the current web. I think it is much more productive and practical to consider them woven together into a cohesive experience. I absolutely love what ENS is doing to make that a reality right now. With this release you can now configure DNS records to serve ENS information using EIP-3668. So in addition to the completely decentralized ENS service for names like jamie.thingelstad.eth, I can also now use jamie.thingelstad.com in Web3 applications! If you own a DNS name you can set this up with simple TXT records today.
+
+Link nine. "List of twenty twenty four Leap Day Bugs"
+
+I didn’t realize there were so many edge case bugs associated with Leap Day! It isn't terribly surprising though given how difficult it is to program around all the variations in something that we think is so simple — time. I use a couple of the services listed.
+
+That's the end of Notable.
+
+Now, the Journal section.
+
+Journal entry one.
+
+We had friends and colleagues from Ukraine as well as local folks that have moved from Ukraine over for dinner, lots of wine, and even more stories and laughs. It was a wonderful evening for my spirit and soul.
+
+Journal entry two.
+
+While blog gardening today I found random characters in over 100 blog posts. A quick search revealed it as the decimal for a non-breaking space. I used micro.blog replace function to replace with a space, except two that were in titles and manually replaced.
+
+Journal entry three.
+
+Valentin brought Medovik last night. I got to try my very first slice today and it is delicious and so pretty! The honey and caramel flavors are so good.
+
+Journal entry four.
+
+We were out with friends to see Martin Zellar at the Parkway Theater tonight. He performed his Neil Diamond show -- covering an entire array of Diamond songs. It was a fun night!
+
+Journal entry five. Game Store Tour
+
+Tyler and I had the day to ourselves and we decided to start with a trip to Tower Games to look around a bit, which then extended, and ultimately turned into an ad hoc visit to five gaming stores in town with recommendations from my brother-in-law Dylan.
+
+1. Tower Games: Nice store, conveniently located for us. Great selection of board games and a lot of RPG stuff, including miniatures. Wide selection of Magic cards.
+
+2. Level Up Games: We missed this place the first time as we were looking for it because it is in the basement, so you have to walk down to get in. Great selection of video games, board games, and much more. One of the few that sold single Pokemon cards, but focused on higher end cards. Great selection of used video game gear.
+
+3. Gamezenter (formally Fantasy Flight): This place is huge and was very busy! Huge variety of board games, and a ton of Magic stuff. They also sell beer, wine, and some snacks. They have a large area with tables for gaming and there were a bunch of people there. Parking lot was very full.
+
+4. Source Comics and Games: By far the largest selection of comic books of any of the stores. Also general selection of books and anime stuff. Wide array of RPG items. Overall the broadest selection of any of the stores.
+
+5. Dreamers Vault: Wide variety of games. They sold single Pokemon cards and also had books of cards.
+
+Tyler said Level Up and Source were his favorites of the day. I would agree with an emphasis on Level Up. However, Gamezenter seems to be the place to go if you want to actually game with other people.
+
+Journal entry six.
+
+Tyler and I watched TRON: Legacy again tonight. It is a great movie and made me think it would be fun to watch in the Vision Pro in 3D.
+
+Journal entry seven.
+
+This chart of SPSC performance since IPO is amazing. Compared to the high growth tech giants -- outperforms AMZN, MSFT, GOOG, AAPL.
+
+Journal entry eight.
+
+Tammy and I finally watched Oppenheimer tonight. Incredible movie. Everything about it pulled me in.
+
+Journal entry nine.
+
+We’ve lived in this house for over a year and I’m now ready to tackle figuring out what uses so much electricity. Usage is far higher than I would expect and is higher in the winter than in the summer! Looking for some answers with Advantage Electric on it.
+
+Journal entry ten. ENS: Blockchain Native Organization
+
+The section from the ENS DAO February thirteenth update impressed me.
+
+Quote.
+In January twenty twenty four, the ENS Protocol registered 39.8k new .eth domains, bringing the total to 2.1 million. The protocol generated revenue of 1.3 million dollars during this period, all of which was allocated to the ENS DAO. The number of Ethereum account holders with at least one ENS name increased by 33.9k, totaling 818k. There were 31.7k primary ENS names set, making the overall count 737k. Additionally, 8k new avatar records were created, reaching a cumulative total of 149k.
+End quote.
+
+Ethereum Name Service is doing an amazing job showing how a crypto service can work. This is a 15.6 million dollars run rate driven completely off the protocol. That all goes into the DAO with a robust governance structure. As an ENS token holder I can vote in the DAO, or delegate to others.
+
+They are creating the blueprint for how you can create a blockchain native organization.
+
+Journal entry eleven.
+
+Good morning from the Sundew in Duluth, Minnesota.
+
+Journal entry twelve.
+
+Morning coffee and pastry at 190° Coffee and Tea. Early morning snowfall. Heading on to Grand Marais.
+
+Journal entry thirteen.
+
+Bryan Hansel getting everyone started on our workshop.
+
+Journal entry fourteen.
+
+Out early shooting the sunrise. Good waves on Lake Superior.
+
+Journal entry fifteen.
+
+Geared up for sunrise winter photography.
+
+Journal entry sixteen.
+
+How is it possible that I'm just now discovering how amazing Swedish Cream is. Wow.
+
+Journal entry seventeen.
+
+Ice Climbers along the Cascade River.
+
+Journal entry eighteen.
+
+Suggestion from Bryan Hansel to find your photography style -- go through your photos for the year and pick your favorite single one from each month. Not your best, or most liked. Your favorite! Look at those twelve photos and reflect on what the common threads are between them all.
+
+Journal entry nineteen.
+
+First time winter hiking today with these hiking crampons. Amazing stability and still easy to walk on.
+
+Journal entry twenty.
+
+On Artist Point in Grand Marais in pre-dawn light to catch the sunrise.
+
+Journal entry twenty one.
+
+Reviewing my On This Day page today made me do a double take -- so few posts. Then I remembered it is leap day, and February 29, twenty twenty four is only the sixth leap day since my blog was started.
+
+Journal entry twenty two. How I burned 10,000 dollars
+
+Meme coins are one of the parts of the crypto ecosystem that I have no interest in. They are pure speculation. I'm fine if folks want to do that, but it's not my thing. I’ve never owned any Dogecoin. A little over a year ago when BONK launched as a Solana version of Dogecoin I didn't pay any attention.
+
+I received alerts of incoming transfers of BONK tokens into my Solana wallet. It turns out as an owner of Famous Fox NFTs I received special airdrops of BONK tokens. A lot actually. I was annoyed by the clutter and without thinking much about it burned 394,305,096 Bonk tokens that were cluttering up my wallet.
+
+Well, as it turns out BONK has traded actively. My nearly 400M burned tokens were worth as little as 70 dollars at the 1-year low of 0 point 0000001763 dollars… and 10,000 dollars at current price the current price of 0 point 00002536 dollars.
+
+I guess “easy come, easy go” as they say. On the bright side I don’t have to bother with the tax treatment of the air drop.
+
+Posting this on leap day means I’ll only revisit this mistake once every four years in my On This Day page.
+
+Journal entry twenty three. Winter Along the Gunflint Photography Workshop
+
+Last weekend I drove up to Grand Marais to take Winter Along the Gunflint Photography Workshop with Bryan Hansel. It has been a decade since I took a workshop and Tammy decided it was time for me to get out in the field and shoot for a weekend so she got me this great workshop for my birthday. I was eager to go, and also a little anxious since I hadn’t done more serious photography for a few years. I was rusty for sure.
+
+Our workshop started on Friday with some classroom learning, and then we shot sunset from the Campground Beach in Grand Marais. The winter part of the workshop was tested with the lack of any snow to speak of in Grand Marais. Hansel adapted with it though and still got us plenty of great spots to capture beautiful images.
+
+That first night I got this sunset view of the last rays along the Campground Beach.
+
+We were up early to get the sunrise the next morning. We drove a short distance to Cascade River State Park and captured the first rays that morning.
+
+We did find some snow when we went in to Elbow Lake. We setup these classic snowshoes on the lake.
+
+That afternoon the winds were going pretty good and I was hopeful that we would get some big waves coming in on the Lighthouse in Grand Marais.
+
+The wind continued and the waves were steady as the sun set.
+
+Hansel led a great workshop and I learned a number of new things from him. His Lightroom skills were top notch and he showed us some processing techniques that were incredible. I also liked the fresh perspective he brought to composition.
+
+See list of Photography Workshops.
+
+Weekly Thing Forum
+
+Join Patrick Hambek, Barry Hess, Tom Mungavan, David O'Hara, Jim Cuene, and many other Weekly Thing readers in the Weekly Thing Forum. Recent topics include:
+
+- 277 / Privacy, Scammed, OmniFocus
+- 276 / Contextual, Copilot, Collections
+- 275 / Vision, Sense, Magic
+- Blogging: A topic and an announcement
+- Archives now with comments
+
+That's the end of the Journal.
+
+Now, the Briefly section.
+
+Link one. "Sora — Creating video from text | OpenAI"
+
+Buckle up — these videos are impressive.
+
+Link two. "Observable 2.0 | Observable"
+
+Interesting approach to building observability using a static-site generator instead of a more traditional tool approach.
+
+Link three. "Why Tapestry? • The Breakroom"
+
+I don't know that I will be a frequent user of Tapestry, but I’m backing it because I think many people could be. I plan on setting my Mom up with it so she can more easily follow my blog.
+
+Link four. "GraphRAG: Unlocking LLM discovery on narrative private data - Microsoft Research"
+
+Interesting advances in augmenting LLM analysis with additional data.
+
+Link five. "wddbfs – Mount a sqlite database as a filesystem"
+
+Pretty wild way to access a database.
+
+Link six. "Vision Pro - Exploring Spatial Computing"
+
+Great examples of using the Vision Pro for productive things. I agree with the authors enthusiasm around the conceptual models of VisionOS. I think that Apple has gotten this really close to right. The hardware and software will improve, but the concepts need to endure.
+
+Link seven. "Defending Access to the Decentralized Web | Electronic Frontier Foundation"
+
+Interesting case where IPFS gateways, which operate as caching endpoints, are being targeted for content that they host. This at the same time that Section 230 is used by social media companies to block all liability of content that they promote? This contradiction makes no sense.
+
+Link eight. "100 things you can do on your personal website | James' Coffee Blog"
+
+Fun list of great things you can do with your own website.
+
+Link nine. "Apache ECharts"
+
+Great looking charts with a well supported Apache project.
+
+Link ten. "Walmart agrees to buy Vizio to grow ad business"
+
+Given my strong views on privacy it wouldn't surprise anyone that I’m opposed to the idea of putting devices in my house that create a platform for advertisers to then reach me. The model makes sense though, and I suspect that this will be popular. Buying a product for reduced price and agreeing to have your activity surveilled seems to be a tradeoff some are wiling to make.
+
+Link eleven. "Death, Lonely Death — Crooked Timber"
+
+This writeup about Voyager 1 and as it is speeding ever further away from Earth and after decades of use beyond what it was designed has become inoperable.
+
+Link twelve. "Keep your phone number private with Signal usernames"
+
+It has always bugged me that your phone number was your identity in Signal. Happy to see them rolling out username.
+
+Link thirteen. "Daring Fireball: Apple Sports"
+
+Interesting commentary on the approach Apple took with the new Sports app and similarities to Journal. It makes sense that there is now a default Sports app for iOS, similar to Weather and Stocks.
+
+Link fourteen. "iMessage with PQ3: The new state of the art in quantum-secure messaging at scale - Apple Security Research"
+
+Someday we will or may have quantum computers and theoretically they will be able to brute force existing encryption methods. Apple is moving iMessage to a post-quantum encryption method now in preparation for that. Any solutions that use encryption heavily seem to be considering this change. Ethereum has a roadmap for a post-quantum approach for example.
+
+Link fifteen. "The direct influence of Twin Peaks on Zelda - The Verge"
+
+I adore Twin Peaks (have watched it multiple times), and if I had the patience for gaming Zelda would be my jam. Fun to see the connection was real!
+
+Link sixteen. "Okay, Color Spaces — ericportis.com"
+
+Color spaces are a confusing thing to me. I know that most things are sRGB. And I know that I shoot photos in Adobe RGB.
+
+Link seventeen. "Turkey beloved in Kenny neighborhood of south Minneapolis dies after vehicle strike"
+
+This turkey used to stand roost in the middle of the street just a few blocks from our house. We were sad to hear it had been hit by a vehicle. How many turkeys make the newspaper?
+
+That's the end of Briefly.
+
+Now, the Fortune section.
+
+Here is your fortune…
+
+You will be aided greatly by a person whom you thought to be unimportant.
+
+Thank you for subscribing to the Weekly Thing!
+
+That's the end of Fortune.
+
+Now, the Want to support the Weekly Thing? section.
+
+First — thank you for subscribing and reading. Here are some things you can do that would be great…
+
+- Share Weekly Thing 278 / Groq, GraphRAG, Gasless with others you know!
+- Post about the Weekly Thing and let others know about it.
+- Join the Weekly Thing Forum and connect with others.
+- Send Bitcoin via Lightning! This will be used to support something good. weeklything@getalby.com
+- Email me comments, feedback, or just to say Hi!
+
+That brings us to the end of the Weekly Thing, issue 278. Thanks for listening, and I'll see you next time.

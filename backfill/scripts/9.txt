@@ -1,0 +1,180 @@
+The Weekly Thing, issue 9. Weekly Thing for July 8, twenty seventeen. Published July 8, twenty seventeen. By Jamie Thingelstad. In this issue: Leaving Facebook, wildcard certificates, ancient Rome's concrete, Wikipedia text adventure, HEVC and HEIF, Little Snitch 4, Facebook election manipulation.
+
+We have been finishing the second part of our summer vacation. After a week in Michigan we spent three days at our cabin celebrating the fourth of July with friends and family. We then drove up to Winnipeg for our first return trip to the Winnipeg Folk Festival in 9 years! My mother joined us and we've been listening to great music and remembering camping and a lack of showers. You will find a lot of microblog updates with photos from the Festival.
+
+Fun aside — the last Weekly Thing was done entirely from my iPad and an external keyboard. This one was done all from my iPhone and two tired thumbs.
+
+Now, the Photog section.
+
+The main stage is where everyone convenes for the evening bands at the Winnipeg Folk Festival. During the day there are several smaller stages, and it feels smaller. Then the mass of people hits you at night!
+
+Jul 6, twenty seventeen, 9:57 PM Springfield‎ MB‎ R0E Canada.
+
+That's the end of Photog.
+
+Now, the Links section.
+
+Link one. "Blake Watson | Why I left Facebook"
+
+A personal write up from yet another person disconnecting from Facebook. Worthwhile to read why people decide it's time to opt-out of something so pervasive. I've been Facebook free since twenty thirteen.
+
+Link two. "Introducing code owners"
+
+Love to see Github adding more capabilities to allow teams to collaborate better.
+
+Link three. "Wildcard Certificates Coming January twenty eighteen —Let's Encrypt"
+
+I’m a huge fan of what Let's Encrypt is doing with certificate management. One of the big challenges was their lack of support for wildcard certificates. Now, given that Let's Encrypt is completely programmable you could make an argument that you can manage any number of individual certificates, but it's complicated to do. This is a nice step to further adoption.
+
+Link four. "Coraline Ada Ehmke: Antisocial Coding: My Year at GitHub"
+
+GitHub has had problems with diversity and inclusion. This article is worth reading for two reasons. Interesting to hear how some of the work that Coraline Ada Ehmke did related to this effort. Also this is an interesting read as a people manager. This situation doesn't seem like it was handled very well.
+
+Link five. "What do we mean by “evidence-based journalism”? – WikiTribune – Medium"
+
+I have thought a lot about how to rethink news. One of the core ideas was "Show your work." WikiTribune is adopting that principle and referring to it as evidenced-based.
+
+Link six. "Busy to Death – Barry O'Reilly"
+
+Every word of this is awesome. I've gotten very crisp in how I manage my calendar. Some of what I do is in here, but also things to learn here.
+
+Link seven. "Scientists explain ancient Rome's long-lasting concrete - BBC News"
+
+I recently read Stuff Matters: Exploring the Marvelous Materials That Shape Our Man-Made World and the chapter on concrete was fascinating. The author explores the area of "self healing" concrete that can fix exposure to water. Amazing concept that this article just barely touches on.
+
+Link eight. "The Critical Difference Between Complex and Complicated"
+
+Good article on understanding the type of problem you are dealing with so that you approach the solution from the right way.
+
+Link nine. "Wikipedia: The Text Adventure"
+
+This is so awesome! An entire text based adventure game driven by data from Wikipedia. Pure work of geek art. Take a moment to admire this is only possible because Wikipedia uses a very liberal Creative Commons license.
+
+Link ten. "Open Sourcing Iris and Oncall | LinkedIn Engineering"
+
+Great introduction on how a large tech organization like LinkedIn deals with on-call and incident management. Great to see them embracing the open source movement and sharing their internal solutions.
+
+Link eleven. "Looking for the One: How I Went on 150 Dates in 4 Months"
+
+I can’t honestly decide the right reaction to this. Impressive use of automation and science to drive to desired outcomes? Foolish misunderstanding of how human relationships work? Read and decide for yourself. One thought I had while reading this is if this is what an amateur can do, what are the companies that run dating platforms doing? I feel like the matchmaker of the past was an algorithm and "Big Data". The new one may be AI driven introductions and coordinated "random" encounters. The humans become the pawns in a data-driven AI manipulated show.
+
+Link twelve. "U.S. denies visas for Afghanistan’s all-girl robotics team - The Washington Post"
+
+Terrible and despicable. What a message to send to young women pursuing a dream with technology.
+
+Link thirteen. "Day One Premium and the Future"
+
+I signed up for Day One Premium and was happy to do it. This article on the challenges developers face when moving to a subscription offering is very much on point. I do think there is a challenge in subscription offerings for a casual users. I have no issue with apps I use daily but the less frequently used apps are hard to justify. It would be nice to support both models, but that introduces a lot of problems. Will be curious to see how this evolves.
+
+Link fourteen. "Open Source Friday"
+
+Interesting concept. Like the idea and it's a better way to market this than I've seen before. Similar in many ways to "20% time".
+
+Link fifteen. "HEVC and HEIF Will Make Video and Photos More Efficient - TidBITS"
+
+Nice writeup on the HEIF and HEVC formats that are coming to iOS 11 and macOS High Sierra. Notable that these are not Apple created formats. Anyone can implement these. I like what Apple is doing here and I think the market value will be in iPhones being able to hold more photos and video than ones not using these more modern standards. Only geeks should have to even think about the formats for most use cases.
+
+Link sixteen. "Management and Technical Career Growth Tracks"
+
+I really like Rajiv's thinking on tech organizations. His Three Roles of a CTO is something I refer to often. I like what Rajiv has put together here as well.
+
+Link seventeen. "Gorodki: Ancient Russian game enjoys renaissance | Russia Beyond The Headlines"
+
+Another lawn game involving wood and throwing! I enjoy Kubb and have recently added Mölkky to the mix as well. This looks complicated but may need to give it a try. Does every culture have a wood throwing game? Via @cunngleah
+
+Link eighteen. "Statement by Freada Kapor Klein and Mitch Kapor on the Resignation of Dave McClure"
+
+The events of twenty seventeen in the tech ecosystem depict a sector gone deeply awry. This is not just a case of a few bad actors. This is not something that is fixable with a pledge or a new policy. This is a culture that has been allowed to fester and to rot by enablers who refused to intervene when they witnessed inexcusable behavior or went to great lengths to avoid seeing it. Wow! Accurate and direct. This is the kind of example and leadership we need in tech.
+
+Link nineteen. "Exclusive: Dave McClure resigns as general partner of 500 Startups funds - Axios"
+
+First domino of a hopeful cleansing. It's gotten even worse since this article was written.
+
+Link twenty. "Facebook, for the first time, acknowledges election manipulation - CBS News"
+
+This seems so obvious. And to be clear, this isn't partisan as influence was peddled in all ways. Facebook was designed, and generates tremendous revenue, by selling you advertisements. It dresses up as a place for friends and a commons for people to connect and have dialog. That's all a side-show to sell you. You are their product. So, should it be remotely surprising that they can also sell political ideas? We now have 2 billion people on a platform whose purpose is to influence their thinking. Seems dangerous. Happy to not be a Facebook user.
+
+Link twenty one. "Facebook can track your browsing even after you've logged out, judge says | Technology | The Guardian"
+
+Assume Facebook knows every website you ever go to and has a massive profile of you. Facebook knows more about you than any other organization in the world. If you don't want that you have to use tools to block it. Little Snitch can be used to make sure your computer isn't allowed to make network connections to Facebook. I also use 1Blocker with a custom rule that stops my web browser from talking to any Facebook domains.
+
+Link twenty two. "Little Snitch 4"
+
+Little Snitch upgraded to 4.0. This is one of the utilities that I should use but have never dove in. It allows for complete control at the network layer of what apps are doing. If you are very focused on privacy (which I am!) you should be running Little Snitch.
+
+Link twenty three. "ongoing by Tim Bray · Bye, Rune"
+
+A very nice and thoughtful write up from Tim Bray on his cat Rune that recently passed away.
+
+Link twenty four. "71% of Americans use emojis, stickers, GIFs when texting or using mobile apps —Apple World Today"
+
+Need to keep this link for those times Tammy gives me an eye roll for emoji or sticker use.
+
+Link twenty five. "Stop waiting for perfection and learn from your mistakes - All Things Distributed"
+
+Great article and I wholly endorse the push to design for failure. The problem isn't failure, it's allowing failure to cascade to something bigger. Well designed systems can and should absorb small and even large failure conditions. I'd love to see technology teams and even Universities adopting this thinking even more.
+
+Link twenty six. "Women in Tech Speak Frankly on Culture of Harassment - NYTimes.com"
+
+The tech industry has a problem with gender diversity. Certainly that problem extends well beyond startups, but I think it is reasonable to believe that the patterns and examples set by VC's impact how startups (particularly in the Valley) behave.
+
+That's the end of Links.
+
+Now, the Now Reading section.
+
+The Epigenetics Revolution: How Modern Biology Is Rewriting Our Understanding of Genetics, Disease, and Inheritance
+
+by Nessa Carey
+
+Nessa Carey takes us on a lively and up-to-date tour of what's known about epigenetic mechanisms and their implications for ageing and cancer.
+
+My Book Club picked this for our next meeting and I’m very interested to learn more about the subject. The beginning has been very engaging.
+
+That's the end of Now Reading.
+
+Now, the Promotion section.
+
+Creative Commons helps you legally share your knowledge and creativity to build a more equitable, accessible, and innovative world — unlocking the full potential of the internet to drive a new era of development, growth, and productivity. I have been a supporter of Creative Commons for years. Larry Lessig, the founder of Creative Commons, has done the world a great thing by creating a legal structure to help authors and creators encourage remix culture. In addition to donating, you should consider making your content under a Creative Commons license. Donate to Creative Commons today!
+
+That's the end of Promotion.
+
+Now, the Microblog updates section.
+
+- Moved to Big Blue @ Night stage to see Camper Van Beethoven!
+- Bruce Cockburn now on main stage at Winnipeg Folk Festival.
+- Richard Inman just blew me away as a ‘tweener’ at Winnipeg Folk Festival. Wow!
+- Esmé Patterson kicking off Friday night on Winnipeg Folk Festival main stage.
+- Everyone seeking shade at the Bur Oak stage, Winnipeg Folk Festival.
+- Camping. Birds Hill Provincial Park.
+- The Shins closing out first night on main stage at Winnipeg Folk Festival.
+- Brandi Carlile now on stage at Winnipeg Folk Festival. So great!
+- Folk Fest humor — What do you call a banjo player with a mortgage? … An Optimist!
+- The Small Glories starting the Winnipeg Folk Festival on the main stage.
+- Great spot for the Winnipeg Folk Festival main stage tonight. Brandi Carlile our highlight tonight!
+- Bicycle as installation art. In Grand Forks, ND.
+- I send a weekly newsletter with commentary on links I’ve found interesting, plus bonus content! Interested? Subscribe at weekly.thingelstad.com.
+- Driving to Winnipeg Folk Festival today to start the third segment of summer vacation!
+- If you’re looking for a solid content blocker for Safari I’m liking Better for iOS and Better for macOS
+- Time to unwrap these little presents! Big Green Egg livin’.
+- Time to wrap the pork shoulders and give them an apple bath.
+- Happy fourth of July! Four pork butts on the Big Green Egg!
+- Pickleball setup! Great fun. Still learning rules.
+- Grilled chicken tonight. Plus the Sour Pickle Grilled Potato Salad. Yum. Big Green Egg for the win!
+- First status from Micro.blog now out of TestFlight and in the App Store!
+- Potato salad coming soon! Big Green Egg living.
+- Trying to explain the 21 stages of the Tour de France to my 7 year old. “How long would it take for them to ride around the world?” Not going well.
+- Ringer!
+- Pizza! Big Green Egg!
+- Awesome fourth of July jello! Thanks @jthiegs!
+- Homemade pizza on the Big Green Egg tonight.
+- Looked in the App Store for a quality app for the twenty seventeen Eclipse and nothing but low-quality or scam apps.
+- Happy Sunday July 2, twenty seventeen… the first Sunday you can buy beer, wine and liquor in Minnesota!
+- Big congratulations to Turing Tumble! Backer 369 of 4,198 and they overfunded the Kickstarter finishing at 404,071 dollars!
+- I really like Chicago. This is as close as we get today. On our way back to Minnesota from Michigan.
+- Self-service toll booths on I-90 by Chicago are terribly slow. Bring the people back!
+
+That's the end of Microblog updates.
+
+Thank you for subscribing to the Weekly Thing! If you know of people that would like the Weekly Thing please forward it along!
+
+That brings us to the end of the Weekly Thing, issue 9. Thanks for listening, and I'll see you next time.

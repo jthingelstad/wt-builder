@@ -1,0 +1,260 @@
+The Weekly Thing, issue 328. Agents, Pulse, Vision. Published September 27, twenty twenty five. By Jamie Thingelstad. In this issue: MCP in Practice, Locally AI, Cloudflare Founders Letter, WiFi and students, AWS S3 one petabyte per second, Claude Code, ChatGPT Pulse.
+
+Good morning!
+
+It is very Minnesotan of me to start with the weather, but I feel like I have to. We have had an amazing start to fall. Even my allergies seem to be giving me a break to be able to enjoy it as much as possible. Hope you are enjoying some outdoor time too!
+
+Not sure what was going on this week but there are fewer links in this week's issue than I think there have been in a long time.
+
+Have a great weekend!
+
+Now, the Currently section.
+
+Watching: Tammy and I are late to the Severance party but better late than never. We're half-way through Season 1 and enjoying it a lot.
+
+Installing: I was late to find Locally AI and it is great app to host various LLM models directly on your phone. There really isn't an easier way to have an offline, private model to play with.
+
+That's the end of Currently.
+
+Now, the Notable section.
+
+Link one. "MCP in Practice – O’Reilly"
+
+The vast majority of these early MCP services are to enable Agentic Engineering. The adoption curves are still interesting to see. It will be more interesting to see how this evolves as MCP continues to become productized and expand into different verticals.
+
+Link two. "Locally AI"
+
+I discovered this app via Simon Willison blog post. It is about the easiest way to get different models onto your phone and experiment with them. It also just added support for the Apple Intelligence model as well. I was tempted to use it in Shortcuts automation but it doesn't have a macOS app so will hold off for now.
+
+Link three. "Cloudflare’s twenty twenty five Annual Founders’ Letter"
+
+Many folks haven't heard of Cloudflare but they run a huge amount of Internet infrastructure. I tend to find their product announcements very opinionated towards an overall direction they feel the Internet is or should be going. There annual letter strikes a ton of change.
+
+Quote.
+Today the conditions to bring about that change may be happening. In the last year, something core to the Internet we've all known has changed. It's being driven by AI and it has an opportunity with some care and nurturing to help bring about what we think may be a much better Internet.
+End quote.
+
+AI as a wave that will cause a lot of problems, particularly for ad supported media, but open the door for real value to be recognized and built upon.
+
+Quote.
+Imagine a future business model of the Internet that doesn't reward traffic-generating ragebait but instead rewards those content creators that help fill in the holes in our collective metaphorical cheese. That will involve some portion of the subscription fees AI companies collect, and some portion of the revenue from the ads they'll inevitably serve, going back to content creators who most enrich the collective knowledge.
+End quote.
+
+I would place under this the lack of micropayment infrastructure and ability which forced everything to attention models as the problem. Freeing ourselves of that surveillance economy would be incredible.
+
+Link four. "Does WiFi Make Students Smarter? - Cal Newport"
+
+There are a lot of opinions about technology adoption in schools. Overall I’m a fan of less mobile phones in schools, but I've also read reports how gifted students use those same devices to excel beyond the mediocre class content they are in. That is likely a minority compared to the number that just play games or watch TikTok. Newport found an interesting control group on WiFi in school.
+
+Quote.
+The result? Compared to other counties in the state, Pocahontas County schools had a smaller performance drop and larger recovery. Put another way: the county in which nearly half of the measured students lacked access to WiFi did better than other counties with similar student populations and full access to classroom technology. The more plausible story told by this data is that rural West Virginia schools are struggling, and something appears to have made this worse around twenty fifteen to twenty seventeen (most likely deteriorating economic conditions). But the solution to these problems is likely not as simple as getting more internet-connected Chromebooks into the students’ hands.
+End quote.
+
+Should technology be in schools and learning? Absolutely yes. But how do we do that while keeping the attention economy out? That is the issue.
+
+Link five. "Go Out and Get Some Air – On my Om"
+
+Malik sharing his excitement for the iPhone Air.
+
+Quote.
+It took about seven years of design evolution for Apple to come up with a worthy successor to the iPhone X. Everything that made the X extraordinary lives on in the Air. “From chips to materials to improved interactions, it is what you don’t see that makes the X a great phone,” I said. The Air is that vision fully realized, enhanced by seven years of technological progress.
+End quote.
+
+I haven't handled one of these, and the camera is too much of a compromise for me. But I suspect for a lot of people this may be an amazing choice.
+
+Link six. "How AWS S3 serves 1 petabyte per second on top of slow HDDs"
+
+The scale of S3 is really hard to understand even for technologists who have worked on very scaled systems.
+
+Quote.
+AWS S3 is a massively multi-tenant storage service. It's a gigantic distributed system consisting of many individually slow nodes that on aggregate allow you to access data faster than any single node can provide. S3 achieves this through: - massive parallelization across the end-to-end path (user, client, server) - neat load-balancing tricks like the power of two random - spreading out data via erasure coding - lowering tail latency via hedge requests - the economies of multi-tenancy at world scale
+End quote.
+
+This article is a very approachable overview on the key methods they use to hit this performance.
+
+Link seven. "How Claude Code is built - Gergely Orosz"
+
+Claude Code has been transformational for agentic software development. The first handful of times I used it I was blown away not just by what it does but how it does it.
+
+I feel like the pull quote everyone will highlight on this is:
+
+Quote.
+Fun fact: 90% of code in Claude Code is written by itself!
+End quote.
+
+but for those that think software will just write itself also note
+
+Quote.
+software engineers appear very much in demand
+End quote.
+
+I had never heard of this "product overhang" concept.
+
+Quote.
+In AI, we talk about "product overhang", and this is what we discovered with the prototype. Product overhang means that a model is able to do a specific thing, but the product that the AI runs in isn't built in a way that captures this capability. What I discovered about Claude exploring the filesystem was pure product overhang. The model could already do this, but there wasn't a product built around this capability!"
+End quote.
+
+A big theme I see here that I’m also seeing with other teams using agentic coding tools is the freedom to explore. There is no way that a team could create 20 prototypes for a feature, explore the various options, and then decide how to proceed. Now with AI we can do just that.
+
+I had a similar conversation recently with an engineering team and asked how they picked one of multiple ways that a specific problem could be approached. They said they prototyped all of them and then decided. That blew me away.
+
+Could this be the unlock of the golden age of software? Think of this progression.
+
+1. Interpreted languages and tools like Python allowed us to reduce the cost of refactoring software dramatically from the days of compiled C++ code. This allowed us to adopt agile practices and try things.
+2. The cloud brought the same ephemeral agility to infrastructure. We can provision services as we wish to and try things to find what works best.
+3. Could AI allow us to orchestrate all of this to "explore" product ideas more than having to "map the journey" ahead of time?
+
+Sadly the rest of the article is only for paid subscribers, but just that first part was worth it.
+
+Link eight. "Introducing ChatGPT Pulse | OpenAI"
+
+I used this for the first couple of times this week and it is surprisingly good. I was able to give it some nudges for different things I wanted to know and it worked well. It was telling how good ChatGPT could figure out my interests from the collected interactions I've had with it.
+
+That's the end of Notable.
+
+Now, the Journal section.
+
+Journal entry one. Dappnode validator — 1 year 28 weeks uptime
+
+I realized it had been a while since I checked in on my Dappnode that quietly chugs away running 32 validators for the Gnosis blockchain. It is monitored so I knew it was working but figured it was probably in need of some updates. Sure was!
+
+I got a little shocked when I saw the uptime.
+
+This was much more behind than I thought it would be. I had some time so started the upgrades. I got some errors and had to reboot the Dappnode a couple of times to get updates to apply but eventually was able to get everything humming along nicely -- never needing to do anything other than use the web browser.
+
+I’ll try not to wait over a year to do the manual updates next.
+
+Journal entry two. Lakeville Art Festival
+
+We found ourselves with some open time this weekend and decided to check out the Lakeville Art Festival this morning. We’ve been to many art fairs but this was our first time to this particular one and we thought it was great. They had a great selection of art from artists in Minnesota and connected states. It was setup very nicely on grass instead of walking on blacktop.
+
+It was great that they sectioned a stage with music and food into an entirely adjacent area with a good amount of picnic tables. It wasn’t hard to find a spot to sit a delightful lunch of Pizzeria 201 from Montgomery, MN (we drove there once to have their pizza) followed by some HomeTown Creamery ice cream. We also brought home some Groveland Confections chocolate.
+
+Overall it had a nice and relaxed vibe.
+
+Some artists that caught our eyes:
+
+- Tin Cat Studio
+- Amanda Pearson
+- Pleasant Street Pottery
+- Dan Wiemer
+- Mya Austin
+- Platypus Builds: We very nearly came home with a super cool lamp made entirely from wood.
+- Reiko Uchytil
+- Barret Lee
+- Wenwen Liao
+- Shane Anderson: Very “guy art” but I dug the concept and he had a bison painting that was interesting.
+- Tyler Maddaus: His bison painting caught my eye.
+- Burly Babe Woodworking
+- Noah Sanders: We very nearly came home with one of his fox paintings. It may still happen.
+- Ed Lefto: We purchased one of his birdhouses. (the URL is there, but no website)
+
+Journal entry three.
+
+We were in the area and finally got to visit Kyiv Cakes in Lakeville today. I’ve wanted to come here for a while. They have a broad menu of Ukrainian as well as traditional baked goods. We got a slice of Honey Cake with raspberries and it was light and delicious! Recommended.
+
+Journal entry four.
+
+Downtown for The Dakota's 40th Anniversary Block Party. Awesome event. Tina Schlieske on stage right now!
+
+Journal entry five.
+
+Disappointing 3-0 loss for MN United to Chicago Fire tonight. So many fouls. So many yellow cards. Nothing happening for the Loons at all tonight. Horrible game for end of season with playoffs clinched.
+
+Journal entry six.
+
+Spent the morning ordering materials for our Things 4 Good Fall Fundraiser and candle scents and vessels are more “out of stock” than I’ve ever seen. Luckily I have some vessel inventory, but not enough. Might be a scramble this year. I wonder if Makesy inventory issues are tariff related?
+
+Journal entry seven. Use Apple Intelligence Models in Shortcuts
+
+Shortcuts on OS 26 got a big new feature with the ability to use Apple Intelligence models directly. I’ve already had a taste of this by using OpenAI API calls in Shortcuts to add LLM capabilities. You can see how I'm using AI in the Weekly Thing for some examples. Accessing LLM capabilities from Shortcuts is a very powerful capability for various automations. I love how easy this now is with Apple Intelligence.
+
+To compare, this is how I did it with direct calls to the OpenAI API.
+
+There is a lot of fussy stuff to do to get keys, pass dictionaries around, get the specific values, etc. And actually this is hiding the hardest of it all. If you expand that Get Contents of URL action you’ll see this.
+
+No way anyone without programming background is going to do this successfully. On top of it, my method for doing this is really brittle and prone to errors. I'm not catching all the possible API responses and if there is a problem it will just bail.
+
+I'm also just kind of hoping that the response is JSON and I can marshal it into a variable. It works, but the prompt has to be right and you’ll see I'm handling that in the API call.
+
+So, how about with Apple Intelligence and the built-in integration? Night and day difference.
+
+Of course it is easier but it is so much easier. And one of the big wins is the output format. You can just tell it what you would like to get back. This avoids a ton of prompt engineering and parsing.
+
+The only thing I lose with all this complexity is the ability to do a system message. For all of my use cases this hasn’t mattered at all. I just merged the system message into the prompt.
+
+This is so easy I would encourage a lot of experimentation to pull AI into your automation.
+
+Journal entry eight.
+
+We had the stucco redashed on our house which gave us an opportunity to put a new color on it. We wanted to lighten it up and I’m very happy with the result.
+
+Journal entry nine. My Pokémon Collection
+
+With some help from Tyler I got my Collectr profile accurate with my focused Pokémon collection. I have fun exploring Pokémon with Tyler and I have three things I collect:
+
+- Perrserker is the closest thing to a Nordic Pokémon with his Viking helmet. I love Iceland and my DNA traces back predominantly to the Nordics so I feel a kinship to Perrserker. I’m collecting every Perrserker card there is and will have them all shortly. Perrserker evolves from Meowth and I have picked up a couple of those but am not collecting them.
+- Alakazam is technically psychic but I also think he is sort of magical and when I used to play Dungeons and Dragons I always played a Wizard -- so I’m also collecting this one. There are a ton of Alakazam cards! I may grab a Kadabra or Abra as part of the evolutions if they look cool.
+- Lastly any graded Pokemon cards that I just think are really cool looking.
+
+I just have 31 cards so far but I like the collection and having specific goals like this makes it a lot more fun. If only Collectr published an RSS feed on these profiles.
+
+Journal entry ten.
+
+Saw this item in my RSS feed tonight. I had forgot about this feature in POAP2RSS. It worked as intended and I unsubscribed from the this event feed.
+
+Journal entry eleven.
+
+Ready for Analyst Day to get going!
+
+Journal entry twelve.
+
+With a market cap of 4 trillion dollars the 5% move in NVDA shares led a 200 billion dollars increase in market cap -- double the 100 billion dollars investment.
+
+Quote.
+Nvidia, a chipmaker, signed a deal to invest as much as 100 billion dollars in OpenAI, an artificial-intelligence firm, to build data centres with a capacity of 10 gigawatts. Nvidia will reportedly receive equity in OpenAI in return. The firms said the deal would power advanced AI. More than 700m people use OpenAI each week. Shares in Nvidia were up nearly 5% on Monday. -- The Economist, The World in Brief, September 23 twenty twenty five
+End quote.
+
+You gotta spend money to make money?
+
+Journal entry thirteen.
+
+I just got my first CharGPT Pulse. I was more impressed than I expected. It was truly interesting. Curious to see how it changes each day.
+
+That's the end of the Journal.
+
+Now, the Briefly section.
+
+Link one. "LinkedIn will use your data to train AI – how to opt out | Proton"
+
+Simple and easy directions to follow to opt-out.
+
+Link two. "Apple previews new immersive films for Apple Vision Pro - Apple"
+
+Apple has to spend some cash to prime this ecosystem. The hardware isn't there yet but is coming along. The software is also not there but improving. Creating a library of content for AR as they move down the path is the right thing to do.
+
+Link three. "The Top Programming Languages twenty twenty five - IEEE Spectrum"
+
+Python at the top of the list by a ways, and also now at the top of the list for the most popular in "Jobs" as well.
+
+Link four. "Python on the Edge: Fast, sandboxed, and powered by WebAssembly · Wasmer"
+
+Python is getting itself everywhere.
+
+Link five. "Preparing the AI-First Enterprise Workforce for the Age of Agents - Evangelos Simoudis"
+
+A model for thinking about agentic deployment in the enterprise.
+
+That's the end of Briefly.
+
+Now, the Fortune section.
+
+Here is your fortune…
+
+WiFi won't make you a genius, but curiosity will!
+
+- Join the private Weekly Thing Forum
+- r/WeeklyThing on Reddit
+- Sign the Weekly Thing Guestbook
+
+That brings us to the end of the Weekly Thing, issue 328. Thanks for listening, and I'll see you next time.

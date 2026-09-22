@@ -1,0 +1,188 @@
+The Weekly Thing, issue 167. Production Oriented Development, Fathom. Published November 29, twenty twenty. By Jamie Thingelstad. In this issue: Comcast data caps, Facebook sociopaths, Fathom Analytics attack, COVIDaware MN, ZFS introduction, Apple Mac silicon, Anki memory, Twitter @POTUS Biden.
+
+Let me address any confusion you may have and let you know that it is indeed Sunday when you are receiving the Weekly Thing. I nearly always send these on Saturday but this week was super difficult dealing with streaming data services in clouds that are supposed to be super resilient. I had no time or energy so you are getting this on Sunday instead. One thing I've definitely learned publishing the Weekly Thing for 167 issues is to make sure that my publishing cutoffs have slack in them so I can adjust to most of what life throws at me.
+
+This week has me thinking about all the people behind the scenes of the websites and services that we use. There is this fairly pervasive stereotype of some very bright developer in a dark room, of course wearing a hoodie, coding away. What you don't see a lot of is the amazing teamwork, disciplined choreography, realtime troubleshooting, and incredible resiliency that is part of the teams that run these incredibly important services. Behind every movie you are streaming, cat picture you are giggling at, shirt you are buying, silly video you are posting, and even reading this email are teams of incredibly talented, resilient, focused technologists making sure it all works. These folks don't show up in movies as much as those coders that write code that makes no sense on the big screen.
+
+I've worked directly with thousands of technologists in my career and supporting production is one of those skills that can only be learned in the real world. There is no other way to get it. Either you have supported production, or not. Being in a great team with good mentors is critical. Learning from the published best practices of leading organizations is helpful. But perhaps most of all, you have to develop that ability to logically work through extremely complicated problems while simultaneously being under immense stress.
+
+Being in a great team is key. After issues are resolved you have learned a lot, you've built new bonds with your teammates, and hopefully you are ready to get some rest.
+
+Now, the Currently section.
+
+Reading: I recently read Unflattening with my book club. It is a delightfully illustrated graphic novel. It is really a philosophy book of sorts. I enjoyed it, and it made me think. I will likely re-read it in the future.
+
+Drinking: It is the Holiday Season so it is time for delicious Wassail Tea.
+
+Watching: Our family enjoys the Amazing Race and we thought we would check out The Pack as it has similar concepts, but then adds dogs, which can only be great! Well, sort of. Hasn't hooked us yet. Think we'll still be watching old episodes of The Brady Bunch some more.
+
+That's the end of Currently.
+
+Now, the Photograph section.
+
+We put up the Christmas tree and every year I like to walk around the tree and take close up pictures of ornaments.
+
+Nov 27, twenty twenty at 4:37 PM
+
+That's the end of Photograph.
+
+Now, the Recommended Links section.
+
+How I Spend My Attention - my third brain
+
+I would refer to this as being present or in the moment. Being conscious of choices that you are making when you pull out your phone and disappear into the virtual world is important to our happiness.
+
+Quote.
+You can have more experiences in life by simply paying more attention. What you pay attention to is going to be your life. It's so basic that it hits me.
+End quote.
+
+Very true.
+
+Comcast to impose home internet data cap of 1.2TB in more than a dozen US states next year - The Verge
+
+This already applies to us in Minnesota. I didn’t even know that there were states that didn’t have this cap. I’m not a fan of these, particularly as we transition more activities to broadband. Strong Net Neutrality laws and regulation should be happening here, but unfortunately we've been going the wrong direction on that.
+
+Daring Fireball: Facebook Still Ruled by Sociopaths, News at 11
+
+I chose to point to the Gruber writeup on this article instead of directly to The NY Times piece. Gruber nails it.
+
+Quote.
+Facebook shouldn’t need to inject emergency doses of truth and reality into their newsfeed. It should be the norm, full stop.
+End quote.
+
+So Facebook changed how the newsfeed works for the election, to dampen down disinformation. Now they have reverted those changes. Why would they do this? Money. Big bags of money from monetizing people.
+
+Someone attacked our company - Fathom Analytics
+
+I’m a customer of Fathom Analytics. I love their privacy-first approach that gives me information on what is getting read, but no information on any of the people. This is a detailed writeup of a prolonged attack they experienced and how they mitigated it. It is so unfortunate that this kind of thing happens, but it does, and frequently.
+
+Lock Yourself Down, Now - The Atlantic
+
+I’m super excited at the positive vaccine news we have had recently, but we shouldn't confuse a vaccine to be delivered in a few months with the explosive transmission happening now.
+
+Quote.
+It’s time to buckle up and lock ourselves down again, and to do so with fresh vigilance. Remember: We are barely nine or 10 months into this pandemic, and we have not experienced a full-blown fall or winter season. Everything that we may have done somewhat cautiously—and gotten away with—in summer may carry a higher risk now, because the conditions are different and the case baseline is much higher.
+End quote.
+
+I feel strongly that families should be making their own fact-based decisions. Political leadership has stumbled, but that doesn't mean anything for your household. Time to lockdown as the winter approaches.
+
+COVIDaware MN | State of Minnesota COVID-19 exposure notification application
+
+Minnesota finally (what took so long?) rolled out a COVID exposure notification app. If you live in Minnesota click on this and install it. If enough people use these it should make it easier to identify your exposure risk.
+
+maddy: Composable all-in-one mail server.
+
+I gave up running my own mail server years ago and have relied on the experts at Fastmail ever since. However, I think it is important that we still have ways to do this. I like seeing projects like this that make it easier to do.
+
+postgrest: REST API for any Postgres database
+
+Frameworks like this are often under used. This would be great for smaller projects, or for prototyping ideas to keep initial costs low.
+
+Production Oriented Development
+
+I love this article and the framework put forth. This is the model that I have been using in technology organizations for a long time.
+
+Quote.
+This perspective probably comes from years sitting in between operations and product development. I strongly believe that teams should optimize for getting code to production as quickly as possible as well as responding to incidents in production.
+End quote.
+
+If you adopt these practices, you will create more value pretty quickly. Particularly notable is the QA gate one. I've coached multiple technology leaders to get rid of that. Note, that doesn't mean you don't do quality, but you do it differently.
+
+That's the end of Recommended Links.
+
+Now, the Journal section.
+
+Thursday @ 8:24 PM
+
+Family tradition to watch A Charlie Brown Thanksgiving on the evening on Thanksgiving.
+
+Thursday @ 8:22 PM
+
+We celebrated our first Pandemic Thanksgiving today. I cooked turkey breasts in the Sous Vides and finished on the Big Green Egg. Tammy put the rest of it together including the best sweet potato dish I’ve ever had and a delicious homemade pumpkin pie!
+
+Thursday @ 8:18 PM
+
+This mornings 45 min Turkey Burn Ride with Robin Arzon had 50,000 live riders! That is an entire good size city, spinning together. What a cool experience. #FitByFifty
+
+Sunday @ 7:25 PM
+
+We got takeout from Petite León for the first time tonight and thought it was great. We enjoyed the Roasted Beets, Pollo al Carbon, Le Petite Cheeseburger and Frites. Recommend trying it for some delicious takeout.
+
+Saturday @ 11:23 PM
+
+Buttondown says that I have written 448,665 words in the first 166 issues of the Weekly Thing. The average non-fiction book has less than 100,000 words. Even if half of the Weekly Thing words aren’t mine, I’ve possibly written two books worth of words?
+
+Saturday @ 9:28 PM
+
+We watched Doolittle for family movie night and we all enjoyed it a lot. It is a bit crazy, but all fun in its craziness.
+
+Saturday @ 5:47 PM
+
+Preparing Wassail Tea. This is always the official beginning of the holiday season to me!
+
+That's the end of the Journal.
+
+Now, for your information.
+
+The Vintage Beauty Of Soviet Control Rooms
+
+I want to make every one of these images a Zoom Virtual Background.
+
+xkcd: Unread
+
+So true.
+
+An Introduction to ZFS A Place to Start | ServeTheHome
+
+There was a point when I was so excited about ZFS and was thinking Apple might adopt it. It is good to see it continuing to gain momentum.
+
+Nbdev: A literate programming environment that democratizes software engineering best practices - The GitHub Blog
+
+It is interesting to see the new tools that GitHub is coming up with as they rethink how coding happens.
+
+A Gentle Introduction on How to Use Anki to Improve Your Memory | Become Superpowered
+
+Anki continues to intrigue me. It seems like a powerful tool and system for learning facts.
+
+"We are giddy"—interviewing Apple about its Mac silicon revolution | Ars Technica
+
+Great interview with Apple leadership on the new M1 chip.
+
+Twitter will hand @POTUS to Biden on Inauguration Day, even if Trump doesn’t concede - POLITICO
+
+Read this and then just step back a moment. What a crazy role for Twitter to play.
+
+That's the end of the FYI section.
+
+Now, the Reply All section.
+
+Here are some replies from Weekly Thing #166 / Chess, Disruption, M1 Macs, Five Hindrances.
+
+Some folks really liked the last one.
+
+Quote.
+"What a Thing!" — Jerry
+End quote.
+
+Quote.
+"Holy crap this was a good one." — Jim
+End quote.
+
+Thanks!
+
+Pin Han Lim who lives in Singapore and runs mole journal shared that he had recently posted an interview with the creators of WindowSwap, which I shared in #166.
+
+You're still on Facebook?
+Well, if you must, but you can make the world a little bit better by sharing the Weekly Thing to those that perhaps need it most!
+
+That's the end of Reply All.
+
+Now, the Fortune section.
+
+You've made it all the way to the end! Here is your fortune for this week.
+
+Change your thoughts and you change your world.
+
+Thank you for subscribing to the Weekly Thing!
+
+That brings us to the end of the Weekly Thing, issue 167. Thanks for listening, and I'll see you next time.

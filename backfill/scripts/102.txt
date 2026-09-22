@@ -1,0 +1,222 @@
+The Weekly Thing, issue 102. Apr 20, twenty nineteen. Published April 20, twenty nineteen. By Jamie Thingelstad. In this issue: Supplement industry nutrition study, selfie deaths epidemic, Facebook AI voice assistant, Uber IPO 10 billion dollars loss, Disney+ pricing details.
+
+Happy Easter Weekend to all of you! I hope the Easter Bunny brings you something great in your basket. And Happy Earth Day coming up on Monday! I am so excited for this weekend. It’s one of those first weekends where all the snow is gone, and it looks like it’s going to be absolutely gorgeous!
+
+Tomorrow I’m going to be putting together a new flat top grill, a birthday present that I left in the box until it was nice out and I could use it. I’m excited to give it a maiden run tomorrow. I also plan to get a good campfire going tomorrow night. Time for some s’mores!
+
+I hope you all have a great, relaxing and enjoyable holiday weekend! Now, let's get to some fun links for the week.
+
+Now, the Featured Links section.
+
+Link one. "The nutrition study the 30 billion dollars supplement industry doesn’t want you to see | Ars Technica"
+
+We seem to constantly learn that food is the ultimate analog. We try to decompose it into numbers and weights, chemicals and nutrients. But it’s fundamentally analog. It cannot be decomposed to bits and bytes. When we try to recompose it from units, it isn't the same thing, and our bodies know.
+
+When the researchers picked apart effects of individual micronutrients, they found that adequate intake of vitamin K and magnesium linked to a lower risk of all-cause mortality. Also, vitamin A, vitamin K, zinc, and copper were associated with a lower risk of death from cardiovascular disease. But these benefits were restricted to intake only from foods—not supplements.
+
+As Michael Pollan stated so succinctly: Eat food. Not too much. Mostly plants.
+
+Link two. "Great developers are raised, not hired – The Principal Developer by Eduards Sizovs"
+
+I agree with the premise of this article. Talent in technology is in high-demand, and growing technology organizations will never be able to fill all their positions by going to the market for existing talent. Teams have to learn how to hire motivated learners and develop them.
+
+In the current market situation, every company needs to build a mentoring capacity. The most experienced developers should find time to grow less experienced colleagues through pair programming, continuous feedback, career advice.
+
+All great technology organizations are learning organizations, and perhaps bringing in and developing future talent is the best example of that.
+
+That's the end of Featured Links.
+
+Now, the My Weekly Photo section.
+
+This United sign stands proudly in front of the just opened Allianz Field, the new Minnesota United home. Our family name is on there somewhere.
+
+This United sign stands proudly in front of the just opened Allianz Field, the new Minnesota United home. Our family name is on there somewhere.
+Apr 13, twenty nineteen at 6:24 PM
+Allianz Field, 400 Snelling Ave N, Saint Paul, MN
+
+That's the end of My Weekly Photo.
+
+Now, the Notable Links section.
+
+Link one. "Selfie Deaths Are an Epidemic | Outside Online"
+
+Oh my.
+
+Last October also witnessed the much-publicized deaths of travel bloggers Meenakshi Moorthy and Vishnu Viswanath, who apparently fell while taking a selfie at Yosemite’s Taft Point, a popular rock outcrop with an 800-foot drop. A month prior, Tomar Frankfurter, an 18-year-old from Jerusalem, also fell to his death in the park while reportedly taking a selfie at Nevada Fall. Last July, three stars of High on Life, a popular YouTube thrill-seeking adventure travel show, plummeted to their deaths at a waterfall near Squamish, British Columbia. And in late March, a man from Macau fell 1,000 feet to his death while attempting to take a selfie on the rim at Grand Canyon West.
+
+Stay safe out there!
+
+Link two. "Facebook is working on an AI voice assistant similar to Alexa, Google Assistant — Ars Technica"
+
+You would have to be absolutely bonkers to put a microphone attached to Facebook in your house! Please no… just no.
+
+Link three. "CalZones Review – MacStories"
+
+I need to deal with time zones frequently and most time zone apps on the App Store are garbage. This one is really well done, and has a very solid user experience.
+
+Link four. "Why software projects take longer than you think – a statistical model · Erik Bernhardsson"
+
+This is like reading a mathematical breakdown of what I've seen over decades of building software. It also highlights why Agile processes focus on spiking the biggest unknowns before tackling other tasks. Those individual tasks can take all of the time.
+
+Link five. "Pete For America Design Toolkit"
+
+This is great design, and a very well done toolkit to enable supporters to embrace your materials. Great example that other politicians, companies, and really any brand could emulate.
+
+Link six. "Opinion | What Women Know About the Internet - The New York Times"
+
+There are definitely gender differences on privacy matters.
+
+Even well-meaning efforts at transparency don’t always work that way for women. Lyft’s car pool service shares the registered names of passengers with everyone else in the car. The first name of an incoming passenger flashes in lights across the dashboard, a feature intended to let riders know they are in the right car. A privacy researcher told me that she once jumped into a Lyft shared ride wearing a sweatshirt with her company’s logo. The next day, she received an email from a male passenger saying, “I found you!” Clearly, he had been able to use her first name and the name of her company to track her down online.
+
+This is a good example where more gender diversity in technology would help.
+
+Link seven. ""Ethics" and Ethics - iA"
+
+There is growing occurrence of Ethics functions in tech companies. Ethics Officers even. That is probably a gimmick, as this article suggests. This is a thoughtful analysis of what ethics can and could drive in technology companies.
+
+Link eight. "Sourced Fact"
+
+This is a cool way of showing journalism with the source material directly discoverable from the content. I spent some time thinking of a system that would do something sort of like this, a sort of open-source news. This is a well done realization of some of those ideas.
+
+Link nine. "Opinion | It’s Time to Panic About Privacy - The New York Times"
+
+A visual explainer on privacy matters. Introduces the unknown "other" uses for some of the devices we are putting in our homes.
+
+Link ten. "Uber's IPO Is Historic, Despite Its 10 billion dollars Loss - The Atlantic"
+
+What an amazing amount of money being invested.
+
+Here’s a deeply strange thing about Uber, which publicly filed for its IPO today: The company has lost 10 billion dollars from operations, just since twenty sixteen, and while riders have paid 79.4 billion dollars for rides, many drivers attest that they can barely scrape together a living. So no part of the operation is a high-margin business, and yet Uber keeps growing and growing and growing.
+
+If the end-game to real profit and margin for Uber is self-driving cars, one has to wonder if they can possibly lose that much money while those are being developed. I think it’s a long ways off.
+
+Link eleven. "Calory Review: Simple, Convenient Calorie Tracking – MacStories"
+
+There are so many food tracking applications, and I've used a lot of them. I currently use Ate which is all about photo journaling. There are super precise calorie loggers, but this fun logger with a delightful user experience looks really good.
+
+Link twelve. "Daring Fireball: Disney+ Details: 7 dollars/Month, No Commercials, Tons of Old and New Content"
+
+This offering has some definite potential. Disney has an amazing catalog of content, and I have a high degree of confidence they will execute this well.
+
+Link thirteen. "3 pieces of advice in Jeff Bezos’ Shareholder Letter – On my Om"
+
+Summary of some key highlights from Jeff Bezos Shareholder letter. I really like the "Wander" point. It is very uncomfortable to do that, but acknowledging that it is a necessary component to innovation is important.
+
+That's the end of Notable Links.
+
+Now, the Give Back section.
+
+The Electronic Frontier Foundation is the leading nonprofit organization defending civil liberties in the digital world. I have been a member of the EFF for years. Not only is the EFF working hard to protect you on the Internet they have also recently launched solutions like Privacy Badger and the critically important Let's Encrypt service to make encrypting web servers free to anyone. Support the EFF with a donation!
+
+That's the end of Give Back.
+
+Now, more links.
+
+- Tinder’s move to Kubernetes – Tinder Engineering – Medium medium.com
+Lessons learned moving a very big social platform to Kubernetes.
+- An Intro to Threading in Python – Real Python realpython.com
+Great overview of threading for Python with good code examples.
+- Apple revamping Find My Friends and Find My iPhone in unified app, developing Tile-like personal item tracking - 9to5Mac 9to5mac.com
+Makes sense. Sounds like a clone of Tile.
+- ‘Tim Cook: The Genius Who Took Apple to the Next Level’ Is an Insightful Look at the Values that Guide the Company’s CEO – MacStories www.macstories.net
+Tim Cook impresses me greatly, this book might be a good read.
+- Desmos | Graphing Calculator www.desmos.com
+Very cool, fast, and easy to use graphing calculator in the browser.
+- iOS 13: Dark Mode, detachable panels, Safari and Mail, more - 9to5Mac 9to5mac.com
+Bunch of leaks of possible new features in iOS 13.
+- EdgeDB — The next generation database edgedb.com
+Interesting new hybrid database.
+- Link Click Analytics and Privacy | WebKit webkit.org
+Glad to see WebKit continuing to make privacy a core feature.
+
+That's the end of More Links.
+
+Now, the Microposts section.
+
+Wednesday @ 10:00 PM
+
+The twenty nineteen Minnesota Aspirations in Computing Awards Honorees tonight were very impressive! Congratulations to all of you! #TeamSPS was there to celebrate and welcome the four interns joining SPS Commerce this summer. #MNAiC2019
+
+Wednesday @ 7:25 PM
+
+Fun and inspiring keynote at Minnesota Aspirations in Computing Awards from Amy Alexander, Senior Biomedical Engineer at Mayo Clinic, sharing some of the incredible work she does to help patients. #MNAiC2019
+
+Wednesday @ 7:00 PM
+
+Excited to be at the twenty nineteen Minnesota Aspirations in Computing Awards honoring amazing young women starting careers in technology! Very happy that #TeamSPS can be part of it!
+
+Monday @ 10:52 PM
+
+Just ordered my MacStories tenth Anniversary T-Shirt!
+
+Saturday @ 9:33 PM
+
+“That puts a capper in what‘s been a completely nominal day here at Space X!” That is engineering speak for awesome!
+
+Saturday @ 9:29 PM
+
+Got to watch the Space X Arabsat-6A launch from two days ago. Still amazes me watching the booster rockets land.
+
+Saturday @ 8:00 PM
+
+Sad to hear that Creative Kidstuff is going out of business. That was always one of our favorite local stores.
+
+Saturday @ 7:32 PM
+
+Allianz Field satellite view needs an update!
+
+Saturday @ 7:26 PM
+
+Hard fought #MNUFC match against NYCFC. Ended in a 3-3 draw. Fabulous experience at Allianz Field for home opener!
+
+Saturday @ 5:51 PM
+
+Want. To. Hear. Wonderwall. C’mon United! #MNUFC 3-3
+
+Saturday @ 5:39 PM
+
+VAR serves justice for #MNUFC! 3-2 still.
+
+Saturday @ 5:27 PM
+
+They water the grass at halftime at Allianz Field.
+
+Saturday @ 5:25 PM
+
+Family selfie from #MNUFC historic home opener in Allianz Field! 3-2 at halftime.
+
+Saturday @ 4:21 PM
+
+So excited to be here, right now, for the Minnesota United home opener in the gorgeous Allianz Field!
+
+Saturday @ 7:38 AM
+
+Coffee Cathedral. Ratio Eight making magic with beans from Sump Coffee.
+
+Friday @ 5:45 PM
+
+We had a family debate that Nutella from Europe wasn’t as sweet as what we get in the United States. I brought a jar of Nutella back and we did a blind taste test. Nobody could tell the difference, they tasted identical.
+
+Friday @ 5:16 PM
+
+Also watched Arctic on flight. Liked it a lot. Almost no dialogue, but that doesn’t take anything away.
+
+Friday @ 4:35 PM
+
+I love the messages the kids leave for me on the chalkboard when I come home from trips!
+
+Friday @ 11:51 AM
+
+Watched Green Book and thoroughly enjoyed it. Great movie and equally great acting.
+
+That's the end of Microposts.
+
+Now, the Fortune section.
+
+You've made it all the way to the end! Here is your fortune for this week.
+
+You will be recognized and honored as a community leader.
+
+Thank you for subscribing to the Weekly Thing!
+
+That brings us to the end of the Weekly Thing, issue 102. Thanks for listening, and I'll see you next time.

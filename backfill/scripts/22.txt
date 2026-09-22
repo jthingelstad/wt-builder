@@ -1,0 +1,219 @@
+The Weekly Thing, issue 22. Weekly Thing for October 7, twenty seventeen. Published October 7, twenty seventeen. By Jamie Thingelstad. In this issue: Equifax data breach, Yahoo 3 billion accounts, Apple Watch Series 3, Google Pixel 2 versus iPhone 8, Ikea buys TaskRabbit, SQL beating NoSQL, Kubernetes.
+
+My Mother celebrated her birthday this week. Happy Birthdays Mom! (Yes, she is a subscriber to the Weekly Thing. ) For her birthday we got her a Series 3 Apple Watch. I've noticed a lot of non-technical people wearing them and I could see her really liking it for notifications and the fitness features.
+
+It’s been interesting to see that the interface is very hidden to her. Force pressing and how to get to certain features are not at all obvious to her. It’s also complicated that some of the things you configure you have to do from your phone, and others you have to do on the watch. She's getting it, but I think Apple could make it easier with a more thorough setup process that asked you a lot of questions about how you want to use your watch and configure it appropriately for your use cases. Instead I’m going to do it for her. I found it fun to also hear what she likes about it and how that matches and differs from what I like. She likes the Breath app and I find that annoying.
+
+With the Series 3 the Apple Watch feels like the iPhone did on it’s third or fourth generation. It’s fast enough now, and has good enough connectivity to become a breakout device. And the fact that folks other than super-geeks reading email on their wrists are finding them valuable make me think there is real value there. I've started to leave my phone behind from time-to-time, which is delightful. The tech will take a while to get there, but I think this category has a lot of potential.
+
+Now, the Photog section.
+
+The Twin Cities Marathon takes a gorgeous route and happens to go just a few blocks from our house along Minnehaha Creek. We were home this year so we got to walk over in the morning and cheer all the runners along. It’s so much fun to see all the different people out doing such an amazing thing.
+
+Oct 1, twenty seventeen at 9:06 AM Minneapolis MN 55419
+
+That's the end of Photog.
+
+Now, the Links section.
+
+Link one. "Understanding the Equifax Data Breach | Anna Slomovic| Managing Personal Data"
+
+Enlightening post from the former Chief Privacy Officer of Equifax, Anna Slomovic, on the Equifax data breach.
+
+Quote.
+Equifax’s sputtering response did not surprise me, and neither did the reactions in the press, the Congress, or the consumer protection agencies. Unfortunately, most of the proposed solutions do not address the fundamental issue: to credit reporting agencies, consumers are not a product, they are a cost. To understand this, you need to know something about credit reporting.
+End quote.
+
+How many places hold your data and do not think of you as their customer? This is why we need regulation and laws for this data.
+
+Link two. "What men and women think about their partners’ careers and help at home"
+
+This is worth reading just for the graphs.
+
+Though it is unclear whether men or women are more accurate, many people are obviously ignorant about the reality of their partners’ lives. And even if men are open to doing more at home so their wives can do more at work, the necessity may not occur to them. Gender equality could be boosted by some frank kitchen-table conversations.
+
+Link three. "Apple Watch Series 3 review: The start of something big - Six Colors"
+
+I agree with Jason Snell on his read of the Apple Watch Series 3. I've had mine for a week now and it’s completely transformed how I think about the device. It feels like the iPhone did after the first couple of iterations.
+
+Link four. "Google Pixel 2 versus iPhone 8: Which camera is better?"
+
+Looking at these test shots the iPhone 8 one looks better to me in every case. Will be curious to see more of these. The race for best phone camera is driving an incredible amount of innovation.
+
+Link five. "My Incredibly Simple Guide To Stoicism — Learn Wisdom You Can Practically Use"
+
+If you are curious to learn more about Stoicism this is a good, simple primer.
+
+Stoicism is more a meditative practice that allows us to take the negative feelings we experience, and turn them into thoughts that give us peacefulness and perspective on life.
+
+I’m intrigued by stoicism and I’m also surprised at how many people I've talked to recently that are also reading about it. I think there is something here that is a counter-balance to the intensity of social media that we've surrounded ourselves with.
+
+Link six. "Google admits citing 4chan to spread fake Vegas shooter news | Ars Technica"
+
+Google News picked up completely fake content and promoted it shortly after the mass shooting in Las Vegas. The answer suggested is further tuning of algorithms. I've worked in the news industry in the past and the answer is even easier — hire some editors! Also covered in NY Times and The Atlantic.
+
+Link seven. "Join ProPublica’s New Project to Work With Local Newsrooms — ProPublica"
+
+This seems like a really good idea. ProPublica is leveraging it’s brand and financial strength to put more into local newsrooms. Local newsrooms are failing all over as their revenue has collapsed but they remain a critical place for news gathering.
+
+Link eight. "Blockchain: The New Technology of Trust"
+
+Three things amazing about this link. First, Goldman Sachs putting public facing messaging around blockchain and cryptocurrencies. Two, insightful content that is very approachable. And third, it’s a very cool web experience.
+
+Link nine. "TECHdotMN Shivani Stumpf Named CTO At Hoonuit - TECHdotMN"
+
+Congratulations to Shivani Stumpf on becoming the CTO for Hoonuit!
+
+Link ten. "List: Things More Heavily Regulated Than Buying a Gun in the United States - McSweeney’s Internet Tendency"
+
+One of McSweeney's better takes.
+
+Link eleven. "‘No Way To Prevent This,’ Says Only Nation Where This Regularly Happens - The Onion - America's Finest News Source"
+
+After the largest mass shooting in US history the Onion hits it right on the head.
+
+Link twelve. "The First Hour: Creating Powerful Mornings: zen habits"
+
+I do a terrible job at having a deliberate beginning to my day. Before I get up I’m caught up on email and have usually also checked in on RSS feeds and such. I find a lot of the thinking on how to structure a morning routine interesting, but I haven't successfully adopted it yet. I think it’s important to answer "for what goal?" in this process.
+
+Link thirteen. "Wikipedia graph mining: dynamic structure of collective memory"
+
+In general I find the research that people can do on Wikipedia to be amazing and this article is no exception. This is worth looking at just for the great graphs.
+
+We have managed to detect dynamical patterns in terms of events and collective memories in Wikipedia using the combination of the hyperlinks graph and the visitor activity on the website.
+
+There is a lot of focus on using machine learning and algorithms to filter news for events and those algorithms have been easily tricked and manipulated. I wonder if something closer to what researches have been doing with Wikipedia data may be a better solution to that problem.
+
+Link fourteen. "Reasons Kubernetes is cool — Julia Evans"
+
+Nice, simple writeup on some of the highlights that make Kubernetes a compelling platform. This was helpful for me to help see the differences between Kubernetes and some of the other platforms like Mesos.
+
+Link fifteen. "Physicists find we’re not living in a computer simulation | Cosmos"
+
+Whew — we now have pretty good proof that we are not living inside of a giant simulation inside some computer.
+
+If the complexity grew linearly with the number of particles being simulated, then doubling the number of partices would mean doubling the computing power required. If, however, the complexity grows on an exponential scale – where the amount of computing power has to double every time a single particle is added – then the task quickly becomes impossible.
+
+We are not in the Matrix
+
+Link sixteen. "Every Yahoo account that existed—all 3 billion—was compromised in twenty thirteen hack | Ars Technica"
+
+Yahoo said a major security breach in twenty thirteen compromised all three billion accounts the company maintained, a three-fold increase over the estimate it disclosed previously. This has to be the largest breach in history. Wow.
+
+Link seventeen. "Are You Using Social Media or Being Used By It? - Study Hacks - Cal Newport"
+
+Newport coins the term "social media industrial complex" and I love it. Good article to highlight the tricks and techniques that social media platforms use to capture your attention and not give it back.
+
+Link eighteen. "Tesla misses the mark on Model 3 production - by a lot - Oct. 2, twenty seventeen"
+
+The actual number it built? 260, or 83% less than promised. With hundreds of thousands of these waiting to be purchased (including one from yours truly) I sure hope they get this number up fast.
+
+Link nineteen. "Does Even Mark Zuckerberg Know What Facebook Is?"
+
+This is one of the most interesting and thought provoking articles I’ve read about Facebook. This overview of the current size of the Facebook community is amazing.
+
+What is Facebook? We can talk about its scale: Population-wise, it’s larger than any single country; in fact, it’s bigger than any continent besides Asia. At 2 billion members, “monthly active Facebook users” is the single largest non-biologically sorted group of people on the planet after “Christians” — and, growing consistently at around 17 percent year after year, it could surpass that group before the end of twenty seventeen and encompass one-third of the world’s population by this time next year. Outside China, where Facebook has been banned since two thousand nine, one in every five minutes on the internet is spent on Facebook; in countries with only recently high rates of internet connectivity, like Myanmar and Kenya, Facebook is, for all intents and purposes, the whole internet. The point of this article is that Facebook has become something that we have never seen before. Something that we really don’t understand.
+
+The authors assertion is that Zuckerberg himself and Facebook as a whole doesn’t understand what it is.
+
+But if Facebook is bigger, newer, and weirder than a mere company, surely his trip is bigger, newer, and weirder than a mere presidential run. Maybe he’s doing research and development, reverse-­engineering social bonds to understand how Facebook might better facilitate them. Maybe Facebook is a church and Zuckerberg is offering his benedictions. Maybe Facebook is a state within a state and Zuckerberg is inspecting its boundaries. Maybe Facebook is an emerging political community and Zuckerberg is cultivating his constituents. Maybe Facebook is a surveillance state and Zuckerberg a dictator undertaking a propaganda tour. Maybe Facebook is a dual power — a network overlaid across the U.S., parallel to and in competition with the government to fulfill civic functions — and Zuckerberg is securing his command. Maybe Facebook is border control between the analog and the digital and Zuckerberg is inspecting one side for holes. Maybe Facebook is a fleet of alien spaceships that have colonized the globe and Zuckerberg is the viceroy trying to win over his new subjects.
+
+This quote stood out to me. I tend to think a lot of social media is just for social media anyway.
+
+Facebook is good because it creates community; community is good because it enables Facebook. The values of Facebook are Facebook.
+
+This is a long article but it’s definitely worth a read.
+
+Link twenty. "Electric Bike Reviews - Prices, Specs, Videos, Photos"
+
+Website dedicated to only reviewing electric bikes.
+
+Link twenty one. "50 - One more thing…"
+
+Patrick Rhone sharing wisdom with all of us on the occasion of his 50th birthday via his newsletter. Happy Birthday Patrick!
+
+Link twenty two. "Zuckerberg’s Preposterous Defense of Facebook - NYTimes.com"
+
+I think this argument is missing a fundamental issue. Facebook is a for-profit company that is allowed to operate on it’s own rules, referenced in it’s Terms of Service and it’s Privacy Policy (which change frequently). Facebook is not the open web, it is not a neutral platform. The best analogy for Facebook is your local mall. If it were an open platform, like the web, the content on it would not be subject to the Terms of Service of Facebook. As such, Facebook must have an opinion about the content that appears on the site. All of the content. Why? Because it does have an opinion about the content that doesn't appear on the site! You cannot have the right to manage content on one side, but not the other. If your local shopping mall had a store that was appalling to you it would be on them, they wouldn't get away with some "well, we are an open platform" argument. Because they are not. It is a chosen set of actions for a business goal. That is what Facebook is too, it just likes to pretend that it is something else so you don't realize you are being monitored and monetized.
+
+Link twenty three. "Ikea has bought TaskRabbit - Recode"
+
+Interesting and unexpected (to me at least) acquisition by Ikea. Does make sense though as a way to distribute the installation work of the products that Ikea sells.
+
+Link twenty four. "Game Pick: Flower —macsparky"
+
+Based on David Spark's recommendation I purchased Flower this morning and it is a treat. Fun and relaxing game with very nice animations and gameplay. It takes a bit to figure out what you are doing, but after you get the hang of it it’s a lot of fun.
+
+Link twenty five. "Apple Watch Series 3 review: A solid improvement over the original Apple Watch —Apple World Today"
+
+I've had my Series 3 Apple Watch for two days now and I can attest that everything in this article is spot on.
+
+Link twenty six. "Why SQL is beating NoSQL, and what this means for the future of data"
+
+Timescale sells a SQL-based time series database so their opinion on SQL versus NoSQL may be a little skewed. With that in mind this is still a well thought out post about the strengths and advantages that SQL has.
+
+Link twenty seven. "Application Network Functions With ESBs, API Management, and Now.. Service Mesh? – Software Blog"
+
+Analysis of a handful of different enterprise architecture patterns and the strengths and weaknesses of each. Good article to consider the dimensions and layers to think about architecture on.
+
+Link twenty eight. "How to build a dashboard for your grill using Arduino and React"
+
+I’m still firmly opposed to introducing technology to my grilling and smoking setup. I believe the best smoked food comes from careful management of fire and air combined with wisdom. With that said, these DIY tech projects are pretty fun to read about. Thanks to Dan Grigsby for the link.
+
+Link twenty nine. "Coffee Roasting, Mathematical Modelling, and Asymptotic Analysis"
+
+Love this deep mathematical look at roasting coffee beans using a more advanced model:
+
+Our mathematical model uses multiphase physics to describe the evolution of the solid, liquid, and gas components within the coffee bean. This is a crucial difference from previous attempts to model coffee roasting, as existing models treated the coffee bean as a single “bulk” material.
+
+A properly sophisticated model with precise measurement combined with a machine learning approach could result in a fabulous, consistent and even personalized roast! Hat tip to Isaiah for the link!
+
+That's the end of Links.
+
+Now, the Now Reading section.
+
+A Crack in Creation: Gene Editing and the Unthinkable Power to Control Evolution
+
+by Jennifer Doudna, Samuel Sternberg
+
+Not since the atomic bomb has a technology so alarmed its inventors that they warned the world about its use. Not, that is, until the spring of twenty fifteen, when biologist Jennifer Doudna called for a worldwide moratorium on the use of the new gene-editing tool CRISPR—a revolutionary new technology that she helped create—to make heritable changes in human embryos. The cheapest, simplest, most effective way of manipulating DNA ever known, CRISPR may well give us the cure to HIV, genetic diseases, and some cancers, and will help address the world’s hunger crisis. Yet even the tiniest changes to DNA could have myriad, unforeseeable consequences—to say nothing of the ethical and societal repercussions of intentionally mutating embryos to create “better” humans.
+
+My book club has picked this this book for this month and it is a very interesting read indeed. It feels like we are at the "PC era" of gene manipulation. Leaving the super expensive research labs and coming closer to cheap and more readily accessible uses.
+
+That's the end of Now Reading.
+
+Now, the Promotion section.
+
+The mission of Hack the Gap is to amplify the voices and cultivate talents of underserved people in our community. I serve on the board of Minnestar with Jenna Pederson, one of the founders of Hack the Gap, and I love what this organization is focusing on. Gender diversity in tech is a real problem and it’s far too often brushed off as some endemic issue that cannot be solved. That isn't the case at all. Hack the Gap is creating a way for people to get into the technology industry and breaking down barriers. Donate to Hack the Gap today!
+
+That's the end of Promotion.
+
+Now, the Highlighted iOS App section.
+
+Flower
+
+by Annapurna Interactive
+
+Flower lets you take control of the wind as you explore and navigate beautiful, lush environments using motion controls. Journey through varied landscapes at your own pace, interacting with and changing the environment as you go, and find balance and harmony in your surroundings.
+
+If you are looking for a game that is relaxing and chill this is a great one. You play the wind, blowing around various landscapes pollinating flowers. It’s a visual delight and a nice break from the more fast-paced games. It will suck your battery though so be ready for that.
+
+4 dollars and 99 cents 4/5 stars
+
+That's the end of Highlighted iOS App.
+
+Now, the Microblog updates section.
+
+- My book club is reading A Crack in Creation this month. Looks like a good read!
+- Signed up for the Xcel Energy Smart Thermostat program.
+- Just made my 67th loan on Kiva!
+-
+- Had a fun time cheering the runners on at the Twin Cities Marathon this morning.
+- I coached Tyler’s soccer game today and left my iPhone in the car thanks to my Apple Watch with LTE.
+- My brother Isaiah came to town to help me rebuild the kids playset. Mission accomplished!
+
+That's the end of Microblog updates.
+
+Thank you for subscribing to the Weekly Thing! If you know of people that would like the Weekly Thing please forward it along!
+
+That brings us to the end of the Weekly Thing, issue 22. Thanks for listening, and I'll see you next time.

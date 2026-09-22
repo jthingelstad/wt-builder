@@ -1,0 +1,229 @@
+The Weekly Thing, issue 276. Contextual, Copilot, Collections. Published February 11, twenty twenty four. By Jamie Thingelstad. In this issue: End of social networks, Farcaster on Ethereum, Starlink laser system, Now/Next/Later roadmap, Vision Pro teardown, OKRs are bullshit.
+
+Weekly Thing 276 with twenty-four links and seven journal entries shared between Feb 2, twenty twenty four and Feb 9, twenty twenty four. Sent from Minneapolis, MN, United States to 1,375 amazing people.
+
+Good morning!
+
+It is pretty late on a Saturday night as I write this — on deadline as they say. It has been a busy week on every dimension and I just wrapped up the last of the links and getting this email off.
+
+I did find some time this week to explore further the Apple Vision Pro. I paired it with a keyboard which was a game changer for the stuff I want to do — much of which includes writing things.
+
+Other than that we've had a full agenda on the family side, professional things cooking along, and much more. Gonna get straight on to the links this week!
+
+Cheers!
+
+Now, the Featured section.
+
+Link one. "The end of the social network"
+
+I've believed for a while that social media is a dead end. Actually, more than that, it is dangerous, addictive, and bad for you. It is today's cigarette. This section foretells that path.
+
+Quote.
+The striking feature of the new social media is that they are no longer very social. Inspired by TikTok, apps like Facebook increasingly serve a diet of clips selected by artificial intelligence according to a user’s viewing behaviour, not their social connections. Meanwhile, people are posting less. The share of Americans who say they enjoy documenting their life online has fallen from 40% to 28% since twenty twenty. Debate is moving to closed platforms, such as WhatsApp and Telegram.
+End quote.
+
+This is exactly what happens when you set a bunch of people and algorithms with only one goal — capture peoples attention and time. That is the raw material monetized for Facebook's current 1,200,000,000,000 dollars (1.2 trillion dollars, I thought it would be fun to put all the zeros there) valuation.
+
+The part that nobody is talking about is the economics. Government regulation isn't the answer. Nor is tweaking an algorithm, unless we are going to decide that these companies should be forced to run less efficiently and less profitable than they could be run. That seems like a terrible idea. The fix is to bring economics into the solution, get people to pay, use micropayments for actions. All easily powered with Bitcoin Lightning or some other financial instrument ready today.
+
+Ultimately that is also a dead end, because these platforms do not have enough value for people to pay. They will abandon in droves.
+
+That is where it is different than cigarettes. Cigarettes people will pay a lot for. Social media is so hollow and useless nobody will even pay a penny.
+
+That's the end of Featured.
+
+Now, the Currently section.
+
+Listening: In the February 2 edition of Pivot Scott Galloway was on fire. First is his comments on Child Safety and then he ends with a great framing for how the US should think about supporting Ukraine. (It is hard to link to specific spots in podcasts as advertisements are dynamically inserted. These links may not get you to the exact spot, but will be within a minute or two. Hopefully.)
+
+Reading: Since I’m diving into Obsidian I was recommended Digital Zettelkasten: Principles, Methods, and Examples as a short and insightful read on this method of connected note taking. I’m about a third through and it is a good read.
+
+Dining: Tammy and I went to Oro by Nixta for the first time and I was blown away. The food was incredible. We started with the Guacamole which was so creamy and flavorful. Then the Quesabirria which sang. I tried a Carnitas taco, top notch. Finally the Barbacoa lamb shank for dinner. Oh, and the best Tres Leches I've ever had. I was literally spooning the cream after the cake was all gone. Recommended!
+
+That's the end of Currently.
+
+Now, the Notable section.
+
+Link one. "Farcaster — Decentralized social network built on Ethereum"
+
+I signed up to try this out mostly because I was intrigued about the connection with Ethereum. It is like a mix of Twitter and Reddit together. It has channels that seem very similar to subreddits. Users can associate with their ENS names and bring Ethereum assets into their profiles. Otherwise it is a constant feed of tweet like messages. Seems tired and old really. Take Twitter, add a little Reddit, and use Ethereum for identity and verification. Maybe my reaction is just further validation that I’m really tired of timelines.
+
+Link two. "Starlink's Laser System Is Beaming 42 Million GB of Data Per Day | PCMag"
+
+I have researched Starlink a bit but didn’t realize that the system also does peer-to-peer transmission between the satellites. This is incredible.
+
+Quote.
+Although Starlink uses radio waves to beam high-speed internet to customers, SpaceX has also been outfitting the company’s satellites with a “laser link” system to help drive down latency and improve the system's global coverage. The lasers, which can sustain a 100Gbps connection per link, are especially crucial to helping the satellites fetch data when no SpaceX ground station is near, like over the ocean or Antarctic. Instead, the satellite can transmit the data to and from another Starlink satellite in Earth’s orbit, forming a mesh network in space.
+End quote.
+
+This was the realm of Sci-fi until now. Impressive. If you roll this forward you can see the existing terrestrial Internet backbone, with a parallel orbital backbone, and data jumping from one to the other as needed. This is also the first thing that could possibly get around those giant undersea data cables that are constantly getting damaged.
+
+Link three. "Why I Moved My Blog from IPFS to a Server | Neiman’s Blog"
+
+I've had on my "Someday, Maybe" list for a while now to mirror my blog that uses web protocols like DNS and HTTPS on decentralized solutions like ENS and IPFS. This blog post highlights what I know, which is that tech stack is still too immature. I also continue to struggle with how IPFS will work for web content since it is an immutable data store. There is no "updating" something in IPFS, you instead just replace it and destroy the old one. Brave is the only browser that has native support for ENS and IPFS, and it has minuscule market share. I continue to hold out hope since ENS and IPFS are potential solutions to my desire to have my website live for 100+ years, but we are not there yet.
+
+Link four. "Why using a Now/Next/Later roadmap might be right for you"
+
+I’m a fan of this type of roadmap structure, however I would modify the timelines here with "now" meaning the next month or two, "next" meaning in the next 6 months, and "later" meaning things that are more than 6 months out. For most teams going deep into the "later" bucket is mostly just making stuff up anyway.
+
+Link five. "Thanksgiving twenty twenty three security incident"
+
+Very detailed and complete writeup from Cloudflare on a recent security incident. It is an interesting read to see how the intruder moved between systems to continue to get more access.
+
+Link six. "Extreme brainstorming questions to trigger new, better ideas"
+
+This is a good list of provocative questions to push new approaches to problems.
+
+Quote.
+The following prompts jostle you out of tiny thinking. Each stretches some dimension of reality to an extreme. So extreme that it is nearly nonsense. But dramatically different perspectives can reveal distinctly new ideas. An idea that would be a 60% solution in an extreme hypothetical case, could be a 2x or even a 10x idea in reality.
+End quote.
+
+I've seen teams do this a lot with scale. If you know you will have 40% scale each year, it is worth asking what you would do if you needed 1,000% scale. You can also do similar things in models by using extreme inputs to see if the model just fails.
+
+Link seven. "Thoughts on XMTP"
+
+Good read on the complications of developing robust, decentralized, censorship resistant messaging protocols. There are a number of really hard problems to solve here. I like how Rao clearly articulates the difference between publishing on a timeline and direct messaging. They are radically different use cases and should be separated.
+
+Link eight. "Vision Pro Teardown—Why Those Fake Eyes Look So Weird | iFixit News"
+
+This is only the first part of the teardown, but it is pretty cool to see. Looking at this in pieces it looks more like some bionic device than traditional tech. Not many flat surfaces. It was super interesting to read the part about the EyeSight display on the front and why it has a very odd look. Also the two SOC units take up a good amount of room. I've gotten used to looking at phones that are almost all battery with very small components.
+
+Link nine. "The pain points of building a copilot - Austin Z. Henley"
+
+Interesting to read the approach and challenges teams are facing building "copilot" functions for their applications.
+
+Quote.
+Given the nondeterministic nature of LLMs, it changes the typical software development process. We modeled the high-level process that the developers we interviewed are following: exploration, implementation, evaluation, and productization. It is not linear though, rather it is messy and iterative. For example, there are additional risks that product teams are taking on. They must identify business scenarios that they think are feasible to solve using LLMs, tinker with various technologies to see if it works (for example, LLMs, embeddings, vector databases), evaluate if it is good enough, and then they have to ship it to actual users. Each and every one of these tasks has pain points for developers.
+End quote.
+
+Reading this makes me feel pretty strongly that we will soon have frameworks or "kits" to do this and reduce or remove some of these challenges.
+
+Link ten. "Connect the Drops with POAP Collections"
+
+On January sixteenth of last year I blogged about ways to extend POAP and highlighted my desire to have POAP Collections. A year later and POAP has launched exactly what I described!
+
+Link eleven. "The Apple Vision Pro – Stratechery by Ben Thompson"
+
+Thompson with his first full take on the Apple Vision Pro after having it for a while. He highlights the origin, tradeoffs, and the state of the software as it stands. Overall a reasonable assessment but I think some of his comparisons are a bit off — say comparing his four displays on his desktop to the Vision Pro display. I do strongly agree with him on the lack of multi-user capabilities. Right now Vision OS is just like iOS or iPadOS and only accommodates one user. You can enable guest mode, but I can already tell you that it is annoying that every time Tyler wants to use the Vision Pro I have to put it on, authenticate, and then enable Guest Mode for him — where he then has to retrain it for his hands and eyes. The good news is software alone could solve this and get it to the point where anyone in the family can put on the device and have it ready for them.
+
+Link twelve. "OKRs are Bullshit - by drmorr"
+
+Provocative title that would be more accurately termed as OKRs are hard and don't fix everything. I've made many uses of OKRs with varying levels of success. They are harder than it may seem, and a uniform process isn't the right approach. The good part is to use them to think bigger about where your organization could go, and how to go about getting there.
+
+That's the end of Notable.
+
+Now, the Journal section.
+
+Journal entry one.
+
+At the Apple Store picking up my Apple Vision Pro!
+
+Journal entry two.
+
+First experience in Spatial Computing.
+
+Journal entry three.
+
+Tammy and I had a great night seeing Words and Music by Dan Wilson at the Woman’s Club of Minneapolis. He was joined my John Munson for a few Semisonic songs. The rest of the night he shared stories of various writing sessions and sang the songs that came from them. It was great.
+
+Journal entry four.
+
+You can drink a coffee while using the Vision Pro, but you may need to tip your head back so the coffee mug doesn't get blocked by the Vision Pro.
+
+Journal entry five.
+
+I wanted to celebrate getting my Apple Vision Pro and what better way than with a POAP! I’m sharing this POAP with anyone that demos it with me and experiences Spatial Computing -- likely for the first time! I’m attaching POAP Moments to this event, and see on POAP Family.
+
+Journal entry six.
+
+Ordered a Magic Keyboard to pair with the Apple Vision Pro so I can dive into more of the productivity use cases.
+
+Journal entry seven. Minneapolis Downtown Council twenty twenty four Annual Meeting
+
+I got to attend the twenty twenty four Minneapolis Downtown Council annual meeting today at the Armory. Our own Karin Lucas chairs the board and addressed the crowd. Amelia Santaniello emceed the event, with special appearances from Minneapolis Mayor Jacob Frey and Minnesota Governor Tim Walz.
+
+There were many, many statistics shared about all the great things going on in downtown. It did seem like there was a lot of development going on. There is also a strong focus on safety and law enforcement. It was cool to see that SPS Commerce is the ninth largest employer with 1,465 people, up one spot from twenty twenty three when we were tenth with 1,346.
+
+See also: twenty twenty three Meeting; twenty twenty Event, twenty twenty Music, and twenty twenty Speakers.
+
+Weekly Thing Forum
+
+Join Barry Hess, David O'Hara, Jim Cuene, Eric Walker, Patrick Hambek, and many other Weekly Thing readers in the Weekly Thing Forum. Recent topics include:
+
+- 275 / Vision, Sense, Magic
+- Blogging: A topic and an announcement
+- Archives now with comments
+- 274 / Gibberish, Happyfeed, Airshow
+- Bluesky Invite Codes
+
+That's the end of the Journal.
+
+Now, the Briefly section.
+
+Link one. "How I Take Notes in One-on-One Meetings"
+
+In my exploration of Obsidian I found this useful to think about meeting notes and how to fit those into my system. There is a notable different in how I want to treat recurring group, recurring individual, and ad hoc meeting notes.
+
+Link two. "Why Tim Cook Is Going All In on the Apple Vision Pro | Vanity Fair"
+
+No tech in this article but I like Cook putting his own perspective on the Vision Pro and what he has liked with it, and how they are thinking about the future of it.
+
+Link three. "Pkl — Configuration that is Programmable, Scalable, and Safe"
+
+Robust configuration language from Apple. Not the kind of open source project that you typically associate with Apple.
+
+Link four. "Calendar"
+
+Simple webpage view of the entire year that is made to be printed. Handy. I like calendar views that span an entire year for long-term planning. Maybe a native Calendar app for Vision OS will give us something expansive like this.
+
+Link five. "Stract — Open Source Search Engine"
+
+Fun to see a little bit of innovation showing up in search.
+
+Link six. "s/bash/zsh/g"
+
+Detailed blog post on all the weird things in bash that zsh fixes. When I was in the terminal more I always used zsh.
+
+Link seven. "FIFA World Cup 26™ | Match schedule, final and opening match"
+
+The World Cup will be (mostly) in the United States in twenty twenty six. Mark your calendars!
+
+Link eight. "Why Is Big Tech Still Cutting Jobs? - The New York Times"
+
+It is amazing how much the biggest tech firms staffed up in the last few years. I wonder also how much of Meta's cuts are in the metaverse efforts.
+
+Link nine. "Finance worker pays out 25 million dollars after video call with deepfake ‘chief financial officer’ | CNN"
+
+Started with a phishing campaign but then a multi-party video conference where every other member of the call was a deepfake and they successfully convinced this person to send 25 million dollars. Wow.
+
+Link ten. "Pika - Start Your Happy Blog"
+
+Another great IndieWeb blogging solution! This one from the great team at Good Enough. Just 6 dollars a month to have your own site.
+
+Link eleven. "Contextual Computing with Vision Pro: My Writing Cabin - MacSparky"
+
+I pay close attention to the tools and workflows of MacSparky. I like how he is digging into productivity use cases for the Vision Pro.
+
+That's the end of Briefly.
+
+Now, the Fortune section.
+
+Here is your fortune…
+
+If you stand on your head, you will get footprints in your hair.
+
+Thank you for subscribing to the Weekly Thing!
+
+That's the end of Fortune.
+
+Now, the Want to support the Weekly Thing? section.
+
+First — thank you for subscribing and reading. Here are some things you can do that would be great…
+
+- Share Weekly Thing 276 / Contextual, Copilot, Collections with others you know!
+- Post about the Weekly Thing and let others know about it.
+- Join the Weekly Thing Forum and connect with others.
+- Send Bitcoin via Lightning! This will be used to support something good. weeklything@getalby.com
+- Email me comments, feedback, or just to say Hi!
+
+That brings us to the end of the Weekly Thing, issue 276. Thanks for listening, and I'll see you next time.

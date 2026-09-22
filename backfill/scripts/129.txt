@@ -1,0 +1,209 @@
+The Weekly Thing, issue 129. Dec 7, twenty nineteen. Published December 7, twenty nineteen. By Jamie Thingelstad. In this issue: Guido van Rossum on Python, pronouncing Kiev, Ring surveillance company, roleplaying difficult conversations, Amazon HTTP APIs, anonymous email forwarding.
+
+What an awesome week it's been. Cyberweek twenty nineteen is in the books! It's been a week of getting up really early, doubling my regular coffee intake, and working with our great team! Every year has its own feel, a fingerprint of sorts, with stories that will be told for years ahead. I love the comradery that comes with such focus and dedication across a team on a shared objective!
+
+Now, the Featured Links section.
+
+Link one. "The Mind at Work: Guido van Rossum on how Python makes thinking in code easier | Dropbox Blog"
+
+Nice background on the design philosophy of Python.
+
+Python’s readability is not just typographic, but conceptual. Van Rossum thinks Python may be closer to our visual understanding of the structures that we are representing in code than other languages because, “Python makes that structure mandatory.”
+
+I like that take on indentation and the "Why?" behind it. This little snippet from the article made me chuckle.
+
+As Thompson writes, “When you meet a coder, you’re meeting someone whose core daily experience is of unending failure and grinding frustration.”
+
+That's the end of Featured Links.
+
+Now, the My Weekly Photo section.
+
+Freshly fallen snow on the soon to be frozen shore of Lake Minnetonka.
+Nov 30, twenty nineteen at 2:44 PM
+2 Water St, Excelsior, MN
+
+That's the end of My Weekly Photo.
+
+Now, the Notable Links section.
+
+Link one. "Fenwick High School twenty seventeen Commencement Speaker Mick Betancourt '92 - YouTube"
+
+My colleague Dan Juckniess shared this Fenwick High School commencement speech with me after telling me the quote that he found so powerful in it.
+
+Whatever your doing, is what you’ll get better at.
+Go to the bar every night and drink, guess what you’ll get better at.
+
+Very powerful message.
+
+Link two. "Wait, How Do You Pronounce Kiev? - The New York Times"
+
+I travel to our office in Kyiv twice a year and learned early on about the Ukrainian pronunciation. It’s super hard for me to get right, but I try. And I am much more aware when people say "the Ukraine" instead of just calling it Ukraine now. When I work with others and discuss our Ukraine operation, I tend to use Kiev in a more global context, and use Kyiv when speaking to team members or others in Ukraine itself.
+
+Link three. "Liam Bot"
+
+Funny parody of Facebook’s Liam Bot for difficult questions over the holidays.
+
+Link four. "How Ring Went From ‘Shark Tank’ Reject to America’s Scariest Surveillance Company - VICE"
+
+I do not like anything about Ring. This first in a series of articles talks about the origin of Ring. I didn’t realize it was on Shark Tank!
+
+At its core, Ring is a marketing company that realized it could make money by selling fear.
+
+Violating other peoples privacy, and enabling surveillance, is despicable.
+
+Link five. "Roleplaying Difficult Conversations | Lara Hogan"
+
+Roleplaying is a very useful way for managers to work through tough messages. I like this perspective on why you should take the time to do it.
+
+Practicing difficult conversations and feedback helps you be a better manager, but the real reason you should do it is to fully support the person on the receiving end. It’s your job to help them be successful!
+
+Some very good suggestions here.
+
+Link six. "Amazon API Gateway Offers Faster, Cheaper, Simpler APIs Using HTTP APIs (Preview)"
+
+This seems to simplify much of the complexity of building API’s and get you going right away.
+
+HTTP APIs simplify the API building experience for the most common features needed to build serverless applications or to proxy requests to HTTP endpoints. They come with standard API Gateway functionality such as throttling, metrics, and logging capabilities. In addition, you can secure your APIs using OIDC and OAuth 2 out of box, quickly build web applications using a simple CORS experience, and get started immediately with automatic deployment and simple create workflows.
+
+Impressive.
+
+Link seven. "Warren Rustand on Working in the White House and Building a Purpose-Driven Life | Elevate Podcast"
+
+I recently discovered this podcast and this episode resonated strongly with me. I enjoyed thoroughly the discussion of focus areas, time management, and dedication. Recommended and worth a listen.
+
+Link eight. "CBS shows Mark Zuckerberg is a human. Does that matter? - without bullshit"
+
+Total PR puff piece.
+
+He’s not evil.
+
+But Facebook is. And we need to hold him responsible for that.
+
+Yes.
+
+Link nine. "Why You Should Ditch Your Laptop For iPad Pro – The Brooks Review"
+
+I like this argument for using an iPad more.
+
+Something really fascinating happens when people open a laptop: they get to work. They check email, they have a million tabs, tons of apps showing progress on many tasks/projects, they have tabs for social networks, half in progress projects abound. People do stuff. They are sucked in — unlikely to step away anytime soon. However, when I see people use an iPad they use it for one thing — the thing they grabbed it to do — and then they go back to life.
+
+I think there is some truth to that. This goes to the "context" of a computing device. For me I find the iPad a more focused device. Perhaps it is the lack of multiple windows? I am consistently increasing the volume of things that I do on my iPad.
+
+Link ten. "Riot Settles Lawsuit, Will Pay Every Female Employee Since twenty fourteen With 10 million dollars Fund"
+
+Riot was frequently in the news a couple of years ago regarding the negative culture they had. It’s good to see some restitution being made here, and hopefully real change follows.
+
+Link eleven. "The First Non-Bullshit Book About Culture I’ve Read – zwischenzugs"
+
+This book has been on my reading list for a very long time, I think I need to move it up. I've heard nothing but great recommendations, and this is another one!
+
+Link twelve. "Free, Open-source Anonymous Email Forwarding - AnonAddy"
+
+This looks like a very well done anonymous email forwarding service. I've been using Maskmail for a couple of years now, and have 84 distinct email addresses setup with it for various services. This is a super effective tool for your privacy, with benefits for security as well. By using a unique email address per service organizations loose the ability to track you with a shared email ID. The biggest issue is that many services block these, so AnonAddy's ability to support a custom domain name is a huge deal. I’m going to test this out and perhaps switch to it.
+
+That's the end of Notable Links.
+
+Now, the Microposts section.
+
+Thursday @ 9:16 PM
+
+Technology is a team sport, and this is a great team. #TeamSPS
+
+Wednesday @ 8:33 AM
+
+It would be a fun trick for Mail on iOS to allow you to specify a Shortcut for your email signature, which could generate a dynamic signature for each new mail message.
+
+Tuesday @ 9:22 AM
+
+Daily cyberweek standup as #TeamSPS prepares for another great day!
+
+Monday @ 9:39 PM
+
+This Vikings game has become embarrassing.
+
+Monday @ 8:57 AM
+
+Ready for an awesome Cyberweek #TeamSPS!
+
+Sunday @ 10:49 PM
+
+iPhone home screen, December twenty nineteen. I have a somewhat surprising number of text / writing / notes apps on there.
+
+Sunday @ 11:46 AM
+
+Took advantage of Apple’s annual holiday sale to get some upgrades ordered! New iMac and iPad Pro on the way!
+
+Saturday @ 10:59 PM
+
+We made our first trip to see Winter in Bloom at the Minnesota Landscape Arboretum tonight. The fresh snow made all the lights look especially nice.
+
+Saturday @ 10:51 PM
+
+Tammy gave the kids a lesson on crushing it in Ms. Pac-Man.
+
+Saturday @ 10:49 PM
+
+Went to Victoria Burrow for some mini-golf and arcade games. The mini-golf is really nice, but not kitschy. The games were all in great shape. The pizza is also really good.
+
+Saturday @ 10:46 PM
+
+We went to the Excelsior Christkindlsmarkt Annual German Christmas Festival today. It was cold and sleeting but we still had a great time checking out the crafts and enjoying some market snacks.
+
+Saturday @ 10:40 PM
+
+We went to Frozen II today and we all enjoyed it a lot!
+
+Friday @ 8:28 PM
+
+Family tradition to watch Elf the day after Thanksgiving! What a great movie!
+
+Friday @ 5:00 PM
+
+Got the Christmas Tree up. I love the memories from the ornaments over the years.
+
+That's the end of Microposts.
+
+Now, more links.
+
+- FastAPI fastapi.tiangolo.com
+This looks like a crazy simple Python library to make API endpoints!
+- Create beautiful Gantt charts! www.gantt.io
+Not sure I want to make a habit of creating Gantt charts but this tool looks very powerful.
+- Two malicious Python libraries caught stealing SSH and GPG keys | ZDNet www.zdnet.com
+This is a smart attack vector, and I suspect dangerously unprotected.
+- Django 3.0 release notes | Django documentation | Django docs.djangoproject.com
+Major new release of one of the biggest Python frameworks.
+- A letter from Larry and Sergey www.blog.google
+Definitely a momentous milestone for Google.
+- Abilitech Medical raises 7.4 million dollars, with investment from Sofia Fund - Minneapolis / St. Paul Business Journal www.bizjournals.com
+Congratulations to a great local startup and a former neighbor of mine Angie Conley!
+- Newsletters spam test by mail-tester.com www.mail-tester.com
+Really handy tool to test if your mail is likely to be flagged as spam.
+- ChessRoots - Chess opening graph from over 800 million Chess games www.chessroots.com
+Cool graph-based visualization tool to explore chess games.
+- A frame of mind – On my Om om.co
+I like Om’s take on photography as, sort of, a kind of therapy.
+- Almond - The Open, Privacy-Preserving Virtual Assistant almond.stanford.edu
+Not sure how well something like this will work, but glad folks are working on it.
+
+That's the end of More Links.
+
+Now, the Replies section.
+
+Here are some replies from Weekly Thing #128 / Nov 30, twenty nineteen.
+
+Jay Wineinger sent in a helpful article about cooking a spatchcocked Turkey. Jay swears by it, with super consistent results and the full cook only taking 80 minutes!
+
+My comment praising Thanksgiving for it’s decided lack of presents struck a chord with Anna Klombies who shared this article that makes that thought actionable.
+
+That's the end of Replies.
+
+Now, the Fortune section.
+
+You've made it all the way to the end! Here is your fortune for this week.
+
+There is a fly on your nose.
+
+Thank you for subscribing to the Weekly Thing!
+
+That brings us to the end of the Weekly Thing, issue 129. Thanks for listening, and I'll see you next time.

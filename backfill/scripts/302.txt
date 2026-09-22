@@ -1,0 +1,382 @@
+The Weekly Thing, issue 302. Recipe, Poetry, OnAir. Published November 24, twenty twenty four. By Jamie Thingelstad. In this issue: Target and Home Depot hacker, US internet slowing, recipe formats, alternatives to PGP, AI-generated poetry, bandwidth, good software habits, World's Radio.
+
+Weekly Thing 302 chock full of links and a literal grab bag of awesomeness sent from Minneapolis, MN.
+
+Good morning!
+
+I'd like to send a nice big welcome to a bunch of new folks that subscribed to the Weekly Thing in the last week or two. I hope you dig these emails! I appreciate you welcoming me to your inbox.
+
+Tyler and I were at a debate tournament all day today. He was debating and I was judging rounds. I don't recall from my days of debate how tiring a full day of a debate tournament is but 52 year old me sure finds it to be so. The most taxing decision in front of us is going to be which movie to watch tonight. Wish us luck.
+
+I hope you have a great weekend. There is some reminiscing in the a couple of the links this week. Please give the Straw Poll some careful consideration this week. I am super curious to see what your price is to go social media free.
+
+"Stories are to people
+as programs are to computers." — me
+
+Now, the Notable section.
+
+Link one. "Slowly Percolating Forms: “So, how’s the sabbatical going?”"
+
+Dave O'Hara reflecting a bit on his sabbatical. I wish that this concept applied to other professions. I truly think it would be a huge win for so many people. I know there have been times in my career where a sabbatical was exactly what I needed, but alas it wasn't an option.
+
+Quote.
+The last decade feels like it has been a decade of increasing urgency at the expense of contemplation, greater push for efficiency at the expense of conversation, the replacement of teaching with instruction, the rise of software to “manage” courses for teachers (and to do homework for students), the gathering of data that will satisfy the professional accreditors.
+End quote.
+
+Enjoy the reflection O'Hara and I’m looking forward to hearing more.
+
+Link two. "An Interview With the Target and Home Depot Hacker – Krebs on Security"
+
+This is an incredible look behind the curtain of the lives and occupations of these hackers that wreck havoc all over the place.
+
+Quote.
+Shefel acknowledged that his outreach was motivated by a desire to publicize several new business ventures. None of those will be mentioned here because Shefel is already using my December twenty twenty three profile of him to advertise what appears to be a pyramid scheme, and to remind others within the Russian hacker community of his skills and accomplishments.
+End quote.
+
+So interesting.
+
+Link three. "Is the (US) Internet Really Slowing? – On my Om"
+
+Are we seeing Internet adoption finally get to a saturation point?
+
+Quote.
+More than a decade ago, I wrote an essay about media's future, pointing out that the ubiquity of connectivity would lead to a plethora of choices and demands on our attention. Fast forward to today, that future has come to pass. I have always believed that despite all the hoopla, we live in a world of finite attention, and no matter how much we multiplex our attention with various activities, there is a certain cognitive limit and, more importantly, physical constraints. As Netflix co-founder and former CEO Reed Hastings once famously quipped about competing with other companies: "We actually compete with sleep."
+End quote.
+
+I think the next steps of bandwidth usage will be less about our time and usage, but the devices and capabilities in our homes using much more to serve us. Consider the use case of an LLM that is running in your house, or your own blockchain consensus servers. I run a Gnosis Chain validator and the minimum bandwidth I use is 10 Mbps.
+
+Link four. "Thinking About Recipe Formats More Than Anyone Should • Robb Knight"
+
+Given how absolutely critical cooking food is to our, well, survival it is a little odd that we don't have more semantic structures around cooking, recipes, and sharing that information with other people. We have robust schemas and concepts for many parts of life. Recipes generally are the world of ad networks and surveillance on websites, and not enough of well defined semantic structures to aid in the communication and understanding of recipes.
+
+Knight's dive into this and sharing is a good read. Cooklang is interesting and I like how it is plaintext and fairly readable. It reminds me of Markdown to some extent. This feels like something that people could use and a text editor with some syntactical sugar could make useful.
+
+The Recipe Schema seems like something no person should ever be exposed to. But if you needed to understand the data structure for recipes this would be a good one to use something that is ready to go.
+
+Link five. "What To Use Instead of PGP - Dhole Moments"
+
+I hadn't read The PGP Problem before but this article got me there and I it doesn't surprise me. PGP has the challenges that are outlined there. This article does a good job of showing alternative ways to do many of these things with direct links to the solutions to do it. The two that stood out for me:
+
+Messaging: It just says use Signal. Forget about the rest.
+Email: I find it interesting that it just says no. Give it up. Not possible.
+
+Link six. "What does a date actually mean? - The Engineering Manager"
+
+Building software is notoriously hard to estimate. As a profession software development has progressed and matured in amazing ways for scaling, reusability, velocity, durability. But when you get to the art of setting a schedule as an industry we still struggle — a lot.
+
+I have two theories for why this is:
+
+1. Software moves. Software is interactive and dynamic. It responds to the environment around it (other software and the user) and as a result the edges of the software are really hard to determine. Where you interact with the user and other systems there are an unknown number of edge cases and decencies that will come to play.
+2. Creative endeavor. Creating software is fundamentally a creative endeavor. It is closer to making a painting or a piece of music than it is to building a house or making a widget. It is more craft than manufacture.
+
+Quote.
+So, instead, you should take a forecasting approach that follows the uncertainty curve that we outlined above. You start wide, and you taper in. At the beginning of a given project, you might even just have the year that you're aiming to ship. Then, as you progress, you can start to narrow it down to a quarter, then a month, and finally a specific date.
+End quote.
+
+This forecasting model is the right way to do it. You do have more visibility on the things right in front of you. As things get further out there is more variability. I think this can show up in roadmaps as having three buckets of things:
+
+- What your doing now
+- What is next
+- What possibilities are in the future.
+
+It is worth remembering this craft is still very young. We've only been doing it for a few decades.
+
+Link seven. "AI-generated poetry is indistinguishable from human-written poetry and is rated more favorably | Scientific Reports"
+
+This study prompts an interesting question — is AI generated poetry easier or harder to detect than other AI generated text? I think it would be harder to detect.
+
+Quote.
+We conducted two experiments with non-expert poetry readers and found that participants performed below chance levels in identifying AI-generated poems. Notably, participants were more likely to judge AI-generated poems as human-authored than actual human-authored poems. We found that AI-generated poems were rated more favorably in qualities such as rhythm and beauty, and that this contributed to their mistaken identification as human-authored.
+End quote.
+
+Either way interesting how this played out.
+
+Link eight. "The only computer science book worth reading twice? | Simon Dobson"
+
+When I read this title I instantly was transported back to the Scheme class I took at the University of Minnesota with Dr. John Carlis. I remember two things about that class very distinctly.
+
+The first was Dr. Carlis asking the class to raise your hand if you knew one or more programming languages. Everyone raised their hand, it was a computer science class after all. He went on to two, three, four. Gradually people lowered their hands. He got to five and I had my hand up along with a handful of other students. I was beaming inside — proud to be at such a level. Then Dr. Carlis informed us that we with our hands up were going to have the hardest time in this class because Scheme was so different than the procedural languages we were familiar with.
+
+The second thing I remember is Dr. Carlis holding the book fro the class up. It had a purple cover and was titled Structure and Interpretation of Computer Programs. There was a Lambda symbol on the cover. Dr. Carlis then shared that if he were stuck on a desert island and could only have one programming book for the rest of his life, it would be this one.
+
+So it didn’t surprise me to see that this article was referencing that very same book. The link in the article is dated to the freely available version online. You can read the entire book on the web. And I’m delighted to see the book is licensed in Creative Commons license — the same organization that Weekly Thing Supporting Memberships is going to!
+
+Link nine. "Good software development habits | Zarar's blog"
+
+Great set of recommendations to create software and do it with quality. The one that resonates with me on this list is "All code is a liability". In financial terms software is placed on the balance sheet as an asset. As a technologist I would say that the software is a liability and the asset you have to manage that is the people that know how that software works.
+
+Link ten. "World's Radio | Listen to Radio Stations from Around the World"
+
+When I was a kid a good friend of our family, Gordon Dubovoy, was into three things that he shared with me: Chess, Astronomy, and Short Wave Radio. Gordon taught me how to play Chess and suffered many poor games of chess with me. I’m still not very good at chess. He also built his own telescope and a couple of times we went to his farm and setup the telescope and looked at the stars in the night sky. He also had a very long antennae at his farm and a powerful short wave radio. He had a map of the world with pins of stations he had tuned in. I remember being there and slowly moving the dials. All these different languages would come in and then we'd try to figure out where the signal was coming from. It seemed magical that you could hear signals from so far away.
+
+Now you can pull up a website like this and click a button to listen. It is on a map so you know exactly where it is. It isn't nearly as magical as that old shortwave radio was, but it is still incredible that we can make the world so small.
+
+Link eleven. "You Don't Know Jack about Bandwidth - ACM Queue"
+
+This is a good article highlighting the complexity in managing bandwidth to the Internet. As fiber becomes more common and along with it more continuous data load, it is critical that the software in your router is very capable. I use UniFi routers and I feel they do a very good job at this. But if you have a high speed fiber connection but a very old device that is perhaps not updated -- look at that to get much better performance.
+
+That's the end of Notable.
+
+Now, the Straw Poll section.
+
+If you were offered a cash payment to completely disconnect from social media for at least five years, what would be your price? This means:
+
+- Deleting all posted content and connections
+- Permanently deleting all your social media profiles
+- Uninstalling all social apps
+- Your devices would be configured to not even connect to these services
+
+To respond to Straw Polls please subscribe to the Weekly Thing via email.
+
+That's the end of Straw Poll.
+
+Now, the Journal section.
+
+Journal entry one.
+
+Tammy and I went to A Real Pain tonight. I thought it was fine and a bit boring. The reviews say it is “powerfully funny” which I didn’t get at all. It also seemed odd that Kieran Culkin’s character behavior seemed so similar to Roman Roy.
+
+Journal entry two. How I’m handling Twitter embeds from deleted accounts
+
+I'm seeing a lot of people that I was connected with on X deleting their profiles. This actually ends up having an impact on my blog because of embeddings. When I left Twitter years ago I exported my archive and imported it into my blog. Over the years I’ve merged that content in as “native” as I can. The reality is that Twitter status updates are often very different than a blog post.
+
+There were a number of retweets that I did that I also migrated. When I did those I used Hugo’s ability to embed a Tweet using a shortcode. That results though in build errors if those Tweets become unavailable. I get an error that looks like this (I anonymized the identifiers).
+
+Error: ERROR Failed to get JSON resource " Failed to retrieve remote file: Forbidden, body: "{"error":"Sorry, you are not authorized to see this status.","request":"/oembed?dnt=false and url=https%3A%2F%2Ftwitter.com%2Fusername%2Fstatus%2F123456789123456"}"
+
+I debated how to approach this and decided that I would delete my references to these as well. That seems like the best way to honor the original authors intent. They deleted that content themselves. The result is that I’ve deleted several historical posts on my blog in recent days as people have deleted their accounts on X. Mostly those posts had no meaningful content from me.
+
+Journal entry three. RIP @thingles
+
+The steps…
+
+- I deleted my tweet history in twenty sixteen. I didn't want my archive on a site that I didn't control.
+- I left Twitter in twenty seventeen. Micro.blog showed up and I knew I wanted to only write on my own site.
+- Twitter was a failed company.
+- I removed all my connections, destroying my “network” on Twitter.
+- I thanked Elon when he dropped the Twitter brand and made it X. I have no brand affinity to X.
+
+When I joined Twitter in December two thousand six as user 82,903 it was fun and new. It was an open platform with a lot of experimentation. Twitter clients were super innovative. I remember posting via SMS! The creation of “retweets” by the community before the platform figured it out.
+
+But the fun turned sour over years. I don’t believe there is a good form of social media. It isn’t the logo on the front or who is running it. It is the fundamental thing. It is addictive software patterns and amplification of engaging content with no regard for our health or wellbeing.
+
+I honestly can’t think of an innovative new thing to come from social media in the last several years. It isn’t about the product anymore, it is just marketing.
+
+So in November twenty twenty four, it was time to cut the last vestige of social media I had. It was time to delete my X profile. I had destroyed everything else I had on that site but had left my profile there. The only utility of that was to hold my username. But I don’t want any connection to these networks. It isn’t about the brand. I believe they all end up in the same place. There is no healthy cigarette. No good form of gambling.
+
+By way of this post please be aware that any content or information that may appear on X is absolutely not from me.
+
+I had some fun with ChatGPT and the image this conjured up for me.
+
+Journal entry four.
+
+Tammy and I went to the sold out 7 Nights in the Entry at the Parkway Theater, part of the Sound Unseen twenty fifth Annual Film festival. Chris Strouth of Twin/Tone, Greg Norton of Hüsker Dü, and Rick Fuller introduced it. This was only the seond showing ever!
+
+Journal entry five.
+
+You can find me on the web.
+
+So much chatter lately on leaving social platform this to go to social platform that.
+
+The new thing.
+
+The better thing?
+
+What is everyone chasing?
+
+I’ll be right here on the web.
+
+Same place I was before.
+
+Same place I’ll be in the future.
+
+Journal entry six. Thoughts after writing 300 newsletters
+
+On November ninth I sent the 300th issue of the Weekly Thing. I sent the very first issue on May 13, twenty seventeen. It took 7 years 5 months 3 weeks and 6 days to get to 300.
+
+So, what have I learned from sending 300 newsletters? What insights have I gleaned? In no particular order…
+
+- Structure and process is key. There is no way I could do this for 30 issues much less 300 without having robust automation and process to make it easier. It is still very similar to what I wrote in twenty twenty three at How I Find Links for the Weekly Thing, Task Management for the Weekly Thing, and How I Build the Weekly Thing.
+- Breaks in summer and winter. For the first while I didn't do this and then I read how James Whatley of Five Things on Friday takes a break and decided I should do that too. I’ve taken July and August off of the newsletter for a summer break as well as Dec 15 to Jan 15. This works really well since we often take a vacation and have very busy summers in July and August, and the winter break covers Christmas, New Years, and my birthday. Without these breaks I’m pretty sure I would have burned out by now.
+- Fun to play and experiment. I started sending the newsletter to learn and experiment. I’ve continued that. Sections have changed over time. I created the Weekly Thing Forum which isn’t busy but is meaningful. I just started Supporting Memberships to raise money for digital non-profits. I'm playing with Straw Polls as a new section. I want to keep this evolution.
+- People unsubscribe and that’s okay. Most every week people unsubscribe after I send a new issue. On the whole, a few people sign up each week and about half of that unsubscribe each week. It is just human nature but the unsubscribe signal at half the volume is more impactful to me than the subscribe signal at twice the volume. I mostly ignore unsubscribes.
+- I am so glad I don’t know what you click on. I’ve written on audience capture before and I couldn’t be happier that I'm completely ignorant if you click on anything in the Weekly Thing. In case you are not aware most email newsletters track every link that is in the email and track when you click them. This would completely mess with my brain and I no matter how much I try I know I would start including links because I might think they would get clicks. I have no idea what or even if anything is popular with you.
+- Writing the intro can be challenging. It may surprise people but I often find the intro to be the hardest thing for me to write. Covering the links is topical. Currently is pretty obvious. The Journal is my blog syndicated. But the intro? That is only for the newsletter and I often find myself looking at a blinking cursor thinking “Huh?”.
+- People like blend of personal and professional. One of the things I consistently hear from people about the Weekly Thing is that they love the blend of professional and personal. The fact that there are links about super technical topics, and then a Journal post about picking Apples or something. Many people have commented that the Weekly Thing is the only newsletter that does that and they like it. Perhaps there are folks that dislike it?
+- Buck most trends of growing newsletter. I’ve ignored a ton of advice on how to grow, grow, grow the popularity of the Weekly Thing. It is much longer than most would suggest it should be. It has a ton of links which Gmail doesn’t like it probably puts it in the promotions or junk. I don’t have a topic that I focus on and instead meander around. I'm okay with this.
+
+With those thoughts… where might the Weekly Thing go in the future? I have two ideas that have persisted long enough that I feel they will happen when the time is right.
+
+- Weekly Thing Podcast. I’ve pondered a podcast to go along with the Weekly Thing for more than a couple years now. I’ve taken this one a ways actually. I’ve worked through the structure and approach. I already have automation built to help me create the outline of each issue. There are two barriers for me on this one. First, getting comfortable with audio versus writing. I’ve been told I have a good voice for it, but I'm not super comfortable on the microphone. Second, the time required. Recording and editing a podcast takes a good chunk of time. And I ultimately would like to have guests on as well. So, this will wait for a while.
+- Yearly Thing. I keep thinking about taking each year of the Weekly Thing and creating an ebook and maybe even a printed book that captures the content from that year. It could be in part almanac? I'm not sure. The idea would be to publish one a year.
+
+Journal entry seven.
+
+I’m hosting the IndieWeb Carnival in April twenty twenty five and I’m getting pretty excited about it. Starting to think through themes and such.
+
+Journal entry eight. Weekly Thing Supporting Memberships
+
+I have launched a Supporting Membership offering for the Weekly Thing. I previewed it in Weekly Thing 299 and shared it on the Weekly Thing Forum. So what is this Supporting Membership all about? What does it get you?
+
+Nothing.
+
+Well, that isn’t true. It will make you feel great.
+
+Supporting Membership will be a way to raise money for non-profits that we can support as a community. All of the money from memberships will be accrued and once a year I will disperse that to a non-profit. I plan to change the non-profit on each anniversary of the Weekly Thing when the funds are distributed. I will also likely do a “member drive” ramping up to each anniversary.
+
+The first non-profit Supporting Memberships are helping is Creative Commons. I use a Creative Commons licenses for the Weekly Thing and my blog. I'm a big believer in Remix Culture and see the benefits that an organization like this provides. Creative Commons was founded by Larry Lessig who I think has done incredible work. Here is Lessig’s TED Talk from twenty seventeen on Laws that choke creativity.
+
+Back to Supporting Memberships. Members receive a gold star in each issue of the newsletter. It looks like this:
+
+Quote.
+Thank you for being a supporting member of the Weekly Thing!
+End quote.
+
+There is nothing else different.
+
+But Supporting Members will help me support great organizations that are making an impact. So a huge thank you!
+
+The links to sign up as a Supporting Member are included at the bottom of each issue of the Weekly Thing, right after the Fortune.
+
+Journal entry nine. How much does a Things 4 Good candle cost to make?
+
+Now that we have the fourth year of the Things 4 Good twenty twenty four Fall Fundraiser behind us I thought it would be fun to really figure out how much a single candle costs. We’ve sold them for 25 dollars every year. I know that we raise more money than we spend. But I’ve never done the math to figure out what the materials cost per candle. Obviously our labor is free. That is part of the fundraiser.
+
+Most of the items in the candles have a single price. However the vessels and scents vary, and in some cases a lot. The iridescent and metal coated vessels are more expensive. Scents can range wildly in price. I also buy the larger quantities. Here is how the cost breaks down.
+
+| Item | Cost |
+| ---- | ---- |
+| 12 oz Vessel (12 pack) | 4 dollars and 75 cents - 5 dollars and 75 cents |
+| Soy Wax (44 lbs) | 3 dollars and 36 cents |
+| Candle Scent (16 oz) | 1 dollar and 45 cents - 3 dollars and 50 cents |
+| Wooden Wick (100 pack) | 0 dollars and 28 cents |
+| Wick Clip (100 pack) | 0 dollars and 12 cents |
+| Candle Label (15 per sheet) | 0 dollars and 23 cents |
+| Warning Sticker (24 in roll) | 0 dollars and 16 cents |
+| Total | 10 dollars and 35 cents - 13 dollars and 40 cents |
+
+I usually time my orders to get things at a discount with a deal so the real cost is probably 8 dollars and 28 cents - 10 dollars and 72 cents.
+
+For the Things 4 Good sale we cover these costs. All 25 dollars of the donation goes to the charities. But it is interesting to see where the costs are in the production.
+
+Journal entry ten.
+
+The Urban Wing sauna was delivered today! Darin and crew did a great job. It fits in the spot just right. I love how bright it is inside. Can't wait to fire this up and have a good sweat soon!
+
+Journal entry eleven.
+
+Reading the newest book from Yuval Noah Harari, Nexus. Sam Harris interviewed him on Making Sense, Information and Social Order, and I got the book right after. The approach to "information networks" is interesting.
+
+Journal entry twelve. Mujjo Leather Case for iPhone
+
+Every iPhone I have had, since the original iPhone, I’ve had an Apple Leather case for. The iPhone 14 Pro was the last phone I got that I could get that case for. Apple has stopped making the leather cases.
+
+When I got the iPhone 16 Pro I tried not having a case for a couple of weeks and I found it too nerve wracking. The device is noticeably smaller without the case. And the feel is great. But I found it a touch slippery and I was worried about dropping it.
+
+I tried one of Apple’s Silicone cases and I hated it. It doesn’t slide in your pocket easily. When putting it in a suit coat it would “stick” to the pocket. I didn’t like how it felt in my hand at all. I don’t know if I could say a good thing about it. I had previously tried the Clear Cases and didn’t like those either.
+
+Thankfully Mujjo has rescued me. I got the Leather Case for iPhone 16 Pro and it is great. The leather feels like it should. It is good to grip but not sticky. I feel reconnected to how my phone should feel. My only gripe is the Camera Control is just a cut out versus the sapphire crystal that Apple’s cases use.
+
+I’m happy to have found a good leather case again.
+
+Journal entry thirteen.
+
+1,000 days today.
+
+Quote.
+Ukraine marks 1000 days of full-scale war. “For 1,000 days, the Armed Forces of Ukraine have been confronting the enemy on the front line, which stretches over 1,000 kilometers,” Commander-in-Chief Oleksandr Syrskyi said on Nov. 19, Day 1,000 of Russia’s full-scale war against Ukraine. -- The Kyiv Independent, November 19, twenty twenty four
+End quote.
+
+Journal entry fourteen. Lefse: Freddy's v. Laura's
+
+It is nearly Thanksgiving and the time I start to crave some lefse! I come from family where lefse was made from scratch and I’ve taken part in making it myself. We even have a lefse iron and proper turning sticks. My friend Patrick does it from scratch. But it is a lot of effort and a big mess for something that you can get in other ways. So I tend to buy my lefse instead. I happened to have two different lefse packages at home so I thought a comparison would be fun.
+
+Freddy’s Lefse
+
+Freddy’s Lefse is made in Fargo, North Dakota and they have been at it since 1946. I’ve ordered their lefse online multiple times and I really like it. They make a traditional round lefse that is very thin and has just the right chew to it. As an added bonus, you can splurge and get Freddy’s own mix of cinnamon and sugar in a nice shaker. Why would you do that when you almost certainly have sugar and cinnamon in the cupboard? The ratio they use to me is perfect and they seem to use a very finely ground sugar that works just perfect in the lefse.
+
+Laura’s Lefse
+
+I had never had Laura’s Lefse before but Tammy saw it in the store and got me a bag. I was super happy for it to be the first lefse of the season. Looking closer I couldn’t find any “Laura’s Lefse” online except for Walmart and Sam’s Club website. I looked closer and the product is made in Gonvick, Minnesota so I looked for lefse in Gonvick and sure enough Mrs. Olson’s Lefse is there. Tellingly Mrs. Olson’s sells lefse in rectangular sheets just like this bag of Laura’s Lefse I have. Why does it get a different name for the retail stores? I have no idea. Reading about their company it turns out Laura was Mrs. Olson’s actual name.
+
+As I mentioned this lefse is cut in a rectangle. It reminds me of buying sheet pasta for lasagna. I had never seen lefse prepared that way. It is also notably thicker than Freddy’s, and on the thicker end of lefse I’ve had. If you are using it for a savory snack that is a good thing. Rolling one of these sheets with a slice of ham and cheese would work very well. The weight of Laura’s (er, Mrs. Olson) is actually slightly lighter than Freddy’s but is a smaller size.
+
+So which is better? They are both good but for a traditional lefse with butter, sugar, and cinnamon my preference would be Freddy’s. If you are making savory snacks I would use Mrs. Olson’s. And if you just want some darn lefse cause it's so good? Either will be just fine.
+
+Weekly Thing Forum
+
+Join Barry Hess, garrickvanburen, Patrick Hambek, David O'Hara, Eric Walker, and many other Weekly Thing readers in the Weekly Thing Forum. Recent topics include:
+
+- Lefse review from your blog
+- Weekly Think #301, App Location Services
+- Thoughts after writing 300 newsletters
+- Weekly Thing #300
+- Weekly Thing #299
+
+That's the end of the Journal.
+
+Now, the Briefly section.
+
+Link one. "A Dark Meeting | by Brian Koberlein"
+
+What happens when an interstellar cloud meets a pair of binary black holes?
+
+Link two. "LlamaOCR.com – Document to markdown"
+
+I tested this by giving it a fully designed one page flyer and it did a very good job of turning that into markdown with the structure correctly assembled.
+
+Link three. "OnAir"
+
+Interesting service intended for sales or customer support, but I would think this would also work for things like office hours.
+
+Link four. "The Current State of This Blog’s Syndication - Justin's Linklog"
+
+Justin builds his linklog using Pinboard as a CMS, very similar to how I build the Weekly Thing!
+
+Link five. "How Public Key Cryptography Really Works | Quanta Magazine"
+
+Easy to read primer on public key crypto. Given how core encryption is I think this is a reasonable thing for most people to understand at a basic level.
+
+Link six. "Yggdrasil Network | End-to-end encrypted IPv6 networking to connect worlds"
+
+This looks super interesting but I must admit some of these software network solutions confuse me.
+
+Link seven. "public.me"
+
+Ever wanted to be able to post on the web by just sending an iMessage to an address? Now you can.
+
+Link eight. "LAN Party House"
+
+This is a totally wild setup for a home. The pictures are great, but the Q and A after the pictures is just as good.
+
+Link nine. "Creating a QR Code step by step"
+
+Super detailed overview creating a QR code. Interactive and shows every single step in the process with interactive elements.
+
+Link ten. "Bluesky Firehose (live)"
+
+The 3D effect in this is neat, but I find it creepy for some odd reason.
+
+Link eleven. "Foursquare Open Source Places: A new foundational dataset for the geospatial community"
+
+Very cool to see a giant database like this being open sourced for everyone to use! Well done Foursquare! I found this via Simon Willison and it was cool to see what he did so easily with this data.
+
+Link twelve. "Trashie - Do good, get rewarded"
+
+Interesting take on recycling clothing with gamification, branding, and rewards.
+
+That's the end of Briefly.
+
+Now, the Fortune section.
+
+Here is your fortune…
+
+Ships are safe in harbor, but they were never meant to stay there.
+
+Want to support the Weekly Thing?
+
+- Subscribe with with your email address to get it delivered to your mailbox.
+- Post about the Weekly Thing and let others know about it.
+- Join the Weekly Thing Forum and connect with others.
+
+That brings us to the end of the Weekly Thing, issue 302. Thanks for listening, and I'll see you next time.

@@ -1,0 +1,392 @@
+The Weekly Thing, issue 253. Domains, Anybox, Currl. Published May 7, twenty twenty three. By Jamie Thingelstad. In this issue: GPT learning, web history, retail managers, Roddenberry Archive, Scouting technology, Anybox bookmarking, Amazon growth, investing in RSS.
+
+Hello there!
+
+I concluded three trips to Manhattan over a period of six weeks. It wasn't planned that way, just happened. Tons of photos in the journal this week from the third and final trip. It was a lot of travel but it was fun to be there so much that things sort of felt easy.
+
+My automation fought with me this week so I had to assemble a few parts of this issue by hand. I hope I didn’t miss anything or mess up some Markdown.
+
+There have been a good number of new folks signing up lately. Thanks for giving the Weekly Thing a try! I hope you find it interesting and valuable.
+
+Cheers!
+
+"There was no private property on the Internet until Satoshi wrote the Bitcoin white paper. So you had a feudal Internet. Bitcoin was the first private property on the Internet. You don't even have capitalism or freedom without private property." — Mike Novogratz on Prof G Markets
+
+Now, the Notable section.
+
+Link one. "GPT makes learning fun again"
+
+Great example of how fresh the interactive experience of exploring a topic with ChatGPT-4 can be.
+
+Quote.
+GPT has made learning fun for me again in a way that I didn't even realize I had lost. I find myself proactively learning about new topics more often because I know I'll consistently be able to build my knowledge and understanding.
+End quote.
+
+The caveat is of course when ChatGPT just starts making stuff up, which is outlined in the limitations.
+
+Link two. "The web's most important decision - The History of the Web"
+
+It deserves special recognition that the core technology of the Web wasn't patented or copyrighted.
+
+Quote.
+Thirty years ago, Tim Berners-Lee and CERN gave the world a gift. After some internal discussions, CERN stamped (quite literally) its approval on a document, relinquishing all intellectual property rights to the World Wide Web and entering it into the public domain. It wasn’t a decision that was altogether altruistic—there were certainly logistical and operational reasons for the choice—but it was a decision grounded in optimism and ambition. It radically changed the trajectory of the web, enabling an openness and accessibility that most technologies don’t come close to reaching. And yet, the most shocking part of the decision was that it wasn’t shocking at all.
+End quote.
+
+I was at the University of Minnesota when they were building Gopher, which at the time seemed like it could compete with the Web.
+
+Quote.
+In February of 1993, the University of Minnesota made an announcement. In specific commercial usage of the protocol, they would be charging licensing fees. Not large fees, and not in all cases. But, in some small way, they would be restricting access.
+End quote.
+
+The Web was better technology in my opinion, but it highlights how adding even a little bit of friction or cost can change the trajectory of solutions in radical ways.
+
+Link three. "Managers and Productivity in Retail | NBER"
+
+Managers have a big impact in retail.
+
+Quote.
+We find: (i) managers affect and explain a large share of the variance of store-level productivity; (ii) negative assortative matching between managers and stores, which may reflect both firms’ decisions and a selection-driven bias that we characterize and argue might apply in other settings using movers designs; (iii) managers who move do so on average from less productive to more productive stores; (iv) female managers are less likely to move stores than male managers; (v) manager quality is generally hard to explain with the observables in our data, but is correlated with the ratio of full-time to part-time workers; (vi) managers who obtain high labor productivity also tend to obtain high energy productivity, revealing some breadth in managers’ skills applicability; (vii) high-performing managers in stable growth times are also high-performing during turbulent times; and (viii) exogenous productivity shocks improve the quality of initially low quality managers, suggesting managers can learn.
+End quote.
+
+Link four. "Roddenberry Archive"
+
+Get ready Trekkies!
+
+Quote.
+The Roddenberry Archive is a multi decade collaboration with The Roddenberry Estate, OTOY, and iconic Star Trek artists Denise and Mike Okuda, Daren Dochterman, and Doug Drexler to collect significant documents and art from Gene Roddenberry’s lifetime of work, beginning with the Starship Enterprise, and to make them accessible through innovative means of presentation. The project aims to preserve this information for those studying his career in the future, for those who appreciate his work, and to provide accurate information for those involved in future productions and other projects based on Roddenberry’s work.
+End quote.
+
+Make your browser full-screen and spend some time on this amazing site. Wow!
+
+Link five. "Scouting for the Future: Technology and the Scouting Movement | Ethereum Foundation Blog"
+
+This is a great example of building a community platform on Ethereum. I was a Boy Scout, and it would be so cool to have all those badges as NFTs. Every scout troop being a DAO with a treasury and governance functions? That would be great.
+
+Quote.
+We are now preparing to build the first foundational layer of World Scouting Web3 vision: The Scout’s Passport. As an identity system, a Scout’s passport would be compatible with all sorts of Web3 systems, and would allow the scouting movement to have an identity layer for badges, tokens, signatures, messages, etc. In particular, a Web3-enabled scout’s identity would allow for more robust social recovery for scouts, allowing us to safely create DAO scouting groups, to explore new methods of crowdfunding and governance, and of course to unlock the infinite possibilities of NFTs and digital badges or certifications.
+End quote.
+
+Love this.
+
+Link six. "Anybox – Bookmarking App for Mac and iPhone"
+
+This app intrigued me a lot. As you can imagine from what I share in the Weekly Thing I bookmark a lot of websites. I actually use Pinboard, my bookmarking service of choice, as part of my workflow and content-management system. It was intriguing to see how this would work using iCloud to sync, and having really good support for share sheets and Shortcuts. I can use Shortcuts with Pinboard, but I have to write custom Python code to get at the API and then transfer the data into Shortcuts.
+
+I wasn't kind to Anybox. It supports Pinboard import so I shoved over 13,000 links into it. It took about an hour to import and get synchronized. No worries about that. But the app became unresponsive and overwhelmed with that much data.
+
+For a smaller archive it would likely be fine and it looks like a good app.
+
+Link seven. "The Amazon Growth Story Is More Than AWS | Deepwater Asset Management"
+
+A look deeper on Amazon's financial results and AWS growth.
+
+Quote.
+Key Takeaways 1. AWS is losing market share and profitability has been declining. 2. Amazon is more than AWS - in the future, other segments will drive profitability including retail, ads, and health.
+End quote.
+
+I find the variability in operating margin wild. Azure at 43%, AWS at 24%, and Google Cloud at 3%? Suggestion is this is the result of discounting, and Azure is holding its prices more. It also makes me wonder about investment in growth. Is Azure investing slower?
+
+Forward looking I don't see Amazon's brand having the power it needs in Health. Maybe, but they have work to do. Advertising is a huge business for them already, but that seems like a pivot to volatility for them. Retail is obvious.
+
+Link eight. "Investing in RSS | TimKadlec.com"
+
+I've been a huge fan of RSS since forever, and it is still the primary way that I find new information. People ask me how I find the things I put in the Weekly Thing, mostly via RSS. It takes some effort to setup, but the return is outstanding.
+
+Quote.
+Opening up my RSS reader, a cup of coffee in hand, still feels calm and peaceful in a way that trying to keep up with happenings in other ways just never has. There’s more room for nuance and thoughtfulness, and I feel more in control of what I choose to read, and what I don’t.
+End quote.
+
+It is great to have an information system that is mine, where I know I’m in control. By the way, I highly recommend Feedbin if you are looking for an RSS solution.
+
+That's the end of Notable.
+
+Now, the Journal section.
+
+Thursday @ 9:22 PM
+
+Tammy and I had a fun evening at Constellation Fund Bright Night event at the Fillmore. Constellations data driven approach to philanthropy and working to reduce poverty in the Twin Cities is a mission and method that resonates with me.
+
+Wednesday @ 11:34 PM
+
+I purchased nnxyz abstract #0000 which comes with all 50 of the abstract collection. This is the fourth nnxyz collection that I have now.
+
+Wednesday @ 6:20 PM
+
+MnTech Tech Connect twenty twenty three
+
+I had a good time learning new topics and connecting with other technology leaders at the MnTech Tech Connect event today.
+
+My sessions:
+
+* Technological Disruption: A Futurist's Perspective with Matt Versaggi
+* Exploring OpenAI: Practical Applications for Real-World Problem Solving with Nick Kwicien
+* The Art of Personalization wtih AI/ML: Optimizing Conversion by Showing Customers What They Want with Matt Yates and Max Lindquist
+* Empowering Our Future Through Science with Dr. Jayshree Seth
+* Cybersecurity State of the Union twenty twenty three with Aaron Warner
+* The Future Fit Digital Organization: What Does the Data Say? with Charles Betz
+* Driving Business Success Through Innovation and Technology panel with Steve Arsenault, David Bingenheimer, David Black, Chris Chapman, and Julie Durham facilitated by Jeff Tollefson
+
+link
+
+A thesis I've pondered for years and won't go away…
+
+The real "threat" to capitalism isn't socialism or communism. The thing that may break capitalism is technology.
+
+Quote.
+Give me a place to stand, and a lever long enough, and I will move the world. — Archimedes
+End quote.
+
+Technology is leverage. Technology allows a small number of people to create immense output. The potential present in AI will allow new kinds of output that were never before possible, in some cases with no people at all. Technology has brought efficiency improvements for as long as it has existed, and we should assume that will continue.
+
+With so much leverage the labor market fails. There is no market to exchange your abilities for. There may be no buyer for human capacity. It isn't a question of retraining if there isn't anything to train to.
+
+Monday @ 9:10 PM
+
+Got a pair of Lowa Renegade GTX Mid hiking boots to get ready for our hiking trip in Switzerland this summer. Excited to get these on the trail!
+
+Monday @ 8:45 PM
+
+Tammy's NYC Birthday Trip Day 4
+
+No rain!
+
+* Work meeting in hotel
+* ole and Steen for breakfast
+* Bryant Park
+* NY Public Library
+* blue bottle coffee
+* Ole and steen
+* Angelina's
+* Return to hotel
+* Car to Newark
+* Flight DL2589 to Minneapolis.
+
+Monday @ 12:12 PM
+
+We explored the New York Public Library and were blown away by the amazing architecture and special collection. Theoretically they have books too, but not sure where those are.
+
+Monday @ 10:45 AM
+
+Our final morning in New York and it is not raining for the first time since Friday night! We get to venture out without rain jackets and umbrellas and enjoy Bryant Park!
+
+Sunday @ 10:55 PM
+
+Tammy's NYC Birthday Trip Day 3
+
+Rained all day.
+18,065 steps.
+
+* Liberty bagels
+* Walked to B and H
+* Ducked into Whole Foods to escape rain, got hot chocolate
+* Walked to High Line
+* Departed High Line for Chelsea Market
+* Explored Chelsea Market, jnlccluding cheeseburfer and book store.
+* Stop at Apple Store Chelsea
+* Walked in rain to take R to twenty eighth Street
+* Walk to Milk Bar flagship
+* take R to City Hall
+* Walk to Regal Theater in Battery Park
+* See Are you there god? Its me Margaret
+* Dinner at El Vez
+* 4 Train to 42nd Street
+* Escape room at Escape the Room
+* Walk back to Hotel
+
+link
+
+We successfully escaped from the Playground room at The Escape Game in New York! It was a fun room with a wide variety of puzzles to solve. It took a while for us to get momentum, but with some time (and some clues) we got going and escaped with exactly 1 minute on the clock!
+
+Sunday @ 12:35 PM
+
+Walking the High Line is now a tradition for any trip to New York. We hoped to find a break in the rain to make the walk but no break was to be found. We ended up getting off the path at Chelsea Market to explore and have lunch.
+
+Sunday @ 11:53 AM
+
+New York Bagels at Liberty Bagels in Midtown!
+
+Saturday @ 10:55 PM
+
+Tammy's NYC Birthday Trip Day 2
+
+Rained all day.
+17,823 steps.
+
+* Kids got Dad coffee
+* Angelina's for snack
+* Took F train to Brooklyn
+* Brunch with Greg and Anniqu at Frankies
+* Took F train to York
+* Walk to Brooklyn bridge
+* Walk across boardwalk on Brooklyn bridge and got super wet
+* took R train and accidentally needed up at Moma Store, not MOMA?
+* Took train to actual MOMA
+* discovered largest line ever waiting for MOMa
+* Everyone in NY inside MOMA hiding from rain
+* Return to Hotel to change into dry clithes
+* Attempted Joes Pizza, too long
+* Attempted Los Tacos. Too long.
+* Went to Harry Potter
+* Returned to Joes Pizza for late night slices
+* went to cvs and bought newspapers to stuff into wet shoes
+* Walked back to hotel
+
+link
+
+How about a few giant slices of pizza at nearly midnight? Sure!
+
+link
+
+Tyler and I talked up Harry Potter and the Cursed Child enough that with Tammy and Mazie along this time we decided to go again!
+
+link
+
+What do you do when you visit the Museum of Modern Art? Well for many it seems that you navigate your way to Van Gogh's Starry Night and take a picture of it in a fairly unhelpful mass of people.
+
+I wonder, how many gigabytes of photos are taken of Starry Night each day?
+
+link
+
+What to do when you want to walk across the Brooklyn Bridge but it's raining? Go anyway. We were really wet by the time we got to the other side. Shoes squishing with water wet. Was it worth it? Probably.
+
+link
+
+We took the F Train to Brooklyn and had an awesome brunch with Greg and his family. Greg and I met as freshman roommates at the University of Minnesota and became fast friends. It was the first time we were able to get our entire families together, and first I had seen him since twenty eighteen.
+
+link
+
+I tried several times earlier to participate in the (historic?) Ethereum KZG Ceremony but was never able to get in because so many people were queued up to do it. The demand died down and thingelstad.eth was contributor 91,614 in the ceremony.
+
+Friday @ 10:55 PM
+
+Tammy's NYC Birthday Trip Day 1
+
+Cloudy and started raining at night.
+16,424 steps.
+
+* Mint POAP for trip!
+* DL2589 from MSP to EWR.
+* Massive police incident at Newark.
+* AirTran to air train
+* Arrived at New York Penn Station
+* Took 1/2/3 to Times Square
+* Check in to Hyatt Centric
+* Left to explore city
+* Donuts at Dough
+* Nintendo Store (girls underwhelmed)
+* St Patrick's Cathedral
+* LEGO Store
+* Walk thru Central Park
+* Walked to seventh Street Burger
+* Giant delicious cookies at Levain
+* Beacon Theater for BONO!
+* Put our devices in Yonder bags
+* Amazing show
+* 1/2/3 train back to Times Square
+* Return Hyatt centric
+
+Friday @ 11:51 PM
+
+Seeing Bono's "Surrender" at the Beacon Theater tonight was one of the most engaging performances I've ever seen. Two hours with Bono sharing stories of U2, his youth, and mixed with powerful and inimate performances of U2 songs. Incredible and magical.
+
+link
+
+It is weird to me that I've been to Manhattan hundreds of times over the years, but I've never really gone into Central Park at all. We decided to walk from our hotel up and through Central Park to the Beacon Theatre to see Bono and it was so cool to explore a bit of the park.
+
+link
+
+Ran into the Incredible Hulk at the LEGO Store on fifth Avenue. This place was great. We wanted to do more stuff than we had time.
+
+link
+
+Mazie and Tyler lit prayer candles for my Grandpa Ardell and Grandma Rose at St. Patrick's Cathedral.
+
+link
+
+We were passing St. Patrick's Cathedral and decided to go in and look around. It is was an amazing place to visit. It left us all a bit awe struck.
+
+Friday @ 3:16 PM
+
+Catching NJ Transit from Newark to NY Penn Station.
+
+Friday @ 10:28 AM
+
+Just claimed the POAP Tyler made for Tammy's NYC Birthday trip to see Bono and much more. Love it!
+
+That's the end of the Journal.
+
+Now, the Briefly section.
+
+Link one. "Currl - A social bookmarking website"
+
+A new entrant for bookmarking services. Completely free, no ads, and no investors. Built by one person. Reminds me a bit of Pinboard, but a fresher UI and more simple interface.
+
+Link two. "Why You'll Fall in Love with POAPs: Unraveling the Charm of Digital Collectibles"
+
+I agree. I love POAPs.
+
+Link three. "See all 8 new top-level domains available this May"
+
+thingelstad.foo could be fun to have.
+
+Link four. "How to up Your Zoom Game, According to a Huge New Study"
+
+Tons of data driven insights on how people interact and talk on Zoom, and what people perceive as positive and negative.
+
+Link five. "Daring Fireball: You Can Register Domain Names in iOS's iCloud Settings"
+
+Making it easier for people to buy domain names in the places they would use them is a good thing.
+
+Link six. "Daring Fireball: Browser and OS Market Share Trends in the Mobile Age"
+
+The graphs tell amazing stories of how much computing has changed.
+
+Link seven. "Cloud exit pays off in performance too"
+
+I've been following Hansson's posts of their exit from AWS onto their own bare-metal. It is Apples and Oranges comparison, and Hansson is as usual far too binary in his recommendation, but it is cool to see the outcomes.
+
+Link eight. "Coin Metrics’ State of the Network: Issue 205"
+
+Dai and USDC are the two stable coins I use frequently. I find Dai the most interesting as it is governed by MakerDAO. FYI, I think that stable coins like RAI are more likely in the future.
+
+Link nine. "OpenAI closes 300 million dollars share sale at 27 billion dollars-29B valuation | TechCrunch"
+
+Link ten. "Collect Stories, Not Generalizations - Allen Pike"
+
+Stories are incredibly powerful in so many different modes. They are the oldest "algorithm" of human engagement.
+
+Link eleven. "Easy Cameras — ongoing by Tim Bray"
+
+When I carry my Leica Q2 I’m reminded of this — it is just much faster to grab it and get a shot than my iPhone. Also, the photo is immensely better.
+
+Link twelve. "How to set your domain as your handle - Bluesky"
+
+I like that you can integrate the open web into Bluesky, although I don't think of my domain name as my identity. Either way happy to see this supported. Bluesky is mildly interesting to me.
+
+Link thirteen. "God, My New Phone Is Boring – WARREN ELLIS LTD"
+
+I can related to this. I used to savor the first several hours of a new phone and exploring all the new things. Now, it is a simple migration and there really isn't much of anything new to find. Most people probably love that though.
+
+Link fourteen. "Male and Female Sleep Patterns: How They Differ and Why"
+
+Interesting differences in sleep patterns between men and women.
+
+Link fifteen. "EFF Now Has Tor Onions | Electronic Frontier Foundation"
+
+Good to see EFF making sure it’s services are accessible everywhere!
+
+Link sixteen. "Colin Devroe - How I'm using ChatGPT as an accelerator"
+
+AI coding aids are going to become a must have in a very short time.
+
+That's the end of Briefly.
+
+Now, the Signature section.
+
+"Weekly Thing #253 / Domains, Anybox, Currl" is signed…
+
+Fortune
+
+You single-handedly fought your way into this hopeless mess.
+
+That brings us to the end of the Weekly Thing, issue 253. Thanks for listening, and I'll see you next time.

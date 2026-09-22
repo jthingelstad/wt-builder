@@ -1,0 +1,190 @@
+The Weekly Thing, issue 121. Oct 12, twenty nineteen. Published October 12, twenty nineteen. By Jamie Thingelstad. In this issue: Writing is Thinking, managing by outcomes, iOS Shortcuts guide, new emojis iOS 13.2, China Cultural Clash, Chernobyl Reactor 4.
+
+This week I got to attend three different technology events that all highlighted great things about the Twin Cities technology scene.
+
+On Sunday, I got to attend the demos from the most recent Hack the Gap. This organization hosts a great series of hackathons focused on reducing the diversity gap in technology. These teams created websites and mobile apps in a mere 24 hours. It was great to see so many women and non-binary technologists in our community all together building great stuff in an open and inclusive environment.
+
+On Tuesday, the Minnesota High-Tech Association hosted the first screening of Solid State. Minnesota was an absolute leader in the minicomputer era, and this movie tells that story. I learned some new things. I didn’t realize that Control Data was the first company to make peripherals for other companies minicomputers. Before that, you had to buy everything from the same company. Control Data decided to make disk drives that would work with other minicomputers. And that business was eventually sold to Seagate, who is still a big player in the storage market.
+
+And Thursday night was a tremendous Minnedemo event with some fabulous demos. I loved the demo of an HVAC efficiency solution built with Raspberry Pi’s and various sensors, a hobby project that is morphing into a new product! There was just a fantastic combination of demos.
+
+All of this was tied together with Twin Cities Startup Week. It was a busy week, and it was so great to see so much activity in the technology ecosystem here in our community. It’s a thriving, growing, and inclusive community with a proud history and a great future!
+
+Now, the My Blog Posts section.
+
+First try having Tesla "Come to me"
+
+We made a quick stop today at a fairly busy store in South Minneapolis and when we got out I decided it would be fun to try the new “Come to me” feature that Tesla shipped in v10.
+
+That's the end of My Blog Posts.
+
+Now, the Featured Links section.
+
+Link one. "Writing is Thinking: Learning to Write with Confidence"
+
+There is a lot here as an overview of an entire writing process. Even though it’s a lot, I think it’s a good read for those that, like me, want to write better. I particularly like the beginning:
+
+Writing is essentially a robust tool that enables us to clarify and communicate our thoughts. While writing, you are forcing yourself to think critically and exercise parts of your brain that are typically on auto-pilot. As Einstein once said, “If you can't explain it simply, you don't understand it well enough.” In attempting to formulate a written piece, you are going through the exercise of transforming vague ideas into clarified concepts externally, but also internally.
+
+To me this is the barrier. I'll get a headline or topic in mind, but I need to create the space to clarify my thoughts. It’s not the writing that is difficult, it’s the thinking.
+
+Related, this is why I despise bullets for communicating things of substance. Bullets, unlike actual writing, do not require you to clarify your thoughts. You simply state random blips, and assume that will be understood, which it often is not.
+
+That's the end of Featured Links.
+
+Now, the My Weekly Photo section.
+
+Lights dimmed at Target Field with cell phone lights.
+Oct 7, twenty nineteen at 9:50 PM
+Target Field, Minneapolis MN
+
+That's the end of My Weekly Photo.
+
+Now, the Notable Links section.
+
+Link one. "Everyone Thinks They’re Managing by Outcomes. Here’s How to Actually Do it. | Product Talk"
+
+There is a lot to chew on here.
+
+When teams only communicate their conclusions—the features they’ll implement, the projects they’ll execute, and the initiatives they’ll deliver—managers focus their feedback on those conclusions.
+
+This keeps us solidly in the world of micromanaging outputs.
+
+I love this delineation of outputs and outcomes. The structures shared in this writeup to illustrate the product and opportunity space a product team is working on seem very interesting.
+
+Link two. "iOS Shortcuts Ultimate Guide: Reviews, Examples, Libraries, Tutorials..."
+
+There is so much power in iOS 13's Shortcuts that I keep wanting to link to every article I read about them in the hope that more and more people see ways they can use it to automate things using their mobile.
+
+Link three. "First Look: New Emojis in iOS 13.2"
+
+Tons of new Emoji coming to Apple devices. Great evolution of the skin tone picker and the adoption of new gender-neutral Emoji.
+
+Link four. "Where we do and don’t want automation | Derek Sivers"
+
+I've experienced something similar to this concept specifically around automation on the personal level. Certain things shouldn't be automated because it creates an abstraction, that removes personality and emotion.
+
+Link five. "Libro.fm | Libro.fm, Your Independent Bookstore for Digital Audiobooks"
+
+I didn’t know this service existed. It has the same 15 dollars/mo subscription to get one audiobook each month, just like Audible. I might switch to this just to diversify my spend away from Amazon a bit.
+
+Link six. "Quickness: Add Voice Contacts on the App Store"
+
+Found this little gem of an app via MacStories iOS and iPadOS 13 App Roundup. I use Contacts extensively, and being able to build Shortcuts that make it easier to add contacts is a great win. 2 dollars, easy buy for me.
+
+Link seven. "The China Cultural Clash – Stratechery by Ben Thompson"
+
+Good article discussing the complexities of doing business in China following on the NBA issues started with a single tweet.
+
+Link eight. "n8n.io - Workflow Automation"
+
+Automation platforms like Zapier are pretty cool, and it’s neat to see a new open source project that does similar. I could easily see this being something that others would extend to connect to more services over time. I wonder if you could embed it into another project, would depend on the license.
+
+Link nine. "Joint statement on the GNU Project — twenty nineteen — Blog — GNU Guix"
+
+Wow, I must say I wasn't expecting this but it’s good to see. Richard Stallman quickly resigned or was dismissed from MIT and the Free Software Foundation, but he remained in his leadership role at GNU. Now we have GNU maintainers signing a petition that he should be removed there too.
+
+Yet, we must also acknowledge that Stallman’s behavior over the years has undermined a core value of the GNU project: the empowerment of all computer users. GNU is not fulfilling its mission when the behavior of its leader alienates a large part of those we want to reach out to.
+
+It’s good to see people thinking broader than just the code or specific single focus area that people contribute to our community.
+
+Link ten. "Chernobyl's Infamous Reactor 4 Control Room Is Now Open to Tourists"
+
+Not sure this is a tour I would want to take. Chernobyl isn't that far from where I go when I visit Ukraine. I think I should visit the site on a future visit. Probably pass on the room that requires booties and a Geiger counter though.
+
+Link eleven. "Solid State: Minnesota's High Tech History - Twin Cities PBS"
+
+I was at the premier of this movie. It is an interesting look at the minicomputer market that thrived in Minnesota. I learned some new things, like Control Data was the first company to sell peripherals for other companies minicomputers. What did Minnesota miss? By all counts we completely missed the microcomputer movement here.
+
+Link twelve. "Three Big Things: The Most Important Forces Shaping the World · Collaborative Fund"
+
+An interesting, open-ended article about the "big things" that are likely to be shaping the future.
+
+Demographics, inequality, and information access will have a huge impact on the coming decades. How those Big Things end is a story yet to be told. But when it’s told we’ll have a better idea of where it began.
+
+Link thirteen. "Multi Cloud Happens But Not Necessarily By Design | StackSense"
+
+This article highlights three common reasons that organizations adopt multiple cloud providers. The ones listed make sense but the one I was surprised wasn't on the list is leveraging the specific strengths of different cloud providers. AWS, Azure, and Google Cloud each have areas they excel over the others so I was a bit surprised that "best of breed" solution didn’t make the list here. I agree with the premise that Multi Cloud is a reality that many organizations will have, and I think it’s much more pragmatic than the earlier focus on Cloud Portability.
+
+That's the end of Notable Links.
+
+Now, more links.
+
+- JOMO - The Joy of Missing Out - Feld Thoughts feld.com
+Opposite of FOMO. I like it!
+- macOS 10.15 Catalina: The Ars Technica review
+If you want to know everything you ever wanted to about macOS Catalina, this is the other of the two articles for you. There is more to this release than it looks.
+- macOS Catalina: The MacStories Review - MacStories www.macstories.net
+If you want to know everything you ever wanted to about macOS Catalina, this is one of the two articles for you.
+- Different Types of Wine 18" x 24" Poster - Wine Folly shop.winefolly.com
+The relationships in this graph are super easy to follow. Probably the best wine classification/overview I've seen.
+- TikTok owner ByteDance's first-half books 7 billion dollars in revenue
+I have no interest in TikTok, but I know "the kids" seem to dig it. I was blown away by the revenue numbers though.
+
+That's the end of More Links.
+
+Now, the Microposts section.
+
+Thursday @ 10:47 PM
+
+Adrienne Peirce and I were honored to be recognized for 9 years as Founding Board Members of Minnestar. We finish our board service at the end of this year, along with Kevin Spreng, who wasn’t able to be there tonight. It’s been an honor to be part of this organization!
+
+Thursday @ 10:41 PM
+
+Minnedemo tonight was absolutely fabulous. Such a great variety of demos! A couple apps I installed while watching the demo!
+
+Thursday @ 9:27 PM
+
+Crowd queuing up for Minnedemo 33 at the Riverview Theater!
+
+Tuesday @ 4:28 PM
+
+Good panel conversation following screening of Solid State.
+
+Tuesday @ 3:13 PM
+
+Attending the premier of Solid State: Minnesota’s High Tech History hosted by MHTA.
+
+Monday @ 11:42 PM
+
+Cruz, you’re our only hope.
+
+Monday @ 11:39 PM
+
+Kepler! We need this!
+
+Monday @ 11:39 PM
+
+Time for some baseball!
+
+Sunday @ 5:26 PM
+
+Flying the MN United flag but our cheering wasn’t enough to get the good guys the win over the Sounders. Looking forward to defeating LA Galaxy at Allianz Field! #mnufc
+
+Sunday @ 1:41 PM
+
+Mazie and I enjoyed some delicious Spinning Wylde gourmet cotton candy at Hack the Gap!
+
+Sunday @ 1:39 PM
+
+I’m very happy that SPS Commerce and #TeamSPS are able to sponsor and volunteer at Hack the Gap again! This is a great organization and event hacking the diversity gap!
+
+Saturday @ 8:34 AM
+
+Tyler and I ready to cheer on Bayern! Got the Bayern soccer cards out too. #FCBTSG
+
+Saturday @ 8:26 AM
+
+Disappointing showing from Tottenham against Brighton this morning. 3-0 #BHATOT
+
+That's the end of Microposts.
+
+Now, the Fortune section.
+
+You've made it all the way to the end! Here is your fortune for this week.
+
+Someone is speaking well of you. How unusual!
+
+Thank you for subscribing to the Weekly Thing!
+
+That brings us to the end of the Weekly Thing, issue 121. Thanks for listening, and I'll see you next time.

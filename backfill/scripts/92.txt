@@ -1,0 +1,182 @@
+The Weekly Thing, issue 92. Feb 9, twenty nineteen. Published February 9, twenty nineteen. By Jamie Thingelstad. In this issue: Snopes leaves Facebook, 1949 Vitamix infomercial, Fortnite Marshmello concert, Event Sourcing is hard, Loopback 2 design.
+
+It's been a busy week and I’m annoyed that I seem to have caught a new cold, right as I was recovering from the previous one. Let's get right to links and other fun stuff!
+
+My Blog Posts
+
+Book: Scale
+
+My book club just finished reading Scale.
+
+JSONFeed on Blot
+
+I’ve been enjoying Blot a lot. I’ve enjoyed its approach to blogging. There is plenty of power there, and it’s dead simple to add new content.
+
+Minnesota Kubb twenty nineteen Winter Tournament
+
+The Kubbchucks played our eighth annual Minnesota Kubb Winter Tournament this weekend.
+
+Now, the Featured Links section.
+
+Link one. "Snopes pulls out of its fact-checking partnership with Facebook – Poynter"
+
+Facebook paying 100,000 dollars for this service is laughable, and should mostly serve as further assurance that Facebook doesn't see value in solving this problem. It’s also crazy to me that Snopes highlights that there is no API and there isn't an easy way to flag content. Clearly Facebook knows how to make API's and how to make user experiences easy, at least when they want to.
+
+“With a manual system and a closed system — it’s impossible to keep on top of that stuff,” Green told Poynter in a phone interview. “Do you need fact-checkers to stop and do all this manual work? Or should fake websites just be reported through other means and supply a body of evidence that these people shouldn’t be on your platform because of their nefarious activity?”
+
+I like this focus on engaging directly with their actual customers.
+
+“It’s hard for me to concern myself with making Facebook successful when it’s so hard just for Snopes to be successful,” Green said. “Our community isn’t just on Facebook. We prioritize our readers first.”
+
+Honestly, Facebook doesn't lack resources to solve this problem.
+
+That's the end of Featured Links.
+
+Now, the My Weekly Photo section.
+
+The largest winter Kubb tournament in the world!
+Feb 2, twenty nineteen at 1:39 PM
+1241 Theodore Wirth Pkwy, Golden Valley MN
+
+That's the end of My Weekly Photo.
+
+Now, the Notable Links section.
+
+Link one. "Original 1949 Vitamix Infomercial - Papa Barnard - YouTube"
+
+I’m a fan of Vitamix blenders. We have two of them! I had no idea that they were one of the very first infomercials made. This is fun to watch.
+
+Link two. "Oh God, It's Raining Newsletters — by Craig Mod"
+
+Craig Mod sharing some perspective on the recent rise in newsletters. This newsletter, the Weekly Thing, is part of that rise. I have found some, but not all, of the particular and unique aspects of newsletter writing that is described here. I do love the “unmediated” aspect of email. There isn’t a spot for a company in the middle to profit from it (the reason I’m circumspect of ventures like Stoop).
+
+These newsletters are the most backed up pieces of writing in history, copies in millions of inboxes, on millions of hard drives and servers, far more than any blog post. More robust than an Internet Archive container. LOCKSS to the max. These might be the most durable copies yet of ourselves. They’re everywhere but privately so, hidden, piggybacking on the most accessible, oldest networked publishing platform in the world.
+
+Long live email!
+
+Link three. "Sheety - Turn your Google Sheet into an API"
+
+This seems like a cool capability for smaller projects or for just trying things out. Looks like it's read only. Reminds me of datasette..
+
+Link four. "Fortnite’s Marshmello concert was a bizarre and exciting glimpse of the future - The Verge"
+
+It’s clear to me that online multiplayer games like Fortnite are not just games, but are something bigger. What that bigger is I don't know. It’s not my wheelhouse but I know that people spend a lot of time engaging friends via these platforms. This concert from Marshmello inside of the game is an interesting example of how this can extend beyond traditional gaming.
+
+Link five. "Don't Let the Internet Dupe you, Event Sourcing is Hard - Blogomatano"
+
+The Event Sourcing pattern is a solid one and has been adopted a lot in recent years. This is a take on the complexity associated with event sourcing and some things to watch out for, or be aware of. It’s not an incrimination, but a survey of things to be prepared for.
+
+Link six. "How I Build Websites (A loose manifesto) – Rhoneisms"
+
+My friend Patrick Rhone outlines his approach to creating websites. Focused on benefits and the visitor, very good.
+
+Link seven. "Crypto Exchange Says It Can't Repay 190 million dollars to Clients After Founder Dies With Only Password"
+
+This isn’t the first time that large amounts of cryptocurrency have been lost.
+
+Canadian crypto exchange QuadrigaCX says it cannot repay most of 190 million dollars in client holdings after its 30-year-old founder Gerald Cotten, the only person who knew the passwords to its “cold storage,” unexpectedly died in India in December twenty eighteen, Coindesk reported on Friday.
+
+I wonder how much inflation bitcoin has had due to lost currency.
+
+Link eight. "Have A Few Minutes Of Serious Fun With Bob Mould: All Songs Considered: NPR"
+
+I love that Bob Mould is still making those giant guitar sounds. I’m looking forward to this new album.
+
+Link nine. "Rogue Amoeba - The Design of Loopback 2"
+
+This is a great overview of how to go about user experience design, just using some paper and pens. Teams often over complicate the tooling to get these design concepts created.
+
+That's the end of Notable Links.
+
+Now, the Give Back section.
+
+Minnestar is the technology community for Minnesota. If you are passionate about technology you need to go to Minnebar and Minnedemo. Did you know that Minnebar is the largest BarCamp in North America and one of the largest in the world? Its also been going on for over 10 years? Minnedemo is the best place to hear about innovative tech and fun projects in the Twin Cities area. I am on the Minnestar board and I focus on Minnestar as one of the driving forces improving and expanding the technology community in the area. Minnestar is a 501c3 non-profit. Become a Community Supporter today!
+
+That's the end of Give Back.
+
+Now, more links.
+
+- stylelint stylelint.io
+Handy tool for helping with CSS.
+- My Brand New Logo – logo maker | create your own logo
+Neat tool.
+- Homebrew 2.0.0 brew.sh
+Homebrew makes using your Mac so much easier, and now with support for Linux and Windows 10 Linux subsystem.
+- Humaaans: Mix- and -Match illustration library www.humaaans.com
+Robust graphic library with a variety of images for people.
+- Lapis - A web framework for Lua or MoonScript powered by OpenResty
+I continue to find Lua a bit fascinating, and dig the idea of putting Lua right in the web server.
+- Notepin - Extremely simple blogging notepin.co
+Another simple blogging platform. Let's keep these options flourishing!
+
+That's the end of More Links.
+
+Now, the Microposts section.
+
+Thursday @ 11:20 PM
+
+I had a great night celebrating #Winning at the #TeamSPS Sales Awards Dinner! Awesome to see a team support and recognize each other so enthusiastically!
+
+Thursday @ 5:03 PM
+
+A tremendous talk on happiness by Shawn Achor was a great way to cap off the day at #TeamSPS twenty nineteen Sales Kickoff! The content was great, delivered with wit and humor, and connected back to well-researched effects.
+
+Thursday @ 2:14 PM
+
+A ton of activity happening at our #TeamSPS Think Tank booths with product specialists working with the field sales team. Love this!
+
+Thursday @ 2:08 PM
+
+Nearly all #TeamSPS events have Thad Brenny making it all look great and smooth at the console! You are awesome Thad!
+
+Thursday @ 2:06 PM
+
+I had a great time sharing three fabulous product demos at the #TeamSPS twenty nineteen Sales Kickoff today! It’s great to get teams in front of the people that represent the work they do! (Picture of me from Amy Patton! Thanks!)
+
+Thursday @ 1:59 PM
+
+Having a great time at Day 2 of #TeamSPS twenty nineteen Sales Meeting. The team assembled hundreds of bikes for kids in need last night. Karin Lucas got things started today!
+
+Wednesday @ 5:32 PM
+
+I had a great morning joining the #TeamSPS twenty nineteen Sales Kickoff! Dan Juckniess and Jim Frome got the event started off right!
+
+Tuesday @ 9:00 PM
+
+3D Printing custom Valentine’s Day things for the kids to give their friends!
+
+Sunday @ 7:49 PM
+
+Longest punt in Super Bowl history! I guess that is something for the Rams. Super Bowl LIII
+
+Saturday @ 9:44 PM
+
+I visited Minnehack tonight and introduced SPS Commerce to 300+ students before we fed them a mountain of pizza!
+
+Saturday @ 2:39 PM
+
+These three #Kubb professionals took the Kubbchucks down without even flinching. Brutal.
+
+Saturday @ 2:05 PM
+
+Throw off for entry into the Minnesota Kubb Championship bracket. INTENSE #KUBB ACTION! Throw 3 Kubbs, then 6 batons. Whoever downs most Kubbs wins!
+
+Saturday @ 12:40 PM
+
+Kubbchucks went 2-1 in this mornings Minnesota Kubb round robin! On to the Championship bracket!
+
+Saturday @ 11:00 AM
+
+Kubbchucks playing in our eighth annual Minnesota Kubb winter tournament, part of the Loppet! Largest winter #Kubb tournament in the world!
+
+That's the end of Microposts.
+
+Now, the Fortune section.
+
+You've made it all the way to the end! Here is your fortune for this week.
+
+Expect the worst, it's the least you can do.
+
+Thank you for subscribing to the Weekly Thing!
+
+That brings us to the end of the Weekly Thing, issue 92. Thanks for listening, and I'll see you next time.

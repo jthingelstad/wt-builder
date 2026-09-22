@@ -1,0 +1,156 @@
+The Weekly Thing, issue 90. Jan 26, twenty nineteen. Published January 26, twenty nineteen. By Jamie Thingelstad. In this issue: SimpleOptOut.com, love of pipes, reMarkable paper tablet, detecting agile BS, hiring senior engineers, Marie Kondo fast fashion, mentoring Zuckerberg.
+
+Hello from the Bold, and Frozen, North! We are looking at several days with the thermometer never getting into positive numbers. There should be plenty of opportunities to curate some fun links by the fire.
+
+Now, the My Blog Posts section.
+
+Using API Credentials in Shortcuts
+
+Powerful method to store secrets like API tokens and passwords for Shortcuts.
+
+That's the end of My Blog Posts.
+
+Now, the Featured Links section.
+
+Link one. "Deep links to opt-out of data sharing by 40+ companies – SimpleOptOut.com"
+
+What a great resource to quickly get to the controls for privacy improvements at a number of big companies.
+
+Link two. "Jessie Frazelle's Blog: For the Love of Pipes"
+
+When you see technical people hammering away on a Unix prompt and wonder "Why don't they do that with a fancy graphical thing? It’s twenty nineteen after all." this explainer is a good answer to why.
+
+That's the end of Featured Links.
+
+Now, the My Weekly Photo section.
+
+Spiraling Stainless Steel.
+Jan 25, twenty nineteen at 2:56 PM
+SPS Tower, Minneapolis MN
+
+That's the end of My Weekly Photo.
+
+Now, the Notable Links section.
+
+Link one. "reMarkable | The paper tablet"
+
+This is an interesting product. It’s a single purpose tool, which makes me wonder if it could ever really make it, but it is focused squarely on the note taking space. It could work, but the cost is high.
+
+Link two. "The U.S. Department of Defense on How to Detect 'Agile BS' - The New Stack"
+
+Sort of a funny read from the Department of Defense helping it’s buyers not get duped by shenanigans around agile.
+
+The Board’s document says its goal is to help program executives and acquisition professionals to spot projects “that are simply waterfall or spiral development in agile clothing.” One attempted hybrid of Waterfall and Agile development has been dubbed “water-Scrum-fall,” but the document warns against imposters trying to claim this is agile development, using the sardonic moniker “agile-scrum-fall”.
+
+Link three. "Online privacy Recode podcast interview with McSweeney’s and EFF - Recode"
+
+This is a good interview with the director of the EFF and hits on a lot of the great content in the new book they published with McSweeney's. I just ordered a copy myself. There are some great "awakening" stories here about privacy practices online.
+
+Link four. "Trouble hiring senior engineers? It's probably you - Hiring Engineers"
+
+A number of good things to consider in your recruiting for technology professionals in general, not just senior engineers.
+
+Link five. "Leaders, doing what you're good at hurts your team. - Signal v. Noise"
+
+I like this advice.
+
+Pause. Don’t be so busy. Take stock. Why are you doing those things? Because you like doing them? Because you’re good at them? Or because it’s the best way to move the team forward?
+
+This would be a good thing to include in your regular reflections.
+
+Link six. "Marie Kondo, Fast Fashion, and the Thrift-Store Boom - CityLab"
+
+We've watched a few episodes of Tidying Up, it’s a fun diversion. I will admit it is also inspirational to go through that closet you've been ignoring.
+
+Another weird thing has been happening, says Susan, who works the front desk: People have been thanking their objects before giving them away. She rolls her eyes.
+
+It’s pretty amazing that could be driving a surge in donations.
+
+Link seven. "Talking sense about acronyms, initialisms, abbreviations, and neologisms - without bullshit"
+
+The technology industry has to be one of the most severely acronym'd industries out there.
+
+Abbreviations, initialisms, acronyms, and neologisms are jargon. You want to keep the density of jargon in your writing low to make it as readable as possible. Writing full of unfamiliar jargon is a struggle to parse, and perpetuates the curse of knowledge.
+
+It would do us well to use less of them.
+
+Link eight. "Introducing the Redesigned Twilio Status Page - Twilio"
+
+Nice work on their status page and accurately reflecting the dependencies they have on external network providers.
+
+Link nine. "I Mentored Mark Zuckerberg. But I Can't Stay Silent | Time"
+
+A pretty comprehensive critique of many things that Facebook does. This is from an early investor, Roger McNamee who has been critical of Facebook for a while. Reading the article through all of Time's advertisements is a challenge.
+
+That's the end of Notable Links.
+
+Now, the Give Back section.
+
+Internet Archive is a non-profit library of millions of free books, movies, software, music, websites, and more. I have been a supporter of the Internet Archive for many years and I think their mission is fabulous! The web is a major part of our culture and it the content that we put on it is sadly ephemeral. The Internet Archive is working hard to capture that information and keep it for history. Donate to Internet Archive today!
+
+That's the end of Give Back.
+
+Now, more links.
+
+- The Tech Revolt — The California Sunday Magazine story.californiasunday.com
+Nice stories of individuals in the tech industry focusing on ethical work.
+- Cloud Native Computing Foundation Announces CoreDNS Graduation - Cloud Native Computing Foundation www.cncf.io
+Cool to see another project "graduate" the CNCF.
+- Windows, Kubernetes and Azure.pdf - Google Drive drive.google.com
+Interesting slides with some pretty bad instances of Azure problems.
+- The books I read in twenty eighteen - Signal v. Noise m.signalvnoise.com
+I like reading peoples reading lists. It’s good inspiration for my own reading.
+- Techstars New Health Care Partner: Announcing UnitedHealthcare Accelerator Powered by Techstars - Techstars www.techstars.com
+Target did an effort like this with Techstars and it lasted one cycle and was then shut down. Hopefully this one will have more longevity.
+
+That's the end of More Links.
+
+Now, the Microposts section.
+
+Wednesday @ 7:44 PM
+
+Ordered End of Trust, McSweeney’s Issue 54 done in collaboration with the EFF!
+
+Tuesday @ 11:15 PM
+
+Just signed up for a fourth site on @Blot. This one will be to finally get a decent site for my Book Club.
+
+Monday @ 9:41 PM
+
+Tammy and I had an amazing dinner at Popol Vuh last night. Guacamole, Jicama Salad, Costilla, and Carne Asada. Everything was delicious and so flavorful! The drinks were amazing as well!
+
+Monday @ 9:34 PM
+
+Updating firmware FTW! This time the Joule Sous Vide.
+
+Monday @ 9:31 PM
+
+Tammy’s sisters and my brother-in-laws escaped Breakout - Operation: Casino in 45 minutes!
+
+Friday @ 10:54 PM
+
+I’ve used an Airport Express (Gen 1) with an auto-switching amp to get AirPlay audio. The Airport Express is discontinued now. Sonos Amp does what I want, but is 3 times the cost. Recommendations on better solutions?
+
+Friday @ 8:56 PM
+
+Quiet Friday night putting together tomorrows issue of the Weekly Thing.
+
+Friday @ 7:17 PM
+
+Closed on the sale of our old house. Now done with the moving stuff. Time to get settled into the new house.
+
+Friday @ 7:15 PM
+
+Got a second HomePod and am trying out a stereo pair. They sound incredibly good for the size.
+
+That's the end of Microposts.
+
+Now, the Fortune section.
+
+You've made it all the way to the end! Here is your fortune for this week.
+
+You will soon forget this.
+
+Thank you for subscribing to the Weekly Thing!
+
+That brings us to the end of the Weekly Thing, issue 90. Thanks for listening, and I'll see you next time.

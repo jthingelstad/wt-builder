@@ -1,0 +1,246 @@
+The Weekly Thing, issue 54. May 19, twenty eighteen. Published May 19, twenty eighteen. By Jamie Thingelstad. In this issue: Supply-chain security, Map of Metal, GraphQL future, Facebook Ads study, Day One twenty eighteen, OmniFocus 2 versus 3, Google Photos versus Apple Photos, Principles by Ray Dalio.
+
+This was one of those weeks that goes by so fast it was hard to even see the blurred images as they went by. The week started with recognizing the Mom's, onto a very busy week of activities, and I took off today with my brother for a weekend in Chicago! This weeks intro is going to be a little light so I can get some sleep.
+
+Now, the Featured Links section.
+
+Link one. "Supply-Chain Security - Schneier on Security"
+
+Schneier does a good job of illustrating just how hard (maybe impossible) it is to insure that the software-based devices that run much of our infrastructure and services have not been tampered with for security purposes. One of the very believable items shared in the Snowden papers was that the NSA can install a backdoor in US-made network gear before it is sent overseas. There isn't a clear answer to this issue.
+
+Link two. "Map of Metal"
+
+This is amazing! My metal residency lies squarely in Thrash Metal according to this map, and some side trips to Industrial Metal. That makes sense with Speed Metal and Original Hardcore Punk being the contributors to Thrash. Independent of the content this is incredibly well done way to present a complex topic. I love how it embeds YouTube videos for the songs too. Also note how time is represented so well!
+
+Link three. "Is GraphQL The Future? - Artsy Engineering"
+
+A call to consider GraphQL in a bigger-picture context.
+
+It lets you model the resources and processes provided by a server as a domain-specific language (DSL). Clients can use it to send scripts written in your DSL to the server to process and respond to as a batch.
+
+I hadn't considered the connections the author is making here, but they seem valid and extend the way you can build on GraphQL in very novel ways.
+
+Link four. "You Can’t Handle the Truth About Facebook Ads, New Harvard Study Shows"
+
+Interesting study suggesting the ads become less effective when people understand the data tracking informing the ad. As I read this I wondered if this is maybe the same part of our decision process that turns people away from foods that have “imitation” or “artificial” prominent in the packaging. Do we see overly complex delivery systems as not being genuine?
+
+Also, I’m so tired of ad industry representatives justifying a complete disregard of privacy and intrusive surveillance tactics under the guise of “people want relevant advertising”. This is a poorly formed bit of verbal jujitsu to get us to try and think people want to be surveilled?
+
+That's the end of Featured Links.
+
+Now, the My Weekly Photo section.
+
+Minnesota United getting ready to play the San Jose Earthquakes.
+
+May 12, twenty eighteen at 1:08 PM
+TCF Bank Stadium, Minneapolis MN
+
+That's the end of My Weekly Photo.
+
+Now, the Notable Links section.
+
+Link one. "What’s In My Day One (twenty eighteen Edition) – The Sweet Setup"
+
+I really like Day One and this article has some great use cases for how to use Day One for a variety of different journal types.
+
+Link two. "StopTheMadness"
+
+If you use Safari on macOS and are bugged with certain websites blocking default behavior, this is a fix.
+
+StopTheMadness is a Safari extension for Mac that stops web sites from making Safari harder to use. Some web sites disable Mac user interface features in Safari that you normally expect to work.
+
+Purchased and installed.
+
+Link three. "On Gaming and the Breath of the Wild • chrisbowler.com"
+
+A good essay on gaming, family and kids. I liked the perspective and agree with the platform and game choices discussed.
+
+Link four. "Morning Cup of Coding — Human Readable"
+
+This newsletter caught my eye. The first few issues have impressed me with how well they are executed.
+
+Morning Cup of Coding is a daily programming newsletter featuring long form technical articles of all fields of software engineering.
+
+Subscribed!
+
+Link five. "I Don’t Know How to Waste Time on the Internet Anymore"
+
+Let's make the Internet weird again.
+
+Link six. "Incident Response: 6 Best Practices for the Modern Enterprise | PagerDuty"
+
+As more companies use technology at their core, adopting well defined and thought out incident management processes becomes a skill that more organizations need.
+
+Link seven. "My thoughts on OmniFocus 2 versus 3 - Productived.net"
+
+I use OmniFocus all the time and I’m very eager to get my hands on the new OmniFocus 3!
+
+Link eight. "Some Thoughts on Google Photos versus Apple Photos – Om on Tech"
+
+I don't use Google Photos for the same reasons Om sites in this article. I join him In hoping for some improvements in the Apple software side for photos.
+
+Link nine. "The Curious Brain (Why Curiosity is as Important as Intelligence)"
+
+Instilling curiosity in your kids is one of the best gifts you can give them.
+
+Link ten. "FutureMe: Write a Letter to your Future Self"
+
+What a cool idea -- a service that allows you to send yourself an email in the future! I can think of a number of cool uses for this. It does make me wonder though, how do you have trust that this service will still be around in 5 years? You can set future dates very far out.
+
+Link eleven. "Principles by Ray Dalio"
+
+I have the audiobook of Principles in my queue. This new 30-minute video overview is very well done. Ray Dalio is an impressive storyteller.
+
+That's the end of Notable Links.
+
+Now, the Give Back section.
+
+Let's Encrypt is a free, automated, and open certificate authority, run for the public’s benefit. All connections to web servers should be encrypted! The biggest challenge with encrypting the web historically has been the cost and hassle of getting an SSL certificate. Let's Encrypt has changed that entirely by being a free certificate authority. Let's Encrypt is possibly one of the most important things to happen on the web in recent years. Donate to Let's Encrypt today!
+
+That's the end of Give Back.
+
+Now, more links.
+
+- Where the Yanny and Laurel Meme Comes From | WIRED www.wired.com
+Following the path of this story, my daughter has found this fascinating.
+- The Original Hacker's Dictionary www.dourish.com
+The original jargon.txt file from around 1998. Many of these terms are still in active use.
+- Regex Crossword regexcrossword.com
+This is awesome! love Learn Regex and have geeky fun at the same time.
+- Your serverless Raspberry Pi cluster with Docker blog.alexellis.io
+Why not? Similar to Raspberry Pi Kubernetes Cluster.
+- Meet Surface Hub 2 - Microsoft Devices BlogMicrosoft Devices Blog blogs.windows.com
+The video here is a compelling way to think about teams collaborating with technology.
+- On null | Structure and Interpretation of Computer Programmers www.sicpers.info
+A dive into the true meaning of null.
+- txt.fyi txt.fyi
+The "dumbest publishing platform on the web". Markdown in, URL out.
+- Professor Frisby's Mostly Adequate Guide to Functional Programming mostly-adequate.gitbooks.io
+Free online book on functional programming.
+- Shell Style Guide google.github.io
+I like goofing around with bash and this style guide is simple and pragmatic.
+- Nintendo Switch Online service: Everything you need to know! | iMore www.imore.com
+Switch Online getting cloud save.
+- Scripting News: The Internet is going the wrong way scripting.com
+Dave Winer is a good "North Star" for the open web.
+- Boston Dynamics’ robots are learning how to run outside and navigate autonomously - The Verge www.theverge.com
+- Pyre · A performant typechecker for Python pyre-check.org
+Looks like a solid tool.
+- Social media copies gambling methods 'to create psychological cravings' | Technology | The Guardian www.theguardian.com
+Addictive software.
+
+That's the end of More Links.
+
+Now, the Microposts section.
+
+Wednesday @ 5:02 PM
+
+Time for some fun socializing for #TeamSPS at #SPSTechJam!
+
+Wednesday @ 4:36 PM
+
+Not sure about the @optimuspaul sticker in the lower right.
+
+Wednesday @ 4:26 PM
+
+Another great #TeamSPS #SPSTechJam! Wonderful topics, great speakers and an amazing team!
+
+Wednesday @ 4:07 PM
+
+“At SPS it might be Kube or Kubb!” Kelly Hamm at SumoLogic knows #TeamSPS — and thanks for the Kubb set!
+
+Wednesday @ 3:07 PM
+
+I left my iPad at my seat while stepping away and #TeamSPS security was on the job with a good reminder!
+
+Wednesday @ 3:02 PM
+
+Women in Tech sharing with #TeamSPS the great work they are leading! #SPSTechJam
+
+Wednesday @ 1:55 PM
+
+Afternoon sessions for #SPSTechJam.
+
+Wednesday @ 11:40 AM
+
+Evolutionary architecture, Kotlin, and GraphQL. Great second half of the morning at #SPSTechJam!
+
+Wednesday @ 11:29 AM
+
+Today we have people from United States (multiple cities), Ukraine, Canada, India and Bulgaria with #TeamSPS and partners here in Minneapolis. Global!
+
+Wednesday @ 10:27 AM
+
+Great #TeamSPS speakers at #SPSTechJam! Thank you for sharing!
+
+Wednesday @ 8:52 AM
+
+Bridget Kromhout @bridgetkromhout getting #SPSTechJam started off! Computers are easy, people are hard!
+
+Wednesday @ 8:49 AM
+
+A huge thank you to the #TeamSPS TechJam event organizers! Your passion and drive make us a better team! #SPSTechJam
+
+Wednesday @ 7:11 AM
+
+Today is our annual #TeamSPS TechJam event bringing the global SPS technology team together to learn, share, and have fun. The agenda is packed with over two dozen presenters. Automation, GraphQL, Containers, Architecture and more on the agenda! #SPSTechJam
+
+Tuesday @ 6:51 PM
+
+Hanging out with the amazing @bridgetkromhout (website ) at our #SPSTechJam speaker dinner! Looking forward to a day of learning and exploration tomorrow with Bridget kicking it off!
+
+Sunday @ 7:40 PM
+
+Happy Mother’s Day twenty eighteen to my awesome mom!
+
+Sunday @ 6:53 PM
+
+Enjoying a delicious Westvleteren 12 — voted best beer in the world! Wow!
+
+Sunday @ 5:44 PM
+
+Surly Hopshifter IPA. Awesome!
+
+Sunday @ 5:42 PM
+
+Mothers Day twenty eighteen!
+
+Sunday @ 9:52 AM
+
+Learned that you cannot make whipped cream in an ice cream maker bowl.
+
+Saturday @ 9:42 PM
+
+I like the augmented memory effect I get when adding a link to Pinboard and it tells me I previously saved the link – multiple years ago.
+
+Saturday @ 3:06 PM
+
+SJ Quakes - remember to send a nice Thank You to the Yellow Team for the win. Next time #MNUFC!
+
+Saturday @ 1:36 PM
+
+Gorgeous goal from Ramirez to bring #MNUFC to 1-1 with SJ. Yellow team is horrible.
+
+Saturday @ 1:13 PM
+
+Goal for the Yellow Team to give San Jose early lead! #MNUFC
+
+Saturday @ 1:12 PM
+
+MN United #MNUFC game time!
+
+Saturday @ 12:23 PM
+
+Ready for MN United game!
+
+That's the end of Microposts.
+
+Now, the Fortune section.
+
+You've made it all the way to the end! Here is your fortune for this week.
+
+Be slow in choosing, but slower in changing.
+
+Thank you for subscribing to the Weekly Thing!
+
+That brings us to the end of the Weekly Thing, issue 54. Thanks for listening, and I'll see you next time.

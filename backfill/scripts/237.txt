@@ -1,0 +1,428 @@
+The Weekly Thing, issue 237. Ethereum, Zelensky, Fadell + Erratic Narratives. Published December 11, twenty twenty two. By Jamie Thingelstad. In this issue: Ethereum ecosystem, Zelensky Person of Year, Black Start power grid, Apple security features, Tony Fadell crypto, FTX collapse.
+
+Hello there!
+
+Here we are in December. Christmas shopping is in full swing. The planners out there are probably done already. This is also the time of year that many people think about end-of-year giving to support important causes.
+
+I think it is incredibly important that we give to a variety of causes. We need to do our part to help where we can. There are so many causes worth supporting.
+
+Since you are reading this, I suspect you also care about the health and vitality of our digital world, the Internet. Here are a select group of non-profits that I personally support, and would recommend to anyone that they consider supporting too.
+
+- EFF: Defending digital privacy, free speech, and innovation. The EFF is at the forefront of making sure that we maintain our rights online.
+- Creative Commons: Overcome legal obstacles to the sharing of knowledge and creativity to address the world’s most pressing challenges. Having a free society depends on culture not being locked up, and CC has solutions. All of my content I share online is under a CC license.
+- Let's Encrypt: Certificate Authority providing TLS certificates to 300 million websites. No other organization has done so much to make the web more secure. Period.
+- Internet Archive: Library of millions of free books, movies, software, music, websites, and more. Culture happens online, and too much of it is lost. Internet Archive is working to preserve our history as we constantly forge ahead.
+- Wikimedia Foundation: Hosts Wikipedia and other crucial free knowledge projects. I realize Wikipedia is very well funded, but I still have so much love for all of the various projects they run.
+
+In the spirit of the season, we can help the digital world that is so important to us be better too. Join me in supporting some or all of these organizations.
+
+This week has a special guest author and exclusive preview of Erratic Narratives. Curious? Make sure to read the section below…
+
+This is the last Weekly Thing for twenty twenty two! It is time for my Winter break. Thank you for reading and subscribing. It is an honor to get to land in your mailbox each week.
+
+Enjoy your time with family and friends, may it be Merry and Bright, and I look forward to seeing you in twenty twenty three!
+
+Now, the Featured section.
+
+Link one. "What in the Ethereum application ecosystem excites me"
+
+As the creator of Ethereum I was very interested in reading about Vitalik Buterin's take on what he is excited about in the space. While obviously being a promoter of Ethereum, Vitalik is also a reasonable critic and has a track record of highlighting problems or limitations. He starts with that…
+
+Quote.
+We've also come closer to identifying fundamental limits of the space. Many DAOs have had a fair chance with an enthusiastic audience willing to participate in them despite the inconveniences and fees, and many have underperformed. Industrial supply-chain applications have not gone anywhere. Decentralized Amazon on the blockchain has not happened. But it's also a world where we have seen genuine and growing adoption of a few key applications that are meeting people's real needs - and those are the applications that we need to focus on. Hence my change in perspective: my excitement about Ethereum is now no longer based in the potential for undiscovered unknowns, but rather in a few specific categories of applications that are proving themselves already, and are only getting stronger.
+End quote.
+
+Many people (including me!) have said that blockchain is a solution looking for a problem. I think that was a fair assessment a number of years ago. The space has evolved in significant ways, which is partly why I prefer to refer to the solution space as "crypto", and not blockchain. I tend to not love the Web3 term either, as it is often placed in opposition to Web2 which is incorrect in my opinion. My own "tinkering" in the space has been to be a user, a builder, and see what I can do with it in my own hands.
+
+Summary of Buterin's list:
+
+1. Money
+2. DeFi
+3. Identity
+4. DAOs
+5. Hybrid Apps
+
+My list would be the same, but I would probably change the order with Identity being on the top.
+
+Some thoughts of mine using Vitalik's list:
+
+Money
+
+Money will be digital. I think we are well beyond the tipping point on this. I don't think paper money should disappear, but having digital cash is too powerful to ignore. The innovation here will continue to happen in smaller and less developed economies, but will come everywhere.
+
+Quote.
+Unlike wealthy countries like the United States, where financial transactions are easy to make and 8% inflation is considered extreme, in Argentina and many other countries around the world, links to global financial systems are more limited and extreme inflation is a reality every day.
+End quote.
+
+I think bound to this future is a multi-currency world. Something that will be new as well to wealthy countries. The power to be able to move a variety of currencies directly wherever I want is huge. Simple stuff, like paying for a designer directly with a designer in another country by sending USD Coin with no intermediary is incredible. Stablecoins are also a critical unlock here to allow for more average, everyday transactions. Vitalik's overview of different types of stablecoins was interesting to me and got me looking at RAI closer.
+
+My hope and belief here is that this is all additive. It isn't a replacement, but in addition to. Will credit cards go away? No, they provide a debt tool and protection against fraud since the funds move slowly.
+
+Blending fiat and digital, along with a variety of stablecoins as well as traded currencies, will allow people to use different tools for different jobs, and give more freedom and choice to how we transact with others.
+
+DeFi
+
+An observation about finance that isn't limited to crypto. It tends to get wildly complex and have hidden leverage that results in unsustainable returns, that eventually blowup. We've seen this in DeFi, we've also seen it in traditional finance. We've also seen a ton of fraud in DeFi, which we've also seen in traditional finance.
+
+The use cases Vitalik lists here are interesting. I would add to them that access to simple financial capabilities, particularly debt, via smart contracts is a boring but very powerful tool.
+
+I've been lending for 15 years on Kiva and have ben part of 258 loans so far. I’m a fan of Kiva and the basic thesis of microlending. However, it is a complete and total black box. I have to trust Kiva, and their field partners, and just cross my fingers that this all works. This entire thing could be rebuilt in so many better ways.
+
+Another good example here is Endaoment which I used to create a donor advised fund on-chain and fund in minutes using my browser.
+
+The key with this space is to keep it boring and simple.
+
+Identity
+
+How the crypto ecosystem has approached identity is surprisingly one of my very favorite things. It is important to note that in crypto identity is often aligned with a wallet, and you can have any number of wallets. I love the fact that you can build up multiple identities and could even bind those all to one person. The ecosystem is the win here.
+
+Quote.
+When I log on to Blockscan chat, I sign in with Ethereum. This means that I am immediately visible as vitalik.eth (my ENS name) to anyone I chat with. In the future, to fight spam, Blockscan chat could "verify" accounts by looking at on-chain activity or POAPs. The lowest tier would simply be to verify that the account has sent or been the recipient in at least one on-chain transaction (as that requires paying fees). A higher level of verification could involve checking for balances of specific tokens, ownership of specific POAPs, a proof-of-personhood profile, or a meta-aggregator like Gitcoin Passport.
+End quote.
+
+I like what Reddit is doing here as well. Reddit is slowly moving avatars and their own reputation system into crypto, and doing it with either a wallet that they manage for you or you can provide your own.
+
+You can see reputation forming here with a combination of systems like Reddit Karma, and then layering on POAP tokens as well.
+
+If you take a look at the POAPs that I have it gives you a clear sense of me, at least in some dimensions of my life.
+
+I agree with Vitalik's assertion that Privacy is a key issue that has to be addressed here. However, I would put user experience even higher, which isn't on his list. This stuff is wonderful for geeks, but is far too difficult for average users to pull off. I think Rainbow is ahead of the pack here. Using Rainbow you can buy an ENS name right in your wallet and manage your profile, in addition to seeing your various POAPs.
+
+Additional to identity, I think we are going to see attestation added here through signing and other cryptographic proof. How do you know that the text you are reading was actually written by me? Well, you can trust that nobody was in the middle. But if I digitally sign it with my thingelstad.eth wallet, and you can attest that wallet is me, you can know for sure.
+
+DAOs
+
+I think there is a lot of potential in DAOs. I've described them as a means of organization collective action. Vitalik's definition is more specific.
+
+Quote.
+Most generally, a DAO is a smart contract that is meant to represent a structure of ownership or control over some asset or process.
+End quote.
+
+I’m a token-holder in multiple DAOs, mostly in the Noun ecosystem but also in Ukraine DAO, Elf DAO, and others. For me DAOs have been filled with as much disappointment as excitement, but I still think there is a huge potential here.
+
+Vitalik's thoughts on DAOs are much deeper than my own. I would like to consider small DAOs and how that could enable new things.
+
+My favorite DAO example would be a neighborhood solar collector. Using a DAO you could remove much of the trust and governance requirements. if 80% of the households in a neighborhood wanted to collectively setup a solar collector, a DAO could be created to hold the treasury, pay for the installation, provide maintenance, take votes on improvements and changes, and pay the members out as needed. That could be a big enabler of "collective action".
+
+My bad taste with DAOs today is that nearly all of them vote with tokens, and that means that many DAOs are controlled by a small number of mega token holders. LilNouns DAO, which I have 2 of, is dominated by a handful of people that hold large collections and they effectively control the votes. Governance models need to evolve greatly for DAOs.
+
+Hybrid Apps
+
+Using crypto technology to solve just part of the solution for an existing service is a great use case. I think these will lag though as they need significant adoption of crypto via primary use cases to power these secondary ones.
+
+*
+
+In conclusion, this list is what makes me excited about the Ethereum landscape. There are other valuable things happening in crypto, but these use cases have a lot of potential, and are not easily solved using other approaches.
+
+That's the end of Featured.
+
+Now, the Currently section.
+
+Installing: I’m trying out Permission Slip from Consumer Reports. This app automates the often complicated process of requesting companies to delete information they have about you. Consumer Reports has the beginnings of a database on how to make these requests, and then they make it easy for the user to make the requests and follow-up on them. I've sent a few requests to see how it works.
+
+That's the end of Currently.
+
+Now, the Notable section.
+
+Link one. "How the 1% Runs an Ironman - The New York Times"
+
+I didn’t know that Ironman XC existed: a full on VIP approach to doing a half-Ironman event. I've known many people that have done Ironman events. The time and commitment it takes are intense. This white-glove treatment sounds pretty awesome for those that want and can afford it.
+
+I've never done an ironman event, but I have done many long distance cycling events so I get the mental aspect of endurance. I loved this quote:
+
+Quote.
+Once you’ve pushed your body and mind to race all those miles in a single day, the crises of normal life become speed bumps.
+End quote.
+
+I dunno about speed bumps, but it certainly stretches your limits.
+
+Link two. "Stability without Pegs | Reflexer"
+
+RAI is a completely independent way to create a crypto stablecoin. Many stablecoins peg themselves to other assets, often 1 US dollar. This has a number of collateral as well as legal issues that could be a problem. RAI is independent of all other mechanisms.
+
+It doesn't give the "warm fuzzy" that pegging to an established currency gives, but it does make it survivable of various regulatory issues.
+
+Link three. "Volodymyr Zelensky Is TIME's twenty twenty two Person of the Year | Time"
+
+Great pick for Person of the Year. The transformation of Zelensky for comedian and actor, to wartime president is incredible.
+
+Quote.
+Zelensky’s success as a wartime leader has relied on the fact that courage is contagious. It spread through Ukraine’s political leadership in the first days of the invasion, as everyone realized the President had stuck around.
+End quote.
+
+Link four. "What Is A Black Start Of The Power Grid? — Practical Engineering"
+
+This is a fun brief primer into how a large grid recovers from a total outage.
+
+Quote.
+It’s just not feasible to maintain that amount of standby generation capacity at every power plant. Instead, we designate black start sources that can either spin up without support using batteries and standby devices or that can remain energized without a connection to the rest of the grid. Obviously, these blackstart power plants are more expensive to build and maintain, so we only have so many of them spread across each grid.
+End quote.
+
+These "black start" power stations that help the rest of the grid get back is pretty cool. Overall this whole thing reminds me a bit of the complexity of starting a data center if everything is shutdown. Complex systems, it seems, always require a key amount of choreography in order to get themselves back up and running.
+
+Link five. "Apple Announces a Trio of Security Features Coming to Its Platforms - MacStories"
+
+This is a great set of improvements on the way! I love the addition of iMessage Contact Key Verification. This sounds a lot like what Signal has always had where you can verify in person and create additional confidence that your messages are going to the right person.
+
+Quote.
+For even greater security, users can compare a Contact Verification Code in person, on FaceTime, or through another secure channel.
+End quote.
+
+And not to be missed is Advanced Data Protection for iCloud which will finally support end-to-end encryption of all of your photos in iCloud as well. That is a great add!
+
+Link six. "Tony Fadell Is Trying to Build the iPod of Crypto | WIRED"
+
+Bringing experienced designers who have built mass-market solutions, people exactly like Tony Fadell who designed the original iPod, is exactly what crypto needs.
+
+Quote.
+Fadell met with Gauthier at a Paris café, and they agreed that Ledger needed its next product to have broader appeal. They parted ways, but Fadell kept brainstorming. When he hit on a vision, he met with Gauthier again. "I want to be the chief designer on that," Fadell told him. Gauthier immediately agreed.
+End quote.
+
+Innovation in wallets and the user experience is the largest barrier to further adoption of this technology, in my opinion. The pain of fraudsters like FTX is two-fold because it does financial harm, but it also pushes talent that is needed to create better solutions away from the space.
+
+I was on the fence about ordering a Ledger Stax. I use a Ledger Nano X today, and the usability is at best frustrating. But I want to own a bit of history with the Stax. Pre-order placed.
+
+Link seven. "What I've Learned in 45 Years in the Software Industry | BTI360"
+
+Great wisdom to apply to solutions.
+
+1. Beware of the Curse of Knowledge
+2. Focus on the Fundamentals
+3. Simplicity
+4. Seek First to Understand
+5. Beware of Lock-In
+6. Be Honest and Acknowledge When You Don’t Fit the Role
+
+These are all things that are worth reminding about. Simplicity is perhaps the one that needs reminding the most often. Technologists often find complexity fascinating.
+
+Link eight. "Ann Patchett on Scheduling Creativity - Cal Newport"
+
+Making sure we have time to think and explore concepts is important.
+
+Quote.
+Creative insight of any type — be it business strategy, an ad campaign, or computer code — requires cognitive space to emerge. It doesn’t take much daily activity before original thought is starved of the neuronal nutriments required to grow.
+End quote.
+
+This is something I regularly struggle to achieve. The issue that goes along with this is having the energy ready and available when the time you have set aside comes along. I've always struggled to schedule time to write for example, as I often find that the energy isn't there when the time arrives.
+
+Link nine. "How to Use ChatGPT’s AI Chatbot to Save Time Marketing Your App | Susannah Skyer Gupta"
+
+This is a trivial example of how AI can be used in marketing, and it seems obvious that this is the path we are going to head down faster than we realize. In addition to describing the solution to the AI to author the message, how about also having the AI look at the social profiles of every person that it is sending to. Magically, you get customized 1:1 marketing messages for each person you are reaching out to.
+
+Link ten. "Sign Everything - AVC"
+
+This is a super interesting idea from Wilson. Digitally signing things, particularly emails, has been around for a while but never really caught on. In general, we can rely that the email that appears from me actually is. However, as Wilson suggests with advances in AI this may become a bigger issue.
+
+Quote.
+So what do we do about this world we are living in where content can be created by machines and ascribed to us? I think we will need to sign everything to signify its validity. When I say sign, I am thinking cryptographically signed, like you sign a transaction in your web3 wallet.
+End quote.
+
+I've pondered this a bit. As someone that has written a blog for 20 years, and a newsletter for 5, I clearly have enough written text on the Internet that you could train an AI to specifically author text in a way that sounds like it was from me. In a future where AI models are not just powerful, but readily available to mimic anyone with enough training information, we are going to have a problem with authenticity.
+
+Using crypto capabilities to sign messages is a great answer to this. I'd love to see this built into various publishing services that I use. Combining that all with the identity capabilities, you can have a way to know that the text you are reading is truly from the author.
+
+This comment signed by thingelstad.eth with signature:
+
+0x9b92bd4d756a8fc24f5049fec46f95bbfa062ddf6a
+f1c2465df0b2f4890922103bed38f70d0734768d6957
+c6d02f133abced05cd2ee6f1f5e667e46c476414ab1c
+
+Link eleven. "Decentralization - Not Boring by Packy McCormick"
+
+A thought provoking thesis from McCormick on the regular oscillation between centralized and decentralized solutions.
+
+Quote.
+We’re heading towards an era of greater decentralization on all fronts – geopolitics, finance, education, journalism, and energy are just a few examples – driven by technologies including, but not limited to, the internet. This newly decentralized era will require new infrastructure and organizing principles that can adapt to the chaos and complexity inherent in decentralized systems.
+End quote.
+
+Link twelve. "FTX’s Collapse Was a Crime, Not an Accident"
+
+Coindesk was the genesis of the news that ultimately ended up bringing down FTX. I strongly agree with their take on the crimes involved in FTX.
+
+Quote.
+Since his con collapsed, Bankman-Fried has continued to muddy the waters with carefully disingenuous letters, statements, interviews and tweets. He has attempted to portray himself as a well-intentioned but naïve kid who got in over his head and made a few miscalculations. This is a softer but more pernicious version of the crisis management approach Donald Trump learned from the black-hat mob lawyer Roy Cohn: Instead of "deny, deny, deny," Bankman-Fried has decided to "confuse, evade, distort."
+End quote.
+
+I've intentionally avoided Bankman-Fried's various interviews. I think it is exactly as described, an attempt to control the narrative. And very sadly it is working. Bankman-Fried needs to be held to account for the crimes undertaken in his leadership. That this happened in crypto is not the main focus here, but to move forward the industry needs to hold FTX and all to account and then move on.
+
+That's the end of Notable.
+
+Now, the Erratic Narratives — Exclusive Preview section.
+
+Quote.
+Enjoy this guest post from Hector Fernandez. Hector is launching (resuming?) Erratic Narratives, which will share perspective on markets, decentralization, and the arts. Hector is deeply knowledgable on all things finance, and has an acute and insightful perspective on a wide variety of topics. I’m subscribed! Recommended. ‼
+End quote.
+
+Sickness is Volatility; Volatility is not a Sickness [# -1]
+
+Erratic Narratives is a pseudonymous newsletter born in the depths of Covid19 to document those weeks that will never be repeated. Last letter was May twenty twenty one.
+
+Erratic Narratives blends 2 areas (plus 1 new) which I have cared about since I was 18. At 43, I remain enamored with exploring markets and music, with a new healthy dose of exploring decentralized everything = All of it.
+
+- Cannot play instruments BUT attended hundreds of shows, booked my fair share, and was my first intro to ‘networking’.
+- Turned off Bloomberg for last time May two thousand eight BUT the SEC’s Edgar and Yahoo Finance remain some of most visited on my screens; and yes CNBC comes on vacation.
+- Cannot code, debug, bridge, hash, or smart contract anything BUT have always been early adopter (semi-quick follower to Jamie, which puts me in fastest 5%), invested/M and A in tech and media for top 3 bank, and endless friends in web3/defi.
+
+Disclaimer: Not financial advice; all comedy/parody; may be long, short, convex, or contango any assets discussed; Never solicitation; when in doubt = radical transparency.
+
+Intro, preview 0: Long intro, but today’s short missive is on something close to me, I live it and think of it daily:
+
+Sickness is Volatility; Volatility is not a Sickness.
+
+Facts
+
+- Having spent half a week in pediatric ICU after a Sunday night ambulance ride, everything settles into its right proportions; what to do about this BTC break below 20 thousand dollars, how alert should we be of Chinese / Iran protests / do I really need to go learn true inflation maths?
+- Hospitals are very much akin to Wall Street: ton of activity overnight, alarms, yelling, rushing, screens everywhere, blasting number messages in weird acronyms to people that talk weird. All with dollars flying into the air from unknown worlds to other worlds, and people stuck in between.
+- The unpredictable nature of sickness is probably most akin to what market participants experience, daily, weekly, yearly. For every Mad Cow, there is biotech; for every RSV, no recurring SAAS; for monkey pox, levered ETFs; many analogies. But all with that certain comment that Dr. Larry Summers once made: ‘no one really knows’
+
+Opinion
+
+Sickness and all its maladies does in fact display in its entirety the 4 main Option greeks (Vega, Theta, Delta, Gamma). Impact of a change… within time remaining (decay!)… change in the underlying… on rate of change in the first.
+
+Some interpret options through hard math. I cannot. Need intuition – and for that I had amazing professors in two thousand, people that mean the world to me. Measuring the change on the change seems impossible, but is quite intuitive when you think of little LEGO cars running up and down commodity or stock charts. Velocity, friction, building blocks, curvature – the entire world of markets fits into the toy sets that litter the basement floor.
+
+And yet, the opposite is UNTRUE. Volatility is NOT a sickness.
+
+To most developed world citizens, it is, so they think. They believe prices are/should be stable (fake news); they think that rapid accelerations should only happen when they themselves press the gas pedal, not when the highway you are on suddenly starting running away from you under your feet (inflation everywhere, since beginning of time, ex-US/EU).
+
+So no big dive on music today or comment on sbfcarolineftx.theblock.pomp.
+
+But I will leave you with words that I will never be good enough to write; that stuck with me since two thousand when I thought that Citigroup inviting me to an interview in NY meant I would get a job offer (wrong wrong).
+
+“I remember exactly how I felt and what I saw my first day at Salomon Brothers. There as a cold shiver doing laps around my body…I rose early to walk around Wall Street before going to the office. I had never seen the place before.
+
+There was a river at one end and a graveyard at the other”. [Ch.3 Learning to Love Your Corporate Culture, M Lewis]
+
+River, reflection, progress on one end; Graveyard, darkness, regress on the other.
+
+And that is the world of music, markets, and DeAll.
+
+Thank you to Jamie for being the inspiration to re-start this.
+
+— Hector
+
+Subscribe to Erratic Narratives for more…
+
+That's the end of Erratic Narratives — Exclusive Preview.
+
+Now, the Journal section.
+
+Thursday @ 11:22 PM
+
+We had an amazing evening at the Concordia Christmas Concert “Star of Bethlehem, Lead Us to Peace”. Fabulous performance.
+
+Wednesday @ 8:20 PM
+
+Telegram is very popular in Ukraine, and I've become a regular user of it to keep in touch with friends in Ukraine as well as some crypto related groups. Telegram has the distinction of being one of very few indepdently owned cross-platform messaging services. I also signed up for Telegram Premium when it came out because I wanted to support the product. This update from Durov on Premium is pretty incredible.
+
+Quote.
+Telegram Premium, which we introduced just 5 months ago, quickly surpassed 1 million subscribers and has become one of the most successful examples of a social media subscription plan ever launched. While it still represents just a fraction of Telegram’s overall revenue, Telegram Premium is growing steadily every day, and one day may even rival our ads.
+End quote.
+
+In a matter of 5 months they've added a 60 million dollars recurring revenue stream.
+
+Wednesday @ 8:11 PM
+
+Upgrading to MarsEdit 5 was the easiest decision I made all day.
+
+Wednesday @ 7:38 PM
+
+Burn test for the small candles I made this weekend. Worked great. Scent strength is good.
+
+Sunday @ 1:17 PM
+
+First attempt at making smaller 2.5 oz Wicky Thing Candles. Also experimenting with a bold Double True North scent. Small vessels are harder to fill, and you have to go quick since the wax starts setting fast. Would be interesting to heat the vessels before the pour.
+
+Sunday @ 7:04 AM
+
+Early Sunday morning. Fresh cup of delicious coffee. Fire started in fireplace. Everyone else still sleeping. Gratitude.
+
+Saturday @ 10:26 PM
+
+It was another delightful evening with The New Standards and friends at the twenty twenty two Holiday Show. This is now one of the key traditions of our Christmas season.
+
+Saturday @ 4:59 PM
+
+Ticket to Paradise
+
+Tammy and I went to Ticket to Paradise at the newly renovated Edina Theatre today. It was a funny movie, enjoyable, and very predictable. Pretty much exactly what you would expect, which is great if that is what you are looking for. We enjoyed it.
+
+Saturday @ 4:54 PM
+
+Tammy and I went to a movie at the newly remodeled Edina Theatre today. The Shining treatment to the second floor bar area is awesome. I had to use the photo opportunity at the typewriter. "All work and no play makes Jack a dull boy."
+
+Saturday @ 4:49 PM
+
+Watched the recording of the USA v Netherlands World Cup game. Sad to see the USA leave the tournament but we played a tough game and had chances. Be back again in four years!
+
+Saturday @ 9:27 AM
+
+Delicious coffee in St. Paul this morning at Yellowbird Coffee Bar.
+
+That's the end of the Journal.
+
+Now, the Reply All section.
+
+Here are some replies from Weekly Thing #236 / ChatGPT, Reading, Legitimacy.
+
+From Josh Ellis, my cousin and a particularly deep thinker on stoicism and reflection. When Josh refers to solitude below, he knows of what he speaks.
+
+Quote.
+Good read. I’ve read Bowling Alone, and yes loneliness is an issue for many, but we also need to keep in mind the difference between loneliness and solitude. Some can spend a lot of time alone and never be lonely, and actually excel in creative pursuits and life in general because of solitude. The case for solitude is expressed nicely in the book “Solitude” by Anthony Storr.
+End quote.
+
+This is (yet another) area that I worry social media is poisoning our brains. Solitude can come in intentional ways as Josh suggests. It can also just come in the white space around everything else.
+
+Now we have our friends, likes, retweets, and random other bullshit readily available in our pocket to fill every nook and cranny of quiet that might exist in our brain. Quiet that may give you questions, benefits, new thoughts… and solitude.
+
+I think a metaphor is appropriate here. Think of social media like spray foam. You put a little in, and before long it has expanded to fill every bit of open space that it could possibly find. Sometimes overfilling the space and leaving drippy residue all over the place.
+
+I added his book recommendation to my reading list.
+
+That's the end of Reply All.
+
+Now, the Briefly section.
+
+Link one. "Update on JetBrains’ Statement on Ukraine | Company Blog"
+
+JetBrains relocated over 800 people and their families out of Russia? Wow.
+
+Link two. "Three Star Leadership | Wally Bock | How to Make Better Decisions"
+
+Defining the problem with stories and determining the boundaries are good reminders.
+
+Link three. "MarsEdit 5 brings microposting, Markdown highlighting – Six Colors"
+
+I don't use MarsEdit routinely, but it is a great tool to have in your blogging kit. Easy decision to upgrade.
+
+Link four. "Apple Announces Upcoming Apple Music Sing Feature - MacStories"
+
+Karaoke features coming to your living room. Our kids are going to like this, maybe too much.
+
+Link five. "Is it worth writing about? | notes.eatonphil.com"
+
+In short: Yes.
+
+Link six. "52 things I learned in twenty twenty two | Magnetic Notes"
+
+Delightful list of various things.
+
+Link seven. "Silver Bullet"
+
+Markdown meets wiki and note taking capability hosted in a personal web server.
+
+Link eight. "Gnosis: The Community-Run Chain - Gnosis Chain"
+
+I run a Gnosis Chain validator, and I like the vision being articulated for it.
+
+That's the end of Briefly.
+
+Now, the Fortune section.
+
+Here is your fortune…
+
+Your aims are high, and you are capable of much.
+
+Thank you for subscribing to the Weekly Thing!
+
+That brings us to the end of the Weekly Thing, issue 237. Thanks for listening, and I'll see you next time.

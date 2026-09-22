@@ -1,0 +1,251 @@
+The Weekly Thing, issue 252. Elevator, Evidence, Everything. Published April 29, twenty twenty three. By Jamie Thingelstad. In this issue: LLMs breaking the internet, AI economic liability, generative AI at work, GPS-guided tractors, Coinbase SEC clarity, space elevator.
+
+Hello there!
+
+It has been another whirlwind week and I’m going to skip much of an intro this week. All good stuff. Have a great week!
+
+Cheers!
+
+Now, the Featured section.
+
+Link one. "LLMs break the internet. Signing everything fixes it."
+
+One of the outcomes of LLMs and Generative AI is that the cost of content creation will trend to 0 dollars. I’m not saying good content, but content will be readily available for free to fill every nook and cranny.
+
+Quote.
+You thought the internet was a mess before? Get ready for bots that beat the Turing test, synthesize your voice, generate fake social consensus at scale. We're seeing the beginnings of this already. Expect a tidal wave of spam, identity theft, phishing, ransomware over the next 36 months.
+End quote.
+
+This article pulls from the Fred Wilson article Sign Everything that I shared previously, but then dives into how this would work and how we can make it happen. Funny enough this is all leveraging PGP and Public Key Cryptography that was created over twenty years ago!
+
+This is one of those articles that I read and wish I would have wrote — but I don't think I could have done it was well as Brander!
+
+Quote.
+Centralized approaches to moderation just don't scale. They don't have the requisite variety to actually moderate. There's a reason we no longer live in castles, after all. Castles only work in the small.
+End quote.
+
+Continuing…
+
+Quote.
+The answer to this dilemma was zero-trust networking. Forget the castle wall entirely. Rebuild trust around people. We did this with networks. Now it’s time to do the same with sign-ins, authorization, identity, reputation. Sign everything, with self-sovereign keys that only you control.
+End quote.
+
+I like so much about this approach, but I think the path forward is slightly different. The approach described here around Web of Trust was tried two decades ago, and it never got traction. Signing public keys and trading them was just too hard.
+
+In fact, when I decided to include my signature in each issue of the Weekly Thing I explored using PGP to do that. I ultimately decided that Ethereum was just a much easier way to solve this problem. So many of the ingredients are already there in the Crypto (Web 3) stack.
+
+Quote.
+The combination of open webs-of-trust, reputation, and attestation create the ground conditions for positive-sum collaboration. Communication between keys becomes a repeated game. Bad actors get a bad reputation. Free-riding stops working. The winning move becomes win-win cooperation.
+End quote.
+
+Ethereum gives us authentication. It has a means of signing. It can be connected to a usable name via ENS. Plus you have the added benefit of an entire blockchain and EVM to build on. The only thing I don't see in Ethereum is the ability to sign another persons public key. However, the same outcome could be achieved by exchanging a POAP or signing a message shared between each other.
+
+The path forward to Sign Everything has the most potential in Ethereum, in my opinion.
+
+Link two. "AI and economic liability - Marginal REVOLUTION"
+
+The debate about who is liable for the output of an LLM is an interesting one. As I've thought about it I was a little surprised to find that I ended up having to consider Section 230 law as well. Section 230 is the law that provides protection from liability for content that users create at websites. It generally is what social media firms use to argue that they aren't liable for the harm that they often do to people.
+
+The connection to AI for me is that I have long had the view that Section 230 should be upheld, but that the protection it provides should be removed when the service uses anything other than simple time ordering to display content. My view has been that when you start prioritizing some things over others, you are now expressing an opinion, and you are no longer protected by Section 230 for that act. In my opinion, it doesn't matter if a human does that (like at a news website) or an algorithm/AI does it (like at Facebook).
+
+So, that leaves me with a position that companies should be liable for the output of their AI.
+
+But, I currently cannot square that with Generative AI. I’m not ready to suggest that there should be liability there, provided that the company is taking precautions to protect from extreme cases.
+
+It feels like this isn't a simple yes or no, but is a continuum. I would suggest that Section 230 protections are the same way.
+
+That's the end of Featured.
+
+Now, the Notable section.
+
+Link one. "Founder and CEO is kinda a BS title"
+
+This article frames these roles in nearly comically overstated way. I disagree with the framing entirely. Great CEO's do much more than "executing diligently" as he suggests, and great Founders are much more than idea machines "flooding with new ideas".
+
+As is the case with all leaders, they need to have more than one mode. You cannot succeed over the long term with a single mode, regardless of what that mode is.
+
+Link two. "The Annual Computer Science Fair - AVC"
+
+This looks really interesting, and I think it would have a big impact.
+
+Quote.
+Most everyone in the tech sector would like to have more diverse companies but there are no easy ways to accomplish that. Ultimately we need to get young people interested in careers in tech much earlier in their schooling and show them what those pathways look like.
+End quote.
+
+I’m gonna explore what it would look like to do something like this in the Twin Cities.
+
+If you are in technology in the area and interested in this concept, send me an email.
+
+Link three. "The Many Hats of Product Managers – rajiv.com"
+
+This is likely a fine read for product managers themselves. Perhaps a checklist to consider where time is going and anything that might be getting lost in the shuffle? However, I think it is a better list particularly for other people to understand the breadth of the role. Product Manager is a difficult job, and the specific definitions are often unique per company. But the idea of a product manager being a "glue" type role that connects many different things together is near universally true.
+
+Link four. "Coin Metrics’ State of the Network: Issue 204"
+
+This article is a pretty simple explainer on how blockchain addresses are generated. It specifically goes through Ethereum accounts and smart contracts as well as Bitcoin. I was curious as I've started using many different accounts on Ethereum, and in many cases dedicating an account per applications I use in Ethereum. I do the same thing with email addresses but generating unique email addresses for every site I have an account on.
+
+Quote.
+Next, that private key, which is really just a number, is used as an input to the Elliptic Curve Digital Signature Algorithm, or ECDSA for short. As the name suggests, the algorithm uses elliptic curves to produce another number, 512-bits (64 bytes) in length, referred to as the public key. These two numbers are collectively referred to as a Public-Private Key Pair.
+End quote.
+
+This is the magic part that allows Ethereum addresses to be created, but I’m still not sure if there is a maximum number of addresses that one private key can create.
+
+Link five. "Generative AI at Work - Marginal REVOLUTION"
+
+Interesting productivity impacts of using Generative AI tools.
+
+Quote.
+> We study the staggered introduction of a generative AI-based conversational assistant using data from 5,179 customer support agents. Access to the tool increases productivity, as measured by issues resolved per hour, by 14 percent on average, with the greatest impact on novice and low-skilled workers, and minimal impact on experienced and highly skilled workers.
+End quote.
+
+This is a working paper, and I’m sure we'll see much more research into this area.
+
+Link six. "Coinbase takes another formal step to seek regulatory clarity from SEC for the crypto industry"
+
+Wether Coinbase and Brian Armstrong want the role or not, I do think they are uniquely positioned to lead the legal framework around crypto. I think this filing is a good one, as I suspect there is an active strategy to not provide guidance to harm the crypto industry. Now, with all that said I don't envy the path. As I've spent three years deeply exploring Ethereum, my best answer to "is it a security?" or whatever is "none of the above". I think the best approach at the moment is to acknowledge that crypto is something new, and needs a specific framework for it.
+
+Link seven. "Farming: Satellite failure ‘cripples’ farmers as GPS-guided tractors grind to a halt"
+
+Automation yields efficiency improvements, but along with it dependencies.
+
+Quote.
+They are enabled with GPS tracking and can be guided to an accuracy within two centimetres, enabling seed-planting equipment to sow crops with precision to drive up efficiency, prevent wastage and boost environmental sustainability. All that went out the window when the Inmarsat-41 satellite signal failed.
+End quote.
+
+This also highlights how much farming has changed. My grandpa didn’t even have a radio in most of his tractors. Now if you take away GPS the machine just stops.
+
+Link eight. "Stretch 15"
+
+I’m in horrible need of more stretching. This website has simple 15-minute stretching routines you can do whenever you want. I've added it to my Favorites tab! The UX is nice and it seems to have a wide variety of stretches both for home and the office.
+
+Link nine. "Evidence - Business Intelligence as Code"
+
+This feels reminiscent of Jupyter Notebooks. I dig this nascent space of putting text, usually in Markdown, alongside code that pulls in data, and generates dynamic documents and reports. If these tools get simple enough, with access to enough data, they could be very useful. I would expect there is an AI opportunity here too.
+
+Link ten. "Space Elevator"
+
+This is a fabulous visualization of the various levels of getting into space, where various craft have gone, etc. I loved going through it all. So much I even bought Agarwal a coffee at the end.
+
+That's the end of Notable.
+
+Now, the Journal section.
+
+Thursday @ 7:28 PM
+
+Very excited to see Hamilton again tonight!
+
+Thursday @ 11:37 AM
+
+I’m really digging the new room name decals for fifth Floor of SPS Tower. Names shown: Jumbonium, Redstone, Coaxium, Kyber, Netherite, and Beskar.
+
+Thursday @ 9:01 AM
+
+Conjecture:
+
+As AI makes the Web more synthetic, Crypto will make it more human.
+
+Wednesday @ 10:07 PM
+
+We tried Hu Milk Chocolate Bars today. Mixed reviews in the family but Mazie and I think they are amazing. Love the “beyond organic” focus of Hu.
+
+Wednesday @ 10:04 PM
+
+Fun time watching The Lost City tonight.
+
+Wednesday @ 7:19 PM
+
+We are celebrating Tammy’s birthday today! She is the heart and center of our family.
+
+Tuesday @ 6:37 PM
+
+It was cool to see the Minnebar 17 POAPs highlighted in the April 25 issue of This Week in POAP!
+
+Quote.
+Minnebar, America's "largest and longest-running technology unconference" was held at Best Buy's corporate headquarters in Minneapolis and dropped POAPs for attendees, presenters, and organizers, as well as a POAP during a session on creating digital community with POAP (LinkedIn post highlighting the POAPs).
+End quote.
+
+I also really like how the POAP images turned out.
+
+Saturday @ 2:15 PM
+
+Hector and I at Minnebar 17! I'm sporting my Community Supporter tag, as well as my awesome POAP pin!
+
+Friday @ 5:29 PM
+
+Ringing the Closing Bell on Nasdaq
+
+The SPS Commerce executive team, along with our spouses, got to ring the closing bell for NASDAQ today! This was a career highlight for me as I approach my ten year anniversary with SPS, and it was even better that Tammy was able to be there with me, as well as the amazing leaders I get to work with. Everything about this experience was so much fun.
+
+A huge thank you to all of TeamSPS for making our company so great, and to our customers for putting their trust in us and the World's Retail Network!
+
+See also:
+
+* Nasdaq TradeTalks with Archie Black and Jim Frome.
+* SPS Commerce Rings the Closing Bell on Nasdaq.
+* Our tenth Anniversary as a Public Company online due to COVID.
+* We got to ring the opening bell in twenty fourteen.
+* LinkedIn Post from Hector Fernandez
+
+Photography courtesy of Nasdaq, Inc.
+
+And some of my photos.
+
+Friday @ 12:12 PM
+
+Tammy and I had a great time exploring New York, and getting plenty of steps in, on a 5.5 mile walk this morning.
+
+Friday @ 11:34 AM
+
+Gorgeous day to enjoy a walk along the High Line in Manhattan. Just one month after Tyler and I walked it and the everything was so much greener and some flowers were showing. Walking the High Line is now a tradition for any trip to New York!
+
+Friday @ 10:56 AM
+
+As someone who is pretty terrified of heights, this Edge NYC experience seems horrifying. Lay on a glass floor 100 stories in the sky? Oh for sure no. Hard pass. Talk to the hand. Oh, and if that isn't enough, you can do a City Climb?
+
+Friday @ 10:32 AM
+
+Subway trains parked with Manhattan skyscrapers in the background.
+
+Friday @ 10:10 AM
+
+Wasn't planning on it but walked by B and H Photo Video and had to go in and experience the most amazing electronics store I've ever been to. It's like a candy store for gear!
+
+That's the end of the Journal.
+
+Now, the Briefly section.
+
+Link one. "When Pay to Play Doesn’t Pay"
+
+First hand account from Chilvers on the treadmill of advertising to drive additional sales.
+
+Link two. "Botify Expands Executive Team with Appointment of Charley Hackerson as Chief Revenue Officer | Business Wire"
+
+Congrats to my friend Charley on his new role!
+
+Link three. "The Average Screen Time and Usage by Country - ElectronicsHub"
+
+Interesting data and wild how much difference there is in various countries.
+
+Link four. "Manton Reece - Why Micro.blog is supporting Bluesky now"
+
+Cool to see micro.blog already adding support for the newest decentralized social protocol.
+
+Link five. "Accelerating Value Flow with SAFe 6.0 - Scaled Agile Framework"
+
+Specific dive into Flow in the newest iteration of SAFe. There is also a more detailed article.
+
+Link six. "Bard now helps you code"
+
+Google is continuing to play catchup in a surprisingly distant position on AI.
+
+That's the end of Briefly.
+
+Now, the Signature section.
+
+"Weekly Thing #252 / Elevator, Evidence, Everything" is signed…
+
+Fortune
+
+It was all so different before everything changed.
+
+That brings us to the end of the Weekly Thing, issue 252. Thanks for listening, and I'll see you next time.

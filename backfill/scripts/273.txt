@@ -1,0 +1,248 @@
+The Weekly Thing, issue 273. Trippy, Buffalo, Bitkey. Published December 17, twenty twenty three. By Jamie Thingelstad. In this issue: Recovering America's Buffalo, Engineering Research Associates, AI mass spying, crypto resurgence, over-meeting culture, blameless culture.
+
+Weekly Thing 273 with sixteen links and twelve journal entries shared between Dec 8, twenty twenty three and Dec 15, twenty twenty three. Sent by Jamie Thingelstad from Minneapolis, MN, United States to 1,364 amazing people.
+
+Good morning!
+
+When I heard about Manuel Moreale's People and Blogs project I knew immediately that it was a newsletter I wanted to subscribe to and support. I think it is important that we keep the web personal. People starting and writing on their personal blogs is one of the best things we can do to keep it that way. Imagine then how excited I was to be the featured blogger for Issue 16: Jamie Thingelstad! The interview goes pretty deep in my 20 years of blogging.
+
+This is the final Weekly Thing for twenty twenty three! Time for my winter break. Expect me back in your Inbox the weekend of January twentieth! I hope you have a fabulous holiday and get to enjoy it with family, friends, and loved ones.
+
+See you in twenty twenty four!
+
+Now, the Featured section.
+
+Link one. "Why Can't We Recover America's Buffalo? | Outdoor Life"
+
+I love bison. I grew up in North Dakota. There are not a lot of buffalo anywhere, but in North Dakota you will see bison at times. Usually being farmed, but if you go to the big parks you can see wild bison on the plains. One of the most majestic sights is a bison with snow and ice packed on them in the middle of a North Dakota blizzard, seemingly unfazed by any of it.
+
+This article highlights a number of challenging issues to truly bringing wild bison back to the prairie. It highlights the work of American Prairie which is an organization I've decided to support. While the number of bison has grown the article suggests one of the biggest issues is our desire to categorize them as livestock, not wildlife.
+
+These are majestic animals and I hope that we can see some true wild herds in the future.
+
+Link two. "Steve Blank The Secret History of Minnesota Part 1: Engineering Research Associates"
+
+This is part 17 of Steve Blank's Secret History series, and it is just part one of his detailed history of the critical role Minnesota served in computing.
+
+Quote.
+Meanwhile the biggest and fastest scientific computer companies were in Minnesota. And by 1966 they had been delivering computers for 16 years. Minneapolis/St. Paul area companies ERA, Control Data and Cray would dominate the world of scientific computing and be an innovation cluster for computing until the mid-1980s. And then they were gone. Why? Just as Silicon Valley's roots can be traced to innovation in World War II so can Minneapolis/St. Paul's. The story starts with a company you probably never heard of -- Engineering Research Associates.
+End quote.
+
+Blank goes into great detail and shares the origin story of how this grows in Minnesota, and connects it as well to the future growth that I would assume part 2 will cover.
+
+Quote.
+Seymour Cray would reuse features of the Bogart logic design when he designed the Navy Tactical Data System computers, the UNIVAC 490 and the Control Data Corporation's CDC 1604 and CDC 160. By 1953, 40% of the University of Minnesota electrical engineering graduates -- including Cray -- were working for ERA.
+End quote.
+
+What an incredible concentration of talent.
+
+Quote.
+But the era of Minnesota's role as a scientific computing and innovation cluster wasn't over. In fact, it was just getting started. In 1957 ERA co-founder William Norris, and Sperry-Univac engineers Seymour Cray, Willis Drake, and ERA's treasurer Arnold Ryden, along with a half dozen others, left Sperry-Univac and teamed up with three investors to form a new Minneapolis-based computer company: Control Data Corporation (CDC). For the next two decades Control Data would build the fastest scientific computers in the world.
+End quote.
+
+Looking forward to the next installment.
+
+That's the end of Featured.
+
+Now, the Currently section.
+
+Listening: So much Christmas music. Sure we don't have the snow yet, but we have all the decorations up and are listening to Christmas music on heavy rotation. Want to listen along? Our Christmas Thing playlist is on Apple Music.
+
+That's the end of Currently.
+
+Now, the Notable section.
+
+Link one. "Notes on Enterprise Architecture as Strategy | Irrational Exuberance"
+
+Will Larson commenting on Enterprise Architecture as Strategy by Jeanne W. Ross, Peter Weill, and David C Robertson. Some very good frameworks here for technology leaders.
+
+Link two. "I am a poem I am not software — Robin Rendle"
+
+Rendle writing about the tug between very polished web presence and weird sites that may be a little confusing.
+
+Quote.
+And a personal website should capture that thing we’re all trying to avoid, as cheesy as it sounds: that we are a poem and not software.
+End quote.
+
+Overall my hope is that people feel free to have their website be whatever they want. That is the beauty of a personal website in a way. You aren't pouring your words into someone else's container, for them to sell ads and surveil people.
+
+It can be whatever you want, however you want. And if you want a website about mathematical significant roadsigns, you can have one.
+
+Link three. "AI and Mass Spying - Schneier on Security"
+
+I’m enthusiastic about AI but I’m also sure it is and will continue to be used in ways I don't like. Schneier suggests that one of those will be Mass Spying.
+
+Quote.
+Similarly, mass spying will change the nature of spying. All the data will be saved. It will all be searchable, and understandable, in bulk. Tell me who has talked about a particular topic in the past month, and how discussions about that topic have evolved. Person A did something; check if someone told them to do it. Find everyone who is plotting a crime, or spreading a rumor, or planning to attend a political protest.
+End quote.
+
+Surveillance is already happening at mass scale. What will it mean to put an AI inside of all of those surveillance data flows. At least right now the costs are probably prohibitive, but that won't last. This should be another urge to do everything you can to manage your identify online and make it hard for different services to connect you between them. For a long time it has been a bad practice to share passwords, but going forward we will need to not share email addresses or anything else between different sites. I can imagine web browsers that will isolate all of your browsing activity per website.
+
+Link four. "The resurgence of crypto - Marginal REVOLUTION"
+
+Good overview from Cowen on the current resurgence of crypto and the response to it. I continue to be bullish on crypto, and even more with AI advancing so quickly. I think crypto has many of the capabilities we'll need to both enable AI to do more using digital currency, and legitimately prove what we as humans created via blockchain.
+
+Link five. "The Root of Over-Meeting Culture - Anne Helen Petersen"
+
+This article covers a lot of ground, some I agree with and some less so. The anchor is this stat that the average Microsoft Teams member is spending 252% more time in meetings since February twenty twenty. There are a lot of factors here, including the fact that in a remote environment there is no serendipity so you have to schedule everything.
+
+However, the article misses one of the foundational reasons I think contributes to this. When you have meetings online, there are no physical constraints. From my own experiences I can see meetings have gotten larger. And I do think the fact that you don't need to find a new room, or order even more food for the larger group, contributes. There is no cost to the meeting organizer for adding more people, so people do.
+
+Two things that we need:
+
+1. AI tools to summarize meetings so you can get caught up without being in them. This is here and coming to even more platforms.
+2. Some way of assessing a "cost" to the meeting organizer for the size and scope of the meeting. Physical logistics were a form of cost, but have lessened. Not sure what the future cost could be.
+
+Link six. "A few words about Blameless culture - cat /dev/brain"
+
+Great article going into specifics on what a 'blameless' retrospective is, with specific examples.
+
+Quote.
+My summary of blameless culture is: when there is an outage, incident, or escaped bug in your service, assume the individuals involved had the best of intentions, and either they did not have the correct information to make a better decision, or the tools allowed them to make a mistake.
+End quote.
+
+I've personally seen one of the examples he highlights too.
+
+Quote.
+Back in my sysadmin days a colleague accidentally deleted a production database. They immediately took their hands off their keyboard and said “hey team, I just messed up and need help”. We rallied together and came up with a solution without causing an expensive outage.
+End quote.
+
+I agree with the premise, you cannot have blameless incidents without also have a blameless culture. Many good examples of what that is.
+
+Link seven. "Team Nick"
+
+One of the very interesting things you can do with Ethereum Name Service tokens is mint subdomains and send them to other people. This has a bunch of super interesting use cases like membership tokens, voting, tickets, etc. This site allows you to mint a subdomain of teamnick.eth as a sign of support for ENS in their patent litigation.
+
+That's the end of Notable.
+
+Now, the Journal section.
+
+Journal entry one.
+
+Excited to see Aladdin at the Orpheum!
+
+Journal entry two.
+
+We had a great time visiting the St. Paul European Christmas Market tonight. We had delicious food and checked out many different shops.
+
+Journal entry three.
+
+After visiting the European Christmas Market we walked over to the Glow Holiday Festival at CHS Field. It was fun to walk amongst all the lights and there were many activities.
+
+Journal entry four.
+
+We had a great brunch and even more fun taking pictures in the Red Nose Room at Red Cow Uptown this morning.
+
+Journal entry five.
+
+It was an honor to be included in the Twin Cities Business twenty twenty three Notable Leaders in Technology (detail page). Amazing to be part of a great company like SPS Commerce and a great team like #TeamSPS! See LinkedIn post.
+
+Journal entry six. First Visit to the Haberdashery
+
+In twenty twenty two I worked with a style coach and it was a transformative experience. It’s been about a year now, and I have had one piece of homework that I still hadn’t done -- get a suit that really fits me. Nancy Dilts had told me to make my way to Heimie’s Haberdashery in St. Paul and they would take care of me. I’ve had it on my list for a year, and finally Tammy decided to give me a nudge and she just made the appointment for me.
+
+I worked with Richard Shallbetter and he got me measured every way possible for a custom suit. My favorite part about getting a custom suit was that I got to pick out the specific fabric combinations. Now I wait and am eager to sport what I hope will be my favorite suit ever.
+
+And this will not be my last time to Heimie’s. I loved the experience.
+
+Journal entry seven. We are now a Ridwell house!
+
+A few months ago while walking our neighborhood I noticed some of these white boxes in front of houses with a Ridwell logo on them. Tammy was far ahead of me and knew that it was a service to help you properly recycle and dispose of a bunch of household things that typically end up in the trash -- particularly plastic but many other things too. Tammy is much more sensible about our environmental impact and I assumed that at some point we would have one of these too, and that time has come.
+
+I got to see it all new when it showed up. Ridwell gave us a number of canvas sacks to put different products in. We place it all in the box and they will come on the next trip around and properly dispose or recycle the items. It seems like a pretty good service and certainly a smart idea. Tammy is particularly excited that they take styrofoam. They also handle a ton of other plastics that you cannot otherwise recycle. Combining recycling, organics, and Ridwell we think we’ll be able to reduce our landfill output to a very minimal amount.
+
+If you want to sign up this invite link will give you a month free.
+
+Journal entry eight.
+
+Brandon Ferdig kicking off tonight’s MN Blockchain Holiday Party. The evening was a fun social event as well as a recap of the events the organization has hosted over the year. Thanks to Colin Hirdman for hosting the event.
+
+Journal entry nine.
+
+I was excited to be the first to claim tonight’s MN Blockchain Holiday Party POAP! Also see related POAPs.
+
+Journal entry ten. Upgraded to OmniFocus 4
+
+I’ve been eagerly awaiting the release of OmniFocus 4.0 and today is the day! I haven’t used any of the betas so it is all new to me. It was an easy decision to upgrade because OmniFocus is one of my most frequently used apps and the cornerstone of my GTD system.
+
+I upgraded three Macs, my iPhone, iPad, and was excited to see a proper Apple Watch version that now runs completely independently.
+
+My initial impressions:
+
+1. The user experience is a big change. It will take me a bit to get used to it, but I can already see how it is more streamlined.
+2. The logical role of perspectives in the user experience is way better.
+3. Love that the Apple Watch version is useful. I never used the previous version and it hadn’t been updated in years. This one I will use.
+
+Journal entry eleven.
+
+It was fun to be able to speak at the Mntech Tech Outlook twenty twenty four event today. Dan Abdul, Sarah Engstrom, Eric Hanson, and I introduced our companies and covered a lot of ground with Jeff Tollefson moderating. Topics ranged from GenAI, talent development, technology strategy, and more.
+
+Journal entry twelve.
+
+Tammy and I went to The Holdovers tonight at the Mann Theatres in Edina. We both enjoyed the movie and particularly liked the retro feel and pace of it. Plus great acting and a good story.
+
+Weekly Thing Forum
+
+Join Eric Walker, Patrick Hambek, Peter Clark, Kyaw Za Zaw, Barry Hess, and many other Weekly Thing readers in the Weekly Thing Forum. Recent topics include:
+
+- People and Blogs with Me!
+- Let's play with Bitcoin Lightning
+- 272 / Escape, Fuzzy, Melodrip
+- No Dec 2 Weekly Thing
+- 271 / Imperfectionist, Zeitgeisty, Inko
+
+That's the end of the Journal.
+
+Now, the Briefly section.
+
+Link one. "standard-webhooks"
+
+Reference for creating Webhooks that will be easier for others to use.
+
+Link two. "How AI assistants are already changing the way code gets made | MIT Technology Review"
+
+it is amazing how far this has come in a year. However, I’m still very bullish on software as a skill, and think this will not have a huge impact on the employment prospects of software developers.
+
+Link three. "The seven pillars of modern AI development: Leaning into the era of custom copilots | Microsoft Azure Blog"
+
+Good broad ways to think about developing your organizations abilities around AI.
+
+Link four. "Google Year in Search: Video highlights all-time most popular search trends"
+
+Great video.
+
+Link five. "trippy | A network diagnostic tool"
+
+Powerful and fancy network tool that provides windowing interfaces in a CLI.
+
+Link six. "Bitkey: self-custody bitcoin wallet"
+
+Jack Dorsey's Block has a new Bitcoin wallet. I’m not a fan of how this works. I like the multiple signatures, but would rather that not be tied to the wallet manufacturer. I’m not a big fan of this puck that interacts with your phone. I'd rather have it all in one like a Ledger.
+
+Link seven. "Phi-2: The surprising power of small language models - Microsoft Research"
+
+Worth keeping an eye on these smaller LLMs, particularly for programmatic use cases.
+
+That's the end of Briefly.
+
+Now, the Fortune section.
+
+Here is your fortune…
+
+Change your thoughts and you change your world.
+
+Thank you for subscribing to the Weekly Thing!
+
+That's the end of Fortune.
+
+Now, the Want to support the Weekly Thing? section.
+
+First — thank you for subscribing and reading. Here are some things you can do that would be great…
+
+- Share Weekly Thing 273 / Trippy, Buffalo, Bitkey with others you know!
+- Post about the Weekly Thing and let others know about it.
+- Join the Weekly Thing Forum and connect with others.
+- Send Bitcoin via Lightning! This will be used to support something good. weeklything@getalby.com
+- Email me comments, feedback, or just to say Hi!
+
+That brings us to the end of the Weekly Thing, issue 273. Thanks for listening, and I'll see you next time.

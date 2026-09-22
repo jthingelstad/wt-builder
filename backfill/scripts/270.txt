@@ -1,0 +1,273 @@
+The Weekly Thing, issue 270. Panoramic, RCS, Finnegans. Published November 18, twenty twenty three. By Jamie Thingelstad. In this issue: Vision Pro spatial video, undersea internet cables, GPTs as agents, generative AI habits, ESP32 occupancy sensor, long-lived domains, oldest blogs.
+
+Good morning!
+
+I hope you are doing well and had a great week. My week felt like a blur. Seemed like everything was in motion at all times. That seems to always happen at this time of year though.
+
+The AI train is accelerating even more. Github Universe rolled out a ton of new things for Github Copilot. Microsoft announced 27 (plus or minus) different Copilot offerings powered with AI. I keep finding my mind spinning at the possibilities that are opening up in front of us. It is just incredible.
+
+Now, onto the links for this week.
+
+Now, the Featured section.
+
+Link one. "Daring Fireball: Vision Pro, Spatial Video, and Panoramic Photos"
+
+Gruber with his usual detail on experiencing Spatial Video taken with an iPhone 15 and viewed on a Vision Pro.
+
+First, it seems obvious when I read this but I didn’t realize the camera configuration on the iPhone 15 had been modified to allow taking video from two cameras at once to give depth of field, enabling spatial video.
+
+Quote.
+You also need to hold the phone horizontally, to put the two capturing lenses on the same plane. The iPhone uses the main (1×) and ultra wide (0.5×) lenses for capture when shooting spatial video, and in fact, Apple changed the arrangement of the three lenses on the iPhone 15 Pro in part to support this feature.
+End quote.
+
+Gruber isn't prone to hyperbole. If anything he is usually very critical and will nitpick any detail that he finds out of place. All of that makes his effusive comments on spatial video more impactful.
+
+Quote.
+Nothing you've ever viewed on a screen, however, can prepare you for the experience of watching these spatial videos, especially the ones you will have shot yourself, of your own family and friends. They truly are more like memories than videos.
+End quote.
+
+Wow, and then.
+
+Quote.
+Prepare to be moved, emotionally, when you experience this.
+End quote.
+
+I can’t wait to experience this myself.
+
+In preparation for getting the Vision Pro, which I am going to get as soon as available, I have been taking many more panoramas. When we were hiking in Switzerland I took several a day. So his similar positive comments on the panorama experience is enticing.
+
+Quote.
+Panoramic photos viewed using Vision Pro are breathtaking.
+End quote.
+
+I like this conclusion.
+
+Quote.
+As a basic rule, going forward, I plan to capture spatial videos of people, especially my family and dearest friends, and panoramic photos of places I visit. It’s like teleportation.
+End quote.
+
+I’m bullish on the Vision Pro. I think this is an interesting category of device, but VR and gaming has never been distinctly my thing. Augmented reality and being able to do traditional productivity things is very interesting to me. Only time will tell, but I fully expect this to be an incredible device to use for a variety of things.
+
+Quote.
+I came away more confident than ever that Vision Pro is going to be a great device for reading and writing -- and thus, well, work.
+End quote.
+
+I haven't had hands on experience like Gruber, but I agree with his conclusion. What amazing new technology.
+
+That's the end of Featured.
+
+Now, the Notable section.
+
+Link one. "The Secret Life of the 500+ Cables That Run the Internet - CNET"
+
+While the Internet and the Cloud tend to live in this metaphorical non-place we know that they are real things. Clouds are massive data centers that in person would never conjure the image of a cloud. And the magical Internet that connects the world at some point is a garden hose thickness cable that is strung along the ocean floor connecting continents together. And there is a lot of them.
+
+I loved the details on how these cables are made and "armored". I also found it wild that many of them are broken at any point in time. The Internet just routes around them. The time to fix one of these cables could take weeks.
+
+All of this for us to send cat pictures and watch Tik Tok videos.
+
+Link two. "How to Boss Without Being Bossy – Holy Ghost Stories"
+
+Interesting analysis of various ways to ask for a specific task to be done, gauging each one on clarity and harshness.
+
+Quote.
+The question we’ll answer today, then, is: how do you give a command in a way your team members will accept, won’t reject as “bossy,” and might even feel good about?
+End quote.
+
+Words matter.
+
+Link three. "Global Sensor Bandwidth · ongoing by Tim Bray"
+
+I had not heard about this new Sony Alpha9 III nor had I heard of the term "global shutter".
+
+Quote.
+These things advertise that they read all the pixels off the sensor at once. So, no matter how fast your subject is moving, you’ll get an image of what it really looked like. And those flash and video problems vanish. And because circuits are faster than shutters, you can shoot at an eighty thousandth of a second.
+End quote.
+
+Bray's writeup is great and this concept of a shutter so fast you effectively cannot get a blurry photo is wild. Now imagine combining this with an AI shutter that watches all 80,000 potential photo options a second and grabs the one with the specific best movement.
+
+Cool stuff!
+
+Link four. "Almost an Agent: What GPTs can do - Ethan Mollick"
+
+This is a good overview of ways you can use GPTs. I also appreciated that he shared the detailed prompt that he gave the "Feedback Wizard" GPT that he created. I created a GTD Coach GPT but I just followed ChatGPTs prompts in the GPT Builder. Now I want to take another run at it using a much more detailed prompt.
+
+Link five. "7 Habits of Successful Generative AI Adopters | PagerDuty"
+
+Building on LLMs and Generative AI is incredibly early still, and there is much to learn. This set of recommendations are a good place to start.
+
+Quote.
+1. Have a clear use case that solves a problem 2. Have a solid data foundation 3. Stay flexible in your approach 4. Start with design principles 5. Establish clear guidelines for data privacy and responsibility 6. Have a framework to compare 7. Embed best practices
+End quote.
+
+There is still so much we are all learning here.
+
+Link six. "Building an occupancy sensor with a 5 dollars ESP32 and a serverless DB"
+
+I loved this article and Esposito's walk through solving how to build this sensor and get the data. Also, it is incredible how easy and cheap it is to build something like this that operates at a pretty good scale. It would be fun to have one at our house just to see the metrics. Great project.
+
+Link seven. "“One of the world’s oldest continually publishing blogs” – Ideapad"
+
+A number of blogs, including mine, are or will be crossing 20 years. But Ideapad's 25 years is a major milestone since those 5 earlier years were so early.
+
+Quote.
+When I reflect on what twenty-five years of blogging means, mostly it’s the persistence: my blog is still here, still publishing new content, at the same URL as when it was launched, and with almost all of the archives intact and readable. It’s not hard to do, but few do it, and when I’m blogging I’m continuing my commitment to digital longevity.
+End quote.
+
+What a great milestone.
+
+Link eight. "How can we keep domains working long after our death? – Chuck Grimmett"
+
+This is a topic I've written on as well, and there is still much to figure out. This post is only focused on keeping a domain name registered for a very long time. I hadn't considered the ability to let visitors chip in to keep a domain live. That is interesting.
+
+Something that doesn't come up in these conversations that we need to consider though is that domains maybe shouldn't be a persons forever. If there was a Bob Thingelstad that bought thingelstad.com before me and held it for 400 years I would be annoyed. Maybe there is a different thought we need to have where a domain name registration and configuration could be bound in time? Imagine being able to see "resolve thingelstad.com as it was in Nov twenty nineteen".
+
+This article also ignores the Blockchain methods of holding names. ENS also expires, but you can easily buy it for a duration that is very long. It is also very easy for other people to pay for extending an ENS that they don't own, so that crowdsourcing thing is mostly done already. But ENS held forever would have the same first-mover advantage that would be a problem after a few generations.
+
+That's the end of Notable.
+
+Now, the Journal section.
+
+Journal entry one.
+
+reMarkable -- you can do better than this? No, I'm not going to install Rosetta. I guess I’ll try to get along with using the web browser to import PDFs into my reMarkable.
+
+Journal entry two.
+
+Before the show at The Dakota.
+
+Journal entry three.
+
+Tina Schlieske put on an amazing show at The Dakota tonight in celebration of her 57th birthday. We had front row seats and the energy and emotion was incredible.
+
+Journal entry four.
+
+I created a collection of TeamSPS events page to easily connect all my blog posts from a variety of our annual events. Great memories and more to come!
+
+Journal entry five.
+
+We had a fun time watching Red Notice tonight. Fairly ridiculous and a fun time.
+
+Journal entry six. UniFi Protect First Impressions
+
+I’ve used Ubiquiti UniFi networking at home for about five years. I’ve been very impressed with it, and when I heard that we were getting fiber installed at our cabin, I decided it was time to ditch the Eero network I had there and put in a UniFi network as well.
+
+Since we’ve gotten our cabin, I’ve had a Dropcam, then a Nest camera, and then part of Google since they bought it all. I like seeing the driveway, the yard, the dock, and the boat. Particularly when there are storms. I’ve wanted to ditch the Nest cameras for a long time. I tried using a HomeKit solution, and that was abysmal.
+
+Now, with the UniFi network in place and the Dream Router, which can run both the UniFi Network and UniFi Protect, I had an off-ramp from the Nest setup. I ordered three G4 Instant cameras and installed them this weekend.
+
+My initial impression of UniFi Protect is very positive. Adopting each of the cameras was incredibly easy; they automatically updated themselves, and configuration was a breeze. I installed the UniFi Protect app on my iPhone and iPad to run alongside the UniFi network app. I was immediately happy with basic usability features like seeing all the cameras in a grid, controlling with more detail how each one behaved, and setting global defaults like I wanted them.
+
+My initial setup was to place these on window sills, which is how I’ve used the Nest cameras for years. However, these cameras have a straightforward mounting system, including everything you need, even a sticker template to guide your drilling. It only took a few minutes, and I mounted this one on the shed.
+
+It is a “weatherproof” device but not specifically rated for a Minnesota winter. I’m going to leave it out and see how it does. Many people online have said they have them mounted outside, and work fine. This is also slightly protected under the eve. The camera is just to the upper left of the door.
+
+It didn’t take long to know this would be a far superior setup to the Nest cameras. I went ahead and pulled that system out entirely. Does anyone want some Nest cameras?
+
+With this setup, I’m intrigued to figure out better mounts for the other two cameras and will likely add two more to have a full view of the property. However, the Dream Router only minimally supports UniFi Protect. It can get overloaded with just two cameras; I already have three connected. I need to figure out the best option to support a few cameras instead and get the network video recording option more robust.
+
+Overall, if you need this type of setup, UniFi Protect is a great option.
+
+Journal entry seven. Things 4 Good twenty twenty three Fall Fundraiser Results
+
+We completed our annual candle sale and, in total, raised 5,755 dollars for the four organizations we picked! That is around a 10% increase from twenty twenty two! A huge thank you to the 52 folks who made this possible by purchasing a handmade wooden wick candle!
+
+As in previous years, we asked people which organizations they would like to support. People could pick any number or all of them. This year, we even have some folks request specific allocations versus dividing it equally.
+
+A bit more about each organization…
+
+Oceanites supported by Tyler
+Oceanites is a non-profit that helps the entire Arctic peninsula, though penguins are their first priority. They are trying to help with the warming Arctic.
+
+Food Recovery Network supported by Mazie
+Food Recovery Network has spread to over 200 colleges in the United States after it was started by 5 college students who realized perfectly good cafeteria food was being thrown away and had the genius idea to actually do something about it! Volunteers at colleges (of which I am one!) pack up extras from their cafeterias and send them to community food shelves to feed hungry people in their communities. FRN directly funnels food to those who need it instead of the waste yard.
+
+Heart to Care Tanzania supported by Tammy
+Heart to Care was founded by a woman from the Twin Cities. I read an article about her in the StarTrib a few years ago. She was on a trip to Tanzania several years ago and had a chance encounter with a young man that led her to partner with him and others to start a school in a small Tanzanian village. She works tirelessly to improve the school, expand the school and make sure that all involved have everything they need.
+
+American Prairie supported by Jamie
+I grew up on the prairie and have always been fascinated with Bison and these ecosystems’ strengths. I love what this organization is doing to help maintain and grow a thriving prairie ecosystem.
+
+See twenty twenty two and twenty twenty one results.
+
+Journal entry eight.
+
+It was a gorgeous afternoon for a walk in the Natural Lands at St. Olaf with Mazie.
+
+Journal entry nine.
+
+I created my very first custom GPT tonight -- GTD Coach. This GPT is designed to help practitioners of GTD that use OmniFocus improve their practice and get advice. I started with more robust questions around different levels of planning and gave great suggestions.
+
+Journal entry ten.
+
+It was cool to get a tour of Worthington Aviation, an Air T company, today. It was impressive to see how they maintain and resell airplane parts. I had never seen a flight recorder or landing gear up close.
+
+Journal entry eleven.
+
+This AI display at the Microsoft Technology Center is a great way to show real-time AI capabilities. It showed picture description, object identification, speech recognition, and language translation in real time.
+
+Journal entry twelve.
+
+We had an incredible day at the Microsoft Technology Center learning and exploring the many AI offerings we can use, and much more. Impressive stuff that left my mind spinning.
+
+Journal entry thirteen.
+
+TeamSPS group photo at MnTech Tekne Awards!
+
+Weekly Thing Forum
+
+Join Peter Clark, Kyaw Za Zaw, Barry Hess, Andrew Eklund, CJ Chilvers, and many other Weekly Thing readers in the Weekly Thing Forum. Recent topics include:
+
+- 269 / Phind, Textcasting, Tailspin
+- 268 / Schema, Achtung, Gamification
+- Did the email for Weekly Thing 267 get to you?
+- 267 / Generative, Ghibli, Mermaid
+- 266 / Obsessed, DiceRight, Omnivore
+
+That's the end of the Journal.
+
+Now, the Briefly section.
+
+Link one. "The world’s largest aircraft breaks cover in Silicon Valley | TechCrunch"
+
+Something about this giant airship floating around would make me chuckle.
+
+Link two. "Owner of Tumblr confirms site’s shift from “surging” to “small and focused” | Ars Technica"
+
+I was happy that Automattic bought Tumblr, but also not surprised they couldn't make it grow again. Tumblr to me seems to live in this empty space between social media and blogging, not really feeling at home in either.
+
+Link three. "Business questions worth asking - Gabriel Mays"
+
+Interesting index of questions to prompt thinking in a bunch of different areas of a business.
+
+Link four. "‘It never ends’: the book club that spent 28 years reading Finnegans Wake | The Guardian"
+
+I've never read Finnegans Wake, and I’m not going to. This sounds like the worst version of Groundhog Day!
+
+Link five. "Blockchains As Platforms - Not Boring by Packy McCormick"
+
+Good and fitting analogy.
+
+Link six. ""Learn from your chats" ChatGPT feature preview"
+
+Interesting feature test observed in the wild.
+
+Link seven. "Apple announces that RCS support is coming to iPhone next year - 9to5Mac"
+
+Surprising announcement from Apple, and a good one. Getting away from plain SMS and MMS will be a good thing for all.
+
+Link eight. "Announcing Buy Bitcoin Globally | Jack Mallers"
+
+Mallers with another big set of announcements about Strike and Bitcoin. Even if you aren't that interested in Bitcoin, Mallers does a great job sharing the benefit it can bring to so many people.
+
+That's the end of Briefly.
+
+Now, the Fortune section.
+
+Here is your fortune…
+
+You are always busy.
+
+Thank you for subscribing to the Weekly Thing!
+
+That brings us to the end of the Weekly Thing, issue 270. Thanks for listening, and I'll see you next time.

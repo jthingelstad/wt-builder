@@ -1,0 +1,224 @@
+The Weekly Thing, issue 66. Aug 11, twenty eighteen. Published August 11, twenty eighteen. By Jamie Thingelstad. In this issue: Photography composition, gluten truth, network-wide ad-blocker, OmniFocus 3, Let's Encrypt trusted, Google China censorship, America's land use.
+
+We've been enjoying exploring the Finger Lakes region of New York this week. We spent the last few days with Ithaca as our home base and ventured out to a number of places. The weather has been really hot, which has put a damper on all the gorgeous gorge hiking that is in this region. Hiking in the upper 90's is just, well, not that much fun.
+
+We got some fun suggestions on places to go from last weeks newsletter, and since it is a week of vacation be warned there are a lot of microposts and pictures below. If you just come for the links, don't despair, there is great stuff there too.
+
+We are in Corning now mostly for the Corning Museum of Glass, which is amazing. Soon we make our way for the grand finale, Niagara Falls!
+
+You may have noticed that the Weekly Thing logo has been changing colors lately. I wanted to bring color to it, but didn't like a mix of colors and didn't want to pick just one color. So I figured, why do I have to pick?
+
+Now, the Featured Links section.
+
+[The Speed Trap: When Taking Your Time [Really] Matters](
+
+I enjoy Tom Peters unconventional writing. This is a great 25 page manifesto for leaders.
+
+That's the end of Featured Links.
+
+Now, the My Weekly Photo section.
+
+Flag waving behind the Teal on a cruise down Cayuga Lake.
+Aug 7, twenty eighteen at 1:45 PM
+Cayuga Lake, Lansing, NY
+
+That's the end of My Weekly Photo.
+
+Now, the Notable Links section.
+
+Link one. "Photography Composition: The Definitive Guide - Beautiful Pictures"
+
+This is a very well done guide to composing your photos. Some of the concepts I had heard of, like the rule of thirds, but many I had not. I like how the images are marked up to show the concepts. There are even flowcharts at the end!
+
+Link two. "Not just a fad: the surprising, gut-wrenching truth about gluten | Food | The Guardian"
+
+I have a hard time understanding food ingredients that have been around for millennia that are all of a sudden bad. But this article does a good job highlighting how gluten in food has changed in recent years, which could be the cause for so many people having negative reactions to it.
+
+Some experts argue that without this traditional fermentation – the process by which parts of the grain begin to be broken down in the presence of lactic acid bacteria – many people simply can’t digest grains properly to absorb the desirable micronutrients they contain.
+
+Food is more complex than we ever give it credit for.
+
+Link three. "“Lean In” Messages and the Illusion of Control"
+
+An initial study perceived cause and solution around gender issues in the workplace based on context.
+
+People who read or listened to the DIY messages were more likely to believe women have the power to solve the problem. That, on its own, may very well be good news. However, they were also more likely to believe that women are responsible for the problem — both for causing it, and for fixing it.
+
+Seems like one of those “damned if you do, damned if you don’t” issues.
+
+Link four. "Why You Need a Network-Wide Ad-Blocker"
+
+Compelling argument that network level ad blocking is an important security measure for any network. This is written recommending an open source blocker, but I use Eero Plus to do this for our home.
+
+Link five. "Everything Goes in a Context Bucket – Rands in Repose"
+
+I have a similar allergic reaction to cluttered desktops and hundreds of tabs. I also have workflows to manage these things. I use Moom instead of SizeUp, and Ulysses instead of Bear.
+
+Link six. "How to Fall Asleep in 120 Seconds – Member Feature Stories – Medium"
+
+Training program used by Navy pilots to get sleep.
+
+After six weeks of practice, 96 percent of pilots could fall asleep in two minutes or less. Even after drinking coffee, with machine gunfire being played in the background.
+
+I think the target audience for this training isn’t the average person. If you are a Navy pilot, you’ll do great. But there might be some good stuff to cherry pick for other people too.
+
+Link seven. "OmniFocus 3"
+
+Critical and deep review of OmniFocus 3. I agree with much of this review and my use case for OmniFocus is complicated, similar to Gabe’s. I have not seen the stability issues he references. I do agree that we are still waiting for the other half of the change with OmniFocus for the Mac. I’m hoping Omni starts moving faster after getting all this infrastructure coding done.
+
+Link eight. "Let's Encrypt Root Trusted By All Major Root Programs - Let's Encrypt - Free SSL/TLS Certificates"
+
+This is a great milestone for Let’s Encrypt!
+
+Let’s Encrypt is currently providing certificates for more than 115 million websites.
+
+That is a major dent in realizing the encrypted web. All of my sites use Let’s Encrypt certificates.
+
+Link nine. "14 must-read tech newsletters | Opensource.com"
+
+I found a couple of new newsletters here and several I already subscribe too.
+
+Link ten. "Speeding Up Your Engineering Org, Part I: Beyond the Cost Center Mentality"
+
+This is a very good reminder of the importance of speed in tech teams. I’ve seen and continue to see “ROI thinking” as the only validation of projects. Considering latency and speed is often not considered. The “How to” and “How not to” section at the end of this is really good too.
+
+Link eleven. "30 Self-Care Tips: How to Avoid Sickness, Burnout, and Exhaustion"
+
+I like the broad framing of this as opposed to one thing - like diet or fitness alone.
+
+True self-care strengthens and deepens our connection with ourselves so we can understand how to meet our needs met from a mental, emotional, and physical standpoint.
+
+There is only one of each of us.
+
+Link twelve. "Google Struggles to Contain Employee Uproar Over China Censorship Plans"
+
+Another example of tech employees disagreeing with the direction there companies are going.
+
+Some analysts have drawn comparisons between the censorship project and Project Maven, a Google initiative to develop artificial intelligence for U.S. military drones. Project Maven sparked an internal revolt within the company, which led to Google canceling the contract. One of Google’s informal corporate principles is “don’t be evil” — a standard some of the company’s employees felt Project Maven violated.
+
+Further evidence supporting the need for an ethics model for tech.
+
+Link thirteen. "Here's How America Uses Its Land"
+
+I like the illustrations of land use in the United States. Plus you learn some things about our country. Cows use a lot of our land.
+
+That's the end of Notable Links.
+
+Now, the Give Back section.
+
+The Electronic Frontier Foundation is the leading nonprofit organization defending civil liberties in the digital world. I have been a member of the EFF for years. Not only is the EFF working hard to protect you on the Internet they have also recently launched solutions like Privacy Badger and the critically important Let's Encrypt service to make encrypting web servers free to anyone. Support the EFF with a donation!
+
+That's the end of Give Back.
+
+Now, more links.
+
+- Pts.js ptsjs.org
+The demos of this library are mesmerizing.
+- xkcd: Voting Software xkcd.com
+True!
+- OmniFocus 3 for Mac Sneak Peek —Rosemary Orchard "I am once again lucky enough to be in the early preview for OmniFocus 3 - this time on the Mac!" www.rosemaryorchard.com
+First peak of OmniFocus 3 beta for the Mac.
+- Horrors of using Azure Kubernetes Service in production movingfulcrum.com
+I surely hope this isn’t the typical experience with Azure Kubernetes Service.
+- tom creates customers, subscriptions plans and send notifications. tom.js.org
+Open source backend for subscription service.
+- Evolution of Infrastructure Monitoring at ThousandEyes Engineering medium.com
+Overview of the tooling used, with Prometheus in the middle, to do full monitoring.
+- FlightAware MiseryMap flightaware.com
+See how bad flight delays are across the US.
+
+That's the end of More Links.
+
+Now, the Microposts section.
+
+Thursday @ 11:29 PM
+
+After intense deliberation Mazie and Tyler each picked one of these to take home from the Corning Museum of Glass. Paradox of Choice was strongly displayed.
+
+Thursday @ 11:26 PM
+
+The Contemporary Galleries of the Corning Museum of Glass have stunning art and equally amazing architecture. The way natural light comes into the space and completely changes exhibits is amazing.
+
+Thursday @ 8:54 PM
+
+Time for a drive-in movie at the Elmira Drive-In to see Christopher Robbin.
+
+Wednesday @ 9:02 PM
+
+We had to dodge the rain but we got to see Taughannock Falls today! Impressive waterfall!
+
+Wednesday @ 3:36 PM
+
+Family selfie at Ventosa Vineyards!
+
+Wednesday @ 3:35 PM
+
+Fun afternoon tasting all sorts of beverages at 3 Brothers Winery!
+
+Tuesday @ 8:49 PM
+
+Cairns by Ithaca Falls.
+
+Tuesday @ 8:45 PM
+
+Ithaca Falls.
+
+Tuesday @ 8:41 PM
+
+Ice Cream stop for today at Cornell Dairy Bar.
+
+Monday @ 10:02 PM
+
+Great beer and food at Grist Iron Brewing Co this evening, with a nice view of Lake Seneca in the distance. Plus awesome bag boards.
+
+Monday @ 9:57 PM
+
+We had a fun (blazing hot) sail on the True Love schooner on Seneca Lake today.
+
+Monday @ 9:51 PM
+
+We had a fun (and very hot) hike down and back up the Gorge Trail at Watkins Glen State Park. The trail wound around the water and through rock tunnels.
+
+Monday @ 10:53 AM
+
+We all got to meet @DanoKubb in person today! Should have gotten a pic. #Kubb uniting people in action.
+
+Saturday @ 9:25 PM
+
+The kids had fun racing at RPM Raceway in Syracuse. I was impressed with their electric karts. Very cool!
+
+Saturday @ 5:26 PM
+
+We had a great time doing The Heist and Cold Case at the Museum of Intrigue! It is a very innovative, first of its kind approach to escape rooms!
+
+Saturday @ 5:22 PM
+
+Maximum Art Deco in Syracuse, NY.
+
+Saturday @ 1:33 PM
+
+Tyler and I still have fun with Pokémon GO! My Trainer Code is 9399 2668 4290 if you want to friend us.
+
+Saturday @ 12:46 PM
+
+Enjoying a delicious lunch at Dinosaur Bar-B-Que Jason Greenberg @SPSJasonG for the recommendation!
+
+Friday @ 11:23 PM
+
+Starting vacation with a 2 hour (and still counting) delay on the tarmac.
+
+Friday @ 9:54 PM
+
+Flight delayed on tarmac waiting out storm… asked about weather “Well, I’m not a meteorologist but I do have an iPhone.”
+
+That's the end of Microposts.
+
+Now, the Fortune section.
+
+You've made it all the way to the end! Here is your fortune for this week.
+
+Change your thoughts and you change your world.
+
+Thank you for subscribing to the Weekly Thing!
+
+That brings us to the end of the Weekly Thing, issue 66. Thanks for listening, and I'll see you next time.

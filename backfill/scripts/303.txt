@@ -1,0 +1,247 @@
+The Weekly Thing, issue 303. Petnames, Synapse, jless. Published December 1, twenty twenty four. By Jamie Thingelstad. In this issue: Grain of salt camera, Model Context Protocol, fine-tuning NLP transformers, petnames decentralized naming, Delicious Library.
+
+Weekly Thing 303 sent after recovering from a Turkey induced Thanksgiving nap from Minneapolis, MN.
+
+Good morning!
+
+I love Thanksgiving and we had another good one this year. A wonderful brunch followed by a delicious dinner. This year I outsourced the Turkey and ordered a smoked bird from New Braunfels Smokehouse. And since I was getting that I decided to order a delicious Brisket as well. Smoked Turkey and Brisket was a hit for Thanksgiving. Continuing the theme, the Pumpkin Pie from Hot Hands in St. Paul was so incredibly good.
+
+But better than the food was getting to spend time with family and do all the traditional things, including putting up all the Christmas stuff on Friday. Let the holidays officially begin!
+
+Now, the Notable section.
+
+Link one. "Generative AI’s Potential to Improve Customer Experience | Bain and Company"
+
+Bain writeup on five principles to improve the retail customer experience by using AI.
+
+Quote.
+- Use generative AI to enhance, not compete with, well-established shopping habits - Go beyond chatbots to integrate generative AI more seamlessly into the experience - Rethink the customer data value exchange - Build trust by showing where data is coming from and where it is going - Deploy generative AI to reimagine customer service
+End quote.
+
+Good examples in each.
+
+Link two. "Fine-tuning NLP transformers for task automation - Jon Eskin's Blog"
+
+This article highlights what I suspect is going to be a very common and powerful way to get benefit from AI. There are many tasks that need to be done where an "intelligent" approach would be a big win, but you don't need "too much" intelligence. Why not bring a simple model with very defined training to the problem.
+
+Quote.
+For simplicity, I ran with the assumption that each string of text had one and only one classification. It would be much more useful if each string of text instead could have 0-3 classifications. This would also almost certainly bring down the accuracy of the model because determining whether a given string belongs to a single category at all seems like it would be a much more complex task than what it had to learn during training. After 3 epochs, the model achieves an accuracy of 100% and loss of 0.156 on the test set and an accuracy of 99.59% and loss of 0.0278 on the training set.
+End quote.
+
+Here the test was to look at emails and classify them. There are many, many tasks like this in modern workflows.
+
+Link three. "Oncall shift should be Tuesday to Tuesday"
+
+The main thing I learned in this article was this…
+
+Quote.
+Since the work week starts on a Monday usually people schedule it Monday to Monday.
+End quote.
+
+I wonder if that is really true? I've operated in technology on-call rotations for nearly 30 years and have never done Monday rotations. In our team right now we rotate on-call on Wednesday's at 12:00 PM CT, which works really well. Seems close enough to Tuesdays, and maybe better.
+
+Same wins that are highlighted.
+
+Quote.
+- Better for Holidays - Better followup of weekend issues - Better for weekly tasks
+End quote.
+
+The worst day I can think of would be Friday's with Monday's a close second.
+
+Link four. "A Camera the Size of a Grain of Salt Could Change Imaging as We Know It – Communications of the ACM"
+
+Camera technology has become so ubiquitous and so small. But this is a whole different level.
+
+Quote.
+The meta-optics camera is the first device of its kind to produce full-color images that are equal in quality to those produced by conventional cameras, which are an order of magnitude larger. In fact, the meta-optics camera is 500,000 times smaller than conventional cameras that capture the same level of image quality.
+End quote.
+
+Would we even call this a camera? The article highlights incredible use cases in medicine with endoscopes. The concept of "turning a surface into a camera" is a bit mind blowing. What if the ceiling in the room was all just a camera? You could redefine what it means to be a smart building.
+
+Link five. "Introducing the Model Context Protocol Anthropic"
+
+Where your data lives is critical to building AI applications, so this new protocol from Anthropic is a big deal allowing models to access data that is in other sources.
+
+Quote.
+The Model Context Protocol is an open standard that enables developers to build secure, two-way connections between their data sources and AI-powered tools. The architecture is straightforward: developers can either expose their data through MCP servers or build AI applications (MCP clients) that connect to these servers.
+End quote.
+
+More reading at this quickstart and the documentation.
+
+Link six. "Petnames: A humane approach to secure, decentralized naming"
+
+There is a great saying in computer science that will get a very knowing chuckle from nearly all technologists.
+
+Quote.
+There are only two hard things in Computer Science: cache invalidation and naming things. — Phil Karlton (via Martin Fowler)
+End quote.
+
+Naming things is a very hard problem, and while we don't think about it much, you are constantly using these names. We couldn't last a minute on the web without DNS.
+
+The challenge with naming things often is managing a "name space", which mostly you can think of as the area where duplicates are not allowed, and name resolution, meaning given a name how do I get to that thing.
+
+As the web and Internet gets more decentralized this becomes a bigger issue. This article has a compelling approach.
+
+Quote.
+A "petname system" is a database and a set of interfaces which use that database to bidirectionally map human readable names to cryptographically secure names. The three types of names in a petname system are: - petnames: These are set locally by a user to map local meaning to an external identifier. For example, "Mom", "Uncle Bob", and "Pawnee Library". - edge names: Every entity in a petname system may act as its own namespace, providing "paths" to names to other entities in the system as a graph, and these provided names are called "edge names". For example, "example.org" is an edge name in "dns example.org", and "Sarah Smith" is an edge name in "Uncle Bob Sarah Smith".1 We don't have to get rid of popular naming systems like DNS, but can absorb them in such a way that they are on equal footing with any other entity. - proposed names: These are names which are introduced within a local context. For example, email permits users to specify a name on its addressing along with the email address. If you get an email that is cc'ed to Ben Bitdiddle, "Ben Bitdiddle" would be the proposed name. - self-proposed names In some applications, such as in social network software, it is possible to retrieve an entity's profile to see how that entity would like itself to be referred to. We call this a self-proposed name.
+End quote.
+
+I love the idea of having different name spaces, some shared and some not.
+
+Link seven. "Daring Fireball: The End of the Line for Delicious Library"
+
+Sad to see Delicious Library go end-of-life. I haven't used the app for a while. It was my primary tool for tracking my DVD, Laser Disc, and CD collection back in the day. I ordered a fancy Bluetooth barcode scanner to use with it in two thousand seven. I delighted when Delicious Library 2 was released. I’m a collector, so this software really spoke to me. And the developer, Wil Shipley shaped a whole series of applications over the years. Gruber's write up on Daring Fireball is great, and even better read Siracusa's two thousand four review which includes some great screenshots.
+
+R.I.P. Delicious Library. You had a huge impact.
+
+That's the end of Notable.
+
+Now, the Straw Poll section.
+
+So what is your price is to go social media free? This was an interesting Straw Poll not just for the results but the conversations I had with you all after sending it. Before diving into that though here are the results.
+
+A handful of thoughts and comments on this one…
+
+- I wonder how many of the 0 dollars responses are folks that have already gotten off of social media? Or did the majority of people really did indicate they'd get off these platforms on a whim?
+- I found it interesting in emails with folks that many people did the math with my "5 years" and turned it into an annual amount. "5,000 dollars over 5 years is just 1,000 dollars a year". I mean 1,000 dollars a year isn't anything to sneeze at. Your phone bill is probably less than that. But for many that wasn't enough to engage them.
+- I had considered putting very large amounts on this Straw Poll, even up to 1,000,000 dollars. But I decided against it because I thought it would be strange. However there were plenty of "None" responses that I wonder where they would go if they had much higher numbers. I may send some follow-ups here.
+
+Either way it was interesting how emotional this topic was.
+
+That's the end of Straw Poll.
+
+Now, the Journal section.
+
+Journal entry one.
+
+My coffee subscription from Pair Cupworks consistently brings me compelling and unique beans. This Peanut and Dark Chocolate from Laos by the Bolaven Plateau Coffee Producers Cooperative is great. It may be my first coffee from Asia.
+
+Journal entry two.
+
+Added the Bullfrog X8 hot tub to pair with the Urban Wing sauna. Happened to get it installed on the tenth anniversary of signing the purchase agreement for Magic Pines. Looking forward to some delightful time this winter! Now to get everything ready to use!
+
+Journal entry three. Justin Willman at The Fitzgerald Theater
+
+We had a great time seeing Justin Willman at The Fitzgerald Theater tonight! We first discovered Willman watching his Magic For Humans show on Netflix when we had dinner in the Tesla during the pandemic. It was our go to show for a Lion’s Tap cheeseburger or Lake and Irving meal in the car.
+
+Tammy saw he was coming to town and got us some great seats. To make it even cooler the performance was a special taping for a new Netflix comedy and magic special he is doing. That added complexity of signing release forms before we went to our seats and having a large boom camera moving around from the balcony. Additionally absolutely no phone use at all. I snapped one picture of the theater before it started.
+
+Willman’s performance was amazing and funny. The kind of show that you leave just feeling happy and good about things. The magic was impressive and I have no idea how he does any of it at all. Willman also has some family connections to Minnesota and the Twin Cities. He clearly knows the area well, which made it feel even more homey.
+
+Journal entry four.
+
+Wonder what Musk’s net worth will be four years from now?
+
+Quote.
+Elon Musk’s net worth hit a record high of 347.8 billion dollars, according to Bloomberg. Mr Musk, already the world’s richest person, has had a profitable few weeks since the election of his buddy Donald Trump. Shares in Tesla, Mr Musk’s electric-vehicle company, rose by 3.8% on Friday. Investors clearly think there are advantages to being in the president-elect’s inner circle. -- The Economist, November twenty third twenty twenty four
+End quote.
+
+My guess -- double.
+
+Journal entry five.
+
+Alby is deprecating their shared Bitcoin Lightning wallet service. I don’t want to host my own node or use their cloud hub so I transferred the satoshis I had there via lightning to my Strike wallet. Still amazes me how fast and simple Lightning is.
+
+Journal entry six.
+
+Judging Novice Policy Debate today at University of Minnesota UMBrooks tournament. Tyler here competing too.
+
+Journal entry seven. The Matrix
+
+I have wanted to watch The Matrix with Tyler for a while. I remember seeing it in the theater and being blown away by the film. I was also taken aback that it was released 25 years ago. Yikes.
+
+I was tentative about the R-rating. I visited the Common Sense Media reviews for The Matrix and the average parent review suggested it was fine for 12 and up. A 25 year old R-rating isn’t what it used to be it seems. With further inspection I decided it was fine so we rented a fresh 4K version from iTunes, versus the DVD rip I have on Plex, and fired it up.
+
+I had forgotten that it was AI that they were fighting against. It was interesting to see that storyline in the context of AI that we have today. The cell phones were comical in design dating before the glass slab era. Bullet time was amazing back then but not very notable given todays effects. The story was still very interesting and well done. We both liked it.
+
+Journal entry eight.
+
+Candle experimentation trying out nine new scents. Made two candles each at a relatively high 9% scent ratio using the 2oz samplers. Will see what we like!
+
+Journal entry nine.
+
+OmniFocus 4.4.3 just shipped with a bug I found in the change log!
+
+Quote.
+Sync – Fixed issue of the same Mac showing multiple registrations in Settings > Sync > Registered Devices, when running macOS 15 Sequoia. After this update, OmniFocus 4.4.3 may show up as one additional registration; delete all other registrations of the same Mac (that don’t include “this device”) to improve sync times.
+End quote.
+
+I’d been pruning these ghost devices every few days. Happy to not need to look at sync devices now.
+
+Journal entry ten.
+
+Tyler's done with school for the week. Mazie's home from college. I'm making Wassail Tea and it smells great. Logs burning in the fireplace. Feels like Thanksgiving.
+
+Journal entry eleven.
+
+Could the micro.blog discover section take a very different approach? The curation was nice but I doubt sustainable.
+
+How about a sampling technique using a percentage of all posts that are not replies and including them? I feel like that would work pretty well. Not algorithmic, just a sample rate.
+
+Journal entry twelve.
+
+We saw Wicked tonight and thought it was really great. The ending was so powerful. Recommended!
+
+Journal entry thirteen.
+
+From our family to yours -- Happy Thanksgiving! Have a wonderful day.
+
+Journal entry fourteen.
+
+Had a Things 4 Good candle scent survey today. Figuring out new scents for next year's event.
+
+Weekly Thing Forum
+
+Join Michael Josephson, Tom Mungavan, Jim Bernard, Brad Armstrong, David O'Hara, and many other Weekly Thing readers in the Weekly Thing Forum. Recent topics include:
+
+- Kagi Search for Free
+- So, How's The Sabbatical Going?
+- Straw Poll - Quitting Social Media
+- Lefse review from your blog
+- Weekly Think #301, App Location Services
+
+That's the end of the Journal.
+
+Now, the Briefly section.
+
+Link one. "Retool | A better way to build custom software"
+
+Nicely done CRUD tool to make small applications.
+
+Link two. "Synapse bankruptcy: Thousands of Americans see their savings vanish"
+
+Whether it is traditional finance or crypto we certainly need more innovation in financial services, but we also need to make sure that the risk associated with that innovation is understood and contained.
+
+Link three. "Iceland’s shorter working week has been a huge success – and it’s changed my family’s life | The Guardian"
+
+Iceland innovating and experimenting.
+
+Link four. "lla: A modern alternative to ls"
+
+I love that even though we are decades into the maturity of Unix based operating systems there are still folks rethinking the fundamentals. Here is modern version of ls. Written in Rust with some very nice features. The -t and -T options are spiffy.
+
+Link five. "jless - A Command-Line JSON Viewer"
+
+Brilliant little tool to page around inside of a JSON file on the terminal. Intelligent searching via regex or direct index via the JSON path.
+
+Link six. "Benefits of an open network"
+
+An approachable read if you are curious about why Bluesky is different than other networks at a protocol level. Personally I'll stay on the original open network.
+
+Link seven. "Surveillance Self-Defense"
+
+Good set of resources from the EFF to defend yourself against surveillance and tracking online.
+
+Link eight. "Who Americans spend their time with, by age - Marginal REVOLUTION"
+
+This graph blows my mind!
+
+That's the end of Briefly.
+
+Now, the Fortune section.
+
+Here is your fortune…
+
+Your reasoning powers are good, and you are a fairly good planner.
+
+That brings us to the end of the Weekly Thing, issue 303. Thanks for listening, and I'll see you next time.

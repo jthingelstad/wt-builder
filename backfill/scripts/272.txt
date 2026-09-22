@@ -1,0 +1,363 @@
+The Weekly Thing, issue 272. Escape, Fuzzy, Melodrip. Published December 10, twenty twenty three. By Jamie Thingelstad. In this issue: Techno-optimism, Sqids short IDs, Magnific AI, teaching Bitcoin, UniFi Express, 23andMe data breach, Wikifunctions launch, history of PDF.
+
+Weekly Thing 272 with thirty-six links and twelve journal entries shared between Nov 24, twenty twenty three and Dec 8, twenty twenty three. Double Issue! Sent by Jamie Thingelstad from Minneapolis, MN, United States to 1,355 amazing people.
+
+Good morning!
+
+So… yeah, I didn’t get an issue of the Weekly Thing sent last weekend. The week got the better of me and there was no time between everything else going on to send this email.
+
+However, I decided to make an update to my automation to not hardcode every issue of the Weekly Thing to seven days. So, here you are reading in your very own inbox the very first double issue of the Weekly Thing. The change I made gives every issue a distinct start and end date instead of a hard coded "7 days". Fun stuff. Will double issues become a thing? I don't think so. I guess I could also do semi-issues too and send even more emails. The Daily Thing? Craziness — nope.
+
+I hope your holiday season has gotten off to a great start. If you are looking to amp up the holiday spirit I would recommend making a batch of Wassail Tea.
+
+I’m going to wrap this up so we can head out to a Christmas Market.
+
+Now, the Featured section.
+
+Link one. "My techno-optimism"
+
+Vitalik Buterin, founder of Ethereum blockchain, with his own take on "techno-optimism". This whole thread was started with Marc Andreessen's manifesto and branches out with a number of critiques and replies.
+
+I liked reading Buterin's view, and how he thinks through it. His general push toward defensive technology is interesting.
+
+Quote.
+Across the board, I see far too many plans to save the world that involve giving a small group of people extreme and opaque power and hoping that they use it wisely. And so I find myself drawn to a different philosophy, one that has detailed ideas for how to deal with risks, but which seeks to create and maintain a more democratic world and tries to avoid centralization as the go-to solution to our problems. This philosophy also goes quite a bit broader than AI, and I would argue that it applies well even in worlds where AI risk concerns turn out to be largely unfounded. I will refer to this philosophy by the name of d/acc. The "d" here can stand for many things; particularly, defense, decentralization, democracy and differential. First, think of it about defense, and then we can see how this ties into the other interpretations.
+End quote.
+
+Reading through this brought many ideas from Taleb's Anti-Fragile to my mind as well. Investing in defensive technology to make people and society more resilient.
+
+Link two. "Writing to Think"
+
+I love everything about this essay. I've shared articles in the past that hit on the same topic, and this one puts it together really well. One of the big reasons I write is to be a better writer. And if writing is thinking, you necessarily are becoming a better thinker.
+
+Quote.
+Writing forces you to slow down, focus your attention, and think deeply. In a world where attention is fragmented in seconds, thinking becomes more reactive than reasoned. Only when we have time to play with a problem can we hope to think about it substantially. Writing requires sticking with something a little longer and developing a deeper understanding.
+End quote.
+
+Right there is what I have found such an improvement over social media. Social media prefers blurts of words that have impact. But thinking rarely happens in a single sentence. The power of clear thought, expressed in sentences and paragraphs, is incredible.
+
+And this section on PowerPoint is so spot on.
+
+Quote.
+Most organizations see PowerPoint and writing as interchangeable. They are not. PowerPoint masks poor thinking. Just because presentations are easy to create doesn't mean the person creating them understands what they are talking about. If my experience is any indication, about 30-40% of people giving presentations lack more than a surface-level knowledge of what they are presenting. All the time spent making the presentation look good comes at the expense of wrestling with the problem and developing unique insights.
+End quote.
+
+I feel like I see this constantly. PowerPoint is a damaging tool to clear thought. I've seen countless slides over the years that look impressive, like they make a point and are for some reason meaningful. But if inspected, the "bullets" don't actually represent a complete thought. They hit on the high points and lose all the connective tissue.
+
+One of the more worrisome things I've seen with our kids in school is how they use presentations (Google Slides, not PowerPoint — but the same thing) as part of a learning process. Slideware with bullets should be considered anti-learning.
+
+That's the end of Featured.
+
+Now, the Currently section.
+
+Dining: Tammy and I went to El Sazon Cocina and Tragos on Lyndale for the first time and thought it was great. The Queso Fondue was delicious and we shared the Enchiladas D'mole Negro which was great as well. It is near our house and we'll definitely be back.
+
+Watching: Our family likes to have a fun show to watch together. We've bifurcated this a bit with Mazie at St. Olaf now. So, on nights when Mazie is home we tend to watch Home Economics and when she is at school we watch Fresh Off the Boat. It took me a while to warm up to both of them but they grew on me. On the opposite end of the spectrum Tammy and I are watching All the Light We Cannot See, which is great.
+
+That's the end of Currently.
+
+Now, the Notable section.
+
+Link one. "Sqids (formerly Hashids) · Generate Short IDs from Numbers"
+
+I've never thought much about how the random codes associated with YouTube videos work. This library makes it easy to create unique tokens, sqids, from integers.
+
+Quote.
+Link shortening, generating unique event IDs for logging, generating IDs for products/objects on a website (like YouTube does for videos), generating short IDs for text messages, confirmation codes in emails, etc.
+End quote.
+
+Could be handy.
+
+Link two. "Magnific AI"
+
+In movies you sometimes see that scene where they have some grainy video camera image and then the main character asks the computer to "enhance the image" and instantly you have a super detailed image of the scene? Magnific is that.
+
+The sliders on the web page are worth playing with. You need to do it on a computer to really appreciate it. The details are lost on the small display of a phone. The images are impressive, but it is important to highlight that they are not real. AI is adding detail to make the image look better, but the detail isn't reality. It is a layer of fiction applied to the actual image.
+
+How do we even think about images like this? They are not obviously fake, but they are. They are "enhanced". The future is incredible.
+
+Link three. "The bash book to rule them all"
+
+I don't have Efficient Linux at the Command Line but I love Sanglard's enthusiasm for the book. I followed the link to the Amazon product page and the reviews are incredible.
+
+The command-line in Unix is an incredibly powerful place. I've shared my own delights at what you can do. This is a place that nearly all technologists can learn more, and the investment will pay off. If you are early in your tech career, get a book like this and really learn it. The shell is one area that you will get a career of value from knowing better. Related, this Full Bash Guide has a lot of info for free.
+
+Link four. "Teaching Bitcoin with Alby"
+
+I love how this teacher is bringing Bitcoin Lightning into the classroom. Over the summer Tyler and I did something similar. I gave him "Tech Bounties" to work on and then he would figure out the solution, present it to me, and then I awarded him with Bitcoin for completing it. Overall this falls in the category of use cases that are enabled with micropayments that are nearly free. There is a huge set of solutions ready for us enabled with this technology. Well done Tim Grigsby!
+
+Link five. "Mail-in-a-Box"
+
+I long ago decided to outsource email to Fastmail, and in general running your own mail server is very difficult. At the same time, I applaud and support efforts like this to make it simple for you to self-host your own email. Email was probably the most decentralized protocol on the Internet for decades, and is now in the stranglehold of Google and a handful of other giant service providers. The reputation systems used to fight spam make it very difficult to setup your own server and have anyone get your mail. The best antidote would be thousands (or tens of thousands!) of mail servers running in peoples houses.
+
+Link six. "Please, United: Don’t Do It. – Doc Searls Weblog"
+
+Doc Searls with an impassioned plea to United Airlines to not sell flyer data. This is yet another example where I think we need regulatory action. Market forces will push companies to monetize everything, including customer data. Do we want all devices to become like SmartTVs that surveil us and sell private data about what we do in our homes?
+
+Link seven. "I Fight For The Users"
+
+Atwood's blog is great, and it’s been a while since he has shared an essay. I loved his TRON invocation of "Fight for the Users". I've banged on about social media plenty, but a little less about X (formerly Twitter). If I wrote a post, it would be a copy of what Atwood has shared here.
+
+Quote.
+I urge you, all of you, to disavow Twitter and never look at it again. No one who cares about their mental health should be on Twitter at this point, or linking to Twitter and feeding it the attention it thrives on.
+End quote.
+
+I've added X and Twitter domains to my social media blocking list in 1Blocker. It is great to have powerful tools to clean the Internet up a bit for me. My only diversion from Atwood's recommendation would be to go deeper on blogging. Swapping X for Threads or Mastodon is possibly slightly better, but it is still encouraging a superficial information ecosystem.
+
+Also, I love the plaques he is auctioning! I put a bid in on one.
+
+Link eight. "Lessons from going freemium: a decision that broke our business"
+
+CEO of Equals shares their company journey trying a freemium go-to-market.
+
+Quote.
+In all of our pursuit of getting people into the product, the thing we forgot is that the goal of onboarding is not for people to complete onboarding. It’s not to just get people into the product. The goal of onboarding is for people to get their first moments of value from your product. To get “activated.” And removing friction is actually detached from this goal.
+End quote.
+
+Good reminder that you need to contextualize your onboarding experience for your product and your customers.
+
+Link nine. "UniFi Express - Ubiquiti"
+
+I’m a big fan of UniFi networking equipment and use it exclusively now. It is incredibly performant and has great features. This new product looks like a great alternative to Eero, which I can no longer recommend because it was purchased by Amazon and I don't trust the privacy implications of having an Amazon owned device at the core of a home network. UniFi has been releasing a ton of new stuff lately.
+
+Link ten. "Receipts"
+
+Cool beta project that allows you to bridge fitness activities on Strava into a blockchain verified NFT. Also works with Chess.com. This type of "bridging proof" solution is interesting, and has similar use cases to POAP for communities.
+
+Link eleven. "Study gauges how people perceive AI-created content | MIT Sloan"
+
+What do consumers think of AI generated content?
+
+Quote.
+Two key insights emerged. First, when people had no information about the source of the marketing or campaign copy, they preferred the results generated by AI. "Generative AI is showing that it can be as good as or better than humans at these kinds of persuasive tasks," Zhang said. But when people were told the source of the content, their estimation of work in which humans were involved went up -- they expressed "human favoritism," as the researchers put it. Their assessment of content created by AI, though, didn’t change, undermining the notion that people harbor a form of algorithmic aversion.
+End quote.
+
+I've seen this trend represented a few times. We have an aversion to AI generated content but only because we know it is. This has been shown in multiple domains. However, I would suggest this is simply the results of the new-ness. After some time, and more exposure, this aversion will go away.
+
+Link twelve. "23andMe confirms hackers stole ancestry data on 6.9 million users | TechCrunch"
+
+This is one of the "worst case" outcomes for why people don't want to use these genetic testing services.
+
+Quote.
+In an email sent to TechCrunch late on Saturday, 23andMe spokesperson Katie Watson confirmed that hackers accessed the personal information of about 5.5 million people who opted-in to 23andMe’s DNA Relatives feature, which allows customers to automatically share some of their data with others. The stolen data included the person’s name, birth year, relationship labels, the percentage of DNA shared with relatives, ancestry reports and self-reported location.
+End quote.
+
+The fact that this includes DNA information certainly makes it feel much worse than other common data breaches. These services could be using something similar to "end-to-end encryption" to protect this data so much better.
+
+Link thirteen. "History of the PDF | Sensible Blog"
+
+The Portable Document Format (PDF) is now a core part of our digital world. I remember when Adobe first launched it and it seemed like it mainly solved the problem of not having the right fonts on your computer. But it has become so much more, and it is great example of a company moving the entire ecosystem forward by being a great steward of the invention.
+
+Link fourteen. "Introducing Wikifunctions: first Wikimedia project to launch in a decade creates new forms of knowledge – Wikimedia Foundation"
+
+I’m a fan of Wikipedia and the Wikimedia Foundation, and it is exciting to see a new project.
+
+Quote.
+A “function” is a sequence of programming instructions that makes a calculation based on data provided. Internet users most commonly encounter functions when entering queries on search engines, such as the time difference between two cities, the distance between two locations, or the volume of an object. Functions operate behind-the-scenes to produce answers to these queries. For the first time, Wikifunctions will provide a library of functions that everyone, everywhere can access and contribute to.
+End quote.
+
+Wikifunctions is interesting in part because it is functionally a bit different than other Wikimedia sites. Most of the functions I checked out you can run right on the site.
+
+Recommend
+
+People and Blogs is a wonderful project by Manuel Moreale, highlighting "wonderful human beings and their blogs". Manuel's goal is to promote a healthier way to inhabit the web. I love blogging, and I love how People and Blogs shines a spotlight on it. I’m a supporter of the project via Ko-Fi. I'd recommend subscribing to get new issues each week!
+
+That's the end of Notable.
+
+Now, the Journal section.
+
+Journal entry one.
+
+We got our Christmas Tree at Gifford’s Tree Farm in Lakeville today. We found a wonderful 10’ tree that is just right!
+
+Journal entry two.
+
+Tyler's Christmas Twinkle Lights had a break in the wiring. Gave me the opportunity to get the soldering iron out. Working now!
+
+Journal entry three.
+
+I made my traditional Christmas season Toffee Bars today. My Grandma Rose always had these freshly made at the farm when we visited. Her and my Mom have made hundreds of pans of these over the years. Tradition.
+
+Journal entry four.
+
+A friend shared this powerful maxim with me. I have found it useful in recent conversations.
+
+Quote.
+Does the question need to be asked? Does the question need to be asked now? Does the question need to be asked by you?
+End quote.
+
+I’ve been surprised at how frequently I come to a “no” for one of these questions.
+
+Journal entry five.
+
+Watched Elf tonight! Tradition of ours every year right after Thanksgiving. This viewing was one of my favorites. What a great movie!
+
+Journal entry six. Things 4 Good twenty twenty three Fall Fundraiser Insights
+
+We had a great time hosting our third annual Things 4 Good Fall Fundraiser. We raised nearly 6,000 dollars in donations for our four non-profits. A fun thing for me about the fundraiser is it lets us play the role of a retailer for a weekend.
+
+This year we had 55 candle purchases which compares to 52 in twenty twenty two and 51 in twenty twenty one. On average people purchased 4 candles. However averages don’t always tell the story. Most people get two candles, and then there are a smaller number of people that get a large number -- usually as gifts for the holidays.
+
+We had some new scents this year, and had more scents than we have had the previous two years. The first year we had only four scents, and last year six. This year we had eight different scents. As the number of scents go up we need to be more planful with inventory. For the first time this year we tracked which scents people picked so that we could get better insight for future years. Here is a look at rolling inventory.
+
+Some observations:
+
+- Winter Wonderland is always the most popular scent and we started with more than twice as many of those as any other scent.
+- Old Fashioned was a very popular new scent this year and was the first to sell out.
+- Plain Jane, also a new scent, had a lot of early sales and then slowed down a lot. This scent was most popular when someone bought a lot of candles as gifts.
+
+I fed the transaction data into ChatGPT and used its data analysis mode to make a run at doing inventory planning for next year. It did a reasonable job but with such a simple dataset I could have gotten most of the way there on my own. It recommended a 30% increase for True North and 20% increase for Old Fashioned. Even though it was a simple use case, it highlighted how powerful it could be at that use case.
+
+We offer folks a number of ways to donate and again Venmo was by far the most popular method, twice as popular as cash. I’ve offered the ability to pay with crypto for all three years, and this year we had our first donation made with Bitcoin via the Lightning Network!
+
+Interesting data for us which will help us with next years event. We are already keeping notes for things we want to do to make next year’s Things 4 Good Fall Fundraiser even better. Send us an email if you have any suggestions!
+
+Also see twenty twenty three Fall Fundraiser Results.
+
+Journal entry seven. What is your favorite iPhone?
+
+The other day Alex stopped by my office and asked me “What is your favorite iPhone that you have owned?” My first reaction was that sure is a random question and then it got me thinking. What was it? I gave him a quick answer and then thought that would be a fun blog post. So here we are. I couldn’t just give one, for me there are three that stand out.
+
+- iPhone: Yeah, the first one. I stood in line at Southdale Mall outside the Apple Store to get it. I was excited by the device and felt like it was going to be a “game changer”. I wanted to have the first one on the first day so that I could experience the entire journey.
+- iPhone 4: I upgraded to this one and the new design with less curved edges appealed to me. This phone also had the first retina display and it was the first one with a front facing camera. I also upgraded to iPhone 4s to get a little speed boost.
+- iPhone Xs: I enjoyed the iPhone 7 with its button-less button, but when I upgraded to iPhone Xs I loved the removal of the home button. I remember thinking it would take some time to get used to, but it didn't. The gesture interface that is now on all phones was an instant hit.
+
+Also, since we’re on the topic of iPhones, here is a complete list of iPhones I’ve owned. I initially bought each successive generation, and then moved to upgrading every two years. Now probably every three years. The quick jump from the 13 Pro to 14 Pro was to hand our phones down to our kids. Links are all to the Wikipedia page for each one.
+
+1. iPhone
+2. iPhone 3GS
+3. iPhone 4
+4. iPhone 4s
+5. iPhone 5
+6. iPhone 7
+7. iPhone XS
+8. iPhone 13 Pro
+9. iPhone 14 Pro
+
+Journal entry eight.
+
+Cyber Monday twenty twenty three!
+
+Journal entry nine. New Standards Holiday Show twenty twenty three
+
+We had a fun night at the twenty twenty three New Standards Holiday Show tonight! This is a holiday tradition of ours and is always a fun evening. There were many returning and new special guests. The show wrapped with the excellent Christmastime Next Year.
+
+New Standards Holiday Shows: twenty twenty three, twenty twenty one, twenty nineteen, twenty eighteen, twenty thirteen, and twenty twelve.
+
+Journal entry ten.
+
+In celebration of our niece’s sixteenth Birthday she arranged a large group of family and friends to go to Feed My Starving Children and pack food this morning! Our group packed 42 of the 180 boxes for the session, for a total of 38,880 meals. It was a fun time doing good!
+
+Journal entry eleven.
+
+First time stopping at Smith Coffee and Cafe and was very impressed with their coffee program and the pastries were great.
+
+Journal entry twelve.
+
+We attended our first St. Olaf Christmas Festival at Orchestra Hall. This year was themed Love and Joy. This concert has been held since 1912. The mass choral arrangements with all 500 students were wonderful. Orchestra Hall was the perfect venue as well.
+
+Weekly Thing Forum
+
+Join John Kelly, Nate Anderson, Barry Hess, Jim Bernard, Peter Clark, and many other Weekly Thing readers in the Weekly Thing Forum. Recent topics include:
+
+- No Dec 2 Weekly Thing
+- 271 / Imperfectionist, Zeitgeisty, Inko
+- 270 / Panoramic, RCS, Finnegans
+- 269 / Phind, Textcasting, Tailspin
+- 268 / Schema, Achtung, Gamification
+
+That's the end of the Journal.
+
+Now, the Briefly section.
+
+Link one. "Fuzzy Feelings | Apple Holiday Film - YouTube"
+
+Nice short and warm story.
+
+Link two. "Permute - Media Converter for macOS"
+
+New to me app that makes it super easy to take media assets from one format to another. Via People and Blogs: Robin Rendle.
+
+Link three. "Rows n' Columns"
+
+Wow, an embeddable spreadsheet component to drop into a web app.
+
+Link four. "Morty: Every escape room. Every haunt. Ever"
+
+Our family enjoys escape rooms and this site has a huge index of them.
+
+Link five. "trains.fyi"
+
+Fun real-time view of trains moving around the US.
+
+Link six. "Learnings from fine-tuning LLM on my Telegram messages"
+
+Interesting project training a custom LLM based on personal chat history.
+
+Link seven. "Writing Documentation for Your House"
+
+Great idea, and something we do a little bit. I don't think I would take it to the extent the author does. How cool would it be if every house had a wiki that stayed with the house, and the owners over the years all use that same wiki. That would be incredible.
+
+Link eight. "Examples of Great URL Design - Jim Nielsen’s Blog"
+
+The URL for your site and service is part of the user experience. Despite attempts by browsers to hide the details of URLs.
+
+Link nine. "When the committee decides | Seth's Blog"
+
+I love this quick post from Godin suggesting what drives committees making a decision. I haven't thought about it as detailed as he puts forward, but intuitively this aligns with what happens when you have a group asses 'request for proposal' responses.
+
+Link ten. "How to Avoid the 3 Biggest Mistakes Leaders Don’t Need to Make - Leadership Freak"
+
+Great reminders! Particularly the rigid one. If you are "feeling" that as a leader, you need to quickly reset.
+
+Link eleven. "Zoom Fatigue is Real, According to Brain Scans"
+
+Anyone who has spent hours on Zoom can attest to this. It is nice to see data to confirm it.
+
+Link twelve. "Daring Fireball: CNBC Gets an Inside Look at an Apple Chip Lab"
+
+Video has a good overview of Apple's shift to making their own chips — where it started, and how it has evolved. This was a brilliant strategy shift that wasn't really noted at the time.
+
+Link thirteen. "Signal Facing Collapse After CIA Cuts Funding"
+
+This connects to the article I shared previously on the costs to running Signal. Maybe I’m behind, but I had no idea that government funding was involved with Signal. That means both Signal and Tor were in part funded and launched by US Government spy organizations needing solutions.
+
+Link fourteen. "Melodrip Coffee Tools"
+
+Perfect Christmas gift for any coffee snobs that you know.
+
+Link fifteen. "Blockchain Domain-Name Provider Ethereum Name Service Pushes Back Against Rival's Patent"
+
+I fully support Ethereum Name Service in this effort. ENS is one of the most profoundly important projects in crypto, and their approach has been great.
+
+Link sixteen. "ChatGPT turns one: How OpenAI’s AI chatbot changed tech forever - The Verge"
+
+What an incredible year it has been.
+
+Link seventeen. "Switch off bad TV settings"
+
+I find many of the things modern TV's do to the video stream they are displaying annoying. This is a good index on how to watch shows the way they were captured.
+
+Link eighteen. "How Did I Get Here?"
+
+Site that uses the output of traceroute along with additional metadata to explain in plain language how your computer got there.
+
+Link nineteen. "Scientists claim to have discovered secret to perfect espresso | The Guardian"
+
+The pursuit of the best coffee. I don't plan to start spritzing my coffee beans before grinding though. It seems like it would leave more residue in your grinder?
+
+Link twenty. "Upgrading GitHub.com to MySQL 8.0 - The GitHub Blog"
+
+MySQL scaled to tremendous levels — 1,200 hosts, 300 TB of data. How do you upgrade them all through a major version change? Carefully.
+
+That's the end of Briefly.
+
+Now, the Fortune section.
+
+Here is your fortune…
+
+Avoid gunfire in the bathroom tonight.
+
+Thank you for subscribing to the Weekly Thing!
+
+That brings us to the end of the Weekly Thing, issue 272. Thanks for listening, and I'll see you next time.

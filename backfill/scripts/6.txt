@@ -1,0 +1,134 @@
+The Weekly Thing, issue 6. Weekly Thing for June 17, twenty seventeen. Published June 17, twenty seventeen. By Jamie Thingelstad. In this issue: iPad drag and drop, solar eclipse photography, spaces versus tabs salaries, Daisy blockchain SQLite, AI bots negotiate, Ukraine power grid malware.
+
+This week I officially launched the Weekly Thing with a fully fleshed out subscribe page. I shared it on LinkedIn and a bunch of people signed up. Welcome to all the new readers! Please forward this to anyone else you think would enjoy Weekly Thing!
+
+Now, the Blog posts section.
+
+Introducing the Weekly Thing
+
+The launch of my new weekly newsletter, the Weekly Thing!
+
+That's the end of Blog posts.
+
+Now, the Photog section.
+
+Semisonic playing the twentieth anniversary of Great Divide at First Avenue.
+
+Jun 16, twenty seventeen, 10:10 PM 64–98 N seventh St Minneapolis‎ MN‎ 55403 United States.
+
+That's the end of Photog.
+
+Now, the Links section.
+
+Link one. "iPad Drag and Drop, Multitasking, and Split View in iOS 11: Everything you need to know! | iMore"
+
+Nice writeup on the big changes in iOS 11 for iPad. I’m really excited about all the things that will be opened up with this next release. I can see shifting even more of my office work to the iPad.
+
+Link two. "How to Photograph a Solar Eclipse from Nikon"
+
+We are all heading to St. Louis later this summer to be in the path of the total solar eclipse. I need to figure out how to do the photography!
+
+Link three. "Netflix (NFLX) now has more US subscribers than cable TV — Quartz"
+
+I cut the cord on cable TV several years ago. It’s not surprising that the Netflix subscriber count has grown and surpassed. The surprising part to me is that cable TV numbers are not dropping faster. I wonder how many of those are effectively no cost subscriptions bundled with Internet service. The last time we signed an agreement with Comcast they charged 10 dollars more a month to not have cable TV!
+
+Link four. "Amazon - Press Room - Press Release"
+
+Really big move. Amazon just got an impressive footprint in a lot of cities. It will be interesting to see what they do with this. It does strike me that the Whole Foods premium brand isn't necessarily in the same place as Amazon's.
+
+Link five. "Can your CTO still code? - Recode"
+
+This is a terrible headline for this article. The article is about maintaining technical proficiency which I agree completely with. If as a CTO you are taking sprint points in your deliverables? I think your doing it wrong. You do need to be super connected to the work and the technology though. You do that by continuing to embrace your craft in many ways.
+
+Link six. "The founder of Pinboard on why understanding fandom is good for business - The Verge"
+
+First thing here is the fact that Pinboard bought Delicious for 35,000 dollars. According to Crunchbase Delicious had Amazon, Marc Andreessen, Tim O'Reilly, Union Square Ventures, Esther Dyson and other investors in various rounds. Second, connecting with some extremely passionate and enthusiastic users (fandom in this case) and evolving your road map with them is a proven path.
+
+Link seven. "Developers Who Use Spaces Make More Money Than Those Who Use Tabs - Stack Overflow Blog"
+
+This totally reminds me of the 'pirates and global warming' meme (search that if you aren't familiar), but this one makes me laugh more.
+
+Link eight. "How to become a data scientist, part 2: try to solve the problem"
+
+Great article by my former book club friend Dan Frankowski. Dan is immensely smart at this stuff and it’s cool to see him putting together his thoughts on approaching data science.
+
+Link nine. "Daisy - a private blockchain where blocks are SQLite databases"
+
+I don't know that I really understand this situation but it makes my head spin a bit.
+
+Link ten. "Deal or no deal? Training AI bots to negotiate | Engineering Blog | Facebook Code | Facebook"
+
+The decision trees with desired outcomes here remind me a lot of how computers play chess.
+
+Link eleven. "Russian Cyber Hacks on U.S. Electoral System Far Wider Than Previously Known - Bloomberg"
+
+Try to approach this topic outside of the partisan noise going on right now and you may, like me, come to the conclusion that attacks against digital election systems have such an immense ROI for State level activities that this has to be happening at a large scale.
+
+Link twelve. "When startups need program management"
+
+This is an interesting topic and good article. On top of it though it is from Intercom and I have been immensely impressed with their product. The driver, approver, contributor and informed (DACI) is an interesting model I hadn't seen before.
+
+Link thirteen. "Nested teams add depth to your team structure —GitHub"
+
+This is a huge addition for enterprises using GitHub. GitHub is clearly getting a lot of push from companies that are using it and by far the weakest area was in the identity and access management area.
+
+Link fourteen. "The second generation of eero —Eero Blog"
+
+I’ve really liked my Eero units at home. I switched to Eero early in the year and have seen better performance and coverage since. Being able to administer everything from my phone is a win too. Glad to see Eero continuing to move forward with new, and compatible, hardware.
+
+Link fifteen. "WeWork will bring co-working space to Minneapolis with Capella Tower lease - Minneapolis / St. Paul Business Journal"
+
+More co-working space coming to Minneapolis. CoCo is our local grown space. It will be interesting to see how this compares to what CoCo does.
+
+Link sixteen. "The 10.5” iPad Pro: Future-Proof – MacStories"
+
+If you want to talk iPad Frederico Viticci is the guy. Thorough writeup on the new 10.5" iPad Pro. Spoiler alert, he loves it.:-)
+
+Link seventeen. "The twenty seventeen iPad Pros —Daring Fireball"
+
+The new iPad Pro's sound amazing. I love what Apple is working on in display technology. They are pushing this to a place where we won't think about it as a display because there is no latency and it is visually consistent with every other medium we know.
+
+Link eighteen. "Crash Override Malware Took Down Ukraine's Power Grid Last December | WIRED"
+
+The real world potential of cyberattacks continue to grow. Tech is doing a lot here, but is it enough.
+
+Link nineteen. "Binky: The App That Does Nothing - The Atlantic"
+
+Everything about this is so awesome. The name, the logo (pacifier!) and the entire concept. A social network filled with completely inane bot activity. Your actions are reinforced by likes from bots. I can’t figure out how cynical this is, but it’s a perfect on-ramp to dozens of dystopian sci-fi novels.
+
+Link twenty. "Diversity in Open Source Is Even Worse Than in Tech Overall | WIRED"
+
+This isn't at all surprising but falls in the category of 'when you thought it couldn't get any worse, then this.' Remember when you read that diversity in tech is a culture problem.
+
+Link twenty one. "Corporate Surveillance in Everyday Life"
+
+I think a lot about digital tracking and privacy online. It worries me greatly as one of the least appreciated aspects of so much activity online. People shrug this off as not important but nearly everyone does that with no appreciation of the issue or how deep the surveillance goes. I haven't read this whole report, but it’s on my list to read in it’s entirety. I think I’m going to start using the word surveillance instead of tracking. It’s more accurate.
+
+That's the end of Links.
+
+Now, the Promotion section.
+
+Creative Commons helps you legally share your knowledge and creativity to build a more equitable, accessible, and innovative world — unlocking the full potential of the internet to drive a new era of development, growth, and productivity. I have been a supporter of Creative Commons for years. Larry Lessig, the founder of Creative Commons, has done the world a great thing by creating a legal structure to help authors and creators encourage remix culture. In addition to donating, you should consider making your content under a Creative Commons license. Donate to Creative Commons today!
+
+That's the end of Promotion.
+
+Now, the Microblog updates section.
+
+- Dan Wilson hinting at new Semisonic album? New song “Basement Tapes” sounds great!
+- Semisonic - FNT!
+- It’s amazing how many bands are still playing from the 90’s. Pixies. Dinosaur Jr. many others.
+- Cool to have Jeremy Messersmith open for Semisonic. His voice reminds me of Dan Wilson.
+- Excited to see Semisonic playing Great Divide tonight!
+- Minnehaha creek tonight.
+- Last day of school for both kids, last day of T-Ball and Daughters birthday to boot. busy
+- Withings getting acquired, and the brand merging in with Nokia, makes me worry about my Withings products.
+- Looking up.
+- Asparagus too for the steak. Big Green Egg makes everything delicious.
+- Beef tenderloin on the Big Green Egg tonight.
+- Put the archive of the Open Loop podcast that @garrickvanburen and I did in twenty twelve back online. Fun stuff. Lot’s of Kubb.
+
+That's the end of Microblog updates.
+
+Thank you for subscribing to the Weekly Thing! If you know of people that would like the Weekly Thing please forward it along!
+
+That brings us to the end of the Weekly Thing, issue 6. Thanks for listening, and I'll see you next time.

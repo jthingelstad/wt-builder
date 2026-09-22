@@ -1,0 +1,220 @@
+The Weekly Thing, issue 47. Mar 31, twenty eighteen. Published March 31, twenty eighteen. By Jamie Thingelstad. In this issue: MyFitnessPal accounts hacked, Have I Been Pwned, Delete Facebook, Textile Facebook parser, Blockchain meets Kubb, Apple Watch, Making Slides, Run less software.
+
+It is Spring Break Season and it seems like everyone is heading away for a week, including us. We are on our way to Chicago, with a stopover in the Wisconsin Dells. We'll be going from waterslides to Hamilton this week.
+
+Now, the Photo section.
+
+The last time we were at The Dakota they had the top off of the piano. They have a tradition of having artists sign the inside of the piano when they play, and they allowed people to come on stage and take pictures after the show. See Adele's name in the photo I took.
+
+Mar 28, twenty eighteen at 8:55 PM
+The Dakota, 61 S tenth St, Minneapolis MN
+
+That's the end of Photo.
+
+Now, the Web section.
+
+Back to the Blog - Dan Cohen
+dancohen.org
+
+I'd love to see more of my friends go back to their blogs. Some nice perspective on doing that.
+
+The Missing Building Blocks of the Web – Anil Dash – Medium
+medium.com
+
+Anil Dash with a look at the components of the web that we've forgotten about over time.
+
+At a time when millions are losing trust in the the web’s biggest sites, it’s worth revisiting the idea that the web was supposed to be made out of countless little sites. Here’s a look at the neglected technologies that were supposed to make it possible.
+
+Simple core concepts that we should embrace.
+
+That's the end of Web.
+
+Now, the Photography section.
+
+42nd and Vanderbilt
+peterfunch.com
+
+Photographer Peter Funch took photos at the same intersection in New York from two thousand seven to twenty sixteen. The photos are interesting as is the observations of the people that are in them. The introduction is a good read.
+
+That's the end of Photography.
+
+Now, the Security section.
+
+Under Armour Says 150 Million MyFitnessPal Accounts Hacked - Bloomberg
+www.bloomberg.com
+
+Another massive breach. This should be yet another reminder that adopting strict password hygiene, and never using the same password on multiple sites is critical.
+
+Troy Hunt: The Legitimisation of Have I Been Pwned
+www.troyhunt.com
+
+Interesting background from the creator of Have I Been Pwned that specifically talks about the very grey area that this service runs in, but how it has started to provide very real, valuable capability for people.
+
+That's the end of Security.
+
+Now, the Tech section.
+
+Really Friendly Command Line Intro - Hello Web Books
+hellowebbooks.com
+
+If you see people doing magical things by typing commands on the command line of their machine but have no idea what they are doing this is a good article to learn more.
+
+That's the end of Tech.
+
+Now, the Games section.
+
+Daring Fireball: Are There Any Tetris Games for Mac?
+daringfireball.net
+
+I’m with Gruber on this. Quinn was a fabulous, simple and very elegant Tetris game for the Mac. There is currently no Tetris for the Mac. How is that better for Tetris?
+
+That's the end of Games.
+
+Now, the Social Media section.
+
+Textile Facebook Parser
+fb.textile.photos
+
+Nice utility to take your exported Facebook data and get the pictures back in a way that is usable.
+
+How I Erased 5000+ Facebook Comments and Likes
+www.jaruzel.com
+
+This is neat, although I don't know why people bother doing this. Does anyone really believe that Facebook deletes things when you send a delete command? I feel with near certainty that it simply sets the information into a hidden state, not deleted. Seems like a waste of effort.
+
+Delete Facebook. Permanent Account Deletion.
+deletefacebook.com
+
+Step by step directions to help you walk through the complicated process of deleting your Facebook account.
+
+That's the end of Social Media.
+
+Now, the Apps section.
+
+The 1Password 7 Beta for Mac Is Lit and You Can Be, Too | AgileBits Blog
+blog.agilebits.com
+
+I’m a big fan of 1Password and we have a family subscription to keep all of our personal and shared secrets manages. This new version looks really nice with some nice usability improvements and great integration with services like Have I Been Pwned.
+
+That's the end of Apps.
+
+Now, the Kubb section.
+
+KubbCoin: The Blockchain Meets Kubb | Kubb On
+kubbon.com
+
+A cryptotoken for my favorite lawn game Kubb! Nice!
+
+That's the end of Kubb.
+
+Now, the Health section.
+
+Heart Rate Variability (HRV): What is it, and why does the Apple Watch track it? | iMore
+www.imore.com
+
+I find it very impressive what the Apple Watch can detect from heart rate information. This is all just getting started too.
+
+That's the end of Health.
+
+Now, the Ethics section.
+
+Using Ethics In Web Design — Smashing Magazine
+www.smashingmagazine.com
+
+I wasn't expecting a comprehensive and well reasoned perspective on ethics in web design from Smashing Magazine but here it is. I like the thought and detail that has been put into this, and applaud them considering ethics in the design.
+
+That's the end of Ethics.
+
+Now, the Product section.
+
+Notion – The all-in-one workspace for your notes, tasks, wikis, and databases.
+www.notion.so
+
+This looks like an interesting all-in-one solution for small groups of people working together.
+
+That's the end of Product.
+
+Now, the Business section.
+
+Run less software - Inside Intercom
+blog.intercom.com
+
+Nice reminder when building systems that less is more.
+
+Making Slides
+kieranhealy.org
+
+Great overview of giving engaging and effective presentations. Nearly everything in this is worth thinking about.
+
+That's the end of Business.
+
+Now, the Privacy section.
+
+Steve Jobs on privacy, Steve Jobs at the D8 Conference (Video) - YouTube
+www.youtube.com
+
+I hadn't ever heard this Steve Jobs comment on privacy.
+
+Privacy means people know what their signing up for, in plain english, and repeatedly.
+
+Plain, simple, easy. And I totally agree.
+
+That's the end of Privacy.
+
+Now, the Reading section.
+
+Why We Sleep: Unlocking the Power of Sleep and Dreams
+
+by Matthew Walker PhD
+
+The first sleep book by a leading scientific expert — Professor Matthew Walker, Director of UC Berkeley’s Sleep and Neuroimaging Lab — reveals his groundbreaking exploration of sleep, explaining how we can harness its transformative power to change our lives for the better.
+
+After reading multiple blog posts about this book, after Tammy reading it and recommending it and now with my book club picking it -- I'm happy to finally be reading this book.
+
+That's the end of Reading.
+
+Now, the Promotion section.
+
+Creative Commons helps you legally share your knowledge and creativity to build a more equitable, accessible, and innovative world — unlocking the full potential of the internet to drive a new era of development, growth, and productivity. I have been a supporter of Creative Commons for years. Larry Lessig, the founder of Creative Commons, has done the world a great thing by creating a legal structure to help authors and creators encourage remix culture. In addition to donating, you should consider making your content under a Creative Commons license. Donate to Creative Commons today!
+
+That's the end of Promotion.
+
+Now, the Status section.
+
+Friday @ 7:37 PM
+
+Family selfie at the Wisconsin Dells Kalahari Resort! Tyler’s blackeye memorialized.
+
+Friday @ 8:53 AM
+
+Delicious Kingfield at Five Watt Coffee this morning. Heading out on vacation shortly.
+
+Thursday @ 6:36 PM
+
+At Martina for our first Gnocchi Night. Delicious.
+
+Thursday @ 1:12 PM
+
+Just registered for Minnebar 13 – nice and easy as a community supporter!
+
+Wednesday @ 7:37 PM
+
+Seeing Patricia Barber for the first time at Dakota Jazz Club.
+
+Tuesday @ 9:58 PM
+
+Great start to Season 5 of Silicon Valley.
+
+Tuesday @ 7:32 PM
+
+I’ve gone from being ambivalent about OmniFocus 3 tags, to now constantly thinking about how they will help me. Waiting…
+
+Saturday @ 8:34 PM
+
+Got sick today and taken down. Hoping for better day tomorrow.
+
+Saturday @ 8:33 PM
+
+Mazie passed through regionals and is now moving onto the statewide competition for National History Day. Very proud of her!
+
+That brings us to the end of the Weekly Thing, issue 47. Thanks for listening, and I'll see you next time.

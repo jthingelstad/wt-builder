@@ -1,0 +1,313 @@
+The Weekly Thing, issue 320. Octopus, Agentic, Voyager. Published May 24, twenty twenty five. By Jamie Thingelstad. In this issue: OpenMemory MCP, Stack Overflow almost dead, AI-generated law, agentic web, weight-loss wonder drugs, AI energy footprint, self-hosting moment.
+
+Hello and welcome to Summer! It is Memorial Day weekend and here in Minnesota that is the official beginning of warm weather, biking and hiking, summer cabins, pools, grilling, and boating. Whichever of those things you like to partake in. Time to soak in as much time outside with friends and family as we can.
+
+Some quick Weekly Thing business. The Supporting Membership program is now in a new year with last week's eighth Anniversary issue. Last year was the first go around for this program and I'm grateful that we were able to support Creative Commons and the work they do to support a thriving commons. Each year I will pick a different organization to support. So…
+
+This year Supporting Memberships are contributing to the Electronic Frontier Foundation! I have personally supported the EFF's mission to ensure that technology supports freedom, justice, and innovation for everyone for years. The EFF laid the groundwork for email to be legally protected, to protect our rights to create and use encryption, and that written software code is speech.
+
+Thank you to Supporting Members for being part of this. 100% of the funds go to the organization. If you would like to become a Supporting Member the information is below. In addition to doing great in the world, Supporting Members also get an exclusive POAP.
+
+Now time to enjoy the weekend!
+
+PS: My cousin Josh writes a biweekly column and his most recent one titled Windowpane reflects on solitude and silence, two things that many of us don't get enough of. "Lean into it."
+
+Now, the Notable section.
+
+Link one. "Introducing OpenMemory MCP"
+
+MCP-server that you can run locally to expose your information to different models. Interesting way to put your project in one place and then orchestrate with multiple models on different tasks, with them engaging via the MCP. I could see using this to have all issues of the Weekly Thing in an MCP that I can use to research my own archive. Could have another with a complete archive of my blog to "talk to myself". The idea of running small MCP instances is interesting. How about an MCP instance that has downloaded PDF's of all the appliances you have in your home? Add to it all the invoices from various projects you've done. Hmm…
+
+Link two. "Stack overflow is almost dead - The Pragmatic Engineer"
+
+Stack Overflow for years was the absolute go to resource for developers, and a number of other folks too. It is notable that they experienced no growth from twenty fourteen and were declining well into the 2020s. ChatGPT was a knockout punch, but there were already on the ropes. Perhaps unsurprisingly, Stack Overflow recently published what's next referencing a full rebranding. The original founders sold at the peak.
+
+Link three. "AI-Generated Law - Schneier on Security"
+
+Some great context from Schneier on AI assisting with writing and assessing laws. He references some examples of this from five years ago here in the US.
+
+Quote.
+Even asking AI to comprehensively review and update legislation would not be a first. In twenty twenty, the U.S. state of Ohio began using AI to do wholesale revision of its administrative law. AI's speed is potentially a good match to this kind of large-scale editorial project; the state's then-lieutenant governor, Jon Husted, claims it was successful in eliminating 2.2 million words' worth of unnecessary regulation from Ohio's code. Now a U.S. senator, Husted has recently proposed to take the same approach to U.S. federal law, with an ideological bent promoting AI as a tool for systematic deregulation.
+End quote.
+
+This seems like an obvious place that AI can be used by all parties. Writing legislation, and probably all contracts, becomes like chess — where the best players in the world are using machines to assist.
+
+Link four. "AI and Work (Some Predictions) - Cal Newport"
+
+Newport on some observations around AI use cases. Overall assessment is spot on, but I think there is a lot more agent potential than is framed up. If folks think of agents as these incredibly powerful tools to do "anything" then I'd be pessimistic. But when you look at home many simple things add friction in companies of any size that a fairly trivial agent could help with, there is a ton of potential. I share his skepticism about AGI.
+
+Link five. "Octopus, solar and e-paper energy dashboards - Interaction Magic"
+
+I absolutely adore the simple design of the dashboard to show energy flows. The multiple inputs and even the concept of "export" energy to the grid. Great stuff. At some point we'll have something like this for every home right? A future smart home isn't a bunch of light switches controlled with HomeKit but instead has two or three independent energy production methods and is connected to a smart grid that flexibly pushes and pulls energy. Add to that an in-home private AI agent that can manage the devices in the home based on overall production and we can become incredibly more efficient.
+
+Link six. "How weight-loss wonder drugs are redefining the way our bodies work | The Guardian"
+
+I've been taking a GLP-1 drug for a couple of months now and have found it incredibly interesting. More on that for other blog posts, but the impact of these drugs in general is hard to overstate.
+
+Quote.
+The benefits of being at a healthy weight are substantial, with one study published in January suggesting weight-loss jabs could reduce the risk of 42 diseases including heart disease, cancer, clotting disorders, Alzheimer’s, chronic kidney disease, addiction and a range of psychiatric conditions. There is early evidence that these benefits go beyond what might be expected due to the drugs’ metabolic effects.
+End quote.
+
+Yes there are issues to figure out around what to do after, but from my personal experience I feel like these tools are a huge potential for the individual and society.
+
+Link seven. "The Agentic Web and Original Sin – Stratechery by Ben Thompson"
+
+Imagine this future…
+
+- You ask an agent to go perform a bunch of tasks for you.
+- The agent has access to a Bitcoin Lightning account that you've funded with some satoshi
+- The agent interacts with dozens of services and exchanges a few satoshis as needed, all automated
+- Your task is returned and you have what you want
+
+This future is where digital currency is required. This is the IndieWeb of the future.
+
+Link eight. "Self-hosting is having a moment. Ethan Sholly knows why. - Ars Technica"
+
+As you might expect I do some self-hosting myself, but you also may be surprised that I do a lot less of it than people may think. Why? In the short term this stuff is not that hard, and even fun for folks like me, but the long term support is where challenges come into play. Right now I have two Synology NAS devices that each have 16TB of storage and mirror each other. They are both 9 years old and need to be replaced. I’m so not looking forward to the cost of the replacement, but even more I’m not looking forward to migrating 10TB of data from the old devices to the new, managing the synchronization settings across the devices, and insuring I did it all right!
+
+The reasons to self-host are real and chief amongst them for me is privacy. I dislike the fact that everytime I stream anything I know that multiple companies know that, and even more they know where I started and stopped, and that we paused at that point, for 3 minutes, and then resumed. It is just damn creepy. At our cabin we have a record player and more often than makes sense I think to myself when playing a record how novel it is that no company, no algorithm, no system knows that we are listening to the Foo Fighters right now. It fills me with joy actually.
+
+Why can’t we have the benefits without the surveillance? The lack of privacy laws. We have nothing. No protections at all. So we are in a terrible bargain of complete surveillance or you have to replace the 16TB of hard drives and deal with all those challenges.
+
+This is unacceptable.
+
+So for me I have to pick my battles. Mostly I hope to pay for cloud services and the money removes the surveillance. But many times it does not.
+
+Self-hosting should exist and is good for some folks, but it shouldn't be the only way for us to have privacy.
+
+Link nine. "Ditching Obsidian and building my own"
+
+Quoting myself from twenty twenty two:
+
+Quote.
+When I read articles from people sharing their bespoke Obsidian setups I think one of the best things I've done for my productivity is to completely ignore Obsidian.
+End quote.
+
+I then did jump in in twenty twenty four and jumped back out shortly after.
+
+The siren song of a personal knowledge management system is compelling. But none of these solutions are what I want. I think a partner AI model is probably the best avenue for this. A private LLM that you just throw things at.
+
+I'll pass on being a librarian for my own notes. And certainly wouldn't build my own.
+
+Link ten. "We did the math on AI’s energy footprint. Here’s the story you haven’t heard. | MIT Technology Review"
+
+Good article attempting to get to the bottom of the electricity requirements of AI capabilities. The short answer by the way is it is super complicated because every task is unique, and the required GPU capabilities to serve them are all unique.
+
+Powering data centers is a huge amount of energy overall. Not just for AI, but for everything. In twenty fourteen, 1.8% of all power was used by data centers and it could be 6-12% by twenty twenty eight. Some of this is AI, some is crypto, some is cat pictures, some is that killer Instagram post. It is a lot of power.
+
+Data centers are also amenable to variable power as they have variable load. Overall a smart grid working in concert with smart datacenter can be very dynamic. And, for all that electricity there is a lot of value created.
+
+We need to understand and manage these loads, but I don't agree with calls that electricity usage are reasons to stop or limit AI use. I also didn’t agree with that as an argument against Bitcoin and crypto.
+
+Simon Willison did a great writeup on this article too. This article is part of an AI Energy Package if you want to read more.
+
+Link eleven. "AI Age Brings The Biggest Acquhire – Crazy Stupid Tech"
+
+Om Malik thoughts on OpenAI buying io. His framing as an "acquihire" is actually right, and 6.5 billion dollars for that is wild. That is 118 million dollars for each of the 55-people at io. Wow. It also sets up further options.
+
+Quote.
+In twenty twenty one, OpenAI was valued at 6.1 billion dollars. Now they are buying a 55-person company with a mystery product for 6.5 billion dollars. This talk of the new yet to be announced device will allow Altman to raise a few more billion dollars, and raise the valuation of OpenAI to hitherto unprecedented heights, and in turn acquire other vectors to further his ambition.
+End quote.
+
+It does seem worth noting here how wild it is that this is all in private markets. The fact that this amount of money is moving around without a public listing, and notably without any public investors being able to participate in the upside, is eye popping.
+
+Link twelve. "The real value isn’t in the code - Jon Ayre"
+
+Good post from Ayre highlighting what a lot of people don't see when teams create software. I think in part there is an almost "magician" aspect to the act of writing software. All the funky syntax, specialized tools and such. To a non-technical person it really does look like magic. But to people experienced in the craft it is the realization of a lot of other inputs. Reading Ayre's essay he uses an example project that he was involved in to show how small the coding part really is. There is a lot of truth to this. People love the "build a house metaphors" with software, even though I think it is fundamentally flawed (your house doesn't move for instance), but to pull from it the coding is probably a bit like just looking at the framing and drywall going up. That isn't a house unless you do all the other stuff.
+
+There are a lot of metaphors for software. One I use often is that software isn't even an asset, but is instead a liability. There is a solution that needs to exist, and that solution is understood through careful understanding of the problem, designing a great answer, and then at some point it becomes instantiated in code. Now we have a problem since that code will have issues (there is no perfect code) and will have to be iterated over time. Plus, this solution will likely evolve and the code will have to reflect that.
+
+In this model I would suggest the code is actually a liability. The asset that we have is the design thinking, solutioning, domain understanding that went into it. As long as we have that asset we can modify the code, the liability, to continue to evolve. Less code? Less liability.
+
+The backdrop to Ayre's post and my own commentary is the role that AI is increasingly playing in coding. The code part is a small but critical part of the solution. And as Ayre and others have pointed out, the limit there is time and AI enhanced development tools are going to help people in this craft to do more with the time we have.
+
+That's the end of Notable.
+
+Now, the Journal section.
+
+Journal entry one.
+
+I've never had an Apple TV require this Recovery Mode. It seems to be working fine to fix it.
+
+Journal entry two.
+
+It was awesome to see @davoh for a delicious coffee at Five Watt today! The conversation covered much ground and could have continued on if not for a lack of time.
+
+Journal entry three.
+
+Getting the pool ready for summer!
+
+Journal entry four.
+
+First smash burgers of twenty twenty five!
+
+Journal entry five.
+
+Sauna fired up for a morning sweat.
+
+Journal entry six.
+
+Nice dinner at Oceanaire with our partners from Cognisive visiting from Hyderabad, India.
+
+Journal entry seven.
+
+I went looking for this photo that I knew I had of my by an SR-71 Blackbird. I found it and then selected map view. It is cool how you can see the plane in the aerial satellite view. Location is pretty accurate at U.S. Space and Rocket Center in Huntsville, Alabama.
+
+Journal entry eight.
+
+Dave Winer today…
+
+Quote.
+Where AI fits in - The Beatles - Personal computers - The web - Napster - AI
+End quote.
+
+It is interesting and I’ve made similar comparisons lately myself. It matters who your audience and point is for such a list. For technologists I keep saying it is like…
+
+- GUI
+- Internet
+- Cloud
+- Mobile
+
+I think of those because they changed nearly everything about how technologists do their craft. I believe AI is going to do that too.
+
+Journal entry nine.
+
+Omnivore announced they were shutting down last October, but it wasn’t until this week I saw a group of Omnivore addresses subscribed to the Weekly Thing bounce. Seems they turned off the email addresses now.
+
+Journal entry ten.
+
+I’ve been a bit obsessed thinking about AI agents and this definition shared by Willison from Anthropic’s Hannah Moran works for me.
+
+Quote.
+Agents are models using tools in a loop.
+End quote.
+
+Perfect. I might add “and have a memory” to that too, but that isn’t required.
+
+Journal entry eleven.
+
+We put a Phyn Plus in our home and I had to celebrate getting to do a firmware update. The unit is now inline and it is super interesting to see the data on water consumption. I’m really curious to see what this shows over time. Plus a solid discount on homeowners insurance for having it.
+
+Journal entry twelve.
+
+TeamSPS at the Cristy Rey “Ungala” tonight celebrating our long-standing partnership with the organization. It is a great program and amazing results. Proud that SPS Commerce can be part of it!
+
+Journal entry thirteen.
+
+Got to do a firmware update on the Traeger Grill.
+
+Journal entry fourteen. Traeger Grill
+
+My brother-in-law got a Traeger Grill a while back and he found he was never using it. They decided to get a Blackstone Flat Top and I volunteered to provide a good home for the Traeger they didn’t want. I got it fired up for the first time tonight.
+
+Why get this when I’ve got a perfectly good Big Green Egg already? Brisket. I’ve never been able to do brisket acceptably on the Big Green Egg and I’m hoping I can get a great product off of the Traeger. Sure is simple to get going!
+
+That's the end of the Journal.
+
+Now, the Briefly section.
+
+Link one. "Internet Artifacts"
+
+This is a lovely stroll around the Internet of yore.
+
+Link two. "License Plate Reader Company Flock Is Building a Massive People Lookup Tool, Leak Shows"
+
+Surveillance cameras reading license plate numbers and doing face matching of the driver.
+
+Link three. "Coinbase says customers' personal information stolen in data breach | TechCrunch"
+
+This is a big deal as it potentially connects a lot of identities to on-chain holdings.
+
+Link four. "Pocket is Saying Goodbye: What You Need to Know | Pocket Help"
+
+Read it Later services are R.I.P.
+
+Link five. "Starship — Cross-shell Prompt"
+
+For the CLI lovers!
+
+Link six. "Tinfoil ⋅ Confidential AI"
+
+Option to access LLM models with minimal logging and retention. Interesting but does make me wonder how this works for AI. AI is non-deterministic so logging turns out to be really needed. This isn't like running a VPN with no logs.
+
+Link seven. "Julius AI | Your AI Data Analyst"
+
+AI tools are showing up all over the place in developer tools, and now we will start to see them more in data analysis as well. Adding AI to experiences like Jupyter Notebook?
+
+Link eight. "IntelTechniques Data Removal Workbook"
+
+I use DeleteMe because there is so much friction, by design, to data removal services. But this index of various deletion methods may be helpful if you want to do it by hand.
+
+Link nine. "Introducing Codex | OpenAI"
+
+OpenAI with a significantly improved offering for software development. See Simon Willison's Codex writeup as well.
+
+Link ten. "Purdubik's Cube Breaks World Record - YouTube"
+
+Love everything about this. So incredibly fast!
+
+Link eleven. "NASA’s Voyager 1 Revives Backup Thrusters Before Command Pause | NASA Jet Propulsion Laboratory (JPL)"
+
+All the crazy stuff that these Voyager engineers have done just fills me with awe. Seriously, someone go give these folks a medal. This is on a whole different level.
+
+Link twelve. "A decade with the Apple Watch - The New Consumer"
+
+Apple Watch usage is both crazy high with "one in five US consumers" saying they've used one in the past week, and only could be considered low if we compare it to mobile phones. There is a strong health platform here, as well as data and telemetry device. Where this platform goes is still an open question.
+
+Link thirteen. "Chess grandmaster Magnus Carlsen is forced into a draw in a showdown against ‘the world’ | AP News"
+
+Wisdom of the crowds for the win! Or at least the draw! Very cool.
+
+Link fourteen. "Chart: A Decade of Smartphone Production, by Brand (twenty fifteen-twenty twenty four)"
+
+What a chart!
+
+Link fifteen. "Jules - An Asynchronous Coding Agent"
+
+In a flash AI coding assistants have moved from living in your IDE to an "agent" that is a member of the team and is working collaboratively with you on pull requests and features.
+
+Link sixteen. "The 15 biggest announcements at Google I/O twenty twenty five | The Verge"
+
+Okay, maybe we can get just 15 updates?
+
+Link seventeen. "Building a personal archive of the web, the slow way – alexwlchan"
+
+Creating an archive of web pages is harder than it looks. I'll leave this to the fine folks at Internet Archive.
+
+Link eighteen. "GPT-4.1 Prompting Guide | OpenAI Cookbook"
+
+The prompt examples here are great references and highlight how specific (pedantic?) you need to be with the LLMs. I’m super interested in agents at the moment and the agent prompts are much more specific than anything I've been exploring.
+
+Link nineteen. "Ann, the Small Annotation Server"
+
+A lovely little approach to annotating URLs using ActivityPub. The spirit of this is really cool and the idea of joining small "annotation" communities is interesting too.
+
+Link twenty. "Basecoat"
+
+It’s been a while since I've seen some new CSS frameworks hitting the open source world. This one is nice and clean. Good base for many projects.
+
+Link twenty one. "Sam and Jony introduce io | OpenAI"
+
+Big news from Ive and Altman. What a strange photo. Nothing for technologists yet, more a pitch for investors. We'll see what comes. Can the magic that Ive and Jobs had be replicated? I’m doubtful, things are more complex than they seem.
+
+Link twenty two. "Google I/O twenty twenty five: 100 things Google announced"
+
+So many things getting announced it is crazy fast even for the already crazy fast world of tech.
+
+Link twenty three. "Introducing Claude 4 Anthropic"
+
+New models from Anthropic and enhancements to Claude Code. Claude is my second most frequently used AI tools, behind ChatGPT and ahead of Gemini.
+
+That's the end of Briefly.
+
+Now, the Fortune section.
+
+Here is your fortune…
+
+AI may code, but you’re still the grandmaster.
+
+- Join the private Weekly Thing Forum
+- r/WeeklyThing on Reddit
+- Sign the Weekly Thing Guestbook
+
+That brings us to the end of the Weekly Thing, issue 320. Thanks for listening, and I'll see you next time.

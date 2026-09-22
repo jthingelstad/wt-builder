@@ -1,0 +1,355 @@
+The Weekly Thing, issue 347. Scrum, FilamentHound, DO_NOT_TRACK. Published May 10, twenty twenty six. By Jamie Thingelstad. In this issue: Claude personal guidance, Redis array type, watchOS maps, AI company learning, Agentic Coding, workplace productivity, Death of Scrum.
+
+Hello there!
+
+On May thirteenth it will be the nine year anniversary of me sending these emails. Two years ago I introduced the Supporting Membership program and I love the fact that we can do some good together! I just sent a contribution of
+
+1,164 dollars and 92 cents
+
+to the Electronic Frontier Foundation with the proceeds from the last year!
+
+This includes all membership as well as sales of the Yearly Thing book!
+
+That also means we have raised…
+
+1,792 dollars and 37 cents
+
+in total through this program!
+
+Amazing. Thank you! By the way, check out the Supporting Members section of the website for more information and a super streamlined way to become a member.
+
+Don't want a recurring charge but you do want to be part of giving back? The members page now has a place where you can make a one-time contribution into the Supporting Members program. Cool huh?
+
+Next week I'll share more about the non-profit we are supporting for the ninth year. Stay tuned!
+
+Sometimes these emails get long, and this one certainly did. Don't skip the blog posts for the new Weekly Thing website and my Your Version Number project! Or just skip the blog posts and go right to them…
+
+Weekly Thing
+
+Your Version Number
+
+Now, the New Weekly Thing Website section.
+
+I've commented that agentic coding makes things that were previously on your "list of impossible projects" into things that you can do. I have long had on my "impossible project" list the desire to create a website for the Weekly Thing that let the archive shine in ways that I knew were possible but no solution out there delivered. With 9 years of writing and 345 issues in the archive there is so much to surface.
+
+To do this I knew I would need to build it on my own. I could use the Buttondown API to get the issues and make them accessible. But then I needed a website. I needed a content pipeline. Oh, and that archive has old formats from different platforms that were a mangled mess of HTML.
+
+This was truly on the "impossible list" for me personally. If I wanted to spend tens-of-thousands of dollars, or probably even more, I maybe could have hired someone to build it. A laughable idea really.
+
+So I decided to take my experiences with Claude Code, Claude Design, and Codex and point it at this problem. Over the last couple of weeks I've been working on the new Weekly Thing website experience.
+
+I just have to say I'm so thrilled with the results that I can barely handle it. Rather than type a novel here I'm just going to list out what the site has. Even better, go there and explore:
+
+Here is what the new site has!
+
+1⃣ Completely reimagined landing page to describe the Weekly Thing. Gone is the basic Buttondown paragraph of text and a signup button. The home page hopefully gives a much better feel for what the Weekly Thing is.
+
+2⃣ Archive page has full index of every issue back to number 1. This is also now optimized for the Weekly Thing with issue images, link counts, organized by year.
+
+3⃣ Thingy, the Weekly Thing librarian that has read every issue of the Weekly Thing and is ready to converse with you about all of it. I have wanted to make an agent like this for over a year and it is finally real. I've found this fascinating to play with and ask questions of.
+
+You will see this feature requires you to provide your subscriber email address. It is only available to confirmed subscribers of the Weekly Thing.
+
+You may recall in WT311 I shared a custom GPT that was sort of like this. That was grade school level. Thingy is much smarter!
+
+Some prompts that are fun to explore with Thingy:
+
+- How has the arc of AI evolved in the Weekly Thing?
+- Compare Tik Tok, Facebook, and X from the archive.
+- Explain to me how Jamie connects Indie Web and Crypto? They seem very opposite to me.
+
+4⃣ Search is now super powered. The searching is indexed into the section of the weekly thing. This works way better than before.
+
+5⃣ On the page for each issue you will see that there is a Table of Contents on the left. It is a little thing, but another example of something I've wanted for a long time. The Weekly Thing is long and this gives a way to navigate. Also, each of those items is a hyperlink so you can now send a link to a specific notable link in a specific issue.
+
+6⃣ Big one – you can now LISTEN to the Weekly Thing. I've filled this in for the last 10 issues. On the issue page there is a "Listen" button where it will be read for you.
+
+7⃣ Podcast? Well if I have an audio file for each issue why not bundle that into a podcast. So I did. You should be able to find the Weekly Thing on Apple Podcasts and Spotify. It is propagating through other platforms. Should be on Overcast too.
+
+8⃣ Support for LLMs.txt! This is a bit hidden, but if you want to talk with the LLM of your choice about the Weekly Thing, give the LLM this link:
+
+That provides an LLM optimized index of the entire 345 issues, as well as links to LLM optimized versions of every email! This means ChatGPT or Claude or whatever else can dive deep into the content. I have actually used this myself when asking a model to do some research with me.
+
+A quick note about the audio:
+
+- This doesn't replace or remove my actual podcast, Another Thing. There is still just one episode there but I'm not giving up on that.
+- The audio for the Weekly Thing is text-to-speech using a transformed version of the email text. It announces sections, gives links numbers, announces quotes, and cuts some sections. I've listened to a few and think it works reasonably well.
+- I'll probably evolve the generated audio, and right now it only exists for the last 10 issues, but I plan to backfill all issues with audio over time.
+
+Take a look. Try out the archive, search, Thingy. Listen to an issue. And let me know what you think… anything not work right? Read wrong? Something missing? Or just that you think it is all cool?
+
+That's the end of New Weekly Thing Website.
+
+Now, the Your Version Number section.
+
+In twenty eighteen I wrote about Your Version Number:
+
+Quote.
+I think the version metaphor works. You are a different person in your 20s, 30s, 40s and so on. Your life changes in meaningful ways! MAJOR version! Each year we tend to think of new things and new goals, but we don't break backwards compatibility. MINOR version! And I think most people try to make each day a bit better than the last. PATCH level!
+End quote.
+
+I've had a shortcut that shows my version on my phone for the last year. And now I decided to make this a fun website!
+
+Now available…
+
+Your Version Number
+
+Super simple single-page app that allows you to add one or more birthdays and see the version number. The magic here is all the data is held in the URL so you can bookmark, set as your homepage, or share with others. And sure it is fun seeing you and your friends daily versions, but it is even more fun with all the custom themes!
+
+- dark -- Minimalist dark mode with violet accents.
+- family -- Warm cream + handwritten Caveat, family-album feel.
+- pastel -- Soft gradient haze with pastel cards.
+- birthday -- Confetti, balloons, and party-hat pink.
+- nature -- Scattered leaves on linen, earthy serif.
+- ocean -- Wavy gradients with a tiny shoreline wave.
+- galaxy -- Deep-space gradient with neon numerals.
+- zen -- Quiet cream with a vermillion first-letter.
+- weather -- Sky-blue card with a sun/cloud per row.
+- polaroid -- Taped Polaroid grid with a slight tilt.
+- tarot -- Purple stars and Fool / Priestess / Empress cards.
+- newspaper -- Broadsheet typography with section rules.
+- subway -- Black NYC subway map with route bullets.
+- receipt -- Thermal-printer monospace with QTY 1.
+- steampunk -- Sepia gear-and-cog ledger.
+- brutalist -- Yellow + red + black, oversized type.
+- comic -- Comic panels with POW / ZAP / BOOM stickers.
+- memphis -- 80s squiggles, triangles, and dots.
+- vinyl -- Spinning 33⅓ records.
+- terminal -- Green-on-black CLI prompt.
+- arcade -- Pixel-fonted hi-score CRT cabinet.
+- vaporwave -- Pink/cyan grid with a palm-tree sunset.
+- y2k -- Frosted-glass chrome and blur.
+- pixel -- Eight-bit pixel font on a dark green field.
+- gameboy -- Classic GB DMG palette and cart silhouette.
+
+Wait though, there is more.
+
+Your Version Number: Work Edition
+
+I decided to bring the same version number semantics to your job! Here we have YEARS.QUARTERS.BUSINESS_DAYS! Add your whole team in and share the URL with everyone.
+
+And of course the Work Edition has work themes!
+
+- boardroom -- Board-update slide with KPI rail (ARR, NPS, payback).
+- slack -- Slack channel feed with reactions and avatars.
+- slidedeck -- Confidential business-review slide with three bullets.
+- earnings -- Live stock-ticker on a black trading screen.
+- github -- GitHub PR list with avatars, labels, and the Open pill.
+- whiteboard -- Sticky-note grid in primary colors.
+- inbox -- Gmail-style inbox with subject lines and senders.
+- okr -- Q-scorecard with progress bar and ON-TRACK pill.
+- cubicle -- Manila-folder corporate newsletter.
+- kanban -- Jira-style cards in an In-Progress column.
+- standup -- Daily-standup card with Yesterday / Today / Blockers.
+- invite -- Calendar invite with Accepted check.
+- confluence -- Wiki page with breadcrumbs and comment counts.
+- zoom -- Gallery-view tiles with reactions.
+- spreadsheet -- Excel grid with row numbers.
+- pomodoro -- Tomato-timer Deep Work card.
+- ooo -- Out-of-office auto-reply with handwritten signature.
+
+A fun little project made possible with Claude Code and I.
+
+That's the end of Your Version Number.
+
+Now, the Notable section.
+
+Link one. "Redis array type: short story of a long development -"
+
+I love that antirez (author of Redis) is sharing so much about his use of agentic coding. We need more stories from experts like this that provide mission-critical software. Also, software written in difficult environments like C!
+
+Quote.
+Thanks to AI, the specification evolved a lot, via back and forth of feedback, intellectual challenges about what was the best design, what was the right compromise, what was too engineered and what not.
+End quote.
+
+The iterations at the specification level have to be a huge unlock. For an expert to be able to explore different approaches in rapid succession allows you to innovate much faster.
+
+Quote.
+You know what was the biggest realization of all that? For high quality system programming tasks you have to still be fully involved, but I ventured to a level of complexity that I would have otherwise skipped. AI provided the safety net for two things: certain massive tasks that are very tiring (like the 32 bit support that was added and tested later), and at the same time the virtual work force required to make sure there are no obvious bugs in complicated algorithms. To write the initial huge specification was the key to the successive work, as it was the key to review each single line of sparsearray.c and t_array.c and modifying everything was not a good fit.
+End quote.
+
+He took a bigger bet, went for a bigger slice of functionality, and had a bigger outcome by using agentic coding tools.
+
+Link two. "When everyone has AI and the company still learns nothing"
+
+Getting AI tools to your company and getting individual use out of them is not the hard thing, it is figuring out how your organization learns and improves with this capability. I'm seeing this right now because people are bringing a typical enterprise mindset to token consumption. Buying AI tools isn't expensive, but tokens are. And if you approach that with a desire to minimize token usage, you are going to destroy your potential. The question should not be token consumption, but instead value creation over token consumption.
+
+I'm quoting at length here because I think this is so important.
+
+Quote.
+I keep coming back to three capabilities companies will need in the messy middle. 1. Agent Operations: which agents and AI tools are running, what systems they can touch, which data they can see, which actions require approval, where identity, audit, permissions, and runtime visibility live. This is the control side, and it matters because agentic work eventually touches real systems. 2. Loop Intelligence: which AI-assisted (or fully agentic) loops actually produce learning, which ones stay open, which ones decay, where agents create leverage, where they sprawl into side quests, which teams are stuck in tight supervision because they lack tests, context, or intuition. Which teams are ready for looser delegation. 3. Agent Capabilities: how useful capabilities get distributed across the organization without pretending that three monolithic agents can do everyone's work. AI is starting to behave more like a fluid base technology than a single application category. It does not fit cleanly into one "HR agent," one "engineering agent," one "sales agent," each sitting somewhere in the enterprise zoo. The better question is how capabilities flow into the places where work happens: employee harnesses, background agents, product teams, platform services, local skills, MCP servers, evaluation suites, runbooks, examples, and domain-specific procedures. This is where the platform question gets interesting. Who owns these capabilities? How does a useful agent skill discovered in one team become available to others without turning into a dead template? How do you enrich a developer's harness differently from a product person's harness, a support team's background agent, or a compliance workflow? Which capabilities belong close to the team, which belong in a platform layer, and which should never be generalized because the local context is the whole point?
+End quote.
+
+How you operationalize this in a company is not solved at this time. I'm seeing it myself and seeing others wrestle with it. I like the foundational elements that this article puts forward.
+
+Another model that I've considered is the transition from capital with servers to ephemeral infrastructure in the cloud. In a way capital is a lot like your team. It is hard to move around, hard to acquire, hard to change, but also incredibly powerful for the right things. The cloud made a part of that very flexible and just-in-time. We are already using different LLM models to bring just the right amount of intelligence to a task. And like the cloud we know that required a certain cost in tokens which is easy to know.
+
+This morning I was doing a weekly review on one of my agents and Claude Code used the logging I have to show me five different skills the agent has and, to the penny, how much each of those cost me over the last week. That visibility applied to other tasks allows us to get much smarter.
+
+Link three. "Agentic Coding is a Trap | Lars Faye"
+
+This is a balanced article from an engineer seeing all sides of agentic coding. I found myself reading this and thinking that I agree and disagree based on the thing you are making. Not all code is equal. Some code deserves additional effort and oversight, and other stuff does not. I think folks don't consider that enough. For some solutions I think the process that is described here is spot on. For others, I would not agree.
+
+I do think the issue that everyone is seeing but nobody knows the answer to is how junior engineers learn the hard things. I don't claim to know the answer, but I do know that just like so many other things there was a time when engineers needed to know assembly and for sure the "grey beards" of the time thought it was insane that a modern developer couldn't add some assembly in the midst of their solution.
+
+The abstractions keep growing. Prompts are a new abstraction. Claude generated plans are an abstraction. I think the leap for us is to consider them as much part of the code base as the actual code that the computer runs.
+
+The assertion of Vendor Lock-in though I would disagree with. This line:
+
+Quote.
+You know how much your employees cost; you have no idea how much your token costs will be day to day, month to month, year to year. If your entire team is using agentic coding as the default, your expense account will need to remain highly nimble.
+End quote.
+
+To me the giant challenge in front of us is figuring out how you measure value creation over token usage.
+
+Link four. "Appearing Productive in The Workplace — No One's Happy"
+
+LLM capabilities are pouring into many professions and on the whole I'm bullish about this and think it will be transformational. However, there are disconnects that we need to become culturally attuned to. This article highlights one that we need to gain skill on first.
+
+Quote.
+In any previous era, the quality of a piece of work was a more or less reliable signal of the competence of the person who produced it. A novice essay read like a novice essay; novice code crashed in novice ways. AI has severed that relationship. A novice now produces work that does not betray the novice, because the competence the work reflects is not the novice's competence at all. It is the system's. The person, in the transaction, becomes a kind of conduit, capable of routing the output to a recipient and incapable of evaluating it on the way through.
+End quote.
+
+As a recipient of information we need to now perceive that you can have expertise-signal with novice-capability. This was previously not possible. The signal actually looks a bit like a student cheating and handing in someone else's work. That isn't the right framing though since it is common to do this while performing a job. People routinely engage with expertise without the domain details. But as a recipient of information we now need to ask two questions: is the information presented of the quality it deserves, and is the person or system providing it actually capable of the assertion.
+
+The article goes on to define how we can test that capability.
+
+Quote.
+Generative AI does well on tasks where feedback is fast, where being approximately right is good enough, where the human remains the final arbiter. Drafting a memo, generating examples, summarizing material the reader could verify if they cared to. The University of Illinois Generative AI guidance [7] and the PLOS Computational Biology "Ten Simple Rules" paper on AI in research [8], among the more careful documents now circulating, list much of this explicitly: brainstorming, copyediting, reformulating one's own ideas, pattern detection in data one already understands.
+End quote.
+
+Read broadly I think it is critical that we know when we are "playing tennis without a net" as it were. If you are using AI for a task that is not testable, you need to treat that different than one that is testable. Testability of the assertion is key to knowing where you can get leverage. This is the magic unlock with software, because code is testable within limits. And the place where automatic programming still needs expert engineers is the untestable bits.
+
+How do you apply this testability to other domains? And then how do you calibrate expertise into the system? Ideally expertise determines ways to make things testable that appear not to be. That is where I find real leverage. The LLM itself can be used to make the untestable output testable.
+
+Link five. "Six Years Perfecting Maps on watchOS - David Smith, Independent iOS Developer"
+
+Lovely essay emphasizing the artisanal effort put into making a feature work in the best way possible. I had to re-read when I hit the line "So… I commissioned a custom map." What? The extreme number of iterations put into making this user experience delightful is impressive and a good peek into what goes into making a truly remarkable experience a reality.
+
+Link six. "How people ask Claude for personal guidance — Anthropic"
+
+Interesting article including actual data. It is super interesting to me that "Health / Wellness" and "Professional / Career" are 27 and 26% respectively. Then a 50% drop-off to the next two, followed by another 50% drop-off to everything else. When I saw this it was like a giant blinking sign saying "COACH". Both of those areas are places where people get coaches if they can afford it and have a big enough need. AI coaches has always been an area I think we will see a ton of specialization in. Opening access to coaching feels incredibly powerful. It is also interesting that these two areas have lower rates of sycophancy.
+
+The other take away is how the sycophancy rates are dropping with each model. That proves this is a problem solvable by training.
+
+Link seven. "The Death of Scrum — An Interactive Essay"
+
+This article (worksheet?) hits on many of the topics I referenced in my Software Is Liquid post from last week. When constraints, inputs, and outputs change it is necessary to review the system you are operating to see what changes are needed. That is what brought Scrum into existence and it is the thing that should make us question its utility going forward. The challenge to me is if not this, then what. There are four options suggested here: Shape Up, The Linear Method, Continuous Flow, and Agent-First Development. It will be interesting to see if we are able to move, as an industry, to something that is more focused on the particular aspects of the outcome we are shooting for, as opposed to the limitations and constraints of the system we have to work in.
+
+That's the end of Notable.
+
+Now, the Journal section.
+
+Journal entry one.
+
+Had second Shingrex shot yesterday and so far feel okay. First shot gave me shivers but it was a lot colder then. Hoping for the best and good to avoid shingles.
+
+Journal entry two.
+
+Unwelcome surprise to have water ponding around the well head at the cabin. This isn't good.
+
+Journal entry three.
+
+So great to connect with Minnebar OG's this morning. Awesome to have Ben and Luke here to celebrate Minnebar 20!
+
+Journal entry four.
+
+Tyler led his first session at Minnebar today! He did an amazing job talking about AI in Schools and what is good, bad, and how schools should adapt.
+
+Journal entry five.
+
+Tyler and I were lucky enough to be interviewed for the Minnebar 20 special video today.
+
+Journal entry six.
+
+Great TeamSPS group at Minnebar 20!
+
+Journal entry seven.
+
+PLA run to Microcenter.
+
+Journal entry eight.
+
+PLA storage organized and ready to go!
+
+Journal entry nine.
+
+Up and writing at 6am for the next Weekly Thing!
+
+While I'm doing that I've got Claude Code backfilling audio versions of the Weekly Thing, and another Claude Code instance doing some incremental work on Elixir.
+
+Journal entry ten.
+
+Tyler and I are at Fat Pants Brewing for the last-minute rescheduled Miami GP! Go Ferrari! Go Red Bull!
+
+Journal entry eleven.
+
+Pokémon afternoon at Minnesota Card Show!
+
+Journal entry twelve.
+
+Prompt I gave Claude Code on a recent project.
+
+Quote.
+I would like to iterate faster. I would like you to use the ANTHROPIC API key and ask Haiku to generate 20 questions for each agent persona that Jamie (me) would reasonably ask. Then run those questions to each agent and see how they respond. Adjust based on that and keep iterating until all 4 agents respond to the 20 questions okay. Make sense?
+End quote.
+
+Worked well.
+
+Journal entry thirteen.
+
+Mazie is home from her semester abroad!
+
+Journal entry fourteen.
+
+We are all into Noah Kahan, and Mazie is maybe infatuated with his music. We had a nice night on the couch with her back home and the incredible Out of Body documentary about his rise. It is incredible how quickly Kahan's popularity exploded and the movie chronicles the journey.
+
+That's the end of the Journal.
+
+Now, the Briefly section.
+
+Link one. "Datatype — variable font that turns text into charts"
+
+It is incredible what you can make a font do. This seems perfect for a variety of inline data visualizations.
+
+Link two. "Hand‑drawn QR codes — Seth Larson"
+
+Delightful bit creating QR codes with pencil and paper. (Bonus, local Minneapolis blogger I wasn't following!)
+
+Link three. "FilamentHound — Best Prices on 3D Printing Filament"
+
+I went to "3D Printing: One step closer to the home replicator?" at Minnebar 20. The presenter shared that he had created this website to help people get good deals. It was a great session.
+
+Link four. "pyinfra - Fast Python Infrastructure Automation and Configuration Management Tool"
+
+Ansible without the YAML.
+
+Link five. "The AWS MCP Server is now generally available | AWS News Blog"
+
+I've commented about platforms making command-line interfaces to allow agents to use them, and shifting to agents as their customer. MCP is an evolution and secondary channel to do that.
+
+Link six. "Names Are No Longer Single Objects | ENS Blog"
+
+ENS continuing to improve blockchain accessibility, but also showing the state of the art in how blockchain native applications work. It is funny to me that the massively decentralized ENS is learning delegation from the centralized DNS system.
+
+Link seven. "DO_NOT_TRACK"
+
+Web browsers added a "do not track" feature years ago. Don't take too much solace in it though, since it is not enforceable, just a way of sharing a preference. It is also the case that a lot of other tools send tracking information, so this environment preference is an attempt to create a similar mechanism.
+
+Link eight. "How American Dads Became the Parents Their Fathers Never Were"
+
+Interesting data on the evolving roles of Dads in the household.
+
+Link nine. "Meta lost 20 million users last quarter | The Verge"
+
+Some good news!
+
+To all the Moms out there I want to wish you a Happy Mother's Day! Y'all are amazing. Particularly all the Moms I know. Nothing but delightful and wonderful women in that group. Our kids have been blessed to have an incredible Mom, and both Tammy and I are the wonderful results of great Moms. Love you Mom! Love you dear!
+
+A haiku to leave you with…
+
+Hand‑drawn QR dreams,
+Redis arrays tell stories —
+Dads learn to listen
+
+That brings us to the end of the Weekly Thing, issue 347. Thanks for listening, and I'll see you next time.

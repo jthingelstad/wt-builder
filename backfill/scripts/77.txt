@@ -1,0 +1,208 @@
+The Weekly Thing, issue 77. Oct 27, twenty eighteen. Published October 27, twenty eighteen. By Jamie Thingelstad. In this issue: Tim Cook data privacy speech, Apple Shortcuts, Google Night Sight, Pixel 3, Minnesota startups, Little Free Library, infinite scroll.
+
+For the last two years our family has been wrestling with the idea of moving to a new house. Tammy has felt for a while that she wanted a change of scenery. The rest of us haven't been as eager to go along. This is the first time that we have considered moving now that the kids are old enough to have an opinion of their own. We've found the additional complications of their friends and the neighborhood to be challenging to get our heads around.
+
+When we moved eight years ago we went from one lucky situation to another. We found a great neighborhood, with great neighbors. A real, genuine sense of community. We've loved every minute of it.
+
+But still the itch has nagged on us. I finally also decided that it would be fun to try something new, and while I’m always anxious about big changes like this, I think it will be exciting and a great thing. We've found a place we are excited about, and it's less than 3 miles from our current house. The kids can stay in the same schools. I can imagine our family in it and really enjoying it. It looks like a we are getting on this train!
+
+Now, the Featured Links section.
+
+Link one. "Tim Cook data privacy speech: Apple CEO calls for comprehensive data laws in America - The Verge"
+
+Apple CEO Tim Cook presenting on the complete disregard of privacy in the technology industry. His term of "data industrial complex" is very accurate, and I completely agree with his extension that "this is surveillance".
+
+He coins four essential rights: right to have personal data minimized, right to knowledge, right to access, and right to security. I like the simplicity.
+
+You can see the video directly on YouTube or if you prefer read the ArsTechnica transcript.
+
+Cook references Steve Jobs' talking about privacy. I appreciate that Apple is leading the tech industry on this important topic. It’s also clear that Cook is personally passionate on this topic. He even pulls Henry David Thoreau in at the end.
+
+Link two. "Apple Shortcuts: The Bicycle for the Mind is Back, but it’s Electric — Prolost"
+
+This is more than just an intro to Shortcuts on iOS 12. There is a complete history of user space programming tools from Apple over the years, going back to HyperCard. Skip the history part if you just want to read about Shortcuts.
+
+Shortcuts, the app, is my favorite thing to happen to the iPhone since the camera got decent. I truly feel that my relationship to my iPhone has fundamentally changed, because I can now build things on it that make it do things that only I would ever want. Useful things, but also fun things. Complex things and simple things.
+
+I’ve built incredible stuff with Shortcuts and am continuing to do more. My Weekly Thing newsletter is entirely built with Shortcuts and various API’s and a little Python thrown in for fun. It is worth the effort to learn Shortcuts. They are very approachable.
+
+That's the end of Featured Links.
+
+Now, the My Weekly Photo section.
+
+During blustery fall days the autumn leaves cling to the trees, flapping in the wind. You can hear them crinkle as they blur into a rusty orange pile on the ground.
+
+300 Eagle Dr, Park Rapids MN
+
+That's the end of My Weekly Photo.
+
+Now, the Notable Links section.
+
+Link one. "Google’s Night Sight for Pixel phones will amaze you - The Verge"
+
+These very dark shots are amazing. The fact that this is all done handheld is hard to even understand. Computational photography may have more tricks up it’s sleeve than we really know.
+
+Link two. "The next career step for Senior Software Engineers (that isn’t management)"
+
+Cool article and introduces an idea of going from Implementor, to Solver, to Finder as an engineer. I haven't heard this terminology used but I really like it!
+
+As an Implementer, you’re an inexperienced programmer, and your tasks are defined by someone else: you just implement small, well-specified chunks of code…
+
+As you become more experienced, you become a Solver: are able to come up with solutions to less well-defined problems…
+
+Eventually you become a Finder: you begin identifying problems on your own and figuring out their underlying causes…
+
+That seems very compelling and valuable to frame the career advancement of engineers.
+
+Link three. "The Google Pixel 3 Is A Very Good Phone. But Maybe Phones Have Gone Too Far."
+
+Review of the Pixel 3, but also a reflection on the obsessive compulsion we have with our phones.
+
+My neck hurts. I am never not looking down. When I am not looking at my phone, I become slightly anxious. And then, when I do actually look at it, I become even more so. It reminds me of how I once felt about cigarettes. I experience the world with a meticulously crafted, tiny computer slab between me and it. I am an asshole. But so, maybe, are you?
+
+Link four. "How to Write a Technical Paper: Structure and Style of the Epitome of your Research"
+
+This is a great example document.
+
+A major problem that young researchers face is their inability to write good research papers. This document serves as a guideline on how to write a good technical paper.
+
+Technical papers and white papers have been confused with marketing organizations taking over white papers as a form of advertising. It’s good to see a robust discussion of a straight technical paper.
+
+Link five. "How Minnesota Became the Land of 10,000 Startups - ReadWrite"
+
+Nice overview of the startup activity happening here in the Twin Cities.
+
+The number of tech businesses in Minnesota has grown exponentially since twenty ten, adding more than 500 startups since twenty fifteen alone. Following the charge, venture capitalists now invest more than 200 million dollars in the region annually.
+
+I was very glad to see Minnestar mentioned along with a quote from our executive director!
+
+Link six. "The Org Chart Test – Rands in Repose"
+
+Interesting idea of insuring that the org chart is clearly articulated and known, as a way to insure that communications are happening right.
+
+An org chart should also effectively describe, at a high level, how the product is organized and also who is responsible for what. An org chart should be legible.
+
+Interesting idea to bring this into a 1:1 discussion.
+
+Link seven. "Do We Worship Complexity?"
+
+In my experience the answer to this is often yes. Technologists can be drawn to complexity like a moth to a flame. It is nearly always for good reasons, often abstraction. I've seen projects where you end up abstracting away so many layers, the complexity piles up beneath you, and you have no idea what you are even trying to solve anymore.
+
+Link eight. "Wildlife Photographer of the Year twenty eighteen"
+
+Amazing photography here (but a frustrating website to navigate).
+
+Link nine. "Little Free Library creator Todd Bol dies | MPR News"
+
+I didn’t realize that Little Free Library was started right around the Twin Cities. Sad to hear that the founder has died, but it’s a great legacy to leave behind.
+
+Link ten. "Free Meeting Stats For Google Calendar and Office 365 calendar"
+
+Good stats from this service. I think there is a lot more to do with calendar data to give people insights into their time and how to manage it better.
+
+Link eleven. "Helm"
+
+This article from The Verge has a good introduction to Helm. It looks like an interesting solution for keeping your data in your control and even in your own residence where it is protected by the constitution. I don’t see this displacing my current providers, and I wonder how it compares to something like a Synology NAS.
+
+Link twelve. "Stop building websites with infinite scroll!"
+
+A thorough analysis of why infinite scroll is problematic.
+
+Infinite scroll can be disorienting, uncontrollable, and can cause your users stress.
+
+It misses one of my points on infinite scroll that it represents an attempt to trick and addict users.
+
+That's the end of Notable Links.
+
+Now, the Now Reading section.
+
+Life After Google: The Fall of Big Data and the Rise of the Blockchain Economy ()
+by George Gilder
+
+The Age of Google, built on big data and machine intelligence, has been an awesome era. But it’s coming to an end. In Life after Google, George Gilder—the peerless visionary of technology and culture—explains why Silicon Valley is suffering a nervous breakdown and what to expect as the post-Google age dawns.
+
+My nook club read for this month. I’m almost done and the book is thought provoking, but I find the writing to be overly colorful at times. The authors dislike of certain institutions and processes is also front and center. It seems to position blockchain as the future for everything, but I’m left not seeing how all the dots are connected in the argument.
+
+That's the end of Now Reading.
+
+Now, the Give Back section.
+
+The Electronic Frontier Foundation is the leading nonprofit organization defending civil liberties in the digital world. I have been a member of the EFF for years. Not only is the EFF working hard to protect you on the Internet they have also recently launched solutions like Privacy Badger and the critically important Let's Encrypt service to make encrypting web servers free to anyone. Support the EFF with a donation!
+
+That's the end of Give Back.
+
+Now, more links.
+
+- How Google Protected Andy Rubin, the 'Father of Android' - The New York Times www.nytimes.com
+Is this Technologies #MeToo moment?
+- Meow Hash mollyrocket.com
+This is an interesting hashing algorithm. I've worked with solutions that use cryptographic hashes and they can be challenging to scale. This hash is specifically not cryptographically sound, but is highly performant.
+- Atlassian launches the new Jira Software Cloud | TechCrunch techcrunch.com
+These look like nice improvements to such a widely used application.
+- Trek10 | The Business Case For Serverless www.trek10.com
+Arguments for why serverless architectures are desirable.
+- Redis Graph - a graph database module for Redis oss.redislabs.com
+Redis now does graphs!
+- WebPerl | Run Perl in the browser with WebPerl! webperl.zero-g.net
+Perl seems to go everywhere!
+- GM’s data mining is just the beginning of the in-car advertising blitz - The Verge www.theverge.com
+Wait a second, our cars are now invading our privacy and selling the data?
+- Introduction to Redis Streams – Redis redis.io
+Redis is a well written and very reliable service, and scales down well for small solutions. Adding a streaming capability to it will open up some new use cases.
+- Favicon Checker—See how your favicon hold up across popular browsers, including native dark and light modes. www.colinkeany.com
+Sweet tool to make sure your favicon works in all the places it may appear.
+- A familiar HTTP Service Framework — responder 0.1.4 documentation python-responder.org
+Yet another powerful Python module from Kenneth Reitz.
+- Tesla quietly drops “full self-driving” option as it adds 45,000 dollars Model 3 | Ars Technica arstechnica.com
+I guess I should be happy that I skipped this additional 3,000 dollars add-on.
+- Fold N Fly www.foldnfly.com
+Awesome database of paper airplanes.
+
+That's the end of More Links.
+
+Now, the Microposts section.
+
+Saturday @ 9:22 PM
+
+Settlers of Catan!
+
+Saturday @ 4:57 PM
+
+Kubb, king of lawn games. Still love this painted set I won at the US National Kubb Championship!
+
+Saturday @ 4:54 PM
+
+Fun (and chilly!) day playing Kubb and Mölkky at the Olson Family Weekend!
+
+Saturday @ 10:15 AM
+
+I love updating things — but this is an entirely different level.
+
+Friday @ 7:17 PM
+
+Tamarack trees golden needles in the afternoon sun.
+
+Friday @ 7:15 PM
+
+Tyler crossing the headwaters of the Mississippi River.
+
+Friday @ 11:20 AM
+
+Future jack-o-lanterns!
+
+Friday @ 10:13 AM
+
+The Foo Fighters put on an amazing show last night at the Xcel Center. The energy and passion from the Foo’s is always amazing.
+
+That's the end of Microposts.
+
+Now, the Fortune section.
+
+You've made it all the way to the end! Here is your fortune for this week.
+
+No man or woman is worth your tears,
+and the one who is, won't make you cry.
+
+Thank you for subscribing to the Weekly Thing!
+
+That brings us to the end of the Weekly Thing, issue 77. Thanks for listening, and I'll see you next time.

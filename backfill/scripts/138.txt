@@ -1,0 +1,222 @@
+The Weekly Thing, issue 138. Covid-19, Credibility, Clearview AI, Hair Freezing. Published March 7, twenty twenty. By Jamie Thingelstad. In this issue: Clearview AI facial recognition, stopping Facebook, First Amendment social media, OmniFocus floating time zones, Ulysses writing assistant.
+
+Okay, this week was filled with news and information about Covid-19 in every dimension there is. Every meeting has references to Covid-19. The home conversation about why are the neighbors stockpiling jugs of water? Everyone talking about the empty shelves at the stores. It all feels scary and concerning, and it is entirely unclear what one should do other than a unanimous agreement that we all need to wash our hands a lot and stop touching our faces five hundred times a day, because we are people, and apparently that is a thing we do very deep in our instincts. I attended a CIO dinner this week, and the impacts and reactions of various organizations were extremely varied. We are all feeling our way through this, and trying to be rational and deliberate with actions. However, given that this is something none of us have been through before, hence the novel name novel, there is an extreme sense of concern. I’m getting on a plane next week for a trip to Florida. The CDC says that it is okay. And all the data I think about says it’s okay. But it all just makes everything a bit anxious. Stay safe out there, be calm, be rational, and wash your hands and again, stop touching your face!
+
+Heads up that International Women's Day is this Sunday, March eighth! Take a moment to share the message, and celebrate the accomplishments of women! #IWD2020 #EachforEqual
+
+Now, the Must Read section.
+
+Link one. "Your Credibility Depends Upon How You Make People Feel - Matt Norman"
+
+Credible and genuine are words that I want to always embody, and this is a great article highlighting various aspects of how you "show up" and how that contributes to credibility.
+
+Quote.
+What does it mean to be risky? In part, this refers to psychological safety. Psychological safety is the degree to which people can let their guard down around you.
+End quote.
+
+That is a big deal, and a very important thing for leaders to be able to do very well.
+
+Link two. "Top Economists Study What Happens When You Stop Using Facebook - Study Hacks - Cal Newport"
+
+Worth reading just to note the five highlights shared by people who deactivated Facebook. Lookin for an extra hour in your day? Here it is!
+
+Quote.
+Perhaps most interesting was the disconnect between the subjects’ experience with deactivating Facebook and their prediction about how other people would react. " About 80 percent of the Treatment group agreed that deactivation was good for them," reports the researchers. But this same group was likely to believe that others wouldn’t experience similar positive effects, as they would likely "miss out" more. The specter of FOMO, in other words, is hard to shake, even after you’ve learned through direct experience that in your own case this "fear" was largely hype.
+End quote.
+
+Bold is my highlight.
+
+That's the end of Must Read.
+
+Now, the Currently section.
+
+Buying: After months of deliberating I finally pulled the trigger and bought a new camera! I've had my Canon 5D Mark II for almost a decade now, and in recent years I haven't used it much. I've got a ton of camera gear, probably too much, but it has mostly sat and collected dust as my iPhone's camera has become so good. However, this year we are planning on going to some very fun destinations, and I want photos that are beyond what a phone, even a good one, can get. I debated getting a Leica for a while, and then realized that was silly. I thought about jumping to Sony or another manufacturer, mostly for a change. Then I found the Canon EOS R and after doing a lot of research decided to take the leap. It’s low-light performance is great, which is what really bugged me on the 5D. I got the kit with the very versatile RF 24-105 F4 L IS lens. I’m getting used to the new capabilities, and am very impressed with the eye-detection focusing system. I’m intentionally trying to keep it light and not layer in a ton of accessories. I also dig the connection with the iOS app and being able to download photos directly from my phone, or remote control the camera easily. It supports Bluetooth and WiFI.
+
+That's the end of Currently.
+
+Now, the Photog section.
+
+I try to put a picture in each Weekly Thing that I took that very same week. It’s a way to push my creative mind to stay focused on images worth capturing. This week came up empty though. So, rather than skipping the photo I decided to go into my library. I've been thinking about Iceland a lot lately, and I wanted to go to those photos right away. This shot is from September, twenty twelve on the Eastern shore of Iceland with the volcanic black sand and a very angry Northern Atlantic ocean crashing in with cold waves. It was such a beautiful spot, and I cannot wait to return.
+
+Know someone who'd like good reads like this?
+Forward this on and encourage them to sign up.
+
+That's the end of Photog.
+
+Now, the Recommended Links section.
+
+Toolkit for a Successful Manager – GPetrium
+
+Great listing of tools and resources for managers. This is worth spending some time with and getting ideas from.
+
+Mailbrew - Beautiful Automated Newsletters
+
+I like this product, but not sure if I'll use it. I already have a great RSS solution with Feedbin. But for people that don't use a feed reader, this is a pretty good idea. What I like about it is the concept of firewalling your attention and privacy behind an email. There is no infinite scroll here, or other tricks to game you into spending more time on these sites. Perhaps a really good solution to FOMO?
+
+Introducing "Less" — a new app to help you reduce your alcohol intake
+
+Two things about this struck me. First, I have found that as I get older alcohol affects me more than ever. Just a beer or two, and the next day I feel less energy. I don't feel a need to specifically goal this, but tracking alcohol and affects is an interesting thing. I installed the Less App to give it a try. It is very well designed and I like how it is just focused on one thing. The second thing about this is how I admire what Kevin Rose is doing with this app, Less, as well as Oak, his meditation app, and Zero, his intermittent fasting app. He seems to be taking his product passions and focusing it squarely on creating solutions that help improve people. Nice!
+
+Ninth Circuit: Private Social Media Platforms Are Not Bound by the First Amendment | Electronic Frontier Foundation
+
+This is a good ruling, and highlights something I’m pretty vocal about, you have no right to free speech on any online service operated by a company. I think there is also a flip side of this, with the right to moderate and censor content, should also come obligations to do that and some amount of accountability for the speech you do host. Right now social media companies want it all their way. No accountability, and complete control. That needs to end.
+
+Menttium: Cross-Company Mentoring and Consulting Services
+
+I heard about this service for the first time at a recent CIO dinner and it intrigued me. There were multiple people there that had used it to be a mentor to people. Worth checking out and a great way to give back to those earlier in their career.
+
+Calendar Integration – Part 1: On Time Blocking | Kourosh Dini
+
+I feel similar to this about time blocking. I have adopted some practices of time blocking, and it has been immensely beneficial. Most notably is the exercise around blocking some flex time in my schedule to avoid 100% allocation, and with it a loss of control of where my time and energy goes. With that said, I do not like really specific time blocking that is very task focused. This is all personal though, so YMMV.
+
+Here’s the File Clearview AI Has Been Keeping on Me, and Probably on You Too - VICE
+
+Interesting to see that Clearview AI isn't just mining the social media sites, but is also mining sketchy sites that are pulling data off of social media sites.
+
+Quote.
+The "Image Index" lists where the photos were obtained; the sites include Insta Stalker—one of dozens of sketchy Instagram scrapers available online—an enraged post someone wrote accusing me of yellow journalism, and the website of an extremely marginal conspiracy theorist who has written about me a handful of times.
+End quote.
+
+Way to go Insta Stalker?
+
+Stunning Photos From The Hair Freezing Contest Of Takhini Hot Springs
+
+I love these pictures! I'd almost grow my hair out so I could go and freeze it at the Takhini Hair Freezing Contest!
+
+Doc Searls Weblog · Going #Faceless
+
+With all the news of Clearview AI out there, and what tech companies are doing with Facial Recognition, I’m growing more concerned about images that are out there. I don't know that there are good solutions. It seems overly restrictive to never post photos of you and friends online. I’m curious about the idea of creating fake information and fake photos and pushing billions of those into these algorithms to screw them up. Sabotage! Go sign the Stop facial recognition by surveillance systems petition.
+
+Exercise Is The Ultimate Thing You Can Do For Your Brain Health
+
+I've been thinking a lot about energy management lately, and thinking about exercise, and working to create and reinforce the mental connection of exercise being additive to energy. I've done this with meditation, realizing that those 10-15 minutes are additive to the other 23 hours and 45 minutes. It is maybe a rare example of real mutlitasking? Investing directly, and indirectly in energy?
+
+That's the end of Recommended Links.
+
+Now, the Covid-19 Links section.
+
+I’m using the flexibility I got in my workflow to put a special section this week for Covid-19 links. This is what I’m reading about the pandemic in progress. Stay safe out there everyone!
+
+Harnessing wearable device data to improve state-level real-time surveillance of influenza-like illness in the USA: a population-based study - ScienceDirect
+
+I honestly don't hav the background to parse the findings completely on this, but the concept is very compelling. Apple could release an Apple Watch app that collects data from millions of people in real-time to feed predictive models of Covid-19 spread. If that app was out there, I would install it immediately. I wonder if they are working on something like this right now. Thanks to Nick Swenson for the link.
+
+Stripe Newsroom: COVID-19 precautions for Stripe employees and customers
+
+Stripe joins in the group of companies not allowing any visitors to their office, in addition to stoping all business travel.
+
+Google cancels its twenty twenty I/O developer conference | TechCrunch
+
+Tech conferences are being cancelled by the day with Covid-19.
+
+Interim Guidance for Businesses and Employers to Plan and Respond to Coronavirus Disease twenty nineteen (COVID-19), February twenty twenty
+
+Practical advice from the CDC for businesses asking how to respond to Covid-19.
+
+Quote.
+The following interim guidance may help prevent workplace exposures to acute respiratory illnesses, including COVID-19, in non-healthcare settings. The guidance also provides planning considerations if there are more widespread, community outbreaks of COVID-19.
+End quote.
+
+This seems balanced and a good resource.
+
+WHO: How to handwash? With soap and water - YouTube
+
+1. It turns out I have no idea how to really wash my hands.
+2. I have adopted most of these practices with each hand wash as I read about Covid-19.
+
+How to prepare for the coronavirus like a pro - MIT Technology Review
+
+Okay, before we get to the content here, can we stop putting some Twitter poll out and then embedding it in a news article like it is real data. This article cites a poll with 89 votes, and asserts this 51% of people are stockpiling things. 89 votes? MIT Technology Review should be embarrassed to put that in there, but, now the other content. All this stockpiling of "stuff" feels to me like people feeling like they need to do something, and this is a thing they can do.
+
+Has Covid-19 mutated into a more deadly strain? Busting the coronavirus myths | World news | The Guardian
+
+A good article addressing a number of claims floating around about Covid-19.
+
+Opinion | Here Comes the Coronavirus Pandemic - The New York Times
+
+There is much to do to respond to a pandemic, but this article makes a good point that we are not as prepared as we should be.
+
+Quote.
+Here’s what is certain: Despite many warnings over many years, we are still not ready. Not in China, where nearly two decades after that SARS outbreak food markets that sell live animals still thrive and authoritarianism still undermines honest and accurate communication about infectious diseases. Not in Africa, where basic public health capacity remains hobbled by a lack of investment and, in some cases, by political unrest and violence. Not in the United States, where shortsighted budget cuts and growing nationalism have shrunk commitments to pandemic preparedness, both at home and abroad.
+End quote.
+
+We have a short memory, and don't take action after the echo of these events fade. The reality is that once something like Covid-19 has started, it’s far too late for us to react.
+
+Responding to Covid-19 — A Once-in-a-Century Pandemic? | NEJM
+
+Broad and well-thought out article from Bill Gates on the approach to dealing with Covid-19.
+
+Quote.
+Now we also face an immediate crisis. In the past week, Covid-19 has started behaving a lot like the once-in-a-century pathogen we’ve been worried about. I hope it’s not that bad, but we should assume it will be until we know otherwise.
+End quote.
+
+That's the end of Covid-19 Links.
+
+Now, the Status Updates section.
+
+Thursday @ 10:24 PM
+
+The top blocked domain that my Pi-Hole is protecting me from every day is api.segment.io. That isn't a web browser thing that 1Blocker could even block. It is API calls embedded, I suspect, in iOS Apps. I love having multiple layers of surveillance blocking!
+
+Thursday @ 8:25 PM
+
+We had a great event recognizing International Women’s Day at SPS Commerce. Great keynote and exercise around vulnerability and bias led by Brave New Workshop's Margi Simmons and a wonderful panel from women leaders in #TeamSPS! Thank you Kara Boespflug, Jenny Nolan, Anna Picchetti, Nikki Riemersma, and Bre Taft.
+
+Sunday @ 6:40 PM
+
+Enjoying Tina Schlieske doing solo acoustic show at the 318 Cafe in Excelsior.
+
+Saturday @ 10:02 PM
+
+Well, that isn’t supposed to be there.
+
+Friday @ 9:31 PM
+
+We had a lot of fun at REM5VR tonight! Beat Saber was my favorite.
+
+That's the end of Status Updates.
+
+Now, for your information.
+
+OmniFocus 3.6 Introduces Support for Floating Time Zones - Learn OmniFocus
+
+I've wanted this feature in OmniFocus for years! Awesome implementation, and now the next time I travel to another country I won't have to muck around with all sorts of dates in my GTD system!
+
+What does the BMW logo mean? | BMW.com
+
+I’m a BMW lover now converted to Tesla. I'll be curious to see this in the real world. On a screen, I’m not much of a fan of the transparent aspect of this new logo. Seems problematic.
+
+Your Personal Writing Assistant: Antidote, Now Integrated With Ulysses | Ulysses Blog
+
+I’m almost ready to buy Antidote, which I've never heard of before this, if the implementation is nice. But I already am a customer of Grammarly, and I'd rather it was Drafts and Grammarly playing nice together.
+
+Clearview AI’s Facial Recognition App Is Violating Apple’s Rules
+
+Pretty much everything about Clearview AI is super sketchy. No surprise that they are violating terms of service using a developer certificate to distribute an app. Facebook did this at one point and got shut down too.
+
+Leadpages acquired by Canadian tech company Redbrick; Drip isn't part of the deal - Minneapolis / St. Paul Business Journal
+
+I suspect at best the investors got their money out of this, which is better than nothing.
+
+Edtr.io
+
+Easy to embed React based editor for web apps.
+
+Technical Writing  |  Google Developers
+
+I do like when companies like Google shred's with the public some of their internal training and resources. This is a good set of resources for those doing technical documentation.
+
+Are you a LinkedIn Power User?
+Use your power for good, share this on LinkedIn.
+
+That's the end of the FYI section.
+
+Now, the Fortune section.
+
+You've made it all the way to the end! Here is your fortune for this week.
+
+Your boss is a few sandwiches short of a picnic.
+
+Thank you for subscribing to the Weekly Thing!
+
+That brings us to the end of the Weekly Thing, issue 138. Thanks for listening, and I'll see you next time.

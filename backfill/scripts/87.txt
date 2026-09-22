@@ -1,0 +1,138 @@
+The Weekly Thing, issue 87. Jan 5, twenty nineteen. Published January 5, twenty nineteen. By Jamie Thingelstad. In this issue: Analog social media, depression language, Microsoft Developer Division interviews, iPad Pro, serverless bills, Obama's favorite books, Facebook Clear History.
+
+We are in that really fun time as parents where our kids are old enough to stay up until midnight on New Years Eve, and happily also think it's fun to do that with their parents. I was reading various blog posts leading up to New Years about resolutions and various self-improvement ideas for the year ahead. Reflections on the past year and such. New Years Eve was a good reminder to chill out and just have fun as I joined the kids in screaming and shouting in elation as the clock tipped over into twenty nineteen. It's good to step back and just welcome in the New Year with a bunch of whooping and hollering! Happy twenty nineteen to everyone!
+
+Now, the Featured Links section.
+
+Link one. "Join Analog Social Media - Study Hacks - Cal Newport"
+
+Two things on this.
+1. My book club read Bowling Alone which covers the value of clubs, and sadly the decline of many of them in America. This is a good book to go along with Newport's thesis here.
+2. While I’m talking about my book club, that is a "analog social media" activity that I value and treasure.
+
+That's the end of Featured Links.
+
+Now, the My Weekly Photo section.
+
+Holiday light display in Mankato, MN.
+Dec 30, twenty eighteen at 5:11 PM
+900 Mound Ave, Mankato MN
+
+That's the end of My Weekly Photo.
+
+Now, the Notable Links section.
+
+Link one. "What Is Going To Happen In twenty nineteen – AVC"
+
+Well, Fred Wilson gets tight to the point.
+
+I believe and have been telling those around me that I think twenty nineteen will be a “doozy.” I think we will see major dislocations in the leadership of the United States, a bear market in stocks, a weakening economy, a number of issues with the global economy including a messy Brexit and a sluggish China.
+
+Yikes.
+
+Link two. "People with depression use language differently – here's how to spot it"
+
+I wonder how many other things can be determined by analyzing people’s writing and word choices.
+
+Link three. "Rethinking how we interview in Microsoft’s Developer Division"
+
+I find it very interesting to hear how tech companies are evolving their hiring practices. There is still too much "gut" instinct in hiring. At SPS we have adopted some of these practices as well as we've improved the process. I like that this highlighted some of the complications of these more sophisticated processes as well.
+
+Link four. "Another iPad Pro Review"
+
+Solid review of the new iPad Pro after using it for a prolonged period. I totally agree with the sentiments, as well as not replacing your laptop with an iPad Pro. There are a number of things that I do on my iPad that I cannot do on my MacBook, and an equal number that are the other way around too. Notable app highlights in this writeup as well.
+
+Link five. "ongoing by Tim Bray · SF-5: Serverless Bills?"
+
+More thoughts on Serverless architectures, this time on costs. Bray's point is valid, the solution may have as much, if not more, impact on cost than the deployment model.
+
+Link six. "Vaping Giant Juul Explains Everything Wrong With Our World"
+
+This is a shocking valuation in such a short period of time.
+
+The deal values Juul at 38 billion dollars, a similar market capitalization to that of Target, MetLife, Delta Air Lines, and Ford. Fifteen hundred Juul employees split a 2 billion dollars dividend as a result, becoming instant millionaires overnight.
+
+All being built by addicting people, mostly kids, to nicotine and encouraging them to do something that is bad for them. Maybe Facebook should have bought Juul?
+
+Link seven. "Tying Allowance to Chores Could Kill Kids’ Motivation to Help Out - The Atlantic"
+
+Interesting background data on how chores and allowances encourage behaviors.
+
+He advises that allowance be used as a means of showing children how to save, give, and spend on things they care about. Kids should do chores, he writes, “for the same reason we do—because the chores need to be done, and not with the expectation of compensation … Allowance ought to stand on its own, not as a wage but as a teaching tool.”
+
+In our family the kids get an allowance just on schedule, it’s not tied to chores. Chores are things you do because your part of the family and we all chip in.
+
+Link eight. "Barack Obama’s Favorite Books of twenty eighteen"
+
+Can we start a campaign to get President Obama off of Facebook and share information like this without requiring people to submit to surveillance to get his posts? Plus, like some of the book (and other) recommendations here.
+
+Link nine. "Facebook’s Clear History privacy feature is still months from launching - Recode"
+
+Why would anyone believe that Facebook is actually serious about this? The only motivation for them is fear. I wouldn't recommend trusting a company to do something that goes against their profit motive. Why was Google Chrome the last browser to support Do Not Track? It doesn't help them. Why do they still not support privacy enhancing features with cookies? Same reason. Why would Facebook ever limit its data on you? This is akin to asking cigarette companies to also give you advice on lung health.
+
+Link ten. "Leah Cunningham"
+
+My friend Leah Cunningham left the social web and is now on the IndieWeb. I recommend subscribing to her site with your favorite feed reader.
+
+That's the end of Notable Links.
+
+Now, the Give Back section.
+
+Creative Commons helps you legally share your knowledge and creativity to build a more equitable, accessible, and innovative world — unlocking the full potential of the internet to drive a new era of development, growth, and productivity. I have been a supporter of Creative Commons for years. Larry Lessig, the founder of Creative Commons, has done the world a great thing by creating a legal structure to help authors and creators encourage remix culture. In addition to donating, you should consider making your content under a Creative Commons license. Donate to Creative Commons today!
+
+That's the end of Give Back.
+
+Now, more links.
+
+- In twenty nineteen, blockchains will start to become boring - MIT Technology Review www.technologyreview.com
+Blockchain getting boring may be the best thing to ever happen to it.
+- Happy Public Domain day: for real, for the first time in 20 years! / Boing Boing boingboing.net
+Rare day when the public domain gains some new things.
+- I Was A Cable Guy. I Saw The Worst Of America. | HuffPost www.huffingtonpost.com
+This is a good read. I don't think I'd want to be a "cable guy".
+- Little Stones for twenty nineteen www.macdrifter.com
+I think I could have nearly the exact same set of goals.
+- Gravitee.io API Platform gravitee.io
+Open source API management solution.
+- A tour of elementary OS, perhaps the Linux world’s best hope for the mainstream | Ars Technica arstechnica.com
+Are we still talking about Linux on the desktop?
+- Release fish 3.0.0 (released December 28, twenty eighteen) · fish-shell/fish-shell github.com
+I've been using fish shell for a while now and it feels modern and nice. It reminds me how zsh felt many, many years ago. These improvements in 3.0 are very good!
+- Trillion Dollar Coach - Eric Schmidt - Hardcover www.harpercollins.com
+Will be looking forward to reading this book. Via @SamPierson.
+
+That's the end of More Links.
+
+Now, the Microposts section.
+
+Monday @ 11:25 PM
+
+Went to Bohemian Rhapsody tonight and thought it was great! Turns our New Years Eve is a busy night at theaters!
+
+Monday @ 2:42 PM
+
+Played the last of our new Christmas board games, Azul. Fun hidden strategies. Didn’t make sense at first a lot of fun after we figured it out.
+
+Sunday @ 11:05 PM
+
+Watched Isle of Dogs tonight. Very fun, original movie.
+
+Sunday @ 3:00 PM
+
+I’ve been throwing a bunch of content at @Blot and have been very impressed. Speed is okay even with 10,000 posts. There is a lot more capability in Blot than I thought!
+
+Saturday @ 8:40 PM
+
+Tyler and I are having a great time with FIFA 19 on the Switch! This is the first sports game that I’ve enjoyed more than a couple times.
+
+That's the end of Microposts.
+
+Now, the Fortune section.
+
+You've made it all the way to the end! Here is your fortune for this week.
+
+Ships are safe in harbor, but they were never meant to stay there.
+
+Thank you for subscribing to the Weekly Thing!
+
+That brings us to the end of the Weekly Thing, issue 87. Thanks for listening, and I'll see you next time.

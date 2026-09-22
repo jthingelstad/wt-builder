@@ -1,0 +1,192 @@
+The Weekly Thing, issue 182. Technical Debt, Identity, Neeva. Published April 17, twenty twenty one. By Jamie Thingelstad. In this issue: Technical debt, digital paper, 1Password secrets automation, JSON parsing, ad-free private search, FLoC testing, open source cooking.
+
+Our city was again in a state of turmoil after the terrible killing of Duante Wright by a Brooklyn Center Police Officer. We had multiple nights of protests. There was some property damage. Government enforced curfews were in place for two nights. The National Guard was called in. Philando Castile, George Floyd, and now Duante Wright. All while the trial of Derek Chauvin is still in progress. Legal actions have taken place much faster this time, and hopefully we are seeing some signs of progress as our city reckons with the racism at so many levels. My thoughts are with Wright's friends and family, who you can lend some support via GoFundMe.
+
+"Progress is impossible without change; and those who cannot change their minds cannot change anything." — George Bernard Shaw
+
+Now, the Must Read section.
+
+Link one. "The True Meaning of Technical Debt - Refactoring"
+
+I've used the term technical debt and people I work with use it as well. I’m not a huge fan of it because I don't think it does a good job clearly communicating the issue. With that said, I’m a bit embarrassed to say I had no idea Ward Cunningham coined the term and the video included in this article is an astoundingly clear way to describe it, and very different than I've ever heard in two decades in tech.
+
+Quote.
+Ward is the original inventor of the "Technical Debt" term, and it's revealing to hear the sentence in which this metaphor was used the first time (emphases are mine): > If we fail to make the program aligned with what we understand to be the proper way to think about our [...] objects, then we are going to continuously stumble into disagreement, and that would slow us down like paying interest on a loan. Ward describes debt as the natural result of writing code about something we don't have a proper understanding of. He doesn't talk of poor code — which he says accounts for a very minor share of debt. He talks of disagreement between business needs and how the software has been written.
+End quote.
+
+This brought me back to Pragmatic Product Management, and making sure that you really know the problem you are trying to solve. If you don't, not only are you likely to create a poor solution, you are also almost certainly going to create technical debt.
+
+Framing this metaphor this way is so much more powerful than how it is typically used.
+
+Link two. "Identity is often used against us | Seth's Blog"
+
+There is nothing more vulnerable than identity change. Most of us will fight like our life depends on it to protect our identity. Sadly even if that identity is detrimental to you.
+
+Quote.
+When I say I don’t like your idea, I’m not saying that I don’t like you. And if we’ve been persuaded by marketers and politicians that everything we do and say is our identity, then it gets very difficult to learn, to accept useful feedback and to change.
+End quote.
+
+I've just started reading Think Again which tackles this head on.
+
+I recently got an email from someone that asked me "Are you a wine guy?". It was a fine question, totally normal. It made me chuckle though as it is an identity question. I started thinking about meditation practices of detachment. That we shouldn't define our identity by something like wine. But we do it all the time. Of course you have to have identity, but being flexible with that identity, as scary as that may seem, is needed for change.
+
+That's the end of Must Read.
+
+Now, the Currently section.
+
+Installing: I have been enjoying the fresh perspective that the Albums app gives me of my music. If you prefer listening to albums over shuffling songs, I think you will like it.
+
+That's the end of Currently.
+
+Now, the Recommended Links section.
+
+Ask Andy with Andrew Redleaf Episode #8 | PodServe.fm
+
+I found the discussion in this episode around stable coins interesting. It gave me a better sense for their purpose and why they matter. The discussion at the end around tokenizing stocks and then trading stocks using tokenized stable coins is remarkable.
+
+I’m Afraid I Kind of Like Digital Paper – The Cramped
+
+This brief writeup on the reMarkable 2 made me interested enough to look into it. The reMarkable 2 looks very interesting. I was most interested to see what Tammy and my daughter would think of it since they both prefer paper for so many tasks. They both thought it looked interesting. I find the notion of distraction-free devices like this compelling, but I worry about how much use they get.
+
+Introducing 1Password Secrets Automation | 1Password
+
+I've been a longtime user of 1Password and them adding Secrets Automation makes a ton of sense. Managing passwords/secrets for people is a different service than for machines. It is a big brand extension for them though. They have good examples although I was bummed to see that access in Shortcuts wasn't included.
+
+A Dayton brother tackles a new horizon, efficiency in philanthropy - StarTribune.com
+
+Thanks to Dan Frankowski I connected with Constellation Fund a bit over a year ago. Dan thought I would find their data-driven approach compelling, which I did. This is a quick overview of the organization and it’s leader Andrew Dayton. They are hosting a virtual fundraiser on May 20, twenty twenty one.
+
+ink version 1.0 release! - inkle blog
+
+Ink is a language that allows you to create interactive stories.
+
+Quote.
+ink is designed from the ground up to be "Word for interactive fiction". Open it up, and start writing. Branch when you need to, rejoin the flow seamlessly, track state and vary what's written based on what came before - without any need to plan, layout, or structure in advance. Organise your content when you know what shape it wants to take, not before.
+End quote.
+
+How nifty. You can download the editor and designer for free, and even make web versions.
+
+Instantly parse JSON in any language | quicktype
+
+This is a cool little tool! I could see how this would definitely save time as well. Paste in the return JSON from an API and have it spit out the code structure you would use. It is also funny to see the extreme difference in code made between different languages.
+
+Neeva - Ad-free, private search
+
+I've been using DuckDuckGo for search for years because of their position on privacy. I honestly hadn't considered the idea of subscription search. I pay Fastmail to host my email. I pay Feedbin to stay up-to-date. I pay YNAB to manage my budget. Would I pay for search? It didn’t take me long at all to determine I absolutely would! Search has a huge incentive to drive results in ways that advertisers prefer. If I paid a subscription fee I should be able to have more confidence in the quality and integrity of the results. I love that they have a Digital Bill of Rights as well.
+
+I've signed up for the waitlist!
+
+Writing tools I learned from The Economist - Built By Words
+
+I enjoyed this collection of writing techniques that Soliman learned from The Economist, and I love the introduction too.
+
+Quote.
+I learned writing from The Economist. Back home, it wasn’t easy to learn English. No one in my social circle was fluent in the language and I couldn’t afford a private tutor. The best I could do was to create my own syllabus. The kiosk near my house had, to my surprise, the newspaper.
+End quote.
+
+The six techniques as he frames them.
+
+- Getting to it
+- Successive Proofs of Evidence
+- The first sentence summarizes; the following sentences explain
+- Using precise words
+- Invoking the past
+- Getting with the beat
+
+I've been a longtime reader of The Economist and the writing is a big reason for that.
+
+That's the end of Recommended Links.
+
+Now, the Journal section.
+
+Wednesday @ 8:04 PM
+
+twenty twenty one Minnesota Aspirations in Computing Award Ceremony
+
+Great night joining the Minnesota Aspirations in Computing Award Ceremony tonight and recognizing so many young women that are making their mark in STEM. I also want to welcome our four #TeamSPS summer interns Ezigbo, Caroline, Claire, and Cecelia to SPS Commerce. I can’t wait to see what you create! Lastly, a huge thanks to Jade Denson of MnTech for emceeing and bringing so much fun and energy to the event!
+
+See ceremonies from twenty twenty, twenty nineteen, and twenty sixteen.
+
+Wednesday @ 5:36 PM
+
+Reading List: Think Again
+
+Think Again: The Power of Knowing What You Don't Know by Adam Grant arrived today. This book hit my radar via Three Star Leadership and Tools and Toys. "It’s about the learning culture between your ears.” That put this in on my list right away!
+
+Tuesday @ 9:06 PM
+
+Got my Elgato Key Light added to my setup. Having it attach to the desk is key for the standing position. It is also nice to be able to control color and brightness from the Stream Deck. It can get very bright too.
+
+Sunday @ 7:08 PM
+
+Mazie finished her LEGO Grand Piano build today. It is one of the most intricate LEGO I have ever seen.
+
+You can connect it to your phone and it will respond to, or move, the piano keys.
+
+Sunday @ 10:43 AM
+
+I started building the LEGO® NASA Apollo Saturn V this morning. I’ve wanted to build this for a long time.
+
+Saturday @ 10:23 AM
+
+Today’s project: Pork butt time on the Big Green Egg! Stack of wood chunks to pump up the smoke.
+
+Smoking along at 2pm. Will be time to wrap soon. 145-150 temperature.
+
+Saturday @ 7:34 AM
+
+Registered thingelstad.eth on ENS
+
+In my continuing exploration and learning about Ethereum I decided to setup what would be my usual entry on the Ethereum Name Service (ENS). The same way the Domain Name Service (DNS) converts names like thingelstad.com into something computers can use, ENS can convert thingelstad.eth into the wallet address I prefer for Ethereum, and other crypto as well.
+
+ENS is a companion to DNS. Mostly it holds addresses for crypto destinations. It also can hold additional metadata like pointers to your Twitter and Github profiles, as well as your website, email address, and profile image. ENS is completely decentralized like all things on Ethereum. It is operated and governed via a series of smart contracts.
+
+The process is super easy, as one might expect. You simply connect to your wallet. I use Rainbow for all my Ethereum dapps connections. To buy the domain name you execute a series of two transactions on the blockchain. In fact, all changes to your ENS entries are changes on the blockchain. Some of them have fees, and all of them cost Ethereum gas. After registering the domain, you have to set your resolver. The resolver is saying which contract should requesters ask for information from. Think of this as your DNS host records. You can then add any number of crypto addresses to your entry. I setup Ethereum (of course), Bitcoin, Litecoin, Cardano, and Filecoin. It is unclear to me that there is any benefit in setting up all of them, but that was the list I thought may get used.
+
+The last step is to create a reverse entry for your wallet. That is just like your Reverse DNS entry. Doing that allows dapps to show your friendly thingelstad.eth entry instead of the address. This is another transaction.
+
+You can see the records for thingelstad.eth, it is all setup. I also have the reverse record set. To test, Etherscan Name Lookup for thingelstad.eth works as does the reverse lookup. Nice!
+
+It was fun to do this and another opportunity to get familiar with dapps and Ethereum. Unfortunately this type of experimentation is extremely expensive right now due to gas prices being so high. The actual costs of doing all of the above are very low, but the gas prices to execute the transactions were more than 10x the cost of the thing itself. Right now this is like buying a 10 dollars item on eBay and spending 100 dollars to have it shipped to you.
+
+Lastly, the ENS service operates as a token. My address, thingelstad.eth, is a token that only I own. It is kind of neat that it now shows up in my wallet as well!
+
+Friday @ 6:32 PM
+
+Lucky looking so very peaceful as she takes an afternoon nap.
+
+That's the end of the Journal.
+
+Now, for your information.
+
+Shopify to lose three of its top seven executives - MarketWatch
+
+Heads of technology, HR, and legal all leaving. Lots of change at Shopify.
+
+Meet the Champions | Peloton Teams Up with Nine Elite Athletes
+
+This is a brilliant idea from Peloton. I will totally go out of my way to do a spin class with Usain Bolt!
+
+A reading list for new engineering managers - Jacob Kaplan-Moss
+
+Good reading list. I would add Will Larson's An Elegant Puzzle, Thinking in Systems, and The New Leader's 100 Day Action Plan.
+
+Am I FLoCed? A New Site to Test Google's Invasive Experiment | Electronic Frontier Foundation
+
+Remember how Google isn't doing third party cookies anymore? That is because they have something even better. Add this to the long list of reasons I don't use Chrome.
+
+Open source cooking
+
+"A diabolically simple site for finding and sharing recipes." Nice and simple site. Anyone can submit a recipe. It feels like Craigslist but better. Why not make it a wiki though? Would Wikimedia ever pursuit recipes?
+
+That's the end of the FYI section.
+
+Now, the Fortune section.
+
+Here is your fortune…
+
+Be cautious in your daily affairs.
+
+Thank you for subscribing to the Weekly Thing!
+
+That brings us to the end of the Weekly Thing, issue 182. Thanks for listening, and I'll see you next time.

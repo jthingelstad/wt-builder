@@ -1,0 +1,215 @@
+The Weekly Thing, issue 71. Sep 15, twenty eighteen. Published September 15, twenty eighteen. By Jamie Thingelstad. In this issue: Habits versus Workflows, genetically engineered mosquitoes, Siri Shortcuts Field Guide, iPhone Franchise, Apple Watch Series 4, State of Agile twenty eighteen.
+
+This last weekend Tammy and I were planning a weekend away for just the two of us in Indianapolis. Why Indianapolis? Brandi Carlile was playing there, and why not! However, given our dog Chase's health, we decided to stay home and still have the kids spend the weekend with Grandma! We saw three movies in three days, and enjoyed a nice "staycation" with bike rides and nice dinners! It's been a while since we went to an 11am matinée! See the micro posts at the end if you are curious which movies we saw.
+
+Now, the Featured Links section.
+
+Link one. "Habits versus Workflows - Study Hacks - Cal Newport"
+
+Newport's post makes me feel good about the time I spend optimizing and defining my own workflows. I also like the connection to habit.
+
+Link two. "Researchers to release first-ever genetically engineered mosquitoes in Africa - STAT"
+
+This headline caught my attention, and it’s actually using gene drive technology.
+
+Teams in three African countries — Burkina Faso, Mali, and Uganda — are building the groundwork to eventually let loose “gene drive” mosquitoes, which would contain a mutation that would significantly and quickly reduce the mosquito population. Genetically engineered mosquitoes have already been released in places like Brazil and the Cayman Islands, though animals with gene drives have never been released in the wild.
+
+That immediately reminded me of one of the most memorable passages from A Crack in Creation, the story of CRISPR.
+
+CRISPR gene drives, by contrast, are self-sustaining; since the mode of inheritance appears to outsmart natural selection, the modified insects propagate and pass on their defective traits indefinitely. This thoroughness is what makes gene drives so powerful—and so alarming. It's been estimated that, had a fruit fly escaped the San Diego lab during the first gene drive experiments, it would have spread genes encoding CRISPR, along with the yellow-body trait, to between 20 and 50 percent of all fruit flies worldwide.
+
+This population of mosquitos being released are 99% male, so there shouldn't be any risk.
+
+That's the end of Featured Links.
+
+Now, the My Weekly Photo section.
+
+Organist playing before the movie at The Heights Theater.
+Sep 7, twenty eighteen at 6:57 PM
+The Heights Theater, 3987 Central Ave NE, Columbia Heights, MN 55421
+
+That's the end of My Weekly Photo.
+
+Now, the Notable Links section.
+
+Link one. "Siri Shortcuts Field Guide | MacSparky Field Guides"
+
+I've purchased a couple of MacSparky Field Guides in the past, and have recommended the OmniFocus one to many people. Siri Shortcuts, coming in the next iOS is the successor to Workflow. I use Workflow a lot, and I think many people could benefit from using Shortcuts. This Field Guide looks like a great way to learn about automating tasks on your iPhone.
+
+Link two. "The iPhone Franchise – Stratechery by Ben Thompson"
+
+It’s hard to not share every article that Ben Thompson writes. Some great observations on Apple's iPhone lineup in here.
+
+Link three. "The No. 1 Lifelong Habit Of Warren Buffett: The 5-Hour Rule"
+
+I dig this concept of the Learner Lifestyle. I take the actual amounts of time with a grain of salt, but I think it is a good process to make sure you have time learning. I get some of this through my book club and all the info that shows up in the Weekly Thing.
+
+Link four. "Screen Time for Kids Puts Powerful iOS Monitoring Tools and Use Restrictions in Parents’ Hands – MacStories"
+
+This is a good overview of the new Screen Time feature coming in iOS 12. I like how this uses the iCloud Family accounts to manage your child's devices. I fully plan to use this to manage some applications on my own phone.
+
+Link five. "Project Python"
+
+Free book to teach Python. I like that this one starts with some graphics projects. Particularly when teaching kids and teens to program, graphics can make it much more enjoyable.
+
+Link six. "Diversity, inclusion, and belonging at GitHub in twenty eighteen | The GitHub Blog"
+
+I like what GitHub is doing publishing this information. They had some big issues in the past in this area and the transparency I think has helped. It also highlights in the data that even when you focus on this problem and put specific efforts in place to make it better, it isn't an easy fix.
+
+Link seven. "Apple Watch Series 4: The MacStories Overview – MacStories"
+
+Thorough overview of the new Apple Watch Series 4 hardware. I really like what they did to eek out every millimeter of display and capability, and I like that its a touch thinner as well. I'll be waiting for the next one to upgrade though. My Series 3 is great still.
+
+Link eight. "iPhone XR, XS, and XS Max: The MacStories Overview – MacStories"
+
+Good overview of the new iPhones announced this week. Tammy and I ordered the iPhone Xs to replace our 7 and 7 Plus.
+
+Link nine. "Private by Default"
+
+This post makes me want to send Feedbin some more money on top of my annual subscription fee. I love the work that Ben has done here to protect his customers from invasive tracking while reading feeds. I love his item on Google Analytics:
+
+I thought about replacing Google Analytics with Matomo, but I came to the same conclusion that it didn’t provide anything I need in order to run Feedbin. Better to not collect that data at all.
+
+Hat's off!
+
+Link ten. "Announcing the YNAB API Contest Winners! | YNAB"
+
+This is a great example of innovation enabled with API's. I've been a YNAB user for a long time now, and this contest they made for people to build with it is a great idea. I downloaded Allowance for YNAB right away -- it’s great! In fact, I had written my own Workflow to do what it does, but it does it way better. Nice!
+
+Link eleven. "Slowly Percolating Forms: Contemplation, Conversation, Commentary"
+
+Forwarded to me from my friend Nick. I like this way of thinking about learning topics.
+
+… if we don't do our own contemplation and commentary, we abdicate a good deal of our involvement in our own learning, and we shift from being fires to vessels.
+
+I like the qualification of speeds (quick, slow) to various aspects of the process.
+
+Link twelve. "#youbroketheinternet So We Got Tracked Anyway"
+
+Wait, you can track a user around the internet using TLS session resumption!?
+
+Link thirteen. "The State of Agile Software in twenty eighteen"
+
+I've been stunned at how many organizations have just discovered Agile in the last few years. Good guidance in the intro:
+
+The three main challenges we should focus on are: fighting the Agile Industrial Complex and its habit of imposing process upon teams, raising the importance of technical excellence, and organizing our teams around products (rather than projects).
+
+Link fourteen. "The jaw-dropping story behind an NFL coach's search for his family"
+
+This is a great story about an adopted son and his connecting to his birth parents.
+
+Link fifteen. "Survival Tips For Women In Tech | Patricia Aas - Programmer"
+
+It’s horrible that articles like this need to exist, but it’s also reality that they do. Reading them is a good way to understand things that men should also be on the lookout for and help correct.
+
+Link sixteen. "Medieval Fantasy City Generator by watabou"
+
+This is fun to play with, although I have no idea what it would be useful for.
+
+Link seventeen. "Troy Hunt: Serverless to the Max: Doing Big Things for Small Dollars with Cloudflare Workers and Azure Functions"
+
+Deep overview of how Troy Hunt designed Have I Been Pwned? to be very cost efficient to run.
+
+It's costing me 2.6c per day to support 141M monthly queries of 517M records.
+
+That is amazing! The service is using Cloudflare Workers to push a lot of cached requests off of Azure. He calculates that without Cloudflare it would cost 9 dollars and 19 cents/day to run. Both of those amounts are amazing.
+
+That's the end of Notable Links.
+
+Now, the Give Back section.
+
+Let's Encrypt is a free, automated, and open certificate authority, run for the public’s benefit. All connections to web servers should be encrypted! The biggest challenge with encrypting the web historically has been the cost and hassle of getting an SSL certificate. Let's Encrypt has changed that entirely by being a free certificate authority. Let's Encrypt is possibly one of the most important things to happen on the web in recent years. Donate to Let's Encrypt today!
+
+That's the end of Give Back.
+
+Now, more links.
+
+- Fidget spinners, weighted blankets, and the rise of anxiety consumerism - Vox www.vox.com
+What a huge market. Seems too big.
+- Why Socks Help You Sleep Better | HowStuffWorks health.howstuffworks.com
+Seems there is science behind this.
+- reminiscence github.com
+Sticking with Pinboard, but nice to see people working on these solutions.
+- Setting an Open Source Strategy // TODO: Talk openly, develop openly todogroup.org
+Good direction here.
+- kitty - the fast, featureful, GPU based terminal emulator — kitty 0.12.1 documentation sw.kovidgoyal.net
+Terminal applications wouldn't be the first place I would look for GPU acceleration, but cool to see.
+- pure JS WiFi QR Code Generator qifi.org
+Easiest way I've seen to put a QR code up to allow visitors to hop on your home WiFi.
+- Atlassian Incident Management Handbook | Atlassian www.atlassian.com
+Cool to see more people sharing this info.
+- Tesla CEO Elon Musk smokes weed on Joe Rogan's podcast www.cnbc.com
+Seriously?
+
+That's the end of More Links.
+
+Now, the Microposts section.
+
+Thursday @ 9:02 PM
+
+I’m “geekily” excited to get my Anki Vector in October. I have a Cozmo and the Vector looks like a very fun leap.
+
+Wednesday @ 1:02 PM
+
+The iPhone Xs is going to be a great upgrade from my iPhone 7. The Apple Watch Series 4 is enough of a jump to make me consider upgrading my Series 3.
+
+Sunday @ 6:05 PM
+
+Quest for Bingo Blackout victory thwarted again!
+
+Sunday @ 5:04 PM
+
+Bingo at Stanley’s!
+
+Sunday @ 4:25 PM
+
+It took us over an hour, but we did eventually solve the “It’s All Fun and Games” room at Trapped Puzzle Room North Loop.
+
+Sunday @ 4:22 PM
+
+We really enjoyed BlacKkKlansman from Spike Lee. Good story, powerful message.
+
+Sunday @ 4:20 PM
+
+Nice brunch this morning at Lucky Oven. This was our first time back since their frenetic opening. Good food and a nice walk in the neighborhood.
+
+Saturday @ 7:22 PM
+
+Tammy and I went to Juliet, Naked today. Good movie, fun story.
+
+Saturday @ 2:29 PM
+
+First time trying rolled ice cream at Loulou’s Sweet and Savory. Wow! Delicious!
+
+Saturday @ 12:52 PM
+
+Very impressed with the Tostada Chilaquiles with slow-roasted pork at Hola Arepa! Delicious!
+
+Saturday @ 10:52 AM
+
+Cleaning my espresso machine’s portafilter always gives me a moment of pause when you clean the tar-like sludge and consider “Wait, I drink this?”
+
+Saturday @ 8:34 AM
+
+Another great Five Things on Friday #266 from James Whatley – one of my favorite newsletters.
+
+Friday @ 7:16 PM
+
+Seeing Three Identical Strangers at The Heights.
+
+Friday @ 3:23 PM
+
+I finally order a Tesla, and then Elon Musk decides to lose his mind.
+
+That's the end of Microposts.
+
+Now, the Fortune section.
+
+You've made it all the way to the end! Here is your fortune for this week.
+
+Joy shared is double joy;
+grief shared is (only) half grief.
+
+Thank you for subscribing to the Weekly Thing!
+
+That brings us to the end of the Weekly Thing, issue 71. Thanks for listening, and I'll see you next time.

@@ -1,0 +1,294 @@
+The Weekly Thing, issue 212. Words, Mermaid, Beats. Published February 19, twenty twenty two. By Jamie Thingelstad. In this issue: Factorio mindset, RSS feeds, Mermaid diagrams in Markdown, Medieval Fantasy City Generator, Swatch Internet Time, technical debt, opposing Russia.
+
+Hey there! Hope all is great with you!
+
+I’m a little late getting this issue of the Weekly Thing out so I’m going to keep the intro brief. Tammy is driving and I’m tapping on the laptop. Thank you LTE! We are heading to Ely, Minnesota for some outside fun this weekend. Years ago I developed a big crush on Ely after visiting for a dog sledding photography workshop. I’m looking forward to snowmobiling and dogsledding!
+
+I think there are some really good links this week. Let's get to them…
+
+Now, the Featured section.
+
+Link one. "That Wild Ask A Manager Story - Jacob Kaplan-Moss"
+
+A fairly preposterous experience in a hiring process. When asked how to stop it, Kaplan-Moss's response is:
+
+Quote.
+A friend asked, "if this was your hire, and you manager asked you to change your hiring practices to prevent this, what would you do?" Nothing. I would do nothing. I would not try to prevent candidates from getting someone else to pose as them during interviews. The premise here is simple: designing a human process around pathological cases leads to processes that are themselves pathological.
+End quote.
+
+That is a tremendous statement. One that should be put somewhere to reflect upon occasionally. Organizations usually remember this, but sometimes forget it. And technologists have all the wrong instincts here…
+
+Quote.
+When we design software systems, we learn to think deeply about corner cases. We code defensively, making sure our systems handle all sorts of uncommon events. Amazon promises 99.999999999% reliability on objects stored in S3, and even then I’ve written code that handles the 0.000000001% chance that an object disappears. Designing human systems is different. Computers don’t have emotions; I don’t need to worry insulting the vast majority of S3 objects when I defensively check integrity every time. But humans are different; when we design a human system around uncommon cases, we do need to consider the ramifications on the majority. There are times – and this is one of them – where addressing outlandish behavior requires steps that are just unacceptable.
+End quote.
+
+Engineers must design to accommodate all the potential outcomes, which makes sense in a world of machine and logic. When we leave logic and enter the messy organic human space we need to design differently.
+
+Link two. "What We Lost"
+
+I share Lopp's disclaimers. I think the broad adoption and familiarity with technology like Zoom has been a huge game changer. I lead a global team of nearly 500 people and over half of them live nowhere close to me. Using Zoom has allowed me to build better and more meaningful connections. In the past I used to wait for trips, now I do things much more as needed. This is all a good thing, and we should continue to adopt and take advantage of all of this.
+
+However, I also don't believe for a second that our brains are fooled by this technology. Yes, you can see and interact with people better than we ever have before. But your brain isn't experiencing another human, it is seeing a 2D pixel image. The serotonin that would be released? Not for this experience.
+
+Quote.
+Every single of these senses, yeah, even vestibular and proprioception, are limited in a video conference call. You do not see the entire person; you see them from the chest up. Your hearing is limited and frustratingly altered by the milliseconds of lag and subsequent awkward interruptions to the conversation when someone attempts to insert a vital fact only stomped by the current speaker who hasn’t heard the interruption yet. You probably don’t think smell, like taste, is essential, but that is because you’ve been sitting all by your lonesome in your home office for the two+ years (like me) and have forgotten that smell, while not critical, contributes to the information tapestry of an in-person. And touch, the feel of the table in front of you. The slight echo you feel in the wood when someone sets their coffee cup on the table.
+End quote.
+
+We are not digital beings. We can simulate various experiences in that world, and at times that is vastly superior than any other options. But it is critical that we still have those organic, human experiences. And that is true in all the aspects of our lives.
+
+Link three. "Putting Ideas into Words"
+
+One of the reasons I focus on writing better is to help me think clearer. Writing is thinking, and the act of writing refines and clarifies your thoughts and ideas.
+
+Quote.
+Writing about something, even something you know well, usually shows you that you didn't know it as well as you thought. Putting ideas into words is a severe test. The first words you choose are usually wrong; you have to rewrite sentences over and over to get them exactly right. And your ideas won't just be imprecise, but incomplete too. Half the ideas that end up in an essay will be ones you thought of while you were writing it. Indeed, that's why I write them.
+End quote.
+
+I have had ideas that swirl around in my head and then when I attempt to write them down they fall apart. In truth it was a collection of vignettes that I thought connected together but refused to when attempting to write it out.
+
+Quote.
+The reason I've spent so long establishing this rather obvious point is that it leads to another that many people will find shocking. If writing down your ideas always makes them more precise and more complete, then no one who hasn't written about a topic has fully formed ideas about it. And someone who never writes has no fully formed ideas about anything nontrivial.
+End quote.
+
+Graham was going down a path that I had been down myself before but when he flipped it, showed the corollary, that was a "oh, wow" moment. If you believe the former, you must believe the later. It isn't a new statement, just an inverse of the accepted point above.
+
+I want to extend this a bit to highlight two things:
+
+1. Tweets and social media comments are not writing.
+2. Bullet lists of utterances and assertions is not writing.
+
+The trick with writing is creating the mental image, the full context, of the thing that you are writing about. Bullets allow you to simply state points but lazily skip the work of making it a complete thought. Tweets are even worse, as if they are a single, hanging bullet without context, intent, or insight.
+
+That's the end of Featured.
+
+Now, the Notable section.
+
+Link one. "COVID-19: Current state of affairs, Omicron, and a search for the end game | Peter Attia, M.D."
+
+First off, this is really long. At 2.5 hours it took me several commutes to get through this whole Peter Attia Drive Podcast episode. But I’m glad that I did. It is starting to age a bit as this was recorded when Omicron was on the rise, but the majority of it is still very topical. The main value I got from this was thinking how to move forward, knowing that COVID is going to be here forever, and the extremes on both sides I think are getting it mostly wrong. A pragmatic, risk adjusted approach is what we've tried to do in our family through the whole pandemic. Mostly I feel like we got it right, but the data changes regularly so you must revisit regularly too.
+
+Link two. "The Factorio Mindset - The Diff"
+
+Tobi Lutke, CEO of Shopify, loves this game and Shopify actually will reimburse any team members for a subscription. He feels the skills you learn in this game are that important. I've not tried it but this writeup has me thinking I should.
+
+Link three. "Notes apps are where ideas go to die. And that’s good. · reproof"
+
+Any article that quotes Daniel Kahneman and David Allen, amongst others, is going to catch my eye. I’m like many others with notes. I keep them, but I wonder at times why I even bother given how infrequently I find that I need to go back to them. What is the ROI if you retrieve so little?
+
+Quote.
+So we hoard. Try to remember it all with misplaced loss aversion, only to strain under the weight of a million open mental tabs and erode our ability to remember the important things. We need to forget, but we first must feel safe forgetting. That’s why notes and bookmark apps are so valuable to us. Their promise of a storehouse for all our fleeting whims looks like the salvation we so desperately need. Absolution from procrastination at the altar of getting things done.
+End quote.
+
+Writing it down so you can let it leave your mind is a big part of the return-on-investment that is easy to forget.
+
+Link four. "Medieval Fantasy City Generator"
+
+This is a delightful generator. I find these fun to randomly create cities and then think of the stories that could be told in that city. This would pair well with Azgaar's Fantasy Map Generator. Infinite stories to create!
+
+Link five. "What using RSS feeds feels like"
+
+People ask me often how I find the links that I put in the Weekly Thing and for the vast majority that answer is via my RSS feeds. I like this blog post about the "feeling" of using RSS…
+
+Quote.
+To me, using RSS feeds to keep track of stuff I’m interested in is a good use of my time. It doesn’t feel like a burden, it doesn’t feel like I’m being tracked or spied on, and it doesn’t feel like I’m just another number in the ads game. To me, it feels good. It’s a way of reading the web that better respects my time, is more likely to appeal to my interests, and isn’t trying to constantly sell me things. That’s what using RSS feeds feels like.
+End quote.
+
+I would agree. I use different services, but RSS is absolutely an environment where you are in control and it feels significantly higher value than randomly scrolling timelines.
+
+Link six. "Include diagrams in your Markdown files with Mermaid | The GitHub Blog"
+
+The most notable thing about this is that GitHub is supporting it so it will be very easy to use. It looks like Mermaid uses the standard DOT graph description language to describe these images. DOT is a powerful tool and a good choice for this. The way that GitHub is rendering these is very polished as well.
+
+There is an interesting extension to go with this — using code to generate the DOT notation and then feed it into GitHub. it would be curious to do software analysis that generates large volumes of DOT files and then puts them on GitHub to render and display.
+
+Link seven. "The simple system I’m using to stay in touch with hundreds of people – Jakob Greenfeld"
+
+Two things about this…
+
+1. I struggle with keeping up with people and have tried ways to be better at it. So far, that remains a challenge to solve. But hey, I have a newsletter?
+
+2. I use Airtable to keep track of books for my book club, and it is very powerful. The automation that is used in this blog post is a great example of the capabilities. Airtable makes it very simple to create some powerful tools and even collaborate with others.
+
+This system seems like a solid approach.
+
+Link eight. "Event Notes in Craft Are Awesome for Time Blockers"
+
+I've had Craft for a while and I generally like it but I've not clicked on a frequent use case, yet. I've been using Agenda on my devices to keep and prepare meeting related notes and information. Agenda is nice, but it lacks some polish that I would like to have. I also find the apps navigation cumbersome. Craft is very polished and the calendar integration is really clean. I’m going to try using it for meeting related information instead of Agenda.
+
+Link nine. "‘We Need to Oppose Russia’: Ukrainians Find Common Purpose"
+
+There is an incredible amount of reporting on the situation in Ukraine with Russian troops amassing at the border for so-called "exercises". Amidst all the reporting about Russia and what the US says, we need to hear more from the people of Ukraine and what they want. This is a continuation of an 8 year war on the Eastern border.
+
+Quote.
+The revolt prompted Mr. Putin — concerned that Ukraine was moving irrevocably toward the West — to order the annexation of Crimea and instigate a separatist war in eastern Ukraine. It also changed the way many Ukrainians see themselves. In a poll taken in two thousand one, only about half the country supported Ukraine’s declaration of independence from the Soviet Union a decade earlier. A twenty twenty one poll found that number had risen to 80 percent, with nearly half the country in support of NATO membership.
+End quote.
+
+Incredibly challenging times for the people of Ukraine. They need our support.
+
+Link ten. "Why I changed my mind about advertising | The Sample blog"
+
+Advertising and attention as a form of micropayments? I don't buy it, why? You don't get a choice. If there is a micropayment of some sort I’m aware of it and I get to decide it I want to do it or not. Advertising doesn't provide that choice, it skews your intent with limited ability to stop it.
+
+Link eleven. "The Delivery Hero Reliability Manifesto"
+
+Cool approach and overall great guidelines. A-2 "We Care About Naming" is a bigger thing than many people appreciate.
+
+Link twelve. "We sound like idiots when we talk about technical debt | cyclic.sh"
+
+As a technology leader the topic of technical debt comes up with some regularity. The term was first used by Ward Cunningham and many very smart software people have further refined it over the years. In practice though it isn't a very effective way to dialogue about, and come to solutions, about better approaches and ultimately refactoring solutions. Why?
+
+Quote.
+Companies and business leaders don’t care if jobs are hard or annoying or take longer than they "should". The difference between a user story taking a day or 3 days is negligible compared to its business value. Companies and their leaders care about revenue and costs. They care about customers and growth. They care about time to market. If we want to have our non-technical colleagues listen and act, we need to either improve our use of the financial terms they understand or we need to translate our message into business outcomes that they do care about.
+End quote.
+
+Inside a project or service team I think the shorthand of technical debt is find. But when communicating with others, it doesn't work well. Rather than talking about technical debt it is better to focus on the value that can be created, even indirect value like "shipping faster." It is all about selling an investment and the benefits it can provide!
+
+Link thirteen. "Swatch Internet Time"
+
+Something reminded me of this recently and it keeps popping back into my head. Divide the day into 1,000 beats, and that is the time. In beats. I even created a Time in Beats Shortcut for fun.
+
+That's the end of Notable.
+
+Now, the Journal section.
+
+Thursday @ 10:02 PM
+
+Mike Birbiglia at Pantages Theatre
+
+Tammy and I went to Mike Birbiglia's newest show at the Pantages and it was so great. We've seen him before and like previous times the entire show was strung together through one story diving off into various tangents. There were moments of incredible laughter intermixed with occasional touching and heartfelt points.
+
+Wednesday @ 7:55 PM
+
+Giant wall of pizza boxes waiting to be filled at Hello Pizza.
+
+Wednesday @ 6:42 PM
+
+Quordle
+
+Tried Quordle for the first time today. This may be my favorite Wordle variant.
+
+Sunday @ 4:34 PM
+
+Phantom Wallet for iOS
+
+Love that Phantom Wallet is now available on iOS. Has integrated browser, support for staking accounts — just like the Chrome plugin. Can now use Solana services on the go!
+
+Sunday @ 10:10 AM
+
+Introduction to MrBeast
+
+Tyler is a pretty big fan of a handful of "YouTubers", and usually at the top of his list is MrBeast. I've been more pessimistic about MrBeast and frankly I’m not sure what to think of the whole YouTuber thing. Tyler decided since it was his birthday we would all get a proper introduction to MrBeast.
+
+We started with Curiosity Beyond the Spotlight: MrBeast. I signed up for the free 1-week trial so we could watch the video. Overall, both Tammy and I left with a more positive view of MrBeast than when we started. Jimmy, MrBeast's actual name, seems like a reasonable person trying to have a positive impact in the world.
+
+We then watched three additional videos from different "channels" of his.
+
+- Unbelievable Street Magic! on MrBeast Reacts.
+- 10 versus 1000 Player Manhunt!
+on MrBeast Gaming.
+- Hit The Target, Win 300,000 dollars
+on MrBeast.
+
+After it was all done, we were even inspired to make donations and become part of and num;TeamTrees and and num;TeamSeas!
+
+I have to admit, we were actually a bit inspired by his random acts of kindness.
+
+Saturday @ 7:29 PM
+
+We had Tyler's birthday dinner at his favorite restaurant, Lion's Tap! It was our first time dining inside there since the pandemic started. The burgers were extra good tonight. Tammy was really excited!
+
+Saturday @ 5:27 PM
+
+We escaped Video Game Mayhem at Trapped in 56m 59s! The room was setup for the adult version. We did this room in twenty nineteen setup for kids and finished it in 53m. We didn't remember much of the puzzles.
+
+Saturday @ 2:36 PM
+
+We returned to Mess Hall Art Experiences to have some fun with paint! Tyler wanted to go as part of his birthday. We had a great time as always. Tyler got into the the messy part! I did an interpretation of the FC Bayern logo.
+
+Friday @ 9:16 PM
+
+Totally agree with Paul Graham's take on NFTs.
+
+Quote.
+NFTs can be used for so many different things that you're inviting history to make a fool of you if you dismiss them. Even if I were sure that most current uses of NFTs were bogus, I'd never dare to say that all possible uses were. -- Paul Graham (@paulg) February 6, twenty twenty two
+End quote.
+
+As I've said, they represent a truly new thing.
+
+That's the end of the Journal.
+
+Now, the Reply All section.
+
+Here are some replies from Weekly Thing #211 / Polar Bears, Delegating, Capes.
+
+Craig Nansen shared the similarities of Wordle to the board game Mastermind! Very cool.
+
+And we still have more Wordle variants…
+
+- Aaron Oliver shared Nerdle which is a math game. You guess numbers and operators and try to figure out the equation. It requires a very different approach. As the creator of Road Sign Math, this intrigues me.
+- Rob Bartlett shared Worldle which is a geography game. In this game you see the outline of a country and then attempt to guess which country it is. If the guess is wrong, it gives you a direction and distance to the right answer.
+- There is also Globle which is similar to Worldle but with fancier graphics.
+- There is Quordle where you play four games of Wordle at the same time, and get nine tries to solve all of them. This one confused me a bit at first but is probably my favorite Wordle variant.
+- Of course we also have Dordle which is two Wordle games simultaneously. Double Wordle! With seven tries.
+- And then for a variant of a variant there is Ooodle, which is like Nerdle, but is easier for kids to play.
+- Perhaps the most ridiculous of all, passWORDLE. You guess a password and it lights up the SHA-256 hash.
+
+Not about Wordle…
+
+Dave O'Hara sent me in the direction of Paul Nicklen's and his amazing photography, including some great photos of Polar Bears! Delightful.
+
+That's the end of Reply All.
+
+Now, the Briefly section.
+
+Link one. "Fitness Meets Gaming: Welcome to Peloton Lanebreak | The Output"
+
+I've been eagerly waiting for this new Peloton Bike "experience" to launch and now it has. I’m glad to see them trying some new things like this.
+
+Link two. "Leveraging machine learning to find security vulnerabilities | The GitHub Blog"
+
+This seems like a smart place to apply learning technology to code.
+
+Link three. "NFT-Linked House Sells for 650 thousand dollars in Propy’s First US Sale"
+
+Very experimental but interesting how people are playing with crypto tech. Using an NFT to point at a real world asset and buy and sell that asset could have many use cases.
+
+Link four. "How to Lead a Work-from-Home Workforce"
+
+Not really new, but good reminder, specifically around manager relationship. Guess what still makers? Actually care and connect with the people around you.
+
+Link five. "Google turns old Macs, PCs into Chromebooks with Chrome OS Flex | Ars Technica"
+
+Great idea to extend the usable life of older laptops!
+
+Link six. "Tracking Russia’s Latest Military Movements Around Ukraine"
+
+Chilling video and data on all the troop movements and military buildup around Ukraine.
+
+Link seven. "Amazon’s ‘Lord of the Rings’ Series Rises: Inside ‘The Rings of Power’ | Vanity Fair"
+
+This has the potential to be a train wreck or epic.
+
+Link eight. "Heart-disease risk soars after COVID — even with a mild case"
+
+I worry that articles like this cause fear and make people irrational in regards to COVID. At the same time, we do need to accept the fact that we don't know much about long-term affects of COVID.
+
+Link nine. "jless - Command Line JSON Viewer"
+
+Very cool command-line tool to navigate JSON files with superpowers.
+
+Link ten. "Growing MANGO Tree From Seed - ONE YEAR Time Lapse - YouTube"
+
+Mazie and I like mango a lot. It is fun to see how the tree starts out. Won't fruit for four more years though.
+
+That's the end of Briefly.
+
+Now, the Fortune section.
+
+Here is your fortune…
+
+Don't look now, but there is a multi-legged creature on your shoulder.
+
+Thank you for subscribing to the Weekly Thing!
+
+That brings us to the end of the Weekly Thing, issue 212. Thanks for listening, and I'll see you next time.

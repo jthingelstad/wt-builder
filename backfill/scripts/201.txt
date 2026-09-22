@@ -1,0 +1,407 @@
+The Weekly Thing, issue 201. Collecting, Smart, Stupid. Published October 30, twenty twenty one. By Jamie Thingelstad. In this issue: Digital death of collecting, MacBook Pro M1 Max, macOS Monterey review, CookLang recipe markup, RFC 3339 versus ISO 8601, Web3 versus Web2, Taleb Concepts.
+
+Good morning and I hope your coffee is still warm. I finished up this weeks Thing just this morning so it’s a little delayed landing in your inbox. Some quick things…
+
+- We had a fabulous trip to Chicago, Louisville, and Indianapolis. We particularly enjoyed Louisville and will be making a return trip next year.
+- The Fall twenty twenty one issue of Reading Things will be out very soon. If you are into books you should check out our family newsletter.
+
+There were some very thought provoking articles this week, so let's get to it!
+
+"You are only as free as your attention is." — Sam Harris, Space, Time and Attention
+
+Now, the Featured section.
+
+Link one. "Essay: The digital death of collecting"
+
+I’ve always been a bit of a collector. When I was a kid I collected every M A S*H playing figure and vehicle. With the advent of CD's I collected music and built a library of nearly 2,000 albums. I collected media of all type really. Laserdiscs were still some of my favorites. I recorded every episode of Star Trek: The Next Generation and built my own collection. I’m also a completionist but that is a different thing. So this essay on collecting and how algorithms and digital tech impact it resonated with me.
+
+Quote.
+My lostness comes from the sense that our cultural collections are not wholly our own anymore. In the era of algorithmic feeds, it’s as if the bookshelves have started changing shape on their own in real time, shuffling some material to the front and downplaying the rest like a sleight-of-hand magician trying to make you pick a specific card — even as they let you believe it’s your own choice. And this lack of agency is undermining our connections to the culture that we love.
+End quote.
+
+As I read this I kept thinking of identity, a topic I keep coming back to more often lately. Perhaps a sign of aging? In my experience growing up and becoming the person, or identity, that I am was heavily influenced by collecting. What music do you surround yourself with? What books? What magazine subscriptions? Your interest takes you there, and the collection helps stabilize as you grow up.
+
+Now with a rental economy versus an ownership economy, you lose the collection. You cannot collect what you rent. Maybe that is a good thing as it allows your identity to not be so influenced by those things? Or maybe that is a lost value, leaving us to float in a sea of algorithmic recommendations. Unmoored from a foundation.
+
+I know for me the boundary line here is books. I've ceded much of my music and media collecting, but I still collect it digitally and own much of it. But books feel too important. Too meaningful. I don't want an algorithm reorganizing my books. I feel value in a few bookshelves populated with the books that have grounded the development of me.
+
+Link two. "Beyond Smart"
+
+I love the drive behind this article from Graham. Having new ideas, synthesizing existing information into something fundamentally new or different, even if just in your own head, is a delightful thing. I agree with his assertion that intelligence and ideation are independent.
+
+Pretty routinely I get asked about the breadth of topics I read about, and write about in this newsletter, and where I find the time and in part the motivation. I have a strong opinion that new ideas come from combining disparate topics and creating new concepts from the interplay. I've seem it happen many times. I think this is particularly important in technology.
+
+I liked this part at the end of Graham's essay.
+
+Quote.
+One of the most surprising ingredients in having new ideas is writing ability. There's a class of new ideas that are best discovered by writing essays and books. And that "by" is deliberate: you don't think of the ideas first, and then merely write them down. There is a kind of thinking that one does by writing, and if you're clumsy at writing, or don't enjoy doing it, that will get in your way if you try to do this kind of thinking.
+End quote.
+
+Writing your thoughts is so important. It is easy to believe you have found some clarity in a stream-of-conscious dialog or some list of bullets, but the act of forming sentences and paragraphs with nouns and verbs is a refining process that filters, clarifies, and forces cohesion needed to for something new.
+
+Link three. "Willingness to look stupid"
+
+I think it is pretty hard, possibly impossible, to learn new things without appearing stupid to at least some people. It is also pretty difficult to break with a dominant trend or viewpoint without someone judging you as dumb or foolish.
+
+Quote.
+The benefit from asking a stupid sounding question is small in most particular instances, but the compounding benefit over time is quite large and I've observed that people who are willing to ask dumb questions and think "stupid thoughts" end up understanding things much more deeply over time. Conversely, when I look at people who have a very deep understanding of topics, many of them frequently ask naive sounding questions and continue to apply one of the techniques that got them a deep understanding in the first place.
+End quote.
+
+It is cool to see the inventory of examples provided. I haven't done an exhaustive inventory of my own examples, but things that come to mind:
+
+- The deep exploration I've taken of the crypto ecosystem has resulted in a surprising number of people thinking that I've lost my mind and am being stupid.
+- My deep distrust and cynicism of Facebook starting 10 years ago was seen by many as "tinfoil hat" weirdo behavior.
+- The fact that I am both very public on the Internet, but simultaneously have a strong belief that privacy online is a critical issue. A surprising number of people (to me) think the expectation of privacy is a quant aspect of a bygone era, and I’m either a luddite or stupid to value it.
+
+Two things that additionally come to mind.
+
+- A constant reminder that you are not responsible, nor do you necessarily know all that influences, other peoples opinions.
+- On the flip side, be cautious to not assume causality, and assume iff everyone else thinks you are wrong then you must be right. That may be true sometimes, but not always. But this essay is about judging (stupid) less than being correct.
+
+The list of examples ends with one that I found very funny.
+
+Quote.
+Posting things on the internet: self explanatory
+End quote.
+
+That's the end of Featured.
+
+Now, the Currently section.
+
+Playing: This "game" Townscaper (App Store) caught my attention and intrigued me enough to buy it. It is surprisingly fun! You get to build these generative cities, and the game does away with any credits or cost and just lets you create all you want. You can share the cities you create as a encoded string of text. I would guess that this is what adult coloring books are for some people. I love how the cities design themselves and have fun details.
+
+That's the end of Currently.
+
+Now, the Notable section.
+
+Link one. "Building cross-platform shortcuts – Six Colors"
+
+Now that we have Shortcuts on macOS more sophisticated shortcuts may need to have specific functions for different platforms. This article covers ways to make advanced shortcuts work everywhere.
+
+Link two. "Roy Fielding's Misappropriated REST Dissertation"
+
+Essay on how the ubiquitous REST pattern has been adopted and often misunderstood.
+
+Quote.
+This is the deep, deep irony of REST’s ubiquity today. REST gets blindly used for all sorts of networked applications now, but Fielding originally offered REST as an illustration of how to derive a software architecture tailored to an individual application’s particular needs.
+End quote.
+
+That original paper is probably one that all developers should read. There isn't any need to be a purist, but understanding the concepts more deeply will result in better solutions.
+
+Link three. "CookLang: recipe markup language"
+
+Imagine Markdown but for recipes. I dig structured text formats, but this one does raise an eyebrow or two. Having @smoked paprika{} surrounded with unmatched characters seems very weird to me.
+
+Link four. "URI-based Integration — ongoing by Tim Bray"
+
+Bray was involved in the creation of AWS Lambda, and I love this story about the use of URI's in the system.
+
+Quote.
+But to be honest, all of that comes more or less for free once you decide that everything you might want to integrate is a resource and thus should be identified by a Uniform Resource Identifier. I recommend this design pattern.
+End quote.
+
+I’m a big fan of this myself. In general, try to use things that are universally addressable, not some ID or unique string that you have to know a lot about in order to determine how to access it.
+
+Link five. "More Compute Power Doesn’t Produce AGI"
+
+This is a super important point that many people miss with the radical advances in machine learning.
+
+Quote.
+It’s parroting. It’s brilliant Bayesian reasoning. It’s extrapolating from what it already sees out there generated by humans on the web, but it doesn’t have an underlying model of reality that can explain the seen in terms of the unseen. And I think that’s critical.
+End quote.
+
+To be clear, that doesn't mean the value of these technologies is lessened, but is instead to say that techniques for solving "closed system" problems are very powerful. But "open system" problems are still far from our reach. The challenge is now in figuring out what is a closed and open system. Any game with a clear rule set is closed. Chess, Go, etc. Is driving a car a closed system? My intuition would say no, because it happens in the real world with random things. But maybe not? Driving a car could be managed as a closed system.
+
+So, think harder about how an open system could be modeled as a closed system.
+
+Link six. "Braintrust | The First User-Owned Talent Network"
+
+Here is a super-interesting example of a business, being run as a DAO. They raised 18 million dollars and are using DeFi technology to operate. Interestingly enough, the actual payments are all with USD. I love that, as it challenges this recurring meme of crypto versus something else and highlights how crypto structures can live in harmony alongside existing ones. This is what Web3 businesses could look like.
+
+Link seven. "MacBook Pro M1 Max for Photographers — Austin Mann"
+
+Great review, very much from a user perspective, of the new blazing fast MacBook Pro M1 Max.
+
+Quote.
+In summary, the most impressive performance from the new MacBook Pro M1 Max wasn’t just speed (it was about twice as fast), but it was insanely efficient in how it managed both its power and heat, which matters as much or more than pure speed.
+End quote.
+
+I think this is going to go down as an epic machine.
+
+Link eight. "Web3 versus Web2 - AVC"
+
+Fred Wilson's thoughts on how people may engage with Web3.
+
+Quote.
+Most consumers start with the token/asset and go from there. Initially, it was Bitcoin and you’d store it at Coinbase. Then it was Ethereum and you’d stake it. Then it was a Cryptokitty and you’d sire it. Then it was a TopShot and you’d collect it and trade it. Then it was a CryptoPunk and you’d make it your Twitter avatar. Then it was an Axie token and you’d use it to play Axie Infinity. I could go on and on but you get the idea.
+End quote.
+
+Finally…
+
+Quote.
+Come for the assets, stay for the experience.
+End quote.
+
+Web3 makes more and more sense to me.
+
+Link nine. "Percentage of Hacker News job postings that mention a remote option - Will do stuff for stuff"
+
+twenty seventeen to twenty twenty, 10% increase. twenty twenty 45% jump. So far in twenty twenty one, 5% increase.
+
+Link ten. "Archie Black - President and CEO of SPS Commerce - MN CEOs You Should Know | iHeart"
+
+Great podcast episode featuring our SPS Commerce CEO Archie Black! Some great highlights of how SPS was able to help companies through the pandemic and more.
+
+Link eleven. "The Most Important Decision You Make – Daily Dad – The Blog"
+
+I subscribe to this Daily Dad newsletter, and this issue really struck a chord with me. The quote from Bruce Springsteen is powerful.
+
+Link twelve. "ADMIRE: A Product-Driven Approach to Automating Migrations - Two Sigma"
+
+This is very interesting and a novel way to view what a lot of teams might call "technical debt" or something. Migrations from system X to system Y are always hard. This article hits on the key topics behind it and provides a model.
+
+Quote.
+One of the hardest parts of building this system was working out who should receive these tickets. Ownership information varied from resource to resource, was often outdated, and required mapping to specific people from department names or shared account names. To solve these challenges, we built a web service that could take various identifiers and apply heuristics to find the most likely owners.
+End quote.
+
+I've been involved in dozens (hundreds?) of migrations and the successful ones have used processes like this.
+
+Link thirteen. "Daring Fireball: The twenty twenty one 14-Inch MacBook Pro"
+
+I have a feeling that these new MacBook Pro's will go down as epic machines that are local maximal in the long arc of Macintosh computers.
+
+Quote.
+The Macintosh platform is 37 years old. Four decades! But this new MacBook Pro is the nicest and best Mac I’ve ever used.
+End quote.
+
+From Gruber, that is a huge statement.
+
+Link fourteen. "Omni Apps Now Support Shortcuts on macOS Monterey - The Omni Group"
+
+I love Automation, and I love OmniFocus. The Omni Group has created their own Automation Framework for their apps, and now that macOS supports Shortcuts they have made the two automation frameworks interoperable!
+
+Quote.
+In addition to bringing over the OmniFocus Shortcuts actions we already support and ship on iPhone and iPad, we’ve added two new Shortcuts actions to all our apps which integrate with Omni Automation. By including "Omni Automation Script" and "Omni Automation Plug-In" actions with each of Omni’s applications, our robust device-independent application scripting merges with Apple’s updated Shortcuts automation frameworks in the iOS, iPadOS, and macOS operating systems.
+End quote.
+
+Very cool!
+
+Link fifteen. "macOS Monterey: The MacStories Review - MacStories"
+
+Extremely comprehensive "11-page" overview of the new macOS Monterey! The stuff I’m most interested in:
+
+- Shortcuts on macOS is huge for me and I think it has a potential to expose a lot of people to the power of building their own automation. I can’t recommend strongly enough taking some time to get familiar with Shortcuts.
+- The tagging features in Reminders and Notes are interesting, but I don't think enough to get me to change my workflows from the trusted tools I have now.
+- Shared and synchronized Focus Modes across all of your devices is compelling. I still need to read more examples of how people are using Focus Modes effectively. It strikes me as powerful, but I need more time to play.
+- The iCloud+ features to protect privacy look great, but many are still beta quality so holding off a bit for now.
+
+Link sixteen. "RFC 3339 versus ISO 8601"
+
+Date formatting via RFC 3339 and ISO 8601 is always a one of those things you have to RTFM for. This is a great reference, as well as a neat way to show overlap. Also, I had no idea that 6-digit years was part of a spec! Welcome to 002021!
+
+Link seventeen. "Taleb Concepts Vol. 2"
+
+Clear and short assessment of Taleb's core thesis to much of his work.
+
+Quote.
+Convex tinkering benefits from uncertainty while academic theories are generally threatened by it. What if something arises in the real world that we didn't consider in the lab? By engaging in this breed of trial and error, the volatility and randomness that, as Incerto shows, govern more of our world than we think, are on our side. A great majority of the technological advances and inventions in human history have come about this way - most modern medicine, most architectural principles, electricity, telephony, the jet engine, the suitcase with wheels, etc.
+End quote.
+
+I love tinkering.
+
+Link eighteen. "Dads spend time in Louisiana high school after 23 students were arrested in string of violence - CBS News"
+
+I absolutely love this. Dads on Duty would be a great model to repeat.
+
+Quote.
+Some dads decided to take matters into their own hands. They formed Dads on Duty — a group of about 40 dads who take shifts spending time at the school in Shreveport, Louisiana, greeting students in the morning and helping maintain a positive environment for learning, rather than fighting. The students say it's working — and the numbers prove it. There hasn't been a single incident on campus since the dads showed up.
+End quote.
+
+Zero.
+
+Link nineteen. "Coordination Headwind - How Organizations Are Like Slime Molds"
+
+Wow, this is a great thought piece with some incredibly valuable organizational principles.
+
+Quote.
+The coordination headwind is inexorable. It increases super-linearly as: 1. Uncertainty increases 2. Project teams get larger and more spread out 3. A more bottoms up culture
+End quote.
+
+There is a lot to take away from this:
+
+- The spectrum of bottom-up and top-down is a reasonable way to think of most orgs (slide 18)
+- The whole thing on agent-based models to look at how work changes with scale is brilliant (slide 32)
+- The mediator cost and the exponential increase with levels is very true (slide 98)
+- I love the "roof shot" versus "moon shot". Perfect way to think about agile iterations but in many parts of an organization (slide 154), and then parallelizing them (slide 164).
+- The point of having a well crafted strategy for that parallel approach is key (slide 165)
+
+Also, I how this deck is with emojis as the!
+
+Link twenty. "Walt Mossberg’s Take on Mark Zuckerberg and More — Sway"
+
+I greatly enjoyed this episode of Sway. Kara Swisher and Walt Mossberg worked together for years running AllThingsD in the past. Little trivia note, I met both of them when I was at Dow Jones and they were launching AllThingsD. The meeting didn’t go well, they were already planning on using WordPress to run their site and Dow Jones wanted them to use "our stuff". They made the right decision.
+
+That's the end of Notable.
+
+Now, the Journal section.
+
+Monday @ 7:41 PM
+
+I like these new "What's new" screens that Drafts started showing. This is a great way for a subscription product to make sure that people see the continued new capabilities being added all the time.
+
+Monday @ 7:04 PM
+
+Just upgraded my first machine to macOS Monterey. Very smooth. Took about an hour. I'm giddy to see Shortcuts on my Mac now! Going to be playing around for a while now.
+
+Sunday @ 8:36 PM
+
+I loved this bit of public art in Indianapolis. The blue metal pushing the rusted metal to the side, juxtaposed with the grass and plants below, and the concrete above.
+
+Sunday @ 8:28 PM
+
+Custom Puzzle Box
+
+Our upcoming Things 4 Good Fall Fundraiser is going to have a lot of our Wicky Thing Candles, but we are also introducing a new custom product that our family created — the first Jiggy Thing Puzzle! We received the order today and I was very anxious to see how the box art came out. We've done puzzles before so I wasn't worried about that, but we had never done a custom box design. I love how it turned out!
+
+Sunday @ 8:26 PM
+
+Creativity on Shoes with Kicasso
+
+On our final evening in Indianapolis we did a completely new thing — we painted shoes! Kicasso is a one of a kind experience where you take a plain, white pair of sneakers and express your creativity with them. We had a blast and it was a great experience for us all.
+
+We all took very different paths. I made what may go down as the geekiest shoes ever commemorating the 200th issue of the Weekly Thing. Tammy hit on her favorite color, green, and kept it simple and awesome. Mazie tends to take a lot of time, she likes to be a perfectionist. She created a great multi-color pair with light touches of color and glitter. Tyler went all over with the color and was the only one that decided to paint the whitewall of the soles as well, which he sort of wanted to undo but its paint!
+
+Overall it was a fabulous 2.5 hours and we had a great time expressing our creativity with our shoes! The folks behind Kicasso aren't aware of anyone else doing this, so if you are in Indianapolis this should be on your must do list!
+
+Sunday @ 4:34 PM
+
+MEA twenty twenty one Road Trip Day 9: Drive home!
+
+Weather: Clear, cool weather the entire way home.
+
+* 6:52a Coffee and pastries to go Blue Collar Coffee.
+* 7:02a Depart Indianapolis.
+9:14a ET / 8:14a CT Enter Illinois, now in Central Time again.
+* 9:50a Enter Wisconsin.
+* Rocky Rococo's pizza in Sun Prairie.
+* 2:32p Enter Minnesota.
+3:05p Arrive at home! 1,577.4 total miles.
+
+Part of MEA twenty twenty one collection.
+
+Saturday @ 8:56 PM
+
+MEA twenty twenty one Road Trip Day 8: Explore Indy and Custom Kicks
+
+Weather: Little cool but sunny.
+
+* Breakfast pastries and delicious coffee at Blue Collar Coffee.
+* Explore area: City Dogs Grocer, Moonshot Games, Homespun: Modern Homemade, Penn and Beech, and Decorate.
+* Return to Pins Mechanical for another round of Duckpin Bowling.
+* Lunch at Punch Burger.
+* Shopping at 8 Fifteen.
+* Return to Cake Bake Shop for some cake to-go: Gwendolyn's Famous Earl's Court Chocolate Cake, Pumpkin Chocolate Cake, Millionaire Cake, and Carrot Cake. The Carrot Cake and Millionaire Cake were the family favorites.
+* We all made custom designed shoes at Kicasso!
+* Dinner at Public Greens.
+* Final round of billiards at the Bottleworks Hotel.
+
+Part of MEA twenty twenty one collection.
+
+Friday @ 9:14 PM
+
+MEA twenty twenty one Road Trip Day 7: Rainy Day in Indy
+
+Weather: Cool with high in low 50's and drizzle rain nearly all day. Scrapped outdoor plans in afternoon as a result.
+
+* Late wake up and checkout of Airbnb.
+* Breakfast at Milktooth.
+* Visit Indianapolis Motor Speedway Museum.
+* Aimlessly try to figure out what to do with an hour while it is raining and cold.
+* Coffee at Georgia Street Grind.
+* Check out Wooden's Legacy statue.
+* Visit Vonnegut Museum and Library.
+* Check into Bottleworks Hotel.
+* Play billiards in lobby before dinner.
+* Great dinner at Livery.
+* More billiards at hotel lobby.
+* Puzzle room at Twisted Room Escapes.
+
+Part of MEA twenty twenty one collection.
+
+Friday @ 8:26 PM
+
+We completed Alice’s White Rabbit Rescue at Twisted Room Escapes in Indianapolis tonight. 56m 40s.
+
+Friday @ 6:19 PM
+
+It was cool to visit the Kurt Vonnegut Museum and Library today. Tammy loved his books in college. An amazing author, artist, and activist.
+
+Friday @ 6:14 PM
+
+Indianapolis World War Monument on a rainy and cloudy day.
+
+Friday @ 6:12 PM
+
+We had a fun time looking at dozens of Indy race cars over the years today at the Indianapolis Motor Speedway Museum. It is amazing how much the cars have changed.
+
+Friday @ 5:57 PM
+
+Camera wall at Bottleworks Hotel in Indianapolis.
+
+That's the end of the Journal.
+
+Now, the Briefly section.
+
+Link one. "Dinner DAO is Creating IRL Dinner Clubs Built Around NFTs"
+
+I continue to find DAO's super interesting as a way to coordinate collective action. Here is a somewhat simple example using a DAO around a dinner club.
+
+Link two. "Shortcuts for Mac: 27 of Our Favorite Third-Party Integrations - MacStories"
+
+If you are curious what you can do with Shortcuts, this inventory of macOS apps that are shortcuts enabled can stir some ideas.
+
+Link three. "Hiker lost for 24 hours ignored calls from rescuers because of unknown number"
+
+I really wanted this to be a satirical article from The Onion, but alas…
+
+Link four. "Remove tracking data from copied URLs | The Robservatory"
+
+Now that we have Shortcuts on macOS, there is an even easier way to do this. Install the Remove Tracking from URL shortcut and add it to your menubar!
+
+Link five. "Some Monterey Features of Note — MacSparky"
+
+Short list of macOS Monterey features from David Sparks.
+
+Link six. "Apple Releases iOS and iPadOS 15.1 with SharePlay, Safari for iPad Fixes, Shortcuts Improvements, and More - MacStories"
+
+Good overview of SharePlay and what you can do with it. Nice that you can now do screen sharing remotely on iOS.
+
+Link seven. "John Carmack pushes out unlocked OS for defunct Oculus Go headset | Ars Technica"
+
+Software update that will liberate 2 million Oculus devices to be used as long as they work.
+
+Scaling NFS is really hard… [Iterating on how we do NFS at Wikimedia Cloud Services – [[WM:TECHBLOG]]](
+
+Link eight. "RSS is Wonderful · Quakkels.com"
+
+I like how people can tinker when you have open standards like RSS.
+
+Link nine. "Science of Slow Cooking"
+
+Lots of big words applied to BBQ.
+
+Link ten. "Lorem.space - placeholder image generator"
+
+Neat tool to provide random placeholder images of any size, but with an actual image in them.
+
+That's the end of Briefly.
+
+Now, the Fortune section.
+
+Here is your fortune…
+
+There is a fly on your nose.
+
+Thank you for subscribing to the Weekly Thing!
+
+That brings us to the end of the Weekly Thing, issue 201. Thanks for listening, and I'll see you next time.

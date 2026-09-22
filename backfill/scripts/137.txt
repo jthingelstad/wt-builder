@@ -1,0 +1,251 @@
+The Weekly Thing, issue 137. Let's Encrypt, Fraidycat, Metagame, Real-Flame what?. Published February 29, twenty twenty. By Jamie Thingelstad. In this issue: Let's Encrypt billion certificates, Text Renaissance, Unread 2, DIY license plate reader, GitHub for data, Tim Berners-Lee Solid, AirTags waterproof.
+
+Welcome to the Leap Day issue of the Weekly Thing! You are holding in your mailbox an extremely rare item. The next opportunity for a Leap Day issue isn't until 2048! You, however, get the privilege of having this incredibly rare thing. You might want to get a button made. Something like "Weekly Thing Leap Day twenty twenty". It would be a collector's item for sure!
+
+Tammy's sister Angie and my brother-in-law, Max, have taken their family on a huge adventure, spending the next three months in Honduras at the Jungle Hospital. This is a mission trip with their whole family, and they are doing a series of videos of their trip and just posted the first, their Travel Day getting to the hospital. I’m already looking forward to the next video, and hearing about all the amazing experiences they have there!
+
+Now, the Must Read section.
+
+Link one. "To Get Good, Go After The Metagame"
+
+This is such an interesting thought. What is the thing about the thing that you are doing that can allow you to exceed normal capability in that?
+
+Quote.
+Every sufficiently interesting game has a metagame above it. This is the game about the game. It is often called ‘the meta.’
+End quote.
+
+This transfers to other domains? Sure.
+
+Quote.
+Like simpler games, real-world metas come in roughly two flavours: ones that are defined by external changes to the rules of a game, and ones that are shaped by a dynamic equilibrium of competition within a stable system of play. Unlike games, however, real-world domains have no set rules: they are vastly more complicated and interesting, because the rules change only when someone notices the rules have changed.
+End quote.
+
+Many technologists do this without knowing. The game isn't the code, the metagame is learning new syntax and languages, or learning patterns. Those that figure that out usually excel.
+
+Link two. "Candle Touch™ - The First Smart, Connected, Real-Flame Candle by Candletouch — Kickstarter"
+
+Okay, so before I get to this, I need to share that I've recently become a bit of a candle person if that is a thing. We had all these candles, and I just decided to start lighting them and placing them in prominent places. Then we were at a market, and I saw a wood wick candle, and that intrigued me, so I got one. The wood wick makes a crackling sound when it burns and has a broad flame. I liked that even more. And then, and here is where friends that have known me for a long time will not be surprised, I’m looking up info on making your own candles and then I have a box arrive with my supplies from The Wooden Wick Co.. So, yeah, I've sort of gotten into candles.
+
+Now, given that and given that I love tech, I should be all about this thing? No. Why in the world does anyone need a smart candle? We are in some odd space-time loop where having candlelight when I do something on my phone is just weird. It even highlights that it is a real-flame. Yes, that is what the innovative technology of a match, or the amazing lighter, can do so well, over and over again.
+
+That's the end of Must Read.
+
+Now, the Currently section.
+
+Listening: I seem to have become a bit crazy about Pivot! I greatly enjoy the dialog between Kara Swisher and Scott Galloway, and I've found myself actually looking forward to Tuesday and Friday mornings when I drive to work to listen to the newest episode!
+
+Reading: I started reading (technically listening, it’s an audiobook) to Susan Fowler's Whistleblower. Fowler has a dramatic story, and I’m looking forward to the rest of the book. There are some similarities in her childhood to Tara Westover who wrote Educated.
+
+That's the end of Currently.
+
+Now, the Blog section.
+
+Ticket to Ride Japan
+
+Quote.
+Our family enjoys playing Ticket to Ride, and we have some of the expansion packs. When I saw the new Japan expansion pack, I knew that was something we would like.
+End quote.
+
+That's the end of Blog.
+
+Now, the Photog section.
+
+Thank you for reading!
+Please share this with a friend. Cool, thanks!
+
+That's the end of Photog.
+
+Now, the Recommended Links section.
+
+Introducing Unread 2 —Golden Hill Software
+
+I’m a power user of RSS and feed readers. I use Feedbin for subscribing, but I do most of my scanning and reading in Unread. I love its gesture-based interface, which brings the content front and center. There will be complaining about moving to a year subscription, but I’m okay with it. I use Unread a lot. MacStories has a good review on this as well.
+
+Let's Encrypt Has Issued a Billion Certificates - Let's Encrypt
+
+This is definitely one of the single best things to happen on the web for a long time. Let's remember that before Let's Encrypt, this was expensive, slow, and painful. Securing the web was locked in the hands of companies that were not innovating. I’m a big fan of Let's Encrypt and use their certificates everywhere I can. Donate to Let's Encrypt here!
+
+Fraidycat
+
+This app looks really cool. It took me a moment to parse what this really is, but I think it’s mostly a new way of looking at RSS feeds. Nearly all feed readers show you a list of items in date order. This takes a different view and shows you by feed. I'd love to see this view adopted by existing feed readers as an alternative view. This article on the Verge is a good overview as well.
+
+Meaningful availability – the morning paper
+
+Interesting analysis of going beyond measuring the number of 9's for availability and getting something that more closely resembles what the user is feeling.
+
+A Text Renaissance
+
+This is an interesting read, and I want it to be true. I was having a conversation just today about how the act of writing something down, connecting a thought together in words, sentences, and paragraphs is so important. Something that Instagram and TikTok do not require. I like that all of the things in this article, with the notable exception of Threaded Twitter, is about returning to more of a "slow Internet" and thoughtful web.
+
+twenty nineteen Mac Pro (28-core) Review
+
+The new Mac Pro is not a machine that anyone probably needs at home unless you have more cash than you know what to do with. It is an amazing performer for engineering and high-end workloads.
+
+Quote.
+Now, ordinarily these computations are run on a supercomputer and cost thousands of dollars per solution, or you’d need to build a cluster for 15 dollars-20K or more. But with 28 cores and the ability to handle up to 1.5TB of memory, the Mac Pro is a competitive alternative.
+End quote.
+
+The fact that you can get that performance at all is incredible. Note the graphs in this article compare to an iMac Pro, which is already a very fast machine.
+
+The Agile Organisation: Changing our Worldview | AWS Cloud Enterprise Strategy Blog
+
+Interesting take on enterprise agility focused on a general audience.
+
+Quote.
+To date, only 4% of companies believe they have fully embraced an Agile culture, with many more working towards this goal. The goal itself is not perfection in the areas identified; it is ongoing momentum and persistence. DMOs place a high premium on a continuous stream of initiatives that drive organisational agility, nearly three times higher than less mature organisations. These initiatives more often than not require small, ongoing investments rather than large-scale changes.
+End quote.
+
+The description of how to think of a digitally mature organization is an interesting way to look at company change initiatives.
+
+Andreessen-Horowitz craps on "AI" startups from a great height | Locklin on science
+
+Some significant real-world view of machine learning startups.
+
+Quote.
+My TLDR summary: 1. Deep learning costs a lot in compute, for marginal payoffs 2. Machine learning startups generally have no moat or meaningful special sauce 3. Machine learning startups are mostly services businesses, not software businesses 4. Machine learning will be most productive inside large organizations that have data and process inefficiencies
+End quote.
+
+The third item is the one that I have seen the most.
+
+pwn.college BETA
+
+Free, open learning modules for improving cybersecurity skills!
+
+Quote.
+pwn.college is a first-stage education platform for students (and other interested parties) to learn about, and practice, core cybersecurity concepts in a hands-on fashion. It is designed to take a "white belt" in cybersecurity to becoming a "yellow belt", able to approach (simple) CTFs and wargames.
+End quote.
+
+It’s great to see people making resources like this available.
+
+I built a DIY license plate reader with a Raspberry Pi and machine learning
+
+This is a pretty amazing project that this person was able to hack together using simple Raspberry Pi hardware and connecting up some cloud computing. The video is impressive, and the approach he took is straightforward. Related, automated license plate readers are interesting and worrisome tech for privacy reasons.
+
+Reddit opens office in Kyiv to hire Ukrainian tech specialists | KyivPost - Ukraine's Global Voice
+
+I've been traveling to Kyiv and working with our team there for over 6 years now, and I continue to be impressed with the technical talent there. It doesn't surprise me to see organizations like Reddit and Viber, Google, Ring, and Grammarly investing more there.
+
+The 10 Best Productivity Apps You Need In twenty twenty – SaneBox Blog
+
+Nothing new here, but a good inventory. I personally use Sanebox, 1Password, Grammarly, Airtable, and Zapier. Airtable is one of the more interesting ones here, as you can make pretty interesting solutions with it very easily. I wish Zapier had better pricing for hobbyists and individuals. It is very powerful but too expensive for personal use. Sanebox and 1Password are critical tools for me.
+
+Opinion: The unspoken truth about managing geeks | Computerworld
+
+Interesting read and a lot of this rings true. Not everyone is the same, of course, and I suspect different teams would have some, but not all, parts of this. Notably, to me, is even the use of IT in the article, as opposed to saying Technology. I found this paragraph powerful.
+
+Quote.
+With IT, you cannot separate the technical aspects from the business aspects. They are one and the same, each constrained by the other and both constrained by creativity. Creativity is the most valuable asset of an IT group, and failing to promote it can cost an organization literally millions of dollars.
+End quote.
+
+The creativity part is one that many people miss.
+
+A group of ex-NSA and Amazon engineers are building a ‘GitHub for data’ | TechCrunch
+
+This seems like it could be incredibly valuable, but it’s a little hard what "it" would be. Github was defined by git, which it didn’t actually make. But there is definitely a need. There are many git repositories on Github that just hold data.
+
+That's the end of Recommended Links.
+
+Now, the Status Updates section.
+
+Thursday @ 10:44 PM
+
+I’m having a fun time with the Pi-Hole, just to see the volume of DNS activity on my home network! The green line is total requests, blue is the number that was blocked. #Winning
+
+Thursday @ 10:40 PM
+
+Upon seeing this cable tray, Amy Patton @pattonamyj blurts out, “That’s beautiful,” with absolutely no irony. Only in tech… (PS: I agree!) Nice job Target Field tech team!
+
+Thursday @ 10:36 PM
+
+After the Tech Talent event today John Avenson, VP of Technology for the Minnesota Twins, took a small group on a short technology tour of Target Field. It was an awesome time! I loved hearing how the network works and how all the cabling is routed around.
+
+Thursday @ 10:29 PM
+
+It was a privilege to be able to share some perspective and success stories at the MHTA Tech Talent twenty twenty event about what we are doing at SPS Commerce to attract, retain, and develop technology talent! #TechTalent
+
+Thursday @ 10:24 PM
+
+The Success Stories from Minnesota Workplaces at today's MHTA Tech Talent twenty twenty event were very informative. It was great to hear what is working for everyone. This event is only in its second year but is already a mainstay for the community. #TechTalent
+
+Thursday @ 10:22 PM
+
+Learned a lot this morning at the MHTA Tech Talent twenty twenty event! A wealth of data from Grant Riewe, Erin Olson, Sri Koneru, and Tim Welsh. #TechTalent
+
+Thursday @ 9:17 PM
+
+Maybe taking your blood pressure a couple hours after “breakfast for dinner” with bacon isn’t a great idea.
+
+Wednesday @ 9:00 PM
+
+Pi-Hole up and running! Easy to setup.
+
+Wednesday @ 8:16 PM
+
+Configuring my Raspberry Pi 3B+ with Pi-Hole!
+
+Tuesday @ 8:53 PM
+
+I find the Feb twenty second, twenty twenty cover of The Economist so perfect. I love the imagery of these cybernetic bulls. And probably, even more, I like the choice of having them run directly at the viewer — as if you are about to get run over by them.
+
+Tuesday @ 8:07 PM
+
+Wow — Pythonista 3 finally got an upgrade to some of the newest iOS features! And release notes make it clear further Shortcuts support is on the way!
+
+Monday @ 7:51 PM
+
+Mimi Uploader may fundamentally change how I use micro.blog. It makes it much more compelling for longer blog posts.
+
+Sunday @ 8:25 AM
+
+Playing some Skittles this morning.
+
+Saturday @ 5:59 PM
+
+Grilling cheeseburgers like it’s summer!
+
+Friday @ 11:08 PM
+
+Just ordered a Raspberry Pi 3B+ so that I can finally set up a Pi-Hole server at home!
+
+That's the end of Status Updates.
+
+Now, for your information.
+
+Introducing Dispatch - Netflix Technology Blog - Medium
+
+Sort of interesting, but I don't know why this is better than using a tool like JIRA and creating a custom workflow.
+
+First Impressions of the Canon EOS R – The Sweet Setup
+
+I’m nearly positive this is my next camera to replace my 5D Mark II.
+
+Viber to open second research and development center in Ukraine | KyivPost - Ukraine's Global Voice
+
+Our team in Ukraine is opening a new office, maybe I can get a photo with the President of Ukraine too?
+
+Inrupt, Tim Berners-Lee's Solid, and Me - Schneier on Security
+
+Interesting next step for Bruce Schneier, and good to see that Solid is still progressing.
+
+‘AirTags’ to be waterproof, use magnetic charging — Apple World Today
+
+This is still highly speculative, but if the price is right, I will buy a few of these.
+
+Why Do Corporations Speak the Way They Do?
+
+This article embodies a bit of what went through my mind every time I heard the phrase "double click" on something in a meeting.
+
+Want smarter friends?
+Forward them this email and suggest they join us!
+
+That's the end of the FYI section.
+
+Now, the Fortune section.
+
+You've made it all the way to the end! Here is your fortune for this week.
+
+You will be awarded some great honor.
+
+Thank you for subscribing to the Weekly Thing!
+
+That brings us to the end of the Weekly Thing, issue 137. Thanks for listening, and I'll see you next time.

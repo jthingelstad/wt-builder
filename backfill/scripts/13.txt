@@ -1,0 +1,102 @@
+The Weekly Thing, issue 13. Weekly Thing for August 5, twenty seventeen. Published August 5, twenty seventeen. By Jamie Thingelstad. In this issue: Patreon economic engine, GraphQL with GitHub, Aziz Ansari quitting internet, minds hijacked by phones, tech culture change.
+
+Tammy and I started this week with a 3-day Inn to Inn Cycle Tour to celebrate our fifteenth Anniversary. We went with Broken Paddle Guiding and had a great time! The kids stayed back and we got familiar with the challenges of climbing the bluffs in the Driftless. It was a great way to get out and remember the fun we have on our bikes.
+
+We are leaving for Lignite, ND this weekend to say goodbye to my Grandma who passed away this week. This has me thinking back to a blog post I wrote 12 years ago now about The Farm. The Farm is no longer lived in, and Grandpa and Grandma are now gone, but their spirits and that place will always be near the center of my heart.
+
+Now, the Photog section.
+
+On our bike tour this week we stopped in Pepin, WI and visited Villa Bellezza. This gorgeous location is like it was airlifted directly out of Italy and dropped in Western Wisconsin. The vineyard on site is open and welcoming to walk through while enjoying a glass of delicious wine.
+
+Aug 1, twenty seventeen, 3:30 PM 1420 third St Pepin‎ WI‎ 54759 United States.
+
+That's the end of Photog.
+
+Now, the Links section.
+
+Link one. "Inside Patreon, the economic engine of internet culture - The Verge"
+
+Quote.
+In twenty thirteen, Peter Hollens was an aspiring a cappella singer surviving, in his words, by living on ramen in someone else’s house. Hollens was hardly new to the music business; he’d been a record producer and cruise singer before striking out on his own, and his wife Evynne co-founded the college a cappella group that inspired Pitch Perfect.
+End quote.
+
+Link two. "Learn GraphQL with GitHub"
+
+Quote.
+Make the switch from REST to GraphQL with our webcast and online training course. Webcast: Migrating from REST to GraphQL Join GitHub Platform Engineer Mark Tareshawty and Trainer Matt Desmond on August eighth at 10am PST.
+End quote.
+
+Link three. "7 Ways Leaders Maintain Their Composure in Difficult Times"
+
+Quote.
+Leaders need to show more composure than ever before in the workplace. With the change management requirements, increased marketplace demands and intensifying competitive factors that surround us, leaders must have greater poise, agility and patience to minimize the impact of uncertainty.
+End quote.
+
+Link four. "Online regex tester and debugger: PHP, PCRE, Python, Golang and JavaScript"
+
+Very nice regex tool for your browser.
+
+Link five. "PLY (Python Lex-Yacc)"
+
+Quote.
+PLY is an implementation of lex and yacc parsing tools for Python. If you don't have the slightest idea what that means, you're probably in the wrong place.
+End quote.
+
+Link six. "Aziz Ansari on Quitting the Internet, Loneliness, and Season 3 of Master of None"
+
+Quote.
+He's early. I'm not sure how early he got to Au Passage, a restaurant serving small plates (Aziz's choice) that's tucked away on a graffiti-riddled street in central Paris. But he beat me—and I was early.
+End quote.
+
+Quantify everything with Exist.io custom tracking - BrettTerpstra.com > Ever since I wrote Slogger, I’ve been working toward a more “quantified self.” I’m really bad at correlating events in my life beyond a couple of days. Did the bad night’s sleep last week lead to eating things the next day I normally wouldn’t, which led to increased stress and decreased physical activity over following days, which resulted in the way I’m feeling today? ### Unread 1.7 Release Notes Unread is my RSS reader of choice, backed by Feedbin. I’m happy to see it find a new home! ### antoinet/valora: WiFi Tracker Confuser Very cool device to throw sand in the gears of people trying to track you. I hope and expect we'll see more devices like this to fight back against privacy invasions. ### Docker versus Kubernetes versus Apache Mesos: Why What You Think You Know is Probably Wrong - Mesosphere > There are countless articles, discussions, and lots of social chatter comparing Docker, Kubernetes, and Mesos. If you listen to the partially-informed, you’d think that the three open source projects are in a fight-to-the death for container supremacy. ### Craft Your Python Like Poetry - Trey Hunner > Line length is a big deal… programmers argue about it quite a bit. PEP 8, the Python style guide, recommends a 79 character maximum line length but concedes that a line length up to 100 characters is acceptable for teams that agree to use a specific longer line length. ### Recommit to the values that built Etsy and aimed to build a better world for us all | Coworker.org > As Etsy employees, we’re privileged to work at a company that takes its mission and values just as seriously as it takes its bottom line. Every day we come to work to support Etsy sellers in earning an income doing something they love. ### toddmotto/public-apis: A collective list of public JSON APIs for use in web development. A collective list of public JSON APIs for use in web development. ### Palantir: the ‘special ops’ tech giant that wields as much real-world power as Google | World news | The Guardian > In Minority Report, the two thousand two movie adaptation of the Philip K Dick novel, Tom Cruise plays a police officer in the LAPD “pre-crime” unit. Using the premonitions of sentient mutants called “pre-cogs”, the police are able to predict when someone is going to commit a crime before it happens, swooping down from helicopters and arresting them on the street before they can do anything. ### The digital native is a myth: Nature News > Some people put the cut-off at 1984, but for most it is 1980. People born after that date are the digital natives; those born before are digital immigrants, doomed to be forever strangers in a computer-based strange land. ### What Makes a Monolith Monolithic? | Form Follows Function > It seems like everybody throws around the term “monolith”, but what do we mean by that? Sam Newman started the ball rolling yesterday with this tweet: I'm at that point in the new book where I have to define what monolith means. ### Ops: It's everyone's job now | Opensource.com I found this view of the continuing evolution of DevOps interesting. I particularly liked the quote that "Distributed systems are never 'up'; they exist in a constant state of partially degraded service. is a lot of truth there.
+
+Link seven. "Our Minds Have Been Hijacked by Our Phones. Tristan Harris Wants to Rescue Them | WIRED"
+
+Quote.
+Sometimes our smart phones are our friends, sometimes they seem like our lovers, and sometimes they’re our dope dealers. And no one, in the past 12 months at least, has done more than Tristan Harris to explain the complexity of this relationship.
+End quote.
+
+Link eight. "danah boyd | apophenia » Tech Culture Can Change"
+
+Quote.
+We need: Recognition, Repentance, Respect, and Reparation. To be honest, what surprises me most about the current conversation about the inhospitable nature of tech for women is that people are surprised.
+End quote.
+
+Link nine. "Hack The Heat Is Coming Back For More —TechDotMN"
+
+Hack the Heat is a really cool event ran by high school students for other students. Very happy that SPS Commerce is going to be hosting this 24 hour event again!
+
+Link ten. "Here’s How Unicorns Trick You Into Thinking They’re Real - Bloomberg"
+
+News flash -- private valuations aren't very accurate. In other news, the sky is blue.
+
+That's the end of Links.
+
+Now, the Promotion section.
+
+The Electronic Frontier Foundation is the leading nonprofit organization defending civil liberties in the digital world. I have been a member of the EFF for years. Not only is the EFF working hard to protect you on the Internet they have also recently launched solutions like Privacy Badger and the critically important Let's Encrypt service to make encrypting web servers free to anyone. Support the EFF with a donation!
+
+That's the end of Promotion.
+
+Now, the Microblog updates section.
+
+- Tammy got to paddle down the Chippewa River into the Mississippi River. Thanks Broken Paddle Guiding!
+- Final day of riding with Broken Paddle Guiding.
+- Wine tasting at Villa Bellezza. Very cool place. Recommended.
+- Today’s ride - nice day!
+- Nice spot for lunch today.
+- Post ride wine time.
+- Wine tasting at Danzinger Vineyards.
+- 30 mile ride today. Longest cycling ride in years. Good amount of climbing too.
+- Starting our 3-day Inn to Inn bike trip in the bluffs!
+- Steve Earle now on stage at MN Zoo.
+- The Cactus Blossoms at the MN Zoo. So good!
+- Chase enjoying the lake.
+- Today was a very good day.
+- Big Green Egg today – tenderloins!
+
+That's the end of Microblog updates.
+
+Thank you for subscribing to the Weekly Thing! If you know of people that would like the Weekly Thing please forward it along!
+
+That brings us to the end of the Weekly Thing, issue 13. Thanks for listening, and I'll see you next time.

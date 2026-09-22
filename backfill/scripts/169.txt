@@ -1,0 +1,217 @@
+The Weekly Thing, issue 169. Ted Lasso, Think for Yourself, Range. Published December 12, twenty twenty. By Jamie Thingelstad. In this issue: Ted Lasso Energy, FTC sues Facebook, Cloudflare Web Analytics, Excel LAMBDA functions, Tony Hsieh, Stripe Platform of Platforms, Smart TV PiHole.
+
+Welcome to the final Weekly Thing of twenty twenty! I take a Winter Break from publishing the Weekly Thing from December 15 to January 15. I hope you all have a great Holiday season and are able to bring in the New Year with fanfare. The pandemic is causing many of us to find new ways to take in long held traditions. I think we will all find some new traditions that we will want to keep around well past the pandemic. I will be back in your mailbox for issue #170 on January 16, twenty twenty one!
+
+"Most people overestimate what they can do in one year, and underestimate what they can do in ten years." — Derek Sivers
+
+Now, the Must Read section.
+
+Link one. "Bring Ted Lasso Energy Into Your Life! | Vanity Fair"
+
+If you haven't watched Ted Lasso yet this might get you to go out of your way and check it out. Notably, Apple TV+ subscription is required. I greatly enjoyed Ted lasso. It was easily my favorite new show in a long time and I cannot wait to get the next season. This dives deeper into the characters..
+
+Quote.
+It’s a sprightly, well-constructed, enjoyable comedy about sports, sure, but it’s also about men who—like the many good men I have known (even in Hollywood!)—take responsibility for the example they set, for their emotions and for the actions they take.
+End quote.
+
+This comparison to Friday Night Lights was interesting to me. That is another show that I enjoyed a lot.
+
+Quote.
+So I put off checking out Ted Lasso, only to find out that, in the grand tradition of Friday Night Lights, it’s a stealth show that seems like it’s about sports while it’s actually about situations that are much richer, weirder and more important. Both shows subtly highlight the importance of compassion, humility, enlightened discipline and common decency; both shows are about how difficult and cathartic change can be.
+End quote.
+
+Some really great TV.
+
+Link two. "How to Think for Yourself"
+
+I like what Paul Graham writes here and how he frames this topic.
+
+Quote.
+Can you make yourself more independent-minded? I think so. This quality may be largely inborn, but there seem to be ways to magnify it, or at least not to suppress it.
+End quote.
+
+He goes through some depth on using your environment and the people that you engage with as a way to make sure that you have independent thoughts around you. This particularly resonates with the "filter bubble" concept that seems so pervasive in social media and even now our ability to choose whatever media aligns with our own beliefs.
+
+Quote.
+More generally your goal should be not to let anything into your head unexamined, and things don't always enter your head in the form of statements. Some of the most powerful influences are implicit. How do you even notice these? By standing back and watching how other people get their ideas.
+End quote.
+
+This article will likely make you think.
+
+That's the end of Must Read.
+
+Now, the Recommended Links section.
+
+FTC Sues Facebook for Illegal Monopolization | Federal Trade Commission
+
+This will be interesting to watch.
+
+This response from The Onion is great.
+
+Cloudflare’s privacy-first Web Analytics is now available for everyone
+
+I’m a happy customer of Fathom Analytics but if that option didn’t exist I would give this new offering from Cloudflare a very serious look. Cloudflare seems to have incredibly smart people making high quality solutions. This seems like a smart offering for them, and their privacy credentials seem solid.
+
+School of SRE
+
+LinkedIn made their Site Reliability Engineer training available to anyone online. Also like that they are accepting community contributions.
+
+Quote.
+At Linkedin, we are using this curriculum for onboarding our non-traditional hires and new college grads into the SRE role. We had multiple rounds of successful onboarding experience with new employees and the course helped them be productive in a very short period of time. This motivated us to open source the content for helping other organizations in onboarding new engineers into the role and provide guidance for aspiring individuals to get into the role. We realize that the initial content we created is just a starting point and we hope that the community can help in the journey of refining and expanding the content.
+End quote.
+
+SPS Technology - Remote Hypercare
+
+Great article from our very own SPS Technology team blog on the successful pivots we made for our Hypercare processes for Cyberweek twenty twenty!
+
+Excerpts from Range: Why Generalists Triumph in a Specialized World - Matt Norman
+
+Range is still on my "to read" list and these excerpts from Matt Norman make me want to jump it to the top of the list.
+
+Quote.
+The key is to develop a set of "conceptual schemes" or patterns that tend to work well across various situations. Examples of conceptual schemes would be: a sales process, a strategic planning methodology, principles of human relationships, or laws of thermodynamics.
+End quote.
+
+Announcing LAMBDA: Turn Excel formulas into custom functions
+
+This seems like some sort of inception moment.
+
+Quote.
+For folks with a computer science background, you’re probably already familiar with the concept of lambdas, and the introduction of LAMBDA makes the Excel formula language Turing Complete…
+End quote.
+
+Paying tribute to the web with View Source - Signal v. Noise
+
+I am definitely in this same generation. In the early days of the web we all built so much by riffing off of everyone else, using "View Source…" to understand how they did whatever it was we were interested in. These days, many web sites have so much confusion in their source that it is nearly impossible to make any sense of it. Some of that may be needed, but I think a lot of it is not. This is a key part of keeping the web open.
+
+Section 230 is Good, Actually | Electronic Frontier Foundation
+
+Very good in depth look at Section 230 and what it really means. There have been some recent calls to repeal Section 230 to hold big platforms more accountable for things like disinformation. Reforming Section 230 may make sense, but there are other ways to approach disinformation that would not have the negative impacts that repealing Section 230 would.
+
+Tony Hsieh’s American Tragedy: The Self-Destructive Last Months of the Zappos Visionary
+
+This article on Tony Hsieh path and eventual death is thorough if you are curious to learn more about the Zappos founder.
+
+Quote.
+Instead, these old friends say, Hsieh retreated to Park City, where he surrounded himself with yes-men, paying dearly for the privilege. With a net worth that Forbes recently estimated, conservatively, at 700 million dollars, Hsieh’s offer was simple: He would double the amount of their highest-ever salary.
+End quote.
+
+Very sad that he wasn't able to get the help that he really needed.
+
+How Venture Capitalists Are Deforming Capitalism | The New Yorker
+
+If you are looking for one more long read on the débâcle of WeWork this one take a particular angle specifically from the perspective of the Venture Investors around it and the firms looking to take them public. If you wonder "Where were the adults to make sure this company was actually a company?" this lends some light.
+
+Example of how crazy it can be:
+
+Quote.
+Bankers from Goldman Sachs were more modest in their valuation—ninety-six billion—but in their presentation to Neumann they compared him to Mother Theresa, Steve Jobs, and Lin-Manuel Miranda, and lauded the "WeWork Effect" for allowing people to "live a true life," combat loneliness, and avoid deathbed regrets.
+End quote.
+
+Long, but compelling read. Shared via Hector Fernandez.
+
+Taking PHP Seriously - Slack Engineering
+
+PHP takes a lot of heat from developers that it doesn't deserve. I like to refer to PHP as "The People's Language". Wikipedia runs on PHP. WordPress is PHP. There are probably more lines of PHP code running the web than any other language. Yet many programmers disparage it. The truth is there is a lot of bad PHP code out there, sure. But that is as much about the volume of code than anything else. You can write good things in any language, and bad things in any language.
+
+How Microsoft crushed Slack - Platformer
+
+This is an interesting take on Salesforce buying Slack, and why did Slack sell.
+
+Quote.
+Why is this the case? To get some insight, I called up Aaron Levie, Box’s affable CEO. In Levie’s telling — and he also wrote a blog post about the Slack sale — it all comes down to sales. The idea that workers would someday choose all their own tools was always a fantasy, he told me, in part because most workers don’t event want to think about their tools. In such a world, the winning app will almost always be one with a giant, er, salesforce behind it. Microsoft had one. Slack didn’t. Enter Salesforce.
+End quote.
+
+It is expensive and super difficult to build those distribution channels into companies.
+
+Beaker Browser
+
+This is a cool project that allows you to both build, edit, and run a website using a peer-to-peer protocol locally. Some cool concepts here that will be interesting to see develop. Immediately useful in small settings like a classroom, but could be extended further over time.
+
+My Phone Was Spying on Me, so I Tracked Down the Surveillants
+
+Interesting article tracking location data as it is sold through multiple data brokers and ultimately can end up in the hands of various secret buyers that use it for purposes very different than it was originally collected. This chain of data better informs that that private data that many dismiss as "just" used for marketing purposes, is often resold and combined with other data for reasons that many people would object to. We need serious privacy regulation. Although it is notable that even GDPR may not be enough to manage this type of data use, as noted in the article.
+
+Stripe: Platform of Platforms – Stratechery by Ben Thompson
+
+Very interesting read on Stripe's new Treasury offering and what that can enable other platforms to do. I agree with Thompson's suggestion that Stripe is still in the early phases of realizing their overall vision.
+
+That's the end of Recommended Links.
+
+Now, the Journal section.
+
+Wednesday @ 9:59 PM
+
+Yes the Walker is closed right now with the pandemic but we watched the British Arrows Greatest Hits online tonight and it was full of great stuff. Such a wide variety of ads that hit every note you can imagine.
+
+Tuesday @ 10:10 PM
+
+Pandemic Date Night
+
+Like many Tammy and I haven't had a “typical” date night during the pandemic. Restaurants are take out only. Movie theaters are closed, and would be a pretty bad idea with Covid. But we were thinking how the Tesla has Netflix and Hulu so we decided to have a Pandemic Date Night in the car! We got takeout from Lake and Irving, one of our favorite places.
+
+Then we went to Lake Bde Maka Ska, parked along the parkway, and watched Hunt for the Wilder People on Netflix in the car. It was a fun change of pace, and a really good movie.
+
+When Tesla added Entertainment options like Netflix and Hulu I thought that would be possibly interesting when waiting for someone. But hadn’t ever thought we'd watch a whole movie. Also, running the heater, seat heaters, and entertainment system for the whole movie used about 10% battery. Also, the audio is really good. The surround sound was very immersive. I think we may do this again.
+
+Monday @ 9:21 PM
+
+Parallel Zoom Pacing
+
+It turns out I pace a decent amount. Last week I was on a Zoom call and also took a call on my cell. I muted my audio but left the video on and one of our team grabbed the video loop and made it into this terrific Zoom video background. So brilliant! Only topped by sharing it with several of us who then had it on at the same time. That is a lot of pacing!
+
+Saturday @ 11:17 PM
+
+We watched the live stream of Home Free’s Warmest Winter Holiday Special tonight. It was a fun time with good music, Wassail Tea, and the usual Home Free humor.
+
+Saturday @ 6:55 PM
+
+Here I am pretending that Lucky is a lap dog. She is confused if she should be happy about the attention or terrified that her paws are not on the floor.
+
+Saturday @ 5:40 PM
+
+Nice day for a campfire.
+
+That's the end of the Journal.
+
+Now, for your information.
+
+PlotJuggler: The Time Series Visualization Tool that you deserve.
+
+Very powerful time series data visualization tool. Can deal with a variety of different data formats. Seems more for professional use. You can also find it on Github.
+
+Meeter – Fast Call Initiation – Calls and Meetings in one place
+
+Super simple, free macOS menu bar application that does one thing well — make it easy for you to connect to your next meeting online. I’m going to give this a go. Found via Dense Discovery 117.
+
+Your Smart TV is probably ignoring your PiHole - LabZilla
+
+I have a PiHole and when I saw this I immediately wondered if my devices are doing this. I checked the settings and indeed they were honoring my DHCP servers DNS settings, but this is notable and worth making sure you check on your devices.
+
+How to Disable Google Analytics in the Nintendo Switch eShop
+
+First, annoying that Nintendo rolled this out in the newest release without an opt-in. Second, grudgingly will give them some credit for allowing you to turn it off. I feel strongly this type of thing should be an opt-in.
+
+Kinesis Outage
+
+Mostly interesting for the visual dependency graph of services using Kinesis.
+
+GitHub's journey towards microservices and more: 'We actually have our own version of Ruby that we maintain' • The Register
+
+Wait a second, Github maintains their own custom version of Ruby?
+
+Fridge Magnets
+
+Fun that there is an online version of the classic fridge magnets. Found via Recommendo #230.
+
+That's the end of the FYI section.
+
+Now, the Fortune section.
+
+You've made it all the way to the end! Here is your fortune for this week.
+
+Bank error in your favor. Collect 200 dollars.
+
+Thank you for subscribing to the Weekly Thing!
+
+That brings us to the end of the Weekly Thing, issue 169. Thanks for listening, and I'll see you next time.

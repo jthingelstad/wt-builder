@@ -1,0 +1,231 @@
+The Weekly Thing, issue 316. Blogroll, CaMeL, Insider. Published April 20, twenty twenty five. By Jamie Thingelstad. In this issue: Ye Olde Blogroll, CaMeL prompt injection, ChatGPT memory, MCP problems, Circle IPO, CVE program funding, OpenAI o3 o4-mini, GPT-4.1 coding.
+
+Good morning!
+
+I took a week off for a delightful Spring Break trip to Florida. It was a mix of great beach time on Anna Maria Island finishing with visits to Kennedy Space Center and St. Augustine. We ended on a high note with an amazing escape room.
+
+My plans to get an email out last week didn’t come together. I simply ran out of time. This week I made my first trip to Poland to visit our new office there. Warsaw made a great first impression. It’s super easy to get around, and there are a lot of technology companies present. But all that together means jet lag and a lot going on.
+
+I hope your weekend is going well. Happy Easter! I hope you have a wonderful day.
+
+"You weren't made to follow someone else's algorithm, you were born to debug the unknown." — Jessica Brent speaking at twenty twenty five Minnesota Aspirations in Computing Award Ceremony
+
+Now, the Notable section.
+
+Link one. "Ye Olde Blogroll - Because blogs are the soul of the web"
+
+A blogroll on your website was one of the earliest forms of discovery on the web. You could hop from site to site based on these recommendations. Webrings evolved as "bigger and decentralized" blogrolls if you will. Manuel Moreale had blogroll land in his lap as it were, and he gave it a brand new launch using People and Blogs as a core part of it. Good stuff.
+
+Link two. "CaMeL offers a promising new direction for mitigating prompt injection attacks"
+
+Many packages that add GenAI capabilities suddenly find themselves subject to prompt injection attacks.
+
+Quote.
+It works by taking a command from a user, converting that into a sequence of steps in a Python-like programming language, then checking the inputs and outputs of each step to make absolutely sure the data involved is only being passed on to the right places.
+End quote.
+
+Interesting approach, breaking down and building up again.
+
+Link three. "ChatGPT can now remember and reference all your previous chats - Ars Technica"
+
+I found this new memory feature to be much more impactful than I suspected it would. ChatGPT now brings a bunch of context to questions that is implied from your entire history. Makes ChatGPT feel much more like your personal agent.
+
+Link four. "Why I support privacy"
+
+A reminder that blockchains allow for people to be anonymous by keeping wallet ownership unknown, but there is nothing private that the wallet can do. All transactions are known to everyone always. Privacy on blockchains is, right now, not existent. Here Vitalik Buterin shares his views on why privacy is important.
+
+Quote.
+At this time, it's worth stepping back and reviewing the question: why do we want privacy in the first place? Each person's answer will be different. In this post I will give my own, which I will break down into three parts: - Privacy is freedom: privacy gives us space to live our lives in the ways that meet our needs, without constantly worrying about how our actions will be perceived in all kinds of political and social games - Privacy is order: a whole bunch of mechanisms that underlie the basic functioning of society depend on privacy in order to function - Privacy is progress: if we gain new ways to share our information selectively while protecting it from being misused, we can unlock a lot of value and accelerate technological and social progress
+End quote.
+
+You could shorten this all to one simple statement: because it is the right thing to do.
+
+Link five. "Using LLMs as the first line of support in Open Source"
+
+Using AI to help developers learn how to integrate your framework into the codebase they are working on. Overall this is a super example of using AI to completely change the onboarding process to use a new capability.
+
+Link six. "An Ars Technica history of the Internet, part 1 - Ars Technica"
+
+I've read about the birth of the Internet many times. The stories of the IMP, Interface Message Processors, and their 24kb of memory are delightful. I love the paper sketch in this article showing the first four IMPs connected.
+
+The real unlock here though is around the development of TCP/IP. If there is one thing that unlocked the magic, it was that. And it is a damn shame that everyone knows who Mark Zuckerberg is but not many can tell you who Vint Cerf is.
+
+Quote.
+Robert Kahn asked Vint Cerf to try and fix these problems once and for all. They came up with a new plan called the Transmission Control Protocol, or TCP. The idea was to connect different networks through specialized computers, called "gateways," that translated and forwarded packets. TCP was like an envelope for packets, making sure they got to the right destination on the correct network. Because some networks were not guaranteed to be reliable, when one computer successfully received a complete and undamaged message, it would send an acknowledgement (ACK) back to the sender. If the ACK wasn't received in a certain amount of time, the message was retransmitted. In December 1974, Cerf, Yogen Dalal, and Carl Sunshine wrote a complete specification for TCP. Two years later, Cerf and Kahn, along with a dozen others, demonstrated the first three-network system. The demo connected packet radio, the ARPANET, and SATNET, all using TCP. Afterward, Cerf, Jon Postel, and Danny Cohen suggested a small but important change: They should take out all the routing information and put it into a new protocol, called the Internet Protocol (IP). All the remaining stuff, like breaking and reassembling messages, detecting errors, and retransmission, would stay in TCP. Thus, in 1978, the protocol officially became known as, and was forever thereafter, TCP/IP.
+End quote.
+
+Every message ever sent on the web is done with TCP/IP. More than nearly anything else, it is the defining protocol of the Internet that is everywhere today.
+
+Link seven. "Trump Revenge Tour Targets Cyber Leaders, Elections – Krebs on Security"
+
+I don't think we appreciate how critical our cyber defenses are. We give it a nod, but we need to consider these organizations and leaders on the same level as our physical defense if not even more critical! The asymmetry of cyber warfare is huge — you can easily inflict orders of magnitude more damage than the costs. Politicizing this critical function is highly problematic.
+
+Link eight. "Everything Wrong with MCP - Shrivu Shankar"
+
+My guess is that MCP is going to be a transitional framework and likely these limitations will be solved in another approach. It is also a bit of an engineer meme to actually do a better job describing a thing by telling you what is wrong with the thing. This article does a good job of that as well.
+
+Link nine. "How to Bike Across the Country"
+
+I have ridden with people that have rode across the country. When I did Texas Hellweek in two thousand one I rode with people who were training for the Race Across America. Personally I'd want to do such an effort on a supported trip with a rest day a week. This post is great with very specific discussion on how he approached and completed this.
+
+Quote.
+What's more important than any physical preparation is the willpower to get the trip done. There will be hard moments on the trail - I found myself crying on the side of the road more than once. No amount of training could have prepared me for the daily struggle of simply getting up and making progress.
+End quote.
+
+In his "Joys of the Journey" I loved this callout.
+
+Quote.
+Never have I felt more connected to, or grateful for, natural wonders than during this ride.
+End quote.
+
+This was surprising and awesome to me.
+
+Quote.
+Another memorable aspect of riding along the TransAmerica trail was showing up to restaurants/rest stops in small towns that regularly see cyclists. In one such restaurant in Sugar City, Colorado, the owner took a quick look at me as I walked in before saying “I have something for you” and disappearing into a corner. She came back with a spiral notebook and told me to take a look. Inside were log book entries dating back years - every cross-country cyclist who'd passed through had taken time during their meal to write a personalized note. Some wrote little else but the date and the direction they were headed. Others wrote paragraphs of gratitude for the delicious meal they’d been served or diatribes on the struggles they’d endured to make it to this point. As I continued to head east from Sugar City, I found that these log books were not a rare occurrence, nearly every spot on my ACA map had something similar. The books, of all things, were what made me feel most connected to something bigger than myself during the ride.
+End quote.
+
+Great stuff.
+
+Link ten. "Unpacking Circle's IPO Filing and USDC’s On-Chain Footprint"
+
+I regularly use and hold USDC to make crypto payments. Circle, the company that backs USDC, filed an S1 to go public and this article breaks down the business.
+
+Quote.
+For every dollar of USDC issued, Circle invests the backing reserves in a portfolio of highly liquid, low-risk assets such as short-dated U.S. Treasuries and cash deposits. This structure allows Circle to generate yield on reserves while ensuring liquidity and redemption stability for USDC holders. In its filing, Circle revealed that it earned a reserve income of 1.6 billion dollars in twenty twenty four. This represents 99% of its total revenues, suggesting a highly concentrated revenue mix tied to interest-rates.
+End quote.
+
+To me this seems like a good, and boring, business. If they can manage to just do that it would be wonderful and provide a great utility.
+
+Link eleven. "codex: Lightweight coding agent that runs in your terminal"
+
+It is interesting to me that OpenAI calls this "lightweight". This directly competes with Claude Code and looks pretty interesting. I’m always a little cautious that the demos of these tools can be amazing and fall short of practical use. Need to try on some personal projects.
+
+Link twelve. "OpenAI o3 and o4-mini - YouTube"
+
+Overview of this week's announcements from OpenAI. Great video to really show the capabilities and what it does. I’m very interested to try doing some things with the new codex solution. Worth 25 minutes to see this. See o3 and o4-mini announcements as well.
+
+Link thirteen. "Homeland Security funding for CVE program expires - The Register"
+
+Totally typical of the chaos of now at the last minute the US changed course and is now funding but still notable to share how important this CVE program is to coordinated cybersecurity response. This is how most security organizations organize and communicate around critical vulnerabilities. It was reassuring to hear the organization has been working on contingencies.
+
+Link fourteen. "OpenAI's new GPT-4.1 AI models focus on coding | TechCrunch"
+
+Impressive results and shows what Anthropic and Google are able to do on similar benchmarks. Notably they are even higher.
+
+Quote.
+According to OpenAI’s internal testing, GPT-4.1, which can generate more tokens at once than GPT-4o (32,768 versus 16,384), scored between 52% and 54.6% on SWE-bench Verified, a human-validated subset of SWE-bench. (OpenAI noted in a blog post that some solutions to SWE-bench Verified problems couldn’t run on its infrastructure, hence the range of scores.) Those figures are slightly under the scores reported by Google and Anthropic for Gemini 2.5 Pro (63.8%) and Claude 3.7 Sonnet (62.3%), respectively, on the same benchmark.
+End quote.
+
+Don't miss the footnote at the end though, that these models still routinely fail tasks that would never trip up an average developer. Nonetheless, clearly there is power here to leverage and benefit from.
+
+That's the end of Notable.
+
+Now, the Journal section.
+
+Journal entry one.
+
+Finished 3.95 mile walk in 71 minutes (17.97 min/mile). Loop around Lake Harriet. Such a splendid spring morning.
+
+Journal entry two.
+
+Boe Memorial Chapel.
+
+Chapel Choir celebration outside of Boe Chapel.
+
+Journal entry three.
+
+Flight delayed and one of the last six flights to depart MSP tonight. Airport is otherwise empty. We may end up being the last flight of the night! Gate agents have been working like crazy getting connections fixed.
+
+Journal entry four.
+
+I find these robot vacuum cleaners that roam the MSP airport kind of adorable.
+
+Journal entry five.
+
+City Hopper KL1317 heading to Warsaw, Poland.
+
+Journal entry six.
+
+Mindspace Skyliner.
+
+Great view of business district from our #TeamSPS location in Warsaw, Poland!
+
+Journal entry seven.
+
+Mindspace Skyliner.
+
+First time trying Paska, traditional Eastern Bread, from Kyiv while visiting team in Warsaw.
+
+Journal entry eight.
+
+Jet lag assistance.
+
+Journal entry nine.
+
+Love this portable pour over package from Mad Heads, a Kyiv-based coffee company. The package folds out to rest on the rim of the mug and make delicious pour over. The first step to making “perfect cup” -- stay mad.
+
+Journal entry ten.
+
+TeamSPS, Eastern Europe, with Warsaw team and many Kyiv team members visiting.
+
+Journal entry eleven.
+
+Graffiti in Warsaw.
+
+Journal entry twelve.
+
+Nightcap with Warsaw in background.
+
+Journal entry thirteen.
+
+Finished 1.68 mile walk in 55 minutes (32.74 min/mile). Casual stroll after dinner. Wonderful evening.
+
+Journal entry fourteen.
+
+I Love Warsaw Sign.
+
+That's the end of the Journal.
+
+Now, the Briefly section.
+
+Link one. "70 million dollars in 60 Seconds: How Insider Information Helped Someone 28x Their Money"
+
+Pretty lucky.
+
+Link two. "Quick Primer on Model Context Protocol (MCP)"
+
+Full walk-through to create an MCP for GenAI use.
+
+Link three. "AI twenty twenty seven"
+
+Fiction and stories are a great way to envision possible futures. This story plays out upcoming developments in AI and how what they can mean.
+
+Link four. "OpenAI’s Sam Altman Talks ChatGPT, AI Agents and Superintelligence — Live at TED2025 - YouTube"
+
+Good interview with Altman by Anderson although the first part covers well trodden territory that Altman answers as you would expect him to. Altman's comments on future ChatGPT capabilities are more interesting.
+
+Link five. "Daring Fireball: The WSJ Reports on How Elon Musk Manages His 'Legion' of Children and Harem of Mothers"
+
+So strange. Reporting by the Wall Street Journal.
+
+Link six. "Simple Web Server"
+
+Sometimes you just need a simple little app to be a local web server.
+
+Link seven. "Introducing Kermit: A typeface for kids - Microsoft Design"
+
+Nice enough and very usable. Perhaps schools everywhere can no longer ever use Comic Sans? Also, I found this "Kermit’s animation feel like it’s naturally drawing itself with a pen" pretty cool. The example shows it well. It made me wonder if you could use it on the web to show a page "writing" itself.
+
+That's the end of Briefly.
+
+Now, the Fortune section.
+
+Here is your fortune…
+
+Privacy means never having to say you're surveilled.
+
+- Join the private Weekly Thing Forum
+- r/WeeklyThing on Reddit
+- Sign the Weekly Thing Guestbook
+
+That brings us to the end of the Weekly Thing, issue 316. Thanks for listening, and I'll see you next time.

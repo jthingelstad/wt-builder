@@ -1,0 +1,207 @@
+The Weekly Thing, issue 246. Banks, Stablecoin, Trust. Published March 18, twenty twenty three. By Jamie Thingelstad. In this issue: Sam Bankman-Fried warnings, Silicon Valley Bank demise, bank solvency, RAI stablecoin, doorbell privacy loophole, Kottke.org 25 years.
+
+Hello there!
+
+What a week — π day, St. Patricks Day, and a couple of bank failures to add some spice to the mix.
+
+Warning: there are multiple pictures of delicious pie toward the end. Hunger may result.
+
+"What does it mean to be too online? And where do you draw that boundary? How do you know what constitutes being too online? Well, in some sense just being on social media at all is to be too online. Given what it does, and the kinds of information it signal boosts, and given the impulse it kindles in each of us to reach out to our audience in specific moments and in specific ways." — Sam Harris on Lex Fridman Podcast, March 14, twenty twenty three (1h 08m)
+
+Related: My article On Audience Capture.
+
+Now, the Notable section.
+
+Link one. "Effective Altruist Leaders Were Warned About Sam Bankman-Fried Years Before FTX Collapse | Time"
+
+The depth of connection between the Effective Altruism movement and Sam Bankman-Fried is shocking. Even more than I had thought. It seems like there were leaders in the Effective Altruism movement who either knew, or should have known, at least some of what was going on and stopped this charade of FTX before it got as far as it did.
+
+Link two. "March twenty twenty three Newsletter: A Look at Bank Solvency - Lyn Alden"
+
+If all the banking news has you wondering about fundamental questions on how banks work, Alden's newest newsletter has a great and very thorough walk through. Plus lots of great charts.
+
+Link three. "RAI, The Free-Floating Stablecoin That Actually Works | IntoTheBlock"
+
+In my opinion stablecoins are a critical component of crypto solutions. Native tokens like Bitcoin and Ethereum are important, but there are vast capabilities that you can unlock if you remove or lessen volatility. I first ran into RAI several months ago it it made my head hurt a bit. It doesn't work at all like a traditional stablecoin.
+
+Quote.
+While using stablecoins can reduce the risks associated with volatility, there are concerns about counterparty risk. The price stability is maintained by their issuers, which means that they are subject to the same risks and vulnerabilities as traditional financial systems. Additionally, the mechanisms used to maintain stablecoin prices can be complex, opaque and may not always function as intended, which can create a new set of risks. So, would it be possible to have a stablecoin that is also decentralized?
+End quote.
+
+This is why USDC dropped off peg when news of Silicon Valley Bank broke and people realized that Circle, the centralized organization behind USDC, had 3.4 billion dollars in its reserve at SVB. This is also the constant worry with USDT (Tether) as proof of its backing is nearly impossible to prove.
+
+So how does RAI work to set a stable price?
+
+Quote.
+This is a complex technical topic, but putting it simply into a one-liner: RAI achieves price stability by dynamically adjusting its circulating supply based on supply and demand. This is achieved by comparing the RAI market price with the RAI target price (named redemption price, since in case of a protocols shutdown that is the price that the protocol would settle all debt). If the price of RAI is above its target price, the supply of RAI tends to increase. If the price of RAI is below its target price, the supply of RAI tends to decrease. This is done with a controller smart contract that economically incentivizes the users of the protocol, RAI borrowers and RAI Holders, to keep the market price close to the redemption price.
+End quote.
+
+It uses math. The Proportional-Integral-Derivative (PID) controller comes into play.
+
+Quote.
+RAI has remained less volatile than the other currencies, despite not being the currency that has devalued the least. For example, during most of this period, holding RAI instead of EUR would have resulted in less losses compared to the dollar.
+End quote.
+
+Holding value like that through these market conditions is notable.
+
+Link four. "Kottke.org Is 25 Years Old Today and I’m Going to Write About It"
+
+I love this celebratory post from Kottke marking his blogs twenty fifth year!
+
+Quote.
+My love for the web has ebbed and flowed in the years since, but mainly it’s persisted — so much so that as of today, I’ve been writing kottke.org for 25 years. A little context for just how long that is: kottke.org is older than Google. 25 years is more than half of my life, spanning four decades (the 90s, 00s, 10s, and 20s) and around 40,000 posts — almost cartoonishly long for a medium optimized for impermanence.
+End quote.
+
+The artifact that we create when we write on our own website is so great. My blog is nearly 19 years old.
+
+Link five. "Why Write?"
+
+This is a great reminder that writing is not a utility function, or the outcome of something, but it is the act of actually thinking.
+
+Quote.
+Writing is the process by which you realize that you do not understand what you are talking about. Importantly, writing is also the process by which you figure it out.
+End quote.
+
+This is a big reason why I write the Weekly Thing, and why I blog. And it is a value that writing actual sentences and paragraphs brings, the the utterances of social media completely lose.
+
+Link six. "Emergency Proposal: Risk and Governance Parameter Changes (11 March twenty twenty three) - The Maker Forum"
+
+Maker DAO governs the DAI stable coin. The recent bank instability has caused all organizations in the financial world to take some actions and make some adjustments. I found this forum dialog super interesting as a peek into how that happens when it is done in a DAO using software, instead of bank board rooms or Washington offices. This is also then connected to the Proposal Emergency Parameter Changes - March 11, twenty twenty three where you can see the changes being put into code. Fascinating stuff.
+
+Link seven. "The Demise of Silicon Valley Bank - by Marc Rubinstein"
+
+Good overview and explainer about what happened at Silicon Valley Bank. I’m blown away by the fact that 42 billion dollars in deposits were requested to be withdrawn in a single day on March 9, twenty twenty three. That is incredible.
+
+Link eight. "Discord, or the Death of Lore « ASCII by Jason Scott"
+
+Scott reminding us that closed systems like Discord (and others) don't have great ways to pull all the history that people are creating in them out to the open web, or frankly anywhere else. The Geocities moment for Discord, assuming that happens which is a when not an if, will be hard.
+
+Link nine. "The privacy loophole in your doorbell - POLITICO"
+
+You have to assume that the data that you store in the cloud from an internet connected camera can and will be shared at anytime. I will not ever put one of these cameras pointing inside my house, but I do use some Nest cameras to be able to see things at our cabin. The privacy issues with this data are profound. Personally, I don't trust Ring at all with this data. And I particularly dislike their fear based marketing tactics.
+
+Link ten. "Upwelling: Combining real-time collaboration with version control for writers."
+
+This is a cool read to understand how the problem domain changes completely how a solution should work. In essence, the way that real-time collaboration works in software coding isn't great for writing. Here it breaks down the use cases, why it should be done a certain way, and the next steps for building it out.
+
+Link eleven. "Infra-Red, In Situ (IRIS) Inspection of Silicon « bunnie's blog"
+
+How can you know that the integrated circuits you are buying do not have malicious code in them, at a hardware level? This is a devilishly hard problem to deal with.
+
+Quote.
+IRIS is a necessary complement to logic-level hardening methods, because logic-only methods are vulnerable to bypasses and emulation. In this scenario, a hardware trojan includes extra circuitry to evade detection by spoofing self-tests with correct answers, like a wolf carrying around a sheep’s costume that it dons only when a shepherd is nearby. Since IRIS can constrain meso-scale to macro-scale structure, we can rule out medium-to-large scale circuit modifications, giving us more confidence in the results of the micro-scale verification as reported by logic-level hardening methods.
+End quote.
+
+It is one thing to source your chips from places you trust, but it is still relying on trust. How can you validate the integrity of every instance of a chip for high-security use cases?
+
+That's the end of Notable.
+
+Now, the Journal section.
+
+Tuesday @ 9:06 PM
+
+We enjoyed our tradition of π Day dinner of nothing but pies! Chicken Pot Pie was delicious, followed with a Nutella Pie. All homemade from scratch!
+
+Tuesday @ 3:34 PM
+
+TeamSPS had a great time celebrating π Day at 3:14pm today with 600 pieces of pie!
+
+Tuesday @ 11:18 AM
+
+Happy π Day!
+
+Tuesday @ 10:20 AM
+
+Using my new IYK Disc to distribute POAP claim codes for the TeamSPS Pi Day twenty twenty three event today! Made a sign to help people know what to do.
+
+Saturday @ 4:44 PM
+
+In the midst of a blizzard Jamie decided that it would be a good idea to take the older kids that had just finished sledding for an hour to town 11 miles away. After clearing the Mazda CX-9 of snow and getting it warmed up Jamie pulled out with Mazie, Nora, Tyler, Levi, and Elsa. The snow was deeper than Jamie expected but they made it up the driveway and turned right onto the dirt road. The road had no clear markings and with the blizzard the snow had blown over everything. There was only snow in front of us and not being able to see the road Jamie drove right off the crown of the road putting the passenger side wheels in the ditch. Mazie, Nora, and Jamie attempted to dig the wheels out and push but the Mazda simply slid further into the ditch. Hector came out to help and we proceeded to make no progress, simply sliding further into the ditch. Denny then came to the rescue with his pickup and tow strap. First attempt to pull the Mazda out actually pulled Denny's truck into the ditch too and left him stuck. Luckily the crew was able to get the truck unstuck, and a second attempt to pull the Mazda out was more successful. Denny pulled in the truck and Jamie managed the Mazda until we got all wheels back on the road. Finally, after nearly an hour, both cars returned and everyone rejoiced.
+
+I made Olson Family Vacation 20 Blizzard Rescue to remember it.
+
+Saturday @ 9:13 AM
+
+From The Economist Espresso on March 11, twenty twenty three.
+
+Quote.
+American regulators closed Silicon Valley Bank amid a run on the tech-focused lender. The Federal Deposit Insurance Corporation took control of SVB’s 175 billion dollars-worth of deposits and said insured depositors would have access to their money on Monday. America’s sixteenth-largest bank, having seen its deposits shrink during the VC winter, had failed to raise enough cash to stay afloat. The S and P 500 dipped by 1.5% on Friday to finish its worst week since September. Signs of the stress at SVB were spilling over into other parts of the financial world late on Friday. The price of cryptocurrency USDC, a stablecoin which is pegged to the value of the dollar, fell to as low as 0 dollars and 88 cents. Circle, the payments company which manages USDC, confirmed that around 3.3 billion dollars of its 40 billion dollars in reserves was deposited with SVB.
+End quote.
+
+Friday @ 10:37 PM
+
+20 Years of Olson Family Vacation
+
+This weekend we are celebrating 20 years of Olson Family Vacations. In two thousand four Tammy's side of the family decided to have everyone get together for a long weekend, and that started the tradition that has been going on two decades now.
+
+Every year the family responsible for finding a location and planning the weekend rotates, with everyone having hosted four vacations at this point.
+
+To celebrate two decades of Olson Family Vacations we decided to make a special shirt for everyone.
+
+The back of the shirt records the location of every vacation.
+
+Of course we celebrated with a POAP as well!
+
+Friday @ 9:48 PM
+
+“To be normal you have to be abnormal.” — Tyler
+
+That's the end of the Journal.
+
+Now, the Briefly section.
+
+Link one. "Pynecone: The easiest way to build web apps"
+
+Super interesting web framework for Python. Looks sort of like Rails but for Python?
+
+Link two. "Zed - Code at the speed of thought"
+
+This looks like an incredbily powerful text and code editor, with some really well thought out collaboration features baked in.
+
+Link three. "How to use the en dash, em dash and hyphen (also ndash, mdash)"
+
+I use em dash pretty frequently and I was happy to see that I mostly use it right! I didn’t realize that en dash was specifically for ranges.
+
+Link four. "Announcing POAP Drops"
+
+A brand new and much nicer user experience and workflow for creating POAPs. Great step to broader adoption!
+
+Link five. "Say Hello to SAFe 6.0! - Scaled Agile Framework"
+
+Newest increment to Scaled Agile. Incorporates additional learnings and advances into the recommendaitons. Cynical view? New version number to drive consulting and certification from.
+
+Link six. "Concrete and pi - All this"
+
+Great trivia for π day — the specific gravity of portland cement is about π.
+
+Link seven. "The Filecoin Virtual Machine (FVM) is live on Mainnet!"
+
+This is a good development for Filecoin, and I’m particularly glad to see they are supporting the Ethereum Virtual Machine as well.
+
+Link eight. "Apple TV+ wins Academy Award for The Boy, the Mole, the Fox and the Horse - Apple"
+
+This made me chuckle because one night I started playing this on Apple TV+ and Tammy thought it was incredibly boring and slow moving. The kids and I kept watching it and agreed it was slow but had a laugh with it. And now it wins an Academy Award.
+
+Link nine. "A top audio engineer explains NPR’s signature sound - Current"
+
+This is a great geeky breakdown of how NPR configures their microphones. Fun stuff to read and consider about podcasting setups. Roll your bass off!
+
+Link ten. "writeout.ai – Transcribe and translate any audio file"
+
+Handy utility and free.
+
+Link eleven. "Revisiting stamps for email | Seth's Blog"
+
+Reputation systems for email are really hard, and the fact that inbound email is free to the sender creates a foundational asymmetry. There have been various attempts to solve this, and none have worked.
+
+That's the end of Briefly.
+
+Now, the Fortune section.
+
+Here is your fortune…
+
+Don't kiss an elephant on the lips today.
+
+Thank you for subscribing to the Weekly Thing!
+
+That brings us to the end of the Weekly Thing, issue 246. Thanks for listening, and I'll see you next time.

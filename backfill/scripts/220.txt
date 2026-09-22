@@ -1,0 +1,195 @@
+The Weekly Thing, issue 220. Ukraine DAO, Nouns, Icebergs. Published May 21, twenty twenty two. By Jamie Thingelstad. In this issue: Ukraine DAO history, Kharkiv lives in ruin, billing systems nightmare, crypto crash post-mortem, DJI Mini 3 Pro, iPhone 13 Pro photography.
+
+Good morning!
+
+It is just after 6am as I type this. It looks like it will be a fabulous Saturday.
+
+I greatly enjoy the early mornings on a weekend. A fresh, hot cup of coffee in hand. Everyone else is still sleeping and the dog has returned to get yet more sleep after having breakfast. You can hear the clock ticking. It is my favorite time to reflect and contemplate on the week. Often this time is when I appreciate how much I have to be thankful for. I hope you have an opportunity to do the same.
+
+Now, the Featured section.
+
+Link one. "Twitter Thread: Ukraine DAO History"
+
+I don't love linking to Twitter threads but this one tells the short but important history of Ukraine DAO. I’m a member of Ukraine DAO after participating in the Party Bid on the 1/1 Ukraine Flag and hold 1,000 LOVE tokens.
+
+I find Decentralized Autonomous Organizations to be incredibly interesting, and Ukraine DAO is a wonderful example of that. I define DAOs very broadly, they aren't a company or club. My definition: A mechanism for collective action.
+
+Ukraine DAO would have started and ended as a one-time fundraising event if not for a DAO. As a DAO, the fundraising event served as a formation function to get a large group of people together to take collective action as a team. It is truly amazing!
+
+That's the end of Featured.
+
+Now, the Notable section.
+
+Link one. "Prop House: Scaling Ecosystem Funding — nouni.sh"
+
+I've been very intrigued by Nouns DAO and Lil Nouns DAO. I keep looking to get a Lil Noun. This "flip" of the way to fund other projects is interesting.
+
+Quote.
+Prop House introduced a new mechanism to deploy capital: an auction where the lot is ETH and the bids are proposals. At the end of each auction, members of the community vote on which proposal gets funded. Conceptualizing it as an auction is fundamental because it introduces a prominent feature: the recipient of the lot is unknown at the time of deployment. This feature allows the funding auctions to be modular, automated and self-sufficient.
+End quote.
+
+I love how this ties in across the connected projects too.
+
+Link two. "Around Kharkiv, Ukrainians Emerge to Find Lives in Ruin - The New York Times"
+
+My first trip to Ukraine was to Kharkiv. These pictures of devastation and death are heartbreaking. We are 86 days into the Russian attacks on Ukraine. We must continue support the people of Ukraine.
+
+Link three. "Why billing systems are a nightmare for engineers"
+
+Billing systems are the kind of thing we often call an Iceberg Problem. You see this big huge floating chunk of ice on the top, and sort of forget that there is a giant bunch of ice many times bigger underneath it. Said another way, there are an incredible number of edge cases in problems like this. Developers that are less experienced will think these are simple, and just charge into it. Folks that have built and maintained systems like these know that "here be dragons."
+
+Link four. "Taking a Break from Social Media Makes you Happier and Less Anxious"
+
+There are so many reasons this makes total sense.
+
+Quote.
+At the end of this week, the researchers found "significant between-group differences" in well-being, depression, and anxiety, with the intervention group faring much better on all three metrics. These results held even after control for baseline scores, as well as age and gender.
+End quote.
+
+Fact.
+
+Link five. "Digital Alchemy: A Post-Mortem of the Crypto Crash"
+
+Alden is incredibly smart on nearly any financial topic, and this is no exception. This reads more like a love letter to Bitcoin, but her overall points are strong. Her summary of the TerraUSD meltdown is very approachable. I personally had avoided Terra and Luna because of the structure of the stablecoin and the use of Bitcoin as a backing asset. There is just too much correlation. I think her basic point that only a few of these ecosystems will survive over the long term is true. I also think her grouping of all organizations that have foundations in the middle as bad is overly general. Overall a good read and very insightful.
+
+Link six. "Some Notes On 'Asshat' | Merriam-Webster"
+
+I must say that I take a particular joy in using asshat from time-to-time.
+
+Quote.
+Asshat may not be the first word you draw from your quiver when seeking to adequately describe someone for whom you feel some measure of distaste. It’s fine by us if you choose not to use the word, but given its status in our language we would be remiss in our duties if we failed to provide it with a definition.
+End quote.
+
+Asshead however, that is offensive. But asshat? Totally great.
+
+Link seven. "Is your phone ruining your creativity?"
+
+The headline message from this…
+
+Boredom breeds creativity.
+
+I think about this fairly often. Modern life gives us every out to escape boredom. Heck, not even boredom, but in many ways to escape our own thoughts. You really could fill every moment of the day with something, like those magic foam sprays that get bigger and bigger to fill a hole. No crack remains. No opportunity for boredom. No opportunity to even hear your own thoughts.
+
+Link eight. "Untangling Organizational Dependencies"
+
+One of the biggest benefits of adopting a structure like SaFE is to have a clear way of working across a large number of teams to create a shared solution, and decompose things in a way that works better for everyone. I disagree with the author equating dependency as a bad thing, there is a negative culture that he is associating with it that is the problem. And shared solution development is a good way to avoid it.
+
+Link nine. "Luna Brothers, Inc."
+
+This Is a good overview of the main ways to create a stablecoin in crypto.
+
+Quote.
+This essay will explore the broad categories of blockchain-enabled stablecoins — including fiat-asset-backed, overcollateralised-crypto, algorithmic, and Bitcoin-backed stablecoins.
+End quote.
+
+I was surprised to see the similarities between algorithmic stablecoins and how countries manage their currencies.
+
+Quote.
+Algorithmic stablecoins are not much different than fiat debt-backed currencies, save for one crucial factor. Terra and others like it cannot force anyone to use UST at any price. They must convince the market with their fancy designs that the governance tokens backing the protocol will have a non-zero value that rises more quickly over time than the amount of fiat-pegged tokens issued. However, a government can always force, ultimately at the point of a gun, its citizens to use its currency. Therefore, there is always built-in demand for fiat, even if everyone knows the "assets" backing such a currency are worth less than the currency in circulation.
+End quote.
+
+Link ten. "Lil Nouns DAO"
+
+There is this whole Nouns DAO ecosystem, and Lil Nouns is a new component to make it easier to become part of the Noun ecosystem. I like so much of the ethos behind the Noun projects. Public domain imagery, and totally decentralized operating models.
+
+Link eleven. "DJI’s new Mini 3 Pro drone hits the aerial photography sweet spot"
+
+I have the original DJI Mavic Mini and I have been very happy with it. The only thing I wish it had? Everything that this new Mini 3 Pro has. The follow me feature is a big win, and obstacle detection as well. This is a really good sweet spot for a general purpose drone.
+
+Link twelve. "iPhone 13 Pro: The Edge of Intelligent Photography"
+
+This article asks an interesting question. What is the job of a camera? To create a great picture? Or to capture the view in front of you. I often hit the Magic Wand feature on my iPhone and the picture just pops. The colors come out, colors get warmer and more vibrant. But, that also isn't the scene that is in front of me. It isn't what I just took a picture of. There isn't a right or wrong answer to this in my opinion. I think it is just important to think of the job the photo you are taking has.
+
+It makes me chuckle to think that as I look at pictures from my youth and they are washed out color on film, my kids will look at digital images from their youth that are artificially bolder and brighter than reality was.
+
+That's the end of Notable.
+
+Now, the Journal section.
+
+Thursday @ 3:47 PM
+
+Lots of hail and heavy rain showed up out of nowhere in Downtown Minneapolis.
+
+Sunday @ 6:19 PM
+
+I've been exploring various "noun" crypto projects recently. When I found The Internoun Project I decided to grab the Wikipedia noun for my collection. I'm a big fan and supporter of Wikipedia.
+
+Sunday @ 5:56 PM
+
+Firmware upgrades are the best.
+
+Saturday @ 7:36 PM
+
+Gorgeous night for some Minnesota Twins baseball!
+
+Saturday @ 7:24 PM
+
+We had a fun time shooting Nerf pellets at each other in various games at Urban Tactical Combat today.
+
+That's the end of the Journal.
+
+Now, the Briefly section.
+
+Link one. "Everything You Think Is True"
+
+I didn’t realize Anil Dash was involved in the conceptual work that predated NFTs.
+
+Link two. "Thoughts on OKRs:: joe blubaugh"
+
+I wholeheartedly agree with the basic tenet that OKRs appear easy, but in practice are actually pretty tricky. Crafting a clear key result is a real talent. I also wonder if you can get most of the value, even with a "good enough" OKR structure. I don't know.
+
+Link three. "I Spent 2 years Launching Tiny Projects | Tiny Projects"
+
+This list of projects is interesting, and it is also kind of curious to see the ones that generated some return.
+
+Link four. "Privacy on iPhone | Data Auction | Apple"
+
+Okay, I’m linking to an Apple advertisement. But, I love how they are bringing privacy to the consumer in a way that is understandable and jargon free. Our privacy online needs to be taken back. It isn't too late.
+
+Link five. "Inside Taylor Hawkins' Final Days as a Foo Fighter - Rolling Stone"
+
+It still makes me really sad that Hawkins' is gone. Grohl and the Foo's contest a lot of statements in this article. Who knows what exactly was going on, but Hawkins' was in a really bad place.
+
+Link six. "Laurence Tratt: Using a "Proper" Camera as a Webcam"
+
+There were so many of these articles when the pandemic first hit, but this one is updated with current information and has great sliders to see the before and after of a good camera.
+
+Link seven. "Proof of Stake and our next experiments in web3"
+
+Cloudflare is impressively tuned into the where tech is going. I've been impressed with the infrastructure that they have built for many things. It is a big deal that they are jumping into Ethereum proof-of-stake, "the merge".
+
+Link eight. "Why We Relaunched Code as Craft"
+
+I’m glad to see that Code as Craft is back, and am looking forward to reading where they go with it!
+
+Link nine. "Proofs of attendance are Web3’s new status symbol | Vogue Business"
+
+PAOPs in Vogue.
+
+Link ten. "Our Misguided Obsession with Twitter"
+
+Twitter is not "the town square". It may however be "the town boxing ring".
+
+Link eleven. "Project Sunshine | Ethereum"
+
+Cool dashboard that shows the actual amount of decentralization in the Ethereum network on a daily basis.
+
+Link twelve. "Everyone (including Elon) wants a better deal"
+
+The entire situation around Twitter is just a giant mess. Everyone is talking about it, and frankly there isn't that much to say. But Om Malik's views on it are interesting to me.
+
+Link thirteen. "Terra: To the Moon and Back"
+
+Simple thing — it isn't possible to generate a 20% yield on staked assets without something blowing up.
+
+That's the end of Briefly.
+
+Now, the Fortune section.
+
+Here is your fortune…
+
+It was all so different before everything changed.
+
+Thank you for subscribing to the Weekly Thing!
+
+That brings us to the end of the Weekly Thing, issue 220. Thanks for listening, and I'll see you next time.

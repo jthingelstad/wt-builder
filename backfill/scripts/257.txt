@@ -1,0 +1,282 @@
+The Weekly Thing, issue 257. Nostr, Time, Bcrypt. Published June 4, twenty twenty three. By Jamie Thingelstad. In this issue: Nostr creator Fiatjaf, Snowden Revelations at ten, Japan AI copyright, Discord admins hacked, Bcrypt at 25, building with LLMs.
+
+Good morning, err, or afternoon?
+
+Summer has started with a bang!
+
+Memorial Day. Last days of school. Birthdays! Graduations?!
+
+Hold on!
+
+My friend Layne Kennedy launched a Kickstarter for his new book Beyond the Light. I met Layne when Tammy signed me up for a Dog Sledding Photography workshop in two thousand nine. Layne is an incredible photographer, creator, and teacher.
+
+This new book sounds wonderful and I've heard Layne share a bit about it along the way. I can’t wait to see the final version!
+
+Quote.
+They speak to us about the power of connection, the place of beauty in our lives, and the strength that comes from deep within us all. They go beyond the light,. That is why, after 40 years of searching out these images, wherever they are found — from my own backyard to locations across the world — I am bringing a curated collection of these photographs and the stories behind them, together in a new, high-quality collector's edition book; BEYOND THE LIGHT: The Stories Behind The Photographs.
+End quote.
+
+I still routinely hear Layne's words when I look through the viewfinder.
+
+"Every photo tells a story. What is the story you are telling?"
+
+True for many things beyond photography too…
+
+The project is already about 70% of the goal!
+
+Back it now to get your signed edition and support distributing copies to libraries as well!
+
+Now, the Featured section.
+
+Link one. "Meet @Fiatjaf, The Mysterious Nostr Creator Who Has Lured 18 Million Users And 5 million dollars From Jack Dorsey"
+
+This writeup on Nostr and the key folks behind it is a good backgrounder. I've been playing with Nostr for a few weeks and it has some interesting capabilities. Micro.blog recently added syndication support for Nostr as well, which I turned on. Nostr feels much more like using a protocol than using a specific service. It feels more like SMTP or HTTP than Twitter. The work and experience is up to the client, and using a client like Damus feels a lot like Twitter with some unique twists due to the decentralized nature. For example, you don't really know who or how many people follow you. Just like the Web. You publish, and others read.
+
+The addition of micropayments via Zaps is very interesting as well.
+
+Quote.
+it has developed a secret weapon: the ability to transfer bitcoin among users. Already 500,000 daily Nostr users have sent each other 792,000 tiny bitcoin transactions called zaps, worth 1.9 million dollars, with dozens of companies building new applications.
+End quote.
+
+The problem for most (all?) protocols is that economics are ignored and that usually means at the end you have to shrug and surveil people for advertising. A robust, friction-free and global micropayments system built on Bitcoin and Lightning is well integrated into Nostr as Zaps. I've sent and received a bunch of Zaps. This is truly novel amongst similar protocols and has the potential to create an economically viable protocol that doesn't need external support, as well as introducing an intentionally limited asset into the system to better validate activity as not-spam and importance.
+
+Quote.
+Before the year was over @Fiatjaf's ideas had matured into what he calls the Nostr Manifesto, describing an open, censorship-resistant global social network. Computers that send short messages to each other and comprise the lowest layer of the network are called relays. Applications, like a social network or a marketplace built on top of the relays are called clients. Instead of the public key identifying a token like bitcoin it defines a user, and there is no underlying blockchain. Nostr is just a series of instructions for how to build interoperable applications.
+End quote.
+
+This again reinforces the protocol aspect. Nostr can power a wide variety of applications.
+
+Quote.
+But in April twenty twenty two a slow trickle of new users became a downpour. Bitcoin engineer, William Casarin, 34, launched Vancouver, British Columbia-based Damus (as in Nostr-damus) on the Nostr protocol. Initially, it was a weekend project that simplified accessing Nostr in a Twitter-like environment. He incorporated Damus at the end of twenty twenty two, and in January, Apple admitted Damus to its App Store. Casarin, who previously worked at bitcoin infrastructure firm Blockstream devised a way for Nostr users to send the tiny bitcoin payments called zaps via the Lightning network. Shortly thereafter, @Fiatjaf added Casarin's upgrade to the Nostr protocol, letting anyone build to the same specifications.
+End quote.
+
+I met Will at Bitcoin twenty twenty three after the Nostr session. Damus is for sure one of the most user friendly experiences on Nostr. Pair it with a Lightning wallet for micropayments and you have a great way to experience how this works.
+
+Link two. "Reflections on Ten Years Past The Snowden Revelations"
+
+Interesting post from the IETF reflecting on learning of the last ten years since Edward Snowden leaked documents on the NSA surveillance programs.
+
+Quote.
+Now that some years have past, it seems appropriate to reflect on that period of time, what effect the community's actions had, where security has improved, how the threat surface has evolved, what areas haven't improved, and where the community might invest future efforts. Bruce Schneier begins this compendium of individual essays by bringing us back to twenty thirteen, recalling how it was for him and others to report what was happening, and the mindset of those involved. Next, Stephen Farrell reviews the technical community's reactions, technical advances, and where threats remain. Then Farzaneh Badii discusses the impact of those advances – or lack thereof – on human rights. Finally Steven M. Bellovin puts the Snowden revelations into an ever-evolving historical context of secrets and secret stealing that spans centuries, closing with some suggestions for IETF.
+End quote.
+
+This reads like four different articles (blog posts?) put together into one paper with sections. I found section 5, the article from Bellovin on Governments and Cryptography the most interesting.
+
+Quote.
+Strong cryptography was here to stay, and it was no longer an American monopoly, if indeed it ever was. The Information Assurance Directorate of the NSA, the part of the agency that is supposed to protect U.S. data, was pleased by the spread of strong cryptography. When the Advanced Encryption Standard (AES) competition was held, there were no allegations of malign NSA interference; in fact, the winning entry was devised by two Europeans, Joan Daemen and Vincent Rijmen. But the NSA and its SIGINT needs did not go away—the agency merely adopted other techniques.
+End quote.
+
+Also would agree strongly with the point in section 3 by Farrell:
+
+Quote.
+In particular, we (the technical community) haven't done nearly as good a job at countering surveillance capitalism which has exploded in the last decade.
+End quote.
+
+Interesting perspective from an important body, the IETF. Themes on encryption echo my comments in Polarizing Technology.
+
+That's the end of Featured.
+
+Now, the Notable section.
+
+Link one. "ENS for your community - matoken.eth"
+
+The new ENS v3 Name Wrapper opens up a number of interesting use cases. Issuing subnames to your community is wildly interesting. Imagine when you register for a service you received an NFT that represents your user profile, and it is a subname of the entity itself.
+
+Link two. "Solo stakers: The backbone of Ethereum — Rated blog"
+
+Not all stakers in a proof-of-stake network are the same. This analysis tries to determine how many of the Ethereum Beacon chain stakers are solo stakers. These stakers are the most resilient and decentralized. They don't operate as a block. Many stake-at-home on their own hardware. I have been doing this on Gnosis Chain for nearly a year now. I think chains should consider how validator rewards are given to incentivize more solo stakers.
+
+Link three. "What not to share with ChatGPT if you use it for work | Mashable"
+
+Most notable thing in this article is the option to turn off your chat history and training. The vectors described are less novel than one might think.
+
+1. OpenAI could get hacked and their logs revealed, so be careful that you don't put overly sensitive stuff in the chats that could be exposed.
+2. LLMs (and even simpler AI systems) tend to have people overshare sensitive personal information.
+3. Yes, your conversations may be used for future training of models and that is a good reason to opt-out by turning that feature off.
+
+Noted.
+
+Link four. "Japan Goes All In: Copyright Doesn't Apply To AI Training"
+
+The US court system is still working through this matter but it is interesting to see Japan rule this way. All in, I think this is the way I feel it should be. Yes AI models are trained on existing examples in any domain, but so are people. No poet become a poet without reading other poets. No painter learns to paint without observing and learning from other painters. What is it about a Neural Network or Transformer Network that says you can’t do the same?
+
+Link five. "How Leaders Manage Time and Attention - Allen Pike"
+
+Super interesting mini-research report from Pike specifically focusing on leaders use of productivity methods. I would share Pike's surprise at how popular a single "Long-Ass Note" is. Tammy uses a "Long-Ass Note" and I’m always nudging about ways to do that "better". Her approach seems more common than mine. No real strong message around GTD here, other than concerns of overwhelm.
+
+It doesn't surprise me that he found a love of time blocking. I think the positive aspects of time created for tasks is real, I use that myself. But I also think Pike doesn't highlight enough how critical it is to defensively block out some time. As a manager, your time will all get consumed if you leave it open. All of it. If you don't protect some time for what you need to get done, you will be crushed. Time blocking can do a bit of both.
+
+Link six. "Lightning Tip Cards"
+
+Bitcoin Lightning enables all sorts of cool micropayment, friction-free use cases. With Tip Cards you can print out cards that have a standard QR code on it, lead the card with 1 dollar or 50 cents, and give it to anyone for them to have. I’m definitely going to play with some of these.
+
+Link seven. "Discord Admins Hacked by Malicious Bookmarks – Krebs on Security"
+
+Complicated and nasty attack pattern against Discord communities. Discord is like the bar in Star Wars. You need to be extra, extra careful anytime you are in a Discord group. Trust nothing.
+
+Link eight. "Bcrypt at 25: A Retrospective on Password Security | USENIX"
+
+Interesting read on various ways to secure password hashes and how Bcrypt has stayed relevant for an incredible 25 years. I found this bit about the design intentionally making it more difficult to use GPU methods interesting.
+
+Quote.
+We designed the adaptable work factor in bcrypt, primarily to keep pace with increasing CPU performance, but also included factors to make it more robust against custom ASICs or GPU acceleration, for example by heavily relying on instructions that generic CPUs execute efficiently. A crucial aspect of bcrypt's resistance to GPU optimization lies in its memory access pattern spanning 4KB during the key setup phase, which is inefficient to parallelize on GPUs with small L1 caches (Malvoni et al., twenty fourteen). That said, NVidia increased the L1 cache significantly to 16MB for the RTX 4090 and bcrypt’s 4KB is a tiny amount of memory these days.
+End quote.
+
+Good passwords with a good hash and a strong second factor are pretty hard to get by, even today.
+
+Link nine. "All the Hard Stuff Nobody Talks About when Building Products with LLMs | Honeycomb"
+
+Good set of challenges enumerated by the Honeycomb team trying to use an LLM to generate the complicated input into their query engine. I found this call out particularly worth remembering:
+
+Quote.
+Unless you’re literally in the business of selling LLMs, an LLM isn’t a product! It’s an engine for features.
+End quote.
+
+Don't start with the LLM, start with the problem you are solving for your user.
+
+Link ten. "Microtiming in a Riff from Metallica’s "Master of Puppets" – Metal In Theory"
+
+First, "Master of Puppets" is an awesome song. One of my all-time favorites. I didn’t realize that it had this complicated timing. I love when folks go deep on something that they really are into.
+
+Quote.
+As you can see, Metallica’s timing keeps pretty consistently to .15 seconds for an eighth note and .29 seconds for a quarter (or two eighth notes), except for the middle of the 5/8 measure. After the first three eighth notes of this measure, you can hear a brief pause before the last two eighth notes, a pause which is almost always .04 or .05 seconds (about a third of an eighth note), and which makes the measurement of these two eighth notes grouped together .34 or .35 seconds. What makes this rhythmic idiosyncracy different from what has been studied by most music theorists is that this slightly attenuated beat is performed by the whole ensemble in unison, and it’s not a delay that is "made up for" right afterwards. In other words, it’s not a local deviation from the beat that maintains the pulse over a longer span of music, but a permanent shift of where the beat occurs.
+End quote.
+
+And what is the result?
+
+Quote.
+This kind of visceral reaction entirely depends on the "inexact" timing Metallica uses, and the way it upsets with the movement of my headbanging body, for its effect.
+End quote.
+
+Yes!
+
+Link eleven. "AI Canon | Andreessen Horowitz"
+
+A16z collected this large collection of articles to give an overall primer on a variety of topics in AI. Including:
+
+1. Introduction
+2. Foundational learning
+3. Tech deep dive
+4. Practical guides to building with LLMs
+5. Market analysis
+6. Landmark research results
+
+There is a lot here. It is similar to the Crypto Canon and NFT Canon they have published before.
+
+Link twelve. "cf #63: being mindful of vanity metrics"
+
+Some of these vanity metrics overlap with what I've referred to as "analytics as addiction". Follower counts and retweets fall in here. Frankly the majority of web analytics do as well.
+
+Quote.
+Vanity metrics emphasise scale and might inspire awe and envy—but they don’t reveal anything useful about the ongoing health of a system, and might even obscure its underlying problems.
+End quote.
+
+Good questions to ask via Elezea.
+
+That's the end of Notable.
+
+Now, the Journal section.
+
+Thursday @ 10:07 AM
+
+Need a reason to get donuts? Tomorrow is National Donut Day and #TeamSPS is enjoying a day early this year! First Donut Day since the pandemic. See also: twenty eighteen Donut Day.
+
+Wednesday @ 9:36 PM
+
+Today micro.blog added cross-posting support for Nostr! I've been having fun playing with Nostr using Damus as the client. Now I'll be able to syndicate my blog posts to my Nostr profile as well.
+
+Sunday @ 10:45 PM
+
+First round of Smashburgers on the flat top for twenty twenty three!
+
+Sunday @ 10:44 PM
+
+Move along quickly under the broken tree hanging across the bike trail.
+
+Sunday @ 10:41 PM
+
+Great day for a family bike ride to Dairy Queen!
+
+Saturday @ 10:00 PM
+
+We are UNITED!
+
+Saturday @ 9:45 PM
+
+Levi and Tyler ran around after the Minnesota United game and collected signatures from: Bongokuhle Hlongwane (21), Sang Bin Jeong (11), Kervin Arriaga (33), and Joseph Rosales (8). They had an awesome time and the players were great!
+
+Saturday @ 7:52 PM
+
+M - N - UFC! Come on you Loons! Minnesota United FC v Real Salt Lake tonight.
+
+Saturday @ 7:50 PM
+
+First visit to Pleasant Grove Pizza Farm for twenty twenty three! Delicious and great vibes.
+
+Saturday @ 5:28 PM
+
+Pool is open for the summer!
+
+Friday @ 8:15 PM
+
+At the Hook and Ladder with friends for Summer Breeze Yacht Rock Fest featuring The Lonesome Losers.
+
+Friday @ 5:05 PM
+
+I now have a Bluesky Social account (thanks @maique for the invite!) and with micro.blog syndication anything I post on my blog will appear there too. Curious to explore Bluesky and see what it does well.
+
+That's the end of the Journal.
+
+Now, the Briefly section.
+
+Link one. "python-nostr: A Python library for Nostr"
+
+Simple Python library to send events to Nostr. Reminds me of how easy it used to be to write simple bots for Twitter.
+
+Link two. "RSS for Nostr | Nostr.Band"
+
+Simple utility to make an RSS feed from a variety of Nostr queries.
+
+Link three. "Snowflake acquisition of Neeva to add generative AI | TechTarget"
+
+I was bummed to hear that Neeva was shutting down, and then they said they were pivoting to AI, and just a week later they are now sold to Snowflake. I didn’t have that on my BINGO card for them. Also, Snowflake's Frank Slootman: Generative AI Disruption, Obsolescence.
+
+Link four. "Another dormant Ethereum wallet reawakens after 8 years, moving millions"
+
+Wild stuff when a wallet is idle for 8 years and then moves 8,000 ETH (14.7 million dollars USD) to a new address. The original purchase was made for 2,500 dollars USD when ETH was trading at 0 dollars and 31 cents. 2,500 dollars to 14.7 million dollars.
+
+Link five. "Safety Sign Generator"
+
+This just seems fun and maybe useful to me.
+
+Link six. "Where does my computer get the time from? – Tony Finch"
+
+Super fun read about all the various organizations that determine very accurately what the time is.
+
+Link seven. "Lua: The Little Language That Could"
+
+Lua is still on my "Someday, Maybe" list as a language to do something fun with.
+
+Link eight. "Stratasys to Acquire Fellow 3D Printing Company in 1.8 billion dollars Deal"
+
+Buying others while fending off being bought themselves.
+
+Link nine. "SimpleX Chat: private and secure messenger without any user IDs (not even random)"
+
+Interesting chat app that takes privacy even further by having no user IDs at all. I created a profile to try it out. This must be one of the most secure and private messenger solution.
+
+Link ten. "Embed Responsively"
+
+Handy little utility to give you superior video embed code for various services. I want to go back and upgrade the embeds on my blog with this.
+
+That's the end of Briefly.
+
+Now, the Signature section.
+
+"Weekly Thing #257 / Nostr, Time, Bcrypt" is signed…
+
+Fortune
+
+Don't feed the bats tonight.
+
+That brings us to the end of the Weekly Thing, issue 257. Thanks for listening, and I'll see you next time.

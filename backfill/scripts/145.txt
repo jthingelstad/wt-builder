@@ -1,0 +1,287 @@
+The Weekly Thing, issue 145. Permanent, Coronavirus, Zoom Fatigue. Published April 25, twenty twenty. By Jamie Thingelstad. In this issue: Zoom fatigue theory, effective reproduction number, silently killing coronavirus patients, 36000 missing deaths, reopen domain surge, SaaS efficient growth.
+
+Another week of Coronavirus lockdown is behind us. This is the sixth week of working from home for everyone. We had a milestone this week with Minnesota officially declaring that schools will not reconvene this year. That was expected, but the actual decision was still a big thing. Our family is powering through this all with good spirits. We all get along well and enjoy each others company. We've mostly carved out routines that allow everyone to get done what they need to. I've converted a bedroom into my office. I go in there, close the door, and usually only come out at lunch and for an afternoon espresso. I continue to get on the Peloton and put in some serious spinning efforts. I'm focused on my #FitByFifty objective. I've got 21 months!
+
+This weekend we are going to be celebrating Tammy and her birthday! We have a good plan to go on a couple of hikes, and taking some excursions on hiking paths. It is going to be a spectacular weekend for us to celebrate her and how amazing she is. We all love her so much!
+
+Now, let's get past our Zoom Fatigue and get down to the links for the week!
+
+Now, the Must Read section.
+
+Link one. "A Theory of Zoom Fatigue - The Convivial Society"
+
+I have absolutely felt this over the last few weeks. Being on video calls throughout the day leaves me drained in a way that I haven't been able to understand. Obviously it’s not physically demanding, but it’s physically draining nonetheless.
+
+Quote.
+The problem with video-conferencing is that the body is but isn’t there. This means that our minds are at least partly frustrated as they deploy their non-conscious repertoire of perceptive skills. The situation is more like a face-to-face encounter than most any other medium, but, for that very reason, it frustrates us because it is, nonetheless, significantly different. I suppose we might think of it as something like a conversational uncanny valley. The full range of what the mind assumes should be available to it when it perceives a body, simply isn’t there.
+End quote.
+
+This article is an interesting way of looking at that.
+
+Quote.
+What all of this amounts to, then, is a physically, cognitively, and emotionally taxing experience for many users as our minds undertake the work of making sense of things under such circumstances. We might think of it as a case of ordinarily unconscious processes operating at max capacity to help us make sense of what we’re experiencing.
+End quote.
+
+This resonates strongly with me.
+
+There is one other thing that I wonder about. When you are around other people you are also getting energy from that engagement. I wonder though if when this is over video, if the amount of energy you get is reduced, thus putting you in a further deficit. More energy spent, and less energy gained.
+
+Link two. "Rt: Effective Reproduction Number"
+
+Very nice visuals for Coronavirus spread data. Well designed, simple site. Made by the founders of Instagram as a side project. TechCrunch has a good writeup about it as well.
+
+That's the end of Must Read.
+
+Now, the Currently section.
+
+Eating: We've been sharing cooking activities with Tyler cooking dinner on Monday and Mazie on Friday. It has been really fun for them to be in charge of the menu and doing the food preparation. Tyler made an amazing "brenner" with bacon, eggs, and muffins. Mazie made some tremendous Fettuccini Alfredo! I’m being added to the rotation for dinner on Saturdays. We are still keeping our take out rotation for Wednesday and Sunday. Tammy's got Tuesday and Thursday.
+
+That's the end of Currently.
+
+Now, the Photography section.
+
+It has been a challenge to get a photo each week with the stay-at-home orders and just being inside so much. I need to get out more, but looking at this week I had no pictures that I felt worthy of sharing. So, I went into my archive and grabbed one from August twenty twelve when we were in Maine. This Sailbot and Lighthouse photo is one of my favorites from that trip.
+
+Your friends already read this?
+Recommend it to strangers, have them join us here, and you'll be BFF's forever!
+
+That's the end of Photography.
+
+Now, the Recommended Links section.
+
+[How to Declutter Your Digital Life and Reclaim Your Attention [Guide]](
+
+Good ideas of things to do to achieve more digital minimalism. I'd also recommend reading Digital Minimalism. It’s a good book.
+
+20 great questions to ask instead of "How are you doing right now?" — Quartz at Work
+
+Good suggestions on questions to ask colleagues to connect in a more meaningful way during these times. There are some good ones here. I'll admit I've probably asked the generic question plenty of times already.
+
+Complaining Rewires Your Brain to Make Future Complaining More Likely
+
+So the idea of "venting" to someone maybe isn't such a good idea?
+
+Quote.
+Complaining about them doesn’t change anything — the best you can do is to manage your reaction to avoid stress or burnout. People who complain trap themselves in a reality that constantly gives them more to complain about.
+End quote.
+
+This "brain training" makes sense. The argument here is the inverse of why writing a gratitude journal helps make you happier.
+
+How to Talk to People Who Are Frustrating You - Matt Norman
+
+Straightforward guide on approaching this. You could take a 1.5 day seminar, or just follow this structure.
+
+The Most Important Thing | Silicon Valley Product Group
+
+I agree with this…
+
+Quote.
+I have said many times that the best single source for innovation is your engineers (because they’re working with the enabling technology every day, so they’re in the best position to see what’s just now possible).
+End quote.
+
+But I would also add, that those engineers need to know their users and the people that are using their solutions to do this effectively. Having empowered, passionate, and informed engineers work alongside the user of their software is a tremendously powerful combination.
+
+Announcing Amazon AppFlow | AWS News Blog
+
+Interesting new service from AWS.
+
+Quote.
+Amazon AppFlow allows you to automate the data flows between AWS services and SaaS applications such as Salesforce, Zendesk, and ServiceNow. SaaS application administrators, business analysts, and BI specialists can quickly implement most of the integrations they need without waiting months for IT to finish integration projects.
+End quote.
+
+The samples look compelling.
+
+The Permanent Legacy Foundation
+
+I've wondered about a service like this for a long time.
+
+Quote.
+The Permanent Legacy Foundation is building the world’s first consumer-grade, secure cloud storage service backed by a nonprofit. We’re making digital archives available for individuals, organizations and families.
+End quote.
+
+I’m excited to see someone trying this. Having a place where you can place digital information, and have a high degree of certainty it will stay there well after you are gone is important.
+
+I created an account, and made a donation.
+
+Opinion | The Infection That’s Silently Killing Coronavirus Patients - The New York Times
+
+The potential for so much impact before you even feel the symptoms of COVID-19 is concerning.
+
+Quote.
+Pneumonia is an infection of the lungs in which the air sacs fill with fluid or pus. Normally, patients develop chest discomfort, pain with breathing and other breathing problems. But when Covid pneumonia first strikes, patients don’t feel short of breath, even as their oxygen levels fall. And by the time they do, they have alarmingly low oxygen levels and moderate-to-severe pneumonia (as seen on chest X-rays). Normal oxygen saturation for most persons at sea level is 94 to 100 percent; Covid pneumonia patients I saw had oxygen saturations as low as 50 percent.
+End quote.
+
+Now I want a pulse oximeter for home!
+
+36,000 Missing Deaths: Tracking the True Toll of the Coronavirus Crisis - The New York Times
+
+The death counts for COVID-19 you are reading are most definitely undercounted. It is really only a question of how much.
+
+Quote.
+But the total death numbers offer a more complete portrait of the pandemic, experts say, especially because most countries report only those Covid-19 deaths that occur in hospitals.
+End quote.
+
+Looking at divergence from "normal" is probably the best way. The Economist has a similar analysis Tracking Covid-19 Excess Deaths as well.
+
+It’s Time To Learn | Scott Berkun
+
+This is written as a response to Marc Andreessen's It’s Time To Build article.
+
+Quote.
+This was not a building problem. It was a priorities problem. A logistical problem. A leadership problem. You could call it many different kinds of problems but building isn’t high on the list.
+End quote.
+
+I think there was more to learn from this.
+
+swim: Distributed software platform for building stateful, massively real-time streaming applications
+
+This looks like a pretty cool project.
+
+Quote.
+swimOS is a complete, self-contained distributed software platform for building stateful, massively real-time streaming applications. swimOS implements a distributed microkernel, called the Swim Kernel, that is persistent without a database, reactive without a message broker, autonomous without a job manager, and which executes general purpose stateful applications without a separate app server.
+End quote.
+
+What will a post-COVID-19 media look like? I asked my students.
+
+Actually, this all seems like a pretty good thing.
+
+Incident Analysis: How Learning is Different Than Fixing - Speaker Deck
+
+Key things to focus on to actually learn and improve from your incident reviews.
+
+SaaS Businesses Weather Hard Times by Focusing on Efficient Growth - Andreessen Horowitz
+
+Solid advice on where to focus your SaaS companies investments during this time.
+
+Quote.
+The short answer to the above questions: In a volatile market, SaaS businesses should focus on efficiency, before growth.
+End quote.
+
+Makes sense. You control efficiency, and in a market like this that is an important thing.
+
+Bill Gates, at Odds With Trump on Virus, Becomes a Right-Wing Target - The New York Times
+
+This is despicable behavior.
+
+Quote.
+Misinformation about Mr. Gates is now the most widespread of all coronavirus falsehoods tracked by Zignal Labs, a media analysis company. The misinformation includes more than 16,000 posts on Facebook this year about Mr. Gates and the virus that were liked and commented on nearly 900,000 times, according to a New York Times analysis. On YouTube, the 10 most popular videos spreading lies about Mr. Gates posted in March and April were viewed almost five million times.
+End quote.
+
+There is a group of, for lack of a better term I'll call them anarchists, that love to put misinformation like this into the world. Social media has done them the biggest favor that they could ever hoped for by giving them huge leverage as such a low cost. Your best bet is to stay off of those platforms. The platforms will never get ahead of this cat and mouse game.
+
+That's the end of Recommended Links.
+
+Now, the Stream section.
+
+Thursday @ 7:19 PM
+
+SPS Commerce Celebrates tenth Anniversary as Public Company
+
+Yesterday #TeamSPS celebrated our tenth anniversary of going public on the NASDAQ. To celebrate team members shared pictures of themselves in SPS gear. I switched shirts many times throughout the day! We also published a video on LinkedIn and on Twitter with everyones pictures.
+
+It is so great to see all of the #TeamSPS pride on display, and all the little kids and pets in SPS gear as well!
+
+Thursday @ 7:14 PM
+
+We weren’t able to get our backyard fencing completed before we got Lucky, so we have erected this barrier that is so far holding her in. Fence company is hoping to get here in a week or two.
+
+Wednesday @ 12:16 PM
+
+Lucky figuring out how to stand on her hind legs and look out the window.
+
+Tuesday @ 7:04 PM
+
+Wife is on FaceTime call with sister. Daughter is on Zoom call with Piano teacher. Son is on FaceTime call with friend while playing Minecraft together online. Thank you broadband!
+
+Saturday @ 6:29 PM
+
+First smash burgers of the year! Delicious.
+
+Saturday @ 6:28 PM
+
+Clouds blowing through quick on a blustery day. Soon the leaves will be popping.
+
+Saturday @ 9:11 AM
+
+Riding with #TeamSPS Peloton spinners I got a new 30 minute PR (343 kj) this morning! #FitByFifty
+
+Saturday @ 6:23 AM
+
+Suggestions for importing Jekyll blog to micro.blog?
+
+Micro.blog community: I need to migrate about 8,000 blog posts from a Jekyll site to micro.blog. Does anyone have suggestions or pointers to existing tools?
+
+At first glance I thought I would write a Python script to recurse the _posts directory and hit micro.blog's API creating each post. However, I have Jekyll tags in those markdown files that will cause serious challenges. Now I'm thinking I should use Jekyll to publish the site and then use the RSS or even a custom file, perhaps JSONFeed, to then import into micro.blog? Then I can make Jekyll do the hardest work for me.
+
+Anyone done this and can recommend an approach? This seems to be similar to the method @manton used when importing his podcast.
+
+Friday @ 7:25 PM
+
+Just realized that other than taking Lucky for walks, I haven’t left the house since Sunday afternoon.
+
+Friday @ 6:40 PM
+
+Playing bartender at home. Strawberry Margaritas.
+
+Friday @ 4:38 PM
+
+Family selfie wearing our custom masks with swappable HEPA filters made by my Mom!
+
+Friday @ 4:37 PM
+
+Fun working from home upside — kids made waffles this morning and delivered a stack to me to enjoy!
+
+That's the end of Stream.
+
+Now, for your information.
+
+Tidymodels
+
+This would be fun to spend a week with. Models you can leverage for R.
+
+Why we're getting Zoom fatigue - Axios
+
+Another take on Zoom fatigue.
+
+Who’s Behind the "Reopen" Domain Surge? — Krebs on Security
+
+Interesting connections here. It doesn't take a lot of people to make something look much bigger than it is online.
+
+Ramblings from Jessie: The Art of Automation
+
+Jessie Frazelle highlighting some of the ways that she uses automation to get more done.
+
+ZoomerBackgrounds
+
+Wide variety of Zoom backgrounds to use for your calls.
+
+When a light drone is the right drone | The Robservatory
+
+Great and thorough writeup on the DJI Mavic Mini. This is the drone that I got this winter.
+
+Go, meet Lua
+
+Lua and Go! This would be a fun place to geek out for a week or two.
+
+That's the end of the FYI section.
+
+Now, the Reply All section.
+
+Here are some replies from Weekly Thing #144 / Contact Tracing, Stockdale Paradox, John Prine, Goat 2 Meeting.
+
+I referenced the Stockdale Paradox last week, and had some brief replies on it as well. Unrelated, I also got the most recent Friday Forward from Robert Glazer and he connects our current situation to it much more deeply than I did. Worth a read, and also a good newsletter to subscribe to.
+
+Thank you for reading!
+Please share this with a friend. Cool, thanks!
+
+That's the end of Reply All.
+
+Now, the Fortune section.
+
+You've made it all the way to the end! Here is your fortune for this week.
+
+This will be a memorable month -- no matter how hard you try to forget it.
+
+Thank you for subscribing to the Weekly Thing!
+
+That brings us to the end of the Weekly Thing, issue 145. Thanks for listening, and I'll see you next time.

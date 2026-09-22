@@ -1,0 +1,208 @@
+The Weekly Thing, issue 59. Jun 23, twenty eighteen. Published June 23, twenty eighteen. By Jamie Thingelstad. In this issue: Silicon Valley moral cesspool, Innovation Stack, YNAB API, personal data requests, Through-Wall Pose Estimation, Survivorship Bias.
+
+#59 • Jun 23, twenty eighteen
+
+The Weekly Thing now has an image! I've wanted to give the newsletter a bit more character. Something casual, and personal. I have fun playing with block lettering. The kids' birthday cards often have colorful block lettering in them, with a drop shadow. I decided to play with that for the Weekly Thing as well! Custom coffee cups may appearing soon.
+
+Now, the Featured Links section.
+
+Link one. "Silicon Valley has become a ‘moral cesspool,’ says management expert Tom Peters - Recode"
+
+Fabulous podcast! I first read Tom Peters "Re-imagine!" a long time ago and he has a new book, The Excellence Dividend, that he is making the rounds in support of. I really enjoyed this interview. Very candid, blunt and succinct.
+
+Link two. "Steve Blank The Innovation Stack: How to make innovation programs deliver more than coffee cups"
+
+Innovation needs a framework. Throwing hackathons at problems has a high likelihood of backfiring with frustration on adoption and outcomes.
+
+As organizations have moved from – individual innovators working alone, to adopting innovation tools and activities, to teaching teams about evidence-based innovation – our most important realization has been this: Having skills/tools and activities are critical building blocks but by themselves are insufficient to build a program that delivers results that matter to leadership. It’s only when senior leaders see how an innovation process can deliver stuff that matters – at speed—that they take action to change the processes and procedures that get in the way.
+
+This framework for thinking about innovation and it’s components is interesting.
+
+That's the end of Featured Links.
+
+Now, the My Weekly Photo section.
+
+Sailboats in Bayfield, WI.
+Jun 17, twenty eighteen at 1:49 PM
+Bayfield, WI
+
+That's the end of My Weekly Photo.
+
+Now, the Notable Links section.
+
+Link one. "Digital Wellness for Grown Ups - Study Hacks - Cal Newport"
+
+I do think that platforms can help their users have a healthier relationship, but Cal's point in this is also true.
+
+But something about this growing digital wellness movement makes me uneasy, and I think I’ve finally put my finger on the source of my concern: it’s infantilizing.
+
+We need both.
+
+Link two. "How corporations have helped Minnesota's startup community grow | VentureBeat"
+
+Nice article from Chip Pearson describing how established companies in Minnesota have played a key role in the startup ecosystem. This feels a bit unique to our region.
+
+Link three. "WhenWorks Ends the Scheduling Back-and-Forth – MacStories"
+
+Good overview of new service, WhenWorks. In the past I've used Calendly to do this. WhenWorks has a great set of features and using an iOS app to bridge to your calendars instead of doing server-to-server integration on the backend is novel. Services like this are very useful for people with busy calendars. It still doesn't solve the group scheduling problem, which I still use Doodle for.
+
+Link four. "Introducing YNAB’s API | YNAB"
+
+Cool news from You Need a Budget!, YNAB API. We have been using YNAB for a few years now and it works great for our family. Their transition a couple of years ago to a service-offering is allowing them to grow into new stuff like this API. I’m hopeful that this soon appears in Zapier and IFTTT so I can build with it even more easily.
+
+Link five. "Shortage of skilled workers challenges Twin Cities tech firms - StarTribune.com"
+
+Snapshot of the exceedingly difficult talent environment for companies in the Twin Cities area.
+
+The Twin Cities added 3,300 technology jobs last year, up 1.6 percent to 199,200. The area is one of the nation’s 15 largest tech-employment hubs, according to the Computing Technology Industry Association (CompTIA). These jobs typically pay seasoned workers 75,000 dollars to 100,000 dollars or more a year.
+
+Nice photo of Mynul Khan, CEO of Field Nation.
+
+Link six. "My Data Request: Request your personal data from 100+ companies."
+
+Aggregates the methods for requesting your personal data from different companies.
+
+Link seven. "Microsoft and Flipgrid unite to bring social learning to students around the world - The Official Microsoft Blog"
+
+Congrats to the Flipgrid team, a Minneapolis-based startup, on a successful exit and sale to Microsoft! They presented at Minnedemo in Sept twenty fourteen.
+
+Link eight. "The Death of Supply Chain Management"
+
+This is why networks are replacing supply chains, and why a cloud-based network approach is needed for innovation.
+
+Link nine. "How To Get Your Teammates To Follow Your Lead — WORK: A Guide"
+
+I often tell technologists to remember that everyone sells. If you want to affect change from the status quo, you need to sell it. This article describes one path for selling your ideas to your team.
+
+Link ten. "Opinion | Hey Boss, You Don’t Want Your Employees to Meditate - The New York Times"
+
+Counter-point to recent trends of introducing mindfulness tactics into the workplace. The article doesn't talk about stress reduction, which I find suspect. Given equally low stressed people, will mindfulness help or not? I’m not sure. Given a very stressed person, will mindfulness help them? I think yes.
+
+Link eleven. "Through-Wall Human Pose Estimation Using Radio Signals"
+
+This is geeky and neat, but it immediately made me wonder about a lot of nefarious uses for technology like this.
+
+Link twelve. "Data Ethics Framework - GOV.UK"
+
+We need more ethics discussion in technology, and this framework applied to data is an interesting example.
+
+Data ethics is an emerging branch of applied ethics which describes the value judgements and approaches we make when generating, analysing and disseminating data. This includes a sound knowledge of data protection law and other relevant legislation, and the appropriate use of new technologies. It requires a holistic approach incorporating good practice in computing techniques, ethics and information assurance.
+
+I'd love to see some companies share their approach for the same thing.
+
+Link thirteen. "jp"
+
+Data visualization in your terminal? Sure!
+
+Dead simple terminal plots from JSON (or CSV) data. Bar charts, line charts, scatter plots, histograms and heatmaps are supported.
+
+I can see how this would be handy at times, particularly in scripts.
+
+Link fourteen. "Survivorship Bias and Startup Hype"
+
+I first read about survivorship bias in Nassim Nicholas Taleb's "Fooled by Randomness" (which is a great read!). When you look for it, you see survivorship bias everywhere.
+
+That's the end of Notable Links.
+
+Now, the Give Back section.
+
+Let's Encrypt is a free, automated, and open certificate authority, run for the public’s benefit. All connections to web servers should be encrypted! The biggest challenge with encrypting the web historically has been the cost and hassle of getting an SSL certificate. Let's Encrypt has changed that entirely by being a free certificate authority. Let's Encrypt is possibly one of the most important things to happen on the web in recent years. [Donate to Let's Encrypt today!
+
+That's the end of Give Back.
+
+Now, more links.
+
+- Posthook | Job Scheduling API posthook.io
+Send yourself a web hook in the future!
+- Make Way for Friends, Trading, and Gifting in Pokémon GO! - Pokémon GO pokemongolive.com
+I've been wondering when Pokemon would add more friend capability. I expect this will be a big deal.
+- Blooming Password www.bloomingpassword.fun
+Interesting work to detect compromised passwords.
+- aws-sam-cli github.com
+AWS SAM CLI is a CLI tool for local development and testing of Serverless applications
+- Predator and Prey / Observable beta.observablehq.com
+I liked this just for the graphs and the interactive elements.
+- xmysql github.com
+One command to generate REST APIs for any MySql Database.
+- It Looks Like I'm Gonna Be Super Busy Til I'm Dead - McSweeney's Internet Tendency www.mcsweeneys.net
+- Ballerina - A cloud native programming language for integration - Ballerina Blog blog.ballerina.io
+
+That's the end of More Links.
+
+Now, the Microposts section.
+
+Sunday @ 9:32 PM
+
+Mazie got Nintendo Labo for the Switch, and has been busy building her piano kit for hours and is having a blast. Labo is such a unique game experience.
+
+Sunday @ 8:58 PM
+
+The kids got me The Legend of Zelda: Breath of the Wild for Father’s day, so we are exploring tonight.
+
+Sunday @ 5:15 PM
+
+Sailboat on Lake Superior.
+
+Sunday @ 5:11 PM
+
+Flag and wake on Lake Superior.
+
+Sunday @ 3:11 PM
+
+Our Apostle Islands Cruise is returning back to dock, halfway through, big storm coming. Weather is not cooperating with us.
+
+Sunday @ 2:21 PM
+
+Apostle Island Cruise this afternoon.
+
+Sunday @ 11:54 AM
+
+Stream in the woods.
+
+Sunday @ 11:50 AM
+
+Happy Fathers Day to all the Dad’s out there! I’m a lucky guy!
+
+Saturday @ 10:27 PM
+
+Lightning over the Big Top Chautauqua resulted in an immediate stop to tonight’s show. Was great while it lasted!
+
+Saturday @ 9:48 PM
+
+Magical here. Thank you Brandi Carlile!
+
+Saturday @ 9:05 PM
+
+Brandi Carlile amazes me every time!
+
+Saturday @ 8:58 PM
+
+Brandi Carlile taking the stage at Big Top Chautauqua. Crowd is excited!
+
+Saturday @ 1:33 PM
+
+Family selfie in Bayfield, WI.
+
+Saturday @ 1:03 PM
+
+Bayfield docks.
+
+Saturday @ 1:03 PM
+
+Lake Superior breakwater.
+
+Saturday @ 1:01 PM
+
+It is worth driving to Bayfield just to get the Wine Bread at the Candy Shoppe. So delicious.
+
+That's the end of Microposts.
+
+Now, the Fortune section.
+
+You've made it all the way to the end! Here is your fortune for this week.
+
+Conscience makes cowards of us all.
+
+Thank you for subscribing to the Weekly Thing!
+
+That brings us to the end of the Weekly Thing, issue 59. Thanks for listening, and I'll see you next time.

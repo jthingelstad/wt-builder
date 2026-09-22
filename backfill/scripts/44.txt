@@ -1,0 +1,225 @@
+The Weekly Thing, issue 44. Mar 10, twenty eighteen. Published March 10, twenty eighteen. By Jamie Thingelstad. In this issue: International Women's Day, recruiting sessions, Americas unhappiness, cloud cost analytics, Rundeck orchestration, Modern Manager, Let's Encrypt.
+
+Hello from India! After many years, I've finally made my first trip to India. I've been here meeting with our partners. The agenda has been very busy. Seven flights Minneapolis (MSP) Paris (CDG) Delhi (DEL) Hyderabad (HYD) Pune (PNQ) Delhi (DEL) Amsterdam (AMS) Minneapolis (MSP) in nine days is a new record for me. Overall I felt pretty good, even with all the travel, and managed the jet lag without too much impact.
+
+India has been an amazing time. It has been much easier to get around than I expected. People have been very nice and most people speak very good English. It’s amazing to see a country in the midst of so many changes. Standing in one spot you can see tech workers in large, air conditioned campuses, along with street vendors, beat up rickshaws and animals wandering the streets. I’ve always been fascinated with India and it’s culture, economy and geography, and now I’m even more intrigued.
+
+Now, the Photo section.
+
+A small Hindu Temple in the Midnight Bazaar.
+
+Mar 6, twenty eighteen at 6:48 AM
+Kondapur Main Road, Rajendra Nagar, Hyderabad, India
+
+That's the end of Photo.
+
+Now, the Culture section.
+
+International Women's Day twenty eighteen
+www.internationalwomensday.com
+
+Nice to see this event getting more attention.
+
+Now, more than ever, there's a strong call-to-action to press forward and progress gender parity. There's a strong call to Press for Progress motivating and uniting friends, colleagues and whole communities to think, act and be gender inclusive.
+
+Why Are There Few Women in Tech? Watch a Recruiting Session | WIRED
+www.wired.com
+
+I'd like to go back and read the original paper Puncturing the pipeline: Do technology companies alienate women in recruiting sessions? but had to due with this Wired writeup for now.
+
+In an attempt to appear approachable, presenters often made comments that disparaged women or depicted them as sexualized objects rather than talented technical colleagues. For example, in one session, a man mentioned the “better gender ratio” at the company’s Los Angeles office compared with its Silicon Valley office. “I had no girlfriends at [University Name], but now I’m married,” he said, suggesting that the better odds had helped get him hitched.
+
+There is so much work to do on this issue.
+
+Deep Thinking In The Age of Distraction – The Startup – Medium
+medium.com
+
+I'd rather this was just called "Thinking" instead of "Deep Thinking". We don't need to "Deep Think" and "Deep Work" all the time. I'd rather focus on creating time to not be distracted. One of the things I've done in this area is to find common situations where I habitually grab my phone, elevator rides are a common one, and force myself to stop doing that. If you take transit, do one day a week with no mobile.
+
+Why am I unhappy? A new study explains America's unhappiness epidemic — Quartz
+
+qz.com
+
+Another study suggesting that the increase of time spent in the digital world correlates strongly with unhappiness.
+
+Every year, teens are asked about their general happiness, in addition to how they spend their time. We found that teens who spent more time seeing their friends in person, exercising, playing sports, attending religious services, reading or even doing homework were happier. However, teens who spent more time on the internet, playing computer games, on social media, texting, using video chat or watching TV were less happy.
+
+Should it surprise us that humans, perhaps the most social of creatures, don't get satisfied socially through text messages and whatever app you are using today? Nope.
+
+That's the end of Culture.
+
+Now, the Tech section.
+
+What I Talk About When I Talk About Platforms
+martinfowler.com
+
+This positions platform in a way as the technical manifestation of mature technology choices. One of my favorite interview questions is "what is the difference between a product and a platform?" This would be a good answer to that.
+
+Teevity - Cloud costs analytics - Home
+www.teevity.com
+
+Seems like a cheaper and easier version of CloudHealth.
+
+Rundeck - Job Scheduler and Orchestration
+rundeck.org
+
+Turn your operations procedures into self-service jobs. Safely give others the control and visibility they need.
+
+Workato
+www.workato.com
+
+I hand't heard of this app until a recent meeting where a team was highlighting how they use it.
+
+Workato is the fabric with which you can weave a very intelligent nervous system for your modern enterprise. Recipes are automated workflows that connect apps to complete tasks composed by you based on a combination of apps, triggers and actions.
+
+The fluffy language aside, it seems like a useful tool.
+
+What it’s like to be a What it's like to be a developer at … – Increment: Development
+increment.com
+
+Cool article that gives a little glimpse of what it’s like to be a developer at a handful of different companies.
+
+Bad iPhone notches are happening to good Android phones - The Verge
+www.theverge.com
+
+However one may try to justify the notch in the new iPhone X I don't think anyone should be considering it a feature. It’s surprising to see other phones copying something that I consider a significant compromise and something to engineer away.
+
+That's the end of Tech.
+
+Now, the Business section.
+
+Amazon won't sell Nest products from Google - Business Insider
+www.businessinsider.com
+
+This is just bonkers to me. To be clear, retailers have a right to sell whatever they want, but these kinds of decisions show why I think Net Neutrality is so important. If selling access to the Internet is a retail decision, technology companies are proving through actions like this that they cannot be trusted with those decisions.
+
+The Indispensable Document for the Modern Manager | First Round Review
+firstround.com
+
+I have mixed feelings about managers publishing a "User Guide". In short, I think the job off a manager and leader is to adapt to the people who they work with. I worry a user guide says "this is what I want, you adapt to me". I tend to think that managers need to understand "this is what you need, and I will adapt to you". However, this example of a user guide is very well thought out, and the best one I've seen at communicating something that seems more focused on outcomes.
+
+The Role of Luck in Life Success Is Far Greater Than We Realized - Scientific American Blog Network
+blogs.scientificamerican.com
+
+It’s human nature to want to associate your successes with skill and active choice (and often our misses with bad luck), but data suggests that luck, or random chance, may have more to do with success.
+
+The researchers argue that the following factors are all important in giving people more chances of success: a stimulating environment rich in opportunities, a good education, intensive training, and an efficient strategy for the distribution of funds and resources.
+
+This made me thing of Fooled by Randomness as I read it. I highly recommend that book. It forever changed how I look at track records.
+
+Uber and Lyft drivers' median hourly wage is just 3 dollars and 37 cents, report finds | Technology | The Guardian
+www.theguardian.com
+
+For all of the amazing work in the new digital economy, it’s a bit disheartening to see data like this. I worry that the lever of technology is so big that it’s going to cause fundamental breakdowns in our traditional economic systems.
+
+That's the end of Business.
+
+Now, the Promotion section.
+
+Let's Encrypt is a free, automated, and open certificate authority, run for the public’s benefit. All connections to web servers should be encrypted! The biggest challenge with encrypting the web historically has been the cost and hassle of getting an SSL certificate. Let's Encrypt has changed that entirely by being a free certificate authority. Let's Encrypt is possibly one of the most important things to happen on the web in recent years. Donate to Let's Encrypt today!
+
+That's the end of Promotion.
+
+Now, the Status section.
+
+Friday @ 5:13 PM
+
+Hallway.
+
+Friday @ 1:16 PM
+
+Delicious Indian lunch at Haldirams in Noida. The Cholley Bhature was amazing!
+
+Friday @ 5:33 AM
+
+Time to leave Pune and fly to Delhi. We’ll have a half-day of meetings in Noida and then drive to Agra tonight for a fun day on Saturday, before heading back home on Sunday.
+
+Thursday @ 11:11 PM
+
+I got schooled today in ping pong. Next time I need to practice up before I come to visit.
+
+Thursday @ 11:10 PM
+
+We had an amazing day today with #TeamSPS in Pune! It was fabulous to meet everyone!
+
+Thursday @ 11:08 PM
+
+We got to celebrate International Women’s Day while in Pune with Bristlecone. It was an honor to get to celebrate with everyone and even say a few words. It was fabulous to see so many women working in technology here!
+
+Thursday @ 11:05 PM
+
+Kent, Amy and I took a moment to prove that everyone looks dorky in a VR headset.
+
+Thursday @ 11:03 PM
+
+Nice welcome from our partners at Bristlecone!
+
+Thursday @ 11:01 PM
+
+Bristlecone welcomed us to the Pune office with this amazing sand art in the lobby! Wow!
+
+Wednesday @ 6:20 PM
+
+Next leg of India trip starting. Had a fabulous time In Hyderabad. Now boarding Air India to our next destination, Pune!
+
+Wednesday @ 6:06 PM
+
+Suggestion: if your store is named Helvetica, maybe use the Helvetica typeface?
+
+Wednesday @ 6:05 PM
+
+Fabulous visit to Indmax #TeamSPS in Hyderabad. Thank you for the warm welcome and great questions!
+
+Wednesday @ 9:06 AM
+
+Miniature temple in Hyderabad.
+
+Wednesday @ 9:01 AM
+
+Fabulous evening at Taj Falaknuma Palace. Amazing palace and very good dinner at Adaa.
+
+Tuesday @ 6:57 PM
+
+Visiting Midnight Bazaar in Hyderabad.
+
+Tuesday @ 5:43 PM
+
+Beautiful collection of roses.
+
+Tuesday @ 5:31 PM
+
+A very warm and generous welcome to Hyderabad from our partners at Indmax.
+
+Tuesday @ 5:18 PM
+
+Finished great town hall with our partner Indmax #TeamSPS in Hyderabad! Also video to our Coimbatore team! So great to meet everyone!
+
+Tuesday @ 9:41 AM
+
+Starting second leg of India trip with flight to Hyderabad!
+
+Tuesday @ 12:11 AM
+
+Nice evening of good food and conversation with Bristlecone team.
+
+Monday @ 6:33 PM
+
+Cool candle display at Taj Hotel in New Delhi.
+
+Monday @ 5:45 PM
+
+Traffic in Delhi and Noida is “up close” and personal.
+
+Monday @ 5:30 PM
+
+Had a very good visit to HCL today. Impressive capabilities and people!
+
+Monday @ 2:08 AM
+
+Amy, Kent and I got a warm welcome from our partners at Bristlecone after 20 hours of traveling and arriving in Delhi at 1am.
+
+Monday @ 2:07 AM
+
+The customs hall at the Delhi airport has some cool artistic touches.
+
+That brings us to the end of the Weekly Thing, issue 44. Thanks for listening, and I'll see you next time.

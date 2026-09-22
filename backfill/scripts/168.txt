@@ -1,0 +1,242 @@
+The Weekly Thing, issue 168. Buy Gifts, Gratitude, DeepMind. Published December 5, twenty twenty. By Jamie Thingelstad. In this issue: Buying gifts people want, 30 days of gratitude, one-sentence communication tips, blogging versus blog setups, Brad Feld at 55.
+
+This week has been a bit of a blur as we managed the surge in shopping that officially kicks off with Black Friday and Cyber Monday! I get tunnel vision on this week, just focusing on the critical things that need to get attention. Add all that with a great team and you have a very successful week!
+
+I noticed an important milestone with my FitByFifty project this week. I found myself better able to identify various feelings and emotions and apply different solutions to them. I was able to apply mindfulness and exercise where in the past I applied caffeine and food. Not only better for me for fitness, but better in the moment too.
+
+Speaking of my FitByFifty project I’m nearing the end of Mission 3. I’m doing great on the exercise and mindfulness aspects. My weight loss has slowed though. Part of me wants to celebrate that it is just flat, as that is probably the hardest thing in the world for me. But I’m going to be reasserting my attention on that in Mission 4 so that I can set a steady cadence to success by the end of Mission 7. I’m also going to be locking in my milestones before the end of this Mission.
+
+“The art of writing is the art of applying the seat of the pants to the seat of the chair.” ― Mary Heaton Vorse
+
+Now, the Must Read section.
+
+Link one. "How to Buy Gifts That People Actually Want - Will Patrick"
+
+Interesting read and perfectly timed article for Christmas and the biggest gift giving season of them all.
+
+Quote.
+When people give gifts, they typically want to nail one or more of these four different things: - Surprise (the wow factor) - Desirability (the clout factor) - Materiality (the price tag) - Social responsibility (that is, looking virtuous) Gift receivers, though? Their priorities are completely different. They want: - Usefulness (can I do something with it?) - Versatility (can I do a variety of things with it?) - Quality (is it well made/going to last?) - Stuff they've asked for (did I actually say I want this?) Given the difference between these two lists, is it any wonder that some gifts simply don't hit the mark?
+End quote.
+
+There are some useful and practical tips you can put to work to hopefully improve your gift giving further in the article.
+
+Link two. "5 Things I Learned From 30 Days of Gratitude"
+
+Rockwell kept a gratitude journal for 30 days and saw a lot of value. He has 5 recommendations to pursue this.
+
+Quote.
+1. Gratitude is disproportionately beneficial. 2. Aim low. 3. Gratitude shifts mindset. 4. Modeling increases confidence. 5. Modeling expands credibility.
+End quote.
+
+I have dabbled with this practice multiple times, and I have found it to be a positive experience. But, I've never been able to keep it going for more than a couple of weeks. This experience gives me fuel to keep pushing on this. I have found Greg Bell's What's Going Well framework to be the easiest to use. Perhaps a good New Year Resolution?
+
+That's the end of Must Read.
+
+Now, the Currently section.
+
+Listening: The New Standards have been putting on an annual Holiday Show for a number of years now and it has become a holiday tradition for us to go. This year there will not be a Holiday Show, however, just today they released their Holiday Show Album. 10 dollars for a digital download and you can listen to great Christmas music at home with your family.
+
+Buying: Christmas presents. Lot's of Christmas presents!
+
+The sun declining in the sky on a crisp December day with all the leaves off the trees.
+
+Dec 4, twenty twenty
+Pamela Park, Edina MN
+
+That's the end of Currently.
+
+Now, the Recommended section.
+
+Daring Fireball: M1 Macs: Truth and Truthiness
+
+Gruber with a wide ranging view of the new M1 Macs and how they perform. The efficiency of these chips are pretty mind blowing.
+
+What Is the Signal Encryption Protocol?
+
+This is a very approachable overview of the Signal protocol. I wasn't aware of how often it rotated keys.
+
+Quote.
+The Signal protocol, however, uses a so-called "ratchet" system that changes the key after every message. It does this by generating a collection of temporary key pairs for each user, in addition to the permanent keys. When someone sends a message to a contact over an app using the Signal protocol, the app combines the temporary and permanent pairs of public and private keys for both users to create a shared secret key that's used to encrypt and decrypt that message. Since generating this secret key requires access to the users' private keys, it exists only on their two devices. And the Signal protocol's system of temporary keys—which it constantly replenishes for each user—allows it to generate a new shared key after every message.
+End quote.
+
+That is incredibly secure!
+
+AWS re:Invent: Top Announcements for twenty twenty — AWS News
+
+Overall index to various blog posts on every new thing being announced at AWS re:Invent. The volume of announcements that come from this event are always overwhelming. And this year as the schedule has been expanded and it has gone virtual it looks like it will be even bigger.
+
+Salesforce buys Slack in a 27.7 billion dollars megadeal | TechCrunch
+
+Amazing value for Slack. Not sure I like the idea of Salesforce buying it. I’m a regular user of Slack to communicate with my team and it is amazing. When you get deeper into it, you find even more power. I just don't really get what Salesforce sees here beyond buying a great product.
+
+DeepMind AI cracks 50-year-old problem of protein folding | DeepMind | The Guardian
+
+This is an incredible milestone.
+
+Quote.
+To learn how proteins fold, researchers at DeepMind trained their algorithm on a public database containing about 170,000 protein sequences and their shapes. Running on the equivalent of 100 to 200 graphics processing units – by modern standards, a modest amount of computing power – the training took a few weeks.
+End quote.
+
+Okay, my main takeaway on that is that this wasn't much data, and didn’t need much computing power. For AI purposes that isn't a big footprint. So, cheap and easy to get your hands on.
+
+Quote.
+AlphaFold not only outperformed other computer programs but reached an accuracy comparable to the laborious and time-consuming lab-based methods. When ranked across all proteins analysed, AlphaFold had a median score of 92.5 out of 100, with 90 being the equivalent to experimental methods. For the hardest proteins, the median score fell, but only marginally to 87.
+End quote.
+
+Cheap hardware without a ton of data and it outperformed the other methods. Amazing.
+
+Shopping is not the same as buying — Seth's Blog
+
+Shopping is still something that the online stores really struggle with. Searching, finding, and buying is straight forward and usually easier and better than in an offline space. But shopping? Browsing? Discovering? That still doesn't work very well in most online experiences.
+
+The Purpose Of Writing
+
+One of the benefits I feel I get from writing the Weekly Thing and in general writing on the web is this.
+
+Quote.
+This essay is my way of saying: Start writing! You will learn as much about the topic as about yourself. You will be shocked by how often you trick yourself into falsely thinking that you have understood something. You will write and think, "Oh, is this why I think that? I didn’t know that."
+End quote.
+
+However, I will qualify that I think this is only true for writing at some length. Tweeting is like popcorn for writing. I don't see much of any of these values coming from that.
+
+How to change an unwanted habit - The Examined Life
+
+This article refers to it as the Observer Effect, but I would say the concept of Self Coaching applies more here. Writing down your actions and behaviors allows you to see it more objectively than when you just think about it. That allows you to engage as a coach for yourself. I’m a big fan of the act of self coaching, just need to do it more.
+
+Black Friday online shopping comes in 9 billion dollars, 3.6 billion dollars on smartphones | TechCrunch
+
+Retail is changing super fast with the pandemic.
+
+Quote.
+Smartphones continued to account for an increasing proportion of online sales, with this year’s 3.6 billion dollars up 25.3%, while alternative deliveries — a sign of the e-commerce space maturing — also continued to grow, with in-store and curbside pickup up 52% on twenty nineteen.
+End quote.
+
+This is a huge time for reinvention.
+
+Apple Silicon M1: A Developer's Perspective | steipete's blog
+
+Very detailed and technical look at using an M1 MacBook right now. It sounds incredible for such a new CPU architecture. So much already just works.
+
+You Need to Opt Out of Amazon Sidewalk
+
+We used to just need to worry about our government creating a surveillance state. Now it turns out the biggest tech companies are going to allow us to all opt-into fear tactics to create it for them.
+
+Write five, then synthesize: good engineering strategy is boring.
+
+Creating an engineering strategy can be very daunting. It is hard to build consensus, and you particularly struggle with it being done from the inside and missing market input. This idea of writing multiple solutions and then greening the strategy from them is interesting.
+
+Meet GPT-3. It Has Learned to Code (and Blog and Argue). - The New York Times
+
+We are not ready for this. We are going to have machine generated content proliferating like crazy online. I worry that the flood of disinformation is going to increase several fold as the limits of human authors go away.
+
+Product Leadership Is Hard | Silicon Valley Product Group
+
+A tremendous amount of interesting context here on leading product teams.
+
+Quote.
+The larger the organization, the more essential it is to be relentless at evangelism, and it’s important for the leaders to understand that evangelism is something that is never "done." It needs to be constant. Lead with context, not control.
+End quote.
+
+This is particularly true for product teams but I would suggest it also extends to all the disciplines that are tasked with the amazing and difficult task of creating new products and solutions.
+
+5 second feedback – Mike Crittenden
+
+I've done this multiple times and it is very effective. I will highlight that it is important to still make sure that you come forward with care and the best interest of the other person. The caveats stated are very important.
+
+PHP 8.0.0 Release Announcement
+
+I still like to call PHP "the peoples language". There is so much PHP out there, and it is still one of the first languages many learn. I’m glad that it continues to evolve in good ways.
+
+Quote.
+PHP 8.0 is a major update of the PHP language. It contains many new features and optimizations including named arguments, union types, attributes, constructor property promotion, match expression, nullsafe operator, JIT, and improvements in the type system, error handling, and consistency.
+End quote.
+
+Why we are underestimating Zoom and it’s impact? – On my Om
+
+This is some big thinking from Om on how Zoom and the pandemic are introducing an entirely new behavior into our software, that of video. His thoughts on how that could be extended into many other types of software are interesting.
+
+Quote.
+But it has established this generalized behavior of using video calls for everything. I wonder what the new vertical uses of Zoom will be. Will there be a modular, interactive, and customized learning process that merges the idea of Zoom-interface with Netflix-like on-demand capabilities? What about different platforms for allowing us to constantly upgrade our abilities?
+End quote.
+
+Very interesting.
+
+How to write an essay well
+
+Excellent guide for writing with more clarity.
+
+Quote.
+An ideal place to start is thinking through what bothers you most in life. Then write a post that works through the issue. The best writing is therapy that you publish for the world to learn from.
+End quote.
+
+This type of writing takes time. However, it is an investment into the future because it will continue to generate value as long as it exists.
+
+Opinion | Pope Francis: The Covid-19 Crisis Reveals What Is in Our Hearts - The New York Times
+
+Beautifully written call to action from Pope Francis reflecting on our response to the pandemic, and so many other challenges facing us.
+
+Quote.
+God asks us to dare to create something new. We cannot return to the false securities of the political and economic systems we had before the crisis. We need economies that give to all access to the fruits of creation, to the basic needs of life: to land, lodging and labor. We need a politics that can integrate and dialogue with the poor, the excluded and the vulnerable, that gives people a say in the decisions that affect their lives. We need to slow down, take stock and design better ways of living together on this earth.
+End quote.
+
+There is much to think about here.
+
+How Magic Mushrooms Are Changing the Lives of Terminal Cancer Patients | The Tyee
+
+When I read How to Change Your Mind I learned a lot about the use of psilocybin to help people with terminal illnesses have a better life. It was pretty amazing research and the practical examples were amazing. I’m glad to see that this is getting some traction.
+
+That's the end of Recommended.
+
+Now, the Journal section.
+
+Monday @ 8:27 PM
+
+Hygge.
+
+Sunday @ 2:40 PM
+
+Tyler and I made the first Christmas cookies of the year.
+
+Saturday @ 1:07 PM
+
+I'm not sure what happened with our bandwidth usage this month but it was way up from any previous month and we just used our one “free" excess usage month from Xfinity. This would have cost 60 dollars extra this month. I will have to keep an eye on usage and consider adding unlimited data for 30 dollars a month. We didn't make any notable changes in devices or usage so I'm not sure what drove the jump.
+
+That's the end of the Journal.
+
+Now, for your information.
+
+How Are You Doing?
+
+Good chart if you are having a hard time understanding how you really are doing.
+
+@bfeld v55.0 — Brad Feld
+
+I appreciate people's thoughts as they reflect on each passing year.
+
+40 One-Sentence Communication Tips
+
+Cool thought provoking things here.
+
+Web Conversations With the Year two thousand | by Paul Ford | Nov, twenty twenty | Medium
+
+Love this article, but it makes me sad a bit of the web we thought we would have and what we actually ended up with. We can still fix that though.
+
+Blogging versus blog setups - Rakhim.org
+
+I have been all over various places on this graph over my 20 years of blogging.
+
+Standards in a Covid World, 22 - Nicholas Bate
+
+Things to think about.
+
+That's the end of the FYI section.
+
+Now, the Fortune section.
+
+You've made it all the way to the end! Here is your fortune for this week.
+
+Life is to you a dashing and bold adventure.
+
+Thank you for subscribing to the Weekly Thing!
+
+That brings us to the end of the Weekly Thing, issue 168. Thanks for listening, and I'll see you next time.

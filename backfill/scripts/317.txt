@@ -1,0 +1,338 @@
+The Weekly Thing, issue 317. Assembly, Blogging, Cyberpunk. Published May 3, twenty twenty five. By Jamie Thingelstad. In this issue: DOGE immigrant database, DOGE NLRB data, writing AI apps, ChatGPT beats Turing test, o3 beats GeoGuessr, Stripe stablecoin, RSS feeds.
+
+Good Morning!
+
+I missed ya last week! It was Tammy's birthday, I was behind on a number of things after my trip to Poland, had blog backlog and link backlog. I cleared through it and am here this week with a (dreaded?) double issue. I’m looking at the word count here and it is tipping in at 5,000 words. There actually should have been more but for various reasons the journal entries are limited to 25. I’m going to limit adding many more here.
+
+I’m hitting send on this and then going straight to Minnebar 19! I’m looking forward to one of my favorite events in the local tech community and learning a ton of new things and meeting new and old friends.
+
+An item of note, you will find in the Journal section below the recap post from the IndieWeb Carnival I hosted in April on Renewal. That has links to all the blog posts that people submitted as part of it. Hosting that was a cool experience and I hope you take a moment to read some of those.
+
+Hope your weekend is setup to be great! Let's get to a bunch of interesting links below… ⤵
+
+PS: The eighth anniversary of the Weekly Thing is just days away. This is the last opportunity to join the Supporting Member program for Creative Commons. Info below. Next week we'll send all the funds to them and do some good together. After that I'll be announcing the organization for the next year!
+
+Now, the Notable section.
+
+Link one. "The Art of Assembly Language"
+
+I’m not suggesting that you should be writing assembly code. But I am suggesting that if you have no idea what assembly looks like and how it works you should give this a gander. Assembly is the closest human-readable thing to what your computer is actually doing. And frankly many current day programmers even have no idea how this is happening.
+
+Link two. "𝘁𝗶𝗻𝘆Pod"
+
+I wasn't sure what this really was until they showed it was an Apple Watch shoved into a case with a wheel. I’m not thinking this is going to be a commercial hit, but might it work well? It might. Frankly the mechanics of using a screen on your wrist makes using an Apple Watch harder. If it is in this device you might find the features more readily usable.
+
+Link three. "DOGE Is Building a Master Database to Surveil and Track Immigrants | WIRED"
+
+Nothing about the data being collected here would be limited to immigrants. Connecting the varied data sets together across organizations like this is in many cases illegal, but even further has the potential to create a surveillance system that undermines everyone, and is likely very riddled with gaps and errors.
+
+Link four. "Whistleblower: DOGE Siphoned NLRB Case Data – Krebs on Security"
+
+A friend shared a podcast with me about this same case that I listened to. Krebs presents it well here. This certainly looks like a security event where data was exfiltrated from this government agency. Where that data then goes, impossible to know.
+
+Link five. "What I've learned about writing AI apps so far | Seldo.com"
+
+Field experience from using AI in applications. My takeaway is AI can do a lot, but it can’t do everything. You still have to understand the problem space and know what you are solving for. Often times those are the harder problems when building complex systems.
+
+Link six. "Perplexity's voice assistant now available on iOS | Mashable"
+
+This new voice assistant capability actually triggered me to sign up for Perplexity Pro for a bit to give it a try. It is incredible how capable it is. There have been some calls that Apple should buy Perplexity as a way to solve the many issues they have with Siri. Reminder by the way that Apple also bought Siri however long ago. I thought that seemed silly until I tried this integration and was impressed with how well it worked being a third party app. Good on Perplexity, and even more example why Apple needs to get their act together on AI.
+
+Link seven. "feeels"
+
+Web-based mood tracking app using the Atlas of Emotions. Mostly interesting to me because of the visual representation of the emotions. I've thought it would be interesting to use a mood tracker but have never done it in part because it seems so very subjective and sometimes I’m not even sure what my mood is.
+
+Link eight. "Diane, I wrote a lecture by talking about it (Interconnected)"
+
+Interesting approach to dictating with AI and how to use it with both commands and content. I’m a Twin Peaks fan so I caught the "Diane" reference in this post right way. Love it. I need to use Whisper Memos more.
+
+Link nine. "ChatGPT crosses a new AI threshold by beating the Turing test | TechRadar"
+
+I honestly thought it had beat Turing test a long time ago. By the way, if you find the Turing test interesting I always suggest reading The Most Human Human which goes deep into what makes up human conversation and explores why many humans actually fail the Turing test.
+
+Link ten. "Backfill your blog"
+
+Moving your writing from one service to another can be a little challenging, and might require writing some small scripts, but it allows you to keep your content together. Instead of "starting a new blog", migrate it! I've done this I think five times. I also imported thousands of my Tweets into my blog after left Twitter (well before X) which was a little harder because probably half of that stuff didn’t make sense as a post. I fixed that over the course of regular blog gardening.
+
+There is another "backfill" too which is the blog pensieve — create whole new posts in the past. If you have a photo from the past, with a reliable timestamp, why not create a post as if it happened on that day?
+
+Link eleven. "RSS Lookup - Find RSS feeds on any URL"
+
+Discovery of RSS feeds is one of the user adoption issues with RSS. Nearly all "feed readers" go out of their way to make this a bit easier for users. This tool is just to find feeds. Some sites go out of their way to make RSS feeds hard to find, particularly for complicated search parameters.
+
+Link twelve. "Stripe opens testing for new stablecoin product following Bridge acquisition"
+
+Stripe had been working on this a few years ago and put the effort on hold. The utility makes a ton of sense for them. There was a lot of concern about how the US Government may treat stable coins that stopped it. Circle and USDC continued on and were fine. There is huge utility in crypto infrastructure using stable assets like this. By the way, there are other approaches to stable coins that don't require government backed currencies. Rai Reflex is the one I've watched for years. It moves a little, but is a super interesting approach to the same use case.
+
+Link thirteen. "DeepWiki"
+
+This is a pretty incredible example of AI documenting and sharing understanding of code. You can add any public Github repository and it will then use Devin to build out documentation about the project. It is impressive and shows what we know is a powerful AI use case — understanding an existing codebase and familiarize the developer with how it works. To see how it worked further I added the repo for Foreground, the MediaWiki theme that Garrick and I worked on, and others have continued to build out over recent years. It took a few minutes to process and you can see it here. Frankly, it is incredibly good. Wow.
+
+Link fourteen. "Reading RSS content is a skilled activity - David Oliver"
+
+Probably you know I’m a huge fan of the RSS protocol and what how it allows you to subscribe to websites for ongoing updates, if they support it. In this post Oliver describes his failed attempts to use RSS and what he did differently to understand how to approach it better.
+
+Quote.
+So, using an RSS reader is more than having a nice aggregator: It's a skill and a routine. And that's also where the magic lies because it's that very process of engaging with content and deciding whether or not it has value to you that makes using an RSS reader a better experience and one where you own your attention.
+End quote.
+
+If it is indeed a skill it is one that I've honed well having used RSS for longer than I can remember.
+
+Link fifteen. "o3 Beats a Master-Level Geoguessr Player—Even with Fake EXIF Data"
+
+Geoguessing is an interesting game that I first heard about from Tyler. Take a photo, a simple plain photo, anywhere in the world and the person sees how close they can get to figuring out where it was taken. Geoguessr allows you to play and compare yourself to other players. Many of them do this on YouTube so you can follow along how they "think about" figuring this out.
+
+So how would an LLM do with this challenge? It turns out pretty darn interesting, and just like the players on YouTube who talk through the problem you can watch the LLM work through it. It is amazing how close o3 is able to get to the guess that the expert makes. Related Watching o3 guess a photo’s location is surreal, dystopian and wildly entertaining
+
+Link sixteen. "How to have friends past age 30 - by Noah Smith"
+
+How friendship evolves past your 30s is an interesting topic to me, being well over 30. I have a number of good friends, but as many as I had at half my age? No. And how many of those friends are just friends versus business connections or other affiliations. Does that even matter? How do we think about friendship beyond just "spending time". Is there a skill here? I think there probably is. Related blog post from Chris ODonnell, I need new friends. I think this is a particularly poignant topic for men, and it seems to me connected to the overall decline in clubs and organizations that we've seen in the last few decades.
+
+That's the end of Notable.
+
+Now, the Journal section.
+
+Journal entry one. The Dungeon at Puzzleworks
+
+We had a great time escaping "The Dungeon" at Puzzleworks. The room had challenging puzzles and impressive mechanics. The story was well constructed with a unique beginning placing players in different rooms. In fairness, the game master gave us a couple mins extra at the end. Room 67!
+
+Journal entry two.
+
+Family selfie -- potential album cover.
+
+Journal entry three.
+
+Potica latte at Lynette.
+
+Journal entry four.
+
+Contrail.
+
+Journal entry five.
+
+Finished 3.09 mile walk in 76.1 minutes (24.63 min/mile). Incredible afternoon at the “the Arb” for a walk along the 3-Mile trail and through the hedge maze for Tammy’s birthday.
+
+Journal entry six.
+
+Mazie returned to St. Olaf for her friend’s birthday and Tyler, Tammy, and I went to A Minecraft Movie. Not an obvious pick for the movie on Tammy’s birthday but we wanted to see it. It was completely ridiculous, funny, goofy, and enjoyable at the same time.
+
+Journal entry seven.
+
+I’m having fun with my new profile photo. My previous one was the very first time I tried the Vision Pro and it was great, but I am loving this one with the bird on my hat from Discovery Cove. Perfect for the arrival of summer.
+
+Journal entry eight.
+
+Created the designs for three different POAPs for Minnebar 19 next week. Have a very cool one for the event, made a special one just for my session, and of course a You’ve Met Me one to share at Minnebar!
+
+Journal entry nine.
+
+Schooling the next generation on Air Hockey.
+
+Journal entry ten. The Anomaly at Puzzleworks
+
+We (just barely) completed “The Anomaly” at Puzzleworks today. This is the newest room they have -- just opening up about a month ago. Yes we were here just yesterday to do The Dungeon.
+
+This newest room had some new dynamics.
+
+1. The room was divided into three segments with 20 minutes to complete each segment. If you finish the segment before that you get a time bonus. If you don’t have it finished in 20 minutes they clue you to the answer and move you to the next room. We finished the first room with a few minutes to spare. The second and third rooms we finished with just seconds left.
+2. Each of the rooms were puzzle heavy. There was only one single lock in the whole experience. The puzzles worked well to handle in parallel. We had five people but eight could easily be engaged.
+3. The experience was interactive with a computer. So as you completed things you put them into the computer and worked through a menu system. That was cool and worked well.
+4. Given the way the clock worked you don’t just get a time -- you get a score based on how you did. We scored 63,550 which actually put us in seventeenth position on the top 20 leaderboard.
+
+It was a little odd to us that the game didn’t have a final time since that is how all previous 67 rooms we’ve done have operated. We have done a couple of rooms with a point system, but it was always in addition to the clock. The puzzles were challenging and the experience worked extremely well. Definitely a great room and a fun, new experience. Room 68!
+
+Journal entry eleven.
+
+Finished 1.66 mile walk in 40.4 minutes (24.34 min/mile). Casual walk with Lucky around the neighborhood. Minnehaha Creek is very low.
+
+Journal entry twelve.
+
+We wrapped up our weekend by watching Dog with some delicious Calico Popcorn made with ghee. Great movie and touching story.
+
+Journal entry thirteen. We Met at Minnebar 19 POAP
+
+Are you going to be at Minnebar 19 this Saturday? Come and introduce yourself and I’d love to share my You Met Jamie Thingelstad at Minnebar 19 POAP token with you! I’ll have it loaded on my IYK card easily redeemed with a tap.
+
+Journal entry fourteen. Minnebar 19 "How to Newsletter" Session POAP
+
+I made a special POAP just for folks that attend my How to Newsletter session at Minnebar 19! If you join this session I’ll have a NFC card in the room you can tap to add this fun one to your collection!
+
+Journal entry fifteen. Minnebar 19 POAP
+
+Minnebar 19 is coming up this Saturday and I couldn’t pass up the opportunity to create a special Minnebar 19 POAP token for folks at the event to get and commemorate the event! I did a POAP for Minnebar 17 two years ago.
+
+For this POAP I reached out to Meg Steuer at Minnestar and she was kind enough to share the graphics that are being used for the t-shirts. It was a super cool shirt and after consider it for a bit it worked absolutely perfect for an animated image. I'm loving this loop!
+
+I have several hundred tokens loaded on three different POAP NFC discs that will be placed around the event. Just bring your phone near the disc and tap the center -- you’ll get directed to a link to mint your token!
+
+If you want to get ready for the day, download the POAP Home app to be ready for iOS and Android. Using this app you can also upload photos from the event to POAP Memories to share with others that hold the same token.
+
+I’ll also be sharing my You Met Me POAP as well as a one for my How to Newsletter Session.
+
+Journal entry sixteen.
+
+My favorite Indieweb services -- Micro.blog and Buttondown -- have had a tough week. They worked through it.
+
+Journal entry seventeen.
+
+It was eight years ago today that I started using micro.blog. Seems wild that it has been that long. It has grown into a really great blogging platform. I'm looking forward to the next eight years. Congrats @manton!
+
+Journal entry eighteen.
+
+Finished 2.54 mile walk in 60.9 minutes (23.98 min/mile). Delightful evening for a cool neighborhood walk with Lucky.
+
+Journal entry nineteen. Musical Renewal
+
+I remember at some point in my early 20’s being curious why, it seemed to me at least, that as people aged they listened to less new music. This was all well before the Internet and I don’t even recall how I came to the research on this. Perhaps the research came to me and I'm remembering it backwards. Regardless I distinctly remember reading this research that showed that in fact people do listen to less new music as they age. In fact, people in their 20’s, my age at the time, listened to the most new music. And that with each decade after the library of music grew at a slower and slower rate.
+
+I think back to this more often than one may suspect. In my mind this suggested a level of adaptability and “seeking new” in the brain that decreases with age. Even then I found that prospect concerning and thought to myself that I need to make a concerted effort to avoid this stagnation. Tammy and I go to a decent amount of new music and happily I can say that Brandi Carlile, one of our favorite artists, wasn’t even around in my 20’s so there is some renewal happening.
+
+But the other thing that is true is that music plays a different role in our lives as we age. Tammy comments regularly how music in her 20’s was so impactful and such a big part of life, much more than it is now. Certainly part of that is that our lives are much broader and expansive as we age and music correctly isn’t as big as it was when we were younger. But now I watch Mazie and Tyler and how they engage with music and I see that emotional engagement that reminds me of those days. When I was Tyler’s age I was deep in the Violent Femmes and Run-DMC. I remember being Mazie’s age and exploring the Minneapolis music scene after moving here for college and voraciously absorbing Hüsker Dü and The Replacements, before bridging to the new with Uncle Tupelo. All these bands still sit heavy in my musical rotation.
+
+I think we are pretty lucky that our kids like similar genres of music that we do, and as they are exploring new music they are constantly going to artists that I don’t even know exist. Seeing their excitement and connection to music has me inspired to renew my own musical interests.
+
+Being who I am, this has me thinking of some actions:
+
+1. Bring music back to my commute time. I'm not sure when I decided that drive time was best for podcasts but I did. Somehow I became that stereotypical 50-year-old man listening to talk radio all the time. I think I would like it and I’d even be a bit better off to make this time more for music.
+2. Pay attention to the release date of albums. Focus on music released in the last year or two. And yes I still listen to albums versus cherry picking songs.
+3. Get my kids engaged. I’d like to get an album recommendation from my kids about once a month and commit to actually listening (not in the background) the whole thing. I want to get my brain to do the work of listening to new, and not just going to that routine of the past.
+
+Musical renewal doesn’t suggest going backwards to emotions of the past, but does focus on not being anchored to those routines. Exploring new artists and sounds, keeping interests fresh, and connecting with different people through shared musical appreciation.
+
+This post is part of the IndieWeb Carnival on Renewal hosted by me in April twenty twenty five.
+
+Journal entry twenty. Renewal — IndieWeb Carnival Roundup
+
+I'm wrapping up my very first time hosting an IndieWeb Carnival. After a good amount of deliberation I set this month’s theme of Renewal. It has been interesting to see how different people pulled that in.
+
+Here are this month’s carnival submissions in approximately the order they were sent in. Thank you all for jumping in and being part of this blog carnival!
+
+- Lou Plummer on School Starts in August
+- Chris Shaw on Renewal
+- Marisabel Munoz on The Promise of Dawn
+- Sarah Gebauer on Spiraling up and down
+- Mike Sass on Renewal
+- Molly on (Book) Renewal
+- Sara Jakša on The Space to Breathe
+- Reilly Spitzfaden on Renewal
+- Sacha Chua on Renewal
+- Juha-Matti Santala on Resisting the urge to rewrite the website
+- Ken wrote about Neighbors
+- Nick Simon wrote on Slow Renewal
+- Daryl Sun on Renewal
+- Fractal Kitty wrote deep in the sitka
+- Lianna posted on Libre Town Renewal
+- Frank Meeuwsen on Renewal
+- Manu Moreale on Renewal
+- Annie Mueller on Before the next beginning
+- David O’Hara on Renewal
+- Arunkumar Bhat on Renewal
+- Steve Ledlow on Renewal
+- Andrea Contino on Renewal
+- Joe Crawford on Reboot, Renewal
+- Jamie Thingelstad on Musical Renewal
+- Martín Morales on Renewal
+
+I couldn’t help myself but to make a special POAP for the people that participated. I'm going to send the IndieWeb Carnival - Renewal POAP token to each person.
+
+Journal entry twenty one.
+
+I had Siri read me a long email while walking and it was like stepping back to olden times. The TTS was lacking, not recognizing acronyms and with poor inflection. And I couldn't even just ask "read this", that failed. Instead I had to manually select the text and then press "Speak".
+
+Journal entry twenty two.
+
+Standard Water is putting drain tile into our basement to better manage ground water. What a crazy process and it shows how much this is going to help. There was a literal stream of water when they jackhammered the route. Wish I could have watched the action!
+
+That's the end of the Journal.
+
+Now, the Briefly section.
+
+Link one. "kiki - a tiny homepage construction kit"
+
+Wonderful and simple shareware program to run a public wiki or homepage. Very basic with minimal dependencies.
+
+Link two. "Cyberpunk 1958: The Early Days of the Polish IT Industry | Article | Culture.pl"
+
+Interesting early history of technology in Poland.
+
+Link three. "The Zen of Task Management with Org - Bastien Guerry"
+
+There is no way that I’m using Org Mode or anything else in Emacs, I care to much about actually getting stuff done. But learning structure and process from folks that are deep in that toolchain is interesting.
+
+Link four. "Pipelining might be my favorite programming language feature | MOND←TECH MAGAZINE"
+
+I have to agree that the first example is way more readable and the fact that you can support it with good comments is very nice. Thinking procedurally, I would for sure write the second one every time because I’m passing a thing, into a thing, into a thing.
+
+Link five. "Smash Smash"
+
+Simon Støvring is back after his Christmas app Festivitas with a new app that lets you smash your screen! Pretty funny. Name your own price and grab a copy for a fun time.
+
+Link six. "14 Advanced Python Features | Edward Li's Blog"
+
+Wonderful overview of some deep Python capabilities.
+
+Link seven. "Amazon CEO Andy Jassy's twenty twenty four Letter to Shareholders—Annotated - Last Week in AWS"
+
+A critical take through annotations on Amazon's last year. Is Amazon finally getting to some scale limits? Maybe.
+
+Link eight. "Are You Ok? - Brad Feld"
+
+Feld is a well known VC and long-time blogger. A personal update from him as he went into hibernation for a while.
+
+Link nine. "For VCs, Everything is AI. All Is AI – On my Om – Daily Blog"
+
+VC == AI. It is hilarious to me that Andreessen believes AI can’t replace VCs themselves. That would be an interesting "snake eating itself" moment.
+
+Link ten. "The Real Winners of the Trump Memecoin Feeding Frenzy | WIRED"
+
+Memecoins have valid use cases but buying access to government officials should not be one of them. And many memecoins, including this one, generate revenue off of transactions.
+
+Link eleven. "dir2txt: A blazing-fast CLI tool to export a directory's structure and contents for AI"
+
+Handy utility to package a directory together to make it easy to upload to an LLM for further use.
+
+Link twelve. "YAGRI: You are gonna read it"
+
+Wisdom here. This is a great nudge to keep some basic metadata on values that you build into your software, knowing that at some point there will likely be a use case that benefits from having it available.
+
+Link thirteen. "Curry Programming Language"
+
+A 'declarative multi-paradigm programming language" bringing together both functional and logic models.
+
+Link fourteen. "Nail salon employee pleads guilty after holding 13 remote IT jobs worked by developers in China | Fortune"
+
+This scheme has been documented by security organizations and advisories have been sent to warn employers to watch out for it — but the details and specifics here make it more "real."
+
+Link fifteen. "Smart Folders Are the macOS Game Changer That I’ve Always Ignored"
+
+I use macOS all the time and have never used Smart Folders. This explainer shows some use cases that make sense. I should probably make a "Current Presentations" one on my work laptop right now.
+
+Link sixteen. "These are the largest SaaS Firms in the Twin Cities - Minneapolis / St. Paul Business Journal"
+
+SPS at number 3.
+
+Link seventeen. "QR is cool"
+
+Very cool breakdown of how QR codes work and the error correction built into them.
+
+Link eighteen. "The Good Internet - Sacha Judd"
+
+Make the web weird again.
+
+Link nineteen. "PyXL - Python, on hardware"
+
+Hardware directly running Python? Wild.
+
+That's the end of Briefly.
+
+Now, the Fortune section.
+
+Here is your fortune…
+
+Beat the Turing test, get a gold star in life.
+
+- Join the private Weekly Thing Forum
+- r/WeeklyThing on Reddit
+- Sign the Weekly Thing Guestbook
+
+That brings us to the end of the Weekly Thing, issue 317. Thanks for listening, and I'll see you next time.

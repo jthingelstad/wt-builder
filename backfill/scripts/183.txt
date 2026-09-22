@@ -1,0 +1,272 @@
+The Weekly Thing, issue 183. Visidata, FTP, Amazon. Published April 24, twenty twenty one. By Jamie Thingelstad. In this issue: Everything Easy is Hard Again, Bitcoin Energy Consumption, FTP is 50 years old, high quality audio, AirTag Review, PHP in twenty twenty one.
+
+It is late one tonight. We pulled into Crosby, MN for a weekend away. We brought our mountain bikes and will be hitting the Cayuna Lakes MTB trails tomorrow. We are hoping that the overnight forecast of 5-9 inches of snow is wrong!
+
+We are staying in this incredibly cool Airbnb called The Bike Vault. It is awesome and the bike decor "turned up to 11" would get anyone motivated to pedal!
+
+Let's get on with the links below. It was a big week in general, updates in the Journal section.
+
+"Freedom of Speech is not Freedom of Reach." — Scott Galloway
+
+… that is a much better phrase than my use of amplify.
+
+Now, the Must Read section.
+
+Link one. "Everything Easy is Hard Again - Frank Chimero"
+
+Frank Chimero has been designing and building on the web for decades. He is also great at shedding some perspective on our craft. I love his writing. So much good stuff here.
+
+Quote.
+I wonder if I have twenty years of experience making websites, or if it is really five years of experience, repeated four times. If you’ve been working in the technology industry a while, please tell me this sounds familiar to you.
+End quote.
+
+Yes, yes it does.
+
+Quote.
+It was 1997, I was learning HTML, and there was one problem with the design that was confusing me: how do I put two things next to each other? Twenty years later, we’re still working out the answer to that very basic question.
+End quote.
+
+That made me laugh out loud for real. And it is sad how true it is.
+
+Quote.
+My web design philosophy is no razzle-dazzle. My job is to help my clients identify and express the one or two uniquely true things about their project or company, then enhance it through a memorable design with a light touch. If complexity comes along, we focus in on it, look for patterns, and change the blueprint for what we’re building. We don’t necessarily go looking for better tools or fancier processes. In the past, I’ve called this following the grain of the web, which is to use design choices that swing with what HTML, CSS, and screens make easy, flexible, and resilient.
+End quote.
+
+You could call Chimero's approach similar to the 'use boring technology' approach. I love his point on illegibility and the value of creating legible solutions.
+
+Quote.
+Illegibility comes from complexity without clarity. I believe that the legibility of the source is one of the most important properties of the web.
+End quote.
+
+Complexity attracts engineers like moths to a flame. Legibility is not valued enough. Truly understanding the problem we are solving is too often glossed over.
+
+Link two. "twenty twenty Letter to Shareholders - Amazon"
+
+Jeff Bezos final annual shareholder letter as CEO of Amazon. Bezos letters have become the thing of legend and are great reads. He is a good writer, and you can tell he put some extra effort to make this one even more distinctive.
+
+Quote.
+If you want to be successful in business (in life, actually), you have to create more than you consume. Your goal should be to create value for everyone you interact with. Any business that doesn’t create value for those it touches, even if it appears successful on the surface, isn’t long for this world. It’s on the way out.
+End quote.
+
+His call to create value, as well as maintain distinctiveness is powerful.
+
+Quote.
+In what ways does the world pull at you in an attempt to make you normal? How much work does it take to maintain your distinctiveness? To keep alive the thing or things that make you special? … We all know that distinctiveness – originality – is valuable. We are all taught to "be yourself." What I’m really asking you to do is to embrace and be realistic about how much energy it takes to maintain that distinctiveness. The world wants you to be typical – in a thousand ways, it pulls at you. Don’t let it happen.
+End quote.
+
+I love that he highlights the energy this requires. You have to figure out where that energy is going to come from, and how will it be renewed.
+
+That's the end of Must Read.
+
+Now, the Currently section.
+
+Watching: We have been enjoying Magic for Humans on Netflix. We've been watching this in the Tesla, which has Netflix built in, when we get takeout at restaurants. The episodes are the perfect length to eat dinner with, and Justin Willman's magic is amazing. He does some stuff that just blows your mind.
+
+That's the end of Currently.
+
+Now, the Recommended Links section.
+
+We need to talk about your Q3 roadmap | Lara Hogan
+
+Some good perspective from Hogan and how your team and coworkers may be feeling and how to engage them as we all continue to navigate so many unknown waters.
+
+The Cold Hard Truth About Self-Regulation’s Role in Leadership and Influence - Matt Norman
+
+Norman's comments here are compelling… on both the self-regulation and comfort dimension. I will share that while I often don't catch it soon enough, an inability to self-regulate is a sign for me that I need to disconnect for a bit. Usually it comes through as me letting my body (anxiety, tension) spin up in my mind (fear, anger) and spiral out of control. I've learned I often will clench my jaw… then it’s time to change the situation and collect myself.
+
+VisiData
+
+This looks like an incredibly powerful tool. I love that it runs in a terminal too! vd input.csv, how easy is that!
+
+Quote.
+VisiData is an interactive multitool for tabular data. It combines the clarity of a spreadsheet, the efficiency of the terminal, and the power of Python, into a lightweight utility which can handle millions of rows with ease.
+End quote.
+
+There are a number of times I've used spreadsheets to move around CSV files. This looks like a much better way to do that.
+
+PS: I find the authors About page delightful. I love this line "I live in Seattle but the terminal is my home." He's building an "ecosystem of textpunk powertools".
+
+Questionable Advice: "What Should I Say In My Exit Interview?" – charity.wtf
+
+I don't think I've read on the topic about what to say in an exit interview, but I will say that the feedback given in those is always listened to. Her advice is spot on. Filling an exit interview with vitriol may feel good, but it is completely ineffective. If you care about making the world a better place, give direct and clear feedback. It is the most helpful.
+
+Mirror of Justice
+
+My friend Rob Vischer reflecting on the killing of Daunte Wright, sharing a story of a poor choice he made in his youth, and his own perspective how race shapes our own stories wether we know it or not.
+
+Onboarding with an M1
+
+Developers have a much more complicated set of tooling to be productive versus a casual Internet email/web user. Seeing how that toolchain works on the new M1 chips is impressive. I’m floored by how much "just works" and even if it isn't native to the M1, it is fast enough that you think it just works. I don't think there has ever been a faster and simple architecture transition.
+
+Bitcoin Energy Consumption Index - Digiconomist
+
+I do not disagree that Bitcoin, and in general blockchain solutions that use proof-of-work use a lot of energy. The graphs here tell a story. However, comparing Bitcoin to VISA is non-sensical. Bitcoin isn't a replacement for the VISA system, it is an alternative or replacement for Gold. The comparable should be to add up all the energy used to dig that shiny metal out of the earth, refine it, and make it available to the gold market. Then, when we have done that comparison also ask yourself which system you believe can be optimized and drive efficiencies into. Bitcoin wins easy over Gold. And we aren't even talking about the human side in regards to the people that have to go down into the mines and get the gold.
+
+FTP is 50 years old
+
+Happy Birthday FTP!
+
+Quote.
+Over the years, the FTP protocol got refined with 16 different revisions(*1) adding support with TCP/IP, a secure extension also known as FTPS which is leveraging the same tech as HTTPS and more recent addition like IPv6 support.
+End quote.
+
+Impressive. I didn’t realize FTP was older than I am!
+
+High quality audio makes you sound smarter - Ariyh
+
+I don't know that we need a study to show this. It seems pretty obvious to me, and is the reason I take the effort to use a high-quality microphone when I’m presenting to large groups and doing most of the speaking. It can create asymmetry in smaller meetings, so I don't always use it.
+
+That's the end of Recommended Links.
+
+Now, the Journal section.
+
+Tuesday @ 7:11 PM
+
+Chauvin Trial Concludes
+
+Just under a year ago George Floyd was murdered in police custody under the knee of Derek Chauvin. Today our whole family gathered around as news of a verdict announcement in the murder trial was made just a day after jury deliberation started. We all watched history as a guilty verdict was announced on each of the three charges.
+
+This isn't the end, but is an important step as our community reckons with racism. I found myself on the verge of tears at the announcement, relieved of some anxiety and hopeful about our ability to learn, get better, and move forward.
+
+I've went back to my thoughts on Floyd's killing and I am so appreciative of the conversations and learning that has occurred. With that said, I've also gained a better appreciation for how much work there is to be done.
+
+I think it is time that the city memorialize George Floyd Square, as a tribute to what will be an inflection point toward a better community for all Minnesotans.
+
+Tuesday @ 10:14 AM
+
+I got my second shot of the Pfizer BioNTech COVID-19 Vaccine this morning!
+
+Many people I know have not felt well after the second dose so I’m feeling hypochondria a bit. Hoping for the best!
+
+Sunday @ 10:15 PM
+
+Crypto Allocation (April twenty twenty one)
+
+I've been building out my approach to crypto. I shared my allocation in March and updated it this weekend.
+
+Notes:
+
+* I've been increasing Ethereum to get closer to Bitcoin.
+* Bitcoin and Ethereum together are 80%.
+* Increased the amount of Cardano as an additional Ethereum-like blockchain.
+* Doubled Filecoin, which builds a permanence layer on IPFS.
+* Added Curve DAO because of the focus on cost-efficient swapping between stablecoins.
+* Added Enjin because of the focus on NFTs.
+
+I'm sharing this as my own notes for any value they may have to others.
+
+Reminder: this is not investment advice. I don't recommend you buy, sell, or hold anything. Conduct your own due diligence.
+
+Sunday @ 7:35 PM
+
+We hung The Frame by Samsung today and I am impressed with it. It is discrete. The picture quality is good. It is fun to have different art on it and with the press of a button you can watch a show.
+
+Saturday @ 3:34 PM
+
+Stopped by Five Watt Coffee for the first time since the pandemic and got an Iced Kingfield, my favorite fancy coffee drink. So good. Thank you Paul for the coffee!
+
+Saturday @ 3:32 PM
+
+We checked out Vivir for brunch this morning and were blown away. We got the Torta and the Chilaquiles Verde. Delicious. Will be back!
+
+Saturday @ 3:30 PM
+
+Had a great ride this morning on Matt Wilpers 75-minute Power Zone Endurance Ride. My first 75 minute ride so a PR by default. 815 kJ. Definitely started to gas out after 60 minutes. #FitByFifty
+
+Friday @ 1:16 PM
+
+Emoji Vaccine Status
+
+I like the idea of using Emoji to indicate status. Fun!
+
+Quote.
+Okay, looks like we're doing this. If you also want to participate, change your Twitter profile name like: Name Name Name Name (Where means your post-final shot waiting period is over and means you're waiting for either second shot or freedom) -- Brad Fitzpatrick (@bradfitz) April 16, twenty twenty one
+End quote.
+
+Related: Cocktail Emoji Triples
+
+Friday @ 1:15 PM
+
+Had first lunch from Avocadish today via Foodsby. Southwest Bowl was delicious! Will be a repeat customer for sure, and next time will try the Avo Pudding too.
+
+Friday @ 6:41 AM
+
+From today’s Economist Espresso:
+
+Quote.
+Pfizer’s chief executive said that people everywhere are likely to need a third dose of covid-19 vaccine within 12 months, with annual boosters for the foreseeable future to keep abreast of viral variants. His remarks, made on April first, were disclosed yesterday. The White House said that America is already preparing for the need to administer booster shots.
+End quote.
+
+Covid-19 isn’t going to ‘go away’. I fully expect we’ll be getting annual vaccinations for several years. With science and knowledge we will be able to manage it.
+
+That's the end of the Journal.
+
+Now, for your information.
+
+Starting a new digital identity — k3tan
+
+Not something on my to do list, but I found the tooling and approach outlined an interesting read.
+
+‘The system has collapsed’: India’s descent into Covid hell | India | The Guardian
+
+The Covid situation in India right now is horrible. It is even more horrible that we now know so much more about treating it and we have vaccines.
+
+AirTag Review Roundup - MacStories
+
+Tons of takes on the new Apple AirTag.
+
+Apple’s new hardware is built for our visual future – On my Om
+
+Interesting perspective on how our sudden shift to so many video meetings is driving the design of the camera and audio systems in the new Apple lineup.
+
+My Secret Sauce of Blogging
+
+Fun stuff, some humor, and some good truth here. If you have always wanted to start a blog, just start one. Come on in, the water is just fine!
+
+DDoS attack trends for twenty twenty one Q1
+
+Very thorough look at where DDoS attacks are coming from and how they are evolving.
+
+Daring Fireball: 'That's What Makes Bill Very, Very Dangerous'
+
+I love this story about Bill Gates and how he would think hard on a topic. Not many people are that focused and thorough. Makes me think about the book I’m reading right now, Think Again.
+
+PHP in twenty twenty one - stitcher.io
+
+PHP is continuing to improve and advance. A lot of developers are biased against PHP and think of it as a toy. Modern PHP has many powerful concepts to build solutions with.
+
+How to Write a Technical Book — SerHack Blog
+
+This same structure is probably good for more than just technical books, and I isn't the way that a lot of people might do it. I'd love to write a book someday… filing this away.
+
+That's the end of the FYI section.
+
+Now, the Reply All section.
+
+Here are some replies from Weekly Thing #182 / Technical Debt, Identity, Neeva.
+
+The article about the True Meaning of Technical Debt caught the interest of two readers.
+
+First, Sergio Fedi shares some perspective on how long ago these Agile/XP techniques were adopted.
+
+Quote.
+In Argentina we have a very active and strong community on the Smalltalk language and all it's software engineering practices. There's a trend since the 70's that software shouldn't be developed the way we do, we have to change. In the two thousand's the early practice of XP programming came up hand in hand with the agile manifesto. If you take a closer look, you'll see that the Gang of Four, Alan Kay, Kent Beck and all original researchers of the Smalltalk system are present and near to these software engineering practices. To give you a glimpse of how early waterfall was debunked, it was in it's very presentation:
+End quote.
+
+John Kelly also shared some perspective on the topic.
+
+Quote.
+The other thing that tech debt discussion really shines a light on, is why improving the frequency of your deployments is so critical. If you can push faster and more often, you can more properly align to the existing needs of the marketplace and react in the future as they change.
+End quote.
+
+That's the end of Reply All.
+
+Now, the Fortune section.
+
+Here is your fortune…
+
+Fine day for friends. So-so day for you.
+
+Thank you for subscribing to the Weekly Thing!
+
+That brings us to the end of the Weekly Thing, issue 183. Thanks for listening, and I'll see you next time.

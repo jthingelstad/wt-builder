@@ -1,0 +1,266 @@
+The Weekly Thing, issue 297. People, Building, "Pure Blogger". Published October 19, twenty twenty four. By Jamie Thingelstad. In this issue: HTML for People, GPU bubble burst, 2 dollars H100s, API to AI communication, US wealth distribution, TikTok harming kids, what are you building with your life.
+
+Weekly Thing 297 is arriving with a never before seen new section! Sent from Minneapolis, MN.
+
+Good morning!
+
+I've had an idea for a new section of the Weekly Thing for a while now. The genesis came in Weekly Thing 258 when I asked if you were planning on buying a Vision Pro. I've thought it would be interesting to have a regular section with a question to get everyones reaction to. Voila — the Straw Poll section is now live!
+
+In Straw Poll I will share a topic with a question to that you can respond to. In the next issue I'll share the results with everyone. I think this is going to be fun and insightful and I get to learn from all of you!
+
+The inaugural Straw Poll is a question about Nvidia… you'll find it below.
+
+Now, the Currently section.
+
+Dining: Tammy and I first discovered New Scenic Café over twenty years ago and it still delights us. We make a point to have a meal there whenever we are on the North Shore. They have also added a bakery in recent years and have brought the Nordic themes forward even more in their menu. I had my very first Kardemummabullar there this time!
+
+Installing: I wanted to play around with some of the more advanced Whisper-based speech-to-text apps so I bought a license for MacWhisper. I had it do a completely unedited transcription of the Open Loop podcast Garrick van Buren and I created in twenty twelve. The Whisper models do a good job, but it doesn't go as far as I had hoped. For example, it doesn't recognize different speakers.
+
+Listening: I found episode #386 - Information and Social Order with Yuval Noah Harari of the Making Sense podcast with Sam Harris very compelling and thought provoking. I ended up buying Harari's newest book Nexus afterward. The deep dive on information and networks and how that impacts society was interesting. (This gift link to the episode will allow you to listen to the full episode for free.)
+
+That's the end of Currently.
+
+Now, the Notable section.
+
+Link one. "HTML for People"
+
+This is a great resource written for your average person to learn about creating content for the web. I love the spirit and intent of this. HTML isn't that complicated and increasing access to it enables people to have their own voice on the web. If you find this great join me in sending a thank you to Watson's Ko-fi page.
+
+Link two. "What Are You Building With Your Life? | David O’Hara"
+
+I've met David O'Hara a handful of times, a mutual friend introduced us. He shared this transcript of a talk at Augustana University's chapel that he gave recently prompting the question "What are you building with your life?" I enjoyed reading his talk greatly. Likely it is worth a couple of reads. His call to "build with love and wonder" is great. (David is also a Weekly Thing reader — Hello David! )
+
+Link three. "2 dollars H100s: How the GPU Bubble Burst - by Eugene Cheah"
+
+Where there is demand the market is going to react. It is hard to see a future where Nvidia has a lock on GPU capabilities that lasts for a long time. Even if AMD and Intel are slow to the game they should be close enough?
+
+Quote.
+We are looking at a >= 40% price drop per year, especially for small clusters. NVIDIA's marketing projection of 4 dollars per GPU hour across 4 years, has evaporated away in under 1.5 years.
+End quote.
+
+It is interesting that part of this demand loss seems to be the biggest workloads going private because they need even larger clusters. There was also a fun callout to crypto having less demand in part due to transitions away from proof-of-work.
+
+Overall an incredible dynamic market with super high capital requirements.
+
+Link four. "The Future of Software: From API to AI as the Communication Interface – rajiv.com"
+
+Rajiv Pant shares his views on shifting from API to AI interoperability between systems. My first taste of this was when I read about how ChatGPT and Wolfram Alpha communicate. They are both AI capable and they use that to coordinate versus rigid APIs. It is hard for me to wrap my head around given the unpredictability of this kind of interface but it is super interesting to consider how it could work.
+
+Link five. "Wealth distribution in the United States"
+
+This is an incredible chart.
+
+Quote.
+The histogram above shows the wealth distribution in red. Note that the visible red line is one pixel wide at the left and disappears everywhere else—this is the important point: essentially the entire US population is in that first bar. The graph is drawn with the scale of 1 pixel = 500 million dollars in the X axis, and 1 pixel = 1 million people in the Y axis. Away from the origin, the red line is invisible—a tiny fraction of a pixel tall since so few people have more than 500 million dollars.
+End quote.
+
+The scale of the wealth that these dozen or so individuals have is mind blowing.
+
+Link six. "To the crazy ones"
+
+I watched the replay of the Starship launch and it truly a marvel. It was incredible watching the booster return to the earth and the launch pad catching it with these giant "chopsticks". SpaceX is changing the world in huge ways. I mostly agree with DHH's commentary here, but I think he misses a really big difference that is very meaningful.
+
+When we were all crowded around TV's watching the Apollo mission we were watching something that "we" were doing. US taxpayers were funding the Government and NASA to do this amazing thing. There is a role that all of us, every single American, played in that.
+
+SpaceX we are watching the amazing results of a private company. Not even a public one that we can participate and be part of as a shareholder. These miracles and wonders are great, but they ultimately benefit a very small set of capital holders.
+
+It is something we watch "them" do, not something "we" made happen.
+
+Link seven. "TikTok knows its app is harming kids, new internal documents show: NPR"
+
+The only thing that should be surprising in this article is if this is surprising. TikTok is designed to addict.
+
+Quote.
+As TikTok’s 170 million U.S. users can attest, the platform’s hyper-personalized algorithm can be so engaging it becomes difficult to close the app. TikTok determined the precise amount of viewing it takes for someone to form a habit: 260 videos. After that, according to state investigators, a user “is likely to become addicted to the platform.” In the previously redacted portion of the suit, Kentucky authorities say: “While this may seem substantial, TikTok videos can be as short as 8 seconds and are played for viewers in rapid-fire succession, automatically,” the investigators wrote. “Thus, in under 35 minutes, an average user is likely to become addicted to the platform.”
+End quote.
+
+Other sections from this article:
+
+- Time-limit tool aimed at 'improving public trust,' not limiting app use
+- TikTok demoted people it deemed unattractive on its feed
+- Algorithm could deprive kids of opportunities like 'looking at someone in the eyes'
+- TikTok's internal estimate: 95% of smartphone users under 17 use TikTok
+- TikTok pushes users into filter bubbles like 'painhub' and 'sadnotes'
+- TikTok's content moderation missing self-harm, eating disorder content
+- TikTok slow to remove users under 13, despite company policy
+- TikTok in crisis mode after report on TikTok Live being 'strip club filled with 15-year-olds'
+
+Enough? More than enough for me.
+
+That's the end of Notable.
+
+Now, the Straw Poll section.
+
+Straw Poll is a new section of the Weekly Thing where I pose a question on a topic and get your feedback. Next week I'll share the insights from your responses!
+
+With the explosion of AI into the market the biggest winner in the public markets is Nvidia.
+
+On Nov 30, twenty twenty two, the day that ChatGPT was launched NVDA was trading at a split-adjusted 16 dollars and 92 cents. Last Monday it closed at 138 dollars and 7 cents, over eight times higher in less than two years.
+
+Quote.
+The share price of Nvidia, one of the chipmakers supplying data centers, reached a record high. The American firm's shares have risen by 8% over the past week, giving it a market capitalization of 3.4 trillion dollars, as investors appear to have regained some bullishness about AI's potential profitability. Meanwhile Bloomberg reported that America was considering capping the export of Nvidia's chips to some countries. — The Economist, The World in Brief on October 15, twenty twenty four
+End quote.
+
+Tyler regularly jabs me on this one. He wanted to add NVDA to his portfolio at a split-adjusted price of 70 dollars and I told him he shouldn't do it. The stock was too frothy having already gone up over four times. He would have doubled his investment. Add this to the list of reasons I’m not a trader.
+
+Look at the BigCharts chart for Nvidia which includes the 10:1 split.
+
+So for Nvidia to grow into this 3.4 trillion dollars valuation it has a lot of revenue to find. You have to assume that competitors aren't going to catch up and the demand is nearly insatiable for AI. And in fairness, Nvidia (P/E Ratio: ~64) is still worth less than Apple (P/E Ratio: ~36). So at these incredible valuations do you think NVDA is a buy?
+
+You must subscribe to the Weekly Thing to respond to Straw Polls.
+
+That's the end of Straw Poll.
+
+Now, the Journal section.
+
+Journal entry one.
+
+Delicious pizza and beer at Ursa Minor Brewing tonight in Duluth.
+
+Journal entry two.
+
+Short walk after pizza to Love Creamery for delicious ice cream!
+
+Journal entry three. Exploring FIFA Collect
+
+I’ve been intrigued with FIFA Collect for a bit. My interest was piqued when I saw that they are dropping collectibles with “Right to Buy” for the twenty twenty six World Cup and I am very hopeful to go to at least a match. I'm guessing tickets will not be easy to get so getting a “Right to Buy” collectible for the city that I want to go to might be really nice.
+
+This morning I sat down with FIFA Collect and really figured out how it works. I was generally impressed. It is a full NFT solution built on the Algorand blockchain. I have used a ton of blockchains but hadn’t had a reason to use Algorand. Algorand is not a Ethereum ecosystem blockchain so I downloaded Pera wallet to get started. Then I bought 20 dollars USD worth of ALGO on Coinbase, transferred to my wallet and swapped 100 ALGO for 12.232474 of USDC-a, which is the USDC stablecoin token for Algorand.
+
+A few minutes later I purchased my first FIFA collectible on the marketplace, a World Cup 1994 USA #611 poster.
+
+I can buy some drops and hope I get lucky to find a “right to buy” collectible. Alternatively, there are already collectibles on the marketplace that others are selling with those rights. Right now the cheapest “right to buy” collectibles are selling for around 300 dollars.
+
+Journal entry four.
+
+Our Airbnb for the weekend up north is a converted garage set in the woods. Nice place!
+
+Journal entry five.
+
+Stop at Fika Coffee, my favorite coffee shop on the North Shore, on our way to Grand Marais this morning.
+
+Journal entry six.
+
+World's Best Donuts in Grand Marais. Pro tip: you can order the night before and skip the line entirely!
+
+Journal entry seven.
+
+Artists Point in Grand Marais.
+
+Journal entry eight.
+
+Grand Marais Light.
+
+Journal entry nine.
+
+Morning stop at the Great Lakes Candy Kitchen -- treats for home!
+
+Journal entry ten.
+
+We thought it was going to be very cold and rainy but the rain held off and the day turned incredibly nice for us to hike up to the Fifth Falls at Gooseberry Falls today. Gooseberry has to be one of the most accessible parks we have and it is a great place to explore!
+
+Journal entry eleven.
+
+We’ve driven by Glensheen Mansion many times and finally we stopped and took a tour. It is a pretty incredible residence. Worth stopping!
+
+Journal entry twelve. North Shore Weekend Log
+
+Friday
+
+- Drive to Duluth.
+- Pizza and beer at Ursa Minor Brewery.
+- Ice cream at Love Creamery.
+- Check into Airbnb just past Duluth.
+- Hot tub and homework.
+- Pre-order donuts at World’s Best Donuts in Grand Marais.
+
+Saturday
+
+- Drive to Grand Marais.
+- Stop at Fika Coffee for delicious coffee.
+- Pickup donuts at World’s Best Donuts.
+- Traipsed around Artist Point taking photos and exploring.
+- Walked out on pier to Grand Marais Light.
+- Shopping around Grand Marais: Lake Superior Trading Post, Joynes Ben Franklin, The Sweetwater Co., Great Gifts, The Big Lake, The Market, Sivertson Art Gallery, and Drury Lane Books.
+- Last customer at Crosby Bakery.
+- Surprising rush of dining demand at 4pm -- dinner at Angry Trout Cafe.
+- Ice cream at Superior Creamery.
+- Return to Airbnb.
+
+Sunday
+
+- Send Weekly Thing 296.
+- Check out Of Airbnb.
+- Get candy to bring home from Great Lakes Candy Kitchen.
+- Fabulous lunch at New Scenic Cafe.
+- Delightful time at Gooseberry Falls.
+- Visit Glensheen Mansion.
+- Dinner at Va Bene in Duluth.
+- Drive home.
+
+Weekly Thing Forum
+
+Join Eric Walker, Steve, Patrick Hambek, Tom Mungavan and many other Weekly Thing readers in the Weekly Thing Forum. Recent topics include:
+
+- Weekly Thing 296
+- Weekly Thing 295
+- Notebook LM Deep Dives Weekly Thing
+- Supersize Double Edition of the Weekly Thing
+- No Thing This Week
+
+That's the end of the Journal.
+
+Now, the Briefly section.
+
+Link one. "The Teenage Engineering TP-7"
+
+I had never heard of the TP-7 but it looks like an incredible piece of engineering.
+
+Link two. "Simple.css"
+
+Super simple CSS framework to make HTML content much more pleasant.
+
+Link three. "‘It’s mindblowing’: US meteorologists face death threats as hurricane conspiracies surge | The Guardian"
+
+This is insane.
+
+Link four. "Kafka 101"
+
+Very approachable overview of how Kafka works.
+
+Link five. "Pure Blogger – On my Om"
+
+"Pure Blogger". Like that. I would like to think I might earn that title.
+
+Link six. "The 1/eighth Sleep | near.blog"
+
+We have an 8Sleep so I was curious to see what a DIY one would be.
+
+Link seven. "I Finally Lost My Smart Ring! - I am BARRY HESS"
+
+An incredible story of losing an Oura Ring and then it being recovered!
+
+Link eight. "Possible futures of the Ethereum protocol, part 1: The Merge"
+
+The continued roadmap for Ethereum. I like the focus on reducing the staking requirement to make it easier for more people to participate.
+
+Link nine. "Federal Trade Commission Announces Final “Click-to-Cancel” Rule Making It Easier for Consumers to End Recurring Subscriptions and Memberships | Federal Trade Commission"
+
+This would be such a welcome improvement. Cancelling some recurring services is incredibly difficult.
+
+That's the end of Briefly.
+
+Now, the Fortune section.
+
+Here is your fortune…
+
+Never look up when dragons fly overhead.
+
+Here are some things you can do that would be great…
+
+- Share Weekly Thing 297 / People, Building, "Pure Blogger" with others you know!
+- Post about the Weekly Thing and let others know about it.
+- Join the Weekly Thing Forum and connect with others.
+- Email me comments, feedback, or just to say Hi!
+
+That brings us to the end of the Weekly Thing, issue 297. Thanks for listening, and I'll see you next time.

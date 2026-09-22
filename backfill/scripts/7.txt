@@ -1,0 +1,137 @@
+The Weekly Thing, issue 7. Weekly Thing for June 24, twenty seventeen. Published June 24, twenty seventeen. By Jamie Thingelstad. In this issue: GTD productivity with Trello, Pythonista iOS workflow, Russia cyberwar blueprint, RNC voter data leak, Pokémon GO raid battles, Instagram Python 3.
+
+This week the links section has some new stuff. Frequently I want to highlight other things when writing about a link, but I was stymied on how to do that in my system! Then I realized a workaround. I could write in Markdown in the description area on Pinboard and then convert the Markdown to HTML when I build the newsletter. Magic!
+
+When I started this project I decided my first goal would be to get 100 subscribers. We all have to have goals right?  If you have liked this newsletter you could do me a big favor by forwarding it along to someone you think may like it too, and they can subscribe on the Weekly Thing page. It would be fun to get into triple digits. Thank you for spreading the word!
+
+Now, the Blog posts section.
+
+Assembling the Weekly Thing
+
+Overview of how I use automation to easily create the weekly thing.
+
+That's the end of Blog posts.
+
+Now, the Photo section.
+
+I have no idea if at some point this really was the Warsaw, MN Town Hall, but the building sits in the middle of nowhere just south of Cannon Lake.
+
+Jun 18, twenty seventeen, 12:51 PM 22783–22999 Dalton Ave Warsaw‎ MN‎ 55021 United States.
+
+That's the end of Photo.
+
+Now, the Links section.
+
+Link one. "The GTD Approach To Maximizing Productivity With Trello"
+
+I prefer to use a specific GTD app (in my case, OmniFocus) but this overview of applying the GTD method in Trello is interesting and it really stood out to me how it is a very literal interpretation of the GTD method.
+
+Link two. "Twist - Mindful Team Communication"
+
+Email is broken. Chat is broken. IM is broken. There seem to be infinite number of things that folks are trying to deal with the volume of communication in companies today.
+
+Link three. "Super Mario Bros Recreated as Life Size Augmented Reality Game"
+
+Wow! This is really cool. This is one of the more interesting AR game demos I've seen. The whole time I was watching this I was wondering how this would look for Minecraft. It’s notable that he never goes up on any platforms in the demo though. Gravity still matters.
+
+Link four. "Your Dashboard Needs a Waffle Chart – Aptitive"
+
+I didn’t realize these charts were named Waffle Charts. I dislike pie charts greatly, but do find that these waffle charts show certain data sets in a very useful way. They also provide immediate visibility better than a pie chart does. Makes me chuckle that this article has 'But, What Would Edward Tufte Do?' section.
+
+Link five. "The Best Advice We Overheard at First Round's CTO Unconference | First Round Review"
+
+There are a tremendous amount of good ideas in this article. Technology leaders should definitely read this. Need to pick three and run with them. Then another three…
+
+Link six. "Automating iOS: How Pythonista Changed My Workflow – MacStories"
+
+Viticci shares how he's using Pythonista in iOS to extend his workflows into new areas. Viticci is the one that illustrated use cases for Workflow that really opened my eyes to what I can do. I know how to write Python, but I haven't extended any workflows into Pythonista, yet.
+
+Link seven. "Russia's Cyberwar on Ukraine Is a Blueprint For What's to Come | WIRED"
+
+Another article on the vast breadth of cyberattacks in Ukraine.
+
+Link eight. "Raid Battles and New Gym Features are Coming! - Pokémon GO"
+
+I ignored Pokémon GO for a long time but my son was really into it. He wanted to progress levels and battle in gyms. I started helping him and then I started getting into It! It's fun to see Niantic doing a massive rethink of a such a critical part of the game. The changes will be welcome though as gym battles are ridiculously hard for new players coming into the game.
+
+Link nine. "Why So Few Women Break Through Tech's Bro Culture - Bloomberg"
+
+Some powerful data on the gender imbalance in technology organizations. When you read this keep in mind that there is negative unemployment in technology. We have to make significant progress on this problem. The market is not solving it on it’s own, and the culture changes needed are significant.
+
+Link ten. "Determining Incident Priority —PagerDuty"
+
+Good, simple writeup on how to approach two key metrics for incident management. Like how this follows the KISS principle. Priority = Impact + Urgency.
+
+Link eleven. "The RNC Files: Inside the Largest US Voter Data Leak"
+
+This is an amazing writeup on a huge breach of 198 million Americans data. The part that blew me away in this is the listing of the CSV column names. It illustrates very well the data that was exposed for everyone. It also should prompt thoughts on how all that data was collected. The level of specificity in these data sets is amazing, and to me at least, very frightening.
+
+Link twelve. "Social Cooling"
+
+Big data and surveillance may be changing out behaviors. This concept is shown in the Nosedive episode of Black Mirror.
+
+Link thirteen. "International Federation of Pickleball"
+
+Had never heard of this game! Looks like a great summer game to play outside!
+
+Link fourteen. "Engineering Blogs of Companies"
+
+Good listing of the technology blogs of various companies.
+
+Link fifteen. "Open Textbook Library"
+
+Very cool to see the University of Minnesota doing this! Nice to also see the content is licensed under Creative Commons!
+
+Link sixteen. "s3_website"
+
+Very comprehensive tool to take the challenges out of hosting your static website on S3. The feature set is rich and well thought out. I still host Jekyll directly on GitHub Pages, but this is tempting to make it fully independent.
+
+Link seventeen. "Actions, not words, reveal our real values | Derek Sivers"
+
+I really like Sivers' writing and this one rings so true. This is where a lot of GTD practitioners break down in my opinion. There is this review of the tasks on your list and a wondering about tooling to get more done, when in reality you just don't want to do it!
+
+Link eighteen. "Should you blog on Facebook or the web? —Scripting News"
+
+Dave Winer is often referred to as the father of blogging. The fact that he ever thought it was a good idea to blog on Facebook always surprised me. The desire for audience and engagement is high, and Facebook may deliver that. But you give away far, far too much for that.
+
+Link nineteen. "jstumble"
+
+I backed Turing Tumble and someone else that backed it decided to write an emulator for it in JavaScript so they could play before it was out! So very cool in a very geeky way!
+
+Link twenty. "Should your Engineering Lead be fired? – It’s Your Turn"
+
+Does Medium require the use of very inflammatory headlines? This post is titled terribly, but the questions it lists are worthy of thinking through if you lead technology teams (or in some cases any kind of team!).
+
+Link twenty one. "Instagram Makes a Smooth Move to Python 3 - The New Stack"
+
+Send this to the folks that highlight how Python, or any interpreted language really, just cannot scale.
+
+That's the end of Links.
+
+Now, the Promotion section.
+
+Minnestar is the technology community for Minnesota. If you are passionate about technology you need to go to Minnebar and Minnedemo. Did you know that Minnebar is the largest BarCamp in North America and one of the largest in the world? Its also been going on for over 10 years? Minnedemo is the best place to hear about innovative tech and fun projects in the Twin Cities area. I am on the Minnestar board and I focus on Minnestar as one of the driving forces improving and expanding the technology community in the area. Minnestar is a 501c3 non-profit. Become a Community Supporter today!
+
+That's the end of Promotion.
+
+Now, the Microblog updates section.
+
+- Updating my Bose QuietComfort 35’s firmware from 1.0.6 to 1.3.2. I love updating firmware.
+- Great night with @peterzaballos taking in a MN United win!
+- TeamSPS Ice Cream social today!
+- Genius design for Pokémon themed bags boards.
+- Giant lawn dominoes? Haven’t seen this before.
+- Cool ice cream social at Fuller Park!
+- Time for some Kubb!
+- Cheese, popcorn, strawberries and chocolate.
+- Enjoying summers bounty! Fresh strawberries!
+- Happy Fathers Day to all the Dads out there! Be “Rad Like Dad”!
+- Fun stop at Whitetail Woods Regional Park.
+- Midsommer Festival at American Swedish Institute.
+- Family selfie! @ Mill City Museum
+
+That's the end of Microblog updates.
+
+Thank you for subscribing to the Weekly Thing! If you know of people that would like the Weekly Thing please forward it along!
+
+That brings us to the end of the Weekly Thing, issue 7. Thanks for listening, and I'll see you next time.

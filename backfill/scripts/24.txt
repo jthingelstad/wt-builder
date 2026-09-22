@@ -1,0 +1,180 @@
+The Weekly Thing, issue 24. Weekly Thing for October 21, twenty seventeen. Published October 21, twenty seventeen. By Jamie Thingelstad. In this issue: Ethical minefields of technology, imposter syndrome, Facebook regrets, software architecture failing, Cardhop for Mac, ProseMirror 1.0, Micro.blog for Mac.
+
+We are away this weekend hanging out with the 19 members of the extended Olson Family clan — Tammy's side of the family. We've done this weekend away as a family for 14 years now. There were only 10 people at the first one, and now grandchildren have filled the ranks to 19. The relevance of getting away as an extended family has grown as everyone's schedules get busier and the opportunities to gather get more difficult.
+
+This week I put some fun things into the feeds and data section of Link Thing. I've always published RSS and JSON feeds but I added an iCal feed to that this week. Why? Mostly because I could. You can now overlay my links feed onto your calendar. More fun though is I expanded the full archive feeds. I've always provided a full CSV dump but I added two JSON versions. One is a flat array of links the other is grouped by hostname. I have no idea what people may want to do with those databases but it would be fun to see if anyone plays with them.
+
+Also, I think I figured out how to embed an image in Mailchimp better than last week.
+
+Now, the Photog section.
+
+Oct 19, twenty seventeen at 6:55 PM
+29525 S Nicaboyne Lake Rd Scott WI 54830
+
+The lit up lodge in the woods just before dark on Nicaboyne Lake.
+
+That's the end of Photog.
+
+Now, the Links section.
+
+Link one. "The Ethical Minefields of Technology - Scientific American Blog Network"
+
+Yet another article highlighting the unintended consequences of the mass adoption of new technology. Add this to the large stack of things that should be considered part of a technology ethics discipline.
+
+Link two. "Dave Pell of NextDraft discusses fake news, tech, and startup investing"
+
+I'm a subscriber of Dave Pell's NextDraft and really like it. Nice interview talking about how NextDraft came about and highlighting is workflow for making it.
+
+Link three. "Kitchen Soap – The Infinite Hows (or, the Dangers Of The Five Whys)"
+
+Good article suggesting that "How?" is the better question instead of "Why?" when doing incident retrospectives. The suggestion is that why too often leads to an answer of who, which makes sense and I've also seen happen.
+
+Link four. "How your boss does their 1-1s tells you a lot about what they think their job is | Phil Wicklund | LinkedIn"
+
+I've done a decent amount of thinking about how to effectively use 1:1 time. Most companies expend a significant amount of time and investment in these meetings. Thinking about what you want to get from them and then designing for those goals is a good idea.
+
+Link five. "I haven't experienced imposter syndrome, and maybe you haven't either"
+
+I hear people use the imposter syndrome term a lot and I really dislike it. Most successful people I know leap to tasks that are above their current skills. That is how many people gain skills. Usually, it’s a good thing in my experience. I’m not suggesting this isn't a real thing for some people, but I think it’s self-assigned far too often.
+
+Link six. "“What Have I Done”: Early Facebook Employees Regret the Monster They Created | Vanity Fair"
+
+Oops.
+
+Link seven. "TECHdotMN Meet A Minnesota CTO: Shivani Stumpf, Hoonuit - TECHdotMN"
+
+Nice interview with Shivani Stumpf on her new role as CTO at Hoonuit.
+
+Link eight. "One person’s history of Twitter, from beginning to end"
+
+I joined Twitter in December two thousand six, user #82,903. I can personally attest to the path that is highlighted here. Twitter has become something very different. It’s not the first time, it’s evolved many times but I’m not sure what it’s evolved to now is good.
+
+Link nine. "Software architecture is failing – Alex Hudson"
+
+I love nearly everything in this article. I think one of the most important things for tech teams is to stay close to the problem they are solving and along with that stay close to their users. I remember when I was at MarketWatch we were building software for the news team and it was okay. Then we took those same developers and put them in the newsroom! A huge positive change in value delivery followed immediately. I’ve seen this repeated many times. Talking about how technical teams make decisions, I often see a complete lack of understanding how to relate the business issues their organisation faces to the technical strategy. Regularly, I don’t see a technical strategy at all. The team may have made a decision like “We’re 100% microservices!”, but when I ask them they cannot give a good reason that relates to the business in a direct way. This is absolutely spot on! A well-articulated technical vision should match the business vision directly, especially in a tech company.
+There should be total and complete alignment between your business and technology strategy in a tech company. I think we’re often getting the build/buy decision wrong. Software development should be the tool of last resort: “we’re building this because it doesn’t exist in the form we need it”. I want to hear from more tech leaders about how they solved a problem without building the software, and tactics for avoiding development. I often look at work teams are doing and ask “is this differentiating?” If it isn’t you should buy it, if it is build it and be amazing at it. Make it your strategic more! If you feel it isn’t differentiating but you still need to build it do so with extreme caution and be miserly. You may be right, but you may not be too.
+
+Link ten. "Why I’m Using Bitmarks on my Products « bunnie's blog"
+
+I hadn't heard of Bitmark but it’s an interesting use of a blockchain for a non-currency use case. Most people are familiar with blockchains through Bitcoin. Bitcoin uses the blockchain as a public ledger to prevent double-spending of the same virtual coin. This same public ledger can be applied to physical hardware products through a bitmark. Products that have been bitmarked can have their provenance tracked back to the factory using the public ledger, thus hampering cloning and warranty fraud – the physical equivalent of double-spending a Bitcoin. This seems like a good solution to this problem.
+
+Link eleven. "How to set up world-class continuous deployment using free hosted tools"
+
+We live in a magical time when you can do all of this for your side project for free. Good listing of services and how to put them together.
+
+Link twelve. "6 Ways Great Companies Use Board Decks to Their Advantage | Union Square Ventures"
+
+Cool look into best practices that early stage companies use in sharing information with their boards. Union Square had an intern do an analysis of a large number of board decks and identify trends and commonalities.
+
+Link thirteen. "First Look: Cardhop for Mac —The Sweet Setup"
+
+I am an extensive user of my contacts system so this macOS app appealed to me right away. I already have quick access to my contacts from LaunchBar but Cardhop offers the ability to add and edit information in the same place with a more optimized user experience. I purchased this and so far it looks very good.
+
+Link fourteen. "ProseMirror 1.0"
+
+I wish this would have existed when I was dealing with content management solutions for news organizations. It looks like a compelling solution. Most importantly, ProseMirror is agnostic to the actual document shape, making it possible to build applications on top of this library that in the past would have required a fully custom editor implementation.
+
+Link fifteen. "The GRAKN.AI Ontology: Simplicity and Maintainability"
+
+Interesting tech to power reasoning systems. This excerpt caught my eye: RDF and OWL are for semantic web (not databases) and logicians (not software engineers). And GRAKN.AI, as you may expect, is for databases and software engineers. I’ve read a bit about RDF and OWL and agree it’s hard for an engineer to grok. This article is vendor-written to support GRAKN.AI but still an interesting read.
+
+Link sixteen. "Want to see something crazy? Open this link on your phone with WiFi turned off."
+
+It seems like everyone is selling any and all data they collect on us. But what these services show us is even more alarming: US telcos appear to be selling direct, non-anonymized, real-time access to consumer telephone data to third party services — not just federal law enforcement officials — who are then selling access to that data. I thought FCC regulations didn’t allow telecom companies to do this, but clearly that isn’t the case. Regulation is needed here. Sadly I don’t expect it to happen since the money and politics are all on the other side of the argument.
+
+Link seventeen. "The Python Graph Gallery – Visualizing data – with Python"
+
+Great collection of various graphs and visuals along with the Python code to produce them. Nice gallery of ideas.
+
+Link eighteen. "How Apple put an end to iOS jailbreaking | BetaNews"
+
+Interesting read with some peeks into the elaborate security infrastructure in a modern iPhone. The article is about how hard jailbreaking is as a result, but it’s also a good overview of general security in the device.
+
+Link nineteen. "ttyload"
+
+Load graphs in ascii for your terminal windows.
+
+Link twenty. "p2p social networking with Rotonde and Beaker Browser - louis.center"
+
+Yet another proof point for building a self-hosted decentralized social network. It’s clear that the sending messages part can be solved. The hard part still seems to be discovery.
+
+Link twenty one. "iPad Diaries: Clipboard Management with Copied and Workflow – MacStories"
+
+I recently decided to take the plunge and get Copied on all of my iOS and macOS devices. Viticci's endorsed this software for a long time and I've been hesitant. Right away I found it really handy to have access to everything I've copied on my Mac available on my iPad as well and searching that history is fabulous.
+
+Link twenty two. "Micro.blog for Mac"
+
+First public beta of the micro.blog Mac app is now out. I’m still enjoying using micro.blog and publishing Micro Thing!
+
+Link twenty three. "iCalendar.org Validator"
+
+If you find yourself writing an ICS or iCalendar feed by hand this will come in handy to make sure it works right. This one seemed to detect timezone shenanigans well.
+
+Link twenty four. "iCalendar Validator - Based on iCal4j"
+
+If you find yourself writing an ICS or iCalendar feed by hand this will come in handy. This one did well detecting required elements.
+
+Link twenty five. "More Great Shelf Apps to Boost iPad Productivity – MacStories"
+
+I’m still getting used to the new drag and drop capabilities in iOS 11. I've learned a lot from looking at how others use it and I grabbed Yoink as well as Copied after reading this post.
+
+That's the end of Links.
+
+Now, the Promotion section.
+
+Internet Archive is a non-profit library of millions of free books, movies, software, music, websites, and more. I have been a supporter of the Internet Archive for many years and I think their mission is fabulous! The web is a major part of our culture and it the content that we put on it is sadly ephemeral. The Internet Archive is working hard to capture that information and keep it for history. Donate to Internet Archive today!
+
+That's the end of Promotion.
+
+Now, the Featured App section.
+
+Copied
+
+by Kevin Chang
+
+Save snippets of data with Copied so that you can easily find them when you need them.
+
+I had heard about Copied for many years and I finally decided to give it a try. I got it on all of my iOS and macOS devices and I have found that having a shared clipboard history across all devices is pretty great. I've just scratched the surface of what it can do.
+
+Free 4.5/5 stars
+
+That's the end of Featured App.
+
+Now, the Microblog updates section.
+
+- Lasagna! One of my specialties.
+- Family photo time. Get out the big glass.
+- Father son time.
+- Kubb King.
+- Morning Kubb!
+- Exploring the stars with Star Walk and iPhone.
+- Fire!
+- Lodge at night with campfire.
+- The fourteenth Annual Olson Family Weekend starts tonight! At Nicaboyne Lake, WI this year. 9 grand-children added since first one!
+- Right before dark. Nicaboyne Lake, WI.
+- We got a new desk at home and I’m stunned by how much it has improved my keyboard experience!
+- Great talk by #TeamSPS Dana Engebretson @bigdana on approaches she took to solving a complicated solution using Lamba! Λ
+- Excited to hear Dana Engebretson @bigdana present on Serverless at Dev Ops Meetup.
+- Excited to be able to attend the Dev Ops Meetup tonight hosted at SPS Commerce!
+- Anyone else notice the macOS micro.blog client lets you to see who other people follow? Big help for discoverability. Thanks @manton!
+- Mazie seems excited for MEA weekend! Kids are off school rest of the week!
+- What’s better than using AirPods for music? Using a single AirPod to make calls or listen to an audio book.
+- I’ve posted more than most users on micro.blog’s discover tab. Definitely isn’t based on post frequency.
+- Obligatory post from the freshly released micro.blog Mac app!
+- I added ICS/iCal feed support to Link Thing — just because. Link to subscribe on feeds page.
+- Safari on iOS 11 previews an ICS file when you open it? Nice! Has it always done this?
+- I stumbled on this link from Feb two thousand seven when I started looking into Getting Things Done. Over 10 years later and I’m still practicing, and improving, GTD practices. This is one of my decade projects that I expect to continuously get value from.
+- Tree person says our 100+ year old elm tree has “structural failure”. Haven’t come to terms with taking it down yet.
+- Next time I’ll have this view I’ll be standing on ice.
+- Macro-sized crop art! Sever’s Fall Festival
+- The Pumpkin Blasters at Sever’s Fall Festival are pretty impressive!
+- Corn Pit!
+- Brandi Carlile’s The Story is such a great song.
+- Fall.
+- Last boat ride of the year.
+
+That's the end of Microblog updates.
+
+Thank you for subscribing to the Weekly Thing! If you know of people that would like the Weekly Thing please forward it along!
+
+That brings us to the end of the Weekly Thing, issue 24. Thanks for listening, and I'll see you next time.
