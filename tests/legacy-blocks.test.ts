@@ -57,6 +57,13 @@ describe('legacyBlocks', () => {
     expect(fyi).toBeGreaterThan(0);
   });
 
+  it('takes a section name with a dot in a word, and not a sentence that begins "Now,"', () => {
+    const titles = blocks(342).filter((x) => x.chapter).map((x) => x.chapter!.title);
+    expect(titles).toContain('mb — an agent-first micro.blog client');
+    expect(blocks(342).find((x) => x.chapter?.title === 'mb — an agent-first micro.blog client')?.pauseBefore).toBe('section');
+    expect(blocks(250).filter((x) => x.chapter).map((x) => x.chapter!.title)).not.toContain(expect.stringMatching(/^what to sign/));
+  });
+
   it('puts links, journal entries, and day labels on item boundaries', () => {
     const b = blocks(300);
     const links = b.filter((x) => /^Link \w+ of \w+\./.test(x.text));

@@ -21,9 +21,10 @@ import { ISSUE_URL_BASE, prosePieces, spokenTitle, terminate } from './audio.ts'
 /** The transform's own cues, as it writes them. */
 // Exactly the transform's three opener shapes; a paragraph of prose that
 // happens to begin "Now, …" (WT250) is not one, so a name has no sentence
-// punctuation in it.
-const SECTION_OPEN = /^Now, (?:the ([^.?!]+?) section|(more links)|(for your information))\.$/;
-const SECTION_CLOSE = /^That's the end of [^.?!]+\.$/;
+// punctuation in it — a dot inside a word ("micro.blog", WT342) is not that.
+const NAME = String.raw`(?:[^.?!]|\.(?!\s|$))+?`;
+const SECTION_OPEN = new RegExp(`^Now, (?:the (${NAME}) section|(more links)|(for your information))\\.$`);
+const SECTION_CLOSE = new RegExp(`^That's the end of ${NAME}\\.$`);
 const CLOSING = /^That brings us to the end of the Weekly Thing/;
 const NUMBER = '(?:one|two|three|four|five|six|seven|eight|nine|ten|eleven|twelve|thirteen|fourteen|fifteen|sixteen|seventeen|eighteen|nineteen|twenty|thirty|forty|fifty)(?: [a-z]+)?';
 const ITEM = new RegExp(`^(?:Link ${NUMBER}(?: of ${NUMBER})?\\.|Journal entry ${NUMBER}\\.)(?=\\s|$)`);

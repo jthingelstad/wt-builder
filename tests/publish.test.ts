@@ -86,7 +86,9 @@ describe('the archive page', () => {
     const real = readFileSync(realArchivePage, 'utf8');
     const keys = (md: string) =>
       new Set(md.split('---')[1]!.split('\n').filter((l) => /^[a-z_]+:/.test(l)).map((l) => l.split(':')[0]!));
-    // The reference page has audio, so compare the fully-populated case.
+    // The reference page has audio — since 2026-09-22 the back catalogue's
+    // full record, chapters and transcript included — so compare the
+    // fully-populated case.
     const mine = keys(
       archivePage(doc(), {
         buttondownId: 'em_x',
@@ -94,7 +96,10 @@ describe('the archive page', () => {
           audio_url: 'https://files.thingelstad.com/x.mp3',
           audio_duration_seconds: 60,
           audio_byte_size: 999,
-          audio_voice: 'openai-tts-1-hd:echo',
+          audio_voice: 'openai-tts-1-hd:echo+nova',
+          audio_chapters_url: 'https://files.thingelstad.com/x.chapters.json',
+          audio_transcript_url: 'https://files.thingelstad.com/x.vtt',
+          audio_chapters: [{ title: 'Welcome', start: 0 }],
         },
       }),
     );
