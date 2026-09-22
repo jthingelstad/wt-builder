@@ -13,7 +13,7 @@ import {
   issueEntry, siteInputs, subjectFor,
 } from '../src/server/publish.ts';
 import {
-  chaptersJson, chaptersOf, ffMetadata, id3Tags, pieceKey, transcriptVtt, vttClock,
+  chaptersJson, chaptersOf, ffMetadata, id3Chapters, id3Tags, pieceKey, transcriptVtt, vttClock,
   FINAL_CHANNELS, FINAL_SAMPLE_RATE, LOUDNORM_I, LOUDNORM_TP, PAUSE,
 } from '../src/server/integrations/audio.ts';
 import type { PlacedBlock } from '../src/server/integrations/audio.ts';
@@ -272,12 +272,26 @@ describe('audio assembly', () => {
     expect(json.chapters[1]).toEqual({ startTime: 5.6, title: 'Notable' });
   });
 
-  it('writes the tags and chapters as ffmetadata, each chapter ending where the next begins', () => {
-    const meta = ffMetadata({ title: 'WT350 — A; B = C', track: '350' }, chaptersOf(placed), 22.5);
+  it('writes the tags as ffmetadata, escaped', () => {
+    const meta = ffMetadata({ title: 'WT350 — A; B = C', track: '350' });
     expect(meta.startsWith(';FFMETADATA1\n')).toBe(true);
     expect(meta).toContain('title=WT350 — A\\; B \\= C\n');
-    expect(meta).toContain('[CHAPTER]\nTIMEBASE=1/1000\nSTART=0\nEND=5600\ntitle=Welcome\n');
-    expect(meta).toContain('START=8700\nEND=22500\ntitle=A title | The Site\n');
+    expect(meta).not.toContain('[CHAPTER]');
+  });
+
+  it('writes ID3 chapters with the URL and the art inside, each ending where the next begins', () => {
+    const chapters = chaptersOf(placed);
+    chapters[0]!.image = 'https://files.thingelstad.com/weekly-thing/350/chapters/abc.jpg';
+    const art = new Map([[chapters[0]!.image!, Buffer.from('jpeg-bytes')]]);
+    const { chapter, tableOfContents } = id3Chapters(chapters, art, 22.5);
+    expect(chapter.map((c) => [c.startTimeMs, c.endTimeMs, c.tags?.title])).toEqual([
+      [0, 5600, 'Welcome'], [5600, 8700, 'Notable'], [8700, 22500, 'A title | The Site'],
+    ]);
+    expect(chapter[0]!.tags?.userDefinedUrl).toEqual([{ description: 'chapter url', url: 'https://weekly.thingelstad.com/archive/350/' }]);
+    expect((chapter[0]!.tags?.image as { imageBuffer: Buffer }).imageBuffer.toString()).toBe('jpeg-bytes');
+    expect(chapter[1]!.tags?.userDefinedUrl).toBeUndefined();
+    expect(chapter[1]!.tags?.image).toBeUndefined();
+    expect(tableOfContents[0]!.elements).toEqual(['chp0', 'chp1', 'chp2']);
   });
 
   it('keys a cached piece by what is said, by whom, and how', () => {

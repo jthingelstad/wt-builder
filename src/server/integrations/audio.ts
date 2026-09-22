@@ -27,6 +27,7 @@ import { tmpdir } from 'node:os';
 import { join } from 'node:path';
 
 import { PutObjectCommand, S3Client } from '@aws-sdk/client-s3';
+import NodeID3 from 'node-id3';
 
 import type { IssueDoc } from '../../shared/types.ts';
 import type { Boundary, Chapter, ScriptBlock, Speaker } from '../../shared/render/audio.ts';
@@ -368,16 +369,45 @@ function ffEscape(s: string): string {
   return s.replace(/[\\=;#\n]/g, (c) => (c === '\n' ? '\\\n' : `\\${c}`));
 }
 
-/** The ID3 tags and the chapters, as one ffmetadata file for the final encode. */
-export function ffMetadata(tags: Record<string, string>, chapters: TimedChapter[], totalSeconds: number): string {
+/** The ID3 tags as an ffmetadata file for the final encode. Chapters are written after it, see `id3Chapters`. */
+export function ffMetadata(tags: Record<string, string>): string {
   const lines = [';FFMETADATA1'];
   for (const [k, v] of Object.entries(tags)) lines.push(`${k}=${ffEscape(v)}`);
+  return lines.join('\n') + '\n';
+}
+
+/**
+ * The chapters as ID3v2 CHAP frames with a CTOC, each carrying its title,
+ * its URL as a WXXX subframe, and its art as an APIC subframe. ffmpeg writes
+ * titles alone, and Overcast reads chapters from the file rather than the
+ * feed's JSON — so the link (its chain icon) and the picture have to be in
+ * here for Overcast to show them at all (2026-09-21). `art` is keyed by the
+ * chapter's image URL.
+ */
+export function id3Chapters(chapters: TimedChapter[], art: Map<string, Buffer>, totalSeconds: number): {
+  chapter: NonNullable<NodeID3.Tags['chapter']>;
+  tableOfContents: NonNullable<NodeID3.Tags['tableOfContents']>;
+} {
+  const chapter: NonNullable<NodeID3.Tags['chapter']> = [];
   chapters.forEach((c, i) => {
     const end = chapters[i + 1]?.start ?? totalSeconds;
     if (end <= c.start) return;
-    lines.push('[CHAPTER]', 'TIMEBASE=1/1000', `START=${Math.round(c.start * 1000)}`, `END=${Math.round(end * 1000)}`, `title=${ffEscape(c.title)}`);
+    const image = c.image ? art.get(c.image) : undefined;
+    chapter.push({
+      elementID: `chp${i}`,
+      startTimeMs: Math.round(c.start * 1000),
+      endTimeMs: Math.round(end * 1000),
+      tags: {
+        title: c.title,
+        ...(c.url ? { userDefinedUrl: [{ description: 'chapter url', url: c.url }] } : {}),
+        ...(image ? { image: { mime: 'image/jpeg', type: { id: 0 }, description: c.title, imageBuffer: image } } : {}),
+      },
+    });
   });
-  return lines.join('\n') + '\n';
+  return {
+    chapter,
+    tableOfContents: [{ elementID: 'toc', isOrdered: true, elements: chapter.map((c) => c.elementID) }],
+  };
 }
 
 /**
@@ -505,7 +535,8 @@ export async function renderAudio(
 
     const chapters = chaptersOf(placed);
     // Chapter art, squared and content-addressed. Each distinct picture is
-    // fetched and cropped once; the chapter points at the square.
+    // fetched and cropped once, keyed by the source URL; the chapter is
+    // pointed at the square once the destination is known.
     const art = new Map<string, { key: string; body: Buffer }>();
     for (const c of chapters) {
       if (!c.image) continue;
@@ -518,10 +549,9 @@ export async function renderAudio(
         have = { key: `weekly-thing/${issueNumber}/chapters/${hash}.jpg`, body: squared };
         art.set(c.image, have);
       }
-      c.image = have.key;
     }
     const metaPath = join(work, 'metadata.txt');
-    await writeFile(metaPath, ffMetadata(id3Tags(doc), chapters, total));
+    await writeFile(metaPath, ffMetadata(id3Tags(doc)));
 
     const outPath = join(work, `weekly-thing-${issueNumber}.mp3`);
     await run('ffmpeg', [
@@ -530,7 +560,7 @@ export async function renderAudio(
       '-i', coverPath,
       '-i', metaPath,
       '-map', '0:a', '-map', '1:v',
-      '-map_metadata', '2', '-map_chapters', '2',
+      '-map_metadata', '2',
       '-c:v', 'copy', '-disposition:v', 'attached_pic',
       '-af', filter,
       '-ar', String(FINAL_SAMPLE_RATE),
@@ -543,16 +573,26 @@ export async function renderAudio(
       outPath,
     ]);
 
-    const body = await readFile(outPath);
-    const seconds = await durationSeconds(outPath);
-    const transcript = transcriptVtt(placed);
-
     let href = (key: string) => `https://${CDN_HOST}/${key}`;
     if (opts.localOut) {
       await mkdir(opts.localOut, { recursive: true });
       href = (key: string) => `file://${join(opts.localOut!, key.split('/').pop()!)}`;
     }
-    for (const c of chapters) if (c.image) c.image = href(c.image);
+    const artByUrl = new Map<string, Buffer>();
+    for (const c of chapters) {
+      if (!c.image) continue;
+      const a = art.get(c.image)!;
+      c.image = href(a.key);
+      artByUrl.set(c.image, a.body);
+    }
+    // The chapters into the file itself, links and art included. node-id3
+    // merges with the tags and cover ffmpeg wrote.
+    const written = NodeID3.update(id3Chapters(chapters, artByUrl, total), outPath);
+    if (written !== true) throw new Error(`writing ID3 chapters failed: ${String(written)}`);
+
+    const body = await readFile(outPath);
+    const seconds = await durationSeconds(outPath);
+    const transcript = transcriptVtt(placed);
     const chaptersFile = chaptersJson(chapters);
     // The name stands for all three files: a chapter list that changes under
     // an unchanged mp3 (2026-09-21, the art went square) must be a new name
