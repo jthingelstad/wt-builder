@@ -80,11 +80,11 @@ Old echoes return
 Before we go, Echoes from the archive, from Thingy, my agentic librarian.
 
 This week's return to building recalls earlier issues about owning the tools
-that shape your work, most directly WT349.
+that shape your work, most directly Weekly Thing 349.
 
 Ask Thingy: How has Jamie's thinking about building his own tools changed?
 
-Shortcuts has been the workflow behind this newsletter since WT210; this issue
+Shortcuts has been the workflow behind this newsletter since Weekly Thing 210; this issue
 is the first assembled without it.
 
 That brings us to the end of The Weekly Thing, issue 350. Thanks for listening.
@@ -109,6 +109,6 @@ Omitted, and why:
 - journal-excluded — all channels false.
 
 Briefly speaks title first, then description; the reverse of print. Journal
-groups speak the weekday alone, matching print. Issue numbers are spoken
-("issue 350") where print labels them WT350.
+groups speak the weekday alone, matching print. Issue numbers are spoken as
+the issue's name ("Weekly Thing 349") where print labels them WT349.
 -->

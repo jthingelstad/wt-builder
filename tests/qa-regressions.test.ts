@@ -80,6 +80,11 @@ describe('markup never reaches the synthesizer', () => {
     expect(script).toContain('Johnson Public House');
   });
 
+  it('speaks WT349 as the issue name, not a part number', () => {
+    expect(speakable('The last time was [WT349](https://x.test/349/), and WT Builder made it.'))
+      .toBe('The last time was Weekly Thing 349, and WT Builder made it.');
+  });
+
   it('leaves the surname as written — the synthesizer says it right, and a respelling spelled letters', () => {
     expect(pronounce('written by Jamie Thingelstad, at weekly dot thingelstad dot com'))
       .toBe('written by Jamie Thingelstad, at weekly dot thingelstad dot com');

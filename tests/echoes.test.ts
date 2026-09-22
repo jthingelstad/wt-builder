@@ -150,9 +150,9 @@ describe('an issue from before echoes were items renders unchanged', () => {
     const out = renderAudio(single());
     expect(out).toContain([
       'Before we go, Echoes from the archive, from Thingy, my agentic librarian.',
-      'The Kubb tournament reached its 8th annual running this week, after WT262.',
+      'The Kubb tournament reached its 8th annual running this week, after Weekly Thing 262.',
       'Ask Thingy: How has the Kubb Tournament grown?',
-      'The call for privacy regulation has a long run-up: WT281.',
+      'The call for privacy regulation has a long run-up: Weekly Thing 281.',
       'Ask Thingy: What has Jamie written about privacy?',
       'That brings us to the end of The Weekly Thing, issue 350. Thanks for listening.',
     ].join('\n\n'));

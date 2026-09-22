@@ -45,6 +45,10 @@ export function speakable(text: string | undefined): string {
   // A bare URL left in prose is unspeakable; drop it rather than spell it.
   s = s.replace(/\bhttps?:\/\/\S+/gi, ' ');
 
+  // "WT349" is print shorthand; read as letters and digits it sounds like a
+  // part number (Jamie, 2026-09-21). Spoken, it is the issue's name.
+  s = s.replace(/\bWT(\d{1,4})\b/g, 'Weekly Thing $1');
+
   // Tidy the seams left behind.
   return s
     .replace(/[ \t]+/g, ' ')
