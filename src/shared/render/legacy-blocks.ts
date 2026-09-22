@@ -32,7 +32,6 @@ const LINK_CUE = new RegExp(`^(Link ${NUMBER}(?: of ${NUMBER})?\\.) "(.+)"$`, 's
 const DAY_LABEL = /^(?:Monday|Tuesday|Wednesday|Thursday|Friday|Saturday|Sunday) @ \d{1,2}:\d{2} [AP]M$/;
 const TABLE = /^\|.*\|\s*$/;
 const TABLE_RULE = /^\|(?:\s*:?-+:?\s*\|)+\s*$/;
-const HEX_SIGNATURE = /^0x[0-9a-f]{40,}$/i;
 /** Markup the transform let through as a paragraph of its own: a lone bullet, an anchor that just says "link", a row of dots. */
 const RESIDUE = /^(?:\*|link|[.…]+)$/i;
 
@@ -109,12 +108,18 @@ export function legacyBlocks(script: string, issue: LegacyIssue): ScriptBlock[] 
       continue;
     }
     if (RESIDUE.test(paragraph)) continue;
-    // A signature is proof for the eye; read aloud it is a minute of hex.
-    if (section === 'Signature' && HEX_SIGNATURE.test(paragraph)) continue;
+    // A signature is proof for the eye; read aloud it is a minute of hex —
+    // whether it stands alone or follows "Signed by thingelstad.eth:" on
+    // the next line of the same paragraph (WT250).
+    let spoken = paragraph;
+    if (section === 'Signature') {
+      spoken = paragraph.replace(/\s*0x[0-9a-f]{40,}/gi, '').trim();
+      if (!spoken) continue;
+    }
     // Issues 251–260 set the Fortune as a subheading of the Signature, which
     // the transform spoke as a bare word. It is the Fortune section, as in
     // every other issue: close the one, open the other.
-    if (section === 'Signature' && paragraph === 'Fortune') {
+    if (section === 'Signature' && spoken === 'Fortune') {
       out.push({ kind: 'closer', text: "That's the end of Signature.", pauseBefore: 'section' });
       section = 'Fortune';
       out.push({ kind: 'transition', text: 'Now, the Fortune section.', pauseBefore: 'section', chapter: { title: section } });
@@ -126,13 +131,13 @@ export function legacyBlocks(script: string, issue: LegacyIssue): ScriptBlock[] 
     afterOpener = false;
     // "Link one of seven. Traceroute Isn't Real, Gekk." — the separator
     // spoken as a comma, the quotes not spoken at all (WT350, 2026-09-21).
-    const link = LINK_CUE.exec(paragraph);
+    const link = LINK_CUE.exec(spoken);
     if (link) {
       const title = spokenTitle(link[2]);
       out.push({ kind: 'cue', text: `${link[1]} ${title}`, pauseBefore: first, title });
       continue;
     }
-    for (const [j, piece] of piecesOf(paragraph).entries()) {
+    for (const [j, piece] of piecesOf(spoken).entries()) {
       out.push({ kind: 'cue', text: monthsSpelled(piece.text), pauseBefore: j === 0 ? first : piece.boundary });
     }
   }

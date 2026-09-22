@@ -119,8 +119,8 @@ describe('legacyBlocks', () => {
   it('does not read an Ethereum signature aloud', () => {
     const b = blocks(250);
     expect(b.some((x) => x.chapter?.title === 'Signature')).toBe(true);
-    expect(b.some((x) => /^0x[0-9a-f]{40,}$/i.test(x.text))).toBe(false);
-    expect(b.some((x) => x.text.startsWith('Signed by thingelstad.eth'))).toBe(true);
+    expect(b.some((x) => /0x[0-9a-f]{40,}/i.test(x.text))).toBe(false);
+    expect(b.map((x) => x.text)).toContain('Signed by thingelstad.eth.');
     // 251–260 put the Fortune under the Signature; it is its own section again.
     const titles = blocks(253).filter((x) => x.chapter).map((x) => x.chapter!.title);
     expect(titles.slice(-2)).toEqual(['Signature', 'Fortune']);
