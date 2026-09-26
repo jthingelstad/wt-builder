@@ -96,9 +96,13 @@ export const SPOKEN_SITE = 'weekly dot thingelstad dot com';
 export const HAIKU_TRANSITION = "And to close, this week's haiku.";
 export const HAIKU_TRANSITION_MID = "This week's haiku.";
 
-/** Jamie hands over; Thingy introduces itself in its own voice, then speaks. */
-export const MEMBERSHIP_TRANSITION = 'Next, a word about membership, from Thingy, my agentic librarian.';
-export const ECHOES_TRANSITION = 'Before we go, Echoes from the archive, from Thingy, my agentic librarian.';
+/**
+ * Jamie hands over; Thingy introduces itself in its own voice, then speaks.
+ * Just "from Thingy": describing Thingy every time it spoke was redundant,
+ * twice an episode (Jamie, listening to WT351).
+ */
+export const MEMBERSHIP_TRANSITION = 'Next, a word about membership, from Thingy.';
+export const ECHOES_TRANSITION = 'Before we go, Echoes from the archive, from Thingy.';
 export const THINGY_HELLO = 'Hello, this is Thingy.';
 
 /**
@@ -348,12 +352,20 @@ function itemPieces(item: Item, planned: PlannedNode, index: number, total: numb
     case 'photo':
       return photoPieces(item);
     case 'echo':
-      // The thread, then the question — spoken as the single-body Echoes
-      // always was: the link's words, never its URL.
-      return prosePieces(echoBlock(item));
-    default:
+      // The thread only. The Ask-Thingy question is a door on the page and
+      // a chapter link in the player; read aloud after every echo it sounded
+      // strange (Jamie, listening to WT351).
       return prosePieces(item.body);
+    default:
+      // A single-body Echoes (WT350 and earlier) carries its Ask-Thingy
+      // doors in the body; they are not read aloud there either.
+      return prosePieces(planned.node.type === 'echoes' ? withoutAsks(item.body) : item.body);
   }
+}
+
+/** Drop the "_Ask Thingy:_ [question](url)" paragraphs from an Echoes body. */
+function withoutAsks(body: string | undefined): string {
+  return String(body ?? '').split(/\n{2,}/).filter((p) => !/^\s*_?\*?Ask Thingy:?\*?_?:?/i.test(p)).join('\n\n');
 }
 
 /** The first `<img>` or Markdown image in a body, pointed at the CDN copy. */

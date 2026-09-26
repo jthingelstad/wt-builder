@@ -76,7 +76,9 @@ describe('the Echoes section iterates its items', () => {
 
     const audio = renderAudio(doc);
     const spoken = audio.slice(audio.indexOf('Before we go'));
-    expect(spoken).toContain('First thread.\n\nAsk Thingy: First question?\n\nSecond thread, no door.\n\nThird thread.\n\nAsk Thingy: Third question?');
+    // The asks are doors on the page, not read aloud (Jamie, WT351).
+    expect(spoken).toContain('First thread.\n\nSecond thread, no door.\n\nThird thread.');
+    expect(spoken).not.toContain('Ask Thingy');
     expect(spoken).not.toContain('http');
   });
 
@@ -149,11 +151,9 @@ describe('an issue from before echoes were items renders unchanged', () => {
   it('audio: one spoken block per paragraph, the links as their words', () => {
     const out = renderAudio(single());
     expect(out).toContain([
-      'Before we go, Echoes from the archive, from Thingy, my agentic librarian.',
+      'Before we go, Echoes from the archive, from Thingy.',
       'The Kubb tournament reached its 8th annual running this week, after Weekly Thing 262.',
-      'Ask Thingy: How has the Kubb Tournament grown?',
       'The call for privacy regulation has a long run-up: Weekly Thing 281.',
-      'Ask Thingy: What has Jamie written about privacy?',
       'That brings us to the end of The Weekly Thing, issue 350. Thanks for listening.',
     ].join('\n\n'));
   });

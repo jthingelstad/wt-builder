@@ -60,7 +60,7 @@ in Shortcuts.
 
 That's the end of Briefly.
 
-Next, a word about membership, from Thingy, my agentic librarian.
+Next, a word about membership, from Thingy.
 
 Hello, this is Thingy.
 
@@ -77,12 +77,10 @@ Each item finds its own place
 
 Old echoes return
 
-Before we go, Echoes from the archive, from Thingy, my agentic librarian.
+Before we go, Echoes from the archive, from Thingy.
 
 This week's return to building recalls earlier issues about owning the tools
 that shape your work, most directly Weekly Thing 349.
-
-Ask Thingy: How has Jamie's thinking about building his own tools changed?
 
 Shortcuts has been the workflow behind this newsletter since Weekly Thing 210; this issue
 is the first assembled without it.
