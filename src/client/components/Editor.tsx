@@ -9,7 +9,7 @@
  * has to buy its width from something else.
  */
 
-import { useCallback, useEffect, useRef, useState } from 'preact/hooks';
+import { useCallback, useEffect, useMemo, useRef, useState } from 'preact/hooks';
 
 import type { Channel, EchoOption, IssueDoc } from '../../shared/types.ts';
 import { shortKicker, sourcesLabel } from '../../shared/dates.ts';
@@ -20,7 +20,7 @@ import { Page, type Lens, type OrderProposal, type PageActions } from './Page.ts
 import { Notes, type Note } from './Notes.tsx';
 import { CollapseView } from './Collapse.tsx';
 import { LeftPanel } from './LeftPanel.tsx';
-import { SHORTCUTS } from './Row.tsx';
+import { OwedContext, SHORTCUTS } from './Row.tsx';
 import { Strip } from './Strip.tsx';
 import { Inspector } from './Inspector.tsx';
 import { ReviewPanel, type PanelNote } from './ReviewPanel.tsx';
@@ -87,6 +87,9 @@ export function Editor({ doc, readiness, busy, error, run, onIndex, onSend, onEr
   const rowsRef = useRef<HTMLDivElement>(null);
 
   const id = doc.issue.id;
+  const owed = useMemo(() => new Map(
+    (readiness?.units ?? []).filter((u) => u.state === 'partial' && u.context).map((u) => [u.anchor, u.context!]),
+  ), [readiness]);
   const w = windowOf(doc);
   const [kicker, note] = KICKER[lens];
 
@@ -442,6 +445,7 @@ export function Editor({ doc, readiness, busy, error, run, onIndex, onSend, onEr
                 onReorder={(nodeId, before) => void run(() => api.addNode(id, { id: nodeId, before }))}
               />
             ) : (
+            <OwedContext.Provider value={owed}>
             <Page
               doc={doc}
               lens={lens}
@@ -487,6 +491,7 @@ export function Editor({ doc, readiness, busy, error, run, onIndex, onSend, onEr
                 />
               )}
             </Page>
+            </OwedContext.Provider>
             )}
           </div>
         </div>

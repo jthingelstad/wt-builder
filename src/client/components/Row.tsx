@@ -10,8 +10,8 @@
  * progress strip can jump to it.
  */
 
-import { createElement, type ComponentChildren } from 'preact';
-import { useEffect, useRef, useState } from 'preact/hooks';
+import { createContext, createElement, type ComponentChildren } from 'preact';
+import { useContext, useEffect, useRef, useState } from 'preact/hooks';
 
 import type { Item, SyncState } from '../../shared/types.ts';
 import {
@@ -26,17 +26,33 @@ interface RowProps {
   rail?: ComponentChildren;
   margin?: ComponentChildren;
   selected?: boolean;
+  /** Never shows what the anchor owes — a utility row borrowing an anchor. */
+  quiet?: boolean;
   children: ComponentChildren;
 }
 
-export function Row({ anchor, structureName, rail, margin, selected, children }: RowProps) {
+/**
+ * What each anchor still owes, from the readiness strip. A row that is
+ * PARTLY done says what is missing right on the page — "4 pictures without
+ * alt text" — where it used to live only in the pill's tooltip, and Jamie
+ * had to ask why a finished post was "in progress" (WT351). A row not yet
+ * started says nothing: that is every link while writing, and noise.
+ */
+export const OwedContext = createContext<Map<string, string>>(new Map());
+
+export function Row({ anchor, structureName, rail, margin, selected, quiet, children }: RowProps) {
+  const owedMap = useContext(OwedContext);
+  const owed = quiet ? undefined : owedMap.get(anchor);
   return (
     <div class={`row${selected ? ' selected' : ''}`} data-anchor={anchor}>
       <div class="row-structure">
         {structureName && <div class="structure-name">{structureName}</div>}
         {rail}
       </div>
-      <div class="row-page">{children}</div>
+      <div class="row-page">
+        {children}
+        {owed && <div class="row-owed">{owed}</div>}
+      </div>
       <div class="row-margin">{margin}</div>
     </div>
   );

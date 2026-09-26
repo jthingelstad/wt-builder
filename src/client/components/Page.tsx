@@ -537,7 +537,7 @@ export function Page({
       ['photo', '+ Photo'], ['outro', '+ Outro'],
     ];
     rows.push(
-      <Row key="tail-add" anchor="issue">
+      <Row key="tail-add" anchor="issue" quiet>
         <div class="ghost-tail">
           {tail.filter(([t]) => !present.has(t)).map(([t, label]) => (
             <button

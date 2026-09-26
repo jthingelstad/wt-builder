@@ -429,6 +429,12 @@ span[contenteditable]:focus {
 /* ── selection and window fallout ─────────────────────────────────────── */
 
 .row.selected .row-page { background: var(--blue-1); }
+/* What a partly-done row still owes, said on the page (readiness `context`). */
+.row-owed {
+  margin-top: 8px; padding: 5px 10px; border-radius: 6px;
+  background: var(--amber-1); color: var(--amber);
+  font-size: 12.5px; line-height: 1.45;
+}
 /* A link just moved between Notable and Briefly: a brief tint where it
    landed, fading out, so the eye finds it after the scroll. */
 .row.arrived .row-page { animation: arrived 1.8s ease-out; }

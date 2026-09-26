@@ -57,3 +57,15 @@ test('the wand is not offered on the intro or outro', async ({ page }) => {
     await expect(page.locator(`[data-anchor="${id}"] .wand`)).toHaveCount(0);
   }
 });
+
+test('a partly-done row says on the page what it still owes', async ({ page, request }) => {
+  const { readiness } = await (await request.get('/api/issues/fixture-wt350')).json();
+  const partial = readiness.units.filter((u: { state: string; context?: string }) => u.state === 'partial' && u.context);
+  test.skip(partial.length === 0, 'the fixture has no partly-done unit');
+  await open(page);
+  const u = partial[0];
+  await expect(page.locator(`[data-anchor="${u.anchor}"] .row-owed`)).toHaveText(u.context);
+  // A not-started row stays quiet.
+  const todo = readiness.units.find((x: { state: string }) => x.state === 'todo');
+  if (todo) await expect(page.locator(`[data-anchor="${todo.anchor}"] .row-owed`)).toHaveCount(0);
+});
