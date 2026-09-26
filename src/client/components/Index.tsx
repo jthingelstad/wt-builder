@@ -175,7 +175,7 @@ function IssueRow({
         <span class="ir-num">WT{issue.number}</span>
 
         <span class="ir-main">
-          <span class="ir-title">{issue.title}</span>
+          <span class={`ir-title${issue.title ? '' : ' untitled'}`}>{issue.title || 'No title yet'}</span>
           <span class="ir-when">
             {when ? longDate(when) : issue.publication_date}
             {isDraft && clock.label && (

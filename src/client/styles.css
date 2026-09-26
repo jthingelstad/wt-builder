@@ -335,6 +335,7 @@ a:hover { text-decoration: underline; }
 
 .ir-main { flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 3px; }
 .ir-title { font-size: 16px; font-weight: 600; letter-spacing: -0.012em; line-height: 19.2px; }
+.ir-title.untitled { color: var(--muted); font-style: italic; font-weight: 400; }
 
 .ir-when { display: flex; align-items: center; gap: 7px; font-size: 12.5px; color: var(--muted); }
 

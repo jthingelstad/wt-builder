@@ -114,7 +114,9 @@ export function createIssue(opts: {
     issue: {
       id: `wt${opts.number}`,
       number: opts.number,
-      title: opts.title ?? `The Weekly Thing ${opts.number}`,
+      // Blank until Jamie names it: a stand-in title reads as a real one
+      // everywhere it shows (WT351). The readiness strip asks for it.
+      title: opts.title ?? '',
       dek: opts.dek ?? '',
       status: 'draft',
       publication_date,
@@ -1159,7 +1161,8 @@ export function readiness(doc: IssueDoc): Readiness {
   const inIssue = (item: Item) =>
     !outOfWindow(item, w) && (['website', 'email', 'audio'] as Channel[]).some((c) => item.channels[c]);
 
-  // The issue's own words come first: it cannot send as "The Weekly Thing N".
+  // The issue's own words come first. New issues start blank; "The Weekly
+  // Thing N" was the old stand-in and still does not count as a title.
   const title = String(doc.issue.title ?? '').trim();
   const dek = String(doc.issue.dek ?? '').trim();
   const titled = Boolean(title) && title !== `The Weekly Thing ${doc.issue.number}`;
