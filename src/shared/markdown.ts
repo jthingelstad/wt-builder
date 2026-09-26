@@ -89,7 +89,7 @@ export function markdownToSafeHtml(source: string): string {
   let list: string[] = [];
   let ordered: string[] = [];
   let orderedStart = 1;
-  let quoted: string[][] = [];
+  let quoted: string[] = [];
 
   const flushParagraph = () => {
     if (!paragraph.length) return;
@@ -107,15 +107,13 @@ export function markdownToSafeHtml(source: string): string {
     out.push(`<ol${start}>${ordered.map((line) => `<li>${markdownInlineToSafeHtml(line)}</li>`).join('')}</ol>`);
     ordered = [];
   };
-  // A quoted passage is a run of `>` lines; a bare `>` between them is a
-  // paragraph break inside the quote, not the end of it.
+  // A quoted passage is a run of `>` lines, and what is inside it is
+  // Markdown too: a bare `>` is a paragraph break, and a list stays a list.
+  // Joining the lines into one paragraph ran WT351's quoted numbered list
+  // together on the canvas and in the email edition.
   const flushQuote = () => {
-    const paragraphs = quoted.filter((lines) => lines.length);
-    if (paragraphs.length) {
-      out.push(`<blockquote>${paragraphs
-        .map((lines) => `<p>${markdownInlineToSafeHtml(lines.join(' '))}</p>`)
-        .join('')}</blockquote>`);
-    }
+    const inner = quoted.join('\n').trim() ? markdownToSafeHtml(quoted.join('\n')) : '';
+    if (inner) out.push(`<blockquote>${inner}</blockquote>`);
     quoted = [];
   };
 
@@ -155,10 +153,7 @@ export function markdownToSafeHtml(source: string): string {
       flushParagraph();
       flushList();
       flushOrdered();
-      const text = quote[1]!.trim();
-      if (!quoted.length) quoted.push([]);
-      if (text) quoted[quoted.length - 1]!.push(text);
-      else quoted.push([]);
+      quoted.push(quote[1]!);
     } else {
       flushList();
       flushOrdered();

@@ -184,7 +184,8 @@ const QUOTE_MARK = /^>\s?/;
  *
  * - A blockquote is framed "Quote." … "End quote." — without the frame a
  *   quoted author's words are indistinguishable from Jamie's (WT350's Voss
- *   quotes were). A multi-paragraph quote keeps its paragraph pauses.
+ *   quotes were). What is inside is spoken as prose: its paragraphs and
+ *   list entries keep their pauses.
  * - A bulleted list speaks each entry with an ordinal — "First," "Second," —
  *   because that is how a person reads a list aloud; a numbered list says the
  *   number as written. Each entry is its own piece.
@@ -200,12 +201,17 @@ export function prosePieces(body: string | undefined): Piece[] {
     afterHeading = false;
 
     if (QUOTE_MARK.test(block)) {
+      // The inside of a quote is prose too: a quoted list keeps its entries
+      // and their pauses. Flattened, WT351's quoted six-step loop ran on as
+      // one breath.
       const inner = lines.map((l) => l.replace(QUOTE_MARK, '')).join('\n');
-      const paras = inner.split(/\n\s*\n/).map((p) => terminate(p.replace(/\s*\n\s*/g, ' '))).filter(Boolean);
-      if (!paras.length) continue;
-      paras[0] = `Quote. ${paras[0]}`;
-      paras[paras.length - 1] = `${paras[paras.length - 1]} End quote.`;
-      paras.forEach((text, i) => out.push({ text, boundary: i === 0 ? first : 'paragraph' }));
+      const pieces = prosePieces(inner);
+      if (!pieces.length) continue;
+      const last = pieces.length - 1;
+      pieces.forEach((p, i) => out.push({
+        text: `${i === 0 ? 'Quote. ' : ''}${p.text}${i === last ? ' End quote.' : ''}`,
+        boundary: i === 0 ? first : p.boundary,
+      }));
       continue;
     }
 

@@ -10,7 +10,7 @@ import { fileURLToPath } from 'node:url';
 import type { IssueDoc, Item } from '../src/shared/types.ts';
 import { allChannels } from '../src/shared/types.ts';
 import { renderWebsite } from '../src/shared/render/website.ts';
-import { renderAudio } from '../src/shared/render/audio.ts';
+import { prosePieces, renderAudio } from '../src/shared/render/audio.ts';
 import { pronounce } from '../src/shared/render/speech.ts';
 import { speakable, isSilent } from '../src/shared/render/speech.ts';
 import { candidateToItem } from '../src/server/integrations/pinboard.ts';
@@ -126,6 +126,19 @@ describe('markup never reaches the synthesizer', () => {
     expect(html).toBe(
       '<blockquote><p>First thought, continued.</p><p>Second thought.</p></blockquote><p>My reply.</p>',
     );
+  });
+
+  it('keeps a list inside a quote a list, on the page and in the email', () => {
+    // WT351: a quoted six-step loop, one `> N.` per line, ran together as one
+    // paragraph because the quote joined its lines before reading them.
+    const html = markdownToSafeHtml('Loop:\n\n> 1. Understand\n> 2. Gather\n> 3. Define\n\nAfter.');
+    expect(html).toBe('<p>Loop:</p><blockquote><ol><li>Understand</li><li>Gather</li><li>Define</li></ol></blockquote><p>After.</p>');
+  });
+
+  it('speaks a quoted list entry by entry inside the quote frame', () => {
+    const pieces = prosePieces('> 1. Understand\n> 2. Gather\n> 3. Define');
+    expect(pieces.map((p) => p.text)).toEqual(['Quote. 1. Understand.', '2. Gather.', '3. Define. End quote.']);
+    expect(pieces.map((p) => p.boundary)).toEqual(['paragraph', 'paragraph', 'paragraph']);
   });
 
   it('escapes unsafe raw HTML and URL schemes', () => {
