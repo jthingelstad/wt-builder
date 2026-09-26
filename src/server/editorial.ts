@@ -336,7 +336,7 @@ export const THINGY_PERSONA = readFileSync(
   'utf8',
 );
 
-const DRAFT_PROMPTS: Partial<Record<Item['type'], string>> = {
+export const DRAFT_PROMPTS: Partial<Record<Item['type'], string>> = {
   membership: `Write the Membership section for this issue of The Weekly
 Thing — BOTH sides of its email branching, in the community-giving register
 above. Each candidate is a pair: "cta", the invitation a reader sees, and

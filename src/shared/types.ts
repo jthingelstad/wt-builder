@@ -45,6 +45,16 @@ export type ItemType =
   | 'echoes'
   | 'haiku';
 
+/**
+ * The items the wand can draft for. The server has a prompt (or a vision
+ * pass, for photo and journal alts) for exactly these; the canvas shows the
+ * wand only on them. Intro, Outro, and Currently are Jamie's own and have
+ * never had one — a wand on them could only fail (WT351).
+ */
+export const DRAFTABLE: ReadonlySet<ItemType> = new Set<ItemType>([
+  'pinboard_link', 'journal_post', 'photo', 'membership', 'haiku', 'echo',
+]);
+
 /** Pinboard write-back state. Never discards the local edit on a failed write. */
 export type SyncState =
   | 'synced'

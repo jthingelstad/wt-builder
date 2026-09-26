@@ -308,3 +308,21 @@ describe('the Echoes wands', () => {
     await expect(draft({ doc, itemId: 'nope' })).rejects.toThrow('no item nope');
   });
 });
+
+describe('the wand is shown only where a draft exists', () => {
+  it('every draftable item has a prompt, and every prompted item is draftable', async () => {
+    const { DRAFT_PROMPTS } = await import('../src/server/editorial.ts');
+    const { DRAFTABLE } = await import('../src/shared/types.ts');
+    // photo and journal_post draft alts by vision; an echo redrafts through
+    // the 'echoes' prompt. Everything else needs a prompt of its own.
+    const special = new Set(['photo', 'journal_post', 'echo']);
+    for (const type of DRAFTABLE) {
+      if (!special.has(type)) expect(DRAFT_PROMPTS[type], type).toBeTruthy();
+    }
+    expect(DRAFT_PROMPTS.echoes).toBeTruthy();
+    for (const type of Object.keys(DRAFT_PROMPTS)) {
+      if (type !== 'echoes') expect(DRAFTABLE.has(type as never), type).toBe(true);
+    }
+    expect(DRAFTABLE.has('intro')).toBe(false);
+  });
+});

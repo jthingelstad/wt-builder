@@ -12,7 +12,7 @@ import type { ComponentChildren, RefObject } from 'preact';
 import { useState } from 'preact/hooks';
 
 import type { ArchiveReference, Channel, EchoOption, IssueDoc, IssueNode, Item } from '../../shared/types.ts';
-import { CHANNELS } from '../../shared/types.ts';
+import { CHANNELS, DRAFTABLE } from '../../shared/types.ts';
 import { clockTime, kickerDate, longDate, wallClock, weekday } from '../../shared/dates.ts';
 import {
   editionOnly, falloutOf, heldOut, itemsInWindow, orderedNodes, outOfWindow, postBlocks, windowOf,
@@ -390,11 +390,13 @@ export function Page({
           rail={<Rail {...rowRail} />}
           margin={
             <>
-              <Wand
-                redraft={hasText}
-                busy={drafting === itemId}
-                onClick={() => act.draft(itemId)}
-              />
+              {DRAFTABLE.has(item.type) && (
+                <Wand
+                  redraft={hasText}
+                  busy={drafting === itemId}
+                  onClick={() => act.draft(itemId)}
+                />
+              )}
               {draft?.itemId === itemId && (draft.photo ? (
                 <PhotoPicker
                   candidates={draft.photo}
