@@ -404,6 +404,10 @@
 
 [contenteditable] { outline: none; border-radius: 3px; }
 [contenteditable]:focus { background: var(--edit); box-shadow: 0 0 0 4px var(--edit); }
+/* A multi-line field holding its Markdown source keeps the newlines Enter
+   puts in it: the editables are plaintext-only, and without pre-wrap a typed
+   line break would show as a space. */
+[data-source][data-multiline] { white-space: pre-wrap; }
 /*
  * An inline run (a Journal body after its lead, a Currently line) wraps across
  * lines; a box-shadow per line box drew a stack of pills. Inline runs get one

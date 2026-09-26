@@ -466,7 +466,13 @@ export function Editable({
   return createElement(tag, {
     ref,
     class: cls,
-    contentEditable: true,
+    // Plain text, always: the field holds Markdown source, and the browser
+    // puts a real "\n" in it on Enter instead of building <div>s and <br>s
+    // that had to be read back as Markdown — the class of bug that lost
+    // WT351's line breaks twice. Safari and Chrome both support it.
+    contenteditable: 'plaintext-only',
+    'data-source': '',
+    'data-multiline': multiline ? '' : undefined,
     spellcheck: true,
     'data-ph': ph,
     onPaste: (e: ClipboardEvent) => insertPaste(e, Boolean(multiline)),
@@ -526,7 +532,11 @@ export function RichEditable({
   return createElement(tag, {
     ref,
     class: cls,
-    contentEditable: true,
+    // Plain text while editing, as in Editable: the source swap puts Markdown
+    // in the node and Enter adds a real newline to it.
+    contenteditable: 'plaintext-only',
+    'data-source': editing ? '' : undefined,
+    'data-multiline': multiline ? '' : undefined,
     spellcheck: true,
     'data-ph': ph,
     onMouseDown: toSource,
