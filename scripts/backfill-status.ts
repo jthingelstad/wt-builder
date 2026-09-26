@@ -4,9 +4,10 @@
  *
  *   npm run backfill:status
  *
- * Reads what the website checkout says is done, what the daily job wrote
- * last (state, log, report), what launchd says about the job, and what the
- * live feed carries. Changes nothing.
+ * Brings the website checkout up to date (fast-forward only), then reads
+ * what it says is done, what the daily job wrote last (state, log, report),
+ * what launchd says about the job, and what the live feed carries. Changes
+ * nothing else.
  */
 
 import { execFileSync } from 'node:child_process';
@@ -20,6 +21,16 @@ const path = (p: string) => fileURLToPath(new URL(p, root));
 const LOG = `${process.env.HOME}/Library/Logs/wt-builder/backfill.log`;
 const ERR = `${process.env.HOME}/Library/Logs/wt-builder/backfill.err`;
 const LABEL = 'com.thingelstad.wt-backfill';
+
+// The checkout is what "done" is read from, so bring it up to date first,
+// as the daily job does. Read stale, the status once reported the ten
+// issues published the day before as still to do (2026-09-26).
+const site = path('../weekly.thingelstad.com/');
+try {
+  execFileSync('git', ['-C', site, 'pull', '--ff-only', '--quiet', 'origin', 'main'], { stdio: 'pipe' });
+} catch (err) {
+  console.log(`(website checkout not updated — reading it as it is: ${String((err as Error).message).split('\n')[0]?.slice(0, 160)})`);
+}
 
 const all = legacyIssues();
 const remaining = all.filter((n) => !hasCurrentAudio(readFileSync(`${ARCHIVE_DIR}${n}.md`, 'utf8')));
