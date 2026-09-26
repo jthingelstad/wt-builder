@@ -1230,12 +1230,15 @@ function Photo({
    */
   const take = (file: File | undefined) => {
     if (!file) return;
+    if (!file.type.startsWith('image/')) { setFailed(`${file.name} is not an image.`); return; }
     setUploading(true);
     setFailed(null);
     act.uploadPhoto(itemId, file)
       .catch((err: Error) => setFailed(err.message))
       .finally(() => setUploading(false));
   };
+
+  const drop = useFileDrop(readOnly ? null : take);
 
   if (uploading) {
     return (
@@ -1248,13 +1251,13 @@ function Photo({
 
   if (!media.url) {
     return (
-      <label class="photo-drop">
+      <label class={`photo-drop${drop.over ? ' over' : ''}`} {...drop.handlers}>
         <input
           type="file" accept="image/*" hidden disabled={readOnly}
           onChange={(e) => take((e.currentTarget as HTMLInputElement).files?.[0])}
         />
         <ImagePlus />
-        <span>Drop a photo here, or click to choose</span>
+        <span>{drop.over ? 'Drop to upload' : 'Drop a photo here, or click to choose'}</span>
         <span class="hint">Time and place are read from the file. Both stay editable.</span>
         {failed && <span class="hint error-text">{failed}</span>}
       </label>
@@ -1268,8 +1271,11 @@ function Photo({
   ].filter(Boolean).join(' · ');
 
   return (
-    <div class="photo-set">
-      <img src={media.url} alt={media.alt ?? ''} />
+    <div class={`photo-set${drop.over ? ' over' : ''}`} {...drop.handlers}>
+      <div class="photo-frame">
+        <img src={media.url} alt={media.alt ?? ''} />
+        {drop.over && <div class="photo-drop-veil">Drop to replace</div>}
+      </div>
       {!readOnly && (
         <div class="photo-actions">
           <label class="btn small">
@@ -1290,6 +1296,38 @@ function Photo({
       {meta && <div class="photo-meta">{meta}</div>}
     </div>
   );
+}
+
+/**
+ * HTML5 drop for one zone. dragenter/dragleave fire for every child the
+ * pointer crosses, so a depth count — not a boolean — says when it has left.
+ * `null` accepts nothing (read-only), and the window guard in main.tsx then
+ * refuses the drop instead of letting the browser open the file.
+ */
+function useFileDrop(onFile: ((file: File) => void) | null) {
+  const [depth, setDepth] = useState(0);
+  const files = (e: DragEvent) => onFile !== null && (e.dataTransfer?.types.includes('Files') ?? false);
+  return {
+    over: depth > 0,
+    handlers: {
+      onDragEnter: (e: DragEvent) => { if (!files(e)) return; e.preventDefault(); setDepth((d) => d + 1); },
+      onDragLeave: (e: DragEvent) => { if (!files(e)) return; setDepth((d) => Math.max(0, d - 1)); },
+      onDragOver: (e: DragEvent) => {
+        if (!files(e)) return;
+        e.preventDefault();
+        e.stopPropagation();
+        e.dataTransfer!.dropEffect = 'copy';
+      },
+      onDrop: (e: DragEvent) => {
+        if (!files(e)) return;
+        e.preventDefault();
+        e.stopPropagation();
+        setDepth(0);
+        const file = e.dataTransfer?.files[0];
+        if (file) onFile!(file);
+      },
+    },
+  };
 }
 
 // ── held out ──────────────────────────────────────────────────────────────
