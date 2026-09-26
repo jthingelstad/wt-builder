@@ -218,6 +218,11 @@ export const api = {
   send: (id: string, destination: string) =>
     call<SendResult>(`/issues/${id}/send/${destination}`, { method: 'POST', body: '{}' }),
 
+  /** Have a model read the audio script for the ear; the review lands on the issue. */
+  scriptReview: (id: string) => post(`/issues/${id}/script/review`),
+  /** Approve the script that was read. */
+  scriptApprove: (id: string) => post(`/issues/${id}/script/approve`),
+
   /** Re-check a sent leg at its destination. Returns at once; the result lands on the issue. */
   verify: (id: string, destination: string) =>
     call<{ issue: IssueDoc }>(`/issues/${id}/verify/${destination}`, { method: 'POST', body: '{}' }),

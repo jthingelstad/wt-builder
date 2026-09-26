@@ -31,8 +31,14 @@ Each card is white on `#eeedea`, radius 12px, and changes border with state
   `24:18 · -16.1 LUFS`, the metadata field names) or as a link (`Draft`, `Live`,
   `File`).
 
-The Podcast's first step is a **gate**: `Read it` opens the Audio lens, `Approve`
-signs off and the destination continues. Until then it sits in `NEEDS YOU` — and the
+The Podcast's first step is a **gate**, `Read the script`: Jamie does not read the
+script himself (WT351), so `Have it read` has a model read it for the ear —
+markup, symbols, cut-off sentences, a list run together — and the step shows its
+summary and each finding as `[block] "quote" — problem`. `Approve` is enabled once
+it has been read, findings or not; it is advice, never a veto. The review and the
+approval are saved on the issue and tied to the script's hash: they survive a
+reload, and an edit to the spoken text afterwards asks for another reading. A sent
+podcast shows the gate done. Until then it sits in `NEEDS YOU` — and the
 **card's own action button disappears** while waiting, so the step row owns the
 interaction. A card button labelled with a state ("Waiting on you") is a dead
 primary: it duplicates the pill beside it and does nothing when clicked.

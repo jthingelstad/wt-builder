@@ -13,6 +13,7 @@
 import { todayCentral } from '../shared/dates.ts';
 import { createServer, type IncomingMessage, type ServerResponse } from 'node:http';
 import { readFile } from 'node:fs/promises';
+import { createHash } from 'node:crypto';
 import { existsSync } from 'node:fs';
 import { extname, join, normalize } from 'node:path';
 import { fileURLToPath } from 'node:url';
@@ -215,6 +216,11 @@ async function loggedSend(id: string, dest: string, run: () => Promise<unknown>)
     store.logEvent(id, 'send', `Send failed — ${dest}: ${(err as Error).message}`);
     throw err;
   }
+}
+
+/** What the voice will say, hashed: the script review and approval are for this text. */
+function scriptHash(blocks: { text: string }[]): string {
+  return createHash('sha256').update(blocks.map((b) => b.text).join('\n')).digest('hex');
 }
 
 /** A verification older than this that still says `running` was stranded by a restart. */
@@ -844,6 +850,28 @@ const routes: [RegExp, string, (ctx: Ctx, params: string[]) => Promise<unknown>]
    * to a Buttondown-only guard while the client still offered every leg.
    * tests/routes.test.ts exercises it over HTTP so that cannot happen quietly.
    */
+  /**
+   * The podcast gate. `review` has a model read the spoken script and report
+   * what will sound wrong; `approve` records Jamie's go-ahead for the script
+   * that was read. Both are tied to the script's hash, so an edit after the
+   * review shows as a changed script, not a stale approval.
+   */
+  [/^\/api\/issues\/([^/]+)\/script\/(review|approve)$/, 'POST', async (_ctx, [id, action]) => {
+    const doc = requireIssue(id!);
+    const blocks = audioScript(doc);
+    const hash = scriptHash(blocks);
+    if (action === 'approve') {
+      const current = doc.script_review;
+      if (!current || current.script_hash !== hash) throw new HttpError(409, 'the script has changed since it was read — read it again first');
+      return savedFresh(id!, (d) => { d.script_review = { ...current, approved_at: new Date().toISOString() }; });
+    }
+    const r = await editorial.reviewScript(blocks);
+    store.logEvent(id!, 'review', `Script read — ${r.verdict === 'ready' ? 'ready' : `${r.findings.length} to look at`}`);
+    return savedFresh(id!, (d) => {
+      d.script_review = { at: new Date().toISOString(), script_hash: hash, verdict: r.verdict, summary: r.summary, findings: r.findings };
+    });
+  }],
+
   /**
    * Verify a leg again, on demand. Returns at once with the leg marked
    * `running`; the result lands on the issue when the checks finish.

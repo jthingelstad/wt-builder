@@ -227,6 +227,22 @@ export interface VerifyCheck {
   items?: string[];
 }
 
+/**
+ * The audio script read by a model before synthesis, in place of Jamie
+ * reading it (he will not, and should not have to — WT351). Tied to the
+ * script it read: a change to the script after review asks for another.
+ */
+export interface ScriptReview {
+  at: string;
+  /** sha256 of the spoken text the review read. */
+  script_hash: string;
+  verdict: 'ready' | 'look';
+  summary: string;
+  findings: { block: number; quote: string; problem: string; suggestion?: string }[];
+  /** Jamie's go-ahead, for this script. */
+  approved_at?: string;
+}
+
 /** A leg's verification, re-run on demand; the latest replaces the last. */
 export interface Verification {
   /** `waiting`: nothing wrong, something not done yet (scheduled, not indexed) — it re-checks itself. */
@@ -286,6 +302,8 @@ export interface IssueDoc {
    */
   image_map?: Record<string, string>;
   sends?: Partial<Record<Destination, SendState>>;
+  /** The model's read of the audio script, and Jamie's approval of it. */
+  script_review?: ScriptReview;
   /** What was checked at each destination after its leg went out. */
   verify?: Partial<Record<Destination, Verification>>;
   /**

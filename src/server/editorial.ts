@@ -1226,3 +1226,68 @@ export async function draft(req: DraftRequest): Promise<DraftResult> {
   }
   return { candidates: ((parsed.candidates ?? []) as string[]).slice(0, n) };
 }
+
+
+// ── the audio script, read aloud in the mind ──────────────────────────────
+
+const SCRIPT_REVIEW_SCHEMA = {
+  type: 'object',
+  additionalProperties: false,
+  required: ['verdict', 'summary', 'findings'],
+  properties: {
+    verdict: { type: 'string', enum: ['ready', 'look'] },
+    summary: { type: 'string' },
+    findings: {
+      type: 'array',
+      items: {
+        type: 'object',
+        additionalProperties: false,
+        required: ['block', 'quote', 'problem'],
+        properties: {
+          block: { type: 'integer' },
+          quote: { type: 'string' },
+          problem: { type: 'string' },
+          suggestion: { type: 'string' },
+        },
+      },
+    },
+  },
+} as const;
+
+/**
+ * The podcast's gate: before paid synthesis, a model reads the script the
+ * voice will speak and says what will sound wrong. Generic, never Thingy —
+ * it proofs for the ear on Jamie's behalf and speaks for no one. It reports;
+ * it never rewrites (generation offers, Jamie chooses).
+ */
+export async function reviewScript(blocks: { text: string; speaker?: string }[]): Promise<{
+  verdict: 'ready' | 'look'; summary: string;
+  findings: { block: number; quote: string; problem: string; suggestion?: string }[];
+}> {
+  const system = `You are proofreading the script of a newsletter's audio edition before a text-to-speech voice reads it. You are listening for what will SOUND wrong, not for style. Each block is spoken as written, one after another, with pauses between.
+
+Report only things a listener would stumble on:
+- markup or syntax that would be read aloud: Markdown (**, _, #, >, [text](url)), HTML, raw URLs, file paths, stray brackets or pipes
+- symbols, abbreviations, and numbers a voice will say badly or ambiguously (e.g. "~", "&", "w/", "vs.", "10x", dates or versions written oddly, acronyms that are not obviously spoken as letters)
+- text that is cut off, duplicated, or out of place; a sentence that does not end
+- a quotation whose "Quote." ... "End quote." framing is missing or mismatched
+- a list read as one run-on sentence; a heading run into its paragraph
+- anything that would be confusing without seeing the page (e.g. "see below", "click here", "the image above")
+
+Do NOT report: opinions about the writing, word choice, tone, length, or anything that reads fine aloud. The script is written that way on purpose: "Weekly Thing 351" is spoken, titles are followed by commentary, sections are announced.
+
+verdict "ready" when nothing would trip a listener; "look" when something would. Quote the exact words (short) and give the block number. A suggestion is optional and must be a spoken-form fix. summary is one plain sentence. Most scripts are ready — do not invent findings.`;
+  const script = blocks.map((b, i) => `[${i}]${b.speaker === 'thingy' ? ' (Thingy)' : ''} ${b.text}`).join('\n');
+  const response = await anthropic().messages.create({
+    model: MODEL,
+    max_tokens: 8000,
+    system,
+    output_config: { effort: 'medium', format: { type: 'json_schema', schema: SCRIPT_REVIEW_SCHEMA } },
+    messages: [{ role: 'user', content: script }],
+  } as Anthropic.MessageCreateParamsNonStreaming);
+  if (response.stop_reason === 'refusal') throw new Error('the script reader declined this script');
+  const text = response.content.filter((b): b is Anthropic.TextBlock => b.type === 'text').map((b) => b.text).join('');
+  const parsed = JSON.parse(text) as { verdict?: 'ready' | 'look'; summary?: string; findings?: { block: number; quote: string; problem: string; suggestion?: string }[] };
+  const findings = (parsed.findings ?? []).filter((f) => Number.isInteger(f.block) && f.block >= 0 && f.block < blocks.length);
+  return { verdict: findings.length ? 'look' : parsed.verdict ?? 'ready', summary: parsed.summary ?? '', findings };
+}

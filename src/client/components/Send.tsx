@@ -13,7 +13,8 @@
 
 import { useEffect, useState } from 'preact/hooks';
 
-import type { Destination, IssueDoc, Verification } from '../../shared/types.ts';
+import type { Destination, IssueDoc, ScriptReview, Verification } from '../../shared/types.ts';
+import { audioScript } from '../../shared/render/audio.ts';
 import { api, type Readiness, type SendResult } from '../api.ts';
 import {
   Archive, ArrowLeft, Check, Circle, CircleAlert, Globe, Mail, Podcast, Spinner, X,
@@ -63,7 +64,7 @@ const CARDS: Card[] = [
     verb: 'Synthesize and upload',
     again: 'Synthesize again',
     steps: [
-      { label: 'Approve the script' },
+      { label: 'Read the script' },
       { label: 'Render the spoken script' },
       {
         label: 'Synthesize the voice',
@@ -161,13 +162,29 @@ const PILL: Record<string, string> = {
 export function Send({ doc, readiness, error, onBack, onSent, onError }: Props) {
   const [running, setRunning] = useState<Destination | null>(null);
   const [results, setResults] = useState<Partial<Record<Destination, SendResult>>>({});
-  const [approved, setApproved] = useState(false);
+
 
   const id = doc.issue.id;
   const stateOf = (key: Destination) => doc.sends?.[key]?.status ?? 'none';
   const sentMap = Object.fromEntries(CARDS.map((c) => [c.key, stateOf(c.key) === 'sent']));
   const sentCount = CARDS.filter((c) => stateOf(c.key) === 'sent').length;
 
+  // The gate is persisted and tied to the script that was read: approval
+  // survives a reload (it did not — WT351) and lapses if the script changes.
+  // A podcast already sent needs no gate.
+  const scriptHash = useScriptHash(doc);
+  const review = doc.script_review;
+  const reviewCurrent = Boolean(review && scriptHash && review.script_hash === scriptHash);
+  const approved = stateOf('podcast') === 'sent' || (reviewCurrent && Boolean(review?.approved_at));
+  const [reading, setReading] = useState(false);
+  const readScript = () => {
+    setReading(true);
+    onError(null);
+    api.scriptReview(id).then((r) => onSent(r.issue)).catch((err: Error) => onError(`script: ${err.message}`)).finally(() => setReading(false));
+  };
+  const approveScript = () => {
+    api.scriptApprove(id).then((r) => onSent(r.issue)).catch((err: Error) => onError(`script: ${err.message}`));
+  };
   // Verification runs on the server after each leg — a couple of minutes for
   // the podcast's listening, the site's deploy for the website — so while any
   // is running the view re-reads the issue until the results land.
@@ -282,7 +299,8 @@ export function Send({ doc, readiness, error, onBack, onSent, onError }: Props) 
             blocker={card.blocker?.(sentMap) ?? null}
             gated={card.key === 'podcast' && !approved}
             busy={Boolean(running)}
-            onApprove={() => setApproved(true)}
+            onApprove={approveScript}
+            gate={card.key === 'podcast' ? { review: reviewCurrent ? review : undefined, stale: Boolean(review) && !reviewCurrent, reading, onRead: readScript, approved } : undefined}
             onRun={() => void send(card.key)}
             issueId={id}
             verification={doc.verify?.[card.key]}
@@ -333,8 +351,9 @@ function ArchivePreview({ issueId }: { issueId: string }) {
 }
 
 function SendCard({
-  card, state, send, result, blocker, gated, busy, onApprove, onRun, verification, onVerify, issueId,
+  card, state, send, result, blocker, gated, busy, onApprove, onRun, verification, onVerify, issueId, gate,
 }: {
+  gate?: { review?: ScriptReview; stale: boolean; reading: boolean; onRead: () => void; approved: boolean };
   issueId: string;
   verification?: Verification;
   onVerify: () => void;
@@ -407,6 +426,7 @@ function SendCard({
               <div class="sc-step-main">
                 <div class="sc-step-label">{step.label}</div>
                 {stepFailed && send?.error && <div class="sc-evidence error">{send.error}</div>}
+                {isGate && gate && <ScriptReviewNote gate={gate} />}
                 {evidence?.text && <div class="sc-evidence">{evidence.text}</div>}
                 {evidence?.href && (
                   <a class="sc-evidence link" href={evidence.href} target="_blank" rel="noreferrer">
@@ -416,8 +436,13 @@ function SendCard({
               </div>
               {isGate && gated && (
                 <span class="sc-gate">
-                  <button class="btn small" onClick={onApprove}>Read it</button>
-                  <button class="btn small primary" onClick={onApprove}>Approve</button>
+                  <button class="btn small" disabled={gate?.reading} onClick={gate?.onRead}>
+                    {gate?.reading ? 'Reading…' : gate?.review ? 'Read again' : 'Have it read'}
+                  </button>
+                  <button class="btn small primary" disabled={!gate?.review} onClick={onApprove}
+                    title={gate?.review ? 'Approve this script for synthesis' : 'Have it read first'}>
+                    Approve
+                  </button>
                 </span>
               )}
             </div>
@@ -474,4 +499,42 @@ function VerifyPanel({ v, busy, onVerify }: { v?: Verification; busy: boolean; o
       ))}
     </div>
   );
+}
+
+/**
+ * What the model heard in the script: a summary, and each place a listener
+ * would stumble with the block it is in. The words are quoted, not rewritten.
+ */
+function ScriptReviewNote({ gate }: { gate: { review?: ScriptReview; stale: boolean; approved: boolean } }) {
+  const r = gate.review;
+  if (gate.stale && !r) return <div class="sc-evidence">The script changed after it was read — have it read again.</div>;
+  if (!r) return <div class="sc-evidence">A model reads the script for the ear — markup, symbols, cut-off text — before the voice does.</div>;
+  return (
+    <div class="script-review">
+      <div class={`sc-evidence ${r.verdict === 'ready' ? '' : 'warn'}`}>
+        {r.verdict === 'ready' ? 'Ready to speak' : `${r.findings.length} to look at`}
+        {' · '}{r.summary}
+        {r.approved_at && ` · approved ${new Date(r.approved_at).toLocaleTimeString([], { hour: 'numeric', minute: '2-digit' })}`}
+      </div>
+      {r.findings.map((f, i) => (
+        <div class="sc-evidence item" key={i}>
+          [{f.block}] “{f.quote}” — {f.problem}{f.suggestion ? ` Say: “${f.suggestion}”` : ''}
+        </div>
+      ))}
+    </div>
+  );
+}
+
+/** The spoken script's sha256, as the server hashes it — async, so a hook. */
+function useScriptHash(doc: IssueDoc): string | null {
+  const [hash, setHash] = useState<string | null>(null);
+  const text = audioScript(doc).map((b) => b.text).join('\n');
+  useEffect(() => {
+    let live = true;
+    crypto.subtle.digest('SHA-256', new TextEncoder().encode(text)).then((buf) => {
+      if (live) setHash([...new Uint8Array(buf)].map((b) => b.toString(16).padStart(2, '0')).join(''));
+    });
+    return () => { live = false; };
+  }, [text]);
+  return hash;
 }
