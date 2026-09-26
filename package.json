@@ -27,7 +27,8 @@
     "persona:check": "node scripts/sync-persona.mjs --check",
     "backfill:daily": "node --import tsx scripts/backfill-daily.ts",
     "backfill:status": "node --import tsx scripts/backfill-status.ts",
-    "test:e2e": "vite build && playwright test"
+    "test:e2e": "vite build && playwright test",
+    "watch": "node --import tsx scripts/watch.ts"
   },
   "dependencies": {
     "@anthropic-ai/sdk": "^0.123.0",

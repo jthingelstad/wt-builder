@@ -71,7 +71,15 @@ The service binds loopback and is reached over the tailnet at
 ```sh
 launchctl kickstart -k gui/$(id -u)/com.thingelstad.wt-builder   # restart
 tail -f ~/Library/Logs/wt-builder/wt-builder.log                  # logs
+npm run watch -- wt352                                            # an issue, live
 ```
+
+**Live sessions.** When Jamie builds an issue with an agent watching, arm
+`npm run watch` first (under a monitor): it prints one line per event, sync
+change, status change, send or verify leg, and service log line for that one
+issue. Fix what breaks as it happens, one commit per fix, and rebuild +
+restart each time. Test in `npm run test:e2e`, never by typing into the live
+service.
 
 Server code does not hot-reload under launchd. After changing anything in
 `src/server/`, restart — otherwise the client has the new interface and the old
