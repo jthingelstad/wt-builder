@@ -6,7 +6,7 @@ import type { Page } from '@playwright/test';
 // representative issue again.
 process.env.WT_BUILDER_OFFLINE = '1';
 process.env.WT_BUILDER_DB = `${process.cwd()}/tmp/e2e/e2e.db`;
-const store = await import('../../src/server/db.ts');
+export const store = await import('../../src/server/db.ts');
 
 export const ISSUE = 'fixture-wt350';
 

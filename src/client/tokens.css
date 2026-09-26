@@ -41,6 +41,10 @@
 
   /* Tints */
   --blue-1: #f3f6fb;
+  /* Put to bed: dusk, distinct from every working state. */
+  --dusk: #4b4a7a;
+  --dusk-1: #eceaf6;
+  --dusk-2: #dcd9ee;
   --blue-2: #eef3fa;
   --blue-3: #dde6f3;
   --terra-1: #fdf6f1;

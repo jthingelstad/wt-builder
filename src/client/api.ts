@@ -63,6 +63,8 @@ export interface IssueSummary {
   updated_at: string;
   /** A pre-Builder record — published by the Shortcuts workflow. */
   imported?: boolean;
+  /** Put to bed: finished, and the server refuses changes until it is woken. */
+  put_to_bed_at?: string;
   sends: Record<string, { status: string; url?: string; error?: string }>;
   readiness: number;
   /** One entry per readiness unit — the dashboard draws these as the strip. */
@@ -217,6 +219,9 @@ export const api = {
 
   send: (id: string, destination: string) =>
     call<SendResult>(`/issues/${id}/send/${destination}`, { method: 'POST', body: '{}' }),
+
+  /** Put an issue to bed, or wake it. */
+  bed: (id: string, asleep: boolean) => post(`/issues/${id}/bed`, { asleep }),
 
   /** Have a model read the audio script for the ear; the review lands on the issue. */
   scriptReview: (id: string) => post(`/issues/${id}/script/review`),

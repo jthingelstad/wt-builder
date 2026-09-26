@@ -218,6 +218,24 @@ async function loggedSend(id: string, dest: string, run: () => Promise<unknown>)
   }
 }
 
+/**
+ * An issue put to bed refuses every change. One guard at the door rather
+ * than one per route, so a route added later cannot forget it. Reads pass,
+ * and so do waking it and re-running verification, which only reads the
+ * destinations back.
+ */
+function guardBed(method: string, pathname: string): void {
+  if (method === 'GET') return;
+  const m = /^\/api\/issues\/([^/]+)(\/.*)?$/.exec(pathname);
+  if (!m) return;
+  const rest = m[2] ?? '';
+  if (rest === '/bed' || rest.startsWith('/verify/')) return;
+  const doc = store.getIssue(decodeURIComponent(m[1]!))?.doc;
+  if (doc?.issue.put_to_bed_at) {
+    throw new HttpError(423, `WT${doc.issue.number} is put to bed — wake it to change anything`);
+  }
+}
+
 /** What the voice will say, hashed: the script review and approval are for this text. */
 function scriptHash(blocks: { text: string }[]): string {
   return createHash('sha256').update(blocks.map((b) => b.text).join('\n')).digest('hex');
@@ -317,6 +335,7 @@ const routes: [RegExp, string, (ctx: Ctx, params: string[]) => Promise<unknown>]
         status: r.status,
         updated_at: r.updated_at,
         imported: Boolean(r.doc.issue.imported),
+        put_to_bed_at: r.doc.issue.put_to_bed_at,
         sends: r.doc.sends ?? {},
         readiness: ready.pct,
         // The dashboard draws one tick per unit, so it needs the units
@@ -851,6 +870,25 @@ const routes: [RegExp, string, (ctx: Ctx, params: string[]) => Promise<unknown>]
    * tests/routes.test.ts exercises it over HTTP so that cannot happen quietly.
    */
   /**
+   * Put to bed, or wake. Putting to bed is for a published issue — both
+   * reader-facing legs out — and is Jamie's click, never automatic: WT350
+   * needed fixes and re-sends after publishing.
+   */
+  [/^\/api\/issues\/([^/]+)\/bed$/, 'POST', async ({ body }, [id]) => {
+    const b = await body();
+    const doc = requireIssue(id!);
+    const asleep = b.asleep !== false;
+    if (asleep && doc.issue.status !== 'published') {
+      throw new HttpError(400, 'only a published issue can be put to bed — send the website and Buttondown first');
+    }
+    store.logEvent(id!, 'issue', asleep ? `Put to bed — WT${doc.issue.number}` : `Woken — WT${doc.issue.number}`);
+    return savedFresh(id!, (d) => {
+      if (asleep) d.issue.put_to_bed_at = new Date().toISOString();
+      else delete d.issue.put_to_bed_at;
+    });
+  }],
+
+  /**
    * The podcast gate. `review` has a model read the spoken script and report
    * what will sound wrong; `approve` records Jamie's go-ahead for the script
    * that was read. Both are tied to the script's hash, so an edit after the
@@ -1173,6 +1211,7 @@ const server = createServer(async (req, res) => {
   const method = req.method ?? 'GET';
 
   try {
+    guardBed(method, url.pathname);
     for (const [pattern, verb, handler] of routes) {
       const match = pattern.exec(url.pathname);
       if (!match || verb !== method) continue;

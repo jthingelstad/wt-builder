@@ -57,6 +57,13 @@ an archive not yet indexed — and says when it will look again on its own. The
 Archive card also carries **PREVIEW**: what a commit would change in the corpus,
 changing nothing.
 
+The last card is **Put to bed** (`moon`, dusk `#4b4a7a` on `#eceaf6`): `AWAKE` /
+`ASLEEP`, one line on what it means, and `Put to bed` — enabled once the issue is
+published, with an amber strip naming any leg not sent or not verified (it can
+still go to bed). Asleep, the card offers `Wake it` (confirmed), every send button
+is disabled, the issue opens under a dusk banner with the same `Wake it`, and the
+index row carries a `PUT TO BED` chip.
+
 ## Issue index
 
 A working dashboard, not a landing page: an `Issues` heading and the rows. No kicker,

@@ -274,6 +274,12 @@ export interface IssueMeta {
   imported?: boolean;
   /** Where the published issue lives, for imported records. */
   archive_url?: string;
+  /**
+   * Put to bed: Jamie's own last act on a sent issue (WT351). While set, the
+   * server refuses every change — edits, sends, re-scans — until he wakes it.
+   * Verification still runs; it only reads.
+   */
+  put_to_bed_at?: string;
 }
 
 export interface IssueDoc {

@@ -78,6 +78,16 @@ reversible.
 *Do not add locking, autosave indicators, or revision history without revisiting
 this.*
 
+**Revisited 2026-09-26 — put to bed.** Jamie asked for a newsroom's "put to
+bed": a published issue he marks finished so nothing in it changes by accident.
+It is not a conflict lock — there is still one editor and no merge — it is an
+editorial state. It is **manual**, the last step on the Send view, never
+automatic: WT350 needed fixes and re-sends after publishing. While
+`issue.put_to_bed_at` is set the server refuses every change to the issue (one
+guard at the door, `guardBed`, so a later route cannot forget it) with 423;
+reads, verification, and waking pass. The index marks it PUT TO BED and the
+issue opens with a banner and `Wake it`.
+
 ## Pre-Builder issues import as a record, not as items
 
 Issues 349 and back were built by the Shortcuts workflow and exist as published

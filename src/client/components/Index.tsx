@@ -10,7 +10,7 @@ import { useEffect, useState } from 'preact/hooks';
 
 import { api, type IssueSummary } from '../api.ts';
 import { countdown, isSaturday, issueSaturday, issueWindow, kickerDate, longDate, snapToSaturday, spanLabel, todayCentral, wallClock } from '../../shared/dates.ts';
-import { Archive, Check, CircleAlert, Spinner } from '../icons.tsx';
+import { Archive, Check, CircleAlert, Spinner, Moon } from '../icons.tsx';
 import { omnifocusUrl, taskpaper } from '../../shared/taskpaper.ts';
 
 /** AT Builder: the same host, served one port up (tailnet :10002, dev :5318). */
@@ -170,7 +170,7 @@ function IssueRow({
         ].join(' · ');
 
   return (
-    <div class={`issue-row${isDraft ? ' draft' : ''}${live ? ' live' : ''}`}>
+    <div class={`issue-row${isDraft ? ' draft' : ''}${live ? ' live' : ''}${issue.put_to_bed_at ? ' asleep' : ''}`}>
       <div class="ir-line">
         <span class="ir-num">WT{issue.number}</span>
 
@@ -191,6 +191,11 @@ function IssueRow({
           cannot say that.
         */}
         <span class="ir-chips">
+          {issue.put_to_bed_at && (
+            <span class="ir-chip asleep" title={`Put to bed ${new Date(issue.put_to_bed_at).toLocaleString()} — open it and wake it to change anything`}>
+              <Moon size={11} /> PUT TO BED
+            </span>
+          )}
           {issue.imported && <span class="ir-chip imported">PRE-BUILDER</span>}
           {!issue.imported && LEGS.map(([key, label, name]) => {
             const state = issue.sends?.[key]?.status ?? 'none';

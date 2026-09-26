@@ -17,7 +17,7 @@ import type { Destination, IssueDoc, ScriptReview, Verification } from '../../sh
 import { audioScript } from '../../shared/render/audio.ts';
 import { api, type Readiness, type SendResult } from '../api.ts';
 import {
-  Archive, ArrowLeft, Check, Circle, CircleAlert, Globe, Mail, Podcast, Spinner, X,
+  Archive, ArrowLeft, Check, Circle, CircleAlert, Globe, Mail, Moon, Podcast, Spinner, X,
 } from '../icons.tsx';
 
 interface Props {
@@ -298,7 +298,7 @@ export function Send({ doc, readiness, error, onBack, onSent, onError }: Props) 
             result={results[card.key]}
             blocker={card.blocker?.(sentMap) ?? null}
             gated={card.key === 'podcast' && !approved}
-            busy={Boolean(running)}
+            busy={Boolean(running) || Boolean(doc.issue.put_to_bed_at)}
             onApprove={approveScript}
             gate={card.key === 'podcast' ? { review: reviewCurrent ? review : undefined, stale: Boolean(review) && !reviewCurrent, reading, onRead: readScript, approved } : undefined}
             onRun={() => void send(card.key)}
@@ -307,6 +307,8 @@ export function Send({ doc, readiness, error, onBack, onSent, onError }: Props) 
             onVerify={() => verify(card.key)}
           />
         ))}
+
+        <Bed doc={doc} onChanged={onSent} onError={onError} />
 
       </div>
     </div>
@@ -537,4 +539,53 @@ function useScriptHash(doc: IssueDoc): string | null {
     return () => { live = false; };
   }, [text]);
   return hash;
+}
+
+/**
+ * The last thing on the page, and Jamie's own act: put the issue to bed
+ * once it is out. Never automatic — WT350 needed fixes and re-sends after
+ * publishing. Asleep, the server refuses every change until it is woken.
+ */
+function Bed({ doc, onChanged, onError }: { doc: IssueDoc; onChanged: (d: IssueDoc) => void; onError: (m: string | null) => void }) {
+  const [busy, setBusy] = useState(false);
+  const asleep = doc.issue.put_to_bed_at;
+  const published = doc.issue.status === 'published';
+  const unverified = CARDS.filter((c) => doc.sends?.[c.key]?.status === 'sent' && doc.verify?.[c.key]?.status !== 'passed');
+  const unsent = CARDS.filter((c) => doc.sends?.[c.key]?.status !== 'sent');
+  const act = (sleep: boolean) => {
+    if (!sleep && !confirm(`Wake WT${doc.issue.number}? It becomes editable and re-sendable again.`)) return;
+    setBusy(true);
+    api.bed(doc.issue.id, sleep).then((r) => onChanged(r.issue)).catch((e: Error) => onError(e.message)).finally(() => setBusy(false));
+  };
+  return (
+    <section class={`send-card bed${asleep ? ' sent' : ''}`}>
+      <div class="sc-head">
+        <span class={`sc-tile${asleep ? ' done' : ''}`}><Moon /></span>
+        <div class="sc-name">
+          <div class="sc-title">
+            Put to bed
+            <span class={`sc-pill ${asleep ? 'sent' : 'none'}`}>{asleep ? 'ASLEEP' : 'AWAKE'}</span>
+          </div>
+          <p class="sc-ends">
+            {asleep
+              ? `Put to bed ${new Date(asleep).toLocaleString([], { weekday: 'short', hour: 'numeric', minute: '2-digit' })}. Nothing can change — no edits, no sends — until it is woken.`
+              : 'The last thing: the issue is finished, and nothing in it can change by accident. Waking it is always one deliberate click away.'}
+          </p>
+        </div>
+        {asleep
+          ? <button class="btn" disabled={busy} onClick={() => act(false)}>Wake it</button>
+          : <button class="btn primary" disabled={busy || !published} onClick={() => act(true)}>Put to bed</button>}
+      </div>
+      {!asleep && !published && (
+        <div class="sc-blocker"><CircleAlert /><span>Only a published issue goes to bed — the website and Buttondown legs send it.</span></div>
+      )}
+      {!asleep && published && (unsent.length > 0 || unverified.length > 0) && (
+        <div class="sc-blocker"><CircleAlert /><span>
+          {[unsent.length ? `Not sent: ${unsent.map((c) => c.name).join(', ')}.` : '',
+            unverified.length ? `Not verified yet: ${unverified.map((c) => c.name).join(', ')}.` : ''].filter(Boolean).join(' ')}
+          {' '}It can still go to bed.
+        </span></div>
+      )}
+    </section>
+  );
 }

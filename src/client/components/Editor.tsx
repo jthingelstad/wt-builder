@@ -15,7 +15,7 @@ import type { Channel, EchoOption, IssueDoc } from '../../shared/types.ts';
 import { shortKicker, sourcesLabel } from '../../shared/dates.ts';
 import { windowOf } from '../../shared/render/plan.ts';
 import { api, type IssueResponse, type Readiness } from '../api.ts';
-import { ArrowLeft } from '../icons.tsx';
+import { ArrowLeft, Moon } from '../icons.tsx';
 import { Page, type Lens, type OrderProposal, type PageActions } from './Page.tsx';
 import { Notes, type Note } from './Notes.tsx';
 import { CollapseView } from './Collapse.tsx';
@@ -336,6 +336,18 @@ export function Editor({ doc, readiness, busy, error, run, onIndex, onSend, onEr
       </header>
 
       <Strip number={doc.issue.number} readiness={readiness} onJump={goTo} />
+      {doc.issue.put_to_bed_at && (
+        <div class="bed-bar" role="status">
+          <Moon size={14} />
+          <span>
+            <strong>Put to bed</strong> {new Date(doc.issue.put_to_bed_at).toLocaleString([], { weekday: 'short', hour: 'numeric', minute: '2-digit' })}.
+            {' '}Nothing in WT{doc.issue.number} can change until it is woken.
+          </span>
+          <button class="btn small" onClick={() => {
+            if (confirm(`Wake WT${doc.issue.number}? It becomes editable and re-sendable again.`)) void run(() => api.bed(id, false));
+          }}>Wake it</button>
+        </div>
+      )}
 
       {hints && (
         <div class="scrim" onClick={() => setHints(false)}>

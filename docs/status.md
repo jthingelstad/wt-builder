@@ -65,6 +65,10 @@ finished, what is half-finished, and what has never run.
   boot). Runs in the background after every send and on
   "Check again" (`POST /api/issues/:id/verify/:dest`); results live on
   `doc.verify`, never in a revision. Code: `src/server/verify.ts`.
+- **Put to bed** (2026-09-26, WT351) — `POST /api/issues/:id/bed {asleep}`;
+  a published issue only; while asleep every non-GET to the issue answers 423
+  except `/bed` and `/verify/*` (docs/decisions.md). Send view's last card,
+  index chip, issue banner with Wake.
 - **Published, derived** (2026-08-30) — an issue becomes `published` the
   moment its website and buttondown legs are both `sent`; nothing un-derives
   it. This is what keeps `lastPublishedNumber()`, the next-issue default,
