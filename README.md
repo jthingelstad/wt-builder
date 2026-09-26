@@ -68,14 +68,15 @@ Reachable at **https://otto.tail09aaf9.ts.net:10001/** — tailnet only.
 Managing the service:
 
 ```sh
-launchctl kickstart -k gui/$(id -u)/com.thingelstad.wt-builder   # restart
+npm run deploy                                                    # test, build, restart
 launchctl list | grep wt-builder                                  # status
 tail -f ~/Library/Logs/wt-builder/wt-builder.log                  # logs
 ```
 
 Server code does not hot-reload under launchd. After changing `src/server/`,
-restart — otherwise the client has the new interface and the old data, which
-looks exactly like a rendering bug.
+`npm run deploy` (tests and build first, then the restart) — otherwise the
+client has the new interface and the old data, which looks exactly like a
+rendering bug.
 
 ### What talks to a real service
 

@@ -5,7 +5,7 @@
   "type": "module",
   "description": "Authoring application for The Weekly Thing",
   "engines": {
-    "node": ">=22"
+    "node": ">=26 <27"
   },
   "scripts": {
     "dev": "concurrently -n server,client -c blue,magenta \"npm:dev:server\" \"npm:dev:client\"",
@@ -13,6 +13,7 @@
     "dev:client": "vite",
     "build": "tsc -p tsconfig.json --noEmit && vite build",
     "start": "node --import tsx src/server/index.ts",
+    "deploy": "npm test && npm run build && launchctl kickstart -k gui/$(id -u)/com.thingelstad.wt-builder",
     "test": "vitest run",
     "test:watch": "vitest",
     "typecheck": "tsc -p tsconfig.json --noEmit",

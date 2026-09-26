@@ -71,21 +71,26 @@ The service binds loopback and is reached over the tailnet at
 **https://otto.tail09aaf9.ts.net:10001/**.
 
 ```sh
-launchctl kickstart -k gui/$(id -u)/com.thingelstad.wt-builder   # restart
-tail -f ~/Library/Logs/wt-builder/wt-builder.log                  # logs
-npm run watch -- wt352                                            # an issue, live
+npm run deploy                                      # test, build, then restart
+tail -f ~/Library/Logs/wt-builder/wt-builder.log    # logs
+npm run watch -- wt352                              # an issue, live
 ```
+
+`npm run deploy` is the only way to restart after a change: `npm test`, then
+`npm run build` (typecheck + `dist/`), and only if both pass
+`launchctl kickstart -k gui/$(id -u)/com.thingelstad.wt-builder`. A bare
+kickstart puts untested code in front of Jamie.
 
 **Live sessions.** When Jamie builds an issue with an agent watching, arm
 `npm run watch` first (under a monitor): it prints one line per event, sync
 change, status change, send or verify leg, and service log line for that one
-issue. Fix what breaks as it happens, one commit per fix, and rebuild +
-restart each time. Test in `npm run test:e2e`, never by typing into the live
+issue. Fix what breaks as it happens, one commit per fix, and `npm run deploy`
+each time. Test in `npm run test:e2e`, never by typing into the live
 service.
 
 Server code does not hot-reload under launchd. After changing anything in
-`src/server/`, restart — otherwise the client has the new interface and the old
-data, which looks exactly like a rendering bug.
+`src/server/`, `npm run deploy` — otherwise the client has the new interface and
+the old data, which looks exactly like a rendering bug.
 
 > **Never serve this through Funnel or on a Funnel-enabled port.** Tailscale
 > terminates identity in front of the process. There is no authentication layer

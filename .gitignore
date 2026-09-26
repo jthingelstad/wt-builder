@@ -13,3 +13,5 @@ data/
 *.db-shm
 *.db-wal
 tmp/
+__pycache__/
+*.pyc
