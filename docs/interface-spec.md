@@ -62,7 +62,7 @@ The last card is **Put to bed** (`moon`, dusk `#4b4a7a` on `#eceaf6`): `AWAKE` /
 published, with an amber strip naming any leg not sent or not verified (it can
 still go to bed). Asleep, the card offers `Wake it` (confirmed), every send button
 is disabled, the issue opens under a dusk banner with the same `Wake it`, and the
-index row carries a `PUT TO BED` chip.
+index row carries a `PUT TO BED` chip. The index offers the same act on every published row: `Put to bed` (`moon`) beside `Website ↗`, and `Wake` (confirmed) once asleep.
 
 ## Issue index
 

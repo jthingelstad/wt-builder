@@ -110,6 +110,10 @@ export function IssueIndex({ error, loading: opening, onError, onOpen }: Props) 
               archiving={archiving === issue.id}
               onOpen={onOpen}
               onArchive={() => void sendArchive(issue.id)}
+              onBed={(asleep) => {
+                if (!asleep && !confirm(`Wake WT${issue.number}? It becomes editable and re-sendable again.`)) return;
+                api.bed(issue.id, asleep).then(() => load()).catch((e: Error) => onError(e.message));
+              }}
               onError={onError}
             />
           ))}
@@ -145,13 +149,15 @@ const LEGS: [string, string, string][] = [
 ];
 
 function IssueRow({
-  issue, live, archiving, onOpen, onArchive, onError,
+  issue, live, archiving, onOpen, onArchive, onBed, onError,
 }: {
   issue: IssueSummary;
   live: boolean;
   archiving: boolean;
   onOpen: (id: string) => void;
   onArchive: () => void;
+  /** Put to bed (true) or wake (false) — also offered on the Send view. */
+  onBed: (asleep: boolean) => void;
   onError: (m: string) => void;
 }) {
   const isDraft = issue.status === 'draft';
@@ -240,6 +246,12 @@ function IssueRow({
             >
               Website ↗
             </a>
+          )}
+          {/* A published issue can be put to bed right here (Jamie, WT351). */}
+          {!isDraft && !issue.imported && (
+            issue.put_to_bed_at
+              ? <button class="btn small" title="Make it editable and re-sendable again" onClick={() => onBed(false)}>Wake</button>
+              : <button class="btn small" title="Finished: refuse every change until woken" onClick={() => onBed(true)}><Moon size={11} /> Put to bed</button>
           )}
         </span>
 

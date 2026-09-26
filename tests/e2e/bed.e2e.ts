@@ -37,3 +37,18 @@ test('asleep, the server refuses changes; the index and the issue say so; waking
   const after = await request.patch(`/api/issues/${ISSUE}/items/link-functions`, { data: { commentary: 'changed' } });
   expect(after.status()).toBe(200);
 });
+
+test('the index puts a published issue to bed, and wakes it', async ({ page }) => {
+  const doc = store.getIssue(ISSUE)!.doc;
+  doc.issue.status = 'published';
+  store.saveIssue(doc);
+  await page.goto('/');
+  const row = page.locator('.issue-row', { hasText: 'WT350' });
+  await row.getByRole('button', { name: 'Put to bed' }).click();
+  await expect(row.locator('.ir-chip.asleep')).toContainText('PUT TO BED');
+  expect(store.getIssue(ISSUE)!.doc.issue.put_to_bed_at).toBeTruthy();
+  page.once('dialog', (d) => void d.accept());
+  await row.getByRole('button', { name: 'Wake' }).click();
+  await expect(row.locator('.ir-chip.asleep')).toHaveCount(0);
+  expect(store.getIssue(ISSUE)!.doc.issue.put_to_bed_at).toBeUndefined();
+});
