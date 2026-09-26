@@ -27,6 +27,7 @@
     "persona:check": "node scripts/sync-persona.mjs --check",
     "backfill:daily": "node --import tsx scripts/backfill-daily.ts",
     "backfill:status": "node --import tsx scripts/backfill-status.ts",
+    "rerender:archive": "node --import tsx scripts/rerender-archive.ts",
     "test:e2e": "vite build && playwright test",
     "watch": "node --import tsx scripts/watch.ts"
   },

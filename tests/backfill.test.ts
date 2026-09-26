@@ -5,7 +5,8 @@
 
 import { describe, expect, it } from 'vitest';
 
-import { frontMatter, hasCurrentAudio, plausibleDuration, withAudio } from '../src/server/backfill.ts';
+import { frontMatter, hasCurrentAudio, pageKeys, plausibleDuration, rerenderedPage, withAudio } from '../src/server/backfill.ts';
+import { RERENDER_NOTICE } from '../src/server/publish.ts';
 import { VOICE_ID } from '../src/server/integrations/audio.ts';
 
 const page = `---
@@ -65,5 +66,42 @@ describe('back catalogue pages', () => {
     expect(plausibleDuration(blocks, 800)).toBeNull();
     expect(plausibleDuration(blocks, 100)).toMatch(/not a plausible reading/);
     expect(plausibleDuration(blocks, 4000)).toMatch(/not a plausible reading/);
+  });
+});
+
+describe('re-rendering a page from its canonical text', () => {
+  const canonical = `---
+number: 50
+subject: 'Weekly Thing #50 / Apr 21, 2018'
+publish_date: '2018-04-21T12:00:00Z'
+image: https://files.thingelstad.com/weekly-thing/50/cover.jpg
+domains:
+- example.com
+- example.org
+---
+Repaired body, with --- inside it.
+`;
+  const withRecord = withAudio(page, fields);
+
+  it('takes the body and editorial front matter from the canonical text, and names this command', () => {
+    const out = rerenderedPage(withRecord, canonical);
+    expect(frontMatter(out).body).toBe(`${RERENDER_NOTICE}\nRepaired body, with --- inside it.\n`);
+    expect(out).toContain('domains:\n- example.com\n- example.org\n');
+    expect(out).not.toContain('<!-- Generated -->');
+  });
+
+  it('keeps layout, permalink, tags and the audio record exactly where they stood', () => {
+    const out = rerenderedPage(withRecord, canonical);
+    expect(pageKeys(out, canonical).owned).toEqual(pageKeys(withRecord, canonical).owned);
+    expect(pageKeys(out, canonical).editorial).toEqual(pageKeys(canonical, canonical).editorial);
+    expect(frontMatter(out).front.startsWith('layout: layouts/issue.njk\nnumber: 50\n')).toBe(true);
+    // Idempotent, and the audio record still goes on over it the same way.
+    expect(rerenderedPage(out, canonical)).toBe(out);
+    expect(withAudio(out, fields)).toBe(out);
+  });
+
+  it('never takes an owned key from the canonical text', () => {
+    const stray = canonical.replace('number: 50\n', 'number: 50\npermalink: /elsewhere/\n');
+    expect(rerenderedPage(withRecord, stray)).not.toContain('/elsewhere/');
   });
 });

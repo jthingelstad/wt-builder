@@ -9,14 +9,19 @@
  * front matter, and it is committed back through the same path an issue send
  * uses; the site's CI deploys it. The local checkout is only consulted to
  * choose what to do next.
+ *
+ * The same pages are re-rendered here from their canonical text when the
+ * archive repairs an issue. Both writers commit through `editTree`, which
+ * applies each edit to the page as it is at commit time.
  */
 
 import { existsSync, readFileSync, readdirSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
 
 import { VOICE_ID, renderAudio, type AudioResult, type Episode } from './integrations/audio.ts';
+import { config } from './config.ts';
 import * as githubRepo from './integrations/github.ts';
-import { audioFrontMatter, type AudioFields } from './publish.ts';
+import { RERENDER_NOTICE, audioFrontMatter, type AudioFields } from './publish.ts';
 import { legacyBlocks, legacyTitle } from '../shared/render/legacy-blocks.ts';
 import type { ScriptBlock } from '../shared/render/audio.ts';
 
@@ -173,10 +178,125 @@ export async function renderIssue(name: string, opts: { localOut?: string } = {}
   };
 }
 
-/** Commit the pages of a day's issues to the website as one commit. */
+/**
+ * Commit the pages of a day's issues to the website as one commit. The audio
+ * record goes onto each page as it stands at commit time, not as it was read
+ * before the render — a re-render that landed meanwhile keeps its text.
+ */
 export async function publishPages(outcomes: BackfillOutcome[]): Promise<githubRepo.PushResult | null> {
-  const files = outcomes.filter((o) => !o.problems.length).map((o) => ({ path: `${ARCHIVE_PATH}/${o.name}.md`, content: o.page }));
-  if (!files.length) return null;
-  const names = outcomes.filter((o) => !o.problems.length).map((o) => `WT${o.name}`).join(', ');
-  return githubRepo.putTree(files, `Audio edition for ${names} (back catalogue)`);
+  const clean = outcomes.filter((o) => !o.problems.length);
+  if (!clean.length) return null;
+  const fields = new Map(clean.map((o) => [`${ARCHIVE_PATH}/${o.name}.md`, audioFieldsOf(o.result)]));
+  const names = clean.map((o) => `WT${o.name}`).join(', ');
+  return githubRepo.editTree(
+    [...fields.keys()],
+    (path, current) => {
+      if (current === null) throw new Error(`${path} is no longer in the website repository`);
+      return withAudio(current, fields.get(path)!);
+    },
+    `Audio edition for ${names} (back catalogue)`,
+  );
+}
+
+// ── re-rendering from the canonical text ─────────────────────────────────
+//
+// A back-catalogue page is a render copy of the archive's
+// data/issues/{N}/archive.md plus what WT Builder owns on the site: the
+// layout, permalink and tags, and the audio record above. Repairs land in the
+// canonical text; this carries them to the page. It is a merge, never a copy —
+// copying the canonical text over a page would erase its episode from the
+// podcast feed.
+
+/** The canonical issue text, in the archive repository. */
+export const CANONICAL_PATH = 'data/issues';
+
+/** Keys WT Builder owns on a site page. Any key the canonical text lacks is kept too. */
+export const OWNED_KEY = /^(layout|permalink|tags|audio_\w+)$/;
+
+interface Block {
+  key: string;
+  lines: string[];
+}
+
+/** Top-level front-matter keys, each with its list items and nested lines. */
+function blocks(front: string): Block[] {
+  const out: Block[] = [];
+  for (const line of front.split('\n')) {
+    const key = /^([A-Za-z_][\w-]*):/.exec(line)?.[1];
+    if (key !== undefined || !out.length) out.push({ key: key ?? '', lines: [line] });
+    else out[out.length - 1]!.lines.push(line);
+  }
+  return out;
+}
+
+/** The page's front matter split into its own keys — kept over the canonical text — and the editorial rest. */
+export function pageKeys(page: string, canonical: string): Record<'owned' | 'editorial', { key: string; text: string }[]> {
+  const editorial = new Set(blocks(frontMatter(canonical).front).map((b) => b.key));
+  const split: Record<'owned' | 'editorial', { key: string; text: string }[]> = { owned: [], editorial: [] };
+  for (const b of blocks(frontMatter(page).front)) {
+    split[OWNED_KEY.test(b.key) || !editorial.has(b.key) ? 'owned' : 'editorial'].push({ key: b.key, text: b.lines.join('\n') });
+  }
+  return split;
+}
+
+/**
+ * The page re-rendered from its canonical text: body and editorial front
+ * matter from the canonical copy; the page's own keys kept where they stood
+ * (layout ahead of the editorial keys, the rest after them).
+ */
+export function rerenderedPage(page: string, canonical: string): string {
+  const canon = frontMatter(canonical);
+  const editorial = blocks(canon.front).filter((b) => !OWNED_KEY.test(b.key));
+  const keys = new Set(editorial.map((b) => b.key));
+  const site = blocks(frontMatter(page).front);
+  const owned = (b: Block) => OWNED_KEY.test(b.key) || !keys.has(b.key);
+  const first = site.findIndex((b) => !owned(b));
+  const lead = first < 0 ? site : site.slice(0, first);
+  const rest = first < 0 ? [] : site.slice(first).filter(owned);
+  const front = [...lead, ...editorial, ...rest].flatMap((b) => b.lines);
+  return `---\n${front.join('\n')}\n---\n${RERENDER_NOTICE}\n${canon.body}`;
+}
+
+/** Every back-catalogue page: WT1–WT349 and the one special. */
+export function backCatalogue(): string[] {
+  return [...Array.from({ length: LAST_LEGACY_ISSUE }, (_, i) => String(i + 1)), '140-special'];
+}
+
+export interface Rerender {
+  name: string;
+  before: string;
+  after: string;
+  canonical: string;
+}
+
+/** Each page against its canonical text, both read from their copies of record on GitHub. */
+export async function planRerender(names: string[]): Promise<Rerender[]> {
+  const pages = await githubRepo.readFiles(names.map((n) => `${ARCHIVE_PATH}/${n}.md`));
+  const canon = await githubRepo.readFiles(names.map((n) => `${CANONICAL_PATH}/${n}/archive.md`), { repo: config.archiveRepo });
+  return names.map((name) => {
+    const before = pages.get(`${ARCHIVE_PATH}/${name}.md`);
+    const canonical = canon.get(`${CANONICAL_PATH}/${name}/archive.md`);
+    if (!before) throw new Error(`${name}: no page in the website repository`);
+    if (!canonical) throw new Error(`${name}: no canonical text in ${config.archiveRepo}`);
+    return { name, before, after: rerenderedPage(before, canonical), canonical };
+  });
+}
+
+/**
+ * Commit the re-render as one commit, merged into each page as it stands at
+ * commit time — an audio record that landed after the plan was read is kept.
+ */
+export async function publishRerender(plan: Rerender[]): Promise<githubRepo.PushResult> {
+  const canonical = new Map(plan.map((r) => [`${ARCHIVE_PATH}/${r.name}.md`, r.canonical]));
+  return githubRepo.editTree(
+    [...canonical.keys()],
+    (path, current) => {
+      if (current === null) throw new Error(`${path} is no longer in the website repository`);
+      return rerenderedPage(current, canonical.get(path)!);
+    },
+    `Re-render ${plan.length} back-catalogue pages from their canonical text\n\n` +
+      'Body and editorial front matter from data/issues/{N}/archive.md in the\n' +
+      'archive; layout, permalink, tags and the audio record kept from each page.\n' +
+      'The generated-by line now names `npm run rerender:archive` in WT Builder.',
+  );
 }

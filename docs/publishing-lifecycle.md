@@ -91,3 +91,14 @@ sha, like the website leg's.
 
 Send text only. The archive receives no audio — the file lives on the CDN and the
 website publishes the reference.
+
+## Repairs to the back catalogue
+
+The archive's `data/issues/{N}/archive.md` is the canonical text of every
+issue, and historical repairs land there. For issues WT Builder authored
+(WT350 on), a re-send of the website leg carries a repair to the site. For
+WT1–WT349, which it never authored, `npm run rerender:archive` does: it
+re-renders the site page from the canonical text, keeping everything the site
+page owns — layout, permalink, tags, and the audio record the back catalogue
+writes. It is a merge, never a copy: the audio record is the podcast feed's
+data, and the canonical text has none.

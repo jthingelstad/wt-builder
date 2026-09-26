@@ -132,6 +132,18 @@ finished, what is half-finished, and what has never run.
   block in email, and Thingy's own voice (nova) in audio. `VOICE_ID` records
   both voices. Heard in WT350's send (2026-09-20).
 
+- **The back catalogue re-renders from its canonical text** (2026-09-26) —
+  `npm run rerender:archive` merges each page (WT1–WT349 and 140-special)
+  with the archive's `data/issues/{N}/archive.md`: body and editorial front
+  matter from there; layout, permalink, tags and the audio record kept from
+  the page. Dry run by default, with a diff per page in `tmp/rerender/` and a
+  refusal when a page's own keys would change; `--commit` lands it as one
+  commit. It and the daily backfill both commit through `editTree`, which
+  applies each edit to the page as it stands at commit time, so neither can
+  write a stale copy over the other. First run 2026-09-26: 350 pages, 103
+  with repaired text (librarian-thing #64, #65 and the Sept 5 alt-text fix).
+  Not automatic — run it after a repair lands in the archive. The spoken
+  scripts in `backfill/scripts/` are not regenerated from it.
 - **The back catalogue is being published, ten a day** (2026-09-22) — six
   calibration renders assessed by whisper (`backfill/assess.py`); the daily
   job (`scripts/backfill-daily.ts`, LaunchAgent `com.thingelstad.wt-backfill`
