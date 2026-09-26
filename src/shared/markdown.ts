@@ -1,10 +1,18 @@
 /**
- * Small, deliberately bounded Markdown renderer for the editing canvas.
+ * Markdown to safe HTML for the canvas, the draft-share page, and the HTML
+ * inside Thingy's email frame.
  *
- * The server still owns canonical Markdown output. This exists only so the
- * Website and Email lenses show links and images as a reader will see them.
- * Raw HTML is escaped except for sanitized img, anchor, and br elements.
+ * CommonMark, via markdown-it: the website (Hugo) and Buttondown both render
+ * the issue's Markdown as CommonMark, so this does too, and a structure that
+ * reads one way to a reader reads the same way on the canvas. It replaced a
+ * hand-rolled renderer that disagreed with both — it ran a quoted list into
+ * one paragraph (WT351).
+ *
+ * Raw HTML is escaped, except img, anchor, and br elements, which are
+ * sanitized and kept (Micro.blog bodies carry their photos as <img>).
  */
+
+import MarkdownIt from 'markdown-it';
 
 function escapeHtml(value: string): string {
   return value
@@ -70,101 +78,35 @@ function protectRichElements(source: string): { text: string; tokens: string[] }
   return { text, tokens };
 }
 
+const md = new MarkdownIt('commonmark', { html: false, linkify: false, typographer: false });
+
+// Links open outside the editor; only http(s) and mailto survive.
+md.validateLink = (url) => safeUrl(url) !== null || safeUrl(url, true) !== null;
+md.renderer.rules.link_open = (tokens, i, options, _env, self) => {
+  tokens[i]!.attrSet('target', '_blank');
+  tokens[i]!.attrSet('rel', 'noreferrer');
+  return self.renderToken(tokens, i, options);
+};
+// A soft line break is a space, as it is to a reader. The canvas shows
+// rendered prose under white-space: pre-wrap, where "\n" would be a line.
+md.renderer.rules.softbreak = () => ' ';
+
+/** The protected elements go back in after rendering; the placeholders are plain text to markdown-it. */
+const restore = (html: string, tokens: string[]) =>
+  html.replace(/\uE000(\d+)\uE001/g, (_all, index) => tokens[Number(index)] ?? '');
+
 export function markdownInlineToSafeHtml(source: string): string {
   const { text, tokens } = protectRichElements(String(source ?? ''));
-  let html = escapeHtml(text)
-    .replace(/\*\*([^*]+)\*\*/g, '<strong>$1</strong>')
-    .replace(/`([^`]+)`/g, '<code>$1</code>')
-    .replace(/(^|\s)_([^_]+)_(?=\s|$|[.,!?])/g, '$1<em>$2</em>')
-    .replace(/  \n/g, '<br>')
-    .replace(/\n/g, ' ');
-  html = html.replace(/\uE000(\d+)\uE001/g, (_all, index) => tokens[Number(index)] ?? '');
-  return html;
+  return restore(md.renderInline(text), tokens);
 }
 
 export function markdownToSafeHtml(source: string): string {
-  const lines = String(source ?? '').replace(/\r\n/g, '\n').split('\n');
-  const out: string[] = [];
-  let paragraph: string[] = [];
-  let list: string[] = [];
-  let ordered: string[] = [];
-  let orderedStart = 1;
-  let quoted: string[] = [];
-
-  const flushParagraph = () => {
-    if (!paragraph.length) return;
-    out.push(`<p>${markdownInlineToSafeHtml(paragraph.join(' '))}</p>`);
-    paragraph = [];
-  };
-  const flushList = () => {
-    if (!list.length) return;
-    out.push(`<ul>${list.map((line) => `<li>${markdownInlineToSafeHtml(line)}</li>`).join('')}</ul>`);
-    list = [];
-  };
-  const flushOrdered = () => {
-    if (!ordered.length) return;
-    const start = orderedStart === 1 ? '' : ` start="${orderedStart}"`;
-    out.push(`<ol${start}>${ordered.map((line) => `<li>${markdownInlineToSafeHtml(line)}</li>`).join('')}</ol>`);
-    ordered = [];
-  };
-  // A quoted passage is a run of `>` lines, and what is inside it is
-  // Markdown too: a bare `>` is a paragraph break, and a list stays a list.
-  // Joining the lines into one paragraph ran WT351's quoted numbered list
-  // together on the canvas and in the email edition.
-  const flushQuote = () => {
-    const inner = quoted.join('\n').trim() ? markdownToSafeHtml(quoted.join('\n')) : '';
-    if (inner) out.push(`<blockquote>${inner}</blockquote>`);
-    quoted = [];
-  };
-
-  for (const line of lines) {
-    if (!line.trim()) {
-      flushParagraph();
-      flushList();
-      flushOrdered();
-      flushQuote();
-      continue;
-    }
-    const heading = /^(#{1,4})\s+(.+)$/.exec(line);
-    const bullet = /^[-*]\s+(.+)$/.exec(line);
-    const numbered = /^(\d{1,9})[.)]\s+(.+)$/.exec(line);
-    const quote = /^>\s?(.*)$/.exec(line);
-    if (heading) {
-      flushParagraph();
-      flushList();
-      flushOrdered();
-      flushQuote();
-      const level = Math.min(4, heading[1]!.length + 1);
-      out.push(`<h${level}>${markdownInlineToSafeHtml(heading[2]!)}</h${level}>`);
-    } else if (bullet) {
-      flushParagraph();
-      flushOrdered();
-      flushQuote();
-      list.push(bullet[1]!);
-    } else if (numbered && (!paragraph.length || numbered[1] === '1')) {
-      // As in CommonMark, only "1." may interrupt a paragraph — a line
-      // beginning "2003." mid-prose is a sentence, not a list.
-      flushParagraph();
-      flushList();
-      flushQuote();
-      if (!ordered.length) orderedStart = Number(numbered[1]!);
-      ordered.push(numbered[2]!);
-    } else if (quote) {
-      flushParagraph();
-      flushList();
-      flushOrdered();
-      quoted.push(quote[1]!);
-    } else {
-      flushList();
-      flushOrdered();
-      flushQuote();
-      paragraph.push(line.trim());
-    }
-  }
-  flushParagraph();
-  flushList();
-  flushOrdered();
-  flushQuote();
-  return out.join('');
+  const { text, tokens } = protectRichElements(String(source ?? '').replace(/\r\n/g, '\n'));
+  const html = md.render(text)
+    // Between block tags only: the newlines markdown-it writes for source
+    // readability would show as blank lines in a pre-wrap container.
+    .replace(/>\n+(?=<)/g, '>')
+    .replace(/\n+(?=<\/?(?:ul|ol|li|p|blockquote|h[1-6]|pre|hr)\b)/g, '')
+    .trim();
+  return restore(html, tokens);
 }
-

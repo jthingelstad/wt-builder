@@ -135,6 +135,14 @@ describe('markup never reaches the synthesizer', () => {
     expect(html).toBe('<p>Loop:</p><blockquote><ol><li>Understand</li><li>Gather</li><li>Define</li></ol></blockquote><p>After.</p>');
   });
 
+  it('renders what a CommonMark reader renders: nested lists, code, emphasis', () => {
+    // The website (Hugo) and Buttondown are CommonMark; the canvas must agree.
+    expect(markdownToSafeHtml('- one\n  - inner\n- two')).toBe('<ul><li>one<ul><li>inner</li></ul></li><li>two</li></ul>');
+    expect(markdownToSafeHtml('*star* and _under_ and **bold**')).toBe('<p><em>star</em> and <em>under</em> and <strong>bold</strong></p>');
+    expect(markdownToSafeHtml('Loop:\n1. First\n2. Second')).toBe('<p>Loop:</p><ol><li>First</li><li>Second</li></ol>');
+    expect(markdownToSafeHtml('<img src="https://x.test/a.jpg" alt="A lake"> after')).toBe('<p><img src="https://x.test/a.jpg" alt="A lake"> after</p>');
+  });
+
   it('speaks a quoted list entry by entry inside the quote frame', () => {
     const pieces = prosePieces('> 1. Understand\n> 2. Gather\n> 3. Define');
     expect(pieces.map((p) => p.text)).toEqual(['Quote. 1. Understand.', '2. Gather.', '3. Define. End quote.']);

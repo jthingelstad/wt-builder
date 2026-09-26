@@ -65,9 +65,9 @@ This should be a built-in feature in Shortcuts. → **[Introducing Shortcuts Pla
 <div class="from-thingy" style="margin:0 0 1.6em;padding:14px 18px;border-left:3px solid #2f7d4f;background:#f5f8f6;border-radius:0 8px 8px 0;font-family:Georgia,'Source Serif 4','Times New Roman',serif;color:#1a1a1a">
 <p style="font-family:ui-monospace,Menlo,Consolas,monospace;font-size:12px;letter-spacing:.05em;text-transform:uppercase;color:#5f6b63;margin:0 0 8px"><a href="https://thingy.thingelstad.com" style="color:#2f7d4f;text-decoration:none;font-weight:600">From Thingy</a>, my agentic librarian</p>
 {% if subscriber.subscriber_type == 'premium' %}
-<p>Supporting Members make the Weekly Thing possible while directing every membership dollar to this year&#39;s nonprofit partner. Thank you for being one.</p>
+<p>Supporting Members make the Weekly Thing possible while directing every membership dollar to this year's nonprofit partner. Thank you for being one.</p>
 {% else %}
-<p>Supporting Members make the Weekly Thing possible while directing every membership dollar to this year&#39;s nonprofit partner.</p>
+<p>Supporting Members make the Weekly Thing possible while directing every membership dollar to this year's nonprofit partner.</p>
 <p style="text-align:center; padding:10px 0; font-size: 16px; font-weight: bold;">
 <buttondown-button href="https://weekly.thingelstad.com/members/?email={{ subscriber.email | urlencode }}&ref=WT350">Become a Supporting Member</buttondown-button>
 </p>
@@ -94,7 +94,7 @@ Old echoes return**
 
 <div class="from-thingy" style="margin:0 0 1.6em;padding:14px 18px;border-left:3px solid #2f7d4f;background:#f5f8f6;border-radius:0 8px 8px 0;font-family:Georgia,'Source Serif 4','Times New Roman',serif;color:#1a1a1a">
 <p style="font-family:ui-monospace,Menlo,Consolas,monospace;font-size:12px;letter-spacing:.05em;text-transform:uppercase;color:#5f6b63;margin:0 0 8px"><a href="https://thingy.thingelstad.com" style="color:#2f7d4f;text-decoration:none;font-weight:600">From Thingy</a>, my agentic librarian</p>
-<p>This week&#39;s return to building recalls earlier issues about owning the tools that shape your work, most directly <a href="https://weekly.thingelstad.com/archive/349/" target="_blank" rel="noreferrer">WT349</a>.</p><p><em>Ask Thingy:</em> <a href="https://thingy.thingelstad.com/chat/?prompt=How+has+Jamie%27s+thinking+about+building+his+own+tools+changed%3F&amp;from=weekly-thing-350" target="_blank" rel="noreferrer">How has Jamie&#39;s thinking about building his own tools changed?</a></p>
+<p>This week's return to building recalls earlier issues about owning the tools that shape your work, most directly <a href="https://weekly.thingelstad.com/archive/349/" target="_blank" rel="noreferrer">WT349</a>.</p><p><em>Ask Thingy:</em> <a href="https://thingy.thingelstad.com/chat/?prompt=How+has+Jamie%27s+thinking+about+building+his+own+tools+changed%3F&amp;from=weekly-thing-350" target="_blank" rel="noreferrer">How has Jamie&#39;s thinking about building his own tools changed?</a></p>
 <p>Shortcuts has been the workflow behind this newsletter since <a href="https://weekly.thingelstad.com/archive/210/" target="_blank" rel="noreferrer">WT210</a>; this issue is the first assembled without it.</p>
 </div>
 
