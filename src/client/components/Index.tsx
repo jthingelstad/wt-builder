@@ -44,6 +44,34 @@ interface Props {
   onOpen: (id: string) => void;
 }
 
+interface Filters {
+  q: string;
+  year: string;
+  hideAsleep: boolean;
+}
+const FILTERS_KEY = 'wt-builder:index-filters';
+const DEFAULT_FILTERS: Filters = { q: '', year: '', hideAsleep: true };
+
+function loadFilters(): Filters {
+  try {
+    const saved = JSON.parse(localStorage.getItem(FILTERS_KEY) ?? '{}') as Partial<Filters>;
+    return { q: saved.q ?? '', year: saved.year ?? '', hideAsleep: saved.hideAsleep ?? true };
+  } catch {
+    return DEFAULT_FILTERS;
+  }
+}
+
+/** A draft always shows: it is the work in hand, whatever the filters say. */
+function matches(i: IssueSummary, f: Filters): boolean {
+  if (i.status === 'draft') return true;
+  if (f.hideAsleep && i.put_to_bed_at) return false;
+  if (f.year && !i.publication_date.startsWith(f.year)) return false;
+  const q = f.q.trim().toLowerCase().replace(/^wt\s*/, '');
+  // "351" or "WT35" finds by number; words find by title.
+  if (q && !(/^\d+$/.test(q) ? String(i.number).startsWith(q) : i.title.toLowerCase().includes(q))) return false;
+  return true;
+}
+
 export function IssueIndex({ error, loading: opening, onError, onOpen }: Props) {
   const [issues, setIssues] = useState<IssueSummary[]>([]);
   const [nextNumber, setNextNumber] = useState(1);
@@ -67,6 +95,18 @@ export function IssueIndex({ error, loading: opening, onError, onOpen }: Props) 
   useEffect(() => { void load(); }, []);
 
   const draft = issues.find((i) => i.status === 'draft');
+
+  // Filters, remembered per browser (a convenience, not state anyone else
+  // needs). Put-to-bed issues are hidden by default: finished is finished.
+  const [filters, setFilters] = useState<Filters>(() => loadFilters());
+  const setFilter = (patch: Partial<Filters>) => {
+    const next = { ...filters, ...patch };
+    setFilters(next);
+    try { localStorage.setItem(FILTERS_KEY, JSON.stringify(next)); } catch { /* private window */ }
+  };
+  const years = [...new Set(issues.map((i) => i.publication_date.slice(0, 4)))].sort().reverse();
+  const shown = issues.filter((i) => matches(i, filters));
+  const asleepHidden = filters.hideAsleep ? issues.filter((i) => i.put_to_bed_at && matches(i, { ...filters, hideAsleep: false })).length : 0;
 
   const sendArchive = async (id: string) => {
     setArchiving(id);
@@ -95,6 +135,29 @@ export function IssueIndex({ error, loading: opening, onError, onOpen }: Props) 
       <div class="index-body">
         <h1>Issues</h1>
 
+        {issues.length > 0 && (
+          <div class="index-filters" role="search">
+            <input
+              class="if-search" type="search" placeholder="Search titles or numbers"
+              value={filters.q} onInput={(e) => setFilter({ q: (e.currentTarget as HTMLInputElement).value })}
+            />
+            <select class="if-year" value={filters.year} aria-label="Year" onChange={(e) => setFilter({ year: (e.currentTarget as HTMLSelectElement).value })}>
+              <option value="">All years</option>
+              {years.map((y) => <option key={y} value={y}>{y}</option>)}
+            </select>
+            <label class="if-toggle">
+              <input type="checkbox" checked={filters.hideAsleep} onChange={(e) => setFilter({ hideAsleep: (e.currentTarget as HTMLInputElement).checked })} />
+              <Moon size={11} /> Hide put to bed
+            </label>
+          </div>
+        )}
+        {issues.length > 0 && (
+          <div class="if-count">
+            {shown.length === issues.length ? `${issues.length} issues` : `${shown.length} of ${issues.length}`}
+            {asleepHidden > 0 && ` · ${asleepHidden} asleep hidden`}
+          </div>
+        )}
+
         {error && <div class="error-bar" role="alert">{error}</div>}
         {(loading || opening) && <p class="quiet">Loading…</p>}
         {!loading && !issues.length && (
@@ -102,7 +165,10 @@ export function IssueIndex({ error, loading: opening, onError, onOpen }: Props) 
         )}
 
         <div class="issue-rows">
-          {issues.map((issue) => (
+          {shown.length === 0 && issues.length > 0 && (
+            <p class="quiet">Nothing matches. <button class="btn small" onClick={() => setFilter(DEFAULT_FILTERS)}>Clear filters</button></p>
+          )}
+          {shown.map((issue) => (
             <IssueRow
               key={issue.id}
               issue={issue}
@@ -248,7 +314,7 @@ function IssueRow({
             </a>
           )}
           {/* A published issue can be put to bed right here (Jamie, WT351). */}
-          {!isDraft && !issue.imported && (
+          {!isDraft && (
             issue.put_to_bed_at
               ? <button class="btn small" title="Make it editable and re-sendable again" onClick={() => onBed(false)}>Wake</button>
               : <button class="btn small" title="Finished: refuse every change until woken" onClick={() => onBed(true)}><Moon size={11} /> Put to bed</button>

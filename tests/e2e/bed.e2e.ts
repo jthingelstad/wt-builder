@@ -5,7 +5,11 @@
 import { expect, test } from '@playwright/test';
 import { ISSUE, reset, store } from './helpers.ts';
 
-test.beforeEach(() => reset());
+test.beforeEach(async ({ page }) => {
+  reset();
+  // These tests look at asleep rows, which the index hides by default.
+  await page.addInitScript(() => localStorage.setItem('wt-builder:index-filters', JSON.stringify({ hideAsleep: false })));
+});
 
 test('a draft cannot be put to bed', async ({ request }) => {
   const res = await request.post(`/api/issues/${ISSUE}/bed`, { data: { asleep: true } });

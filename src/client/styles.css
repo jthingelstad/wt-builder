@@ -296,6 +296,9 @@ a:hover { text-decoration: underline; }
   margin: 0 auto;
   padding: 40px 24px 100px;
   width: 100%;
+  /* The scrollbar's room is kept whether or not a filter leaves enough rows
+     to scroll, so nothing shifts sideways as the list shrinks. */
+  scrollbar-gutter: stable;
 }
 
 .index-body h1 {
@@ -307,6 +310,27 @@ a:hover { text-decoration: underline; }
 }
 
 .issue-rows { display: flex; flex-direction: column; gap: 8px; }
+
+/*
+ * Filters: search, year, and put-to-bed hidden by default. A fixed grid on one
+ * line, with the count on its own line beneath: a count that changed length
+ * used to rewrap the bar and move every control under the pointer (WT351).
+ */
+.index-filters {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 124px auto;
+  align-items: center;
+  gap: 10px;
+  margin: 0 0 6px;
+}
+.if-search {
+  height: 30px; padding: 0 10px; min-width: 0;
+  border: 1px solid var(--border-button); border-radius: 7px; background: var(--page);
+  font: inherit; font-size: 13px;
+}
+.if-year { height: 30px; width: 124px; border: 1px solid var(--border-button); border-radius: 7px; background: var(--page); font: inherit; font-size: 12.5px; padding: 0 8px; }
+.if-toggle { display: inline-flex; align-items: center; gap: 6px; font-size: 12.5px; color: var(--dusk); cursor: pointer; white-space: nowrap; }
+.if-count { height: 16px; margin: 0 0 12px; font-family: var(--mono); font-size: 10.5px; letter-spacing: 0.04em; color: var(--muted); }
 
 .issue-row {
   background: var(--page);
@@ -320,7 +344,31 @@ a:hover { text-decoration: underline; }
 /* A draft row is a column: the strip sits beneath the line, full width. */
 .issue-row.draft { display: flex; flex-direction: column; gap: 12px; }
 
-.ir-line { display: flex; align-items: flex-start; gap: 16px; }
+/*
+ * Two lines, so the title always has the width (WT351: a PUT TO BED chip and a
+ * third button squeezed it to a word a line). Line one is the issue — number,
+ * title, date, counts — with the archive state on the right; line two is its
+ * state chips on the left and what can be done with it on the right.
+ */
+.ir-line {
+  display: grid;
+  grid-template-columns: 44px minmax(0, 1fr) auto;
+  grid-template-areas:
+    "num main right"
+    "num chips actions";
+  column-gap: 16px;
+  row-gap: 10px;
+  align-items: start;
+}
+.ir-line > .ir-num { grid-area: num; }
+.ir-line > .ir-main { grid-area: main; }
+.ir-line > .ir-right { grid-area: right; }
+.ir-line > .ir-chips { grid-area: chips; align-self: center; flex-wrap: wrap; }
+.ir-line > .ir-actions { grid-area: actions; justify-self: end; flex-wrap: wrap; justify-content: flex-end; }
+@media (max-width: 640px) {
+  .ir-line { grid-template-columns: 44px minmax(0, 1fr); grid-template-areas: "num main" "num right" "num chips" "num actions"; }
+  .ir-line > .ir-actions, .ir-line > .ir-right { justify-self: start; }
+}
 
 /* Top-aligned to the title's line box rather than centred on the whole cell. */
 .ir-num {
@@ -335,7 +383,7 @@ a:hover { text-decoration: underline; }
 
 .ir-main { flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 3px; }
 .ir-title { font-size: 16px; font-weight: 600; letter-spacing: -0.012em; line-height: 19.2px; }
-.issue-row.asleep { opacity: 0.8; }
+.issue-row.asleep { background: var(--subtle); }
 .ir-chip.asleep { display: inline-flex; align-items: center; gap: 4px; background: var(--dusk-1); color: var(--dusk); font-weight: 650; }
 .bed-bar {
   display: flex; align-items: center; gap: 10px;
@@ -383,9 +431,8 @@ a:hover { text-decoration: underline; }
 .ir-actions { display: flex; gap: 6px; flex: none; }
 .ir-actions .btn { text-decoration: none; }
 
-/* Fixed, so rows line up whether or not they carry an archive state. */
+/* Right-aligned on the title's line; rows line up whether or not they carry one. */
 .ir-right {
-  width: 190px;
   flex: none;
   display: flex;
   align-items: center;

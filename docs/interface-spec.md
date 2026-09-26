@@ -69,6 +69,19 @@ index row carries a `PUT TO BED` chip. The index offers the same act on every pu
 A working dashboard, not a landing page: an `Issues` heading and the rows. No kicker,
 no explanatory paragraph, no footnote.
 
+**Filters** sit under the heading on one fixed line — search (titles, or a number:
+`351`, `WT35`), a year select, and `Hide put to bed` (on by default) — with the
+count on its own line beneath (`3 of 352 · 349 asleep hidden`). The bar never
+moves while the list changes: a fixed grid, a count that cannot rewrap it, and the
+scrollbar's gutter always kept (WT351: controls shifted under the pointer). A draft
+always shows. A kind filter (Builder / Pre-Builder) was tried and dropped as not
+meaningful. Remembered per browser.
+
+**A row is two lines**, so the title always has the width: number, title, date,
+counts, and the archive state on the right; then the state chips left and the
+actions right. One flex line squeezed the title to a word a line once a
+`PUT TO BED` chip and a third button arrived.
+
 Each row is a flex line, `padding: 15px 18px`, white on `#eeedea` (`#dedcd8` for the
 live issue), radius 10px: mono `WT350` bold in ink, top-aligned to the title's line box (`line-height: 19.2px`) in a 44px cell, then title + meta, then the
 send chips, then actions, then a **fixed 190px right cell**.
