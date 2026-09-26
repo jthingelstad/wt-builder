@@ -20,7 +20,7 @@ import { config } from './config.ts';
 import * as librarian from './integrations/librarian.ts';
 import * as pinboard from './integrations/pinboard.ts';
 
-const MODEL = 'claude-opus-5';
+const MODEL = 'claude-opus-5-5';
 
 /**
  * The contract asks for temperature 0 on the proof pass. Claude Opus 5 rejects

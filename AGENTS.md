@@ -8,8 +8,10 @@ instructions. Do not fork them.
 WT Builder is the authoring application for *The Weekly Thing*. One editor, one
 live issue, nine years of a Shortcuts workflow being retired into it.
 
-**We are building the application and about to start publishing real issues with
-it.** Not prototyping. There is no prototype: it was deleted once the design was
+**It publishes The Weekly Thing.** WT350 (2026-09-20) and WT351 (2026-09-26)
+were built and sent end to end here — website, Buttondown, podcast, and archive —
+and it is still being built while it is used: Jamie edits a live issue while an
+agent watches and fixes (see *Live sessions* below). Not prototyping. There is no prototype: it was deleted once the design was
 implemented, because it used a superseded data model and kept being mistaken for
 the specification.
 
@@ -139,9 +141,10 @@ data, which looks exactly like a rendering bug.
   adding any of the three.
 - Never parse pre-Builder issue Markdown into items.
 - Never add secrets, raw Shortcut payloads, or production reader data.
-- **Do not retire the Shortcuts workflow.** It stays the fallback until WT
-  Builder has published a real issue end to end. Nothing here has sent to a
-  reader yet — see `docs/status.md`.
+- **Leave the Shortcuts workflow intact.** WT Builder is how issues are
+  published now (WT350 onward), and the Shortcuts workflow is no longer used to
+  send one; it stays as it is, a fallback, until Jamie decides to retire it.
+  Retiring it is his call, never an agent's.
 
 ## Decisions
 
