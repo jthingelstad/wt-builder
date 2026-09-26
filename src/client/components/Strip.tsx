@@ -1,8 +1,9 @@
 /**
  * The progress strip — 36px under the header.
  *
- * One tick per readiness unit. Clicking a tick jumps the canvas to that unit's
- * anchor and selects it, so the strip is navigation and not just a readout.
+ * One tick per readiness unit. Clicking a tick scrolls the canvas to that
+ * unit's anchor — scroll only, nothing is selected and no panel opens — so the
+ * strip is navigation and not just a readout.
  *
  * The strip is a `div`, not a button, because the ticks have to be real buttons
  * — a button inside a button is invalid and the inner one stops being

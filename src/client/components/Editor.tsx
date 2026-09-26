@@ -90,8 +90,8 @@ export function Editor({ doc, readiness, busy, error, run, onIndex, onSend, onEr
   const w = windowOf(doc);
   const [kicker, note] = KICKER[lens];
 
-  /** Jump the canvas to an anchor and select it — used by the progress strip. */
-  // A jump from the review panel or the strip highlights and scrolls, but
+  /** Jump the canvas to an anchor and select it — used by review notes. */
+  // A jump from the review panel highlights and scrolls, but
   // keeps the rail as it is: "Show me" used to swap the review out for the
   // inspector, so the note vanished the moment you went to act on it
   // (2026-09-20). Clicking the item on the canvas still opens the inspector.
@@ -101,6 +101,21 @@ export function Editor({ doc, readiness, busy, error, run, onIndex, onSend, onEr
     setPeeking(true);
     const el = canvasRef.current?.querySelector(`[data-anchor="${CSS.escape(anchor)}"]`);
     el?.scrollIntoView({ behavior: 'smooth', block: 'center' });
+  }, []);
+  /**
+   * Scroll only: centre the anchor and tint it briefly, selecting nothing, so
+   * the inspector stays as it was. The progress strip and a Notable/Briefly
+   * move use this — Jamie wants to be taken to the item to work on it, not
+   * handed its detail panel (WT351).
+   */
+  const goTo = useCallback((anchor: string) => {
+    const el = canvasRef.current?.querySelector(`[data-anchor="${CSS.escape(anchor)}"]`);
+    if (!el) return;
+    el.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    el.classList.remove('arrived');
+    void (el as HTMLElement).offsetWidth; // restart the tint on a second visit
+    el.classList.add('arrived');
+    setTimeout(() => el.classList.remove('arrived'), 1800);
   }, []);
   const select = useCallback((anchor: string | null) => {
     setSelected(anchor);
@@ -125,19 +140,9 @@ export function Editor({ doc, readiness, busy, error, run, onIndex, onSend, onEr
     addEchoes: (nodeId, echoes) => void runEdit(() => api.addEchoes(id, nodeId, echoes)),
     promote: (itemId) => void runEdit(() => api.promote(id, itemId)),
     // The link lands in the other section, often a screen away: the canvas
-    // follows it there and flashes the row so it need not be hunted for.
-    // Scroll only — selecting it opened the inspector, which Jamie did not
-    // ask for, and the panel's reflow threw the scroll off (WT351).
+    // follows it there (scroll only — selecting it opened the inspector).
     moveToSection: (itemId, target) => void runEdit(() => api.moveToSection(id, itemId, target))
-      .then(() => requestAnimationFrame(() => {
-        const el = canvasRef.current?.querySelector(`[data-anchor="${CSS.escape(itemId)}"]`);
-        if (!el) return;
-        el.scrollIntoView({ behavior: 'smooth', block: 'center' });
-        el.classList.remove('arrived');
-        void (el as HTMLElement).offsetWidth; // restart the flash on a second move
-        el.classList.add('arrived');
-        setTimeout(() => el.classList.remove('arrived'), 1800);
-      })),
+      .then(() => requestAnimationFrame(() => goTo(itemId))),
     demote: (nodeId) => void runEdit(() => api.demote(id, nodeId)),
     setChannel: (itemId, channel, on) => void runEdit(() => api.setChannel(id, itemId, channel, on)),
     uploadPhoto: (itemId, file) => {
@@ -327,7 +332,7 @@ export function Editor({ doc, readiness, busy, error, run, onIndex, onSend, onEr
         <button class="btn primary" onClick={onSend}>Publish</button>
       </header>
 
-      <Strip number={doc.issue.number} readiness={readiness} onJump={jump} />
+      <Strip number={doc.issue.number} readiness={readiness} onJump={goTo} />
 
       {hints && (
         <div class="scrim" onClick={() => setHints(false)}>

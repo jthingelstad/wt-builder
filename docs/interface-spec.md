@@ -645,7 +645,9 @@ straight back in.
 (`DONE_WORDS`: intro 50, outro 20, Notable commentary 20; Briefly wants a line; a photo
 wants alt and caption; a haiku three lines). Every Currently line is its own tick, the
 issue's title and dek are the first, and ticks run in the order the page reads, so the
-strip answers "how close am I" and a click on any tick jumps there (2026-09-20).
+strip answers "how close am I" and a click on any tick jumps there (2026-09-20) —
+scroll only, with a brief tint: nothing is selected and the inspector does not open
+(WT351).
 
 **Markdown on the keyboard.** Every editable holds Markdown source while editing and
 renders it at rest — Source included, which shows pictures and rendered text like the
