@@ -18,6 +18,7 @@ import { bodyLines, outOfWindow, windowOf } from '../shared/render/plan.ts';
 import { imageTags, splitBody } from '../shared/body.ts';
 import { config } from './config.ts';
 import * as librarian from './integrations/librarian.ts';
+import * as pinboard from './integrations/pinboard.ts';
 
 const MODEL = 'claude-opus-5';
 
@@ -1157,6 +1158,12 @@ export async function draft(req: DraftRequest): Promise<DraftResult> {
     }
   }
 
+  // A link is drafted from what it is and from how Jamie writes: the page
+  // itself, his own recent commentary as examples, and what the archive
+  // shows he has said about the subject before. With only a title and a URL
+  // the wand wrote generic commentary (Jamie, WT351).
+  const grounding = item?.type === 'pinboard_link' ? await linkGrounding(req.doc, item) : '';
+
   // The link's own section decides commentary length (Briefly vs Notable).
   const linkSection = item?.type === 'pinboard_link'
     ? req.doc.nodes.find((nd) => nd.items.includes(req.itemId!))?.label ?? item.section
@@ -1180,7 +1187,10 @@ export async function draft(req: DraftRequest): Promise<DraftResult> {
       ? `\nAbout a year ago this week — [WT${req.seasonal.number}](https://weekly.thingelstad.com/archive/${req.seasonal.number}/), published ${req.seasonal.publication_date} ("${req.seasonal.title}"). For seasonal rhymes; use it only where it ties to this issue:\n${req.seasonal.excerpt}`
       : '',
     req.context ? `\nContext you must work from:\n${req.context}` : '',
-    current ? `\nWhat it says now, which you are improving on:\n${current}` : '',
+    item?.type === 'pinboard_link' && String(item.commentary ?? '').trim()
+      ? `\nWhat Jamie has written so far, which you are improving on — keep his points:\n${item.commentary}`
+      : current ? `\nWhat it says now, which you are improving on:\n${current}` : '',
+    grounding,
     item?.type === 'pinboard_link'
       ? `\nThe link (in the ${linkSection ?? 'Notable'} section):\n${item.title ?? ''}\n${item.source_url ?? ''}`
       : `\nThe assembled issue, for grounding:\n${assembled}`,
@@ -1290,4 +1300,72 @@ verdict "ready" when nothing would trip a listener; "look" when something would.
   const parsed = JSON.parse(text) as { verdict?: 'ready' | 'look'; summary?: string; findings?: { block: number; quote: string; problem: string; suggestion?: string }[] };
   const findings = (parsed.findings ?? []).filter((f) => Number.isInteger(f.block) && f.block >= 0 && f.block < blocks.length);
   return { verdict: findings.length ? 'look' : parsed.verdict ?? 'ready', summary: parsed.summary ?? '', findings };
+}
+
+
+// ── link grounding ────────────────────────────────────────────────────────
+
+const PAGE_CHARS = 7000;
+
+/** The page's readable text, or nothing: a draft without it is still a draft. */
+async function pageText(url: string): Promise<string> {
+  try {
+    const res = await fetch(url, {
+      headers: { 'User-Agent': 'Mozilla/5.0 (Macintosh) WT-Builder/1.0 (+https://weekly.thingelstad.com)', Accept: 'text/html' },
+      signal: AbortSignal.timeout(15_000),
+      redirect: 'follow',
+    });
+    if (!res.ok || !/html/i.test(res.headers.get('content-type') ?? '')) return '';
+    const html = await res.text();
+    const text = html
+      .replace(/<(script|style|noscript|svg|nav|header|footer|form|aside)\b[\s\S]*?<\/\1>/gi, ' ')
+      .replace(/<\/(p|div|h[1-6]|li|blockquote|br|section|article)>/gi, '\n')
+      .replace(/<[^>]+>/g, ' ')
+      .replace(/&nbsp;/g, ' ').replace(/&amp;/g, '&').replace(/&lt;/g, '<').replace(/&gt;/g, '>')
+      .replace(/&quot;/g, '"').replace(/&#39;|&rsquo;|&#8217;/g, "'")
+      .replace(/[ \t]+/g, ' ')
+      .replace(/\n\s*\n+/g, '\n')
+      .trim();
+    return text.slice(0, PAGE_CHARS);
+  } catch {
+    return '';
+  }
+}
+
+/**
+ * What the link wand works from besides the title: the page, Jamie's own
+ * commentary as examples (same register as the section: Briefly one-liners
+ * or Notable paragraphs), and his past writing on the subject. Each source is
+ * best-effort — the draft proceeds without any one of them, and says nothing
+ * made up to fill the gap.
+ */
+async function linkGrounding(doc: IssueDoc, item: Item): Promise<string> {
+  const url = item.source_url ?? '';
+  const brief = doc.nodes.find((n) => n.items.some((id) => doc.items[id] === item))?.type === 'briefly';
+  const [page, mine, past] = await Promise.all([
+    url ? pageText(url) : Promise.resolve(''),
+    pinboard.recentCommentary().catch(() => []),
+    librarian.isConfigured() ? librarian.retrieve(item.title ?? url, 6).catch(() => []) : Promise.resolve([]),
+  ]);
+  const examples = mine
+    .filter((p) => p.href !== url)
+    .filter((p) => (brief ? p.extended.length <= 260 : p.extended.length >= 140))
+    .slice(0, 14)
+    .map((p) => `- ${p.description}\n  ${p.extended.replace(/\s*\n+\s*/g, ' ').slice(0, 700)}`);
+  const ownIssue = doc.issue.number;
+  const earlier = past
+    .filter((p) => p.issue_number && p.issue_number !== ownIssue && p.text)
+    .slice(0, 5)
+    .map((p) => `- WT${p.issue_number}: ${String(p.text).replace(/\s+/g, ' ').slice(0, 400)}`);
+  return [
+    examples.length
+      ? `\nHow Jamie actually writes ${brief ? 'Briefly' : 'Notable'} commentary — his own recent bookmarks. Match this voice: its length, how it opens, its plainness. Do not copy phrases:\n${examples.join('\n')}`
+      : '',
+    earlier.length
+      ? `\nWhat Jamie has written about this subject before, from the archive — for continuity; mention an earlier issue only if it genuinely connects:\n${earlier.join('\n')}`
+      : '',
+    page
+      ? `\nThe page itself (text, trimmed) — say what it actually is or argues, specifically:\n${page}`
+      : '\n(The page could not be read; work from the title and URL, and do not invent its contents.)',
+  ].filter(Boolean).join('\n');
 }

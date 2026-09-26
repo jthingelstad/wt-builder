@@ -137,6 +137,22 @@ export function sweepBounds(window: Window): { fromdt: string; todt: string } {
   return { fromdt: iso(window.fromMs - pad), todt: iso(window.toMs + pad) };
 }
 
+/**
+ * Jamie's own recent commentary, as the link wand's examples of his voice:
+ * public bookmarks with extended text, newest first, over the last half
+ * year. posts/all is rate-limited to once per five minutes, so the list is
+ * cached for six hours — voice does not change by the minute.
+ */
+let voiceCache: { at: number; posts: PinboardPost[] } | null = null;
+export async function recentCommentary(): Promise<PinboardPost[]> {
+  if (voiceCache && Date.now() - voiceCache.at < 6 * 3_600_000) return voiceCache.posts;
+  const since = new Date(Date.now() - 183 * 86_400_000).toISOString().replace(/\.\d{3}Z$/, 'Z');
+  const posts = (await call('/posts/all', { fromdt: since, results: '400' })) as PinboardPost[];
+  const kept = posts.filter((p) => p.shared !== 'no' && p.extended.trim().length >= 20 && !/(^|\s)_exclude(\s|$)/.test(p.tags));
+  voiceCache = { at: Date.now(), posts: kept };
+  return kept;
+}
+
 /** Everything captured inside the window — the true Central instants. */
 export async function sweepPinboard(window: Window, tag?: string): Promise<Candidate[]> {
   const params: Record<string, string> = { ...sweepBounds(window) };
