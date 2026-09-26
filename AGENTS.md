@@ -11,9 +11,9 @@ live issue, nine years of a Shortcuts workflow being retired into it.
 **It publishes The Weekly Thing.** WT350 (2026-09-20) and WT351 (2026-09-26)
 were built and sent end to end here — website, Buttondown, podcast, and archive —
 and it is still being built while it is used: Jamie edits a live issue while an
-agent watches and fixes (see *Live sessions* below). Not prototyping. There is no prototype: it was deleted once the design was
-implemented, because it used a superseded data model and kept being mistaken for
-the specification.
+agent watches and fixes (see *Live sessions* below). Not prototyping. There is
+no prototype: it was deleted once the design was implemented, because it used a
+superseded data model and kept being mistaken for the specification.
 
 ## Read these, in this order
 
