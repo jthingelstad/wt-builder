@@ -80,6 +80,12 @@ export async function createDraft(subject: string, body: string): Promise<DraftR
  * keeping: the website leg falls back to the numbered archive URL it already
  * knows, and the next re-send records the real one.
  */
+/** A draft as Buttondown holds it — read back to verify the leg. */
+export async function getEmail(id: string): Promise<{ subject: string; status: string; body: string }> {
+  const e = (await call(`/emails/${encodeURIComponent(id)}`, { method: 'GET' })) as { subject?: string; status?: string; body?: string };
+  return { subject: e.subject ?? '', status: e.status ?? '', body: (e.body ?? '').replace(EDITOR_MODE_MARKER, '').trim() };
+}
+
 export function usableArchiveUrl(url: string | undefined): string | undefined {
   if (!url) return undefined;
   return /\/archive\/untitled(?:-\d+)?\/?$/i.test(url) ? undefined : url;

@@ -17,7 +17,7 @@ import { existsSync } from 'node:fs';
 import { extname, join, normalize } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
-import type { ArchiveReference, Channel, Destination, IssueDoc, Item, SendState } from '../shared/types.ts';
+import type { ArchiveReference, Channel, Destination, IssueDoc, Item, SendState, Verification } from '../shared/types.ts';
 import { render } from '../shared/render/index.ts';
 import { renderEmail } from '../shared/render/email.ts';
 import { config, describeConfig } from './config.ts';
@@ -35,6 +35,7 @@ import { audioScript } from '../shared/render/audio.ts';
 import { heldOut, outOfWindow, windowOf } from '../shared/render/plan.ts';
 import { archiveInputs, issueEntry, siteInputs, subjectFor, type IssueEntry } from './publish.ts';
 import * as draftShare from './share.ts';
+import { verifierFor } from './verify.ts';
 
 const DIST = fileURLToPath(new URL('../../dist', import.meta.url));
 
@@ -214,6 +215,39 @@ async function loggedSend(id: string, dest: string, run: () => Promise<unknown>)
     store.logEvent(id, 'send', `Send failed — ${dest}: ${(err as Error).message}`);
     throw err;
   }
+}
+
+/** A verification older than this that still says `running` was stranded by a restart. */
+const VERIFY_STALE_MS = 25 * 60_000;
+
+/**
+ * Read one leg's destination back and record what was found. Runs in the
+ * background — listening to the podcast takes a couple of minutes, and the
+ * website's page appears only once the site has deployed — so the Send view
+ * shows `running` and picks the result up when it lands.
+ */
+async function runVerify(id: string, dest: Destination, wait = false): Promise<void> {
+  const verify = verifierFor(dest);
+  const doc = store.getIssue(id)?.doc;
+  if (!verify || !doc) return;
+  const current = doc.verify?.[dest];
+  if (current?.status === 'running' && Date.now() - Date.parse(current.at) < VERIFY_STALE_MS) return;
+  store.recordVerify(id, dest, { status: 'running', at: new Date().toISOString(), checks: [] });
+  let result: Verification;
+  try {
+    const checks = await verify(doc, wait);
+    const status = checks.some((c) => c.ok === false) ? 'problems' : checks.some((c) => c.ok === null) ? 'warnings' : 'passed';
+    result = { status, at: new Date().toISOString(), checks };
+  } catch (err) {
+    result = { status: 'error', at: new Date().toISOString(), checks: [], error: (err as Error).message.slice(0, 500) };
+  }
+  store.recordVerify(id, dest, result);
+  store.logEvent(id, 'verify', `Verified — ${dest}: ${result.status}${result.error ? ` (${result.error.slice(0, 120)})` : ''}`);
+}
+
+/** After a leg goes out, check it landed — without holding up the response. */
+function verifyAfterSend(id: string, dest: Destination): void {
+  void runVerify(id, dest, dest === 'website').catch(() => { /* recorded inside */ });
 }
 
 // ── routes ────────────────────────────────────────────────────────────────
@@ -770,11 +804,32 @@ const routes: [RegExp, string, (ctx: Ctx, params: string[]) => Promise<unknown>]
    * to a Buttondown-only guard while the client still offered every leg.
    * tests/routes.test.ts exercises it over HTTP so that cannot happen quietly.
    */
+  /**
+   * Verify a leg again, on demand. Returns at once with the leg marked
+   * `running`; the result lands on the issue when the checks finish.
+   */
+  [/^\/api\/issues\/([^/]+)\/verify\/([a-z]+)$/, 'POST', async (_ctx, [id, dest]) => {
+    const destination = dest as Destination;
+    if (!verifierFor(destination)) throw new HttpError(400, `${destination} has no verification`);
+    const doc = requireIssue(id!);
+    if (doc.sends?.[destination]?.status !== 'sent') throw new HttpError(400, `${destination} has not been sent`);
+    void runVerify(id!, destination).catch(() => { /* recorded inside */ });
+    return { issue: store.getIssue(id!)?.doc };
+  }],
+
   [/^\/api\/issues\/([^/]+)\/send\/([a-z]+)$/, 'POST', async ({ url }, [id, dest]) => {
     const destination = dest as Destination;
     const force = url.searchParams.get('force') === '1';
-    if (destination === 'website') return loggedSend(id!, 'website', () => sendWebsite(id!, force));
-    if (destination === 'podcast') return loggedSend(id!, 'podcast', () => sendPodcast(id!));
+    if (destination === 'website') {
+      const out = await loggedSend(id!, 'website', () => sendWebsite(id!, force));
+      verifyAfterSend(id!, 'website');
+      return out;
+    }
+    if (destination === 'podcast') {
+      const out = await loggedSend(id!, 'podcast', () => sendPodcast(id!));
+      verifyAfterSend(id!, 'podcast');
+      return out;
+    }
     if (destination === 'archive') return loggedSend(id!, 'archive', () => sendArchive(id!));
     if (destination !== 'buttondown') {
       throw new HttpError(400, `unknown destination ${destination}`);
@@ -804,6 +859,7 @@ const routes: [RegExp, string, (ctx: Ctx, params: string[]) => Promise<unknown>]
       };
       const row = store.recordSend(id!, destination, state);
       store.logEvent(id!, 'send', 'Send finished — buttondown (draft, never scheduled)');
+      verifyAfterSend(id!, 'buttondown');
       return { issue: row?.doc, send: state, images };
     } catch (err) {
       const state: SendState = {

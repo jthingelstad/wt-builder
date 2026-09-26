@@ -218,6 +218,10 @@ export const api = {
   send: (id: string, destination: string) =>
     call<SendResult>(`/issues/${id}/send/${destination}`, { method: 'POST', body: '{}' }),
 
+  /** Re-check a sent leg at its destination. Returns at once; the result lands on the issue. */
+  verify: (id: string, destination: string) =>
+    call<{ issue: IssueDoc }>(`/issues/${id}/verify/${destination}`, { method: 'POST', body: '{}' }),
+
   /** What a leg would commit, committing nothing. website and archive only. */
   sendPreview: (id: string, leg: 'website' | 'archive') =>
     call<{ repo: string; sha: string; changed: string[]; unchanged: number }>(

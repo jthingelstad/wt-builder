@@ -50,6 +50,17 @@ finished, what is half-finished, and what has never run.
   (`?force=1` is the deliberate escape for an issue with no audio), and every
   leg refuses a second POST while one is in flight — a `sending` older than
   ten minutes is treated as a crash strand and passes so the leg can retry.
+- **Verify after send** (2026-09-26, WT351) — each leg is read back from its
+  destination once it goes out, and the Send card shows the result under
+  VERIFY: the podcast's three files on the CDN at the rendered size, its length
+  against the script, its chapters, and whisper listening to the episode
+  (`backfill/assess.py --json`, numbers compared spelled out, a doubtful cue
+  heard again on its own) with the pause before every section change; the
+  website's live page, its embedded audio, and the episode in podcast.xml,
+  waiting out the deploy; the Buttondown draft's status, subject, and body
+  against the email edition. Runs in the background after every send and on
+  "Check again" (`POST /api/issues/:id/verify/:dest`); results live on
+  `doc.verify`, never in a revision. Code: `src/server/verify.ts`.
 - **Published, derived** (2026-08-30) — an issue becomes `published` the
   moment its website and buttondown legs are both `sent`; nothing un-derives
   it. This is what keeps `lastPublishedNumber()`, the next-issue default,

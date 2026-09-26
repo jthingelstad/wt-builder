@@ -11,9 +11,9 @@
  * send came back with the evidence that step produces.
  */
 
-import { useState } from 'preact/hooks';
+import { useEffect, useState } from 'preact/hooks';
 
-import type { Destination, IssueDoc } from '../../shared/types.ts';
+import type { Destination, IssueDoc, Verification } from '../../shared/types.ts';
 import { api, type Readiness, type SendResult } from '../api.ts';
 import {
   ArrowLeft, Check, Circle, CircleAlert, Globe, Mail, Podcast, Spinner, X,
@@ -143,6 +143,22 @@ export function Send({ doc, readiness, error, onBack, onSent, onError }: Props) 
   const sentMap = Object.fromEntries(CARDS.map((c) => [c.key, stateOf(c.key) === 'sent']));
   const sentCount = CARDS.filter((c) => stateOf(c.key) === 'sent').length;
 
+  // Verification runs on the server after each leg — a couple of minutes for
+  // the podcast's listening, the site's deploy for the website — so while any
+  // is running the view re-reads the issue until the results land.
+  const verifying = CARDS.some((c) => doc.verify?.[c.key]?.status === 'running');
+  useEffect(() => {
+    if (!verifying) return;
+    const t = setInterval(() => {
+      api.getIssue(id).then((r) => onSent(r.issue)).catch(() => { /* next tick */ });
+    }, 5000);
+    return () => clearInterval(t);
+  }, [verifying, id]);
+
+  const verify = (key: Destination) => {
+    api.verify(id, key).then((r) => onSent(r.issue)).catch((err: Error) => onError(`${key}: ${err.message}`));
+  };
+
   /** One leg. True when it went; a failure is shown and stops any run it is part of. */
   const send = async (key: Destination): Promise<boolean> => {
     setRunning(key);
@@ -242,6 +258,8 @@ export function Send({ doc, readiness, error, onBack, onSent, onError }: Props) 
             busy={Boolean(running)}
             onApprove={() => setApproved(true)}
             onRun={() => void send(card.key)}
+            verification={doc.verify?.[card.key]}
+            onVerify={() => verify(card.key)}
           />
         ))}
 
@@ -317,8 +335,10 @@ function ArchiveFeed({
 }
 
 function SendCard({
-  card, state, send, result, blocker, gated, busy, onApprove, onRun,
+  card, state, send, result, blocker, gated, busy, onApprove, onRun, verification, onVerify,
 }: {
+  verification?: Verification;
+  onVerify: () => void;
   card: Card;
   state: string;
   send?: { status: string; url?: string; error?: string };
@@ -405,6 +425,50 @@ function SendCard({
           );
         })}
       </div>
+
+      {done && <VerifyPanel v={verification} busy={busy} onVerify={onVerify} />}
     </section>
+  );
+}
+
+const VERDICT: Record<Verification['status'], string> = {
+  running: 'CHECKING', passed: 'VERIFIED', warnings: 'LOOK AT THIS', problems: 'NOT RIGHT', error: 'COULD NOT CHECK',
+};
+
+/**
+ * What the destination says now, read back after the leg went out: the files
+ * on the CDN, the live page and feed, the draft in Buttondown, the audio as
+ * whisper hears it. Sent is not the same as right; this is the second half.
+ */
+function VerifyPanel({ v, busy, onVerify }: { v?: Verification; busy: boolean; onVerify: () => void }) {
+  const running = v?.status === 'running';
+  return (
+    <div class={`sc-verify ${v?.status ?? 'none'}`}>
+      <div class="sv-head">
+        <span class="mono-label">VERIFY</span>
+        {v && <span class={`sc-pill ${v.status}`}>{VERDICT[v.status]}</span>}
+        {running && <Spinner size={12} />}
+        {v && !running && <span class="sv-at">{new Date(v.at).toLocaleTimeString([], { hour: 'numeric', minute: '2-digit' })}</span>}
+        <span class="head-spacer" />
+        <button class="btn small" disabled={busy || running} onClick={onVerify}>
+          {v ? 'Check again' : 'Check it'}
+        </button>
+      </div>
+      {!v && <div class="sv-none">Not checked yet.</div>}
+      {running && v.checks.length === 0 && <div class="sv-none">Reading it back from the destination…</div>}
+      {v?.error && <div class="sc-evidence error">{v.error}</div>}
+      {v?.checks.map((c) => (
+        <div class="sc-step" key={c.label}>
+          <span class="sc-glyph">
+            {c.ok === true ? <Check size={13} class="ok" /> : c.ok === false ? <X size={13} class="failed" /> : <CircleAlert size={13} class="warn" />}
+          </span>
+          <div class="sc-step-main">
+            <div class="sc-step-label">{c.label}</div>
+            <div class="sc-evidence">{c.detail}</div>
+            {c.items?.map((it) => <div class="sc-evidence item" key={it}>{it}</div>)}
+          </div>
+        </div>
+      ))}
+    </div>
   );
 }

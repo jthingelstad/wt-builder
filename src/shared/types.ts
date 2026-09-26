@@ -214,6 +214,27 @@ export interface SendState {
 
 export type Destination = 'buttondown' | 'website' | 'podcast' | 'archive';
 
+/**
+ * One thing checked about a leg after it went out, read off the real
+ * destination — the CDN, the live page and feed, the Buttondown draft, the
+ * audio as whisper hears it. `ok` null is a warning: worth a look, not wrong.
+ */
+export interface VerifyCheck {
+  label: string;
+  ok: boolean | null;
+  detail: string;
+  /** The specifics behind a warning or failure — suspect cues, missing files. */
+  items?: string[];
+}
+
+/** A leg's verification, re-run on demand; the latest replaces the last. */
+export interface Verification {
+  status: 'running' | 'passed' | 'warnings' | 'problems' | 'error';
+  at: string;
+  checks: VerifyCheck[];
+  error?: string;
+}
+
 export interface IssueMeta {
   id: string;
   number: number;
@@ -262,6 +283,8 @@ export interface IssueDoc {
    */
   image_map?: Record<string, string>;
   sends?: Partial<Record<Destination, SendState>>;
+  /** What was checked at each destination after its leg went out. */
+  verify?: Partial<Record<Destination, Verification>>;
   /**
    * The live draft-preview share, when one exists: a static page at an
    * unguessable CDN URL, loudly labeled DRAFT. Re-sharing refreshes the same

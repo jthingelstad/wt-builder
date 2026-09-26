@@ -11,7 +11,7 @@ import Database from 'better-sqlite3';
 import { chmodSync, existsSync, mkdirSync } from 'node:fs';
 import { dirname } from 'node:path';
 
-import type { Destination, IssueDoc, SendState } from '../shared/types.ts';
+import type { Destination, IssueDoc, SendState, Verification } from '../shared/types.ts';
 import { SCHEMA_VERSION } from '../shared/types.ts';
 import { config } from './config.ts';
 
@@ -281,6 +281,20 @@ export function recordSend(id: string, destination: Destination, state: SendStat
       new Date().toISOString(),
       id,
     );
+  return getIssue(id);
+}
+
+/**
+ * Record one leg's verification. Like recordSend, a targeted write that makes
+ * no revision: verification describes the destination, not the issue's words.
+ */
+export function recordVerify(id: string, destination: Destination, v: Verification): IssueRow | null {
+  const row = getIssue(id);
+  if (!row) return null;
+  row.doc.verify = { ...(row.doc.verify ?? {}), [destination]: v };
+  openDb()
+    .prepare('UPDATE issues SET doc = ? WHERE id = ?')
+    .run(JSON.stringify(row.doc), id);
   return getIssue(id);
 }
 
