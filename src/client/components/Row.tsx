@@ -346,13 +346,23 @@ export function formatShortcut(e: KeyboardEvent): boolean {
  * contenteditable — Safari wraps every Enter in a <div>, and an empty one is
  * the blank line between paragraphs.
  */
+const BLOCK_TAGS = new Set(['P', 'DIV', 'H1', 'H2', 'H3', 'H4', 'UL', 'OL', 'BLOCKQUOTE']);
+
 export function domToMarkdown(root: Node, blockBreak = '\n\n'): string {
   const walk = (node: Node): string => {
     // Numeric node types, not Node.TEXT_NODE: this runs under test without a DOM.
     if (node.nodeType === 3) return (node.textContent ?? '').replace(/\u00a0/g, ' ');
     if (node.nodeType !== 1) return '';
     const el = node as HTMLElement;
-    const inner = () => Array.from(el.childNodes).map(walk).join('');
+    // A block opens on a line of its own. The browser leaves the first line
+    // of a contenteditable as a bare text node and wraps only the lines after
+    // an Enter in <div>s, so "1. One" + <div>2. Two</div> must break between
+    // them — the trailing blockBreak alone read it as "1. One2. Two" (WT351).
+    const inner = () => Array.from(el.childNodes).reduce((out, child) => {
+      const piece = walk(child);
+      const opensLine = BLOCK_TAGS.has((child as HTMLElement).tagName) && out !== '' && !out.endsWith('\n');
+      return out + (opensLine ? blockBreak : '') + piece;
+    }, '');
     switch (el.tagName) {
       case 'BR': return '\n';
       case 'A': {

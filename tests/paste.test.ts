@@ -72,6 +72,21 @@ describe('reading a contenteditable back keeps its paragraphs', () => {
     expect(readEditable(withQuery(typed), true)).toBe('First paragraph.\n\nSecond paragraph.');
   });
 
+  // The first line stays a bare text node; only the lines after Enter get a
+  // <div>. WT351's numbered list read back as "1. Deep knowledge:2. Wide…".
+  it('keeps the line break before the first div Enter made', () => {
+    const list = el('div', [
+      text('1. Deep knowledge:'),
+      el('div', [text('2. Wide knowledge:')]),
+      el('div', [text('3. Taste:')]),
+    ]);
+    expect(readEditable(withQuery(list), true)).toBe('1. Deep knowledge:\n2. Wide knowledge:\n3. Taste:');
+  });
+
+  it('a pasted paragraph after loose text is still a paragraph', () => {
+    expect(md(el('div', [text('Intro'), el('p', [text('Body')])]))).toBe('Intro\n\nBody');
+  });
+
   it('a single-line field reads as plain text', () => {
     expect(readEditable(withQuery(el('span', [text('one line')])), false)).toBe('one line');
   });
