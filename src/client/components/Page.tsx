@@ -69,7 +69,7 @@ interface PageProps {
   onSelect: (anchor: string | null) => void;
   act: PageActions;
   drafting: string | null;
-  draft: { itemId: string; candidates: string[]; echoes?: EchoOption[]; membership?: { cta: string; thanks: string }[]; photo?: { alt: string; caption: string }[]; alts?: { src: string; alt: string }[] } | null;
+  draft: { itemId: string; candidates: string[]; echoes?: EchoOption[]; membership?: { cta: string; thanks: string }[]; photo?: { alt: string }[]; alts?: { src: string; alt: string }[] } | null;
   onPickDraft: (itemId: string, text: string, refs?: ArchiveReference[], extraPatch?: Record<string, unknown>) => void;
   onDismissDraft: () => void;
   /** The section whose order is being proposed, and the proposal. */
@@ -401,7 +401,7 @@ export function Page({
                 <PhotoPicker
                   candidates={draft.photo}
                   onPick={(pair) => onPickDraft(itemId, item.body ?? '', undefined, {
-                    media: { ...(item.media ?? {}), alt: pair.alt, caption: pair.caption },
+                    media: { ...(item.media ?? {}), alt: pair.alt },
                   })}
                   onDismiss={onDismissDraft}
                 />
@@ -1090,26 +1090,23 @@ function EchoesPicker({
 function PhotoPicker({
   candidates, onPick, onDismiss,
 }: {
-  candidates: { alt: string; caption: string }[];
-  onPick: (pair: { alt: string; caption: string }) => void;
+  candidates: { alt: string }[];
+  onPick: (pair: { alt: string }) => void;
   onDismiss: () => void;
 }) {
   return (
     <div class="draft-picker membership-picker">
       <div class="dp-head">
-        <span class="mono-label">FROM THE PHOTO — PICK A PAIR</span>
+        <span class="mono-label">FROM THE PHOTO — ALT TEXT</span>
         <button class="dp-x" aria-label="Dismiss" onClick={onDismiss}>×</button>
       </div>
       {candidates.length === 0 && <p class="quiet">Nothing came back.</p>}
       {candidates.map((pair, i) => (
         <button key={i} class="dp-option" onClick={() => onPick(pair)}>
-          <span class="dp-pair-label">ALT</span>
           {pair.alt}
-          <span class="dp-pair-label">CAPTION</span>
-          {pair.caption}
         </button>
       ))}
-      <p class="dp-foot">One pick fills alt and caption. Both stay editable.</p>
+      <p class="dp-foot">A pick sets the alt text only. Your caption is not touched.</p>
     </div>
   );
 }

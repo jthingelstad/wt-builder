@@ -571,7 +571,6 @@ export interface DraftResult {
 
 export interface PhotoOption {
   alt: string;
-  caption: string;
 }
 
 export interface ImageAlt {
@@ -650,18 +649,18 @@ const PHOTO_SCHEMA = {
       items: {
         type: 'object',
         additionalProperties: false,
-        required: ['alt', 'caption'],
-        properties: { alt: { type: 'string' }, caption: { type: 'string' } },
+        required: ['alt'],
+        properties: { alt: { type: 'string' } },
       },
     },
   },
 } as const;
 
 /**
- * The photo wand looks at the photo. Alt text is for someone who cannot see
- * it: what is in the frame, plainly, under ~125 characters, no "image of".
- * The caption is Jamie's one line about it, in his voice, using what the
- * camera recorded (when, where) as context rather than reciting it.
+ * The photo wand looks at the photo and writes alt text ONLY: for someone
+ * who cannot see it, what is in the frame, plainly, under ~125 characters,
+ * no "image of". The caption is Jamie's and the wand never offers one — it
+ * drafted alt + caption pairs until WT351, and a pick overwrote his caption.
  */
 async function draftPhoto(req: DraftRequest, item: Item): Promise<DraftResult> {
   const url = item.media?.url;
@@ -671,13 +670,11 @@ async function draftPhoto(req: DraftRequest, item: Item): Promise<DraftResult> {
   const facts = [when, where].filter(Boolean).join(' ');
   const system = `${VOICE}
 
-Write for a photo in this issue of The Weekly Thing. You can see the photo. Return three candidates, each an alt + caption pair.
+Write alt text for a photo in this issue of The Weekly Thing. You can see the photo. Return three candidates, each an alt.
 
-alt: for a reader who cannot see the image. Say what is in the frame — subject, setting, what is happening — plainly and concretely, in one sentence under 125 characters. No "image of", "photo of", or "picture of". No interpretation, no mood words, no exclamation marks.
+alt: for a reader who cannot see the image. Say what is in the frame — subject, setting, what is happening — plainly and concretely, in one sentence under 125 characters. No "image of", "photo of", or "picture of". No interpretation, no mood words, no exclamation marks. Do not repeat the caption's words; the caption prints beside the image.
 
-caption: one sentence in Jamie's voice about this moment, the kind of line he puts under a photo — specific, warm, no hashtags, no emoji unless he would. Use the facts below as context, not as a list to recite; the date and place print beneath the caption already.
-
-Vary the three: one plain, one with a little wit, one that connects the photo to the week.`;
+Vary the three in what they put first — the subject, the setting, the light — not in tone.`;
 
   const parts: Anthropic.MessageCreateParamsNonStreaming['messages'][number]['content'] = [
     { type: 'image', source: { type: 'url', url } },
@@ -685,7 +682,7 @@ Vary the three: one plain, one with a little wit, one that connects the photo to
       type: 'text',
       text: [
         facts ? `The camera recorded: ${facts}.` : 'The camera recorded no time or place.',
-        item.media?.caption ? `Current caption, which you are improving on: ${item.media.caption}` : '',
+        item.media?.caption ? `Jamie's caption, printed beside the image (context only; do not echo it): ${item.media.caption}` : '',
         item.media?.alt && !/^(img|dsc|photo|image)[ _-]?\d+$/i.test(item.media.alt) ? `Current alt: ${item.media.alt}` : '',
         req.context ? `Context you must work from:\n${req.context}` : '',
         `The issue, for grounding:\n${issueExcerpt(req.doc, 1600)}`,
