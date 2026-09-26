@@ -670,7 +670,8 @@ into the item's own row.
 **Placement.** The `_brief` tag on the bookmark files a link in Briefly, as does having
 no description; a described, unmarked link is Notable. The move action edits the tag; a
 tag or description change at Pinboard moves the link on re-scan (placement only — the
-inference is never written back).
+inference is never written back). After a move the canvas scrolls to the link in its
+new section and keeps it selected — it is not left to be found by hand.
 
 **Promotion.** A journal post *with a title* can be promoted: it leaves the Journal
 group and becomes a top-level node (`kind: "promoted_item"`) that still carries its

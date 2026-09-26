@@ -124,7 +124,15 @@ export function Editor({ doc, readiness, busy, error, run, onIndex, onSend, onEr
     addItem: (nodeId, type) => void runEdit(() => api.addItem(id, nodeId, type)),
     addEchoes: (nodeId, echoes) => void runEdit(() => api.addEchoes(id, nodeId, echoes)),
     promote: (itemId) => void runEdit(() => api.promote(id, itemId)),
-    moveToSection: (itemId, target) => void runEdit(() => api.moveToSection(id, itemId, target)),
+    // The link lands in the other section, often a screen away: follow it
+    // there and keep it selected so it need not be hunted for (WT351).
+    moveToSection: (itemId, target) => void runEdit(() => api.moveToSection(id, itemId, target))
+      .then(() => requestAnimationFrame(() => {
+        const el = canvasRef.current?.querySelector(`[data-anchor="${CSS.escape(itemId)}"]`);
+        if (!el) return;
+        select(itemId);
+        el.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      })),
     demote: (nodeId) => void runEdit(() => api.demote(id, nodeId)),
     setChannel: (itemId, channel, on) => void runEdit(() => api.setChannel(id, itemId, channel, on)),
     uploadPhoto: (itemId, file) => {
