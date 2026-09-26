@@ -653,6 +653,21 @@ span[contenteditable]:focus {
 .tip-state.partial { color: var(--green); opacity: .7; }
 
 .strip-readout { font-size: 11.5px; color: var(--muted); white-space: nowrap; }
+.strip-aloud { color: var(--faint); }
+.strip-flash { color: var(--green); font-weight: 600; animation: flash-in 0.35s ease-out; }
+@keyframes flash-in { from { opacity: 0; transform: translateY(3px); } to { opacity: 1; transform: none; } }
+
+/* A finished strip is a map of the issue: each done tick in its own hue. */
+.tick.done.hue-journal, .tip-dot.done.hue-journal { background: var(--blue); }
+.tick.done.hue-thingy, .tip-dot.done.hue-thingy { background: var(--terracotta); }
+.tick.done.hue-photo, .tip-dot.done.hue-photo { background: var(--amber); }
+.tick.done.hue-words, .tip-dot.done.hue-words { background: var(--ink); }
+.tip-said { display: block; margin-top: 3px; font-size: 11px; color: var(--muted); font-style: italic; line-height: 1.35; }
+
+/* Halfway: a shimmer runs down the finished ticks, left to right. */
+.tick.wave { animation: tick-wave 0.9s ease-in-out var(--wave-delay, 0ms) 1; }
+@keyframes tick-wave { 0%, 100% { transform: scaleY(1); filter: none; } 40% { transform: scaleY(1.9); filter: brightness(1.35); } }
+@media (prefers-reduced-motion: reduce) { .tick.wave, .strip-flash { animation: none; } }
 .strip-readout.complete { color: var(--green); font-weight: 500; }
 
 /* ── the left panel ───────────────────────────────────────────────────── */

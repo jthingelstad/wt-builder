@@ -670,6 +670,17 @@ strip answers "how close am I" and a click on any tick jumps there (2026-09-20) 
 scroll only, with a brief tint: nothing is selected and the inspector does not open
 (WT351).
 
+**The strip is a map, and it is fun** (Jamie, WT351: "surprise me"). A finished
+tick takes the hue of what it is — links green, Journal blue, Thingy terracotta,
+the photo amber, Jamie's own framing words (title, intro, Currently, outro, haiku)
+ink — so a done strip reads as the issue's shape. A finished tick's tooltip adds
+the first words it holds, in italics. Momentum: ticks finished back to back (each
+within four minutes of the last) throw a bigger burst each time, and three in a row
+flashes `3 in a row` in the readout; crossing halfway sends a shimmer down the
+finished ticks and flashes `Halfway`. The readout ends with how long the issue runs
+aloud as it stands (`~14 min aloud`, script characters at 15 a second). Reduced
+motion turns the shimmer and flashes off, as it does the confetti.
+
 **Markdown on the keyboard.** Every editable holds Markdown source while editing and
 renders it at rest — Source included, which shows pictures and rendered text like the
 page (2026-09-20: raw Markdown there was "too markdown"). The sugar is the keyboard, not

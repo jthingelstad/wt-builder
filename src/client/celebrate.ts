@@ -106,11 +106,16 @@ function spawn(x: number, y: number, count: number, spread: number, power: numbe
   if (idleTimer) { clearTimeout(idleTimer); idleTimer = null; }
 }
 
-/** One tick turned green: a small burst from its centre. */
-export async function burstAt(x: number, y: number): Promise<void> {
+/**
+ * One tick turned green: a small burst from its centre. `streak` is how many
+ * ticks have landed back to back (each within a few minutes of the last);
+ * momentum shows — every one in a row throws a little more, up to a limit.
+ */
+export async function burstAt(x: number, y: number, streak = 1): Promise<void> {
   if (matchMedia('(prefers-reduced-motion: reduce)').matches) return;
   await ensureApp();
-  spawn(x, y, 22, Math.PI * 0.9, 7);
+  const n = Math.min(streak, 6);
+  spawn(x, y, 22 + (n - 1) * 9, Math.PI * (0.9 + (n - 1) * 0.06), 7 + (n - 1) * 0.8);
 }
 
 /** Every tick is green: the strip erupts, left to right. */

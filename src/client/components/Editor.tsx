@@ -335,7 +335,7 @@ export function Editor({ doc, readiness, busy, error, run, onIndex, onSend, onEr
         <button class="btn primary" onClick={onSend}>Publish</button>
       </header>
 
-      <Strip number={doc.issue.number} readiness={readiness} onJump={goTo} />
+      <Strip number={doc.issue.number} readiness={readiness} onJump={goTo} doc={doc} />
       {doc.issue.put_to_bed_at && (
         <div class="bed-bar" role="status">
           <Moon size={14} />
