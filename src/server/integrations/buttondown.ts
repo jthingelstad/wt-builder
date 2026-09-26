@@ -80,10 +80,33 @@ export async function createDraft(subject: string, body: string): Promise<DraftR
  * keeping: the website leg falls back to the numbered archive URL it already
  * knows, and the next re-send records the real one.
  */
-/** A draft as Buttondown holds it — read back to verify the leg. */
-export async function getEmail(id: string): Promise<{ subject: string; status: string; body: string }> {
-  const e = (await call(`/emails/${encodeURIComponent(id)}`, { method: 'GET' })) as { subject?: string; status?: string; body?: string };
-  return { subject: e.subject ?? '', status: e.status ?? '', body: (e.body ?? '').replace(EDITOR_MODE_MARKER, '').trim() };
+/** An email as Buttondown holds it — read back to verify the leg. */
+export async function getEmail(id: string): Promise<{ subject: string; status: string; body: string; publish_date?: string }> {
+  const e = (await call(`/emails/${encodeURIComponent(id)}`, { method: 'GET' })) as {
+    subject?: string; status?: string; body?: string; publish_date?: string | null;
+  };
+  return {
+    subject: e.subject ?? '',
+    status: e.status ?? '',
+    body: (e.body ?? '').replace(EDITOR_MODE_MARKER, '').trim(),
+    publish_date: e.publish_date ?? undefined,
+  };
+}
+
+/**
+ * Delivery for one sent email, as Buttondown counts it. Only the issue-level
+ * delivery counts are read: opens and clicks exist on the same endpoint and
+ * are deliberately not (the tracking policy is per-issue, never per-reader,
+ * and verification is about whether it went, not who read it).
+ */
+export async function getDelivery(id: string): Promise<{ recipients: number; deliveries: number; temporary_failures: number; permanent_failures: number }> {
+  const a = (await call(`/emails/${encodeURIComponent(id)}/analytics`, { method: 'GET' })) as Record<string, number>;
+  return {
+    recipients: a.recipients ?? 0,
+    deliveries: a.deliveries ?? 0,
+    temporary_failures: a.temporary_failures ?? 0,
+    permanent_failures: a.permanent_failures ?? 0,
+  };
 }
 
 export function usableArchiveUrl(url: string | undefined): string | undefined {

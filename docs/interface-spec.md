@@ -7,11 +7,13 @@ weekly newsletter — replacing a Shortcuts + Data Jar + Markdown-flattening wor
 
 Its own full-screen layer (`position: fixed; inset: 0; z-index: 110`), entered from
 the header's `Send` (which reads `Sent 2/3` once some destinations are done). Sticky
-52px header: back to the issue, mono `WT350`, the title, and `Send all three` in ink
+52px header: back to the issue, mono `WT350`, the title, and `Send all four` in ink
 on the right. Body is an 820px column, `padding: 34px 24px 90px`: a 34px/700 `Send`
 heading, a subhead that states the boundary — sending is not the same as being
-authoritative — then three destination cards in run order — **Podcast, Website,
-Buttondown**.
+authoritative — then four destination cards in run order — **Podcast, Website,
+Buttondown, Archive**. The archive is a card like the others, not a footnote (Jamie,
+WT351: "it is not less important"); it still publishes nothing and gates nothing,
+and its blocker says it goes after the website and Buttondown.
 
 Each card is white on `#eeedea`, radius 12px, and changes border with state
 (`#ece0bd` running, `#cfe3d6` done):
@@ -40,8 +42,14 @@ primary: it duplicates the pill beside it and does nothing when clicked.
 takes a `circle-x` and shows the error text where evidence would go, and the action
 becomes **Try again** — resuming from the failed step, not from the beginning.
 
-Beneath the cards, an `AFTER THE ISSUE IS OUT` block on `#fbfbfa`: the archive feed,
-named as neither a channel nor a gate, with its state in mono.
+A sent card ends in **VERIFY** on `#fbfbfa`: the destination read back — each check a
+row with `check` / `circle-alert` amber / `x` terracotta, its finding in 11px mono,
+and any specifics (a time to listen at, a file that differs) beneath. A verdict pill
+(`CHECKING`, `VERIFIED`, `WAITING`, `LOOK AT THIS`, `NOT RIGHT`), the time it ran,
+and `Check again`. `WAITING` is a leg still landing — an email scheduled for later,
+an archive not yet indexed — and says when it will look again on its own. The
+Archive card also carries **PREVIEW**: what a commit would change in the corpus,
+changing nothing.
 
 ## Issue index
 

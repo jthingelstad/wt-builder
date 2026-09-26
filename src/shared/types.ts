@@ -229,10 +229,13 @@ export interface VerifyCheck {
 
 /** A leg's verification, re-run on demand; the latest replaces the last. */
 export interface Verification {
-  status: 'running' | 'passed' | 'warnings' | 'problems' | 'error';
+  /** `waiting`: nothing wrong, something not done yet (scheduled, not indexed) — it re-checks itself. */
+  status: 'running' | 'passed' | 'waiting' | 'warnings' | 'problems' | 'error';
   at: string;
   checks: VerifyCheck[];
   error?: string;
+  /** When the server will look again on its own, while the leg is still landing. */
+  recheck_at?: string;
 }
 
 export interface IssueMeta {

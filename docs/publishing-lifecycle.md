@@ -76,7 +76,10 @@ that is not publishing**. It differs from the three above in three ways:
 - it is never a readiness gate, and
 - its failure is reported but does not degrade the issue's published state.
 
-An issue can sit published with an unsent archive feed. That is a Thingy
+The Send view shows it as a fourth card, as prominent as the other three
+(WT351), and verifies it like them: the corpus files match the issue, and the
+Librarian returns the issue's own passages. None of the three differences above
+changed. An issue can sit published with an unsent archive feed. That is a Thingy
 staleness problem, not a publishing problem, and it is retried independently from
 the dashboard.
 

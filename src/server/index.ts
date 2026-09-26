@@ -226,23 +226,63 @@ const VERIFY_STALE_MS = 25 * 60_000;
  * website's page appears only once the site has deployed — so the Send view
  * shows `running` and picks the result up when it lands.
  */
-async function runVerify(id: string, dest: Destination, wait = false): Promise<void> {
+async function runVerify(id: string, dest: Destination, wait = false, resumed = false): Promise<void> {
   const verify = verifierFor(dest);
   const doc = store.getIssue(id)?.doc;
   if (!verify || !doc) return;
   const current = doc.verify?.[dest];
-  if (current?.status === 'running' && Date.now() - Date.parse(current.at) < VERIFY_STALE_MS) return;
+  // A `running` left by the previous process is nobody's; `resumed` takes it over.
+  if (!resumed && current?.status === 'running' && Date.now() - Date.parse(current.at) < VERIFY_STALE_MS) return;
+  clearRecheck(id, dest);
   store.recordVerify(id, dest, { status: 'running', at: new Date().toISOString(), checks: [] });
   let result: Verification;
   try {
-    const checks = await verify(doc, wait);
-    const status = checks.some((c) => c.ok === false) ? 'problems' : checks.some((c) => c.ok === null) ? 'warnings' : 'passed';
+    const { checks, recheckMs } = await verify(doc, wait);
+    const status = checks.some((c) => c.ok === false) ? 'problems'
+      : checks.some((c) => c.ok === null) ? (recheckMs ? 'waiting' : 'warnings')
+      : 'passed';
     result = { status, at: new Date().toISOString(), checks };
+    if (recheckMs) {
+      result.recheck_at = new Date(Date.now() + recheckMs).toISOString();
+      scheduleRecheck(id, dest, recheckMs);
+    }
   } catch (err) {
     result = { status: 'error', at: new Date().toISOString(), checks: [], error: (err as Error).message.slice(0, 500) };
   }
   store.recordVerify(id, dest, result);
   store.logEvent(id, 'verify', `Verified — ${dest}: ${result.status}${result.error ? ` (${result.error.slice(0, 120)})` : ''}`);
+}
+
+/**
+ * A leg still landing is looked at again on its own: a scheduled email once
+ * its minute has passed, an archive until the Librarian has it. Timers are
+ * in memory; `recheck_at` on the issue lets a restart pick them back up.
+ */
+const rechecks = new Map<string, ReturnType<typeof setTimeout>>();
+function scheduleRecheck(id: string, dest: Destination, ms: number, resumed = false): void {
+  clearRecheck(id, dest);
+  // setTimeout's ceiling is ~24.8 days; nothing here waits anywhere near it.
+  rechecks.set(`${id}:${dest}`, setTimeout(() => {
+    rechecks.delete(`${id}:${dest}`);
+    void runVerify(id, dest, false, resumed).catch(() => { /* recorded inside */ });
+  }, Math.max(ms, 30_000)));
+}
+function clearRecheck(id: string, dest: Destination): void {
+  const t = rechecks.get(`${id}:${dest}`);
+  if (t) clearTimeout(t);
+  rechecks.delete(`${id}:${dest}`);
+}
+/** After a restart, re-arm every recheck the last process had promised. */
+function resumeRechecks(): void {
+  for (const row of store.listIssues()) {
+    for (const [dest, v] of Object.entries(row.doc.verify ?? {})) {
+      if (!v) continue;
+      if (v.status === 'running' || (v.recheck_at && v.status === 'waiting')) {
+        const due = v.recheck_at ? Date.parse(v.recheck_at) - Date.now() : 0;
+        scheduleRecheck(row.id, dest as Destination, Math.max(due, 60_000), true);
+      }
+    }
+  }
 }
 
 /** After a leg goes out, check it landed — without holding up the response. */
@@ -830,7 +870,11 @@ const routes: [RegExp, string, (ctx: Ctx, params: string[]) => Promise<unknown>]
       verifyAfterSend(id!, 'podcast');
       return out;
     }
-    if (destination === 'archive') return loggedSend(id!, 'archive', () => sendArchive(id!));
+    if (destination === 'archive') {
+      const out = await loggedSend(id!, 'archive', () => sendArchive(id!));
+      verifyAfterSend(id!, 'archive');
+      return out;
+    }
     if (destination !== 'buttondown') {
       throw new HttpError(400, `unknown destination ${destination}`);
     }
@@ -1137,6 +1181,7 @@ if (isMain !== false) {
     console.log(`WT Builder on http://${config.host}:${config.port}`);
     for (const [k, v] of Object.entries(describeConfig())) console.log(`  ${k}: ${v}`);
     void finishStrandedWrites();
+    resumeRechecks();
   });
 }
 

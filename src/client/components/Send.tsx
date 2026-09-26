@@ -1,7 +1,7 @@
 /**
  * The Send view — its own full-screen layer.
  *
- * Three destinations in run order: Podcast, Website, Buttondown. The order is
+ * Four destinations in run order: Podcast, Website, Buttondown, Archive. The order is
  * the point. The website handoff publishes an audio reference, so the podcast
  * has to have produced a file for that reference to resolve. That dependency is
  * **stated, not enforced** — Jamie can send in any order and take the
@@ -16,7 +16,7 @@ import { useEffect, useState } from 'preact/hooks';
 import type { Destination, IssueDoc, Verification } from '../../shared/types.ts';
 import { api, type Readiness, type SendResult } from '../api.ts';
 import {
-  ArrowLeft, Check, Circle, CircleAlert, Globe, Mail, Podcast, Spinner, X,
+  Archive, ArrowLeft, Check, Circle, CircleAlert, Globe, Mail, Podcast, Spinner, X,
 } from '../icons.tsx';
 
 interface Props {
@@ -115,7 +115,7 @@ const CARDS: Card[] = [
     name: 'Buttondown',
     dest: 'Buttondown',
     icon: <Mail />,
-    ends: 'Ends at a draft. Nothing is scheduled and nothing is sent, so a wrong draft has reached no reader.',
+    ends: 'Ends at a draft: WT Builder never schedules or sends, so a wrong draft reaches no reader. You send it from Buttondown, and Verify follows it until it has gone.',
     verb: 'Create draft',
     again: 'Update draft',
     steps: [
@@ -124,6 +124,31 @@ const CARDS: Card[] = [
         label: 'Create the draft',
         // The editor, not the public archive: the draft is opened to be scheduled.
         evidence: (r) => (r.send.edit_url ?? r.send.url ? { href: r.send.edit_url ?? r.send.url!, label: 'Draft' } : undefined),
+      },
+    ],
+  },
+  {
+    // A leg like the others (Jamie, WT351): the archive is where Thingy
+    // answers from, and it is how the issue lasts. It runs last because it
+    // holds published issues only — a draft committed here would put
+    // unpublished text in front of readers asking Thingy.
+    key: 'archive',
+    name: 'Archive',
+    dest: 'librarian-thing',
+    icon: <Archive />,
+    ends: 'Commits the canonical text to the corpus repository, where the Librarian indexes it and Thingy retrieves from it.',
+    verb: 'Commit to archive',
+    again: 'Re-commit',
+    blocker: (sent) => (sent.website && sent.buttondown
+      ? null
+      : 'The archive holds published issues, so it goes after the website and Buttondown legs.'),
+    steps: [
+      { label: 'Render the archive files' },
+      {
+        label: 'Commit to the corpus',
+        evidence: (r) => (r.send.external_id
+          ? { text: String(r.send.external_id).slice(0, 7), href: r.send.url, label: 'Commit' }
+          : undefined),
       },
     ],
   },
@@ -147,13 +172,14 @@ export function Send({ doc, readiness, error, onBack, onSent, onError }: Props) 
   // the podcast's listening, the site's deploy for the website — so while any
   // is running the view re-reads the issue until the results land.
   const verifying = CARDS.some((c) => doc.verify?.[c.key]?.status === 'running');
+  const waiting = CARDS.some((c) => doc.verify?.[c.key]?.status === 'waiting');
   useEffect(() => {
-    if (!verifying) return;
+    if (!verifying && !waiting) return;
     const t = setInterval(() => {
       api.getIssue(id).then((r) => onSent(r.issue)).catch(() => { /* next tick */ });
-    }, 5000);
+    }, verifying ? 5000 : 60_000);
     return () => clearInterval(t);
-  }, [verifying, id]);
+  }, [verifying, waiting, id]);
 
   const verify = (key: Destination) => {
     api.verify(id, key).then((r) => onSent(r.issue)).catch((err: Error) => onError(`${key}: ${err.message}`));
@@ -192,7 +218,7 @@ export function Send({ doc, readiness, error, onBack, onSent, onError }: Props) 
    * podcast is not among them — re-sending it re-synthesizes and replaces
    * the mp3, which a text fix never wants; its own card does that on purpose.
    */
-  const RESEND: Destination[] = ['website', 'buttondown', 'archive' as Destination];
+  const RESEND: Destination[] = ['website', 'buttondown', 'archive'];
   const resendable = RESEND.filter((key) => stateOf(key) === 'sent');
   const resendAll = async () => {
     for (const key of resendable) {
@@ -219,9 +245,9 @@ export function Send({ doc, readiness, error, onBack, onSent, onError }: Props) 
             Re-send all sent
           </button>
         )}
-        {sentCount < 3 && (
+        {sentCount < CARDS.length && (
           <button class="btn primary" disabled={Boolean(running)} onClick={sendAll}>
-            {sentCount > 0 ? 'Send the rest' : 'Send all three'}
+            {sentCount > 0 ? 'Send the rest' : 'Send all four'}
           </button>
         )}
       </header>
@@ -258,68 +284,40 @@ export function Send({ doc, readiness, error, onBack, onSent, onError }: Props) 
             busy={Boolean(running)}
             onApprove={() => setApproved(true)}
             onRun={() => void send(card.key)}
+            issueId={id}
             verification={doc.verify?.[card.key]}
             onVerify={() => verify(card.key)}
           />
         ))}
 
-        <ArchiveFeed
-          doc={doc}
-          busy={Boolean(running)}
-          onRun={() => void send('archive' as Destination)}
-        />
       </div>
     </div>
   );
 }
 
 /**
- * The archive feed — neither a channel nor a gate. Preview shows exactly what
- * the commit would change in the corpus repository, changing nothing; Send
- * runs the leg. Committing a draft would put unpublished text where Thingy
- * answers from, which is what the preview exists to prevent.
+ * What the archive commit would change in the corpus repository, changing
+ * nothing — a draft must never be committed there, and this is how to look
+ * before committing (or before re-committing after a fix).
  */
-function ArchiveFeed({
-  doc, busy, onRun,
-}: { doc: IssueDoc; busy: boolean; onRun: () => void }) {
+function ArchivePreview({ issueId }: { issueId: string }) {
   const [preview, setPreview] = useState<{ repo: string; changed: string[]; unchanged: number } | null>(null);
   const [loading, setLoading] = useState(false);
   const [err, setErr] = useState<string | null>(null);
-
-  const state = doc.sends?.archive?.status ?? 'none';
-
   const load = () => {
     setLoading(true);
     setErr(null);
-    api.sendPreview(doc.issue.id, 'archive')
+    api.sendPreview(issueId, 'archive')
       .then(setPreview)
       .catch((e: Error) => setErr(e.message))
       .finally(() => setLoading(false));
   };
-
   return (
-    <div class="after">
-      <span class="mono-label">AFTER THE ISSUE IS OUT</span>
-      <p>
-        The archive feed makes the issue retrievable by Thingy. It is neither a
-        channel nor a gate — it commits the canonical text to the corpus
-        repository once the issue is out.
-      </p>
-      <div class="after-row">
-        <span class="after-state">
-          {state === 'sent' ? 'INDEXED' : state === 'failed' ? 'DID NOT SEND' : 'NOT YET INDEXED'}
-        </span>
-        <button class="btn small" disabled={loading} onClick={load}>
-          {loading ? 'Diffing…' : 'Preview'}
-        </button>
-        <button class="btn small" disabled={busy} onClick={onRun}>
-          {state === 'sent' ? 'Re-send' : state === 'failed' ? 'Try again' : 'Send to archive'}
-        </button>
-        {doc.sends?.archive?.url && (
-          <a class="btn small" href={doc.sends.archive.url} target="_blank" rel="noreferrer">
-            Commit ↗
-          </a>
-        )}
+    <div class="sc-preview">
+      <div class="sv-head">
+        <span class="mono-label">PREVIEW</span>
+        <span class="head-spacer" />
+        <button class="btn small" disabled={loading} onClick={load}>{loading ? 'Diffing…' : 'What would change'}</button>
       </div>
       {err && <div class="sc-evidence error">{err}</div>}
       {preview && (
@@ -335,8 +333,9 @@ function ArchiveFeed({
 }
 
 function SendCard({
-  card, state, send, result, blocker, gated, busy, onApprove, onRun, verification, onVerify,
+  card, state, send, result, blocker, gated, busy, onApprove, onRun, verification, onVerify, issueId,
 }: {
+  issueId: string;
   verification?: Verification;
   onVerify: () => void;
   card: Card;
@@ -426,13 +425,14 @@ function SendCard({
         })}
       </div>
 
+      {card.key === 'archive' && <ArchivePreview issueId={issueId} />}
       {done && <VerifyPanel v={verification} busy={busy} onVerify={onVerify} />}
     </section>
   );
 }
 
 const VERDICT: Record<Verification['status'], string> = {
-  running: 'CHECKING', passed: 'VERIFIED', warnings: 'LOOK AT THIS', problems: 'NOT RIGHT', error: 'COULD NOT CHECK',
+  running: 'CHECKING', passed: 'VERIFIED', waiting: 'WAITING', warnings: 'LOOK AT THIS', problems: 'NOT RIGHT', error: 'COULD NOT CHECK',
 };
 
 /**
@@ -457,6 +457,9 @@ function VerifyPanel({ v, busy, onVerify }: { v?: Verification; busy: boolean; o
       {!v && <div class="sv-none">Not checked yet.</div>}
       {running && v.checks.length === 0 && <div class="sv-none">Reading it back from the destination…</div>}
       {v?.error && <div class="sc-evidence error">{v.error}</div>}
+      {v?.status === 'waiting' && v.recheck_at && (
+        <div class="sv-none">Looking again on its own at {new Date(v.recheck_at).toLocaleTimeString([], { hour: 'numeric', minute: '2-digit' })}.</div>
+      )}
       {v?.checks.map((c) => (
         <div class="sc-step" key={c.label}>
           <span class="sc-glyph">

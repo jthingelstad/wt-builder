@@ -5,6 +5,10 @@
  * send returned 200" but "the file is there, the page is live, the feed has
  * the episode, and the audio says what the script says".
  *
+ * A leg still landing — an email scheduled for later, an archive the
+ * Librarian has not ingested — is `waiting`, not wrong, and says when it will
+ * be looked at again.
+ *
  * Every check reads the real destination. Nothing here writes anywhere but
  * `tmp/verify/`, where the downloaded audio and whisper's transcript are kept
  * for a closer look.
@@ -20,10 +24,28 @@ import type { Destination, IssueDoc, VerifyCheck } from '../shared/types.ts';
 import { audioScript, ISSUE_URL_BASE } from '../shared/render/audio.ts';
 import { renderEmail } from '../shared/render/email.ts';
 import { plausibleDuration } from './backfill.ts';
-import { subjectFor } from './publish.ts';
+import { archiveInputs, subjectFor } from './publish.ts';
+import { config } from './config.ts';
 import * as buttondown from './integrations/buttondown.ts';
+import * as githubRepo from './integrations/github.ts';
+import * as librarian from './integrations/librarian.ts';
 
 const run = promisify(execFile);
+
+/**
+ * A verifier's findings, and when to look again if the leg is still landing
+ * (a scheduled email, an archive the Librarian has not ingested yet).
+ */
+export interface VerifyOutcome {
+  checks: VerifyCheck[];
+  recheckMs?: number;
+}
+
+const MINUTE = 60_000;
+/** Central time, the way Jamie reads every time (memory: times in Central). */
+const central = (iso: string) => new Date(iso).toLocaleString('en-US', {
+  timeZone: 'America/Chicago', weekday: 'short', hour: 'numeric', minute: '2-digit',
+});
 const ROOT = join(fileURLToPath(new URL('.', import.meta.url)), '../..');
 export const FEED = 'https://weekly.thingelstad.com/podcast.xml';
 
@@ -186,12 +208,43 @@ export async function verifyWebsite(doc: IssueDoc, opts: { wait?: boolean } = {}
 
 // ── Buttondown ────────────────────────────────────────────────────────────
 
-export async function verifyButtondown(doc: IssueDoc): Promise<VerifyCheck[]> {
+/** How long after a send the delivery count is still worth refreshing. */
+const DELIVERY_SETTLE_MS = 6 * 60 * MINUTE;
+
+export async function verifyButtondown(doc: IssueDoc): Promise<VerifyOutcome> {
   const id = doc.sends?.buttondown?.external_id;
-  if (!id) return [fail('Draft', 'No Buttondown draft is recorded for this issue.')];
+  if (!id) return { checks: [fail('Status', 'No Buttondown email is recorded for this issue.')] };
   const email = await buttondown.getEmail(id);
   const checks: VerifyCheck[] = [];
-  checks.push(pass('Draft', `Buttondown holds it, status "${email.status}"${email.status === 'draft' ? ' — sending is yours, from Buttondown' : ''}`));
+  let recheckMs: number | undefined;
+
+  // The leg ends at a draft; Jamie schedules or sends it in Buttondown. Until
+  // it has gone, this waits and looks again — at the scheduled minute when
+  // there is one — so the card ends up saying it was, in fact, sent.
+  if (email.status === 'sent') {
+    checks.push(pass('Status', `Sent ${email.publish_date ? central(email.publish_date) : ''} CT`.replace('  ', ' ')));
+    const d = await buttondown.getDelivery(id);
+    const failed = d.temporary_failures + d.permanent_failures;
+    const line = `${d.recipients.toLocaleString()} recipients · ${d.deliveries.toLocaleString()} delivered · ${failed} failed (${d.permanent_failures} permanent)`;
+    const badly = d.recipients > 0 && d.permanent_failures / d.recipients > 0.02;
+    checks.push(d.recipients === 0
+      ? warn('Delivery', 'Buttondown has not counted any recipients yet.')
+      : badly ? fail('Delivery', `${line} — more than 2% bounced for good.`) : pass('Delivery', line));
+    const age = email.publish_date ? Date.now() - Date.parse(email.publish_date) : Infinity;
+    if (age < DELIVERY_SETTLE_MS && d.deliveries + failed < d.recipients) recheckMs = 30 * MINUTE;
+  } else if (email.status === 'scheduled' || email.status === 'about_to_send' || email.status === 'in_flight') {
+    const when = email.publish_date ? Date.parse(email.publish_date) : NaN;
+    checks.push(warn('Status', email.status === 'scheduled' && email.publish_date
+      ? `Scheduled for ${central(email.publish_date)} CT — checked again once it goes.`
+      : 'Going out now — checked again in a few minutes.'));
+    recheckMs = Number.isFinite(when) && when > Date.now() ? when - Date.now() + 3 * MINUTE : 3 * MINUTE;
+  } else if (email.status === 'draft') {
+    checks.push(warn('Status', 'A draft — schedule or send it from Buttondown. Checked again every 10 minutes.'));
+    recheckMs = 10 * MINUTE;
+  } else {
+    checks.push(fail('Status', `Buttondown says "${email.status}".`));
+  }
+
   const subject = subjectFor(doc);
   checks.push(email.subject === subject
     ? pass('Subject', subject)
@@ -199,13 +252,51 @@ export async function verifyButtondown(doc: IssueDoc): Promise<VerifyCheck[]> {
   const body = renderEmail(doc).trim();
   checks.push(email.body === body
     ? pass('Body', `the email edition as sent (${body.length.toLocaleString()} characters)`)
-    : warn('Body', 'The draft differs from the email edition as it renders now — edited in Buttondown, or the issue changed since; "Update draft" re-sends it.'));
-  return checks;
+    : warn('Body', email.status === 'sent'
+      ? 'The sent email differs from the email edition as it renders now — the issue changed after it went.'
+      : 'The draft differs from the email edition as it renders now — edited in Buttondown, or the issue changed since; "Update draft" re-sends it.'));
+  return { checks, recheckMs };
 }
 
-export function verifierFor(dest: Destination) {
-  if (dest === 'podcast') return (doc: IssueDoc) => verifyPodcast(doc);
-  if (dest === 'website') return (doc: IssueDoc, wait?: boolean) => verifyWebsite(doc, { wait });
-  if (dest === 'buttondown') return (doc: IssueDoc) => verifyButtondown(doc);
+// ── archive ───────────────────────────────────────────────────────────────
+
+/** The Librarian ingests on its own schedule; stop looking after a day. */
+const INDEX_PATIENCE_MS = 24 * 60 * MINUTE;
+
+export async function verifyArchive(doc: IssueDoc): Promise<VerifyOutcome> {
+  const n = doc.issue.number;
+  const sent = doc.sends?.archive;
+  if (!sent?.external_id) return { checks: [fail('In the corpus', 'No archive commit is recorded for this issue.')] };
+  const checks: VerifyCheck[] = [];
+  let recheckMs: number | undefined;
+
+  // 1. The corpus holds exactly what this issue renders to.
+  const files = archiveInputs(doc, { buttondownId: doc.sends?.buttondown?.external_id, absoluteUrl: doc.sends?.buttondown?.url });
+  const d = await githubRepo.diff(files, { repo: config.archiveRepo, branch: config.archiveBranch });
+  checks.push(d.changed.length
+    ? warn('In the corpus', `${d.changed.length} of ${files.length} files in ${config.archiveRepo} differ from the issue as it renders now — "Re-commit" brings them level.`, d.changed)
+    : pass('In the corpus', `${files.length} files in ${config.archiveRepo} match the issue exactly`));
+
+  // 2. Thingy can find it: the Librarian returns this issue's own passages.
+  const passages = await librarian.retrieve(`${doc.issue.title} ${doc.issue.dek ?? ''}`.trim(), 20);
+  const own = passages.filter((p) => p.issue_number === n);
+  if (own.length) {
+    checks.push(pass('Retrievable by Thingy', `the Librarian returns ${own.length} WT${n} passage${own.length === 1 ? '' : 's'} for the issue's own title`));
+  } else {
+    const age = Date.now() - Date.parse(sent.at ?? new Date().toISOString());
+    const patient = age < INDEX_PATIENCE_MS;
+    checks.push((patient ? warn : fail)('Retrievable by Thingy', patient
+      ? `Not in the Librarian yet — it ingests on its own schedule. Checked again every 15 minutes.`
+      : `A day after the commit the Librarian still returns nothing from WT${n} — check its ingest.`));
+    if (patient) recheckMs = 15 * MINUTE;
+  }
+  return { checks, recheckMs };
+}
+
+export function verifierFor(dest: Destination): ((doc: IssueDoc, wait?: boolean) => Promise<VerifyOutcome>) | null {
+  if (dest === 'podcast') return async (doc) => ({ checks: await verifyPodcast(doc) });
+  if (dest === 'website') return async (doc, wait) => ({ checks: await verifyWebsite(doc, { wait }) });
+  if (dest === 'buttondown') return verifyButtondown;
+  if (dest === 'archive') return verifyArchive;
   return null;
 }
