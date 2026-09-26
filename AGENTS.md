@@ -48,7 +48,15 @@ npm test
 npm run typecheck
 npm run dev       # service on :4317, client on :5317
 npm run build     # typecheck + vite build into dist/
+npm run test:e2e  # browser tests, WebKit (Safari) + Chromium, offline
 ```
+
+The browser tests (`tests/e2e/`) run the real server with
+`WT_BUILDER_OFFLINE=1` — no `.env`, no credentials, AWS pointed at nothing —
+against a throwaway database seeded from the representative issue. Anything
+typed, dragged, or clicked is asserted by what the server saved. Jamie edits
+in Safari, so WebKit is the first project; a contenteditable change is not
+done until it passes there. Never test by typing into the live service.
 
 The renderers are the part with a real specification. Change one and `npm test`
 says immediately whether the editions still match `fixtures/expected/`. If a

@@ -11,7 +11,26 @@ import { fileURLToPath } from 'node:url';
 
 const ENV_PATH = fileURLToPath(new URL('../../.env', import.meta.url));
 
-if (existsSync(ENV_PATH)) {
+/**
+ * Offline: the browser tests' server (tests/e2e). No .env, no credentials,
+ * and the AWS SDK pointed at nothing, so a test can never write to Pinboard,
+ * Micro.blog, Buttondown, GitHub, S3, or a model — the live-data rule
+ * (never verify with writes on live data) enforced by construction.
+ */
+export const OFFLINE = process.env.WT_BUILDER_OFFLINE === '1';
+
+if (OFFLINE) {
+  for (const k of [
+    'PINBOARD_API_TOKEN', 'MICROBLOG_API_KEY', 'BUTTONDOWN_API_KEY', 'LIBRARIAN_RETRIEVE_SECRET',
+    'GITHUB_PAT_TOKEN', 'OPENAI_API_KEY', 'ANTHROPIC_API_KEY', 'ANTHROPIC_AUTH_TOKEN',
+    'AWS_ACCESS_KEY_ID', 'AWS_SECRET_ACCESS_KEY', 'AWS_SESSION_TOKEN', 'AWS_PROFILE',
+    'WT_BUILDER_PINBOARD_WRITEBACK', 'WT_BUILDER_MICROBLOG_WRITEBACK',
+  ]) process.env[k] = '';
+  process.env.AWS_SHARED_CREDENTIALS_FILE = '/dev/null';
+  process.env.AWS_CONFIG_FILE = '/dev/null';
+  process.env.AWS_EC2_METADATA_DISABLED = 'true';
+  process.env.WT_BUILDER_REHOST_IMAGES = 'false';
+} else if (existsSync(ENV_PATH)) {
   try {
     process.loadEnvFile(ENV_PATH);
   } catch (err) {
@@ -110,6 +129,7 @@ export function describeConfig(): Record<string, string> {
   return {
     port: String(config.port),
     host: config.host,
+    ...(OFFLINE ? { mode: 'OFFLINE (tests) — no credentials, nothing leaves this machine' } : {}),
     db: config.dbPath,
     pinboard: credentials.pinboardToken ? 'configured' : 'MISSING',
     microblog: credentials.microblogToken ? 'configured' : 'MISSING',

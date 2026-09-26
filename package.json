@@ -26,7 +26,8 @@
     "persona:sync": "node scripts/sync-persona.mjs",
     "persona:check": "node scripts/sync-persona.mjs --check",
     "backfill:daily": "node --import tsx scripts/backfill-daily.ts",
-    "backfill:status": "node --import tsx scripts/backfill-status.ts"
+    "backfill:status": "node --import tsx scripts/backfill-status.ts",
+    "test:e2e": "vite build && playwright test"
   },
   "dependencies": {
     "@anthropic-ai/sdk": "^0.123.0",
@@ -39,6 +40,7 @@
     "sharp": "^0.35.4"
   },
   "devDependencies": {
+    "@playwright/test": "^1.63.0",
     "@preact/preset-vite": "^2.10.2",
     "@types/better-sqlite3": "^7.6.13",
     "@types/node": "^24.3.0",
