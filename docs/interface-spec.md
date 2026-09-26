@@ -57,6 +57,14 @@ an archive not yet indexed — and says when it will look again on its own. The
 Archive card also carries **PREVIEW**: what a commit would change in the corpus,
 changing nothing.
 
+Before it, **Made in** — how long the issue took, read from the event log:
+the total (active time before sending plus fixing after) with a pill against the
+Builder issue before it (`1 h 35 m less than WT350`), one line of sittings,
+actions, send time and fixing, then two columns — `WHERE THE TIME WENT` as bars by
+section, and `SITTINGS` with their times — and a toggle listing what shipped in
+WT Builder since the previous issue. The index row adds `made in 2 h 35 m`. It
+exists to answer "did that feature save me time?" (Jamie, WT351).
+
 The last card is **Put to bed** (`moon`, dusk `#4b4a7a` on `#eceaf6`): `AWAKE` /
 `ASLEEP`, one line on what it means, and `Put to bed` — enabled once the issue is
 published, with an amber strip naming any leg not sent or not verified (it can

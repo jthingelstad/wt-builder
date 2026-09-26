@@ -1,6 +1,7 @@
 /** Thin client for the service. Every credential stays on the far side of this. */
 
 import type { ArchiveReference, Channel, EchoOption, IssueDoc, Item } from '../shared/types.ts';
+import type { IssueTiming } from '../shared/timing.ts';
 
 /** True when a local edit touches a field owned by an imported source. */
 export function shouldWriteBack(item: Item, patch: Record<string, unknown>): boolean {
@@ -65,6 +66,8 @@ export interface IssueSummary {
   imported?: boolean;
   /** Put to bed: finished, and the server refuses changes until it is woken. */
   put_to_bed_at?: string;
+  /** Active time it took, before and after sending (Builder issues). */
+  built_ms?: number;
   sends: Record<string, { status: string; url?: string; error?: string }>;
   readiness: number;
   /** One entry per readiness unit — the dashboard draws these as the strip. */
@@ -219,6 +222,13 @@ export const api = {
 
   send: (id: string, destination: string) =>
     call<SendResult>(`/issues/${id}/send/${destination}`, { method: 'POST', body: '{}' }),
+
+  /** How long the issue took, the Builder issue before it, and what shipped between. */
+  timing: (id: string) => call<{
+    timing: IssueTiming;
+    previous: { number: number; timing: IssueTiming } | null;
+    shipped: { sha: string; at: string; subject: string }[];
+  }>(`/issues/${id}/timing`),
 
   /** Put an issue to bed, or wake it. */
   bed: (id: string, asleep: boolean) => post(`/issues/${id}/bed`, { asleep }),

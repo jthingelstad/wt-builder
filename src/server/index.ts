@@ -37,6 +37,9 @@ import { heldOut, outOfWindow, windowOf } from '../shared/render/plan.ts';
 import { archiveInputs, issueEntry, siteInputs, subjectFor, type IssueEntry } from './publish.ts';
 import * as draftShare from './share.ts';
 import { verifierFor } from './verify.ts';
+import { issueTiming, type IssueTiming } from '../shared/timing.ts';
+import { execFile } from 'node:child_process';
+import { promisify } from 'node:util';
 
 const DIST = fileURLToPath(new URL('../../dist', import.meta.url));
 
@@ -164,7 +167,7 @@ async function writeItemToSource(
           : { sync_state: 'local' as const, error: `${item.source} has no write-back` };
 
   store.logEvent(id, 'sync',
-    `Write to ${item.source} — ${result.sync_state}${result.error ? `: ${result.error}` : ''} — ${issues.itemName(item)}`);
+    `Write to ${item.source} — ${result.sync_state}${result.error ? `: ${result.error}` : ''} — ${issues.itemName(item)}`, itemId);
   // A successful write moves the merge base: the snapshot now records what
   // was written, so the next scan's reconcile starts from this write rather
   // than re-adopting it as a source-side change.
@@ -239,6 +242,29 @@ function guardBed(method: string, pathname: string): void {
 /** What the voice will say, hashed: the script review and approval are for this text. */
 function scriptHash(blocks: { text: string }[]): string {
   return createHash('sha256').update(blocks.map((b) => b.text).join('\n')).digest('hex');
+}
+
+/**
+ * What shipped in WT Builder between two moments — the features an issue
+ * was the first to be made with. Read from this checkout's own history.
+ */
+async function shippedBetween(fromIso: string, toIso: string): Promise<{ sha: string; at: string; subject: string }[]> {
+  try {
+    const { stdout } = await promisify(execFile)('git', ['log', `--since=${fromIso}`, `--until=${toIso}`, '--format=%h%x09%cI%x09%s', '--', 'src'], {
+      cwd: fileURLToPath(new URL('../..', import.meta.url)), timeout: 10_000,
+    });
+    return stdout.trim().split('\n').filter(Boolean).map((l) => {
+      const [sha, at, ...rest] = l.split('\t');
+      return { sha: sha!, at: at!, subject: rest.join('\t') };
+    });
+  } catch {
+    return [];
+  }
+}
+
+function timingOf(id: string): IssueTiming | null {
+  const row = store.getIssue(id);
+  return row ? issueTiming(store.allEvents(id), row.doc) : null;
 }
 
 /** A verification older than this that still says `running` was stranded by a restart. */
@@ -336,6 +362,8 @@ const routes: [RegExp, string, (ctx: Ctx, params: string[]) => Promise<unknown>]
         updated_at: r.updated_at,
         imported: Boolean(r.doc.issue.imported),
         put_to_bed_at: r.doc.issue.put_to_bed_at,
+        // Builder issues only: how long it took, for the index row.
+        built_ms: r.doc.issue.imported ? undefined : (() => { const t = timingOf(r.id); return t && t.actions ? t.activeMs + t.after.ms : undefined; })(),
         sends: r.doc.sends ?? {},
         readiness: ready.pct,
         // The dashboard draws one tick per unit, so it needs the units
@@ -429,11 +457,11 @@ const routes: [RegExp, string, (ctx: Ctx, params: string[]) => Promise<unknown>]
     const { patch, dropped } = issues.withoutFlattening(doc.items[itemId!]!, raw);
     if (dropped.length) {
       store.logEvent(id!, 'edit',
-        `Refused an edit to ${dropped.join(', ')} that only removed its line breaks — ${issues.itemName(doc.items[itemId!]!)}`);
+        `Refused an edit to ${dropped.join(', ')} that only removed its line breaks — ${issues.itemName(doc.items[itemId!]!)}`, itemId);
     }
     if (!Object.keys(patch).length) return { issue: doc, readiness: issues.readiness(doc) };
     store.logEvent(id!, 'edit',
-      `Edited ${Object.keys(patch).join(', ')} — ${issues.itemName(doc.items[itemId!]!)}`);
+      `Edited ${Object.keys(patch).join(', ')} — ${issues.itemName(doc.items[itemId!]!)}`, itemId);
     const result = saved(issues.updateItem(doc, itemId!, patch));
 
     // The write-back belongs to the edit, not to the surface it was made on.
@@ -457,7 +485,7 @@ const routes: [RegExp, string, (ctx: Ctx, params: string[]) => Promise<unknown>]
     const item = doc.items[itemId!];
     if (item) {
       store.logEvent(id!, 'channels',
-        `${channel} ${b.on ? 'on' : 'off'} — ${issues.itemName(item)}`);
+        `${channel} ${b.on ? 'on' : 'off'} — ${issues.itemName(item)}`, itemId);
     }
     return saved(issues.setChannel(doc, itemId!, channel, Boolean(b.on)));
   }],
@@ -468,7 +496,7 @@ const routes: [RegExp, string, (ctx: Ctx, params: string[]) => Promise<unknown>]
     const item = doc.items[itemId!];
     if (item) {
       store.logEvent(id!, 'channels',
-        `${b.visible ? 'Shown' : 'Hidden'} — ${issues.itemName(item)}`);
+        `${b.visible ? 'Shown' : 'Hidden'} — ${issues.itemName(item)}`, itemId);
     }
     return saved(b.visible ? issues.showItem(doc, itemId!) : issues.hideItem(doc, itemId!));
   }],
@@ -476,7 +504,7 @@ const routes: [RegExp, string, (ctx: Ctx, params: string[]) => Promise<unknown>]
   [/^\/api\/issues\/([^/]+)\/items\/([^/]+)\/promote$/, 'POST', async (_ctx, [id, itemId]) => {
     const doc = requireIssue(id!);
     const item = doc.items[itemId!];
-    if (item) store.logEvent(id!, 'structure', `Promoted — ${issues.itemName(item)}`);
+    if (item) store.logEvent(id!, 'structure', `Promoted — ${issues.itemName(item)}`, itemId);
     return saved(issues.promote(doc, itemId!));
   }],
 
@@ -509,7 +537,7 @@ const routes: [RegExp, string, (ctx: Ctx, params: string[]) => Promise<unknown>]
       if (item) {
         store.logEvent(id!, 'structure', item.authorship === 'syndicated'
           ? `Held out — ${issues.itemName(item)}`
-          : `Deleted — ${issues.itemName(item)}`);
+          : `Deleted — ${issues.itemName(item)}`, itemId);
       }
       const result = saved(issues.removeItem(doc, nodeId!, itemId!));
       // A held-out Pinboard link carries _exclude on the bookmark; write it.
@@ -658,7 +686,7 @@ const routes: [RegExp, string, (ctx: Ctx, params: string[]) => Promise<unknown>]
     if (dest.items.includes(itemId!)) return saved(doc);
 
     const moved = issues.moveLinkToSection(doc, itemId!, target);
-    store.logEvent(id!, 'structure', `Moved to ${target} — ${issues.itemName(item)}`);
+    store.logEvent(id!, 'structure', `Moved to ${target} — ${issues.itemName(item)}`, itemId);
 
     // The move marks the item `syncing` only when the tags actually changed;
     // a `gone` bookmark moves locally and is never re-created at the source.
@@ -721,7 +749,7 @@ const routes: [RegExp, string, (ctx: Ctx, params: string[]) => Promise<unknown>]
       ? (await geocode.placeName(stored.coordinates)) ?? stored.coordinates
       : undefined;
 
-    store.logEvent(id!, 'edit', `Photo uploaded — ${filename}`);
+    store.logEvent(id!, 'edit', `Photo uploaded — ${filename}`, itemId);
     // Seconds of upload and geocoding have passed: the item is re-read.
     const result = savedFresh(id!, (d) => {
       const fresh = d.items[itemId!];
@@ -869,6 +897,26 @@ const routes: [RegExp, string, (ctx: Ctx, params: string[]) => Promise<unknown>]
    * to a Buttondown-only guard while the client still offered every leg.
    * tests/routes.test.ts exercises it over HTTP so that cannot happen quietly.
    */
+  /**
+   * How long the issue took, from its event log, beside the issue before it
+   * that was made in WT Builder, and what shipped in WT Builder between the
+   * two — so a feature's effect on the time can be seen (Jamie, WT351).
+   */
+  [/^\/api\/issues\/([^/]+)\/timing$/, 'GET', async (_ctx, [id]) => {
+    const doc = requireIssue(id!);
+    const timing = timingOf(id!)!;
+    const prevRow = store.listIssues()
+      .filter((r) => r.number < doc.issue.number && !r.doc.issue.imported)
+      .sort((a, b) => b.number - a.number)[0];
+    const previous = prevRow ? { number: prevRow.number, timing: timingOf(prevRow.id)! } : null;
+    const since = previous?.timing.publishedAt;
+    // Up to when this issue went out: what it was made with, fixes made
+    // during the build included.
+    const until = timing.publishedAt ?? new Date().toISOString();
+    const shipped = since ? await shippedBetween(since, until) : [];
+    return { timing, previous, shipped };
+  }],
+
   /**
    * Put to bed, or wake. Putting to bed is for a published issue — both
    * reader-facing legs out — and is Jamie's click, never automatic: WT350

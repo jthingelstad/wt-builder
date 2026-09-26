@@ -65,6 +65,14 @@ finished, what is half-finished, and what has never run.
   boot). Runs in the background after every send and on
   "Check again" (`POST /api/issues/:id/verify/:dest`); results live on
   `doc.verify`, never in a revision. Code: `src/server/verify.ts`.
+- **Issue timing** (2026-09-26) — `GET /api/issues/:id/timing`: how long the
+  issue took, from its event log (`src/shared/timing.ts`): Jamie's own acts
+  only, sittings split at 30 min, the last "Published" as the real one,
+  same-day fixing after it, time by section (events carry an `anchor` item id
+  since schema v4; older ones match by name). Beside it, the Builder issue
+  before and what shipped in WT Builder between the two (git log of `src/`).
+  Send view panel; `made in …` on the index row. WT350 3 h 12 m + 57 m fixing;
+  WT351 2 h 30 m + 5 m.
 - **Put to bed** (2026-09-26, WT351) — `POST /api/issues/:id/bed {asleep}`;
   a published issue only; while asleep every non-GET to the issue answers 423
   except `/bed` and `/verify/*` (docs/decisions.md). Send view's last card,

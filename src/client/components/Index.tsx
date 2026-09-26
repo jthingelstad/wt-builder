@@ -12,6 +12,7 @@ import { api, type IssueSummary } from '../api.ts';
 import { countdown, isSaturday, issueSaturday, issueWindow, kickerDate, longDate, snapToSaturday, spanLabel, todayCentral, wallClock } from '../../shared/dates.ts';
 import { Archive, Check, CircleAlert, Spinner, Moon } from '../icons.tsx';
 import { omnifocusUrl, taskpaper } from '../../shared/taskpaper.ts';
+import { duration } from '../../shared/timing.ts';
 
 /** AT Builder: the same host, served one port up (tailnet :10002, dev :5318). */
 function siblingUrl(): string {
@@ -238,7 +239,8 @@ function IssueRow({
       : [
           `${issue.counts.links} link${issue.counts.links === 1 ? '' : 's'}`,
           `${issue.counts.journal} journal post${issue.counts.journal === 1 ? '' : 's'}`,
-        ].join(' · ');
+          issue.built_ms ? `made in ${duration(issue.built_ms)}` : '',
+        ].filter(Boolean).join(' · ');
 
   return (
     <div class={`issue-row${isDraft ? ' draft' : ''}${live ? ' live' : ''}${issue.put_to_bed_at ? ' asleep' : ''}`}>

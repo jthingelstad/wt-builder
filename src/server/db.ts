@@ -87,6 +87,12 @@ const MIGRATIONS: ((d: Database.Database) => void)[] = [
       CREATE INDEX revisions_issue ON revisions(issue_id, id DESC);
     `);
   },
+  // v4 — an event can name the item it touched, so time can be attributed to
+  // the part of the issue it was spent on (issue timing, 2026-09-26). Older
+  // events have no anchor; the timing matches them by the name in the summary.
+  (d) => {
+    d.exec('ALTER TABLE events ADD COLUMN anchor TEXT');
+  },
 ];
 
 export const REVISIONS_KEPT = 300;
@@ -310,13 +316,22 @@ export interface IssueEvent {
   at: string;
   kind: string;
   summary: string;
+  /** The item the event touched, when it touched one (since v4). */
+  anchor?: string | null;
 }
 
 /** Append one event. The log narrates; it never decides anything. */
-export function logEvent(issueId: string, kind: string, summary: string): void {
+export function logEvent(issueId: string, kind: string, summary: string, anchor?: string): void {
   openDb()
-    .prepare('INSERT INTO events (issue_id, at, kind, summary) VALUES (?, ?, ?, ?)')
-    .run(issueId, new Date().toISOString(), kind, summary);
+    .prepare('INSERT INTO events (issue_id, at, kind, summary, anchor) VALUES (?, ?, ?, ?, ?)')
+    .run(issueId, new Date().toISOString(), kind, summary, anchor ?? null);
+}
+
+/** Oldest first, every event — what the timing reads. */
+export function allEvents(issueId: string): IssueEvent[] {
+  return openDb()
+    .prepare('SELECT id, at, kind, summary, anchor FROM events WHERE issue_id = ? ORDER BY id')
+    .all(issueId) as IssueEvent[];
 }
 
 /** Newest first. */

@@ -15,6 +15,7 @@ import { useEffect, useState } from 'preact/hooks';
 
 import type { Destination, IssueDoc, ScriptReview, Verification } from '../../shared/types.ts';
 import { audioScript } from '../../shared/render/audio.ts';
+import { duration, type IssueTiming } from '../../shared/timing.ts';
 import { api, type Readiness, type SendResult } from '../api.ts';
 import {
   Archive, ArrowLeft, Check, Circle, CircleAlert, Globe, Mail, Moon, Podcast, Spinner, X,
@@ -308,6 +309,8 @@ export function Send({ doc, readiness, error, onBack, onSent, onError }: Props) 
           />
         ))}
 
+        <Timing doc={doc} />
+
         <Bed doc={doc} onChanged={onSent} onError={onError} />
 
       </div>
@@ -585,6 +588,84 @@ function Bed({ doc, onChanged, onError }: { doc: IssueDoc; onChanged: (d: IssueD
             unverified.length ? `Not verified yet: ${unverified.map((c) => c.name).join(', ')}.` : ''].filter(Boolean).join(' ')}
           {' '}It can still go to bed.
         </span></div>
+      )}
+    </section>
+  );
+}
+
+/**
+ * How long the issue took, from its event log — beside the Builder issue
+ * before it, with what shipped in WT Builder between the two, so a feature's
+ * effect on the time can be seen (Jamie, WT351: "did it save me time!").
+ * Jamie's own acts only; sittings split at 30 minutes apart.
+ */
+function Timing({ doc }: { doc: IssueDoc }) {
+  const [data, setData] = useState<Awaited<ReturnType<typeof api.timing>> | null>(null);
+  const [showShipped, setShowShipped] = useState(false);
+  const sentKey = CARDS.map((c) => doc.sends?.[c.key]?.status ?? '').join('|');
+  useEffect(() => {
+    api.timing(doc.issue.id).then(setData).catch(() => setData(null));
+  }, [doc.issue.id, sentKey]);
+  if (!data || !data.timing.actions) return null;
+  const t = data.timing;
+  const p = data.previous?.timing;
+  const total = t.activeMs + t.after.ms;
+  const prevTotal = p ? p.activeMs + p.after.ms : 0;
+  const delta = p && p.actions ? total - prevTotal : null;
+  const clock = (iso: string) => new Date(iso).toLocaleString([], { weekday: 'short', hour: 'numeric', minute: '2-digit' });
+  const max = Math.max(...t.bySection.map((s) => s.ms), 1);
+  return (
+    <section class="send-card timing">
+      <div class="sc-head">
+        <div class="sc-name">
+          <div class="sc-title">
+            {t.publishedAt ? 'Made in' : 'So far'} {duration(total)}
+            {delta !== null && (
+              <span class={`sc-pill ${delta <= 0 ? 'sent' : 'sending'}`}>
+                {delta <= 0 ? `${duration(-delta)} less than WT${data.previous!.number}` : `${duration(delta)} more than WT${data.previous!.number}`}
+              </span>
+            )}
+          </div>
+          <p class="sc-ends">
+            {duration(t.activeMs)} across {t.sessions.length} sitting{t.sessions.length === 1 ? '' : 's'} · {t.actions} actions, {t.edits} edits
+            {t.sendMs !== undefined && ` · sent in ${duration(t.sendMs)}`}
+            {t.publishedAt && (t.after.actions
+              ? ` · ${duration(t.after.ms)} fixing after it went, ${t.after.sends} re-send${t.after.sends === 1 ? '' : 's'}`
+              : ' · nothing to fix after it went')}
+            {p && p.actions ? `. WT${data.previous!.number}: ${duration(p.activeMs)}${p.after.ms ? ` + ${duration(p.after.ms)} fixing` : ''}.` : ''}
+          </p>
+        </div>
+      </div>
+      <div class="tm-body">
+        <div class="tm-sections">
+          <span class="mono-label">WHERE THE TIME WENT</span>
+          {t.bySection.map((s) => (
+            <div class="tm-row" key={s.label}>
+              <span class="tm-label">{s.label}</span>
+              <span class="tm-bar"><span style={{ width: `${(s.ms / max) * 100}%` }} /></span>
+              <span class="tm-ms">{duration(s.ms)}</span>
+            </div>
+          ))}
+        </div>
+        <div class="tm-sessions">
+          <span class="mono-label">SITTINGS</span>
+          {t.sessions.map((s) => (
+            <div class="tm-session" key={s.start}>
+              {clock(s.start)} – {new Date(s.end).toLocaleTimeString([], { hour: 'numeric', minute: '2-digit' })}
+              <span class="tm-ms"> {duration(s.ms)} · {s.actions}</span>
+            </div>
+          ))}
+        </div>
+      </div>
+      {data.shipped.length > 0 && (
+        <div class="tm-shipped">
+          <button class="btn small" onClick={() => setShowShipped(!showShipped)}>
+            {showShipped ? 'Hide' : 'Show'} what was new in WT Builder since WT{data.previous!.number} ({data.shipped.length})
+          </button>
+          {showShipped && (
+            <ul>{data.shipped.map((c) => <li key={c.sha}><code>{c.sha}</code> {c.subject}</li>)}</ul>
+          )}
+        </div>
       )}
     </section>
   );
