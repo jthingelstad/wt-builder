@@ -425,6 +425,10 @@ span[contenteditable]:focus {
 /* ── selection and window fallout ─────────────────────────────────────── */
 
 .row.selected .row-page { background: var(--blue-1); }
+/* A link just moved between Notable and Briefly: a brief tint where it
+   landed, fading out, so the eye finds it after the scroll. */
+.row.arrived .row-page { animation: arrived 1.8s ease-out; }
+@keyframes arrived { 0%, 35% { background: color-mix(in srgb, var(--amber) 22%, transparent); } 100% { background: transparent; } }
 .lens-audio .row.selected .row-page { background: var(--blue-1); }
 
 /* A section emptied by the window dims rather than vanishing. */

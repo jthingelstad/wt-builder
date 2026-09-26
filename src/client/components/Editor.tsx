@@ -124,14 +124,19 @@ export function Editor({ doc, readiness, busy, error, run, onIndex, onSend, onEr
     addItem: (nodeId, type) => void runEdit(() => api.addItem(id, nodeId, type)),
     addEchoes: (nodeId, echoes) => void runEdit(() => api.addEchoes(id, nodeId, echoes)),
     promote: (itemId) => void runEdit(() => api.promote(id, itemId)),
-    // The link lands in the other section, often a screen away: follow it
-    // there and keep it selected so it need not be hunted for (WT351).
+    // The link lands in the other section, often a screen away: the canvas
+    // follows it there and flashes the row so it need not be hunted for.
+    // Scroll only — selecting it opened the inspector, which Jamie did not
+    // ask for, and the panel's reflow threw the scroll off (WT351).
     moveToSection: (itemId, target) => void runEdit(() => api.moveToSection(id, itemId, target))
       .then(() => requestAnimationFrame(() => {
         const el = canvasRef.current?.querySelector(`[data-anchor="${CSS.escape(itemId)}"]`);
         if (!el) return;
-        select(itemId);
         el.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        el.classList.remove('arrived');
+        void (el as HTMLElement).offsetWidth; // restart the flash on a second move
+        el.classList.add('arrived');
+        setTimeout(() => el.classList.remove('arrived'), 1800);
       })),
     demote: (nodeId) => void runEdit(() => api.demote(id, nodeId)),
     setChannel: (itemId, channel, on) => void runEdit(() => api.setChannel(id, itemId, channel, on)),

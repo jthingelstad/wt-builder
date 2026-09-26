@@ -671,7 +671,8 @@ into the item's own row.
 no description; a described, unmarked link is Notable. The move action edits the tag; a
 tag or description change at Pinboard moves the link on re-scan (placement only — the
 inference is never written back). After a move the canvas scrolls to the link in its
-new section and keeps it selected — it is not left to be found by hand.
+new section and tints the row briefly — it is not left to be found by hand. It does not
+select the link or open the inspector.
 
 **Promotion.** A journal post *with a title* can be promoted: it leaves the Journal
 group and becomes a top-level node (`kind: "promoted_item"`) that still carries its
