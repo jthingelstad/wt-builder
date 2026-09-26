@@ -73,8 +73,8 @@ no explanatory paragraph, no footnote.
 `351`, `WT35`), a year select, and `Hide put to bed` (on by default) — with the
 count on its own line beneath (`3 of 352 · 349 asleep hidden`). The bar never
 moves while the list changes: a fixed grid, a count that cannot rewrap it, and the
-scrollbar's gutter always kept (WT351: controls shifted under the pointer). A draft
-always shows. A kind filter (Builder / Pre-Builder) was tried and dropped as not
+scrollbar's gutter always kept (WT351: controls shifted under the pointer). The
+filters apply to the draft like any other issue. A kind filter (Builder / Pre-Builder) was tried and dropped as not
 meaningful. Remembered per browser.
 
 **A row is two lines**, so the title always has the width: number, title, date,

@@ -69,3 +69,13 @@ test('the filter bar stays put while the list under it changes', async ({ page }
     expect(now.year!.x).toBe(before.year!.x);
   }
 });
+
+test('a year filter applies to the draft too', async ({ page }) => {
+  // The fixture is a 2026 draft.
+  await page.goto('/');
+  await expect(page.locator('.issue-row', { hasText: 'WT350' })).toHaveCount(1);
+  await page.getByLabel('Year').selectOption('2026');
+  await expect(page.locator('.issue-row', { hasText: 'WT350' })).toHaveCount(1);
+  await page.getByPlaceholder('Search titles or numbers').fill('349');
+  await expect(page.locator('.issue-row', { hasText: 'WT350' })).toHaveCount(0);
+});

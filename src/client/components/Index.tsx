@@ -61,9 +61,8 @@ function loadFilters(): Filters {
   }
 }
 
-/** A draft always shows: it is the work in hand, whatever the filters say. */
+/** Every filter applies to every issue, the draft included (a 2026 draft is not in 2019). */
 function matches(i: IssueSummary, f: Filters): boolean {
-  if (i.status === 'draft') return true;
   if (f.hideAsleep && i.put_to_bed_at) return false;
   if (f.year && !i.publication_date.startsWith(f.year)) return false;
   const q = f.q.trim().toLowerCase().replace(/^wt\s*/, '');
