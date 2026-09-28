@@ -130,7 +130,9 @@ finished, what is half-finished, and what has never run.
   be removed a second time by hand.
   An item whose write-back landed while the scan ran (its snapshot moved),
   or is still in flight, is not reconciled or moved by that scan; the next
-  one reads it afresh (2026-09-28, review 2026-09-27 §1.2).
+  one reads it afresh (2026-09-28, review 2026-09-27 §1.2). The price: an
+  item stuck in `syncing` (a write that never finished) is skipped by every
+  re-scan until a restart's `finishStrandedWrites` writes it.
   Opening a draft issue re-scans automatically, and Re-scan sits on the
   at-rest meta card as well as in the edit panel.
 - **Event log** (2026-08-30) — every action on an issue is narrated to an

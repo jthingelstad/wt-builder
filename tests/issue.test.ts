@@ -785,6 +785,35 @@ describe('a re-scan never reverts a write-back that landed while it ran', () => 
     expect(doc.items['link-a']!.sync_state).toBe('syncing');
   });
 
+  // A write in flight when the scan starts: the source may already hold its
+  // words while the merge base has not moved yet. Reconciled, the scan
+  // would call that a source edit — a conflict if Jamie has typed again, an
+  // early `synced` if not (review 2026-09-27, Batch 2 round 1, follow-up 1).
+  const inFlight = (commentary: string): IssueDoc => {
+    remote.extended = 'Written, reply not back yet.';
+    const doc = scanned('Notable');
+    const link = doc.items['link-a']!;
+    link.commentary = commentary;
+    link.sync_state = 'syncing';
+    return doc;
+  };
+
+  it('a write in flight, with Jamie typing again, is not a conflict', async () => {
+    const before = inFlight('Typed again since.');
+    const { doc, report } = issues.applySweep(before, await issues.fetchForSweep(before));
+    expect(doc.items['link-a']!.sync_state).toBe('syncing');
+    expect(doc.items['link-a']!.commentary).toBe('Typed again since.');
+    expect(doc.items['link-a']!.sync_error).toBeUndefined();
+    expect(report.conflicts).toBe(0);
+  });
+
+  it('a write in flight that the source already holds is not synced early', async () => {
+    const before = inFlight('Written, reply not back yet.');
+    const { doc } = issues.applySweep(before, await issues.fetchForSweep(before));
+    expect(doc.items['link-a']!.sync_state).toBe('syncing');
+    expect(doc.items['link-a']!.source_snapshot).toEqual(before.items['link-a']!.source_snapshot);
+  });
+
   it('an item nothing touched still adopts the source edit', async () => {
     remote.extended = 'Edited at Pinboard.';
     const before = scanned('Notable');
