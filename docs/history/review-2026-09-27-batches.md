@@ -172,7 +172,9 @@ Batch 1: the service has no auth and relies on the tailnet. It must refuse what 
 Update docs/status.md (the edge is a contract) and the README's security note in the same commits.
 ```
 
-## Batch 2 — The issue record and the sources stay true (§1.1, §1.2, §4, §3 drafts)
+## ~~Batch 2 — The issue record and the sources stay true (§1.1, §1.2, §4, §3 drafts)~~
+
+Landed 2026-09-28 on review-fixes: 0dad7ff..a8c50ed. Micro.blog check: 100 of 100 posts published, no drafts; guard added. Skipped: none. Needs Jamie: orphans swept in while their section was removed are already stranded on live (main never marked them), and the new awaits_section reclaim cannot see them. Migrate them once, or wait for the Held-out strip (§4)?
 
 ```text
 Read docs/history/review-2026-09-27.md §1.1, §1.2, §4 and the Micro.blog drafts item in §3 first. It is a verified review taken at 06b237f. Line numbers have drifted, so find code by symbol. Before fixing anything, confirm the finding still holds.
