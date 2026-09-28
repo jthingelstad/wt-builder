@@ -38,7 +38,8 @@ summary and each finding as `[block] "quote" — problem`. `Approve` is enabled 
 it has been read, findings or not; it is advice, never a veto. The review and the
 approval are saved on the issue and tied to the script's hash: they survive a
 reload, and an edit to the spoken text afterwards asks for another reading. A sent
-podcast shows the gate done. Until then it sits in `NEEDS YOU` — and the
+podcast shows the gate done. The server holds the leg to the same approval, so a
+request that skips the view is refused too. Until then it sits in `NEEDS YOU` — and the
 **card's own action button disappears** while waiting, so the step row owns the
 interaction. A card button labelled with a state ("Waiting on you") is a dead
 primary: it duplicates the pill beside it and does nothing when clicked.

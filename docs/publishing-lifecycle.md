@@ -83,7 +83,11 @@ logged as such. The card knows the email has gone from the Buttondown check
 out. Any other status is refused and changes nothing.
 
 The podcast's first step is a gate: the script must be approved before the leg
-runs. While it waits, the card's own action button disappears so the step row
+runs. The server holds it too (2026-09-28, review 2026-09-27 §8): a podcast
+send with no approval, or with an approval of a script that has since changed
+(the hash no longer matches), is refused with a 409 before anything is
+synthesized or recorded. A podcast already sent re-synthesizes without asking
+again, as the card allows. While it waits, the card's own action button disappears so the step row
 owns the interaction — a button labelled with a state duplicates the pill beside
 it and does nothing when clicked.
 

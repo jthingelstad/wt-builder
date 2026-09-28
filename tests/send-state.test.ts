@@ -14,7 +14,10 @@ import { tmpdir } from 'node:os';
 import { join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
+import { createHash } from 'node:crypto';
+
 import type { IssueDoc } from '../src/shared/types.ts';
+import { audioScript } from '../src/shared/render/audio.ts';
 import type { RepoFile } from '../src/server/integrations/github.ts';
 
 const work = mkdtempSync(join(tmpdir(), 'wt-send-state-'));
@@ -146,7 +149,17 @@ function issue(number: number): string {
   return doc.issue.id;
 }
 
-async function send(id: string, leg: string, query = ''): Promise<{ status: number; body: any }> {
+/** Jamie's approval of the script as it stands, the way the Send view's gate records it. */
+function approve(id: string): void {
+  const doc = store.getIssue(id)!.doc;
+  const hash = createHash('sha256').update(audioScript(doc).map((b) => b.text).join('\n')).digest('hex');
+  doc.script_review = { at: new Date().toISOString(), script_hash: hash, verdict: 'ready', summary: 'test', findings: [], approved_at: new Date().toISOString() };
+  store.saveIssue(doc);
+}
+
+/** POST a leg. A podcast send is approved first unless the test says otherwise. */
+async function send(id: string, leg: string, query = '', opts: { approve?: boolean } = {}): Promise<{ status: number; body: any }> {
+  if (leg === 'podcast' && opts.approve !== false) approve(id);
   const res = await realFetch(`${base}/api/issues/${id}/send/${leg}${query}`, { method: 'POST', body: '{}' });
   return { status: res.status, body: await res.json() };
 }
@@ -459,6 +472,43 @@ describe('Buttondown is asked what the email is before it is changed', () => {
     expect(h.drafts).toHaveLength(0);
     expect(legOf(id, 'buttondown')).toMatchObject({ status: 'failed' });
     expect(legOf(id, 'buttondown')!.last_sent?.external_id).toBeTruthy();
+    store.deleteIssue(id);
+  });
+});
+
+describe('the server holds the podcast to the script Jamie approved', () => {
+  it('an unapproved script is refused before anything is synthesized or recorded', async () => {
+    const id = issue(990451);
+    const renders = h.renders;
+    const res = await send(id, 'podcast', '', { approve: false });
+    expect(res.status).toBe(409);
+    expect(res.body.error).toMatch(/approve/i);
+    expect(h.renders).toBe(renders);
+    expect(legOf(id, 'podcast')).toBeUndefined();
+    store.deleteIssue(id);
+  });
+
+  it('an approval of an earlier script does not cover this one', async () => {
+    const id = issue(990452);
+    approve(id);
+    const doc = store.getIssue(id)!.doc;
+    doc.items[Object.keys(doc.items).find((k) => doc.items[k]!.type === 'intro')!]!.body = 'A different intro, said aloud.';
+    store.saveIssue(doc);
+    const renders = h.renders;
+    const res = await send(id, 'podcast', '', { approve: false });
+    expect(res.status).toBe(409);
+    expect(res.body.error).toMatch(/changed/i);
+    expect(h.renders).toBe(renders);
+    store.deleteIssue(id);
+  });
+
+  it('a podcast already sent re-synthesizes without asking again', async () => {
+    const id = issue(990453);
+    expect((await send(id, 'podcast')).status).toBe(200);
+    const doc = store.getIssue(id)!.doc;
+    delete doc.script_review;
+    store.saveIssue(doc);
+    expect((await send(id, 'podcast', '', { approve: false })).status).toBe(200);
     store.deleteIssue(id);
   });
 });

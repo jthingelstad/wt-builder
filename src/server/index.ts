@@ -1420,9 +1420,26 @@ async function sendWebsite(id: string, force = false) {
  * Render the script, synthesize it, and upload the mp3 to the CDN. The website
  * publishes the reference; the file lives only on the CDN.
  */
+/**
+ * The podcast speaks only the script Jamie approved: the review and the
+ * approval are tied to the script's hash, and the server holds the leg to
+ * them as the Send view does, so a request that skips the view cannot
+ * synthesize an unread script (review 2026-09-27 §8). A podcast already sent
+ * re-synthesizes without asking again, as the view allows.
+ */
+function guardScriptApproved(doc: IssueDoc): void {
+  if (doc.sends?.podcast?.status === 'sent') return;
+  const review = doc.script_review;
+  if (!review?.approved_at) throw new HttpError(409, 'the podcast script has not been approved — read it and approve it first');
+  if (review.script_hash !== scriptHash(audioScript(doc))) {
+    throw new HttpError(409, 'the script has changed since it was approved — read it again and approve it first');
+  }
+}
+
 async function sendPodcast(id: string) {
   const doc = requireIssue(id);
   guardInFlight(doc, 'podcast');
+  guardScriptApproved(doc);
   const release = claimLeg(id, 'podcast');
   try {
     // Blocks, not a flat script: each is synthesized in its speaker's voice
