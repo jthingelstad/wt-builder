@@ -44,6 +44,14 @@ First visit to Pleasant Grove Pizza Farm for 2026! Delicious pizza.
 
 Sunday, May seventeenth.
 
+First, dock in.
+
+Second, boat lift in.
+
+Third, pontoon cover off.
+
+The lake is officially open.
+
 Fabulous show by The New Standards at The Dakota tonight.
 
 That's the end of the Journal.
@@ -53,12 +61,17 @@ Now, the Briefly section. Three links this week.
 Link 1 of 3. forge: A framework for self-hosted LLM workflows. Interesting
 project if you want to try running your own models.
 
-Link 2 of 3. tokenspeed. A good demonstration of what token speed feels like.
+Link 2 of 3. tokenspeed [demo]: watch {{ tokens per second }} fill a textarea. A
+good demonstration of what token speed feels like.
 
 Link 3 of 3. Introducing Shortcuts Playground. This should be a built-in feature
 in Shortcuts.
 
 That's the end of Briefly.
+
+Quote. Simple things should be simple.
+
+Complex things should be possible. End quote. Alan Kay.
 
 Next, a word about membership, from Thingy.
 
@@ -109,4 +122,9 @@ Omitted, and why:
 Briefly speaks title first, then description; the reverse of print. Journal
 groups speak the weekday alone, matching print. Issue numbers are spoken as
 the issue's name ("Weekly Thing 349") where print labels them WT349.
+
+A title that looks like markup is said as words: "<textarea>" is "textarea",
+"tokens_per_second" is "tokens per second". journal-list's bullets speak
+ordinals. quote-kay is framed "Quote. … End quote." and then says whose words
+they were.
 -->

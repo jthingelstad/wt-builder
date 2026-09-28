@@ -40,6 +40,14 @@ transformation, as well as new areas with AI deployment.
 
 ### Sunday
 
+[9:05 AM](https://www.thingelstad.com/2026/05/17/sunday-at-the-lake.html)
+
+- Dock in
+- Boat lift in
+- Pontoon cover off
+
+The lake is officially open.
+
 [10:15 PM](https://www.thingelstad.com/2026/05/17/fabulous-show-by-the-new.html)
 — Fabulous show by The New Standards at The Dakota tonight.
 
@@ -51,10 +59,16 @@ Interesting project if you want to try running your own models. →
 **[forge: A framework for self-hosted LLM workflows](https://github.com/antoinezambelli/forge)**
 
 A good demonstration of what token speed feels like. →
-**[tokenspeed](https://mikeveerman.github.io/tokenspeed)**
+**[tokenspeed \[demo\]: watch {{ tokens\_per\_second }} fill a &lt;textarea&gt;](https://mikeveerman.github.io/tokenspeed)**
 
 This should be a built-in feature in Shortcuts. →
 **[Introducing Shortcuts Playground](https://www.macstories.net/stories/introducing-shortcuts-playground/)**
+
+> Simple things should be simple.
+>
+> Complex things should be possible.
+>
+> — Alan Kay
 
 <div class="from-thingy">
 
@@ -103,4 +117,10 @@ Renderer expectations exercised here:
 - Echoes is items: each echo prints its thread, then its Ask-Thingy door (a
   question that opens Thingy with it asked, attributed to the issue) — or no
   door when it carries no question. One frame around all of them.
+- briefly-tokenspeed's title carries < > [ ] _ and {{, and prints as those
+  characters: escaped for Markdown, < > as entities, {{ untouched (the page
+  is Markdown only, templateEngineOverride "md").
+- journal-list opens with a list, so its clock stands alone and the list
+  starts below it; no "— " is welded onto a bullet.
+- quote-kay is one blockquote, a paragraph per line, the attribution inside.
 -->

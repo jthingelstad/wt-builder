@@ -46,6 +46,14 @@ I had my first official meeting of the Technology Advisory Council. I am looking
 
 ### Sunday
 
+[9:05 AM](https://www.thingelstad.com/2026/05/17/sunday-at-the-lake.html)
+
+- Dock in
+- Boat lift in
+- Pontoon cover off
+
+The lake is officially open.
+
 [10:15 PM](https://www.thingelstad.com/2026/05/17/fabulous-show-by-the-new.html) — Fabulous show by The New Standards at The Dakota tonight.
 
 <img src="https://www.thingelstad.com/uploads/2026/dakota.jpg" alt="The New Standards on stage at The Dakota">
@@ -56,9 +64,17 @@ I had my first official meeting of the Technology Advisory Council. I am looking
 
 Interesting project if you want to try running your own models. → **[forge: A framework for self-hosted LLM workflows](https://github.com/antoinezambelli/forge)**
 
-A good demonstration of what token speed feels like. → **[tokenspeed](https://mikeveerman.github.io/tokenspeed)**
+A good demonstration of what token speed feels like. → **[tokenspeed \[demo\]: watch {​{ tokens\_per\_second }} fill a &lt;textarea&gt;](https://mikeveerman.github.io/tokenspeed)**
 
 This should be a built-in feature in Shortcuts. → **[Introducing Shortcuts Playground](https://www.macstories.net/stories/introducing-shortcuts-playground/)**
+
+---
+
+> Simple things should be simple.
+>
+> Complex things should be possible.
+>
+> — Alan Kay
 
 ---
 
@@ -128,4 +144,6 @@ different document. What differs here:
   and a fixed size overflowed in Mail (WT350).
 - Echoes is one frame around every echo, each rendered to HTML as its thread
   and its Ask-Thingy door.
+- briefly-tokenspeed's {{ carries a zero-width space after the first brace,
+  so Buttondown's template engine sees no tag; the reader sees the braces.
 -->

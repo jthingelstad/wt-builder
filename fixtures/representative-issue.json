@@ -17,6 +17,7 @@
       "promoted-post",
       "journal",
       "briefly",
+      "pull-quote",
       "membership",
       "outro",
       "ps-email",
@@ -92,6 +93,7 @@
       "items": [
         "journal-boat",
         "journal-pizza",
+        "journal-list",
         "journal-concert",
         "journal-excluded"
       ]
@@ -107,6 +109,17 @@
         "briefly-forge",
         "briefly-tokenspeed",
         "briefly-shortcuts"
+      ]
+    },
+    {
+      "id": "pull-quote",
+      "kind": "section",
+      "type": "quote",
+      "label": "Quote",
+      "movable": true,
+      "publishes_heading": false,
+      "items": [
+        "quote-kay"
       ]
     },
     {
@@ -306,6 +319,20 @@
       "published_at": "2026-05-16T17:25:00-05:00",
       "body": "First visit to Pleasant Grove Pizza Farm for 2026! Delicious pizza."
     },
+    "journal-list": {
+      "type": "journal_post",
+      "authorship": "syndicated",
+      "source": "Micro.blog",
+      "source_url": "https://www.thingelstad.com/2026/05/17/sunday-at-the-lake.html",
+      "channels": {
+        "website": true,
+        "email": true,
+        "audio": true
+      },
+      "presentation": "journal",
+      "published_at": "2026-05-17T09:05:00-05:00",
+      "body": "- Dock in\n- Boat lift in\n- Pontoon cover off\n\nThe lake is officially open."
+    },
     "journal-concert": {
       "type": "journal_post",
       "authorship": "syndicated",
@@ -360,7 +387,7 @@
         "audio": true
       },
       "section": "Briefly",
-      "title": "tokenspeed",
+      "title": "tokenspeed [demo]: watch {{ tokens_per_second }} fill a <textarea>",
       "commentary": "A good demonstration of what token speed feels like.",
       "sync_state": "syncing"
     },
@@ -378,6 +405,18 @@
       "title": "Introducing Shortcuts Playground",
       "commentary": "This should be a built-in feature in Shortcuts.",
       "sync_state": "failed"
+    },
+    "quote-kay": {
+      "type": "quote",
+      "authorship": "Jamie",
+      "source": "direct",
+      "channels": {
+        "website": true,
+        "email": true,
+        "audio": true
+      },
+      "body": "Simple things should be simple.\nComplex things should be possible.",
+      "attribution": "Alan Kay"
     },
     "membership-1": {
       "type": "membership",
