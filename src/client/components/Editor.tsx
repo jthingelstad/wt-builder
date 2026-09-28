@@ -194,26 +194,13 @@ export function Editor({ doc, readiness, busy, error, run, onIndex, onSend, onEr
   const sweep = () => {
     setSweeping(true);
     api.sweep(id)
-      .then((resp) => {
-        // A scan landing mid-keystroke must not clobber the row being edited:
-        // replacing the doc resets every contenteditable, and the text in the
-        // focused one has not committed yet. The server already has the swept
-        // document — hold this response, and after the edit blurs (and its
-        // PATCH has had a beat to land) re-read the issue so both arrive.
-        // An Inspector or issue-panel field is an edit too: it held only for
-        // contenteditables, and a scan landing replaced a half-typed
-        // commentary (review 2026-09-27, §1.4).
-        const active = document.activeElement as HTMLElement | null;
-        if (active?.matches('input, textarea, [contenteditable]')) {
-          const refresh = () => {
-            active.removeEventListener('blur', refresh);
-            setTimeout(() => void run(() => api.getIssue(id)), 600);
-          };
-          active.addEventListener('blur', refresh);
-          return;
-        }
-        void run(() => Promise.resolve(resp));
-      })
+      // Applied as it lands. It used to wait for a focused field to blur,
+      // because replacing the doc reset the field being typed in; no field
+      // is overwritten while focused now (Field.tsx, Editable,
+      // RichEditable), and the wait held a scan invisibly — on a checkbox,
+      // or for ever when WebKit removed the field without a blur (Batch 5
+      // review, N4).
+      .then((resp) => void run(() => Promise.resolve(resp)))
       .catch((err) => onError((err as Error).message))
       .finally(() => setSweeping(false));
   };

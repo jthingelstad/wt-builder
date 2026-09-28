@@ -23,7 +23,7 @@ async function hold(page: Page, url: string, method: string) {
     arrived();
     const how = await decided;
     if (how === 'abort') await route.abort('connectionreset');
-    else await route.continue();
+    else await route.fallback(); // to any handler registered before this one, then the network
   });
   return { seen, release };
 }
@@ -269,4 +269,45 @@ test.describe('a Markdown hard break', () => {
     await commit(page, () => saved() !== 'Line one  \nLine two');
     expect(saved()).toBe('Line one\nLine two');
   });
+});
+
+// The re-scan used to wait, invisibly, for any focused input to blur —
+// a checkbox, a file input, a field WebKit removed without a blur, and then
+// never. A focused field is no longer overwritten, so a re-scan applies as
+// it lands (Batch 5 review, N4).
+test('a re-scan that lands while a field has focus is applied at once', async ({ page }) => {
+  await page.route(`**/api/issues/${ISSUE}/sweep`, async (route) => {
+    const res = await route.fetch();
+    const body = await res.json();
+    body.issue.items['link-flipcash'].title = 'Swept in while typing';
+    await route.fulfill({ response: res, json: body });
+  });
+  const sweep = await hold(page, `**/api/issues/${ISSUE}/sweep`, 'POST');
+  await open(page);
+  await sweep.seen;
+  const panel = await inspect(page, 'link-functions');
+  const notes = panel.locator('#item-link-functions-commentary');
+  await notes.click();
+  await page.keyboard.type('Still typing');
+
+  sweep.release('continue');
+  await expect(page.locator('[data-anchor="link-flipcash"]').first()).toContainText('Swept in while typing');
+  await expect(notes).toBeFocused();
+  await expect(notes).toHaveValue('Still typing');
+});
+
+test('a re-scan that lands while a block is being typed in leaves the typing alone', async ({ page }) => {
+  const sweep = await hold(page, `**/api/issues/${ISSUE}/sweep`, 'POST');
+  await open(page);
+  await sweep.seen;
+  const sel = commentary('link-flipcash');
+  const before = String(item('link-flipcash').commentary);
+  await caretAtEnd(page, sel);
+  await page.keyboard.type(' Typed while it scanned.');
+  sweep.release('continue');
+  await page.waitForResponse(`**/api/issues/${ISSUE}/sweep`);
+  await page.waitForTimeout(300);
+  await page.keyboard.type(' And after.');
+  await commit(page, () => String(item('link-flipcash').commentary).endsWith('And after.'));
+  expect(item('link-flipcash').commentary).toBe(`${before} Typed while it scanned. And after.`);
 });
