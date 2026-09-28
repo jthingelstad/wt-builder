@@ -128,6 +128,12 @@ Deleted local items are retained beside their held node so restoring the section
 restores them too. Missing standard sections are offered back, so removal is
 never one-way.
 
+Restoring a section brings back what it held, in its order, and then whatever
+the sweep held out for want of it: an item swept in while its section was gone
+is marked `awaits_section`. Nothing else rides back. An item Jamie X'd out stays
+held out whatever its source, because a Journal post or a gone link carries no
+`excluded` flag to say so.
+
 Two node types exist for issues that do not fit the skeleton:
 
 - **ad hoc section** — a titled section with an editable heading.

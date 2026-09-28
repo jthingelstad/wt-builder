@@ -1059,6 +1059,8 @@ describe('section removal', () => {
     const post = Object.keys(swept.items).find((id) => swept.items[id]!.source_url === 'https://www.thingelstad.com/new.html')!;
     expect(swept.orphans).toEqual(expect.arrayContaining([link, post]));
     expect(swept.items[post]!.section).toBe('Journal');
+    expect(swept.items[post]!.awaits_section).toBe(true);
+    expect(swept.items[link]!.awaits_section).toBe(true);
 
     // One more orphan that says Notable but was held out on purpose.
     swept.items['link-excluded'] = {
@@ -1074,6 +1076,7 @@ describe('section removal', () => {
     const journal = addSection(notable, { id: 'journal', type: 'journal', label: 'Journal' });
     expect(journal.nodes.find((n) => n.id === 'journal')!.items).toEqual([post]);
     expect(journal.orphans).toEqual(['link-excluded']);
+    expect(journal.items[post]!.awaits_section).toBeUndefined();
     expect(planEdition(journal, 'website').some((p) => p.items.some((i) => i.id === post))).toBe(true);
   });
 
@@ -1085,12 +1088,50 @@ describe('section removal', () => {
     removed.items['link-later'] = {
       type: 'pinboard_link', authorship: 'syndicated', source: 'Pinboard',
       channels: { website: true, email: true, audio: true }, title: 'Arrived later',
-      source_url: 'https://example.com/later', section: 'Briefly',
+      // As placeInto leaves an item swept in while its section was gone.
+      source_url: 'https://example.com/later', section: 'Briefly', awaits_section: true,
     };
     removed.orphans = [...(removed.orphans ?? []), 'link-later'];
     const restored = addSection(removed, { id: briefly.id, type: briefly.type, label: briefly.label });
     expect(restored.nodes.find((n) => n.id === briefly.id)!.items).toEqual([...held, 'link-later']);
     expect(restored.orphans ?? []).not.toContain('link-later');
+  });
+
+  // Only what the sweep held out for want of the section comes back with
+  // it. An item Jamie X'd is held out on purpose, whatever its source: a
+  // Journal post gets no `excluded` flag, and neither does a link whose
+  // bookmark is gone (review 2026-09-27, Batch 2 round 1, B1).
+  const post = (body: string): Item => ({
+    type: 'journal_post', authorship: 'syndicated', source: 'Micro.blog',
+    channels: { website: true, email: true, audio: true }, presentation: 'journal',
+    source_url: `https://www.thingelstad.com/${body.replace(/\W+/g, '-')}.html`,
+    published_at: '2026-09-01T10:00:00-05:00', body,
+  });
+
+  it('a Journal post X\'d before the section went stays out when it comes back', () => {
+    const doc = createIssue({ number: 400, publication_date: '2026-09-05' });
+    const journal = doc.nodes.find((n) => n.id === 'journal')!;
+    doc.items['p1'] = post('Kept post');
+    doc.items['p2'] = post('Post Jamie X-ed out');
+    journal.items.push('p1', 'p2');
+    const xed = issues.removeItem(doc, 'journal', 'p2');
+    const removed = removeSection(xed, 'journal');
+    const restored = addSection(removed, { id: 'journal', type: 'journal', label: 'Journal' });
+    expect(restored.nodes.find((n) => n.id === 'journal')!.items).toEqual(['p1']);
+    expect(restored.orphans).toEqual(['p2']);
+  });
+
+  it('a gone link X\'d before the section went stays out when it comes back', () => {
+    const doc = fixture();
+    const briefly = doc.nodes.find((n) => n.type === 'briefly')!;
+    const [xed, ...kept] = briefly.items;
+    doc.items[xed!]!.sync_state = 'gone';
+    const held = issues.removeItem(doc, briefly.id, xed!);
+    expect(held.items[xed!]!.excluded).toBeUndefined();
+    const removed = removeSection(held, briefly.id);
+    const restored = addSection(removed, { id: briefly.id, type: briefly.type, label: briefly.label });
+    expect(restored.nodes.find((n) => n.id === briefly.id)!.items).toEqual(kept);
+    expect(restored.orphans).toContain(xed);
   });
 });
 

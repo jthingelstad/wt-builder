@@ -136,6 +136,12 @@ export interface Item {
    * say so. Cleared when the tag comes off at Pinboard and the link returns.
    */
   excluded?: boolean;
+  /**
+   * Swept in while the section it belongs in was removed, so held out for
+   * want of a place rather than by Jamie. Restoring that section brings it
+   * in; nothing else does, so an item X'd out stays out.
+   */
+  awaits_section?: boolean;
   published_at?: string;
   media?: Media;
   sync_state?: SyncState;
