@@ -265,10 +265,11 @@ finished, what is half-finished, and what has never run.
   sends through Jamie's browser is a 403 before routing (`guardEdge`,
   `src/server/edge.ts`): any method but GET and HEAD with an `Origin` that
   is not the tailnet URL, the Vite dev client, or loopback on the listening
-  port, or, with no `Origin`, a `Sec-Fetch-Site` other than
-  `same-origin`/`none`. An allowed `Origin` passes whatever
-  `Sec-Fetch-Site` says, so the env list can let in a caller the browser
-  counts as same-site, and the 403's log line names both values. Scripts
+  port, or with a `Sec-Fetch-Site` present and other than
+  `same-origin`/`none`. Only an origin from `WT_BUILDER_ALLOWED_ORIGINS`
+  passes whatever `Sec-Fetch-Site` says, so the env list can let in a
+  caller the browser counts as same-site while a built-in origin marked
+  cross-site is still refused; the 403's log line names both values. Scripts
   and curl send neither and pass. Against DNS rebinding, a Host that is not
   `otto.tail09aaf9.ts.net` (bare or `:10001`) or `localhost`/`127.0.0.1` on
   the listening port is a 421 for every method, reads included. Every

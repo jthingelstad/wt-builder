@@ -29,11 +29,13 @@ export const TAILNET_ORIGIN = `https://${TAILNET_HOST}:10001`;
 const DEV_CLIENT_PORT = 5317;
 
 /**
- * Origins allowed to write. `port` is the port this server is actually
- * listening on (server.address()), not the configured one: the route tests
- * listen on port 0 and the browser suite on 4399.
+ * The built-in origins allowed to write. `port` is the port this server is
+ * actually listening on (server.address()), not the configured one: the
+ * route tests listen on port 0 and the browser suite on 4399. Entries from
+ * WT_BUILDER_ALLOWED_ORIGINS are kept apart (crossSiteRefusal's `extra`),
+ * because they are treated differently.
  */
-export function allowedOrigins(port: number, extra: readonly string[] = []): Set<string> {
+export function allowedOrigins(port: number): Set<string> {
   return new Set(
     [
       TAILNET_ORIGIN,
@@ -41,7 +43,6 @@ export function allowedOrigins(port: number, extra: readonly string[] = []): Set
       `http://127.0.0.1:${DEV_CLIENT_PORT}`,
       `http://localhost:${port}`,
       `http://127.0.0.1:${port}`,
-      ...extra,
     ].map((o) => o.toLowerCase()),
   );
 }
@@ -80,24 +81,29 @@ const one = (v: string | string[] | undefined): string | undefined => (Array.isA
  * with Sec-Fetch-Site, and with Origin on anything but a GET; scripts/ and
  * curl send neither, and pass.
  *
- * Origin decides when it is present: an allowed Origin passes whatever
- * Sec-Fetch-Site says, and any other Origin is refused. Otherwise an origin
- * let in through WT_BUILDER_ALLOWED_ORIGINS, but counted same-site by the
- * browser (another port on the tailnet name, say), would stay refused, and
- * the escape hatch would not open. Sec-Fetch-Site decides only when there is
- * no Origin. The refusal names both values, so the log says what to add.
+ * An Origin that is on neither list is refused. An Origin from `extra`
+ * (WT_BUILDER_ALLOWED_ORIGINS) passes whatever Sec-Fetch-Site says: that
+ * list is the escape hatch for a caller the browser counts as same-site
+ * (another port on the tailnet name, a proxy under a sibling name), and it
+ * must be able to open. A built-in origin, or no Origin at all, still needs
+ * Sec-Fetch-Site absent, same-origin or none. The refusal names both
+ * values, so the log says what to add.
  */
 export function crossSiteRefusal(
   method: string,
   headers: IncomingHttpHeaders,
-  allowed: ReadonlySet<string>,
+  builtIn: ReadonlySet<string>,
+  extra: readonly string[] = [],
 ): string | null {
   if (method === 'GET' || method === 'HEAD') return null;
   const site = one(headers['sec-fetch-site']);
-  const origin = one(headers.origin);
+  const origin = one(headers.origin)?.toLowerCase();
   const refused = () =>
-    `cross-site request refused (Origin: ${origin ?? '(none)'}, Sec-Fetch-Site: ${site ?? '(none)'})`;
-  if (origin !== undefined) return allowed.has(origin.toLowerCase()) ? null : refused();
+    `cross-site request refused (Origin: ${one(headers.origin) ?? '(none)'}, Sec-Fetch-Site: ${site ?? '(none)'})`;
+  if (origin !== undefined) {
+    if (extra.some((o) => o.toLowerCase() === origin)) return null;
+    if (!builtIn.has(origin)) return refused();
+  }
   if (site !== undefined && site !== 'same-origin' && site !== 'none') return refused();
   return null;
 }

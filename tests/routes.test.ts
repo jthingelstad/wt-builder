@@ -507,9 +507,27 @@ describe('the edge refuses what a browser sends on behalf of another site', () =
     const without = edge.crossSiteRefusal('POST', headers, edge.allowedOrigins(4317));
     expect(without).toContain('https://extra.example:8443');
     expect(without).toContain('same-site');
-    expect(edge.crossSiteRefusal('POST', headers, edge.allowedOrigins(4317, ['https://extra.example:8443']))).toBeNull();
+    expect(edge.crossSiteRefusal('POST', headers, edge.allowedOrigins(4317), ['https://extra.example:8443'])).toBeNull();
     // No Origin at all: Sec-Fetch-Site alone still refuses, and says so.
     expect(edge.crossSiteRefusal('POST', { 'sec-fetch-site': 'cross-site' }, edge.allowedOrigins(4317))).toContain('cross-site');
+  });
+
+  it('a built-in origin marked cross-site is still a 403: only the env list bypasses Sec-Fetch-Site', async () => {
+    for (const origin of ['http://localhost:5317', 'http://127.0.0.1:5317', base, 'https://otto.tail09aaf9.ts.net:10001']) {
+      for (const site of ['cross-site', 'same-site']) {
+        const res = await settings({ Origin: origin, 'Sec-Fetch-Site': site }, 'Pwned');
+        expect(res.status, `${origin} ${site}`).toBe(403);
+      }
+    }
+    expect(await title()).not.toBe('Pwned');
+    const edge = await import('../src/server/edge.ts');
+    const builtIn = { origin: 'http://localhost:5317', 'sec-fetch-site': 'cross-site' };
+    expect(edge.crossSiteRefusal('POST', builtIn, edge.allowedOrigins(4317), ['https://extra.example:8443'])).toContain('cross-site');
+    // Absent, same-origin or none: a built-in origin passes.
+    for (const site of [undefined, 'same-origin', 'none']) {
+      const headers = site ? { origin: 'http://localhost:5317', 'sec-fetch-site': site } : { origin: 'http://localhost:5317' };
+      expect(edge.crossSiteRefusal('POST', headers, edge.allowedOrigins(4317)), String(site)).toBeNull();
+    }
   });
 
   it('a request with neither header passes (scripts, curl), and a read is never refused', async () => {

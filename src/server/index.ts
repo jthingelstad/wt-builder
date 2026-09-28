@@ -1298,7 +1298,7 @@ function guardEdge(req: IncomingMessage, method: string, pathname: string): void
     console.warn(`[edge] 421 ${method} ${pathname}: ${misdirected}`);
     throw new HttpError(421, misdirected);
   }
-  const refusal = edge.crossSiteRefusal(method, req.headers, edge.allowedOrigins(port, config.allowedOrigins));
+  const refusal = edge.crossSiteRefusal(method, req.headers, edge.allowedOrigins(port), config.allowedOrigins);
   if (refusal) {
     console.warn(`[edge] 403 ${method} ${pathname}: ${refusal}`);
     throw new HttpError(403, refusal);

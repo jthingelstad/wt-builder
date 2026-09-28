@@ -68,10 +68,10 @@ Reachable at **https://otto.tail09aaf9.ts.net:10001/** — tailnet only.
 The tailnet vouches for the person, not for the page in their browser, so the
 service refuses a write that another site sends on Jamie's behalf: any
 request but a GET or HEAD whose `Origin` is not the tailnet URL above, the
-Vite dev client, or loopback on the port it listens on, or (with no `Origin`)
-whose `Sec-Fetch-Site` is not `same-origin` or `none`, is a 403. An allowed
-`Origin` passes whatever `Sec-Fetch-Site` says. Scripts and curl send
-neither header and pass. Against DNS rebinding it also answers only to its
+Vite dev client, or loopback on the port it listens on, or whose
+`Sec-Fetch-Site` is present and not `same-origin` or `none`, is a 403. Only
+an origin added through `WT_BUILDER_ALLOWED_ORIGINS` passes whatever
+`Sec-Fetch-Site` says. Scripts and curl send neither header and pass. Against DNS rebinding it also answers only to its
 own names: a Host that is not the tailnet name (with or without `:10001`) or
 loopback on its port is a 421, for any method. Every refusal is logged with
 the values it refused (a 403 names both `Origin` and `Sec-Fetch-Site`); `WT_BUILDER_ALLOWED_ORIGINS` and
