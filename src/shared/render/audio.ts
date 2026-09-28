@@ -159,7 +159,17 @@ export function spokenTitle(title: string | undefined): string {
   // An em or en dash separates even with no space after it ("…Blind —Bridget
   // Kromhout", the 2017 archive); a hyphen needs space on both sides or it is
   // a compound word.
-  const spoken = String(title ?? '').replace(/([^\s])\s+(?:\|\s+|-\s+|[–—]\s*)/g, (_m, last: string) =>
+  //
+  // A title is the source's words, and the spoken pass (speakable) treats
+  // text as Markdown and HTML: say a tag-shaped word ("<textarea>",
+  // "Array<T>") and a snake_case name as words before it can strip them
+  // (review 2026-09-27 §3).
+  const words = String(title ?? '')
+    .replace(/<\/?([A-Za-z][\w-]*)[^<>]*>/g, ' $1 ')
+    .replace(/(?<=[A-Za-z0-9])_+(?=[A-Za-z0-9])/g, ' ')
+    .replace(/\s{2,}/g, ' ')
+    .trim();
+  const spoken = words.replace(/([^\s])\s+(?:\|\s+|-\s+|[–—]\s*)/g, (_m, last: string) =>
     /[.!?…]/.test(last) ? `${last} ` : `${last}, `);
   return terminate(spoken);
 }

@@ -44,7 +44,9 @@ exception: markdown-it builds an image's alt from plain text and drops every
 escape and entity, so `snake\_case` read "snakecase". Alt escapes only a
 bracket with no partner and a backslash, and folds line breaks to spaces so
 the image always parses (`escapeAlt`); a `<` inside an image can only be alt
-text. The front
+text. Spoken, a title says a tag-shaped word and a snake_case name as words
+("the textarea element", "tokens per second"), since the audio pass strips
+tags and emphasis marks (`spokenTitle` in `src/shared/render/audio.ts`). The front
 matter's `heading_context` keeps the title raw: it feeds `emails.json`,
 `links.json`, the site's issue-links feed and the Librarian, none of which
 renders Markdown, so an escape there would print. Jamie's commentary and bodies are Markdown he
