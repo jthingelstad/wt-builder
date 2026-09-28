@@ -164,11 +164,15 @@ function guardInFlight(doc: IssueDoc, destination: Destination): void {
  * once ran seconds before `sending` was recorded, across the rehost, and two
  * clicks made two Buttondown drafts (review 2026-09-27 §2.1). Returns the
  * release, for a `finally`; the leg records its own outcome.
+ *
+ * `sending` is written before the key is taken: if the write throws (a busy
+ * database), nothing holds the key, and the leg is not "in flight" until a
+ * restart. Both are synchronous, so no request can come between them.
  */
 function claimLeg(id: string, destination: Destination, state: Partial<SendState> = {}): () => void {
   const key = `${id}:${destination}`;
-  legsInFlight.add(key);
   store.recordSend(id, destination, { ...state, status: 'sending', at: new Date().toISOString() });
+  legsInFlight.add(key);
   return () => legsInFlight.delete(key);
 }
 

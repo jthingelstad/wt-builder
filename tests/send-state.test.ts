@@ -44,7 +44,23 @@ const h = vi.hoisted(() => ({
    * answers it, and changes emails.json before the leg reads it again.
    */
   raceWinners: [] as ((emails: { number: number; [k: string]: unknown }[]) => void)[],
+  /** The next `sending` write for this leg throws, as SQLite does when the database is busy. */
+  sendingWriteFails: null as string | null,
 }));
+
+vi.mock('../src/server/db.ts', async (importOriginal) => {
+  const real = await importOriginal<typeof import('../src/server/db.ts')>();
+  return {
+    ...real,
+    recordSend: (...args: Parameters<typeof real.recordSend>) => {
+      if (h.sendingWriteFails === args[1] && args[2].status === 'sending') {
+        h.sendingWriteFails = null;
+        throw Object.assign(new Error('database is locked'), { code: 'SQLITE_BUSY' });
+      }
+      return real.recordSend(...args);
+    },
+  };
+});
 
 vi.mock('../src/server/integrations/buttondown.ts', async (importOriginal) => {
   const real = await importOriginal<typeof import('../src/server/integrations/buttondown.ts')>();
@@ -620,5 +636,20 @@ describe('the emails.json floor follows the archive', () => {
     expect((await send(id, 'website')).status).toBe(200);
     store.deleteIssue(id);
     store.deleteIssue(published);
+  });
+});
+
+describe('a claim that cannot be recorded is not held', () => {
+  it('a busy database on the sending write leaves the leg free to retry', async () => {
+    const id = issue(990481);
+    store.recordSend(id, 'podcast', { status: 'sent', at: new Date().toISOString(), audio: { audio_url: 'https://files.thingelstad.com/a.mp3' } });
+    h.sendingWriteFails = 'website';
+    const first = await send(id, 'website');
+    expect(first.status).toBe(500);
+    expect(first.body.error).toMatch(/locked/);
+    expect(legOf(id, 'website')).toBeUndefined();
+    // Not "already in flight" until a restart: the key was never kept.
+    expect((await send(id, 'website')).status).toBe(200);
+    store.deleteIssue(id);
   });
 });

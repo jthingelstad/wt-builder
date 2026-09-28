@@ -58,7 +58,9 @@ finished, what is half-finished, and what has never run.
   before it listens, the service turns every persisted `sending` into
   `failed` ("interrupted by a restart"), keeping the last good send. A
   persisted `sending` under ten minutes old still refuses, for another
-  process on the same database. Review 2026-09-27, §2.1.
+  process on the same database. `sending` is written before the key is
+  taken, so a write that throws (a busy database) leaves nothing held.
+  Review 2026-09-27, §2.1.
 - **A failed cover fetch keeps the live banner** (2026-09-28) — when the
   issue's photo cannot be fetched, `buildCover` still squares the show art
   for the mp3 but no longer uploads it over `weekly-thing/{N}/cover.jpg`. A
