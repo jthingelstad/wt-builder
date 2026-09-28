@@ -432,7 +432,13 @@ async function runVerify(id: string, dest: Destination, wait = false, resumed = 
   // A `running` left by the previous process is nobody's; `resumed` takes it over.
   if (!resumed && current?.status === 'running' && Date.now() - Date.parse(current.at) < VERIFY_STALE_MS) return;
   clearRecheck(id, dest);
-  store.recordVerify(id, dest, { status: 'running', at: new Date().toISOString(), checks: [] });
+  // What the destination last said stays while it is asked again: the card
+  // reads remote_status to offer "Update web copy…", and a check in flight
+  // must not flip it back to "Update draft".
+  store.recordVerify(id, dest, {
+    status: 'running', at: new Date().toISOString(), checks: [],
+    ...(current?.remote_status ? { remote_status: current.remote_status } : {}),
+  });
   let result: Verification;
   try {
     const { checks, recheckMs, remote_status } = await verify(doc, wait);
@@ -445,7 +451,10 @@ async function runVerify(id: string, dest: Destination, wait = false, resumed = 
       scheduleRecheck(id, dest, recheckMs);
     }
   } catch (err) {
-    result = { status: 'error', at: new Date().toISOString(), checks: [], error: (err as Error).message.slice(0, 500) };
+    result = {
+      status: 'error', at: new Date().toISOString(), checks: [], error: (err as Error).message.slice(0, 500),
+      ...(current?.remote_status ? { remote_status: current.remote_status } : {}),
+    };
   }
   store.recordVerify(id, dest, result);
   store.logEvent(id, 'verify', `Verified — ${dest}: ${result.status}${result.error ? ` (${result.error.slice(0, 120)})` : ''}`);

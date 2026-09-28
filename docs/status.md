@@ -110,7 +110,10 @@ finished, what is half-finished, and what has never run.
   `code: "email_sent"`: WT350 and WT351's checks predate the field, so
   their cards offered "Update draft" and a bulk run stopped at the 409
   before the archive. Now the card re-reads the issue on that refusal and
-  switches at once, and the run carries on. Review 2026-09-27 §8 #7.
+  switches at once, and the run carries on. "Check again" keeps
+  `remote_status` on its `running` record and on an `error` result, so the
+  card does not flip back to "Update draft" while it checks. Review
+  2026-09-27 §8 #7.
 - **Verify after send** (2026-09-26, WT351) — each leg is read back from its
   destination once it goes out, and the Send card shows the result under
   VERIFY: the podcast's three files on the CDN at the rendered size, its length

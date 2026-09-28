@@ -44,6 +44,9 @@ const h = vi.hoisted(() => ({
    * answers it, and changes emails.json before the leg reads it again.
    */
   raceWinners: [] as ((emails: { number: number; [k: string]: unknown }[]) => void)[],
+  /** The Buttondown check, when a test wants one to run; otherwise no leg is verified. */
+  verifier: null as null | (() => Promise<{ checks: { label: string; ok: boolean | null; detail: string }[]; remote_status?: string }>),
+  verifyCalls: 0,
   /** The next `sending` write for this leg throws, as SQLite does when the database is busy. */
   sendingWriteFails: null as string | null,
 }));
@@ -141,7 +144,9 @@ vi.mock('../src/server/integrations/audio.ts', async (importOriginal) => ({
 // Verification reads the live destinations; it has its own tests.
 vi.mock('../src/server/verify.ts', async (importOriginal) => ({
   ...(await importOriginal<typeof import('../src/server/verify.ts')>()),
-  verifierFor: () => null,
+  verifierFor: (dest: string) => (dest === 'buttondown' && h.verifier
+    ? async () => { h.verifyCalls++; return h.verifier!(); }
+    : null),
 }));
 
 const realFetch = globalThis.fetch;
@@ -170,6 +175,7 @@ beforeEach(() => {
 });
 
 afterEach(() => {
+  h.verifier = null;
   h.drafts.length = 0;
   h.draftFails = null;
   h.committed.length = 0;
@@ -735,6 +741,35 @@ describe('only the refusal skips the failure record', () => {
     h.rehostFails = null;
     // And the next attempt is not refused as in flight.
     expect((await send(id, 'buttondown')).status).toBe(200);
+    store.deleteIssue(id);
+  });
+});
+
+describe('checking again keeps what Buttondown last said', () => {
+  it('the running record carries remote_status, so the card does not flip back to "Update draft"', async () => {
+    const id = issue(990494);
+    expect((await send(id, 'buttondown')).status).toBe(200);
+    store.recordVerify(id, 'buttondown', { status: 'passed', at: '2026-09-26T15:00:00Z', checks: [], remote_status: 'sent' });
+    let release!: () => void;
+    const held = new Promise<void>((r) => { release = r; });
+    h.verifier = async () => { await held; return { checks: [{ label: 'Status', ok: true, detail: 'Sent' }], remote_status: 'sent' }; };
+    const res = await realFetch(`${base}/api/issues/${id}/verify/buttondown`, { method: 'POST', body: '{}' });
+    const running = (await res.json()).issue.verify.buttondown;
+    expect(running).toMatchObject({ status: 'running', remote_status: 'sent' });
+    release();
+    await until(() => store.getIssue(id)!.doc.verify!.buttondown!.status !== 'running');
+    expect(store.getIssue(id)!.doc.verify!.buttondown).toMatchObject({ status: 'passed', remote_status: 'sent' });
+    store.deleteIssue(id);
+  });
+
+  it('a check that cannot reach Buttondown keeps it too', async () => {
+    const id = issue(990495);
+    expect((await send(id, 'buttondown')).status).toBe(200);
+    store.recordVerify(id, 'buttondown', { status: 'passed', at: '2026-09-26T15:00:00Z', checks: [], remote_status: 'sent' });
+    h.verifier = async () => { throw new Error('Buttondown /emails failed: 503'); };
+    await realFetch(`${base}/api/issues/${id}/verify/buttondown`, { method: 'POST', body: '{}' });
+    await until(() => store.getIssue(id)!.doc.verify!.buttondown!.status !== 'running');
+    expect(store.getIssue(id)!.doc.verify!.buttondown).toMatchObject({ status: 'error', remote_status: 'sent' });
     store.deleteIssue(id);
   });
 });
