@@ -38,6 +38,13 @@ if (OFFLINE) {
   }
 }
 
+/**
+ * The live database: the service's default, and the one file a test must
+ * never open. db.ts refuses it under OFFLINE, so boot migrations and
+ * finishStrandedWrites can only ever run against a throwaway copy.
+ */
+export const LIVE_DB_PATH = fileURLToPath(new URL('../../data/wt-builder.db', import.meta.url));
+
 function optional(name: string): string | undefined {
   const v = process.env[name];
   return v && v.trim() ? v.trim() : undefined;
@@ -72,7 +79,7 @@ export const config = {
    * than the tailnet interface would expose an unauthenticated editor.
    */
   host: optional('WT_BUILDER_HOST') ?? '127.0.0.1',
-  dbPath: optional('WT_BUILDER_DB') ?? fileURLToPath(new URL('../../data/wt-builder.db', import.meta.url)),
+  dbPath: optional('WT_BUILDER_DB') ?? LIVE_DB_PATH,
   /** Write-back mutates a real bookmark; explicit opt-in. */
   pinboardWriteBack: optional('WT_BUILDER_PINBOARD_WRITEBACK') === 'true',
   /** Write-back mutates a published post; explicit opt-in. */

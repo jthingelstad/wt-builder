@@ -8,12 +8,12 @@
  */
 
 import Database from 'better-sqlite3';
-import { chmodSync, existsSync, mkdirSync } from 'node:fs';
-import { dirname } from 'node:path';
+import { chmodSync, existsSync, mkdirSync, realpathSync } from 'node:fs';
+import { basename, dirname, join, resolve } from 'node:path';
 
 import type { Destination, IssueDoc, SendState, Verification } from '../shared/types.ts';
 import { SCHEMA_VERSION } from '../shared/types.ts';
-import { config } from './config.ts';
+import { config, LIVE_DB_PATH, OFFLINE } from './config.ts';
 
 export interface IssueRow {
   id: string;
@@ -97,8 +97,34 @@ const MIGRATIONS: ((d: Database.Database) => void)[] = [
 
 export const REVISIONS_KEPT = 300;
 
+/** Where a path really lands: symlinks in its directory resolved, if it exists. */
+function landsAt(path: string): string {
+  const abs = resolve(path);
+  try {
+    return join(realpathSync(dirname(abs)), basename(abs));
+  } catch {
+    return abs;
+  }
+}
+
+/**
+ * Offline is the tests' mode (config.ts). A test that forgot WT_BUILDER_DB
+ * would otherwise open the live database: run boot migrations on it, and on a
+ * server start, finishStrandedWrites. So offline refuses the live path and
+ * says what to set instead (review 2026-09-27, §1.7).
+ */
+function refuseLiveDbOffline(path: string): void {
+  if (!OFFLINE) return;
+  if (landsAt(path) !== landsAt(LIVE_DB_PATH)) return;
+  throw new Error(
+    `offline (WT_BUILDER_OFFLINE=1) refuses the live database ${LIVE_DB_PATH}; ` +
+      'set WT_BUILDER_DB to a throwaway path',
+  );
+}
+
 export function openDb(path = config.dbPath): Database.Database {
   if (db) return db;
+  refuseLiveDbOffline(path);
   // Issue drafts and SQLite sidecars stay owner-only, including files SQLite
   // creates later in this process after the initial connection is open.
   process.umask(0o077);

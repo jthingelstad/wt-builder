@@ -9,6 +9,9 @@
  */
 
 import { describe, expect, it } from 'vitest';
+import { spawnSync } from 'node:child_process';
+import { join } from 'node:path';
+import { fileURLToPath } from 'node:url';
 
 describe('the unit suite runs offline', () => {
   it('sets WT_BUILDER_OFFLINE for every test file', () => {
@@ -23,4 +26,27 @@ describe('the unit suite runs offline', () => {
     expect(config.pinboardWriteBack).toBe(false);
     expect(config.microblogWriteBack).toBe(false);
   });
+});
+
+describe('offline never opens the live database', () => {
+  const root = fileURLToPath(new URL('..', import.meta.url));
+  const live = join(root, 'data', 'wt-builder.db');
+
+  it('openDb refuses the default live path', async () => {
+    const store = await import('../src/server/db.ts');
+    expect(() => store.openDb(live)).toThrow(/WT_BUILDER_DB/);
+  });
+
+  it('the server refuses to start without its own WT_BUILDER_DB', () => {
+    // Before the guard, this booted: migrations and finishStrandedWrites ran
+    // against data/, and it listened until the timeout killed it.
+    const env: NodeJS.ProcessEnv = { ...process.env, WT_BUILDER_OFFLINE: '1', WT_BUILDER_PORT: '0' };
+    delete env.WT_BUILDER_DB;
+    const run = spawnSync(process.execPath, ['--import', 'tsx', 'src/server/index.ts'], {
+      cwd: root, env, encoding: 'utf8', timeout: 15_000,
+    });
+    expect(run.signal).toBeNull();
+    expect(run.status).not.toBe(0);
+    expect(run.stderr).toContain('WT_BUILDER_DB');
+  }, 20_000);
 });
