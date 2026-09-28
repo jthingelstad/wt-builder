@@ -4,7 +4,10 @@
  */
 
 import { describe, expect, it } from 'vitest';
-import { existsSync, readFileSync } from 'node:fs';
+import { existsSync, mkdtempSync, readFileSync, rmSync, writeFileSync } from 'node:fs';
+import { execFileSync } from 'node:child_process';
+import { tmpdir } from 'node:os';
+import { join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import yaml from 'js-yaml';
 
@@ -377,14 +380,38 @@ describe('audio assembly', () => {
     expect(vttClock(3725.5)).toBe('01:02:05.500');
   });
 
-  it('escapes & and < in a cue, so a player shows the words and not a broken tag', () => {
-    // WebVTT reads & as a character reference and < as a tag (review
-    // 2026-09-27 §3): "AT&T" and "3 < 4" must arrive as entities.
+  it('keeps a bare & as written and never opens a tag, so a player and the site panel both show the words', () => {
+    // A < in cue text always opens a WebVTT tag (review 2026-09-27 §3). A
+    // bare & is a literal under WebVTT, and the site's transcript panel
+    // (weekly.thingelstad.com issue.njk) prints cue text without decoding
+    // entities, so "Procter & Gamble" must stay as written.
     const vtt = transcriptVtt([
-      { block: { kind: 'cue', text: 'AT&T says 3 < 4, and <b> is not bold --> ever.', pauseBefore: 'none' }, start: 0, end: 3 },
+      { block: { kind: 'cue', text: 'Procter & Gamble and AT&T say 3 < 4, and <b> is not bold --> ever.', pauseBefore: 'none' }, start: 0, end: 3 },
+      { block: { kind: 'cue', text: 'Written as &amp; or &#38; it is still an ampersand.', pauseBefore: 'none' }, start: 3, end: 5 },
     ]);
-    expect(vtt).toContain('<v Jamie>AT&amp;T says 3 &lt; 4, and &lt;b> is not bold → ever.');
-    expect(vtt.split('<v ').length).toBe(2);
+    expect(vtt).toContain('<v Jamie>Procter & Gamble and AT&T say 3 \u2039 4, and \u2039b> is not bold → ever.');
+    expect(vtt).toContain('<v Jamie>Written as &amp;amp; or &amp;#38; it is still an ampersand.');
+    expect(vtt.split('<').length - 1).toBe(2);
+  });
+
+  it('reads back, in the verify listening, as the words that were spoken', () => {
+    // backfill/assess.py matches every cue against what whisper heard.
+    const spoken = ['Procter & Gamble and AT&T say 3 < 4.', 'Written as &amp; it is an ampersand.'];
+    const vtt = transcriptVtt(spoken.map((text, i) => ({ block: { kind: 'cue', text, pauseBefore: 'none' }, start: i, end: i + 1 })));
+    const dir = mkdtempSync(join(tmpdir(), 'wt-vtt-'));
+    try {
+      writeFileSync(join(dir, 'x.vtt'), vtt);
+      const script = [
+        'import importlib.util, json, sys',
+        "spec = importlib.util.spec_from_file_location('assess', sys.argv[1])",
+        'm = importlib.util.module_from_spec(spec); spec.loader.exec_module(m)',
+        "print(json.dumps([c['text'] for c in m.parse_vtt(sys.argv[2])]))",
+      ].join('\n');
+      const out = execFileSync('python3', ['-c', script, fileURLToPath(new URL('../backfill/assess.py', import.meta.url)), join(dir, 'x.vtt')], { encoding: 'utf8' });
+      expect(JSON.parse(out)).toEqual(spoken);
+    } finally {
+      rmSync(dir, { recursive: true, force: true });
+    }
   });
 
   it('times the chapters from where the blocks landed and keeps their links and art', () => {

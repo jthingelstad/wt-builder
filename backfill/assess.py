@@ -45,8 +45,9 @@ def parse_vtt(path: str) -> list[dict]:
         if times:
             a, b = [t.strip() for t in times.split("-->")]
             text = " ".join(l for l in block[block.index(times) + 1 :])
-            # Cue text carries & and < as entities (transcriptVtt); read the words.
-            text = html.unescape(re.sub(r"^<v [^>]*>", "", text).strip())
+            # transcriptVtt writes a < as a lookalike and escapes an & only
+            # where it would read as a reference; read the words back.
+            text = html.unescape(re.sub(r"^<v [^>]*>", "", text).strip()).replace("\u2039", "<")
             cues.append({"start": clock(a), "end": clock(b.split()[0]), "text": text})
         block = []
     return cues
