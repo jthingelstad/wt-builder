@@ -69,6 +69,14 @@ finished, what is half-finished, and what has never run.
   an update of the same draft. A failed card's strip says `Last good:`
   with when and a link to the draft, mp3, or commit. Review 2026-09-27,
   §2.1.
+- **Buttondown is asked before it is changed** (2026-09-28) — the leg
+  reads the email's status (`getEmail`) before it PATCHes the draft it
+  made: `about_to_send` / `in_flight` answer 409 "Buttondown is delivering
+  it now" and record nothing; `sent` answers 409 unless `?web_copy=1`, and
+  a web-copy update is logged (event log and service log); `draft` /
+  `scheduled` update as before; anything else is refused. A status read
+  that fails is a failed send that changes nothing in Buttondown. Review
+  2026-09-27 §8 #7.
 - **Verify after send** (2026-09-26, WT351) — each leg is read back from its
   destination once it goes out, and the Send card shows the result under
   VERIFY: the podcast's three files on the CDN at the rendered size, its length

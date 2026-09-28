@@ -31,6 +31,8 @@ const h = vi.hoisted(() => ({
   rehostGate: null as Promise<void> | null,
   rehostCalls: 0,
   rehostFails: null as Error | null,
+  /** What Buttondown says the email is, when the leg reads it first. */
+  emailStatus: 'draft' as string | Error,
 }));
 
 vi.mock('../src/server/integrations/buttondown.ts', async (importOriginal) => {
@@ -42,6 +44,10 @@ vi.mock('../src/server/integrations/buttondown.ts', async (importOriginal) => {
       h.drafts.push({ op: 'create', subject });
       if (h.draftFails) throw h.draftFails;
       return draft(`em-${h.drafts.length}`, subject);
+    }),
+    getEmail: vi.fn(async () => {
+      if (h.emailStatus instanceof Error) throw h.emailStatus;
+      return { subject: '', status: h.emailStatus, body: '' };
     }),
     updateDraft: vi.fn(async (id: string, subject: string) => {
       h.drafts.push({ op: 'update', id, subject });
@@ -120,6 +126,7 @@ afterEach(() => {
   h.renderFails = null;
   h.rehostGate = null;
   h.rehostFails = null;
+  h.emailStatus = 'draft';
 });
 
 afterAll(async () => {
@@ -385,6 +392,73 @@ describe('a restart strands no leg in sending', () => {
     expect(sends.podcast!.last_sent).toBeUndefined();
     // A leg that was not in flight is left exactly as it was.
     expect(sends.archive).toMatchObject({ status: 'sent', external_id: 'abc1234' });
+    store.deleteIssue(id);
+  });
+});
+
+describe('Buttondown is asked what the email is before it is changed', () => {
+  async function sentOnce(number: number): Promise<{ id: string; before: unknown }> {
+    const id = issue(number);
+    expect((await send(id, 'buttondown')).status).toBe(200);
+    h.drafts.length = 0;
+    return { id, before: structuredClone(legOf(id, 'buttondown')) };
+  }
+
+  for (const status of ['about_to_send', 'in_flight']) {
+    it(`${status}: refused while Buttondown delivers it, and nothing is recorded`, async () => {
+      const { id, before } = await sentOnce(status === 'in_flight' ? 990441 : 990442);
+      const events = store.listEvents(id).length;
+      h.emailStatus = status;
+      const res = await send(id, 'buttondown');
+      expect(res.status).toBe(409);
+      expect(res.body.error).toContain('Buttondown is delivering it now');
+      expect(h.drafts).toHaveLength(0);
+      expect(legOf(id, 'buttondown')).toEqual(before);
+      expect(store.listEvents(id).length).toBe(events);
+      store.deleteIssue(id);
+    });
+  }
+
+  it('sent: refused unless it is asked for as a web-copy update, which is logged', async () => {
+    const { id, before } = await sentOnce(990443);
+    h.emailStatus = 'sent';
+    const refused = await send(id, 'buttondown');
+    expect(refused.status).toBe(409);
+    expect(refused.body.error).toContain('web_copy=1');
+    expect(h.drafts).toHaveLength(0);
+    expect(legOf(id, 'buttondown')).toEqual(before);
+
+    const log = vi.spyOn(console, 'log').mockImplementation(() => {});
+    try {
+      const updated = await send(id, 'buttondown', '?web_copy=1');
+      expect(updated.status).toBe(200);
+      expect(h.drafts).toEqual([expect.objectContaining({ op: 'update', id: (before as { external_id: string }).external_id })]);
+      expect(store.listEvents(id).some((e) => /web copy/i.test(e.summary))).toBe(true);
+      expect(log.mock.calls.map((c) => String(c[0])).join('\n')).toMatch(/web copy/i);
+    } finally {
+      log.mockRestore();
+    }
+    store.deleteIssue(id);
+  });
+
+  for (const status of ['draft', 'scheduled']) {
+    it(`${status}: updated as before`, async () => {
+      const { id, before } = await sentOnce(status === 'draft' ? 990444 : 990445);
+      h.emailStatus = status;
+      expect((await send(id, 'buttondown')).status).toBe(200);
+      expect(h.drafts).toEqual([expect.objectContaining({ op: 'update', id: (before as { external_id: string }).external_id })]);
+      store.deleteIssue(id);
+    });
+  }
+
+  it('a status Buttondown will not give is a failed send that changes nothing there', async () => {
+    const { id } = await sentOnce(990446);
+    h.emailStatus = new Error('Buttondown /emails/em-1 failed: 503');
+    const res = await send(id, 'buttondown');
+    expect(res.status).toBe(502);
+    expect(h.drafts).toHaveLength(0);
+    expect(legOf(id, 'buttondown')).toMatchObject({ status: 'failed' });
+    expect(legOf(id, 'buttondown')!.last_sent?.external_id).toBeTruthy();
     store.deleteIssue(id);
   });
 });

@@ -1207,8 +1207,35 @@ const routes: [RegExp, string, (ctx: Ctx, params: string[]) => Promise<unknown>]
     const previous = before.sends?.buttondown;
     const draftId = lastSent(previous)?.external_id ?? previous?.external_id;
     const release = claimLeg(id!, destination, { external_id: draftId });
-    store.logEvent(id!, 'send', 'Send started — buttondown');
+    // Set back exactly as it was when Buttondown's answer refuses the send.
+    // Only this leg's record is written, and the claim keeps every other
+    // writer of it out while the status is read.
+    const refuse = (message: string): never => {
+      store.recordSend(id!, destination, previous ?? { status: 'none' });
+      throw new HttpError(409, message);
+    };
+    const webCopy = url.searchParams.get('web_copy') === '1';
     try {
+      // What the email is now, before anything is changed: a PATCH while
+      // Buttondown is delivering it races the delivery, and one after it
+      // has gone rewrites a sent email (review 2026-09-27 §8 #7).
+      if (draftId) {
+        const email = await buttondown.getEmail(draftId);
+        if (email.status === 'about_to_send' || email.status === 'in_flight') {
+          refuse(`Buttondown is delivering it now (${email.status}) — nothing was changed. Try again once it has gone.`);
+        }
+        if (email.status === 'sent' && !webCopy) {
+          refuse(`WT${before.issue.number}'s email has already gone to readers — nothing was changed. "Update web copy…" (POST ?web_copy=1) changes only the copy on Buttondown's archive.`);
+        }
+        if (email.status !== 'draft' && email.status !== 'scheduled' && email.status !== 'sent') {
+          refuse(`Buttondown says the email is "${email.status}" — nothing was changed.`);
+        }
+        if (email.status === 'sent') {
+          console.log(`[send] WT${before.issue.number}: updating the web copy of email ${draftId}, which has already been sent`);
+          store.logEvent(id!, 'send', 'Web copy update started — buttondown (the email had already gone)');
+        }
+      }
+      store.logEvent(id!, 'send', 'Send started — buttondown');
       // Rehost first: the email is where image weight actually hurts, and the
       // rewritten URLs must be in the document before the body is rendered.
       const { report: images, mapping } = await rehostIssueImages(requireIssue(id!));
@@ -1232,6 +1259,7 @@ const routes: [RegExp, string, (ctx: Ctx, params: string[]) => Promise<unknown>]
       verifyAfterSend(id!, 'buttondown');
       return { issue: row?.doc, send: state, images };
     } catch (err) {
+      if (err instanceof HttpError && err.status === 409) throw err;
       const state: SendState = {
         status: 'failed',
         at: new Date().toISOString(),
