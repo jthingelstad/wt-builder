@@ -239,3 +239,42 @@ describe('a Micro.blog update whose read fails writes nothing', () => {
     }
   });
 });
+
+// Jamie does not use Micro.blog drafts, and a q=source read of the account
+// (2026-09-28, 100 posts) found every one "published". Insurance all the
+// same: if q=source ever returns a draft, it must not reach a reader
+// (review 2026-09-27, §3).
+describe('a Micro.blog draft is never swept', () => {
+  it('skips a post whose post-status is present and not published, in the sweep and the index', async () => {
+    const { credentials } = await import('../src/server/config.ts');
+    const { sweepMicroblog, remoteIndex } = await import('../src/server/integrations/microblog.ts');
+    credentials.microblogToken = 'test-token';
+    const post = (slug: string, status?: string[]) => ({
+      type: ['h-entry'],
+      properties: {
+        url: [`https://www.thingelstad.com/2026/09/01/${slug}.html`],
+        published: ['2026-09-01T10:00:00-05:00'],
+        content: [`The ${slug} post.`],
+        ...(status ? { 'post-status': status } : {}),
+      },
+    });
+    vi.stubGlobal('fetch', async () => Response.json({ items: [
+      post('published', ['published']), post('draft', ['draft']), post('unmarked'),
+    ] }));
+    try {
+      const swept = await sweepMicroblog(issueWindow('2026-09-05', 7));
+      expect(swept.map((c) => c.url).sort()).toEqual([
+        'https://www.thingelstad.com/2026/09/01/published.html',
+        'https://www.thingelstad.com/2026/09/01/unmarked.html',
+      ]);
+      const index = await remoteIndex();
+      expect([...index.byUrl.keys()].sort()).toEqual([
+        'https://www.thingelstad.com/2026/09/01/published.html',
+        'https://www.thingelstad.com/2026/09/01/unmarked.html',
+      ]);
+    } finally {
+      vi.unstubAllGlobals();
+      credentials.microblogToken = undefined;
+    }
+  });
+});

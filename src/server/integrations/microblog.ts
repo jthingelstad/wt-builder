@@ -51,6 +51,19 @@ function first(values: unknown[] | undefined): string {
   return '';
 }
 
+/**
+ * A post that says it is something other than published — a draft. An
+ * absent post-status is published, as Micropub has it. Jamie does not use
+ * drafts, and a read of the account on 2026-09-28 found all 100 posts
+ * "published"; this is insurance that a draft never reaches a reader
+ * (review 2026-09-27, §3).
+ */
+export function isUnpublished(item: MicropubItem): boolean {
+  const status = item.properties?.['post-status'];
+  if (!status?.length) return false;
+  return !status.some((s) => String(s).toLowerCase() === 'published');
+}
+
 /** Post source for the authenticated blog, newest first. */
 export async function fetchSource(limit = 100): Promise<MicropubItem[]> {
   const url = new URL(MICROPUB);
@@ -73,6 +86,7 @@ export async function sweepMicroblog(window: Window): Promise<Candidate[]> {
   const items = await fetchSource();
 
   return items
+    .filter((i) => !isUnpublished(i))
     .map((i) => {
       const p = i.properties ?? {};
       const url = first(p.url);
@@ -109,6 +123,8 @@ export async function remoteIndex(): Promise<{
   const byUrl = new Map<string, RemoteFields>();
   let coveredFrom: string | null = null;
   for (const i of items) {
+    // A draft is not on the blog; to the issue it is absent.
+    if (isUnpublished(i)) continue;
     const p = i.properties ?? {};
     const url = first(p.url);
     if (!url) continue;
