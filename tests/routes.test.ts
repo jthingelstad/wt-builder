@@ -22,7 +22,8 @@ import { join } from 'node:path';
 const work = mkdtempSync(join(tmpdir(), 'wt-routes-'));
 process.env.WT_BUILDER_DB = join(work, 'routes.db');
 // The knob that extends the edge's allow-list without a code change.
-process.env.WT_BUILDER_ALLOWED_ORIGINS = 'https://extra.example:8443, https://another.example';
+// "null" is here to prove it is dropped: an opaque origin is never allowed.
+process.env.WT_BUILDER_ALLOWED_ORIGINS = 'https://extra.example:8443, https://another.example, null';
 process.env.WT_BUILDER_ALLOWED_HOSTS = 'extra.example:8443';
 
 const { server, logStrayErrors } = await import('../src/server/index.ts');
@@ -528,6 +529,24 @@ describe('the edge refuses what a browser sends on behalf of another site', () =
       const headers = site ? { origin: 'http://localhost:5317', 'sec-fetch-site': site } : { origin: 'http://localhost:5317' };
       expect(edge.crossSiteRefusal('POST', headers, edge.allowedOrigins(4317)), String(site)).toBeNull();
     }
+  });
+
+  it('Origin: null is refused even when the env lists it', async () => {
+    // Sandboxed iframes, data: URLs and file: pages all send "null": allowing
+    // it would let any of them write.
+    const res = await settings({ Origin: 'null' }, 'Pwned');
+    expect(res.status).toBe(403);
+    expect(await title()).not.toBe('Pwned');
+
+    const { config, parseAllowedOrigins } = await import('../src/server/config.ts');
+    expect(config.allowedOrigins).toEqual(['https://extra.example:8443', 'https://another.example']);
+    const warn = vi.fn();
+    expect(parseAllowedOrigins('https://a.example, NULL ,null', warn)).toEqual(['https://a.example']);
+    expect(warn).toHaveBeenCalledTimes(1);
+    expect(String(warn.mock.calls[0]![0])).toContain('null');
+
+    const edge = await import('../src/server/edge.ts');
+    expect(edge.crossSiteRefusal('POST', { origin: 'null' }, edge.allowedOrigins(4317), ['null'])).toContain('null');
   });
 
   it('a request with neither header passes (scripts, curl), and a read is never refused', async () => {

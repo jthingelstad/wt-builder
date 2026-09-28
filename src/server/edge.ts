@@ -101,6 +101,9 @@ export function crossSiteRefusal(
   const refused = () =>
     `cross-site request refused (Origin: ${one(headers.origin) ?? '(none)'}, Sec-Fetch-Site: ${site ?? '(none)'})`;
   if (origin !== undefined) {
+    // An opaque origin is any sandboxed or file: page; config drops it from
+    // the env list too (parseAllowedOrigins).
+    if (origin === 'null') return refused();
     if (extra.some((o) => o.toLowerCase() === origin)) return null;
     if (!builtIn.has(origin)) return refused();
   }

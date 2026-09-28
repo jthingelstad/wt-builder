@@ -269,7 +269,9 @@ finished, what is half-finished, and what has never run.
   `same-origin`/`none`. Only an origin from `WT_BUILDER_ALLOWED_ORIGINS`
   passes whatever `Sec-Fetch-Site` says, so the env list can let in a
   caller the browser counts as same-site while a built-in origin marked
-  cross-site is still refused; the 403's log line names both values. Scripts
+  cross-site is still refused; the 403's log line names both values.
+  `Origin: null` (a sandboxed or file: page) is never allowed: listed in
+  the env, it is dropped with a warning at boot. Scripts
   and curl send neither and pass. Against DNS rebinding, a Host that is not
   `otto.tail09aaf9.ts.net` (bare or `:10001`) or `localhost`/`127.0.0.1` on
   the listening port is a 421 for every method, reads included. Every

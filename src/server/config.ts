@@ -58,6 +58,23 @@ function list(name: string): string[] {
   return (optional(name) ?? '').split(',').map((v) => v.trim()).filter(Boolean);
 }
 
+/**
+ * WT_BUILDER_ALLOWED_ORIGINS, without "null". A sandboxed iframe, a data:
+ * URL and a file: page all send `Origin: null`; allowing it would let any of
+ * them write, so it is dropped, with a warning at boot, whatever .env says.
+ */
+export function parseAllowedOrigins(
+  value: string | undefined,
+  warn: (message: string) => void = console.warn,
+): string[] {
+  const all = (value ?? '').split(',').map((v) => v.trim()).filter(Boolean);
+  const kept = all.filter((o) => o.toLowerCase() !== 'null');
+  if (kept.length < all.length) {
+    warn('[config] WT_BUILDER_ALLOWED_ORIGINS lists "null", which is never allowed (it is any sandboxed or file: page); dropped');
+  }
+  return kept;
+}
+
 export interface Credentials {
   pinboardToken?: string;
   microblogToken?: string;
@@ -93,7 +110,7 @@ export const config = {
    * loopback on the listening port (edge.ts). For a proxy or a name the
    * built-in list does not know; the refusal in the log names what to add.
    */
-  allowedOrigins: list('WT_BUILDER_ALLOWED_ORIGINS'),
+  allowedOrigins: parseAllowedOrigins(optional('WT_BUILDER_ALLOWED_ORIGINS')),
   /** Host values the edge answers to beyond its own names (edge.ts); same use. */
   allowedHosts: list('WT_BUILDER_ALLOWED_HOSTS'),
   /**
