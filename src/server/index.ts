@@ -25,6 +25,7 @@ import { config, describeConfig } from './config.ts';
 import * as edge from './edge.ts';
 import * as store from './db.ts';
 import * as issues from './issue.ts';
+import { holds } from './reconcile.ts';
 import * as buttondown from './integrations/buttondown.ts';
 import * as pinboard from './integrations/pinboard.ts';
 import * as microblog from './integrations/microblog.ts';
@@ -185,6 +186,60 @@ async function writeItemToSource(
   const flags = (result as { flags?: Record<string, string> }).flags;
   if (flags) patch.source_flags = flags;
   return { patch, result };
+}
+
+/**
+ * One write-back per item at a time. Two quick edits each wrote on their
+ * own, and the older could land last: the source kept the older words while
+ * the item said synced with the newer (review 2026-09-27, §4). `waiting`
+ * counts this item's writes queued or running.
+ */
+const writeQueues = new Map<string, { tail: Promise<unknown>; waiting: number }>();
+
+type WriteOutcome = { response: ReturnType<typeof saved>; result: { sync_state: Item['sync_state']; error?: string } };
+
+/**
+ * Write an item to its source and apply the outcome to a fresh read, after
+ * any write to the same item already queued. Each write reads the item when
+ * its turn comes, so it carries the newest words, not the ones its edit saw.
+ */
+function writeBack(id: string, itemId: string): Promise<WriteOutcome> {
+  const key = `${id}\n${itemId}`;
+  const queue = writeQueues.get(key) ?? { tail: Promise.resolve(), waiting: 0 };
+  writeQueues.set(key, queue);
+  queue.waiting++;
+  const run = queue.tail.catch(() => {}).then(() => writeLatest(id, itemId, queue));
+  queue.tail = run.catch(() => {}).finally(() => {
+    queue.waiting--;
+    if (!queue.waiting && writeQueues.get(key) === queue) writeQueues.delete(key);
+  });
+  return run;
+}
+
+async function writeLatest(id: string, itemId: string, queue: { waiting: number }): Promise<WriteOutcome> {
+  for (let attempt = 1; ; attempt++) {
+    const { patch, result } = await writeItemToSource(id, requireIssue(id), itemId);
+    let again = false;
+    const response = savedFresh(id, (d) => {
+      const fresh = d.items[itemId];
+      if (!fresh) return;
+      const written = patch.source_snapshot;
+      if (result.sync_state !== 'synced' || !written || holds(fresh, written)) {
+        return issues.updateItem(d, itemId, patch);
+      }
+      // The words changed while they were being written. The source holds
+      // what was written, so that is the base now; the newer words are not
+      // synced until they are written too — by the write queued behind this
+      // one, or by this one again.
+      const next = issues.updateItem(d, itemId, { ...patch, sync_state: 'syncing', sync_error: undefined });
+      if (queue.waiting > 1) return next;
+      if (attempt < 3) { again = true; return next; }
+      next.items[itemId]!.sync_state = 'failed';
+      next.items[itemId]!.sync_error = 'it kept changing while it was written — your edit is kept; Retry';
+      return next;
+    });
+    if (!again) return { response, result };
+  }
 }
 
 /**
@@ -522,8 +577,8 @@ const routes: [RegExp, string, (ctx: Ctx, params: string[]) => Promise<unknown>]
     // that edits a mirrored field carries it to the source.
     const after = result.issue.items[itemId!];
     if (after?.sync_state !== 'syncing') return result;
-    const { patch: outcome, result: write } = await writeItemToSource(id!, result.issue, itemId!);
-    return { ...savedFresh(id!, (d) => issues.updateItem(d, itemId!, outcome)), result: write };
+    const { response, result: write } = await writeBack(id!, itemId!);
+    return { ...response, result: write };
   }],
 
   [/^\/api\/issues\/([^/]+)\/items\/([^/]+)\/channel$/, 'POST', async ({ body }, [id, itemId]) => {
@@ -594,8 +649,7 @@ const routes: [RegExp, string, (ctx: Ctx, params: string[]) => Promise<unknown>]
       // A held-out Pinboard link carries _exclude on the bookmark; write it.
       const after = result.issue.items[itemId!];
       if (after?.source !== 'Pinboard' || after.sync_state !== 'syncing') return result;
-      const { patch } = await writeItemToSource(id!, result.issue, itemId!);
-      return savedFresh(id!, (d) => issues.updateItem(d, itemId!, patch));
+      return (await writeBack(id!, itemId!)).response;
     }],
 
   [/^\/api\/issues\/([^/]+)\/nodes\/([^/]+)\/rename$/, 'POST', async ({ body }, [id, nodeId]) => {
@@ -707,8 +761,8 @@ const routes: [RegExp, string, (ctx: Ctx, params: string[]) => Promise<unknown>]
    * `sync_state` records the outcome.
    */
   [/^\/api\/issues\/([^/]+)\/items\/([^/]+)\/writeback$/, 'POST', async (_ctx, [id, itemId]) => {
-    const { patch, result } = await writeItemToSource(id!, requireIssue(id!), itemId!);
-    return { ...savedFresh(id!, (d) => issues.updateItem(d, itemId!, patch)), result };
+    const { response, result } = await writeBack(id!, itemId!);
+    return { ...response, result };
   }],
 
   /**
@@ -734,9 +788,9 @@ const routes: [RegExp, string, (ctx: Ctx, params: string[]) => Promise<unknown>]
       return savedFresh(id!, (d) => issues.takeTheirs(d, itemId!, remote));
     }
     store.logEvent(id!, 'sync', `Kept this copy over ${item.source}'s — ${issues.itemName(item)}`, itemId);
-    const rebased = savedFresh(id!, (d) => issues.keepMine(d, itemId!, remote));
-    const { patch, result } = await writeItemToSource(id!, rebased.issue, itemId!);
-    return { ...savedFresh(id!, (d) => issues.updateItem(d, itemId!, patch)), result };
+    savedFresh(id!, (d) => issues.keepMine(d, itemId!, remote));
+    const { response, result } = await writeBack(id!, itemId!);
+    return { ...response, result };
   }],
 
   /**
@@ -772,8 +826,8 @@ const routes: [RegExp, string, (ctx: Ctx, params: string[]) => Promise<unknown>]
     if (moved.items[itemId!]?.sync_state === 'syncing') {
       // The move is saved now; the write-back's outcome lands on a fresh read.
       saved(moved);
-      const { patch, result } = await writeItemToSource(id!, moved, itemId!);
-      return { ...savedFresh(id!, (d) => issues.updateItem(d, itemId!, patch)), result };
+      const { response, result } = await writeBack(id!, itemId!);
+      return { ...response, result };
     }
     return saved(moved);
   }],
@@ -1446,8 +1500,7 @@ async function finishStrandedWrites(): Promise<void> {
     for (const [itemId, item] of Object.entries(row.doc.items)) {
       if (item.sync_state !== 'syncing') continue;
       try {
-        const { patch, result } = await writeItemToSource(row.id, requireIssue(row.id), itemId);
-        savedFresh(row.id, (d) => issues.updateItem(d, itemId, patch));
+        const { result } = await writeBack(row.id, itemId);
         store.logEvent(row.id, 'sync', `Finished after restart — ${result.sync_state} — ${issues.itemName(item)}`);
       } catch (e) {
         console.warn(`[boot] stranded write for ${row.id}/${itemId} failed: ${(e as Error).message}`);

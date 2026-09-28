@@ -121,6 +121,11 @@ export function reconcileItem(item: Item, remote: RemoteFields | null): Reconcil
   return refreshed ? 'refreshed' : 'unchanged';
 }
 
+/** Does the item still say exactly these values in every field the mirror owns? */
+export function holds(item: Item, values: Record<string, unknown>): boolean {
+  return (MIRRORED[item.source] ?? []).every((f) => norm(item[f]) === norm(values[f]));
+}
+
 /** The source's values for the fields the mirror owns — what a snapshot holds. */
 function mirroredOf(item: Item, remote: RemoteFields): Record<string, unknown> {
   const out: Record<string, unknown> = {};

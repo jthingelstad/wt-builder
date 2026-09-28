@@ -849,3 +849,159 @@ describe('a conflict has a way out: Keep mine, or Take theirs', () => {
     await fetch(`${base}/api/issues/${id}`, { method: 'DELETE' });
   });
 });
+
+// Two edits to one item in quick succession each wrote back on their own,
+// and the older write could land last: the bookmark kept the older words
+// while the item said synced with the newer ones (review 2026-09-27, §4).
+describe('write-backs to one item run one at a time, and the newest words are what lands', () => {
+  const LINK = 'https://example.com/overlap';
+  let config: typeof import('../src/server/config.ts');
+  let store: typeof import('../src/server/db.ts');
+  let remote: { extended: string };
+  let adds: { extended: string; release: () => void }[];
+  let inFlight = 0;
+  let mostInFlight = 0;
+  const realFetch = globalThis.fetch;
+
+  beforeAll(async () => {
+    config = await import('../src/server/config.ts');
+    store = await import('../src/server/db.ts');
+  });
+
+  beforeEach(() => {
+    remote = { extended: 'v0' };
+    adds = [];
+    inFlight = 0;
+    mostInFlight = 0;
+    config.credentials.pinboardToken = 'test-token';
+    config.config.pinboardWriteBack = true;
+    vi.stubGlobal('fetch', async (input: string | URL | Request, init?: RequestInit) => {
+      const url = new URL(input instanceof Request ? input.url : String(input));
+      if (url.hostname !== 'api.pinboard.in') return realFetch(input, init);
+      if (url.pathname.endsWith('/posts/get')) {
+        return Response.json({ posts: [{
+          href: LINK, description: 'Overlap', extended: remote.extended, tags: 'notable',
+          time: '2026-12-08T14:00:00Z', toread: 'yes', shared: 'no',
+        }] });
+      }
+      if (url.pathname.endsWith('/posts/add')) {
+        // Each write is held until the test lets it land.
+        inFlight++;
+        mostInFlight = Math.max(mostInFlight, inFlight);
+        const extended = url.searchParams.get('extended') ?? '';
+        await new Promise<void>((release) => adds.push({ extended, release }));
+        remote.extended = extended;
+        inFlight--;
+        return Response.json({ result_code: 'done' });
+      }
+      throw new Error(`unexpected Pinboard call ${url.pathname}`);
+    });
+  });
+
+  afterEach(() => {
+    // A failed assertion must not leave a request held open.
+    adds.forEach((a) => a.release());
+    vi.unstubAllGlobals();
+    config.credentials.pinboardToken = undefined;
+    config.config.pinboardWriteBack = false;
+  });
+
+  const until = async (check: () => boolean) => {
+    for (let i = 0; i < 100 && !check(); i++) await new Promise((r) => setTimeout(r, 10));
+    expect(check()).toBe(true);
+  };
+
+  it('a second edit waits for the first write, and the item is synced only with what was written', async () => {
+    const created = await fetch(`${base}/api/issues`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ number: 990018, publication_date: '2026-12-12' }),
+    });
+    const id = (await created.json()).issue.issue.id as string;
+    const doc = store.getIssue(id)!.doc;
+    doc.items['link-overlap'] = {
+      type: 'pinboard_link', authorship: 'syndicated', source: 'Pinboard',
+      channels: { website: true, email: true, audio: true },
+      source_id: `pinboard:${LINK}`, source_url: LINK, published_at: '2026-12-08T14:00:00Z',
+      title: 'Overlap', commentary: 'v0', tags: ['notable'], section: 'Notable',
+      source_snapshot: { title: 'Overlap', commentary: 'v0', tags: ['notable'] },
+      source_flags: { toread: 'yes', shared: 'no' }, sync_state: 'synced',
+    };
+    doc.nodes.find((n) => n.id === 'notable')!.items.push('link-overlap');
+    store.saveIssue(doc);
+
+    const edit = (commentary: string) => fetch(`${base}/api/issues/${id}/items/link-overlap`, {
+      method: 'PATCH',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ commentary }),
+    });
+
+    const first = edit('v1');
+    await until(() => adds.length === 1);
+    const second = edit('v2');
+    // The second edit is saved at once; its write waits its turn.
+    await until(() => store.getIssue(id)!.doc.items['link-overlap']!.commentary === 'v2');
+    await new Promise((r) => setTimeout(r, 50));
+    expect(adds).toHaveLength(1);
+
+    // Let each write land as it is asked for.
+    for (let i = 0; i < 20 && (inFlight > 0 || adds.length < 2); i++) {
+      adds.forEach((a) => a.release());
+      await new Promise((r) => setTimeout(r, 20));
+    }
+    adds.forEach((a) => a.release());
+    await Promise.all([first, second]);
+
+    expect(mostInFlight).toBe(1);
+    expect(adds.map((a) => a.extended)).toEqual(['v1', 'v2']);
+    expect(remote.extended).toBe('v2');
+    const item = store.getIssue(id)!.doc.items['link-overlap']!;
+    expect(item.commentary).toBe('v2');
+    expect(item.sync_state).toBe('synced');
+    expect(item.source_snapshot?.commentary).toBe('v2');
+    await fetch(`${base}/api/issues/${id}`, { method: 'DELETE' });
+  });
+
+  it("the older write's outcome does not mark a newer edit synced", async () => {
+    const created = await fetch(`${base}/api/issues`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ number: 990019, publication_date: '2026-12-19' }),
+    });
+    const id = (await created.json()).issue.issue.id as string;
+    const doc = store.getIssue(id)!.doc;
+    doc.items['link-overlap'] = {
+      type: 'pinboard_link', authorship: 'syndicated', source: 'Pinboard',
+      channels: { website: true, email: true, audio: true },
+      source_id: `pinboard:${LINK}`, source_url: LINK, published_at: '2026-12-15T14:00:00Z',
+      title: 'Overlap', commentary: 'v0', tags: ['notable'], section: 'Notable',
+      source_snapshot: { title: 'Overlap', commentary: 'v0', tags: ['notable'] },
+      source_flags: { toread: 'yes', shared: 'no' }, sync_state: 'synced',
+    };
+    doc.nodes.find((n) => n.id === 'notable')!.items.push('link-overlap');
+    store.saveIssue(doc);
+
+    const first = fetch(`${base}/api/issues/${id}/items/link-overlap`, {
+      method: 'PATCH', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ commentary: 'v1' }),
+    });
+    await until(() => adds.length === 1);
+    // An edit that reaches the document without a write of its own
+    // (another tab's save landing between the write and its outcome).
+    const d = store.getIssue(id)!.doc;
+    d.items['link-overlap']!.commentary = 'v2';
+    store.saveIssue(d);
+    adds[0]!.release();
+    for (let i = 0; i < 20 && adds.length < 2; i++) await new Promise((r) => setTimeout(r, 20));
+    adds.forEach((a) => a.release());
+    await first;
+
+    // v1 landed and is the base; v2 is not called synced until it is written.
+    expect(adds.map((a) => a.extended)).toEqual(['v1', 'v2']);
+    const item = store.getIssue(id)!.doc.items['link-overlap']!;
+    expect(item.commentary).toBe('v2');
+    expect(remote.extended).toBe('v2');
+    expect(item.sync_state).toBe('synced');
+    expect(item.source_snapshot?.commentary).toBe('v2');
+    await fetch(`${base}/api/issues/${id}`, { method: 'DELETE' });
+  });
+});

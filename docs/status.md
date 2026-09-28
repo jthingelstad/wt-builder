@@ -89,7 +89,11 @@ finished, what is half-finished, and what has never run.
   or post, write-back fetches the record and refuses with `conflict` when it
   no longer matches the sweep's snapshot (or `gone` when deleted), so an
   edit made at the source between scans can never be silently overwritten.
-  A successful write moves the snapshot to what was written.
+  A successful write moves the snapshot to what was written. Writes to one
+  item run one at a time, each reading the item when its turn comes, and an
+  item is marked synced only if it still says what was written; otherwise
+  it stays `syncing` and the newer words are written too (2026-09-28,
+  review 2026-09-27 §4).
   **A conflict has a way out** (2026-09-28): the inspector's sync area
   offers **Keep mine** (`POST /api/issues/:id/items/:itemId/keep-mine` —
   re-read the source, make it the base, write the local copy over it) and
