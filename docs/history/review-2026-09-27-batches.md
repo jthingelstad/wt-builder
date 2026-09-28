@@ -10,19 +10,18 @@
 
 **Order.** 0 first: it makes the test suite safe to extend, and every later
 batch adds tests. After that, 1–6 in order is the risk-weighted path. D can
-run at any time. 7 waits on two decisions (below). F1–F5 are features;
-schedule them after the fixes.
+run at any time. F1–F5 are features; schedule them after the fixes.
 
 **Timing.** Nothing lands between Friday afternoon and the send. On send day
 the only changes are fixes for whatever breaks, as in any live session.
 
-**Decisions to make before the batch that needs them**
+**Decisions, open and settled**
 
 | Batch | Decision |
 |---|---|
 | 3 | Uniform quoting of front matter churns `fixtures/expected/` and the diff of every re-sent page. Alternatively, quote only unsafe values. |
-| 7 | Does canvas text stay editable after publishing, until the issue is put to bed? This changes `docs/interface-spec.md:484`. |
-| 7 | PROOF notes on the strip: the spec contradicts itself (`interface-spec.md` :337 and :609 against :765). Pick one reading. |
+| 7 | **Settled 2026-09-28:** a published issue stays editable until it is put to bed. Once it is put to bed, nothing is editable. This changes `docs/interface-spec.md:484`. |
+| 7 | **Settled 2026-09-28:** the editorial review never counts on the progress strip. It stays advisory. Correct `interface-spec.md` :337 and :609–610 to agree with :765. |
 | 2 | Does Micropub `q=source` return drafts? One read-only GET against the account settles it. The guard goes in either way. |
 
 **The preamble every batch prompt starts with.** It is included in each
@@ -232,7 +231,7 @@ Batch 6: start by writing tests/e2e/send.e2e.ts, which does not exist. Intercept
    - Show a "WT Builder was updated — reload" bar when the server's build id differs from the client's.
 ```
 
-## Batch 7 — Rules for a published issue (§2.5, §3 new-issue date) — needs decisions
+## Batch 7 — Rules for a published issue (§2.5, §3 new-issue date)
 
 ```text
 Read docs/history/review-2026-09-27.md §2.5 and the new-issue date item in §3 first. It is a verified review taken at 06b237f. Line numbers have drifted, so find code by symbol. Before fixing anything, confirm the finding still holds.
@@ -243,17 +242,21 @@ Rules for this batch:
 - Do not deploy. When the batch is green, tell me and I will say when; I may be mid-issue.
 - If a fix would change something docs/decisions.md or docs/interface-spec.md settles, stop and ask.
 
-Batch 7. Jamie's decision on canvas editing after publish: [FILL IN — "editable until put to bed" or "stays read-only"].
+Batch 7. Two decisions Jamie settled on 2026-09-28:
+- A published issue stays editable until it is put to bed. Once it is put to bed, nothing is editable.
+- The editorial review never counts on the progress strip.
 
 1. Number, date and window save immediately on a published issue, and the next re-send publishes a different edition. A renumber forks the site, emails.json, the feed (a duplicate episode) and the archive. POST /settings refuses number, publication_date and window_days when the status is not draft, with a message saying why. POST /sweep refuses non-drafts, which the client already assumes. The MetaEditor shows those fields read-only on a published issue. Add route tests.
 2. A new issue created on a Saturday defaults to the previous issue's date and window. Default to the Saturday after the latest existing issue's date. The dialog warns about, and POST /api/issues refuses, a publication_date another issue already holds.
 3. Title and Dek, the email subject, have no edit path once published. Add them to the MetaEditor; the server already accepts them.
-4. If Jamie chose "editable until put to bed":
-   - readOnly becomes put_to_bed_at || imported.
-   - Structural affordances stay gated on published.
-   - The kicker reads "WEBSITE — PUBLISHED · EDITS NEED A RE-SEND".
-   - Update docs/interface-spec.md in the same commit.
-   - WebKit e2e: edit a published issue's commentary; after put to bed, the PATCH gets 423.
+4. Editable until put to bed.
+   - In Page.tsx, readOnly becomes put_to_bed_at || imported, no longer published.
+   - Structural affordances (insert points, add chips, ordering wand, echoes wand) stay gated on published.
+   - On a published issue that is awake, the kicker reads "WEBSITE — PUBLISHED · EDITS NEED A RE-SEND".
+   - Once put to bed, nothing is editable, and the client must show that rather than let the server's 423 say it. Check every affordance: canvas text, rails (move, remove, promote), wands, outline drag, add chips, Inspector fields and buttons, Re-scan, and the MetaEditor. Each is hidden or disabled when put_to_bed_at is set. The server's guardBed stays as the backstop.
+   - Update docs/interface-spec.md (the "In a published issue, everything is read-only" line). Add one sentence to the put-to-bed section of docs/decisions.md: editing stays open after publishing because fixes and re-sends follow it, and put to bed is the only freeze.
+   - WebKit e2e: edit a published issue's commentary on the canvas and assert the saved text. Put it to bed, then assert the run is not contenteditable, no rail or wand is offered, and a PATCH gets 423.
+5. The review never counts on the progress strip. The code already behaves this way, so this is a spec correction only. In docs/interface-spec.md, remove "one per open PROOF note. The denominator grows when a review finds new proof notes" from the strip's units (around :337). Reword "Only open notes count against the progress strip" (around :609–610) so it says open and cleared notes are tallied in the review's read bar only. Leave :765 ("Advisory only: never in the Ready checklist, never a gate") as the rule.
 ```
 
 ## Batch 8 — Thingy and the models (§5, features #3 and #9)
