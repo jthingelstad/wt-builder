@@ -13,6 +13,8 @@ const h = vi.hoisted(() => ({
   heads: [] as { Key?: string }[],
   /** Whether weekly-thing/{N}/cover.jpg is already in the bucket. */
   bannerExists: true,
+  /** What the HEAD throws instead of answering, when set. */
+  headFails: null as Error | null,
 }));
 
 vi.mock('@aws-sdk/client-s3', async (importOriginal) => {
@@ -23,6 +25,7 @@ vi.mock('@aws-sdk/client-s3', async (importOriginal) => {
       async send(command: { input: { Key?: string } }) {
         if (command instanceof real.HeadObjectCommand) {
           h.heads.push(command.input);
+          if (h.headFails) throw h.headFails;
           if (h.bannerExists) return {};
           throw Object.assign(new Error('NotFound'), { name: 'NotFound', $metadata: { httpStatusCode: 404 } });
         }
@@ -44,7 +47,7 @@ globalThis.fetch = (async (input: string | URL | Request) => {
   return answer();
 }) as typeof fetch;
 
-afterEach(() => { h.puts.length = 0; h.heads.length = 0; h.bannerExists = true; });
+afterEach(() => { h.puts.length = 0; h.heads.length = 0; h.bannerExists = true; h.headFails = null; });
 afterAll(() => { globalThis.fetch = realFetch; });
 
 const jpeg = () => sharp({ create: { width: 64, height: 48, channels: 3, background: '#336699' } }).jpeg().toBuffer();
@@ -80,4 +83,27 @@ describe('the live banner', () => {
     expect(cover.source).toBe('show art');
     expect(h.puts.map((p) => p.Key)).toEqual([bannerKey(990)]);
   });
+
+  // Whether a banner is there decides whether show art may go over it. An
+  // answer that is not a clear "not there" leaves the bucket alone, and says
+  // so; on a first send that can leave cover.jpg missing (docs/status.md).
+  for (const [why, error] of [
+    ['a 403', Object.assign(new Error('Forbidden'), { name: 'Forbidden', $metadata: { httpStatusCode: 403 } })],
+    ['a network error', Object.assign(new Error('getaddrinfo ENOTFOUND files.thingelstad.com'), { name: 'Error', code: 'ENOTFOUND' })],
+  ] as const) {
+    it(`is left alone, with a warning, when the HEAD fails with ${why}`, async () => {
+      h.headFails = error;
+      answer = async () => new Response('gone', { status: 404 });
+      const warn = vi.spyOn(console, 'warn').mockImplementation(() => {});
+      try {
+        const cover = await buildCover({ number: 990, coverSource: PHOTO });
+        expect(cover.source).toBe('show art');
+        expect(h.heads).toHaveLength(1);
+        expect(h.puts).toEqual([]);
+        expect(warn.mock.calls.map((c) => String(c[0])).join('\n')).toMatch(/could not tell whether weekly-thing\/990\/cover\.jpg exists/);
+      } finally {
+        warn.mockRestore();
+      }
+    });
+  }
 });
