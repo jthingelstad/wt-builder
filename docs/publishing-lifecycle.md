@@ -98,7 +98,9 @@ logged as such. The card knows the email has gone from the Buttondown check
 out. The `sent` refusal records that status too, and names itself
 (`code: "email_sent"`): a check older than `remote_status` (WT350, WT351) or none
 at all no longer hides it, the card re-reads the issue and switches at once, and a
-run that meets the refusal carries on to the legs after it. Any other status is
+run that meets the refusal carries on to the legs after it. With no check behind
+it, the refusal records only that fact — `waiting`, never `passed`, so the card
+still says the email is not verified — and starts the real check. Any other status is
 refused and changes nothing.
 
 The podcast's first step is a gate: the script must be approved before the leg

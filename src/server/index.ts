@@ -20,7 +20,7 @@ import { fileURLToPath } from 'node:url';
 
 import type { ArchiveReference, Channel, Destination, IssueDoc, Item, SendState, Verification } from '../shared/types.ts';
 import { render } from '../shared/render/index.ts';
-import { emailOf, lastSent, recordedAudioUrl } from '../shared/sends.ts';
+import { emailOf, lastSent, recordedAudioUrl, refusedAsSent } from '../shared/sends.ts';
 import { renderEmail } from '../shared/render/email.ts';
 import { config, describeConfig } from './config.ts';
 import * as edge from './edge.ts';
@@ -1251,10 +1251,13 @@ const routes: [RegExp, string, (ctx: Ctx, params: string[]) => Promise<unknown>]
           // predates remote_status (WT350, WT351) or never ran. recordVerify,
           // not a document save: a fresh read with no await and no revision,
           // so a refused click never pushes a real edit out of the history.
+          // With no check behind it, only that fact is recorded — never a
+          // pass — and the real check is started once the leg is set back.
           const checked = store.getIssue(id!)?.doc.verify?.buttondown;
           store.recordVerify(id!, 'buttondown', checked
             ? { ...checked, remote_status: 'sent' }
-            : { status: 'passed', at: new Date().toISOString(), remote_status: 'sent', checks: [{ label: 'Status', ok: true, detail: 'Sent — Buttondown said so when a re-send was refused.' }] });
+            : refusedAsSent(new Date().toISOString()));
+          if (!checked) setImmediate(() => verifyAfterSend(id!, 'buttondown'));
           refuse(`WT${before.issue.number}'s email has already gone to readers — nothing was changed. "Update web copy…" (POST ?web_copy=1) changes only the copy on Buttondown's archive.`, 'email_sent');
         }
         if (email.status !== 'draft' && email.status !== 'scheduled' && email.status !== 'sent') {

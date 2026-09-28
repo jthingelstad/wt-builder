@@ -106,7 +106,9 @@ finished, what is half-finished, and what has never run.
   Buttondown out. The `sent` refusal records `remote_status` itself
   (through `recordVerify` — a fresh read with no revision, so a refused
   click never pushes a real edit out of the history — keeping the check's
-  findings) and carries
+  findings; with no check at all, only the fact, as `waiting` — never
+  `passed`, since subject, body and delivery were not read — and the real
+  check is started) and carries
   `code: "email_sent"`: WT350 and WT351's checks predate the field, so
   their cards offered "Update draft" and a bulk run stopped at the 409
   before the archive. Now the card re-reads the issue on that refusal and

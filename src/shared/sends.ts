@@ -5,7 +5,7 @@
  * reads it here, so a failed retry never makes it look as if nothing went.
  */
 
-import type { SendState, SentRecord } from './types.ts';
+import type { SendState, SentRecord, Verification } from './types.ts';
 
 /** The leg's last successful send: itself when sent, else what it carried forward. */
 export function lastSent(state: SendState | undefined): SentRecord | undefined {
@@ -38,4 +38,23 @@ export function emailOf(state: SendState | undefined): { id?: string; url?: stri
 export function recordedAudioUrl(sends: Partial<Record<string, SendState>> | undefined): string | undefined {
   const url = lastSent(sends?.podcast)?.audio?.audio_url;
   return typeof url === 'string' && url ? url : undefined;
+}
+
+/**
+ * The Buttondown record a refused re-send leaves when no check has run: the
+ * one fact Buttondown gave — the email has gone — and nothing more. Never
+ * `passed`: subject, body and delivery were not read, so the card must go on
+ * saying it is not verified until the real check (started beside it) lands.
+ */
+export function refusedAsSent(at: string): Verification {
+  return {
+    status: 'waiting',
+    at,
+    remote_status: 'sent',
+    checks: [{
+      label: 'Status',
+      ok: null,
+      detail: 'Sent, Buttondown said when a re-send was refused. Subject, body and delivery have not been checked yet.',
+    }],
+  };
 }

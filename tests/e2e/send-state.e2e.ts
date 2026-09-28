@@ -6,6 +6,7 @@
  */
 import { expect, test } from '@playwright/test';
 import { ISSUE, reset, store } from './helpers.ts';
+import { refusedAsSent } from '../../src/shared/sends.ts';
 
 test.beforeEach(() => reset());
 
@@ -111,4 +112,21 @@ test('a verify record older than remote_status: the refusal switches the card, a
   await page.getByRole('button', { name: 'Re-send all sent' }).click();
   await expect.poll(() => posted).toEqual(['website', 'buttondown', 'archive']);
   await expect(button).toHaveText('Update web copy…');
+});
+
+test('an email refused as sent with no check behind it is not counted as verified', async ({ page }) => {
+  const at = '2026-09-26T14:05:00Z';
+  store.recordSend(ISSUE, 'podcast', { status: 'sent', at, url: 'https://files.thingelstad.com/a.mp3', audio: { audio_url: 'https://files.thingelstad.com/a.mp3' } });
+  store.recordSend(ISSUE, 'website', { status: 'sent', at, external_id: 'f00d', url: 'https://github.com/x/y/commit/f00d' });
+  store.recordSend(ISSUE, 'buttondown', { status: 'sent', at, external_id: 'em-350', edit_url: 'https://buttondown.com/emails/em-350' });
+  store.recordSend(ISSUE, 'archive', { status: 'sent', at, external_id: 'abc1234', url: 'https://github.com/x/z/commit/abc1234' });
+  for (const leg of ['podcast', 'website', 'archive'] as const) store.recordVerify(ISSUE, leg, { status: 'passed', at, checks: [] });
+  // Exactly what the server records when it refuses a re-send and no check has run.
+  store.recordVerify(ISSUE, 'buttondown', refusedAsSent(at));
+
+  await page.goto(`/${ISSUE}/send`);
+  const mail = card(page, 'Buttondown');
+  await expect(mail.locator('.sc-head .btn.primary')).toHaveText('Update web copy…');
+  await expect(mail.locator('.sc-verify .sc-pill')).not.toHaveText('VERIFIED');
+  await expect(page.getByText(/Not verified yet: Buttondown\./)).toBeVisible();
 });

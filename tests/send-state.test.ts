@@ -533,7 +533,7 @@ describe('Buttondown is asked what the email is before it is changed', () => {
     store.deleteIssue(id);
   });
 
-  it('sent, never verified: the refusal leaves a record that says the email has gone', async () => {
+  it('sent, never verified: the refusal records only what Buttondown said, never a pass', async () => {
     const { id } = await sentOnce(990448);
     const doc = store.getIssue(id)!.doc;
     delete doc.verify;
@@ -542,7 +542,24 @@ describe('Buttondown is asked what the email is before it is changed', () => {
     expect((await send(id, 'buttondown')).status).toBe(409);
     const v = store.getIssue(id)!.doc.verify!.buttondown!;
     expect(v.remote_status).toBe('sent');
-    expect(v.checks).toEqual([expect.objectContaining({ label: 'Status', ok: true })]);
+    // Subject, body and delivery never ran: nothing here may read as verified.
+    expect(v.status).not.toBe('passed');
+    expect(v.checks.every((c) => c.ok !== true)).toBe(true);
+    store.deleteIssue(id);
+  });
+
+  it('sent, never verified: the real check runs once the leg is set back', async () => {
+    const { id, before } = await sentOnce(990450);
+    const doc = store.getIssue(id)!.doc;
+    delete doc.verify;
+    store.saveIssue(doc);
+    h.emailStatus = 'sent';
+    h.verifier = async () => ({ checks: [{ label: 'Status', ok: true, detail: 'Sent' }, { label: 'Subject', ok: true, detail: 'matches' }], remote_status: 'sent' });
+    const calls = h.verifyCalls;
+    expect((await send(id, 'buttondown')).status).toBe(409);
+    await until(() => h.verifyCalls > calls && store.getIssue(id)!.doc.verify!.buttondown!.status === 'passed');
+    expect(store.getIssue(id)!.doc.verify!.buttondown!.checks).toHaveLength(2);
+    expect(legOf(id, 'buttondown')).toEqual(before);
     store.deleteIssue(id);
   });
 
