@@ -77,7 +77,16 @@ finished, what is half-finished, and what has never run.
   heard again on its own) with the pause before every section change; the
   website's live page, its embedded audio, the episode in podcast.xml, and a
   warning naming any image the page loads from off the CDN (review
-  2026-09-27 §2.2), waiting out the deploy; the Buttondown draft's status, subject, and body
+  2026-09-27 §2.2), waiting out the deploy — until the page is this send's:
+  it answers, carries the title, and, when the issue has audio, embeds this
+  send's audio file (the previous build already carries the title, and a
+  re-send after a podcast re-run was once judged on the old page, review
+  2026-09-27 §2.3). A page still on the previous build within an hour of the
+  send is `waiting`, looked at again every 5 minutes; after that it is
+  judged as it stands. A text-only re-send has no such marker, so its check
+  cannot tell the new build from the old one (the commit's check runs would;
+  the GitHub token is documented as Contents-only, so they are not read);
+  the Buttondown draft's status, subject, and body
   against the email edition (the subject as sent, template tags broken like
   the body's, review 2026-09-27 §3 — a draft sent before 2026-09-28 whose
   title carries `{{`, `{%` or `{#` shows a Subject warning until "Update

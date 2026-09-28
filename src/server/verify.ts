@@ -164,6 +164,13 @@ export async function verifyPodcast(doc: IssueDoc): Promise<VerifyCheck[]> {
 /** The site builds on push; the page appears a minute or two after the commit. */
 const DEPLOY_WAIT_MS = 8 * 60_000;
 const DEPLOY_POLL_MS = 20_000;
+/**
+ * How long after the send a page that is not this send's yet is still
+ * "deploying", looked at again on its own, rather than wrong. Past it the
+ * page is judged as it stands.
+ */
+const DEPLOY_PATIENCE_MS = 60 * MINUTE;
+const DEPLOY_RECHECK_MS = 5 * MINUTE;
 
 /**
  * Every image the page loads from off the CDN and off the site itself. A
@@ -189,21 +196,40 @@ export function hotlinks(html: string): string[] {
 const escaped = (s: string) => s.replace(/&/g, '&amp;').replace(/"/g, '&quot;').replace(/'/g, '&#39;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
 const carries = (html: string, s: string) => html.includes(s) || html.includes(escaped(s)) || html.includes(s.replace(/'/g, '&#x27;')) || html.includes(s.replace(/'/g, '’'));
 
-export async function verifyWebsite(doc: IssueDoc, opts: { wait?: boolean } = {}): Promise<VerifyCheck[]> {
+export async function verifyWebsite(doc: IssueDoc, opts: { wait?: boolean } = {}): Promise<VerifyOutcome> {
   const n = doc.issue.number;
   const pageUrl = `${ISSUE_URL_BASE}${n}/`;
   const a = audioOf(doc);
   const checks: VerifyCheck[] = [];
+  const file = a.audio_url?.split('/').pop();
 
-  // The deploy is asynchronous: wait for the page to carry this issue.
+  // The deploy is asynchronous: wait for the page to be this send's. The
+  // title alone cannot say so — the previous build carries it too, and a
+  // re-send after a podcast re-run was judged on the old page and told to
+  // re-send (review 2026-09-27 §2.3). When the page embeds audio, this
+  // send's audio file is what marks the new deploy.
+  const landed = (p: { status: number; text: string }) =>
+    p.status === 200 && carries(p.text, doc.issue.title) && (!file || p.text.includes(file));
   let page = await fetchText(pageUrl);
   const deadline = Date.now() + (opts.wait ? DEPLOY_WAIT_MS : 0);
-  while ((page.status !== 200 || !carries(page.text, doc.issue.title)) && Date.now() < deadline) {
+  while (!landed(page) && Date.now() < deadline) {
     await new Promise((r) => setTimeout(r, DEPLOY_POLL_MS));
     page = await fetchText(pageUrl);
   }
+  // Not this send's yet, and the send is recent: the site is still
+  // building. That is waiting, looked at again on its own, like a scheduled
+  // email or an archive not yet indexed — not a problem.
+  const sentAt = Date.parse(lastSent(doc.sends?.website)?.at ?? '');
+  if (!landed(page) && Number.isFinite(sentAt) && Date.now() - sentAt < DEPLOY_PATIENCE_MS) {
+    return {
+      checks: [warn('Page live', page.status !== 200
+        ? `${pageUrl.replace('https://', '')} answers HTTP ${page.status} — the site is still deploying this send; checked again in 5 minutes.`
+        : `${pageUrl.replace('https://', '')} still shows the previous build — the site is still deploying this send; checked again in 5 minutes.`)],
+      recheckMs: DEPLOY_RECHECK_MS,
+    };
+  }
   if (page.status !== 200) {
-    return [fail('Page live', `${pageUrl} answers HTTP ${page.status}${opts.wait ? ' after waiting for the deploy' : ''} — check the site's build.`)];
+    return { checks: [fail('Page live', `${pageUrl} answers HTTP ${page.status}${opts.wait ? ' after waiting for the deploy' : ''} — check the site's build.`)] };
   }
   checks.push(carries(page.text, doc.issue.title)
     ? pass('Page live', `${pageUrl.replace('https://', '')} is up with "${doc.issue.title}"`)
@@ -214,8 +240,7 @@ export async function verifyWebsite(doc: IssueDoc, opts: { wait?: boolean } = {}
     ? warn('No hotlinks', `${off.length} image${off.length === 1 ? '' : 's'} load from off the CDN — re-send the website to point them at the rehosted copies.`, off)
     : pass('No hotlinks', `every image is on ${CDN_HOST} or the site`));
 
-  if (a.audio_url) {
-    const file = a.audio_url.split('/').pop()!;
+  if (a.audio_url && file) {
     const want = [file, a.audio_chapters_url?.split('/').pop(), a.audio_transcript_url?.split('/').pop()].filter(Boolean) as string[];
     const absent = want.filter((f) => !page.text.includes(f));
     checks.push(absent.length
@@ -232,7 +257,7 @@ export async function verifyWebsite(doc: IssueDoc, opts: { wait?: boolean } = {}
         ? fail('Podcast feed', `The episode is in the feed but points at another file than ${file}.`)
         : pass('Podcast feed', `episode ${n} is in the feed with ${file}`));
   }
-  return checks;
+  return { checks };
 }
 
 // ── Buttondown ────────────────────────────────────────────────────────────
@@ -325,7 +350,7 @@ export async function verifyArchive(doc: IssueDoc): Promise<VerifyOutcome> {
 
 export function verifierFor(dest: Destination): ((doc: IssueDoc, wait?: boolean) => Promise<VerifyOutcome>) | null {
   if (dest === 'podcast') return async (doc) => ({ checks: await verifyPodcast(doc) });
-  if (dest === 'website') return async (doc, wait) => ({ checks: await verifyWebsite(doc, { wait }) });
+  if (dest === 'website') return (doc, wait) => verifyWebsite(doc, { wait });
   if (dest === 'buttondown') return verifyButtondown;
   if (dest === 'archive') return verifyArchive;
   return null;
