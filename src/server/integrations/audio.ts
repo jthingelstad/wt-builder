@@ -435,11 +435,18 @@ export interface PlacedBlock {
 /**
  * The transcript, as WebVTT: one cue per block, the speaker named, so
  * Thingy's words are attributed in the transcript as they are in the voice.
+ * Cue text is markup to a player: `&` opens a character reference and `<` a
+ * tag, so both are written as entities ("AT&T", "3 < 4"; review 2026-09-27
+ * §3), and `-->`, which would end the timing line, becomes an arrow.
  */
 export function transcriptVtt(placed: PlacedBlock[]): string {
   const cues = placed.map(({ block, start, end }) => {
     const who = block.speaker === 'thingy' ? 'Thingy' : 'Jamie';
-    const text = block.text.replace(/-->/g, '→').replace(/\s*\n\s*/g, ' ');
+    const text = block.text
+      .replace(/-->/g, '→')
+      .replace(/\s*\n\s*/g, ' ')
+      .replace(/&/g, '&amp;')
+      .replace(/</g, '&lt;');
     return `${vttClock(start)} --> ${vttClock(end)}\n<v ${who}>${text}`;
   });
   return `WEBVTT\n\n${cues.join('\n\n')}\n`;

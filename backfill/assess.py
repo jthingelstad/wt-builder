@@ -15,6 +15,7 @@ from __future__ import annotations
 
 import difflib
 import glob
+import html
 import json
 import os
 import re
@@ -44,7 +45,8 @@ def parse_vtt(path: str) -> list[dict]:
         if times:
             a, b = [t.strip() for t in times.split("-->")]
             text = " ".join(l for l in block[block.index(times) + 1 :])
-            text = re.sub(r"^<v [^>]*>", "", text).strip()
+            # Cue text carries & and < as entities (transcriptVtt); read the words.
+            text = html.unescape(re.sub(r"^<v [^>]*>", "", text).strip())
             cues.append({"start": clock(a), "end": clock(b.split()[0]), "text": text})
         block = []
     return cues

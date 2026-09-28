@@ -377,6 +377,16 @@ describe('audio assembly', () => {
     expect(vttClock(3725.5)).toBe('01:02:05.500');
   });
 
+  it('escapes & and < in a cue, so a player shows the words and not a broken tag', () => {
+    // WebVTT reads & as a character reference and < as a tag (review
+    // 2026-09-27 §3): "AT&T" and "3 < 4" must arrive as entities.
+    const vtt = transcriptVtt([
+      { block: { kind: 'cue', text: 'AT&T says 3 < 4, and <b> is not bold --> ever.', pauseBefore: 'none' }, start: 0, end: 3 },
+    ]);
+    expect(vtt).toContain('<v Jamie>AT&amp;T says 3 &lt; 4, and &lt;b> is not bold → ever.');
+    expect(vtt.split('<v ').length).toBe(2);
+  });
+
   it('times the chapters from where the blocks landed and keeps their links and art', () => {
     const chapters = chaptersOf(placed);
     expect(chapters.map((c) => [c.title, c.start])).toEqual([['Welcome', 0], ['Notable', 5.6], ['A title | The Site', 8.7]]);
