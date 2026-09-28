@@ -208,6 +208,40 @@ export function openDb(path = config.dbPath): Database.Database {
     return Math.max(row.n ?? 0, config.lastPublishedIssue);
   }
 
+/** A new issue whose id or number another row already holds. */
+export class IssueExists extends Error {}
+
+/**
+ * Insert a new issue, and only insert. `saveIssue` is an upsert, and the id
+ * is `wt<number>` for life while the number can be changed in Settings — so
+ * creating 353 after 353 was renumbered 352 replaced WT352's row, send
+ * record and all, with a blank draft (review 2026-09-27, §1.1). Here an id
+ * or number already taken throws IssueExists and nothing is written.
+ */
+export function createIssueRow(doc: IssueDoc): IssueRow {
+  const now = new Date().toISOString();
+  try {
+    openDb()
+      .prepare(
+        `INSERT INTO issues (id, number, publication_date, status, schema_version, doc, created_at, updated_at)
+         VALUES (?, ?, ?, ?, ?, ?, ?, ?)`,
+      )
+      .run(
+        doc.issue.id, doc.issue.number, doc.issue.publication_date, doc.issue.status,
+        doc.schema_version ?? SCHEMA_VERSION, JSON.stringify(doc), now, now,
+      );
+  } catch (err) {
+    if (String((err as { code?: string }).code ?? '').startsWith('SQLITE_CONSTRAINT')) {
+      const holder = getIssue(doc.issue.id);
+      throw new IssueExists(holder
+        ? `${doc.issue.id} already exists (it is WT${holder.number} now) — pick another number`
+        : `issue ${doc.issue.number} already exists`);
+    }
+    throw err;
+  }
+  return getIssue(doc.issue.id)!;
+}
+
 export function saveIssue(doc: IssueDoc): IssueRow {
   const now = new Date().toISOString();
   const sends = doc.sends ?? {};

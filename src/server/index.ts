@@ -393,8 +393,17 @@ const routes: [RegExp, string, (ctx: Ctx, params: string[]) => Promise<unknown>]
       title: b.title,
       dek: b.dek,
     });
+    // Insert-only: the id is wt<N> for life and a renumbered issue still
+    // holds its old one, so a number check alone let an upsert replace it.
+    let row: store.IssueRow;
+    try {
+      row = store.createIssueRow(doc);
+    } catch (err) {
+      if (err instanceof store.IssueExists) throw new HttpError(409, err.message);
+      throw err;
+    }
     store.logEvent(doc.issue.id, 'issue', `Issue started — WT${doc.issue.number}, publishes ${doc.issue.publication_date}`);
-    return saved(doc);
+    return { issue: row.doc, readiness: issues.readiness(row.doc) };
   }],
 
   [/^\/api\/issues\/([^/]+)$/, 'GET', async (_ctx, [id]) => {

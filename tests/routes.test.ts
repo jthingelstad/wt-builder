@@ -373,6 +373,38 @@ describe('issues round-trip through the service', () => {
     const deleted = await fetch(`${base}/api/issues/${issue.issue.id}`, { method: 'DELETE' });
     expect(deleted.status).toBe(200);
   });
+
+  // The id is wt<N> forever; renumbering changes only the number. Creating
+  // the old number again used to upsert over the renumbered issue — a
+  // published WT352 replaced by a blank draft (review 2026-09-27, §1.1).
+  it('creating a number whose id a renumbered issue still holds is a 409, and that issue is intact', async () => {
+    const create = (number: number) => fetch(`${base}/api/issues`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ number, publication_date: '2026-12-05' }),
+    });
+    const first = await create(990353);
+    expect(first.status).toBe(200);
+    const id = (await first.json()).issue.issue.id;
+    expect(id).toBe('wt990353');
+
+    const renumbered = await fetch(`${base}/api/issues/${id}/settings`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ number: 990352, title: 'Renumbered, and written in' }),
+    });
+    expect(renumbered.status).toBe(200);
+
+    const again = await create(990353);
+    expect(again.status).toBe(409);
+    expect((await again.json()).error).toContain(id);
+
+    const kept = (await (await fetch(`${base}/api/issues/${id}`)).json()).issue;
+    expect(kept.issue.number).toBe(990352);
+    expect(kept.issue.title).toBe('Renumbered, and written in');
+
+    await fetch(`${base}/api/issues/${id}`, { method: 'DELETE' });
+  });
 });
 
 describe('a request that cannot be parsed is refused, and the service keeps answering', () => {

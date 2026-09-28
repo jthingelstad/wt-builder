@@ -81,6 +81,10 @@ finished, what is half-finished, and what has never run.
   moment its website and buttondown legs are both `sent`; nothing un-derives
   it. This is what keeps `lastPublishedNumber()`, the next-issue default,
   and the website's prior-issues index true after the first real send.
+- **Creating an issue never replaces one** (2026-09-28) — `POST /api/issues`
+  inserts only (`createIssueRow`): an issue's id is `wt<N>` for life and a
+  renumbered one keeps it, so creating that number again is a 409 naming
+  the issue that holds it, not an upsert over it. Review 2026-09-27, §1.1.
 - **Write-back compare-and-set** (2026-08-30) — before replacing a bookmark
   or post, write-back fetches the record and refuses with `conflict` when it
   no longer matches the sweep's snapshot (or `gone` when deleted), so an
