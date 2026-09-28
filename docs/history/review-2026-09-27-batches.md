@@ -115,7 +115,9 @@ Give me one report with:
 
 ---
 
-## Batch 0 — Make the test suite safe to extend (§1.7)
+## ~~Batch 0 — Make the test suite safe to extend (§1.7)~~
+
+Landed 2026-09-28 on review-fixes: 4c3bc44..8290cb2. Skipped: none. Needs Jamie: none.
 
 ```text
 Read docs/history/review-2026-09-27.md §1.7 and §7 first. It is a verified review taken at 06b237f. Line numbers have drifted, so find code by symbol. Before fixing anything, confirm the finding still holds.
