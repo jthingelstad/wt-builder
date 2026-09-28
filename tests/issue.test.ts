@@ -1032,6 +1032,66 @@ describe('section removal', () => {
     expect(back?.items).toEqual(ids);
     for (const id of ids) expect(restored.items[id]).toBeTruthy();
   });
+
+  // Links and posts swept in while their section was removed went to
+  // orphans, and restoring the section brought back only what it held when
+  // it went: the newcomers were in no edition and on no screen (review
+  // 2026-09-27, §4).
+  it('restoring a section also brings back what was swept in while it was gone', () => {
+    const doc = createIssue({ number: 400, publication_date: '2026-09-05' });
+    const removed = removeSection(removeSection(doc, 'journal'), 'notable');
+    const fetched: import('../src/server/issue.ts').SweepFetch = {
+      window: windowOf(removed),
+      links: [{
+        id: 'pinboard:new', origin: 'Pinboard', title: 'Swept while Notable was gone',
+        url: 'https://example.com/new', commentary: 'Described, so Notable.', tags: [],
+        published_at: '2026-09-01T14:00:00Z',
+      }],
+      posts: [{
+        id: 'microblog:https://www.thingelstad.com/new.html', origin: 'Micro.blog',
+        url: 'https://www.thingelstad.com/new.html', body: 'Posted while Journal was gone.',
+        published_at: '2026-09-01T10:00:00-05:00',
+      }],
+      bookmarks: new Map(), microblog: null, captureTimes: new Map(), seen: new Map(),
+    };
+    const swept = issues.applySweep(removed, fetched).doc;
+    const link = Object.keys(swept.items).find((id) => swept.items[id]!.source_url === 'https://example.com/new')!;
+    const post = Object.keys(swept.items).find((id) => swept.items[id]!.source_url === 'https://www.thingelstad.com/new.html')!;
+    expect(swept.orphans).toEqual(expect.arrayContaining([link, post]));
+    expect(swept.items[post]!.section).toBe('Journal');
+
+    // One more orphan that says Notable but was held out on purpose.
+    swept.items['link-excluded'] = {
+      type: 'pinboard_link', authorship: 'syndicated', source: 'Pinboard',
+      channels: { website: true, email: true, audio: true }, title: 'Held out',
+      source_url: 'https://example.com/excluded', section: 'Notable', excluded: true, tags: ['_exclude'],
+    };
+    swept.orphans = [...(swept.orphans ?? []), 'link-excluded'];
+
+    const notable = addSection(swept, { id: 'notable', type: 'notable', label: 'Notable' });
+    expect(notable.nodes.find((n) => n.id === 'notable')!.items).toEqual([link]);
+    expect(notable.orphans).toContain('link-excluded');
+    const journal = addSection(notable, { id: 'journal', type: 'journal', label: 'Journal' });
+    expect(journal.nodes.find((n) => n.id === 'journal')!.items).toEqual([post]);
+    expect(journal.orphans).toEqual(['link-excluded']);
+    expect(planEdition(journal, 'website').some((p) => p.items.some((i) => i.id === post))).toBe(true);
+  });
+
+  it('a restored section keeps what it held first, then what arrived', () => {
+    const doc = fixture();
+    const briefly = doc.nodes.find((n) => n.type === 'briefly')!;
+    const held = [...briefly.items];
+    const removed = removeSection(doc, briefly.id);
+    removed.items['link-later'] = {
+      type: 'pinboard_link', authorship: 'syndicated', source: 'Pinboard',
+      channels: { website: true, email: true, audio: true }, title: 'Arrived later',
+      source_url: 'https://example.com/later', section: 'Briefly',
+    };
+    removed.orphans = [...(removed.orphans ?? []), 'link-later'];
+    const restored = addSection(removed, { id: briefly.id, type: briefly.type, label: briefly.label });
+    expect(restored.nodes.find((n) => n.id === briefly.id)!.items).toEqual([...held, 'link-later']);
+    expect(restored.orphans ?? []).not.toContain('link-later');
+  });
 });
 
 describe('the photo section', () => {

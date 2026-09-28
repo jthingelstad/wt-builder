@@ -542,6 +542,11 @@ function placeInto(doc: IssueDoc, itemId: string, sectionLabel: string): void {
     const item = doc.items[itemId];
     if (item) item.section = target.label;
   } else {
+    // No such section — it was removed. Held out, and stamped with where it
+    // was going, so restoring the section brings it in too (review
+    // 2026-09-27, §4); a Journal post carries no section of its own.
+    const item = doc.items[itemId];
+    if (item) item.section = sectionLabel;
     doc.orphans = [...(doc.orphans ?? []), itemId];
   }
 }
@@ -954,14 +959,19 @@ export function addSection(
     }
   }
 
-  // Reclaim any of this section's items that were held out.
-  const reclaimed = held
-    ? held.items
-    : (next.orphans ?? []).filter((itemId) => {
-        const item = next.items[itemId];
-        return item?.section?.toLowerCase() === spec.label.toLowerCase();
-      });
-  if (!created.items.length) created.items = reclaimed;
+  // Reclaim what the section held when it went, in its order, then every
+  // held-out item that names it and was not held out on purpose: links and
+  // posts swept in while it was gone waited in orphans, in no edition and on
+  // no screen (review 2026-09-27, §4).
+  const own = held ? held.items : [];
+  const names = new Set([spec.label, held?.label].filter(Boolean).map((l) => String(l).toLowerCase()));
+  const arrived = (next.orphans ?? []).filter((itemId) => {
+    const item = next.items[itemId];
+    return !own.includes(itemId) && !item?.excluded && names.has(String(item?.section ?? '').toLowerCase());
+  });
+  const reclaimed = [...own, ...arrived];
+  if (held) created.items = reclaimed;
+  else if (!created.items.length) created.items = reclaimed;
   next.orphans = (next.orphans ?? []).filter((i) => !reclaimed.includes(i));
 
   next.nodes.push(created);
