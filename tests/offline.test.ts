@@ -10,6 +10,8 @@
 
 import { describe, expect, it } from 'vitest';
 import { spawnSync } from 'node:child_process';
+import { cpSync, existsSync, mkdtempSync, rmSync, symlinkSync } from 'node:fs';
+import { tmpdir } from 'node:os';
 import { join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
@@ -29,24 +31,42 @@ describe('the unit suite runs offline', () => {
 });
 
 describe('offline never opens the live database', () => {
-  const root = fileURLToPath(new URL('..', import.meta.url));
-  const live = join(root, 'data', 'wt-builder.db');
+  // Neither test may reach this checkout's data/, even with the guard broken:
+  // on otto, npm run deploy runs npm test in the live checkout, and a boot
+  // there would migrate the live database and could finish a stranded write
+  // offline, turning a 'syncing' item 'local'.
 
-  it('openDb refuses the default live path', async () => {
-    const store = await import('../src/server/db.ts');
-    expect(() => store.openDb(live)).toThrow(/WT_BUILDER_DB/);
+  it('the check refuses the live path and nothing else', async () => {
+    // Pure: it only compares paths. openDb is never called on the live path.
+    const { refuseLiveDbOffline } = await import('../src/server/db.ts');
+    const { LIVE_DB_PATH } = await import('../src/server/config.ts');
+    expect(() => refuseLiveDbOffline(LIVE_DB_PATH)).toThrow(/WT_BUILDER_DB/);
+    expect(() => refuseLiveDbOffline(join(tmpdir(), 'wt-throwaway.db'))).not.toThrow();
   });
 
-  it('the server refuses to start without its own WT_BUILDER_DB', () => {
-    // Before the guard, this booted: migrations and finishStrandedWrites ran
-    // against data/, and it listened until the timeout killed it.
-    const env: NodeJS.ProcessEnv = { ...process.env, WT_BUILDER_OFFLINE: '1', WT_BUILDER_PORT: '0' };
-    delete env.WT_BUILDER_DB;
-    const run = spawnSync(process.execPath, ['--import', 'tsx', 'src/server/index.ts'], {
-      cwd: root, env, encoding: 'utf8', timeout: 15_000,
-    });
-    expect(run.signal).toBeNull();
-    expect(run.status).not.toBe(0);
-    expect(run.stderr).toContain('WT_BUILDER_DB');
+  it('a server with no WT_BUILDER_DB of its own refuses to start', () => {
+    // Booted from a throwaway copy of the server, so its "live" database is
+    // the copy's data/. Before the guard, this booted: migrations and
+    // finishStrandedWrites ran, and it listened until the timeout killed it.
+    const root = fileURLToPath(new URL('..', import.meta.url));
+    const copy = mkdtempSync(join(tmpdir(), 'wt-offline-boot-'));
+    try {
+      for (const p of ['src', 'prompts', 'assets', 'package.json', 'tsconfig.json']) {
+        cpSync(join(root, p), join(copy, p), { recursive: true });
+      }
+      symlinkSync(join(root, 'node_modules'), join(copy, 'node_modules'));
+      const env: NodeJS.ProcessEnv = { ...process.env, WT_BUILDER_OFFLINE: '1', WT_BUILDER_PORT: '0' };
+      delete env.WT_BUILDER_DB;
+      delete env.WT_BUILDER_TTS_CACHE;
+      const run = spawnSync(process.execPath, ['--import', 'tsx', 'src/server/index.ts'], {
+        cwd: copy, env, encoding: 'utf8', timeout: 15_000,
+      });
+      expect(run.signal).toBeNull();
+      expect(run.status).not.toBe(0);
+      expect(run.stderr).toContain('refuses the live database');
+      expect(existsSync(join(copy, 'data', 'wt-builder.db'))).toBe(false);
+    } finally {
+      rmSync(copy, { recursive: true, force: true });
+    }
   }, 20_000);
 });

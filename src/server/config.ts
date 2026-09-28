@@ -13,10 +13,12 @@ import { fileURLToPath } from 'node:url';
 const ENV_PATH = fileURLToPath(new URL('../../.env', import.meta.url));
 
 /**
- * Offline: the browser tests' server (tests/e2e). No .env, no credentials,
- * and the AWS SDK pointed at nothing, so a test can never write to Pinboard,
- * Micro.blog, Buttondown, GitHub, S3, or a model — the live-data rule
- * (never verify with writes on live data) enforced by construction.
+ * Offline: every test. vitest sets it for the unit suite (vite.config.ts) and
+ * playwright.config.ts for the browser tests' server (tests/e2e). No .env, no
+ * credentials, and the AWS SDK pointed at nothing, so a test can never write
+ * to Pinboard, Micro.blog, Buttondown, GitHub, S3, or a model — the live-data
+ * rule (never verify with writes on live data) enforced by construction. It
+ * also refuses the live database (db.ts, refuseLiveDbOffline).
  */
 export const OFFLINE = process.env.WT_BUILDER_OFFLINE === '1';
 

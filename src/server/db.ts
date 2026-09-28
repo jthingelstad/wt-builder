@@ -113,7 +113,7 @@ function landsAt(path: string): string {
  * server start, finishStrandedWrites. So offline refuses the live path and
  * says what to set instead (review 2026-09-27, §1.7).
  */
-function refuseLiveDbOffline(path: string): void {
+export function refuseLiveDbOffline(path: string): void {
   if (!OFFLINE) return;
   if (landsAt(path) !== landsAt(LIVE_DB_PATH)) return;
   throw new Error(
