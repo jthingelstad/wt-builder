@@ -38,6 +38,8 @@ export interface PageActions {
   removeItem(nodeId: string, itemId: string): void;
   moveNode(nodeId: string, delta: number): void;
   removeNode(nodeId: string): void;
+  /** An ad hoc section's heading, typed on the canvas. */
+  renameNode(nodeId: string, label: string): Promise<boolean>;
   addNode(spec: { type: string; label: string; before?: string; kind?: string }): void;
   addItem(nodeId: string, type: string): void;
   /** The echoes Jamie ticked, appended to the section — each becomes an item. */
@@ -262,6 +264,7 @@ export function Page({
       // section and the ticked ones append as items, so it can run again
       // for more (Jamie, 2026-09-20). Each echo's own wand redrafts it.
       const echoesWand = !readOnly && node.type === 'echoes';
+      const promotedId = node.kind === 'promoted_item' ? node.items[0] : undefined;
       rows.push(
         <Row
           key={`${node.id}-h`}
@@ -296,10 +299,18 @@ export function Page({
         >
           <h2 class={fallout.all ? 'faded' : undefined} onClick={() => onSelect(node.id)}>
             <span class="hash">#</span>
+            {/* The commit was a no-op ("renamed from the outline", which has
+                no rename): the heading looked saved and every edition
+                published the old one (review 2026-09-27, §1.5). An ad hoc
+                heading is the node's label. A promoted post's heading is its
+                title, as the renderers print it (nodeHeading), and saving it
+                writes the title back to Micro.blog. */}
             <Editable
               readOnly={readOnly || node.kind === 'section'}
-              value={node.label}
-              onCommit={() => { /* renamed from the outline */ }}
+              value={promotedId ? doc.items[promotedId]?.title ?? node.label : node.label}
+              onCommit={(text) => promotedId
+                ? act.updateItem(promotedId, { title: text })
+                : act.renameNode(node.id, text)}
             />
             {node.kind === 'ad_hoc' && <span class="note-pill">AD HOC SECTION</span>}
             {node.fixed_position === 'last' && <span class="note-pill">FIXED LAST</span>}

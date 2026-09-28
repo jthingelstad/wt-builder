@@ -398,6 +398,16 @@ finished, what is half-finished, and what has never run.
   `POST|DELETE /api/issues/:id/share`. Page rendering and routes are tested;
   the S3 upload has not yet run for real.
 
+- **Section headings typed on the canvas** (2026-09-28) — an ad hoc
+  section's heading saves as the node's label through
+  `POST /api/issues/:id/nodes/:nodeId/rename`. The route existed and the
+  client had never called it: the heading's commit was a no-op, so the edit
+  looked saved and every edition published the old `## Section`. A promoted
+  post's heading shows and saves the post's `title`, which is what the
+  renderers print and what writes back to Micro.blog; its node label is not
+  used. Review 2026-09-27, §1.5. Exercised in the browser tests
+  (tests/e2e/headings.e2e.ts); not yet typed into against a live post.
+
 - **The edge** (2026-09-28, review §1.6) — the service has no auth and
   trusts the tailnet, so the door itself refuses what it cannot trust.
   Every refusal and stray error below is written to stderr, which launchd
