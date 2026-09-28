@@ -180,8 +180,9 @@ function claimLeg(id: string, destination: Destination, state: Partial<SendState
  * Sends run in-process, so a `sending` found at boot is nobody's: the
  * restart cut it off. Each becomes `failed`, keeping its last good send
  * (recordSend carries it) and whatever it was working on, so the card says
- * what happened and a retry is not refused for ten minutes. Runs before the
- * server listens.
+ * what happened and a retry is not refused for ten minutes. Runs as the
+ * server starts listening — only a process that won the port owns the
+ * sends — and before it handles a request.
  */
 export function failInterruptedSends(): void {
   for (const row of store.listIssues()) {
@@ -1637,8 +1638,13 @@ const server = createServer(async (req, res) => {
 const isMain = process.argv[1] && import.meta.url.endsWith(process.argv[1].replace(/^.*\//, ''));
 if (isMain !== false) {
   store.openDb();
-  failInterruptedSends();
   server.listen(config.port, config.host, () => {
+    // First, and only in the process that holds the port: a second process
+    // on the same database (npm run dev, npm start beside the service) whose
+    // listen fails must not fail the live service's legs in flight. The
+    // listening callback runs on the tick the bind succeeds, before the loop
+    // accepts a connection, so no request sees a stale `sending`.
+    failInterruptedSends();
     // Only once it is serving: a failure to boot (the offline guard refusing
     // the live database, a port in use) must still exit.
     logStrayErrors();

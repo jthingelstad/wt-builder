@@ -111,7 +111,9 @@ A leg is `sending` from the moment it passes its guards, before it awaits
 anything, and a second request for it is refused (409) while it runs. Sends run
 in the service's own process, so a `sending` found when the service starts was
 cut off by the restart: it becomes `failed` ("interrupted by a restart") with its
-last good send kept, and can be retried at once.
+last good send kept, and can be retried at once. Only the process that wins the
+port does this, as it starts listening and before any request: a second process
+opened on the same database cannot fail the running service's legs.
 
 ## The archive feed
 

@@ -11,6 +11,7 @@
 
 import { describe, expect, it } from 'vitest';
 import { spawnSync } from 'node:child_process';
+import { createServer, type AddressInfo } from 'node:net';
 import { mkdtempSync, rmSync, writeFileSync } from 'node:fs';
 import { tmpdir } from 'node:os';
 import { join } from 'node:path';
@@ -59,7 +60,7 @@ describe('the running service logs a stray error and keeps running', () => {
   }, 30_000);
 });
 
-describe('the service fails a stranded send before it listens', () => {
+describe('the service fails a stranded send before it serves', () => {
   it('a leg left sending by the last process is failed, keeping its last good send, by the time it is listening', async () => {
     const root = fileURLToPath(new URL('..', import.meta.url));
     const work = mkdtempSync(join(tmpdir(), 'wt-strand-'));
@@ -98,6 +99,50 @@ describe('the service fails a stranded send before it listens', () => {
       expect(leg).toMatchObject({ status: 'failed', error: 'interrupted by a restart', external_id: 'em-9' });
       expect(leg.last_sent).toMatchObject({ status: 'sent', external_id: 'em-9' });
     } finally {
+      store.closeDb();
+      rmSync(work, { recursive: true, force: true });
+    }
+  }, 30_000);
+});
+
+describe('only the process that holds the port sweeps', () => {
+  it('a second process whose listen fails leaves the live service\'s sending legs alone', async () => {
+    const root = fileURLToPath(new URL('..', import.meta.url));
+    const work = mkdtempSync(join(tmpdir(), 'wt-second-'));
+    const db = join(work, 'second.db');
+    // db.ts is already loaded by the test above, its path fixed: open this
+    // one by name, here and after the child has run.
+    const store = await import('../src/server/db.ts');
+    store.closeDb();
+    store.openDb(db);
+    // The live service, as far as the port is concerned.
+    const holder = createServer();
+    await new Promise<void>((resolve) => holder.listen(0, '127.0.0.1', resolve));
+    const port = (holder.address() as AddressInfo).port;
+    try {
+      store.createIssueRow({
+        schema_version: 1, sends: {}, items: {}, nodes: [],
+        issue: { id: 'wt990432', number: 990432, title: 'Second', status: 'draft', publication_date: '2026-11-28', window_days: 7 },
+      } as never);
+      const at = new Date().toISOString();
+      store.recordSend('wt990432', 'podcast', { status: 'sending', at });
+      store.closeDb();
+
+      // npm run dev, or npm start beside the service: same database, port taken.
+      const run = spawnSync(process.execPath, ['--import', 'tsx', 'src/server/index.ts'], {
+        cwd: root,
+        encoding: 'utf8',
+        timeout: 20_000,
+        env: { ...process.env, WT_BUILDER_OFFLINE: '1', WT_BUILDER_HOST: '127.0.0.1', WT_BUILDER_PORT: String(port), WT_BUILDER_DB: db, WT_BUILDER_TTS_CACHE: join(work, 'tts') },
+      });
+      expect(run.status).not.toBe(0);
+      expect(run.stderr).toContain('EADDRINUSE');
+      expect(run.stdout).not.toContain('WT Builder on');
+
+      store.openDb(db);
+      expect(store.getIssue('wt990432')!.doc.sends!.podcast).toMatchObject({ status: 'sending', at });
+    } finally {
+      await new Promise<void>((resolve) => holder.close(() => resolve()));
       store.closeDb();
       rmSync(work, { recursive: true, force: true });
     }

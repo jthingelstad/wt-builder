@@ -55,8 +55,11 @@ finished, what is half-finished, and what has never run.
   is claimed the moment it passes its guards — in flight in the process (a
   set of `id:leg`, the real guard) and `sending` on the issue, before any
   await — so two clicks never make two Buttondown drafts; and at boot,
-  before it listens, the service turns every persisted `sending` into
-  `failed` ("interrupted by a restart"), keeping the last good send. A
+  once it holds the port and before it handles a request, the service
+  turns every persisted `sending` into `failed` ("interrupted by a
+  restart"), keeping the last good send. A second process on the same
+  database whose listen fails (`npm run dev` beside the service) sweeps
+  nothing, so the live service's legs in flight are left alone. A
   persisted `sending` under ten minutes old still refuses, for another
   process on the same database. `sending` is written before the key is
   taken, so a write that throws (a busy database) leaves nothing held.
