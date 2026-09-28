@@ -129,8 +129,10 @@ finished, what is half-finished, and what has never run.
   `*`, `!`, `|` or `{` had broken the site build, and with it every later
   deploy. The back catalogue's front-matter reader JSON-unescapes. Held by a
   js-yaml round trip per indicator character in `tests/publish.test.ts`.
-  The site page also carries `templateEngineOverride: "md"`: the site
-  preprocesses Markdown with Nunjucks, and a title with `{{` failed the whole
+  DEL, the C1 controls and U+FFFE/U+FFFF are written as `\u` escapes:
+  JSON leaves them raw, and PyYAML (librarian-thing's reader) refuses them
+  even quoted, or folds U+0085 into a space. The site page also carries
+  `templateEngineOverride: "md"`: the site preprocesses Markdown with Nunjucks, and a title with `{{` failed the whole
   Eleventy build while `{% if %}` in a comment printed nothing. Generated
   pages use no Nunjucks; the layout still renders as Nunjucks around them.
   Review 2026-09-27, §1.3.

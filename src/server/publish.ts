@@ -248,9 +248,16 @@ export function issueEntry(doc: IssueDoc, opts: SiteInputsOptions = {}): IssueEn
  * and a failed build blocks every later deploy (review 2026-09-27 §1.3).
  * Uniform quoting was chosen over a "safe pattern" on 2026-09-28; the one-time
  * diff on re-sent pages was accepted. Numbers stay bare.
+ *
+ * JSON leaves DEL, the C1 controls and U+FFFE/U+FFFF raw; PyYAML (the
+ * archive's reader in librarian-thing) refuses them even inside quotes and
+ * folds a raw U+0085 into a space, so those are written as YAML escapes.
  */
 export function yamlString(value: string): string {
-  return JSON.stringify(value);
+  return JSON.stringify(value).replace(
+    /[\x7f-\x9f\ufffe\uffff]/g,
+    (c) => `\\u${c.charCodeAt(0).toString(16).padStart(4, '0')}`,
+  );
 }
 
 /**

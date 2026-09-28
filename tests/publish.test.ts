@@ -214,6 +214,12 @@ describe('front matter survives any title', () => {
     ['a trailing space', 'trailing space '],
     ['a tab', 'tab\there'],
     ['non-ASCII', 'emoji 🧵 and an — em dash'],
+    // YAML refuses DEL, the C1 controls and U+FFFE/U+FFFF raw (js-yaml and
+    // PyYAML both), and PyYAML folds a raw U+0085 into a space.
+    ['a DEL', 'rubout\u007f here'],
+    ['C1 controls', 'pasted\u0080 from\u0085 Word\u009f'],
+    ['noncharacters', 'odd\ufffe bytes\uffff'],
+    ['line separators', 'line\u2028and paragraph\u2029separators'],
   ];
 
   const docWith = (value: string): IssueDoc => {
@@ -276,6 +282,19 @@ describe('front matter survives any title', () => {
       links: e.links,
       word_count: e.word_count,
     });
+  });
+
+  // The corpus copy is read by librarian-thing with PyYAML, stricter than
+  // js-yaml: its reader refuses any character outside this printable set,
+  // even inside quotes, and folds a raw U+0085 (a YAML line break) into a
+  // space. The pattern is PyYAML's own (reader.py NON_PRINTABLE), plus U+0085.
+  const PYYAML_REFUSES = /[^\x09\x0A\x0D\x20-\x7E\x85\xA0-\uD7FF\uE000-\uFFFD\u{10000}-\u{10FFFF}]|\x85/u;
+  it.each(cases)('the archive text with %s carries nothing PyYAML refuses', (_name, value) => {
+    const d = docWith(value);
+    const page = archiveMarkdown(d, { buttondownId: value });
+    const front = page.slice(0, page.indexOf('\n---\n', 4));
+    expect(front).not.toMatch(PYYAML_REFUSES);
+    expect(audioFrontMatter(audio(value)).join('\n')).not.toMatch(PYYAML_REFUSES);
   });
 
   it.each(cases)('the audio record with %s parses back on its own', (_name, value) => {
