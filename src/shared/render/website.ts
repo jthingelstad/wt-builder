@@ -10,7 +10,7 @@ import { clockTime, shortDate, wallClock } from '../dates.ts';
 import { splitBody } from '../body.ts';
 import { echoBlocks } from '../echoes.ts';
 import type { PlannedItem, PlannedNode } from './plan.ts';
-import { bodyLines, planEdition, postBlocks, finishEdition } from './plan.ts';
+import { bodyLines, planEdition, postBlocks, finishEdition, quoteMarkdown } from './plan.ts';
 
 /** Blocks are joined by a blank line; a block is one Markdown paragraph. */
 export type Block = string;
@@ -227,7 +227,7 @@ function itemBlocks(entry: PlannedItem, node?: IssueNode, issueNumber?: number):
       // On its own (outside an Echoes node) an echo still carries its frame.
       return attributed(item, echoBlocks(item, issueNumber));
     case 'quote':
-      return bodyLines(item.body).map((l) => `> ${l}`);
+      return [quoteMarkdown(item)];
     default:
       // Intro, outro, Markdown blocks: prose keeps its paragraphs.
       return postBlocks(item.body);

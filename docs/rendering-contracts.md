@@ -108,6 +108,15 @@ a Journal post sit at `####`, below the day's `###` (review 2026-09-27 §3).
 Audio speaks the same structure. A post Jamie promotes leaves the Journal and
 prints whole under its own heading.
 
+## Quote
+
+Someone else's words, and it says whose. Website and Buttondown print one
+blockquote: each line of the quote a paragraph inside it, then `— <who said
+it>` when the item carries an attribution. Audio frames it "Quote. … End
+quote." and then says the name. Until 2026-09-28 a Quote printed one
+blockquote per line, dropped the attribution everywhere, and was spoken as
+Jamie's own words (review 2026-09-27 §3).
+
 ## Photo
 
 Website and Buttondown include image, alt text, caption, and a metadata line of
