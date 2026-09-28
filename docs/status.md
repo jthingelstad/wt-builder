@@ -168,7 +168,12 @@ finished, what is half-finished, and what has never run.
   the send when the file is missing, unparseable, or below the 349 entries
   the archive is known to hold. This closes the accidental-send finding: the
   index was once rebuilt from the Builder's sparser records, gutting 104k
-  lines to 10k (commit 91688fc7, reverted).
+  lines to 10k (commit 91688fc7, reverted). Since 2026-09-28 the merge
+  happens inside the commit (`editTree`): the file is read, checked and
+  merged as it stands at commit time, and again on a lost ref race, so a
+  back-catalogue audio record committed while the leg was rehosting is kept
+  rather than overwritten by the copy read before it. Review 2026-09-27,
+  §2.3.
 - **Front matter quotes every string** (2026-09-28) — the site page, the
   archive text, and the audio record write each string scalar as a JSON
   string (`yamlString` in `src/server/publish.ts`), which is always valid

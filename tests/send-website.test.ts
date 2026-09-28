@@ -32,6 +32,16 @@ vi.mock('../src/server/integrations/github.ts', async (importOriginal) => {
       committed.push(files);
       return { sha: 'f00d', changed: files.map((f) => f.path), unchanged: 0, committed: true };
     }),
+    // The leg edits emails.json as it stands at commit time; here it stands
+    // as read above, and the ref update always wins.
+    editTree: vi.fn(async (paths: string[], edit: (path: string, current: string | null) => string | null) => {
+      const files = paths.map((path) => ({
+        path,
+        content: edit(path, path === 'apps/site/_data/emails.json' ? JSON.stringify(emails) : null)!,
+      }));
+      committed.push(files);
+      return { sha: 'f00d', changed: paths, unchanged: 0, committed: true };
+    }),
   };
 });
 

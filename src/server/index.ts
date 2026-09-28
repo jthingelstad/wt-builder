@@ -1285,17 +1285,16 @@ const routes: [RegExp, string, (ctx: Ctx, params: string[]) => Promise<unknown>]
  */
 const MIN_ARCHIVE_ENTRIES = 349;
 
+const SITE_EMAILS = 'apps/site/_data/emails.json';
+
 /**
- * The site's live emails.json — the merge base the handoff must preserve.
+ * The site's emails.json, parsed — the merge base the handoff must preserve.
  * Rebuilding the index from the Builder's own records gutted it once (104k
  * lines to 10k, commit 91688fc7, reverted): the Shortcuts-era entries carry
  * links, audio, slugs, and ids the imported records cannot reproduce. Any
  * doubt about the file refuses the send rather than rewriting blind.
  */
-async function currentSiteEmails(): Promise<IssueEntry[]> {
-  const raw = await githubRepo.readFile('apps/site/_data/emails.json', {
-    branch: config.websiteBranch,
-  });
+function parseSiteEmails(raw: string | null): IssueEntry[] {
   if (raw === null) {
     throw new HttpError(502, "the site's emails.json is missing from the repo — refusing to rewrite the index blind");
   }
@@ -1309,6 +1308,11 @@ async function currentSiteEmails(): Promise<IssueEntry[]> {
     throw new HttpError(502, `the site's emails.json has ${Array.isArray(parsed) ? parsed.length : 'no'} entries, below the ${MIN_ARCHIVE_ENTRIES} the archive is known to hold — refusing to merge into a truncated index`);
   }
   return parsed as IssueEntry[];
+}
+
+/** The site's live emails.json, for the preview. The send merges inside its commit instead. */
+async function currentSiteEmails(): Promise<IssueEntry[]> {
+  return parseSiteEmails(await githubRepo.readFile(SITE_EMAILS, { branch: config.websiteBranch }));
 }
 
 /**
@@ -1368,7 +1372,6 @@ async function sendWebsite(id: string, force = false) {
   }
   const release = claimLeg(id, 'website');
   try {
-    const currentEmails = await currentSiteEmails();
     // The page must not hotlink: every image the issue references is on the CDN
     // before the page is rendered (content-addressed; a second run is free).
     // The page renders from the copy the rehost map was saved to, as the
@@ -1376,9 +1379,16 @@ async function sendWebsite(id: string, force = false) {
     // every new Journal photo as the original (review 2026-09-27 §2.2).
     const { mapping } = await rehostIssueImages(requireIssue(id));
     const fresh = savedFresh(id, (d) => applyRehost(d, mapping)).issue;
-    const files = siteInputs(fresh, websiteOptions(fresh, currentEmails));
-    const result = await githubRepo.putTree(
-      files,
+    // emails.json is merged into the file as it stands when the commit is
+    // made, not as it was read before the rehost: the back catalogue commits
+    // audio records into it, and a merge against an earlier read — or a
+    // ref-race retry that reused it — would put its stale copy over theirs
+    // (review 2026-09-27 §2.3). The page does not depend on the index.
+    const inputsWith = (emails: IssueEntry[]) => siteInputs(fresh, websiteOptions(fresh, emails));
+    const result = await githubRepo.editTree(
+      inputsWith([]).map((f) => f.path),
+      (path, current) =>
+        inputsWith(path === SITE_EMAILS ? parseSiteEmails(current) : []).find((f) => f.path === path)!.content,
       `Add issue ${fresh.issue.number} from WT Builder`,
       { branch: config.websiteBranch },
     );

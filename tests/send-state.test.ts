@@ -8,7 +8,7 @@
  * the last good one did.
  */
 
-import { afterAll, afterEach, beforeAll, describe, expect, it, vi } from 'vitest';
+import { afterAll, afterEach, beforeAll, beforeEach, describe, expect, it, vi } from 'vitest';
 import { mkdtempSync, readFileSync, rmSync } from 'node:fs';
 import { tmpdir } from 'node:os';
 import { join } from 'node:path';
@@ -36,6 +36,14 @@ const h = vi.hoisted(() => ({
   rehostFails: null as Error | null,
   /** What Buttondown says the email is, when the leg reads it first. */
   emailStatus: 'draft' as string | Error,
+  /** The site's emails.json on GitHub, as it stands now: the archive's 349 issues. */
+  siteEmails: '',
+  /**
+   * Another writer's commits that land between a leg's read and its ref
+   * update: each one makes the next ref update lose the race, as GitHub
+   * answers it, and changes emails.json before the leg reads it again.
+   */
+  raceWinners: [] as ((emails: { number: number; [k: string]: unknown }[]) => void)[],
 }));
 
 vi.mock('../src/server/integrations/buttondown.ts', async (importOriginal) => {
@@ -62,13 +70,30 @@ vi.mock('../src/server/integrations/buttondown.ts', async (importOriginal) => {
 
 vi.mock('../src/server/integrations/github.ts', async (importOriginal) => {
   const real = await importOriginal<typeof import('../src/server/integrations/github.ts')>();
-  const emails = Array.from({ length: 349 }, (_, i) => ({ number: i + 1, subject: `WT${i + 1}` }));
+  const EMAILS = 'apps/site/_data/emails.json';
+  const commit = (files: RepoFile[]) => {
+    h.committed.push(files);
+    const emails = files.find((f) => f.path === EMAILS);
+    if (emails) h.siteEmails = emails.content;
+    return { sha: `c0ffee${h.committed.length}`, changed: files.map((f) => f.path), unchanged: 0, committed: true };
+  };
   return {
     ...real,
-    readFile: vi.fn(async (path: string) => (path === 'apps/site/_data/emails.json' ? JSON.stringify(emails) : null)),
-    putTree: vi.fn(async (files: RepoFile[]) => {
-      h.committed.push(files);
-      return { sha: `c0ffee${h.committed.length}`, changed: files.map((f) => f.path), unchanged: 0, committed: true };
+    readFile: vi.fn(async (path: string) => (path === EMAILS ? h.siteEmails : null)),
+    putTree: vi.fn(async (files: RepoFile[]) => commit(files)),
+    // As the real one does: each attempt edits the files as they stand, and
+    // a lost ref update re-reads and edits again.
+    editTree: vi.fn(async (paths: string[], edit: (path: string, current: string | null) => string | null) => {
+      for (;;) {
+        const files = paths
+          .map((path) => ({ path, content: edit(path, path === EMAILS ? h.siteEmails : null) }))
+          .filter((f): f is RepoFile => f.content !== null);
+        const winner = h.raceWinners.shift();
+        if (!winner) return commit(files);
+        const emails = JSON.parse(h.siteEmails);
+        winner(emails);
+        h.siteEmails = JSON.stringify(emails);
+      }
     }),
   };
 });
@@ -120,6 +145,12 @@ beforeAll(async () => {
   const addr = server.address();
   if (!addr || typeof addr === 'string') throw new Error('no address');
   base = `http://127.0.0.1:${addr.port}`;
+});
+
+const ARCHIVE_EMAILS = JSON.stringify(Array.from({ length: 349 }, (_, i) => ({ number: i + 1, subject: `WT${i + 1}` })));
+beforeEach(() => {
+  h.siteEmails = ARCHIVE_EMAILS;
+  h.raceWinners.length = 0;
 });
 
 afterEach(() => {
@@ -509,6 +540,58 @@ describe('the server holds the podcast to the script Jamie approved', () => {
     delete doc.script_review;
     store.saveIssue(doc);
     expect((await send(id, 'podcast', '', { approve: false })).status).toBe(200);
+    store.deleteIssue(id);
+  });
+});
+
+describe('the website leg merges emails.json as it stands when the commit lands', () => {
+  const EMAILS = 'apps/site/_data/emails.json';
+  const withAudio = (id: string) => store.recordSend(id, 'podcast', {
+    status: 'sent', at: new Date().toISOString(), url: 'https://files.thingelstad.com/a.mp3',
+    audio: { audio_url: 'https://files.thingelstad.com/a.mp3' },
+  });
+  const committedEmails = () => JSON.parse(h.committed.at(-1)!.find((f) => f.path === EMAILS)!.content) as { number: number; [k: string]: unknown }[];
+
+  it('a commit to emails.json while the leg rehosts is kept, not overwritten', async () => {
+    const id = issue(990461);
+    withAudio(id);
+    const gate = hold();
+    const calls = h.rehostCalls;
+    const sent = send(id, 'website');
+    await until(() => h.rehostCalls > calls);
+    // The back catalogue records WT12's audio meanwhile.
+    const emails = JSON.parse(h.siteEmails);
+    emails[11].audio_url = 'https://files.thingelstad.com/wt12.mp3';
+    h.siteEmails = JSON.stringify(emails);
+    gate.open();
+    expect((await sent).status).toBe(200);
+    const merged = committedEmails();
+    expect(merged.find((e) => e.number === 12)!.audio_url).toBe('https://files.thingelstad.com/wt12.mp3');
+    expect(merged.find((e) => e.number === 990461)).toBeTruthy();
+    expect(merged).toHaveLength(350);
+    store.deleteIssue(id);
+  });
+
+  it('a lost ref race merges again against the winner, not the copy first read', async () => {
+    const id = issue(990462);
+    withAudio(id);
+    h.raceWinners.push((emails) => { emails[12]!.audio_url = 'https://files.thingelstad.com/wt13.mp3'; });
+    expect((await send(id, 'website')).status).toBe(200);
+    const merged = committedEmails();
+    expect(merged.find((e) => e.number === 13)!.audio_url).toBe('https://files.thingelstad.com/wt13.mp3');
+    expect(merged.find((e) => e.number === 990462)).toBeTruthy();
+    store.deleteIssue(id);
+  });
+
+  it('an index truncated by the time of the commit is refused, and nothing is committed', async () => {
+    const id = issue(990463);
+    withAudio(id);
+    h.raceWinners.push((emails) => { emails.splice(10); });
+    const res = await send(id, 'website');
+    expect(res.status).toBe(502);
+    expect(res.body.error).toMatch(/below the 349/);
+    expect(h.committed).toHaveLength(0);
+    expect(legOf(id, 'website')?.status).toBe('failed');
     store.deleteIssue(id);
   });
 });
