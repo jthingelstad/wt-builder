@@ -1004,4 +1004,51 @@ describe('write-backs to one item run one at a time, and the newest words are wh
     expect(item.source_snapshot?.commentary).toBe('v2');
     await fetch(`${base}/api/issues/${id}`, { method: 'DELETE' });
   });
+
+  // After three writes that each found newer words on landing, the queue
+  // marks the item failed — but the route answered with the last raw
+  // outcome, `synced`, and the inspector cleared its error while the card
+  // said failed (Batch 2 review round 1, follow-up 2).
+  it('an item that kept changing answers failed, as it was saved', async () => {
+    const created = await fetch(`${base}/api/issues`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ number: 990020, publication_date: '2026-12-26' }),
+    });
+    const id = (await created.json()).issue.issue.id as string;
+    const doc = store.getIssue(id)!.doc;
+    doc.items['link-overlap'] = {
+      type: 'pinboard_link', authorship: 'syndicated', source: 'Pinboard',
+      channels: { website: true, email: true, audio: true },
+      source_id: `pinboard:${LINK}`, source_url: LINK, published_at: '2026-12-22T14:00:00Z',
+      title: 'Overlap', commentary: 'v0', tags: ['notable'], section: 'Notable',
+      source_snapshot: { title: 'Overlap', commentary: 'v0', tags: ['notable'] },
+      source_flags: { toread: 'yes', shared: 'no' }, sync_state: 'synced',
+    };
+    doc.nodes.find((n) => n.id === 'notable')!.items.push('link-overlap');
+    store.saveIssue(doc);
+
+    const edit = fetch(`${base}/api/issues/${id}/items/link-overlap`, {
+      method: 'PATCH', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ commentary: 'v1' }),
+    });
+    // While each write is out, newer words reach the document by another
+    // path (another tab's save), so every write lands already stale.
+    for (let attempt = 1; attempt <= 3; attempt++) {
+      await until(() => adds.length === attempt);
+      const d = store.getIssue(id)!.doc;
+      d.items['link-overlap']!.commentary = `typed-${attempt}`;
+      store.saveIssue(d);
+      adds[attempt - 1]!.release();
+    }
+    const res = await edit;
+    expect(res.status).toBe(200);
+    const body = await res.json();
+    const item = store.getIssue(id)!.doc.items['link-overlap']!;
+    expect(item.sync_state).toBe('failed');
+    expect(body.result.sync_state).toBe('failed');
+    expect(body.result.error).toBe(item.sync_error);
+    expect(body.issue.items['link-overlap'].sync_state).toBe('failed');
+    expect(adds).toHaveLength(3);
+    await fetch(`${base}/api/issues/${id}`, { method: 'DELETE' });
+  });
 });

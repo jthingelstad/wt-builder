@@ -196,6 +196,7 @@ async function writeItemToSource(
  */
 const writeQueues = new Map<string, { tail: Promise<unknown>; waiting: number }>();
 
+/** `result` is the item's sync state as saved once the write's outcome was applied. */
 type WriteOutcome = { response: ReturnType<typeof saved>; result: { sync_state: Item['sync_state']; error?: string } };
 
 /**
@@ -238,7 +239,16 @@ async function writeLatest(id: string, itemId: string, queue: { waiting: number 
       next.items[itemId]!.sync_error = 'it kept changing while it was written — your edit is kept; Retry';
       return next;
     });
-    if (!again) return { response, result };
+    if (again) continue;
+    // Answer with the state that was saved, not the source's raw reply: a
+    // write that landed stale is `syncing` or `failed` on the item, and a
+    // client told `synced` clears an error the card still shows (Batch 2
+    // review round 1, follow-up 2).
+    const applied = response.issue.items[itemId];
+    return {
+      response,
+      result: applied ? { sync_state: applied.sync_state, error: applied.sync_error } : result,
+    };
   }
 }
 

@@ -96,7 +96,10 @@ finished, what is half-finished, and what has never run.
   item run one at a time, each reading the item when its turn comes, and an
   item is marked synced only if it still says what was written; otherwise
   it stays `syncing` and the newer words are written too (2026-09-28,
-  review 2026-09-27 §4).
+  review 2026-09-27 §4). After three writes that each land stale it is
+  `failed` ("it kept changing while it was written"). Every write-back
+  route's `result` is the item's sync state as saved, never the source's
+  raw reply, and the inspector leaves its error bar alone on `syncing`.
   **A conflict has a way out** (2026-09-28): the inspector's sync area
   offers **Keep mine** (`POST /api/issues/:id/items/:itemId/keep-mine` —
   re-read the source, make it the base, write the local copy over it) and

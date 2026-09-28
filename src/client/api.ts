@@ -13,6 +13,23 @@ export function shouldWriteBack(item: Item, patch: Record<string, unknown>): boo
   return fields.some((field) => field in patch);
 }
 
+/**
+ * What the inspector's error bar should say after a write-back: `null`
+ * clears it, `undefined` leaves it as it is, a string replaces it. The
+ * state is the item's as saved. `syncing` means a newer write is queued
+ * behind this one, and that write's answer is the one that counts.
+ */
+export function writeBackMessage(
+  source: string | undefined,
+  result: { sync_state?: string; error?: string } | undefined,
+): string | null | undefined {
+  const state = result?.sync_state;
+  if (!state || state === 'syncing') return undefined;
+  if (state === 'synced' || state === 'needs_commentary') return null;
+  const said = result.error ?? state;
+  return /your edit is kept/i.test(said) ? `${source}: ${said}` : `${source}: ${said}. Your edit is kept.`;
+}
+
 export type ReadinessKind = 'required' | 'commentary' | 'sync' | 'thingy';
 
 export type ReadinessState = 'done' | 'partial' | 'todo';

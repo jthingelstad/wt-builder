@@ -16,7 +16,7 @@ import { speakable, isSilent } from '../src/shared/render/speech.ts';
 import { candidateToItem } from '../src/server/integrations/pinboard.ts';
 import { sourceRows } from '../src/shared/render/source.ts';
 import { markdownToSafeHtml } from '../src/shared/markdown.ts';
-import { shouldWriteBack } from '../src/client/api.ts';
+import { shouldWriteBack, writeBackMessage } from '../src/client/api.ts';
 
 /** A skeleton issue whose items are deliberately half-written. */
 function issue(items: Record<string, Partial<Item>>, nodes: IssueDoc['nodes']): IssueDoc {
@@ -318,6 +318,20 @@ describe('write-back stays inside its contract', () => {
     };
     expect(shouldWriteBack(microblog, { body: 'Revised post' })).toBe(true);
     expect(shouldWriteBack(microblog, { commentary: 'Issue-only note' })).toBe(false);
+  });
+
+  // The write-back answers with the item's state as saved (Batch 2 review
+  // round 1, follow-up 2); the inspector says what that state means.
+  it("the inspector's error bar follows the saved sync state", () => {
+    expect(writeBackMessage('Pinboard', { sync_state: 'synced' })).toBeNull();
+    // Queued behind a newer write: that write's answer is the one that counts.
+    expect(writeBackMessage('Pinboard', { sync_state: 'syncing' })).toBeUndefined();
+    expect(writeBackMessage('Pinboard', { sync_state: 'failed', error: 'rate limited' }))
+      .toBe('Pinboard: rate limited. Your edit is kept.');
+    // Said once, not twice.
+    expect(writeBackMessage('Pinboard', {
+      sync_state: 'failed', error: 'it kept changing while it was written — your edit is kept; Retry',
+    })).toBe('Pinboard: it kept changing while it was written — your edit is kept; Retry');
   });
 });
 

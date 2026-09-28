@@ -2,7 +2,7 @@ import { useEffect, useRef, useState } from 'preact/hooks';
 
 import type { IssueDoc, Item } from '../../shared/types.ts';
 import { CHANNELS } from '../../shared/types.ts';
-import { api, shouldWriteBack, type IssueResponse } from '../api.ts';
+import { api, shouldWriteBack, writeBackMessage, type IssueResponse } from '../api.ts';
 
 interface Props {
   doc: IssueDoc;
@@ -66,13 +66,17 @@ export function Inspector({ doc, itemId, run, onClose, onError, onBackToReview }
   const node = doc.nodes.find((n) => n.items.includes(itemId));
   const imported = item.source === 'Pinboard' || item.source === 'Micro.blog';
 
+  const report = (result: Parameters<typeof writeBackMessage>[1]) => {
+    const message = writeBackMessage(item.source, result);
+    if (message !== undefined) onError(message);
+  };
+
   const writeBack = async () => {
     setWriting(true);
     try {
       const res = await api.writeBack(id, itemId);
       await run(async () => res);
-      if (res.result.sync_state === 'synced') onError(null);
-      else onError(`${item.source}: ${res.result.error ?? res.result.sync_state}. Your edit is kept.`);
+      report(res.result);
     } catch (err) {
       onError((err as Error).message);
     } finally {
@@ -85,9 +89,8 @@ export function Inspector({ doc, itemId, run, onClose, onError, onBackToReview }
     try {
       const res = await api.resolveConflict(id, itemId, keep);
       await run(async () => res);
-      const state = res.result?.sync_state ?? res.issue.items[itemId]?.sync_state;
-      if (state === 'synced' || state === 'needs_commentary') onError(null);
-      else onError(`${item.source}: ${res.result?.error ?? res.issue.items[itemId]?.sync_error ?? state}. Your edit is kept.`);
+      const saved = res.issue.items[itemId];
+      report(res.result ?? (saved && { sync_state: saved.sync_state, error: saved.sync_error }));
     } catch (err) {
       onError((err as Error).message);
     } finally {
@@ -102,8 +105,7 @@ export function Inspector({ doc, itemId, run, onClose, onError, onBackToReview }
       const updated = await api.updateItem(id, itemId, patch);
       await run(async () => updated);
       if (shouldWriteBack(item, patch) && updated.result) {
-        if (updated.result.sync_state === 'synced') onError(null);
-        else onError(`${item.source}: ${updated.result.error ?? updated.result.sync_state}. Your edit is kept.`);
+        report(updated.result);
       }
     } catch (err) {
       onError((err as Error).message);
