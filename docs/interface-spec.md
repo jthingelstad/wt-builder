@@ -24,7 +24,9 @@ Each card is white on `#eeedea`, radius 12px, and changes border with state
   means, and one action button.
 - **Blocker strip** when a dependency is unmet: `#fdf9ee`, `circle-alert`, amber
   text. Website carries it — the handoff publishes an audio reference, so the
-  podcast should run first. Stated, not enforced.
+  podcast runs first. Enforced: the server refuses a website send until an
+  audio reference is recorded (the podcast's last good send), and `?force=1`
+  is offered only when there is none.
 - **Steps**, one row each, hairline-ruled: an 18px state glyph (`check` green /
   `loader-circle` amber spinning / `circle` `#d6d4d0`), the label, and **the
   evidence that step produced** in 11px mono underneath (`4f2a91c`,
@@ -854,8 +856,10 @@ from scheduling or sending), `files.thingelstad.com` (the audio file's only home
 
 **Run order is Podcast → Website → Buttondown**, because the website handoff
 publishes an audio reference that needs a file to resolve to. The dependency is
-**stated, not enforced**: the Website card carries a blocker strip and nothing
-prevents sending out of order.
+**enforced**: the Website card carries a blocker strip, and the server refuses a
+website send until an audio reference is recorded — the podcast's last good
+send, not its status (2026-09-28, review 2026-09-27 §2.1). `?force=1` is the
+deliberate escape for an issue with no audio.
 
 **The archive is not a publishing destination.** Issue text is committed to the
 archive repo *after* publication so Thingy can cite it. It is its own leg with its
