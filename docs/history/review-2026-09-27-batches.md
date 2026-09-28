@@ -204,7 +204,9 @@ Batch 2: nothing Jamie wrote, and nothing already published, can be silently rep
 Add tests/pinboard-writeback.test.ts. Stub fetch and assert the exact posts/add parameters for a private, unread bookmark: shared=no and toread=yes survive, fresh flags win over stale ones, and the conflict, gone and failure paths behave. This is the private-bookmark failure that has happened once, and nothing tests it today. Update docs/status.md for any route added.
 ```
 
-## Batch 3 — What readers receive (§1.3, §2.2, §3)
+## ~~Batch 3 — What readers receive (§1.3, §2.2, §3)~~
+
+Landed 2026-09-28 on review-fixes: 5691d6d..e430f89. Skipped: none. fixtures/expected changes only in ce0e7ac (new fixture content). Needs Jamie: should the site transcript panel decode entities (then < could stay &lt; instead of ‹)? Exempt deliberate Liquid in email-only Markdown blocks? Spoken Quote attribution and line-per-paragraph? Strip [ ] and {{ }} from spoken titles?
 
 ```text
 Read docs/history/review-2026-09-27.md §1.3, §2.2 and §3 first. It is a verified review taken at 06b237f. Line numbers have drifted, so find code by symbol. Before fixing anything, confirm the finding still holds.
