@@ -225,10 +225,15 @@ export function Editor({ doc, readiness, busy, error, run, onIndex, onSend, onEr
     sweep();
   }, [id]); // once per issue open — not on every doc replacement
 
-  // Escape closes the right rail before it does anything else.
+  // Escape closes the right rail before it does anything else. A field in it
+  // is blurred first, so its commit runs: closing took the field out from
+  // under the caret, and Safari fires no blur for that, so the edit was lost
+  // (review 2026-09-27, §1.4).
   useEffect(() => {
     const onKey = (e: KeyboardEvent) => {
-      if (e.key === 'Escape' && selected && !(e.target as HTMLElement).isContentEditable) {
+      const target = e.target as HTMLElement;
+      if (e.key === 'Escape' && selected && !target.isContentEditable) {
+        if (target.matches?.('input, textarea')) target.blur();
         setSelected(null);
       }
     };

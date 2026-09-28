@@ -117,3 +117,17 @@ test('a re-scan landing while an inspector field is being typed in leaves the ty
   for (let i = 0; i < 50 && !item('link-functions').commentary; i++) await page.waitForTimeout(100);
   expect(item('link-functions').commentary).toBe('Typed while it scanned.');
 });
+
+// Escape closes the rail, and Safari fires no blur on a field taken out from
+// under the caret: the edit went with the panel.
+test('Escape in an inspector field saves it, then closes the panel', async ({ page }) => {
+  await open(page);
+  const panel = await inspect(page, 'link-functions');
+  const title = panel.locator('#item-link-functions-title');
+  await title.click();
+  await title.fill('Functions, not brains');
+  await page.keyboard.press('Escape');
+  await expect(panel).toHaveCount(0);
+  for (let i = 0; i < 50 && item('link-functions').title !== 'Functions, not brains'; i++) await page.waitForTimeout(100);
+  expect(item('link-functions').title).toBe('Functions, not brains');
+});
