@@ -53,6 +53,11 @@ function optional(name: string): string | undefined {
   return v && v.trim() ? v.trim() : undefined;
 }
 
+/** A comma-separated list from the environment, trimmed, empties dropped. */
+function list(name: string): string[] {
+  return (optional(name) ?? '').split(',').map((v) => v.trim()).filter(Boolean);
+}
+
 export interface Credentials {
   pinboardToken?: string;
   microblogToken?: string;
@@ -83,6 +88,12 @@ export const config = {
    */
   host: optional('WT_BUILDER_HOST') ?? '127.0.0.1',
   dbPath: optional('WT_BUILDER_DB') ?? LIVE_DB_PATH,
+  /**
+   * Origins allowed to write, beyond the tailnet, the Vite dev client, and
+   * loopback on the listening port (edge.ts). For a proxy or a name the
+   * built-in list does not know; the refusal in the log names what to add.
+   */
+  allowedOrigins: list('WT_BUILDER_ALLOWED_ORIGINS'),
   /**
    * The built client the service serves. The live service serves dist/;
    * the browser suite builds into tmp/e2e/dist and points here, so
@@ -147,6 +158,7 @@ export function describeConfig(): Record<string, string> {
     host: config.host,
     ...(OFFLINE ? { mode: 'OFFLINE (tests) — no credentials, nothing leaves this machine' } : {}),
     db: config.dbPath,
+    ...(config.allowedOrigins.length ? { allowedOrigins: `+ ${config.allowedOrigins.join(', ')}` } : {}),
     pinboard: credentials.pinboardToken ? 'configured' : 'MISSING',
     microblog: credentials.microblogToken ? 'configured' : 'MISSING',
     buttondown: credentials.buttondownKey ? 'configured' : 'MISSING',

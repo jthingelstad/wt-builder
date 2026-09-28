@@ -21,6 +21,8 @@ import { join } from 'node:path';
 // read and no credential is present.
 const work = mkdtempSync(join(tmpdir(), 'wt-routes-'));
 process.env.WT_BUILDER_DB = join(work, 'routes.db');
+// The knob that extends the edge's allow-list without a code change.
+process.env.WT_BUILDER_ALLOWED_ORIGINS = 'https://extra.example:8443, https://another.example';
 
 const { server, logStrayErrors } = await import('../src/server/index.ts');
 
@@ -403,5 +405,79 @@ describe('a stray error is logged, not fatal', () => {
     } finally {
       logged.mockRestore();
     }
+  });
+});
+
+describe('the edge refuses what a browser sends on behalf of another site', () => {
+  let id = '';
+  beforeAll(async () => {
+    const created = await fetch(`${base}/api/issues`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ number: 990006, publication_date: '2026-10-10', title: 'Before' }),
+    });
+    id = (await created.json()).issue.issue.id;
+  });
+  afterAll(async () => {
+    await fetch(`${base}/api/issues/${id}`, { method: 'DELETE' });
+  });
+
+  const settings = (headers: Record<string, string>, title: string) =>
+    fetch(`${base}/api/issues/${id}/settings`, {
+      method: 'POST',
+      // text/plain: a CORS-simple request, which a page on any site can send
+      // without a preflight. The server parses it as JSON regardless.
+      headers: { 'Content-Type': 'text/plain', ...headers },
+      body: JSON.stringify({ title }),
+    });
+  const title = async () => (await (await fetch(`${base}/api/issues/${id}`)).json()).issue.issue.title;
+
+  it('a POST from another origin is a 403, is logged by its origin, and saves nothing', async () => {
+    const warned = vi.spyOn(console, 'warn').mockImplementation(() => {});
+    try {
+      const res = await settings({ Origin: 'https://evil.example' }, 'Pwned');
+      expect(res.status).toBe(403);
+      expect((await res.json()).error).toContain('https://evil.example');
+      expect(warned.mock.calls.map((c) => String(c[0])).join('\n')).toContain('https://evil.example');
+    } finally {
+      warned.mockRestore();
+    }
+    expect(await title()).toBe('Before');
+    const { events } = await (await fetch(`${base}/api/issues/${id}/events`)).json();
+    expect(events.some((e: any) => e.kind === 'settings')).toBe(false);
+  });
+
+  it('a POST the browser marks cross-site or same-site is a 403', async () => {
+    for (const site of ['cross-site', 'same-site']) {
+      const res = await settings({ 'Sec-Fetch-Site': site }, 'Pwned');
+      expect(res.status, site).toBe(403);
+    }
+    expect(await title()).toBe('Before');
+  });
+
+  it('a same-origin POST still works', async () => {
+    const res = await settings({ Origin: base, 'Sec-Fetch-Site': 'same-origin' }, 'Same origin');
+    expect(res.status).toBe(200);
+    expect(await title()).toBe('Same origin');
+  });
+
+  it('the tailnet, the Vite dev client, and the configured extras are allowed origins', async () => {
+    for (const origin of [
+      'https://otto.tail09aaf9.ts.net:10001',
+      'http://localhost:5317',
+      'http://127.0.0.1:5317',
+      `http://localhost:${new URL(base).port}`,
+      'https://extra.example:8443',
+      'https://another.example',
+    ]) {
+      const res = await settings({ Origin: origin, 'Sec-Fetch-Site': 'same-origin' }, origin);
+      expect(res.status, origin).toBe(200);
+    }
+  });
+
+  it('a request with neither header passes (scripts, curl), and a read is never refused', async () => {
+    expect((await settings({}, 'No headers')).status).toBe(200);
+    const read = await fetch(`${base}/api/issues/${id}`, { headers: { Origin: 'https://evil.example', 'Sec-Fetch-Site': 'cross-site' } });
+    expect(read.status).toBe(200);
   });
 });

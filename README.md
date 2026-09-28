@@ -65,6 +65,15 @@ Reachable at **https://otto.tail09aaf9.ts.net:10001/** — tailnet only.
 > inside the app, and it holds write credentials for Pinboard, Micro.blog,
 > Buttondown, GitHub, and S3. `tailscale funnel status` must never list it.
 
+The tailnet vouches for the person, not for the page in their browser, so the
+service refuses a write that another site sends on Jamie's behalf: any
+request but a GET or HEAD whose `Sec-Fetch-Site` is not `same-origin` (or
+`none`), or whose `Origin` is not the tailnet URL above, the Vite dev client,
+or loopback on the port it listens on, is a 403. Scripts and curl send
+neither header and pass. Every refusal is logged with the value it refused;
+`WT_BUILDER_ALLOWED_ORIGINS` in `.env` (comma-separated) extends the list
+without a code change. See `src/server/edge.ts`.
+
 Managing the service:
 
 ```sh

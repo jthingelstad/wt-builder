@@ -22,6 +22,7 @@ import type { ArchiveReference, Channel, Destination, IssueDoc, Item, SendState,
 import { render } from '../shared/render/index.ts';
 import { renderEmail } from '../shared/render/email.ts';
 import { config, describeConfig } from './config.ts';
+import * as edge from './edge.ts';
 import * as store from './db.ts';
 import * as issues from './issue.ts';
 import * as buttondown from './integrations/buttondown.ts';
@@ -1254,6 +1255,25 @@ async function serveStatic(url: URL, res: ServerResponse): Promise<boolean> {
 
 // ── server ────────────────────────────────────────────────────────────────
 
+/** The port this server is listening on: config.port as the service, 0→any in tests. */
+function listeningPort(): number {
+  const addr = server.address();
+  return addr && typeof addr === 'object' ? addr.port : config.port;
+}
+
+/**
+ * The edge, beside guardBed and before routing (edge.ts): a write from
+ * another site is refused. Every refusal is logged with the value refused,
+ * so a proxy the lists do not know shows up in the service log.
+ */
+function guardEdge(req: IncomingMessage, method: string, pathname: string): void {
+  const refusal = edge.crossSiteRefusal(method, req.headers, edge.allowedOrigins(listeningPort(), config.allowedOrigins));
+  if (refusal) {
+    console.warn(`[edge] 403 ${method} ${pathname}: ${refusal}`);
+    throw new HttpError(403, refusal);
+  }
+}
+
 const server = createServer(async (req, res) => {
   const method = req.method ?? 'GET';
   // Parsed inside the try, against a fixed base: the Host header is not a URL
@@ -1267,6 +1287,7 @@ const server = createServer(async (req, res) => {
     } catch {
       throw new HttpError(400, 'the request target is not a URL');
     }
+    guardEdge(req, method, url.pathname);
     guardBed(method, url.pathname);
     for (const [pattern, verb, handler] of routes) {
       const match = pattern.exec(url.pathname);

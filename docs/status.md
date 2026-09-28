@@ -257,8 +257,15 @@ finished, what is half-finished, and what has never run.
   request whose target is not a URL is a 400 (the URL is parsed inside the
   handler's `try`, against a fixed base, never from the Host header), and an
   error nothing awaited is logged by the service and does not exit it
-  (`logStrayErrors` in `src/server/index.ts`). Tested over a raw socket in
-  tests/routes.test.ts.
+  (`logStrayErrors` in `src/server/index.ts`). A write that another site
+  sends through Jamie's browser is a 403 before routing (`guardEdge`,
+  `src/server/edge.ts`): any method but GET and HEAD with a `Sec-Fetch-Site`
+  other than `same-origin`/`none`, or an `Origin` that is not the tailnet
+  URL, the Vite dev client, or loopback on the listening port. Scripts and
+  curl send neither and pass. Every refusal is logged with the value it
+  refused, and `WT_BUILDER_ALLOWED_ORIGINS` extends the list. Tested over
+  HTTP in tests/routes.test.ts; not yet run against the tailnet, so the
+  first live session after the deploy watches the log for `[edge]`.
 
 ## Not built
 
