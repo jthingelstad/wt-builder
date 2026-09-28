@@ -82,7 +82,11 @@ finished, what is half-finished, and what has never run.
   "Listen to it", and verification read it (`lastSent`,
   `src/shared/sends.ts`). A failed podcast re-render no longer erases the
   episode's audio, and a Buttondown send cut off mid-flight is retried as
-  an update of the same draft. A failed card's strip says `Last good:`
+  an update of the same draft. Buttondown's draft id is read once
+  (`emailOf`), falling back to the id a failed state from before
+  `last_sent` carried, by the retry, the website page and index, the
+  archive, and verify alike — none writes an empty `buttondown_id`.
+  A failed card's strip says `Last good:`
   with when and a link to the draft, mp3, or commit. Review 2026-09-27,
   §2.1.
 - **Buttondown is asked before it is changed** (2026-09-28) — the leg

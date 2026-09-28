@@ -681,3 +681,35 @@ describe('a claim that cannot be recorded is not held', () => {
     store.deleteIssue(id);
   });
 });
+
+describe('a Buttondown failure recorded before last_sent still names its draft', () => {
+  // A failed state from before last_sent carried the draft id on itself;
+  // the Buttondown retry read it there, and the page and archive must too.
+  const legacy = (id: string) => {
+    const doc = store.getIssue(id)!.doc;
+    doc.sends = { ...(doc.sends ?? {}), buttondown: { status: 'failed', at: '2026-09-20T15:00:00Z', error: 'Buttondown failed: 503', external_id: 'em-legacy' } };
+    store.saveIssue(doc);
+  };
+  const committedField = (path: RegExp) => h.committed.at(-1)!.find((f) => path.test(f.path))!.content;
+
+  it('the website page and index carry its id, not an empty one', async () => {
+    const id = issue(990491);
+    store.recordSend(id, 'podcast', { status: 'sent', at: new Date().toISOString(), audio: { audio_url: 'https://files.thingelstad.com/a.mp3' } });
+    legacy(id);
+    expect((await send(id, 'website')).status).toBe(200);
+    expect(committedField(/archive\/990491\.md$/)).toContain('buttondown_id: "em-legacy"');
+    const entry = JSON.parse(committedField(/emails\.json$/)).find((e: { number: number }) => e.number === 990491);
+    expect(entry.id).toBe('em-legacy');
+    store.deleteIssue(id);
+  });
+
+  it('the archive carries its id, not an empty one', async () => {
+    const id = issue(990492);
+    legacy(id);
+    expect((await send(id, 'archive')).status).toBe(200);
+    const files = h.committed.at(-1)!.map((f) => f.content).join('\n');
+    expect(files).toContain('em-legacy');
+    expect(files).not.toMatch(/buttondown_id: ""/);
+    store.deleteIssue(id);
+  });
+});

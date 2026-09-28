@@ -20,7 +20,7 @@ import { fileURLToPath } from 'node:url';
 
 import type { ArchiveReference, Channel, Destination, IssueDoc, Item, SendState, Verification } from '../shared/types.ts';
 import { render } from '../shared/render/index.ts';
-import { lastSent, recordedAudioUrl } from '../shared/sends.ts';
+import { emailOf, lastSent, recordedAudioUrl } from '../shared/sends.ts';
 import { renderEmail } from '../shared/render/email.ts';
 import { config, describeConfig } from './config.ts';
 import * as edge from './edge.ts';
@@ -1208,10 +1208,9 @@ const routes: [RegExp, string, (ctx: Ctx, params: string[]) => Promise<unknown>]
     guardInFlight(before, 'buttondown');
     // The draft this leg made last, read through any failed or cut-off
     // attempt since: a retry updates it and never creates a second draft
-    // (review 2026-09-27 §2.1). A failed state from before last_sent carried
-    // the id on itself.
+    // (review 2026-09-27 §2.1).
     const previous = before.sends?.buttondown;
-    const draftId = lastSent(previous)?.external_id ?? previous?.external_id;
+    const draftId = emailOf(previous).id;
     const release = claimLeg(id!, destination, { external_id: draftId });
     // Set back exactly as it was when Buttondown's answer refuses the send.
     // Only this leg's record is written, and the claim keeps every other
@@ -1342,11 +1341,12 @@ async function currentSiteEmails(): Promise<IssueEntry[]> {
 
 /**
  * The email's id and archive URL as the page and the archive record them:
- * from Buttondown's last good send, so a failing update does not drop them.
+ * from Buttondown's last good send, so a failing update does not drop them,
+ * and read as the Buttondown retry reads them (`emailOf`).
  */
 function emailRecord(doc: IssueDoc): { buttondownId?: string; absoluteUrl?: string } {
-  const email = lastSent(doc.sends?.buttondown);
-  return { buttondownId: email?.external_id, absoluteUrl: email?.url };
+  const email = emailOf(doc.sends?.buttondown);
+  return { buttondownId: email.id, absoluteUrl: email.url };
 }
 
 /**

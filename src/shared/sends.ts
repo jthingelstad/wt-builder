@@ -18,6 +18,18 @@ export function lastSent(state: SendState | undefined): SentRecord | undefined {
 }
 
 /**
+ * The email Buttondown holds for this issue: the id and archive URL of the
+ * last good send. A failed state from before `last_sent` existed carried the
+ * draft id on itself and nothing else, so the id falls back to it — the one
+ * reader for the Buttondown retry, the website page, the archive, and verify,
+ * so none of them writes an empty id where another finds the draft.
+ */
+export function emailOf(state: SendState | undefined): { id?: string; url?: string } {
+  const sent = lastSent(state);
+  return { id: sent?.external_id ?? state?.external_id, url: sent?.url };
+}
+
+/**
  * The episode the website page would embed, when there is one: the audio
  * the podcast leg last delivered. What the website leg waits for — not the
  * podcast's status, which a failed re-render turns to `failed` while the

@@ -23,7 +23,7 @@ import { fileURLToPath } from 'node:url';
 import type { Destination, IssueDoc, VerifyCheck } from '../shared/types.ts';
 import { audioScript, ISSUE_URL_BASE } from '../shared/render/audio.ts';
 import { renderEmail } from '../shared/render/email.ts';
-import { lastSent } from '../shared/sends.ts';
+import { emailOf, lastSent } from '../shared/sends.ts';
 import { plausibleDuration } from './backfill.ts';
 import { archiveInputs, emailSubject } from './publish.ts';
 import { config } from './config.ts';
@@ -268,7 +268,7 @@ export async function verifyWebsite(doc: IssueDoc, opts: { wait?: boolean } = {}
 const DELIVERY_SETTLE_MS = 6 * 60 * MINUTE;
 
 export async function verifyButtondown(doc: IssueDoc): Promise<VerifyOutcome> {
-  const id = lastSent(doc.sends?.buttondown)?.external_id;
+  const id = emailOf(doc.sends?.buttondown).id;
   if (!id) return { checks: [fail('Status', 'No Buttondown email is recorded for this issue.')] };
   const email = await buttondown.getEmail(id);
   const checks: VerifyCheck[] = [];
@@ -327,8 +327,8 @@ export async function verifyArchive(doc: IssueDoc): Promise<VerifyOutcome> {
   let recheckMs: number | undefined;
 
   // 1. The corpus holds exactly what this issue renders to.
-  const email = lastSent(doc.sends?.buttondown);
-  const files = archiveInputs(doc, { buttondownId: email?.external_id, absoluteUrl: email?.url });
+  const email = emailOf(doc.sends?.buttondown);
+  const files = archiveInputs(doc, { buttondownId: email.id, absoluteUrl: email.url });
   const d = await githubRepo.diff(files, { repo: config.archiveRepo, branch: config.archiveBranch });
   checks.push(d.changed.length
     ? warn('In the corpus', `${d.changed.length} of ${files.length} files in ${config.archiveRepo} differ from the issue as it renders now — "Re-commit" brings them level.`, d.changed)
