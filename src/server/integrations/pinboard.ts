@@ -253,8 +253,9 @@ export async function writeBack(item: Item): Promise<WriteBackResult> {
 
   // Compare-and-set: the bookmark as it stands must still match the snapshot
   // the sweep took, or an edit made on Pinboard since then would be replaced
-  // and lost with no conflict ever surfacing. A fetch failure falls through —
-  // the write itself will surface a real outage on its own terms.
+  // and lost with no conflict ever surfacing. A read that fails writes
+  // nothing: writing blind would replace whatever the bookmark says now, with
+  // the last scan's flags (review 2026-09-27, §4). The edit waits for Retry.
   let current: Record<string, string> | undefined;
   try {
     const remote = await fetchBookmark(item.source_url);
@@ -268,7 +269,12 @@ export async function writeBack(item: Item): Promise<WriteBackResult> {
         error: 'Pinboard changed since the last scan — nothing was written; Keep mine or Take theirs in the inspector',
       };
     }
-  } catch { /* checked best-effort; the write reports its own failures */ }
+  } catch (err) {
+    return {
+      sync_state: 'failed',
+      error: `could not read the bookmark first — your edit is kept (${(err as Error).message})`,
+    };
+  }
 
   try {
     // `replace=yes` rewrites the whole bookmark, so every field we do not send

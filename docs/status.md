@@ -89,6 +89,9 @@ finished, what is half-finished, and what has never run.
   or post, write-back fetches the record and refuses with `conflict` when it
   no longer matches the sweep's snapshot (or `gone` when deleted), so an
   edit made at the source between scans can never be silently overwritten.
+  A read that fails writes nothing: the item is `failed` ("could not read
+  the bookmark first — your edit is kept") until Retry (2026-09-28, review
+  2026-09-27 §4; it used to write blind).
   A successful write moves the snapshot to what was written. Writes to one
   item run one at a time, each reading the item when its turn comes, and an
   item is marked synced only if it still says what was written; otherwise

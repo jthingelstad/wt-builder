@@ -1,6 +1,6 @@
 /** Image rehosting and Micro.blog source handling. Nothing here touches a network. */
 
-import { describe, expect, it } from 'vitest';
+import { describe, expect, it, vi } from 'vitest';
 
 import type { Item } from '../src/shared/types.ts';
 import { allChannels } from '../src/shared/types.ts';
@@ -207,5 +207,35 @@ describe('a Buttondown placeholder slug is not a URL worth recording', async () 
     expect(usableArchiveUrl('https://buttondown.com/weekly-thing/archive/wt350-builders-puzzlers-and-agents/'))
       .toBe('https://buttondown.com/weekly-thing/archive/wt350-builders-puzzlers-and-agents/');
     expect(usableArchiveUrl(undefined)).toBeUndefined();
+  });
+});
+
+// If the compare-and-set read failed, the update went out blind, over
+// whatever the post says now (review 2026-09-27, §4).
+describe('a Micro.blog update whose read fails writes nothing', () => {
+  it('failed, the edit kept, and no Micropub update', async () => {
+    const { config, credentials } = await import('../src/server/config.ts');
+    const { updatePost } = await import('../src/server/integrations/microblog.ts');
+    credentials.microblogToken = 'test-token';
+    config.microblogWriteBack = true;
+    const posts: string[] = [];
+    vi.stubGlobal('fetch', async (_input: string | URL, init?: RequestInit) => {
+      if (init?.method === 'POST') { posts.push(String(init.body)); return new Response('{}', { status: 202 }); }
+      return new Response('down', { status: 503 });
+    });
+    try {
+      const result = await updatePost(item({
+        source_url: 'https://www.thingelstad.com/p.html', body: 'Edited here.',
+        source_snapshot: { title: '', body: 'As scanned.' }, sync_state: 'syncing',
+      }));
+      expect(result.sync_state).toBe('failed');
+      expect(result.error).toContain('could not read the post first');
+      expect(result.error).toContain('your edit is kept');
+      expect(posts).toHaveLength(0);
+    } finally {
+      vi.unstubAllGlobals();
+      credentials.microblogToken = undefined;
+      config.microblogWriteBack = false;
+    }
   });
 });

@@ -182,8 +182,8 @@ export async function updatePost(item: Item): Promise<UpdateResult> {
   }
 
   // Compare-and-set, on the same terms as Pinboard: a post edited on the
-  // blog since the last scan must not be replaced unseen. Fetch failures
-  // fall through; the write reports its own outages.
+  // blog since the last scan must not be replaced unseen, and a read that
+  // fails writes nothing (review 2026-09-27, §4).
   try {
     const remote = await fetchPost(item.source_url);
     if (remote === null) {
@@ -195,7 +195,12 @@ export async function updatePost(item: Item): Promise<UpdateResult> {
         error: 'Micro.blog changed since the last scan — nothing was written; Keep mine or Take theirs in the inspector',
       };
     }
-  } catch { /* checked best-effort */ }
+  } catch (err) {
+    return {
+      sync_state: 'failed',
+      error: `could not read the post first — your edit is kept (${(err as Error).message})`,
+    };
+  }
 
   const replace: Record<string, unknown[]> = { content: [String(item.body ?? '')] };
   if (item.title) replace.name = [item.title];
