@@ -10,7 +10,7 @@
  */
 
 import type { IssueDoc, Item } from '../shared/types.ts';
-import { escapeExternal, renderWebsite } from '../shared/render/website.ts';
+import { renderWebsite } from '../shared/render/website.ts';
 import { planEdition, bodyLines } from '../shared/render/plan.ts';
 import { inertTemplate } from '../shared/render/email.ts';
 import { CDN_HOST } from './integrations/images.ts';
@@ -135,8 +135,10 @@ function linkFor(item: Item, section: string): IssueLink | null {
   const domain = hostOf(url);
   if (!domain) return null;
   const text = item.title ?? url;
-  // The link as it renders on the page, escaped the same way (website.ts).
-  return { text, url, domain, heading_context: `[${escapeExternal(text)}](${url})`, section };
+  // Raw, as the page called itself: heading_context feeds emails.json,
+  // links.json, the site's issue-links feed and the Librarian, none of which
+  // renders Markdown. Escaping belongs to the page body (website.ts).
+  return { text, url, domain, heading_context: `[${text}](${url})`, section };
 }
 
 export interface ExtractedLinks {

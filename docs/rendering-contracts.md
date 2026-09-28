@@ -39,8 +39,10 @@ without the reader being told.
 A link's title, a photo's alt text, and its place come from the source, not
 from Jamie, and print as the words they are: the Markdown link and emphasis
 characters are escaped and `<` `>` become entities (`escapeExternal` in
-`src/shared/render/website.ts`), in the page, the email, and the front
-matter's `heading_context`. Jamie's commentary and bodies are Markdown he
+`src/shared/render/website.ts`), in the page and the email. The front
+matter's `heading_context` keeps the title raw: it feeds `emails.json`,
+`links.json`, the site's issue-links feed and the Librarian, none of which
+renders Markdown, so an escape there would print. Jamie's commentary and bodies are Markdown he
 wrote and are never escaped. "Styling the `<textarea>` element" once turned
 the rest of the issue into a text box (review 2026-09-27 §3).
 

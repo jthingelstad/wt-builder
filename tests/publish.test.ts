@@ -80,6 +80,19 @@ describe('link extraction', () => {
     expect(first.heading_context).toBe(`[${first.text}](${first.url})`);
   });
 
+  // heading_context feeds emails.json, links.json, the site's issue-links
+  // feed (which XML-escapes and prints it literally) and the Librarian's link
+  // context. None of them renders Markdown, so the title stays as the page
+  // called itself; escaping belongs to the page body (review 2026-09-27 §3).
+  it('keeps the title in heading context raw, as the page called itself', () => {
+    const d = doc();
+    const title = 'Styling the <textarea> element: snake_case, *stars* & [draft]';
+    (d.items['link-flipcash'] as { title?: string }).title = title;
+    const first = extractLinks(d).notable_links[0]!;
+    expect(first.text).toBe(title);
+    expect(first.heading_context).toBe(`[${title}](${first.url})`);
+  });
+
   it("excludes Jamie's own domain — an issue citing itself is not outbound", () => {
     const e = extractLinks(doc());
     expect(e.domains).not.toContain('www.thingelstad.com');
