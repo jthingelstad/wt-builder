@@ -143,6 +143,21 @@ describe('promotion', () => {
     expect(back.items['journal-concert']!.presentation).toBe('journal');
     expect(back.nodes.find((n) => n.id === node.id)).toBeUndefined();
   });
+
+  // A double-click, or a second tab, promoted again: the second pass found
+  // the promoted node holding the item, emptied it, and made a second node
+  // with the same id, and the post was in no edition (review 2026-09-27, §4).
+  it('promoting twice is promoting once', () => {
+    const once = promote(fixture(), 'journal-concert');
+    const twice = promote(once, 'journal-concert');
+    expect(twice).toEqual(once);
+    const holding = twice.nodes.filter((n) => n.items.includes('journal-concert'));
+    expect(holding.map((n) => n.id)).toEqual(['promoted-journal-concert']);
+    expect(twice.nodes.filter((n) => n.id === 'promoted-journal-concert')).toHaveLength(1);
+    expect(twice.issue.output_order!.filter((id) => id === 'promoted-journal-concert')).toHaveLength(1);
+    const website = planEdition(twice, 'website');
+    expect(website.some((p) => p.items.some((i) => i.id === 'journal-concert'))).toBe(true);
+  });
 });
 
 describe('moving a link between Notable and Briefly', () => {

@@ -610,7 +610,9 @@ const routes: [RegExp, string, (ctx: Ctx, params: string[]) => Promise<unknown>]
   [/^\/api\/issues\/([^/]+)\/items\/([^/]+)\/promote$/, 'POST', async (_ctx, [id, itemId]) => {
     const doc = requireIssue(id!);
     const item = doc.items[itemId!];
-    if (item) store.logEvent(id!, 'structure', `Promoted — ${issues.itemName(item)}`, itemId);
+    // Promoting an already-promoted post is a no-op (issues.promote); only a real one is logged.
+    const already = doc.nodes.some((n) => n.kind === 'promoted_item' && n.items.includes(itemId!));
+    if (item && !already) store.logEvent(id!, 'structure', `Promoted — ${issues.itemName(item)}`, itemId);
     return saved(issues.promote(doc, itemId!));
   }],
 

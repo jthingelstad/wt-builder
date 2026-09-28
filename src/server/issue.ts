@@ -738,6 +738,10 @@ export function promote(doc: IssueDoc, itemId: string): IssueDoc {
 
   const source = next.nodes.find((n) => n.items.includes(itemId));
   if (!source) return next;
+  // Already promoted: a double-click or a second tab asks again. Promoting
+  // it out of its own node emptied that node and made a second with the
+  // same id, and the post vanished from every edition (review 2026-09-27, §4).
+  if (source.kind === 'promoted_item' || next.nodes.some((n) => n.id === `promoted-${itemId}`)) return next;
   source.items = source.items.filter((i) => i !== itemId);
 
   item.presentation = 'promoted';
