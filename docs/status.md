@@ -252,6 +252,14 @@ finished, what is half-finished, and what has never run.
   `POST|DELETE /api/issues/:id/share`. Page rendering and routes are tested;
   the S3 upload has not yet run for real.
 
+- **The edge** (2026-09-28, review §1.6) — the service has no auth and
+  trusts the tailnet, so the door itself refuses what it cannot trust. A
+  request whose target is not a URL is a 400 (the URL is parsed inside the
+  handler's `try`, against a fixed base, never from the Host header), and an
+  error nothing awaited is logged by the service and does not exit it
+  (`logStrayErrors` in `src/server/index.ts`). Tested over a raw socket in
+  tests/routes.test.ts.
+
 ## Not built
 
 - ~~The 352px editorial review panel~~ — built 2026-08-28: shares the rail

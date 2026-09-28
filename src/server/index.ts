@@ -1255,10 +1255,18 @@ async function serveStatic(url: URL, res: ServerResponse): Promise<boolean> {
 // ── server ────────────────────────────────────────────────────────────────
 
 const server = createServer(async (req, res) => {
-  const url = new URL(req.url ?? '/', `http://${req.headers.host ?? 'localhost'}`);
   const method = req.method ?? 'GET';
+  // Parsed inside the try, against a fixed base: the Host header is not a URL
+  // and the request target need not be one either. `Host: a b` once threw
+  // here, outside the try, and killed the process (review 2026-09-27, §1.6).
+  let url: URL | undefined;
 
   try {
+    try {
+      url = new URL(req.url ?? '/', 'http://localhost');
+    } catch {
+      throw new HttpError(400, 'the request target is not a URL');
+    }
     guardBed(method, url.pathname);
     for (const [pattern, verb, handler] of routes) {
       const match = pattern.exec(url.pathname);
@@ -1284,7 +1292,7 @@ const server = createServer(async (req, res) => {
   } catch (err) {
     const status = err instanceof HttpError ? err.status : 500;
     const message = (err as Error).message ?? 'unknown error';
-    if (status >= 500) console.error(`[${method} ${url.pathname}] ${message}`);
+    if (status >= 500) console.error(`[${method} ${url?.pathname ?? req.url}] ${message}`);
     json(res, status, { error: message });
   }
 });
@@ -1293,10 +1301,30 @@ const isMain = process.argv[1] && import.meta.url.endsWith(process.argv[1].repla
 if (isMain !== false) {
   store.openDb();
   server.listen(config.port, config.host, () => {
+    // Only once it is serving: a failure to boot (the offline guard refusing
+    // the live database, a port in use) must still exit.
+    logStrayErrors();
     console.log(`WT Builder on http://${config.host}:${config.port}`);
     for (const [k, v] of Object.entries(describeConfig())) console.log(`  ${k}: ${v}`);
     void finishStrandedWrites();
     resumeRechecks();
+  });
+}
+
+/**
+ * An error nothing awaited is logged, and the service keeps running. Exiting
+ * mid-send strands the leg in `sending` for ten minutes and takes the editor
+ * away from Jamie until launchd restarts it; a logged error costs neither
+ * (review 2026-09-27, §1.6). Installed only once this file is running as
+ * the service and listening, never when a test imports it, and never before
+ * boot has finished: a service that cannot start must still exit.
+ */
+export function logStrayErrors(proc: Pick<NodeJS.Process, 'on'> = process): void {
+  proc.on('uncaughtException', (err: Error) => {
+    console.error(`[process] uncaught exception, still running: ${err?.stack ?? err}`);
+  });
+  proc.on('unhandledRejection', (reason: unknown) => {
+    console.error(`[process] unhandled rejection, still running: ${(reason as Error)?.stack ?? reason}`);
   });
 }
 

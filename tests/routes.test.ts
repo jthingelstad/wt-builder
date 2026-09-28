@@ -9,8 +9,10 @@
  * load it; the severed slice answered 409 before ever looking.
  */
 
-import { afterAll, beforeAll, describe, expect, it } from 'vitest';
+import { afterAll, beforeAll, describe, expect, it, vi } from 'vitest';
+import { EventEmitter } from 'node:events';
 import { mkdtempSync, rmSync } from 'node:fs';
+import { connect } from 'node:net';
 import { tmpdir } from 'node:os';
 import { join } from 'node:path';
 
@@ -20,7 +22,7 @@ import { join } from 'node:path';
 const work = mkdtempSync(join(tmpdir(), 'wt-routes-'));
 process.env.WT_BUILDER_DB = join(work, 'routes.db');
 
-const { server } = await import('../src/server/index.ts');
+const { server, logStrayErrors } = await import('../src/server/index.ts');
 
 let base = '';
 
@@ -37,6 +39,25 @@ afterAll(async () => {
   );
   rmSync(work, { recursive: true, force: true });
 });
+
+/**
+ * Bytes on a socket, for what fetch will not send: a malformed Host or
+ * request target. Resolves with whatever came back, or '' if the connection
+ * died without an answer (which is what a crashed request looks like).
+ */
+function raw(request: string): Promise<string> {
+  const port = Number(new URL(base).port);
+  return new Promise((resolve) => {
+    const socket = connect(port, '127.0.0.1', () => socket.end(request));
+    let out = '';
+    socket.setTimeout(3000, () => socket.destroy());
+    socket.on('data', (d) => (out += d.toString('utf8')));
+    socket.on('close', () => resolve(out));
+    socket.on('error', () => resolve(out));
+  });
+}
+
+const statusOf = (response: string) => Number(/^HTTP\/1\.1 (\d{3})/.exec(response)?.[1] ?? 0);
 
 async function post(path: string): Promise<{ status: number; body: any }> {
   const res = await fetch(`${base}${path}`, { method: 'POST', body: '{}' });
@@ -345,5 +366,42 @@ describe('issues round-trip through the service', () => {
 
     const deleted = await fetch(`${base}/api/issues/${issue.issue.id}`, { method: 'DELETE' });
     expect(deleted.status).toBe(200);
+  });
+});
+
+describe('a request that cannot be parsed is refused, and the service keeps answering', () => {
+  it('Host: a b gets an answer, not a crash', async () => {
+    // Before, the URL was built from the Host header outside the try: this
+    // request killed the process (an unhandled rejection) with no answer.
+    const answer = await raw('GET /api/health HTTP/1.1\r\nHost: a b\r\nConnection: close\r\n\r\n');
+    expect(statusOf(answer)).toBeGreaterThan(0);
+    expect((await fetch(`${base}/api/health`)).status).toBe(200);
+  });
+
+  it('a request target that is not a URL is a 400', async () => {
+    const port = new URL(base).port;
+    const answer = await raw(`GET http://[/ HTTP/1.1\r\nHost: 127.0.0.1:${port}\r\nConnection: close\r\n\r\n`);
+    expect(statusOf(answer)).toBe(400);
+    expect((await fetch(`${base}/api/health`)).status).toBe(200);
+  });
+});
+
+describe('a stray error is logged, not fatal', () => {
+  it('the service logs an uncaught exception and an unhandled rejection instead of exiting', () => {
+    // A stand-in for process: the real one belongs to vitest.
+    const proc = new EventEmitter();
+    const logged = vi.spyOn(console, 'error').mockImplementation(() => {});
+    try {
+      logStrayErrors(proc as unknown as NodeJS.Process);
+      expect(proc.listenerCount('uncaughtException')).toBe(1);
+      expect(proc.listenerCount('unhandledRejection')).toBe(1);
+      proc.emit('uncaughtException', new Error('mid-send'));
+      proc.emit('unhandledRejection', new Error('nobody awaited'));
+      const lines = logged.mock.calls.map((c) => String(c[0]));
+      expect(lines.some((l) => l.includes('uncaught exception') && l.includes('mid-send'))).toBe(true);
+      expect(lines.some((l) => l.includes('unhandled rejection') && l.includes('nobody awaited'))).toBe(true);
+    } finally {
+      logged.mockRestore();
+    }
   });
 });
