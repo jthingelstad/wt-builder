@@ -152,3 +152,26 @@ test('clicking into a block and out again saves nothing', async ({ page }) => {
   expect(patches).toEqual([]);
   expect(item('link-flipcash').commentary).toBe(stored);
 });
+
+// The inspector saved outside run(), so its failure was not one a later
+// success could clear: the bar kept saying the save failed after it had
+// gone through (Batch 5 review, N6).
+test('an inspector save that goes through clears the error its own failure put up', async ({ page }) => {
+  await open(page);
+  await page.route(`**/api/issues/${ISSUE}/items/currently-building`, (route) =>
+    route.request().method() === 'PATCH' ? route.abort('connectionreset') : route.fallback());
+  const panel = await inspect(page, 'currently-building');
+  const label = panel.locator('#item-currently-building-label');
+  await label.fill('Making');
+  await panel.locator('h3').first().click();
+  await expect(page.locator('.error-bar')).toBeVisible();
+  expect(item('currently-building').label).toBe('Building');
+
+  await page.unrouteAll({ behavior: 'ignoreErrors' });
+  await label.click();
+  await label.fill('Making it');
+  await panel.locator('h3').first().click();
+  for (let i = 0; i < 50 && item('currently-building').label !== 'Making it'; i++) await page.waitForTimeout(100);
+  expect(item('currently-building').label).toBe('Making it');
+  await expect(page.locator('.error-bar')).toHaveCount(0);
+});

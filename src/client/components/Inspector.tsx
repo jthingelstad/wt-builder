@@ -100,27 +100,30 @@ export function Inspector({ doc, itemId, run, onClose, onError, onBackToReview }
     }
   };
 
-  const commit = async (patch: Record<string, unknown>) => {
-    try {
-      // The server writes a mirrored field back to its source as part of the
-      // edit and reports the outcome; the inspector only surfaces it.
-      const updated = await api.updateItem(id, itemId, patch);
-      await run(async () => updated);
-      if (shouldWriteBack(item, patch) && updated.result) {
-        report(updated.result);
-      }
-    } catch (err) {
-      onError((err as Error).message);
+  /**
+   * The save runs inside run(), as the canvas's do, so its failure is one a
+   * later success clears; called outside it, the bar kept saying a save had
+   * failed after it had gone through (Batch 5 review, N6). Resolves to
+   * whether it was saved.
+   */
+  const commit = async (patch: Record<string, unknown>): Promise<boolean> => {
+    const answer: { updated?: Awaited<ReturnType<typeof api.updateItem>> } = {};
+    const ok = await run(async () => (answer.updated = await api.updateItem(id, itemId, patch)));
+    // The server writes a mirrored field back to its source as part of the
+    // edit and reports the outcome; the inspector only surfaces it.
+    if (ok && shouldWriteBack(item, patch) && answer.updated?.result) {
+      report(answer.updated.result);
     }
+    return ok;
   };
 
-  const commitField = (field: keyof Item, value: unknown) => {
-    if (item[field] !== value) void commit({ [field]: value });
-  };
+  /** The save's promise, or undefined when there is nothing to save. */
+  const commitField = (field: keyof Item, value: unknown) =>
+    item[field] !== value ? commit({ [field]: value }) : undefined;
 
   const commitMedia = (field: string, value: string) => {
-    if ((item.media?.[field as keyof NonNullable<Item['media']>] ?? '') === value) return;
-    void commit({ media: { ...(item.media ?? {}), [field]: value } });
+    if ((item.media?.[field as keyof NonNullable<Item['media']>] ?? '') === value) return undefined;
+    return commit({ media: { ...(item.media ?? {}), [field]: value } });
   };
 
   return (
