@@ -1262,14 +1262,17 @@ async function sendWebsite(id: string, force = false) {
   const currentEmails = await currentSiteEmails();
   // The page must not hotlink: every image the issue references is on the CDN
   // before the page is rendered (content-addressed; a second run is free).
+  // The page renders from the copy the rehost map was saved to, as the
+  // Buttondown leg does: rendering the copy read before the rehost shipped
+  // every new Journal photo as the original (review 2026-09-27 §2.2).
   const { mapping } = await rehostIssueImages(requireIssue(id));
-  savedFresh(id, (d) => applyRehost(d, mapping));
+  const fresh = savedFresh(id, (d) => applyRehost(d, mapping)).issue;
   store.recordSend(id, 'website', { status: 'sending', at: new Date().toISOString() });
   try {
-    const files = siteInputs(doc, websiteOptions(doc, currentEmails));
+    const files = siteInputs(fresh, websiteOptions(fresh, currentEmails));
     const result = await githubRepo.putTree(
       files,
-      `Add issue ${doc.issue.number} from WT Builder`,
+      `Add issue ${fresh.issue.number} from WT Builder`,
       { branch: config.websiteBranch },
     );
     const state: SendState = {
