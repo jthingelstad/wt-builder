@@ -627,7 +627,10 @@ Opened by the rail `i` button. `padding: 14px 18px 40px`.
    note: "Pinboard tags suggested notable. Placement here wins for the issue."
 4. **Sync card** — tinted by state, title + 6px dot + **Retry** when failed, and an
    explanation ("Last writer wins. What you typed here is the current value on the
-   bookmark.").
+   bookmark."). In `conflict` — edited both here and at the source since the last
+   scan — Retry would be refused again, so the card offers **Keep mine** (write this
+   copy over the source as it is now) and **Take theirs** (adopt the source's words)
+   instead (2026-09-28).
 5. **Promotion card** (journal posts) — current state, why, and
    **Promote to its own section** / **Return to Journal**.
 6. **Thingy / generation card** — one card serves Membership, Echoes, Haiku, and link

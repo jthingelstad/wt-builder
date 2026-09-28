@@ -220,6 +220,12 @@ export const api = {
       IssueResponse & { result: { sync_state: string; error?: string } }
     >,
 
+  /** Out of `conflict`: write this copy over the source, or adopt the source's. */
+  resolveConflict: (id: string, itemId: string, keep: 'mine' | 'theirs') =>
+    post(`/issues/${id}/items/${itemId}/${keep === 'mine' ? 'keep-mine' : 'take-theirs'}`) as Promise<
+      IssueResponse & { result?: { sync_state: string; error?: string } }
+    >,
+
   send: (id: string, destination: string) =>
     call<SendResult>(`/issues/${id}/send/${destination}`, { method: 'POST', body: '{}' }),
 

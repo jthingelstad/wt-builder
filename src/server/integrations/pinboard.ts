@@ -265,7 +265,7 @@ export async function writeBack(item: Item): Promise<WriteBackResult> {
     if (sourceMoved(item, remote)) {
       return {
         sync_state: 'conflict',
-        error: 'Pinboard changed since the last scan — re-scan to reconcile before writing',
+        error: 'Pinboard changed since the last scan — nothing was written; Keep mine or Take theirs in the inspector',
       };
     }
   } catch { /* checked best-effort; the write reports its own failures */ }

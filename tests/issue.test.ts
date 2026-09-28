@@ -299,6 +299,31 @@ describe('readiness', () => {
     expect(r.units.some((u) => u.kind === 'sync' && u.title.includes('Pinboard write failed'))).toBe(true);
   });
 
+  // A conflict refuses every write until Jamie chooses, and a failed post
+  // write ships the words Micro.blog does not have; the strip counted
+  // neither (review 2026-09-27, §1.2 follow-on).
+  it('flags a conflict from either source, and a failed Micro.blog write', () => {
+    const doc = fixture();
+    doc.items['link-flipcash']!.sync_state = 'conflict';
+    doc.items['link-flipcash']!.sync_error = 'edited both here and at Pinboard (commentary)';
+    doc.items['journal-long']!.sync_state = 'conflict';
+    doc.items['journal-boat']!.sync_state = 'failed';
+    const sync = readiness(doc).units.filter((u) => u.kind === 'sync');
+    const on = (anchor: string) => sync.find((u) => u.anchor === anchor);
+    expect(on('link-flipcash')?.title).toContain('edited here and at Pinboard');
+    expect(on('link-flipcash')?.context).toContain('commentary');
+    expect(on('journal-long')?.title).toContain('edited here and at Micro.blog');
+    expect(on('journal-boat')?.title).toContain('Micro.blog write failed');
+    expect(sync.every((u) => !u.done)).toBe(true);
+  });
+
+  it('owes nothing for a held-out item in conflict', () => {
+    const doc = fixture();
+    doc.items['link-flipcash']!.sync_state = 'conflict';
+    doc.items['link-flipcash']!.channels = { website: false, email: false, audio: false };
+    expect(readiness(doc).units.some((u) => u.kind === 'sync' && u.anchor === 'link-flipcash')).toBe(false);
+  });
+
   it('treats a missing standard section as settled, not outstanding', () => {
     const doc = removeSection(fixture(), 'photo');
     const r = readiness(doc);

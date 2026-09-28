@@ -188,6 +188,24 @@ async function writeItemToSource(
 }
 
 /**
+ * An item's source record as it stands now; null when the source says it
+ * was deleted. A read that fails is a 502 and nothing has changed — it
+ * never reads as a deletion.
+ */
+async function readSource(item: Item): Promise<import('./reconcile.ts').RemoteFields | null> {
+  if (!item.source_url || (item.source !== 'Pinboard' && item.source !== 'Micro.blog')) {
+    throw new HttpError(400, `${item.source} has no source record to read`);
+  }
+  try {
+    return item.source === 'Pinboard'
+      ? await pinboard.fetchBookmark(item.source_url)
+      : await microblog.fetchPost(item.source_url);
+  } catch (err) {
+    throw new HttpError(502, `could not read ${item.source}: ${(err as Error).message} — nothing changed`);
+  }
+}
+
+/**
  * The issue from about a year ago this week, for Echoes' seasonal lens.
  * Undefined when the archive holds nothing near that date — the draft then
  * runs on semantic retrieval alone.
@@ -690,6 +708,34 @@ const routes: [RegExp, string, (ctx: Ctx, params: string[]) => Promise<unknown>]
    */
   [/^\/api\/issues\/([^/]+)\/items\/([^/]+)\/writeback$/, 'POST', async (_ctx, [id, itemId]) => {
     const { patch, result } = await writeItemToSource(id!, requireIssue(id!), itemId!);
+    return { ...savedFresh(id!, (d) => issues.updateItem(d, itemId!, patch)), result };
+  }],
+
+  /**
+   * The way out of `conflict`: Keep mine writes the local copy over the
+   * source as it stands now; Take theirs adopts the source's fields. Both
+   * read the source first, and a read that fails changes nothing.
+   */
+  [/^\/api\/issues\/([^/]+)\/items\/([^/]+)\/(keep-mine|take-theirs)$/, 'POST', async (_ctx, [id, itemId, choice]) => {
+    const item = requireIssue(id!).items[itemId!];
+    if (!item) throw new HttpError(404, `no item ${itemId}`);
+    if (item.sync_state !== 'conflict') {
+      throw new HttpError(409, `${issues.itemName(item)} is not in conflict (${item.sync_state ?? 'no sync state'})`);
+    }
+    const remote = await readSource(item);
+    if (remote === null) {
+      store.logEvent(id!, 'sync', `Deleted at ${item.source} — ${issues.itemName(item)}`, itemId);
+      return savedFresh(id!, (d) => issues.updateItem(d, itemId!, {
+        sync_state: 'gone', sync_error: `deleted at ${item.source} — not recreating it`,
+      }));
+    }
+    if (choice === 'take-theirs') {
+      store.logEvent(id!, 'sync', `Took ${item.source}'s copy — ${issues.itemName(item)}`, itemId);
+      return savedFresh(id!, (d) => issues.takeTheirs(d, itemId!, remote));
+    }
+    store.logEvent(id!, 'sync', `Kept this copy over ${item.source}'s — ${issues.itemName(item)}`, itemId);
+    const rebased = savedFresh(id!, (d) => issues.keepMine(d, itemId!, remote));
+    const { patch, result } = await writeItemToSource(id!, rebased.issue, itemId!);
     return { ...savedFresh(id!, (d) => issues.updateItem(d, itemId!, patch)), result };
   }],
 

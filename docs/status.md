@@ -90,6 +90,15 @@ finished, what is half-finished, and what has never run.
   no longer matches the sweep's snapshot (or `gone` when deleted), so an
   edit made at the source between scans can never be silently overwritten.
   A successful write moves the snapshot to what was written.
+  **A conflict has a way out** (2026-09-28): the inspector's sync area
+  offers **Keep mine** (`POST /api/issues/:id/items/:itemId/keep-mine` —
+  re-read the source, make it the base, write the local copy over it) and
+  **Take theirs** (`POST …/take-theirs` — adopt the source's fields and
+  follow a section tag they carry), in place of a Retry the source would
+  refuse again. Both refuse an item not in `conflict` (409) and change
+  nothing when the source cannot be read (502). A failed or conflicted
+  item from Pinboard or Micro.blog is a `sync` unit on the checklist.
+  Review 2026-09-27, §1.2.
 - **emails.json is merged, never rebuilt** (2026-08-31) — the website leg
   reads the site's live emails.json first and preserves every entry verbatim
   (unknown fields included), replacing only the issue being sent. It refuses

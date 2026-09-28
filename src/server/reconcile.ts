@@ -101,7 +101,7 @@ export function reconcileItem(item: Item, remote: RemoteFields | null): Reconcil
 
   if (conflicts.length) {
     item.sync_state = 'conflict';
-    item.sync_error = `edited both here and at ${item.source} (${conflicts.join(', ')}); your copy is kept`;
+    item.sync_error = `edited both here and at ${item.source} (${conflicts.join(', ')}); your copy is kept until you choose`;
     return 'conflict';
   }
 
@@ -119,4 +119,41 @@ export function reconcileItem(item: Item, remote: RemoteFields | null): Reconcil
     delete item.sync_error;
   }
   return refreshed ? 'refreshed' : 'unchanged';
+}
+
+/** The source's values for the fields the mirror owns — what a snapshot holds. */
+function mirroredOf(item: Item, remote: RemoteFields): Record<string, unknown> {
+  const out: Record<string, unknown> = {};
+  for (const f of MIRRORED[item.source] ?? []) out[f] = f === 'tags' ? [...(remote.tags ?? [])] : (remote[f] ?? '');
+  return out;
+}
+
+/**
+ * The way out of `conflict`, Jamie's side: the source as it stands now
+ * becomes the merge base, so the compare-and-set lets the local copy be
+ * written over it. The caller writes it. Mutates the item.
+ */
+export function keepMine(item: Item, remote: RemoteFields): void {
+  item.source_snapshot = mirroredOf(item, remote);
+  if (item.source === 'Pinboard' && remote.flags) item.source_flags = { ...remote.flags };
+  item.sync_state = 'syncing';
+  delete item.sync_error;
+}
+
+/**
+ * The way out of `conflict`, the source's side: its fields replace the
+ * local copy and become the merge base. Mutates the item.
+ */
+export function takeTheirs(item: Item, remote: RemoteFields): void {
+  const theirs = mirroredOf(item, remote);
+  for (const [f, value] of Object.entries(theirs)) {
+    // An absent title stays absent: '' and undefined are the same words.
+    if (norm((item as unknown as Record<string, unknown>)[f]) !== norm(value)) {
+      (item as unknown as Record<string, unknown>)[f] = value;
+    }
+  }
+  item.source_snapshot = theirs;
+  if (item.source === 'Pinboard' && remote.flags) item.source_flags = { ...remote.flags };
+  item.sync_state = item.source === 'Pinboard' && !norm(item.commentary) ? 'needs_commentary' : 'synced';
+  delete item.sync_error;
 }

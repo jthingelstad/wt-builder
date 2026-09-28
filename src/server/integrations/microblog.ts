@@ -192,7 +192,7 @@ export async function updatePost(item: Item): Promise<UpdateResult> {
     if (sourceMoved(item, remote)) {
       return {
         sync_state: 'conflict',
-        error: 'Micro.blog changed since the last scan — re-scan to reconcile before writing',
+        error: 'Micro.blog changed since the last scan — nothing was written; Keep mine or Take theirs in the inspector',
       };
     }
   } catch { /* checked best-effort */ }

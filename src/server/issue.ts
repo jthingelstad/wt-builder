@@ -21,7 +21,7 @@ import { bodyLines, orderedNodes, outOfWindow, windowOf } from '../shared/render
 import { imagesWithoutAlt } from '../shared/body.ts';
 import * as pinboard from './integrations/pinboard.ts';
 import * as microblog from './integrations/microblog.ts';
-import { reconcileItem, type RemoteFields } from './reconcile.ts';
+import { keepMine as rebaseOnRemote, reconcileItem, takeTheirs as adoptRemote, type RemoteFields } from './reconcile.ts';
 
 /** Sections that print no heading — the content carries itself. */
 const HEADLESS: ReadonlySet<string> = new Set([
@@ -614,6 +614,36 @@ export function updateItem(doc: IssueDoc, itemId: string, patch: Partial<Item>):
     item.reviewed = true;
     item.status = 'reviewed';
   }
+  return next;
+}
+
+/**
+ * The two ways out of `conflict` (review 2026-09-27, §1.2 follow-on). A
+ * re-scan keeps a conflict and write-back refuses it, so before these the
+ * state had no exit. `remote` is the source record read just now.
+ *
+ * Keep mine: the source's current fields become the merge base and the item
+ * is queued to write, so the compare-and-set passes and the local copy goes
+ * over the source. The route writes it.
+ */
+export function keepMine(doc: IssueDoc, itemId: string, remote: RemoteFields): IssueDoc {
+  const next = structuredClone(doc);
+  const item = next.items[itemId];
+  if (item) rebaseOnRemote(item, remote);
+  return next;
+}
+
+/**
+ * Take theirs: the source's fields replace the local copy and become the
+ * merge base. A section tag that came with them is followed, as a re-scan
+ * would; nothing is written back.
+ */
+export function takeTheirs(doc: IssueDoc, itemId: string, remote: RemoteFields): IssueDoc {
+  const next = structuredClone(doc);
+  const item = next.items[itemId];
+  if (!item) return next;
+  adoptRemote(item, remote);
+  followBookmarkTags(next, new Set(Object.keys(next.items).filter((id) => id !== itemId)));
   return next;
 }
 
@@ -1252,10 +1282,6 @@ export function readiness(doc: IssueDoc): Readiness {
         add(briefly ? (String(item.commentary ?? '').trim() ? 'done' : 'todo') : byWords(item.commentary, DONE_WORDS.notable),
           chipName(item), id, 'commentary',
           briefly ? 'Briefly — a line of commentary is enough.' : `Notable — a paragraph of commentary (${DONE_WORDS.notable}+ words).`);
-        if (item.sync_state === 'failed') {
-          add(false, `${chipName(item)} — Pinboard write failed`, id, 'sync',
-            item.sync_error ?? 'Your edit is kept. Retry from the inspector.');
-        }
       } else if (item.type === 'journal_post') {
         // A post is finished when it was published; the chip is its place on
         // the map. A promoted post is its own section and gets one too. Its
@@ -1274,6 +1300,19 @@ export function readiness(doc: IssueDoc): Readiness {
       } else if (node.type === 'haiku') {
         const lines = bodyLines(item.body).length;
         add(lines >= 3 ? 'done' : lines > 0 ? 'partial' : 'todo', 'Haiku', id, 'required', 'Three lines.');
+      }
+
+      // An edit the source does not have: a failed write ships words the
+      // bookmark or post lacks, and a conflict refuses every write until
+      // Jamie chooses. Either source, either state (review 2026-09-27, §1.2).
+      if (item.source === 'Pinboard' || item.source === 'Micro.blog') {
+        if (item.sync_state === 'failed') {
+          add(false, `${chipName(item)} — ${item.source} write failed`, id, 'sync',
+            item.sync_error ?? 'Your edit is kept. Retry from the inspector.');
+        } else if (item.sync_state === 'conflict') {
+          add(false, `${chipName(item)} — edited here and at ${item.source}`, id, 'sync',
+            `${item.sync_error ? `${item.sync_error}. ` : ''}Keep mine or Take theirs, in the inspector.`);
+        }
       }
     }
   }

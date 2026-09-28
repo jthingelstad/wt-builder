@@ -6,9 +6,9 @@
 import { describe, expect, it } from 'vitest';
 
 import type { Item } from '../src/shared/types.ts';
-import { reconcileItem, sourceMoved, type RemoteFields } from '../src/server/reconcile.ts';
+import { keepMine, reconcileItem, sourceMoved, takeTheirs, type RemoteFields } from '../src/server/reconcile.ts';
 import { updateItem } from '../src/server/issue.ts';
-import { createIssue } from '../src/server/issue.ts';
+import { createIssue, takeTheirs as takeTheirsIn } from '../src/server/issue.ts';
 
 function pinboardItem(over: Partial<Item> = {}): Item {
   return {
@@ -178,5 +178,53 @@ describe('gone items cannot queue a write-back', () => {
     doc.items['link-1'] = pinboardItem({ sync_state: 'gone' });
     const next = updateItem(doc, 'link-1', { commentary: 'Edited after deletion.' });
     expect(next.items['link-1']!.sync_state).toBe('gone');
+  });
+});
+
+describe('the way out of conflict', () => {
+  const conflicted = () => pinboardItem({
+    commentary: 'Mine.', sync_state: 'conflict', sync_error: 'edited both here and at Pinboard (commentary)',
+  });
+
+  it('Keep mine: the source as it is now becomes the base, so the compare-and-set passes', () => {
+    const item = conflicted();
+    const now = remote({ commentary: 'Theirs.', flags: { toread: 'no', shared: 'no' } });
+    expect(sourceMoved(item, now)).toBe(true);
+    keepMine(item, now);
+    expect(sourceMoved(item, now)).toBe(false);
+    expect(item.commentary).toBe('Mine.');
+    expect(item.sync_state).toBe('syncing');
+    expect(item.sync_error).toBeUndefined();
+    expect(item.source_flags).toEqual({ toread: 'no', shared: 'no' });
+  });
+
+  it("Take theirs: the source's fields replace the copy and become the base", () => {
+    const item = conflicted();
+    takeTheirs(item, remote({ commentary: 'Theirs.', tags: ['tools', '_brief'] }));
+    expect(item.commentary).toBe('Theirs.');
+    expect(item.tags).toEqual(['tools', '_brief']);
+    expect(item.source_snapshot).toEqual({ title: 'A Title', commentary: 'Theirs.', tags: ['tools', '_brief'] });
+    expect(item.sync_state).toBe('synced');
+    expect(item.sync_error).toBeUndefined();
+  });
+
+  it('Take theirs leaves an untitled post untitled', () => {
+    const item: Item = {
+      type: 'journal_post', authorship: 'syndicated', source: 'Micro.blog',
+      channels: { website: true, email: true, audio: true }, source_url: 'https://www.thingelstad.com/p.html',
+      body: 'Mine.', sync_state: 'conflict', source_snapshot: { title: '', body: 'Base.' },
+    };
+    takeTheirs(item, { title: '', body: 'Theirs.' });
+    expect(item.body).toBe('Theirs.');
+    expect('title' in item).toBe(false);
+  });
+
+  it('Take theirs follows a section tag that came with it', () => {
+    const doc = createIssue({ number: 999, publication_date: '2026-09-05' });
+    doc.items['link-1'] = conflicted();
+    doc.nodes.find((n) => n.id === 'notable')!.items.push('link-1');
+    const next = takeTheirsIn(doc, 'link-1', remote({ commentary: 'Theirs.', tags: ['_brief'] }));
+    expect(next.nodes.find((n) => n.id === 'briefly')!.items).toContain('link-1');
+    expect(next.nodes.find((n) => n.id === 'notable')!.items).not.toContain('link-1');
   });
 });

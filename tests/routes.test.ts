@@ -9,7 +9,7 @@
  * load it; the severed slice answered 409 before ever looking.
  */
 
-import { afterAll, beforeAll, describe, expect, it, vi } from 'vitest';
+import { afterAll, afterEach, beforeAll, beforeEach, describe, expect, it, vi } from 'vitest';
 import { EventEmitter } from 'node:events';
 import { mkdtempSync, rmSync } from 'node:fs';
 import { connect } from 'node:net';
@@ -715,5 +715,137 @@ describe('deleting an issue', () => {
     const store = await import('../src/server/db.ts');
     const [last] = store.listRevisions(id);
     expect(last?.doc.issue.title).toBe('The last thing it said');
+  });
+});
+
+// `conflict` had no way out: a re-scan kept it, write-back refused it, and
+// the error sent Jamie to a re-scan (review 2026-09-27, §1.2 follow-on).
+describe('a conflict has a way out: Keep mine, or Take theirs', () => {
+  const LINK = 'https://example.com/contested';
+  let config: typeof import('../src/server/config.ts');
+  let store: typeof import('../src/server/db.ts');
+  let remote: { extended: string; status: number };
+  let added: URLSearchParams[];
+  const realFetch = globalThis.fetch;
+
+  beforeAll(async () => {
+    config = await import('../src/server/config.ts');
+    store = await import('../src/server/db.ts');
+  });
+
+  beforeEach(() => {
+    remote = { extended: 'Theirs, written at Pinboard.', status: 200 };
+    added = [];
+    config.credentials.pinboardToken = 'test-token';
+    config.config.pinboardWriteBack = true;
+    // Pinboard is stubbed; the test's own requests to the service go through.
+    vi.stubGlobal('fetch', async (input: string | URL | Request, init?: RequestInit) => {
+      const url = new URL(input instanceof Request ? input.url : String(input));
+      if (url.hostname !== 'api.pinboard.in') return realFetch(input, init);
+      if (remote.status !== 200) return new Response('down', { status: remote.status });
+      if (url.pathname.endsWith('/posts/get')) {
+        return Response.json({ posts: [{
+          href: LINK, description: 'Contested', extended: remote.extended, tags: 'notable',
+          time: '2026-12-01T14:00:00Z', toread: 'yes', shared: 'no',
+        }] });
+      }
+      if (url.pathname.endsWith('/posts/add')) {
+        added.push(url.searchParams);
+        return Response.json({ result_code: 'done' });
+      }
+      throw new Error(`unexpected Pinboard call ${url.pathname}`);
+    });
+  });
+
+  afterEach(() => {
+    vi.unstubAllGlobals();
+    config.credentials.pinboardToken = undefined;
+    config.config.pinboardWriteBack = false;
+  });
+
+  /** A draft with one Pinboard link edited both here and at Pinboard. */
+  const contested = async (number: number): Promise<string> => {
+    const created = await fetch(`${base}/api/issues`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ number, publication_date: '2026-12-05' }),
+    });
+    const id = (await created.json()).issue.issue.id as string;
+    const doc = store.getIssue(id)!.doc;
+    doc.items['link-contested'] = {
+      type: 'pinboard_link', authorship: 'syndicated', source: 'Pinboard',
+      channels: { website: true, email: true, audio: true },
+      source_id: `pinboard:${LINK}`, source_url: LINK, published_at: '2026-12-01T14:00:00Z',
+      title: 'Contested', commentary: 'Mine, written here.', tags: ['notable'], section: 'Notable',
+      source_snapshot: { title: 'Contested', commentary: 'The words both started from.', tags: ['notable'] },
+      source_flags: { toread: 'yes', shared: 'no' },
+      sync_state: 'conflict',
+      sync_error: 'edited both here and at Pinboard (commentary); your copy is kept until you choose',
+    };
+    doc.nodes.find((n) => n.id === 'notable')!.items.push('link-contested');
+    store.saveIssue(doc);
+    return id;
+  };
+  const choose = (id: string, choice: 'keep-mine' | 'take-theirs') =>
+    fetch(`${base}/api/issues/${id}/items/link-contested/${choice}`, { method: 'POST', body: '{}' });
+
+  it('Keep mine writes this copy over the source as it is now, and is synced', async () => {
+    const id = await contested(990014);
+    const res = await choose(id, 'keep-mine');
+    expect(res.status).toBe(200);
+    const body = await res.json();
+    expect(body.result.sync_state).toBe('synced');
+    expect(added).toHaveLength(1);
+    expect(added[0]!.get('extended')).toBe('Mine, written here.');
+    expect(added[0]!.get('shared')).toBe('no');
+    expect(added[0]!.get('toread')).toBe('yes');
+    const item = store.getIssue(id)!.doc.items['link-contested']!;
+    expect(item.commentary).toBe('Mine, written here.');
+    expect(item.sync_state).toBe('synced');
+    expect(item.source_snapshot?.commentary).toBe('Mine, written here.');
+    await fetch(`${base}/api/issues/${id}`, { method: 'DELETE' });
+  });
+
+  it("Take theirs adopts the source's words as the new base, and writes nothing", async () => {
+    const id = await contested(990015);
+    const res = await choose(id, 'take-theirs');
+    expect(res.status).toBe(200);
+    const item = (await res.json()).issue.items['link-contested'];
+    expect(item.commentary).toBe('Theirs, written at Pinboard.');
+    expect(item.source_snapshot.commentary).toBe('Theirs, written at Pinboard.');
+    expect(item.sync_state).toBe('synced');
+    expect(item.sync_error).toBeUndefined();
+    expect(added).toHaveLength(0);
+    await fetch(`${base}/api/issues/${id}`, { method: 'DELETE' });
+  });
+
+  it('a source that cannot be read changes nothing; an item not in conflict is refused', async () => {
+    const id = await contested(990016);
+    remote.status = 500;
+    const failed = await choose(id, 'take-theirs');
+    expect(failed.status).toBe(502);
+    expect((await failed.json()).error).toContain('nothing changed');
+    const item = store.getIssue(id)!.doc.items['link-contested']!;
+    expect(item.sync_state).toBe('conflict');
+    expect(item.commentary).toBe('Mine, written here.');
+
+    remote.status = 200;
+    expect((await choose(id, 'take-theirs')).status).toBe(200);
+    expect((await choose(id, 'keep-mine')).status).toBe(409);
+    await fetch(`${base}/api/issues/${id}`, { method: 'DELETE' });
+  });
+
+  it('the write-back refusal no longer sends Jamie to a re-scan', async () => {
+    const id = await contested(990017);
+    const doc = store.getIssue(id)!.doc;
+    doc.items['link-contested']!.sync_state = 'synced';
+    store.saveIssue(doc);
+    const res = await fetch(`${base}/api/issues/${id}/items/link-contested/writeback`, { method: 'POST', body: '{}' });
+    const { result } = await res.json();
+    expect(result.sync_state).toBe('conflict');
+    expect(result.error).not.toMatch(/re-scan/i);
+    expect(result.error).toContain('Keep mine or Take theirs');
+    expect(added).toHaveLength(0);
+    await fetch(`${base}/api/issues/${id}`, { method: 'DELETE' });
   });
 });

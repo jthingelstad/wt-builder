@@ -21,7 +21,7 @@ const SYNC_LABEL: Record<string, string> = {
   needs_commentary: 'No commentary yet',
   local: 'Edited here, not yet written back to {source}',
   gone: 'Deleted at {source} — your copy is kept',
-  conflict: 'Edited both here and at {source} — your copy is kept',
+  conflict: 'Edited both here and at {source} — keep yours, or take theirs',
 };
 
 function syncLine(state: string, source: string): string {
@@ -73,6 +73,21 @@ export function Inspector({ doc, itemId, run, onClose, onError, onBackToReview }
       await run(async () => res);
       if (res.result.sync_state === 'synced') onError(null);
       else onError(`${item.source}: ${res.result.error ?? res.result.sync_state}. Your edit is kept.`);
+    } catch (err) {
+      onError((err as Error).message);
+    } finally {
+      setWriting(false);
+    }
+  };
+
+  const resolve = async (keep: 'mine' | 'theirs') => {
+    setWriting(true);
+    try {
+      const res = await api.resolveConflict(id, itemId, keep);
+      await run(async () => res);
+      const state = res.result?.sync_state ?? res.issue.items[itemId]?.sync_state;
+      if (state === 'synced' || state === 'needs_commentary') onError(null);
+      else onError(`${item.source}: ${res.result?.error ?? res.issue.items[itemId]?.sync_error ?? state}. Your edit is kept.`);
     } catch (err) {
       onError((err as Error).message);
     } finally {
@@ -236,7 +251,19 @@ export function Inspector({ doc, itemId, run, onClose, onError, onBackToReview }
       )}
       {item.sync_error && <p class="field-note error-text">{item.sync_error}</p>}
 
-      {imported && (
+      {imported && item.sync_state === 'conflict' ? (
+        // A retry would be refused again: the source moved. Jamie chooses.
+        <div class="conflict-actions" style="margin-top:12px;display:flex;gap:8px;flex-wrap:wrap">
+          <button class="btn" onClick={() => void resolve('mine')} disabled={writing}
+            title={`Write this copy over ${item.source}'s`}>
+            {writing ? 'Writing…' : 'Keep mine'}
+          </button>
+          <button class="btn" onClick={() => void resolve('theirs')} disabled={writing}
+            title={`Replace this copy with ${item.source}'s`}>
+            Take theirs
+          </button>
+        </div>
+      ) : imported && (
         <button class="btn" style="margin-top:12px" onClick={writeBack} disabled={writing}>
           {writing ? 'Writing…' : `Retry write to ${item.source}`}
         </button>
