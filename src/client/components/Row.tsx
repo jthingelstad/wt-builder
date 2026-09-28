@@ -475,6 +475,8 @@ interface EditableProps {
   class?: string;
   multiline?: boolean;
   readOnly?: boolean;
+  /** Emptied, the run goes back to its saved text and commits nothing — a heading. */
+  required?: boolean;
   tag?: 'span' | 'div' | 'h1' | 'h2' | 'p';
 }
 
@@ -486,7 +488,7 @@ interface EditableProps {
  * value changed *elsewhere* and this node does not have focus.
  */
 export function Editable({
-  value, onCommit, ph, class: cls, multiline, readOnly, tag = 'span',
+  value, onCommit, ph, class: cls, multiline, readOnly, required, tag = 'span',
 }: EditableProps) {
   const ref = useRef<HTMLElement>(null);
 
@@ -514,6 +516,8 @@ export function Editable({
     onBlur: (e: FocusEvent) => {
       const el = e.currentTarget as HTMLElement;
       const text = readEditable(el, Boolean(multiline));
+      // An emptied heading published as "## " (Batch 5 review, B2).
+      if (required && !text.trim()) { el.textContent = value; return; }
       if (!unedited(text, value, Boolean(multiline))) onCommit(text);
     },
     onKeyDown: (e: KeyboardEvent) => {

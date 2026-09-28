@@ -265,6 +265,42 @@ describe('a link moves between Notable and Briefly over the wire', () => {
   });
 });
 
+describe('a section is renamed over the wire', () => {
+  // An empty heading published as "## " (Batch 5 review, B2).
+  it('an empty or blank label is a 400 and leaves the label; a real one is saved', async () => {
+    const created = await fetch(`${base}/api/issues`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ number: 990031, publication_date: '2026-09-12' }),
+    });
+    const id = (await created.json()).issue.issue.id;
+    const added = await fetch(`${base}/api/issues/${id}/nodes`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ type: 'ad_hoc', label: 'Section' }),
+    });
+    const node = (await added.json()).issue.nodes.find((n: any) => n.kind === 'ad_hoc');
+    const rename = (label: unknown) => fetch(`${base}/api/issues/${id}/nodes/${node.id}/rename`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ label }),
+    });
+
+    for (const label of ['', '   ', undefined]) {
+      const res = await rename(label);
+      expect(res.status).toBe(400);
+      expect((await res.json()).error).toContain('label');
+    }
+    const label = async () => (await (await fetch(`${base}/api/issues/${id}`)).json())
+      .issue.nodes.find((n: any) => n.id === node.id).label;
+    expect(await label()).toBe('Section');
+
+    expect((await rename('Reading list')).status).toBe(200);
+    expect(await label()).toBe('Reading list');
+    await fetch(`${base}/api/issues/${id}`, { method: 'DELETE' });
+  });
+});
+
 describe('the draft share routes are wired', () => {
   it('share and unshare both reach their handlers', async () => {
     // 404 means the handler ran far enough to look for the issue.

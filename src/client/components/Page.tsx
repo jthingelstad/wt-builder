@@ -304,8 +304,10 @@ export function Page({
                 published the old one (review 2026-09-27, §1.5). An ad hoc
                 heading is the node's label. A promoted post's heading is its
                 title, as the renderers print it (nodeHeading), and saving it
-                writes the title back to Micro.blog. */}
+                writes the title back to Micro.blog. Emptied, it goes back to
+                the saved text: an empty heading published as "## ". */}
             <Editable
+              required
               readOnly={readOnly || node.kind === 'section'}
               value={promotedId ? doc.items[promotedId]?.title ?? node.label : node.label}
               onCommit={(text) => promotedId

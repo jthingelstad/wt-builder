@@ -47,3 +47,28 @@ test("a promoted post's heading shows and saves the post's title", async ({ page
   await commit(page, () => title() === 'The Tech Council');
   expect(title()).toBe('The Tech Council');
 });
+
+// An emptied heading published as "## ". For a promoted post the empty title
+// was saved, and the Micro.blog write left the name out, so the post read
+// synced while Micro.blog kept the old title (Batch 5 review, B2). Emptied,
+// a heading goes back to what is saved, and nothing is sent.
+test('an emptied heading goes back to its saved text and saves nothing', async ({ page }) => {
+  store.saveIssue(addSection(store.getIssue(ISSUE)!.doc, {
+    type: 'ad_hoc', label: 'Section', id: 'reading', before: 'briefly',
+  }));
+  await open(page);
+  const sent: string[] = [];
+  page.on('request', (r) => { if (r.method() !== 'GET') sent.push(`${r.method()} ${r.url()}`); });
+
+  for (const anchor of ['reading', 'promoted-post']) {
+    const before = (await page.locator(heading(anchor)).textContent()) ?? '';
+    await retype(page, heading(anchor), '   ');
+    await page.evaluate(() => (document.activeElement as HTMLElement | null)?.blur());
+    await expect(page.locator(heading(anchor))).toHaveText(before);
+  }
+  await page.waitForTimeout(500);
+  expect(sent.filter((r) => /rename|journal-long/.test(r))).toEqual([]);
+  const doc = store.getIssue(ISSUE)!.doc;
+  expect(doc.nodes.find((n) => n.id === 'reading')?.label).toBe('Section');
+  expect(doc.items['journal-long']!.title).toBe('Minnesota Technology Council');
+});

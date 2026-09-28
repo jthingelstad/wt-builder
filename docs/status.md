@@ -405,8 +405,13 @@ finished, what is half-finished, and what has never run.
   looked saved and every edition published the old `## Section`. A promoted
   post's heading shows and saves the post's `title`, which is what the
   renderers print and what writes back to Micro.blog; its node label is not
-  used. Review 2026-09-27, §1.5. Exercised in the browser tests
-  (tests/e2e/headings.e2e.ts); not yet typed into against a live post.
+  used. An emptied heading goes back to its saved text and sends nothing,
+  and the rename route answers 400 for an empty or blank label: an empty
+  heading published as `## `, and an empty promoted title left Micro.blog
+  with the old name while the post read synced (Batch 5 review, B2).
+  Review 2026-09-27, §1.5. Exercised in the browser tests
+  (tests/e2e/headings.e2e.ts) and routes.test.ts; not yet typed into
+  against a live post.
 
 - **The edge** (2026-09-28, review §1.6) — the service has no auth and
   trusts the tailnet, so the door itself refuses what it cannot trust.
