@@ -47,6 +47,19 @@ export function thingyEmailFrame(inner: string[]): Block {
 const html = (markdown: string | undefined) => markdownToSafeHtml(postBlocks(markdown).join('\n\n'));
 
 /**
+ * Words from the issue, made inert to Buttondown's template engine. The body
+ * Buttondown receives is a template: "{{ … }}", "{% … %}" or "{# … #}" in a
+ * title, a comment, or a post was run as code (review 2026-09-27 §3). A
+ * zero-width space after the brace breaks the delimiter whichever runs
+ * first, the template engine or the Markdown, and the reader still sees the
+ * braces. The renderer's own tags — the membership branch, the button's
+ * prefilled email, the open pixel — are added around this, never through it.
+ */
+export function inertTemplate(text: string): string {
+  return text.replace(/\{(?=[{%#])/g, '{\u200b');
+}
+
+/**
  * Membership, wrapped in subscriber branching inside Thingy's frame, so the
  * attribution survives either path.
  */
@@ -73,13 +86,13 @@ export function membershipBlocks(item: Item, issueNumber: number): Block[] {
   const thanks = String(item.member_thanks ?? '').trim() || `${body} ${MEMBER_THANKS}`;
   const branch = [
     `{% if ${PREMIUM_CONDITION} %}`,
-    html(thanks),
+    html(inertTemplate(thanks)),
     '{% else %}',
-    html(item.body),
+    html(inertTemplate(String(item.body ?? ''))),
     membershipButton(issueNumber),
     '{% endif %}',
   ];
-  return item.authorship === 'Thingy' ? [thingyEmailFrame(branch)] : [byline(item), ...branch];
+  return item.authorship === 'Thingy' ? [thingyEmailFrame(branch)] : [inertTemplate(byline(item)), ...branch];
 }
 
 /**
@@ -89,24 +102,27 @@ export function membershipBlocks(item: Item, issueNumber: number): Block[] {
  */
 export function echoesBlocks(planned: PlannedNode, issueNumber: number): Block[] {
   const inner = planned.items
-    .map(({ item }) => (item.type === 'echo' ? echoBlock(item, issueNumber) : String(item.body ?? '')))
+    .map(({ item }) => inertTemplate(item.type === 'echo' ? echoBlock(item, issueNumber) : String(item.body ?? '')))
     .filter((md) => bodyLines(md).length > 0);
   const first = planned.items[0]?.item;
   if (!inner.length || !first) return [];
   return first.authorship === 'Thingy'
     ? [thingyEmailFrame(inner.map(html))]
-    : [byline(first), ...inner.flatMap((md) => postBlocks(md))];
+    : [inertTemplate(byline(first)), ...inner.flatMap((md) => postBlocks(md))];
 }
 
 function emailNodeBlocks(planned: PlannedNode, issueNumber: number): Block[] {
-  if (planned.node.type !== 'membership' && planned.node.type !== 'echoes') return nodeBlocks(planned, issueNumber);
+  // Every block here is the issue's own words and structure; none is Liquid.
+  if (planned.node.type !== 'membership' && planned.node.type !== 'echoes') {
+    return nodeBlocks(planned, issueNumber).map(inertTemplate);
+  }
 
   const body: Block[] = planned.node.type === 'echoes'
     ? echoesBlocks(planned, issueNumber)
     : planned.items.flatMap((entry) => membershipBlocks(entry.item, issueNumber));
   if (!body.some((b) => b.trim())) return [];
   const heading = nodeHeading(planned);
-  return heading ? [heading, ...body] : body;
+  return heading ? [inertTemplate(heading), ...body] : body;
 }
 
 /**

@@ -71,6 +71,13 @@ do — with the reader's email prefilled and `ref=WT<N>`; the premium branch is
 thanks with no button. WT349's second mid-issue button is not carried:
 Membership is one Thingy-framed section now.
 
+Buttondown runs the body as a template, so the renderer's own tags (the
+membership branch, the button's prefilled email, the pixel) are the only
+ones it receives. `{{`, `{%` and `{#` in anything from the issue — a title, a
+comment, a post, a Markdown block — carry a zero-width space after the brace
+(`inertTemplate` in `src/shared/render/email.ts`): the reader sees the
+braces, the engine sees no tag (review 2026-09-27 §3).
+
 ## Journal
 
 Ordinary Journal items are grouped beneath publication-date boundaries. The
