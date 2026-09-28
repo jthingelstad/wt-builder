@@ -1332,8 +1332,12 @@ export function readiness(doc: IssueDoc): Readiness {
           add(false, `${chipName(item)} — ${item.source} write failed`, id, 'sync',
             item.sync_error ?? 'Your edit is kept. Retry from the inspector.');
         } else if (item.sync_state === 'conflict') {
-          add(false, `${chipName(item)} — edited here and at ${item.source}`, id, 'sync',
-            `${item.sync_error ? `${item.sync_error}. ` : ''}Keep mine or Take theirs, in the inspector.`);
+          // A write-back's refusal already says what to do; a re-scan's does not.
+          const said = item.sync_error ?? '';
+          const context = /Keep mine or Take theirs/.test(said)
+            ? said
+            : `${said ? `${said}. ` : ''}Keep mine or Take theirs, in the inspector.`;
+          add(false, `${chipName(item)} — edited here and at ${item.source}`, id, 'sync', context);
         }
       }
     }

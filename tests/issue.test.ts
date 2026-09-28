@@ -332,6 +332,26 @@ describe('readiness', () => {
     expect(sync.every((u) => !u.done)).toBe(true);
   });
 
+  // Both conflict errors are the unit's context: the re-scan's, which does
+  // not say what to do, and the write-back's, which already does. The
+  // instruction was appended to both, so the second said it twice (Batch 2
+  // review round 1, follow-up 5).
+  it('a conflict says Keep mine or Take theirs exactly once', () => {
+    const doc = fixture();
+    const link = doc.items['link-flipcash']!;
+    link.sync_state = 'conflict';
+    link.sync_error = 'Pinboard changed since the last scan — nothing was written; Keep mine or Take theirs in the inspector';
+    const post = doc.items['journal-long']!;
+    post.sync_state = 'conflict';
+    post.sync_error = 'edited both here and at Micro.blog (body); your copy is kept until you choose';
+    const sync = readiness(doc).units.filter((u) => u.kind === 'sync');
+    for (const anchor of ['link-flipcash', 'journal-long']) {
+      const context = sync.find((u) => u.anchor === anchor)?.context ?? '';
+      expect(context.match(/Keep mine or Take theirs/g)).toHaveLength(1);
+    }
+    expect(sync.find((u) => u.anchor === 'journal-long')?.context).toContain('(body)');
+  });
+
   it('owes nothing for a held-out item in conflict', () => {
     const doc = fixture();
     doc.items['link-flipcash']!.sync_state = 'conflict';
