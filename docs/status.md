@@ -56,8 +56,9 @@ finished, what is half-finished, and what has never run.
   against the script, its chapters, and whisper listening to the episode
   (`backfill/assess.py --json`, numbers compared spelled out, a doubtful cue
   heard again on its own) with the pause before every section change; the
-  website's live page, its embedded audio, and the episode in podcast.xml,
-  waiting out the deploy; the Buttondown draft's status, subject, and body
+  website's live page, its embedded audio, the episode in podcast.xml, and a
+  warning naming any image the page loads from off the CDN (review
+  2026-09-27 §2.2), waiting out the deploy; the Buttondown draft's status, subject, and body
   against the email edition, and once sent, Buttondown's delivery counts (never
   opens or clicks); the archive's corpus files against the issue, and the
   Librarian returning the issue's own passages. A leg still landing (scheduled,

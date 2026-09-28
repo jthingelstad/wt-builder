@@ -28,6 +28,7 @@ import { archiveInputs, subjectFor } from './publish.ts';
 import { config } from './config.ts';
 import * as buttondown from './integrations/buttondown.ts';
 import * as githubRepo from './integrations/github.ts';
+import { CDN_HOST } from './integrations/images.ts';
 import * as librarian from './integrations/librarian.ts';
 
 const run = promisify(execFile);
@@ -162,6 +163,27 @@ export async function verifyPodcast(doc: IssueDoc): Promise<VerifyCheck[]> {
 const DEPLOY_WAIT_MS = 8 * 60_000;
 const DEPLOY_POLL_MS = 20_000;
 
+/**
+ * Every image the page loads from off the CDN and off the site itself. A
+ * first send once rendered the copy read before the rehost and shipped each
+ * new Journal photo as the Micro.blog original (review 2026-09-27 §2.2).
+ */
+export function hotlinks(html: string): string[] {
+  const own = new Set([CDN_HOST, new URL(ISSUE_URL_BASE).hostname]);
+  const out: string[] = [];
+  for (const m of html.matchAll(/<img\b[^>]*?\ssrc\s*=\s*(?:"([^"]*)"|'([^']*)')/gi)) {
+    const src = (m[1] ?? m[2] ?? '').replace(/&amp;/g, '&');
+    let host: string;
+    try {
+      host = new URL(src).hostname;
+    } catch {
+      continue; // relative: the site's own
+    }
+    if (!own.has(host) && !out.includes(src)) out.push(src);
+  }
+  return out;
+}
+
 const escaped = (s: string) => s.replace(/&/g, '&amp;').replace(/"/g, '&quot;').replace(/'/g, '&#39;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
 const carries = (html: string, s: string) => html.includes(s) || html.includes(escaped(s)) || html.includes(s.replace(/'/g, '&#x27;')) || html.includes(s.replace(/'/g, '’'));
 
@@ -184,6 +206,11 @@ export async function verifyWebsite(doc: IssueDoc, opts: { wait?: boolean } = {}
   checks.push(carries(page.text, doc.issue.title)
     ? pass('Page live', `${pageUrl.replace('https://', '')} is up with "${doc.issue.title}"`)
     : fail('Page live', `${pageUrl} is up but does not carry "${doc.issue.title}" — an older build may still be serving.`));
+
+  const off = hotlinks(page.text);
+  checks.push(off.length
+    ? warn('No hotlinks', `${off.length} image${off.length === 1 ? '' : 's'} load from off the CDN — re-send the website to point them at the rehosted copies.`, off)
+    : pass('No hotlinks', `every image is on ${CDN_HOST} or the site`));
 
   if (a.audio_url) {
     const file = a.audio_url.split('/').pop()!;
