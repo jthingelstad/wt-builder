@@ -93,8 +93,13 @@ when it has one) linked to the post, an em dash, the words, then each of its
 photos as a block of its own. A post with more structure than a moment — a
 list, several paragraphs, a quote — keeps it: the lead carries the first
 paragraph and the rest prints as written (2026-09-21; WT351's bullets had been
-welded onto the lead line). Audio speaks the same structure. A post Jamie
-promotes leaves the Journal and prints whole under its own heading.
+welded onto the lead line). The lead is welded only onto plain prose: a post
+that opens with a quote, a list, a heading, or a lead-in line with its list
+straight under it prints the lead on a line of its own, then the post as
+written, and a post with no words (only pictures) prints no dash. Headings in
+a Journal post sit at `####`, below the day's `###` (review 2026-09-27 §3).
+Audio speaks the same structure. A post Jamie promotes leaves the Journal and
+prints whole under its own heading.
 
 ## Photo
 

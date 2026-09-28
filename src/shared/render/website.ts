@@ -128,6 +128,21 @@ export function linkBlocks(item: Item): Block[] {
   return out;
 }
 
+/** What opens a quote, a list, a heading, or a fence. */
+const OPENS_STRUCTURE = /^\s*(?:>|[-*+]\s|\d{1,9}[.)]\s|#{1,6}\s|```|~~~)/;
+/**
+ * The same, part way down a paragraph. CommonMark lets a numbered list
+ * interrupt a paragraph only when it starts at 1, so "2026. What a year"
+ * on its second line is still prose.
+ */
+const INTERRUPTS_PROSE = /^\s*(?:>|[-*+]\s|1[.)]\s|#{1,6}\s|```|~~~)/;
+
+/** Prose and nothing else: the only kind of block a lead can be welded onto. */
+function plainProse(block: string): boolean {
+  const [first = '', ...rest] = block.split('\n');
+  return !OPENS_STRUCTURE.test(first) && !rest.some((line) => INTERRUPTS_PROSE.test(line));
+}
+
 /**
  * An ordinary Journal entry: a linked lead, then the post, then its photos.
  * The lead is the post's title when it has one — a titled post that stays in
@@ -139,6 +154,12 @@ export function linkBlocks(item: Item): Block[] {
  * (WT351's "Podcast Improvements" post, 2026-09-21, whose bullets had been
  * welded onto one line as "- one - two - three").
  *
+ * The lead is welded onto the first block only when that block is plain
+ * prose. A post that opens with a quote, a list, a heading, or a lead-in line
+ * with its list straight under it gets the lead on a line of its own, then
+ * the post as written; one with no words at all gets no dash ("10:54 AM — >
+ * quote", review 2026-09-27 §3). Its headings sit below the day's `###`.
+ *
  * A Micro.blog photo post is prose then its `<img>` tags. Each image prints
  * as a block of its own, the way nine years of archive issues lay them out.
  * Welding the tags onto the sentence (WT350) put the pictures inside the
@@ -148,15 +169,18 @@ export function journalEntryBlocks(item: Item): Block[] {
   const w = wallClock(item.published_at);
   const title = String(item.title ?? '').trim();
   const { prose, tail } = splitBody(item.body);
-  const [first = '', ...rest] = postBlocks(prose);
+  const blocks = postBlocks(prose, 4);
+  const weld = blocks.length > 0 && plainProse(blocks[0]!);
+  const [first = '', ...rest] = weld ? blocks : ['', ...blocks];
   const body = bodyLines(first).join(' ');
   const images = tail.match(/<img\b[^>]*>/gi) ?? [];
-  const lead = (() => {
-    if (!item.source_url) return body;
+  const link = (() => {
+    if (!item.source_url) return '';
     // A title is bold, like a Briefly title; a time of day is not.
-    if (title) return `**[${escapeExternal(title)}](${item.source_url})** — ${body}`;
-    return w ? `[${clockTime(w)}](${item.source_url}) — ${body}` : body;
+    if (title) return `**[${escapeExternal(title)}](${item.source_url})**`;
+    return w ? `[${clockTime(w)}](${item.source_url})` : '';
   })();
+  const lead = link && body ? `${link} — ${body}` : link || body;
   return [lead, ...rest, ...images].filter(Boolean);
 }
 

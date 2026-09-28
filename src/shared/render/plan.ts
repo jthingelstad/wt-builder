@@ -211,8 +211,10 @@ export function bodyLines(body: string | undefined): string[] {
  * blank-line boundaries are the structure, so they are kept. Headings are
  * shifted so the shallowest sits one level under the post's own `##` heading
  * — a post written with `##` must not print as a sibling of the section it is.
+ * `top` is the level the shallowest heading lands on: a Journal moment sits
+ * under its day's `###`, so its headings start at `####`.
  */
-export function postBlocks(body: string | undefined): string[] {
+export function postBlocks(body: string | undefined, top = 3): string[] {
   const blocks = String(body ?? '')
     .replace(/\\n/g, '\n')
     .replace(/\r\n/g, '\n')
@@ -223,7 +225,7 @@ export function postBlocks(body: string | undefined): string[] {
   const levels = blocks
     .map((b) => /^(#{1,6})\s/.exec(b)?.[1]?.length ?? 0)
     .filter((n) => n > 0);
-  const shift = levels.length ? Math.max(0, 3 - Math.min(...levels)) : 0;
+  const shift = levels.length ? Math.max(0, top - Math.min(...levels)) : 0;
   if (!shift) return blocks;
   return blocks.map((b) =>
     b.replace(/^(#{1,6})(\s)/, (_all, hashes: string, sp: string) =>
