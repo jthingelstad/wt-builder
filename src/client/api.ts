@@ -118,7 +118,13 @@ async function call<T>(path: string, init?: RequestInit): Promise<T> {
       res.status,
     );
   }
-  if (!res.ok) throw new ApiError(payload.error ?? `${res.status} ${res.statusText}`, res.status, payload.code);
+  if (!res.ok) {
+    // JSON null (or a bare value) has no fields to read; `null.error` threw a
+    // TypeError in place of the refusal.
+    const said = payload && typeof payload === 'object' ? payload : {};
+    const error = typeof said.error === 'string' ? said.error : undefined;
+    throw new ApiError(error ?? `${res.status} ${res.statusText}`, res.status, said.code);
+  }
   return payload as T;
 }
 

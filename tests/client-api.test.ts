@@ -31,6 +31,16 @@ describe('a failed call names what went wrong', () => {
     expect(err.code).toBe('asleep');
   });
 
+  // JSON that is not an object — null, a number, a string — has no .error to read.
+  it('an error body of JSON null or a bare value falls back to the status', async () => {
+    for (const body of ['null', '42', '"oops"']) {
+      answer(body, 500, 'Internal Server Error');
+      const err = await api.getIssue('wt352').catch((e: unknown) => e);
+      expect(err).toBeInstanceOf(ApiError);
+      expect((err as ApiError).message).toBe('500 Internal Server Error');
+    }
+  });
+
   it('a 200 whose body is not JSON is a failure, not a crash', async () => {
     answer('<html>', 200, 'OK');
     const err = await api.getIssue('wt352').catch((e: unknown) => e);
