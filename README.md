@@ -70,8 +70,11 @@ service refuses a write that another site sends on Jamie's behalf: any
 request but a GET or HEAD whose `Sec-Fetch-Site` is not `same-origin` (or
 `none`), or whose `Origin` is not the tailnet URL above, the Vite dev client,
 or loopback on the port it listens on, is a 403. Scripts and curl send
-neither header and pass. Every refusal is logged with the value it refused;
-`WT_BUILDER_ALLOWED_ORIGINS` in `.env` (comma-separated) extends the list
+neither header and pass. Against DNS rebinding it also answers only to its
+own names: a Host that is not the tailnet name (with or without `:10001`) or
+loopback on its port is a 421, for any method. Every refusal is logged with
+the value it refused; `WT_BUILDER_ALLOWED_ORIGINS` and
+`WT_BUILDER_ALLOWED_HOSTS` in `.env` (comma-separated) extend the lists
 without a code change. See `src/server/edge.ts`.
 
 Managing the service:

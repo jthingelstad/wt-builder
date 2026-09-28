@@ -262,10 +262,14 @@ finished, what is half-finished, and what has never run.
   `src/server/edge.ts`): any method but GET and HEAD with a `Sec-Fetch-Site`
   other than `same-origin`/`none`, or an `Origin` that is not the tailnet
   URL, the Vite dev client, or loopback on the listening port. Scripts and
-  curl send neither and pass. Every refusal is logged with the value it
-  refused, and `WT_BUILDER_ALLOWED_ORIGINS` extends the list. Tested over
-  HTTP in tests/routes.test.ts; not yet run against the tailnet, so the
-  first live session after the deploy watches the log for `[edge]`.
+  curl send neither and pass. Against DNS rebinding, a Host that is not
+  `otto.tail09aaf9.ts.net` (bare or `:10001`) or `localhost`/`127.0.0.1` on
+  the listening port is a 421 for every method, reads included. Every
+  refusal is logged with the value it refused, and
+  `WT_BUILDER_ALLOWED_ORIGINS` / `WT_BUILDER_ALLOWED_HOSTS` extend the
+  lists. Tested over HTTP and a raw socket in tests/routes.test.ts; not yet
+  run against the tailnet, so the first live session after the deploy
+  watches the log for `[edge]`.
 
 ## Not built
 

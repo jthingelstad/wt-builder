@@ -9,10 +9,15 @@
  * title and got a forced website send past the podcast gate (review
  * 2026-09-27, §1.6). So every write must come from the app's own origin.
  *
- * Every refusal is logged with the header value it refused, and the lists
- * extend from .env (WT_BUILDER_ALLOWED_ORIGINS, comma-separated) without a
- * code change, so a proxy that sends something unexpected shows up in the
- * log and can be let in the same minute.
+ * DNS rebinding is the same attack by another road: a page whose name
+ * resolves to 127.0.0.1 reaches the loopback listener as its own origin, with
+ * every method. The browser still sends that page's name as the Host, so the
+ * service answers only to its own names, for reads as much as writes.
+ *
+ * Every refusal is logged with the header value it refused, and both lists
+ * extend from .env (WT_BUILDER_ALLOWED_HOSTS, WT_BUILDER_ALLOWED_ORIGINS,
+ * comma-separated) without a code change, so a proxy that sends something
+ * unexpected shows up in the log and can be let in the same minute.
  */
 
 import type { IncomingHttpHeaders } from 'node:http';
@@ -39,6 +44,32 @@ export function allowedOrigins(port: number, extra: readonly string[] = []): Set
       ...extra,
     ].map((o) => o.toLowerCase()),
   );
+}
+
+/**
+ * Host values this service answers to. Tailscale Serve may pass the tailnet
+ * Host through (with or without its port) or rewrite it to the loopback
+ * target, so both are here. The Vite dev proxy sets changeOrigin, which
+ * sends the loopback Host of its target, the service's own port.
+ */
+export function allowedHosts(port: number, extra: readonly string[] = []): Set<string> {
+  return new Set(
+    [
+      `localhost:${port}`,
+      `127.0.0.1:${port}`,
+      TAILNET_HOST,
+      `${TAILNET_HOST}:10001`,
+      ...extra,
+    ].map((h) => h.toLowerCase()),
+  );
+}
+
+/** Why a request is refused as addressed to some other name, or null. */
+export function hostRefusal(headers: IncomingHttpHeaders, allowed: ReadonlySet<string>): string | null {
+  const host = headers.host;
+  if (host === undefined) return 'a request with no Host is refused';
+  if (!allowed.has(host.toLowerCase())) return `Host ${host} is not this service`;
+  return null;
 }
 
 const one = (v: string | string[] | undefined): string | undefined => (Array.isArray(v) ? v.join(', ') : v);

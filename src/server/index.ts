@@ -1262,12 +1262,20 @@ function listeningPort(): number {
 }
 
 /**
- * The edge, beside guardBed and before routing (edge.ts): a write from
- * another site is refused. Every refusal is logged with the value refused,
- * so a proxy the lists do not know shows up in the service log.
+ * The edge, beside guardBed and before routing (edge.ts): a request
+ * addressed to a name that is not this service is a 421, whatever its
+ * method, and a write from another site is a 403. Every refusal is logged
+ * with the value refused, so a proxy the lists do not know shows up in the
+ * service log.
  */
 function guardEdge(req: IncomingMessage, method: string, pathname: string): void {
-  const refusal = edge.crossSiteRefusal(method, req.headers, edge.allowedOrigins(listeningPort(), config.allowedOrigins));
+  const port = listeningPort();
+  const misdirected = edge.hostRefusal(req.headers, edge.allowedHosts(port, config.allowedHosts));
+  if (misdirected) {
+    console.warn(`[edge] 421 ${method} ${pathname}: ${misdirected}`);
+    throw new HttpError(421, misdirected);
+  }
+  const refusal = edge.crossSiteRefusal(method, req.headers, edge.allowedOrigins(port, config.allowedOrigins));
   if (refusal) {
     console.warn(`[edge] 403 ${method} ${pathname}: ${refusal}`);
     throw new HttpError(403, refusal);

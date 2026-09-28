@@ -23,6 +23,7 @@ const work = mkdtempSync(join(tmpdir(), 'wt-routes-'));
 process.env.WT_BUILDER_DB = join(work, 'routes.db');
 // The knob that extends the edge's allow-list without a code change.
 process.env.WT_BUILDER_ALLOWED_ORIGINS = 'https://extra.example:8443, https://another.example';
+process.env.WT_BUILDER_ALLOWED_HOSTS = 'extra.example:8443';
 
 const { server, logStrayErrors } = await import('../src/server/index.ts');
 
@@ -372,11 +373,12 @@ describe('issues round-trip through the service', () => {
 });
 
 describe('a request that cannot be parsed is refused, and the service keeps answering', () => {
-  it('Host: a b gets an answer, not a crash', async () => {
+  it('Host: a b is a 4xx, not a crash', async () => {
     // Before, the URL was built from the Host header outside the try: this
     // request killed the process (an unhandled rejection) with no answer.
+    // Now it never reaches the parser, and the Host allow-list refuses it.
     const answer = await raw('GET /api/health HTTP/1.1\r\nHost: a b\r\nConnection: close\r\n\r\n');
-    expect(statusOf(answer)).toBeGreaterThan(0);
+    expect(statusOf(answer)).toBe(421);
     expect((await fetch(`${base}/api/health`)).status).toBe(200);
   });
 
@@ -479,5 +481,56 @@ describe('the edge refuses what a browser sends on behalf of another site', () =
     expect((await settings({}, 'No headers')).status).toBe(200);
     const read = await fetch(`${base}/api/issues/${id}`, { headers: { Origin: 'https://evil.example', 'Sec-Fetch-Site': 'cross-site' } });
     expect(read.status).toBe(200);
+  });
+});
+
+describe('the edge answers only to its own names (DNS rebinding)', () => {
+  const port = () => new URL(base).port;
+  const get = (host: string, path = '/api/health') =>
+    raw(`GET ${path} HTTP/1.1\r\nHost: ${host}\r\nConnection: close\r\n\r\n`);
+
+  it('a foreign Host is a 421 that names it, logged, for a read as much as a write', async () => {
+    const warned = vi.spyOn(console, 'warn').mockImplementation(() => {});
+    try {
+      const read = await get(`rebound.example:${port()}`);
+      expect(statusOf(read)).toBe(421);
+      expect(read).toContain(`rebound.example:${port()}`);
+      expect(warned.mock.calls.map((c) => String(c[0])).join('\n')).toContain(`rebound.example:${port()}`);
+    } finally {
+      warned.mockRestore();
+    }
+  });
+
+  it('a rebound DELETE is refused before it reaches the route', async () => {
+    const created = await fetch(`${base}/api/issues`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ number: 990007, publication_date: '2026-10-17' }),
+    });
+    const id = (await created.json()).issue.issue.id;
+    const answer = await raw(`DELETE /api/issues/${id} HTTP/1.1\r\nHost: rebound.example:${port()}\r\nConnection: close\r\n\r\n`);
+    expect(statusOf(answer)).toBe(421);
+    expect((await fetch(`${base}/api/issues/${id}`)).status).toBe(200);
+    await fetch(`${base}/api/issues/${id}`, { method: 'DELETE' });
+  });
+
+  it('loopback on the listening port, the tailnet name, and the configured extras answer', async () => {
+    for (const host of [
+      `127.0.0.1:${port()}`,
+      `localhost:${port()}`,
+      `LOCALHOST:${port()}`,
+      'otto.tail09aaf9.ts.net',
+      'otto.tail09aaf9.ts.net:10001',
+      'extra.example:8443',
+    ]) {
+      expect(statusOf(await get(host)), host).toBe(200);
+    }
+  });
+
+  it('loopback on another port, and no Host at all, are refused', async () => {
+    const other = Number(port()) === 4317 ? 4318 : 4317;
+    expect(statusOf(await get(`127.0.0.1:${other}`))).toBe(421);
+    const bare = await raw('GET /api/health HTTP/1.0\r\n\r\n');
+    expect(statusOf(bare.replace(/^HTTP\/1\.0/, 'HTTP/1.1'))).toBe(421);
   });
 });

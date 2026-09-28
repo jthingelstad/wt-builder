@@ -94,6 +94,8 @@ export const config = {
    * built-in list does not know; the refusal in the log names what to add.
    */
   allowedOrigins: list('WT_BUILDER_ALLOWED_ORIGINS'),
+  /** Host values the edge answers to beyond its own names (edge.ts); same use. */
+  allowedHosts: list('WT_BUILDER_ALLOWED_HOSTS'),
   /**
    * The built client the service serves. The live service serves dist/;
    * the browser suite builds into tmp/e2e/dist and points here, so
@@ -158,6 +160,7 @@ export function describeConfig(): Record<string, string> {
     host: config.host,
     ...(OFFLINE ? { mode: 'OFFLINE (tests) — no credentials, nothing leaves this machine' } : {}),
     db: config.dbPath,
+    ...(config.allowedHosts.length ? { allowedHosts: `+ ${config.allowedHosts.join(', ')}` } : {}),
     ...(config.allowedOrigins.length ? { allowedOrigins: `+ ${config.allowedOrigins.join(', ')}` } : {}),
     pinboard: credentials.pinboardToken ? 'configured' : 'MISSING',
     microblog: credentials.microblogToken ? 'configured' : 'MISSING',
