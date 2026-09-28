@@ -112,6 +112,9 @@ finished, what is half-finished, and what has never run.
   words stay one row away in `revisions`). Until 2026-09-20 a `gone` copy
   was kept and refused write-back, which left deleted links in the issue to
   be removed a second time by hand.
+  An item whose write-back landed while the scan ran (its snapshot moved),
+  or is still in flight, is not reconciled or moved by that scan; the next
+  one reads it afresh (2026-09-28, review 2026-09-27 §1.2).
   Opening a draft issue re-scans automatically, and Re-scan sits on the
   at-rest meta card as well as in the edit panel.
 - **Event log** (2026-08-30) — every action on an issue is narrated to an

@@ -1,6 +1,6 @@
 /** Assembly operations and the document store. */
 
-import { describe, expect, it, beforeEach, afterEach } from 'vitest';
+import { describe, expect, it, beforeEach, afterEach, vi } from 'vitest';
 import { readFileSync, rmSync, statSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
 import { tmpdir } from 'node:os';
@@ -8,6 +8,7 @@ import { join } from 'node:path';
 
 import type { IssueDoc, Item } from '../src/shared/types.ts';
 import * as issues from '../src/server/issue.ts';
+import { credentials } from '../src/server/config.ts';
 import { inWindow, issueWindow, snapToSaturday, windowLabel } from '../src/shared/dates.ts';
 import {
   addMarkdownBlock, addSection, createIssue, demote, hideItem, moveLinkToSection, moveNode,
@@ -552,7 +553,7 @@ describe('window-derived inclusion', () => {
     const before = docWith('2026-09-01T09:00:00-05:00');
     const fetched: import('../src/server/issue.ts').SweepFetch = {
       window: windowOf(before), links: [], posts: [],
-      bookmarks: new Map(), microblog: null, captureTimes: new Map(),
+      bookmarks: new Map(), microblog: null, captureTimes: new Map(), seen: new Map(),
     };
     const edited = updateItem(before, 'i-0', { commentary: 'Typed while the scan ran' });
     const { doc } = issues.applySweep(edited, fetched);
@@ -616,6 +617,140 @@ describe('window-derived inclusion', () => {
     expect(commentary.map((u) => u.anchor)).toEqual(['i-0']);
     const wide = readiness(setWindowDays(doc, 21)).units.filter((u) => u.kind === 'commentary');
     expect(wide.map((u) => u.anchor).sort()).toEqual(['i-0', 'i-1']);
+  });
+});
+
+// The fresh-read test above covers an item whose snapshot did not move while
+// the scan ran. A write-back that lands mid-scan does move it, and the scan's
+// remote read is older than the write: reconciling against it adopted the
+// old words, and a stale _brief moved a link back (review 2026-09-27, §1.2).
+describe('a re-scan never reverts a write-back that landed while it ran', () => {
+  const URL_A = 'https://example.com/a';
+  const POST_URL = 'https://www.thingelstad.com/2026/09/01/post.html';
+  let remote: { extended: string; tags: string; body: string };
+
+  beforeEach(() => {
+    credentials.pinboardToken = 'test-token';
+    credentials.microblogToken = 'test-token';
+    // What the sources say while the scan reads them: before the write.
+    remote = { extended: 'Old words.', tags: '', body: 'Old post.' };
+    vi.stubGlobal('fetch', async (input: string | URL) => {
+      const url = new URL(String(input));
+      const reply = (body: unknown) => new Response(JSON.stringify(body), { status: 200 });
+      if (url.hostname === 'api.pinboard.in' && url.pathname.endsWith('/posts/all')) return reply([]);
+      if (url.hostname === 'api.pinboard.in' && url.pathname.endsWith('/posts/get')) {
+        return reply({ posts: [{
+          href: URL_A, description: 'A link', extended: remote.extended, tags: remote.tags,
+          time: '2026-09-01T14:00:00Z', toread: 'yes', shared: 'no',
+        }] });
+      }
+      if (url.hostname === 'micro.blog') {
+        return reply({ items: [{ properties: {
+          url: [POST_URL], published: ['2026-09-01T10:00:00-05:00'], name: [''], content: [remote.body],
+        } }] });
+      }
+      throw new Error(`unexpected fetch ${url}`);
+    });
+  });
+
+  afterEach(() => {
+    vi.unstubAllGlobals();
+    credentials.pinboardToken = undefined;
+    credentials.microblogToken = undefined;
+  });
+
+  /** WT400 with one swept link in `section`, and one swept Journal post, both synced. */
+  const scanned = (section: 'Notable' | 'Briefly', tags: string[] = []): IssueDoc => {
+    const doc = createIssue({ number: 400, publication_date: '2026-09-05' });
+    doc.items['link-a'] = {
+      type: 'pinboard_link', authorship: 'syndicated', source: 'Pinboard',
+      channels: { website: true, email: true, audio: true },
+      source_id: `pinboard:${URL_A}`, source_url: URL_A, published_at: '2026-09-01T14:00:00Z',
+      title: 'A link', commentary: 'Old words.', tags, section, sync_state: 'synced',
+      source_snapshot: { title: 'A link', commentary: 'Old words.', tags },
+      source_flags: { toread: 'yes', shared: 'no' },
+    };
+    doc.nodes.find((n) => n.label === section)!.items.push('link-a');
+    doc.items['journal-post'] = {
+      type: 'journal_post', authorship: 'syndicated', source: 'Micro.blog',
+      channels: { website: true, email: true, audio: true }, presentation: 'journal',
+      source_id: `microblog:${POST_URL}`, source_url: POST_URL, published_at: '2026-09-01T10:00:00-05:00',
+      body: 'Old post.', sync_state: 'synced', source_snapshot: { title: '', body: 'Old post.' },
+    };
+    doc.nodes.find((n) => n.type === 'journal')!.items.push('journal-post');
+    return doc;
+  };
+
+  /** The write-back's outcome as the route applies it: synced, and the snapshot moved to what was written. */
+  const landed = (doc: IssueDoc, id: string): IssueDoc => {
+    const item = doc.items[id]!;
+    const source_snapshot = item.source === 'Pinboard'
+      ? { title: item.title ?? '', commentary: item.commentary ?? '', tags: item.tags ?? [] }
+      : { title: item.title ?? '', body: item.body ?? '' };
+    return updateItem(doc, id, { sync_state: 'synced', source_snapshot } as Partial<Item>);
+  };
+  const inSection = (doc: IssueDoc, id: string) => doc.nodes.find((n) => n.items.includes(id))?.label;
+
+  it('a commentary edit written back mid-scan keeps its words', async () => {
+    const before = scanned('Notable');
+    const fetched = await issues.fetchForSweep(before);
+    const fresh = landed(updateItem(before, 'link-a', { commentary: 'New words, written back.' }), 'link-a');
+
+    const { doc, report } = issues.applySweep(fresh, fetched);
+    expect(doc.items['link-a']!.commentary).toBe('New words, written back.');
+    expect(doc.items['link-a']!.sync_state).toBe('synced');
+    expect(report.refreshed).toBe(0);
+    expect(report.log.some((l) => l.kind === 'refreshed')).toBe(false);
+  });
+
+  it('a Notable → Briefly move written back mid-scan keeps its _brief tag and its place', async () => {
+    const before = scanned('Notable');
+    const fetched = await issues.fetchForSweep(before);
+    const fresh = landed(moveLinkToSection(before, 'link-a', 'Briefly'), 'link-a');
+
+    const { doc } = issues.applySweep(fresh, fetched);
+    expect(doc.items['link-a']!.tags).toContain('_brief');
+    expect(inSection(doc, 'link-a')).toBe('Briefly');
+  });
+
+  it('a Briefly → Notable move written back mid-scan is not followed back by the stale _brief', async () => {
+    remote.tags = '_brief';
+    const before = scanned('Briefly', ['_brief']);
+    const fetched = await issues.fetchForSweep(before);
+    const fresh = landed(moveLinkToSection(before, 'link-a', 'Notable'), 'link-a');
+
+    const { doc, report } = issues.applySweep(fresh, fetched);
+    expect(doc.items['link-a']!.tags).not.toContain('_brief');
+    expect(inSection(doc, 'link-a')).toBe('Notable');
+    expect(report.log.some((l) => l.kind === 'moved')).toBe(false);
+  });
+
+  it('a Journal post edit written back mid-scan keeps its words', async () => {
+    const before = scanned('Notable');
+    const fetched = await issues.fetchForSweep(before);
+    const fresh = landed(updateItem(before, 'journal-post', { body: 'New post, written back.' }), 'journal-post');
+
+    const { doc } = issues.applySweep(fresh, fetched);
+    expect(doc.items['journal-post']!.body).toBe('New post, written back.');
+  });
+
+  it('an item still writing back is left for the next scan', async () => {
+    const before = scanned('Notable');
+    const fetched = await issues.fetchForSweep(before);
+    const fresh = updateItem(before, 'link-a', { commentary: 'Typed, write in flight.' });
+    expect(fresh.items['link-a']!.sync_state).toBe('syncing');
+
+    const { doc } = issues.applySweep(fresh, fetched);
+    expect(doc.items['link-a']!.commentary).toBe('Typed, write in flight.');
+    expect(doc.items['link-a']!.sync_state).toBe('syncing');
+  });
+
+  it('an item nothing touched still adopts the source edit', async () => {
+    remote.extended = 'Edited at Pinboard.';
+    const before = scanned('Notable');
+    const { doc, report } = issues.applySweep(before, await issues.fetchForSweep(before));
+    expect(doc.items['link-a']!.commentary).toBe('Edited at Pinboard.');
+    expect(report.refreshed).toBe(1);
   });
 });
 

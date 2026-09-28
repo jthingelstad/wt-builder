@@ -174,10 +174,26 @@ export interface SweepFetch {
   microblog: Awaited<ReturnType<typeof microblog.remoteIndex>> | null;
   /** Capture times for Pinboard items that had none, by source_url. */
   captureTimes: Map<string, string>;
+  /**
+   * Each item's merge base and sync state as they stood when the remotes
+   * were read, by item id. A write-back that lands while the scan runs moves
+   * the snapshot; the remote this scan read is older than that write, and
+   * reconciling against it would adopt the old words as a source edit
+   * (review 2026-09-27, §1.2). applySweep leaves such an item alone.
+   */
+  seen: Map<string, { snapshot: string; sync_state?: string }>;
 }
+
+/** A snapshot as a comparable string: saved and re-read, a row keeps its key order. */
+const snapshotKey = (item: Item): string => JSON.stringify(item.source_snapshot ?? null);
 
 export async function fetchForSweep(doc: IssueDoc): Promise<SweepFetch> {
   const window = issueWindow(doc.issue.publication_date, doc.issue.window_days);
+  // Taken before any remote is read, so every read below is at least as new
+  // as the base recorded for its item.
+  const seen: SweepFetch['seen'] = new Map(
+    Object.entries(doc.items).map(([id, item]) => [id, { snapshot: snapshotKey(item), sync_state: item.sync_state }]),
+  );
   const [links, posts] = await Promise.all([
     pinboard.sweepPinboard(window).catch((e) => {
       console.warn(`[sweep] Pinboard failed: ${(e as Error).message}`);
@@ -216,7 +232,7 @@ export async function fetchForSweep(doc: IssueDoc): Promise<SweepFetch> {
     }
   }
 
-  return { window, links, posts, bookmarks, microblog: mb, captureTimes };
+  return { window, links, posts, bookmarks, microblog: mb, captureTimes, seen };
 }
 
 /**
@@ -285,8 +301,21 @@ export function applySweep(doc: IssueDoc, fetched: SweepFetch): { doc: IssueDoc;
   const reconciled = { refreshed: 0, gone: 0, conflicts: 0 };
   const mb = fetched.microblog;
 
+  // An item whose merge base moved after its remote was read — a write-back
+  // landed mid-scan — or whose write is still in flight is newer than
+  // anything this scan read. Reconciling it would take the older remote for
+  // a source edit, and following its tags would undo a move. The next scan
+  // reads it afresh (review 2026-09-27, §1.2).
+  const unsettled = new Set<string>();
   for (const [id, item] of Object.entries(next.items)) {
-    if (justAdded.has(id) || !item.source_url) continue;
+    if (justAdded.has(id)) continue;
+    const then = fetched.seen.get(id);
+    if (!then || then.snapshot !== snapshotKey(item) ||
+        then.sync_state === 'syncing' || item.sync_state === 'syncing') unsettled.add(id);
+  }
+
+  for (const [id, item] of Object.entries(next.items)) {
+    if (justAdded.has(id) || unsettled.has(id) || !item.source_url) continue;
 
     let remote: RemoteFields | null;
     if (item.source === 'Pinboard') {
@@ -325,7 +354,7 @@ export function applySweep(doc: IssueDoc, fetched: SweepFetch): { doc: IssueDoc;
   // Deleted at the source is deleted here; the reconcile above marked them.
   log.push(...pruneGone(next));
 
-  log.push(...followBookmarkTags(next, justAdded));
+  log.push(...followBookmarkTags(next, new Set([...justAdded, ...unsettled])));
 
   // Heal Pinboard items that predate the converter carrying published_at.
   for (const item of Object.values(next.items)) {

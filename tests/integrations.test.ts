@@ -147,7 +147,7 @@ describe('the Pinboard sweep and the window agree on where Friday is', () => {
     };
     const { doc: next, report } = applySweep(doc, {
       window: issueWindow('2026-09-05', 7), links: [excluded as never], posts: [],
-      bookmarks: new Map(), microblog: null, captureTimes: new Map(),
+      bookmarks: new Map(), microblog: null, captureTimes: new Map(), seen: new Map(),
     });
     expect(Object.values(next.items).some((i) => i.source_url === 'https://example.com/x')).toBe(false);
     expect(report.added).toBe(0);
