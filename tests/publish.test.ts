@@ -6,12 +6,14 @@
 import { describe, expect, it } from 'vitest';
 import { existsSync, readFileSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
+import yaml from 'js-yaml';
 
 import type { IssueDoc } from '../src/shared/types.ts';
 import {
-  archiveInputs, archiveMarkdown, archivePage, coverImage, extractLinks,
-  issueEntry, siteInputs, subjectFor,
+  archiveInputs, archiveMarkdown, archivePage, audioFrontMatter, coverImage, extractLinks,
+  issueEntry, publishTimestamp, siteInputs, subjectFor,
 } from '../src/server/publish.ts';
+import type { AudioFields } from '../src/server/publish.ts';
 import {
   chaptersJson, chaptersOf, episodeOf, ffMetadata, id3Chapters, id3Tags, pieceKey, transcriptVtt, vttClock,
   FINAL_CHANNELS, FINAL_SAMPLE_RATE, LOUDNORM_I, LOUDNORM_TP, PAUSE,
@@ -28,6 +30,14 @@ const doc = (over: Partial<IssueDoc['issue']> = {}): IssueDoc => {
   Object.assign(d.issue, over);
   return d;
 };
+
+// The site builds with Eleventy, which parses front matter with js-yaml.
+// A title is whatever the bookmarked page called itself, so every string
+// scalar is quoted the one way that is always valid YAML: as a JSON string
+// (review 2026-09-27 §1.3). Each case starts with, or carries, a character
+// YAML reads as structure; the unquoted form broke the site build.
+const frontOf = (page: string) =>
+  yaml.load(page.slice(4, page.indexOf('\n---\n', 4))) as Record<string, unknown>;
 
 describe('the subject line', () => {
   it('is WT{n} — {title} for a real editorial title', () => {
@@ -110,7 +120,7 @@ describe('the archive page', () => {
 
   it('points image at the generated cover, not an issue photo', () => {
     const page = archivePage(doc());
-    expect(page).toContain(`image: ${coverImage(350)}`);
+    expect(frontOf(page).image).toBe(coverImage(350));
     expect(page).toContain('/weekly-thing/350/cover.jpg');
   });
 
@@ -129,8 +139,107 @@ describe('the archive page', () => {
       audio: { audio_url: 'https://files.thingelstad.com/x.mp3', audio_duration_seconds: 60,
                audio_byte_size: 999, audio_voice: 'openai-tts-1-hd:echo' },
     });
-    expect(page).toContain('audio_url: https://files.thingelstad.com/x.mp3');
-    expect(page).toContain('audio_byte_size: 999');
+    expect(frontOf(page).audio_url).toBe('https://files.thingelstad.com/x.mp3');
+    expect(frontOf(page).audio_byte_size).toBe(999);
+  });
+});
+
+describe('front matter survives any title', () => {
+  const cases: [string, string][] = [
+    ['an arXiv id', '[2410.12345] Scaling laws for agents'],
+    ['a double quote', '"Quoted" at the start'],
+    ['a single quote', "'Single' at the start"],
+    ['an at sign', '@handle writes about things'],
+    ['an asterisk', '*emphasis* first'],
+    ['a backtick', '`code` first'],
+    ['a bang', '!important news'],
+    ['an ampersand', '&copy; and trademarks'],
+    ['a pipe', '| pipe first'],
+    ['a greater-than', '> folded first'],
+    ['a brace', '{braces} first'],
+    ['a percent', '% of everything'],
+    ['a question mark', '? question first'],
+    ['a dash', '- dash first'],
+    ['a comma', ', comma first'],
+    ['a hash', '# hash first'],
+    ['a colon inside', 'Colon: in the middle'],
+    ['a hash inside', 'Hash #in the middle'],
+    ['a boolean word', 'yes'],
+    ['a null word', 'null'],
+    ['a number', '350'],
+    ['a date', '2026-09-28'],
+    ['backslashes and quotes', 'back\\slash and "quotes" \\n'],
+    ['a leading space', ' leading space'],
+    ['a trailing space', 'trailing space '],
+    ['a tab', 'tab\there'],
+    ['non-ASCII', 'emoji 🧵 and an — em dash'],
+  ];
+
+  const docWith = (value: string): IssueDoc => {
+    const d = doc({ title: value, dek: value });
+    const linkId = Object.keys(d.items).find((id) => d.items[id]!.type === 'pinboard_link')!;
+    d.items[linkId]!.title = value;
+    d.nodes.find((n) => n.items.includes(linkId))!.label = value;
+    return d;
+  };
+  const audio = (value: string): AudioFields => ({
+    audio_url: 'https://files.thingelstad.com/weekly-thing/350/weekly-thing-350-ab12.mp3',
+    audio_duration_seconds: 812.5,
+    audio_byte_size: 19488102,
+    audio_voice: 'openai-tts-1-hd:echo+nova',
+    audio_chapters_url: 'https://files.thingelstad.com/weekly-thing/350/weekly-thing-350-ab12.chapters.json',
+    audio_transcript_url: 'https://files.thingelstad.com/weekly-thing/350/weekly-thing-350-ab12.vtt',
+    audio_chapters: [
+      { start: 0, title: value, url: 'https://x.test/a?b=1&c=2#d: e', image: 'https://files.thingelstad.com/c/1.jpg' },
+      { start: 61.2, title: value },
+    ],
+  });
+
+  it.each(cases)('the site page with %s parses back to what was written', (_name, value) => {
+    const d = docWith(value);
+    const opts = { buttondownId: value, audio: audio(value) };
+    const e = issueEntry(d, opts);
+    const fm = frontOf(archivePage(d, opts));
+    expect(fm.layout).toBe('layouts/issue.njk');
+    expect(fm.buttondown_id).toBe(value);
+    expect(fm.number).toBe(350);
+    expect(fm.subject).toBe(subjectFor(d));
+    expect(fm.publish_date).toBe(publishTimestamp(d.issue.publication_date));
+    expect(fm.slug).toBe('350');
+    expect(fm.description).toBe(value);
+    expect(fm.image).toBe(e.image);
+    expect(fm.absolute_url).toBe(e.absolute_url);
+    expect(fm.domains).toEqual(e.domains);
+    expect(fm.links).toEqual(e.links);
+    expect(e.links.some((l) => l.text === value && l.section === value)).toBe(true);
+    expect(fm.word_count).toBe(e.word_count);
+    expect(fm.permalink).toBe('/archive/350/');
+    expect(fm.tags).toBe('issue');
+    for (const [key, v] of Object.entries(audio(value))) expect(fm[key], key).toEqual(v);
+  });
+
+  it.each(cases)('the archive text with %s parses back to what was written', (_name, value) => {
+    const d = docWith(value);
+    const e = issueEntry(d, { buttondownId: value });
+    const fm = frontOf(archiveMarkdown(d, { buttondownId: value }));
+    expect(fm).toEqual({
+      buttondown_id: value,
+      number: 350,
+      subject: e.subject,
+      publish_date: e.publish_date,
+      slug: '350',
+      description: value,
+      image: e.image,
+      absolute_url: e.absolute_url,
+      domains: e.domains,
+      links: e.links,
+      word_count: e.word_count,
+    });
+  });
+
+  it.each(cases)('the audio record with %s parses back on its own', (_name, value) => {
+    const fields = audio(value);
+    expect(yaml.load(audioFrontMatter(fields).join('\n'))).toEqual(fields);
   });
 });
 

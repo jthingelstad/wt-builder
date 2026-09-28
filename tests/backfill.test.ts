@@ -47,12 +47,23 @@ describe('back catalogue pages', () => {
     expect(get('missing')).toBe('');
   });
 
+  it('reads a JSON-quoted scalar the way YAML does', () => {
+    // WT Builder writes every string as a JSON string since 2026-09-28
+    // (review 2026-09-27 §1.3); a double-quoted value is JSON-unescaped.
+    const quoted = page
+      .replace("subject: 'Weekly Thing #50 / Apr 21, 2018'", 'subject: "WT50 \\u2014 \\"Quoted\\" \\\\ back\\tslash"')
+      .replace('audio_voice: openai-tts-1-hd:echo', 'audio_voice: "openai-tts-1-hd:echo+nova"');
+    const { get } = frontMatter(quoted);
+    expect(get('subject')).toBe('WT50 \u2014 "Quoted" \\ back\tslash');
+    expect(get('audio_voice')).toBe('openai-tts-1-hd:echo+nova');
+  });
+
   it('replaces the old audio record and leaves the rest of the page alone', () => {
     const out = withAudio(page, fields);
     expect(out).not.toContain('weekly-thing-50.mp3');
     expect(out).not.toContain('audio_voice: openai-tts-1-hd:echo\n');
-    expect(out).toContain(`audio_voice: ${VOICE_ID}`);
-    expect(out).toContain('audio_chapters:\n- start: 0\n  title: Welcome\n  url: \'https://weekly.thingelstad.com/archive/50/\'\n- start: 61.2\n  title: \'Notable: Links\'');
+    expect(out).toContain(`audio_voice: "${VOICE_ID}"`);
+    expect(out).toContain('audio_chapters:\n- start: 0\n  title: "Welcome"\n  url: "https://weekly.thingelstad.com/archive/50/"\n- start: 61.2\n  title: "Notable: Links"');
     expect(out).toContain("subject: 'Weekly Thing #50 / Apr 21, 2018'");
     expect(out.endsWith('---\n<!-- Generated -->\nBody text with --- inside it.\n')).toBe(true);
     // Idempotent: writing the record twice is writing it once.

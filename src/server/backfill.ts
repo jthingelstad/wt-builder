@@ -32,7 +32,12 @@ export const ARCHIVE_PATH = 'apps/site/archive';
 /** Issues from 350 on are authored here and spoken from their document. */
 export const LAST_LEGACY_ISSUE = 349;
 
-/** The front-matter keys this needs, without a YAML dependency: they are all one-line scalars. */
+/**
+ * The front-matter keys this needs, without a YAML dependency: they are all
+ * one-line scalars. WT Builder writes each string as a JSON string
+ * (`yamlString` in publish.ts), so a double-quoted value is JSON-unescaped;
+ * an older page's YAML-only escape falls back to unescaping the quotes.
+ */
 export function frontMatter(page: string): { front: string; body: string; get: (key: string) => string } {
   if (!page.startsWith('---\n')) throw new Error('no front matter');
   const end = page.indexOf('\n---\n', 4);
@@ -41,11 +46,15 @@ export function frontMatter(page: string): { front: string; body: string; get: (
   const get = (key: string): string => {
     const m = new RegExp(`^${key}:[ \\t]*(.*)$`, 'm').exec(front);
     if (!m) return '';
-    let v = m[1]!.trim();
-    if (v.length >= 2 && v[0] === v[v.length - 1] && (v[0] === "'" || v[0] === '"')) {
-      v = v[0] === "'" ? v.slice(1, -1).replace(/''/g, "'") : v.slice(1, -1).replace(/\\"/g, '"');
+    const v = m[1]!.trim();
+    if (v.length < 2 || v[0] !== v[v.length - 1]) return v;
+    if (v[0] === "'") return v.slice(1, -1).replace(/''/g, "'");
+    if (v[0] !== '"') return v;
+    try {
+      return String(JSON.parse(v));
+    } catch {
+      return v.slice(1, -1).replace(/\\"/g, '"');
     }
-    return v;
   };
   return { front, body, get };
 }

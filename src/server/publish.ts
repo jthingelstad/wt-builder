@@ -225,13 +225,18 @@ export function issueEntry(doc: IssueDoc, opts: SiteInputsOptions = {}): IssueEn
   };
 }
 
-function yamlScalar(value: string): string {
-  if (value === '') return "''";
-  // Quote anything YAML would otherwise reinterpret as a number, date, or map.
-  if (/^[\d\-+.]/.test(value) || /[:#]/.test(value)) {
-    return `'${value.replace(/'/g, "''")}'`;
-  }
-  return value;
+/**
+ * Every string scalar in the front matter, written as a JSON string — which
+ * is always a valid YAML double-quoted scalar. A title is whatever the
+ * bookmarked page called itself: "[2410.12345] …", a leading quote, `@`,
+ * `*`, `!`, `|`, `{`, or "&copy; and …" each broke the site build (or parsed
+ * silently as something else) under the old quote-when-it-looks-risky rule,
+ * and a failed build blocks every later deploy (review 2026-09-27 §1.3).
+ * Uniform quoting was chosen over a "safe pattern" on 2026-09-28; the one-time
+ * diff on re-sent pages was accepted. Numbers stay bare.
+ */
+export function yamlString(value: string): string {
+  return JSON.stringify(value);
 }
 
 /**
@@ -242,21 +247,21 @@ function yamlScalar(value: string): string {
 export function audioFrontMatter(e: AudioFields): string[] {
   const fm: string[] = [];
   if (!e.audio_url) return fm;
-  fm.push(`audio_url: ${e.audio_url}`);
+  fm.push(`audio_url: ${yamlString(e.audio_url)}`);
   if (e.audio_duration_seconds !== undefined) {
     fm.push(`audio_duration_seconds: ${e.audio_duration_seconds}`);
   }
   if (e.audio_byte_size !== undefined) fm.push(`audio_byte_size: ${e.audio_byte_size}`);
-  if (e.audio_voice) fm.push(`audio_voice: ${e.audio_voice}`);
-  if (e.audio_chapters_url) fm.push(`audio_chapters_url: ${e.audio_chapters_url}`);
-  if (e.audio_transcript_url) fm.push(`audio_transcript_url: ${e.audio_transcript_url}`);
+  if (e.audio_voice) fm.push(`audio_voice: ${yamlString(e.audio_voice)}`);
+  if (e.audio_chapters_url) fm.push(`audio_chapters_url: ${yamlString(e.audio_chapters_url)}`);
+  if (e.audio_transcript_url) fm.push(`audio_transcript_url: ${yamlString(e.audio_transcript_url)}`);
   if (e.audio_chapters?.length) {
     fm.push('audio_chapters:');
     for (const c of e.audio_chapters) {
       fm.push(`- start: ${c.start}`);
-      fm.push(`  title: ${yamlScalar(c.title)}`);
-      if (c.url) fm.push(`  url: ${yamlScalar(c.url)}`);
-      if (c.image) fm.push(`  image: ${yamlScalar(c.image)}`);
+      fm.push(`  title: ${yamlString(c.title)}`);
+      if (c.url) fm.push(`  url: ${yamlString(c.url)}`);
+      if (c.image) fm.push(`  image: ${yamlString(c.image)}`);
     }
   }
   return fm;
@@ -265,11 +270,11 @@ export function audioFrontMatter(e: AudioFields): string[] {
 function yamlLinks(links: IssueLink[]): string[] {
   const out: string[] = ['links:'];
   for (const link of links) {
-    out.push(`- text: ${yamlScalar(link.text)}`);
-    out.push(`  url: ${link.url}`);
-    out.push(`  domain: ${link.domain}`);
-    out.push(`  heading_context: ${yamlScalar(link.heading_context)}`);
-    out.push(`  section: ${link.section}`);
+    out.push(`- text: ${yamlString(link.text)}`);
+    out.push(`  url: ${yamlString(link.url)}`);
+    out.push(`  domain: ${yamlString(link.domain)}`);
+    out.push(`  heading_context: ${yamlString(link.heading_context)}`);
+    out.push(`  section: ${yamlString(link.section)}`);
   }
   return out;
 }
@@ -277,24 +282,24 @@ function yamlLinks(links: IssueLink[]): string[] {
 /** `apps/site/archive/{N}.md` — the generated issue page. */
 export function archivePage(doc: IssueDoc, opts: SiteInputsOptions = {}): string {
   const e = issueEntry(doc, opts);
-  const fm: string[] = ['---', 'layout: layouts/issue.njk'];
+  const fm: string[] = ['---', `layout: ${yamlString('layouts/issue.njk')}`];
 
-  fm.push(`buttondown_id: ${yamlScalar(e.id)}`);
+  fm.push(`buttondown_id: ${yamlString(e.id)}`);
   fm.push(`number: ${e.number}`);
-  fm.push(`subject: ${yamlScalar(e.subject)}`);
-  fm.push(`publish_date: '${e.publish_date}'`);
-  fm.push(`slug: '${e.slug}'`);
-  fm.push(`description: ${yamlScalar(e.description)}`);
-  fm.push(`image: ${e.image}`);
-  fm.push(`absolute_url: ${e.absolute_url}`);
+  fm.push(`subject: ${yamlString(e.subject)}`);
+  fm.push(`publish_date: ${yamlString(e.publish_date)}`);
+  fm.push(`slug: ${yamlString(e.slug)}`);
+  fm.push(`description: ${yamlString(e.description)}`);
+  fm.push(`image: ${yamlString(e.image)}`);
+  fm.push(`absolute_url: ${yamlString(e.absolute_url)}`);
 
   fm.push('domains:');
-  for (const d of e.domains) fm.push(`- ${d}`);
+  for (const d of e.domains) fm.push(`- ${yamlString(d)}`);
   fm.push(...yamlLinks(e.links));
 
   fm.push(`word_count: ${e.word_count}`);
-  fm.push(`permalink: /archive/${e.number}/`);
-  fm.push('tags: issue');
+  fm.push(`permalink: ${yamlString(`/archive/${e.number}/`)}`);
+  fm.push(`tags: ${yamlString('issue')}`);
 
   fm.push(...audioFrontMatter(e));
 
@@ -326,16 +331,16 @@ export function archiveMarkdown(doc: IssueDoc, opts: SiteInputsOptions = {}): st
 
   // Field order matches the issues already in the store, so a diff of a
   // re-send reads as content, not as churn.
-  fm.push(`buttondown_id: ${yamlScalar(e.id)}`);
+  fm.push(`buttondown_id: ${yamlString(e.id)}`);
   fm.push(`number: ${e.number}`);
-  fm.push(`subject: ${yamlScalar(e.subject)}`);
-  fm.push(`publish_date: '${e.publish_date}'`);
-  fm.push(`slug: '${e.slug}'`);
-  fm.push(`description: ${yamlScalar(e.description)}`);
-  fm.push(`image: ${e.image}`);
-  fm.push(`absolute_url: ${e.absolute_url}`);
+  fm.push(`subject: ${yamlString(e.subject)}`);
+  fm.push(`publish_date: ${yamlString(e.publish_date)}`);
+  fm.push(`slug: ${yamlString(e.slug)}`);
+  fm.push(`description: ${yamlString(e.description)}`);
+  fm.push(`image: ${yamlString(e.image)}`);
+  fm.push(`absolute_url: ${yamlString(e.absolute_url)}`);
   fm.push('domains:');
-  for (const d of e.domains) fm.push(`- ${d}`);
+  for (const d of e.domains) fm.push(`- ${yamlString(d)}`);
   fm.push(...yamlLinks(e.links));
   fm.push(`word_count: ${e.word_count}`);
   fm.push('---');

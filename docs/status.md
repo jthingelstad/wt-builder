@@ -120,6 +120,14 @@ finished, what is half-finished, and what has never run.
   the archive is known to hold. This closes the accidental-send finding: the
   index was once rebuilt from the Builder's sparser records, gutting 104k
   lines to 10k (commit 91688fc7, reverted).
+- **Front matter quotes every string** (2026-09-28) — the site page, the
+  archive text, and the audio record write each string scalar as a JSON
+  string (`yamlString` in `src/server/publish.ts`), which is always valid
+  YAML. An arXiv title (`[2410.12345] …`) or one opening with a quote, `@`,
+  `*`, `!`, `|` or `{` had broken the site build, and with it every later
+  deploy. The back catalogue's front-matter reader JSON-unescapes. Held by a
+  js-yaml round trip per indicator character in `tests/publish.test.ts`.
+  Review 2026-09-27, §1.3.
 - **Docs freshness gate** (2026-08-30) — tests/docs.test.ts fails the build
   when any doc cites a file path that no longer exists, or claims a test
   count (a number in prose only ever decays).
