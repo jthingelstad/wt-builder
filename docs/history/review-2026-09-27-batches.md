@@ -9,7 +9,8 @@
 ## Running them
 
 **Order.** 0 first: it makes the test suite safe to extend, and every later
-batch adds tests. After that, 1–6 in order is the risk-weighted path. D can
+batch adds tests. To run everything in one session, use the master prompt
+below. After that, 1–6 in order is the risk-weighted path. D can
 run at any time. F1–F5 are features; schedule them after the fixes.
 
 **Timing.** Nothing lands between Friday afternoon and the send. On send day
@@ -19,13 +20,98 @@ the only changes are fixes for whatever breaks, as in any live session.
 
 | Batch | Decision |
 |---|---|
-| 3 | Uniform quoting of front matter churns `fixtures/expected/` and the diff of every re-sent page. Alternatively, quote only unsafe values. |
+| 3 | **Settled 2026-09-28:** quote every string scalar with `JSON.stringify`. The one-time churn in `fixtures/expected/` and in re-sent page diffs is accepted. |
 | 7 | **Settled 2026-09-28:** a published issue stays editable until it is put to bed. Once it is put to bed, nothing is editable. This changes `docs/interface-spec.md:484`. |
 | 7 | **Settled 2026-09-28:** the editorial review never counts on the progress strip. It stays advisory. Correct `interface-spec.md` :337 and :609–610 to agree with :765. |
-| 2 | Does Micropub `q=source` return drafts? One read-only GET against the account settles it. The guard goes in either way. |
+| 2 | **Settled 2026-09-28:** Jamie does not use Micro.blog drafts. Check once with a read-only GET, and add the guard anyway as insurance. |
 
 **The preamble every batch prompt starts with.** It is included in each
 block below, so every block can be pasted on its own.
+
+---
+
+## One session for all of it: the master prompt
+
+Paste this into Claude Code in the live checkout on otto. It sets up a
+separate worktree, so the running service's source, `dist/`, `data/` and
+`.env` are never touched. It runs the batches in order with one implementer
+subagent per batch and a fresh reviewer subagent after each, and it stops
+short of merging and deploying, which stay with Jamie.
+
+```text
+You are the orchestrator for the WT Builder review fixes. You dispatch one subagent per batch, gate and review each batch's work, and keep the run moving. You do not write the fixes yourself.
+
+SOURCES
+- docs/history/review-2026-09-27.md: the verified review, with evidence, repro scenarios and verifier corrections per finding.
+- docs/history/review-2026-09-27-batches.md: the work orders. Each "Batch N" block is one subagent's brief. Every decision in its table is settled; nothing there needs asking.
+Both live on origin/claude/code-feature-review-xy80ca and are not on main yet.
+
+SETUP (once)
+1. In this checkout, run git fetch origin. Stop and ask me if local main differs from origin/main, or if this checkout has uncommitted changes.
+2. Create the worktree: git worktree add -b review-fixes ../wt-builder-review main.
+3. In ../wt-builder-review, run git merge origin/claude/code-feature-review-xy80ca (a fast-forward if main has not moved), then npm ci.
+4. Take the baseline in the worktree: npm test, npm run typecheck and npm run test:e2e must all pass. If any fails, stop and tell me.
+From here on, every command and every edit happens in ../wt-builder-review, on branch review-fixes.
+
+HARD RULES (you and every subagent)
+- Never touch this live checkout's working tree.
+- Never run npm run deploy or launchctl, and never restart the service.
+- Never push. I merge and deploy.
+- Nothing writes to a live service: Pinboard, Micro.blog, Buttondown, GitHub, S3, OpenAI, Anthropic. The worktree has no .env; keep it that way.
+- The one live call allowed in the whole run is the read-only Micro.blog check in Batch 2 step 8, and you make it, not a subagent. Before spawning Batch 2, run a one-off script in /tmp that imports fetchSource from this checkout's src/server/integrations/microblog.ts, so it reads this checkout's .env. It prints only the number of items and the distinct post-status values, never a credential. Put the result in Batch 2's brief with: "the read-only check is done; do not call Micro.blog".
+- Each batch block's preamble says "Do not deploy. When the batch is green, tell me". In this run, "me" means you, the orchestrator. Subagents report to you and never wait for Jamie.
+- Commits match the repo's voice (see git log): a title that states what is now true, for example "A moved link is scrolled to, not selected"; a body that says why and names the review section. One fix per commit, each with the regression test that failed before it.
+- Never skip, disable or loosen a test to get green.
+- Never change fixtures/expected without the commit saying why the edition changed.
+
+ORDER
+Batches 0, 1, 2, 3, 4, 5, 6, 7, 8, then D, one at a time. They share files and the e2e database, so never run two at once.
+PHASE 2, features F1–F5: OFF. If I change this to ON, run F1 to F5 after D with the same loop.
+
+THE LOOP, per batch
+1. Record BASE=$(git rev-parse HEAD).
+2. Implement. Spawn a general-purpose subagent with this brief. Paste the hard rules above into it, and give it the worktree's absolute path. The brief:
+   "Work in <worktree> on branch review-fixes. Do Batch N from docs/history/review-2026-09-27-batches.md exactly, reading the review sections it cites. Before each fix, confirm the finding still holds and write the failing test. If an item cannot be done, or would change something docs/decisions.md or docs/interface-spec.md settles beyond the settled decisions in the batches file, skip it and say why. Leave the tree green: npm test and npm run typecheck always, and npm run test:e2e when you touched src/client or tests/e2e. Return, for every item, one of fixed / already fixed / skipped with a reason, with commit shas and titles, the tests added, the docs updated, and any question for Jamie."
+3. Gate it yourself: npm test, npm run typecheck and npm run test:e2e, and git status must be clean.
+4. Review. Spawn a fresh subagent, never the implementer, with this brief:
+   "Review git diff BASE..HEAD in <worktree> against Batch N and the review sections it cites. For each item:
+   (a) Does the change fix the root cause described, not just the symptom?
+   (b) Does its test fail without the fix? Check by reverting that fix in the working tree, running the test, then restoring.
+   (c) Does it keep AGENTS.md's rules? Anything that awaits the network applies its result through savedFresh. docs/status.md changes in the same commit as any route or send leg. fixtures/expected changes are explained. Thingy never appears as Jamie. Generation never writes into the issue.
+   Also look for regressions the batch introduced. Return BLOCKING findings and non-blocking notes, each with path:line."
+5. If anything blocks, send the findings back to the same implementer with SendMessage, so it keeps its context. Then repeat steps 3 and 4. Allow at most two rounds. If a finding still blocks after that:
+   - git revert only that item's commits (never reset);
+   - record it as needing Jamie;
+   - leave the tree green.
+6. Record the batch in docs/history/review-2026-09-27-batches.md. Strike its heading (~~…~~) and add one line under it: "Landed <date> on review-fixes: <first sha>..<last sha>. Skipped: …. Needs Jamie: …". Commit that.
+7. Tell me in two lines what landed. Then go straight on to the next batch; do not wait for me.
+
+AFTER D
+Spawn one more fresh reviewer over main..review-fixes. It looks only for interactions between batches: for example Batch 4's last_sent against Batch 2's write-back changes, and Batch 1's guard against every route and test. Handle anything it finds with the same fix loop.
+
+YOUR OWN CONTEXT
+Keep it small. Do not read whole diffs yourself; rely on the gate output and the reviewer's report. The batches file and the git log on review-fixes are the record. If this session is interrupted or resumed, read them and continue from the first batch not struck through.
+
+THE FINAL REPORT
+Give me one report with:
+- For each batch: what landed (the commit range), what was skipped and why, and every needs-Jamie item as a one-line question.
+- Every change to an edition's output (fixtures/expected), so I know what a re-sent page will show.
+- The merge and deploy steps, for me to run in this checkout:
+    git merge --ff-only review-fixes
+    npm ci
+    npm run deploy
+  npm ci is needed because Batch 3 adds js-yaml.
+- The smoke test after the deploy:
+  - load the app over the tailnet;
+  - open the draft;
+  - edit a Currently line and click away: it saves, and there is no 403 or 421 in ~/Library/Logs/wt-builder/wt-builder.log;
+  - Re-scan;
+  - open the Send view without sending;
+  - check the log once more for refused requests.
+  If a refusal shows up, WT_BUILDER_ALLOWED_HOSTS and WT_BUILDER_ALLOWED_ORIGINS in .env extend the lists without a code change.
+- Cleanup, once I have merged: git worktree remove ../wt-builder-review.
+- A reminder not to merge between Friday afternoon and the send.
+```
 
 ---
 
@@ -63,12 +149,13 @@ Rules for this batch:
 
 Batch 1: the service has no auth and relies on the tailnet. It must refuse what a browser sends on behalf of another site.
 
-0. Measure before enforcing. Log, temporarily and to the service log only, the Host, Origin and Sec-Fetch-Site headers of non-GET requests arriving (a) from Safari through Tailscale Serve at https://otto.tail09aaf9.ts.net:10001 and (b) through the Vite dev proxy. I will click something harmless so you can see them. Build the allow-lists from what actually arrives, then remove the logging.
+0. The allow-lists must not lock Jamie out after the deploy. Tailscale Serve may either pass the tailnet Host through or rewrite it to loopback, so accept both. Every refusal logs the header value it refused. An env var (WT_BUILDER_ALLOWED_HOSTS, WT_BUILDER_ALLOWED_ORIGINS, comma-separated) extends either list without a code change. The smoke test after the deploy: Jamie loads the app over the tailnet, edits one line, and the service log shows no refusal.
 1. Add one guard beside guardBed, before routing, for every method except GET and HEAD:
    - Refuse 403 when Sec-Fetch-Site is present and is neither same-origin nor none.
-   - Refuse 403 when Origin is present and is not in the allow-list.
+   - Refuse 403 when Origin is present and is not in the allow-list: https://otto.tail09aaf9.ts.net:10001, the Vite dev origins (http://localhost:5317 and http://127.0.0.1:5317), and the loopback origins on the configured port.
    - Requests with neither header (the scripts/, curl) pass.
-2. Add a Host allow-list that answers 421, checked before routing, covering loopback on the configured port, the tailnet name, and whatever the Vite proxy sends (it sets changeOrigin).
+   - "The configured port" means the port the server is actually listening on (server.address()), not config.port. routes.test.ts listens on port 0, and the e2e server on 4399.
+2. Add a Host allow-list that answers 421, checked before routing for every method. It covers localhost and 127.0.0.1 on the configured port, otto.tail09aaf9.ts.net and otto.tail09aaf9.ts.net:10001, and the loopback Host the Vite proxy sends (it sets changeOrigin). The 421 message names the Host it refused.
 3. Parse the request URL inside the try, against a fixed base: `new URL(req.url ?? '/', 'http://localhost')`. Log uncaughtException and unhandledRejection instead of exiting mid-send.
 4. DELETE /api/issues/:id. The client never calls it, and it drops the document and the event log. Make it refuse anything that is not an unsent draft. Keep its revisions, because they are the only recovery path. The route tests use it for cleanup, so keep that working.
 5. Add tests in tests/routes.test.ts:
@@ -106,7 +193,7 @@ Batch 2: nothing Jamie wrote, and nothing already published, can be silently rep
 5. If the compare-and-set read throws, write-back writes blind. Instead, do not write: return failed with "could not read the bookmark first — your edit is kept". Apply the same rule to the Micro.blog update.
 6. Promoting twice creates duplicate node ids and hides the post. Make promote idempotent.
 7. Restoring a removed section reclaims only its original items. In placeInto's orphan branch, stamp item.section. On restore, reclaim held items first, then every non-excluded orphan whose section matches.
-8. Micro.blog drafts. First run one read-only q=source GET against the account and tell me whether drafts appear and what post-status they carry. Then, either way, skip items whose post-status is present and not "published", in both the sweep and remoteIndex, with a test.
+8. Micro.blog drafts. Jamie does not use drafts, so this is insurance. Run one read-only q=source GET against the account, and report only how many items came back and which post-status values they carry. Never print a credential. Then, whatever it shows, skip items whose post-status is present and not "published", in both the sweep and remoteIndex, with a test.
 
 Add tests/pinboard-writeback.test.ts. Stub fetch and assert the exact posts/add parameters for a private, unread bookmark: shared=no and toread=yes survive, fresh flags win over stale ones, and the conflict, gone and failure paths behave. This is the private-bookmark failure that has happened once, and nothing tests it today. Update docs/status.md for any route added.
 ```
@@ -124,7 +211,7 @@ Rules for this batch:
 
 Batch 3: the editions are a contract. When an expected file changes, update fixtures/expected in the same commit and say why.
 
-1. Front matter breaks on ordinary titles. arXiv's "[2410.12345] …", and anything starting with " @ * ` ! & | { etc., fails in js-yaml, which is what Eleventy uses; the site build fails and blocks every later deploy. Emit string scalars through one function in publish.ts that returns JSON.stringify(value), or leaves a value bare only when it matches a conservative safe pattern. [Jamie decides which; ask if he hasn't.] Apply it to every scalar, including url, domain, section, subject, and the chapter title, url and image. Teach backfill.ts's front-matter reader to JSON-unescape double-quoted values. Add js-yaml as a devDependency and a table-driven test that parses archivePage, archiveMarkdown and the audio front matter for each indicator character.
+1. Front matter breaks on ordinary titles. arXiv's "[2410.12345] …", and anything starting with " @ * ` ! & | { etc., fails in js-yaml, which is what Eleventy uses; the site build fails and blocks every later deploy. Emit every string scalar through one function in publish.ts that returns JSON.stringify(value). Jamie settled on uniform quoting on 2026-09-28 and accepts the one-time churn. Apply it to every scalar, including url, domain, section, subject, and the chapter title, url and image. Teach backfill.ts's front-matter reader to JSON-unescape double-quoted values. Add js-yaml as a devDependency and a table-driven test that parses archivePage, archiveMarkdown and the audio front matter for each indicator character.
 2. HTML in a link title becomes markup. "Styling the <textarea> element" swallows the rest of the issue. In website.ts, escape external fields only: item.title, media.alt, media.location, and heading_context in publish.ts. Escape the Markdown link metacharacters \ [ ] * _ ` and turn < > into entities. Never escape Jamie's commentary or body. Add render tests with <textarea>, Array<T>, and an unbalanced ].
 3. The Journal lead welds structure onto the time link. Weld only when the first block is plain prose, not a quote, a list, a heading, or a lead-in line followed by a list. Otherwise emit the lead alone, then the blocks. Drop " — " when the body is empty. Demote post headings below the day headings. Add a render test for each shape. It is the same class as the WT351 fix.
 4. The first website send hotlinks newly rehosted images. It renders the copy it read before rehosting. Render from `savedFresh(id, d => applyRehost(d, mapping)).issue`, mirroring the Buttondown leg, and add a warn-level "no hotlinks" check to verifyWebsite. Add a route test with the integrations mocked: the committed page carries the CDN URL.
