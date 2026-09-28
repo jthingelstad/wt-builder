@@ -8,7 +8,12 @@
 import sharp from 'sharp';
 import { afterAll, afterEach, describe, expect, it, vi } from 'vitest';
 
-const h = vi.hoisted(() => ({ puts: [] as { Key?: string }[] }));
+const h = vi.hoisted(() => ({
+  puts: [] as { Key?: string }[],
+  heads: [] as { Key?: string }[],
+  /** Whether weekly-thing/{N}/cover.jpg is already in the bucket. */
+  bannerExists: true,
+}));
 
 vi.mock('@aws-sdk/client-s3', async (importOriginal) => {
   const real = await importOriginal<typeof import('@aws-sdk/client-s3')>();
@@ -16,6 +21,11 @@ vi.mock('@aws-sdk/client-s3', async (importOriginal) => {
     ...real,
     S3Client: class {
       async send(command: { input: { Key?: string } }) {
+        if (command instanceof real.HeadObjectCommand) {
+          h.heads.push(command.input);
+          if (h.bannerExists) return {};
+          throw Object.assign(new Error('NotFound'), { name: 'NotFound', $metadata: { httpStatusCode: 404 } });
+        }
         h.puts.push(command.input);
         return {};
       }
@@ -34,7 +44,7 @@ globalThis.fetch = (async (input: string | URL | Request) => {
   return answer();
 }) as typeof fetch;
 
-afterEach(() => { h.puts.length = 0; });
+afterEach(() => { h.puts.length = 0; h.heads.length = 0; h.bannerExists = true; });
 afterAll(() => { globalThis.fetch = realFetch; });
 
 const jpeg = () => sharp({ create: { width: 64, height: 48, channels: 3, background: '#336699' } }).jpeg().toBuffer();
@@ -45,7 +55,16 @@ describe('the live banner', () => {
     const cover = await buildCover({ number: 990, coverSource: PHOTO });
     expect(cover.source).toBe('show art');
     expect(cover.square.length).toBeGreaterThan(0);
+    expect(h.heads.map((p) => p.Key)).toEqual([bannerKey(990)]);
     expect(h.puts).toEqual([]);
+  });
+
+  it('is the show art when the photo cannot be fetched and there is no banner yet, so the page never points at nothing', async () => {
+    h.bannerExists = false;
+    answer = async () => new Response('gone', { status: 404 });
+    const cover = await buildCover({ number: 990, coverSource: PHOTO });
+    expect(cover.source).toBe('show art');
+    expect(h.puts.map((p) => p.Key)).toEqual([bannerKey(990)]);
   });
 
   it('is replaced from the photo when the photo was fetched', async () => {

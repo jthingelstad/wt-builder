@@ -18,7 +18,7 @@ import { readFile } from 'node:fs/promises';
 import { existsSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
 
-import { PutObjectCommand, S3Client } from '@aws-sdk/client-s3';
+import { HeadObjectCommand, PutObjectCommand, S3Client } from '@aws-sdk/client-s3';
 import sharp from 'sharp';
 
 import type { IssueDoc } from '../../shared/types.ts';
@@ -74,7 +74,7 @@ async function sourceBytes(url: string | null): Promise<{ bytes: Buffer; from: s
     if (res.ok) {
       return { bytes: Buffer.from(await res.arrayBuffer()), from: url, fallback: false };
     }
-    console.warn(`[cover] could not fetch ${url}: ${res.status}; falling back to show art, and leaving the live banner as it is`);
+    console.warn(`[cover] could not fetch ${url}: ${res.status}; falling back to show art, and leaving any live banner as it is`);
   }
   if (!existsSync(SHOW_ART)) {
     throw new Error(
@@ -115,6 +115,23 @@ export async function squareArt(bytes: Buffer, size = CHAPTER_ART_SIZE): Promise
     .toBuffer();
 }
 
+/**
+ * Whether the issue's banner is already in the bucket. Anything but a clear
+ * "not there" counts as there: the answer decides whether show art may be
+ * written over it, and the safe mistake is to leave it.
+ */
+async function bannerExists(s3: S3Client, issueNumber: number | string): Promise<boolean> {
+  try {
+    await s3.send(new HeadObjectCommand({ Bucket: CDN_HOST, Key: bannerKey(issueNumber) }));
+    return true;
+  } catch (err) {
+    const e = err as { name?: string; $metadata?: { httpStatusCode?: number } };
+    if (e.name === 'NotFound' || e.$metadata?.httpStatusCode === 404) return false;
+    console.warn(`[cover] could not tell whether ${bannerKey(issueNumber)} exists (${(err as Error).message}); leaving it`);
+    return true;
+  }
+}
+
 export async function buildCover(subject: CoverSubject, opts: { upload?: boolean } = {}): Promise<CoverResult> {
   const { bytes, from, fallback } = await sourceBytes(subject.coverSource);
 
@@ -144,9 +161,11 @@ export async function buildCover(subject: CoverSubject, opts: { upload?: boolean
   // A dry run of the audio must not touch the live banner: this once
   // replaced WT350's cover with the fixture's photo (2026-09-21). Nor must a
   // photo that failed to load: the show art stood in for it, and uploading
-  // that would put show art over the live banner — for a back-catalogue
-  // issue, over the very banner the photo URL points at (review 2026-09-27 §8).
-  if (opts.upload !== false && !fallback) await new S3Client({ region: config.awsRegion }).send(
+  // that would put show art over a real cover (review 2026-09-27 §8). Only
+  // when there is no banner yet does the show art go up, so the page and its
+  // social card never point at a missing cover.jpg.
+  const s3 = new S3Client({ region: config.awsRegion });
+  if (opts.upload !== false && (!fallback || !(await bannerExists(s3, subject.number)))) await s3.send(
     new PutObjectCommand({
       Bucket: CDN_HOST,
       Key: bannerKey(subject.number),
