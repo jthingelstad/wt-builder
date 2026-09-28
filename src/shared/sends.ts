@@ -16,3 +16,14 @@ export function lastSent(state: SendState | undefined): SentRecord | undefined {
   }
   return state.last_sent;
 }
+
+/**
+ * The episode the website page would embed, when there is one: the audio
+ * the podcast leg last delivered. What the website leg waits for — not the
+ * podcast's status, which a failed re-render turns to `failed` while the
+ * last episode is still on the CDN (review 2026-09-27 §2.1).
+ */
+export function recordedAudioUrl(sends: Partial<Record<string, SendState>> | undefined): string | undefined {
+  const url = lastSent(sends?.podcast)?.audio?.audio_url;
+  return typeof url === 'string' && url ? url : undefined;
+}

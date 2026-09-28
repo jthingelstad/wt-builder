@@ -244,3 +244,52 @@ describe('the email links the last good episode', () => {
     expect(otherWaysLine(doc)).toContain('[Listen to it](https://files.thingelstad.com/weekly-thing/audio/wt351.mp3)');
   });
 });
+
+describe('the website waits for an audio reference, not for a podcast status', () => {
+  it('a failed podcast re-render does not block a website re-send: the last good audio is embedded', async () => {
+    const id = issue(990411);
+    expect((await send(id, 'podcast')).status).toBe(200);
+    const mp3 = legOf(id, 'podcast')!.url!;
+    h.renderFails = new Error('chapter art did not load');
+    expect((await send(id, 'podcast')).status).toBe(502);
+
+    const res = await send(id, 'website');
+    expect(res.status).toBe(200);
+    expect(pageOf(h.committed.at(-1)!)).toContain(mp3);
+    store.deleteIssue(id);
+  });
+
+  it('a podcast that never ran is refused as not run, with force=1 offered', async () => {
+    const id = issue(990412);
+    const res = await send(id, 'website');
+    expect(res.status).toBe(409);
+    expect(res.body.error).toContain('has not run');
+    expect(res.body.error).toContain('force=1');
+    expect(h.committed).toHaveLength(0);
+    store.deleteIssue(id);
+  });
+
+  it('a podcast that ran and failed with no audio yet is refused as failed, not as "has not run"', async () => {
+    const id = issue(990413);
+    h.renderFails = new Error('OpenAI speech failed: 500');
+    expect((await send(id, 'podcast')).status).toBe(502);
+    const res = await send(id, 'website');
+    expect(res.status).toBe(409);
+    expect(res.body.error).not.toContain('has not run');
+    expect(res.body.error).toContain('OpenAI speech failed: 500');
+    expect(h.committed).toHaveLength(0);
+    store.deleteIssue(id);
+  });
+});
+
+describe('the website refusal says what the podcast leg did', () => {
+  it('a podcast recorded as sent with no audio record is not called "not run"', async () => {
+    const id = issue(990414);
+    store.recordSend(id, 'podcast', { status: 'sent', at: minutesAgo(60), url: 'https://files.thingelstad.com/x.mp3' });
+    const res = await send(id, 'website');
+    expect(res.status).toBe(409);
+    expect(res.body.error).not.toContain('has not run');
+    expect(res.body.error).toContain('no audio reference');
+    store.deleteIssue(id);
+  });
+});

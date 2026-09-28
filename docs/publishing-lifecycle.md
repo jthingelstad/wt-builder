@@ -60,8 +60,12 @@ says what finishing it means, and jumps to the item.
 
 **Podcast → Website → Buttondown.** The website handoff publishes an audio
 *reference*, so the podcast has to have produced a file for that reference to
-resolve. The dependency is **stated, not enforced**: the Website card carries a
-blocker strip and nothing prevents sending out of order.
+resolve. The server enforces it: a website send is refused (409) until an audio
+reference is recorded — the podcast's last good send, so a failed re-render
+does not block a re-send, and the page keeps the episode that is on the CDN.
+The refusal says what the podcast leg did (not run, failed, still sending).
+`?force=1` is the escape for an issue with no audio, and is offered only when
+there is none. The Website card's blocker strip shows the same condition.
 
 | Leg | Ends at | Evidence |
 | --- | --- | --- |

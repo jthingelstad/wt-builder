@@ -32,3 +32,18 @@ test('a failed leg names its last good send', async ({ page }) => {
   await expect(card(page, 'Archive').locator('.sc-pill').first()).toHaveText('DID NOT SEND');
   await expect(card(page, 'Archive').locator('.sc-last-good')).toHaveCount(0);
 });
+
+test('the website card waits for an audio reference, not a podcast status', async ({ page }) => {
+  const audio = { audio_url: 'https://files.thingelstad.com/weekly-thing/audio/wt350.mp3' };
+  store.recordSend(ISSUE, 'podcast', { status: 'sent', at: '2026-09-26T13:00:00Z', url: audio.audio_url, audio });
+  store.recordSend(ISSUE, 'podcast', { status: 'failed', at: '2026-09-27T13:00:00Z', error: 'chapter art did not load' });
+
+  await page.goto(`/${ISSUE}/send`);
+  await expect(card(page, 'Podcast').locator('.sc-pill').first()).toHaveText('DID NOT SEND');
+  // The last episode is still on the CDN, and the server will embed it.
+  await expect(card(page, 'Website').locator('.sc-blocker')).toHaveCount(0);
+
+  reset();
+  await page.reload();
+  await expect(card(page, 'Website').locator('.sc-blocker')).toContainText('podcast runs first');
+});

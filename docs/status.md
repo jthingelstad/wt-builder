@@ -46,8 +46,11 @@ finished, what is half-finished, and what has never run.
   from files.thingelstad.com, and the "Photo placed" checklist item flipped.
 - **Send view** — Podcast, Website, Buttondown in run order, the audio gate,
   real per-step evidence. As of 2026-08-30 the ordering blocker is enforced,
-  not stated: the server refuses a website send until the podcast has run
-  (`?force=1` is the deliberate escape for an issue with no audio), and every
+  not stated: the server refuses a website send until an audio reference is
+  recorded — the podcast's last good send, so a failed re-render does not
+  block a re-send (2026-09-28, review 2026-09-27 §2.1); the 409 says whether
+  the podcast has not run, failed, or is still sending, and offers
+  `?force=1`, the deliberate escape for an issue with no audio, only then — and every
   leg refuses a second POST while one is in flight — a `sending` older than
   ten minutes is treated as a crash strand and passes so the leg can retry.
 - **A failed leg keeps its last good send** (2026-09-28) — every leg's

@@ -3,9 +3,9 @@
  *
  * Four destinations in run order: Podcast, Website, Buttondown, Archive. The order is
  * the point. The website handoff publishes an audio reference, so the podcast
- * has to have produced a file for that reference to resolve. That dependency is
- * **stated, not enforced** — Jamie can send in any order and take the
- * consequence knowingly.
+ * has to have produced a file for that reference to resolve. The server
+ * enforces it: a website send is refused until an audio reference is recorded
+ * (the podcast's last good send), and the Website card's blocker says so.
  *
  * Every state here is real. Nothing is drawn: a step shows done only when the
  * send came back with the evidence that step produces.
@@ -14,7 +14,7 @@
 import { useEffect, useState } from 'preact/hooks';
 
 import type { Destination, IssueDoc, ScriptReview, SendState, SentRecord, Verification } from '../../shared/types.ts';
-import { lastSent } from '../../shared/sends.ts';
+import { lastSent, recordedAudioUrl } from '../../shared/sends.ts';
 import { audioScript } from '../../shared/render/audio.ts';
 import { duration, type IssueTiming } from '../../shared/timing.ts';
 import { api, type Readiness, type SendResult } from '../api.ts';
@@ -48,8 +48,8 @@ interface Card {
   verb: string;
   again: string;
   steps: Step[];
-  /** A dependency that is stated rather than enforced. */
-  blocker?: (sent: Partial<Record<Destination, boolean>>) => string | null;
+  /** A dependency on another leg, shown until it is met. */
+  blocker?: (sent: Partial<Record<Destination, boolean>>, doc: IssueDoc) => string | null;
 }
 
 const bytes = (n?: number) => (n ? `${(n / 1_048_576).toFixed(1)} MB` : undefined);
@@ -100,7 +100,9 @@ const CARDS: Card[] = [
     ends: 'Commits the generated inputs to the render surface, which builds and deploys them.',
     verb: 'Commit',
     again: 'Re-commit',
-    blocker: (sent) => (sent.podcast
+    // An audio reference recorded, not a podcast status: a failed re-render
+    // leaves the last episode in place, and the page keeps embedding it.
+    blocker: (_sent, doc) => (recordedAudioUrl(doc.sends)
       ? null
       : 'The page embeds the podcast’s audio reference, so the podcast runs first. The server refuses a commit without it.'),
     steps: [
@@ -298,7 +300,7 @@ export function Send({ doc, readiness, error, onBack, onSent, onError }: Props) 
             state={running === card.key ? 'sending' : stateOf(card.key)}
             send={doc.sends?.[card.key]}
             result={results[card.key]}
-            blocker={card.blocker?.(sentMap) ?? null}
+            blocker={card.blocker?.(sentMap, doc) ?? null}
             gated={card.key === 'podcast' && !approved}
             busy={Boolean(running) || Boolean(doc.issue.put_to_bed_at)}
             onApprove={approveScript}

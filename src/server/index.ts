@@ -20,7 +20,7 @@ import { fileURLToPath } from 'node:url';
 
 import type { ArchiveReference, Channel, Destination, IssueDoc, Item, SendState, Verification } from '../shared/types.ts';
 import { render } from '../shared/render/index.ts';
-import { lastSent } from '../shared/sends.ts';
+import { lastSent, recordedAudioUrl } from '../shared/sends.ts';
 import { renderEmail } from '../shared/render/email.ts';
 import { config, describeConfig } from './config.ts';
 import * as edge from './edge.ts';
@@ -1253,6 +1253,21 @@ function websiteOptions(doc: IssueDoc, currentEmails: IssueEntry[]) {
   };
 }
 
+/** Why the website cannot embed an episode yet, saying what the podcast leg actually did. */
+function noAudioYet(podcast: SendState | undefined): string {
+  const escape = 'Send the podcast first, or POST ?force=1 to ship without audio.';
+  if (lastSent(podcast)) {
+    return `the podcast leg's last send recorded no audio reference for the page. ${escape}`;
+  }
+  if (podcast?.status === 'failed') {
+    return `the podcast leg ran and failed, so there is no audio to embed yet (${podcast.error ?? 'no error recorded'}). ${escape}`;
+  }
+  if (podcast?.status === 'sending') {
+    return 'the podcast leg is still sending — the page embeds its audio, so wait for it to finish.';
+  }
+  return `the podcast leg has not run — its audio reference belongs in the page. ${escape}`;
+}
+
 /**
  * Commit the generated 11ty inputs to the render surface as one commit. The
  * site builds and deploys from there; nothing here touches the live site.
@@ -1262,10 +1277,14 @@ async function sendWebsite(id: string, force = false) {
   guardInFlight(doc, 'website');
   // The website page embeds the podcast's audio reference; committed without
   // it, the issue ships to readers with no episode and a green SENT. The
-  // client says the podcast should run first — this makes it true. `?force=1`
-  // is the deliberate escape for an issue that really has no audio.
-  if (!force && doc.sends?.podcast?.status !== 'sent') {
-    throw new HttpError(409, 'the podcast leg has not run — its audio reference belongs in the page. Send the podcast first, or POST ?force=1 to ship without audio.');
+  // client says the podcast should run first — this makes it true. The gate
+  // is "an audio reference is recorded", not the podcast's status: a failed
+  // re-render leaves the last episode on the CDN and in last_sent, and the
+  // page keeps embedding it (review 2026-09-27 §2.1). `?force=1` is the
+  // deliberate escape for an issue that really has no audio, and is offered
+  // only then.
+  if (!force && !recordedAudioUrl(doc.sends)) {
+    throw new HttpError(409, noAudioYet(doc.sends?.podcast));
   }
   // Read the merge base before recording anything: a failure here refuses
   // the send outright instead of stranding a 'sending' state.
