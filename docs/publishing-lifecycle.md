@@ -78,7 +78,8 @@ issue's entry merged in. The merge is made against the file as it stands when
 the commit is made — re-read and re-merged if the ref update loses a race — so a
 commit that lands on the site meanwhile (the back catalogue's audio records) is
 kept, never overwritten by an earlier read. A missing, unparseable or truncated
-index refuses the leg.
+index refuses the leg; truncated means fewer entries than the last published
+issue's number (never under the pre-Builder archive's 349).
 
 Before it changes an existing email, the Buttondown leg asks Buttondown what the
 email is. `draft` or `scheduled`: it is updated, as always. `about_to_send` or

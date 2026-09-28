@@ -165,8 +165,10 @@ finished, what is half-finished, and what has never run.
 - **emails.json is merged, never rebuilt** (2026-08-31) — the website leg
   reads the site's live emails.json first and preserves every entry verbatim
   (unknown fields included), replacing only the issue being sent. It refuses
-  the send when the file is missing, unparseable, or below the 349 entries
-  the archive is known to hold. This closes the accidental-send finding: the
+  the send when the file is missing, unparseable, or below the entries the
+  archive is known to hold — since 2026-09-28 the last published issue's
+  number (never under 349), not a fixed 349 that weakened every week
+  (review 2026-09-27 §8). This closes the accidental-send finding: the
   index was once rebuilt from the Builder's sparser records, gutting 104k
   lines to 10k (commit 91688fc7, reverted). Since 2026-09-28 the merge
   happens inside the commit (`editTree`): the file is read, checked and

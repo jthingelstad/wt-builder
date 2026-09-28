@@ -1281,9 +1281,15 @@ const routes: [RegExp, string, (ctx: Ctx, params: string[]) => Promise<unknown>]
 /**
  * The site's own archive can only grow. A parsed emails.json below this floor
  * means a truncated or wrong file, and merging into one would re-lose the
- * archive the 2026-08-30 revert restored — refuse instead.
+ * archive the 2026-08-30 revert restored — refuse instead. The floor is the
+ * last published issue, since every issue before it has an entry (numbered
+ * 1 on, no gaps), and never below the 349 the pre-Builder archive holds: a
+ * fixed 349 weakened by one issue every week (review 2026-09-27 §8).
  */
-const MIN_ARCHIVE_ENTRIES = 349;
+const PREBUILDER_ARCHIVE_ENTRIES = 349;
+function archiveFloor(): number {
+  return Math.max(PREBUILDER_ARCHIVE_ENTRIES, store.lastPublishedNumber());
+}
 
 const SITE_EMAILS = 'apps/site/_data/emails.json';
 
@@ -1304,8 +1310,9 @@ function parseSiteEmails(raw: string | null): IssueEntry[] {
   } catch {
     throw new HttpError(502, "the site's emails.json did not parse — refusing to rewrite the index blind");
   }
-  if (!Array.isArray(parsed) || parsed.length < MIN_ARCHIVE_ENTRIES) {
-    throw new HttpError(502, `the site's emails.json has ${Array.isArray(parsed) ? parsed.length : 'no'} entries, below the ${MIN_ARCHIVE_ENTRIES} the archive is known to hold — refusing to merge into a truncated index`);
+  const floor = archiveFloor();
+  if (!Array.isArray(parsed) || parsed.length < floor) {
+    throw new HttpError(502, `the site's emails.json has ${Array.isArray(parsed) ? parsed.length : 'no'} entries, below the ${floor} the archive is known to hold — refusing to merge into a truncated index`);
   }
   return parsed as IssueEntry[];
 }

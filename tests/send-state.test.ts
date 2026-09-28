@@ -595,3 +595,30 @@ describe('the website leg merges emails.json as it stands when the commit lands'
     store.deleteIssue(id);
   });
 });
+
+describe('the emails.json floor follows the archive', () => {
+  const archive = (n: number) => JSON.stringify(Array.from({ length: n }, (_, i) => ({ number: i + 1, subject: `WT${i + 1}` })));
+
+  it('an index shorter than the last published issue is refused, one that holds it is merged', async () => {
+    // WT360 went out: the site's index has held 360 issues since.
+    const published = issue(360);
+    const doc = store.getIssue(published)!.doc;
+    doc.issue.status = 'published';
+    store.saveIssue(doc);
+    expect(store.lastPublishedNumber()).toBe(360);
+
+    const id = issue(990471);
+    store.recordSend(id, 'podcast', { status: 'sent', at: new Date().toISOString(), audio: { audio_url: 'https://files.thingelstad.com/a.mp3' } });
+    // Above the old fixed floor of 349, but eleven issues short.
+    h.siteEmails = archive(355);
+    const refused = await send(id, 'website');
+    expect(refused.status).toBe(502);
+    expect(refused.body.error).toMatch(/355 entries, below the 360/);
+    expect(h.committed).toHaveLength(0);
+
+    h.siteEmails = archive(360);
+    expect((await send(id, 'website')).status).toBe(200);
+    store.deleteIssue(id);
+    store.deleteIssue(published);
+  });
+});
