@@ -229,7 +229,9 @@ Batch 3: the editions are a contract. When an expected file changes, update fixt
    - Frame Quote items in audio as quotes, and render their attribution.
 ```
 
-## Batch 4 — Send state that survives failure (§2.1, §2.3, features #1, #5, #7)
+## ~~Batch 4 — Send state that survives failure (§2.1, §2.3, features #1, #5, #7)~~
+
+Landed 2026-09-28 on review-fixes: a64d736..2df94a9. Skipped: website verify reading GitHub check runs (needs a live call to confirm the PAT has Checks: read). Needs Jamie: does the PAT have Checks: read? Refuse Buttondown statuses other than draft/scheduled/sent/about_to_send/in_flight? Exempt a podcast with a last good send from re-approval?
 
 ```text
 Read docs/history/review-2026-09-27.md §2.1 and §2.3, and features #1, #5 and #7 in §8, first. It is a verified review taken at 06b237f. Line numbers have drifted, so find code by symbol. Before fixing anything, confirm the finding still holds.
