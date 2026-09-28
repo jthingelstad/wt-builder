@@ -389,7 +389,7 @@ export function Editor({ doc, readiness, busy, error, run, onIndex, onSend, onEr
             doc={doc}
             selected={selected}
             onSelect={jump}
-            onSettings={(patch) => void run(() => api.settings(id, patch))}
+            onSettings={(patch) => run(() => api.settings(id, patch))}
             onMove={(nodeId, delta) => void run(() => api.moveNode(id, nodeId, delta))}
             onRemove={(nodeId) => void run(() => api.removeNode(id, nodeId))}
             onAdd={(spec) => void run(() => api.addNode(id, spec))}
@@ -522,6 +522,10 @@ export function Editor({ doc, readiness, busy, error, run, onIndex, onSend, onEr
 
         {inspecting ? (
           <Inspector
+            // One instance per item: reused, a field whose next item had the
+            // same saved text (two empty commentaries) kept the first item's
+            // typing and a blur saved it onto the second (Batch 5 review, B1).
+            key={inspecting}
             doc={doc}
             itemId={inspecting}
             run={runEdit}

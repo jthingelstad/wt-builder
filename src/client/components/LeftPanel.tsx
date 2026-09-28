@@ -21,7 +21,8 @@ interface Props {
   doc: IssueDoc;
   selected: string | null;
   onSelect: (anchor: string) => void;
-  onSettings: (patch: Record<string, unknown>) => void;
+  /** Resolves to whether the change was saved. */
+  onSettings: (patch: Record<string, unknown>) => Promise<boolean>;
   onMove: (nodeId: string, delta: number) => void;
   onRemove: (nodeId: string) => void;
   onAdd: (spec: { type: string; label: string; id?: string }) => void;
@@ -184,7 +185,7 @@ function MetaEditor({
   doc, onSettings, onSweep, sweeping,
 }: {
   doc: IssueDoc;
-  onSettings: (p: Record<string, unknown>) => void;
+  onSettings: (p: Record<string, unknown>) => Promise<boolean>;
   onSweep: () => void;
   sweeping: boolean;
 }) {
@@ -197,9 +198,9 @@ function MetaEditor({
         <span class="mono-label">ISSUE NUMBER</span>
         <Input
           type="number" class="num" value={doc.issue.number}
-          onBlur={(e) => {
-            const n = Number((e.target as HTMLInputElement).value);
-            if (n && n !== doc.issue.number) onSettings({ number: n });
+          onCommit={(text) => {
+            const n = Number(text);
+            return n && n !== doc.issue.number ? onSettings({ number: n }) : undefined;
           }}
         />
       </label>
@@ -238,9 +239,9 @@ function MetaEditor({
           <Input
             type="number" class="num small" value={doc.issue.window_days}
             aria-label="Days back from Friday"
-            onBlur={(e) => {
-              const d = Number((e.target as HTMLInputElement).value);
-              if (d && d !== doc.issue.window_days) onSettings({ window_days: d });
+            onCommit={(text) => {
+              const d = Number(text);
+              return d && d !== doc.issue.window_days ? onSettings({ window_days: d }) : undefined;
             }}
           />
         </div>

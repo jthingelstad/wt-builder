@@ -35,9 +35,9 @@ function syncLine(state: string, source: string): string {
  * lines of a twelve-paragraph post, which made the inspector useless for the
  * one thing "Show me" brought you there to do (Jamie, 2026-09-20).
  */
-function GrowingTextarea(props: { id: string; value: string; onBlur: (e: FocusEvent) => void }) {
+function GrowingTextarea(props: { id: string; value: string; onCommit: (text: string) => unknown }) {
   // Uncontrolled while focused: a save landing mid-sentence re-renders this.
-  const ref = useFieldValue<HTMLTextAreaElement>(props.value);
+  const { ref, settle } = useFieldValue<HTMLTextAreaElement>(props.value);
   const fit = () => {
     const el = ref.current;
     if (!el) return;
@@ -52,7 +52,7 @@ function GrowingTextarea(props: { id: string; value: string; onBlur: (e: FocusEv
       class="growing"
       defaultValue={props.value}
       onInput={fit}
-      onBlur={props.onBlur}
+      onBlur={(e) => settle(props.onCommit(e.currentTarget.value))}
     />
   );
 }
@@ -139,7 +139,7 @@ export function Inspector({ doc, itemId, run, onClose, onError, onBackToReview }
           <Input
             id={`${prefix}-title`}
             value={item.title ?? ''}
-            onBlur={(e) => commitField('title', (e.target as HTMLInputElement).value)}
+            onCommit={(text) => commitField('title', text)}
           />
         </div>
       )}
@@ -150,7 +150,7 @@ export function Inspector({ doc, itemId, run, onClose, onError, onBackToReview }
           <Input
             id={`${prefix}-label`}
             value={item.label ?? ''}
-            onBlur={(e) => commitField('label', (e.target as HTMLInputElement).value)}
+            onCommit={(text) => commitField('label', text)}
           />
         </div>
       )}
@@ -164,7 +164,7 @@ export function Inspector({ doc, itemId, run, onClose, onError, onBackToReview }
             <GrowingTextarea
               id={`${prefix}-commentary`}
               value={item.commentary ?? ''}
-              onBlur={(e) => commitField('commentary', (e.target as HTMLTextAreaElement).value)}
+              onCommit={(text) => commitField('commentary', text)}
             />
           </div>
           <div class="field">
@@ -172,12 +172,12 @@ export function Inspector({ doc, itemId, run, onClose, onError, onBackToReview }
             <Input
               id={`${prefix}-tags`}
               value={(item.tags ?? []).join(', ')}
-              onBlur={(e) => {
-                const tags = (e.target as HTMLInputElement).value
+              onCommit={(text) => {
+                const tags = text
                   .split(',')
                   .map((tag) => tag.trim())
                   .filter(Boolean);
-                if (tags.join('\n') !== (item.tags ?? []).join('\n')) void commit({ tags });
+                return tags.join('\n') !== (item.tags ?? []).join('\n') ? commit({ tags }) : undefined;
               }}
             />
           </div>
@@ -188,7 +188,7 @@ export function Inspector({ doc, itemId, run, onClose, onError, onBackToReview }
           <GrowingTextarea
             id={`${prefix}-body`}
             value={String(item.body ?? '')}
-            onBlur={(e) => commitField('body', (e.target as HTMLTextAreaElement).value)}
+            onCommit={(text) => commitField('body', text)}
           />
         </div>
       )}
@@ -200,7 +200,7 @@ export function Inspector({ doc, itemId, run, onClose, onError, onBackToReview }
             id={`${prefix}-ask`}
             value={item.ask ?? ''}
             placeholder="The question under the thread; empty prints no door"
-            onBlur={(e) => commitField('ask', (e.target as HTMLInputElement).value)}
+            onCommit={(text) => commitField('ask', text)}
           />
         </div>
       )}
@@ -316,7 +316,7 @@ function PhotoFields({
 }: {
   item: Item;
   prefix: string;
-  commit: (field: string, value: string) => void;
+  commit: (field: string, value: string) => unknown;
 }) {
   const fields: { key: keyof NonNullable<Item['media']>; label: string; type?: string }[] = [
     { key: 'url', label: 'Image URL', type: 'url' },
@@ -334,7 +334,7 @@ function PhotoFields({
             id={`${prefix}-${field.key}`}
             type={field.type ?? 'text'}
             value={item.media?.[field.key] ?? ''}
-            onBlur={(e) => commit(field.key, (e.target as HTMLInputElement).value)}
+            onCommit={(text) => commit(field.key, text)}
           />
         </div>
       ))}

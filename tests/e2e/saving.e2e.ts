@@ -175,3 +175,43 @@ test('an inspector save that goes through clears the error its own failure put u
   expect(item('currently-building').label).toBe('Making it');
   await expect(page.locator('.error-bar')).toHaveCount(0);
 });
+
+// The inspector is one instance reused from item to item, and a field
+// followed a change of value only. Two items with the same saved text (both
+// commentaries empty) meant no change, so the first item's typing stayed in
+// the field and a click in and out saved it onto the second (Batch 5
+// review, B1).
+test("an inspector field never carries one item's typing to the next", async ({ page }) => {
+  const doc = store.getIssue(ISSUE)!.doc;
+  doc.items['link-flipcash']!.commentary = '';
+  store.saveIssue(doc);
+  await open(page);
+
+  let panel = await inspect(page, 'link-functions');
+  await panel.locator('#item-link-functions-commentary').click();
+  await page.keyboard.type('Bleed text');
+  panel = await inspect(page, 'link-flipcash');
+  for (let i = 0; i < 50 && item('link-functions').commentary !== 'Bleed text'; i++) await page.waitForTimeout(100);
+
+  const notes = panel.locator('#item-link-flipcash-commentary');
+  await expect(notes).toHaveValue('');
+  await notes.click();
+  await panel.locator('h3').first().click();
+  await page.waitForTimeout(500);
+  expect(item('link-flipcash').commentary).toBe('');
+  expect(item('link-functions').commentary).toBe('Bleed text');
+});
+
+// A value the server changes while the field has focus — a date snapped to
+// its Saturday — shows once the field lets go.
+test('a date the server snaps shows as snapped once the field loses focus', async ({ page }) => {
+  await open(page);
+  await page.locator('.left-panel .panel-head').getByRole('button', { name: 'Edit' }).click();
+  const date = page.locator('.left-panel input[type="date"]');
+  await date.fill('2026-10-07');
+  for (let i = 0; i < 50 && store.getIssue(ISSUE)!.doc.issue.publication_date !== '2026-10-10'; i++) await page.waitForTimeout(100);
+  expect(store.getIssue(ISSUE)!.doc.issue.publication_date).toBe('2026-10-10');
+  await page.locator('.left-panel .mono-label').first().click();
+  await expect(date).not.toBeFocused();
+  await expect(date).toHaveValue('2026-10-10');
+});
