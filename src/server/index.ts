@@ -20,6 +20,7 @@ import { fileURLToPath } from 'node:url';
 
 import type { ArchiveReference, Channel, Destination, IssueDoc, Item, SendState, Verification } from '../shared/types.ts';
 import { render } from '../shared/render/index.ts';
+import { lastSent } from '../shared/sends.ts';
 import { renderEmail } from '../shared/render/email.ts';
 import { config, describeConfig } from './config.ts';
 import * as edge from './edge.ts';
@@ -1029,11 +1030,7 @@ const routes: [RegExp, string, (ctx: Ctx, params: string[]) => Promise<unknown>]
    */
   [/^\/api\/issues\/([^/]+)\/send\/archive\/preview$/, 'GET', async (_ctx, [id]) => {
     const doc = requireIssue(id!);
-    const sends = doc.sends ?? {};
-    const files = archiveInputs(doc, {
-      buttondownId: sends.buttondown?.external_id,
-      absoluteUrl: sends.buttondown?.url,
-    });
+    const files = archiveInputs(doc, emailRecord(doc));
     const result = await githubRepo.diff(files, {
       repo: config.archiveRepo,
       branch: config.archiveBranch,
@@ -1157,16 +1154,21 @@ const routes: [RegExp, string, (ctx: Ctx, params: string[]) => Promise<unknown>]
     // rewritten URLs must be in the document before the body is rendered.
     const { report: images, mapping } = await rehostIssueImages(requireIssue(id!));
     const doc = savedFresh(id!, (d) => applyRehost(d, mapping)).issue;
+    // The draft this leg made last, read through any failed or cut-off
+    // attempt since: a retry updates it and never creates a second draft
+    // (review 2026-09-27 §2.1). A failed state from before last_sent carried
+    // the id on itself.
     const previous = doc.sends?.buttondown;
+    const draftId = lastSent(previous)?.external_id ?? previous?.external_id;
     // The email's subject is the issue's, "WT350 — Title", not the bare title,
     // with any template tag in it broken the way the body's are.
     const subject = emailSubject(doc);
     const body = renderEmail(doc);
 
-    store.recordSend(id!, destination, { status: 'sending', at: new Date().toISOString() });
+    store.recordSend(id!, destination, { status: 'sending', at: new Date().toISOString(), external_id: draftId });
     try {
-      const draft = previous?.external_id
-        ? await buttondown.updateDraft(previous.external_id, subject, body)
+      const draft = draftId
+        ? await buttondown.updateDraft(draftId, subject, body)
         : await buttondown.createDraft(subject, body);
       const state: SendState = {
         status: 'sent',
@@ -1184,7 +1186,7 @@ const routes: [RegExp, string, (ctx: Ctx, params: string[]) => Promise<unknown>]
         status: 'failed',
         at: new Date().toISOString(),
         error: (err as Error).message,
-        external_id: previous?.external_id,
+        external_id: draftId,
       };
       store.recordSend(id!, destination, state);
       store.logEvent(id!, 'send', `Send failed — buttondown: ${state.error}`);
@@ -1195,10 +1197,6 @@ const routes: [RegExp, string, (ctx: Ctx, params: string[]) => Promise<unknown>]
 
 
 // ── send legs ─────────────────────────────────────────────────────────────
-
-interface PodcastSend extends SendState {
-  audio?: Record<string, unknown>;
-}
 
 /**
  * The site's own archive can only grow. A parsed emails.json below this floor
@@ -1233,13 +1231,24 @@ async function currentSiteEmails(): Promise<IssueEntry[]> {
   return parsed as IssueEntry[];
 }
 
+/**
+ * The email's id and archive URL as the page and the archive record them:
+ * from Buttondown's last good send, so a failing update does not drop them.
+ */
+function emailRecord(doc: IssueDoc): { buttondownId?: string; absoluteUrl?: string } {
+  const email = lastSent(doc.sends?.buttondown);
+  return { buttondownId: email?.external_id, absoluteUrl: email?.url };
+}
+
+/**
+ * What the page embeds besides the issue. The audio is the podcast's last
+ * good send: a failed re-render must not take the episode off the page and
+ * out of the feed (review 2026-09-27 §2.1).
+ */
 function websiteOptions(doc: IssueDoc, currentEmails: IssueEntry[]) {
-  const sends = doc.sends ?? {};
-  const podcast = sends.podcast as PodcastSend | undefined;
   return {
-    buttondownId: sends.buttondown?.external_id,
-    absoluteUrl: sends.buttondown?.url,
-    audio: podcast?.audio as never,
+    ...emailRecord(doc),
+    audio: lastSent(doc.sends?.podcast)?.audio as never,
     currentEmails,
   };
 }
@@ -1320,7 +1329,7 @@ async function sendPodcast(id: string) {
     // Blocks, not a flat script: each is synthesized in its speaker's voice
     // and placed with the pause its boundary calls for.
     const result = await audio.renderAudio(audio.episodeOf(doc), audioScript(doc));
-    const state: PodcastSend = {
+    const state: SendState = {
       status: 'sent',
       at: new Date().toISOString(),
       external_id: result.url,
@@ -1359,11 +1368,7 @@ async function sendArchive(id: string) {
   guardInFlight(doc, 'archive');
   store.recordSend(id, 'archive', { status: 'sending', at: new Date().toISOString() });
   try {
-    const sends = doc.sends ?? {};
-    const files = archiveInputs(doc, {
-      buttondownId: sends.buttondown?.external_id,
-      absoluteUrl: sends.buttondown?.url,
-    });
+    const files = archiveInputs(doc, emailRecord(doc));
     const result = await githubRepo.putTree(
       files,
       `Archive issue ${doc.issue.number} from WT Builder`,

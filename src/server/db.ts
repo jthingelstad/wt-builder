@@ -13,6 +13,7 @@ import { basename, dirname, join, resolve } from 'node:path';
 
 import type { Destination, IssueDoc, SendState, Verification } from '../shared/types.ts';
 import { SCHEMA_VERSION } from '../shared/types.ts';
+import { lastSent } from '../shared/sends.ts';
 import { config, LIVE_DB_PATH, OFFLINE } from './config.ts';
 
 export interface IssueRow {
@@ -318,10 +319,22 @@ export function listRevisions(issueId: string, limit = REVISIONS_KEPT): Revision
     .map((r) => ({ id: r.id, saved_at: r.saved_at, doc: JSON.parse(r.doc) as IssueDoc }));
 }
 
-/** Record one destination's send state without rewriting the whole document. */
+/**
+ * Record one destination's send state without rewriting the whole document.
+ *
+ * A leg's last success rides along through `sending` and `failed` as
+ * `last_sent`, taken from the state as it stands now (this function reads
+ * fresh and writes without yielding, like savedFresh): a failed podcast
+ * re-render once erased the episode's audio record, and a `sending`
+ * Buttondown leg lost its draft id (review 2026-09-27 §2.1). One place,
+ * so all four legs keep it. A `sent` state is its own last good send.
+ */
 export function recordSend(id: string, destination: Destination, state: SendState): IssueRow | null {
   const row = getIssue(id);
   if (!row) return null;
+  const carried = state.status === 'sent' ? undefined : (state.last_sent ?? lastSent(row.doc.sends?.[destination]));
+  const { last_sent: _given, ...rest } = state;
+  state = carried ? { ...rest, last_sent: carried } : rest;
   row.doc.sends = { ...(row.doc.sends ?? {}), [destination]: state };
 
   // Published is derived, never clicked: the moment both reader-facing text

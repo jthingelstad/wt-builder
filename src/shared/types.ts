@@ -216,7 +216,21 @@ export interface SendState {
   /** Where to open it to act on it, when that differs from `url` (Buttondown's editor). */
   edit_url?: string;
   error?: string;
+  /** The podcast leg's audio record: the fields the website page embeds. */
+  audio?: Record<string, unknown>;
+  /**
+   * The leg's last successful send, carried through `sending` and `failed`
+   * (`recordSend` does it, for every leg). A failed podcast re-render once
+   * erased the episode's audio record, and a `sending` Buttondown leg lost
+   * its draft id, so a retry created a second draft (review 2026-09-27
+   * §2.1). Absent on a `sent` state, which is its own last good send; read
+   * it through `lastSent` in src/shared/sends.ts.
+   */
+  last_sent?: SentRecord;
 }
+
+/** A leg as it stood when it last went out. */
+export type SentRecord = Omit<SendState, 'last_sent' | 'error'> & { status: 'sent' };
 
 export type Destination = 'buttondown' | 'website' | 'podcast' | 'archive';
 

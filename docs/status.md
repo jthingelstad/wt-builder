@@ -50,6 +50,14 @@ finished, what is half-finished, and what has never run.
   (`?force=1` is the deliberate escape for an issue with no audio), and every
   leg refuses a second POST while one is in flight — a `sending` older than
   ten minutes is treated as a crash strand and passes so the leg can retry.
+- **A failed leg keeps its last good send** (2026-09-28) — every leg's
+  `SendState` carries `last_sent` through `sending` and `failed`
+  (`recordSend`, one place for all four). The Buttondown retry, the website
+  page's audio and email URL, the archive's email record, the email's
+  "Listen to it", and verification read it (`lastSent`,
+  `src/shared/sends.ts`). A failed podcast re-render no longer erases the
+  episode's audio, and a Buttondown send cut off mid-flight is retried as
+  an update of the same draft. Review 2026-09-27, §2.1.
 - **Verify after send** (2026-09-26, WT351) — each leg is read back from its
   destination once it goes out, and the Send card shows the result under
   VERIFY: the podcast's three files on the CDN at the rendered size, its length

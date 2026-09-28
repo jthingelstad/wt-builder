@@ -8,6 +8,7 @@
 import type { IssueDoc, Item } from '../types.ts';
 import { echoBlock } from '../echoes.ts';
 import { markdownToSafeHtml } from '../markdown.ts';
+import { lastSent } from '../sends.ts';
 import type { Block } from './website.ts';
 import { THINGY_LABEL, THINGY_ROLE, THINGY_URL, byline, nodeBlocks, nodeHeading } from './website.ts';
 import type { PlannedNode } from './plan.ts';
@@ -137,7 +138,8 @@ function emailNodeBlocks(planned: PlannedNode, issueNumber: number): Block[] {
 export function otherWaysLine(doc: IssueDoc): string {
   const n = doc.issue.number;
   const read = `[Read this issue online](https://weekly.thingelstad.com/archive/${n}/)`;
-  const audio = doc.sends?.podcast?.status === 'sent' ? doc.sends.podcast.url : undefined;
+  // The last good episode: a failed re-render still leaves that mp3 in place.
+  const audio = lastSent(doc.sends?.podcast)?.url;
   const listen = audio
     ? `[Listen to it](${audio})`
     : '[Listen to it](https://weekly.thingelstad.com/podcast/)';

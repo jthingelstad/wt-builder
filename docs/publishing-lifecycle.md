@@ -19,6 +19,16 @@ none | sending | sent | failed
 
 with a timestamp, an external identifier, and — on failure — the error.
 
+A leg that is `sending` or `failed` still carries its **last good send**,
+`last_sent`: the draft Buttondown holds, the mp3 on the CDN, the commit on the
+site. `recordSend` carries it forward for every leg, and a new success replaces
+it. Everything that needs what a leg delivered reads it through `lastSent`
+(`src/shared/sends.ts`): the Buttondown retry updates the draft it made instead
+of creating a second one, the website page keeps the episode's audio and the
+email's URL, and the email's "Listen to it" keeps the mp3. A failed podcast
+re-render used to erase the episode's audio record, and a `sending` Buttondown
+leg its draft id (review 2026-09-27 §2.1).
+
 An earlier version of this document specified eight states
 (`assembling → reviewing → ready → rendering → drafted → scheduled-or-sent →
 verified → closed`). They were never built, and the reason they should not be is
