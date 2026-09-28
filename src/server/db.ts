@@ -231,7 +231,10 @@ export function createIssueRow(doc: IssueDoc): IssueRow {
         doc.schema_version ?? SCHEMA_VERSION, JSON.stringify(doc), now, now,
       );
   } catch (err) {
-    if (String((err as { code?: string }).code ?? '').startsWith('SQLITE_CONSTRAINT')) {
+    // Only a taken id (the primary key) or number (its unique index) is
+    // "already exists"; a NOT NULL or CHECK failure is a fault, not a clash.
+    const code = (err as { code?: string }).code;
+    if (code === 'SQLITE_CONSTRAINT_PRIMARYKEY' || code === 'SQLITE_CONSTRAINT_UNIQUE') {
       const holder = getIssue(doc.issue.id);
       throw new IssueExists(holder
         ? `${doc.issue.id} already exists (it is WT${holder.number} now) — pick another number`

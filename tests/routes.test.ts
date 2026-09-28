@@ -405,6 +405,22 @@ describe('issues round-trip through the service', () => {
 
     await fetch(`${base}/api/issues/${id}`, { method: 'DELETE' });
   });
+
+  // Only a taken id or number is "already exists". Every other constraint
+  // (a NOT NULL column left empty) was reported the same way, sending
+  // Jamie to pick another number for a fault no number fixes (Batch 2
+  // review round 1, follow-up 4).
+  it('a row that breaks a constraint other than a taken id or number is not "already exists"', async () => {
+    const store = await import('../src/server/db.ts');
+    const { createIssue } = await import('../src/server/issue.ts');
+    const doc = createIssue({ number: 990023, publication_date: '2026-12-05' });
+    (doc.issue as { publication_date?: string }).publication_date = undefined;
+    let thrown: unknown;
+    try { store.createIssueRow(doc); } catch (err) { thrown = err; }
+    expect((thrown as { code?: string }).code).toBe('SQLITE_CONSTRAINT_NOTNULL');
+    expect(thrown).not.toBeInstanceOf(store.IssueExists);
+    expect(store.getIssue(doc.issue.id)).toBeFalsy();
+  });
 });
 
 describe('a request that cannot be parsed is refused, and the service keeps answering', () => {
