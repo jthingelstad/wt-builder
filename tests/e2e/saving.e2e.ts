@@ -6,7 +6,7 @@
  * aborted request, the way a restart under `npm run deploy` looks.
  */
 import { expect, test, type Page, type Route } from '@playwright/test';
-import { ISSUE, caretAtEnd, commit, item, open, reset } from './helpers.ts';
+import { ISSUE, caretAtEnd, commit, item, open, reset, store } from './helpers.ts';
 
 const commentary = (id: string) => `[data-anchor="${id}"] .post-body`;
 
@@ -130,4 +130,25 @@ test('Escape in an inspector field saves it, then closes the panel', async ({ pa
   await expect(panel).toHaveCount(0);
   for (let i = 0; i < 50 && item('link-functions').title !== 'Functions, not brains'; i++) await page.waitForTimeout(100);
   expect(item('link-functions').title).toBe('Functions, not brains');
+});
+
+// A click in and out is not an edit. The read-back trims and collapses
+// whitespace, so it differed from a stored hard break ("  \n") and the blur
+// wrote the stripped text back to the source.
+test('clicking into a block and out again saves nothing', async ({ page }) => {
+  const doc = store.getIssue(ISSUE)!.doc;
+  const stored = 'First line  \nSecond line, after a hard break\n';
+  doc.items['link-flipcash']!.commentary = stored;
+  store.saveIssue(doc);
+  await open(page);
+  const patches: string[] = [];
+  page.on('request', (r) => { if (r.method() === 'PATCH') patches.push(r.url()); });
+
+  const sel = commentary('link-flipcash');
+  await caretAtEnd(page, sel);
+  await expect(page.locator(sel)).toHaveAttribute('data-source', '');
+  await page.evaluate(() => (document.activeElement as HTMLElement | null)?.blur());
+  await page.waitForTimeout(500);
+  expect(patches).toEqual([]);
+  expect(item('link-flipcash').commentary).toBe(stored);
 });
