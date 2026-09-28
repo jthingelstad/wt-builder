@@ -333,7 +333,8 @@ export function recordVerify(id: string, destination: Destination, v: Verificati
 /**
  * Drop an issue and its event log. Its revisions stay, and the document as it
  * stood is added to them first: they are the only way back from a delete
- * (`npm run revisions`). Which issues may be deleted is the route's call.
+ * (`npm run revisions -- <id> --restore` recreates the row from the newest).
+ * Which issues may be deleted is the route's call.
  */
 export function deleteIssue(id: string): void {
   const d = openDb();

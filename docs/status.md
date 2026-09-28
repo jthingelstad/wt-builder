@@ -275,7 +275,9 @@ finished, what is half-finished, and what has never run.
   watches the log for `[edge]`. `DELETE /api/issues/:id`, which the client
   never calls, deletes only an unsent draft (no leg sent, in flight, or
   failed) and answers 409 for anything else; the document as it stood is
-  kept in `revisions`, the one way back.
+  kept in `revisions`, the one way back: `npm run revisions -- <id>` still
+  lists a deleted issue's versions, and `--restore` recreates its row from
+  the newest (tests/revisions-script.test.ts).
 
 ## Not built
 
