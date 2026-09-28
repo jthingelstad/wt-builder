@@ -63,20 +63,25 @@ export interface CoverSubject {
   coverSource: string | null;
 }
 
-async function sourceBytes(url: string | null): Promise<{ bytes: Buffer; from: string }> {
+/**
+ * The picture to cut the covers from. `fallback` is set when the issue has a
+ * photo and it could not be fetched: the show art stands in for the mp3, but
+ * it is not the issue's cover.
+ */
+async function sourceBytes(url: string | null): Promise<{ bytes: Buffer; from: string; fallback: boolean }> {
   if (url) {
     const res = await fetch(url, { signal: AbortSignal.timeout(60_000) });
     if (res.ok) {
-      return { bytes: Buffer.from(await res.arrayBuffer()), from: url };
+      return { bytes: Buffer.from(await res.arrayBuffer()), from: url, fallback: false };
     }
-    console.warn(`[cover] could not fetch ${url}: ${res.status}; falling back to show art`);
+    console.warn(`[cover] could not fetch ${url}: ${res.status}; falling back to show art, and leaving the live banner as it is`);
   }
   if (!existsSync(SHOW_ART)) {
     throw new Error(
       `no photo in this issue and no show art at ${SHOW_ART}; add assets/podcast-cover.png`,
     );
   }
-  return { bytes: await readFile(SHOW_ART), from: 'show art' };
+  return { bytes: await readFile(SHOW_ART), from: 'show art', fallback: Boolean(url) };
 }
 
 export interface CoverResult {
@@ -111,7 +116,7 @@ export async function squareArt(bytes: Buffer, size = CHAPTER_ART_SIZE): Promise
 }
 
 export async function buildCover(subject: CoverSubject, opts: { upload?: boolean } = {}): Promise<CoverResult> {
-  const { bytes, from } = await sourceBytes(subject.coverSource);
+  const { bytes, from, fallback } = await sourceBytes(subject.coverSource);
 
   const banner = await sharp(bytes)
     .rotate()
@@ -137,8 +142,11 @@ export async function buildCover(subject: CoverSubject, opts: { upload?: boolean
     .toBuffer();
 
   // A dry run of the audio must not touch the live banner: this once
-  // replaced WT350's cover with the fixture's photo (2026-09-21).
-  if (opts.upload !== false) await new S3Client({ region: config.awsRegion }).send(
+  // replaced WT350's cover with the fixture's photo (2026-09-21). Nor must a
+  // photo that failed to load: the show art stood in for it, and uploading
+  // that would put show art over the live banner — for a back-catalogue
+  // issue, over the very banner the photo URL points at (review 2026-09-27 §8).
+  if (opts.upload !== false && !fallback) await new S3Client({ region: config.awsRegion }).send(
     new PutObjectCommand({
       Bucket: CDN_HOST,
       Key: bannerKey(subject.number),

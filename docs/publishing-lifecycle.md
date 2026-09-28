@@ -73,6 +73,11 @@ there is none. The Website card's blocker strip shows the same condition.
 | Website | a commit on `weekly.thingelstad.com` | commit sha and its URL |
 | Buttondown | a **draft** — never scheduled, never sent | draft id and URL |
 
+The podcast leg also writes the issue's banner, `weekly-thing/{N}/cover.jpg`,
+cut from the issue's photo (the show art when it has none). When the photo
+cannot be fetched, the mp3 gets the show art and the live banner is left as it
+is — a failed fetch never puts show art over a real cover.
+
 The website commit is the issue's page plus the site's `emails.json` with this
 issue's entry merged in. The merge is made against the file as it stands when
 the commit is made — re-read and re-merged if the ref update loses a race — so a

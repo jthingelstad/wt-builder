@@ -59,6 +59,11 @@ finished, what is half-finished, and what has never run.
   `failed` ("interrupted by a restart"), keeping the last good send. A
   persisted `sending` under ten minutes old still refuses, for another
   process on the same database. Review 2026-09-27, §2.1.
+- **A failed cover fetch keeps the live banner** (2026-09-28) — when the
+  issue's photo cannot be fetched, `buildCover` still squares the show art
+  for the mp3 but no longer uploads it over `weekly-thing/{N}/cover.jpg`. A
+  back-catalogue episode's cover source is that banner itself, so one bad
+  fetch had replaced a real cover with show art. Review 2026-09-27, §8.
 - **The server holds the podcast to the approved script** (2026-09-28) —
   the gate was the client's alone, and the server synthesized whatever
   script it held. A podcast send now needs `script_review.approved_at` on
