@@ -93,6 +93,13 @@ export interface IssueSummary {
   counts: { items: number; links: number; journal: number };
 }
 
+/** A refusal from the service: its message, its HTTP status, and the code it names, when it names one. */
+export class ApiError extends Error {
+  constructor(message: string, public status: number, public code?: string) {
+    super(message);
+  }
+}
+
 async function call<T>(path: string, init?: RequestInit): Promise<T> {
   const res = await fetch(`/api${path}`, {
     ...init,
@@ -100,7 +107,7 @@ async function call<T>(path: string, init?: RequestInit): Promise<T> {
   });
   const text = await res.text();
   const payload = text ? JSON.parse(text) : {};
-  if (!res.ok) throw new Error(payload.error ?? `${res.status} ${res.statusText}`);
+  if (!res.ok) throw new ApiError(payload.error ?? `${res.status} ${res.statusText}`, res.status, payload.code);
   return payload as T;
 }
 

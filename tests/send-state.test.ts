@@ -501,6 +501,34 @@ describe('Buttondown is asked what the email is before it is changed', () => {
     store.deleteIssue(id);
   });
 
+  it('sent: the refusal records what Buttondown said, so the card offers the web-copy update at once', async () => {
+    // WT350 and WT351: verified before the check read the email's status back.
+    const { id } = await sentOnce(990447);
+    const at = '2026-09-26T15:00:00Z';
+    const checks = [{ label: 'Subject', ok: true, detail: 'matches' }];
+    store.recordVerify(id, 'buttondown', { status: 'passed', at, checks });
+    h.emailStatus = 'sent';
+    const refused = await send(id, 'buttondown');
+    expect(refused.status).toBe(409);
+    expect(refused.body.code).toBe('email_sent');
+    // The check's own findings are kept; only what Buttondown said is added.
+    expect(store.getIssue(id)!.doc.verify!.buttondown).toEqual({ status: 'passed', at, checks, remote_status: 'sent' });
+    store.deleteIssue(id);
+  });
+
+  it('sent, never verified: the refusal leaves a record that says the email has gone', async () => {
+    const { id } = await sentOnce(990448);
+    const doc = store.getIssue(id)!.doc;
+    delete doc.verify;
+    store.saveIssue(doc);
+    h.emailStatus = 'sent';
+    expect((await send(id, 'buttondown')).status).toBe(409);
+    const v = store.getIssue(id)!.doc.verify!.buttondown!;
+    expect(v.remote_status).toBe('sent');
+    expect(v.checks).toEqual([expect.objectContaining({ label: 'Status', ok: true })]);
+    store.deleteIssue(id);
+  });
+
   for (const status of ['draft', 'scheduled']) {
     it(`${status}: updated as before`, async () => {
       const { id, before } = await sentOnce(status === 'draft' ? 990444 : 990445);

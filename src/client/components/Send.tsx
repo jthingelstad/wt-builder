@@ -17,7 +17,7 @@ import type { Destination, IssueDoc, ScriptReview, SendState, SentRecord, Verifi
 import { lastSent, recordedAudioUrl } from '../../shared/sends.ts';
 import { audioScript } from '../../shared/render/audio.ts';
 import { duration, type IssueTiming } from '../../shared/timing.ts';
-import { api, type Readiness, type SendResult } from '../api.ts';
+import { ApiError, api, type Readiness, type SendResult } from '../api.ts';
 import {
   Archive, ArrowLeft, Check, Circle, CircleAlert, Globe, Mail, Moon, Podcast, Spinner, X,
 } from '../icons.tsx';
@@ -211,18 +211,28 @@ export function Send({ doc, readiness, error, onBack, onSent, onError }: Props) 
   // so the card asks for that, with a confirm, and the bulk runs leave it out.
   const emailGone = doc.verify?.buttondown?.remote_status === 'sent';
 
-  /** One leg. True when it went; a failure is shown and stops any run it is part of. */
-  const send = async (key: Destination, opts: { webCopy?: boolean } = {}): Promise<boolean> => {
+  /**
+   * One leg. `sent` when it went; a failure is shown and stops any run it is
+   * part of. `gone` is Buttondown refusing because the email has already
+   * gone to readers: the server has recorded that, so the issue is read
+   * again and the card offers "Update web copy…" at once, and a run carries
+   * on past it — the legs after it do not depend on it.
+   */
+  const send = async (key: Destination, opts: { webCopy?: boolean } = {}): Promise<'sent' | 'failed' | 'gone'> => {
     setRunning(key);
     onError(null);
     try {
       const res = await api.send(id, key, opts);
       setResults((r) => ({ ...r, [key]: res }));
       onSent(res.issue);
-      return true;
+      return 'sent';
     } catch (err) {
       onError(`${key}: ${(err as Error).message}`);
-      return false;
+      if (err instanceof ApiError && err.code === 'email_sent') {
+        await api.getIssue(id).then((r) => onSent(r.issue)).catch(() => { /* the next poll */ });
+        return 'gone';
+      }
+      return 'failed';
     } finally {
       setRunning(null);
     }
@@ -234,7 +244,7 @@ export function Send({ doc, readiness, error, onBack, onSent, onError }: Props) 
       if (card.key === 'podcast' && !approved) return;
       if (stateOf(card.key) === 'sent') continue;
       if (card.key === 'buttondown' && emailGone) continue;
-      if (!(await send(card.key))) return;
+      if ((await send(card.key)) === 'failed') return;
     }
   };
 
@@ -249,7 +259,7 @@ export function Send({ doc, readiness, error, onBack, onSent, onError }: Props) 
   const resendable = RESEND.filter((key) => stateOf(key) === 'sent' && !(key === 'buttondown' && emailGone));
   const resendAll = async () => {
     for (const key of resendable) {
-      if (!(await send(key))) return;
+      if ((await send(key)) === 'failed') return;
     }
   };
 

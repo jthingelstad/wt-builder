@@ -93,7 +93,11 @@ email is. `draft` or `scheduled`: it is updated, as always. `about_to_send` or
 card, behind a confirm — which changes only the copy in Buttondown's archive and is
 logged as such. The card knows the email has gone from the Buttondown check
 (`verify.buttondown.remote_status`), and "Re-send all sent" then leaves Buttondown
-out. Any other status is refused and changes nothing.
+out. The `sent` refusal records that status too, and names itself
+(`code: "email_sent"`): a check older than `remote_status` (WT350, WT351) or none
+at all no longer hides it, the card re-reads the issue and switches at once, and a
+run that meets the refusal carries on to the legs after it. Any other status is
+refused and changes nothing.
 
 The podcast's first step is a gate: the script must be approved before the leg
 runs. The server holds it too (2026-09-28, review 2026-09-27 §8): a podcast

@@ -55,7 +55,8 @@ interface Ctx {
 }
 
 class HttpError extends Error {
-  constructor(public status: number, message: string) {
+  /** `code` names a refusal the client acts on, beside the message it shows. */
+  constructor(public status: number, message: string, public code?: string) {
     super(message);
   }
 }
@@ -1215,9 +1216,9 @@ const routes: [RegExp, string, (ctx: Ctx, params: string[]) => Promise<unknown>]
     // Set back exactly as it was when Buttondown's answer refuses the send.
     // Only this leg's record is written, and the claim keeps every other
     // writer of it out while the status is read.
-    const refuse = (message: string): never => {
+    const refuse = (message: string, code?: string): never => {
       store.recordSend(id!, destination, previous ?? { status: 'none' });
-      throw new HttpError(409, message);
+      throw new HttpError(409, message, code);
     };
     const webCopy = url.searchParams.get('web_copy') === '1';
     try {
@@ -1230,7 +1231,19 @@ const routes: [RegExp, string, (ctx: Ctx, params: string[]) => Promise<unknown>]
           refuse(`Buttondown is delivering it now (${email.status}) — nothing was changed. Try again once it has gone.`);
         }
         if (email.status === 'sent' && !webCopy) {
-          refuse(`WT${before.issue.number}'s email has already gone to readers — nothing was changed. "Update web copy…" (POST ?web_copy=1) changes only the copy on Buttondown's archive.`);
+          // What Buttondown just said is recorded where the card reads it, so
+          // the card offers "Update web copy…" now, even when the last check
+          // predates remote_status (WT350, WT351) or never ran.
+          savedFresh(id!, (d) => {
+            const checked = d.verify?.buttondown;
+            d.verify = {
+              ...(d.verify ?? {}),
+              buttondown: checked
+                ? { ...checked, remote_status: 'sent' }
+                : { status: 'passed', at: new Date().toISOString(), remote_status: 'sent', checks: [{ label: 'Status', ok: true, detail: 'Sent — Buttondown said so when a re-send was refused.' }] },
+            };
+          });
+          refuse(`WT${before.issue.number}'s email has already gone to readers — nothing was changed. "Update web copy…" (POST ?web_copy=1) changes only the copy on Buttondown's archive.`, 'email_sent');
         }
         if (email.status !== 'draft' && email.status !== 'scheduled' && email.status !== 'sent') {
           refuse(`Buttondown says the email is "${email.status}" — nothing was changed.`);
@@ -1631,7 +1644,8 @@ const server = createServer(async (req, res) => {
     const status = err instanceof HttpError ? err.status : 500;
     const message = (err as Error).message ?? 'unknown error';
     if (status >= 500) console.error(`[${method} ${url?.pathname ?? req.url}] ${message}`);
-    json(res, status, { error: message });
+    const code = err instanceof HttpError ? err.code : undefined;
+    json(res, status, code ? { error: message, code } : { error: message });
   }
 });
 

@@ -81,3 +81,34 @@ test('once the email has gone, Buttondown offers only a confirmed web-copy updat
   await page.getByRole('button', { name: 'Re-send all sent' }).click();
   await expect.poll(() => posted).toEqual(['website', 'archive']);
 });
+
+test('a verify record older than remote_status: the refusal switches the card, and Re-send all sent carries on to the archive', async ({ page }) => {
+  const at = '2026-09-26T14:05:00Z';
+  store.recordSend(ISSUE, 'website', { status: 'sent', at, external_id: 'f00d', url: 'https://github.com/x/y/commit/f00d' });
+  store.recordSend(ISSUE, 'buttondown', { status: 'sent', at, external_id: 'em-350', edit_url: 'https://buttondown.com/emails/em-350' });
+  store.recordSend(ISSUE, 'archive', { status: 'sent', at, external_id: 'abc1234', url: 'https://github.com/x/z/commit/abc1234' });
+  // WT350 and WT351: checked before the check read Buttondown's status back.
+  store.recordVerify(ISSUE, 'buttondown', { status: 'passed', at, checks: [] });
+
+  // The Buttondown leg answers as the server does once the email has gone:
+  // it records what Buttondown said and refuses with a code.
+  const posted: string[] = [];
+  await page.route('**/api/issues/*/send/*', async (route) => {
+    const leg = new URL(route.request().url()).pathname.split('/').pop()!;
+    posted.push(leg);
+    if (leg === 'buttondown') {
+      store.recordVerify(ISSUE, 'buttondown', { status: 'passed', at, checks: [], remote_status: 'sent' });
+      await route.fulfill({ status: 409, json: { error: "WT350's email has already gone to readers — nothing was changed.", code: 'email_sent' } });
+      return;
+    }
+    await route.fulfill({ json: { issue: store.getIssue(ISSUE)!.doc, send: { status: 'sent' } } });
+  });
+
+  await page.goto(`/${ISSUE}/send`);
+  const button = card(page, 'Buttondown').locator('.sc-head .btn.primary');
+  await expect(button).toHaveText('Update draft');
+
+  await page.getByRole('button', { name: 'Re-send all sent' }).click();
+  await expect.poll(() => posted).toEqual(['website', 'buttondown', 'archive']);
+  await expect(button).toHaveText('Update web copy…');
+});
