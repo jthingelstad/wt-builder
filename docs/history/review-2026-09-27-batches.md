@@ -138,7 +138,9 @@ Batch 0: make the suites unable to touch live services or the live build.
 Acceptance: npm test passes with a deliberately broken PINBOARD_API_TOKEN in the environment. dist/ is byte-identical before and after npm run test:e2e. CI runs the browser suite.
 ```
 
-## Batch 1 — The edge: cross-site requests, rebinding, the Host crash (§1.6)
+## ~~Batch 1 — The edge: cross-site requests, rebinding, the Host crash (§1.6)~~
+
+Landed 2026-09-28 on review-fixes: 44e5a0b..2972702. Skipped: none. Needs Jamie: none. (Refusals log to wt-builder.err, not wt-builder.log; the smoke test above predates that.)
 
 ```text
 Read docs/history/review-2026-09-27.md §1.6 first. It is a verified review taken at 06b237f. Line numbers have drifted, so find code by symbol. Before fixing anything, confirm the finding still holds.
