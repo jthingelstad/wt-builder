@@ -15,6 +15,22 @@ import { bodyLines, planEdition, postBlocks, finishEdition } from './plan.ts';
 /** Blocks are joined by a blank line; a block is one Markdown paragraph. */
 export type Block = string;
 
+/**
+ * Text that came from somewhere else — a bookmark's title, a photo's alt
+ * text and place — printed as the words it is, never as markup.
+ * "Styling the <textarea> element" opened a text box that swallowed the rest
+ * of the issue, on the site and in the email, and an unbalanced `]` ends a
+ * link early (review 2026-09-27 §3). The Markdown link and emphasis
+ * characters are backslash-escaped and `<` `>` become entities. Jamie's own
+ * commentary and bodies are Markdown he wrote, and never pass through here.
+ */
+export function escapeExternal(text: string): string {
+  return text
+    .replace(/[\\[\]*_`]/g, (c) => `\\${c}`)
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;');
+}
+
 export function byline(item: Item): string {
   return `_By ${item.attribution ?? item.authorship}_`;
 }
@@ -71,7 +87,7 @@ export function photoBlocks(item: Item): Block[] {
   const media = item.media;
   if (!media) return out;
 
-  if (media.url) out.push(`![${media.alt ?? ''}](${media.url})`);
+  if (media.url) out.push(`![${escapeExternal(media.alt ?? '')}](${media.url})`);
   if (media.caption) out.push(media.caption);
 
   const parts: string[] = [];
@@ -81,7 +97,8 @@ export function photoBlocks(item: Item): Block[] {
   if (media.location) {
     // The place name links to the exact coordinates when the camera knew them.
     const map = osmUrl(media.coordinates);
-    parts.push(map ? `[${media.location}](${map})` : media.location);
+    const place = escapeExternal(media.location);
+    parts.push(map ? `[${place}](${map})` : place);
   }
   if (parts.length) out.push(`_${parts.join(' · ')}_`);
 
@@ -98,14 +115,14 @@ export function haikuBlock(item: Item): Block {
 
 /** "Description → **[linked title]**" (docs/rendering-contracts.md, Briefly). */
 export function brieflyBlock(item: Item): Block {
-  const link = `**[${item.title ?? item.source_url}](${item.source_url})**`;
+  const link = `**[${escapeExternal(item.title ?? item.source_url ?? '')}](${item.source_url})**`;
   const commentary = String(item.commentary ?? '').trim();
   return commentary ? `${commentary} → ${link}` : link;
 }
 
 /** A Notable/Featured link: a linked heading, then commentary if there is any. */
 export function linkBlocks(item: Item): Block[] {
-  const out: Block[] = [`### [${item.title ?? item.source_url}](${item.source_url})`];
+  const out: Block[] = [`### [${escapeExternal(item.title ?? item.source_url ?? '')}](${item.source_url})`];
   const commentary = String(item.commentary ?? '').trim();
   if (commentary) out.push(commentary);
   return out;
@@ -137,7 +154,7 @@ export function journalEntryBlocks(item: Item): Block[] {
   const lead = (() => {
     if (!item.source_url) return body;
     // A title is bold, like a Briefly title; a time of day is not.
-    if (title) return `**[${title}](${item.source_url})** — ${body}`;
+    if (title) return `**[${escapeExternal(title)}](${item.source_url})** — ${body}`;
     return w ? `[${clockTime(w)}](${item.source_url}) — ${body}` : body;
   })();
   return [lead, ...rest, ...images].filter(Boolean);
@@ -201,8 +218,8 @@ export function nodeHeading(planned: PlannedNode): string | null {
   const { node, items } = planned;
   if (!node.publishes_heading) return null;
   if (node.kind === 'promoted_item') {
-    const title = items[0]?.item.title ?? node.label;
-    return `## ${title}`;
+    const title = items[0]?.item.title;
+    return `## ${title != null ? escapeExternal(title) : node.label}`;
   }
   return `## ${node.label}`;
 }

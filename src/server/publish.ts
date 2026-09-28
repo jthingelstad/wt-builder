@@ -10,7 +10,7 @@
  */
 
 import type { IssueDoc, Item } from '../shared/types.ts';
-import { renderWebsite } from '../shared/render/website.ts';
+import { escapeExternal, renderWebsite } from '../shared/render/website.ts';
 import { planEdition, bodyLines } from '../shared/render/plan.ts';
 import { CDN_HOST } from './integrations/images.ts';
 import type { RepoFile } from './integrations/github.ts';
@@ -124,7 +124,8 @@ function linkFor(item: Item, section: string): IssueLink | null {
   const domain = hostOf(url);
   if (!domain) return null;
   const text = item.title ?? url;
-  return { text, url, domain, heading_context: `[${text}](${url})`, section };
+  // The link as it renders on the page, escaped the same way (website.ts).
+  return { text, url, domain, heading_context: `[${escapeExternal(text)}](${url})`, section };
 }
 
 export interface ExtractedLinks {
