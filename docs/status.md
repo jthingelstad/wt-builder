@@ -104,7 +104,9 @@ finished, what is half-finished, and what has never run.
   remote_status`); once it is `sent`, the card's action is "Update web
   copy…" behind a confirm, and "Re-send all sent" / "Send the rest" leave
   Buttondown out. The `sent` refusal records `remote_status` itself
-  (through `savedFresh`, keeping the check's findings) and carries
+  (through `recordVerify` — a fresh read with no revision, so a refused
+  click never pushes a real edit out of the history — keeping the check's
+  findings) and carries
   `code: "email_sent"`: WT350 and WT351's checks predate the field, so
   their cards offered "Update draft" and a bulk run stopped at the 409
   before the archive. Now the card re-reads the issue on that refusal and

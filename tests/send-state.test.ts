@@ -516,6 +516,17 @@ describe('Buttondown is asked what the email is before it is changed', () => {
     store.deleteIssue(id);
   });
 
+  it('sent: the refusal adds no revision, so it pushes no real edit out of the history', async () => {
+    const { id } = await sentOnce(990449);
+    store.recordVerify(id, 'buttondown', { status: 'passed', at: '2026-09-26T15:00:00Z', checks: [] });
+    const revisions = store.listRevisions(id).length;
+    h.emailStatus = 'sent';
+    expect((await send(id, 'buttondown')).status).toBe(409);
+    expect(store.getIssue(id)!.doc.verify!.buttondown!.remote_status).toBe('sent');
+    expect(store.listRevisions(id)).toHaveLength(revisions);
+    store.deleteIssue(id);
+  });
+
   it('sent, never verified: the refusal leaves a record that says the email has gone', async () => {
     const { id } = await sentOnce(990448);
     const doc = store.getIssue(id)!.doc;

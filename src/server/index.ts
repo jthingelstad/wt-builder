@@ -1239,16 +1239,13 @@ const routes: [RegExp, string, (ctx: Ctx, params: string[]) => Promise<unknown>]
         if (email.status === 'sent' && !webCopy) {
           // What Buttondown just said is recorded where the card reads it, so
           // the card offers "Update web copy…" now, even when the last check
-          // predates remote_status (WT350, WT351) or never ran.
-          savedFresh(id!, (d) => {
-            const checked = d.verify?.buttondown;
-            d.verify = {
-              ...(d.verify ?? {}),
-              buttondown: checked
-                ? { ...checked, remote_status: 'sent' }
-                : { status: 'passed', at: new Date().toISOString(), remote_status: 'sent', checks: [{ label: 'Status', ok: true, detail: 'Sent — Buttondown said so when a re-send was refused.' }] },
-            };
-          });
+          // predates remote_status (WT350, WT351) or never ran. recordVerify,
+          // not a document save: a fresh read with no await and no revision,
+          // so a refused click never pushes a real edit out of the history.
+          const checked = store.getIssue(id!)?.doc.verify?.buttondown;
+          store.recordVerify(id!, 'buttondown', checked
+            ? { ...checked, remote_status: 'sent' }
+            : { status: 'passed', at: new Date().toISOString(), remote_status: 'sent', checks: [{ label: 'Status', ok: true, detail: 'Sent — Buttondown said so when a re-send was refused.' }] });
           refuse(`WT${before.issue.number}'s email has already gone to readers — nothing was changed. "Update web copy…" (POST ?web_copy=1) changes only the copy on Buttondown's archive.`, 'email_sent');
         }
         if (email.status !== 'draft' && email.status !== 'scheduled' && email.status !== 'sent') {
