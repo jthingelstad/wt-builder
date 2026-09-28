@@ -26,3 +26,21 @@ jobs:
       # must not keep the tests from running or fail the build.
       - run: npm audit --audit-level=high
         continue-on-error: true
+
+  # The browser suite: the only coverage of guardBed (423) and of the
+  # contenteditable regressions. Offline, against a throwaway database and
+  # its own build in tmp/e2e/dist. WebKit first, as locally: Jamie edits in
+  # Safari.
+  e2e:
+    needs: test
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-node@v7
+        with:
+          node-version-file: .node-version
+          cache: npm
+      - run: npm ci
+      - run: npx playwright install --with-deps chromium webkit
+      - run: npm run test:e2e

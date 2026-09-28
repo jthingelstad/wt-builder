@@ -67,6 +67,8 @@ build the client into `tmp/e2e/dist` and serve it from there
 typed, dragged, or clicked is asserted by what the server saved. Jamie edits
 in Safari, so WebKit is the first project; a contenteditable change is not
 done until it passes there. Never test by typing into the live service.
+CI runs both suites: the browser suite as its own job after the unit tests,
+on Chromium and WebKit.
 
 The renderers are the part with a real specification. Change one and `npm test`
 says immediately whether the editions still match `fixtures/expected/`. If a
