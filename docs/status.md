@@ -257,7 +257,11 @@ finished, what is half-finished, and what has never run.
   request whose target is not a URL is a 400 (the URL is parsed inside the
   handler's `try`, against a fixed base, never from the Host header), and an
   error nothing awaited is logged by the service and does not exit it
-  (`logStrayErrors` in `src/server/index.ts`). A write that another site
+  (`logStrayErrors` in `src/server/index.ts`; tests/service-process.test.ts
+  boots the service and proves it). A process that survives an uncaught
+  exception is not restarted by launchd (`KeepAlive` is
+  `SuccessfulExit=false`), so one wedged by it needs a manual restart
+  (`npm run deploy`); the log line starts `[process]`. A write that another site
   sends through Jamie's browser is a 403 before routing (`guardEdge`,
   `src/server/edge.ts`): any method but GET and HEAD with an `Origin` that
   is not the tailnet URL, the Vite dev client, or loopback on the listening
