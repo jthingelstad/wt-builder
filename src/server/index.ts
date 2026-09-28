@@ -795,12 +795,25 @@ const routes: [RegExp, string, (ctx: Ctx, params: string[]) => Promise<unknown>]
         sync_state: 'gone', sync_error: `deleted at ${item.source} — not recreating it`,
       }));
     }
+    // The choice was made about the copy read above. One that moved while
+    // the source was read — edited, or no longer in conflict — is not the
+    // one Jamie chose about, and Take theirs would overwrite the new edit
+    // (Batch 2 review round 1, follow-up 3).
+    const unmoved = (d: IssueDoc): IssueDoc => {
+      const fresh = d.items[itemId!];
+      if (!fresh || fresh.sync_state !== 'conflict' || !holds(fresh, item)) {
+        throw new HttpError(409,
+          `${issues.itemName(item)} changed while ${item.source} was read — nothing changed; look again and choose`);
+      }
+      return d;
+    };
     if (choice === 'take-theirs') {
+      const response = savedFresh(id!, (d) => issues.takeTheirs(unmoved(d), itemId!, remote));
       store.logEvent(id!, 'sync', `Took ${item.source}'s copy — ${issues.itemName(item)}`, itemId);
-      return savedFresh(id!, (d) => issues.takeTheirs(d, itemId!, remote));
+      return response;
     }
+    savedFresh(id!, (d) => issues.keepMine(unmoved(d), itemId!, remote));
     store.logEvent(id!, 'sync', `Kept this copy over ${item.source}'s — ${issues.itemName(item)}`, itemId);
-    savedFresh(id!, (d) => issues.keepMine(d, itemId!, remote));
     const { response, result } = await writeBack(id!, itemId!);
     return { ...response, result };
   }],

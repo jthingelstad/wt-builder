@@ -106,7 +106,9 @@ finished, what is half-finished, and what has never run.
   **Take theirs** (`POST …/take-theirs` — adopt the source's fields and
   follow a section tag they carry), in place of a Retry the source would
   refuse again. Both refuse an item not in `conflict` (409) and change
-  nothing when the source cannot be read (502). A failed or conflicted
+  nothing when the source cannot be read (502). They also answer 409 and
+  change nothing when the item was edited, or left `conflict`, while the
+  source was being read. A failed or conflicted
   item from Pinboard or Micro.blog is a `sync` unit on the checklist.
   Review 2026-09-27, §1.2.
 - **emails.json is merged, never rebuilt** (2026-08-31) — the website leg

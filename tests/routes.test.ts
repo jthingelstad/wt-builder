@@ -726,6 +726,8 @@ describe('a conflict has a way out: Keep mine, or Take theirs', () => {
   let store: typeof import('../src/server/db.ts');
   let remote: { extended: string; status: number };
   let added: URLSearchParams[];
+  /** Runs while the source is being read: a save landing mid-choice. */
+  let duringRead: (() => void) | undefined;
   const realFetch = globalThis.fetch;
 
   beforeAll(async () => {
@@ -736,6 +738,7 @@ describe('a conflict has a way out: Keep mine, or Take theirs', () => {
   beforeEach(() => {
     remote = { extended: 'Theirs, written at Pinboard.', status: 200 };
     added = [];
+    duringRead = undefined;
     config.credentials.pinboardToken = 'test-token';
     config.config.pinboardWriteBack = true;
     // Pinboard is stubbed; the test's own requests to the service go through.
@@ -744,6 +747,7 @@ describe('a conflict has a way out: Keep mine, or Take theirs', () => {
       if (url.hostname !== 'api.pinboard.in') return realFetch(input, init);
       if (remote.status !== 200) return new Response('down', { status: remote.status });
       if (url.pathname.endsWith('/posts/get')) {
+        duringRead?.();
         return Response.json({ posts: [{
           href: LINK, description: 'Contested', extended: remote.extended, tags: 'notable',
           time: '2026-12-01T14:00:00Z', toread: 'yes', shared: 'no',
@@ -832,6 +836,44 @@ describe('a conflict has a way out: Keep mine, or Take theirs', () => {
     remote.status = 200;
     expect((await choose(id, 'take-theirs')).status).toBe(200);
     expect((await choose(id, 'keep-mine')).status).toBe(409);
+    await fetch(`${base}/api/issues/${id}`, { method: 'DELETE' });
+  });
+
+  // The choice reads the source, then applies to a fresh read. An edit
+  // saved while the source was read was taken over by Take theirs, and
+  // Keep mine re-based an item no longer in conflict (Batch 2 review round
+  // 1, follow-up 3).
+  it('Take theirs changes nothing when this copy was edited while the source was read', async () => {
+    const id = await contested(990021);
+    duringRead = () => {
+      const d = store.getIssue(id)!.doc;
+      d.items['link-contested']!.commentary = 'Typed while Pinboard was read.';
+      store.saveIssue(d);
+    };
+    const res = await choose(id, 'take-theirs');
+    expect(res.status).toBe(409);
+    expect((await res.json()).error).toContain('nothing changed');
+    const item = store.getIssue(id)!.doc.items['link-contested']!;
+    expect(item.commentary).toBe('Typed while Pinboard was read.');
+    expect(item.sync_state).toBe('conflict');
+    expect(item.source_snapshot?.commentary).toBe('The words both started from.');
+    await fetch(`${base}/api/issues/${id}`, { method: 'DELETE' });
+  });
+
+  it('Keep mine changes nothing when the item left conflict while the source was read', async () => {
+    const id = await contested(990022);
+    duringRead = () => {
+      const d = store.getIssue(id)!.doc;
+      d.items['link-contested']!.sync_state = 'synced';
+      d.items['link-contested']!.sync_error = undefined;
+      store.saveIssue(d);
+    };
+    const res = await choose(id, 'keep-mine');
+    expect(res.status).toBe(409);
+    expect(added).toHaveLength(0);
+    const item = store.getIssue(id)!.doc.items['link-contested']!;
+    expect(item.sync_state).toBe('synced');
+    expect(item.source_snapshot?.commentary).toBe('The words both started from.');
     await fetch(`${base}/api/issues/${id}`, { method: 'DELETE' });
   });
 
