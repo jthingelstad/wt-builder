@@ -41,6 +41,8 @@ const run = promisify(execFile);
 export interface VerifyOutcome {
   checks: VerifyCheck[];
   recheckMs?: number;
+  /** What the destination said the thing is (Buttondown's email status). */
+  remote_status?: string;
 }
 
 const MINUTE = 60_000;
@@ -309,7 +311,7 @@ export async function verifyButtondown(doc: IssueDoc): Promise<VerifyOutcome> {
     : warn('Body', email.status === 'sent'
       ? 'The sent email differs from the email edition as it renders now — the issue changed after it went.'
       : 'The draft differs from the email edition as it renders now — edited in Buttondown, or the issue changed since; "Update draft" re-sends it.'));
-  return { checks, recheckMs };
+  return { checks, recheckMs, remote_status: email.status || undefined };
 }
 
 // ── archive ───────────────────────────────────────────────────────────────

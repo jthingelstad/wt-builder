@@ -272,6 +272,12 @@ export interface Verification {
   error?: string;
   /** When the server will look again on its own, while the leg is still landing. */
   recheck_at?: string;
+  /**
+   * What the destination said the thing is, when it says: Buttondown's email
+   * status (`draft`, `scheduled`, `sent`, …). The Send view reads it to offer
+   * "Update web copy…" instead of "Update draft" once the email has gone.
+   */
+  remote_status?: string;
 }
 
 export interface IssueMeta {

@@ -76,8 +76,11 @@ there is none. The Website card's blocker strip shows the same condition.
 Before it changes an existing email, the Buttondown leg asks Buttondown what the
 email is. `draft` or `scheduled`: it is updated, as always. `about_to_send` or
 `in_flight`: refused (409, "Buttondown is delivering it now"), recording nothing.
-`sent`: refused unless the request says `?web_copy=1`, which changes only the copy
-in Buttondown's archive and is logged as such. Any other status is refused and changes nothing.
+`sent`: refused unless the request says `?web_copy=1` — "Update web copy…" on the
+card, behind a confirm — which changes only the copy in Buttondown's archive and is
+logged as such. The card knows the email has gone from the Buttondown check
+(`verify.buttondown.remote_status`), and "Re-send all sent" then leaves Buttondown
+out. Any other status is refused and changes nothing.
 
 The podcast's first step is a gate: the script must be approved before the leg
 runs. While it waits, the card's own action button disappears so the step row

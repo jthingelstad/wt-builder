@@ -206,12 +206,17 @@ export function Send({ doc, readiness, error, onBack, onSent, onError }: Props) 
     api.verify(id, key).then((r) => onSent(r.issue)).catch((err: Error) => onError(`${key}: ${err.message}`));
   };
 
+  // Once the email has gone (as the Buttondown check last read it), a
+  // re-send can only change its web copy: the server refuses anything else,
+  // so the card asks for that, with a confirm, and the bulk runs leave it out.
+  const emailGone = doc.verify?.buttondown?.remote_status === 'sent';
+
   /** One leg. True when it went; a failure is shown and stops any run it is part of. */
-  const send = async (key: Destination): Promise<boolean> => {
+  const send = async (key: Destination, opts: { webCopy?: boolean } = {}): Promise<boolean> => {
     setRunning(key);
     onError(null);
     try {
-      const res = await api.send(id, key);
+      const res = await api.send(id, key, opts);
       setResults((r) => ({ ...r, [key]: res }));
       onSent(res.issue);
       return true;
@@ -228,6 +233,7 @@ export function Send({ doc, readiness, error, onBack, onSent, onError }: Props) 
     for (const card of CARDS) {
       if (card.key === 'podcast' && !approved) return;
       if (stateOf(card.key) === 'sent') continue;
+      if (card.key === 'buttondown' && emailGone) continue;
       if (!(await send(card.key))) return;
     }
   };
@@ -240,7 +246,7 @@ export function Send({ doc, readiness, error, onBack, onSent, onError }: Props) 
    * the mp3, which a text fix never wants; its own card does that on purpose.
    */
   const RESEND: Destination[] = ['website', 'buttondown', 'archive'];
-  const resendable = RESEND.filter((key) => stateOf(key) === 'sent');
+  const resendable = RESEND.filter((key) => stateOf(key) === 'sent' && !(key === 'buttondown' && emailGone));
   const resendAll = async () => {
     for (const key of resendable) {
       if (!(await send(key))) return;
@@ -305,7 +311,15 @@ export function Send({ doc, readiness, error, onBack, onSent, onError }: Props) 
             busy={Boolean(running) || Boolean(doc.issue.put_to_bed_at)}
             onApprove={approveScript}
             gate={card.key === 'podcast' ? { review: reviewCurrent ? review : undefined, stale: Boolean(review) && !reviewCurrent, reading, onRead: readScript, approved } : undefined}
-            onRun={() => void send(card.key)}
+            webCopy={card.key === 'buttondown' && emailGone}
+            onRun={() => {
+              if (card.key === 'buttondown' && emailGone) {
+                if (!confirm(`WT${doc.issue.number}'s email has already gone to readers. Update its web copy on Buttondown? Nobody's inbox changes.`)) return;
+                void send(card.key, { webCopy: true });
+                return;
+              }
+              void send(card.key);
+            }}
             issueId={id}
             verification={doc.verify?.[card.key]}
             onVerify={() => verify(card.key)}
@@ -359,8 +373,10 @@ function ArchivePreview({ issueId }: { issueId: string }) {
 }
 
 function SendCard({
-  card, state, send, result, blocker, gated, busy, onApprove, onRun, verification, onVerify, issueId, gate,
+  card, state, send, result, blocker, gated, busy, onApprove, onRun, verification, onVerify, issueId, gate, webCopy,
 }: {
+  /** The email has gone: the action updates only its web copy. */
+  webCopy?: boolean;
   gate?: { review?: ScriptReview; stale: boolean; reading: boolean; onRead: () => void; approved: boolean };
   issueId: string;
   verification?: Verification;
@@ -400,7 +416,7 @@ function SendCard({
         */}
         {!gated && (
           <button class="btn primary" disabled={busy} onClick={onRun}>
-            {state === 'sending' ? 'Sending…' : failed ? 'Try again' : done ? card.again : card.verb}
+            {state === 'sending' ? 'Sending…' : webCopy ? 'Update web copy…' : failed ? 'Try again' : done ? card.again : card.verb}
           </button>
         )}
       </div>

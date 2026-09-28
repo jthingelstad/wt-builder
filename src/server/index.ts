@@ -422,11 +422,11 @@ async function runVerify(id: string, dest: Destination, wait = false, resumed = 
   store.recordVerify(id, dest, { status: 'running', at: new Date().toISOString(), checks: [] });
   let result: Verification;
   try {
-    const { checks, recheckMs } = await verify(doc, wait);
+    const { checks, recheckMs, remote_status } = await verify(doc, wait);
     const status = checks.some((c) => c.ok === false) ? 'problems'
       : checks.some((c) => c.ok === null) ? (recheckMs ? 'waiting' : 'warnings')
       : 'passed';
-    result = { status, at: new Date().toISOString(), checks };
+    result = { status, at: new Date().toISOString(), checks, ...(remote_status ? { remote_status } : {}) };
     if (recheckMs) {
       result.recheck_at = new Date(Date.now() + recheckMs).toISOString();
       scheduleRecheck(id, dest, recheckMs);

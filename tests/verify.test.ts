@@ -89,6 +89,12 @@ describe('the Buttondown check compares the subject as it was sent', () => {
     expect(checks.find((c) => c.label === 'Body')?.ok).toBe(true);
   });
 
+  it('records what Buttondown says the email is, for the Send view', async () => {
+    const d = tagged();
+    draft(emailSubject(d), d);
+    expect((await verifyButtondown(d)).remote_status).toBe('draft');
+  });
+
   it('warns when the draft carries the raw title, template tags and all', async () => {
     const d = tagged();
     expect(subjectFor(d)).not.toBe(emailSubject(d));

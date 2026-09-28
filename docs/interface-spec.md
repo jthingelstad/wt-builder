@@ -51,6 +51,11 @@ that has gone before adds `Last good: Sat 9:05 AM · Draft ↗` to the strip in 
 mono: what the destination still holds (the draft, the mp3, the commit), which a
 failed attempt does not take away.
 
+Once the Buttondown check has read the email back as sent, the Buttondown card's
+action reads **Update web copy…** and asks first (a `confirm` saying nobody's inbox
+changes): the email is out, and only its copy in Buttondown's archive can change.
+`Re-send all sent` and `Send the rest` leave Buttondown out from then on.
+
 A sent card ends in **VERIFY** on `#fbfbfa`: the destination read back — each check a
 row with `check` / `circle-alert` amber / `x` terracotta, its finding in 11px mono,
 and any specifics (a time to listen at, a file that differs) beneath. A verdict pill

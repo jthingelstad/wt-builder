@@ -243,8 +243,9 @@ export const api = {
       IssueResponse & { result?: { sync_state: string; error?: string } }
     >,
 
-  send: (id: string, destination: string) =>
-    call<SendResult>(`/issues/${id}/send/${destination}`, { method: 'POST', body: '{}' }),
+  /** `webCopy`: update a Buttondown email that has already gone (the server refuses it otherwise). */
+  send: (id: string, destination: string, opts: { webCopy?: boolean } = {}) =>
+    call<SendResult>(`/issues/${id}/send/${destination}${opts.webCopy ? '?web_copy=1' : ''}`, { method: 'POST', body: '{}' }),
 
   /** How long the issue took, the Builder issue before it, and what shipped between. */
   timing: (id: string) => call<{

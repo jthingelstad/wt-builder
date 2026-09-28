@@ -75,8 +75,11 @@ finished, what is half-finished, and what has never run.
   it now" and record nothing; `sent` answers 409 unless `?web_copy=1`, and
   a web-copy update is logged (event log and service log); `draft` /
   `scheduled` update as before; anything else is refused. A status read
-  that fails is a failed send that changes nothing in Buttondown. Review
-  2026-09-27 §8 #7.
+  that fails is a failed send that changes nothing in Buttondown. The
+  Buttondown check records the status it read (`verify.buttondown.
+  remote_status`); once it is `sent`, the card's action is "Update web
+  copy…" behind a confirm, and "Re-send all sent" / "Send the rest" leave
+  Buttondown out. Review 2026-09-27 §8 #7.
 - **Verify after send** (2026-09-26, WT351) — each leg is read back from its
   destination once it goes out, and the Send card shows the result under
   VERIFY: the podcast's three files on the CDN at the rendered size, its length
@@ -311,7 +314,8 @@ finished, what is half-finished, and what has never run.
 
 - **Re-send all sent** (2026-09-20) — on the Send view once any text leg
   has gone: re-runs website, Buttondown, and archive, in order, stopping at
-  the first failure. The podcast is left alone (re-sending it re-synthesizes
+  the first failure. Once the email has gone to readers, Buttondown is left
+  out (2026-09-28). The podcast is left alone (re-sending it re-synthesizes
   what changed and publishes a new, content-named mp3 — the website leg must
   follow for the page and feed to move; its card does that on purpose). WT350's send day
   ended with an hour of re-sending those three by hand after two fixes.

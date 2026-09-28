@@ -47,3 +47,37 @@ test('the website card waits for an audio reference, not a podcast status', asyn
   await page.reload();
   await expect(card(page, 'Website').locator('.sc-blocker')).toContainText('podcast runs first');
 });
+
+test('once the email has gone, Buttondown offers only a confirmed web-copy update, and Re-send all sent leaves it out', async ({ page }) => {
+  const at = '2026-09-26T14:05:00Z';
+  store.recordSend(ISSUE, 'website', { status: 'sent', at, external_id: 'f00d', url: 'https://github.com/x/y/commit/f00d' });
+  store.recordSend(ISSUE, 'buttondown', { status: 'sent', at, external_id: 'em-350', edit_url: 'https://buttondown.com/emails/em-350' });
+  store.recordSend(ISSUE, 'archive', { status: 'sent', at, external_id: 'abc1234', url: 'https://github.com/x/z/commit/abc1234' });
+  // What the Buttondown check last read back: the email went out.
+  store.recordVerify(ISSUE, 'buttondown', { status: 'passed', at, checks: [], remote_status: 'sent' });
+
+  // No request reaches a real send handler: each is recorded and answered
+  // with the issue as the server holds it.
+  const posted: string[] = [];
+  await page.route('**/api/issues/*/send/*', async (route) => {
+    posted.push(new URL(route.request().url()).pathname.split('/').pop()! + new URL(route.request().url()).search);
+    await route.fulfill({ json: { issue: store.getIssue(ISSUE)!.doc, send: { status: 'sent' } } });
+  });
+
+  await page.goto(`/${ISSUE}/send`);
+  const mail = card(page, 'Buttondown');
+  const button = mail.locator('.sc-head .btn.primary');
+  await expect(button).toHaveText('Update web copy…');
+
+  page.once('dialog', (d) => void d.dismiss());
+  await button.click();
+  await expect.poll(() => posted.length).toBe(0);
+
+  page.once('dialog', (d) => void d.accept());
+  await button.click();
+  await expect.poll(() => posted).toEqual(['buttondown?web_copy=1']);
+
+  posted.length = 0;
+  await page.getByRole('button', { name: 'Re-send all sent' }).click();
+  await expect.poll(() => posted).toEqual(['website', 'archive']);
+});
