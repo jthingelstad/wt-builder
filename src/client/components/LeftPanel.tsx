@@ -14,6 +14,7 @@ import { itemsInWindow, orderedNodes, outOfWindow, windowOf } from '../../shared
 import { api } from '../api.ts';
 import { ArrowDown, ArrowUp, EyeOff, GripVertical, X } from '../icons.tsx';
 import { EventLog } from './EventLog.tsx';
+import { Input } from './Field.tsx';
 import { omnifocusUrl, taskpaper } from '../../shared/taskpaper.ts';
 
 interface Props {
@@ -194,7 +195,7 @@ function MetaEditor({
     <div class="meta-card edit">
       <label class="field-row">
         <span class="mono-label">ISSUE NUMBER</span>
-        <input
+        <Input
           type="number" class="num" value={doc.issue.number}
           onBlur={(e) => {
             const n = Number((e.target as HTMLInputElement).value);
@@ -205,7 +206,7 @@ function MetaEditor({
 
       <label class="field-row">
         <span class="mono-label">PUBLISHES</span>
-        <input
+        <Input
           type="date" value={doc.issue.publication_date}
           onChange={(e) => {
             const date = (e.target as HTMLInputElement).value;
@@ -234,7 +235,7 @@ function MetaEditor({
               {d}
             </button>
           ))}
-          <input
+          <Input
             type="number" class="num small" value={doc.issue.window_days}
             aria-label="Days back from Friday"
             onBlur={(e) => {

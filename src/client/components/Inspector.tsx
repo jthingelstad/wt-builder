@@ -1,8 +1,9 @@
-import { useEffect, useRef, useState } from 'preact/hooks';
+import { useEffect, useState } from 'preact/hooks';
 
 import type { IssueDoc, Item } from '../../shared/types.ts';
 import { CHANNELS } from '../../shared/types.ts';
 import { api, shouldWriteBack, writeBackMessage, type IssueResponse } from '../api.ts';
+import { Input, useFieldValue } from './Field.tsx';
 
 interface Props {
   doc: IssueDoc;
@@ -35,7 +36,8 @@ function syncLine(state: string, source: string): string {
  * one thing "Show me" brought you there to do (Jamie, 2026-09-20).
  */
 function GrowingTextarea(props: { id: string; value: string; onBlur: (e: FocusEvent) => void }) {
-  const ref = useRef<HTMLTextAreaElement>(null);
+  // Uncontrolled while focused: a save landing mid-sentence re-renders this.
+  const ref = useFieldValue<HTMLTextAreaElement>(props.value);
   const fit = () => {
     const el = ref.current;
     if (!el) return;
@@ -48,7 +50,7 @@ function GrowingTextarea(props: { id: string; value: string; onBlur: (e: FocusEv
       ref={ref}
       id={props.id}
       class="growing"
-      value={props.value}
+      defaultValue={props.value}
       onInput={fit}
       onBlur={props.onBlur}
     />
@@ -131,7 +133,7 @@ export function Inspector({ doc, itemId, run, onClose, onError, onBackToReview }
       {(item.title !== undefined || imported) && (
         <div class="field">
           <label htmlFor={`${prefix}-title`}>Title</label>
-          <input
+          <Input
             id={`${prefix}-title`}
             value={item.title ?? ''}
             onBlur={(e) => commitField('title', (e.target as HTMLInputElement).value)}
@@ -142,7 +144,7 @@ export function Inspector({ doc, itemId, run, onClose, onError, onBackToReview }
       {item.type === 'currently' && (
         <div class="field">
           <label htmlFor={`${prefix}-label`}>Label</label>
-          <input
+          <Input
             id={`${prefix}-label`}
             value={item.label ?? ''}
             onBlur={(e) => commitField('label', (e.target as HTMLInputElement).value)}
@@ -164,7 +166,7 @@ export function Inspector({ doc, itemId, run, onClose, onError, onBackToReview }
           </div>
           <div class="field">
             <label htmlFor={`${prefix}-tags`}>Pinboard tags</label>
-            <input
+            <Input
               id={`${prefix}-tags`}
               value={(item.tags ?? []).join(', ')}
               onBlur={(e) => {
@@ -191,7 +193,7 @@ export function Inspector({ doc, itemId, run, onClose, onError, onBackToReview }
       {item.type === 'echo' && (
         <div class="field">
           <label htmlFor={`${prefix}-ask`}>Ask Thingy</label>
-          <input
+          <Input
             id={`${prefix}-ask`}
             value={item.ask ?? ''}
             placeholder="The question under the thread; empty prints no door"
@@ -325,7 +327,7 @@ function PhotoFields({
       {fields.map((field) => (
         <div class="field" key={field.key}>
           <label htmlFor={`${prefix}-${field.key}`}>{field.label}</label>
-          <input
+          <Input
             id={`${prefix}-${field.key}`}
             type={field.type ?? 'text'}
             value={item.media?.[field.key] ?? ''}

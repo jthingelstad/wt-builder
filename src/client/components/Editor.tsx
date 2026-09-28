@@ -199,8 +199,11 @@ export function Editor({ doc, readiness, busy, error, run, onIndex, onSend, onEr
         // focused one has not committed yet. The server already has the swept
         // document — hold this response, and after the edit blurs (and its
         // PATCH has had a beat to land) re-read the issue so both arrive.
+        // An Inspector or issue-panel field is an edit too: it held only for
+        // contenteditables, and a scan landing replaced a half-typed
+        // commentary (review 2026-09-27, §1.4).
         const active = document.activeElement as HTMLElement | null;
-        if (active?.isContentEditable) {
+        if (active?.matches('input, textarea, [contenteditable]')) {
           const refresh = () => {
             active.removeEventListener('blur', refresh);
             setTimeout(() => void run(() => api.getIssue(id)), 600);
