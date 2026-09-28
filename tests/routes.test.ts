@@ -320,7 +320,9 @@ describe('the send guards refuse before any leg runs', () => {
     expect(strandRetry.status).toBe(409);
     expect(strandRetry.body.error).toContain('podcast');
 
-    await fetch(`${base}/api/issues/${id}`, { method: 'DELETE' });
+    // A leg has been attempted, so the route will not delete it (see
+    // "deleting an issue"); the test drops its own throwaway row directly.
+    store.deleteIssue(id);
   });
 });
 
@@ -532,5 +534,65 @@ describe('the edge answers only to its own names (DNS rebinding)', () => {
     expect(statusOf(await get(`127.0.0.1:${other}`))).toBe(421);
     const bare = await raw('GET /api/health HTTP/1.0\r\n\r\n');
     expect(statusOf(bare.replace(/^HTTP\/1\.0/, 'HTTP/1.1'))).toBe(421);
+  });
+});
+
+describe('deleting an issue', () => {
+  const create = async (number: number, publication_date: string) => {
+    const created = await fetch(`${base}/api/issues`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ number, publication_date }),
+    });
+    return (await created.json()).issue.issue.id as string;
+  };
+  const del = (id: string) => fetch(`${base}/api/issues/${id}`, { method: 'DELETE' });
+
+  it('a published issue is refused, and is still there', async () => {
+    const id = await create(990008, '2026-10-24');
+    const store = await import('../src/server/db.ts');
+    store.recordSend(id, 'website', { status: 'sent', at: new Date().toISOString() });
+    store.recordSend(id, 'buttondown', { status: 'sent', at: new Date().toISOString() });
+    expect(store.getIssue(id)!.doc.issue.status).toBe('published');
+
+    const res = await del(id);
+    expect(res.status).toBe(409);
+    expect((await res.json()).error).toContain('published');
+    expect((await fetch(`${base}/api/issues/${id}`)).status).toBe(200);
+    store.deleteIssue(id);
+  });
+
+  it('a draft with any leg sent, in flight, or failed is refused', async () => {
+    const store = await import('../src/server/db.ts');
+    const cases = [
+      ['sent', 990009, '2026-10-31'],
+      ['sending', 990010, '2026-11-07'],
+      ['failed', 990011, '2026-11-21'],
+    ] as const;
+    for (const [status, number, date] of cases) {
+      const id = await create(number, date);
+      store.recordSend(id, 'podcast', { status, at: new Date().toISOString() });
+      expect(store.getIssue(id)!.doc.issue.status).toBe('draft');
+      const res = await del(id);
+      expect(res.status, status).toBe(409);
+      expect((await fetch(`${base}/api/issues/${id}`)).status, status).toBe(200);
+      store.deleteIssue(id);
+    }
+  });
+
+  it('an unsent draft is deleted, and its last version is kept among its revisions', async () => {
+    const id = await create(990012, '2026-11-14');
+    await fetch(`${base}/api/issues/${id}/settings`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ title: 'The last thing it said' }),
+    });
+
+    expect((await del(id)).status).toBe(200);
+    expect((await fetch(`${base}/api/issues/${id}`)).status).toBe(404);
+
+    const store = await import('../src/server/db.ts');
+    const [last] = store.listRevisions(id);
+    expect(last?.doc.issue.title).toBe('The last thing it said');
   });
 });

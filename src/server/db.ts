@@ -330,9 +330,27 @@ export function recordVerify(id: string, destination: Destination, v: Verificati
   return getIssue(id);
 }
 
+/**
+ * Drop an issue and its event log. Its revisions stay, and the document as it
+ * stood is added to them first: they are the only way back from a delete
+ * (`npm run revisions`). Which issues may be deleted is the route's call.
+ */
 export function deleteIssue(id: string): void {
-  openDb().prepare('DELETE FROM issues WHERE id = ?').run(id);
-  openDb().prepare('DELETE FROM events WHERE issue_id = ?').run(id);
+  const d = openDb();
+  d.transaction(() => {
+    const last = d.prepare('SELECT doc, updated_at FROM issues WHERE id = ?').get(id) as
+      | { doc: string; updated_at: string } | undefined;
+    if (last) {
+      d.prepare('INSERT INTO revisions (issue_id, saved_at, doc) VALUES (?, ?, ?)')
+        .run(id, last.updated_at, last.doc);
+      d.prepare(
+        `DELETE FROM revisions WHERE issue_id = ? AND id NOT IN
+           (SELECT id FROM revisions WHERE issue_id = ? ORDER BY id DESC LIMIT ?)`,
+      ).run(id, id, REVISIONS_KEPT);
+    }
+    d.prepare('DELETE FROM issues WHERE id = ?').run(id);
+    d.prepare('DELETE FROM events WHERE issue_id = ?').run(id);
+  })();
 }
 
 // ── the event log ─────────────────────────────────────────────────────────

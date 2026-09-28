@@ -406,7 +406,23 @@ const routes: [RegExp, string, (ctx: Ctx, params: string[]) => Promise<unknown>]
     return { issue: doc, readiness: issues.readiness(doc) };
   }],
 
+  // The client never calls this; it exists for a draft started by mistake
+  // (and the route tests' cleanup). Anything that has gone anywhere is part
+  // of the record: a published issue belongs to the archive, and a leg sent,
+  // in flight, or failed may have left something at its destination that the
+  // document is the only map to. Only an unsent draft goes, and its last
+  // version stays in revisions (store.deleteIssue). Review 2026-09-27, §1.6.
   [/^\/api\/issues\/([^/]+)$/, 'DELETE', async (_ctx, [id]) => {
+    const doc = requireIssue(id!);
+    if (doc.issue.status !== 'draft') {
+      throw new HttpError(409, `WT${doc.issue.number} is published — it cannot be deleted`);
+    }
+    const legs = Object.entries(doc.sends ?? {})
+      .filter(([, s]) => s && s.status !== 'none')
+      .map(([d, s]) => `${d} ${s!.status}`);
+    if (legs.length) {
+      throw new HttpError(409, `WT${doc.issue.number} has been sent (${legs.join(', ')}) — only an unsent draft can be deleted`);
+    }
     store.deleteIssue(id!);
     return { ok: true };
   }],

@@ -269,7 +269,10 @@ finished, what is half-finished, and what has never run.
   `WT_BUILDER_ALLOWED_ORIGINS` / `WT_BUILDER_ALLOWED_HOSTS` extend the
   lists. Tested over HTTP and a raw socket in tests/routes.test.ts; not yet
   run against the tailnet, so the first live session after the deploy
-  watches the log for `[edge]`.
+  watches the log for `[edge]`. `DELETE /api/issues/:id`, which the client
+  never calls, deletes only an unsent draft (no leg sent, in flight, or
+  failed) and answers 409 for anything else; the document as it stood is
+  kept in `revisions`, the one way back.
 
 ## Not built
 
