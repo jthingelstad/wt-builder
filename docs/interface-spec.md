@@ -1013,6 +1013,12 @@ Added 2026-09-28, from the review of 2026-09-27 (§1.4, §1.5):
   or a re-scan landing updates only fields Jamie is not in. Escape in one
   commits it before the panel closes.
 - **A click in and out is not an edit.** An editable commits only when what
-  it reads back differs from the read-back of the stored value.
+  it reads back differs from the read-back of the stored value. The
+  read-back keeps the spaces before a line end, so a Markdown hard break
+  survives an edit, and adding or removing one is an edit.
+- **A field shows the saved value once it lets go**, unless its save is out
+  (it waits) or failed (it keeps the typing). The Inspector is keyed by the
+  item it inspects, so typing never carries to the next item.
 - **A heading typed on the canvas is saved.** Ad hoc: the section label.
-  Promoted: the post's title.
+  Promoted: the post's title. Emptied, it goes back to the saved text; the
+  rename route refuses a blank label.
