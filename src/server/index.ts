@@ -54,12 +54,19 @@ interface Ctx {
   raw: () => Promise<Buffer>;
 }
 
-class HttpError extends Error {
+export class HttpError extends Error {
   /** `code` names a refusal the client acts on, beside the message it shows. */
   constructor(public status: number, message: string, public code?: string) {
     super(message);
   }
 }
+
+/**
+ * A leg turned down on what the destination said, after its state was set
+ * back as it was: the one error a leg's catch passes through without
+ * recording a failure. Any other error — a 409 included — is a failed send.
+ */
+class Refusal extends HttpError {}
 
 function json(res: ServerResponse, status: number, payload: unknown): void {
   const body = JSON.stringify(payload);
@@ -1217,7 +1224,7 @@ const routes: [RegExp, string, (ctx: Ctx, params: string[]) => Promise<unknown>]
     // writer of it out while the status is read.
     const refuse = (message: string, code?: string): never => {
       store.recordSend(id!, destination, previous ?? { status: 'none' });
-      throw new HttpError(409, message, code);
+      throw new Refusal(409, message, code);
     };
     const webCopy = url.searchParams.get('web_copy') === '1';
     try {
@@ -1276,7 +1283,7 @@ const routes: [RegExp, string, (ctx: Ctx, params: string[]) => Promise<unknown>]
       verifyAfterSend(id!, 'buttondown');
       return { issue: row?.doc, send: state, images };
     } catch (err) {
-      if (err instanceof HttpError && err.status === 409) throw err;
+      if (err instanceof Refusal) throw err;
       const state: SendState = {
         status: 'failed',
         at: new Date().toISOString(),

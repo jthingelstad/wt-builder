@@ -151,7 +151,7 @@ globalThis.fetch = (async (input: string | URL | Request, init?: RequestInit) =>
   return realFetch(input, init);
 }) as typeof fetch;
 
-const { server, failInterruptedSends } = await import('../src/server/index.ts');
+const { server, failInterruptedSends, HttpError } = await import('../src/server/index.ts');
 const store = await import('../src/server/db.ts');
 
 let base = '';
@@ -710,6 +710,20 @@ describe('a Buttondown failure recorded before last_sent still names its draft',
     const files = h.committed.at(-1)!.map((f) => f.content).join('\n');
     expect(files).toContain('em-legacy');
     expect(files).not.toMatch(/buttondown_id: ""/);
+    store.deleteIssue(id);
+  });
+});
+
+describe('only the refusal skips the failure record', () => {
+  it('a 409 from anything else in the Buttondown leg is a failed send, not a stranded sending', async () => {
+    const id = issue(990493);
+    h.rehostFails = new HttpError(409, 'something else said conflict');
+    const res = await send(id, 'buttondown');
+    expect(res.status).toBe(502);
+    expect(legOf(id, 'buttondown')).toMatchObject({ status: 'failed', error: 'something else said conflict' });
+    h.rehostFails = null;
+    // And the next attempt is not refused as in flight.
+    expect((await send(id, 'buttondown')).status).toBe(200);
     store.deleteIssue(id);
   });
 });

@@ -97,7 +97,9 @@ finished, what is half-finished, and what has never run.
   it now" and record nothing; `sent` answers 409 unless `?web_copy=1`, and
   a web-copy update is logged (event log and service log); `draft` /
   `scheduled` update as before; anything else is refused. A status read
-  that fails is a failed send that changes nothing in Buttondown. The
+  that fails is a failed send that changes nothing in Buttondown; only
+  those refusals skip the failure record — any other error in the leg, a
+  409 included, records `failed` rather than leaving `sending`. The
   Buttondown check records the status it read (`verify.buttondown.
   remote_status`); once it is `sent`, the card's action is "Update web
   copy…" behind a confirm, and "Re-send all sent" / "Send the rest" leave
