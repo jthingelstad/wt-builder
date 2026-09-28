@@ -15,8 +15,8 @@ import { tmpdir } from 'node:os';
 import { join } from 'node:path';
 
 // The database path must be decided before the server's config module loads.
-// `process.loadEnvFile` never overrides a variable that is already set, so
-// this wins over .env on a dev machine.
+// vitest runs with WT_BUILDER_OFFLINE=1 (vite.config.ts), so .env is never
+// read and no credential is present.
 const work = mkdtempSync(join(tmpdir(), 'wt-routes-'));
 process.env.WT_BUILDER_DB = join(work, 'routes.db');
 

@@ -53,6 +53,10 @@ npm run build     # typecheck + vite build into dist/
 npm run test:e2e  # browser tests, WebKit (Safari) + Chromium, offline
 ```
 
+Both suites run offline. vitest sets `WT_BUILDER_OFFLINE=1` itself
+(`vite.config.ts`), so `npm test` never reads `.env`, even on otto where
+`npm run deploy` runs it; a test that needs a service stubs `fetch`.
+
 The browser tests (`tests/e2e/`) run the real server with
 `WT_BUILDER_OFFLINE=1` — no `.env`, no credentials, AWS pointed at nothing —
 against a throwaway database seeded from the representative issue. Anything
