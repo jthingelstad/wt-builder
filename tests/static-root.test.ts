@@ -9,7 +9,8 @@
 import { afterAll, beforeAll, describe, expect, it } from 'vitest';
 import { mkdirSync, mkdtempSync, readFileSync, rmSync, writeFileSync } from 'node:fs';
 import { tmpdir } from 'node:os';
-import { join } from 'node:path';
+import { join, resolve } from 'node:path';
+import { fileURLToPath } from 'node:url';
 
 // Both must be decided before the server's config module loads.
 const work = mkdtempSync(join(tmpdir(), 'wt-static-'));
@@ -54,5 +55,31 @@ describe('WT_BUILDER_DIST is the static root', () => {
   it('an app route falls back to its shell', async () => {
     const res = await fetch(`${base}/wt999`);
     expect(await res.text()).toContain('<title>e2e build</title>');
+  });
+});
+
+describe('npm run test:e2e serves the client it built', () => {
+  // The server above honours WT_BUILDER_DIST; this holds the wiring around
+  // it. Drop --outDir and the suite overwrites the live dist/ again; drop
+  // WT_BUILDER_DIST and it tests whatever stale build is in dist/.
+  const root = fileURLToPath(new URL('..', import.meta.url));
+
+  it('builds into the directory Playwright hands the server, which is not dist/', async () => {
+    const pkg = JSON.parse(readFileSync(join(root, 'package.json'), 'utf8'));
+    const script: string = pkg.scripts['test:e2e'];
+    const build = script.split('&&')[0]!.trim();
+    expect(build).toMatch(/^vite build\b/);
+    expect(build).toContain('--emptyOutDir');
+    const outDir = /--outDir\s+(\S+)/.exec(build)?.[1];
+    expect(outDir).toBeDefined();
+
+    const { default: pw } = await import('../playwright.config.ts');
+    const webServer = Array.isArray(pw.webServer) ? pw.webServer[0] : pw.webServer;
+    const served = webServer?.env?.WT_BUILDER_DIST;
+    expect(served).toBeDefined();
+
+    // Playwright runs from the repository root, as npm does.
+    expect(resolve(root, served!)).toBe(resolve(root, outDir!));
+    expect(resolve(root, outDir!)).not.toBe(resolve(root, 'dist'));
   });
 });
