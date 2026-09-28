@@ -82,7 +82,8 @@ never leaves the page pointing at a missing one.
 The website commit is the issue's page plus the site's `emails.json` with this
 issue's entry merged in. The merge is made against the file as it stands when
 the commit is made — re-read and re-merged if the ref update loses a race — so a
-commit that lands on the site meanwhile (the back catalogue's audio records) is
+commit that lands on the site meanwhile (another issue's website send, or any
+other commit that touches the index) is
 kept, never overwritten by an earlier read. A missing, unparseable or truncated
 index refuses the leg; truncated means fewer entries than the last published
 issue's number (never under the pre-Builder archive's 349).
@@ -101,7 +102,7 @@ run that meets the refusal carries on to the legs after it. Any other status is
 refused and changes nothing.
 
 The podcast's first step is a gate: the script must be approved before the leg
-runs. The server holds it too (2026-09-28, review 2026-09-27 §8): a podcast
+runs. The server holds it too (2026-09-28, review 2026-09-27, appendix: Audio): a podcast
 send with no approval, or with an approval of a script that has since changed
 (the hash no longer matches), is refused with a 409 before anything is
 synthesized or recorded. A podcast already sent re-synthesizes without asking

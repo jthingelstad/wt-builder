@@ -1308,7 +1308,7 @@ const routes: [RegExp, string, (ctx: Ctx, params: string[]) => Promise<unknown>]
  * archive the 2026-08-30 revert restored — refuse instead. The floor is the
  * last published issue, since every issue before it has an entry (numbered
  * 1 on, no gaps), and never below the 349 the pre-Builder archive holds: a
- * fixed 349 weakened by one issue every week (review 2026-09-27 §8).
+ * fixed 349 weakened by one issue every week (review 2026-09-27 §7).
  */
 const PREBUILDER_ARCHIVE_ENTRIES = 349;
 function archiveFloor(): number {
@@ -1412,10 +1412,12 @@ async function sendWebsite(id: string, force = false) {
     const { mapping } = await rehostIssueImages(requireIssue(id));
     const fresh = savedFresh(id, (d) => applyRehost(d, mapping)).issue;
     // emails.json is merged into the file as it stands when the commit is
-    // made, not as it was read before the rehost: the back catalogue commits
-    // audio records into it, and a merge against an earlier read — or a
+    // made, not as it was read before the rehost: another issue's website
+    // leg (the in-flight guard is per issue) or any other commit to the site
+    // can change it meanwhile, and a merge against an earlier read — or a
     // ref-race retry that reused it — would put its stale copy over theirs
-    // (review 2026-09-27 §2.3). The page does not depend on the index.
+    // (review 2026-09-27, appendix: Sending & verify). The page does not
+    // depend on the index.
     const inputsWith = (emails: IssueEntry[]) => siteInputs(fresh, websiteOptions(fresh, emails));
     const result = await githubRepo.editTree(
       inputsWith([]).map((f) => f.path),
@@ -1459,15 +1461,12 @@ async function sendWebsite(id: string, force = false) {
 }
 
 /**
- * Render the script, synthesize it, and upload the mp3 to the CDN. The website
- * publishes the reference; the file lives only on the CDN.
- */
-/**
  * The podcast speaks only the script Jamie approved: the review and the
  * approval are tied to the script's hash, and the server holds the leg to
  * them as the Send view does, so a request that skips the view cannot
- * synthesize an unread script (review 2026-09-27 §8). A podcast already sent
- * re-synthesizes without asking again, as the view allows.
+ * synthesize an unread script (review 2026-09-27, appendix: Audio). A
+ * podcast already sent re-synthesizes without asking again, as the view
+ * allows.
  */
 function guardScriptApproved(doc: IssueDoc): void {
   if (doc.sends?.podcast?.status === 'sent') return;
@@ -1478,6 +1477,10 @@ function guardScriptApproved(doc: IssueDoc): void {
   }
 }
 
+/**
+ * Render the script, synthesize it, and upload the mp3 to the CDN. The website
+ * publishes the reference; the file lives only on the CDN.
+ */
 async function sendPodcast(id: string) {
   const doc = requireIssue(id);
   guardInFlight(doc, 'podcast');

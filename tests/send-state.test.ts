@@ -603,7 +603,7 @@ describe('the website leg merges emails.json as it stands when the commit lands'
     const calls = h.rehostCalls;
     const sent = send(id, 'website');
     await until(() => h.rehostCalls > calls);
-    // The back catalogue records WT12's audio meanwhile.
+    // Another commit to the site changes WT12's entry meanwhile.
     const emails = JSON.parse(h.siteEmails);
     emails[11].audio_url = 'https://files.thingelstad.com/wt12.mp3';
     h.siteEmails = JSON.stringify(emails);

@@ -161,7 +161,7 @@ export async function buildCover(subject: CoverSubject, opts: { upload?: boolean
   // A dry run of the audio must not touch the live banner: this once
   // replaced WT350's cover with the fixture's photo (2026-09-21). Nor must a
   // photo that failed to load: the show art stood in for it, and uploading
-  // that would put show art over a real cover (review 2026-09-27 §8). Only
+  // that would put show art over a real cover (review 2026-09-27, appendix: Audio). Only
   // when there is no banner yet does the show art go up, so the page and its
   // social card never point at a missing cover.jpg.
   const s3 = new S3Client({ region: config.awsRegion });

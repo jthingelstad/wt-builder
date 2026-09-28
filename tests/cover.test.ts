@@ -2,7 +2,7 @@
  * The banner at weekly-thing/{N}/cover.jpg is live: the archive page and its
  * social card point at it. A cover built when the issue's photo could not be
  * fetched falls back to the show art for the mp3, and must leave the live
- * banner alone (review 2026-09-27 §8). S3 and the network are mocked; nothing
+ * banner alone (review 2026-09-27, appendix: Audio). S3 and the network are mocked; nothing
  * here leaves the machine.
  */
 import sharp from 'sharp';

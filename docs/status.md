@@ -70,13 +70,13 @@ finished, what is half-finished, and what has never run.
   banner is there yet (one HEAD against the bucket), so a re-send never puts
   show art over a real cover and a first send never leaves the page pointing
   at a missing one. (The back catalogue never uploads a banner: `banner:
-  false`.) Review 2026-09-27, §8.
+  false`.) Review 2026-09-27, appendix (Audio).
 - **The server holds the podcast to the approved script** (2026-09-28) —
   the gate was the client's alone, and the server synthesized whatever
   script it held. A podcast send now needs `script_review.approved_at` on
   the script as it stands (same hash); otherwise a 409, before any
   synthesis or leg state. A podcast already sent is exempt, as on the
-  card. Review 2026-09-27, §8.
+  card. Review 2026-09-27, appendix (Audio).
 - **A failed leg keeps its last good send** (2026-09-28) — every leg's
   `SendState` carries `last_sent` through `sending` and `failed`
   (`recordSend`, one place for all four). The Buttondown retry, the website
@@ -191,14 +191,14 @@ finished, what is half-finished, and what has never run.
   the send when the file is missing, unparseable, or below the entries the
   archive is known to hold — since 2026-09-28 the last published issue's
   number (never under 349), not a fixed 349 that weakened every week
-  (review 2026-09-27 §8). This closes the accidental-send finding: the
+  (review 2026-09-27 §7). This closes the accidental-send finding: the
   index was once rebuilt from the Builder's sparser records, gutting 104k
   lines to 10k (commit 91688fc7, reverted). Since 2026-09-28 the merge
   happens inside the commit (`editTree`): the file is read, checked and
-  merged as it stands at commit time, and again on a lost ref race, so a
-  back-catalogue audio record committed while the leg was rehosting is kept
-  rather than overwritten by the copy read before it. Review 2026-09-27,
-  §2.3.
+  merged as it stands at commit time, and again on a lost ref race, so
+  another issue's website send, or any other commit to the index, that
+  lands while the leg is rehosting is kept rather than overwritten by the
+  copy read before it. Review 2026-09-27, appendix (Sending & verify).
 - **Front matter quotes every string** (2026-09-28) — the site page, the
   archive text, and the audio record write each string scalar as a JSON
   string (`yamlString` in `src/server/publish.ts`), which is always valid
