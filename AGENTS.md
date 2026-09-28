@@ -82,7 +82,8 @@ The service binds loopback and is reached over the tailnet at
 
 ```sh
 npm run deploy                                      # test, build, then restart
-tail -f ~/Library/Logs/wt-builder/wt-builder.log    # logs
+tail -f ~/Library/Logs/wt-builder/wt-builder.log    # logs (stdout)
+tail -f ~/Library/Logs/wt-builder/wt-builder.err    # errors, [edge] refusals, [process] (stderr)
 npm run watch -- wt352                              # an issue, live
 ```
 

@@ -11,6 +11,9 @@
  * A deleted issue (DELETE /api/issues/:id keeps the document as it stood
  * among its revisions) is still listed from those revisions, and --restore
  * recreates its row from the newest one. It restores nothing else.
+ *
+ * Issue ids are wt<number>, so an issue re-created under a deleted one's
+ * number shares its revision history: the listing shows both, oldest first.
  */
 
 import * as store from '../src/server/db.ts';

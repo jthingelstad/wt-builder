@@ -253,39 +253,48 @@ finished, what is half-finished, and what has never run.
   the S3 upload has not yet run for real.
 
 - **The edge** (2026-09-28, review §1.6) — the service has no auth and
-  trusts the tailnet, so the door itself refuses what it cannot trust. A
-  request whose target is not a URL is a 400 (the URL is parsed inside the
-  handler's `try`, against a fixed base, never from the Host header), and an
-  error nothing awaited is logged by the service and does not exit it
-  (`logStrayErrors` in `src/server/index.ts`; tests/service-process.test.ts
-  boots the service and proves it). A process that survives an uncaught
-  exception is not restarted by launchd (`KeepAlive` is
-  `SuccessfulExit=false`), so one wedged by it needs a manual restart
-  (`npm run deploy`); the log line starts `[process]`. A write that another site
-  sends through Jamie's browser is a 403 before routing (`guardEdge`,
-  `src/server/edge.ts`): any method but GET and HEAD with an `Origin` that
-  is not the tailnet URL, the Vite dev client, or loopback on the listening
-  port, or with a `Sec-Fetch-Site` present and other than
-  `same-origin`/`none`. Only an origin from `WT_BUILDER_ALLOWED_ORIGINS`
-  passes whatever `Sec-Fetch-Site` says, so the env list can let in a
-  caller the browser counts as same-site while a built-in origin marked
-  cross-site is still refused; the 403's log line names both values.
-  `Origin: null` (a sandboxed or file: page) is never allowed: listed in
-  the env, it is dropped with a warning at boot. Scripts
-  and curl send neither and pass. Against DNS rebinding, a Host that is not
-  `otto.tail09aaf9.ts.net` (bare or `:10001`) or `localhost`/`127.0.0.1` on
-  the listening port is a 421 for every method, reads included. Every
-  refusal is logged with the value it refused, and
-  `WT_BUILDER_ALLOWED_ORIGINS` / `WT_BUILDER_ALLOWED_HOSTS` extend the
-  lists. Tested over HTTP and a raw socket in tests/routes.test.ts; not yet
-  run against the tailnet, so the first live session after the deploy
-  watches the log for `[edge]`. `DELETE /api/issues/:id`, which the client
-  never calls, deletes only an unsent draft (no leg sent, in flight, or
-  failed, and no live share page: unshare it first) and answers 409 for
-  anything else; the document as it stood is
-  kept in `revisions`, the one way back: `npm run revisions -- <id>` still
-  lists a deleted issue's versions, and `--restore` recreates its row from
-  the newest (tests/revisions-script.test.ts).
+  trusts the tailnet, so the door itself refuses what it cannot trust.
+  Every refusal and stray error below is written to stderr, which launchd
+  sends to `~/Library/Logs/wt-builder/wt-builder.err`, not `wt-builder.log`;
+  `npm run watch` reads both.
+  - A request whose target is not a URL is a 400 (the URL is parsed inside
+    the handler's `try`, against a fixed base, never from the Host header).
+  - An error nothing awaited is logged (`[process]`) and does not exit the
+    service (`logStrayErrors` in `src/server/index.ts`;
+    tests/service-process.test.ts boots the service and proves it). A
+    process that survives an uncaught exception is not restarted by
+    launchd (`KeepAlive` is `SuccessfulExit=false`), so one wedged by it
+    needs a manual restart (`npm run deploy`).
+  - A write that another site sends through Jamie's browser is a 403
+    before routing (`guardEdge`, `src/server/edge.ts`): any method but GET
+    and HEAD with an `Origin` that is not the tailnet URL, the Vite dev
+    client, or loopback on the listening port, or with a `Sec-Fetch-Site`
+    present and other than `same-origin`/`none`. Only an origin from
+    `WT_BUILDER_ALLOWED_ORIGINS` passes whatever `Sec-Fetch-Site` says, so
+    the env list can let in a caller the browser counts as same-site while
+    a built-in origin marked cross-site is still refused. `Origin: null` (a
+    sandboxed or file: page) is never allowed: listed in the env, it is
+    dropped with a warning at boot. Scripts and curl send neither header
+    and pass.
+  - Against DNS rebinding, a Host that is not `otto.tail09aaf9.ts.net`
+    (bare or `:10001`) or `localhost`/`127.0.0.1` on the listening port is
+    a 421 for every method, reads included.
+  - Every refusal is logged (`[edge] 403` / `[edge] 421`) with the values
+    it refused — a 403 names both `Origin` and `Sec-Fetch-Site` — and
+    `WT_BUILDER_ALLOWED_ORIGINS` / `WT_BUILDER_ALLOWED_HOSTS` extend the
+    lists without a code change. Tested over HTTP and a raw socket in
+    tests/routes.test.ts; not yet run against the tailnet, so the first
+    live session after the deploy watches `wt-builder.err` (or
+    `npm run watch`) for `[edge]`.
+  - `DELETE /api/issues/:id`, which the client never calls, deletes only an
+    unsent draft (no leg sent, in flight, or failed, and no live share
+    page: unshare it first) and answers 409 for anything else. The document
+    as it stood is kept in `revisions`, the one way back:
+    `npm run revisions -- <id>` still lists a deleted issue's versions, and
+    `--restore` recreates its row from the newest
+    (tests/revisions-script.test.ts). Issue ids are `wt<number>`, so an
+    issue re-created under the same number shares the deleted one's
+    revision history.
 
 ## Not built
 

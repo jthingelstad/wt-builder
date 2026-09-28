@@ -71,10 +71,13 @@ request but a GET or HEAD whose `Origin` is not the tailnet URL above, the
 Vite dev client, or loopback on the port it listens on, or whose
 `Sec-Fetch-Site` is present and not `same-origin` or `none`, is a 403. Only
 an origin added through `WT_BUILDER_ALLOWED_ORIGINS` passes whatever
-`Sec-Fetch-Site` says. Scripts and curl send neither header and pass. Against DNS rebinding it also answers only to its
-own names: a Host that is not the tailnet name (with or without `:10001`) or
-loopback on its port is a 421, for any method. Every refusal is logged with
-the values it refused (a 403 names both `Origin` and `Sec-Fetch-Site`); `WT_BUILDER_ALLOWED_ORIGINS` and
+`Sec-Fetch-Site` says. Scripts and curl send neither header and pass.
+Against DNS rebinding it also answers only to its own names: a Host that is
+not the tailnet name (with or without `:10001`) or loopback on its port is a
+421, for any method. Every refusal is logged with the values it refused (a
+403 names both `Origin` and `Sec-Fetch-Site`) to stderr, which launchd writes
+to `~/Library/Logs/wt-builder/wt-builder.err`, not `wt-builder.log`;
+`npm run watch` reads both. `WT_BUILDER_ALLOWED_ORIGINS` and
 `WT_BUILDER_ALLOWED_HOSTS` in `.env` (comma-separated) extend the lists
 without a code change. See `src/server/edge.ts`.
 
@@ -83,7 +86,8 @@ Managing the service:
 ```sh
 npm run deploy                                                    # test, build, restart
 launchctl list | grep wt-builder                                  # status
-tail -f ~/Library/Logs/wt-builder/wt-builder.log                  # logs
+tail -f ~/Library/Logs/wt-builder/wt-builder.log                  # logs (stdout)
+tail -f ~/Library/Logs/wt-builder/wt-builder.err                  # errors, edge refusals (stderr)
 ```
 
 Server code does not hot-reload under launchd. After changing `src/server/`,
