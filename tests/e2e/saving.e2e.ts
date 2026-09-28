@@ -215,3 +215,58 @@ test('a date the server snaps shows as snapped once the field loses focus', asyn
   await expect(date).not.toBeFocused();
   await expect(date).toHaveValue('2026-10-10');
 });
+
+/** Select [start, end) of an editable's single text node — its source after the swap. */
+async function selectIn(page: Page, sel: string, start: number, end: number) {
+  await page.locator(sel).evaluate((el, [a, b]) => {
+    const node = el.firstChild!;
+    const r = document.createRange();
+    r.setStart(node, a!);
+    r.setEnd(node, b!);
+    const s = getSelection()!;
+    s.removeAllRanges();
+    s.addRange(r);
+  }, [start, end]);
+}
+
+// The read-back stripped every space before a newline: a real edit took the
+// hard breaks out of the whole field, and one that only added or removed a
+// hard break was not saved at all (Batch 5 review, N3).
+test.describe('a Markdown hard break', () => {
+  const put = (commentary: string) => {
+    const doc = store.getIssue(ISSUE)!.doc;
+    doc.items['link-flipcash']!.commentary = commentary;
+    store.saveIssue(doc);
+  };
+  const saved = () => String(item('link-flipcash').commentary);
+  const sel = commentary('link-flipcash');
+
+  test('survives a real edit elsewhere in the field', async ({ page }) => {
+    put('First line  \nSecond line');
+    await open(page);
+    await caretAtEnd(page, sel);
+    await page.keyboard.type(' More.');
+    await commit(page, () => saved().endsWith('More.'));
+    expect(saved()).toBe('First line  \nSecond line More.');
+  });
+
+  test('added on its own is saved', async ({ page }) => {
+    put('Line one\nLine two');
+    await open(page);
+    await caretAtEnd(page, sel);
+    await selectIn(page, sel, 8, 8);
+    await page.keyboard.type('  ');
+    await commit(page, () => saved() !== 'Line one\nLine two');
+    expect(saved()).toBe('Line one  \nLine two');
+  });
+
+  test('removed on its own is saved', async ({ page }) => {
+    put('Line one  \nLine two');
+    await open(page);
+    await caretAtEnd(page, sel);
+    await selectIn(page, sel, 8, 10);
+    await page.keyboard.press('Backspace');
+    await commit(page, () => saved() !== 'Line one  \nLine two');
+    expect(saved()).toBe('Line one\nLine two');
+  });
+});

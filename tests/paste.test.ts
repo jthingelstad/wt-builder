@@ -87,6 +87,23 @@ describe('reading a contenteditable back keeps its paragraphs', () => {
     expect(md(el('div', [text('Intro'), el('p', [text('Body')])]))).toBe('Intro\n\nBody');
   });
 
+  // A Markdown hard break is two spaces before a newline. The read-back
+  // stripped every space before a newline, so an untouched field never read
+  // back as stored, and any real edit took every hard break out of it and
+  // wrote that to the source (Batch 5 review, N3).
+  it('keeps a hard break, in one text node or across the divs Enter made', () => {
+    const stored = 'First line  \nSecond line';
+    expect(readEditable(withQuery(el('div', [text(stored)])), true)).toBe(stored);
+    const lines = el('div', [text('First line  '), el('div', [text('Second line')])]);
+    expect(readEditable(withQuery(lines), true)).toBe(stored);
+    // Safari keeps a typed trailing space visible as a no-break space.
+    expect(readEditable(withQuery(el('div', [text('First line \u00a0\nSecond line')])), true)).toBe(stored);
+  });
+
+  it('pasted HTML still loses the spaces its markup put before a line end', () => {
+    expect(md(el('div', [text('Intro  '), el('p', [text('Body')])]))).toBe('Intro\n\nBody');
+  });
+
   it('a single-line field reads as plain text', () => {
     expect(readEditable(withQuery(el('span', [text('one line')])), false)).toBe('one line');
   });

@@ -364,7 +364,7 @@ export function formatShortcut(e: KeyboardEvent): boolean {
  */
 const BLOCK_TAGS = new Set(['P', 'DIV', 'H1', 'H2', 'H3', 'H4', 'UL', 'OL', 'BLOCKQUOTE']);
 
-export function domToMarkdown(root: Node, blockBreak = '\n\n'): string {
+export function domToMarkdown(root: Node, blockBreak = '\n\n', keepLineEnds = false): string {
   const walk = (node: Node): string => {
     // Numeric node types, not Node.TEXT_NODE: this runs under test without a DOM.
     if (node.nodeType === 3) return (node.textContent ?? '').replace(/\u00a0/g, ' ');
@@ -408,8 +408,13 @@ export function domToMarkdown(root: Node, blockBreak = '\n\n'): string {
       default: return inner();
     }
   };
-  return walk(root)
-    .replace(/[ \t]+\n/g, '\n')
+  const out = walk(root);
+  // Spaces before a line end are markup noise in pasted HTML. In an
+  // editable they are what Jamie wrote: two of them are a Markdown hard
+  // break, and stripping them meant an untouched field never read back as
+  // stored and a real edit took every hard break out of it (Batch 5
+  // review, N3).
+  return (keepLineEnds ? out : out.replace(/[ \t]+\n/g, '\n'))
     .replace(/\n{3,}/g, '\n\n')
     .trim();
 }
@@ -420,9 +425,9 @@ export function domToMarkdown(root: Node, blockBreak = '\n\n'): string {
  * and turns any rich node that got in into Markdown.
  */
 export function readEditable(el: HTMLElement, multiline: boolean): string {
-  if (el.querySelector('a, strong, b, em, i, code')) return domToMarkdown(el, multiline ? '\n' : ' ');
+  if (el.querySelector('a, strong, b, em, i, code')) return domToMarkdown(el, multiline ? '\n' : ' ', true);
   if (!multiline) return el.textContent ?? '';
-  return domToMarkdown(el, '\n');
+  return domToMarkdown(el, '\n', true);
 }
 
 /**
