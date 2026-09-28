@@ -106,7 +106,18 @@ async function call<T>(path: string, init?: RequestInit): Promise<T> {
     headers: { 'Content-Type': 'application/json', ...(init?.headers ?? {}) },
   });
   const text = await res.text();
-  const payload = text ? JSON.parse(text) : {};
+  // A proxy, or the service restarting under a deploy, can answer with HTML
+  // or nothing parseable. The error bar then said "Unexpected token '<'";
+  // it says the status instead (review 2026-09-27, §1.4).
+  let payload: { error?: string; code?: string } & Record<string, unknown>;
+  try {
+    payload = text ? JSON.parse(text) : {};
+  } catch {
+    throw new ApiError(
+      res.ok ? `${res.status} ${res.statusText}: the answer was not JSON` : `${res.status} ${res.statusText}`,
+      res.status,
+    );
+  }
   if (!res.ok) throw new ApiError(payload.error ?? `${res.status} ${res.statusText}`, res.status, payload.code);
   return payload as T;
 }
