@@ -451,7 +451,11 @@ function insertPaste(e: ClipboardEvent, multiline: boolean): void {
 
 interface EditableProps {
   value: string;
-  onCommit: (next: string) => void;
+  /**
+   * May return the save's promise, resolving to whether it succeeded;
+   * RichEditable keeps the committed text on screen until it does.
+   */
+  onCommit: (next: string) => unknown;
   ph?: string;
   class?: string;
   multiline?: boolean;
@@ -518,7 +522,18 @@ export function Editable({
  * The swap happens on `mousedown`, before focus lands. Doing it on `focus`
  * would replace the text after the browser had already chosen a caret position,
  * dropping the caret at the start of the run instead of where Jamie clicked.
+ *
+ * Committed text is shown until the save answers. The node used to re-render
+ * from `value` on blur, which is the *old* text until the PATCH returns — for
+ * a mirrored field that includes the awaited Pinboard or Micro.blog write,
+ * 0.5–3 s. A click back in during that window edited the old text, and the
+ * next blur saved it over the edit; a failed save (the service restarting
+ * under a deploy) left the typed text gone from the screen. Now the pending
+ * text is what renders and what a click edits; a failed one stays, marked
+ * `data-unsaved`, and the next blur tries it again (review 2026-09-27, §1.4).
  */
+interface Pending { text: string; seq: number; failed: boolean }
+
 export function RichEditable({
   value, onCommit, ph, class: cls, readOnly, render, multiline, tag = 'span',
 }: EditableProps & { render: (source: string) => string }) {
@@ -527,22 +542,49 @@ export function RichEditable({
   // Mirrors `editing` for the blur handler, which can run before the
   // re-render that would update its closure.
   const editingRef = useRef(false);
+  // The same for the pending save: state to re-render, a ref for handlers.
+  const [pending, setPendingState] = useState<Pending | null>(null);
+  const pendingRef = useRef<Pending | null>(null);
+  const seqRef = useRef(0);
+  const setPending = (p: Pending | null) => { pendingRef.current = p; setPendingState(p); };
+  const shown = () => pendingRef.current?.text ?? value;
+
+  // The saved value caught up with what was committed: it is no longer pending.
+  useEffect(() => {
+    if (pendingRef.current && pendingRef.current.text === value) setPending(null);
+  }, [value]);
 
   useEffect(() => {
     const el = ref.current;
     if (!el || editing) return;
-    el.innerHTML = value ? render(value) : '';
-  }, [value, editing, render]);
+    const text = pending?.text ?? value;
+    el.innerHTML = text ? render(text) : '';
+  }, [value, editing, render, pending]);
 
   if (readOnly) {
     return createElement(tag, { class: cls, dangerouslySetInnerHTML: { __html: value ? render(value) : '' } });
   }
 
+  const save = (text: string) => {
+    const seq = ++seqRef.current;
+    setPending({ text, seq, failed: false });
+    const result = onCommit(text);
+    if (!result || typeof (result as Promise<unknown>).then !== 'function') {
+      setPending(null);
+      return;
+    }
+    void (result as Promise<unknown>).then((ok) => {
+      // A later commit owns the pending text now; its answer is the one that counts.
+      if (pendingRef.current?.seq !== seq) return;
+      setPending(ok === false ? { text, seq, failed: true } : null);
+    });
+  };
+
   const toSource = () => {
     if (editingRef.current) return;
     editingRef.current = true;
     setEditing(true);
-    if (ref.current) ref.current.textContent = value;
+    if (ref.current) ref.current.textContent = shown();
   };
 
   return createElement(tag, {
@@ -553,6 +595,8 @@ export function RichEditable({
     contenteditable: 'plaintext-only',
     'data-source': editing ? '' : undefined,
     'data-multiline': multiline ? '' : undefined,
+    'data-unsaved': pending?.failed ? '' : undefined,
+    title: pending?.failed ? 'Not saved — click in and away to try again' : undefined,
     spellcheck: true,
     'data-ph': ph,
     onMouseDown: toSource,
@@ -580,7 +624,8 @@ export function RichEditable({
       // Micro.blog (2026-09-21). Whatever focus path skipped the swap, the
       // rendered state has nothing to commit.
       if (!editingRef.current) {
-        el.innerHTML = value ? render(value) : '';
+        const text = shown();
+        el.innerHTML = text ? render(text) : '';
         return;
       }
       // In source mode the node holds Markdown text; anything rich that got
@@ -588,13 +633,23 @@ export function RichEditable({
       const text = readEditable(el, Boolean(multiline));
       editingRef.current = false;
       setEditing(false);
-      if (text !== value) onCommit(text);
-      else el.innerHTML = value ? render(value) : '';
+      // Against what is in flight, if anything is: the same text again is not
+      // a new edit. A failed save is not in flight, so it is tried again.
+      const p = pendingRef.current;
+      if (p && !p.failed) {
+        if (text !== p.text) save(text);
+      } else if (text !== value) {
+        save(text);
+      } else if (p) {
+        setPending(null); // a failed edit put back as saved: nothing to send
+      }
+      const now = shown();
+      el.innerHTML = now ? render(now) : '';
     },
     onKeyDown: (e: KeyboardEvent) => {
       if (formatShortcut(e)) return;
       const el = e.currentTarget as HTMLElement;
-      if (e.key === 'Escape') { el.textContent = value; el.blur(); return; }
+      if (e.key === 'Escape') { el.textContent = shown(); el.blur(); return; }
       if (e.key === 'Enter' && !multiline) { e.preventDefault(); el.blur(); }
     },
   });

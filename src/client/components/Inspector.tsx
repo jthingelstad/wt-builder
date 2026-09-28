@@ -7,7 +7,7 @@ import { api, shouldWriteBack, writeBackMessage, type IssueResponse } from '../a
 interface Props {
   doc: IssueDoc;
   itemId: string;
-  run: (fn: () => Promise<IssueResponse>) => Promise<void>;
+  run: (fn: () => Promise<IssueResponse>) => Promise<boolean>;
   onClose: () => void;
   /** Present when the review panel yielded the rail — the way back. */
   onBackToReview?: () => void;

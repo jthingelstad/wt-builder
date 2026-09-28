@@ -30,7 +30,8 @@ interface Props {
   readiness: Readiness | null;
   busy: boolean;
   error: string | null;
-  run: (fn: () => Promise<IssueResponse>) => Promise<void>;
+  /** Resolves to whether the call succeeded. */
+  run: (fn: () => Promise<IssueResponse>) => Promise<boolean>;
   onIndex: () => void;
   onSend: () => void;
   onError: (m: string | null) => void;
@@ -132,7 +133,9 @@ export function Editor({ doc, readiness, busy, error, run, onIndex, onSend, onEr
   };
 
   const act: PageActions = {
-    updateItem: (itemId, patch) => void runEdit(() => api.updateItem(id, itemId, patch)),
+    // Returned, not voided: an editable waits on it to know whether its text
+    // was saved (review 2026-09-27, §1.4).
+    updateItem: (itemId, patch) => runEdit(() => api.updateItem(id, itemId, patch)),
     updateIssue: (patch) => void runEdit(() => api.settings(id, patch)),
     moveItem: (nodeId, itemId, delta) => void runEdit(() => api.moveItem(id, nodeId, itemId, delta)),
     removeItem: (nodeId, itemId) => void runEdit(() => api.removeItem(id, nodeId, itemId)),

@@ -24,14 +24,18 @@ export function App() {
   /**
    * Every mutation goes through here: it runs the call, absorbs the returned
    * document, and surfaces the failure without discarding what is on screen.
+   * It resolves to whether the call succeeded, so an editable can keep text
+   * whose save failed on screen, marked unsaved (review 2026-09-27, §1.4).
    */
   const run = useCallback(
-    async (fn: () => Promise<IssueResponse>) => {
+    async (fn: () => Promise<IssueResponse>): Promise<boolean> => {
       setBusy(true);
       try {
         absorb(await fn());
+        return true;
       } catch (err) {
         setError((err as Error).message);
+        return false;
       } finally {
         setBusy(false);
       }

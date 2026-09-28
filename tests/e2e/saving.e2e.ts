@@ -1,0 +1,61 @@
+/**
+ * What Jamie types stays on screen until the server has it, whatever the
+ * save is doing meanwhile (review 2026-09-27, §1.4). A save is held with
+ * page.route so the window a slow write-back opens — 0.5 to 3 s against
+ * Pinboard or Micro.blog — can be looked at, and a failure is a real
+ * aborted request, the way a restart under `npm run deploy` looks.
+ */
+import { expect, test, type Page, type Route } from '@playwright/test';
+import { ISSUE, caretAtEnd, commit, item, open, reset } from './helpers.ts';
+
+const commentary = (id: string) => `[data-anchor="${id}"] .post-body`;
+
+test.beforeEach(() => reset());
+
+/** Hold the next request that matches until `release` is called with what to do. */
+async function hold(page: Page, url: string, method: string) {
+  let release!: (how: 'continue' | 'abort') => void;
+  const decided = new Promise<'continue' | 'abort'>((r) => { release = r; });
+  let arrived!: () => void;
+  const seen = new Promise<void>((r) => { arrived = r; });
+  await page.route(url, async (route: Route) => {
+    if (route.request().method() !== method) return route.fallback();
+    arrived();
+    const how = await decided;
+    if (how === 'abort') await route.abort('connectionreset');
+    else await route.continue();
+  });
+  return { seen, release };
+}
+
+test('typed text stays on screen while its save is pending, and after it fails', async ({ page }) => {
+  await open(page);
+  const sel = commentary('link-flipcash');
+  const before = String(item('link-flipcash').commentary);
+  const save = await hold(page, `**/api/issues/${ISSUE}/items/link-flipcash`, 'PATCH');
+
+  await caretAtEnd(page, sel);
+  await page.keyboard.type(' Typed while it saves.');
+  await page.evaluate(() => (document.activeElement as HTMLElement | null)?.blur());
+  await save.seen;
+
+  // Pending: the old text came back here, and a click in edited it.
+  await expect(page.locator(sel)).toContainText('Typed while it saves.');
+  await caretAtEnd(page, sel);
+  await expect(page.locator(sel)).toHaveText(`${before} Typed while it saves.`);
+  await page.evaluate(() => (document.activeElement as HTMLElement | null)?.blur());
+
+  save.release('abort');
+  await expect(page.locator('.error-bar')).toBeVisible();
+  // Failed: still on screen, marked, and nothing reached the server.
+  await expect(page.locator(sel)).toContainText('Typed while it saves.');
+  await expect(page.locator(sel)).toHaveAttribute('data-unsaved', '');
+  expect(item('link-flipcash').commentary).toBe(before);
+
+  // The next blur tries again.
+  await page.unrouteAll({ behavior: 'ignoreErrors' });
+  await caretAtEnd(page, sel);
+  await commit(page, () => String(item('link-flipcash').commentary).includes('Typed while'));
+  expect(item('link-flipcash').commentary).toBe(`${before} Typed while it saves.`);
+  await expect(page.locator(sel)).not.toHaveAttribute('data-unsaved', '');
+});

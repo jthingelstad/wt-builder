@@ -1257,3 +1257,7 @@ span[contenteditable]:focus {
   border: 1px solid var(--line, #ddd); border-radius: 6px;
   padding: 6px 8px; margin: 6px 0; background: transparent; color: inherit;
 }
+
+/* A save that failed: the text stays, and says it is not saved until a blur
+   gets it through (review 2026-09-27, §1.4). */
+[data-unsaved] { background: var(--terra-1); box-shadow: 0 0 0 4px var(--terra-1); }

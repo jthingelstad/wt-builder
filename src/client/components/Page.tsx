@@ -31,7 +31,8 @@ export type Lens = Channel | 'source';
 const HEADING_LINK_SECTIONS: ReadonlySet<string> = new Set(['notable', 'featured']);
 
 export interface PageActions {
-  updateItem(itemId: string, patch: Record<string, unknown>): void;
+  /** Resolves to whether the edit was saved. */
+  updateItem(itemId: string, patch: Record<string, unknown>): Promise<boolean>;
   updateIssue(patch: Record<string, unknown>): void;
   moveItem(nodeId: string, itemId: string, delta: number): void;
   removeItem(nodeId: string, itemId: string): void;
