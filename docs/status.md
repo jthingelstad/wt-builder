@@ -229,9 +229,16 @@ finished, what is half-finished, and what has never run.
   page and feed moved to it. Verified by transcribing the result
   (`uvx --from mlx-whisper mlx_whisper`) and measuring every structural pause
   ≥1.08 s where the old file had 0.0 s. Not yet listened to by Jamie. The
-  site does not yet render chapters, show notes, or the transcript from the
-  fields it now receives (`audio_chapters_url`, `audio_transcript_url`,
-  `audio_chapters`) — that is weekly.thingelstad.com's next step.
+  site renders the chapters (`audio_chapters`) and a transcript panel that
+  loads the `.vtt` from `audio_transcript_url` (weekly.thingelstad.com
+  `apps/site/_includes/layouts/issue.njk`, the cue loop at :251-274, each
+  cue set as text with no entity decoding).
+- **Transcript text is WebVTT-safe** (2026-09-28) — a `<` in spoken text is
+  written as `‹` in the `.vtt`, so the site panel and podcast apps show `‹`;
+  a bare `&` stays, and `&` becomes `&amp;` only where it would read as a
+  character reference; `-->` becomes `→`. `backfill/assess.py` reads `‹`
+  back as `<`. Review 2026-09-27 §3; the rule is in
+  `docs/rendering-contracts.md`.
 
 - **Lost-edit protection** (2026-09-20) — every save keeps the replaced
   document in `revisions` (last 300 per issue; `npm run revisions`), and every

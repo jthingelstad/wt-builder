@@ -253,6 +253,19 @@ file. The mp3 carries ID3v2 chapters; `<name>.chapters.json` (Podcasting 2.0) an
 text as in voice) sit beside it on the CDN, and the issue record carries their
 URLs and the chapter list. This is how the podcast hands a listener the links.
 
+The transcript's cue text is WebVTT, where `<` always opens a tag (a
+voice, a class, a timestamp) and `&` starts a character reference. So a
+`<` in spoken text is written as `‹` (U+2039): "3 < 4" is "3 ‹ 4" in the
+`.vtt`, and the site's transcript panel and podcast apps show `‹`. A bare
+`&` stays as it is ("Procter & Gamble", "AT&T"); an `&` becomes `&amp;` only
+where it would read as a reference (`&` then a name or `#`, then `;`), and
+`-->` becomes `→`. The site's panel (weekly.thingelstad.com
+`apps/site/_includes/layouts/issue.njk`, the cue loop at :251-274) sets each
+cue as `textContent` and does not decode entities, which is why `&` is left
+bare wherever it can be. `transcriptVtt` in `src/server/integrations/audio.ts`;
+`backfill/assess.py` reads `‹` back as `<` when it compares a transcript to
+what whisper heard (review 2026-09-27 §3).
+
 The audio artifact is synthesized with OpenAI TTS (`tts-1-hd`, echo for Jamie,
 nova for Thingy, the two gain-matched before mastering), mastered with a
 two-pass ffmpeg loudnorm, and tagged with cover art before upload under a
