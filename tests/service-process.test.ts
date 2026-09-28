@@ -58,3 +58,48 @@ describe('the running service logs a stray error and keeps running', () => {
     }
   }, 30_000);
 });
+
+describe('the service fails a stranded send before it listens', () => {
+  it('a leg left sending by the last process is failed, keeping its last good send, by the time it is listening', async () => {
+    const root = fileURLToPath(new URL('..', import.meta.url));
+    const work = mkdtempSync(join(tmpdir(), 'wt-strand-'));
+    const db = join(work, 'strand.db');
+    // Seeded from this process, then closed: the service opens it next.
+    process.env.WT_BUILDER_DB = db;
+    const store = await import('../src/server/db.ts');
+    const probe = join(work, 'probe.mjs');
+    // Exits the moment the service says it is listening: anything boot does
+    // after that line never runs.
+    writeFileSync(probe, `
+      const log = console.log;
+      console.log = (...args) => {
+        log(...args);
+        if (String(args[0]).startsWith('WT Builder on')) process.exit(0);
+      };
+    `);
+    try {
+      store.createIssueRow({
+        schema_version: 1, sends: {}, items: {}, nodes: [],
+        issue: { id: 'wt990431', number: 990431, title: 'Strand', status: 'draft', publication_date: '2026-11-28', window_days: 7 },
+      } as never);
+      store.recordSend('wt990431', 'buttondown', { status: 'sent', at: '2026-11-27T12:00:00Z', external_id: 'em-9' });
+      store.recordSend('wt990431', 'buttondown', { status: 'sending', at: new Date().toISOString(), external_id: 'em-9' });
+      store.closeDb();
+
+      const run = spawnSync(process.execPath, ['--import', 'tsx', '--import', probe, 'src/server/index.ts'], {
+        cwd: root,
+        encoding: 'utf8',
+        timeout: 20_000,
+        env: { ...process.env, WT_BUILDER_OFFLINE: '1', WT_BUILDER_PORT: '0', WT_BUILDER_DB: db, WT_BUILDER_TTS_CACHE: join(work, 'tts') },
+      });
+      expect(run.stdout).toContain('WT Builder on');
+
+      const leg = store.getIssue('wt990431')!.doc.sends!.buttondown!;
+      expect(leg).toMatchObject({ status: 'failed', error: 'interrupted by a restart', external_id: 'em-9' });
+      expect(leg.last_sent).toMatchObject({ status: 'sent', external_id: 'em-9' });
+    } finally {
+      store.closeDb();
+      rmSync(work, { recursive: true, force: true });
+    }
+  }, 30_000);
+});

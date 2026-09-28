@@ -130,17 +130,67 @@ function savedFresh(id: string, change: (doc: IssueDoc) => IssueDoc | void) {
 }
 
 /**
+ * The legs running in this process, `${id}:${dest}` — the real in-flight
+ * guard. Sends run in-process, so this knows exactly what is running: a
+ * podcast synthesis past ten minutes is still in flight, and a `sending`
+ * left by a restart is not (review 2026-09-27 §2.1).
+ */
+const legsInFlight = new Set<string>();
+
+/**
  * Refuse a leg that is already in flight — the client disables its buttons,
  * but two tabs are a documented workflow, and a second POST re-runs paid TTS
- * and re-uploads. A `sending` older than ten minutes is a stranded crash, not
- * an active send, and passes so the leg can be retried.
+ * and re-uploads, or creates a second Buttondown draft. The persisted
+ * `sending` still counts for ten minutes, for another process on the same
+ * database (`npm run dev` beside the service); older than that it is a
+ * stranded crash, and passes so the leg can be retried.
  */
 function guardInFlight(doc: IssueDoc, destination: Destination): void {
+  if (legsInFlight.has(`${doc.issue.id}:${destination}`)) {
+    throw new HttpError(409, `${destination} send already in flight`);
+  }
   const current = doc.sends?.[destination];
   if (current?.status !== 'sending') return;
   const age = Date.now() - Date.parse(current.at ?? '');
   if (Number.isFinite(age) && age < 10 * 60_000) {
     throw new HttpError(409, `${destination} send already in flight since ${current.at}`);
+  }
+}
+
+/**
+ * Take a leg that has passed its guards: in flight in this process, and
+ * `sending` on the issue — both synchronously, straight after the guard and
+ * before any await, so a second click finds it taken. The in-flight guard
+ * once ran seconds before `sending` was recorded, across the rehost, and two
+ * clicks made two Buttondown drafts (review 2026-09-27 §2.1). Returns the
+ * release, for a `finally`; the leg records its own outcome.
+ */
+function claimLeg(id: string, destination: Destination, state: Partial<SendState> = {}): () => void {
+  const key = `${id}:${destination}`;
+  legsInFlight.add(key);
+  store.recordSend(id, destination, { ...state, status: 'sending', at: new Date().toISOString() });
+  return () => legsInFlight.delete(key);
+}
+
+/**
+ * Sends run in-process, so a `sending` found at boot is nobody's: the
+ * restart cut it off. Each becomes `failed`, keeping its last good send
+ * (recordSend carries it) and whatever it was working on, so the card says
+ * what happened and a retry is not refused for ten minutes. Runs before the
+ * server listens.
+ */
+export function failInterruptedSends(): void {
+  for (const row of store.listIssues()) {
+    for (const [dest, state] of Object.entries(row.doc.sends ?? {})) {
+      if (state?.status !== 'sending') continue;
+      store.recordSend(row.id, dest as Destination, {
+        status: 'failed',
+        at: new Date().toISOString(),
+        error: 'interrupted by a restart',
+        ...(state.external_id ? { external_id: state.external_id } : {}),
+      });
+      store.logEvent(row.id, 'send', `Send failed — ${dest}: interrupted by a restart`);
+    }
   }
 }
 
@@ -1148,25 +1198,25 @@ const routes: [RegExp, string, (ctx: Ctx, params: string[]) => Promise<unknown>]
     if (destination !== 'buttondown') {
       throw new HttpError(400, `unknown destination ${destination}`);
     }
-    guardInFlight(requireIssue(id!), 'buttondown');
-    store.logEvent(id!, 'send', 'Send started — buttondown');
-    // Rehost first: the email is where image weight actually hurts, and the
-    // rewritten URLs must be in the document before the body is rendered.
-    const { report: images, mapping } = await rehostIssueImages(requireIssue(id!));
-    const doc = savedFresh(id!, (d) => applyRehost(d, mapping)).issue;
+    const before = requireIssue(id!);
+    guardInFlight(before, 'buttondown');
     // The draft this leg made last, read through any failed or cut-off
     // attempt since: a retry updates it and never creates a second draft
     // (review 2026-09-27 §2.1). A failed state from before last_sent carried
     // the id on itself.
-    const previous = doc.sends?.buttondown;
+    const previous = before.sends?.buttondown;
     const draftId = lastSent(previous)?.external_id ?? previous?.external_id;
-    // The email's subject is the issue's, "WT350 — Title", not the bare title,
-    // with any template tag in it broken the way the body's are.
-    const subject = emailSubject(doc);
-    const body = renderEmail(doc);
-
-    store.recordSend(id!, destination, { status: 'sending', at: new Date().toISOString(), external_id: draftId });
+    const release = claimLeg(id!, destination, { external_id: draftId });
+    store.logEvent(id!, 'send', 'Send started — buttondown');
     try {
+      // Rehost first: the email is where image weight actually hurts, and the
+      // rewritten URLs must be in the document before the body is rendered.
+      const { report: images, mapping } = await rehostIssueImages(requireIssue(id!));
+      const doc = savedFresh(id!, (d) => applyRehost(d, mapping)).issue;
+      // The email's subject is the issue's, "WT350 — Title", not the bare title,
+      // with any template tag in it broken the way the body's are.
+      const subject = emailSubject(doc);
+      const body = renderEmail(doc);
       const draft = draftId
         ? await buttondown.updateDraft(draftId, subject, body)
         : await buttondown.createDraft(subject, body);
@@ -1191,6 +1241,8 @@ const routes: [RegExp, string, (ctx: Ctx, params: string[]) => Promise<unknown>]
       store.recordSend(id!, destination, state);
       store.logEvent(id!, 'send', `Send failed — buttondown: ${state.error}`);
       throw new HttpError(502, state.error!);
+    } finally {
+      release();
     }
   }],
 ];
@@ -1286,18 +1338,16 @@ async function sendWebsite(id: string, force = false) {
   if (!force && !recordedAudioUrl(doc.sends)) {
     throw new HttpError(409, noAudioYet(doc.sends?.podcast));
   }
-  // Read the merge base before recording anything: a failure here refuses
-  // the send outright instead of stranding a 'sending' state.
-  const currentEmails = await currentSiteEmails();
-  // The page must not hotlink: every image the issue references is on the CDN
-  // before the page is rendered (content-addressed; a second run is free).
-  // The page renders from the copy the rehost map was saved to, as the
-  // Buttondown leg does: rendering the copy read before the rehost shipped
-  // every new Journal photo as the original (review 2026-09-27 §2.2).
-  const { mapping } = await rehostIssueImages(requireIssue(id));
-  const fresh = savedFresh(id, (d) => applyRehost(d, mapping)).issue;
-  store.recordSend(id, 'website', { status: 'sending', at: new Date().toISOString() });
+  const release = claimLeg(id, 'website');
   try {
+    const currentEmails = await currentSiteEmails();
+    // The page must not hotlink: every image the issue references is on the CDN
+    // before the page is rendered (content-addressed; a second run is free).
+    // The page renders from the copy the rehost map was saved to, as the
+    // Buttondown leg does: rendering the copy read before the rehost shipped
+    // every new Journal photo as the original (review 2026-09-27 §2.2).
+    const { mapping } = await rehostIssueImages(requireIssue(id));
+    const fresh = savedFresh(id, (d) => applyRehost(d, mapping)).issue;
     const files = siteInputs(fresh, websiteOptions(fresh, currentEmails));
     const result = await githubRepo.putTree(
       files,
@@ -1333,6 +1383,8 @@ async function sendWebsite(id: string, force = false) {
     };
     store.recordSend(id, 'website', state);
     throw new HttpError(502, state.error!);
+  } finally {
+    release();
   }
 }
 
@@ -1343,7 +1395,7 @@ async function sendWebsite(id: string, force = false) {
 async function sendPodcast(id: string) {
   const doc = requireIssue(id);
   guardInFlight(doc, 'podcast');
-  store.recordSend(id, 'podcast', { status: 'sending', at: new Date().toISOString() });
+  const release = claimLeg(id, 'podcast');
   try {
     // Blocks, not a flat script: each is synthesized in its speaker's voice
     // and placed with the pause its boundary calls for.
@@ -1373,6 +1425,8 @@ async function sendPodcast(id: string) {
     };
     store.recordSend(id, 'podcast', state);
     throw new HttpError(502, state.error!);
+  } finally {
+    release();
   }
 }
 
@@ -1385,7 +1439,7 @@ async function sendPodcast(id: string) {
 async function sendArchive(id: string) {
   const doc = requireIssue(id);
   guardInFlight(doc, 'archive');
-  store.recordSend(id, 'archive', { status: 'sending', at: new Date().toISOString() });
+  const release = claimLeg(id, 'archive');
   try {
     const files = archiveInputs(doc, emailRecord(doc));
     const result = await githubRepo.putTree(
@@ -1409,6 +1463,8 @@ async function sendArchive(id: string) {
     };
     store.recordSend(id, 'archive', state);
     throw new HttpError(502, state.error!);
+  } finally {
+    release();
   }
 }
 
@@ -1515,6 +1571,7 @@ const server = createServer(async (req, res) => {
 const isMain = process.argv[1] && import.meta.url.endsWith(process.argv[1].replace(/^.*\//, ''));
 if (isMain !== false) {
   store.openDb();
+  failInterruptedSends();
   server.listen(config.port, config.host, () => {
     // Only once it is serving: a failure to boot (the offline guard refusing
     // the live database, a port in use) must still exit.

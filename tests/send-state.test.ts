@@ -29,6 +29,8 @@ const h = vi.hoisted(() => ({
   renderFails: null as Error | null,
   /** Resolves the rehost when set: lets a test hold a leg mid-flight. */
   rehostGate: null as Promise<void> | null,
+  rehostCalls: 0,
+  rehostFails: null as Error | null,
 }));
 
 vi.mock('../src/server/integrations/buttondown.ts', async (importOriginal) => {
@@ -65,7 +67,9 @@ vi.mock('../src/server/integrations/github.ts', async (importOriginal) => {
 vi.mock('../src/server/integrations/images.ts', async (importOriginal) => ({
   ...(await importOriginal<typeof import('../src/server/integrations/images.ts')>()),
   rehostIssueImages: vi.fn(async (doc: IssueDoc) => {
+    h.rehostCalls++;
     if (h.rehostGate) await h.rehostGate;
+    if (h.rehostFails) throw h.rehostFails;
     return { doc, report: { rehosted: [], skipped: [], failed: [] }, mapping: new Map() };
   }),
 }));
@@ -97,7 +101,7 @@ globalThis.fetch = (async (input: string | URL | Request, init?: RequestInit) =>
   return realFetch(input, init);
 }) as typeof fetch;
 
-const { server } = await import('../src/server/index.ts');
+const { server, failInterruptedSends } = await import('../src/server/index.ts');
 const store = await import('../src/server/db.ts');
 
 let base = '';
@@ -115,6 +119,7 @@ afterEach(() => {
   h.committed.length = 0;
   h.renderFails = null;
   h.rehostGate = null;
+  h.rehostFails = null;
 });
 
 afterAll(async () => {
@@ -290,6 +295,96 @@ describe('the website refusal says what the podcast leg did', () => {
     expect(res.status).toBe(409);
     expect(res.body.error).not.toContain('has not run');
     expect(res.body.error).toContain('no audio reference');
+    store.deleteIssue(id);
+  });
+});
+
+/** A gate a test opens by hand, and a wait for the leg to reach it. */
+function hold(): { open: () => void } {
+  let open!: () => void;
+  h.rehostGate = new Promise<void>((resolve) => { open = resolve; });
+  return { open };
+}
+async function until(check: () => boolean): Promise<void> {
+  for (let i = 0; i < 200 && !check(); i++) await new Promise((r) => setTimeout(r, 5));
+  expect(check()).toBe(true);
+}
+
+describe('a leg is in flight from the moment it passes the guard', () => {
+  it('records sending before its first await', async () => {
+    const id = issue(990421);
+    const gate = hold();
+    const calls = h.rehostCalls;
+    const first = send(id, 'buttondown');
+    await until(() => h.rehostCalls > calls);
+    // Held at the rehost: the leg already says it is sending.
+    expect(legOf(id, 'buttondown')).toMatchObject({ status: 'sending' });
+    gate.open();
+    expect((await first).status).toBe(200);
+    store.deleteIssue(id);
+  });
+
+  it('two clicks at once make one draft, and the second is refused as in flight', async () => {
+    const id = issue(990422);
+    const gate = hold();
+    const calls = h.rehostCalls;
+    const first = send(id, 'buttondown');
+    await until(() => h.rehostCalls > calls);
+    const second = await send(id, 'buttondown');
+    expect(second.status).toBe(409);
+    expect(second.body.error).toContain('in flight');
+    gate.open();
+    expect((await first).status).toBe(200);
+    expect(h.drafts.filter((d) => d.op === 'create')).toHaveLength(1);
+    store.deleteIssue(id);
+  });
+
+  it('a send still running past ten minutes is still in flight: the process knows, whatever the record says', async () => {
+    const id = issue(990423);
+    const gate = hold();
+    const calls = h.rehostCalls;
+    const first = send(id, 'buttondown');
+    await until(() => h.rehostCalls > calls);
+    // A long leg (podcast synthesis can pass ten minutes) looks like a
+    // crash strand to the persisted record alone.
+    store.recordSend(id, 'buttondown', { status: 'sending', at: minutesAgo(11) });
+    const second = await send(id, 'buttondown');
+    expect(second.status).toBe(409);
+    gate.open();
+    expect((await first).status).toBe(200);
+    expect(h.drafts.filter((d) => d.op === 'create')).toHaveLength(1);
+    store.deleteIssue(id);
+  });
+
+  it('a failure before the destination is reached records failed, and the retry is not refused', async () => {
+    const id = issue(990424);
+    h.rehostFails = new Error('the CDN upload failed');
+    const res = await send(id, 'buttondown');
+    expect(res.status).toBe(502);
+    expect(legOf(id, 'buttondown')).toMatchObject({ status: 'failed', error: 'the CDN upload failed' });
+    h.rehostFails = null;
+    expect((await send(id, 'buttondown')).status).toBe(200);
+    store.deleteIssue(id);
+  });
+});
+
+describe('a restart strands no leg in sending', () => {
+  it('boot turns every persisted sending into failed, keeping the last good send', () => {
+    const id = issue(990425);
+    store.recordSend(id, 'buttondown', { status: 'sent', at: minutesAgo(60), external_id: 'em-7', url: 'https://buttondown.test/archive/em-7/' });
+    store.recordSend(id, 'buttondown', { status: 'sending', at: minutesAgo(1), external_id: 'em-7' });
+    store.recordSend(id, 'podcast', { status: 'sending', at: minutesAgo(1) });
+    store.recordSend(id, 'archive', { status: 'sent', at: minutesAgo(30), external_id: 'abc1234' });
+
+    failInterruptedSends();
+
+    const sends = store.getIssue(id)!.doc.sends!;
+    expect(sends.buttondown).toMatchObject({ status: 'failed', error: 'interrupted by a restart', external_id: 'em-7' });
+    expect(sends.buttondown!.last_sent).toMatchObject({ status: 'sent', external_id: 'em-7' });
+    expect(sends.podcast).toMatchObject({ status: 'failed', error: 'interrupted by a restart' });
+    expect(sends.podcast!.last_sent).toBeUndefined();
+    // A leg that was not in flight is left exactly as it was.
+    expect(sends.archive).toMatchObject({ status: 'sent', external_id: 'abc1234' });
     store.deleteIssue(id);
   });
 });

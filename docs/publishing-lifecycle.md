@@ -81,6 +81,12 @@ it and does nothing when clicked.
 A failed leg leaves the others untouched, and retrying resumes from the step that
 failed rather than from the beginning.
 
+A leg is `sending` from the moment it passes its guards, before it awaits
+anything, and a second request for it is refused (409) while it runs. Sends run
+in the service's own process, so a `sending` found when the service starts was
+cut off by the restart: it becomes `failed` ("interrupted by a restart") with its
+last good send kept, and can be retried at once.
+
 ## The archive feed
 
 Sending issue text to the archive so Thingy can retrieve it is a **separate leg

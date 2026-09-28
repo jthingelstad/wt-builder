@@ -51,8 +51,14 @@ finished, what is half-finished, and what has never run.
   block a re-send (2026-09-28, review 2026-09-27 §2.1); the 409 says whether
   the podcast has not run, failed, or is still sending, and offers
   `?force=1`, the deliberate escape for an issue with no audio, only then — and every
-  leg refuses a second POST while one is in flight — a `sending` older than
-  ten minutes is treated as a crash strand and passes so the leg can retry.
+  leg refuses a second POST while one is in flight. Since 2026-09-28 a leg
+  is claimed the moment it passes its guards — in flight in the process (a
+  set of `id:leg`, the real guard) and `sending` on the issue, before any
+  await — so two clicks never make two Buttondown drafts; and at boot,
+  before it listens, the service turns every persisted `sending` into
+  `failed` ("interrupted by a restart"), keeping the last good send. A
+  persisted `sending` under ten minutes old still refuses, for another
+  process on the same database. Review 2026-09-27, §2.1.
 - **A failed leg keeps its last good send** (2026-09-28) — every leg's
   `SendState` carries `last_sent` through `sending` and `failed`
   (`recordSend`, one place for all four). The Buttondown retry, the website
