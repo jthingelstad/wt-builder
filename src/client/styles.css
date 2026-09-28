@@ -673,6 +673,8 @@ a:hover { text-decoration: underline; }
 }
 .sc-blocker { background: var(--amber-1); color: var(--amber); }
 .sc-failed { background: var(--terra-2); color: var(--terracotta); }
+.sc-last-good { margin-top: 4px; font-family: var(--mono); font-size: 11px; }
+.sc-last-good a { color: inherit; }
 
 .sc-steps { padding: 4px 0; }
 

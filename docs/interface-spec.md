@@ -46,7 +46,10 @@ primary: it duplicates the pill beside it and does nothing when clicked.
 **Failure** — and the state must be real rather than drawn: the card goes `DID NOT SEND` in terracotta with a
 `#faefe8` strip explaining that other destinations are unaffected, the failed step
 takes a `circle-x` and shows the error text where evidence would go, and the action
-becomes **Try again** — resuming from the failed step, not from the beginning.
+becomes **Try again** — resuming from the failed step, not from the beginning. A leg
+that has gone before adds `Last good: Sat 9:05 AM · Draft ↗` to the strip in 11px
+mono: what the destination still holds (the draft, the mp3, the commit), which a
+failed attempt does not take away.
 
 A sent card ends in **VERIFY** on `#fbfbfa`: the destination read back — each check a
 row with `check` / `circle-alert` amber / `x` terracotta, its finding in 11px mono,

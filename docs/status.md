@@ -57,7 +57,9 @@ finished, what is half-finished, and what has never run.
   "Listen to it", and verification read it (`lastSent`,
   `src/shared/sends.ts`). A failed podcast re-render no longer erases the
   episode's audio, and a Buttondown send cut off mid-flight is retried as
-  an update of the same draft. Review 2026-09-27, §2.1.
+  an update of the same draft. A failed card's strip says `Last good:`
+  with when and a link to the draft, mp3, or commit. Review 2026-09-27,
+  §2.1.
 - **Verify after send** (2026-09-26, WT351) — each leg is read back from its
   destination once it goes out, and the Send card shows the result under
   VERIFY: the podcast's three files on the CDN at the rendered size, its length

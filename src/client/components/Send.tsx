@@ -13,7 +13,8 @@
 
 import { useEffect, useState } from 'preact/hooks';
 
-import type { Destination, IssueDoc, ScriptReview, Verification } from '../../shared/types.ts';
+import type { Destination, IssueDoc, ScriptReview, SendState, SentRecord, Verification } from '../../shared/types.ts';
+import { lastSent } from '../../shared/sends.ts';
 import { audioScript } from '../../shared/render/audio.ts';
 import { duration, type IssueTiming } from '../../shared/timing.ts';
 import { api, type Readiness, type SendResult } from '../api.ts';
@@ -364,7 +365,7 @@ function SendCard({
   onVerify: () => void;
   card: Card;
   state: string;
-  send?: { status: string; url?: string; error?: string };
+  send?: SendState;
   result?: SendResult;
   blocker: string | null;
   gated: boolean;
@@ -375,6 +376,8 @@ function SendCard({
   const pillState = gated && state === 'none' ? 'gate' : state;
   const done = state === 'sent';
   const failed = state === 'failed';
+  const last = failed ? lastSent(send) : undefined;
+  const lastLink = last && lastGoodLink(card.key, last);
 
   return (
     <section class={`send-card ${state}${failed ? ' failed' : ''}`}>
@@ -406,10 +409,21 @@ function SendCard({
 
       {failed && (
         <div class="sc-failed">
-          <span>
-            This leg did not send. The others are unaffected, and trying again
-            resumes from the step that failed.
-          </span>
+          <div>
+            <span>
+              This leg did not send. The others are unaffected, and trying again
+              resumes from the step that failed.
+            </span>
+            {/* What the destination still holds from the last send that worked. */}
+            {last && (
+              <div class="sc-last-good">
+                Last good: {last.at ? new Date(last.at).toLocaleString([], { weekday: 'short', hour: 'numeric', minute: '2-digit' }) : 'earlier'}
+                {lastLink?.href && (
+                  <> · <a href={lastLink.href} target="_blank" rel="noreferrer">{lastLink.label} ↗</a></>
+                )}
+              </div>
+            )}
+          </div>
         </div>
       )}
 
@@ -459,6 +473,13 @@ function SendCard({
       {done && <VerifyPanel v={verification} busy={busy} onVerify={onVerify} />}
     </section>
   );
+}
+
+/** Where the last good send can be opened: the draft, the mp3, the commit. */
+function lastGoodLink(key: Destination, s: SentRecord): { href?: string; label: string } {
+  if (key === 'buttondown') return { href: s.edit_url ?? s.url, label: 'Draft' };
+  if (key === 'podcast') return { href: s.url, label: 'File' };
+  return { href: s.url, label: s.external_id ? String(s.external_id).slice(0, 7) : 'Commit' };
 }
 
 const VERDICT: Record<Verification['status'], string> = {
