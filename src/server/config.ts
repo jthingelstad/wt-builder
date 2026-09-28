@@ -7,6 +7,7 @@
  */
 
 import { existsSync } from 'node:fs';
+import { resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
 const ENV_PATH = fileURLToPath(new URL('../../.env', import.meta.url));
@@ -80,6 +81,12 @@ export const config = {
    */
   host: optional('WT_BUILDER_HOST') ?? '127.0.0.1',
   dbPath: optional('WT_BUILDER_DB') ?? LIVE_DB_PATH,
+  /**
+   * The built client the service serves. The live service serves dist/;
+   * the browser suite builds into tmp/e2e/dist and points here, so
+   * `npm run test:e2e` never replaces what Jamie is using.
+   */
+  distDir: resolve(optional('WT_BUILDER_DIST') ?? fileURLToPath(new URL('../../dist', import.meta.url))),
   /** Write-back mutates a real bookmark; explicit opt-in. */
   pinboardWriteBack: optional('WT_BUILDER_PINBOARD_WRITEBACK') === 'true',
   /** Write-back mutates a published post; explicit opt-in. */

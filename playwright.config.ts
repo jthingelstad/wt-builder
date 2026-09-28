@@ -2,7 +2,8 @@
  * Browser tests: the real server and client, offline, against a throwaway
  * database seeded from the representative issue (tests/e2e/seed.ts).
  * WebKit first — Jamie edits in Safari, and contenteditable is exactly where
- * the engines differ. `npm run test:e2e` builds the client first.
+ * the engines differ. `npm run test:e2e` builds the client first, into
+ * tmp/e2e/dist, and the server serves it from there (WT_BUILDER_DIST).
  */
 import { defineConfig, devices } from '@playwright/test';
 
@@ -32,6 +33,8 @@ export default defineConfig({
       WT_BUILDER_PORT: String(PORT),
       WT_BUILDER_DB: `${process.cwd()}/tmp/e2e/e2e.db`,
       WT_BUILDER_TTS_CACHE: `${process.cwd()}/tmp/e2e/tts`,
+      // `npm run test:e2e` builds here, never into the dist/ the live service serves.
+      WT_BUILDER_DIST: `${process.cwd()}/tmp/e2e/dist`,
     },
   },
 });

@@ -41,7 +41,7 @@ import { issueTiming, type IssueTiming } from '../shared/timing.ts';
 import { execFile } from 'node:child_process';
 import { promisify } from 'node:util';
 
-const DIST = fileURLToPath(new URL('../../dist', import.meta.url));
+const DIST = config.distDir;
 
 interface Ctx {
   req: IncomingMessage;

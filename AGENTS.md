@@ -61,7 +61,9 @@ server) must set `WT_BUILDER_DB` to a throwaway path, or it will not start.
 
 The browser tests (`tests/e2e/`) run the real server with
 `WT_BUILDER_OFFLINE=1` — no `.env`, no credentials, AWS pointed at nothing —
-against a throwaway database seeded from the representative issue. Anything
+against a throwaway database seeded from the representative issue, and they
+build the client into `tmp/e2e/dist` and serve it from there
+(`WT_BUILDER_DIST`), never into the `dist/` the live service serves. Anything
 typed, dragged, or clicked is asserted by what the server saved. Jamie edits
 in Safari, so WebKit is the first project; a contenteditable change is not
 done until it passes there. Never test by typing into the live service.
