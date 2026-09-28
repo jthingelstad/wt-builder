@@ -88,6 +88,19 @@ guard at the door, `guardBed`, so a later route cannot forget it) with 423;
 reads, verification, and waking pass. The index marks it PUT TO BED and the
 issue opens with a banner and `Wake it`.
 
+**Revisited 2026-09-28 — the source is the second editor.** "Nobody else is
+editing" held for this service, but Pinboard and Micro.blog are Jamie's CMS, and
+he edits there too. Since 2026-08-30 write-back has been compare-and-set, not
+last-writer-wins. It reads the record first and writes nothing when the record no
+longer matches the merge base (`source_snapshot`), marking the item `conflict`,
+or `gone` when the record was deleted. A re-scan that finds both sides edited
+does the same. Since 2026-09-28 a conflict has a way out. **Keep mine** re-reads
+the source, makes it the base and writes the local copy over it. **Take theirs**
+adopts the source's fields as the copy and the base. Both change nothing when
+the source cannot be read or the item moved during the read. That is the conflict
+model: compare-and-set, then Jamie chooses. Still no locking, no revision
+vectors, no merge, and a local edit is never discarded without that choice.
+
 ## Pre-Builder issues import as a record, not as items
 
 Issues 349 and back were built by the Shortcuts workflow and exist as published

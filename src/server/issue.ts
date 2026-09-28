@@ -2,8 +2,11 @@
  * Issue operations.
  *
  * The document is the unit of work: every operation takes a document and
- * returns a new one. There is no undo and no conflict model (docs/decisions.md) — a single
- * editor means the last write is simply the truth.
+ * returns a new one. There is no undo and no merge (docs/decisions.md): a single
+ * editor means the last save is simply the truth here. The sources are the
+ * one other editor, and against them write-back is compare-and-set. An item
+ * edited on both sides is `conflict` until Jamie chooses Keep mine or Take
+ * theirs (decisions.md, Revisited 2026-09-28).
  */
 
 import type {

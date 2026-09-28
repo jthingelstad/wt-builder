@@ -768,7 +768,8 @@ const routes: [RegExp, string, (ctx: Ctx, params: string[]) => Promise<unknown>]
   }],
 
   /**
-   * Push an item's working values back to where it came from, last-writer-wins.
+   * Push an item's working values back to where it came from, compare-and-set:
+   * a source record that moved since the base is `conflict`, not overwritten.
    * Pinboard and Micro.blog both write; the local edit always stands and only
    * `sync_state` records the outcome.
    */
