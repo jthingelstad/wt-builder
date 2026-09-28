@@ -1001,3 +1001,18 @@ Micro.blog:
   gone (`isFlattened`), logs "Refused an edit … that only removed its line
   breaks", and nothing reaches the source.
 - **Pasted lists and quotes keep their markers** (`domToMarkdown`).
+
+Added 2026-09-28, from the review of 2026-09-27 (§1.4, §1.5):
+
+- **Committed text stays on screen until its save answers.** `RichEditable`
+  renders the pending text, not the old value, while its PATCH is out, and a
+  click back in edits it. A save that fails leaves the text on screen marked
+  `data-unsaved` (the terracotta tint) and the next blur tries it again.
+- **A field is never reset while it has focus.** The Inspector's and the
+  issue panel's inputs are uncontrolled while focused (`Field.tsx`); a save
+  or a re-scan landing updates only fields Jamie is not in. Escape in one
+  commits it before the panel closes.
+- **A click in and out is not an edit.** An editable commits only when what
+  it reads back differs from the read-back of the stored value.
+- **A heading typed on the canvas is saved.** Ad hoc: the section label.
+  Promoted: the post's title.
