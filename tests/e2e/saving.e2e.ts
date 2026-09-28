@@ -58,4 +58,6 @@ test('typed text stays on screen while its save is pending, and after it fails',
   await commit(page, () => String(item('link-flipcash').commentary).includes('Typed while'));
   expect(item('link-flipcash').commentary).toBe(`${before} Typed while it saves.`);
   await expect(page.locator(sel)).not.toHaveAttribute('data-unsaved', '');
+  // The failure's own message goes with it.
+  await expect(page.locator('.error-bar')).toHaveCount(0);
 });

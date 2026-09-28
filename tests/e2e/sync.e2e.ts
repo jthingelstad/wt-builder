@@ -5,7 +5,7 @@
  * change nothing and say why.
  */
 import { expect, test } from '@playwright/test';
-import { ISSUE, item, open, reset, store } from './helpers.ts';
+import { ISSUE, caretAtEnd, commit, item, open, reset, store } from './helpers.ts';
 
 test.beforeEach(() => {
   reset();
@@ -32,6 +32,25 @@ test('a conflicted link offers Keep mine and Take theirs, and an unreadable sour
   await expect(page.locator('.error-bar')).toContainText('nothing changed');
   expect(item('link-flipcash').sync_state).toBe('conflict');
   expect(item('link-flipcash').commentary).toBe(commentary);
+});
+
+// A later save that succeeds clears only an error a failed save put up. The
+// refusal here came from the inspector, and an unrelated edit landing wiped
+// it before Jamie could read it (review 2026-09-27, §1.4).
+test("a save that succeeds leaves an error it did not cause", async ({ page }) => {
+  await open(page);
+  const row = page.locator('[data-anchor="link-flipcash"]');
+  await row.hover();
+  await row.getByRole('button', { name: 'Inspect' }).click();
+  await page.locator('aside.panel').getByRole('button', { name: 'Take theirs' }).click();
+  await expect(page.locator('.error-bar')).toContainText('nothing changed');
+
+  const sel = '[data-anchor="link-functions"] .post-body';
+  await caretAtEnd(page, sel);
+  await page.keyboard.type('Saved meanwhile.');
+  await commit(page, () => String(item('link-functions').commentary ?? '').includes('Saved meanwhile.'));
+  await page.waitForTimeout(300);
+  await expect(page.locator('.error-bar')).toContainText('nothing changed');
 });
 
 test('the checklist counts a conflict', async ({ request }) => {

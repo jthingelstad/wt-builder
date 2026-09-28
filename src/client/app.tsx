@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useState } from 'preact/hooks';
+import { useCallback, useEffect, useRef, useState } from 'preact/hooks';
 
 import type { IssueDoc } from '../shared/types.ts';
 import { api, type IssueResponse, type Readiness } from './api.ts';
@@ -15,10 +15,16 @@ export function App() {
   const [busy, setBusy] = useState(false);
   const [loading, setLoading] = useState(false);
 
+  // The message the last failed run() put up. A success clears that one and
+  // nothing else: a refusal the inspector reported, or a failed draft, stays
+  // until Jamie dismisses it, where an unrelated save landing used to wipe it
+  // before it could be read (review 2026-09-27, §1.4).
+  const runError = useRef<string | null>(null);
+
   const absorb = useCallback((res: IssueResponse) => {
     setDoc(res.issue);
     setReadiness(res.readiness);
-    setError(null);
+    setError((current) => (current !== null && current === runError.current ? null : current));
   }, []);
 
   /**
@@ -34,7 +40,8 @@ export function App() {
         absorb(await fn());
         return true;
       } catch (err) {
-        setError((err as Error).message);
+        runError.current = (err as Error).message;
+        setError(runError.current);
         return false;
       } finally {
         setBusy(false);
@@ -74,7 +81,8 @@ export function App() {
     let live = true;
     setLoading(true);
     api.getIssue(route.id)
-      .then((res) => { if (live) absorb(res); })
+      // Opening an issue starts clean: what the last screen said was about it.
+      .then((res) => { if (live) { absorb(res); setError(null); } })
       .catch((err: Error) => {
         if (!live) return;
         // A link to an issue that is gone lands on the dashboard, saying why,
