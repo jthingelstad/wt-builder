@@ -39,7 +39,12 @@ without the reader being told.
 A link's title, a photo's alt text, and its place come from the source, not
 from Jamie, and print as the words they are: the Markdown link and emphasis
 characters are escaped and `<` `>` become entities (`escapeExternal` in
-`src/shared/render/website.ts`), in the page and the email. The front
+`src/shared/render/website.ts`), in the page and the email. Alt text is the
+exception: markdown-it builds an image's alt from plain text and drops every
+escape and entity, so `snake\_case` read "snakecase". Alt escapes only a
+bracket with no partner and a backslash, and folds line breaks to spaces so
+the image always parses (`escapeAlt`); a `<` inside an image can only be alt
+text. The front
 matter's `heading_context` keeps the title raw: it feeds `emails.json`,
 `links.json`, the site's issue-links feed and the Librarian, none of which
 renders Markdown, so an escape there would print. Jamie's commentary and bodies are Markdown he

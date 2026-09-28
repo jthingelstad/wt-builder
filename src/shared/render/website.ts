@@ -87,7 +87,7 @@ export function photoBlocks(item: Item): Block[] {
   const media = item.media;
   if (!media) return out;
 
-  if (media.url) out.push(`![${escapeExternal(media.alt ?? '')}](${media.url})`);
+  if (media.url) out.push(`![${escapeAlt(media.alt ?? '')}](${media.url})`);
   if (media.caption) out.push(media.caption);
 
   const parts: string[] = [];
@@ -112,6 +112,39 @@ export function haikuBlock(item: Item): Block {
   if (!lines.length) return '';
   return `**${lines.join('  \n')}**`;
 }
+
+/**
+ * Alt text, inside `![…]`. markdown-it writes an image's alt from its plain
+ * text only and drops every escape and entity, so escaping the way
+ * `escapeExternal` does turned "snake_case" into "snakecase" and removed a
+ * `<` outright. Only what would end the label early is escaped: a bracket
+ * with no partner, and a backslash (which markdown-it drops from alt either
+ * way, escaped or not). Line breaks fold to spaces, so a blank line cannot
+ * split the image into a paragraph of raw text. A `<b>` stays as written —
+ * inside an image it can only ever be alt text — and emphasis marks read as
+ * emphasis.
+ */
+export function escapeAlt(raw: string): string {
+  const text = raw.replace(/\s+/g, ' ');
+  const unmatched = new Set<number>();
+  const open: number[] = [];
+  for (let i = 0; i < text.length; i++) {
+    if (text[i] === '[') open.push(i);
+    else if (text[i] === ']') {
+      if (open.length) open.pop();
+      else unmatched.add(i);
+    }
+  }
+  for (const i of open) unmatched.add(i);
+  let out = '';
+  for (let i = 0; i < text.length; i++) {
+    const c = text[i]!;
+    out += c === BACKSLASH || unmatched.has(i) ? BACKSLASH + c : c;
+  }
+  return out;
+}
+
+const BACKSLASH = String.fromCharCode(92);
 
 /** "Description → **[linked title]**" (docs/rendering-contracts.md, Briefly). */
 export function brieflyBlock(item: Item): Block {
