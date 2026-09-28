@@ -94,9 +94,11 @@ finished, what is half-finished, and what has never run.
 - **Buttondown is asked before it is changed** (2026-09-28) — the leg
   reads the email's status (`getEmail`) before it PATCHes the draft it
   made: `about_to_send` / `in_flight` answer 409 "Buttondown is delivering
-  it now" and record nothing; `sent` answers 409 unless `?web_copy=1`, and
+  it now" and leave the leg untouched; `sent` answers 409 unless `?web_copy=1`, and
   a web-copy update is logged (event log and service log); `draft` /
-  `scheduled` update as before; anything else is refused. A status read
+  `scheduled` update as before; anything else is refused. Every refusal is
+  one event-log line ("Send refused — buttondown: …"), so `npm run watch`
+  shows it. A status read
   that fails is a failed send that changes nothing in Buttondown; only
   those refusals skip the failure record — any other error in the leg, a
   409 included, records `failed` rather than leaving `sending`. The

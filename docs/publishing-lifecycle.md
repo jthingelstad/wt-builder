@@ -90,7 +90,8 @@ issue's number (never under the pre-Builder archive's 349).
 
 Before it changes an existing email, the Buttondown leg asks Buttondown what the
 email is. `draft` or `scheduled`: it is updated, as always. `about_to_send` or
-`in_flight`: refused (409, "Buttondown is delivering it now"), recording nothing.
+`in_flight`: refused (409, "Buttondown is delivering it now"), leaving the leg as it
+was. Every refusal is logged to the issue's event log.
 `sent`: refused unless the request says `?web_copy=1` — "Update web copy…" on the
 card, behind a confirm — which changes only the copy in Buttondown's archive and is
 logged as such. The card knows the email has gone from the Buttondown check

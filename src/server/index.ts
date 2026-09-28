@@ -1231,8 +1231,11 @@ const routes: [RegExp, string, (ctx: Ctx, params: string[]) => Promise<unknown>]
     // Set back exactly as it was when Buttondown's answer refuses the send.
     // Only this leg's record is written, and the claim keeps every other
     // writer of it out while the status is read.
+    // The leg is untouched, but the refusal is logged, so `npm run watch`
+    // shows why nothing happened.
     const refuse = (message: string, code?: string): never => {
       store.recordSend(id!, destination, previous ?? { status: 'none' });
+      store.logEvent(id!, 'send', `Send refused — buttondown: ${message}`);
       throw new Refusal(409, message, code);
     };
     const webCopy = url.searchParams.get('web_copy') === '1';

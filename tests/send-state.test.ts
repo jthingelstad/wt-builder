@@ -471,7 +471,7 @@ describe('Buttondown is asked what the email is before it is changed', () => {
   }
 
   for (const status of ['about_to_send', 'in_flight']) {
-    it(`${status}: refused while Buttondown delivers it, and nothing is recorded`, async () => {
+    it(`${status}: refused while Buttondown delivers it; the leg is untouched and the refusal is logged`, async () => {
       const { id, before } = await sentOnce(status === 'in_flight' ? 990441 : 990442);
       const events = store.listEvents(id).length;
       h.emailStatus = status;
@@ -480,7 +480,9 @@ describe('Buttondown is asked what the email is before it is changed', () => {
       expect(res.body.error).toContain('Buttondown is delivering it now');
       expect(h.drafts).toHaveLength(0);
       expect(legOf(id, 'buttondown')).toEqual(before);
-      expect(store.listEvents(id).length).toBe(events);
+      // One line in the log, so `npm run watch` shows the refusal.
+      const logged = store.listEvents(id).slice(0, store.listEvents(id).length - events);
+      expect(logged.map((e) => e.summary)).toEqual([expect.stringMatching(/^Send refused — buttondown: Buttondown is delivering it now/)]);
       store.deleteIssue(id);
     });
   }
@@ -491,6 +493,7 @@ describe('Buttondown is asked what the email is before it is changed', () => {
     const refused = await send(id, 'buttondown');
     expect(refused.status).toBe(409);
     expect(refused.body.error).toContain('web_copy=1');
+    expect(store.listEvents(id).some((e) => /^Send refused — buttondown: .*already gone/.test(e.summary))).toBe(true);
     expect(h.drafts).toHaveLength(0);
     expect(legOf(id, 'buttondown')).toEqual(before);
 
