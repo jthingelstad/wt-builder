@@ -11,13 +11,24 @@ import type { IssueDoc } from '../src/shared/types.ts';
 import { renderEmail } from '../src/shared/render/email.ts';
 import { emailSubject, subjectFor } from '../src/server/publish.ts';
 import * as buttondown from '../src/server/integrations/buttondown.ts';
-import { verifierFor, verifyButtondown, verifyWebsite } from '../src/server/verify.ts';
+import * as githubRepo from '../src/server/integrations/github.ts';
+import { verifierFor, verifyArchive, verifyButtondown, verifyWebsite } from '../src/server/verify.ts';
 
 // Buttondown answers from here; nothing in this file reaches its API.
 vi.mock('../src/server/integrations/buttondown.ts', async (importOriginal) => ({
   ...(await importOriginal<typeof import('../src/server/integrations/buttondown.ts')>()),
   getEmail: vi.fn(),
   getDelivery: vi.fn(async () => { throw new Error('the Buttondown check asked for delivery counts of a draft'); }),
+}));
+
+// The archive repo and the Librarian, likewise: answered here.
+vi.mock('../src/server/integrations/github.ts', async (importOriginal) => ({
+  ...(await importOriginal<typeof import('../src/server/integrations/github.ts')>()),
+  diff: vi.fn(async () => ({ changed: [], unchanged: 0 })),
+}));
+vi.mock('../src/server/integrations/librarian.ts', async (importOriginal) => ({
+  ...(await importOriginal<typeof import('../src/server/integrations/librarian.ts')>()),
+  retrieve: vi.fn(async () => []),
 }));
 
 const doc = JSON.parse(
@@ -181,5 +192,38 @@ describe('the website check waits for this send\'s deploy, not the last one', ()
     const { recheckMs, checks } = await verify(sentAt(1), false);
     expect(recheckMs).toBeGreaterThan(0);
     expect(checks.every((c) => c.ok !== false)).toBe(true);
+  });
+});
+
+describe('a Buttondown failure recorded before last_sent still names its draft to verify', () => {
+  // Such a state carried the draft id on itself and nothing else; the
+  // checks read it as the Buttondown retry does (emailOf), not as nothing.
+  const legacy = (): IssueDoc => {
+    const d = structuredClone(doc);
+    d.sends = {
+      buttondown: { status: 'failed', at: '2026-09-20T15:00:00Z', error: 'Buttondown failed: 503', external_id: 'em-legacy' },
+      archive: { status: 'sent', at: '2026-09-20T16:00:00Z', external_id: 'abc1234' },
+    };
+    return d;
+  };
+
+  it('the Buttondown check reads that draft', async () => {
+    const d = legacy();
+    vi.stubGlobal('fetch', vi.fn(async (url: string) => { throw new Error(`the Buttondown check reached off the machine: ${url}`); }));
+    vi.mocked(buttondown.getEmail).mockClear();
+    vi.mocked(buttondown.getEmail).mockResolvedValue({ subject: emailSubject(d), status: 'draft', body: renderEmail(d).trim() });
+    const { checks } = await verifyButtondown(d);
+    expect(vi.mocked(buttondown.getEmail)).toHaveBeenCalledWith('em-legacy');
+    expect(checks.find((c) => c.label === 'Status')?.ok).not.toBe(false);
+  });
+
+  it('the archive check compares against files carrying its id, not an empty one', async () => {
+    const d = legacy();
+    vi.mocked(githubRepo.diff).mockClear();
+    await verifyArchive(d);
+    const files = vi.mocked(githubRepo.diff).mock.calls[0]![0] as { content: string }[];
+    const text = files.map((f) => f.content).join('\n');
+    expect(text).toContain('em-legacy');
+    expect(text).not.toMatch(/buttondown_id: ""/);
   });
 });
