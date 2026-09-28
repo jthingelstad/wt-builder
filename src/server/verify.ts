@@ -24,7 +24,7 @@ import type { Destination, IssueDoc, VerifyCheck } from '../shared/types.ts';
 import { audioScript, ISSUE_URL_BASE } from '../shared/render/audio.ts';
 import { renderEmail } from '../shared/render/email.ts';
 import { plausibleDuration } from './backfill.ts';
-import { archiveInputs, subjectFor } from './publish.ts';
+import { archiveInputs, emailSubject } from './publish.ts';
 import { config } from './config.ts';
 import * as buttondown from './integrations/buttondown.ts';
 import * as githubRepo from './integrations/github.ts';
@@ -272,7 +272,7 @@ export async function verifyButtondown(doc: IssueDoc): Promise<VerifyOutcome> {
     checks.push(fail('Status', `Buttondown says "${email.status}".`));
   }
 
-  const subject = subjectFor(doc);
+  const subject = emailSubject(doc);
   checks.push(email.subject === subject
     ? pass('Subject', subject)
     : warn('Subject', `Buttondown has "${email.subject}", the issue says "${subject}".`));

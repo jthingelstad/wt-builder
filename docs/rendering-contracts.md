@@ -76,7 +76,10 @@ membership branch, the button's prefilled email, the pixel) are the only
 ones it receives. `{{`, `{%` and `{#` in anything from the issue — a title, a
 comment, a post, a Markdown block — carry a zero-width space after the brace
 (`inertTemplate` in `src/shared/render/email.ts`): the reader sees the
-braces, the engine sees no tag (review 2026-09-27 §3).
+braces, the engine sees no tag (review 2026-09-27 §3). The subject gets the
+same break (`emailSubject` in `src/server/publish.ts`), because Buttondown
+templates it too; the site, the archive and the podcast keep the title as
+typed.
 
 ## Journal
 

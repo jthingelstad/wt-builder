@@ -14,7 +14,7 @@ import yaml from 'js-yaml';
 import type { IssueDoc } from '../src/shared/types.ts';
 import {
   archiveInputs, archiveMarkdown, archivePage, audioFrontMatter, coverImage, extractLinks,
-  issueEntry, publishTimestamp, siteInputs, subjectFor,
+  emailSubject, issueEntry, publishTimestamp, siteInputs, subjectFor,
 } from '../src/server/publish.ts';
 import type { AudioFields } from '../src/server/publish.ts';
 import {
@@ -54,6 +54,16 @@ describe('the subject line', () => {
   it('never prints the number twice', () => {
     expect(subjectFor(doc({ title: '350' }))).toBe('WT350');
     expect(subjectFor(doc({ title: '' }))).toBe('WT350');
+  });
+
+  // Buttondown runs the subject through the same template engine as the body
+  // (review 2026-09-27 §3), so the one it is handed has no tag it did not write.
+  it('reaches Buttondown with no template tag, reading as written', () => {
+    const title = 'Moving {{ braces }} and {% blocks %} {#tags#}';
+    const subject = emailSubject(doc({ title }));
+    expect(subject).not.toMatch(/\{[{%#]/);
+    expect(subject.replaceAll('\u200b', '')).toBe(subjectFor(doc({ title })));
+    expect(emailSubject(doc({ title: 'Owning the Rails' }))).toBe('WT350 — Owning the Rails');
   });
 });
 

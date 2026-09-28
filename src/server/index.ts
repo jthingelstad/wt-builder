@@ -36,7 +36,7 @@ import * as githubRepo from './integrations/github.ts';
 import * as audio from './integrations/audio.ts';
 import { audioScript } from '../shared/render/audio.ts';
 import { heldOut, outOfWindow, windowOf } from '../shared/render/plan.ts';
-import { archiveInputs, issueEntry, siteInputs, subjectFor, type IssueEntry } from './publish.ts';
+import { archiveInputs, emailSubject, issueEntry, siteInputs, type IssueEntry } from './publish.ts';
 import * as draftShare from './share.ts';
 import { verifierFor } from './verify.ts';
 import { issueTiming, type IssueTiming } from '../shared/timing.ts';
@@ -1158,8 +1158,9 @@ const routes: [RegExp, string, (ctx: Ctx, params: string[]) => Promise<unknown>]
     const { report: images, mapping } = await rehostIssueImages(requireIssue(id!));
     const doc = savedFresh(id!, (d) => applyRehost(d, mapping)).issue;
     const previous = doc.sends?.buttondown;
-    // The email's subject is the issue's, "WT350 — Title", not the bare title.
-    const subject = subjectFor(doc);
+    // The email's subject is the issue's, "WT350 — Title", not the bare title,
+    // with any template tag in it broken the way the body's are.
+    const subject = emailSubject(doc);
     const body = renderEmail(doc);
 
     store.recordSend(id!, destination, { status: 'sending', at: new Date().toISOString() });

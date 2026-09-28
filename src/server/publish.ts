@@ -12,6 +12,7 @@
 import type { IssueDoc, Item } from '../shared/types.ts';
 import { escapeExternal, renderWebsite } from '../shared/render/website.ts';
 import { planEdition, bodyLines } from '../shared/render/plan.ts';
+import { inertTemplate } from '../shared/render/email.ts';
 import { CDN_HOST } from './integrations/images.ts';
 import type { RepoFile } from './integrations/github.ts';
 
@@ -92,6 +93,16 @@ export function subjectFor(doc: IssueDoc): string {
     .trim();
   if (!title || title === String(n)) return `WT${n}`;
   return `WT${n} — ${title}`;
+}
+
+/**
+ * The subject as Buttondown is handed it. Buttondown runs the subject through
+ * the same template engine as the body, so a title carrying `{{` or `{%`
+ * would run as code; the body's zero-width break applies here too (review
+ * 2026-09-27 §3). The archive, the site and the podcast keep `subjectFor`.
+ */
+export function emailSubject(doc: IssueDoc): string {
+  return inertTemplate(subjectFor(doc));
 }
 
 /** Noon UTC, matching every issue already in the archive. */
