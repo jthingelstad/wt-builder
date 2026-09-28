@@ -259,10 +259,13 @@ finished, what is half-finished, and what has never run.
   error nothing awaited is logged by the service and does not exit it
   (`logStrayErrors` in `src/server/index.ts`). A write that another site
   sends through Jamie's browser is a 403 before routing (`guardEdge`,
-  `src/server/edge.ts`): any method but GET and HEAD with a `Sec-Fetch-Site`
-  other than `same-origin`/`none`, or an `Origin` that is not the tailnet
-  URL, the Vite dev client, or loopback on the listening port. Scripts and
-  curl send neither and pass. Against DNS rebinding, a Host that is not
+  `src/server/edge.ts`): any method but GET and HEAD with an `Origin` that
+  is not the tailnet URL, the Vite dev client, or loopback on the listening
+  port, or, with no `Origin`, a `Sec-Fetch-Site` other than
+  `same-origin`/`none`. An allowed `Origin` passes whatever
+  `Sec-Fetch-Site` says, so the env list can let in a caller the browser
+  counts as same-site, and the 403's log line names both values. Scripts
+  and curl send neither and pass. Against DNS rebinding, a Host that is not
   `otto.tail09aaf9.ts.net` (bare or `:10001`) or `localhost`/`127.0.0.1` on
   the listening port is a 421 for every method, reads included. Every
   refusal is logged with the value it refused, and

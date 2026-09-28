@@ -79,6 +79,13 @@ const one = (v: string | string[] | undefined): string | undefined => (Array.isA
  * (GET, HEAD) are never refused here. A browser marks every request it sends
  * with Sec-Fetch-Site, and with Origin on anything but a GET; scripts/ and
  * curl send neither, and pass.
+ *
+ * Origin decides when it is present: an allowed Origin passes whatever
+ * Sec-Fetch-Site says, and any other Origin is refused. Otherwise an origin
+ * let in through WT_BUILDER_ALLOWED_ORIGINS, but counted same-site by the
+ * browser (another port on the tailnet name, say), would stay refused, and
+ * the escape hatch would not open. Sec-Fetch-Site decides only when there is
+ * no Origin. The refusal names both values, so the log says what to add.
  */
 export function crossSiteRefusal(
   method: string,
@@ -87,12 +94,10 @@ export function crossSiteRefusal(
 ): string | null {
   if (method === 'GET' || method === 'HEAD') return null;
   const site = one(headers['sec-fetch-site']);
-  if (site !== undefined && site !== 'same-origin' && site !== 'none') {
-    return `cross-site request refused (Sec-Fetch-Site: ${site})`;
-  }
   const origin = one(headers.origin);
-  if (origin !== undefined && !allowed.has(origin.toLowerCase())) {
-    return `requests from ${origin} are refused`;
-  }
+  const refused = () =>
+    `cross-site request refused (Origin: ${origin ?? '(none)'}, Sec-Fetch-Site: ${site ?? '(none)'})`;
+  if (origin !== undefined) return allowed.has(origin.toLowerCase()) ? null : refused();
+  if (site !== undefined && site !== 'same-origin' && site !== 'none') return refused();
   return null;
 }

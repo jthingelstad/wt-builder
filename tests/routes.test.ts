@@ -479,6 +479,39 @@ describe('the edge refuses what a browser sends on behalf of another site', () =
     }
   });
 
+  it('an origin the env allows is let in whatever Sec-Fetch-Site says', async () => {
+    // A proxy or name the browser counts as same-site: the escape hatch must
+    // be able to lift the refusal without a code change.
+    const res = await settings({ Origin: 'https://extra.example:8443', 'Sec-Fetch-Site': 'same-site' }, 'Via the hatch');
+    expect(res.status).toBe(200);
+    expect(await title()).toBe('Via the hatch');
+  });
+
+  it('the same request from an origin not on the list is a 403, logged by origin and site', async () => {
+    const warned = vi.spyOn(console, 'warn').mockImplementation(() => {});
+    try {
+      const res = await settings({ Origin: 'https://unlisted.example:8443', 'Sec-Fetch-Site': 'same-site' }, 'Pwned');
+      expect(res.status).toBe(403);
+      const line = warned.mock.calls.map((c) => String(c[0])).join('\n');
+      expect(line).toContain('https://unlisted.example:8443');
+      expect(line).toContain('same-site');
+    } finally {
+      warned.mockRestore();
+    }
+    expect(await title()).toBe('Via the hatch');
+  });
+
+  it('the env entry is what lets it in', async () => {
+    const edge = await import('../src/server/edge.ts');
+    const headers = { origin: 'https://extra.example:8443', 'sec-fetch-site': 'same-site' };
+    const without = edge.crossSiteRefusal('POST', headers, edge.allowedOrigins(4317));
+    expect(without).toContain('https://extra.example:8443');
+    expect(without).toContain('same-site');
+    expect(edge.crossSiteRefusal('POST', headers, edge.allowedOrigins(4317, ['https://extra.example:8443']))).toBeNull();
+    // No Origin at all: Sec-Fetch-Site alone still refuses, and says so.
+    expect(edge.crossSiteRefusal('POST', { 'sec-fetch-site': 'cross-site' }, edge.allowedOrigins(4317))).toContain('cross-site');
+  });
+
   it('a request with neither header passes (scripts, curl), and a read is never refused', async () => {
     expect((await settings({}, 'No headers')).status).toBe(200);
     const read = await fetch(`${base}/api/issues/${id}`, { headers: { Origin: 'https://evil.example', 'Sec-Fetch-Site': 'cross-site' } });
