@@ -409,8 +409,9 @@ const routes: [RegExp, string, (ctx: Ctx, params: string[]) => Promise<unknown>]
   // The client never calls this; it exists for a draft started by mistake
   // (and the route tests' cleanup). Anything that has gone anywhere is part
   // of the record: a published issue belongs to the archive, and a leg sent,
-  // in flight, or failed may have left something at its destination that the
-  // document is the only map to. Only an unsent draft goes, and its last
+  // in flight, or failed, or a live share page, may have left something at
+  // its destination that the document is the only map to. Only an unsent,
+  // unshared draft goes, and its last
   // version stays in revisions (store.deleteIssue). Review 2026-09-27, §1.6.
   [/^\/api\/issues\/([^/]+)$/, 'DELETE', async (_ctx, [id]) => {
     const doc = requireIssue(id!);
@@ -422,6 +423,12 @@ const routes: [RegExp, string, (ctx: Ctx, params: string[]) => Promise<unknown>]
       .map(([d, s]) => `${d} ${s!.status}`);
     if (legs.length) {
       throw new HttpError(409, `WT${doc.issue.number} has been sent (${legs.join(', ')}) — only an unsent draft can be deleted`);
+    }
+    // A shared draft has a page on the CDN, and only this document can take
+    // it down (DELETE …/share). Deleted, the page would stay up with no
+    // Unshare left to press.
+    if (doc.draft_share) {
+      throw new HttpError(409, `WT${doc.issue.number} is shared at ${doc.draft_share.url} — unshare it first`);
     }
     store.deleteIssue(id!);
     return { ok: true };

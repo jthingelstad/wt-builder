@@ -613,6 +613,25 @@ describe('deleting an issue', () => {
     }
   });
 
+  it('a draft with a live share page is refused until it is unshared', async () => {
+    const id = await create(990013, '2026-11-28');
+    const store = await import('../src/server/db.ts');
+    const doc = store.getIssue(id)!.doc;
+    doc.draft_share = { token: 't0k3n', url: 'https://files.example/weekly-thing/drafts/wt990013-t0k3n.html', at: new Date().toISOString() };
+    store.saveIssue(doc);
+
+    const res = await del(id);
+    expect(res.status).toBe(409);
+    expect((await res.json()).error).toContain('unshare');
+    expect((await fetch(`${base}/api/issues/${id}`)).status).toBe(200);
+
+    // Unshared (as DELETE /share leaves it), the same draft goes.
+    const unshared = store.getIssue(id)!.doc;
+    delete unshared.draft_share;
+    store.saveIssue(unshared);
+    expect((await del(id)).status).toBe(200);
+  });
+
   it('an unsent draft is deleted, and its last version is kept among its revisions', async () => {
     const id = await create(990012, '2026-11-14');
     await fetch(`${base}/api/issues/${id}/settings`, {
