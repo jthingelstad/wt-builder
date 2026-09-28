@@ -301,6 +301,12 @@ export function archivePage(doc: IssueDoc, opts: SiteInputsOptions = {}): string
   fm.push(`word_count: ${e.word_count}`);
   fm.push(`permalink: ${yamlString(`/archive/${e.number}/`)}`);
   fm.push(`tags: ${yamlString('issue')}`);
+  // The site preprocesses Markdown with Nunjucks (markdownTemplateEngine:
+  // "njk"), and this page is words from the issue and from the sources: a
+  // bookmark titled with {{ broke the whole site build, and {% if %} in a
+  // comment printed nothing. A generated page needs no Nunjucks of its own;
+  // the layout still renders as Nunjucks around it.
+  fm.push(`templateEngineOverride: ${yamlString('md')}`);
 
   fm.push(...audioFrontMatter(e));
 

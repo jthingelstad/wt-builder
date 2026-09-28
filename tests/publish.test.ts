@@ -121,6 +121,21 @@ describe('the archive page', () => {
     }
   });
 
+  it('is Markdown only: the site never runs a title or a comment as Nunjucks', () => {
+    // The site preprocesses Markdown with Nunjucks (markdownTemplateEngine:
+    // "njk"). A title with {{ failed the whole Eleventy build, and {% if %}
+    // in a comment rendered as nothing (Batch 3 review, round 1).
+    const d = doc();
+    const linkId = Object.keys(d.items).find((id) => d.items[id]!.type === 'pinboard_link')!;
+    d.items[linkId]!.title = 'Handlebars {{ in a title }}';
+    d.items[linkId]!.commentary = 'Jinja says {% if x %}yes{% endif %}.';
+    const page = archivePage(d);
+    expect(frontOf(page).templateEngineOverride).toBe('md');
+    expect(page).toContain('{% if x %}yes{% endif %}');
+    // The canonical archive text carries no site keys.
+    expect(frontOf(archiveMarkdown(d)).templateEngineOverride).toBeUndefined();
+  });
+
   it('points image at the generated cover, not an issue photo', () => {
     const page = archivePage(doc());
     expect(frontOf(page).image).toBe(coverImage(350));
