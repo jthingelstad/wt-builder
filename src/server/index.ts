@@ -299,14 +299,22 @@ function writeBack(id: string, itemId: string): Promise<WriteOutcome> {
 async function writeLatest(id: string, itemId: string, queue: { waiting: number }): Promise<WriteOutcome> {
   for (let attempt = 1; ; attempt++) {
     // A write whose turn comes after the issue was put to bed writes
-    // nothing: the issue is frozen, as the door would have answered. The
-    // edit that queued it (a PATCH, a hold-out, a section move) was saved
-    // before bed, so the refusal says that rather than "nothing changed".
+    // nothing: the issue is frozen, as the door would have answered. What
+    // the item says was saved before bed (an edit, a hold-out, a section
+    // move — or nothing new, for a Retry), so the refusal says that rather
+    // than "nothing changed", and names the way on that fits the item as it
+    // stands: a restart finishes only `syncing`, and the write ahead of this
+    // one may have left it `failed` or `conflict` (cross-batch fixes
+    // review, round 2).
     const doc = requireIssue(id);
     if (doc.issue.put_to_bed_at) {
-      const source = doc.items[itemId]?.source ?? 'the source';
+      const item = doc.items[itemId];
+      const source = item?.source ?? 'the source';
+      const wayOn = item?.sync_state === 'syncing' ? 'a restart writes it'
+        : item?.sync_state === 'conflict' ? 'Keep mine or Take theirs settles it'
+        : 'Retry writes it';
       throw new HttpError(423, `WT${doc.issue.number} was put to bed before the write's turn came — `
-        + `the edit is saved here and not written to ${source}; once the issue is woken, a restart writes it`);
+        + `what the item says is saved here and not written to ${source}; once the issue is woken, ${wayOn}`);
     }
     const { patch, result } = await writeItemToSource(id, doc, itemId);
     let again = false;

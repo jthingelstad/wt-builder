@@ -1191,6 +1191,8 @@ describe('write-backs to one item run one at a time, and the newest words are wh
   let adds: { extended: string; release: () => void }[];
   let inFlight = 0;
   let mostInFlight = 0;
+  /** Pinboard answers the held writes with a 500 once they are let go. */
+  let addsFail = false;
   const realFetch = globalThis.fetch;
 
   beforeAll(async () => {
@@ -1203,6 +1205,7 @@ describe('write-backs to one item run one at a time, and the newest words are wh
     adds = [];
     inFlight = 0;
     mostInFlight = 0;
+    addsFail = false;
     config.credentials.pinboardToken = 'test-token';
     config.config.pinboardWriteBack = true;
     vi.stubGlobal('fetch', async (input: string | URL | Request, init?: RequestInit) => {
@@ -1220,8 +1223,9 @@ describe('write-backs to one item run one at a time, and the newest words are wh
         mostInFlight = Math.max(mostInFlight, inFlight);
         const extended = url.searchParams.get('extended') ?? '';
         await new Promise<void>((release) => adds.push({ extended, release }));
-        remote.extended = extended;
         inFlight--;
+        if (addsFail) return new Response('down', { status: 500 });
+        remote.extended = extended;
         return Response.json({ result_code: 'done' });
       }
       throw new Error(`unexpected Pinboard call ${url.pathname}`);
@@ -1366,6 +1370,62 @@ describe('write-backs to one item run one at a time, and the newest words are wh
     expect(after.sync_state).toBe('synced');
     expect(after.commentary).toBe('v2');
     expect(after.source_snapshot?.commentary).toBe('v2');
+    store.deleteIssue(id);
+  });
+
+  // A queued write refused after bed named a restart as the way on, but a
+  // restart finishes only `syncing` items: here the write ahead of it
+  // failed, its outcome replaced the queued edit's `syncing`, and only
+  // Retry writes it (cross-batch fixes review, round 2).
+  it('a queued write refused after bed names the way on that fits the item: Retry, once the write ahead failed', async () => {
+    const created = await fetch(`${base}/api/issues`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ number: 990057, publication_date: '2028-01-15' }),
+    });
+    const id = (await created.json()).issue.issue.id as string;
+    store.recordSend(id, 'website', { status: 'sent', at: new Date().toISOString() });
+    store.recordSend(id, 'buttondown', { status: 'sent', at: new Date().toISOString() });
+    const doc = store.getIssue(id)!.doc;
+    doc.items['link-overlap'] = {
+      type: 'pinboard_link', authorship: 'syndicated', source: 'Pinboard',
+      channels: { website: true, email: true, audio: true },
+      source_id: `pinboard:${LINK}`, source_url: LINK, published_at: '2026-12-08T14:00:00Z',
+      title: 'Overlap', commentary: 'v0', tags: ['notable'], section: 'Notable',
+      source_snapshot: { title: 'Overlap', commentary: 'v0', tags: ['notable'] },
+      source_flags: { toread: 'yes', shared: 'no' }, sync_state: 'synced',
+    };
+    doc.nodes.find((n) => n.id === 'notable')!.items.push('link-overlap');
+    store.saveIssue(doc);
+
+    const edit = (commentary: string) => fetch(`${base}/api/issues/${id}/items/link-overlap`, {
+      method: 'PATCH',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ commentary }),
+    });
+    const first = edit('v1');
+    await until(() => adds.length === 1);
+    const second = edit('v2');
+    await until(() => store.getIssue(id)!.doc.items['link-overlap']!.commentary === 'v2');
+    const asleep = store.getIssue(id)!.doc;
+    asleep.issue.put_to_bed_at = new Date().toISOString();
+    store.saveIssue(asleep);
+
+    addsFail = true;
+    for (let i = 0; i < 20; i++) {
+      adds.forEach((a) => a.release());
+      await new Promise((r) => setTimeout(r, 20));
+    }
+    const [one, two] = await Promise.all([first, second]);
+    expect(one.status).toBe(200);
+    expect(two.status).toBe(423);
+    const item = store.getIssue(id)!.doc.items['link-overlap']!;
+    expect(item.commentary).toBe('v2');
+    expect(item.sync_state).toBe('failed');
+    const refusal = (await two.json()).error as string;
+    expect(refusal).toContain('not written to Pinboard');
+    expect(refusal).toContain('Retry');
+    expect(refusal).not.toContain('a restart writes it');
     store.deleteIssue(id);
   });
 
