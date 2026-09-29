@@ -221,7 +221,9 @@ finished, what is half-finished, and what has never run.
   review 2026-09-27 §4). After three writes that each land stale it is
   `failed` ("it kept changing while it was written"). Every write-back
   route's `result` is the item's sync state as saved, never the source's
-  raw reply, and the inspector leaves its error bar alone on `syncing`.
+  raw reply. On `syncing` the inspector adds no message of its own, though
+  the saved document it absorbs first has already cleared a failed call's
+  message from the bar.
   **A conflict has a way out** (2026-09-28): the inspector's sync area
   offers **Keep mine** (`POST /api/issues/:id/items/:itemId/keep-mine` —
   re-read the source, make it the base, write the local copy over it) and
@@ -357,12 +359,13 @@ finished, what is half-finished, and what has never run.
   ≥1.08 s where the old file had 0.0 s. Not yet listened to by Jamie. The
   site renders the chapters (`audio_chapters`) and a transcript panel that
   loads the `.vtt` from `audio_transcript_url` (weekly.thingelstad.com
-  `apps/site/_includes/layouts/issue.njk`, the cue loop at :251-274, each
+  `apps/site/_includes/layouts/issue.njk`, the cue loop at :252-279, each
   cue set as text with no entity decoding).
 - **Transcript text is WebVTT-safe** (2026-09-28) — a `<` in spoken text is
   written as `‹` in the `.vtt`, so the site panel and podcast apps show `‹`;
   a bare `&` stays, and `&` becomes `&amp;` only where it would read as a
-  character reference; `-->` becomes `→`. `backfill/assess.py` reads `‹`
+  character reference, which the site's panel then shows literally as
+  `&amp;`; `-->` becomes `→`. `backfill/assess.py` reads `‹`
   back as `<`. Review 2026-09-27 §3; the rule is in
   `docs/rendering-contracts.md`.
 
@@ -461,11 +464,12 @@ finished, what is half-finished, and what has never run.
 
 - **The edge** (2026-09-28, review §1.6) — the service has no auth and
   trusts the tailnet, so the door itself refuses what it cannot trust.
-  Every refusal and stray error below is written to stderr, which launchd
-  sends to `~/Library/Logs/wt-builder/wt-builder.err`, not `wt-builder.log`;
-  `npm run watch` reads both.
+  The 403s, the 421s and every stray error below are written to stderr,
+  which launchd sends to `~/Library/Logs/wt-builder/wt-builder.err`, not
+  `wt-builder.log`; `npm run watch` reads both.
   - A request whose target is not a URL is a 400 (the URL is parsed inside
     the handler's `try`, against a fixed base, never from the Host header).
+    This one refusal is answered but not logged: the handler logs only 5xx.
   - An error nothing awaited is logged (`[process]`) and does not exit the
     service (`logStrayErrors` in `src/server/index.ts`;
     tests/service-process.test.ts boots the service and proves it). A

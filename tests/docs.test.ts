@@ -12,6 +12,8 @@ import { describe, expect, it } from 'vitest';
 import { existsSync, readFileSync, readdirSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
 
+import { allowedOrigins, crossSiteRefusal } from '../src/server/edge.ts';
+
 const root = fileURLToPath(new URL('..', import.meta.url));
 const read = (rel: string) => readFileSync(new URL(`../${rel}`, import.meta.url), 'utf8');
 
@@ -59,6 +61,23 @@ describe('the documents stay honest', () => {
       }
     }
     expect(stale).toEqual([]);
+  });
+
+  it('where the origin list is set, it warns what a listed origin skips, and the edge does skip it', () => {
+    // WT_BUILDER_ALLOWED_ORIGINS is checked before the built-in list and
+    // passes whatever Sec-Fetch-Site says, so a built-in origin copied into
+    // it loses the check it has now. The places someone edits the list must
+    // say so (Batch 1 review), and the edge must still behave as they say.
+    const tailnet = 'https://otto.tail09aaf9.ts.net:10001';
+    const crossSite = { origin: tailnet, 'sec-fetch-site': 'cross-site' };
+    expect(crossSiteRefusal('POST', crossSite, allowedOrigins(4317))).toContain('cross-site');
+    expect(crossSiteRefusal('POST', crossSite, allowedOrigins(4317), [tailnet])).toBeNull();
+    expect(crossSiteRefusal('POST', { origin: 'null' }, allowedOrigins(4317), ['null'])).toContain('null');
+    for (const file of ['.env.example', 'src/server/config.ts', 'README.md']) {
+      const text = read(file).replace(/\s*(#|\*)?\s*\n\s*(#|\*)?\s*/g, ' ');
+      expect(text, file).toMatch(/built-in origin must never be added|never add a built-in one/i);
+    }
+    expect(read('README.md')).toMatch(/`Origin: null`[^.]*never allowed/);
   });
 
   it('no document claims a test count', () => {

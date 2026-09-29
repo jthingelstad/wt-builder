@@ -109,6 +109,8 @@ export const config = {
    * Origins allowed to write, beyond the tailnet, the Vite dev client, and
    * loopback on the listening port (edge.ts). For a proxy or a name the
    * built-in list does not know; the refusal in the log names what to add.
+   * A listed origin skips the Sec-Fetch-Site check (crossSiteRefusal), so a
+   * built-in origin must never be added here: it would lose that check.
    */
   allowedOrigins: parseAllowedOrigins(optional('WT_BUILDER_ALLOWED_ORIGINS')),
   /** Host values the edge answers to beyond its own names (edge.ts); same use. */

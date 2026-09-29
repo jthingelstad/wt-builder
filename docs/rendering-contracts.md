@@ -260,9 +260,11 @@ voice, a class, a timestamp) and `&` starts a character reference. So a
 `&` stays as it is ("Procter & Gamble", "AT&T"); an `&` becomes `&amp;` only
 where it would read as a reference (`&` then a name or `#`, then `;`), and
 `-->` becomes `→`. The site's panel (weekly.thingelstad.com
-`apps/site/_includes/layouts/issue.njk`, the cue loop at :251-274) sets each
+`apps/site/_includes/layouts/issue.njk`, the cue loop at :252-279) sets each
 cue as `textContent` and does not decode entities, which is why `&` is left
-bare wherever it can be. `transcriptVtt` in `src/server/integrations/audio.ts`;
+bare wherever it can be. The price is the reference-shaped case: "&copy;" in
+spoken text is written `&amp;copy;`, which a WebVTT reader decodes back to
+"&copy;" but the site's panel shows literally, `&amp;` and all. `transcriptVtt` in `src/server/integrations/audio.ts`;
 `backfill/assess.py` reads `‹` back as `<` when it compares a transcript to
 what whisper heard (review 2026-09-27 §3).
 

@@ -15,9 +15,12 @@ export function shouldWriteBack(item: Item, patch: Record<string, unknown>): boo
 
 /**
  * What the inspector's error bar should say after a write-back: `null`
- * clears it, `undefined` leaves it as it is, a string replaces it. The
- * state is the item's as saved. `syncing` means a newer write is queued
- * behind this one, and that write's answer is the one that counts.
+ * clears it, `undefined` adds nothing, a string replaces it. The state is
+ * the item's as saved. `syncing` means a newer write is queued behind this
+ * one, and that write's answer is the one that counts. `undefined` does not
+ * mean the bar is untouched: the response has already been through the
+ * app's absorb(), which clears the bar when it shows the message of a
+ * mutation that failed.
  */
 export function writeBackMessage(
   source: string | undefined,

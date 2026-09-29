@@ -277,7 +277,13 @@ export interface ScriptReview {
 
 /** A leg's verification, re-run on demand; the latest replaces the last. */
 export interface Verification {
-  /** `waiting`: nothing wrong, something not done yet (scheduled, not indexed) — it re-checks itself. */
+  /**
+   * `waiting`: nothing wrong, something not done yet (scheduled, not
+   * indexed). With `recheck_at` it re-checks itself, after a restart too.
+   * Without it (`refusedAsSent`, the record a refused Buttondown re-send
+   * leaves) the check started beside it replaces it, and if that check is
+   * lost nothing reschedules it: "Check again" on the card recovers it.
+   */
   status: 'running' | 'passed' | 'waiting' | 'warnings' | 'problems' | 'error';
   at: string;
   checks: VerifyCheck[];
