@@ -209,7 +209,7 @@ export function Inspector({ doc, itemId, run, onClose, onError, onBackToReview, 
             <label htmlFor={`${prefix}-tags`}>Pinboard tags</label>
             <Input
               id={`${prefix}-tags`}
-            readOnly={frozen}
+              readOnly={frozen}
               value={(item.tags ?? []).join(', ')}
               onCommit={(text) => {
                 if (frozen) return undefined;

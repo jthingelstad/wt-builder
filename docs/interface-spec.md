@@ -396,11 +396,11 @@ narrates; it never decides.
 - SOURCE MATERIAL — 7 / 14 / 21 chips (active = black fill) + free number input
   ("days back from Friday"), the derived window line 12px/500, an explanatory note,
   and a **Re-scan** button with the sweep count.
+- Below the card: **Start the next issue…**, dashed-border ghost button.
 
 On a published issue, the number, date and window are shown as facts, with a
 note that a re-send would publish a different edition. The server refuses all
 three, and Re-scan is offered on a draft only.
-- Below the card: **Start the next issue…**, dashed-border ghost button.
 
 **OUTLINE** — mono label, hint "Drag a row, or use the arrows. Echoes stays last.",
 then rows (`padding: 7px 8px`, radius 7px, `gap: 3px`): `grip-vertical` handle, 4×16px
