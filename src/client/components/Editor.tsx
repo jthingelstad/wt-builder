@@ -35,6 +35,12 @@ interface Props {
   onIndex: () => void;
   onSend: () => void;
   onError: (m: string | null) => void;
+  /**
+   * The Send view is layered over the editor, which stays mounted beneath
+   * it. Covered, the editor is inert and its keys are not its own: Escape
+   * would close the inspector underneath, ⌘/ open the shortcut card.
+   */
+  covered?: boolean;
 }
 
 const KICKER: Record<Lens, [string, string]> = {
@@ -58,7 +64,7 @@ const KICKER: Record<Lens, [string, string]> = {
 
 const CHANNEL_LENSES: Channel[] = ['website', 'email', 'audio'];
 
-export function Editor({ doc, readiness, busy, error, run, onIndex, onSend, onError }: Props) {
+export function Editor({ doc, readiness, busy, error, run, onIndex, onSend, onError, covered = false }: Props) {
   const [lens, setLens] = useState<Lens>('website');
   const [panel, setPanel] = useState(true);
   const [selected, setSelected] = useState<string | null>(null);
@@ -77,8 +83,13 @@ export function Editor({ doc, readiness, busy, error, run, onIndex, onSend, onEr
   const [orderProposal, setOrderProposal] = useState<OrderProposal | null>(null);
   // ⌘/ shows the keyboard sugar; Jamie will forget it otherwise (2026-09-20).
   const [hints, setHints] = useState(false);
+  // Read at the keypress, not captured by an effect: effects run after
+  // paint, and a key pressed as the Send view opens must already miss.
+  const coveredRef = useRef(covered);
+  coveredRef.current = covered;
   useEffect(() => {
     const key = (e: KeyboardEvent) => {
+      if (coveredRef.current) return;
       if ((e.metaKey || e.ctrlKey) && e.key === '/') { e.preventDefault(); setHints((h) => !h); }
       else if (e.key === 'Escape') setHints(false);
     };
@@ -227,6 +238,7 @@ export function Editor({ doc, readiness, busy, error, run, onIndex, onSend, onEr
   // (review 2026-09-27, §1.4).
   useEffect(() => {
     const onKey = (e: KeyboardEvent) => {
+      if (coveredRef.current) return;
       const target = e.target as HTMLElement;
       if (e.key === 'Escape' && selected && !target.isContentEditable) {
         if (target.matches?.('input, textarea')) target.blur();
@@ -283,7 +295,7 @@ export function Editor({ doc, readiness, busy, error, run, onIndex, onSend, onEr
   };
 
   return (
-    <div class="app">
+    <div class="app" inert={covered}>
       <header class="header">
         <button class="btn ghost-btn" onClick={onIndex}><ArrowLeft /> Issues</button>
         <span class="mark">W</span>

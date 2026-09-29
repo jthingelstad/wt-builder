@@ -6,7 +6,10 @@ weekly newsletter — replacing a Shortcuts + Data Jar + Markdown-flattening wor
 ## Send view
 
 Its own full-screen layer (`position: fixed; inset: 0; z-index: 110`), entered from
-the header's `Send` (which reads `Sent 2/3` once some destinations are done). Sticky
+the header's `Send` (which reads `Sent 2/3` once some destinations are done). It
+lies over the editor, which stays mounted and inert beneath it, so going there and
+back keeps the lens, the inspector and the review's triage, and does not re-scan
+(review 2026-09-27 §2.4). Sticky
 52px header: back to the issue, mono `WT350`, the title, and `Send all four` in ink
 on the right. Every bulk run (`Send all four` / `Send the rest`, `Re-send all sent`)
 asks first, with a `confirm` naming its legs in run order: the editor's way in sits

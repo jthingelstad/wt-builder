@@ -171,3 +171,34 @@ test('a late answer for the issue left behind neither replaces the one on screen
     store.deleteIssue('fixture-wt349');
   }
 });
+
+test('a trip to Send and back keeps the editor as it was, and does not scan again', async ({ page }) => {
+  await interceptSends(page);
+  let sweeps = 0;
+  page.on('request', (r) => { if (r.url().endsWith(`/api/issues/${ISSUE}/sweep`)) sweeps += 1; });
+  const swept = page.waitForResponse((r) => r.url().endsWith(`/api/issues/${ISSUE}/sweep`));
+  await open(page);
+  await swept;
+
+  const header = page.locator('.app .header');
+  const row = page.locator('[data-anchor="link-functions"]');
+  await row.hover();
+  await row.getByRole('button', { name: 'Inspect' }).click();
+  await expect(page.locator('aside.panel')).toBeVisible();
+  await header.getByRole('button', { name: 'Audio' }).click();
+
+  await header.getByRole('button', { name: 'Publish' }).click();
+  await expect(page.locator('.send-layer')).toBeVisible();
+  // Keys pressed in the Send view are not the editor's: Escape would close
+  // its inspector underneath, ⌘/ open its shortcut card.
+  await page.keyboard.press('Escape');
+  await page.keyboard.press('ControlOrMeta+/');
+  await page.locator('.send-layer .header').getByRole('button', { name: 'Issue' }).click();
+
+  await expect(page.locator('.send-layer')).toHaveCount(0);
+  await expect(header.getByRole('button', { name: 'Audio' })).toHaveClass(/\bon\b/);
+  await expect(page.locator('aside.panel')).toBeVisible();
+  await expect(page.locator('.hint-card')).toHaveCount(0);
+  await page.waitForTimeout(500);
+  expect(sweeps).toBe(1);
+});

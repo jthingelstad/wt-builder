@@ -122,32 +122,37 @@ export function App() {
     );
   }
 
-  if (route.view === 'send') {
-    return (
-      <Send
+  // Send is a layer over the editor, which stays mounted beneath it: it used
+  // to replace the editor, so every trip there and back re-scanned the draft
+  // (posts/all is limited to once per five minutes) and lost the lens, the
+  // inspector and the review's triage (review 2026-09-27 §2.4).
+  const sending = route.view === 'send';
+  return (
+    <>
+      <Editor
         key={doc.issue.id}
         doc={doc}
         readiness={readiness}
         busy={busy}
         error={error}
-        onBack={() => go({ view: 'issue', id: doc.issue.id })}
-        onSent={(next) => { if (onScreen(next)) setDoc(next); }}
+        run={run}
+        covered={sending}
+        onIndex={() => go({ view: 'index' })}
+        onSend={() => go({ view: 'send', id: doc.issue.id })}
         onError={setError}
       />
-    );
-  }
-
-  return (
-    <Editor
-      key={doc.issue.id}
-      doc={doc}
-      readiness={readiness}
-      busy={busy}
-      error={error}
-      run={run}
-      onIndex={() => go({ view: 'index' })}
-      onSend={() => go({ view: 'send', id: doc.issue.id })}
-      onError={setError}
-    />
+      {sending && (
+        <Send
+          key={doc.issue.id}
+          doc={doc}
+          readiness={readiness}
+          busy={busy}
+          error={error}
+          onBack={() => go({ view: 'issue', id: doc.issue.id })}
+          onSent={(next) => { if (onScreen(next)) setDoc(next); }}
+          onError={setError}
+        />
+      )}
+    </>
   );
 }
