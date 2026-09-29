@@ -17,6 +17,8 @@ interface Props {
   doc: IssueDoc;
   selected: string | null;
   onOpen: (nodeId: string) => void;
+  /** Put to bed, or a pre-Builder record: sections open, and nothing moves. */
+  frozen?: boolean;
   onMove: (nodeId: string, delta: number) => void;
   onRemove: (nodeId: string) => void;
   onReorder: (nodeId: string, beforeId: string) => void;
@@ -45,7 +47,7 @@ function preview(doc: IssueDoc, node: IssueNode): string {
   return '';
 }
 
-export function CollapseView({ doc, selected, onOpen, onMove, onRemove, onReorder }: Props) {
+export function CollapseView({ doc, frozen = false, selected, onOpen, onMove, onRemove, onReorder }: Props) {
   const [drag, setDrag] = useState<string | null>(null);
   const [over, setOver] = useState<string | null>(null);
   const w = windowOf(doc);
@@ -66,10 +68,10 @@ export function CollapseView({ doc, selected, onOpen, onMove, onRemove, onReorde
           <div
             key={node.id}
             class={`cv-row${selected === node.id ? ' selected' : ''}${over === node.id ? ' over' : ''}${drag === node.id ? ' dragging' : ''}`}
-            draggable={!pinned}
+            draggable={!pinned && !frozen}
             onDragStart={() => setDrag(node.id)}
             onDragEnd={() => { setDrag(null); setOver(null); }}
-            onDragOver={(e) => { if (drag && !pinned) { e.preventDefault(); setOver(node.id); } }}
+            onDragOver={(e) => { if (drag && !pinned && !frozen) { e.preventDefault(); setOver(node.id); } }}
             onDragLeave={() => setOver(null)}
             onDrop={() => {
               if (drag && drag !== node.id) onReorder(drag, node.id);
@@ -78,7 +80,7 @@ export function CollapseView({ doc, selected, onOpen, onMove, onRemove, onReorde
             }}
             onClick={() => onOpen(node.id)}
           >
-            <span class="cv-grip">{pinned ? '' : '⠿'}</span>
+            <span class="cv-grip">{pinned || frozen ? '' : '⠿'}</span>
             <span class="cv-label">{node.label}</span>
             {badge && <span class="ol-badge">{badge}</span>}
             <span class="cv-preview">{preview(doc, node)}</span>
@@ -87,7 +89,7 @@ export function CollapseView({ doc, selected, onOpen, onMove, onRemove, onReorde
             </span>
             {pinned
               ? <span class="pinned">fixed last</span>
-              : (
+              : !frozen && (
                 <span class="cv-actions">
                   <button class="ol-btn" title="Move up" disabled={i === 0}
                     onClick={(e) => { e.stopPropagation(); onMove(node.id, -1); }}>

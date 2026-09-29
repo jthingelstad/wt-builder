@@ -176,7 +176,11 @@ finished, what is half-finished, and what has never run.
 - **Put to bed** (2026-09-26, WT351) — `POST /api/issues/:id/bed {asleep}`;
   a published issue only; while asleep every non-GET to the issue answers 423
   except `/bed` and `/verify/*` (docs/decisions.md). Send view's last card,
-  index chip, issue banner with Wake.
+  index chip, issue banner with Wake. Since 2026-09-28 it is the only
+  freeze. A published issue that is awake edits its text as a draft does,
+  and its kicker says edits need a re-send. Asleep, the client offers no
+  editable run, rail action, wand, field or write button, so the 423 is a
+  backstop and never the message.
 - **Published, derived** (2026-08-30) — an issue becomes `published` the
   moment its website and buttondown legs are both `sent`; nothing un-derives
   it. This is what keeps `lastPublishedNumber()`, the next-issue default,

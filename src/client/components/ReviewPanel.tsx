@@ -30,7 +30,8 @@ interface Props {
   onDone: (k: string) => void;
   onIgnore: (k: string) => void;
   onReopen: (k: string) => void;
-  onReadAgain: () => void;
+  /** Absent while the issue is put to bed: a read is saved on the issue, and the server refuses it. */
+  onReadAgain?: () => void;
   onClose: () => void;
   showCleared: boolean;
   onToggleCleared: () => void;
@@ -80,7 +81,7 @@ export function ReviewPanel({
                 ? 'Read from this draft.'
                 : `You have edited ${editsSince} thing${editsSince === 1 ? '' : 's'} since this read.`}
             </span>
-            <button class="btn tiny" onClick={onReadAgain}>Read again</button>
+            {onReadAgain && <button class="btn tiny" onClick={onReadAgain}>Read again</button>}
           </div>
 
           {summary && (

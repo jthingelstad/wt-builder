@@ -86,7 +86,9 @@ automatic: WT350 needed fixes and re-sends after publishing. While
 `issue.put_to_bed_at` is set the server refuses every change to the issue (one
 guard at the door, `guardBed`, so a later route cannot forget it) with 423;
 reads, verification, and waking pass. The index marks it PUT TO BED and the
-issue opens with a banner and `Wake it`.
+issue opens with a banner and `Wake it`. Editing stays open after publishing
+because fixes and re-sends follow it, and put to bed is the only freeze (Jamie,
+2026-09-28).
 
 **Revisited 2026-09-28 — the source is the second editor.** "Nobody else is
 editing" held for this service, but Pinboard and Micro.blog are Jamie's CMS, and

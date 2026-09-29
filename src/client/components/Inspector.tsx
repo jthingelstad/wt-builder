@@ -4,6 +4,7 @@ import type { IssueDoc, Item } from '../../shared/types.ts';
 import { CHANNELS } from '../../shared/types.ts';
 import { api, shouldWriteBack, writeBackMessage, type IssueResponse } from '../api.ts';
 import { Input, useFieldValue } from './Field.tsx';
+import { isFrozen } from './Page.tsx';
 
 interface Props {
   doc: IssueDoc;
@@ -43,7 +44,7 @@ function syncLine(state: string, source: string): string {
  * lines of a twelve-paragraph post, which made the inspector useless for the
  * one thing "Show me" brought you there to do (Jamie, 2026-09-20).
  */
-function GrowingTextarea(props: { id: string; value: string; onCommit: (text: string) => unknown }) {
+function GrowingTextarea(props: { id: string; value: string; disabled?: boolean; onCommit: (text: string) => unknown }) {
   // Uncontrolled while focused: a save landing mid-sentence re-renders this.
   const { ref, settle } = useFieldValue<HTMLTextAreaElement>(props.value);
   const fit = () => {
@@ -59,6 +60,7 @@ function GrowingTextarea(props: { id: string; value: string; onCommit: (text: st
       id={props.id}
       class="growing"
       defaultValue={props.value}
+      readOnly={props.disabled}
       onInput={fit}
       onBlur={(e) => settle(props.onCommit(e.currentTarget.value))}
     />
@@ -72,6 +74,9 @@ export function Inspector({ doc, itemId, run, onClose, onError, onBackToReview, 
   // Out from here, or from anywhere: an edit's own write-back leaves the
   // item `syncing` until it answers.
   const writing = writeOut || item.sync_state === 'syncing';
+  // Put to bed (or a pre-Builder record): every field is read-only and no
+  // button changes anything. The server's 423 is the backstop, not the message.
+  const frozen = isFrozen(doc);
 
   const id = doc.issue.id;
   const prefix = `item-${itemId}`;
@@ -143,12 +148,20 @@ export function Inspector({ doc, itemId, run, onClose, onError, onBackToReview, 
         <button class="btn tiny back-review" onClick={onBackToReview}>← Review</button>
       )}
       <h3>{item.type.replace('_', ' ')}</h3>
+      {frozen && (
+        <p class="field-note">
+          {doc.issue.put_to_bed_at
+            ? `WT${doc.issue.number} is put to bed — wake it to change anything.`
+            : 'A pre-Builder record — nothing here is editable.'}
+        </p>
+      )}
 
       {(item.title !== undefined || imported) && (
         <div class="field">
           <label htmlFor={`${prefix}-title`}>Title</label>
           <Input
             id={`${prefix}-title`}
+            readOnly={frozen}
             value={item.title ?? ''}
             // A promoted post's title is its section heading, and the
             // server refuses a blank one. Cleared, the field goes back to
@@ -164,6 +177,7 @@ export function Inspector({ doc, itemId, run, onClose, onError, onBackToReview, 
           <label htmlFor={`${prefix}-label`}>Label</label>
           <Input
             id={`${prefix}-label`}
+            readOnly={frozen}
             value={item.label ?? ''}
             onCommit={(text) => commitField('label', text)}
           />
@@ -171,13 +185,14 @@ export function Inspector({ doc, itemId, run, onClose, onError, onBackToReview, 
       )}
 
       {item.type === 'photo' ? (
-        <PhotoFields item={item} prefix={prefix} commit={commitMedia} />
+        <PhotoFields item={item} prefix={prefix} commit={commitMedia} frozen={frozen} />
       ) : item.type === 'pinboard_link' ? (
         <>
           <div class="field">
             <label htmlFor={`${prefix}-commentary`}>Commentary</label>
             <GrowingTextarea
               id={`${prefix}-commentary`}
+              disabled={frozen}
               value={item.commentary ?? ''}
               onCommit={(text) => commitField('commentary', text)}
             />
@@ -186,6 +201,7 @@ export function Inspector({ doc, itemId, run, onClose, onError, onBackToReview, 
             <label htmlFor={`${prefix}-tags`}>Pinboard tags</label>
             <Input
               id={`${prefix}-tags`}
+            readOnly={frozen}
               value={(item.tags ?? []).join(', ')}
               onCommit={(text) => {
                 const tags = text
@@ -202,6 +218,7 @@ export function Inspector({ doc, itemId, run, onClose, onError, onBackToReview, 
           <label htmlFor={`${prefix}-body`}>Body</label>
           <GrowingTextarea
             id={`${prefix}-body`}
+            disabled={frozen}
             value={String(item.body ?? '')}
             onCommit={(text) => commitField('body', text)}
           />
@@ -213,6 +230,7 @@ export function Inspector({ doc, itemId, run, onClose, onError, onBackToReview, 
           <label htmlFor={`${prefix}-ask`}>Ask Thingy</label>
           <Input
             id={`${prefix}-ask`}
+            readOnly={frozen}
             value={item.ask ?? ''}
             placeholder="The question under the thread; empty prints no door"
             onCommit={(text) => commitField('ask', text)}
@@ -223,12 +241,14 @@ export function Inspector({ doc, itemId, run, onClose, onError, onBackToReview, 
       {item.authorship === 'Thingy' && (
         <div class="review-box">
           <span>{item.reviewed ? 'Reviewed by Jamie' : 'Jamie review required'}</span>
-          <button
-            class={`btn small${item.reviewed ? '' : ' primary'}`}
-            onClick={() => void commit({ reviewed: !item.reviewed, status: item.reviewed ? 'draft' : 'reviewed' })}
-          >
-            {item.reviewed ? 'Mark draft' : 'Mark reviewed'}
-          </button>
+          {!frozen && (
+            <button
+              class={`btn small${item.reviewed ? '' : ' primary'}`}
+              onClick={() => void commit({ reviewed: !item.reviewed, status: item.reviewed ? 'draft' : 'reviewed' })}
+            >
+              {item.reviewed ? 'Mark draft' : 'Mark reviewed'}
+            </button>
+          )}
         </div>
       )}
 
@@ -241,8 +261,8 @@ export function Inspector({ doc, itemId, run, onClose, onError, onBackToReview, 
             <button
               key={channel}
               class={`btn small${on ? ' primary' : ''}`}
-              disabled={Boolean(locked)}
-              title={locked ?? `Toggle the ${channel} edition`}
+              disabled={Boolean(locked) || frozen}
+              title={locked ?? (frozen ? `In the ${channel} edition: ${on ? 'yes' : 'no'}` : `Toggle the ${channel} edition`)}
               aria-label={`${on ? 'Remove' : 'Include'} item ${on ? 'from' : 'in'} ${channel}`}
               onClick={() => void run(() => api.setChannel(id, itemId, channel, !on))}
             >
@@ -273,7 +293,7 @@ export function Inspector({ doc, itemId, run, onClose, onError, onBackToReview, 
       )}
       {item.sync_error && <p class="field-note error-text">{item.sync_error}</p>}
 
-      {imported && item.sync_state === 'conflict' ? (
+      {frozen ? null : imported && item.sync_state === 'conflict' ? (
         // A retry would be refused again: the source moved. Jamie chooses.
         <div class="conflict-actions" style="margin-top:12px;display:flex;gap:8px;flex-wrap:wrap">
           <button class="btn" onClick={() => void resolve('mine')} disabled={writing}
@@ -310,16 +330,18 @@ export function Inspector({ doc, itemId, run, onClose, onError, onBackToReview, 
       ) : null}
 
       <div class="panel-actions">
-        <button
-          class="btn"
-          title="Hide this item — every edition off. Nothing is deleted."
-          onClick={async () => {
-            await run(() => api.setVisible(id, itemId, false));
-            onClose();
-          }}
-        >
-          Hide
-        </button>
+        {!frozen && (
+          <button
+            class="btn"
+            title="Hide this item — every edition off. Nothing is deleted."
+            onClick={async () => {
+              await run(() => api.setVisible(id, itemId, false));
+              onClose();
+            }}
+          >
+            Hide
+          </button>
+        )}
         <button class="btn" onClick={onClose}>Close</button>
       </div>
     </aside>
@@ -327,11 +349,12 @@ export function Inspector({ doc, itemId, run, onClose, onError, onBackToReview, 
 }
 
 function PhotoFields({
-  item, prefix, commit,
+  item, prefix, commit, frozen,
 }: {
   item: Item;
   prefix: string;
   commit: (field: string, value: string) => unknown;
+  frozen: boolean;
 }) {
   const fields: { key: keyof NonNullable<Item['media']>; label: string; type?: string }[] = [
     { key: 'url', label: 'Image URL', type: 'url' },
@@ -348,6 +371,7 @@ function PhotoFields({
           <Input
             id={`${prefix}-${field.key}`}
             type={field.type ?? 'text'}
+            readOnly={frozen}
             value={item.media?.[field.key] ?? ''}
             onCommit={(text) => commit(field.key, text)}
           />

@@ -86,6 +86,18 @@ interface PageProps {
   children?: ComponentChildren;
 }
 
+/**
+ * Whether nothing in the issue can change: it is put to bed, or it is a
+ * pre-Builder record. Publishing does not freeze an issue — fixes and
+ * re-sends follow it, so its text stays editable until it is put to bed
+ * (Jamie, 2026-09-28; docs/decisions.md). Asleep, the server refuses every
+ * change with 423 (guardBed); the client offers none, rather than let the
+ * refusal say it.
+ */
+export function isFrozen(doc: IssueDoc): boolean {
+  return Boolean(doc.issue.put_to_bed_at || doc.issue.imported);
+}
+
 /** Sections that carry themselves — printing the label would be an artifact. */
 function headingPublishes(node: IssueNode): boolean {
   return node.publishes_heading !== false;
@@ -111,7 +123,10 @@ export function Page({
   hostRef, withNotes, children,
 }: PageProps) {
   const published = doc.issue.status === 'published';
-  const readOnly = published;
+  // Text is editable until the issue is put to bed. What adds structure —
+  // insert points, add chips, the ordering and Echoes wands — is a draft's.
+  const readOnly = isFrozen(doc);
+  const structural = !published && !readOnly;
   const w = windowOf(doc);
   const nodes = orderedNodes(doc);
 
@@ -139,7 +154,7 @@ export function Page({
       key="head"
       anchor="issue"
       selected={selected === 'issue'}
-      margin={
+      margin={readOnly ? undefined : (
         <>
           <Wand
             redraft={Boolean(doc.issue.dek)}
@@ -157,7 +172,7 @@ export function Page({
             />
           )}
         </>
-      }
+      )}
     >
       <div class="page-head" onClick={() => onSelect('issue')}>
         <div class="kicker">WT{doc.issue.number} · {kickerDate(doc.issue.publication_date)}</div>
@@ -209,14 +224,14 @@ export function Page({
     // written into — Currently, Notable, Briefly — keeps its heading and its
     // add chip while it is empty; otherwise a Currently put back after removal
     // has no way to get its first line (WT350, 2026-09-20).
-    const writable = !readOnly && lens === 'website' &&
+    const writable = structural && lens === 'website' &&
       (node.type === 'currently' || node.type === 'notable' || node.type === 'briefly' || node.type === 'echoes');
     if (!inLens.length && !fallout.all && lens !== 'source' && !writable) return;
 
     if (index > 0) {
       rows.push(
         <Row key={`${node.id}-rule`} anchor={node.id}>
-          {!readOnly && lens === 'website' && (
+          {structural && lens === 'website' && (
             <InsertPoint
               onMarkdown={() => act.addNode({ kind: 'markdown', type: 'mdblock', label: 'Markdown block', before: node.id })}
               onSection={() => act.addNode({ type: 'ad_hoc', label: 'Section', before: node.id })}
@@ -227,7 +242,7 @@ export function Page({
       );
     }
 
-    const rail = sectionRail({
+    const rail = readOnly ? { actions: [] } : sectionRail({
       promoted: node.kind === 'promoted_item',
       movable: node.movable && node.fixed_position !== 'last',
       onDemote: () => act.demote(node.id),
@@ -258,12 +273,12 @@ export function Page({
       // Notable and Briefly carry an ordering wand: the model proposes a
       // sequence that reads better than bookmark order, and nothing moves
       // until Jamie applies it (Jamie, 2026-09-20).
-      const orderable = !readOnly && lens === 'website' && (node.type === 'notable' || node.type === 'briefly') &&
+      const orderable = structural && lens === 'website' && (node.type === 'notable' || node.type === 'briefly') &&
         inLens.filter((id) => doc.items[id]?.type === 'pinboard_link').length >= 3;
       // The Echoes wand lives on the heading: it drafts echoes for the
       // section and the ticked ones append as items, so it can run again
       // for more (Jamie, 2026-09-20). Each echo's own wand redrafts it.
-      const echoesWand = !readOnly && node.type === 'echoes';
+      const echoesWand = structural && node.type === 'echoes';
       const promotedId = node.kind === 'promoted_item' ? node.items[0] : undefined;
       rows.push(
         <Row
@@ -368,7 +383,7 @@ export function Page({
             : null
           : null;
 
-      const rowRail = itemRail({
+      const fullRail = itemRail({
         item,
         canPromote: node.type === 'journal' && Boolean(item.title),
         promoteWhy: node.type === 'journal' && !item.title
@@ -392,6 +407,12 @@ export function Page({
         onInspect: () => onSelect(itemId),
         ...(singleton ? {} : { onRemove: () => act.removeItem(node.id, itemId) }),
       });
+      // Frozen, the rail keeps the item's sync state and Inspect, which only
+      // reads: it is the way to the Inspector. Nothing on it moves, removes,
+      // or promotes.
+      const rowRail = readOnly
+        ? { sync: fullRail.sync, actions: fullRail.actions.filter((a) => a.key === 'info') }
+        : fullRail;
 
       const hasText = Boolean(item.commentary || item.body || item.media?.caption);
 
@@ -404,7 +425,7 @@ export function Page({
           rail={<Rail {...rowRail} />}
           margin={
             <>
-              {DRAFTABLE.has(item.type) && (
+              {DRAFTABLE.has(item.type) && !readOnly && (
                 <Wand
                   redraft={hasText}
                   busy={drafting === itemId}
@@ -493,7 +514,7 @@ export function Page({
     }
 
     // Add affordances — dashed ghost chips where writing starts.
-    if (!readOnly && lens === 'website') {
+    if (structural && lens === 'website') {
       if (node.type === 'currently') {
         rows.push(
           <Row key={`${node.id}-add`} anchor={node.id}>
@@ -536,7 +557,7 @@ export function Page({
             <HeldStrip
               item={item}
               lens={lens as Channel}
-              onPutBack={() => act.setChannel(itemId, lens as Channel, true)}
+              onPutBack={readOnly ? undefined : () => act.setChannel(itemId, lens as Channel, true)}
             />
           </Row>,
         );
@@ -544,7 +565,7 @@ export function Page({
     }
   });
 
-  if (!readOnly && lens === 'website') {
+  if (structural && lens === 'website') {
     const present = new Set(nodes.map((n) => String(n.type)));
     const tail: [string, string][] = [
       ['intro', '+ Intro'], ['quote', '+ Quote'], ['currently', '+ Currently'],
@@ -1347,7 +1368,7 @@ function useFileDrop(onFile: ((file: File) => void) | null) {
 
 function HeldStrip({
   item, lens, onPutBack,
-}: { item: Item; lens: Channel; onPutBack: () => void }) {
+}: { item: Item; lens: Channel; onPutBack?: () => void }) {
   const on = CHANNELS.filter((c) => item.channels[c]);
   const label = on.length === 0
     ? { text: 'NOT IN THIS ISSUE', cls: 'none' }
@@ -1359,9 +1380,11 @@ function HeldStrip({
     <div class="held-strip">
       <span class={`chan ${label.cls}`}>{label.text}</span>
       <span class="text">{text}</span>
-      <button class="btn small" onClick={onPutBack}>
-        {on.length === 0 ? 'Put back' : 'Add here too'}
-      </button>
+      {onPutBack && (
+        <button class="btn small" onClick={onPutBack}>
+          {on.length === 0 ? 'Put back' : 'Add here too'}
+        </button>
+      )}
     </div>
   );
 }

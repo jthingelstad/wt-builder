@@ -16,7 +16,7 @@ import { shortKicker, sourcesLabel } from '../../shared/dates.ts';
 import { windowOf } from '../../shared/render/plan.ts';
 import { api, type IssueResponse, type Readiness } from '../api.ts';
 import { ArrowLeft, Moon } from '../icons.tsx';
-import { Page, type Lens, type OrderProposal, type PageActions } from './Page.tsx';
+import { isFrozen, Page, type Lens, type OrderProposal, type PageActions } from './Page.tsx';
 import { Notes, type Note } from './Notes.tsx';
 import { CollapseView } from './Collapse.tsx';
 import { LeftPanel } from './LeftPanel.tsx';
@@ -111,7 +111,21 @@ export function Editor({ doc, readiness, busy, error, run, onIndex, onSend, onEr
     (readiness?.units ?? []).filter((u) => u.state === 'partial' && u.context).map((u) => [u.anchor, u.context!]),
   ), [readiness]);
   const w = windowOf(doc);
+  const frozen = isFrozen(doc);
   const [kicker, note] = KICKER[lens];
+  // Published, the text stays editable until it is put to bed, and an edit
+  // reaches readers only by a re-send (Jamie, 2026-09-28). Frozen, nothing
+  // is editable, and the kicker says so rather than a 423.
+  const lensKicker = !frozen && doc.issue.status === 'published' && lens === 'website'
+    ? 'WEBSITE — PUBLISHED · EDITS NEED A RE-SEND'
+    : frozen && lens !== 'source'
+      ? kicker.replace('EDITABLE', 'PUBLISHED')
+      : kicker;
+  const lensNote = frozen && lens === 'website'
+    ? doc.issue.put_to_bed_at
+      ? `Put to bed. Nothing in WT${doc.issue.number} can change until it is woken.`
+      : 'A pre-Builder record. Nothing here is editable.'
+    : note;
 
   /** Jump the canvas to an anchor and select it — used by review notes. */
   // A jump from the review panel highlights and scrolls, but
@@ -347,6 +361,8 @@ export function Editor({ doc, readiness, busy, error, run, onIndex, onSend, onEr
         </button>
         <button
           class={`btn${readOpen ? ' reading' : ''}`}
+          // Asleep, a read that exists opens; a new one would be refused.
+          disabled={Boolean(doc.issue.put_to_bed_at) && !review && !readOpen}
           onClick={() => {
             if (readOpen) setReadOpen(false);
             else if (review) setReadOpen(true);
@@ -420,16 +436,14 @@ export function Editor({ doc, readiness, busy, error, run, onIndex, onSend, onEr
           <div class="canvas-inner">
             <div class="lens-kicker">
               <span class="kicker">
-                {collapsed
-                  ? 'COLLAPSED — SECTIONS'
-                  : doc.issue.status === 'published' && lens !== 'source'
-                    ? kicker.replace('EDITABLE', 'PUBLISHED')
-                    : kicker}
+                {collapsed ? 'COLLAPSED — SECTIONS' : lensKicker}
               </span>
               <span class="note">
                 {collapsed
-                  ? 'Drag to reorder. Click a section to open it. Nothing is editable here.'
-                  : note}
+                  ? frozen
+                    ? 'Click a section to open it. Nothing is editable here.'
+                    : 'Drag to reorder. Click a section to open it. Nothing is editable here.'
+                  : lensNote}
               </span>
             </div>
 
@@ -453,7 +467,7 @@ export function Editor({ doc, readiness, busy, error, run, onIndex, onSend, onEr
                       </p>
                       <p class="counts">Read it again after you change something.</p>
                       <div class="acts">
-                        <button class="btn small" onClick={read}>Read again</button>
+                        {!doc.issue.put_to_bed_at && <button class="btn small" onClick={read}>Read again</button>}
                         <button class="btn small" onClick={() => setReadOpen(false)}>Done</button>
                       </div>
                     </>
@@ -465,7 +479,7 @@ export function Editor({ doc, readiness, busy, error, run, onIndex, onSend, onEr
                         {proof > 0 && ` · ${proof} proof`} · read from this draft
                       </p>
                       <div class="acts">
-                        <button class="btn small" onClick={read}>Read again</button>
+                        {!doc.issue.put_to_bed_at && <button class="btn small" onClick={read}>Read again</button>}
                         <button class="btn small" onClick={() => setReadOpen(false)}>Done</button>
                       </div>
                     </>
@@ -477,6 +491,7 @@ export function Editor({ doc, readiness, busy, error, run, onIndex, onSend, onEr
             {collapsed ? (
               <CollapseView
                 doc={doc}
+                frozen={frozen}
                 selected={selected}
                 onOpen={(nodeId) => { setCollapsed(false); jump(nodeId); }}
                 onMove={(nodeId, delta) => void run(() => api.moveNode(id, nodeId, delta))}
@@ -562,7 +577,7 @@ export function Editor({ doc, readiness, busy, error, run, onIndex, onSend, onEr
             onDone={(k) => clear(k, 'done')}
             onIgnore={(k) => clear(k, 'ignored')}
             onReopen={reopen}
-            onReadAgain={read}
+            onReadAgain={doc.issue.put_to_bed_at ? undefined : read}
             onClose={() => setReadOpen(false)}
             showCleared={showCleared}
             onToggleCleared={() => setShowCleared(!showCleared)}

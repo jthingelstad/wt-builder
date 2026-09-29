@@ -517,8 +517,18 @@ Block types, in the Website lens:
 
 **Editing.** `contenteditable` on each run, committed on blur. Empty runs show
 placeholder text via `[data-ph]:empty:before` in `#b9b7b2`. Focus state:
-`background: #fff8e3` + `box-shadow: 0 0 0 4px #fff8e3`. In a published issue,
-everything is read-only and the kicker reads `WEBSITE — PUBLISHED`.
+`background: #fff8e3` + `box-shadow: 0 0 0 4px #fff8e3`. A published issue stays
+editable until it is put to bed, because fixes and re-sends follow publishing (Jamie,
+2026-09-28). Its text, rails, and item wands work as on a draft, and the kicker reads
+`WEBSITE — PUBLISHED · EDITS NEED A RE-SEND`. What adds structure stays a draft's:
+insert points, add chips, and the ordering and Echoes wands. Once it is put to bed,
+nothing is editable, and the client offers nothing that would be refused. No run is
+contenteditable, and no rail action moves, removes or promotes (Inspect, which only
+reads, stays). Wands, held-strip buttons, outline and Collapse actions, Edit, Share
+and Re-scan are all withdrawn. The Inspector's fields are read-only and its write
+buttons are gone. A new review read is not offered. The kicker reads
+`WEBSITE — PUBLISHED`, and its note says the issue is put to bed. A pre-Builder
+record is frozen the same way. The server's 423 (`guardBed`) is the backstop.
 
 #### Collapse mode
 
@@ -798,9 +808,10 @@ Haiku candidates: **1200 ms**. Re-scan: **1100 ms**.
 **Saturday rule.** A non-Saturday publish date snaps forward to the next Saturday with a
 visible amber note rather than being rejected.
 
-**Publish.** The button flips `status` and returns to the index; a
-published issue opens read-only. That is a placeholder — the real contract is in
-`docs/publishing-lifecycle.md` and is summarized below.
+**Publish.** The button opens the Send view. An issue is `published` once its
+website and Buttondown legs are sent, and it stays editable until it is put to bed
+(see *Editing* above). The real contract is in `docs/publishing-lifecycle.md` and
+is summarized below.
 
 **Editorial review.** Asked for explicitly — never on open, on save, or on reaching
 Ready. A read replaces the previous one; there is no note backlog. Notes are re-derived

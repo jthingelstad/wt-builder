@@ -294,8 +294,9 @@ export interface IssueMeta {
   output_order?: string[];
   /**
    * A pre-Builder issue, imported as a record: one Markdown block holding the
-   * published text, read-only by way of its published status. Never parsed
-   * into items (docs/decisions.md).
+   * published text, read-only in the client (Page.tsx isFrozen) — publishing
+   * alone no longer freezes an issue. Never parsed into items
+   * (docs/decisions.md).
    */
   imported?: boolean;
   /** Where the published issue lives, for imported records. */

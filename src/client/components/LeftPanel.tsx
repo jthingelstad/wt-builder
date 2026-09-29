@@ -16,6 +16,7 @@ import { ArrowDown, ArrowUp, EyeOff, GripVertical, X } from '../icons.tsx';
 import { EventLog } from './EventLog.tsx';
 import { Input } from './Field.tsx';
 import { omnifocusUrl, taskpaper } from '../../shared/taskpaper.ts';
+import { isFrozen } from './Page.tsx';
 
 interface Props {
   doc: IssueDoc;
@@ -111,21 +112,26 @@ export function LeftPanel(props: Props) {
   const swept = Object.keys(doc.items).length;
   const inWindow = itemsInWindow(doc).length;
   const outside = swept - inWindow;
+  // Put to bed (or a pre-Builder record), nothing here changes: no Edit, no
+  // Share, and an outline that only navigates.
+  const frozen = isFrozen(doc);
 
   return (
     <aside class="left-panel">
       <div class="panel-head">
         <span class="mono-label">WT{doc.issue.number}</span>
         <span class="spacer" />
-        <button
-          class={`btn tiny${editing ? ' primary' : ''}`}
-          onClick={() => setEditing(!editing)}
-        >
-          {editing ? 'Done' : 'Edit'}
-        </button>
+        {!frozen && (
+          <button
+            class={`btn tiny${editing ? ' primary' : ''}`}
+            onClick={() => setEditing(!editing)}
+          >
+            {editing ? 'Done' : 'Edit'}
+          </button>
+        )}
       </div>
 
-      {editing
+      {editing && !frozen
         ? <MetaEditor doc={doc} onSettings={props.onSettings} onSweep={props.onSweep} sweeping={props.sweeping} />
         : (
           <div class="meta-card">
@@ -144,12 +150,14 @@ export function LeftPanel(props: Props) {
                 </button>
               )}
               <button class="btn small" onClick={() => setLogOpen(true)}>Log</button>
-              <button
-                class={`btn small${doc.draft_share ? ' primary' : ''}`}
-                onClick={() => setShareOpen(!shareOpen)}
-              >
-                {doc.draft_share ? 'Shared' : 'Share'}
-              </button>
+              {!frozen && (
+                <button
+                  class={`btn small${doc.draft_share ? ' primary' : ''}`}
+                  onClick={() => setShareOpen(!shareOpen)}
+                >
+                  {doc.draft_share ? 'Shared' : 'Share'}
+                </button>
+              )}
               {/* The issue's project, straight into OmniFocus: Jamie's
                   template with the builder's three dates in it. ⌥-click
                   copies the TaskPaper instead (shared/taskpaper.ts). */}
@@ -168,7 +176,7 @@ export function LeftPanel(props: Props) {
           </div>
         )}
 
-      {!editing && shareOpen && (
+      {!editing && shareOpen && !frozen && (
         <ShareCard doc={doc} onShare={props.onShare} onUnshare={props.onUnshare} />
       )}
 
@@ -176,7 +184,7 @@ export function LeftPanel(props: Props) {
         <EventLog issueId={doc.issue.id} number={doc.issue.number} onClose={() => setLogOpen(false)} />
       )}
 
-      <Outline {...props} nodes={nodes} />
+      <Outline {...props} nodes={nodes} frozen={frozen} />
       <div class="panel-foot quiet">⌘/ for keyboard shortcuts</div>
     </aside>
   );
@@ -340,8 +348,8 @@ const BADGE: Record<string, string> = {
 };
 
 function Outline({
-  doc, nodes, selected, onSelect, onMove, onRemove, onAdd, onReorder,
-}: Props & { nodes: IssueNode[] }) {
+  doc, nodes, frozen, selected, onSelect, onMove, onRemove, onAdd, onReorder,
+}: Props & { nodes: IssueNode[]; frozen: boolean }) {
   const [drag, setDrag] = useState<string | null>(null);
   const [absent, setAbsent] = useState<{ id: string; type: string; label: string }[]>([]);
 
@@ -357,25 +365,27 @@ function Outline({
     <>
       <div class="outline-head">
         <span class="mono-label">OUTLINE</span>
-        <p class="quiet">Drag a row, or use the arrows. Echoes stays last.</p>
+        <p class="quiet">{frozen ? 'Click a row to go to it.' : 'Drag a row, or use the arrows. Echoes stays last.'}</p>
       </div>
 
       <div class="outline">
         {nodes.map((node, i) => {
           const pinned = node.fixed_position === 'last';
+          // Frozen, a row is only a way to the section.
+          const fixed = pinned || frozen;
           const badge = BADGE[node.kind];
           return (
             <div
               key={node.id}
               class={`ol-row${selected === node.id ? ' selected' : ''}${drag === node.id ? ' dragging' : ''}`}
-              draggable={!pinned}
+              draggable={!fixed}
               onDragStart={() => setDrag(node.id)}
               onDragEnd={() => setDrag(null)}
-              onDragOver={(e) => { if (drag && !pinned) e.preventDefault(); }}
+              onDragOver={(e) => { if (drag && !fixed) e.preventDefault(); }}
               onDrop={() => { if (drag && drag !== node.id) onReorder(drag, node.id); setDrag(null); }}
               onClick={() => onSelect(node.id)}
             >
-              {pinned ? <span class="grip-space" /> : <GripVertical class="grip" />}
+              {fixed ? <span class="grip-space" /> : <GripVertical class="grip" />}
               <span class={`prov ${node.items.length ? provOf(doc, node) : 'own'}`} />
               <span class="ol-label">{node.label}</span>
               {node.publishes_heading === false && (
@@ -385,7 +395,7 @@ function Outline({
               <span class="ol-count">{inWindowCount(doc, node)}</span>
               {pinned
                 ? <span class="pinned">pinned</span>
-                : (
+                : !frozen && (
                   <span class="ol-actions">
                     <button class="ol-btn danger" title="Remove section"
                       onClick={(e) => { e.stopPropagation(); onRemove(node.id); }}>
@@ -406,16 +416,16 @@ function Outline({
         })}
       </div>
 
-      <div class="outline-foot">
+      {!frozen && <div class="outline-foot">
         <button class="ghost" onClick={() => onAdd({ type: 'ad_hoc', label: 'New section' })}>
           + Section
         </button>
         <button class="ghost" onClick={() => onAdd({ type: 'mdblock', label: 'Markdown' })}>
           + Markdown
         </button>
-      </div>
+      </div>}
 
-      {absent.length > 0 && (
+      {!frozen && absent.length > 0 && (
         <div class="absent">
           <span class="mono-label">NOT IN THIS ISSUE</span>
           <div class="chips">
