@@ -135,9 +135,9 @@ function linkFor(item: Item, section: string): IssueLink | null {
   const domain = hostOf(url);
   if (!domain) return null;
   const text = item.title ?? url;
-  // Raw, as the page called itself: heading_context feeds emails.json,
-  // links.json, the site's issue-links feed and the Librarian, none of which
-  // renders Markdown. Escaping belongs to the page body (website.ts).
+  // Raw, as the page called itself: heading_context feeds links.json, the
+  // site's issue-links feed and the Librarian, none of which renders
+  // Markdown. Escaping belongs to the page body (website.ts).
   return { text, url, domain, heading_context: `[${text}](${url})`, section };
 }
 
@@ -206,15 +206,6 @@ export interface SiteInputsOptions {
   buttondownId?: string;
   absoluteUrl?: string;
   audio?: AudioFields;
-  /**
-   * The site's emails.json as it stands, parsed. The handoff merges into
-   * this — nine years of Shortcuts-era entries carry links, audio fields,
-   * original slugs, and Buttondown ids the Builder's records cannot
-   * reproduce, so the file is authoritative for every issue except the one
-   * being sent. Rebuilding it from a projection gutted it once (2026-08-30,
-   * 104k lines to 10k, reverted); this field being required is the scar.
-   */
-  currentEmails?: IssueEntry[];
 }
 
 export function issueEntry(doc: IssueDoc, opts: SiteInputsOptions = {}): IssueEntry {
@@ -407,26 +398,17 @@ export function archiveInputs(doc: IssueDoc, opts: SiteInputsOptions = {}): Repo
 }
 
 /**
- * The files the handoff commits. `emails.json` is merged: the site's current
- * entries preserved verbatim, plus this issue's own — so the index can never
- * drift from the pages beside it, and can never lose what the site knew.
+ * The files the handoff commits: the issue's page, and nothing else. The
+ * site derives its issue index from the pages' front matter at build time
+ * (weekly's apps/site/lib/issueIndex.js). It used to take an emails.json
+ * as well, the same fields a second time, which every send read, merged
+ * into and rewrote whole: 5 MB for one page, and the refusal guards a
+ * shared file needs (2026-09-29).
  *
  * There is no status.json here. The old pipeline pushed one for the site's
  * /ops/ page; both are retired — this application's dashboard is the ops
  * surface, live on the tailnet where the operator actually is.
  */
 export function siteInputs(doc: IssueDoc, opts: SiteInputsOptions = {}): RepoFile[] {
-  const entry = issueEntry(doc, opts);
-  if (!opts.currentEmails) {
-    throw new Error(
-      'siteInputs needs the site\u2019s current emails.json entries \u2014 refusing to rewrite the index from a projection',
-    );
-  }
-  const preserved = opts.currentEmails.filter((e) => e.number !== entry.number);
-  const emails = [...preserved, entry].sort((a, b) => a.number - b.number);
-
-  return [
-    { path: `apps/site/archive/${entry.number}.md`, content: archivePage(doc, opts) },
-    { path: 'apps/site/_data/emails.json', content: `${JSON.stringify(emails, null, 2)}\n` },
-  ];
+  return [{ path: `apps/site/archive/${doc.issue.number}.md`, content: archivePage(doc, opts) }];
 }

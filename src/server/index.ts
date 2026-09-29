@@ -37,7 +37,7 @@ import * as githubRepo from './integrations/github.ts';
 import * as audio from './integrations/audio.ts';
 import { audioScript } from '../shared/render/audio.ts';
 import { heldOut, outOfWindow, windowOf } from '../shared/render/plan.ts';
-import { archiveInputs, emailSubject, issueEntry, siteInputs, type IssueEntry } from './publish.ts';
+import { archiveInputs, emailSubject, issueEntry, siteInputs } from './publish.ts';
 import * as draftShare from './share.ts';
 import { verifierFor } from './verify.ts';
 import { issueTiming, type IssueTiming } from '../shared/timing.ts';
@@ -1198,7 +1198,7 @@ const routes: [RegExp, string, (ctx: Ctx, params: string[]) => Promise<unknown>]
   /** What the website handoff would change, changing nothing. */
   [/^\/api\/issues\/([^/]+)\/send\/website\/preview$/, 'GET', async (_ctx, [id]) => {
     const doc = requireIssue(id!);
-    const files = siteInputs(doc, websiteOptions(doc, await currentSiteEmails()));
+    const files = siteInputs(doc, websiteOptions(doc));
     const result = await githubRepo.diff(files, { branch: config.websiteBranch });
     return { repo: config.websiteRepo, ...result, files: files.map((f) => f.path) };
   }],
@@ -1415,50 +1415,6 @@ const routes: [RegExp, string, (ctx: Ctx, params: string[]) => Promise<unknown>]
 // ── send legs ─────────────────────────────────────────────────────────────
 
 /**
- * The site's own archive can only grow. A parsed emails.json below this floor
- * means a truncated or wrong file, and merging into one would re-lose the
- * archive the 2026-08-30 revert restored — refuse instead. The floor is the
- * last published issue, since every issue before it has an entry (numbered
- * 1 on, no gaps), and never below the 349 the pre-Builder archive holds: a
- * fixed 349 weakened by one issue every week (review 2026-09-27 §7).
- */
-const PREBUILDER_ARCHIVE_ENTRIES = 349;
-function archiveFloor(): number {
-  return Math.max(PREBUILDER_ARCHIVE_ENTRIES, store.lastPublishedNumber());
-}
-
-const SITE_EMAILS = 'apps/site/_data/emails.json';
-
-/**
- * The site's emails.json, parsed — the merge base the handoff must preserve.
- * Rebuilding the index from the Builder's own records gutted it once (104k
- * lines to 10k, commit 91688fc7, reverted): the Shortcuts-era entries carry
- * links, audio, slugs, and ids the imported records cannot reproduce. Any
- * doubt about the file refuses the send rather than rewriting blind.
- */
-function parseSiteEmails(raw: string | null): IssueEntry[] {
-  if (raw === null) {
-    throw new HttpError(502, "the site's emails.json is missing from the repo — refusing to rewrite the index blind");
-  }
-  let parsed: unknown;
-  try {
-    parsed = JSON.parse(raw);
-  } catch {
-    throw new HttpError(502, "the site's emails.json did not parse — refusing to rewrite the index blind");
-  }
-  const floor = archiveFloor();
-  if (!Array.isArray(parsed) || parsed.length < floor) {
-    throw new HttpError(502, `the site's emails.json has ${Array.isArray(parsed) ? parsed.length : 'no'} entries, below the ${floor} the archive is known to hold — refusing to merge into a truncated index`);
-  }
-  return parsed as IssueEntry[];
-}
-
-/** The site's live emails.json, for the preview. The send merges inside its commit instead. */
-async function currentSiteEmails(): Promise<IssueEntry[]> {
-  return parseSiteEmails(await githubRepo.readFile(SITE_EMAILS, { branch: config.websiteBranch }));
-}
-
-/**
  * The email's id and archive URL as the page and the archive record them:
  * from Buttondown's last good send, so a failing update does not drop them,
  * and read as the Buttondown retry reads them (`emailOf`).
@@ -1473,11 +1429,10 @@ function emailRecord(doc: IssueDoc): { buttondownId?: string; absoluteUrl?: stri
  * good send: a failed re-render must not take the episode off the page and
  * out of the feed (review 2026-09-27 §2.1).
  */
-function websiteOptions(doc: IssueDoc, currentEmails: IssueEntry[]) {
+function websiteOptions(doc: IssueDoc) {
   return {
     ...emailRecord(doc),
     audio: lastSent(doc.sends?.podcast)?.audio as never,
-    currentEmails,
   };
 }
 
@@ -1523,18 +1478,12 @@ async function sendWebsite(id: string, force = false) {
     // every new Journal photo as the original (review 2026-09-27 §2.2).
     const { mapping } = await rehostIssueImages(requireIssue(id));
     const fresh = savedFresh(id, (d) => applyRehost(d, mapping)).issue;
-    // emails.json is merged into the file as it stands when the commit is
-    // made, not as it was read before the rehost: another issue's website
-    // leg (the in-flight guard is per issue) or any other commit to the site
-    // can change it meanwhile, and a merge against an earlier read — or a
-    // ref-race retry that reused it — would put its stale copy over theirs
-    // (review 2026-09-27, appendix: Sending & verify). The page does not
-    // depend on the index.
-    const inputsWith = (emails: IssueEntry[]) => siteInputs(fresh, websiteOptions(fresh, emails));
-    const result = await githubRepo.editTree(
-      inputsWith([]).map((f) => f.path),
-      (path, current) =>
-        inputsWith(path === SITE_EMAILS ? parseSiteEmails(current) : []).find((f) => f.path === path)!.content,
+    // The commit is this issue's page alone. The site derives its index from
+    // the pages (2026-09-29), so nothing here is shared with another writer:
+    // no index to merge against what someone else committed meanwhile, and
+    // nothing a lost ref race could overwrite.
+    const result = await githubRepo.putTree(
+      siteInputs(fresh, websiteOptions(fresh)),
       `Add issue ${fresh.issue.number} from WT Builder`,
       { branch: config.websiteBranch },
     );

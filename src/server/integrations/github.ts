@@ -102,8 +102,8 @@ function targetOf(t: RepoTarget): { repo: string; branch: string } {
 
 /**
  * One file's current content on the target branch, or null when absent.
- * The website handoff reads the live emails.json through this before
- * rewriting it — the index is merged, never rebuilt from a projection.
+ * The back catalogue reads each live issue page through this before it
+ * renders the page's audio.
  */
 export async function readFile(path: string, target: RepoTarget = {}): Promise<string | null> {
   const { repo, branch } = targetOf(target);

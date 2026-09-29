@@ -258,20 +258,18 @@ finished, what is half-finished, and what has never run.
   conflict. A failed or conflicted
   item from Pinboard or Micro.blog is a `sync` unit on the checklist.
   Review 2026-09-27, §1.2.
-- **emails.json is merged, never rebuilt** (2026-08-31) — the website leg
-  reads the site's live emails.json first and preserves every entry verbatim
-  (unknown fields included), replacing only the issue being sent. It refuses
-  the send when the file is missing, unparseable, or below the entries the
-  archive is known to hold — since 2026-09-28 the last published issue's
-  number (never under 349), not a fixed 349 that weakened every week
-  (review 2026-09-27 §7). This closes the accidental-send finding: the
-  index was once rebuilt from the Builder's sparser records, gutting 104k
-  lines to 10k (commit 91688fc7, reverted). Since 2026-09-28 the merge
-  happens inside the commit (`editTree`): the file is read, checked and
-  merged as it stands at commit time, and again on a lost ref race, so
-  another issue's website send, or any other commit to the index, that
-  lands while the leg is rehosting is kept rather than overwritten by the
-  copy read before it. Review 2026-09-27, appendix (Sending & verify).
+- **The website commit is the issue page alone** (2026-09-29) — the site
+  derives its issue index from the pages' front matter at build time
+  (weekly's `apps/site/lib/issueIndex.js`), so the leg no longer sends
+  emails.json. That file carried the same fields a second time, and every
+  send read, merged into and rewrote it whole: 5 MB for one page. The
+  machinery it needed goes with it: the merge that preserved every entry
+  verbatim (2026-08-31, after the index was once rebuilt from the
+  Builder's sparser records and gutted, commit 91688fc7, reverted), the
+  refusal of a missing, unparseable or truncated file, the floor at the
+  last published issue (review 2026-09-27 §7), and the merge inside the
+  commit against a concurrent writer (appendix, Sending & verify). The page
+  commits through `putTree`, the path WT350 and WT351 went out on.
 - **Front matter quotes every string** (2026-09-28) — the site page, the
   archive text, and the audio record write each string scalar as a JSON
   string (`yamlString` in `src/server/publish.ts`), which is always valid
@@ -601,7 +599,8 @@ finished, what is half-finished, and what has never run.
 - **Buttondown: RAN FOR REAL.** Draft created (never scheduled, never sent),
   with 3 images rehosted to the CDN first. Re-sending updates the same draft.
 - **Website: previewed.** The diff against the live repo shows exactly the
-  archive page + emails.json. No commit — a real one publishes.
+  archive page + emails.json (since 2026-09-29, the page alone). No
+  commit — a real one publishes.
 - **Archive: previewed.** The diff against the corpus repository shows
   exactly the canonical trio. No commit — a real one reaches Thingy.
 

@@ -49,8 +49,8 @@ text. Spoken, a title says a tag-shaped word and a snake_case name as words
 tags and emphasis marks (`spokenTitle` in `src/shared/render/audio.ts`), and
 drops square brackets and double braces, keeping the words inside ("[demo]"
 is "demo", "{{ name }}" is "name"; Jamie, 2026-09-29). Print keeps them. The front
-matter's `heading_context` keeps the title raw: it feeds `emails.json`,
-`links.json`, the site's issue-links feed and the Librarian, none of which
+matter's `heading_context` keeps the title raw: it feeds `links.json`, the
+site's issue-links feed and the Librarian, none of which
 renders Markdown, so an escape there would print. Jamie's commentary and bodies are Markdown he
 wrote and are never escaped. "Styling the `<textarea>` element" once turned
 the rest of the issue into a text box (review 2026-09-27 §3).

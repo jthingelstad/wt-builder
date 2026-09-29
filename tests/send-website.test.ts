@@ -23,24 +23,11 @@ const committed: RepoFile[][] = [];
 
 vi.mock('../src/server/integrations/github.ts', async (importOriginal) => {
   const real = await importOriginal<typeof import('../src/server/integrations/github.ts')>();
-  // The site's emails.json as the leg reads it: the archive's 349 issues.
-  const emails = Array.from({ length: 349 }, (_, i) => ({ number: i + 1, subject: `WT${i + 1}` }));
   return {
     ...real,
-    readFile: vi.fn(async (path: string) => (path === 'apps/site/_data/emails.json' ? JSON.stringify(emails) : null)),
     putTree: vi.fn(async (files: RepoFile[]) => {
       committed.push(files);
       return { sha: 'f00d', changed: files.map((f) => f.path), unchanged: 0, committed: true };
-    }),
-    // The leg edits emails.json as it stands at commit time; here it stands
-    // as read above, and the ref update always wins.
-    editTree: vi.fn(async (paths: string[], edit: (path: string, current: string | null) => string | null) => {
-      const files = paths.map((path) => ({
-        path,
-        content: edit(path, path === 'apps/site/_data/emails.json' ? JSON.stringify(emails) : null)!,
-      }));
-      committed.push(files);
-      return { sha: 'f00d', changed: paths, unchanged: 0, committed: true };
     }),
   };
 });
@@ -106,7 +93,8 @@ describe('the first website send', () => {
     const res = await realFetch(`${base}/api/issues/wt990201/send/website?force=1`, { method: 'POST', body: '{}' });
     expect(res.status).toBe(200);
 
-    const page = committed.at(-1)!.find((f) => f.path === 'apps/site/archive/990201.md')!.content;
+    expect(committed.at(-1)!.map((f) => f.path)).toEqual(['apps/site/archive/990201.md']);
+    const page = committed.at(-1)![0]!.content;
     expect(page).toContain(CDN);
     expect(page).not.toContain(ORIGINAL);
     // The item keeps the source's own URL; the map is applied on output.

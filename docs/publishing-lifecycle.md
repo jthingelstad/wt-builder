@@ -81,14 +81,11 @@ cannot be fetched, the mp3 gets the show art, and so does the banner only if the
 issue has none yet — a failed fetch never puts show art over a real cover, and
 never leaves the page pointing at a missing one.
 
-The website commit is the issue's page plus the site's `emails.json` with this
-issue's entry merged in. The merge is made against the file as it stands when
-the commit is made — re-read and re-merged if the ref update loses a race — so a
-commit that lands on the site meanwhile (another issue's website send, or any
-other commit that touches the index) is
-kept, never overwritten by an earlier read. A missing, unparseable or truncated
-index refuses the leg; truncated means fewer entries than the last published
-issue's number (never under the pre-Builder archive's 349).
+The website commit is the issue's page alone. The site derives its issue index
+from the pages' front matter when it builds (2026-09-29); the leg once also
+merged this issue's entry into a site `emails.json`, the same fields a second
+time, and refused a missing or truncated one. Nothing in the commit is shared
+with another writer, so there is nothing to merge and no index to guard.
 
 Before it changes an existing email, the Buttondown leg asks Buttondown what the
 email is, and only a `draft` is updated. Any other status — `scheduled`,
