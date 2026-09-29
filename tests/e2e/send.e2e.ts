@@ -328,3 +328,124 @@ test('a leg out is polled less often the longer it stays out', async ({ page }) 
   expect(reads()).toBeGreaterThan(0);
   expect(reads()).toBeLessThanOrEqual(6);
 });
+
+/** The text legs have all gone once. */
+function textLegsSent(): void {
+  podcastSent();
+  store.recordSend(ISSUE, 'website', { status: 'sent', at: AT, external_id: 'f00d', url: 'https://github.com/x/y/commit/f00d' });
+  store.recordSend(ISSUE, 'buttondown', { status: 'sent', at: AT, external_id: 'em-350', edit_url: 'https://buttondown.com/emails/em-350' });
+  store.recordSend(ISSUE, 'archive', { status: 'sent', at: AT, external_id: 'abc1234', url: 'https://github.com/x/z/commit/abc1234' });
+}
+
+/** A second issue, WT349, published so it opens without a scan. Returns its removal. */
+function saveOther(): () => void {
+  const other = store.getIssue(ISSUE)!.doc;
+  other.issue = { ...other.issue, id: 'fixture-wt349', number: 349, publication_date: '2026-05-16', status: 'published' };
+  delete other.sends;
+  store.saveIssue(other);
+  return () => store.deleteIssue('fixture-wt349');
+}
+
+/** Move the way the browser's Back and Forward do. */
+async function popTo(page: Page, path: string): Promise<void> {
+  await page.evaluate((p) => {
+    history.pushState({}, '', p);
+    dispatchEvent(new PopStateEvent('popstate'));
+  }, path);
+}
+
+test('"Re-send all sent" asks first, and a no sends nothing', async ({ page }) => {
+  textLegsSent();
+  const posted = await interceptSends(page);
+  const asked: string[] = [];
+  page.on('dialog', (d) => { asked.push(d.message()); void d.dismiss(); });
+
+  await page.goto(`/${ISSUE}/send`);
+  await page.getByRole('button', { name: 'Re-send all sent' }).click();
+  await expect.poll(() => asked).toHaveLength(1);
+  expect(asked[0]).toContain('Website, Buttondown and Archive');
+  await page.waitForTimeout(300);
+  expect(posted).toEqual([]);
+});
+
+test('"← Issue" stops "Re-send all sent" after the leg that is out', async ({ page }) => {
+  textLegsSent();
+  let release!: () => void;
+  const held = new Promise<void>((r) => { release = r; });
+  const posted = await interceptSends(page, async (leg, route) => {
+    if (leg === 'website') await held;
+    await route.fulfill({ json: { issue: store.getIssue(ISSUE)!.doc, send: { status: 'sent' } } });
+  });
+  page.on('dialog', (d) => void d.accept());
+
+  await page.goto(`/${ISSUE}/send`);
+  await page.getByRole('button', { name: 'Re-send all sent' }).click();
+  await expect.poll(() => posted).toEqual(['website']);
+  await page.locator('.send-layer .header').getByRole('button', { name: 'Issue' }).click();
+  await expect(page.locator('.send-layer')).toHaveCount(0);
+  release();
+  await page.waitForTimeout(500);
+  expect(posted).toEqual(['website']);
+});
+
+test('a send that answers after the view has moved to another issue leaves that issue alone', async ({ page }) => {
+  const removeOther = saveOther();
+  try {
+    podcastSent();
+    let release!: () => void;
+    const held = new Promise<void>((r) => { release = r; });
+    await interceptSends(page, async (_leg, route) => {
+      await held;
+      await route.fulfill({ json: { issue: store.getIssue(ISSUE)!.doc, send: { status: 'sent' } } });
+    });
+    const otherReads = { n: 0 };
+    page.on('request', (r) => {
+      if (r.method() === 'GET' && new URL(r.url()).pathname === '/api/issues/fixture-wt349') otherReads.n += 1;
+    });
+
+    await page.goto(`/${ISSUE}/send`);
+    await card(page, 'Website').locator('.sc-head .btn.primary').click();
+    await popTo(page, '/fixture-wt349');
+    await expect(page.locator('.app .header .wt')).toHaveText('WT349');
+    const row = page.locator('[data-anchor="link-functions"]');
+    await row.hover();
+    await row.getByRole('button', { name: 'Inspect' }).click();
+    await expect(page.locator('aside.panel')).toBeVisible();
+    const reads = otherReads.n;
+
+    release();
+    await page.waitForTimeout(800);
+    // WT350's answer did not replace WT349, so it was not loaded again, and
+    // its editor was not torn down under the inspector.
+    expect(otherReads.n).toBe(reads);
+    await expect(page.locator('.app .header .wt')).toHaveText('WT349');
+    await expect(page.locator('aside.panel')).toBeVisible();
+  } finally {
+    await page.unrouteAll({ behavior: 'ignoreErrors' });
+    removeOther();
+  }
+});
+
+test('while the next issue loads, the one just left is not shown', async ({ page }) => {
+  const removeOther = saveOther();
+  try {
+    let release!: () => void;
+    const held = new Promise<void>((r) => { release = r; });
+    await page.route('**/api/issues/fixture-wt349', async (route) => {
+      await held;
+      await route.continue();
+    });
+
+    await open(page);
+    await expect(page.locator('.app .header .wt')).toHaveText('WT350');
+    await popTo(page, '/fixture-wt349');
+    await expect(page.locator('.app .header .wt')).toHaveCount(0);
+    await expect(page.getByText('Loading…')).toBeVisible();
+
+    release();
+    await expect(page.locator('.app .header .wt')).toHaveText('WT349');
+  } finally {
+    await page.unrouteAll({ behavior: 'ignoreErrors' });
+    removeOther();
+  }
+});
