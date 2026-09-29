@@ -281,3 +281,50 @@ test('a draft with a leg sent or out is not scanned when it opens', async ({ pag
   await page.waitForTimeout(500);
   expect(sweeps()).toBe(0);
 });
+
+/** Every read of the issue the page makes, counted from now. */
+function countReads(page: Page): () => number {
+  let reads = 0;
+  page.on('request', (r) => {
+    if (r.method() === 'GET' && new URL(r.url()).pathname === `/api/issues/${ISSUE}`) reads += 1;
+  });
+  return () => reads;
+}
+
+// The server lets a retry through once a 'sending' is ten minutes old (a
+// crash stranded it); the view disabled every button and polled for ever
+// (Batch 6 review, follow-up 1).
+test('a sending leg older than the in-flight window blocks nothing and is not polled', async ({ page }) => {
+  podcastSent();
+  store.recordSend(ISSUE, 'website', { status: 'sending', at: new Date(Date.now() - 11 * 60_000).toISOString() });
+  const posted = await interceptSends(page);
+
+  await page.goto(`/${ISSUE}/send`);
+  const site = card(page, 'Website');
+  await expect(site.locator('.sc-head .btn.primary')).toHaveText('Try again');
+  await expect(site.locator('.sc-head .btn.primary')).toBeEnabled();
+  await expect(page.getByRole('button', { name: 'Send the rest' })).toBeEnabled();
+
+  await page.waitForTimeout(500);
+  const reads = countReads(page);
+  await page.waitForTimeout(4000);
+  expect(reads()).toBe(0);
+
+  await site.locator('.sc-head .btn.primary').click();
+  await expect.poll(() => posted).toEqual(['website']);
+});
+
+test('a leg out is polled less often the longer it stays out', async ({ page }) => {
+  podcastSent();
+  await page.clock.install();
+  store.recordSend(ISSUE, 'website', { status: 'sending', at: new Date().toISOString() });
+  await interceptSends(page);
+  await page.goto(`/${ISSUE}/send`);
+  await expect(card(page, 'Website').locator('.sc-pill').first()).toHaveText('SENDING');
+
+  const reads = countReads(page);
+  // A minute: every three seconds would be twenty reads.
+  for (let s = 0; s < 60; s++) await page.clock.runFor(1000);
+  expect(reads()).toBeGreaterThan(0);
+  expect(reads()).toBeLessThanOrEqual(6);
+});

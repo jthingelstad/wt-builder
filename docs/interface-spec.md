@@ -54,8 +54,11 @@ primary: it duplicates the pill beside it and does nothing when clicked.
 
 **Sending** is what the server recorded, not what this view started: a leg sent
 from another tab, or before a reload, reads `SENDING` too. While any leg is out,
-every send button is disabled and the view re-reads the issue every few seconds
-until it lands (review 2026-09-27 §2.4).
+every send button is disabled and the view re-reads the issue until it lands —
+at three seconds, backing off to thirty (review 2026-09-27 §2.4). A `sending`
+older than the server's ten-minute in-flight window is stranded: the server lets
+a retry through, so it blocks nothing, is not polled, and its card offers
+**Try again**.
 
 **Failure** — and the state must be real rather than drawn: the card goes `DID NOT SEND` in terracotta with a
 `#faefe8` strip explaining that other destinations are unaffected, the failed step

@@ -7,6 +7,20 @@
 
 import type { SendState, SentRecord, Verification } from './types.ts';
 
+/**
+ * How long a persisted `sending` counts as a leg in flight. Older, a crash
+ * or a restart stranded it, and the server lets a retry through; the Send
+ * view stops treating it as out at the same moment.
+ */
+export const IN_FLIGHT_MS = 10 * 60_000;
+
+/** A leg the server has out now: `sending`, and younger than the in-flight window. */
+export function isOut(state: SendState | undefined, now = Date.now()): boolean {
+  if (state?.status !== 'sending') return false;
+  const age = now - Date.parse(state.at ?? '');
+  return Number.isFinite(age) && age < IN_FLIGHT_MS;
+}
+
 /** The leg's last successful send: itself when sent, else what it carried forward. */
 export function lastSent(state: SendState | undefined): SentRecord | undefined {
   if (!state) return undefined;

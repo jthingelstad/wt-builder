@@ -20,7 +20,7 @@ import { fileURLToPath } from 'node:url';
 
 import type { ArchiveReference, Channel, Destination, IssueDoc, Item, SendState, Verification } from '../shared/types.ts';
 import { render } from '../shared/render/index.ts';
-import { emailOf, lastSent, recordedAudioUrl, refusedAsSent } from '../shared/sends.ts';
+import { emailOf, isOut, lastSent, recordedAudioUrl, refusedAsSent } from '../shared/sends.ts';
 import { renderEmail } from '../shared/render/email.ts';
 import { config, describeConfig } from './config.ts';
 import * as edge from './edge.ts';
@@ -175,10 +175,8 @@ function guardInFlight(doc: IssueDoc, destination: Destination): void {
     throw new HttpError(409, `${destination} send already in flight`);
   }
   const current = doc.sends?.[destination];
-  if (current?.status !== 'sending') return;
-  const age = Date.now() - Date.parse(current.at ?? '');
-  if (Number.isFinite(age) && age < 10 * 60_000) {
-    throw new HttpError(409, `${destination} send already in flight since ${current.at}`);
+  if (isOut(current)) {
+    throw new HttpError(409, `${destination} send already in flight since ${current!.at}`);
   }
 }
 

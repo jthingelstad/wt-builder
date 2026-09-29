@@ -14,7 +14,7 @@
 import { useEffect, useRef, useState } from 'preact/hooks';
 
 import type { Destination, IssueDoc, ScriptReview, SendState, SentRecord, Verification } from '../../shared/types.ts';
-import { lastSent, recordedAudioUrl } from '../../shared/sends.ts';
+import { isOut, lastSent, recordedAudioUrl } from '../../shared/sends.ts';
 import { audioScript } from '../../shared/render/audio.ts';
 import { duration, type IssueTiming } from '../../shared/timing.ts';
 import { ApiError, api, type Readiness, type SendResult } from '../api.ts';
@@ -238,15 +238,33 @@ export function Send({ doc, readiness, error, onBack, onSent, onError }: Props) 
   // own request is: after leaving and coming back, or a reload, a sending
   // leg looked unsent and could be pressed again (review 2026-09-27 §2.4).
   // While one is out, nothing else starts, as for a leg sent from here, and
-  // the view re-reads the issue until it lands.
-  const outOnServer = CARDS.some((c) => stateOf(c.key) === 'sending');
+  // the view re-reads the issue until it lands: at three seconds, then less
+  // often the longer it stays out, to every thirty. A `sending` older than
+  // the server's in-flight window is stranded (a crash, a restart): the
+  // server lets a retry through, so it blocks nothing here and is not
+  // polled; the server's 409 stays the backstop (Batch 6 review).
+  const outOnServer = CARDS.some((c) => isOut(doc.sends?.[c.key]));
+  const stranded = (key: Destination) => stateOf(key) === 'sending' && !isOut(doc.sends?.[key]);
   const sending = Boolean(running) || outOnServer;
   useEffect(() => {
     if (!outOnServer) return;
-    const t = setInterval(() => {
-      api.getIssue(id).then((r) => onSent(r.issue)).catch(() => { /* next tick */ });
-    }, 3000);
-    return () => clearInterval(t);
+    let live = true;
+    let delay = 3000;
+    let timer: ReturnType<typeof setTimeout>;
+    const next = () => {
+      timer = setTimeout(() => {
+        api.getIssue(id)
+          .then((r) => { if (live) onSent(r.issue); })
+          .catch(() => { /* next tick */ })
+          .finally(() => {
+            if (!live) return;
+            delay = Math.min(delay * 2, 30_000);
+            next();
+          });
+      }, delay);
+    };
+    next();
+    return () => { live = false; clearTimeout(timer); };
   }, [outOnServer, id]);
 
   const verify = (key: Destination) => {
@@ -382,6 +400,7 @@ export function Send({ doc, readiness, error, onBack, onSent, onError }: Props) 
             key={card.key}
             card={card}
             state={running === card.key ? 'sending' : stateOf(card.key)}
+            stranded={running !== card.key && stranded(card.key)}
             send={doc.sends?.[card.key]}
             result={results[card.key]}
             blocker={card.blocker?.(sentMap, doc) ?? null}
@@ -451,8 +470,10 @@ function ArchivePreview({ issueId }: { issueId: string }) {
 }
 
 function SendCard({
-  card, state, send, result, blocker, gated, busy, onApprove, onRun, verification, onVerify, issueId, gate, webCopy,
+  card, state, stranded, send, result, blocker, gated, busy, onApprove, onRun, verification, onVerify, issueId, gate, webCopy,
 }: {
+  /** `sending` past the in-flight window: out no longer, and retried like a failure. */
+  stranded?: boolean;
   /** The email has gone: the action updates only its web copy. */
   webCopy?: boolean;
   gate?: { review?: ScriptReview; stale: boolean; reading: boolean; onRead: () => void; approved: boolean };
@@ -501,7 +522,7 @@ function SendCard({
         */}
         {!gated && (
           <button class="btn primary" disabled={busy} onClick={onRun}>
-            {state === 'sending' ? 'Sending…' : webCopy ? 'Update web copy…' : failed ? 'Try again' : done ? card.again : card.verb}
+            {state === 'sending' && !stranded ? 'Sending…' : webCopy ? 'Update web copy…' : failed || stranded ? 'Try again' : done ? card.again : card.verb}
           </button>
         )}
       </div>
@@ -542,7 +563,7 @@ function SendCard({
               <span class="sc-glyph">
                 {stepFailed ? <X size={13} class="failed" />
                   : stepDone ? <Check size={13} class="ok" />
-                  : state === 'sending' ? <Spinner size={13} />
+                  : state === 'sending' && !stranded ? <Spinner size={13} />
                   : <Circle size={13} class="idle" />}
               </span>
               <div class="sc-step-main">
