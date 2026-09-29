@@ -142,6 +142,15 @@ the prompt forbids inventing figures.
 Three gives real contrast where the choice is a voice; two reads as a coin flip.
 Link commentary is one sentence, where the want is a nudge rather than a menu.
 
+The link wand reads the page itself (`src/server/integrations/page.ts`),
+on the service's own network, so the read is guarded (review 2026-09-27,
+§5): redirects are followed by hand, at most five, and every hop whose host
+is or resolves to a loopback, private, link-local or CGNAT (tailnet)
+address is refused; no more than 2 MB is read; and the text goes into the
+prompt fenced between `<page>` markers as untrusted data, never
+instructions. A page that cannot be read is said to be unread, and the
+draft goes on without it.
+
 **Membership candidates are pairs** (Jamie, 2026-09-05): each carries `cta`
 (the invitation) and `thanks` (what an existing Supporting Member sees
 instead, in the email's premium branch). One pick fills both — `body` and
