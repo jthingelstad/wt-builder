@@ -47,3 +47,15 @@ describe('a failed call names what went wrong', () => {
     expect(err).toBeInstanceOf(ApiError);
   });
 });
+
+// The podcast leg answers with its audio on `send.audio`, as recorded on
+// the issue. A top-level `audio` on SendResult was never sent, and the Send
+// view read its evidence from it, so the evidence never showed (Batch 6
+// review, follow-up 3). The type no longer offers it; typecheck holds this.
+describe('SendResult carries only what the server sends', () => {
+  it('has no top-level audio', () => {
+    const r = {} as import('../src/client/api.ts').SendResult;
+    // @ts-expect-error — the audio is on the send record, not here.
+    expect(r.audio).toBeUndefined();
+  });
+});

@@ -54,19 +54,23 @@ export interface IssueResponse {
   readiness: Readiness;
 }
 
-/** What a send hands back — the evidence each step produced. */
+/** The podcast leg's audio record, as the issue keeps it on `sends.podcast.audio`. */
+export interface PodcastAudio {
+  audio_url?: string;
+  audio_duration_seconds?: number;
+  audio_byte_size?: number;
+  audio_voice?: string;
+  audio_chapters_url?: string;
+  audio_transcript_url?: string;
+}
+
+/**
+ * What a send hands back. The leg's record is `send`, the podcast's audio
+ * on it; the Send view reads its evidence from the issue (Send.tsx).
+ */
 export interface SendResult {
   issue: IssueDoc;
-  send: { status: string; url?: string; edit_url?: string; external_id?: string; error?: string };
-  /** Podcast only. */
-  audio?: {
-    audio_url?: string;
-    audio_duration_seconds?: number;
-    audio_byte_size?: number;
-    audio_voice?: string;
-    audio_chapters_url?: string;
-    audio_transcript_url?: string;
-  };
+  send: { status: string; url?: string; edit_url?: string; external_id?: string; error?: string; audio?: PodcastAudio };
   pieces?: number;
   synthesized?: number;
   cover?: string;

@@ -17,7 +17,7 @@ import type { Destination, IssueDoc, ScriptReview, SendState, SentRecord, Verifi
 import { isOut, lastSent, recordedAudioUrl } from '../../shared/sends.ts';
 import { audioScript } from '../../shared/render/audio.ts';
 import { duration, type IssueTiming } from '../../shared/timing.ts';
-import { ApiError, api, type Readiness, type SendResult } from '../api.ts';
+import { ApiError, api, type PodcastAudio, type Readiness, type SendResult } from '../api.ts';
 import {
   Archive, ArrowLeft, Check, Circle, CircleAlert, Globe, Mail, Moon, Podcast, Spinner, X,
 } from '../icons.tsx';
@@ -40,7 +40,7 @@ interface Props {
  */
 interface Evidence {
   send: SentRecord;
-  audio?: SendResult['audio'];
+  audio?: PodcastAudio;
   pieces?: number;
   synthesized?: number;
 }
@@ -498,7 +498,7 @@ function SendCard({
   const sentRecord = done ? lastSent(send) : undefined;
   const shown: Evidence | undefined = sentRecord && {
     send: sentRecord,
-    audio: sentRecord.audio as SendResult['audio'],
+    audio: sentRecord.audio as PodcastAudio | undefined,
     pieces: result?.pieces,
     synthesized: result?.synthesized,
   };
