@@ -1021,4 +1021,6 @@ Added 2026-09-28, from the review of 2026-09-27 (§1.4, §1.5):
   item it inspects, so typing never carries to the next item.
 - **A heading typed on the canvas is saved.** Ad hoc: the section label.
   Promoted: the post's title. Emptied, it goes back to the saved text; the
-  rename route refuses a blank label.
+  rename route refuses a blank label. The Inspector's Title field on a
+  promoted post goes back the same way, and the item route refuses a blank
+  title there.

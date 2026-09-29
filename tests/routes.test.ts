@@ -301,6 +301,55 @@ describe('a section is renamed over the wire', () => {
   });
 });
 
+describe('a promoted post keeps a title', () => {
+  // A Title cleared in the Inspector was saved as '' and headed the post
+  // "## " (Batch 5 review round 2, B2). A Journal post in the Journal may
+  // have no title; a promoted one is a section and needs its heading.
+  it('a blank title on a promoted post is a 400 and saves nothing; in the Journal it is saved', async () => {
+    const store = await import('../src/server/db.ts');
+    const created = await fetch(`${base}/api/issues`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ number: 990032, publication_date: '2026-09-12' }),
+    });
+    const id = (await created.json()).issue.issue.id as string;
+    const doc = store.getIssue(id)!.doc;
+    const post = (title: string) => ({
+      type: 'journal_post' as const, authorship: 'Jamie' as const, source: 'direct' as const,
+      channels: { website: true, email: true, audio: true },
+      title, body: 'A post.', published_at: '2026-09-10T14:00:00Z',
+    });
+    doc.items['post-kept'] = post('Kept');
+    doc.items['post-plain'] = post('Plain');
+    doc.nodes.find((n) => n.type === 'journal')!.items.push('post-kept', 'post-plain');
+    store.saveIssue(doc);
+    expect((await fetch(`${base}/api/issues/${id}/items/post-kept/promote`, { method: 'POST', body: '{}' })).status).toBe(200);
+
+    const patch = (itemId: string, body: unknown) => fetch(`${base}/api/issues/${id}/items/${itemId}`, {
+      method: 'PATCH',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(body),
+    });
+    const items = async () => (await (await fetch(`${base}/api/issues/${id}`)).json()).issue.items;
+
+    for (const title of ['', '   ']) {
+      const res = await patch('post-kept', { title });
+      expect(res.status).toBe(400);
+      expect((await res.json()).error).toContain('title');
+    }
+    // A refused title refuses the patch: nothing it carried is half-saved.
+    expect((await patch('post-kept', { title: '', body: 'Changed.' })).status).toBe(400);
+    expect((await items())['post-kept']).toMatchObject({ title: 'Kept', body: 'A post.' });
+
+    expect((await patch('post-kept', { title: 'Renamed' })).status).toBe(200);
+    expect((await patch('post-plain', { title: '' })).status).toBe(200);
+    const after = await items();
+    expect(after['post-kept'].title).toBe('Renamed');
+    expect(after['post-plain'].title).toBe('');
+    await fetch(`${base}/api/issues/${id}`, { method: 'DELETE' });
+  });
+});
+
 describe('the draft share routes are wired', () => {
   it('share and unshare both reach their handlers', async () => {
     // 404 means the handler ran far enough to look for the issue.

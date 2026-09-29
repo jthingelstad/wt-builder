@@ -640,6 +640,13 @@ const routes: [RegExp, string, (ctx: Ctx, params: string[]) => Promise<unknown>]
     const doc = requireIssue(id!);
     // A silent no-op reads to the client as a saved edit.
     if (!doc.items[itemId!]) throw new HttpError(404, `no item ${itemId}`);
+    // A promoted post is a section, and its title is the section's heading.
+    // A cleared Title was saved as '' and written to Micro.blog (Batch 5
+    // review round 2, B2). A post in the Journal may have no title.
+    const promoted = doc.nodes.some((n) => n.kind === 'promoted_item' && n.items.includes(itemId!));
+    if (promoted && 'title' in raw && !String(raw.title ?? '').trim()) {
+      throw new HttpError(400, 'a promoted post needs a title');
+    }
     // An edit that only removes every line break is a lossy view read back
     // as source, not an intention; it is refused here, before it can reach
     // the document or the source it mirrors, and the log says so.

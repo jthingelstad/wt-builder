@@ -6,6 +6,7 @@
  */
 import { expect, test, type Page } from '@playwright/test';
 import { addSection } from '../../src/server/issue.ts';
+import { renderWebsite } from '../../src/shared/render/website.ts';
 import { ISSUE, caretAtEnd, commit, open, reset, store } from './helpers.ts';
 
 test.beforeEach(() => reset());
@@ -71,4 +72,28 @@ test('an emptied heading goes back to its saved text and saves nothing', async (
   const doc = store.getIssue(ISSUE)!.doc;
   expect(doc.nodes.find((n) => n.id === 'reading')?.label).toBe('Section');
   expect(doc.items['journal-long']!.title).toBe('Minnesota Technology Council');
+});
+
+// The same heading, cleared from the Inspector's Title field, was saved as ''
+// and the website edition printed a bare "## " (Batch 5 review round 2, B2).
+// The field goes back to the saved title, as the canvas heading does, and
+// nothing is sent.
+test("a promoted post's Title cleared in the Inspector goes back and saves nothing", async ({ page }) => {
+  await open(page);
+  const sent: string[] = [];
+  page.on('request', (r) => { if (r.method() !== 'GET') sent.push(`${r.method()} ${r.url()}`); });
+
+  const row = page.locator('[data-anchor="journal-long"]');
+  await row.hover();
+  await row.getByRole('button', { name: 'Inspect' }).click();
+  const field = page.locator('aside.panel').getByLabel('Title');
+  await expect(field).toHaveValue('Minnesota Technology Council');
+  await field.fill('  ');
+  await field.blur();
+
+  await expect(field).toHaveValue('Minnesota Technology Council');
+  await page.waitForTimeout(500);
+  expect(sent.filter((r) => /journal-long/.test(r))).toEqual([]);
+  expect(store.getIssue(ISSUE)!.doc.items['journal-long']!.title).toBe('Minnesota Technology Council');
+  expect(renderWebsite(store.getIssue(ISSUE)!.doc)).toContain('## Minnesota Technology Council');
 });

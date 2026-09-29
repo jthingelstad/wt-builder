@@ -66,6 +66,7 @@ export function Inspector({ doc, itemId, run, onClose, onError, onBackToReview }
   const id = doc.issue.id;
   const prefix = `item-${itemId}`;
   const node = doc.nodes.find((n) => n.items.includes(itemId));
+  const promoted = node?.kind === 'promoted_item';
   const imported = item.source === 'Pinboard' || item.source === 'Micro.blog';
 
   const report = (result: Parameters<typeof writeBackMessage>[1]) => {
@@ -139,7 +140,11 @@ export function Inspector({ doc, itemId, run, onClose, onError, onBackToReview }
           <Input
             id={`${prefix}-title`}
             value={item.title ?? ''}
-            onCommit={(text) => commitField('title', text)}
+            // A promoted post's title is its section heading, and the
+            // server refuses a blank one. Cleared, the field goes back to
+            // the saved title, as the heading on the canvas does (Batch 5
+            // review round 2, B2).
+            onCommit={(text) => (promoted && !text.trim() ? undefined : commitField('title', text))}
           />
         </div>
       )}

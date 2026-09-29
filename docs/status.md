@@ -408,10 +408,17 @@ finished, what is half-finished, and what has never run.
   used. An emptied heading goes back to its saved text and sends nothing,
   and the rename route answers 400 for an empty or blank label: an empty
   heading published as `## `, and an empty promoted title left Micro.blog
-  with the old name while the post read synced (Batch 5 review, B2).
-  Review 2026-09-27, §1.5. Exercised in the browser tests
-  (tests/e2e/headings.e2e.ts) and routes.test.ts; not yet typed into
-  against a live post.
+  with the old name while the post read synced (Batch 5 review, B2). The
+  Inspector's Title field was a second way in (round 2): cleared on a
+  promoted post, it goes back to the saved title too, and
+  `PATCH /api/issues/:id/items/:itemId` answers 400 for a blank `title` on
+  an item in a promoted node, refusing the whole patch, so nothing reaches
+  the issue or Micro.blog. A post in the Journal may still have no title.
+  Underneath both, the renderers treat a blank title as a missing one and
+  head the post with its node label, so no edition prints an empty heading
+  whatever the issue holds. Review 2026-09-27, §1.5. Exercised in the
+  browser tests (tests/e2e/headings.e2e.ts), routes.test.ts and
+  render.test.ts; not yet typed into against a live post.
 
 - **The edge** (2026-09-28, review §1.6) — the service has no auth and
   trusts the tailnet, so the door itself refuses what it cannot trust.
