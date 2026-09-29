@@ -115,8 +115,11 @@ The podcast's first step is a gate: the script must be approved before the leg
 runs. The server holds it too (2026-09-28, review 2026-09-27, appendix: Audio): a podcast
 send with no approval, or with an approval of a script that has since changed
 (the hash no longer matches), is refused with a 409 before anything is
-synthesized or recorded. A podcast already sent re-synthesizes without asking
-again, as the card allows. While it waits, the card's own action button disappears so the step row
+synthesized or recorded. A podcast that has ever gone out re-synthesizes
+without asking again, as the card allows — an earlier good send (`lastSent`) is
+enough, so a failed re-send does not bring the gate back (Revisited 2026-09-29:
+until then only a latest status of `sent` was exempt; Jamie wants as few forced
+steps in their own tool as can be). While it waits, the card's own action button disappears so the step row
 owns the interaction — a button labelled with a state duplicates the pill beside
 it and does nothing when clicked.
 

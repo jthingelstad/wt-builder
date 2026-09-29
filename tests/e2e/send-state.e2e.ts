@@ -169,3 +169,28 @@ test('an email refused as sent with no check behind it is not counted as verifie
   await expect(mail.locator('.sc-verify .sc-pill')).not.toHaveText('VERIFIED');
   await expect(page.getByText(/Not verified yet: Buttondown\./)).toBeVisible();
 });
+
+// Jamie, 2026-09-29: once an mp3 has gone out, re-sending the podcast asks
+// for no second approval, even after a failed attempt.
+test('a podcast that went out once is not gated again after a failed re-send', async ({ page }) => {
+  const doc = store.getIssue(ISSUE)!.doc;
+  delete doc.script_review;
+  store.saveIssue(doc);
+  const audio = { audio_url: 'https://files.thingelstad.com/weekly-thing/audio/wt350.mp3' };
+  store.recordSend(ISSUE, 'podcast', { status: 'sent', at: '2026-09-26T13:00:00Z', url: audio.audio_url, audio });
+  store.recordSend(ISSUE, 'podcast', { status: 'failed', at: '2026-09-27T13:00:00Z', error: 'OpenAI TTS failed: 500' });
+
+  await page.goto(`/${ISSUE}/send`);
+  const podcast = card(page, 'Podcast');
+  await expect(podcast.locator('.sc-pill').first()).toHaveText('DID NOT SEND');
+  await expect(podcast.locator('.sc-head .btn.primary')).toHaveText('Try again');
+
+  // Never sent: the gate still stands.
+  reset();
+  const fresh = store.getIssue(ISSUE)!.doc;
+  delete fresh.script_review;
+  store.saveIssue(fresh);
+  store.recordSend(ISSUE, 'podcast', { status: 'failed', at: '2026-09-27T13:00:00Z', error: 'OpenAI TTS failed: 500' });
+  await page.reload();
+  await expect(podcast.locator('.sc-head .btn.primary')).toHaveCount(0);
+});

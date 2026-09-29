@@ -617,6 +617,30 @@ describe('the server holds the podcast to the script Jamie approved', () => {
     expect((await send(id, 'podcast', '', { approve: false })).status).toBe(200);
     store.deleteIssue(id);
   });
+
+  // Jamie, 2026-09-29: once an mp3 has gone out, a re-send does not ask
+  // again, even when the latest attempt failed. The gate is for the first
+  // episode; after that it is a forced step in Jamie's own tool.
+  it('a podcast whose re-send failed after a good send re-synthesizes without asking again', async () => {
+    const id = issue(990454);
+    expect((await send(id, 'podcast')).status).toBe(200);
+    store.recordSend(id, 'podcast', { status: 'failed', at: new Date().toISOString(), error: 'OpenAI TTS failed: 500' });
+    expect(legOf(id, 'podcast')!.last_sent?.status).toBe('sent');
+    const doc = store.getIssue(id)!.doc;
+    delete doc.script_review;
+    store.saveIssue(doc);
+    expect((await send(id, 'podcast', '', { approve: false })).status).toBe(200);
+    store.deleteIssue(id);
+  });
+
+  it('a podcast that has only ever failed is still held to the approval', async () => {
+    const id = issue(990455);
+    store.recordSend(id, 'podcast', { status: 'failed', at: new Date().toISOString(), error: 'OpenAI TTS failed: 500' });
+    const res = await send(id, 'podcast', '', { approve: false });
+    expect(res.status).toBe(409);
+    expect(res.body.error).toMatch(/approve/i);
+    store.deleteIssue(id);
+  });
 });
 
 describe('the website leg merges emails.json as it stands when the commit lands', () => {

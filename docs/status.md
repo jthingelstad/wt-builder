@@ -97,8 +97,11 @@ finished, what is half-finished, and what has never run.
   the gate was the client's alone, and the server synthesized whatever
   script it held. A podcast send now needs `script_review.approved_at` on
   the script as it stands (same hash); otherwise a 409, before any
-  synthesis or leg state. A podcast already sent is exempt, as on the
-  card. Review 2026-09-27, appendix (Audio).
+  synthesis or leg state. A podcast that has ever gone out is exempt, as
+  on the card: any earlier good send (`lastSent`), so a re-send after a
+  failed attempt asks for no second approval (Jamie, 2026-09-29; until
+  then only a latest status of `sent` was). Review 2026-09-27, appendix
+  (Audio).
 - **A failed leg keeps its last good send** (2026-09-28) — every leg's
   `SendState` carries `last_sent` through `sending` and `failed`
   (`recordSend`, one place for all four). The Buttondown retry, the website

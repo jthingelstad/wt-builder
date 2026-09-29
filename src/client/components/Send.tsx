@@ -204,11 +204,12 @@ export function Send({ doc, readiness, error, onBack, onSent, onError }: Props) 
 
   // The gate is persisted and tied to the script that was read: approval
   // survives a reload (it did not — WT351) and lapses if the script changes.
-  // A podcast already sent needs no gate.
+  // A podcast that has ever gone out needs no gate, even after a failed
+  // re-send: the server exempts the same (Jamie, 2026-09-29).
   const scriptHash = useScriptHash(doc);
   const review = doc.script_review;
   const reviewCurrent = Boolean(review && scriptHash && review.script_hash === scriptHash);
-  const approved = stateOf('podcast') === 'sent' || (reviewCurrent && Boolean(review?.approved_at));
+  const approved = sentMap.podcast || (reviewCurrent && Boolean(review?.approved_at));
   const [reading, setReading] = useState(false);
   const readScript = () => {
     setReading(true);

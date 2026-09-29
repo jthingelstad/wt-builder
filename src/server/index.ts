@@ -1577,11 +1577,12 @@ async function sendWebsite(id: string, force = false) {
  * approval are tied to the script's hash, and the server holds the leg to
  * them as the Send view does, so a request that skips the view cannot
  * synthesize an unread script (review 2026-09-27, appendix: Audio). A
- * podcast already sent re-synthesizes without asking again, as the view
- * allows.
+ * podcast that has ever gone out re-synthesizes without asking again, as
+ * the view allows — a failed re-send included (`lastSent`): Jamie wants as
+ * few forced steps in their own tool as can be (2026-09-29).
  */
 function guardScriptApproved(doc: IssueDoc): void {
-  if (doc.sends?.podcast?.status === 'sent') return;
+  if (lastSent(doc.sends?.podcast)) return;
   const review = doc.script_review;
   if (!review?.approved_at) throw new HttpError(409, 'the podcast script has not been approved — read it and approve it first');
   if (review.script_hash !== scriptHash(audioScript(doc))) {
