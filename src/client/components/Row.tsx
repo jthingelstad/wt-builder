@@ -431,12 +431,15 @@ export function readEditable(el: HTMLElement, multiline: boolean): string {
 }
 
 /**
- * Whether what a blur read back is the stored `source`, unedited. The
- * read-back trims and collapses whitespace, so it never equals a source with
- * a Markdown hard break ("  \n") or a trailing newline, and a click in and
- * out committed the stripped text and wrote it back to Micro.blog or
- * Pinboard. Compared against the read-back of the source instead, the way
- * the source swap leaves it in the node (review 2026-09-27, appendix).
+ * Whether what a blur read back is the stored `source`, unedited. A
+ * multiline (or rich) read-back keeps a Markdown hard break ("  \n") since Batch 5 review N3,
+ * but it still trims the ends, turns a no-break space into a space, and
+ * closes three or more newlines to a blank line, so a source with a
+ * trailing newline or a run of blank lines never equals it. A click in and
+ * out committed that normalized text and wrote it back to Micro.blog or
+ * Pinboard. Compared against the read-back of the source as well, the way
+ * the source swap leaves it in the node, a click in and out is not an edit
+ * (review 2026-09-27, appendix).
  */
 function unedited(text: string, source: string, multiline: boolean): boolean {
   if (text === source) return true;
