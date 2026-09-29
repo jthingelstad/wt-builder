@@ -7,7 +7,7 @@ import { fileURLToPath } from 'node:url';
 import type { IssueDoc } from '../src/shared/types.ts';
 import { renderAnnotated } from '../src/shared/render/annotate.ts';
 import {
-  ECHOES_MAX_ANCHORS, draft, echoGrounding, normalizeUrl,
+  ECHOES_MAX_ANCHORS, draft, echoGrounding, normalizeUrl, thingySentences, withoutThingy,
   assembleReview, campaignFacts, candidateCount, echoesAnchors, issueExcerpt,
   pickSeasonalIssue, poolEchoPassages, pruneStale,
   type AnchoredPassages, type Note, type Review,
@@ -337,6 +337,40 @@ describe('echo citation grounding', () => {
   });
 });
 
+describe('keeping Thingy\'s words out of Jamie\'s archive', () => {
+  const sentences = thingySentences([doc]);
+
+  it('collects Thingy\'s sentences from Builder issues only, normalized', () => {
+    expect(sentences).toContain("this week's return to building recalls earlier issues about owning the tools that shape your work, most directly wt349.");
+    // Jamie's words never count.
+    expect(sentences.some((s) => s.includes('the new standards'))).toBe(false);
+    const imported = structuredClone(doc);
+    imported.issue.imported = true;
+    expect(thingySentences([imported])).toEqual([]);
+  });
+
+  it('drops a passage from 350 on that carries one of them, in whatever markup the render gave it', () => {
+    const passages = [
+      { issue_number: 351, url: 'a', text: 'Thingy, the librarian. This week’s return to **building** recalls earlier issues about owning the tools that shape your work, most directly <a href="https://weekly.thingelstad.com/archive/349/">WT349</a>. And more.' },
+      { issue_number: 351, url: 'b', text: 'Jamie wrote about building his own tools this week, and why.' },
+      // Before the Builder, the words can only be Jamie's own.
+      { issue_number: 300, url: 'c', text: "This week's return to building recalls earlier issues about owning the tools that shape your work, most directly WT349." },
+      { url: 'd', text: "This week's return to building recalls earlier issues about owning the tools that shape your work, most directly WT349." },
+    ];
+    expect(withoutThingy(passages, sentences).map((p) => p.url)).toEqual(['b', 'c', 'd']);
+  });
+
+  it('keeps short sentences out of the match: a phrase is not a quotation', () => {
+    const short = structuredClone(doc);
+    short.items['echo-building']!.body = 'Owning your tools.';
+    short.items['membership-1']!.body = '';
+    short.items['echo-shortcuts']!.body = '';
+    short.items['echo-building']!.ask = '';
+    short.items['echo-shortcuts']!.ask = '';
+    expect(thingySentences([short])).toEqual([]);
+  });
+});
+
 describe('the seasonal lens', () => {
   const rows = [
     { number: 350, publication_date: '2026-05-23', status: 'draft' },
@@ -352,6 +386,13 @@ describe('the seasonal lens', () => {
   it('returns null when nothing lands within the tolerance', () => {
     expect(pickSeasonalIssue(rows.slice(0, 1), '2026-05-23', 350)).toBeNull();
     expect(pickSeasonalIssue([], '2026-05-23', 350)).toBeNull();
+  });
+
+  it('leaves Thingy\'s own items out of the excerpt', () => {
+    const excerpt = issueExcerpt(doc, 100_000);
+    expect(excerpt).not.toContain('Supporting Members make the Weekly Thing possible');
+    expect(excerpt).not.toContain('recalls earlier issues about owning the tools');
+    expect(excerpt).toContain('The New Standards');
   });
 
   it('excerpts an issue as words, not markup', () => {

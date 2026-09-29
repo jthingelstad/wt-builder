@@ -214,6 +214,18 @@ a silently degraded guess.
   records — the pre-Builder import means all of them) rides along as a
   cited, dated excerpt. Rituals rhyme annually; semantic retrieval has no
   calendar.
+- **Thingy's words are not Jamie's archive** (review 2026-09-27, §5). From
+  WT350 on, the archive leg commits the website render with Thingy's frames
+  inside, and a `/retrieve` passage carries no author. So before pooling,
+  and before the link wand's "what Jamie has written before", a passage
+  from issue 350 on is dropped when it contains one of Thingy's sentences
+  (normalized, at least 40 characters) from a Builder issue's Thingy items
+  (`withoutThingy`, `thingySentences`). The seasonal excerpt leaves Thingy's
+  items out. Dropping is right here: these passages are the model's input,
+  not an offer to Jamie.
+  **Later, in librarian-thing:** an `author` field on each passage
+  (`jamie` / `thingy`), set at ingest from the render's `.from-thingy`
+  frame, would replace the text match (feature #9). Not built.
 - **Shape varies by issue** (settled with Jamie 2026-09-03): one echo traced
   well, or two-to-three short callbacks when the resonance genuinely
   spreads. 1–4 citations, never padded toward a count. Whole archive

@@ -28,7 +28,7 @@ vi.mock('../src/server/integrations/pinboard.ts', () => ({
   recentCommentary: vi.fn(async () => []),
 }));
 
-const { draft } = await import('../src/server/editorial.ts');
+const { draft, thingySentences } = await import('../src/server/editorial.ts');
 
 const fixture = () =>
   JSON.parse(
@@ -96,5 +96,33 @@ describe('Echoes drafts carry their grounding', () => {
       seasonal: { number: 199, title: 'WT199', publication_date: '2025-05-24', excerpt: 'A year ago.' },
     });
     expect(out.echoes![1]!.grounding).toEqual({ flags: [] });
+  });
+});
+
+describe('Thingy\'s words never come back as Jamie\'s archive', () => {
+  const thingyEcho = "This week's return to building recalls earlier issues about owning the tools that shape your work, most directly WT349.";
+  const passages = [
+    { issue_number: 351, publish_date: '2026-09-26', url: 'https://weekly.thingelstad.com/archive/351/', text: `Echoes. ${thingyEcho}` },
+    { issue_number: 221, publish_date: '2023-05-20', url: 'https://weekly.thingelstad.com/archive/221/', text: 'The boat went in on a grey morning.' },
+  ];
+  const prompt = () => String(create.mock.calls[0]![0].messages[0].content);
+
+  it('Echoes drafts from the passages minus Thingy\'s', async () => {
+    retrieve.mockResolvedValue(passages);
+    create.mockResolvedValue(reply({ echoes: [] }));
+    const doc = fixture();
+    doc.issue.number = 360;
+    doc.issue.publication_date = '2026-11-28';
+    await draft({ doc, nodeId: 'echoes', thingy: thingySentences([fixture()]) });
+    expect(prompt()).toContain('The boat went in on a grey morning.');
+    expect(prompt()).not.toContain('owning the tools that shape your work, most directly WT349');
+  });
+
+  it('the link wand does not call Thingy\'s words what Jamie has written before', async () => {
+    retrieve.mockResolvedValue(passages);
+    create.mockResolvedValue(reply({ candidates: ['one', 'two'] }));
+    await draft({ doc: fixture(), itemId: 'link-flipcash', thingy: thingySentences([fixture()]) });
+    expect(prompt()).toContain('WT221: The boat went in');
+    expect(prompt()).not.toContain('owning the tools that shape your work, most directly WT349');
   });
 });

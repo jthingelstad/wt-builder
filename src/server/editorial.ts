@@ -543,6 +543,12 @@ export interface DraftRequest {
   context?: string;
   /** Echoes only: the issue from about a year ago this week, if one exists. */
   seasonal?: SeasonalIssue;
+  /**
+   * Echoes and links: Thingy's sentences from Builder issues
+   * (thingySentences), so retrieval never hands Thingy's words back as
+   * Jamie's archive.
+   */
+  thingy?: string[];
 }
 
 export interface SeasonalIssue {
@@ -1082,6 +1088,10 @@ export function issueExcerpt(doc: IssueDoc, max = 2800): string {
     for (const id of node.items) {
       const item = doc.items[id];
       if (!item || outOfWindow(item, w)) continue;
+      // Thingy's own words are not the archive's: an echo drafted from last
+      // year's echo would be Thingy quoting itself as Jamie (review
+      // 2026-09-27, §5).
+      if (item.authorship === 'Thingy') continue;
       const flat = [item.title, item.body, item.commentary]
         .map((f) => bodyLines(f).join(' ').trim())
         .filter(Boolean)
@@ -1094,6 +1104,80 @@ export function issueExcerpt(doc: IssueDoc, max = 2800): string {
     .replace(/<img[^>]*>/g, '')
     .replace(/!\[[^\]]*\]\([^)]*\)/g, '')
     .slice(0, max);
+}
+
+// ── Thingy's words, kept out of "Jamie's archive" ─────────────────────────
+
+/**
+ * The first issue built here. From it on, the archive leg commits the
+ * website render with Thingy's frames inside (Echoes, Membership), and the
+ * Librarian indexes that render with no author on the passage — so a
+ * retrieved passage from 350 on can be Thingy's words, served back as
+ * Jamie's. Earlier issues were written before Thingy had a byline.
+ */
+export const FIRST_BUILDER_ISSUE = 350;
+
+/** A sentence counts as Thingy's only when it is this long, normalized. */
+export const THINGY_SENTENCE_MIN = 40;
+
+/**
+ * Text reduced to what survives any render: link labels without their
+ * URLs, no emphasis or HTML, straight quotes, one space, lowercase.
+ */
+export function normalizeProse(text: string): string {
+  return String(text ?? '')
+    .replace(/!\[[^\]]*\]\([^)]*\)/g, ' ')
+    .replace(/\[([^\]]*)\]\([^)]*\)/g, '$1')
+    .replace(/<[^>]+>/g, ' ')
+    .replace(/https?:\/\/\S+/g, ' ')
+    .replace(/&nbsp;/g, ' ').replace(/&amp;/g, '&').replace(/&mdash;/g, '—')
+    .replace(/[‘’]/g, "'").replace(/[“”]/g, '"')
+    .replace(/[*_`#>~]/g, '')
+    .replace(/\s+/g, ' ')
+    .replace(/ ([.,;:!?])/g, '$1')
+    .trim()
+    .toLowerCase();
+}
+
+/**
+ * Every sentence Thingy has written in a Builder issue, normalized, at
+ * least THINGY_SENTENCE_MIN long. Pure; the route supplies the documents.
+ * Imported pre-Builder records are skipped: their one body is Jamie's
+ * published issue, whatever its authorship field says.
+ */
+export function thingySentences(docs: IssueDoc[]): string[] {
+  const out = new Set<string>();
+  for (const doc of docs) {
+    if (doc.issue.imported) continue;
+    for (const item of Object.values(doc.items)) {
+      if (item.authorship !== 'Thingy') continue;
+      for (const field of [item.body, item.member_thanks, item.ask]) {
+        for (const sentence of normalizeProse(field ?? '').split(/(?<=[.!?])\s+/)) {
+          const s = sentence.trim();
+          if (s.length >= THINGY_SENTENCE_MIN) out.add(s);
+        }
+      }
+    }
+  }
+  return [...out];
+}
+
+/**
+ * Retrieved passages minus the ones that are Thingy's: a passage from
+ * issue FIRST_BUILDER_ISSUE on that contains one of Thingy's sentences is
+ * dropped before anything is drafted from it. This filters the model's
+ * input, not an offer to Jamie, so dropping is right here. Pure.
+ *
+ * A text match is the stopgap; the Librarian carrying an `author` on each
+ * passage is the fix (docs/service-contracts.md, feature #9).
+ */
+export function withoutThingy<P extends librarian.Passage>(passages: P[], sentences: string[]): P[] {
+  if (!sentences.length) return passages;
+  return passages.filter((p) => {
+    if (!p.issue_number || p.issue_number < FIRST_BUILDER_ISSUE) return true;
+    const text = normalizeProse(p.text ?? '');
+    return !sentences.some((s) => text.includes(s));
+  });
 }
 
 // ── ordering ──────────────────────────────────────────────────────────────
@@ -1255,7 +1339,7 @@ export async function draft(req: DraftRequest): Promise<DraftResult> {
     const results = await Promise.all(
       echoesAnchors(req.doc).map(async (a) => ({
         label: a.label,
-        passages: await librarian.retrieve(a.query),
+        passages: withoutThingy(await librarian.retrieve(a.query), req.thingy ?? []),
       })),
     );
     anchored = poolEchoPassages(results, req.doc.issue.number, req.doc.issue.publication_date);
@@ -1268,7 +1352,7 @@ export async function draft(req: DraftRequest): Promise<DraftResult> {
   // itself, his own recent commentary as examples, and what the archive
   // shows he has said about the subject before. With only a title and a URL
   // the wand wrote generic commentary (Jamie, WT351).
-  const grounding = item?.type === 'pinboard_link' ? await linkGrounding(req.doc, item) : '';
+  const grounding = item?.type === 'pinboard_link' ? await linkGrounding(req.doc, item, req.thingy ?? []) : '';
 
   // The link's own section decides commentary length (Briefly vs Notable).
   const linkSection = item?.type === 'pinboard_link'
@@ -1451,7 +1535,7 @@ async function pageText(url: string): Promise<string> {
  * best-effort — the draft proceeds without any one of them, and says nothing
  * made up to fill the gap.
  */
-async function linkGrounding(doc: IssueDoc, item: Item): Promise<string> {
+async function linkGrounding(doc: IssueDoc, item: Item, thingy: string[]): Promise<string> {
   const url = item.source_url ?? '';
   const brief = doc.nodes.find((n) => n.items.some((id) => doc.items[id] === item))?.type === 'briefly';
   const [page, mine, past] = await Promise.all([
@@ -1465,7 +1549,7 @@ async function linkGrounding(doc: IssueDoc, item: Item): Promise<string> {
     .slice(0, 14)
     .map((p) => `- ${p.description}\n  ${p.extended.replace(/\s*\n+\s*/g, ' ').slice(0, 700)}`);
   const ownIssue = doc.issue.number;
-  const earlier = past
+  const earlier = withoutThingy(past, thingy)
     .filter((p) => p.issue_number && p.issue_number !== ownIssue && p.text)
     .slice(0, 5)
     .map((p) => `- WT${p.issue_number}: ${String(p.text).replace(/\s+/g, ' ').slice(0, 400)}`);
