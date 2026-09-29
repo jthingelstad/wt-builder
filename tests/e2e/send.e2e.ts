@@ -202,3 +202,24 @@ test('a trip to Send and back keeps the editor as it was, and does not scan agai
   await page.waitForTimeout(500);
   expect(sweeps).toBe(1);
 });
+
+test('what each sent leg produced is shown from the issue, so it survives a reload', async ({ page }) => {
+  store.recordSend(ISSUE, 'podcast', {
+    status: 'sent', at: AT, url: AUDIO.audio_url, external_id: AUDIO.audio_url,
+    audio: { ...AUDIO, audio_voice: 'jamie-v3', audio_duration_seconds: 1458, audio_byte_size: 23_068_672 },
+  });
+  store.recordSend(ISSUE, 'website', { status: 'sent', at: AT, external_id: 'f00dcafe1234', url: 'https://github.com/x/y/commit/f00dcafe1234' });
+  store.recordSend(ISSUE, 'buttondown', {
+    status: 'sent', at: AT, external_id: 'em-350',
+    url: 'https://buttondown.com/weekly-thing/archive/350/', edit_url: 'https://buttondown.com/emails/em-350',
+  });
+  await interceptSends(page);
+
+  await page.goto(`/${ISSUE}/send`);
+  await expect(card(page, 'Podcast').getByRole('link', { name: 'File ↗' })).toHaveAttribute('href', AUDIO.audio_url);
+  await expect(card(page, 'Podcast').getByText('jamie-v3')).toBeVisible();
+  await expect(card(page, 'Podcast').getByText('24:18 · 22.0 MB')).toBeVisible();
+  await expect(card(page, 'Website').getByText('f00dcaf', { exact: true })).toBeVisible();
+  await expect(card(page, 'Website').getByRole('link', { name: 'Commit ↗' })).toHaveAttribute('href', 'https://github.com/x/y/commit/f00dcafe1234');
+  await expect(card(page, 'Buttondown').getByRole('link', { name: 'Draft ↗' })).toHaveAttribute('href', 'https://buttondown.com/emails/em-350');
+});

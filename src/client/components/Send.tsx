@@ -32,10 +32,23 @@ interface Props {
   onError: (m: string | null) => void;
 }
 
+/**
+ * What a sent leg has to show: its record as the issue keeps it, so the
+ * evidence survives a reload and a trip away (it was read off the send's
+ * answer only, and vanished — review 2026-09-27 §2.4), plus the counts
+ * only this session's answer carried.
+ */
+interface Evidence {
+  send: SentRecord;
+  audio?: SendResult['audio'];
+  pieces?: number;
+  synthesized?: number;
+}
+
 interface Step {
   label: string;
-  /** The evidence this step produced, read off the send result. */
-  evidence?: (r: SendResult) => { text?: string; href?: string; label?: string } | undefined;
+  /** The evidence this step produced. */
+  evidence?: (r: Evidence) => { text?: string; href?: string; label?: string } | undefined;
 }
 
 interface Card {
@@ -460,6 +473,13 @@ function SendCard({
   const failed = state === 'failed';
   const last = failed ? lastSent(send) : undefined;
   const lastLink = last && lastGoodLink(card.key, last);
+  const sentRecord = done ? lastSent(send) : undefined;
+  const shown: Evidence | undefined = sentRecord && {
+    send: sentRecord,
+    audio: sentRecord.audio as SendResult['audio'],
+    pieces: result?.pieces,
+    synthesized: result?.synthesized,
+  };
 
   return (
     <section class={`send-card ${state}${failed ? ' failed' : ''}`}>
@@ -514,7 +534,7 @@ function SendCard({
           const isGate = card.key === 'podcast' && i === 0;
           const stepDone = isGate ? !gated : done;
           const stepFailed = failed && i === card.steps.length - 1;
-          const evidence = result && done ? step.evidence?.(result) : undefined;
+          const evidence = shown ? step.evidence?.(shown) : undefined;
 
           return (
             <div class="sc-step" key={step.label}>
