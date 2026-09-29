@@ -1339,6 +1339,13 @@ describe('write-backs to one item run one at a time, and the newest words are wh
     // the base now. The second, whose turn came after bed, wrote nothing.
     expect(one.status).toBe(200);
     expect(two.status).toBe(423);
+    // The edit was saved before its write's turn came; the refusal says so,
+    // and does not claim nothing changed.
+    const refusal = (await two.json()).error as string;
+    expect(refusal).toContain('saved here');
+    expect(refusal).toContain('not written to Pinboard');
+    expect(refusal).not.toContain('nothing changed');
+    expect(refusal).not.toContain('wake it to change anything');
     expect(adds.map((a) => a.extended)).toEqual(['v1']);
     const item = store.getIssue(id)!.doc.items['link-overlap']!;
     expect(item.commentary).toBe('v2');

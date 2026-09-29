@@ -239,7 +239,8 @@ finished, what is half-finished, and what has never run.
   change nothing when the item was edited, or left `conflict`, while the
   source was being read, and 423 when the issue was put to bed meanwhile
   (2026-09-28). A write-back whose turn comes after the issue is put to
-  bed writes nothing (423). One put to bed while it is being written has
+  bed writes nothing (423, saying the edit is saved here but not written
+  to the source; once the issue is woken, a restart writes it). One put to bed while it is being written has
   reached the source, so its outcome is still recorded — the sync state
   and the snapshot of what the source now holds — and no word changes:
   bed freezes the words, not the record of the source. It is not written
