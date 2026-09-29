@@ -56,6 +56,15 @@ describe('WT_BUILDER_DIST is the static root', () => {
     const res = await fetch(`${base}/wt999`);
     expect(await res.text()).toContain('<title>e2e build</title>');
   });
+
+  // After a deploy, an open tab asks for the chunks of the build it was
+  // loaded from. Answered with index.html, a lazy import parsed HTML as
+  // JavaScript; a 404 fails it plainly (review 2026-09-27 §2.4).
+  it('a missing asset is a 404, not the shell', async () => {
+    const res = await fetch(`${base}/assets/gone-0a1b2c3d.js`);
+    expect(res.status).toBe(404);
+    expect(await res.text()).not.toContain('<title>e2e build</title>');
+  });
 });
 
 describe('npm run test:e2e serves the client it built', () => {

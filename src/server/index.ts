@@ -1601,6 +1601,14 @@ async function serveStatic(url: URL, res: ServerResponse): Promise<boolean> {
   const rel = normalize(decodeURIComponent(url.pathname)).replace(/^(\.\.[/\\])+/, '');
   let file = join(DIST, rel);
   if (!file.startsWith(DIST)) return false;
+  // A built asset that is not here is from another build: an open tab after
+  // a deploy asks for its old chunks. It is a 404, not the shell, which a
+  // lazy import used to parse as JavaScript (review 2026-09-27 §2.4).
+  if (rel.startsWith('/assets/') && !existsSync(file)) {
+    res.writeHead(404, { 'Content-Type': 'text/plain; charset=utf-8', 'Cache-Control': 'no-store' });
+    res.end('Not found: this asset belongs to another build of WT Builder. Reload the page.');
+    return true;
+  }
   if (!existsSync(file) || rel === '/' || rel === '\\') file = join(DIST, 'index.html');
   if (!existsSync(file)) return false;
   const data = await readFile(file);
