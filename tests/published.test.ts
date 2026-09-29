@@ -61,6 +61,17 @@ describe('published derives from the sends', () => {
     expect(row!.status).toBe('published');
   });
 
+  // The other side of the same rule: a leg that has only ever failed has
+  // never gone out, whatever else has.
+  it('website sent and Buttondown only ever failed is still a draft', () => {
+    store.saveIssue(createIssue({ number: 990013, publication_date: '2026-09-26' }));
+    store.recordSend('wt990013', 'buttondown', failed());
+    store.recordSend('wt990013', 'buttondown', failed());
+    const row = store.recordSend('wt990013', 'website', sent());
+    expect(row!.doc.issue.status).toBe('draft');
+    expect(row!.status).toBe('draft');
+  });
+
   it('publishing never runs backwards', () => {
     // A later failed re-send does not un-publish; the archive owns the truth.
     const row = store.recordSend('wt990010', 'website', failed());
