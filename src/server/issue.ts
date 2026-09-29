@@ -761,7 +761,8 @@ export function promote(doc: IssueDoc, itemId: string): IssueDoc {
     id: `promoted-${itemId}`,
     kind: 'promoted_item',
     type: 'journal_post',
-    label: item.title ?? 'Promoted post',
+    // A blank title is no label: '' printed a bare "## " (Batch 5 review round 2).
+    label: item.title?.trim() || 'Promoted post',
     movable: true,
     publishes_heading: true,
     items: [itemId],

@@ -158,6 +158,19 @@ describe('promotion', () => {
     const website = planEdition(twice, 'website');
     expect(website.some((p) => p.items.some((i) => i.id === 'journal-concert'))).toBe(true);
   });
+
+  // A Journal post with a blank title promoted to a node labelled '' (the
+  // label took the title with ??), and its heading printed "## " (Batch 5
+  // review round 2, B2).
+  it('a post promoted with a blank title is labelled, and headed, "Promoted post"', () => {
+    for (const title of ['', '  ', undefined]) {
+      const doc = fixture();
+      doc.items['journal-concert']!.title = title;
+      const promoted = promote(doc, 'journal-concert');
+      expect(promoted.nodes.find((n) => n.id === 'promoted-journal-concert')!.label).toBe('Promoted post');
+      expect(renderWebsite(promoted)).not.toMatch(/^##\s*$/m);
+    }
+  });
 });
 
 describe('moving a link between Notable and Briefly', () => {
