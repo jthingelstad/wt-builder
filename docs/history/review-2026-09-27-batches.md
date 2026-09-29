@@ -332,7 +332,9 @@ Batch 6: start by writing tests/e2e/send.e2e.ts, which does not exist. Intercept
    - Show a "WT Builder was updated — reload" bar when the server's build id differs from the client's.
 ```
 
-## Batch 7 — Rules for a published issue (§2.5, §3 new-issue date)
+## ~~Batch 7 — Rules for a published issue (§2.5, §3 new-issue date)~~
+
+Landed 2026-09-28 on review-fixes: cfa52f9..30c714c. Skipped: none. Needs Jamie: should POST /settings also refuse a date another issue holds when a draft is re-dated? Should number, date, window and Re-scan lock once any leg is sent, rather than only at published? Note: the email subject comes from the title; the dek is the page description.
 
 ```text
 Read docs/history/review-2026-09-27.md §2.5 and the new-issue date item in §3 first. It is a verified review taken at 06b237f. Line numbers have drifted, so find code by symbol. Before fixing anything, confirm the finding still holds.
