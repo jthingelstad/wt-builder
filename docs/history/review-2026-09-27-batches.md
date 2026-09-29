@@ -301,7 +301,9 @@ Batch 5: every fix here is proven in WebKit first, because Jamie edits in Safari
    - Update docs/status.md: the rename route comes into use.
 ```
 
-## Batch 6 — The Send view cannot surprise (§2.4)
+## ~~Batch 6 — The Send view cannot surprise (§2.4)~~
+
+Landed 2026-09-28 on review-fixes: 63c0d51..8f7c0d1. Skipped: none. Needs Jamie: is the reload bar's wording and placement right? Should "Send all four" say why it is disabled when the script is unapproved? Should the button read "Publish" or "Send"? Should a stranded send's card keep its SENDING pill beside "Try again"?
 
 ```text
 Read docs/history/review-2026-09-27.md §2.4 first. It is a verified review taken at 06b237f. Line numbers have drifted, so find code by symbol. Before fixing anything, confirm the finding still holds.
