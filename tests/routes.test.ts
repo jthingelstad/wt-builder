@@ -1331,12 +1331,14 @@ describe('one issue per Saturday, and a new one starts after the latest', () => 
 
   it('with no date given, the issue is dated the Saturday after the latest one', async () => {
     const store = await import('../src/server/db.ts');
-    // Later than anything else in this database, and than today.
-    expect((await create({ number: 990046, publication_date: '2027-08-07' })).status).toBe(200);
+    // Later than anything else in this database, and than any day this
+    // test will run: the default never picks a Saturday already past, so a
+    // near date made this test expire (Batch 7 review, F1).
+    expect((await create({ number: 990046, publication_date: '2099-08-01' })).status).toBe(200);
     const res = await create({ number: 990045 });
     expect(res.status).toBe(200);
     const { issue } = await res.json();
-    expect(issue.issue.publication_date).toBe('2027-08-14');
+    expect(issue.issue.publication_date).toBe('2099-08-08');
     store.deleteIssue(issue.issue.id);
     store.deleteIssue('wt990046');
   });
