@@ -163,8 +163,11 @@ export function spokenTitle(title: string | undefined): string {
   // A title is the source's words, and the spoken pass (speakable) treats
   // text as Markdown and HTML: say a tag-shaped word ("<textarea>",
   // "Array<T>") and a snake_case name as words before it can strip them
-  // (review 2026-09-27 §3).
+  // (review 2026-09-27 §3). Square brackets and double braces are dropped
+  // and the words inside kept: "[demo]" is "demo", "{{ name }}" is "name"
+  // (Jamie, 2026-09-29). Print keeps them.
   const words = String(title ?? '')
+    .replace(/\{\{|\}\}|[[\]]/g, '')
     .replace(/<\/?([A-Za-z][\w-]*)[^<>]*>/g, ' $1 ')
     .replace(/(?<=[A-Za-z0-9])_+(?=[A-Za-z0-9])/g, ' ')
     .replace(/\s{2,}/g, ' ')

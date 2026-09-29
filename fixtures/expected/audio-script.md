@@ -61,7 +61,7 @@ Now, the Briefly section. Three links this week.
 Link 1 of 3. forge: A framework for self-hosted LLM workflows. Interesting
 project if you want to try running your own models.
 
-Link 2 of 3. tokenspeed [demo]: watch {{ tokens per second }} fill a textarea. A
+Link 2 of 3. tokenspeed demo: watch tokens per second fill a textarea. A
 good demonstration of what token speed feels like.
 
 Link 3 of 3. Introducing Shortcuts Playground. This should be a built-in feature
@@ -124,7 +124,8 @@ groups speak the weekday alone, matching print. Issue numbers are spoken as
 the issue's name ("Weekly Thing 349") where print labels them WT349.
 
 A title that looks like markup is said as words: "<textarea>" is "textarea",
-"tokens_per_second" is "tokens per second". journal-list's bullets speak
+"tokens_per_second" is "tokens per second", and "[demo]" and
+"{{ tokens_per_second }}" lose their brackets and braces (2026-09-29). journal-list's bullets speak
 ordinals. quote-kay is framed "Quote. … End quote." and says no name, though the
 fixture carries one (2026-09-29).
 -->
