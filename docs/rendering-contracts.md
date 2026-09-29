@@ -258,19 +258,25 @@ text as in voice) sit beside it on the CDN, and the issue record carries their
 URLs and the chapter list. This is how the podcast hands a listener the links.
 
 The transcript's cue text is WebVTT, where `<` always opens a tag (a
-voice, a class, a timestamp) and `&` starts a character reference. So a
-`<` in spoken text is written as `‹` (U+2039): "3 < 4" is "3 ‹ 4" in the
-`.vtt`, and the site's transcript panel and podcast apps show `‹`. A bare
-`&` stays as it is ("Procter & Gamble", "AT&T"); an `&` becomes `&amp;` only
-where it would read as a reference (`&` then a name or `#`, then `;`), and
-`-->` becomes `→`. The site's panel (weekly.thingelstad.com
-`apps/site/_includes/layouts/issue.njk`, the cue loop at :252-279) sets each
-cue as `textContent` and does not decode entities, which is why `&` is left
-bare wherever it can be. The price is the reference-shaped case: "&copy;" in
-spoken text is written `&amp;copy;`, which a WebVTT reader decodes back to
-"&copy;" but the site's panel shows literally, `&amp;` and all. `transcriptVtt` in `src/server/integrations/audio.ts`;
-`backfill/assess.py` reads `‹` back as `<` when it compares a transcript to
+voice, a class, a timestamp) and `&` starts a character reference. So cue
+text carries the standard escapes: `&` is `&amp;`, `<` is `&lt;`, `>` is
+`&gt;` ("3 < 4" is "3 &lt; 4" in the `.vtt`), which also keeps a spoken
+`-->` from reading as a timing line. A WebVTT player decodes them, and so
+does the site's panel (weekly.thingelstad.com
+`apps/site/_includes/layouts/issue.njk`, the cue loop at :252-279), which
+decodes each cue's entities and then sets it as `textContent`, never as
+HTML. `transcriptVtt` in `src/server/integrations/audio.ts`;
+`backfill/assess.py` decodes the entities when it compares a transcript to
 what whisper heard (review 2026-09-27 §3).
+
+*Revisited 2026-09-29:* from 2026-09-28 a `<` was written as the lookalike
+`‹` (U+2039), a bare `&` stayed bare, and `-->` became `→`, because the
+site's panel printed cue text without decoding entities and would have
+shown `&lt;` literally. Jamie decided the panel decodes entities and the
+`.vtt` goes back to the standard escapes. The site change must be deployed
+before WT Builder sends a `.vtt` carrying `&lt;` or `&amp;`, or the panel
+shows the escapes. `assess.py` still reads a `‹` from a 2026-09-28 file
+back as `<`.
 
 The audio artifact is synthesized with OpenAI TTS (`tts-1-hd`, echo for Jamie,
 nova for Thingy, the two gain-matched before mastering), mastered with a

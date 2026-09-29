@@ -435,22 +435,21 @@ export interface PlacedBlock {
 /**
  * The transcript, as WebVTT: one cue per block, the speaker named, so
  * Thingy's words are attributed in the transcript as they are in the voice.
- * Cue text is markup to a player, and the site's transcript panel prints it
- * without decoding entities (weekly.thingelstad.com issue.njk). So only what
- * would be read as markup changes: a `<` always opens a tag and becomes `‹`,
- * which the panel shows as near the same glyph; an `&` that would read as a
- * character reference ("&amp;") is escaped, and a bare one ("Procter &
- * Gamble") is a literal and stays (review 2026-09-27 §3). `-->`, which would
- * end the timing line, becomes an arrow.
+ * Cue text is markup to a player: a `<` always opens a tag and an `&` starts
+ * a character reference. So cue text carries the standard escapes, `&amp;`,
+ * `&lt;` and `&gt;`, which also keeps `-->` off the timing line (review
+ * 2026-09-27 §3). The site's transcript panel decodes them before it sets
+ * each cue as text (weekly.thingelstad.com issue.njk; Jamie, 2026-09-29 —
+ * until then `<` was written as a lookalike `‹` because the panel did not).
  */
 export function transcriptVtt(placed: PlacedBlock[]): string {
   const cues = placed.map(({ block, start, end }) => {
     const who = block.speaker === 'thingy' ? 'Thingy' : 'Jamie';
     const text = block.text
-      .replace(/-->/g, '→')
       .replace(/\s*\n\s*/g, ' ')
-      .replace(/&(?=#?[A-Za-z0-9]+;)/g, '&amp;')
-      .replace(/</g, '\u2039');
+      .replace(/&/g, '&amp;')
+      .replace(/</g, '&lt;')
+      .replace(/>/g, '&gt;');
     return `${vttClock(start)} --> ${vttClock(end)}\n<v ${who}>${text}`;
   });
   return `WEBVTT\n\n${cues.join('\n\n')}\n`;

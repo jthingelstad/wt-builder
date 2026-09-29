@@ -437,23 +437,26 @@ describe('audio assembly', () => {
     expect(vttClock(3725.5)).toBe('01:02:05.500');
   });
 
-  it('keeps a bare & as written and never opens a tag, so a player and the site panel both show the words', () => {
-    // A < in cue text always opens a WebVTT tag (review 2026-09-27 §3). A
-    // bare & is a literal under WebVTT, and the site's transcript panel
-    // (weekly.thingelstad.com issue.njk) prints cue text without decoding
-    // entities, so "Procter & Gamble" must stay as written.
+  it('escapes cue text the standard WebVTT way, so it never opens a tag', () => {
+    // A < in cue text always opens a WebVTT tag and an & starts a reference
+    // (review 2026-09-27 §3). Jamie decided 2026-09-29 to write the standard
+    // escapes rather than a lookalike ‹: the site's transcript panel
+    // (weekly.thingelstad.com issue.njk) now decodes entities before it
+    // sets each cue as text.
     const vtt = transcriptVtt([
       { block: { kind: 'cue', text: 'Procter & Gamble and AT&T say 3 < 4, and <b> is not bold --> ever.', pauseBefore: 'none' }, start: 0, end: 3 },
       { block: { kind: 'cue', text: 'Written as &amp; or &#38; it is still an ampersand.', pauseBefore: 'none' }, start: 3, end: 5 },
     ]);
-    expect(vtt).toContain('<v Jamie>Procter & Gamble and AT&T say 3 \u2039 4, and \u2039b> is not bold → ever.');
+    expect(vtt).toContain('<v Jamie>Procter &amp; Gamble and AT&amp;T say 3 &lt; 4, and &lt;b&gt; is not bold --&gt; ever.');
     expect(vtt).toContain('<v Jamie>Written as &amp;amp; or &amp;#38; it is still an ampersand.');
+    expect(vtt).not.toContain('\u2039');
     expect(vtt.split('<').length - 1).toBe(2);
+    expect(vtt.split('-->').length - 1).toBe(2);
   });
 
   it('reads back, in the verify listening, as the words that were spoken', () => {
     // backfill/assess.py matches every cue against what whisper heard.
-    const spoken = ['Procter & Gamble and AT&T say 3 < 4.', 'Written as &amp; it is an ampersand.'];
+    const spoken = ['Procter & Gamble and AT&T say 3 < 4 > 2.', 'Written as &amp; it is an ampersand.'];
     const vtt = transcriptVtt(spoken.map((text, i) => ({ block: { kind: 'cue', text, pauseBefore: 'none' }, start: i, end: i + 1 })));
     const dir = mkdtempSync(join(tmpdir(), 'wt-vtt-'));
     try {

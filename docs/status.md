@@ -383,14 +383,15 @@ finished, what is half-finished, and what has never run.
   site renders the chapters (`audio_chapters`) and a transcript panel that
   loads the `.vtt` from `audio_transcript_url` (weekly.thingelstad.com
   `apps/site/_includes/layouts/issue.njk`, the cue loop at :252-279, each
-  cue set as text with no entity decoding).
-- **Transcript text is WebVTT-safe** (2026-09-28) — a `<` in spoken text is
-  written as `‹` in the `.vtt`, so the site panel and podcast apps show `‹`;
-  a bare `&` stays, and `&` becomes `&amp;` only where it would read as a
-  character reference, which the site's panel then shows literally as
-  `&amp;`; `-->` becomes `→`. `backfill/assess.py` reads `‹`
-  back as `<`. Review 2026-09-27 §3; the rule is in
-  `docs/rendering-contracts.md`.
+  cue's entities decoded and then set as text).
+- **Transcript text is WebVTT-safe** (2026-09-28; revisited 2026-09-29) —
+  cue text carries the standard escapes, `&amp;`, `&lt;` and `&gt;`, which
+  the site panel decodes before setting each cue as text. From 2026-09-28
+  to 2026-09-29 a `<` was written as `‹` because the panel did not decode;
+  Jamie decided it should. The site change must deploy before WT Builder
+  sends a `.vtt` with `&lt;`. `backfill/assess.py` decodes the entities
+  (and still reads an old `‹` back as `<`). Review 2026-09-27 §3; the rule
+  is in `docs/rendering-contracts.md`.
 
 - **Lost-edit protection** (2026-09-20) — every save keeps the replaced
   document in `revisions` (last 300 per issue; `npm run revisions`), and every
