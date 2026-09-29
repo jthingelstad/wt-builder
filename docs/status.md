@@ -28,8 +28,11 @@ finished, what is half-finished, and what has never run.
   reorder, provenance chips, add-back chips for absent sections.
 - **Progress strip** — one tick per readiness unit, edge-aware tooltips,
   click-to-jump.
-- **Inspector** — fields per type, the Thingy review gate, editions with locked
-  channels and their reasons, provenance, archive references.
+- **Inspector** — fields per type, editions with locked channels and their
+  reasons, provenance, archive references. A Thingy item still shows a
+  Reviewed / Mark draft toggle, but it gates nothing: picking or writing the
+  words is the review, and the strip counts the item done when it has words
+  (2026-09-20, `docs/decisions.md`, *Picking is the review*).
 - **Editorial review** — the summary bar and margin notes, measured and
   stacked. Run for real against Claude; the notes were good.
 - **Audio lens** — a numbered script rather than a page, rendered from the

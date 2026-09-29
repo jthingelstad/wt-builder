@@ -16,13 +16,10 @@ The product is narrow on purpose: one editor, one current issue, one newsletter.
 
 ## Status
 
-**Building, and close to publishing real issues.** The editor, all four lenses,
-the editorial review, and all four send legs — website, Buttondown, podcast,
-and the archive corpus — are built and running.
-
-**Nothing has been sent to a reader yet.** The website commit and the podcast
-synthesis have never been run for real. Until one issue has gone out end to end,
-the Shortcuts workflow stays the fallback.
+**Publishing The Weekly Thing.** WT350 (2026-09-20) and WT351 (2026-09-26)
+were built here and sent end to end — website, Buttondown, podcast, and the
+archive corpus — and it is still being built while it is used. The Shortcuts
+workflow stays intact as the fallback until Jamie retires it.
 
 `docs/status.md` is the honest inventory: what works, what is half-built, and
 what has never run.
@@ -97,17 +94,21 @@ rendering bug.
 
 ### What talks to a real service
 
-- **Pinboard** — reads the unread queue (`toread=yes`) for the issue's window.
-  Write-back mutates real bookmarks and is **on** in `.env.example`.
+- **Pinboard** — reads every bookmark saved inside the issue's window.
+  Read/unread is Jamie's own flag: the builder neither selects on it nor
+  writes it. Write-back mutates real bookmarks and is **on** in
+  `.env.example`. It is compare-and-set: a bookmark changed at Pinboard since
+  the last scan is not written but marked `conflict`, for Keep mine or Take
+  theirs.
 - **Micro.blog** — reads and writes post source through Micropub `q=source`.
-  Write-back edits the published post.
+  Write-back edits the published post, compare-and-set as for Pinboard.
 - **Buttondown** — creates and updates a **draft**. Never schedules, never sends.
-- **Website** — commits generated inputs to `weekly.thingelstad.com`. Built,
-  never run.
+- **Website** — commits generated inputs to `weekly.thingelstad.com`. Sent
+  for every issue since WT350.
 - **Archive** — commits issue text into the corpus repository the Librarian
-  API answers from, after publication. Built, never run.
+  API answers from, after publication. Sent for every issue since WT350.
 - **Podcast** — OpenAI TTS, mastered and uploaded to `files.thingelstad.com`.
-  Built, never run.
+  Sent for every issue since WT350.
 - **Images** — remote images and dropped photos are resized and rehosted to the
   CDN before sending.
 - **Editorial review** — two passes, proofing then judgement. Button-only, and it

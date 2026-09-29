@@ -103,6 +103,15 @@ the source cannot be read or the item moved during the read. That is the conflic
 model: compare-and-set, then Jamie chooses. Still no locking, no revision
 vectors, no merge, and a local edit is never discarded without that choice.
 
+**Revisited 2026-09-28 — text edits are no longer a hole, and there is still no
+undo.** "Typing over a paragraph and blurring loses what was there" predates the
+`revisions` table. Since 2026-09-20 every save keeps the document it replaces
+(the last 300 per issue, `src/server/db.ts`), direct content included, so the
+paragraph that was typed over is kept: `npm run revisions -- <issue> [item-id]`
+prints every version an item has had. It is a recovery tool, not undo: it runs
+outside the editor and only prints the words, and putting them back is an
+ordinary edit.
+
 ## Pre-Builder issues import as a record, not as items
 
 Issues 349 and back were built by the Shortcuts workflow and exist as published

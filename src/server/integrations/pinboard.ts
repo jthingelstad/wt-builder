@@ -2,8 +2,10 @@
  * Pinboard.
  *
  * Read: every bookmark inside the issue window becomes a link candidate.
- * Write: last-writer-wins on title, commentary, and supported tags. A failed
- * write never discards the local edit (docs/item-model.md, Synchronization).
+ * Write: title, commentary, and supported tags, compare-and-set against the
+ * last scan's snapshot (`conflict` when the bookmark moved since, `gone` when
+ * it was deleted). A failed write never discards the local edit
+ * (docs/item-model.md, Synchronization).
  */
 
 import type { Candidate, Item, SyncState } from '../../shared/types.ts';

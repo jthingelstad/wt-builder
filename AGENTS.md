@@ -153,8 +153,9 @@ the old data, which looks exactly like a rendering bug.
   afterwards.
 - Generation offers candidates and never writes. Every word in the issue is
   Jamie's because he chose it.
-- No undo, no locking, no conflict model — see `docs/decisions.md` before
-  adding any of the three.
+- No undo, no locking, no merge. The conflict model is compare-and-set
+  write-back and Jamie's choice, Keep mine or Take theirs — see
+  `docs/decisions.md` before adding to any of it.
 - Never parse pre-Builder issue Markdown into items.
 - Never add secrets, raw Shortcut payloads, or production reader data.
 - **Leave the Shortcuts workflow intact.** WT Builder is how issues are

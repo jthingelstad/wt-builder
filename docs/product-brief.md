@@ -42,8 +42,9 @@ Buttondown, and audio editions.
 
 - Jamie remains the author of Jamie-attributed prose.
 - Syndicated items retain provenance while allowing issue-specific treatment.
-- Pinboard edits made in WT Builder synchronize back automatically with
-  last-writer-wins semantics.
+- Pinboard edits made in WT Builder synchronize back automatically,
+  compare-and-set: an edit made at Pinboard since the last scan is never
+  overwritten unseen, and Jamie chooses which copy stands.
 - Micro.blog remains the source of the original post. Issue selection,
   promotion, placement, and presentation belong to WT Builder.
 - Thingy may write Membership and Echoes, always with explicit attribution.

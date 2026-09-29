@@ -49,8 +49,10 @@ A unit is outstanding when:
 - a required direct item is empty — Intro, Outro, Currently, Photo. A section
   that is *not in the issue* counts as satisfied, not outstanding.
 - a link has no commentary,
-- a Pinboard write-back failed,
-- Thingy-authored content is undrafted, or drafted and not yet reviewed,
+- a Pinboard or Micro.blog write-back failed, or is in `conflict` awaiting
+  Keep mine or Take theirs,
+- Thingy-authored content has no words yet (picking a candidate, or writing
+  it, is the review: `decisions.md`, *Picking is the review*),
 - the haiku is unchosen.
 
 The progress strip draws one tick per unit; the checklist popover names each one,

@@ -8,7 +8,11 @@
   Micro.blog sweep and the renderers use. The window is never approximated
   as midnight UTC.
 - WT Builder can author and edit commentary directly.
-- Supported edits sync automatically using last-writer-wins.
+- Supported edits sync automatically, compare-and-set: write-back reads the
+  bookmark first and writes nothing when it has changed at Pinboard since the
+  last scan (`conflict`, resolved with Keep mine or Take theirs) or been
+  deleted (`gone`). See [`decisions.md`](decisions.md), *Revisited 2026-09-28
+  — the source is the second editor*.
 - Local edits survive transient API failures.
 - The `_brief` tag (one underscore) is Jamie's filing mark: on, the link is
   Briefly. A link is placed once, when it arrives: the tag wins; otherwise
@@ -27,10 +31,12 @@
   in; putting it on at Pinboard holds a placed link out at the next re-scan,
   and taking it off puts the link back. Deleting the bookmark is still the
   stronger act.
-- **Writing commentary, or excluding, marks the bookmark read.** Write-back
-  sends `toread=no` when the link has commentary or carries `_exclude`; every
-  other flag goes back as it came. Links already in the issue stay (the sweep only adds), so leaving the
-  unread queue does not drop them. **Placement follows the bookmark:** when a re-scan finds the
+- **Read/unread is Jamie's flag, not the builder's.** The sweep takes every
+  bookmark in the window whatever its read state, and write-back hands
+  `toread` and `shared` back as they stand at Pinboard when it writes, never
+  set by the builder. Until 2026-09-20 it swept the unread queue only and
+  marked a bookmark read when its commentary was written or it was held out.
+  **Placement follows the bookmark:** when a re-scan finds the
   tag changed at Pinboard and no local tag edit is pending, the link moves
   section to match. (Until 2026-09-20 the builder looked for `__brief` and
   filed unmarked links in Briefly; the old spelling is still read.)
@@ -42,8 +48,10 @@
   and cannot be handed back in an update, so it is not used.
 - `/posts/all` is the **timeline** — everyone Jamie follows — and must never be
   swept into an issue.
-- Writes back through the Micropub `update` action, last-writer-wins. Editing a
-  post's title or body in WT Builder edits the post.
+- Writes back through the Micropub `update` action, compare-and-set on the
+  same terms as Pinboard: a post edited on the blog since the last scan is not
+  replaced but marked `conflict`. Editing a post's title or body in WT Builder
+  edits the post.
 - Original posts remain canonical for the blog. Inclusion, exclusion, ordering,
   promotion, and WT-specific presentation are owned by WT Builder.
 - Post bodies carry raw `<img>` tags. Trailing images are split off for display

@@ -362,6 +362,8 @@ Units are concrete: required direct items written (Intro, Outro, Currently, Phot
 absent from the issue, which counts as satisfied), one per link needing commentary, one
 per failed Pinboard write, Thingy items drafted *and* marked reviewed, and a haiku
 chosen. The editorial review never counts here (see *Editorial review*).
+*Revisited 2026-09-20* (`docs/decisions.md`, *Picking is the review*): a Thingy
+item counts as done when it has words; marking it reviewed is not a unit.
 - **Issue** toggle (left panel).
 - **Publish** button.
 
@@ -677,7 +679,10 @@ Opened by the rail `i` button. `padding: 14px 18px 40px`.
    bookmark."). In `conflict` — edited both here and at the source since the last
    scan — Retry would be refused again, so the card offers **Keep mine** (write this
    copy over the source as it is now) and **Take theirs** (adopt the source's words)
-   instead (2026-09-28).
+   instead (2026-09-28). *Revisited 2026-09-28:* "Last writer wins" no longer
+   describes the write. Since 2026-08-30 write-back is compare-and-set and refuses
+   with `conflict`; see `docs/decisions.md`, *Revisited 2026-09-28 — the source is
+   the second editor*.
 5. **Promotion card** (journal posts) — current state, why, and
    **Promote to its own section** / **Return to Journal**.
 6. **Thingy / generation card** — one card serves Membership, Echoes, Haiku, and link
@@ -690,6 +695,9 @@ Opened by the rail `i` button. `padding: 14px 18px 40px`.
    Footer states the rule — Thingy keeps its byline; a picked link description becomes
    Jamie's text and syncs to Pinboard as his. Thingy items also carry **Mark reviewed**
    (`circle-check`), which is what satisfies the "reviewed by you" progress unit.
+   *Revisited 2026-09-20* (`docs/decisions.md`, *Picking is the review*): picking
+   or writing the words is the review and satisfies the unit. The inspector still
+   shows the Reviewed / Mark draft toggle, and it gates nothing.
 7. **APPEARS IN** — the hold-out control. Explanatory line, then **All / Email only /
    Hide** presets (active = black fill), then three full-width channel rows: 15px
    checkbox (radius 4px, `1.5px` border, black when on), channel name 12.5px/600 at
@@ -709,7 +717,9 @@ Opened by the rail `i` button. `padding: 14px 18px 40px`.
   SEND`. Rows are buttons (7px dot + label 13px + context 11.5px `#9a9a9a`, hover
   `#fafaf9`) that select the offending item. Generated from: links with no commentary
   (amber), failed syncs (terracotta), Thingy drafts not yet reviewed (blue). All-clear
-  state in `#2f7d4f`.
+  state in `#2f7d4f`. *Revisited 2026-09-20:* the Thingy rows are Thingy items with
+  no words yet; there is no review to wait for (`docs/decisions.md`, *Picking is the
+  review*).
 - **Start a new issue sheet** — modal on `rgba(26,26,26,.28)`, 460px, radius 12px,
   `box-shadow: 0 24px 60px rgba(26,26,26,.22)`, `padding-top: 88px` from viewport top.
   Title 18px/600, a line naming the issue being replaced, then PUBLICATION DATE (seeded
@@ -804,7 +814,10 @@ Items: ↑ / ↓ in the gutter rail. Echoes is immovable and always last.
 body/title sets `sync_state: "syncing"`, then resolves to `synced` after **1200 ms**
 (or `failed` if flagged). Semantics: **last writer wins**; a failure keeps the local
 edit and ships it in the issue, with Retry available. Thingy generation: **1400 ms**.
-Haiku candidates: **1200 ms**. Re-scan: **1100 ms**.
+Haiku candidates: **1200 ms**. Re-scan: **1100 ms**. *Revisited 2026-09-28:* the
+real write-back is compare-and-set, not last writer wins: a source record changed
+since the last scan is refused as `conflict`, and Keep mine or Take theirs resolves
+it (`docs/decisions.md`, *Revisited 2026-09-28 — the source is the second editor*).
 
 **Saturday rule.** A non-Saturday publish date snaps forward to the next Saturday with a
 visible amber note rather than being rejected.
@@ -914,7 +927,10 @@ own evidence and retry, it never gates readiness, and its failure must not degra
 the published state. Send text only — the archive receives no audio.
 
 **Sync semantics** — Pinboard and Micro.blog both write back, last-writer-wins,
-and a failed write never discards the local edit. Micro.blog reads and writes
+and a failed write never discards the local edit. *Revisited 2026-09-28:* the
+write-back is compare-and-set and refuses with `conflict` when the source changed
+since the last scan; see `docs/decisions.md`, *Revisited 2026-09-28 — the source is
+the second editor*. Micro.blog reads and writes
 through Micropub `q=source`, which returns the exact Markdown the post is stored
 as; the JSON Feed returns rendered content and cannot be handed back. Inclusion,
 ordering, promotion, and presentation belong to WT Builder; the original post

@@ -64,10 +64,10 @@ presentation           journal | promoted
 published_at
 media                  { url, alt, caption, timestamp, location }
 source_flags           source-owned fields write-back must hand back untouched
-sync_state             synced | syncing | failed | needs_commentary | local
+sync_state             synced | syncing | failed | needs_commentary | local | conflict | gone
 sync_error             kept beside the local edit until a retry succeeds
-status                 draft | reviewed        (Thingy-authored)
-reviewed               bool                    (Thingy-authored)
+status                 draft | reviewed        (Thingy-authored; gates nothing, see decisions.md "Picking is the review")
+reviewed               bool                    (Thingy-authored; set when words land in the item)
 archive_references     [{ kind, issue, url, title, note }]  (Echo: carried, not hand-edited)
 rendering_overrides
 ```
@@ -207,14 +207,18 @@ knows what a block is without the reader being told.
 
 ## Synchronization
 
-Pinboard uses last-writer-wins. Editing title, commentary, or supported tags in
-WT Builder automatically writes the current value back to Pinboard. The UI
-shows saving, synced, and failed states and never discards the local edit on a
-failed write.
+Pinboard write-back is compare-and-set. Editing title, commentary, or
+supported tags in WT Builder automatically writes the current value back to
+Pinboard, after reading the bookmark first: when it no longer matches the last
+scan's `source_snapshot` nothing is written and the item is `conflict` (or
+`gone` when the bookmark was deleted), and Jamie chooses **Keep mine** or
+**Take theirs**. There is no merge. The UI shows saving, synced, failed, and
+conflict states and never discards the local edit on a failed or refused write
+(docs/decisions.md, *Revisited 2026-09-28 — the source is the second editor*).
 
 Micro.blog synchronizes both ways. Editing a post's title or body writes back
-through the Micropub `update` action, last-writer-wins, with the same
-saving / synced / failed states. Reads use Micropub `q=source`, which returns the
+through the Micropub `update` action, compare-and-set on the same terms, with
+the same states. Reads use Micropub `q=source`, which returns the
 exact Markdown the post is stored as — the only form that can safely be handed
 back in an update. The blog's JSON Feed returns *rendered* content and cannot.
 

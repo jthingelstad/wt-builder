@@ -38,6 +38,29 @@ describe('the documents stay honest', () => {
     expect(dead).toEqual([]);
   });
 
+  it('nothing describes write-back as last-writer-wins without saying it is compare-and-set', () => {
+    // Write-back has been compare-and-set since 2026-08-30, yet nine
+    // documents and three comments still called it last-writer-wins a month
+    // later (review 2026-09-27, §7). A settled document keeps its old words
+    // and adds a dated revisit beside them, so the phrase may stand where the
+    // same paragraph says what is true now. decisions.md carries its revisit
+    // as a section of its own and is the record, so it is left out.
+    const sources = (dir: string): string[] =>
+      readdirSync(new URL(`../${dir}`, import.meta.url), { recursive: true, withFileTypes: true })
+        .filter((e) => e.isFile() && /\.tsx?$/.test(e.name))
+        .map((e) => `${e.parentPath.slice(root.length).replace(/^\/+/, '')}/${e.name}`);
+    const files = [...DOCS.filter((d) => d !== 'docs/decisions.md'), '.env.example', ...sources('src')];
+    const stale: string[] = [];
+    for (const file of files) {
+      for (const para of read(file).split(/\n\s*\n/)) {
+        if (/last[ -]writer[ -]wins/i.test(para) && !/compare-and-set/i.test(para)) {
+          stale.push(`${file}: ${para.trim().split('\n')[0]}`);
+        }
+      }
+    }
+    expect(stale).toEqual([]);
+  });
+
   it('no document claims a test count', () => {
     // "npm test # 193 tests" was stale twice in three days. The suite's size
     // is the suite's business; a number in prose only ever decays.
