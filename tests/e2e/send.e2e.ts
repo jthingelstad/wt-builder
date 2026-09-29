@@ -83,3 +83,24 @@ test('"← Issue" stops a bulk run after the leg that is out', async ({ page }) 
   await page.waitForTimeout(500);
   expect(posted).toEqual(['website']);
 });
+
+test('a re-send that fails shows DID NOT SEND, not the last SENT and its VERIFIED', async ({ page }) => {
+  podcastSent();
+  store.recordSend(ISSUE, 'website', { status: 'sent', at: AT, external_id: 'f00d', url: 'https://github.com/x/y/commit/f00d' });
+  store.recordVerify(ISSUE, 'website', { status: 'passed', at: AT, checks: [] });
+  // The leg fails the way the server records it: the state, then the refusal.
+  await interceptSends(page, async (_leg, route) => {
+    store.recordSend(ISSUE, 'website', { status: 'failed', at: new Date().toISOString(), error: 'GitHub failed: 502' });
+    await route.fulfill({ status: 502, json: { error: 'GitHub failed: 502' } });
+  });
+
+  await page.goto(`/${ISSUE}/send`);
+  const site = card(page, 'Website');
+  await expect(site.locator('.sc-pill').first()).toHaveText('SENT');
+  await site.locator('.sc-head .btn.primary').click();
+
+  await expect(site.locator('.sc-pill').first()).toHaveText('DID NOT SEND');
+  await expect(site.locator('.sc-verify')).toHaveCount(0);
+  await expect(site.locator('.sc-evidence.error')).toHaveText('GitHub failed: 502');
+  await expect(site.locator('.sc-last-good')).toContainText('f00d');
+});

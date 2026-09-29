@@ -226,10 +226,11 @@ export function Send({ doc, readiness, error, onBack, onSent, onError }: Props) 
 
   /**
    * One leg. `sent` when it went; a failure is shown and stops any run it is
-   * part of. `gone` is Buttondown refusing because the email has already
-   * gone to readers: the server has recorded that, so the issue is read
-   * again and the card offers "Update web copy…" at once, and a run carries
-   * on past it — the legs after it do not depend on it.
+   * part of. Any failure reads the issue again, so the card says what the
+   * server recorded. `gone` is Buttondown refusing because the email has
+   * already gone to readers: the server has recorded that, so the card
+   * offers "Update web copy…" at once, and a run carries on past it — the
+   * legs after it do not depend on it.
    */
   const send = async (key: Destination, opts: { webCopy?: boolean } = {}): Promise<'sent' | 'failed' | 'gone'> => {
     setRunning(key);
@@ -241,10 +242,11 @@ export function Send({ doc, readiness, error, onBack, onSent, onError }: Props) 
       return 'sent';
     } catch (err) {
       onError(`${key}: ${(err as Error).message}`);
-      if (err instanceof ApiError && err.code === 'email_sent') {
-        await api.getIssue(id).then((r) => onSent(r.issue)).catch(() => { /* the next poll */ });
-        return 'gone';
-      }
+      // The card shows what the server recorded, not what it held before the
+      // send: a failure kept the pre-send state, so a failed re-send stayed a
+      // green SENT with the old VERIFIED panel (review 2026-09-27 §2.4).
+      await api.getIssue(id).then((r) => onSent(r.issue)).catch(() => { /* the next poll */ });
+      if (err instanceof ApiError && err.code === 'email_sent') return 'gone';
       return 'failed';
     } finally {
       setRunning(null);
