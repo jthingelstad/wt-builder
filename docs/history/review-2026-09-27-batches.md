@@ -362,7 +362,9 @@ Batch 7. Two decisions Jamie settled on 2026-09-28:
 5. The review never counts on the progress strip. The code already behaves this way, so this is a spec correction only. In docs/interface-spec.md, remove "one per open PROOF note. The denominator grows when a review finds new proof notes" from the strip's units (around :337). Reword "Only open notes count against the progress strip" (around :609–610) so it says open and cleared notes are tallied in the review's read bar only. Leave :765 ("Advisory only: never in the Ready checklist, never a gate") as the rule.
 ```
 
-## Batch 8 — Thingy and the models (§5, features #3 and #9)
+## ~~Batch 8 — Thingy and the models (§5, features #3 and #9)~~
+
+Landed 2026-09-28 on review-fixes: e6acc17..d4e5f45. Skipped: the librarian-thing per-passage `author` field (feature #9), noted in docs/service-contracts.md for later. Needs Jamie: none. Known limits: the link wand has a DNS-rebinding window between its own lookup and fetch's; withoutThingy matches text, so a Jamie passage that an echo quoted in full can be left out of retrieval.
 
 ```text
 Read docs/history/review-2026-09-27.md §5, and features #3 and #9 in §8, first. It is a verified review taken at 06b237f. Line numbers have drifted, so find code by symbol. Before fixing anything, confirm the finding still holds.
