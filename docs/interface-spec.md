@@ -8,7 +8,10 @@ weekly newsletter — replacing a Shortcuts + Data Jar + Markdown-flattening wor
 Its own full-screen layer (`position: fixed; inset: 0; z-index: 110`), entered from
 the header's `Send` (which reads `Sent 2/3` once some destinations are done). Sticky
 52px header: back to the issue, mono `WT350`, the title, and `Send all four` in ink
-on the right. Body is an 820px column, `padding: 34px 24px 90px`: a 34px/700 `Send`
+on the right. Every bulk run (`Send all four` / `Send the rest`, `Re-send all sent`)
+asks first, with a `confirm` naming its legs in run order: the editor's way in sits
+where that button does, and a double-click on it once sent three legs in one
+gesture (review 2026-09-27 §2.4). Body is an 820px column, `padding: 34px 24px 90px`: a 34px/700 `Send`
 heading, a subhead that states the boundary — sending is not the same as being
 authoritative — then four destination cards in run order — **Podcast, Website,
 Buttondown, Archive**. The archive is a card like the others, not a footnote (Jamie,

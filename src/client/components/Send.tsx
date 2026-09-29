@@ -159,6 +159,12 @@ const CARDS: Card[] = [
   },
 ];
 
+/** "Website, Buttondown and Archive": the legs a bulk run asks about, by card name. */
+function legNames(keys: Destination[]): string {
+  const names = keys.map((k) => CARDS.find((c) => c.key === k)!.name);
+  return names.length > 1 ? `${names.slice(0, -1).join(', ')} and ${names[names.length - 1]}` : names.join('');
+}
+
 const PILL: Record<string, string> = {
   none: 'NOT SENT', gate: 'NEEDS YOU', sending: 'SENDING', sent: 'SENT', failed: 'DID NOT SEND',
 };
@@ -238,13 +244,29 @@ export function Send({ doc, readiness, error, onBack, onSent, onError }: Props) 
     }
   };
 
-  /** Run order, stopping at the first failure — later legs assume earlier ones. */
+  /**
+   * The legs "Send all four" / "Send the rest" would run, in run order. An
+   * unapproved podcast stops the run before it starts: later legs assume it.
+   */
+  const rest: Destination[] = [];
+  for (const card of CARDS) {
+    if (card.key === 'podcast' && !approved) break;
+    if (stateOf(card.key) === 'sent') continue;
+    if (card.key === 'buttondown' && emailGone) continue;
+    rest.push(card.key);
+  }
+
+  /**
+   * Run order, stopping at the first failure — later legs assume earlier ones.
+   * Asked first, naming the legs: the editor's Publish button sits where this
+   * one does, so a double-click on it used to land here and send three legs
+   * in one gesture (review 2026-09-27 §2.4).
+   */
   const sendAll = async () => {
-    for (const card of CARDS) {
-      if (card.key === 'podcast' && !approved) return;
-      if (stateOf(card.key) === 'sent') continue;
-      if (card.key === 'buttondown' && emailGone) continue;
-      if ((await send(card.key)) === 'failed') return;
+    if (!rest.length) return;
+    if (!confirm(`Send ${legNames(rest)} for WT${doc.issue.number}, in that order?`)) return;
+    for (const key of rest) {
+      if ((await send(key)) === 'failed') return;
     }
   };
 
@@ -258,6 +280,7 @@ export function Send({ doc, readiness, error, onBack, onSent, onError }: Props) 
   const RESEND: Destination[] = ['website', 'buttondown', 'archive'];
   const resendable = RESEND.filter((key) => stateOf(key) === 'sent' && !(key === 'buttondown' && emailGone));
   const resendAll = async () => {
+    if (!confirm(`Re-send ${legNames(resendable)} for WT${doc.issue.number}, in that order? The podcast is left as it is.`)) return;
     for (const key of resendable) {
       if ((await send(key)) === 'failed') return;
     }

@@ -79,6 +79,8 @@ test('once the email has gone, Buttondown offers only a confirmed web-copy updat
   await expect.poll(() => posted).toEqual(['buttondown?web_copy=1']);
 
   posted.length = 0;
+  // Every bulk run asks first, naming its legs (review 2026-09-27 §2.4).
+  page.once('dialog', (d) => { expect(d.message()).toContain('Website and Archive'); void d.accept(); });
   await page.getByRole('button', { name: 'Re-send all sent' }).click();
   await expect.poll(() => posted).toEqual(['website', 'archive']);
 });
@@ -109,6 +111,7 @@ test('a verify record older than remote_status: the refusal switches the card, a
   const button = card(page, 'Buttondown').locator('.sc-head .btn.primary');
   await expect(button).toHaveText('Update draft');
 
+  page.once('dialog', (d) => void d.accept());
   await page.getByRole('button', { name: 'Re-send all sent' }).click();
   await expect.poll(() => posted).toEqual(['website', 'buttondown', 'archive']);
   await expect(button).toHaveText('Update web copy…');
