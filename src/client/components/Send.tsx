@@ -215,6 +215,21 @@ export function Send({ doc, readiness, error, onBack, onSent, onError }: Props) 
     return () => clearInterval(t);
   }, [verifying, waiting, id]);
 
+  // A leg is out whenever the server says so, not only while this view's
+  // own request is: after leaving and coming back, or a reload, a sending
+  // leg looked unsent and could be pressed again (review 2026-09-27 §2.4).
+  // While one is out, nothing else starts, as for a leg sent from here, and
+  // the view re-reads the issue until it lands.
+  const outOnServer = CARDS.some((c) => stateOf(c.key) === 'sending');
+  const sending = Boolean(running) || outOnServer;
+  useEffect(() => {
+    if (!outOnServer) return;
+    const t = setInterval(() => {
+      api.getIssue(id).then((r) => onSent(r.issue)).catch(() => { /* next tick */ });
+    }, 3000);
+    return () => clearInterval(t);
+  }, [outOnServer, id]);
+
   const verify = (key: Destination) => {
     api.verify(id, key).then((r) => onSent(r.issue)).catch((err: Error) => onError(`${key}: ${err.message}`));
   };
@@ -310,14 +325,14 @@ export function Send({ doc, readiness, error, onBack, onSent, onError }: Props) 
         <span class="head-spacer" />
         {resendable.length > 0 && (
           <button
-            class="btn" disabled={Boolean(running)} onClick={resendAll}
+            class="btn" disabled={sending} onClick={resendAll}
             title={`Re-send ${resendable.join(', ')} in order. The podcast is left as it is — its card re-synthesizes on purpose.`}
           >
             Re-send all sent
           </button>
         )}
         {sentCount < CARDS.length && (
-          <button class="btn primary" disabled={Boolean(running)} onClick={sendAll}>
+          <button class="btn primary" disabled={sending} onClick={sendAll}>
             {sentCount > 0 ? 'Send the rest' : 'Send all four'}
           </button>
         )}
@@ -352,7 +367,7 @@ export function Send({ doc, readiness, error, onBack, onSent, onError }: Props) 
             result={results[card.key]}
             blocker={card.blocker?.(sentMap, doc) ?? null}
             gated={card.key === 'podcast' && !approved}
-            busy={Boolean(running) || Boolean(doc.issue.put_to_bed_at)}
+            busy={sending || Boolean(doc.issue.put_to_bed_at)}
             onApprove={approveScript}
             gate={card.key === 'podcast' ? { review: reviewCurrent ? review : undefined, stale: Boolean(review) && !reviewCurrent, reading, onRead: readScript, approved } : undefined}
             webCopy={card.key === 'buttondown' && emailGone}

@@ -49,6 +49,11 @@ request that skips the view is refused too. Until then it sits in `NEEDS YOU` �
 interaction. A card button labelled with a state ("Waiting on you") is a dead
 primary: it duplicates the pill beside it and does nothing when clicked.
 
+**Sending** is what the server recorded, not what this view started: a leg sent
+from another tab, or before a reload, reads `SENDING` too. While any leg is out,
+every send button is disabled and the view re-reads the issue every few seconds
+until it lands (review 2026-09-27 §2.4).
+
 **Failure** — and the state must be real rather than drawn: the card goes `DID NOT SEND` in terracotta with a
 `#faefe8` strip explaining that other destinations are unaffected, the failed step
 takes a `circle-x` and shows the error text where evidence would go, and the action

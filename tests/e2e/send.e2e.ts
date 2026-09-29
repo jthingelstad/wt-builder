@@ -104,3 +104,22 @@ test('a re-send that fails shows DID NOT SEND, not the last SENT and its VERIFIE
   await expect(site.locator('.sc-evidence.error')).toHaveText('GitHub failed: 502');
   await expect(site.locator('.sc-last-good')).toContainText('f00d');
 });
+
+test('a leg the server has out reads as sending, cannot be pressed, and lands on its own', async ({ page }) => {
+  podcastSent();
+  // Sent from another tab, or before this one reloaded: only the server knows.
+  store.recordSend(ISSUE, 'website', { status: 'sending', at: new Date().toISOString() });
+  const posted = await interceptSends(page);
+
+  await page.goto(`/${ISSUE}/send`);
+  const site = card(page, 'Website');
+  await expect(site.locator('.sc-pill').first()).toHaveText('SENDING');
+  await expect(site.locator('.sc-head .btn.primary')).toHaveText('Sending…');
+  await expect(site.locator('.sc-head .btn.primary')).toBeDisabled();
+  await expect(page.getByRole('button', { name: 'Send the rest' })).toBeDisabled();
+
+  store.recordSend(ISSUE, 'website', { status: 'sent', at: new Date().toISOString(), external_id: 'f00d', url: 'https://github.com/x/y/commit/f00d' });
+  await expect(site.locator('.sc-pill').first()).toHaveText('SENT', { timeout: 10_000 });
+  await expect(site.locator('.sc-head .btn.primary')).toBeEnabled();
+  expect(posted).toEqual([]);
+});
