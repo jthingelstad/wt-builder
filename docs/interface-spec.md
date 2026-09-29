@@ -360,8 +360,8 @@ The whole strip is a button that opens the checklist popover. `padding: 0 16px`,
 
 Units are concrete: required direct items written (Intro, Outro, Currently, Photo — or
 absent from the issue, which counts as satisfied), one per link needing commentary, one
-per failed Pinboard write, Thingy items drafted *and* marked reviewed, a haiku chosen,
-and one per open `PROOF` note. The denominator grows when a review finds new proof notes.
+per failed Pinboard write, Thingy items drafted *and* marked reviewed, and a haiku
+chosen. The editorial review never counts here (see *Editorial review*).
 - **Issue** toggle (left panel).
 - **Publish** button.
 
@@ -652,8 +652,8 @@ Body 11.5px/1.5 `#4a4a4a` with `text-wrap: pretty`. Proof notes add a mono 10.5p
 
 **Cleared notes** drop to `opacity: .55`, grey out their edge, strike through if done, and
 swap the two actions for a `DONE` / `IGNORED` tag plus an `undo-2` reopen. The read bar
-tallies `3 done · 2 ignored` with a **Show cleared** toggle. Only open notes count against
-the progress strip — an ignored note is resolved, not outstanding.
+tallies `3 done · 2 ignored` with a **Show cleared** toggle. Open and cleared notes are
+tallied in the review's read bar only; an ignored note is resolved, not outstanding.
 
 Kind colors — `PROOF` `#a07a1f` on edge `#e8d7a8`; `ARCHIVE` `#1a5fb4` on `#c3d6ee`;
 `RHYTHM` and `LENGTH` `#6e6e6e` on `#dedcd8`.

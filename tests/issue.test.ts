@@ -1515,3 +1515,22 @@ describe('a new issue starts after the latest one', () => {
     expect(dateTaken(['2026-09-26'], '2026-10-03')).toBe(false);
   });
 });
+
+describe('the editorial review never counts on the progress strip', () => {
+  // Advisory only: never in the Ready checklist, never a gate
+  // (docs/interface-spec.md, Editorial review). Settled 2026-09-28.
+  it('open PROOF notes change no unit, total, or percentage', () => {
+    const doc = issues.createIssue({ number: 993, publication_date: '2026-10-03' });
+    const before = issues.readiness(doc);
+    const reviewed = structuredClone(doc);
+    reviewed.review = {
+      summary: 'Reads well.',
+      notes: [
+        { kind: 'PROOF', text: 'teh → the', item_id: 'intro-1', was: 'teh', now: 'the' },
+        { kind: 'PROOF', text: 'a typo', item_id: null, was: 'x', now: 'y' },
+        { kind: 'RHYTHM', text: 'Front-loaded.', item_id: null },
+      ],
+    };
+    expect(issues.readiness(reviewed)).toEqual(before);
+  });
+});
