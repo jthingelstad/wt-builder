@@ -135,3 +135,39 @@ test('the Send view reads the issue again when it opens', async ({ page }) => {
   await page.locator('.app .header').getByRole('button', { name: 'Publish' }).click();
   await expect(card(page, 'Podcast').locator('.sc-pill').first()).toHaveText('SENT');
 });
+
+test('a late answer for the issue left behind neither replaces the one on screen nor re-scans it', async ({ page }) => {
+  // A second issue to go to: WT349, published, so it opens without a scan.
+  const other = store.getIssue(ISSUE)!.doc;
+  other.issue = { ...other.issue, id: 'fixture-wt349', number: 349, publication_date: '2026-05-16', status: 'published' };
+  store.saveIssue(other);
+  try {
+    let release!: () => void;
+    const held = new Promise<void>((r) => { release = r; });
+    let sweeps = 0;
+    await page.route(`**/api/issues/${ISSUE}/sweep`, async (route) => {
+      sweeps += 1;
+      if (sweeps === 1) await held; else await page.waitForTimeout(200);
+      const res = await page.request.get(`/api/issues/${ISSUE}`);
+      await route.fulfill({ json: await res.json() });
+    });
+
+    await open(page);
+    await expect.poll(() => sweeps).toBe(1);
+    // The browser's Forward, say: straight to the other issue.
+    await page.evaluate(() => {
+      history.pushState({}, '', '/fixture-wt349');
+      dispatchEvent(new PopStateEvent('popstate'));
+    });
+    const wt = page.locator('.app .header .wt');
+    await expect(wt).toHaveText('WT349');
+
+    release();
+    await page.waitForTimeout(1500);
+    await expect(wt).toHaveText('WT349');
+    expect(sweeps).toBe(1);
+  } finally {
+    await page.unrouteAll({ behavior: 'ignoreErrors' });
+    store.deleteIssue('fixture-wt349');
+  }
+});

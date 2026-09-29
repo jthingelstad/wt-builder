@@ -21,7 +21,19 @@ export function App() {
   // before it could be read (review 2026-09-27, §1.4).
   const runError = useRef<string | null>(null);
 
+  // The route as of now, for answers that land later. A scan, save or send
+  // for the issue just left used to replace the one on screen, and the
+  // editor then re-scanned it, in a loop (review 2026-09-27 §2.4). Set where
+  // the route is set, so an answer landing before the next render is judged
+  // against the route it will render.
+  const routeRef = useRef(route);
+  const onScreen = useCallback((issue: IssueDoc) => {
+    const r = routeRef.current;
+    return r.view !== 'index' && r.id === issue.issue.id;
+  }, []);
+
   const absorb = useCallback((res: IssueResponse) => {
+    if (!onScreen(res.issue)) return;
     setDoc(res.issue);
     setReadiness(res.readiness);
     setError((current) => (current !== null && current === runError.current ? null : current));
@@ -52,16 +64,18 @@ export function App() {
 
   /** Move, and leave a history entry so Back means what it looks like. */
   const go = useCallback((next: Route, replace = false) => {
-    setRoute((current) => {
-      if (sameRoute(current, next)) return current;
-      history[replace ? 'replaceState' : 'pushState']({}, '', routeHref(next));
-      return next;
-    });
+    if (sameRoute(routeRef.current, next)) return;
+    history[replace ? 'replaceState' : 'pushState']({}, '', routeHref(next));
+    routeRef.current = next;
+    setRoute(next);
   }, []);
 
   // The browser's own back and forward.
   useEffect(() => {
-    const pop = () => setRoute(parseRoute(location.pathname));
+    const pop = () => {
+      routeRef.current = parseRoute(location.pathname);
+      setRoute(routeRef.current);
+    };
     addEventListener('popstate', pop);
     return () => removeEventListener('popstate', pop);
   }, []);
@@ -95,7 +109,9 @@ export function App() {
     return () => { live = false; };
   }, [route, doc?.issue.id, absorb, go]);
 
-  if (route.view === 'index' || !doc) {
+  // Until the issue the route names has loaded, whatever doc is held is
+  // another issue's, and is not shown.
+  if (route.view === 'index' || !doc || doc.issue.id !== route.id) {
     return (
       <IssueIndex
         error={error}
@@ -109,12 +125,13 @@ export function App() {
   if (route.view === 'send') {
     return (
       <Send
+        key={doc.issue.id}
         doc={doc}
         readiness={readiness}
         busy={busy}
         error={error}
         onBack={() => go({ view: 'issue', id: doc.issue.id })}
-        onSent={(next) => setDoc(next)}
+        onSent={(next) => { if (onScreen(next)) setDoc(next); }}
         onError={setError}
       />
     );
@@ -122,6 +139,7 @@ export function App() {
 
   return (
     <Editor
+      key={doc.issue.id}
       doc={doc}
       readiness={readiness}
       busy={busy}
