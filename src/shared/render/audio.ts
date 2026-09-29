@@ -367,7 +367,7 @@ function itemPieces(item: Item, planned: PlannedNode, index: number, total: numb
     case 'quote':
       // Someone else's words, framed as a quote — spoken bare, they were
       // Jamie's (review 2026-09-27 §3). No name follows "End quote."
-      return prosePieces(quoteMarkdown(item));
+      return prosePieces(quoteMarkdown({ ...item, body: sentenceLines(bodyLines(item.body)).join('\n') }));
     case 'echo':
       // The thread only. The Ask-Thingy question is a door on the page and
       // a chapter link in the player; read aloud after every echo it sounded
@@ -378,6 +378,26 @@ function itemPieces(item: Item, planned: PlannedNode, index: number, total: numb
       // doors in the body; they are not read aloud there either.
       return prosePieces(planned.node.type === 'echoes' ? withoutAsks(item.body) : item.body);
   }
+}
+
+/** A line that ends a sentence: . ! ? : ; or …, then any closing quotes. */
+const SENTENCE_END = /[.!?:;…]["'”’»)]*$/;
+
+/**
+ * A Quote's lines, rejoined where they were wrapped mid-sentence: a line
+ * that does not end a sentence is spoken with the next, after a space, so
+ * the pause falls where the sentence ends (Jamie, 2026-09-29). A list entry
+ * stays its own line. Audio only; print keeps a paragraph per line.
+ */
+function sentenceLines(lines: string[]): string[] {
+  const out: string[] = [];
+  let open = false;
+  for (const line of lines) {
+    if (open && !LIST_MARK.test(line)) out[out.length - 1] += ` ${line}`;
+    else out.push(line);
+    open = !SENTENCE_END.test(out[out.length - 1]!) && !LIST_MARK.test(out[out.length - 1]!);
+  }
+  return out;
 }
 
 /** Drop the "_Ask Thingy:_ [question](url)" paragraphs from an Echoes body. */

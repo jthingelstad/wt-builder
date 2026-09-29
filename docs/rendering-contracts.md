@@ -126,7 +126,10 @@ prints whole under its own heading.
 
 Someone else's words, with no name. Website and Buttondown print one
 blockquote: each line of the quote a paragraph inside it. Audio frames it
-"Quote. … End quote." Until 2026-09-28 a Quote printed one blockquote per
+"Quote. … End quote." and joins a line wrapped mid-sentence to the next:
+a line that does not end in `.` `!` `?` `:` `;` `…` (or a closing quote after
+one) is spoken with the line after it, so the pause falls where the
+sentence ends; a list entry stays its own line (Jamie, 2026-09-29). Until 2026-09-28 a Quote printed one blockquote per
 line and was spoken as Jamie's own words (review 2026-09-27 §3).
 
 *Revisited 2026-09-29:* 2026-09-28 printed `— <who said it>` after the quote
