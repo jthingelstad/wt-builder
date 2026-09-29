@@ -14,7 +14,7 @@ import Anthropic from '@anthropic-ai/sdk';
 
 import type { ArchiveReference, EchoGrounding, EchoOption, IssueDoc, Item, ItemType } from '../shared/types.ts';
 import { renderAnnotated } from '../shared/render/annotate.ts';
-import { bodyLines, outOfWindow, windowOf } from '../shared/render/plan.ts';
+import { bodyLines, isIncluded, outOfWindow, windowOf } from '../shared/render/plan.ts';
 import { imageTags, splitBody } from '../shared/body.ts';
 import { anchorText } from '../shared/anchor.ts';
 import { config } from './config.ts';
@@ -1148,7 +1148,9 @@ export function issueExcerpt(doc: IssueDoc, max = 2800): string {
   for (const node of doc.nodes) {
     for (const id of node.items) {
       const item = doc.items[id];
-      if (!item || outOfWindow(item, w)) continue;
+      // What the issue printed: a channel on and inside the window, the
+      // editions' own test. A held-out item was never in the issue.
+      if (!item || !isIncluded(item, w)) continue;
       // Thingy's own words are not the archive's: an echo drafted from last
       // year's echo would be Thingy quoting itself as Jamie (review
       // 2026-09-27, §5).

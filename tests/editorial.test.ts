@@ -432,6 +432,11 @@ describe('the seasonal lens', () => {
     expect(pickSeasonalIssue([], '2026-05-23', 350)).toBeNull();
   });
 
+  it('leaves out an item held out of every edition, as the editions do', () => {
+    const excerpt = issueExcerpt(doc, 100_000);
+    expect(excerpt).not.toContain('A post Jamie has intentionally removed from this issue.');
+  });
+
   it('leaves Thingy\'s own items out of the excerpt', () => {
     const excerpt = issueExcerpt(doc, 100_000);
     expect(excerpt).not.toContain('Supporting Members make the Weekly Thing possible');
