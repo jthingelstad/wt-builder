@@ -265,7 +265,9 @@ Batch 4: a failed or interrupted leg never erases what the last good one did.
 Route tests with the integrations mocked cover each state transition. Update docs/status.md and docs/publishing-lifecycle.md in the same commits: these are send-leg contracts.
 ```
 
-## Batch 5 — The editor keeps what Jamie types (§1.4, §1.5)
+## ~~Batch 5 — The editor keeps what Jamie types (§1.4, §1.5)~~
+
+Landed 2026-09-28 on review-fixes: 3e107d4..c91dd57. Skipped: none. Reverted: the re-scan hold 49fe009 (c91dd57), still blocking after two rounds. Needs Jamie: a re-scan or any answer that moves the row being typed in can lose that typing (WebKit fires no blur), as on main today; how should it be fixed? Is the failure-only data-unsaved mark acceptable under decisions.md? Should a promoted post's node label follow its title?
 
 ```text
 Read docs/history/review-2026-09-27.md §1.4 and §1.5 first. It is a verified review taken at 06b237f. Line numbers have drifted, so find code by symbol. Before fixing anything, confirm the finding still holds.
