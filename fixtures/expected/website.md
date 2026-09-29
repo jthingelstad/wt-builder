@@ -67,8 +67,6 @@ This should be a built-in feature in Shortcuts. →
 > Simple things should be simple.
 >
 > Complex things should be possible.
->
-> — Alan Kay
 
 <div class="from-thingy">
 
@@ -122,5 +120,6 @@ Renderer expectations exercised here:
   is Markdown only, templateEngineOverride "md").
 - journal-list opens with a list, so its clock stands alone and the list
   starts below it; no "— " is welded onto a bullet.
-- quote-kay is one blockquote, a paragraph per line, the attribution inside.
+- quote-kay is one blockquote, a paragraph per line, and prints no name: the
+  fixture carries an attribution, and no edition renders it (2026-09-29).
 -->

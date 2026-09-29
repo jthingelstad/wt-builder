@@ -19,7 +19,7 @@ import type { IssueDoc, Item } from '../types.ts';
 import { spokenLongDate, wallClock, weekday } from '../dates.ts';
 import { askThingyUrl, echoBlock } from '../echoes.ts';
 import type { PlannedNode } from './plan.ts';
-import { bodyLines, isLinkSection, planEdition, postBlocks, quoteAttribution, quoteMarkdown, withRehostedImages } from './plan.ts';
+import { bodyLines, isLinkSection, planEdition, postBlocks, quoteMarkdown, withRehostedImages } from './plan.ts';
 import { speakable } from './speech.ts';
 
 /**
@@ -361,15 +361,10 @@ function itemPieces(item: Item, planned: PlannedNode, index: number, total: numb
         : withLead(item.title ? terminate(item.title) : '', prosePieces(item.body));
     case 'photo':
       return photoPieces(item);
-    case 'quote': {
-      // Someone else's words, framed as a quote, then whose they are —
-      // spoken bare, they were Jamie's (review 2026-09-27 §3).
-      const pieces = prosePieces(quoteMarkdown(item, false));
-      const who = terminate(quoteAttribution(item));
-      const last = pieces[pieces.length - 1];
-      if (last && who) last.text = `${last.text} ${who}`;
-      return pieces;
-    }
+    case 'quote':
+      // Someone else's words, framed as a quote — spoken bare, they were
+      // Jamie's (review 2026-09-27 §3). No name follows "End quote."
+      return prosePieces(quoteMarkdown(item));
     case 'echo':
       // The thread only. The Ask-Thingy question is a door on the page and
       // a chapter link in the player; read aloud after every echo it sounded

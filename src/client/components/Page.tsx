@@ -794,10 +794,6 @@ function ChannelBlock({ doc, node, item, itemId, readOnly, act }: BlockProps) {
             tag="p" multiline readOnly={readOnly} value={item.body ?? ''}
             ph="The quote…" onCommit={(text) => set({ body: text })}
           />
-          <Editable
-            class="attribution" readOnly={readOnly} value={item.attribution ?? ''}
-            ph="Who said it" onCommit={(text) => set({ attribution: text })}
-          />
         </blockquote>
       );
 

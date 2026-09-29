@@ -71,7 +71,7 @@ That's the end of Briefly.
 
 Quote. Simple things should be simple.
 
-Complex things should be possible. End quote. Alan Kay.
+Complex things should be possible. End quote.
 
 Next, a word about membership, from Thingy.
 
@@ -125,6 +125,6 @@ the issue's name ("Weekly Thing 349") where print labels them WT349.
 
 A title that looks like markup is said as words: "<textarea>" is "textarea",
 "tokens_per_second" is "tokens per second". journal-list's bullets speak
-ordinals. quote-kay is framed "Quote. … End quote." and then says whose words
-they were.
+ordinals. quote-kay is framed "Quote. … End quote." and says no name, though the
+fixture carries one (2026-09-29).
 -->

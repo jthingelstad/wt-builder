@@ -73,8 +73,6 @@ This should be a built-in feature in Shortcuts. → **[Introducing Shortcuts Pla
 > Simple things should be simple.
 >
 > Complex things should be possible.
->
-> — Alan Kay
 
 ---
 

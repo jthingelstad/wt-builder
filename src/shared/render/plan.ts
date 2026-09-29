@@ -203,23 +203,15 @@ export function bodyLines(body: string | undefined): string[] {
     .filter((l) => l.length > 0);
 }
 
-/** Whose words a Quote is, without a dash Jamie typed before the name. */
-export function quoteAttribution(item: Item): string {
-  return String(item.attribution ?? '').replace(/^[\s\u2014\u2013-]+/, '').trim();
-}
-
 /**
  * A Quote item as one Markdown blockquote: each line of the quote a
- * paragraph inside it, then whose words they are, when Jamie said. One
- * blockquote per line read as that many separate quotations, and the
- * canvas's "Who said it" reached no edition (review 2026-09-27 §3). Audio
- * asks for the quote alone and says the name after "End quote".
+ * paragraph inside it. One blockquote per line read as that many separate
+ * quotations (review 2026-09-27 §3). A Quote carries no name: Jamie usually
+ * quotes an article unattributed, so no edition prints or speaks one, and
+ * any stored `attribution` is left alone and ignored (Jamie, 2026-09-29).
  */
-export function quoteMarkdown(item: Item, attributed = true): string {
-  const lines = bodyLines(item.body);
-  if (!lines.length) return '';
-  const who = attributed ? quoteAttribution(item) : '';
-  return (who ? [...lines, `\u2014 ${who}`] : lines).map((l) => `> ${l}`).join('\n>\n');
+export function quoteMarkdown(item: Item): string {
+  return bodyLines(item.body).map((l) => `> ${l}`).join('\n>\n');
 }
 
 /**

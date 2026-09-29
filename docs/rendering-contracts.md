@@ -122,12 +122,16 @@ prints whole under its own heading.
 
 ## Quote
 
-Someone else's words, and it says whose. Website and Buttondown print one
-blockquote: each line of the quote a paragraph inside it, then `— <who said
-it>` when the item carries an attribution. Audio frames it "Quote. … End
-quote." and then says the name. Until 2026-09-28 a Quote printed one
-blockquote per line, dropped the attribution everywhere, and was spoken as
-Jamie's own words (review 2026-09-27 §3).
+Someone else's words, with no name. Website and Buttondown print one
+blockquote: each line of the quote a paragraph inside it. Audio frames it
+"Quote. … End quote." Until 2026-09-28 a Quote printed one blockquote per
+line and was spoken as Jamie's own words (review 2026-09-27 §3).
+
+*Revisited 2026-09-29:* 2026-09-28 printed `— <who said it>` after the quote
+and spoke the name after "End quote". Jamie decided a Quote carries no name:
+they usually quote an article unattributed. No edition prints or speaks one,
+the canvas no longer asks "Who said it", and an `attribution` already stored
+on a Quote is left alone and ignored.
 
 ## Photo
 
