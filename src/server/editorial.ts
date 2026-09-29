@@ -16,6 +16,7 @@ import type { ArchiveReference, EchoGrounding, EchoOption, IssueDoc, Item, ItemT
 import { renderAnnotated } from '../shared/render/annotate.ts';
 import { bodyLines, outOfWindow, windowOf } from '../shared/render/plan.ts';
 import { imageTags, splitBody } from '../shared/body.ts';
+import { anchorText } from '../shared/anchor.ts';
 import { config } from './config.ts';
 import * as librarian from './integrations/librarian.ts';
 import * as pinboard from './integrations/pinboard.ts';
@@ -177,14 +178,8 @@ export function pruneStale(doc: IssueDoc, notes: Note[]): Note[] {
     const item = doc.items[note.item_id];
     if (!item) return false;
     if (note.kind !== 'PROOF' || !note.was) return true;
-    return itemText(item).includes(note.was);
+    return anchorText(item).includes(note.was);
   });
-}
-
-function itemText(item: Item): string {
-  return [item.title, item.body, item.commentary, item.label]
-    .filter(Boolean)
-    .join('\n');
 }
 
 export interface ReviewRequest {
@@ -822,7 +817,8 @@ function present(doc: IssueDoc, item: Item | undefined): item is Item {
   );
 }
 
-function anchorText(item: Item, max: number): string {
+/** An item's words as a retrieval query, flattened and capped. */
+function queryText(item: Item, max: number): string {
   const flat = [item.title, item.commentary, item.body]
     .map((f) => bodyLines(f).join(' ').trim())
     .filter(Boolean)
@@ -841,24 +837,24 @@ export function echoesAnchors(doc: IssueDoc): EchoAnchor[] {
       switch (item.type) {
         case 'journal_post':
           if (node.kind === 'promoted_item' || item.presentation === 'promoted') {
-            standalone.push({ label: item.title || node.label, query: anchorText(item, 320) });
+            standalone.push({ label: item.title || node.label, query: queryText(item, 320) });
           } else {
-            week.push(anchorText(item, 100));
+            week.push(queryText(item, 100));
           }
           break;
         case 'pinboard_link':
           if (HEADING_LINK_SECTIONS.has(node.type)) {
-            standalone.push({ label: item.title || 'Link', query: anchorText(item, 320) });
+            standalone.push({ label: item.title || 'Link', query: queryText(item, 320) });
           }
           // Briefly links are one-liners; too thin to anchor an echo.
           break;
         case 'intro':
         case 'currently':
-          week.push(anchorText(item, 160));
+          week.push(queryText(item, 160));
           break;
         case 'photo': {
           const media = [item.media?.caption, item.media?.location].filter(Boolean).join(' — ');
-          week.push([anchorText(item, 100), media].filter(Boolean).join(' '));
+          week.push([queryText(item, 100), media].filter(Boolean).join(' '));
           break;
         }
         default:

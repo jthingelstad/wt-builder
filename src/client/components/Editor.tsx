@@ -12,6 +12,7 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from 'preact/hooks';
 
 import type { Channel, EchoOption, IssueDoc } from '../../shared/types.ts';
+import { anchorText } from '../../shared/anchor.ts';
 import { shortKicker, sourcesLabel } from '../../shared/dates.ts';
 import { windowOf } from '../../shared/render/plan.ts';
 import { api, type IssueResponse, type Readiness } from '../api.ts';
@@ -281,8 +282,7 @@ export function Editor({ doc, readiness, busy, error, run, onIndex, onSend, onEr
     if (n.kind !== 'PROOF' || !n.was) return true;
     const item = n.item_id ? doc.items[n.item_id] : null;
     if (!item) return n.item_id === null;
-    return [item.title, item.body, item.commentary, item.label]
-      .filter(Boolean).join('\n').includes(n.was);
+    return anchorText(item).includes(n.was);
   };
 
   const allNotes: PanelNote[] = (review?.notes ?? [])

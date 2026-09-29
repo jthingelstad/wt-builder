@@ -52,6 +52,22 @@ describe('note anchoring', () => {
     expect(kept).toHaveLength(0);
   });
 
+  it('keeps a PROOF note on a photo\'s caption, alt and place, and on an echo\'s Ask question', () => {
+    const kept = pruneStale(doc, [
+      note({ item_id: 'photo-1', was: 'sun coming down', now: 'sun going down' }),
+      note({ item_id: 'photo-1', was: 'silhouetted tree line', now: 'silhouetted treeline' }),
+      note({ item_id: 'photo-1', was: 'Cannon Lake, Warsaw', now: 'Cannon Lake in Warsaw' }),
+      note({ item_id: 'echo-building', was: 'thinking about building', now: 'thinking on building' }),
+    ]);
+    expect(kept).toHaveLength(4);
+  });
+
+  it('keeps a PROOF note on the member thank-you', () => {
+    const d = structuredClone(doc);
+    d.items['membership-1']!.member_thanks = 'Thank you for giving thorugh the newsletter.';
+    expect(pruneStale(d, [note({ item_id: 'membership-1', was: 'thorugh', now: 'through' })])).toHaveLength(1);
+  });
+
   it('keeps a whole-issue note, which anchors to nothing', () => {
     const kept = pruneStale(doc, [note({ kind: 'LENGTH', item_id: null, was: undefined })]);
     expect(kept).toHaveLength(1);
