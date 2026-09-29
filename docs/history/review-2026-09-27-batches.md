@@ -426,6 +426,10 @@ Batch D: correct each stale statement against the code as it stands. Do not rewr
 One commit. Its message lists each correction.
 ```
 
+## ~~Cross-batch pass~~
+
+Landed 2026-09-28 on review-fixes: 47eb025..f701206. A restart finishes a stranded write on an awake published issue; a source read or write that outlives Put to bed changes no words and records what the source holds; a text leg that sent once counts as gone out though a re-send failed; Put to bed names a leg whose last attempt failed. Needs Jamie: should Put to bed be refused, or warn, while an item is writing, failed or in conflict? Should the podcast script gate stay required after a failed re-render? After a failed archive re-commit, should the index cell say IN ARCHIVE rather than NOT IN ARCHIVE?
+
 ---
 
 ## Feature batches (after the fixes; each is one session)
