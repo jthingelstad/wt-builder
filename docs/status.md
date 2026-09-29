@@ -64,6 +64,21 @@ finished, what is half-finished, and what has never run.
   process on the same database. `sending` is written before the key is
   taken, so a write that throws (a busy database) leaves nothing held.
   Review 2026-09-27, §2.1.
+  Since 2026-09-28 the view cannot surprise (review 2026-09-27 §2.4):
+  every bulk run ("Send all four" / "Send the rest", "Re-send all sent")
+  asks first with a `confirm` naming its legs in run order, and "← Issue"
+  stops a run between legs. A leg the server shows out (`sending`, under
+  the ten-minute in-flight window, `IN_FLIGHT_MS` in `src/shared/sends.ts`)
+  disables every send button, and the view re-reads the issue until it
+  lands, at three seconds backing off to thirty; an older `sending` is
+  stranded and blocks nothing. A failed send re-reads the issue, so the card
+  goes DID NOT SEND; the view re-reads it on opening; the evidence comes
+  from the issue, so it survives a reload. It lies over the editor, which
+  stays mounted and inert; the editor's open-scan is skipped under it and
+  once any leg has gone. Every API answer carries `X-WT-Builder-Build`,
+  read from the `build-id.txt` a build writes beside the client, and a tab
+  whose own build differs shows "WT Builder was updated" with Reload. A
+  missing `/assets/*` file is a 404, not the app shell.
 - **A failed cover fetch keeps the live banner** (2026-09-28) — when the
   issue's photo cannot be fetched, `buildCover` still squares the show art
   for the mp3, but uploads it as `weekly-thing/{N}/cover.jpg` only when no
@@ -366,7 +381,8 @@ finished, what is half-finished, and what has never run.
 
 - **Re-send all sent** (2026-09-20) — on the Send view once any text leg
   has gone: re-runs website, Buttondown, and archive, in order, stopping at
-  the first failure. Once the email has gone to readers, Buttondown is left
+  the first failure. It asks first, naming the legs, and is disabled while
+  the server shows a leg out (2026-09-28, review 2026-09-27 §2.4). Once the email has gone to readers, Buttondown is left
   out (2026-09-28). The podcast is left alone (re-sending it re-synthesizes
   what changed and publishes a new, content-named mp3 — the website leg must
   follow for the page and feed to move; its card does that on purpose). WT350's send day
