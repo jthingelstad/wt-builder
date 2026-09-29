@@ -275,8 +275,10 @@ export function nodeHeading(planned: PlannedNode): string | null {
   const { node, items } = planned;
   if (!node.publishes_heading) return null;
   if (node.kind === 'promoted_item') {
+    // A blank title is a missing one: '' is not null, and a cleared Title
+    // printed a bare "## " (review 2026-09-27 round 2).
     const title = items[0]?.item.title;
-    return `## ${title != null ? escapeExternal(title) : node.label}`;
+    return `## ${title?.trim() ? escapeExternal(title) : node.label}`;
   }
   return `## ${node.label}`;
 }

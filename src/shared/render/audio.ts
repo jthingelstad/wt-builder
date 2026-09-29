@@ -445,7 +445,7 @@ export function transitionFor(planned: PlannedNode, opts: { last?: boolean } = {
   if (node.type === 'echoes') return ECHOES_TRANSITION;
 
   if (node.kind === 'promoted_item') {
-    const title = items[0]?.item.title ?? node.label;
+    const title = items[0]?.item.title?.trim() || node.label;
     return `Next, a longer piece: ${spokenTitle(title)}`;
   }
 
@@ -467,7 +467,7 @@ export function transitionFor(planned: PlannedNode, opts: { last?: boolean } = {
 export function closerFor(planned: PlannedNode): string | null {
   const { node, items } = planned;
   if (node.kind === 'promoted_item') {
-    const title = items[0]?.item.title ?? node.label;
+    const title = items[0]?.item.title?.trim() || node.label;
     return `That's the end of ${spokenTitle(title)}`;
   }
   if (isLinkSection(node)) return `That's the end of ${node.label}.`;
