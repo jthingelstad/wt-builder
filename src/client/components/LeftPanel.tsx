@@ -137,9 +137,12 @@ export function LeftPanel(props: Props) {
                 : `${swept} items swept in from that span.`}
             </div>
             <div class="meta-actions">
-              <button class="btn small" disabled={props.sweeping} onClick={props.onSweep}>
-                {props.sweeping ? 'Re-scanning…' : 'Re-scan'}
-              </button>
+              {/* A draft's only: the server refuses a scan once the issue is published. */}
+              {doc.issue.status === 'draft' && (
+                <button class="btn small" disabled={props.sweeping} onClick={props.onSweep}>
+                  {props.sweeping ? 'Re-scanning…' : 'Re-scan'}
+                </button>
+              )}
               <button class="btn small" onClick={() => setLogOpen(true)}>Log</button>
               <button
                 class={`btn small${doc.draft_share ? ' primary' : ''}`}
@@ -196,6 +199,33 @@ function MetaEditor({
   // once instead, so the old date showed while the save was out and a
   // failed save dropped the typed one (Batch 5 review round 2).
   const dateSave = useRef<Promise<boolean> | undefined>(undefined);
+
+  // Number, date and window are the edition's identity. Published, each
+  // saved at once and the next re-send published a different edition — a
+  // renumber forked the site, emails.json, the feed and the archive (review
+  // 2026-09-27, §2.5). The server refuses them; here they are facts.
+  if (doc.issue.status !== 'draft') {
+    return (
+      <div class="meta-card edit">
+        <div class="field-row">
+          <span class="mono-label">ISSUE NUMBER</span>
+          <span class="fixed-value">{doc.issue.number}</span>
+        </div>
+        <div class="field-row">
+          <span class="mono-label">PUBLISHES</span>
+          <span class="fixed-value">{shortKicker(doc.issue.publication_date)}</span>
+        </div>
+        <div class="field-row col">
+          <span class="mono-label">SOURCE MATERIAL</span>
+          <div class="window-line">{doc.issue.window_days} days · {spanLabel(w)}</div>
+        </div>
+        <p class="quiet fixed-note">
+          Published: the number, date and window are fixed. A re-send would
+          publish a different edition.
+        </p>
+      </div>
+    );
+  }
 
   return (
     <div class="meta-card edit">

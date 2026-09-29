@@ -619,10 +619,21 @@ const routes: [RegExp, string, (ctx: Ctx, params: string[]) => Promise<unknown>]
   // client copy can never clobber send states recorded since it was loaded.
 
   [/^\/api\/issues\/([^/]+)\/sweep$/, 'POST', async (_ctx, [id]) => {
+    // A published issue's material is what was sent; a scan would change it
+    // under the next re-send. The client offers Re-scan on drafts only.
+    const current = requireIssue(id!);
+    if (current.issue.status !== 'draft') {
+      throw new HttpError(409, `WT${current.issue.number} is published — a re-scan would change what was sent`);
+    }
     // Fetch against the issue as it is now; apply to the issue as it is when
     // the fetch is done. Seconds pass in between and Jamie is typing.
-    const fetched = await issues.fetchForSweep(requireIssue(id!));
-    const { doc, report } = issues.applySweep(requireIssue(id!), fetched);
+    const fetched = await issues.fetchForSweep(current);
+    // A leg can land while the sources are read, publishing the issue.
+    const fresh = requireIssue(id!);
+    if (fresh.issue.status !== 'draft') {
+      throw new HttpError(409, `WT${fresh.issue.number} was published while it was scanned — the scan is dropped`);
+    }
+    const { doc, report } = issues.applySweep(fresh, fetched);
     // A quiet re-scan logs nothing; an open re-scans every time and a page of
     // "0 in" lines would bury the log's signal. Quiet means nothing happened
     // — a drop, a move, or a hold-out is something happening, and a scan that
@@ -845,6 +856,16 @@ const routes: [RegExp, string, (ctx: Ctx, params: string[]) => Promise<unknown>]
   [/^\/api\/issues\/([^/]+)\/settings$/, 'POST', async ({ body }, [id]) => {
     const b = await body();
     let doc = requireIssue(id!);
+    // Number, date and window are the edition's identity. On a published
+    // issue each saved at once, and the next re-send published a different
+    // edition: a renumber forked the site page, emails.json, the feed (a
+    // second guid for the same mp3) and the archive (review 2026-09-27,
+    // §2.5). Title and dek stay editable: they are fixes a re-send carries.
+    const fixed = (['number', 'publication_date', 'window_days'] as const).filter((k) => b[k] !== undefined);
+    if (fixed.length && doc.issue.status !== 'draft') {
+      throw new HttpError(409,
+        `WT${doc.issue.number} is published — its number, date and window are fixed, because a re-send would publish a different edition`);
+    }
     if (b.number !== undefined) {
       const number = Number(b.number);
       if (!Number.isFinite(number) || number <= 0) throw new HttpError(400, 'invalid issue number');

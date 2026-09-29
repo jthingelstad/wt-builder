@@ -1199,3 +1199,105 @@ describe('write-backs to one item run one at a time, and the newest words are wh
     await fetch(`${base}/api/issues/${id}`, { method: 'DELETE' });
   });
 });
+
+// A published issue's number, date and window saved at once, and the next
+// re-send published a different edition: a renumber forked the site page,
+// emails.json, the feed (a second guid for the same mp3) and the archive
+// (review 2026-09-27, §2.5).
+describe('a published issue keeps its number, date and window', () => {
+  let store: typeof import('../src/server/db.ts');
+  let id = '';
+
+  beforeAll(async () => {
+    store = await import('../src/server/db.ts');
+  });
+
+  beforeEach(async () => {
+    const created = await fetch(`${base}/api/issues`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ number: 990040, publication_date: '2027-01-02' }),
+    });
+    id = (await created.json()).issue.issue.id as string;
+    store.recordSend(id, 'website', { status: 'sent', at: new Date().toISOString() });
+    store.recordSend(id, 'buttondown', { status: 'sent', at: new Date().toISOString() });
+    expect(store.getIssue(id)!.doc.issue.status).toBe('published');
+  });
+
+  afterEach(() => {
+    store.deleteIssue(id);
+  });
+
+  const settings = (body: Record<string, unknown>) => fetch(`${base}/api/issues/${id}/settings`, {
+    method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(body),
+  });
+
+  for (const [field, value] of [
+    ['number', 990041],
+    ['publication_date', '2027-01-09'],
+    ['window_days', 14],
+  ] as const) {
+    it(`${field} is refused with the reason, and nothing is saved`, async () => {
+      const before = store.getIssue(id)!.doc.issue;
+      const res = await settings({ [field]: value, title: 'Also this' });
+      expect(res.status).toBe(409);
+      expect((await res.json()).error).toMatch(/published.*re-send/);
+      const after = store.getIssue(id)!.doc.issue;
+      expect(after.number).toBe(before.number);
+      expect(after.publication_date).toBe(before.publication_date);
+      expect(after.window_days).toBe(before.window_days);
+      expect(after.title).toBe(before.title);
+    });
+  }
+
+  it('title and dek still save: they are the fix a re-send carries', async () => {
+    const res = await settings({ title: 'Fixed', dek: 'The subject line, fixed' });
+    expect(res.status).toBe(200);
+    const after = store.getIssue(id)!.doc.issue;
+    expect(after.title).toBe('Fixed');
+    expect(after.dek).toBe('The subject line, fixed');
+  });
+
+  it('a re-scan is refused before it fetches anything', async () => {
+    const res = await fetch(`${base}/api/issues/${id}/sweep`, { method: 'POST', body: '{}' });
+    expect(res.status).toBe(409);
+    expect((await res.json()).error).toContain('published');
+  });
+});
+
+describe('a scan that finds the issue published when it lands is dropped', () => {
+  it('the sends that landed while the sources were read win; the scan saves nothing', async () => {
+    const config = await import('../src/server/config.ts');
+    const store = await import('../src/server/db.ts');
+    const created = await fetch(`${base}/api/issues`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ number: 990042, publication_date: '2027-01-16' }),
+    });
+    const id = (await created.json()).issue.issue.id as string;
+    const realFetch = globalThis.fetch;
+    config.credentials.pinboardToken = 'test-token';
+    vi.stubGlobal('fetch', async (input: string | URL | Request, init?: RequestInit) => {
+      const url = new URL(input instanceof Request ? input.url : String(input));
+      if (url.hostname !== 'api.pinboard.in') return realFetch(input, init);
+      // The legs land while the window is being read.
+      store.recordSend(id, 'website', { status: 'sent', at: new Date().toISOString() });
+      store.recordSend(id, 'buttondown', { status: 'sent', at: new Date().toISOString() });
+      return Response.json([{
+        href: 'https://example.com/late', description: 'Late', extended: 'x', tags: '',
+        time: '2027-01-12T14:00:00Z', toread: 'no', shared: 'yes', hash: 'late',
+      }]);
+    });
+    try {
+      const res = await fetch(`${base}/api/issues/${id}/sweep`, { method: 'POST', body: '{}' });
+      expect(res.status).toBe(409);
+      const doc = store.getIssue(id)!.doc;
+      expect(doc.issue.status).toBe('published');
+      expect(Object.values(doc.items).some((i) => i.source_url === 'https://example.com/late')).toBe(false);
+    } finally {
+      vi.unstubAllGlobals();
+      config.credentials.pinboardToken = undefined;
+      store.deleteIssue(id);
+    }
+  });
+});

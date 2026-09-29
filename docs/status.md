@@ -181,6 +181,14 @@ finished, what is half-finished, and what has never run.
   moment its website and buttondown legs are both `sent`; nothing un-derives
   it. This is what keeps `lastPublishedNumber()`, the next-issue default,
   and the website's prior-issues index true after the first real send.
+- **A published issue keeps its number, date and window** (2026-09-28) —
+  `POST /api/issues/:id/settings` refuses `number`, `publication_date` and
+  `window_days` with a 409 once the issue is not a draft, and saves nothing
+  from that request; title and dek still save. `POST …/sweep` refuses a
+  non-draft before it fetches, and drops a scan that finds the issue
+  published when it lands. The panel shows the three as facts and offers no
+  Re-scan. A renumber had forked the site page, emails.json, the feed and
+  the archive on the next re-send. Review 2026-09-27, §2.5.
 - **Creating an issue never replaces one** (2026-09-28) — `POST /api/issues`
   inserts only (`createIssueRow`): an issue's id is `wt<N>` for life and a
   renumbered one keeps it, so creating that number again is a 409 naming
@@ -262,7 +270,7 @@ finished, what is half-finished, and what has never run.
   item stuck in `syncing` (a write that never finished) is skipped by every
   re-scan until a restart's `finishStrandedWrites` writes it.
   Opening a draft issue re-scans automatically, and Re-scan sits on the
-  at-rest meta card as well as in the edit panel. The automatic scan is
+  at-rest meta card as well as in the edit panel, on a draft only. The automatic scan is
   skipped when the editor opens under the Send view (a link to
   `/<id>/send`), when it is uncovered from it, and once any leg has been
   sent or is out, so the legs of a run render the same issue (2026-09-28).
