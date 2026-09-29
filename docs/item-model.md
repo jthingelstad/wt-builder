@@ -67,7 +67,7 @@ source_flags           source-owned fields write-back must hand back untouched
 sync_state             synced | syncing | failed | needs_commentary | local | conflict | gone
 sync_error             kept beside the local edit until a retry succeeds
 status                 draft | reviewed        (Thingy-authored; gates nothing, see decisions.md "Picking is the review")
-reviewed               bool                    (Thingy-authored; set when words land in the item)
+reviewed               bool                    (Thingy-authored; set when words land in the item, and flipped by the inspector's Mark reviewed / Mark draft toggle)
 archive_references     [{ kind, issue, url, title, note }]  (Echo: carried, not hand-edited)
 rendering_overrides
 ```

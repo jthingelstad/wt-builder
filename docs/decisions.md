@@ -112,6 +112,11 @@ prints every version an item has had. It is a recovery tool, not undo: it runs
 outside the editor and only prints the words, and putting them back is an
 ordinary edit.
 
+**Revisited 2026-09-28 — one exception.** "Only prints the words" holds for an
+issue that exists. For a deleted issue, `npm run revisions -- <issue> --restore`
+recreates its row from the newest revision (`DELETE /api/issues/:id` keeps the
+document among its revisions). It will not restore over a live issue.
+
 ## Pre-Builder issues import as a record, not as items
 
 Issues 349 and back were built by the Shortcuts workflow and exist as published

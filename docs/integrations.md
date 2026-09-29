@@ -153,8 +153,13 @@ Librarian API and corpus on 2026-08-28.
   pipeline was not reused.
 - Files are named by content (`weekly-thing-<N>-<hash>.mp3`) because the CDN
   serves them immutable; the website leg must re-send after a regeneration.
-- `WT_BUILDER_TTS_CACHE` places the per-block speech cache (default
-  `data/tts-cache/`). Deleting it costs one full re-synthesis and nothing else.
+- Every spoken piece is stored on the CDN bucket under
+  `weekly-thing/tts/<key>.mp3`, its key naming model, voice, speed and text
+  (`TTS_STORE_PREFIX`, `speakCached` in `src/server/integrations/audio.ts`).
+  `WT_BUILDER_TTS_CACHE` places the local cache of that store (default
+  `data/tts-cache/`). Deleting it costs downloads, not synthesis: a piece
+  missing locally is read back from the store, and only a piece never said
+  is synthesized (2026-09-22, see `decisions.md`).
 - There are no bumpers. The opener and the close are script (2026-09-21).
 
 ## Secrets

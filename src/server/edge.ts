@@ -14,7 +14,8 @@
  * every method. The browser still sends that page's name as the Host, so the
  * service answers only to its own names, for reads as much as writes.
  *
- * Every refusal is logged with the header value it refused, and both lists
+ * Every 403 and 421 is logged with the header value it refused (the 400 for
+ * a target that is not a URL is answered unlogged, in index.ts), and both lists
  * extend from .env (WT_BUILDER_ALLOWED_HOSTS, WT_BUILDER_ALLOWED_ORIGINS,
  * comma-separated) without a code change, so a proxy that sends something
  * unexpected shows up in the log and can be let in the same minute.

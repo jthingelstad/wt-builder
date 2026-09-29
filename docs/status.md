@@ -490,7 +490,7 @@ finished, what is half-finished, and what has never run.
   - Against DNS rebinding, a Host that is not `otto.tail09aaf9.ts.net`
     (bare or `:10001`) or `localhost`/`127.0.0.1` on the listening port is
     a 421 for every method, reads included.
-  - Every refusal is logged (`[edge] 403` / `[edge] 421`) with the values
+  - Every 403 and 421 is logged (`[edge] 403` / `[edge] 421`) with the values
     it refused — a 403 names both `Origin` and `Sec-Fetch-Site` — and
     `WT_BUILDER_ALLOWED_ORIGINS` / `WT_BUILDER_ALLOWED_HOSTS` extend the
     lists without a code change. Tested over HTTP and a raw socket in

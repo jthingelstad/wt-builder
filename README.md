@@ -16,8 +16,8 @@ The product is narrow on purpose: one editor, one current issue, one newsletter.
 
 ## Status
 
-**Publishing The Weekly Thing.** WT350 (2026-09-20) and WT351 (2026-09-26)
-were built here and sent end to end — website, Buttondown, podcast, and the
+**Publishing The Weekly Thing.** WT350 (dated 2026-09-19) and WT351 (dated
+2026-09-26) were built here and sent end to end — website, Buttondown, podcast, and the
 archive corpus — and it is still being built while it is used. The Shortcuts
 workflow stays intact as the fallback until Jamie retires it.
 
@@ -74,8 +74,8 @@ from that list if it is written there. Scripts and curl send neither header
 and pass.
 Against DNS rebinding it also answers only to its own names: a Host that is
 not the tailnet name (with or without `:10001`) or loopback on its port is a
-421, for any method. Every refusal is logged with the values it refused (a
-403 names both `Origin` and `Sec-Fetch-Site`) to stderr, which launchd writes
+421, for any method. Every 403 and 421 is logged with the values it refused
+(a 403 names both `Origin` and `Sec-Fetch-Site`) to stderr, which launchd writes
 to `~/Library/Logs/wt-builder/wt-builder.err`, not `wt-builder.log`;
 `npm run watch` reads both. `WT_BUILDER_ALLOWED_ORIGINS` and
 `WT_BUILDER_ALLOWED_HOSTS` in `.env` (comma-separated) extend the lists

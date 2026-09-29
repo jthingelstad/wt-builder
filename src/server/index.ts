@@ -1683,9 +1683,9 @@ function listeningPort(): number {
 /**
  * The edge, beside guardBed and before routing (edge.ts): a request
  * addressed to a name that is not this service is a 421, whatever its
- * method, and a write from another site is a 403. Every refusal is logged
- * with the value refused, so a proxy the lists do not know shows up in the
- * service log.
+ * method, and a write from another site is a 403. Every 403 and 421 is
+ * logged with the value refused, so a proxy the lists do not know shows up
+ * in the service log.
  */
 function guardEdge(req: IncomingMessage, method: string, pathname: string): void {
   const port = listeningPort();

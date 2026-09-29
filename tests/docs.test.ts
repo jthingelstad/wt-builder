@@ -12,7 +12,7 @@ import { describe, expect, it } from 'vitest';
 import { existsSync, readFileSync, readdirSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
 
-import { allowedOrigins, crossSiteRefusal } from '../src/server/edge.ts';
+import { allowedOrigins, crossSiteRefusal, TAILNET_ORIGIN } from '../src/server/edge.ts';
 
 const root = fileURLToPath(new URL('..', import.meta.url));
 const read = (rel: string) => readFileSync(new URL(`../${rel}`, import.meta.url), 'utf8');
@@ -68,7 +68,7 @@ describe('the documents stay honest', () => {
     // passes whatever Sec-Fetch-Site says, so a built-in origin copied into
     // it loses the check it has now. The places someone edits the list must
     // say so (Batch 1 review), and the edge must still behave as they say.
-    const tailnet = 'https://otto.tail09aaf9.ts.net:10001';
+    const tailnet = TAILNET_ORIGIN;
     const crossSite = { origin: tailnet, 'sec-fetch-site': 'cross-site' };
     expect(crossSiteRefusal('POST', crossSite, allowedOrigins(4317))).toContain('cross-site');
     expect(crossSiteRefusal('POST', crossSite, allowedOrigins(4317), [tailnet])).toBeNull();
