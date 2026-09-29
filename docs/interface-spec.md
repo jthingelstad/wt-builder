@@ -826,7 +826,9 @@ Reads the website edition.
 
 **Generation.** One pattern for Haiku, Membership, and link descriptions (Echoes
 differs: its wand is on the section heading, offers up to five echoes, and the ticked
-ones append as items; each echo's own wand redrafts that one): an
+ones append as items; each echo's own wand redrafts that one, and an echo whose
+citation does not trace to a retrieved passage carries that flag beneath it in
+`--amber`, still pickable): an
 explicit `✦` ask; a 1500 ms busy state; two or three **candidates** rendered as
 selectable cards in the inspector; **nothing written to the issue until Jamie picks one**,
 and editable immediately after. Picking a link description writes `commentary` and

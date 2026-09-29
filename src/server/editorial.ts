@@ -12,7 +12,7 @@ import { fileURLToPath } from 'node:url';
 
 import Anthropic from '@anthropic-ai/sdk';
 
-import type { ArchiveReference, EchoOption, IssueDoc, Item, ItemType } from '../shared/types.ts';
+import type { ArchiveReference, EchoGrounding, EchoOption, IssueDoc, Item, ItemType } from '../shared/types.ts';
 import { renderAnnotated } from '../shared/render/annotate.ts';
 import { bodyLines, outOfWindow, windowOf } from '../shared/render/plan.ts';
 import { imageTags, splitBody } from '../shared/body.ts';
@@ -937,6 +937,112 @@ function passageContext(anchored: AnchoredPassages[]): string {
     .join('\n\n');
 }
 
+// ── echo citation grounding ───────────────────────────────────────────────
+
+/**
+ * A URL as a key: no scheme, no www., no fragment, no trailing slash, and a
+ * lowercase host — so https://www.weekly.thingelstad.com/archive/210 and
+ * http://weekly.thingelstad.com/archive/210/#notable are one address.
+ */
+export function normalizeUrl(url: string): string {
+  let s = String(url ?? '').trim().replace(/#.*$/, '');
+  s = s.replace(/^[a-z][a-z0-9+.-]*:\/\//i, '').replace(/^www\./i, '');
+  const slash = s.indexOf('/');
+  s = slash === -1 ? s.toLowerCase() : s.slice(0, slash).toLowerCase() + s.slice(slash);
+  return s.replace(/\/+$/, '');
+}
+
+/** The issue number a Weekly Thing archive URL points at, or null. */
+export function archiveNumber(url: string): number | null {
+  const m = /^weekly\.thingelstad\.com\/archive\/(\d+)(?:\/|\?|$)/.exec(normalizeUrl(url));
+  return m ? Number(m[1]) : null;
+}
+
+/** Markdown links in a body, then bare URLs not already inside one. */
+function bodyLinks(text: string): { label: string | null; url: string }[] {
+  const links: { label: string | null; url: string }[] = [];
+  const rest = String(text ?? '').replace(/\[([^\]]*)\]\(\s*<?([^)\s>]+)>?(?:\s+"[^"]*")?\s*\)/g, (_m, label: string, url: string) => {
+    links.push({ label, url });
+    return ' ';
+  });
+  for (const m of rest.matchAll(/https?:\/\/[^\s<>)\]]+/g)) {
+    links.push({ label: null, url: m[0].replace(/[.,;:!?'"]+$/, '') });
+  }
+  return links;
+}
+
+/**
+ * Check one echo's citations against what retrieval actually returned.
+ * Pure; the draft route calls it on every echo it offers, the section wand
+ * and the per-echo redraft alike.
+ *
+ * Every WT number — in the text, in an archive URL, in the references —
+ * must be an issue a passage came from, or the seasonal issue. Every other
+ * cited URL must be a passage's URL. A "[WTn]" label must link to
+ * /archive/n/, and every link in the text must be in the echo's own
+ * references. A citation that fails is flagged, never removed: Jamie decides
+ * (generation offers and never writes).
+ */
+export function echoGrounding(
+  option: EchoOption,
+  anchored: AnchoredPassages[],
+  seasonal?: { number: number } | null,
+): EchoGrounding {
+  const issues = new Set<number>();
+  const urls = new Set<string>();
+  for (const { passages } of anchored) {
+    for (const p of passages) {
+      if (p.issue_number) issues.add(p.issue_number);
+      if (p.url) {
+        urls.add(normalizeUrl(p.url));
+        const n = archiveNumber(p.url);
+        if (n) issues.add(n);
+      }
+    }
+  }
+  if (seasonal?.number) issues.add(seasonal.number);
+
+  const flags: string[] = [];
+  const flag = (f: string) => { if (!flags.includes(f)) flags.push(f); };
+  const checkIssue = (n: number) => {
+    if (!issues.has(n)) flag(`WT${n} is not among the passages the archive returned`);
+  };
+  const checkUrl = (url: string) => {
+    const n = archiveNumber(url);
+    if (n !== null) checkIssue(n);
+    else if (!urls.has(normalizeUrl(url))) flag(`${normalizeUrl(url)} is not among the passages the archive returned`);
+  };
+
+  const text = String(option.text ?? '');
+  const refs = option.archive_references ?? [];
+  const refUrls = new Set(refs.map((r) => normalizeUrl(r.url ?? '')).filter(Boolean));
+
+  // The words: bare "WT210" mentions, then every link.
+  for (const m of text.matchAll(/\bWT\s?(\d+)\b/g)) checkIssue(Number(m[1]));
+  for (const { label, url } of bodyLinks(text)) {
+    checkUrl(url);
+    const labelled = label ? /^\s*WT\s?(\d+)\s*$/i.exec(label) : null;
+    const target = archiveNumber(url);
+    if (labelled && target !== null && Number(labelled[1]) !== target) {
+      flag(`WT${labelled[1]} links to /archive/${target}/`);
+    }
+    if (!refUrls.has(normalizeUrl(url))) flag(`${normalizeUrl(url)} is linked in the text but not in this echo's references`);
+  }
+
+  // The references.
+  for (const r of refs) {
+    if (typeof r.issue === 'number') checkIssue(r.issue);
+    if (r.url) {
+      checkUrl(r.url);
+      const target = archiveNumber(r.url);
+      if (typeof r.issue === 'number' && target !== null && target !== r.issue) {
+        flag(`the reference to WT${r.issue} links to /archive/${target}/`);
+      }
+    }
+  }
+  return { flags };
+}
+
 /**
  * The issue published closest to a year before this one — the seasonal lens.
  * Rituals rhyme annually (Boat Day, the anniversary, the state fair), and
@@ -1224,7 +1330,13 @@ export async function draft(req: DraftRequest): Promise<DraftResult> {
     echoes?: EchoOption[];
   };
   if (type === 'echoes') {
-    return { candidates: [], echoes: (parsed.echoes ?? []).slice(0, redraftEcho ? ECHO_REDRAFTS : ECHOES_OFFERED) };
+    // Every echo is checked against what was retrieved, the section wand's
+    // and a single echo's redraft alike; a flag rides along to the picker.
+    const echoes = (parsed.echoes ?? []).slice(0, redraftEcho ? ECHO_REDRAFTS : ECHOES_OFFERED);
+    return {
+      candidates: [],
+      echoes: echoes.map((e) => ({ ...e, grounding: echoGrounding(e, anchored, req.seasonal) })),
+    };
   }
   if (type === 'membership') {
     return {

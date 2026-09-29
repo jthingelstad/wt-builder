@@ -1093,6 +1093,9 @@ function EchoesPicker({
           <span class="dp-text">
             {echo.text}
             {echo.ask && <span class="dp-ask">Ask Thingy: {echo.ask}</span>}
+            {/* A citation the server could not trace to a retrieved
+                passage. Flagged, never dropped: the pick is Jamie's. */}
+            {echo.grounding?.flags.map((f) => <span key={f} class="dp-flag">{f}</span>)}
           </span>
         </button>
       ))}

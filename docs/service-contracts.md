@@ -226,6 +226,17 @@ a silently degraded guess.
 The model reports every source it actually cited, and accepting a candidate
 stores them on the item as `archive_references`.
 
+**Every offered echo is checked against what was retrieved**
+(`echoGrounding`, review 2026-09-27 §5), on the section wand and the
+per-echo redraft alike. Each WT number in the text, in an archive URL or in
+the references must be an issue a passage came from, or the seasonal issue;
+every other cited URL must be a passage's URL (compared without scheme,
+`www.`, fragment or trailing slash). A `[WTn]` label that links to a
+different `/archive/m/`, and a link in the text missing from the echo's own
+references, are flagged too. The result rides on the echo as
+`grounding: { flags: [] }` and the picker shows each flag in the warning
+colour. Nothing is dropped and nothing is stored: the pick stays Jamie's.
+
 ## Both
 
 - Latency is visible, not hidden: the review button reads `Reading…`, the draft

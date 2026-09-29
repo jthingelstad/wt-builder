@@ -7,7 +7,7 @@ import { fileURLToPath } from 'node:url';
 import type { IssueDoc } from '../src/shared/types.ts';
 import { renderAnnotated } from '../src/shared/render/annotate.ts';
 import {
-  ECHOES_MAX_ANCHORS, draft,
+  ECHOES_MAX_ANCHORS, draft, echoGrounding, normalizeUrl,
   assembleReview, campaignFacts, candidateCount, echoesAnchors, issueExcerpt,
   pickSeasonalIssue, poolEchoPassages, pruneStale,
   type AnchoredPassages, type Note, type Review,
@@ -270,6 +270,70 @@ describe('pooling the retrieved passages', () => {
     const pooled = poolEchoPassages(anchored, 350, '2026-05-23');
     expect(pooled.map((a) => a.label)).toEqual(['A']);
     expect(pooled[0]!.passages).toHaveLength(4);
+  });
+});
+
+describe('echo citation grounding', () => {
+  // A hand-built retrieval: two issues and a blog post, as the Librarian
+  // returns them (the URL shapes vary; the check must not care).
+  const anchored: AnchoredPassages[] = [
+    { label: 'Boat Day', passages: [
+      { issue_number: 221, url: 'https://weekly.thingelstad.com/archive/221/#journal', text: 'The boat went in.' },
+      { issue_number: 180, url: 'http://www.weekly.thingelstad.com/archive/180', text: 'Lake season.' },
+    ] },
+    { label: 'Owning the rails', passages: [
+      { url: 'https://www.thingelstad.com/2024/05/01/owning-the-rails/', text: 'A post of his.' },
+    ] },
+  ];
+  const seasonal = { number: 297 };
+  const echo = (text: string, refs: { issue?: number; url: string; kind?: 'issue' | 'blog' }[]) => ({
+    text, archive_references: refs.map((r) => ({ kind: r.kind ?? 'issue' as const, ...r })), ask: 'Why the boat?',
+  });
+
+  it('normalizes scheme, www, trailing slash, and fragment', () => {
+    expect(normalizeUrl('https://www.Weekly.Thingelstad.com/archive/221/#notable'))
+      .toBe(normalizeUrl('http://weekly.thingelstad.com/archive/221'));
+  });
+
+  it('passes an echo whose every citation traces to a passage or the seasonal issue', () => {
+    const e = echo(
+      'The boat went in, as in [WT221](https://weekly.thingelstad.com/archive/221/) and a year ago in [WT297](https://weekly.thingelstad.com/archive/297/).',
+      [{ issue: 221, url: 'https://weekly.thingelstad.com/archive/221' }, { issue: 297, url: 'https://weekly.thingelstad.com/archive/297/' }],
+    );
+    expect(echoGrounding(e, anchored, seasonal).flags).toEqual([]);
+  });
+
+  it('flags an issue number the archive never returned, in the text and in the references', () => {
+    const e = echo('Recalls [WT199](https://weekly.thingelstad.com/archive/199/).', [{ issue: 199, url: 'https://weekly.thingelstad.com/archive/199/' }]);
+    const { flags } = echoGrounding(e, anchored, seasonal);
+    expect(flags).toEqual(['WT199 is not among the passages the archive returned']);
+  });
+
+  it('flags a WTn label that links to a different issue', () => {
+    const e = echo('Recalls [WT221](https://weekly.thingelstad.com/archive/180/).', [{ issue: 221, url: 'https://weekly.thingelstad.com/archive/180/' }]);
+    const { flags } = echoGrounding(e, anchored, seasonal);
+    expect(flags).toContain('WT221 links to /archive/180/');
+    expect(flags).toContain('the reference to WT221 links to /archive/180/');
+  });
+
+  it('flags a link in the text that is not in the echo\'s own references', () => {
+    const e = echo('Recalls [WT221](https://weekly.thingelstad.com/archive/221/) and [WT180](https://weekly.thingelstad.com/archive/180/).', [{ issue: 221, url: 'https://weekly.thingelstad.com/archive/221/' }]);
+    expect(echoGrounding(e, anchored, seasonal).flags)
+      .toEqual(["weekly.thingelstad.com/archive/180 is linked in the text but not in this echo's references"]);
+  });
+
+  it('checks a blog citation by its URL, and a bare WTn mention by its number', () => {
+    const ok = echo('He wrote [Owning the Rails](https://thingelstad.com/2024/05/01/owning-the-rails).', [{ kind: 'blog', url: 'https://thingelstad.com/2024/05/01/owning-the-rails/' }]);
+    expect(echoGrounding(ok, anchored, seasonal).flags).toEqual([]);
+    const invented = echo('He wrote [a post](https://thingelstad.com/2019/01/01/invented/), as WT12 did.', [{ kind: 'blog', url: 'https://thingelstad.com/2019/01/01/invented/' }]);
+    const flags = echoGrounding(invented, anchored, seasonal).flags;
+    expect(flags).toContain('thingelstad.com/2019/01/01/invented is not among the passages the archive returned');
+    expect(flags).toContain('WT12 is not among the passages the archive returned');
+  });
+
+  it('without the seasonal issue, citing it is flagged', () => {
+    const e = echo('A year ago, [WT297](https://weekly.thingelstad.com/archive/297/).', [{ issue: 297, url: 'https://weekly.thingelstad.com/archive/297/' }]);
+    expect(echoGrounding(e, anchored, undefined).flags).toEqual(['WT297 is not among the passages the archive returned']);
   });
 });
 

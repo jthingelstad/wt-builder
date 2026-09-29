@@ -195,6 +195,18 @@ export interface EchoOption {
    * asked (thingy.thingelstad.com/chat/?prompt=…), 2026-09-20.
    */
   ask?: string;
+  /**
+   * What the server found when it checked this echo's citations against
+   * the passages it retrieved: one readable flag per citation that does not
+   * trace back. Shown in the picker, never stored, never a reason to drop
+   * the echo (generation offers; review 2026-09-27, §5).
+   */
+  grounding?: EchoGrounding;
+}
+
+export interface EchoGrounding {
+  /** Empty when every citation traced to a passage or the seasonal issue. */
+  flags: string[];
 }
 
 /** A shared draft preview: where it lives and what Jamie said with it. */

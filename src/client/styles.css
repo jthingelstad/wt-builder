@@ -286,6 +286,7 @@ a:hover { text-decoration: underline; }
 
 .dp-foot { font-size: 10.5px; color: var(--muted); margin: 0; }
 .dp-ask { display: block; margin-top: 5px; font-size: 11px; color: var(--terracotta); font-style: italic; }
+.dp-flag { display: block; margin-top: 5px; font-size: 11px; color: var(--amber); }
 
 /* The ordering wand's proposal: a numbered sequence beside the current one. */
 .order-picker { width: calc(var(--notes) + 60px); }
