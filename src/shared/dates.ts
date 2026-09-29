@@ -175,6 +175,29 @@ export function issueSaturday(isoDate: string): string {
   return snapToSaturday(isoDate);
 }
 
+/**
+ * The date a new issue starts on: the Saturday after the latest issue there
+ * is, and never before this week's Saturday. It was this week's Saturday
+ * alone, and on send day — when the builder's own OmniFocus project says to
+ * start the next issue — that is the issue just sent: the new one took its
+ * date and window, the sweep filled it with last week's links, and holding
+ * them out wrote `_exclude` onto bookmarks already published (review
+ * 2026-09-27, §3).
+ */
+export function nextIssueDate(existing: readonly string[], today: string): string {
+  const floor = snapToSaturday(today);
+  const latest = existing.map(issueSaturday).sort().at(-1);
+  if (!latest) return floor;
+  const after = addDays(latest, 7);
+  return after > floor ? after : floor;
+}
+
+/** Whether a date is already some issue's: both are compared as the Saturday each is dated. */
+export function dateTaken(existing: readonly string[], date: string): boolean {
+  const saturday = issueSaturday(date);
+  return existing.some((d) => issueSaturday(d) === saturday);
+}
+
 // ── zone conversion ───────────────────────────────────────────────────────
 
 const ZONE_PARTS = new Intl.DateTimeFormat('en-US', {

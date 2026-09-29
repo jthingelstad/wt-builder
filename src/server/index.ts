@@ -10,7 +10,7 @@
  * exposing it on a public interface would publish an unauthenticated editor.
  */
 
-import { todayCentral } from '../shared/dates.ts';
+import { dateTaken, issueSaturday, nextIssueDate, todayCentral } from '../shared/dates.ts';
 import { createServer, type IncomingMessage, type ServerResponse } from 'node:http';
 import { readFile } from 'node:fs/promises';
 import { createHash } from 'node:crypto';
@@ -557,9 +557,18 @@ const routes: [RegExp, string, (ctx: Ctx, params: string[]) => Promise<unknown>]
     const number = Number(b.number ?? store.lastPublishedNumber() + 1);
     if (!Number.isFinite(number) || number <= 0) throw new HttpError(400, 'invalid issue number');
     if (store.getIssueByNumber(number)) throw new HttpError(409, `issue ${number} already exists`);
+    // One issue per Saturday. A second one dated the Saturday just sent
+    // swept last week's links, and holding them out wrote `_exclude` onto
+    // bookmarks that issue published (review 2026-09-27, §3).
+    const dates = store.listIssueDates();
+    const publication_date = String(b.publication_date ?? nextIssueDate(dates.map((d) => d.publication_date), todayCentral()));
+    if (dateTaken(dates.map((d) => d.publication_date), publication_date)) {
+      const holder = dates.find((d) => issueSaturday(d.publication_date) === issueSaturday(publication_date))!;
+      throw new HttpError(409, `WT${holder.number} is already dated ${issueSaturday(publication_date)} — pick another Saturday`);
+    }
     const doc = issues.createIssue({
       number,
-      publication_date: String(b.publication_date ?? todayCentral()),
+      publication_date,
       window_days: b.window_days ? Number(b.window_days) : 7,
       title: b.title,
       dek: b.dek,

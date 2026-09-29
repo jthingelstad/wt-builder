@@ -194,7 +194,12 @@ finished, what is half-finished, and what has never run.
   renumbered one keeps it, so creating that number again is a 409 naming
   the issue that holds it, not an upsert over it. Only a taken id or number
   is that 409; any other constraint failure is an error, not "already
-  exists". Review 2026-09-27, §1.1.
+  exists". Review 2026-09-27, §1.1. Nor is a second issue dated the same
+  Saturday (2026-09-28): the create is a 409 naming the issue that holds
+  the date, and the new-issue sheet says so and disables Create. With no
+  date given the service, like the sheet, dates it the Saturday after the
+  latest issue, and never a Saturday already past. On send day the default
+  had been the issue just sent. Review 2026-09-27, §3.
 - **Write-back compare-and-set** (2026-08-30) — before replacing a bookmark
   or post, write-back fetches the record and refuses with `conflict` when it
   no longer matches the sweep's snapshot (or `gone` when deleted), so an

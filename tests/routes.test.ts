@@ -467,10 +467,12 @@ describe('issues round-trip through the service', () => {
   // the old number again used to upsert over the renumbered issue — a
   // published WT352 replaced by a blank draft (review 2026-09-27, §1.1).
   it('creating a number whose id a renumbered issue still holds is a 409, and that issue is intact', async () => {
-    const create = (number: number) => fetch(`${base}/api/issues`, {
+    // Two dates: one issue per Saturday is refused on its own, and this
+    // test is about the id.
+    const create = (number: number, publication_date = '2026-12-05') => fetch(`${base}/api/issues`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ number, publication_date: '2026-12-05' }),
+      body: JSON.stringify({ number, publication_date }),
     });
     const first = await create(990353);
     expect(first.status).toBe(200);
@@ -484,7 +486,7 @@ describe('issues round-trip through the service', () => {
     });
     expect(renumbered.status).toBe(200);
 
-    const again = await create(990353);
+    const again = await create(990353, '2027-02-06');
     expect(again.status).toBe(409);
     expect((await again.json()).error).toContain(id);
 
@@ -872,12 +874,16 @@ describe('a conflict has a way out: Keep mine, or Take theirs', () => {
     config.config.pinboardWriteBack = false;
   });
 
-  /** A draft with one Pinboard link edited both here and at Pinboard. */
+  /**
+   * A draft with one Pinboard link edited both here and at Pinboard. Each
+   * draft its own Saturday: the service holds one issue per date.
+   */
   const contested = async (number: number): Promise<string> => {
+    const saturday = new Date(Date.UTC(2027, 2, 6 + 7 * (number - 990014))).toISOString().slice(0, 10);
     const created = await fetch(`${base}/api/issues`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ number, publication_date: '2026-12-05' }),
+      body: JSON.stringify({ number, publication_date: saturday }),
     });
     const id = (await created.json()).issue.issue.id as string;
     const doc = store.getIssue(id)!.doc;
@@ -1299,5 +1305,39 @@ describe('a scan that finds the issue published when it lands is dropped', () =>
       config.credentials.pinboardToken = undefined;
       store.deleteIssue(id);
     }
+  });
+});
+
+// Started on send day, a new issue took the date of the one just sent: its
+// sweep brought last week's links back, and holding them out wrote
+// `_exclude` onto bookmarks already published (review 2026-09-27, §3).
+describe('one issue per Saturday, and a new one starts after the latest', () => {
+  const create = (body: Record<string, unknown>) => fetch(`${base}/api/issues`, {
+    method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(body),
+  });
+
+  it('a date another issue holds is refused, naming that issue, and nothing is created', async () => {
+    const store = await import('../src/server/db.ts');
+    const first = await create({ number: 990043, publication_date: '2027-04-03' });
+    expect(first.status).toBe(200);
+    for (const date of ['2027-04-03', '2027-04-04']) { // the Saturday, and a Sunday that dates back to it
+      const again = await create({ number: 990044, publication_date: date });
+      expect(again.status, date).toBe(409);
+      expect((await again.json()).error, date).toContain('WT990043');
+      expect(store.getIssueByNumber(990044), date).toBeFalsy();
+    }
+    store.deleteIssue('wt990043');
+  });
+
+  it('with no date given, the issue is dated the Saturday after the latest one', async () => {
+    const store = await import('../src/server/db.ts');
+    // Later than anything else in this database, and than today.
+    expect((await create({ number: 990046, publication_date: '2027-08-07' })).status).toBe(200);
+    const res = await create({ number: 990045 });
+    expect(res.status).toBe(200);
+    const { issue } = await res.json();
+    expect(issue.issue.publication_date).toBe('2027-08-14');
+    store.deleteIssue(issue.issue.id);
+    store.deleteIssue('wt990046');
   });
 });

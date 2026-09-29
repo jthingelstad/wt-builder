@@ -9,7 +9,7 @@ import { join } from 'node:path';
 import type { IssueDoc, Item } from '../src/shared/types.ts';
 import * as issues from '../src/server/issue.ts';
 import { credentials } from '../src/server/config.ts';
-import { inWindow, issueWindow, snapToSaturday, windowLabel } from '../src/shared/dates.ts';
+import { dateTaken, inWindow, issueWindow, nextIssueDate, snapToSaturday, windowLabel } from '../src/shared/dates.ts';
 import {
   addMarkdownBlock, addSection, createIssue, demote, hideItem, moveLinkToSection, moveNode,
   isFlattened, normalizeSkeleton, promote, readiness, removeSection, setChannel, setIssueNumber, withoutFlattening,
@@ -1483,5 +1483,35 @@ describe('the issue is dated its Saturday', () => {
   it('a midweek date is a typo and snaps forward to the Saturday target', () => {
     const doc = createIssue({ number: 996, publication_date: '2026-09-02' }); // Wednesday
     expect(doc.issue.publication_date).toBe('2026-09-05');
+  });
+});
+
+describe('a new issue starts after the latest one', () => {
+  // Started on send day, as the OmniFocus project schedules it, the new
+  // issue took the date and window of the one just sent (review 2026-09-27, §3).
+  it('on the Saturday an issue was sent, the next one is the Saturday after', () => {
+    expect(nextIssueDate(['2026-09-19', '2026-09-26'], '2026-09-26')).toBe('2026-10-03');
+  });
+
+  it('midweek, it is still the Saturday after the latest issue', () => {
+    expect(nextIssueDate(['2026-09-26', '2026-09-19'], '2026-09-29')).toBe('2026-10-03');
+  });
+
+  it('after weeks off, it is this week, never a Saturday already past', () => {
+    expect(nextIssueDate(['2026-09-26'], '2026-10-20')).toBe('2026-10-24');
+  });
+
+  it('a Sunday-dated archive issue counts as its Saturday', () => {
+    expect(nextIssueDate(['2026-09-27'], '2026-09-28')).toBe('2026-10-03');
+  });
+
+  it('with no issues, it is this week\'s Saturday', () => {
+    expect(nextIssueDate([], '2026-09-29')).toBe('2026-10-03');
+  });
+
+  it('a date is taken when an issue is dated the same Saturday', () => {
+    expect(dateTaken(['2026-09-26'], '2026-09-26')).toBe(true);
+    expect(dateTaken(['2026-09-26'], '2026-09-27')).toBe(true); // a Sunday dates back
+    expect(dateTaken(['2026-09-26'], '2026-10-03')).toBe(false);
   });
 });

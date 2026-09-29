@@ -79,3 +79,21 @@ test('a year filter applies to the draft too', async ({ page }) => {
   await page.getByPlaceholder('Search titles or numbers').fill('349');
   await expect(page.locator('.issue-row', { hasText: 'WT350' })).toHaveCount(0);
 });
+
+// Started on send day, a new issue took the date and window of the issue
+// just sent (review 2026-09-27, §3). The fixture WT350 is dated Saturday
+// 2026-05-23; the browser's clock is set to that afternoon.
+test('a new issue started on send day defaults to the next Saturday, and a taken date is refused', async ({ page }) => {
+  await page.clock.setFixedTime(new Date('2026-05-23T20:00:00Z'));
+  await page.goto('/');
+  await expect(page.locator('.issue-row', { hasText: 'WT350' })).toHaveCount(1);
+  await page.getByRole('button', { name: 'New issue' }).click();
+  const sheet = page.locator('.sheet');
+  const date = sheet.locator('input[type="date"]');
+  await expect(date).toHaveValue('2026-05-30');
+  await expect(sheet.locator('.err-note')).toHaveCount(0);
+
+  await date.fill('2026-05-23');
+  await expect(sheet.locator('.err-note')).toContainText('WT350 is already dated');
+  await expect(sheet.getByRole('button', { name: /^Create WT/ })).toBeDisabled();
+});

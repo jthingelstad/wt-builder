@@ -9,7 +9,7 @@
 import { useEffect, useState } from 'preact/hooks';
 
 import { api, type IssueSummary } from '../api.ts';
-import { countdown, isSaturday, issueSaturday, issueWindow, kickerDate, longDate, snapToSaturday, spanLabel, todayCentral, wallClock } from '../../shared/dates.ts';
+import { countdown, isSaturday, issueSaturday, issueWindow, kickerDate, longDate, nextIssueDate, spanLabel, todayCentral, wallClock } from '../../shared/dates.ts';
 import { Archive, Check, CircleAlert, Spinner, Moon } from '../icons.tsx';
 import { omnifocusUrl, taskpaper } from '../../shared/taskpaper.ts';
 import { duration } from '../../shared/timing.ts';
@@ -189,6 +189,7 @@ export function IssueIndex({ error, loading: opening, onError, onOpen }: Props) 
       {sheet && (
         <SetupSheet
           nextNumber={nextNumber}
+          issues={issues}
           replacing={draft}
           onCancel={() => setSheet(false)}
           onCreate={async (body) => {
@@ -378,21 +379,27 @@ function ArchiveCell({
 const SPANS = [7, 14, 21];
 
 function SetupSheet({
-  nextNumber, replacing, onCancel, onCreate,
+  nextNumber, issues, replacing, onCancel, onCreate,
 }: {
   nextNumber: number;
+  /** Every issue, for the dates already taken. */
+  issues: IssueSummary[];
   replacing?: IssueSummary;
   onCancel: () => void;
   onCreate: (body: { number: number; publication_date: string; window_days: number }) => void;
 }) {
-  const today = todayCentral();
-  const [date, setDate] = useState(snapToSaturday(today));
+  // The Saturday after the latest issue. This week's Saturday, on send day,
+  // was the issue just sent, and the new one took its date and window
+  // (review 2026-09-27, §3).
+  const [date, setDate] = useState(() => nextIssueDate(issues.map((i) => i.publication_date), todayCentral()));
   const [number, setNumber] = useState(nextNumber);
   const [days, setDays] = useState(7);
   const [busy, setBusy] = useState(false);
 
   const saturday = isSaturday(date);
   const dated = issueSaturday(date);
+  // One issue per Saturday; the server refuses a second one too.
+  const holder = issues.find((i) => issueSaturday(i.publication_date) === dated);
   const w = issueWindow(date, days);
 
   return (
@@ -410,7 +417,12 @@ function SetupSheet({
           <label class="field">
             <span class="mono-label">PUBLICATION DATE</span>
             <input type="date" value={date} onChange={(e) => setDate((e.target as HTMLInputElement).value)} />
-            {saturday
+            {holder
+              ? <span class="err-note" role="alert">
+                  WT{holder.number} is already dated {kickerDate(dated)} — pick
+                  another Saturday.
+                </span>
+              : saturday
               ? <span class="ok-note">{kickerDate(date)} · 12:00 AM CT</span>
               : <span class="ok-note">
                   Will be dated {kickerDate(dated)} — the issue is dated its
@@ -447,7 +459,7 @@ function SetupSheet({
           <button class="btn" onClick={onCancel}>Cancel</button>
           <button
             class="btn primary"
-            disabled={!saturday || busy}
+            disabled={!saturday || Boolean(holder) || busy}
             onClick={() => { setBusy(true); onCreate({ number, publication_date: date, window_days: days }); }}
           >
             {busy ? 'Creating…' : `Create WT${number}`}

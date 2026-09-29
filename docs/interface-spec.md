@@ -694,8 +694,10 @@ Opened by the rail `i` button. `padding: 14px 18px 40px`.
   state in `#2f7d4f`.
 - **Start a new issue sheet** — modal on `rgba(26,26,26,.28)`, 460px, radius 12px,
   `box-shadow: 0 24px 60px rgba(26,26,26,.22)`, `padding-top: 88px` from viewport top.
-  Title 18px/600, a line naming the issue being replaced, then PUBLICATION DATE (with
-  green confirmation `SAT, SEP 12 · 12:00 AM CT` or an error), ISSUE NUMBER (seeded
+  Title 18px/600, a line naming the issue being replaced, then PUBLICATION DATE (seeded
+  with the Saturday after the latest issue, never one already past; green
+  confirmation `SAT, SEP 12 · 12:00 AM CT`, or an error when another issue holds
+  that Saturday, which disables Create), ISSUE NUMBER (seeded
   last-published + 1, note "Follows WT350"), SOURCE MATERIAL (7/14/21 + free number,
   derived window line). Footer `#fbfbfa`: **Cancel** / **Create WT351**.
 - **Updated bar** — ink pill, bottom centre, over everything including the Send
