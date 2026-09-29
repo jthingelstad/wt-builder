@@ -152,3 +152,26 @@ test('put to bed, nothing is offered: no editable run, rail, wand, field, or but
   const edit = await request.patch(`/api/issues/${ISSUE}/items/link-functions`, { data: { commentary: 'changed' } });
   expect(edit.status()).toBe(423);
 });
+
+// A blur with no edit never PATCHes. An untitled post's title is undefined
+// and its field reads back '', which counted as a change: focusing the Title
+// and clicking away saved '' and started a Micro.blog write-back for an edit
+// nobody made (Batch 7 review, round 2).
+test('on a draft, an untouched Inspector field saves nothing; a real edit still does', async ({ page }) => {
+  expect(item('journal-boat').title).toBeUndefined();
+  await open(page);
+  const patches: string[] = [];
+  page.on('request', (r) => { if (r.method() === 'PATCH') patches.push(r.url()); });
+  await page.locator('[data-anchor="journal-boat"] .rail-btn[aria-label="Inspect"]').click();
+  const title = page.locator('aside.panel').getByLabel('Title', { exact: true });
+  await title.focus();
+  await title.blur();
+  await page.waitForTimeout(300);
+  expect(patches).toEqual([]);
+  expect(item('journal-boat').title).toBeUndefined();
+
+  await title.fill('On the boat');
+  await title.blur();
+  await expect.poll(() => item('journal-boat').title).toBe('On the boat');
+  expect(patches).toHaveLength(1);
+});

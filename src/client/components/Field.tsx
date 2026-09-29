@@ -48,6 +48,17 @@ export function useFieldValue<T extends HTMLInputElement | HTMLTextAreaElement>(
   return { ref, settle };
 }
 
+/**
+ * Whether a field's text on blur is an edit of the saved value. A missing
+ * value reads as '', the way the field shows it: an untitled post's title is
+ * undefined, and comparing it to the '' its field read back sent
+ * {title: ''} on a blur with no edit, and started a Micro.blog write-back
+ * for an edit nobody made (Batch 7 review, round 2).
+ */
+export function edited(saved: string | null | undefined, text: string): boolean {
+  return (saved ?? '') !== text;
+}
+
 type InputProps = Omit<JSX.InputHTMLAttributes<HTMLInputElement>, 'value' | 'defaultValue' | 'ref' | 'onBlur'> & {
   value: string | number;
   /**

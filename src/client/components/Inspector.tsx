@@ -3,7 +3,7 @@ import { useEffect } from 'preact/hooks';
 import type { IssueDoc, Item } from '../../shared/types.ts';
 import { CHANNELS } from '../../shared/types.ts';
 import { api, shouldWriteBack, writeBackMessage, type IssueResponse } from '../api.ts';
-import { Input, useFieldValue } from './Field.tsx';
+import { edited, Input, useFieldValue } from './Field.tsx';
 import { isFrozen } from './Page.tsx';
 
 interface Props {
@@ -141,12 +141,12 @@ export function Inspector({ doc, itemId, run, onClose, onError, onBackToReview, 
    * so focusing it to copy and clicking away sent {title: ''} into the
    * server's 423 (Batch 7 review, B1). The same holds for every field below.
    */
-  const commitField = (field: keyof Item, value: unknown) =>
-    !frozen && item[field] !== value ? commit({ [field]: value }) : undefined;
+  const commitField = (field: 'title' | 'label' | 'commentary' | 'body' | 'ask', value: string) =>
+    !frozen && edited(item[field], value) ? commit({ [field]: value }) : undefined;
 
   const commitMedia = (field: string, value: string) => {
     if (frozen) return undefined;
-    if ((item.media?.[field as keyof NonNullable<Item['media']>] ?? '') === value) return undefined;
+    if (!edited(item.media?.[field as keyof NonNullable<Item['media']>], value)) return undefined;
     return commit({ media: { ...(item.media ?? {}), [field]: value } });
   };
 

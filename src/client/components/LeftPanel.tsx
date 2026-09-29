@@ -14,7 +14,7 @@ import { itemsInWindow, orderedNodes, outOfWindow, windowOf } from '../../shared
 import { api } from '../api.ts';
 import { ArrowDown, ArrowUp, EyeOff, GripVertical, X } from '../icons.tsx';
 import { EventLog } from './EventLog.tsx';
-import { Input } from './Field.tsx';
+import { edited, Input } from './Field.tsx';
 import { omnifocusUrl, taskpaper } from '../../shared/taskpaper.ts';
 import { isFrozen } from './Page.tsx';
 
@@ -209,14 +209,14 @@ function HeadFields({ doc, onSettings }: {
         <span class="mono-label">TITLE · IN THE EMAIL SUBJECT</span>
         <Input
           type="text" class="wide" value={doc.issue.title} placeholder="Untitled issue"
-          onCommit={(text) => (text !== doc.issue.title ? onSettings({ title: text }) : undefined)}
+          onCommit={(text) => (edited(doc.issue.title, text) ? onSettings({ title: text }) : undefined)}
         />
       </label>
       <label class="field-row col">
         <span class="mono-label">DEK</span>
         <Input
           type="text" class="wide" value={doc.issue.dek ?? ''} placeholder="A line about this issue…"
-          onCommit={(text) => (text !== (doc.issue.dek ?? '') ? onSettings({ dek: text }) : undefined)}
+          onCommit={(text) => (edited(doc.issue.dek, text) ? onSettings({ dek: text }) : undefined)}
         />
       </label>
     </>
