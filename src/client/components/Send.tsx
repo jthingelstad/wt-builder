@@ -228,16 +228,17 @@ export function Send({ doc, readiness, error, onBack, onSent, onError }: Props) 
     return () => clearInterval(t);
   }, [verifying, waiting, id]);
 
-  // A leg is out whenever the server says so, not only while this view's
-  // own request is: after leaving and coming back, or a reload, a sending
-  // leg looked unsent and could be pressed again (review 2026-09-27 §2.4).
-  // While one is out, nothing else starts, as for a leg sent from here, and
-  // the view re-reads the issue until it lands.
   // Opened, the view reads the issue again rather than trusting the copy
   // the editor held: a leg may have moved since (review 2026-09-27 §2.4).
   useEffect(() => {
     api.getIssue(id).then((r) => onSent(r.issue)).catch(() => { /* the copy on screen stands */ });
   }, [id]);
+
+  // A leg is out whenever the server says so, not only while this view's
+  // own request is: after leaving and coming back, or a reload, a sending
+  // leg looked unsent and could be pressed again (review 2026-09-27 §2.4).
+  // While one is out, nothing else starts, as for a leg sent from here, and
+  // the view re-reads the issue until it lands.
   const outOnServer = CARDS.some((c) => stateOf(c.key) === 'sending');
   const sending = Boolean(running) || outOnServer;
   useEffect(() => {
