@@ -184,6 +184,37 @@ export function LeftPanel(props: Props) {
 
 // ── issue metadata ────────────────────────────────────────────────────────
 
+/**
+ * Title and dek. The title is in the email's subject ("WT351 — title") and
+ * the dek is the page's description. The canvas head edits them too, but a
+ * published issue's head is read-only, so neither had an edit path, and a
+ * fix made in Buttondown was reverted by the next re-send (review
+ * 2026-09-27, §2.5).
+ */
+function HeadFields({ doc, onSettings }: {
+  doc: IssueDoc;
+  onSettings: (p: Record<string, unknown>) => Promise<boolean>;
+}) {
+  return (
+    <>
+      <label class="field-row col">
+        <span class="mono-label">TITLE · IN THE EMAIL SUBJECT</span>
+        <Input
+          type="text" class="wide" value={doc.issue.title} placeholder="Untitled issue"
+          onCommit={(text) => (text !== doc.issue.title ? onSettings({ title: text }) : undefined)}
+        />
+      </label>
+      <label class="field-row col">
+        <span class="mono-label">DEK</span>
+        <Input
+          type="text" class="wide" value={doc.issue.dek ?? ''} placeholder="A line about this issue…"
+          onCommit={(text) => (text !== (doc.issue.dek ?? '') ? onSettings({ dek: text }) : undefined)}
+        />
+      </label>
+    </>
+  );
+}
+
 function MetaEditor({
   doc, onSettings, onSweep, sweeping,
 }: {
@@ -207,6 +238,7 @@ function MetaEditor({
   if (doc.issue.status !== 'draft') {
     return (
       <div class="meta-card edit">
+        <HeadFields doc={doc} onSettings={onSettings} />
         <div class="field-row">
           <span class="mono-label">ISSUE NUMBER</span>
           <span class="fixed-value">{doc.issue.number}</span>
@@ -229,6 +261,7 @@ function MetaEditor({
 
   return (
     <div class="meta-card edit">
+      <HeadFields doc={doc} onSettings={onSettings} />
       <label class="field-row">
         <span class="mono-label">ISSUE NUMBER</span>
         <Input

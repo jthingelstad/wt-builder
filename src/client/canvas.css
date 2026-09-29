@@ -725,6 +725,16 @@ span[contenteditable]:focus {
   font-size: 12.5px;
   background: var(--page);
 }
+.field-row input.wide {
+  border: 1px solid var(--border-button);
+  border-radius: 6px;
+  padding: 4px 7px;
+  font: inherit;
+  font-size: 12.5px;
+  background: var(--page);
+  width: 100%;
+  box-sizing: border-box;
+}
 .field-row .num { width: 88px; }
 .field-row .num.small { width: 62px; }
 

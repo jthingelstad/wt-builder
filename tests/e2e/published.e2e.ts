@@ -40,3 +40,18 @@ test('a draft still edits its number, date and window, and re-scans', async ({ p
   await expect(meta.locator('input[type="number"]').first()).toBeVisible();
   await expect(meta.locator('input[type="date"]')).toBeVisible();
 });
+
+test('published, the title and dek are edited in the panel and saved', async ({ page }) => {
+  publish();
+  await open(page);
+  const panel = page.locator('.left-panel');
+  await panel.getByRole('button', { name: 'Edit' }).click();
+  const title = panel.getByLabel('TITLE · IN THE EMAIL SUBJECT');
+  const dek = panel.getByLabel('DEK', { exact: true });
+  await title.fill('A title fixed after sending');
+  await dek.fill('A dek fixed after sending');
+  await title.focus(); // blur the dek, which commits it
+  await title.blur();
+  await expect.poll(() => store.getIssue(ISSUE)!.doc.issue.title).toBe('A title fixed after sending');
+  await expect.poll(() => store.getIssue(ISSUE)!.doc.issue.dek).toBe('A dek fixed after sending');
+});

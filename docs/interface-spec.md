@@ -387,12 +387,19 @@ narrates; it never decides.
 **Edit open** — white card, radius 9px, `padding: 11px 12px`, mono 9.5px/.08em
 `#9a9a9a` field labels separated by `1px #f0efec` rules:
 
+- TITLE · IN THE EMAIL SUBJECT and DEK — full-width text inputs. The canvas
+  head edits the same two; these are the edit path once the issue is
+  published (review 2026-09-27, §2.5).
 - ISSUE NUMBER — number input, 88px.
 - PUBLISHES — date input. Non-Saturdays snap forward with an amber note:
   "Moved to Saturday — the Weekly Thing always publishes Saturday."
 - SOURCE MATERIAL — 7 / 14 / 21 chips (active = black fill) + free number input
   ("days back from Friday"), the derived window line 12px/500, an explanatory note,
   and a **Re-scan** button with the sweep count.
+
+On a published issue, the number, date and window are shown as facts, with a
+note that a re-send would publish a different edition. The server refuses all
+three, and Re-scan is offered on a draft only.
 - Below the card: **Start the next issue…**, dashed-border ghost button.
 
 **OUTLINE** — mono label, hint "Drag a row, or use the arrows. Echoes stays last.",
