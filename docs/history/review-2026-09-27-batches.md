@@ -397,7 +397,9 @@ Batch 8. The rule throughout: generation offers and never writes, so every check
    - The seasonal excerpt uses plan.ts's isIncluded.
 ```
 
-## Batch D — Documents that say what is true (§7)
+## ~~Batch D — Documents that say what is true (§7)~~
+
+Landed 2026-09-28 on review-fixes: 5478146..03b7ef6. Skipped (already true at HEAD): website send order, the refusal log name, status.md against verify.ts on chapters and transcript (both right; WT351 renders them). Needs Jamie: the Mark reviewed / Mark draft toggle on Thingy items gates nothing since "Picking is the review"; should it go? audio.ts writes a new speech piece to disk before the CDN store, but decisions.md 2026-09-22 says the store comes first; change the order or the note?
 
 ```text
 Read docs/history/review-2026-09-27.md §7, "Stale docs", first. It is a verified review taken at 06b237f. Line numbers have drifted, so find code by symbol. Before changing anything, confirm the finding still holds.
