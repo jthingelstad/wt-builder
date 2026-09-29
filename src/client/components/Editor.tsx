@@ -58,13 +58,39 @@ const KICKER: Record<Lens, [string, string]> = {
 
 const CHANNEL_LENSES: Channel[] = ['website', 'email', 'audio'];
 
-export function Editor({ doc, readiness, busy, error, run, onIndex, onSend, onError }: Props) {
+/**
+ * The field Jamie is typing in, if focus is in one: a contenteditable, a
+ * textarea, or an input that takes text. Not a checkbox, a button or a file
+ * input, which have no typing to lose.
+ */
+const TYPED_INPUTS = new Set(['text', 'search', 'url', 'email', 'tel', 'number', 'date', 'password']);
+function typingIn(): HTMLElement | null {
+  const el = document.activeElement as HTMLElement | null;
+  if (!el) return null;
+  if (el.isContentEditable || el instanceof HTMLTextAreaElement) return el;
+  if (el instanceof HTMLInputElement && TYPED_INPUTS.has(el.type)) return el;
+  return null;
+}
+
+export function Editor({ doc, readiness, busy, error, run: runCall, onIndex, onSend, onError }: Props) {
+  // Every call from here is counted while it is out, so a held re-scan can
+  // wait for the save the field it waited on made as it let go.
+  const inflight = useRef(new Set<Promise<boolean>>());
+  const run = useCallback((fn: () => Promise<IssueResponse>) => {
+    const call = runCall(fn);
+    inflight.current.add(call);
+    void call.finally(() => inflight.current.delete(call));
+    return call;
+  }, [runCall]);
   const [lens, setLens] = useState<Lens>('website');
   const [panel, setPanel] = useState(true);
   const [selected, setSelected] = useState<string | null>(null);
   const [drafting, setDrafting] = useState<string | null>(null);
   const [draft, setDraft] = useState<{ itemId: string; candidates: string[]; echoes?: EchoOption[]; membership?: { cta: string; thanks: string }[]; photo?: { alt: string }[]; alts?: { src: string; alt: string }[] } | null>(null);
   const [sweeping, setSweeping] = useState(false);
+  // A re-scan that landed while a field was being typed in, and waits for it.
+  const [scanWaiting, setScanWaiting] = useState(false);
+  const dropHeldScan = useRef<(() => void) | null>(null);
   const [ordering, setOrdering] = useState<string | null>(null);
   const [orderProposal, setOrderProposal] = useState<OrderProposal | null>(null);
   // ⌘/ shows the keyboard sugar; Jamie will forget it otherwise (2026-09-20).
@@ -191,16 +217,54 @@ export function Editor({ doc, readiness, busy, error, run, onIndex, onSend, onEr
     },
   };
 
+  /**
+   * Hold a re-scan until `field` lets go. A scan that reorders a section (a
+   * Pinboard retag, a Journal re-sort) or drops an item moves or removes
+   * the row being typed in: WebKit fires no blur for that, so the typing
+   * sat unsaved and unmarked, and Chromium blurs, so the rest of it went
+   * nowhere (Batch 5 review round 2). The field is never overwritten while
+   * focused, but it can be moved, so the scan waits — only for a field that
+   * takes typing, visibly on the Re-scan button, and no longer than the
+   * field is on the page.
+   *
+   * The field's blur sends its own save before this runs. The server
+   * applied the scan before answering it, so that save's answer carries
+   * both; once every call out has answered, the issue is read again, which
+   * is the scan and the edit in the order they were made.
+   */
+  const holdScan = (field: HTMLElement) => {
+    setScanWaiting(true);
+    let done = false;
+    const stop = () => {
+      done = true;
+      document.removeEventListener('focusout', onOut, true);
+      gone.disconnect();
+      dropHeldScan.current = null;
+      setScanWaiting(false);
+    };
+    const release = () => {
+      if (done) return;
+      stop();
+      const out = [...inflight.current];
+      void Promise.allSettled(out).then(() => run(() => api.getIssue(id)));
+    };
+    const onOut = (e: FocusEvent) => { if (e.target === field) release(); };
+    const gone = new MutationObserver(() => { if (!field.isConnected) release(); });
+    document.addEventListener('focusout', onOut, true);
+    gone.observe(document.body, { childList: true, subtree: true });
+    dropHeldScan.current = stop;
+  };
+  // Leaving the issue drops a held scan's listeners; the next open re-scans.
+  useEffect(() => () => dropHeldScan.current?.(), [id]);
+
   const sweep = () => {
     setSweeping(true);
     api.sweep(id)
-      // Applied as it lands. It used to wait for a focused field to blur,
-      // because replacing the doc reset the field being typed in; no field
-      // is overwritten while focused now (Field.tsx, Editable,
-      // RichEditable), and the wait held a scan invisibly — on a checkbox,
-      // or for ever when WebKit removed the field without a blur (Batch 5
-      // review, N4).
-      .then((resp) => void run(() => Promise.resolve(resp)))
+      .then((resp) => {
+        const field = typingIn();
+        if (field) holdScan(field);
+        else void run(() => Promise.resolve(resp));
+      })
       .catch((err) => onError((err as Error).message))
       .finally(() => setSweeping(false));
   };
@@ -383,6 +447,7 @@ export function Editor({ doc, readiness, busy, error, run, onIndex, onSend, onEr
             onReorder={(nodeId, before) => void run(() => api.addNode(id, { id: nodeId, before: before ?? undefined }))}
             onSweep={sweep}
             sweeping={sweeping}
+            scanWaiting={scanWaiting}
             onShare={(note) => run(() => api.shareDraft(id, note))}
             onUnshare={() => run(() => api.unshareDraft(id))}
           />

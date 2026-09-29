@@ -29,6 +29,8 @@ interface Props {
   onReorder: (nodeId: string, beforeId: string | null) => void;
   onSweep: () => void;
   sweeping: boolean;
+  /** A re-scan landed while a field was being typed in, and waits for it. */
+  scanWaiting: boolean;
   onShare: (note?: string) => Promise<unknown>;
   onUnshare: () => Promise<unknown>;
 }
@@ -126,7 +128,7 @@ export function LeftPanel(props: Props) {
       </div>
 
       {editing
-        ? <MetaEditor doc={doc} onSettings={props.onSettings} onSweep={props.onSweep} sweeping={props.sweeping} />
+        ? <MetaEditor doc={doc} onSettings={props.onSettings} onSweep={props.onSweep} sweeping={props.sweeping} scanWaiting={props.scanWaiting} />
         : (
           <div class="meta-card">
             <div><span class="k">Publishes</span> {shortKicker(doc.issue.publication_date)}</div>
@@ -137,9 +139,7 @@ export function LeftPanel(props: Props) {
                 : `${swept} items swept in from that span.`}
             </div>
             <div class="meta-actions">
-              <button class="btn small" disabled={props.sweeping} onClick={props.onSweep}>
-                {props.sweeping ? 'Re-scanning…' : 'Re-scan'}
-              </button>
+              <RescanButton sweeping={props.sweeping} waiting={props.scanWaiting} onSweep={props.onSweep} />
               <button class="btn small" onClick={() => setLogOpen(true)}>Log</button>
               <button
                 class={`btn small${doc.draft_share ? ' primary' : ''}`}
@@ -179,15 +179,34 @@ export function LeftPanel(props: Props) {
   );
 }
 
+/**
+ * Re-scan, and what a re-scan is doing. One that lands while a field is
+ * being typed in waits for the field to let go, and says so (Batch 5 review
+ * round 2).
+ */
+function RescanButton({ sweeping, waiting, onSweep }: { sweeping: boolean; waiting: boolean; onSweep: () => void }) {
+  return (
+    <button
+      class="btn small"
+      disabled={sweeping || waiting}
+      onClick={onSweep}
+      title={waiting ? 'Applied when you leave the field you are typing in' : undefined}
+    >
+      {waiting ? 'Re-scan waiting…' : sweeping ? 'Re-scanning…' : 'Re-scan'}
+    </button>
+  );
+}
+
 // ── issue metadata ────────────────────────────────────────────────────────
 
 function MetaEditor({
-  doc, onSettings, onSweep, sweeping,
+  doc, onSettings, onSweep, sweeping, scanWaiting,
 }: {
   doc: IssueDoc;
   onSettings: (p: Record<string, unknown>) => Promise<boolean>;
   onSweep: () => void;
   sweeping: boolean;
+  scanWaiting: boolean;
 }) {
   const w = windowOf(doc);
   const [snapped, setSnapped] = useState(false);
@@ -250,9 +269,7 @@ function MetaEditor({
           Days back from the Friday the window closes. Everything bookmarked or
           posted inside it is on the page.
         </p>
-        <button class="btn small" disabled={sweeping} onClick={onSweep}>
-          {sweeping ? 'Re-scanning…' : 'Re-scan'}
-        </button>
+        <RescanButton sweeping={sweeping} waiting={scanWaiting} onSweep={onSweep} />
       </div>
     </div>
   );
