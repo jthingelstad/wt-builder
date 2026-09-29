@@ -220,6 +220,11 @@ export function Send({ doc, readiness, error, onBack, onSent, onError }: Props) 
   // leg looked unsent and could be pressed again (review 2026-09-27 §2.4).
   // While one is out, nothing else starts, as for a leg sent from here, and
   // the view re-reads the issue until it lands.
+  // Opened, the view reads the issue again rather than trusting the copy
+  // the editor held: a leg may have moved since (review 2026-09-27 §2.4).
+  useEffect(() => {
+    api.getIssue(id).then((r) => onSent(r.issue)).catch(() => { /* the copy on screen stands */ });
+  }, [id]);
   const outOnServer = CARDS.some((c) => stateOf(c.key) === 'sending');
   const sending = Boolean(running) || outOnServer;
   useEffect(() => {

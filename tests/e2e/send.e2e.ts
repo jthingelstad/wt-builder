@@ -123,3 +123,15 @@ test('a leg the server has out reads as sending, cannot be pressed, and lands on
   await expect(site.locator('.sc-head .btn.primary')).toBeEnabled();
   expect(posted).toEqual([]);
 });
+
+test('the Send view reads the issue again when it opens', async ({ page }) => {
+  await interceptSends(page);
+  const swept = page.waitForResponse((r) => r.url().endsWith(`/api/issues/${ISSUE}/sweep`));
+  await open(page);
+  await swept;
+
+  // A leg lands while the editor is open (another tab, a send still out).
+  podcastSent();
+  await page.locator('.app .header').getByRole('button', { name: 'Publish' }).click();
+  await expect(card(page, 'Podcast').locator('.sc-pill').first()).toHaveText('SENT');
+});
