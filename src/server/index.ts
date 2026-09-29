@@ -298,9 +298,18 @@ function writeBack(id: string, itemId: string): Promise<WriteOutcome> {
 
 async function writeLatest(id: string, itemId: string, queue: { waiting: number }): Promise<WriteOutcome> {
   for (let attempt = 1; ; attempt++) {
-    const { patch, result } = await writeItemToSource(id, requireIssue(id), itemId);
+    // A write whose turn comes after the issue was put to bed writes
+    // nothing: the issue is frozen, and the door refused it too.
+    const doc = awake(requireIssue(id));
+    const source = doc.items[itemId]?.source ?? 'the source';
+    const { patch, result } = await writeItemToSource(id, doc, itemId);
     let again = false;
     const response = savedFresh(id, (d) => {
+      // Put to bed while the source was written: the write reached it, but
+      // the issue is not changed, not even its sync state (cross-batch
+      // review of review-fixes, Batch 2 x Batch 7). The item stays
+      // `syncing`; once the issue is woken, a restart finishes it.
+      awake(d, `${source} was being written (the write reached it)`);
       const fresh = d.items[itemId];
       if (!fresh) return;
       const written = patch.source_snapshot;
@@ -406,9 +415,19 @@ function guardBed(method: string, pathname: string): void {
   const rest = m[2] ?? '';
   if (rest === '/bed' || rest.startsWith('/verify/')) return;
   const doc = store.getIssue(decodeURIComponent(m[1]!))?.doc;
-  if (doc?.issue.put_to_bed_at) {
-    throw new HttpError(423, `WT${doc.issue.number} is put to bed — wake it to change anything`);
-  }
+  if (doc) awake(doc);
+}
+
+/**
+ * The door's 423, for the doc in hand. A handler that awaited the network
+ * passed the door before the issue was put to bed, so its fresh read asks
+ * again before applying a result; `meanwhile` says what it was waiting on.
+ */
+function awake(doc: IssueDoc, meanwhile?: string): IssueDoc {
+  if (!doc.issue.put_to_bed_at) return doc;
+  throw new HttpError(423, meanwhile
+    ? `WT${doc.issue.number} was put to bed while ${meanwhile} — nothing changed here; wake it to change anything`
+    : `WT${doc.issue.number} is put to bed — wake it to change anything`);
 }
 
 /** What the voice will say, hashed: the script review and approval are for this text. */
@@ -929,17 +948,23 @@ const routes: [RegExp, string, (ctx: Ctx, params: string[]) => Promise<unknown>]
       throw new HttpError(409, `${issues.itemName(item)} is not in conflict (${item.sync_state ?? 'no sync state'})`);
     }
     const remote = await readSource(item);
+    // An issue put to bed while the source was read is frozen: the choice
+    // is refused as the door would refuse it, and nothing changes
+    // (cross-batch review of review-fixes, Batch 2 x Batch 7).
+    const meanwhile = `${item.source} was read`;
     if (remote === null) {
-      store.logEvent(id!, 'sync', `Deleted at ${item.source} — ${issues.itemName(item)}`, itemId);
-      return savedFresh(id!, (d) => issues.updateItem(d, itemId!, {
+      const response = savedFresh(id!, (d) => issues.updateItem(awake(d, meanwhile), itemId!, {
         sync_state: 'gone', sync_error: `deleted at ${item.source} — not recreating it`,
       }));
+      store.logEvent(id!, 'sync', `Deleted at ${item.source} — ${issues.itemName(item)}`, itemId);
+      return response;
     }
     // The choice was made about the copy read above. One that moved while
     // the source was read — edited, or no longer in conflict — is not the
     // one Jamie chose about, and Take theirs would overwrite the new edit
     // (Batch 2 review round 1, follow-up 3).
     const unmoved = (d: IssueDoc): IssueDoc => {
+      awake(d, meanwhile);
       const fresh = d.items[itemId!];
       if (!fresh || fresh.sync_state !== 'conflict' || !holds(fresh, item)) {
         throw new HttpError(409,

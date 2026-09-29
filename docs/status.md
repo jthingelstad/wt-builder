@@ -232,7 +232,11 @@ finished, what is half-finished, and what has never run.
   refuse again. Both refuse an item not in `conflict` (409) and change
   nothing when the source cannot be read (502). They also answer 409 and
   change nothing when the item was edited, or left `conflict`, while the
-  source was being read. A failed or conflicted
+  source was being read, and 423 when the issue was put to bed meanwhile
+  (2026-09-28). A write-back whose turn comes after the issue is put to
+  bed writes nothing (423); one put to bed while it is being written
+  reaches the source but saves nothing here, so the item stays `syncing`
+  until the issue is woken and a restart finishes it. A failed or conflicted
   item from Pinboard or Micro.blog is a `sync` unit on the checklist.
   Review 2026-09-27, §1.2.
 - **emails.json is merged, never rebuilt** (2026-08-31) — the website leg

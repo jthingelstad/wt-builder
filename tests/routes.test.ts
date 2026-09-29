@@ -990,6 +990,62 @@ describe('a conflict has a way out: Keep mine, or Take theirs', () => {
     await fetch(`${base}/api/issues/${id}`, { method: 'DELETE' });
   });
 
+  // Batch 7 froze an issue put to bed; Batch 2's choices and write-back
+  // read the source, then saved through savedFresh without looking again.
+  // An issue put to bed while the source was read had its words changed.
+  describe('an issue put to bed while the source is read is not changed', () => {
+    const bedDuringRead = (id: string) => {
+      store.recordSend(id, 'website', { status: 'sent', at: new Date().toISOString() });
+      store.recordSend(id, 'buttondown', { status: 'sent', at: new Date().toISOString() });
+      duringRead = () => {
+        const d = store.getIssue(id)!.doc;
+        d.issue.put_to_bed_at = new Date().toISOString();
+        store.saveIssue(d);
+      };
+    };
+
+    it('Take theirs is refused as the door refuses it, and the words stay', async () => {
+      const id = await contested(990053);
+      bedDuringRead(id);
+      const res = await choose(id, 'take-theirs');
+      expect(res.status).toBe(423);
+      expect((await res.json()).error).toContain('put to bed');
+      const item = store.getIssue(id)!.doc.items['link-contested']!;
+      expect(item.commentary).toBe('Mine, written here.');
+      expect(item.sync_state).toBe('conflict');
+      expect(item.source_snapshot?.commentary).toBe('The words both started from.');
+      store.deleteIssue(id);
+    });
+
+    it('Keep mine is refused, and nothing is written to the source', async () => {
+      const id = await contested(990054);
+      bedDuringRead(id);
+      const res = await choose(id, 'keep-mine');
+      expect(res.status).toBe(423);
+      expect(added).toHaveLength(0);
+      const item = store.getIssue(id)!.doc.items['link-contested']!;
+      expect(item.sync_state).toBe('conflict');
+      expect(item.source_snapshot?.commentary).toBe('The words both started from.');
+      store.deleteIssue(id);
+    });
+
+    it('a write-back that lands after it was put to bed saves nothing', async () => {
+      const id = await contested(990055);
+      const doc = store.getIssue(id)!.doc;
+      doc.items['link-contested']!.sync_state = 'syncing';
+      doc.items['link-contested']!.sync_error = undefined;
+      store.saveIssue(doc);
+      remote.extended = 'The words both started from.';
+      bedDuringRead(id);
+      const before = structuredClone(store.getIssue(id)!.doc.items['link-contested']!);
+      const res = await fetch(`${base}/api/issues/${id}/items/link-contested/writeback`, { method: 'POST', body: '{}' });
+      expect(res.status).toBe(423);
+      expect((await res.json()).error).toContain('put to bed');
+      expect(store.getIssue(id)!.doc.items['link-contested']).toEqual(before);
+      store.deleteIssue(id);
+    });
+  });
+
   it('the write-back refusal no longer sends Jamie to a re-scan', async () => {
     const id = await contested(990017);
     const doc = store.getIssue(id)!.doc;
@@ -1213,6 +1269,59 @@ describe('write-backs to one item run one at a time, and the newest words are wh
     expect(item.sync_state).toBe('synced');
     expect(item.source_snapshot?.commentary).toBe('v2');
     await fetch(`${base}/api/issues/${id}`, { method: 'DELETE' });
+  });
+
+  // A write queued behind another reads the issue when its turn comes; an
+  // issue put to bed in between is frozen, so it writes nothing (cross-batch
+  // review: Batch 2 x Batch 7).
+  it('a write whose turn comes after the issue is put to bed writes nothing', async () => {
+    const created = await fetch(`${base}/api/issues`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ number: 990056, publication_date: '2028-01-08' }),
+    });
+    const id = (await created.json()).issue.issue.id as string;
+    store.recordSend(id, 'website', { status: 'sent', at: new Date().toISOString() });
+    store.recordSend(id, 'buttondown', { status: 'sent', at: new Date().toISOString() });
+    const doc = store.getIssue(id)!.doc;
+    doc.items['link-overlap'] = {
+      type: 'pinboard_link', authorship: 'syndicated', source: 'Pinboard',
+      channels: { website: true, email: true, audio: true },
+      source_id: `pinboard:${LINK}`, source_url: LINK, published_at: '2026-12-08T14:00:00Z',
+      title: 'Overlap', commentary: 'v0', tags: ['notable'], section: 'Notable',
+      source_snapshot: { title: 'Overlap', commentary: 'v0', tags: ['notable'] },
+      source_flags: { toread: 'yes', shared: 'no' }, sync_state: 'synced',
+    };
+    doc.nodes.find((n) => n.id === 'notable')!.items.push('link-overlap');
+    store.saveIssue(doc);
+
+    const edit = (commentary: string) => fetch(`${base}/api/issues/${id}/items/link-overlap`, {
+      method: 'PATCH',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ commentary }),
+    });
+    const first = edit('v1');
+    await until(() => adds.length === 1);
+    const second = edit('v2');
+    await until(() => store.getIssue(id)!.doc.items['link-overlap']!.commentary === 'v2');
+    const asleep = store.getIssue(id)!.doc;
+    asleep.issue.put_to_bed_at = new Date().toISOString();
+    store.saveIssue(asleep);
+
+    // Let each write land as it is asked for.
+    for (let i = 0; i < 20; i++) {
+      adds.forEach((a) => a.release());
+      await new Promise((r) => setTimeout(r, 20));
+    }
+    const [one, two] = await Promise.all([first, second]);
+    expect(one.status).toBe(423);
+    expect(two.status).toBe(423);
+    expect(adds.map((a) => a.extended)).toEqual(['v1']);
+    const item = store.getIssue(id)!.doc.items['link-overlap']!;
+    expect(item.commentary).toBe('v2');
+    expect(item.sync_state).toBe('syncing');
+    expect(item.source_snapshot?.commentary).toBe('v0');
+    store.deleteIssue(id);
   });
 
   it("the older write's outcome does not mark a newer edit synced", async () => {
