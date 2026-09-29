@@ -62,3 +62,24 @@ test('a double-click on Publish asks before it sends anything', async ({ page })
   expect(asked).toHaveLength(1);
   expect(asked[0]).toContain('Website, Buttondown and Archive');
 });
+
+test('"← Issue" stops a bulk run after the leg that is out', async ({ page }) => {
+  podcastSent();
+  let release!: () => void;
+  const held = new Promise<void>((r) => { release = r; });
+  const posted = await interceptSends(page, async (leg, route) => {
+    if (leg === 'website') await held;
+    await route.fulfill({ json: { issue: store.getIssue(ISSUE)!.doc, send: { status: 'sent' } } });
+  });
+  page.on('dialog', (d) => void d.accept());
+
+  await page.goto(`/${ISSUE}/send`);
+  await page.getByRole('button', { name: 'Send the rest' }).click();
+  await expect.poll(() => posted).toEqual(['website']);
+
+  await page.locator('.send-layer .header').getByRole('button', { name: 'Issue' }).click();
+  await expect(page.locator('.send-layer')).toHaveCount(0);
+  release();
+  await page.waitForTimeout(500);
+  expect(posted).toEqual(['website']);
+});

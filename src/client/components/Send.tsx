@@ -11,7 +11,7 @@
  * send came back with the evidence that step produces.
  */
 
-import { useEffect, useState } from 'preact/hooks';
+import { useEffect, useRef, useState } from 'preact/hooks';
 
 import type { Destination, IssueDoc, ScriptReview, SendState, SentRecord, Verification } from '../../shared/types.ts';
 import { lastSent, recordedAudioUrl } from '../../shared/sends.ts';
@@ -172,7 +172,14 @@ const PILL: Record<string, string> = {
 export function Send({ doc, readiness, error, onBack, onSent, onError }: Props) {
   const [running, setRunning] = useState<Destination | null>(null);
   const [results, setResults] = useState<Partial<Record<Destination, SendResult>>>({});
-
+  // Leaving the view stops a bulk run between legs: the leg that is out
+  // finishes, and nothing after it starts (review 2026-09-27 §2.4).
+  const cancelled = useRef(false);
+  useEffect(() => () => { cancelled.current = true; }, []);
+  const back = () => {
+    cancelled.current = true;
+    onBack();
+  };
 
   const id = doc.issue.id;
   const stateOf = (key: Destination) => doc.sends?.[key]?.status ?? 'none';
@@ -265,8 +272,9 @@ export function Send({ doc, readiness, error, onBack, onSent, onError }: Props) 
   const sendAll = async () => {
     if (!rest.length) return;
     if (!confirm(`Send ${legNames(rest)} for WT${doc.issue.number}, in that order?`)) return;
+    cancelled.current = false;
     for (const key of rest) {
-      if ((await send(key)) === 'failed') return;
+      if (cancelled.current || (await send(key)) === 'failed') return;
     }
   };
 
@@ -281,15 +289,16 @@ export function Send({ doc, readiness, error, onBack, onSent, onError }: Props) 
   const resendable = RESEND.filter((key) => stateOf(key) === 'sent' && !(key === 'buttondown' && emailGone));
   const resendAll = async () => {
     if (!confirm(`Re-send ${legNames(resendable)} for WT${doc.issue.number}, in that order? The podcast is left as it is.`)) return;
+    cancelled.current = false;
     for (const key of resendable) {
-      if ((await send(key)) === 'failed') return;
+      if (cancelled.current || (await send(key)) === 'failed') return;
     }
   };
 
   return (
     <div class="send-layer">
       <header class="header">
-        <button class="btn ghost-btn" onClick={onBack}><ArrowLeft /> Issue</button>
+        <button class="btn ghost-btn" onClick={back}><ArrowLeft /> Issue</button>
         <span class="mark">W</span>
         <span class="head-divider" />
         <span class="identity">
