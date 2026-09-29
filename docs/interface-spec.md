@@ -1010,10 +1010,8 @@ Added 2026-09-28, from the review of 2026-09-27 (§1.4, §1.5):
   `data-unsaved` (the terracotta tint) and the next blur tries it again.
 - **A field is never reset while it has focus.** The Inspector's and the
   issue panel's inputs are uncontrolled while focused (`Field.tsx`); a save
-  landing updates only fields Jamie is not in. A re-scan waits for a
-  focused field that takes typing to let go (the Re-scan button reads
-  "Re-scan waiting…"), because it can move the row being typed in. Escape
-  in one commits it before the panel closes.
+  or a re-scan landing updates only fields Jamie is not in. Escape in one
+  commits it before the panel closes.
 - **A click in and out is not an edit.** An editable commits only when what
   it reads back differs from the read-back of the stored value. The
   read-back keeps the spaces before a line end, so a Markdown hard break

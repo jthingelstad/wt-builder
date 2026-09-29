@@ -247,14 +247,7 @@ finished, what is half-finished, and what has never run.
   item stuck in `syncing` (a write that never finished) is skipped by every
   re-scan until a restart's `finishStrandedWrites` writes it.
   Opening a draft issue re-scans automatically, and Re-scan sits on the
-  at-rest meta card as well as in the edit panel. A re-scan that lands
-  while a field that takes typing has focus (a block on the canvas, an
-  Inspector or issue-panel text field) waits for it: the button reads
-  **Re-scan waiting…**, and when the field lets go, or leaves the page, its
-  own save goes out and the issue is read again once every call out has
-  answered. Applied as it landed, a scan that reordered a section moved the
-  row being typed in, and WebKit lost the typing without a blur (Batch 5
-  review round 2). Focus on a button or anything else holds nothing.
+  at-rest meta card as well as in the edit panel.
 - **Event log** (2026-08-30) — every action on an issue is narrated to an
   append-only `events` table (its own table; the document rewrites wholesale
   on every save): sweep arrivals, source-side refreshes/gone/conflicts,
@@ -583,3 +576,9 @@ spec's own idiom for secondary chrome. Read closed, the wand returns.
 midnight, Friday to Friday CT; a Friday-daytime capture belongs to the next
 issue by intent. And the issue is dated its Saturday no matter when it
 sends — a Sunday send dates back, never forward. See docs/decisions.md.
+
+**Known gap, open for Jamie (2026-09-28):** a re-scan, or any answer that
+carries one (a write-back PATCH out when the scan lands), that moves the
+row being typed in can lose that typing: WebKit gives no blur, so nothing
+is saved, and Chromium loses what is typed after the move. A hold on the
+scan's own answer was tried and withdrawn (Batch 5 review round 2).

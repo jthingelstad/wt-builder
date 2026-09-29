@@ -307,25 +307,16 @@ test.describe('a Markdown hard break', () => {
 
 // The re-scan used to wait, invisibly, for any focused input to blur —
 // a checkbox, a file input, a field WebKit removed without a blur, and then
-// never (Batch 5 review, N4). Applied as it landed, it moved rows out from
-// under the caret (round 2). It waits only for a field that takes typing,
-// says so, and is applied when the field lets go.
-async function sweepRetitling(page: Page) {
+// never. A focused field is no longer overwritten, so a re-scan applies as
+// it lands (Batch 5 review, N4).
+test('a re-scan that lands while a field has focus is applied at once', async ({ page }) => {
   await page.route(`**/api/issues/${ISSUE}/sweep`, async (route) => {
     const res = await route.fetch();
-    // What the scan found, on the server as well as in its answer.
-    const doc = store.getIssue(ISSUE)!.doc;
-    doc.items['link-flipcash']!.title = 'Swept in while typing';
-    store.saveIssue(doc);
     const body = await res.json();
     body.issue.items['link-flipcash'].title = 'Swept in while typing';
     await route.fulfill({ response: res, json: body });
   });
-  return hold(page, `**/api/issues/${ISSUE}/sweep`, 'POST');
-}
-
-test('a re-scan that lands while a field is typed in waits for it, visibly, then is applied', async ({ page }) => {
-  const sweep = await sweepRetitling(page);
+  const sweep = await hold(page, `**/api/issues/${ISSUE}/sweep`, 'POST');
   await open(page);
   await sweep.seen;
   const panel = await inspect(page, 'link-functions');
@@ -334,29 +325,9 @@ test('a re-scan that lands while a field is typed in waits for it, visibly, then
   await page.keyboard.type('Still typing');
 
   sweep.release('continue');
-  await expect(page.getByRole('button', { name: 'Re-scan waiting…' })).toBeVisible();
+  await expect(page.locator('[data-anchor="link-flipcash"]').first()).toContainText('Swept in while typing');
   await expect(notes).toBeFocused();
   await expect(notes).toHaveValue('Still typing');
-  const flipcash = page.locator('[data-anchor="link-flipcash"]').first();
-  await expect(flipcash).not.toContainText('Swept in while typing');
-
-  await notes.blur();
-  await expect.poll(() => item('link-functions').commentary).toBe('Still typing');
-  await expect(flipcash).toContainText('Swept in while typing');
-  await expect(page.getByRole('button', { name: 'Re-scan', exact: true })).toBeEnabled();
-  await expect(notes).toHaveValue('Still typing');
-});
-
-test('a re-scan that lands while a button has focus is applied at once', async ({ page }) => {
-  const sweep = await sweepRetitling(page);
-  await open(page);
-  await sweep.seen;
-  const panel = await inspect(page, 'link-functions');
-  await panel.getByRole('button').first().focus();
-
-  sweep.release('continue');
-  await expect(page.locator('[data-anchor="link-flipcash"]').first()).toContainText('Swept in while typing');
-  await expect(page.getByRole('button', { name: 'Re-scan waiting…' })).toHaveCount(0);
 });
 
 test('a re-scan that lands while a block is being typed in leaves the typing alone', async ({ page }) => {
@@ -373,49 +344,6 @@ test('a re-scan that lands while a block is being typed in leaves the typing alo
   await page.keyboard.type(' And after.');
   await commit(page, () => String(item('link-flipcash').commentary).endsWith('And after.'));
   expect(item('link-flipcash').commentary).toBe(`${before} Typed while it scanned. And after.`);
-});
-
-// A re-scan applied as it landed moved the row being typed in when it
-// reordered the section (a Pinboard retag, a Journal re-sort): WebKit fired
-// no blur, and the typing sat unsaved, unmarked and dead; Chromium blurred,
-// and the rest of the typing was lost (Batch 5 review round 2). The scan
-// now waits, visibly, for the field to let go.
-test('a re-scan that moves the row being typed in waits, and the typing is saved whole', async ({ page }) => {
-  const order = () => store.getIssue(ISSUE)!.doc.nodes.find((n) => n.id === 'notable')!.items;
-  const reversed = [...order()].reverse();
-  await page.route(`**/api/issues/${ISSUE}/sweep`, async (route) => {
-    const res = await route.fetch();
-    // What the scan found: Notable in the other order, on the server too.
-    const doc = store.getIssue(ISSUE)!.doc;
-    doc.nodes.find((n) => n.id === 'notable')!.items.reverse();
-    store.saveIssue(doc);
-    const body = await res.json();
-    body.issue.nodes.find((n: { id: string }) => n.id === 'notable').items.reverse();
-    await route.fulfill({ response: res, json: body });
-  });
-  const sweep = await hold(page, `**/api/issues/${ISSUE}/sweep`, 'POST');
-  await open(page);
-  await sweep.seen;
-  const sel = commentary('link-flipcash');
-  const before = String(item('link-flipcash').commentary);
-  await caretAtEnd(page, sel);
-  await page.keyboard.type(' Typed before the scan.');
-
-  sweep.release('continue');
-  await page.waitForResponse(`**/api/issues/${ISSUE}/sweep`);
-  await expect(page.getByRole('button', { name: 'Re-scan waiting…' })).toBeVisible();
-  await expect(page.locator(sel)).toBeFocused();
-  await page.keyboard.type(' And after it.');
-  await commit(page, () => String(item('link-flipcash').commentary).endsWith('And after it.'));
-  expect(item('link-flipcash').commentary).toBe(`${before} Typed before the scan. And after it.`);
-  expect(order()).toEqual(reversed);
-
-  // Let go, the scan is applied: the rows are in the new order.
-  await expect(page.getByRole('button', { name: 'Re-scan', exact: true })).toBeVisible();
-  const shown = () => page.locator(reversed.map((id) => `.row[data-anchor="${id}"]`).join(', '))
-    .evaluateAll((els) => els.map((el) => el.getAttribute('data-anchor')));
-  await expect.poll(shown).toEqual(reversed);
-  await expect(page.locator(sel)).toContainText('And after it.');
 });
 
 // "Writing…" was the Inspector's own state, and the Inspector is keyed by
