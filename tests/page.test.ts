@@ -25,7 +25,19 @@ describe('which addresses are refused', () => {
     '::1', '::', 'fd7a:115c:a1e0::1', 'fc00::1', 'fe80::1', 'ff02::1', '::ffff:127.0.0.1', 'not-an-ip',
   ])('refuses %s', (ip) => expect(isPrivateAddress(ip)).toBe(true));
 
-  it.each(['93.184.216.34', '1.1.1.1', '172.32.0.1', '100.128.0.1', '2606:4700::1111', '::ffff:8.8.8.8'])(
+  // The hex spellings WHATWG URL writes an IPv4-mapped address in, and the
+  // rest of ::/8 and every non-global-unicast v6 range (review 2026-09-27,
+  // Batch 8 round 1, B1).
+  it.each([
+    '::ffff:7f00:1', '[::ffff:7f00:1]', '::FFFF:7F00:1', '::ffff:a00:1', '::ffff:c0a8:101', '::ffff:a9fe:a9fe',
+    '::ffff:6440:1', '::ffff:6465:6667', '::ffff:100.100.1.1', '0:0:0:0:0:ffff:7f00:1', '::ffff:0:7f00:1',
+    '::7f00:1', '::127.0.0.1', '::a00:1', '::6440:1', '::808:808', '1::1', 'ff::1',
+    '64:ff9b::7f00:1', '64:ff9b::808:808', '2002:7f00:1::1', '2001:db8::1', '2001:0:4136:e378::1',
+    '3fff::1', '4000::1', 'fe80::1%en0',
+  ])('refuses %s', (ip) => expect(isPrivateAddress(ip)).toBe(true));
+
+  it.each(['93.184.216.34', '1.1.1.1', '172.32.0.1', '100.128.0.1', '2606:4700::1111', '::ffff:8.8.8.8',
+    '::ffff:808:808', '2a00:1450:4001::200e'])(
     'allows %s', (ip) => expect(isPrivateAddress(ip)).toBe(false),
   );
 });
@@ -56,6 +68,31 @@ describe('following redirects by hand', () => {
     await expect(fetchPublic('https://inside.example/')).rejects.toThrow('inside.example is not a public address');
     await expect(fetchPublic('http://[::1]/')).rejects.toThrow('::1 is not a public address');
     await expect(fetchPublic('file:///etc/passwd')).rejects.toThrow('file: is not a web page');
+    expect(fetch).not.toHaveBeenCalled();
+  });
+
+  it('refuses loopback and the tailnet spelled as IPv4-mapped IPv6, as new URL writes them', async () => {
+    const fetch = vi.fn();
+    vi.stubGlobal('fetch', fetch);
+    expect(new URL('http://[::ffff:127.0.0.1]/').hostname).toBe('[::ffff:7f00:1]');
+    await expect(fetchPublic('http://[::ffff:127.0.0.1]:4317/')).rejects.toThrow('::ffff:7f00:1 is not a public address');
+    await expect(fetchPublic('http://[::ffff:100.101.102.103]/')).rejects.toThrow('is not a public address');
+    await expect(fetchPublic('http://[::127.0.0.1]/')).rejects.toThrow('is not a public address');
+    expect(fetch).not.toHaveBeenCalled();
+  });
+
+  it('refuses a redirect to the IPv4-mapped loopback before fetching it', async () => {
+    const fetch = vi.fn().mockResolvedValueOnce(new Response(null, { status: 302, headers: { location: 'http://[::ffff:127.0.0.1]:4317/api/issues' } }));
+    vi.stubGlobal('fetch', fetch);
+    await expect(fetchPublic('https://example.com/p')).rejects.toThrow('::ffff:7f00:1 is not a public address');
+    expect(fetch).toHaveBeenCalledTimes(1);
+  });
+
+  it('refuses a name that resolves to a mapped private address', async () => {
+    lookup.mockResolvedValueOnce([{ address: '::ffff:a00:7', family: 6 }]);
+    const fetch = vi.fn();
+    vi.stubGlobal('fetch', fetch);
+    await expect(fetchPublic('https://sneaky.example/')).rejects.toThrow('sneaky.example is not a public address');
     expect(fetch).not.toHaveBeenCalled();
   });
 

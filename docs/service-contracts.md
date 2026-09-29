@@ -146,7 +146,8 @@ The link wand reads the page itself (`src/server/integrations/page.ts`),
 on the service's own network, so the read is guarded (review 2026-09-27,
 §5): redirects are followed by hand, at most five, and every hop whose host
 is or resolves to a loopback, private, link-local or CGNAT (tailnet)
-address is refused; no more than 2 MB is read; and the text goes into the
+address is refused, in every spelling (an IPv4-mapped `[::ffff:7f00:1]` is
+judged as 127.0.0.1, and IPv6 outside global unicast is refused whole); no more than 2 MB is read; and the text goes into the
 prompt fenced between `<page>` markers as untrusted data, never
 instructions. A page that cannot be read is said to be unread, and the
 draft goes on without it.
