@@ -179,7 +179,7 @@ describe('every model call says why it failed', () => {
 
   it('every call leaves 8k to 16k of room, thinking included', async () => {
     retrieve.mockResolvedValue([{ issue_number: 221, url: 'u', text: 'The boat.' }]);
-    create.mockImplementation(async () => reply({ summary: '', notes: [], candidates: [], alts: [], echoes: [], order: [], why: '', verdict: 'ready', findings: [] }));
+    create.mockImplementation(async () => reply({ summary: '', notes: [], candidates: [], alts: [{ picture: 1, alt: 'x' }], echoes: [], order: [], why: '', verdict: 'ready', findings: [] }));
     await review({ doc: fixture() });
     await draft({ doc: fixture(), itemId: 'photo-1' });
     await draft({ doc: fixture(), itemId: 'journal-concert' });
@@ -227,5 +227,19 @@ describe('the link wand reads the page as data', () => {
     expect(pageCalls.map((c) => String(c[0]))).toEqual(['https://avc.xyz/create-your-own-currency-with-flipcash']);
     expect(pageCalls[0]![1]!.redirect).toBe('manual');
     expect(String(create.mock.calls[0]![0].messages[0].content)).toContain('(The page could not be read');
+  });
+});
+
+describe('the Journal wand\'s alts', () => {
+  it('asks for alts by picture number, and refuses an answer that does not line up', async () => {
+    create.mockResolvedValueOnce(reply({ alts: [{ picture: 1, alt: 'The band on a small stage.' }] }));
+    const one = await draft({ doc: fixture(), itemId: 'journal-concert' });
+    expect(one.alts).toHaveLength(1);
+    expect(one.alts![0]!.alt).toBe('The band on a small stage.');
+    const schema = create.mock.calls[0]![0].output_config.format.schema;
+    expect(schema.properties.alts.items.required).toEqual(['picture', 'alt']);
+
+    create.mockResolvedValueOnce(reply({ alts: [] }));
+    await expect(draft({ doc: fixture(), itemId: 'journal-concert' })).rejects.toThrow('not each once');
   });
 });

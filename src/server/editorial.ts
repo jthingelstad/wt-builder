@@ -617,14 +617,55 @@ export interface ImageAlt {
 /** How many of a post's images one wand call looks at, at most. */
 export const JOURNAL_ALT_MAX = 8;
 
+/**
+ * Each alt names the picture it is for. A bare list in order left the
+ * mapping to position, so one skipped picture moved every later alt onto
+ * the wrong image (review 2026-09-27, §5).
+ */
 const ALTS_SCHEMA = {
   type: 'object',
   additionalProperties: false,
   required: ['alts'],
   properties: {
-    alts: { type: 'array', items: { type: 'string' } },
+    alts: {
+      type: 'array',
+      items: {
+        type: 'object',
+        additionalProperties: false,
+        required: ['picture', 'alt'],
+        properties: {
+          picture: { type: 'integer' },
+          alt: { type: 'string' },
+        },
+      },
+    },
   },
 } as const;
+
+/**
+ * The model's alts, placed on the pictures they name. Pure. Every picture
+ * must be named exactly once, or none is used: an alt on the wrong picture
+ * describes something the reader cannot see, which is worse than no alt.
+ */
+export function placeAlts(
+  images: { src: string }[],
+  alts: { picture?: unknown; alt?: unknown }[],
+): ImageAlt[] {
+  const byPicture = new Map<number, string>();
+  let lined = alts.length === images.length;
+  for (const a of alts) {
+    const n = Number(a.picture);
+    if (!Number.isInteger(n) || n < 1 || n > images.length || byPicture.has(n)) {
+      lined = false;
+      break;
+    }
+    byPicture.set(n, String(a.alt ?? '').trim());
+  }
+  if (!lined || byPicture.size !== images.length) {
+    throw new Error(`the draft named ${alts.length} of ${images.length} pictures, not each once — try again`);
+  }
+  return images.map((img, i) => ({ src: img.src, alt: byPicture.get(i + 1)! })).filter((a) => a.alt);
+}
 
 /**
  * The Journal wand looks at the post's pictures. A Micro.blog photo post
@@ -641,7 +682,7 @@ async function draftJournalAlts(req: DraftRequest, item: Item): Promise<DraftRes
 
   const system = `${VOICE}
 
-Write alt text for the pictures in one Journal entry of The Weekly Thing — a short blog post of Jamie's with ${images.length === 1 ? 'one photo' : `${images.length} photos`} attached. You can see the pictures. Return exactly ${images.length} alts, one per picture, in the order given.
+Write alt text for the pictures in one Journal entry of The Weekly Thing — a short blog post of Jamie's with ${images.length === 1 ? 'one photo' : `${images.length} photos`} attached. You can see the pictures. Return exactly ${images.length} alts, one per picture, each with the number of the picture it describes ("picture": 1 for Picture 1).
 
 Each alt is for a reader who cannot see the image. Say what is in the frame — subject, setting, what is happening — plainly and concretely, in one sentence under 125 characters. No "image of", "photo of", or "picture of". No interpretation, no mood words, no exclamation marks, no repeating the post's own words. Name people only as the post names them.`;
 
@@ -658,18 +699,14 @@ Each alt is for a reader who cannot see the image. Say what is in the frame — 
     ].filter(Boolean).join('\n\n'),
   });
 
-  const parsed = await callJson<{ alts?: string[] }>({
+  const parsed = await callJson<{ alts?: { picture?: unknown; alt?: unknown }[] }>({
     model: MODEL,
     max_tokens: ROOM_SHORT,
     system,
     output_config: { effort: 'medium', format: { type: 'json_schema', schema: ALTS_SCHEMA } },
     messages: [{ role: 'user', content }],
   } as Anthropic.MessageCreateParamsNonStreaming, DRAFT_SAYS);
-  const alts = (parsed.alts ?? []).map((a) => String(a ?? '').trim());
-  return {
-    candidates: [],
-    alts: images.map((img, i) => ({ src: img.src, alt: alts[i] ?? '' })).filter((a) => a.alt),
-  };
+  return { candidates: [], alts: placeAlts(images, parsed.alts ?? []) };
 }
 
 const PHOTO_SCHEMA = {

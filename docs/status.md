@@ -522,7 +522,9 @@ finished, what is half-finished, and what has never run.
   the Librarian, fails loud without it, and stores the citations it used.
 - ~~Alt text for Journal images, written back to Micro.blog~~ — built
   2026-09-20: the wand on a Journal post looks at its pictures (one call,
-  every image in order) and offers an alt per picture, each editable in the
+  every image numbered; each alt names its picture, and an answer that does
+  not name every picture exactly once is refused, 2026-09-28) and offers an
+  alt per picture, each editable in the
   picker; **Use these** writes them into the post's own `<img>` tags
   (`withImageAlts` in `src/shared/body.ts`, every other byte of the tag
   kept) and the existing body write-back carries them to Micro.blog, so the

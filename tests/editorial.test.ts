@@ -7,7 +7,7 @@ import { fileURLToPath } from 'node:url';
 import type { IssueDoc } from '../src/shared/types.ts';
 import { renderAnnotated } from '../src/shared/render/annotate.ts';
 import {
-  ECHOES_MAX_ANCHORS, draft, echoGrounding, normalizeUrl, thingySentences, withoutThingy,
+  ECHOES_MAX_ANCHORS, draft, echoGrounding, normalizeUrl, placeAlts, thingySentences, withoutThingy,
   assembleReview, campaignFacts, candidateCount, echoesAnchors, issueExcerpt,
   pickSeasonalIssue, poolEchoPassages, pruneStale,
   type AnchoredPassages, type Note, type Review,
@@ -384,6 +384,34 @@ describe('keeping Thingy\'s words out of Jamie\'s archive', () => {
     short.items['echo-building']!.ask = '';
     short.items['echo-shortcuts']!.ask = '';
     expect(thingySentences([short])).toEqual([]);
+  });
+});
+
+describe('placing Journal alts on their pictures', () => {
+  const images = [{ src: 'a.jpg' }, { src: 'b.jpg' }, { src: 'c.jpg' }];
+
+  it('places each alt on the picture it names, whatever order they come in', () => {
+    expect(placeAlts(images, [
+      { picture: 3, alt: 'A dock.' }, { picture: 1, alt: 'A boat.' }, { picture: 2, alt: ' A lake. ' },
+    ])).toEqual([
+      { src: 'a.jpg', alt: 'A boat.' }, { src: 'b.jpg', alt: 'A lake.' }, { src: 'c.jpg', alt: 'A dock.' },
+    ]);
+  });
+
+  it('rejects an answer that skips a picture, rather than shifting the rest', () => {
+    expect(() => placeAlts(images, [{ picture: 1, alt: 'A boat.' }, { picture: 3, alt: 'A dock.' }]))
+      .toThrow('the draft named 2 of 3 pictures, not each once — try again');
+  });
+
+  it('rejects a picture named twice, or one that is not there', () => {
+    expect(() => placeAlts(images, [{ picture: 1, alt: 'x' }, { picture: 1, alt: 'y' }, { picture: 2, alt: 'z' }])).toThrow('not each once');
+    expect(() => placeAlts(images, [{ picture: 1, alt: 'x' }, { picture: 2, alt: 'y' }, { picture: 4, alt: 'z' }])).toThrow('not each once');
+    expect(() => placeAlts(images, [{ picture: 1, alt: 'x' }, { picture: 2, alt: 'y' }, { picture: 3, alt: 'z' }, { picture: 3, alt: 'w' }])).toThrow('not each once');
+  });
+
+  it('an empty alt offers nothing for that picture', () => {
+    expect(placeAlts(images.slice(0, 2), [{ picture: 1, alt: '' }, { picture: 2, alt: 'A lake.' }]))
+      .toEqual([{ src: 'b.jpg', alt: 'A lake.' }]);
   });
 });
 
