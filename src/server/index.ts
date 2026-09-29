@@ -1316,7 +1316,7 @@ const routes: [RegExp, string, (ctx: Ctx, params: string[]) => Promise<unknown>]
       return out;
     }
     if (destination === 'podcast') {
-      const out = await loggedSend(id!, 'podcast', () => sendPodcast(id!));
+      const out = await loggedSend(id!, 'podcast', () => sendPodcast(id!, force));
       verifyAfterSend(id!, 'podcast');
       return out;
     }
@@ -1346,15 +1346,23 @@ const routes: [RegExp, string, (ctx: Ctx, params: string[]) => Promise<unknown>]
       store.logEvent(id!, 'send', `Send refused — buttondown: ${message}`);
       throw new Refusal(409, message, code);
     };
+    // Buttondown's status when an update went past "not a draft" on purpose.
+    let overrode: string | undefined;
     try {
-      // What the email is now, before anything is changed. Only a draft is
-      // edited (Jamie, 2026-09-29): a PATCH while Buttondown is delivering it
-      // races the delivery, one after it has gone rewrites a sent email, and
-      // the archive is not hosted on Buttondown, so there is no web copy
-      // worth changing (review 2026-09-27 §8 #7).
+      // What the email is now, before anything is changed. A draft is edited;
+      // anything else is refused unless the request says `?force=1` (Jamie,
+      // 2026-09-29: nothing in their own tool they cannot override). A PATCH
+      // while Buttondown is delivering it races the delivery, and one after
+      // it has gone rewrites only Buttondown's copy — the archive is not
+      // hosted there (review 2026-09-27 §8 #7). The card says which, and asks.
+      // The PATCH carries subject and body only, never a status, so no
+      // override schedules or sends anything.
       if (draftId) {
         const email = await buttondown.getEmail(draftId);
-        if (email.status !== 'draft') {
+        if (email.status !== 'draft' && force) {
+          overrode = email.status || 'unknown';
+          store.logEvent(id!, 'send', `Override — buttondown: the email is "${overrode}", not a draft; updating it anyway`);
+        } else if (email.status !== 'draft') {
           const status = email.status || 'unknown';
           // What Buttondown just said is recorded where the card reads it, so
           // the card drops its action now, even when the last check predates
@@ -1391,7 +1399,9 @@ const routes: [RegExp, string, (ctx: Ctx, params: string[]) => Promise<unknown>]
         edit_url: draft.edit_url,
       };
       const row = store.recordSend(id!, destination, state);
-      store.logEvent(id!, 'send', 'Send finished — buttondown (draft, never scheduled)');
+      store.logEvent(id!, 'send', overrode
+        ? `Send finished — buttondown (updated while "${overrode}", by override; status unchanged)`
+        : 'Send finished — buttondown (draft, never scheduled)');
       verifyAfterSend(id!, 'buttondown');
       return { issue: row?.doc, send: state, images };
     } catch (err) {
@@ -1438,7 +1448,7 @@ function websiteOptions(doc: IssueDoc) {
 
 /** Why the website cannot embed an episode yet, saying what the podcast leg actually did. */
 function noAudioYet(podcast: SendState | undefined): string {
-  const escape = 'Send the podcast first, or POST ?force=1 to ship without audio.';
+  const escape = 'Send the podcast first, or commit without audio: the card’s "Commit without audio…" (?force=1).';
   if (lastSent(podcast)) {
     return `the podcast leg's last send recorded no audio reference for the page. ${escape}`;
   }
@@ -1463,13 +1473,14 @@ async function sendWebsite(id: string, force = false) {
   // client says the podcast should run first — this makes it true. The gate
   // is "an audio reference is recorded", not the podcast's status: a failed
   // re-render leaves the last episode on the CDN and in last_sent, and the
-  // page keeps embedding it (review 2026-09-27 §2.1). `?force=1` is the
-  // deliberate escape for an issue that really has no audio, and is offered
-  // only then.
-  if (!force && !recordedAudioUrl(doc.sends)) {
+  // page keeps embedding it (review 2026-09-27 §2.1). `?force=1` commits
+  // without it: the card's "Commit without audio…" asks first (2026-09-29).
+  const noAudio = !recordedAudioUrl(doc.sends);
+  if (noAudio && !force) {
     throw new HttpError(409, noAudioYet(doc.sends?.podcast));
   }
   const release = claimLeg(id, 'website');
+  if (noAudio) store.logEvent(id, 'send', 'Override — website: committed with no podcast audio');
   try {
     // The page must not hotlink: every image the issue references is on the CDN
     // before the page is rendered (content-addressed; a second run is free).
@@ -1528,26 +1539,31 @@ async function sendWebsite(id: string, force = false) {
  * synthesize an unread script (review 2026-09-27, appendix: Audio). A
  * podcast that has ever gone out re-synthesizes without asking again, as
  * the view allows — a failed re-send included (`lastSent`): Jamie wants as
- * few forced steps in their own tool as can be (2026-09-29).
+ * few forced steps in their own tool as can be (2026-09-29). Why it is held,
+ * or nothing: `?force=1` sends it anyway, and the card's "Send without
+ * approval…" asks first (Jamie, 2026-09-29: nothing they cannot override).
  */
-function guardScriptApproved(doc: IssueDoc): void {
-  if (lastSent(doc.sends?.podcast)) return;
+function scriptUnapproved(doc: IssueDoc): string | undefined {
+  if (lastSent(doc.sends?.podcast)) return undefined;
   const review = doc.script_review;
-  if (!review?.approved_at) throw new HttpError(409, 'the podcast script has not been approved — read it and approve it first');
+  if (!review?.approved_at) return 'the podcast script has not been approved — read it and approve it first';
   if (review.script_hash !== scriptHash(audioScript(doc))) {
-    throw new HttpError(409, 'the script has changed since it was approved — read it again and approve it first');
+    return 'the script has changed since it was approved — read it again and approve it first';
   }
+  return undefined;
 }
 
 /**
  * Render the script, synthesize it, and upload the mp3 to the CDN. The website
  * publishes the reference; the file lives only on the CDN.
  */
-async function sendPodcast(id: string) {
+async function sendPodcast(id: string, force = false) {
   const doc = requireIssue(id);
   guardInFlight(doc, 'podcast');
-  guardScriptApproved(doc);
+  const unapproved = scriptUnapproved(doc);
+  if (unapproved && !force) throw new HttpError(409, unapproved);
   const release = claimLeg(id, 'podcast');
+  if (unapproved) store.logEvent(id, 'send', `Override — podcast: synthesized without approval (${unapproved.split(' — ')[0]})`);
   try {
     // Blocks, not a flat script: each is synthesized in its speaker's voice
     // and placed with the pause its boundary calls for.

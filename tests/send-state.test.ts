@@ -324,6 +324,26 @@ describe('the website waits for an audio reference, not for a podcast status', (
   });
 });
 
+describe('the website commits without audio when told to, and says so', () => {
+  const summaries = (id: string) => store.listEvents(id).map((e) => e.summary);
+
+  it('force=1 with no audio commits the page without an episode, and logs the override', async () => {
+    const id = issue(990415);
+    expect((await send(id, 'website', '?force=1')).status).toBe(200);
+    expect(pageOf(h.committed.at(-1)!)).not.toContain('audio_url');
+    expect(summaries(id)).toContain('Override — website: committed with no podcast audio');
+    store.deleteIssue(id);
+  });
+
+  it('force=1 with audio recorded is no override, and logs none', async () => {
+    const id = issue(990416);
+    store.recordSend(id, 'podcast', { status: 'sent', at: minutesAgo(5), audio: { audio_url: 'https://files.thingelstad.com/a.mp3' } });
+    expect((await send(id, 'website', '?force=1')).status).toBe(200);
+    expect(summaries(id).some((s) => s.startsWith('Override'))).toBe(false);
+    store.deleteIssue(id);
+  });
+});
+
 describe('the website refusal says what the podcast leg did', () => {
   it('a podcast recorded as sent with no audio record is not called "not run"', async () => {
     const id = issue(990414);
@@ -456,6 +476,34 @@ describe('Buttondown is asked what the email is before it is changed', () => {
       expect(logged.map((e) => e.summary)).toEqual([expect.stringMatching(/^Send refused — buttondown: .*no longer a draft/)]);
       store.deleteIssue(id);
     });
+  });
+
+  // Jamie, 2026-09-29: nothing in their own tool they cannot override. The
+  // card warns and asks; `?force=1` is what it sends. The update is the
+  // same PATCH as a draft's — subject and body, never a status.
+  notDraft.forEach((status, i) => {
+    it(`${status}, overridden: updated anyway, and the override is logged`, async () => {
+      const { id, before } = await sentOnce(990510 + i);
+      const events = store.listEvents(id).length;
+      h.emailStatus = status;
+      const res = await send(id, 'buttondown', '?force=1');
+      expect(res.status).toBe(200);
+      expect(h.drafts).toEqual([expect.objectContaining({ op: 'update', id: (before as { external_id: string }).external_id })]);
+      expect(legOf(id, 'buttondown')).toMatchObject({ status: 'sent' });
+      const logged = store.listEvents(id).slice(0, store.listEvents(id).length - events).map((e) => e.summary);
+      expect(logged).toContain(`Override — buttondown: the email is "${status}", not a draft; updating it anyway`);
+      expect(logged).toContain(`Send finished — buttondown (updated while "${status}", by override; status unchanged)`);
+      store.deleteIssue(id);
+    });
+  });
+
+  it('draft, with force=1: an ordinary update, and no override logged', async () => {
+    const { id } = await sentOnce(990516);
+    h.emailStatus = 'draft';
+    expect((await send(id, 'buttondown', '?force=1')).status).toBe(200);
+    expect(h.drafts).toEqual([expect.objectContaining({ op: 'update' })]);
+    expect(store.listEvents(id).some((e) => e.summary.startsWith('Override'))).toBe(false);
+    store.deleteIssue(id);
   });
 
   it('sent: a web-copy update is no longer offered, and asking for one changes nothing', async () => {
@@ -594,6 +642,39 @@ describe('the server holds the podcast to the script Jamie approved', () => {
     delete doc.script_review;
     store.saveIssue(doc);
     expect((await send(id, 'podcast', '', { approve: false })).status).toBe(200);
+    store.deleteIssue(id);
+  });
+
+  // Jamie, 2026-09-29: the approval can be skipped on purpose. The card
+  // asks first; `?force=1` is what it sends, and the log says it happened.
+  it('an unapproved script is synthesized with force=1, and the override is logged', async () => {
+    const id = issue(990456);
+    const renders = h.renders;
+    const res = await send(id, 'podcast', '?force=1', { approve: false });
+    expect(res.status).toBe(200);
+    expect(h.renders).toBe(renders + 1);
+    expect(legOf(id, 'podcast')).toMatchObject({ status: 'sent' });
+    expect(store.listEvents(id).map((e) => e.summary))
+      .toContain('Override — podcast: synthesized without approval (the podcast script has not been approved)');
+    store.deleteIssue(id);
+  });
+
+  it('a script changed since its approval is synthesized as it stands with force=1', async () => {
+    const id = issue(990457);
+    approve(id);
+    const doc = store.getIssue(id)!.doc;
+    doc.items[Object.keys(doc.items).find((k) => doc.items[k]!.type === 'intro')!]!.body = 'A different intro, said aloud.';
+    store.saveIssue(doc);
+    expect((await send(id, 'podcast', '?force=1', { approve: false })).status).toBe(200);
+    expect(store.listEvents(id).map((e) => e.summary))
+      .toContain('Override — podcast: synthesized without approval (the script has changed since it was approved)');
+    store.deleteIssue(id);
+  });
+
+  it('an approved script with force=1 is no override, and logs none', async () => {
+    const id = issue(990458);
+    expect((await send(id, 'podcast', '?force=1')).status).toBe(200);
+    expect(store.listEvents(id).some((e) => e.summary.startsWith('Override'))).toBe(false);
     store.deleteIssue(id);
   });
 

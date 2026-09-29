@@ -71,9 +71,22 @@ test('the website card waits for an audio reference, not a podcast status', asyn
   await expect(card(page, 'Website').locator('.sc-blocker')).toContainText('podcast runs first');
 });
 
-// Jamie, 2026-09-29: only a draft is edited. Once the email is anything
-// else, the Buttondown card offers no action at all, only why.
-test('once the email is not a draft, the Buttondown card offers no action, and Re-send all sent leaves it out', async ({ page }) => {
+/** Records each send the view posts, leg and query, and answers as the server holds the issue. */
+async function recordSends(page: import('@playwright/test').Page): Promise<string[]> {
+  const posted: string[] = [];
+  await page.route('**/api/issues/*/send/*', async (route) => {
+    const url = new URL(route.request().url());
+    posted.push(url.pathname.split('/').pop()! + url.search);
+    await route.fulfill({ json: { issue: store.getIssue(ISSUE)!.doc, send: { status: 'sent' } } });
+  });
+  return posted;
+}
+
+// Jamie, 2026-09-29: nothing in their own tool they cannot override. Once
+// the email is not a draft, the Buttondown card says what an update would
+// do, and its action is "Update anyway…" — plain, not primary — which asks.
+// The bulk runs still leave it out, and say so.
+test('once the email is not a draft, the Buttondown card warns and offers "Update anyway…", and Re-send all sent leaves it out', async ({ page }) => {
   const at = '2026-09-26T14:05:00Z';
   store.recordSend(ISSUE, 'website', { status: 'sent', at, external_id: 'f00d', url: 'https://github.com/x/y/commit/f00d' });
   store.recordSend(ISSUE, 'buttondown', { status: 'sent', at, external_id: 'em-350', edit_url: 'https://buttondown.com/emails/em-350' });
@@ -83,16 +96,15 @@ test('once the email is not a draft, the Buttondown card offers no action, and R
 
   // No request reaches a real send handler: each is recorded and answered
   // with the issue as the server holds it.
-  const posted: string[] = [];
-  await page.route('**/api/issues/*/send/*', async (route) => {
-    posted.push(new URL(route.request().url()).pathname.split('/').pop()! + new URL(route.request().url()).search);
-    await route.fulfill({ json: { issue: store.getIssue(ISSUE)!.doc, send: { status: 'sent' } } });
-  });
+  const posted = await recordSends(page);
 
   await page.goto(`/${ISSUE}/send`);
   const mail = card(page, 'Buttondown');
   await expect(mail.locator('.sc-head .btn.primary')).toHaveCount(0);
+  const update = mail.locator('.sc-head .btn');
+  await expect(update).toHaveText('Update anyway…');
   await expect(mail.locator('.sc-locked')).toContainText('"sent", no longer a draft');
+  await expect(mail.locator('.sc-locked')).toContainText('nothing is sent again');
   await expect(page.getByRole('button', { name: /web copy/i })).toHaveCount(0);
 
   // Every bulk run asks first, naming its legs (review 2026-09-27 §2.4):
@@ -103,16 +115,35 @@ test('once the email is not a draft, the Buttondown card offers no action, and R
   await expect.poll(() => posted).toEqual(['website', 'archive']);
   expect(asked).toHaveLength(1);
   expect(asked[0]).toContain('Website and Archive');
+  expect(asked[0]).toContain('Buttondown is left out: the email is "sent"');
+
+  // The override asks, with what an update would do; a no sends nothing.
+  page.once('dialog', (d) => { asked.push(d.message()); void d.dismiss(); });
+  await update.click();
+  await expect.poll(() => asked).toHaveLength(2);
+  expect(asked[1]).toContain('WT350\'s email is "sent", not a draft');
+  expect(asked[1]).toContain('Update it anyway?');
+  expect(posted).toEqual(['website', 'archive']);
+
+  page.once('dialog', (d) => void d.accept());
+  await update.click();
+  await expect.poll(() => posted).toEqual(['website', 'archive', 'buttondown?force=1']);
 });
 
-test('a scheduled email is locked the same way, and a draft keeps "Update draft"', async ({ page }) => {
+test('a scheduled or going-out email warns for what it is, and a draft keeps "Update draft"', async ({ page }) => {
   const at = '2026-09-26T14:05:00Z';
   store.recordSend(ISSUE, 'buttondown', { status: 'sent', at, external_id: 'em-350', edit_url: 'https://buttondown.com/emails/em-350' });
   store.recordVerify(ISSUE, 'buttondown', { status: 'waiting', at, checks: [], remote_status: 'scheduled' });
   await page.goto(`/${ISSUE}/send`);
   const mail = card(page, 'Buttondown');
   await expect(mail.locator('.sc-locked')).toContainText('"scheduled", no longer a draft');
+  await expect(mail.locator('.sc-locked')).toContainText('it stays scheduled');
   await expect(mail.locator('.sc-head .btn.primary')).toHaveCount(0);
+  await expect(mail.locator('.sc-head .btn')).toHaveText('Update anyway…');
+
+  store.recordVerify(ISSUE, 'buttondown', { status: 'waiting', at, checks: [], remote_status: 'in_flight' });
+  await page.reload();
+  await expect(mail.locator('.sc-locked')).toContainText('races the delivery');
 
   store.recordVerify(ISSUE, 'buttondown', { status: 'passed', at, checks: [], remote_status: 'draft' });
   await page.reload();
@@ -151,6 +182,7 @@ test('a verify record older than remote_status: the refusal switches the card, a
   await expect.poll(() => posted).toEqual(['website', 'buttondown', 'archive']);
   await expect(button).toHaveCount(0);
   await expect(card(page, 'Buttondown').locator('.sc-locked')).toBeVisible();
+  await expect(card(page, 'Buttondown').locator('.sc-head .btn')).toHaveText('Update anyway…');
 });
 
 test('an email refused as sent with no check behind it is not counted as verified', async ({ page }) => {
@@ -193,4 +225,59 @@ test('a podcast that went out once is not gated again after a failed re-send', a
   store.recordSend(ISSUE, 'podcast', { status: 'failed', at: '2026-09-27T13:00:00Z', error: 'OpenAI TTS failed: 500' });
   await page.reload();
   await expect(podcast.locator('.sc-head .btn.primary')).toHaveCount(0);
+  await expect(podcast.locator('.sc-head .btn')).toHaveText('Send without approval…');
+});
+
+// Jamie, 2026-09-29: the podcast's approval can be skipped on purpose. The
+// card's action becomes the override, and it asks first.
+test('an unapproved podcast offers "Send without approval…", which asks and then forces', async ({ page }) => {
+  const doc = store.getIssue(ISSUE)!.doc;
+  delete doc.script_review;
+  store.saveIssue(doc);
+  const posted = await recordSends(page);
+
+  await page.goto(`/${ISSUE}/send`);
+  const podcast = card(page, 'Podcast');
+  await expect(podcast.locator('.sc-pill').first()).toHaveText('NEEDS YOU');
+  // Reading and approving stay in the step row, as before.
+  await expect(podcast.getByRole('button', { name: 'Have it read' })).toBeVisible();
+  const override = podcast.locator('.sc-head .btn');
+  await expect(override).toHaveText('Send without approval…');
+  await expect(override).not.toHaveClass(/\bprimary\b/);
+
+  const asked: string[] = [];
+  page.once('dialog', (d) => { asked.push(d.message()); void d.dismiss(); });
+  await override.click();
+  await expect.poll(() => asked).toHaveLength(1);
+  expect(asked[0]).toContain('WT350\'s podcast script has not been read or approved');
+  expect(posted).toEqual([]);
+
+  page.once('dialog', (d) => void d.accept());
+  await override.click();
+  await expect.poll(() => posted).toEqual(['podcast?force=1']);
+});
+
+// The website's audio gate, the same way: "Commit without audio…" asks, and
+// an issue with audio commits plainly, with no question.
+test('a website with no audio offers "Commit without audio…", and one with audio commits without asking', async ({ page }) => {
+  const posted = await recordSends(page);
+  await page.goto(`/${ISSUE}/send`);
+  const website = card(page, 'Website');
+  await expect(website.locator('.sc-blocker')).toContainText('Committing without it asks first');
+  const override = website.locator('.sc-head .btn');
+  await expect(override).toHaveText('Commit without audio…');
+
+  const asked: string[] = [];
+  page.once('dialog', (d) => { asked.push(d.message()); void d.accept(); });
+  await override.click();
+  await expect.poll(() => posted).toEqual(['website?force=1']);
+  expect(asked[0]).toContain('WT350 has no podcast audio recorded');
+
+  const audio = { audio_url: 'https://files.thingelstad.com/weekly-thing/audio/wt350.mp3' };
+  store.recordSend(ISSUE, 'podcast', { status: 'sent', at: '2026-09-26T13:00:00Z', url: audio.audio_url, audio });
+  await page.reload();
+  await expect(website.locator('.sc-head .btn.primary')).toHaveText('Commit');
+  await website.locator('.sc-head .btn.primary').click();
+  await expect.poll(() => posted).toEqual(['website?force=1', 'website']);
+  expect(asked).toHaveLength(1);
 });

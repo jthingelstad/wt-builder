@@ -66,8 +66,9 @@ resolve. The server enforces it: a website send is refused (409) until an audio
 reference is recorded — the podcast's last good send, so a failed re-render
 does not block a re-send, and the page keeps the episode that is on the CDN.
 The refusal says what the podcast leg did (not run, failed, still sending).
-`?force=1` is the escape for an issue with no audio, and is offered only when
-there is none. The Website card's blocker strip shows the same condition.
+`?force=1` is the escape for an issue with no audio: while there is none, the
+Website card's action is **Commit without audio…**, which asks first
+(2026-09-29). The Website card's blocker strip shows the same condition.
 
 | Leg | Ends at | Evidence |
 | --- | --- | --- |
@@ -91,10 +92,12 @@ Before it changes an existing email, the Buttondown leg asks Buttondown what the
 email is, and only a `draft` is updated. Any other status — `scheduled`,
 `about_to_send`, `in_flight`, `sent`, `imported`, or one not seen before — is
 refused (409, `code: "not_draft"`, "no longer a draft … can't be edited safely"),
-leaving the leg as it was, and every refusal is logged to the issue's event log.
+leaving the leg as it was, and every refusal is logged to the issue's event log —
+unless the send says `?force=1` (below).
 The card knows the status from the Buttondown check
 (`verify.buttondown.remote_status`): once it is not `draft`, the card says so and
-offers no action, and "Re-send all sent" and "Send the rest" leave Buttondown out.
+what an update would do, its action is **Update anyway…**, and "Re-send all sent"
+and "Send the rest" leave Buttondown out.
 The refusal records that status too: a check older than `remote_status` (WT350,
 WT351) or none at all no longer hides it, the card re-reads the issue and switches
 at once, and a run that meets the refusal carries on to the legs after it. With no
@@ -108,17 +111,32 @@ decided only a draft is edited: the archive is not hosted on Buttondown, so ther
 is no reason to edit a sent email, and every other status is one a PATCH cannot
 safely change. The web-copy update is gone.
 
+*Revisited 2026-09-29, later:* "There should be nothing that I cannot override.
+I'm the only user." A plain send still refuses a non-draft; `?force=1` updates it
+anyway, and the card's **Update anyway…** asks first with what an update does for
+that status — a sent email changes only Buttondown's copy and nothing is sent
+again, a scheduled one stays scheduled and sends the new text, one going out
+races the delivery. The update is the same PATCH as a draft's, subject and body
+and never a status, so no override schedules or sends. The event log says
+"Override — buttondown: …" and "updated while "…", by override; status
+unchanged".
+
 The podcast's first step is a gate: the script must be approved before the leg
 runs. The server holds it too (2026-09-28, review 2026-09-27, appendix: Audio): a podcast
 send with no approval, or with an approval of a script that has since changed
 (the hash no longer matches), is refused with a 409 before anything is
-synthesized or recorded. A podcast that has ever gone out re-synthesizes
+synthesized or recorded — unless the send says `?force=1`, which synthesizes the
+script as it stands and logs "Override — podcast: synthesized without approval
+(…)". A podcast that has ever gone out re-synthesizes
 without asking again, as the card allows — an earlier good send (`lastSent`) is
 enough, so a failed re-send does not bring the gate back (Revisited 2026-09-29:
 until then only a latest status of `sent` was exempt; Jamie wants as few forced
-steps in their own tool as can be). While it waits, the card's own action button disappears so the step row
-owns the interaction — a button labelled with a state duplicates the pill beside
-it and does nothing when clicked.
+steps in their own tool as can be). While it waits, reading and approving stay
+in the step row, and the card's action is **Send without approval…** — plain, not
+primary — which asks first and sends `?force=1` (2026-09-29; until then the button
+disappeared and nothing could skip the gate). A button labelled only with a state
+is still never shown: it duplicates the pill beside it and does nothing when
+clicked.
 
 A failed leg leaves the others untouched, and retrying resumes from the step that
 failed rather than from the beginning.

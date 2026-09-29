@@ -53,7 +53,8 @@ finished, what is half-finished, and what has never run.
   recorded — the podcast's last good send, so a failed re-render does not
   block a re-send (2026-09-28, review 2026-09-27 §2.1); the 409 says whether
   the podcast has not run, failed, or is still sending, and offers
-  `?force=1`, the deliberate escape for an issue with no audio, only then — and every
+  `?force=1`, the deliberate escape for an issue with no audio (the card's
+  **Commit without audio…** since 2026-09-29) — and every
   leg refuses a second POST while one is in flight. Since 2026-09-28 a leg
   is claimed the moment it passes its guards — in flight in the process (a
   set of `id:leg`, the real guard) and `sending` on the issue, before any
@@ -101,7 +102,8 @@ finished, what is half-finished, and what has never run.
   on the card: any earlier good send (`lastSent`), so a re-send after a
   failed attempt asks for no second approval (Jamie, 2026-09-29; until
   then only a latest status of `sent` was). Review 2026-09-27, appendix
-  (Audio).
+  (Audio). `?force=1` synthesizes it anyway (2026-09-29, *Every send gate
+  can be overridden* below).
 - **A failed leg keeps its last good send** (2026-09-28) — every leg's
   `SendState` carries `last_sent` through `sending` and `failed`
   (`recordSend`, one place for all four). The Buttondown retry, the website
@@ -121,7 +123,8 @@ finished, what is half-finished, and what has never run.
   (`getEmail`) before it PATCHes the draft it made. `draft` updates as
   before. Every other status — `scheduled`, `about_to_send`, `in_flight`,
   `sent`, `imported`, anything new — answers 409 `code: "not_draft"`, "no
-  longer a draft … can't be edited safely", and leaves the leg untouched
+  longer a draft … can't be edited safely", and leaves the leg untouched,
+  unless the send says `?force=1` (2026-09-29, below)
   (Jamie, 2026-09-29: the archive is not hosted on Buttondown, so a sent
   email has no copy worth editing; the `?web_copy=1` update and its
   "Update web copy…" action are gone, and `scheduled` is no longer
@@ -131,8 +134,9 @@ finished, what is half-finished, and what has never run.
   skip the failure record — any other error in the leg, a 409 included,
   records `failed` rather than leaving `sending`. The Buttondown check
   records the status it read (`verify.buttondown.remote_status`); once it
-  is anything but `draft`, the card shows why and offers no action, and
-  "Re-send all sent" / "Send the rest" leave Buttondown out. The refusal
+  is anything but `draft`, the card shows why and offers only
+  **Update anyway…** (2026-09-29), and "Re-send all sent" / "Send the
+  rest" leave Buttondown out. The refusal
   records `remote_status` itself (through `recordVerify` — a fresh read
   with no revision, so a refused click never pushes a real edit out of the
   history — keeping the check's findings; with no check at all, only the
@@ -270,6 +274,30 @@ finished, what is half-finished, and what has never run.
   last published issue (review 2026-09-27 §7), and the merge inside the
   commit against a concurrent writer (appendix, Sending & verify). The page
   commits through `putTree`, the path WT350 and WT351 went out on.
+- **Every send gate can be overridden** (2026-09-29) — Jamie: "There should
+  be nothing that I cannot override. I'm the only user." Every gate on a
+  leg takes `?force=1`: the podcast's script approval (`sendPodcast`,
+  `scriptUnapproved`), the website's audio reference (`sendWebsite`), and
+  a Buttondown email that is not a draft. While a gate holds, the card's
+  one action is its override — named for what it skips, ending in `…`,
+  plain `btn` rather than `btn primary` — and it asks with a `confirm`
+  saying what going past means: **Send without approval…** (not read,
+  read but not approved, or changed since it was read), **Commit without
+  audio…** (the page has no episode until a re-commit after the podcast),
+  **Update anyway…** (the strip and the confirm say what an update does
+  for Buttondown's status: a sent email changes only Buttondown's copy and
+  nothing is sent again, a scheduled one stays scheduled, one going out
+  races the delivery). The Buttondown update is the same PATCH as a
+  draft's — subject and body, never a status, pinned in
+  `tests/integrations.test.ts` — so no override schedules or sends an
+  email. Every override is one event-log line ("Override — podcast: …",
+  "Override — website: …", "Override — buttondown: …"), and a forced
+  Buttondown update finishes "updated while "sent", by override; status
+  unchanged", so `npm run watch` shows it. `?force=1` on a leg whose gate
+  is open is an ordinary send and logs nothing extra. The bulk runs never
+  override: "Send the rest" still stops at an unapproved podcast, and both
+  runs leave a non-draft email out and say so in their confirm. Without
+  `force`, every gate refuses exactly as before.
 - **Front matter quotes every string** (2026-09-28) — the site page, the
   archive text, and the audio record write each string scalar as a JSON
   string (`yamlString` in `src/server/publish.ts`), which is always valid

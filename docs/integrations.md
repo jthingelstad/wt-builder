@@ -95,7 +95,9 @@ Librarian API and corpus on 2026-08-28.
 - Receives a rendered draft.
 - Draft creation/update is distinct from scheduling or sending.
 - An email is updated only while Buttondown says it is a `draft`; any other
-  status refuses the update (Jamie, 2026-09-29; `docs/publishing-lifecycle.md`).
+  status refuses the update (Jamie, 2026-09-29; `docs/publishing-lifecycle.md`)
+  unless the send says `?force=1`, the card's **Update anyway…**. The update
+  sends subject and body only, never a status.
 - Buttondown-specific Liquid and components belong only in the email renderer.
 
 ## Images

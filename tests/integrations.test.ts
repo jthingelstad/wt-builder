@@ -210,6 +210,32 @@ describe('a Buttondown placeholder slug is not a URL worth recording', async () 
   });
 });
 
+// Updating an email Buttondown no longer holds as a draft is an override
+// (2026-09-29), and it sends this same update: subject and body, never a
+// status, so no override can schedule or send an email.
+describe('a Buttondown update never changes the email\'s status', () => {
+  it('the PATCH carries the subject and body only', async () => {
+    const { credentials } = await import('../src/server/config.ts');
+    const { updateDraft } = await import('../src/server/integrations/buttondown.ts');
+    const prior = credentials.buttondownKey;
+    credentials.buttondownKey = 'test-key';
+    const calls: { method?: string; body: Record<string, unknown> }[] = [];
+    vi.stubGlobal('fetch', async (_input: string | URL, init?: RequestInit) => {
+      calls.push({ method: init?.method, body: JSON.parse(String(init?.body)) });
+      return Response.json({ id: 'em-1' });
+    });
+    try {
+      await updateDraft('em-1', 'WT352 — A title', 'The body.');
+      expect(calls).toHaveLength(1);
+      expect(calls[0]!.method).toBe('PATCH');
+      expect(Object.keys(calls[0]!.body).sort()).toEqual(['body', 'subject']);
+    } finally {
+      vi.unstubAllGlobals();
+      credentials.buttondownKey = prior;
+    }
+  });
+});
+
 // If the compare-and-set read failed, the update went out blind, over
 // whatever the post says now (review 2026-09-27, §4).
 describe('a Micro.blog update whose read fails writes nothing', () => {

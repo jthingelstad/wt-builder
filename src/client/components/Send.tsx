@@ -6,6 +6,8 @@
  * has to have produced a file for that reference to resolve. The server
  * enforces it: a website send is refused until an audio reference is recorded
  * (the podcast's last good send), and the Website card's blocker says so.
+ * Every gate here can be overridden (Jamie, 2026-09-29): the card's action
+ * becomes the override, and it asks first.
  *
  * Every state here is real. Nothing is drawn: a step shows done only when the
  * send came back with the evidence that step produces.
@@ -117,7 +119,7 @@ const CARDS: Card[] = [
     // leaves the last episode in place, and the page keeps embedding it.
     blocker: (_sent, doc) => (recordedAudioUrl(doc.sends)
       ? null
-      : 'The page embeds the podcast’s audio reference, so the podcast runs first. The server refuses a commit without it.'),
+      : 'The page embeds the podcast’s audio reference, so the podcast runs first. Committing without it asks first, and the page has no episode until the website is re-committed after the podcast.'),
     steps: [
       { label: 'Render the website edition' },
       {
@@ -275,12 +277,47 @@ export function Send({ doc, readiness, error, onBack, onSent, onError }: Props) 
     api.verify(id, key).then((r) => onSent(r.issue)).catch((err: Error) => onError(`${key}: ${err.message}`));
   };
 
-  // Only a draft is edited (Jamie, 2026-09-29). Once the Buttondown check
-  // last read the email as anything else — scheduled, going out, sent — the
-  // server refuses a re-send, so the card offers none and the bulk runs
-  // leave it out.
+  // A draft is edited as it stands. Once the Buttondown check last read the
+  // email as anything else — scheduled, going out, sent — the server refuses
+  // a plain re-send, so the card says what an update would do and offers
+  // "Update anyway…", and the bulk runs leave it out.
   const remoteStatus = doc.verify?.buttondown?.remote_status;
   const emailLocked = remoteStatus && remoteStatus !== 'draft' ? remoteStatus : undefined;
+
+  /**
+   * A card's override, while its gate holds: the podcast's approval, the
+   * website's audio, Buttondown's draft. Nothing in Jamie's own tool is
+   * beyond overriding (2026-09-29), so the card keeps its action — named
+   * for what it skips, plain rather than primary — and it asks first with
+   * what going past the gate means. The bulk runs never override: each is
+   * a decision on its own card.
+   */
+  const overrideOf = (key: Destination): { label: string; warning: string } | undefined => {
+    const n = doc.issue.number;
+    if (key === 'podcast' && !approved) {
+      return {
+        label: 'Send without approval…',
+        warning: !review
+          ? `WT${n}'s podcast script has not been read or approved. Synthesize it unread and upload the mp3 to the CDN?`
+          : !reviewCurrent
+            ? `WT${n}'s podcast script has changed since it was read. Synthesize it as it stands, unread, and upload the mp3 to the CDN?`
+            : `WT${n}'s podcast script has been read but not approved. Synthesize it as it stands and upload the mp3 to the CDN?`,
+      };
+    }
+    if (key === 'website' && !recordedAudioUrl(doc.sends)) {
+      return {
+        label: stateOf('website') === 'sent' ? 'Re-commit without audio…' : 'Commit without audio…',
+        warning: `WT${n} has no podcast audio recorded. Commit the page without an episode? It has none until the website is re-committed after the podcast.`,
+      };
+    }
+    if (key === 'buttondown' && emailLocked) {
+      return {
+        label: 'Update anyway…',
+        warning: `Buttondown says WT${n}'s email is "${emailLocked}", not a draft. ${notDraftRisk(emailLocked)} Update it anyway?`,
+      };
+    }
+    return undefined;
+  };
 
   /**
    * One leg. `sent` when it went; a failure is shown and stops any run it is
@@ -290,11 +327,11 @@ export function Send({ doc, readiness, error, onBack, onSent, onError }: Props) 
    * action at once, and a run carries on past it — the legs after it do not
    * depend on it.
    */
-  const send = async (key: Destination): Promise<'sent' | 'failed' | 'locked'> => {
+  const send = async (key: Destination, force = false): Promise<'sent' | 'failed' | 'locked'> => {
     setRunning(key);
     onError(null);
     try {
-      const res = await api.send(id, key);
+      const res = await api.send(id, key, force);
       setResults((r) => ({ ...r, [key]: res }));
       onSent(res.issue);
       return 'sent';
@@ -315,6 +352,7 @@ export function Send({ doc, readiness, error, onBack, onSent, onError }: Props) 
    * The legs "Send all four" / "Send the rest" would run, in run order. An
    * unapproved podcast stops the run before it starts: later legs assume it.
    */
+  const emailLeftOut = ` Buttondown is left out: the email is "${emailLocked}", and its own card updates it anyway if you ask.`;
   const rest: Destination[] = [];
   for (const card of CARDS) {
     if (card.key === 'podcast' && !approved) break;
@@ -331,7 +369,8 @@ export function Send({ doc, readiness, error, onBack, onSent, onError }: Props) 
    */
   const sendAll = async () => {
     if (!rest.length) return;
-    if (!confirm(`Send ${legNames(rest)} for WT${doc.issue.number}, in that order?`)) return;
+    const leftOut = emailLocked && stateOf('buttondown') !== 'sent' ? emailLeftOut : '';
+    if (!confirm(`Send ${legNames(rest)} for WT${doc.issue.number}, in that order?${leftOut}`)) return;
     cancelled.current = false;
     for (const key of rest) {
       if (cancelled.current || (await send(key)) === 'failed') return;
@@ -348,7 +387,8 @@ export function Send({ doc, readiness, error, onBack, onSent, onError }: Props) 
   const RESEND: Destination[] = ['website', 'buttondown', 'archive'];
   const resendable = RESEND.filter((key) => stateOf(key) === 'sent' && !(key === 'buttondown' && emailLocked));
   const resendAll = async () => {
-    if (!confirm(`Re-send ${legNames(resendable)} for WT${doc.issue.number}, in that order? The podcast is left as it is.`)) return;
+    const leftOut = emailLocked && stateOf('buttondown') === 'sent' ? emailLeftOut : '';
+    if (!confirm(`Re-send ${legNames(resendable)} for WT${doc.issue.number}, in that order? The podcast is left as it is.${leftOut}`)) return;
     cancelled.current = false;
     for (const key of resendable) {
       if (cancelled.current || (await send(key)) === 'failed') return;
@@ -415,7 +455,12 @@ export function Send({ doc, readiness, error, onBack, onSent, onError }: Props) 
             onApprove={approveScript}
             gate={card.key === 'podcast' ? { review: reviewCurrent ? review : undefined, stale: Boolean(review) && !reviewCurrent, reading, onRead: readScript, approved } : undefined}
             locked={card.key === 'buttondown' ? emailLocked : undefined}
-            onRun={() => { void send(card.key); }}
+            override={overrideOf(card.key)?.label}
+            onRun={() => {
+              const override = overrideOf(card.key);
+              if (override && !confirm(override.warning)) return;
+              void send(card.key, Boolean(override));
+            }}
             issueId={id}
             verification={doc.verify?.[card.key]}
             onVerify={() => verify(card.key)}
@@ -469,12 +514,14 @@ function ArchivePreview({ issueId }: { issueId: string }) {
 }
 
 function SendCard({
-  card, state, stranded, send, result, blocker, gated, busy, onApprove, onRun, verification, onVerify, issueId, gate, locked,
+  card, state, stranded, send, result, blocker, gated, busy, onApprove, onRun, verification, onVerify, issueId, gate, locked, override,
 }: {
   /** `sending` past the in-flight window: out no longer, and retried like a failure. */
   stranded?: boolean;
-  /** Buttondown's status for an email that is no longer a draft: no action, only why. */
+  /** Buttondown's status for an email that is no longer a draft: why, and what an update would do. */
   locked?: string;
+  /** While a gate holds, the action's label: it goes past the gate, and asks first. */
+  override?: string;
   gate?: { review?: ScriptReview; stale: boolean; reading: boolean; onRead: () => void; approved: boolean };
   issueId: string;
   verification?: Verification;
@@ -515,23 +562,22 @@ function SendCard({
           <p class="sc-ends">{card.ends}</p>
         </div>
         {/*
-          No button while the gate is waiting: the step row owns that
-          interaction. A card button labelled with a state duplicates the pill
-          beside it and does nothing when clicked.
+          While a gate holds, the action is its override — named for what it
+          skips, plain rather than primary, and it asks first. Reading and
+          approving the script stay in the step row. Never a label that only
+          repeats the pill beside it.
         */}
-        {!gated && !locked && (
-          <button class="btn primary" disabled={busy} onClick={onRun}>
-            {state === 'sending' && !stranded ? 'Sending…' : failed || stranded ? 'Try again' : done ? card.again : card.verb}
-          </button>
-        )}
+        <button class={override ? 'btn' : 'btn primary'} disabled={busy} onClick={onRun}>
+          {state === 'sending' && !stranded ? 'Sending…' : override ?? (failed || stranded ? 'Try again' : done ? card.again : card.verb)}
+        </button>
       </div>
 
       {locked && (
         <div class="sc-blocker sc-locked">
           <CircleAlert />
           <span>
-            Buttondown says this email is "{locked}", no longer a draft, so it
-            can't be edited safely and WT Builder leaves it alone.
+            Buttondown says this email is "{locked}", no longer a draft.{' '}
+            {notDraftRisk(locked)} "Update anyway…" asks first.
           </span>
         </div>
       )}
@@ -606,6 +652,20 @@ function SendCard({
       {done && <VerifyPanel v={verification} busy={busy} onVerify={onVerify} />}
     </section>
   );
+}
+
+/**
+ * What updating an email Buttondown no longer holds as a draft would do.
+ * The update carries subject and body only, never a status, so it never
+ * schedules or sends anything.
+ */
+function notDraftRisk(status: string): string {
+  if (status === 'sent') return 'Readers already have it: an update changes only Buttondown’s copy, and nothing is sent again.';
+  if (status === 'scheduled') return 'An update changes what goes out, and it stays scheduled.';
+  if (status === 'about_to_send' || status === 'in_flight') {
+    return 'It is going out right now: an update races the delivery, so some readers may get the old version and some the new.';
+  }
+  return 'An update changes its subject and body only, never its status.';
 }
 
 /** Where the last good send can be opened: the draft, the mp3, the commit. */

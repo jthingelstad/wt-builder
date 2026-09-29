@@ -300,8 +300,9 @@ export const api = {
       IssueResponse & { result?: { sync_state: string; error?: string } }
     >,
 
-  send: (id: string, destination: string) =>
-    call<SendResult>(`/issues/${id}/send/${destination}`, { method: 'POST', body: '{}' }),
+  /** `force` goes past the leg's gate (approval, audio, not a draft) — the card asked first. */
+  send: (id: string, destination: string, force = false) =>
+    call<SendResult>(`/issues/${id}/send/${destination}${force ? '?force=1' : ''}`, { method: 'POST', body: '{}' }),
 
   /** How long the issue took, the Builder issue before it, and what shipped between. */
   timing: (id: string) => call<{

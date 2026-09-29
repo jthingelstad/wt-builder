@@ -31,8 +31,9 @@ Each card is white on `#eeedea`, radius 12px, and changes border with state
 - **Blocker strip** when a dependency is unmet: `#fdf9ee`, `circle-alert`, amber
   text. Website carries it — the handoff publishes an audio reference, so the
   podcast runs first. Enforced: the server refuses a website send until an
-  audio reference is recorded (the podcast's last good send), and `?force=1`
-  is offered only when there is none.
+  audio reference is recorded (the podcast's last good send); while there is
+  none the card's action is **Commit without audio…**, which asks first
+  (`?force=1`).
 - **Steps**, one row each, hairline-ruled: an 18px state glyph (`check` green /
   `loader-circle` amber spinning / `circle` `#d6d4d0`), the label, and **the
   evidence that step produced** in 11px mono underneath (`4f2a91c`,
@@ -51,10 +52,13 @@ failed (*Revisited 2026-09-29*: until then only a podcast whose latest status wa
 `sent` was exempt, so a failed re-send asked for approval again; Jamie wants as
 few forced steps in their own tool as can be, and an earlier good send, by
 `lastSent`, is enough). The server holds the leg to the same approval, so a
-request that skips the view is refused too. Until then it sits in `NEEDS YOU` — and the
-**card's own action button disappears** while waiting, so the step row owns the
-interaction. A card button labelled with a state ("Waiting on you") is a dead
-primary: it duplicates the pill beside it and does nothing when clicked.
+request that skips the view is refused too. Until then it sits in `NEEDS YOU`:
+reading and approving stay in the step row, and the card's action is **Send
+without approval…**, which asks first — saying whether the script is unread, read
+but not approved, or changed since — and sends it anyway (*Revisited
+2026-09-29*: the button used to disappear while waiting, and nothing could skip
+the gate). A card button labelled with a state ("Waiting on you") is still a
+dead primary: it duplicates the pill beside it and does nothing when clicked.
 
 **Sending** is what the server recorded, not what this view started: a leg sent
 from another tab, or before a reload, reads `SENDING` too. While any leg is out,
@@ -74,14 +78,26 @@ failed attempt does not take away.
 
 Once the Buttondown check has read the email back as anything but a draft —
 scheduled, going out, sent — or a Buttondown send has been refused because it
-was, the Buttondown card has **no action**: in its place a `circle-alert` line
-says Buttondown's status and that the email is no longer a draft and can't be
-edited safely. `Re-send all sent` and `Send the rest` leave Buttondown out from
-then on, and one that meets that refusal carries on to the archive. A check
-that reads `draft` again gives **Update draft** back. *Revisited 2026-09-29:*
-until then a sent email offered **Update web copy…** behind a confirm, changing
-the copy in Buttondown's archive; Jamie decided only a draft is edited, since
-the archive is not hosted on Buttondown.
+was, the Buttondown card's `circle-alert` line says Buttondown's status, that the
+email is no longer a draft, and what an update would do for that status — sent:
+only Buttondown's copy changes and nothing is sent again; scheduled: it stays
+scheduled; going out: the update races the delivery — and its action is
+**Update anyway…**, which asks first. `Re-send all sent` and `Send the rest`
+leave Buttondown out from then on and say so in their confirm, and one that
+meets that refusal carries on to the archive. A check that reads `draft` again
+gives **Update draft** back. *Revisited 2026-09-29:* until then a sent email
+offered **Update web copy…** behind a confirm, changing the copy in Buttondown's
+archive; that morning Jamie decided only a draft is edited, since the archive is
+not hosted on Buttondown, and the card offered no action at all. That afternoon:
+nothing is beyond overriding, so a non-draft is updated only on purpose, from
+its own card.
+
+**Overrides.** Every gate on a send card can be gone past (Jamie, 2026-09-29:
+"There should be nothing that I cannot override. I'm the only user."). While a
+gate holds, the card's one action is its override: named for what it skips and
+ending in `…`, styled `btn` rather than `btn primary` so it never reads as the
+next step, and it asks with a `confirm` that says what going past means. The
+bulk runs never override; each override is a decision on its own card.
 
 A sent card ends in **VERIFY** on `#fbfbfa`: the destination read back — each check a
 row with `check` / `circle-alert` amber / `x` terracotta, its finding in 11px mono,
@@ -927,7 +943,8 @@ publishes an audio reference that needs a file to resolve to. The dependency is
 **enforced**: the Website card carries a blocker strip, and the server refuses a
 website send until an audio reference is recorded — the podcast's last good
 send, not its status (2026-09-28, review 2026-09-27 §2.1). `?force=1` is the
-deliberate escape for an issue with no audio.
+deliberate escape for an issue with no audio, behind the card's **Commit without
+audio…**.
 
 **The archive is not a publishing destination.** Issue text is committed to the
 archive repo *after* publication so Thingy can cite it. It is its own leg with its
