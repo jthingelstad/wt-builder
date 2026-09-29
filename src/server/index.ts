@@ -14,7 +14,7 @@ import { todayCentral } from '../shared/dates.ts';
 import { createServer, type IncomingMessage, type ServerResponse } from 'node:http';
 import { readFile } from 'node:fs/promises';
 import { createHash } from 'node:crypto';
-import { existsSync } from 'node:fs';
+import { existsSync, readFileSync } from 'node:fs';
 import { extname, join, normalize } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
@@ -68,12 +68,29 @@ export class HttpError extends Error {
  */
 class Refusal extends HttpError {}
 
+/**
+ * The build a reload would load: `build-id.txt`, which vite writes beside
+ * the client it names. Read per answer, not at boot, because it is the
+ * client on disk that counts. None under the dev server, or before a build.
+ */
+function servedBuild(): string | undefined {
+  try {
+    return readFileSync(join(DIST, 'build-id.txt'), 'utf8').trim() || undefined;
+  } catch {
+    return undefined;
+  }
+}
+
 function json(res: ServerResponse, status: number, payload: unknown): void {
   const body = JSON.stringify(payload);
+  const build = servedBuild();
   res.writeHead(status, {
     'Content-Type': 'application/json; charset=utf-8',
     'Content-Length': Buffer.byteLength(body),
     'Cache-Control': 'no-store',
+    // A tab left open across a deploy compares this with its own build and
+    // offers a reload (review 2026-09-27 §2.4).
+    ...(build ? { 'X-WT-Builder-Build': build } : {}),
   });
   res.end(body);
 }

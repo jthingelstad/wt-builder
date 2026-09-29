@@ -223,3 +223,25 @@ test('what each sent leg produced is shown from the issue, so it survives a relo
   await expect(card(page, 'Website').getByRole('link', { name: 'Commit ↗' })).toHaveAttribute('href', 'https://github.com/x/y/commit/f00dcafe1234');
   await expect(card(page, 'Buttondown').getByRole('link', { name: 'Draft ↗' })).toHaveAttribute('href', 'https://buttondown.com/emails/em-350');
 });
+
+test('a tab running an older build than the server serves offers a reload', async ({ page }) => {
+  // The build this suite serves names itself, and the client built with it
+  // agrees: no bar.
+  const served = (await page.request.get('/api/health')).headers()['x-wt-builder-build'];
+  expect(served).toBeTruthy();
+  const swept = page.waitForResponse((r) => r.url().endsWith(`/api/issues/${ISSUE}/sweep`));
+  await open(page);
+  await swept;
+  await expect(page.locator('.update-bar')).toHaveCount(0);
+
+  // A deploy since this tab loaded: the server now serves another build.
+  await page.route('**/api/**', async (route) => {
+    const res = await route.fetch();
+    await route.fulfill({ response: res, headers: { ...res.headers(), 'x-wt-builder-build': 'a-later-build' } });
+  });
+  // Coming back to the tab asks, before anything is typed into the old client.
+  await page.evaluate(() => document.dispatchEvent(new Event('visibilitychange')));
+  const bar = page.locator('.update-bar');
+  await expect(bar).toContainText('WT Builder was updated');
+  await expect(bar.getByRole('button', { name: 'Reload' })).toBeVisible();
+});

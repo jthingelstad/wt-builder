@@ -1,7 +1,7 @@
 import { useCallback, useEffect, useRef, useState } from 'preact/hooks';
 
 import type { IssueDoc } from '../shared/types.ts';
-import { api, type IssueResponse, type Readiness } from './api.ts';
+import { api, onStaleBuild, type IssueResponse, type Readiness } from './api.ts';
 import { parseRoute, routeHref, sameRoute, type Route } from './router.ts';
 import { IssueIndex } from './components/Index.tsx';
 import { Editor } from './components/Editor.tsx';
@@ -109,16 +109,38 @@ export function App() {
     return () => { live = false; };
   }, [route, doc?.issue.id, absorb, go]);
 
+  // A deploy since this tab loaded: the server names another build. Asked on
+  // every answer, and when the tab comes back into view, before anything is
+  // typed into the old client (review 2026-09-27 §2.4).
+  const [updated, setUpdated] = useState(false);
+  useEffect(() => onStaleBuild(() => setUpdated(true)), []);
+  useEffect(() => {
+    const look = () => {
+      if (document.visibilityState === 'visible') api.health().catch(() => { /* the next answer says */ });
+    };
+    document.addEventListener('visibilitychange', look);
+    return () => document.removeEventListener('visibilitychange', look);
+  }, []);
+  const bar = updated && (
+    <div class="update-bar" role="status">
+      <span>WT Builder was updated since this page loaded.</span>
+      <button class="btn small" onClick={() => location.reload()}>Reload</button>
+    </div>
+  );
+
   // Until the issue the route names has loaded, whatever doc is held is
   // another issue's, and is not shown.
   if (route.view === 'index' || !doc || doc.issue.id !== route.id) {
     return (
-      <IssueIndex
-        error={error}
-        loading={loading}
-        onError={setError}
-        onOpen={(id) => go({ view: 'issue', id })}
-      />
+      <>
+        {bar}
+        <IssueIndex
+          error={error}
+          loading={loading}
+          onError={setError}
+          onOpen={(id) => go({ view: 'issue', id })}
+        />
+      </>
     );
   }
 
@@ -129,6 +151,7 @@ export function App() {
   const sending = route.view === 'send';
   return (
     <>
+      {bar}
       <Editor
         key={doc.issue.id}
         doc={doc}

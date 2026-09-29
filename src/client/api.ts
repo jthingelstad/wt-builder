@@ -93,6 +93,31 @@ export interface IssueSummary {
   counts: { items: number; links: number; journal: number };
 }
 
+/** This client's build, as vite.config.ts names it; undefined under the dev server and in tests. */
+declare const __WT_BUILD_ID__: string | undefined;
+const OWN_BUILD = typeof __WT_BUILD_ID__ === 'string' ? __WT_BUILD_ID__ : undefined;
+
+let staleBuild = false;
+const staleListeners = new Set<() => void>();
+
+/**
+ * Called once the server names a build other than this client's: a deploy
+ * since the tab loaded, and a reload would load the new client (review
+ * 2026-09-27 §2.4). Returns the unsubscribe.
+ */
+export function onStaleBuild(fn: () => void): () => void {
+  if (staleBuild) fn();
+  staleListeners.add(fn);
+  return () => { staleListeners.delete(fn); };
+}
+
+function checkBuild(res: Response): void {
+  const served = res.headers.get('X-WT-Builder-Build');
+  if (staleBuild || !OWN_BUILD || !served || served === OWN_BUILD) return;
+  staleBuild = true;
+  for (const fn of staleListeners) fn();
+}
+
 /** A refusal from the service: its message, its HTTP status, and the code it names, when it names one. */
 export class ApiError extends Error {
   constructor(message: string, public status: number, public code?: string) {
@@ -105,6 +130,7 @@ async function call<T>(path: string, init?: RequestInit): Promise<T> {
     ...init,
     headers: { 'Content-Type': 'application/json', ...(init?.headers ?? {}) },
   });
+  checkBuild(res);
   const text = await res.text();
   // A proxy, or the service restarting under a deploy, can answer with HTML
   // or nothing parseable. The error bar then said "Unexpected token '<'";

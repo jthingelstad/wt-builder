@@ -693,6 +693,12 @@ Opened by the rail `i` button. `padding: 14px 18px 40px`.
   green confirmation `SAT, SEP 12 · 12:00 AM CT` or an error), ISSUE NUMBER (seeded
   last-published + 1, note "Follows WT350"), SOURCE MATERIAL (7/14/21 + free number,
   derived window line). Footer `#fbfbfa`: **Cancel** / **Create WT351**.
+- **Updated bar** — ink pill, bottom centre, over everything including the Send
+  layer: `WT Builder was updated since this page loaded.` and **Reload**. Shown once
+  the server names a build other than the tab's (every API answer carries
+  `X-WT-Builder-Build`, read from the `build-id.txt` a build writes beside the
+  client; the tab also asks when it comes back into view). Never reloads on its
+  own: something may be half-typed (review 2026-09-27 §2.4).
 
 ---
 

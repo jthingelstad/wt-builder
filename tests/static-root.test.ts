@@ -18,6 +18,7 @@ const dist = join(work, 'dist');
 mkdirSync(join(dist, 'assets'), { recursive: true });
 writeFileSync(join(dist, 'index.html'), '<!doctype html><title>e2e build</title>');
 writeFileSync(join(dist, 'assets', 'app.js'), 'console.log("e2e build");');
+writeFileSync(join(dist, 'build-id.txt'), 'test-build-1\n');
 process.env.WT_BUILDER_DB = join(work, 'static.db');
 process.env.WT_BUILDER_DIST = dist;
 
@@ -55,6 +56,16 @@ describe('WT_BUILDER_DIST is the static root', () => {
   it('an app route falls back to its shell', async () => {
     const res = await fetch(`${base}/wt999`);
     expect(await res.text()).toContain('<title>e2e build</title>');
+  });
+
+  // Every API answer names the build a reload would load, so a tab running
+  // an older one can say so (review 2026-09-27 §2.4).
+  it('names the build it serves on every API answer', async () => {
+    const res = await fetch(`${base}/api/health`);
+    expect(res.headers.get('x-wt-builder-build')).toBe('test-build-1');
+    const refused = await fetch(`${base}/api/no-such-route`);
+    expect(refused.status).toBe(404);
+    expect(refused.headers.get('x-wt-builder-build')).toBe('test-build-1');
   });
 
   // After a deploy, an open tab asks for the chunks of the build it was

@@ -159,6 +159,24 @@ a:hover { text-decoration: underline; }
 }
 .error-bar .btn { margin-left: auto; }
 
+/* Over everything, the Send layer included: the page itself is out of date. */
+.update-bar {
+  position: fixed;
+  left: 50%;
+  bottom: 14px;
+  transform: translateX(-50%);
+  z-index: 120;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 7px 8px 7px 14px;
+  background: var(--ink);
+  color: #fff;
+  font-size: 12.5px;
+  border-radius: 9px;
+  box-shadow: 0 8px 24px rgba(26, 26, 26, .18);
+}
+
 .busy-hint {
   position: fixed;
   right: 16px;
