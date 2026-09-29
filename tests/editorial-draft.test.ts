@@ -28,7 +28,7 @@ vi.mock('../src/server/integrations/pinboard.ts', () => ({
   recentCommentary: vi.fn(async () => []),
 }));
 
-const { draft, thingySentences } = await import('../src/server/editorial.ts');
+const { callJson, draft, review, reviewScript, suggestOrder, thingySentences } = await import('../src/server/editorial.ts');
 
 const fixture = () =>
   JSON.parse(
@@ -124,5 +124,67 @@ describe('Thingy\'s words never come back as Jamie\'s archive', () => {
     await draft({ doc: fixture(), itemId: 'link-flipcash', thingy: thingySentences([fixture()]) });
     expect(prompt()).toContain('WT221: The boat went in');
     expect(prompt()).not.toContain('owning the tools that shape your work, most directly WT349');
+  });
+});
+
+describe('every model call says why it failed', () => {
+  /** Thinking spent the room: the JSON stops mid-object. */
+  const cutOff = { stop_reason: 'max_tokens', stop_details: null, content: [{ type: 'thinking', thinking: '' }, { type: 'text', text: '{"candidates":["The page argues th' }] };
+  const refused = { stop_reason: 'refusal', stop_details: { type: 'refusal', category: null, explanation: null }, content: [] };
+  const linkIds = ['briefly-forge', 'briefly-tokenspeed', 'briefly-shortcuts'];
+
+  it('callJson turns max_tokens, refusal and unreadable text into sentences', async () => {
+    const say = { declined: 'the drafting service declined this request', what: 'the draft' };
+    create.mockResolvedValueOnce(cutOff);
+    await expect(callJson({ model: 'm', max_tokens: 1, messages: [] }, say)).rejects.toThrow('the draft ran out of room — try again');
+    create.mockResolvedValueOnce(refused);
+    await expect(callJson({ model: 'm', max_tokens: 1, messages: [] }, say)).rejects.toThrow('the drafting service declined this request');
+    create.mockResolvedValueOnce({ stop_reason: 'end_turn', stop_details: null, content: [{ type: 'text', text: 'not json' }] });
+    await expect(callJson({ model: 'm', max_tokens: 1, messages: [] }, say)).rejects.toThrow('the draft came back unreadable — try again');
+  });
+
+  it('each wand reports running out of room, not a JSON parse error', async () => {
+    create.mockResolvedValue(cutOff);
+    retrieve.mockResolvedValue([{ issue_number: 221, url: 'u', text: 'The boat.' }]);
+    for (const itemId of ['link-flipcash', 'haiku-1', 'membership-1', 'photo-1', 'journal-concert', 'echo-building']) {
+      await expect(draft({ doc: fixture(), itemId }), itemId).rejects.toThrow('the draft ran out of room — try again');
+    }
+    await expect(suggestOrder(fixture(), 'briefly', linkIds)).rejects.toThrow('the order ran out of room — try again');
+    await expect(reviewScript([{ text: 'Weekly Thing 350.' }])).rejects.toThrow('the script read ran out of room — try again');
+  });
+
+  it('a review whose passes both ran out of room fails readably and logs why', async () => {
+    create.mockResolvedValue(cutOff);
+    const warn = vi.spyOn(console, 'warn').mockImplementation(() => {});
+    await expect(review({ doc: fixture() })).rejects.toThrow('the review failed; your previous notes are untouched');
+    expect(warn.mock.calls.map((c) => String(c[0]))).toEqual([
+      '[review] proof pass failed: the review ran out of room — try again',
+      '[review] judgement pass failed: the review ran out of room — try again',
+    ]);
+    warn.mockRestore();
+  });
+
+  it('a refusal is still a refusal', async () => {
+    create.mockResolvedValue(refused);
+    await expect(draft({ doc: fixture(), itemId: 'haiku-1' })).rejects.toThrow('the drafting service declined this request');
+    await expect(suggestOrder(fixture(), 'briefly', linkIds)).rejects.toThrow('the ordering service declined this request');
+    await expect(reviewScript([{ text: 'x' }])).rejects.toThrow('the script reader declined this script');
+  });
+
+  it('every call leaves 8k to 16k of room, thinking included', async () => {
+    retrieve.mockResolvedValue([{ issue_number: 221, url: 'u', text: 'The boat.' }]);
+    create.mockImplementation(async () => reply({ summary: '', notes: [], candidates: [], alts: [], echoes: [], order: [], why: '', verdict: 'ready', findings: [] }));
+    await review({ doc: fixture() });
+    await draft({ doc: fixture(), itemId: 'photo-1' });
+    await draft({ doc: fixture(), itemId: 'journal-concert' });
+    await suggestOrder(fixture(), 'briefly', linkIds);
+    await draft({ doc: fixture(), itemId: 'haiku-1' });
+    await reviewScript([{ text: 'x' }]);
+    const caps = create.mock.calls.map((c) => c[0].max_tokens as number);
+    expect(caps).toHaveLength(7); // the review is two calls
+    for (const cap of caps) {
+      expect(cap).toBeGreaterThanOrEqual(8000);
+      expect(cap).toBeLessThanOrEqual(16000);
+    }
   });
 });

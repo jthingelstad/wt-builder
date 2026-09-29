@@ -74,6 +74,50 @@ export function isConfigured(): boolean {
   return Boolean(process.env.ANTHROPIC_API_KEY || process.env.ANTHROPIC_AUTH_TOKEN);
 }
 
+/**
+ * Room for each call's answer. Thinking cannot be turned off on this model
+ * and it spends from the same max_tokens as the JSON, so a small cap was
+ * cut off mid-object and surfaced as a bare JSON.parse error (review
+ * 2026-09-27, §5). 16k is the most a non-streaming call should ask for.
+ */
+const ROOM_SHORT = 8000;
+const ROOM_LONG = 16000;
+
+/** What every wand says when its call fails. */
+const DRAFT_SAYS = { declined: 'the drafting service declined this request', what: 'the draft' };
+
+/**
+ * One model call whose answer is structured JSON — all six go through here.
+ * Every way the answer can fail to be JSON becomes a sentence Jamie can act
+ * on instead of a parse error: a refusal, running out of room, a prompt too
+ * big to read, or text that does not parse.
+ */
+export async function callJson<T>(
+  params: Anthropic.MessageCreateParamsNonStreaming,
+  say: { declined: string; what: string },
+): Promise<T> {
+  const response = await anthropic().messages.create(params);
+  switch (response.stop_reason) {
+    case 'refusal':
+      throw new Error(say.declined);
+    case 'max_tokens':
+      throw new Error(`${say.what} ran out of room — try again`);
+    case 'model_context_window_exceeded':
+      throw new Error(`${say.what} had more to read than the model can hold`);
+    default:
+      break;
+  }
+  const text = response.content
+    .filter((b): b is Anthropic.TextBlock => b.type === 'text')
+    .map((b) => b.text)
+    .join('');
+  try {
+    return JSON.parse(text) as T;
+  } catch {
+    throw new Error(`${say.what} came back unreadable — try again`);
+  }
+}
+
 const NOTES_SCHEMA = {
   type: 'object',
   additionalProperties: false,
@@ -143,27 +187,16 @@ async function callReviewer(
   userText: string,
   effort: 'low' | 'medium' | 'high',
 ): Promise<CallResult> {
-  const response = await anthropic().messages.create({
+  const parsed = await callJson<CallResult>({
     model: MODEL,
-    max_tokens: 16000,
+    max_tokens: ROOM_LONG,
     system,
     output_config: {
       effort,
       format: { type: 'json_schema', schema: NOTES_SCHEMA },
     },
     messages: [{ role: 'user', content: userText }],
-  } as Anthropic.MessageCreateParamsNonStreaming);
-
-  if (response.stop_reason === 'refusal') {
-    throw new Error('the reviewer declined this issue');
-  }
-
-  const text = response.content
-    .filter((b): b is Anthropic.TextBlock => b.type === 'text')
-    .map((b) => b.text)
-    .join('');
-
-  const parsed = JSON.parse(text) as CallResult;
+  } as Anthropic.MessageCreateParamsNonStreaming, { declined: 'the reviewer declined this issue', what: 'the review' });
   return { summary: parsed.summary ?? '', notes: parsed.notes ?? [] };
 }
 
@@ -624,16 +657,13 @@ Each alt is for a reader who cannot see the image. Say what is in the frame — 
     ].filter(Boolean).join('\n\n'),
   });
 
-  const response = await anthropic().messages.create({
+  const parsed = await callJson<{ alts?: string[] }>({
     model: MODEL,
-    max_tokens: 1500,
+    max_tokens: ROOM_SHORT,
     system,
     output_config: { effort: 'medium', format: { type: 'json_schema', schema: ALTS_SCHEMA } },
     messages: [{ role: 'user', content }],
-  } as Anthropic.MessageCreateParamsNonStreaming);
-  if (response.stop_reason === 'refusal') throw new Error('the drafting service declined this request');
-  const text = response.content.filter((b): b is Anthropic.TextBlock => b.type === 'text').map((b) => b.text).join('');
-  const parsed = JSON.parse(text) as { alts?: string[] };
+  } as Anthropic.MessageCreateParamsNonStreaming, DRAFT_SAYS);
   const alts = (parsed.alts ?? []).map((a) => String(a ?? '').trim());
   return {
     candidates: [],
@@ -692,16 +722,13 @@ Vary the three in what they put first — the subject, the setting, the light �
     },
   ];
 
-  const response = await anthropic().messages.create({
+  const parsed = await callJson<{ candidates?: PhotoOption[] }>({
     model: MODEL,
-    max_tokens: 1500,
+    max_tokens: ROOM_SHORT,
     system,
     output_config: { effort: 'medium', format: { type: 'json_schema', schema: PHOTO_SCHEMA } },
     messages: [{ role: 'user', content: parts }],
-  } as Anthropic.MessageCreateParamsNonStreaming);
-  if (response.stop_reason === 'refusal') throw new Error('the drafting service declined this request');
-  const text = response.content.filter((b): b is Anthropic.TextBlock => b.type === 'text').map((b) => b.text).join('');
-  const parsed = JSON.parse(text) as { candidates?: PhotoOption[] };
+  } as Anthropic.MessageCreateParamsNonStreaming, DRAFT_SAYS);
   return { candidates: [], photo: (parsed.candidates ?? []).slice(0, 3) };
 }
 
@@ -1243,20 +1270,13 @@ export async function suggestOrder(
     'Return every id exactly once in `order`. `why` is one or two plain sentences Jamie can read in a glance. `notes` may be empty; use it only where a placement is not obvious.',
   ].join(' ');
 
-  const response = await anthropic().messages.create({
+  const parsed = await callJson<OrderSuggestion>({
     model: MODEL,
-    max_tokens: 2000,
+    max_tokens: ROOM_SHORT,
     system,
     output_config: { effort: 'medium', format: { type: 'json_schema', schema: ORDER_SCHEMA } },
     messages: [{ role: 'user', content: `The links, in their current order:\n\n${listing}` }],
-  } as Anthropic.MessageCreateParamsNonStreaming);
-
-  if (response.stop_reason === 'refusal') throw new Error('the ordering service declined this request');
-  const text = response.content
-    .filter((b): b is Anthropic.TextBlock => b.type === 'text')
-    .map((b) => b.text)
-    .join('');
-  const parsed = JSON.parse(text) as OrderSuggestion;
+  } as Anthropic.MessageCreateParamsNonStreaming, { declined: 'the ordering service declined this request', what: 'the order' });
 
   const offered = new Set(links.map((l) => l.id));
   const seen = new Set<string>();
@@ -1382,9 +1402,12 @@ export async function draft(req: DraftRequest): Promise<DraftResult> {
       : `\nThe assembled issue, for grounding:\n${assembled}`,
   ];
 
-  const response = await anthropic().messages.create({
+  const parsed = await callJson<{
+    candidates?: unknown[];
+    echoes?: EchoOption[];
+  }>({
     model: MODEL,
-    max_tokens: 8000,
+    max_tokens: ROOM_LONG,
     system,
     output_config: {
       effort: 'medium',
@@ -1394,21 +1417,7 @@ export async function draft(req: DraftRequest): Promise<DraftResult> {
       },
     },
     messages: [{ role: 'user', content: parts.filter(Boolean).join('\n') }],
-  } as Anthropic.MessageCreateParamsNonStreaming);
-
-  if (response.stop_reason === 'refusal') {
-    throw new Error('the drafting service declined this request');
-  }
-
-  const text = response.content
-    .filter((b): b is Anthropic.TextBlock => b.type === 'text')
-    .map((b) => b.text)
-    .join('');
-
-  const parsed = JSON.parse(text) as {
-    candidates?: unknown[];
-    echoes?: EchoOption[];
-  };
+  } as Anthropic.MessageCreateParamsNonStreaming, DRAFT_SAYS);
   if (type === 'echoes') {
     // Every echo is checked against what was retrieved, the section wand's
     // and a single echo's redraft alike; a flag rides along to the picker.
@@ -1480,16 +1489,13 @@ Do NOT report: opinions about the writing, word choice, tone, length, or anythin
 
 verdict "ready" when nothing would trip a listener; "look" when something would. Quote the exact words (short) and give the block number. A suggestion is optional and must be a spoken-form fix. summary is one plain sentence. Most scripts are ready — do not invent findings.`;
   const script = blocks.map((b, i) => `[${i}]${b.speaker === 'thingy' ? ' (Thingy)' : ''} ${b.text}`).join('\n');
-  const response = await anthropic().messages.create({
+  const parsed = await callJson<{ verdict?: 'ready' | 'look'; summary?: string; findings?: { block: number; quote: string; problem: string; suggestion?: string }[] }>({
     model: MODEL,
-    max_tokens: 8000,
+    max_tokens: ROOM_LONG,
     system,
     output_config: { effort: 'medium', format: { type: 'json_schema', schema: SCRIPT_REVIEW_SCHEMA } },
     messages: [{ role: 'user', content: script }],
-  } as Anthropic.MessageCreateParamsNonStreaming);
-  if (response.stop_reason === 'refusal') throw new Error('the script reader declined this script');
-  const text = response.content.filter((b): b is Anthropic.TextBlock => b.type === 'text').map((b) => b.text).join('');
-  const parsed = JSON.parse(text) as { verdict?: 'ready' | 'look'; summary?: string; findings?: { block: number; quote: string; problem: string; suggestion?: string }[] };
+  } as Anthropic.MessageCreateParamsNonStreaming, { declined: 'the script reader declined this script', what: 'the script read' });
   const findings = (parsed.findings ?? []).filter((f) => Number.isInteger(f.block) && f.block >= 0 && f.block < blocks.length);
   return { verdict: findings.length ? 'look' : parsed.verdict ?? 'ready', summary: parsed.summary ?? '', findings };
 }
