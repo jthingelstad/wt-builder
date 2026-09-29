@@ -122,6 +122,21 @@ test('put to bed, nothing is offered: no editable run, rail, wand, field, or but
   }
   await expect(inspector.locator('.edition-buttons button:not([disabled])')).toHaveCount(0);
 
+  // A read-only field commits nothing on blur. An untitled post's title is
+  // undefined, and focusing it to copy, then clicking away, sent
+  // {title: ''} into a 423 (Batch 7 review, B1).
+  const writes: string[] = [];
+  page.on('request', (r) => { if (r.method() !== 'GET') writes.push(`${r.method()} ${r.url()}`); });
+  await inspector.getByRole('button', { name: 'Close', exact: true }).click();
+  await page.locator('[data-anchor="journal-boat"] .rail-btn[aria-label="Inspect"]').click();
+  for (const label of ['Title', 'Body']) {
+    await inspector.getByLabel(label, { exact: true }).focus();
+    await inspector.getByLabel(label, { exact: true }).blur();
+  }
+  await page.waitForTimeout(300);
+  expect(writes).toEqual([]);
+  await expect(page.locator('.error-bar')).toHaveCount(0);
+
   // The server is still the backstop.
   const edit = await request.patch(`/api/issues/${ISSUE}/items/link-functions`, { data: { commentary: 'changed' } });
   expect(edit.status()).toBe(423);

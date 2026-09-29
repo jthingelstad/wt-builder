@@ -133,11 +133,19 @@ export function Inspector({ doc, itemId, run, onClose, onError, onBackToReview, 
     return ok;
   };
 
-  /** The save's promise, or undefined when there is nothing to save. */
+  /**
+   * The save's promise, or undefined when there is nothing to save.
+   *
+   * Frozen, a field saves nothing, whatever its blur reads back. A read-only
+   * Title on an untitled post reads back '' where the item holds undefined,
+   * so focusing it to copy and clicking away sent {title: ''} into the
+   * server's 423 (Batch 7 review, B1). The same holds for every field below.
+   */
   const commitField = (field: keyof Item, value: unknown) =>
-    item[field] !== value ? commit({ [field]: value }) : undefined;
+    !frozen && item[field] !== value ? commit({ [field]: value }) : undefined;
 
   const commitMedia = (field: string, value: string) => {
+    if (frozen) return undefined;
     if ((item.media?.[field as keyof NonNullable<Item['media']>] ?? '') === value) return undefined;
     return commit({ media: { ...(item.media ?? {}), [field]: value } });
   };
@@ -204,6 +212,7 @@ export function Inspector({ doc, itemId, run, onClose, onError, onBackToReview, 
             readOnly={frozen}
               value={(item.tags ?? []).join(', ')}
               onCommit={(text) => {
+                if (frozen) return undefined;
                 const tags = text
                   .split(',')
                   .map((tag) => tag.trim())
