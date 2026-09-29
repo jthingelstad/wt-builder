@@ -44,4 +44,18 @@ describe('no sign-off inside the frame', () => {
     expect(stripSignOff('…either way. - Thingy.')).toBe('…either way.');
     expect(stripSignOff('Ask Thingy how the tournament grew.')).toBe('Ask Thingy how the tournament grew.');
   });
+
+  it('strips the Markdown variants too: emphasis, a hard break, an escaped or doubled dash', () => {
+    const said = 'The newsletter stays free either way.';
+    for (const tail of [
+      '\n\n— *Thingy*', '\n\n*— Thingy*', ' _— Thingy._', '\n\n**— Thingy**', '  \n— _Thingy_',
+      ' -- Thingy', '\n\n\\— Thingy', ' &ndash; Thingy', '\n\n— Thingy  ', '\n\n— Thingy\\',
+    ]) {
+      expect(stripSignOff(`${said}${tail}`), JSON.stringify(tail)).toBe(said);
+    }
+    // A sentence that ends on Thingy's name is not a sign-off.
+    expect(stripSignOff('Say hello to *Thingy*')).toBe('Say hello to *Thingy*');
+    expect(stripSignOff('Questions go to _Thingy_.')).toBe('Questions go to _Thingy_.');
+    expect(stripSignOff('Every answer here is non-Thingy')).toBe('Every answer here is non-Thingy');
+  });
 });

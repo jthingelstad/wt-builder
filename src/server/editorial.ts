@@ -1333,7 +1333,17 @@ export async function suggestOrder(
  * the hello (WT350, 2026-09-20). The prompt says not to; this makes sure.
  */
 export function stripSignOff(text: string): string {
-  return String(text ?? '').replace(/\s*(?:[—–-]|&mdash;)\s*Thingy\.?\s*$/u, '').trimEnd();
+  // The dash may be written as an entity, escaped (\—), or doubled (--);
+  // emphasis may wrap the name or the whole line (*— Thingy*, — _Thingy_);
+  // a Markdown hard break (two spaces or a backslash) may trail it. The
+  // dash is required and must start a word, so a sentence that ends on the
+  // name ("say hi to Thingy", "the non-Thingy") is left alone.
+  return String(text ?? '')
+    .replace(
+      /\s*[*_]{0,3}\s*\\?(?<=^|[\s*_\\])(?:[—–]|-{1,2}|&mdash;|&ndash;)\s*[*_]{0,3}\s*Thingy\.?\s*[*_]{0,3}\.?(?:\s|\\)*$/u,
+      '',
+    )
+    .trimEnd();
 }
 
 export async function draft(req: DraftRequest): Promise<DraftResult> {
