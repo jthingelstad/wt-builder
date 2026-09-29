@@ -1029,7 +1029,11 @@ describe('a conflict has a way out: Keep mine, or Take theirs', () => {
       store.deleteIssue(id);
     });
 
-    it('a write-back that lands after it was put to bed saves nothing', async () => {
+    // Bed freezes Jamie's words, not the record of what the source holds.
+    // Saving nothing left the old base against the new words at Pinboard,
+    // and the next write after waking found a phantom conflict (cross-batch
+    // fixes review, round 1).
+    it('a write-back that lands after it was put to bed records what the source holds, and changes no words', async () => {
       const id = await contested(990055);
       const doc = store.getIssue(id)!.doc;
       doc.items['link-contested']!.sync_state = 'syncing';
@@ -1037,11 +1041,28 @@ describe('a conflict has a way out: Keep mine, or Take theirs', () => {
       store.saveIssue(doc);
       remote.extended = 'The words both started from.';
       bedDuringRead(id);
-      const before = structuredClone(store.getIssue(id)!.doc.items['link-contested']!);
       const res = await fetch(`${base}/api/issues/${id}/items/link-contested/writeback`, { method: 'POST', body: '{}' });
-      expect(res.status).toBe(423);
-      expect((await res.json()).error).toContain('put to bed');
-      expect(store.getIssue(id)!.doc.items['link-contested']).toEqual(before);
+      expect(res.status).toBe(200);
+      expect((await res.json()).result.sync_state).toBe('synced');
+      expect(added.map((a) => a.get('extended'))).toEqual(['Mine, written here.']);
+      remote.extended = added[0]!.get('extended')!;
+      const asleep = store.getIssue(id)!.doc;
+      expect(asleep.issue.put_to_bed_at).toBeTruthy();
+      expect(asleep.items['link-contested']).toMatchObject({
+        commentary: 'Mine, written here.', sync_state: 'synced',
+        source_snapshot: { commentary: 'Mine, written here.' },
+      });
+
+      // Woken, the next write finds the source where the record says it is.
+      duringRead = undefined;
+      expect((await fetch(`${base}/api/issues/${id}/bed`, {
+        method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ asleep: false }),
+      })).status).toBe(200);
+      const again = await fetch(`${base}/api/issues/${id}/items/link-contested/writeback`, { method: 'POST', body: '{}' });
+      expect((await again.json()).result.sync_state).toBe('synced');
+      const item = store.getIssue(id)!.doc.items['link-contested']!;
+      expect(item.sync_state).toBe('synced');
+      expect(item.commentary).toBe('Mine, written here.');
       store.deleteIssue(id);
     });
   });
@@ -1314,13 +1335,30 @@ describe('write-backs to one item run one at a time, and the newest words are wh
       await new Promise((r) => setTimeout(r, 20));
     }
     const [one, two] = await Promise.all([first, second]);
-    expect(one.status).toBe(423);
+    // The first write reached Pinboard, and that is recorded: its words are
+    // the base now. The second, whose turn came after bed, wrote nothing.
+    expect(one.status).toBe(200);
     expect(two.status).toBe(423);
     expect(adds.map((a) => a.extended)).toEqual(['v1']);
     const item = store.getIssue(id)!.doc.items['link-overlap']!;
     expect(item.commentary).toBe('v2');
     expect(item.sync_state).toBe('syncing');
-    expect(item.source_snapshot?.commentary).toBe('v0');
+    expect(item.source_snapshot?.commentary).toBe('v1');
+
+    // Woken, a restart writes the newer words over the base the record
+    // holds: no conflict.
+    const woken = store.getIssue(id)!.doc;
+    delete woken.issue.put_to_bed_at;
+    store.saveIssue(woken);
+    const finished = finishStrandedWrites();
+    await until(() => adds.length === 2);
+    adds.forEach((a) => a.release());
+    await finished;
+    expect(adds.map((a) => a.extended)).toEqual(['v1', 'v2']);
+    const after = store.getIssue(id)!.doc.items['link-overlap']!;
+    expect(after.sync_state).toBe('synced');
+    expect(after.commentary).toBe('v2');
+    expect(after.source_snapshot?.commentary).toBe('v2');
     store.deleteIssue(id);
   });
 

@@ -239,9 +239,13 @@ finished, what is half-finished, and what has never run.
   change nothing when the item was edited, or left `conflict`, while the
   source was being read, and 423 when the issue was put to bed meanwhile
   (2026-09-28). A write-back whose turn comes after the issue is put to
-  bed writes nothing (423); one put to bed while it is being written
-  reaches the source but saves nothing here, so the item stays `syncing`
-  until the issue is woken and a restart finishes it. A failed or conflicted
+  bed writes nothing (423). One put to bed while it is being written has
+  reached the source, so its outcome is still recorded — the sync state
+  and the snapshot of what the source now holds — and no word changes:
+  bed freezes the words, not the record of the source. It is not written
+  again while asleep; an edit that landed during the write stays `syncing`
+  on the new base, and once the issue is woken a restart writes it with no
+  conflict. A failed or conflicted
   item from Pinboard or Micro.blog is a `sync` unit on the checklist.
   Review 2026-09-27, §1.2.
 - **emails.json is merged, never rebuilt** (2026-08-31) — the website leg

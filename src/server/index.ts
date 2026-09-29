@@ -301,15 +301,16 @@ async function writeLatest(id: string, itemId: string, queue: { waiting: number 
     // A write whose turn comes after the issue was put to bed writes
     // nothing: the issue is frozen, and the door refused it too.
     const doc = awake(requireIssue(id));
-    const source = doc.items[itemId]?.source ?? 'the source';
     const { patch, result } = await writeItemToSource(id, doc, itemId);
     let again = false;
     const response = savedFresh(id, (d) => {
-      // Put to bed while the source was written: the write reached it, but
-      // the issue is not changed, not even its sync state (cross-batch
-      // review of review-fixes, Batch 2 x Batch 7). The item stays
-      // `syncing`; once the issue is woken, a restart finishes it.
-      awake(d, `${source} was being written (the write reached it)`);
+      // Put to bed while the source was written: the write reached it, so
+      // its outcome is still recorded — sync state and the snapshot of what
+      // the source now holds. Bed freezes the words, not that record; left
+      // at the old base, the next write after waking found a phantom
+      // conflict (cross-batch fixes review, round 1). No word is changed,
+      // and nothing is written again while it sleeps.
+      const asleep = Boolean(d.issue.put_to_bed_at);
       const fresh = d.items[itemId];
       if (!fresh) return;
       const written = patch.source_snapshot;
@@ -321,7 +322,7 @@ async function writeLatest(id: string, itemId: string, queue: { waiting: number 
       // synced until they are written too — by the write queued behind this
       // one, or by this one again.
       const next = issues.updateItem(d, itemId, { ...patch, sync_state: 'syncing', sync_error: undefined });
-      if (queue.waiting > 1) return next;
+      if (queue.waiting > 1 || asleep) return next;
       if (attempt < 3) { again = true; return next; }
       next.items[itemId]!.sync_state = 'failed';
       next.items[itemId]!.sync_error = 'it kept changing while it was written — your edit is kept; Retry';
