@@ -16,6 +16,8 @@ import { connect } from 'node:net';
 import { tmpdir } from 'node:os';
 import { join } from 'node:path';
 
+import type { IssueDoc } from '../src/shared/types.ts';
+
 // The database path must be decided before the server's config module loads.
 // vitest runs with WT_BUILDER_OFFLINE=1 (vite.config.ts), so .env is never
 // read and no credential is present.
@@ -26,7 +28,7 @@ process.env.WT_BUILDER_DB = join(work, 'routes.db');
 process.env.WT_BUILDER_ALLOWED_ORIGINS = 'https://extra.example:8443, https://another.example, null';
 process.env.WT_BUILDER_ALLOWED_HOSTS = 'extra.example:8443';
 
-const { server, logStrayErrors } = await import('../src/server/index.ts');
+const { server, logStrayErrors, finishStrandedWrites } = await import('../src/server/index.ts');
 
 let base = '';
 
@@ -1001,6 +1003,104 @@ describe('a conflict has a way out: Keep mine, or Take theirs', () => {
     expect(added).toHaveLength(0);
     await fetch(`${base}/api/issues/${id}`, { method: 'DELETE' });
   });
+});
+
+// A published issue stays editable until it is put to bed (Batch 7), so an
+// edit on one starts a write-back like a draft's. Boot finished stranded
+// writes on drafts only: a restart mid-write left the item `syncing` for
+// good, since a re-scan is refused on a published issue and Retry is
+// disabled while syncing (Batch 5). Only a frozen issue is left alone.
+describe('a restart finishes a stranded write on any issue that is not frozen', () => {
+  const LINK = 'https://example.com/stranded';
+  let config: typeof import('../src/server/config.ts');
+  let store: typeof import('../src/server/db.ts');
+  let added: URLSearchParams[];
+  const realFetch = globalThis.fetch;
+  const ids: string[] = [];
+
+  beforeAll(async () => {
+    config = await import('../src/server/config.ts');
+    store = await import('../src/server/db.ts');
+  });
+
+  beforeEach(() => {
+    added = [];
+    config.credentials.pinboardToken = 'test-token';
+    config.config.pinboardWriteBack = true;
+    vi.stubGlobal('fetch', async (input: string | URL | Request, init?: RequestInit) => {
+      const url = new URL(input instanceof Request ? input.url : String(input));
+      if (url.hostname !== 'api.pinboard.in') return realFetch(input, init);
+      if (url.pathname.endsWith('/posts/get')) {
+        if (url.searchParams.get('url') !== LINK) return Response.json({ posts: [] });
+        return Response.json({ posts: [{
+          href: LINK, description: 'Stranded', extended: 'The words before the edit.', tags: 'notable',
+          time: '2027-06-01T14:00:00Z', toread: 'yes', shared: 'no',
+        }] });
+      }
+      if (url.pathname.endsWith('/posts/add')) {
+        added.push(url.searchParams);
+        return Response.json({ result_code: 'done' });
+      }
+      throw new Error(`unexpected Pinboard call ${url.pathname}`);
+    });
+  });
+
+  afterEach(() => {
+    vi.unstubAllGlobals();
+    config.credentials.pinboardToken = undefined;
+    config.config.pinboardWriteBack = false;
+    for (const id of ids.splice(0)) store.deleteIssue(id);
+  });
+
+  /** A published issue whose one link was edited, saved, and never written. */
+  const stranded = async (number: number, publication_date: string, freeze?: (doc: IssueDoc) => void) => {
+    const created = await fetch(`${base}/api/issues`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ number, publication_date }),
+    });
+    const id = (await created.json()).issue.issue.id as string;
+    ids.push(id);
+    store.recordSend(id, 'website', { status: 'sent', at: new Date().toISOString() });
+    store.recordSend(id, 'buttondown', { status: 'sent', at: new Date().toISOString() });
+    const doc = store.getIssue(id)!.doc;
+    expect(doc.issue.status).toBe('published');
+    doc.items['link-stranded'] = {
+      type: 'pinboard_link', authorship: 'syndicated', source: 'Pinboard',
+      channels: { website: true, email: true, audio: true },
+      source_id: `pinboard:${LINK}`, source_url: LINK, published_at: '2027-06-01T14:00:00Z',
+      title: 'Stranded', commentary: 'Fixed after it went out.', tags: ['notable'], section: 'Notable',
+      source_snapshot: { title: 'Stranded', commentary: 'The words before the edit.', tags: ['notable'] },
+      source_flags: { toread: 'yes', shared: 'no' },
+      sync_state: 'syncing',
+    };
+    doc.nodes.find((n) => n.id === 'notable')!.items.push('link-stranded');
+    freeze?.(doc);
+    store.saveIssue(doc);
+    return id;
+  };
+
+  it('a published issue that is awake has its write finished', async () => {
+    const id = await stranded(990050, '2027-06-05');
+    await finishStrandedWrites();
+    expect(added).toHaveLength(1);
+    expect(added[0]!.get('extended')).toBe('Fixed after it went out.');
+    const item = store.getIssue(id)!.doc.items['link-stranded']!;
+    expect(item.sync_state).toBe('synced');
+    expect(item.source_snapshot?.commentary).toBe('Fixed after it went out.');
+  });
+
+  for (const [kind, number, date, freeze] of [
+    ['put to bed', 990051, '2027-06-12', (d: IssueDoc) => { d.issue.put_to_bed_at = new Date().toISOString(); }],
+    ['imported', 990052, '2027-06-19', (d: IssueDoc) => { d.issue.imported = true; }],
+  ] as const) {
+    it(`an issue ${kind} is frozen: nothing is written, and the item is left as it was`, async () => {
+      const id = await stranded(number, date, freeze);
+      await finishStrandedWrites();
+      expect(added).toHaveLength(0);
+      expect(store.getIssue(id)!.doc.items['link-stranded']!.sync_state).toBe('syncing');
+    });
+  }
 });
 
 // Two edits to one item in quick succession each wrote back on their own,

@@ -282,7 +282,12 @@ finished, what is half-finished, and what has never run.
   or is still in flight, is not reconciled or moved by that scan; the next
   one reads it afresh (2026-09-28, review 2026-09-27 §1.2). The price: an
   item stuck in `syncing` (a write that never finished) is skipped by every
-  re-scan until a restart's `finishStrandedWrites` writes it.
+  re-scan until a restart's `finishStrandedWrites` writes it. A restart
+  finishes such writes on every issue that is not frozen — a draft, or a
+  published issue still awake; one put to bed, or an imported record, is
+  left as it is (2026-09-28: it had skipped every non-draft, and a
+  published issue refuses a re-scan, so an edit made after publishing
+  stayed `syncing` for good).
   Opening a draft issue re-scans automatically, and Re-scan sits on the
   at-rest meta card as well as in the edit panel, on a draft only. The automatic scan is
   skipped when the editor opens under the Send view (a link to

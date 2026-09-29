@@ -1786,11 +1786,15 @@ export function logStrayErrors(proc: Pick<NodeJS.Process, 'on'> = process): void
 /**
  * A restart between "saved" and "written to the source" leaves an item in
  * `syncing` with nothing writing (a deploy landed in the same second as an
- * edit, 2026-09-20). On boot, every such item in a draft gets its write.
+ * edit, 2026-09-20). On boot, every such item gets its write unless its
+ * issue is frozen — put to bed, or an imported record (Page.tsx isFrozen).
+ * A published issue that is awake edits as a draft does, so its writes are
+ * finished too: skipped, the item stayed `syncing` for good, since a
+ * published issue refuses a re-scan and Retry waits out `syncing`.
  */
-async function finishStrandedWrites(): Promise<void> {
+export async function finishStrandedWrites(): Promise<void> {
   for (const row of store.listIssues()) {
-    if (row.doc.issue.status !== 'draft') continue;
+    if (row.doc.issue.put_to_bed_at || row.doc.issue.imported) continue;
     for (const [itemId, item] of Object.entries(row.doc.items)) {
       if (item.sync_state !== 'syncing') continue;
       try {
