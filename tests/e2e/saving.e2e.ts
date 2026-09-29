@@ -186,14 +186,24 @@ test("an inspector field never carries one item's typing to the next", async ({ 
   doc.items['link-flipcash']!.commentary = '';
   store.saveIssue(doc);
   await open(page);
+  // Held, so the next item's field is looked at before the first save
+  // answers: the blur resync that follows the answer would otherwise
+  // correct the field, and the test passed without the Inspector's key
+  // (Batch 5 review round 2).
+  const save = await hold(page, `**/api/issues/${ISSUE}/items/link-functions`, 'PATCH');
 
   let panel = await inspect(page, 'link-functions');
   await panel.locator('#item-link-functions-commentary').click();
   await page.keyboard.type('Bleed text');
   panel = await inspect(page, 'link-flipcash');
-  for (let i = 0; i < 50 && item('link-functions').commentary !== 'Bleed text'; i++) await page.waitForTimeout(100);
+  await save.seen;
 
   const notes = panel.locator('#item-link-flipcash-commentary');
+  await expect(notes).toHaveValue('');
+  await page.waitForTimeout(300);
+  await expect(notes).toHaveValue('');
+  save.release('continue');
+  for (let i = 0; i < 50 && item('link-functions').commentary !== 'Bleed text'; i++) await page.waitForTimeout(100);
   await expect(notes).toHaveValue('');
   await notes.click();
   await panel.locator('h3').first().click();
