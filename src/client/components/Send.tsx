@@ -702,8 +702,11 @@ function Bed({ doc, onChanged, onError }: { doc: IssueDoc; onChanged: (d: IssueD
   const asleep = doc.issue.put_to_bed_at;
   const published = doc.issue.status === 'published';
   const unverified = CARDS.filter((c) => doc.sends?.[c.key]?.status === 'sent' && doc.verify?.[c.key]?.status !== 'passed');
-  // Not sent means never gone out: a failed re-send still went once.
+  // Not sent means never gone out: a failed re-send still went once. That
+  // failure is said on its own line, so it shows in some list — a warning,
+  // like the others, and never a gate.
   const unsent = CARDS.filter((c) => !lastSent(doc.sends?.[c.key]));
+  const failedSince = CARDS.filter((c) => doc.sends?.[c.key]?.status === 'failed' && lastSent(doc.sends?.[c.key]));
   const act = (sleep: boolean) => {
     if (!sleep && !confirm(`Wake WT${doc.issue.number}? It becomes editable and re-sendable again.`)) return;
     setBusy(true);
@@ -731,10 +734,11 @@ function Bed({ doc, onChanged, onError }: { doc: IssueDoc; onChanged: (d: IssueD
       {!asleep && !published && (
         <div class="sc-blocker"><CircleAlert /><span>Only a published issue goes to bed — the website and Buttondown legs send it.</span></div>
       )}
-      {!asleep && published && (unsent.length > 0 || unverified.length > 0) && (
+      {!asleep && published && (unsent.length > 0 || unverified.length > 0 || failedSince.length > 0) && (
         <div class="sc-blocker"><CircleAlert /><span>
           {[unsent.length ? `Not sent: ${unsent.map((c) => c.name).join(', ')}.` : '',
-            unverified.length ? `Not verified yet: ${unverified.map((c) => c.name).join(', ')}.` : ''].filter(Boolean).join(' ')}
+            unverified.length ? `Not verified yet: ${unverified.map((c) => c.name).join(', ')}.` : '',
+            failedSince.length ? `Last attempt failed: ${failedSince.map((c) => c.name).join(', ')}.` : ''].filter(Boolean).join(' ')}
           {' '}It can still go to bed.
         </span></div>
       )}

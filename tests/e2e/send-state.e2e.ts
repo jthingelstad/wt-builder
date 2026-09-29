@@ -49,7 +49,11 @@ test('the Archive and put to bed follow the legs that have gone out, not their l
   const bed = page.locator('.send-card.bed');
   await expect(bed.getByRole('button', { name: 'Put to bed' })).toBeEnabled();
   await expect(bed.locator('.sc-blocker')).toContainText('Not sent: Podcast, Archive.');
-  await expect(bed.locator('.sc-blocker')).not.toContainText('Buttondown');
+  await expect(bed.locator('.sc-blocker')).not.toContainText('Not sent: Buttondown');
+  // Counted as gone out, the failed re-send is still said: a warning beside
+  // the others, never a gate.
+  await expect(bed.locator('.sc-blocker')).toContainText('Last attempt failed: Buttondown.');
+  await expect(bed.locator('.sc-blocker')).toContainText('It can still go to bed.');
 });
 
 test('the website card waits for an audio reference, not a podcast status', async ({ page }) => {

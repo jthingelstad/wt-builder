@@ -190,7 +190,9 @@ finished, what is half-finished, and what has never run.
   and the website's prior-issues index true after the first real send.
   A leg counts once it has ever sent (`lastSent`), so a failed re-send
   since does not hold the issue back; the Send view's Archive blocker and
-  put-to-bed "Not sent" list read legs the same way (2026-09-28: an email
+  put-to-bed "Not sent" list read legs the same way, and the put-to-bed
+  card names a leg whose latest attempt failed ("Last attempt failed"), a
+  warning that does not stop it going to bed (2026-09-28: an email
   sent, a failed update of its draft, then the website, had left the issue
   a draft, with the locks, put to bed and the Archive all off).
 - **A published issue keeps its number, date and window** (2026-09-28) —
