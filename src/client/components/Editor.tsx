@@ -227,10 +227,18 @@ export function Editor({ doc, readiness, busy, error, run, onIndex, onSend, onEr
   // Opening a draft re-scans on its own: sources fill in all week, and the
   // page should show the week as it stands, not as it stood last session.
   // The doc renders immediately; the sweep lands when it lands.
+  //
+  // Not when the editor mounts under the Send view (a link straight to
+  // /<id>/send), nor when it is uncovered later, and not once any leg has
+  // been sent or is out: a scan then spends the posts/all allowance, saves
+  // a revision, and can change items between the legs of a run, so the
+  // website, email and audio would differ (Batch 6 review, B1). Re-scan
+  // stays Jamie's to press.
   useEffect(() => {
-    if (doc.issue.status !== 'draft') return;
+    if (doc.issue.status !== 'draft' || covered) return;
+    if (Object.values(doc.sends ?? {}).some((s) => s && s.status !== 'none')) return;
     sweep();
-  }, [id]); // once per issue open — not on every doc replacement
+  }, [id]); // once per issue open — not on every doc replacement, nor on uncovering
 
   // Escape closes the right rail before it does anything else. A field in it
   // is blurred first, so its commit runs: closing took the field out from

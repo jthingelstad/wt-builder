@@ -374,7 +374,9 @@ radius 6px; active = black fill).
 most-used act in the panel (sources fill in all week), so it lives on the
 resting card, not only behind Edit. Opening a draft issue also re-scans
 automatically; the page renders immediately and the sweep lands when it
-lands. **Log** opens the issue's event log as a sheet — every action on the
+lands. Not when it opens under the Send view or is uncovered from it, and
+not once any leg has been sent or is out: a bulk run's legs must render the
+same issue (Batch 6 review, B1). Re-scan stays available. **Log** opens the issue's event log as a sheet — every action on the
 issue, newest first: sweep arrivals, source refreshes, edits, outline
 changes, write-backs, sends. Rows are `time · kind chip · summary`. The log
 narrates; it never decides.

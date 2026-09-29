@@ -247,7 +247,10 @@ finished, what is half-finished, and what has never run.
   item stuck in `syncing` (a write that never finished) is skipped by every
   re-scan until a restart's `finishStrandedWrites` writes it.
   Opening a draft issue re-scans automatically, and Re-scan sits on the
-  at-rest meta card as well as in the edit panel.
+  at-rest meta card as well as in the edit panel. The automatic scan is
+  skipped when the editor opens under the Send view (a link to
+  `/<id>/send`), when it is uncovered from it, and once any leg has been
+  sent or is out, so the legs of a run render the same issue (2026-09-28).
 - **Event log** (2026-08-30) — every action on an issue is narrated to an
   append-only `events` table (its own table; the document rewrites wholesale
   on every save): sweep arrivals, source-side refreshes/gone/conflicts,

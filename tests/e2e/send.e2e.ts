@@ -245,3 +245,39 @@ test('a tab running an older build than the server serves offers a reload', asyn
   await expect(bar).toContainText('WT Builder was updated');
   await expect(bar.getByRole('button', { name: 'Reload' })).toBeVisible();
 });
+
+/** Every scan the page asks for, counted from the first request. */
+function countSweeps(page: Page): () => number {
+  let sweeps = 0;
+  page.on('request', (r) => { if (r.url().endsWith(`/api/issues/${ISSUE}/sweep`)) sweeps += 1; });
+  return () => sweeps;
+}
+
+// The Send view opened straight from a link used to mount the editor
+// beneath it, which scanned the draft: a posts/all call, a revision, and
+// items that could change between the legs of a run (Batch 6 review, B1).
+test('the Send view opened directly scans nothing, and neither does going back to the issue', async ({ page }) => {
+  await interceptSends(page);
+  const sweeps = countSweeps(page);
+  await page.goto(`/${ISSUE}/send`);
+  await expect(card(page, 'Website')).toBeVisible();
+  await page.waitForTimeout(500);
+  expect(sweeps()).toBe(0);
+
+  await page.locator('.send-layer .header').getByRole('button', { name: 'Issue' }).click();
+  await expect(page.locator('.send-layer')).toHaveCount(0);
+  await page.waitForTimeout(500);
+  expect(sweeps()).toBe(0);
+  // Re-scan is still Jamie's to press.
+  await expect(page.getByRole('button', { name: /Re-scan/ })).toBeEnabled();
+});
+
+test('a draft with a leg sent or out is not scanned when it opens', async ({ page }) => {
+  podcastSent();
+  store.recordSend(ISSUE, 'website', { status: 'sending', at: new Date().toISOString() });
+  await interceptSends(page);
+  const sweeps = countSweeps(page);
+  await open(page);
+  await page.waitForTimeout(500);
+  expect(sweeps()).toBe(0);
+});
