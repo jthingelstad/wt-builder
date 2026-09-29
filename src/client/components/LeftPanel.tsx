@@ -6,7 +6,7 @@
  * the material and nothing else.
  */
 
-import { useEffect, useState } from 'preact/hooks';
+import { useEffect, useRef, useState } from 'preact/hooks';
 
 import type { IssueDoc, IssueNode } from '../../shared/types.ts';
 import { isSaturday, shortKicker, spanLabel } from '../../shared/dates.ts';
@@ -210,6 +210,11 @@ function MetaEditor({
 }) {
   const w = windowOf(doc);
   const [snapped, setSnapped] = useState(false);
+  // The date saves on change, the way a picker is used; its blur waits on
+  // that save, as every other field's blur waits on its own. It resynced at
+  // once instead, so the old date showed while the save was out and a
+  // failed save dropped the typed one (Batch 5 review round 2).
+  const dateSave = useRef<Promise<boolean> | undefined>(undefined);
 
   return (
     <div class="meta-card edit">
@@ -232,7 +237,12 @@ function MetaEditor({
             const date = (e.target as HTMLInputElement).value;
             if (!date) return;
             setSnapped(!isSaturday(date));
-            onSettings({ publication_date: date });
+            dateSave.current = onSettings({ publication_date: date });
+          }}
+          onCommit={() => {
+            const saving = dateSave.current;
+            dateSave.current = undefined;
+            return saving;
           }}
         />
       </label>

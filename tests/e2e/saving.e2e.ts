@@ -226,6 +226,30 @@ test('a date the server snaps shows as snapped once the field loses focus', asyn
   await expect(date).toHaveValue('2026-10-10');
 });
 
+// The date saves on change and had no commit on blur, so the blur resynced
+// at once: with its save out the field showed the old date, and after a
+// failed save the typed date was gone (Batch 5 review round 2). It waits on
+// its save, as every other field does.
+test('a typed date stays in the field while its save is out, and after it fails', async ({ page }) => {
+  await open(page);
+  const saved = store.getIssue(ISSUE)!.doc.issue.publication_date;
+  await page.locator('.left-panel .panel-head').getByRole('button', { name: 'Edit' }).click();
+  const date = page.locator('.left-panel input[type="date"]');
+  const save = await hold(page, `**/api/issues/${ISSUE}/settings`, 'POST');
+  await date.fill('2026-10-07');
+  await save.seen;
+  await page.locator('.left-panel .mono-label').first().click();
+  await expect(date).not.toBeFocused();
+  await page.waitForTimeout(300);
+  await expect(date).toHaveValue('2026-10-07');
+
+  save.release('abort');
+  await expect(page.locator('.error-bar')).toBeVisible();
+  await page.waitForTimeout(300);
+  await expect(date).toHaveValue('2026-10-07');
+  expect(store.getIssue(ISSUE)!.doc.issue.publication_date).toBe(saved);
+});
+
 /** Select [start, end) of an editable's single text node — its source after the swap. */
 async function selectIn(page: Page, sel: string, start: number, end: number) {
   await page.locator(sel).evaluate((el, [a, b]) => {
