@@ -34,6 +34,24 @@ test('a failed leg names its last good send', async ({ page }) => {
   await expect(card(page, 'Archive').locator('.sc-last-good')).toHaveCount(0);
 });
 
+// A text leg has gone out once it has ever sent: a failed re-send of the
+// draft still leaves the email Buttondown holds. The Archive and put to bed
+// read that, not the latest status (cross-batch review: Batch 4 x Batch 7).
+test('the Archive and put to bed follow the legs that have gone out, not their latest status', async ({ page }) => {
+  const at = '2026-09-26T14:05:00Z';
+  store.recordSend(ISSUE, 'buttondown', { status: 'sent', at, external_id: 'em-350', edit_url: 'https://buttondown.com/emails/em-350' });
+  store.recordSend(ISSUE, 'buttondown', { status: 'failed', at: '2026-09-26T15:00:00Z', error: 'Buttondown /emails/em-350 failed: 503' });
+  store.recordSend(ISSUE, 'website', { status: 'sent', at: '2026-09-26T15:05:00Z', external_id: 'f00d', url: 'https://github.com/x/y/commit/f00d' });
+
+  await page.goto(`/${ISSUE}/send`);
+  await expect(card(page, 'Buttondown').locator('.sc-pill').first()).toHaveText('DID NOT SEND');
+  await expect(card(page, 'Archive').locator('.sc-blocker')).toHaveCount(0);
+  const bed = page.locator('.send-card.bed');
+  await expect(bed.getByRole('button', { name: 'Put to bed' })).toBeEnabled();
+  await expect(bed.locator('.sc-blocker')).toContainText('Not sent: Podcast, Archive.');
+  await expect(bed.locator('.sc-blocker')).not.toContainText('Buttondown');
+});
+
 test('the website card waits for an audio reference, not a podcast status', async ({ page }) => {
   const audio = { audio_url: 'https://files.thingelstad.com/weekly-thing/audio/wt350.mp3' };
   store.recordSend(ISSUE, 'podcast', { status: 'sent', at: '2026-09-26T13:00:00Z', url: audio.audio_url, audio });

@@ -48,6 +48,19 @@ describe('published derives from the sends', () => {
     expect(row!.doc.issue.status).toBe('draft');
   });
 
+  // Batch 4 carried a leg's last good send through a failed re-send, but
+  // the derivation still read `status === 'sent'`: an email sent, then a
+  // failed update of its draft, then the website, and the issue stayed a
+  // draft, with Batch 7's locks, put to bed and the Archive all off.
+  it('a leg that has sent counts, though a re-send of it failed since', () => {
+    store.saveIssue(createIssue({ number: 990012, publication_date: '2026-09-19' }));
+    store.recordSend('wt990012', 'buttondown', sent());
+    store.recordSend('wt990012', 'buttondown', failed());
+    const row = store.recordSend('wt990012', 'website', sent());
+    expect(row!.doc.issue.status).toBe('published');
+    expect(row!.status).toBe('published');
+  });
+
   it('publishing never runs backwards', () => {
     // A later failed re-send does not un-publish; the archive owns the truth.
     const row = store.recordSend('wt990010', 'website', failed());

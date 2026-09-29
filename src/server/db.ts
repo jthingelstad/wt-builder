@@ -341,12 +341,14 @@ export function recordSend(id: string, destination: Destination, state: SendStat
   // legs have gone out, the issue is out. Nothing sets it back — the archive
   // is authoritative after this, not the draft. Deriving it here is what
   // keeps `lastPublishedNumber()` and the website's prior-issues index true
-  // after WT Builder's first real send.
+  // after WT Builder's first real send. A leg has gone out once it has ever
+  // sent (`lastSent`): a failed re-send of the Buttondown draft still leaves
+  // the draft, and reading `status` kept such an issue a draft for good.
   const sends = row.doc.sends;
   if (
     row.doc.issue.status === 'draft' &&
-    sends.website?.status === 'sent' &&
-    sends.buttondown?.status === 'sent'
+    lastSent(sends.website) &&
+    lastSent(sends.buttondown)
   ) {
     row.doc.issue.status = 'published';
     logEvent(id, 'issue', `Published — WT${row.doc.issue.number}`);

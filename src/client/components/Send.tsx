@@ -196,7 +196,10 @@ export function Send({ doc, readiness, error, onBack, onSent, onError }: Props) 
 
   const id = doc.issue.id;
   const stateOf = (key: Destination) => doc.sends?.[key]?.status ?? 'none';
-  const sentMap = Object.fromEntries(CARDS.map((c) => [c.key, stateOf(c.key) === 'sent']));
+  // What the blockers ask: has the leg gone out? Once it has ever sent it
+  // has, and a failed re-send since does not undo that — the server derives
+  // published the same way (recordSend).
+  const sentMap = Object.fromEntries(CARDS.map((c) => [c.key, Boolean(lastSent(doc.sends?.[c.key]))]));
   const sentCount = CARDS.filter((c) => stateOf(c.key) === 'sent').length;
 
   // The gate is persisted and tied to the script that was read: approval
@@ -699,7 +702,8 @@ function Bed({ doc, onChanged, onError }: { doc: IssueDoc; onChanged: (d: IssueD
   const asleep = doc.issue.put_to_bed_at;
   const published = doc.issue.status === 'published';
   const unverified = CARDS.filter((c) => doc.sends?.[c.key]?.status === 'sent' && doc.verify?.[c.key]?.status !== 'passed');
-  const unsent = CARDS.filter((c) => doc.sends?.[c.key]?.status !== 'sent');
+  // Not sent means never gone out: a failed re-send still went once.
+  const unsent = CARDS.filter((c) => !lastSent(doc.sends?.[c.key]));
   const act = (sleep: boolean) => {
     if (!sleep && !confirm(`Wake WT${doc.issue.number}? It becomes editable and re-sendable again.`)) return;
     setBusy(true);
