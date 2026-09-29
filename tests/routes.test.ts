@@ -297,6 +297,10 @@ describe('a section is renamed over the wire', () => {
 
     expect((await rename('Reading list')).status).toBe(200);
     expect(await label()).toBe('Reading list');
+    // Checked trimmed, and now saved trimmed: the route checked
+    // label.trim() and saved the label as sent (Batch 5 review round 2).
+    expect((await rename('  Further reading \n')).status).toBe(200);
+    expect(await label()).toBe('Further reading');
     await fetch(`${base}/api/issues/${id}`, { method: 'DELETE' });
   });
 });

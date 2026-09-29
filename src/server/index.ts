@@ -746,9 +746,11 @@ const routes: [RegExp, string, (ctx: Ctx, params: string[]) => Promise<unknown>]
 
   [/^\/api\/issues\/([^/]+)\/nodes\/([^/]+)\/rename$/, 'POST', async ({ body }, [id, nodeId]) => {
     const b = await body();
-    const label = typeof b.label === 'string' ? b.label : '';
+    // Saved as checked, trimmed: it was checked trimmed and saved as sent
+    // (Batch 5 review round 2).
+    const label = typeof b.label === 'string' ? b.label.trim() : '';
     // An empty heading published as "## " (Batch 5 review, B2).
-    if (!label.trim()) throw new HttpError(400, 'a section needs a label');
+    if (!label) throw new HttpError(400, 'a section needs a label');
     const doc = requireIssue(id!);
     const old = doc.nodes.find((n) => n.id === nodeId)?.label ?? nodeId;
     store.logEvent(id!, 'structure', `Renamed section — ${old} → ${label}`);
