@@ -56,19 +56,20 @@ export function recordedAudioUrl(sends: Partial<Record<string, SendState>> | und
 
 /**
  * The Buttondown record a refused re-send leaves when no check has run: the
- * one fact Buttondown gave — the email has gone — and nothing more. Never
- * `passed`: subject, body and delivery were not read, so the card must go on
- * saying it is not verified until the real check (started beside it) lands.
+ * one fact Buttondown gave — the email's status, which is not `draft` — and
+ * nothing more. Never `passed`: subject, body and delivery were not read, so
+ * the card must go on saying it is not verified until the real check
+ * (started beside it) lands.
  */
-export function refusedAsSent(at: string): Verification {
+export function refusedNotDraft(at: string, status: string): Verification {
   return {
     status: 'waiting',
     at,
-    remote_status: 'sent',
+    remote_status: status,
     checks: [{
       label: 'Status',
       ok: null,
-      detail: 'Sent, Buttondown said when a re-send was refused. Subject, body and delivery have not been checked yet.',
+      detail: `Buttondown said "${status}" when a re-send was refused. Subject, body and delivery have not been checked yet.`,
     }],
   };
 }

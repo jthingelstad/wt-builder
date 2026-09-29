@@ -280,7 +280,7 @@ export interface Verification {
   /**
    * `waiting`: nothing wrong, something not done yet (scheduled, not
    * indexed). With `recheck_at` it re-checks itself, after a restart too.
-   * Without it (`refusedAsSent`, the record a refused Buttondown re-send
+   * Without it (`refusedNotDraft`, the record a refused Buttondown re-send
    * leaves) the check started beside it replaces it, and if that check is
    * lost nothing reschedules it: "Check again" on the card recovers it.
    */
@@ -292,8 +292,9 @@ export interface Verification {
   recheck_at?: string;
   /**
    * What the destination said the thing is, when it says: Buttondown's email
-   * status (`draft`, `scheduled`, `sent`, …). The Send view reads it to offer
-   * "Update web copy…" instead of "Update draft" once the email has gone.
+   * status (`draft`, `scheduled`, `sent`, …). The Send view reads it to drop
+   * the Buttondown action once the email is not a draft: only a draft is
+   * edited (Jamie, 2026-09-29).
    */
   remote_status?: string;
 }

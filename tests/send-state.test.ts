@@ -470,47 +470,43 @@ describe('Buttondown is asked what the email is before it is changed', () => {
     return { id, before: structuredClone(legOf(id, 'buttondown')) };
   }
 
-  for (const status of ['about_to_send', 'in_flight']) {
-    it(`${status}: refused while Buttondown delivers it; the leg is untouched and the refusal is logged`, async () => {
-      const { id, before } = await sentOnce(status === 'in_flight' ? 990441 : 990442);
+  // Jamie decided 2026-09-29: the email is edited only while it is a draft.
+  // The archive is not hosted on Buttondown, so a sent email has no copy
+  // worth editing, and every other status is somewhere a PATCH is unsafe.
+  const notDraft = ['scheduled', 'about_to_send', 'in_flight', 'sent', 'imported', 'something_new'];
+  notDraft.forEach((status, i) => {
+    it(`${status}: refused as no longer a draft; the leg is untouched and the refusal is logged`, async () => {
+      const { id, before } = await sentOnce(990500 + i);
       const events = store.listEvents(id).length;
       h.emailStatus = status;
       const res = await send(id, 'buttondown');
       expect(res.status).toBe(409);
-      expect(res.body.error).toContain('Buttondown is delivering it now');
+      expect(res.body.code).toBe('not_draft');
+      expect(res.body.error).toContain('no longer a draft');
+      expect(res.body.error).toContain(`"${status}"`);
       expect(h.drafts).toHaveLength(0);
       expect(legOf(id, 'buttondown')).toEqual(before);
+      expect(store.getIssue(id)!.doc.verify!.buttondown!.remote_status).toBe(status);
       // One line in the log, so `npm run watch` shows the refusal.
       const logged = store.listEvents(id).slice(0, store.listEvents(id).length - events);
-      expect(logged.map((e) => e.summary)).toEqual([expect.stringMatching(/^Send refused — buttondown: Buttondown is delivering it now/)]);
+      expect(logged.map((e) => e.summary)).toEqual([expect.stringMatching(/^Send refused — buttondown: .*no longer a draft/)]);
       store.deleteIssue(id);
     });
-  }
+  });
 
-  it('sent: refused unless it is asked for as a web-copy update, which is logged', async () => {
+  it('sent: a web-copy update is no longer offered, and asking for one changes nothing', async () => {
     const { id, before } = await sentOnce(990443);
     h.emailStatus = 'sent';
-    const refused = await send(id, 'buttondown');
+    const refused = await send(id, 'buttondown', '?web_copy=1');
     expect(refused.status).toBe(409);
-    expect(refused.body.error).toContain('web_copy=1');
-    expect(store.listEvents(id).some((e) => /^Send refused — buttondown: .*already gone/.test(e.summary))).toBe(true);
+    expect(refused.body.code).toBe('not_draft');
+    expect(refused.body.error).not.toContain('web_copy');
     expect(h.drafts).toHaveLength(0);
     expect(legOf(id, 'buttondown')).toEqual(before);
-
-    const log = vi.spyOn(console, 'log').mockImplementation(() => {});
-    try {
-      const updated = await send(id, 'buttondown', '?web_copy=1');
-      expect(updated.status).toBe(200);
-      expect(h.drafts).toEqual([expect.objectContaining({ op: 'update', id: (before as { external_id: string }).external_id })]);
-      expect(store.listEvents(id).some((e) => /web copy/i.test(e.summary))).toBe(true);
-      expect(log.mock.calls.map((c) => String(c[0])).join('\n')).toMatch(/web copy/i);
-    } finally {
-      log.mockRestore();
-    }
     store.deleteIssue(id);
   });
 
-  it('sent: the refusal records what Buttondown said, so the card offers the web-copy update at once', async () => {
+  it('sent: the refusal records what Buttondown said, so the card drops its action at once', async () => {
     // WT350 and WT351: verified before the check read the email's status back.
     const { id } = await sentOnce(990447);
     const at = '2026-09-26T15:00:00Z';
@@ -519,7 +515,7 @@ describe('Buttondown is asked what the email is before it is changed', () => {
     h.emailStatus = 'sent';
     const refused = await send(id, 'buttondown');
     expect(refused.status).toBe(409);
-    expect(refused.body.code).toBe('email_sent');
+    expect(refused.body.code).toBe('not_draft');
     // The check's own findings are kept; only what Buttondown said is added.
     expect(store.getIssue(id)!.doc.verify!.buttondown).toEqual({ status: 'passed', at, checks, remote_status: 'sent' });
     store.deleteIssue(id);
@@ -566,15 +562,13 @@ describe('Buttondown is asked what the email is before it is changed', () => {
     store.deleteIssue(id);
   });
 
-  for (const status of ['draft', 'scheduled']) {
-    it(`${status}: updated as before`, async () => {
-      const { id, before } = await sentOnce(status === 'draft' ? 990444 : 990445);
-      h.emailStatus = status;
-      expect((await send(id, 'buttondown')).status).toBe(200);
-      expect(h.drafts).toEqual([expect.objectContaining({ op: 'update', id: (before as { external_id: string }).external_id })]);
-      store.deleteIssue(id);
-    });
-  }
+  it('draft: updated as before', async () => {
+    const { id, before } = await sentOnce(990444);
+    h.emailStatus = 'draft';
+    expect((await send(id, 'buttondown')).status).toBe(200);
+    expect(h.drafts).toEqual([expect.objectContaining({ op: 'update', id: (before as { external_id: string }).external_id })]);
+    store.deleteIssue(id);
+  });
 
   it('a status Buttondown will not give is a failed send that changes nothing there', async () => {
     const { id } = await sentOnce(990446);

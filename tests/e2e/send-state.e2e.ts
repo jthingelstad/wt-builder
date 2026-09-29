@@ -6,7 +6,7 @@
  */
 import { expect, test } from '@playwright/test';
 import { ISSUE, reset, store } from './helpers.ts';
-import { refusedAsSent } from '../../src/shared/sends.ts';
+import { refusedNotDraft } from '../../src/shared/sends.ts';
 
 test.beforeEach(() => reset());
 
@@ -71,7 +71,9 @@ test('the website card waits for an audio reference, not a podcast status', asyn
   await expect(card(page, 'Website').locator('.sc-blocker')).toContainText('podcast runs first');
 });
 
-test('once the email has gone, Buttondown offers only a confirmed web-copy update, and Re-send all sent leaves it out', async ({ page }) => {
+// Jamie, 2026-09-29: only a draft is edited. Once the email is anything
+// else, the Buttondown card offers no action at all, only why.
+test('once the email is not a draft, the Buttondown card offers no action, and Re-send all sent leaves it out', async ({ page }) => {
   const at = '2026-09-26T14:05:00Z';
   store.recordSend(ISSUE, 'website', { status: 'sent', at, external_id: 'f00d', url: 'https://github.com/x/y/commit/f00d' });
   store.recordSend(ISSUE, 'buttondown', { status: 'sent', at, external_id: 'em-350', edit_url: 'https://buttondown.com/emails/em-350' });
@@ -89,18 +91,10 @@ test('once the email has gone, Buttondown offers only a confirmed web-copy updat
 
   await page.goto(`/${ISSUE}/send`);
   const mail = card(page, 'Buttondown');
-  const button = mail.locator('.sc-head .btn.primary');
-  await expect(button).toHaveText('Update web copy…');
+  await expect(mail.locator('.sc-head .btn.primary')).toHaveCount(0);
+  await expect(mail.locator('.sc-locked')).toContainText('"sent", no longer a draft');
+  await expect(page.getByRole('button', { name: /web copy/i })).toHaveCount(0);
 
-  page.once('dialog', (d) => void d.dismiss());
-  await button.click();
-  await expect.poll(() => posted.length).toBe(0);
-
-  page.once('dialog', (d) => void d.accept());
-  await button.click();
-  await expect.poll(() => posted).toEqual(['buttondown?web_copy=1']);
-
-  posted.length = 0;
   // Every bulk run asks first, naming its legs (review 2026-09-27 §2.4):
   // one dialog, required, not only checked if it comes.
   const asked: string[] = [];
@@ -109,6 +103,21 @@ test('once the email has gone, Buttondown offers only a confirmed web-copy updat
   await expect.poll(() => posted).toEqual(['website', 'archive']);
   expect(asked).toHaveLength(1);
   expect(asked[0]).toContain('Website and Archive');
+});
+
+test('a scheduled email is locked the same way, and a draft keeps "Update draft"', async ({ page }) => {
+  const at = '2026-09-26T14:05:00Z';
+  store.recordSend(ISSUE, 'buttondown', { status: 'sent', at, external_id: 'em-350', edit_url: 'https://buttondown.com/emails/em-350' });
+  store.recordVerify(ISSUE, 'buttondown', { status: 'waiting', at, checks: [], remote_status: 'scheduled' });
+  await page.goto(`/${ISSUE}/send`);
+  const mail = card(page, 'Buttondown');
+  await expect(mail.locator('.sc-locked')).toContainText('"scheduled", no longer a draft');
+  await expect(mail.locator('.sc-head .btn.primary')).toHaveCount(0);
+
+  store.recordVerify(ISSUE, 'buttondown', { status: 'passed', at, checks: [], remote_status: 'draft' });
+  await page.reload();
+  await expect(mail.locator('.sc-locked')).toHaveCount(0);
+  await expect(mail.locator('.sc-head .btn.primary')).toHaveText('Update draft');
 });
 
 test('a verify record older than remote_status: the refusal switches the card, and Re-send all sent carries on to the archive', async ({ page }) => {
@@ -127,7 +136,7 @@ test('a verify record older than remote_status: the refusal switches the card, a
     posted.push(leg);
     if (leg === 'buttondown') {
       store.recordVerify(ISSUE, 'buttondown', { status: 'passed', at, checks: [], remote_status: 'sent' });
-      await route.fulfill({ status: 409, json: { error: "WT350's email has already gone to readers — nothing was changed.", code: 'email_sent' } });
+      await route.fulfill({ status: 409, json: { error: 'WT350\'s email is no longer a draft on Buttondown (it is "sent"), so it can\'t be edited safely — nothing was changed.', code: 'not_draft' } });
       return;
     }
     await route.fulfill({ json: { issue: store.getIssue(ISSUE)!.doc, send: { status: 'sent' } } });
@@ -140,7 +149,8 @@ test('a verify record older than remote_status: the refusal switches the card, a
   page.once('dialog', (d) => void d.accept());
   await page.getByRole('button', { name: 'Re-send all sent' }).click();
   await expect.poll(() => posted).toEqual(['website', 'buttondown', 'archive']);
-  await expect(button).toHaveText('Update web copy…');
+  await expect(button).toHaveCount(0);
+  await expect(card(page, 'Buttondown').locator('.sc-locked')).toBeVisible();
 });
 
 test('an email refused as sent with no check behind it is not counted as verified', async ({ page }) => {
@@ -151,11 +161,11 @@ test('an email refused as sent with no check behind it is not counted as verifie
   store.recordSend(ISSUE, 'archive', { status: 'sent', at, external_id: 'abc1234', url: 'https://github.com/x/z/commit/abc1234' });
   for (const leg of ['podcast', 'website', 'archive'] as const) store.recordVerify(ISSUE, leg, { status: 'passed', at, checks: [] });
   // Exactly what the server records when it refuses a re-send and no check has run.
-  store.recordVerify(ISSUE, 'buttondown', refusedAsSent(at));
+  store.recordVerify(ISSUE, 'buttondown', refusedNotDraft(at, 'sent'));
 
   await page.goto(`/${ISSUE}/send`);
   const mail = card(page, 'Buttondown');
-  await expect(mail.locator('.sc-head .btn.primary')).toHaveText('Update web copy…');
+  await expect(mail.locator('.sc-head .btn.primary')).toHaveCount(0);
   await expect(mail.locator('.sc-verify .sc-pill')).not.toHaveText('VERIFIED');
   await expect(page.getByText(/Not verified yet: Buttondown\./)).toBeVisible();
 });

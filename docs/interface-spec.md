@@ -68,12 +68,16 @@ that has gone before adds `Last good: Sat 9:05 AM · Draft ↗` to the strip in 
 mono: what the destination still holds (the draft, the mp3, the commit), which a
 failed attempt does not take away.
 
-Once the Buttondown check has read the email back as sent — or a Buttondown send
-has been refused because it had — the Buttondown card's
-action reads **Update web copy…** and asks first (a `confirm` saying nobody's inbox
-changes): the email is out, and only its copy in Buttondown's archive can change.
-`Re-send all sent` and `Send the rest` leave Buttondown out from then on, and one
-that meets that refusal carries on to the archive.
+Once the Buttondown check has read the email back as anything but a draft —
+scheduled, going out, sent — or a Buttondown send has been refused because it
+was, the Buttondown card has **no action**: in its place a `circle-alert` line
+says Buttondown's status and that the email is no longer a draft and can't be
+edited safely. `Re-send all sent` and `Send the rest` leave Buttondown out from
+then on, and one that meets that refusal carries on to the archive. A check
+that reads `draft` again gives **Update draft** back. *Revisited 2026-09-29:*
+until then a sent email offered **Update web copy…** behind a confirm, changing
+the copy in Buttondown's archive; Jamie decided only a draft is edited, since
+the archive is not hosted on Buttondown.
 
 A sent card ends in **VERIFY** on `#fbfbfa`: the destination read back — each check a
 row with `check` / `circle-alert` amber / `x` terracotta, its finding in 11px mono,

@@ -20,7 +20,7 @@ import { fileURLToPath } from 'node:url';
 
 import type { ArchiveReference, Channel, Destination, IssueDoc, Item, SendState, Verification } from '../shared/types.ts';
 import { render } from '../shared/render/index.ts';
-import { emailOf, isOut, lastSent, recordedAudioUrl, refusedAsSent } from '../shared/sends.ts';
+import { emailOf, isOut, lastSent, recordedAudioUrl, refusedNotDraft } from '../shared/sends.ts';
 import { renderEmail } from '../shared/render/email.ts';
 import { config, describeConfig } from './config.ts';
 import * as edge from './edge.ts';
@@ -492,8 +492,8 @@ async function runVerify(id: string, dest: Destination, wait = false, resumed = 
   if (!resumed && current?.status === 'running' && Date.now() - Date.parse(current.at) < VERIFY_STALE_MS) return;
   clearRecheck(id, dest);
   // What the destination last said stays while it is asked again: the card
-  // reads remote_status to offer "Update web copy…", and a check in flight
-  // must not flip it back to "Update draft".
+  // reads remote_status to drop its action once the email is not a draft,
+  // and a check in flight must not flip it back to "Update draft".
   store.recordVerify(id, dest, {
     status: 'running', at: new Date().toISOString(), checks: [],
     ...(current?.remote_status ? { remote_status: current.remote_status } : {}),
@@ -1346,37 +1346,29 @@ const routes: [RegExp, string, (ctx: Ctx, params: string[]) => Promise<unknown>]
       store.logEvent(id!, 'send', `Send refused — buttondown: ${message}`);
       throw new Refusal(409, message, code);
     };
-    const webCopy = url.searchParams.get('web_copy') === '1';
     try {
-      // What the email is now, before anything is changed: a PATCH while
-      // Buttondown is delivering it races the delivery, and one after it
-      // has gone rewrites a sent email (review 2026-09-27 §8 #7).
+      // What the email is now, before anything is changed. Only a draft is
+      // edited (Jamie, 2026-09-29): a PATCH while Buttondown is delivering it
+      // races the delivery, one after it has gone rewrites a sent email, and
+      // the archive is not hosted on Buttondown, so there is no web copy
+      // worth changing (review 2026-09-27 §8 #7).
       if (draftId) {
         const email = await buttondown.getEmail(draftId);
-        if (email.status === 'about_to_send' || email.status === 'in_flight') {
-          refuse(`Buttondown is delivering it now (${email.status}) — nothing was changed. Try again once it has gone.`);
-        }
-        if (email.status === 'sent' && !webCopy) {
+        if (email.status !== 'draft') {
+          const status = email.status || 'unknown';
           // What Buttondown just said is recorded where the card reads it, so
-          // the card offers "Update web copy…" now, even when the last check
-          // predates remote_status (WT350, WT351) or never ran. recordVerify,
-          // not a document save: a fresh read with no await and no revision,
-          // so a refused click never pushes a real edit out of the history.
-          // With no check behind it, only that fact is recorded — never a
-          // pass — and the real check is started once the leg is set back.
+          // the card drops its action now, even when the last check predates
+          // remote_status (WT350, WT351) or never ran. recordVerify, not a
+          // document save: a fresh read with no await and no revision, so a
+          // refused click never pushes a real edit out of the history. With
+          // no check behind it, only that fact is recorded — never a pass —
+          // and the real check is started once the leg is set back.
           const checked = store.getIssue(id!)?.doc.verify?.buttondown;
           store.recordVerify(id!, 'buttondown', checked
-            ? { ...checked, remote_status: 'sent' }
-            : refusedAsSent(new Date().toISOString()));
+            ? { ...checked, remote_status: status }
+            : refusedNotDraft(new Date().toISOString(), status));
           if (!checked) setImmediate(() => verifyAfterSend(id!, 'buttondown'));
-          refuse(`WT${before.issue.number}'s email has already gone to readers — nothing was changed. "Update web copy…" (POST ?web_copy=1) changes only the copy on Buttondown's archive.`, 'email_sent');
-        }
-        if (email.status !== 'draft' && email.status !== 'scheduled' && email.status !== 'sent') {
-          refuse(`Buttondown says the email is "${email.status}" — nothing was changed.`);
-        }
-        if (email.status === 'sent') {
-          console.log(`[send] WT${before.issue.number}: updating the web copy of email ${draftId}, which has already been sent`);
-          store.logEvent(id!, 'send', 'Web copy update started — buttondown (the email had already gone)');
+          refuse(`WT${before.issue.number}'s email is no longer a draft on Buttondown (it is "${status}"), so it can't be edited safely — nothing was changed.`, 'not_draft');
         }
       }
       store.logEvent(id!, 'send', 'Send started — buttondown');

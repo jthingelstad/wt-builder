@@ -274,24 +274,26 @@ export function Send({ doc, readiness, error, onBack, onSent, onError }: Props) 
     api.verify(id, key).then((r) => onSent(r.issue)).catch((err: Error) => onError(`${key}: ${err.message}`));
   };
 
-  // Once the email has gone (as the Buttondown check last read it), a
-  // re-send can only change its web copy: the server refuses anything else,
-  // so the card asks for that, with a confirm, and the bulk runs leave it out.
-  const emailGone = doc.verify?.buttondown?.remote_status === 'sent';
+  // Only a draft is edited (Jamie, 2026-09-29). Once the Buttondown check
+  // last read the email as anything else — scheduled, going out, sent — the
+  // server refuses a re-send, so the card offers none and the bulk runs
+  // leave it out.
+  const remoteStatus = doc.verify?.buttondown?.remote_status;
+  const emailLocked = remoteStatus && remoteStatus !== 'draft' ? remoteStatus : undefined;
 
   /**
    * One leg. `sent` when it went; a failure is shown and stops any run it is
    * part of. Any failure reads the issue again, so the card says what the
-   * server recorded. `gone` is Buttondown refusing because the email has
-   * already gone to readers: the server has recorded that, so the card
-   * offers "Update web copy…" at once, and a run carries on past it — the
-   * legs after it do not depend on it.
+   * server recorded. `locked` is Buttondown refusing because the email is no
+   * longer a draft: the server has recorded that, so the card drops its
+   * action at once, and a run carries on past it — the legs after it do not
+   * depend on it.
    */
-  const send = async (key: Destination, opts: { webCopy?: boolean } = {}): Promise<'sent' | 'failed' | 'gone'> => {
+  const send = async (key: Destination): Promise<'sent' | 'failed' | 'locked'> => {
     setRunning(key);
     onError(null);
     try {
-      const res = await api.send(id, key, opts);
+      const res = await api.send(id, key);
       setResults((r) => ({ ...r, [key]: res }));
       onSent(res.issue);
       return 'sent';
@@ -301,7 +303,7 @@ export function Send({ doc, readiness, error, onBack, onSent, onError }: Props) 
       // send: a failure kept the pre-send state, so a failed re-send stayed a
       // green SENT with the old VERIFIED panel (review 2026-09-27 §2.4).
       await api.getIssue(id).then((r) => onSent(r.issue)).catch(() => { /* the next poll */ });
-      if (err instanceof ApiError && err.code === 'email_sent') return 'gone';
+      if (err instanceof ApiError && err.code === 'not_draft') return 'locked';
       return 'failed';
     } finally {
       setRunning(null);
@@ -316,7 +318,7 @@ export function Send({ doc, readiness, error, onBack, onSent, onError }: Props) 
   for (const card of CARDS) {
     if (card.key === 'podcast' && !approved) break;
     if (stateOf(card.key) === 'sent') continue;
-    if (card.key === 'buttondown' && emailGone) continue;
+    if (card.key === 'buttondown' && emailLocked) continue;
     rest.push(card.key);
   }
 
@@ -343,7 +345,7 @@ export function Send({ doc, readiness, error, onBack, onSent, onError }: Props) 
    * the mp3, which a text fix never wants; its own card does that on purpose.
    */
   const RESEND: Destination[] = ['website', 'buttondown', 'archive'];
-  const resendable = RESEND.filter((key) => stateOf(key) === 'sent' && !(key === 'buttondown' && emailGone));
+  const resendable = RESEND.filter((key) => stateOf(key) === 'sent' && !(key === 'buttondown' && emailLocked));
   const resendAll = async () => {
     if (!confirm(`Re-send ${legNames(resendable)} for WT${doc.issue.number}, in that order? The podcast is left as it is.`)) return;
     cancelled.current = false;
@@ -411,15 +413,8 @@ export function Send({ doc, readiness, error, onBack, onSent, onError }: Props) 
             busy={sending || Boolean(doc.issue.put_to_bed_at)}
             onApprove={approveScript}
             gate={card.key === 'podcast' ? { review: reviewCurrent ? review : undefined, stale: Boolean(review) && !reviewCurrent, reading, onRead: readScript, approved } : undefined}
-            webCopy={card.key === 'buttondown' && emailGone}
-            onRun={() => {
-              if (card.key === 'buttondown' && emailGone) {
-                if (!confirm(`WT${doc.issue.number}'s email has already gone to readers. Update its web copy on Buttondown? Nobody's inbox changes.`)) return;
-                void send(card.key, { webCopy: true });
-                return;
-              }
-              void send(card.key);
-            }}
+            locked={card.key === 'buttondown' ? emailLocked : undefined}
+            onRun={() => { void send(card.key); }}
             issueId={id}
             verification={doc.verify?.[card.key]}
             onVerify={() => verify(card.key)}
@@ -473,12 +468,12 @@ function ArchivePreview({ issueId }: { issueId: string }) {
 }
 
 function SendCard({
-  card, state, stranded, send, result, blocker, gated, busy, onApprove, onRun, verification, onVerify, issueId, gate, webCopy,
+  card, state, stranded, send, result, blocker, gated, busy, onApprove, onRun, verification, onVerify, issueId, gate, locked,
 }: {
   /** `sending` past the in-flight window: out no longer, and retried like a failure. */
   stranded?: boolean;
-  /** The email has gone: the action updates only its web copy. */
-  webCopy?: boolean;
+  /** Buttondown's status for an email that is no longer a draft: no action, only why. */
+  locked?: string;
   gate?: { review?: ScriptReview; stale: boolean; reading: boolean; onRead: () => void; approved: boolean };
   issueId: string;
   verification?: Verification;
@@ -523,12 +518,22 @@ function SendCard({
           interaction. A card button labelled with a state duplicates the pill
           beside it and does nothing when clicked.
         */}
-        {!gated && (
+        {!gated && !locked && (
           <button class="btn primary" disabled={busy} onClick={onRun}>
-            {state === 'sending' && !stranded ? 'Sending…' : webCopy ? 'Update web copy…' : failed || stranded ? 'Try again' : done ? card.again : card.verb}
+            {state === 'sending' && !stranded ? 'Sending…' : failed || stranded ? 'Try again' : done ? card.again : card.verb}
           </button>
         )}
       </div>
+
+      {locked && (
+        <div class="sc-blocker sc-locked">
+          <CircleAlert />
+          <span>
+            Buttondown says this email is "{locked}", no longer a draft, so it
+            can't be edited safely and WT Builder leaves it alone.
+          </span>
+        </div>
+      )}
 
       {blocker && !done && (
         <div class="sc-blocker"><CircleAlert /><span>{blocker}</span></div>

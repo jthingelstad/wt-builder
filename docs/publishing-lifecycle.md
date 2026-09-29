@@ -91,20 +91,25 @@ index refuses the leg; truncated means fewer entries than the last published
 issue's number (never under the pre-Builder archive's 349).
 
 Before it changes an existing email, the Buttondown leg asks Buttondown what the
-email is. `draft` or `scheduled`: it is updated, as always. `about_to_send` or
-`in_flight`: refused (409, "Buttondown is delivering it now"), leaving the leg as it
-was. Every refusal is logged to the issue's event log.
-`sent`: refused unless the request says `?web_copy=1` — "Update web copy…" on the
-card, behind a confirm — which changes only the copy in Buttondown's archive and is
-logged as such. The card knows the email has gone from the Buttondown check
-(`verify.buttondown.remote_status`), and "Re-send all sent" then leaves Buttondown
-out. The `sent` refusal records that status too, and names itself
-(`code: "email_sent"`): a check older than `remote_status` (WT350, WT351) or none
-at all no longer hides it, the card re-reads the issue and switches at once, and a
-run that meets the refusal carries on to the legs after it. With no check behind
-it, the refusal records only that fact — `waiting`, never `passed`, so the card
-still says the email is not verified — and starts the real check. Any other status is
-refused and changes nothing.
+email is, and only a `draft` is updated. Any other status — `scheduled`,
+`about_to_send`, `in_flight`, `sent`, `imported`, or one not seen before — is
+refused (409, `code: "not_draft"`, "no longer a draft … can't be edited safely"),
+leaving the leg as it was, and every refusal is logged to the issue's event log.
+The card knows the status from the Buttondown check
+(`verify.buttondown.remote_status`): once it is not `draft`, the card says so and
+offers no action, and "Re-send all sent" and "Send the rest" leave Buttondown out.
+The refusal records that status too: a check older than `remote_status` (WT350,
+WT351) or none at all no longer hides it, the card re-reads the issue and switches
+at once, and a run that meets the refusal carries on to the legs after it. With no
+check behind it, the refusal records only that fact — `waiting`, never `passed`,
+so the card still says the email is not verified — and starts the real check.
+
+*Revisited 2026-09-29:* from 2026-09-28 a `scheduled` email was updated as a
+draft was, and a `sent` one could be changed with `?web_copy=1` ("Update web
+copy…" behind a confirm), which rewrote the copy in Buttondown's archive. Jamie
+decided only a draft is edited: the archive is not hosted on Buttondown, so there
+is no reason to edit a sent email, and every other status is one a PATCH cannot
+safely change. The web-copy update is gone.
 
 The podcast's first step is a gate: the script must be approved before the leg
 runs. The server holds it too (2026-09-28, review 2026-09-27, appendix: Audio): a podcast

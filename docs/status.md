@@ -113,32 +113,34 @@ finished, what is half-finished, and what has never run.
   A failed card's strip says `Last good:`
   with when and a link to the draft, mp3, or commit. Review 2026-09-27,
   §2.1.
-- **Buttondown is asked before it is changed** (2026-09-28) — the leg
-  reads the email's status (`getEmail`) before it PATCHes the draft it
-  made: `about_to_send` / `in_flight` answer 409 "Buttondown is delivering
-  it now" and leave the leg untouched; `sent` answers 409 unless `?web_copy=1`, and
-  a web-copy update is logged (event log and service log); `draft` /
-  `scheduled` update as before; anything else is refused. Every refusal is
-  one event-log line ("Send refused — buttondown: …"), so `npm run watch`
-  shows it. A status read
-  that fails is a failed send that changes nothing in Buttondown; only
-  those refusals skip the failure record — any other error in the leg, a
-  409 included, records `failed` rather than leaving `sending`. The
-  Buttondown check records the status it read (`verify.buttondown.
-  remote_status`); once it is `sent`, the card's action is "Update web
-  copy…" behind a confirm, and "Re-send all sent" / "Send the rest" leave
-  Buttondown out. The `sent` refusal records `remote_status` itself
-  (through `recordVerify` — a fresh read with no revision, so a refused
-  click never pushes a real edit out of the history — keeping the check's
-  findings; with no check at all, only the fact, as `waiting` — never
-  `passed`, since subject, body and delivery were not read — and the real
-  check is started) and carries
-  `code: "email_sent"`: WT350 and WT351's checks predate the field, so
-  their cards offered "Update draft" and a bulk run stopped at the 409
-  before the archive. Now the card re-reads the issue on that refusal and
-  switches at once, and the run carries on. "Check again" keeps
-  `remote_status` on its `running` record and on an `error` result, so the
-  card does not flip back to "Update draft" while it checks. Review
+- **Buttondown is asked before it is changed; only a draft is edited**
+  (2026-09-28; narrowed 2026-09-29) — the leg reads the email's status
+  (`getEmail`) before it PATCHes the draft it made. `draft` updates as
+  before. Every other status — `scheduled`, `about_to_send`, `in_flight`,
+  `sent`, `imported`, anything new — answers 409 `code: "not_draft"`, "no
+  longer a draft … can't be edited safely", and leaves the leg untouched
+  (Jamie, 2026-09-29: the archive is not hosted on Buttondown, so a sent
+  email has no copy worth editing; the `?web_copy=1` update and its
+  "Update web copy…" action are gone, and `scheduled` is no longer
+  updated). Every refusal is one event-log line ("Send refused —
+  buttondown: …"), so `npm run watch` shows it. A status read that fails is
+  a failed send that changes nothing in Buttondown; only those refusals
+  skip the failure record — any other error in the leg, a 409 included,
+  records `failed` rather than leaving `sending`. The Buttondown check
+  records the status it read (`verify.buttondown.remote_status`); once it
+  is anything but `draft`, the card shows why and offers no action, and
+  "Re-send all sent" / "Send the rest" leave Buttondown out. The refusal
+  records `remote_status` itself (through `recordVerify` — a fresh read
+  with no revision, so a refused click never pushes a real edit out of the
+  history — keeping the check's findings; with no check at all, only the
+  fact, as `waiting` via `refusedNotDraft` — never `passed`, since
+  subject, body and delivery were not read — and the real check is
+  started): WT350 and WT351's checks predate the field, so the card
+  re-reads the issue on that refusal and switches at once, and a run
+  carries on past it. "Check again" keeps `remote_status` on its `running`
+  record and on an `error` result, so the card does not flip back to
+  "Update draft" while it checks; a check that reads `draft` again (an
+  email unscheduled in Buttondown) gives the action back. Review
   2026-09-27 §8 #7.
 - **Verify after send** (2026-09-26, WT351) — each leg is read back from its
   destination once it goes out, and the Send card shows the result under
