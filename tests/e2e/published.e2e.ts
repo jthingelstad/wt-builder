@@ -34,6 +34,9 @@ test('published, the number, date and window are facts, and there is no Re-scan'
 test('a draft still edits its number, date and window, and re-scans', async ({ page }) => {
   await open(page);
   const panel = page.locator('.left-panel');
+  // A draft's outline adds: the counterpart to the published case below.
+  await expect(panel.getByRole('button', { name: '+ Section', exact: true })).toHaveCount(1);
+  await expect(panel.getByRole('button', { name: '+ Markdown', exact: true })).toHaveCount(1);
   await expect(panel.getByRole('button', { name: 'Re-scan' })).toHaveCount(1);
   await panel.getByRole('button', { name: 'Edit' }).click();
   const meta = panel.locator('.meta-card.edit');
@@ -66,6 +69,14 @@ test('published and awake, the canvas still edits and saves; structure is a draf
   await expect(page.locator('.insert-point')).toHaveCount(0);
   await expect(page.locator('.ghost-chip')).toHaveCount(0);
   await expect(page.locator('[data-anchor="notable"] .row-margin .wand')).toHaveCount(0);
+  // The outline's adds are structure too; its moves and removes, like the
+  // rails, stay (Batch 7 review, F2).
+  const panel = page.locator('.left-panel');
+  for (const name of ['+ Section', '+ Markdown']) {
+    await expect(panel.getByRole('button', { name, exact: true })).toHaveCount(0);
+  }
+  await expect(panel.locator('.absent')).toHaveCount(0);
+  await expect(panel.locator('.ol-actions').first()).toBeAttached();
 
   // Text affordances stay: the item's rail and its wand.
   await expect(page.locator('[data-anchor="link-functions"] .rail-btn[aria-label="Move up"]')).toHaveCount(1);

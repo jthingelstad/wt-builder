@@ -521,7 +521,8 @@ placeholder text via `[data-ph]:empty:before` in `#b9b7b2`. Focus state:
 editable until it is put to bed, because fixes and re-sends follow publishing (Jamie,
 2026-09-28). Its text, rails, and item wands work as on a draft, and the kicker reads
 `WEBSITE — PUBLISHED · EDITS NEED A RE-SEND`. What adds structure stays a draft's:
-insert points, add chips, and the ordering and Echoes wands. Once it is put to bed,
+insert points, add chips (the outline's `+ Section`, `+ Markdown` and NOT IN THIS
+ISSUE among them), and the ordering and Echoes wands. Once it is put to bed,
 nothing is editable, and the client offers nothing that would be refused. No run is
 contenteditable, and no rail action moves, removes or promotes (Inspect, which only
 reads, stays). Wands, held-strip buttons, outline and Collapse actions, Edit, Share

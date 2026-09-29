@@ -350,6 +350,10 @@ const BADGE: Record<string, string> = {
 function Outline({
   doc, nodes, frozen, selected, onSelect, onMove, onRemove, onAdd, onReorder,
 }: Props & { nodes: IssueNode[]; frozen: boolean }) {
+  // Adding a section is structure, a draft's as on the canvas; moving and
+  // removing one stay with the rails until the issue is put to bed (Batch 7
+  // review, F2).
+  const structural = doc.issue.status === 'draft' && !frozen;
   const [drag, setDrag] = useState<string | null>(null);
   const [absent, setAbsent] = useState<{ id: string; type: string; label: string }[]>([]);
 
@@ -416,7 +420,7 @@ function Outline({
         })}
       </div>
 
-      {!frozen && <div class="outline-foot">
+      {structural && <div class="outline-foot">
         <button class="ghost" onClick={() => onAdd({ type: 'ad_hoc', label: 'New section' })}>
           + Section
         </button>
@@ -425,7 +429,7 @@ function Outline({
         </button>
       </div>}
 
-      {!frozen && absent.length > 0 && (
+      {structural && absent.length > 0 && (
         <div class="absent">
           <span class="mono-label">NOT IN THIS ISSUE</span>
           <div class="chips">
