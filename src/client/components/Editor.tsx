@@ -91,6 +91,14 @@ export function Editor({ doc, readiness, busy, error, run: runCall, onIndex, onS
   // A re-scan that landed while a field was being typed in, and waits for it.
   const [scanWaiting, setScanWaiting] = useState(false);
   const dropHeldScan = useRef<(() => void) | null>(null);
+  // Items whose write-back or conflict choice is out, for the Inspector,
+  // which remounts per item and cannot hold it itself.
+  const [writesOut, setWritesOut] = useState<ReadonlySet<string>>(new Set());
+  const onWriteOut = useCallback((itemId: string, out: boolean) => setWritesOut((current) => {
+    const next = new Set(current);
+    if (out) next.add(itemId); else next.delete(itemId);
+    return next;
+  }), []);
   const [ordering, setOrdering] = useState<string | null>(null);
   const [orderProposal, setOrderProposal] = useState<OrderProposal | null>(null);
   // ⌘/ shows the keyboard sugar; Jamie will forget it otherwise (2026-09-20).
@@ -581,6 +589,8 @@ export function Editor({ doc, readiness, busy, error, run: runCall, onIndex, onS
             doc={doc}
             itemId={inspecting}
             run={runEdit}
+            writeOut={writesOut.has(inspecting)}
+            onWriteOut={onWriteOut}
             onClose={() => setSelected(null)}
             onError={onError}
             onBackToReview={readOpen ? () => setSelected(null) : undefined}

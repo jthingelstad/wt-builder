@@ -417,3 +417,42 @@ test('a re-scan that moves the row being typed in waits, and the typing is saved
   await expect.poll(shown).toEqual(reversed);
   await expect(page.locator(sel)).toContainText('And after it.');
 });
+
+// "Writing…" was the Inspector's own state, and the Inspector is keyed by
+// its item: A, then B, then A again during a write-back remounted it with
+// Retry enabled while the write was still out (Batch 5 review round 2).
+test.describe('Retry write', () => {
+  const failed = (state: 'failed' | 'syncing') => {
+    const doc = store.getIssue(ISSUE)!.doc;
+    doc.items['link-flipcash']!.sync_state = state;
+    doc.items['link-flipcash']!.sync_error = state === 'failed' ? 'Pinboard did not answer' : undefined;
+    store.saveIssue(doc);
+  };
+
+  test('stays disabled while its write is out, across a switch to another item and back', async ({ page }) => {
+    failed('failed');
+    await open(page);
+    const write = await hold(page, `**/api/issues/${ISSUE}/items/link-flipcash/writeback`, 'POST');
+    let panel = await inspect(page, 'link-flipcash');
+    await panel.getByRole('button', { name: 'Retry write to Pinboard' }).click();
+    await write.seen;
+    await expect(panel.getByRole('button', { name: 'Writing…' })).toBeDisabled();
+
+    panel = await inspect(page, 'link-functions');
+    await expect(panel.locator('#item-link-functions-title')).toBeVisible();
+    panel = await inspect(page, 'link-flipcash');
+    await expect(panel.locator('#item-link-flipcash-title')).toBeVisible();
+    await expect(panel.getByRole('button', { name: 'Writing…' })).toBeDisabled();
+    await expect(panel.getByRole('button', { name: 'Retry write to Pinboard' })).toHaveCount(0);
+
+    write.release('abort');
+    await expect(panel.getByRole('button', { name: 'Retry write to Pinboard' })).toBeEnabled();
+  });
+
+  test('is disabled while the item is syncing', async ({ page }) => {
+    failed('syncing');
+    await open(page);
+    const panel = await inspect(page, 'link-flipcash');
+    await expect(panel.getByRole('button', { name: 'Writing…' })).toBeDisabled();
+  });
+});

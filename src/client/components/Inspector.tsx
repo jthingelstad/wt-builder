@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'preact/hooks';
+import { useEffect } from 'preact/hooks';
 
 import type { IssueDoc, Item } from '../../shared/types.ts';
 import { CHANNELS } from '../../shared/types.ts';
@@ -13,6 +13,14 @@ interface Props {
   /** Present when the review panel yielded the rail — the way back. */
   onBackToReview?: () => void;
   onError: (m: string | null) => void;
+  /**
+   * Whether a write-back or a conflict choice for this item is out, and the
+   * way to say one started or ended. Held by the editor, not here: the
+   * Inspector is keyed by its item, and switching away and back during a
+   * write remounted it with Retry enabled (Batch 5 review round 2).
+   */
+  writeOut: boolean;
+  onWriteOut: (itemId: string, out: boolean) => void;
 }
 
 const SYNC_LABEL: Record<string, string> = {
@@ -58,10 +66,12 @@ function GrowingTextarea(props: { id: string; value: string; onCommit: (text: st
 }
 
 /** Provenance, fields, channels, and source synchronization for one item. */
-export function Inspector({ doc, itemId, run, onClose, onError, onBackToReview }: Props) {
+export function Inspector({ doc, itemId, run, onClose, onError, onBackToReview, writeOut, onWriteOut }: Props) {
   const item = doc.items[itemId];
-  const [writing, setWriting] = useState(false);
   if (!item) return null;
+  // Out from here, or from anywhere: an edit's own write-back leaves the
+  // item `syncing` until it answers.
+  const writing = writeOut || item.sync_state === 'syncing';
 
   const id = doc.issue.id;
   const prefix = `item-${itemId}`;
@@ -75,7 +85,7 @@ export function Inspector({ doc, itemId, run, onClose, onError, onBackToReview }
   };
 
   const writeBack = async () => {
-    setWriting(true);
+    onWriteOut(itemId, true);
     try {
       const res = await api.writeBack(id, itemId);
       await run(async () => res);
@@ -83,12 +93,12 @@ export function Inspector({ doc, itemId, run, onClose, onError, onBackToReview }
     } catch (err) {
       onError((err as Error).message);
     } finally {
-      setWriting(false);
+      onWriteOut(itemId, false);
     }
   };
 
   const resolve = async (keep: 'mine' | 'theirs') => {
-    setWriting(true);
+    onWriteOut(itemId, true);
     try {
       const res = await api.resolveConflict(id, itemId, keep);
       await run(async () => res);
@@ -97,7 +107,7 @@ export function Inspector({ doc, itemId, run, onClose, onError, onBackToReview }
     } catch (err) {
       onError((err as Error).message);
     } finally {
-      setWriting(false);
+      onWriteOut(itemId, false);
     }
   };
 
