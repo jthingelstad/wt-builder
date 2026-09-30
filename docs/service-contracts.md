@@ -152,6 +152,20 @@ prompt fenced between `<page>` markers as untrusted data, never
 instructions. A page that cannot be read is said to be unread, and the
 draft goes on without it.
 
+**The link wand says when a link was in an earlier issue** (2026-09-30):
+the item draft route looks the link up in the local records
+(`src/server/linked-before.ts`) and the response carries
+`linked_before: [{ number, publication_date }]`, newest first, only when
+there is one; the picker shows "Linked before in WT274 (2024-01-27)" and
+the prompt gets the same fact, to mention only where it helps. A link
+matches when it is the same address without its scheme, `www.`,
+fragment, trailing slash or tracking parameters (`utm_*`, `fbclid`,
+`gclid`, `mc_cid` and the like). Only published issues dated before this
+one count, and only what they printed: a held-out item, and Thingy's own
+items, are not links Jamie chose. The Librarian is not asked: `/retrieve`
+has no link lookup (contract 4.12), and the local records hold every issue
+the moment it is sent.
+
 **Membership candidates are pairs** (Jamie, 2026-09-05): each carries `cta`
 (the invitation) and `thanks` (what an existing Supporting Member sees
 instead, in the email's premium branch). One pick fills both — `body` and

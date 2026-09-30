@@ -11,7 +11,7 @@
 
 import { useCallback, useEffect, useMemo, useRef, useState } from 'preact/hooks';
 
-import type { Channel, EchoOption, IssueDoc } from '../../shared/types.ts';
+import type { Channel, EchoOption, IssueDoc, LinkedBefore } from '../../shared/types.ts';
 import { anchorText } from '../../shared/anchor.ts';
 import { shortKicker, sourcesLabel } from '../../shared/dates.ts';
 import { windowOf } from '../../shared/render/plan.ts';
@@ -70,7 +70,7 @@ export function Editor({ doc, readiness, busy, error, run, onIndex, onSend, onEr
   const [panel, setPanel] = useState(true);
   const [selected, setSelected] = useState<string | null>(null);
   const [drafting, setDrafting] = useState<string | null>(null);
-  const [draft, setDraft] = useState<{ itemId: string; candidates: string[]; echoes?: EchoOption[]; membership?: { cta: string; thanks: string }[]; photo?: { alt: string }[]; alts?: { src: string; alt: string }[] } | null>(null);
+  const [draft, setDraft] = useState<{ itemId: string; candidates: string[]; echoes?: EchoOption[]; membership?: { cta: string; thanks: string }[]; photo?: { alt: string }[]; alts?: { src: string; alt: string }[]; linked_before?: LinkedBefore[] } | null>(null);
   const [sweeping, setSweeping] = useState(false);
   // Items whose write-back or conflict choice is out, for the Inspector,
   // which remounts per item and cannot hold it itself.
@@ -209,7 +209,7 @@ export function Editor({ doc, readiness, busy, error, run, onIndex, onSend, onEr
       setDrafting(itemId);
       setDraft(null);
       api.draftItem(id, itemId)
-        .then((r) => setDraft({ itemId, candidates: r.candidates, echoes: r.echoes, membership: r.membership, photo: r.photo, alts: r.alts }))
+        .then((r) => setDraft({ itemId, candidates: r.candidates, echoes: r.echoes, membership: r.membership, photo: r.photo, alts: r.alts, linked_before: r.linked_before }))
         .catch((err) => onError((err as Error).message))
         .finally(() => setDrafting(null));
     },

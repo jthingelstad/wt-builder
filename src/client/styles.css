@@ -287,6 +287,9 @@ a:hover { text-decoration: underline; }
 .dp-foot { font-size: 10.5px; color: var(--muted); margin: 0; }
 .dp-ask { display: block; margin-top: 5px; font-size: 11px; color: var(--terracotta); font-style: italic; }
 .dp-flag { display: block; margin-top: 5px; font-size: 11px; color: var(--amber); }
+/* The link wand: this exact link was in an earlier issue. */
+.dp-linked { margin: 0; font-size: 11px; line-height: 1.5; color: var(--amber); }
+.dp-linked a { color: inherit; }
 
 /* The ordering wand's proposal: a numbered sequence beside the current one. */
 .order-picker { width: calc(var(--notes) + 60px); }

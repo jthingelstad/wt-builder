@@ -1,6 +1,6 @@
 /** Thin client for the service. Every credential stays on the far side of this. */
 
-import type { ArchiveReference, Channel, EchoOption, IssueDoc, Item } from '../shared/types.ts';
+import type { ArchiveReference, Channel, EchoOption, IssueDoc, Item, LinkedBefore } from '../shared/types.ts';
 import type { IssueTiming } from '../shared/timing.ts';
 
 /** True when a local edit touches a field owned by an imported source. */
@@ -273,7 +273,7 @@ export const api = {
     ),
 
   draftItem: (id: string, itemId: string, context?: string) =>
-    call<{ candidates: string[]; echoes?: EchoOption[]; membership?: { cta: string; thanks: string }[]; photo?: { alt: string }[]; alts?: { src: string; alt: string }[] }>(
+    call<{ candidates: string[]; echoes?: EchoOption[]; membership?: { cta: string; thanks: string }[]; photo?: { alt: string }[]; alts?: { src: string; alt: string }[]; linked_before?: LinkedBefore[] }>(
       `/issues/${id}/items/${itemId}/draft`,
       { method: 'POST', body: JSON.stringify({ context }) },
     ),

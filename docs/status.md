@@ -452,6 +452,18 @@ finished, what is half-finished, and what has never run.
   fails loud without a topical passage. Tested with the Librarian stubbed;
   not yet run against the live Librarian or a live draft.
 
+- **Linked before** (2026-09-30) — the link wand says when this exact link
+  was in an earlier published issue: "Linked before in WT274 (2024-01-27)",
+  newest first, above the candidates in the attention colour, each number
+  linked to its archive page; the draft prompt gets the same fact. The
+  item draft route reads it from the local records (`linkedBefore` in
+  `src/server/linked-before.ts`): every pre-Builder issue's published body
+  and every Builder issue's printed items, the issue being drafted and
+  anything dated on or after it excluded. Links compare without scheme,
+  `www.`, fragment, trailing slash or tracking parameters (`utm_*`, click
+  ids). About 20 ms a lookup over 351 issues. Tested over HTTP against a
+  throwaway database; not yet run in the live service.
+
 - **Echoes as items** (2026-09-20) — the Echoes section holds `echo` items,
   each a thread, its citations, and a question for Thingy; the section wand
   on the heading offers up to five and **appends** the ticked ones

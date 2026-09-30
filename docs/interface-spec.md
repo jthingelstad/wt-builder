@@ -869,7 +869,10 @@ citation does not trace to a retrieved passage carries that flag beneath it in
 explicit `✦` ask; a 1500 ms busy state; two or three **candidates** rendered as
 selectable cards in the inspector; **nothing written to the issue until Jamie picks one**,
 and editable immediately after. Picking a link description writes `commentary` and
-triggers the Pinboard write-back as Jamie's text. Thingy items keep their visible byline
+triggers the Pinboard write-back as Jamie's text. When the link was in an earlier issue,
+the link wand's picker says so above the candidates — "Linked before in WT274
+(2024-01-27)", 11px `--amber`, newest first, each `WTn` linking to its archive page, and
+", and N earlier" past five (2026-09-30). Thingy items keep their visible byline
 regardless of how heavily they are edited. Never auto-generated on assembly, and there is
 no "generate everything".
 

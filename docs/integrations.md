@@ -70,6 +70,8 @@ Thingy is a generation service WT Builder calls during assembly.
   note connecting this issue to the archive — primarily Weekly Thing
   issues; blog and podcast citations when the echo lives there. See
   `service-contracts.md`, "Echoes retrieval".
+- The link wand's "Linked before in WTn" is not a Librarian call: it reads
+  the local issue records (`/retrieve` has no link lookup).
 - The corpus holds none of Thingy's words: the Librarian strips the
   `.from-thingy` frame at build, so nothing here filters retrieved text.
 - Every `/retrieve` call names itself (`caller: 'wt-builder'`) for the

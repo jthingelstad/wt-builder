@@ -21,6 +21,7 @@ import { config } from './config.ts';
 import * as librarian from './integrations/librarian.ts';
 import * as pinboard from './integrations/pinboard.ts';
 import { fetchPublic, readCapped } from './integrations/page.ts';
+import { linkedBeforeText, type LinkedBefore } from './linked-before.ts';
 
 const MODEL = 'claude-opus-5-5';
 
@@ -580,6 +581,11 @@ export interface DraftRequest {
   nodeId?: string;
   /** Campaign facts for Membership; archive passages for Echoes. */
   context?: string;
+  /**
+   * The link wand only: earlier issues that carried this exact link, newest
+   * first (`linkedBefore` in linked-before.ts, from the local records).
+   */
+  linkedBefore?: LinkedBefore[];
 }
 
 /** One membership candidate: the invitation and the member thank-you, drafted as a pair. */
@@ -590,6 +596,8 @@ export interface MembershipOption {
 
 export interface DraftResult {
   candidates: string[];
+  /** The link wand only: earlier issues that carried this exact link, newest first. */
+  linked_before?: LinkedBefore[];
   /** Journal post only: an alt per image in the post, by src, written from the pictures. */
   alts?: ImageAlt[];
   /** Echoes only: selectable units — Jamie composes the section from a subset. */
@@ -1431,7 +1439,7 @@ export async function draft(req: DraftRequest): Promise<DraftResult> {
   // itself, his own recent commentary as examples, and what the archive
   // shows he has said about the subject before. With only a title and a URL
   // the wand wrote generic commentary (Jamie, WT351).
-  const grounding = item?.type === 'pinboard_link' ? await linkGrounding(req.doc, item) : '';
+  const grounding = item?.type === 'pinboard_link' ? await linkGrounding(req.doc, item, req.linkedBefore ?? []) : '';
 
   // The link's own section decides commentary length (Briefly vs Notable).
   const linkSection = item?.type === 'pinboard_link'
@@ -1495,7 +1503,11 @@ export async function draft(req: DraftRequest): Promise<DraftResult> {
         .map((pair) => ({ cta: stripSignOff(pair.cta), thanks: stripSignOff(pair.thanks) })),
     };
   }
-  return { candidates: ((parsed.candidates ?? []) as string[]).slice(0, n) };
+  const candidates = ((parsed.candidates ?? []) as string[]).slice(0, n);
+  // The link wand tells Jamie when this exact link was in an earlier issue.
+  return item?.type === 'pinboard_link' && req.linkedBefore?.length
+    ? { candidates, linked_before: req.linkedBefore }
+    : { candidates };
 }
 
 
@@ -1596,11 +1608,12 @@ async function pageText(url: string): Promise<string> {
 /**
  * What the link wand works from besides the title: the page, Jamie's own
  * commentary as examples (same register as the section: Briefly one-liners
- * or Notable paragraphs), and his past writing on the subject. Each source is
- * best-effort — the draft proceeds without any one of them, and says nothing
- * made up to fill the gap.
+ * or Notable paragraphs), Jamie's past writing on the subject, and the
+ * earlier issues that carried this exact link. Each source is best-effort — the
+ * draft proceeds without any one of them, and says nothing made up to fill
+ * the gap.
  */
-async function linkGrounding(doc: IssueDoc, item: Item): Promise<string> {
+async function linkGrounding(doc: IssueDoc, item: Item, linked: LinkedBefore[]): Promise<string> {
   const url = item.source_url ?? '';
   const brief = doc.nodes.find((n) => n.items.some((id) => doc.items[id] === item))?.type === 'briefly';
   const [page, mine, past] = await Promise.all([
@@ -1619,6 +1632,9 @@ async function linkGrounding(doc: IssueDoc, item: Item): Promise<string> {
     .slice(0, 5)
     .map((p) => `- WT${p.issue_number}: ${String(p.text).replace(/\s+/g, ' ').slice(0, 400)}`);
   return [
+    linked.length
+      ? `\nThis exact link was in the Weekly Thing before: ${linkedBeforeText(linked)}. Mention that only if it genuinely helps (a follow-up, an update); never invent what the earlier issue said.`
+      : '',
     examples.length
       ? `\nHow Jamie actually writes ${brief ? 'Briefly' : 'Notable'} commentary — his own recent bookmarks. Match this voice: its length, how it opens, its plainness. Do not copy phrases:\n${examples.join('\n')}`
       : '',

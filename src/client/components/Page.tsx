@@ -11,7 +11,7 @@
 import type { ComponentChildren, RefObject } from 'preact';
 import { useState } from 'preact/hooks';
 
-import type { ArchiveReference, Channel, EchoOption, IssueDoc, IssueNode, Item } from '../../shared/types.ts';
+import type { ArchiveReference, Channel, EchoOption, IssueDoc, IssueNode, Item, LinkedBefore } from '../../shared/types.ts';
 import { CHANNELS, DRAFTABLE } from '../../shared/types.ts';
 import { clockTime, kickerDate, longDate, wallClock, weekday } from '../../shared/dates.ts';
 import {
@@ -72,7 +72,7 @@ interface PageProps {
   onSelect: (anchor: string | null) => void;
   act: PageActions;
   drafting: string | null;
-  draft: { itemId: string; candidates: string[]; echoes?: EchoOption[]; membership?: { cta: string; thanks: string }[]; photo?: { alt: string }[]; alts?: { src: string; alt: string }[] } | null;
+  draft: { itemId: string; candidates: string[]; echoes?: EchoOption[]; membership?: { cta: string; thanks: string }[]; photo?: { alt: string }[]; alts?: { src: string; alt: string }[]; linked_before?: LinkedBefore[] } | null;
   onPickDraft: (itemId: string, text: string, refs?: ArchiveReference[], extraPatch?: Record<string, unknown>) => void;
   onDismissDraft: () => void;
   /** The section whose order is being proposed, and the proposal. */
@@ -462,6 +462,7 @@ export function Page({
               ) : (
                 <DraftPicker
                   candidates={draft.candidates}
+                  linkedBefore={draft.linked_before}
                   onPick={(text) => onPickDraft(itemId, text)}
                   onDismiss={onDismissDraft}
                 />
@@ -974,19 +975,38 @@ function ChannelBlock({ doc, node, item, itemId, readOnly, act }: BlockProps) {
   }
 }
 
+/** How many earlier issues the link wand names before it just counts. */
+const LINKED_BEFORE_SHOWN = 5;
+
 /**
  * Candidates from the wand. Nothing is written until one is chosen, and
- * dismissing leaves the item exactly as it was.
+ * dismissing leaves the item exactly as it was. The link wand also says
+ * when this exact link was in an earlier issue — newest first, each linked
+ * to its archive page — in the attention colour, above the candidates.
  */
 function DraftPicker({
-  candidates, onPick, onDismiss,
-}: { candidates: string[]; onPick: (text: string) => void; onDismiss: () => void }) {
+  candidates, linkedBefore, onPick, onDismiss,
+}: { candidates: string[]; linkedBefore?: LinkedBefore[]; onPick: (text: string) => void; onDismiss: () => void }) {
+  const more = (linkedBefore?.length ?? 0) - LINKED_BEFORE_SHOWN;
   return (
     <div class="draft-picker">
       <div class="dp-head">
         <span class="mono-label">DRAFTED — PICK ONE</span>
         <button class="dp-x" aria-label="Dismiss" onClick={onDismiss}>×</button>
       </div>
+      {linkedBefore?.length ? (
+        <p class="dp-linked">
+          Linked before in{' '}
+          {linkedBefore.slice(0, LINKED_BEFORE_SHOWN).map((l, i) => (
+            <span key={l.number}>
+              {i ? ', ' : ''}
+              <a href={`https://weekly.thingelstad.com/archive/${l.number}/`} target="_blank" rel="noreferrer">WT{l.number}</a>
+              {` (${l.publication_date})`}
+            </span>
+          ))}
+          {more > 0 ? `, and ${more} earlier` : ''}
+        </p>
+      ) : null}
       {candidates.length === 0 && <p class="quiet">Nothing came back.</p>}
       {candidates.map((text, i) => (
         <button key={i} class="dp-option" onClick={() => onPick(text)}>{text}</button>

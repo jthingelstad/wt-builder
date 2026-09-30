@@ -205,13 +205,25 @@ drive, so `/retrieve` stays, versioned (4.11.0). "Primarily the Weekly
 Thing" and four passages per anchor also stay; rolling the scope back is one
 field.
 
-## Past years are a hint (2026-09-30)
+## Past years are a hint; "linked before" reads the local records (2026-09-30)
 
 Jamie, on the past-years lens: "Yes, and that is just a hint. Calendar is
 less important for echoes than topics and themes." So the one-year-ago
 issue that rode along whole is gone, and what replaced it is deliberately
 small: two passages at most, pooled last, and a prompt that puts topics and
 themes first. Nothing brings back a guaranteed year-ago echo.
+
+The link wand's "Linked before in WTn" deliberately does not ask the
+archive. `/retrieve` has no link lookup, and the sibling
+`librarian-thing/data/issues/` checkout on this Mac only has an issue once
+someone pulls it: the archive leg commits to GitHub, not to that checkout.
+This service's own records hold every issue the moment it is sent, and all
+349 pre-Builder issues were imported from that same canonical text. A later
+repair made only in the archive is not seen here; for whether a link was
+carried, that is an acceptable gap. If it ever is not, the answer is a
+service-auth link lookup in the Librarian (the MCP's `find_links` already
+takes a `url` over the corpus link graph; `/retrieve` would need the same),
+not a runtime read of a sibling checkout.
 
 ## Generation offers; it never writes
 

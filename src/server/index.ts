@@ -33,6 +33,7 @@ import * as microblog from './integrations/microblog.ts';
 import { applyRehost, rehostIssueImages, storeUpload } from './integrations/images.ts';
 import * as geocode from './integrations/geocode.ts';
 import * as editorial from './editorial.ts';
+import { linkedBefore } from './linked-before.ts';
 import * as githubRepo from './integrations/github.ts';
 import * as audio from './integrations/audio.ts';
 import { audioScript } from '../shared/render/audio.ts';
@@ -1112,11 +1113,19 @@ const routes: [RegExp, string, (ctx: Ctx, params: string[]) => Promise<unknown>]
     return saved(issues.setItemOrder(doc, nodeId!, order));
   }],
 
-  /** Candidate text for one item. Never written — Jamie picks or ignores. */
+  /**
+   * Candidate text for one item. Never written — Jamie picks or ignores.
+   * The link wand also says which earlier issues carried this exact link,
+   * from the local records (linked-before.ts).
+   */
   [/^\/api\/issues\/([^/]+)\/items\/([^/]+)\/draft$/, 'POST', async ({ body }, [id, itemId]) => {
     const b = await body();
     const doc = requireIssue(id!);
-    return editorial.draft({ doc, itemId: itemId!, context: b.context });
+    const item = doc.items[itemId!];
+    const linked = item?.type === 'pinboard_link' && item.source_url
+      ? linkedBefore(item.source_url, doc.issue, store.listIssues())
+      : undefined;
+    return editorial.draft({ doc, itemId: itemId!, context: b.context, linkedBefore: linked });
   }],
 
   /**

@@ -204,6 +204,15 @@ export interface EchoOption {
   grounding?: EchoGrounding;
 }
 
+/**
+ * An earlier issue that carried the link the wand is drafting for: the link
+ * wand's "Linked before in WT274 (2024-01-27)" (src/server/linked-before.ts).
+ */
+export interface LinkedBefore {
+  number: number;
+  publication_date: string;
+}
+
 export interface EchoGrounding {
   /** Empty when every citation traced to a retrieved passage. */
   flags: string[];
