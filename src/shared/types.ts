@@ -205,7 +205,7 @@ export interface EchoOption {
 }
 
 export interface EchoGrounding {
-  /** Empty when every citation traced to a passage or the seasonal issue. */
+  /** Empty when every citation traced to a retrieved passage. */
   flags: string[];
 }
 

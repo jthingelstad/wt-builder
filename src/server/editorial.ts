@@ -442,9 +442,13 @@ Weekly Thing issues first; Jamie's blog (thingelstad.com) when the thread
 is a post of his; the Another Thing podcast when it was said there.
 
 Ground every claim in the archive passages provided below — they are grouped
-by the item in this issue that retrieved them, and a passage from about a
-year ago this week may be included for seasonal rhymes. Never invent an
-issue number or a claim about one. Report each echo's sources in its own
+by the item in this issue that retrieved them. Topical and thematic
+connections come first: every echo follows a thread of what this issue is
+about. The last group, when there is one, is this week in past years — at
+most two passages published around this date in earlier years. It is only a
+light hint: use one only where it also ties to a topic or theme of this
+issue, never for the date alone, and never in place of a topical echo.
+Never invent an issue number or a claim about one. Report each echo's sources in its own
 archive_references — kind "issue" with its number, or kind "blog"/"podcast"
 with its title (an episode's title starts with its number: "AT1: …") — each
 with a note saying what it carries.`,
@@ -576,15 +580,6 @@ export interface DraftRequest {
   nodeId?: string;
   /** Campaign facts for Membership; archive passages for Echoes. */
   context?: string;
-  /** Echoes only: the issue from about a year ago this week, if one exists. */
-  seasonal?: SeasonalIssue;
-}
-
-export interface SeasonalIssue {
-  number: number;
-  title: string;
-  publication_date: string;
-  excerpt: string;
 }
 
 /** One membership candidate: the invitation and the member thank-you, drafted as a pair. */
@@ -936,10 +931,44 @@ export function echoesAnchors(doc: IssueDoc): EchoAnchor[] {
   return anchors;
 }
 
+/**
+ * The calendar pseudo-anchor: this week in past years. Semantic retrieval
+ * has no calendar, and rituals rhyme annually (Boat Day, the anniversary,
+ * the state fair), so the issue's own words go to the Librarian once more,
+ * filtered to sources from within a week of this date in earlier years
+ * (`filters.calendar`, contract 4.12). Across the issues, the blog and the
+ * podcast, like every anchor.
+ *
+ * It is a hint, not a thread (Jamie, 2026-09-29: "Calendar is less
+ * important for echoes than topics and themes"): at most
+ * ECHOES_CALENDAR_MAX passages, pooled after every topical anchor, and the
+ * prompt says topical connections come first. It replaced the one issue
+ * from a year ago that rode along as an excerpt (`pickSeasonalIssue`).
+ */
+export const ECHOES_CALENDAR_LABEL = 'This week in past years';
+/** Passages the calendar anchor may keep, at most. */
+export const ECHOES_CALENDAR_MAX = 2;
+/** Days either side of the issue's month-day; the Librarian caps it at 7. */
+export const ECHOES_CALENDAR_DAYS = 7;
+/** The issue's words, capped: the widest topical anchor asks with 700. */
+const ECHOES_CALENDAR_QUERY = 1000;
+
+/** The calendar anchor's query: the issue's dek and its printed words, never Thingy's. */
+export function echoesCalendarAnchor(doc: IssueDoc): EchoAnchor | null {
+  const query = [doc.issue.dek, issueExcerpt(doc, ECHOES_CALENDAR_QUERY)]
+    .map((t) => String(t ?? '').replace(/\s+/g, ' ').trim())
+    .filter(Boolean)
+    .join('\n')
+    .slice(0, ECHOES_CALENDAR_QUERY);
+  return query.length >= 20 ? { label: ECHOES_CALENDAR_LABEL, query } : null;
+}
+
 /** A retrieval anchor with what the archive returned for it. */
 export interface AnchoredPassages {
   label: string;
   passages: librarian.Passage[];
+  /** The calendar pseudo-anchor: pooled last, capped at ECHOES_CALENDAR_MAX. */
+  calendar?: boolean;
 }
 
 /**
@@ -973,6 +1002,15 @@ export function echoesRetrieval(issueNumber: number): librarian.RetrieveOptions 
   };
 }
 
+/** The calendar anchor's ask (4.12): the same archive, this week in earlier years only. */
+export function echoesCalendarRetrieval(issueNumber: number, publicationDate: string): librarian.RetrieveOptions {
+  const base = echoesRetrieval(issueNumber);
+  return {
+    ...base,
+    filters: { ...base.filters, calendar: { date: publicationDate, window_days: ECHOES_CALENDAR_DAYS } },
+  };
+}
+
 /**
  * Filter and rank what retrieval returned, per anchor. Pure, so the recency
  * rules are testable.
@@ -983,7 +1021,9 @@ export function echoesRetrieval(issueNumber: number): librarian.RetrieveOptions 
  * their three weeks. Older-than-six-months passages rank ahead of younger
  * ones, and undated ones come last; within a band, retrieval score order
  * holds. A url appears once across all anchors — the first anchor that
- * found it keeps it.
+ * found it keeps it. The calendar anchor pools after every topical one, so
+ * a passage both found stays with its topic, and keeps at most
+ * ECHOES_CALENDAR_MAX.
  */
 export function poolEchoPassages(
   anchored: AnchoredPassages[],
@@ -999,8 +1039,9 @@ export function poolEchoPassages(
   // NaN for an undated passage, so it falls in neither band below.
   const time = (p: librarian.Passage) => (p.publish_date ? new Date(p.publish_date).getTime() : NaN);
 
-  return anchored
-    .map(({ label, passages }) => {
+  const topicalFirst = [...anchored.filter((a) => !a.calendar), ...anchored.filter((a) => a.calendar)];
+  return topicalFirst
+    .map(({ label, passages, calendar }) => {
       const kept = passages.filter((p) => {
         if (p.issue_number && excluded.has(Number(p.issue_number))) return false;
         if ((p.also_in_issues ?? []).some((n) => excluded.has(Number(n)))) return false;
@@ -1013,7 +1054,10 @@ export function poolEchoPassages(
       const deep = kept.filter((p) => time(p) < cutoff);
       const recent = kept.filter((p) => time(p) >= cutoff);
       const undated = kept.filter((p) => Number.isNaN(time(p)));
-      return { label, passages: [...deep, ...recent, ...undated].slice(0, perAnchor) };
+      const ranked = [...deep, ...recent, ...undated];
+      return calendar
+        ? { label, calendar, passages: ranked.slice(0, Math.min(perAnchor, ECHOES_CALENDAR_MAX)) }
+        : { label, passages: ranked.slice(0, perAnchor) };
     })
     .filter((a) => a.passages.length > 0);
 }
@@ -1027,7 +1071,7 @@ const PASSAGE_KINDS: Record<string, string> = { blog: 'blog post', podcast: 'Ano
  */
 export function passageContext(anchored: AnchoredPassages[]): string {
   return anchored
-    .map(({ label, passages }) => {
+    .map(({ label, passages, calendar }) => {
       const lines = passages.map((p) => {
         const cite = p.label ?? (p.issue_number ? `WT${p.issue_number}` : null);
         const also = (p.also_in_issues ?? []).map((n) => `WT${n}`).join(', ');
@@ -1041,7 +1085,10 @@ export function passageContext(anchored: AnchoredPassages[]): string {
         ].filter(Boolean).join(' · ');
         return `[${head}] ${p.url ?? ''}\n${String(p.text ?? '').slice(0, 500)}`;
       });
-      return `From this issue — ${label}:\n\n${lines.join('\n\n')}`;
+      const heading = calendar
+        ? `${label} — a light hint, published around this date in earlier years; use one only where it ties to a topic above`
+        : `From this issue — ${label}`;
+      return `${heading}:\n\n${lines.join('\n\n')}`;
     })
     .join('\n\n');
 }
@@ -1087,18 +1134,14 @@ function bodyLinks(text: string): { label: string | null; url: string }[] {
  *
  * Every WT number — in the text, in an archive URL, in the references —
  * must be an issue a passage came from (or, for a blog post, an issue that
- * also carried it), or the seasonal issue. Every AT number must be an
+ * also carried it). Every AT number must be an
  * episode a passage came from, and an "[ATn]" label must link to that
  * episode. Every other cited URL must be a passage's URL. A "[WTn]" label
  * must link to /archive/n/, and every link in the text must be in the echo's
  * own references. A citation that fails is flagged, never removed: Jamie decides
  * (generation offers and never writes).
  */
-export function echoGrounding(
-  option: EchoOption,
-  anchored: AnchoredPassages[],
-  seasonal?: { number: number } | null,
-): EchoGrounding {
+export function echoGrounding(option: EchoOption, anchored: AnchoredPassages[]): EchoGrounding {
   const issues = new Set<number>();
   const urls = new Set<string>();
   const episodes = new Map<number, string>();
@@ -1116,7 +1159,6 @@ export function echoGrounding(
       }
     }
   }
-  if (seasonal?.number) issues.add(seasonal.number);
 
   const flags: string[] = [];
   const flag = (f: string) => { if (!flags.includes(f)) flags.push(f); };
@@ -1168,36 +1210,11 @@ export function echoGrounding(
 }
 
 /**
- * The issue published closest to a year before this one — the seasonal lens.
- * Rituals rhyme annually (Boat Day, the anniversary, the state fair), and
- * semantic retrieval has no calendar. Pure; the route supplies the rows.
- */
-export const SEASONAL_TOLERANCE_DAYS = 28;
-
-export function pickSeasonalIssue(
-  candidates: { number: number; publication_date: string; status: string }[],
-  forDate: string,
-  excludeNumber: number,
-): { number: number; publication_date: string } | null {
-  const target = new Date(forDate + 'T00:00:00Z').getTime() - 365 * 86_400_000;
-  let best: { number: number; publication_date: string } | null = null;
-  let bestDistance = SEASONAL_TOLERANCE_DAYS * 86_400_000 + 1;
-  for (const c of candidates) {
-    if (c.status !== 'published' || c.number === excludeNumber) continue;
-    const distance = Math.abs(new Date(c.publication_date + 'T00:00:00Z').getTime() - target);
-    if (distance < bestDistance) {
-      best = { number: c.number, publication_date: c.publication_date };
-      bestDistance = distance;
-    }
-  }
-  return best;
-}
-
-/**
- * The readable text of an issue, for the seasonal context block. Imported
- * pre-Builder issues hold their whole published body in one item; Builder
- * issues hold an item tree. Either way: the items' words, minus markup that
- * carries no meaning for retrieval grounding.
+ * The readable text of an issue: the photo wand's grounding and the Echoes
+ * calendar anchor's query. Imported pre-Builder issues hold their whole
+ * published body in one item; Builder issues hold an item tree. Either way:
+ * the items' words, minus markup that carries no meaning for retrieval
+ * grounding.
  */
 export function issueExcerpt(doc: IssueDoc, max = 2800): string {
   const parts: string[] = [];
@@ -1208,8 +1225,8 @@ export function issueExcerpt(doc: IssueDoc, max = 2800): string {
       // What the issue printed: a channel on and inside the window, the
       // editions' own test. A held-out item was never in the issue.
       if (!item || !isIncluded(item, w)) continue;
-      // Thingy's own words are not the archive's: an echo drafted from last
-      // year's echo would be Thingy quoting itself as Jamie (review
+      // Thingy's own words are not the issue's: an echo retrieved by the
+      // issue's echoes would be Thingy quoting itself as Jamie (review
       // 2026-09-27, §5).
       if (item.authorship === 'Thingy') continue;
       const flat = [item.title, item.body, item.commentary]
@@ -1382,18 +1399,30 @@ export async function draft(req: DraftRequest): Promise<DraftResult> {
   // editorial spec's quality bar is real semantic retrieval, never a
   // silently degraded guess (docs/service-contracts.md). One retrieval per
   // anchor: the sharp echoes only surface when the boat and the railroads
-  // are not averaged into one query.
+  // are not averaged into one query. The calendar anchor asks once more,
+  // for this week in past years, and is only ever a hint: it cannot carry
+  // Echoes on its own, so the draft still fails loud without a topical
+  // passage.
   let anchored: AnchoredPassages[] = [];
   if (type === 'echoes') {
-    const retrieval = echoesRetrieval(req.doc.issue.number);
-    const results = await Promise.all(
-      echoesAnchors(req.doc).map(async (a) => ({
+    const { number, publication_date } = req.doc.issue;
+    const retrieval = echoesRetrieval(number);
+    const calendar = echoesCalendarAnchor(req.doc);
+    const results = await Promise.all([
+      ...echoesAnchors(req.doc).map(async (a): Promise<AnchoredPassages> => ({
         label: a.label,
         passages: await librarian.retrieve(a.query, 12, retrieval),
       })),
-    );
-    anchored = poolEchoPassages(results, req.doc.issue.number, req.doc.issue.publication_date);
-    if (!anchored.length) {
+      ...(calendar
+        ? [(async (): Promise<AnchoredPassages> => ({
+            label: calendar.label,
+            calendar: true,
+            passages: await librarian.retrieve(calendar.query, 12, echoesCalendarRetrieval(number, publication_date)),
+          }))()]
+        : []),
+    ]);
+    anchored = poolEchoPassages(results, number, publication_date);
+    if (!anchored.some((a) => !a.calendar)) {
       throw new Error('the archive returned no passages — rerun Echoes rather than inventing');
     }
   }
@@ -1421,10 +1450,7 @@ export async function draft(req: DraftRequest): Promise<DraftResult> {
     isIssue ? `\nThis is issue WT${req.doc.issue.number}.` : '',
     campaign ? `\nThe program, from the live members page:\n${campaign}` : '',
     anchored.length
-      ? `\nArchive passages, retrieved per item of this issue — cite only from these and the seasonal issue below:\n${passageContext(anchored)}`
-      : '',
-    type === 'echoes' && req.seasonal
-      ? `\nAbout a year ago this week — [WT${req.seasonal.number}](https://weekly.thingelstad.com/archive/${req.seasonal.number}/), published ${req.seasonal.publication_date} ("${req.seasonal.title}"). For seasonal rhymes; use it only where it ties to this issue:\n${req.seasonal.excerpt}`
+      ? `\nArchive passages, retrieved per item of this issue — cite only from these:\n${passageContext(anchored)}`
       : '',
     req.context ? `\nContext you must work from:\n${req.context}` : '',
     item?.type === 'pinboard_link' && String(item.commentary ?? '').trim()
@@ -1458,7 +1484,7 @@ export async function draft(req: DraftRequest): Promise<DraftResult> {
     const echoes = (parsed.echoes ?? []).slice(0, redraftEcho ? ECHO_REDRAFTS : ECHOES_OFFERED);
     return {
       candidates: [],
-      echoes: echoes.map((e) => ({ ...e, grounding: echoGrounding(e, anchored, req.seasonal) })),
+      echoes: echoes.map((e) => ({ ...e, grounding: echoGrounding(e, anchored) })),
     };
   }
   if (type === 'membership') {

@@ -7,9 +7,10 @@ import { fileURLToPath } from 'node:url';
 import type { IssueDoc } from '../src/shared/types.ts';
 import { renderAnnotated } from '../src/shared/render/annotate.ts';
 import {
-  ECHOES_MAX_ANCHORS, draft, echoGrounding, echoesRetrieval, normalizeUrl, passageContext, placeAlts,
+  ECHOES_CALENDAR_LABEL, ECHOES_MAX_ANCHORS, draft, echoGrounding, echoesCalendarAnchor,
+  echoesCalendarRetrieval, echoesRetrieval, normalizeUrl, passageContext, placeAlts,
   assembleReview, campaignFacts, candidateCount, echoesAnchors, issueExcerpt,
-  pickSeasonalIssue, poolEchoPassages, pruneStale,
+  poolEchoPassages, pruneStale,
   type AnchoredPassages, type Note, type Review,
 } from '../src/server/editorial.ts';
 
@@ -306,6 +307,31 @@ describe('pooling the retrieved passages', () => {
     expect(pooled.map((a) => a.label)).toEqual(['A']);
     expect(pooled[0]!.passages).toHaveLength(4);
   });
+
+  it('pools the calendar anchor last, keeps at most two, and leaves a shared passage with its topic', () => {
+    const past = Array.from({ length: 6 }, (_, i) => passage(100 + i, `20${18 + i}-05-2${i}`, `past${i}`));
+    const anchored: AnchoredPassages[] = [
+      // Asked first, pooled last: a hint never takes a passage from a topic.
+      { label: ECHOES_CALENDAR_LABEL, calendar: true, passages: [passage(204, '2022-01-01', 'u4'), ...past] },
+      { label: 'A', passages: [passage(204, '2022-01-01', 'u4'), passage(205, '2022-01-08', 'u5')] },
+    ];
+    const pooled = poolEchoPassages(anchored, 350, '2026-05-23');
+    expect(pooled.map((a) => a.label)).toEqual(['A', ECHOES_CALENDAR_LABEL]);
+    expect(pooled[0]).toEqual({ label: 'A', passages: [passage(204, '2022-01-01', 'u4'), passage(205, '2022-01-08', 'u5')] });
+    expect(pooled[1]!.calendar).toBe(true);
+    expect(pooled[1]!.passages.map((p) => p.url)).toEqual(['past0', 'past1']);
+  });
+
+  it('the calendar anchor obeys the same exclusions as every anchor', () => {
+    const anchored: AnchoredPassages[] = [
+      { label: ECHOES_CALENDAR_LABEL, calendar: true, passages: [
+        passage(349, '2025-05-17', 'u349'),
+        { source_kind: 'blog', publish_date: '2026-05-21', url: 'this-week', text: 'this week' },
+        passage(297, '2025-05-24', 'u297'),
+      ] },
+    ];
+    expect(poolEchoPassages(anchored, 350, '2026-05-23')[0]!.passages.map((p) => p.url)).toEqual(['u297']);
+  });
 });
 
 describe('asking the Librarian for Echoes', () => {
@@ -314,6 +340,44 @@ describe('asking the Librarian for Echoes', () => {
       scope: 'all',
       filters: { excludeSourceKinds: ['site_page', 'faq'], excludeIssues: [352, 351, 350] },
     });
+  });
+
+  it('asks the calendar anchor for the same archive, this week in earlier years (4.12)', () => {
+    expect(echoesCalendarRetrieval(352, '2026-10-03')).toEqual({
+      scope: 'all',
+      filters: {
+        excludeSourceKinds: ['site_page', 'faq'],
+        excludeIssues: [352, 351, 350],
+        calendar: { date: '2026-10-03', window_days: 7 },
+      },
+    });
+  });
+
+  it('the calendar anchor asks with the issue\'s own words, never Thingy\'s or a held-out item\'s', () => {
+    const anchor = echoesCalendarAnchor(doc)!;
+    expect(anchor.label).toBe(ECHOES_CALENDAR_LABEL);
+    expect(anchor.query).toContain('Assembled item by item');
+    expect(anchor.query).toContain('The New Standards');
+    expect(anchor.query).not.toContain('Supporting Members make the Weekly Thing possible');
+    expect(anchor.query).not.toContain('A post Jamie has intentionally removed from this issue.');
+    expect(anchor.query.length).toBeLessThanOrEqual(1000);
+  });
+
+  it('an issue with next to no words asks no calendar question', () => {
+    const empty = structuredClone(doc);
+    empty.issue.dek = '';
+    for (const item of Object.values(empty.items)) item.channels = { website: false, email: false, audio: false };
+    expect(echoesCalendarAnchor(empty)).toBeNull();
+  });
+
+  it('heads the calendar passages as a hint, after the topical ones', () => {
+    const context = passageContext([
+      { label: 'The boat', passages: [{ issue_number: 221, label: 'WT221', url: 'https://weekly.thingelstad.com/archive/221/', text: 'The boat went in.' }] },
+      { label: ECHOES_CALENDAR_LABEL, calendar: true, passages: [{ issue_number: 297, label: 'WT297', url: 'https://weekly.thingelstad.com/archive/297/', text: 'State fair week.' }] },
+    ]);
+    expect(context).toContain('From this issue — The boat:');
+    expect(context).toContain('This week in past years — a light hint');
+    expect(context.indexOf('The boat went in.')).toBeLessThan(context.indexOf('State fair week.'));
   });
 
   it('heads each passage with the label to cite it by', () => {
@@ -344,7 +408,6 @@ describe('echo citation grounding', () => {
       { source_kind: 'podcast', label: 'AT3', episode_number: 3, url: 'https://another.thingelstad.com/2025/10/19/on-boats.html', text: 'Said aloud.' },
     ] },
   ];
-  const seasonal = { number: 297 };
   const echo = (text: string, refs: { issue?: number; url: string; kind?: 'issue' | 'blog' }[]) => ({
     text, archive_references: refs.map((r) => ({ kind: r.kind ?? 'issue' as const, ...r })), ask: 'Why the boat?',
   });
@@ -354,45 +417,45 @@ describe('echo citation grounding', () => {
       .toBe(normalizeUrl('http://weekly.thingelstad.com/archive/221'));
   });
 
-  it('passes an echo whose every citation traces to a passage or the seasonal issue', () => {
+  it('passes an echo whose every citation traces to a passage', () => {
     const e = echo(
-      'The boat went in, as in [WT221](https://weekly.thingelstad.com/archive/221/) and a year ago in [WT297](https://weekly.thingelstad.com/archive/297/).',
-      [{ issue: 221, url: 'https://weekly.thingelstad.com/archive/221' }, { issue: 297, url: 'https://weekly.thingelstad.com/archive/297/' }],
+      'The boat went in, as in [WT221](https://weekly.thingelstad.com/archive/221/) and [WT180](https://weekly.thingelstad.com/archive/180/).',
+      [{ issue: 221, url: 'https://weekly.thingelstad.com/archive/221' }, { issue: 180, url: 'https://weekly.thingelstad.com/archive/180/' }],
     );
-    expect(echoGrounding(e, anchored, seasonal).flags).toEqual([]);
+    expect(echoGrounding(e, anchored).flags).toEqual([]);
   });
 
   it('flags an issue number the archive never returned, in the text and in the references', () => {
     const e = echo('Recalls [WT199](https://weekly.thingelstad.com/archive/199/).', [{ issue: 199, url: 'https://weekly.thingelstad.com/archive/199/' }]);
-    const { flags } = echoGrounding(e, anchored, seasonal);
+    const { flags } = echoGrounding(e, anchored);
     expect(flags).toEqual(['WT199 is not among the passages the archive returned']);
   });
 
   it('flags a WTn label that links to a different issue', () => {
     const e = echo('Recalls [WT221](https://weekly.thingelstad.com/archive/180/).', [{ issue: 221, url: 'https://weekly.thingelstad.com/archive/180/' }]);
-    const { flags } = echoGrounding(e, anchored, seasonal);
+    const { flags } = echoGrounding(e, anchored);
     expect(flags).toContain('WT221 links to /archive/180/');
     expect(flags).toContain('the reference to WT221 links to /archive/180/');
   });
 
   it('flags a link in the text that is not in the echo\'s own references', () => {
     const e = echo('Recalls [WT221](https://weekly.thingelstad.com/archive/221/) and [WT180](https://weekly.thingelstad.com/archive/180/).', [{ issue: 221, url: 'https://weekly.thingelstad.com/archive/221/' }]);
-    expect(echoGrounding(e, anchored, seasonal).flags)
+    expect(echoGrounding(e, anchored).flags)
       .toEqual(["weekly.thingelstad.com/archive/180 is linked in the text but not in this echo's references"]);
   });
 
   it('checks a blog citation by its URL, and a bare WTn mention by its number', () => {
     const ok = echo('He wrote [Owning the Rails](https://thingelstad.com/2024/05/01/owning-the-rails).', [{ kind: 'blog', url: 'https://thingelstad.com/2024/05/01/owning-the-rails/' }]);
-    expect(echoGrounding(ok, anchored, seasonal).flags).toEqual([]);
+    expect(echoGrounding(ok, anchored).flags).toEqual([]);
     const invented = echo('He wrote [a post](https://thingelstad.com/2019/01/01/invented/), as WT12 did.', [{ kind: 'blog', url: 'https://thingelstad.com/2019/01/01/invented/' }]);
-    const flags = echoGrounding(invented, anchored, seasonal).flags;
+    const flags = echoGrounding(invented, anchored).flags;
     expect(flags).toContain('thingelstad.com/2019/01/01/invented is not among the passages the archive returned');
     expect(flags).toContain('WT12 is not among the passages the archive returned');
   });
 
   it('a blog post\'s issue counts as retrieved: cite the issue that carried it', () => {
     const e = echo('He wrote it up, and [WT260](https://weekly.thingelstad.com/archive/260/) carried it.', [{ issue: 260, url: 'https://weekly.thingelstad.com/archive/260/' }]);
-    expect(echoGrounding(e, anchored, seasonal).flags).toEqual([]);
+    expect(echoGrounding(e, anchored).flags).toEqual([]);
   });
 
   it('checks an episode by its number and its page', () => {
@@ -400,17 +463,25 @@ describe('echo citation grounding', () => {
       text, archive_references: [{ kind: 'podcast' as const, title: 'AT3: On boats', url }], ask: 'What about boats?',
     });
     const url = 'https://another.thingelstad.com/2025/10/19/on-boats.html';
-    expect(echoGrounding(podcast(`He said it on [AT3](${url}).`, url), anchored, seasonal).flags).toEqual([]);
+    expect(echoGrounding(podcast(`He said it on [AT3](${url}).`, url), anchored).flags).toEqual([]);
     const wrongPage = 'https://another.thingelstad.com/2025/10/05/how-do-you-start-a.html';
-    expect(echoGrounding(podcast(`He said it on [AT3](${wrongPage}).`, wrongPage), anchored, seasonal).flags)
+    expect(echoGrounding(podcast(`He said it on [AT3](${wrongPage}).`, wrongPage), anchored).flags)
       .toContain('AT3 links to another.thingelstad.com/2025/10/05/how-do-you-start-a.html, not that episode');
-    expect(echoGrounding(podcast(`He said it on AT7 and [AT3](${url}).`, url), anchored, seasonal).flags)
+    expect(echoGrounding(podcast(`He said it on AT7 and [AT3](${url}).`, url), anchored).flags)
       .toEqual(['AT7 is not among the passages the archive returned']);
   });
 
-  it('without the seasonal issue, citing it is flagged', () => {
+  it('a year-ago issue no passage came from is flagged like any other', () => {
     const e = echo('A year ago, [WT297](https://weekly.thingelstad.com/archive/297/).', [{ issue: 297, url: 'https://weekly.thingelstad.com/archive/297/' }]);
-    expect(echoGrounding(e, anchored, undefined).flags).toEqual(['WT297 is not among the passages the archive returned']);
+    expect(echoGrounding(e, anchored).flags).toEqual(['WT297 is not among the passages the archive returned']);
+  });
+
+  it('a calendar passage counts as retrieved', () => {
+    const withCalendar: AnchoredPassages[] = [...anchored, { label: ECHOES_CALENDAR_LABEL, calendar: true, passages: [
+      { issue_number: 297, url: 'https://weekly.thingelstad.com/archive/297/', text: 'State fair week.' },
+    ] }];
+    const e = echo('A year ago, [WT297](https://weekly.thingelstad.com/archive/297/).', [{ issue: 297, url: 'https://weekly.thingelstad.com/archive/297/' }]);
+    expect(echoGrounding(e, withCalendar).flags).toEqual([]);
   });
 });
 
@@ -442,23 +513,7 @@ describe('placing Journal alts on their pictures', () => {
   });
 });
 
-describe('the seasonal lens', () => {
-  const rows = [
-    { number: 350, publication_date: '2026-05-23', status: 'draft' },
-    { number: 297, publication_date: '2025-05-24', status: 'published' },
-    { number: 296, publication_date: '2025-05-17', status: 'published' },
-    { number: 245, publication_date: '2024-05-25', status: 'published' },
-  ];
-
-  it('picks the published issue nearest a year before', () => {
-    expect(pickSeasonalIssue(rows, '2026-05-23', 350)?.number).toBe(297);
-  });
-
-  it('returns null when nothing lands within the tolerance', () => {
-    expect(pickSeasonalIssue(rows.slice(0, 1), '2026-05-23', 350)).toBeNull();
-    expect(pickSeasonalIssue([], '2026-05-23', 350)).toBeNull();
-  });
-
+describe('an issue excerpt', () => {
   it('leaves out an item held out of every edition, as the editions do', () => {
     const excerpt = issueExcerpt(doc, 100_000);
     expect(excerpt).not.toContain('A post Jamie has intentionally removed from this issue.');

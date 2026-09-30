@@ -94,14 +94,89 @@ describe('Echoes drafts carry their grounding', () => {
     expect(out.echoes![1]!.grounding!.flags).toEqual(['WT199 is not among the passages the archive returned']);
   });
 
-  it('the seasonal issue counts as retrieved', async () => {
-    retrieve.mockResolvedValue(passages);
+  it('a passage from this week in past years counts as retrieved', async () => {
+    const pastYears = [
+      { issue_number: 199, publish_date: '2025-05-24', url: 'https://weekly.thingelstad.com/archive/199/', text: 'A year ago.' },
+    ];
+    retrieve.mockImplementation(async (_q: string, _k: number, options: { filters?: { calendar?: unknown } }) =>
+      (options.filters?.calendar ? pastYears : passages));
     create.mockResolvedValue(reply(offered));
-    const out = await draft({
-      doc: fixture(), nodeId: 'echoes',
-      seasonal: { number: 199, title: 'WT199', publication_date: '2025-05-24', excerpt: 'A year ago.' },
-    });
+    const out = await draft({ doc: fixture(), nodeId: 'echoes' });
     expect(out.echoes![1]!.grounding).toEqual({ flags: [] });
+  });
+});
+
+describe('Echoes: this week in past years', () => {
+  const topical = [
+    { issue_number: 221, source_kind: 'weekly_thing', label: 'WT221', publish_date: '2023-05-20T12:00:00Z',
+      url: 'https://weekly.thingelstad.com/archive/221/', text: 'The boat went in on a grey morning.' },
+  ];
+  const pastYears = [
+    { issue_number: 297, source_kind: 'weekly_thing', label: 'WT297', publish_date: '2025-05-24T12:00:00Z',
+      url: 'https://weekly.thingelstad.com/archive/297/', text: 'PAST-1 the dock goes in.' },
+    { source_kind: 'blog', label: 'Opening the Lake', publish_date: '2019-05-20',
+      url: 'https://www.thingelstad.com/2019/05/20/opening-the-lake.html', text: 'PAST-2 opening weekend.' },
+    { issue_number: 245, source_kind: 'weekly_thing', label: 'WT245', publish_date: '2024-05-25T12:00:00Z',
+      url: 'https://weekly.thingelstad.com/archive/245/', text: 'PAST-3 never makes the cut.' },
+  ];
+  const prompt = () => String(create.mock.calls[0]![0].messages[0].content);
+  const calendarCalls = () => retrieve.mock.calls.filter(([, , o]) => o?.filters?.calendar);
+
+  it('asks once more with the issue\'s own words, filtered to this week in earlier years', async () => {
+    retrieve.mockImplementation(async (_q: string, _k: number, o: { filters?: { calendar?: unknown } }) =>
+      (o.filters?.calendar ? pastYears : topical));
+    create.mockResolvedValue(reply({ echoes: [] }));
+    const doc = fixture();
+    doc.issue.number = 360;
+    doc.issue.publication_date = '2026-11-28';
+    await draft({ doc, nodeId: 'echoes' });
+    expect(calendarCalls()).toHaveLength(1);
+    const [query, k, options] = calendarCalls()[0]!;
+    expect(query).toContain('Welcome back from summer break');
+    expect(k).toBe(12);
+    expect(options).toEqual({
+      scope: 'all',
+      filters: {
+        excludeSourceKinds: ['site_page', 'faq'],
+        excludeIssues: [360, 359, 358],
+        calendar: { date: '2026-11-28', window_days: 7 },
+      },
+    });
+  });
+
+  it('offers at most two past-years passages, after the topical ones, as a hint', async () => {
+    retrieve.mockImplementation(async (_q: string, _k: number, o: { filters?: { calendar?: unknown } }) =>
+      (o.filters?.calendar ? pastYears : topical));
+    create.mockResolvedValue(reply({ echoes: [] }));
+    await draft({ doc: fixture(), nodeId: 'echoes' });
+    const text = prompt();
+    expect(text).toContain('PAST-1');
+    expect(text).toContain('PAST-2');
+    expect(text).not.toContain('PAST-3');
+    expect(text.indexOf('The boat went in')).toBeLessThan(text.indexOf('PAST-1'));
+    expect(text).toContain('This week in past years — a light hint');
+    const system = String(create.mock.calls[0]![0].system);
+    expect(system).toContain('Topical and thematic');
+    expect(system).toContain('connections come first');
+    expect(system).toContain('only a');
+    expect(system).toContain('light hint');
+    expect(system).not.toContain('a year ago this week');
+  });
+
+  it('still fails loud when only the calendar anchor found anything', async () => {
+    retrieve.mockImplementation(async (_q: string, _k: number, o: { filters?: { calendar?: unknown } }) =>
+      (o.filters?.calendar ? pastYears : []));
+    await expect(draft({ doc: fixture(), nodeId: 'echoes' }))
+      .rejects.toThrow('the archive returned no passages — rerun Echoes rather than inventing');
+    expect(create).not.toHaveBeenCalled();
+  });
+
+  it('a failed calendar ask fails the draft, like any retrieval', async () => {
+    retrieve.mockImplementation(async (_q: string, _k: number, o: { filters?: { calendar?: unknown } }) => {
+      if (o.filters?.calendar) throw new Error('Librarian retrieve failed: 400 Bad Request calendar.date must be YYYY-MM-DD.');
+      return topical;
+    });
+    await expect(draft({ doc: fixture(), nodeId: 'echoes' })).rejects.toThrow('calendar.date must be YYYY-MM-DD');
   });
 });
 
@@ -121,8 +196,9 @@ describe('Echoes reads the whole archive', () => {
     doc.issue.number = 360;
     doc.issue.publication_date = '2026-11-28';
     await draft({ doc, nodeId: 'echoes' });
-    expect(retrieve.mock.calls.length).toBeGreaterThan(0);
-    for (const [, k, options] of retrieve.mock.calls) {
+    const topical = retrieve.mock.calls.filter(([, , o]) => !o?.filters?.calendar);
+    expect(topical.length).toBeGreaterThan(0);
+    for (const [, k, options] of topical) {
       expect(k).toBe(12);
       expect(options).toEqual({
         scope: 'all',

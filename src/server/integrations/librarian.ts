@@ -17,11 +17,12 @@ import { config, credentials } from '../config.ts';
 // librarian-thing/apps/librarian/contracts/librarian-api.json. Bump when
 // adopting a new major - and this client is a REGISTERED consumer in the
 // Librarian's SUPPORTED_CONTRACT_MAJORS comment, so a major drop checks
-// here first. Verified against 4.11.0 (2026-09-29): passages carry a label
+// here first. Verified against 4.12.0 (2026-09-30): passages carry a label
 // and an absolute url, and the scope/filters/caller below are 4.11 request
-// fields. Since 4.11 the corpus holds no Thingy-bylined text, so nothing
-// here filters Thingy's words out of what comes back.
-const LIBRARIAN_CONTRACT_MAJOR = '4.11.0';
+// fields plus 4.12's `calendar` (Echoes' this-week-in-past-years hint).
+// Since 4.11 the corpus holds no Thingy-bylined text, so nothing here
+// filters Thingy's words out of what comes back.
+const LIBRARIAN_CONTRACT_MAJOR = '4.12.0';
 
 export interface Passage {
   id?: string;
@@ -53,6 +54,11 @@ export interface RetrieveOptions {
     excludeIssues?: number[];
     before?: string;
     issueNumber?: number;
+    /**
+     * 4.12: only sources published within `window_days` (the server caps it
+     * at 7) of this month-day in an EARLIER year. A malformed date is a 400.
+     */
+    calendar?: { date: string; window_days?: number };
   };
 }
 

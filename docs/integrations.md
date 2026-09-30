@@ -65,10 +65,11 @@ Thingy is a generation service WT Builder calls during assembly.
 - Membership: generates an attributed CTA from supplied campaign facts.
 - Echoes: retrieves archive context per anchor item of the current issue,
   across the issues, the blog and the podcast (`scope: 'all'`, contract
-  4.11.0), plus a deterministic same-week-last-year lens, and writes an
-  attributed closing note connecting this issue to the archive — primarily
-  Weekly Thing issues; blog and podcast citations when the echo lives
-  there. See `service-contracts.md`, "Echoes retrieval".
+  4.12.0), plus at most two passages from this week in past years
+  (`filters.calendar`) as a light hint, and writes an attributed closing
+  note connecting this issue to the archive — primarily Weekly Thing
+  issues; blog and podcast citations when the echo lives there. See
+  `service-contracts.md`, "Echoes retrieval".
 - The corpus holds none of Thingy's words: the Librarian strips the
   `.from-thingy` frame at build, so nothing here filters retrieved text.
 - Every `/retrieve` call names itself (`caller: 'wt-builder'`) for the

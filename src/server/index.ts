@@ -374,28 +374,6 @@ async function readSource(item: Item): Promise<import('./reconcile.ts').RemoteFi
   }
 }
 
-/**
- * The issue from about a year ago this week, for Echoes' seasonal lens.
- * Undefined when the archive holds nothing near that date — the draft then
- * runs on semantic retrieval alone.
- */
-function seasonalFor(doc: IssueDoc): editorial.SeasonalIssue | undefined {
-  const picked = editorial.pickSeasonalIssue(
-    store.listIssueDates(),
-    doc.issue.publication_date,
-    doc.issue.number,
-  );
-  if (!picked) return undefined;
-  const row = store.getIssueByNumber(picked.number);
-  if (!row) return undefined;
-  return {
-    number: picked.number,
-    title: row.doc.issue.title,
-    publication_date: picked.publication_date,
-    excerpt: editorial.issueExcerpt(row.doc),
-  };
-}
-
 /** Bracket a send leg with log entries; the leg's own behavior is untouched. */
 async function loggedSend(id: string, dest: string, run: () => Promise<unknown>): Promise<unknown> {
   store.logEvent(id, 'send', `Send started — ${dest}`);
@@ -1138,14 +1116,7 @@ const routes: [RegExp, string, (ctx: Ctx, params: string[]) => Promise<unknown>]
   [/^\/api\/issues\/([^/]+)\/items\/([^/]+)\/draft$/, 'POST', async ({ body }, [id, itemId]) => {
     const b = await body();
     const doc = requireIssue(id!);
-    const type = doc.items[itemId!]?.type;
-    const result = await editorial.draft({
-      doc,
-      itemId: itemId!,
-      context: b.context,
-      seasonal: type === 'echoes' || type === 'echo' ? seasonalFor(doc) : undefined,
-    });
-    return result;
+    return editorial.draft({ doc, itemId: itemId!, context: b.context });
   }],
 
   /**
@@ -1158,7 +1129,7 @@ const routes: [RegExp, string, (ctx: Ctx, params: string[]) => Promise<unknown>]
     const node = doc.nodes.find((n) => n.id === nodeId);
     if (!node) throw new HttpError(404, `no section ${nodeId}`);
     if (node.type !== 'echoes') throw new HttpError(400, `${node.label} does not hold echoes`);
-    return editorial.draft({ doc, nodeId: nodeId!, seasonal: seasonalFor(doc) });
+    return editorial.draft({ doc, nodeId: nodeId! });
   }],
 
   /**

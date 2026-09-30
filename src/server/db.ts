@@ -173,7 +173,7 @@ export function openDb(path = config.dbPath): Database.Database {
     return rows.map(rowToIssue);
   }
 
-  /** Number, date, and status only — the seasonal lens needs no documents. */
+  /** Number, date, and status only — the new-issue date checks need no documents. */
   export function listIssueDates(): { number: number; publication_date: string; status: string }[] {
     return openDb()
       .prepare('SELECT number, publication_date, status FROM issues ORDER BY number DESC')

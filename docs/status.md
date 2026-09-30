@@ -440,6 +440,18 @@ finished, what is half-finished, and what has never run.
   librarian-thing), so `withoutThingy` is gone. The verify probe asks for
   its issue exactly. Not yet run against a live draft: WT352 is the first.
 
+- **Echoes: this week in past years** (2026-09-30) — the one-year-ago
+  issue that rode along as an excerpt (`pickSeasonalIssue`, the `seasonal`
+  draft field) is gone. In its place a calendar pseudo-anchor asks the
+  Librarian (contract 4.12.0) with the issue's own words and
+  `filters.calendar` `{date: the issue's date, window_days: 7}`, across
+  issues, blog and podcast with the same exclusions as every anchor. It is a
+  hint (Jamie: "Calendar is less important for echoes than topics and
+  themes"): at most two passages, pooled after the topical anchors, headed
+  as a hint in the prompt, and it cannot carry a draft alone — Echoes still
+  fails loud without a topical passage. Tested with the Librarian stubbed;
+  not yet run against the live Librarian or a live draft.
+
 - **Echoes as items** (2026-09-20) — the Echoes section holds `echo` items,
   each a thread, its citations, and a question for Thingy; the section wand
   on the heading offers up to five and **appends** the ticked ones

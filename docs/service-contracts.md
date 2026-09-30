@@ -202,7 +202,7 @@ Built 2026-08-28; restructured 2026-09-03 around the settled intent — connect
 what is in THIS issue to the archive, primarily the Weekly Thing's own issues,
 with blog and podcast pulls welcome. Echoes drafting calls the Librarian's
 `/retrieve` (service-secret auth, `LIBRARIAN_RETRIEVE_URL` +
-`LIBRARIAN_RETRIEVE_SECRET`, contract 4.11.0) and **fails loud** when
+`LIBRARIAN_RETRIEVE_SECRET`, contract 4.12.0) and **fails loud** when
 retrieval is unavailable or returns nothing usable — the quality bar is real
 semantic retrieval, never a silently degraded guess.
 
@@ -234,11 +234,20 @@ semantic retrieval, never a silently degraded guess.
   months rank ahead of younger ones, and undated passages come last. Last
   week is repetition — and the review's judgement pass already owns the
   last 8 issues.
-- **A deterministic seasonal lens.** The issue published closest to a year
-  before this one (within 28 days, `pickSeasonalIssue` over the local
-  records — the pre-Builder import means all of them) rides along as a
-  cited, dated excerpt. Rituals rhyme annually; semantic retrieval has no
-  calendar.
+- **This week in past years, as a hint** (2026-09-30). Rituals rhyme
+  annually and semantic retrieval has no calendar, so one more anchor, "This
+  week in past years", asks with the issue's own words (its dek and printed
+  text, never Thingy's: `echoesCalendarAnchor`) and the same retrieval plus
+  `filters.calendar: { date: <the issue's date>, window_days: 7 }`
+  (contract 4.12: sources within a week of this month-day in an earlier
+  year; `echoesCalendarRetrieval`). Jamie: "Calendar is less important for
+  echoes than topics and themes", so it is pooled after every topical
+  anchor (a passage both found stays with its topic), keeps at most two
+  passages (`ECHOES_CALENDAR_MAX`), is headed in the prompt as a light hint,
+  and the prompt says topical and thematic connections come first. It
+  cannot carry a draft alone: with no topical passage Echoes still fails
+  loud. It replaced the deterministic one-year-ago issue excerpt
+  (`pickSeasonalIssue`, retired with the `seasonal` draft field).
 - **Thingy's words are not Jamie's archive** (review 2026-09-27, §5). From
   WT350 on, the archive leg commits the website render with Thingy's frames
   inside (Echoes, Membership). Since 2026-09-29 librarian-thing strips every
@@ -248,8 +257,8 @@ semantic retrieval, never a silently degraded guess.
   Thingy's. The frame is the contract: `tests/echoes.test.ts` pins its
   shape here, and librarian-thing's corpus tests pin the strip. The text
   filter that stood in for it (`withoutThingy`, 2026-09-28) is gone. The
-  seasonal excerpt still leaves Thingy's items out, because it reads the
-  local records, not the corpus.
+  calendar anchor's query leaves Thingy's items out too (`issueExcerpt`),
+  because it reads this issue's record, not the corpus.
 - **Shape varies by issue** (settled with Jamie 2026-09-03): one echo traced
   well, or two-to-three short callbacks when the resonance genuinely
   spreads. 1–4 citations, never padded toward a count. Whole archive
@@ -266,7 +275,8 @@ stores them on the item as `archive_references`.
 (`echoGrounding`, review 2026-09-27 §5), on the section wand and the
 per-echo redraft alike. Each WT number in the text, in an archive URL or in
 the references must be an issue a passage came from (or an issue that also
-carried a retrieved blog post), or the seasonal issue; each AT number must
+carried a retrieved blog post), the calendar anchor's passages included;
+each AT number must
 be an episode a passage came from, and an `[ATn]` label must link to that
 episode's page; every other cited URL must be a passage's URL (compared
 without scheme, `www.`, fragment or trailing slash). A `[WTn]` label that links to a

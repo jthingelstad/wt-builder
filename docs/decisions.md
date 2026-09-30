@@ -205,6 +205,14 @@ drive, so `/retrieve` stays, versioned (4.11.0). "Primarily the Weekly
 Thing" and four passages per anchor also stay; rolling the scope back is one
 field.
 
+## Past years are a hint (2026-09-30)
+
+Jamie, on the past-years lens: "Yes, and that is just a hint. Calendar is
+less important for echoes than topics and themes." So the one-year-ago
+issue that rode along whole is gone, and what replaced it is deliberately
+small: two passages at most, pooled last, and a prompt that puts topics and
+themes first. Nothing brings back a guaranteed year-ago echo.
+
 ## Generation offers; it never writes
 
 The wand returns candidates and nothing changes until Jamie picks one. Editorial
