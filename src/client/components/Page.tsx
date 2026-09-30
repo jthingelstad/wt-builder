@@ -1321,9 +1321,11 @@ function Photo({
           </button>
         </div>
       )}
-      <Editable
+      {/* Rendered at rest, as commentary is: the editions print the caption as
+          Markdown, and a link in WT352's showed here as raw source. */}
+      <RichEditable
         class="photo-caption" tag="div" multiline readOnly={readOnly}
-        value={media.caption ?? ''} ph="Caption…"
+        value={media.caption ?? ''} ph="Caption…" render={markdownToSafeHtml}
         onCommit={(caption) => set({ media: { ...media, caption } })}
       />
       {meta && <div class="photo-meta">{meta}</div>}

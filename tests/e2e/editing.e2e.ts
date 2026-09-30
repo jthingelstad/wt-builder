@@ -63,3 +63,16 @@ test('Enter at the very end leaves no stray blank lines', async ({ page }) => {
   await commit(page, () => String(item('link-functions').commentary ?? '').includes('One line.'));
   expect(item('link-functions').commentary).toBe('One line.');
 });
+
+test('a link typed into the photo caption shows as a link (WT352)', async ({ page }) => {
+  await open(page);
+  const sel = '[data-anchor="photo-1"] .photo-caption';
+  await caretAtEnd(page, sel);
+  await page.keyboard.type(' At the [Arboretum](https://arb.umn.edu).');
+  const want = 'Beautiful evening with the sun coming down. At the [Arboretum](https://arb.umn.edu).';
+  await commit(page, () => (item('photo-1').media as { caption?: string }).caption === want);
+  expect((item('photo-1').media as { caption?: string }).caption).toBe(want);
+  await expect(page.locator(`${sel} a`)).toHaveText('Arboretum');
+  await expect(page.locator(`${sel} a`)).toHaveAttribute('href', /^https:\/\/arb\.umn\.edu\/?$/);
+  await expect(page.locator(sel)).not.toContainText('](');
+});
