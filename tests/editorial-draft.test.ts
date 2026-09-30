@@ -31,7 +31,7 @@ vi.mock('../src/server/integrations/pinboard.ts', () => ({
   recentCommentary: vi.fn(async () => []),
 }));
 
-const { callJson, draft, review, reviewScript, suggestOrder, thingySentences } = await import('../src/server/editorial.ts');
+const { callJson, draft, review, reviewScript, suggestOrder } = await import('../src/server/editorial.ts');
 
 const fixture = () =>
   JSON.parse(
@@ -105,31 +105,39 @@ describe('Echoes drafts carry their grounding', () => {
   });
 });
 
-describe('Thingy\'s words never come back as Jamie\'s archive', () => {
-  const thingyEcho = "This week's return to building recalls earlier issues about owning the tools that shape your work, most directly WT349.";
+describe('Echoes reads the whole archive', () => {
   const passages = [
-    { issue_number: 351, publish_date: '2026-09-26', url: 'https://weekly.thingelstad.com/archive/351/', text: `Echoes. ${thingyEcho}` },
-    { issue_number: 221, publish_date: '2023-05-20', url: 'https://weekly.thingelstad.com/archive/221/', text: 'The boat went in on a grey morning.' },
+    { issue_number: 221, source_kind: 'weekly_thing', label: 'WT221', publish_date: '2023-05-20T12:00:00Z',
+      url: 'https://weekly.thingelstad.com/archive/221/', text: 'The boat went in on a grey morning.' },
+    { source_kind: 'blog', label: 'Owning the Rails', publish_date: '2024-05-01',
+      url: 'https://www.thingelstad.com/2024/05/01/owning-the-rails.html', text: 'Why I keep my own tools.' },
   ];
   const prompt = () => String(create.mock.calls[0]![0].messages[0].content);
 
-  it('Echoes drafts from the passages minus Thingy\'s', async () => {
+  it('asks every anchor across issues, blog and podcast, minus the last three issues', async () => {
     retrieve.mockResolvedValue(passages);
     create.mockResolvedValue(reply({ echoes: [] }));
     const doc = fixture();
     doc.issue.number = 360;
     doc.issue.publication_date = '2026-11-28';
-    await draft({ doc, nodeId: 'echoes', thingy: thingySentences([fixture()]) });
+    await draft({ doc, nodeId: 'echoes' });
+    expect(retrieve.mock.calls.length).toBeGreaterThan(0);
+    for (const [, k, options] of retrieve.mock.calls) {
+      expect(k).toBe(12);
+      expect(options).toEqual({
+        scope: 'all',
+        filters: { excludeSourceKinds: ['site_page', 'faq'], excludeIssues: [360, 359, 358] },
+      });
+    }
+    expect(prompt()).toContain('[Owning the Rails · blog post · 2024-05-01] https://www.thingelstad.com/2024/05/01/owning-the-rails.html');
     expect(prompt()).toContain('The boat went in on a grey morning.');
-    expect(prompt()).not.toContain('owning the tools that shape your work, most directly WT349');
   });
 
-  it('the link wand does not call Thingy\'s words what Jamie has written before', async () => {
+  it('the link wand shows what Jamie has written before, from the issues', async () => {
     retrieve.mockResolvedValue(passages);
     create.mockResolvedValue(reply({ candidates: ['one', 'two'] }));
-    await draft({ doc: fixture(), itemId: 'link-flipcash', thingy: thingySentences([fixture()]) });
+    await draft({ doc: fixture(), itemId: 'link-flipcash' });
     expect(prompt()).toContain('WT221: The boat went in');
-    expect(prompt()).not.toContain('owning the tools that shape your work, most directly WT349');
   });
 });
 

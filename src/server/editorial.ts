@@ -416,8 +416,13 @@ the issue; do not cite the same source in two echoes.
 
 Citations: Weekly Thing issues as markdown links —
 [WT210](https://weekly.thingelstad.com/archive/210/) — and prefer them. A
-blog post or podcast episode is citable by its title and permalink when the
-echo lives there; when it also appeared in an issue, cite the issue. Every
+blog post is cited by its title, linked to its permalink —
+[Its title](https://www.thingelstad.com/2019/04/27/its-slug.html) — and an
+Another Thing episode by its number, linked to its page —
+[AT1](https://another.thingelstad.com/2025/10/05/how-do-you-start-a.html).
+Each passage below opens with the label to cite it by and its URL; use both
+exactly as given. When a blog post also appeared in an issue ("also in
+WT…"), cite the issue. Every
 citation must tie to something specific in THIS issue: a named link, a
 Journal entry, a recurring place, project, or season. A citation that just
 says "Jamie has written about this before" is a failure.
@@ -441,7 +446,8 @@ by the item in this issue that retrieved them, and a passage from about a
 year ago this week may be included for seasonal rhymes. Never invent an
 issue number or a claim about one. Report each echo's sources in its own
 archive_references — kind "issue" with its number, or kind "blog"/"podcast"
-with its title — each with a note saying what it carries.`,
+with its title (an episode's title starts with its number: "AT1: …") — each
+with a note saying what it carries.`,
 
   haiku: `Write a haiku to close this issue of The Weekly Thing — three short
 lines, in Jamie's voice.
@@ -572,12 +578,6 @@ export interface DraftRequest {
   context?: string;
   /** Echoes only: the issue from about a year ago this week, if one exists. */
   seasonal?: SeasonalIssue;
-  /**
-   * Echoes and links: Thingy's sentences from Builder issues
-   * (thingySentences), so retrieval never hands Thingy's words back as
-   * Jamie's archive.
-   */
-  thingy?: string[];
 }
 
 export interface SeasonalIssue {
@@ -950,14 +950,40 @@ export interface AnchoredPassages {
 export const ECHOES_DEEP_DAYS = 183;
 
 /**
+ * Days a blog post or episode counts as this issue's own material. Those
+ * carry no issue number, and the Journal republishes the week's posts, so
+ * the three weeks this issue and its two predecessors cover are repetition,
+ * not an echo — the same rule the issue numbers get.
+ */
+export const ECHOES_OWN_DAYS = 21;
+
+/**
+ * What Echoes asks the Librarian for (contract 4.11): the whole archive —
+ * issues, blog and podcast — without the Weekly Thing's own site pages, and
+ * without this issue and the two before it, excluded on the server so they
+ * never take up the k.
+ */
+export function echoesRetrieval(issueNumber: number): librarian.RetrieveOptions {
+  return {
+    scope: 'all',
+    filters: {
+      excludeSourceKinds: ['site_page', 'faq'],
+      excludeIssues: [issueNumber, issueNumber - 1, issueNumber - 2],
+    },
+  };
+}
+
+/**
  * Filter and rank what retrieval returned, per anchor. Pure, so the recency
  * rules are testable.
  *
  * The current issue and its two predecessors are excluded outright — last
  * week is repetition, not an echo (and the judgement pass already owns
- * recency). Older-than-six-months passages rank ahead of younger ones;
- * within a band, retrieval score order holds. A url appears once across all
- * anchors — the first anchor that found it keeps it.
+ * recency). So is a blog post or episode those issues carried, or one from
+ * their three weeks. Older-than-six-months passages rank ahead of younger
+ * ones, and undated ones come last; within a band, retrieval score order
+ * holds. A url appears once across all anchors — the first anchor that
+ * found it keeps it.
  */
 export function poolEchoPassages(
   anchored: AnchoredPassages[],
@@ -965,37 +991,53 @@ export function poolEchoPassages(
   publicationDate: string,
   perAnchor = 4,
 ): AnchoredPassages[] {
-  const cutoff = new Date(publicationDate + 'T00:00:00Z').getTime() - ECHOES_DEEP_DAYS * 86_400_000;
+  const published = new Date(publicationDate + 'T00:00:00Z').getTime();
+  const cutoff = published - ECHOES_DEEP_DAYS * 86_400_000;
+  const ownStretch = published - ECHOES_OWN_DAYS * 86_400_000;
   const excluded = new Set([issueNumber, issueNumber - 1, issueNumber - 2]);
   const seen = new Set<string>();
+  // NaN for an undated passage, so it falls in neither band below.
+  const time = (p: librarian.Passage) => (p.publish_date ? new Date(p.publish_date).getTime() : NaN);
 
   return anchored
     .map(({ label, passages }) => {
       const kept = passages.filter((p) => {
-        if (p.issue_number && excluded.has(p.issue_number)) return false;
+        if (p.issue_number && excluded.has(Number(p.issue_number))) return false;
+        if ((p.also_in_issues ?? []).some((n) => excluded.has(Number(n)))) return false;
+        if (!p.issue_number && time(p) >= ownStretch) return false;
         const key = p.url ?? `${p.issue_number}:${String(p.text ?? '').slice(0, 80)}`;
         if (seen.has(key)) return false;
         seen.add(key);
         return true;
       });
-      // Undated passages cannot be aged; treat them as deep archive.
-      const deep = kept.filter((p) => !p.publish_date || new Date(p.publish_date).getTime() < cutoff);
-      const recent = kept.filter((p) => !deep.includes(p));
-      return { label, passages: [...deep, ...recent].slice(0, perAnchor) };
+      const deep = kept.filter((p) => time(p) < cutoff);
+      const recent = kept.filter((p) => time(p) >= cutoff);
+      const undated = kept.filter((p) => Number.isNaN(time(p)));
+      return { label, passages: [...deep, ...recent, ...undated].slice(0, perAnchor) };
     })
     .filter((a) => a.passages.length > 0);
 }
 
-/** Passages formatted for the prompt, grouped by the anchor that found them. */
-function passageContext(anchored: AnchoredPassages[]): string {
+const PASSAGE_KINDS: Record<string, string> = { blog: 'blog post', podcast: 'Another Thing episode' };
+
+/**
+ * Passages formatted for the prompt, grouped by the anchor that found them.
+ * Each opens with the label to cite it by — WT312, AT1, a post's title —
+ * which the Librarian supplies (4.11).
+ */
+export function passageContext(anchored: AnchoredPassages[]): string {
   return anchored
     .map(({ label, passages }) => {
       const lines = passages.map((p) => {
+        const cite = p.label ?? (p.issue_number ? `WT${p.issue_number}` : null);
+        const also = (p.also_in_issues ?? []).map((n) => `WT${n}`).join(', ');
         const head = [
-          p.issue_number ? `WT${p.issue_number}` : null,
-          p.subject,
+          cite,
+          PASSAGE_KINDS[p.source_kind ?? ''],
+          p.subject && p.subject !== cite ? p.subject : null,
           p.publish_date?.slice(0, 10),
           p.section,
+          also ? `also in ${also}` : null,
         ].filter(Boolean).join(' · ');
         return `[${head}] ${p.url ?? ''}\n${String(p.text ?? '').slice(0, 500)}`;
       });
@@ -1044,10 +1086,12 @@ function bodyLinks(text: string): { label: string | null; url: string }[] {
  * and the per-echo redraft alike.
  *
  * Every WT number — in the text, in an archive URL, in the references —
- * must be an issue a passage came from, or the seasonal issue. Every other
- * cited URL must be a passage's URL. A "[WTn]" label must link to
- * /archive/n/, and every link in the text must be in the echo's own
- * references. A citation that fails is flagged, never removed: Jamie decides
+ * must be an issue a passage came from (or, for a blog post, an issue that
+ * also carried it), or the seasonal issue. Every AT number must be an
+ * episode a passage came from, and an "[ATn]" label must link to that
+ * episode. Every other cited URL must be a passage's URL. A "[WTn]" label
+ * must link to /archive/n/, and every link in the text must be in the echo's
+ * own references. A citation that fails is flagged, never removed: Jamie decides
  * (generation offers and never writes).
  */
 export function echoGrounding(
@@ -1057,9 +1101,14 @@ export function echoGrounding(
 ): EchoGrounding {
   const issues = new Set<number>();
   const urls = new Set<string>();
+  const episodes = new Map<number, string>();
   for (const { passages } of anchored) {
     for (const p of passages) {
-      if (p.issue_number) issues.add(p.issue_number);
+      if (p.issue_number) issues.add(Number(p.issue_number));
+      for (const n of p.also_in_issues ?? []) if (Number(n)) issues.add(Number(n));
+      if (p.source_kind === 'podcast' && Number(p.episode_number)) {
+        episodes.set(Number(p.episode_number), normalizeUrl(p.url ?? ''));
+      }
       if (p.url) {
         urls.add(normalizeUrl(p.url));
         const n = archiveNumber(p.url);
@@ -1084,14 +1133,22 @@ export function echoGrounding(
   const refs = option.archive_references ?? [];
   const refUrls = new Set(refs.map((r) => normalizeUrl(r.url ?? '')).filter(Boolean));
 
-  // The words: bare "WT210" mentions, then every link.
+  // The words: bare "WT210" and "AT3" mentions, then every link.
   for (const m of text.matchAll(/\bWT\s?(\d+)\b/g)) checkIssue(Number(m[1]));
+  for (const m of text.matchAll(/\bAT(\d+)\b/g)) {
+    if (!episodes.has(Number(m[1]))) flag(`AT${m[1]} is not among the passages the archive returned`);
+  }
   for (const { label, url } of bodyLinks(text)) {
     checkUrl(url);
     const labelled = label ? /^\s*WT\s?(\d+)\s*$/i.exec(label) : null;
     const target = archiveNumber(url);
     if (labelled && target !== null && Number(labelled[1]) !== target) {
       flag(`WT${labelled[1]} links to /archive/${target}/`);
+    }
+    const episode = label ? /^\s*AT\s?(\d+)\s*$/i.exec(label) : null;
+    const episodeUrl = episode ? episodes.get(Number(episode[1])) : undefined;
+    if (episodeUrl && episodeUrl !== normalizeUrl(url)) {
+      flag(`AT${episode![1]} links to ${normalizeUrl(url)}, not that episode`);
     }
     if (!refUrls.has(normalizeUrl(url))) flag(`${normalizeUrl(url)} is linked in the text but not in this echo's references`);
   }
@@ -1167,80 +1224,6 @@ export function issueExcerpt(doc: IssueDoc, max = 2800): string {
     .replace(/<img[^>]*>/g, '')
     .replace(/!\[[^\]]*\]\([^)]*\)/g, '')
     .slice(0, max);
-}
-
-// ── Thingy's words, kept out of "Jamie's archive" ─────────────────────────
-
-/**
- * The first issue built here. From it on, the archive leg commits the
- * website render with Thingy's frames inside (Echoes, Membership), and the
- * Librarian indexes that render with no author on the passage — so a
- * retrieved passage from 350 on can be Thingy's words, served back as
- * Jamie's. Earlier issues were written before Thingy had a byline.
- */
-export const FIRST_BUILDER_ISSUE = 350;
-
-/** A sentence counts as Thingy's only when it is this long, normalized. */
-export const THINGY_SENTENCE_MIN = 40;
-
-/**
- * Text reduced to what survives any render: link labels without their
- * URLs, no emphasis or HTML, straight quotes, one space, lowercase.
- */
-export function normalizeProse(text: string): string {
-  return String(text ?? '')
-    .replace(/!\[[^\]]*\]\([^)]*\)/g, ' ')
-    .replace(/\[([^\]]*)\]\([^)]*\)/g, '$1')
-    .replace(/<[^>]+>/g, ' ')
-    .replace(/https?:\/\/\S+/g, ' ')
-    .replace(/&nbsp;/g, ' ').replace(/&amp;/g, '&').replace(/&mdash;/g, '—')
-    .replace(/[‘’]/g, "'").replace(/[“”]/g, '"')
-    .replace(/[*_`#>~]/g, '')
-    .replace(/\s+/g, ' ')
-    .replace(/ ([.,;:!?])/g, '$1')
-    .trim()
-    .toLowerCase();
-}
-
-/**
- * Every sentence Thingy has written in a Builder issue, normalized, at
- * least THINGY_SENTENCE_MIN long. Pure; the route supplies the documents.
- * Imported pre-Builder records are skipped: their one body is Jamie's
- * published issue, whatever its authorship field says.
- */
-export function thingySentences(docs: IssueDoc[]): string[] {
-  const out = new Set<string>();
-  for (const doc of docs) {
-    if (doc.issue.imported) continue;
-    for (const item of Object.values(doc.items)) {
-      if (item.authorship !== 'Thingy') continue;
-      for (const field of [item.body, item.member_thanks, item.ask]) {
-        for (const sentence of normalizeProse(field ?? '').split(/(?<=[.!?])\s+/)) {
-          const s = sentence.trim();
-          if (s.length >= THINGY_SENTENCE_MIN) out.add(s);
-        }
-      }
-    }
-  }
-  return [...out];
-}
-
-/**
- * Retrieved passages minus the ones that are Thingy's: a passage from
- * issue FIRST_BUILDER_ISSUE on that contains one of Thingy's sentences is
- * dropped before anything is drafted from it. This filters the model's
- * input, not an offer to Jamie, so dropping is right here. Pure.
- *
- * A text match is the stopgap; the Librarian carrying an `author` on each
- * passage is the fix (docs/service-contracts.md, feature #9).
- */
-export function withoutThingy<P extends librarian.Passage>(passages: P[], sentences: string[]): P[] {
-  if (!sentences.length) return passages;
-  return passages.filter((p) => {
-    if (!p.issue_number || p.issue_number < FIRST_BUILDER_ISSUE) return true;
-    const text = normalizeProse(p.text ?? '');
-    return !sentences.some((s) => text.includes(s));
-  });
 }
 
 // ── ordering ──────────────────────────────────────────────────────────────
@@ -1402,10 +1385,11 @@ export async function draft(req: DraftRequest): Promise<DraftResult> {
   // are not averaged into one query.
   let anchored: AnchoredPassages[] = [];
   if (type === 'echoes') {
+    const retrieval = echoesRetrieval(req.doc.issue.number);
     const results = await Promise.all(
       echoesAnchors(req.doc).map(async (a) => ({
         label: a.label,
-        passages: withoutThingy(await librarian.retrieve(a.query), req.thingy ?? []),
+        passages: await librarian.retrieve(a.query, 12, retrieval),
       })),
     );
     anchored = poolEchoPassages(results, req.doc.issue.number, req.doc.issue.publication_date);
@@ -1418,7 +1402,7 @@ export async function draft(req: DraftRequest): Promise<DraftResult> {
   // itself, his own recent commentary as examples, and what the archive
   // shows he has said about the subject before. With only a title and a URL
   // the wand wrote generic commentary (Jamie, WT351).
-  const grounding = item?.type === 'pinboard_link' ? await linkGrounding(req.doc, item, req.thingy ?? []) : '';
+  const grounding = item?.type === 'pinboard_link' ? await linkGrounding(req.doc, item) : '';
 
   // The link's own section decides commentary length (Briefly vs Notable).
   const linkSection = item?.type === 'pinboard_link'
@@ -1590,7 +1574,7 @@ async function pageText(url: string): Promise<string> {
  * best-effort — the draft proceeds without any one of them, and says nothing
  * made up to fill the gap.
  */
-async function linkGrounding(doc: IssueDoc, item: Item, thingy: string[]): Promise<string> {
+async function linkGrounding(doc: IssueDoc, item: Item): Promise<string> {
   const url = item.source_url ?? '';
   const brief = doc.nodes.find((n) => n.items.some((id) => doc.items[id] === item))?.type === 'briefly';
   const [page, mine, past] = await Promise.all([
@@ -1604,7 +1588,7 @@ async function linkGrounding(doc: IssueDoc, item: Item, thingy: string[]): Promi
     .slice(0, 14)
     .map((p) => `- ${p.description}\n  ${p.extended.replace(/\s*\n+\s*/g, ' ').slice(0, 700)}`);
   const ownIssue = doc.issue.number;
-  const earlier = withoutThingy(past, thingy)
+  const earlier = past
     .filter((p) => p.issue_number && p.issue_number !== ownIssue && p.text)
     .slice(0, 5)
     .map((p) => `- WT${p.issue_number}: ${String(p.text).replace(/\s+/g, ' ').slice(0, 400)}`);

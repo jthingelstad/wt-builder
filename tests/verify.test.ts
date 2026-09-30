@@ -12,6 +12,7 @@ import { renderEmail } from '../src/shared/render/email.ts';
 import { emailSubject, subjectFor } from '../src/server/publish.ts';
 import * as buttondown from '../src/server/integrations/buttondown.ts';
 import * as githubRepo from '../src/server/integrations/github.ts';
+import * as librarian from '../src/server/integrations/librarian.ts';
 import { verifierFor, verifyArchive, verifyButtondown, verifyWebsite } from '../src/server/verify.ts';
 
 // Buttondown answers from here; nothing in this file reaches its API.
@@ -225,5 +226,22 @@ describe('a Buttondown failure recorded before last_sent still names its draft t
     const text = files.map((f) => f.content).join('\n');
     expect(text).toContain('em-legacy');
     expect(text).not.toMatch(/buttondown_id: ""/);
+  });
+});
+
+describe('the archive check asks the Librarian for this issue exactly', () => {
+  const sent = (): IssueDoc => {
+    const d = structuredClone(doc);
+    d.sends = { archive: { status: 'sent', at: '2026-09-20T16:00:00Z', external_id: 'abc1234' } };
+    return d;
+  };
+
+  it('filters on the issue number (4.11), so a crowded topic cannot hide it', async () => {
+    const d = sent();
+    vi.mocked(librarian.retrieve).mockClear();
+    vi.mocked(librarian.retrieve).mockResolvedValueOnce([{ issue_number: d.issue.number, text: 'its own words' }]);
+    const { checks } = await verifyArchive(d);
+    expect(vi.mocked(librarian.retrieve).mock.calls[0]![2]).toEqual({ filters: { issueNumber: d.issue.number } });
+    expect(checks.find((c) => c.label === 'Retrievable by Thingy')?.ok).toBe(true);
   });
 });

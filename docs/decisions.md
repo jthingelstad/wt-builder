@@ -185,6 +185,26 @@ invisible in the code is what was deliberately *not* done:
 *A section that is one string is one string no matter how many things it
 says.*
 
+## Echoes reads the whole archive, which holds no Thingy (2026-09-29)
+
+Jamie, after the Librarian MCP review: "it is a huge miss if Echoes isn't
+getting the blog and podcast", and "Thingy's echoes section should be
+excluded from the corpus entirely". Membership too.
+
+Echoes sent no scope, so the Librarian answered from issues alone while the
+prompt promised the blog and the podcast. It now asks for the whole archive
+and the server drops the site pages and the last three issues. The Thingy
+filter moved from here to the corpus build: librarian-thing strips every
+`.from-thingy` block before anything is indexed, so the frame this repo
+renders is now a contract two repos pin, and the text match that stood in
+for it is gone.
+
+What was deliberately *not* done: Echoes did not become an MCP client.
+It is a fixed pipeline, a few anchors and one prompt, with no tool loop to
+drive, so `/retrieve` stays, versioned (4.11.0). "Primarily the Weekly
+Thing" and four passages per anchor also stay; rolling the scope back is one
+field.
+
 ## Generation offers; it never writes
 
 The wand returns candidates and nothing changes until Jamie picks one. Editorial

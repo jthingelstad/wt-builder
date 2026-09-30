@@ -17,19 +17,43 @@ import { config, credentials } from '../config.ts';
 // librarian-thing/apps/librarian/contracts/librarian-api.json. Bump when
 // adopting a new major - and this client is a REGISTERED consumer in the
 // Librarian's SUPPORTED_CONTRACT_MAJORS comment, so a major drop checks
-// here first. Verified against 4.10.0: /retrieve is a superset of what
-// this client sends and reads (2026-09-05).
-const LIBRARIAN_CONTRACT_MAJOR = '4.10.0';
+// here first. Verified against 4.11.0 (2026-09-29): passages carry a label
+// and an absolute url, and the scope/filters/caller below are 4.11 request
+// fields. Since 4.11 the corpus holds no Thingy-bylined text, so nothing
+// here filters Thingy's words out of what comes back.
+const LIBRARIAN_CONTRACT_MAJOR = '4.11.0';
 
 export interface Passage {
+  id?: string;
   issue_number?: number;
+  /** weekly_thing, blog, podcast (or site_page / faq for the weekly site's own pages). */
+  source_kind?: string;
+  /** How to cite it: WT312, AT1, or a blog post's title. */
+  label?: string;
   subject?: string;
   publish_date?: string;
   section?: string;
   age?: string;
   score?: number;
+  /** Absolute since 4.11. */
   url?: string;
+  show?: string;
+  episode_number?: number | string;
+  /** Issues whose Journal also carried this blog post. */
+  also_in_issues?: (number | string)[];
   text?: string;
+}
+
+export interface RetrieveOptions {
+  /** Which corpora to search. The Librarian defaults to weekly_thing. */
+  scope?: 'weekly_thing' | 'blog' | 'podcast' | 'both' | 'all';
+  filters?: {
+    sourceKinds?: string[];
+    excludeSourceKinds?: string[];
+    excludeIssues?: number[];
+    before?: string;
+    issueNumber?: number;
+  };
 }
 
 export function isConfigured(): boolean {
@@ -41,7 +65,7 @@ export function isConfigured(): boolean {
  * quality bar is real semantic retrieval, and the editorial spec says to
  * fail loud rather than degrade silently (docs/service-contracts.md).
  */
-export async function retrieve(query: string, k = 12): Promise<Passage[]> {
+export async function retrieve(query: string, k = 12, options: RetrieveOptions = {}): Promise<Passage[]> {
   const secret = credentials.librarianSecret;
   if (!secret) {
     throw new Error('LIBRARIAN_RETRIEVE_SECRET is not configured — Echoes requires archive retrieval');
@@ -55,7 +79,14 @@ export async function retrieve(query: string, k = 12): Promise<Passage[]> {
       // majors it no longer serves, which beats silently-missing fields.
       'x-librarian-contract-version': LIBRARIAN_CONTRACT_MAJOR,
     },
-    body: JSON.stringify({ query, k, retrieve_secret: secret }),
+    body: JSON.stringify({
+      query,
+      k,
+      scope: options.scope,
+      filters: options.filters,
+      caller: 'wt-builder',
+      retrieve_secret: secret,
+    }),
     signal: AbortSignal.timeout(30_000),
   });
   if (!res.ok) {

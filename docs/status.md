@@ -172,7 +172,8 @@ finished, what is half-finished, and what has never run.
   title carries `{{`, `{%` or `{#` shows a Subject warning until "Update
   draft"; every other draft's subject is unchanged), and once sent, Buttondown's delivery counts (never
   opens or clicks); the archive's corpus files against the issue, and the
-  Librarian returning the issue's own passages. A leg still landing (scheduled,
+  Librarian returning the issue's own passages (asked for that issue
+  exactly, `filters.issueNumber`). A leg still landing (scheduled,
   not yet indexed) is `waiting` and re-checks itself (`recheck_at`, re-armed on
   boot). Runs in the background after every send and on
   "Check again" (`POST /api/issues/:id/verify/:dest`); results live on
@@ -430,6 +431,14 @@ finished, what is half-finished, and what has never run.
   review, share, rehost, sends — applies its result to a fresh read instead of
   saving the copy it started from. Found the hard way: the auto re-scan on
   page open wrote its stale copy over two Currently lines.
+
+- **Echoes reads the whole archive** (2026-09-29) — each anchor asks the
+  Librarian (contract 4.11.0) across issues, blog and podcast, without the
+  site pages or the last three issues; passages arrive labelled (WT312, AT1,
+  a post's title) with absolute URLs, and grounding checks AT numbers and a
+  blog post's issues. The corpus holds no Thingy text (stripped in
+  librarian-thing), so `withoutThingy` is gone. The verify probe asks for
+  its issue exactly. Not yet run against a live draft: WT352 is the first.
 
 - **Echoes as items** (2026-09-20) — the Echoes section holds `echo` items,
   each a thread, its citations, and a question for Thingy; the section wand

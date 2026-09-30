@@ -202,9 +202,22 @@ Built 2026-08-28; restructured 2026-09-03 around the settled intent — connect
 what is in THIS issue to the archive, primarily the Weekly Thing's own issues,
 with blog and podcast pulls welcome. Echoes drafting calls the Librarian's
 `/retrieve` (service-secret auth, `LIBRARIAN_RETRIEVE_URL` +
-`LIBRARIAN_RETRIEVE_SECRET`) and **fails loud** when retrieval is unavailable
-or returns nothing usable — the quality bar is real semantic retrieval, never
-a silently degraded guess.
+`LIBRARIAN_RETRIEVE_SECRET`, contract 4.11.0) and **fails loud** when
+retrieval is unavailable or returns nothing usable — the quality bar is real
+semantic retrieval, never a silently degraded guess.
+
+- **The whole archive, since 2026-09-29.** Until then Echoes sent no scope and
+  the Librarian defaulted to Weekly Thing issues only, so the blog and the
+  podcast the prompt welcomed never arrived (Jamie: "it is a huge miss if
+  Echoes isn't getting the blog and podcast"). Each anchor now asks with
+  `scope: 'all'`, `filters: { excludeSourceKinds: ['site_page', 'faq'],
+  excludeIssues: [n, n-1, n-2] }` and `caller: 'wt-builder'`
+  (`echoesRetrieval`). The exclusion runs on the server, so the excluded
+  issues no longer take up the k. Every passage carries a `label` (WT312,
+  AT1, a post's title), an absolute `url` and a `source_kind`, and the
+  prompt heads each passage with its label; a blog post the Journal carried
+  lists those issues (`also_in_issues`). Rolling back is the one `scope`
+  field.
 
 - **One retrieval per anchor, not one blended query.** The issue's strongest
   present items are the anchors: each promoted Journal post and each
@@ -213,12 +226,14 @@ a silently degraded guess.
   rituals and seasons live. At most 5 anchors (`echoesAnchors`). One
   1200-char blend of the boat, the railroads, and the semester abroad
   averages into mush; per-anchor queries find the sharp echoes.
-- **A recency floor, applied client-side.** The current issue and its two
-  predecessors are excluded outright, and passages older than six months
-  rank ahead of younger ones (`poolEchoPassages`). Last week is repetition,
-  not an echo — and the review's judgement pass already owns the last 8
-  issues. No `/retrieve` contract change: passages carry `issue_number` and
-  `publish_date`, so the filter runs here.
+- **A recency floor.** The current issue and its two predecessors are
+  excluded (on the server, and again in `poolEchoPassages`), and so is a
+  blog post or episode those issues carried or published in their three
+  weeks (`ECHOES_OWN_DAYS`): the Journal republishes the week's posts, so
+  this week's post is repetition, not an echo. Passages older than six
+  months rank ahead of younger ones, and undated passages come last. Last
+  week is repetition — and the review's judgement pass already owns the
+  last 8 issues.
 - **A deterministic seasonal lens.** The issue published closest to a year
   before this one (within 28 days, `pickSeasonalIssue` over the local
   records — the pre-Builder import means all of them) rides along as a
@@ -226,16 +241,15 @@ a silently degraded guess.
   calendar.
 - **Thingy's words are not Jamie's archive** (review 2026-09-27, §5). From
   WT350 on, the archive leg commits the website render with Thingy's frames
-  inside, and a `/retrieve` passage carries no author. So before pooling,
-  and before the link wand's "what Jamie has written before", a passage
-  from issue 350 on is dropped when it contains one of Thingy's sentences
-  (normalized, at least 40 characters) from a Builder issue's Thingy items
-  (`withoutThingy`, `thingySentences`). The seasonal excerpt leaves Thingy's
-  items out. Dropping is right here: these passages are the model's input,
-  not an offer to Jamie.
-  **Later, in librarian-thing:** an `author` field on each passage
-  (`jamie` / `thingy`), set at ingest from the render's `.from-thingy`
-  frame, would replace the text match (feature #9). Not built.
+  inside (Echoes, Membership). Since 2026-09-29 librarian-thing strips every
+  `<div class="from-thingy">` block before it builds a chunk, a count or a
+  link (`strip_thingy_blocks`; Jamie: "Thingy's echoes section should be
+  excluded from the corpus entirely"), so no `/retrieve` passage can be
+  Thingy's. The frame is the contract: `tests/echoes.test.ts` pins its
+  shape here, and librarian-thing's corpus tests pin the strip. The text
+  filter that stood in for it (`withoutThingy`, 2026-09-28) is gone. The
+  seasonal excerpt still leaves Thingy's items out, because it reads the
+  local records, not the corpus.
 - **Shape varies by issue** (settled with Jamie 2026-09-03): one echo traced
   well, or two-to-three short callbacks when the resonance genuinely
   spreads. 1–4 citations, never padded toward a count. Whole archive
@@ -251,9 +265,11 @@ stores them on the item as `archive_references`.
 **Every offered echo is checked against what was retrieved**
 (`echoGrounding`, review 2026-09-27 §5), on the section wand and the
 per-echo redraft alike. Each WT number in the text, in an archive URL or in
-the references must be an issue a passage came from, or the seasonal issue;
-every other cited URL must be a passage's URL (compared without scheme,
-`www.`, fragment or trailing slash). A `[WTn]` label that links to a
+the references must be an issue a passage came from (or an issue that also
+carried a retrieved blog post), or the seasonal issue; each AT number must
+be an episode a passage came from, and an `[ATn]` label must link to that
+episode's page; every other cited URL must be a passage's URL (compared
+without scheme, `www.`, fragment or trailing slash). A `[WTn]` label that links to a
 different `/archive/m/`, and a link in the text missing from the echo's own
 references, are flagged too. The result rides on the echo as
 `grounding: { flags: [] }` and the picker shows each flag in the warning

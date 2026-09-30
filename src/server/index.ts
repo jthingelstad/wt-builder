@@ -396,15 +396,6 @@ function seasonalFor(doc: IssueDoc): editorial.SeasonalIssue | undefined {
   };
 }
 
-/**
- * Thingy's sentences from every Builder issue, for the drafting routes that
- * retrieve from the archive: the Librarian's passages carry no author, so
- * Echoes and the link wand filter Thingy's words out by text.
- */
-function thingySentences(): string[] {
-  return editorial.thingySentences(store.listIssues().map((r) => r.doc));
-}
-
 /** Bracket a send leg with log entries; the leg's own behavior is untouched. */
 async function loggedSend(id: string, dest: string, run: () => Promise<unknown>): Promise<unknown> {
   store.logEvent(id, 'send', `Send started — ${dest}`);
@@ -1153,7 +1144,6 @@ const routes: [RegExp, string, (ctx: Ctx, params: string[]) => Promise<unknown>]
       itemId: itemId!,
       context: b.context,
       seasonal: type === 'echoes' || type === 'echo' ? seasonalFor(doc) : undefined,
-      thingy: type === 'echoes' || type === 'echo' || type === 'pinboard_link' ? thingySentences() : undefined,
     });
     return result;
   }],
@@ -1168,7 +1158,7 @@ const routes: [RegExp, string, (ctx: Ctx, params: string[]) => Promise<unknown>]
     const node = doc.nodes.find((n) => n.id === nodeId);
     if (!node) throw new HttpError(404, `no section ${nodeId}`);
     if (node.type !== 'echoes') throw new HttpError(400, `${node.label} does not hold echoes`);
-    return editorial.draft({ doc, nodeId: nodeId!, seasonal: seasonalFor(doc), thingy: thingySentences() });
+    return editorial.draft({ doc, nodeId: nodeId!, seasonal: seasonalFor(doc) });
   }],
 
   /**

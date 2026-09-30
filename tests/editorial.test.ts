@@ -7,7 +7,7 @@ import { fileURLToPath } from 'node:url';
 import type { IssueDoc } from '../src/shared/types.ts';
 import { renderAnnotated } from '../src/shared/render/annotate.ts';
 import {
-  ECHOES_MAX_ANCHORS, draft, echoGrounding, normalizeUrl, placeAlts, thingySentences, withoutThingy,
+  ECHOES_MAX_ANCHORS, draft, echoGrounding, echoesRetrieval, normalizeUrl, passageContext, placeAlts,
   assembleReview, campaignFacts, candidateCount, echoesAnchors, issueExcerpt,
   pickSeasonalIssue, poolEchoPassages, pruneStale,
   type AnchoredPassages, type Note, type Review,
@@ -261,19 +261,38 @@ describe('pooling the retrieved passages', () => {
     expect(pooled[0]!.passages.map((p) => p.url)).toEqual(['u261']);
   });
 
-  it('ranks deep archive ahead of the last six months', () => {
+  it('ranks deep archive ahead of the last six months, and undated passages last', () => {
     const anchored: AnchoredPassages[] = [{
       label: 'A',
       passages: [
+        passage(undefined, '', 'undated'),
         passage(337, '2026-01-18', 'recent'),
         passage(196, '2021-09-18', 'deep'),
-        passage(undefined, '', 'undated'),
       ],
     }];
     const urls = poolEchoPassages(anchored, 350, '2026-05-23')[0]!.passages.map((p) => p.url);
-    expect(urls.indexOf('deep')).toBeLessThan(urls.indexOf('recent'));
-    // Undated passages cannot be aged and rank as deep archive.
-    expect(urls.indexOf('undated')).toBeLessThan(urls.indexOf('recent'));
+    // An undated passage cannot be aged; it is never an echo's first choice.
+    expect(urls).toEqual(['deep', 'recent', 'undated']);
+  });
+
+  it('drops a blog post or episode this issue and the two before it already carry', () => {
+    const blog = (date: string, url: string, also?: number[]) => ({
+      source_kind: 'blog', publish_date: date, url, text: `about ${url}`, also_in_issues: also,
+    });
+    const anchored: AnchoredPassages[] = [{
+      label: 'A',
+      passages: [
+        // This week's post: the Journal republishes it.
+        blog('2026-05-21', 'this-week'),
+        { source_kind: 'podcast', episode_number: 9, publish_date: '2026-05-10', url: 'episode', text: 'said' },
+        // Carried by last week's issue, whatever its date.
+        blog('2026-04-02', 'in-349', [349]),
+        blog('2026-03-01', 'older', [340]),
+        blog('2019-06-01', 'deep'),
+      ],
+    }];
+    const urls = poolEchoPassages(anchored, 350, '2026-05-23')[0]!.passages.map((p) => p.url);
+    expect(urls).toEqual(['deep', 'older']);
   });
 
   it('keeps a url once across anchors and caps each anchor', () => {
@@ -289,6 +308,29 @@ describe('pooling the retrieved passages', () => {
   });
 });
 
+describe('asking the Librarian for Echoes', () => {
+  it('asks the whole archive, without the site pages or the last three issues', () => {
+    expect(echoesRetrieval(352)).toEqual({
+      scope: 'all',
+      filters: { excludeSourceKinds: ['site_page', 'faq'], excludeIssues: [352, 351, 350] },
+    });
+  });
+
+  it('heads each passage with the label to cite it by', () => {
+    const context = passageContext([{ label: 'The boat', passages: [
+      { issue_number: 221, source_kind: 'weekly_thing', label: 'WT221', subject: 'WT221 — Boat Day', publish_date: '2023-05-20T12:00:00Z',
+        section: 'Journal', url: 'https://weekly.thingelstad.com/archive/221/', text: 'The boat went in.' },
+      { source_kind: 'blog', label: 'Owning the Rails', subject: 'Owning the Rails', publish_date: '2024-05-01',
+        also_in_issues: [260], url: 'https://www.thingelstad.com/2024/05/01/owning-the-rails.html', text: 'A post of his.' },
+      { source_kind: 'podcast', label: 'AT3', subject: 'On boats', episode_number: 3, publish_date: '2025-10-19',
+        url: 'https://another.thingelstad.com/2025/10/19/on-boats.html', text: 'Said aloud.' },
+    ] }]);
+    expect(context).toContain('[WT221 · WT221 — Boat Day · 2023-05-20 · Journal] https://weekly.thingelstad.com/archive/221/');
+    expect(context).toContain('[Owning the Rails · blog post · 2024-05-01 · also in WT260] https://www.thingelstad.com/2024/05/01/owning-the-rails.html');
+    expect(context).toContain('[AT3 · Another Thing episode · On boats · 2025-10-19] https://another.thingelstad.com/2025/10/19/on-boats.html');
+  });
+});
+
 describe('echo citation grounding', () => {
   // A hand-built retrieval: two issues and a blog post, as the Librarian
   // returns them (the URL shapes vary; the check must not care).
@@ -298,7 +340,8 @@ describe('echo citation grounding', () => {
       { issue_number: 180, url: 'http://www.weekly.thingelstad.com/archive/180', text: 'Lake season.' },
     ] },
     { label: 'Owning the rails', passages: [
-      { url: 'https://www.thingelstad.com/2024/05/01/owning-the-rails/', text: 'A post of his.' },
+      { source_kind: 'blog', url: 'https://www.thingelstad.com/2024/05/01/owning-the-rails/', also_in_issues: [260], text: 'A post of his.' },
+      { source_kind: 'podcast', label: 'AT3', episode_number: 3, url: 'https://another.thingelstad.com/2025/10/19/on-boats.html', text: 'Said aloud.' },
     ] },
   ];
   const seasonal = { number: 297 };
@@ -347,43 +390,27 @@ describe('echo citation grounding', () => {
     expect(flags).toContain('WT12 is not among the passages the archive returned');
   });
 
+  it('a blog post\'s issue counts as retrieved: cite the issue that carried it', () => {
+    const e = echo('He wrote it up, and [WT260](https://weekly.thingelstad.com/archive/260/) carried it.', [{ issue: 260, url: 'https://weekly.thingelstad.com/archive/260/' }]);
+    expect(echoGrounding(e, anchored, seasonal).flags).toEqual([]);
+  });
+
+  it('checks an episode by its number and its page', () => {
+    const podcast = (text: string, url: string) => ({
+      text, archive_references: [{ kind: 'podcast' as const, title: 'AT3: On boats', url }], ask: 'What about boats?',
+    });
+    const url = 'https://another.thingelstad.com/2025/10/19/on-boats.html';
+    expect(echoGrounding(podcast(`He said it on [AT3](${url}).`, url), anchored, seasonal).flags).toEqual([]);
+    const wrongPage = 'https://another.thingelstad.com/2025/10/05/how-do-you-start-a.html';
+    expect(echoGrounding(podcast(`He said it on [AT3](${wrongPage}).`, wrongPage), anchored, seasonal).flags)
+      .toContain('AT3 links to another.thingelstad.com/2025/10/05/how-do-you-start-a.html, not that episode');
+    expect(echoGrounding(podcast(`He said it on AT7 and [AT3](${url}).`, url), anchored, seasonal).flags)
+      .toEqual(['AT7 is not among the passages the archive returned']);
+  });
+
   it('without the seasonal issue, citing it is flagged', () => {
     const e = echo('A year ago, [WT297](https://weekly.thingelstad.com/archive/297/).', [{ issue: 297, url: 'https://weekly.thingelstad.com/archive/297/' }]);
     expect(echoGrounding(e, anchored, undefined).flags).toEqual(['WT297 is not among the passages the archive returned']);
-  });
-});
-
-describe('keeping Thingy\'s words out of Jamie\'s archive', () => {
-  const sentences = thingySentences([doc]);
-
-  it('collects Thingy\'s sentences from Builder issues only, normalized', () => {
-    expect(sentences).toContain("this week's return to building recalls earlier issues about owning the tools that shape your work, most directly wt349.");
-    // Jamie's words never count.
-    expect(sentences.some((s) => s.includes('the new standards'))).toBe(false);
-    const imported = structuredClone(doc);
-    imported.issue.imported = true;
-    expect(thingySentences([imported])).toEqual([]);
-  });
-
-  it('drops a passage from 350 on that carries one of them, in whatever markup the render gave it', () => {
-    const passages = [
-      { issue_number: 351, url: 'a', text: 'Thingy, the librarian. This week’s return to **building** recalls earlier issues about owning the tools that shape your work, most directly <a href="https://weekly.thingelstad.com/archive/349/">WT349</a>. And more.' },
-      { issue_number: 351, url: 'b', text: 'Jamie wrote about building his own tools this week, and why.' },
-      // Before the Builder, the words can only be Jamie's own.
-      { issue_number: 300, url: 'c', text: "This week's return to building recalls earlier issues about owning the tools that shape your work, most directly WT349." },
-      { url: 'd', text: "This week's return to building recalls earlier issues about owning the tools that shape your work, most directly WT349." },
-    ];
-    expect(withoutThingy(passages, sentences).map((p) => p.url)).toEqual(['b', 'c', 'd']);
-  });
-
-  it('keeps short sentences out of the match: a phrase is not a quotation', () => {
-    const short = structuredClone(doc);
-    short.items['echo-building']!.body = 'Owning your tools.';
-    short.items['membership-1']!.body = '';
-    short.items['echo-shortcuts']!.body = '';
-    short.items['echo-building']!.ask = '';
-    short.items['echo-shortcuts']!.ask = '';
-    expect(thingySentences([short])).toEqual([]);
   });
 });
 

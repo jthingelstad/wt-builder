@@ -335,8 +335,12 @@ export async function verifyArchive(doc: IssueDoc): Promise<VerifyOutcome> {
     : pass('In the corpus', `${files.length} files in ${config.archiveRepo} match the issue exactly`));
 
   // 2. Thingy can find it: the Librarian returns this issue's own passages.
-  const passages = await librarian.retrieve(`${doc.issue.title} ${doc.issue.dek ?? ''}`.trim(), 20);
-  const own = passages.filter((p) => p.issue_number === n);
+  // Asked for this issue exactly (4.11 issueNumber), so a crowded topic
+  // cannot push it out of the top k the way a plain semantic probe could.
+  const passages = await librarian.retrieve(`${doc.issue.title} ${doc.issue.dek ?? ''}`.trim(), 5, {
+    filters: { issueNumber: n },
+  });
+  const own = passages.filter((p) => Number(p.issue_number) === n);
   if (own.length) {
     checks.push(pass('Retrievable by Thingy', `the Librarian returns ${own.length} WT${n} passage${own.length === 1 ? '' : 's'} for the issue's own title`));
   } else {
