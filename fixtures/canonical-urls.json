@@ -22,7 +22,11 @@
     { "url": "https://example.com/story.amp.html", "key": "example.com/story.html", "canonical": "https://example.com/story.html" },
     { "url": "https://www-example-com.cdn.ampproject.org/c/s/www.example.com/story", "key": "example.com/story", "canonical": "https://example.com/story" },
     { "url": "https://www.google.com/amp/s/www.example.com/story", "key": "example.com/story", "canonical": "https://example.com/story" },
-    { "url": "https://example.com/watch?v=abc", "key": "example.com/watch?v=abc", "canonical": "https://example.com/watch?v=abc" }
+    { "url": "https://example.com/watch?v=abc", "key": "example.com/watch?v=abc", "canonical": "https://example.com/watch?v=abc" },
+    { "url": "https://amp.dev/documentation", "key": "amp.dev/documentation", "canonical": "https://amp.dev/documentation" },
+    { "url": "https://m.me/thingelstad", "key": "m.me/thingelstad", "canonical": "https://m.me/thingelstad" },
+    { "url": "https://kstp.com/news/story/?__twitter_impression=true", "key": "kstp.com/news/story", "canonical": "https://kstp.com/news/story" },
+    { "url": "https://www.nytimes.com/2020/01/01/us/x.html?smprod=nytcore-ipad", "key": "nytimes.com/2020/01/01/us/x.html", "canonical": "https://nytimes.com/2020/01/01/us/x.html" }
   ],
   "different": [
     ["https://example.com/watch?v=abc", "https://example.com/watch?v=xyz"],

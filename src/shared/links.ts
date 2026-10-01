@@ -13,7 +13,7 @@
  * are one link ("linked before", the link check's grouping). The Librarian's
  * `linkUrlKey` (librarian-thing apps/librarian/lambda/shared/
  * archive-tools.mts) must agree on every case in
- * tests/fixtures/canonical-urls.json; the same file is copied into the
+ * fixtures/canonical-urls.json; the same file is copied into the
  * Librarian's tests so the two cannot drift apart again (plan 2026-10-01 §3).
  */
 
@@ -30,13 +30,14 @@ export function linkUrl(item: Pick<Item, 'canonical_url' | 'source_url'>): strin
  * this service's list and the Librarian's (2026-10-01).
  */
 const TRACKING =
-  /^(?:utm_.*|fbclid|gclid|gclsrc|dclid|gbraid|wbraid|msclkid|yclid|twclid|igshid|mc_cid|mc_eid|mkt_tok|_hsenc|_hsmi|oly_anon_id|oly_enc_id|ref|ref_src|ref_url|s_cid|smid|si|guccounter|cmpid|vero_id|wickedid)$/i;
+  /^(?:utm_.*|fbclid|gclid|gclsrc|dclid|gbraid|wbraid|msclkid|yclid|twclid|igshid|mc_cid|mc_eid|mkt_tok|_hsenc|_hsmi|oly_anon_id|oly_enc_id|ref|ref_src|ref_url|s_cid|smid|si|guccounter|cmpid|vero_id|wickedid|__twitter_impression|smprod)$/i;
 
 /** AMP's own switches in a query string. */
 const AMP_PARAM = /^(?:amp|_amp|amp_js_v|usqp)$/i;
 
 /** Host prefixes that are the same site in another dress. */
-const HOST_PREFIX = /^(?:www\d*|m|mobile|amp)\./;
+// Only while a dotted host remains: amp.dev and m.me are sites, not prefixes.
+const HOST_PREFIX = /^(?:www\d*|m|mobile|amp)\.(?=[^.]+\.)/;
 
 export function isTrackingParam(name: string, host = ''): boolean {
   return TRACKING.test(name) || (name.toLowerCase() === 's' && /^(?:twitter|x)\.com$/.test(host));
