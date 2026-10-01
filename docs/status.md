@@ -375,6 +375,19 @@ finished, what is half-finished, and what has never run.
     again every 6 hours for 72 hours after the send while complaints
     arrive (`settling`: a warning stays a warning, not `waiting`), and a
     restart re-arms any promised recheck, not only a `waiting` one.
+  - **DMARC**, on the same check, with `POSTMARK_DMARC_TOKEN`: Postmark's
+    DMARC Digests (`src/server/integrations/dmarc.ts`, GET only) for the
+    48 hours after the send, grouped by sending source. The largest source
+    is the newsletter: under 98% passing fails the check (p=reject turns
+    failing mail away, so that is mail that never arrived); another source
+    that mostly passes but fails over 2% warns; a source that never passes
+    (forwarding, spoofing) is listed, not counted. No reports yet is fine
+    for 72 hours and a warning after. `dmarc_messages` / `dmarc_pass` join
+    the kept metrics, with the earlier issues' rates beside them. Without
+    the token there is no DMARC line and the health check says MISSING;
+    a Postmark failure is a warning, never an error on the leg. Built
+    2026-10-01 before the token was in `.env`: never yet run against
+    Postmark.
   The "Deliverability" readiness unit (`kind: 'mail'`) is done when every
   domain has been looked up and nothing listed or found is left open, and
   jumps to the item that prints the first finding. Tests:

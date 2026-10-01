@@ -111,6 +111,16 @@ Librarian API and corpus on 2026-08-28.
 - Analytics are read issue-level only: delivery counts, `complaints` and
   `unsubscriptions` for the Buttondown check. Opens and clicks are not read.
 
+## Postmark DMARC Digests
+
+- thingelstad.com's DMARC record sends aggregate reports to Postmark
+  (`rua=mailto:…@dmarc.postmarkapp.com`); the Buttondown check reads them
+  back with `POSTMARK_DMARC_TOKEN` (`X-Api-Token`).
+- GET only: `/records/my/reports` (by date, `next_url` pages) and
+  `/records/my/reports/:id`. The API can also rotate the token and delete
+  the record; WT Builder calls neither.
+- Reports count messages per sending source, never per recipient.
+
 ## Spam blocklists
 
 - DNS lookups only, never HTTP: every domain the email prints, before the

@@ -6,7 +6,7 @@
  * this machine.
  */
 
-import { afterEach, describe, expect, it } from 'vitest';
+import { afterEach, describe, expect, it, vi } from 'vitest';
 import { readFileSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
 
@@ -19,7 +19,8 @@ import {
 } from '../src/server/domain-check.ts';
 import { credentials } from '../src/server/config.ts';
 import { readiness } from '../src/server/issue.ts';
-import { complaintsCheck } from '../src/server/verify.ts';
+import { complaintsCheck, dmarcCheck } from '../src/server/verify.ts';
+import { reportsBetween, type DmarcReport } from '../src/server/integrations/dmarc.ts';
 
 const fixture = (): IssueDoc => JSON.parse(
   readFileSync(fileURLToPath(new URL('../fixtures/representative-issue.json', import.meta.url)), 'utf8'),
@@ -211,5 +212,77 @@ describe('the Complaints line', () => {
 
   it('says nothing when Buttondown does not report complaints', () => {
     expect(complaintsCheck({ deliveries: 1764 })).toBeUndefined();
+  });
+});
+
+describe('the DMARC line', () => {
+  const row = (host: string, count: number, ok: boolean, ip = '192.0.2.1') => ({
+    source_ip: ip, host_name: host, count, header_from: 'thingelstad.com',
+    policy_evaluated_dkim: ok ? 'pass' : 'fail', policy_evaluated_spf: 'fail',
+  });
+  const report = (records: DmarcReport['records']): DmarcReport => ({
+    id: 1, organization_name: 'google.com', date_range_begin: '2026-10-03T00:00:00Z', date_range_end: '2026-10-04T00:00:00Z', records,
+  });
+
+  it('passes when the newsletter\'s source passes, and lists a spoofer without counting it', () => {
+    const out = dmarcCheck([report([
+      row('o1.mail.mtasv.net', 1700, true), row('o2.mail.mtasv.net', 60, true),
+      row('out1.messagingengine.com', 12, true), row('bad.example', 5, false, '198.51.100.7'),
+    ])], [{ number: 351, metrics: { dmarc_messages: 1000, dmarc_pass: 995 } }]);
+    expect(out.check.ok).toBe(true);
+    expect(out.check.detail).toContain("the newsletter's source mtasv.net: 100.00%");
+    expect(out.check.items).toEqual(expect.arrayContaining([
+      expect.stringContaining('Never passed, turned away by p=reject (forwarding or spoofing): bad.example'),
+      'Earlier issues — WT351: 99.50%',
+    ]));
+    expect(out.metrics).toEqual({ dmarc_messages: 1777, dmarc_pass: 1772 });
+  });
+
+  it('fails when the newsletter\'s own source is failing', () => {
+    const out = dmarcCheck([report([row('mail.mtasv.net', 1500, true), row('mail.mtasv.net', 260, false)])]);
+    expect(out.check.ok).toBe(false);
+  });
+
+  it('warns when another source of ours sometimes fails', () => {
+    const out = dmarcCheck([report([row('mail.mtasv.net', 1760, true), row('out.messagingengine.com', 40, true), row('out.messagingengine.com', 10, false)])]);
+    expect(out.check.ok).toBeNull();
+    expect(out.check.detail).toContain('messagingengine.com sometimes fails');
+  });
+
+  it('no reports yet is fine while they arrive, and a warning once they should have', () => {
+    expect(dmarcCheck([], [], false).check.ok).toBe(true);
+    expect(dmarcCheck([], [], true).check.ok).toBeNull();
+  });
+});
+
+describe('the Postmark DMARC client', () => {
+  afterEach(() => {
+    vi.unstubAllGlobals();
+    credentials.postmarkDmarcToken = undefined;
+  });
+
+  it('only reads: lists by day, follows next_url, keeps reports overlapping the window, fetches their rows', async () => {
+    credentials.postmarkDmarcToken = 'tok';
+    const calls: { url: string; method: string; token: string | null }[] = [];
+    const entry = (id: number, begin: string, end: string) => ({ id, organization_name: 'google.com', date_range_begin: begin, date_range_end: end });
+    vi.stubGlobal('fetch', vi.fn(async (url: string, init: RequestInit) => {
+      calls.push({ url, method: init.method ?? 'GET', token: new Headers(init.headers).get('X-Api-Token') });
+      const body = url.includes('after=2')
+        ? { meta: {}, entries: [entry(3, '2026-10-06T00:00:00Z', '2026-10-07T00:00:00Z')] }
+        : url.includes('/reports?')
+          ? { meta: { next_url: '/records/my/reports?after=2' }, entries: [entry(1, '2026-10-03T00:00:00Z', '2026-10-04T00:00:00Z'), entry(2, '2026-10-01T00:00:00Z', '2026-10-02T00:00:00Z')] }
+          : { records: [{ source_ip: '192.0.2.1', count: 9 }] };
+      return new Response(JSON.stringify(body), { status: 200 });
+    }));
+    const from = Date.parse('2026-10-03T16:00:00Z');
+    const reports = await reportsBetween(from, from + 48 * 3_600_000);
+    expect(reports.map((r) => r.id)).toEqual([1]);
+    expect(reports[0]!.records[0]!.count).toBe(9);
+    expect(calls.every((c) => c.method === 'GET' && c.token === 'tok')).toBe(true);
+    expect(calls.map((c) => c.url)).toEqual([
+      'https://dmarc.postmarkapp.com/records/my/reports?from_date=2026-10-02&to_date=2026-10-08&limit=50',
+      'https://dmarc.postmarkapp.com/records/my/reports?after=2',
+      'https://dmarc.postmarkapp.com/records/my/reports/1',
+    ]);
   });
 });

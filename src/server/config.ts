@@ -25,7 +25,7 @@ export const OFFLINE = process.env.WT_BUILDER_OFFLINE === '1';
 if (OFFLINE) {
   for (const k of [
     'PINBOARD_API_TOKEN', 'MICROBLOG_API_KEY', 'BUTTONDOWN_API_KEY', 'LIBRARIAN_RETRIEVE_SECRET',
-    'GITHUB_PAT_TOKEN', 'OPENAI_API_KEY', 'SPAMHAUS_DQS_KEY', 'ANTHROPIC_API_KEY', 'ANTHROPIC_AUTH_TOKEN',
+    'GITHUB_PAT_TOKEN', 'OPENAI_API_KEY', 'SPAMHAUS_DQS_KEY', 'POSTMARK_DMARC_TOKEN', 'ANTHROPIC_API_KEY', 'ANTHROPIC_AUTH_TOKEN',
     'AWS_ACCESS_KEY_ID', 'AWS_SECRET_ACCESS_KEY', 'AWS_SESSION_TOKEN', 'AWS_PROFILE',
     'WT_BUILDER_PINBOARD_WRITEBACK', 'WT_BUILDER_MICROBLOG_WRITEBACK',
   ]) process.env[k] = '';
@@ -86,6 +86,8 @@ export interface Credentials {
   openaiKey?: string;
   /** Spamhaus Data Query Service: the DBL lookups in the blocklist check. */
   spamhausKey?: string;
+  /** Postmark DMARC Digests: the aggregate reports read by the Buttondown check. */
+  postmarkDmarcToken?: string;
 }
 
 export const credentials: Credentials = {
@@ -98,6 +100,8 @@ export const credentials: Credentials = {
   openaiKey: optional('OPENAI_API_KEY'),
   /** The blocklist check asks the Spamhaus DBL only with it (src/server/domain-check.ts). */
   spamhausKey: optional('SPAMHAUS_DQS_KEY'),
+  /** The Buttondown check reads DMARC reports only with it (integrations/dmarc.ts). */
+  postmarkDmarcToken: optional('POSTMARK_DMARC_TOKEN'),
 };
 
 export const config = {
@@ -193,6 +197,7 @@ export function describeConfig(): Record<string, string> {
     github: credentials.githubToken ? 'configured' : 'MISSING',
     openai: credentials.openaiKey ? 'configured' : 'MISSING',
     spamhaus: credentials.spamhausKey ? 'configured' : 'MISSING (blocklist check asks URIBL only)',
+    postmarkDmarc: credentials.postmarkDmarcToken ? 'configured' : 'MISSING (no DMARC line on the Buttondown check)',
     websiteRepo: config.websiteRepo,
     archiveRepo: config.archiveRepo,
     pinboardWriteBack: config.pinboardWriteBack ? 'enabled' : 'disabled',

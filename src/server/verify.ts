@@ -28,6 +28,9 @@ import { plausibleDuration } from './backfill.ts';
 import { archiveInputs, emailSubject } from './publish.ts';
 import { config } from './config.ts';
 import * as buttondown from './integrations/buttondown.ts';
+import * as dmarc from './integrations/dmarc.ts';
+import type { DmarcReport } from './integrations/dmarc.ts';
+import { registrableDomain } from '../shared/deliverability.ts';
 import * as githubRepo from './integrations/github.ts';
 import { CDN_HOST } from './integrations/images.ts';
 import * as librarian from './integrations/librarian.ts';
@@ -316,6 +319,75 @@ export function complaintsCheck(
   return { ...pass('Complaints', line), ...(items ? { items } : {}) };
 }
 
+/**
+ * DMARC, from the aggregate reports (integrations/dmarc.ts): did the mail
+ * that went out as thingelstad.com pass. The policy is p=reject, so a
+ * message that fails is turned away, not filed as spam — a failing source
+ * that is ours is mail that never arrived.
+ *
+ * Read over the two days after the send. The largest source in that window
+ * is the newsletter itself (1,800 messages beside a day of Jamie's own
+ * mail): under 98% passing there is a failure. Another source that mostly
+ * passes but sometimes fails is a warning. A source that never passes is
+ * forwarding or someone spoofing the domain, and p=reject already turned it
+ * away: it is listed, not counted against the issue.
+ */
+export const DMARC_WINDOW_MS = 48 * 60 * MINUTE;
+const DMARC_NEWSLETTER_FLOOR = 0.98;
+const DMARC_SOURCE_SLACK = 0.02;
+
+const passed = (r: DmarcReport['records'][number]) =>
+  r.policy_evaluated_dkim === 'pass' || r.policy_evaluated_spf === 'pass';
+
+export function dmarcCheck(
+  reports: DmarcReport[], earlier: EarlierDelivery[] = [], settled = true,
+): { check: VerifyCheck; metrics?: Record<string, number> } {
+  const rows = reports.flatMap((r) => r.records);
+  if (!rows.length) {
+    return {
+      check: settled
+        ? warn('DMARC', 'No DMARC reports cover the two days after the send. Postmark may not be receiving them — check its weekly digest.')
+        : pass('DMARC', 'No reports cover the send yet — providers send them a day or two after. Checked again on its own.'),
+    };
+  }
+  const bySource = new Map<string, { count: number; pass: number }>();
+  for (const r of rows) {
+    const host = r.host_name ? registrableDomain(r.host_name) : '';
+    const key = host || r.source_ip;
+    const s = bySource.get(key) ?? { count: 0, pass: 0 };
+    s.count += r.count;
+    if (passed(r)) s.pass += r.count;
+    bySource.set(key, s);
+  }
+  const sources = [...bySource.entries()].sort((a, b) => b[1].count - a[1].count);
+  const total = sources.reduce((n, [, s]) => n + s.count, 0);
+  const ok = sources.reduce((n, [, s]) => n + s.pass, 0);
+  const pctOf = (s: { count: number; pass: number }) => s.count ? s.pass / s.count : 1;
+  const [mainName, main] = sources[0]!;
+  const describe = ([name, s]: [string, { count: number; pass: number }]) =>
+    `${name}: ${s.count.toLocaleString()} message${s.count === 1 ? '' : 's'}, ${pct(pctOf(s))} passed`;
+  const mixed = sources.slice(1).filter(([, s]) => s.pass > 0 && 1 - pctOf(s) > DMARC_SOURCE_SLACK);
+  const never = sources.slice(1).filter(([, s]) => s.pass === 0);
+  const before = earlier
+    .filter((e) => typeof e.metrics.dmarc_messages === 'number' && e.metrics.dmarc_messages > 0)
+    .slice(0, 4)
+    .map((e) => `WT${e.number}: ${pct((e.metrics.dmarc_pass ?? 0) / e.metrics.dmarc_messages!)}`);
+  const items = [
+    ...sources.slice(0, 5).map(describe),
+    ...(never.length ? [`Never passed, turned away by p=reject (forwarding or spoofing): ${never.map(([n]) => n).slice(0, 6).join(', ')}${never.length > 6 ? ', …' : ''}`] : []),
+    ...(before.length ? [`Earlier issues — ${before.join(', ')}`] : []),
+  ];
+  const line = `${total.toLocaleString()} messages in ${reports.length} report${reports.length === 1 ? '' : 's'} · ${pct(ok / total)} passed · the newsletter's source ${mainName}: ${pct(pctOf(main))}`;
+  const metrics = { dmarc_messages: total, dmarc_pass: ok };
+  if (pctOf(main) < DMARC_NEWSLETTER_FLOOR) {
+    return { check: fail('DMARC', `${line} — mail from the newsletter's own source is failing DMARC, and p=reject turns it away. Check Buttondown's sending domain.`, items), metrics };
+  }
+  if (mixed.length) {
+    return { check: warn('DMARC', `${line} — ${mixed.map(([n]) => n).join(', ')} sometimes fails.`, items), metrics };
+  }
+  return { check: { ...pass('DMARC', line), items }, metrics };
+}
+
 export async function verifyButtondown(doc: IssueDoc, earlier: EarlierDelivery[] = []): Promise<VerifyOutcome> {
   const id = emailOf(doc.sends?.buttondown).id;
   if (!id) return { checks: [fail('Status', 'No Buttondown email is recorded for this issue.')] };
@@ -345,6 +417,20 @@ export async function verifyButtondown(doc: IssueDoc, earlier: EarlierDelivery[]
       ...(d.unsubscriptions !== undefined ? { unsubscriptions: d.unsubscriptions } : {}),
     };
     const age = email.publish_date ? Date.now() - Date.parse(email.publish_date) : Infinity;
+    // DMARC only with the Postmark token; without it there is no line, and
+    // the health check says MISSING. A Postmark failure is a warning on this
+    // check, never an error on the leg.
+    const sentAt = email.publish_date ? Date.parse(email.publish_date) : NaN;
+    if (dmarc.isConfigured() && Number.isFinite(sentAt)) {
+      try {
+        const reports = await dmarc.reportsBetween(sentAt, sentAt + DMARC_WINDOW_MS);
+        const out = dmarcCheck(reports, earlier, age >= COMPLAINTS_SETTLE_MS);
+        checks.push(out.check);
+        if (out.metrics) metrics = { ...metrics, ...out.metrics };
+      } catch (err) {
+        checks.push(warn('DMARC', `Postmark's DMARC reports could not be read: ${(err as Error).message.slice(0, 200)}`));
+      }
+    }
     if (age < DELIVERY_SETTLE_MS && d.deliveries + failed < d.recipients) recheckMs = 30 * MINUTE;
     else if (age < COMPLAINTS_SETTLE_MS) {
       recheckMs = COMPLAINTS_RECHECK_MS;
