@@ -23,6 +23,7 @@ import { config } from './config.ts';
 import * as githubRepo from './integrations/github.ts';
 import { RERENDER_NOTICE, audioFrontMatter, type AudioFields } from './publish.ts';
 import { legacyBlocks, legacyTitle } from '../shared/render/legacy-blocks.ts';
+import { centralDay } from '../shared/dates.ts';
 import type { ScriptBlock } from '../shared/render/audio.ts';
 
 const root = new URL('../../', import.meta.url);
@@ -108,7 +109,7 @@ export function prepare(name: string, page: string): Prepared {
   const episode: Episode = {
     number,
     title: legacyTitle(get('subject'), number),
-    date: get('publish_date').slice(0, 10),
+    date: centralDay(get('publish_date')) ?? '',
     coverSource: /^https?:\/\//.test(image) ? image : null,
   };
   const slug = /^\/archive\/([^/]+)\/?$/.exec(get('permalink'))?.[1];

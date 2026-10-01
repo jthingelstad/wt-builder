@@ -393,6 +393,14 @@ describe('asking the Librarian for Echoes', () => {
     expect(context).toContain('[Owning the Rails · blog post · 2024-05-01 · also in WT260] https://www.thingelstad.com/2024/05/01/owning-the-rails.html');
     expect(context).toContain('[AT3 · Another Thing episode · On boats · 2025-10-19] https://another.thingelstad.com/2025/10/19/on-boats.html');
   });
+
+  it('dates a passage by its Central day, never the UTC slice', () => {
+    // WT35 went out Saturday evening, January 6, 2018 — already the 7th in UTC.
+    const context = passageContext([{ label: 'Lava lamps', passages: [
+      { issue_number: 35, label: 'WT35', publish_date: '2018-01-07T01:28:21Z', url: 'https://weekly.thingelstad.com/archive/35/', text: 'Encryption lava lamps.' },
+    ] }]);
+    expect(context).toContain('[WT35 · 2018-01-06]');
+  });
 });
 
 describe('echo citation grounding', () => {

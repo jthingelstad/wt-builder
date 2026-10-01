@@ -27,12 +27,13 @@ import { existsSync, mkdirSync, readFileSync, writeFileSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
 
 import { ARCHIVE_DIR, hasCurrentAudio, legacyIssues, publishPages, renderIssue, type BackfillOutcome } from '../src/server/backfill.ts';
+import { todayCentral } from '../src/shared/dates.ts';
 
 const root = new URL('..', import.meta.url);
 const path = (p: string) => fileURLToPath(new URL(p, root));
 const COUNT = Math.max(1, Number(process.env.WT_BACKFILL_COUNT) || 10);
 const FEED = 'https://weekly.thingelstad.com/podcast.xml';
-const today = new Date().toISOString().slice(0, 10);
+const today = todayCentral(); // the run's day in Central, as every date here is
 const reportsDir = path('tmp/backfill/reports/');
 mkdirSync(reportsDir, { recursive: true });
 const stateFile = path('data/backfill-state.json');

@@ -17,6 +17,7 @@ import { renderAnnotated } from '../shared/render/annotate.ts';
 import { bodyLines, isIncluded, outOfWindow, windowOf } from '../shared/render/plan.ts';
 import { imageTags, splitBody } from '../shared/body.ts';
 import { anchorText } from '../shared/anchor.ts';
+import { centralDay } from '../shared/dates.ts';
 import { config } from './config.ts';
 import * as librarian from './integrations/librarian.ts';
 import * as pinboard from './integrations/pinboard.ts';
@@ -1087,7 +1088,7 @@ export function passageContext(anchored: AnchoredPassages[]): string {
           cite,
           PASSAGE_KINDS[p.source_kind ?? ''],
           p.subject && p.subject !== cite ? p.subject : null,
-          p.publish_date?.slice(0, 10),
+          centralDay(p.publish_date),
           p.section,
           also ? `also in ${also}` : null,
         ].filter(Boolean).join(' · ');

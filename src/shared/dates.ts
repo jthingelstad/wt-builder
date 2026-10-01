@@ -133,6 +133,15 @@ export function boundaryDate(isoDate: string): string {
   return `${DAY[weekdayIndex(c)]!.slice(0, 3)}, ${MON[c.mo - 1]} ${c.d}`;
 }
 
+/**
+ * The Central day (YYYY-MM-DD) of an ISO timestamp — never the UTC slice: a
+ * Saturday-evening send is already Sunday in UTC (WT35, WT251, WT299). A bare
+ * date is read as written. Null for anything unparseable.
+ */
+export function centralDay(iso: string | undefined | null): string | null {
+  return wallClock(iso)?.key ?? null;
+}
+
 /** Today's date in Central time — a Saturday evening in Minnesota is not yet Sunday. */
 export function todayCentral(now = Date.now()): string {
   return centralClock(now).key;

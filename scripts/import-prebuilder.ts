@@ -18,6 +18,7 @@ import { join } from 'node:path';
 
 import type { IssueDoc } from '../src/shared/types.ts';
 import { SCHEMA_VERSION, allChannels } from '../src/shared/types.ts';
+import { centralDay } from '../src/shared/dates.ts';
 import * as store from '../src/server/db.ts';
 
 const root = process.argv[2] ?? join(import.meta.dirname, '../../librarian-thing/data/issues');
@@ -64,7 +65,7 @@ function importIssue(dir: string, number: number): 'imported' | 'skipped' | 'inc
       title: titleOf(meta.subject ?? `WT${number}`, number),
       dek: meta.description ?? '',
       status: 'published',
-      publication_date: (meta.publish_date ?? '').slice(0, 10) || '1970-01-01',
+      publication_date: centralDay(meta.publish_date) ?? '1970-01-01',
       window_days: 7,
       imported: true,
       archive_url: `https://weekly.thingelstad.com/archive/${number}/`,
