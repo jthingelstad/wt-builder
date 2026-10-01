@@ -120,6 +120,12 @@ Librarian API and corpus on 2026-08-28.
   `/records/my/reports/:id`. The API can also rotate the token and delete
   the record; WT Builder calls neither.
 - Reports count messages per sending source, never per recipient.
+- Each row has `host_name` (trailing dot), `source_ip`, `count`, raw
+  `spf_result`/`spf_domain` and `dkim_result`/`dkim_domain`, and the
+  aligned `policy_evaluated_spf`/`_dkim`/`_disposition`. Buttondown's mail
+  arrives as `*.mtasv.net` with SPF domain `pm-bounces.thingelstad.com`;
+  Jamie's own as `*.messagingengine.com` with `thingelstad.com`. Some
+  providers send a blank row with `count: 0`.
 
 ## Spam blocklists
 

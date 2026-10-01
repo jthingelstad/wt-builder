@@ -26,6 +26,8 @@ export interface DmarcRecord {
   policy_evaluated_disposition?: string;
   dkim_domain?: string;
   spf_domain?: string;
+  /** The raw SPF verdict, before alignment: "pass" means the server is one the domain's SPF names. */
+  spf_result?: string;
 }
 
 export interface DmarcReport {

@@ -216,8 +216,10 @@ describe('the Complaints line', () => {
 });
 
 describe('the DMARC line', () => {
-  const row = (host: string, count: number, ok: boolean, ip = '192.0.2.1') => ({
+  // A server our SPF names passes raw SPF for thingelstad.com; a relay does not.
+  const row = (host: string, count: number, ok: boolean, ip = '192.0.2.1', ours = ok) => ({
     source_ip: ip, host_name: host, count, header_from: 'thingelstad.com',
+    spf_domain: 'pm-bounces.thingelstad.com', spf_result: ours ? 'pass' : 'fail',
     policy_evaluated_dkim: ok ? 'pass' : 'fail', policy_evaluated_spf: 'fail',
   });
   const report = (records: DmarcReport['records']): DmarcReport => ({
@@ -232,7 +234,7 @@ describe('the DMARC line', () => {
     expect(out.check.ok).toBe(true);
     expect(out.check.detail).toContain("the newsletter's source mtasv.net: 100.00%");
     expect(out.check.items).toEqual(expect.arrayContaining([
-      expect.stringContaining('Never passed, turned away by p=reject (forwarding or spoofing): bad.example'),
+      expect.stringContaining('Not ours, not counted (forwarding, a recipient\'s mail filter, or spoofing): bad.example (0 of 5 passed)'),
       'Earlier issues — WT351: 99.50%',
     ]));
     expect(out.metrics).toEqual({ dmarc_messages: 1777, dmarc_pass: 1772 });
@@ -244,9 +246,27 @@ describe('the DMARC line', () => {
   });
 
   it('warns when another source of ours sometimes fails', () => {
-    const out = dmarcCheck([report([row('mail.mtasv.net', 1760, true), row('out.messagingengine.com', 40, true), row('out.messagingengine.com', 10, false)])]);
+    const out = dmarcCheck([report([
+      row('mail.mtasv.net', 1760, true), row('out.messagingengine.com', 40, true), row('out.messagingengine.com', 10, false, '192.0.2.1', true),
+    ])]);
     expect(out.check.ok).toBeNull();
     expect(out.check.detail).toContain('messagingengine.com sometimes fails');
+  });
+
+  it('a recipient\'s mail filter re-sending the issue is listed, not warned about (WT351\'s cloud-sec-av.com)', () => {
+    const out = dmarcCheck([report([
+      row('mail.mtasv.net', 1509, true),
+      row('us.cloud-sec-av.com.', 6, false, '35.174.145.124', false),
+      row('ca.cloud-sec-av.com.', 1, true, '15.222.110.90', false),
+      // wp.pl sends a blank row of no messages.
+      { source_ip: '', count: 0, policy_evaluated_dkim: '', policy_evaluated_spf: '' },
+    ])]);
+    expect(out.check.ok).toBe(true);
+    expect(out.check.items).toEqual([
+      'mtasv.net: 1,509 messages, 100.00% passed',
+      'Not ours, not counted (forwarding, a recipient\'s mail filter, or spoofing): cloud-sec-av.com (1 of 7 passed)',
+    ]);
+    expect(out.metrics).toEqual({ dmarc_messages: 1516, dmarc_pass: 1510 });
   });
 
   it('no reports yet is fine while they arrive, and a warning once they should have', () => {

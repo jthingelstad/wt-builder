@@ -346,6 +346,8 @@ finished, what is half-finished, and what has never run.
     not name it; a domain no list could be asked about is **unchecked**,
     never clean. Without the key the DBL is skipped and the card says
     "URIBL only". SURBL is not asked: its servers do not answer us at all.
+    First live run 2026-10-01 with the key: both lists passed their test
+    domains, and WT352's 30 domains came back clean in about half a second.
     `POST /api/issues/:id/links/check` looks the domains up beside the
     links and stores `domain_check`. The **Buttondown** leg looks every
     domain up again before it goes (lists change by the hour; saved only
@@ -378,16 +380,22 @@ finished, what is half-finished, and what has never run.
   - **DMARC**, on the same check, with `POSTMARK_DMARC_TOKEN`: Postmark's
     DMARC Digests (`src/server/integrations/dmarc.ts`, GET only) for the
     48 hours after the send, grouped by sending source. The largest source
-    is the newsletter: under 98% passing fails the check (p=reject turns
-    failing mail away, so that is mail that never arrived); another source
-    that mostly passes but fails over 2% warns; a source that never passes
-    (forwarding, spoofing) is listed, not counted. No reports yet is fine
+    is the newsletter (Postmark, `mtasv.net`: Buttondown sends through it):
+    under 98% passing fails the check (p=reject turns failing mail away, so
+    that is mail that never arrived). Another source is ours when raw SPF
+    passed it for the From domain (Fastmail, `messagingengine.com`); one of
+    ours failing over 2% warns. Every other source — forwarders, a
+    recipient's mail filter re-sending the issue, spoofers — is listed with
+    its failures and never counted. No reports yet is fine
     for 72 hours and a warning after. `dmarc_messages` / `dmarc_pass` join
     the kept metrics, with the earlier issues' rates beside them. Without
     the token there is no DMARC line and the health check says MISSING;
-    a Postmark failure is a warning, never an error on the leg. Built
-    2026-10-01 before the token was in `.env`: never yet run against
-    Postmark.
+    a Postmark failure is a warning, never an error on the leg. First live
+    read 2026-10-01 over WT351's window: 36 reports, 1,612 messages, 99.63%
+    passing, Postmark 1,509 of 1,509. That read set the "ours" rule: a
+    Check Point gateway (`cloud-sec-av.com`) re-sending to one recipient
+    failed six of seven and would otherwise have warned every week; and
+    wp.pl sends a blank row of no messages, now skipped.
   The "Deliverability" readiness unit (`kind: 'mail'`) is done when every
   domain has been looked up and nothing listed or found is left open, and
   jumps to the item that prints the first finding. Tests:

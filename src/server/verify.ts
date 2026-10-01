@@ -327,10 +327,13 @@ export function complaintsCheck(
  *
  * Read over the two days after the send. The largest source in that window
  * is the newsletter itself (1,800 messages beside a day of Jamie's own
- * mail): under 98% passing there is a failure. Another source that mostly
- * passes but sometimes fails is a warning. A source that never passes is
- * forwarding or someone spoofing the domain, and p=reject already turned it
- * away: it is listed, not counted against the issue.
+ * mail): under 98% passing there is a failure. Another source counts as ours
+ * when SPF passed it for the From domain, which only a server thingelstad.com
+ * authorises can do (Fastmail, Postmark); one of those failing more than 2%
+ * is a warning. Every other source is forwarding, a recipient's mail filter
+ * re-sending the issue (WT351: a Check Point gateway, cloud-sec-av.com, that
+ * broke the signature on six of seven), or spoofing: listed, never counted
+ * against the issue, since nothing on this side can fix it.
  */
 export const DMARC_WINDOW_MS = 48 * 60 * MINUTE;
 const DMARC_NEWSLETTER_FLOOR = 0.98;
@@ -339,10 +342,25 @@ const DMARC_SOURCE_SLACK = 0.02;
 const passed = (r: DmarcReport['records'][number]) =>
   r.policy_evaluated_dkim === 'pass' || r.policy_evaluated_spf === 'pass';
 
+/** SPF passed for the From domain (or its bounce subdomain): a server thingelstad.com's SPF names. */
+const sentForUs = (r: DmarcReport['records'][number]) =>
+  r.spf_result === 'pass' && !!r.spf_domain && !!r.header_from
+  && registrableDomain(r.spf_domain) === registrableDomain(r.header_from);
+
+/** The sources that are not ours: the ones that failed by name, the rest by count. */
+function notOurs(others: [string, { count: number; pass: number }][]): string {
+  const failing = others.filter(([, s]) => s.pass < s.count);
+  const named = failing.slice(0, 6).map(([n, s]) => `${n} (${s.pass} of ${s.count} passed)`);
+  const rest = others.length - named.length;
+  const tail = rest ? `${rest} ${failing.length ? 'more ' : ''}source${rest === 1 ? '' : 's'}${failing.length > named.length ? '' : ', all passing'}` : '';
+  return `Not ours, not counted (forwarding, a recipient's mail filter, or spoofing): ${[...named, tail].filter(Boolean).join(', ')}`;
+}
+
 export function dmarcCheck(
   reports: DmarcReport[], earlier: EarlierDelivery[] = [], settled = true,
 ): { check: VerifyCheck; metrics?: Record<string, number> } {
-  const rows = reports.flatMap((r) => r.records);
+  // Some reports carry a blank row of no messages (wp.pl, WT351).
+  const rows = reports.flatMap((r) => r.records).filter((r) => r.count > 0);
   if (!rows.length) {
     return {
       check: settled
@@ -350,31 +368,33 @@ export function dmarcCheck(
         : pass('DMARC', 'No reports cover the send yet — providers send them a day or two after. Checked again on its own.'),
     };
   }
-  const bySource = new Map<string, { count: number; pass: number }>();
+  type Source = { count: number; pass: number; ours: boolean };
+  const bySource = new Map<string, Source>();
   for (const r of rows) {
     const host = r.host_name ? registrableDomain(r.host_name) : '';
-    const key = host || r.source_ip;
-    const s = bySource.get(key) ?? { count: 0, pass: 0 };
+    const key = host || r.source_ip || 'unknown source';
+    const s = bySource.get(key) ?? { count: 0, pass: 0, ours: false };
     s.count += r.count;
     if (passed(r)) s.pass += r.count;
+    if (sentForUs(r)) s.ours = true;
     bySource.set(key, s);
   }
   const sources = [...bySource.entries()].sort((a, b) => b[1].count - a[1].count);
   const total = sources.reduce((n, [, s]) => n + s.count, 0);
   const ok = sources.reduce((n, [, s]) => n + s.pass, 0);
-  const pctOf = (s: { count: number; pass: number }) => s.count ? s.pass / s.count : 1;
+  const pctOf = (s: Source) => s.count ? s.pass / s.count : 1;
   const [mainName, main] = sources[0]!;
-  const describe = ([name, s]: [string, { count: number; pass: number }]) =>
+  const describe = ([name, s]: [string, Source]) =>
     `${name}: ${s.count.toLocaleString()} message${s.count === 1 ? '' : 's'}, ${pct(pctOf(s))} passed`;
-  const mixed = sources.slice(1).filter(([, s]) => s.pass > 0 && 1 - pctOf(s) > DMARC_SOURCE_SLACK);
-  const never = sources.slice(1).filter(([, s]) => s.pass === 0);
+  const mixed = sources.slice(1).filter(([, s]) => s.ours && 1 - pctOf(s) > DMARC_SOURCE_SLACK);
+  const others = sources.slice(1).filter(([, s]) => !s.ours);
   const before = earlier
     .filter((e) => typeof e.metrics.dmarc_messages === 'number' && e.metrics.dmarc_messages > 0)
     .slice(0, 4)
     .map((e) => `WT${e.number}: ${pct((e.metrics.dmarc_pass ?? 0) / e.metrics.dmarc_messages!)}`);
   const items = [
-    ...sources.slice(0, 5).map(describe),
-    ...(never.length ? [`Never passed, turned away by p=reject (forwarding or spoofing): ${never.map(([n]) => n).slice(0, 6).join(', ')}${never.length > 6 ? ', …' : ''}`] : []),
+    ...[sources[0]!, ...sources.slice(1).filter(([, s]) => s.ours)].slice(0, 5).map(describe),
+    ...(others.length ? [notOurs(others)] : []),
     ...(before.length ? [`Earlier issues — ${before.join(', ')}`] : []),
   ];
   const line = `${total.toLocaleString()} messages in ${reports.length} report${reports.length === 1 ? '' : 's'} · ${pct(ok / total)} passed · the newsletter's source ${mainName}: ${pct(pctOf(main))}`;
