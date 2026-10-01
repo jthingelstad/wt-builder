@@ -35,7 +35,7 @@ interface Props {
 type Hue = 'link' | 'journal' | 'thingy' | 'photo' | 'words';
 function hueOf(doc: IssueDoc | undefined, anchor: string, kind: string): Hue {
   if (kind === 'thingy') return 'thingy';
-  if (kind === 'links') return 'link';
+  if (kind === 'links' || kind === 'mail') return 'link';
   const item = doc?.items[anchor] as Item | undefined;
   const type = item?.type ?? doc?.nodes.find((n) => n.id === anchor)?.type;
   if (item?.authorship === 'Thingy' || type === 'echo' || type === 'echoes' || type === 'membership') return 'thingy';
@@ -151,7 +151,7 @@ export function Strip({ number, readiness, onJump, doc }: Props) {
       <div class="ticks" ref={ticks}>
         {units.map((unit, i) => {
           const hue = hueOf(doc, unit.anchor, unit.kind);
-          const said = unit.done ? (unit.kind === 'links' ? unit.context ?? '' : glimpse(doc, unit.anchor)) : '';
+          const said = unit.done ? (unit.kind === 'links' || unit.kind === 'mail' ? unit.context ?? '' : glimpse(doc, unit.anchor)) : '';
           return (
             <span class="tick-wrap" key={`${unit.anchor}-${i}`} style={wave ? { '--wave-delay': `${i * 28}ms` } : undefined}>
               <button

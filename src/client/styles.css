@@ -637,6 +637,9 @@ a:hover { text-decoration: underline; }
   margin-bottom: 16px;
   line-height: 1.5;
 }
+.send-mail-body { display: flex; flex-direction: column; gap: 6px; flex: 1; min-width: 0; }
+.send-mail-list { margin: 0; padding-left: 16px; display: flex; flex-direction: column; gap: 4px; overflow-wrap: anywhere; }
+.send-mail-list .btn { margin-left: 8px; vertical-align: baseline; }
 
 .send-card {
   background: var(--page);

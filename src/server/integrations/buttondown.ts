@@ -95,17 +95,26 @@ export async function getEmail(id: string): Promise<{ subject: string; status: s
 
 /**
  * Delivery for one sent email, as Buttondown counts it. Only the issue-level
- * delivery counts are read: opens and clicks exist on the same endpoint and
- * are deliberately not (the tracking policy is per-issue, never per-reader,
- * and verification is about whether it went, not who read it).
+ * counts are read: opens and clicks exist on the same endpoint and are
+ * deliberately not (the tracking policy is per-issue, never per-reader, and
+ * verification is about whether it went, not who read it). Complaints —
+ * readers who pressed "Report spam", as the mailbox providers' feedback
+ * loops tell Buttondown — and unsubscriptions are the deliverability
+ * signals (2026-10-01). Absent when Buttondown does not report them, never 0.
  */
-export async function getDelivery(id: string): Promise<{ recipients: number; deliveries: number; temporary_failures: number; permanent_failures: number }> {
+export async function getDelivery(id: string): Promise<{
+  recipients: number; deliveries: number; temporary_failures: number; permanent_failures: number;
+  complaints?: number; unsubscriptions?: number;
+}> {
   const a = (await call(`/emails/${encodeURIComponent(id)}/analytics`, { method: 'GET' })) as Record<string, number>;
+  const count = (k: string) => (typeof a[k] === 'number' ? { [k]: a[k] } : {});
   return {
     recipients: a.recipients ?? 0,
     deliveries: a.deliveries ?? 0,
     temporary_failures: a.temporary_failures ?? 0,
     permanent_failures: a.permanent_failures ?? 0,
+    ...count('complaints'),
+    ...count('unsubscriptions'),
   };
 }
 

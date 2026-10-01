@@ -108,6 +108,21 @@ Librarian API and corpus on 2026-08-28.
   unless the send says `?force=1`, the card's **Update anyway…**. The update
   sends subject and body only, never a status.
 - Buttondown-specific Liquid and components belong only in the email renderer.
+- Analytics are read issue-level only: delivery counts, `complaints` and
+  `unsubscriptions` for the Buttondown check. Opens and clicks are not read.
+
+## Spam blocklists
+
+- DNS lookups only, never HTTP: every domain the email prints, before the
+  email leg and with the link check (`src/server/domain-check.ts`).
+- Spamhaus DBL through the free Data Query Service:
+  `<name>.<SPAMHAUS_DQS_KEY>.dbl.dq.spamhaus.net`. Free for non-commercial
+  use at low volume; sign up at
+  https://portal.spamhaus.com/auth/account-setup?ps=free_dqs_product.
+- URIBL at its authoritative nameservers (`multi.uribl.com`'s NS), since
+  public resolvers are refused. No account.
+- Each list proves itself on its own test domain (`dbltest.com`,
+  `test.uribl.com`) before a run trusts it.
 
 ## Images
 

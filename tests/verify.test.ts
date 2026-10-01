@@ -229,6 +229,31 @@ describe('a Buttondown failure recorded before last_sent still names its draft t
   });
 });
 
+describe('the Buttondown check reads complaints once the email has gone', () => {
+  const sent = (): IssueDoc => {
+    const d = structuredClone(doc);
+    d.sends = { buttondown: { status: 'sent', at: '2026-10-03T16:00:00Z', external_id: 'em-sent' } };
+    return d;
+  };
+
+  it('adds the Complaints line, keeps the counts, and looks again while they settle', async () => {
+    const d = sent();
+    const gone = new Date(Date.now() - 8 * 60 * 60_000).toISOString();
+    vi.mocked(buttondown.getEmail).mockResolvedValue({ subject: emailSubject(d), status: 'sent', body: renderEmail(d).trim(), publish_date: gone });
+    vi.mocked(buttondown.getDelivery).mockResolvedValueOnce({
+      recipients: 1779, deliveries: 1764, temporary_failures: 11, permanent_failures: 1, complaints: 3, unsubscriptions: 5,
+    });
+    const out = await verifyButtondown(d, [{ number: d.issue.number - 1, metrics: { complaints: 0, unsubscriptions: 2 } }]);
+    const line = out.checks.find((c) => c.label === 'Complaints')!;
+    expect(line.ok).toBeNull();
+    expect(line.detail).toContain('3 spam complaints (0.17%) · 5 unsubscribed');
+    expect(line.items?.[0]).toContain(`WT${d.issue.number - 1}: 0 / 2`);
+    expect(out.metrics).toEqual({ recipients: 1779, deliveries: 1764, complaints: 3, unsubscriptions: 5 });
+    expect(out.settling).toBe(true);
+    expect(out.recheckMs).toBe(6 * 60 * 60_000);
+  });
+});
+
 describe('the archive check asks the Librarian for this issue exactly', () => {
   const sent = (): IssueDoc => {
     const d = structuredClone(doc);

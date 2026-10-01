@@ -43,6 +43,19 @@ export interface VerifyOutcome {
   recheckMs?: number;
   /** What the destination said the thing is (Buttondown's email status). */
   remote_status?: string;
+  /** Counts kept on the issue for the next one to compare with (Buttondown's delivery). */
+  metrics?: Record<string, number>;
+  /**
+   * The recheck only refreshes counts on a leg that has landed (complaints
+   * arriving over days): a warning stays a warning, not `waiting`.
+   */
+  settling?: boolean;
+}
+
+/** An earlier issue's Buttondown counts, as its own check recorded them. */
+export interface EarlierDelivery {
+  number: number;
+  metrics: Record<string, number>;
 }
 
 const MINUTE = 60_000;
@@ -267,12 +280,50 @@ export async function verifyWebsite(doc: IssueDoc, opts: { wait?: boolean } = {}
 /** How long after a send the delivery count is still worth refreshing. */
 const DELIVERY_SETTLE_MS = 6 * 60 * MINUTE;
 
-export async function verifyButtondown(doc: IssueDoc): Promise<VerifyOutcome> {
+/**
+ * Gmail's published line for bulk senders: keep spam complaints under 0.1%
+ * of delivered mail and never reach 0.3%. Buttondown's count is only the
+ * providers that report complaints back (not Gmail itself), so this is a
+ * floor, and worth heeding the moment it crosses.
+ */
+export const COMPLAINT_WARN = 0.001;
+export const COMPLAINT_FAIL = 0.003;
+/** Complaints and unsubscriptions keep arriving for days; look again until then. */
+const COMPLAINTS_SETTLE_MS = 72 * 60 * MINUTE;
+const COMPLAINTS_RECHECK_MS = 6 * 60 * MINUTE;
+
+const pct = (n: number) => `${(n * 100).toFixed(2)}%`;
+
+/** The Complaints line: this issue's spam complaints and unsubscriptions, beside the issues before it. */
+export function complaintsCheck(
+  d: { deliveries: number; complaints?: number; unsubscriptions?: number }, earlier: EarlierDelivery[] = [],
+): VerifyCheck | undefined {
+  if (d.complaints === undefined) return undefined;
+  const rate = d.deliveries > 0 ? d.complaints / d.deliveries : 0;
+  const unsub = d.unsubscriptions === undefined ? '' : ` · ${d.unsubscriptions.toLocaleString()} unsubscribed`;
+  const line = `${d.complaints.toLocaleString()} spam complaint${d.complaints === 1 ? '' : 's'} (${pct(rate)})${unsub}`;
+  const before = earlier
+    .filter((e) => typeof e.metrics.complaints === 'number')
+    .slice(0, 4)
+    .map((e) => `WT${e.number}: ${e.metrics.complaints}${typeof e.metrics.unsubscriptions === 'number' ? ` / ${e.metrics.unsubscriptions}` : ''}`);
+  const items = before.length ? [`Earlier issues (complaints / unsubscribed) — ${before.join(', ')}`] : undefined;
+  if (rate >= COMPLAINT_FAIL) {
+    return { ...fail('Complaints', `${line} — over Gmail's 0.3% line. Look at what this issue linked or said; complaints at this rate move mail to spam.`), ...(items ? { items } : {}) };
+  }
+  if (rate >= COMPLAINT_WARN) {
+    return { ...warn('Complaints', `${line} — over Gmail's 0.1% guideline.`), ...(items ? { items } : {}) };
+  }
+  return { ...pass('Complaints', line), ...(items ? { items } : {}) };
+}
+
+export async function verifyButtondown(doc: IssueDoc, earlier: EarlierDelivery[] = []): Promise<VerifyOutcome> {
   const id = emailOf(doc.sends?.buttondown).id;
   if (!id) return { checks: [fail('Status', 'No Buttondown email is recorded for this issue.')] };
   const email = await buttondown.getEmail(id);
   const checks: VerifyCheck[] = [];
   let recheckMs: number | undefined;
+  let metrics: Record<string, number> | undefined;
+  let settling = false;
 
   // The leg ends at a draft; Jamie schedules or sends it in Buttondown. Until
   // it has gone, this waits and looks again — at the scheduled minute when
@@ -286,8 +337,19 @@ export async function verifyButtondown(doc: IssueDoc): Promise<VerifyOutcome> {
     checks.push(d.recipients === 0
       ? warn('Delivery', 'Buttondown has not counted any recipients yet.')
       : badly ? fail('Delivery', `${line} — more than 2% bounced for good.`) : pass('Delivery', line));
+    const complaints = complaintsCheck(d, earlier);
+    if (complaints) checks.push(complaints);
+    metrics = {
+      recipients: d.recipients, deliveries: d.deliveries,
+      ...(d.complaints !== undefined ? { complaints: d.complaints } : {}),
+      ...(d.unsubscriptions !== undefined ? { unsubscriptions: d.unsubscriptions } : {}),
+    };
     const age = email.publish_date ? Date.now() - Date.parse(email.publish_date) : Infinity;
     if (age < DELIVERY_SETTLE_MS && d.deliveries + failed < d.recipients) recheckMs = 30 * MINUTE;
+    else if (age < COMPLAINTS_SETTLE_MS) {
+      recheckMs = COMPLAINTS_RECHECK_MS;
+      settling = true;
+    }
   } else if (email.status === 'scheduled' || email.status === 'about_to_send' || email.status === 'in_flight') {
     const when = email.publish_date ? Date.parse(email.publish_date) : NaN;
     checks.push(warn('Status', email.status === 'scheduled' && email.publish_date
@@ -311,7 +373,7 @@ export async function verifyButtondown(doc: IssueDoc): Promise<VerifyOutcome> {
     : warn('Body', email.status === 'sent'
       ? 'The sent email differs from the email edition as it renders now — the issue changed after it went.'
       : 'The draft differs from the email edition as it renders now — edited in Buttondown, or the issue changed since; "Update draft" re-sends it.'));
-  return { checks, recheckMs, remote_status: email.status || undefined };
+  return { checks, recheckMs, remote_status: email.status || undefined, ...(metrics ? { metrics } : {}), ...(settling ? { settling } : {}) };
 }
 
 // ── archive ───────────────────────────────────────────────────────────────
@@ -354,10 +416,12 @@ export async function verifyArchive(doc: IssueDoc): Promise<VerifyOutcome> {
   return { checks, recheckMs };
 }
 
-export function verifierFor(dest: Destination): ((doc: IssueDoc, wait?: boolean) => Promise<VerifyOutcome>) | null {
+export function verifierFor(
+  dest: Destination, earlier: () => EarlierDelivery[] = () => [],
+): ((doc: IssueDoc, wait?: boolean) => Promise<VerifyOutcome>) | null {
   if (dest === 'podcast') return async (doc) => ({ checks: await verifyPodcast(doc) });
   if (dest === 'website') return (doc, wait) => verifyWebsite(doc, { wait });
-  if (dest === 'buttondown') return verifyButtondown;
+  if (dest === 'buttondown') return (doc) => verifyButtondown(doc, earlier().filter((e) => e.number < doc.issue.number));
   if (dest === 'archive') return verifyArchive;
   return null;
 }

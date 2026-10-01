@@ -19,6 +19,7 @@ import type { Destination, IssueDoc, ScriptReview, SendState, SentRecord, Verifi
 import { isOut, lastSent, recordedAudioUrl } from '../../shared/sends.ts';
 import { audioScript } from '../../shared/render/audio.ts';
 import { findingsSummary, linkFindings } from '../../shared/link-findings.ts';
+import { deliverabilityFindings, deliverabilitySummary } from '../../shared/deliverability.ts';
 import { duration, type IssueTiming } from '../../shared/timing.ts';
 import { ApiError, api, type PodcastAudio, type Readiness, type SendResult } from '../api.ts';
 import {
@@ -298,6 +299,22 @@ export function Send({ doc, readiness, error, onBack, onSent, onError }: Props) 
     }
   };
   const emailLocked = remoteStatus && remoteStatus !== 'draft' ? remoteStatus : undefined;
+  // Will the email reach the inbox (2026-10-01): a listed domain asks before
+  // the email goes, as a dead link does; the rest are warnings with "Keep".
+  const mail = deliverabilityFindings(doc);
+  const listedDomains = mail.unaccepted;
+  const [keeping, setKeeping] = useState<string | null>(null);
+  const keepFinding = async (key: string) => {
+    setKeeping(key);
+    onError(null);
+    try {
+      onSent((await api.keepFinding(id, key)).issue);
+    } catch (err) {
+      onError(`deliverability: ${(err as Error).message}`);
+    } finally {
+      setKeeping(null);
+    }
+  };
 
   /**
    * A card's override, while its gate holds: the podcast's approval, the
@@ -313,13 +330,26 @@ export function Send({ doc, readiness, error, onBack, onSent, onError }: Props) 
     // server checked them on the first click and refused with dead_links;
     // the re-read put them here, so this click asks. Sending anyway keeps
     // them, and later sends do not ask about them again.
+    const n = doc.issue.number;
+    // A domain on a spam blocklist stops the email alone (listed_domains):
+    // one ?force=1 passes every gate, so whichever card asks names it too.
+    const listed = key === 'buttondown' && listedDomains.length
+      ? `${listedDomains.length} domain${listedDomains.length === 1 ? '' : 's'} on a spam blocklist: ${listedDomains.slice(0, 3).map((d) => `${d.domain} (${(d.result?.lists ?? []).join('; ')})`).join(', ')}${listedDomains.length > 3 ? ', …' : ''}. Filters may send the whole issue to spam.`
+      : '';
     if ((key === 'website' || key === 'buttondown') && deadLinks.length) {
-      const n = doc.issue.number;
       const list = `${deadLinks.length} dead link${deadLinks.length === 1 ? '' : 's'}: ${deadLinks.slice(0, 3).map((l) => l.url).join(', ')}${deadLinks.length > 3 ? ', …' : ''}.`;
-      if (gate) return { label: gate.label, warning: `${gate.warning}\n\nWT${n} also has ${list} They are kept as they are.` };
+      const also = listed ? `\n\nThe email also links ${listed}` : '';
+      if (gate) return { label: gate.label, warning: `${gate.warning}\n\nWT${n} also has ${list} They are kept as they are.${also}` };
       return {
         label: key === 'website' ? (stateOf('website') === 'sent' ? 'Re-commit with dead links…' : 'Commit with dead links…') : 'Send with dead links…',
-        warning: `WT${n} has ${list} Send anyway? They are kept as they are, and later sends will not ask about them again.`,
+        warning: `WT${n} has ${list} Send anyway? They are kept as they are, and later sends will not ask about them again.${also}`,
+      };
+    }
+    if (listed) {
+      if (gate) return { label: gate.label, warning: `${gate.warning}\n\nWT${n}'s email also links ${listed}` };
+      return {
+        label: 'Send with a blocklisted domain…',
+        warning: `WT${n}'s email links ${listed} Send anyway? Later sends will not ask about ${listedDomains.length === 1 ? 'it' : 'them'} again while ${listedDomains.length === 1 ? 'it stays' : 'they stay'} listed.`,
       };
     }
     return gate;
@@ -485,6 +515,43 @@ export function Send({ doc, readiness, error, onBack, onSent, onError }: Props) 
             <button class="btn" disabled={checkingLinks} onClick={() => void checkLinks()}>
               {checkingLinks ? 'Checking…' : doc.link_check ? 'Check again' : 'Check links'}
             </button>
+          </div>
+        )}
+
+        {mail.domains.length > 0 && (
+          <div class="send-warn send-mail">
+            <CircleAlert />
+            <div class="send-mail-body">
+              <span>
+                {!doc.domain_check && !mail.open.length
+                  ? `Deliverability: ${mail.domains.length} domains, not looked up yet. The email checks them against the spam blocklists before it goes.`
+                  : deliverabilitySummary(mail)
+                    ? `Deliverability: ${deliverabilitySummary(mail)}.${listedDomains.length ? ' The email asks before sending with a blocklisted domain.' : ''}`
+                    : `Deliverability: ${mail.domains.length} domains on no blocklist${doc.domain_check ? ` (${[...new Set(mail.domains.flatMap((d) => d.result?.asked ?? []))].join(', ') || 'no list answered'})` : ''}, and nothing in the email a filter holds against it.`}
+              </span>
+              {(listedDomains.length > 0 || mail.open.length > 0 || mail.unchecked.length > 0) && (
+                <ul class="send-mail-list">
+                  {listedDomains.map((d) => (
+                    <li key={`listed:${d.domain}`}>
+                      <strong>{d.domain}</strong> — {(d.result?.lists ?? []).join('; ')}. Linked as {d.urls.slice(0, 2).join(', ')}{d.urls.length > 2 ? ', …' : ''}.
+                    </li>
+                  ))}
+                  {mail.open.map((f) => (
+                    <li key={f.key}>
+                      {f.message}
+                      <button class="btn small" disabled={keeping === f.key} onClick={() => void keepFinding(f.key)}>
+                        {keeping === f.key ? 'Keeping…' : 'Keep'}
+                      </button>
+                    </li>
+                  ))}
+                  {mail.unchecked.length > 0 && (
+                    <li key="unchecked">
+                      No blocklist answered for {mail.unchecked.map((d) => d.domain).slice(0, 4).join(', ')}{mail.unchecked.length > 4 ? ', …' : ''}: {mail.unchecked[0]?.result?.note}
+                    </li>
+                  )}
+                </ul>
+              )}
+            </div>
           </div>
         )}
 

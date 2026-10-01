@@ -35,6 +35,8 @@ import * as geocode from './integrations/geocode.ts';
 import * as editorial from './editorial.ts';
 import { linkedBefore } from './linked-before.ts';
 import { acceptLinks, applyLinkCheck, checkLinks } from './link-check.ts';
+import { acceptDomains, applyDomainCheck, checkDomains, domainCheckChanged, keepFinding } from './domain-check.ts';
+import { deliverabilityFindings, deliverabilitySummary, emailDomains } from '../shared/deliverability.ts';
 import { findingsSummary, issueLinks, linkFindings } from '../shared/link-findings.ts';
 import { linkUrl } from '../shared/links.ts';
 import * as githubRepo from './integrations/github.ts';
@@ -43,7 +45,7 @@ import { audioScript } from '../shared/render/audio.ts';
 import { heldOut, outOfWindow, windowOf } from '../shared/render/plan.ts';
 import { archiveInputs, emailSubject, issueEntry, siteInputs } from './publish.ts';
 import * as draftShare from './share.ts';
-import { verifierFor } from './verify.ts';
+import { type EarlierDelivery, verifierFor } from './verify.ts';
 import { issueTiming, type IssueTiming } from '../shared/timing.ts';
 import { execFile } from 'node:child_process';
 import { promisify } from 'node:util';
@@ -457,7 +459,7 @@ const VERIFY_STALE_MS = 25 * 60_000;
  * shows `running` and picks the result up when it lands.
  */
 async function runVerify(id: string, dest: Destination, wait = false, resumed = false): Promise<void> {
-  const verify = verifierFor(dest);
+  const verify = verifierFor(dest, earlierDelivery);
   const doc = store.getIssue(id)?.doc;
   if (!verify || !doc) return;
   const current = doc.verify?.[dest];
@@ -473,11 +475,14 @@ async function runVerify(id: string, dest: Destination, wait = false, resumed = 
   });
   let result: Verification;
   try {
-    const { checks, recheckMs, remote_status } = await verify(doc, wait);
+    const { checks, recheckMs, remote_status, metrics, settling } = await verify(doc, wait);
     const status = checks.some((c) => c.ok === false) ? 'problems'
-      : checks.some((c) => c.ok === null) ? (recheckMs ? 'waiting' : 'warnings')
+      : checks.some((c) => c.ok === null) ? (recheckMs && !settling ? 'waiting' : 'warnings')
       : 'passed';
-    result = { status, at: new Date().toISOString(), checks, ...(remote_status ? { remote_status } : {}) };
+    result = {
+      status, at: new Date().toISOString(), checks,
+      ...(remote_status ? { remote_status } : {}), ...(metrics ? { metrics } : {}),
+    };
     if (recheckMs) {
       result.recheck_at = new Date(Date.now() + recheckMs).toISOString();
       scheduleRecheck(id, dest, recheckMs);
@@ -516,12 +521,24 @@ function resumeRechecks(): void {
   for (const row of store.listIssues()) {
     for (const [dest, v] of Object.entries(row.doc.verify ?? {})) {
       if (!v) continue;
-      if (v.status === 'running' || (v.recheck_at && v.status === 'waiting')) {
+      // Any promised recheck, not only `waiting`'s: a landed email's
+      // complaint counts are refreshed for three days whatever it said.
+      if (v.status === 'running' || (v.recheck_at && v.status !== 'error')) {
         const due = v.recheck_at ? Date.parse(v.recheck_at) - Date.now() : 0;
         scheduleRecheck(row.id, dest as Destination, Math.max(due, 60_000), true);
       }
     }
   }
+}
+
+/**
+ * Every earlier issue's Buttondown counts, newest first, for the Complaints
+ * line's comparison. Only issues whose check recorded them (WT352 onward).
+ */
+function earlierDelivery(): EarlierDelivery[] {
+  return store.listIssues()
+    .map((row) => ({ number: row.number, metrics: row.doc.verify?.buttondown?.metrics }))
+    .filter((e): e is EarlierDelivery => Boolean(e.metrics));
 }
 
 /** After a leg goes out, check it landed — without holding up the response. */
@@ -978,10 +995,31 @@ const routes: [RegExp, string, (ctx: Ctx, params: string[]) => Promise<unknown>]
    * their results are applied to a fresh read.
    */
   [/^\/api\/issues\/([^/]+)\/links\/check$/, 'POST', async (_ctx, [id]) => {
-    const urls = issueLinks(requireIssue(id!)).map((l) => l.url);
-    const results = await checkLinks(urls);
-    const response = savedFresh(id!, (d) => applyLinkCheck(awake(d, 'the links were checked'), results, new Date().toISOString()));
+    const doc = requireIssue(id!);
+    const urls = issueLinks(doc).map((l) => l.url);
+    // The blocklist lookups ride along (src/server/domain-check.ts): the
+    // card's one "Check" button covers both, and DNS is quick beside HTTP.
+    const [results, domains] = await Promise.all([checkLinks(urls), checkDomains(emailDomains(doc))]);
+    const at = new Date().toISOString();
+    const response = savedFresh(id!, (d) =>
+      applyDomainCheck(applyLinkCheck(awake(d, 'the links were checked'), results, at), domains, at));
     store.logEvent(id!, 'links', `Links checked — ${urls.length}: ${findingsSummary(linkFindings(response.issue)) || 'all answered'}`);
+    store.logEvent(id!, 'links', `Deliverability — ${Object.keys(domains).length} domains: ${deliverabilitySummary(deliverabilityFindings(response.issue)) || 'nothing found'}`);
+    return response;
+  }],
+
+  /**
+   * One deliverability finding in the email kept as it is (`keep: true`),
+   * or asked about again (`keep: false`). Keys come from
+   * src/shared/deliverability.ts; nothing in the issue changes.
+   */
+  [/^\/api\/issues\/([^/]+)\/deliverability\/keep$/, 'POST', async ({ body }, [id]) => {
+    const b = await body();
+    const key = String(b.key ?? '');
+    if (!key) throw new HttpError(400, 'key is required');
+    const keep = b.keep !== false;
+    const response = savedFresh(id!, (d) => keepFinding(d, key, keep));
+    store.logEvent(id!, 'links', `${keep ? 'Kept as it is' : 'Asking again'} — ${key}`);
     return response;
   }],
 
@@ -1401,6 +1439,7 @@ const routes: [RegExp, string, (ctx: Ctx, params: string[]) => Promise<unknown>]
       throw new HttpError(400, `unknown destination ${destination}`);
     }
     await linksGate(id!, 'buttondown', force);
+    await domainsGate(id!, force);
     const before = requireIssue(id!);
     guardInFlight(before, 'buttondown');
     // The draft this leg made last, read through any failed or cut-off
@@ -1563,6 +1602,31 @@ async function linksGate(id: string, destination: Destination, force: boolean): 
  * Commit the generated 11ty inputs to the render surface as one commit. The
  * site builds and deploys from there; nothing here touches the live site.
  */
+/**
+ * The pre-send blocklist check (2026-10-01): every domain the email prints
+ * is looked up again now — lists change by the hour, and the last check may
+ * be days old — and a listed domain Jamie has not sent before stops the
+ * email leg with `listed_domains`. `?force=1` sends and records them as
+ * accepted. A domain no list answered for never stops it: it is said on
+ * the card, not counted. The email only — a blocklist is a mail filter's.
+ */
+async function domainsGate(id: string, force: boolean): Promise<void> {
+  const results = await checkDomains(emailDomains(requireIssue(id)));
+  if (domainCheckChanged(requireIssue(id), results)) {
+    savedFresh(id, (d) => applyDomainCheck(d, results, new Date().toISOString()));
+  }
+  const listed = deliverabilityFindings(requireIssue(id)).unaccepted;
+  if (!listed.length) return;
+  const names = listed.map((d) => `${d.domain} (${(d.result?.lists ?? []).join('; ')})`);
+  if (!force) {
+    const message = `${listed.length} domain${listed.length === 1 ? '' : 's'} in the email ${listed.length === 1 ? 'is' : 'are'} on a spam blocklist: ${names.slice(0, 3).join(', ')}${names.length > 3 ? ', …' : ''}. Filters may send the whole issue to spam. Remove the link, or send anyway.`;
+    store.logEvent(id, 'send', `Send refused — buttondown: ${message}`);
+    throw new Refusal(409, message, 'listed_domains');
+  }
+  savedFresh(id, (d) => acceptDomains(d, listed.map((x) => x.domain)));
+  store.logEvent(id, 'send', `Override — buttondown: sent with ${names.join(', ')} on a blocklist`);
+}
+
 async function sendWebsite(id: string, force = false) {
   await linksGate(id, 'website', force);
   const doc = requireIssue(id);

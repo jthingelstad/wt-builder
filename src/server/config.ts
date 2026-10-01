@@ -25,7 +25,7 @@ export const OFFLINE = process.env.WT_BUILDER_OFFLINE === '1';
 if (OFFLINE) {
   for (const k of [
     'PINBOARD_API_TOKEN', 'MICROBLOG_API_KEY', 'BUTTONDOWN_API_KEY', 'LIBRARIAN_RETRIEVE_SECRET',
-    'GITHUB_PAT_TOKEN', 'OPENAI_API_KEY', 'ANTHROPIC_API_KEY', 'ANTHROPIC_AUTH_TOKEN',
+    'GITHUB_PAT_TOKEN', 'OPENAI_API_KEY', 'SPAMHAUS_DQS_KEY', 'ANTHROPIC_API_KEY', 'ANTHROPIC_AUTH_TOKEN',
     'AWS_ACCESS_KEY_ID', 'AWS_SECRET_ACCESS_KEY', 'AWS_SESSION_TOKEN', 'AWS_PROFILE',
     'WT_BUILDER_PINBOARD_WRITEBACK', 'WT_BUILDER_MICROBLOG_WRITEBACK',
   ]) process.env[k] = '';
@@ -84,6 +84,8 @@ export interface Credentials {
   githubToken?: string;
   /** Text-to-speech for the audio edition. */
   openaiKey?: string;
+  /** Spamhaus Data Query Service: the DBL lookups in the blocklist check. */
+  spamhausKey?: string;
 }
 
 export const credentials: Credentials = {
@@ -94,6 +96,8 @@ export const credentials: Credentials = {
   librarianSecret: optional('LIBRARIAN_RETRIEVE_SECRET'),
   githubToken: optional('GITHUB_PAT_TOKEN'),
   openaiKey: optional('OPENAI_API_KEY'),
+  /** The blocklist check asks the Spamhaus DBL only with it (src/server/domain-check.ts). */
+  spamhausKey: optional('SPAMHAUS_DQS_KEY'),
 };
 
 export const config = {
@@ -188,6 +192,7 @@ export function describeConfig(): Record<string, string> {
     aws: process.env.AWS_ACCESS_KEY_ID ? 'configured' : 'MISSING',
     github: credentials.githubToken ? 'configured' : 'MISSING',
     openai: credentials.openaiKey ? 'configured' : 'MISSING',
+    spamhaus: credentials.spamhausKey ? 'configured' : 'MISSING (blocklist check asks URIBL only)',
     websiteRepo: config.websiteRepo,
     archiveRepo: config.archiveRepo,
     pinboardWriteBack: config.pinboardWriteBack ? 'enabled' : 'disabled',

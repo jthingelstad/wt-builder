@@ -23,6 +23,7 @@ import { type Window, addDays, instantOf, issueWindow, issueSaturday } from '../
 import { bodyLines, orderedNodes, outOfWindow, windowOf } from '../shared/render/plan.ts';
 import { imagesWithoutAlt } from '../shared/body.ts';
 import { findingsSummary, linkFindings } from '../shared/link-findings.ts';
+import { anchorFor, deliverabilityFindings, deliverabilitySummary } from '../shared/deliverability.ts';
 import * as pinboard from './integrations/pinboard.ts';
 import * as microblog from './integrations/microblog.ts';
 import { keepMine as rebaseOnRemote, reconcileItem, takeTheirs as adoptRemote, type RemoteFields } from './reconcile.ts';
@@ -1123,7 +1124,7 @@ export function setIssueNumber(doc: IssueDoc, number: number): IssueDoc {
 // ── readiness ─────────────────────────────────────────────────────────────
 
 /** What kind of outstanding thing this is — the popover colours by it. */
-export type ReadinessKind = 'required' | 'commentary' | 'sync' | 'thingy' | 'links';
+export type ReadinessKind = 'required' | 'commentary' | 'sync' | 'thingy' | 'links' | 'mail';
 
 export type ReadinessState = 'done' | 'partial' | 'todo';
 
@@ -1365,6 +1366,29 @@ export function readiness(doc: IssueDoc): Readiness {
         : said
           ? `${said}. The inspector has each one: use the suggested link, or keep it as it is.`
           : `All ${links.links.length} links answered.`,
+    );
+  }
+
+  // One unit for whether the email will reach the inbox (2026-10-01): warn,
+  // don't block. Done when every domain the email prints has been looked up,
+  // none is on a blocklist Jamie has not sent anyway, and nothing in the
+  // email itself is left that he has not kept. A domain no list answered
+  // for is said, not counted. Only an issue with an email edition has one.
+  const mail = deliverabilityFindings(doc);
+  if (mail.domains.length) {
+    const said = deliverabilitySummary(mail);
+    const looked = Boolean(doc.domain_check);
+    const blocking = mail.unaccepted.length + mail.open.length;
+    const listedUrl = mail.unaccepted[0]?.urls[0];
+    const first = listedUrl ? anchorFor(doc, listedUrl) : mail.open[0]?.anchor ?? 'issue';
+    add(
+      !blocking && !mail.pending.length ? 'done' : looked || mail.open.length ? 'partial' : 'todo',
+      'Deliverability', first, 'mail',
+      !looked && !said
+        ? `${mail.domains.length} domains, not looked up yet. They are checked against the spam blocklists before the email goes, or now from the Send card.`
+        : said
+          ? `${said}. The Send card has each one.`
+          : `${mail.domains.length} domains on no blocklist, and nothing in the email a filter holds against it.`,
     );
   }
 

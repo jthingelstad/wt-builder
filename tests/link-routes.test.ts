@@ -18,6 +18,7 @@ const store = await import('../src/server/db.ts');
 const config = await import('../src/server/config.ts');
 const pinboard = await import('../src/server/integrations/pinboard.ts');
 const { usePages } = await import('../src/server/link-check.ts');
+const { useDns } = await import('../src/server/domain-check.ts');
 
 let base = '';
 const realFetch = globalThis.fetch;
@@ -32,6 +33,7 @@ beforeAll(async () => {
 
 afterAll(async () => {
   usePages(null);
+  useDns(null);
   await new Promise<void>((resolve, reject) => server.close((err) => (err ? reject(err) : resolve())));
   rmSync(work, { recursive: true, force: true });
 });
@@ -153,6 +155,63 @@ describe('the dead-link gate on the website and email legs', () => {
     const again = await post(`/api/issues/${id}/send/website?force=1`);
     expect(again.body.code).not.toBe('dead_links');
     expect(fetched).toEqual([]); // nothing new to check
+  });
+});
+
+describe('the blocklist gate on the email leg', () => {
+  // example.org (the commentary's link) is on URIBL's red list here.
+  const listing = {
+    async a(name: string) {
+      return ({
+        'ns.uribl.test': ['192.0.2.53'],
+        'test.uribl.com.multi.uribl.com': ['127.0.0.14'],
+        'example.org.multi.uribl.com': ['127.0.0.8'],
+      } as Record<string, string[]>)[name] ?? [];
+    },
+    async ns() { return ['ns.uribl.test']; },
+  };
+  beforeEach(() => useDns(listing));
+  afterEach(() => useDns(null));
+
+  it('POST /links/check looks the domains up beside the links', async () => {
+    const id = await draft(990120);
+    const { body } = await post(`/api/issues/${id}/links/check`);
+    expect(body.issue.domain_check.results['example.org']).toMatchObject({ verdict: 'listed', lists: ['URIBL: red list'] });
+    const unit = body.readiness.units.find((u: { title: string }) => u.title === 'Deliverability');
+    expect(unit).toMatchObject({ state: 'partial', kind: 'mail', anchor: 'link-one' });
+  });
+
+  it('refuses the email with listed_domains, and leaves the leg alone', async () => {
+    const id = await draft(990121);
+    const res = await post(`/api/issues/${id}/send/buttondown`);
+    expect(res.status).toBe(409);
+    expect(res.body.code).toBe('listed_domains');
+    expect(res.body.error).toContain('example.org (URIBL: red list)');
+    expect(store.getIssue(id)!.doc.sends?.buttondown).toBeUndefined();
+  });
+
+  it('never stops the website: a blocklist is a mail filter\'s', async () => {
+    const id = await draft(990122);
+    const res = await post(`/api/issues/${id}/send/website`);
+    expect(res.body.code).not.toBe('listed_domains');
+  });
+
+  it('?force=1 sends past it and records the domain, so the next send does not ask', async () => {
+    const id = await draft(990123);
+    await post(`/api/issues/${id}/send/buttondown?force=1`);
+    expect(store.getIssue(id)!.doc.domain_check!.accepted).toEqual(['example.org']);
+    const again = await post(`/api/issues/${id}/send/buttondown`);
+    expect(again.body.code).not.toBe('listed_domains');
+  });
+
+  it('POST /deliverability/keep keeps a finding and puts it back', async () => {
+    const id = await draft(990124, SHORT, 'http://example.org/plain');
+    const key = 'http:http://example.org/plain';
+    const kept = await post(`/api/issues/${id}/deliverability/keep`, { key });
+    expect(kept.body.issue.deliverability.kept).toEqual([key]);
+    const back = await post(`/api/issues/${id}/deliverability/keep`, { key, keep: false });
+    expect(back.body.issue.deliverability.kept).toEqual([]);
+    expect((await post(`/api/issues/${id}/deliverability/keep`, {})).status).toBe(400);
   });
 });
 

@@ -33,7 +33,7 @@ export function writeBackMessage(
   return /your edit is kept/i.test(said) ? `${source}: ${said}` : `${source}: ${said}. Your edit is kept.`;
 }
 
-export type ReadinessKind = 'required' | 'commentary' | 'sync' | 'thingy' | 'links';
+export type ReadinessKind = 'required' | 'commentary' | 'sync' | 'thingy' | 'links' | 'mail';
 
 export type ReadinessState = 'done' | 'partial' | 'todo';
 
@@ -300,8 +300,15 @@ export const api = {
       IssueResponse & { result?: { sync_state: string; error?: string } }
     >,
 
-  /** Fetch every link the issue prints and store what answered (plan 2026-10-01 §3). */
+  /**
+   * Fetch every link the issue prints and store what answered (plan
+   * 2026-10-01 §3), and look up every domain the email prints on the spam
+   * blocklists beside it.
+   */
   checkLinks: (id: string) => post(`/issues/${id}/links/check`),
+
+  /** A deliverability finding in the email kept as it is; `keep: false` asks again. */
+  keepFinding: (id: string, key: string, keep = true) => post(`/issues/${id}/deliverability/keep`, { key, keep }),
 
   /**
    * One link finding: `use` prints the check's suggestion for the item's own

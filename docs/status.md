@@ -331,6 +331,55 @@ finished, what is half-finished, and what has never run.
   `src/shared/links.ts`, its cases in `fixtures/canonical-urls.json`.
   Tests: `tests/links.test.ts`, `tests/link-check.test.ts`,
   `tests/link-routes.test.ts`, `tests/e2e/links.e2e.ts`.
+- **Deliverability** (2026-10-01) — will the email reach the inbox.
+  Three parts, each warn-don't-block except the one that has sunk an
+  issue before:
+  - **Blocklists.** Every domain the email prints (links, images, the
+    membership button, the open pixel; grouped by registered name) is
+    looked up by DNS (`src/server/domain-check.ts`): the **Spamhaus DBL**
+    through the Data Query Service with `SPAMHAUS_DQS_KEY` (by host and by
+    domain), and **URIBL** asked at its own nameservers (black and red are
+    listings; grey is bulk mail and is not). otto resolves through
+    Cloudflare, which every list refuses — Spamhaus answers
+    127.255.255.254, URIBL 127.0.0.1, SURBL nothing — so each run first
+    asks for the list's own test domain and leaves out any list that does
+    not name it; a domain no list could be asked about is **unchecked**,
+    never clean. Without the key the DBL is skipped and the card says
+    "URIBL only". SURBL is not asked: its servers do not answer us at all.
+    `POST /api/issues/:id/links/check` looks the domains up beside the
+    links and stores `domain_check`. The **Buttondown** leg looks every
+    domain up again before it goes (lists change by the hour; saved only
+    when an answer changed, so a click adds no revision) and refuses with
+    `409 listed_domains` while a listed domain is not accepted; the card's
+    action becomes **Send with a blocklisted domain…**, and `?force=1`
+    records it in `domain_check.accepted` for as long as it stays listed.
+    The website leg is never stopped by it.
+  - **The email itself** (`src/shared/deliverability.ts`, pure): a
+    mostly-capitals subject, repeated "!"/"?", a "Re:"/"Fwd:" subject,
+    plain-http links, links to a bare address or with "@" before the
+    host, links straight to a download, link text naming another site
+    than the link goes to, and a body over 80 KB of HTML (Gmail clips at
+    102 KB with Buttondown's template, hiding the unsubscribe link).
+    Warnings only; **Keep** on the Send card
+    (`POST /api/issues/:id/deliverability/keep` `{key, keep}`) stores the
+    key in `deliverability.kept`. Spam trigger words are deliberately not
+    checked: "free" is in every issue, and the prototype flagged every one.
+  - **Complaints**, on the Buttondown check once the email has gone:
+    Buttondown's issue-level `complaints` and `unsubscriptions` (never per
+    reader), passing under 0.1% of delivered, a warning from 0.1%, a
+    failure from 0.3% (Gmail's bulk-sender lines; Buttondown's count is
+    only the providers that report complaints back, so it is a floor),
+    with the four earlier issues' counts beside it. The counts are kept as
+    `verify.buttondown.metrics` for the next issue to compare with (WT352
+    onward; WT351 read 0 complaints, 10 unsubscribed). The check looks
+    again every 6 hours for 72 hours after the send while complaints
+    arrive (`settling`: a warning stays a warning, not `waiting`), and a
+    restart re-arms any promised recheck, not only a `waiting` one.
+  The "Deliverability" readiness unit (`kind: 'mail'`) is done when every
+  domain has been looked up and nothing listed or found is left open, and
+  jumps to the item that prints the first finding. Tests:
+  `tests/deliverability.test.ts`, `tests/link-routes.test.ts`,
+  `tests/verify.test.ts`.
 - **Front matter quotes every string** (2026-09-28) — the site page, the
   archive text, and the audio record write each string scalar as a JSON
   string (`yamlString` in `src/server/publish.ts`), which is always valid

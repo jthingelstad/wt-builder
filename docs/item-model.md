@@ -24,6 +24,8 @@ status                 draft | published
 title
 dek
 link_check             { at, results: { url → LinkResult }, accepted } — the last link check, and the findings Jamie kept
+domain_check           { at, results: { domain → DomainResult }, accepted } — the email's domains against the spam blocklists, and listed ones sent anyway
+deliverability         { kept } — deliverability findings in the email Jamie keeps as they are
 ```
 
 The content window runs **Friday 00:00 CT to Friday 00:00 CT** — a half-open

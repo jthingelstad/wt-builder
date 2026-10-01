@@ -314,6 +314,12 @@ export interface Verification {
    * edited (Jamie, 2026-09-29).
    */
   remote_status?: string;
+  /**
+   * Counts the destination reported, kept so the next issue can compare:
+   * Buttondown's recipients, complaints and unsubscriptions. Issue-level
+   * counts only, never per reader.
+   */
+  metrics?: Record<string, number>;
 }
 
 export interface IssueMeta {
@@ -374,6 +380,35 @@ export interface LinkCheck {
   accepted?: string[];
 }
 
+/**
+ * One domain the email prints, as the spam blocklists answered for it
+ * (src/server/domain-check.ts). listed: a list named it. clean: every list
+ * that answered said nothing. unchecked: no list could be asked — the
+ * list's own test domain did not answer as it should, or the lookup failed —
+ * never read as clean.
+ */
+export interface DomainResult {
+  verdict: 'clean' | 'listed' | 'unchecked';
+  /** What each list said, for a listed domain: "Spamhaus DBL: phishing". */
+  lists?: string[];
+  /** The lists that answered, so a clean verdict says who it is from. */
+  asked?: string[];
+  note?: string;
+  checked_at: string;
+}
+
+export interface DomainCheck {
+  at: string;
+  results: Record<string, DomainResult>;
+  /** Listed domains Jamie sent anyway (`?force=1`); the email does not ask again. */
+  accepted?: string[];
+}
+
+/** The email's own deliverability findings Jamie has kept as they are, by key. */
+export interface DeliverabilityKept {
+  kept: string[];
+}
+
 export interface IssueDoc {
   schema_version: number;
   issue: IssueMeta;
@@ -406,6 +441,10 @@ export interface IssueDoc {
   verify?: Partial<Record<Destination, Verification>>;
   /** The issue's links as last fetched, by exact URL (src/server/link-check.ts). */
   link_check?: LinkCheck;
+  /** Every domain the email prints, against the spam blocklists (src/server/domain-check.ts). */
+  domain_check?: DomainCheck;
+  /** Deliverability findings in the email itself that Jamie keeps (src/shared/deliverability.ts). */
+  deliverability?: DeliverabilityKept;
   /**
    * The live draft-preview share, when one exists: a static page at an
    * unguessable CDN URL, loudly labeled DRAFT. Re-sharing refreshes the same
