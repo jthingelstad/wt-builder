@@ -278,8 +278,9 @@ finished, what is half-finished, and what has never run.
 - **Every send gate can be overridden** (2026-09-29) — Jamie: "There should
   be nothing that I cannot override. I'm the only user." Every gate on a
   leg takes `?force=1`: the podcast's script approval (`sendPodcast`,
-  `scriptUnapproved`), the website's audio reference (`sendWebsite`), and
-  a Buttondown email that is not a draft. While a gate holds, the card's
+  `scriptUnapproved`), the website's audio reference (`sendWebsite`),
+  a Buttondown email that is not a draft, and a dead link on the website or
+  email (2026-10-01, *Link check* below). While a gate holds, the card's
   one action is its override — named for what it skips, ending in `…`,
   plain `btn` rather than `btn primary` — and it asks with a `confirm`
   saying what going past means: **Send without approval…** (not read,
@@ -299,6 +300,37 @@ finished, what is half-finished, and what has never run.
   override: "Send the rest" still stops at an unapproved podcast, and both
   runs leave a non-draft email out and say so in their confirm. Without
   `force`, every gate refuses exactly as before.
+- **Link check** (2026-10-01, librarian-thing's QA follow-up
+  plan of 2026-10-01, §3) — every link the issue prints
+  (each Pinboard link's rendered URL, every link in commentary or a body;
+  not images, not Thingy's items) is fetched by
+  `POST /api/issues/:id/links/check` and stored on the issue as
+  `link_check` (`src/server/link-check.ts`). 404, 410, no such host and a
+  redirect to the site's front page are **dead**; a shortener, a redirect,
+  the page's own `rel=canonical`, or tracking on the link are **moved**,
+  with a suggestion; 401/403/429/5xx and timeouts are **unchecked**, never
+  dead. The "Links checked" readiness unit counts what is open and jumps to
+  it. The inspector offers, per finding, **Use the suggested link**
+  (`POST /api/issues/:id/items/:itemId/link` `{action: "use"}` — sets
+  `canonical_url`, which the website, email and audio print; `source_url`
+  is untouched), **Keep as it is** (`{action: "keep", url}`), **Back to the
+  bookmark's link** (`{action: "original"}`), and **Move bookmark…**
+  (`POST /api/issues/:id/items/:itemId/move-bookmark`, click-only, with a
+  confirm): Pinboard `posts/add` at the new URL with every field of the old
+  record (title, extended, tags, date, toread, shared; `replace=no`, and
+  refused if a bookmark is already there), then `posts/delete` of the old,
+  and the item's `source_url`/`source_id` follow. A delete that fails is
+  reported, not retried. The **website** and **Buttondown** legs check any
+  link not yet checked before they go and refuse with
+  `409 dead_links` while a dead link is not kept: the Send card's action
+  becomes **Commit with dead links…** / **Send with dead links…**, and
+  `?force=1` records the dead links as kept ("Override — website: … sent
+  with N dead links"), so the next send does not ask. Moved links never
+  gate. Offline (`WT_BUILDER_OFFLINE=1`) nothing is fetched. The URL
+  canonicalization shared with the Librarian's link index is
+  `src/shared/links.ts`, its cases in `fixtures/canonical-urls.json`.
+  Tests: `tests/links.test.ts`, `tests/link-check.test.ts`,
+  `tests/link-routes.test.ts`, `tests/e2e/links.e2e.ts`.
 - **Front matter quotes every string** (2026-09-28) — the site page, the
   archive text, and the audio record write each string scalar as a JSON
   string (`yamlString` in `src/server/publish.ts`), which is always valid

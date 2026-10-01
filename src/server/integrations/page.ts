@@ -105,12 +105,22 @@ async function assertPublic(url: URL): Promise<void> {
  * checking every hop. Throws on a refused hop or too many redirects.
  */
 export async function fetchPublic(url: string, init: RequestInit = {}): Promise<Response> {
+  return (await fetchPublicFollow(url, init)).response;
+}
+
+/**
+ * fetchPublic, and the URL the last hop answered from: where a shortener or
+ * a redirect actually went (the link check, src/server/link-check.ts).
+ */
+export async function fetchPublicFollow(
+  url: string, init: RequestInit = {},
+): Promise<{ response: Response; url: string }> {
   let current = new URL(url);
   for (let hop = 0; hop <= PAGE_HOPS; hop++) {
     await assertPublic(current);
     const res = await fetch(current, { ...init, redirect: 'manual' });
     const location = res.status >= 300 && res.status < 400 ? res.headers.get('location') : null;
-    if (!location) return res;
+    if (!location) return { response: res, url: current.toString() };
     await res.body?.cancel().catch(() => {});
     current = new URL(location, current);
   }

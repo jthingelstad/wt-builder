@@ -308,3 +308,70 @@ export async function writeBack(item: Item): Promise<WriteBackResult> {
     return { sync_state: 'failed', error: (err as Error).message };
   }
 }
+
+export interface MoveResult {
+  /** The bookmark's id at its new URL: the item's next `source_id`. */
+  hash?: string;
+  /** False when the old bookmark could not be deleted: two now exist. */
+  removed: boolean;
+}
+
+const pause = (ms: number) => new Promise((resolve) => setTimeout(resolve, ms));
+
+/**
+ * Move a bookmark to another URL: Pinboard has no rename, so add the new
+ * one, read it back, then delete the old. Only ever on Jamie's click ("Move
+ * bookmark", plan 2026-10-01 §3), after the link check suggested the URL and
+ * he applied it to the issue.
+ *
+ * The new bookmark is the old one in every field Pinboard holds:
+ * description, extended (the commentary), tags, the private and to-read
+ * flags, and the capture time, so it stays inside the issue window. It is
+ * copied from the bookmark as it stands now, not from the issue. Nothing is
+ * deleted unless the add is read back, and nothing is added over a bookmark
+ * that already exists at the new URL. Pinboard asks for three seconds
+ * between calls; `pace` is that.
+ */
+/** Pinboard's three seconds between calls. Tests set it to nothing. */
+export const PACE = { ms: 3_000 };
+
+export async function moveBookmark(from: string, to: string, pace = PACE.ms): Promise<MoveResult> {
+  if (!config.pinboardWriteBack) {
+    throw new Error('write-back disabled (WT_BUILDER_PINBOARD_WRITEBACK) — nothing was moved');
+  }
+  const got = (await call('/posts/get', { url: from })) as { posts?: PinboardPost[] };
+  const old = got.posts?.[0];
+  if (!old) throw new Error('the bookmark is not on Pinboard at its old URL — nothing was moved');
+  await pause(pace);
+  const there = (await call('/posts/get', { url: to })) as { posts?: PinboardPost[] };
+  if (there.posts?.length) {
+    throw new Error('Pinboard already has a bookmark at the new URL — nothing was moved');
+  }
+  await pause(pace);
+  const added = (await call('/posts/add', {
+    url: to,
+    description: old.description,
+    extended: old.extended ?? '',
+    tags: old.tags ?? '',
+    dt: old.time,
+    toread: old.toread ?? 'yes',
+    shared: old.shared ?? 'no',
+    replace: 'no',
+  })) as { result_code?: string };
+  if (added.result_code !== 'done') {
+    throw new Error(`Pinboard did not add the bookmark (${added.result_code ?? 'no answer'}) — nothing was moved`);
+  }
+  await pause(pace);
+  const back = (await call('/posts/get', { url: to })) as { posts?: PinboardPost[] };
+  const moved = back.posts?.[0];
+  if (!moved) {
+    throw new Error('Pinboard said it added the bookmark but has none at the new URL — the old one was kept');
+  }
+  await pause(pace);
+  try {
+    const removed = (await call('/posts/delete', { url: from })) as { result_code?: string };
+    return { hash: moved.hash, removed: removed.result_code === 'done' };
+  } catch {
+    return { hash: moved.hash, removed: false };
+  }
+}

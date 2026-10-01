@@ -33,7 +33,7 @@ export function writeBackMessage(
   return /your edit is kept/i.test(said) ? `${source}: ${said}` : `${source}: ${said}. Your edit is kept.`;
 }
 
-export type ReadinessKind = 'required' | 'commentary' | 'sync' | 'thingy';
+export type ReadinessKind = 'required' | 'commentary' | 'sync' | 'thingy' | 'links';
 
 export type ReadinessState = 'done' | 'partial' | 'todo';
 
@@ -300,7 +300,22 @@ export const api = {
       IssueResponse & { result?: { sync_state: string; error?: string } }
     >,
 
-  /** `force` goes past the leg's gate (approval, audio, not a draft) — the card asked first. */
+  /** Fetch every link the issue prints and store what answered (plan 2026-10-01 §3). */
+  checkLinks: (id: string) => post(`/issues/${id}/links/check`),
+
+  /**
+   * One link finding: `use` prints the check's suggestion for the item's own
+   * link, `original` goes back to the bookmark's, `keep` stops asking. None
+   * of them touches Pinboard.
+   */
+  linkAction: (id: string, itemId: string, action: 'use' | 'original' | 'keep', url?: string) =>
+    post(`/issues/${id}/items/${itemId}/link`, { action, url }),
+
+  /** Move the bookmark at Pinboard to the link the issue prints. Jamie's click only. */
+  moveBookmark: (id: string, itemId: string) =>
+    post(`/issues/${id}/items/${itemId}/move-bookmark`) as Promise<IssueResponse & { result: { removed: boolean } }>,
+
+  /** `force` goes past the leg's gate (approval, audio, not a draft, dead links) — the card asked first. */
   send: (id: string, destination: string, force = false) =>
     call<SendResult>(`/issues/${id}/send/${destination}${force ? '?force=1' : ''}`, { method: 'POST', body: '{}' }),
 

@@ -1,0 +1,32 @@
+{
+  "about": "One link however it was written. `key` is the contract between WT Builder's linkKey (src/shared/links.ts) and the Librarian's linkUrlKey (librarian-thing apps/librarian/lambda/shared/archive-tools.mts): both must give it for `url`. `canonical` is WT Builder's canonicalUrl. Copied into the Librarian's tests; change both copies together (plan 2026-10-01 section 3).",
+  "cases": [
+    { "url": "https://example.com/post", "key": "example.com/post", "canonical": "https://example.com/post" },
+    { "url": "http://www.example.com/post/", "key": "example.com/post", "canonical": "https://example.com/post" },
+    { "url": "https://WWW.Example.com/post#comments", "key": "example.com/post", "canonical": "https://example.com/post" },
+    { "url": "https://example.com/post/?utm_source=newsletter&utm_medium=email", "key": "example.com/post", "canonical": "https://example.com/post" },
+    { "url": "https://example.com/post?fbclid=abc&gclid=def&mc_cid=1&mc_eid=2", "key": "example.com/post", "canonical": "https://example.com/post" },
+    { "url": "https://news.ycombinator.com/item?id=1&utm_source=x", "key": "news.ycombinator.com/item?id=1", "canonical": "https://news.ycombinator.com/item?id=1" },
+    { "url": "https://example.com/Post", "key": "example.com/Post", "canonical": "https://example.com/Post" },
+    { "url": "https://www.youtube.com/watch?v=abc&si=xyz", "key": "youtube.com/watch?v=abc", "canonical": "https://youtube.com/watch?v=abc" },
+    { "url": "https://example.com/a?ref=hn", "key": "example.com/a", "canonical": "https://example.com/a" },
+    { "url": "https://www.nytimes.com/2020/01/01/a.html?smid=tw-share", "key": "nytimes.com/2020/01/01/a.html", "canonical": "https://nytimes.com/2020/01/01/a.html" },
+    { "url": "https://twitter.com/jamie/status/1?s=20", "key": "twitter.com/jamie/status/1", "canonical": "https://twitter.com/jamie/status/1" },
+    { "url": "https://www.example.com/", "key": "example.com", "canonical": "https://example.com" },
+    { "url": "https://m.example.com/post", "key": "example.com/post", "canonical": "https://example.com/post" },
+    { "url": "https://mobile.example.com/post", "key": "example.com/post", "canonical": "https://example.com/post" },
+    { "url": "https://amp.example.com/story", "key": "example.com/story", "canonical": "https://example.com/story" },
+    { "url": "https://example.com/2020/01/story/amp/", "key": "example.com/2020/01/story", "canonical": "https://example.com/2020/01/story" },
+    { "url": "https://example.com/amp/2020/story", "key": "example.com/2020/story", "canonical": "https://example.com/2020/story" },
+    { "url": "https://example.com/story?amp=1", "key": "example.com/story", "canonical": "https://example.com/story" },
+    { "url": "https://example.com/story.amp.html", "key": "example.com/story.html", "canonical": "https://example.com/story.html" },
+    { "url": "https://www-example-com.cdn.ampproject.org/c/s/www.example.com/story", "key": "example.com/story", "canonical": "https://example.com/story" },
+    { "url": "https://www.google.com/amp/s/www.example.com/story", "key": "example.com/story", "canonical": "https://example.com/story" },
+    { "url": "https://example.com/watch?v=abc", "key": "example.com/watch?v=abc", "canonical": "https://example.com/watch?v=abc" }
+  ],
+  "different": [
+    ["https://example.com/watch?v=abc", "https://example.com/watch?v=xyz"],
+    ["https://example.com/Post", "https://example.com/post"],
+    ["https://example.com/a", "https://example.org/a"]
+  ]
+}

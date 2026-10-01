@@ -14,45 +14,11 @@
 
 import type { IssueDoc, LinkedBefore } from '../shared/types.ts';
 import { isIncluded, windowOf } from '../shared/render/plan.ts';
+import { linkKey, urlsIn } from '../shared/links.ts';
 
 export type { LinkedBefore };
-
-/**
- * Query parameters that say where a click came from, not what it points
- * at: campaign tags (utm_*), ad and mail click ids, share tokens.
- */
-const TRACKING = /^(?:utm_.*|fbclid|gclid|gclsrc|dclid|gbraid|wbraid|msclkid|yclid|twclid|igshid|mc_cid|mc_eid|mkt_tok|_hsenc|_hsmi|oly_anon_id|oly_enc_id|ref_src|ref_url|s_cid|vero_id|wickedid)$/i;
-
-/**
- * A link as a key: the scheme, `www.`, the fragment, a trailing slash and
- * the tracking parameters make no difference, so
- * `http://www.example.com/post/?utm_source=x` and `https://example.com/post`
- * are one link. The host is lowercased; the path and the remaining query are
- * kept as written. Null for anything that is not an http(s) URL.
- */
-export function linkKey(url: string): string | null {
-  let u: URL;
-  try {
-    u = new URL(String(url ?? '').trim());
-  } catch {
-    return null;
-  }
-  if (u.protocol !== 'http:' && u.protocol !== 'https:') return null;
-  const host = u.hostname.toLowerCase().replace(/^www\./, '');
-  const kept = [...u.searchParams].filter(([k]) => !TRACKING.test(k));
-  const query = kept.length ? `?${new URLSearchParams(kept)}` : '';
-  return `${host}${u.port ? `:${u.port}` : ''}${u.pathname.replace(/\/+$/, '')}${query}`;
-}
-
-/**
- * Every http(s) URL in a run of text: Markdown links, bare URLs, and HTML
- * `href`s alike. One level of parentheses is allowed inside a URL, so a
- * Markdown link to `…/wiki/Foo_(bar)` keeps its `(bar)`.
- */
-function urlsIn(text: string): string[] {
-  const found = String(text ?? '').match(/https?:\/\/(?:[^\s<>()[\]"'`]|\([^\s<>()"'`]*\))+/g) ?? [];
-  return found.map((u) => u.replace(/[.,;:!?*]+$/, ''));
-}
+/** One key per link: src/shared/links.ts, shared by contract with the Librarian. */
+export { linkKey };
 
 /**
  * The links an issue printed, as keys. An item held out of every edition or

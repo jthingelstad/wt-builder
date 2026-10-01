@@ -104,6 +104,14 @@ export interface Item {
 
   source_id?: string;
   source_url?: string;
+  /**
+   * The link as the issue prints it, when Jamie applied the link check's
+   * suggestion (a shortener resolved, a redirect followed, the page's own
+   * canonical, tracking dropped). `source_url` stays the Pinboard key, so
+   * write-back and reconcile still find the bookmark; only "Move bookmark"
+   * changes both, together (src/server/link-check.ts).
+   */
+  canonical_url?: string;
   /** What was imported. Editable fields hold the working value. */
   source_snapshot?: Record<string, unknown>;
 
@@ -337,6 +345,35 @@ export interface IssueMeta {
   put_to_bed_at?: string;
 }
 
+/** What one fetch of one link found. */
+export interface LinkResult {
+  /**
+   * ok: it answered 200 where it says. moved: it answered, from somewhere
+   * else (a redirect, a shortener, the page's own canonical, or tracking to
+   * drop) and `suggestion` says where. dead: 404, 410, no such host, or a
+   * redirect to the site's front page. unchecked: the site would not say
+   * (403, 429, 5xx, a timeout) - never read as dead.
+   */
+  verdict: 'ok' | 'moved' | 'dead' | 'unchecked';
+  status?: number;
+  final_url?: string;
+  /** The page's `<link rel=canonical>`, when it names another page. */
+  canonical_hint?: string;
+  suggestion?: string;
+  note?: string;
+  checked_at: string;
+}
+
+export interface LinkCheck {
+  at: string;
+  results: Record<string, LinkResult>;
+  /**
+   * Findings Jamie keeps as they are: dead links sent anyway (`?force=1`) or
+   * dismissed with "Keep this link". Neither readiness nor the send asks again.
+   */
+  accepted?: string[];
+}
+
 export interface IssueDoc {
   schema_version: number;
   issue: IssueMeta;
@@ -367,6 +404,8 @@ export interface IssueDoc {
   script_review?: ScriptReview;
   /** What was checked at each destination after its leg went out. */
   verify?: Partial<Record<Destination, Verification>>;
+  /** The issue's links as last fetched, by exact URL (src/server/link-check.ts). */
+  link_check?: LinkCheck;
   /**
    * The live draft-preview share, when one exists: a static page at an
    * unguessable CDN URL, loudly labeled DRAFT. Re-sharing refreshes the same

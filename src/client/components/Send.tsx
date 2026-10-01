@@ -18,6 +18,7 @@ import { useEffect, useRef, useState } from 'preact/hooks';
 import type { Destination, IssueDoc, ScriptReview, SendState, SentRecord, Verification } from '../../shared/types.ts';
 import { isOut, lastSent, recordedAudioUrl } from '../../shared/sends.ts';
 import { audioScript } from '../../shared/render/audio.ts';
+import { findingsSummary, linkFindings } from '../../shared/link-findings.ts';
 import { duration, type IssueTiming } from '../../shared/timing.ts';
 import { ApiError, api, type PodcastAudio, type Readiness, type SendResult } from '../api.ts';
 import {
@@ -282,6 +283,20 @@ export function Send({ doc, readiness, error, onBack, onSent, onError }: Props) 
   // a plain re-send, so the card says what an update would do and offers
   // "Update anyway…", and the bulk runs leave it out.
   const remoteStatus = doc.verify?.buttondown?.remote_status;
+  const links = linkFindings(doc);
+  const deadLinks = links.unaccepted;
+  const [checkingLinks, setCheckingLinks] = useState(false);
+  const checkLinks = async () => {
+    setCheckingLinks(true);
+    onError(null);
+    try {
+      onSent((await api.checkLinks(id)).issue);
+    } catch (err) {
+      onError(`links: ${(err as Error).message}`);
+    } finally {
+      setCheckingLinks(false);
+    }
+  };
   const emailLocked = remoteStatus && remoteStatus !== 'draft' ? remoteStatus : undefined;
 
   /**
@@ -293,6 +308,24 @@ export function Send({ doc, readiness, error, onBack, onSent, onError }: Props) 
    * a decision on its own card.
    */
   const overrideOf = (key: Destination): { label: string; warning: string } | undefined => {
+    const gate = gateOf(key);
+    // Dead links stop the website and the email (plan 2026-10-01 §3). The
+    // server checked them on the first click and refused with dead_links;
+    // the re-read put them here, so this click asks. Sending anyway keeps
+    // them, and later sends do not ask about them again.
+    if ((key === 'website' || key === 'buttondown') && deadLinks.length) {
+      const n = doc.issue.number;
+      const list = `${deadLinks.length} dead link${deadLinks.length === 1 ? '' : 's'}: ${deadLinks.slice(0, 3).map((l) => l.url).join(', ')}${deadLinks.length > 3 ? ', …' : ''}.`;
+      if (gate) return { label: gate.label, warning: `${gate.warning}\n\nWT${n} also has ${list} They are kept as they are.` };
+      return {
+        label: key === 'website' ? (stateOf('website') === 'sent' ? 'Re-commit with dead links…' : 'Commit with dead links…') : 'Send with dead links…',
+        warning: `WT${n} has ${list} Send anyway? They are kept as they are, and later sends will not ask about them again.`,
+      };
+    }
+    return gate;
+  };
+
+  const gateOf = (key: Destination): { label: string; warning: string } | undefined => {
     const n = doc.issue.number;
     if (key === 'podcast' && !approved) {
       return {
@@ -436,6 +469,22 @@ export function Send({ doc, readiness, error, onBack, onSent, onError }: Props) 
               {readiness.total - readiness.done} of {readiness.total} things on the
               checklist are still open. Nothing here is blocked by that.
             </span>
+          </div>
+        )}
+
+        {links.links.length > 0 && (
+          <div class="send-warn">
+            <CircleAlert />
+            <span>
+              {!doc.link_check
+                ? `${links.links.length} links, not checked yet. The website and the email check them before they go.`
+                : findingsSummary(links)
+                  ? `Links: ${findingsSummary(links)}. The inspector has each one.${deadLinks.length ? ' The website and the email ask before sending with a dead link.' : ''}`
+                  : `All ${links.links.length} links answered.`}
+            </span>
+            <button class="btn" disabled={checkingLinks} onClick={() => void checkLinks()}>
+              {checkingLinks ? 'Checking…' : doc.link_check ? 'Check again' : 'Check links'}
+            </button>
           </div>
         )}
 

@@ -9,6 +9,7 @@ import type { IssueDoc, IssueNode, Item } from '../types.ts';
 import { clockTime, shortDate, wallClock } from '../dates.ts';
 import { splitBody } from '../body.ts';
 import { echoBlocks } from '../echoes.ts';
+import { linkUrl } from '../links.ts';
 import type { PlannedItem, PlannedNode } from './plan.ts';
 import { bodyLines, planEdition, postBlocks, finishEdition, quoteMarkdown } from './plan.ts';
 
@@ -148,14 +149,14 @@ const BACKSLASH = String.fromCharCode(92);
 
 /** "Description → **[linked title]**" (docs/rendering-contracts.md, Briefly). */
 export function brieflyBlock(item: Item): Block {
-  const link = `**[${escapeExternal(item.title ?? item.source_url ?? '')}](${item.source_url})**`;
+  const link = `**[${escapeExternal(item.title ?? linkUrl(item) ?? '')}](${linkUrl(item)})**`;
   const commentary = String(item.commentary ?? '').trim();
   return commentary ? `${commentary} → ${link}` : link;
 }
 
 /** A Notable/Featured link: a linked heading, then commentary if there is any. */
 export function linkBlocks(item: Item): Block[] {
-  const out: Block[] = [`### [${escapeExternal(item.title ?? item.source_url ?? '')}](${item.source_url})`];
+  const out: Block[] = [`### [${escapeExternal(item.title ?? linkUrl(item) ?? '')}](${linkUrl(item)})`];
   const commentary = String(item.commentary ?? '').trim();
   if (commentary) out.push(commentary);
   return out;

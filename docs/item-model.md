@@ -23,6 +23,7 @@ window_days            how far back the sweep reaches
 status                 draft | published
 title
 dek
+link_check             { at, results: { url → LinkResult }, accepted } — the last link check, and the findings Jamie kept
 ```
 
 The content window runs **Friday 00:00 CT to Friday 00:00 CT** — a half-open
@@ -49,6 +50,7 @@ authorship             Jamie | syndicated | Thingy
 source                 direct | Pinboard | Micro.blog | Thingy | generated
 source_id
 source_url
+canonical_url          Pinboard link: the URL the editions print instead of source_url, applied from a link-check finding
 source_snapshot        what was imported, for the "as imported" diff
 title
 body
@@ -84,6 +86,11 @@ Two of these are load-bearing in a way the name does not convey:
   flags are captured at sweep, refreshed from the record at write time, and
   handed back unchanged — read/unread is Jamie's flag, never the builder's
   (2026-09-20). This has happened once.
+- **`source_url` is never rewritten in place.** It is the bookmark's key, in
+  Pinboard and in the archive's link index. A link-check finding Jamie applies
+  goes to `canonical_url`, which the editions print (`linkUrl` in
+  `src/shared/links.ts`); only *Move bookmark…* changes `source_url`, and it
+  moves the Pinboard record with it (2026-10-01).
 - **`channel_locks`** carries the *reason* a channel is unavailable, so a
   forbidden channel states why rather than failing quietly.
 

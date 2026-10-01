@@ -5,6 +5,7 @@ import { CHANNELS } from '../../shared/types.ts';
 import { api, shouldWriteBack, writeBackMessage, type IssueResponse } from '../api.ts';
 import { edited, Input, useFieldValue } from './Field.tsx';
 import { isFrozen } from './Page.tsx';
+import { linkFindings, type LinkFinding } from '../../shared/link-findings.ts';
 
 interface Props {
   doc: IssueDoc;
@@ -33,6 +34,24 @@ const SYNC_LABEL: Record<string, string> = {
   gone: 'Deleted at {source} — your copy is kept',
   conflict: 'Edited both here and at {source} — keep yours, or take theirs',
 };
+
+const VERDICT: Record<string, string> = {
+  dead: 'Dead',
+  moved: 'Moved',
+  unchecked: 'The site would not say',
+};
+
+/** What the check found, in words: the status, and why when it says. */
+function findingLine(f: LinkFinding): string {
+  const r = f.result!;
+  const status = r.status ? ` (${r.status})` : '';
+  if (r.verdict === 'dead') return `${VERDICT.dead}${status}${r.note ? ` — ${r.note}` : ''}`;
+  if (r.verdict === 'moved') {
+    const why = r.note === 'shortened' ? 'a shortened link' : r.canonical_hint ? "the page names another as its own" : 'it redirects, or carries tracking';
+    return `${VERDICT.moved} — ${why}`;
+  }
+  return `${VERDICT.unchecked}${status}${r.note ? ` — ${r.note}` : ''}`;
+}
 
 function syncLine(state: string, source: string): string {
   const label = SYNC_LABEL[state] ?? state;
@@ -111,6 +130,42 @@ export function Inspector({ doc, itemId, run, onClose, onError, onBackToReview, 
       report(res.result ?? (saved && { sync_state: saved.sync_state, error: saved.sync_error }));
     } catch (err) {
       onError((err as Error).message);
+    } finally {
+      onWriteOut(itemId, false);
+    }
+  };
+
+  // This item's link findings that are not fine and not kept: its own link
+  // and any link in its words (plan 2026-10-01 §3).
+  const kept = new Set(doc.link_check?.accepted ?? []);
+  const findings = linkFindings(doc).links.filter((f) =>
+    f.items.includes(itemId) && f.result && f.result.verdict !== 'ok' && !kept.has(f.url));
+  // Held by the editor like a write-back, so a remount mid-move keeps the buttons off.
+  const linkBusy = writing;
+
+  const linkAction = async (action: 'use' | 'original' | 'keep', url?: string) => {
+    onWriteOut(itemId, true);
+    try {
+      await run(() => api.linkAction(id, itemId, action, url));
+    } finally {
+      onWriteOut(itemId, false);
+    }
+  };
+
+  /**
+   * Pinboard has no rename: the move adds a bookmark at the printed link
+   * with every field of this one, then deletes this one. Asked first.
+   */
+  const moveBookmark = async () => {
+    if (!item.canonical_url || !item.source_url) return;
+    if (!confirm(`Move the Pinboard bookmark from\n${item.source_url}\nto\n${item.canonical_url}?\n\nIts title, commentary, tags, privacy and date go with it, and the old bookmark is deleted.`)) return;
+    onWriteOut(itemId, true);
+    try {
+      const answer: { moved?: Awaited<ReturnType<typeof api.moveBookmark>> } = {};
+      const ok = await run(async () => (answer.moved = await api.moveBookmark(id, itemId)));
+      if (ok && answer.moved && !answer.moved.result.removed) {
+        onError('Moved — but the old bookmark could not be deleted, so delete it at Pinboard.');
+      }
     } finally {
       onWriteOut(itemId, false);
     }
@@ -297,6 +352,14 @@ export function Inspector({ doc, itemId, run, onClose, onError, onBackToReview, 
           </a>
         </div>
       )}
+      {item.canonical_url && (
+        <div class="kv">
+          <span>Prints</span>
+          <a href={item.canonical_url} target="_blank" rel="noreferrer" class="break-link">
+            {item.canonical_url}
+          </a>
+        </div>
+      )}
       {item.sync_state && (
         <div class="kv"><span>Sync</span><span>{syncLine(item.sync_state, item.source)}</span></div>
       )}
@@ -318,6 +381,54 @@ export function Inspector({ doc, itemId, run, onClose, onError, onBackToReview, 
         <button class="btn" style="margin-top:12px" onClick={writeBack} disabled={writing}>
           {writing ? 'Writing…' : `Retry write to ${item.source}`}
         </button>
+      )}
+
+      {!frozen && (findings.length > 0 || item.canonical_url) && (
+        <>
+          <h3 style="margin-top:18px">Links</h3>
+          {findings.map((f) => (
+            <div class="link-finding" key={f.url}>
+              <a href={f.url} target="_blank" rel="noreferrer" class="break-link">{f.url}</a>
+              <p class="field-note">{findingLine(f)}</p>
+              {f.result?.suggestion && (
+                <p class="field-note">
+                  Suggested:{' '}
+                  <a href={f.result.suggestion} target="_blank" rel="noreferrer" class="break-link">{f.result.suggestion}</a>
+                </p>
+              )}
+              <div style="display:flex;gap:8px;flex-wrap:wrap;margin-top:6px">
+                {f.role === 'item' && item.type === 'pinboard_link' && f.result?.suggestion && (
+                  <button class="btn" disabled={linkBusy}
+                    title="Print this link in the issue. The bookmark keeps its own URL."
+                    onClick={() => void linkAction('use')}>
+                    Use the suggested link
+                  </button>
+                )}
+                {f.result?.verdict !== 'unchecked' && (
+                  <button class="btn" disabled={linkBusy}
+                    title={f.role === 'inline' ? 'Edit the commentary to change it, or keep it as it is.' : 'Leave the link as it is and stop asking.'}
+                    onClick={() => void linkAction('keep', f.url)}>
+                    Keep as it is
+                  </button>
+                )}
+              </div>
+            </div>
+          ))}
+          {item.canonical_url && (
+            <div style="display:flex;gap:8px;flex-wrap:wrap;margin-top:8px">
+              <button class="btn" disabled={linkBusy} onClick={() => void linkAction('original')}
+                title="Print the bookmark's own URL again">
+                Back to the bookmark's link
+              </button>
+              {item.source === 'Pinboard' && (
+                <button class="btn" disabled={linkBusy} onClick={() => void moveBookmark()}
+                  title="Move the Pinboard bookmark to the link the issue prints">
+                  Move bookmark…
+                </button>
+              )}
+            </div>
+          )}
+        </>
       )}
 
       {item.archive_references?.length ? (

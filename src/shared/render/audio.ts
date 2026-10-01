@@ -18,6 +18,7 @@
 import type { IssueDoc, Item } from '../types.ts';
 import { spokenLongDate, wallClock, weekday } from '../dates.ts';
 import { askThingyUrl, echoBlock } from '../echoes.ts';
+import { linkUrl } from '../links.ts';
 import type { PlannedNode } from './plan.ts';
 import { bodyLines, isLinkSection, planEdition, postBlocks, quoteMarkdown, withRehostedImages } from './plan.ts';
 import { speakable } from './speech.ts';
@@ -425,7 +426,7 @@ function chapterTitle(item: Item): string {
 function chapterFor(doc: IssueDoc, item: Item, planned: PlannedNode): Chapter | undefined {
   switch (item.type) {
     case 'pinboard_link':
-      return { title: String(item.title ?? '').trim() || 'Link', url: item.source_url };
+      return { title: String(item.title ?? '').trim() || 'Link', url: linkUrl(item) };
     case 'journal_post': {
       const image = firstImage(doc, item.body);
       return { title: chapterTitle(item), url: item.source_url, ...(image ? { image } : {}) };

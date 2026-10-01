@@ -22,6 +22,7 @@ import { SCHEMA_VERSION, allChannels, emptyChannels } from '../shared/types.ts';
 import { type Window, addDays, instantOf, issueWindow, issueSaturday } from '../shared/dates.ts';
 import { bodyLines, orderedNodes, outOfWindow, windowOf } from '../shared/render/plan.ts';
 import { imagesWithoutAlt } from '../shared/body.ts';
+import { findingsSummary, linkFindings } from '../shared/link-findings.ts';
 import * as pinboard from './integrations/pinboard.ts';
 import * as microblog from './integrations/microblog.ts';
 import { keepMine as rebaseOnRemote, reconcileItem, takeTheirs as adoptRemote, type RemoteFields } from './reconcile.ts';
@@ -1122,7 +1123,7 @@ export function setIssueNumber(doc: IssueDoc, number: number): IssueDoc {
 // ── readiness ─────────────────────────────────────────────────────────────
 
 /** What kind of outstanding thing this is — the popover colours by it. */
-export type ReadinessKind = 'required' | 'commentary' | 'sync' | 'thingy';
+export type ReadinessKind = 'required' | 'commentary' | 'sync' | 'thingy' | 'links';
 
 export type ReadinessState = 'done' | 'partial' | 'todo';
 
@@ -1345,6 +1346,26 @@ export function readiness(doc: IssueDoc): Readiness {
         }
       }
     }
+  }
+
+  // One unit for every link the issue prints (plan 2026-10-01 §3): warn,
+  // don't block. Done when every link has been checked and nothing dead or
+  // moved is left that Jamie has not kept; a site that turns checkers away
+  // is said, not counted. The tick jumps to the first item with a finding.
+  const links = linkFindings(doc);
+  if (links.links.length) {
+    const said = findingsSummary(links);
+    const first = [...links.open, ...links.pending][0]?.items[0] ?? 'issue';
+    const checked = Boolean(doc.link_check);
+    add(
+      !links.open.length && !links.pending.length ? 'done' : checked ? 'partial' : 'todo',
+      'Links checked', first, 'links',
+      !checked
+        ? `${links.links.length} links, not checked yet. They are checked before the email and the website go, or now from the Send card.`
+        : said
+          ? `${said}. The inspector has each one: use the suggested link, or keep it as it is.`
+          : `All ${links.links.length} links answered.`,
+    );
   }
 
   // A standard section that is not in the issue is satisfied, not outstanding.

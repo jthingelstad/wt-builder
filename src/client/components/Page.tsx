@@ -24,6 +24,7 @@ import { imagesWithoutAlt, rejoinBody, splitBody, withImageAlts } from '../../sh
 import { markdownInlineToSafeHtml, markdownToSafeHtml } from '../../shared/markdown.ts';
 import { ImagePlus, Plus, Spinner, Trash } from '../icons.tsx';
 import { Editable, Rail, RichEditable, Row, Wand, itemRail, sectionRail } from './Row.tsx';
+import { linkUrl } from '../../shared/links.ts';
 
 export type Lens = Channel | 'source';
 
@@ -819,7 +820,7 @@ function ChannelBlock({ doc, node, item, itemId, readOnly, act }: BlockProps) {
               onCommit={(text) => set({ commentary: text })}
             />
             {' '}
-            <a href={item.source_url} target="_blank" rel="noreferrer" class="brief-title">
+            <a href={linkUrl(item)} target="_blank" rel="noreferrer" class="brief-title">
               {item.title}
             </a>
             <span class="arrow"> →</span>
@@ -828,8 +829,8 @@ function ChannelBlock({ doc, node, item, itemId, readOnly, act }: BlockProps) {
         : (
           <>
             <div class="link-title">
-              <a href={item.source_url} target="_blank" rel="noreferrer">{item.title}</a>
-              <span class="link-domain">{domainOf(item.source_url)}</span>
+              <a href={linkUrl(item)} target="_blank" rel="noreferrer">{item.title}</a>
+              <span class="link-domain">{domainOf(linkUrl(item))}</span>
             </div>
             {/* Rendered at rest like everything else; it showed raw Markdown (2026-09-20). */}
             <RichEditable

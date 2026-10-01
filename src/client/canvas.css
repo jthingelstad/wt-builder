@@ -1133,6 +1133,9 @@ span[contenteditable]:focus {
 .cl-dot.sync { background: var(--terracotta); }
 .cl-dot.thingy { background: var(--blue); }
 .cl-dot.required { background: var(--mark-dark); }
+.cl-dot.links { background: var(--green); }
+.link-finding { margin-top: 10px; }
+.link-finding + .link-finding { border-top: 1px solid var(--border-light); padding-top: 10px; }
 
 .cl-main { display: flex; flex-direction: column; gap: 2px; min-width: 0; }
 .cl-title { font-size: 13px; color: var(--ink); }

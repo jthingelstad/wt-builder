@@ -34,6 +34,9 @@ import { applyRehost, rehostIssueImages, storeUpload } from './integrations/imag
 import * as geocode from './integrations/geocode.ts';
 import * as editorial from './editorial.ts';
 import { linkedBefore } from './linked-before.ts';
+import { acceptLinks, applyLinkCheck, checkLinks } from './link-check.ts';
+import { findingsSummary, issueLinks, linkFindings } from '../shared/link-findings.ts';
+import { linkUrl } from '../shared/links.ts';
 import * as githubRepo from './integrations/github.ts';
 import * as audio from './integrations/audio.ts';
 import { audioScript } from '../shared/render/audio.ts';
@@ -970,6 +973,105 @@ const routes: [RegExp, string, (ctx: Ctx, params: string[]) => Promise<unknown>]
   }],
 
   /**
+   * The link check, on demand: fetch every link the issue prints and store
+   * what answered (src/server/link-check.ts). The fetches are the slow part;
+   * their results are applied to a fresh read.
+   */
+  [/^\/api\/issues\/([^/]+)\/links\/check$/, 'POST', async (_ctx, [id]) => {
+    const urls = issueLinks(requireIssue(id!)).map((l) => l.url);
+    const results = await checkLinks(urls);
+    const response = savedFresh(id!, (d) => applyLinkCheck(awake(d, 'the links were checked'), results, new Date().toISOString()));
+    store.logEvent(id!, 'links', `Links checked — ${urls.length}: ${findingsSummary(linkFindings(response.issue)) || 'all answered'}`);
+    return response;
+  }],
+
+  /**
+   * One link finding, acted on. `use` prints the check's suggestion for a
+   * Pinboard item's own link (`canonical_url`); `original` goes back to the
+   * bookmark's URL; `keep` leaves the link as it is and stops asking about
+   * it. None of them touches `source_url` or Pinboard.
+   */
+  [/^\/api\/issues\/([^/]+)\/items\/([^/]+)\/link$/, 'POST', async ({ body }, [id, itemId]) => {
+    const b = await body();
+    const action = String(b.action ?? '');
+    const url = String(b.url ?? '');
+    const doc = requireIssue(id!);
+    const item = doc.items[itemId!];
+    if (!item) throw new HttpError(404, `no item ${itemId}`);
+    if (action === 'keep') {
+      if (!url) throw new HttpError(400, 'which link?');
+      const response = savedFresh(id!, (d) => acceptLinks(d, [url]));
+      store.logEvent(id!, 'links', `Kept as it is — ${url}`, itemId);
+      return response;
+    }
+    if (item.type !== 'pinboard_link' || !item.source_url) {
+      throw new HttpError(400, `${issues.itemName(item)} has no link of its own to change`);
+    }
+    if (action === 'original') {
+      const response = savedFresh(id!, (d) => issues.updateItem(d, itemId!, { canonical_url: undefined }));
+      store.logEvent(id!, 'links', `Back to the bookmark's link — ${issues.itemName(item)}`, itemId);
+      return response;
+    }
+    if (action !== 'use') throw new HttpError(400, `unknown action ${action}`);
+    const shown = linkUrl(item)!;
+    const suggestion = doc.link_check?.results[shown]?.suggestion;
+    if (!suggestion) throw new HttpError(409, `the link check has no suggestion for ${shown}`);
+    const response = savedFresh(id!, (d) => {
+      const fresh = d.items[itemId!];
+      if (!fresh || linkUrl(fresh) !== shown) {
+        throw new HttpError(409, `${issues.itemName(item)}'s link changed meanwhile — nothing changed; look again`);
+      }
+      return issues.updateItem(d, itemId!, { canonical_url: suggestion === fresh.source_url ? undefined : suggestion });
+    });
+    store.logEvent(id!, 'links', `Using ${suggestion} — ${issues.itemName(item)}`, itemId);
+    return response;
+  }],
+
+  /**
+   * Move the bookmark to the link the issue prints: Jamie's click only,
+   * after "Use" set `canonical_url`. Pinboard gets a new bookmark with every
+   * field of the old one and the old one is deleted (pinboard.moveBookmark);
+   * then, and only then, the item's `source_url` and `source_id` follow it,
+   * so write-back and the sweep find the bookmark where it now is. An item
+   * with an edit Pinboard does not have yet is refused: write it first.
+   */
+  [/^\/api\/issues\/([^/]+)\/items\/([^/]+)\/move-bookmark$/, 'POST', async (_ctx, [id, itemId]) => {
+    const item = requireIssue(id!).items[itemId!];
+    if (!item) throw new HttpError(404, `no item ${itemId}`);
+    if (item.source !== 'Pinboard' || !item.source_url) {
+      throw new HttpError(400, `${issues.itemName(item)} is not a Pinboard bookmark`);
+    }
+    const from = item.source_url;
+    const to = item.canonical_url;
+    if (!to || to === from) throw new HttpError(409, `${issues.itemName(item)} prints the bookmark's own link — use a suggested link first`);
+    if (item.sync_state !== 'synced' && item.sync_state !== 'needs_commentary') {
+      throw new HttpError(409, `${issues.itemName(item)} has an edit Pinboard does not (${item.sync_state ?? 'no sync state'}) — write it back first, then move`);
+    }
+    let moved: pinboard.MoveResult;
+    try {
+      moved = await pinboard.moveBookmark(from, to);
+    } catch (err) {
+      store.logEvent(id!, 'sync', `Move refused — ${issues.itemName(item)}: ${(err as Error).message}`, itemId);
+      throw new HttpError(502, (err as Error).message);
+    }
+    // Pinboard has moved. The item follows even if Jamie edited it meanwhile:
+    // its other fields are his, and the bookmark is now only at `to`.
+    const response = savedFresh(id!, (d) => {
+      const fresh = d.items[itemId!];
+      if (!fresh) return d;
+      return issues.updateItem(d, itemId!, {
+        source_url: to,
+        source_id: `pinboard:${moved.hash ?? to}`,
+        canonical_url: undefined,
+      });
+    });
+    store.logEvent(id!, 'sync', moved.removed
+      ? `Moved the bookmark — ${from} → ${to}`
+      : `Moved the bookmark — ${from} → ${to}; the old one could not be deleted, so delete it at Pinboard`, itemId);
+    return { ...response, result: { removed: moved.removed } };
+  }],
+
+  /**
    * Move a link between Notable and Briefly. One editorial gesture with a
    * source-side half: Briefly is the `_brief` tag on the bookmark, so the
    * move adjusts the tags and immediately writes them back to Pinboard —
@@ -1298,6 +1400,7 @@ const routes: [RegExp, string, (ctx: Ctx, params: string[]) => Promise<unknown>]
     if (destination !== 'buttondown') {
       throw new HttpError(400, `unknown destination ${destination}`);
     }
+    await linksGate(id!, 'buttondown', force);
     const before = requireIssue(id!);
     guardInFlight(before, 'buttondown');
     // The draft this leg made last, read through any failed or cut-off
@@ -1432,10 +1535,36 @@ function noAudioYet(podcast: SendState | undefined): string {
 }
 
 /**
+ * The pre-send link check (plan 2026-10-01 §3): links not checked yet are
+ * fetched now, then a dead link Jamie has not kept stops the leg with
+ * `dead_links`. The check is recorded first, so the card's next click reads
+ * it and offers "Send anyway…" with a confirm; `?force=1` sends and records
+ * the dead links as kept, so a later re-send does not ask again. Runs before
+ * the leg's guards and claim: nothing about the leg changes on a refusal.
+ */
+async function linksGate(id: string, destination: Destination, force: boolean): Promise<void> {
+  const pending = linkFindings(requireIssue(id)).pending.map((l) => l.url);
+  if (pending.length) {
+    const results = await checkLinks(pending);
+    savedFresh(id, (d) => applyLinkCheck(d, results, new Date().toISOString()));
+  }
+  const dead = linkFindings(requireIssue(id)).unaccepted.map((l) => l.url);
+  if (!dead.length) return;
+  if (!force) {
+    const message = `${dead.length} dead link${dead.length === 1 ? '' : 's'} in the issue: ${dead.slice(0, 3).join(', ')}${dead.length > 3 ? ', …' : ''}. Fix ${dead.length === 1 ? 'it' : 'them'} in the inspector, keep ${dead.length === 1 ? 'it' : 'them'}, or send anyway.`;
+    store.logEvent(id, 'send', `Send refused — ${destination}: ${message}`);
+    throw new Refusal(409, message, 'dead_links');
+  }
+  savedFresh(id, (d) => acceptLinks(d, dead));
+  store.logEvent(id, 'send', `Override — ${destination}: sent with ${dead.length} dead link${dead.length === 1 ? '' : 's'}`);
+}
+
+/**
  * Commit the generated 11ty inputs to the render surface as one commit. The
  * site builds and deploys from there; nothing here touches the live site.
  */
 async function sendWebsite(id: string, force = false) {
+  await linksGate(id, 'website', force);
   const doc = requireIssue(id);
   guardInFlight(doc, 'website');
   // The website page embeds the podcast's audio reference; committed without
