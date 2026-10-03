@@ -76,3 +76,31 @@ test('a link typed into the photo caption shows as a link (WT352)', async ({ pag
   await expect(page.locator(`${sel} a`)).toHaveAttribute('href', /^https:\/\/arb\.umn\.edu\/?$/);
   await expect(page.locator(sel)).not.toContainText('](');
 });
+
+test('a Notable link title edits in place and saves as the title (WT353)', async ({ page }) => {
+  await open(page);
+  const sel = '[data-anchor="link-functions"] .link-title-text';
+  await caretAtEnd(page, sel);
+  await page.keyboard.type(' Really.');
+  await commit(page, () => item('link-functions').title === 'LLMs are functions, not brains. Really.');
+  expect(item('link-functions').title).toBe('LLMs are functions, not brains. Really.');
+  // The domain is the way out to the page now.
+  await expect(page.locator('[data-anchor="link-functions"] a.link-domain')).toHaveAttribute('href', /^https?:/);
+});
+
+test('a Briefly link title edits in place; emptied, it goes back (WT353)', async ({ page }) => {
+  await open(page);
+  const sel = '[data-anchor="briefly-forge"] .brief-title';
+  const before = String(item('briefly-forge').title);
+  await caretAtEnd(page, sel);
+  await page.keyboard.type(' (again)');
+  await commit(page, () => item('briefly-forge').title === `${before} (again)`);
+  expect(item('briefly-forge').title).toBe(`${before} (again)`);
+  await page.locator(sel).click();
+  await page.keyboard.press('Meta+a');
+  await page.keyboard.press('Backspace');
+  await commit(page, () => false);
+  expect(item('briefly-forge').title).toBe(`${before} (again)`);
+  await expect(page.locator(sel)).toHaveText(`${before} (again)`);
+  await expect(page.locator('[data-anchor="briefly-forge"] a.arrow')).toHaveAttribute('href', /^https?:/);
+});

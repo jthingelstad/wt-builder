@@ -820,17 +820,33 @@ function ChannelBlock({ doc, node, item, itemId, readOnly, act }: BlockProps) {
               onCommit={(text) => set({ commentary: text })}
             />
             {' '}
-            <a href={linkUrl(item)} target="_blank" rel="noreferrer" class="brief-title">
-              {item.title}
-            </a>
-            <span class="arrow"> →</span>
+            {readOnly
+              ? (
+                <a href={linkUrl(item)} target="_blank" rel="noreferrer" class="brief-title">
+                  {item.title}
+                </a>
+              )
+              : <LinkTitle class="brief-title" value={item.title ?? ''} set={set} />}
+            {/* Editable, the title cannot also be the link; the arrow opens it. */}
+            {readOnly
+              ? <span class="arrow"> →</span>
+              : <a href={linkUrl(item)} target="_blank" rel="noreferrer" class="arrow" title="Open the link"> →</a>}
           </p>
         )
         : (
           <>
             <div class="link-title">
-              <a href={linkUrl(item)} target="_blank" rel="noreferrer">{item.title}</a>
-              <span class="link-domain">{domainOf(linkUrl(item))}</span>
+              {readOnly
+                ? <a href={linkUrl(item)} target="_blank" rel="noreferrer">{item.title}</a>
+                : <LinkTitle class="link-title-text" value={item.title ?? ''} set={set} />}
+              {/* Editable, the title cannot also be the link; the domain opens it. */}
+              {readOnly
+                ? <span class="link-domain">{domainOf(linkUrl(item))}</span>
+                : (
+                  <a href={linkUrl(item)} target="_blank" rel="noreferrer" class="link-domain" title="Open the link">
+                    {domainOf(linkUrl(item))} ↗
+                  </a>
+                )}
             </div>
             {/* Rendered at rest like everything else; it showed raw Markdown (2026-09-20). */}
             <RichEditable
@@ -974,6 +990,23 @@ function ChannelBlock({ doc, node, item, itemId, readOnly, act }: BlockProps) {
         </>
       );
   }
+}
+
+/**
+ * A Notable or Briefly link's title, edited in place. It is the bookmark's
+ * title on Pinboard, so the save writes back there like the commentary does.
+ * Pinboard will not keep a bookmark without one: emptied, it goes back.
+ * There was no way to edit it at all until WT353 (2026-10-03).
+ */
+function LinkTitle({ value, set, class: cls }: {
+  value: string; set: (patch: Record<string, unknown>) => unknown; class: string;
+}) {
+  return (
+    <Editable
+      class={cls} value={value} ph="Link title" required
+      onCommit={(text) => set({ title: text.trim() })}
+    />
+  );
 }
 
 /** How many earlier issues the link wand names before it just counts. */

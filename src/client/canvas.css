@@ -298,6 +298,9 @@
 .link-title { font-size: 19px; font-weight: 700; line-height: 1.35; margin: 0 0 6px; }
 .link-title a { color: var(--blue); }
 .link-domain { font-family: var(--mono); font-size: 11px; color: var(--faint); margin-left: 8px; }
+/* Editable titles: the run keeps the link colour; the domain is the link. */
+.link-title-text { color: var(--blue); }
+a.link-domain:hover { color: var(--blue); }
 
 .row-page blockquote {
   border-left: 3px solid var(--border);
