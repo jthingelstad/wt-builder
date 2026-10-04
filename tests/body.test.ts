@@ -51,7 +51,7 @@ describe('splitting a post body', () => {
 
   it('handles a body with no images', () => {
     expect(splitBody('Just words.')).toEqual({
-      prose: 'Just words.', images: [], tail: '', inline: false,
+      prose: 'Just words.', images: [], videos: [], tail: '', inline: false,
     });
   });
 
@@ -104,5 +104,24 @@ describe('alt text on the post\'s own image tags', () => {
     const split = splitBody(withAlts);
     expect(split.images[0]!.alt).toBe('A crowd');
     expect(rejoinBody(split.prose, split.tail)).toBe(withAlts);
+  });
+});
+
+describe('splitBody with a video', () => {
+  const VIDEO = '<video controls="controls" poster="https://x.test/p.jpg" src="https://x.test/v.m3u8"></video>';
+  it('splits a trailing video off like a photo, and rejoins it byte for byte', () => {
+    const body = `Beastbox was great.\n\n${VIDEO}`;
+    const split = splitBody(body);
+    expect(split.prose).toBe('Beastbox was great.');
+    expect(split.videos).toEqual([{ tag: VIDEO, src: 'https://x.test/v.m3u8', poster: 'https://x.test/p.jpg' }]);
+    expect(split.images).toEqual([]);
+    expect(rejoinBody(split.prose, split.tail)).toBe(body);
+    expect(rejoinBody('Beastbox was amazing.', split.tail)).toBe(`Beastbox was amazing.\n\n${VIDEO}`);
+  });
+
+  it('splits images and a video together', () => {
+    const split = splitBody(`Words.\n\n<img src="https://x.test/a.jpg" alt="">${VIDEO}`);
+    expect(split.images.map((i) => i.src)).toEqual(['https://x.test/a.jpg']);
+    expect(split.videos.map((v) => v.src)).toEqual(['https://x.test/v.m3u8']);
   });
 });

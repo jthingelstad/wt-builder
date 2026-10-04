@@ -12,12 +12,52 @@
 const IMG = /<img\b[^>]*>/gi;
 const SRC = /\bsrc=["']([^"']+)["']/i;
 const ALT = /\balt=["']([^"']*)["']/i;
+const POSTER = /\bposter=["']([^"']+)["']/i;
+
+/**
+ * A Micro.blog video: `<video controls … poster src="….m3u8"></video>`, an
+ * HLS stream with a poster frame (Beastbox, WT352 — the first). It splits off
+ * like a photo, so Jamie edits the words and the tag rides along untouched.
+ */
+const VIDEO = /<video\b[^>]*>(?:[\s\S]*?<\/video>)?/gi;
+const MEDIA = new RegExp(`${IMG.source}|${VIDEO.source}`, 'gi');
+
+export interface VideoTag {
+  /** The tag as it appears in the body, closing tag included. */
+  tag: string;
+  src: string;
+  poster: string;
+}
+
+function videoOf(tag: string): VideoTag {
+  return { tag, src: SRC.exec(tag)?.[1] ?? '', poster: POSTER.exec(tag)?.[1] ?? '' };
+}
+
+/** Every `<video>` in a body, in document order. */
+export function videoTags(body: string | undefined): VideoTag[] {
+  return [...String(body ?? '').matchAll(VIDEO)].map((m) => videoOf(m[0]));
+}
+
+/** The body cut into its words and its videos, in order: what an edition prints between. */
+export function videoParts(text: string): (string | VideoTag)[] {
+  const parts: (string | VideoTag)[] = [];
+  let at = 0;
+  for (const m of text.matchAll(VIDEO)) {
+    parts.push(text.slice(at, m.index!));
+    parts.push(videoOf(m[0]));
+    at = m.index! + m[0].length;
+  }
+  parts.push(text.slice(at));
+  return parts.filter((p) => typeof p !== 'string' || p.trim() !== '');
+}
 
 export interface SplitBody {
   /** The prose, with trailing image tags removed. What Jamie edits. */
   prose: string;
   /** The images that were split off, in document order. */
   images: { src: string; alt: string }[];
+  /** The videos that were split off, in document order. */
+  videos: VideoTag[];
   /**
    * The exact trailing text that was removed, so `rejoin` restores the body
    * byte-for-byte when the prose is unchanged.
@@ -31,7 +71,7 @@ export interface SplitBody {
 }
 
 /**
- * Split trailing `<img>` tags off a body.
+ * Split trailing `<img>` and `<video>` tags off a body.
  *
  * Only *trailing* images are split. A Micro.blog photo post is prose, a blank
  * line, then the image — the shape this handles. An image in the middle of a
@@ -40,10 +80,10 @@ export interface SplitBody {
  */
 export function splitBody(body: string | undefined): SplitBody {
   const text = String(body ?? '');
-  const matches = [...text.matchAll(IMG)];
-  if (!matches.length) return { prose: text, images: [], tail: '', inline: false };
+  const matches = [...text.matchAll(MEDIA)];
+  if (!matches.length) return { prose: text, images: [], videos: [], tail: '', inline: false };
 
-  // Walk back from the end over image tags and whitespace.
+  // Walk back from the end over image and video tags and whitespace.
   let cut = text.length;
   for (let i = matches.length - 1; i >= 0; i--) {
     const m = matches[i]!;
@@ -54,21 +94,22 @@ export function splitBody(body: string | undefined): SplitBody {
   }
 
   const tail = text.slice(cut);
-  const trailing = [...tail.matchAll(IMG)];
-  if (!trailing.length) return { prose: text, images: [], tail: '', inline: true };
+  const trailing = [...tail.matchAll(MEDIA)];
+  if (!trailing.length) return { prose: text, images: [], videos: [], tail: '', inline: true };
 
   return {
     prose: text.slice(0, cut).trimEnd(),
-    images: trailing.map((m) => ({
+    images: [...tail.matchAll(IMG)].map((m) => ({
       src: SRC.exec(m[0])?.[1] ?? '',
       alt: ALT.exec(m[0])?.[1] ?? '',
     })),
+    videos: videoTags(tail),
     tail,
     inline: trailing.length < matches.length,
   };
 }
 
-/** Put an edited prose run back together with the images it was split from. */
+/** Put an edited prose run back together with the images and videos it was split from. */
 export function rejoinBody(prose: string, tail: string): string {
   if (!tail) return prose;
   const trimmed = prose.trimEnd();

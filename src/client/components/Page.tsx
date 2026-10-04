@@ -20,6 +20,7 @@ import {
 import { audioScript } from '../../shared/render/audio.ts';
 import type { ScriptBlock } from '../../shared/render/audio.ts';
 import { MEMBER_THANKS, PREMIUM_CONDITION } from '../../shared/render/email.ts';
+import type { VideoTag } from '../../shared/body.ts';
 import { imagesWithoutAlt, rejoinBody, splitBody, withImageAlts } from '../../shared/body.ts';
 import { markdownInlineToSafeHtml, markdownToSafeHtml } from '../../shared/markdown.ts';
 import { ImagePlus, Plus, Spinner, Trash } from '../icons.tsx';
@@ -714,6 +715,32 @@ function AudioScript({
   );
 }
 
+// ── a post's videos ───────────────────────────────────────────────────────
+
+/**
+ * A Micro.blog post's videos, as the lens's edition prints them
+ * (shared/render/website.ts videoBlocks): the player on the Website lens,
+ * the poster linked to the post on the Email lens, where mail clients drop
+ * <video>. Read-only, like the post's images: the raw tag showed in the
+ * row as text before (WT352's Beastbox post).
+ */
+function PostVideos({ videos, url, lens }: { videos: VideoTag[]; url?: string; lens: Lens }) {
+  if (!videos.length) return null;
+  const href = url || undefined;
+  return (
+    <>
+      {videos.map((v) => lens === 'email' ? (
+        <div key={v.tag} class="post-video-email">
+          {v.poster && <a href={href ?? v.src} target="_blank" rel="noreferrer"><img class="post-image" src={v.poster} alt="A frame from the video" loading="lazy" /></a>}
+          <p><strong><a href={href ?? v.src} target="_blank" rel="noreferrer">▶ Watch the video</a></strong></p>
+        </div>
+      ) : (
+        <video key={v.tag} class="post-video" controls playsinline preload="none" poster={v.poster || undefined} src={v.src} />
+      ))}
+    </>
+  );
+}
+
 // ── one item, rendered for a lens ─────────────────────────────────────────
 
 interface BlockProps {
@@ -732,7 +759,7 @@ function Block(props: BlockProps) {
 }
 
 /** The Website/Email/Audio rendering — what a reader sees. */
-function ChannelBlock({ doc, node, item, itemId, readOnly, act }: BlockProps) {
+function ChannelBlock({ doc, node, item, itemId, lens, readOnly, act }: BlockProps) {
   const set = (patch: Record<string, unknown>) => act.updateItem(itemId, patch);
   const thingy = item.authorship === 'Thingy';
 
@@ -879,6 +906,7 @@ function ChannelBlock({ doc, node, item, itemId, readOnly, act }: BlockProps) {
             {split.images.map((img) => (
               <img key={img.src} class="post-image" src={img.src} alt={img.alt} loading="lazy" />
             ))}
+            <PostVideos videos={split.videos} url={item.source_url} lens={lens} />
           </>
         );
       }
@@ -910,6 +938,7 @@ function ChannelBlock({ doc, node, item, itemId, readOnly, act }: BlockProps) {
             {split.images.map((img) => (
               <img key={img.src} class="post-image" src={img.src} alt={img.alt} loading="lazy" />
             ))}
+            <PostVideos videos={split.videos} url={item.source_url} lens={lens} />
           </>
         );
       }
@@ -926,6 +955,7 @@ function ChannelBlock({ doc, node, item, itemId, readOnly, act }: BlockProps) {
           {split.images.map((img) => (
             <img key={img.src} class="post-image" src={img.src} alt={img.alt} loading="lazy" />
           ))}
+          <PostVideos videos={split.videos} url={item.source_url} lens={lens} />
         </>
       );
     }

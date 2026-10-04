@@ -8,8 +8,9 @@
  * hand-rolled renderer that disagreed with both — it ran a quoted list into
  * one paragraph (WT351).
  *
- * Raw HTML is escaped, except img, anchor, and br elements, which are
- * sanitized and kept (Micro.blog bodies carry their photos as <img>).
+ * Raw HTML is escaped, except img, video, anchor, and br elements, which are
+ * sanitized and kept (Micro.blog bodies carry their photos as <img> and
+ * their videos as <video>).
  */
 
 import MarkdownIt from 'markdown-it';
@@ -57,7 +58,13 @@ function protectRichElements(source: string): { text: string; tokens: string[] }
     return token;
   };
 
-  let text = source.replace(/<img\b[^>]*>/gi, (tag) =>
+  let text = source.replace(/<video\b[^>]*>(?:[\s\S]*?<\/video>)?/gi, (tag) => {
+    const src = safeUrl(attribute(tag, 'src') ?? '', true);
+    if (!src) return escapeHtml(tag);
+    const poster = safeUrl(attribute(tag, 'poster') ?? '', true);
+    return keep(`<video class="post-video" controls playsinline preload="none"${poster ? ` poster="${escapeHtml(poster)}"` : ''} src="${escapeHtml(src)}"></video>`);
+  });
+  text = text.replace(/<img\b[^>]*>/gi, (tag) =>
     keep(sanitizedImage(attribute(tag, 'src') ?? '', attribute(tag, 'alt') ?? '', tag)));
   text = text.replace(/!\[([^\]]*)\]\((https?:\/\/[^)\s]+)\)/gi, (_all, alt, src) =>
     keep(sanitizedImage(src, alt)));

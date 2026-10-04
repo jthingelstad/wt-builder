@@ -873,6 +873,17 @@ span[contenteditable]:focus {
   margin: 0 0 15px;
 }
 
+/* A post's own video: the player at the column's width, like its images. */
+.post-video {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 6px;
+  margin: 0 0 15px;
+  background: #000;
+}
+.post-video-email p { margin: -6px 0 15px; }
+
 /* ── the editorial margin ─────────────────────────────────────────────── */
 
 /*

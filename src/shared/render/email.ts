@@ -115,7 +115,7 @@ export function echoesBlocks(planned: PlannedNode, issueNumber: number): Block[]
 function emailNodeBlocks(planned: PlannedNode, issueNumber: number): Block[] {
   // Every block here is the issue's own words and structure; none is Liquid.
   if (planned.node.type !== 'membership' && planned.node.type !== 'echoes') {
-    return nodeBlocks(planned, issueNumber).map(inertTemplate);
+    return nodeBlocks(planned, issueNumber, 'email').map(inertTemplate);
   }
 
   const body: Block[] = planned.node.type === 'echoes'

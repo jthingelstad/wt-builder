@@ -7,7 +7,8 @@
 
 import type { IssueDoc, IssueNode, Item } from '../types.ts';
 import { clockTime, shortDate, wallClock } from '../dates.ts';
-import { splitBody } from '../body.ts';
+import type { VideoTag } from '../body.ts';
+import { splitBody, videoParts } from '../body.ts';
 import { echoBlocks } from '../echoes.ts';
 import { linkUrl } from '../links.ts';
 import type { PlannedItem, PlannedNode } from './plan.ts';
@@ -199,15 +200,15 @@ function plainProse(block: string): boolean {
  * Welding the tags onto the sentence (WT350) put the pictures inside the
  * paragraph, where they lost their left edge.
  */
-export function journalEntryBlocks(item: Item): Block[] {
+export function journalEntryBlocks(item: Item, edition: Edition = 'website'): Block[] {
   const w = wallClock(item.published_at);
   const title = String(item.title ?? '').trim();
   const { prose, tail } = splitBody(item.body);
-  const blocks = postBlocks(prose, 4);
+  const blocks = withVideos(postBlocks(prose, 4), item, edition);
   const weld = blocks.length > 0 && plainProse(blocks[0]!);
   const [first = '', ...rest] = weld ? blocks : ['', ...blocks];
   const body = bodyLines(first).join(' ');
-  const images = tail.match(/<img\b[^>]*>/gi) ?? [];
+  const media = withVideos((tail.match(/<img\b[^>]*>|<video\b[^>]*>(?:[\s\S]*?<\/video>)?/gi) ?? []), item, edition);
   const link = (() => {
     if (!item.source_url) return '';
     // A title is bold, like a Briefly title; a time of day is not.
@@ -215,7 +216,45 @@ export function journalEntryBlocks(item: Item): Block[] {
     return w ? `[${clockTime(w)}](${item.source_url})` : '';
   })();
   const lead = link && body ? `${link} — ${body}` : link || body;
-  return [lead, ...rest, ...images].filter(Boolean);
+  return [lead, ...rest, ...media].filter(Boolean);
+}
+
+/** The editions that print a post's blocks: the site page and the email. */
+export type Edition = 'website' | 'email';
+
+const attr = (value: string) => value.replace(/&/g, '&amp;').replace(/"/g, '&quot;').replace(/</g, '&lt;');
+
+/**
+ * A Micro.blog video, as each edition can show it. The source is an HLS
+ * stream: Safari plays it in a <video>, other browsers show the poster and
+ * stall, and mail clients drop <video> altogether (Gmail, Outlook), so the
+ * Beastbox post printed nothing under its words (WT352, the first video).
+ *
+ * - Website: the player, sized by the page (no 1920px width), then a line to
+ *   the post, where Micro.blog's own player plays it in any browser.
+ * - Email: the poster frame, linked to the post, then the same line. A
+ *   picture and a link are what every mail client shows.
+ */
+export function videoBlocks(video: VideoTag, url: string | undefined, edition: Edition): Block[] {
+  const href = url || video.src;
+  if (edition === 'email') {
+    return [
+      video.poster && href ? `[![A frame from the video](${video.poster})](${href})` : '',
+      href ? `**[▶ Watch the video](${href})**` : '',
+    ].filter(Boolean);
+  }
+  if (!video.src) return [];
+  const poster = video.poster ? ` poster="${attr(video.poster)}"` : '';
+  return [
+    `<video controls playsinline preload="none"${poster} src="${attr(video.src)}" style="width:100%;height:auto"></video>`,
+    url ? `_Video not playing? [Watch it on the blog](${url})._` : '',
+  ].filter(Boolean);
+}
+
+/** Blocks with each video tag in them printed for the edition; the words around it stay blocks of their own. */
+function withVideos(blocks: Block[], item: Item, edition: Edition): Block[] {
+  return blocks.flatMap((block) => videoParts(block).flatMap((part) =>
+    typeof part === 'string' ? [part.trim()] : videoBlocks(part, item.source_url, edition)));
 }
 
 /**
@@ -223,8 +262,8 @@ export function journalEntryBlocks(item: Item): Block[] {
  * body prints whole. It carries no clock — the time belongs to the Journal
  * moment it stopped being.
  */
-export function promotedBlocks(item: Item): Block[] {
-  return postBlocks(item.body);
+export function promotedBlocks(item: Item, edition: Edition = 'website'): Block[] {
+  return withVideos(postBlocks(item.body), item, edition);
 }
 
 /**
@@ -236,7 +275,7 @@ function sectionOf(item: Item, node?: IssueNode): string {
   return (node?.label ?? item.section ?? '').toLowerCase();
 }
 
-function itemBlocks(entry: PlannedItem, node?: IssueNode, issueNumber?: number): Block[] {
+function itemBlocks(entry: PlannedItem, node?: IssueNode, issueNumber?: number, edition: Edition = 'website'): Block[] {
   const { item } = entry;
   switch (item.type) {
     case 'currently': {
@@ -251,8 +290,8 @@ function itemBlocks(entry: PlannedItem, node?: IssueNode, issueNumber?: number):
       return sectionOf(item, node) === 'briefly' ? [brieflyBlock(item)] : linkBlocks(item);
     case 'journal_post':
       return item.presentation === 'promoted'
-        ? promotedBlocks(item)
-        : journalEntryBlocks(item);
+        ? promotedBlocks(item, edition)
+        : journalEntryBlocks(item, edition);
     case 'membership':
     case 'echoes':
       // Attribution with no words under it is an unwritten item, not a credit.
@@ -309,13 +348,13 @@ function echoesBlocks(planned: PlannedNode, issueNumber?: number): Block[] {
  * Blocks for one node, used by the website and email editions alike. The
  * issue number is what the echoes' Ask-Thingy links attribute themselves to.
  */
-export function nodeBlocks(planned: PlannedNode, issueNumber?: number): Block[] {
+export function nodeBlocks(planned: PlannedNode, issueNumber?: number, edition: Edition = 'website'): Block[] {
   const body: Block[] = [];
   const { node } = planned;
 
   if (planned.groups) {
     for (const group of planned.groups) {
-      const items = group.items.flatMap((entry) => itemBlocks(entry, node)).filter((b) => b.trim());
+      const items = group.items.flatMap((entry) => itemBlocks(entry, node, issueNumber, edition)).filter((b) => b.trim());
       if (!items.length) continue;
       if (group.weekday) body.push(`### ${group.weekday}`);
       body.push(...items);
@@ -323,7 +362,7 @@ export function nodeBlocks(planned: PlannedNode, issueNumber?: number): Block[] 
   } else if (node.type === 'echoes') {
     body.push(...echoesBlocks(planned, issueNumber));
   } else {
-    for (const entry of planned.items) body.push(...itemBlocks(entry, node, issueNumber));
+    for (const entry of planned.items) body.push(...itemBlocks(entry, node, issueNumber, edition));
   }
 
   // A heading over nothing is an unwritten section, not a section: an empty

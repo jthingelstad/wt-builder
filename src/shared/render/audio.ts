@@ -19,6 +19,7 @@ import type { IssueDoc, Item } from '../types.ts';
 import { spokenLongDate, wallClock, weekday } from '../dates.ts';
 import { askThingyUrl, echoBlock } from '../echoes.ts';
 import { linkUrl } from '../links.ts';
+import { videoTags } from '../body.ts';
 import type { PlannedNode } from './plan.ts';
 import { bodyLines, isLinkSection, planEdition, postBlocks, quoteMarkdown, withRehostedImages } from './plan.ts';
 import { speakable } from './speech.ts';
@@ -357,12 +358,18 @@ function itemPieces(item: Item, planned: PlannedNode, index: number, total: numb
       const title = spokenTitle(item.title);
       return title ? [{ text: title, boundary: 'paragraph' }] : [];
     }
-    case 'journal_post':
+    case 'journal_post': {
       // A promoted post is an article and opens with its own transition; a
       // Journal moment leads with its title, when it has one.
-      return item.presentation === 'promoted'
+      const pieces = item.presentation === 'promoted'
         ? prosePieces(item.body)
         : withLead(item.title ? terminate(item.title) : '', prosePieces(item.body));
+      // A video is nothing to a listener; say there is one, the way the
+      // opening says the links and photos are in the newsletter (WT352).
+      return videoTags(item.body).length
+        ? [...pieces, { text: VIDEO_LINE, boundary: 'paragraph' }]
+        : pieces;
+    }
     case 'photo':
       return photoPieces(item);
     case 'quote':
@@ -406,11 +413,15 @@ function withoutAsks(body: string | undefined): string {
   return String(body ?? '').split(/\n{2,}/).filter((p) => !/^\s*_?\*?Ask Thingy:?\*?_?:?/i.test(p)).join('\n\n');
 }
 
-/** The first `<img>` or Markdown image in a body, pointed at the CDN copy. */
+/** Spoken after a Journal post that carries a video. */
+export const VIDEO_LINE = "There's a video with this one in the newsletter.";
+
+/** The first `<img>` or Markdown image in a body, pointed at the CDN copy; a video's poster frame otherwise. */
 function firstImage(doc: IssueDoc, body: string | undefined): string | undefined {
   const s = String(body ?? '');
   const m = /<img\b[^>]*\ssrc=["']([^"']+)["']/i.exec(s) ?? /!\[[^\]]*\]\(([^)\s]+)/.exec(s);
-  return m ? withRehostedImages(doc, m[1]!) : undefined;
+  if (m) return withRehostedImages(doc, m[1]!);
+  return videoTags(s).find((v) => v.poster)?.poster || undefined;
 }
 
 /** A Journal moment's chapter title: its title, or its first sentence, clipped. */
