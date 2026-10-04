@@ -23,6 +23,7 @@
 
 import type { IssueDoc, Item } from './types.ts';
 import { giftLine, linkFindings, type LinkFinding } from './link-findings.ts';
+import { MD_TARGET } from './links.ts';
 
 export type HintKind = 'link' | 'unfinished' | 'title';
 
@@ -62,8 +63,8 @@ export function unfinishedTail(text: string): string | undefined {
   const last = lines.at(-1)?.trim() ?? '';
   if (!last || /^([-*+>#|]|\d+[.)]\s|```)/.test(last)) return undefined;
   const plain = last
-    .replace(/!\[[^\]]*\]\([^)]*\)/g, ' ')
-    .replace(/\[([^\]]*)\]\([^)]*\)/g, '$1')
+    .replace(new RegExp(String.raw`!\[[^\]]*\]${MD_TARGET}`, 'g'), ' ')
+    .replace(new RegExp(String.raw`\[([^\]]*)\]${MD_TARGET}`, 'g'), '$1')
     .trimEnd();
   if (/https?:\/\/\S+$/.test(plain)) return undefined;
   const bare = plain.replace(/[)\]}"'”’»*_~`]+$/u, '');

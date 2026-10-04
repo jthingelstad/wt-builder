@@ -1126,7 +1126,7 @@ export function archiveNumber(url: string): number | null {
 /** Markdown links in a body, then bare URLs not already inside one. */
 function bodyLinks(text: string): { label: string | null; url: string }[] {
   const links: { label: string | null; url: string }[] = [];
-  const rest = String(text ?? '').replace(/\[([^\]]*)\]\(\s*<?([^)\s>]+)>?(?:\s+"[^"]*")?\s*\)/g, (_m, label: string, url: string) => {
+  const rest = String(text ?? '').replace(/\[([^\]]*)\]\(\s*<?((?:[^()\s>]|\([^()\s>]*\))+)>?(?:\s+"[^"]*")?\s*\)/g, (_m, label: string, url: string) => {
     links.push({ label, url });
     return ' ';
   });

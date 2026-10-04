@@ -123,6 +123,18 @@ export function withoutTracking(url: string): string {
 }
 
 /**
+ * A Markdown link destination, as a RegExp source with no groups of its own.
+ * CommonMark allows balanced parentheses inside one, so
+ * `[x](https://en.wikipedia.org/wiki/Foo_(bar))` ends at the second `)`, not
+ * the first; a `[^)]` pattern printed "x)" on the canvas and said it aloud in
+ * the audio (WT352's Replacements link).
+ */
+export const MD_DEST = String.raw`(?:[^()\s]|\([^()\s]*\))*`;
+
+/** A link's whole `(destination "title")`, parentheses included. */
+export const MD_TARGET = String.raw`\(${MD_DEST}(?:\s+"[^"]*")?\)`;
+
+/**
  * Every http(s) URL in a run of text: Markdown links, bare URLs, and HTML
  * `href`s alike. One level of parentheses is allowed inside a URL, so a
  * Markdown link to `…/wiki/Foo_(bar)` keeps its `(bar)`.

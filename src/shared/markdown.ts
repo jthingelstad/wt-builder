@@ -14,6 +14,7 @@
  */
 
 import MarkdownIt from 'markdown-it';
+import { MD_DEST } from './links.ts';
 
 function escapeHtml(value: string): string {
   return value
@@ -66,7 +67,7 @@ function protectRichElements(source: string): { text: string; tokens: string[] }
   });
   text = text.replace(/<img\b[^>]*>/gi, (tag) =>
     keep(sanitizedImage(attribute(tag, 'src') ?? '', attribute(tag, 'alt') ?? '', tag)));
-  text = text.replace(/!\[([^\]]*)\]\((https?:\/\/[^)\s]+)\)/gi, (_all, alt, src) =>
+  text = text.replace(new RegExp(String.raw`!\[([^\]]*)\]\((https?:\/\/${MD_DEST})\)`, 'gi'), (_all, alt, src) =>
     keep(sanitizedImage(src, alt)));
   text = text.replace(/<a\b[^>]*href\s*=\s*(?:"([^"]*)"|'([^']*)')[^>]*>(.*?)<\/a>/gis,
     (tag, double, single, label) => {
@@ -75,7 +76,7 @@ function protectRichElements(source: string): { text: string; tokens: string[] }
         ? keep(`<a href="${escapeHtml(url)}" target="_blank" rel="noreferrer">${escapeHtml(label.replace(/<[^>]*>/g, ''))}</a>`)
         : escapeHtml(tag);
     });
-  text = text.replace(/\[([^\]]+)\]\((https?:\/\/[^)\s]+|mailto:[^)\s]+)\)/gi, (_all, label, href) => {
+  text = text.replace(new RegExp(String.raw`\[([^\]]+)\]\((https?:\/\/${MD_DEST}|mailto:${MD_DEST})\)`, 'gi'), (_all, label, href) => {
     const url = safeUrl(href);
     return url
       ? keep(`<a href="${escapeHtml(url)}" target="_blank" rel="noreferrer">${escapeHtml(label)}</a>`)

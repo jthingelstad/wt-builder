@@ -23,6 +23,7 @@ import { type Window, addDays, instantOf, issueWindow, issueSaturday } from '../
 import { bodyLines, orderedNodes, outOfWindow, windowOf } from '../shared/render/plan.ts';
 import { applyDependencies, sectionOf, type Section, type WaitingOn } from '../shared/dependencies.ts';
 import { imagesWithoutAlt } from '../shared/body.ts';
+import { MD_TARGET } from '../shared/links.ts';
 import { findingsSummary, linkFindings } from '../shared/link-findings.ts';
 import { anchorFor, deliverabilityFindings, deliverabilitySummary } from '../shared/deliverability.ts';
 import * as pinboard from './integrations/pinboard.ts';
@@ -1181,8 +1182,8 @@ export function chipName(item: Item, max = 40): string {
   const raw = item.title ?? item.label ?? String(item.commentary ?? item.body ?? '');
   const text = raw
     .replace(/<img\b[^>]*>/gi, ' ')
-    .replace(/!\[[^\]]*\]\([^)]*\)/g, ' ')
-    .replace(/\[([^\]]+)\]\([^)]*\)/g, '$1')
+    .replace(new RegExp(String.raw`!\[[^\]]*\]${MD_TARGET}`, 'g'), ' ')
+    .replace(new RegExp(String.raw`\[([^\]]+)\]${MD_TARGET}`, 'g'), '$1')
     .replace(/[*_`#>]/g, '')
     .replace(/\s+/g, ' ')
     .trim();

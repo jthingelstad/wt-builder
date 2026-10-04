@@ -389,3 +389,22 @@ describe('the source lens shows words, not markup', () => {
     expect(row.title).not.toContain('<img');
   });
 });
+
+describe('a link whose URL has parentheses in it (WT352)', () => {
+  const intro = 'And if you play [The Replacements](https://en.wikipedia.org/wiki/The_Replacements_(band)) everything will just fall into place.';
+
+  it('the canvas links the whole URL and leaves no stray parenthesis', () => {
+    const html = markdownToSafeHtml(intro);
+    expect(html).toContain('href="https://en.wikipedia.org/wiki/The_Replacements_(band)"');
+    expect(html).toContain('>The Replacements</a> everything');
+    expect(html).not.toContain('</a>)');
+  });
+
+  it('the audio says the link text and nothing after it', () => {
+    expect(speakable(intro)).toBe('And if you play The Replacements everything will just fall into place.');
+  });
+
+  it('an image URL with parentheses is dropped whole from the audio', () => {
+    expect(speakable('Look ![a band](https://example.com/a_(b).jpg) here.').replace(/\s+/g, ' ')).toBe('Look here.');
+  });
+});

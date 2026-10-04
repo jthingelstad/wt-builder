@@ -8,18 +8,20 @@
  * before the script reaches the synthesizer.
  */
 
+import { MD_TARGET } from '../links.ts';
+
 /** Strip markup, keeping the words a reader would actually say. */
 export function speakable(text: string | undefined): string {
   let s = String(text ?? '');
 
   // Images carry no spoken content at all — drop them whole, alt text included,
   // because an alt string mid-sentence reads as a non-sequitur.
-  s = s.replace(/!\[[^\]]*\]\([^)]*\)/g, ' ');
+  s = s.replace(new RegExp(String.raw`!\[[^\]]*\]${MD_TARGET}`, 'g'), ' ');
   s = s.replace(/<img\b[^>]*>/gi, ' ');
   s = s.replace(/<figure\b[\s\S]*?<\/figure>/gi, ' ');
 
   // A link is spoken as its text; the URL is not said out loud.
-  s = s.replace(/\[([^\]]*)\]\([^)\s]*(?:\s+"[^"]*")?\)/g, '$1');
+  s = s.replace(new RegExp(String.raw`\[([^\]]*)\]${MD_TARGET}`, 'g'), '$1');
 
   // Any other HTML is structure, not words.
   s = s.replace(/<br\s*\/?>/gi, ' ');

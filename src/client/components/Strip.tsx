@@ -17,6 +17,7 @@ import type { Readiness } from '../api.ts';
 import type { IssueDoc, Item } from '../../shared/types.ts';
 import { audioScript } from '../../shared/render/audio.ts';
 import { bodyLines } from '../../shared/render/plan.ts';
+import { MD_TARGET } from '../../shared/links.ts';
 import { burstAt, celebrateStrip } from '../celebrate.ts';
 import { CircleCheck } from '../icons.tsx';
 
@@ -52,7 +53,7 @@ function glimpse(doc: IssueDoc | undefined, anchor: string): string {
   if (anchor === 'issue') return doc.issue.dek ?? '';
   const item = doc.items[anchor] as Item | undefined;
   const text = item ? bodyLines(item.commentary || item.body || item.media?.caption || '').join(' ') : '';
-  const plain = text.replace(/!?\[([^\]]*)\]\([^)]*\)/g, '$1').replace(/<[^>]+>/g, '').replace(/[*_`>#]/g, '').trim();
+  const plain = text.replace(new RegExp(String.raw`!?\[([^\]]*)\]${MD_TARGET}`, 'g'), '$1').replace(/<[^>]+>/g, '').replace(/[*_`>#]/g, '').trim();
   return plain.length > 96 ? `${plain.slice(0, 95).trimEnd()}…` : plain;
 }
 
