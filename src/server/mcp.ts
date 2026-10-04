@@ -44,6 +44,7 @@ import { findingsSummary, giftLine, linkFindings } from '../shared/link-findings
 import { deliverabilityFindings, deliverabilitySummary } from '../shared/deliverability.ts';
 import { anchorText } from '../shared/anchor.ts';
 import { itemName } from './issue.ts';
+import { rowHints, type Hint } from '../shared/hints.ts';
 
 /** A GET route, run in process, without persisting anything. Refuses anything else. */
 export type Reader = (path: string) => Promise<any>;
@@ -63,7 +64,7 @@ export interface McpDeps {
  * tool, its arguments, or its answer changes, so a client holding a cached
  * tool list knows to fetch it again.
  */
-export const MCP_VERSION = '1.4.0';
+export const MCP_VERSION = '1.5.0';
 
 export const INSTRUCTIONS = `WT Builder is Jamie Thingelstad's authoring app for The Weekly Thing newsletter. This server is READ-ONLY: it shows an issue as the editor does and changes nothing.
 
@@ -190,6 +191,14 @@ function issueHead(doc: IssueDoc) {
 /** Item id → the label of the section that places it. Orphans are in none. */
 const placements = (doc: IssueDoc) =>
   new Map(doc.nodes.flatMap((n) => n.items.map((id) => [id, n.label] as const)));
+
+/**
+ * The rows' hints, as the editor marks them (src/shared/hints.ts): a link
+ * finding, words that stop mid-sentence, a title still the page's own. None
+ * for an issue nothing can change in, as the editor shows none.
+ */
+const hintsOf = (doc: IssueDoc): Map<string, Hint[]> =>
+  doc.issue.put_to_bed_at || doc.issue.imported ? new Map() : rowHints(doc);
 
 /**
  * Why an item does not print, or undefined when it does. An item prints when
@@ -507,6 +516,18 @@ const itemOutput = z.looseObject({ id: z.string(), type: z.string(), in_issue: z
 
 const minutes = (ms: number | undefined) => (ms === undefined ? undefined : Math.round(ms / 60_000));
 
+const HINT_CAP = 40;
+
+/** Every row hint in reading order, for get_status; cut at HINT_CAP, and says so. */
+function hintsView(doc: IssueDoc) {
+  const all = [...hintsOf(doc)].flatMap(([anchor, hs]) =>
+    hs.map((h) => ({ anchor, name: itemName(doc.items[anchor]!), kind: h.kind, text: withoutShareLinks(h.text) })));
+  return {
+    hints: all.slice(0, HINT_CAP),
+    ...(all.length > HINT_CAP ? { hints_note: `${HINT_CAP} of ${all.length} hints shown; get_issue has every item's.` } : {}),
+  };
+}
+
 /** How a caller is named in the log: the tailnet login when Tailscale serve says it, else loopback. */
 /**
  * As the request reports it: Tailscale serve sets the login and the Host for
@@ -607,7 +628,7 @@ export function buildServer(deps: McpDeps, caller = 'local', logged = new Set<st
 
   server.registerTool('get_status', {
     title: 'Where the issue stands',
-    description: 'The readiness strip and the Send view in one answer, for one issue: lifecycle; every pill in the order the issue reads with its state (done; partial = started but under the bar; todo; waiting = made from sections not finished yet, with what it waits on) and where it is finished (done_in: editor, send view, or sync conflict); workable_now, what can be done next and where; the link check (dead and moved links, with the suggested URL, and gift links, which stop working when the gift expires) and the email checks; each send leg (website, buttondown, podcast, archive) with its verification problems and warnings; and the audio script review; and cursor, the newest event id. Pass a cursor back as since to add changes: the items touched since (settled once Jamie has moved to another item or been quiet a minute), the pills whose state moved, from and to, and focus, the item Jamie is editing now. Start here.',
+    description: 'The readiness strip and the Send view in one answer, for one issue: lifecycle; every pill in the order the issue reads with its state (done; partial = started but under the bar; todo; waiting = made from sections not finished yet, with what it waits on) and where it is finished (done_in: editor, send view, or sync conflict); workable_now, what can be done next and where; the link check (dead and moved links, with the suggested URL, and gift links, which stop working when the gift expires) and the email checks; each send leg (website, buttondown, podcast, archive) with its verification problems and warnings; and the audio script review; hints, what the editor marks on a row without touching its pill (link: an open link finding; unfinished: Jamie\'s words stop mid-sentence, or a Currently line of a few words, which an item still being typed also does, so check focus; title: a syndicated title still ending with the site\'s name, Jamie\'s to trim or keep); and cursor, the newest event id. Pass a cursor back as since to add changes: the items touched since (settled once Jamie has moved to another item or been quiet a minute), the pills whose state moved, from and to, and focus, the item Jamie is editing now. Start here.',
     inputSchema: {
       issue: issueArg,
       since: z.number().int().min(0).optional()
@@ -630,6 +651,8 @@ export function buildServer(deps: McpDeps, caller = 'local', logged = new Set<st
       counts: z.object({ done: z.number(), partial: z.number(), waiting: z.number(), todo: z.number(), total: z.number(), pct: z.number() }),
       workable_now: z.array(z.object({ anchor: z.string(), title: z.string(), state: z.string(), done_in: z.string() })),
       pills: z.array(pillOutput),
+      hints: z.array(z.object({ anchor: z.string(), name: z.string(), kind: z.enum(['link', 'unfinished', 'title']), text: z.string() })),
+      hints_note: z.string().optional(),
       checks: z.unknown(),
       sends: z.record(z.string(), z.unknown()),
       script_review: z.unknown(),
@@ -665,6 +688,7 @@ export function buildServer(deps: McpDeps, caller = 'local', logged = new Set<st
         .filter((u) => u.state === 'todo' || u.state === 'partial')
         .map((u) => ({ anchor: anchorOf(u), title: u.title, state: u.state, done_in: doneIn(u) })),
       pills: pillsOf(readiness.units),
+      ...hintsView(doc),
       checks: doc.issue.imported ? null : checksOf(doc),
       sends: sendsOf(doc),
       script_review: review
@@ -733,7 +757,7 @@ export function buildServer(deps: McpDeps, caller = 'local', logged = new Set<st
 
   server.registerTool('get_issue', {
     title: 'The issue, section by section',
-    description: 'The issue as an outline in reading order: each section with its pill state and items, every text field in full (title, commentary, body, label, ask, caption). Each item says whether it prints (in_issue) and, when it does not, why (held_out). authorship is "Jamie" (Jamie\'s words), "syndicated" (from Pinboard or Micro.blog: a link\'s title is the linked page\'s own, its commentary is Jamie\'s), or "Thingy" (a model draft Jamie picked). Items swept in but not placed are listed under held_out_items; removed sections under removed_sections.',
+    description: 'The issue as an outline in reading order: each section with its pill state and items, every text field in full (title, commentary, body, label, ask, caption). Each item says whether it prints (in_issue) and, when it does not, why (held_out), and carries hints when the editor marks its row (link, unfinished, title; see get_status). authorship is "Jamie" (Jamie\'s words), "syndicated" (from Pinboard or Micro.blog: a link\'s title is the linked page\'s own, its commentary is Jamie\'s), or "Thingy" (a model draft Jamie picked). Items swept in but not placed are listed under held_out_items; removed sections under removed_sections.',
     inputSchema: { issue: issueArg },
     outputSchema: {
       issue: headOutput,
@@ -754,6 +778,8 @@ export function buildServer(deps: McpDeps, caller = 'local', logged = new Set<st
       return u ? { pill: u.state, ...(u.context ? { pill_context: u.context } : {}) } : {};
     };
     const notes = [note, doc.issue.imported && IMPORTED_NOTE].filter(Boolean);
+    const hints = hintsOf(doc);
+    const hinted = (id: string) => (hints.get(id) ? { hints: hints.get(id) } : {});
     return {
       issue: issueHead(doc),
       ...(notes.length ? { note: notes.join(' ') } : {}),
@@ -765,7 +791,7 @@ export function buildServer(deps: McpDeps, caller = 'local', logged = new Set<st
         kind: n.kind,
         ...pillOf(n.id),
         items: n.items.flatMap((id) =>
-          Object.hasOwn(doc.items, id) ? [itemView(doc, id, doc.items[id]!, true, pillOf(id))] : []),
+          Object.hasOwn(doc.items, id) ? [itemView(doc, id, doc.items[id]!, true, { ...pillOf(id), ...hinted(id) })] : []),
       })),
       held_out_items: (doc.orphans ?? []).flatMap((id) =>
         Object.hasOwn(doc.items, id) ? [itemView(doc, id, doc.items[id]!, false)] : []),
@@ -797,7 +823,7 @@ export function buildServer(deps: McpDeps, caller = 'local', logged = new Set<st
     const own = ((doc.review as Review | undefined)?.notes ?? []).filter((n) => n.item_id === item_id);
     const then = own.length ? (await reviewVersion(id)).issue : null;
     return {
-      item: itemView(doc, item_id, item, section !== null),
+      item: itemView(doc, item_id, item, section !== null, hintsOf(doc).get(item_id) ? { hints: hintsOf(doc).get(item_id) } : {}),
       section,
       pills: pillsOf(readiness.units.filter((u) => u.anchor === item_id && anchorOf(u) !== 'issue')),
       cursor: cursorOf(events),

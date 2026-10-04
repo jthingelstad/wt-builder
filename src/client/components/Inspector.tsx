@@ -6,6 +6,7 @@ import { api, shouldWriteBack, writeBackMessage, type IssueResponse } from '../a
 import { edited, Input, useFieldValue } from './Field.tsx';
 import { isFrozen } from './Page.tsx';
 import { giftLine, linkFindings, type LinkFinding } from '../../shared/link-findings.ts';
+import { titleHint, unfinishedHint } from '../../shared/hints.ts';
 
 interface Props {
   doc: IssueDoc;
@@ -383,6 +384,16 @@ export function Inspector({ doc, itemId, run, onClose, onError, onBackToReview, 
         <button class="btn" style="margin-top:12px" onClick={writeBack} disabled={writing}>
           {writing ? 'Writing…' : `Retry write to ${item.source}`}
         </button>
+      )}
+
+      {/* The row's own hints, said in full (src/shared/hints.ts). Never a gate. */}
+      {!frozen && (unfinishedHint(item) || titleHint(item)) && (
+        <>
+          <h3 style="margin-top:18px">Hints</h3>
+          {[unfinishedHint(item), titleHint(item)].filter(Boolean).map((text) => (
+            <p class="field-note link-gift" key={text}>{text}</p>
+          ))}
+        </>
       )}
 
       {!frozen && (findings.length > 0 || item.canonical_url) && (

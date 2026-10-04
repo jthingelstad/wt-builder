@@ -22,7 +22,8 @@ import { isFrozen, Page, type Lens, type OrderProposal, type PageActions } from 
 import { Notes, type Note } from './Notes.tsx';
 import { CollapseView } from './Collapse.tsx';
 import { LeftPanel } from './LeftPanel.tsx';
-import { OwedContext, SHORTCUTS } from './Row.tsx';
+import { HintsContext, OwedContext, SHORTCUTS } from './Row.tsx';
+import { rowHints } from '../../shared/hints.ts';
 import { Strip } from './Strip.tsx';
 import { Inspector } from './Inspector.tsx';
 import { ReviewPanel, type PanelNote } from './ReviewPanel.tsx';
@@ -114,6 +115,8 @@ export function Editor({ doc, readiness, busy, error, run, onIndex, onSend, onEr
   ), [readiness]);
   const w = windowOf(doc);
   const frozen = isFrozen(doc);
+  // Frozen, nothing can be acted on, so nothing is hinted.
+  const rowHintMap = useMemo(() => (frozen ? new Map() : rowHints(doc)), [doc, frozen]);
   const [kicker, note] = KICKER[lens];
   // Published, the text stays editable until it is put to bed, and an edit
   // reaches readers only by a re-send (Jamie, 2026-09-28). Frozen, nothing
@@ -518,6 +521,7 @@ export function Editor({ doc, readiness, busy, error, run, onIndex, onSend, onEr
               />
             ) : (
             <OwedContext.Provider value={owed}>
+            <HintsContext.Provider value={{ hints: rowHintMap, open: select }}>
             <Page
               doc={doc}
               lens={lens}
@@ -563,6 +567,7 @@ export function Editor({ doc, readiness, busy, error, run, onIndex, onSend, onEr
                 />
               )}
             </Page>
+            </HintsContext.Provider>
             </OwedContext.Provider>
             )}
           </div>

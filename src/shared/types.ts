@@ -112,6 +112,13 @@ export interface Item {
    * changes both, together (src/server/link-check.ts).
    */
   canonical_url?: string;
+  /**
+   * Pinboard link: Jamie has edited the title here. The page's own title
+   * otherwise prints as fetched, and the row hints when it still ends with
+   * the site's name (src/shared/hints.ts); once he has edited it, what is
+   * left is his choice. The snapshot cannot say so: a write-back refreshes it.
+   */
+  title_edited?: boolean;
   /** What was imported. Editable fields hold the working value. */
   source_snapshot?: Record<string, unknown>;
 

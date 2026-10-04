@@ -622,7 +622,10 @@ export function updateItem(doc: IssueDoc, itemId: string, patch: Partial<Item>):
   const bodyChanged =
     (patch.body !== undefined && patch.body !== item.body) ||
     (patch.member_thanks !== undefined && patch.member_thanks !== item.member_thanks);
+  const titleChanged = item.type === 'pinboard_link' && patch.title !== undefined && patch.title !== item.title;
   Object.assign(item, patch);
+  // He has looked at the page's own title: the trim hint stops (hints.ts).
+  if (titleChanged) item.title_edited = true;
 
   const sourceFieldChanged =
     (item.source === 'Pinboard' && ['title', 'commentary', 'tags'].some((key) => key in patch)) ||

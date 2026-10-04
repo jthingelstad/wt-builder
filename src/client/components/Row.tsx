@@ -14,6 +14,7 @@ import { createContext, createElement, type ComponentChildren } from 'preact';
 import { useContext, useEffect, useRef, useState } from 'preact/hooks';
 
 import type { Item, SyncState } from '../../shared/types.ts';
+import type { Hint } from '../../shared/hints.ts';
 import {
   ArrowDown, ArrowUp, CircleAlert, CloudCheck, CornerDownRight, CornerUpRight,
   Info, PencilLine, Spinner, WandSparkles, X,
@@ -40,18 +41,49 @@ interface RowProps {
  */
 export const OwedContext = createContext<Map<string, string>>(new Map());
 
+/**
+ * What each item's row should say about itself that its pill does not
+ * (src/shared/hints.ts): a link finding, words that stop mid-sentence, a
+ * title that is still the page's own. Warn, don't block: nothing here
+ * changes the pill. `open` shows the item in the inspector.
+ */
+export const HintsContext = createContext<{ hints: Map<string, Hint[]>; open: (anchor: string) => void }>({
+  hints: new Map(),
+  open: () => {},
+});
+
 export function Row({ anchor, structureName, rail, margin, selected, quiet, children }: RowProps) {
   const owedMap = useContext(OwedContext);
   const owed = quiet ? undefined : owedMap.get(anchor);
+  const { hints, open } = useContext(HintsContext);
+  const mine = quiet ? [] : hints.get(anchor) ?? [];
+  // Link findings and title trims are one mark beside the rail: amber when
+  // a link needs Jamie, faint when only the title does. Unfinished words
+  // are said on the page, under them, and hidden while the row has the
+  // caret, so it never fires mid-sentence (canvas.css).
+  const flags = mine.filter((h) => h.kind !== 'unfinished');
+  const unfinished = mine.find((h) => h.kind === 'unfinished');
+  const flagLabel = flags.map((h) => h.text).join('\n');
   return (
     <div class={`row${selected ? ' selected' : ''}`} data-anchor={anchor}>
       <div class="row-structure">
         {structureName && <div class="structure-name">{structureName}</div>}
         {rail}
+        {flags.length > 0 && (
+          <button
+            class={`row-flag ${flags.some((h) => h.kind === 'link') ? 'link' : 'title'}`}
+            title={`${flagLabel}\nOpen the inspector`}
+            aria-label={flagLabel}
+            onClick={() => open(anchor)}
+          >
+            <CircleAlert />
+          </button>
+        )}
       </div>
       <div class="row-page">
         {children}
         {owed && <div class="row-owed">{owed}</div>}
+        {unfinished && <div class="row-hint">{unfinished.text}</div>}
       </div>
       <div class="row-margin">{margin}</div>
     </div>

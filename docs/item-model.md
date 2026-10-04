@@ -53,6 +53,7 @@ source                 direct | Pinboard | Micro.blog | Thingy | generated
 source_id
 source_url
 canonical_url          Pinboard link: the URL the editions print instead of source_url, applied from a link-check finding
+title_edited           Pinboard link: Jamie edited the title here, so the row no longer hints that it is the page's own (src/shared/hints.ts)
 source_snapshot        what was imported, for the "as imported" diff
 title
 body

@@ -518,6 +518,20 @@ issue, with both margins outside it.
   its own `x` and arrows, like a Currently line (2026-09-20). **The cluster sits at `opacity: .3` and goes to 1 on row hover**
   (`.rail`, `transition: opacity .12s`). Every row carries `data-anchor` — the item id,
   node id, or `issue`.
+  **Row hints** (`src/shared/hints.ts`, 2026-10-04; warn, don't block — a hint never
+  moves a pill). Under the rail, at full strength because it is a finding, not a
+  control: one 23×23 `circle-alert` mark, `--amber` when the item has an open link
+  finding (dead, moved, or a gift link, not kept), `--faint` when only its title is the
+  page's own still ending with the site's name (`| The Verge`, `- MacStories`) or running
+  past 90 characters. Its tooltip says each finding; a click opens the inspector, which
+  lists the title and unfinished hints under **Hints** beside its **Links**. The title
+  mark goes once Jamie edits the title (`title_edited`): what is left is his choice, and
+  most published titles keep their suffix. Under the words, in the `.row-owed` style:
+  "Looks unfinished: it ends "…dots feels more" with no full stop" when Jamie's own
+  commentary, intro, outro, or Currently line stops on a word, a comma, or a dash, and
+  "A short Currently line, 3 words" under six words. It is hidden while the row has the
+  caret (`.row:focus-within`), so it never fires mid-sentence. Nothing is hinted on a
+  frozen issue.
 - **Middle cell = the page.** The material, and nothing else.
 - **Right cell = the editorial margin.** Outside the card. Holds the `wand-sparkles`
   draft button (24×24, `#fdf6f1` on `1px #e0cdbf`, terracotta glyph — full strength when

@@ -358,6 +358,14 @@ Claude Code or Codex on otto, or any MCP client on the tailnet.
   `GET /api/issues/:id/render/:lens?item=|section=`, cut from the nodes
   before the plan, inside the edition's frame. `overdue_by_days` sits beside
   `overdue`.
+- **Row hints (1.5.0).** `get_status` carries `hints` (`{anchor, name,
+  kind, text}`, cut at 40 with `hints_note`), and `get_issue` / `get_item`
+  carry each item's `hints`: the same list the editor marks
+  (`src/shared/hints.ts`). `link` is an open link finding on the item,
+  `unfinished` is Jamie's words stopping mid-sentence or a Currently line
+  under six words (an item still being typed does this too; `focus` says
+  which), `title` is a syndicated title still ending with the site's name
+  or over 90 characters, until Jamie edits it. A hint never moves a pill.
 - **Writes none.** Suggestions go to Jamie in the agent's conversation (see
   `docs/decisions.md`). It reads through `readRoute` with `readOnly`, so
   even the skeleton repair the page saves on opening an older issue is

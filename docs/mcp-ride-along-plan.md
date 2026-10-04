@@ -3,7 +3,7 @@
 From the WT352 ride-along (`docs/mcp-ride-along-wt352.md`). The MCP answers
 "where is the issue?" well; this plan gives it **time**: what changed since
 the agent last looked, whether Jamie is done with an item, and what that
-change unblocked. Proposed 2026-10-04; Part A built and deployed the same day as MCP 1.4.0.
+change unblocked. Proposed 2026-10-04; Part A built and deployed the same day as MCP 1.4.0, Part B as 1.5.0 (Jamie: "Do the B items too").
 
 ## The idea that makes it cheap
 
@@ -99,5 +99,10 @@ All warn, don't block. Each shows in the editor and through the MCP.
 ## Decisions for Jamie
 
 - **D1.** Ship Part A during the break (recommended) or after WT352 is sent.
+  *Shipped during the break.*
 - **D2.** Which of B1–B3 to build, and does B2's hint show in the editor or
-  only through the MCP?
+  only through the MCP? *All three, in both (`src/shared/hints.ts`). As
+  built: B1 is a mark under the row's rail rather than beside the title,
+  because the title is an editable; B3 stops once Jamie edits the title,
+  because most published titles (WT350, WT351) keep their suffix; B3's
+  "lost a separator" case is not detected.*

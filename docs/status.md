@@ -67,7 +67,14 @@ finished, what is half-finished, and what has never run.
   Two read-only routes back it: `GET /api/issues/:id/version` (the issue at
   an event or at the review, from `revisions`) and `?item=`/`?section=` on
   the render route. Event summaries now name Intro, Outro, Haiku and
-  Membership by section.
+  Membership by section. 1.5.0 the same day adds row hints
+  (`src/shared/hints.ts`, Part B), shown alike in the editor and through
+  `hints` on `get_status`, `get_issue` and `get_item`: an amber mark under
+  the rail for an open link finding (Jamie expected one on WT352's expired
+  Verge gift link), a faint one for a title still ending with the site's
+  name (until he edits it; `title_edited` on the item), and a line under
+  words that stop mid-sentence or a Currently line under six words, hidden
+  while the row has the caret. Never a gate; no pill moves.
 - **Inspector** — fields per type, editions with locked channels and their
   reasons, provenance, archive references. A Thingy item still shows a
   Reviewed / Mark draft toggle, but it gates nothing: picking or writing the

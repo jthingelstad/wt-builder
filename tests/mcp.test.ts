@@ -509,6 +509,26 @@ describe('riding along (MCP 1.4.0)', () => {
   });
 });
 
+describe('row hints (MCP 1.5.0)', () => {
+  it('get_status and get_issue carry the hints the editor marks; an issue put to bed has none', async () => {
+    draft(375, (d) => {
+      d.items['link-flipcash']!.commentary = 'In short, dots feels more';
+      d.items['link-flipcash']!.title = 'Create Your Own Currency With Flipcash | Flipcash';
+    });
+    const s = (await call('get_status', { issue: 'wt375' })).structuredContent;
+    const mine = s.hints.filter((h: any) => h.anchor === 'link-flipcash');
+    expect(mine.map((h: any) => h.kind).sort()).toEqual(['title', 'unfinished']);
+    expect(mine.find((h: any) => h.kind === 'unfinished').text).toContain('dots feels more” with no full stop');
+    // Hints never move a pill: the commentary clears the bar and is done.
+    expect(s.pills.find((p: any) => p.anchor === 'link-flipcash')?.state).not.toBe('waiting');
+    const notable = (await call('get_issue', { issue: 'wt375' })).structuredContent.sections.find((x: any) => x.label === 'Notable');
+    expect(notable.items.find((i: any) => i.id === 'link-flipcash').hints).toHaveLength(2);
+    expect(notable.items.find((i: any) => i.id === 'link-functions').hints).toBeUndefined();
+    expect((await call('get_item', { issue: 'wt375', item_id: 'link-flipcash' })).structuredContent.item.hints).toHaveLength(2);
+    expect((await call('get_status', { issue: 'wt383' })).structuredContent.hints).toEqual([]);
+  });
+});
+
 describe('prompts', () => {
   it('offers the call sequence for the common asks, naming the issue', async () => {
     const { prompts } = await client.listPrompts();
