@@ -5,7 +5,7 @@
  * sends anything.
  */
 import { expect, test } from '@playwright/test';
-import { ISSUE, reset, store } from './helpers.ts';
+import { ISSUE, open, reset, store } from './helpers.ts';
 import { refusedNotDraft } from '../../src/shared/sends.ts';
 
 test.beforeEach(() => reset());
@@ -20,7 +20,7 @@ test('a failed leg names its last good send', async ({ page }) => {
   });
   store.recordSend(ISSUE, 'buttondown', { status: 'failed', at: '2026-09-27T15:00:00Z', error: 'Buttondown /emails/em-350 failed: 503' });
 
-  await page.goto(`/${ISSUE}/send`);
+  await open(page, '/send');
   const mail = card(page, 'Buttondown');
   await expect(mail.locator('.sc-pill').first()).toHaveText('DID NOT SEND');
   const lastGood = mail.locator('.sc-last-good');
@@ -43,7 +43,7 @@ test('the Archive and put to bed follow the legs that have gone out, not their l
   store.recordSend(ISSUE, 'buttondown', { status: 'failed', at: '2026-09-26T15:00:00Z', error: 'Buttondown /emails/em-350 failed: 503' });
   store.recordSend(ISSUE, 'website', { status: 'sent', at: '2026-09-26T15:05:00Z', external_id: 'f00d', url: 'https://github.com/x/y/commit/f00d' });
 
-  await page.goto(`/${ISSUE}/send`);
+  await open(page, '/send');
   await expect(card(page, 'Buttondown').locator('.sc-pill').first()).toHaveText('DID NOT SEND');
   await expect(card(page, 'Archive').locator('.sc-blocker')).toHaveCount(0);
   const bed = page.locator('.send-card.bed');
@@ -61,7 +61,7 @@ test('the website card waits for an audio reference, not a podcast status', asyn
   store.recordSend(ISSUE, 'podcast', { status: 'sent', at: '2026-09-26T13:00:00Z', url: audio.audio_url, audio });
   store.recordSend(ISSUE, 'podcast', { status: 'failed', at: '2026-09-27T13:00:00Z', error: 'chapter art did not load' });
 
-  await page.goto(`/${ISSUE}/send`);
+  await open(page, '/send');
   await expect(card(page, 'Podcast').locator('.sc-pill').first()).toHaveText('DID NOT SEND');
   // The last episode is still on the CDN, and the server will embed it.
   await expect(card(page, 'Website').locator('.sc-blocker')).toHaveCount(0);
@@ -98,7 +98,7 @@ test('once the email is not a draft, the Buttondown card warns and offers "Updat
   // with the issue as the server holds it.
   const posted = await recordSends(page);
 
-  await page.goto(`/${ISSUE}/send`);
+  await open(page, '/send');
   const mail = card(page, 'Buttondown');
   await expect(mail.locator('.sc-head .btn.primary')).toHaveCount(0);
   const update = mail.locator('.sc-head .btn');
@@ -134,7 +134,7 @@ test('a scheduled or going-out email warns for what it is, and a draft keeps "Up
   const at = '2026-09-26T14:05:00Z';
   store.recordSend(ISSUE, 'buttondown', { status: 'sent', at, external_id: 'em-350', edit_url: 'https://buttondown.com/emails/em-350' });
   store.recordVerify(ISSUE, 'buttondown', { status: 'waiting', at, checks: [], remote_status: 'scheduled' });
-  await page.goto(`/${ISSUE}/send`);
+  await open(page, '/send');
   const mail = card(page, 'Buttondown');
   await expect(mail.locator('.sc-locked')).toContainText('"scheduled", no longer a draft');
   await expect(mail.locator('.sc-locked')).toContainText('it stays scheduled');
@@ -173,7 +173,7 @@ test('a verify record older than remote_status: the refusal switches the card, a
     await route.fulfill({ json: { issue: store.getIssue(ISSUE)!.doc, send: { status: 'sent' } } });
   });
 
-  await page.goto(`/${ISSUE}/send`);
+  await open(page, '/send');
   const button = card(page, 'Buttondown').locator('.sc-head .btn.primary');
   await expect(button).toHaveText('Update draft');
 
@@ -195,7 +195,7 @@ test('an email refused as sent with no check behind it is not counted as verifie
   // Exactly what the server records when it refuses a re-send and no check has run.
   store.recordVerify(ISSUE, 'buttondown', refusedNotDraft(at, 'sent'));
 
-  await page.goto(`/${ISSUE}/send`);
+  await open(page, '/send');
   const mail = card(page, 'Buttondown');
   await expect(mail.locator('.sc-head .btn.primary')).toHaveCount(0);
   await expect(mail.locator('.sc-verify .sc-pill')).not.toHaveText('VERIFIED');
@@ -212,7 +212,7 @@ test('a podcast that went out once is not gated again after a failed re-send', a
   store.recordSend(ISSUE, 'podcast', { status: 'sent', at: '2026-09-26T13:00:00Z', url: audio.audio_url, audio });
   store.recordSend(ISSUE, 'podcast', { status: 'failed', at: '2026-09-27T13:00:00Z', error: 'OpenAI TTS failed: 500' });
 
-  await page.goto(`/${ISSUE}/send`);
+  await open(page, '/send');
   const podcast = card(page, 'Podcast');
   await expect(podcast.locator('.sc-pill').first()).toHaveText('DID NOT SEND');
   await expect(podcast.locator('.sc-head .btn.primary')).toHaveText('Try again');
@@ -236,7 +236,7 @@ test('an unapproved podcast offers "Send without approval…", which asks and th
   store.saveIssue(doc);
   const posted = await recordSends(page);
 
-  await page.goto(`/${ISSUE}/send`);
+  await open(page, '/send');
   const podcast = card(page, 'Podcast');
   await expect(podcast.locator('.sc-pill').first()).toHaveText('NEEDS YOU');
   // Reading and approving stay in the step row, as before.
@@ -261,7 +261,7 @@ test('an unapproved podcast offers "Send without approval…", which asks and th
 // an issue with audio commits plainly, with no question.
 test('a website with no audio offers "Commit without audio…", and one with audio commits without asking', async ({ page }) => {
   const posted = await recordSends(page);
-  await page.goto(`/${ISSUE}/send`);
+  await open(page, '/send');
   const website = card(page, 'Website');
   await expect(website.locator('.sc-blocker')).toContainText('Committing without it asks first');
   const override = website.locator('.sc-head .btn');

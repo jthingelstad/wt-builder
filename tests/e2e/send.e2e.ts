@@ -73,7 +73,7 @@ test('"← Issue" stops a bulk run after the leg that is out', async ({ page }) 
   });
   page.on('dialog', (d) => void d.accept());
 
-  await page.goto(`/${ISSUE}/send`);
+  await open(page, '/send');
   await page.getByRole('button', { name: 'Send the rest' }).click();
   await expect.poll(() => posted).toEqual(['website']);
 
@@ -94,7 +94,7 @@ test('a re-send that fails shows DID NOT SEND, not the last SENT and its VERIFIE
     await route.fulfill({ status: 502, json: { error: 'GitHub failed: 502' } });
   });
 
-  await page.goto(`/${ISSUE}/send`);
+  await open(page, '/send');
   const site = card(page, 'Website');
   await expect(site.locator('.sc-pill').first()).toHaveText('SENT');
   await site.locator('.sc-head .btn.primary').click();
@@ -111,7 +111,7 @@ test('a leg the server has out reads as sending, cannot be pressed, and lands on
   store.recordSend(ISSUE, 'website', { status: 'sending', at: new Date().toISOString() });
   const posted = await interceptSends(page);
 
-  await page.goto(`/${ISSUE}/send`);
+  await open(page, '/send');
   const site = card(page, 'Website');
   await expect(site.locator('.sc-pill').first()).toHaveText('SENDING');
   await expect(site.locator('.sc-head .btn.primary')).toHaveText('Sending…');
@@ -215,7 +215,7 @@ test('what each sent leg produced is shown from the issue, so it survives a relo
   });
   await interceptSends(page);
 
-  await page.goto(`/${ISSUE}/send`);
+  await open(page, '/send');
   await expect(card(page, 'Podcast').getByRole('link', { name: 'File ↗' })).toHaveAttribute('href', AUDIO.audio_url);
   await expect(card(page, 'Podcast').getByText('jamie-v3')).toBeVisible();
   await expect(card(page, 'Podcast').getByText('24:18 · 22.0 MB')).toBeVisible();
@@ -259,7 +259,7 @@ function countSweeps(page: Page): () => number {
 test('the Send view opened directly scans nothing, and neither does going back to the issue', async ({ page }) => {
   await interceptSends(page);
   const sweeps = countSweeps(page);
-  await page.goto(`/${ISSUE}/send`);
+  await open(page, '/send');
   await expect(card(page, 'Website')).toBeVisible();
   await page.waitForTimeout(500);
   expect(sweeps()).toBe(0);
@@ -299,7 +299,7 @@ test('a sending leg older than the in-flight window blocks nothing and is not po
   store.recordSend(ISSUE, 'website', { status: 'sending', at: new Date(Date.now() - 11 * 60_000).toISOString() });
   const posted = await interceptSends(page);
 
-  await page.goto(`/${ISSUE}/send`);
+  await open(page, '/send');
   const site = card(page, 'Website');
   await expect(site.locator('.sc-head .btn.primary')).toHaveText('Try again');
   await expect(site.locator('.sc-head .btn.primary')).toBeEnabled();
@@ -319,7 +319,7 @@ test('a leg out is polled less often the longer it stays out', async ({ page }) 
   await page.clock.install();
   store.recordSend(ISSUE, 'website', { status: 'sending', at: new Date().toISOString() });
   await interceptSends(page);
-  await page.goto(`/${ISSUE}/send`);
+  await open(page, '/send');
   await expect(card(page, 'Website').locator('.sc-pill').first()).toHaveText('SENDING');
 
   const reads = countReads(page);
@@ -360,7 +360,7 @@ test('"Re-send all sent" asks first, and a no sends nothing', async ({ page }) =
   const asked: string[] = [];
   page.on('dialog', (d) => { asked.push(d.message()); void d.dismiss(); });
 
-  await page.goto(`/${ISSUE}/send`);
+  await open(page, '/send');
   await page.getByRole('button', { name: 'Re-send all sent' }).click();
   await expect.poll(() => asked).toHaveLength(1);
   expect(asked[0]).toContain('Website, Buttondown and Archive');
@@ -378,7 +378,7 @@ test('"← Issue" stops "Re-send all sent" after the leg that is out', async ({ 
   });
   page.on('dialog', (d) => void d.accept());
 
-  await page.goto(`/${ISSUE}/send`);
+  await open(page, '/send');
   await page.getByRole('button', { name: 'Re-send all sent' }).click();
   await expect.poll(() => posted).toEqual(['website']);
   await page.locator('.send-layer .header').getByRole('button', { name: 'Issue' }).click();
@@ -403,7 +403,7 @@ test('a send that answers after the view has moved to another issue leaves that 
       if (r.method() === 'GET' && new URL(r.url()).pathname === '/api/issues/fixture-wt349') otherReads.n += 1;
     });
 
-    await page.goto(`/${ISSUE}/send`);
+    await open(page, '/send');
     await card(page, 'Website').locator('.sc-head .btn.primary').click();
     await popTo(page, '/fixture-wt349');
     await expect(page.locator('.app .header .wt')).toHaveText('WT349');
