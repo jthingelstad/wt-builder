@@ -60,6 +60,8 @@ interface Ctx {
   url: URL;
   body: () => Promise<any>;
   raw: () => Promise<Buffer>;
+  /** Set by readRoute (the MCP interface): a GET answers without persisting anything. */
+  readOnly?: boolean;
 }
 
 export class HttpError extends Error {
@@ -557,7 +559,11 @@ const routes: [RegExp, string, (ctx: Ctx, params: string[]) => Promise<unknown>]
     editorial: editorial.isConfigured() ? 'configured' : 'MISSING',
   })],
 
-  [/^\/api\/issues$/, 'GET', async () => ({
+  [/^\/api\/issues$/, 'GET', async ({ url }) => url.searchParams.get('heads') === '1'
+    // Heads only, for naming an issue: no readiness, no timing, no documents.
+    // The full list costs ~0.6 s at 352 issues, all of it on the event loop.
+    ? { issues: store.listIssueHeads() }
+    : ({
     issues: store.listIssues().map((r) => {
       const ready = issues.readiness(r.doc);
       const items = Object.values(r.doc.items);
@@ -622,11 +628,14 @@ const routes: [RegExp, string, (ctx: Ctx, params: string[]) => Promise<unknown>]
     return { issue: row.doc, readiness: issues.readiness(row.doc) };
   }],
 
-  [/^\/api\/issues\/([^/]+)$/, 'GET', async (_ctx, [id]) => {
+  [/^\/api\/issues\/([^/]+)$/, 'GET', async ({ readOnly }, [id]) => {
     const doc = requireIssue(id!);
     // Repair an older skeleton on the way out, once, and persist it so the
     // repair is visible in the document rather than re-applied on every read.
+    // Not for the MCP interface: an agent reading the back catalogue must
+    // not write to published issues, so it sees the repair unsaved.
     const repaired = issues.normalizeSkeleton(doc);
+    if (repaired && readOnly) return { issue: repaired, readiness: issues.readiness(repaired) };
     if (repaired) return saved(repaired);
     return { issue: doc, readiness: issues.readiness(doc) };
   }],
@@ -691,10 +700,10 @@ const routes: [RegExp, string, (ctx: Ctx, params: string[]) => Promise<unknown>]
     return { ...saved(doc), report };
   }],
 
-  /** The issue's event log, newest first. */
-  [/^\/api\/issues\/([^/]+)\/events$/, 'GET', async (_ctx, [id]) => {
+  /** The issue's event log, newest first: the latest 500, or with ?all=1 all of it (the MCP pages it). */
+  [/^\/api\/issues\/([^/]+)\/events$/, 'GET', async ({ url }, [id]) => {
     requireIssue(id!); // 404 for a missing issue, not an empty log
-    return { events: store.listEvents(id!) };
+    return { events: url.searchParams.get('all') === '1' ? store.allEvents(id!).reverse() : store.listEvents(id!) };
   }],
 
   [/^\/api\/issues\/([^/]+)\/render\/([a-z]+)$/, 'GET', async (_ctx, [id, lens]) => {
@@ -1884,8 +1893,9 @@ function guardEdge(req: IncomingMessage, method: string, pathname: string): void
 }
 
 /**
- * A GET route, run in process, for the MCP tools: they see exactly what the
- * page sees. Nothing but a GET is reachable this way, so no tool can write.
+ * A GET route, run in process, for the MCP tools: they see what the page
+ * sees. Nothing but a GET is reachable this way, and it runs read-only, so
+ * no tool can write: not even the skeleton repair a GET saves for the page.
  */
 export async function readRoute(path: string): Promise<unknown> {
   const url = new URL(path, 'http://localhost');
@@ -1896,14 +1906,19 @@ export async function readRoute(path: string): Promise<unknown> {
     const params = match.slice(1).map((p) => decodeURIComponent(p));
     // req and res are never read by a GET handler; body and raw are empty.
     return handler(
-      { req: undefined as never, res: undefined as never, url, body: async () => ({}), raw: async () => Buffer.alloc(0) },
+      { req: undefined as never, res: undefined as never, url, body: async () => ({}), raw: async () => Buffer.alloc(0), readOnly: true },
       params,
     );
   }
   throw new HttpError(404, `no GET route for ${url.pathname}`);
 }
 
-const mcpDeps: McpDeps = { read: readRoute, scriptHash: (doc) => scriptHash(audioScript(doc)) };
+const mcpDeps: McpDeps = {
+  read: readRoute,
+  scriptHash: (doc) => scriptHash(audioScript(doc)),
+  linkedBefore: (url, issue) => linkedBefore(url, issue, store.listIssues()),
+  log: (line) => console.log(line),
+};
 
 const server = createServer(async (req, res) => {
   const method = req.method ?? 'GET';

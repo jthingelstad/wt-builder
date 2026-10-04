@@ -44,6 +44,19 @@ finished, what is half-finished, and what has never run.
   browser Origin from another site 403), and on the tailnet as the editor
   is. Registered in Claude Code at user scope as `wt-builder`. Tested with
   the SDK's client in `tests/mcp.test.ts`; not yet used on a real draft.
+  After three adversarial rounds the same day (interface 1.2.0): it reads
+  without persisting (`readOnly` on the route context, so the skeleton
+  repair a GET saves for the page is not saved for an agent); it answers
+  POST only (405 otherwise, so no event stream is held open) and refuses a
+  JSON-RPC batch (one request of 500 calls held the event loop 24 s); it
+  pages events past the 500 the page shows (`events?all=1`); it names an
+  issue through `GET /api/issues?heads=1` (id, number, date, status; no
+  readiness), which took a call from ~245 ms to ~15 ms of event loop; it
+  withholds draft-share links and scrubs stored error text; four prompts
+  (`finish_draft`, `briefly_pass`, `proof_issue`, `compare_with_last_week`);
+  and every call is one `[mcp]` line in the service log, including a call
+  the SDK rejects before the tool runs, so `npm run watch` shows an agent
+  reading the issue.
 - **Inspector** — fields per type, editions with locked channels and their
   reasons, provenance, archive references. A Thingy item still shows a
   Reviewed / Mark draft toggle, but it gates nothing: picking or writing the

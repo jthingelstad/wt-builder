@@ -108,8 +108,10 @@ the old data, which looks exactly like a rendering bug.
 the text, and the editions, and suggests in its own conversation. Claude Code
 has it at user scope as `wt-builder` (`claude mcp add --scope user --transport
 http wt-builder http://127.0.0.1:4317/mcp`). A tool reads only through
-`readRoute`, which runs GET routes; keep it that way until writes have their
-own plan (`docs/mcp-plan.md`, *Later*).
+`readRoute`, which runs GET routes read-only; keep it that way until writes
+have their own plan (`docs/mcp-plan.md`, *Later*). Every call is an `[mcp]`
+line in the service log, so `npm run watch` shows an agent reading the issue.
+Bump `MCP_VERSION` when a tool changes.
 
 > **Never serve this through Funnel or on a Funnel-enabled port.** Tailscale
 > terminates identity in front of the process. There is no authentication layer

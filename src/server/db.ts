@@ -180,6 +180,13 @@ export function openDb(path = config.dbPath): Database.Database {
       .all() as { number: number; publication_date: string; status: string }[];
   }
 
+  /** Id, number, date, and status, no documents: naming an issue (the MCP interface) costs one query. */
+  export function listIssueHeads(): { id: string; number: number; publication_date: string; status: string }[] {
+    return openDb()
+      .prepare('SELECT id, number, publication_date, status FROM issues ORDER BY number DESC')
+      .all() as { id: string; number: number; publication_date: string; status: string }[];
+  }
+
   export function getIssue(id: string): IssueRow | null {
     const row = openDb().prepare('SELECT * FROM issues WHERE id = ?').get(id) as
       | Record<string, unknown>
@@ -434,7 +441,7 @@ export function allEvents(issueId: string): IssueEvent[] {
 /** Newest first. */
 export function listEvents(issueId: string, limit = 500): IssueEvent[] {
   return openDb()
-    .prepare('SELECT id, at, kind, summary FROM events WHERE issue_id = ? ORDER BY id DESC LIMIT ?')
+    .prepare('SELECT id, at, kind, summary, anchor FROM events WHERE issue_id = ? ORDER BY id DESC LIMIT ?')
     .all(issueId, limit) as IssueEvent[];
 }
 

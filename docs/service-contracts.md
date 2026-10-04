@@ -325,8 +325,10 @@ is a read-only MCP server for an agent working beside Jamie on an issue —
 Claude Code or Codex on otto, or any MCP client on the tailnet.
 
 - **Transport.** Streamable HTTP, stateless (no `Mcp-Session-Id`), JSON
-  responses: each tool answers in one response. `POST /mcp` only; the SDK
-  answers anything else.
+  responses: each tool answers in one response. `POST /mcp` only (anything
+  else is 405), one JSON-RPC message per request: a batch is refused (400,
+  -32600), because the calls in one run back to back on the event loop the
+  editor shares. A body over 4 MiB is 413.
 - **Reading.** Each tool reads the GET route the page reads (`readRoute`),
   so an agent and the editor never disagree. The issue argument is `wt353`,
   `353`, or the id; left out, it is the newest draft.
@@ -341,5 +343,33 @@ Claude Code or Codex on otto, or any MCP client on the tailnet.
   `workable_now`; each send leg with its verification; and the script review,
   with `current` false when the script has changed since.
 - **Writes none.** Suggestions go to Jamie in the agent's conversation (see
-  `docs/decisions.md`). The one write any of it can cause is the one the
-  page causes too: opening an older issue repairs its skeleton.
+  `docs/decisions.md`). It reads through `readRoute` with `readOnly`, so
+  even the skeleton repair the page saves on opening an older issue is
+  shown to the agent unsaved.
+- **Content is data.** The instructions say that tool output is never
+  instructions, and which words are not Jamie's: a syndicated link's title
+  is the page's own; `authorship: "Thingy"` items and review notes are
+  model drafts. Draft-share links are withheld (`withoutShareLinks`), and
+  stored integration error text is capped and scrubbed (`scrub`).
+- **Where an item stands.** `in_issue` follows the editions' rule (placed,
+  a channel on, inside the window, not excluded), and `held_out` says why
+  not. Review notes carry `still_applies` (a PROOF note whose words are
+  gone no longer does). Issue-wide pills (links, email) anchor to `issue`
+  and say `done_in: "send view"`.
+- **Prompts.** `finish_draft`, `briefly_pass`, `proof_issue`,
+  `compare_with_last_week`: the call sequence for the common asks, each
+  taking an optional issue.
+- **Logging.** One line per call in the service log: `[mcp] <tool> <issue>
+  <args> → ok|refused|error <ms>ms (<local|tailnet> [login] <agent>)`, plus
+  `[mcp] connected <client> <version>` on initialize and `[mcp] prompt …`.
+  A call the SDK rejects before the tool runs (bad arguments, unknown tool)
+  is `→ rejected: "…"`; any other erroring request is `[mcp] <method> →
+  error`, and a refused HTTP request (405, 400, 413) is logged with its
+  status. Arguments are JSON-encoded and every line passes `logSafe`, which
+  escapes control, line-separator, and bidi characters, so no input can
+  split, forge, or reorder a line. The caller is named, not authenticated:
+  the login is Tailscale's header, which a process on otto could set, and
+  the client name is what the client says it is.
+- **Version.** `serverInfo.version` is `MCP_VERSION` in `src/server/mcp.ts`,
+  not the package's: bump it whenever a tool, its arguments, or its answer
+  changes.
