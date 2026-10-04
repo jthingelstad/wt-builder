@@ -51,6 +51,9 @@ proof pass adds a PROOF note (MCP 1.5.3).
 The script read flagged four voice issues and missed "The Replacements)". A
 mechanical pass first: stray `)` `]` `](`, URLs, Markdown or HTML residue, bare
 emoji. Its findings join the script review.
+*Built 2026-10-04*: `src/shared/render/script-lint.ts` runs first in the
+script read; its findings lead, name their item, and the model's duplicates
+drop (MCP 1.5.4). The representative issue lints clean; WT352 finds ":-)".
 
 ### 4. Echoes fails like a person would say it (S)
 

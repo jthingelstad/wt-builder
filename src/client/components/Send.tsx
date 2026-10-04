@@ -853,7 +853,7 @@ function ScriptReviewNote({ gate }: { gate: { review?: ScriptReview; stale: bool
       </div>
       {r.findings.map((f, i) => (
         <div class="sc-evidence item" key={i}>
-          [{f.block}] “{f.quote}” — {f.problem}{f.suggestion ? ` Say: “${f.suggestion}”` : ''}
+          [{f.block}]{f.where ? ` ${f.where}:` : ''} “{f.quote}” — {f.problem}{f.suggestion ? ` Say: “${f.suggestion}”` : ''}
         </div>
       ))}
     </div>

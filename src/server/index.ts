@@ -43,6 +43,7 @@ import { linkUrl } from '../shared/links.ts';
 import * as githubRepo from './integrations/github.ts';
 import * as audio from './integrations/audio.ts';
 import { audioScript } from '../shared/render/audio.ts';
+import { joinScriptReview, lintScript } from '../shared/render/script-lint.ts';
 import { heldOut, outOfWindow, windowOf } from '../shared/render/plan.ts';
 import { archiveInputs, emailSubject, issueEntry, siteInputs } from './publish.ts';
 import * as draftShare from './share.ts';
@@ -1493,7 +1494,22 @@ const routes: [RegExp, string, (ctx: Ctx, params: string[]) => Promise<unknown>]
       if (!current || current.script_hash !== hash) throw new HttpError(409, 'the script has changed since it was read — read it again first');
       return savedFresh(id!, (d) => { d.script_review = { ...current, approved_at: new Date().toISOString() }; });
     }
-    const r = await editorial.reviewScript(blocks);
+    // The mechanical lint reads first and cannot miss what it looks for (a
+    // stray ")", a URL, markup, an emoji); the model listens for the rest.
+    // Each finding names the item it is in, when the block speaks one.
+    const lint = lintScript(blocks);
+    const joined = joinScriptReview(lint, await editorial.reviewScript(blocks));
+    const r = {
+      ...joined,
+      findings: joined.findings.map((f) => {
+        const b = blocks[f.block];
+        const item = b?.itemId ? doc.items[b.itemId] : undefined;
+        const node = b?.nodeId ? doc.nodes.find((nd) => nd.id === b.nodeId) : undefined;
+        if (item) return { ...f, anchor: b!.itemId!, where: issues.itemName(item) };
+        if (node) return { ...f, anchor: node.id, where: String(node.label) };
+        return f;
+      }),
+    };
     store.logEvent(id!, 'review', `Script read — ${r.verdict === 'ready' ? 'ready' : `${r.findings.length} to look at`}`);
     return savedFresh(id!, (d) => {
       d.script_review = { at: new Date().toISOString(), script_hash: hash, verdict: r.verdict, summary: r.summary, findings: r.findings };

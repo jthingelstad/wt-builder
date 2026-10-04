@@ -294,7 +294,12 @@ export interface ScriptReview {
   script_hash: string;
   verdict: 'ready' | 'look';
   summary: string;
-  findings: { block: number; quote: string; problem: string; suggestion?: string }[];
+  /**
+   * The mechanical lint's findings (`mechanical`), then the model's
+   * (src/shared/render/script-lint.ts). `anchor` and `where` name the item or
+   * section the block speaks, when it speaks one.
+   */
+  findings: { block: number; quote: string; problem: string; suggestion?: string; mechanical?: boolean; anchor?: string; where?: string }[];
   /** Jamie's go-ahead, for this script. */
   approved_at?: string;
 }

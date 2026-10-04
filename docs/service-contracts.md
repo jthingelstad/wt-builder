@@ -364,7 +364,8 @@ Claude Code or Codex on otto, or any MCP client on the tailnet.
   total}` per unfinished input) and a `waiting` sentence; the counts;
   `workable_now`; the link check (dead, moved, and `gift` links with
   their expiry and a `warning` sentence) and the email checks; each send leg with its verification; and the script review,
-  with `current` false when the script has changed since.
+  with `current` false when the script has changed since. 1.5.4 adds
+  `mechanical`: how many of its `findings` the mechanical lint made.
 - **Riding along (1.4.0).** `get_status`, `get_issue` and `get_item` return
   `cursor`, the issue's newest event id. `get_status since=<cursor>` adds
   `changes`: `items` touched after it (each with `kinds`, `last_edited_at`,

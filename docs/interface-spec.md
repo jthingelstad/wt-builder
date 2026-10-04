@@ -43,7 +43,12 @@ Each card is white on `#eeedea`, radius 12px, and changes border with state
 The Podcast's first step is a **gate**, `Read the script`: Jamie does not read the
 script himself (WT351), so `Have it read` has a model read it for the ear —
 markup, symbols, cut-off sentences, a list run together — and the step shows its
-summary and each finding as `[block] "quote" — problem`. `Approve` is enabled once
+summary and each finding as `[block] Item: "quote" — problem`, naming the item or
+section the block speaks. A mechanical lint reads first (2026-10-04,
+`src/shared/render/script-lint.ts`): a stray `)` or `]`, a `](`, a URL, Markdown or
+HTML left behind, an emoticon or emoji. Only an unbalanced bracket counts, so
+"(as a dot)" is fine. Its findings lead the list and the model's same finding is not
+repeated (WT352's "The Replacements)" was missed by the model). `Approve` is enabled once
 it has been read, findings or not; it is advice, never a veto. The review and the
 approval are saved on the issue and tied to the script's hash: they survive a
 reload, and an edit to the spoken text afterwards asks for another reading. A

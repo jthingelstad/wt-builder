@@ -151,6 +151,17 @@ finished, what is half-finished, and what has never run.
   warns ("could not tell whether … exists"): on a first send that can leave
   `cover.jpg` missing, with nothing on the card to say so. Review
   2026-09-27, appendix (Audio).
+- **The script read starts with a mechanical lint** (2026-10-04, plan
+  item 3) — the model missed WT352's "The Replacements)". Before the model
+  reads it, `POST /api/issues/:id/script/review` runs
+  `src/shared/render/script-lint.ts` over the rendered script: unbalanced
+  `)` `]` `(` `[`, a `](`, URLs, Markdown residue (`**`, `_x_`, `#` or `>`
+  at a line start, backticks, `![`), HTML tags and entities, emoticons and
+  emoji. Its findings (`mechanical: true`) lead the review; a model finding
+  on the same block and words is dropped; every finding names its item or
+  section (`anchor`, `where`), and the Send view shows the name. The
+  representative issue's script lints clean, as did WT350 and WT351; WT352's
+  finds its ":-)". MCP 1.5.4 counts them (`script_review.mechanical`).
 - **The server holds the podcast to the approved script** (2026-09-28) —
   the gate was the client's alone, and the server synthesized whatever
   script it held. A podcast send now needs `script_review.approved_at` on

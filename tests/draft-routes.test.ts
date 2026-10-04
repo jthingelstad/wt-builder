@@ -258,3 +258,44 @@ describe('the link wand', () => {
     expect(String(create.mock.calls[0]![0].messages[0].content)).not.toContain('was in the Weekly Thing before');
   });
 });
+
+describe('the script read starts with the mechanical lint (plan item 3)', () => {
+  it('a stray ")" is found without the model, names its item, and the model\'s same finding is not repeated', async () => {
+    const { audioScript } = await import('../src/shared/render/audio.ts');
+    const doc = fixture();
+    doc.issue.id = 'wt396';
+    doc.issue.number = 396;
+    doc.items['link-flipcash']!.commentary = `${PARAGRAPH} I loved The Replacements) back then.`;
+    store.saveIssue(doc);
+    const blocks = audioScript(doc);
+    const at = blocks.findIndex((b) => b.text.includes('Replacements)'));
+    expect(at).toBeGreaterThan(-1);
+    const intro = blocks.findIndex((b) => b.itemId === 'intro-1');
+
+    create.mockResolvedValue({
+      stop_reason: 'end_turn', stop_details: null,
+      content: [{ type: 'text', text: JSON.stringify({
+        verdict: 'look',
+        summary: 'Two things would trip a listener.',
+        findings: [
+          { block: at, quote: 'Replacements)', problem: 'a stray parenthesis' },
+          { block: intro, quote: 'Welcome back', problem: 'something the model heard' },
+        ],
+      }) }],
+    });
+    const res = await fetch(`${base}/api/issues/wt396/script/review`, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: '{}' });
+    expect(res.status).toBe(200);
+    const review = (await res.json() as { issue: IssueDoc }).issue.script_review!;
+    expect(review.verdict).toBe('look');
+    expect(review.findings).toEqual([
+      {
+        block: at, quote: 'loved The Replacements) back', mechanical: true,
+        problem: 'A ")" with nothing to close: the voice may say it, or stumble.',
+        anchor: 'link-flipcash', where: expect.any(String),
+      },
+      { block: intro, quote: 'Welcome back', problem: 'something the model heard', anchor: 'intro-1', where: 'Intro' },
+    ]);
+    expect(review.summary).toBe('Two things would trip a listener. The mechanical check found 1 thing the voice would say or stumble on.');
+    expect(store.listEvents('wt396').map((e) => e.summary)).toContain('Script read — 2 to look at');
+  });
+});
