@@ -20,9 +20,24 @@ export function item(id: string): Record<string, unknown> {
   return store.getIssue(ISSUE)!.doc.items[id] as unknown as Record<string, unknown>;
 }
 
+/**
+ * Open the fixture issue and wait until its layout has settled.
+ *
+ * The browser is offline too: anything not served by the test server is
+ * refused. The fixture's cover and a Journal photo point at the real CDN,
+ * and an image has no size until it answers, so when it loaded from the
+ * internet it moved every row below it by a few hundred pixels at whatever
+ * moment the network chose. A click that landed as a row moved went to the
+ * wrong element: the hints test clicked a row's mark, the inspector never
+ * opened, and it failed once on WebKit (plan before WT353, item 5). Refused,
+ * an image fails in milliseconds, and open() waits for every image to have
+ * finished one way or the other before the test touches anything.
+ */
 export async function open(page: Page): Promise<void> {
+  await page.route((url) => url.hostname !== '127.0.0.1', (route) => route.abort());
   await page.goto(`/${ISSUE}`);
   await page.locator('[data-anchor]').first().waitFor();
+  await page.waitForFunction(() => [...document.images].every((img) => img.complete));
 }
 
 /** Put the caret at the end of an editable, the way a click past the text does. */
