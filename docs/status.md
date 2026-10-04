@@ -34,6 +34,16 @@ finished, what is half-finished, and what has never run.
   refuse a waiting unit with 409 `waiting` unless `?force=1`, which drafts
   and logs "Override — drafted … before … was done"; the editor confirms
   first.
+- **MCP interface, read-only** (2026-10-04) — `/mcp` on the service's own
+  port (`src/server/mcp.ts`; plan `docs/mcp-plan.md`, Part B): stateless
+  Streamable HTTP, JSON responses, eight tools (`get_status`, `list_issues`,
+  `get_issue`, `get_item`, `render_issue`, `get_review`, `list_events`,
+  `get_timing`), all `readOnlyHint`. Every tool reads through `readRoute`,
+  which runs GET routes only, so no tool can write, call a model, or reach
+  GitHub. Behind the edge like every route (a foreign Host is 421, a
+  browser Origin from another site 403), and on the tailnet as the editor
+  is. Registered in Claude Code at user scope as `wt-builder`. Tested with
+  the SDK's client in `tests/mcp.test.ts`; not yet used on a real draft.
 - **Inspector** — fields per type, editions with locked channels and their
   reasons, provenance, archive references. A Thingy item still shows a
   Reviewed / Mark draft toggle, but it gates nothing: picking or writing the

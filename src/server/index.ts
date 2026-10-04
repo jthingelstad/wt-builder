@@ -48,6 +48,7 @@ import { archiveInputs, emailSubject, issueEntry, siteInputs } from './publish.t
 import * as draftShare from './share.ts';
 import { type EarlierDelivery, verifierFor } from './verify.ts';
 import { issueTiming, type IssueTiming } from '../shared/timing.ts';
+import { handleMcp, type McpDeps } from './mcp.ts';
 import { execFile } from 'node:child_process';
 import { promisify } from 'node:util';
 
@@ -1882,6 +1883,28 @@ function guardEdge(req: IncomingMessage, method: string, pathname: string): void
   }
 }
 
+/**
+ * A GET route, run in process, for the MCP tools: they see exactly what the
+ * page sees. Nothing but a GET is reachable this way, so no tool can write.
+ */
+export async function readRoute(path: string): Promise<unknown> {
+  const url = new URL(path, 'http://localhost');
+  for (const [pattern, verb, handler] of routes) {
+    if (verb !== 'GET') continue;
+    const match = pattern.exec(url.pathname);
+    if (!match) continue;
+    const params = match.slice(1).map((p) => decodeURIComponent(p));
+    // req and res are never read by a GET handler; body and raw are empty.
+    return handler(
+      { req: undefined as never, res: undefined as never, url, body: async () => ({}), raw: async () => Buffer.alloc(0) },
+      params,
+    );
+  }
+  throw new HttpError(404, `no GET route for ${url.pathname}`);
+}
+
+const mcpDeps: McpDeps = { read: readRoute, scriptHash: (doc) => scriptHash(audioScript(doc)) };
+
 const server = createServer(async (req, res) => {
   const method = req.method ?? 'GET';
   // Parsed inside the try, against a fixed base: the Host header is not a URL
@@ -1897,6 +1920,9 @@ const server = createServer(async (req, res) => {
     }
     guardEdge(req, method, url.pathname);
     guardBed(method, url.pathname);
+    // The MCP interface (mcp.ts): read-only, after the edge like everything
+    // else. It answers for itself and reads only through readRoute.
+    if (url.pathname === '/mcp') return await handleMcp(req, res, mcpDeps);
     for (const [pattern, verb, handler] of routes) {
       const match = pattern.exec(url.pathname);
       if (!match || verb !== method) continue;

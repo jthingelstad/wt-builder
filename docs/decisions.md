@@ -318,3 +318,19 @@ slip to Sunday or Monday (the archive's 67 Sunday dates are the old
 workflow's send timestamps), but the date is the issue's identity: a Sunday
 or Monday date snaps *back* to the Saturday just past, a midweek date snaps
 forward to the target. The window can therefore never move with a late send.
+
+## The MCP interface reads; it does not write (2026-10-04)
+
+`/mcp` has no write tool, and that is the decision, not a gap to fill
+quietly. Jamie, 2026-10-04: "Perhaps we should make v1 read only?" An agent
+reads the issue as the editor shows it and suggests in its own
+conversation; Jamie applies what is worth keeping. Every word in the issue
+stays Jamie's choice without a new attribution model.
+Writes are a v2 with its own plan (`docs/mcp-plan.md`, *Later*): proposals
+Jamie accepts on the page, the editor following outside changes live, and an
+actor on each event.
+
+It has no authentication either, by the same reasoning as the editor: it is
+reached on loopback and on the tailnet, where Tailscale has already said who
+is asking, and it is never served through Funnel. Restricting `/mcp` alone
+to loopback would protect nothing while the editor beside it can write.

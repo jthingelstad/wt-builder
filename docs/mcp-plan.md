@@ -2,6 +2,7 @@
 
 Status: **approved 2026-10-04** (Part A with the dependency map as written,
 Part B as a read-only v1, D2 as recommended). **Part A built 2026-10-04.**
+**Part B (B1-B3) built 2026-10-04**; B4, trying it on a real draft, is next.
 
 Open follow-up (Jamie, 2026-10-04): "I think Membership SHOULD pull context
 from the current issue but we can come back to that." Today its wand is

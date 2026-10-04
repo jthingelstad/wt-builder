@@ -317,3 +317,29 @@ and writes nothing until Jamie picks one.
 Review opens an existing read rather than re-running it — re-reading on every
 open spends a model call to show Jamie something he has already seen. `Read
 again` is the explicit re-run.
+
+## Offered, not called: the MCP interface
+
+The other direction: an agent calls WT Builder. `/mcp` (`src/server/mcp.ts`)
+is a read-only MCP server for an agent working beside Jamie on an issue —
+Claude Code or Codex on otto, or any MCP client on the tailnet.
+
+- **Transport.** Streamable HTTP, stateless (no `Mcp-Session-Id`), JSON
+  responses: each tool answers in one response. `POST /mcp` only; the SDK
+  answers anything else.
+- **Reading.** Each tool reads the GET route the page reads (`readRoute`),
+  so an agent and the editor never disagree. The issue argument is `wt353`,
+  `353`, or the id; left out, it is the newest draft.
+- **Answers.** Structured content with an `outputSchema`, and the same JSON
+  as text. A refusal (no such issue, no such item) is `isError` with a
+  sentence that says what to call instead. A list that is cut says so and
+  how to get the rest (`shown`, `matching`, `note`), never silently.
+- **`get_status`** is the strip and the Send view in one answer: every pill
+  in reading order with `state` (`done`, `partial`, `todo`, `waiting`),
+  `section`, and for a waiting pill `waiting_on` (`{section, name, done,
+  total}` per unfinished input) and a `waiting` sentence; the counts;
+  `workable_now`; each send leg with its verification; and the script review,
+  with `current` false when the script has changed since.
+- **Writes none.** Suggestions go to Jamie in the agent's conversation (see
+  `docs/decisions.md`). The one write any of it can cause is the one the
+  page causes too: opening an older issue repairs its skeleton.

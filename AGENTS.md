@@ -103,6 +103,14 @@ Server code does not hot-reload under launchd. After changing anything in
 `src/server/`, `npm run deploy` — otherwise the client has the new interface and
 the old data, which looks exactly like a rendering bug.
 
+**MCP.** `/mcp` is a read-only MCP server over the same issues
+(`src/server/mcp.ts`, `docs/service-contracts.md`): an agent reads the pills,
+the text, and the editions, and suggests in its own conversation. Claude Code
+has it at user scope as `wt-builder` (`claude mcp add --scope user --transport
+http wt-builder http://127.0.0.1:4317/mcp`). A tool reads only through
+`readRoute`, which runs GET routes; keep it that way until writes have their
+own plan (`docs/mcp-plan.md`, *Later*).
+
 > **Never serve this through Funnel or on a Funnel-enabled port.** Tailscale
 > terminates identity in front of the process. There is no authentication layer
 > inside the app and it holds write credentials for Pinboard, Micro.blog,
