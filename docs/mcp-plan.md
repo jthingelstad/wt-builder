@@ -29,7 +29,11 @@ proves it has no cycles.
 | Haiku | Notable, Journal (and promoted posts), Briefly | Jamie, 2026-10-04. The wand reads the assembled issue. |
 | Echoes | Notable, Journal (and promoted posts), Intro, Currently, Photo | What the Echoes wand actually retrieves from (`echoesAnchors`): each Notable link and promoted post on its own, and Intro, Currently, Photo and Journal moments pooled as "the week itself". Briefly is not an input. **To confirm (D5).** |
 | Outro | Intro | Jamie, 2026-10-04 |
-| Title and dek | not proposed | The head wand also reads the assembled issue. **To decide (D6).** |
+| Title and dek | Notable | Jamie, 2026-10-04: "Title and dek depend on Featured links for sure." The theme comes from the week's lead links. |
+
+"Notable" here means the heading-link section, whichever name it has: older
+issues call it Featured, and the code already treats `notable` and `featured`
+as one group (`HEADING_LINK_SECTIONS`). The map uses that group, not a label.
 
 A dependency is **met** when every pill of that section is done (not merely
 started): a stub of Notable commentary is not yet an input. Two exceptions,
@@ -53,8 +57,8 @@ has nothing in it, is met: it owes nothing.
   summary line counts it apart: "14 of 22 done · 3 in progress · 2 waiting".
   Clicking still only scrolls (the navigation rule), to the section itself.
 - **The checklist** shows WAITING beside the item, with the same line.
-- **The wands warn, never block** (the warn-don't-block rule). The Haiku
-  and Echoes wands on a waiting section open with "Briefly isn't finished.
+- **The wands warn, never block** (the warn-don't-block rule). The Haiku,
+  Echoes and title/dek wands on a waiting section open with "Briefly isn't finished.
   Draft anyway?" behind a confirm. (Outro has no wand: Intro and Outro never
   get one. Its pill just reads waiting until the Intro is done.) The server
   takes `?force=1`, and the event log records "Override — drafted Haiku before Briefly was done".
@@ -285,5 +289,4 @@ Part B:
 - **D5. Echoes waits on** Notable, Journal, Intro, Currently and Photo (what
   its wand reads; recommended), or only Notable and Journal (so a late Intro
   does not hold it up).
-- **D6. Title and dek wait on nothing** (recommended: Jamie often names the
-  theme early, and it is easy to revise), or on the same inputs as Haiku.
+- ~~D6~~ Settled 2026-10-04: Title and dek wait on Notable (Featured).
