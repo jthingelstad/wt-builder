@@ -22,14 +22,48 @@ Intro." A pill for one of these should say it is **waiting**, and on what.
 
 One table, in `src/shared/dependencies.ts`, keyed by section type, read by
 the readiness code, the strip, the wands and the MCP status tool. A unit test
-proves it has no cycles.
+proves it has no cycles. Every section and pill is listed, including the ones
+that wait on nothing, so the map is the whole answer in one place (final
+review, 2026-10-04).
 
-| Section | Waits on | Why |
+**The rule for a dependency:** a section waits on another only when it is
+*made from* it, so that finishing it early means redoing it. Reading
+something for flavour is not a dependency.
+
+**Inputs: wait on nothing.** These are what everything else is made from.
+
+| Section / pill | Waits on | Why |
 |---|---|---|
-| Haiku | Notable, Journal (and promoted posts), Briefly | Jamie, 2026-10-04. The wand reads the assembled issue. |
-| Echoes | Notable, Journal (and promoted posts) | Jamie, 2026-10-04: "Just Notable and Journal is what I would have expected." The wand also reads Intro, Currently and Photo when they are there (`echoesAnchors` pools them as "the week itself"), but they do not hold it up. |
-| Outro | Intro | Jamie, 2026-10-04 |
-| Title and dek | Notable | Jamie, 2026-10-04: "Title and dek depend on Featured links for sure." The theme comes from the week's lead links. |
+| Notable (Featured) | nothing | Jamie's commentary on the week's lead links. The root input. |
+| Journal (and promoted posts) | nothing | The week's posts, published on Micro.blog before the issue. |
+| Briefly | nothing | A line per link. |
+| Intro | nothing | Jamie's own opening; no wand. |
+| Currently | nothing | Jamie's week, line by line. |
+| Photo | nothing | A picture, its alt text and caption. |
+| Ad hoc sections, Quote, Markdown blocks | nothing | Jamie's own, and nothing waits on them. |
+
+**Made from other sections: wait.**
+
+| Section / pill | Waits on | Why |
+|---|---|---|
+| Title and dek | Notable | Jamie, 2026-10-04: "Title and dek depend on Featured links for sure." The theme comes from the lead links. The dek's topic list also draws on Briefly and the Journal, but their topics are known from the link titles and posts as soon as they are in the issue, so they do not hold it up. |
+| Echoes | Notable, Journal | Jamie, 2026-10-04: "Just Notable and Journal is what I would have expected." The wand also reads Intro, Currently and Photo when they are there, but they do not hold it up. Only the empty-section pill can wait; an echo already drafted is its own pill. |
+| Haiku | Notable, Journal, Briefly | Jamie, 2026-10-04. The haiku distils the week's material. |
+| Outro | Intro | Jamie, 2026-10-04. The outro answers the intro. |
+
+**No dependency, considered and rejected.**
+
+| Section / pill | Waits on | Why |
+|---|---|---|
+| Membership | nothing | Its wand is grounded in the live members page (this year's nonprofit, the $48 offer), not in the issue: the assembled issue rides along as background, as it does for every wand. A Membership written first is as good as one written last. |
+| Links checked | nothing | It corrects itself: a link added after a check shows as not checked, and the pill drops back. A dependency would only delay a check that can run any time and runs again at send. |
+| Deliverability | nothing | The same: a new domain shows as not looked up, and the pill drops back. |
+| Sync pills (a failed or conflicted write-back) | nothing | Urgent whenever they appear; never waiting. |
+
+No chains: nothing that waits is itself waited on, so `waiting_on` is always
+the direct list. If a chain is ever added, it works without a change: a
+dependency that is itself waiting is not done, so the section after it waits
+too.
 
 "Notable" here means the heading-link section, whichever name it has: older
 issues call it Featured, and the code already treats `notable` and `featured`
@@ -231,4 +265,5 @@ B4. **Try it on a real draft** with Jamie: Claude Code reads WT354 through
   for now.
 
 Settled 2026-10-04: v1 is read-only (D1, D3 and D4 move to v2); Echoes waits
-on Notable and Journal (D5); Title and dek wait on Notable (D6).
+on Notable and Journal (D5); Title and dek wait on Notable (D6); Membership,
+Links checked and Deliverability wait on nothing (final review).
