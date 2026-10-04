@@ -53,3 +53,15 @@ test('editing an untrimmed title, the mark goes: Jamie has looked at it', async 
   await expect(title).toHaveText('LLMs are functions, not brains');
   await expect(page.locator('[data-anchor="link-functions"] .row-flag')).toHaveCount(0);
 });
+
+test('a link finding is said under its own row, and the issue-wide summary is not pinned to one row', async ({ page }) => {
+  await open(page);
+  const note = page.locator('[data-anchor="briefly-forge"] .row-link-note');
+  await expect(note).toContainText('A dead link (404)');
+  await expect(page.locator('.row-owed', { hasText: 'The inspector has each one' })).toHaveCount(0);
+  await expect(page.locator('[data-anchor="briefly-shortcuts"] .row-link-note')).toHaveCount(0);
+
+  await note.click();
+  await expect(page.locator('aside.panel')).toContainText('Dead (404)');
+  await expect(page.locator('aside.panel')).toContainText('Keep as it is');
+});

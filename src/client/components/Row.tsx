@@ -63,6 +63,9 @@ export function Row({ anchor, structureName, rail, margin, selected, quiet, chil
   // caret, so it never fires mid-sentence (canvas.css).
   const flags = mine.filter((h) => h.kind !== 'unfinished');
   const unfinished = mine.find((h) => h.kind === 'unfinished');
+  // A link finding is also said under the row, in words, so Jamie can find
+  // which link the check meant without opening each inspector (WT352).
+  const linkNotes = mine.filter((h) => h.kind === 'link');
   const flagLabel = flags.map((h) => h.text).join('\n');
   return (
     <div class={`row${selected ? ' selected' : ''}`} data-anchor={anchor}>
@@ -83,6 +86,11 @@ export function Row({ anchor, structureName, rail, margin, selected, quiet, chil
       <div class="row-page">
         {children}
         {owed && <div class="row-owed">{owed}</div>}
+        {linkNotes.map((h) => (
+          <button key={h.text} class="row-link-note" onClick={() => open(anchor)}>
+            {h.text} <span class="row-link-open">Fix or keep it →</span>
+          </button>
+        ))}
         {unfinished && <div class="row-hint">{unfinished.text}</div>}
       </div>
       <div class="row-margin">{margin}</div>

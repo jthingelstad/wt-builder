@@ -456,6 +456,14 @@ span[contenteditable]:focus {
   background: var(--amber-1); color: var(--amber);
   font-size: 12.5px; line-height: 1.45;
 }
+/* A link finding said under its row; it opens the inspector. */
+.row-link-note {
+  display: block; width: 100%; text-align: left; cursor: pointer;
+  margin: 8px 0 6px; padding: 5px 10px; border: 0; border-radius: 6px;
+  background: var(--amber-1); color: var(--amber);
+  font: inherit; font-size: 12.5px; line-height: 1.45; overflow-wrap: anywhere;
+}
+.row-link-open { text-decoration: underline; white-space: nowrap; }
 /* Typing in the row, the words are not finished yet: no hint mid-sentence. */
 .row:focus-within .row-hint { display: none; }
 .row.arrived .row-page { animation: arrived 1.8s ease-out; }

@@ -110,8 +110,15 @@ export function Editor({ doc, readiness, busy, error, run, onIndex, onSend, onEr
   const rowsRef = useRef<HTMLDivElement>(null);
 
   const id = doc.issue.id;
+  // The link check and deliverability are about the whole issue: their
+  // summary ("1 gift link, 2 moved, 3 the site would not answer") printed
+  // under whichever row had the first finding and named none of them
+  // (WT352). Each finding is said on its own row instead (Row.tsx), and the
+  // summary stays on the strip and the Send card.
   const owed = useMemo(() => new Map(
-    (readiness?.units ?? []).filter((u) => u.state === 'partial' && u.context).map((u) => [u.anchor, u.context!]),
+    (readiness?.units ?? [])
+      .filter((u) => u.state === 'partial' && u.context && u.kind !== 'links' && u.kind !== 'mail')
+      .map((u) => [u.anchor, u.context!]),
   ), [readiness]);
   const w = windowOf(doc);
   const frozen = isFrozen(doc);
