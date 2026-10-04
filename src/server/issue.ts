@@ -21,6 +21,7 @@ import type {
 import { SCHEMA_VERSION, allChannels, emptyChannels } from '../shared/types.ts';
 import { type Window, addDays, instantOf, issueWindow, issueSaturday } from '../shared/dates.ts';
 import { bodyLines, orderedNodes, outOfWindow, windowOf } from '../shared/render/plan.ts';
+import { applyDependencies, sectionOf, type Section, type WaitingOn } from '../shared/dependencies.ts';
 import { imagesWithoutAlt } from '../shared/body.ts';
 import { findingsSummary, linkFindings } from '../shared/link-findings.ts';
 import { anchorFor, deliverabilityFindings, deliverabilitySummary } from '../shared/deliverability.ts';
@@ -1126,7 +1127,11 @@ export function setIssueNumber(doc: IssueDoc, number: number): IssueDoc {
 /** What kind of outstanding thing this is — the popover colours by it. */
 export type ReadinessKind = 'required' | 'commentary' | 'sync' | 'thingy' | 'links' | 'mail';
 
-export type ReadinessState = 'done' | 'partial' | 'todo';
+/**
+ * `waiting`: not done, and made from a section that is not done yet either
+ * (src/shared/dependencies.ts). Never on a finished pill.
+ */
+export type ReadinessState = 'done' | 'partial' | 'todo' | 'waiting';
 
 export interface ReadinessUnit {
   /** `state === 'done'`, kept for every reader that only asks that. */
@@ -1142,6 +1147,10 @@ export interface ReadinessUnit {
   kind: ReadinessKind;
   /** One line saying what finishing this means. */
   context?: string;
+  /** The dependency group the pill belongs to, when it has one. */
+  section?: Section;
+  /** When `waiting`: each unfinished input, and how far along it is. */
+  waiting_on?: WaitingOn[];
 }
 
 /**
@@ -1174,6 +1183,8 @@ export interface Readiness {
   units: ReadinessUnit[];
   /** Started but under the bar — the "in progress" count. */
   partial: number;
+  /** Not done, and waiting on an unfinished input. */
+  waiting: number;
   done: number;
   total: number;
   pct: number;
@@ -1236,12 +1247,16 @@ export function normalizeSkeleton(doc: IssueDoc): IssueDoc | null {
  */
 export function readiness(doc: IssueDoc): Readiness {
   const units: ReadinessUnit[] = [];
+  // The dependency group of the pills being added, and what this issue
+  // calls each group (an older issue's Notable is "Featured").
+  let section: Section | undefined = 'title';
+  const names: Partial<Record<Section, string>> = {};
   const add = (
     state: ReadinessState | boolean, title: string, anchor = 'issue',
     kind: ReadinessKind = 'required', context?: string,
   ) => {
     const st: ReadinessState = typeof state === 'boolean' ? (state ? 'done' : 'todo') : state;
-    units.push({ done: st === 'done', state: st, title, anchor, kind, context });
+    units.push({ done: st === 'done', state: st, title, anchor, kind, context, ...(section ? { section } : {}) });
   };
 
   const w = windowOf(doc);
@@ -1260,6 +1275,8 @@ export function readiness(doc: IssueDoc): Readiness {
   // strip's ticks are a map of the page: the third tick is the third thing.
   // Held-out items (orphans) and fallen-out items owe nothing.
   for (const node of orderedNodes(doc)) {
+    section = sectionOf(node);
+    if (section && node.kind === 'section') names[section] ??= node.label;
     if (node.kind === 'section' && (node.type === 'intro' || node.type === 'outro')) {
       const body = node.items.map((id) => doc.items[id]?.body ?? '').join('\n');
       const bar = DONE_WORDS[node.type];
@@ -1349,6 +1366,8 @@ export function readiness(doc: IssueDoc): Readiness {
     }
   }
 
+  section = undefined;
+
   // One unit for every link the issue prints (plan 2026-10-01 §3): warn,
   // don't block. Done when every link has been checked and nothing dead or
   // moved is left that Jamie has not kept; a site that turns checkers away
@@ -1404,11 +1423,13 @@ export function readiness(doc: IssueDoc): Readiness {
     }
   }
 
+  applyDependencies(units, names);
   const done = units.filter((u) => u.done).length;
   return {
     units,
     done,
     partial: units.filter((u) => u.state === 'partial').length,
+    waiting: units.filter((u) => u.state === 'waiting').length,
     total: units.length,
     pct: units.length ? Math.round((done / units.length) * 100) : 100,
   };
