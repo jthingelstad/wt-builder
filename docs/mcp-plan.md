@@ -1,8 +1,70 @@
-# WT Builder MCP: plan (step 1, local)
+# WT Builder: section dependencies and an MCP interface (plan)
 
 Status: **proposed 2026-10-04, awaiting Jamie's approval.** Nothing here is built.
 
-## Why
+Two parts. **Part A** (section dependencies) is an editor change that stands
+on its own and lands first, because the MCP status tool in **Part B** reports
+it.
+
+## Part A: sections that wait on other sections
+
+### The problem
+
+The strip treats every pill as something Jamie can do now, and the outline's
+only notion of order is that Echoes is pinned last (`fixed_position: 'last'`).
+Position is not the real constraint. Some sections are *made from* others and
+cannot be done well until those are finished. Jamie, 2026-10-04: "Haiku cannot
+be generated until Notable, Journal, Briefly are populated — those are inputs
+for it. Echoes has a similar dependency path." And: "Outro should depend on
+Intro." A pill for one of these should say it is **waiting**, and on what.
+
+### The dependency map
+
+One table, in `src/shared/dependencies.ts`, keyed by section type, read by
+the readiness code, the strip, the wands and the MCP status tool. A unit test
+proves it has no cycles.
+
+| Section | Waits on | Why |
+|---|---|---|
+| Haiku | Notable, Journal (and promoted posts), Briefly | Jamie, 2026-10-04. The wand reads the assembled issue. |
+| Echoes | Notable, Journal (and promoted posts), Intro, Currently, Photo | What the Echoes wand actually retrieves from (`echoesAnchors`): each Notable link and promoted post on its own, and Intro, Currently, Photo and Journal moments pooled as "the week itself". Briefly is not an input. **To confirm (D5).** |
+| Outro | Intro | Jamie, 2026-10-04 |
+| Title and dek | not proposed | The head wand also reads the assembled issue. **To decide (D6).** |
+
+A dependency is **met** when every pill of that section is done (not merely
+started): a stub of Notable commentary is not yet an input. Two exceptions,
+because they are not words the dependent section reads: a Journal post that
+only lacks alt text counts as met, and the separate sync pills (a failed or
+conflicted write-back) do not count. A section that is not in the issue, or
+has nothing in it, is met: it owes nothing.
+
+### The fourth state: waiting
+
+- `ReadinessState` gains `waiting`. A unit that is not done and has an unmet
+  dependency is `waiting` instead of `todo` or `partial`, and carries
+  `waiting_on`: the unmet sections, each with how far along it is ("Notable,
+  3 of 5 done").
+- **A finished section stays done.** If the haiku is already written, its
+  pill is done even while Briefly is still being filled. (Flagging a haiku or
+  echo written *before* its inputs settled, as possibly stale, is a later
+  idea, not in this plan.)
+- **The strip** draws a waiting tick hollow and muted with an hourglass in
+  the tooltip: "Haiku — waiting on Notable (3 of 5), Briefly (6 of 9)". The
+  summary line counts it apart: "14 of 22 done · 3 in progress · 2 waiting".
+  Clicking still only scrolls (the navigation rule), to the section itself.
+- **The checklist** shows WAITING beside the item, with the same line.
+- **The wands warn, never block** (the warn-don't-block rule). The Haiku
+  and Echoes wands on a waiting section open with "Briefly isn't finished.
+  Draft anyway?" behind a confirm. (Outro has no wand: Intro and Outro never
+  get one. Its pill just reads waiting until the Intro is done.) The server
+  takes `?force=1`, and the event log records "Override — drafted Haiku before Briefly was done".
+  Writing by hand is never interrupted.
+- `fixed_position: 'last'` stays. It is where Echoes prints, which is a
+  separate question from when it can be made.
+
+## Part B: the MCP interface (step 1, local)
+
+### Why
 
 Jamie, 2026-10-03: "having an MCP interface in WT Builder that allows an agent
 to interact with a draft issue would be pretty amazing." A Claude Code session
@@ -10,7 +72,7 @@ on the Mac can already reach a draft through the HTTP API with `curl`; an MCP
 interface gives any MCP client typed tools for it, with descriptions that say
 what each one does, instead of a shell and a reading of `index.ts`.
 
-## The three levels, and which one this is
+### The three levels, and which one this is
 
 1. **Local (this plan).** An `/mcp` endpoint on the existing service. Claude
    Code and Codex on the Mac connect to `http://127.0.0.1:4317/mcp`. No new
@@ -24,7 +86,7 @@ what each one does, instead of a shell and a reading of `index.ts`.
    Librarian's authorization server with an owner-only edit scope. **Not in
    this plan.** Revisit after using level 1 for an issue or two.
 
-## Principles
+### Principles
 
 - **Every tool goes through the existing routes.** The MCP layer calls the
   same route handlers the editor calls, in process. Pinboard and Micro.blog
@@ -46,9 +108,9 @@ what each one does, instead of a shell and a reading of `index.ts`.
   the log, the live watcher and issue timing can tell Jamie's work from the
   agent's.
 
-## Design
+### Design
 
-### Transport and placement
+#### Transport and placement
 
 - A Streamable HTTP MCP endpoint at `/mcp`, in the existing Node process, on
   the existing port. Stateless mode, JSON responses (no SSE streams needed:
@@ -71,14 +133,15 @@ what each one does, instead of a shell and a reading of `index.ts`.
   migration adds an `actor` column to `events` (null for the editor, so every
   past event reads as Jamie's).
 
-### Tools
+#### Tools
 
 Read (no writes, no model calls):
 
 | Tool | What it returns | Backed by |
 |---|---|---|
-| `list_issues` | Issues with number, date, status, title; drafts by default, `include` widens | `GET /api/issues` |
-| `get_issue` | The issue as an outline: sections in order, each item with id, type, title, full text fields, sync state, held-out flag; plus readiness (what each anchor still owes) | `GET /api/issues/:id` |
+| `get_status` | **Where the issue stands, as the strip and Send view show it.** Lifecycle (draft, published, asleep); every pill in strip order with its state (`done`, `partial`, `todo`, `waiting`), kind, the line that says what finishing it means, and for a waiting pill what it waits on and how far along that is; the counts; open proposals; and each send leg (website, email, podcast, archive) with sent / failed / not yet, plus the script review and verify results. One call answers "what is left, and what can I work on now?" | `readiness()`, `doc.sends`, `doc.verify`, `doc.script_review` |
+| `list_issues` | Issues with number, date, status, title, and the strip's counts; drafts by default, `include` widens | `GET /api/issues` |
+| `get_issue` | The issue as an outline: sections in order, each item with id, type, title, full text fields, sync state, held-out flag, and its pill's state | `GET /api/issues/:id` |
 | `get_item` | One item, every field | same |
 | `render_issue` | One edition as it will print: `website`, `email`, `audio` (the script) or `source` | `GET /render/:lens` |
 | `get_review` | The current editorial review notes, as the margin shows them | the doc's `review` |
@@ -104,7 +167,7 @@ Every tool takes the issue as `wt353` (or the issue id) and refuses an issue
 that is not a draft, with the reason. Outputs carry an `outputSchema`
 (structured content) as the Librarian MCP does.
 
-### Proposals
+#### Proposals
 
 - Stored on the issue document as `doc.proposals[]` (schema version bump), so
   they ride the existing save, revision history and 423 guard, and an
@@ -125,7 +188,7 @@ that is not a draft, with the reason. Outputs carry an `outputSchema`
   confirm, per the warn-don't-block rule.
 - The progress strip counts open proposals the way it counts review notes.
 
-### The open page follows outside changes
+#### The open page follows outside changes
 
 Today the editor only learns of changes from the answers to its own requests.
 A structural move by the agent would not show until Jamie's next action or a
@@ -142,23 +205,24 @@ reload, and a reorder sent from a stale page could undo it. So:
   is what closes that; an e2e pins that a reorder made after an outside move
   starts from the moved order.
 
-### Timing and the watcher
+#### Timing and the watcher
 
 - Issue timing ("Made in") counts Jamie's editing time; agent events are
   excluded from it and shown as their own line ("agent: 14 actions"), so
   WT353+ still say whether a feature saved Jamie time.
 - `npm run watch` prints the actor on agent lines.
 
-### Connecting a client
+#### Connecting a client
 
 - Claude Code (user scope, so every session on the Mac has it):
   `claude mcp add --scope user --transport http wt-builder http://127.0.0.1:4317/mcp`
 - Codex: an HTTP `[mcp_servers.wt-builder]` entry in `~/.codex/config.toml`,
   confirmed against Codex's current docs when built.
-- Server `instructions` (sent at initialize) say: drafts only; propose text,
-  never claim to have changed it; read `get_issue` first; Jamie applies.
+- Server `instructions` (sent at initialize) say: drafts only; start with
+  `get_status`; work on pills that are not waiting; propose text, never claim
+  to have changed it; Jamie applies.
 
-## Out of scope for step 1
+### Out of scope for step 1
 
 - Sending, verifying, sharing, image rehosting, putting to bed, deleting
   items or sections, adding sections.
@@ -174,8 +238,20 @@ reload, and a reorder sent from a stale page could undo it. So:
 
 Each step is a commit (or a few), tested, deployed with `npm run deploy`.
 
+Part A:
+
+A1. **The map and the state.** `src/shared/dependencies.ts`, the `waiting`
+   state and `waiting_on` in `readiness()`, the no-cycles test, unit tests on
+   the representative issue (Haiku waits while a Briefly line is empty; a
+   written Haiku stays done; a missing section counts as met).
+A2. **The editor.** Hollow waiting ticks, tooltip, summary count, checklist
+   line, the wands' "draft anyway?" confirm with `?force=1` and the Override
+   event. E2e in WebKit first.
+
+Part B:
+
 1. **Plumbing.** SDK dependency, `/mcp` route, `callRoute`, actor scope,
-   `events.actor` migration, `list_issues` and `get_issue` only. Test: an SDK
+   `events.actor` migration, `get_status`, `list_issues` and `get_issue`. Test: an SDK
    client round trip against a port-0 server; an Origin-bearing POST to `/mcp`
    is refused; the event log records the actor.
 2. **Read tools.** The rest of the read table.
@@ -191,7 +267,7 @@ Each step is a commit (or a few), tested, deployed with `npm run deploy`.
    `docs/service-contracts.md`, `docs/decisions.md`, `AGENTS.md`, and
    registering the server in Claude Code.
 8. **Try it on a real draft** with Jamie: Claude Code reads WT354's draft and
-   proposes Briefly lines and an order.
+   checks `get_status`, then proposes Briefly lines and an order.
 
 ## Decisions for Jamie
 
@@ -206,3 +282,8 @@ Each step is a commit (or a few), tested, deployed with `npm run deploy`.
   (recommended), or is counted.
 - **D4. Drafts only** (recommended), or the agent may also propose fixes on a
   published issue for a re-send.
+- **D5. Echoes waits on** Notable, Journal, Intro, Currently and Photo (what
+  its wand reads; recommended), or only Notable and Journal (so a late Intro
+  does not hold it up).
+- **D6. Title and dek wait on nothing** (recommended: Jamie often names the
+  theme early, and it is easy to revise), or on the same inputs as Haiku.
