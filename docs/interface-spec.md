@@ -129,16 +129,44 @@ an archive not yet indexed — and says when it will look again on its own. The
 Archive card also carries **PREVIEW**: what a commit would change in the corpus,
 changing nothing.
 
-Before it, **Made in** — how long the issue took, read from the event log:
-the total (active time before sending plus fixing after) with a pill against the
-Builder issue before it (`1 h 35 m less than WT350`), one line of sittings,
-actions, send time and fixing, then two columns — `WHERE THE TIME WENT` as bars by
-section, and `BY DAY` as bars of each Central day's minutes with its sittings
-and the items that arrived that day (`1 h 07 m · 2 sittings · 9 added`) — and a
-toggle listing what shipped in WT Builder since the previous issue. The index
-row adds `made in 2 h 35 m`. It exists to answer "did that feature save me
-time?" (Jamie, WT351). The card is meant to be shared, so it never shows when a
-sitting happened: the clock times were too much to share (Jamie, 2026-10-04).
+Before it, **Made in** — how long the issue took, read from the event log, laid
+out as design D (Jamie, 2026-10-04: his favourite visual, "but not with the
+sentence on top"), numbers in `src/client/made-in.ts`. One white card,
+`padding: 30px 34px`, blocks 30px apart, and no headline:
+
+- **Head**: a mono eyebrow, 11px/.08em `--secondary`, `WHAT IT TOOK · THE WEEKLY
+  THING 352` (`WHAT IT HAS TAKEN SO FAR` before it goes), and on the right the pill
+  against the Builder issue before it — 12px mono, `--green` on `--made-pill`,
+  `30 m less than WT351`; `N m more than …` is grey on `--neutral-tint`, never
+  amber (more time is not a fault); no pill when there is no issue before.
+- **Four stats** between `--border-light` hairlines: a 30px/600 serif number over a
+  12.5px `--secondary` label — the total (active time before sending plus fixing
+  after) `writing, over 7 days` (days with a sitting); `sittings`; the readiness
+  strip's pill count, `pills, all done` or `pills, 40 done`; and the send, first leg
+  to published, `to send all four` (`to send three of four`; before it goes, `1 of 4`
+  `sent so far`). Two by two under 640px.
+- **WHERE IT WENT**: one 18px stacked bar, radius 5px, 2px gaps, of the five largest
+  parts and `Everything else` (the rest, with `Other`, which no item claims), dark to
+  light along the Made in greens (`--made-1`, `--green`, `--made-3..5`, `--green-4`
+  for the rest); a wrapping legend of swatch, name and mono time (`<1 m` under a
+  minute).
+- **WHEN · DARKER IS LONGER**: a square tile per day in `byDay`, one column each, at
+  most 72px wide; shaded by the day's minutes (an hour or more `--made-1`, five
+  `--made-3`, both with white ink; two `--made-4`; any `--made-6`; no sitting
+  `--app`), the day's total inside (`1h45`, `9 m`), the weekday under it, and the
+  items that arrived that day under that in amber (`+12`, blank for none). Then one
+  balanced grey line: "Gold numbers are the links and posts that arrived that day;
+  Sunday turned them into an issue, with one re-send after it went." — the send's
+  weekday, and the after-send fact (`N m fixing after it went`, a re-send, or
+  `nothing to fix`) said once, there, rather than as a fifth stat.
+
+Below the body, a hairline and the toggle listing what shipped in WT Builder since
+the previous issue. The index row adds `made in 2 h 35 m`. It exists to answer "did
+that feature save me time?" (Jamie, WT351). The card is meant to be shared, so it
+never shows when a sitting happened, not even in a tooltip — each day's total and
+its weekday, nothing finer: the clock times were too much to share (Jamie,
+2026-10-04). Its stat numbers are the one upright serif in the app (D's choice);
+no note ever sits beside them, so they cannot be read as the editorial voice.
 
 The last card is **Put to bed** (`moon`, dusk `#4b4a7a` on `#eceaf6`): `AWAKE` /
 `ASLEEP`, one line on what it means, and `Put to bed` — enabled once the issue is
@@ -499,7 +527,8 @@ the row's width no longer depends on the canvas's).
 **The editorial voice is serif italic.** Note bodies are
 `Iowan Old Style, Charter, Georgia, "Times New Roman", serif`, italic, 13.5px/1.5,
 `#3a3a3a`; the whole-issue read at the top is the same face at 15.5px/1.55. Nothing else
-in the app is serif or italic, so a note never reads as part of the issue — and 11.5px
+in the app is serif or italic (save Made in's upright stat numbers, on the Send view, where
+no note is), so a note never reads as part of the issue — and 11.5px
 sans was simply too small to read comfortably in a margin.
 
 **Notes are a measured overlay, never part of the row, and never in the controls' track.**
@@ -1071,6 +1100,9 @@ pinned) · green `#2f7d4f` (synced, valid) · amber `#a07a1f` (attention)
 **Tints** blue `#f3f6fb` `#eef3fa` `#dde6f3` · terracotta `#fdf6f1` `#faefe8` `#f0dfd4` ·
 green `#f2f8f4` `#f7f9f7` `#d6e8dc` `#dfe9e2` · amber `#fdf9ee` `#ece0bd` `#fff2d6` ·
 edit focus `#fff8e3`
+
+**Made in greens** (design D, darkest first) `#1f5a38` `--made-1` · `#2f7d4f` green ·
+`#5c9a72` `#8ab99a` `#b5d4bf` `#cfe2d5` `--made-3..6` · `#dfe9e2` green-4 · pill `#e8f1ea`
 
 **Provenance bars** syndicated `#c3d6ee` · Thingy `#eccdb9` · own `transparent`
 

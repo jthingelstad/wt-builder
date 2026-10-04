@@ -261,7 +261,8 @@ finished, what is half-finished, and what has never run.
   same-day fixing after it, time by section (events carry an `anchor` item id
   since schema v4; older ones match by name). Beside it, the Builder issue
   before and what shipped in WT Builder between the two (git log of `src/`).
-  Send view panel; `made in …` on the index row. WT350 3 h 12 m + 57 m fixing;
+  Send view panel, design D since 2026-10-04 (`src/client/made-in.ts`: stats,
+  one stacked bar, a tile per day, no clock times); `made in …` on the index row. WT350 3 h 12 m + 57 m fixing;
   WT351 2 h 30 m + 5 m.
 - **Put to bed** (2026-09-26, WT351) — `POST /api/issues/:id/bed {asleep}`;
   a published issue only; while asleep every non-GET to the issue answers 423

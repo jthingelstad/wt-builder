@@ -21,7 +21,7 @@ import { audioScript } from '../../shared/render/audio.ts';
 import { linkFindings } from '../../shared/link-findings.ts';
 import { deliverabilityFindings } from '../../shared/deliverability.ts';
 import { openChecks } from '../../shared/hints.ts';
-import { duration, type IssueTiming } from '../../shared/timing.ts';
+import { madeIn } from '../made-in.ts';
 import { ApiError, api, type PodcastAudio, type Readiness, type SendResult } from '../api.ts';
 import {
   Archive, ArrowLeft, Check, Circle, CircleAlert, Globe, Mail, Moon, Podcast, Spinner, X,
@@ -551,7 +551,7 @@ export function Send({ doc, readiness, error, onBack, onJump, onSent, onError }:
           />
         ))}
 
-        <Timing doc={doc} />
+        <Timing doc={doc} readiness={readiness} />
 
         <Bed doc={doc} onChanged={onSent} onError={onError} />
 
@@ -901,8 +901,13 @@ function Bed({ doc, onChanged, onError }: { doc: IssueDoc; onChanged: (d: IssueD
  * before it, with what shipped in WT Builder between the two, so a feature's
  * effect on the time can be seen (Jamie, WT351: "did it save me time!").
  * Jamie's own acts only; sittings split at 30 minutes apart.
+ *
+ * Design D (Jamie, 2026-10-04), with no sentence on top: an eyebrow and the
+ * comparison, four stats, one stacked bar, a tile per day. It is meant to be
+ * shared, so it shows each day's total and never when a sitting happened.
+ * The numbers are worked out in made-in.ts.
  */
-function Timing({ doc }: { doc: IssueDoc }) {
+function Timing({ doc, readiness }: { doc: IssueDoc; readiness: Readiness | null }) {
   const [data, setData] = useState<Awaited<ReturnType<typeof api.timing>> | null>(null);
   const [showShipped, setShowShipped] = useState(false);
   const sentKey = CARDS.map((c) => doc.sends?.[c.key]?.status ?? '').join('|');
@@ -910,69 +915,58 @@ function Timing({ doc }: { doc: IssueDoc }) {
     api.timing(doc.issue.id).then(setData).catch(() => setData(null));
   }, [doc.issue.id, sentKey]);
   if (!data || !data.timing.actions) return null;
-  const t = data.timing;
-  const p = data.previous?.timing;
-  const total = t.activeMs + t.after.ms;
-  const prevTotal = p ? p.activeMs + p.after.ms : 0;
-  const delta = p && p.actions ? total - prevTotal : null;
-  const max = Math.max(...t.bySection.map((s) => s.ms), 1);
-  const dayMax = Math.max(...t.byDay.map((d) => d.ms), 1);
-  // A sitting of one act has no length; "0 m" reads as nothing happened.
-  const time = (ms: number) => (ms < 60_000 ? '<1 m' : duration(ms));
-  const days = t.byDay.filter((d) => d.sittings).length;
-  const after = !t.publishedAt ? ''
-    : t.after.ms >= 60_000 ? `${duration(t.after.ms)} fixing after it went`
-      : t.after.sends ? `${t.after.sends} re-send after it went`
-        : 'nothing to fix after it went';
+  const m = madeIn({
+    number: doc.issue.number,
+    timing: data.timing,
+    previous: data.previous,
+    pills: readiness ? { done: readiness.done, total: readiness.total } : null,
+    legs: { sent: CARDS.filter((c) => lastSent(doc.sends?.[c.key])).length, total: CARDS.length },
+  });
   return (
     <section class="send-card timing">
-      <div class="sc-head">
-        <div class="sc-name">
-          <div class="sc-title">
-            {t.publishedAt ? 'Made in' : 'So far'} {duration(total)}
-            {delta !== null && (
-              <span class={`sc-pill ${delta <= 0 ? 'sent' : 'sending'}`}>
-                {delta <= 0 ? `${duration(-delta)} less than WT${data.previous!.number}` : `${duration(delta)} more than WT${data.previous!.number}`}
-              </span>
-            )}
-          </div>
-          <p class="sc-ends">
-            {[
-              `${t.sessions.length} sitting${t.sessions.length === 1 ? '' : 's'} on ${days} day${days === 1 ? '' : 's'}`,
-              `${t.actions} actions, ${t.edits} edits`,
-              t.sendMs !== undefined ? `sent in ${time(t.sendMs)}` : '',
-              after,
-            ].filter(Boolean).join(' · ')}
-          </p>
+      <div class="mi-card">
+        <div class="mi-head">
+          <h2 class="mi-eyebrow">{m.eyebrow}</h2>
+          {m.comparison && <span class={`mi-pill${m.comparison.less ? '' : ' more'}`}>{m.comparison.text}</span>}
         </div>
-      </div>
-      <div class="tm-body">
-        <div class="tm-sections">
-          <span class="mono-label">WHERE THE TIME WENT</span>
-          {t.bySection.map((s) => (
-            <div class="tm-row" key={s.label}>
-              <span class="tm-label">{s.label}</span>
-              <span class="tm-bar"><span style={{ width: `${(s.ms / max) * 100}%` }} /></span>
-              <span class="tm-ms">{time(s.ms)}</span>
+
+        <div class="mi-stats" style={{ gridTemplateColumns: `repeat(${m.stats.length}, minmax(0, 1fr))` }}>
+          {m.stats.map((s) => (
+            <div class="mi-stat" key={s.label}>
+              <span class="mi-value">{s.value}</span>
+              <span class="mi-label">{s.label}</span>
             </div>
           ))}
         </div>
-        <div class="tm-sections tm-days">
-          <div class="tm-days-head">
-            <span class="mono-label">BY DAY</span>
-            <span class="mono-label tm-legend"><span class="tm-dot" /> a sitting · <b>+n</b> pills added</span>
-          </div>
-          {t.byDay.map((d) => (
-            <div class="tm-row" key={d.day}>
-              <span class="tm-label">{d.label}</span>
-              <span class="tm-bar">{d.sittings > 0 && <span style={{ width: `${(d.ms / dayMax) * 100}%` }} />}</span>
-              <span class="tm-ms">{d.sittings ? time(d.ms) : ''}</span>
-              <span class="tm-dots" title={`${d.sittings} sitting${d.sittings === 1 ? '' : 's'}`}>
-                {d.sittings > 4 ? <>{d.sittings}<span class="tm-dot" /></> : Array.from({ length: d.sittings }, (_, i) => <span class="tm-dot" key={i} />)}
-              </span>
-              <span class="tm-added">{d.added ? `+${d.added}` : ''}</span>
+
+        {m.segments.length > 0 && (
+          <div class="mi-block">
+            <span class="mi-kicker">WHERE IT WENT</span>
+            <div class="mi-bar" role="img" aria-label={m.segments.map((s) => `${s.label} ${s.time}`).join(', ')}>
+              {m.segments.map((s) => <span key={s.label} style={{ flexGrow: s.ms, background: s.color }} />)}
             </div>
-          ))}
+            <div class="mi-legend">
+              {m.segments.map((s) => (
+                <span class="mi-key" key={s.label}>
+                  <span class="mi-swatch" style={{ background: s.color }} />{s.label} <span class="mi-time">{s.time}</span>
+                </span>
+              ))}
+            </div>
+          </div>
+        )}
+
+        <div class="mi-block">
+          <span class="mi-kicker">WHEN · DARKER IS LONGER</span>
+          <div class="mi-days" style={{ gridTemplateColumns: `repeat(${m.tiles.length}, minmax(0, var(--mi-tile)))` }}>
+            {m.tiles.map((d) => (
+              <div class="mi-day" key={d.day} title={d.title}>
+                <div class={`mi-tile${d.dark ? ' dark' : ''}`} style={{ background: d.shade }}>{d.time}</div>
+                <span class="mi-dow">{d.dow}</span>
+                <span class="mi-added">{d.added}</span>
+              </div>
+            ))}
+          </div>
+          <p class="mi-foot">{m.footnote}</p>
         </div>
       </div>
       {data.shipped.length > 0 && (

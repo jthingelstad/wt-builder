@@ -54,6 +54,15 @@
   --green-2: #f7f9f7;
   --green-3: #d6e8dc;
   --green-4: #dfe9e2;
+  /* Made in (design D, 2026-10-04): a ramp of the green, darkest first, for
+     where the time went and the day tiles; --green and --green-4 are its
+     second and last steps. The pill sits a shade deeper than --green-1. */
+  --made-1: #1f5a38;
+  --made-3: #5c9a72;
+  --made-4: #8ab99a;
+  --made-5: #b5d4bf;
+  --made-6: #cfe2d5;
+  --made-pill: #e8f1ea;
   --amber-1: #fdf9ee;
   --amber-2: #ece0bd;
   --amber-3: #fff2d6;
