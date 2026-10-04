@@ -378,24 +378,50 @@ finished, what is half-finished, and what has never run.
   runs leave a non-draft email out and say so in their confirm. Without
   `force`, every gate refuses exactly as before.
 - **Link check** (2026-10-01, librarian-thing's QA follow-up
-  plan of 2026-10-01, §3) — every link the issue prints
+  plan of 2026-10-01, §3; moved into the editor 2026-10-04, plan before
+  WT353 item 1) — every link the issue prints
   (each Pinboard link's rendered URL, every link in commentary or a body;
-  not images, not Thingy's items) is fetched by
-  `POST /api/issues/:id/links/check` and stored on the issue as
-  `link_check` (`src/server/link-check.ts`). 404, 410, no such host and a
-  redirect to the site's front page are **dead**; a shortener, a redirect,
-  the page's own `rel=canonical`, or tracking on the link are **moved**,
-  with a suggestion; 401/403/429/5xx and timeouts are **unchecked**, never
-  dead. A **gift link** (a paywalled site's share token: `view_token`,
+  not images, not Thingy's items) is fetched and stored on the issue as
+  `link_check` (`src/server/link-check.ts`). **Checked as it arrives**
+  (`src/server/arrival-check.ts`): a save that brings in a link not checked
+  yet (a sweep or sync, or a link typed into a body or commentary) starts a
+  check in the background, 1.5 s after the edits settle, three fetches at a
+  time; the save never waits, and answers `checking: true`, so the client
+  looks again (GET the issue every 2.5 s) until it is false. The result goes
+  onto a fresh read (the savedFresh rule) and logs one `links` event
+  ("Checked as they arrived — …"). One answer per URL serves every issue for
+  6 hours; a link the site would not answer for is asked again after 6
+  hours. An issue put to bed or imported is never checked. There is no
+  button: `POST /api/issues/:id/links/check` stays for a script, and nothing
+  in the client calls it. **What Jamie can act on, and nothing else, is
+  marked** (`actionOf` in `src/shared/link-findings.ts`): 404, 410, no such
+  host and a redirect to the site's front page are **dead**; a shortener, a
+  redirect or the page's own `rel=canonical` to **a different page** is
+  **moved**, with a suggestion. Not findings: http→https on the same page,
+  `www.`, a trailing slash, tracking parameters (`linkKey` says they are the
+  same page), and a redirect to a sign-in, sign-up, subscribe or consent
+  page. A suggestion never drops https, except where the https address
+  fails (a TLS error or refused: bowlingalone.com's certificate is
+  self-signed) and the http one answers; an http link whose https address
+  fails is the right link and is not flagged, and one whose https works
+  says so in the email's plain-http warning (`https: 'works' | 'fails'` on
+  the result). 401/403/429/5xx and timeouts are **unchecked**: kept, never
+  marked, never dead. Stored results from before 2026-10-04 are judged
+  again by the same rule, so an old http canonical is not offered. A **gift
+  link** (a paywalled site's share token: `view_token`,
   `unlocked_article_code`, `pwapi_token`, `gift`, and `accessToken` or `st`
   on the sites that use them; `giftOf` in `src/shared/link-findings.ts`) is
   read off the URL, before any check, with its expiry when the token is a
   JWT: a finding until kept, never a send gate (2026-10-04, after an expired
-  Verge gift nearly went out in WT352). The "Links checked" readiness unit
-  counts what is open and jumps to it. The inspector offers, per finding, **Use the suggested link**
+  Verge gift nearly went out in WT352). **A finding is its row's note**
+  (`rowHints` in `src/shared/hints.ts`, Row.tsx): amber, under the words,
+  opening the inspector. The "Links checked" readiness unit is done unless
+  a row has something to act on, and then jumps to it. The inspector
+  offers, per finding, **Use the suggested link**
   (`POST /api/issues/:id/items/:itemId/link` `{action: "use"}` — sets
   `canonical_url`, which the website, email and audio print; `source_url`
-  is untouched), **Keep as it is** (`{action: "keep", url}`), **Back to the
+  is untouched; refused with 409 for a stored suggestion the rule above
+  would not offer), **Keep as it is** (`{action: "keep", url}`), **Back to the
   bookmark's link** (`{action: "original"}`), and **Move bookmark…**
   (`POST /api/issues/:id/items/:itemId/move-bookmark`, click-only, with a
   confirm): Pinboard `posts/add` at the new URL with every field of the old
@@ -408,11 +434,16 @@ finished, what is half-finished, and what has never run.
   becomes **Commit with dead links…** / **Send with dead links…**, and
   `?force=1` records the dead links as kept ("Override — website: … sent
   with N dead links"), so the next send does not ask. Moved links never
-  gate. Offline (`WT_BUILDER_OFFLINE=1`) nothing is fetched. The URL
-  canonicalization shared with the Librarian's link index is
+  gate. **The Send view has one line** for the link and email checks:
+  green "Links and email: nothing to act on." when clear, amber naming each
+  row with something open (a jump back to it in the editor) and what is the
+  whole email's (its size, a listed domain no row prints). Offline
+  (`WT_BUILDER_OFFLINE=1`) nothing is fetched and the check on arrival is
+  off. The URL canonicalization shared with the Librarian's link index is
   `src/shared/links.ts`, its cases in `fixtures/canonical-urls.json`.
   Tests: `tests/links.test.ts`, `tests/link-check.test.ts`,
-  `tests/link-routes.test.ts`, `tests/e2e/links.e2e.ts`.
+  `tests/link-routes.test.ts`, `tests/arrival-check.test.ts`,
+  `tests/e2e/links.e2e.ts`.
 - **Deliverability** (2026-10-01) — will the email reach the inbox.
   Three parts, each warn-don't-block except the one that has sunk an
   issue before:
@@ -430,8 +461,10 @@ finished, what is half-finished, and what has never run.
     "URIBL only". SURBL is not asked: its servers do not answer us at all.
     First live run 2026-10-01 with the key: both lists passed their test
     domains, and WT352's 30 domains came back clean in about half a second.
-    `POST /api/issues/:id/links/check` looks the domains up beside the
-    links and stores `domain_check`. The **Buttondown** leg looks every
+    Each domain is looked up as it arrives, beside the links
+    (`src/server/arrival-check.ts`; one answer serves for an hour), and
+    stored as `domain_check`; a listed one is said on the row that prints
+    it. The **Buttondown** leg looks every
     domain up again before it goes (lists change by the hour; saved only
     when an answer changed, so a click adds no revision) and refuses with
     `409 listed_domains` while a listed domain is not accepted; the card's
@@ -444,9 +477,12 @@ finished, what is half-finished, and what has never run.
     host, links straight to a download, link text naming another site
     than the link goes to, and a body over 80 KB of HTML (Gmail clips at
     102 KB with Buttondown's template, hiding the unsubscribe link).
-    Warnings only; **Keep** on the Send card
+    Warnings only, each said on the row that prints it (the subject's on
+    the title row; the size, the whole email's, on the Send line);
+    **Keep as it is** on the row
     (`POST /api/issues/:id/deliverability/keep` `{key, keep}`) stores the
-    key in `deliverability.kept`. Spam trigger words are deliberately not
+    key in `deliverability.kept`. A plain-http link whose https address the
+    link check found failing is not flagged. Spam trigger words are deliberately not
     checked: "free" is in every issue, and the prototype flagged every one.
   - **Complaints**, on the Buttondown check once the email has gone:
     Buttondown's issue-level `complaints` and `unsubscriptions` (never per
@@ -478,11 +514,12 @@ finished, what is half-finished, and what has never run.
     Check Point gateway (`cloud-sec-av.com`) re-sending to one recipient
     failed six of seven and would otherwise have warned every week; and
     wp.pl sends a blank row of no messages, now skipped.
-  The "Deliverability" readiness unit (`kind: 'mail'`) is done when every
-  domain has been looked up and nothing listed or found is left open, and
-  jumps to the item that prints the first finding. Tests:
-  `tests/deliverability.test.ts`, `tests/link-routes.test.ts`,
-  `tests/verify.test.ts`.
+  The "Deliverability" readiness unit (`kind: 'mail'`) is done unless a
+  listed domain or a finding in the email is left open (a domain not
+  looked up yet holds nothing), and jumps to the row that prints the first
+  one. Tests: `tests/deliverability.test.ts`, `tests/link-routes.test.ts`,
+  `tests/arrival-check.test.ts`, `tests/verify.test.ts`,
+  `tests/e2e/deliverability.e2e.ts`.
 - **Front matter quotes every string** (2026-09-28) — the site page, the
   archive text, and the audio record write each string scalar as a JSON
   string (`yamlString` in `src/server/publish.ts`), which is always valid

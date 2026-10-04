@@ -378,6 +378,15 @@ export interface LinkResult {
   /** The page's `<link rel=canonical>`, when it names another page. */
   canonical_hint?: string;
   suggestion?: string;
+  /**
+   * Whether the https:// address of this page answers (2026-10-04). `fails`
+   * on an https link whose certificate or port fails while http works (the
+   * suggestion is then the http link: bowlingalone.com's certificate is
+   * self-signed), and on an http link whose https address fails, so the
+   * email's plain-http warning stays quiet there. `works` on an http link
+   * whose https address answers. Absent when nobody asked.
+   */
+  https?: 'works' | 'fails';
   note?: string;
   checked_at: string;
 }

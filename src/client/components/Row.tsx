@@ -43,11 +43,16 @@ export const OwedContext = createContext<Map<string, string>>(new Map());
 
 /**
  * What each item's row should say about itself that its pill does not
- * (src/shared/hints.ts): a link finding, words that stop mid-sentence, a
- * title that is still the page's own. Warn, don't block: nothing here
- * changes the pill. `open` shows the item in the inspector.
+ * (src/shared/hints.ts): a link finding, what in the email a filter holds
+ * against it, words that stop mid-sentence, a title that is still the
+ * page's own. Warn, don't block. `open` shows the item in the inspector;
+ * `keep` keeps an email finding as it is (its hint's `key`).
  */
-export const HintsContext = createContext<{ hints: Map<string, Hint[]>; open: (anchor: string) => void }>({
+export const HintsContext = createContext<{
+  hints: Map<string, Hint[]>;
+  open: (anchor: string) => void;
+  keep?: (key: string) => void;
+}>({
   hints: new Map(),
   open: () => {},
 });
@@ -55,7 +60,7 @@ export const HintsContext = createContext<{ hints: Map<string, Hint[]>; open: (a
 export function Row({ anchor, structureName, rail, margin, selected, quiet, children }: RowProps) {
   const owedMap = useContext(OwedContext);
   const owed = quiet ? undefined : owedMap.get(anchor);
-  const { hints, open } = useContext(HintsContext);
+  const { hints, open, keep } = useContext(HintsContext);
   const mine = quiet ? [] : hints.get(anchor) ?? [];
   // Link findings and title trims are one mark beside the rail: amber when
   // a link needs Jamie, faint when only the title does. Unfinished words
@@ -66,8 +71,13 @@ export function Row({ anchor, structureName, rail, margin, selected, quiet, chil
   // count 5-7-5 (with what it counted, since the count is a guess).
   const said = mine.filter((h) => h.kind === 'unfinished' || h.kind === 'haiku');
   // A link finding is also said under the row, in words, so Jamie can find
-  // which link the check meant without opening each inspector (WT352).
+  // which link the check meant without opening each inspector (WT352). It
+  // is checked as it arrives, so this is where he hears of it, while he
+  // writes, not in the Send view (plan before WT353, item 1).
   const linkNotes = mine.filter((h) => h.kind === 'link');
+  // What the email's filters would hold against this row: a plain-http link,
+  // link text naming another site, a blocklisted domain. Kept where it says.
+  const mailNotes = mine.filter((h) => h.kind === 'mail');
   const flagLabel = flags.map((h) => h.text).join('\n');
   return (
     <div class={`row${selected ? ' selected' : ''}`} data-anchor={anchor}>
@@ -76,7 +86,7 @@ export function Row({ anchor, structureName, rail, margin, selected, quiet, chil
         {rail}
         {flags.length > 0 && (
           <button
-            class={`row-flag ${flags.some((h) => h.kind === 'link' || h.kind === 'haiku') ? 'link' : 'title'}`}
+            class={`row-flag ${flags.some((h) => h.kind === 'link' || h.kind === 'mail' || h.kind === 'haiku') ? 'link' : 'title'}`}
             title={`${flagLabel}\nOpen the inspector`}
             aria-label={flagLabel}
             onClick={() => open(anchor)}
@@ -92,6 +102,16 @@ export function Row({ anchor, structureName, rail, margin, selected, quiet, chil
           <button key={h.text} class="row-link-note" onClick={() => open(anchor)}>
             {h.text} <span class="row-link-open">Fix or keep it →</span>
           </button>
+        ))}
+        {mailNotes.map((h) => (
+          <div key={h.key ?? h.text} class="row-link-note row-mail-note">
+            <span>{h.text}</span>
+            {h.key && keep && (
+              <button class="row-link-open" onClick={() => keep(h.key!)} title="Keep it as it is, and stop saying so">
+                Keep as it is
+              </button>
+            )}
+          </div>
         ))}
         {said.map((h) => <div key={h.kind} class="row-hint">{h.text}</div>)}
       </div>

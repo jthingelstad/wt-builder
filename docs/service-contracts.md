@@ -392,6 +392,17 @@ Claude Code or Codex on otto, or any MCP client on the tailnet.
   their expiry and a `warning` sentence) and the email checks; each send leg with its verification; and the script review,
   with `current` false when the script has changed since. 1.5.4 adds
   `mechanical`: how many of its `findings` the mechanical lint made.
+  1.5.5 (2026-10-04, plan before WT353 item 1): links and the email's
+  domains are checked as they arrive and each finding is its row's note, so
+  the Links checked and Deliverability pills are `done_in: 'editor'`,
+  anchored to the first row with something to act on, and read `done`
+  unless one has (a link not checked yet, or a site that would not answer,
+  holds nothing). `checks.send_line` is the Send view's one line:
+  `{clear, rows: [{anchor, name, what}], issue}`, `what` a few words each
+  ("dead link", "plain-http link"), `issue` what is the whole email's.
+  `checks.links.moved` lists only moves to a different page, never one that
+  drops https unless the https address fails. `done_in` is `editor` or
+  `sync conflict`; `send view` is gone.
 - **Riding along (1.4.0).** `get_status`, `get_issue` and `get_item` return
   `cursor`, the issue's newest event id. `get_status since=<cursor>` adds
   `changes`: `items` touched after it (each with `kinds`, `last_edited_at`,
@@ -415,6 +426,8 @@ Claude Code or Codex on otto, or any MCP client on the tailnet.
   kind, text}`, cut at 40 with `hints_note`), and `get_issue` / `get_item`
   carry each item's `hints`: the same list the editor marks
   (`src/shared/hints.ts`). `link` is an open link finding on the item,
+  `mail` (1.5.5) what in the email a filter holds against it, on the row
+  that prints it (the subject's on anchor `issue`, named "The title"),
   `unfinished` is Jamie's words stopping mid-sentence or a Currently line
   under six words (an item still being typed does this too; `focus` says
   which), `title` is a syndicated title still ending with the site's name
@@ -439,8 +452,9 @@ Claude Code or Codex on otto, or any MCP client on the tailnet.
   place: a fix that made a new mistake), and any other note on an item
   `changed_since_review`, read against the issue as the review read it
   (`GET /api/issues/:id/version?review=1`). `get_item` carries its item's
-  notes as `review_notes`, and `last_edited_at`. Issue-wide pills (links, email) anchor to `issue`
-  and say `done_in: "send view"`.
+  notes as `review_notes`, and `last_edited_at`. The links and email pills anchor to the first row
+  with something to act on (`issue` when none) and say `done_in: "editor"`
+  (1.5.5; `"send view"` before).
 - **Prompts.** `finish_draft`, `briefly_pass`, `proof_issue`,
   `compare_with_last_week`, `ride_along`: the call sequence for the common asks, each
   taking an optional issue.

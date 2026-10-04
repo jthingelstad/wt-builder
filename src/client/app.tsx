@@ -32,10 +32,19 @@ export function App() {
     return r.view !== 'index' && r.id === issue.issue.id;
   }, []);
 
+  // A link or blocklist check running in the background for the issue on
+  // screen (src/server/arrival-check.ts): the app looks again shortly, so a
+  // dead link typed a moment ago is said on its row without a reload.
+  const [checking, setChecking] = useState(false);
+  // Mutations started, so a look-again that lands after one is dropped: its
+  // answer was read before the mutation's and would put an older copy back.
+  const mutations = useRef(0);
+
   const absorb = useCallback((res: IssueResponse) => {
     if (!onScreen(res.issue)) return;
     setDoc(res.issue);
     setReadiness(res.readiness);
+    setChecking(Boolean(res.checking));
     setError((current) => (current !== null && current === runError.current ? null : current));
   }, []);
 
@@ -48,6 +57,7 @@ export function App() {
   const run = useCallback(
     async (fn: () => Promise<IssueResponse>): Promise<boolean> => {
       setBusy(true);
+      mutations.current++;
       try {
         absorb(await fn());
         return true;
@@ -61,6 +71,24 @@ export function App() {
     },
     [absorb],
   );
+
+  // Look again while the check runs: quiet (a failed look says nothing; the
+  // next save or look says), and every 2.5 s, which is a few looks per edit.
+  const [looked, setLooked] = useState(0);
+  useEffect(() => {
+    if (!checking || !doc) return;
+    const id = doc.issue.id;
+    const t = setTimeout(() => {
+      const before = mutations.current;
+      api.getIssue(id)
+        .then((res) => { if (mutations.current === before) absorb(res); else setLooked((n) => n + 1); })
+        .catch(() => setLooked((n) => n + 1));
+    }, 2500);
+    return () => clearTimeout(t);
+  }, [checking, doc, looked, absorb]);
+
+  // The Send line's jump: back to the editor, at that row.
+  const [jumpTo, setJumpTo] = useState<{ anchor: string; n: number } | null>(null);
 
   /** Move, and leave a history entry so Back means what it looks like. */
   const go = useCallback((next: Route, replace = false) => {
@@ -160,6 +188,7 @@ export function App() {
         error={error}
         run={run}
         covered={sending}
+        jumpTo={jumpTo}
         onIndex={() => go({ view: 'index' })}
         onSend={() => go({ view: 'send', id: doc.issue.id })}
         onError={setError}
@@ -172,6 +201,10 @@ export function App() {
           busy={busy}
           error={error}
           onBack={() => go({ view: 'issue', id: doc.issue.id })}
+          onJump={(anchor) => {
+            go({ view: 'issue', id: doc.issue.id });
+            setJumpTo((j) => ({ anchor, n: (j?.n ?? 0) + 1 }));
+          }}
           onSent={(next) => { if (onScreen(next)) setDoc(next); }}
           onError={setError}
         />

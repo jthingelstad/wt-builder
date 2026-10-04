@@ -61,6 +61,10 @@ let dns: Dns = systemDns;
 export function useDns(d: Dns | null): void {
   dns = d ?? systemDns;
 }
+/** Whether a test handed in its own answers: offline, the check on arrival asks only then. */
+export function dnsHandedIn(): boolean {
+  return dns !== systemDns;
+}
 
 /** One list, ready to ask: its name and how to read a domain against it. */
 interface ReadyList {

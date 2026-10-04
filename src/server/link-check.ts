@@ -1,8 +1,10 @@
 /**
  * The link check: fetch every link the issue prints and say what answered.
  *
- * Runs on demand (`POST /api/issues/:id/links/check`) and on its own before
- * the website and email legs, for any link not checked yet. Each fetch goes
+ * Runs as each link arrives (src/server/arrival-check.ts: a sweep, an edit
+ * that adds a link), on demand (`POST /api/issues/:id/links/check`, which no
+ * button calls any more), and on its own before the website and email
+ * legs, for any link not checked yet. Each fetch goes
  * through fetchPublic, so the same public-address rules as the link wand
  * apply at every hop. Results are stored on the issue by exact URL
  * (`link_check`), applied to a fresh read (`savedFresh`), and read back
@@ -19,8 +21,8 @@
  */
 
 import type { IssueDoc, LinkResult } from '../shared/types.ts';
-import { hasTracking, linkKey, withoutTracking } from '../shared/links.ts';
-import { giftOf, issueLinks } from '../shared/link-findings.ts';
+import { linkKey, withoutTracking } from '../shared/links.ts';
+import { downgrades, giftOf, issueLinks } from '../shared/link-findings.ts';
 import { fetchPublicFollow, readCapped } from './integrations/page.ts';
 import { OFFLINE } from './config.ts';
 
@@ -69,6 +71,10 @@ let pages: Fetcher = fetchLink;
 export function usePages(fetcher: Fetcher | null): void {
   pages = fetcher ?? fetchLink;
 }
+/** Whether a test handed in its own pages: offline, the check on arrival fetches only then. */
+export function pagesHandedIn(): boolean {
+  return pages !== fetchLink;
+}
 
 const hostOf = (url: string) => {
   try {
@@ -104,6 +110,51 @@ export function canonicalHint(html: string, base: string): string | undefined {
   return undefined;
 }
 
+/**
+ * Error codes that say the https address itself fails — a self-signed,
+ * expired or misnamed certificate, or nothing listening on 443 — rather
+ * than the page. bowlingalone.com's certificate is self-signed: its http
+ * link is the right one.
+ */
+const HTTPS_FAILS = /CERT|SELF_SIGNED|UNABLE_TO_VERIFY|ERR_TLS|ERR_SSL|EPROTO|ECONNREFUSED/;
+
+const errorCode = (err: unknown): string => {
+  const e = err as { code?: string; cause?: { code?: string } };
+  return String(e?.code ?? e?.cause?.code ?? '');
+};
+
+/**
+ * A redirect to a sign-in, a subscription page or a consent wall is the site
+ * not showing the page to a checker, not the page moving.
+ */
+const WALL = /\/(?:log-?in|sign-?in|sign-?up|subscribe|register|account|auth|consent|gdpr|paywall)(?:[/?.#]|$)/i;
+function isWall(url: string, landed: string): boolean {
+  try {
+    const to = new URL(landed);
+    if (/^(?:consent|guce)\./i.test(to.hostname)) return true;
+    return WALL.test(to.pathname) && !WALL.test(new URL(url).pathname);
+  } catch {
+    return false;
+  }
+}
+
+/**
+ * Whether the https address of an http link answers: `works` on a 2xx,
+ * `fails` on a certificate or connection failure or a 404/410, undefined
+ * when it would not say (a timeout, a 403).
+ */
+async function httpsOf(url: string, fetcher: Fetcher): Promise<LinkResult['https']> {
+  const secure = url.replace(/^http:/i, 'https:');
+  try {
+    const got = await fetcher(secure);
+    await got.discard();
+    if (got.status >= 200 && got.status < 300) return 'works';
+    return got.status === 404 || got.status === 410 ? 'fails' : undefined;
+  } catch (err) {
+    return HTTPS_FAILS.test(errorCode(err)) ? 'fails' : undefined;
+  }
+}
+
 /** What one link answered. Never throws. */
 export async function checkLink(url: string, fetcher: Fetcher = pages, now = () => new Date()): Promise<LinkResult> {
   const checked_at = now().toISOString();
@@ -112,11 +163,29 @@ export async function checkLink(url: string, fetcher: Fetcher = pages, now = () 
   try {
     got = await fetcher(url);
   } catch (err) {
-    const e = err as { code?: string; cause?: { code?: string }; message?: string };
-    if ((e.code ?? e.cause?.code) === 'ENOTFOUND') {
+    const code = errorCode(err);
+    if (code === 'ENOTFOUND') {
       return { verdict: 'dead', note: 'no such host', checked_at };
     }
-    return { verdict: 'unchecked', note: String(e.message ?? err).slice(0, 160), checked_at };
+    // The https address fails: plain http is the right link when it works.
+    if (/^https:/i.test(url) && HTTPS_FAILS.test(code)) {
+      const plain = url.replace(/^https:/i, 'http:');
+      try {
+        const http = await fetcher(plain);
+        await http.discard();
+        if (http.status >= 200 && http.status < 300) {
+          return {
+            verdict: 'moved', status: http.status, suggestion: plain, https: 'fails',
+            note: `the https address fails (${code}); http works`, checked_at,
+          };
+        }
+      } catch {
+        /* neither answers: the site would not say */
+      }
+      return { verdict: 'unchecked', https: 'fails', note: `the https address fails (${code})`, checked_at };
+    }
+    const e = err as { message?: string };
+    return { verdict: 'unchecked', note: String(e?.message ?? err).slice(0, 160), checked_at };
   }
   const { status } = got;
   const final_url = got.url && got.url !== url ? got.url : undefined;
@@ -139,6 +208,10 @@ export async function checkLink(url: string, fetcher: Fetcher = pages, now = () 
     await got.discard();
     return { verdict: 'dead', status, final_url: landed, note: "redirects to the site's front page", checked_at };
   }
+  if (final_url && isWall(url, landed)) {
+    await got.discard();
+    return { verdict: 'unchecked', status, final_url, note: 'the site asks a checker to sign in or consent first', checked_at };
+  }
 
   let hint: string | undefined;
   if (/html/i.test(got.contentType)) {
@@ -149,26 +222,33 @@ export async function checkLink(url: string, fetcher: Fetcher = pages, now = () 
     await got.discard();
   }
 
-  const suggestion = withoutTracking(hint ?? landed);
-  const moved = linkKey(suggestion) !== linkKey(url) || hasTracking(url);
+  // Only a different page is a finding (2026-10-04): not the same page with
+  // tracking, `www.`, a trailing slash or https added, and never a canonical
+  // or a redirect that drops https (WT352's "Plan mode is dead" named an
+  // http:// github.io copy as its own).
+  const fromHint = hint ? withoutTracking(hint) : undefined;
+  const suggestion = [fromHint, withoutTracking(landed)].find((c) =>
+    c !== undefined && linkKey(c) !== linkKey(url) && !downgrades(url, c));
+  const https = /^http:/i.test(url) && !/^https:/i.test(landed) ? await httpsOf(url, fetcher) : undefined;
   return {
-    verdict: moved ? 'moved' : 'ok',
+    verdict: suggestion ? 'moved' : 'ok',
     status,
     ...(final_url ? { final_url } : {}),
     ...(hint ? { canonical_hint: hint } : {}),
-    ...(moved ? { suggestion } : {}),
-    ...(shortened ? { note: 'shortened' } : hint && moved ? { note: "the page's own canonical" } : {}),
+    ...(suggestion ? { suggestion } : {}),
+    ...(https ? { https } : {}),
+    ...(shortened ? { note: 'shortened' } : suggestion && suggestion === fromHint ? { note: "the page's own canonical" } : {}),
     checked_at,
   };
 }
 
-/** Every URL, CONCURRENCY at a time. */
+/** Every URL, `concurrency` at a time. */
 export async function checkLinks(
-  urls: string[], fetcher: Fetcher = pages, now = () => new Date(),
+  urls: string[], fetcher: Fetcher = pages, now = () => new Date(), concurrency = CONCURRENCY,
 ): Promise<Record<string, LinkResult>> {
   const out: Record<string, LinkResult> = {};
   const queue = [...new Set(urls)];
-  await Promise.all(Array.from({ length: Math.min(CONCURRENCY, queue.length) }, async () => {
+  await Promise.all(Array.from({ length: Math.min(concurrency, queue.length) }, async () => {
     for (let url = queue.shift(); url !== undefined; url = queue.shift()) {
       out[url] = await checkLink(url, fetcher, now);
     }

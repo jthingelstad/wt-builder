@@ -11,7 +11,9 @@ import type { IssueDoc, LinkResult } from '../src/shared/types.ts';
 import {
   acceptLinks, applyLinkCheck, canonicalHint, checkLink, checkLinks, type Fetched, type Fetcher,
 } from '../src/server/link-check.ts';
-import { findingsSummary, giftLine, giftOf, issueLinks, linkFindings } from '../src/shared/link-findings.ts';
+import { actionOf, findingsSummary, giftLine, giftOf, issueLinks, linkFindings } from '../src/shared/link-findings.ts';
+import { rowHints } from '../src/shared/hints.ts';
+import { contentFindings } from '../src/shared/deliverability.ts';
 import { readiness } from '../src/server/issue.ts';
 
 const fixture = (): IssueDoc => JSON.parse(
@@ -66,10 +68,11 @@ describe('checkLink', () => {
     }
   });
 
-  it('tracking on the link itself is a finding even when the page is the same', async () => {
+  it('tracking on the link itself is not a finding: the same page is the same page (2026-10-04)', async () => {
     const url = 'https://example.com/post?utm_source=newsletter';
     const r = await checkLink(url, pages({ [url]: page(200, url) }), NOW);
-    expect(r).toMatchObject({ verdict: 'moved', suggestion: 'https://example.com/post' });
+    expect(r.verdict).toBe('ok');
+    expect(r.suggestion).toBeUndefined();
   });
 
   it('www and https alone are not a finding', async () => {
@@ -142,11 +145,11 @@ describe('the Links checked unit', () => {
   const result = (verdict: LinkResult['verdict'], extra: Partial<LinkResult> = {}): LinkResult =>
     ({ verdict, checked_at: '2026-10-01T12:00:00.000Z', ...extra });
 
-  it('is to do before any check, and says the send will check', () => {
+  it('is done before any check: a link not checked yet is nothing to act on (2026-10-04)', () => {
     const u = unit(fixture())!;
-    expect(u.state).toBe('todo');
+    expect(u.state).toBe('done');
     expect(u.kind).toBe('links');
-    expect(u.context).toContain('checked before the email and the website go');
+    expect(u.context).toContain('checked as it arrives');
   });
 
   it('is done when every link answered, unchecked ones included', () => {
@@ -183,7 +186,9 @@ describe('the Links checked unit', () => {
     checked.items['link-flipcash']!.canonical_url = 'https://avc.xyz/flipcash';
     const f = linkFindings(checked);
     expect(f.pending.map((l) => l.url)).toEqual(['https://avc.xyz/flipcash']);
-    expect(unit(checked)!.state).toBe('partial');
+    // Pending holds nothing: it is checked as it arrives, and again at send.
+    expect(unit(checked)!.state).toBe('done');
+    expect(unit(checked)!.context).toContain('1 not checked yet');
   });
 });
 
@@ -228,10 +233,10 @@ describe('gift links (Jamie, 2026-10-04)', () => {
     const f = linkFindings(doc, at);
     expect(f.gifts.map((l) => l.url)).toEqual([verge]);
     expect(f.open.map((l) => l.url)).toEqual([verge]);
-    expect(findingsSummary(f)).toMatch(/^1 gift link \(1 expired\), \d+ not checked yet$/);
+    expect(findingsSummary(f)).toBe('1 gift link (1 expired)');
     const u = unit(doc)!;
-    expect(u.state).toBe('todo');
-    expect(u.context).toContain('One is a gift link');
+    expect(u.state).toBe('partial');
+    expect(u.context).toContain('1 gift link (1 expired)');
   });
 
   it('keeps the unit partial after a clean check, until Jamie keeps it; the keep survives the next check', () => {
@@ -250,5 +255,129 @@ describe('gift links (Jamie, 2026-10-04)', () => {
     const again = applyLinkCheck(kept, all, '2026-10-04T13:00:00.000Z');
     expect(again.link_check!.accepted).toEqual([verge]);
     expect(unit(again)!.state).toBe('done');
+  });
+});
+
+describe('what Jamie can act on (plan before WT353, item 1)', () => {
+  const at = '2026-10-04T12:00:00.000Z';
+  const certErr = (code: string) => Object.assign(new Error('fetch failed'), { cause: Object.assign(new Error(code), { code }) });
+  /** The fixture with the flipcash link set to `url`, checked with `r`. */
+  const withLink = (url: string, r: LinkResult) => {
+    const doc = fixture();
+    doc.items['link-flipcash']!.source_url = url;
+    const all = Object.fromEntries(issueLinks(doc).map((l) => [l.url, { verdict: 'ok', checked_at: at } as LinkResult]));
+    all[url] = r;
+    return applyLinkCheck(doc, all, at);
+  };
+  const actionFor = (doc: IssueDoc, url: string) => {
+    const f = linkFindings(doc).open.find((l) => l.url === url);
+    return f ? actionOf(f) : undefined;
+  };
+  const hintsOn = (doc: IssueDoc) => (rowHints(doc).get('link-flipcash') ?? []).filter((h) => h.kind === 'link');
+
+  it('404 and 410 are dead, said on the row', async () => {
+    for (const status of [404, 410]) {
+      const url = `https://example.com/${status}`;
+      const r = await checkLink(url, pages({ [url]: page(status, url) }), NOW);
+      const doc = withLink(url, r);
+      expect(actionFor(doc, url), String(status)).toBe('dead');
+      expect(hintsOn(doc)[0]).toMatchObject({ short: 'dead link' });
+      expect(hintsOn(doc)[0]!.text).toContain(`(${status})`);
+    }
+  });
+
+  it('403, 429 and a timeout get no mark: kept as unchecked, nothing on the row', async () => {
+    const cases: [string, Fetched | Error][] = [
+      ['https://example.com/403', page(403, 'https://example.com/403')],
+      ['https://example.com/429', page(429, 'https://example.com/429')],
+      ['https://slow.example/x', new Error('The operation was aborted due to timeout')],
+    ];
+    for (const [url, answer] of cases) {
+      const r = await checkLink(url, pages({ [url]: answer }), NOW);
+      expect(r.verdict, url).toBe('unchecked');
+      const doc = withLink(url, r);
+      expect(linkFindings(doc).open, url).toEqual([]);
+      expect(hintsOn(doc), url).toEqual([]);
+      expect(readiness(doc).units.find((u) => u.kind === 'links')!.state, url).toBe('done');
+    }
+  });
+
+  it('never suggests a link that drops https: a canonical to http is refused, and an old stored one is not shown', async () => {
+    // The WT352 Plan mode link: the page's canonical names its http:// address.
+    const url = 'https://aymannadeem.github.io/blog/plan-mode';
+    const html = '<link rel="canonical" href="http://aymannadeem.github.io/blog/plan-mode-notes">';
+    const r = await checkLink(url, pages({ [url]: page(200, url, html) }), NOW);
+    expect(r.verdict).toBe('ok');
+    expect(r.suggestion).toBeUndefined();
+    const old = withLink(url, { verdict: 'moved', suggestion: 'http://aymannadeem.github.io/blog/plan-mode-notes', checked_at: at });
+    expect(actionFor(old, url)).toBeUndefined();
+    expect(hintsOn(old)).toEqual([]);
+  });
+
+  it('a real redirect to a different page is moved, with the page it went to', async () => {
+    const url = 'https://example.com/2019/old-slug';
+    const r = await checkLink(url, pages({ [url]: page(200, 'https://example.com/2019/new-slug?utm_source=rss') }), NOW);
+    expect(r).toMatchObject({ verdict: 'moved', suggestion: 'https://example.com/2019/new-slug' });
+    const doc = withLink(url, r);
+    expect(actionFor(doc, url)).toBe('moved');
+    expect(hintsOn(doc)[0]).toMatchObject({ short: 'moved link' });
+  });
+
+  it('a trailing slash, http to https on the same page, or tracking alone is not a move; nor an old stored one', async () => {
+    const url = 'http://example.com/post';
+    const r = await checkLink(url, pages({ [url]: page(200, 'https://example.com/post/?utm_campaign=x') }), NOW);
+    expect(r.verdict).toBe('ok');
+    const old = withLink('https://example.com/post?utm_source=a', { verdict: 'moved', suggestion: 'https://example.com/post', checked_at: at });
+    expect(actionFor(old, 'https://example.com/post?utm_source=a')).toBeUndefined();
+  });
+
+  it('a redirect to a sign-in or consent page is unchecked, not a move', async () => {
+    const url = 'https://news.example/story';
+    for (const landed of ['https://news.example/login?next=/story', 'https://consent.example.com/?continue=x']) {
+      const r = await checkLink(url, pages({ [url]: page(200, landed) }), NOW);
+      expect(r.verdict, landed).toBe('unchecked');
+    }
+  });
+
+  it('https with a self-signed certificate and a working http address: suggest http, the one case it may', async () => {
+    const url = 'https://bowlingalone.com/';
+    const plain = 'http://bowlingalone.com/';
+    const r = await checkLink(url, pages({ [url]: certErr('DEPTH_ZERO_SELF_SIGNED_CERT'), [plain]: page(200, plain) }), NOW);
+    expect(r).toMatchObject({ verdict: 'moved', suggestion: plain, https: 'fails' });
+    expect(r.note).toContain('DEPTH_ZERO_SELF_SIGNED_CERT');
+    const doc = withLink(url, r);
+    expect(actionFor(doc, url)).toBe('moved');
+    expect(hintsOn(doc)[0]).toMatchObject({ short: 'https fails' });
+  });
+
+  it('https that fails with http failing too is unchecked, never a suggestion', async () => {
+    const url = 'https://broken.example/x';
+    const plain = 'http://broken.example/x';
+    const r = await checkLink(url, pages({ [url]: certErr('CERT_HAS_EXPIRED'), [plain]: page(503, plain) }), NOW);
+    expect(r.verdict).toBe('unchecked');
+    expect(r.suggestion).toBeUndefined();
+  });
+
+  it("an http link whose https fails is the right link: no mark, and no deliverability warning", async () => {
+    const url = 'http://bowlingalone.com/';
+    const secure = 'https://bowlingalone.com/';
+    const r = await checkLink(url, pages({ [url]: page(200, url), [secure]: certErr('DEPTH_ZERO_SELF_SIGNED_CERT') }), NOW);
+    expect(r).toMatchObject({ verdict: 'ok', https: 'fails' });
+    const doc = withLink(url, r);
+    expect(hintsOn(doc)).toEqual([]);
+    expect(contentFindings(doc).filter((f) => f.kind === 'http')).toEqual([]);
+  });
+
+  it('an http link whose https works: the deliverability note says to use it, on its row', async () => {
+    const url = 'http://example.net/page';
+    const secure = 'https://example.net/page';
+    const r = await checkLink(url, pages({ [url]: page(200, url), [secure]: page(200, secure) }), NOW);
+    expect(r).toMatchObject({ verdict: 'ok', https: 'works' });
+    const doc = withLink(url, r);
+    const http = contentFindings(doc).find((f) => f.kind === 'http')!;
+    expect(http.message).toContain('https:// address works');
+    expect(http.anchor).toBe('link-flipcash');
+    const mail = (rowHints(doc).get('link-flipcash') ?? []).filter((h) => h.kind === 'mail');
+    expect(mail.map((h) => h.key)).toEqual([http.key]);
   });
 });

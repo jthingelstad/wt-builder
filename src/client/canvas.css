@@ -472,6 +472,11 @@ span[contenteditable]:focus {
   font: inherit; font-size: 12.5px; line-height: 1.45; overflow-wrap: anywhere;
 }
 .row-link-open { text-decoration: underline; white-space: nowrap; }
+/* An email finding: said the same way, kept in place (no inspector to open). */
+.row-mail-note { cursor: default; }
+.row-mail-note button.row-link-open {
+  margin-left: 6px; padding: 0; border: 0; background: none; color: inherit; font: inherit; cursor: pointer;
+}
 /* Typing in the row, the words are not finished yet: no hint mid-sentence. */
 .row:focus-within .row-hint { display: none; }
 .row.arrived .row-page { animation: arrived 1.8s ease-out; }

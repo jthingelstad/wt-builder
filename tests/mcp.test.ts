@@ -15,7 +15,7 @@ import { fileURLToPath } from 'node:url';
 import { Client } from '@modelcontextprotocol/sdk/client/index.js';
 import { StreamableHTTPClientTransport } from '@modelcontextprotocol/sdk/client/streamableHttp.js';
 
-import type { IssueDoc } from '../src/shared/types.ts';
+import type { IssueDoc, LinkResult } from '../src/shared/types.ts';
 
 const work = mkdtempSync(join(tmpdir(), 'wt-mcp-'));
 process.env.WT_BUILDER_DB = join(work, 'mcp.db');
@@ -92,7 +92,8 @@ describe('the MCP interface', () => {
     expect(s.summary).toContain(`${waiting} waiting`);
     expect(s.workable_now.map((w: any) => w.anchor)).not.toContain('outro-1');
     // Issue-wide pills belong to the issue, and are finished in the Send view.
-    for (const p of s.pills.filter((p: any) => p.kind === 'links' || p.kind === 'mail')) expect(p).toMatchObject({ anchor: 'issue', done_in: 'send view' });
+    // Since 2026-10-04 a link or email finding is the row's note: done in the editor, anchored to its row.
+    for (const p of s.pills.filter((p: any) => p.kind === 'links' || p.kind === 'mail')) expect(p).toMatchObject({ state: 'done', done_in: 'editor' });
     expect(s.checks.links).toHaveProperty('summary');
     expect(Object.keys(s.sends).sort()).toEqual(['archive', 'buttondown', 'podcast', 'website']);
     // The page's own readiness, pill for pill.
@@ -536,6 +537,41 @@ describe('row hints (MCP 1.5.0)', () => {
     expect(s.hints.filter((h: any) => h.anchor === 'haiku-1')).toEqual([
       { anchor: 'haiku-1', name: 'Haiku', kind: 'haiku', text: expect.stringMatching(/^Counted 5-6-5 syllables, not 5-7-5\./) },
     ]);
+  });
+});
+
+describe('link and email findings on their rows (MCP 1.5.5, plan before WT353 item 1)', () => {
+  it('a dead link and a shouting subject: hints on their rows, the pills partial in the editor, and the Send line names both', async () => {
+    const { issueLinks } = await import('../src/shared/link-findings.ts');
+    draft(377, (d) => {
+      d.issue.title = 'BUY NOW EVERYONE';
+      const at = '2026-10-04T12:00:00.000Z';
+      const results: Record<string, LinkResult> = Object.fromEntries(issueLinks(d).map((l) => [l.url, { verdict: 'ok', checked_at: at }]));
+      results[d.items['link-flipcash']!.source_url!] = { verdict: 'dead', status: 404, checked_at: at };
+      d.link_check = { at, results } as IssueDoc['link_check'];
+    });
+    const s = (await call('get_status', { issue: 'wt377' })).structuredContent;
+    expect(s.hints.find((h: any) => h.anchor === 'link-flipcash' && h.kind === 'link').text).toMatch(/^A dead link \(404\)/);
+    expect(s.hints.find((h: any) => h.anchor === 'issue' && h.kind === 'mail')).toMatchObject({ name: 'The title', text: expect.stringContaining('capitals') });
+    expect(s.pills.find((p: any) => p.kind === 'links')).toMatchObject({ state: 'partial', done_in: 'editor', anchor: 'link-flipcash' });
+    expect(s.pills.find((p: any) => p.kind === 'mail')).toMatchObject({ state: 'partial', done_in: 'editor' });
+    const line = s.checks.send_line;
+    expect(line.clear).toBe(false);
+    expect(line.rows.map((r: any) => r.anchor)).toEqual(['issue', 'link-flipcash']);
+    expect(line.rows[1].what.join(' ')).toContain('dead link');
+    expect(s.checks.links.summary).toBe('1 dead');
+  });
+
+  it('a draft with nothing to act on has a clear Send line', async () => {
+    const { issueLinks } = await import('../src/shared/link-findings.ts');
+    draft(378, (d) => {
+      const at = '2026-10-04T12:00:00.000Z';
+      d.link_check = { at, results: Object.fromEntries(issueLinks(d).map((l) => [l.url, { verdict: 'ok', checked_at: at }])) } as IssueDoc['link_check'];
+    });
+    const s = (await call('get_status', { issue: 'wt378' })).structuredContent;
+    expect(s.checks.send_line).toEqual({ clear: true, rows: [], issue: [] });
+    expect(s.checks.links.summary).toBe('nothing to act on');
+    expect(s.hints.filter((h: any) => h.kind === 'link' || h.kind === 'mail')).toEqual([]);
   });
 });
 

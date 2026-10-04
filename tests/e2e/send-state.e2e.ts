@@ -281,3 +281,31 @@ test('a website with no audio offers "Commit without audio…", and one with aud
   await expect.poll(() => posted).toEqual(['website?force=1', 'website']);
   expect(asked).toHaveLength(1);
 });
+
+// The dead-link ask stays on the cards (plan before WT353, item 1): the
+// findings moved to their rows, and the website and email still ask before
+// going with a dead link, then force.
+test('a dead link: the website offers "Commit with dead links…", which asks and then forces', async ({ page }) => {
+  const DEAD = 'https://james-pritchard.com/blog/llms-are-functions';
+  const doc = store.getIssue(ISSUE)!.doc;
+  const at = '2026-10-04T12:00:00.000Z';
+  doc.link_check = { at, results: { [DEAD]: { verdict: 'dead', status: 404, checked_at: at } } };
+  store.saveIssue(doc);
+  const audio = { audio_url: 'https://files.thingelstad.com/weekly-thing/audio/wt350.mp3' };
+  store.recordSend(ISSUE, 'podcast', { status: 'sent', at: '2026-09-26T13:00:00Z', url: audio.audio_url, audio });
+  const posted = await recordSends(page);
+
+  await open(page, '/send');
+  const override = card(page, 'Website').locator('.sc-head .btn').first();
+  await expect(override).toHaveText('Commit with dead links…');
+  const asked: string[] = [];
+  page.once('dialog', (d) => { asked.push(d.message()); void d.dismiss(); });
+  await override.click();
+  await expect.poll(() => asked).toHaveLength(1);
+  expect(asked[0]).toContain(`1 dead link: ${DEAD}`);
+  expect(posted).toEqual([]);
+
+  page.once('dialog', (d) => void d.accept());
+  await override.click();
+  await expect.poll(() => posted).toEqual(['website?force=1']);
+});

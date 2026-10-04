@@ -2,14 +2,16 @@
  * The issue's links, and what the last link check found for each.
  *
  * Pure, and on both sides: the server derives the "Links checked" readiness
- * unit and the send legs' dead-link gate from it, the client the inspector's
- * per-item findings and the Send card's override. The check itself, which
- * fetches, is src/server/link-check.ts.
+ * unit and the send legs' dead-link gate from it, the client the rows'
+ * notes, the inspector's per-item findings, the Send view's one line and
+ * the Send card's override. The check itself, which fetches, is
+ * src/server/link-check.ts; it runs as each link arrives
+ * (src/server/arrival-check.ts).
  */
 
 import type { IssueDoc, LinkResult } from './types.ts';
 import { isIncluded, orderedNodes, windowOf } from './render/plan.ts';
-import { linkUrl, urlsIn } from './links.ts';
+import { linkKey, linkUrl, urlsIn } from './links.ts';
 
 export interface IssueLink {
   url: string;
@@ -125,10 +127,47 @@ export interface LinkFinding extends IssueLink {
   gift?: GiftLink;
 }
 
+/** True when going from `from` to `to` would drop https: never suggested (WT352's "Plan mode is dead"). */
+export function downgrades(from: string, to: string): boolean {
+  return /^https:/i.test(from) && /^http:/i.test(to);
+}
+
+/**
+ * Whether a check's suggestion is worth Jamie's attention: a different page
+ * (not the same one with tracking, `www.`, a trailing slash, or https added),
+ * and never one that drops https, unless the https address itself fails and
+ * http works. Read again on every stored result, so a result kept from
+ * before these rules says nothing it would not say now.
+ */
+export function worthSuggesting(url: string, r: LinkResult | undefined): boolean {
+  if (!r?.suggestion) return false;
+  if (r.https === 'fails' && downgrades(url, r.suggestion)) return true;
+  if (downgrades(url, r.suggestion)) return false;
+  return linkKey(r.suggestion) !== linkKey(url);
+}
+
+export type LinkAction = 'dead' | 'gift' | 'moved';
+
+/**
+ * What Jamie can act on in one link, or undefined (2026-10-04, after WT352:
+ * "All of the link checking was really hard to work with"). Dead (404, 410,
+ * no such host, a redirect to the front page), a gift link, or a real move
+ * to another page. A site that would not answer (403, 429, 5xx, a timeout)
+ * is nothing to act on, and is never marked.
+ */
+export function actionOf(f: Pick<LinkFinding, 'url' | 'result' | 'gift'>): LinkAction | undefined {
+  if (f.gift) return 'gift';
+  if (f.result?.verdict === 'dead') return 'dead';
+  if (f.result?.verdict === 'moved' && worthSuggesting(f.url, f.result)) return 'moved';
+  return undefined;
+}
+
 export interface LinkFindings {
   links: LinkFinding[];
   dead: LinkFinding[];
+  /** Moved to another page, by actionOf's rule. */
   moved: LinkFinding[];
+  /** The site would not say. Kept, and never marked. */
   unchecked: LinkFinding[];
   /** Never fetched: new since the last check, or no check yet. */
   pending: LinkFinding[];
@@ -136,7 +175,7 @@ export interface LinkFindings {
   unaccepted: LinkFinding[];
   /** Gift links not kept by Jamie: read off the URL, checked or not. */
   gifts: LinkFinding[];
-  /** Dead, moved, or a gift, and not kept by Jamie: what readiness counts. */
+  /** Something to act on (actionOf), not kept by Jamie: what rows, readiness and the Send line say. */
   open: LinkFinding[];
 }
 
@@ -147,19 +186,16 @@ export function linkFindings(doc: IssueDoc, now = Date.now()): LinkFindings {
     const gift = giftOf(l.url, now);
     return { ...l, result: results[l.url], ...(gift ? { gift } : {}) };
   });
-  const by = (v: LinkResult['verdict']) => links.filter((l) => l.result?.verdict === v);
-  const dead = by('dead');
-  const moved = by('moved');
+  const dead = links.filter((l) => l.result?.verdict === 'dead');
   return {
     links,
     dead,
-    moved,
-    unchecked: by('unchecked'),
+    moved: links.filter((l) => l.result?.verdict === 'moved' && worthSuggesting(l.url, l.result)),
+    unchecked: links.filter((l) => l.result?.verdict === 'unchecked'),
     pending: links.filter((l) => !l.result),
     unaccepted: dead.filter((l) => !accepted.has(l.url)),
     gifts: links.filter((l) => l.gift && !accepted.has(l.url)),
-    open: links.filter((l) =>
-      (l.gift || l.result?.verdict === 'dead' || l.result?.verdict === 'moved') && !accepted.has(l.url)),
+    open: links.filter((l) => actionOf(l) && !accepted.has(l.url)),
   };
 }
 
@@ -171,18 +207,20 @@ export function giftLine(gift: GiftLink): string {
   return `A gift link (${gift.param}): readers get past the paywall only while the gift lasts.`;
 }
 
-/** "2 dead, 1 moved" — the counts that are not fine, for a chip or a card. */
+/**
+ * "2 dead, 1 moved to another page": what there is to act on, for a pill's
+ * line. A site that would not answer, and a link not checked yet, are not
+ * in it: neither is anything Jamie can do.
+ */
 export function findingsSummary(f: LinkFindings): string {
-  const dead = f.open.filter((l) => l.result?.verdict === 'dead').length;
-  const moved = f.open.filter((l) => l.result?.verdict === 'moved').length;
+  const dead = f.open.filter((l) => actionOf(l) === 'dead').length;
+  const moved = f.open.filter((l) => actionOf(l) === 'moved').length;
   const expired = f.gifts.filter((l) => l.gift!.expired).length;
   const gifts = f.gifts.length;
   const parts = [
     dead && `${dead} dead`,
     gifts && (expired ? `${gifts} gift link${gifts === 1 ? '' : 's'} (${expired} expired)` : `${gifts} gift link${gifts === 1 ? '' : 's'}`),
-    moved && `${moved} moved or shortened`,
-    f.unchecked.length && `${f.unchecked.length} the site would not answer`,
-    f.pending.length && `${f.pending.length} not checked yet`,
+    moved && `${moved} moved to another page`,
   ].filter(Boolean);
   return parts.join(', ');
 }

@@ -1385,47 +1385,45 @@ export function readiness(doc: IssueDoc): Readiness {
   section = undefined;
 
   // One unit for every link the issue prints (plan 2026-10-01 §3): warn,
-  // don't block. Done when every link has been checked and nothing dead,
-  // moved, or a gift link is left that Jamie has not kept; a site that turns
-  // checkers away is said, not counted. The tick jumps to the first item
-  // with a finding. A gift link is read off the URL, so it is said even
-  // before the first check.
+  // don't block. Since 2026-10-04 each link is checked as it arrives
+  // (src/server/arrival-check.ts) and its finding is said on its row, so the
+  // pill is done unless a row still has something to act on: dead, a gift
+  // link, or moved to another page, not kept. A link not checked yet, or a
+  // site that would not answer, holds nothing. The tick jumps to the first
+  // row with a finding.
   const links = linkFindings(doc);
   if (links.links.length) {
     const said = findingsSummary(links);
-    const first = [...links.open, ...links.pending][0]?.items[0] ?? 'issue';
-    const checked = Boolean(doc.link_check);
-    const gifts = links.gifts.length;
     add(
-      !links.open.length && !links.pending.length ? 'done' : checked ? 'partial' : 'todo',
-      'Links checked', first, 'links',
-      !checked
-        ? `${links.links.length} links, not checked yet. They are checked before the email and the website go, or now from the Send card.${gifts ? ` ${gifts === 1 ? 'One is a gift link' : `${gifts} are gift links`}: the inspector says when it runs out.` : ''}`
-        : said
-          ? `${said}. The inspector has each one: use the suggested link, or keep it as it is.`
-          : `All ${links.links.length} links answered.`,
+      links.open.length ? 'partial' : 'done',
+      'Links checked', links.open[0]?.items[0] ?? 'issue', 'links',
+      said
+        ? `${said}. Each is said on its row: use the suggested link, or keep it as it is.`
+        : links.pending.length
+          ? `${links.links.length} links, ${links.pending.length} not checked yet. Each is checked as it arrives, and again before the website and the email go.`
+          : `${links.links.length} links, nothing to act on.`,
     );
   }
 
   // One unit for whether the email will reach the inbox (2026-10-01): warn,
-  // don't block. Done when every domain the email prints has been looked up,
-  // none is on a blocklist Jamie has not sent anyway, and nothing in the
-  // email itself is left that he has not kept. A domain no list answered
-  // for is said, not counted. Only an issue with an email edition has one.
+  // don't block. Done unless a domain is on a blocklist Jamie has not sent
+  // anyway, or something in the email itself is left that he has not kept;
+  // each is said on the row that prints it (src/shared/hints.ts). A domain
+  // not looked up yet, or one no list answered for, holds nothing. Only an
+  // issue with an email edition has one.
   const mail = deliverabilityFindings(doc);
   if (mail.domains.length) {
     const said = deliverabilitySummary(mail);
-    const looked = Boolean(doc.domain_check);
-    const blocking = mail.unaccepted.length + mail.open.length;
+    const open = mail.unaccepted.length + mail.open.length;
     const listedUrl = mail.unaccepted[0]?.urls[0];
     const first = listedUrl ? anchorFor(doc, listedUrl) : mail.open[0]?.anchor ?? 'issue';
     add(
-      !blocking && !mail.pending.length ? 'done' : looked || mail.open.length ? 'partial' : 'todo',
+      open ? 'partial' : 'done',
       'Deliverability', first, 'mail',
-      !looked && !said
-        ? `${mail.domains.length} domains, not looked up yet. They are checked against the spam blocklists before the email goes, or now from the Send card.`
-        : said
-          ? `${said}. The Send card has each one.`
+      said
+        ? `${said}. Each is said on its row; the email asks before it goes with a blocklisted domain.`
+        : mail.pending.length
+          ? `${mail.domains.length} domains, ${mail.pending.length} not looked up yet. Each is looked up as it arrives, and again before the email goes.`
           : `${mail.domains.length} domains on no blocklist, and nothing in the email a filter holds against it.`,
     );
   }

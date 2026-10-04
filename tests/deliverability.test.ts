@@ -89,6 +89,30 @@ describe('contentFindings', () => {
   });
 });
 
+describe('the Deliverability pill (plan before WT353, item 1)', () => {
+  const unit = (doc: IssueDoc) => readiness(doc).units.find((u) => u.title === 'Deliverability')!;
+
+  it('is done when nothing is open: a domain not looked up yet is nothing to act on', () => {
+    const u = unit(fixture());
+    expect(u).toMatchObject({ state: 'done', kind: 'mail' });
+    expect(u.context).not.toMatch(/not checked|unchecked/i);
+  });
+
+  it('is partial on an open content finding, anchored to its row, and done once it is kept', () => {
+    const doc = withLink('Old [site](http://old.example.net/page).');
+    expect(unit(doc)).toMatchObject({ state: 'partial', anchor: 'link-x' });
+    expect(unit(doc).context).toContain('on its row');
+    const key = contentFindings(doc)[0]!.key;
+    expect(unit(keepFinding(doc, key, true)).state).toBe('done');
+  });
+
+  it('a subject finding is the title row\'s note, and the pill points at the issue', () => {
+    const doc = fixture();
+    doc.issue.title = 'ACT NOW EVERYONE';
+    expect(unit(doc)).toMatchObject({ state: 'partial', anchor: 'issue' });
+  });
+});
+
 describe('emailDomains', () => {
   it('covers every domain the email prints, its own included, grouped by registered name', () => {
     const domains = emailDomains(withLink('[a](https://news.example.com/a) and [b](https://www.example.com/b)'));

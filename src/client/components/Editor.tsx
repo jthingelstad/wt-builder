@@ -44,6 +44,8 @@ interface Props {
    * would close the inspector underneath, ⌘/ open the shortcut card.
    */
   covered?: boolean;
+  /** The Send line's jump to a row (2026-10-04): each new `n` goes there once the editor is uncovered. */
+  jumpTo?: { anchor: string; n: number } | null;
 }
 
 const KICKER: Record<Lens, [string, string]> = {
@@ -67,7 +69,7 @@ const KICKER: Record<Lens, [string, string]> = {
 
 const CHANNEL_LENSES: Channel[] = ['website', 'email', 'audio'];
 
-export function Editor({ doc, readiness, busy, error, run, onIndex, onSend, onError, covered = false }: Props) {
+export function Editor({ doc, readiness, busy, error, run, onIndex, onSend, onError, covered = false, jumpTo }: Props) {
   const [lens, setLens] = useState<Lens>('website');
   const [panel, setPanel] = useState(true);
   const [selected, setSelected] = useState<string | null>(null);
@@ -135,7 +137,7 @@ export function Editor({ doc, readiness, busy, error, run, onIndex, onSend, onEr
   // summary ("1 gift link, 2 moved, 3 the site would not answer") printed
   // under whichever row had the first finding and named none of them
   // (WT352). Each finding is said on its own row instead (Row.tsx), and the
-  // summary stays on the strip and the Send card.
+  // summary stays on the strip; the Send view has one line naming the rows.
   const owed = useMemo(() => new Map(
     (readiness?.units ?? [])
       .filter((u) => u.state === 'partial' && u.context && u.kind !== 'links' && u.kind !== 'mail')
@@ -187,6 +189,12 @@ export function Editor({ doc, readiness, busy, error, run, onIndex, onSend, onEr
     el.classList.add('arrived');
     setTimeout(() => el.classList.remove('arrived'), 1800);
   }, []);
+  // From the Send line: taken to the row, as a strip tick takes him.
+  useEffect(() => {
+    if (!jumpTo || covered) return;
+    const frame = requestAnimationFrame(() => goTo(jumpTo.anchor));
+    return () => cancelAnimationFrame(frame);
+  }, [jumpTo?.n, covered]);
   const select = useCallback((anchor: string | null) => {
     setSelected(anchor);
     setPeeking(false);
@@ -197,6 +205,9 @@ export function Editor({ doc, readiness, busy, error, run, onIndex, onSend, onEr
     setEditsSince((e) => e + 1);
     return run(fn);
   };
+
+  /** An email finding on a row, kept as it is: it stops being said (deliverability/keep). */
+  const keepMail = (key: string) => void runEdit(() => api.keepFinding(id, key));
 
   /**
    * A wand on a section still waiting on its inputs asks first (warn, don't
@@ -668,7 +679,7 @@ export function Editor({ doc, readiness, busy, error, run, onIndex, onSend, onEr
               />
             ) : (
             <OwedContext.Provider value={owed}>
-            <HintsContext.Provider value={{ hints: rowHintMap, open: select }}>
+            <HintsContext.Provider value={{ hints: rowHintMap, open: select, keep: keepMail }}>
             <Page
               doc={doc}
               lens={lens}

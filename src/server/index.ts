@@ -36,9 +36,10 @@ import * as geocode from './integrations/geocode.ts';
 import * as editorial from './editorial.ts';
 import { linkedBefore } from './linked-before.ts';
 import { acceptLinks, applyLinkCheck, checkLinks } from './link-check.ts';
+import { arrivalDeps, checking, noteArrival } from './arrival-check.ts';
 import { acceptDomains, applyDomainCheck, checkDomains, domainCheckChanged, keepFinding } from './domain-check.ts';
 import { deliverabilityFindings, deliverabilitySummary, emailDomains } from '../shared/deliverability.ts';
-import { findingsSummary, issueLinks, linkFindings } from '../shared/link-findings.ts';
+import { findingsSummary, issueLinks, linkFindings, worthSuggesting } from '../shared/link-findings.ts';
 import { linkUrl } from '../shared/links.ts';
 import { asSpot, editAt, findProof, findUndo, type ProofEdit } from '../shared/proof.ts';
 import * as githubRepo from './integrations/github.ts';
@@ -146,9 +147,16 @@ function requireIssue(id: string): IssueDoc {
   return row.doc;
 }
 
+/**
+ * Save, and start the link and blocklist checks for anything the save
+ * brought in (src/server/arrival-check.ts): a swept link, a link typed into
+ * commentary. They run in the background; `checking` tells the client to
+ * look again shortly for what they found.
+ */
 function saved(doc: IssueDoc) {
   const row = store.saveIssue(doc);
-  return { issue: row.doc, readiness: issues.readiness(row.doc) };
+  noteArrival(row.doc);
+  return { issue: row.doc, readiness: issues.readiness(row.doc), checking: checking(row.doc.issue.id) };
 }
 
 /**
@@ -165,6 +173,19 @@ function savedFresh(id: string, change: (doc: IssueDoc) => IssueDoc | void) {
   const fresh = requireIssue(id);
   return saved(change(fresh) ?? fresh);
 }
+
+// The checks on arrival read and save through the store, synchronously:
+// the fresh read and the save happen with nothing in between (savedFresh's
+// rule), and an issue put to bed meanwhile is left as it is.
+arrivalDeps({
+  read: (id) => store.getIssue(id)?.doc,
+  apply: (id, change) => {
+    const fresh = store.getIssue(id)?.doc;
+    if (!fresh || fresh.issue.put_to_bed_at) return undefined;
+    return store.saveIssue(change(fresh)).doc;
+  },
+  log: (id, text) => store.logEvent(id, 'links', text),
+});
 
 /**
  * The legs running in this process, `${id}:${dest}` — the real in-flight
@@ -669,7 +690,7 @@ const routes: [RegExp, string, (ctx: Ctx, params: string[]) => Promise<unknown>]
     const repaired = issues.normalizeSkeleton(doc);
     if (repaired && readOnly) return { issue: repaired, readiness: issues.readiness(repaired) };
     if (repaired) return saved(repaired);
-    return { issue: doc, readiness: issues.readiness(doc) };
+    return { issue: doc, readiness: issues.readiness(doc), checking: checking(id!) };
   }],
 
   // The client never calls this; it exists for a draft started by mistake
@@ -1140,8 +1161,12 @@ const routes: [RegExp, string, (ctx: Ctx, params: string[]) => Promise<unknown>]
     }
     if (action !== 'use') throw new HttpError(400, `unknown action ${action}`);
     const shown = linkUrl(item)!;
-    const suggestion = doc.link_check?.results[shown]?.suggestion;
+    const result = doc.link_check?.results[shown];
+    const suggestion = result?.suggestion;
     if (!suggestion) throw new HttpError(409, `the link check has no suggestion for ${shown}`);
+    // A suggestion stored before 2026-10-04 can drop https or name the same
+    // page; the row never offers those, and neither does this.
+    if (!worthSuggesting(shown, result)) throw new HttpError(409, `the link check has no suggestion worth taking for ${shown}`);
     const response = savedFresh(id!, (d) => {
       const fresh = d.items[itemId!];
       if (!fresh || linkUrl(fresh) !== shown) {

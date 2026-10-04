@@ -18,8 +18,9 @@ import { useEffect, useRef, useState } from 'preact/hooks';
 import type { Destination, IssueDoc, ScriptReview, SendState, SentRecord, Verification } from '../../shared/types.ts';
 import { isOut, lastSent, recordedAudioUrl } from '../../shared/sends.ts';
 import { audioScript } from '../../shared/render/audio.ts';
-import { findingsSummary, linkFindings } from '../../shared/link-findings.ts';
-import { deliverabilityFindings, deliverabilitySummary } from '../../shared/deliverability.ts';
+import { linkFindings } from '../../shared/link-findings.ts';
+import { deliverabilityFindings } from '../../shared/deliverability.ts';
+import { openChecks } from '../../shared/hints.ts';
 import { duration, type IssueTiming } from '../../shared/timing.ts';
 import { ApiError, api, type PodcastAudio, type Readiness, type SendResult } from '../api.ts';
 import {
@@ -32,6 +33,8 @@ interface Props {
   busy: boolean;
   error: string | null;
   onBack: () => void;
+  /** Back to the editor, at this row: the Send line's jump. */
+  onJump: (anchor: string) => void;
   onSent: (doc: IssueDoc) => void;
   onError: (m: string | null) => void;
 }
@@ -186,7 +189,7 @@ const PILL: Record<string, string> = {
   none: 'NOT SENT', gate: 'NEEDS YOU', sending: 'SENDING', sent: 'SENT', failed: 'DID NOT SEND',
 };
 
-export function Send({ doc, readiness, error, onBack, onSent, onError }: Props) {
+export function Send({ doc, readiness, error, onBack, onJump, onSent, onError }: Props) {
   const [running, setRunning] = useState<Destination | null>(null);
   const [results, setResults] = useState<Partial<Record<Destination, SendResult>>>({});
   // Leaving the view stops a bulk run between legs: the leg that is out
@@ -284,37 +287,23 @@ export function Send({ doc, readiness, error, onBack, onSent, onError }: Props) 
   // a plain re-send, so the card says what an update would do and offers
   // "Update anyway…", and the bulk runs leave it out.
   const remoteStatus = doc.verify?.buttondown?.remote_status;
+  // Links and the email's domains are checked as they arrive, and what the
+  // check finds is said on its row in the editor (plan before WT353, item
+  // 1). Here, at sending, one line: clear, or the rows with something to act
+  // on, each a jump back to it. The dead-link and blocklist asks stay on the
+  // cards (overrideOf).
   const links = linkFindings(doc);
   const deadLinks = links.unaccepted;
-  const [checkingLinks, setCheckingLinks] = useState(false);
-  const checkLinks = async () => {
-    setCheckingLinks(true);
-    onError(null);
-    try {
-      onSent((await api.checkLinks(id)).issue);
-    } catch (err) {
-      onError(`links: ${(err as Error).message}`);
-    } finally {
-      setCheckingLinks(false);
-    }
-  };
+  const checks = openChecks(doc);
+  // Put to bed or a pre-Builder record, nothing can be acted on.
+  const frozen = Boolean(doc.issue.put_to_bed_at || doc.issue.imported);
+  const checklist = (readiness?.units ?? []).filter((u) => u.kind !== 'links' && u.kind !== 'mail');
+  const checklistTotal = checklist.length;
+  const checklistOpen = checklist.filter((u) => !u.done).length;
   const emailLocked = remoteStatus && remoteStatus !== 'draft' ? remoteStatus : undefined;
   // Will the email reach the inbox (2026-10-01): a listed domain asks before
-  // the email goes, as a dead link does; the rest are warnings with "Keep".
-  const mail = deliverabilityFindings(doc);
-  const listedDomains = mail.unaccepted;
-  const [keeping, setKeeping] = useState<string | null>(null);
-  const keepFinding = async (key: string) => {
-    setKeeping(key);
-    onError(null);
-    try {
-      onSent((await api.keepFinding(id, key)).issue);
-    } catch (err) {
-      onError(`deliverability: ${(err as Error).message}`);
-    } finally {
-      setKeeping(null);
-    }
-  };
+  // the email goes, as a dead link does. The rest are row notes with "Keep".
+  const listedDomains = deliverabilityFindings(doc).unaccepted;
 
   /**
    * A card's override, while its gate holds: the podcast's approval, the
@@ -492,68 +481,47 @@ export function Send({ doc, readiness, error, onBack, onSent, onError }: Props) 
           leaves the others untouched.
         </p>
 
-        {readiness && readiness.done < readiness.total && (
+        {/*
+          The checklist's own pills, not the link and email checks: those
+          read done unless a row has something to act on, and the line below
+          says that. Shown only when something is open (it was always on).
+        */}
+        {checklistOpen > 0 && (
           <div class="send-warn">
             <CircleAlert />
             <span>
-              {readiness.total - readiness.done} of {readiness.total} things on the
-              checklist are still open. Nothing here is blocked by that.
+              {checklistOpen} of {checklistTotal} things on the checklist are
+              still open. Nothing here is blocked by that.
             </span>
           </div>
         )}
 
-        {links.links.length > 0 && (
-          <div class="send-warn">
+        {!frozen && (checks.rows.length || checks.issue.length ? (
+          <div class="send-warn send-checks" role="status">
             <CircleAlert />
             <span>
-              {!doc.link_check
-                ? `${links.links.length} links, not checked yet. The website and the email check them before they go.`
-                : findingsSummary(links)
-                  ? `Links: ${findingsSummary(links)}. The inspector has each one.${deadLinks.length ? ' The website and the email ask before sending with a dead link.' : ''}`
-                  : `All ${links.links.length} links answered.`}
+              Links and email:{' '}
+              {checks.rows.map((r, i) => (
+                <span key={r.anchor}>
+                  {i > 0 && '; '}
+                  <button class="send-jump" title="Go to it in the editor" onClick={() => onJump(r.anchor)}>{r.name}</button>
+                  {' '}({r.what.join(', ')})
+                </span>
+              ))}
+              {checks.issue.map((t, i) => <span key={t}>{checks.rows.length || i > 0 ? '; ' : ''}{t}</span>)}
+              .
             </span>
-            <button class="btn" disabled={checkingLinks} onClick={() => void checkLinks()}>
-              {checkingLinks ? 'Checking…' : doc.link_check ? 'Check again' : 'Check links'}
-            </button>
           </div>
-        )}
-
-        {mail.domains.length > 0 && (
-          <div class="send-warn send-mail">
-            <CircleAlert />
-            <div class="send-mail-body">
-              <span>
-                {!doc.domain_check && !mail.open.length
-                  ? `Deliverability: ${mail.domains.length} domains, not looked up yet. The email checks them against the spam blocklists before it goes.`
-                  : deliverabilitySummary(mail)
-                    ? `Deliverability: ${deliverabilitySummary(mail)}.${listedDomains.length ? ' The email asks before sending with a blocklisted domain.' : ''}`
-                    : `Deliverability: ${mail.domains.length} domains on no blocklist${doc.domain_check ? ` (${[...new Set(mail.domains.flatMap((d) => d.result?.asked ?? []))].join(', ') || 'no list answered'})` : ''}, and nothing in the email a filter holds against it.`}
-              </span>
-              {(listedDomains.length > 0 || mail.open.length > 0 || mail.unchecked.length > 0) && (
-                <ul class="send-mail-list">
-                  {listedDomains.map((d) => (
-                    <li key={`listed:${d.domain}`}>
-                      <strong>{d.domain}</strong> — {(d.result?.lists ?? []).join('; ')}. Linked as {d.urls.slice(0, 2).join(', ')}{d.urls.length > 2 ? ', …' : ''}.
-                    </li>
-                  ))}
-                  {mail.open.map((f) => (
-                    <li key={f.key}>
-                      {f.message}
-                      <button class="btn small" disabled={keeping === f.key} onClick={() => void keepFinding(f.key)}>
-                        {keeping === f.key ? 'Keeping…' : 'Keep'}
-                      </button>
-                    </li>
-                  ))}
-                  {mail.unchecked.length > 0 && (
-                    <li key="unchecked">
-                      No blocklist answered for {mail.unchecked.map((d) => d.domain).slice(0, 4).join(', ')}{mail.unchecked.length > 4 ? ', …' : ''}: {mail.unchecked[0]?.result?.note}
-                    </li>
-                  )}
-                </ul>
-              )}
-            </div>
+        ) : (
+          <div class="send-clear send-checks" role="status">
+            <Check />
+            <span>
+              Links and email: nothing to act on{links.pending.length
+                ? `; ${links.pending.length} link${links.pending.length === 1 ? '' : 's'} not checked yet, checked as ${links.pending.length === 1 ? 'it goes' : 'they go'}`
+                : ''}.
+            </span>
           </div>
-        )}
+        ))}
 
         {error && <div class="error-bar" role="alert">{error}</div>}
 

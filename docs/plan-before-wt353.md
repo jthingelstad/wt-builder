@@ -33,6 +33,17 @@ really hard to work with."
   as a warning (today both boxes always use `send-warn` + the alert icon).
 - The "Links checked" and "Deliverability" pills leave the Send view: done unless
   a row still has something to act on. The dead-link confirm on send stays.
+*Built 2026-10-04*: `src/server/arrival-check.ts` checks each link and
+domain in the background after the save that brings it in (1.5 s settle,
+three at a time, one answer per URL for 6 h, nothing offline); the save
+answers `checking` and the app looks again until it is done. `actionOf` in
+`src/shared/link-findings.ts` marks only dead, gift, and a move to a
+different page; a suggestion never drops https unless the https address
+fails and http answers, and an http link whose https fails is not flagged.
+Link and email findings are row notes (email ones with Keep inline); the
+Send view has one green or amber line naming the rows with a jump back; the
+pills are done unless a row has something to act on; the dead-link and
+blocklist asks stay on the cards (MCP 1.5.5, `checks.send_line`).
 
 ### 2. Haiku evaluator (S)
 

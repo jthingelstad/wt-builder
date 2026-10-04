@@ -5,7 +5,7 @@ import { CHANNELS } from '../../shared/types.ts';
 import { api, shouldWriteBack, writeBackMessage, type IssueResponse } from '../api.ts';
 import { edited, Input, useFieldValue } from './Field.tsx';
 import { isFrozen } from './Page.tsx';
-import { giftLine, linkFindings, type LinkFinding } from '../../shared/link-findings.ts';
+import { actionOf, giftLine, linkFindings, worthSuggesting, type LinkFinding } from '../../shared/link-findings.ts';
 import { haikuHint, titleHint, unfinishedHint } from '../../shared/hints.ts';
 
 interface Props {
@@ -36,22 +36,18 @@ const SYNC_LABEL: Record<string, string> = {
   conflict: 'Edited both here and at {source} — keep yours, or take theirs',
 };
 
-const VERDICT: Record<string, string> = {
-  dead: 'Dead',
-  moved: 'Moved',
-  unchecked: 'The site would not say',
-};
-
-/** What the check found, in words: the status, and why when it says. */
+/**
+ * What the check found, in words: the status, and why when it says. Only
+ * what Jamie can act on reaches here (actionOf): a site that would not
+ * answer is no finding (plan before WT353, item 1).
+ */
 function findingLine(f: LinkFinding): string {
   const r = f.result!;
   const status = r.status ? ` (${r.status})` : '';
-  if (r.verdict === 'dead') return `${VERDICT.dead}${status}${r.note ? ` — ${r.note}` : ''}`;
-  if (r.verdict === 'moved') {
-    const why = r.note === 'shortened' ? 'a shortened link' : r.canonical_hint ? "the page names another as its own" : 'it redirects, or carries tracking';
-    return `${VERDICT.moved} — ${why}`;
-  }
-  return `${VERDICT.unchecked}${status}${r.note ? ` — ${r.note}` : ''}`;
+  if (r.verdict === 'dead') return `Dead${status}${r.note ? ` — ${r.note}` : ''}`;
+  if (r.https === 'fails') return `Moved — ${r.note ?? 'the https address fails; http works'}`;
+  const why = r.note === 'shortened' ? 'a shortened link' : r.canonical_hint ? 'the page names another as its own' : 'it redirects to another page';
+  return `Moved — ${why}`;
 }
 
 function syncLine(state: string, source: string): string {
@@ -136,13 +132,11 @@ export function Inspector({ doc, itemId, run, onClose, onError, onBackToReview, 
     }
   };
 
-  // This item's link findings that are not fine and not kept: its own link
-  // and any link in its words (plan 2026-10-01 §3).
-  const kept = new Set(doc.link_check?.accepted ?? []);
+  // This item's link findings Jamie can act on and has not kept: its own
+  // link and any link in its words, the same ones its row says (actionOf).
   // A gift link is a finding whatever the check said: the page answers 200
   // to the checker and to readers alike until the gift runs out.
-  const findings = linkFindings(doc).links.filter((f) =>
-    f.items.includes(itemId) && (f.gift || (f.result && f.result.verdict !== 'ok')) && !kept.has(f.url));
+  const findings = linkFindings(doc).open.filter((f) => f.items.includes(itemId));
   // Held by the editor like a write-back, so a remount mid-move keeps the buttons off.
   const linkBusy = writing;
 
@@ -403,28 +397,26 @@ export function Inspector({ doc, itemId, run, onClose, onError, onBackToReview, 
             <div class="link-finding" key={f.url}>
               <a href={f.url} target="_blank" rel="noreferrer" class="break-link">{f.url}</a>
               {f.gift && <p class="field-note link-gift">{giftLine(f.gift)}</p>}
-              {f.result && f.result.verdict !== 'ok' && <p class="field-note">{findingLine(f)}</p>}
-              {f.result?.suggestion && (
+              {f.result && actionOf(f) !== 'gift' && <p class="field-note">{findingLine(f)}</p>}
+              {f.result?.suggestion && worthSuggesting(f.url, f.result) && (
                 <p class="field-note">
                   Suggested:{' '}
                   <a href={f.result.suggestion} target="_blank" rel="noreferrer" class="break-link">{f.result.suggestion}</a>
                 </p>
               )}
               <div style="display:flex;gap:8px;flex-wrap:wrap;margin-top:6px">
-                {f.role === 'item' && item.type === 'pinboard_link' && f.result?.suggestion && (
+                {f.role === 'item' && item.type === 'pinboard_link' && worthSuggesting(f.url, f.result) && (
                   <button class="btn" disabled={linkBusy}
                     title="Print this link in the issue. The bookmark keeps its own URL."
                     onClick={() => void linkAction('use')}>
                     Use the suggested link
                   </button>
                 )}
-                {(f.gift || f.result?.verdict !== 'unchecked') && (
-                  <button class="btn" disabled={linkBusy}
-                    title={f.role === 'inline' ? 'Edit the commentary to change it, or keep it as it is.' : 'Leave the link as it is and stop asking.'}
-                    onClick={() => void linkAction('keep', f.url)}>
-                    Keep as it is
-                  </button>
-                )}
+                <button class="btn" disabled={linkBusy}
+                  title={f.role === 'inline' ? 'Edit the commentary to change it, or keep it as it is.' : 'Leave the link as it is and stop asking.'}
+                  onClick={() => void linkAction('keep', f.url)}>
+                  Keep as it is
+                </button>
               </div>
             </div>
           ))}

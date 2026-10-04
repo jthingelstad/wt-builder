@@ -4,7 +4,7 @@
  *
  * Pure, and on both sides, like link-findings.ts: the server derives the
  * "Deliverability" readiness unit and the email leg's blocklist gate from it,
- * the client the Send card's findings. The blocklist lookups themselves are
+ * the client the rows' notes (src/shared/hints.ts) and the Send view's line. The blocklist lookups themselves are
  * src/server/domain-check.ts.
  *
  * What is here, and what is not (2026-10-01): a domain on a blocklist is the
@@ -16,11 +16,11 @@
  * authentication and complaints, not vocabulary.
  */
 
-import type { DomainResult, IssueDoc } from './types.ts';
+import type { DomainResult, IssueDoc, LinkResult } from './types.ts';
 import { renderEmail } from './render/email.ts';
 import { markdownToSafeHtml } from './markdown.ts';
 import { orderedNodes } from './render/plan.ts';
-import { urlsIn } from './links.ts';
+import { linkKey, urlsIn } from './links.ts';
 
 /** Suffixes where the registered name is three labels, not two. Enough for what the issue links. */
 const TWO_PART_SUFFIXES = new Set([
@@ -126,6 +126,13 @@ export function contentFindings(doc: IssueDoc): DeliverabilityFinding[] {
     add({ key: 'subject:reply', kind: 'subject', message: 'The subject starts like a reply or forward ("Re:", "Fwd:"), which filters treat as deceptive in a newsletter.' });
   }
 
+  // What the link check found about each link's https address, by link.
+  const https = new Map<string, LinkResult['https']>();
+  for (const [url, r] of Object.entries(doc.link_check?.results ?? {})) {
+    if (r.https && /^http:/i.test(url)) https.set(linkKey(url) ?? url, r.https);
+  }
+  const httpsOf = (href: string) => https.get(linkKey(href) ?? href);
+
   const html = markdownToSafeHtml(renderEmail(doc));
   const bytes = new TextEncoder().encode(html).length;
   if (bytes > BODY_HTML_WARN_BYTES) {
@@ -151,8 +158,16 @@ export function contentFindings(doc: IssueDoc): DeliverabilityFinding[] {
     } else if (u.username || u.password) {
       add({ key: `address:${href}`, kind: 'address', url: href, message: `A link with "@" before the host (${host}) — it reads as one site and goes to another.` });
     }
-    if (u.protocol === 'http:') {
-      add({ key: `http:${href}`, kind: 'http', url: href, message: `A plain http:// link — ${host}. The https:// address is safer, if the site has one.` });
+    // The link check asked whether the https address answers. Where it
+    // fails (bowlingalone.com's certificate is self-signed), the http link
+    // is the right one and there is nothing to say.
+    if (u.protocol === 'http:' && httpsOf(href) !== 'fails') {
+      add({
+        key: `http:${href}`, kind: 'http', url: href,
+        message: httpsOf(href) === 'works'
+          ? `A plain http:// link — ${host}. Its https:// address works: use that one.`
+          : `A plain http:// link — ${host}. The https:// address is safer, if the site has one.`,
+      });
     }
     if (FILE_EXTENSIONS.test(u.pathname)) {
       add({ key: `file:${href}`, kind: 'file', url: href, message: `A link straight to a download (${u.pathname.split('/').pop()}) — filters score file links.` });
@@ -203,7 +218,11 @@ export function deliverabilityFindings(doc: IssueDoc): DeliverabilityFindings {
   };
 }
 
-/** "1 domain on a blocklist, 2 plain-http links" — what is not fine, for a chip or a card. */
+/**
+ * "1 domain on a spam blocklist, 2 plain-http links": what there is to act
+ * on, for a pill's line. A domain no list answered for, and one not looked
+ * up yet, are not in it: neither is anything Jamie can do.
+ */
 export function deliverabilitySummary(f: DeliverabilityFindings): string {
   const count = (kind: FindingKind) => f.open.filter((x) => x.kind === kind).length;
   const plural = (n: number, one: string, many: string) => `${n} ${n === 1 ? one : many}`;
@@ -215,8 +234,6 @@ export function deliverabilitySummary(f: DeliverabilityFindings): string {
     count('address') && plural(count('address'), 'link to a bare address', 'links to a bare address'),
     count('http') && plural(count('http'), 'plain-http link', 'plain-http links'),
     count('file') && plural(count('file'), 'download link', 'download links'),
-    f.unchecked.length && plural(f.unchecked.length, 'domain no blocklist answered for', 'domains no blocklist answered for'),
-    f.pending.length && plural(f.pending.length, 'domain not looked up yet', 'domains not looked up yet'),
   ].filter(Boolean);
   return parts.join(', ');
 }

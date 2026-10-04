@@ -106,7 +106,7 @@ describe('rowHints', () => {
     const url = gift(Math.floor(Date.UTC(2026, 8, 29, 12) / 1000));
     doc.items['link-flipcash']!.source_url = url;
     const hints = rowHints(doc, Date.UTC(2026, 9, 4));
-    expect(hints.get('link-flipcash')).toContainEqual({ kind: 'link', text: expect.stringMatching(/expired Sep 29/) });
+    expect(hints.get('link-flipcash')).toContainEqual({ kind: 'link', text: expect.stringMatching(/expired Sep 29/), short: 'expired gift link' });
     doc.link_check = { at: '2026-10-04T00:00:00Z', results: {}, accepted: [url] } as IssueDoc['link_check'];
     expect(rowHints(doc, Date.UTC(2026, 9, 4)).get('link-flipcash')?.some((h) => h.kind === 'link')).toBeFalsy();
   });
@@ -115,7 +115,7 @@ describe('rowHints', () => {
     const doc = fixture();
     const url = doc.items['briefly-forge']!.source_url!;
     doc.link_check = { at: '2026-10-04T00:00:00Z', results: { [url]: { verdict: 'dead', status: 404 } }, accepted: [] } as unknown as IssueDoc['link_check'];
-    expect(rowHints(doc).get('briefly-forge')).toEqual([{ kind: 'link', text: `A dead link (404): ${url}` }]);
+    expect(rowHints(doc).get('briefly-forge')).toEqual([{ kind: 'link', text: `A dead link (404): ${url}`, short: 'dead link' }]);
     expect(rowHints(doc).get('briefly-shortcuts')).toBeUndefined();
   });
 });

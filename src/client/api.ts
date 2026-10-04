@@ -61,6 +61,11 @@ export interface Readiness {
 export interface IssueResponse {
   issue: IssueDoc;
   readiness: Readiness;
+  /**
+   * A link or blocklist check is waiting or running for this issue, in the
+   * background (src/server/arrival-check.ts): the app looks again shortly.
+   */
+  checking?: boolean;
 }
 
 /** The podcast leg's audio record, as the issue keeps it on `sends.podcast.audio`. */
@@ -322,12 +327,9 @@ export const api = {
       IssueResponse & { result?: { sync_state: string; error?: string } }
     >,
 
-  /**
-   * Fetch every link the issue prints and store what answered (plan
-   * 2026-10-01 §3), and look up every domain the email prints on the spam
-   * blocklists beside it.
-   */
-  checkLinks: (id: string) => post(`/issues/${id}/links/check`),
+  // No checkLinks: links and domains are checked as they arrive, in the
+  // background (src/server/arrival-check.ts), and the send legs check what
+  // is still owed. POST /links/check stays for a script; no button calls it.
 
   /** A deliverability finding in the email kept as it is; `keep: false` asks again. */
   keepFinding: (id: string, key: string, keep = true) => post(`/issues/${id}/deliverability/keep`, { key, keep }),

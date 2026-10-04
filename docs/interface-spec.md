@@ -21,6 +21,22 @@ Buttondown, Archive**. The archive is a card like the others, not a footnote (Ja
 WT351: "it is not less important"); it still publishes nothing and gates nothing,
 and its blocker says it goes after the website and Buttondown.
 
+**The checks line** (2026-10-04, plan before WT353 item 1). Above the cards, one
+line for the link and email checks, and nothing more: green (`--green-1` on
+`--green-3`, `check`, "Links and email: nothing to act on.") when no row has a link
+or email finding open, amber (`.send-warn`, `circle-alert`) only when one does,
+naming each such row in reading order as an underlined jump — `Flipcash (dead link)`
+— that goes back to the editor and takes him to the row, as a strip tick does
+(scroll and tint, nothing selected). What is the whole email's (its size near
+Gmail's clip, a blocklisted domain no row prints) follows on the same line. There
+is no **Check links** button and no link or deliverability box: a link is checked
+as it arrives and said on its row while he writes (Jamie, after WT352: "at that
+point I'm about sending, not editing"). The checklist's own amber line ("N of M
+things on the checklist are still open") shows only while one is, and counts
+neither the Links checked nor the Deliverability pill. The dead-link and
+blocklist asks stay on the website and Buttondown cards (**Commit with dead
+links…**, **Send with a blocklisted domain…**).
+
 Each card is white on `#eeedea`, radius 12px, and changes border with state
 (`#ece0bd` running, `#cfe3d6` done):
 
@@ -529,7 +545,8 @@ issue, with both margins outside it.
   **Row hints** (`src/shared/hints.ts`, 2026-10-04; warn, don't block — a hint never
   moves a pill). Under the rail, at full strength because it is a finding, not a
   control: one 23×23 `circle-alert` mark, `--amber` when the item has an open link
-  finding (dead, moved, or a gift link, not kept), `--faint` when only its title is the
+  finding (dead, moved to a different page, or a gift link, not kept) or an email
+  finding, `--faint` when only its title is the
   page's own still ending with the site's name (`| The Verge`, `- MacStories`) or running
   past 90 characters. Its tooltip says each finding; a click opens the inspector, which
   lists the title and unfinished hints under **Hints** beside its **Links**. The title
@@ -542,6 +559,20 @@ issue, with both margins outside it.
   not 5-7-5 or not three lines (`src/shared/syllables.ts`), which also takes the amber
   mark. It is hidden while the row has the caret (`.row:focus-within`), so it never
   fires mid-sentence. Nothing is hinted on a frozen issue.
+  **Link and email notes** (2026-10-04, plan before WT353 item 1). Links are checked
+  as they arrive (a sweep, a sync, a link typed and saved), in the background, and
+  what is found is said under the words in an amber `.row-link-note` (`--amber-1`,
+  12.5px): "A dead link (404): https://…", "A link that has moved to https://…", the
+  gift link's expiry, "Its https:// address fails; the http:// one works". A click
+  opens the inspector, where it is used or kept. Only what Jamie can act on is said: a
+  site that would not answer (403, 429, 5xx, a timeout) is no mark, and neither is
+  http→https on the same page, a trailing slash or tracking. What in the email a
+  filter holds against the row (a plain-http link, link text naming another site, a
+  link to a download or a bare address, a domain on a spam blocklist) is the same
+  note, `.row-mail-note`, with **Keep as it is** inline where it can be kept (a
+  blocklisted domain cannot: the email asks before it goes). The subject's warnings
+  are the title row's. The app looks again every 2.5 s while the server says a check
+  is running, so a dead link typed a moment ago is said without a reload.
 - **Middle cell = the page.** The material, and nothing else.
 - **Right cell = the editorial margin.** Outside the card. Holds the `wand-sparkles`
   draft button (24×24, `#fdf6f1` on `1px #e0cdbf`, terracotta glyph — full strength when
