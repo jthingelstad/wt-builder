@@ -900,7 +900,11 @@ the link wand's picker says so above the candidates — "Linked before in WT274
 (2024-01-27)", 11px `--amber`, newest first, each `WTn` linking to its archive page, and
 ", and N earlier" past five (2026-09-30). Thingy items keep their visible byline
 regardless of how heavily they are edited. Never auto-generated on assembly, and there is
-no "generate everything".
+no "generate everything". A draft that fails says so in one plain sentence in the error
+bar — what happened and whether to try again, never a status code's raw body — and
+while Echoes waits out a busy archive, a line under its wand (11px `--amber`, or the
+empty section's chip) reads "The archive is busy; trying again…" (2026-10-04, after a
+Librarian 429 reached Jamie as JSON on WT352).
 
 **Hover-revealed chrome.** Gutter rail `.3 → 1`; markdown-block labels and section
 insert points `0 → 1`; all `transition: opacity .12s`.

@@ -74,6 +74,8 @@ interface PageProps {
   onSelect: (anchor: string | null) => void;
   act: PageActions;
   drafting: string | null;
+  /** What the draft in flight says while it waits ("The archive is busy; trying again…"). */
+  draftSays?: string | null;
   draft: { itemId: string; candidates: string[]; echoes?: EchoOption[]; membership?: { cta: string; thanks: string }[]; photo?: { alt: string }[]; alts?: { src: string; alt: string }[]; linked_before?: LinkedBefore[] } | null;
   onPickDraft: (itemId: string, text: string, refs?: ArchiveReference[], extraPatch?: Record<string, unknown>) => void;
   onDismissDraft: () => void;
@@ -120,7 +122,7 @@ function issueWords(doc: IssueDoc): number {
 }
 
 export function Page({
-  doc, lens, selected, onSelect, act, drafting, draft, onPickDraft, onDismissDraft,
+  doc, lens, selected, onSelect, act, drafting, draftSays, draft, onPickDraft, onDismissDraft,
   ordering, orderProposal, onDismissOrder,
   hostRef, withNotes, children,
 }: PageProps) {
@@ -303,6 +305,8 @@ export function Page({
           ) : echoesWand ? (
             <>
               <Wand redraft={inLens.length > 0} busy={drafting === node.id} onClick={() => act.draftEchoes(node.id)} />
+              {/* An empty section says it on its own chip instead. */}
+              {drafting === node.id && draftSays && inLens.length > 0 && <p class="draft-says" role="status">{draftSays}</p>}
               {draft?.itemId === node.id && draft.echoes && (
                 <EchoesPicker
                   echoes={draft.echoes}
@@ -434,6 +438,7 @@ export function Page({
                   onClick={() => act.draft(itemId)}
                 />
               )}
+              {drafting === itemId && draftSays && <p class="draft-says" role="status">{draftSays}</p>}
               {draft?.itemId === itemId && (draft.photo ? (
                 <PhotoPicker
                   candidates={draft.photo}
@@ -542,7 +547,7 @@ export function Page({
         rows.push(
           <Row key={`${node.id}-add`} anchor={node.id}>
             <button class="ghost-chip" disabled={drafting === node.id} onClick={() => act.draftEchoes(node.id)}>
-              {drafting === node.id ? 'Reading the archive…' : '✦ Draft echoes from the archive'}
+              {drafting === node.id ? draftSays ?? 'Reading the archive…' : '✦ Draft echoes from the archive'}
             </button>
           </Row>,
         );

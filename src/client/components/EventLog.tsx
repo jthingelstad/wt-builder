@@ -30,6 +30,7 @@ const KIND: Record<string, string> = {
   sync: 'write',
   send: 'send',
   review: 'review',
+  draft: 'wand',
 };
 
 function when(at: string): string {

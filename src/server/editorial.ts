@@ -99,7 +99,7 @@ export async function callJson<T>(
   params: Anthropic.MessageCreateParamsNonStreaming,
   say: { declined: string; what: string },
 ): Promise<T> {
-  const response = await anthropic().messages.create(params);
+  const response = await anthropic().messages.create(params).catch((err) => { throw modelFailure(err, say.what); });
   switch (response.stop_reason) {
     case 'refusal':
       throw new Error(say.declined);
@@ -119,6 +119,34 @@ export async function callJson<T>(
   } catch {
     throw new Error(`${say.what} came back unreadable — try again`);
   }
+}
+
+/**
+ * The SDK's own errors read "529 {"type":"error",…}": the status and the raw
+ * body. Said instead as what happened and whether trying again will help
+ * (WT352, where the archive's version of this reached Jamie as JSON). Read by
+ * shape, not class, so a stubbed SDK in the tests passes through untouched.
+ * The SDK has already retried what it retries by the time this sees it.
+ */
+export function modelFailure(err: unknown, what: string): unknown {
+  const e = err as { status?: unknown; message?: string; error?: { error?: { message?: unknown } } } | null;
+  if (!(err instanceof Error) || !e) return err;
+  const kind = err.constructor?.name ?? '';
+  const status = typeof e.status === 'number' ? e.status : undefined;
+  const plain = (why: string, again: string) => {
+    console.error(`[model] ${what}: ${err.message.slice(0, 300)}`);
+    return new Error(`${what.charAt(0).toUpperCase()}${what.slice(1)} didn't come back: ${why}.${again ? ` ${again}` : ''}`);
+  };
+  if (/Timeout/.test(kind)) return plain('the model took too long to answer', 'Try again.');
+  if (/Connection/.test(kind)) return plain("WT Builder couldn't reach the model", 'Try again in a minute.');
+  if (status === 429 || status === 529) return plain('the model was too busy', 'Try again in a minute.');
+  if (status !== undefined && status >= 500) return plain(`the model had a problem (${status})`, 'Try again in a minute.');
+  if (status === 401 || status === 403) return plain(`the model turned WT Builder's key away (${status}); ANTHROPIC_API_KEY needs a look`, '');
+  if (status !== undefined) {
+    const said = typeof e.error?.error?.message === 'string' ? `: ${e.error.error.message}` : '';
+    return plain(`the model turned it down (${status})${said}`, '');
+  }
+  return err;
 }
 
 const NOTES_SCHEMA = {
@@ -587,7 +615,15 @@ export interface DraftRequest {
    * first (`linkedBefore` in linked-before.ts, from the local records).
    */
   linkedBefore?: LinkedBefore[];
+  /**
+   * Echoes only: hears a sentence each time the archive is busy and the
+   * draft waits to ask again, so the editor can say so while it waits.
+   */
+  onBusy?: (says: string) => void;
 }
+
+/** What the editor says while Echoes waits out a busy archive. */
+export const ARCHIVE_BUSY_SAYS = 'The archive is busy; trying again…';
 
 /** One membership candidate: the invitation and the member thank-you, drafted as a pair. */
 export interface MembershipOption {
@@ -1357,6 +1393,18 @@ export function stripSignOff(text: string): string {
     .trimEnd();
 }
 
+/**
+ * An archive failure, said for Echoes: "The archive was too busy to answer.
+ * Try Echoes again in a minute." Anything else passes through as it is.
+ */
+export function echoesFailure(err: unknown): unknown {
+  // By name, not instanceof: tests stand the Librarian module in with a stub.
+  const e = err as librarian.ArchiveError;
+  if (!(e instanceof Error) || e.name !== 'ArchiveError') return err;
+  e.message = e.again ? `${e.says} Try Echoes again${e.again === 'later' ? ' in a minute' : ''}.` : e.says;
+  return e;
+}
+
 export async function draft(req: DraftRequest): Promise<DraftResult> {
   // The head wand: 'issue' is not an item — it drafts the title theme + dek.
   const isIssue = req.itemId === 'issue';
@@ -1417,19 +1465,20 @@ export async function draft(req: DraftRequest): Promise<DraftResult> {
     const { number, publication_date } = req.doc.issue;
     const retrieval = echoesRetrieval(number);
     const calendar = echoesCalendarAnchor(req.doc);
+    const busy = () => req.onBusy?.(ARCHIVE_BUSY_SAYS);
     const results = await Promise.all([
       ...echoesAnchors(req.doc).map(async (a): Promise<AnchoredPassages> => ({
         label: a.label,
-        passages: await librarian.retrieve(a.query, 12, retrieval),
+        passages: await librarian.retrieve(a.query, 12, retrieval, busy),
       })),
       ...(calendar
         ? [(async (): Promise<AnchoredPassages> => ({
             label: calendar.label,
             calendar: true,
-            passages: await librarian.retrieve(calendar.query, 12, echoesCalendarRetrieval(number, publication_date)),
+            passages: await librarian.retrieve(calendar.query, 12, echoesCalendarRetrieval(number, publication_date), busy),
           }))()]
         : []),
-    ]);
+    ]).catch((err) => { throw echoesFailure(err); });
     anchored = poolEchoPassages(results, number, publication_date);
     if (!anchored.some((a) => !a.calendar)) {
       throw new Error('the archive returned no passages — rerun Echoes rather than inventing');

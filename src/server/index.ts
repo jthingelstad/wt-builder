@@ -550,6 +550,36 @@ function verifyAfterSend(id: string, dest: Destination): void {
   void runVerify(id, dest, dest === 'website').catch(() => { /* recorded inside */ });
 }
 
+/**
+ * What a draft in flight has to say while it waits, by issue: today only
+ * Echoes, when the archive is busy and it waits to ask again. In memory,
+ * because it means something only while that draft is out; the editor reads
+ * it through GET /drafting while its wand spins.
+ */
+const draftSays = new Map<string, { anchor: string; says: string }>();
+
+/**
+ * Runs one wand's draft. A failure keeps its plain sentence for the error
+ * bar (WT352: a Librarian 429 reached Jamie as raw JSON), puts the raw answer
+ * in the service log, and is logged as a `draft` event on the item or
+ * section, so the log and the MCP's `changes` show a draft that did not come.
+ */
+async function drafting<T>(
+  id: string, anchor: string, name: string, run: (onBusy: (says: string) => void) => Promise<T>,
+): Promise<T> {
+  try {
+    return await run((says) => draftSays.set(id, { anchor, says }));
+  } catch (err) {
+    const said = String((err as Error)?.message ?? err);
+    const detail = (err as { detail?: unknown })?.detail;
+    if (detail) console.error(`[draft] ${name}: ${String(detail).slice(0, 300)}`);
+    store.logEvent(id, 'draft', `Draft failed: ${said} — ${name}`, anchor);
+    throw err;
+  } finally {
+    if (draftSays.get(id)?.anchor === anchor) draftSays.delete(id);
+  }
+}
+
 // ── routes ────────────────────────────────────────────────────────────────
 
 const routes: [RegExp, string, (ctx: Ctx, params: string[]) => Promise<unknown>][] = [
@@ -1322,7 +1352,9 @@ const routes: [RegExp, string, (ctx: Ctx, params: string[]) => Promise<unknown>]
     const linked = item?.type === 'pinboard_link' && item.source_url
       ? linkedBefore(item.source_url, doc.issue, store.listIssues())
       : undefined;
-    return editorial.draft({ doc, itemId: itemId!, context: b.context, linkedBefore: linked });
+    const name = itemId === 'issue' ? 'Title and dek' : item ? issues.itemName(item) : itemId!;
+    return drafting(id!, itemId!, name, (onBusy) =>
+      editorial.draft({ doc, itemId: itemId!, context: b.context, linkedBefore: linked, onBusy }));
   }],
 
   /**
@@ -1336,8 +1368,14 @@ const routes: [RegExp, string, (ctx: Ctx, params: string[]) => Promise<unknown>]
     if (!node) throw new HttpError(404, `no section ${nodeId}`);
     if (node.type !== 'echoes') throw new HttpError(400, `${node.label} does not hold echoes`);
     waitingGate(id!, doc, nodeId!, url.searchParams.get('force') === '1');
-    return editorial.draft({ doc, nodeId: nodeId! });
+    return drafting(id!, nodeId!, node.label, (onBusy) => editorial.draft({ doc, nodeId: nodeId!, onBusy }));
   }],
+
+  /**
+   * What the draft in flight has to say while it waits ("The archive is
+   * busy; trying again…"), or nothing. The editor asks while a wand spins.
+   */
+  [/^\/api\/issues\/([^/]+)\/drafting$/, 'GET', async (_ctx, [id]) => ({ drafting: draftSays.get(id!) ?? null })],
 
   /**
    * Share the draft: render the website edition to one static page and put

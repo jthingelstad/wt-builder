@@ -220,6 +220,16 @@ with blog and podcast pulls welcome. Echoes drafting calls the Librarian's
 retrieval is unavailable or returns nothing usable — the quality bar is real
 semantic retrieval, never a silently degraded guess.
 
+- **Failing loud, in a sentence** (2026-10-04). At most two asks are in
+  flight and a 429 is waited out three times (a4fe5d6); each wait is heard
+  by the route, and `GET /api/issues/:id/drafting` answers
+  `{drafting: {anchor, says}}` ("The archive is busy; trying again…") while
+  it lasts, `{drafting: null}` otherwise. Every failure is an
+  `ArchiveError`: `says` (a sentence), `again` (`now`, `later`, or null when
+  something must be fixed first) and `detail` (the raw answer, logged by the
+  route as `[draft] …`, never shown). Echoes words it as "… Try Echoes again
+  in a minute." The route logs any failed draft as a `draft` event anchored
+  to the item or section.
 - **The whole archive, since 2026-09-29.** Until then Echoes sent no scope and
   the Librarian defaulted to Weekly Thing issues only, so the blog and the
   podcast the prompt welcomed never arrived (Jamie: "it is a huge miss if
@@ -358,6 +368,10 @@ Claude Code or Codex on otto, or any MCP client on the tailnet.
   `GET /api/issues/:id/render/:lens?item=|section=`, cut from the nodes
   before the plan, inside the edition's frame. `overdue_by_days` sits beside
   `overdue`.
+- **Failed drafts (1.5.2).** A wand's draft that fails is a `draft` event
+  (`Draft failed: <what Jamie was told> — <item or section>`) anchored to
+  its item, so `changes.items` carries it with kind `draft`; a section's
+  (Echoes) lands in `changes.other`.
 - **Row hints (1.5.0).** `get_status` carries `hints` (`{anchor, name,
   kind, text}`, cut at 40 with `hints_note`), and `get_issue` / `get_item`
   carry each item's `hints`: the same list the editor marks

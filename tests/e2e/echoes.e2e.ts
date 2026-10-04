@@ -52,3 +52,27 @@ test('an ungrounded echo is flagged in the warning colour, still offered, and th
   expect(last.body).toContain('WT199');
   expect(last).not.toHaveProperty('grounding');
 });
+
+test('while the archive is busy the wand says so, and a failure is one plain sentence', async ({ page }) => {
+  // The server's own words for both are pinned in tests/draft-routes.test.ts;
+  // here, that the editor shows them where Jamie is looking.
+  let answer!: () => void;
+  const answered = new Promise<void>((resolve) => { answer = resolve; });
+  await page.route(`**/api/issues/${ISSUE}/drafting`, (route) =>
+    route.fulfill({ status: 200, contentType: 'application/json',
+      body: JSON.stringify({ drafting: { anchor: 'echoes', says: 'The archive is busy; trying again…' } }) }));
+  await page.route(`**/api/issues/${ISSUE}/nodes/echoes/echoes/draft`, async (route) => {
+    await answered;
+    await route.fulfill({ status: 500, contentType: 'application/json',
+      body: JSON.stringify({ error: 'The archive was too busy to answer. Try Echoes again in a minute.' }) });
+  });
+  await open(page);
+  await page.locator('[data-anchor="echoes"] .row-margin .wand').click();
+
+  const says = page.locator('[data-anchor="echoes"] .draft-says');
+  await expect(says).toHaveText('The archive is busy; trying again…');
+  answer();
+  await expect(page.locator('.error-bar')).toContainText('The archive was too busy to answer. Try Echoes again in a minute.');
+  await expect(says).toHaveCount(0);
+  await expect(page.locator('[data-anchor="echoes"] .row-margin .wand')).toBeEnabled();
+});

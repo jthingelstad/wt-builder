@@ -215,6 +215,14 @@
 /* During a read the notes own the margin; the wand is hover-revealed. */
 .with-notes .wand { opacity: 0; transition: opacity 0.12s; }
 .with-notes .row:hover .wand, .with-notes .wand:hover, .with-notes .wand:focus-visible { opacity: 1; }
+/* What a draft in flight says while it waits: "The archive is busy; trying again…" (WT352). */
+.draft-says {
+  margin: 6px 0 0;
+  max-width: 220px;
+  font-size: 11px;
+  line-height: 1.45;
+  color: var(--amber);
+}
 
 /* ── page blocks ──────────────────────────────────────────────────────── */
 

@@ -71,7 +71,9 @@ const ATTRIBUTE_CAP_MS = 10 * 60_000;
 const BUILD_WINDOW_MS = 8 * 24 * 3_600_000;
 
 // "moved" and "kept" are the re-scan re-filing links by their bookmark tags,
-// not Jamie; they were a third of WT350's unattributed time.
+// not Jamie; they were a third of WT350's unattributed time. "draft" (a
+// wand's draft that failed) is left out too: a draft that comes back is not
+// logged, so counting the failures would count only the unlucky presses.
 const WORK = new Set(['edit', 'structure', 'settings', 'sync', 'held-out', 'review', 'send', 'channels']);
 /** Fixing after publishing is the same day's; later sends are other work (WT350's audio rebuild). */
 const AFTER_WINDOW_MS = 12 * 3_600_000;

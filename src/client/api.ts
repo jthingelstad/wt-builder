@@ -278,6 +278,10 @@ export const api = {
       `/issues/${id}/nodes/${nodeId}/echoes/draft${force ? '?force=1' : ''}`, { method: 'POST', body: '{}' },
     ),
 
+  /** What the draft in flight has to say while it waits ("The archive is busy; trying again…"), or null. */
+  drafting: (id: string) =>
+    call<{ drafting: { anchor: string; says: string } | null }>(`/issues/${id}/drafting`),
+
   draftItem: (id: string, itemId: string, context?: string, force = false) =>
     call<{ candidates: string[]; echoes?: EchoOption[]; membership?: { cta: string; thanks: string }[]; photo?: { alt: string }[]; alts?: { src: string; alt: string }[]; linked_before?: LinkedBefore[] }>(
       `/issues/${id}/items/${itemId}/draft${force ? '?force=1' : ''}`,

@@ -72,6 +72,9 @@ export function Editor({ doc, readiness, busy, error, run, onIndex, onSend, onEr
   const [panel, setPanel] = useState(true);
   const [selected, setSelected] = useState<string | null>(null);
   const [drafting, setDrafting] = useState<string | null>(null);
+  // What the draft in flight says while it waits: Echoes, when the archive
+  // is busy and it asks again (WT352). Read from the server while it spins.
+  const [draftSays, setDraftSays] = useState<string | null>(null);
   const [draft, setDraft] = useState<{ itemId: string; candidates: string[]; echoes?: EchoOption[]; membership?: { cta: string; thanks: string }[]; photo?: { alt: string }[]; alts?: { src: string; alt: string }[]; linked_before?: LinkedBefore[] } | null>(null);
   const [sweeping, setSweeping] = useState(false);
   // Items whose write-back or conflict choice is out, for the Inspector,
@@ -190,6 +193,24 @@ export function Editor({ doc, readiness, busy, error, run, onIndex, onSend, onEr
     return confirm(`${names} ${verb} finished yet: ${waitingSummary(unit.waiting_on)}. Draft the ${unit.title} anyway?`) ? true : null;
   };
 
+  /**
+   * Asks the server, every second while a draft that reads the archive is
+   * out, what it has to say ("The archive is busy; trying again…"). Returns
+   * the stop. Only Echoes waits on the archive, so only its wands ask.
+   */
+  const listenWhileDrafting = (anchor: string) => {
+    let stopped = false;
+    const tick = () => {
+      if (stopped) return;
+      api.drafting(id)
+        .then((r) => { if (!stopped) setDraftSays(r.drafting?.anchor === anchor ? r.drafting.says : null); })
+        .catch(() => { /* a missed poll says nothing */ })
+        .finally(() => { if (!stopped) timer = setTimeout(tick, 1000); });
+    };
+    let timer = setTimeout(tick, 1000);
+    return () => { stopped = true; clearTimeout(timer); setDraftSays(null); };
+  };
+
   const act: PageActions = {
     // Returned, not voided: an editable waits on it to know whether its text
     // was saved (review 2026-09-27, §1.4).
@@ -234,10 +255,11 @@ export function Editor({ doc, readiness, busy, error, run, onIndex, onSend, onEr
       if (force === null) return;
       setDrafting(itemId);
       setDraft(null);
+      const stop = doc.items[itemId]?.type === 'echo' ? listenWhileDrafting(itemId) : () => {};
       api.draftItem(id, itemId, undefined, force)
         .then((r) => setDraft({ itemId, candidates: r.candidates, echoes: r.echoes, membership: r.membership, photo: r.photo, alts: r.alts, linked_before: r.linked_before }))
         .catch((err) => onError((err as Error).message))
-        .finally(() => setDrafting(null));
+        .finally(() => { stop(); setDrafting(null); });
     },
     // The Echoes section wand offers echoes for the node; the picker hangs
     // off the heading, keyed by the node id, and the ticked ones append.
@@ -246,10 +268,11 @@ export function Editor({ doc, readiness, busy, error, run, onIndex, onSend, onEr
       if (force === null) return;
       setDrafting(nodeId);
       setDraft(null);
+      const stop = listenWhileDrafting(nodeId);
       api.draftEchoes(id, nodeId, force)
         .then((r) => setDraft({ itemId: nodeId, candidates: [], echoes: r.echoes ?? [] }))
         .catch((err) => onError((err as Error).message))
-        .finally(() => setDrafting(null));
+        .finally(() => { stop(); setDrafting(null); });
     },
   };
 
@@ -538,6 +561,7 @@ export function Editor({ doc, readiness, busy, error, run, onIndex, onSend, onEr
               onSelect={select}
               act={act}
               drafting={drafting}
+              draftSays={draftSays}
               draft={draft}
               onPickDraft={(itemId, text, refs, extraPatch) => {
                 setDraft(null);

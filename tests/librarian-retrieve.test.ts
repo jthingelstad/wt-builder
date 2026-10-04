@@ -6,7 +6,7 @@
  */
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 import { credentials } from '../src/server/config.ts';
-import { MAX_IN_FLIGHT, RETRIES_ON_429, retrieve, setBackoff } from '../src/server/integrations/librarian.ts';
+import { ArchiveError, MAX_IN_FLIGHT, RETRIES_ON_429, retrieve, setBackoff } from '../src/server/integrations/librarian.ts';
 
 const ok = () => new Response(JSON.stringify({ passages: [{ text: 'p' }] }), { status: 200 });
 const busy = () => new Response('{"Reason":"ReservedFunctionConcurrentInvocationLimitExceeded"}', { status: 429, statusText: 'Too Many Requests' });
@@ -43,17 +43,39 @@ describe('Librarian retrieve', () => {
     expect(fetch).toHaveBeenCalledTimes(3);
   });
 
-  it('still fails loud once the retries are spent', async () => {
+  it('still fails loud once the retries are spent, in a sentence and never the raw answer', async () => {
     const fetch = vi.fn(async () => busy());
     vi.stubGlobal('fetch', fetch);
-    await expect(retrieve('boat')).rejects.toThrow('Librarian retrieve failed: 429');
+    const heard: number[] = [];
+    const err = await retrieve('boat', 12, {}, (attempt) => heard.push(attempt)).catch((e: unknown) => e) as ArchiveError;
+    expect(err).toBeInstanceOf(ArchiveError);
+    expect(err.message).toBe('The archive was too busy to answer. Try again in a minute.');
+    expect(err.message).not.toMatch(/[{}]|Reserved|429/);
+    // The raw answer is kept for the log, not the person.
+    expect(err.detail).toContain('ReservedFunctionConcurrentInvocationLimitExceeded');
     expect(fetch).toHaveBeenCalledTimes(RETRIES_ON_429 + 1);
+    // Every wait is heard, so the editor can say "trying again".
+    expect(heard).toEqual([0, 1, 2]);
   });
 
-  it('does not retry any other failure', async () => {
-    const fetch = vi.fn(async () => new Response('nope', { status: 500, statusText: 'Internal Server Error' }));
+  it('does not retry any other failure, and says it plainly', async () => {
+    const fetch = vi.fn(async () => new Response('{"message":"Internal"}', { status: 502, statusText: 'Bad Gateway' }));
     vi.stubGlobal('fetch', fetch);
-    await expect(retrieve('boat')).rejects.toThrow('Librarian retrieve failed: 500');
+    await expect(retrieve('boat')).rejects.toThrow('The archive had a problem answering (502). Try again in a minute.');
     expect(fetch).toHaveBeenCalledTimes(1);
+  });
+
+  it('a timeout and a dropped connection are sentences too', async () => {
+    vi.stubGlobal('fetch', vi.fn(async () => { throw new DOMException('The operation was aborted due to timeout', 'TimeoutError'); }));
+    await expect(retrieve('boat')).rejects.toThrow('The archive took too long to answer. Try again.');
+    vi.stubGlobal('fetch', vi.fn(async () => { throw new TypeError('fetch failed'); }));
+    await expect(retrieve('boat')).rejects.toThrow("WT Builder couldn't reach the archive. Try again in a minute.");
+  });
+
+  it('a refused key says what needs a look, and offers no retry', async () => {
+    vi.stubGlobal('fetch', vi.fn(async () => new Response('{"error":"forbidden"}', { status: 403, statusText: 'Forbidden' })));
+    const err = await retrieve('boat').catch((e: unknown) => e) as ArchiveError;
+    expect(err.message).toBe("The archive turned WT Builder's key away (403); LIBRARIAN_RETRIEVE_SECRET needs a look.");
+    expect(err.again).toBeNull();
   });
 });

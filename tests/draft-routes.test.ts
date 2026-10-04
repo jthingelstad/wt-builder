@@ -153,6 +153,55 @@ describe('the Echoes route', () => {
     const prompt = String(create.mock.calls[0]![0].messages[0].content);
     expect(prompt).toContain('The boat went in on a grey morning.');
   });
+
+  it('says the archive is busy while it waits, and fails in a sentence logged on the section', async () => {
+    // wt360 from the test above: Echoes empty, its inputs finished.
+    const { ArchiveError } = await import('../src/server/integrations/librarian.ts');
+    let release!: () => void;
+    const held = new Promise<void>((resolve) => { release = resolve; });
+    retrieve.mockImplementation(async (_q: string, _k: number, _o: unknown, onBusy?: (attempt: number) => void) => {
+      onBusy?.(0);
+      await held;
+      throw new ArchiveError('The archive was too busy to answer.', 'later', '429 Too Many Requests {"Reason":"ReservedFunctionConcurrentInvocationLimitExceeded"}');
+    });
+    const before = (await (await fetch(`${base}/api/issues/wt360/drafting`)).json()) as { drafting: unknown };
+    expect(before.drafting).toBeNull();
+
+    const answer = fetch(`${base}/api/issues/wt360/nodes/echoes/echoes/draft`, {
+      method: 'POST', headers: { 'Content-Type': 'application/json' }, body: '{}',
+    });
+    await expect.poll(async () => ((await (await fetch(`${base}/api/issues/wt360/drafting`)).json()) as { drafting: unknown }).drafting)
+      .toEqual({ anchor: 'echoes', says: 'The archive is busy; trying again…' });
+    release();
+    const res = await answer;
+    expect(res.status).toBe(500);
+    const out = await res.json() as { error: string };
+    expect(out.error).toBe('The archive was too busy to answer. Try Echoes again in a minute.');
+    expect(out.error).not.toMatch(/[{}]|429/);
+    expect(create).not.toHaveBeenCalled();
+
+    // Logged on the section, so the log and the MCP's changes show it; the
+    // draft's words are gone from /drafting once it has answered.
+    const failed = store.listEvents('wt360').find((e) => e.kind === 'draft');
+    expect(failed).toMatchObject({ anchor: 'echoes', summary: 'Draft failed: The archive was too busy to answer. Try Echoes again in a minute. — Echoes' });
+    expect(((await (await fetch(`${base}/api/issues/wt360/drafting`)).json()) as { drafting: unknown }).drafting).toBeNull();
+  });
+
+  it("a model that is too busy is a sentence too, never the SDK's JSON", async () => {
+    retrieve.mockResolvedValue([
+      { issue_number: 221, source_kind: 'weekly_thing', label: 'WT221', publish_date: '2023-05-20',
+        url: 'https://weekly.thingelstad.com/archive/221/', text: 'The boat went in on a grey morning.' },
+    ]);
+    // The SDK's InternalServerError for an overloaded model, by shape.
+    class InternalServerError extends Error { status = 529; error = { type: 'error', error: { type: 'overloaded_error', message: 'Overloaded' } }; }
+    create.mockRejectedValue(new InternalServerError('529 {"type":"error","error":{"type":"overloaded_error","message":"Overloaded"}}'));
+    const res = await fetch(`${base}/api/issues/wt360/nodes/echoes/echoes/draft`, {
+      method: 'POST', headers: { 'Content-Type': 'application/json' }, body: '{}',
+    });
+    const out = await res.json() as { error: string };
+    expect(out.error).toBe("The draft didn't come back: the model was too busy. Try again in a minute.");
+    expect(store.listEvents('wt360').find((e) => e.kind === 'draft')?.summary).toContain('the model was too busy');
+  });
 });
 
 describe('the link wand', () => {

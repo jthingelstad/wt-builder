@@ -52,6 +52,9 @@ emoji. Its findings join the script review.
 The 429 surfaced as raw JSON. Say "The archive is busy; trying again…" during
 the retries and a plain sentence if they run out. Log a failed generation as an
 event so the MCP's `changes` shows it.
+*Built 2026-10-04*: `ArchiveError` and `modelFailure` say every failure in a
+sentence; the wand line polls `GET /drafting`; a failed draft is a `draft`
+event (MCP 1.5.2).
 
 ### 5. Fix the flaky hints test (S)
 

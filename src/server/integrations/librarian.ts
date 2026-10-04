@@ -100,27 +100,66 @@ export function setBackoff(fn: (attempt: number) => Promise<void>): void {
 }
 
 /**
+ * A Librarian failure said the way a person would say it (WT352: a 429
+ * reached Jamie as the Lambda's raw JSON). `says` is what happened, in a
+ * sentence; `again` is when trying again makes sense ('now', 'later'), or
+ * null when it will not help until something is fixed. `detail` is the raw
+ * answer, for the service log only.
+ */
+export class ArchiveError extends Error {
+  constructor(public says: string, public again: 'now' | 'later' | null, public detail: string) {
+    super(again ? `${says} Try again${again === 'later' ? ' in a minute' : ''}.` : says);
+    this.name = 'ArchiveError';
+  }
+}
+
+/** What a status the Librarian answered with means to the person waiting. */
+function archiveFailure(status: number, statusText: string, body: string): ArchiveError {
+  const detail = `${status} ${statusText} ${body}`.trim();
+  if (status === 429) return new ArchiveError('The archive was too busy to answer.', 'later', detail);
+  if (status === 401 || status === 403) {
+    return new ArchiveError(`The archive turned WT Builder's key away (${status}); LIBRARIAN_RETRIEVE_SECRET needs a look.`, null, detail);
+  }
+  if (status === 409) return new ArchiveError('The archive no longer speaks the version WT Builder asks in (409); the Librarian client needs updating.', null, detail);
+  if (status >= 500) return new ArchiveError(`The archive had a problem answering (${status}).`, 'later', detail);
+  return new ArchiveError(`The archive turned the question down (${status}).`, null, detail);
+}
+
+/** A fetch that never got an answer: the 30 s timeout, or no connection at all. */
+function unreachable(err: unknown): ArchiveError {
+  const e = err as { name?: string; message?: string };
+  return e?.name === 'TimeoutError' || e?.name === 'AbortError'
+    ? new ArchiveError('The archive took too long to answer.', 'now', String(e.message ?? e.name))
+    : new ArchiveError("WT Builder couldn't reach the archive.", 'later', String(e?.message ?? err));
+}
+
+/**
  * Top-k archive passages for a query. Throws on any failure — Echoes'
  * quality bar is real semantic retrieval, and the editorial spec says to
  * fail loud rather than degrade silently (docs/service-contracts.md). A 429
- * is retried after a wait before it counts as one.
+ * is retried after a wait before it counts as one, and `onBusy` hears of
+ * each wait so the editor can say so. Every failure is an ArchiveError.
  */
-export async function retrieve(query: string, k = 12, options: RetrieveOptions = {}): Promise<Passage[]> {
+export async function retrieve(
+  query: string, k = 12, options: RetrieveOptions = {}, onBusy?: (attempt: number) => void,
+): Promise<Passage[]> {
   const secret = credentials.librarianSecret;
   if (!secret) {
-    throw new Error('LIBRARIAN_RETRIEVE_SECRET is not configured — Echoes requires archive retrieval');
+    throw new ArchiveError('Echoes needs the archive, and WT Builder has no LIBRARIAN_RETRIEVE_SECRET configured.', null, 'not configured');
   }
   for (let attempt = 0; ; attempt++) {
-    const res = await slot(() => retrieveOnce(query, k, options, secret));
+    const res = await slot(() => retrieveOnce(query, k, options, secret)).catch((err) => { throw unreachable(err); });
     if (res.status === 429 && attempt < RETRIES_ON_429) {
+      onBusy?.(attempt);
       await backoff(attempt);
       continue;
     }
     if (!res.ok) {
-      const detail = (await res.text()).slice(0, 200);
-      throw new Error(`Librarian retrieve failed: ${res.status} ${res.statusText} ${detail}`);
+      const body = (await res.text().catch(() => '')).slice(0, 200);
+      throw archiveFailure(res.status, res.statusText, body);
     }
-    const body = (await res.json()) as { passages?: Passage[] };
+    const body = (await res.json().catch(() => null)) as { passages?: Passage[] } | null;
+    if (!body) throw new ArchiveError('The archive answered with something WT Builder could not read.', 'now', 'not JSON');
     return body.passages ?? [];
   }
 }

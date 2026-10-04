@@ -594,6 +594,20 @@ finished, what is half-finished, and what has never run.
   librarian-thing), so `withoutThingy` is gone. The verify probe asks for
   its issue exactly. Not yet run against a live draft: WT352 is the first.
 
+- **Echoes fails like a person would say it** (2026-10-04, after WT352's
+  Librarian 429 reached Jamie as the Lambda's JSON) — every Librarian failure
+  is an `ArchiveError` with a sentence and whether trying again helps
+  ("The archive was too busy to answer. Try Echoes again in a minute.";
+  timeouts, a dropped connection, 5xx, a refused key, a 409 contract), the
+  raw answer kept for the service log only. Model failures from the SDK
+  (429/529 busy, 5xx, timeout, connection, refused key) are said the same
+  way for every wand and the review (`modelFailure`). While Echoes waits out
+  a 429 the wand says "The archive is busy; trying again…" (the editor polls
+  `GET /api/issues/:id/drafting` while an Echoes draft is out). A draft that
+  fails, any wand, is a `draft` event on its item or section ("Draft failed:
+  … — Echoes"), so the log and the MCP's `changes` show it (MCP 1.5.2).
+  Tested with the Librarian's fetch and the model stubbed.
+
 - **Echoes: this week in past years** (2026-09-30) — the one-year-ago
   issue that rode along as an excerpt (`pickSeasonalIssue`, the `seasonal`
   draft field) is gone. In its place a calendar pseudo-anchor asks the
