@@ -67,17 +67,66 @@ export function isConfigured(): boolean {
 }
 
 /**
+ * How many retrievals WT Builder keeps in flight. The Librarian's stream
+ * Lambda serves /retrieve alongside Thingy's chat and the MCP under a
+ * reserved concurrency of 5 (librarian-thing apps/librarian/AGENTS.md).
+ * Echoes asks once per Notable anchor, all at once: WT352's nine Notable
+ * items and the calendar anchor made ten, the Lambda answered 429
+ * ReservedFunctionConcurrentInvocationLimitExceeded, and the draft failed
+ * three times running. Two at a time leaves room for everyone else.
+ */
+export const MAX_IN_FLIGHT = 2;
+/** A 429 is the Lambda being busy, not a failure: wait and ask again, this many times. */
+export const RETRIES_ON_429 = 3;
+
+let inFlight = 0;
+const waiting: (() => void)[] = [];
+
+async function slot<T>(run: () => Promise<T>): Promise<T> {
+  if (inFlight >= MAX_IN_FLIGHT) await new Promise<void>((resolve) => waiting.push(resolve));
+  inFlight++;
+  try {
+    return await run();
+  } finally {
+    inFlight--;
+    waiting.shift()?.();
+  }
+}
+
+/** Waits between 429 retries; a test hands in its own to run without sleeping. */
+export let backoff = (attempt: number) => new Promise<void>((resolve) => setTimeout(resolve, 750 * 2 ** attempt));
+export function setBackoff(fn: (attempt: number) => Promise<void>): void {
+  backoff = fn;
+}
+
+/**
  * Top-k archive passages for a query. Throws on any failure — Echoes'
  * quality bar is real semantic retrieval, and the editorial spec says to
- * fail loud rather than degrade silently (docs/service-contracts.md).
+ * fail loud rather than degrade silently (docs/service-contracts.md). A 429
+ * is retried after a wait before it counts as one.
  */
 export async function retrieve(query: string, k = 12, options: RetrieveOptions = {}): Promise<Passage[]> {
   const secret = credentials.librarianSecret;
   if (!secret) {
     throw new Error('LIBRARIAN_RETRIEVE_SECRET is not configured — Echoes requires archive retrieval');
   }
+  for (let attempt = 0; ; attempt++) {
+    const res = await slot(() => retrieveOnce(query, k, options, secret));
+    if (res.status === 429 && attempt < RETRIES_ON_429) {
+      await backoff(attempt);
+      continue;
+    }
+    if (!res.ok) {
+      const detail = (await res.text()).slice(0, 200);
+      throw new Error(`Librarian retrieve failed: ${res.status} ${res.statusText} ${detail}`);
+    }
+    const body = (await res.json()) as { passages?: Passage[] };
+    return body.passages ?? [];
+  }
+}
 
-  const res = await fetch(`${config.librarianUrl.replace(/\/$/, '')}/retrieve`, {
+async function retrieveOnce(query: string, k: number, options: RetrieveOptions, secret: string): Promise<Response> {
+  return fetch(`${config.librarianUrl.replace(/\/$/, '')}/retrieve`, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
@@ -95,10 +144,4 @@ export async function retrieve(query: string, k = 12, options: RetrieveOptions =
     }),
     signal: AbortSignal.timeout(30_000),
   });
-  if (!res.ok) {
-    const detail = (await res.text()).slice(0, 200);
-    throw new Error(`Librarian retrieve failed: ${res.status} ${res.statusText} ${detail}`);
-  }
-  const body = (await res.json()) as { passages?: Passage[] };
-  return body.passages ?? [];
 }
