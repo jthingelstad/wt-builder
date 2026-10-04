@@ -19,6 +19,7 @@ import { extname, join, normalize } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
 import type { ArchiveReference, Channel, Destination, IssueDoc, Item, SendState, Verification } from '../shared/types.ts';
+import { waitingSummary } from '../shared/dependencies.ts';
 import { render } from '../shared/render/index.ts';
 import { emailOf, isOut, lastSent, recordedAudioUrl, refusedNotDraft } from '../shared/sends.ts';
 import { renderEmail } from '../shared/render/email.ts';
@@ -1258,9 +1259,10 @@ const routes: [RegExp, string, (ctx: Ctx, params: string[]) => Promise<unknown>]
    * The link wand also says which earlier issues carried this exact link,
    * from the local records (linked-before.ts).
    */
-  [/^\/api\/issues\/([^/]+)\/items\/([^/]+)\/draft$/, 'POST', async ({ body }, [id, itemId]) => {
+  [/^\/api\/issues\/([^/]+)\/items\/([^/]+)\/draft$/, 'POST', async ({ body, url }, [id, itemId]) => {
     const b = await body();
     const doc = requireIssue(id!);
+    waitingGate(id!, doc, itemId!, url.searchParams.get('force') === '1');
     const item = doc.items[itemId!];
     const linked = item?.type === 'pinboard_link' && item.source_url
       ? linkedBefore(item.source_url, doc.issue, store.listIssues())
@@ -1273,11 +1275,12 @@ const routes: [RegExp, string, (ctx: Ctx, params: string[]) => Promise<unknown>]
    * than for an item. Nothing is written — the ticked ones come back through
    * POST /nodes/:id/echoes.
    */
-  [/^\/api\/issues\/([^/]+)\/nodes\/([^/]+)\/echoes\/draft$/, 'POST', async (_ctx, [id, nodeId]) => {
+  [/^\/api\/issues\/([^/]+)\/nodes\/([^/]+)\/echoes\/draft$/, 'POST', async ({ url }, [id, nodeId]) => {
     const doc = requireIssue(id!);
     const node = doc.nodes.find((n) => n.id === nodeId);
     if (!node) throw new HttpError(404, `no section ${nodeId}`);
     if (node.type !== 'echoes') throw new HttpError(400, `${node.label} does not hold echoes`);
+    waitingGate(id!, doc, nodeId!, url.searchParams.get('force') === '1');
     return editorial.draft({ doc, nodeId: nodeId! });
   }],
 
@@ -1581,6 +1584,22 @@ function noAudioYet(podcast: SendState | undefined): string {
  * the dead links as kept, so a later re-send does not ask again. Runs before
  * the leg's guards and claim: nothing about the leg changes on a refusal.
  */
+/**
+ * A wand on a section that is waiting on its inputs (src/shared/dependencies.ts):
+ * warn, don't block. Refused with what it waits on unless `?force=1`, which
+ * drafts and logs the override. The editor asks before it sends either. The
+ * title wand's anchor is `issue`, and Title is the only pill there that waits.
+ */
+function waitingGate(id: string, doc: IssueDoc, anchor: string, force: boolean): void {
+  const unit = issues.readiness(doc).units.find((u) => u.anchor === anchor && u.state === 'waiting');
+  if (!unit?.waiting_on) return;
+  const on = waitingSummary(unit.waiting_on);
+  if (!force) {
+    throw new HttpError(409, `${unit.title} is waiting on ${on}. Finish ${unit.waiting_on.length === 1 ? 'it' : 'them'} first, or draft anyway.`, 'waiting');
+  }
+  store.logEvent(id, 'edit', `Override — drafted ${unit.title} before ${unit.waiting_on.map((w) => w.name).join(', ')} ${unit.waiting_on.length === 1 ? 'was' : 'were'} done`, anchor);
+}
+
 async function linksGate(id: string, destination: Destination, force: boolean): Promise<void> {
   const pending = linkFindings(requireIssue(id)).pending.map((l) => l.url);
   if (pending.length) {

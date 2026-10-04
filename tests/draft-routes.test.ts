@@ -67,6 +67,65 @@ const fixture = () =>
     readFileSync(fileURLToPath(new URL('../fixtures/representative-issue.json', import.meta.url)), 'utf8'),
   ) as IssueDoc;
 
+const PARAGRAPH = 'A paragraph of commentary that clears the bar for a Notable link, written the way Jamie writes them, with a reason to read it.';
+
+/** Notable commentary written: Echoes and the title no longer wait on it. */
+function finishNotable(doc: IssueDoc): void {
+  doc.items['link-flipcash']!.commentary = PARAGRAPH;
+  doc.items['link-functions']!.commentary = PARAGRAPH;
+}
+
+describe('a wand on a section waiting on its inputs', () => {
+  const waitingIssue = () => {
+    const doc = fixture();
+    doc.issue.id = 'wt390';
+    doc.issue.number = 390;
+    doc.items['haiku-1']!.body = '';
+    // Untitled: the fixture's stand-in names WT350, and renumbered it reads as a real title.
+    doc.issue.title = '';
+    store.saveIssue(doc);
+  };
+  const post = (path: string) => fetch(`${base}/api/issues/wt390/${path}`, {
+    method: 'POST', headers: { 'Content-Type': 'application/json' }, body: '{}',
+  });
+  // The link wand also asks the Librarian; nothing comes back.
+  const candidates = () => retrieve.mockResolvedValue([]) && create.mockResolvedValue({
+    stop_reason: 'end_turn', stop_details: null, content: [{ type: 'text', text: '{"candidates":["one","two"]}' }],
+  });
+
+  it('is refused with what it waits on, and drafts nothing', async () => {
+    waitingIssue();
+    const res = await post('items/haiku-1/draft');
+    expect(res.status).toBe(409);
+    const out = await res.json() as { error: string; code?: string };
+    expect(out.code).toBe('waiting');
+    expect(out.error).toContain('Haiku is waiting on Notable (0 of 2)');
+    expect(create).not.toHaveBeenCalled();
+  });
+
+  it('drafts anyway with force=1, and logs the override', async () => {
+    waitingIssue();
+    candidates();
+    const res = await post('items/haiku-1/draft?force=1');
+    expect(res.status).toBe(200);
+    expect(create).toHaveBeenCalled();
+    expect(store.listEvents('wt390').map((e) => e.summary)).toContain('Override — drafted Haiku before Notable was done');
+  });
+
+  it('the title wand waits on Notable the same way', async () => {
+    waitingIssue();
+    const res = await post('items/issue/draft');
+    expect(res.status).toBe(409);
+    expect((await res.json() as { error: string }).error).toContain('Title is waiting on Notable');
+  });
+
+  it('a wand on a section that waits on nothing is never refused', async () => {
+    waitingIssue();
+    candidates();
+    expect((await post('items/link-functions/draft')).status).toBe(200);
+  });
+});
+
 describe('the Echoes route', () => {
   it('asks the Librarian for the whole archive, minus this issue and the two before it', async () => {
     const now = fixture();
@@ -76,6 +135,8 @@ describe('the Echoes route', () => {
     const echoes = now.nodes.find((n) => n.type === 'echoes')!;
     for (const id of echoes.items) delete now.items[id];
     echoes.items = [];
+    // Its inputs finished, so the Echoes pill is not waiting (the gate has its own tests).
+    finishNotable(now);
     store.saveIssue(now);
 
     retrieve.mockResolvedValue([

@@ -10,6 +10,7 @@
  * focusable.
  */
 
+import { waitingSummary } from '../../shared/dependencies.ts';
 import { useEffect, useMemo, useRef, useState } from 'preact/hooks';
 
 import type { Readiness } from '../api.ts';
@@ -80,9 +81,10 @@ export function Strip({ number, readiness, onJump, doc }: Props) {
   const units = readiness?.units ?? [];
   const done = readiness?.done ?? 0;
   const partial = readiness?.partial ?? 0;
+  const waiting = readiness?.waiting ?? 0;
   const total = readiness?.total ?? 0;
   const complete = total > 0 && done === total;
-  const STATE = { done: 'done', partial: 'in progress', todo: 'not yet' } as const;
+  const STATE = { done: 'done', partial: 'in progress', todo: 'not yet', waiting: 'waiting' } as const;
 
   // A tick that just turned green bursts; the last one takes the strip with
   // it. Keyed by anchor+title so a reorder does not read as progress, and the
@@ -151,7 +153,9 @@ export function Strip({ number, readiness, onJump, doc }: Props) {
       <div class="ticks" ref={ticks}>
         {units.map((unit, i) => {
           const hue = hueOf(doc, unit.anchor, unit.kind);
-          const said = unit.done ? (unit.kind === 'links' || unit.kind === 'mail' ? unit.context ?? '' : glimpse(doc, unit.anchor)) : '';
+          const said = unit.done
+            ? (unit.kind === 'links' || unit.kind === 'mail' ? unit.context ?? '' : glimpse(doc, unit.anchor))
+            : unit.waiting_on ? `Waiting on ${waitingSummary(unit.waiting_on)}` : '';
           return (
             <span class="tick-wrap" key={`${unit.anchor}-${i}`} style={wave ? { '--wave-delay': `${i * 28}ms` } : undefined}>
               <button
@@ -183,7 +187,7 @@ export function Strip({ number, readiness, onJump, doc }: Props) {
       >
         {flash
           ? <span class="strip-flash">{flash}</span>
-          : complete ? 'Ready to send' : `${done} of ${total} done${partial ? ` · ${partial} in progress` : ''}`}
+          : complete ? 'Ready to send' : `${done} of ${total} done${partial ? ` · ${partial} in progress` : ''}${waiting ? ` · ${waiting} waiting` : ''}`}
         {aloud && !flash && <span class="strip-aloud"> · {aloud}</span>}
       </button>
       {complete && <CircleCheck />}
@@ -200,12 +204,16 @@ export function Strip({ number, readiness, onJump, doc }: Props) {
                 key={`${unit.anchor}-${i}`}
                 onClick={() => { onJump(unit.anchor); setOpen(false); }}
               >
-                <span class={`cl-dot ${unit.kind}${unit.state === 'partial' ? ' partial' : ''}`} />
+                <span class={`cl-dot ${unit.kind}${unit.state === 'partial' || unit.state === 'waiting' ? ` ${unit.state}` : ''}`} />
                 <span class="cl-main">
                   <span class="cl-title">
                     {unit.title}
                     {unit.state === 'partial' && <span class="cl-state">IN PROGRESS</span>}
+                    {unit.state === 'waiting' && <span class="cl-state waiting">WAITING</span>}
                   </span>
+                  {unit.waiting_on && (
+                    <span class="cl-context">Waiting on {waitingSummary(unit.waiting_on)}.</span>
+                  )}
                   {unit.context && <span class="cl-context">{unit.context}</span>}
                 </span>
               </button>

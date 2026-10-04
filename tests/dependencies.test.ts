@@ -98,7 +98,8 @@ describe('waiting pills', () => {
   it('an older issue’s Featured section is Notable, by its own name', () => {
     const doc = fixture();
     const node = doc.nodes.find((n) => n.type === 'notable')!;
-    node.type = 'featured';
+    // Not a type new issues get; the readers still honour it (HEADING_LINK_SECTIONS).
+    (node as { type: string }).type = 'featured';
     node.label = 'Featured';
     expect(unit(doc, 'issue', 'Title').waiting_on).toEqual([{ section: 'notable', name: 'Featured', done: 0, total: 2 }]);
   });

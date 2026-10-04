@@ -623,6 +623,8 @@ span[contenteditable]:focus {
 .tick.done { background: var(--green); }
 /* Started, under the bar: half a tick. */
 .tick.partial { background: linear-gradient(90deg, var(--green) 50%, var(--green-3) 50%); }
+/* Waiting on an unfinished input (src/shared/dependencies.ts): hollow, not yet workable. */
+.tick.waiting { background: transparent; box-shadow: inset 0 0 0 1px var(--border); }
 .tick:hover { outline: 2px solid var(--ink); }
 
 /*
@@ -655,6 +657,8 @@ span[contenteditable]:focus {
 .tip-state { font-family: var(--mono); font-size: 9.5px; color: var(--muted); white-space: nowrap; }
 .tip-state.done { color: var(--green); }
 .tip-state.partial { color: var(--green); opacity: .7; }
+.tip-dot.waiting { background: transparent; box-shadow: inset 0 0 0 1px var(--muted); }
+.tip-state.waiting { color: var(--faint); }
 
 .strip-readout { font-size: 11.5px; color: var(--muted); white-space: nowrap; }
 .strip-aloud { color: var(--faint); }
@@ -1133,10 +1137,13 @@ span[contenteditable]:focus {
 .cl-dot.commentary { background: var(--amber); }
 .cl-dot.partial { background: linear-gradient(90deg, var(--green) 50%, var(--green-3) 50%); }
 .cl-state { font-family: var(--mono); font-size: 9px; letter-spacing: .06em; color: var(--green); margin-left: 8px; opacity: .8; }
+.cl-state.waiting { color: var(--muted); }
 .cl-dot.sync { background: var(--terracotta); }
 .cl-dot.thingy { background: var(--blue); }
 .cl-dot.required { background: var(--mark-dark); }
 .cl-dot.links { background: var(--green); }
+/* After the kind colours, so a waiting row reads hollow whatever its kind. */
+.cl-dot.waiting { background: transparent; box-shadow: inset 0 0 0 1px var(--muted); }
 .link-finding { margin-top: 10px; }
 .link-finding + .link-finding { border-top: 1px solid var(--border-light); padding-top: 10px; }
 

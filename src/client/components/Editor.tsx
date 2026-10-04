@@ -9,6 +9,7 @@
  * has to buy its width from something else.
  */
 
+import { waitingSummary } from '../../shared/dependencies.ts';
 import { useCallback, useEffect, useMemo, useRef, useState } from 'preact/hooks';
 
 import type { Channel, EchoOption, IssueDoc, LinkedBefore } from '../../shared/types.ts';
@@ -166,6 +167,19 @@ export function Editor({ doc, readiness, busy, error, run, onIndex, onSend, onEr
     return run(fn);
   };
 
+  /**
+   * A wand on a section still waiting on its inputs asks first (warn, don't
+   * block): false when nothing waits, true to draft anyway, null if Jamie
+   * said no. The server holds the same line and logs the override.
+   */
+  const waitingOk = (anchor: string): boolean | null => {
+    const unit = readiness?.units.find((u) => u.anchor === anchor && u.state === 'waiting');
+    if (!unit?.waiting_on) return false;
+    const names = unit.waiting_on.map((w) => w.name).join(' and ');
+    const verb = unit.waiting_on.length === 1 ? "isn't" : "aren't";
+    return confirm(`${names} ${verb} finished yet: ${waitingSummary(unit.waiting_on)}. Draft the ${unit.title} anyway?`) ? true : null;
+  };
+
   const act: PageActions = {
     // Returned, not voided: an editable waits on it to know whether its text
     // was saved (review 2026-09-27, §1.4).
@@ -206,9 +220,11 @@ export function Editor({ doc, readiness, busy, error, run, onIndex, onSend, onEr
     },
     applyOrder: (nodeId, order, why) => void runEdit(() => api.reorder(id, nodeId, order, why)),
     draft: (itemId) => {
+      const force = waitingOk(itemId);
+      if (force === null) return;
       setDrafting(itemId);
       setDraft(null);
-      api.draftItem(id, itemId)
+      api.draftItem(id, itemId, undefined, force)
         .then((r) => setDraft({ itemId, candidates: r.candidates, echoes: r.echoes, membership: r.membership, photo: r.photo, alts: r.alts, linked_before: r.linked_before }))
         .catch((err) => onError((err as Error).message))
         .finally(() => setDrafting(null));
@@ -216,9 +232,11 @@ export function Editor({ doc, readiness, busy, error, run, onIndex, onSend, onEr
     // The Echoes section wand offers echoes for the node; the picker hangs
     // off the heading, keyed by the node id, and the ticked ones append.
     draftEchoes: (nodeId) => {
+      const force = waitingOk(nodeId);
+      if (force === null) return;
       setDrafting(nodeId);
       setDraft(null);
-      api.draftEchoes(id, nodeId)
+      api.draftEchoes(id, nodeId, force)
         .then((r) => setDraft({ itemId: nodeId, candidates: [], echoes: r.echoes ?? [] }))
         .catch((err) => onError((err as Error).message))
         .finally(() => setDrafting(null));

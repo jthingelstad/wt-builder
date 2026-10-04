@@ -1,6 +1,12 @@
 # WT Builder: section dependencies and an MCP interface (plan)
 
-Status: **proposed 2026-10-04, awaiting Jamie's approval.** Nothing here is built.
+Status: **approved 2026-10-04** (Part A with the dependency map as written,
+Part B as a read-only v1, D2 as recommended). **Part A built 2026-10-04.**
+
+Open follow-up (Jamie, 2026-10-04): "I think Membership SHOULD pull context
+from the current issue but we can come back to that." Today its wand is
+grounded in the members page, with the issue only as background; if it comes
+to draw on the issue, revisit whether Membership waits on anything.
 
 Two parts. **Part A** (section dependencies) is an editor change that stands
 on its own and lands first, because the MCP status tool in **Part B** reports
@@ -86,8 +92,7 @@ has nothing in it, is met: it owes nothing.
   pill is done even while Briefly is still being filled. (Flagging a haiku or
   echo written *before* its inputs settled, as possibly stale, is a later
   idea, not in this plan.)
-- **The strip** draws a waiting tick hollow and muted with an hourglass in
-  the tooltip: "Haiku — waiting on Notable (3 of 5), Briefly (6 of 9)". The
+- **The strip** draws a waiting tick hollow and muted, with the tooltip: "Haiku — waiting on Notable (3 of 5), Briefly (6 of 9)". The
   summary line counts it apart: "14 of 22 done · 3 in progress · 2 waiting".
   Clicking still only scrolls (the navigation rule), to the section itself.
 - **The checklist** shows WAITING beside the item, with the same line.
@@ -119,10 +124,11 @@ what each one does, instead of a shell and a reading of `index.ts`.
    for MCP clients on Jamie's other devices. Comes with level 1 unless
    decision D2 says otherwise.
 3. **claude.ai web and phone.** Those connectors are called from Anthropic's
-   cloud and cannot reach the tailnet: they need a public HTTPS path (Tailscale
-   Funnel or a tunnel exposing only `/mcp`) and OAuth, most likely the
-   Librarian's authorization server with an owner-only edit scope. **Not in
-   this plan.** Revisit after using level 1 for an issue or two.
+   cloud and cannot reach the tailnet: they need a public HTTPS path and
+   OAuth, most likely the Librarian's authorization server with an
+   owner-only scope. AGENTS.md forbids serving this process through Funnel
+   (it holds write credentials and has no auth layer), so that path would be
+   a separate front, not Funnel on this port. **Not in this plan.** Revisit after using level 1 for an issue or two.
 
 ### Read-only first
 

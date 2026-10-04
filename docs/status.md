@@ -27,7 +27,13 @@ finished, what is half-finished, and what has never run.
 - **Left panel** — issue metadata at rest and open, the outline with drag
   reorder, provenance chips, add-back chips for absent sections.
 - **Progress strip** — one tick per readiness unit, edge-aware tooltips,
-  click-to-jump.
+  click-to-jump. Since 2026-10-04 a unit can be **waiting** on the sections it
+  is made from (`src/shared/dependencies.ts`; the map is in
+  `docs/mcp-plan.md`, Part A): hollow tick, "Waiting on …" tooltip, a count in
+  the readout, WAITING in the checklist. The item and Echoes draft routes
+  refuse a waiting unit with 409 `waiting` unless `?force=1`, which drafts
+  and logs "Override — drafted … before … was done"; the editor confirms
+  first.
 - **Inspector** — fields per type, editions with locked channels and their
   reasons, provenance, archive references. A Thingy item still shows a
   Reviewed / Mark draft toggle, but it gates nothing: picking or writing the

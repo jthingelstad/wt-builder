@@ -1,5 +1,6 @@
 /** Thin client for the service. Every credential stays on the far side of this. */
 
+import type { Section, WaitingOn } from '../shared/dependencies.ts';
 import type { ArchiveReference, Channel, EchoOption, IssueDoc, Item, LinkedBefore } from '../shared/types.ts';
 import type { IssueTiming } from '../shared/timing.ts';
 
@@ -35,7 +36,7 @@ export function writeBackMessage(
 
 export type ReadinessKind = 'required' | 'commentary' | 'sync' | 'thingy' | 'links' | 'mail';
 
-export type ReadinessState = 'done' | 'partial' | 'todo';
+export type ReadinessState = 'done' | 'partial' | 'todo' | 'waiting';
 
 export interface Readiness {
   units: {
@@ -45,9 +46,13 @@ export interface Readiness {
     anchor: string;
     kind: ReadinessKind;
     context?: string;
+    section?: Section;
+    /** When `waiting`: each unfinished input (src/shared/dependencies.ts). */
+    waiting_on?: WaitingOn[];
   }[];
   done: number;
   partial: number;
+  waiting?: number;
   total: number;
   pct: number;
 }
@@ -267,14 +272,15 @@ export const api = {
     call<IssueResponse>(`/issues/${id}/nodes/${nodeId}/reorder`, { method: 'POST', body: JSON.stringify({ order, why }) }),
 
   /** The Echoes section wand: echoes to append. Nothing is written until addEchoes. */
-  draftEchoes: (id: string, nodeId: string) =>
+  /** `force` drafts a section still waiting on its inputs — the editor asked first. */
+  draftEchoes: (id: string, nodeId: string, force = false) =>
     call<{ candidates: string[]; echoes?: EchoOption[] }>(
-      `/issues/${id}/nodes/${nodeId}/echoes/draft`, { method: 'POST', body: '{}' },
+      `/issues/${id}/nodes/${nodeId}/echoes/draft${force ? '?force=1' : ''}`, { method: 'POST', body: '{}' },
     ),
 
-  draftItem: (id: string, itemId: string, context?: string) =>
+  draftItem: (id: string, itemId: string, context?: string, force = false) =>
     call<{ candidates: string[]; echoes?: EchoOption[]; membership?: { cta: string; thanks: string }[]; photo?: { alt: string }[]; alts?: { src: string; alt: string }[]; linked_before?: LinkedBefore[] }>(
-      `/issues/${id}/items/${itemId}/draft`,
+      `/issues/${id}/items/${itemId}/draft${force ? '?force=1' : ''}`,
       { method: 'POST', body: JSON.stringify({ context }) },
     ),
 

@@ -381,6 +381,15 @@ The whole strip is a button that opens the checklist popover. `padding: 0 16px`,
   under the cursor.
 - Readout at the right: `12 of 20 done`, or **Ready to send** in green, then a
   `circle-check` glyph.
+- **Waiting** (2026-10-04, `src/shared/dependencies.ts`): a unit that is not done
+  and is made from a section that is not done either — Title and dek from
+  Notable, Echoes from Notable and Journal, Haiku from Notable, Journal and
+  Briefly, Outro from Intro. Its tick is hollow (`inset 0 0 0 1px` border, no
+  fill), its tooltip says `Waiting on Notable (3 of 5)` with the state
+  `waiting`, the readout adds `· 2 waiting`, and the checklist row carries
+  `WAITING` and the same line. A finished unit stays done. The Haiku, Echoes and
+  title wands on a waiting unit ask "…Draft the Haiku anyway?" before drafting,
+  and the draft routes refuse it (409 `waiting`) without `?force=1`.
 
 Units are concrete: required direct items written (Intro, Outro, Currently, Photo — or
 absent from the issue, which counts as satisfied), one per link needing commentary, one
