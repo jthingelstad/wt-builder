@@ -213,6 +213,19 @@ describe('found by adversarial testing (2026-10-04)', () => {
     expect(item).toMatchObject({ section: null, item: { in_issue: false } });
   });
 
+  it('a gift link is a link finding, with when it ran out (2026-10-04)', async () => {
+    const b64 = (o: object) => Buffer.from(JSON.stringify(o)).toString('base64url');
+    const url = `https://www.theverge.com/a?view_token=${b64({ alg: 'HS256' })}.${b64({ exp: 1790701400 })}.c2ln`;
+    draft(386, (doc) => { doc.items['link-flipcash']!.source_url = url; });
+    const links = (await call('get_status', { issue: 'wt386' })).structuredContent.checks.links;
+    expect(links.gift).toEqual([expect.objectContaining({
+      url, items: ['link-flipcash'],
+      gift: { param: 'view_token', expires: '2026-09-29T17:03:20.000Z', expired: true },
+      warning: expect.stringContaining('expired Sep 29'),
+    })]);
+    expect(links.summary).toContain('1 gift link (1 expired)');
+  });
+
   it('a draft share link never reaches the agent', async () => {
     store.logEvent('wt390', 'send', 'Draft shared — https://files.thingelstad.com/weekly-thing/drafts/wt390-89fa2935fc5c8bd9b55637f3.html');
     const { events } = (await call('list_events', { issue: 'wt390', limit: 5 })).structuredContent;

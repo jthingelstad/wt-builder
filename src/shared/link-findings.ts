@@ -61,8 +61,68 @@ export function issueLinks(doc: IssueDoc): IssueLink[] {
   return [...byUrl.values()];
 }
 
+/**
+ * A paywalled site's gift link: a token in the query that lets a reader past
+ * the paywall for as long as the gift lasts, and then not. The link check
+ * cannot see it (the page answers 200 either way), so it is read off the URL.
+ * Jamie, 2026-10-04: a Verge gift link in WT352 had expired a week before it
+ * would have gone to readers, and nothing said so.
+ */
+export interface GiftLink {
+  /** The query parameter that carries it. */
+  param: string;
+  /** When the token says it stops working (a JWT's `exp`), as an ISO instant. */
+  expires?: string;
+  expired?: boolean;
+}
+
+/** Gift parameters whose name says so, on any site. */
+const GIFT_ANYWHERE = /^(?:gift|gift_?link|gift_?token|gift_?id|share_?token|view_token|unlocked_article_code|pwapi_token)$/i;
+
+/** Gift parameters too generic to read as gifts except on the sites that use them. */
+const GIFT_ON: Array<[RegExp, RegExp]> = [
+  [/^accesstoken$/i, /(?:^|\.)(?:bloomberg\.com|ft\.com)$/],
+  [/^st$/i, /(?:^|\.)(?:wsj\.com|barrons\.com)$/],
+];
+
+/** A JWT's `exp`, if the token is one. */
+function jwtExpiry(token: string): number | undefined {
+  const part = token.split('.')[1];
+  if (!part || token.split('.').length !== 3) return undefined;
+  try {
+    const json = JSON.parse(atob(part.replace(/-/g, '+').replace(/_/g, '/').padEnd(Math.ceil(part.length / 4) * 4, '=')));
+    return typeof json?.exp === 'number' && Number.isFinite(json.exp) ? json.exp : undefined;
+  } catch {
+    return undefined;
+  }
+}
+
+/** The gift a URL carries, or undefined. `now` is for tests. */
+export function giftOf(url: string, now = Date.now()): GiftLink | undefined {
+  let u: URL;
+  try {
+    u = new URL(url);
+  } catch {
+    return undefined;
+  }
+  const host = u.hostname.toLowerCase();
+  for (const [name, value] of u.searchParams) {
+    if (!value) continue;
+    const gift = GIFT_ANYWHERE.test(name) || GIFT_ON.some(([p, h]) => p.test(name) && h.test(host));
+    if (!gift) continue;
+    const exp = jwtExpiry(value);
+    if (exp === undefined) return { param: name };
+    const ms = exp * 1000;
+    // An `exp` no Date can hold is not an expiry anyone set.
+    if (!Number.isFinite(new Date(ms).getTime()) || Math.abs(ms) > 8.64e15) return { param: name };
+    return { param: name, expires: new Date(ms).toISOString(), expired: ms <= now };
+  }
+  return undefined;
+}
+
 export interface LinkFinding extends IssueLink {
   result?: LinkResult;
+  gift?: GiftLink;
 }
 
 export interface LinkFindings {
@@ -74,14 +134,19 @@ export interface LinkFindings {
   pending: LinkFinding[];
   /** Dead, and not kept by Jamie: what the send legs ask about. */
   unaccepted: LinkFinding[];
-  /** Dead or moved, and not kept by Jamie: what readiness counts. */
+  /** Gift links not kept by Jamie: read off the URL, checked or not. */
+  gifts: LinkFinding[];
+  /** Dead, moved, or a gift, and not kept by Jamie: what readiness counts. */
   open: LinkFinding[];
 }
 
-export function linkFindings(doc: IssueDoc): LinkFindings {
+export function linkFindings(doc: IssueDoc, now = Date.now()): LinkFindings {
   const results = doc.link_check?.results ?? {};
   const accepted = new Set(doc.link_check?.accepted ?? []);
-  const links = issueLinks(doc).map((l) => ({ ...l, result: results[l.url] }));
+  const links = issueLinks(doc).map((l) => {
+    const gift = giftOf(l.url, now);
+    return { ...l, result: results[l.url], ...(gift ? { gift } : {}) };
+  });
   const by = (v: LinkResult['verdict']) => links.filter((l) => l.result?.verdict === v);
   const dead = by('dead');
   const moved = by('moved');
@@ -92,16 +157,29 @@ export function linkFindings(doc: IssueDoc): LinkFindings {
     unchecked: by('unchecked'),
     pending: links.filter((l) => !l.result),
     unaccepted: dead.filter((l) => !accepted.has(l.url)),
-    open: [...dead, ...moved].filter((l) => !accepted.has(l.url)),
+    gifts: links.filter((l) => l.gift && !accepted.has(l.url)),
+    open: links.filter((l) =>
+      (l.gift || l.result?.verdict === 'dead' || l.result?.verdict === 'moved') && !accepted.has(l.url)),
   };
+}
+
+/** "A gift link (view_token) that expired Sep 29" — for a finding line. */
+export function giftLine(gift: GiftLink): string {
+  const day = (iso: string) => new Date(iso).toLocaleDateString('en-US', { month: 'short', day: 'numeric', timeZone: 'America/Chicago' });
+  if (gift.expired) return `A gift link (${gift.param}) that expired ${day(gift.expires!)}: readers will hit the paywall.`;
+  if (gift.expires) return `A gift link (${gift.param}) that expires ${day(gift.expires)}: after that, readers hit the paywall.`;
+  return `A gift link (${gift.param}): readers get past the paywall only while the gift lasts.`;
 }
 
 /** "2 dead, 1 moved" — the counts that are not fine, for a chip or a card. */
 export function findingsSummary(f: LinkFindings): string {
   const dead = f.open.filter((l) => l.result?.verdict === 'dead').length;
-  const moved = f.open.length - dead;
+  const moved = f.open.filter((l) => l.result?.verdict === 'moved').length;
+  const expired = f.gifts.filter((l) => l.gift!.expired).length;
+  const gifts = f.gifts.length;
   const parts = [
     dead && `${dead} dead`,
+    gifts && (expired ? `${gifts} gift link${gifts === 1 ? '' : 's'} (${expired} expired)` : `${gifts} gift link${gifts === 1 ? '' : 's'}`),
     moved && `${moved} moved or shortened`,
     f.unchecked.length && `${f.unchecked.length} the site would not answer`,
     f.pending.length && `${f.pending.length} not checked yet`,

@@ -40,7 +40,7 @@ import { heldOut, outOfWindow, windowOf } from '../shared/render/plan.ts';
 import { waitingSummary } from '../shared/dependencies.ts';
 import { lastSent } from '../shared/sends.ts';
 import { todayCentral } from '../shared/dates.ts';
-import { findingsSummary, linkFindings } from '../shared/link-findings.ts';
+import { findingsSummary, giftLine, linkFindings } from '../shared/link-findings.ts';
 import { deliverabilityFindings, deliverabilitySummary } from '../shared/deliverability.ts';
 import { anchorText } from '../shared/anchor.ts';
 
@@ -62,7 +62,7 @@ export interface McpDeps {
  * tool, its arguments, or its answer changes, so a client holding a cached
  * tool list knows to fetch it again.
  */
-export const MCP_VERSION = '1.2.0';
+export const MCP_VERSION = '1.3.0';
 
 export const INSTRUCTIONS = `WT Builder is Jamie Thingelstad's authoring app for The Weekly Thing newsletter. This server is READ-ONLY: it shows an issue as the editor does and changes nothing.
 
@@ -288,6 +288,8 @@ function checksOf(doc: IssueDoc) {
   });
   const dead = cut(lf.dead.map(link), 'dead links');
   const moved = cut(lf.moved.map(link), 'moved links');
+  // Read off the URL, so present before any check; kept ones are left out.
+  const gifts = cut(lf.gifts.map((l) => ({ ...link(l), gift: l.gift!, warning: giftLine(l.gift!) })), 'gift links');
   return {
     links: {
       checked_at: doc.link_check?.at ?? null,
@@ -295,9 +297,10 @@ function checksOf(doc: IssueDoc) {
       total: lf.links.length,
       dead: dead.list,
       moved: moved.list,
+      gift: gifts.list,
       unchecked: lf.unchecked.length,
       not_checked_yet: lf.pending.length,
-      ...(dead.note || moved.note ? { note: [dead.note, moved.note].filter(Boolean).join('; ') } : {}),
+      ...(dead.note || moved.note || gifts.note ? { note: [dead.note, moved.note, gifts.note].filter(Boolean).join('; ') } : {}),
     },
     email: {
       checked_at: doc.domain_check?.at ?? null,
@@ -438,7 +441,7 @@ export function buildServer(deps: McpDeps, caller = 'local', logged = new Set<st
 
   server.registerTool('get_status', {
     title: 'Where the issue stands',
-    description: 'The readiness strip and the Send view in one answer, for one issue: lifecycle; every pill in the order the issue reads with its state (done; partial = started but under the bar; todo; waiting = made from sections not finished yet, with what it waits on) and where it is finished (done_in: editor, send view, or sync conflict); workable_now, what can be done next and where; the link check (dead and moved links, with the suggested URL) and the email checks; each send leg (website, buttondown, podcast, archive) with its verification problems and warnings; and the audio script review. Start here.',
+    description: 'The readiness strip and the Send view in one answer, for one issue: lifecycle; every pill in the order the issue reads with its state (done; partial = started but under the bar; todo; waiting = made from sections not finished yet, with what it waits on) and where it is finished (done_in: editor, send view, or sync conflict); workable_now, what can be done next and where; the link check (dead and moved links, with the suggested URL, and gift links, which stop working when the gift expires) and the email checks; each send leg (website, buttondown, podcast, archive) with its verification problems and warnings; and the audio script review. Start here.',
     inputSchema: { issue: issueArg },
     outputSchema: {
       issue: headOutput,

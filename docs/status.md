@@ -44,7 +44,8 @@ finished, what is half-finished, and what has never run.
   browser Origin from another site 403), and on the tailnet as the editor
   is. Registered in Claude Code at user scope as `wt-builder`. Tested with
   the SDK's client in `tests/mcp.test.ts`; not yet used on a real draft.
-  After three adversarial rounds the same day (interface 1.2.0): it reads
+  After three adversarial rounds the same day (interface 1.2.0; 1.3.0
+  adds gift links to the link check): it reads
   without persisting (`readOnly` on the route context, so the skeleton
   repair a GET saves for the page is not saved for an agent); it answers
   POST only (405 otherwise, so no event stream is held open) and refuses a
@@ -338,8 +339,13 @@ finished, what is half-finished, and what has never run.
   redirect to the site's front page are **dead**; a shortener, a redirect,
   the page's own `rel=canonical`, or tracking on the link are **moved**,
   with a suggestion; 401/403/429/5xx and timeouts are **unchecked**, never
-  dead. The "Links checked" readiness unit counts what is open and jumps to
-  it. The inspector offers, per finding, **Use the suggested link**
+  dead. A **gift link** (a paywalled site's share token: `view_token`,
+  `unlocked_article_code`, `pwapi_token`, `gift`, and `accessToken` or `st`
+  on the sites that use them; `giftOf` in `src/shared/link-findings.ts`) is
+  read off the URL, before any check, with its expiry when the token is a
+  JWT: a finding until kept, never a send gate (2026-10-04, after an expired
+  Verge gift nearly went out in WT352). The "Links checked" readiness unit
+  counts what is open and jumps to it. The inspector offers, per finding, **Use the suggested link**
   (`POST /api/issues/:id/items/:itemId/link` `{action: "use"}` — sets
   `canonical_url`, which the website, email and audio print; `source_url`
   is untouched), **Keep as it is** (`{action: "keep", url}`), **Back to the

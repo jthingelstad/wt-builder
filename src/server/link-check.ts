@@ -20,7 +20,7 @@
 
 import type { IssueDoc, LinkResult } from '../shared/types.ts';
 import { hasTracking, linkKey, withoutTracking } from '../shared/links.ts';
-import { issueLinks } from '../shared/link-findings.ts';
+import { giftOf, issueLinks } from '../shared/link-findings.ts';
 import { fetchPublicFollow, readCapped } from './integrations/page.ts';
 import { OFFLINE } from './config.ts';
 
@@ -186,7 +186,7 @@ export function applyLinkCheck(doc: IssueDoc, results: Record<string, LinkResult
   const merged = { ...(doc.link_check?.results ?? {}), ...results };
   const kept = Object.fromEntries(Object.entries(merged).filter(([url]) => current.has(url)));
   const accepted = (doc.link_check?.accepted ?? []).filter((url) =>
-    current.has(url) && (kept[url]?.verdict === 'dead' || kept[url]?.verdict === 'moved'));
+    current.has(url) && (kept[url]?.verdict === 'dead' || kept[url]?.verdict === 'moved' || Boolean(giftOf(url))));
   return { ...doc, link_check: { at, results: kept, ...(accepted.length ? { accepted } : {}) } };
 }
 

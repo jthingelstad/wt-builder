@@ -5,7 +5,7 @@ import { CHANNELS } from '../../shared/types.ts';
 import { api, shouldWriteBack, writeBackMessage, type IssueResponse } from '../api.ts';
 import { edited, Input, useFieldValue } from './Field.tsx';
 import { isFrozen } from './Page.tsx';
-import { linkFindings, type LinkFinding } from '../../shared/link-findings.ts';
+import { giftLine, linkFindings, type LinkFinding } from '../../shared/link-findings.ts';
 
 interface Props {
   doc: IssueDoc;
@@ -138,8 +138,10 @@ export function Inspector({ doc, itemId, run, onClose, onError, onBackToReview, 
   // This item's link findings that are not fine and not kept: its own link
   // and any link in its words (plan 2026-10-01 §3).
   const kept = new Set(doc.link_check?.accepted ?? []);
+  // A gift link is a finding whatever the check said: the page answers 200
+  // to the checker and to readers alike until the gift runs out.
   const findings = linkFindings(doc).links.filter((f) =>
-    f.items.includes(itemId) && f.result && f.result.verdict !== 'ok' && !kept.has(f.url));
+    f.items.includes(itemId) && (f.gift || (f.result && f.result.verdict !== 'ok')) && !kept.has(f.url));
   // Held by the editor like a write-back, so a remount mid-move keeps the buttons off.
   const linkBusy = writing;
 
@@ -389,7 +391,8 @@ export function Inspector({ doc, itemId, run, onClose, onError, onBackToReview, 
           {findings.map((f) => (
             <div class="link-finding" key={f.url}>
               <a href={f.url} target="_blank" rel="noreferrer" class="break-link">{f.url}</a>
-              <p class="field-note">{findingLine(f)}</p>
+              {f.gift && <p class="field-note link-gift">{giftLine(f.gift)}</p>}
+              {f.result && f.result.verdict !== 'ok' && <p class="field-note">{findingLine(f)}</p>}
               {f.result?.suggestion && (
                 <p class="field-note">
                   Suggested:{' '}
@@ -404,7 +407,7 @@ export function Inspector({ doc, itemId, run, onClose, onError, onBackToReview, 
                     Use the suggested link
                   </button>
                 )}
-                {f.result?.verdict !== 'unchecked' && (
+                {(f.gift || f.result?.verdict !== 'unchecked') && (
                   <button class="btn" disabled={linkBusy}
                     title={f.role === 'inline' ? 'Edit the commentary to change it, or keep it as it is.' : 'Leave the link as it is and stop asking.'}
                     onClick={() => void linkAction('keep', f.url)}>

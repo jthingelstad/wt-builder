@@ -1369,19 +1369,22 @@ export function readiness(doc: IssueDoc): Readiness {
   section = undefined;
 
   // One unit for every link the issue prints (plan 2026-10-01 §3): warn,
-  // don't block. Done when every link has been checked and nothing dead or
-  // moved is left that Jamie has not kept; a site that turns checkers away
-  // is said, not counted. The tick jumps to the first item with a finding.
+  // don't block. Done when every link has been checked and nothing dead,
+  // moved, or a gift link is left that Jamie has not kept; a site that turns
+  // checkers away is said, not counted. The tick jumps to the first item
+  // with a finding. A gift link is read off the URL, so it is said even
+  // before the first check.
   const links = linkFindings(doc);
   if (links.links.length) {
     const said = findingsSummary(links);
     const first = [...links.open, ...links.pending][0]?.items[0] ?? 'issue';
     const checked = Boolean(doc.link_check);
+    const gifts = links.gifts.length;
     add(
       !links.open.length && !links.pending.length ? 'done' : checked ? 'partial' : 'todo',
       'Links checked', first, 'links',
       !checked
-        ? `${links.links.length} links, not checked yet. They are checked before the email and the website go, or now from the Send card.`
+        ? `${links.links.length} links, not checked yet. They are checked before the email and the website go, or now from the Send card.${gifts ? ` ${gifts === 1 ? 'One is a gift link' : `${gifts} are gift links`}: the inspector says when it runs out.` : ''}`
         : said
           ? `${said}. The inspector has each one: use the suggested link, or keep it as it is.`
           : `All ${links.links.length} links answered.`,

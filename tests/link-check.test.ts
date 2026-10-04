@@ -11,7 +11,7 @@ import type { IssueDoc, LinkResult } from '../src/shared/types.ts';
 import {
   acceptLinks, applyLinkCheck, canonicalHint, checkLink, checkLinks, type Fetched, type Fetcher,
 } from '../src/server/link-check.ts';
-import { issueLinks, linkFindings } from '../src/shared/link-findings.ts';
+import { findingsSummary, giftLine, giftOf, issueLinks, linkFindings } from '../src/shared/link-findings.ts';
 import { readiness } from '../src/server/issue.ts';
 
 const fixture = (): IssueDoc => JSON.parse(
@@ -184,5 +184,71 @@ describe('the Links checked unit', () => {
     const f = linkFindings(checked);
     expect(f.pending.map((l) => l.url)).toEqual(['https://avc.xyz/flipcash']);
     expect(unit(checked)!.state).toBe('partial');
+  });
+});
+
+describe('gift links (Jamie, 2026-10-04)', () => {
+  const b64 = (o: object) => Buffer.from(JSON.stringify(o)).toString('base64url');
+  const jwt = (claims: object) => `${b64({ alg: 'HS256', typ: 'JWT' })}.${b64(claims)}.c2ln`;
+  const at = Date.parse('2026-10-04T12:00:00Z');
+  // The shape of the WT352 Verge link: a five-day token, expired 2026-09-29.
+  const verge = `https://www.theverge.com/column/999999/optimizer?view_token=${jwt({ iat: 1790269400, exp: 1790701400 })}`;
+  const unit = (doc: IssueDoc) => readiness(doc).units.find((u) => u.title === 'Links checked');
+  const withGift = (url: string) => {
+    const doc = fixture();
+    doc.items['link-flipcash']!.source_url = url;
+    return doc;
+  };
+
+  it('reads an expired Verge gift off the URL, with when it ran out', () => {
+    expect(giftOf(verge, at)).toEqual({ param: 'view_token', expires: '2026-09-29T17:03:20.000Z', expired: true });
+    expect(giftLine(giftOf(verge, at)!)).toBe('A gift link (view_token) that expired Sep 29: readers will hit the paywall.');
+    expect(giftOf(verge, Date.parse('2026-09-29T00:00:00Z'))!.expired).toBe(false);
+  });
+
+  it('knows the common gift parameters, and the generic ones only on their own sites', () => {
+    expect(giftOf('https://www.nytimes.com/2026/10/01/a.html?unlocked_article_code=1.abc&smid=url-share')?.param).toBe('unlocked_article_code');
+    expect(giftOf('https://www.washingtonpost.com/a/?pwapi_token=eyJx')?.param).toBe('pwapi_token');
+    expect(giftOf('https://www.theatlantic.com/a/?gift=Zq9')?.param).toBe('gift');
+    expect(giftOf('https://www.bloomberg.com/news/a?accessToken=abc')?.param).toBe('accessToken');
+    expect(giftOf('https://www.wsj.com/a?st=abc&reflink=share')?.param).toBe('st');
+    expect(giftOf('https://example.com/a?st=abc')).toBeUndefined();
+    expect(giftOf('https://example.com/a?accessToken=abc')).toBeUndefined();
+    expect(giftOf('https://example.com/a?gift=')).toBeUndefined();
+    expect(giftOf('https://example.com/a')).toBeUndefined();
+    expect(giftOf('not a url')).toBeUndefined();
+    // A token that is not a JWT, or a JWT with no usable exp, is a gift with no date.
+    expect(giftOf('https://www.theverge.com/a?view_token=a.!!.c', at)).toEqual({ param: 'view_token' });
+    expect(giftOf(`https://www.theverge.com/a?view_token=${jwt({ exp: 1e300 })}`, at)).toEqual({ param: 'view_token' });
+    expect(giftOf(`https://www.theverge.com/a?view_token=${jwt({ exp: 'soon' })}`, at)).toEqual({ param: 'view_token' });
+  });
+
+  it('is a finding before any check, and says so in the unit', () => {
+    const doc = withGift(verge);
+    const f = linkFindings(doc, at);
+    expect(f.gifts.map((l) => l.url)).toEqual([verge]);
+    expect(f.open.map((l) => l.url)).toEqual([verge]);
+    expect(findingsSummary(f)).toMatch(/^1 gift link \(1 expired\), \d+ not checked yet$/);
+    const u = unit(doc)!;
+    expect(u.state).toBe('todo');
+    expect(u.context).toContain('One is a gift link');
+  });
+
+  it('keeps the unit partial after a clean check, until Jamie keeps it; the keep survives the next check', () => {
+    const doc = withGift(verge);
+    const all = Object.fromEntries(issueLinks(doc).map((l) => [l.url, { verdict: 'ok', checked_at: '2026-10-04T12:00:00.000Z' } as LinkResult]));
+    const checked = applyLinkCheck(doc, all, '2026-10-04T12:00:00.000Z');
+    const u = unit(checked)!;
+    expect(u.state).toBe('partial');
+    expect(u.anchor).toBe('link-flipcash');
+    expect(u.context).toContain('1 gift link');
+    // Warn, don't block: a gift link never stops a send.
+    expect(linkFindings(checked).unaccepted).toEqual([]);
+
+    const kept = acceptLinks(checked, [verge]);
+    expect(unit(kept)!.state).toBe('done');
+    const again = applyLinkCheck(kept, all, '2026-10-04T13:00:00.000Z');
+    expect(again.link_check!.accepted).toEqual([verge]);
+    expect(unit(again)!.state).toBe('done');
   });
 });

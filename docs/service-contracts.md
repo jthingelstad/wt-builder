@@ -340,7 +340,8 @@ Claude Code or Codex on otto, or any MCP client on the tailnet.
   in reading order with `state` (`done`, `partial`, `todo`, `waiting`),
   `section`, and for a waiting pill `waiting_on` (`{section, name, done,
   total}` per unfinished input) and a `waiting` sentence; the counts;
-  `workable_now`; each send leg with its verification; and the script review,
+  `workable_now`; the link check (dead, moved, and `gift` links with
+  their expiry and a `warning` sentence) and the email checks; each send leg with its verification; and the script review,
   with `current` false when the script has changed since.
 - **Writes none.** Suggestions go to Jamie in the agent's conversation (see
   `docs/decisions.md`). It reads through `readRoute` with `readOnly`, so

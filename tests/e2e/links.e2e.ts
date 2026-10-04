@@ -57,3 +57,18 @@ test('the Send card says what the check found and offers to check again', async 
   await expect(page.getByText(/Links: 1 dead, 1 moved or shortened/)).toBeVisible();
   await expect(page.getByRole('button', { name: 'Check again' })).toBeVisible();
 });
+
+test('a gift link says when it ran out, and keep as it is stops asking (2026-10-04)', async ({ page }) => {
+  const b64 = (o: object) => Buffer.from(JSON.stringify(o)).toString('base64url');
+  const GIFT = `https://www.theverge.com/a?view_token=${b64({ alg: 'HS256' })}.${b64({ exp: 1790701400 })}.c2ln`;
+  const doc = store.getIssue(ISSUE)!.doc;
+  doc.items['link-functions']!.source_url = GIFT;
+  doc.link_check!.results[GIFT] = { verdict: 'ok', status: 200, checked_at: doc.link_check!.at };
+  store.saveIssue(doc);
+  await open(page);
+  const panel = await inspect(page, 'link-functions');
+  await expect(panel.getByText('A gift link (view_token) that expired Sep 29: readers will hit the paywall.')).toBeVisible();
+  await panel.getByRole('button', { name: 'Keep as it is' }).click();
+  await expect(panel.getByText(/A gift link/)).toHaveCount(0);
+  expect(store.getIssue(ISSUE)!.doc.link_check!.accepted).toEqual([GIFT]);
+});
