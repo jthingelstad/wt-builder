@@ -27,7 +27,7 @@ proves it has no cycles.
 | Section | Waits on | Why |
 |---|---|---|
 | Haiku | Notable, Journal (and promoted posts), Briefly | Jamie, 2026-10-04. The wand reads the assembled issue. |
-| Echoes | Notable, Journal (and promoted posts), Intro, Currently, Photo | What the Echoes wand actually retrieves from (`echoesAnchors`): each Notable link and promoted post on its own, and Intro, Currently, Photo and Journal moments pooled as "the week itself". Briefly is not an input. **To confirm (D5).** |
+| Echoes | Notable, Journal (and promoted posts) | Jamie, 2026-10-04: "Just Notable and Journal is what I would have expected." The wand also reads Intro, Currently and Photo when they are there (`echoesAnchors` pools them as "the week itself"), but they do not hold it up. |
 | Outro | Intro | Jamie, 2026-10-04 |
 | Title and dek | Notable | Jamie, 2026-10-04: "Title and dek depend on Featured links for sure." The theme comes from the week's lead links. |
 
@@ -58,15 +58,15 @@ has nothing in it, is met: it owes nothing.
   Clicking still only scrolls (the navigation rule), to the section itself.
 - **The checklist** shows WAITING beside the item, with the same line.
 - **The wands warn, never block** (the warn-don't-block rule). The Haiku,
-  Echoes and title/dek wands on a waiting section open with "Briefly isn't finished.
-  Draft anyway?" behind a confirm. (Outro has no wand: Intro and Outro never
-  get one. Its pill just reads waiting until the Intro is done.) The server
-  takes `?force=1`, and the event log records "Override — drafted Haiku before Briefly was done".
-  Writing by hand is never interrupted.
+  Echoes and title/dek wands on a waiting section open with "Briefly isn't
+  finished. Draft anyway?" behind a confirm. (Outro has no wand: Intro and
+  Outro never get one. Its pill just reads waiting until the Intro is done.)
+  The server takes `?force=1`, and the event log records "Override — drafted
+  Haiku before Briefly was done". Writing by hand is never interrupted.
 - `fixed_position: 'last'` stays. It is where Echoes prints, which is a
   separate question from when it can be made.
 
-## Part B: the MCP interface (step 1, local)
+## Part B: the MCP interface (v1: local, read-only)
 
 ### Why
 
@@ -78,7 +78,7 @@ what each one does, instead of a shell and a reading of `index.ts`.
 
 ### The three levels, and which one this is
 
-1. **Local (this plan).** An `/mcp` endpoint on the existing service. Claude
+1. **Local (this plan, read-only).** An `/mcp` endpoint on the existing service. Claude
    Code and Codex on the Mac connect to `http://127.0.0.1:4317/mcp`. No new
    hosting, no new auth.
 2. **Tailnet.** The same endpoint at `https://otto.tail09aaf9.ts.net:10001/mcp`
@@ -90,131 +90,68 @@ what each one does, instead of a shell and a reading of `index.ts`.
    Librarian's authorization server with an owner-only edit scope. **Not in
    this plan.** Revisit after using level 1 for an issue or two.
 
+### Read-only first
+
+Jamie, 2026-10-04: "Perhaps we should make v1 read only?" Yes. v1 lets an
+agent see everything the editor shows and change nothing. It is the smaller
+build by far (no proposal store, no margin UI, no direct tools, no keeping an
+open page in step with outside writes, no attribution), it cannot hurt a live
+issue, and using it on a real draft will show which writes are actually worth
+building. Suggestions in v1 come back in the agent's chat, and Jamie applies
+the ones he wants by hand. The write design is kept below as v2.
+
 ### Principles
 
-- **Every tool goes through the existing routes.** The MCP layer calls the
-  same route handlers the editor calls, in process. Pinboard and Micro.blog
-  write-back, compare-and-set, the event log, the line-break flattening guard,
-  the 423 on an issue put to bed and the validation all apply unchanged. No
-  tool touches the database or `issue.ts` directly.
-- **The agent proposes; Jamie decides.** Text an agent wants changed arrives
-  as a proposal in the editor's margin, with Apply and Dismiss. The issue stays
-  in Jamie's voice, and the agent can never overwrite something Jamie is in
-  the middle of typing.
-- **Direct writes only where they are cheap to undo.** Reordering a section
-  and moving a link between Notable and Briefly. Both are one click to reverse
-  in the editor.
-- **Nothing that sends.** No send, verify, share, rehost or put-to-bed tools.
-  Publishing stays in the editor.
+- **Every tool goes through the existing GET routes.** The MCP layer calls
+  the same route handlers the editor calls, in process, so the agent sees
+  exactly what the page sees. No tool touches the database directly.
+- **Read-only, enforced.** The dispatch accepts GET routes only and refuses
+  anything else; every tool carries the MCP `readOnlyHint` annotation; a test
+  fails if a tool reaches a non-GET route. The one write a GET already makes
+  is the editor's own skeleton repair on opening an older issue
+  (`normalizeSkeleton`), which is the same thing opening it in Safari does.
+- **No model calls, no network writes.** No wands, no editorial review run,
+  no link or blocklist checks, no send previews (those reach GitHub).
 - **Never silent** (the Librarian MCP rule, 2026-09-30). A list is complete or
   says what it left out and how to get the rest. A refusal says why.
-- **Every agent action is attributed.** The event log records who did it, so
-  the log, the live watcher and issue timing can tell Jamie's work from the
-  agent's.
 
 ### Design
 
 #### Transport and placement
 
 - A Streamable HTTP MCP endpoint at `/mcp`, in the existing Node process, on
-  the existing port. Stateless mode, JSON responses (no SSE streams needed:
-  every tool answers in one response). Built on `@modelcontextprotocol/sdk`
-  (1.32.0 on npm as of 2026-10-04) and its Node transport, which takes the
-  raw `IncomingMessage`/`ServerResponse` the service already has.
+  the existing port. Stateless mode, JSON responses (every tool answers in one
+  response). Built on `@modelcontextprotocol/sdk` (1.32.0 on npm as of
+  2026-10-04) and its Node transport, which takes the raw
+  `IncomingMessage`/`ServerResponse` the service already has.
 - **The edge stays in front.** `edge.ts` already refuses a foreign Host (DNS
   rebinding) and any write carrying a browser Origin that is not the app's.
   MCP clients send neither header, so they pass; a web page trying to drive
   `/mcp` from Jamie's browser is refused, which is what the MCP spec asks of a
   local server. No edge change expected; a test pins it.
-- **In-process dispatch.** A small `callRoute(method, path, body)` finds the
-  route in the existing table and runs its handler with a synthetic context,
-  so a tool is a few lines: name, schema, description, and which route it
-  calls. Errors come back as `HttpError` with the route's own message, which
-  becomes the tool's error text.
-- **Attribution without threading.** The dispatch runs inside an
-  `AsyncLocalStorage` scope carrying `actor: 'agent'` and the client's name
-  (from MCP `initialize`, for example "claude-code"). `logEvent` reads it. A
-  migration adds an `actor` column to `events` (null for the editor, so every
-  past event reads as Jamie's).
+- **In-process dispatch.** A small `readRoute(path)` finds the GET route in
+  the existing table and runs its handler with a synthetic context, so a tool
+  is a few lines: name, schema, description, and which route it reads.
+  Errors come back as `HttpError` with the route's own message, which becomes
+  the tool's error text.
 
 #### Tools
 
-Read (no writes, no model calls):
-
 | Tool | What it returns | Backed by |
 |---|---|---|
-| `get_status` | **Where the issue stands, as the strip and Send view show it.** Lifecycle (draft, published, asleep); every pill in strip order with its state (`done`, `partial`, `todo`, `waiting`), kind, the line that says what finishing it means, and for a waiting pill what it waits on and how far along that is; the counts; open proposals; and each send leg (website, email, podcast, archive) with sent / failed / not yet, plus the script review and verify results. One call answers "what is left, and what can I work on now?" | `readiness()`, `doc.sends`, `doc.verify`, `doc.script_review` |
-| `list_issues` | Issues with number, date, status, title, and the strip's counts; drafts by default, `include` widens | `GET /api/issues` |
+| `get_status` | **Where the issue stands, as the strip and Send view show it.** Lifecycle (draft, published, asleep); every pill in strip order with its state (`done`, `partial`, `todo`, `waiting`), kind, the line that says what finishing it means, and for a waiting pill what it waits on and how far along that is; the counts; and each send leg (website, email, podcast, archive) with sent / failed / not yet, plus the script review and verify results. One call answers "what is left, and what can be worked on now?" | `readiness()`, `doc.sends`, `doc.verify`, `doc.script_review` |
+| `list_issues` | Issues with number, date, status, title, and the strip's counts; drafts first, then the most recent published | `GET /api/issues` |
 | `get_issue` | The issue as an outline: sections in order, each item with id, type, title, full text fields, sync state, held-out flag, and its pill's state | `GET /api/issues/:id` |
 | `get_item` | One item, every field | same |
 | `render_issue` | One edition as it will print: `website`, `email`, `audio` (the script) or `source` | `GET /render/:lens` |
 | `get_review` | The current editorial review notes, as the margin shows them | the doc's `review` |
-| `list_events` | The event log, optionally `since` an event id, with actor | `GET /events` |
-| `list_proposals` | Open proposals on the issue and what became of recent ones | new |
+| `list_events` | The event log, optionally `since` an event id | `GET /events` |
+| `get_timing` | How long the issue has taken, beside the one before | `GET /timing` |
 
-Propose (writes only the proposal, never the item):
-
-| Tool | Effect |
-|---|---|
-| `propose_edit` | A change to one text field of one item: `title`, `commentary`, `body`, `label`, `ask`, or a photo's `caption`/`alt`. Either a full replacement or a `was`/`now` substring fix (the PROOF note shape). Carries a short `why`. |
-| `propose_issue_edit` | The same for the issue's `title` and `dek` |
-| `withdraw_proposal` | The agent takes back one of its own open proposals |
-
-Direct (structural, reversible):
-
-| Tool | Effect | Backed by |
-|---|---|---|
-| `reorder_section` | A new order for a section's items. The tool requires it to name exactly the items there now and refuses otherwise, saying which differ (the route itself is lenient: it drops unknown ids and appends unnamed ones, which suits a drag but would hide an agent working from a stale read) | `POST /nodes/:id/reorder` |
-| `move_link` | A link between Notable and Briefly; updates the `_brief` tag on Pinboard, as the rail button does | `POST /items/:id/section` |
-
-Every tool takes the issue as `wt353` (or the issue id) and refuses an issue
-that is not a draft, with the reason. Outputs carry an `outputSchema`
-(structured content) as the Librarian MCP does.
-
-#### Proposals
-
-- Stored on the issue document as `doc.proposals[]` (schema version bump), so
-  they ride the existing save, revision history and 423 guard, and an
-  editorial review run (which replaces `doc.review`) never touches them.
-- Shape: `id`, `target` (item id or `issue`), `field`, either `text` (full
-  replacement) or `was`/`now`/`nth`, `why`, `by` (client name), `at`, `base`
-  (a hash of the field's value when proposed), `status` (`open`, `applied`,
-  `dismissed`, `withdrawn`).
-- **In the editor:** open proposals render in the right margin through the
-  same measured overlay as the review notes, with their own badge
-  ("PROPOSED"), the was → now or a before/after of the field, the `why`, and
-  **Apply** / **Dismiss**. Apply sends the ordinary PATCH from Jamie's client,
-  so the write-back and event log behave exactly as if Jamie had typed it, and
-  the event reads "Applied a proposal".
-- **When the field changed since the proposal** (base hash differs): a
-  `was`/`now` fix still applies if its substring is found. A full replacement
-  shows "This changed since it was proposed" with **Apply anyway…** behind a
-  confirm, per the warn-don't-block rule.
-- The progress strip counts open proposals the way it counts review notes.
-
-#### The open page follows outside changes
-
-Today the editor only learns of changes from the answers to its own requests.
-A structural move by the agent would not show until Jamie's next action or a
-reload, and a reorder sent from a stale page could undo it. So:
-
-- A cheap `GET /api/issues/:id/stamp` (the issue's `updated_at` and the last
-  event id). The page asks every 5 seconds while visible and on returning to
-  the tab; when it moved, the page refetches the issue and absorbs it. A
-  focused editable is already left alone by `Editable`/`RichEditable`, so
-  nothing Jamie is typing is replaced.
-- The reorder route never loses an item (unknown ids are dropped, unnamed
-  ones appended), but a drag on a stale page would put back the order it last
-  saw, undoing an agent's reorder of that section. Following outside changes
-  is what closes that; an e2e pins that a reorder made after an outside move
-  starts from the moved order.
-
-#### Timing and the watcher
-
-- Issue timing ("Made in") counts Jamie's editing time; agent events are
-  excluded from it and shown as their own line ("agent: 14 actions"), so
-  WT353+ still say whether a feature saved Jamie time.
-- `npm run watch` prints the actor on agent lines.
+Every tool takes the issue as `wt353` (or the issue id). Any issue can be
+read, published ones included, so an agent can compare this week with the
+last. Outputs carry an `outputSchema` (structured content) as the Librarian
+MCP does.
 
 #### Connecting a client
 
@@ -222,21 +159,39 @@ reload, and a reorder sent from a stale page could undo it. So:
   `claude mcp add --scope user --transport http wt-builder http://127.0.0.1:4317/mcp`
 - Codex: an HTTP `[mcp_servers.wt-builder]` entry in `~/.codex/config.toml`,
   confirmed against Codex's current docs when built.
-- Server `instructions` (sent at initialize) say: drafts only; start with
-  `get_status`; work on pills that are not waiting; propose text, never claim
-  to have changed it; Jamie applies.
+- Server `instructions` (sent at initialize) say: this server is read-only;
+  start with `get_status`; pills that are waiting cannot be finished yet;
+  suggest changes to Jamie in the conversation, never claim to have made them.
 
-### Out of scope for step 1
+### Out of scope for v1
 
-- Sending, verifying, sharing, image rehosting, putting to bed, deleting
-  items or sections, adding sections.
-- **Adding links.** A link is a Pinboard bookmark; adding one means creating a
-  bookmark, which is a bigger write than this plan wants. Later, likely as a
-  proposal ("add this URL to Briefly") that Jamie accepts.
-- The wands and the editorial review run. Both call Claude and cost money,
-  and the caller is already a model. The agent can read the existing review.
-- Published and asleep issues.
+- Every write: edits, proposals, moves, reorders, adding links.
+- Sending, verifying, sharing, rehosting, putting to bed.
+- The wands, the editorial review run, link and blocklist checks.
 - Levels 2-3 auth (see above).
+
+### Later: v2 writes (not in this plan)
+
+Kept so the thinking is not lost; revisit after v1 has been used on an issue
+or two, and build only the writes that use asked for.
+
+- **The agent proposes; Jamie decides.** Text changes arrive as proposals in
+  the margin (badge PROPOSED, was → now, the agent's reason, Apply /
+  Dismiss), stored as `doc.proposals[]` so review runs never wipe them. Apply
+  is Jamie's own PATCH, so write-back and the log behave as if he typed it. A
+  full replacement on a field changed since it was proposed warns and offers
+  Apply anyway.
+- **Direct writes only where one click undoes them:** `reorder_section`
+  (requiring exactly the current items; the route itself is lenient) and
+  `move_link` between Notable and Briefly.
+- **The open page follows outside changes**: a cheap stamp route the page
+  checks every 5 seconds while visible, so an agent's move shows without a
+  reload and a stale drag cannot put an old order back.
+- **Attribution**: an `actor` column on events, set through an
+  `AsyncLocalStorage` scope; agent work shown as its own line beside "Made
+  in", never counted in it; the watcher shows the actor.
+- Deferred decisions: proposals only or some direct text edits; whether
+  published issues can take proposals for a re-send.
 
 ## Build order
 
@@ -247,46 +202,33 @@ Part A:
 A1. **The map and the state.** `src/shared/dependencies.ts`, the `waiting`
    state and `waiting_on` in `readiness()`, the no-cycles test, unit tests on
    the representative issue (Haiku waits while a Briefly line is empty; a
-   written Haiku stays done; a missing section counts as met).
+   written Haiku stays done; a missing section counts as met; a Featured
+   section counts as Notable).
 A2. **The editor.** Hollow waiting ticks, tooltip, summary count, checklist
    line, the wands' "draft anyway?" confirm with `?force=1` and the Override
    event. E2e in WebKit first.
 
-Part B:
+Part B (v1):
 
-1. **Plumbing.** SDK dependency, `/mcp` route, `callRoute`, actor scope,
-   `events.actor` migration, `get_status`, `list_issues` and `get_issue`. Test: an SDK
-   client round trip against a port-0 server; an Origin-bearing POST to `/mcp`
-   is refused; the event log records the actor.
-2. **Read tools.** The rest of the read table.
-3. **Proposals, server side.** `doc.proposals`, the three propose tools, the
-   apply/dismiss routes, the stale-base rule.
-4. **Proposals in the editor.** Margin cards, Apply/Dismiss, Apply anyway,
-   strip count. E2e in WebKit first.
-5. **Direct tools.** `reorder_section`, `move_link`.
-6. **Following outside changes.** The stamp route and the page's 5-second
-   check. E2e: an agent move appears without a reload; a focused field is not
-   replaced.
-7. **Timing, watcher, docs.** Agent line in "Made in", actor in the watcher,
-   `docs/service-contracts.md`, `docs/decisions.md`, `AGENTS.md`, and
-   registering the server in Claude Code.
-8. **Try it on a real draft** with Jamie: Claude Code reads WT354's draft and
-   checks `get_status`, then proposes Briefly lines and an order.
+B1. **Plumbing.** SDK dependency, `/mcp` route, `readRoute`, `get_status`,
+   `list_issues`, `get_issue`. Tests: an SDK client round trip against a
+   port-0 server; an Origin-bearing POST to `/mcp` is refused; no tool can
+   reach a non-GET route.
+B2. **The rest of the tools.** `get_item`, `render_issue`, `get_review`,
+   `list_events`, `get_timing`.
+B3. **Docs and registration.** `docs/service-contracts.md`,
+   `docs/decisions.md`, `AGENTS.md`; register the server in Claude Code at
+   user scope.
+B4. **Try it on a real draft** with Jamie: Claude Code reads WT354 through
+   the MCP, checks `get_status`, and suggests Briefly lines and an order in
+   the conversation.
 
 ## Decisions for Jamie
 
-- **D1. Text edits are proposals only** (recommended), or the agent may edit
-  some fields directly (for example link titles) with the event log as the
-  record.
 - **D2. `/mcp` answers on the tailnet too** (recommended: it costs nothing,
   and it is the same trust as the editor, which is already on the tailnet
   without auth; restricting `/mcp` alone protects nothing), or loopback only
   for now.
-- **D3. Agent time stays out of "Made in"** and shows as its own line
-  (recommended), or is counted.
-- **D4. Drafts only** (recommended), or the agent may also propose fixes on a
-  published issue for a re-send.
-- **D5. Echoes waits on** Notable, Journal, Intro, Currently and Photo (what
-  its wand reads; recommended), or only Notable and Journal (so a late Intro
-  does not hold it up).
-- ~~D6~~ Settled 2026-10-04: Title and dek wait on Notable (Featured).
+
+Settled 2026-10-04: v1 is read-only (D1, D3 and D4 move to v2); Echoes waits
+on Notable and Journal (D5); Title and dek wait on Notable (D6).
