@@ -100,6 +100,32 @@ one-click `Fix` affordance for free, since `was` and `now` are already the edit.
 Where a substring occurs more than once in the item, add `"nth": 2`. Default is the
 first occurrence.
 
+**Apply (2026-10-04).** That one-click fix is built: `POST
+/api/issues/:id/proof` with `{ review_at, index }` names a note in the stored
+review (its `at` and its index), and the server reads `was`/`now` from there,
+never from the client. The matcher (`src/shared/proof.ts`, shared with the
+client so Apply shows only where the server would take it) looks for `was` in
+each field `anchorText` joins — title, body, commentary, label, the photo's
+caption, alt and place, the Ask question, member thanks — and in a body only
+outside its `<img>`/`<video>` tags. `nth` counts from 1 across those fields in
+that order; without it a substring found more than once is not applied. A note
+with `item_id: null` reads the issue's title and dek, then the items, and
+applies only when one item holds the words. It refuses with a 409 and a plain
+sentence, writing nothing, when the words are gone (`proof_gone`), found more
+than once with no `nth` (`proof_twice`), past the `nth` there are
+(`proof_nth`), across two fields (`proof_span`), only inside a media tag
+(`proof_tag`), already read as the fix (`proof_done`), when the review was read
+again since (`proof_stale`), or when the note has no `now` (`proof_none`, a
+haiku's form note). A put-to-bed issue is a 423 at the door. The fix is made
+on a fresh read and goes the way a PATCH goes — the flatten guard,
+`updateItem`, a write-back to Pinboard or Micro.blog when it touched a mirrored
+field, an `edit` event `Applied proof fix "was" → "now" — <item>` — or, in the
+title or dek, a `settings` event. The answer carries `applied`, the spot
+(`{ item_id, field, offset }`) where the fix now sits. `{ review_at, index,
+undo: <that spot> }` takes the fix back (`Undid proof fix …`): `now` back to
+`was` at that spot, or wherever `now` sits once, under the same refusals. The
+review itself is never changed; a note drops because its words are gone.
+
 ### Failure
 
 A review where *no requested pass* succeeds fails whole, and **leaves the

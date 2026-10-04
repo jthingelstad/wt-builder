@@ -177,6 +177,33 @@ a:hover { text-decoration: underline; }
   box-shadow: 0 8px 24px rgba(26, 26, 26, .18);
 }
 
+/* What the last Apply did, with its Undo; bottom centre, clear of the busy hint. */
+.proof-toast {
+  position: fixed;
+  left: 50%;
+  bottom: 14px;
+  transform: translateX(-50%);
+  z-index: 110;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  max-width: min(640px, calc(100vw - 32px));
+  padding: 7px 8px 7px 14px;
+  background: var(--ink);
+  color: #fff;
+  font-size: 12.5px;
+  line-height: 1.45;
+  border-radius: 9px;
+  box-shadow: 0 8px 24px rgba(26, 26, 26, .18);
+}
+.proof-toast .btn.tiny { background: none; border-color: rgba(255, 255, 255, .45); color: #fff; flex: none; }
+.proof-toast .btn.tiny:hover { border-color: #fff; }
+.proof-toast-x {
+  flex: none; border: 0; background: none; color: rgba(255, 255, 255, .7);
+  width: 22px; height: 22px; border-radius: 5px; font-size: 11px;
+}
+.proof-toast-x:hover { color: #fff; background: rgba(255, 255, 255, .12); }
+
 .busy-hint {
   position: fixed;
   right: 16px;
@@ -820,7 +847,18 @@ a:hover { text-decoration: underline; }
 .rp-fix s { color: #b35c2e; }
 .rp-fix em { color: #2f7d4f; font-style: normal; }
 .rp-fix .arrow { color: var(--muted); }
-.rp-note-foot { display: flex; gap: 8px; margin-top: 7px; }
+.rp-note-foot { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 7px; }
+/* Review → Apply: the PROOF amber, as the ← Review button wears it. */
+.rp-apply, .rp-apply-all { background: var(--amber-1); border-color: var(--amber-2); color: var(--amber); }
+.rp-apply:hover:not([disabled]), .rp-apply-all:hover:not([disabled]) { border-color: var(--amber); color: var(--amber); }
+.rp-apply { max-width: 100%; }
+.rp-apply-change {
+  font-family: var(--mono); font-size: 10.5px; color: var(--ink);
+  overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
+}
+.rp-apply-all { margin-left: auto; }
+.rp-refused { color: var(--secondary); }
+.rp-refused-say { font-size: 11.5px; color: var(--muted); line-height: 1.45; }
 .rp-cleared { border-top: 1px solid var(--border); padding-top: 10px; }
 .rp-foot {
   margin-top: auto; padding-top: 12px; border-top: 1px solid var(--border);

@@ -15,7 +15,23 @@ import type { Note } from './Notes.tsx';
 export interface PanelNote {
   note: Note;
   k: string;
+  /** Its index in the stored review: how the server finds it to apply. */
+  i: number;
   cleared?: 'done' | 'ignored';
+}
+
+/**
+ * A PROOF note's Apply, as the editor works it out: `label` names the
+ * change (`TLA. → TLA+.`); `refused` is the server's sentence when it
+ * would not apply it. No fix at all (null) means only Show me: the words
+ * occur twice, span fields, or the note has no `now` (a haiku's form).
+ */
+export interface NoteFix {
+  label: string;
+  /** The whole change, for the button's accessible name. */
+  full: string;
+  busy: boolean;
+  refused?: { why: string; say: string };
 }
 
 interface Props {
@@ -35,6 +51,11 @@ interface Props {
   onClose: () => void;
   showCleared: boolean;
   onToggleCleared: () => void;
+  fixOf: (k: string) => NoteFix | null;
+  onApply: (k: string) => void;
+  /** Present when two or more PROOF notes can be applied. */
+  onApplyAll?: () => void;
+  applyingAll: boolean;
 }
 
 /** Spec badge names for the model's note kinds. */
@@ -48,7 +69,7 @@ const BADGE: Record<string, { label: string; cls: string }> = {
 export function ReviewPanel({
   reading, summary, notes, editsSince, selected, anchorName,
   onShowMe, onDone, onIgnore, onReopen, onReadAgain, onClose,
-  showCleared, onToggleCleared,
+  showCleared, onToggleCleared, fixOf, onApply, onApplyAll, applyingAll,
 }: Props) {
   const open = notes.filter((n) => !n.cleared);
   const cleared = notes.filter((n) => n.cleared);
@@ -100,9 +121,9 @@ export function ReviewPanel({
             </div>
           )}
 
-          <NoteGroup label="PROOF" notes={proof} {...{ selected, anchorName, onShowMe, onDone, onIgnore }} />
-          <NoteGroup label="WORTH YOUR TIME" notes={worth} {...{ selected, anchorName, onShowMe, onDone, onIgnore }} />
-          <NoteGroup label="ALSO NOTICED" notes={also} {...{ selected, anchorName, onShowMe, onDone, onIgnore }} />
+          <NoteGroup label="PROOF" notes={proof} {...{ selected, anchorName, onShowMe, onDone, onIgnore, fixOf, onApply, onApplyAll, applyingAll }} />
+          <NoteGroup label="WORTH YOUR TIME" notes={worth} {...{ selected, anchorName, onShowMe, onDone, onIgnore, fixOf, onApply }} />
+          <NoteGroup label="ALSO NOTICED" notes={also} {...{ selected, anchorName, onShowMe, onDone, onIgnore, fixOf, onApply }} />
 
           {cleared.length > 0 && (
             <div class="rp-cleared">
@@ -138,7 +159,7 @@ export function ReviewPanel({
 }
 
 function NoteGroup({
-  label, notes, selected, anchorName, onShowMe, onDone, onIgnore,
+  label, notes, selected, anchorName, onShowMe, onDone, onIgnore, fixOf, onApply, onApplyAll, applyingAll = false,
 }: {
   label: string;
   notes: PanelNote[];
@@ -147,18 +168,29 @@ function NoteGroup({
   onShowMe: (itemId: string) => void;
   onDone: (k: string) => void;
   onIgnore: (k: string) => void;
+  fixOf: (k: string) => NoteFix | null;
+  onApply: (k: string) => void;
+  onApplyAll?: () => void;
+  applyingAll?: boolean;
 }) {
   if (!notes.length) return null;
+  const anyBusy = applyingAll || notes.some((pn) => fixOf(pn.k)?.busy);
   return (
     <div class="rp-group">
       <div class="rp-group-head">
         <span class="mono-label">{label}</span>
         <span class="rp-count">{notes.length}</span>
+        {onApplyAll && (
+          <button class="btn tiny rp-apply-all" disabled={anyBusy} onClick={onApplyAll}>
+            {applyingAll ? 'Applying…' : 'Apply all'}
+          </button>
+        )}
       </div>
       {notes.map((pn) => {
         const n = pn.note;
         const badge = BADGE[n.kind] ?? { label: n.kind, cls: 'quiet' };
         const isSelected = Boolean(n.item_id) && n.item_id === selected;
+        const fix = fixOf(pn.k);
         return (
           <div key={pn.k} class={`rp-note${isSelected ? ' selected' : ''}`}>
             <div class="rp-note-head">
@@ -174,7 +206,25 @@ function NoteGroup({
               </p>
             )}
             <div class="rp-note-foot">
-              {n.item_id && (
+              {fix && !fix.refused && (
+                <button
+                  class="btn tiny rp-apply"
+                  disabled={fix.busy || applyingAll}
+                  aria-label={`Apply: ${fix.full}`}
+                  onClick={() => onApply(pn.k)}
+                >
+                  {fix.busy ? 'Applying…' : <>Apply <span class="rp-apply-change">{fix.label}</span></>}
+                </button>
+              )}
+              {fix?.refused && n.item_id && (
+                <button class="btn tiny rp-refused" title={fix.refused.say} onClick={() => onShowMe(n.item_id!)}>
+                  {fix.refused.why === 'gone' ? 'Words changed' : 'Fix by hand'} — Show me
+                </button>
+              )}
+              {fix?.refused && !n.item_id && (
+                <span class="rp-refused-say">{fix.refused.say}</span>
+              )}
+              {n.item_id && !fix?.refused && (
                 <button class="btn tiny" onClick={() => onShowMe(n.item_id!)}>Show me</button>
               )}
               {n.archive_ref && (

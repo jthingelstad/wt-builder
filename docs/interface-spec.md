@@ -682,6 +682,15 @@ note swaps to the inspector and leaves a `← Review` button (`#fdf9ee` / `1px #
    `was → now` line — strikethrough terracotta, arrow, green. Footer: **Show me** and,
    for archive notes, a `WT346 ↗` link. Selected note: `#fdf9ee` +
    `inset 3px 0 0 #a07a1f`.
+   **Apply** (2026-10-04): a proof note with a fix leads its footer with an amber
+   `Apply` button (`#fdf9ee` / `1px #ece0bd` / `#a07a1f`, as `← Review`) naming the
+   change in mono ink — only the words that differ: `Apply TLA. → TLA+.`,
+   `Apply cut "were"`, `Apply add "to"`, each side cut at 24 characters. Words that
+   occur twice or run across fields get no Apply, only Show me (the client runs the
+   server's matcher, `src/shared/proof.ts`). A refused Apply becomes
+   `Words changed — Show me` (or `Fix by hand — Show me`), the server's sentence as
+   its title. With two or more applicable, the PROOF group header carries
+   **Apply all** at its right.
 7. **Empty state** — "Nothing worth raising." in `#2f7d4f`, then "Read it again after you
    change something."
 8. **Footer** — "Eddy reads the website edition and writes no prose. Notes are advisory
@@ -708,7 +717,16 @@ time* notes get a `#fdfcf8` ground. Header row: mono 8.5px kind label in the kin
 then two 18×18 actions — **`check` done** (hover green) and **`ban` ignore** (hover grey).
 Body 11.5px/1.5 `#4a4a4a` with `text-wrap: pretty`. Proof notes add a mono 10.5px
 `was → now` line — strikethrough terracotta, arrow, green. Archive notes add a
-`WT346` + `external-link` link.
+`WT346` + `external-link` link. A proof note with a fix adds an amber `Apply`
+text button (500 weight, the change in mono ink) before **Show me**.
+
+**Applied** — the note drops at once (its words are gone; a fix that contains its own
+words, "Pinboard" → "Pinboard's", drops too). A dark toast bottom centre
+(`#1a1a1a`, white 12.5px, radius 9px, the update bar's shadow) says
+`Applied TLA. → TLA+.` with **Undo** and ✕ for 8 seconds, held while hovered or
+focused. Undo puts the old words back and the note returns. Apply all's toast says
+`Applied 3 fixes.` and, when something was left, which and why, and stays until
+dismissed.
 
 **Cleared notes** drop to `opacity: .55`, grey out their edge, strike through if done, and
 swap the two actions for a `DONE` / `IGNORED` tag plus an `undo-2` reopen. The read bar

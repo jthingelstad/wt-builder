@@ -3,6 +3,7 @@
 import type { Section, WaitingOn } from '../shared/dependencies.ts';
 import type { ArchiveReference, Channel, EchoOption, IssueDoc, Item, LinkedBefore } from '../shared/types.ts';
 import type { IssueTiming } from '../shared/timing.ts';
+import type { ProofSpot } from '../shared/proof.ts';
 
 /** True when a local edit touches a field owned by an imported source. */
 export function shouldWriteBack(item: Item, patch: Record<string, unknown>): boolean {
@@ -298,6 +299,17 @@ export const api = {
   /** An editorial read. Advisory only — notes never gate publishing. */
   review: (id: string, only?: string) =>
     post(`/issues/${id}/review`, { only }) as Promise<IssueResponse & { review: unknown }>,
+
+  /**
+   * Apply one PROOF note's fix, named by its review and index; with `undo`,
+   * the spot an Apply answered with, take it back. A 409 (`proof_*`) says
+   * why nothing changed.
+   */
+  applyProof: (id: string, reviewAt: string, index: number, undo?: ProofSpot) =>
+    post(`/issues/${id}/proof`, { review_at: reviewAt, index, ...(undo ? { undo } : {}) }) as Promise<IssueResponse & {
+      applied: ProofSpot;
+      result?: { sync_state: Item['sync_state']; error?: string };
+    }>,
 
   writeBack: (id: string, itemId: string) =>
     post(`/issues/${id}/items/${itemId}/writeback`) as Promise<

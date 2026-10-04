@@ -40,6 +40,7 @@ import { acceptDomains, applyDomainCheck, checkDomains, domainCheckChanged, keep
 import { deliverabilityFindings, deliverabilitySummary, emailDomains } from '../shared/deliverability.ts';
 import { findingsSummary, issueLinks, linkFindings } from '../shared/link-findings.ts';
 import { linkUrl } from '../shared/links.ts';
+import { asSpot, editAt, findProof, findUndo, type ProofEdit } from '../shared/proof.ts';
 import * as githubRepo from './integrations/github.ts';
 import * as audio from './integrations/audio.ts';
 import { audioScript } from '../shared/render/audio.ts';
@@ -1150,6 +1151,66 @@ const routes: [RegExp, string, (ctx: Ctx, params: string[]) => Promise<unknown>]
     });
     store.logEvent(id!, 'links', `Using ${suggestion} — ${issues.itemName(item)}`, itemId);
     return response;
+  }],
+
+  /**
+   * Review → Apply: one PROOF note's fix, made in place (src/shared/proof.ts).
+   * The note is named by the review it came from (`review_at`) and its
+   * index; its words are read from the stored review, never from the
+   * client. `undo` takes the fix back — `now` back to `was` — at the spot
+   * the Apply answered with, under the same checks. Anything doubtful is a
+   * 409 with a plain sentence and nothing written. The edit then goes the
+   * way a PATCH goes: flatten guard, updateItem, and a write-back when it
+   * touched a mirrored field; a fix in the title or dek is a settings edit.
+   */
+  [/^\/api\/issues\/([^/]+)\/proof$/, 'POST', async ({ body }, [id]) => {
+    const b = await body();
+    const reviewAt = String(b.review_at ?? '');
+    const index = Number(b.index);
+    if (!reviewAt || !Number.isInteger(index) || index < 0) throw new HttpError(400, 'review_at and index name the note');
+    const undoing = b.undo !== undefined && b.undo !== null;
+    const backTo = undoing ? asSpot(b.undo) : null;
+    if (undoing && !backTo) throw new HttpError(400, 'undo must be the spot the fix was applied at');
+
+    let done: { edit: ProofEdit; from: string; to: string; name: string; field: string } | null = null;
+    const response = savedFresh(id!, (d) => {
+      const review = d.review as editorial.Review | undefined;
+      if (!review || review.at !== reviewAt) {
+        throw new HttpError(409, 'the review has been read again since — nothing changed; look at the new notes', 'proof_stale');
+      }
+      const note = review.notes[index];
+      if (!note || note.kind !== 'PROOF' || !note.was || !note.now) {
+        throw new HttpError(409, 'that note has no fix to apply — nothing changed', 'proof_none');
+      }
+      const [from, to] = undoing ? [note.now, note.was] : [note.was, note.now];
+      const found = undoing ? findUndo(d, note, backTo!) : findProof(d, note);
+      if (!found.ok) throw new HttpError(409, found.say, `proof_${found.why}`);
+      const edit = editAt(d, found.spot, from, to);
+      if (edit.head) {
+        Object.assign(d.issue, edit.head);
+        done = { edit, from, to, name: 'the issue', field: Object.keys(edit.head)[0]! };
+        return d;
+      }
+      const item = d.items[edit.item!.id]!;
+      const { patch, dropped } = issues.withoutFlattening(item, edit.item!.patch);
+      if (dropped.length) {
+        throw new HttpError(409, `that fix would only remove line breaks from the ${dropped.join(', ')} — nothing changed; fix it by hand`, 'proof_flatten');
+      }
+      done = { edit, from, to, name: issues.itemName(item), field: found.spot.field };
+      return issues.updateItem(d, edit.item!.id, patch);
+    });
+    const { edit, from, to, name, field } = done!;
+    const said = `${undoing ? 'Undid proof fix' : 'Applied proof fix'} "${from}" → "${to}"`;
+    if (edit.head) {
+      store.logEvent(id!, 'settings', `Settings — ${field}: ${said}`);
+      return { ...response, applied: edit.spot };
+    }
+    const itemId = edit.item!.id;
+    store.logEvent(id!, 'edit', `${said} — ${name}`, itemId);
+    // As a PATCH: an edit to a mirrored field is written to its source.
+    if (response.issue.items[itemId]?.sync_state !== 'syncing') return { ...response, applied: edit.spot };
+    const { response: written, result } = await writeBack(id!, itemId);
+    return { ...written, result, applied: edit.spot };
   }],
 
   /**

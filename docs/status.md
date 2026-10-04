@@ -92,6 +92,15 @@ finished, what is half-finished, and what has never run.
   (2026-09-20, `docs/decisions.md`, *Picking is the review*).
 - **Editorial review** — the summary bar and margin notes, measured and
   stacked. Run for real against Claude; the notes were good.
+  **Apply** (2026-10-04): a PROOF note with a fix carries `Apply <change>`
+  in the panel and the margin; one click makes it in place through `POST
+  /api/issues/:id/proof` (written back like a hand edit, logged as an
+  edit), the note drops because its words are gone, and **Undo** shows for
+  a few seconds. **Apply all** in the PROOF header when two or more apply,
+  reporting what it could not. Words found twice or across fields show only
+  Show me; a refusal turns the button into "Words changed — Show me".
+  Tested offline (unit, route, and browser on WebKit and Chromium); not yet
+  used on a live issue.
 - **Audio lens** — a numbered script rather than a page, rendered from the
   same `audioScript()` that feeds the synthesizer, so it cannot drift from
   the mp3. Section cues, omission strips, and the TO VALIDATE flag.

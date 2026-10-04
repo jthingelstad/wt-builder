@@ -13,10 +13,10 @@ import { waitingSummary } from '../../shared/dependencies.ts';
 import { useCallback, useEffect, useMemo, useRef, useState } from 'preact/hooks';
 
 import type { Channel, EchoOption, IssueDoc, LinkedBefore } from '../../shared/types.ts';
-import { anchorText } from '../../shared/anchor.ts';
+import { changeLabel, findProof, proofStillThere, type ProofSpot } from '../../shared/proof.ts';
 import { shortKicker, sourcesLabel } from '../../shared/dates.ts';
 import { windowOf } from '../../shared/render/plan.ts';
-import { api, type IssueResponse, type Readiness } from '../api.ts';
+import { api, ApiError, writeBackMessage, type IssueResponse, type Readiness } from '../api.ts';
 import { ArrowLeft, Moon } from '../icons.tsx';
 import { isFrozen, Page, type Lens, type OrderProposal, type PageActions } from './Page.tsx';
 import { Notes, type Note } from './Notes.tsx';
@@ -26,7 +26,7 @@ import { HintsContext, OwedContext, SHORTCUTS } from './Row.tsx';
 import { rowHints } from '../../shared/hints.ts';
 import { Strip } from './Strip.tsx';
 import { Inspector } from './Inspector.tsx';
-import { ReviewPanel, type PanelNote } from './ReviewPanel.tsx';
+import { ReviewPanel, type NoteFix, type PanelNote } from './ReviewPanel.tsx';
 
 interface Props {
   doc: IssueDoc;
@@ -109,6 +109,24 @@ export function Editor({ doc, readiness, busy, error, run, onIndex, onSend, onEr
   const [showCleared, setShowCleared] = useState(false);
   // The staleness hint: how many edits this session since the read.
   const [editsSince, setEditsSince] = useState(0);
+  // Review → Apply (2026-10-04). Notes applied this session, by key, with
+  // the spot the server put the fix at (Undo sends it back); notes the
+  // server would not apply, with its sentence; the one in flight.
+  const [applied, setApplied] = useState<ReadonlyMap<string, ProofSpot>>(new Map());
+  const [refused, setRefused] = useState<ReadonlyMap<string, { why: string; say: string }>>(new Map());
+  const [applying, setApplying] = useState<string | null>(null);
+  const [applyingAll, setApplyingAll] = useState(false);
+  // What the last Apply did, with its Undo for a few seconds; or what
+  // Apply all did, held until dismissed when something was left.
+  const [toast, setToast] = useState<{ text: string; undo?: { k: string; i: number; spot: ProofSpot }; sticky?: boolean } | null>(null);
+  const [toastHeld, setToastHeld] = useState(false);
+  useEffect(() => {
+    // A toast taken away under the pointer or the focus gets no leave event.
+    if (!toast) { setToastHeld(false); return; }
+    if (toast.sticky || toastHeld) return;
+    const t = setTimeout(() => setToast(null), 8000);
+    return () => clearTimeout(t);
+  }, [toast, toastHeld]);
   const canvasRef = useRef<HTMLDivElement>(null);
   const rowsRef = useRef<HTMLDivElement>(null);
 
@@ -325,23 +343,119 @@ export function Editor({ doc, readiness, busy, error, run, onIndex, onSend, onEr
 
   const inspecting = selected && doc.items[selected] && !(peeking && readOpen) ? selected : null;
 
-  const review = doc.review as { summary?: string; notes?: Note[] } | undefined;
+  const review = doc.review as { summary?: string; notes?: Note[]; at?: string } | undefined;
   const key = (n: Note, i: number) => `${n.item_id ?? 'issue'}:${i}:${n.text.slice(0, 32)}`;
 
-  /** A PROOF note whose substring is gone is fixed — it drops live, no re-read. */
+  /**
+   * A PROOF note whose substring is gone is fixed — it drops live, no
+   * re-read. An item's note is gone with its item; a note on the issue is
+   * gone once no title, dek or item holds its words (src/shared/proof.ts).
+   */
   const stillAnchored = (n: Note) => {
     if (n.kind !== 'PROOF' || !n.was) return true;
-    const item = n.item_id ? doc.items[n.item_id] : null;
-    if (!item) return n.item_id === null;
-    return anchorText(item).includes(n.was);
+    if (n.item_id !== null && !doc.items[n.item_id]) return false;
+    return proofStillThere(doc, n);
   };
 
   const allNotes: PanelNote[] = (review?.notes ?? [])
-    .map((n, i) => ({ note: n, k: key(n, i), cleared: cleared.get(key(n, i)) }))
-    .filter((pn) => stillAnchored(pn.note));
-  const notes = allNotes.filter((pn) => !pn.cleared).map((pn) => pn.note);
-  const noteKeys = allNotes.filter((pn) => !pn.cleared).map((pn) => pn.k);
+    .map((n, i) => ({ note: n, k: key(n, i), i, cleared: cleared.get(key(n, i)) }))
+    // An applied note goes at once, even where its fix still holds its words.
+    .filter((pn) => stillAnchored(pn.note) && !applied.has(pn.k));
+  const openNotes = allNotes.filter((pn) => !pn.cleared);
+  const notes = openNotes.map((pn) => pn.note);
+  const noteKeys = openNotes.map((pn) => pn.k);
   const proof = notes.filter((n) => n.kind === 'PROOF').length;
+
+  /**
+   * Apply where the server would take it: a PROOF note with a fix whose
+   * words sit in one place (the same matcher as the server). Nothing is
+   * applied to an issue that cannot change.
+   */
+  const canApply = (n: Note) =>
+    !frozen && Boolean(review?.at) && n.kind === 'PROOF' && Boolean(n.was) && Boolean(n.now) && findProof(doc, n).ok;
+  const fixOf = (pn: PanelNote | undefined): NoteFix | null => {
+    if (!pn) return null;
+    const n = pn.note;
+    const said = refused.get(pn.k);
+    if (!said && !canApply(n)) return null;
+    return {
+      label: changeLabel(n.was!, n.now!),
+      full: `${n.was} → ${n.now}`,
+      busy: applying === pn.k,
+      refused: said,
+    };
+  };
+  const applicable = openNotes.filter((pn) => !refused.has(pn.k) && canApply(pn.note));
+
+  /** One fix, applied; resolves to where the fix now sits, or the server's refusal. */
+  const applyNote = async (pn: PanelNote): Promise<{ spot: ProofSpot } | { refusal: string }> => {
+    if (!review?.at) return { refusal: 'there is no review to apply from' };
+    setApplying(pn.k);
+    setEditsSince((e) => e + 1);
+    try {
+      const resp = await api.applyProof(id, review.at, pn.i);
+      await run(() => Promise.resolve(resp));
+      setApplied((m) => new Map(m).set(pn.k, resp.applied));
+      const item = resp.applied.item_id ? resp.issue.items[resp.applied.item_id] : undefined;
+      const said = writeBackMessage(item?.source, resp.result);
+      if (said) onError(said);
+      return { spot: resp.applied };
+    } catch (err) {
+      const message = (err as Error).message;
+      if (err instanceof ApiError && err.status === 409 && err.code?.startsWith('proof_')) {
+        setRefused((m) => new Map(m).set(pn.k, { why: err.code!.slice('proof_'.length), say: message }));
+        // The words moved under the note: show the issue as it is now.
+        void run(() => api.getIssue(id));
+      } else {
+        onError(message);
+      }
+      return { refusal: message };
+    } finally {
+      setApplying(null);
+    }
+  };
+
+  const apply = (k: string) => {
+    const pn = openNotes.find((p) => p.k === k);
+    if (!pn || applying || applyingAll) return;
+    const label = changeLabel(pn.note.was!, pn.note.now!);
+    void applyNote(pn).then((out) => {
+      if ('spot' in out) setToast({ text: `Applied ${label}`, undo: { k: pn.k, i: pn.i, spot: out.spot } });
+    });
+  };
+
+  /** Puts the old words back: a reverse Apply of that one fix, not a general undo. */
+  const undo = async (u: { k: string; i: number; spot: ProofSpot }) => {
+    if (!review?.at) return;
+    setToast(null);
+    setEditsSince((e) => e + 1);
+    try {
+      const resp = await api.applyProof(id, review.at, u.i, u.spot);
+      await run(() => Promise.resolve(resp));
+      setApplied((m) => { const next = new Map(m); next.delete(u.k); return next; });
+    } catch (err) {
+      onError(`Undo: ${(err as Error).message}`);
+    }
+  };
+
+  /** Every applicable PROOF fix, one at a time; says what could not be applied. */
+  const applyAll = async () => {
+    if (applying || applyingAll) return;
+    setApplyingAll(true);
+    setToast(null);
+    const left: string[] = [];
+    let done = 0;
+    for (const pn of applicable) {
+      const out = await applyNote(pn);
+      if ('refusal' in out) left.push(`${anchorName(pn.note.item_id)}: ${out.refusal}`);
+      else done++;
+    }
+    setApplyingAll(false);
+    const head = `Applied ${done} fix${done === 1 ? '' : 'es'}.`;
+    setToast(left.length
+      ? { text: `${head} ${left.length} could not be applied — ${left.join('; ')}.`, sticky: true }
+      : { text: head });
+  };
 
   const clear = (k: string, how: 'done' | 'ignored') =>
     setCleared(new Map([...cleared, [k, how]]));
@@ -363,6 +477,9 @@ export function Editor({ doc, readiness, busy, error, run, onIndex, onSend, onEr
     setReading(true);
     setReadOpen(true);
     setCleared(new Map());
+    setApplied(new Map());
+    setRefused(new Map());
+    setToast(null);
     setEditsSince(0);
     void run(() => api.review(id)).finally(() => setReading(false));
   };
@@ -595,6 +712,8 @@ export function Editor({ doc, readiness, busy, error, run, onIndex, onSend, onEr
                   onShowMe={jump}
                   onDone={(i) => clear(noteKeys[i]!, 'done')}
                   onIgnore={(i) => clear(noteKeys[i]!, 'ignored')}
+                  fixAt={(i) => fixOf(openNotes[i])}
+                  onApply={(i) => apply(noteKeys[i]!)}
                 />
               )}
             </Page>
@@ -635,9 +754,30 @@ export function Editor({ doc, readiness, busy, error, run, onIndex, onSend, onEr
             onClose={() => setReadOpen(false)}
             showCleared={showCleared}
             onToggleCleared={() => setShowCleared(!showCleared)}
+            fixOf={(k) => fixOf(allNotes.find((pn) => pn.k === k))}
+            onApply={apply}
+            onApplyAll={applicable.length >= 2 ? () => void applyAll() : undefined}
+            applyingAll={applyingAll}
           />
         ) : null}
       </div>
+
+      {toast && (
+        <div
+          class={`proof-toast${toast.sticky ? ' sticky' : ''}`}
+          role="status"
+          onMouseEnter={() => setToastHeld(true)}
+          onMouseLeave={() => setToastHeld(false)}
+          onFocusIn={() => setToastHeld(true)}
+          onFocusOut={() => setToastHeld(false)}
+        >
+          <span>{toast.text}</span>
+          {toast.undo && (
+            <button class="btn tiny" onClick={() => void undo(toast.undo!)}>Undo</button>
+          )}
+          <button class="proof-toast-x" aria-label="Dismiss" onClick={() => { setToast(null); setToastHeld(false); }}>✕</button>
+        </div>
+      )}
 
       {busy && <div class="busy-hint">Saving…</div>}
     </div>

@@ -117,6 +117,15 @@ issue that exists. For a deleted issue, `npm run revisions -- <issue> --restore`
 recreates its row from the newest revision (`DELETE /api/issues/:id` keeps the
 document among its revisions). It will not restore over a live issue.
 
+**Revisited 2026-10-04 — Apply's Undo.** Jamie asked for an Apply button on
+the review's PROOF notes ("I have to manually find each one, edit it by hand").
+Apply makes one model-suggested fix that Jamie chose, in place
+(`POST /api/issues/:id/proof`), and for a few seconds offers **Undo**. That Undo
+is a reverse Apply of that one fix — `now` back to `was`, at the spot the Apply
+answered with, under the same checks and refusals — not a general undo. There
+is no history stack, nothing else is undoable, and Apply all offers no Undo at
+all: each fix it made can still be reversed by hand.
+
 ## Pre-Builder issues import as a record, not as items
 
 Issues 349 and back were built by the Shortcuts workflow and exist as published

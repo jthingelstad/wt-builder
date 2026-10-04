@@ -48,7 +48,10 @@ export interface Note {
   /** PROOF only: the exact substring the note is about. Never an offset. */
   was?: string;
   now?: string;
-  /** Where the substring occurs more than once. Defaults to the first. */
+  /**
+   * Where the substring occurs more than once: 1 is the first. Absent, a
+   * substring that occurs more than once is not applied (src/shared/proof.ts).
+   */
   nth?: number;
   archive_ref?: number;
 }
@@ -187,7 +190,9 @@ Every note must use kind "PROOF", name the item id it belongs to, and carry the
 exact substring in "was" plus the corrected text in "now". The substring must
 appear verbatim in that item — it is how the note anchors, and a note whose
 substring cannot be found is dropped. Where the substring occurs more than once
-in the item, add "nth".
+in the item, add "nth", counting from 1 for the first occurrence. Make "was"
+long enough to be unique where you can: the editor applies "now" in place of
+"was" with one click.
 
 Keep "summary" to one sentence stating how many mechanical errors you found.`;
 

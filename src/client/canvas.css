@@ -1005,6 +1005,10 @@ span[contenteditable]:focus {
   font-size: 10.5px; color: var(--secondary);
 }
 .note-link:hover { color: var(--ink); text-decoration: underline; }
+.note-link.apply { color: var(--amber); font-weight: 500; }
+.note-link.apply[disabled] { opacity: .55; cursor: default; }
+.note-apply-change { font-family: var(--mono); font-weight: 400; color: var(--ink); }
+.note-foot { flex-wrap: wrap; }
 
 /* ── the editorial summary bar ────────────────────────────────────────── */
 

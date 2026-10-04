@@ -16,6 +16,7 @@ import { useLayoutEffect, useRef, useState } from 'preact/hooks';
 import type { RefObject } from 'preact';
 
 import { Ban, Check } from '../icons.tsx';
+import type { NoteFix } from './ReviewPanel.tsx';
 
 export type NoteKind = 'PROOF' | 'BALANCE' | 'REPETITION' | 'LENGTH';
 
@@ -25,6 +26,8 @@ export interface Note {
   text: string;
   was?: string;
   now?: string;
+  /** Which occurrence of `was`, 1 for the first, where it occurs more than once. */
+  nth?: number;
   archive_ref?: number;
 }
 
@@ -39,6 +42,9 @@ interface Props {
   onIgnore: (index: number) => void;
   onShowMe: (anchor: string) => void;
   selected: string | null;
+  /** A PROOF note's Apply (null: only Show me), by index as onDone. */
+  fixAt: (index: number) => NoteFix | null;
+  onApply: (index: number) => void;
 }
 
 /** PROOF is its own colour; an archive citation is blue; the rest are quiet. */
@@ -49,7 +55,7 @@ function badgeOf(note: Note): { label: string; cls: string } {
   return { label: 'RHYTHM', cls: 'quiet' };
 }
 
-export function Notes({ notes, host, onDone, onIgnore, onShowMe, selected }: Props) {
+export function Notes({ notes, host, onDone, onIgnore, onShowMe, selected, fixAt, onApply }: Props) {
   const [tops, setTops] = useState<number[]>([]);
   const els = useRef<(HTMLDivElement | null)[]>([]);
 
@@ -107,6 +113,7 @@ export function Notes({ notes, host, onDone, onIgnore, onShowMe, selected }: Pro
       {notes.map((note, i) => {
         const badge = badgeOf(note);
         const anchorId = note.item_id ?? 'issue';
+        const fix = fixAt(i);
         return (
           <div
             key={`${anchorId}-${i}-${note.text.slice(0, 24)}`}
@@ -141,7 +148,15 @@ export function Notes({ notes, host, onDone, onIgnore, onShowMe, selected }: Pro
               )}
 
               <div class="note-foot">
-                <button class="note-link" onClick={() => onShowMe(anchorId)}>Show me</button>
+                {fix && !fix.refused && (
+                  <button class="note-link apply" disabled={fix.busy} aria-label={`Apply: ${fix.full}`}
+                    onClick={() => onApply(i)}>
+                    {fix.busy ? 'Applying…' : <>Apply <span class="note-apply-change">{fix.label}</span></>}
+                  </button>
+                )}
+                <button class="note-link" title={fix?.refused?.say} onClick={() => onShowMe(anchorId)}>
+                  {fix?.refused ? `${fix.refused.why === 'gone' ? 'Words changed' : 'Fix by hand'} — Show me` : 'Show me'}
+                </button>
                 {note.archive_ref && (
                   <a
                     class="note-link"

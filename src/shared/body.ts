@@ -51,6 +51,16 @@ export function videoParts(text: string): (string | VideoTag)[] {
   return parts.filter((p) => typeof p !== 'string' || p.trim() !== '');
 }
 
+/**
+ * Where each `<img>` and `<video>` tag sits in a body, as [start, end)
+ * offsets — inline or trailing. A proof fix applied to the body skips any
+ * match that touches one (src/shared/proof.ts), so it edits only the prose
+ * and never an attribute inside a tag.
+ */
+export function mediaSpans(body: string | undefined): [number, number][] {
+  return [...String(body ?? '').matchAll(MEDIA)].map((m) => [m.index!, m.index! + m[0].length]);
+}
+
 export interface SplitBody {
   /** The prose, with trailing image tags removed. What Jamie edits. */
   prose: string;
