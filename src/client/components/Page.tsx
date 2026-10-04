@@ -820,6 +820,13 @@ function ChannelBlock({ doc, node, item, itemId, readOnly, act }: BlockProps) {
               onCommit={(text) => set({ commentary: text })}
             />
             {' '}
+            {/* Editable, the title cannot also be the link; the arrow opens it.
+                It sits where it prints, between the line and the title
+                (docs/rendering-contracts.md, Briefly). */}
+            {readOnly
+              ? <span class="arrow">→</span>
+              : <a href={linkUrl(item)} target="_blank" rel="noreferrer" class="arrow" title="Open the link">→</a>}
+            {' '}
             {readOnly
               ? (
                 <a href={linkUrl(item)} target="_blank" rel="noreferrer" class="brief-title">
@@ -827,10 +834,6 @@ function ChannelBlock({ doc, node, item, itemId, readOnly, act }: BlockProps) {
                 </a>
               )
               : <LinkTitle class="brief-title" value={item.title ?? ''} set={set} />}
-            {/* Editable, the title cannot also be the link; the arrow opens it. */}
-            {readOnly
-              ? <span class="arrow"> →</span>
-              : <a href={linkUrl(item)} target="_blank" rel="noreferrer" class="arrow" title="Open the link"> →</a>}
           </p>
         )
         : (

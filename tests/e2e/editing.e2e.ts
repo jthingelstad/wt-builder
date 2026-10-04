@@ -103,4 +103,10 @@ test('a Briefly link title edits in place; emptied, it goes back (WT353)', async
   expect(item('briefly-forge').title).toBe(`${before} (again)`);
   await expect(page.locator(sel)).toHaveText(`${before} (again)`);
   await expect(page.locator('[data-anchor="briefly-forge"] a.arrow')).toHaveAttribute('href', /^https?:/);
+  // The arrow sits where it prints: line → title, not after the title (WT352).
+  const arrowFirst = await page.locator('[data-anchor="briefly-forge"] a.arrow').evaluate((arrow, s) => {
+    const title = document.querySelector(s)!;
+    return Boolean(arrow.compareDocumentPosition(title) & Node.DOCUMENT_POSITION_FOLLOWING);
+  }, sel);
+  expect(arrowFirst).toBe(true);
 });
