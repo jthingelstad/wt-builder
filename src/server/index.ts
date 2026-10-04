@@ -706,13 +706,58 @@ const routes: [RegExp, string, (ctx: Ctx, params: string[]) => Promise<unknown>]
     return { events: url.searchParams.get('all') === '1' ? store.allEvents(id!).reverse() : store.listEvents(id!) };
   }],
 
-  [/^\/api\/issues\/([^/]+)\/render\/([a-z]+)$/, 'GET', async (_ctx, [id, lens]) => {
+  // ?item=<id> or ?section=<node id or label> renders one slice of the
+  // edition (the MCP's item-scoped read). The slice is cut from the nodes
+  // before the plan runs, so ordering, windowing, and Journal grouping are
+  // the edition's own; the edition's frame (title, header, footer) stays.
+  [/^\/api\/issues\/([^/]+)\/render\/([a-z]+)$/, 'GET', async ({ url }, [id, lens]) => {
     const doc = requireIssue(id!);
     const l = lens as 'website' | 'email' | 'audio' | 'source';
     if (!['website', 'email', 'audio', 'source'].includes(l)) {
       throw new HttpError(400, `unknown lens ${lens}`);
     }
-    return { lens: l, rendered: render(doc, l) };
+    const item = url.searchParams.get('item');
+    const section = url.searchParams.get('section');
+    if (!item && !section) return { lens: l, rendered: render(doc, l) };
+    let nodes: IssueDoc['nodes'];
+    if (item) {
+      if (!doc.items[item]) throw new HttpError(404, `no item ${item}`);
+      nodes = doc.nodes
+        .filter((n) => n.items.includes(item))
+        .map((n) => ({ ...n, items: [item] }));
+      if (!nodes.length) throw new HttpError(404, `item ${item} is not placed in a section, so no edition prints it`);
+    } else {
+      const want = section!.toLowerCase();
+      nodes = doc.nodes.filter((n) => n.id === section || n.label.toLowerCase() === want);
+      if (!nodes.length) throw new HttpError(404, `no section ${section}`);
+    }
+    return { lens: l, rendered: render({ ...doc, nodes, orphans: [] }, l), slice: item ? { item } : { section } };
+  }],
+
+  // The issue as it stood at an earlier moment, read from the revisions:
+  // ?event=<id> is the issue as the events up to that one left it (the
+  // version just before the next event; the live issue when none followed),
+  // ?review=1 the issue as the editorial review read it. `issue` is null,
+  // with why, when that version is older than the revisions kept. The MCP
+  // diffs it against now; nothing here writes.
+  [/^\/api\/issues\/([^/]+)\/version$/, 'GET', async ({ url }, [id]) => {
+    const live = requireIssue(id!);
+    const at = (doc: IssueDoc, saved_at: string) => {
+      const d = issues.normalizeSkeleton(doc) ?? doc;
+      return { issue: d, readiness: issues.readiness(d), saved_at };
+    };
+    if (url.searchParams.get('review') === '1') {
+      const reviewAt = (live.review as { at?: string } | undefined)?.at;
+      if (!reviewAt) return { issue: null, why: 'no editorial review has run' };
+      const v = store.versionWithReview(id!, reviewAt);
+      return v ? at(v.doc, v.saved_at) : { issue: null, why: 'the version the review read is no longer kept' };
+    }
+    const event = Number(url.searchParams.get('event'));
+    if (!Number.isInteger(event) || event < 0) throw new HttpError(400, 'event must be an event id');
+    const next = store.eventAfter(id!, event);
+    if (!next) return at(live, store.getIssue(id!)!.updated_at);
+    const v = store.versionBefore(id!, next);
+    return v ? at(v.doc, v.saved_at) : { issue: null, why: `the issue as of event ${event} is older than the ${store.REVISIONS_KEPT} versions kept` };
   }],
 
   [/^\/api\/issues\/([^/]+)\/items\/([^/]+)$/, 'PATCH', async ({ body }, [id, itemId]) => {

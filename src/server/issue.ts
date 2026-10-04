@@ -154,7 +154,19 @@ export interface SweepReport {
 }
 
 /** A short human handle for an item, for log lines and reports. */
+/**
+ * A single-item section is named by its section, not by its first words: an
+ * event log of "Edited body — This week fall in place…" reads as a different
+ * item every time the opening changes (WT352 ride-along). Older events keep
+ * the old names; src/shared/timing.ts matches those by its own copy.
+ */
+const SECTION_NAMED: Partial<Record<Item['type'], string>> = {
+  intro: 'Intro', outro: 'Outro', haiku: 'Haiku', membership: 'Membership',
+};
+
 export function itemName(item: Item): string {
+  const section = SECTION_NAMED[item.type];
+  if (section && !item.title && !item.label) return section;
   const text = (item.title ?? item.label ?? String(item.commentary ?? item.body ?? ''))
     .replace(/\s+/g, ' ')
     .trim();

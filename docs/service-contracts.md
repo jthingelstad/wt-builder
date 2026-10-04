@@ -343,6 +343,21 @@ Claude Code or Codex on otto, or any MCP client on the tailnet.
   `workable_now`; the link check (dead, moved, and `gift` links with
   their expiry and a `warning` sentence) and the email checks; each send leg with its verification; and the script review,
   with `current` false when the script has changed since.
+- **Riding along (1.4.0).** `get_status`, `get_issue` and `get_item` return
+  `cursor`, the issue's newest event id. `get_status since=<cursor>` adds
+  `changes`: `items` touched after it (each with `kinds`, `last_edited_at`,
+  and `settled`), `other` events with no item, `pills` whose state moved
+  (`{title, anchor, from, to}`, `null` on the side where a pill did not
+  exist), and `focus`, the item of Jamie's newest edit with `since`,
+  `quiet_seconds` and `settled` (60 s quiet, or his edits have moved to
+  another item). The issue at the cursor comes from `revisions` through
+  `GET /api/issues/:id/version?event=<id>` (the newest version written
+  before the next event); when that version is older than the 300 kept,
+  `pills` is `null` and `note` says why. `render_issue` takes `item_id` or
+  `section` (id or label) and renders that slice through
+  `GET /api/issues/:id/render/:lens?item=|section=`, cut from the nodes
+  before the plan, inside the edition's frame. `overdue_by_days` sits beside
+  `overdue`.
 - **Writes none.** Suggestions go to Jamie in the agent's conversation (see
   `docs/decisions.md`). It reads through `readRoute` with `readOnly`, so
   even the skeleton repair the page saves on opening an older issue is
@@ -355,10 +370,15 @@ Claude Code or Codex on otto, or any MCP client on the tailnet.
 - **Where an item stands.** `in_issue` follows the editions' rule (placed,
   a channel on, inside the window, not excluded), and `held_out` says why
   not. Review notes carry `still_applies` (a PROOF note whose words are
-  gone no longer does). Issue-wide pills (links, email) anchor to `issue`
+  gone no longer does); a PROOF note whose words are gone carries
+  `fixed_as_suggested` (false when the suggested words did not take their
+  place: a fix that made a new mistake), and any other note on an item
+  `changed_since_review`, read against the issue as the review read it
+  (`GET /api/issues/:id/version?review=1`). `get_item` carries its item's
+  notes as `review_notes`, and `last_edited_at`. Issue-wide pills (links, email) anchor to `issue`
   and say `done_in: "send view"`.
 - **Prompts.** `finish_draft`, `briefly_pass`, `proof_issue`,
-  `compare_with_last_week`: the call sequence for the common asks, each
+  `compare_with_last_week`, `ride_along`: the call sequence for the common asks, each
   taking an optional issue.
 - **Logging.** One line per call in the service log: `[mcp] <tool> <issue>
   <args> → ok|refused|error <ms>ms (<local|tailnet> [login] <agent>)`, plus

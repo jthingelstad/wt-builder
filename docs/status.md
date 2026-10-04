@@ -43,7 +43,7 @@ finished, what is half-finished, and what has never run.
   GitHub. Behind the edge like every route (a foreign Host is 421, a
   browser Origin from another site 403), and on the tailnet as the editor
   is. Registered in Claude Code at user scope as `wt-builder`. Tested with
-  the SDK's client in `tests/mcp.test.ts`; not yet used on a real draft.
+  the SDK's client in `tests/mcp.test.ts`.
   After three adversarial rounds the same day (interface 1.2.0; 1.3.0
   adds gift links to the link check): it reads
   without persisting (`readOnly` on the route context, so the skeleton
@@ -57,7 +57,17 @@ finished, what is half-finished, and what has never run.
   (`finish_draft`, `briefly_pass`, `proof_issue`, `compare_with_last_week`);
   and every call is one `[mcp]` line in the service log, including a call
   the SDK rejects before the tool runs, so `npm run watch` shows an agent
-  reading the issue.
+  reading the issue. First used on a real draft riding along on WT352
+  (2026-10-04, `docs/mcp-ride-along-wt352.md`); 1.4.0 the same day adds
+  time (`docs/mcp-ride-along-plan.md`, Part A): a `cursor` on every read,
+  `get_status since=` with the items touched, the pills that moved (from →
+  to) and Jamie's focus, item- and section-scoped `render_issue`, review
+  notes that know they were answered (`fixed_as_suggested`,
+  `changed_since_review`), `overdue_by_days`, and a `ride_along` prompt.
+  Two read-only routes back it: `GET /api/issues/:id/version` (the issue at
+  an event or at the review, from `revisions`) and `?item=`/`?section=` on
+  the render route. Event summaries now name Intro, Outro, Haiku and
+  Membership by section.
 - **Inspector** — fields per type, editions with locked channels and their
   reasons, provenance, archive references. A Thingy item still shows a
   Reviewed / Mark draft toggle, but it gates nothing: picking or writing the

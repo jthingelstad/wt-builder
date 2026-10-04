@@ -445,6 +445,52 @@ export function listEvents(issueId: string, limit = 500): IssueEvent[] {
     .all(issueId, limit) as IssueEvent[];
 }
 
+/** When the first event after `id` happened, or null when none has yet. */
+export function eventAfter(issueId: string, id: number): string | null {
+  const row = openDb()
+    .prepare('SELECT at FROM events WHERE issue_id = ? AND id > ? ORDER BY id LIMIT 1')
+    .get(issueId, id) as { at: string } | undefined;
+  return row?.at ?? null;
+}
+
+/**
+ * The issue as it stood just before `before`: the newest version, kept or
+ * live, written earlier than that instant. An event is logged before the save
+ * it narrates, so "just before the next event" is the issue as the events up
+ * to a cursor left it. Null when every version kept is newer (the revisions
+ * are capped at REVISIONS_KEPT).
+ */
+export function versionBefore(issueId: string, before: string): { saved_at: string; doc: IssueDoc } | null {
+  const d = openDb();
+  const live = d.prepare('SELECT updated_at, doc FROM issues WHERE id = ?').get(issueId) as
+    | { updated_at: string; doc: string } | undefined;
+  if (live && live.updated_at < before) return { saved_at: live.updated_at, doc: JSON.parse(live.doc) as IssueDoc };
+  const kept = d
+    .prepare('SELECT saved_at, doc FROM revisions WHERE issue_id = ? AND saved_at < ? ORDER BY saved_at DESC, id DESC LIMIT 1')
+    .get(issueId, before) as { saved_at: string; doc: string } | undefined;
+  return kept ? { saved_at: kept.saved_at, doc: JSON.parse(kept.doc) as IssueDoc } : null;
+}
+
+/**
+ * The first version that carried the review made at `reviewAt`: the words the
+ * review read, give or take an edit made while it ran. The live document when
+ * nothing has been saved since. Looks at a bounded number of versions.
+ */
+export function versionWithReview(issueId: string, reviewAt: string): { saved_at: string; doc: IssueDoc } | null {
+  const d = openDb();
+  const rows = d
+    .prepare('SELECT saved_at, doc FROM revisions WHERE issue_id = ? AND saved_at >= ? ORDER BY saved_at, id LIMIT 20')
+    .all(issueId, reviewAt) as { saved_at: string; doc: string }[];
+  for (const r of rows) {
+    const doc = JSON.parse(r.doc) as IssueDoc;
+    if ((doc.review as { at?: string } | undefined)?.at === reviewAt) return { saved_at: r.saved_at, doc };
+  }
+  const live = d.prepare('SELECT updated_at, doc FROM issues WHERE id = ?').get(issueId) as
+    | { updated_at: string; doc: string } | undefined;
+  const doc = live ? (JSON.parse(live.doc) as IssueDoc) : undefined;
+  return doc && (doc.review as { at?: string } | undefined)?.at === reviewAt ? { saved_at: live!.updated_at, doc } : null;
+}
+
 export function closeDb(): void {
   db?.close();
   db = null;

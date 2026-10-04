@@ -114,13 +114,14 @@ line in the service log, so `npm run watch` shows an agent reading the issue.
 Bump `MCP_VERSION` when a tool changes.
 
 **Riding along.** The MCP is how an agent follows Jamie's writing; the watcher
-is for catching WT Builder bugs. Until the MCP has a change cursor, the watcher
-is still the wake-up signal: arm it with `| grep --line-buffered -v '\[mcp\]'`
-or every MCP read wakes the agent. Read an item when Jamie's edits move to a
-*different* item, never mid-typing (a half-sentence reads as "cut off"). The MCP
+is for catching WT Builder bugs. Hold the `cursor` and poll `get_status
+since=<cursor>` (the `ride_along` prompt sets out the loop); if the watcher is
+the wake-up signal, arm it with `| grep --line-buffered -v '\[mcp\]'` or every
+MCP read wakes the agent. Read an item once `changes` marks it `settled`, never
+the unsettled `focus` (a half-sentence reads as "cut off"). The MCP
 renders the editions, not the editor's lenses, so "the render looks right" says
-nothing about what Jamie sees. Re-read `get_status` before saying a pill
-unblocked; counting from events goes wrong. Findings and the wishlist from the
+nothing about what Jamie sees. Say a pill unblocked only from
+`changes.pills`; counting from events goes wrong. Findings and the wishlist from the
 first ride-along: `docs/mcp-ride-along-wt352.md`.
 
 > **Never serve this through Funnel or on a Funnel-enabled port.** Tailscale

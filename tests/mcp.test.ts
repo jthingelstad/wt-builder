@@ -382,10 +382,137 @@ describe('found by adversarial testing, round 2 (2026-10-04)', () => {
   });
 });
 
+describe('riding along (MCP 1.4.0)', () => {
+  /** Saves land in distinct milliseconds, as Jamie's do. */
+  const tick = () => new Promise((r) => setTimeout(r, 5));
+  const longIntro = Array.from({ length: 90 }, (_, i) => `word${i}`).join(' ') + '.';
+
+  it('a cursor on every read, and since= says what moved: items, pills from → to, and focus', async () => {
+    const doc = draft(371, (d) => { d.items['outro-1']!.body = ''; });
+    const first = (await call('get_status', { issue: 'wt371' })).structuredContent;
+    expect(first.cursor).toBe(0);
+    expect(first.changes).toBeUndefined();
+    expect(first.pills.find((p: any) => p.anchor === 'outro-1').state).toBe('waiting');
+    await tick();
+
+    // Jamie finishes the Intro, which unblocks the Outro, then starts the Outro.
+    store.logEvent('wt371', 'edit', 'Edited body — Intro', 'intro-1');
+    doc.items['intro-1']!.body = longIntro;
+    store.saveIssue(doc);
+    await tick();
+    store.logEvent('wt371', 'edit', 'Edited body — Outro', 'outro-1');
+    doc.items['outro-1']!.body = 'So long';
+    store.saveIssue(doc);
+
+    const s = (await call('get_status', { issue: 'wt371', since: first.cursor })).structuredContent;
+    expect(s.cursor).toBeGreaterThan(0);
+    expect(s.changes.events).toBe(2);
+    expect(s.changes.pills).toContainEqual(expect.objectContaining({ anchor: 'intro-1', to: 'done' }));
+    expect(s.changes.pills).toContainEqual(expect.objectContaining({ anchor: 'outro-1', from: 'waiting' }));
+    // Every pill that did not move is left out.
+    expect(s.changes.pills.every((p: any) => p.from !== p.to)).toBe(true);
+    // The Outro is where Jamie is now, mid-sentence; the Intro is behind him.
+    expect(s.changes.focus).toMatchObject({ anchor: 'outro-1', name: 'Outro', settled: false });
+    const items = Object.fromEntries(s.changes.items.map((i: any) => [i.anchor, i]));
+    expect(items['intro-1']).toMatchObject({ name: 'Intro', section: 'Intro', settled: true, kinds: ['edit'] });
+    expect(items['outro-1'].settled).toBe(false);
+
+    // Caught up: nothing moved after the new cursor.
+    const caught = (await call('get_status', { issue: 'wt371', since: s.cursor })).structuredContent;
+    expect(caught.changes).toMatchObject({ events: 0, items: [], pills: [] });
+    expect((await call('get_issue', { issue: 'wt371' })).structuredContent.cursor).toBe(s.cursor);
+    const item = (await call('get_item', { issue: 'wt371', item_id: 'intro-1' })).structuredContent;
+    expect(item.cursor).toBe(s.cursor);
+    expect(item.last_edited_at).toEqual(expect.any(String));
+  });
+
+  it('an item goes quiet for a minute and settles, even when nothing else moves', async () => {
+    draft(372);
+    const at = new Date(Date.now() - 5 * 60_000).toISOString();
+    store.openDb().prepare('INSERT INTO events (issue_id, at, kind, summary, anchor) VALUES (?, ?, ?, ?, ?)')
+      .run('wt372', at, 'edit', 'Edited body — Intro', 'intro-1');
+    const s = (await call('get_status', { issue: 'wt372', since: 0 })).structuredContent;
+    expect(s.changes.focus).toMatchObject({ anchor: 'intro-1', settled: true });
+    expect(s.changes.focus.quiet_seconds).toBeGreaterThanOrEqual(299);
+  });
+
+  it('says so when the cursor is older than the versions kept, never a silent empty diff', async () => {
+    draft(373);
+    const insert = store.openDb().prepare('INSERT INTO events (issue_id, at, kind, summary) VALUES (?, ?, ?, ?)');
+    const old = Number(insert.run('wt373', '2000-01-01T00:00:00.000Z', 'edit', 'long ago').lastInsertRowid);
+    insert.run('wt373', '2000-01-02T00:00:00.000Z', 'edit', 'still long ago');
+    const s = (await call('get_status', { issue: 'wt373', since: old })).structuredContent;
+    expect(s.changes.pills).toBeNull();
+    expect(s.changes.note).toMatch(/pills cannot be compared: .*older than the 300 versions kept/);
+  });
+
+  it('render_issue renders one item or one section, framed as the edition is', async () => {
+    const one = (await call('render_issue', { issue: 'wt390', lens: 'email', item_id: 'haiku-1' })).structuredContent;
+    expect(one.rendered).toContain('Summer pages turn');
+    expect(one.rendered).not.toContain('Welcome back from summer break');
+    expect(one.slice).toEqual({ item: 'haiku-1' });
+    const section = (await call('render_issue', { issue: 'wt390', lens: 'website', section: 'briefly' })).structuredContent;
+    const whole = (await call('render_issue', { issue: 'wt390', lens: 'website' })).structuredContent;
+    expect(section.rendered.length).toBeLessThan(whole.rendered.length);
+    expect(section.rendered).not.toContain('Summer pages turn');
+    for (const args of [{ item_id: 'nope' }, { section: 'Nowhere' }]) {
+      const out = await call('render_issue', { issue: 'wt390', lens: 'email', ...args });
+      expect(out.isError).toBe(true);
+      expect(out.content[0]!.text).toMatch(/no (item|section) .*get_issue lists/);
+    }
+    expect((await call('render_issue', { issue: 'wt390', lens: 'email', item_id: 'haiku-1', section: 'Haiku' })).isError).toBe(true);
+  });
+
+  it('review notes know they were answered: changed since the review, and a fix that made a new mistake', async () => {
+    const doc = draft(374, (d) => {
+      d.items['intro-1']!.body = 'Then ask it it do the work.';
+      d.review = {
+        summary: 's', at: '2026-05-20T12:00:00Z', passes: { proof: true, judgement: true },
+        notes: [
+          { kind: 'PROOF', item_id: 'intro-1', text: 'doubled', was: 'ask it it do', now: 'ask it to do' },
+          { kind: 'REPETITION', item_id: 'haiku-1', text: 'like WT346' },
+          { kind: 'REPETITION', item_id: 'link-flipcash', text: 'like WT345' },
+        ],
+      };
+    });
+    await tick();
+    doc.items['intro-1']!.body = 'Then ask it do the work.';
+    doc.items['haiku-1']!.body = 'A different haiku';
+    store.saveIssue(doc);
+
+    const r = (await call('get_review', { issue: 'wt374' })).structuredContent;
+    expect(r.notes.map((n: any) => [n.still_applies, n.fixed_as_suggested, n.changed_since_review]))
+      .toEqual([[false, false, undefined], [true, undefined, true], [true, undefined, false]]);
+    expect(r.note).toContain('fixed some other way than suggested');
+    expect(r.note).toContain('1 note is on an item Jamie has changed');
+
+    const item = (await call('get_item', { issue: 'wt374', item_id: 'intro-1' })).structuredContent;
+    expect(item.review_notes).toEqual([expect.objectContaining({ kind: 'PROOF', fixed_as_suggested: false })]);
+    expect((await call('get_item', { issue: 'wt374', item_id: 'outro-1' })).structuredContent.review_notes).toEqual([]);
+
+    // Fixed as the review suggested.
+    doc.items['intro-1']!.body = 'Then ask it to do the work.';
+    store.saveIssue(doc);
+    const fixed = (await call('get_review', { issue: 'wt374' })).structuredContent;
+    expect(fixed.notes[0].fixed_as_suggested).toBe(true);
+  });
+
+  it('an overdue draft says by how many days, and single-item sections are named by section', async () => {
+    const s = (await call('get_status', { issue: 'wt390' })).structuredContent;
+    const { todayCentral } = await import('../src/shared/dates.ts');
+    expect(s.issue.overdue).toBe(true);
+    expect(s.issue.overdue_by_days).toBe(Math.round((Date.parse(todayCentral()) - Date.parse('2026-05-23')) / 86_400_000));
+    const { itemName } = await import('../src/server/issue.ts');
+    expect(itemName(fixture().items['intro-1']!)).toBe('Intro');
+    expect(itemName(fixture().items['haiku-1']!)).toBe('Haiku');
+    expect(itemName(fixture().items['link-flipcash']!)).not.toBe('Notable');
+  });
+});
+
 describe('prompts', () => {
   it('offers the call sequence for the common asks, naming the issue', async () => {
     const { prompts } = await client.listPrompts();
-    expect(prompts.map((p) => p.name).sort()).toEqual(['briefly_pass', 'compare_with_last_week', 'finish_draft', 'proof_issue']);
+    expect(prompts.map((p) => p.name).sort()).toEqual(['briefly_pass', 'compare_with_last_week', 'finish_draft', 'proof_issue', 'ride_along']);
     const got = await client.getPrompt({ name: 'finish_draft', arguments: { issue: 'wt390' } });
     const text = (got.messages[0]!.content as { text: string }).text;
     expect(text).toContain('issue wt390');
@@ -460,12 +587,17 @@ describe('what the MCP interface cannot reach', () => {
       const args: Record<string, unknown> = { issue: 'wt390' };
       if (name === 'get_item') args.item_id = 'haiku-1';
       if (name === 'render_issue') args.lens = 'website';
+      if (name === 'get_status') args.since = 0;
       const out = await c.callTool({ name, arguments: args });
       expect(out.isError, name).toBeFalsy();
     }
+    // The slices and the earlier versions are GET routes too.
+    await c.callTool({ name: 'render_issue', arguments: { issue: 'wt390', lens: 'email', item_id: 'haiku-1' } });
+    await c.callTool({ name: 'render_issue', arguments: { issue: 'wt390', lens: 'email', section: 'Briefly' } });
     await c.close();
     expect(asked.length).toBeGreaterThan(0);
-    for (const p of asked) expect(p).toMatch(/^\/api\/issues(\?heads=1|\/[^/]+(\/(events\?all=1|timing|render\/[a-z]+))?)?$/);
+    expect(asked.some((p) => p.includes('/version?'))).toBe(true);
+    for (const p of asked) expect(p).toMatch(/^\/api\/issues(\?heads=1|\/[^/]+(\/(events\?all=1|timing|version\?(event=\d+|review=1)|render\/[a-z]+(\?(item|section)=[^&]+)?))?)?$/);
   });
 
   it('a browser page on another site is refused at the edge', async () => {
