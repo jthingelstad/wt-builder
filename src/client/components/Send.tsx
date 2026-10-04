@@ -949,6 +949,13 @@ function Timing({ doc }: { doc: IssueDoc }) {
   const delta = p && p.actions ? total - prevTotal : null;
   const max = Math.max(...t.bySection.map((s) => s.ms), 1);
   const dayMax = Math.max(...t.byDay.map((d) => d.ms), 1);
+  // A sitting of one act has no length; "0 m" reads as nothing happened.
+  const time = (ms: number) => (ms < 60_000 ? '<1 m' : duration(ms));
+  const days = t.byDay.filter((d) => d.sittings).length;
+  const after = !t.publishedAt ? ''
+    : t.after.ms >= 60_000 ? `${duration(t.after.ms)} fixing after it went`
+      : t.after.sends ? `${t.after.sends} re-send after it went`
+        : 'nothing to fix after it went';
   return (
     <section class="send-card timing">
       <div class="sc-head">
@@ -962,12 +969,12 @@ function Timing({ doc }: { doc: IssueDoc }) {
             )}
           </div>
           <p class="sc-ends">
-            {duration(t.activeMs)} across {t.sessions.length} sitting{t.sessions.length === 1 ? '' : 's'} · {t.actions} actions, {t.edits} edits
-            {t.sendMs !== undefined && ` · sent in ${duration(t.sendMs)}`}
-            {t.publishedAt && (t.after.actions
-              ? ` · ${duration(t.after.ms)} fixing after it went, ${t.after.sends} re-send${t.after.sends === 1 ? '' : 's'}`
-              : ' · nothing to fix after it went')}
-            {p && p.actions ? `. WT${data.previous!.number}: ${duration(p.activeMs)}${p.after.ms ? ` + ${duration(p.after.ms)} fixing` : ''}.` : ''}
+            {[
+              `${t.sessions.length} sitting${t.sessions.length === 1 ? '' : 's'} on ${days} day${days === 1 ? '' : 's'}`,
+              `${t.actions} actions, ${t.edits} edits`,
+              t.sendMs !== undefined ? `sent in ${time(t.sendMs)}` : '',
+              after,
+            ].filter(Boolean).join(' · ')}
           </p>
         </div>
       </div>
@@ -978,28 +985,32 @@ function Timing({ doc }: { doc: IssueDoc }) {
             <div class="tm-row" key={s.label}>
               <span class="tm-label">{s.label}</span>
               <span class="tm-bar"><span style={{ width: `${(s.ms / max) * 100}%` }} /></span>
-              <span class="tm-ms">{duration(s.ms)}</span>
+              <span class="tm-ms">{time(s.ms)}</span>
             </div>
           ))}
         </div>
         <div class="tm-sections tm-days">
-          <span class="mono-label">BY DAY</span>
+          <div class="tm-days-head">
+            <span class="mono-label">BY DAY</span>
+            <span class="mono-label tm-legend"><span class="tm-dot" /> a sitting · <b>+n</b> pills added</span>
+          </div>
           {t.byDay.map((d) => (
             <div class="tm-row" key={d.day}>
               <span class="tm-label">{d.label}</span>
-              <span class="tm-bar"><span style={{ width: `${(d.ms / dayMax) * 100}%` }} /></span>
-              <span class="tm-ms">{[
-                d.sittings ? `${duration(d.ms)} · ${d.sittings} sitting${d.sittings === 1 ? '' : 's'}` : '',
-                d.added ? `${d.added} added` : '',
-              ].filter(Boolean).join(' · ')}</span>
+              <span class="tm-bar">{d.sittings > 0 && <span style={{ width: `${(d.ms / dayMax) * 100}%` }} />}</span>
+              <span class="tm-ms">{d.sittings ? time(d.ms) : ''}</span>
+              <span class="tm-dots" title={`${d.sittings} sitting${d.sittings === 1 ? '' : 's'}`}>
+                {d.sittings > 4 ? <>{d.sittings}<span class="tm-dot" /></> : Array.from({ length: d.sittings }, (_, i) => <span class="tm-dot" key={i} />)}
+              </span>
+              <span class="tm-added">{d.added ? `+${d.added}` : ''}</span>
             </div>
           ))}
         </div>
       </div>
       {data.shipped.length > 0 && (
         <div class="tm-shipped">
-          <button class="btn small" onClick={() => setShowShipped(!showShipped)}>
-            {showShipped ? 'Hide' : 'Show'} what was new in WT Builder since WT{data.previous!.number} ({data.shipped.length})
+          <button class="tm-shipped-toggle" onClick={() => setShowShipped(!showShipped)}>
+            {showShipped ? 'Hide' : 'What changed in'} WT Builder since WT{data.previous!.number} ({data.shipped.length})
           </button>
           {showShipped && (
             <ul>{data.shipped.map((c) => <li key={c.sha}><code>{c.sha}</code> {c.subject}</li>)}</ul>

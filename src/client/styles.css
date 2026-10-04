@@ -417,16 +417,25 @@ a:hover { text-decoration: underline; }
 
 /* How long it took: the event log, read as time (Send view). */
 .send-card.timing { margin-top: 22px; }
-.tm-body { display: grid; grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr); gap: 24px; padding: 12px 18px 14px; border-top: 1px solid var(--divider); }
+.tm-body { display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr); gap: 24px; padding: 12px 18px 14px; border-top: 1px solid var(--divider); }
 @media (max-width: 640px) { .tm-body { grid-template-columns: 1fr; } }
 .tm-sections { display: flex; flex-direction: column; gap: 5px; }
 .tm-row { display: grid; grid-template-columns: 110px minmax(0, 1fr) 54px; align-items: center; gap: 8px; font-size: 12.5px; }
 .tm-label { color: var(--ink); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 .tm-bar { height: 7px; background: var(--subtle); border-radius: 3px; overflow: hidden; }
-.tm-bar span { display: block; height: 100%; background: var(--green); border-radius: 3px; }
-.tm-ms { font-family: var(--mono); font-size: 10.5px; color: var(--muted); text-align: right; }
-/* By day: the figures run longer than a section's minutes. */
-.tm-days .tm-row { grid-template-columns: 82px minmax(0, 1fr) auto; }
+.tm-bar span { display: block; height: 100%; min-width: 7px; background: var(--green); border-radius: 3px; }
+.tm-ms { font-family: var(--mono); font-size: 10.5px; color: var(--muted); text-align: right; white-space: nowrap; }
+/* By day: minutes as a bar, each sitting a dot, arrivals as +n. Fixed
+   columns, so every day's bar starts and ends in the same place. */
+.tm-days .tm-row { grid-template-columns: 78px minmax(0, 1fr) 62px 30px 28px; }
+.tm-days-head { display: flex; align-items: baseline; justify-content: space-between; gap: 8px; }
+.tm-legend { display: inline-flex; align-items: center; gap: 4px; }
+.tm-legend b { font-weight: 400; color: var(--muted); }
+.tm-dots { display: inline-flex; align-items: center; gap: 3px; font-family: var(--mono); font-size: 10.5px; color: var(--muted); }
+.tm-dot { display: inline-block; width: 6px; height: 6px; border-radius: 50%; background: var(--green); }
+.tm-added { font-family: var(--mono); font-size: 10.5px; color: var(--muted); text-align: right; }
+.tm-shipped-toggle { border: 0; background: none; padding: 0; font: inherit; font-size: 12px; color: var(--muted); cursor: pointer; text-decoration: underline; text-decoration-color: var(--divider); text-underline-offset: 3px; }
+.tm-shipped-toggle:hover { color: var(--ink); }
 .tm-shipped { padding: 0 18px 14px; }
 .tm-shipped ul { margin: 8px 0 0; padding-left: 18px; font-size: 12.5px; line-height: 1.6; color: var(--dek); }
 .tm-shipped code { font-family: var(--mono); font-size: 10.5px; color: var(--muted); }
