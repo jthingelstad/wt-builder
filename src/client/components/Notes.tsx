@@ -132,7 +132,7 @@ export function Notes({ notes, host, onDone, onIgnore, onShowMe, selected }: Pro
 
               <p class="note-body">{note.text}</p>
 
-              {note.was && (
+              {note.was && note.now && (
                 <div class="note-fix">
                   <s>{note.was}</s>
                   <span class="arrow"> → </span>

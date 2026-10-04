@@ -9,7 +9,7 @@ import { readFileSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
 
 import type { IssueDoc, Item } from '../src/shared/types.ts';
-import { rowHints, titleHint, unfinishedHint, unfinishedTail } from '../src/shared/hints.ts';
+import { haikuHint, rowHints, titleHint, unfinishedHint, unfinishedTail } from '../src/shared/hints.ts';
 import { updateItem } from '../src/server/issue.ts';
 
 const fixture = () =>
@@ -117,5 +117,37 @@ describe('rowHints', () => {
     doc.link_check = { at: '2026-10-04T00:00:00Z', results: { [url]: { verdict: 'dead', status: 404 } }, accepted: [] } as unknown as IssueDoc['link_check'];
     expect(rowHints(doc).get('briefly-forge')).toEqual([{ kind: 'link', text: `A dead link (404): ${url}` }]);
     expect(rowHints(doc).get('briefly-shortcuts')).toBeUndefined();
+  });
+});
+
+describe('a haiku that is not 5-7-5', () => {
+  const haiku = (body: string) => ({ type: 'haiku', authorship: 'Jamie', source: 'generated', channels: { website: true, email: true, audio: true }, body }) as Item;
+
+  it("WT352's haiku and the fixture's say nothing", () => {
+    expect(haikuHint(haiku('White ghosts on the plate,\na red bar where tokens were —\nbutterfly stays put.'))).toBeUndefined();
+    expect(rowHints(fixture()).get('haiku-1')).toBeUndefined();
+  });
+
+  it('a short line says what it counted, and warns without blocking', () => {
+    expect(haikuHint(haiku('White ghosts on the plate,\na red bar where tokens —\nbutterfly stays put.'))).toBe(
+      'Counted 5-6-5 syllables, not 5-7-5. The count is a guess from spelling, so trust your ear.',
+    );
+  });
+
+  it('two lines is not a haiku', () => {
+    expect(haikuHint(haiku('White ghosts on the plate,\na red bar where tokens were'))).toBe(
+      'A haiku is three lines; this is 2, counted 5-7. The count is a guess from spelling, so trust your ear.',
+    );
+  });
+
+  it('an empty haiku is its pill\'s business, and other items are never counted', () => {
+    expect(haikuHint(haiku(''))).toBeUndefined();
+    expect(haikuHint(link({ body: 'one\ntwo' }))).toBeUndefined();
+  });
+
+  it('the row carries it', () => {
+    const doc = fixture();
+    doc.items['haiku-1']!.body = 'Summer pages turn\nEach item finds a place\nOld echoes return';
+    expect(rowHints(doc).get('haiku-1')).toEqual([{ kind: 'haiku', text: expect.stringMatching(/^Counted 5-6-5/) }]);
   });
 });

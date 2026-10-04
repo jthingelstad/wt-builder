@@ -65,3 +65,40 @@ test('a link finding is said under its own row, and the issue-wide summary is no
   await expect(page.locator('aside.panel')).toContainText('Dead (404)');
   await expect(page.locator('aside.panel')).toContainText('Keep as it is');
 });
+
+test('a haiku that is not 5-7-5 says what it counted, and a fix clears it (plan item 2)', async ({ page }) => {
+  const doc = store.getIssue(ISSUE)!.doc;
+  doc.items['haiku-1']!.body = 'Summer pages turn\nEach item finds a place\nOld echoes return';
+  store.saveIssue(doc);
+  await open(page);
+  await expect(page.locator('[data-anchor="haiku-1"] .row-flag.link')).toBeVisible();
+  const hint = page.locator('[data-anchor="haiku-1"] .row-hint');
+  await expect(hint).toContainText('Counted 5-6-5 syllables, not 5-7-5');
+
+  await page.locator('[data-anchor="haiku-1"] .row-flag').click();
+  await expect(page.locator('aside.panel')).toContainText('Counted 5-6-5 syllables');
+
+  // A hint, never a gate: the words save as typed, and the count follows them.
+  const line = page.locator('[data-anchor="haiku-1"] .haiku');
+  await line.click();
+  await page.evaluate(() => {
+    const el = document.querySelector('[data-anchor="haiku-1"] .haiku')!;
+    const walker = document.createTreeWalker(el, NodeFilter.SHOW_TEXT);
+    for (let n = walker.nextNode(); n; n = walker.nextNode()) {
+      const at = n.textContent!.indexOf('finds a');
+      if (at >= 0) {
+        const range = document.createRange();
+        range.setStart(n, at + 'finds '.length);
+        range.setEnd(n, at + 'finds a'.length);
+        getSelection()!.removeAllRanges();
+        getSelection()!.addRange(range);
+        return;
+      }
+    }
+  });
+  await page.keyboard.type('its own');
+  await commit(page, () => String(item('haiku-1').body).includes('finds its own place'));
+  expect(item('haiku-1').body).toBe('Summer pages turn\nEach item finds its own place\nOld echoes return');
+  await expect(page.locator('[data-anchor="haiku-1"] .row-hint')).toHaveCount(0);
+  await expect(page.locator('[data-anchor="haiku-1"] .row-flag')).toHaveCount(0);
+});

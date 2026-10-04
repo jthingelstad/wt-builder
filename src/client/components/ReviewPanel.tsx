@@ -168,7 +168,7 @@ function NoteGroup({
               <button class="rp-act" title="Ignore" onClick={() => onIgnore(pn.k)}>⃠</button>
             </div>
             <p class="rp-body">{n.text}</p>
-            {n.kind === 'PROOF' && n.was && (
+            {n.kind === 'PROOF' && n.was && n.now && (
               <p class="rp-fix">
                 <s>{n.was}</s> <span class="arrow">→</span> <em>{n.now}</em>
               </p>

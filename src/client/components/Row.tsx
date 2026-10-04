@@ -62,7 +62,9 @@ export function Row({ anchor, structureName, rail, margin, selected, quiet, chil
   // are said on the page, under them, and hidden while the row has the
   // caret, so it never fires mid-sentence (canvas.css).
   const flags = mine.filter((h) => h.kind !== 'unfinished');
-  const unfinished = mine.find((h) => h.kind === 'unfinished');
+  // Said under the words too: unfinished words, and a haiku that does not
+  // count 5-7-5 (with what it counted, since the count is a guess).
+  const said = mine.filter((h) => h.kind === 'unfinished' || h.kind === 'haiku');
   // A link finding is also said under the row, in words, so Jamie can find
   // which link the check meant without opening each inspector (WT352).
   const linkNotes = mine.filter((h) => h.kind === 'link');
@@ -74,7 +76,7 @@ export function Row({ anchor, structureName, rail, margin, selected, quiet, chil
         {rail}
         {flags.length > 0 && (
           <button
-            class={`row-flag ${flags.some((h) => h.kind === 'link') ? 'link' : 'title'}`}
+            class={`row-flag ${flags.some((h) => h.kind === 'link' || h.kind === 'haiku') ? 'link' : 'title'}`}
             title={`${flagLabel}\nOpen the inspector`}
             aria-label={flagLabel}
             onClick={() => open(anchor)}
@@ -91,7 +93,7 @@ export function Row({ anchor, structureName, rail, margin, selected, quiet, chil
             {h.text} <span class="row-link-open">Fix or keep it →</span>
           </button>
         ))}
-        {unfinished && <div class="row-hint">{unfinished.text}</div>}
+        {said.map((h) => <div key={h.kind} class="row-hint">{h.text}</div>)}
       </div>
       <div class="row-margin">{margin}</div>
     </div>

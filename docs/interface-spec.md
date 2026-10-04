@@ -532,9 +532,11 @@ issue, with both margins outside it.
   most published titles keep their suffix. Under the words, in the `.row-owed` style:
   "Looks unfinished: it ends "…dots feels more" with no full stop" when Jamie's own
   commentary, intro, outro, or Currently line stops on a word, a comma, or a dash, and
-  "A short Currently line, 3 words" under six words. It is hidden while the row has the
-  caret (`.row:focus-within`), so it never fires mid-sentence. Nothing is hinted on a
-  frozen issue.
+  "A short Currently line, 3 words" under six words, and "Counted 5-6-5 syllables, not
+  5-7-5. The count is a guess from spelling, so trust your ear." under a haiku that is
+  not 5-7-5 or not three lines (`src/shared/syllables.ts`), which also takes the amber
+  mark. It is hidden while the row has the caret (`.row:focus-within`), so it never
+  fires mid-sentence. Nothing is hinted on a frozen issue.
 - **Middle cell = the page.** The material, and nothing else.
 - **Right cell = the editorial margin.** Outside the card. Holds the `wand-sparkles`
   draft button (24×24, `#fdf6f1` on `1px #e0cdbf`, terracotta glyph — full strength when

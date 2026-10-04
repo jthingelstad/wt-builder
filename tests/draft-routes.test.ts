@@ -90,7 +90,9 @@ describe('a wand on a section waiting on its inputs', () => {
   });
   // The link wand also asks the Librarian; nothing comes back.
   const candidates = () => retrieve.mockResolvedValue([]) && create.mockResolvedValue({
-    stop_reason: 'end_turn', stop_details: null, content: [{ type: 'text', text: '{"candidates":["one","two"]}' }],
+    stop_reason: 'end_turn', stop_details: null,
+    // A haiku that counts 5-7-5, so the haiku wand has one to offer.
+    content: [{ type: 'text', text: JSON.stringify({ candidates: ['Summer pages turn\nEach item finds its own place\nOld echoes return', 'two'] }) }],
   });
 
   it('is refused with what it waits on, and drafts nothing', async () => {

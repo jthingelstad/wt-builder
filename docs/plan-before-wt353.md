@@ -40,6 +40,11 @@ Jamie tagged it: "we should build an evaluator on that to have it generate and
 then check -- i don't want to have a non-haiku sent". The wand checks 5-7-5 on
 every candidate and regenerates or drops the rest; a hand-edited non-5-7-5 puts
 a warning hint on the Haiku pill. The review checks form too.
+*Built 2026-10-04*: `src/shared/syllables.ts` counts; the wand asks once
+more for drafts that miss, offers only 5-7-5, and says so in a sentence when
+none pass; a hand-written miss is a `haiku` row hint ("Counted 5-6-5…") on
+the Haiku row rather than the pill, since a hint never moves a pill; the
+proof pass adds a PROOF note (MCP 1.5.3).
 
 ### 3. Lint the audio script before the model reads it (S)
 

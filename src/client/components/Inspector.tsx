@@ -6,7 +6,7 @@ import { api, shouldWriteBack, writeBackMessage, type IssueResponse } from '../a
 import { edited, Input, useFieldValue } from './Field.tsx';
 import { isFrozen } from './Page.tsx';
 import { giftLine, linkFindings, type LinkFinding } from '../../shared/link-findings.ts';
-import { titleHint, unfinishedHint } from '../../shared/hints.ts';
+import { haikuHint, titleHint, unfinishedHint } from '../../shared/hints.ts';
 
 interface Props {
   doc: IssueDoc;
@@ -387,10 +387,10 @@ export function Inspector({ doc, itemId, run, onClose, onError, onBackToReview, 
       )}
 
       {/* The row's own hints, said in full (src/shared/hints.ts). Never a gate. */}
-      {!frozen && (unfinishedHint(item) || titleHint(item)) && (
+      {!frozen && (unfinishedHint(item) || titleHint(item) || haikuHint(item)) && (
         <>
           <h3 style="margin-top:18px">Hints</h3>
-          {[unfinishedHint(item), titleHint(item)].filter(Boolean).map((text) => (
+          {[unfinishedHint(item), titleHint(item), haikuHint(item)].filter(Boolean).map((text) => (
             <p class="field-note link-gift" key={text}>{text}</p>
           ))}
         </>

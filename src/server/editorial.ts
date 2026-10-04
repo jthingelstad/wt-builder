@@ -18,6 +18,7 @@ import { bodyLines, isIncluded, outOfWindow, windowOf } from '../shared/render/p
 import { imageTags, splitBody } from '../shared/body.ts';
 import { anchorText } from '../shared/anchor.ts';
 import { centralDay } from '../shared/dates.ts';
+import { haikuForm } from '../shared/syllables.ts';
 import { config } from './config.ts';
 import * as librarian from './integrations/librarian.ts';
 import * as pinboard from './integrations/pinboard.ts';
@@ -301,6 +302,37 @@ export function assembleReview(opts: {
 }
 
 /**
+ * The proof pass's mechanical half: a PROOF note on each printed haiku that
+ * does not count 5-7-5 (src/shared/syllables.ts). `was` is the whole haiku, so
+ * any edit to it drops the note, as a fixed typo does; there is no `now`, as
+ * the fix is Jamie's to write. The count is a guess from spelling, and the
+ * note says so: it warns, it never blocks.
+ */
+export function haikuProofNotes(doc: IssueDoc): Note[] {
+  const w = windowOf(doc);
+  const notes: Note[] = [];
+  for (const node of doc.nodes) {
+    for (const id of node.items) {
+      const item = doc.items[id];
+      if (!item || item.type !== 'haiku' || !isIncluded(item, w)) continue;
+      const body = String(item.body ?? '');
+      if (!body.trim()) continue;
+      const form = haikuForm(body);
+      if (form.ok) continue;
+      notes.push({
+        kind: 'PROOF',
+        item_id: id,
+        text: form.counts.length === 3
+          ? `The haiku counts ${form.shape} syllables, not 5-7-5. The count is a guess from spelling, so read it aloud.`
+          : `The haiku is ${form.counts.length} line${form.counts.length === 1 ? '' : 's'}, not three (counted ${form.shape}).`,
+        was: body,
+      });
+    }
+  }
+  return notes;
+}
+
+/**
  * Two calls, proofing first. The split exists so a typo is never ranked against
  * an opinion and can be re-checked cheaply after Jamie fixes things.
  *
@@ -324,6 +356,10 @@ export async function review(req: ReviewRequest): Promise<Review> {
       console.warn(`[review] proof pass failed: ${(err as Error).message}`);
     }
   }
+
+  // The haiku's form is checked by counting, not by the model: the proof pass
+  // gains a note for every printed haiku that is not 5-7-5 (plan item 2).
+  if (proof) proof = { ...proof, notes: [...proof.notes, ...haikuProofNotes(doc)] };
 
   let judgement: CallResult | null = null;
   if (wantJudgement) {
@@ -489,9 +525,11 @@ lines, in Jamie's voice.
 Read the assembled issue and find what the week was about. Pull concrete
 nouns from the actual issue — never abstractions like "the future" or
 "technology", never a generic seasonal image, never greeting-card register.
-Jamie's convention is haiku-shaped rather than strictly 5-7-5: three short
-lines where the third turns or lands. Plain, observational, mildly wry. An
-em-dash at the end of line two is a common Weekly Thing pattern, not a rule.
+Strictly 5-7-5: three lines of exactly five, seven and five syllables, the
+third turning or landing. Every candidate is counted, and one that is not
+5-7-5 is thrown away, so count each line. Plain, observational, mildly wry.
+An em-dash at the end of line two is a common Weekly Thing pattern, not a
+rule.
 
 Two real examples of the shape working — concrete images from the issue,
 the third line doing the human turn:
@@ -1405,6 +1443,46 @@ export function echoesFailure(err: unknown): unknown {
   return e;
 }
 
+/** How many times the haiku wand asks again for drafts that did not count 5-7-5. */
+export const HAIKU_RETRIES = 1;
+
+/**
+ * The haiku wand generates, then checks (Jamie, 2026-10-04: "i don't want to
+ * have a non-haiku sent"; WT352's draft was not 5-7-5). Every candidate is
+ * counted (src/shared/syllables.ts); when some miss and fewer than `n` pass,
+ * the model is asked again, HAIKU_RETRIES times, told which drafts missed and
+ * what they counted. Only drafts that pass are offered, and if none do the wand says so
+ * in a sentence instead of offering a non-haiku. Jamie can still write one by
+ * hand; the row hint then shows its count.
+ */
+export async function checkedHaiku(
+  first: string[], n: number, ask: (more: string) => Promise<{ candidates?: unknown[] }>,
+): Promise<string[]> {
+  const kept: string[] = [];
+  const missed: { text: string; shape: string }[] = [];
+  const sort = (drafts: unknown[]) => {
+    for (const d of drafts) {
+      const text = String(d ?? '').trim();
+      if (!text || kept.includes(text)) continue;
+      const form = haikuForm(text);
+      if (form.ok) kept.push(text);
+      else missed.push({ text, shape: form.shape });
+    }
+  };
+  sort(first);
+  for (let round = 0; round < HAIKU_RETRIES && kept.length < n && missed.length; round++) {
+    const again = await ask(`\nThese drafts did not count 5-7-5 and will not be offered:\n${missed
+      .map((m) => `- ${m.text.replace(/\n/g, ' / ')} (counted ${m.shape})`)
+      .join('\n')}\nReturn exactly ${n} new candidates, each exactly three lines of 5, then 7, then 5 syllables. Count every syllable of every line before you answer.`);
+    sort(again.candidates ?? []);
+  }
+  if (!kept.length) {
+    const shapes = [...new Set(missed.map((m) => m.shape))].join(', ');
+    throw new Error(`None of the haiku drafts came out 5-7-5, even after asking again${shapes ? ` (they counted ${shapes})` : ''}. Draft again, or write one.`);
+  }
+  return kept.slice(0, n);
+}
+
 export async function draft(req: DraftRequest): Promise<DraftResult> {
   // The head wand: 'issue' is not an item — it drafts the title theme + dek.
   const isIssue = req.itemId === 'issue';
@@ -1520,7 +1598,7 @@ export async function draft(req: DraftRequest): Promise<DraftResult> {
       : `\nThe assembled issue, for grounding:\n${assembled}`,
   ];
 
-  const parsed = await callJson<{
+  const ask = (more = '') => callJson<{
     candidates?: unknown[];
     echoes?: EchoOption[];
   }>({
@@ -1534,8 +1612,9 @@ export async function draft(req: DraftRequest): Promise<DraftResult> {
         schema: type === 'echoes' ? ECHOES_SCHEMA : type === 'membership' ? MEMBERSHIP_SCHEMA : CANDIDATES_SCHEMA,
       },
     },
-    messages: [{ role: 'user', content: parts.filter(Boolean).join('\n') }],
+    messages: [{ role: 'user', content: [...parts, more].filter(Boolean).join('\n') }],
   } as Anthropic.MessageCreateParamsNonStreaming, DRAFT_SAYS);
+  const parsed = await ask();
   if (type === 'echoes') {
     // Every echo is checked against what was retrieved, the section wand's
     // and a single echo's redraft alike; a flag rides along to the picker.
@@ -1553,6 +1632,7 @@ export async function draft(req: DraftRequest): Promise<DraftResult> {
         .map((pair) => ({ cta: stripSignOff(pair.cta), thanks: stripSignOff(pair.thanks) })),
     };
   }
+  if (type === 'haiku') return { candidates: await checkedHaiku((parsed.candidates ?? []) as string[], n, ask) };
   const candidates = ((parsed.candidates ?? []) as string[]).slice(0, n);
   // The link wand tells Jamie when this exact link was in an earlier issue.
   return item?.type === 'pinboard_link' && req.linkedBefore?.length

@@ -38,6 +38,9 @@ const fixture = () =>
     readFileSync(fileURLToPath(new URL('../fixtures/representative-issue.json', import.meta.url)), 'utf8'),
   ) as IssueDoc;
 
+/** A haiku that counts 5-7-5 (the fixture's). */
+const HAIKU_OK = 'Summer pages turn\nEach item finds its own place\nOld echoes return';
+
 /** A model answer: structured output as one text block. */
 const reply = (body: unknown, stop_reason = 'end_turn') => ({
   stop_reason,
@@ -263,7 +266,7 @@ describe('every model call says why it failed', () => {
 
   it('every call leaves 8k to 16k of room, thinking included', async () => {
     retrieve.mockResolvedValue([{ issue_number: 221, url: 'u', text: 'The boat.' }]);
-    create.mockImplementation(async () => reply({ summary: '', notes: [], candidates: [], alts: [{ picture: 1, alt: 'x' }], echoes: [], order: [], why: '', verdict: 'ready', findings: [] }));
+    create.mockImplementation(async () => reply({ summary: '', notes: [], candidates: [HAIKU_OK], alts: [{ picture: 1, alt: 'x' }], echoes: [], order: [], why: '', verdict: 'ready', findings: [] }));
     await review({ doc: fixture() });
     await draft({ doc: fixture(), itemId: 'photo-1' });
     await draft({ doc: fixture(), itemId: 'journal-concert' });
@@ -325,5 +328,74 @@ describe('the Journal wand\'s alts', () => {
 
     create.mockResolvedValueOnce(reply({ alts: [] }));
     await expect(draft({ doc: fixture(), itemId: 'journal-concert' })).rejects.toThrow('not each once');
+  });
+});
+
+describe('the haiku wand offers only 5-7-5', () => {
+  const short = 'White ghosts on the plate,\na red bar where tokens —\nbutterfly stays put.';
+  const wt352 = 'White ghosts on the plate,\na red bar where tokens were —\nbutterfly stays put.';
+  const twoLines = 'Coffee stirs the gut\nWhile AI dreams in the night';
+
+  it('a draft that misses is asked for again, with its count, and only 5-7-5 is offered', async () => {
+    create
+      .mockResolvedValueOnce(reply({ candidates: [short, HAIKU_OK, twoLines] }))
+      .mockResolvedValueOnce(reply({ candidates: [wt352, short, HAIKU_OK] }));
+    const out = await draft({ doc: fixture(), itemId: 'haiku-1' });
+    expect(out.candidates).toEqual([HAIKU_OK, wt352]);
+    expect(create).toHaveBeenCalledTimes(2);
+    const again = String(create.mock.calls[1]![0].messages[0].content);
+    expect(again).toContain('did not count 5-7-5');
+    expect(again).toContain('(counted 5-6-5)');
+    expect(again).toContain('(counted 5-7)');
+    // The first ask carries no list of misses.
+    expect(String(create.mock.calls[0]![0].messages[0].content)).not.toContain('did not count 5-7-5');
+  });
+
+  it('when every draft passes, the model is asked once', async () => {
+    create.mockResolvedValueOnce(reply({ candidates: [HAIKU_OK, wt352] }));
+    const out = await draft({ doc: fixture(), itemId: 'haiku-1' });
+    expect(out.candidates).toEqual([HAIKU_OK, wt352]);
+    expect(create).toHaveBeenCalledTimes(1);
+  });
+
+  it('one retry round, then a plain sentence when none pass', async () => {
+    create.mockResolvedValue(reply({ candidates: [short, twoLines] }));
+    await expect(draft({ doc: fixture(), itemId: 'haiku-1' })).rejects.toThrow(
+      'None of the haiku drafts came out 5-7-5, even after asking again (they counted 5-6-5, 5-7). Draft again, or write one.',
+    );
+    expect(create).toHaveBeenCalledTimes(2);
+  });
+
+  it('the prompt asks for strict 5-7-5', async () => {
+    create.mockResolvedValueOnce(reply({ candidates: [HAIKU_OK] }));
+    await draft({ doc: fixture(), itemId: 'haiku-1' });
+    expect(String(create.mock.calls[0]![0].system)).toContain('Strictly 5-7-5');
+  });
+});
+
+describe('the proof pass counts the haiku', () => {
+  const notes = () => reply({ summary: '', notes: [] });
+
+  it('a printed haiku that is not 5-7-5 gets a PROOF note anchored to its words', async () => {
+    create.mockResolvedValue(notes());
+    const doc = fixture();
+    doc.items['haiku-1']!.body = 'White ghosts on the plate,\na red bar where tokens —\nbutterfly stays put.';
+    const out = await review({ doc });
+    const note = out.notes.find((n) => n.item_id === 'haiku-1');
+    expect(note).toEqual({
+      kind: 'PROOF',
+      item_id: 'haiku-1',
+      text: 'The haiku counts 5-6-5 syllables, not 5-7-5. The count is a guess from spelling, so read it aloud.',
+      was: doc.items['haiku-1']!.body,
+    });
+  });
+
+  it('a 5-7-5 haiku, or a judgement-only review, adds nothing', async () => {
+    create.mockResolvedValue(notes());
+    expect((await review({ doc: fixture() })).notes).toEqual([]);
+    const doc = fixture();
+    doc.items['haiku-1']!.body = 'one\ntwo';
+    expect((await review({ doc, only: 'judgement' })).notes).toEqual([]);
+    expect((await review({ doc, only: 'proof' })).notes[0]?.text).toBe('The haiku is 2 lines, not three (counted 1-1).');
   });
 });

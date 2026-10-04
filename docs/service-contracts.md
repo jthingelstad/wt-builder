@@ -142,6 +142,18 @@ the prompt forbids inventing figures.
 Three gives real contrast where the choice is a voice; two reads as a coin flip.
 Link commentary is one sentence, where the want is a nudge rather than a menu.
 
+**The haiku wand counts before it offers** (2026-10-04). The prompt asks for
+strict 5-7-5, and every candidate is counted (`src/shared/syllables.ts`, a
+guess from spelling: silent e, -ed, -es, vowel groups, y, -le, numbers said
+aloud, an exceptions list). When some miss and fewer than three pass, the
+model is asked once more (`HAIKU_RETRIES`), told which drafts missed and
+what they counted. Only drafts that count 5-7-5 are offered; if none do,
+the draft fails with one sentence ("None of the haiku drafts came out
+5-7-5, even after asking again (they counted 5-6-5). Draft again, or write
+one."), logged as a `draft` event like any failed draft. Jamie can still
+write one by hand: the row hint and the proof pass say what it counted,
+and neither blocks.
+
 The link wand reads the page itself (`src/server/integrations/page.ts`),
 on the service's own network, so the read is guarded (review 2026-09-27,
 §5): redirects are followed by hand, at most five, and every hop whose host
@@ -380,6 +392,9 @@ Claude Code or Codex on otto, or any MCP client on the tailnet.
   under six words (an item still being typed does this too; `focus` says
   which), `title` is a syndicated title still ending with the site's name
   or over 90 characters, until Jamie edits it. A hint never moves a pill.
+  1.5.3 adds `haiku`: the haiku is not three lines of 5, 7 and 5
+  syllables, with the counts found ("Counted 5-6-5 syllables, not
+  5-7-5…"); the count is a guess from spelling.
 - **Writes none.** Suggestions go to Jamie in the agent's conversation (see
   `docs/decisions.md`). It reads through `readRoute` with `readOnly`, so
   even the skeleton repair the page saves on opening an older issue is

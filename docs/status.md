@@ -74,7 +74,17 @@ finished, what is half-finished, and what has never run.
   Verge gift link), a faint one for a title still ending with the site's
   name (until he edits it; `title_edited` on the item), and a line under
   words that stop mid-sentence or a Currently line under six words, hidden
-  while the row has the caret. Never a gate; no pill moves.
+  while the row has the caret. Never a gate; no pill moves. 1.5.3 adds a
+  `haiku` hint: a haiku that does not count 5-7-5, with the counts.
+- **Haiku counted 5-7-5** (2026-10-04, plan item 2) — WT352's generated
+  haiku was not 5-7-5 and nearly went out. `src/shared/syllables.ts`
+  counts syllables from spelling. The haiku wand asks for strict 5-7-5,
+  counts every candidate, asks once more for the ones that miss (with their
+  counts), and offers only drafts that pass, or says in a sentence that
+  none did. A hand-written miss gets an amber `haiku` row hint with what it
+  counted, and the review's proof pass adds a PROOF note (whole haiku as
+  `was`, no `now`: the fix is Jamie's; the margin shows no was→now line
+  without a `now`). Warn, never block. Tested with the model stubbed.
 - **Inspector** — fields per type, editions with locked channels and their
   reasons, provenance, archive references. A Thingy item still shows a
   Reviewed / Mark draft toggle, but it gates nothing: picking or writing the

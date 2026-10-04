@@ -19,13 +19,18 @@
  *   long (B3). Most of WT350's and WT351's titles kept their suffix, so it is
  *   the quietest mark, and it goes once Jamie has edited the title
  *   (`title_edited`, set by updateItem): he has looked at it. Never rewrites: the title is his to trim.
+ * - `haiku`: a haiku that is not three lines of 5, 7 and 5 syllables. WT352's
+ *   generated haiku was not, and nearly went out (Jamie: "i don't want to
+ *   have a non-haiku sent"). The count is a heuristic (src/shared/syllables.ts),
+ *   so the hint says what it counted ("5-6-5") for Jamie to judge by ear.
  */
 
 import type { IssueDoc, Item } from './types.ts';
 import { giftLine, linkFindings, type LinkFinding } from './link-findings.ts';
 import { MD_TARGET } from './links.ts';
+import { haikuForm } from './syllables.ts';
 
-export type HintKind = 'link' | 'unfinished' | 'title';
+export type HintKind = 'link' | 'unfinished' | 'title' | 'haiku';
 
 export interface Hint {
   kind: HintKind;
@@ -101,6 +106,17 @@ export function unfinishedHint(item: Item): string | undefined {
   return tail ? `Looks unfinished: it ends “…${tail}” with no full stop.` : undefined;
 }
 
+/** A haiku that is not 5-7-5, with what was counted. Nothing for an empty one: its pill says that. */
+export function haikuHint(item: Item): string | undefined {
+  if (item.type !== 'haiku' || !String(item.body ?? '').trim()) return undefined;
+  const form = haikuForm(item.body!);
+  if (form.ok) return undefined;
+  const guess = 'The count is a guess from spelling, so trust your ear.';
+  return form.counts.length === 3
+    ? `Counted ${form.shape} syllables, not 5-7-5. ${guess}`
+    : `A haiku is three lines; this is ${form.counts.length}, counted ${form.shape}. ${guess}`;
+}
+
 function linkHint(f: LinkFinding): string {
   if (f.gift) return giftLine(f.gift);
   const status = f.result?.status ? ` (${f.result.status})` : '';
@@ -128,6 +144,8 @@ export function rowHints(doc: IssueDoc, now = Date.now()): Map<string, Hint[]> {
       if (unfinished) add(id, { kind: 'unfinished', text: unfinished });
       const title = titleHint(item);
       if (title) add(id, { kind: 'title', text: title });
+      const haiku = haikuHint(item);
+      if (haiku) add(id, { kind: 'haiku', text: haiku });
     }
   }
   return out;

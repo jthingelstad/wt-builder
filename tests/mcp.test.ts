@@ -527,6 +527,16 @@ describe('row hints (MCP 1.5.0)', () => {
     expect((await call('get_item', { issue: 'wt375', item_id: 'link-flipcash' })).structuredContent.item.hints).toHaveLength(2);
     expect((await call('get_status', { issue: 'wt383' })).structuredContent.hints).toEqual([]);
   });
+
+  it('a haiku that is not 5-7-5 is a haiku hint with its counts (1.5.3)', async () => {
+    draft(376, (d) => {
+      d.items['haiku-1']!.body = 'White ghosts on the plate,\na red bar where tokens —\nbutterfly stays put.';
+    });
+    const s = (await call('get_status', { issue: 'wt376' })).structuredContent;
+    expect(s.hints.filter((h: any) => h.anchor === 'haiku-1')).toEqual([
+      { anchor: 'haiku-1', name: 'Haiku', kind: 'haiku', text: expect.stringMatching(/^Counted 5-6-5 syllables, not 5-7-5\./) },
+    ]);
+  });
 });
 
 describe('prompts', () => {
