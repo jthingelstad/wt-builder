@@ -64,7 +64,7 @@ export interface McpDeps {
  * tool, its arguments, or its answer changes, so a client holding a cached
  * tool list knows to fetch it again.
  */
-export const MCP_VERSION = '1.5.0';
+export const MCP_VERSION = '1.5.1';
 
 export const INSTRUCTIONS = `WT Builder is Jamie Thingelstad's authoring app for The Weekly Thing newsletter. This server is READ-ONLY: it shows an issue as the editor does and changes nothing.
 
@@ -917,7 +917,7 @@ export function buildServer(deps: McpDeps, caller = 'local', logged = new Set<st
   }));
 
   const SHIPPED_CAP = 25;
-  const timingView = (t: { activeMs: number; sessions: unknown[]; actions: number; edits: number; publishedAt?: string; sendMs?: number; after: { actions: number; sends: number; ms: number }; bySection: { label: string; ms: number }[] }) => ({
+  const timingView = (t: { activeMs: number; sessions: unknown[]; actions: number; edits: number; publishedAt?: string; sendMs?: number; after: { actions: number; sends: number; ms: number }; bySection: { label: string; ms: number }[]; byDay: { day: string; sittings: number; ms: number; added: number }[] }) => ({
     active_minutes: minutes(t.activeMs)!,
     sittings: t.sessions.length,
     actions: t.actions,
@@ -926,17 +926,19 @@ export function buildServer(deps: McpDeps, caller = 'local', logged = new Set<st
     ...(t.sendMs !== undefined ? { send_minutes: minutes(t.sendMs) } : {}),
     after_publishing: { actions: t.after.actions, sends: t.after.sends, minutes: minutes(t.after.ms)! },
     by_section: t.bySection.map((s) => ({ label: s.label, minutes: minutes(s.ms)! })),
+    by_day: t.byDay.map((d) => ({ day: d.day, sittings: d.sittings, minutes: minutes(d.ms)!, added: d.added })),
   });
   const timingOutput = z.object({
     active_minutes: z.number(), sittings: z.number(), actions: z.number(), edits: z.number(),
     published_at: z.string().optional(), send_minutes: z.number().optional(),
     after_publishing: z.object({ actions: z.number(), sends: z.number(), minutes: z.number() }),
     by_section: z.array(z.object({ label: z.string(), minutes: z.number() })),
+    by_day: z.array(z.object({ day: z.string(), sittings: z.number(), minutes: z.number(), added: z.number() })),
   });
 
   server.registerTool('get_timing', {
     title: 'How long the issue has taken',
-    description: 'The issue\'s editing time in minutes, from its event log (Jamie\'s own acts, sittings split at 30 minutes), beside the Builder issue before it, and the WT Builder changes that shipped between the two.',
+    description: 'The issue\'s editing time in minutes, from its event log (Jamie\'s own acts, sittings split at 30 minutes; by_day gives each Central day\'s sittings, minutes and items added, never clock times), beside the Builder issue before it, and the WT Builder changes that shipped between the two.',
     inputSchema: { issue: issueArg },
     outputSchema: {
       timing: timingOutput,

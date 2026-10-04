@@ -112,9 +112,12 @@ Before it, **Made in** — how long the issue took, read from the event log:
 the total (active time before sending plus fixing after) with a pill against the
 Builder issue before it (`1 h 35 m less than WT350`), one line of sittings,
 actions, send time and fixing, then two columns — `WHERE THE TIME WENT` as bars by
-section, and `SITTINGS` with their times — and a toggle listing what shipped in
-WT Builder since the previous issue. The index row adds `made in 2 h 35 m`. It
-exists to answer "did that feature save me time?" (Jamie, WT351).
+section, and `BY DAY` as bars of each Central day's minutes with its sittings
+and the items that arrived that day (`1 h 07 m · 2 sittings · 9 added`) — and a
+toggle listing what shipped in WT Builder since the previous issue. The index
+row adds `made in 2 h 35 m`. It exists to answer "did that feature save me
+time?" (Jamie, WT351). The card is meant to be shared, so it never shows when a
+sitting happened: the clock times were too much to share (Jamie, 2026-10-04).
 
 The last card is **Put to bed** (`moon`, dusk `#4b4a7a` on `#eceaf6`): `AWAKE` /
 `ASLEEP`, one line on what it means, and `Put to bed` — enabled once the issue is

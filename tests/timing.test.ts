@@ -36,6 +36,15 @@ describe('issue timing', () => {
     expect(t.edits).toBe(3);
   });
 
+  it('gives each day its sittings, minutes and arrivals, never a clock time (shared, 2026-10-04)', () => {
+    const sat = t.byDay.find((d) => d.day === '2026-09-26')!;
+    expect(sat).toEqual({ day: '2026-09-26', label: 'Sat, Sep 26', sittings: 2, ms: 50 * 60_000, added: 0 });
+    for (const d of t.byDay) expect(Object.keys(d).sort()).toEqual(['added', 'day', 'label', 'ms', 'sittings']);
+    expect(t.byDay.map((d) => d.day)).toEqual([...t.byDay.map((d) => d.day)].sort());
+    // The fixture's bookmarks and posts arrive on days with no sitting at all.
+    expect(t.byDay.some((d) => d.added > 0 && d.sittings === 0)).toBe(true);
+  });
+
   it('takes the last Published as the real one, and times the send', () => {
     expect(t.publishedAt).toBe(at('16:40'));
     expect(duration(t.sendMs!)).toBe('10 m');

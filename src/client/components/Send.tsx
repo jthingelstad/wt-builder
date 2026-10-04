@@ -947,8 +947,8 @@ function Timing({ doc }: { doc: IssueDoc }) {
   const total = t.activeMs + t.after.ms;
   const prevTotal = p ? p.activeMs + p.after.ms : 0;
   const delta = p && p.actions ? total - prevTotal : null;
-  const clock = (iso: string) => new Date(iso).toLocaleString([], { weekday: 'short', hour: 'numeric', minute: '2-digit' });
   const max = Math.max(...t.bySection.map((s) => s.ms), 1);
+  const dayMax = Math.max(...t.byDay.map((d) => d.ms), 1);
   return (
     <section class="send-card timing">
       <div class="sc-head">
@@ -982,12 +982,16 @@ function Timing({ doc }: { doc: IssueDoc }) {
             </div>
           ))}
         </div>
-        <div class="tm-sessions">
-          <span class="mono-label">SITTINGS</span>
-          {t.sessions.map((s) => (
-            <div class="tm-session" key={s.start}>
-              {clock(s.start)} – {new Date(s.end).toLocaleTimeString([], { hour: 'numeric', minute: '2-digit' })}
-              <span class="tm-ms"> {duration(s.ms)} · {s.actions}</span>
+        <div class="tm-sections tm-days">
+          <span class="mono-label">BY DAY</span>
+          {t.byDay.map((d) => (
+            <div class="tm-row" key={d.day}>
+              <span class="tm-label">{d.label}</span>
+              <span class="tm-bar"><span style={{ width: `${(d.ms / dayMax) * 100}%` }} /></span>
+              <span class="tm-ms">{[
+                d.sittings ? `${duration(d.ms)} · ${d.sittings} sitting${d.sittings === 1 ? '' : 's'}` : '',
+                d.added ? `${d.added} added` : '',
+              ].filter(Boolean).join(' · ')}</span>
             </div>
           ))}
         </div>

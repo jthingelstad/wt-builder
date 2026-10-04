@@ -419,13 +419,14 @@ a:hover { text-decoration: underline; }
 .send-card.timing { margin-top: 22px; }
 .tm-body { display: grid; grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr); gap: 24px; padding: 12px 18px 14px; border-top: 1px solid var(--divider); }
 @media (max-width: 640px) { .tm-body { grid-template-columns: 1fr; } }
-.tm-sections, .tm-sessions { display: flex; flex-direction: column; gap: 5px; }
+.tm-sections { display: flex; flex-direction: column; gap: 5px; }
 .tm-row { display: grid; grid-template-columns: 110px minmax(0, 1fr) 54px; align-items: center; gap: 8px; font-size: 12.5px; }
 .tm-label { color: var(--ink); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 .tm-bar { height: 7px; background: var(--subtle); border-radius: 3px; overflow: hidden; }
 .tm-bar span { display: block; height: 100%; background: var(--green); border-radius: 3px; }
 .tm-ms { font-family: var(--mono); font-size: 10.5px; color: var(--muted); text-align: right; }
-.tm-session { font-size: 12.5px; color: var(--dek); }
+/* By day: the figures run longer than a section's minutes. */
+.tm-days .tm-row { grid-template-columns: 82px minmax(0, 1fr) auto; }
 .tm-shipped { padding: 0 18px 14px; }
 .tm-shipped ul { margin: 8px 0 0; padding-left: 18px; font-size: 12.5px; line-height: 1.6; color: var(--dek); }
 .tm-shipped code { font-family: var(--mono); font-size: 10.5px; color: var(--muted); }

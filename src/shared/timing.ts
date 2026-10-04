@@ -12,6 +12,8 @@
  */
 
 import type { IssueDoc, Item } from './types.ts';
+import { shortDate, wallClock, weekday } from './dates.ts';
+import { isIncluded, windowOf } from './render/plan.ts';
 
 export interface TimingEvent {
   at: string;
@@ -27,9 +29,27 @@ export interface TimingSession {
   actions: number;
 }
 
+/**
+ * A Central day's sittings: how many and how long, never when. The card is
+ * meant to be shared, and the clock times of each sitting say more about
+ * Jamie's days than he wants to share (2026-10-04).
+ */
+export interface TimingDay {
+  /** "2026-10-04", Central. */
+  day: string;
+  /** "Sun, Oct 4" */
+  label: string;
+  sittings: number;
+  ms: number;
+  /** Items in the issue bookmarked or posted that day: one pill each. */
+  added: number;
+}
+
 export interface IssueTiming {
   /** Sittings before the issue went out. */
   sessions: TimingSession[];
+  /** Those sittings by the Central day they started on, oldest first. */
+  byDay: TimingDay[];
   /** Sum of those sittings. */
   activeMs: number;
   /** Jamie's acts before publishing, and how many were edits of words. */
@@ -92,6 +112,36 @@ function sittings(acts: TimingEvent[]): TimingSession[] {
   return out;
 }
 
+/**
+ * Sittings and the items that arrived, by Central day. A day with only
+ * bookmarks and posts (the week, before any editing) is a day too.
+ */
+function byDay(sessions: TimingSession[], doc: IssueDoc): TimingDay[] {
+  const days = new Map<string, TimingDay>();
+  const dayOf = (iso: string | undefined) => {
+    const w = wallClock(iso);
+    if (!w) return null;
+    const day = days.get(w.key) ?? {
+      day: w.key, label: `${weekday(w).slice(0, 3)}, ${shortDate(w).replace(/, \d{4}$/, '')}`, sittings: 0, ms: 0, added: 0,
+    };
+    days.set(w.key, day);
+    return day;
+  };
+  for (const s of sessions) {
+    const day = dayOf(s.start);
+    if (!day) continue;
+    day.sittings += 1;
+    day.ms += s.ms;
+  }
+  const w = windowOf(doc);
+  for (const item of Object.values(doc.items) as Item[]) {
+    if (!item.published_at || !isIncluded(item, w)) continue;
+    const day = dayOf(item.published_at);
+    if (day) day.added += 1;
+  }
+  return [...days.values()].sort((a, b) => a.day.localeCompare(b.day));
+}
+
 export function issueTiming(events: TimingEvent[], doc: IssueDoc): IssueTiming {
   // The last "Published" is the real one: early development runs published
   // WT350 once on Aug 30, three weeks before it was built.
@@ -118,6 +168,7 @@ export function issueTiming(events: TimingEvent[], doc: IssueDoc): IssueTiming {
   const firstSend = before.find((e) => e.kind === 'send' && e.summary.startsWith('Send started'));
   return {
     sessions,
+    byDay: byDay(sessions, doc),
     activeMs: sessions.reduce((n, s) => n + s.ms, 0),
     actions: before.length,
     edits: before.filter((e) => e.kind === 'edit').length,
