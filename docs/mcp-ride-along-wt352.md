@@ -184,3 +184,120 @@ Briefly links, the expired Verge gift link, Outro, Haiku pick, Membership,
 Echoes, Title and dek, and the send-view checks. Re-arm with
 `npm run watch -- wt352 --from <last event> | grep -v '\[mcp\]'`.
 
+
+## Afternoon session (MCP 1.5.0), 2026-10-04
+
+Resumed from cursor 1128. Notes on the 1.4/1.5 features as they get used:
+
+### 13. Resume in three calls worked
+`get_status` + `get_issue` + `get_review` rebuilt the whole break list without
+reading this doc's "Resuming" paragraph. The REPETITION notes on cf, Buterin
+and dots now say `changed_since_review: true` (1.4), so the agent knew to
+re-read them instead of relaying stale notes: the cf AWS anecdote is gone, the
+WT346 link and the OpenClaw nod are in. Item 10 is answered.
+
+### 14. fixed_as_suggested false found both regressions, but not their words
+Both `fixed_as_suggested: false` notes ("ask it it do", "OpenClaw project I
+the next") are real leads. But the note only carries `was` and the suggested
+`now`; the agent still had to open the item and search for the sentence to see
+what the words became ("ask it do more"). **Want:** an `actual` snippet, the
+current text around where `was` used to be, on a note that was fixed some
+other way.
+
+### 15. Title hints: good on suffixes, blind to a lost separator
+The 1.5 title hint caught all twelve "| Site" / "- Site" / "— Site" suffixes,
+and the gift-link hint surfaced the expired Verge token on the row. It does not
+flag "GLM-5.3 and the spread of advanced cyber capabilities Anthropic", where
+the separator was already lost before the hint could see it, nor a prefix like
+"Daring Fireball: I'll Wait". Twelve title hints on one issue is also a lot of
+noise for an editor who keeps most suffixes on purpose; a per-domain "keep"
+memory (or a hint that drops once Jamie has edited the title) would quiet it.
+
+### 16. Deliverability's http finding needs a "no https" escape
+bowlingalone.com is flagged as plain http, but its https endpoint serves a
+self-signed certificate, so http is the right link. The finding has no way to
+say "checked, keep it". (Not yet known: whether it alone holds the pill at
+partial once the domain lookups run.)
+
+### 17. `since=` repeats the whole strip every poll
+`get_status since=1132` returned two events of changes (dots, unsettled) plus
+all 49 pills, 13 hints and both checks again, about 12k tokens to learn "Jamie
+is typing in dots". **Want:** a `changes_only` flag (or make `since` imply it)
+that returns `changes`, `counts`, `cursor` and any pills/hints that moved, so a
+ride-along poll costs a few hundred tokens and the full strip is a deliberate
+re-read.
+
+### 18. A swept-in item shows its pill as `from: null`
+The three Minnedemo posts arrived as pills moving `null → partial/done`.
+That's right, but nothing in `changes.items` lists them (only `other` has the
+swept-in events), so "new rows to read" lives in two places.
+
+### 19. Video is the first media type the MCP can't describe
+The Beastbox post carries an HLS `<video>`. `render_issue` showed it raw in
+both the website and the email lens; only by reading the HTML could the agent
+tell the email would show nothing in Gmail. A hint like the gift-link one
+("a video: mail clients drop it") would have surfaced it on the row.
+
+### 20. fixed_as_suggested heals itself
+After Jamie wrote "ask it to do more", the note flipped from
+`fixed_as_suggested: false` to `true` with no new review: it checks that the
+suggested words are now present, not just that the old ones are gone. Item 11
+is answered. (Item 14's want, an `actual` snippet while it is still false,
+stands.) `get_item` now carries `review_notes` too, so the item and its notes
+come in one read.
+
+### 21. An edited title quiets its hint (answers part of 15)
+Jamie trimmed the EFF title's front ("EFF to Court:") and kept the suffix;
+`get_item` now carries `title_edited: true` and the title hint is gone. So the
+hint already respects a deliberate keep, as long as Jamie has touched the
+title once. GLM shows the same: Jamie restored "| Anthropic" on purpose.
+
+### 22. "3 the site would not answer" without saying which three
+`checks.links.unchecked` is a count (3) in `get_status`; the URLs and their
+status (openai.com 403, markdown.beauty 429, MIT Press Reader 403) were only
+findable by reading the issue doc out of SQLite. `moved` and `gift` list
+their URLs; `unchecked` should too, with the note ("turns checkers away").
+
+### 23. A "moved" suggestion that downgrades to http
+Plan mode's link (https, 200, on aymannadeem.com) was flagged moved because
+the page's canonical is `http://aymannadeem.github.io/…`. Taking the
+suggestion would swap a working https link for plain http and trip the
+deliverability check. Not an MCP issue as such, but the MCP relays it as a
+fix; the link check should not suggest a canonical that drops https.
+
+### 24. Echoes failed on the Librarian's reserved concurrency (fixed a4fe5d6)
+
+Not an MCP finding, but the ride-along caught it: the Echoes wand sent one
+/retrieve per Notable anchor, all at once (ten for WT352), into a Lambda
+with reserved concurrency 5 shared with Thingy chat and the MCP. Three 429s
+in a row. `retrieve()` now keeps two in flight and retries a 429 three
+times before failing loud. The MCP saw none of it: get_status showed Echoes
+`todo` with no hint that the wand had failed. A failed generation could be
+an `other` entry in changes.
+
+### 25. Argument names differ from the words the results use
+
+get_status returns items by `anchor`; get_item wants `item_id` (the same
+string). render_issue takes `lens`, while the server instructions and the
+results say "edition". Both cost a failed call on first use after a resume.
+Accept `anchor` as an alias on get_item, or name the field the same way in
+both places.
+
+### 26. Echoes are checkable, and the MCP made it quick
+
+render_issue lens=email section=echoes gave all three echoes with their
+cited issues in one call, and the citations were enough to check each
+claim against `librarian-thing/data/issues/<n>/`. One date phrase was
+loose ("two years earlier" for WT306, January 2025). An echo's cited
+issue's publish date in get_item would let an agent check "earlier" and
+"in March" claims without leaving the MCP.
+
+## Follow-up work (tagged by Jamie, 2026-10-04)
+
+- **Haiku evaluator.** The Haiku wand offered a 6-8-6 poem and it was
+  picked; the proof caught it, and Jamie fixed it before sending. Jamie: "we
+  should build an evaluator on that to have it generate and then check -- i
+  don't want to have a non-haiku sent". Plan: count syllables on every
+  candidate (generate, then check, then regenerate or drop any that is not
+  5-7-5) and give the Haiku pill a warning hint for a hand-edited non-5-7-5,
+  overridable like every gate.
