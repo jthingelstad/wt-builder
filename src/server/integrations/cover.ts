@@ -70,11 +70,14 @@ export interface CoverSubject {
  */
 async function sourceBytes(url: string | null): Promise<{ bytes: Buffer; from: string; fallback: boolean }> {
   if (url) {
-    const res = await fetch(url, { signal: AbortSignal.timeout(60_000) });
-    if (res.ok) {
+    // A dead host (TinyLetter's gallery, WT2) refuses the connection rather
+    // than answering 404; that is the same missing photo, not a failed issue.
+    const res = await fetch(url, { signal: AbortSignal.timeout(60_000) }).catch((err: Error) => err);
+    if (!(res instanceof Error) && res.ok) {
       return { bytes: Buffer.from(await res.arrayBuffer()), from: url, fallback: false };
     }
-    console.warn(`[cover] could not fetch ${url}: ${res.status}; falling back to show art, and leaving any live banner as it is`);
+    const why = res instanceof Error ? res.message : res.status;
+    console.warn(`[cover] could not fetch ${url}: ${why}; falling back to show art, and leaving any live banner as it is`);
   }
   if (!existsSync(SHOW_ART)) {
     throw new Error(

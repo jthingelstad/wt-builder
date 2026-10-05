@@ -70,6 +70,13 @@ describe('the live banner', () => {
     expect(h.puts.map((p) => p.Key)).toEqual([bannerKey(990)]);
   });
 
+  it('is left alone, with show art in the mp3, when the photo’s host refuses the connection', async () => {
+    answer = async () => { throw new TypeError('fetch failed'); };
+    const cover = await buildCover({ number: 990, coverSource: PHOTO });
+    expect(cover.source).toBe('show art');
+    expect(h.puts).toEqual([]);
+  });
+
   it('is replaced from the photo when the photo was fetched', async () => {
     const bytes = await jpeg();
     answer = async () => new Response(bytes, { status: 200 });
