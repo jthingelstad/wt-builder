@@ -195,13 +195,9 @@ Not using titles because it changes how syndication works.
 
 I've even seen posts use hashtags and @username conventions on a platform that is ignorant to them, but are solely intended for the service it is syndicated.
 
-*
-
 I disconnected my blog from all syndication and it is interesting how freeing it has felt.
 
 I use titles more. I use the number of photos I want. I add links where they make sense.
-
-*
 
 Writing for a timeline is a job. The timeline is a distilled and sterile system to give the algorithms an equal chunk of content to drive engagement. The limits of those chunks are non-sensical outside of that timeline.
 

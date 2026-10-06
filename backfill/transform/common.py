@@ -433,7 +433,10 @@ def finalize_script(output: list[str]) -> str:
     for entry in output:
         # Lines that strip to nothing after emoji removal are decorative
         # ("👋", "👨‍💻") — TTS would otherwise speak their unicode names.
-        if entry and not strip_emoji(entry).strip():
+        # Lines left with no letter or digit say nothing either: WT119's
+        # all-emoji greeting became ".. …" and "?", which the synthesizer
+        # returns as silence, and a stray "*" or "-" is the same.
+        if entry and not any(char.isalnum() for char in strip_emoji(entry)):
             continue
         cleaned.append(entry)
     script = "\n".join(cleaned)

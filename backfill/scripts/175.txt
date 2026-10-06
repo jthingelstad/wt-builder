@@ -221,7 +221,6 @@ Develop a Model / Diversify
 Crypto are very different, with different objectives. You can treat them as a basket for broad crypto investment and a bet on decentralized financial systems. But that is where it ends. I think you should develop a model for each one and why it is applicable for investment. My current thinking is:
 
 | Crypto | Value |
-| --- | --- |
 | BTC | Stored value. I think of it as gold. |
 | ETH | A bet on a different compute model. |
 | LINK | A bet on smart contracts. |

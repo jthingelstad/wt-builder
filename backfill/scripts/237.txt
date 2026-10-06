@@ -112,8 +112,6 @@ Hybrid Apps
 
 Using crypto technology to solve just part of the solution for an existing service is a great use case. I think these will lag though as they need significant adoption of crypto via primary use cases to power these secondary ones.
 
-*
-
 In conclusion, this list is what makes me excited about the Ethereum landscape. There are other valuable things happening in crypto, but these use cases have a lot of potential, and are not easily solved using other approaches.
 
 That's the end of Featured.

@@ -155,7 +155,6 @@ Journal entry eight. Bitcoin Books and BTC Price
 I saw this list of Bitcoin books with the price of BTC at time of release on Nostr, reshared from stacker.news. I turned it into proper text as a table and putting it here for reference.
 
 | Date | BTC-USD | Book |
-| ---- | ---- | ---- |
 | 03/01/14 | 258 dollars | Bitcoin: Beginner’s Guide |
 | 06/14/14 | 604 dollars | The Book of Satoshi |
 | 07/01/14 | 640 dollars | Mastering Bitcoin |

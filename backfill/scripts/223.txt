@@ -274,8 +274,6 @@ My Introduction to the POAP Community
 
 I shared this introduction on the POAP Discourse server on January 8. I’m publishing here on my blog as well for posterity. I’m still a big fan of POAPs. It is my favorite project to introduce people to crypto with.
 
-*
-
 gm all!
 
 I first discovered POAP's with the ENS fourth Anniversary Snapshot Vote on 04-June-twenty twenty one and I was instantly intrigued. I have always had fun collecting things and particularly find it interesting having digital tokens that capture things. Photos stop time. Geo coordinates stop motion. POAPs are a time capsule of something of note.

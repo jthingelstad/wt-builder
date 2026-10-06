@@ -156,7 +156,6 @@ Journal entry eleven. 1,000th candle
 We were talking over dinner about the Things 4 Good Candle Fundraiser and thinking we should make note when we sell the 1,000th candle. It turns out we already did -- this year!
 
 | Year | Candles |
-| ---- | ---- |
 | twenty twenty one | 134 |
 | twenty twenty two | 180 |
 | twenty twenty three | 226 |

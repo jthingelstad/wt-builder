@@ -53,13 +53,9 @@ Quote.
 Last year, there were 6.7 million weekly active servers, essentially spaces with at least some conversation in a given week. This year, there are 19 million weekly active servers -- 3x YoY growth -- and the year isn’t even over yet.
 End quote.
 
-……
-
 Quote.
 More servers means more users. In twenty seventeen, Discord had 10 million monthly active users (MAUs). This year, just four years later, it boasts 150 million. For those keeping score at home, that’s 15x growth in four years, or a 96.8% CAGR.
 End quote.
-
-……
 
 Quote.
 Discord’s revenue growth has outpaced even its user growth. From 5 million dollars in twenty sixteen, Discord grew revenue to 130 million dollars in twenty twenty, good for an astonishing 126% CAGR over four years.

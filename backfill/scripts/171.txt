@@ -37,7 +37,6 @@ Workouts
 Trying a table for this this week. The first number is minutes and the kcal is in paranthesis.
 
 | Workout | Fri | Sat | Sun | Mon | Tue | Wed | Thu |
-|----------|----------|----------|-----|-----|----------|----------|-----|
 | Cycling | 30 (556) | | | | 30 (590) | 30 (473) | |
 | Strength | | | | | | | |
 | Walking | 55 (392) | 38 (232) | | | 33 (198) | | |

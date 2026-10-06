@@ -265,8 +265,6 @@ Over dinner I was able to authenticate and provision a Bitcoin mining unit just 
 
 Moving beyond passwords, and digital signatures to prove validity of content, are going to increase in significance over time and it is great to see Lightning bring that capability to the Bitcoin ecosystem.
 
-*
-
 During the 2 days of Bitcoin twenty twenty three I relied almost exclusively on Bitcoin to pay for lunches, coffees, and anything else I wanted. I also took the opportunity to send Satoshis to some of the speakers and people that I met at the event. It was incredible. It gave me all the privacy and benefit of cash, along with all the benefit of digital money.
 
 So my earlier assertion that Bitcoin is a store-of-value but not useful for day to day purchases? Wrong.
