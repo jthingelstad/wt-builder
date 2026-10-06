@@ -92,12 +92,6 @@ I had not heard of this event and it is a monster “15 stages over the course o
 
 That's the end of Notable Links.
 
-Now, the Give Back section.
-
-The Electronic Frontier Foundation is the leading nonprofit organization defending civil liberties in the digital world. I have been a member of the EFF for years. Not only is the EFF working hard to protect you on the Internet they have also recently launched solutions like Privacy Badger and the critically important Let's Encrypt service to make encrypting web servers free to anyone. Support the EFF with a donation!
-
-That's the end of Give Back.
-
 Now, more links.
 
 - PyPy.js pypyjs.org

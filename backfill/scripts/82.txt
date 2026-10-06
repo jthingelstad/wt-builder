@@ -109,12 +109,6 @@ I listen to Mac Power Users from time-to-time and it’s funny — I got the sen
 
 That's the end of Notable Links.
 
-Now, the Give Back section.
-
-Let's Encrypt is a free, automated, and open certificate authority, run for the public’s benefit. All connections to web servers should be encrypted! The biggest challenge with encrypting the web historically has been the cost and hassle of getting an SSL certificate. Let's Encrypt has changed that entirely by being a free certificate authority. Let's Encrypt is possibly one of the most important things to happen on the web in recent years. Donate to Let's Encrypt today!
-
-That's the end of Give Back.
-
 Now, more links.
 
 - AWS Toolkits for PyCharm, IntelliJ (Preview), and Visual Studio Code (Preview) | AWS News Blog aws.amazon.com

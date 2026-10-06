@@ -113,12 +113,6 @@ Summary of some key highlights from Jeff Bezos Shareholder letter. I really like
 
 That's the end of Notable Links.
 
-Now, the Give Back section.
-
-The Electronic Frontier Foundation is the leading nonprofit organization defending civil liberties in the digital world. I have been a member of the EFF for years. Not only is the EFF working hard to protect you on the Internet they have also recently launched solutions like Privacy Badger and the critically important Let's Encrypt service to make encrypting web servers free to anyone. Support the EFF with a donation!
-
-That's the end of Give Back.
-
 Now, more links.
 
 - Tinder’s move to Kubernetes – Tinder Engineering – Medium medium.com
