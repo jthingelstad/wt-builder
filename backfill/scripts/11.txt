@@ -36,7 +36,11 @@ I’m a Kickstarter backer of Micro.blog and all of my status updates are sent u
 
 Link six. "Webmention.io"
 
-Webmention.io is a hosted service created to easily handle webmentions (and legacy pingbacks) on any web page. This is a handy service for static websites that want to catch references from other sites. WordPress natively handles these but static websites cannot, without something like this. I added this to my site so I can capture web mentions.
+Quote.
+Webmention.io is a hosted service created to easily handle webmentions (and legacy pingbacks) on any web page.
+End quote.
+
+This is a handy service for static websites that want to catch references from other sites. WordPress natively handles these but static websites cannot, without something like this. I added this to my site so I can capture web mentions.
 
 Link seven. "Tufte CSS"
 

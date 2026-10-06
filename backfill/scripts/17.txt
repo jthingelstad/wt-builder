@@ -20,7 +20,11 @@ Interesting (worrisome?) read from a publisher on how they think of their relati
 
 Link two. "Event Sourcing | Microsoft Docs"
 
-Microsoft writes up some amazing pattern and architecture stuff. This event sourcing pattern was mentioned in a discussion I was in recently. Good overview!  Instead of storing just the current state of the data in a domain, use an append-only store to record the full series of actions taken on that data. The store acts as the system of record and can be used to materialize the domain objects.
+Microsoft writes up some amazing pattern and architecture stuff. This event sourcing pattern was mentioned in a discussion I was in recently. Good overview!
+
+Quote.
+Instead of storing just the current state of the data in a domain, use an append-only store to record the full series of actions taken on that data. The store acts as the system of record and can be used to materialize the domain objects.
+End quote.
 
 Link three. "Twitter Bots Use Likes, RTs for Intimidation —Krebs on Security"
 

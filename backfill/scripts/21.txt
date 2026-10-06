@@ -14,7 +14,11 @@ Now, the Links section.
 
 Link one. "Privacy - Apple"
 
-Apple products are designed to do amazing things. And designed to protect your privacy. Apple outlining the work that they do in various platforms and services to protect your privacy. They don't mention Google here but they don't need to. I continue to believe that Apple has a long-term position that this is important, even if consumers don't value it highly today. The Approach to Privacy page is worth a read too.
+Quote.
+Apple products are designed to do amazing things. And designed to protect your privacy.
+End quote.
+
+Apple outlining the work that they do in various platforms and services to protect your privacy. They don't mention Google here but they don't need to. I continue to believe that Apple has a long-term position that this is important, even if consumers don't value it highly today. The Approach to Privacy page is worth a read too.
 
 Link two. "How Silicon Valley Reacts to Apple's iPhone X - YouTube"
 
@@ -54,7 +58,13 @@ It’s Microsoft's big week for new announcements to Azure and this specific ang
 
 Link eleven. "I asked Tinder for my data. It sent me 800 pages of my deepest, darkest secrets | Technology | The Guardian"
 
-There are a lot of posts about all that Facebook knows about you — it’s interesting to see one on what Tinder knows about it’s users. This line at the end of the article drew my attention. As a typical millennial constantly glued to my phone, my virtual life has fully merged with my real life. There is no difference any more. That puts Terms of Service and Privacy Policies in a bit of a different light.
+There are a lot of posts about all that Facebook knows about you — it’s interesting to see one on what Tinder knows about it’s users. This line at the end of the article drew my attention.
+
+Quote.
+As a typical millennial constantly glued to my phone, my virtual life has fully merged with my real life. There is no difference any more.
+End quote.
+
+That puts Terms of Service and Privacy Policies in a bit of a different light.
 
 Link twelve. "Relicensing the GraphQL specification – Lee Byron – Medium"
 
@@ -78,7 +88,11 @@ Curious to understand better what people mean when they say observability and wh
 
 Link seventeen. "Are Industrial Robot Costs Hitting an Inflection Point?"
 
-The graphs in this article tell the story of the dropping prices of industrial robots. Look at those graphs and then think of the employment in the industrial sector. Now what would the graph of Industrial Robot Cost look like if overlaid on the employment cost of people. It’s concerning where this goes, but seems inevitable. As machine learning and new sensing capabilities impact them, not only will their performance improve but other costs associated with installation and integration should fall as well. For example, they will require little or no human programming and will be able to roam freely instead of being trapped in safety cages and by other barriers.
+The graphs in this article tell the story of the dropping prices of industrial robots. Look at those graphs and then think of the employment in the industrial sector. Now what would the graph of Industrial Robot Cost look like if overlaid on the employment cost of people. It’s concerning where this goes, but seems inevitable.
+
+Quote.
+As machine learning and new sensing capabilities impact them, not only will their performance improve but other costs associated with installation and integration should fall as well. For example, they will require little or no human programming and will be able to roam freely instead of being trapped in safety cages and by other barriers.
+End quote.
 
 Link eighteen. "Spend More Time Alone - Study Hacks - Cal Newport"
 

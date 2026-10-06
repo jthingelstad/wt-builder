@@ -20,7 +20,13 @@ Love the first line of Apple's response to this criticism from creepy ad network
 
 Link two. "Understanding the prevalence of web traffic interception"
 
-This is more interesting information from Cloudflare: We found that between 4% and 10% of the web’s encrypted traffic (HTTPS) is intercepted. Analyzing these intercepted connections further reveals that, while not always malicious, interception products most often weaken the encryption used to secure communication and puts users at risk. That is more encrypted traffic interception than I would have ever guessed.
+This is more interesting information from Cloudflare:
+
+Quote.
+We found that between 4% and 10% of the web’s encrypted traffic (HTTPS) is intercepted. Analyzing these intercepted connections further reveals that, while not always malicious, interception products most often weaken the encryption used to secure communication and puts users at risk.
+End quote.
+
+That is more encrypted traffic interception than I would have ever guessed.
 
 Link three. "Mozilla and the Washington Post Are Reinventing Online Comments - The Mozilla Blog"
 
@@ -88,7 +94,11 @@ I’m a fan of Python and almost all the (very little) coding I do I do in Pytho
 
 Link nineteen. "Equifax Breach Response Turns Dumpster Fire — Krebs on Security"
 
-More background from Brian Krebs on this massive data breach at Equifax. I cannot recall a previous data breach in which the breached company’s public outreach and response has been so haphazard and ill-conceived as the one coming right now from big-three credit bureau Equifax, which rather clumsily announced Thursday that an intrusion jeopardized Social security numbers and other information on 143 million Americans.
+More background from Brian Krebs on this massive data breach at Equifax.
+
+Quote.
+I cannot recall a previous data breach in which the breached company’s public outreach and response has been so haphazard and ill-conceived as the one coming right now from big-three credit bureau Equifax, which rather clumsily announced Thursday that an intrusion jeopardized Social security numbers and other information on 143 million Americans.
+End quote.
 
 Link twenty. "Why the Equifax breach is very possibly the worst leak of personal info ever | Ars Technica"
 

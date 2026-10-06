@@ -32,7 +32,9 @@ Good collection of information on how to shoot better photos.
 
 Link four. "jq"
 
+Quote.
 jq is like sed for JSON data - you can use it to slice and filter and map and transform structured data with the same ease that sed, awk, grep and friends let you play with text. jq is written in portable C, and it has zero runtime dependencies.
+End quote.
 
 Link five. "Things 3: Beauty and Delight in a Task Manager -- MacStories"
 
@@ -40,39 +42,57 @@ I'm a OmniFocus user but it's interesting to see what other task managers are do
 
 Link six. "Cookie dough craze comes to Minnesota with not one, but two food trucks - StarTribune.com"
 
+Quote.
 The cookie dough craze that started on the East Coast and has taken social media by storm has finally worked its way to Minnesota. A safe-to-consume version of the stuff everyone loves to eat out of the mixing bowl --- even though they're not supposed to --- is just the latest fad food to take over cupcakes' one-time reign.
+End quote.
 
 Link seven. "Intro to Micro.blog | noahread.net"
 
+Quote.
 The long anticipated time has arrived. Manton Reece's Micro.blog is rolling out to Kickstarter backers. I've been on the platform for a while, but it is a lot of fun to see new folks showing up every day and talking to each other.
+End quote.
 
 Link eight. "JSON Feed: Version 1"
 
+Quote.
 The JSON Feed format is a pragmatic syndication format, like RSS and Atom, but with one big difference: it's JSON instead of XML. For most developers, JSON is far easier to read and write than XML. Developers may groan at picking up an XML parser, but decoding JSON is often just a single line of code.
+End quote.
 
 Link nine. "A New Kind of Science: A 15-Year View -- Backchannel"
 
+Quote.
 Starting now, in celebration of its fifteenth anniversary, A New Kind of Science will be freely available in its entirety, with high-resolution images, on the web or for download
+End quote.
 
 Link ten. "Machine Learning ---xkcd.com"
 
+Quote.
 "Just stir the pile until they start looking right."
+End quote.
 
 Link eleven. "Storage Startup Vets Return w/ 8.65 million dollars A for Atavium ---TechDotMN"
 
+Quote.
 Atavium's revolutionary data management system gives its customers the ability to automate the lifecycle of their data, even before the data is created. Atavium will use this investment to build its engineering team and bring the product to market.
+End quote.
 
 Link twelve. "Exponential growth devours and corrupts -- Signal v. Noise"
 
+Quote.
 There is no higher God in Silicon Valley than growth. No sacrifice too big for its craving altar. As long as you keep your curve exponential, all your sins will be forgotten at the exit.
+End quote.
 
 Link thirteen. "Logs and Metrics -- Cindy Sridharan -- Medium"
 
+Quote.
 Both logs as well as metrics, on the other hand, are examples of whitebox monitoring, which refers to a category of monitoring tools and techniques that work with data reported from the internals of a system. Together with distributed request tracing, metrics and logs form the three pillars of observability.
+End quote.
 
 Link fourteen. "What does sponsorship look like? | Lara Hogan"
 
+Quote.
 What members of underrepresented groups in tech often need most is opportunity and visibility, not advice. They have to work extremely hard and be extremely good at what they do to combat the systemic privilege and unconscious bias at play in our work environments. They are consistently under-promoted and under-compensated for this work, even though it's excellent work.
+End quote.
 
 Link fifteen. "Carbon dioxide in carbonated beverages induces ghrelin release and increased food consumption in male rats: Implications on the onset of obesity. - PubMed - NCBI"
 
@@ -84,15 +104,21 @@ This looks like a great way to learn to play guitar. Looks very well done. Could
 
 Link seventeen. "DigitalGlobe moves to the cloud with AWS Snowmobile | DigitalGlobe Blog"
 
+Quote.
 During our AWS Snowball experience, we developed a strong working relationship with AWS. When they approached us to be the inaugural user of the AWS Snowmobile, we climbed onboard. AWS Snowmobile is an exabyte-scale data transfer service used to move extremely large amounts of data to AWS. You can transfer up to 100PB per Snowmobile, a 45-foot long ruggedized shipping container, pulled by a semi-trailer truck.
+End quote.
 
 Link eighteen. "Introducing Badger: A fast key-value store written natively in Go - Dgraph Blog"
 
+Quote.
 We have built an efficient and persistent log structured merge (LSM) tree based key-value store, natively in Go language. It is based upon WiscKey paper included in USENIX FAST twenty sixteen. This design is highly SSD-optimized and separates keys from values to minimize I/O amplification; leveraging both the sequential and the random performance of SSDs.
+End quote.
 
 Link nineteen. "NASA's ten coding commandments - JAXenter"
 
+Quote.
 NASA has produced its own set of coding standards to ensure code quality and safety among all NASA applications. These standards have evolved from their own guidelines and are set to be applicable to the greater software development industry.
+End quote.
 
 That's the end of Links.
 

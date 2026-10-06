@@ -34,11 +34,23 @@ Apple purposefully doesn't tout CPU benchmarks on their machines and will usuall
 
 Link six. "The inside story of the iPhone X 'brain,' the A11 Bionic chip"
 
-What Apple is doing with the silicon behind the iPhone is amazing. They are miles ahead of anyone else in mobile. You could be forgiven if, after Apple’s giant, two-hour product launch event on Tuesday, the only thing you remembered is the stunning iPhone X. It is special. It’s also nothing without the A11 Bionic CPU. As an aside, it’s surprising to see how many companies Apple has purchased in the hardware and fabrication space.
+What Apple is doing with the silicon behind the iPhone is amazing. They are miles ahead of anyone else in mobile.
+
+Quote.
+You could be forgiven if, after Apple’s giant, two-hour product launch event on Tuesday, the only thing you remembered is the stunning iPhone X. It is special. It’s also nothing without the A11 Bionic CPU.
+End quote.
+
+As an aside, it’s surprising to see how many companies Apple has purchased in the hardware and fabrication space.
 
 Link seven. "Anatomy of a Moral Panic"
 
-So much truth in this article. I spent years in media and the incentives and revenue systems that have evolved there are not good for the mission of news organizations. And reporters have no choice but to chase clicks. Because Google and Facebook have a duopoly on online advertising, the only measure of success in publishing is whether a story goes viral on social media. Authors are evaluated by how individual stories perform online, and face constant pressure to make them more arresting. Highly technical pieces are farmed out to junior freelancers working under strict time limits. Corrections, if they happen at all, are inserted quietly through ‘ninja edits’ after the fact. That pretty much sums up the status quo.
+So much truth in this article. I spent years in media and the incentives and revenue systems that have evolved there are not good for the mission of news organizations.
+
+Quote.
+And reporters have no choice but to chase clicks. Because Google and Facebook have a duopoly on online advertising, the only measure of success in publishing is whether a story goes viral on social media. Authors are evaluated by how individual stories perform online, and face constant pressure to make them more arresting. Highly technical pieces are farmed out to junior freelancers working under strict time limits. Corrections, if they happen at all, are inserted quietly through ‘ninja edits’ after the fact.
+End quote.
+
+That pretty much sums up the status quo.
 
 Link eight. "SPS Academy | Elimisha Children's Project"
 
@@ -72,11 +84,19 @@ End quote.
 
 Link fifteen. "Facebook’s war on free will | Technology | The Guardian"
 
+Quote.
 The long read: How technology is making our minds redundant
+End quote.
 
 Link sixteen. "How Useful is Tufte for Making Maps? | Making Maps: DIY Cartography"
 
-John Krygier, a cartographer and professor, takes Tufte's visual display guidelines. The 20 Tufteisms and the Six Commandments are superficially less than I expected, from the perspective of practical guidelines. But, upon reflection, they do touch on many of the fundamental issues that determine if a map design is going to work or not, and what could more practical than that? Not a takedown per se, but a detailed breakdown of how you would practically apply these techniques.
+John Krygier, a cartographer and professor, takes Tufte's visual display guidelines.
+
+Quote.
+The 20 Tufteisms and the Six Commandments are superficially less than I expected, from the perspective of practical guidelines. But, upon reflection, they do touch on many of the fundamental issues that determine if a map design is going to work or not, and what could more practical than that?
+End quote.
+
+Not a takedown per se, but a detailed breakdown of how you would practically apply these techniques.
 
 Link seventeen. "Satya Nadella Rewrites Microsoft’s Code"
 
@@ -128,7 +148,13 @@ This article from a male co-founder reflecting on how his female co-founder was 
 
 Link twenty eight. "An open letter to the W3C Director, CEO, team and membership | Electronic Frontier Foundation"
 
-I linked to this W3C DRM decision and now we see the EFF reaction to endorse "Encrypted Media Extensions", to make DRM possible, on the web.  You have to search long and hard to find an independent technologist who believes that DRM is possible, let alone a good idea. Yet, somewhere along the way, the business values of those outside the web got important enough, and the values of technologists who built it got disposable enough, that even the wise elders who make our standards voted for something they know to be a fool's errand. I’m not sure what I think about leaving the W3C to protest this but I do believe the EFF is on the right side of this position. Check out Gruber's comments on the same article.
+I linked to this W3C DRM decision and now we see the EFF reaction to endorse "Encrypted Media Extensions", to make DRM possible, on the web.
+
+Quote.
+You have to search long and hard to find an independent technologist who believes that DRM is possible, let alone a good idea. Yet, somewhere along the way, the business values of those outside the web got important enough, and the values of technologists who built it got disposable enough, that even the wise elders who make our standards voted for something they know to be a fool's errand.
+End quote.
+
+I’m not sure what I think about leaving the W3C to protest this but I do believe the EFF is on the right side of this position. Check out Gruber's comments on the same article.
 
 Link twenty nine. "Netlify: All-in-one platform for automating modern web projects."
 

@@ -18,7 +18,11 @@ Now, the Links section.
 
 Link one. "Chef Camp"
 
-A wilderness culinary retreat. Chef-led campfire cooking classes, foraging and gourmet meals mix with classic summer camp activities. This looks like a super fun time! Adding to our to do list for summer twenty eighteen! ︎
+Quote.
+A wilderness culinary retreat. Chef-led campfire cooking classes, foraging and gourmet meals mix with classic summer camp activities.
+End quote.
+
+This looks like a super fun time! Adding to our to do list for summer twenty eighteen! ︎
 
 Link two. "Recode Your Health - How Apple Engineered Its Watch to Push You to Perform at Your Peak | Men's Health"
 

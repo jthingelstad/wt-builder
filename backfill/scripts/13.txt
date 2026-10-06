@@ -48,25 +48,81 @@ Quote.
 He's early. I'm not sure how early he got to Au Passage, a restaurant serving small plates (Aziz's choice) that's tucked away on a graffiti-riddled street in central Paris. But he beat me—and I was early.
 End quote.
 
-Quantify everything with Exist.io custom tracking - BrettTerpstra.com > Ever since I wrote Slogger, I’ve been working toward a more “quantified self.” I’m really bad at correlating events in my life beyond a couple of days. Did the bad night’s sleep last week lead to eating things the next day I normally wouldn’t, which led to increased stress and decreased physical activity over following days, which resulted in the way I’m feeling today? ### Unread 1.7 Release Notes Unread is my RSS reader of choice, backed by Feedbin. I’m happy to see it find a new home! ### antoinet/valora: WiFi Tracker Confuser Very cool device to throw sand in the gears of people trying to track you. I hope and expect we'll see more devices like this to fight back against privacy invasions. ### Docker versus Kubernetes versus Apache Mesos: Why What You Think You Know is Probably Wrong - Mesosphere > There are countless articles, discussions, and lots of social chatter comparing Docker, Kubernetes, and Mesos. If you listen to the partially-informed, you’d think that the three open source projects are in a fight-to-the death for container supremacy. ### Craft Your Python Like Poetry - Trey Hunner > Line length is a big deal… programmers argue about it quite a bit. PEP 8, the Python style guide, recommends a 79 character maximum line length but concedes that a line length up to 100 characters is acceptable for teams that agree to use a specific longer line length. ### Recommit to the values that built Etsy and aimed to build a better world for us all | Coworker.org > As Etsy employees, we’re privileged to work at a company that takes its mission and values just as seriously as it takes its bottom line. Every day we come to work to support Etsy sellers in earning an income doing something they love. ### toddmotto/public-apis: A collective list of public JSON APIs for use in web development. A collective list of public JSON APIs for use in web development. ### Palantir: the ‘special ops’ tech giant that wields as much real-world power as Google | World news | The Guardian > In Minority Report, the two thousand two movie adaptation of the Philip K Dick novel, Tom Cruise plays a police officer in the LAPD “pre-crime” unit. Using the premonitions of sentient mutants called “pre-cogs”, the police are able to predict when someone is going to commit a crime before it happens, swooping down from helicopters and arresting them on the street before they can do anything. ### The digital native is a myth: Nature News > Some people put the cut-off at 1984, but for most it is 1980. People born after that date are the digital natives; those born before are digital immigrants, doomed to be forever strangers in a computer-based strange land. ### What Makes a Monolith Monolithic? | Form Follows Function > It seems like everybody throws around the term “monolith”, but what do we mean by that? Sam Newman started the ball rolling yesterday with this tweet: I'm at that point in the new book where I have to define what monolith means. ### Ops: It's everyone's job now | Opensource.com I found this view of the continuing evolution of DevOps interesting. I particularly liked the quote that "Distributed systems are never 'up'; they exist in a constant state of partially degraded service. is a lot of truth there.
+Link seven. "Quantify everything with Exist.io custom tracking - BrettTerpstra.com"
 
-Link seven. "Our Minds Have Been Hijacked by Our Phones. Tristan Harris Wants to Rescue Them | WIRED"
+Quote.
+Ever since I wrote Slogger, I’ve been working toward a more “quantified self.” I’m really bad at correlating events in my life beyond a couple of days. Did the bad night’s sleep last week lead to eating things the next day I normally wouldn’t, which led to increased stress and decreased physical activity over following days, which resulted in the way I’m feeling today?
+End quote.
+
+Link eight. "Unread 1.7 Release Notes"
+
+Unread is my RSS reader of choice, backed by Feedbin. I’m happy to see it find a new home!
+
+Link nine. "antoinet/valora: WiFi Tracker Confuser"
+
+Very cool device to throw sand in the gears of people trying to track you. I hope and expect we'll see more devices like this to fight back against privacy invasions.
+
+Link ten. "Docker versus Kubernetes versus Apache Mesos: Why What You Think You Know is Probably Wrong - Mesosphere"
+
+Quote.
+There are countless articles, discussions, and lots of social chatter comparing Docker, Kubernetes, and Mesos. If you listen to the partially-informed, you’d think that the three open source projects are in a fight-to-the death for container supremacy.
+End quote.
+
+Link eleven. "Craft Your Python Like Poetry - Trey Hunner"
+
+Quote.
+Line length is a big deal… programmers argue about it quite a bit. PEP 8, the Python style guide, recommends a 79 character maximum line length but concedes that a line length up to 100 characters is acceptable for teams that agree to use a specific longer line length.
+End quote.
+
+Link twelve. "Recommit to the values that built Etsy and aimed to build a better world for us all | Coworker.org"
+
+Quote.
+As Etsy employees, we’re privileged to work at a company that takes its mission and values just as seriously as it takes its bottom line. Every day we come to work to support Etsy sellers in earning an income doing something they love.
+End quote.
+
+Link thirteen. "toddmotto/public-apis: A collective list of public JSON APIs for use in web development."
+
+A collective list of public JSON APIs for use in web development.
+
+Link fourteen. "Palantir: the ‘special ops’ tech giant that wields as much real-world power as Google | World news | The Guardian"
+
+Quote.
+In Minority Report, the two thousand two movie adaptation of the Philip K Dick novel, Tom Cruise plays a police officer in the LAPD “pre-crime” unit. Using the premonitions of sentient mutants called “pre-cogs”, the police are able to predict when someone is going to commit a crime before it happens, swooping down from helicopters and arresting them on the street before they can do anything.
+End quote.
+
+Link fifteen. "The digital native is a myth: Nature News"
+
+Quote.
+Some people put the cut-off at 1984, but for most it is 1980. People born after that date are the digital natives; those born before are digital immigrants, doomed to be forever strangers in a computer-based strange land.
+End quote.
+
+Link sixteen. "What Makes a Monolith Monolithic? | Form Follows Function"
+
+Quote.
+It seems like everybody throws around the term “monolith”, but what do we mean by that? Sam Newman started the ball rolling yesterday with this tweet: I'm at that point in the new book where I have to define what monolith means.
+End quote.
+
+Link seventeen. "Ops: It's everyone's job now | Opensource.com"
+
+I found this view of the continuing evolution of DevOps interesting. I particularly liked the quote that "Distributed systems are never 'up'; they exist in a constant state of partially degraded service." There is a lot of truth there.
+
+Link eighteen. "Our Minds Have Been Hijacked by Our Phones. Tristan Harris Wants to Rescue Them | WIRED"
 
 Quote.
 Sometimes our smart phones are our friends, sometimes they seem like our lovers, and sometimes they’re our dope dealers. And no one, in the past 12 months at least, has done more than Tristan Harris to explain the complexity of this relationship.
 End quote.
 
-Link eight. "danah boyd | apophenia » Tech Culture Can Change"
+Link nineteen. "danah boyd | apophenia » Tech Culture Can Change"
 
 Quote.
 We need: Recognition, Repentance, Respect, and Reparation. To be honest, what surprises me most about the current conversation about the inhospitable nature of tech for women is that people are surprised.
 End quote.
 
-Link nine. "Hack The Heat Is Coming Back For More —TechDotMN"
+Link twenty. "Hack The Heat Is Coming Back For More —TechDotMN"
 
 Hack the Heat is a really cool event ran by high school students for other students. Very happy that SPS Commerce is going to be hosting this 24 hour event again!
 
-Link ten. "Here’s How Unicorns Trick You Into Thinking They’re Real - Bloomberg"
+Link twenty one. "Here’s How Unicorns Trick You Into Thinking They’re Real - Bloomberg"
 
 News flash -- private valuations aren't very accurate. In other news, the sky is blue.
 
