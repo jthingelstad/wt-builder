@@ -6,7 +6,7 @@ Now, the Featured Links section.
 
 Link one. "Scaling Agile FAQ | Silicon Valley Product Group"
 
-I've been reading a lot about SAFe and I know a number of people that are intrigued by what it offers. I've seen the struggles of Scaling Agile beyond a small number of teams and SAFe seems to have a thought for how that can be done. In the interest of sharing the positive over the negative, I came to this link from Marty Cagan 's total and complete takedown of SAFe, Revenge of the PMO (please read in addition to this link)!
+I've been reading a lot about SAFe and I know a number of people that are intrigued by what it offers. I've seen the struggles of Scaling Agile beyond a small number of teams and SAFe seems to have a thought for how that can be done. In the interest of sharing the positive over the negative, I came to this link from Marty Cagan's total and complete takedown of SAFe, Revenge of the PMO (please read in addition to this link)!
 
 He highlights that many organizations, in his view, have yet to truly embrace the most important part of agile.
 
@@ -108,15 +108,13 @@ I’m hoping they share videos from the sessions. I’m very pleased to see this
 
 Link nine. "Michael Pollan: "How to Change Your Mind" | Talks at Google"
 
-This talk piqued my interest in Michael Pollan 's new book How to Change Your Mind about psychedelics. Don't be discouraged that the talk is all Q and A style, which I often find meandering and less impactful. The questions are good and the topics covered are interesting. I was surprised to see meditation make a showing in the discussion as well.
+This talk piqued my interest in Michael Pollan's new book How to Change Your Mind about psychedelics. Don't be discouraged that the talk is all Q and A style, which I often find meandering and less impactful. The questions are good and the topics covered are interesting. I was surprised to see meditation make a showing in the discussion as well.
 
 Link ten. "My framework for one-on-ones - Engineering Management"
 
 I always like to see how others manage one-on-one meeting time with their teams. This is what happens when a very logic-based engineer attempts to opitimize one-on-one structures. This seems way too formal to me, but interesting snippets.
 
 Itty bitty sites
-(
-RNdl0Tr6HSxjwcNGISk66vPw5WVM2RxDcUJecKKoShy+sLRgZIwYj0YgSM+5NMGTXtBkBxabwiWnxcECQTItyM2XWkNjvIYJyHX5lVKC5z2wJn3yV8KPobM6ky+6l3oMBo2ffIQ4P35hgBU7bTOtF35gH0sxUWeVp+bVQ+Fwwo+v76Gcu1d/ZrXwiSFNfgxeBfE2zKfKeiZKPoJQgUSbwFXjlFgovL4fVjxBtS60mByYJLH/MakoIBlYL0w6mOukdQqv6FsyIj6Hlp4XqIBEydVIUjBSF8tQcPLdSgXxVkJKR1iWOK0tMefTK79Nn+qQE0VhRKmu7wBJeqboC7tnOpISeWc9NvG2GDVEa1W9bP7hEBEj+ThZNaWIkEOiX7PxZe/XmneEJdWyIMEKv2zB7qybBG/wVy1b7lz3wmg84u75TFjUd1hf7/+yOalyXiVvb/zrNAh8B62Hd1yAzlqY0kD2xM69DSKezUZA4seMZ7FEFdUENmkSnZwFMVIKutAgUpiMYG1fTcLHgwb6iWAi5YOrWoBlTcsk3fCDXIMrjFgSKZ/Bgp8PydrcQ2GYgkCtxRaEM4tgTHRheFg06vQdo478dSnhmSobCvF1nghp1ZuNsQvJdk8/eu/ZgeJp8OjJNzPL0Ovk9orPPtoX2uyUFXfP2qJIuVvjsx4opouk4lHrQZzADX3Wg3Tf4+eYos/HWyCeEDn/8Gnr1A=)
 itty.bitty.site
 
 This made me smile and chuckle and I love it. You can create a web page where the content of the page is encoded into the URL. What an interesting way to create content that lives, well, nowhere! You could do some fun things with this!

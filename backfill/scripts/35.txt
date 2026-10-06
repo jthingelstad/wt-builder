@@ -4,14 +4,14 @@ I hope you all had a great New Years and a fabulous start to twenty eighteen! Fo
 
 I also kicked off the new year by taking Shawn Blanc's Focus Course. There are a few things I’m thinking about working on in twenty eighteen and establishing more focus is one of them. I decided to take it along with some friends that were also interested. I’m enjoying the course so far!
 
-Now, the Photog section.
+Now, the Photo section.
 
 One of our New Years Eve traditions with the kids is a game of Clue. This year Mrs. Peacock did it with the Wrench in the Hall!
 
 Dec 31, twenty seventeen at 9:03 PM
 Home, Minneapolis MN
 
-That's the end of Photog.
+That's the end of Photo.
 
 Now, the Links section.
 
@@ -87,7 +87,7 @@ Thorough list of tools that this person uses to track and measure various aspect
 
 Link fourteen. "Checklist-Checklist: A Curated List of Checklists ︎︎"
 
-Like seeing Checklist Manifesto I started a wiki at CCChecklist.org. The idea of that project was to be a Creative Commons licensed collection of checklists to share. This project is similar just using Github instead of a wiki. I never launched that project, but the concept is still really good. Minor nitpick that Github Flavored Markdown for the checklists and I think Taskpaper would be a more useful and interoperable format.
+Like seeing this. After reading the Checklist Manifesto I started a wiki at CCChecklist.org. The idea of that project was to be a Creative Commons licensed collection of checklists to share. This project is similar just using Github instead of a wiki. I never launched that project, but the concept is still really good. Minor nitpick that this is using Github Flavored Markdown for the checklists and I think Taskpaper would be a more useful and interoperable format.
 
 Link fifteen. "IKEA effect - Wikipedia"
 

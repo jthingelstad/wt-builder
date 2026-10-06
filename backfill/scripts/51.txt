@@ -165,7 +165,7 @@ Additional links of interest from this week.
 - How to break a Monolith into Microservices (martinfowler.com)
 - Microcasting on Micro.blog with Wavelength – MacStories (www.macstories.net)
 - Not getting angry about issues that make me angry – James Shelley (jamesshelley.com)
-- The “unpatchable” exploit that makes every current Nintendo [Switch hackable [Updated] | Ars Technica]( (arstechnica.com)
+- [The “unpatchable” exploit that makes every current Nintendo Switch hackable [Updated] | Ars Technica]( (arstechnica.com)
 - A Modest Guide to Productivity —Frank Chimero (frankchimero.com)
 
 That's the end of Breadcrumbs.

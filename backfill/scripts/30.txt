@@ -85,7 +85,7 @@ Another option for storing secrets for your systems and infrastructure.
 
 Link twelve. "MindNode 5 - It starts with a thought - MindNode"
 
-New major release of one of my favorite mind mapping tools (the other is iThoughts ). I like MindNode's simpler and light user interface. It’s a great place to do brainstorming. Also, a good review of this on MacStories.
+New major release of one of my favorite mind mapping tools (the other is iThoughts). I like MindNode's simpler and light user interface. It’s a great place to do brainstorming. Also, a good review of this on MacStories.
 
 Link thirteen. "MediaWiki Pivot Skin"
 
@@ -105,7 +105,7 @@ This behavior sounds really familiar —! Food research and health effects are n
 
 Link sixteen. "RememBear: Secure Password Manager"
 
-A new entrant into the Password (Secret) Manager space. I've been a 1Password user for years (and the whole family is safe with 1Password for Families ) and will stick with it. This is from the same company that makes the TunnelBear VPN offering which I have used in the past.
+A new entrant into the Password (Secret) Manager space. I've been a 1Password user for years (and the whole family is safe with 1Password for Families) and will stick with it. This is from the same company that makes the TunnelBear VPN offering which I have used in the past.
 
 Link seventeen. "Carp | Veit's Blog"
 

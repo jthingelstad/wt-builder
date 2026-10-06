@@ -66,7 +66,7 @@ Now, the Culture section.
 A radical proposal to keep your personal data safe | Richard Stallman | Opinion | The Guardian
 www.theguardian.com
 
-I really want to like Stallman 's perspective on privacy, but I find his positions to be disconnected from reality. I once got the opportunity to have lunch with Stallman when he was in Minneapolis and I asked him how his positions extended to services over the web. He flatly just said he doesn't use them because it’s not free open source software. I insist that there must be a position in the middle, as Stallman's view is not workable.
+I really want to like Stallman's perspective on privacy, but I find his positions to be disconnected from reality. I once got the opportunity to have lunch with Stallman when he was in Minneapolis and I asked him how his positions extended to services over the web. He flatly just said he doesn't use them because it’s not free open source software. I insist that there must be a position in the middle, as Stallman's view is not workable.
 
 That's the end of Culture.
 
@@ -310,7 +310,7 @@ We won “The Circus” room at D.O.A. Room Escape today with a few minutes to s
 
 Sunday @ 10:03 AM
 
-“Listicles ” turned into slide shows should be considered Adware.
+“Listicles” turned into slide shows should be considered Adware.
 
 Saturday @ 9:46 PM
 

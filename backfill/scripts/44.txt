@@ -84,7 +84,7 @@ End quote.
 
 The fluffy language aside, it seems like a useful tool.
 
-What it’s like to be a What it's like to be a developer at … – Increment: Development
+What it’s like to be a developer at … – Increment: Development
 increment.com
 
 Cool article that gives a little glimpse of what it’s like to be a developer at a handful of different companies.

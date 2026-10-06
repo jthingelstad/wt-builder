@@ -162,7 +162,7 @@ Tuesday @ 9:37 PM
 Kubernetes on jets? Neat!
 
 Quote.
-I have to say, I’m really blown away by the #DOD talk at #KubeCon! Really impressive to see the stacks they are using. "We don't run huge clusters, we run many little clusters, weapon systems, business systems, etc… " They are even running #kubernetes #istio on jets! pic.twitter.com/HwmTFi0Qrt — Andy Domeier (@AndyJD_) November 19, twenty nineteen
+I have to say, I’m really blown away by the #DOD talk at #KubeCon! Really impressive to see the stacks they are using. "We don't run huge clusters, we run many little clusters, weapon systems, business systems, etc… " They are even running #kubernetes and #istio on jets! pic.twitter.com/HwmTFi0Qrt — Andy Domeier (@AndyJD_) November 19, twenty nineteen
 End quote.
 
 Tuesday @ 10:01 AM

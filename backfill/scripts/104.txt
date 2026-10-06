@@ -64,7 +64,7 @@ Good reading list.
 I have some handy menu bar apps. It’s cool that there is a directory of them.
 - Darling | macOS translation layer for Linux www.darlinghq.org
 Run macOS applications on Linux. Nifty. Very early, doesn't support GUI apps yet.
-- Report: Tesla to slash solar panel prices to stymie [market-share loss [correction] | Ars Technica]( arstechnica.com
+- [Report: Tesla to slash solar panel prices to stymie market-share loss [correction] | Ars Technica]( arstechnica.com
 I would love to see solar panels get way cheaper.
 - The Good and the Bad of Google Cloud Run – A Cloud Guru read.acloud.guru
 Interesting critique of Google Cloud Run.

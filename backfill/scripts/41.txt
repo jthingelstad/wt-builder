@@ -2,10 +2,14 @@ The Weekly Thing, issue 41. Weekly Thing for February 17, twenty eighteen. Publi
 
 This past week has been a blur with my brother and his family visiting, my son's birthday, Valentine's day and our annual company party! I’m looking forward to catching up on some things this weekend, including my to do list and some sleep.
 
+Now, the Photo section.
+
 Giant THANK YOU in lights at the SPS Social.
 
 Feb 16, twenty eighteen at 7:25 PM
 80 Church St SE, Minneapolis MN
+
+That's the end of Photo.
 
 Now, the Programming section.
 
@@ -71,7 +75,7 @@ Now, the Web section.
 
 Bringing the power of AMP to Gmail
 
-Ugh. AMP was a bad idea to start with and extending it into email, effectively putting a little website into an email, is a terrible idea for privacy or even just our sanity as advertisers will use this to put all sorts of digital Jack In The Box traps in our email!
+Ugh. This is a horrible idea. AMP was a bad idea to start with and extending it into email, effectively putting a little website into an email, is a terrible idea for privacy or even just our sanity as advertisers will use this to put all sorts of digital Jack In The Box traps in our email!
 
 Solid
 
@@ -81,7 +85,7 @@ Quote.
 Solid (derived from "social linked data") is a proposed set of conventions and tools for building decentralized social applications based on Linked Data principles. Solid is modular and extensible and it relies as much as possible on existing W3C standards and protocols.
 End quote.
 
-Tim Berners-Lee is involved.
+Notable that Tim Berners-Lee is involved.
 
 Last blog standing, “last guy dancing”: How Jason Kottke is thinking about kottke.org at 20 » Nieman Journalism Lab
 

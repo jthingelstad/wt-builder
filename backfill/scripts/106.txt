@@ -64,11 +64,11 @@ These concepts that Amazon has built into the AWS engineering organization are r
 
 Link three. "Bunch, a batch app launcher for your Dock - BrettTerpstra.com"
 
-For years I've used a script in AppleScript ( called "Launch Apps.scpt" and when I get to work I run it to start the dozen or so applications that I run all day, every day. Bunch is an app version of that, and has some fun additional features. A fun project that Brett Terpstra ( has added to his list (.
+For years I've used a script in AppleScript called "Launch Apps.scpt" and when I get to work I run it to start the dozen or so applications that I run all day, every day. Bunch is an app version of that, and has some fun additional features. A fun project that Brett Terpstra has added to his list.
 
 Link four. "Millions of people uploaded photos to the Ever app. Then the company used them to develop facial recognition tools."
 
-We need a name for services like this that provide some utility to a user, almost always for free, and then use the data provided to run a completely unrelated, often surveillance focused business on the other side. How about Doppelgänger ( business?
+We need a name for services like this that provide some utility to a user, almost always for free, and then use the data provided to run a completely unrelated, often surveillance focused business on the other side. How about Doppelgänger business?
 
 Quote.
 What isn’t obvious on Ever’s website or app — except for a brief reference that was added to the privacy policy after NBC News reached out to the company in April — is that the photos people share are used to train the company’s facial recognition system, and that Ever then offers to sell that technology to private companies, law enforcement and the military.
@@ -104,11 +104,11 @@ End quote.
 
 54% to 5% with no difference in the data itself?
 
-The article highlights what I think is one of the keys to improving technology teams, creating an inclusive culture and environment. Yes, you need to do the structural things, but nurturing an inclusive culture is critical to sustained improvement, on a number of different areas. Thanks to Mike Carey ( for the link!
+The article highlights what I think is one of the keys to improving technology teams, creating an inclusive culture and environment. Yes, you need to do the structural things, but nurturing an inclusive culture is critical to sustained improvement, on a number of different areas. Thanks to Mike Carey for the link!
 
 Link nine. "The Time of Day Has a Significant Effect on Your Productivity"
 
-I've been wanting to read When: The Scientific Secrets of Perfect Timing ( by Daniel Pink for a while and this article makes me want to read it more. It feels like there is something here. I see it in business, when people schedule meetings dependent only on availability. There are times that just don't work for certain conversations.
+I've been wanting to read When: The Scientific Secrets of Perfect Timing by Daniel Pink for a while and this article makes me want to read it more. It feels like there is something here. I see it in business, when people schedule meetings dependent only on availability. There are times that just don't work for certain conversations.
 
 Link ten. "What’s happening at Nest? | Nest"
 
@@ -130,30 +130,30 @@ That's the end of Give Back.
 
 Now, more links.
 
-* Denver votes to decriminalise magic mushrooms by razor-thin margin - BBC News ( www.bbc.com
-I bet this vote doesn't go this way without Michael Pollan's recent book How to Change Your Mind (. It’s a good and enlightening read.
-* Amazon S3 Path Deprecation Plan – The Rest of the Story | AWS News Blog ( aws.amazon.com
+* Denver votes to decriminalise magic mushrooms by razor-thin margin - BBC News www.bbc.com
+I bet this vote doesn't go this way without Michael Pollan's recent book How to Change Your Mind. It’s a good and enlightening read.
+* Amazon S3 Path Deprecation Plan – The Rest of the Story | AWS News Blog aws.amazon.com
 Changing how S3 handles paths is a huge migration effort for a large part of the internet.
-* Why Go? – Key advantages you may have overlooked · YourBasic Go ( yourbasic.org
+* Why Go? – Key advantages you may have overlooked · YourBasic Go yourbasic.org
 Arguments for Go with comparisons to Java and Python.
 
 That's the end of More Links.
 
 Now, the Microposts section.
 
-Wednesday @ 9:46 PM (
+Wednesday @ 9:46 PM
 
-We had a fabulous #TeamSPS Tech Leader outing tonight making a delicious meal at Kitchen Window (! We were joined by some awesome guests too! Such a great team, and a super fun evening! Teams the cook together, win together!
+We had a fabulous #TeamSPS Tech Leader outing tonight making a delicious meal at Kitchen Window! We were joined by some awesome guests too! Such a great team, and a super fun evening! Teams the cook together, win together!
 
-Sunday @ 8:01 PM (
+Sunday @ 8:01 PM
 
 My sister and I had a great dinner with our Mom — Happy Mother’s Day! She has taught me so much, and continues to. Thank you Mom for everything, including the stuff I don’t even know about! @ChrestRosalin
 
-Saturday @ 10:14 PM (
+Saturday @ 10:14 PM
 
-New PR for 45 min spin ( today! 14% in Zone 5 HR! #peloton
+New PR for 45 min spin today! 14% in Zone 5 HR! #peloton
 
-Friday @ 3:09 PM (
+Friday @ 3:09 PM
 
 Time for demos at the end of the #TeamSPS Tech Jam twenty nineteen Hackathon! 13 teams built creative, fast, and new projects to share! #SPSTechJam
 
@@ -165,6 +165,6 @@ You've made it all the way to the end! Here is your fortune for this week.
 
 Excellent day for putting Slinkies on an escalator.
 
-Thank you for subscribing to the Weekly Thing (!
+Thank you for subscribing to the Weekly Thing!
 
 That brings us to the end of the Weekly Thing, issue 106. Thanks for listening, and I'll see you next time.

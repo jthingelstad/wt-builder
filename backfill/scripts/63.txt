@@ -169,7 +169,7 @@ Custom calculators for all sorts of different scenarios. Interesting idea.
 - Walmart establishes strategic partnership with Microsoft to further accelerate digital innovation in retail news.walmart.com
 Walmart inks long-term partnership with Microsoft in the cloud.
 - [[python-committers] Transfer of power]( www.mail-archive.com
-Guido van Rossum, creator of Python, is stepping Benevolent Dictator for Life!
+Wow, Guido van Rossum, creator of Python, is stepping aside as Benevolent Dictator for Life!
 
 That's the end of More Links.
 

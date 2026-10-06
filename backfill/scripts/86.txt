@@ -1,6 +1,6 @@
 The Weekly Thing, issue 86. Dec 29, twenty eighteen. Published December 29, twenty eighteen. By Jamie Thingelstad. In this issue: Hyperlink to the Stream, government blocking on Twitter, Yoda of Silicon Valley, Facebook-free business, circuit breakers or retries, must-have iOS apps.
 
-Welcome to the final Weekly Thing of twenty eighteen! We had a great Christmas. One of my favorite traditions is each family member getting a project that we do over Christmas break. The kids each got big Lego projects: a Ferris Wheel, an Old Fishing Store. Tammy got an Earth Puzzle that was much harder than I expected. I'm assembling a UGears Steam Locomotive! Each person has their work area and gets plenty of time to get their project done.
+Welcome to the final Weekly Thing of twenty eighteen! We had a great Christmas. One of my favorite traditions is each family member getting a project that we do over Christmas break. The kids each got big Lego projects: a Ferris Wheel and an Old Fishing Store. Tammy got an Earth Puzzle that was much harder than I expected. I'm assembling a UGears Steam Locomotive! Each person has their work area and gets plenty of time to get their project done.
 
 Now, the My Blog Posts section.
 
@@ -92,7 +92,7 @@ Now, more links.
 
 - The Hidden Struggle to Save the Coffee Industry From Disaster medium.com
 It turns out coffee is a giant monoculture, susceptible to many bad things.
-- Python [gets a new governance model [LWN.net]]( lwn.net
+- [Python gets a new governance model [LWN.net]]( lwn.net
 An interesting read to see how the Python language will be governed now that the BDFL has stepped aside.
 - 16 (x4) Books We Read Winter twenty eighteen – Andreessen Horowitz a16z.com
 Expansive book list. I find these fun to browse for inspiration.

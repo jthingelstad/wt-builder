@@ -46,7 +46,7 @@ A very sincere and heartfelt thank you to the former Benevolent Dictator for Lif
 
 Link three. "5 things Rob Pike attributes to Go's success —The Changelog"
 
-Very few people get the opportunity to create and launch a new programming language. It’s interesting to see the key success criteria that Go 's creators believe were so important.
+Very few people get the opportunity to create and launch a new programming language. It’s interesting to see the key success criteria that Go's creators believe were so important.
 
 Link four. "Daring Fireball: AirPods Pro First Impressions"
 

@@ -22,7 +22,7 @@ Now, the Featured Links section.
 
 Link one. "Read Sacha Baron Cohen's scathing attack on Facebook in full: 'greatest propaganda machine in history' | Technology | The Guardian"
 
-Sacha Baron Cohen, of Borat and Ali G fame, gave the keynote at the Anti-Defamation League Never is Now event. Honestly, you should take 25 minutes and watch the full video. This is an incredibly insightful, purposeful take at the negative impacts of social media platforms. I love his statement that "Freedom of Speech is not Freedom of Reach". Social media platforms love to hide behind Freedom of Speech and it’s a completely false argument. Read their Terms of Service and you'll realize there is no freedom of anything. It’s a business! This writeup from the Daily Beast "Sacha Baron Cohen Uses ADL Speech to Tear Apart Mark Zuckerberg and Facebook " is a good overview too.
+Sacha Baron Cohen, of Borat and Ali G fame, gave the keynote at the Anti-Defamation League Never is Now event. Honestly, you should take 25 minutes and watch the full video. This is an incredibly insightful, purposeful take at the negative impacts of social media platforms. I love his statement that "Freedom of Speech is not Freedom of Reach". Social media platforms love to hide behind Freedom of Speech and it’s a completely false argument. Read their Terms of Service and you'll realize there is no freedom of anything. It’s a business! This writeup from the Daily Beast "Sacha Baron Cohen Uses ADL Speech to Tear Apart Mark Zuckerberg and Facebook" is a good overview too.
 
 That's the end of Featured Links.
 
@@ -46,7 +46,7 @@ Great guide to keeping the technology part of your life a bit simpler, and in th
 
 Link three. "Contract for the Web"
 
-It’s hard for me to believe that an effort like this is going to have a real impact on the web and how companies act on it. I'd like to, but I’m very skeptical of it. Perhaps with the pedigree of Tim Berners-Lee it has a better chance. For more background on this, his opinion article in the New York Times is a good overview. The Guardian also has a good overview, "Tim Berners-Lee unveils global plan to save the web ". At least he's trying, and hopefully others will get on board.
+It’s hard for me to believe that an effort like this is going to have a real impact on the web and how companies act on it. I'd like to, but I’m very skeptical of it. Perhaps with the pedigree of Tim Berners-Lee it has a better chance. For more background on this, his opinion article in the New York Times is a good overview. The Guardian also has a good overview, "Tim Berners-Lee unveils global plan to save the web". At least he's trying, and hopefully others will get on board.
 
 Link four. "Braid: Synchronization for HTTP"
 

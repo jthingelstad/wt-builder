@@ -52,7 +52,7 @@ Good overview of new service, WhenWorks. In the past I've used Calendly to do th
 
 Link four. "Introducing YNAB’s API | YNAB"
 
-Cool news from You Need a Budget!, YNAB API. We have been using YNAB for a few years now and it works great for our family. Their transition a couple of years ago to a service-offering is allowing them to grow into new stuff like this API. I’m hopeful that this soon appears in Zapier and IFTTT so I can build with it even more easily.
+Cool news from You Need a Budget!, they have a new YNAB API. We have been using YNAB for a few years now and it works great for our family. Their transition a couple of years ago to a service-offering is allowing them to grow into new stuff like this API. I’m hopeful that this soon appears in Zapier and IFTTT so I can build with it even more easily.
 
 Link five. "Shortage of skilled workers challenges Twin Cities tech firms - StarTribune.com"
 

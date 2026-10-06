@@ -145,7 +145,7 @@ Now, more links.
 
 - Exclusive: Apple Watch Series 4 revealed — massive display, dense watch face, more | 9to5Mac 9to5mac.com
 Every millimeter matters on a display as small as the Apple Watch.
-- Exclusive: This is ‘iPhone XS’ — design, larger version, iPhone XS' — design, larger version, and gold colors confirmed | 9to5Mac 9to5mac.com
+- Exclusive: This is ‘iPhone XS’ — design, larger version, and gold colors confirmed | 9to5Mac 9to5mac.com
 I know what my next iPhone will be now.
 - dategrep: print lines matching a time range github.com
 Super handy for log files.

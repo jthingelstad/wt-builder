@@ -2,10 +2,14 @@ The Weekly Thing, issue 39. Weekly Thing for February 3, twenty eighteen. Publis
 
 I've been thinking that making links easier to go through would be an improvement to the Weekly Thing, both for you the reader, and for me the author! I've had to manually deal with blockquotes that I put into the links (and sometimes miss some). I figured out how to move the links section to some Python code in Pythonista and with that I got it to format the content better (yeah for me!) and even better I now put the links into groups by topics! This will make it easier for you the reader to see what you like, and importantly, skip what isn't interesting to you.
 
+Now, the Photo section.
+
 The Kubbchucks made our sixth annual appearance at the largest winter Kubb tournament in the world! We enjoyed a day of throwing wood on frozen Lake Calhoun!
 
 Jan 27, twenty eighteen at 11:57 AM
 Lake Calhoun, Minneapolis, MN
+
+That's the end of Photo.
 
 Now, the Business section.
 

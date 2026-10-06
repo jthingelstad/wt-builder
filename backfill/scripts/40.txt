@@ -14,12 +14,16 @@ Forestry.io
 
 A powerful CMS for static sites.
 
+That's the end of Blog posts.
+
+Now, the Photo section.
+
 Nice winter days with a bunch of snow and the sun keeping you warm are delightful.
 
 Feb 3, twenty eighteen at 12:21 PM
 Cabin, Warsaw MN
 
-That's the end of Blog posts.
+That's the end of Photo.
 
 Now, the Web section.
 
@@ -44,7 +48,7 @@ A Declaration of the Independence of Cyberspace | Electronic Frontier Foundation
 I’m shocked that I had never read this article. Sadly John Perry Barlow, the founder of the EFF and the author of this declaration recently passed away. Cory Doctorow has a very nice remembrance of him. From Doctorow:
 
 Quote.
-Today, Barlow is dead, and his vision is vindicated: the risks Barlow foresaw (along with other EFF founders like John Gilmore and Mitch Kapor ) are more imminent than ever; the organization that he started and the movement he kicked off has never been more badly needed.
+Today, Barlow is dead, and his vision is vindicated: the risks Barlow foresaw (along with other EFF founders like John Gilmore and Mitch Kapor) are more imminent than ever; the organization that he started and the movement he kicked off has never been more badly needed.
 End quote.
 
 Web Trend Map twenty eighteen – iA

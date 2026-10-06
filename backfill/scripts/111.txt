@@ -56,7 +56,6 @@ Now, the My Weekly Photo section.
 
 Gorgeous evening, clouds overhead at Lake Harriet bandshell for Music in the Park.
 
-Gorgeous evening, clouds overhead at Lake Harriet bandshell for Music in the Park.
 Jun 14, twenty nineteen at 6:55 PM
 1500 E Lake Harriet Blvd, Minneapolis MN
 
@@ -163,7 +162,7 @@ I can echo this observation as well, Go seems to be making slow but steady progr
 - Be My Eyes - Bringing sight to blind and low-vision people www.bemyeyes.com
 What an amazing idea for a smartphone app!
 - My personal journey from MIT to GPL | Drew DeVault’s Blog drewdevault.com
-I like the journey described here and it echos why I use Creative Commons licenses with a similar "Share Alike " clause.
+I like the journey described here and it echos why I use Creative Commons licenses with a similar "Share Alike" clause.
 - Introducing support for U2F security keys | 1Password blog.1password.com
 This might give me a reason to get a U2F key.
 
