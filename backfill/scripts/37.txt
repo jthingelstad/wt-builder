@@ -1,4 +1,4 @@
-The Weekly Thing, issue 37. Weekly Thing for January 20, twenty eighteen. Published January 20, twenty eighteen. By Jamie Thingelstad. In this issue: Nintendo Labo, Raspberry Pi Kubernetes cluster, Argo workflow engine, Datasette Publish, Micro.blog, Feedbin, Bruce Schneier IoT, Internet Archive.
+The Weekly Thing, issue 37. Weekly Thing for January 20, twenty eighteen. Published January 20, twenty eighteen. By Jamie Thingelstad. In this issue: Nintendo Labo, Raspberry Pi Kubernetes cluster, Argo workflow engine, Datasette Publish, Micro.blog, Feedbin, Bruce Schneier IoT.
 
 I’m not a big football fan, but you'd have to be a zombie to not be excited about the Minnesota Vikings amazing win last Sunday! The newly named SPS Tower is in downtown Minneapolis, and with the upcoming Super Bowl we are planning for a bit of chaos. If the Vikings can make their way to that game, it will be an entirely different level of chaos. Cross your fingers for this weekends game and hopefully making history!
 
@@ -68,12 +68,6 @@ End quote.
 His argument is an interesting one and I think he's right. There are parts of the technology market where the buyer does care about security, but by device count that is far from a majority. I also appreciate his call to not connect things to the Internet just because. Realize there is risk associated with that.
 
 That's the end of Links.
-
-Now, the Promotion section.
-
-Internet Archive is a non-profit library of millions of free books, movies, software, music, websites, and more. I have been a supporter of the Internet Archive for many years and I think their mission is fabulous! The web is a major part of our culture and it the content that we put on it is sadly ephemeral. The Internet Archive is working hard to capture that information and keep it for history. Donate to Internet Archive today!
-
-That's the end of Promotion.
 
 Now, the Featured App section.
 

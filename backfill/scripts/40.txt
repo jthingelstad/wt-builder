@@ -171,8 +171,6 @@ A GraphQL Primer: Why We Need A New Kind Of API (Part 1) — Smashing Magazine
 
 Good introduction to the problem that GraphQL is solving and the history of RPC, SOAP, and REST thus far. I continue to think GraphQL has high applicability to many application. Interestingly I think that REST and GraphQL may find a reason to co-exist for a long time. Make sure to read part 2 of this as well.
 
-The Electronic Frontier Foundation is the leading nonprofit organization defending civil liberties in the digital world. I have been a member of the EFF for years. Not only is the EFF working hard to protect you on the Internet they have also recently launched solutions like Privacy Badger and the critically important Let's Encrypt service to make encrypting web servers free to anyone. Support the EFF with a donation!
-
 OpenTerm
 
 by Silver Fox

@@ -159,8 +159,6 @@ End quote.
 
 For me, this is where my trusted GTD system can help. I've also tried to use a note taking system but I've yet to get the return on that that I would like.
 
-Let's Encrypt is a free, automated, and open certificate authority, run for the public’s benefit. All connections to web servers should be encrypted! The biggest challenge with encrypting the web historically has been the cost and hassle of getting an SSL certificate. Let's Encrypt has changed that entirely by being a free certificate authority. Let's Encrypt is possibly one of the most important things to happen on the web in recent years. Donate to Let's Encrypt today!
-
 OmniOutliner 3
 
 by The Omni Group

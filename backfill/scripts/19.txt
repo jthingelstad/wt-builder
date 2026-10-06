@@ -130,12 +130,6 @@ Great TEDxFargo talk from Phil Soran, successful tech entrepreneur and also an S
 
 That's the end of Links.
 
-Now, the Promotion section.
-
-The Electronic Frontier Foundation is the leading nonprofit organization defending civil liberties in the digital world. I have been a member of the EFF for years. Not only is the EFF working hard to protect you on the Internet they have also recently launched solutions like Privacy Badger and the critically important Let's Encrypt service to make encrypting web servers free to anyone. Support the EFF with a donation!
-
-That's the end of Promotion.
-
 Now, the Microblog updates section.
 
 - Tried an idea I had to make Jekyll generate faster for my link blog. Thought using a built-in property (tags) instead of a custom one would be way faster. Profile showed it was actually two times slower. Sometimes computers are confusing.
