@@ -10,9 +10,9 @@ Link one. "How to cultivate a lifelong network when you suck at networking - wit
 
 I enjoyed this read because I also am terrible at networking. When faced with a room of people mingling and having small-talk about whatever it is people have small-talk about, I tend to want to avoid it all.
 
-If you want to rapidly build your network, my advice is useless to you, because it takes lots of time — decades.
-
-But if you want to build a solid network, it may help. My advice is based on being curious, being helpful, and doing a good job. Even if you suck at networking, as I do, you need to do your job. These are just a few tips on how to do it in a way that will support you later in your career.
+Quote.
+If you want to rapidly build your network, my advice is useless to you, because it takes lots of time — decades. But if you want to build a solid network, it may help. My advice is based on being curious, being helpful, and doing a good job. Even if you suck at networking, as I do, you need to do your job. These are just a few tips on how to do it in a way that will support you later in your career.
+End quote.
 
 I haven't been intentional about it, but I think I've been doing something similar to what he describers here.
 
@@ -20,7 +20,9 @@ Link two. "How to Build an Audience of 1000 True Fans in a Noisy World - Unmista
 
 I hadn't encountered this concept of "1,000 True Fans" before, but I really like it. It’s an interesting approach to a project, a hobby, or even a business.
 
+Quote.
 Building your audience this way is a commitment to showing up day after day, year after year, and being ok with the fact that you might not hit a home run, but instead you'll win through a lot of base hits. It might take you 1000 days to reach 1000 true fans.
+End quote.
 
 This deserves a read and some thinking through.
 
@@ -48,7 +50,9 @@ Link three. "Calendar Strength Training - Next Action Associates"
 
 I use a bit of this calendar blocking technique myself. Depending on your role and the organization you are in defending your calendar, your time, can be critically important to your success.
 
+Quote.
 People seem to treat their diaries as though they have no say in them anymore, and they simply have to obey what is in there – even if someone else has put it there.
+End quote.
 
 To take this up a level, I recommend using Shortcuts (on iOS) to automate the creation of these blocks, rather than creating repeating events that become routinized and forgotten.
 
@@ -64,7 +68,9 @@ Link six. "When XML beats JSON: UI layouts - Instawork Engineering"
 
 I do think a lot of developers are biased that XML is just "bloated and bad". This article makes a good point, it’s a different thing than JSON.
 
+Quote.
 Both XML and JSON can represent complex nested data structures, but they excel at different types of structures. JSON’s origins as a subset of JavaScript can be seen with how easily it represents key/value object data. XML, on the other hand, optimizes for document tree structures, by cleanly separating node data (attributes) from child data (elements).
+End quote.
 
 Link seven. "The Deletion of Yahoo! Groups and Archive Team's Rescue Effort – Waxy.org"
 

@@ -43,7 +43,13 @@ Practical advice in a number of areas to protect yourself against surveillance. 
 
 Link four. "ongoing by Tim Bray · Unapocalyptic Software"
 
-I love this writeup by Tim Bray on what software development is actually like. It’s like this: You sit down to improve a piece of software, make a couple of changes, and suddenly a lot of unit tests are failing, leaving ugly red trails on your screen. (In fact, if you made changes and didn’t break unit tests, you worry that something’s wrong.) But then you dig into them one by one, and after not too long, it’s all back to green; which is really a good feeling. Fun read, and very accurate.
+I love this writeup by Tim Bray on what software development is actually like.
+
+Quote.
+It’s like this: You sit down to improve a piece of software, make a couple of changes, and suddenly a lot of unit tests are failing, leaving ugly red trails on your screen. (In fact, if you made changes and didn’t break unit tests, you worry that something’s wrong.) But then you dig into them one by one, and after not too long, it’s all back to green; which is really a good feeling.
+End quote.
+
+Fun read, and very accurate.
 
 Link five. "Illimat"
 
@@ -63,7 +69,11 @@ This documentary looks pretty interesting. I like the focus of the intersection 
 
 Link nine. "Joplin - an open source note taking and to-do application with synchronisation capabilities"
 
-A FOSS option for managing notes and to do's. Joplin is a free, open source note taking and to-do application, which can handle a large number of notes organised into notebooks. The notes are searchable, can be copied, tagged and modified either from the applications directly or from your own text editor. The notes are in Markdown format.
+A FOSS option for managing notes and to do's.
+
+Quote.
+Joplin is a free, open source note taking and to-do application, which can handle a large number of notes organised into notebooks. The notes are searchable, can be copied, tagged and modified either from the applications directly or from your own text editor. The notes are in Markdown format.
+End quote.
 
 Link ten. "macOS High Sierra 'root' security bug: Stop and do this NOW | iMore"
 
@@ -83,7 +93,11 @@ Very impressive skin/template for MediaWiki by Tom Hutchison. Tom and I collabor
 
 Link fourteen. "Chaos Toolkit"
 
-Nice to see more general tooling coming to the chaos engineering space. The Chaos Toolkit aims at simplifying your journey through the Principles of Chaos Engineering and more generally considers that you should embrace continuously observing and poking your system to empower your team in face of adversity.
+Nice to see more general tooling coming to the chaos engineering space.
+
+Quote.
+The Chaos Toolkit aims at simplifying your journey through the Principles of Chaos Engineering and more generally considers that you should embrace continuously observing and poking your system to empower your team in face of adversity.
+End quote.
 
 Link fifteen. "Sugar industry accused of hiding evidence of sucrose's negative health effects 50 years ago | The Independent"
 

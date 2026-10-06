@@ -40,7 +40,9 @@ Link two. "The U.S. Department of Defense on How to Detect 'Agile BS' - The New 
 
 Sort of a funny read from the Department of Defense helping it’s buyers not get duped by shenanigans around agile.
 
+Quote.
 The Board’s document says its goal is to help program executives and acquisition professionals to spot projects “that are simply waterfall or spiral development in agile clothing.” One attempted hybrid of Waterfall and Agile development has been dubbed “water-Scrum-fall,” but the document warns against imposters trying to claim this is agile development, using the sardonic moniker “agile-scrum-fall”.
+End quote.
 
 Link three. "Online privacy Recode podcast interview with McSweeney’s and EFF - Recode"
 
@@ -54,7 +56,9 @@ Link five. "Leaders, doing what you're good at hurts your team. - Signal v. Nois
 
 I like this advice.
 
+Quote.
 Pause. Don’t be so busy. Take stock. Why are you doing those things? Because you like doing them? Because you’re good at them? Or because it’s the best way to move the team forward?
+End quote.
 
 This would be a good thing to include in your regular reflections.
 
@@ -62,7 +66,9 @@ Link six. "Marie Kondo, Fast Fashion, and the Thrift-Store Boom - CityLab"
 
 We've watched a few episodes of Tidying Up, it’s a fun diversion. I will admit it is also inspirational to go through that closet you've been ignoring.
 
+Quote.
 Another weird thing has been happening, says Susan, who works the front desk: People have been thanking their objects before giving them away. She rolls her eyes.
+End quote.
 
 It’s pretty amazing that could be driving a surge in donations.
 
@@ -70,7 +76,9 @@ Link seven. "Talking sense about acronyms, initialisms, abbreviations, and neolo
 
 The technology industry has to be one of the most severely acronym'd industries out there.
 
+Quote.
 Abbreviations, initialisms, acronyms, and neologisms are jargon. You want to keep the density of jargon in your writing low to make it as readable as possible. Writing full of unfamiliar jargon is a struggle to parse, and perpetuates the curse of knowledge.
+End quote.
 
 It would do us well to use less of them.
 

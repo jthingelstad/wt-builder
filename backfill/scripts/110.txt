@@ -8,7 +8,9 @@ Link one. "Opinion | We Read 150 Privacy Policies. They Were an Incomprehensible
 
 This has some great visualization of various privacy policies. It's telling how companies that tend to have a pro-privacy bend like Craigslist and Duck Duck Go are readable in a couple minutes with high-school level education. Facebook requires 18 minutes and a college level education. CNN and Hulu require you to be a legal professional to understand them. Airbnb is in a world of its own.
 
+Quote.
 Airbnb’s privacy policy, on the other hand, is particularly inscrutable. It’s full of long, jargon-laden sentences that obscure Airbnb’s data practices and provides cover to use data in expansive ways. For example, here is how Airbnb justifies collecting users’ personal information. Vague language like “adequate performance” and “legitimate interest” allows for a wide range of interpretation, providing flexibility for Airbnb to defend its data practices in a lawsuit while making it harder for users to understand what is being done with their data.
+End quote.
 
 This is where services such as Terms of Service; Didn't Read should be able to help crowdsource these intentionally obfuscated documents and turn them into something that normal people can understand. However, these services, like many in the pro-privacy space, aren't exactly taking off like wildfire.
 
@@ -50,7 +52,9 @@ Link six. "I left the ad industry because our use of data tracking terrified me"
 
 Call to action on what to do to protect privacy online.
 
+Quote.
 Not to be outdone, another startup projected a map of San Francisco with a red line tracking a real, anonymous person throughout their day. He challenged us to infer what we could about her. She left the house at 7 a.m. Went to Starbucks. Went to a school. Went to a yoga studio. Went back to the school. She was a mother with at least one child, and we knew where she lived. We knew this because this woman’s cell phone was tracking her every move. As does every other cell phone, including the one in your pocket right now.
+End quote.
 
 I like the four steps that are outlined to give people the control they deserve.
 
@@ -66,7 +70,9 @@ Link nine. "The Making of a YouTube Radical - The New York Times"
 
 This is a pretty incredible, detailed walk-through of how following a series of videos on YouTube changed this individuals outlook. So much of this content is not visible to most people.
 
+Quote.
 Perhaps this shouldn’t be a surprise. Our political culture is now built largely on shapeshifting internet platforms, which have made flipping partisan allegiances as easy as changing hairstyles. It’s possible that vulnerable young men like Mr. Cain will drift away from radical groups as they grow up and find stability elsewhere. It’s also possible that this kind of whiplash polarization is here to stay as political factions gain and lose traction online.
+End quote.
 
 I honestly tend to avoid YouTube. I've found the whole platform to be a bit of a mess.
 

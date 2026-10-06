@@ -14,11 +14,15 @@ Link one. "How Zapier Reached 35 million dollars ARR With This SaaS SEO Strategy
 
 I like a lot of what Zapier is doing, and this analysis of their search strategy is superb.
 
+Quote.
 Rather than trying to pitch users on the value of integrating tools, Zapier realized early on that people were already looking for specific integrations. To capture this existing intent, Zapier decided to make the app partners in their integration ecosystem the stars of their marketing and piggyback on their success.
+End quote.
 
 I’ve found these landing pages many times from various searches. It’s impressive how well they thought the process through beyond discovery, all the way to initial value!
 
+Quote.
 After creating login credentials, Zapier doesn’t waste that user intent by dropping new users into a central dashboard or control panel. Instead, users are dropped right into the integration set-up flow where they can get the integration from the CTA up and running.
+End quote.
 
 Very impressive and good results. Plus the strategy gets stronger with more connectors!
 
@@ -26,7 +30,9 @@ Link two. "The Simple Joy of “No Phones Allowed”"
 
 This article is a great reflection on how our devices have changed certain events.
 
+Quote.
 People were visibly enjoying the opening band, at least in part because that band no longer compete with the entire internet for the crowd’s attention. Even the crowd’s milling around and chatting between acts was so much more lively. People were either talking to their neighbors, or taking in the room. And everyone taking in the room was taking in the same room. It felt great.
+End quote.
 
 I had heard that Jack White did this for his shows and I have want to go just to experience it, plus the music is great.
 
@@ -50,7 +56,9 @@ Link two. "I hate manager READMEs – Camille Fournier – Medium"
 
 I’ve never jumped on this bandwagon. I’ve always felt that it was a bit presumptuous, and had the wrong polarity. Your job as a leader is to adapt to your people, not to expect your people to adapt to you.
 
+Quote.
 If you want to build trust, you do that by showing up, talking to your team both individually and as a team, and behaving in an ethical, reliable manner. Over, and over, and over again. You don’t get it from writing a doc about how you deserve their trust.
+End quote.
 
 I’ll pass on this.
 
@@ -74,7 +82,9 @@ Link seven. "Pivot or Fail? – AVC"
 
 I’ve heard startup teams announce that they are pivoting as if it was the next natural step in their plan. That’s never made sense to me. A pivot is recognizing that the original path doesn’t work, and pivoting to a new path.
 
+Quote.
 So my view is if you’ve failed, accept it, announce it, and deal with it. Shut the business down, give back the cash, and rip up the cap table. Then do whatever you want to do next. If it is another startup, do it from scratch and keep as much of it as you can. If it is something else, well then do that too.
+End quote.
 
 I’m surprised Wilson doesn’t highlight to me the main reason people pivot instead of doing what he suggests — to avoid failure. If you pivot, sure there are some downsides, but you didn’t fail, you pivoted. Neat! Do it a couple more times and still, no failure. If you actually do what is suggested here you have to acknowledge the thing you are avoiding at all costs.
 
@@ -118,7 +128,9 @@ Link seventeen. "When is someone ready to manage managers? – Camille Fournier 
 
 Good direction for managers seeking to move into bigger roles. This part about feedback is critical.
 
+Quote.
 So many line managers think that they are temporarily embarrassed CTOs, and don’t realize that they are lacking in many critical skills. If you bristle at every bit of corrective feedback, if you have an outsized ego that everyone can see, or even if you simply never actually act on the feedback that you get, you’re not going to be top of the list when the opportunities come about.
+End quote.
 
 If the above isn’t happening, you never move ahead because you don’t learn from feedback.
 

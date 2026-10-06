@@ -34,7 +34,9 @@ Link two. "Not just a fad: the surprising, gut-wrenching truth about gluten | Fo
 
 I have a hard time understanding food ingredients that have been around for millennia that are all of a sudden bad. But this article does a good job highlighting how gluten in food has changed in recent years, which could be the cause for so many people having negative reactions to it.
 
+Quote.
 Some experts argue that without this traditional fermentation – the process by which parts of the grain begin to be broken down in the presence of lactic acid bacteria – many people simply can’t digest grains properly to absorb the desirable micronutrients they contain.
+End quote.
 
 Food is more complex than we ever give it credit for.
 
@@ -42,7 +44,9 @@ Link three. "“Lean In” Messages and the Illusion of Control"
 
 An initial study perceived cause and solution around gender issues in the workplace based on context.
 
+Quote.
 People who read or listened to the DIY messages were more likely to believe women have the power to solve the problem. That, on its own, may very well be good news. However, they were also more likely to believe that women are responsible for the problem — both for causing it, and for fixing it.
+End quote.
 
 Seems like one of those “damned if you do, damned if you don’t” issues.
 
@@ -58,7 +62,9 @@ Link six. "How to Fall Asleep in 120 Seconds – Member Feature Stories – Medi
 
 Training program used by Navy pilots to get sleep.
 
+Quote.
 After six weeks of practice, 96 percent of pilots could fall asleep in two minutes or less. Even after drinking coffee, with machine gunfire being played in the background.
+End quote.
 
 I think the target audience for this training isn’t the average person. If you are a Navy pilot, you’ll do great. But there might be some good stuff to cherry pick for other people too.
 
@@ -70,7 +76,9 @@ Link eight. "Let's Encrypt Root Trusted By All Major Root Programs - Let's Encry
 
 This is a great milestone for Let’s Encrypt!
 
+Quote.
 Let’s Encrypt is currently providing certificates for more than 115 million websites.
+End quote.
 
 That is a major dent in realizing the encrypted web. All of my sites use Let’s Encrypt certificates.
 
@@ -86,7 +94,9 @@ Link eleven. "30 Self-Care Tips: How to Avoid Sickness, Burnout, and Exhaustion"
 
 I like the broad framing of this as opposed to one thing - like diet or fitness alone.
 
+Quote.
 True self-care strengthens and deepens our connection with ourselves so we can understand how to meet our needs met from a mental, emotional, and physical standpoint.
+End quote.
 
 There is only one of each of us.
 
@@ -94,7 +104,9 @@ Link twelve. "Google Struggles to Contain Employee Uproar Over China Censorship 
 
 Another example of tech employees disagreeing with the direction there companies are going.
 
+Quote.
 Some analysts have drawn comparisons between the censorship project and Project Maven, a Google initiative to develop artificial intelligence for U.S. military drones. Project Maven sparked an internal revolt within the company, which led to Google canceling the contract. One of Google’s informal corporate principles is “don’t be evil” — a standard some of the company’s employees felt Project Maven violated.
+End quote.
 
 Further evidence supporting the need for an ethics model for tech.
 

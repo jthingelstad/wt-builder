@@ -10,7 +10,9 @@ Link one. "The Bullshit Web — Pixel Envy"
 
 A great overview of the mess of junk put in most websites.
 
+Quote.
 So, with an internet connection faster than I could have thought possible in the late 1990s, what’s the score now? A story at the Hill took over nine seconds to load; at Politico, seventeen seconds; at CNN, over thirty seconds. This is the bullshit web.
+End quote.
 
 My personal sites have none of this. And this is why you must run software like 1Blocker. It’s not just about ads, it’s about all this bullshit.
 
@@ -30,7 +32,9 @@ Link one. "Is Facebook evil? Everything bad about Facebook is bad for the same r
 
 You are the product.
 
+Quote.
 But the imperative to “connect people” lacks the one ingredient essential for being a good citizen: Treating individual human beings as sacrosanct. To Facebook, the world is not made up of individuals, but of connections between them.
+End quote.
 
 Facebook makes a lot of revenue on those connections. What is the cost to everyone else?
 
@@ -38,7 +42,9 @@ Link two. "Why Great Employees Leave “Great Cultures”"
 
 A practical definition of what makes up a company's culture:
 
+Quote.
 I’ve been working in HR for over twenty years, and the best companies I’ve worked with have recognized that there are three elements to a culture: behaviors, systems, and practices, all guided by an overarching set of values. A great culture is what you get when all three of these are aligned, and line up with the organization’s espoused values. When gaps start to appear, that’s when you start to see problems — and see great employees leave.
+End quote.
 
 This could work as a good checklist of items to assess if you do have gaps between stated values and actual actions.
 
@@ -54,7 +60,9 @@ Link five. "With Goals, FAST Beats SMART"
 
 I love this.
 
+Quote.
 To drive strategy execution, leaders should instead set goals that are FAST — frequently discussed, ambitious, specific, and transparent.
+End quote.
 
 That also sounds very similar to an effective OKR.
 
@@ -86,7 +94,9 @@ Link twelve. "Business/busyness | Seth's Blog"
 
 A good reminder from Seth Godin to focus on value.
 
+Quote.
 Busy is not your job. Busy doesn’t get you what you seek. Busy isn’t the point. Value creation is.
+End quote.
 
 Measure it.
 

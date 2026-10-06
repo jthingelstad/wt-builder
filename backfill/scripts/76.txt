@@ -12,7 +12,9 @@ Link one. "Why We Always Switch Productivity Methods Before They Stick, Accordin
 
 I've talked to a lot of friends that have tried several or even dozens of productivity systems.
 
+Quote.
 First things first: Take some comfort in the fact that you definitely aren’t alone. Many of us hop around and test the waters of various systems for getting our work done.
+End quote.
 
 One of the best things I ever did was decide to commit to GTD as a long-term investment as well as OmniFocus and not look around at other options. I felt that expertise and depth in one was more important than trying dozens of options fiddling with what might be best.
 
@@ -20,7 +22,9 @@ Link two. "Do journalists pay too much attention to Twitter? - Columbia Journali
 
 This is an important and interesting question. When I read the headline the immediate thought in my head was "Yes!". The study goes into more detail and gets deeper into the impact it would have on reporting.
 
+Quote.
 “Our results indicate that the routinization of Twitter into news production affects news judgment,” the researchers write. “For journalists who incorporate Twitter into their reporting routines, and those with fewer years of experience, Twitter has become so normalized that tweets were deemed equally newsworthy as headlines appearing to be from the AP wire. This may have negative implications.” Among those implications, they argue, is that journalists can get caught up in a kind of pack mentality in which a story is seen as important because other journalists on Twitter are talking about it, rather than because it is newsworthy.
+End quote.
 
 The "firehose" feed of Twitter is something that some people find uninteresting, but there are some people and professions that I think find it highly addictive and compelling. Watching an AP news feed, or a financial ticker, feels and looks a lot like watching the Twitter timeline. I count myself in the group of people that find that addictive. I tend to think journalists as a group would too.
 
@@ -44,7 +48,9 @@ Link two. "The Observation Deck » Assessing software engineering candidates"
 
 Hiring engineers is a tricky thing, and it’s great to see people sharing their processes for evaluating candidates to help others get better as well.
 
+Quote.
 This document is an attempt to pull together accumulated best practices; while it shouldn’t be inferred to be overly prescriptive, where it is rigid, there is often a painful lesson behind it.
+End quote.
 
 Worthwhile set of concepts.
 
@@ -60,7 +66,9 @@ Link five. "It turns out that Facebook could in fact use data collected from its
 
 I absolutely love that Facebook themselves had to correct publications on this clarification.
 
+Quote.
 But Facebook has since reached out to change its answer: Portal doesn’t have ads, but data about who you call and data about which apps you use on Portal can be used to target you with ads on other Facebook-owned properties.
+End quote.
 
 So when you give your photos to Google and Facebook they mine brands and objects from them to advertise to you. WIth this Portal surveillance device they can watch the activity in your house to then shove things in between cat pictures on Instagram. Don't buy one of these. And also, ditch Facebook Messenger too.
 
@@ -68,7 +76,9 @@ Link six. "The Hidden Tribes of America - Hidden Tribes"
 
 I found this via David Brooks Rich White Civil War column.
 
+Quote.
 But this can change. A majority of Americans, whom we’ve called the "Exhausted Majority," are fed up by America’s polarization. They know we have more in common than that which divides us: our belief in freedom, equality, and the pursuit of the American dream. They share a deep sense of gratitude that they are citizens of the United States. They want to move past our differences.
+End quote.
 
 This data on segments of Americans is interesting and well presented. It does make me wonder if this exists independent of the marketing and propaganda of politicians, or if this is the desired outcome of those programs to slice up America into groups that can be marketed to.
 

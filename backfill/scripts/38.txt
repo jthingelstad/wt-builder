@@ -39,19 +39,27 @@ Link three. "twenty eighteen Developer Skills Report by HackerRank"
 
 This is a very interesting report. I don't know if this type of study has been done often. With 39,441 respondents this would seem to be statistically valid. A lot of great data points and some interesting insights.
 
+Quote.
 Unlike generations thereafter, if kids of the seventies wanted to see innovative technology, they’d have to build it themselves — they had no other choice. There were no widespread resources to teach them how to build software. Almost half of all developers (47%) between the ages of 45 and 54 started coding before they were 16 years old. Meanwhile, developers between 18 and 24 today are the least likely to have started coding before 16 (only 20%).
+End quote.
 
 This data doesn't surprise me and I think it’s a little concerning. In the 70's and early 80's if you wanted to play on a computer there was really only one option — you learned to program that computer! Today there are so many options to get value out of technology that the requirement of programming comes from a power user need in a niche, or pure curiosity. I wouldn't take back any of the ease-of-use progress we've made, but exposing younger people that are interested to real development tools seems like something we should focus on. Myself, I started coding when I was in first or second grade on a TI-99/4A using BASIC. I fall in the "5 to 10" bucket here.
 
+Quote.
 Self-teaching is the norm for developers of all ages. Even though 67% of developers have CS degrees, roughly 74% said they were at least partially self-taught.
+End quote.
 
 This makes complete sense in large part because a computer science degree doesn't teach you the tactical aspects that you need to be a programmer working in a company. To be clear, that is important stuff, but industry is generally ahead of academia and they have different goals — fundamental versus applied learning.
 
+Quote.
 JavaScript may be the most in-demand language by employers, but Python wins the heart of developers across all ages, according to our Love-Hate index. Python is also the most popular language that developers want to learn overall, and a significant share already knows it.
+End quote.
 
 What little coding I do is in Python and I always recommend that people that want to learn programming start in Python. Clearly Guido van Rossum, the "Benevolent Dictator For Life" of Python, did something very right. Also perhaps the editor wars are over?
 
+Quote.
 VIM beats all other editors by a landslide.
+End quote.
 
 Even though vim is used four times as much, it turns out vim and emacs users in total use the same amount of memory. A lot of interesting data. The data missing from here that I would like to have seen included would have been some analysis of gender. We know that we need to work to grow the ranks of women in tech and I wonder if any of this data would have highlighted some actionable gaps.
 
@@ -59,7 +67,9 @@ Link four. "‘Never get high on your own supply’ – why social media bosses 
 
 The title of this article did make me chuckle along with the hip-hop inspired pull quote:
 
+Quote.
 If this is the case, then social media executives are simply following the rule of pushers and dealers everywhere, the fourth of the Notorious BIG’s Ten Crack Commandments: “Never get high on your own supply.”
+End quote.
 
 It is worth noting, in a sector that is so proud of dog fooding their own products, why don't the leaders of these companies use them? I do believe and I think the evidence is clear that these products are designed to be addictive, but I don't think that is why executives at social media companies don't use their own products. More likely they are just busy and social media just isn't that important.
 
@@ -67,7 +77,9 @@ Link five. "Growing apart and losing touch is human and healthy"
 
 I concur with DHH's thesis here.
 
+Quote.
 What allowed me to change and prosper was the freedom to grow apart and lose touch with people. It’s hard to change yourself if you’re stuck in the same social orbit. There’s a gravitational force that pulls you into repeating the same circular pattern over and over again. Breaking out of that takes tremendous force.
+End quote.
 
 Many people can reflect on this in the college experience. It’s one of those seminal moments when you make a step change as a person. It happens when you change jobs. Sometimes it happens in the reverse, an alcoholic changes their friends as they become sober. The point is, your social network isn't a snowball that just gets bigger your entire life. It’s a collection that forms and reforms over years. I would also add the important thinking around Dunbar's number that suggests the mean number of people that humans can maintain connections with is 148. The snowball metaphor just frankly doesn't work unless you are willing to freeze your development in your teens.
 
@@ -83,7 +95,9 @@ Link eight. "ActivityPub"
 
 It’s good to see some official standards adopted for decentralizing social media.
 
+Quote.
 The ActivityPub protocol is a decentralized social networking protocol based upon the ActivityStreams 2.0 data format.
+End quote.
 
 I think there is still good debate if even decentralized social media is a good thing. It does reduce the issues around filter bubbles and ownership, but you could have the some trust and mental issues surrounding it.
 
@@ -91,13 +105,17 @@ Link nine. "Zstandard - Real-time data compression algorithm"
 
 Facebook developed open-source compression algorithm. Looks to be very capable.
 
+Quote.
 Zstandard is a real-time compression algorithm, providing high compression ratios. It offers a very wide range of compression / speed trade-off, while being backed by a very fast decoder (see benchmarks below). It also offers a special mode for small data, called dictionary compression, and can create dictionaries from any sample set. Zstandard library is provided as open source software using a BSD license.
+End quote.
 
 Link ten. "BeyondCorp: How Google Ditched VPNs for Remote Employee Access - The New Stack"
 
 Wow, this is pretty amazing.
 
+Quote.
 Today, none of Google’s employee-facing applications are on a virtual private network. They all have public IP addresses.
+End quote.
 
 This is an interesting premise. I don't see organizations being ready for this, but it’s an interesting goal to consider over the long haul.
 
@@ -121,17 +139,23 @@ Link fifteen. "ARK Invest - Big Ideas twenty eighteen - Disruptive Innovation"
 
 This kind of future looking analyst report isn't worth betting the future on, but I find them compelling to understand how others are looking at opportunities and where the "edges" of some opportunities might be.
 
+Quote.
 “Big Ideas” is ARK’s annual publication showcasing a selection of innovations that we believe will accelerate the pace of change. The research presented in the following slides aims to illustrate how these ideas are transforming the way the world works and delivering outsized growth opportunities across different industries.
+End quote.
 
 Link sixteen. "Coraline Ada Ehmke — Not Applicable: What Your Job Post Is Really Saying"
 
 This is worth reading a couple of times. The cultural signals in your job postings are real, and they dramatically impact the candidate pool.
 
+Quote.
 If you truly believe that your engineering culture is welcoming and provides opportunities for growth and learning, shouldn’t you make that a core part of your message to potential employees?
+End quote.
 
 The punchline for the entire article is at the bottom and it’s big.
 
+Quote.
 We had over three hundred applications, almost 75% of them from underrepresented minorities in tech.
+End quote.
 
 Wow!
 
@@ -139,7 +163,9 @@ Link seventeen. "Facebook’s Motivations – Stratechery by Ben Thompson"
 
 I’m very direct with people in my dislike of Facebook specifically for a number of reasons. Most people think I’m crazy and that charging at privacy windmills is just that, pointless. My opinion on the real threat to Facebook is perfectly captured in Bon Thompson's writeup here:
 
+Quote.
 Rather, the only thing that could undo Facebook’s power is users actively rejecting the app. And, I suspect, the only way users would do that en masse would be if it became accepted fact that Facebook is actively bad for you — the online equivalent of smoking.
+End quote.
 
 If it is established that social media just isn't good for you, I think that this analogy to smoking could be very accurate. We'll see.
 
@@ -163,7 +189,9 @@ Link twenty two. "Craft Beer Is the Strangest, Happiest Economic Story in Americ
 
 I know craft breweries in Minneapolis have been popping up everywhere and it seems they have in the rest of the country too. This article is interesting for the topic of beer, but I find it more interesting for the observations about the regulatory structure and what it encourages.
 
+Quote.
 Third, even in an economy obsessed with efficiency, sometimes it is just as wise to design for inefficiency. Alcohol regulations have long discouraged vertical consolidation, encouraged retailers to leave room for new brands, and more recently made it easier for individuals to introduce their own batch of beer to the market.
+End quote.
 
 How could we design similar incentives in other markets?
 
@@ -171,7 +199,9 @@ Link twenty three. "Satan Makes His Pitch to Amazon.com - McSweeney’s Internet
 
 I missed this funny response to Amazon’s public request for HQ2 location proposals.
 
+Quote.
 Amazon will find Hell’s labor and employment laws quite business-friendly. We have an incredibly talented and highly motivated workforce, paid in its own forlorn tears.
+End quote.
 
 Hilarious.
 
@@ -179,7 +209,9 @@ Link twenty four. "The techlash against Amazon, Facebook and Google—and what t
 
 The Economist with a witty memo to Silicon Valley leaders on the threats ahead.
 
+Quote.
 You are an industry that embraces acronyms, so let me explain the situation with a new one: “BAADD”. You are thought to be too big, anti-competitive, addictive and destructive to democracy.
+End quote.
 
 I think there are legs to this “big tech” thought. How material and motivated it gets is impossible to guess though.
 
@@ -187,7 +219,9 @@ Link twenty five. "The iOS Economy, Updated | Asymco"
 
 From a nascent idea on a new mobile platform to an immense application ecosystem.
 
+Quote.
 In its latest update on the App Store Apple reported that iOS developers earned 26.5 billion dollars in twenty seventeen. A year ago the figure was 20 billion dollars. The growth rate is then about 33%. The cumulative payments to developers can be calculated as 86.5 billion dollars. This amount was generated in a span of less than 10 years, with the first billion paid by June twenty ten.
+End quote.
 
 Would be curious if this also created jobs and how many.
 
@@ -199,7 +233,9 @@ Link twenty seven. "Die With Me"
 
 This is “app as art”. Silly, fun and creative.
 
+Quote.
 The chat app you can only use when you have less than 5% battery.
+End quote.
 
 Link twenty eight. "xkcd: The End of the Rainbow"
 

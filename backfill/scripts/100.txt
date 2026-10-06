@@ -44,7 +44,9 @@ Link four. "Your boss is 90% of the 'Employee Experience'​. Nothing else comes
 
 Funny anecdotes here but mostly just something that I agree is absolutely true.
 
+Quote.
 But there's that other 90% that keeps nagging me. The part that simply will not change unless corporations do some dramatic work to focus on the major element in employee experience. Your boss is your employee experience. I am not alone in this assertion. Researchers in organizational development find this to be true.
+End quote.
 
 Important for everyone in organizations to consider.
 
@@ -60,7 +62,9 @@ Link seven. "Why we moved our servers to Iceland · Simple Analytics"
 
 Surveillance pushing data to other countries.
 
+Quote.
 Although, Iceland is somewhat following the laws of the European Economic Area, it has its own approach to privacy. For example, the Icelandic Data Protection Act encourages anonymity of user data. ISPs and content hosts are not held legally liable for the content that they host or transmit. According to Icelandic law, its not the domain name provider, but the registrant of an .is domain name that is responsible for ensuring the use of the domain is within the limits of the law (ISNIC). The government does not place any restrictions on anonymous communication and no registration is required when purchasing a SIM card.
+End quote.
 
 Iceland has been making strides to be a data haven for digital rights. I do wonder how they can have enough bandwidth for serious use though, given they are a remote island in a very difficult climate.
 

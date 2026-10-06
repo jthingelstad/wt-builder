@@ -12,7 +12,9 @@ Link one. "The nutrition study the 30 billion dollars supplement industry doesn�
 
 We seem to constantly learn that food is the ultimate analog. We try to decompose it into numbers and weights, chemicals and nutrients. But it’s fundamentally analog. It cannot be decomposed to bits and bytes. When we try to recompose it from units, it isn't the same thing, and our bodies know.
 
+Quote.
 When the researchers picked apart effects of individual micronutrients, they found that adequate intake of vitamin K and magnesium linked to a lower risk of all-cause mortality. Also, vitamin A, vitamin K, zinc, and copper were associated with a lower risk of death from cardiovascular disease. But these benefits were restricted to intake only from foods—not supplements.
+End quote.
 
 As Michael Pollan stated so succinctly: Eat food. Not too much. Mostly plants.
 
@@ -20,7 +22,9 @@ Link two. "Great developers are raised, not hired – The Principal Developer by
 
 I agree with the premise of this article. Talent in technology is in high-demand, and growing technology organizations will never be able to fill all their positions by going to the market for existing talent. Teams have to learn how to hire motivated learners and develop them.
 
+Quote.
 In the current market situation, every company needs to build a mentoring capacity. The most experienced developers should find time to grow less experienced colleagues through pair programming, continuous feedback, career advice.
+End quote.
 
 All great technology organizations are learning organizations, and perhaps bringing in and developing future talent is the best example of that.
 
@@ -42,7 +46,9 @@ Link one. "Selfie Deaths Are an Epidemic | Outside Online"
 
 Oh my.
 
+Quote.
 Last October also witnessed the much-publicized deaths of travel bloggers Meenakshi Moorthy and Vishnu Viswanath, who apparently fell while taking a selfie at Yosemite’s Taft Point, a popular rock outcrop with an 800-foot drop. A month prior, Tomar Frankfurter, an 18-year-old from Jerusalem, also fell to his death in the park while reportedly taking a selfie at Nevada Fall. Last July, three stars of High on Life, a popular YouTube thrill-seeking adventure travel show, plummeted to their deaths at a waterfall near Squamish, British Columbia. And in late March, a man from Macau fell 1,000 feet to his death while attempting to take a selfie on the rim at Grand Canyon West.
+End quote.
 
 Stay safe out there!
 
@@ -66,7 +72,9 @@ Link six. "Opinion | What Women Know About the Internet - The New York Times"
 
 There are definitely gender differences on privacy matters.
 
+Quote.
 Even well-meaning efforts at transparency don’t always work that way for women. Lyft’s car pool service shares the registered names of passengers with everyone else in the car. The first name of an incoming passenger flashes in lights across the dashboard, a feature intended to let riders know they are in the right car. A privacy researcher told me that she once jumped into a Lyft shared ride wearing a sweatshirt with her company’s logo. The next day, she received an email from a male passenger saying, “I found you!” Clearly, he had been able to use her first name and the name of her company to track her down online.
+End quote.
 
 This is a good example where more gender diversity in technology would help.
 
@@ -86,7 +94,9 @@ Link ten. "Uber's IPO Is Historic, Despite Its 10 billion dollars Loss - The Atl
 
 What an amazing amount of money being invested.
 
+Quote.
 Here’s a deeply strange thing about Uber, which publicly filed for its IPO today: The company has lost 10 billion dollars from operations, just since twenty sixteen, and while riders have paid 79.4 billion dollars for rides, many drivers attest that they can barely scrape together a living. So no part of the operation is a high-margin business, and yet Uber keeps growing and growing and growing.
+End quote.
 
 If the end-game to real profit and margin for Uber is self-driving cars, one has to wonder if they can possibly lose that much money while those are being developed. I think it’s a long ways off.
 

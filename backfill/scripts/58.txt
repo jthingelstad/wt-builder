@@ -8,11 +8,15 @@ Link one. "Say the Hard Thing – Rands in Repose"
 
 Some very practical and useful suggestions for giving and receiving candid feedback.
 
+Quote.
 Your goal in life is to make feedback in all directions no big deal. You and your team never start in this state, they earn it. They start with small spoken observations that slowly turn into more useful feedback. They watch to see if each other are listening to the feedback and eventually acting on it.3 Once everyone has seen that feedback is both shared and acted on, they begin to feel more comfortable sharing large, more complex, and harder feedback. Why? Trust.
+End quote.
 
 This sentiment definitely resonated with me.
 
+Quote.
 We exacerbate the problem because we don’t want to say the hard thing because we have the same voice in our head telling them, “It would be hard for me to hear this, so I don’t want to say it.”
+End quote.
 
 It’s hard to give and get candid feedback. I tend to think we all feel we are better at it than we are. Leaders particularly have to focus on this all the time.
 
@@ -20,7 +24,9 @@ Link two. "Why Do We Care So Much About Privacy? | The New Yorker"
 
 In a recent dialog about privacy I was asked "Why do you care so much about privacy?" and I my argument kept going back to "because it’s my right", which wasn't doing it for the person I was talking to. This article, and this argument, resonated with me.
 
+Quote.
 Possibly the discussion is using the wrong vocabulary. “Privacy” is an odd name for the good that is being threatened by commercial exploitation and state surveillance. Privacy implies “It’s nobody’s business,” and that is not really what Roe v. Wade is about, or what the E.U. regulations are about, or even what Katz and Carpenter are about. The real issue is the one that Pollak and Martin, in their suit against the District of Columbia in the Muzak case, said it was: liberty. This means the freedom to choose what to do with your body, or who can see your personal information, or who can monitor your movements and record your calls—who gets to surveil your life and on what grounds.
+End quote.
 
 I care about my privacy because I care about my liberty!
 
@@ -48,7 +54,9 @@ Link three. "Quitting Nail Biting Can Be Harder Than It Seems - Racked"
 
 I used to bite my nails, at times badly. Very clearly correlated with stress. I kicked the habit only three years ago or so.
 
+Quote.
 “Ironically, nail biters may be more perfectionist and more prone to be dissatisfied with themselves and their performance,” O’Connor said. “This may trigger biting.”
+End quote.
 
 No comment.
 
@@ -56,7 +64,9 @@ Link four. "The Psychology of Dread Tasks - Daniel Gross"
 
 We all have stuff that we don't want to do but need to do, and if your like me you tend to procrastinate those items. I like the suggestions here.
 
+Quote.
 Thankfully, these predictions are frequently wrong. All you need to do is reverse engineer your thought patterns. Here are some strategies I find useful for tricking myself into doing what I need to do.
+End quote.
 
 I also like the style of this website with the highlighting in the post.
 
@@ -64,7 +74,9 @@ Link five. "Shortcuts: A New Vision for Siri and iOS Automation – MacStories"
 
 Viticci is one of the most advanced Workflow users I know. It was by looking at his use cases that I realized I could do so much more with Workflow. Now that I've built capability on it I was very glad to see this:
 
+Quote.
 In conversations I had last week, it appears that Apple's goal is to offer full compatibility with existing workflows previously created in the Workflow app. My understanding is that Apple is very much aware of the fact that a sizable portion of the pro/prosumer community relies on Workflow to enhance their iOS experience in key ways; they don't want to change that relationship for the worse.
+End quote.
 
 If your curious to know as much as possible on the Siri Shortcuts, Shortcuts app evolution this is the definitive read.
 
@@ -92,7 +104,9 @@ Link eleven. "Living APIs, and the Case for GraphQL — Brandur Leach"
 
 Thoughtful reasoning for using GraphQL as your API structure of choice.
 
+Quote.
 A vanilla installation of GraphiQL is a more powerful integration tool for users than what 99% of REST providers have, and it’s available automatically, and for free.
+End quote.
 
 I’m not sure if this happens in other industries, but this does seem to argue for a REST v. GraphQL. Does it have to be versus? It would seem likely that we could suggest REST is better for what it does, representational state transfer, and GraphQL would be best for what it does, deal with connected data?
 
@@ -119,7 +133,9 @@ Now, the Now Reading section.
 Collapse: How Societies Choose to Fail or Succeed: Revised Edition ()
 by Jared Diamond
 
+Quote.
 In Jared Diamond’s follow-up to the Pulitzer-Prize winning Guns, Germs and Steel, the author explores how climate change, the population explosion and political discord create the conditions for the collapse of civilization.
+End quote.
 
 My book club is going back to Jared Diamond for a third time. Looking forward to this read, hopefully as a guide of what not to do.
 

@@ -28,14 +28,18 @@ om.co
 
 Om's written about tech for longer than most people and I completely agree with his view of Facebook's DNA. The last line says it all:
 
+Quote.
 Facebook is about making money by keeping us addicted to Facebook. It always has been — and that’s why all of our angst and headlines are not going to change a damn thing.
+End quote.
 
 Quitting Twitter
 www.jordanmerrick.com
 
 Another person reflecting on opting out of Twitter.
 
+Quote.
 Quitting Twitter has been a genuine quality of life improvement for me. It's as though a dark, heavy cloud of negativity has lifted, and I no longer get worked up about whatever might be the trending shitstorm du jour. I feel more focused and positive, and generally in much better mental health.
+End quote.
 
 Tristan Harris on how Facebook and Twitter bring out the worst in us - Vox
 www.vox.com
@@ -64,7 +68,9 @@ Interesting tool to create a visual diagram of the virtual networks in your AWS 
 Apache OpenWhisk is a serverless, open source cloud platform
 openwhisk.apache.org
 
+Quote.
 Apache OpenWhisk (Incubating) is a serverless, open source cloud platform that executes functions in response to events at any scale.
+End quote.
 
 Great to see Apache getting into the serverless space with an open source solution.
 
@@ -73,7 +79,9 @@ medium.com
 
 Detailed write up from Chris Dixon connecting decentralization with blockchain.
 
+Quote.
 The lesson is that when you compare centralized and decentralized systems you need to consider them dynamically, as processes, instead of statically, as rigid products. Centralized systems often start out fully baked, but only get better at the rate at which employees at the sponsoring company improve them. Decentralized systems start out half-baked but, under the right conditions, grow exponentially as they attract new contributors.
+End quote.
 
 I wish I understood better how the blockchain tech would power these apps. I think it’s also possible we can get a decentralized solution on the existing Internet still as well.
 
@@ -109,14 +117,18 @@ stripe.com
 
 If you are not familiar with Software as a Service business models and how SaaS companies work this primer from Stripe covers on all the main concepts.
 
+Quote.
 … we’ll take you through a whirlwind tour of the state of play of SaaS businesses. You should gain a better understanding of the SaaS business model, be able to anticipate whether to sell your product on a low-touch or high-touch model, and be able to evaluate its health and start improving it.
+End quote.
 
 5 Ways to Close the Strategy-to-Execution Gap
 hbr.org
 
 Some things to think about connecting your companies strategy to execution.
 
+Quote.
 The companies’ executives eschew conventional wisdom, not for the sake of nonconformity in itself, but because they are focused on the fundamental questions about a company’s strategy, such as: Who do we want to be? What is our chosen value proposition? And they’re just as focused on fundamental questions of execution: What can we do amazingly well that no one else can? What other capabilities do we need to develop? How will we blueprint, build, and scale those capabilities — and put them to use?
+End quote.
 
 Thanks to Juselly French for the link.
 
@@ -127,7 +139,9 @@ Now, the Productivity section.
 The Hyper-Scheduling Experiment — MacSparky
 www.macsparky.com
 
+Quote.
 For the last month, I have been conducting an experiment with more deliberate scheduling of my time. For lack of a better word, I have been calling it hyper-scheduling.
+End quote.
 
 I've tried scheduling with this level of precision and it doesn't work at all for me. But there are a number of other people that I know who swear by this.
 
@@ -150,12 +164,16 @@ www.teamten.com
 
 Interesting observations on the size of a codebase and the difficulty for programmers to manage it.
 
+Quote.
 At DreamWorks we had 950 programs for animators to use, and a line count showed that the larger ones all hovered around 20,000 to 25,000 lines. Beyond that it was just too much effort to add features.
+End quote.
 
 Hyrum's Law
 www.hyrumslaw.com
 
+Quote.
 Taken to its logical extreme, this leads to the following observation, colloquially referred to as “The Law of Implicit Interfaces”: Given enough use, there is no such thing as a private implementation.
+End quote.
 
 If you have enough consumers you can’t change anything. This is why eBay's website can’t be changed.
 

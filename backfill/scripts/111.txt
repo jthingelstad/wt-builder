@@ -12,13 +12,15 @@ Link one. "The Mystery of the Miserable Employees: How to Win in the Winner-Take
 
 This article connects the analytical approaches used in highly data-driven sports like baseball, with a quantitative approach to understanding what makes people successful in their jobs. This specifically dives into a large team at Microsoft where people expressed dissatisfaction with work-life balance. The exploration of instinctive reasons for this proved wrong. Through survey data they found some good reminders (emphasis added).
 
+Quote.
 One of their findings was that people who worked extremely long work weeks were not necessarily more effective than those who put in a more normal 40 to 50 hours. In particular, when managers put in lots of evening and weekend hours, their employees started matching the behavior and became less engaged in their jobs, according to surveys. Another finding was that one of the strongest predictors of success for middle managers was that they held frequent one-on-one meetings with the people who reported directly to them. Third: People who made lots of contacts across departments tended to have longer, better careers within the company. There was even an element of contagion, in that managers with broad networks passed their habits on to their employees.
+End quote.
 
 The more interesting data came when they looked at data that quantified the teams experiences (emphasis added).
 
-The two kept iterating until something emerged in the data. People in Mr. Ostrum’s division were spending an awful lot of time in meetings: an average of 27 hours a week. That wasn’t so much more than the typical team at Microsoft. But what really distinguished those teams with low satisfaction scores from the rest was that their meetings tended to include a lot of people — 10 or 20 bodies arrayed around a conference table coordinating plans, as opposed to two or three people brainstorming ideas.
-
-The issue wasn’t that people had to fly to China or make late-night calls. People who had taken jobs requiring that sort of commitment seemed to accept these things as part of the deal. The issue was that their managers were clogging their schedules with overcrowded meetings, reducing available hours for tasks that rewarded more focused concentration — thinking deeply about trying to solve a problem.
+Quote.
+The two kept iterating until something emerged in the data. People in Mr. Ostrum’s division were spending an awful lot of time in meetings: an average of 27 hours a week. That wasn’t so much more than the typical team at Microsoft. But what really distinguished those teams with low satisfaction scores from the rest was that their meetings tended to include a lot of people — 10 or 20 bodies arrayed around a conference table coordinating plans, as opposed to two or three people brainstorming ideas. The issue wasn’t that people had to fly to China or make late-night calls. People who had taken jobs requiring that sort of commitment seemed to accept these things as part of the deal. The issue was that their managers were clogging their schedules with overcrowded meetings, reducing available hours for tasks that rewarded more focused concentration — thinking deeply about trying to solve a problem.
+End quote.
 
 I have my own bespoke system for tracking calendar analytics. I track a handful of dimensions on the data in addition to just frequency and scheduled v. unscheduled time. I track wether I scheduled the meeting or if someone else did, to get a sense of how much of my time I am directing. I also track special flags for meetings with just one other person, a one-on-one meeting, as well as a flag for large meetings with a lot of attendees. Most recently I've also started attaching an emoji to each event to gauge a qualitative rating of the meeting. I'm now using that data to both correlate my own level of excitement about various parts of my work as well as insure that I'm putting my most precious resource, time, towards my most important objectives.
 
@@ -26,11 +28,15 @@ Link two. "The Problem With “Content” – On my Om"
 
 Over the years I worked with many journalists and nearly all of them bristled at the word content. One once argued with me that I should just go all the way and call it "data". People who exercise a craft, do that in the theme of that craft, not arbitrary buckets of bits like content.
 
+Quote.
 A photographer who says that he is creating “content” for his YouTube channel is nothing more than a marketer churning out fodder to fill the proverbial Internet airwaves with marketing noise.
+End quote.
 
 I love how Om looks at his personal website. I feel similarly.
 
+Quote.
 Like in my apartment, on my blog, I am king. My first decree was to eschew any and all analytics. I don’t want to be driven by “views,” or what Google deems worthy of rank. I write what pleases me, not some algorithm. Walking away from quantification of my creativity was an act of taking back control.
+End quote.
 
 I’m glad to see I’m in such great company having removed analytics from my website, and I also disable all link tracking on the Weekly Thing.
 
@@ -38,7 +44,9 @@ Link three. "The New Wilderness (Idle Words)"
 
 I like how Maciej Cegłowski frames the privacy topic (and a number of other topics for that matter). I've wished that the Internet had a form of "zoning" in this regard. In everyday life we make a number of assumptions about our privacy informed by our surroundings. When in a restaurant or store, I don't assume I have any privacy. When in a park, I do assume I have privacy.
 
+Quote.
 Our discourse around privacy needs to expand to address foundational questions about the role of automation: To what extent is living in a surveillance-saturated world compatible with pluralism and democracy? What are the consequences of raising a generation of children whose every action feeds into a corporate database? What does it mean to be manipulated from an early age by machine learning algorithms that adaptively learn to shape our behavior?
+End quote.
 
 It would be nice if you could understand your privacy situation based on your surroundings in the digital world.
 
@@ -72,7 +80,9 @@ Link four. "Facebook reveals Libra, its momentous new crypto, to the world - Dec
 
 Interesting for Facebook to be getting into this space and betting so big on it. It would be good if it validates cryptocurrencies, but I have no trust for Facebook to run such a system with my money. I’m also pretty suspicious about the involvement of all these other organizations.
 
+Quote.
 These collaborators, each of which pitched in 10 million dollars for the privilege of joining the network, are the so-called “Founding Members” of the Libra Association, a Switzerland-based not-for-profit that will oversee the development of the Libra network. A Byzantine system of “governance”—with each node participating in regular votes on key proposals—is intended to hold them accountable.
+End quote.
 
 What are they getting out of this? I'll wait and see. If it requires a Facebook account, I won't be using it.
 
@@ -100,7 +110,9 @@ Link ten. "Why PagerDuty Still Changes Our Logo for Pride Month | PagerDuty"
 
 I like this article explaining the "why" for PagerDuty and supporting Pride Month with their logo.
 
+Quote.
 To highlight Pride at PagerDuty is to celebrate all people and to shine a light on those in the world who cannot simply be themselves. We change our logo for Pride Month each year because we want to show that we are a welcoming and safe space, and that we support all people.
+End quote.
 
 Link eleven. "Soulver 3 for Mac: The MacStories Review – MacStories"
 
@@ -122,9 +134,9 @@ Link fifteen. "242 Year Old Birkenstock is Not Interested in Being on Fashion's 
 
 I've owned Birkenstock's for as long as I can remember. Each pair last several years. I even get them re-corked sometimes. I love the ethos they are espousing here:
 
-“It was never about function for them, just logos,” Klaus Baumann, Birkenstock’s chief sales officer, speaking about Supreme, which regularly draws long lines of consumers outside of its store every week on Thursday when it “drops” new products, including collaborations. “These were not product people.”
-
-Birkenstock’s management is seemingly unimpressed by such antics.
+Quote.
+“It was never about function for them, just logos,” Klaus Baumann, Birkenstock’s chief sales officer, speaking about Supreme, which regularly draws long lines of consumers outside of its store every week on Thursday when it “drops” new products, including collaborations. “These were not product people.” Birkenstock’s management is seemingly unimpressed by such antics.
+End quote.
 
 "These were not product people." Love that. Via Five Things on Friday #300.
 

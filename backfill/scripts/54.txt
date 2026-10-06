@@ -16,7 +16,9 @@ Link three. "Is GraphQL The Future? - Artsy Engineering"
 
 A call to consider GraphQL in a bigger-picture context.
 
+Quote.
 It lets you model the resources and processes provided by a server as a domain-specific language (DSL). Clients can use it to send scripts written in your DSL to the server to process and respond to as a batch.
+End quote.
 
 I hadn't considered the connections the author is making here, but they seem valid and extend the way you can build on GraphQL in very novel ways.
 
@@ -47,7 +49,9 @@ Link two. "StopTheMadness"
 
 If you use Safari on macOS and are bugged with certain websites blocking default behavior, this is a fix.
 
+Quote.
 StopTheMadness is a Safari extension for Mac that stops web sites from making Safari harder to use. Some web sites disable Mac user interface features in Safari that you normally expect to work.
+End quote.
 
 Purchased and installed.
 
@@ -59,7 +63,9 @@ Link four. "Morning Cup of Coding — Human Readable"
 
 This newsletter caught my eye. The first few issues have impressed me with how well they are executed.
 
+Quote.
 Morning Cup of Coding is a daily programming newsletter featuring long form technical articles of all fields of software engineering.
+End quote.
 
 Subscribed!
 

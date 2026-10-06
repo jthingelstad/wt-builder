@@ -10,7 +10,9 @@ Link one. "Sharing the Data: How Technical Women Navigate Their Career | Develop
 
 Good insights and data from Automattic, the makers of WordPress, and what they learned about how women navigate the technology industry. I found this highlight interesting:
 
+Quote.
 Respondents read job descriptions almost exclusively for red flags; for instance, they search for language encouraging all relevant employees (not just women) to take parental leave.
+End quote.
 
 I've highlighted other articles in the past that showed changing the style of job postings had a radical impact on the pool of candidates that companies got.
 
@@ -18,11 +20,9 @@ Link two. "For Young Female Coders, Internship Interviews Can Be Toxic | WIRED"
 
 Men working in the technology industry, especially those in leadership roles, need to read articles like this that share the experience that women in technology have. This article is even more troubling as it is focused on internships!
 
-More than half of the respondents said they either had a negative experience while applying for engineering internships or knew another woman who had a negative experience, such as being subjected to gender-biased interview questions and inappropriate remarks, or observing a noticeable lack of diversity when they interacted with company representatives during the interview process.
-
-Although the survey did not explicitly ask about sexual harassment and discrimination, respondents raised both issues in written responses at the end of the survey. They described instances where a male interviewer flirted with them during the interview, sent an unsolicited photo of himself, asked if they had a significant other, or made sexual remarks in their presence. The respondents also reported feeling dismissed or demeaned because of their gender. One respondent was asked why she would want to go into tech as a woman; in another instance, a male interviewer laughed when the candidate said she saw herself becoming a software engineer in five years.
-
-The inappropriate behavior they describe is alarming considering that the average age of the respondents was 19 and, for the most part, they’re describing interactions with grown men who have some control over their access to opportunity.
+Quote.
+More than half of the respondents said they either had a negative experience while applying for engineering internships or knew another woman who had a negative experience, such as being subjected to gender-biased interview questions and inappropriate remarks, or observing a noticeable lack of diversity when they interacted with company representatives during the interview process. Although the survey did not explicitly ask about sexual harassment and discrimination, respondents raised both issues in written responses at the end of the survey. They described instances where a male interviewer flirted with them during the interview, sent an unsolicited photo of himself, asked if they had a significant other, or made sexual remarks in their presence. The respondents also reported feeling dismissed or demeaned because of their gender. One respondent was asked why she would want to go into tech as a woman; in another instance, a male interviewer laughed when the candidate said she saw herself becoming a software engineer in five years. The inappropriate behavior they describe is alarming considering that the average age of the respondents was 19 and, for the most part, they’re describing interactions with grown men who have some control over their access to opportunity.
+End quote.
 
 The scale of this problem is big, but it cannot be ignored.
 
@@ -32,9 +32,9 @@ Last week the WebKit team published their position on trackers and blocking them
 
 This look at the statements Google is making is thorough.
 
-Google is trying to thread a needle here, implying that some level of tracking is consistent with both the original design intent for web technology and user privacy expectations. Neither is true.
-
-If the benchmark is original design intent, let’s be clear: cookies were not supposed to enable third-party tracking, and browsers were supposed to block third-party cookies. We know this because the authors of the original cookie technical specification said so (RFC 2109, Section 4.3.5).
+Quote.
+Google is trying to thread a needle here, implying that some level of tracking is consistent with both the original design intent for web technology and user privacy expectations. Neither is true. If the benchmark is original design intent, let’s be clear: cookies were not supposed to enable third-party tracking, and browsers were supposed to block third-party cookies. We know this because the authors of the original cookie technical specification said so (RFC 2109, Section 4.3.5).
+End quote.
 
 Google gets in tough spots when they have to address privacy. Everyone knows that they thrive on user data. Limiting the ability to collect user data directly, negatively, impacts they're revenue.
 
@@ -62,7 +62,9 @@ Link three. "Credit card privacy matters: Apple Card versus Chase Amazon Prime R
 
 When you start looking at where your activity is tracked, it seems like there is no end of it.
 
+Quote.
 What I learned: The card data business is booming for advertisers, for aiding investors and for helping retailers and banks encourage more spending. And there are many ways a card swipe can be exploited that don’t always require a transaction being “sold” or “shared” in a way that fully identifies you. Data can be aggregated, anonymized, hashed or pseudonymized (given a new name), or used to target you without ever technically changing hands.
+End quote.
 
 Link four. "Things I Learnt from a Senior Software Engineer | Neil Kakkar"
 
@@ -76,7 +78,9 @@ Link six. "How to manage up effectively - Know Your Team | Blog"
 
 Good practical suggestions here. But you could probably just anchor on the very first sentence.
 
+Quote.
 You want to manage up – but what you really mean is that you simply want to work well with your boss.
+End quote.
 
 Link seven. "Facebook wants to manage Wi-Fi on your phone"
 

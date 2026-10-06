@@ -45,7 +45,11 @@ I like to give Perl code a hard time because so much of it is so sloppy. However
 
 Link eight. "The Importance of Thinking Time — MyProductiveMac"
 
-In the realm of actively managing your schedule this is an important aspect to consider scheduling. That’s it, nothing else. Make sure you know when you’re going to take the opportunity to down tools, take a break and just - think. Just - be.
+In the realm of actively managing your schedule this is an important aspect to consider scheduling.
+
+Quote.
+That’s it, nothing else. Make sure you know when you’re going to take the opportunity to down tools, take a break and just - think. Just - be.
+End quote.
 
 Link nine. "Behind the Magic: How we built the ARKit Sudoku Solver"
 
@@ -65,11 +69,23 @@ Interesting writeup on injecting formulas into CSV data to affect the behavior o
 
 Link thirteen. "What Sephora Knows About Women in Tech That Silicon Valley Doesn’t - WSJ"
 
-Highlighting how Sephora has defied technology trends regarding gender diversity in technology. This reference to EEOC data is sobering: Women hold 23% of roles in the technical ranks at the top 75 Silicon Valley companies, according to the U.S. Equal Employment Opportunity Commission. A report from the commission attributes the scarcity of women in those roles to inhospitable work cultures, isolation, a “firefighting” work style, long hours and a lack of advancement. Take a look at the 'Industry Pipeline' graphs and note that the only industries with lower representation of women than tech is ‘automative and industrial manufacturing’ and ‘energy and basic materials’. There is a lot of room to improve! Thanks @anna_picchetti for the link!
+Highlighting how Sephora has defied technology trends regarding gender diversity in technology. This reference to EEOC data is sobering:
+
+Quote.
+Women hold 23% of roles in the technical ranks at the top 75 Silicon Valley companies, according to the U.S. Equal Employment Opportunity Commission. A report from the commission attributes the scarcity of women in those roles to inhospitable work cultures, isolation, a “firefighting” work style, long hours and a lack of advancement.
+End quote.
+
+Take a look at the 'Industry Pipeline' graphs and note that the only industries with lower representation of women than tech is ‘automative and industrial manufacturing’ and ‘energy and basic materials’. There is a lot of room to improve! Thanks @anna_picchetti for the link!
 
 Link fourteen. "The Value of Optimizing for Resilience - DZone Performance"
 
-Good read and I like this term resilience better than survivability, which is what I typically use to describe these qualities. I also like the concept that this is built into the services but also the teams behind them. If the checkout team adopted Defensive Architecture techniques they could combine a Circuit Breaker, a Bulkhead, and a Feature Toggle in anticipation of registration errors. If the registration service struggled under load the Circuit Breaker would regulate registration requests to allow a percentage to succeed, and the Bulkhead would warn the checkout frontend to skip registration for some customers. Great terms and concepts to consider in system and team design!
+Good read and I like this term resilience better than survivability, which is what I typically use to describe these qualities. I also like the concept that this is built into the services but also the teams behind them.
+
+Quote.
+If the checkout team adopted Defensive Architecture techniques they could combine a Circuit Breaker, a Bulkhead, and a Feature Toggle in anticipation of registration errors. If the registration service struggled under load the Circuit Breaker would regulate registration requests to allow a percentage to succeed, and the Bulkhead would warn the checkout frontend to skip registration for some customers.
+End quote.
+
+Great terms and concepts to consider in system and team design!
 
 Link fifteen. "MenuetOS"
 
@@ -85,7 +101,13 @@ This newsletter from Azeem Azhar is a real treat every week. This is one that I 
 
 Link eighteen. "Silicon Valley | Asymco"
 
-Wait, what? Currently Apple ships more microprocessors than Intel. I guess that makes sense when you consider all the iPhones walking the world but still that statement is striking. Nobody things of Apple as a semiconductor company.
+Wait, what?
+
+Quote.
+Currently Apple ships more microprocessors than Intel.
+End quote.
+
+I guess that makes sense when you consider all the iPhones walking the world but still that statement is striking. Nobody things of Apple as a semiconductor company.
 
 Link nineteen. "Blockchains: How They Work and Why They’ll Change the World - IEEE Spectrum"
 

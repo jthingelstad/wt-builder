@@ -8,11 +8,15 @@ Link one. "The Mind at Work: Guido van Rossum on how Python makes thinking in co
 
 Nice background on the design philosophy of Python.
 
+Quote.
 Python’s readability is not just typographic, but conceptual. Van Rossum thinks Python may be closer to our visual understanding of the structures that we are representing in code than other languages because, “Python makes that structure mandatory.”
+End quote.
 
 I like that take on indentation and the "Why?" behind it. This little snippet from the article made me chuckle.
 
+Quote.
 As Thompson writes, “When you meet a coder, you’re meeting someone whose core daily experience is of unending failure and grinding frustration.”
+End quote.
 
 That's the end of Featured Links.
 
@@ -30,8 +34,9 @@ Link one. "Fenwick High School twenty seventeen Commencement Speaker Mick Betanc
 
 My colleague Dan Juckniess shared this Fenwick High School commencement speech with me after telling me the quote that he found so powerful in it.
 
-Whatever your doing, is what you’ll get better at.
-Go to the bar every night and drink, guess what you’ll get better at.
+Quote.
+Whatever your doing, is what you’ll get better at. Go to the bar every night and drink, guess what you’ll get better at.
+End quote.
 
 Very powerful message.
 
@@ -47,7 +52,9 @@ Link four. "How Ring Went From ‘Shark Tank’ Reject to America’s Scariest S
 
 I do not like anything about Ring. This first in a series of articles talks about the origin of Ring. I didn’t realize it was on Shark Tank!
 
+Quote.
 At its core, Ring is a marketing company that realized it could make money by selling fear.
+End quote.
 
 Violating other peoples privacy, and enabling surveillance, is despicable.
 
@@ -55,7 +62,9 @@ Link five. "Roleplaying Difficult Conversations | Lara Hogan"
 
 Roleplaying is a very useful way for managers to work through tough messages. I like this perspective on why you should take the time to do it.
 
+Quote.
 Practicing difficult conversations and feedback helps you be a better manager, but the real reason you should do it is to fully support the person on the receiving end. It’s your job to help them be successful!
+End quote.
 
 Some very good suggestions here.
 
@@ -63,7 +72,9 @@ Link six. "Amazon API Gateway Offers Faster, Cheaper, Simpler APIs Using HTTP AP
 
 This seems to simplify much of the complexity of building API’s and get you going right away.
 
+Quote.
 HTTP APIs simplify the API building experience for the most common features needed to build serverless applications or to proxy requests to HTTP endpoints. They come with standard API Gateway functionality such as throttling, metrics, and logging capabilities. In addition, you can secure your APIs using OIDC and OAuth 2 out of box, quickly build web applications using a simple CORS experience, and get started immediately with automatic deployment and simple create workflows.
+End quote.
 
 Impressive.
 
@@ -75,9 +86,9 @@ Link eight. "CBS shows Mark Zuckerberg is a human. Does that matter? - without b
 
 Total PR puff piece.
 
-He’s not evil.
-
-But Facebook is. And we need to hold him responsible for that.
+Quote.
+He’s not evil. But Facebook is. And we need to hold him responsible for that.
+End quote.
 
 Yes.
 
@@ -85,7 +96,9 @@ Link nine. "Why You Should Ditch Your Laptop For iPad Pro – The Brooks Review"
 
 I like this argument for using an iPad more.
 
+Quote.
 Something really fascinating happens when people open a laptop: they get to work. They check email, they have a million tabs, tons of apps showing progress on many tasks/projects, they have tabs for social networks, half in progress projects abound. People do stuff. They are sucked in — unlikely to step away anytime soon. However, when I see people use an iPad they use it for one thing — the thing they grabbed it to do — and then they go back to life.
+End quote.
 
 I think there is some truth to that. This goes to the "context" of a computing device. For me I find the iPad a more focused device. Perhaps it is the lack of multiple windows? I am consistently increasing the volume of things that I do on my iPad.
 

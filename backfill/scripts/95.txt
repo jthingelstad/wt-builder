@@ -28,7 +28,9 @@ Link two. "Minnesota Compass - Measuring Progress Inspiring Action"
 
 I've seen Allison Liuzzi of Compass present some very good demographic data for the State of Minnesota. I finally went to their website and they have a ton of data available.
 
+Quote.
 By tracking and analyzing trends in topics that affect our quality of life, Compass gives everyone in our state – policymakers, business and community leaders, and concerned individuals who live and work here – a common foundation to act on issues to improve our communities.
+End quote.
 
 Wealth of data here. Good resource.
 
@@ -52,7 +54,9 @@ Link seven. "Gopher: a present for Redis -"
 
 I totally thought this was an April fools joke, and then…
 
+Quote.
 I’ll use the ten years of Redis as an excuse to release something I played a bit in the previous days, thinking to use it for the first April fool: but such date is far and I want to talk to you about this project now… So, happy birthday Redis! Here it’s your present: a Gopher protocol implementation.
+End quote.
 
 I love Redis and it’s fun to see this. Made me think I would like to make a Gopher version of my website.
 
@@ -72,7 +76,9 @@ Link eleven. "HQ2: Understanding What Happened and Why - The Big Picture"
 
 Compelling recap of the HQ2 process that Amazon has being going through.
 
+Quote.
 From the start, the entire HQ2 optics have been terrible. When the world’s wealthiest man happens to run the world’s most most valuable company goes looking for a new place to call home, perhaps compelling self-flagellation by states and local officials to win his business... well, let’s just say that is not the greatest look.
+End quote.
 
 Totally agree. Via Daring Fireball.
 
@@ -84,13 +90,9 @@ Link thirteen. "You Give Apps Sensitive Personal Information. Then They Tell Fac
 
 These are profound violations of trust and privacy.
 
-In the Journal’s testing, Instant Heart Rate: HR Monitor, the most popular heart-rate app on Apple’s iOS, made by California-based Azumio Inc., sent a user’s heart rate to Facebook immediately after it was recorded.
-
-Flo Health Inc.’s Flo Period and Ovulation Tracker, which claims 25 million active users, told Facebook when a user was having her period or informed the app of an intention to get pregnant, the tests showed.
-
-Real-estate app Realtor.com, owned by Move Inc., a subsidiary of Wall Street Journal parent News Corp, sent the social network the location and price of listings that a user viewed, noting which ones were marked as favorites, the tests showed.
-
-None of those apps provided users any apparent way to stop that information from being sent to Facebook.
+Quote.
+In the Journal’s testing, Instant Heart Rate: HR Monitor, the most popular heart-rate app on Apple’s iOS, made by California-based Azumio Inc., sent a user’s heart rate to Facebook immediately after it was recorded. Flo Health Inc.’s Flo Period and Ovulation Tracker, which claims 25 million active users, told Facebook when a user was having her period or informed the app of an intention to get pregnant, the tests showed. Real-estate app Realtor.com, owned by Move Inc., a subsidiary of Wall Street Journal parent News Corp, sent the social network the location and price of listings that a user viewed, noting which ones were marked as favorites, the tests showed. None of those apps provided users any apparent way to stop that information from being sent to Facebook.
+End quote.
 
 Via Daring Fireball.
 

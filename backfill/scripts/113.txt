@@ -32,7 +32,9 @@ Link two. "WARREN ELLIS LTD | This Ain’t Walden Pond, Mate"
 
 I like this perspective from Warren Ellis on his engagement with social platforms.
 
+Quote.
 I process a lot of stuff, and keep up with a lot of things, and a shift is required to allow for the career step-change. You can’t be dogmatic about anything. Situations tend to be fluid and dynamic, and you need to be able to flow and adjust in response.
+End quote.
 
 Those adjustments are a good thing.
 
@@ -48,9 +50,9 @@ Link five. "How YouTube Radicalized Brazil - The New York Times"
 
 There is a lot of great content on YouTube, but this stuff is far too prevalent.
 
-As his time on the site grew, YouTube recommended videos from other far-right figures. One was a lawmaker named Jair Bolsonaro, then a marginal figure in national politics — but a star in YouTube’s far-right community in Brazil, where the platform has become more widely watched than all but one TV channel.
-
-Last year, he became President Bolsonaro.
+Quote.
+As his time on the site grew, YouTube recommended videos from other far-right figures. One was a lawmaker named Jair Bolsonaro, then a marginal figure in national politics — but a star in YouTube’s far-right community in Brazil, where the platform has become more widely watched than all but one TV channel. Last year, he became President Bolsonaro.
+End quote.
 
 It lowers YouTube (Google's) revenue by blocking this stuff. I wouldn't expect much to happen.
 
@@ -62,7 +64,9 @@ Link seven. "Python is eating the world: How one developer's side project became
 
 Thorough read on the story behind Python, it’s introduction and rise in popularity. I don't do any professional coding, but I do goof around on things and I nearly always do that in Python.
 
+Quote.
 What Python offered, and still offers, is clear and unambiguous syntax, where indentations group code into blocks, making the code easier for developers to understand.
+End quote.
 
 It is a joy to use and very readable.
 
@@ -70,7 +74,9 @@ Link eight. "How We Keep Learning"
 
 One of my most repeated references is "All great technology companies, are learning companies." You simply cannot be a great tech company without that learning foundation.
 
+Quote.
 Invest in your engineers’ learning. There is no way around the need for this to be an explicit investment by fast growing companies.
+End quote.
 
 Yes, and twice on Sunday.
 
@@ -86,7 +92,9 @@ Link eleven. "Why Aren’t We Talking About LinkedIn? - The New York Times"
 
 LinkedIn has adopted all of the addictive patterns of social media, to great affect. The site has continued to grow in every dimension of engagement.
 
+Quote.
 Considering its size and social footprint, LinkedIn has been a notably minor character in major narratives about the hazards of social media. The site hasn’t proved especially useful for mainstreaming disinformation, for example, nor is it an obvious staging ground for organized harassment campaigns. It is unique among its social media peers in that it has not spent the last five years in a state of wrenching crisis.
+End quote.
 
 But LinkedIn is very different since it is a "professional" or business network. it is a vertical network focused on a single dimension. You don't go there for news. The only thing it’s a battleground for is recruiters, not partisans.
 

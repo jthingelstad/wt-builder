@@ -10,11 +10,15 @@ Link one. "The Feeling That You’re Always Behind on Work: zen habits"
 
 I know that feeling!
 
+Quote.
 Many of us have a constant neverending feeling that we’re always behind on what we need to get done.
+End quote.
 
 Okay, now you got my attention.
 
+Quote.
 And all of a sudden, you’re not behind on anything. Because what you’re doing right now is enough. And it’s all you have. Which is perfect, as it is.
+End quote.
 
 A very Zen view on contentment. There is a lot of truth here, particularly the part about us creating our own anxiety rushing to the next thing.
 
@@ -52,7 +56,9 @@ Link four. "Daring Fireball: Bloomberg’s ‘The Big Hack’"
 
 This Bloomberg report on rogue chips from Supermicro infiltrating Amazon and Apple is pretty amazing. Gruber’s take on it is a good summary.
 
+Quote.
 I see no way around it: either Bloomberg’s report is significantly wrong, at least as pertains to Amazon and Apple, or Apple and Amazon have issued blatantly false denials.
+End quote.
 
 Apple and Amazon both vehemently deny this report. Apple even issued a second statement about it. It’s hard to know what really happened, but it’s notable to me that espionage at this level is known, and will impact how we can build new technology for certain purposes.
 
@@ -68,13 +74,17 @@ Link seven. "Putin’s war is transforming Ukraine - The Washington Post"
 
 I started traveling to Ukraine twice a year right after the conflict with Russia began. I’ve always found it very jarring when I read coverage of all the fighting, and then go there and it seems completely normal in the capital. I’m not sure about the trends in this article, but I would like it if this were the case.
 
+Quote.
 Thanks to the war, and to their anger at its perpetrators, Ukrainians themselves are choosing to speak Ukrainian — more say they do every year. Thanks to the war, the different regions of this vast country are drawing more closely together
+End quote.
 
 Link eight. "Mission, Strategy, and Tactics"
 
 Good clarifying post on the purpose and approach for mission, vision, strategy, etc. The last paragraph resonated with me.
 
+Quote.
 Interestingly, this post is an example of something even more paramount than having a mission: providing a common language for the team to use that everyone understands. Ensuring people use terms consistently isn’t just pedantry, it is potentially critical to scaling execution.
+End quote.
 
 This is so true. In a larger organization simply getting everyone talking using similar definitions is a big deal. The language and definitions behind it will fundamentally alter how people use these things.
 
@@ -90,7 +100,9 @@ Link eleven. "Here's the One iPhone XS Feature That Justifies an Upgrade"
 
 I’ve been shooting with my iPhone XS for about two weeks now and I have to agree that of the capabilities of the new camera system, the Smart HDR capability is amazing.
 
+Quote.
 In short, the iPhone XS is the best iPhone by far at approximating what you'd see with your own eyes. And most of the time, isn't the ultimate goal of photography to capture something we've seen and keep it forever?
+End quote.
 
 I’ve had several pictures come off the phone that I’ve marveled at the natural exposure of the photo.
 

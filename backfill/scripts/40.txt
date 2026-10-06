@@ -27,11 +27,15 @@ Take the Power Back – iA
 
 Powerful writing from iA about engaging in the web and our digital platforms with more thought.
 
+Quote.
 The answer to the passive consumption of trash is the active formulation of questions, the active search for answers and the active work of putting complex knowledge and diffuse feelings into clear words.
+End quote.
 
 This article is a great read if only for the writing.
 
+Quote.
 Social Media is a mental prison where Facebook exists to make us believe that Google is still open.
+End quote.
 
 That made me laugh and think at the same time.
 
@@ -39,17 +43,23 @@ A Declaration of the Independence of Cyberspace | Electronic Frontier Foundation
 
 I’m shocked that I had never read this article. Sadly John Perry Barlow, the founder of the EFF and the author of this declaration recently passed away. Cory Doctorow has a very nice remembrance of him. From Doctorow:
 
+Quote.
 Today, Barlow is dead, and his vision is vindicated: the risks Barlow foresaw (along with other EFF founders like John Gilmore and Mitch Kapor ) are more imminent than ever; the organization that he started and the movement he kicked off has never been more badly needed.
+End quote.
 
 Web Trend Map twenty eighteen – iA
 
 The web has been consolidating to major corporations, losing sight of some of the original objectives.
 
+Quote.
 The Web has lost its spirit. The Web is no longer a distributed Web.
+End quote.
 
 There are however sprouts of new activity.
 
+Quote.
 There seems to be a weak undercurrent of old and young bloggers like us that feel sentimental or curious and want to bring back blogging. Blogging won’t save the world. But, hell, after two weeks now, we can confirm: it feels great to be back on the blogging line.
+End quote.
 
 I have nothing against successful companies online, but there needs to be space for other things. Commercial areas are fine, but I also want parks. Industrial activity is needed, but we need residential areas too. This all applies to the web as well.
 
@@ -61,7 +71,9 @@ Episode #38 – The Power of Outcome Thinking
 
 I've been thinking about mental focus and also meditation. This recent GTD podcast offered some great color on the topic.
 
+Quote.
 This talk will reveal just how much the thoughts we hold in our head have the potential to affect the types and qualities of action we take. From athletic performance to prepping for that next big meeting, what we think about while we act can affect how we act.
+End quote.
 
 Plus David Allen is pretty funny in some of his talks.
 
@@ -77,7 +89,9 @@ The Kubernetes Effect
 
 Some interesting learning here on the deeper ways that you can use Kubernetes in your application architecture.
 
+Quote.
 Kubernetes offers a full set of distributed primitives (such as pods, services, controllers) that addresses the requirements and drives the design of our applications. These new primitives and the platform capabilities dictate the guiding design principles and design patterns we use to implement all future services.
+End quote.
 
 It also highlights the broad surface area of Kubernetes. The points on broad adoption across various platforms are also important to note.
 
@@ -101,7 +115,9 @@ Billy Mitchell's Direct Feed Recordings are MAME Generated
 
 If you have watched King of Kong you know the story of Billy Mitchell. After some incredibly detailed analysis, it seems his records were faked.
 
+Quote.
 In light of the evidence presented here, I am removing Billy Mitchell's current score of 1,062,800 from the Donkey Kong Forum High Score List.
+End quote.
 
 The Internet is so great. If you find this story interesting, watch the movie!
 
@@ -137,7 +153,9 @@ Falcon Heavy Test Flight - YouTube
 
 This was all amazing! What a feat for SpaceX.
 
+Quote.
 When Falcon Heavy lifts off, it will be the most powerful operational rocket in the world by a factor of two. With the ability to lift into orbit nearly 64 metric tons (141,000 lb)---a mass greater than a 737 jetliner loaded with passengers, crew, luggage and fuel--Falcon Heavy can lift more than twice the payload of the next closest operational vehicle, the Delta IV Heavy, at one-third the cost.
+End quote.
 
 Watching the two Falcon engines land nearly simultaneously made me think I was watching a science fiction movie!
 

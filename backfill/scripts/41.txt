@@ -25,7 +25,9 @@ Structured Logging and Your Team | Honeycomb
 
 Some very good best practices to consider when designing how your applications logs. I love the human side of this call to action.
 
+Quote.
 Teach your code to communicate with your team, and you will reap the benefits for as long as the code lives!
+End quote.
 
 Teach and communicate.
 
@@ -37,7 +39,9 @@ Evergreen
 
 I like what Brent Simmons is doing with this project. I'm a big user of feed readers. I use Feedbin along with ReadKit and Unread. Brent has a history with readers having created NetNewsWire in two thousand two. I also love the story behind the name.
 
+Quote.
 But the name is a prayer for the open web — may it remain evergreen.
+End quote.
 
 That's the end of Software.
 
@@ -55,7 +59,9 @@ Signato
 
 I’m not a fan of script typefaces typically but this one is very well done.
 
+Quote.
 Signato is a font constructed on the basis of the manuscript of the Act of Independence of Lithuania. It is a gift to all independent people celebrating the hundredth anniversary of the restoration of the State.
+End quote.
 
 Also a really cool idea behind it.
 
@@ -71,7 +77,9 @@ Solid
 
 It’s not very clear what this is attempting to do, but I like the blurb.
 
+Quote.
 Solid (derived from "social linked data") is a proposed set of conventions and tools for building decentralized social applications based on Linked Data principles. Solid is modular and extensible and it relies as much as possible on existing W3C standards and protocols.
+End quote.
 
 Tim Berners-Lee is involved.
 
@@ -107,7 +115,9 @@ Why I stopped using roadmaps and switched to GIST instead
 
 I spend a lot of time reviewing roadmaps, identifying how roadmaps connect, exploring what they could be, etc. I have always found the serial, "waterfall-like" format, challenging but time operates in one arrow so why not. This exploration on an alternative, more agile approach, is intriguing.
 
+Quote.
 The system is called GIST after its main building blocks: Goals, Ideas, Step-projects, and Tasks. Each has a different planning horizon and frequency of change, and may use different tools to track, but together they constitute all the core planning any company and team needs to do.
+End quote.
 
 That's the end of Business.
 
@@ -117,7 +127,9 @@ Tech’s Ethical ‘Dark Side’: Harvard, Stanford and Others Want to Address I
 
 It’s happening! Ethics is coming to computer science curriculums!
 
+Quote.
 And at Stanford University, the academic heart of the industry, three professors and a research fellow are developing a computer science ethics course for next year. They hope several hundred students will enroll.
+End quote.
 
 This is a much needed facet for people that are developing the software that many people live inside of for significant parts of their days.
 
@@ -137,7 +149,9 @@ Meeting Blur – Rands in Repose
 
 What a great term! I've experienced this myself on many occasions!
 
+Quote.
 Meeting Blur. When the number of meetings exceeds your ability to remember what was said by whom, when, and where. Let’s forget for a moment why there are so many meetings2 and focus on your mental state. You’re a bright emotionally intelligent human. You walk into a meeting and have a credible mental profile of each human at the table. Why are they here? What do they want? How do they feel about the topic at hand? All of this information is front of mind and readily accessible.
+End quote.
 
 For me, this is where my trusted GTD system can help. I've also tried to use a note taking system but I've yet to get the return on that that I would like.
 

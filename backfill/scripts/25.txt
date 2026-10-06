@@ -17,11 +17,19 @@ Now, the Links section.
 
 Link one. "The Uncanny Resurrection of Dungeons and Dragons | The New Yorker"
 
-I played D and D when I was a kid, the original version of the game. I was a bit young though and only knew a couple other kids who were into it again. I played again in college and had many long, long evenings with campaigns. I always play a Wizard. Usually good. Then, a fifth edition of D. and D. rules came out, in twenty fourteen, and, somehow, the culture was receptive again to bags of holding and silver-haired drow. People started buying up these volumes in droves. “More people are interested in D and D than we thought,” the game’s lead developer, Mike Mearls, said, as print runs repeatedly sold out. “Who are these people? What do they want?”
+I played D and D when I was a kid, the original version of the game. I was a bit young though and only knew a couple other kids who were into it again. I played again in college and had many long, long evenings with campaigns. I always play a Wizard. Usually good.
+
+Quote.
+Then, a fifth edition of D. and D. rules came out, in twenty fourteen, and, somehow, the culture was receptive again to bags of holding and silver-haired drow. People started buying up these volumes in droves. “More people are interested in D and D than we thought,” the game’s lead developer, Mike Mearls, said, as print runs repeatedly sold out. “Who are these people? What do they want?”
+End quote.
 
 Link two. "The Rising Stakes in SaaS"
 
-Interesting read on the maturation of the SaaS market. The table stakes in SaaS are rising. But it’s not the MRR milestones or the payback period benchmarks that have changed. They may have increased slightly. Instead, the competitive differentiation ante is much greater.
+Interesting read on the maturation of the SaaS market.
+
+Quote.
+The table stakes in SaaS are rising. But it’s not the MRR milestones or the payback period benchmarks that have changed. They may have increased slightly. Instead, the competitive differentiation ante is much greater.
+End quote.
 
 Link three. "Facebook's arrogant and patronizing statement about changes to the News Feed - without bullshit"
 
@@ -57,7 +65,13 @@ I use Pinboard to save my links (and power Link Thing) but Wallabag looks like a
 
 Link eleven. "Dramatiq: simple task processing"
 
-Compelling task processing system for Python that uses decorators on functions to turn them into distributed tasks. These systems are usually a mile deep and complex but this looks very nice on the surface. Read the about the motivation. If you’re used to either of those or if you’ve ever had to use Celery in anger, Dramatiq might just be the tool for you. When I was still building WikiApiary I tried to use Celery and it was too high of a requirement for me.
+Compelling task processing system for Python that uses decorators on functions to turn them into distributed tasks. These systems are usually a mile deep and complex but this looks very nice on the surface. Read the about the motivation.
+
+Quote.
+If you’re used to either of those or if you’ve ever had to use Celery in anger, Dramatiq might just be the tool for you.
+End quote.
+
+When I was still building WikiApiary I tried to use Celery and it was too high of a requirement for me.
 
 Link twelve. "Reaching people on the internet - The Oatmeal"
 

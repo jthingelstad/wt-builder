@@ -8,7 +8,9 @@ Link one. "What do you believe now that you didn't five years ago? Centralized w
 
 There is much truth in this article, even though it’s a little hard for me to like it.
 
+Quote.
 What's more, consumers simply do not care. Users use. Only a small percentage have the technical sophistication to understand why they may want to preferentially use decentralized applications for technical reasons. Saying "It's like X, but decentralized", does not resonate, especially when the services are not as good. We had decentralized Slack way before Slack...yet there's Slack. You know it's bad when GitHub managed to recentralize an inherently distributed system like git.
+End quote.
 
 Unfortunately you could say the exact same paragraph and replace "centralized" with "private".
 
@@ -18,7 +20,9 @@ Link two. "Is It Okay to Say “Hey Guys”? - The Atlantic"
 
 The gendered nature of the term "guys" was brought to my attention first by Bridget Kromhout. At the time I honestly didn’t really hear what she was saying, but the matter stuck with me and over the last few years I've largely removed "guys" as a reference to a group of people. I think this is important, especially in industries like tech with such large gender imbalances.
 
+Quote.
 I also heard that guys could grate on women working at male-heavy companies. In tech in particular, some told me they saw the word as yet another symptom of a female-minimizing industry. “There are a lot of guys in tech and ‘guys’ is used all the time in my work and social environments by both men and women, but since it doesn't resonate with me anymore, I do feel like I'm not part of the group,” says Amy Chong, a 29-year-old user-experience researcher in San Francisco.
+End quote.
 
 Per the article I don't like using the term "folks". Perhaps it is because I’m from the midwest, but I have the perception that it feels too folksy. I tend to just say sentences differently, so that I can use terms like "everyone" instead. Sometimes I get tripped up, but that is pretty rare these days.
 
@@ -40,7 +44,9 @@ Link one. "Only 150 of Your Facebook Contacts Are Real Friends - Scientific Amer
 
 Dunbar’s number proven again!
 
+Quote.
 Study after study confirms that most people have about five intimate friends, 15 close friends, 50 general friends and 150 acquaintances.
+End quote.
 
 This should be termed a law at this point.
 
@@ -60,7 +66,9 @@ Link five. "Antifragility is a Fragile Concept"
 
 Rosenthal's opinion on Chaos is authoritative, and he clarifies how it is not antifragility.
 
+Quote.
 Antifragile is a confused concept that ignores a wealth of knowledge we have about building and operating resilient systems. Chaos Engineering, by contrast, is a well-defined, pragmatic discipline for navigating complex systems. In my mind, they are quite far apart.
+End quote.
 
 He's also no fan of Taleb's book.
 
@@ -72,7 +80,9 @@ Link seven. "Margin is Not a Luxury – sabbatical.blog"
 
 This is a great way to think about time and commitments. I need to make this a poster as a reminder.
 
+Quote.
 “Yes” and “No” are not right and wrong, good and bad. They’re left and right, up and down. Learn to see the words “Yes” and “No” as directional, not emotional.
+End quote.
 
 Yes!
 
@@ -80,7 +90,9 @@ Link eight. "Why use GraphQL, good and bad reasons · Honest Engineering"
 
 The capabilities related to complex schemas and microservice orchestration are the most compelling justifications for GraphQL. If I were doing more with mobile, I can see how the mobile use case is very helpful. I agree wholeheartedly on the assessment that REST v. GraphQL is a silly debate.
 
+Quote.
 GraphQL and REST are both very different things, GraphQL is a language and a technology, REST is an architecture pattern.
+End quote.
 
 Yes.
 
@@ -115,7 +127,9 @@ Now, the Now Reading section.
 Zen and the Art of Motorcycle Maintenance: An Inquiry Into Values ()
 by Robert M Pirsig
 
+Quote.
 A penetrating examination of how we live and how to live better A narration of a summer motorcycle trip undertaken by a father and his son, Zen and the Art of Motorcycle Maintenance becomes a personal and philosophical odyssey into fundamental questions on how to live.
+End quote.
 
 When I was at David Hussman 's memorial one of the speakers shared that David's favorite book was Zen and the Art of Motorcycle Maintenance. I've heard much about it, but I've never read it. I figured it was time to read it (or, listen to it since I am using the audiobook) and I'm enjoying it thoroughly.
 

@@ -10,17 +10,23 @@ I've been reading a lot about SAFe and I know a number of people that are intrig
 
 He highlights that many organizations, in his view, have yet to truly embrace the most important part of agile.
 
+Quote.
 So then – and still today – in most companies, the stakeholders still provide the teams with roadmaps of what features and projects the stakeholders think best. Even though the teams use Agile methods, the teams are not empowered and accountable in the sense I’m describing. They are there to implement.
+End quote.
 
 Honestly, I would agree with that assertion.
 
+Quote.
 A couple years ago I wrote about the root causes of product failure in product companies and I identified ten key attributes of Waterfall and project-mindset. I went through and compared this list with SAFe, and literally all ten problems exist in SAFe. Indeed, I would argue that all ten problems are inherent in that process.
+End quote.
 
 He does give that there are three areas where SAFe may work well, and I note that one of them is a "big regarding-platforming event". I wonder if this goes back to product versus project organizations?
 
 I strongly endorse his view that tools are not agnostic of culture.
 
+Quote.
 But it’s critical to realize that most tools are not agnostic. Their creators are trying to facilitate a certain way of thinking or working. You need to ensure that’s how you want to think or work.
+End quote.
 
 Both of these articles are worthy reads to make sure that you see all sides of this agile discussion.
 
@@ -28,7 +34,9 @@ Link two. "Apple is rebuilding Maps from the ground up | TechCrunch"
 
 Amazingly deep article on all aspects of Apple's upcoming "reboot" of their Maps effort. Maps have gotten better since the alarmingly poor launch, but that improvement hasn't been able to deal with a fundamental issue of poor data on the bottom.
 
+Quote.
 Decision made, Apple plowed ahead, building a product that relied on a patchwork of data from partners like TomTom, OpenStreetMap and other geo data brokers. The result was underwhelming.
+End quote.
 
 I've always felt this decision was odd for Apple and driven by missing the importance of map data early on. They had to partner so they could get to market, after relying for so many years on Google's maps. But Apple's path has always been to own all parts of the stack. The iPhone is Apple hardware, software and Apple everywhere in between. Maps was a mashup of different data.
 
@@ -64,7 +72,9 @@ Link four. "How Facebook Punked and then Gut Punched the News Biz – Talking Po
 
 I love it when Josh Marshall of Talking Points Memo turns to the topic of being a digital publisher.
 
+Quote.
 The first should be obvious: you can’t build businesses around a company as unreliable and poorly run as Facebook. Only a year ago, when I would talk to big money players in the digital media world, there was a consistent refrain: social video on Facebook, that’s the whole game. That struck me as crazy at the time, given everything we were seeing in the industry. And it was crazy. There’s no news publisher entitlement to Facebook traffic. And Facebook is a highly unreliable company. We’ve seen this pattern repeat itself a number of times over the course of company’s history: its scale allows it to create whole industries around it depending on its latest plan or product or gambit. But again and again, with little warning it abandons and destroys those businesses.
+End quote.
 
 Wether Facebook is a platform or not, it does not have the maturity and long-term view needed to run a platform that supports a vibrant ecosystem over the long term.
 
@@ -72,7 +82,9 @@ Link five. "Working Backwards - All Things Distributed"
 
 Much has been written about Amazon's processes for making new products. This writeup from Amazon CTO Werner Vogels is brief and to the point on the process.
 
+Quote.
 The Working Backwards product definition process is all about is fleshing out the concept and achieving clarity of thought about what we will ultimately go off and build.
+End quote.
 
 There is a lot to like here. I tend to think the best processes and frameworks for product management push for clarity and insuring that all the connective components of a product are thought out. It’s not hard to identify 3 or 4 big features. The hard work comes in figuring out how it all connects together.
 
@@ -88,7 +100,9 @@ Link eight. "Coed:Ethics"
 
 I absolutely love that this is a thing!
 
+Quote.
 This is a radically new event championing bottom-up, developer-driven ethics. How can we make technologists the last bastion of defence against unethical products? After all, we design, write and deploy them.
+End quote.
 
 I’m hoping they share videos from the sessions. I’m very pleased to see this conversation happening.
 
@@ -139,7 +153,9 @@ Link eighteen. "The Most Important Skill Nobody Taught You – Personal Growth �
 
 I believe there is a lot of truth to this thought. I often refer to social media as spray foam for the mind. It fills all the little gaps with stuff, instead of some solitude or plain boredom.
 
+Quote.
 We ignore the fact that never facing this nothingness is the same as never facing ourselves. And never facing ourselves is why we feel lonely and anxious in spite of being so intimately connected to everything else around us.
+End quote.
 
 This but is like a gateway to Buddhist practices. If you face yourself, you need to figure out what self is.
 

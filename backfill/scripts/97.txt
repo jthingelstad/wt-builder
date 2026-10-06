@@ -8,15 +8,15 @@ Link one. "The MBA Myth and the Cult of the CEO | Institutional Investor"
 
 Interesting analysis of well-known business school MBA's and how CEOs with those credentials do in public companies.
 
-But regression results suggest a different result entirely. We tagged CEOs by the MBA programs they attended, formed monthly portfolios of companies broken down by the business school each CEO attended, and compared the returns of these portfolios to the broader market.
-
-We found no statistically significant alphas — despite testing every possible school with a reasonable sample size. MBA programs simply do not produce CEOs who are better at running companies, if performance is measured by stock price return.
+Quote.
+But regression results suggest a different result entirely. We tagged CEOs by the MBA programs they attended, formed monthly portfolios of companies broken down by the business school each CEO attended, and compared the returns of these portfolios to the broader market. We found no statistically significant alphas — despite testing every possible school with a reasonable sample size. MBA programs simply do not produce CEOs who are better at running companies, if performance is measured by stock price return.
+End quote.
 
 What about bankers and consultants?
 
-Lastly, we looked at how CEOs who had previously worked at investment banks and elite consulting firms performed. If Jensen’s core thesis were true, we would expect CEOs with these elite credentials to outperform the market.
-
-We thus formed monthly portfolios for bankers and consultants. As we did with MBAs, we then ran industry-controlled Fama-French three-factor regressions. The result: Neither bankers nor consultants produced statistically significant alphas. We also back-tested portfolios designed to favor ex-bankers and consultants and found no significant edge (though consultants had a statistically insignificant edge on bankers).
+Quote.
+Lastly, we looked at how CEOs who had previously worked at investment banks and elite consulting firms performed. If Jensen’s core thesis were true, we would expect CEOs with these elite credentials to outperform the market. We thus formed monthly portfolios for bankers and consultants. As we did with MBAs, we then ran industry-controlled Fama-French three-factor regressions. The result: Neither bankers nor consultants produced statistically significant alphas. We also back-tested portfolios designed to favor ex-bankers and consultants and found no significant edge (though consultants had a statistically insignificant edge on bankers).
+End quote.
 
 That's the end of Featured Links.
 

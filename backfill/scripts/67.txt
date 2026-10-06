@@ -30,7 +30,9 @@ Link one. "See No Evil"
 
 Modern supply chains are amazing in their effectiveness, but transparency inside them is not a design objective.
 
+Quote.
 We call them “supply chains,” but that image is misleading. They really look more like a network of waterways, with thousands of tiny tributaries made up of sub-suppliers trickling into larger rivers of assembly, production, and distribution.
+End quote.
 
 The parallels between supply-chain design and service oriented architecture are surprising. Modularity, interchangeability, limited dependencies. Supply-chains are in many ways a physical manifestation of that type of architecture.
 
@@ -50,7 +52,9 @@ Link five. "Health Checks and Graceful Degradation in Distributed Systems"
 
 I have been running health checks for decades. BigCharts server is happy is the first. MarketWatch is also happy.
 
+Quote.
 The “health” of a process is a spectrum. What we’re really interested in is the quality-of-service — such as how long it takes for a process to return the result of a given unit of work and the accuracy of the result.
+End quote.
 
 Getting more precise with checks, not simple up and down, is definitely a good improvement.
 

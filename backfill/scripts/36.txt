@@ -25,7 +25,11 @@ Infrastructure cost management in the cloud is a difficult beast to wrestle.
 
 Link three. "Apache Airflow (incubating) Documentation — Airflow Documentation"
 
-This looks really interesting and would be worth keeping an eye on. I like that it’s in the Apache world. Use airflow to author workflows as directed acyclic graphs (DAGs) of tasks. The airflow scheduler executes your tasks on an array of workers while following the specified dependencies. Rich command line utilities make performing complex surgeries on DAGs a snap. The rich user interface makes it easy to visualize pipelines running in production, monitor progress, and troubleshoot issues when needed.
+This looks really interesting and would be worth keeping an eye on. I like that it’s in the Apache world.
+
+Quote.
+Use airflow to author workflows as directed acyclic graphs (DAGs) of tasks. The airflow scheduler executes your tasks on an array of workers while following the specified dependencies. Rich command line utilities make performing complex surgeries on DAGs a snap. The rich user interface makes it easy to visualize pipelines running in production, monitor progress, and troubleshoot issues when needed.
+End quote.
 
 Link four. "Tesla Model 3: The First Serious Review - The Drive"
 
@@ -35,7 +39,13 @@ Link five. "xkcd: Meltdown and Spectre"
 
 Link six. "The T2 chip makes the iMac Pro the start of a Mac revolution | Macworld"
 
-Interesting article about how this new T2 chip in the iMac Pro is handling a significant amount of non-CPU and non-GPU work. On most Macs, there are discrete controllers for audio, system management and disk drives. But the T2 handles all these tasks. The T2 is responsible for controlling the iMac Pro’s stereo speakers, internal microphones, and dual cooling fans, all by itself. The two-stage boot process is interesting and I think a first.
+Interesting article about how this new T2 chip in the iMac Pro is handling a significant amount of non-CPU and non-GPU work.
+
+Quote.
+On most Macs, there are discrete controllers for audio, system management and disk drives. But the T2 handles all these tasks. The T2 is responsible for controlling the iMac Pro’s stereo speakers, internal microphones, and dual cooling fans, all by itself.
+End quote.
+
+The two-stage boot process is interesting and I think a first.
 
 Link seven. "The Tesla Model 3 Makes The Future Feel Normal"
 
@@ -47,11 +57,19 @@ A while back I spent a chunk of time thinking about how open source software pri
 
 Link nine. "Learning to operate Kubernetes reliably"
 
-Julia Evans with a very good overview of how they have deployed Kubernetes at Stripe. Her words of caution are true for many technology patterns: If you’re considering Kubernetes, keep in mind: don’t use Kubernetes just because other companies are using it. Setting up a reliable cluster takes a huge amount of time, and the business case for using it isn’t always obvious. Invest your time in a smart way.
+Julia Evans with a very good overview of how they have deployed Kubernetes at Stripe. Her words of caution are true for many technology patterns:
+
+Quote.
+If you’re considering Kubernetes, keep in mind: don’t use Kubernetes just because other companies are using it. Setting up a reliable cluster takes a huge amount of time, and the business case for using it isn’t always obvious. Invest your time in a smart way.
+End quote.
 
 Link ten. "Birdcage liners – Joel on Software"
 
-Joel Spolsky weighs in on writing software with ethics and meaning. As software developers and designers, we have a responsibility to the world to think these things through carefully and design software that makes the world better, or, at least, no worse than it started out.
+Joel Spolsky weighs in on writing software with ethics and meaning.
+
+Quote.
+As software developers and designers, we have a responsibility to the world to think these things through carefully and design software that makes the world better, or, at least, no worse than it started out.
+End quote.
 
 Link eleven. "Legends of the Ancient Web"
 
@@ -63,7 +81,13 @@ Am I supposed to feel bad that privacy features in Safari are putting a dent in 
 
 Link thirteen. "Cory Doctorow: Persuasion, Adaptation, and the Arms Race for Your Attention – Locus Online"
 
-Doctorow with some perspective and framing for the attention economy. He posits this as a constant arms race with the predator and prey. There is a war for your attention, and like all adversarial scenarios, the sides develop new countermeasures and then new tactics to overcome those countermeasures. The predator carves the prey, the prey carves the predator. I would encourage us all to ask an important question in the attention war. Is this useful? Be honest with yourself. How useful is something to your objectives. Of course this begs the question that you have to know your objectives, which is another topic entirely.
+Doctorow with some perspective and framing for the attention economy. He posits this as a constant arms race with the predator and prey.
+
+Quote.
+There is a war for your attention, and like all adversarial scenarios, the sides develop new countermeasures and then new tactics to overcome those countermeasures. The predator carves the prey, the prey carves the predator.
+End quote.
+
+I would encourage us all to ask an important question in the attention war. Is this useful? Be honest with yourself. How useful is something to your objectives. Of course this begs the question that you have to know your objectives, which is another topic entirely.
 
 Link fourteen. "The Strange Brands in Your Instagram Feed - The Atlantic"
 
@@ -71,7 +95,13 @@ Interesting read on how easy it is to set yourself up as a retail brand and star
 
 Link fifteen. "One Player's 21,000 Hole Quest to Beat the Seemingly Endless 'Desert Golf' - Waypoint"
 
-Yet another reason I love the Internet. This guy has some serious focus. “It's straight up impossible,” Yagnow told me, pointing to the 2,599 attempts he made, trying to bend the hole to his will. 2,599 attempts at a single hole! No way did this only take 300 to 400 hours.
+Yet another reason I love the Internet. This guy has some serious focus.
+
+Quote.
+“It's straight up impossible,” Yagnow told me, pointing to the 2,599 attempts he made, trying to bend the hole to his will.
+End quote.
+
+2,599 attempts at a single hole! No way did this only take 300 to 400 hours.
 
 Link sixteen. "Get Slack-style emoji everywhere with Rocket"
 
@@ -91,7 +121,13 @@ If you want to go deep on Emoji's this is the place to do it!
 
 Link twenty. "California Legislature to Hear EFF’s License Plate Cover Bill | Electronic Frontier Foundation"
 
-What? Across the country, private companies are deploying vehicles mounted with automated license plate readers (ALPRs) to drive up and down streets to document the travel patterns of everyday drivers. These systems take photos of every license plate they see, tag them with time and location, and upload them to a central database. I run blocking software on my computer to protect my privacy, but I didn't realize that the fact that I have a garage is also a privacy tool! I have read in the past about cities using license plate readers and city wide camera systems to track people, but I had no idea this was happening in the private sector too. There seems to be an obvious sabotage opportunity here to have a magnetic license plate cover that is unreadable or deceptive to these systems that you can use while not driving.
+What?
+
+Quote.
+Across the country, private companies are deploying vehicles mounted with automated license plate readers (ALPRs) to drive up and down streets to document the travel patterns of everyday drivers. These systems take photos of every license plate they see, tag them with time and location, and upload them to a central database.
+End quote.
+
+I run blocking software on my computer to protect my privacy, but I didn't realize that the fact that I have a garage is also a privacy tool! I have read in the past about cities using license plate readers and city wide camera systems to track people, but I had no idea this was happening in the private sector too. There seems to be an obvious sabotage opportunity here to have a magnetic license plate cover that is unreadable or deceptive to these systems that you can use while not driving.
 
 Link twenty one. "Book: Principles by Ray Dalio - Feld Thoughts"
 
@@ -99,7 +135,13 @@ This book has been on my wishlist for a long time and I recently got a copy. Loo
 
 Link twenty two. "Q and A: Edward Snowden on rights, privacy, secrets and leaks in conversation with Jimmy Wales – Wikitribune"
 
-Good interview with Snowden. I appreciate reading and hearing his opinions on these topics. I particularly like his view on protecting privacy. Privacy is the fountainhead of all other rights. Privacy is where rights are derived from, because privacy is the right to the self. Privacy is the right to a free mind. Privacy is the ability to have something, anything, for yourself, for you. It pains me a bit when Julian Assange and Snowden are bucketed together. I believe Assange is a crypto anarchist. Snowden I believe is actually operating on a defined set of ethics and trying to fix something that he clearly saw as wrong.
+Good interview with Snowden. I appreciate reading and hearing his opinions on these topics. I particularly like his view on protecting privacy.
+
+Quote.
+Privacy is the fountainhead of all other rights. Privacy is where rights are derived from, because privacy is the right to the self. Privacy is the right to a free mind. Privacy is the ability to have something, anything, for yourself, for you.
+End quote.
+
+It pains me a bit when Julian Assange and Snowden are bucketed together. I believe Assange is a crypto anarchist. Snowden I believe is actually operating on a defined set of ethics and trying to fix something that he clearly saw as wrong.
 
 That's the end of Links.
 

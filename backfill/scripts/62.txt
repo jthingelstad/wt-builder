@@ -32,7 +32,9 @@ Link one. "The rise of 'pseudo-AI': how tech firms quietly use humans to do bots
 
 I wonder how many AI services are augmented or in some cases just done by people.
 
+Quote.
 “Using a human to do the job lets you skip over a load of technical and business development challenges. It doesn’t scale, obviously, but it allows you to build something and skip the hard part early on,” said Gregory Koberger, CEO of ReadMe, who says he has come across a lot of “pseudo-AIs”.
+End quote.
 
 Skipping the hard part could be a cost optimization to get validation quicker, or it could invalidate your entire business model.
 
@@ -40,10 +42,9 @@ Link two. "Managing Digital: Concepts and Practices"
 
 New-ish book from Charles Betz, published in the open on the web.
 
-My answer would be that there is something different happening this time — digital delivery is becoming core, not context. The convergence of an abundance of computing resources, improving software development management, combined with a change in market focus from the supplier to the customer is changing the way we view Enterprise Architecture and IT management, and identifying the need to develop a digital workforce. The defining characteristics of a digital enterprise are becoming clear:
-- Products or services that are either delivered fully digitally (for example, digital media or online banking), or where physical products and services are obtained by the customer by digital means (for example, online car sharing services)
-- A "digital-first" culture, where the business models, plans, architectures, and implementation strategies start from an assumption of digital delivery
-- A workforce who is digitally savvy enough to execute a digital-first approach
+Quote.
+My answer would be that there is something different happening this time — digital delivery is becoming core, not context. The convergence of an abundance of computing resources, improving software development management, combined with a change in market focus from the supplier to the customer is changing the way we view Enterprise Architecture and IT management, and identifying the need to develop a digital workforce. The defining characteristics of a digital enterprise are becoming clear: - Products or services that are either delivered fully digitally (for example, digital media or online banking), or where physical products and services are obtained by the customer by digital means (for example, online car sharing services) - A "digital-first" culture, where the business models, plans, architectures, and implementation strategies start from an assumption of digital delivery - A workforce who is digitally savvy enough to execute a digital-first approach
+End quote.
 
 I met Charles once at the Chaos Day event here in Minneapolis. He has a comprehensive and deep view on technology.
 
@@ -55,7 +56,9 @@ Link four. "You are your Metadata: Identification and Obfuscation of Social Medi
 
 More research that shows how precise identification cane be on metadata alone.
 
+Quote.
 We demonstrate that through the application of a supervised learning algorithm, we are able to identify any user in a group of 10,000 with approximately 96.7% accuracy. Moreover, if we broaden the scope of our search and consider the 10 most likely candidates we increase the accuracy of the model to 99.22%. We also found that data obfuscation is hard and ineffective for this type of data: even after perturbing 60% of the training data, it is still possible to classify users with an accuracy higher than 95%.
+End quote.
 
 I still don't think this message is widely understood. When people are told that only metadata is kept on their activities, they assume some level of anonymity. You should assume none.
 
@@ -71,7 +74,9 @@ Link seven. "REST versus GraphQL APIs, the Good, the Bad, the Ugly | Moesif’s 
 
 I love the conclusion in this overview.
 
+Quote.
 In fact, GraphQL versus REST is like comparing SQL technologies versus noSQL. There are certain applications where it makes sense to model complex entities in a SQL Db. Whereas other apps that only have “messages” as in high volume chat apps or analytics APIs where the only entity is an “event” may be more suited using something like Cassandra.
+End quote.
 
 We always do this in tech it seems, too much "versus" as opposed to it’s just different and serves a different solution. Again, pick the right tool for the job.
 
@@ -87,7 +92,9 @@ Link ten. "Currents: A quarterly report on developer trends in the cloud"
 
 Some interesting data on the state of a number of technologies and the industry.
 
+Quote.
 Currents is a quarterly report on developer cloud trends that we created to share our knowledge with the broader community. For the fourth edition, we surveyed nearly 5,000 respondents from around the world about themselves, the tools they use and the challenges they face.
+End quote.
 
 Link eleven. "Brutalist Web Design"
 

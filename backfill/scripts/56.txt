@@ -16,7 +16,9 @@ Link one. "Follow the CAPEX: Separating the Clowns from the Clouds – Platformo
 
 Capital spending by cloud providers is a reasonably good metric for their growth and investment in the future.
 
+Quote.
 As I keep repeating, CAPEX is both a prerequisite to play in the big boy cloud and confirmation of customer success. Both IBM and Oracle are tens of billions of dollars in cloud infrastructure CAPEX behind Amazon, Google, and Microsoft.
+End quote.
 
 The amount that major cloud providers spend on capital is amazing. This article looks at the next rung of cloud providers to see how they compare.
 
@@ -39,11 +41,15 @@ Link three. "Why Is Your Location Data No Longer Private? — Krebs on Security"
 
 This is a long article from Krebs but it’s a great read on the real world activity happening behind net neutrality. Additionally, I feel like legislative activity in this area shows the most direct line to lobbying and money-driven votes.
 
+Quote.
 So the carriers are already reneging on their promise to customers that they won’t share location data without customer consent or a court order. But where does that leave us on net neutrality? The answer is that the major wireless carriers are already doing what was expressly prohibited under the FCC’s net neutrality rules: Favoring their own content over competitors, and letting companies gain more favorable access by paying more.
+End quote.
 
 The data that we transmit when we use our mobile devices and broadband services is immensely valuable in the market. Unless legally blocked, this data will be sold. And the sellers and buyers have no interest in your privacy or anything else about protecting you. This is the same argument I often make online with free websites like Facebook. Here I find it more appalling because we all pay, in some cases a lot, for these services! We should have an expectation of privacy.
 
+Quote.
 When I first saw a Carnegie Mellon University researcher show me last week that he could look up the near-exact location of any mobile number in the United States, I sincerely believed the public would be amazed and horrified at the idea that mobile providers are sharing this real-time data with third party companies, and at the fact that those third parties in turn weren’t doing anything to prevent the abuse of their own systems.
+End quote.
 
 So the tinfoil hat people saying that our mobile phones are being used to track us everywhere are right. And it turns out most people seem to not care or not understand.
 
@@ -92,7 +98,9 @@ Link eight. "The mesh of trust: A public key infrastructure for eero networks - 
 
 What Eero is doing here seems really interesting.
 
+Quote.
 To recap, we’ve added a public key infrastructure to every eero network capable of operating in isolation from the global internet’s TLS system.
+End quote.
 
 That PKI infrastructure on your wireless routers could support improved security for a number of things in your home. It will be fun to see where they go with this.
 
@@ -120,7 +128,9 @@ Link fourteen. "China's social credit system blocked people taking 11 million fl
 
 China creating an "extra-legal" system to punish people outside of the typical legal system. This is empowered by connected data.
 
+Quote.
 Since the debtor list was first created, state-media reports repeatedly described it as the first step toward creating a China-wide social credit score, expected in twenty twenty.
+End quote.
 
 It seems so obvious to include data taken from citizens online activity that it’s hard to believe it wouldn't be in this system already.
 
@@ -132,7 +142,9 @@ Link sixteen. "black: The uncompromising Python code formatter"
 
 Nice utility that will take your Python and format it in a very precise way.
 
+Quote.
 Black is the uncompromising Python code formatter. By using it, you agree to cede control over minutiae of hand-formatting. In return, Black gives you speed, determinism, and freedom from pycodestyle nagging about formatting. You will save time and mental energy for more important matters.
+End quote.
 
 I like almost all of it but I find the closing bracket "dedenting" odd.
 

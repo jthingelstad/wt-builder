@@ -8,7 +8,9 @@ Link one. "New Documents Show That Facebook Has Never Deserved Your Trust | Elec
 
 Everything you ever thought Facebook might do with your data that you don't want them to, they are doing. The end of this article hits it right:
 
+Quote.
 No matter how Zuckerberg slices it, your data is at the center of Facebook’s business. Based on these documents, it seems that Facebook sucked up as much data as possible through “reciprocity” agreements with other apps, and shared it with insufficient regard to consequences for users. Then, after rolling back its permissive data-sharing APIs, the company apparently used privileged access to user data either as a lever to get what it wanted from other companies or as a weapon against its competitors. You are, and always have been, Facebook’s most valuable product.
+End quote.
 
 I continue to happily live in an Internet, with my 1Blocker setup, that doesn't include any Facebook properties. They simply cannot be trusted with any data, and they have the most of it.
 
@@ -16,7 +18,9 @@ Link two. "The Total Incompatibility of Mindfulness and Busyness"
 
 Article from Jon Kabat-Zinn, one of the leaders of mindfulness practices.
 
+Quote.
 Precisely because if we are overloaded to the point of being overwhelmed, it is likely that we will be so agitated, so distraught, so self-preoccupied that we won’t be able to meet anybody or any situation from a place of ease within the fullness of our own being in that moment, and that includes, most importantly, even an authentic meeting of ourselves and those we most care about.
+End quote.
 
 This is worth reading a few times, just to make sure it sinks in. Via Leah Cunningham.
 
@@ -40,7 +44,9 @@ Link two. "Events, the DNA of Kubernetes · Do not go gentle into this good nigh
 
 Very approachable read on how Kubernetes handles internal communication.
 
+Quote.
 Event-driven design has many more advantages and can address a lot of problems in distributed systems (back-pressure, queuing, retries, scale-out, etc.). However, it’s not a new idea. Not at all! For example, relational databases work the same way (transaction log). The database is said to be the (stale) cache of the immutable log.
+End quote.
 
 Neat!
 
@@ -72,7 +78,9 @@ Link nine. "After 12 draws, Magnus Carlsen is once again the chess world champio
 
 The state of Chess at the highest level is amazing.
 
+Quote.
 The result is human chess that increasingly resembles computer chess. Chess.com has developed a metric, Computer Aggregated Precision Score (CAPS), which compares a player’s moves to those of a top engine. Mr Carlsen scores higher than any other champion; his moves parallel those of the engine’s more than 85% of the time, and his overall choices are better than 98% as effective as those of the computer.
+End quote.
 
 These players are literal human computers.
 
@@ -80,7 +88,9 @@ Link ten. "Marriott: Data on 500 Million Guests Stolen in 4-Year Breach — Kreb
 
 This is a giant and deep breach.
 
+Quote.
 Marriott said the breach involved unauthorized access to a database containing guest information tied to reservations made at Starwood properties on or before Sept. 10, twenty eighteen, and that its ongoing investigation suggests the perpetrators had been inside the company’s networks since twenty fourteen.
+End quote.
 
 Four years is an incredibly long time for an attacker to have access.
 

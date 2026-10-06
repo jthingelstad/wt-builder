@@ -22,7 +22,9 @@ Link two. "Apple Shortcuts: The Bicycle for the Mind is Back, but it’s Electri
 
 This is more than just an intro to Shortcuts on iOS 12. There is a complete history of user space programming tools from Apple over the years, going back to HyperCard. Skip the history part if you just want to read about Shortcuts.
 
+Quote.
 Shortcuts, the app, is my favorite thing to happen to the iPhone since the camera got decent. I truly feel that my relationship to my iPhone has fundamentally changed, because I can now build things on it that make it do things that only I would ever want. Useful things, but also fun things. Complex things and simple things.
+End quote.
 
 I’ve built incredible stuff with Shortcuts and am continuing to do more. My Weekly Thing newsletter is entirely built with Shortcuts and various API’s and a little Python thrown in for fun. It is worth the effort to learn Shortcuts. They are very approachable.
 
@@ -46,11 +48,9 @@ Link two. "The next career step for Senior Software Engineers (that isn’t mana
 
 Cool article and introduces an idea of going from Implementor, to Solver, to Finder as an engineer. I haven't heard this terminology used but I really like it!
 
-As an Implementer, you’re an inexperienced programmer, and your tasks are defined by someone else: you just implement small, well-specified chunks of code…
-
-As you become more experienced, you become a Solver: are able to come up with solutions to less well-defined problems…
-
-Eventually you become a Finder: you begin identifying problems on your own and figuring out their underlying causes…
+Quote.
+As an Implementer, you’re an inexperienced programmer, and your tasks are defined by someone else: you just implement small, well-specified chunks of code… As you become more experienced, you become a Solver: are able to come up with solutions to less well-defined problems… Eventually you become a Finder: you begin identifying problems on your own and figuring out their underlying causes…
+End quote.
 
 That seems very compelling and valuable to frame the career advancement of engineers.
 
@@ -58,13 +58,17 @@ Link three. "The Google Pixel 3 Is A Very Good Phone. But Maybe Phones Have Gone
 
 Review of the Pixel 3, but also a reflection on the obsessive compulsion we have with our phones.
 
+Quote.
 My neck hurts. I am never not looking down. When I am not looking at my phone, I become slightly anxious. And then, when I do actually look at it, I become even more so. It reminds me of how I once felt about cigarettes. I experience the world with a meticulously crafted, tiny computer slab between me and it. I am an asshole. But so, maybe, are you?
+End quote.
 
 Link four. "How to Write a Technical Paper: Structure and Style of the Epitome of your Research"
 
 This is a great example document.
 
+Quote.
 A major problem that young researchers face is their inability to write good research papers. This document serves as a guideline on how to write a good technical paper.
+End quote.
 
 Technical papers and white papers have been confused with marketing organizations taking over white papers as a form of advertising. It’s good to see a robust discussion of a straight technical paper.
 
@@ -72,7 +76,9 @@ Link five. "How Minnesota Became the Land of 10,000 Startups - ReadWrite"
 
 Nice overview of the startup activity happening here in the Twin Cities.
 
+Quote.
 The number of tech businesses in Minnesota has grown exponentially since twenty ten, adding more than 500 startups since twenty fifteen alone. Following the charge, venture capitalists now invest more than 200 million dollars in the region annually.
+End quote.
 
 I was very glad to see Minnestar mentioned along with a quote from our executive director!
 
@@ -80,7 +86,9 @@ Link six. "The Org Chart Test – Rands in Repose"
 
 Interesting idea of insuring that the org chart is clearly articulated and known, as a way to insure that communications are happening right.
 
+Quote.
 An org chart should also effectively describe, at a high level, how the product is organized and also who is responsible for what. An org chart should be legible.
+End quote.
 
 Interesting idea to bring this into a 1:1 discussion.
 
@@ -108,7 +116,9 @@ Link twelve. "Stop building websites with infinite scroll!"
 
 A thorough analysis of why infinite scroll is problematic.
 
+Quote.
 Infinite scroll can be disorienting, uncontrollable, and can cause your users stress.
+End quote.
 
 It misses one of my points on infinite scroll that it represents an attempt to trick and addict users.
 
@@ -119,7 +129,9 @@ Now, the Now Reading section.
 Life After Google: The Fall of Big Data and the Rise of the Blockchain Economy ()
 by George Gilder
 
+Quote.
 The Age of Google, built on big data and machine intelligence, has been an awesome era. But it’s coming to an end. In Life after Google, George Gilder—the peerless visionary of technology and culture—explains why Silicon Valley is suffering a nervous breakdown and what to expect as the post-Google age dawns.
+End quote.
 
 My nook club read for this month. I’m almost done and the book is thought provoking, but I find the writing to be overly colorful at times. The authors dislike of certain institutions and processes is also front and center. It seems to position blockchain as the future for everything, but I’m left not seeing how all the dots are connected in the argument.
 

@@ -10,7 +10,9 @@ Link one. "T-Mobile, Sprint, and AT and T Are Selling Customers' Real-Time Locat
 
 It is obvious that the telecommunications companies know your location when you have a mobile phone, but there is some trust that that data isn't being used for other purposes. We shouldn't trust.
 
+Quote.
 Microbilt buys access to location data from an aggregator called Zumigo and then sells it to a dizzying number of sectors, including landlords to scope out potential renters; motor vehicle salesmen, and others who are conducting credit checks. Armed with just a phone number, Microbilt’s “Mobile Device Verify” product can return a target’s full name and address, geolocate a phone in an individual instance, or operate as a continuous tracking service.
+End quote.
 
 This is a crisis of ethics. How is it justifiable to track your location and sell it to other commercial entities when there is no expectation that that is occurring. This has the additional issue that there is no way for the user to even know that it is or is not happening since it’s on the providers end.
 
@@ -72,7 +74,9 @@ I got these mindfulness aids for my birthday and have tried them a few times alr
 
 Link twelve. "The twenty eighteen Emoji Report — Rands in Repose"
 
+Quote.
 Emoji continues to be one of my favorite work habits. As I wrote earlier, I initially resisted emoji. But the efficiency of the lightweight communication that occurs via emoji and emoji reactions can’t be denied. It also happens to be fun.
+End quote.
 
 Link thirteen. "Links and Recommendations — On my Om"
 

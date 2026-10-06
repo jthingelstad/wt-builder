@@ -23,7 +23,9 @@ medium.com
 
 Anil Dash with a look at the components of the web that we've forgotten about over time.
 
+Quote.
 At a time when millions are losing trust in the the web’s biggest sites, it’s worth revisiting the idea that the web was supposed to be made out of countless little sites. Here’s a look at the neglected technologies that were supposed to make it possible.
+End quote.
 
 Simple core concepts that we should embrace.
 
@@ -155,7 +157,9 @@ www.youtube.com
 
 I hadn't ever heard this Steve Jobs comment on privacy.
 
+Quote.
 Privacy means people know what their signing up for, in plain english, and repeatedly.
+End quote.
 
 Plain, simple, easy. And I totally agree.
 

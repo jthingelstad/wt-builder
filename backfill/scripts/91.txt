@@ -20,7 +20,9 @@ Link one. "AI Helps Amputees Walk With a Robotic Knee - IEEE Spectrum"
 
 This is absolutely brilliant.
 
+Quote.
 Normally, human technicians spend hours working with amputees to manually adjust robotic limbs to work well with each person’s style of walking. By comparison, the reinforcement-learning technique automatically tuned a robotic knee, enabling the prosthetic wearers to walk smoothly on level ground within 10 minutes.
+End quote.
 
 Use AI to get the computer to adapt to the human faster!
 
@@ -68,7 +70,9 @@ Link eight. "In WSJ Op-Ed, Mark Zuckerberg Speaks Down to Users and Misses the P
 
 I’m a proud supporter of the EFF.
 
+Quote.
 Zuckerberg ends his op-ed with a call for government regulation codifying the principles of "transparency, choice, and control." But in reality, Facebook is tirelessly fighting against laws that might do just that: it is actively battling to undermine Illinois’ Biometric Information Privacy Act in court, and the Internet Association, of which Facebook is a member, has asked California legislators to weaken the California Consumer Privacy Act, and is pushing for a national law only if it "preempts" and rolls back those vital state protections.
+End quote.
 
 Follow the money.
 

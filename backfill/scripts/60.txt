@@ -34,7 +34,9 @@ Link one. "Click ‘Delete’ to Save Your Soul - The New York Times"
 
 Review of Jaron Lanier's new book Ten Arguments For Deleting Your Social Media Accounts Right Now. The book itself does not get a glowing review, but it comes with a punch at the end.
 
+Quote.
 Only at the very end does Lanier venture into new territory. His argument, however, is a profound one. He worries that our reliance on big tech companies is ruining our capacity for spirituality, by turning us into robotic extensions of their machines.
+End quote.
 
 If you are less versed in the debate about social media the book may be more novel.
 
@@ -50,7 +52,9 @@ Link four. "Introducing a16z crypto – a16zcrypto"
 
 Andreessen Horowitz launches a new crypto focused fund.
 
+Quote.
 Today we are announcing the launch of a16z crypto, a 300 million dollars venture fund that will invest in crypto companies and protocols.
+End quote.
 
 Link five. "How Atul Gawande landed the most extraordinary job in health care"
 
@@ -64,7 +68,9 @@ Link seven. "REST versus GraphQL: A Critical Review – Good API"
 
 An argument for using GraphQL for API development, and that it’s easier than REST.
 
+Quote.
 Here is the idea: If you have never heard about the REST architectural style constraints and their implication on the properties of the resulting distributed system and you do not want to (or can’t) educate yourself, use GraphQL.
+End quote.
 
 Link eight. "Intel and the Danger of Integration — Stratechery by Ben Thompson"
 
@@ -78,7 +84,9 @@ Link ten. "Ways to think about machine learning — Benedict Evans"
 
 A grounded, reality-based view of the potential of machine learning and how we should be thinking about it in solutions.
 
+Quote.
 So, this is a good grounding way to think about ML today - it’s a step change in what we can do with computers, and that will be part of many different products for many different companies. Eventually, pretty much everything will have ML somewhere inside and no-one will care.
+End quote.
 
 I like the pragmatic views in this.
 
@@ -86,7 +94,9 @@ Link eleven. "Zero Tolerance for Zero Tolerance"
 
 The CEO of littlebits, an immigrant and refuge, taking a position on the despicable separation of children from their parents at the border.
 
+Quote.
 History will judge us if we sit still and allow this to happen. Our kids will not forgive us if we don’t stand up for them. Our conscience will not rest if we allow something so basically human to appear partisan. We must speak out.
+End quote.
 
 It’s good to see tech companies taking positions on important matters.
 
@@ -102,7 +112,9 @@ Link fourteen. "A Supervised Approach To The Interpretation Of Imperative To-Do 
 
 Interesting machine analysis of "to do" lists. It surprises me that more research hasn't been done in this area, but understandably there is not a lot of data to pull out. To Do's are very short, so understanding intent could be hard.
 
+Quote.
 To-do lists are a popular medium for personal information management. As to-do tasks are increasingly tracked in electronic form with mobile and desk- top organizers, so does the potential for software support for the corresponding tasks by means of intelligent agents. While there has been work in the area of personal assistants for to-do tasks, no work has focused on classifying user intention and information extraction as we do. We show that our methods per- form well across two corpora that span sub-domains, one of which we released.
+End quote.
 
 This approach would also benefit from tuning over time. People tend to develop "shorthands" that they use in their To Do's and a system could learn those and tune to each person over time.
 

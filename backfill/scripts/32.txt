@@ -63,7 +63,11 @@ This has a good writeup on the Maker v. Manager subject that Paul Graham origina
 
 Link twelve. "Time Well Spent"
 
-We are building a new organization dedicated to reversing the digital attention crisis and realigning technology with humanity's best interests. Sounds like a good idea!
+Quote.
+We are building a new organization dedicated to reversing the digital attention crisis and realigning technology with humanity's best interests.
+End quote.
+
+Sounds like a good idea!
 
 Link thirteen. "SEC.gov | Statement on Cryptocurrencies and Initial Coin Offerings"
 
@@ -139,7 +143,11 @@ Datadog did some interesting aggregated statistics on container practices inside
 
 Link thirty one. "By the Time I Get to Phoenix - Wikipedia"
 
-This is fabulous story about this song. Thanks to Steve Yaeger for the introduction to this. However, the drive is actually possible, driving at an average of about 65 mph. If he leaves Los Angeles around midnight, he can drive the 373 miles to Phoenix in about six hours to arrive when she "rises" at 6:00 am. If she "stops at lunch" to "give him a call" at 12:30 p.m. when he is in Albuquerque, it gives him six-and-a-half hours to make the 420-mile drive. The drive from Albuquerque to the Oklahoma border is about 390 miles, giving her plenty of time to get home and go to sleep.
+This is fabulous story about this song. Thanks to Steve Yaeger for the introduction to this.
+
+Quote.
+However, the drive is actually possible, driving at an average of about 65 mph. If he leaves Los Angeles around midnight, he can drive the 373 miles to Phoenix in about six hours to arrive when she "rises" at 6:00 am. If she "stops at lunch" to "give him a call" at 12:30 p.m. when he is in Albuquerque, it gives him six-and-a-half hours to make the 420-mile drive. The drive from Albuquerque to the Oklahoma border is about 390 miles, giving her plenty of time to get home and go to sleep.
+End quote.
 
 That's the end of Links.
 

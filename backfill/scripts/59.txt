@@ -14,7 +14,9 @@ Link two. "Steve Blank The Innovation Stack: How to make innovation programs del
 
 Innovation needs a framework. Throwing hackathons at problems has a high likelihood of backfiring with frustration on adoption and outcomes.
 
+Quote.
 As organizations have moved from – individual innovators working alone, to adopting innovation tools and activities, to teaching teams about evidence-based innovation – our most important realization has been this: Having skills/tools and activities are critical building blocks but by themselves are insufficient to build a program that delivers results that matter to leadership. It’s only when senior leaders see how an innovation process can deliver stuff that matters – at speed—that they take action to change the processes and procedures that get in the way.
+End quote.
 
 This framework for thinking about innovation and it’s components is interesting.
 
@@ -34,7 +36,9 @@ Link one. "Digital Wellness for Grown Ups - Study Hacks - Cal Newport"
 
 I do think that platforms can help their users have a healthier relationship, but Cal's point in this is also true.
 
+Quote.
 But something about this growing digital wellness movement makes me uneasy, and I think I’ve finally put my finger on the source of my concern: it’s infantilizing.
+End quote.
 
 We need both.
 
@@ -54,7 +58,9 @@ Link five. "Shortage of skilled workers challenges Twin Cities tech firms - Star
 
 Snapshot of the exceedingly difficult talent environment for companies in the Twin Cities area.
 
+Quote.
 The Twin Cities added 3,300 technology jobs last year, up 1.6 percent to 199,200. The area is one of the nation’s 15 largest tech-employment hubs, according to the Computing Technology Industry Association (CompTIA). These jobs typically pay seasoned workers 75,000 dollars to 100,000 dollars or more a year.
+End quote.
 
 Nice photo of Mynul Khan, CEO of Field Nation.
 
@@ -86,7 +92,9 @@ Link twelve. "Data Ethics Framework - GOV.UK"
 
 We need more ethics discussion in technology, and this framework applied to data is an interesting example.
 
+Quote.
 Data ethics is an emerging branch of applied ethics which describes the value judgements and approaches we make when generating, analysing and disseminating data. This includes a sound knowledge of data protection law and other relevant legislation, and the appropriate use of new technologies. It requires a holistic approach incorporating good practice in computing techniques, ethics and information assurance.
+End quote.
 
 I'd love to see some companies share their approach for the same thing.
 
@@ -94,7 +102,9 @@ Link thirteen. "jp"
 
 Data visualization in your terminal? Sure!
 
+Quote.
 Dead simple terminal plots from JSON (or CSV) data. Bar charts, line charts, scatter plots, histograms and heatmaps are supported.
+End quote.
 
 I can see how this would be handy at times, particularly in scripts.
 

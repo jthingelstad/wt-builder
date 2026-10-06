@@ -32,7 +32,9 @@ www.wired.com
 
 I’m continuously surprised why GitHub is so frequently the target of DDoS attacks, but this is an amazing timeline:
 
+Quote.
 GitHub briefly struggled with intermittent outages as a digital system assessed the situation. Within 10 minutes it had automatically called for help from its DDoS mitigation service, Akamai Prolexic. Prolexic took over as an intermediary, routing all the traffic coming into and out of GitHub, and sent the data through its scrubbing centers to weed out and block malicious packets. After eight minutes, attackers relented and the assault dropped off.
+End quote.
 
 That is an impressive, automated response to such a significant event.
 
@@ -64,7 +66,9 @@ www.berkshirehathaway.com
 
 Warren Buffett's shareholder letter is always a great read. Nea
 
+Quote.
 The 65 billion dollars gain is nonetheless real – rest assured of that. But only 36 billion dollars came from Berkshire’s operations. The remaining 29 billion dollars was delivered to us in December when Congress rewrote the U.S. Tax Code.
+End quote.
 
 44% of their gain was a result of the tax overhaul. The read on his 10-year "bet" against managed funds is very good (news flash, the index fund won). Plus bonus points for quoting Kipling.
 
@@ -78,7 +82,9 @@ blog.intercom.com
 
 Solid set of practices from Intercom on how they do customer onboarding. This is a huge area of focus for SaaS companies, particularly B2C ones.
 
+Quote.
 As your business grows and gets different types of customers, your onboarding will need to adapt. You’ll never be “finished” working on onboarding. And even your most loyal and active customers need to be continually onboarded to new areas of your product.
+End quote.
 
 You have to adapt these plays in the B2B market but the thinking behind this is what I would attempt to model.
 
@@ -110,7 +116,9 @@ tomcritchlow.com
 
 I like this thought about how to approach blogging.
 
+Quote.
 Small b blogging is writing things that you link back to and reference time and time again. Ideas that can evolve and grow as your thinking and audience grows.
+End quote.
 
 Personally I think of my blogging activity as being as much or more for me as a way to clarify my thoughts and share learning, and if others dig it that is cool too.
 
@@ -123,7 +131,9 @@ medium.com
 
 I've read Nassim Nicholas Taleb 's Antifragile but this essay on applying anti fragile concepts to your life is interesting:
 
+Quote.
 An antifragile way of life is all about finding a way to gain from the inevitable disorder of life. To not only bounce back when things don’t go as planned, but to get stronger, smarter, and better at continuing as a result of running into this disorder.
+End quote.
 
 Thought provoking.
 
@@ -146,7 +156,9 @@ robertovitillo.com
 
 The first I heard of differential privacy was when Apple started to use the term to describe how they use advanced data techniques to make smart recommendations without reducing privacy. This paper is filled with more math than I can follow, but it explains a bit more about what differential privacy really is.
 
+Quote.
 Differential privacy formalizes the idea that a query should not reveal whether any one person is present in a dataset, much less what their data are. Imagine two otherwise identical datasets, one with your information in it, and one without it. Differential Privacy ensures that the probability that a query will produce a given result is nearly the same whether it’s conducted on the first or second dataset.
+End quote.
 
 If your working on systems that collect user data and also want to protect privacy this would be a good read.
 

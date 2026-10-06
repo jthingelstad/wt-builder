@@ -28,7 +28,9 @@ Link two. "50 Years In Tech. Part 16: From One Ice Floe To The Next"
 
 Jean-Louis Gassée has been writing some very fun retrospectives of his time in tech. If you remember BeOS and the BeBox this is a fun read. I also found this little inside baseball look at NeXTSTEP and Apple's acquisition of NeXT fun.
 
+Quote.
 Later, I learned another version of the story from a NeXT and Apple insider. By 1996, Jobs had given up on NeXTSTEP and had focused the company on WebObjects, a set of tools and building blocks aimed at the design and implementation of high-performance, feature-rich websites. But the noise from the Apple-Be conversations attracted the attention of Avie Tevanian, VP of software at NeXT, who urged Jobs to dust off NeXTSTEP and whip up a demo. The master persuader convinced Gil Amelio to pay the price Apple didn’t want to pay for Be: 429 million dollars for NeXT.
+End quote.
 
 It’s unlikely Apple acquiring BeOS would have been transformational, but maybe. The leadership behind NeXTSTEP was very transformational for Apple.
 
@@ -72,7 +74,9 @@ Link twelve. "The Weekly Email – AVC"
 
 This is written about startups and founders, but I think it easily applies to a lot of contexts.
 
+Quote.
 But more than anything, writing the weekly email is a tool for the founder to collect themselves, get grounded for the week ahead, and articulate what they and the company are doing and why.
+End quote.
 
 I've been doing this with the Weekly Thing. I've had a pause on the Tech Weekly, which is for our technology team at SPS for the last couple months and I’m planning on retooling it and get it going again.
 
@@ -80,7 +84,9 @@ Link thirteen. "Launch WorldWideWeb CERN twenty nineteen WorldWideWeb Rebuild"
 
 This is very cool.
 
+Quote.
 In February twenty nineteen, in celebration of the thirtieth anniversary of the development of WorldWideWeb, a group of developers and designers convened at CERN to rebuild the original browser within a contemporary browser, allowing users around the world to experience the rather humble origins of this transformative technology.
+End quote.
 
 You can experience the web as it was in the very beginning!
 
@@ -88,7 +94,9 @@ Link fourteen. "Privacy is a commons | TechCrunch"
 
 This is an interesting angle of privacy that I hadn't considered.
 
+Quote.
 The answer is: no, actually, not necessarily; not if there are enough of them; not if the commodification of privacy begins to affect us all. Privacy is like voting. An individual’s privacy, like an individual’s vote, is usually largely irrelevant to anyone but themselves … but the accumulation of individual privacy or lack thereof, like the accumulation of individual votes, is enormously consequential.
+End quote.
 
 Link fifteen. "ongoing by Tim Bray · Tech Office Sketches"
 

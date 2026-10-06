@@ -24,11 +24,15 @@ Link one. "Snopes pulls out of its fact-checking partnership with Facebook – P
 
 Facebook paying 100,000 dollars for this service is laughable, and should mostly serve as further assurance that Facebook doesn't see value in solving this problem. It’s also crazy to me that Snopes highlights that there is no API and there isn't an easy way to flag content. Clearly Facebook knows how to make API's and how to make user experiences easy, at least when they want to.
 
+Quote.
 “With a manual system and a closed system — it’s impossible to keep on top of that stuff,” Green told Poynter in a phone interview. “Do you need fact-checkers to stop and do all this manual work? Or should fake websites just be reported through other means and supply a body of evidence that these people shouldn’t be on your platform because of their nefarious activity?”
+End quote.
 
 I like this focus on engaging directly with their actual customers.
 
+Quote.
 “It’s hard for me to concern myself with making Facebook successful when it’s so hard just for Snopes to be successful,” Green said. “Our community isn’t just on Facebook. We prioritize our readers first.”
+End quote.
 
 Honestly, Facebook doesn't lack resources to solve this problem.
 
@@ -52,7 +56,9 @@ Link two. "Oh God, It's Raining Newsletters — by Craig Mod"
 
 Craig Mod sharing some perspective on the recent rise in newsletters. This newsletter, the Weekly Thing, is part of that rise. I have found some, but not all, of the particular and unique aspects of newsletter writing that is described here. I do love the “unmediated” aspect of email. There isn’t a spot for a company in the middle to profit from it (the reason I’m circumspect of ventures like Stoop).
 
+Quote.
 These newsletters are the most backed up pieces of writing in history, copies in millions of inboxes, on millions of hard drives and servers, far more than any blog post. More robust than an Internet Archive container. LOCKSS to the max. These might be the most durable copies yet of ourselves. They’re everywhere but privately so, hidden, piggybacking on the most accessible, oldest networked publishing platform in the world.
+End quote.
 
 Long live email!
 
@@ -76,7 +82,9 @@ Link seven. "Crypto Exchange Says It Can't Repay 190 million dollars to Clients 
 
 This isn’t the first time that large amounts of cryptocurrency have been lost.
 
+Quote.
 Canadian crypto exchange QuadrigaCX says it cannot repay most of 190 million dollars in client holdings after its 30-year-old founder Gerald Cotten, the only person who knew the passwords to its “cold storage,” unexpectedly died in India in December twenty eighteen, Coindesk reported on Friday.
+End quote.
 
 I wonder how much inflation bitcoin has had due to lost currency.
 

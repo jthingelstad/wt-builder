@@ -12,15 +12,15 @@ Link one. "25 Years Later: Interview with Linus Torvalds | Linux Journal"
 
 Enjoyable article with the Linus, the creator of Linux. His comment on the difficulty of building a kernel was interesting to me.
 
-I've also come to realize that making a new operating system is just way harder than I ever thought. It really takes a lot of effort by a lot of people, and the strength of Linux—and open source in general, of course—is very much that you can build on top of the effort of all those other people.
-
-So unless there is some absolutely enormous shift in the computing landscape, I think Linux will be doing quite well another quarter century from now. Not because of any particular detail of the code itself, but simply fundamentally, because of the development model and the problem space.
+Quote.
+I've also come to realize that making a new operating system is just way harder than I ever thought. It really takes a lot of effort by a lot of people, and the strength of Linux—and open source in general, of course—is very much that you can build on top of the effort of all those other people. So unless there is some absolutely enormous shift in the computing landscape, I think Linux will be doing quite well another quarter century from now. Not because of any particular detail of the code itself, but simply fundamentally, because of the development model and the problem space.
+End quote.
 
 It’s very possible that the kernel space gets “solved” with Linux, and that for the foreseeable future that is what runs that layer of computing. The innovation is always moving further up the technology stack. I also noted that he, like many that have thought hard about it, is not a fan of social media.
 
-I absolutely detest modern "social media"—Twitter, Facebook, Instagram. It's a disease. It seems to encourage bad behavior.
-
-[...] The whole "liking" and "sharing" model is just garbage. There is no effort and no quality control. In fact, it's all geared to the reverse of quality control, with lowest common denominator targets, and click-bait, and things designed to generate an emotional response, often one of moral outrage.
+Quote.
+I absolutely detest modern "social media"—Twitter, Facebook, Instagram. It's a disease. It seems to encourage bad behavior. [...] The whole "liking" and "sharing" model is just garbage. There is no effort and no quality control. In fact, it's all geared to the reverse of quality control, with lowest common denominator targets, and click-bait, and things designed to generate an emotional response, often one of moral outrage.
+End quote.
 
 Agree.
 
@@ -28,7 +28,9 @@ Link two. "Apple Plus - brand versus subscription — Benedict Evans"
 
 This is a super interesting way to look at the evolving business model of one of the giants of the tech industry.
 
+Quote.
 The old Apple promise was that you don't have to worry if the tech works. The new promise is you don't have to worry if the tech is scamming you.
+End quote.
 
 I find this interesting about Apple, but it’s also just an interesting space to watch as one of the largest technology companies in the world transitions a significant part of their business.
 
@@ -56,13 +58,17 @@ Link three. "Second-Order Thinking: What Smart People Use to Outperform"
 
 In general, think through decisions to the longer impact.
 
+Quote.
 A lot of extraordinary things in life are the result of things that are first-order negative, second order positive. So just because things look like they have no immediate payoff, doesn’t mean that’s the case. All it means is that you’ll have less competition if the second and third order consequences are positive because everyone who thinks at the first order won’t think things through.
+End quote.
 
 Link four. "The Design of Apple's Credit Card"
 
 This is definitely going to be a fun card to check out.
 
+Quote.
 This level of obsession with the details is nearly expected from Apple. It’s an obsession that requires taste, wealth, expertise and an extensive supply chain, a combination unique to Apple.
+End quote.
 
 I honestly didn’t expect this much design to go into the physical card.
 
@@ -70,7 +76,9 @@ Link five. "The Top 0.5% Underpay 50 billion dollars a Year In Taxes and Crushed
 
 Solid reporting from ProPublica. Of course the very wealthy influence policies by buying votes from our elected officials, but I hadn’t really thought about how that could also buy protection from tax officials.
 
+Quote.
 The IRS’ new approach to taking on the superwealthy has been stymied. The wealthy’s lobbyists immediately pushed to defang the new team. And soon after the group was formed, Republicans in Congress began slashing the agency’s budget. As a result, the team didn’t receive the resources it was promised. Thousands of IRS employees left from every corner of the agency, especially ones with expertise in complex audits, the kinds of specialists the agency hoped would staff the new elite unit
+End quote.
 
 As tax day approaches in the US, this article highlights that not all citizens have the same tools in the process.
 
@@ -78,7 +86,9 @@ Link six. "Introducing Warp: Fixing Mobile Internet Performance and Security"
 
 This is an ambitious offering from Cloudflare. Their push here is performance, but they rightly realize that privacy is a significant concern of VPN users.
 
+Quote.
 Let’s acknowledge that many corners of the consumer VPN industry are really awful so it’s a reasonable question whether we have some ulterior motive. That many VPN companies pretend to keep your data private and then sell it to help target you with advertising is, in a word, disgusting. That is not Cloudflare’s business model and it never will be.
+End quote.
 
 It’s not available yet, but Cloudflare has a lot of credibility to tackle a problem this big. Definitely worth watching.
 

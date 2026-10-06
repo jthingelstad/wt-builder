@@ -14,7 +14,9 @@ Link one. "Unix at 50: How the OS that powered smartphones started from failure 
 
 This is a fun read on the early history of Unix. Consider the 50 years of Unix in two ways. it’s truly amazing that every smartphone you see is powered by a Unix-based system that started 50 years ago, that the technology has lasted that long. On the other hand, consider that it’s taken five decades for the combined intelligence of software developers to create a Unix kernel that is as stable as what we have today.
 
+Quote.
 The rest has quite literally made tech history. By the late 1970s, a copy of the operating system found its way out to the University of California at Berkeley, and in the early 1980s, programmers there adapted it to run on PCs. Their version of Unix, the Berkeley Software Distribution (BSD), was picked up by developers at NeXT, the company Steve Jobs founded after leaving Apple in 1985. When Apple purchased NeXT in 1996, BSD became the starting point for OS X and iOS.
+End quote.
 
 Writing an operating system is not for the faint of heart.
 
@@ -34,7 +36,9 @@ Link one. "Minimum Viable Bureaucracy — Acko.net"
 
 A rant of sort on many aspects of modern business environments and tools, with a call to action around writing with clarity.
 
+Quote.
 The best way to capture the necessary mindset is that of Minimum Viable Bureaucracy: we need to make our tools and processes work for us, with a minimum amount of fuss for the maximum amount of benefit, without any illusions that the technology will simply do it for us. It can even save your bacon when the shit hits the fan.
+End quote.
 
 Wikis deserve a lot more credit than people give them.
 
@@ -50,7 +54,9 @@ Link four. "Camera sales are falling sharply – On my Om"
 
 I have made significant investments in Canon camera gear. Expensive lenses, powerful bodies, etc. It’s hard to see any path for this gear outside of the very specific needs of professional shooters.
 
+Quote.
 I have a five-year old camera, and I can’t conceive of a convincing reason to get a new one. The one I own was very good at the start of its life, it cost me a lot of money, and I suspect it has a long life ahead of it. And to be clear, I am extremely fond of my camera. I find absolutely no joy in the demise of the standalone camera.
+End quote.
 
 When someone that put up the money for a Leica is saying that, camera companies must realize they are in a no win spot.
 
@@ -66,7 +72,9 @@ Link seven. "You’re Not Lazy, Bored, or Unmotivated - Forge"
 
 Not getting to that project, or that thing you want to do?
 
+Quote.
 You’re not lazy. You’re not bored. You’re not unmotivated. What you are — what all of us are — is afraid. And the best advice for overcoming fear is the bland three-word sentence Nike turned into the most successful marketing slogan of all time (after slightly tweaking a serial killer’s last words): Just do it.
+End quote.
 
 This reminds me a lot of what Pressfield calls "the resistance"
 
@@ -78,7 +86,9 @@ Link nine. "Tim Harford — Article — What we get wrong about meetings – and
 
 A short essay on meetings.
 
+Quote.
 A good meeting is a good meeting less because of what happens at the time, but because of what came before — and most importantly, what comes after.
+End quote.
 
 This is very true.
 

@@ -13,15 +13,21 @@ nymag.com
 
 I think it would be amazing to have dinner with Jaron Lanier. He is incredibly articulate and has thought deeply about how technology impacts our social lives. In this interview Lanier reflects on Silicon Valley and "Big Tech", specifically hitting on the social platforms. He points directly at the economic model of ad driven platforms as the cause for much of the problems of social media.
 
+Quote.
 And there’s only one way to merge the two things, which is what we call the advertising model, where everything’s free but you pay for it by selling ads. But then because the technology gets better and better, the computers get bigger and cheaper, there’s more and more data — what started out as advertising morphed into continuous behavior modification on a mass basis, with everyone under surveillance by their devices and receiving calculated stimulus to modify them.
+End quote.
 
 Continued…
 
+Quote.
 Because as long as you have advertising, you have this perverse incentive to make it manipulative. You can’t have a behavior-modification machine with advertisers and have anything ethical; it’s not possible. You could get away with it barely with television because television wasn’t as effective at modifying people. But this, there’s no ethical way to have advertising.
+End quote.
 
 Lanier's position on social media is intense, and thought provoking.
 
+Quote.
 It suggests that you’re just a cog in a giant global brain or something like that. The rhetoric from the companies is often about AI, that what they’re really doing — like YouTube’s parent company, Google, says what they really are is building the giant global brain that’ll inherit the earth and they’ll upload you to that brain and then you won’t have to die. It’s very, very religious in the rhetoric. And so it’s turning into this new religion, and it’s a religion that doesn’t care about you. It’s a religion that’s completely lacking in empathy or any kind of personal acknowledgment. And it’s a bad religion. It’s a nerdy, empty, sterile, ugly, useless religion that’s based on false ideas. And I think that of all of the things, that’s the worst thing about it.
+End quote.
 
 A worthwhile and thought provoking read.
 
@@ -30,17 +36,23 @@ stratechery.com
 
 I do have to agree with this argument.
 
+Quote.
 In short, encryption is viable for the public at scale precisely because Apple controls everything: clients on both ends, and the server in the middle. It’s the same story with WhatsApp or any of the other encrypted messaging services: being closed makes end-to-end encryption actually usable at scale.
+End quote.
 
 Nobody has successfully implemented solid encryption with an open standard.
 
 By the way, I don't use Google or Facebook products and I have a very vibrant engagement with the web and other people. These solutions are optional.
 
+Quote.
 Google, of course, knows one’s every search, for many people their every email, and thanks to the company’s ad network, control of Chrome and Google analytics, and, of course Android, pretty much everything else one does online. Facebook’s knowledge is slightly less broad but arguably deeper: your friends, your interests — both stated and revealed — and thanks to its ‘Like’ button, your web activity as well.
+End quote.
 
 I hadn't considered this last point.
 
+Quote.
 Specifically, if an emphasis on privacy and the non-leakage of data is a priority, it follows that the platforms that already exist will be increasingly entrenched. And, if those platforms will be increasingly entrenched, then the more valuable might regulation be that ensures an equal playing field on top of those platforms. The reality is that an emphasis on privacy will only increase the walls on those gardens; it may be fruitful to rule out the possibility of unfair expansion.
+End quote.
 
 Essentially those that hoarded as much data as possible early on gain a permanent advantage. Yuck.
 
@@ -49,7 +61,9 @@ nomasters.io
 
 I have long advocated that you need to be very conscientious of the applications that you put on your phone. Those applications are with you all the time. Be mindful of that.
 
+Quote.
 Smart phones are useful, but they are also incredibly addictive, and that addiction is at the epicenter of Silicon Valley’s effort to grab an ever increasing percentage of our minds. In that a substance or behavior controls us, it becomes our master, and that just won’t do.
+End quote.
 
 I like many of the recommendations made in this article.
 
@@ -95,7 +109,9 @@ www.myproductivemac.com
 
 I can see the potential for this type of benefit.
 
+Quote.
 I find the practice of long-form journaling helps my brain to organise itself and tell me how it really feels! … My journal is where I get the chance to sit down with my brain and let it talk to me, to write/type whatever I”m feeling at the time.
+End quote.
 
 I've never stuck a journaling habit, but it’s one I'd like to build at some point.
 

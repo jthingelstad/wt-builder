@@ -20,14 +20,18 @@ www.internationalwomensday.com
 
 Nice to see this event getting more attention.
 
+Quote.
 Now, more than ever, there's a strong call-to-action to press forward and progress gender parity. There's a strong call to Press for Progress motivating and uniting friends, colleagues and whole communities to think, act and be gender inclusive.
+End quote.
 
 Why Are There Few Women in Tech? Watch a Recruiting Session | WIRED
 www.wired.com
 
 I'd like to go back and read the original paper Puncturing the pipeline: Do technology companies alienate women in recruiting sessions? but had to due with this Wired writeup for now.
 
+Quote.
 In an attempt to appear approachable, presenters often made comments that disparaged women or depicted them as sexualized objects rather than talented technical colleagues. For example, in one session, a man mentioned the “better gender ratio” at the company’s Los Angeles office compared with its Silicon Valley office. “I had no girlfriends at [University Name], but now I’m married,” he said, suggesting that the better odds had helped get him hitched.
+End quote.
 
 There is so much work to do on this issue.
 
@@ -42,7 +46,9 @@ qz.com
 
 Another study suggesting that the increase of time spent in the digital world correlates strongly with unhappiness.
 
+Quote.
 Every year, teens are asked about their general happiness, in addition to how they spend their time. We found that teens who spent more time seeing their friends in person, exercising, playing sports, attending religious services, reading or even doing homework were happier. However, teens who spent more time on the internet, playing computer games, on social media, texting, using video chat or watching TV were less happy.
+End quote.
 
 Should it surprise us that humans, perhaps the most social of creatures, don't get satisfied socially through text messages and whatever app you are using today? Nope.
 
@@ -63,14 +69,18 @@ Seems like a cheaper and easier version of CloudHealth.
 Rundeck - Job Scheduler and Orchestration
 rundeck.org
 
+Quote.
 Turn your operations procedures into self-service jobs. Safely give others the control and visibility they need.
+End quote.
 
 Workato
 www.workato.com
 
 I hand't heard of this app until a recent meeting where a team was highlighting how they use it.
 
+Quote.
 Workato is the fabric with which you can weave a very intelligent nervous system for your modern enterprise. Recipes are automated workflows that connect apps to complete tasks composed by you based on a combination of apps, triggers and actions.
+End quote.
 
 The fluffy language aside, it seems like a useful tool.
 
@@ -103,7 +113,9 @@ blogs.scientificamerican.com
 
 It’s human nature to want to associate your successes with skill and active choice (and often our misses with bad luck), but data suggests that luck, or random chance, may have more to do with success.
 
+Quote.
 The researchers argue that the following factors are all important in giving people more chances of success: a stimulating environment rich in opportunities, a good education, intensive training, and an efficient strategy for the distribution of funds and resources.
+End quote.
 
 This made me thing of Fooled by Randomness as I read it. I highly recommend that book. It forever changed how I look at track records.
 

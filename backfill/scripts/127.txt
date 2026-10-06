@@ -8,7 +8,9 @@ Link one. "If You're Busy, You're Doing Something Wrong: The Surprisingly Relaxe
 
 Newport is taking a number of different threads here and putting them together well. The idea of deliberate practice was something I read about in Peak: Secrets from the New Science of Expertise and appreciated a lot.
 
+Quote.
 In fact, the more elite the player, the more pronounced the peaks. For the best of the best — the subset of the elites who the professors thought would go on to play in one of Germany’s two best professional orchestras — there was essentially no deviation from a rigid two-sessions a day schedule.
+End quote.
 
 It’s not the total duration that matters as much as the duration times the focus. Lots of time spent messing around will not move you forward.
 
@@ -35,7 +37,9 @@ Link two. "It's time to ban all political ad targeting... everywhere - without b
 
 I can completely get behind this idea.
 
+Quote.
 But if we don’t ban ads outright, why ban targeting? Because everyone should see what political advertisers are doing. I don’t want political advertisers showing one message to Democrats and another to Republicans, or one to men and another to women, or one to people who clicked on a website about abortion and another to those who visited a site about guns.
+End quote.
 
 I agree with the thesis. You can go ahead and advertise whatever you want, but it needs to be in the open where a lot of people can see it. I like the idea of only targeting by geography. That makes sense for political messages. But you shouldn't be able to send some dark message to only your followers.
 
@@ -43,7 +47,9 @@ Link three. "What America Lost When It Lost the Bison - The Atlantic"
 
 I feel a connection with bison. You can see farmed bison pretty easily where I grew up in North Dakota. Their ruggedness and strength have always appealed to me. I often refer to them as my Spirit animal.
 
+Quote.
 Their actions change the landscape. In areas where bison graze, plants contain 50 to 90 percent more nutrients by the end of the summer. This not only provides extra nourishment for other grazers, but prolongs the growing season of the plants themselves.
+End quote.
 
 Amazing to hear how they impacted the land so positively as well.
 
@@ -63,7 +69,9 @@ Link seven. "How Turkish coffee destroyed an empire | 1843"
 
 The history of coffee, and its spread around the world, is fascinating.
 
+Quote.
 In the coffee houses they were introduced to ideas that spelled trouble for the Ottoman state: rebellion, self-determination and the fallibility of the powerful.
+End quote.
 
 I watched Black Coffee several years ago and it asserts a similar path for the French Revolution as well.
 
@@ -71,7 +79,9 @@ Link eight. "Americans and Privacy: Concerned, Confused and Feeling Lack of Cont
 
 I'd agree with the leader here.
 
+Quote.
 Majorities think their personal data is less secure now, that data collection poses more risks than benefits, and believe it is not possible to go through daily life without being tracked.
+End quote.
 
 So basically I take from this article that American's went from first not caring about our privacy, to not understanding, to giving up.
 
@@ -79,11 +89,9 @@ Link nine. "The Service Mesh: What Every Software Engineer Needs to Know about t
 
 Good overview from the author of Linkerd.
 
-If you’re encountering the idea of service mesh for the first time, you can be forgiven if your first reaction is mild horror. The design of the service mesh means that not only does it add latency to your application, it also consumes resources and also introduces a whole bunch of machinery. One minute you’re installing a service mesh, the next you’re suddenly on the hook for operating hundreds or thousands of proxies. Why would anyone want to do this?
-
-There are two parts to the answer. The first is that the operational cost of deploying these proxies can be greatly reduced, thanks to some other changes that are happening in the ecosystem. Lots more on that later.
-
-The more important answer is because this design is actually a great way to introduce additional logic into the system. That’s not only because there are a ton of features you can add right there, but also because you can add them without changing the ecosystem. In fact, the entire service mesh model is predicated on this very insight: that, in a multi-service system, regardless of what individual services actually do, the traffic between them is an ideal insertion point for functionality.
+Quote.
+If you’re encountering the idea of service mesh for the first time, you can be forgiven if your first reaction is mild horror. The design of the service mesh means that not only does it add latency to your application, it also consumes resources and also introduces a whole bunch of machinery. One minute you’re installing a service mesh, the next you’re suddenly on the hook for operating hundreds or thousands of proxies. Why would anyone want to do this? There are two parts to the answer. The first is that the operational cost of deploying these proxies can be greatly reduced, thanks to some other changes that are happening in the ecosystem. Lots more on that later. The more important answer is because this design is actually a great way to introduce additional logic into the system. That’s not only because there are a ton of features you can add right there, but also because you can add them without changing the ecosystem. In fact, the entire service mesh model is predicated on this very insight: that, in a multi-service system, regardless of what individual services actually do, the traffic between them is an ideal insertion point for functionality.
+End quote.
 
 Service mesh is on a maximum in the hype cycle.
 
@@ -99,9 +107,9 @@ Link twelve. "I'm the Google whistleblower. The medical data of millions of Amer
 
 How is it that even with HIPPA and other regulatory requirements in place this still happened?
 
-What AI algorithms were at work in real time as the data was being transferred across from hospital groups to the search giant? What was Google planning to do with the data they were being given access to? No-one seemed to know.
-
-Above all: why was the information being handed over in a form that had not been “de-identified” – the term the industry uses for removing all personal details so that a patient’s medical record could not be directly linked back to them? And why had no patients and doctors been told what was happening?
+Quote.
+What AI algorithms were at work in real time as the data was being transferred across from hospital groups to the search giant? What was Google planning to do with the data they were being given access to? No-one seemed to know. Above all: why was the information being handed over in a form that had not been “de-identified” – the term the industry uses for removing all personal details so that a patient’s medical record could not be directly linked back to them? And why had no patients and doctors been told what was happening?
+End quote.
 
 Medical data isn't something I want Google to ever have their hands on.
 
@@ -121,15 +129,17 @@ Thursday @ 7:17 PM
 
 Sounds great, and I’m having fun trying to virtually follow #KubeCon. Maybe next year I can join the fun!
 
-Packed house listening to AuthN and AuthZ from the @Yelp team sharing their ServiceMesh security story. This is a great talk to think through security requirements you’re trying to solve for with your mesh. I recommend the video! #KubeCon pic.twitter.com/O09hKm80G2
-— Andy Domeier (@AndyJD_) November 21, twenty nineteen
+Quote.
+Packed house listening to AuthN and AuthZ from the @Yelp team sharing their ServiceMesh security story. This is a great talk to think through security requirements you’re trying to solve for with your mesh. I recommend the video! #KubeCon pic.twitter.com/O09hKm80G2 — Andy Domeier (@AndyJD_) November 21, twenty nineteen
+End quote.
 
 Thursday @ 7:16 PM
 
 Great to see #TeamSPS wrapping up a fantastic trip to #KubeCon!
 
-It's incredibly hard to leave #KubeCon in sunny San Diego. I wish it was here every year! #TeamSPS had an awesome trip filled with tons of learning and new friends. Cheers to the continued growth of a great community! pic.twitter.com/awKFrxse4w
-— Andy Domeier (@AndyJD_) November 22, twenty nineteen
+Quote.
+It's incredibly hard to leave #KubeCon in sunny San Diego. I wish it was here every year! #TeamSPS had an awesome trip filled with tons of learning and new friends. Cheers to the continued growth of a great community! pic.twitter.com/awKFrxse4w — Andy Domeier (@AndyJD_) November 22, twenty nineteen
+End quote.
 
 Thursday @ 3:10 PM
 
@@ -151,8 +161,9 @@ Tuesday @ 9:37 PM
 
 Kubernetes on jets? Neat!
 
-I have to say, I’m really blown away by the #DOD talk at #KubeCon! Really impressive to see the stacks they are using. "We don't run huge clusters, we run many little clusters, weapon systems, business systems, etc… " They are even running #kubernetes #istio on jets! pic.twitter.com/HwmTFi0Qrt
-— Andy Domeier (@AndyJD_) November 19, twenty nineteen
+Quote.
+I have to say, I’m really blown away by the #DOD talk at #KubeCon! Really impressive to see the stacks they are using. "We don't run huge clusters, we run many little clusters, weapon systems, business systems, etc… " They are even running #kubernetes #istio on jets! pic.twitter.com/HwmTFi0Qrt — Andy Domeier (@AndyJD_) November 19, twenty nineteen
+End quote.
 
 Tuesday @ 10:01 AM
 

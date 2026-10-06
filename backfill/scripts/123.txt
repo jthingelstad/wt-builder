@@ -8,7 +8,9 @@ Link one. "Google AI Blog: Quantum Supremacy Using a Programmable Superconductin
 
 Quantum computing has been talked about for well over a decade, but this is the first time we are seeing something real.
 
+Quote.
 We developed a new 54-qubit processor, named “Sycamore”, that is comprised of fast, high-fidelity quantum logic gates, in order to perform the benchmark testing. Our machine performed the target computation in 200 seconds, and from measurements in our experiment we determined that it would take the world’s fastest supercomputer 10,000 years to produce a similar output.
+End quote.
 
 10,000 years to 200 seconds? I had to do the math. That's 1,578,000,000 times faster. What does that mean, nearly all encrypted documents we have today are probably easily decrypted with brute force tactics. Read more in this Nature article article.
 
@@ -32,7 +34,9 @@ Link two. "Wayfair Tech Explains It All: David Short on Formulaic Naming – Way
 
 What an interesting idea, and a little disconcerting.
 
+Quote.
 With Formulaic Naming, Wayfair is transitioning to a structured solution for naming based on other questions we already ask our suppliers about their products. Once we have this structured information, we can pursue Dynamic Naming, where the product name will vary based on where the name is displayed and the customer who is viewing the product.
+End quote.
 
 So when you buy the Cleaver Cedar Sofa and your friend that you recommend it to may not see that a product of that name doesn't even exist? Interesting ideas.
 
@@ -40,7 +44,9 @@ Link three. "How to Become Comfortable Being Vulnerable - Matt Norman"
 
 Being vulnerable is one of many ways to show you are human, and it lets people relate to you as a leader. It’s not comfortable since many leaders, myself included, are not comfortable in that position or feel like it’s not okay.
 
+Quote.
 “Group cooperation is created by small, frequently repeated moments of vulnerability,” he explains. “Of these, none carries more power than the moment when a leader signals vulnerability.” It’s paramount for people to know that it’s safe to tell the truth here.
+End quote.
 
 I've tried to get more comfortable being vulnerable, knowing that it helps the culture and team I work with.
 
@@ -48,7 +54,9 @@ Link four. "WeWork Founder Adam Neumann Is Still a Billionaire After Bailout - B
 
 This would be the definition of a Golden Parachute.
 
+Quote.
 SoftBank Group Corp.’s proposed rescue package of WeWork involves Neumann selling about 1 billion dollars of stock and getting a 185 million dollars consulting fee from the Japanese firm even as the deal values the struggling office-sharing company at 8 billion dollars, according to people familiar with the transaction. That’s down from an estimated 47 billion dollars at the start of the year. Neumann will leave the company’s board though he still can assign two seats.
+End quote.
 
 So after creating no profits at all, the founder of WeWork leaves a billionaire. This is wrong.
 
@@ -60,7 +68,9 @@ Link six. "Architectural Decision Records | adr.github.io"
 
 Interesting structure for architecture.
 
+Quote.
 An Architectural Decision (AD) is a software design choice that addresses a functional or non-functional requirement that is architecturally significant. An Architecturally Significant Requirement (ASR) is a requirement that has a measurable effect on a software system’s architecture and quality. An Architectural Decision Record (ADR) captures a single AD, such as often done when writing personal notes or meeting minutes; the collection of ADRs created and maintained in a project constitute its decision log. All these are within the topic of Architectural Knowledge Management (AKM).
+End quote.
 
 I think it is very critical that you define how architecture is executed so that teams and architects know what to expect from each other.
 
@@ -76,7 +86,9 @@ Link nine. "Why Richard Stallman doesn't matter | Stefano Maffulli"
 
 There is so much truth to this. I like the vision and mission of the Free Software Foundation, but under Stallman's "leadership", it has ignored the internet.
 
+Quote.
 That’s because Stallman’s world was and still is, stuck in the 80s: computers are physical devices that users can own and keep in their homes. For that use case, the four freedoms, the definition of source code and installation tooling introduced in GPLv3 made a lot of sense. Nothing else seemed to matter to him. The decision for the Linux kernel not to adopt GPLv3 wasn’t considered a problem and it was often downplayed by FSF leadership.
+End quote.
 
 I shared my story of meeting Stallman before and he really didn’t see the Internet as a thing that mattered. Mostly this was because he wouldn't use it? He famously is the person who used an emacs, email, bash script thing to pull web pages when he needed information. That's crazy. The real Free Software challenge has moved online and Stallman was still thinking about a open BIOS.
 

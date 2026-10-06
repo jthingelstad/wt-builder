@@ -14,9 +14,9 @@ Link one. "How Tesla Made the Model 3 So Safe"
 
 This article highlights some of the amazing safety aspects of the Tesla Model 3.
 
-So basically, when Tesla says its Model 3 has the “lowest probability of injury” ever tested by NHTSA, it means that the overall VSS score (which represents the “relative risk of injury with respect to a baseline of 15 percent”) of 0.38 is lower than that of any car ever tested.
-
-That’s impressive, any way you slice it.
+Quote.
+So basically, when Tesla says its Model 3 has the “lowest probability of injury” ever tested by NHTSA, it means that the overall VSS score (which represents the “relative risk of injury with respect to a baseline of 15 percent”) of 0.38 is lower than that of any car ever tested. That’s impressive, any way you slice it.
+End quote.
 
 Lowest ever is very impressive!
 
@@ -24,9 +24,9 @@ Link two. "Tech Workers Now Want to Know: What Are We Building This For? - The N
 
 It’s about time that technology workers factor the outcome of their work into their decision to work on it.
 
-Across the technology industry, rank-and-file employees are demanding greater insight into how their companies are deploying the technology that they built. At Google, Amazon, Microsoft and Salesforce, as well as at tech start-ups, engineers and technologists are increasingly asking whether the products they are working on are being used for surveillance in places like China or for military projects in the United States or elsewhere.
-
-That’s a change from the past, when Silicon Valley workers typically developed products with little questioning about the social costs.
+Quote.
+Across the technology industry, rank-and-file employees are demanding greater insight into how their companies are deploying the technology that they built. At Google, Amazon, Microsoft and Salesforce, as well as at tech start-ups, engineers and technologists are increasingly asking whether the products they are working on are being used for surveillance in places like China or for military projects in the United States or elsewhere. That’s a change from the past, when Silicon Valley workers typically developed products with little questioning about the social costs.
+End quote.
 
 This is a good thing.
 

@@ -10,9 +10,9 @@ Link one. "You Deserve Privacy Online. Here’s How You Could Actually Get It | 
 
 Apple's Tim Cook making the case that we need Congressional action on privacy online. I like the idea, but I’m skeptical of it happening anytime soon.
 
-The trail disappears before you even know there is a trail. Right now, all of these secondary markets for your information exist in a shadow economy that’s largely unchecked—out of sight of consumers, regulators and lawmakers.
-
-Let’s be clear: you never signed up for that. We think every user should have the chance to say, “Wait a minute. That’s my information that you’re selling, and I didn’t consent.”
+Quote.
+The trail disappears before you even know there is a trail. Right now, all of these secondary markets for your information exist in a shadow economy that’s largely unchecked—out of sight of consumers, regulators and lawmakers. Let’s be clear: you never signed up for that. We think every user should have the chance to say, “Wait a minute. That’s my information that you’re selling, and I didn’t consent.”
+End quote.
 
 In the meantime I will continue to run software to defend my privacy.
 
@@ -20,7 +20,9 @@ Link two. "What It’s Like to Be A Woman On the Internet – NewCo Shift – Me
 
 This is a must read to give some perspective to the experience that many women have on the Internet.
 
+Quote.
 And third, and most importantly, that sometimes being a woman on the internet can be a full-time job. As I mentioned before, my role as a Developer Advocate involves a lot content creation, face-to-face interaction, and requires me to have an online social presence. In the past, I’ve dealt with everything from men commenting on online videos of me saying I should “get a tan”, I’ve been DMed creepy messages on Twitter/LinkedIn/Instagram/etc. with messages like “hi”, “nice smile you got there”, and “your beautiful” (I usually respond “ *you’re ”, on that last one), and have even stumbled upon entire forum posts about me and how as a woman with a non-traditional background I’m unqualified to work in tech. Over the last three years, I have learned to brush it off and I almost always “never read the comments” if I know they’re negative (in fact, I have a necklace and pin of the mantra). But these things add up.
+End quote.
 
 Awareness of this, followed by action by men on the Internet, is important. First step is being aware.
 
@@ -52,7 +54,9 @@ Link two. "Thinking Different: Keys to Adopting an iPad-First Workflow – MacSt
 
 I've been using an iPad for increasingly more of my stuff at the office for the last couple of years. This statement is so true!
 
+Quote.
 But moving to the iPad still involves some growing pains. The longer you've used a traditional computer, the harder an iPad transition can be.
+End quote.
 
 I had to radically rethink how I approached many tasks to get it right on iOS. I will say though, there are now a decent number of things that I get great value out of on my iPad in iOS that I simply cannot do on macOS. Shortcuts is a big part of that.
 
@@ -72,9 +76,9 @@ Link six. "Opinion | You Should Meditate Every Day - The New York Times"
 
 More personal stories validating meditating and it’s benefits, particularly with the digital world.
 
-Then, about four months ago, I brute-forced it: I made meditation part of my morning routine and made myself stick with it. I started with 10 minutes a day, then built up to 15, 20, then 30. Eventually, something clicked, and the benefits became noticeable, and then remarkable.
-
-The best way I can describe the effect is to liken it to a software upgrade for my brain — an update designed to guard against the terrible way the online world takes over your time and your mind.
+Quote.
+Then, about four months ago, I brute-forced it: I made meditation part of my morning routine and made myself stick with it. I started with 10 minutes a day, then built up to 15, 20, then 30. Eventually, something clicked, and the benefits became noticeable, and then remarkable. The best way I can describe the effect is to liken it to a software upgrade for my brain — an update designed to guard against the terrible way the online world takes over your time and your mind.
+End quote.
 
 Link seven. "Nike's Self-Lacing Adapt BB Basketball Shoe Is Actually Smart | WIRED"
 
@@ -112,7 +116,9 @@ Link fifteen. "Four Cool URLs - Alex Pounds' Blog"
 
 This happens to be a thing that I find "artful" as well. A well designed URL structure implies a well thought out architecture and makes it easier for developers, and in some rare cases uses, to understand the service.
 
+Quote.
 Most people don't give them much thought, in part because web browsers increasingly hide URLs away. But some URLs have special powers. Here are some that knock my socks off.
+End quote.
 
 Link sixteen. "How I Finally Hit two thousand on Lichess, and Improved my Chess Rating by 200 Points in 16 Days - Trapeze"
 

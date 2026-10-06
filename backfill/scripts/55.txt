@@ -10,7 +10,9 @@ Link one. "Second Life: Rethinking Myself Through Exercise, Mindfulness, and Gra
 
 Federico Viticci writes is one of my favorite tech authors, and this post has plenty of that, but it’s also a reflection on how he has changed his life after a cancer diagnosis a few years ago.
 
+Quote.
 It's important to me because I can't squander this opportunity. Because life isn't like an arcade – you can't put more coins in to continue – yet somehow I was given the chance for a do-over and I failed to appreciate it at first. Now I have to make sure I can return the favor with positivity and stories that can help others.
+End quote.
 
 This is a great article on its own, but is also a treasure trove of resources for people who want to use technology to make their lives better.
 
@@ -18,7 +20,9 @@ Link two. "Why we owe it to ourselves to spend quiet time alone every day"
 
 I can attest to feeling this and know many friends, particularly technologists, who do as well. I've referred to this as "digital fatigue" in the past.
 
+Quote.
 The destruction of our inner selves via the wired world is an even more recent, and more subtle, phenomenon. The loss of slowness, of time for reflection and contemplation, of privacy and solitude, of silence, of the ability to sit quietly in a chair for fifteen minutes without external stimulation — all have happened quickly and almost invisibly.
+End quote.
 
 I believe this is part of the reason people are seeking out practices like meditation in seemingly larger numbers than the past.
 
@@ -48,7 +52,9 @@ Link three. "Don't Get Distracted"
 
 A thorough writeup on the authors experience building software used for defense purposes, and the ethical and moral dilemmas associated with it.
 
+Quote.
 Don’t get distracted by deadlines and feature requests. Think about the consequences of what you’re building. Build in safeguards to prevent misuse, or don’t build it at all because it’s too dangerous.
+End quote.
 
 Technologists need to consider this as we continue to build ever more powerful capabilities.
 
@@ -64,7 +70,9 @@ Link six. "Xero reveals the impact of mammoth Amazon Web Services migration - Cl
 
 Not much depth, but interesting highlights of Xero's migration to AWS.
 
+Quote.
 Xero also thanked the AWS migration for improving its gross margin by 81 percent.
+End quote.
 
 Significant improvements and additional functionality unlocked as well.
 
@@ -76,7 +84,9 @@ Link eight. "Email, the Micro-Meetings Eating Our Days – 500ish Words"
 
 I think the author is on to something here thinking of emails a bit like a virtual meeting.
 
+Quote.
 At any given moment, upwards of 50 to 75 percent of the email in my inbox (beyond the spammy stuff or newsletters) are actually to-dos from other people.
+End quote.
 
 The critical issue with all asynchronous communications systems is that they allow tasks to come into you without block. Meetings are limited to time and space, you cannot receive a to do outside of the meeting time. Email however has infinite scale ability to receive work, regardless of your time.
 
@@ -100,7 +110,9 @@ Sapiens: A Brief History of Humankind
 
 by Yuval Noah Harari
 
+Quote.
 From a renowned historian comes a groundbreaking narrative of humanity’s creation and evolution—a #1 international bestseller—that explores the ways in which biology and history have defined us and enhanced our understanding of what it means to be “human.”
+End quote.
 
 My book club is reading Sapiens and I’ve really enjoyed every bit of this book so far.
 
@@ -118,7 +130,9 @@ Nomorobo Robocall Blocking
 
 by Telephone Science Corporation
 
+Quote.
 Nomorobo blocks annoying robocalls, telemarketers, spam texts, and phone scammers from calling your phone. Bring peace and quiet back to your life.
+End quote.
 
 I started getting a ridiculous number of robocalls to my mobile and NoMoRobo has been great at making this annoyance go away. The 18 dollars/year subscription is great value for never having a robocall or telemarketer ever making my phone ring.
 

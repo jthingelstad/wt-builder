@@ -16,11 +16,15 @@ Link one. "Laziness Does Not Exist – E Price – Medium"
 
 This article is written from the position of a psychology professor understanding students, but it caught my attention and make me remember Do The Work by Steven Pressfield as well.
 
+Quote.
 If a person’s behavior doesn’t make sense to you, it is because you are missing a part of their context. It’s that simple. I’m so grateful to Kim and their writing for making me aware of this fact. No psychology class, at any level, taught me that. But now that it is a lens that I have, I find myself applying it to all kinds of behaviors that are mistaken for signs of moral failure — and I’ve yet to find one that can’t be explained and empathized with.
+End quote.
 
 I read this in the context of leadership and it is a good reminder that as a leader and manager you need to start with the assumption that people are trying to do the right thing. Most people want to do the right thing and be successful.
 
+Quote.
 People do not choose to fail or disappoint. No one wants to feel incapable, apathetic, or ineffective. If you look at a person’s action (or inaction) and see only laziness, you are missing key details. There is always an explanation. There are always barriers. Just because you can’t see them, or don’t view them as legitimate, doesn’t mean they’re not there. Look harder.
+End quote.
 
 This is a great call to action for leaders. If you see a lack of progress, what might you be missing that is inhibiting that progress?
 
@@ -28,7 +32,9 @@ Link two. "How Disney is turning women from across the company into coders"
 
 This is an impressive program that Disney is running to get more women into technology roles.
 
+Quote.
 The CODE in CODE: Rosie stands for Creating Opportunities for Diverse Engineers. The “Rosie” part references Rosie the Riveter, the symbol of World War II’s working women; an internal CODE Rosie logo even depicts Minnie Mouse in Rosie’s iconic rolled-up-sleeve pose. In particular, the program pays tribute to the “Rosies” who programmed the U.S. Army’s pioneering ENIAC computer back in the 1940s.
+End quote.
 
 It is impressive in its scope and I admire the approach. A program like this could make a difference.
 
@@ -50,7 +56,9 @@ Link one. "How to Organize a Working Group | Lara Hogan"
 
 I liked the structure and specificity in this how-to guide.
 
+Quote.
 “Working groups” is a hand-wavy term that can mean a lot of things; I use this term to describe a small group of people who come together with a common goal/deliverable, acting as representatives of the larger organization.
+End quote.
 
 Planning this part of a working group is necessary to be successful in the outcome.
 
@@ -128,7 +136,9 @@ OmniFocus 3
 
 by The Omni Group
 
+Quote.
 Use OmniFocus to accomplish more every day. Create projects and tasks, organize them with tags, focus on what you can do right now — and get stuff done.
+End quote.
 
 I've been using OmniFocus since it came out on macOS. It continues to be my most frequently used, and trusted appliactions. I've been enjoying the changes in this new version. I think the team at Omni Software hit the mark making this very powerful tool simultaneously more powerful, and easier to use.
 

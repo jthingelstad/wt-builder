@@ -8,15 +8,21 @@ Link one. "Against Facebook"
 
 This is a powerful and comprehensive essay targeted at Facebook, but applies to all social media. The description given below is a great definition of the addictive software patterns I've written about.
 
+Quote.
 These gadgets are designed to create a “supernormal stimulus,” that is, a stimulus that produces a stronger than natural response. We can even internalize the supernormal stimulus—an example is the “phantom vibrate” we sometimes feel in our pocket when no vibration occurs. In the case of social media, the supernormal stimulus is used to exploit our response to novelty in order to elicit a behavior that works in the interests of the social media provider.
+End quote.
 
 I found this characterization of sharing jarring, and insightful.
 
+Quote.
 Over time, these platforms transform us all into unpaid advertising agencies. We promote goods, services, lifestyles and desires to our friends, weaponizing images to generate feelings of jealousy and FOMO amongst our peers during those idle moments when they feel most bored.
+End quote.
 
 This might be one of the most succinct characterizations of the end-state of social media platforms.
 
+Quote.
 As a result, we end up building relationships to the platform — not to each other.
+End quote.
 
 This is a long but well written thought piece on social platforms, and a very complete index of reasons to disengage from Facebook.
 
@@ -28,7 +34,9 @@ Link three. "I Committed To An Email-Free Morning For 5 Days, Here’s What I Le
 
 This is exactly me.
 
+Quote.
 Full disclosure: I don’t do morning routines. The only thing I do every day is groggily roll over in bed when my alarm goes off and check my email. According to everything I’ve ever read on the subject, it’s just about the worst thing you can do for your productivity–and I was starting to feel like those articles were right.
+End quote.
 
 I've done that for 15 years or longer. I've done that for as long as I can remember waking up. And like the author, I know that isn't a good thing. Good read to encourage considering a change of habit.
 
@@ -63,7 +71,9 @@ Link four. "We’re in the Uncanny Valley of Targeted Advertising | Electronic F
 
 The EFF calls out Facebooks use of AI in it’s targeting systems. It’s notable that everything written here could be applied to Google as well.
 
+Quote.
 The concern that you’re being surveilled persists, essentially, because you are being surveilled…
+End quote.
 
 Good call to action for running your own tools to defend against this pervasive surveillance.
 
@@ -71,7 +81,9 @@ Link five. "iOS 11.4 to Disable USB Port After 7 Days: What It Means for Mobile 
 
 This seems like a way to keep an entire array of security vectors away from iOS devices:
 
+Quote.
 The functionality of USB Restricted Mode is actually very simple. Once the iPhone or iPad is updated to the latest version of iOS supporting the feature, the device will disable the USB data connection over the Lightning port one week after the device has been last unlocked.
+End quote.
 
 Big win for securing and protecting your data.
 
@@ -111,7 +123,9 @@ Radical Candor: Be a Kick-Ass Boss Without Losing Your Humanity
 
 by Kim Scott
 
+Quote.
 Radical Candor is packed with illuminating truths, insightful advice, and practical suggestions, all illustrated with engaging (and often funny) stories from Kim Scott’s own experiences at places like Apple, Google, and various start-ups.
+End quote.
 
 This book is making the rounds at a lot of companies, including ours. I just bought copies of it for all of the leaders in my team and we are reading it and discussing as a group.
 
@@ -129,7 +143,9 @@ AutoSleep Tracker for Watch
 
 by Tantsissa
 
+Quote.
 Automatically track your sleep from your Apple Watch. No buttons to press. Even the Watch app is optional! Just sleep!
+End quote.
 
 After reading Why We Sleep I wanted to see if I could get some more information on my sleep. It turns out that my iPhone and Apple Watch, along with this application, can do just that.
 

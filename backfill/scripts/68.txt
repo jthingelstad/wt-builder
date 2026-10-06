@@ -20,7 +20,9 @@ Link one. "Beyond Interactive: Notebook Innovation at Netflix – Netflix TechBl
 
 The scale of this effort at Netflix is amazing.
 
+Quote.
 Every day more than 1 trillion events are written into a streaming ingestion pipeline, which is processed and written to a 100PB cloud-native data warehouse. And every day, our users run more than 150,000 jobs against this data, spanning everything from reporting and analysis to machine learning and recommendation algorithms.
+End quote.
 
 I haven't used Jupyter but it looks really compelling. I like how Netflix is using them for the exploration, as well as putting them into production pipelines.
 
@@ -48,7 +50,9 @@ Link three. "Apple Pencil Note-Taking: Why You Should Use Apple Notes, actually.
 
 I have tried a surprisingly large number of iPad note taking apps to use with the Apple Pencil, and I agree with Reitz's conclusion.
 
+Quote.
 Apple Notes is hands-down the most well–designed, thought–through note taking app available for the iPad Pro. It is exceptionally well designed, and if you leave your preconceptions about what a note–taking app should do, I think you'll find yourself agreeing with me, once you give it a real try/chance.
+End quote.
 
 He didn’t mention it in his writeup, but Notes also does limited handwriting recognition as well, which allows searching of notes if your handwriting is legible.
 
@@ -56,7 +60,9 @@ Link four. "Quit wasting your precious energy - a n n i e m u e l l e r"
 
 What a great essay from Annie Mueller!
 
+Quote.
 Energy is the currency of the universe. You don’t do anything to deserve it and you’re free to spend it however you want. I just want you think about it. What do you want? Is that what you’re getting? What bargains have you made?
+End quote.
 
 Energy is necessary for everything, just like time. Time without energy isn't worth much.
 

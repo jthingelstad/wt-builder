@@ -12,11 +12,15 @@ Link two. "Researchers to release first-ever genetically engineered mosquitoes i
 
 This headline caught my attention, and it’s actually using gene drive technology.
 
+Quote.
 Teams in three African countries — Burkina Faso, Mali, and Uganda — are building the groundwork to eventually let loose “gene drive” mosquitoes, which would contain a mutation that would significantly and quickly reduce the mosquito population. Genetically engineered mosquitoes have already been released in places like Brazil and the Cayman Islands, though animals with gene drives have never been released in the wild.
+End quote.
 
 That immediately reminded me of one of the most memorable passages from A Crack in Creation, the story of CRISPR.
 
+Quote.
 CRISPR gene drives, by contrast, are self-sustaining; since the mode of inheritance appears to outsmart natural selection, the modified insects propagate and pass on their defective traits indefinitely. This thoroughness is what makes gene drives so powerful—and so alarming. It's been estimated that, had a fruit fly escaped the San Diego lab during the first gene drive experiments, it would have spread genes encoding CRISPR, along with the yellow-body trait, to between 20 and 50 percent of all fruit flies worldwide.
+End quote.
 
 This population of mosquitos being released are 99% male, so there shouldn't be any risk.
 
@@ -68,7 +72,9 @@ Link nine. "Private by Default"
 
 This post makes me want to send Feedbin some more money on top of my annual subscription fee. I love the work that Ben has done here to protect his customers from invasive tracking while reading feeds. I love his item on Google Analytics:
 
+Quote.
 I thought about replacing Google Analytics with Matomo, but I came to the same conclusion that it didn’t provide anything I need in order to run Feedbin. Better to not collect that data at all.
+End quote.
 
 Hat's off!
 
@@ -80,7 +86,9 @@ Link eleven. "Slowly Percolating Forms: Contemplation, Conversation, Commentary"
 
 Forwarded to me from my friend Nick. I like this way of thinking about learning topics.
 
+Quote.
 … if we don't do our own contemplation and commentary, we abdicate a good deal of our involvement in our own learning, and we shift from being fires to vessels.
+End quote.
 
 I like the qualification of speeds (quick, slow) to various aspects of the process.
 
@@ -92,7 +100,9 @@ Link thirteen. "The State of Agile Software in twenty eighteen"
 
 I've been stunned at how many organizations have just discovered Agile in the last few years. Good guidance in the intro:
 
+Quote.
 The three main challenges we should focus on are: fighting the Agile Industrial Complex and its habit of imposing process upon teams, raising the importance of technical excellence, and organizing our teams around products (rather than projects).
+End quote.
 
 Link fourteen. "The jaw-dropping story behind an NFL coach's search for his family"
 
@@ -110,7 +120,9 @@ Link seventeen. "Troy Hunt: Serverless to the Max: Doing Big Things for Small Do
 
 Deep overview of how Troy Hunt designed Have I Been Pwned? to be very cost efficient to run.
 
+Quote.
 It's costing me 2.6c per day to support 141M monthly queries of 517M records.
+End quote.
 
 That is amazing! The service is using Cloudflare Workers to push a lot of cached requests off of Azure. He calculates that without Cloudflare it would cost 9 dollars and 19 cents/day to run. Both of those amounts are amazing.
 

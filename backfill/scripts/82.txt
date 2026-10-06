@@ -22,7 +22,9 @@ Link two. "Information Attacks against Democracies - Schneier on Security"
 
 Bruce Schneier is a security expert, not a politician, but for this summary of the paper he did provides interesting perspective.
 
+Quote.
 This framework not only helps us understand how different political systems are vulnerable and how they can be attacked, but also how to bolster security in democracies. First, we need to better defend the common political knowledge that democracies need to function. That is, we need to bolster public confidence in the institutions and systems that maintain a democracy. Second, we need to make it harder for outside political groups to cooperate with inside political groups and organize disinformation attacks, through measures like transparency in political funding and spending. And finally, we need to treat attacks on common political knowledge by insiders as being just as threatening as the same attacks by foreigners.
+End quote.
 
 It’s thought provoking to consider the attack surfaces of political systems in this way.
 
@@ -51,7 +53,9 @@ Link one. "Amazon Quantum Ledger Database"
 
 Amazon introduced this highlighting that it was a technology they built in-house and are now making available to the public. It looks interesting.
 
+Quote.
 Amazon QLDB is a new class of database that eliminates the need to engage in the complex development effort of building your own ledger-like applications. With QLDB, your data’s change history is immutable – it cannot be altered or deleted – and using cryptography, you can easily verify that there have been no unintended modifications to your application’s data.
+End quote.
 
 There is a lot of overlap with Event Sourcing concepts, but I’m not sure it is applicable to that. This is marketed as providing the audit history trust of a blockchain, but not using decentralization.
 
