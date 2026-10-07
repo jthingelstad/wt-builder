@@ -117,7 +117,7 @@ I’ve dealt with water issues at our cabin twice now. I think I need a couple o
 Sure seems easier to use than addresses, although much less human usable.
 - FreshRSS, a free, self-hostable aggregator… freshrss.org
 It makes me happy to see open source RSS projects. I'll still stick with Feedbin though.
-- The design and implementation of modern column-oriented The design and implementation of modern column-oriented database systems blog.acolyer.org
+- The design and implementation of modern column-oriented database systems blog.acolyer.org
 Dive into how modern databases store column data.
 - SEC charges Tesla CEO Elon Musk with fraud www.cnbc.com
 Yikes! Don’t mess with the SEC!
