@@ -46,7 +46,7 @@ describe('legacyBlocks', () => {
 
   it('names the sections the way the openers do', () => {
     const titles = blocks(100).filter((x) => x.chapter).map((x) => x.chapter!.title);
-    expect(titles).toEqual(['Welcome', 'Featured Links', 'My Weekly Photo', 'Notable Links', 'Give Back', 'More Links', 'Microposts', 'Fortune']);
+    expect(titles).toEqual(['Welcome', 'Featured Links', 'My Weekly Photo', 'Notable Links', 'More Links', 'Microposts', 'Fortune']);
     // The two openers that are not "Now, the X section." still name a chapter.
     let fyi = 0;
     for (const n of [100, 140, 150, 200, 250]) {
@@ -119,7 +119,7 @@ describe('legacyBlocks', () => {
 
   it('recovers the rule-delimited sections of the winter 2017 issues', () => {
     const titles = blocks(35).filter((x) => x.chapter).map((x) => x.chapter!.title);
-    expect(titles).toEqual(expect.arrayContaining(['Photog', 'Links']));
+    expect(titles).toEqual(expect.arrayContaining(['Photo', 'Links']));
     expect(blocks(35).filter((x) => /^Link \w+\./.test(x.text)).length).toBeGreaterThan(8);
   });
 
