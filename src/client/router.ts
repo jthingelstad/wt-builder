@@ -3,7 +3,8 @@
  *
  * The design models this as one app with view states (`view: "index" |
  * "editor"`, and Send as a full-screen layer *over* the editor rather than a
- * page beside it), so this is not a split into separate documents. It gives
+ * page beside it; Share, once an issue is put to bed, is a layer the same
+ * way), so this is not a split into separate documents. It gives
  * those states addresses.
  *
  * Without them the app has no back button, no bookmarkable issue, no way to
@@ -14,7 +15,8 @@
 export type Route =
   | { view: 'index' }
   | { view: 'issue'; id: string }
-  | { view: 'send'; id: string };
+  | { view: 'send'; id: string }
+  | { view: 'share'; id: string };
 
 /** The issue id is the path segment — `wt350` is both the id and the URL. */
 export function parseRoute(pathname: string): Route {
@@ -25,13 +27,14 @@ export function parseRoute(pathname: string): Route {
   // Anything unrecognised after the id is still that issue, not a 404: a
   // stale bookmark should land you on the issue rather than nowhere.
   if (parts[1] === 'send') return { view: 'send', id };
+  if (parts[1] === 'share') return { view: 'share', id };
   return { view: 'issue', id };
 }
 
 export function routeHref(route: Route): string {
   if (route.view === 'index') return '/';
   const id = encodeURIComponent(route.id);
-  return route.view === 'send' ? `/${id}/send` : `/${id}`;
+  return route.view === 'issue' ? `/${id}` : `/${id}/${route.view}`;
 }
 
 export function sameRoute(a: Route, b: Route): boolean {

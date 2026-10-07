@@ -52,6 +52,15 @@
   same terms as Pinboard: a post edited on the blog since the last scan is not
   replaced but marked `conflict`. Editing a post's title or body in WT Builder
   edits the post.
+- **Creates one kind of post** (2026-10-06): a share's blog post announcing a
+  published issue, through Micropub create (`createPost`: a JSON h-entry,
+  `content`, optional `name`, category `Weekly Thing`, never a `published`
+  date, so never back-dated). The new post's URL comes from the `Location`
+  header and is recorded on the share; an answer without one is a failure.
+  Every other write is an update of a post Jamie made.
+- **The sweep skips a share's post** by URL (`sharedBlogUrls`, compared
+  without scheme, case or trailing slash), never by category: Jamie's own
+  posts about the Weekly Thing still belong in Journal (`docs/decisions.md`).
 - Original posts remain canonical for the blog. Inclusion, exclusion, ordering,
   promotion, and WT-specific presentation are owned by WT Builder.
 - Post bodies carry raw `<img>` tags. Trailing images are split off for display

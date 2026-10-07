@@ -15,7 +15,7 @@ finished, what is half-finished, and what has never run.
 - **Dashboard** — rows with the completion strip full-width beneath a draft
   line, the deadline countdown chip, SITE/MAIL/POD send chips, and the
   archive-feed cell. Plus the setup sheet.
-- **URLs** — `/`, `/wt350`, `/wt350/send`. Back, deep links, reload-in-place,
+- **URLs** — `/`, `/wt350`, `/wt350/send` (and `/wt350/share`, 2026-10-06). Back, deep links, reload-in-place,
   and two issues in two tabs all work.
 - **The canvas**: the three-column grid at `76px | 680px | {0 | 250px}`, the
   card painted per row, the structural margin with its 2×n control rail, the
@@ -36,9 +36,9 @@ finished, what is half-finished, and what has never run.
   first.
 - **MCP interface, read-only** (2026-10-04) — `/mcp` on the service's own
   port (`src/server/mcp.ts`; plan `docs/mcp-plan.md`, Part B): stateless
-  Streamable HTTP, JSON responses, eight tools (`get_status`, `list_issues`,
+  Streamable HTTP, JSON responses, nine tools (`get_status`, `list_issues`,
   `get_issue`, `get_item`, `render_issue`, `get_review`, `list_events`,
-  `get_timing`), all `readOnlyHint`. Every tool reads through `readRoute`,
+  `get_timing`, and `list_shares` since 1.6.0, 2026-10-06), all `readOnlyHint`. Every tool reads through `readRoute`,
   which runs GET routes only, so no tool can write, call a model, or reach
   GitHub. Behind the edge like every route (a foreign Host is 421, a
   browser Origin from another site 403), and on the tailnet as the editor
@@ -266,12 +266,37 @@ finished, what is half-finished, and what has never run.
   WT351 2 h 30 m + 5 m.
 - **Put to bed** (2026-09-26, WT351) — `POST /api/issues/:id/bed {asleep}`;
   a published issue only; while asleep every non-GET to the issue answers 423
-  except `/bed` and `/verify/*` (docs/decisions.md). Send view's last card,
+  except `/bed`, `/verify/*` and `/shares*` (docs/decisions.md). Send view's last card,
   index chip, issue banner with Wake. Since 2026-09-28 it is the only
   freeze. A published issue that is awake edits its text as a draft does,
   and its kicker says edits need a re-send. Asleep, the client offers no
   editable run, rail action, wand, field or write button, so the 423 is a
   backstop and never the message.
+- **Share** (2026-10-06, built, not yet used on a real issue) — once an
+  issue is put to bed the editor's Publish becomes Share, opening `/{id}/share`,
+  a layer over the editor as Send is (`src/client/components/Share.tsx`;
+  plan `docs/share-plan.md`). Shares live in their own `shares` table
+  (schema v5, `src/server/db.ts`), outside the issue, so a sleeping issue,
+  or a pre-Builder record, takes them; a draft issue is refused with 409.
+  Two destinations (`src/shared/shares.ts`): **LinkedIn** (Copy text, Open
+  LinkedIn, Mark shared with an optional post URL; the editor marks where
+  "…see more" folds and counts toward 3000) and **Blog post**, which WT
+  Builder posts itself through Micropub (`createPost` in
+  `src/server/integrations/microblog.ts`, category `Weekly Thing`, never
+  back-dated), recording the post's URL from the Location header. The link
+  carries `?ref=linkedin` or `?ref=blog`. A shared row is the record: no
+  edit, re-post or delete (409). The wand offers three candidates and writes
+  nothing (`draftShare` in `src/server/editorial.ts`): for LinkedIn each leads
+  with a different Notable link, Jamie's commentary lightly edited, then a
+  turn to the issue, then the link, plain text; for the blog, a micropost.
+  The Micro.blog sweep skips every post a share recorded, by URL
+  (`sharedBlogUrls`), never by category. Routes: `GET /api/shares`,
+  `GET|POST /api/issues/:id/shares`, `PATCH|DELETE …/shares/:sid`,
+  `POST …/shares/:sid/shared`, `…/post`, `…/draft`. Through the MCP,
+  `get_issue` carries the issue's shares and `list_shares` lists them with
+  the Tinylytics join (page path, `ref`, referrer, shared time). Tested in
+  `tests/shares.test.ts` with Micropub and the model stubbed: nothing has
+  been posted to micro.blog from it yet.
 - **Published, derived** (2026-08-30) — an issue becomes `published` the
   moment its website and buttondown legs are both `sent`; nothing un-derives
   it. This is what keeps `lastPublishedNumber()`, the next-issue default,
@@ -724,7 +749,9 @@ finished, what is half-finished, and what has never run.
   the builder's three dates filled in as absolute clock times) and hands it
   to OmniFocus through `omnifocus:///paste?target=projects`; ⌥-click copies
   the text instead. Retires the Drafts template and the Create OmniFocus
-  Project shortcut. Not yet clicked into a real OmniFocus.
+  Project shortcut. Not yet clicked into a real OmniFocus. Since 2026-10-06
+  the Share task is one step, the Share view; the LinkedIn and Reddit
+  Shortcut steps are gone from it (the Shortcuts themselves are untouched).
 
 - **Re-send all sent** (2026-09-20) — on the Send view once any text leg
   has gone: re-runs website, Buttondown, and archive, in order, stopping at

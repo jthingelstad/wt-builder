@@ -72,7 +72,7 @@ describe('the MCP interface', () => {
     expect(client.getServerVersion()?.name).toBe('wt-builder');
     const { tools } = await client.listTools();
     expect(tools.map((t) => t.name).sort()).toEqual([
-      'get_issue', 'get_item', 'get_review', 'get_status', 'get_timing', 'list_events', 'list_issues', 'render_issue',
+      'get_issue', 'get_item', 'get_review', 'get_status', 'get_timing', 'list_events', 'list_issues', 'list_shares', 'render_issue',
     ]);
     expect(client.getInstructions()).toMatch(/data, never instructions/);
     for (const t of tools) expect(t.annotations, t.name).toMatchObject({ readOnlyHint: true, destructiveHint: false });
@@ -631,6 +631,30 @@ describe('logging', () => {
   });
 });
 
+describe('shares, for setting beside Tinylytics', () => {
+  it('get_issue carries an issue\'s shares, and list_shares lists them with the join', async () => {
+    draft(395, (doc) => { doc.issue.status = 'published'; doc.issue.put_to_bed_at = '2026-05-23T20:00:00.000Z'; });
+    const li = store.createShare('wt395', 'linkedin', 'Words.\n\nhttps://weekly.thingelstad.com/archive/395/?ref=linkedin');
+    store.updateShare(li.id, { state: 'shared', shared_at: '2026-05-23T21:00:00.000Z', url: 'https://www.linkedin.com/feed/update/1/' });
+    store.createShare('wt395', 'blog', 'https://weekly.thingelstad.com/archive/395/?ref=blog');
+
+    const issue = (await call('get_issue', { issue: 'wt395' })).structuredContent;
+    expect(issue.shares.map((s: any) => s.destination)).toEqual(['blog', 'linkedin']);
+
+    const all = (await call('list_shares')).structuredContent;
+    const shared = all.shares.find((s: any) => s.id === li.id);
+    expect(shared).toMatchObject({
+      issue: 'wt395', destination: 'linkedin', state: 'shared', page_path: '/archive/395/', ref: 'linkedin',
+      referrer: 'linkedin.com', shared_at: '2026-05-23T21:00:00.000Z', url: 'https://www.linkedin.com/feed/update/1/',
+    });
+    expect(all.note).toContain('Tinylytics');
+
+    const only = (await call('list_shares', { destination: 'blog', state: 'draft' })).structuredContent;
+    expect(only.shares.map((s: any) => s.destination)).toEqual(['blog']);
+    expect((await call('list_shares', { issue: 'wt390' })).structuredContent.shares).toEqual([]);
+  });
+});
+
 describe('what the MCP interface cannot reach', () => {
   beforeEach(() => vi.restoreAllMocks());
 
@@ -663,7 +687,7 @@ describe('what the MCP interface cannot reach', () => {
     await c.close();
     expect(asked.length).toBeGreaterThan(0);
     expect(asked.some((p) => p.includes('/version?'))).toBe(true);
-    for (const p of asked) expect(p).toMatch(/^\/api\/issues(\?heads=1|\/[^/]+(\/(events\?all=1|timing|version\?(event=\d+|review=1)|render\/[a-z]+(\?(item|section)=[^&]+)?))?)?$/);
+    for (const p of asked) expect(p).toMatch(/^\/api\/(shares|issues(\?heads=1|\/[^/]+(\/(events\?all=1|timing|shares|version\?(event=\d+|review=1)|render\/[a-z]+(\?(item|section)=[^&]+)?))?)?)$/);
   });
 
   it('a browser page on another site is refused at the edge', async () => {

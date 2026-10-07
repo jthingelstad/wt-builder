@@ -804,6 +804,50 @@ a:hover { text-decoration: underline; }
 .sc-pill.running, .sc-pill.warnings, .sc-pill.waiting { background: var(--amber-1); color: var(--amber); }
 .sc-pill.problems, .sc-pill.error { background: var(--terra-2); color: var(--terracotta); }
 
+/* ── the Share view: a layer like Send, once an issue is out ─────────── */
+
+.share-new { display: flex; align-items: center; gap: 8px; margin-bottom: 18px; }
+.share-new .mono-label { margin-right: 4px; }
+.share-empty { margin: 8px 0 0; }
+.share-card .sc-head { align-items: center; }
+.sh-body { padding: 14px 18px; display: flex; flex-direction: column; gap: 8px; }
+.sh-title, .sh-text {
+  width: 100%;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: var(--page);
+  color: var(--ink);
+  font: inherit;
+  font-size: 14px;
+  line-height: 1.55;
+  padding: 9px 11px;
+}
+.sh-title { font-weight: 600; }
+.sh-text { resize: vertical; min-height: 120px; }
+.sh-title:focus, .sh-text:focus { outline: none; border-color: var(--ink); }
+.sh-title-shown { font-size: 15px; font-weight: 650; }
+.sh-text-shown { font-size: 14px; line-height: 1.55; color: var(--dek); white-space: pre-wrap; overflow-wrap: anywhere; }
+.sh-meta { display: flex; align-items: baseline; gap: 12px; font-size: 12px; }
+.sh-count { font-family: var(--mono); font-size: 11px; color: var(--muted); }
+.sh-count.over { color: var(--terracotta); font-weight: 600; }
+/* What LinkedIn shows before "…see more": the only lines sure to be read. */
+.sh-fold {
+  border-left: 3px solid var(--border);
+  padding: 4px 0 4px 11px;
+  font-size: 13px;
+  line-height: 1.5;
+  color: var(--ink);
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+}
+.sh-more { color: var(--muted); margin-left: 4px; }
+.sh-cands { width: auto; box-shadow: none; }
+.sh-cand { border: 1px solid var(--border); border-radius: 7px; padding: 9px 10px; display: flex; flex-direction: column; gap: 6px; align-items: flex-start; }
+.sh-lead { font-size: 11.5px; color: var(--terracotta); }
+.sh-cand-text { font-size: 12.5px; line-height: 1.5; color: var(--ink); white-space: pre-wrap; overflow-wrap: anywhere; }
+.sh-actions { display: flex; align-items: center; gap: 8px; padding: 10px 18px 14px; border-top: 1px solid var(--divider); }
+a.btn { text-decoration: none; }
+
 .after {
   background: var(--panel);
   border: 1px solid var(--border);

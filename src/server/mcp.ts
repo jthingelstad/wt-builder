@@ -34,7 +34,8 @@ import { McpServer } from '@modelcontextprotocol/sdk/server/mcp.js';
 import { StreamableHTTPServerTransport } from '@modelcontextprotocol/sdk/server/streamableHttp.js';
 import { z } from 'zod';
 
-import type { IssueDoc, Item, Verification } from '../shared/types.ts';
+import type { IssueDoc, Item, Share, ShareDestination, Verification } from '../shared/types.ts';
+import { DESTINATION_NAME, REFERRER } from '../shared/shares.ts';
 import type { Readiness, ReadinessUnit } from './issue.ts';
 import { heldOut, outOfWindow, windowOf } from '../shared/render/plan.ts';
 import { waitingSummary } from '../shared/dependencies.ts';
@@ -64,11 +65,11 @@ export interface McpDeps {
  * tool, its arguments, or its answer changes, so a client holding a cached
  * tool list knows to fetch it again.
  */
-export const MCP_VERSION = '1.5.5';
+export const MCP_VERSION = '1.6.0';
 
 export const INSTRUCTIONS = `WT Builder is Jamie Thingelstad's authoring app for The Weekly Thing newsletter. This server is READ-ONLY: it shows an issue as the editor does and changes nothing.
 
-Start with get_status: every readiness pill in the order the issue reads, with its state, what can be worked on now, the link and email checks, and the send legs. "waiting" means the section is made from others that are not finished yet (Title and dek from Notable; Echoes from Notable and Journal; Haiku from Notable, Journal and Briefly; Outro from Intro), so work on its inputs first. Then get_issue for the text, get_item for one item in full (with the earlier issues that carried its link, and its review notes), render_issue to see an edition as it will print (all of it, or one item or section), get_review for the editorial notes that still apply. The prompts (finish_draft, briefly_pass, proof_issue, compare_with_last_week, ride_along) set out the call sequence for the common asks.
+Start with get_status: every readiness pill in the order the issue reads, with its state, what can be worked on now, the link and email checks, and the send legs. "waiting" means the section is made from others that are not finished yet (Title and dek from Notable; Echoes from Notable and Journal; Haiku from Notable, Journal and Briefly; Outro from Intro), so work on its inputs first. Then get_issue for the text, get_item for one item in full (with the earlier issues that carried its link, and its review notes), render_issue to see an edition as it will print (all of it, or one item or section), get_review for the editorial notes that still apply, list_shares for how published issues were shared (LinkedIn posts and blog posts), to set beside their traffic in Tinylytics. The prompts (finish_draft, briefly_pass, proof_issue, compare_with_last_week, ride_along) set out the call sequence for the common asks.
 
 Following Jamie while the issue is written: get_status, get_issue and get_item return a cursor. Hold it and call get_status with since set to it: changes lists the items touched since, the pills whose state moved (from and to: an unblocked section is a fact stated here, never a count to keep), and focus, the item Jamie is editing now. Read an item once it is settled (Jamie has moved to another item, or has been quiet a minute), never mid-sentence.
 
@@ -518,6 +519,36 @@ const pillOutput = z.object({
   waiting_on: z.array(z.object({ section: z.string(), name: z.string(), done: z.number(), total: z.number() })).optional(),
 });
 
+/**
+ * One share as an agent reads it, with what joins it to Tinylytics: the
+ * issue's page path, the referrer a visit from it carries, and the `ref` on
+ * the link it posted.
+ */
+function shareView(s: Share, number: number | null) {
+  return {
+    id: s.id,
+    issue: number !== null ? `wt${number}` : s.issue_id,
+    destination: s.destination,
+    destination_name: DESTINATION_NAME[s.destination],
+    state: s.state,
+    ...(s.title ? { title: s.title } : {}),
+    text: s.text,
+    ...(number !== null ? { page_path: `/archive/${number}/`, ref: s.destination } : {}),
+    referrer: REFERRER[s.destination],
+    created_at: s.created_at,
+    ...(s.shared_at ? { shared_at: s.shared_at } : {}),
+    ...(s.url ? { url: s.url } : {}),
+  };
+}
+
+const shareOutput = z.object({
+  id: z.number(), issue: z.string(), destination: z.string(), destination_name: z.string(), state: z.string(),
+  title: z.string().optional(), text: z.string(), page_path: z.string().optional(), ref: z.string().optional(),
+  referrer: z.string(), created_at: z.string(), shared_at: z.string().optional(), url: z.string().optional(),
+});
+
+const SHARES_NOTE = 'To measure a share in Tinylytics, look at hits on the weekly.thingelstad.com page_path after shared_at, from the referrer or carrying ?ref=<ref>. A draft share has not gone out.';
+
 const headOutput = z.object({
   id: z.string(), number: z.number(), title: z.string(), dek: z.string(), publication_date: z.string(),
   status: z.string(), put_to_bed: z.boolean(), imported: z.boolean(), archive_url: z.string().optional(),
@@ -771,7 +802,7 @@ export function buildServer(deps: McpDeps, caller = 'local', logged = new Set<st
 
   server.registerTool('get_issue', {
     title: 'The issue, section by section',
-    description: 'The issue as an outline in reading order: each section with its pill state and items, every text field in full (title, commentary, body, label, ask, caption). Each item says whether it prints (in_issue) and, when it does not, why (held_out), and carries hints when the editor marks its row (link, unfinished, title, haiku; see get_status). authorship is "Jamie" (Jamie\'s words), "syndicated" (from Pinboard or Micro.blog: a link\'s title is the linked page\'s own, its commentary is Jamie\'s), or "Thingy" (a model draft Jamie picked). Items swept in but not placed are listed under held_out_items; removed sections under removed_sections.',
+    description: 'The issue as an outline in reading order: each section with its pill state and items, every text field in full (title, commentary, body, label, ask, caption). Each item says whether it prints (in_issue) and, when it does not, why (held_out), and carries hints when the editor marks its row (link, unfinished, title, haiku; see get_status). authorship is "Jamie" (Jamie\'s words), "syndicated" (from Pinboard or Micro.blog: a link\'s title is the linked page\'s own, its commentary is Jamie\'s), or "Thingy" (a model draft Jamie picked). Items swept in but not placed are listed under held_out_items; removed sections under removed_sections; how the published issue was shared under shares (see list_shares).',
     inputSchema: { issue: issueArg },
     outputSchema: {
       issue: headOutput,
@@ -780,6 +811,7 @@ export function buildServer(deps: McpDeps, caller = 'local', logged = new Set<st
       sections: z.array(z.looseObject({ id: z.string(), label: z.string(), type: z.string(), kind: z.string(), items: z.array(itemOutput) })),
       held_out_items: z.array(itemOutput),
       removed_sections: z.array(z.object({ label: z.string(), type: z.string(), items: z.number() })),
+      shares: z.array(shareOutput),
     },
     annotations: READ_ONLY,
   }, tool('get_issue', async ({ issue }: { issue?: string }, seen) => {
@@ -810,6 +842,8 @@ export function buildServer(deps: McpDeps, caller = 'local', logged = new Set<st
       held_out_items: (doc.orphans ?? []).flatMap((id) =>
         Object.hasOwn(doc.items, id) ? [itemView(doc, id, doc.items[id]!, false)] : []),
       removed_sections: (doc.held_nodes ?? []).map((n) => ({ label: n.label, type: n.type, items: n.items.length })),
+      shares: ((await read(`/api/issues/${encodeURIComponent(id)}/shares`)) as { shares: Share[] }).shares
+        .map((sh) => shareView(sh, doc.issue.number)),
     };
   }));
 
@@ -898,6 +932,39 @@ export function buildServer(deps: McpDeps, caller = 'local', logged = new Set<st
     const edits = (await eventsOf(read, id)).filter((e) => e.kind === 'edit' && e.at > at).length;
     const then = await reviewVersion(id);
     return reviewView(doc, edits, then.issue, then.issue ? undefined : then.why);
+  }));
+
+  server.registerTool('list_shares', {
+    title: 'How issues were shared',
+    description: 'The shares of published issues, newest first: each a LinkedIn post Jamie made himself or a blog post WT Builder made on micro.blog, with its words, its state (draft, or shared with shared_at and the post\'s url when known), and what joins it to Tinylytics: page_path (the issue\'s page on weekly.thingelstad.com), ref (the ?ref= on the link it carried) and referrer. For setting a share beside the traffic it brought.',
+    inputSchema: {
+      issue: z.string().max(64).optional().describe('Only this issue\'s shares: "wt351", "351", or its id. Leave out for every issue.'),
+      destination: z.enum(['linkedin', 'blog']).optional().describe('Only shares to this destination.'),
+      state: z.enum(['draft', 'shared']).optional().describe('Only drafts, or only shares that went out.'),
+      limit: z.number().int().min(1).max(200).optional().describe('How many to show (default 50, at most 200).'),
+    },
+    outputSchema: { shares: z.array(shareOutput), shown: z.number(), matching: z.number(), note: z.string() },
+    annotations: READ_ONLY,
+  }, tool('list_shares', async ({ issue, destination, state, limit }: { issue?: string; destination?: ShareDestination; state?: 'draft' | 'shared'; limit?: number }, seen) => {
+    const numbers = new Map<string, number>();
+    let shares: Share[];
+    if (issue) {
+      const { id, doc } = await resolve(issue, seen);
+      numbers.set(id, doc.issue.number);
+      shares = ((await read(`/api/issues/${encodeURIComponent(id)}/shares`)) as { shares: Share[] }).shares;
+    } else {
+      shares = ((await read('/api/shares')) as { shares: Share[] }).shares;
+      const { issues } = await read('/api/issues?heads=1') as { issues: IssueHead[] };
+      for (const h of issues) numbers.set(h.id, h.number);
+    }
+    const matching = shares.filter((sh) => (!destination || sh.destination === destination) && (!state || sh.state === state));
+    const shown = matching.slice(0, limit ?? 50);
+    return {
+      shares: shown.map((sh) => shareView(sh, numbers.get(sh.issue_id) ?? null)),
+      shown: shown.length,
+      matching: matching.length,
+      note: matching.length > shown.length ? `Showing the newest ${shown.length} of ${matching.length}. ${SHARES_NOTE}` : SHARES_NOTE,
+    };
   }));
 
   server.registerTool('list_events', {

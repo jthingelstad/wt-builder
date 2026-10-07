@@ -18,7 +18,8 @@ import { existsSync, readFileSync } from 'node:fs';
 import { extname, join, normalize } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
-import type { ArchiveReference, Channel, Destination, IssueDoc, Item, SendState, Verification } from '../shared/types.ts';
+import type { ArchiveReference, Channel, Destination, IssueDoc, Item, SendState, Share, ShareDestination, Verification } from '../shared/types.ts';
+import { DESTINATION_NAME, DESTINATIONS, startingText } from '../shared/shares.ts';
 import { waitingSummary } from '../shared/dependencies.ts';
 import { render } from '../shared/render/index.ts';
 import { emailOf, isOut, lastSent, recordedAudioUrl, refusedNotDraft } from '../shared/sends.ts';
@@ -139,6 +140,20 @@ async function readBody(req: IncomingMessage): Promise<any> {
     throw new HttpError(400, 'invalid JSON body');
   }
 }
+
+/**
+ * A share of this issue that has not gone yet. A shared one is the record of
+ * what went out, so it is never edited, re-posted, or deleted.
+ */
+function requireDraftShare(id: string, sid: string, doing: string): Share {
+  const share = store.getShare(Number(sid));
+  if (!share || share.issue_id !== id) throw new HttpError(404, `no share ${sid} on ${id}`);
+  if (share.state === 'shared') throw new HttpError(409, `this ${DESTINATION_NAME[share.destination]} share has gone out — it is not ${doing} again`);
+  return share;
+}
+
+/** Blog posts on their way to micro.blog, so a double click makes one post. */
+const sharesPosting = new Set<number>();
 
 /** Load an issue or fail with a 404 the client can act on. */
 function requireIssue(id: string): IssueDoc {
@@ -432,6 +447,8 @@ function guardBed(method: string, pathname: string): void {
   if (!m) return;
   const rest = m[2] ?? '';
   if (rest === '/bed' || rest.startsWith('/verify/')) return;
+  // Shares sit outside the issue: sharing is what a sleeping issue is for.
+  if (rest === '/shares' || rest.startsWith('/shares/')) return;
   const doc = store.getIssue(decodeURIComponent(m[1]!))?.doc;
   if (doc) awake(doc);
 }
@@ -734,7 +751,7 @@ const routes: [RegExp, string, (ctx: Ctx, params: string[]) => Promise<unknown>]
     }
     // Fetch against the issue as it is now; apply to the issue as it is when
     // the fetch is done. Seconds pass in between and Jamie is typing.
-    const fetched = await issues.fetchForSweep(current);
+    const fetched = await issues.fetchForSweep(current, store.sharedBlogUrls());
     // A leg can land while the sources are read, publishing the issue.
     const fresh = requireIssue(id!);
     if (fresh.issue.status !== 'draft') {
@@ -1486,6 +1503,102 @@ const routes: [RegExp, string, (ctx: Ctx, params: string[]) => Promise<unknown>]
       return savedFresh(id!, (d) => { delete d.draft_share; });
     }
     return saved(doc);
+  }],
+
+  // ── sharing a published issue (docs/share-plan.md) ──────────────────────
+  // Not the draft share above. Shares live in their own table, so these
+  // routes pass guardBed: put to bed freezes the issue, and sharing is what
+  // happens after it, this week or a year later.
+
+  /** Every share, newest first: what the MCP's list_shares reads. */
+  [/^\/api\/shares$/, 'GET', async () => ({ shares: store.listShares() })],
+
+  [/^\/api\/issues\/([^/]+)\/shares$/, 'GET', async (_ctx, [id]) => {
+    requireIssue(id!);
+    return { shares: store.listShares(id!) };
+  }],
+
+  /** A new share: a draft holding the issue's link, for the words to go above. */
+  [/^\/api\/issues\/([^/]+)\/shares$/, 'POST', async ({ body }, [id]) => {
+    const b = await body();
+    const doc = requireIssue(id!);
+    const destination = b.destination as ShareDestination;
+    if (!DESTINATIONS.includes(destination)) throw new HttpError(400, `share to ${DESTINATIONS.join(' or ')}`);
+    if (doc.issue.status !== 'published') {
+      throw new HttpError(409, `WT${doc.issue.number} has not gone out yet — its page is not there to share`);
+    }
+    const share = store.createShare(id!, destination, startingText(doc, destination));
+    store.logEvent(id!, 'share', `Share started — ${DESTINATION_NAME[destination]}`);
+    return { share, shares: store.listShares(id!) };
+  }],
+
+  /** The words. A share that went is the record, and stays as it went. */
+  [/^\/api\/issues\/([^/]+)\/shares\/(\d+)$/, 'PATCH', async ({ body }, [id, sid]) => {
+    const b = await body();
+    const share = requireDraftShare(id!, sid!, 'edited');
+    const patch: { title?: string; text?: string } = {};
+    if (typeof b.text === 'string') patch.text = b.text;
+    if (typeof b.title === 'string' && share.destination === 'blog') patch.title = b.title;
+    return { share: store.updateShare(share.id, patch), shares: store.listShares(id!) };
+  }],
+
+  [/^\/api\/issues\/([^/]+)\/shares\/(\d+)$/, 'DELETE', async (_ctx, [id, sid]) => {
+    const share = requireDraftShare(id!, sid!, 'deleted');
+    store.deleteShare(share.id);
+    store.logEvent(id!, 'share', `Share deleted — ${DESTINATION_NAME[share.destination]}, never shared`);
+    return { shares: store.listShares(id!) };
+  }],
+
+  /**
+   * LinkedIn: Jamie posted it himself. The post's URL is the evidence when he
+   * pastes it back; none is fine.
+   */
+  [/^\/api\/issues\/([^/]+)\/shares\/(\d+)\/shared$/, 'POST', async ({ body }, [id, sid]) => {
+    const b = await body();
+    const share = requireDraftShare(id!, sid!, 'marked shared');
+    if (share.destination !== 'linkedin') throw new HttpError(400, 'a blog post is shared by posting it');
+    const url = typeof b.url === 'string' ? b.url.trim() : '';
+    if (url && !/^https?:\/\/\S+$/i.test(url)) throw new HttpError(400, `"${url.slice(0, 80)}" is not a link`);
+    store.logEvent(id!, 'share', `Shared to LinkedIn${url ? ` — ${url}` : ''}`);
+    return {
+      share: store.updateShare(share.id, { state: 'shared', shared_at: new Date().toISOString(), ...(url ? { url } : {}) }),
+      shares: store.listShares(id!),
+    };
+  }],
+
+  /**
+   * The blog post: made on micro.blog through Micropub, under Weekly Thing.
+   * The post's URL is recorded, which is what keeps it out of the next
+   * issue's sweep; once posted the share is done, so a second post is a new
+   * share, on purpose.
+   */
+  [/^\/api\/issues\/([^/]+)\/shares\/(\d+)\/post$/, 'POST', async (_ctx, [id, sid]) => {
+    const share = requireDraftShare(id!, sid!, 'posted');
+    if (share.destination !== 'blog') throw new HttpError(400, 'only a blog post is posted from here');
+    if (!share.text.trim()) throw new HttpError(400, 'the post has no words yet');
+    if (sharesPosting.has(share.id)) throw new HttpError(409, 'this blog post is already being posted');
+    sharesPosting.add(share.id);
+    try {
+      const url = await microblog.createPost({ title: share.title, content: share.text, category: ['Weekly Thing'] });
+      store.logEvent(id!, 'share', `Blog post published — ${url}`);
+      return {
+        share: store.updateShare(share.id, { state: 'shared', shared_at: new Date().toISOString(), url }),
+        shares: store.listShares(id!),
+      };
+    } catch (err) {
+      store.logEvent(id!, 'share', `Blog post failed — ${String((err as Error).message).slice(0, 200)}`);
+      throw new HttpError(502, (err as Error).message);
+    } finally {
+      sharesPosting.delete(share.id);
+    }
+  }],
+
+  /** Three candidates from the wand. Nothing is written: Jamie picks one and edits it. */
+  [/^\/api\/issues\/([^/]+)\/shares\/(\d+)\/draft$/, 'POST', async (_ctx, [id, sid]) => {
+    const share = requireDraftShare(id!, sid!, 'drafted');
+    const doc = requireIssue(id!);
+    return drafting(id!, `share-${share.id}`, `${DESTINATION_NAME[share.destination]} share`, () =>
+      editorial.draftShare(doc, share.destination));
   }],
 
   /** What the website handoff would change, changing nothing. */

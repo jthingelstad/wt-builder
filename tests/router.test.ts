@@ -18,6 +18,10 @@ describe('reading a URL', () => {
     expect(parseRoute('/wt350/send')).toEqual({ view: 'send', id: 'wt350' });
   });
 
+  it('reads the share layer', () => {
+    expect(parseRoute('/wt350/share')).toEqual({ view: 'share', id: 'wt350' });
+  });
+
   it('lands a stale link on the issue rather than nowhere', () => {
     expect(parseRoute('/wt350/whatever')).toEqual({ view: 'issue', id: 'wt350' });
   });
@@ -29,6 +33,7 @@ describe('writing a URL', () => {
       { view: 'index' } as const,
       { view: 'issue', id: 'wt350' } as const,
       { view: 'send', id: 'wt350' } as const,
+      { view: 'share', id: 'wt350' } as const,
     ]) {
       expect(parseRoute(routeHref(route))).toEqual(route);
     }

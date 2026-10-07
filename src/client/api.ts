@@ -1,7 +1,7 @@
 /** Thin client for the service. Every credential stays on the far side of this. */
 
 import type { Section, WaitingOn } from '../shared/dependencies.ts';
-import type { ArchiveReference, Channel, EchoOption, IssueDoc, Item, LinkedBefore } from '../shared/types.ts';
+import type { ArchiveReference, Channel, EchoOption, IssueDoc, Item, LinkedBefore, Share, ShareDestination } from '../shared/types.ts';
 import type { IssueTiming } from '../shared/timing.ts';
 import type { ProofSpot } from '../shared/proof.ts';
 
@@ -137,6 +137,14 @@ function checkBuild(res: Response): void {
 }
 
 /** A refusal from the service: its message, its HTTP status, and the code it names, when it names one. */
+/** One wand candidate for a share (src/server/editorial.ts, draftShare). */
+export interface ShareOption {
+  lead?: string;
+  lead_title?: string;
+  title?: string;
+  text: string;
+}
+
 export class ApiError extends Error {
   constructor(message: string, public status: number, public code?: string) {
     super(message);
@@ -293,6 +301,21 @@ export const api = {
       `/issues/${id}/items/${itemId}/draft${force ? '?force=1' : ''}`,
       { method: 'POST', body: JSON.stringify({ context }) },
     ),
+
+  /** Shares of a published issue (docs/share-plan.md): their own table, so a sleeping issue takes them. */
+  listShares: (id: string) => call<{ shares: Share[] }>(`/issues/${id}/shares`),
+  createShare: (id: string, destination: ShareDestination) =>
+    call<{ share: Share; shares: Share[] }>(`/issues/${id}/shares`, { method: 'POST', body: JSON.stringify({ destination }) }),
+  updateShare: (id: string, sid: number, patch: { title?: string; text?: string }) =>
+    call<{ share: Share; shares: Share[] }>(`/issues/${id}/shares/${sid}`, { method: 'PATCH', body: JSON.stringify(patch) }),
+  deleteShare: (id: string, sid: number) =>
+    call<{ shares: Share[] }>(`/issues/${id}/shares/${sid}`, { method: 'DELETE' }),
+  markShared: (id: string, sid: number, url?: string) =>
+    call<{ share: Share; shares: Share[] }>(`/issues/${id}/shares/${sid}/shared`, { method: 'POST', body: JSON.stringify({ url }) }),
+  postShare: (id: string, sid: number) =>
+    call<{ share: Share; shares: Share[] }>(`/issues/${id}/shares/${sid}/post`, { method: 'POST', body: '{}' }),
+  draftShare: (id: string, sid: number) =>
+    call<{ candidates: ShareOption[] }>(`/issues/${id}/shares/${sid}/draft`, { method: 'POST', body: '{}' }),
 
   /** Share the draft as a static DRAFT-labeled page on the CDN. */
   shareDraft: (id: string, note?: string) =>

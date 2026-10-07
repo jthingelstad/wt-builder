@@ -206,7 +206,7 @@ export interface SweepFetch {
 /** A snapshot as a comparable string: saved and re-read, a row keeps its key order. */
 const snapshotKey = (item: Item): string => JSON.stringify(item.source_snapshot ?? null);
 
-export async function fetchForSweep(doc: IssueDoc): Promise<SweepFetch> {
+export async function fetchForSweep(doc: IssueDoc, skipPosts: string[] = []): Promise<SweepFetch> {
   const window = issueWindow(doc.issue.publication_date, doc.issue.window_days);
   // Taken before any remote is read, so every read below is at least as new
   // as the base recorded for its item.
@@ -218,7 +218,9 @@ export async function fetchForSweep(doc: IssueDoc): Promise<SweepFetch> {
       console.warn(`[sweep] Pinboard failed: ${(e as Error).message}`);
       return [] as Candidate[];
     }),
-    microblog.sweepMicroblog(window).catch((e) => {
+    // A blog post a share made announces an issue: never Journal (skipPosts,
+    // the route passes sharedBlogUrls; docs/share-plan.md).
+    microblog.sweepMicroblog(window, skipPosts).catch((e) => {
       console.warn(`[sweep] Micro.blog failed: ${(e as Error).message}`);
       return [] as Candidate[];
     }),

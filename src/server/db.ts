@@ -11,7 +11,7 @@ import Database from 'better-sqlite3';
 import { chmodSync, existsSync, mkdirSync, realpathSync } from 'node:fs';
 import { basename, dirname, join, resolve } from 'node:path';
 
-import type { Destination, IssueDoc, SendState, Verification } from '../shared/types.ts';
+import type { Destination, IssueDoc, SendState, Share, ShareDestination, Verification } from '../shared/types.ts';
 import { SCHEMA_VERSION } from '../shared/types.ts';
 import { lastSent } from '../shared/sends.ts';
 import { config, LIVE_DB_PATH, OFFLINE } from './config.ts';
@@ -93,6 +93,26 @@ const MIGRATIONS: ((d: Database.Database) => void)[] = [
   // events have no anchor; the timing matches them by the name in the summary.
   (d) => {
     d.exec('ALTER TABLE events ADD COLUMN anchor TEXT');
+  },
+  // v5 — shares (docs/share-plan.md). Their own table, not the document: put
+  // to bed freezes the document, and sharing is what happens after it, this
+  // week or a year later.
+  (d) => {
+    d.exec(`
+      CREATE TABLE shares (
+        id          INTEGER PRIMARY KEY AUTOINCREMENT,
+        issue_id    TEXT NOT NULL,
+        destination TEXT NOT NULL,
+        state       TEXT NOT NULL DEFAULT 'draft',
+        title       TEXT,
+        text        TEXT NOT NULL DEFAULT '',
+        created_at  TEXT NOT NULL,
+        updated_at  TEXT NOT NULL,
+        shared_at   TEXT,
+        url         TEXT
+      );
+      CREATE INDEX shares_issue ON shares(issue_id, id DESC);
+    `);
   },
 ];
 
@@ -489,6 +509,74 @@ export function versionWithReview(issueId: string, reviewAt: string): { saved_at
     | { updated_at: string; doc: string } | undefined;
   const doc = live ? (JSON.parse(live.doc) as IssueDoc) : undefined;
   return doc && (doc.review as { at?: string } | undefined)?.at === reviewAt ? { saved_at: live!.updated_at, doc } : null;
+}
+
+// ── shares ────────────────────────────────────────────────────────────────
+
+function rowToShare(row: Record<string, unknown>): Share {
+  const share: Share = {
+    id: row.id as number,
+    issue_id: row.issue_id as string,
+    destination: row.destination as ShareDestination,
+    state: row.state as Share['state'],
+    text: row.text as string,
+    created_at: row.created_at as string,
+    updated_at: row.updated_at as string,
+  };
+  if (row.title) share.title = row.title as string;
+  if (row.shared_at) share.shared_at = row.shared_at as string;
+  if (row.url) share.url = row.url as string;
+  return share;
+}
+
+/** One issue's shares, or every share when `issueId` is left out. Newest first. */
+export function listShares(issueId?: string): Share[] {
+  const rows = issueId
+    ? openDb().prepare('SELECT * FROM shares WHERE issue_id = ? ORDER BY id DESC').all(issueId)
+    : openDb().prepare('SELECT * FROM shares ORDER BY id DESC').all();
+  return (rows as Record<string, unknown>[]).map(rowToShare);
+}
+
+export function getShare(id: number): Share | null {
+  const row = openDb().prepare('SELECT * FROM shares WHERE id = ?').get(id) as Record<string, unknown> | undefined;
+  return row ? rowToShare(row) : null;
+}
+
+export function createShare(issueId: string, destination: ShareDestination, text: string): Share {
+  const now = new Date().toISOString();
+  const { lastInsertRowid } = openDb()
+    .prepare('INSERT INTO shares (issue_id, destination, text, created_at, updated_at) VALUES (?, ?, ?, ?, ?)')
+    .run(issueId, destination, text, now, now);
+  return getShare(Number(lastInsertRowid))!;
+}
+
+/** Change a share's words, or record that it went. Only the fields given change. */
+export function updateShare(
+  id: number,
+  patch: Partial<Pick<Share, 'title' | 'text' | 'state' | 'shared_at' | 'url'>>,
+): Share | null {
+  const current = getShare(id);
+  if (!current) return null;
+  const next = { ...current, ...patch };
+  openDb()
+    .prepare('UPDATE shares SET title = ?, text = ?, state = ?, shared_at = ?, url = ?, updated_at = ? WHERE id = ?')
+    .run(next.title || null, next.text, next.state, next.shared_at ?? null, next.url ?? null, new Date().toISOString(), id);
+  return getShare(id);
+}
+
+export function deleteShare(id: number): void {
+  openDb().prepare('DELETE FROM shares WHERE id = ?').run(id);
+}
+
+/**
+ * Every blog post a share made. The Micro.blog sweep skips them: a post
+ * announcing last week's issue lands inside this week's window, and must
+ * never be offered to Journal (docs/share-plan.md).
+ */
+export function sharedBlogUrls(): string[] {
+  return (openDb()
+    .prepare("SELECT url FROM shares WHERE destination = 'blog' AND url IS NOT NULL")
+    .all() as { url: string }[]).map((r) => r.url);
 }
 
 export function closeDb(): void {

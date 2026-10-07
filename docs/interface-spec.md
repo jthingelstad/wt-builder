@@ -175,6 +175,36 @@ still go to bed). Asleep, the card offers `Wake it` (confirmed), every send butt
 is disabled, the issue opens under a dusk banner with the same `Wake it`, and the
 index row carries a `PUT TO BED` chip. The index offers the same act on every published row: `Put to bed` (`moon`) beside `Website ↗`, and `Wake` (confirmed) once asleep.
 
+## Share view
+
+Once an issue is put to bed, the editor header's `Publish` becomes `Share`
+(primary, the same place), and opens `/{id}/share`: a layer over the editor,
+built from Send's pieces (`send-layer`, `send-card`, `sc-*`), so it looks like
+Send's sibling and nothing new. The header: `← Issue`, the identity, and a
+ghost `Sends` button that crosses to the Send view, where Made in and Put to
+bed live. Escape goes back. Then `Share`, a one-sentence lede, and
+`NEW SHARE  [+ LinkedIn] [+ Blog post]`. A draft issue shows an amber line
+instead: no page to share yet. (`docs/share-plan.md` for the reasons.)
+
+The shares follow, newest first, one card each. The card head: a tile
+(`corner-up-right` for LinkedIn, `globe` for a blog post), the destination
+name, a `DRAFT` or `SHARED` pill, the started or shared time, `the post ↗`
+when a URL is known, and the wand's `Draft` button on a draft.
+
+A draft card is a task: a textarea (a title input above it for a blog post),
+saved on blur, starting as the issue link alone so the words go above it.
+LinkedIn adds a mono count toward 3000 (terracotta over it) and, under it, the
+lines LinkedIn shows before `…see more`, with a left rule, or "The whole post
+shows". Amber lines say when the text no longer links the issue, and when a
+LinkedIn draft has Markdown in it. The wand's three candidates open in the
+draft picker's frame inside the card; a LinkedIn candidate says `Leads with
+<the Notable link>`; `Use this` puts it in the field (asking first if there
+are words to replace). The foot: LinkedIn has `Copy text`, `Open LinkedIn ↗`
+and primary `Mark shared` (asks for the post's URL, optional); a blog post has
+primary `Post to the blog` (confirmed: it publishes now). `Delete` (ghost,
+confirmed) sits at the right. A shared card shows its words as they went, and
+nothing to press. There is no Share button on index rows.
+
 ## Issue index
 
 A working dashboard, not a landing page: an `Issues` heading and the rows. No kicker,
@@ -450,7 +480,7 @@ chosen. The editorial review never counts here (see *Editorial review*).
 *Revisited 2026-09-20* (`docs/decisions.md`, *Picking is the review*): a Thingy
 item counts as done when it has words; marking it reviewed is not a unit.
 - **Issue** toggle (left panel).
-- **Publish** button.
+- **Publish** button; **Share** once the issue is put to bed (see *Share view*).
 
 #### Left panel — issue metadata + outline (300px, `#fbfbfa`, right border)
 
@@ -957,7 +987,8 @@ it (`docs/decisions.md`, *Revisited 2026-09-28 — the source is the second edit
 **Saturday rule.** A non-Saturday publish date snaps forward to the next Saturday with a
 visible amber note rather than being rejected.
 
-**Publish.** The button opens the Send view. An issue is `published` once its
+**Publish.** The button opens the Send view; once the issue is put to bed it
+reads `Share` and opens the Share view instead. An issue is `published` once its
 website and Buttondown legs are sent, and it stays editable until it is put to bed
 (see *Editing* above). The real contract is in `docs/publishing-lifecycle.md` and
 is summarized below.

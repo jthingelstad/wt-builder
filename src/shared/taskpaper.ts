@@ -8,7 +8,8 @@
  * (2026-09-20). What is left in the project is what is genuinely outside
  * the builder: the Reading List filter, blog posts, the photo, writing,
  * Buttondown's test-and-schedule (kept manual by choice), confirming the
- * surfaces, sharing, and starting the next one. Everything the builder now
+ * surfaces, sharing (one step: the Share view, 2026-10-06), and starting the
+ * next one. Everything the builder now
  * does — importing links, previewing, generating, sending — is gone from
  * the list, and every date offset that survived is Jamie's own.
  */
@@ -66,18 +67,8 @@ export function taskpaper(doc: IssueDoc, origin = 'https://otto.tail09aaf9.ts.ne
     '\t- Confirm episode in Podcast feed @tags(Computer:Web)',
     '',
     `- Share WT${n} 🌎 @parallel(false) @autodone(true) @defer(${clockAt(pub, 6)}) @due(${clockAt(pub, 18)}) ${tz}`,
-    '\tMicro.blog crossposts to Bluesky and Mastodon.',
-    '\tEverything else is manually shared.',
-    `\t- Share WT${n} to LinkedIn @tags(Computer:Web)`,
-    '\t\tClipboard: shortcuts://run-shortcut?name=Share%20to%20LinkedIn',
-    '\t\tPaste: https://www.linkedin.com/feed/',
-    '\t\tConfirm: https://www.linkedin.com/in/jthingelstad/recent-activity/all/',
-    `\t- Share WT${n} to r/WeeklyThing @tags(Computer:Web)`,
-    '\t\tshortcuts://run-shortcut?name=Issue%20to%20r%2FWeeklyThing',
-    '\t\thttps://www.reddit.com/r/weeklything/',
-    `\t- Share WT${n} links to r/WeeklyThing @tags(Computer:Web)`,
-    '\t\tshortcuts://run-shortcut?name=Links%20to%20r%2FWeeklyThing',
-    '\t\thttps://www.reddit.com/r/weeklything/',
+    `\t- Share WT${n} to LinkedIn and the blog from the Share view @tags(Computer:Web)`,
+    `\t\t${issue}/share`,
     '',
     `- Prepare for next Weekly Thing 📦 @parallel(false) @autodone(true) @defer(${clockAt(pub, 6)}) @due(${clockAt(pub, 22)}) ${tz}`,
     `\t- Start WT${n + 1} in the builder and create its OmniFocus project @tags(Computer:Web)`,

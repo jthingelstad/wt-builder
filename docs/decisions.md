@@ -90,6 +90,16 @@ issue opens with a banner and `Wake it`. Editing stays open after publishing
 because fixes and re-sends follow it, and put to bed is the only freeze (Jamie,
 2026-09-28).
 
+**Revisited 2026-10-06 — shares sit outside put to bed.** Sharing an issue is
+what happens after it is put to bed, this week or a year later ("after an
+issue is put to bed, then instead of there being a publish button, there's now
+a share button", Jamie). So shares are their own table, not part of the issue
+document, and `guardBed` lets `/shares` through as it does `/verify/`: the
+freeze still holds every word of the issue. A share that went out is the
+record and is never edited, re-posted or deleted; sharing again is a new
+share. There is no dropped state, no back-dating, and no link in a LinkedIn
+comment (Jamie: "gross"); the link is in the words (`docs/share-plan.md`).
+
 **Revisited 2026-09-28 — the source is the second editor.** "Nobody else is
 editing" held for this service, but Pinboard and Micro.blog are Jamie's CMS, and
 he edits there too. Since 2026-08-30 write-back has been compare-and-set, not
@@ -327,6 +337,16 @@ slip to Sunday or Monday (the archive's 67 Sunday dates are the old
 workflow's send timestamps), but the date is the issue's identity: a Sunday
 or Monday date snaps *back* to the Saturday just past, a midweek date snaps
 forward to the target. The window can therefore never move with a late send.
+
+## A share's blog post is never swept into the next issue (2026-10-06)
+
+The Weekly Thing reprints every blog post, and a share's blog post is a blog
+post. Left alone, the post announcing WT353 would be swept into WT354's
+Journal. The sweep skips every post whose URL a share recorded
+(`sharedBlogUrls`), and only those. It does not go by the `Weekly Thing`
+category: Jamie writes his own posts about the Weekly Thing, and they belong
+in Journal (WT352 carried one). This is why a blog share that comes back
+from Micropub without the new post's URL is a failure, not a success.
 
 ## The MCP interface reads; it does not write (2026-10-04)
 

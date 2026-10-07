@@ -243,6 +243,36 @@ export interface DraftShare {
   at: string;
 }
 
+/**
+ * Sharing a published issue (docs/share-plan.md): LinkedIn, which Jamie
+ * posts himself from text WT Builder holds, or a blog post WT Builder makes
+ * on micro.blog. Not the draft share above, which is a page of an unsent
+ * draft; this is announcing an issue that went out.
+ */
+export type ShareDestination = 'linkedin' | 'blog';
+
+/**
+ * One share: a task with one destination. Kept in its own table, never in
+ * the issue document, because put to bed freezes the document and sharing
+ * is what happens after it (docs/decisions.md, 2026-10-06).
+ */
+export interface Share {
+  id: number;
+  issue_id: string;
+  destination: ShareDestination;
+  /** draft: still being written. shared: done, and the row is the record. */
+  state: 'draft' | 'shared';
+  /** The blog post's title, when it has one. LinkedIn posts have none. */
+  title?: string;
+  /** The words, the issue's link among them. */
+  text: string;
+  created_at: string;
+  updated_at: string;
+  shared_at?: string;
+  /** Where it landed: the LinkedIn post Jamie pasted back, or the blog post's URL. */
+  url?: string;
+}
+
 export interface SendState {
   status: 'none' | 'sending' | 'sent' | 'failed';
   at?: string;

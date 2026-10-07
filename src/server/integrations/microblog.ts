@@ -81,12 +81,18 @@ export async function fetchSource(limit = 100): Promise<MicropubItem[]> {
   return body.items ?? [];
 }
 
-/** Posts published inside the window, carrying their Markdown source. */
-export async function sweepMicroblog(window: Window): Promise<Candidate[]> {
+/**
+ * Posts published inside the window, carrying their Markdown source. `skip`
+ * is the blog posts shares made (`sharedBlogUrls`): a post announcing an
+ * issue is never offered to the next one's Journal.
+ */
+export async function sweepMicroblog(window: Window, skip: string[] = []): Promise<Candidate[]> {
   const items = await fetchSource();
+  const skipped = new Set(skip.map(sameAddress));
 
   return items
     .filter((i) => !isUnpublished(i))
+    .filter((i) => !skipped.has(sameAddress(first(i.properties?.url))))
     .map((i) => {
       const p = i.properties ?? {};
       const url = first(p.url);
@@ -241,6 +247,37 @@ export async function updatePost(item: Item): Promise<UpdateResult> {
     // The local edit stands; only the sync state records the failure.
     return { sync_state: 'failed', error: (err as Error).message };
   }
+}
+
+/**
+ * Make a new post through Micropub: a share's blog post announcing an issue
+ * (docs/share-plan.md). The one thing WT Builder creates on the blog; every
+ * other write is an update of a post Jamie made. Answers the new post's URL,
+ * from the Location header micro.blog sends with its 201 or 202. A response
+ * without one is a failure, since the URL is what keeps the post out of the
+ * next sweep.
+ */
+export async function createPost(post: { title?: string; content: string; category: string[] }): Promise<string> {
+  const properties: Record<string, unknown[]> = { content: [post.content], category: post.category };
+  if (post.title?.trim()) properties.name = [post.title.trim()];
+  const res = await fetch(MICROPUB, {
+    method: 'POST',
+    headers: { Authorization: `Bearer ${requireToken()}`, 'Content-Type': 'application/json' },
+    body: JSON.stringify({ type: ['h-entry'], properties }),
+    signal: AbortSignal.timeout(30_000),
+  });
+  if (!res.ok) {
+    const detail = (await res.text()).slice(0, 300);
+    throw new Error(`Micro.blog refused the post: ${res.status} ${res.statusText} ${detail}`.trim());
+  }
+  const location = res.headers.get('location');
+  if (!location) throw new Error(`Micro.blog answered ${res.status} without the new post's URL`);
+  return location;
+}
+
+/** A post URL compared as an address: no scheme, no trailing slash, any case of host. */
+export function sameAddress(url: string): string {
+  return url.trim().replace(/^https?:\/\//i, '').replace(/\/+$/, '').toLowerCase();
 }
 
 /** Presence check for the health route; never returns the token. */

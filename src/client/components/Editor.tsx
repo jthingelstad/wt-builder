@@ -37,6 +37,8 @@ interface Props {
   run: (fn: () => Promise<IssueResponse>) => Promise<boolean>;
   onIndex: () => void;
   onSend: () => void;
+  /** Once the issue is put to bed, Publish becomes Share. */
+  onShare: () => void;
   onError: (m: string | null) => void;
   /**
    * The Send view is layered over the editor, which stays mounted beneath
@@ -69,7 +71,7 @@ const KICKER: Record<Lens, [string, string]> = {
 
 const CHANNEL_LENSES: Channel[] = ['website', 'email', 'audio'];
 
-export function Editor({ doc, readiness, busy, error, run, onIndex, onSend, onError, covered = false, jumpTo }: Props) {
+export function Editor({ doc, readiness, busy, error, run, onIndex, onSend, onShare, onError, covered = false, jumpTo }: Props) {
   const [lens, setLens] = useState<Lens>('website');
   const [panel, setPanel] = useState(true);
   const [selected, setSelected] = useState<string | null>(null);
@@ -554,7 +556,10 @@ export function Editor({ doc, readiness, busy, error, run, onIndex, onSend, onEr
         <button class={`btn${panel ? ' primary' : ''}`} onClick={() => setPanel(!panel)}>
           Issue
         </button>
-        <button class="btn primary" onClick={onSend}>Publish</button>
+        {/* Put to bed, the sending is done and what is left is telling people (docs/share-plan.md). */}
+        {doc.issue.put_to_bed_at
+          ? <button class="btn primary" onClick={onShare}>Share</button>
+          : <button class="btn primary" onClick={onSend}>Publish</button>}
       </header>
 
       <Strip number={doc.issue.number} readiness={readiness} onJump={goTo} doc={doc} />

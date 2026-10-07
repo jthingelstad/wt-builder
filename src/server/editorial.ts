@@ -12,7 +12,8 @@ import { fileURLToPath } from 'node:url';
 
 import Anthropic from '@anthropic-ai/sdk';
 
-import type { ArchiveReference, EchoGrounding, EchoOption, IssueDoc, Item, ItemType } from '../shared/types.ts';
+import type { ArchiveReference, EchoGrounding, EchoOption, IssueDoc, Item, ItemType, ShareDestination } from '../shared/types.ts';
+import { linksIssue, plainText, shareLink } from '../shared/shares.ts';
 import { renderAnnotated } from '../shared/render/annotate.ts';
 import { bodyLines, isIncluded, outOfWindow, windowOf } from '../shared/render/plan.ts';
 import { imageTags, splitBody } from '../shared/body.ts';
@@ -1645,6 +1646,152 @@ export async function draft(req: DraftRequest): Promise<DraftResult> {
     : { candidates };
 }
 
+
+// ── sharing a published issue ─────────────────────────────────────────────
+
+/** One candidate for a share, as the Share view offers it. */
+export interface ShareOption {
+  /** The Notable item a LinkedIn draft leads with, and its title; none for a pre-Builder record. */
+  lead?: string;
+  lead_title?: string;
+  title?: string;
+  text: string;
+}
+
+const SHARE_SCHEMA = {
+  type: 'object',
+  additionalProperties: false,
+  required: ['candidates'],
+  properties: {
+    candidates: {
+      type: 'array',
+      items: {
+        type: 'object',
+        additionalProperties: false,
+        required: ['lead', 'title', 'text'],
+        properties: { lead: { type: 'string' }, title: { type: 'string' }, text: { type: 'string' } },
+      },
+    },
+  },
+} as const;
+
+export const SHARE_PROMPTS: Record<ShareDestination, string> = {
+  linkedin: `Write a LinkedIn post that shares this issue of The Weekly Thing.
+Jamie posts it himself, on his personal profile, to the people who follow him
+there. He is not a copywriter and does not want to sound like one.
+
+The strategy is Jamie's own, and fixed: lead with the strongest Notable link.
+Each candidate leads with a DIFFERENT Notable item, strongest first, so that
+picking a candidate is picking the lead. A candidate is three parts:
+
+1. Jamie's commentary on that link, lightly edited for LinkedIn. Keep his
+   sentences and his points; trim what needs the issue around it to make
+   sense; never add an opinion he did not give. The post carries no link to
+   the piece, so name it in words: its title or what it is, and who published
+   it. LinkedIn folds a post after about three lines behind "see more", so
+   the idea must be in the first two lines, in his words, not a hook formula.
+2. A short turn to the whole issue: a sentence or two on what else this
+   week's issue holds, specific, from the title, the dek and the other
+   sections. Call it "Weekly Thing {N}" or "this week's Weekly Thing".
+3. The issue link, exactly as given, alone on the last line.
+
+Plain text: LinkedIn shows Markdown as typed, so no Markdown links, no
+asterisks, no headings. No hashtags. No engagement bait ("Thoughts?",
+"Agree?", "Comment below"), no "I'm excited to share", no "🧵". Under 1,300
+characters.
+
+Return each candidate's lead as the item id given for the Notable item it
+leads with (an empty string for an issue with no item ids), its title as an
+empty string, and its text.`,
+
+  blog: `Write a short post for Jamie's blog, thingelstad.com on micro.blog,
+pointing at this issue of The Weekly Thing. The newsletter reprints every
+blog post, but the blog has never pointed back, and much of what Jamie writes
+is only in the newsletter: his commentary on links, Currently, the photo. The
+post carries some of that to the blog's readers.
+
+In the voice of his microposts: first person, plain, a few sentences, the way
+he would tell a friend what was in it. Say what this issue had that the blog
+did not, specifically (a point from his commentary on a link or two, something
+from Currently or the photo), then point at the issue. Each candidate is built
+around a different part of the issue.
+
+End on the issue: a Markdown link on words like "Weekly Thing {N}", with the
+URL exactly as given. Markdown is fine everywhere else.
+
+A title only when the post is long enough to want one; most of his microposts
+have none, so return an empty string unless it earns one. Return each
+candidate's lead as an empty string.`,
+};
+
+/** The Notable links an issue printed, in order, with their ids: what a LinkedIn share leads with. */
+function notableLinks(doc: IssueDoc): { id: string; item: Item }[] {
+  const w = windowOf(doc);
+  return doc.nodes
+    .filter((n) => n.type === 'notable')
+    .flatMap((n) => n.items)
+    .flatMap((id) => {
+      const item = doc.items[id];
+      return item && item.type === 'pinboard_link' && isIncluded(item, w) && String(item.commentary ?? '').trim()
+        ? [{ id, item }]
+        : [];
+    });
+}
+
+/**
+ * Three candidates for a share. Never written: Jamie picks one and edits it,
+ * and the words are his, with no Thingy byline (the byline boundary). A
+ * Builder issue is read as its items; a pre-Builder record as its published
+ * text, never parsed into items.
+ */
+export async function draftShare(doc: IssueDoc, destination: ShareDestination): Promise<{ candidates: ShareOption[] }> {
+  const n = doc.issue.number;
+  const link = shareLink(doc, destination);
+  const notable = doc.issue.imported ? [] : notableLinks(doc);
+  const intro = Object.values(doc.items).find((i) => i.type === 'intro');
+  const parts = [
+    'Return exactly 3 distinct candidates.',
+    `\nThis is Weekly Thing ${n}${doc.issue.title ? `: "${doc.issue.title}"` : ''}, published ${doc.issue.publication_date}.`,
+    doc.issue.dek ? `Its dek: ${doc.issue.dek}` : '',
+    `The issue link, to use exactly: ${link}`,
+    notable.length
+      ? `\nThe Notable links, in the order the issue printed them. The title is the linked page's own; the commentary is Jamie's:\n${notable
+        .map(({ id, item: i }) => `- id: ${id}\n  title: ${i.title ?? ''}\n  url: ${i.source_url ?? ''}\n  commentary: ${String(i.commentary).trim()}`)
+        .join('\n')}`
+      : destination === 'linkedin'
+        ? '\nThis issue has no item ids: lead with the strongest passage of Jamie\'s own commentary on a link in the text below.'
+        : '',
+    intro?.body?.trim() ? `\nThe Intro, Jamie's words:\n${intro.body.trim()}` : '',
+    `\nThe issue, for grounding:\n${issueExcerpt(doc, doc.issue.imported ? 20_000 : 8000)}`,
+  ];
+
+  const parsed = await callJson<{ candidates?: { lead?: string; title?: string; text?: string }[] }>({
+    model: MODEL,
+    max_tokens: ROOM_LONG,
+    system: `${VOICE}\n\n${SHARE_PROMPTS[destination].replaceAll('{N}', String(n))}`,
+    output_config: { effort: 'medium', format: { type: 'json_schema', schema: SHARE_SCHEMA } },
+    messages: [{ role: 'user', content: parts.filter(Boolean).join('\n') }],
+  } as Anthropic.MessageCreateParamsNonStreaming, DRAFT_SAYS);
+
+  const candidates = (parsed.candidates ?? []).slice(0, 3).flatMap((c): ShareOption[] => {
+    let text = String(c.text ?? '').trim();
+    if (!text) return [];
+    if (destination === 'linkedin') {
+      text = plainText(text);
+      if (!text.includes(link)) text = `${text}\n\n${link}`;
+    } else if (!linksIssue(text, doc)) {
+      text = `${text}\n\n[Weekly Thing ${n}](${link})`;
+    }
+    const lead = notable.find((l) => l.id === c.lead);
+    return [{
+      ...(lead ? { lead: lead.id, lead_title: lead.item.title ?? '' } : {}),
+      ...(destination === 'blog' && c.title?.trim() ? { title: c.title.trim() } : {}),
+      text,
+    }];
+  });
+  if (!candidates.length) throw new Error('the share draft came back empty — try again');
+  return { candidates };
+}
 
 // ── the audio script, read aloud in the mind ──────────────────────────────
 

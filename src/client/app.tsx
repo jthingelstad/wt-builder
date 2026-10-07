@@ -6,6 +6,7 @@ import { parseRoute, routeHref, sameRoute, type Route } from './router.ts';
 import { IssueIndex } from './components/Index.tsx';
 import { Editor } from './components/Editor.tsx';
 import { Send } from './components/Send.tsx';
+import { Share } from './components/Share.tsx';
 
 export function App() {
   const [route, setRoute] = useState<Route>(() => parseRoute(location.pathname));
@@ -177,6 +178,7 @@ export function App() {
   // (posts/all is limited to once per five minutes) and lost the lens, the
   // inspector and the review's triage (review 2026-09-27 §2.4).
   const sending = route.view === 'send';
+  const sharing = route.view === 'share';
   return (
     <>
       {bar}
@@ -187,10 +189,11 @@ export function App() {
         busy={busy}
         error={error}
         run={run}
-        covered={sending}
+        covered={sending || sharing}
         jumpTo={jumpTo}
         onIndex={() => go({ view: 'index' })}
         onSend={() => go({ view: 'send', id: doc.issue.id })}
+        onShare={() => go({ view: 'share', id: doc.issue.id })}
         onError={setError}
       />
       {sending && (
@@ -207,6 +210,14 @@ export function App() {
           }}
           onSent={(next) => { if (onScreen(next)) setDoc(next); }}
           onError={setError}
+        />
+      )}
+      {sharing && (
+        <Share
+          key={doc.issue.id}
+          doc={doc}
+          onBack={() => go({ view: 'issue', id: doc.issue.id })}
+          onSends={() => go({ view: 'send', id: doc.issue.id })}
         />
       )}
     </>

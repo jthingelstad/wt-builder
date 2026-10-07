@@ -40,6 +40,7 @@ describe('the project', () => {
   it('points at the builder, the archive page, and the next issue', () => {
     expect(out).toContain('Builder: https://builder.test/wt350');
     expect(out).toContain('https://builder.test/wt350/send');
+    expect(out).toContain('https://builder.test/wt350/share');
     expect(out).toContain('https://weekly.thingelstad.com/archive/350/');
     expect(out).toContain('Start WT351 in the builder');
   });
@@ -48,6 +49,13 @@ describe('the project', () => {
     for (const gone of ['Import links', 'Preview links', 'Generate Subject', 'Generate Haiku', 'Generate Echoes', 'Set Issue', 'Create OmniFocus Project', 'draft.html', 'transcript-full']) {
       expect(out).not.toContain(gone);
     }
+  });
+
+  it('shares from the Share view: no Shortcut steps, no Reddit', () => {
+    const share = out.slice(out.indexOf('- Share WT350'), out.indexOf('- Prepare for next'));
+    expect(share).toContain('from the Share view');
+    expect(share).not.toContain('shortcuts://');
+    expect(share).not.toMatch(/reddit/i);
   });
 
   it('is indented with tabs, the way TaskPaper wants', () => {

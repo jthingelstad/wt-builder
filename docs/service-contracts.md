@@ -347,6 +347,21 @@ references, are flagged too. The result rides on the echo as
 `grounding: { flags: [] }` and the picker shows each flag in the warning
 colour. Nothing is dropped and nothing is stored: the pick stays Jamie's.
 
+### Share drafts (2026-10-06)
+
+`POST /api/issues/:id/shares/:sid/draft` drafts a share of a published issue
+(`draftShare` in `src/server/editorial.ts`; `docs/share-plan.md`): three
+candidates, written nowhere, with no Thingy byline, since the post goes out
+as Jamie's. LinkedIn: each candidate leads with a different Notable link
+(Jamie's strategy, fixed in the prompt), his commentary lightly edited, a
+short turn to the issue, and the issue link on the last line; the answer
+names the lead (`lead`, `lead_title`), is made plain text, and gets the link
+appended if the model left it out. A pre-Builder record has no items, so the
+prompt reads its published text and leads with its strongest passage. Blog:
+a micropost, an optional title, ending on a Markdown link to the issue
+(appended if missing). The link is `?ref=linkedin` or `?ref=blog`. No
+candidate back is a failure the error bar says.
+
 ## Both
 
 - Latency is visible, not hidden: the review button reads `Reading…`, the draft
@@ -435,6 +450,14 @@ Claude Code or Codex on otto, or any MCP client on the tailnet.
   1.5.3 adds `haiku`: the haiku is not three lines of 5, 7 and 5
   syllables, with the counts found ("Counted 5-6-5 syllables, not
   5-7-5…"); the count is a guess from spelling.
+- **Shares (1.6.0, 2026-10-06).** `get_issue` carries the issue's `shares`,
+  and `list_shares` lists them across issues (filters: `issue`,
+  `destination`, `state`, `limit`), each with its words, `state`,
+  `created_at`, `shared_at` and `url` when it went, and the Tinylytics
+  join: `page_path` (`/archive/N/`), `ref` (the `?ref=` its link carried)
+  and `referrer` (`linkedin.com`, `www.thingelstad.com`). Read through
+  `GET /api/shares` and `GET /api/issues/:id/shares`. For an agent to set a
+  share beside the traffic it brought; a `note` says how.
 - **Writes none.** Suggestions go to Jamie in the agent's conversation (see
   `docs/decisions.md`). It reads through `readRoute` with `readOnly`, so
   even the skeleton repair the page saves on opening an older issue is
