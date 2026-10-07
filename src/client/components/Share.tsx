@@ -8,6 +8,11 @@
  * makes on micro.blog through Micropub. Shares live in their own table, not
  * in the issue, so a sleeping issue takes them. A share that went is the
  * record of what went out, and is shown as it went.
+ *
+ * No class or attribute here says "share" or "linkedin", and the page holds
+ * no linkedin.com link: content blockers' social filter lists hide elements
+ * named like share buttons, and the New share row vanished in Jamie's Safari
+ * on the first day (2026-10-07). tests/shares.test.ts holds the line.
  */
 
 import { useEffect, useRef, useState } from 'preact/hooks';
@@ -24,7 +29,8 @@ interface Props {
   onSends: () => void;
 }
 
-const LINKEDIN_FEED = 'https://www.linkedin.com/feed/';
+/** Where a LinkedIn post is written. Opened from a click, never an href on the page (see above). */
+const FEED = 'https://www.linkedin.com/feed/';
 
 const when = (iso: string) =>
   new Date(iso).toLocaleString([], { month: 'short', day: 'numeric', year: 'numeric', hour: 'numeric', minute: '2-digit' });
@@ -70,7 +76,7 @@ export function Share({ doc, onBack, onSends }: Props) {
   };
 
   return (
-    <div class="send-layer share-layer">
+    <div class="send-layer tell-layer">
       <header class="header">
         <button class="btn ghost-btn" onClick={onBack}><ArrowLeft /> Issue</button>
         <span class="mark">W</span>
@@ -94,7 +100,7 @@ export function Share({ doc, onBack, onSends }: Props) {
         {error && <div class="error-bar" role="alert">{error}</div>}
 
         {published ? (
-          <div class="share-new">
+          <div class="tell-new">
             <span class="mono-label">NEW SHARE</span>
             <button class="btn" disabled={adding} onClick={() => add('linkedin')}><Plus /> LinkedIn</button>
             <button class="btn" disabled={adding} onClick={() => add('blog')}><Plus /> Blog post</button>
@@ -105,7 +111,7 @@ export function Share({ doc, onBack, onSends }: Props) {
 
         {shares === null && !error && <p class="quiet">Loading…</p>}
         {shares?.length === 0 && published && (
-          <p class="quiet share-empty">No shares yet. Start one above.</p>
+          <p class="quiet tell-empty">No shares yet. Start one above.</p>
         )}
         {shares?.map((s) => (
           <ShareCard key={s.id} doc={doc} share={s} onShares={setShares} />
@@ -215,9 +221,10 @@ function ShareCard({ doc, share, onShares }: { doc: IssueDoc; share: ShareRow; o
   const length = shown.length;
   const missingLink = !linksIssue(shown, doc);
   const markdown = linkedin && plainText(shown) !== shown;
+  const place = linkedin ? 'dest-li' : 'dest-blog';
 
   return (
-    <section class={`send-card share-card ${share.destination}${shared ? ' sent' : ''}`} data-share={share.id}>
+    <section class={`send-card tell-card ${place}${shared ? ' sent' : ''}`} data-id={share.id}>
       <div class="sc-head">
         <span class={`sc-tile${shared ? ' done' : ''}`}>{linkedin ? <CornerUpRight size={14} /> : <Globe />}</span>
         <div class="sc-name">
@@ -302,7 +309,7 @@ function ShareCard({ doc, share, onShares }: { doc: IssueDoc; share: ShareRow; o
           {linkedin ? (
             <>
               <button class="btn" onClick={copy}>{copied ? <><Check /> Copied</> : 'Copy text'}</button>
-              <a class="btn" href={LINKEDIN_FEED} target="_blank" rel="noreferrer" onClick={() => void flush()}>Open LinkedIn ↗</a>
+              <button class="btn" onClick={() => { window.open(FEED, '_blank', 'noopener'); void flush(); }}>Open LinkedIn ↗</button>
               <button class="btn primary" disabled={busy !== null} onClick={markShared}>
                 {busy === 'shared' ? 'Marking…' : 'Mark shared'}
               </button>

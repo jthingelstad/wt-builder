@@ -168,6 +168,7 @@ export function App() {
           loading={loading}
           onError={setError}
           onOpen={(id) => go({ view: 'issue', id })}
+          onShare={(id) => go({ view: 'share', id })}
         />
       </>
     );

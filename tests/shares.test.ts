@@ -315,3 +315,20 @@ describe('createPost', () => {
     }
   });
 });
+
+describe('the Share view survives a content blocker', () => {
+  // Social filter lists hide elements named like share buttons; the New
+  // share row vanished in Jamie's Safari on the first day (2026-10-07).
+  it('names no class or attribute "share" or "linkedin", and holds no linkedin.com href', () => {
+    const src = readFileSync(fileURLToPath(new URL('../src/client/components/Share.tsx', import.meta.url)), 'utf8');
+    const names = [...src.matchAll(/\b(?:class|data-[a-z-]+|id)=(?:"([^"]*)"|\{`([^`]*)`\})/g)].map((m) => (m[1] ?? m[2]!).replace(/\$\{[^}]*\}/g, ' '));
+    // Interpolated parts are code; what renders is the literal text plus the values below.
+    expect(src).toContain("linkedin ? 'dest-li' : 'dest-blog'");
+    expect(names.length).toBeGreaterThan(10);
+    for (const n of names) expect(n).not.toMatch(/share|linkedin|social/i);
+    expect(src).not.toMatch(/href=\{?[^>]*linkedin/i);
+    const css = readFileSync(fileURLToPath(new URL('../src/client/styles.css', import.meta.url)), 'utf8');
+    const block = css.slice(css.indexOf('the Share view: a layer like Send'), css.indexOf('.after {'));
+    expect(block).not.toMatch(/\.(share|linkedin)/);
+  });
+});

@@ -806,10 +806,10 @@ a:hover { text-decoration: underline; }
 
 /* ── the Share view: a layer like Send, once an issue is out ─────────── */
 
-.share-new { display: flex; align-items: center; gap: 8px; margin-bottom: 18px; }
-.share-new .mono-label { margin-right: 4px; }
-.share-empty { margin: 8px 0 0; }
-.share-card .sc-head { align-items: center; }
+.tell-new { display: flex; align-items: center; gap: 8px; margin-bottom: 18px; }
+.tell-new .mono-label { margin-right: 4px; }
+.tell-empty { margin: 8px 0 0; }
+.tell-card .sc-head { align-items: center; }
 .sh-body { padding: 14px 18px; display: flex; flex-direction: column; gap: 8px; }
 .sh-title, .sh-text {
   width: 100%;

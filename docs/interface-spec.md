@@ -203,7 +203,13 @@ are words to replace). The foot: LinkedIn has `Copy text`, `Open LinkedIn ↗`
 and primary `Mark shared` (asks for the post's URL, optional); a blog post has
 primary `Post to the blog` (confirmed: it publishes now). `Delete` (ghost,
 confirmed) sits at the right. A shared card shows its words as they went, and
-nothing to press. There is no Share button on index rows.
+nothing to press. A put-to-bed row on the index carries a primary `Share`
+beside `Open` that lands here (Jamie, 2026-10-07).
+
+No class or attribute in this view says "share" or "linkedin", and it holds no
+`linkedin.com` link (`Open LinkedIn` opens the feed from a click): a content
+blocker's social filter list hid the New share row in Jamie's Safari on the
+first day. `tell-*` names the view's own pieces; `tests/shares.test.ts` guards it.
 
 ## Issue index
 

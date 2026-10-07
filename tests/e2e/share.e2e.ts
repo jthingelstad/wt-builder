@@ -32,10 +32,10 @@ test('put to bed, Share opens the view; a LinkedIn share is written, folds, and 
   await open(page);
   await page.locator('header').getByRole('button', { name: 'Share', exact: true }).click();
   await expect(page).toHaveURL(new RegExp(`/${ISSUE}/share$`));
-  await expect(page.locator('.share-layer h1')).toHaveText('Share');
+  await expect(page.locator('.tell-layer h1')).toHaveText('Share');
 
   await page.getByRole('button', { name: 'LinkedIn' }).click();
-  const card = page.locator('.share-card.linkedin');
+  const card = page.locator('.tell-card.dest-li');
   const field = card.locator('textarea');
   await expect(field).toHaveValue(/archive\/350\/\?ref=linkedin$/);
   const link = await field.inputValue();
@@ -70,7 +70,7 @@ test('a blog post that cannot reach micro.blog stays a draft, and a draft is del
   await open(page);
   await page.goto(`/${ISSUE}/share`);
   await page.getByRole('button', { name: 'Blog post' }).click();
-  const card = page.locator('.share-card.blog');
+  const card = page.locator('.tell-card.dest-blog');
   await card.locator('input.sh-title').fill('A title');
   await card.locator('textarea').fill(`What it had.\n\n[Weekly Thing 350](${await card.locator('textarea').inputValue()})`);
   await card.locator('textarea').blur();
@@ -83,7 +83,7 @@ test('a blog post that cannot reach micro.blog stays a draft, and a draft is del
 
   page.once('dialog', (d) => void d.accept());
   await card.getByRole('button', { name: 'Delete' }).click();
-  await expect(page.locator('.share-card')).toHaveCount(0);
+  await expect(page.locator('.tell-card')).toHaveCount(0);
   expect(shares()).toEqual([]);
 });
 
@@ -91,10 +91,22 @@ test('Sends crosses to the Send view, and Escape goes back to the issue', async 
   sleeping();
   await open(page);
   await page.goto(`/${ISSUE}/share`);
-  await page.locator('.share-layer header').getByRole('button', { name: 'Sends' }).click();
+  await page.locator('.tell-layer header').getByRole('button', { name: 'Sends' }).click();
   await expect(page).toHaveURL(new RegExp(`/${ISSUE}/send$`));
   await page.goto(`/${ISSUE}/share`);
-  await expect(page.locator('.share-layer')).toBeVisible();
+  await expect(page.locator('.tell-layer')).toBeVisible();
   await page.keyboard.press('Escape');
   await expect(page).toHaveURL(new RegExp(`/${ISSUE}$`));
+});
+
+test('a put-to-bed row on the index has Share, and it opens the Share view', async ({ page }) => {
+  await page.addInitScript(() => localStorage.setItem('wt-builder:index-filters', JSON.stringify({ hideAsleep: false })));
+  await page.goto('/');
+  const row = page.locator('.issue-row', { hasText: 'WT350' });
+  await expect(row.getByRole('button', { name: 'Share', exact: true })).toHaveCount(0);
+  sleeping();
+  await page.reload();
+  await row.getByRole('button', { name: 'Share', exact: true }).click();
+  await expect(page).toHaveURL(new RegExp(`/${ISSUE}/share$`));
+  await expect(page.locator('.tell-new')).toBeVisible();
 });

@@ -43,6 +43,8 @@ interface Props {
   loading?: boolean;
   onError: (message: string | null) => void;
   onOpen: (id: string) => void;
+  /** A put-to-bed issue's Share view. */
+  onShare: (id: string) => void;
 }
 
 interface Filters {
@@ -72,7 +74,7 @@ function matches(i: IssueSummary, f: Filters): boolean {
   return true;
 }
 
-export function IssueIndex({ error, loading: opening, onError, onOpen }: Props) {
+export function IssueIndex({ error, loading: opening, onError, onOpen, onShare }: Props) {
   const [issues, setIssues] = useState<IssueSummary[]>([]);
   const [nextNumber, setNextNumber] = useState(1);
   const [loading, setLoading] = useState(true);
@@ -175,6 +177,7 @@ export function IssueIndex({ error, loading: opening, onError, onOpen }: Props) 
               live={issue.id === draft?.id}
               archiving={archiving === issue.id}
               onOpen={onOpen}
+              onShare={onShare}
               onArchive={() => void sendArchive(issue.id)}
               onBed={(asleep) => {
                 if (!asleep && !confirm(`Wake WT${issue.number}? It becomes editable and re-sendable again.`)) return;
@@ -216,12 +219,13 @@ const LEGS: [string, string, string][] = [
 ];
 
 function IssueRow({
-  issue, live, archiving, onOpen, onArchive, onBed, onError,
+  issue, live, archiving, onOpen, onShare, onArchive, onBed, onError,
 }: {
   issue: IssueSummary;
   live: boolean;
   archiving: boolean;
   onOpen: (id: string) => void;
+  onShare: (id: string) => void;
   onArchive: () => void;
   /** Put to bed (true) or wake (false) — also offered on the Send view. */
   onBed: (asleep: boolean) => void;
@@ -294,6 +298,10 @@ function IssueRow({
           <button class={`btn small${isDraft ? ' primary' : ''}`} onClick={() => onOpen(issue.id)}>
             Open
           </button>
+          {/* Put to bed, what is left is telling people (Jamie, 2026-10-07). */}
+          {issue.put_to_bed_at && (
+            <button class="btn small primary" onClick={() => onShare(issue.id)}>Share</button>
+          )}
           {isDraft && !issue.imported && (
             <button
               class="btn small"

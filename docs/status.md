@@ -273,7 +273,8 @@ finished, what is half-finished, and what has never run.
   editable run, rail action, wand, field or write button, so the 423 is a
   backstop and never the message.
 - **Share** (2026-10-06, built, not yet used on a real issue) — once an
-  issue is put to bed the editor's Publish becomes Share, opening `/{id}/share`,
+  issue is put to bed the editor's Publish becomes Share (and the index row
+  carries a Share button, 2026-10-07), opening `/{id}/share`,
   a layer over the editor as Send is (`src/client/components/Share.tsx`;
   plan `docs/share-plan.md`). Shares live in their own `shares` table
   (schema v5, `src/server/db.ts`), outside the issue, so a sleeping issue,

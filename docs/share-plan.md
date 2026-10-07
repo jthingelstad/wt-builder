@@ -135,7 +135,7 @@ So it stays small. Any of these can come back when there is a reason.
   following; they get the blog post through micro.blog anyway). Turning off
   micro.blog's feed cross-post of the Weekly Thing is Jamie's setting.
 - Link in a LinkedIn comment.
-- A `Share` button on the index rows: open the issue.
+- ~~A `Share` button on the index rows~~ — added 2026-10-07 at Jamie's ask, on put-to-bed rows.
 - A `dropped` state, back-dated blog posts, a cover-photo toggle, a choice of
   category.
 - Per-share `ref` values, traffic shown on the row, a reminder to answer
