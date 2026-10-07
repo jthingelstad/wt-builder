@@ -198,6 +198,14 @@ describe('a blog share', () => {
     expect(createPost).toHaveBeenCalledTimes(1);
   });
 
+  it('starts titled as the email was; a LinkedIn share has no title', async () => {
+    const doc = sleeping(523);
+    doc.issue.title = 'Interviewing Otto for the Job';
+    store.saveIssue(doc);
+    expect((await start('wt523', 'blog')).title).toBe('WT523 — Interviewing Otto for the Job');
+    expect((await start('wt523', 'linkedin')).title).toBeUndefined();
+  });
+
   it('a refused post stays a draft, and says why', async () => {
     sleeping(521);
     const s = await start('wt521', 'blog');
@@ -232,7 +240,7 @@ describe('the share wand', () => {
     sleeping(530);
     const s = await start('wt530', 'linkedin');
     answer([
-      { lead: 'link-flipcash', title: 'dropped', text: 'About [Flipcash](https://x.test/) and **why**.\n\nWeekly Thing 530 has more.' },
+      { lead: 'link-flipcash', text: 'About [Flipcash](https://x.test/) and **why**.\n\nWeekly Thing 530 has more.' },
       { lead: 'link-functions', title: '', text: 'Second.\n\nhttps://weekly.thingelstad.com/archive/530/?ref=linkedin' },
       { lead: 'nope', title: '', text: '   ' },
     ]);
@@ -241,22 +249,25 @@ describe('the share wand', () => {
     const { candidates } = await res.json() as { candidates: { lead?: string; lead_title?: string; title?: string; text: string }[] };
     expect(candidates).toHaveLength(2);
     expect(candidates[0]).toMatchObject({ lead: 'link-flipcash', text: 'About Flipcash and why.\n\nWeekly Thing 530 has more.\n\nhttps://weekly.thingelstad.com/archive/530/?ref=linkedin' });
-    expect(candidates[0]!.title).toBeUndefined();
     expect(candidates[1]!.text.match(/archive\/530/g)).toHaveLength(1);
 
     // The prompt carries Jamie's strategy and the Notable links by id.
     const params = create.mock.calls[0]![0] as { system: string; messages: { content: string }[] };
-    expect(params.system).toContain('lead with the strongest Notable link');
+    expect(params.system).toContain('a DIFFERENT Notable link');
+    // A description, not Jamie talking (2026-10-07): no voice, no first person.
+    expect(params.system).toContain('You write descriptions, not personal posts');
+    expect(params.system).not.toContain('first-person, observational');
+    expect(params.system).toContain('Weekly Thing 530 looks at');
     expect(params.messages[0]!.content).toContain('id: link-flipcash');
     expect(store.getShare(s.id)?.text).toBe('https://weekly.thingelstad.com/archive/530/?ref=linkedin');
   });
 
-  it('blog: a title only when given, and the issue linked in Markdown when missing', async () => {
+  it('blog: no title (the subject is the title), and the issue linked in Markdown when missing', async () => {
     sleeping(531);
     const s = await start('wt531', 'blog');
-    answer([{ lead: '', title: 'A week of it', text: 'This issue had a photo.' }]);
+    answer([{ lead: '', text: 'This issue had a photo.' }]);
     const { candidates } = await (await call('POST', `wt531/shares/${s.id}/draft`)).json() as { candidates: { title?: string; text: string }[] };
-    expect(candidates[0]).toEqual({ title: 'A week of it', text: 'This issue had a photo.\n\n[Weekly Thing 531](https://weekly.thingelstad.com/archive/531/?ref=blog)' });
+    expect(candidates[0]).toEqual({ text: 'This issue had a photo.\n\n[Weekly Thing 531](https://weekly.thingelstad.com/archive/531/?ref=blog)' });
   });
 
   it('nothing back is a failure the error bar can say', async () => {

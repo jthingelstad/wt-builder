@@ -48,7 +48,7 @@ import * as audio from './integrations/audio.ts';
 import { audioScript } from '../shared/render/audio.ts';
 import { joinScriptReview, lintScript } from '../shared/render/script-lint.ts';
 import { heldOut, outOfWindow, windowOf } from '../shared/render/plan.ts';
-import { archiveInputs, emailSubject, issueEntry, siteInputs } from './publish.ts';
+import { archiveInputs, emailSubject, issueEntry, siteInputs, subjectFor } from './publish.ts';
 import * as draftShare from './share.ts';
 import { type EarlierDelivery, verifierFor } from './verify.ts';
 import { issueTiming, type IssueTiming } from '../shared/timing.ts';
@@ -1518,7 +1518,7 @@ const routes: [RegExp, string, (ctx: Ctx, params: string[]) => Promise<unknown>]
     return { shares: store.listShares(id!) };
   }],
 
-  /** A new share: a draft holding the issue's link, for the words to go above. */
+  /** A new share: a draft holding the issue's link, for the words to go above; a blog post also its title. */
   [/^\/api\/issues\/([^/]+)\/shares$/, 'POST', async ({ body }, [id]) => {
     const b = await body();
     const doc = requireIssue(id!);
@@ -1527,7 +1527,8 @@ const routes: [RegExp, string, (ctx: Ctx, params: string[]) => Promise<unknown>]
     if (doc.issue.status !== 'published') {
       throw new HttpError(409, `WT${doc.issue.number} has not gone out yet — its page is not there to share`);
     }
-    const share = store.createShare(id!, destination, startingText(doc, destination));
+    // A blog post is titled as the email was ("WT352 — …"), for Jamie to keep or change.
+    const share = store.createShare(id!, destination, startingText(doc, destination), destination === 'blog' ? subjectFor(doc) : undefined);
     store.logEvent(id!, 'share', `Share started — ${DESTINATION_NAME[destination]}`);
     return { share, shares: store.listShares(id!) };
   }],

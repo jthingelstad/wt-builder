@@ -169,14 +169,13 @@ function ShareCard({ doc, share, onShares }: { doc: IssueDoc; share: ShareRow; o
     setCandidates((await api.draftShare(id, share.id)).candidates);
   });
 
+  // The words only: a blog post's title (the issue's subject, to start) stays.
   const use = (c: ShareOption) => {
     const written = text.trim() && text.trim() !== shareLink(doc, share.destination);
     if (written && !confirm('Replace the words in this share with the draft?')) return;
-    const next = { text: c.text, title: linkedin ? title : c.title ?? '' };
-    setText(next.text);
-    setTitle(next.title);
+    setText(c.text);
     setCandidates(null);
-    void flush(next);
+    void flush({ text: c.text, title });
   };
 
   // The clipboard is written first, inside the click: Safari refuses a write
@@ -256,7 +255,7 @@ function ShareCard({ doc, share, onShares }: { doc: IssueDoc; share: ShareRow; o
           <>
             {!linkedin && (
               <input
-                class="sh-title" type="text" value={title} placeholder="Title (optional: most posts have none)"
+                class="sh-title" type="text" value={title} placeholder="Title (optional)"
                 onInput={(e) => setTitle((e.target as HTMLInputElement).value)}
                 onBlur={() => void flush()}
               />
@@ -294,7 +293,6 @@ function ShareCard({ doc, share, onShares }: { doc: IssueDoc; share: ShareRow; o
             {candidates.map((c, i) => (
               <div key={i} class="sh-cand">
                 {c.lead_title && <div class="sh-lead">Leads with <strong>{c.lead_title}</strong></div>}
-                {c.title && <div class="sh-lead"><strong>{c.title}</strong></div>}
                 <div class="sh-cand-text">{c.text}</div>
                 <button class="btn small" onClick={() => use(c)}>Use this</button>
               </div>

@@ -141,7 +141,6 @@ function checkBuild(res: Response): void {
 export interface ShareOption {
   lead?: string;
   lead_title?: string;
-  title?: string;
   text: string;
 }
 

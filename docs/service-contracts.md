@@ -352,14 +352,16 @@ colour. Nothing is dropped and nothing is stored: the pick stays Jamie's.
 `POST /api/issues/:id/shares/:sid/draft` drafts a share of a published issue
 (`draftShare` in `src/server/editorial.ts`; `docs/share-plan.md`): three
 candidates, written nowhere, with no Thingy byline, since the post goes out
-as Jamie's. LinkedIn: each candidate leads with a different Notable link
-(Jamie's strategy, fixed in the prompt), his commentary lightly edited, a
-short turn to the issue, and the issue link on the last line; the answer
+as Jamie's. Since 2026-10-07 they describe the issue rather than speak as
+Jamie (`DESCRIBE`: no first person, no third-person Jamie, VOICE's
+guardrails kept, VOICE itself not used). LinkedIn: each candidate leads with
+a different Notable link (Jamie's strategy, fixed in the prompt), described,
+then what else the issue covers, and the issue link on the last line; the answer
 names the lead (`lead`, `lead_title`), is made plain text, and gets the link
 appended if the model left it out. A pre-Builder record has no items, so the
-prompt reads its published text and leads with its strongest passage. Blog:
-a micropost, an optional title, ending on a Markdown link to the issue
-(appended if missing). The link is `?ref=linkedin` or `?ref=blog`. No
+prompt reads its published text and leads with its strongest link. Blog: a
+short description, ending on a Markdown link to the issue (appended if
+missing); no title, since the share starts titled with the issue's subject. The link is `?ref=linkedin` or `?ref=blog`. No
 candidate back is a failure the error bar says.
 
 ## Both

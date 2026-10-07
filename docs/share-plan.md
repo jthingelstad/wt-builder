@@ -76,24 +76,25 @@ words are his: no Thingy byline (`docs/decisions.md`; the byline boundary).
   Currently, the photo caption (`issueExcerpt` in `editorial.ts` is the
   start). A pre-Builder record: its published text, read as text, never
   parsed into items.
+- **Descriptive, not Jamie's voice** (revised 2026-10-07). Jamie, after
+  trying it: rather than text "like I would write it", "more just a
+  description of what is in or what the topic is", for both destinations.
+  The wand describes the issue's content plainly and specifically: no first
+  person, no narrating Jamie in the third person, no superlatives, no calls
+  to action, no hashtags or emoji. It does not take the newsletter's VOICE.
 - **LinkedIn: lead with the strongest Notable.** Jamie, 2026-10-06: "pick the
-  strongest notable link and really lead with that", a light edit of it for
-  LinkedIn, then a lead into the whole issue. Each of the three candidates
-  leads with a *different* Notable item, so picking a candidate is picking
-  the lead, and the candidate names which one it is. The candidate is:
-  1. **Jamie's commentary on that link, lightly edited.** His sentences,
-     kept: trimmed to stand on their own, the linked piece named by title and
-     source in words (the post carries one link, the issue's), the opening
-     lines strong enough to survive "…see more". Not rewritten into a new
-     voice.
-  2. **A short turn to the issue.** A sentence or two on what else this week
-     holds, from the title, dek and the other sections.
-  3. **The link to the issue.**
-
-  No hashtags, no engagement bait. A pre-Builder record has no items: the
-  wand takes the strongest commentary passage from its text instead.
-- **Blog post.** The voice of his microposts: what this issue had that the
-  blog did not, ending on the link.
+  strongest notable link and really lead with that". Each of the three
+  candidates leads with a *different* Notable item, so picking a candidate is
+  picking the lead, and the candidate names which one it is. The candidate
+  is: a sentence or two describing that piece (what it is, who published it,
+  what it shows, and the angle the issue's commentary takes, as
+  description), clear before "…see more"; a sentence or two describing what
+  else the issue covers; and the link. A pre-Builder record has no items:
+  the wand leads with the strongest link in its text.
+- **Blog post.** Two to four sentences describing what the issue covers,
+  ending on the link. It is titled with the issue's subject, as the email
+  was (`WT352 — Interviewing Otto for the Job`), filled in when the share is
+  started; the wand writes the body only and never touches the title.
 
 ## Where the code changes
 

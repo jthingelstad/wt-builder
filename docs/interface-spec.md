@@ -191,7 +191,8 @@ The shares follow, newest first, one card each. The card head: a tile
 name, a `DRAFT` or `SHARED` pill, the started or shared time, `the post ↗`
 when a URL is known, and the wand's `Draft` button on a draft.
 
-A draft card is a task: a textarea (a title input above it for a blog post),
+A draft card is a task: a textarea (a title input above it for a blog post,
+filled with the email's subject to start),
 saved on blur, starting as the issue link alone so the words go above it.
 LinkedIn adds a mono count toward 3000 (terracotta over it) and, under it, the
 lines LinkedIn shows before `…see more`, with a left rule, or "The whole post

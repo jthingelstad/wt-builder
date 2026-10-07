@@ -71,6 +71,8 @@ test('a blog post that cannot reach micro.blog stays a draft, and a draft is del
   await page.goto(`/${ISSUE}/share`);
   await page.getByRole('button', { name: 'Blog post' }).click();
   const card = page.locator('.tell-card.dest-blog');
+  // Titled as the email was, to start.
+  await expect(card.locator('input.sh-title')).toHaveValue(/^WT350/);
   await card.locator('input.sh-title').fill('A title');
   await card.locator('textarea').fill(`What it had.\n\n[Weekly Thing 350](${await card.locator('textarea').inputValue()})`);
   await card.locator('textarea').blur();

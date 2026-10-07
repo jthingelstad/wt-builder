@@ -1651,10 +1651,9 @@ export async function draft(req: DraftRequest): Promise<DraftResult> {
 
 /** One candidate for a share, as the Share view offers it. */
 export interface ShareOption {
-  /** The Notable item a LinkedIn draft leads with, and its title; none for a pre-Builder record. */
+  /** The Notable item a candidate leads with, and its title; none for a pre-Builder record. */
   lead?: string;
   lead_title?: string;
-  title?: string;
   text: string;
 }
 
@@ -1668,60 +1667,75 @@ const SHARE_SCHEMA = {
       items: {
         type: 'object',
         additionalProperties: false,
-        required: ['lead', 'title', 'text'],
-        properties: { lead: { type: 'string' }, title: { type: 'string' }, text: { type: 'string' } },
+        required: ['lead', 'text'],
+        properties: { lead: { type: 'string' }, text: { type: 'string' } },
       },
     },
   },
 } as const;
 
+/**
+ * How a share is written: a description of the issue, not Jamie talking.
+ * Jamie, 2026-10-07: rather than text "like I would write it", "more just a
+ * description of what is in or what the topic is". So the share wand does
+ * not take VOICE; it keeps VOICE's guardrails.
+ */
+const DESCRIBE = `You write descriptions, not personal posts. Describe what this issue
+of The Weekly Thing contains and what its topics are, plainly and
+specifically, the way a good dek or table of contents does. Do not imitate
+Jamie or write as him: no first person ("I", "my", "we", "this week I"), and
+no narrating him in the third person either ("Jamie writes", "he argues").
+Describe the content: "Weekly Thing {N} looks at…", "A piece from The
+Verge on…", "Also: …".
+
+Hard guardrails, which override everything else:
+- No superlatives ("best", "amazing", "must-read") and no marketing phrases
+  ("cutting-edge", "curated", "hand-picked", "don't miss").
+- No imperatives or calls to action ("Read it", "Subscribe", "Check out").
+- Specific over general: name the subjects, the pieces and who published
+  them, never "lots of great links".
+- No emoji, no hashtags.`;
+
 export const SHARE_PROMPTS: Record<ShareDestination, string> = {
-  linkedin: `Write a LinkedIn post that shares this issue of The Weekly Thing.
-Jamie posts it himself, on his personal profile, to the people who follow him
-there. He is not a copywriter and does not want to sound like one.
+  linkedin: `Write a LinkedIn post describing this issue of The Weekly Thing. Jamie
+posts it on his own profile; it tells people there what the issue covers.
 
-The strategy is Jamie's own, and fixed: lead with the strongest Notable link.
-Each candidate leads with a DIFFERENT Notable item, strongest first, so that
-picking a candidate is picking the lead. A candidate is three parts:
+Each candidate leads with a DIFFERENT Notable link, the strongest first, so
+that picking a candidate is picking the lead. A candidate is three parts:
 
-1. Jamie's commentary on that link, lightly edited for LinkedIn. Keep his
-   sentences and his points; trim what needs the issue around it to make
-   sense; never add an opinion he did not give. The post carries no link to
-   the piece, so name it in words: its title or what it is, and who published
-   it. LinkedIn folds a post after about three lines behind "see more", so
-   the idea must be in the first two lines, in his words, not a hook formula.
-2. A short turn to the whole issue: a sentence or two on what else this
-   week's issue holds, specific, from the title, the dek and the other
-   sections. Call it "Weekly Thing {N}" or "this week's Weekly Thing".
+1. One or two sentences describing that piece: what it is, who published it,
+   what it shows or argues, and, where the commentary in the issue adds an
+   angle, that angle stated as description ("with a note on what it means
+   for small teams"). The post carries no link to the piece, so name it in
+   words. LinkedIn folds a post after about three lines behind "see more",
+   so the topic must be clear in the first two lines.
+2. One or two sentences describing what else the issue covers, by subject:
+   the other Notable topics, and Journal, Currently or the photo if they
+   say something specific.
 3. The issue link, exactly as given, alone on the last line.
 
 Plain text: LinkedIn shows Markdown as typed, so no Markdown links, no
-asterisks, no headings. No hashtags. No engagement bait ("Thoughts?",
-"Agree?", "Comment below"), no "I'm excited to share", no "🧵". Under 1,300
+asterisks, no headings. No engagement bait ("Thoughts?"). Under 700
 characters.
 
 Return each candidate's lead as the item id given for the Notable item it
-leads with (an empty string for an issue with no item ids), its title as an
-empty string, and its text.`,
+leads with (an empty string for an issue with no item ids), and its text.`,
 
   blog: `Write a short post for Jamie's blog, thingelstad.com on micro.blog,
-pointing at this issue of The Weekly Thing. The newsletter reprints every
-blog post, but the blog has never pointed back, and much of what Jamie writes
-is only in the newsletter: his commentary on links, Currently, the photo. The
-post carries some of that to the blog's readers.
+describing this issue of The Weekly Thing. The newsletter reprints every
+blog post, but the blog has never pointed back; this post tells the blog's
+readers what the issue covers that the blog does not.
 
-In the voice of his microposts: first person, plain, a few sentences, the way
-he would tell a friend what was in it. Say what this issue had that the blog
-did not, specifically (a point from his commentary on a link or two, something
-from Currently or the photo), then point at the issue. Each candidate is built
-around a different part of the issue.
+Two to four sentences describing the issue: the subjects of its Notable
+links, the pieces and who published them, and anything specific in
+Currently, Journal or the photo, briefly. Each candidate is organized
+differently: one walks the Notable topics, one centres the strongest topic
+and lists the rest, one is the shortest that still says what is in it.
 
 End on the issue: a Markdown link on words like "Weekly Thing {N}", with the
-URL exactly as given. Markdown is fine everywhere else.
-
-A title only when the post is long enough to want one; most of his microposts
-have none, so return an empty string unless it earns one. Return each
-candidate's lead as an empty string.`,
+URL exactly as given. Markdown is fine everywhere else. No title: the post
+is titled with the issue's subject already. Return each candidate's lead as
+the item id of the Notable item it centres on, or an empty string.`,
 };
 
 /** The Notable links an issue printed, in order, with their ids: what a LinkedIn share leads with. */
@@ -1759,16 +1773,16 @@ export async function draftShare(doc: IssueDoc, destination: ShareDestination): 
         .map(({ id, item: i }) => `- id: ${id}\n  title: ${i.title ?? ''}\n  url: ${i.source_url ?? ''}\n  commentary: ${String(i.commentary).trim()}`)
         .join('\n')}`
       : destination === 'linkedin'
-        ? '\nThis issue has no item ids: lead with the strongest passage of Jamie\'s own commentary on a link in the text below.'
+        ? '\nThis issue has no item ids: lead with the strongest link in the text below, described.'
         : '',
     intro?.body?.trim() ? `\nThe Intro, Jamie's words:\n${intro.body.trim()}` : '',
     `\nThe issue, for grounding:\n${issueExcerpt(doc, doc.issue.imported ? 20_000 : 8000)}`,
   ];
 
-  const parsed = await callJson<{ candidates?: { lead?: string; title?: string; text?: string }[] }>({
+  const parsed = await callJson<{ candidates?: { lead?: string; text?: string }[] }>({
     model: MODEL,
     max_tokens: ROOM_LONG,
-    system: `${VOICE}\n\n${SHARE_PROMPTS[destination].replaceAll('{N}', String(n))}`,
+    system: `${DESCRIBE}\n\n${SHARE_PROMPTS[destination]}`.replaceAll('{N}', String(n)),
     output_config: { effort: 'medium', format: { type: 'json_schema', schema: SHARE_SCHEMA } },
     messages: [{ role: 'user', content: parts.filter(Boolean).join('\n') }],
   } as Anthropic.MessageCreateParamsNonStreaming, DRAFT_SAYS);
@@ -1785,7 +1799,6 @@ export async function draftShare(doc: IssueDoc, destination: ShareDestination): 
     const lead = notable.find((l) => l.id === c.lead);
     return [{
       ...(lead ? { lead: lead.id, lead_title: lead.item.title ?? '' } : {}),
-      ...(destination === 'blog' && c.title?.trim() ? { title: c.title.trim() } : {}),
       text,
     }];
   });

@@ -542,11 +542,11 @@ export function getShare(id: number): Share | null {
   return row ? rowToShare(row) : null;
 }
 
-export function createShare(issueId: string, destination: ShareDestination, text: string): Share {
+export function createShare(issueId: string, destination: ShareDestination, text: string, title?: string): Share {
   const now = new Date().toISOString();
   const { lastInsertRowid } = openDb()
-    .prepare('INSERT INTO shares (issue_id, destination, text, created_at, updated_at) VALUES (?, ?, ?, ?, ?)')
-    .run(issueId, destination, text, now, now);
+    .prepare('INSERT INTO shares (issue_id, destination, title, text, created_at, updated_at) VALUES (?, ?, ?, ?, ?, ?)')
+    .run(issueId, destination, title ?? null, text, now, now);
   return getShare(Number(lastInsertRowid))!;
 }
 

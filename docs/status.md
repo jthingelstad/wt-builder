@@ -287,9 +287,11 @@ finished, what is half-finished, and what has never run.
   back-dated), recording the post's URL from the Location header. The link
   carries `?ref=linkedin` or `?ref=blog`. A shared row is the record: no
   edit, re-post or delete (409). The wand offers three candidates and writes
-  nothing (`draftShare` in `src/server/editorial.ts`): for LinkedIn each leads
-  with a different Notable link, Jamie's commentary lightly edited, then a
-  turn to the issue, then the link, plain text; for the blog, a micropost.
+  nothing (`draftShare` in `src/server/editorial.ts`), and since 2026-10-07
+  describes the issue rather than speaking as Jamie: for LinkedIn each leads
+  with a different Notable link, described, then what else the issue covers,
+  then the link, plain text; for the blog, a short description. A blog share
+  starts titled as the email was (`subjectFor`, "WT352 — …").
   The Micro.blog sweep skips every post a share recorded, by URL
   (`sharedBlogUrls`), never by category. Routes: `GET /api/shares`,
   `GET|POST /api/issues/:id/shares`, `PATCH|DELETE …/shares/:sid`,
