@@ -158,6 +158,7 @@
 .sync-glyph.saving { color: var(--amber); }
 .sync-glyph.failed { color: var(--terracotta); }
 .sync-glyph.needs { color: var(--amber); }
+.sync-glyph.forked { color: var(--blue); }
 
 /* ── the page ─────────────────────────────────────────────────────────── */
 

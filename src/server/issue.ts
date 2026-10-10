@@ -28,7 +28,7 @@ import { findingsSummary, linkFindings } from '../shared/link-findings.ts';
 import { anchorFor, deliverabilityFindings, deliverabilitySummary } from '../shared/deliverability.ts';
 import * as pinboard from './integrations/pinboard.ts';
 import * as microblog from './integrations/microblog.ts';
-import { keepMine as rebaseOnRemote, reconcileItem, takeTheirs as adoptRemote, type RemoteFields } from './reconcile.ts';
+import { fork as forkFromSource, keepMine as rebaseOnRemote, reconcileItem, takeTheirs as adoptRemote, type RemoteFields } from './reconcile.ts';
 
 /** Sections that print no heading — the content carries itself. */
 const HEADLESS: ReadonlySet<string> = new Set([
@@ -397,8 +397,11 @@ export async function sweep(doc: IssueDoc): Promise<{ doc: IssueDoc; report: Swe
   return applySweep(doc, await fetchForSweep(doc));
 }
 
-/** An edit here that the source has not received yet. Dropping the item would lose it. */
-const UNSYNCED: ReadonlySet<string> = new Set(['local', 'syncing', 'failed', 'conflict']);
+/**
+ * An edit here that the source has not received yet — or, forked, never
+ * will. Dropping the item would lose it.
+ */
+const UNSYNCED: ReadonlySet<string> = new Set(['local', 'syncing', 'failed', 'conflict', 'forked']);
 
 /**
  * Drop the syndicated items the window no longer admits.
@@ -419,7 +422,9 @@ export function pruneOutsideWindow(doc: IssueDoc): { kind: string; summary: stri
   for (const [id, item] of Object.entries(doc.items)) {
     if (!outOfWindow(item, w)) continue;
     if (UNSYNCED.has(item.sync_state ?? '')) {
-      log.push({ kind: 'kept', summary: `${itemName(item)} — outside the window, kept: an edit here has not reached ${item.source}` });
+      log.push({ kind: 'kept', summary: item.sync_state === 'forked'
+        ? `${itemName(item)} — outside the window, kept: it is the newsletter's own copy`
+        : `${itemName(item)} — outside the window, kept: an edit here has not reached ${item.source}` });
       continue;
     }
     dropped.add(id);
@@ -635,7 +640,8 @@ export function updateItem(doc: IssueDoc, itemId: string, patch: Partial<Item>):
     (item.source === 'Micro.blog' && ['title', 'body'].some((key) => key in patch));
   // A `gone` item has no source record to write to — editing it must not
   // queue a write-back that would silently recreate the deleted bookmark.
-  if (sourceFieldChanged && item.sync_state !== 'gone') {
+  // A `forked` one is the issue's own copy: the blog post is not changed.
+  if (sourceFieldChanged && item.sync_state !== 'gone' && item.sync_state !== 'forked') {
     item.sync_state = 'syncing';
     delete item.sync_error;
   }
@@ -663,6 +669,19 @@ export function keepMine(doc: IssueDoc, itemId: string, remote: RemoteFields): I
   const next = structuredClone(doc);
   const item = next.items[itemId];
   if (item) rebaseOnRemote(item, remote);
+  return next;
+}
+
+/**
+ * Fork a Micro.blog post for the newsletter: edits here stop writing back
+ * and re-scans stop bringing the post's edits in, so a long post can be cut
+ * down for the issue while the blog keeps all of it (Jamie, 2026-10-10).
+ * Refused while a write is out — the route says why.
+ */
+export function fork(doc: IssueDoc, itemId: string): IssueDoc {
+  const next = structuredClone(doc);
+  const item = next.items[itemId];
+  if (item) forkFromSource(item);
   return next;
 }
 

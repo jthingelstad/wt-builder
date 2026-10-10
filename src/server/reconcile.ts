@@ -13,6 +13,9 @@
  *   - both changed differently        → `conflict`; the local copy is kept
  *   - source record deleted           → `gone`; the local copy is kept
  *
+ * A `forked` item is the newsletter's own copy and is not mirrored at all:
+ * nothing here touches it, not even a deletion at the source.
+ *
  * Nothing here deletes: this module marks. The sweep acts on the mark —
  * since 2026-09-20 a `gone` item is dropped from the issue (issue.ts
  * pruneGone), because deleting the bookmark at Pinboard is the editorial
@@ -67,7 +70,7 @@ export function sourceMoved(item: Item, remote: RemoteFields): boolean {
  */
 export function reconcileItem(item: Item, remote: RemoteFields | null): ReconcileOutcome {
   const fields = MIRRORED[item.source];
-  if (!fields) return 'unchanged';
+  if (!fields || item.sync_state === 'forked') return 'unchanged';
 
   if (remote === null) {
     if (item.sync_state === 'gone') return 'unchanged';
@@ -132,6 +135,17 @@ function mirroredOf(item: Item, remote: RemoteFields): Record<string, unknown> {
   const out: Record<string, unknown> = {};
   for (const f of MIRRORED[item.source] ?? []) out[f] = f === 'tags' ? [...(remote.tags ?? [])] : (remote[f] ?? '');
   return out;
+}
+
+/**
+ * Fork an item from its source: from here on its words are the issue's own.
+ * Whatever was waiting to be written, or in conflict, is let go — the source
+ * keeps what it has. The snapshot stays as the last copy both sides shared,
+ * which is what the Source lens's "as imported" line compares against.
+ */
+export function fork(item: Item): void {
+  item.sync_state = 'forked';
+  delete item.sync_error;
 }
 
 /**

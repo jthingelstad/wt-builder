@@ -369,6 +369,7 @@ Item {
   heldOut: bool           // derived: no channel on
   snapshot: {...}         // values as imported, for the diff view
   sync_state: "synced" | "syncing" | "failed" | "needs_commentary" | "local"
+            | "conflict" | "gone" | "forked"
 
   // per type
   body, title, commentary, label, attribution, section, tags[]
@@ -855,6 +856,10 @@ Opened by the rail `i` button. `padding: 14px 18px 40px`.
    describes the write. Since 2026-08-30 write-back is compare-and-set and refuses
    with `conflict`; see `docs/decisions.md`, *Revisited 2026-09-28 — the source is
    the second editor*.
+   *Revisited 2026-10-10:* a Micro.blog post offers **Fork for the newsletter**
+   beside Retry. Forked, the card says the blog post is not changed, Retry goes,
+   and **Rejoin the blog post** (confirmed) takes the post's words back. The
+   row's sync glyph is blue for forked. See `docs/item-model.md`, *Forked*.
 5. **Promotion card** (journal posts) — current state, why, and
    **Promote to its own section** / **Return to Journal**.
 6. **Thingy / generation card** — one card serves Membership, Echoes, Haiku, and link

@@ -65,7 +65,13 @@ export type SyncState =
   /** The source record was deleted after the sweep; the local copy is kept. */
   | 'gone'
   /** Edited both here and at the source since the sweep; the local copy is kept. */
-  | 'conflict';
+  | 'conflict'
+  /**
+   * The newsletter's own copy (Jamie, 2026-10-10): edits here never write
+   * back, and a re-scan never brings the source's edits in. Micro.blog posts
+   * only — a long post cut down for the issue while the blog keeps all of it.
+   */
+  | 'forked';
 
 export interface Media {
   url?: string;

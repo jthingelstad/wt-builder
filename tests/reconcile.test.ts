@@ -147,6 +147,25 @@ describe('reconcileItem — Micro.blog posts', () => {
     expect(item.sync_state).toBe('gone');
   });
 
+  // Forked, the post and the newsletter's copy go their own ways: a blog
+  // edit is not adopted, both-sides edits are no conflict, and a deletion
+  // at the blog does not drop the newsletter's copy (Jamie, 2026-10-10).
+  it('leaves a forked post alone: no adoption, no conflict, no gone', () => {
+    const item = journalItem({ body: 'The short version.', sync_state: 'forked' });
+    expect(reconcileItem(item, { title: '', body: 'The post, revised.' })).toBe('unchanged');
+    expect(reconcileItem(item, null)).toBe('unchanged');
+    expect(item.body).toBe('The short version.');
+    expect(item.sync_state).toBe('forked');
+    expect(item.source_snapshot?.body).toBe('The post.');
+  });
+
+  it('an edit to a forked post queues no write-back', () => {
+    const doc = createIssue({ number: 999, publication_date: '2026-10-10' });
+    doc.items['p'] = journalItem({ sync_state: 'forked' });
+    const next = updateItem(doc, 'p', { body: 'Cut down.', title: 'Shorter' });
+    expect(next.items['p']!.sync_state).toBe('forked');
+  });
+
   it('ignores sources it does not mirror', () => {
     const item = journalItem({ source: 'direct', authorship: 'Jamie' });
     expect(reconcileItem(item, null)).toBe('unchanged');

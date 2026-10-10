@@ -34,6 +34,7 @@ const SYNC_LABEL: Record<string, string> = {
   local: 'Edited here, not yet written back to {source}',
   gone: 'Deleted at {source} — your copy is kept',
   conflict: 'Edited both here and at {source} — keep yours, or take theirs',
+  forked: 'Forked for the newsletter — edits here never change the post at {source}',
 };
 
 /**
@@ -131,6 +132,21 @@ export function Inspector({ doc, itemId, run, onClose, onError, onBackToReview, 
       onWriteOut(itemId, false);
     }
   };
+
+  // Forking and rejoining change only this copy's tie to the post; neither
+  // writes to Micro.blog. Rejoin reads it and lets the newsletter's words go.
+  const forkOrRejoin = async (rejoin: boolean) => {
+    if (rejoin && !confirm(
+      `Rejoin the post at ${item.source}? Its words there replace the newsletter's copy, `
+      + 'and edits here write back to the blog again.')) return;
+    onWriteOut(itemId, true);
+    try {
+      await run(() => (rejoin ? api.rejoin(id, itemId) : api.fork(id, itemId)));
+    } finally {
+      onWriteOut(itemId, false);
+    }
+  };
+  const forkable = item.source === 'Micro.blog' && item.type === 'journal_post';
 
   // This item's link findings Jamie can act on and has not kept: its own
   // link and any link in its words, the same ones its row says (actionOf).
@@ -374,11 +390,29 @@ export function Inspector({ doc, itemId, run, onClose, onError, onBackToReview, 
             Take theirs
           </button>
         </div>
-      ) : imported && (
+      ) : imported && item.sync_state !== 'forked' && (
         <button class="btn" style="margin-top:12px" onClick={writeBack} disabled={writing}>
           {writing ? 'Writing…' : `Retry write to ${item.source}`}
         </button>
       )}
+
+      {!frozen && forkable && (item.sync_state === 'forked' ? (
+        <>
+          <p class="field-note">
+            The newsletter has its own copy of this post. Edit it freely: the blog post stays as it is.
+          </p>
+          <button class="btn" onClick={() => void forkOrRejoin(true)} disabled={writing}
+            title={`Replace this copy with the post's words at ${item.source}`}>
+            Rejoin the blog post
+          </button>
+        </>
+      ) : (
+        <button class="btn" style="margin-top:8px;margin-left:8px" onClick={() => void forkOrRejoin(false)}
+          disabled={writing}
+          title={`Edits here stop changing the post at ${item.source}; the newsletter gets its own copy`}>
+          Fork for the newsletter
+        </button>
+      ))}
 
       {/* The row's own hints, said in full (src/shared/hints.ts). Never a gate. */}
       {!frozen && (unfinishedHint(item) || titleHint(item) || haikuHint(item)) && (

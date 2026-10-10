@@ -167,6 +167,7 @@ const SYNC: Record<SyncState, { cls: string; label: string; icon: ComponentChild
   local: { cls: 'needs', label: 'Edited here, not yet written back', icon: <PencilLine /> },
   gone: { cls: 'failed', label: 'Deleted at the source — your copy is kept', icon: <CircleAlert /> },
   conflict: { cls: 'failed', label: 'Edited here and at the source — your copy is kept', icon: <CircleAlert /> },
+  forked: { cls: 'forked', label: 'Forked — edits stay in the newsletter; the blog post is not changed', icon: <PencilLine /> },
 };
 
 /** Nothing renders when there is nothing to sync. */

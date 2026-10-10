@@ -1657,3 +1657,154 @@ describe('one issue per Saturday, and a new one starts after the latest', () => 
     store.deleteIssue('wt990046');
   });
 });
+
+// Jamie, 2026-10-10: a long post promoted into its own section needs a
+// newsletter copy he can cut down "WITHOUT updating the source in the blog".
+// Forked, edits stay here, nothing is written to Micro.blog, and Rejoin
+// takes the post's words back.
+describe('a forked post is the newsletter\'s own copy', () => {
+  const POST = 'https://www.thingelstad.com/2026/10/09/mb-mcp.html';
+  let config: typeof import('../src/server/config.ts');
+  let store: typeof import('../src/server/db.ts');
+  let micropub: { method: string; body?: string }[];
+  let remote: { status: number; content: string };
+  const realFetch = globalThis.fetch;
+
+  beforeAll(async () => {
+    config = await import('../src/server/config.ts');
+    store = await import('../src/server/db.ts');
+  });
+
+  beforeEach(() => {
+    micropub = [];
+    remote = { status: 200, content: 'The whole post, as the blog has it.' };
+    config.credentials.microblogToken = 'test-token';
+    config.config.microblogWriteBack = true;
+    vi.stubGlobal('fetch', async (input: string | URL | Request, init?: RequestInit) => {
+      const url = new URL(input instanceof Request ? input.url : String(input));
+      if (url.hostname !== 'micro.blog') return realFetch(input, init);
+      micropub.push({ method: init?.method ?? 'GET', body: init?.body as string | undefined });
+      if (init?.method === 'POST') return new Response(null, { status: 204 });
+      if (remote.status !== 200) return new Response('down', { status: remote.status });
+      return Response.json({ properties: { name: ['mb 2.0 with MCP support'], content: [remote.content] } });
+    });
+  });
+
+  afterEach(() => {
+    vi.unstubAllGlobals();
+    config.credentials.microblogToken = undefined;
+    config.config.microblogWriteBack = false;
+  });
+
+  const promotedPost = async (number: number): Promise<string> => {
+    const saturday = new Date(Date.UTC(2030, 0, 5 + 7 * (number - 990600))).toISOString().slice(0, 10);
+    const created = await fetch(`${base}/api/issues`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ number, publication_date: saturday }),
+    });
+    const id = (await created.json()).issue.issue.id as string;
+    const doc = store.getIssue(id)!.doc;
+    doc.items['journal-mb'] = {
+      type: 'journal_post', authorship: 'syndicated', source: 'Micro.blog',
+      channels: { website: true, email: true, audio: true },
+      source_id: 'mb:1', source_url: POST, presentation: 'promoted',
+      title: 'mb 2.0 with MCP support', body: 'The whole post, as the blog has it.',
+      source_snapshot: { title: 'mb 2.0 with MCP support', body: 'The whole post, as the blog has it.' },
+      sync_state: 'synced',
+    };
+    doc.nodes.unshift({
+      id: 'promoted-journal-mb', kind: 'promoted_item', type: 'journal_post',
+      label: 'mb 2.0 with MCP support', movable: true, publishes_heading: true, items: ['journal-mb'],
+    });
+    store.saveIssue(doc);
+    return id;
+  };
+  const act = (id: string, verb: 'fork' | 'rejoin') =>
+    fetch(`${base}/api/issues/${id}/items/journal-mb/${verb}`, { method: 'POST', body: '{}' });
+  const edit = (id: string, patch: Record<string, unknown>) =>
+    fetch(`${base}/api/issues/${id}/items/journal-mb`, {
+      method: 'PATCH', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(patch),
+    });
+
+  it('edits to a forked post stay here: nothing is written to Micro.blog', async () => {
+    const id = await promotedPost(990600);
+    const forked = await act(id, 'fork');
+    expect(forked.status).toBe(200);
+    expect((await forked.json()).issue.items['journal-mb'].sync_state).toBe('forked');
+    expect(micropub).toHaveLength(0);
+
+    expect((await edit(id, { body: 'The short version, for the newsletter.' })).status).toBe(200);
+    expect((await edit(id, { title: 'mb 2.0, briefly' })).status).toBe(200);
+    expect(micropub).toHaveLength(0);
+    const item = store.getIssue(id)!.doc.items['journal-mb']!;
+    expect(item.body).toBe('The short version, for the newsletter.');
+    expect(item.title).toBe('mb 2.0, briefly');
+    expect(item.sync_state).toBe('forked');
+    // The snapshot is the post as it was when they parted: the "as imported" line.
+    expect(item.source_snapshot?.body).toBe('The whole post, as the blog has it.');
+
+    // A Retry writes nothing either.
+    await fetch(`${base}/api/issues/${id}/items/journal-mb/writeback`, { method: 'POST', body: '{}' });
+    expect(micropub).toHaveLength(0);
+    expect(store.getIssue(id)!.doc.items['journal-mb']!.sync_state).toBe('forked');
+    await fetch(`${base}/api/issues/${id}`, { method: 'DELETE' });
+  });
+
+  it('an unforked edit still writes to Micro.blog', async () => {
+    const id = await promotedPost(990601);
+    const res = await edit(id, { body: 'Edited, for the blog too.' });
+    expect((await res.json()).result.sync_state).toBe('synced');
+    expect(micropub.some((c) => c.method === 'POST')).toBe(true);
+    await fetch(`${base}/api/issues/${id}`, { method: 'DELETE' });
+  });
+
+  it("Rejoin takes the post's words over the newsletter's copy, and edits write back again", async () => {
+    const id = await promotedPost(990602);
+    await act(id, 'fork');
+    await edit(id, { body: 'The short version, for the newsletter.' });
+    remote.content = 'The whole post, edited on the blog since.';
+    const res = await act(id, 'rejoin');
+    expect(res.status).toBe(200);
+    const item = (await res.json()).issue.items['journal-mb'];
+    expect(item.body).toBe('The whole post, edited on the blog since.');
+    expect(item.source_snapshot.body).toBe('The whole post, edited on the blog since.');
+    expect(item.sync_state).toBe('synced');
+    expect(micropub.filter((c) => c.method === 'POST')).toHaveLength(0);
+    expect((await act(id, 'rejoin')).status).toBe(409);
+    await fetch(`${base}/api/issues/${id}`, { method: 'DELETE' });
+  });
+
+  it('a Rejoin that cannot read the post, or finds it deleted, leaves the fork standing', async () => {
+    const id = await promotedPost(990603);
+    await act(id, 'fork');
+    await edit(id, { body: 'The short version.' });
+    remote.status = 500;
+    expect((await act(id, 'rejoin')).status).toBe(502);
+    remote.status = 404;
+    const gone = await act(id, 'rejoin');
+    expect(gone.status).toBe(409);
+    expect((await gone.json()).error).toContain('stays forked');
+    const item = store.getIssue(id)!.doc.items['journal-mb']!;
+    expect(item.body).toBe('The short version.');
+    expect(item.sync_state).toBe('forked');
+    await fetch(`${base}/api/issues/${id}`, { method: 'DELETE' });
+  });
+
+  it('only a Micro.blog post forks, once, and never while a write is out', async () => {
+    const id = await promotedPost(990604);
+    const doc = store.getIssue(id)!.doc;
+    doc.items['journal-mb']!.sync_state = 'syncing';
+    store.saveIssue(doc);
+    expect((await act(id, 'fork')).status).toBe(409);
+    doc.items['journal-mb']!.sync_state = 'synced';
+    doc.items['journal-mb']!.source = 'Pinboard';
+    store.saveIssue(doc);
+    expect((await act(id, 'fork')).status).toBe(400);
+    doc.items['journal-mb']!.source = 'Micro.blog';
+    store.saveIssue(doc);
+    expect((await act(id, 'fork')).status).toBe(200);
+    expect((await act(id, 'fork')).status).toBe(409);
+    await fetch(`${base}/api/issues/${id}`, { method: 'DELETE' });
+  });
+});

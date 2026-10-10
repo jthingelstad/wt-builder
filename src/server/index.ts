@@ -289,6 +289,9 @@ async function writeItemToSource(
   const result =
     item.sync_state === 'gone'
       ? { sync_state: 'gone' as const, error: `deleted at ${item.source} — not recreating it` }
+      // Forked is the newsletter's own copy: the source keeps its words.
+      : item.sync_state === 'forked'
+      ? { sync_state: 'forked' as const, error: `forked for the newsletter — ${item.source} is not changed` }
       : item.source === 'Micro.blog'
         ? await microblog.updatePost(item)
         : item.source === 'Pinboard'
@@ -376,7 +379,13 @@ async function writeLatest(id: string, itemId: string, queue: { waiting: number 
       const asleep = Boolean(d.issue.put_to_bed_at);
       const fresh = d.items[itemId];
       if (!fresh) return;
+      // Forked while the write was out (a Retry is out with the item still
+      // `failed`): the fork stands. A write that landed moved the source,
+      // so the snapshot follows it; the state does not.
       const written = patch.source_snapshot;
+      if (fresh.sync_state === 'forked') {
+        return written ? issues.updateItem(d, itemId, { source_snapshot: written }) : d;
+      }
       if (result.sync_state !== 'synced' || !written || holds(fresh, written)) {
         return issues.updateItem(d, itemId, patch);
       }
@@ -1066,6 +1075,55 @@ const routes: [RegExp, string, (ctx: Ctx, params: string[]) => Promise<unknown>]
   [/^\/api\/issues\/([^/]+)\/items\/([^/]+)\/writeback$/, 'POST', async (_ctx, [id, itemId]) => {
     const { response, result } = await writeBack(id!, itemId!);
     return { ...response, result };
+  }],
+
+  /**
+   * Fork a Micro.blog post for the newsletter (Jamie, 2026-10-10: "fork the
+   * content that the newsletter will get … but DO NOT change the blog post").
+   * From here its edits stay in the issue and a re-scan leaves it alone.
+   * Nothing is read or written at the source. Refused while a write is out:
+   * those words are already on their way to the blog.
+   */
+  [/^\/api\/issues\/([^/]+)\/items\/([^/]+)\/fork$/, 'POST', async (_ctx, [id, itemId]) => {
+    const item = requireIssue(id!).items[itemId!];
+    if (!item) throw new HttpError(404, `no item ${itemId}`);
+    if (item.source !== 'Micro.blog') throw new HttpError(400, `only a Micro.blog post can be forked (${item.source})`);
+    if (item.sync_state === 'forked') throw new HttpError(409, `${issues.itemName(item)} is already forked`);
+    if (item.sync_state === 'syncing') {
+      throw new HttpError(409, `${issues.itemName(item)} is being written to Micro.blog — fork it once that lands`);
+    }
+    const response = savedFresh(id!, (d) => issues.fork(d, itemId!));
+    store.logEvent(id!, 'sync', `Forked for the newsletter — edits here no longer change the post at Micro.blog — ${issues.itemName(item)}`, itemId);
+    return response;
+  }],
+
+  /**
+   * The way back from a fork: the post's words at Micro.blog, read now,
+   * replace the newsletter's copy, and it mirrors the blog again. The
+   * newsletter's copy is let go (revisions keeps it). A read that fails
+   * changes nothing; a post deleted at Micro.blog leaves the fork standing,
+   * since it is all there is.
+   */
+  [/^\/api\/issues\/([^/]+)\/items\/([^/]+)\/rejoin$/, 'POST', async (_ctx, [id, itemId]) => {
+    const item = requireIssue(id!).items[itemId!];
+    if (!item) throw new HttpError(404, `no item ${itemId}`);
+    if (item.sync_state !== 'forked') {
+      throw new HttpError(409, `${issues.itemName(item)} is not forked (${item.sync_state ?? 'no sync state'})`);
+    }
+    const remote = await readSource(item);
+    if (remote === null) {
+      throw new HttpError(409, `${issues.itemName(item)} was deleted at Micro.blog — the newsletter's copy is all there is; it stays forked`);
+    }
+    const response = savedFresh(id!, (d) => {
+      awake(d, 'Micro.blog was read');
+      const fresh = d.items[itemId!];
+      if (!fresh || fresh.sync_state !== 'forked' || !holds(fresh, item)) {
+        throw new HttpError(409, `${issues.itemName(item)} changed while Micro.blog was read — nothing changed; look again`);
+      }
+      return issues.takeTheirs(d, itemId!, remote);
+    });
+    store.logEvent(id!, 'sync', `Rejoined the post at Micro.blog — took its words over the newsletter's copy — ${issues.itemName(item)}`, itemId);
+    return response;
   }],
 
   /**

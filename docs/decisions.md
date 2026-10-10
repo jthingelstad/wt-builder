@@ -338,6 +338,19 @@ workflow's send timestamps), but the date is the issue's identity: a Sunday
 or Monday date snaps *back* to the Saturday just past, a midweek date snaps
 forward to the target. The window can therefore never move with a late send.
 
+## A forked post never reaches the blog, and has no merge (2026-10-10)
+
+Jamie: "fork the content that the newsletter will get so edit this but DO NOT
+change the blog post it is sourced from", and then "it is as simple as just
+STOPPING the edits going back to the blog". So a fork is only that: a
+Micro.blog item marked `forked`, which write-back and the re-scan's reconcile
+both pass over. There is deliberately no way to push a fork's words to the
+blog, no diff-and-merge between the two copies, and no field holding a second
+body beside the post's: the item's own `body` and `title` are the newsletter's
+copy, so every renderer, proof, link check and wand already reads it. Rejoin
+is the one way back, and it takes the blog's words; the newsletter's copy is
+let go (the `revisions` table still has it).
+
 ## A share's blog post is never swept into the next issue (2026-10-06)
 
 The Weekly Thing reprints every blog post, and a share's blog post is a blog

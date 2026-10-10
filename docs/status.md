@@ -347,6 +347,13 @@ finished, what is half-finished, and what has never run.
   raw reply. On `syncing` the inspector adds no message of its own, though
   the saved document it absorbs first has already cleared a failed call's
   message from the bar.
+  **A post can be forked for the newsletter** (2026-10-10): `POST
+  /api/issues/:id/items/:itemId/fork` sets a Micro.blog item `forked`, and
+  its edits stop writing back while re-scans leave it alone (refused while
+  a write is out, 409; anything not Micro.blog, 400). `POST …/rejoin` reads
+  the post and takes its words over the newsletter's copy (502 when the read
+  fails, 409 when the post was deleted — the fork stands — or the item
+  changed meanwhile). Both are in the Inspector's sync area.
   **A conflict has a way out** (2026-09-28): the inspector's sync area
   offers **Keep mine** (`POST /api/issues/:id/items/:itemId/keep-mine` —
   re-read the source, make it the base, write the local copy over it) and

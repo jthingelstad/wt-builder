@@ -69,7 +69,7 @@ presentation           journal | promoted
 published_at
 media                  { url, alt, caption, timestamp, location }
 source_flags           source-owned fields write-back must hand back untouched
-sync_state             synced | syncing | failed | needs_commentary | local | conflict | gone
+sync_state             synced | syncing | failed | needs_commentary | local | conflict | gone | forked
 sync_error             kept beside the local edit until a retry succeeds
 status                 draft | reviewed        (Thingy-authored; gates nothing, see decisions.md "Picking is the review")
 reviewed               bool                    (Thingy-authored; set when words land in the item, and flipped by the inspector's Mark reviewed / Mark draft toggle)
@@ -234,6 +234,15 @@ back in an update. The blog's JSON Feed returns *rendered* content and cannot.
 
 The original post stays canonical for the blog. WT-specific inclusion,
 presentation, and placement do not modify it; edits to its words do.
+
+**Forked** (2026-10-10). A Micro.blog post can be forked for the newsletter:
+`sync_state: forked`, and from then its title and body are the issue's own.
+Edits never write back, a re-scan never adopts the post's edits, marks no
+conflict, and a deletion at the blog does not drop it. The snapshot stays as
+the last copy both sides shared, so the Source lens's "as imported" line shows
+how far the newsletter's copy has moved. **Rejoin** reads the post and takes
+its words over the newsletter's copy; it mirrors again from there. Made for a
+long promoted post cut down for the issue while the blog keeps all of it.
 
 ## Resolved questions
 

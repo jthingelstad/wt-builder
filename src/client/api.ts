@@ -7,6 +7,8 @@ import type { ProofSpot } from '../shared/proof.ts';
 
 /** True when a local edit touches a field owned by an imported source. */
 export function shouldWriteBack(item: Item, patch: Record<string, unknown>): boolean {
+  // Forked: the newsletter's own copy, never written back.
+  if (item.sync_state === 'forked') return false;
   const fields = item.source === 'Pinboard'
     ? ['title', 'commentary', 'tags']
     : item.source === 'Micro.blog'
@@ -348,6 +350,14 @@ export const api = {
     post(`/issues/${id}/items/${itemId}/${keep === 'mine' ? 'keep-mine' : 'take-theirs'}`) as Promise<
       IssueResponse & { result?: { sync_state: string; error?: string } }
     >,
+
+  /** Fork a Micro.blog post for the newsletter: its edits stop reaching the blog. */
+  fork: (id: string, itemId: string) =>
+    post(`/issues/${id}/items/${itemId}/fork`) as Promise<IssueResponse>,
+
+  /** Back from a fork: the post's words at Micro.blog replace the newsletter's copy. */
+  rejoin: (id: string, itemId: string) =>
+    post(`/issues/${id}/items/${itemId}/rejoin`) as Promise<IssueResponse>,
 
   // No checkLinks: links and domains are checked as they arrive, in the
   // background (src/server/arrival-check.ts), and the send legs check what
