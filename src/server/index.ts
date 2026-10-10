@@ -211,6 +211,15 @@ arrivalDeps({
 const legsInFlight = new Set<string>();
 
 /**
+ * Where an in-flight podcast render is, by issue: the step, its count, and
+ * when each began. In memory only, like `legsInFlight`: it is a view of a
+ * request still running, so a restart that ends the request ends it too,
+ * and nothing is written to the issue for it (a save per piece would fill
+ * the revisions with progress).
+ */
+const legProgress = new Map<string, audio.AudioProgress & { started_at: string; step_at: string }>();
+
+/**
  * Refuse a leg that is already in flight — the client disables its buttons,
  * but two tabs are a documented workflow, and a second POST re-runs paid TTS
  * and re-uploads, or creates a second Buttondown draft. The persisted
@@ -780,6 +789,16 @@ const routes: [RegExp, string, (ctx: Ctx, params: string[]) => Promise<unknown>]
   }],
 
   /** The issue's event log, newest first: the latest 500, or with ?all=1 all of it (the MCP pages it). */
+  /**
+   * Where the in-flight podcast render is: `{ podcast: { step, done, total,
+   * cached, started_at, step_at } }`, or `{}` when none is running. The
+   * Send view polls it each second while the podcast is sending.
+   */
+  [/^\/api\/issues\/([^/]+)\/progress$/, 'GET', async (_ctx, [id]) => {
+    const podcast = legProgress.get(id!);
+    return podcast ? { podcast } : {};
+  }],
+
   [/^\/api\/issues\/([^/]+)\/events$/, 'GET', async ({ url }, [id]) => {
     requireIssue(id!); // 404 for a missing issue, not an empty log
     return { events: url.searchParams.get('all') === '1' ? store.allEvents(id!).reverse() : store.listEvents(id!) };
@@ -2116,7 +2135,15 @@ async function sendPodcast(id: string, force = false) {
   try {
     // Blocks, not a flat script: each is synthesized in its speaker's voice
     // and placed with the pause its boundary calls for.
-    const result = await audio.renderAudio(audio.episodeOf(doc), audioScript(doc));
+    const started_at = new Date().toISOString();
+    let current = '';
+    const result = await audio.renderAudio(audio.episodeOf(doc), audioScript(doc), {
+      onProgress: (p) => {
+        const step_at = p.step === current ? legProgress.get(id)?.step_at ?? started_at : new Date().toISOString();
+        current = p.step;
+        legProgress.set(id, { ...p, started_at, step_at });
+      },
+    });
     const state: SendState = {
       status: 'sent',
       at: new Date().toISOString(),
@@ -2143,6 +2170,7 @@ async function sendPodcast(id: string, force = false) {
     store.recordSend(id, 'podcast', state);
     throw new HttpError(502, state.error!);
   } finally {
+    legProgress.delete(id);
     release();
   }
 }

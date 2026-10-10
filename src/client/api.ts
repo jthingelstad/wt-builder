@@ -5,6 +5,16 @@ import type { ArchiveReference, Channel, EchoOption, IssueDoc, Item, LinkedBefor
 import type { IssueTiming } from '../shared/timing.ts';
 import type { ProofSpot } from '../shared/proof.ts';
 
+/** One step of a podcast render, as GET /progress reports it (src/server/integrations/audio.ts). */
+export interface AudioProgress {
+  step: string;
+  done?: number;
+  total?: number;
+  cached?: number;
+  started_at: string;
+  step_at: string;
+}
+
 /** True when a local edit touches a field owned by an imported source. */
 export function shouldWriteBack(item: Item, patch: Record<string, unknown>): boolean {
   // Forked: the newsletter's own copy, never written back.
@@ -402,6 +412,9 @@ export const api = {
     call<{ issue: IssueDoc }>(`/issues/${id}/verify/${destination}`, { method: 'POST', body: '{}' }),
 
   /** What a leg would commit, committing nothing. website and archive only. */
+  /** Where an in-flight podcast render is; `{}` when none is running. */
+  progress: (id: string) => call<{ podcast?: AudioProgress }>(`/issues/${id}/progress`),
+
   sendPreview: (id: string, leg: 'website' | 'archive') =>
     call<{ repo: string; sha: string; changed: string[]; unchanged: number }>(
       `/issues/${id}/send/${leg}/preview`,

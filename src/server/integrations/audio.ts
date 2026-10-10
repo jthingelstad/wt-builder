@@ -283,15 +283,22 @@ async function speakCached(text: string, voice: string, cacheDir: string): Promi
   }
 }
 
-/** Run `fn` over `items` with at most `limit` in flight, preserving order. */
-async function mapLimit<T, R>(items: T[], limit: number, fn: (item: T, i: number) => Promise<R>): Promise<R[]> {
+/**
+ * Run `fn` over `items` with at most `limit` in flight, preserving order.
+ * `tick`, when given, hears how many have finished after each one does.
+ */
+async function mapLimit<T, R>(
+  items: T[], limit: number, fn: (item: T, i: number) => Promise<R>, tick?: (done: number) => void,
+): Promise<R[]> {
   const out: R[] = new Array(items.length);
   let next = 0;
+  let finished = 0;
   const workers = Array.from({ length: Math.min(limit, items.length) }, async () => {
     for (;;) {
       const i = next++;
       if (i >= items.length) return;
       out[i] = await fn(items[i]!, i);
+      tick?.(++finished);
     }
   });
   await Promise.all(workers);
@@ -531,10 +538,25 @@ export function id3Chapters(chapters: TimedChapter[], art: Map<string, Buffer>, 
  * year, so a regenerated issue must be a new object, and the page and feed
  * move to it when the website leg re-sends.
  */
+/**
+ * Where a render is, for the Send view's podcast card: one step at a time,
+ * with a count when the step has one. Synthesis is minutes of a spinner
+ * otherwise (Jamie, 2026-10-10: "you just have to wait with no idea what is
+ * happening"). `cached` counts pieces said before, which cost nothing.
+ */
+export interface AudioProgress {
+  step: string;
+  done?: number;
+  total?: number;
+  cached?: number;
+}
+
 export async function renderAudio(
   episode: Episode,
   script: ScriptBlock[],
   opts: {
+    /** Hears each step as it starts, and each count as it moves. */
+    onProgress?: (p: AudioProgress) => void;
     /** Write the three files here instead of the CDN — a dry run that costs only the synthesis. */
     localOut?: string;
     /**
@@ -557,8 +579,11 @@ export async function renderAudio(
     });
   }
 
+  const say = (p: AudioProgress) => { try { opts.onProgress?.(p); } catch { /* progress never fails a render */ } };
+
   // Build the cover before paying for synthesis: a missing cover should fail
   // the send cheaply, not after a hundred TTS calls.
+  say({ step: 'Building the cover' });
   const cover = await buildCover(episode, { upload: !opts.localOut && opts.banner !== false });
 
   await mkdir(config.ttsCacheDir, { recursive: true });
@@ -568,8 +593,13 @@ export async function renderAudio(
     await writeFile(coverPath, cover.square);
 
     // 1. Speech, one piece per block, from the cache where it has been said.
-    let spoken = await mapLimit(blocks, CONCURRENCY, (b) =>
-      speakCached(pronounce(b.text), VOICES[b.speaker ?? 'jamie'], config.ttsCacheDir));
+    let cached = 0;
+    say({ step: 'Speaking the script', done: 0, total: blocks.length, cached });
+    let spoken = await mapLimit(blocks, CONCURRENCY, async (b) => {
+      const piece = await speakCached(pronounce(b.text), VOICES[b.speaker ?? 'jamie'], config.ttsCacheDir);
+      if (!piece.fresh) cached++;
+      return piece;
+    }, (done) => say({ step: 'Speaking the script', done, total: blocks.length, cached }));
     let synthesized = spoken.filter((s) => s.fresh).length;
 
     // A terse block — a one-word subheading, "DuckDB." — comes back from
@@ -597,17 +627,19 @@ export async function renderAudio(
     const trim =
       `silenceremove=start_periods=1:start_threshold=-50dB:start_silence=${PIECE_HEAD_S},` +
       `areverse,silenceremove=start_periods=1:start_threshold=-50dB:start_silence=${PIECE_TAIL_S},areverse`;
+    say({ step: 'Trimming each piece', done: 0, total: spoken.length });
     const pieces = await mapLimit(spoken, 4, async (s, i) => {
       const path = join(work, `piece-${String(i).padStart(3, '0')}.wav`);
       await run('ffmpeg', ['-hide_banner', '-loglevel', 'error', '-y', '-i', s.path,
         '-af', trim, '-ar', String(PIECE_RATE), '-ac', '1', '-c:a', 'pcm_s16le', path]);
       return path;
-    });
+    }, (done) => say({ step: 'Trimming each piece', done, total: spoken.length }));
 
     // 3. Gain-match Thingy to Jamie. The final loudnorm is linear, so a level
     //    difference between the two voices would survive it.
     const bySpeaker = (who: Speaker) => pieces.filter((_, i) => (blocks[i]!.speaker ?? 'jamie') === who);
     if (bySpeaker('thingy').length) {
+      say({ step: "Matching Thingy's level to Jamie's" });
       const level = async (who: Speaker) => {
         const list = join(work, `${who}.txt`);
         await writeFile(list, concatList(bySpeaker(who)));
@@ -638,6 +670,7 @@ export async function renderAudio(
       silences.set(seconds, path);
       return path;
     };
+    say({ step: 'Placing the pauses' });
     const durations = await mapLimit(pieces, 4, durationExact);
     // A piece with no measurable duration would put NaN into every start
     // time after it and surface much later as an ID3 integer error (WT150,
@@ -667,6 +700,7 @@ export async function renderAudio(
     const total = await durationExact(rawPath);
 
     // 5. Master: measure the whole programme, then normalize linearly.
+    say({ step: 'Measuring the loudness' });
     const measured = await measureLoudness(rawPath);
     const filter =
       `highpass=f=${HIGHPASS_HZ},` +
@@ -683,6 +717,8 @@ export async function renderAudio(
     // fetched and cropped once, keyed by the source URL; the chapter is
     // pointed at the square once the destination is known.
     const art = new Map<string, { key: string; body: Buffer }>();
+    const pictures = new Set(chapters.map((c) => c.image).filter(Boolean)).size;
+    if (pictures) say({ step: 'Fetching the chapter art', done: 0, total: pictures });
     for (const c of chapters) {
       if (!c.image) continue;
       let have = art.get(c.image);
@@ -693,12 +729,14 @@ export async function renderAudio(
         const hash = createHash('sha256').update(squared).digest('hex').slice(0, 12);
         have = { key: `weekly-thing/${issueNumber}/chapters/${hash}.jpg`, body: squared };
         art.set(c.image, have);
+        say({ step: 'Fetching the chapter art', done: art.size, total: pictures });
       }
     }
     const metaPath = join(work, 'metadata.txt');
     await writeFile(metaPath, ffMetadata(id3Tags(episode)));
 
     const outPath = join(work, `weekly-thing-${issueNumber}.mp3`);
+    say({ step: 'Mastering the mp3' });
     await run('ffmpeg', [
       '-hide_banner', '-loglevel', 'error', '-y',
       '-i', rawPath,
@@ -730,6 +768,7 @@ export async function renderAudio(
       c.image = href(a.key);
       artByUrl.set(c.image, a.body);
     }
+    say({ step: 'Writing the chapters into the file' });
     // The chapters into the file itself, links and art included. node-id3
     // merges with the tags and cover ffmpeg wrote.
     const written = NodeID3.update(id3Chapters(chapters, artByUrl, total), outPath);
@@ -758,10 +797,17 @@ export async function renderAudio(
           Bucket: CDN_HOST, Key: key, Body, ContentType,
           CacheControl: 'public, max-age=31536000, immutable',
         }));
-      for (const a of art.values()) await put(a.key, a.body, 'image/jpeg');
-      await put(`${base}.mp3`, body, 'audio/mpeg');
-      await put(`${base}.chapters.json`, chaptersFile, 'application/json+chapters');
-      await put(`${base}.vtt`, transcript, 'text/vtt');
+      const files = art.size + 3;
+      let sent = 0;
+      const upload = async (key: string, Body: Buffer | string, ContentType: string) => {
+        say({ step: 'Uploading to the CDN', done: sent, total: files });
+        await put(key, Body, ContentType);
+        sent++;
+      };
+      for (const a of art.values()) await upload(a.key, a.body, 'image/jpeg');
+      await upload(`${base}.mp3`, body, 'audio/mpeg');
+      await upload(`${base}.chapters.json`, chaptersFile, 'application/json+chapters');
+      await upload(`${base}.vtt`, transcript, 'text/vtt');
     }
 
     return {

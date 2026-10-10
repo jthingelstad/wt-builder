@@ -309,3 +309,26 @@ test('a dead link: the website offers "Commit with dead links…", which asks an
   await override.click();
   await expect.poll(() => posted).toEqual(['website?force=1']);
 });
+
+// Jamie, 2026-10-10, generating WT353's audio: "it spins and you just have
+// to wait with no idea what is happening". While the podcast is out, its
+// card says the step, the count and the time gone. The server's progress
+// is stubbed here; nothing is synthesized.
+test('a podcast being made says what step it is on and how far through', async ({ page }) => {
+  const started = new Date(Date.now() - 75_000).toISOString();
+  store.recordSend(ISSUE, 'podcast', { status: 'sending', at: started });
+  await page.route('**/api/issues/*/progress', (route) => route.fulfill({
+    json: { podcast: { step: 'Speaking the script', done: 42, total: 130, cached: 30, started_at: started, step_at: started } },
+  }));
+
+  await open(page, '/send');
+  const progress = card(page, 'Podcast').locator('.sc-progress');
+  await expect(progress).toContainText('Speaking the script…');
+  await expect(progress).toContainText('42 of 130');
+  await expect(progress).toContainText('30 from the cache');
+  await expect(progress.locator('.sc-progress-clock')).toHaveText(/^1:1\d$/);
+  await expect(progress.locator('.sc-progress-bar span')).toHaveAttribute('style', /width:\s*32%/);
+
+  // The other cards say nothing of it.
+  await expect(page.locator('.sc-progress')).toHaveCount(1);
+});

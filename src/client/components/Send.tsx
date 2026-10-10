@@ -22,7 +22,7 @@ import { linkFindings } from '../../shared/link-findings.ts';
 import { deliverabilityFindings } from '../../shared/deliverability.ts';
 import { openChecks } from '../../shared/hints.ts';
 import { madeIn } from '../made-in.ts';
-import { ApiError, api, type PodcastAudio, type Readiness, type SendResult } from '../api.ts';
+import { ApiError, api, type AudioProgress, type PodcastAudio, type Readiness, type SendResult } from '../api.ts';
 import {
   Archive, ArrowLeft, Check, Circle, CircleAlert, Globe, Mail, Moon, Podcast, Spinner, X,
 } from '../icons.tsx';
@@ -597,6 +597,55 @@ function ArchivePreview({ issueId }: { issueId: string }) {
   );
 }
 
+/** Time gone, from milliseconds: 2:05, or 45s. */
+function elapsed(ms: number): string {
+  const s = Math.max(0, Math.round(ms / 1000));
+  return s < 60 ? `${s}s` : `${Math.floor(s / 60)}:${String(s % 60).padStart(2, '0')}`;
+}
+
+/**
+ * The podcast render, said while it runs: the step, how far through it,
+ * and how long it has been going. Polls each second; the server keeps the
+ * step in memory for as long as the request runs (Jamie, 2026-10-10: "it
+ * spins and you just have to wait with no idea what is happening").
+ */
+function PodcastProgress({ issueId, since }: { issueId: string; since?: string }) {
+  const [progress, setProgress] = useState<AudioProgress | undefined>();
+  const [now, setNow] = useState(Date.now());
+  useEffect(() => {
+    let live = true;
+    const tick = () => {
+      setNow(Date.now());
+      api.progress(issueId)
+        .then((r) => { if (live) setProgress(r.podcast); })
+        .catch(() => { /* next second */ });
+    };
+    tick();
+    const timer = setInterval(tick, 1000);
+    return () => { live = false; clearInterval(timer); };
+  }, [issueId]);
+
+  const started = Date.parse(progress?.started_at ?? since ?? '') || now;
+  const step = progress?.step ?? 'Starting';
+  const counted = progress?.total ? `${progress.done ?? 0} of ${progress.total}` : '';
+  const cached = progress?.cached ? `${progress.cached} from the cache` : '';
+  const pct = progress?.total ? Math.round(100 * (progress.done ?? 0) / progress.total) : undefined;
+  return (
+    <div class="sc-progress" role="status" aria-live="polite">
+      <div class="sc-progress-line">
+        <span class="sc-progress-step">{step}…</span>
+        {counted && <span>{counted}</span>}
+        {cached && <span class="quiet">{cached}</span>}
+        <span class="head-spacer" />
+        <span class="sc-progress-clock">{elapsed(now - started)}</span>
+      </div>
+      <div class={`sc-progress-bar${pct === undefined ? ' busy' : ''}`}>
+        <span style={pct === undefined ? undefined : `width:${pct}%`} />
+      </div>
+    </div>
+  );
+}
+
 function SendCard({
   card, state, stranded, send, result, blocker, gated, busy, onApprove, onRun, verification, onVerify, issueId, gate, locked, override,
 }: {
@@ -655,6 +704,10 @@ function SendCard({
           {state === 'sending' && !stranded ? 'Sending…' : override ?? (failed || stranded ? 'Try again' : done ? card.again : card.verb)}
         </button>
       </div>
+
+      {card.key === 'podcast' && state === 'sending' && !stranded && (
+        <PodcastProgress issueId={issueId} since={send?.status === 'sending' ? send.at : undefined} />
+      )}
 
       {locked && (
         <div class="sc-blocker sc-locked">

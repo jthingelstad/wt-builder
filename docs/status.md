@@ -347,6 +347,13 @@ finished, what is half-finished, and what has never run.
   raw reply. On `syncing` the inspector adds no message of its own, though
   the saved document it absorbs first has already cleared a failed call's
   message from the bar.
+  **The podcast says where it is** (2026-10-10): `renderAudio` reports each
+  step (cover, speaking n of N with how many came from the cache, trimming,
+  levelling, pauses, loudness, chapter art, mastering, chapters, uploading)
+  through `onProgress`; `sendPodcast` keeps the latest in memory and `GET
+  /api/issues/:id/progress` answers it (`{}` when nothing runs). The Send
+  view's podcast card polls it each second while sending and shows the step,
+  the count, a bar and the time gone. Nothing is written to the issue for it.
   **A post can be forked for the newsletter** (2026-10-10): `POST
   /api/issues/:id/items/:itemId/fork` sets a Micro.blog item `forked`, and
   its edits stop writing back while re-scans leave it alone (refused while

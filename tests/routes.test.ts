@@ -1808,3 +1808,11 @@ describe('a forked post is the newsletter\'s own copy', () => {
     await fetch(`${base}/api/issues/${id}`, { method: 'DELETE' });
   });
 });
+
+describe('the podcast progress route', () => {
+  it('answers empty when no render is running', async () => {
+    const res = await fetch(`${base}/api/issues/nope/progress`);
+    expect(res.status).toBe(200);
+    expect(await res.json()).toEqual({});
+  });
+});
