@@ -21,6 +21,9 @@ test('Fork for the newsletter keeps later edits off the blog', async ({ page }) 
   await expect.poll(() => item().sync_state).toBe('forked');
   await expect(panel.getByRole('button', { name: 'Rejoin the blog post' })).toBeVisible();
   await expect(panel.getByRole('button', { name: /Retry write/ })).toHaveCount(0);
+  // The row says so beside the rail, at full strength, not only in the Inspector.
+  await expect(row.locator('.row-flag.forked')).toBeVisible();
+  await expect(page.locator('.row-flag.forked')).toHaveCount(1);
 
   const heading = '[data-anchor="promoted-post"] h2 [contenteditable]';
   await caretAtEnd(page, heading);

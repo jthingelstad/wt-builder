@@ -858,8 +858,10 @@ Opened by the rail `i` button. `padding: 14px 18px 40px`.
    the second editor*.
    *Revisited 2026-10-10:* a Micro.blog post offers **Fork for the newsletter**
    beside Retry. Forked, the card says the blog post is not changed, Retry goes,
-   and **Rejoin the blog post** (confirmed) takes the post's words back. The
-   row's sync glyph is blue for forked. See `docs/item-model.md`, *Forked*.
+   and **Rejoin the blog post** (confirmed) takes the post's words back. A forked
+   row carries a blue `git-fork` mark under its rail at full strength, as a row
+   hint's mark does (it opens the Inspector), and no faded sync glyph; the
+   Source lens meta line says `forked`. See `docs/item-model.md`, *Forked*.
 5. **Promotion card** (journal posts) — current state, why, and
    **Promote to its own section** / **Return to Journal**.
 6. **Thingy / generation card** — one card serves Membership, Echoes, Haiku, and link

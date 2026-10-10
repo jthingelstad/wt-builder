@@ -103,6 +103,10 @@ export const CloudCheck = ({ size = 13, ...p }: IconProps) =>
 export const CircleAlert = ({ size = 13, ...p }: IconProps) =>
   svg(<><circle cx="12" cy="12" r="10" /><path d="M12 8v4" /><path d="M12 16h.01" /></>, size, p.class);
 
+/** `git-fork` — a post forked for the newsletter; the blog keeps its own. */
+export const GitFork = ({ size = 13, ...p }: IconProps) =>
+  svg(<><circle cx="12" cy="18" r="3" /><circle cx="6" cy="6" r="3" /><circle cx="18" cy="6" r="3" /><path d="M18 9v2c0 .6-.4 1-1 1H7c-.6 0-1-.4-1-1V9" /><path d="M12 12v3" /></>, size, p.class);
+
 /** `moon` — put to bed. */
 export const Moon = ({ size = 13, ...p }: IconProps) =>
   svg(<path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z" />, size, p.class);

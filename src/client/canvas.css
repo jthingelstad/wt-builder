@@ -158,7 +158,6 @@
 .sync-glyph.saving { color: var(--amber); }
 .sync-glyph.failed { color: var(--terracotta); }
 .sync-glyph.needs { color: var(--amber); }
-.sync-glyph.forked { color: var(--blue); }
 
 /* ── the page ─────────────────────────────────────────────────────────── */
 
@@ -460,6 +459,8 @@ span[contenteditable]:focus {
 .row-flag.link { color: var(--amber); }
 .row-flag.title { color: var(--faint); }
 .row-flag:hover { background: var(--amber-1); }
+.row-flag.forked { color: var(--blue); }
+.row-flag.forked:hover { background: var(--blue-1); }
 .row-hint {
   margin: 8px 0 6px; padding: 5px 10px; border-radius: 6px;
   background: var(--amber-1); color: var(--amber);

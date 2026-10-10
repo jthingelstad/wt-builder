@@ -429,6 +429,7 @@ export function Page({
           selected={selected === itemId}
           structureName={!showHeading && i === 0 ? node.label.toUpperCase() : undefined}
           rail={<Rail {...rowRail} />}
+          forked={item.sync_state === 'forked'}
           margin={
             <>
               {DRAFTABLE.has(item.type) && !readOnly && (
@@ -1508,6 +1509,7 @@ function SourceBlock({ doc, node, item, itemId, readOnly, act }: BlockProps) {
     item.tags?.length ? item.tags.join(' ') : '',
     item.published_at ? wallClock(item.published_at)?.key : '',
     item.presentation,
+    item.sync_state === 'forked' ? 'forked' : '',
     item.media?.location,
     editionOnly(item) ? 'edition only' : '',
   ].filter(Boolean);

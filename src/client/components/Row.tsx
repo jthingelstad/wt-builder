@@ -17,7 +17,7 @@ import type { Item, SyncState } from '../../shared/types.ts';
 import type { Hint } from '../../shared/hints.ts';
 import {
   ArrowDown, ArrowUp, CircleAlert, CloudCheck, CornerDownRight, CornerUpRight,
-  Info, PencilLine, Spinner, WandSparkles, X,
+  GitFork, Info, PencilLine, Spinner, WandSparkles, X,
 } from '../icons.tsx';
 
 interface RowProps {
@@ -29,6 +29,8 @@ interface RowProps {
   selected?: boolean;
   /** Never shows what the anchor owes — a utility row borrowing an anchor. */
   quiet?: boolean;
+  /** A post forked for the newsletter: marked beside the rail, at full strength. */
+  forked?: boolean;
   children: ComponentChildren;
 }
 
@@ -57,7 +59,9 @@ export const HintsContext = createContext<{
   open: () => {},
 });
 
-export function Row({ anchor, structureName, rail, margin, selected, quiet, children }: RowProps) {
+const FORKED = "Forked for the newsletter — edits here never change the blog post\nOpen the inspector";
+
+export function Row({ anchor, structureName, rail, margin, selected, quiet, forked, children }: RowProps) {
   const owedMap = useContext(OwedContext);
   const owed = quiet ? undefined : owedMap.get(anchor);
   const { hints, open, keep } = useContext(HintsContext);
@@ -92,6 +96,13 @@ export function Row({ anchor, structureName, rail, margin, selected, quiet, chil
             onClick={() => open(anchor)}
           >
             <CircleAlert />
+          </button>
+        )}
+        {/* A state, not a finding: says the words are the newsletter's own
+            even when the faded rail is not looked at (Jamie, 2026-10-10). */}
+        {forked && (
+          <button class="row-flag forked" title={FORKED} aria-label={FORKED} onClick={() => open(anchor)}>
+            <GitFork />
           </button>
         )}
       </div>
@@ -159,7 +170,8 @@ export function Rail({ sync, actions }: { sync?: SyncState; actions: RailAction[
   );
 }
 
-const SYNC: Record<SyncState, { cls: string; label: string; icon: ComponentChildren }> = {
+/** Forked has no glyph here: the row's own mark says it at full strength. */
+const SYNC: Record<Exclude<SyncState, 'forked'>, { cls: string; label: string; icon: ComponentChildren }> = {
   synced: { cls: 'synced', label: 'Synced with the source', icon: <CloudCheck /> },
   syncing: { cls: 'saving', label: 'Writing back…', icon: <Spinner size={13} /> },
   failed: { cls: 'failed', label: 'Write failed — your edit is kept', icon: <CircleAlert /> },
@@ -167,12 +179,11 @@ const SYNC: Record<SyncState, { cls: string; label: string; icon: ComponentChild
   local: { cls: 'needs', label: 'Edited here, not yet written back', icon: <PencilLine /> },
   gone: { cls: 'failed', label: 'Deleted at the source — your copy is kept', icon: <CircleAlert /> },
   conflict: { cls: 'failed', label: 'Edited here and at the source — your copy is kept', icon: <CircleAlert /> },
-  forked: { cls: 'forked', label: 'Forked — edits stay in the newsletter; the blog post is not changed', icon: <PencilLine /> },
 };
 
 /** Nothing renders when there is nothing to sync. */
 export function SyncGlyph({ state }: { state: SyncState }) {
-  const s = SYNC[state];
+  const s = state === 'forked' ? undefined : SYNC[state];
   if (!s) return null;
   return <span class={`sync-glyph ${s.cls}`} title={s.label} aria-label={s.label}>{s.icon}</span>;
 }
