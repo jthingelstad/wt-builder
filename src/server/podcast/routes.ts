@@ -267,10 +267,15 @@ function applySettings(doc: EpisodeDoc, body: Record<string, unknown>): EventInp
   const e = doc.episode;
   const events: EventInput[] = [];
   const sent = isSent(doc);
+  // A send packages the episode before its first await and commits it after
+  // several: the identity it packaged must still be the episode's when it
+  // lands, or the repository holds one URL and the record another.
+  const going = sending.has(e.id) || isOut(doc.sends?.another);
 
   for (const key of FROZEN) {
     if (body[key] === undefined || body[key] === e[key]) continue;
     if (sent) throw new HttpError(409, `the episode has been sent: its ${key} makes its URL and GUID, and stays as it is`, 'frozen');
+    if (going) throw new HttpError(409, `the episode is being sent: its ${key} is what is going out — wait for the send`, 'sending');
   }
 
   if (typeof body.number === 'number' && body.number !== e.number) {
@@ -282,7 +287,7 @@ function applySettings(doc: EpisodeDoc, body: Record<string, unknown>): EventInp
   }
   if (typeof body.title === 'string' && body.title !== e.title) {
     // The slug follows the title until it is set by hand or the episode is sent.
-    if (!sent && body.slug === undefined && e.slug === slugFromTitle(e.title)) e.slug = slugFromTitle(body.title);
+    if (!sent && !going && body.slug === undefined && e.slug === slugFromTitle(e.title)) e.slug = slugFromTitle(body.title);
     e.title = body.title.slice(0, 300);
     events.push({ kind: 'settings', anchor: 'episode', summary: `Title — ${e.title || '(none)'}`, data: { field: 'title' } });
   }
@@ -546,6 +551,9 @@ export const podcastRoutes: Route[] = [
     if (doc.transcript?.trim() && !b.replace) {
       throw new HttpError(409, 'the episode has a transcript already — replacing it loses your edits', 'has-transcript');
     }
+    // What the transcript said when the draft was asked for: the draft
+    // replaces that, and only that.
+    const asked = doc.transcript ?? '';
     transcribing.add(id!);
     const started = Date.now();
     record(id!, { kind: 'audio', summary: 'Transcribing the mastered audio', anchor: 'transcript', data: { action: 'transcribe' } });
@@ -554,6 +562,12 @@ export const podcastRoutes: Route[] = [
       const text = await transcribe(masteredPath(id!), seconds);
       const ms = Date.now() - started;
       const paragraphs = text.split('\n\n').filter(Boolean).length;
+      // Edited while the audio was being listened to (another tab, or a
+      // paste before the page locked the box): what Jamie wrote stays.
+      if ((requireEpisode(id!).transcript ?? '') !== asked) {
+        record(id!, { kind: 'audio', actor: 'wt-builder', summary: 'Transcript draft set aside — the transcript was edited meanwhile', anchor: 'transcript', data: { action: 'set-aside', ms } });
+        throw new HttpError(409, 'the transcript was edited while the draft was made — your text is kept; Transcribe again to replace it', 'transcript-moved');
+      }
       return fresh(id!, (d) => { d.transcript = text; }, [{
         kind: 'audio', actor: 'wt-builder', anchor: 'transcript',
         summary: `Transcript drafted — ${paragraphs} paragraph${paragraphs === 1 ? '' : 's'}, in ${took(ms)}`,

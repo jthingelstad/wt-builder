@@ -2,7 +2,8 @@
  * Another Thing's routes, over HTTP, against a throwaway database. GitHub
  * and the mp3 tagger are stubbed: nothing here reaches the network or needs
  * ffmpeg. What is pinned: the numbering, the slug following the title, the
- * outline's stale-tab refusal, the frozen fields once sent, and every send
+ * outline's stale-tab refusal, the frozen fields once sent (and while
+ * sending), a transcript draft never landing over edits, and every send
  * refusal (nothing to send, warnings unconfirmed, a number already taken in
  * the repository) leaving the send state as it found it.
  */
@@ -12,7 +13,9 @@ import { mkdirSync, mkdtempSync, rmSync, writeFileSync } from 'node:fs';
 import { tmpdir } from 'node:os';
 import { join } from 'node:path';
 
-const { listPaths, putTree, tagged, master } = vi.hoisted(() => ({ listPaths: vi.fn(), putTree: vi.fn(), tagged: vi.fn(), master: vi.fn() }));
+const { listPaths, putTree, tagged, master, transcribe } = vi.hoisted(() => ({
+  listPaths: vi.fn(), putTree: vi.fn(), tagged: vi.fn(), master: vi.fn(), transcribe: vi.fn(),
+}));
 
 vi.mock('../src/server/integrations/github.ts', async (importOriginal) => ({
   ...(await importOriginal<typeof import('../src/server/integrations/github.ts')>()),
@@ -24,6 +27,11 @@ vi.mock('../src/server/podcast/master.ts', async (importOriginal) => ({
   ...(await importOriginal<typeof import('../src/server/podcast/master.ts')>()),
   tagged,
   master,
+}));
+
+vi.mock('../src/server/podcast/transcribe.ts', async (importOriginal) => ({
+  ...(await importOriginal<typeof import('../src/server/podcast/transcribe.ts')>()),
+  transcribe,
 }));
 
 const work = mkdtempSync(join(tmpdir(), 'wt-podcast-routes-'));
@@ -56,6 +64,7 @@ beforeEach(() => {
   putTree.mockReset().mockResolvedValue({ sha: 'abc123', changed: ['x'], unchanged: 0, committed: true });
   tagged.mockReset().mockResolvedValue(Buffer.from('ID3 tagged mp3'));
   master.mockReset();
+  transcribe.mockReset();
 });
 
 async function call(method: string, path: string, body?: unknown) {
@@ -277,5 +286,50 @@ describe('the send', () => {
     const r = await call('POST', `/episodes/${id}/send`);
     expect(r.status).toBe(409);
     expect(r.text).toContain('not on disk');
+  });
+
+  it('while the send is out, the number, slug and date stay as they are', async () => {
+    const id = await ready();
+    let land!: (v: unknown) => void;
+    putTree.mockReturnValueOnce(new Promise((resolve) => { land = resolve; }));
+    const sending = call('POST', `/episodes/${id}/send`);
+    await vi.waitFor(() => expect(putTree).toHaveBeenCalled());
+
+    const moved = await call('PATCH', `/episodes/${id}`, { slug: 'another-slug' });
+    expect(moved.status).toBe(409);
+    expect(moved.json.code).toBe('sending');
+    // The title still edits, and the slug does not follow it out from under the send.
+    const retitled = await call('PATCH', `/episodes/${id}`, { title: 'Retitled' });
+    expect(retitled.json.episode.episode.slug).toBe('ready-to-go');
+
+    land({ sha: 'abc123', changed: ['x'], unchanged: 0, committed: true });
+    expect((await sending).status).toBe(200);
+    expect(eps.getEpisode(id)!.doc.sends?.another?.url).toBe('https://another.thingelstad.com/2026/10/12/ready-to-go.html');
+  });
+});
+
+describe('the transcript draft', () => {
+  it('replaces the transcript it was asked to replace', async () => {
+    const id = await ready();
+    transcribe.mockResolvedValue('A fresh draft.');
+    const r = await call('POST', `/episodes/${id}/transcribe`, { replace: true });
+    expect(r.status).toBe(200);
+    expect(eps.getEpisode(id)!.doc.transcript).toBe('A fresh draft.');
+  });
+
+  it('never lands over an edit made while it was being drafted', async () => {
+    const id = await ready();
+    transcribe.mockImplementation(async () => {
+      const row = eps.getEpisode(id)!;
+      row.doc.transcript = 'Typed meanwhile.';
+      eps.saveEpisode(row.doc);
+      return 'A fresh draft.';
+    });
+    const r = await call('POST', `/episodes/${id}/transcribe`, { replace: true });
+    expect(r.status).toBe(409);
+    expect(r.json.code).toBe('transcript-moved');
+    expect(eps.getEpisode(id)!.doc.transcript).toBe('Typed meanwhile.');
+    const events = (await call('GET', `/episodes/${id}/events`)).json.events.map((e: { summary: string }) => e.summary);
+    expect(events.some((t: string) => t.startsWith('Transcript draft set aside'))).toBe(true);
   });
 });

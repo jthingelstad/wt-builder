@@ -1,7 +1,8 @@
 /**
  * Another Thing in the browser: the index's link, a new episode, the outline
- * typed and saved, the card at the microphone, and the send refusing an
- * episode with nothing to send. Asserted by what the server saved.
+ * typed and saved (on a slow connection too), the card at the microphone and
+ * its session writes in order, and the send refusing an episode with nothing
+ * to send. Asserted by what the server saved.
  */
 import { expect, test, type Page } from '@playwright/test';
 import { store } from './helpers.ts';
@@ -79,6 +80,59 @@ test('a stale outline is refused, not saved over the newer one', async ({ page, 
   expect(saved(id).segments.map((s) => s.title)).toEqual(['From the other tab']);
 });
 
+test('outline edits made faster than the server answers all land, in order', async ({ page, request }) => {
+  const created = await (await request.post('/api/episodes', { data: { title: 'Quick' } })).json();
+  const id = created.episode.episode.id as string;
+  const segments = cleanOutline([{ title: 'Open', cards: [{ claim: 'First', blocks: [] }] }]);
+  expect((await request.put(`/api/episodes/${id}/outline`, { data: { segments, base: created.outline_version } })).status()).toBe(200);
+  // A slow connection: each outline save takes most of a second to answer.
+  await page.route('**/api/episodes/*/outline', async (route) => {
+    await new Promise((r) => setTimeout(r, 700));
+    await route.continue();
+  });
+
+  await page.goto(`/${id}`);
+  await page.locator('.pc-seg-title').fill('Opening');
+  await page.locator('.pc-claim').fill('The first thing');
+  await page.locator('.pc-blocks').fill('! hook');
+  await settle(page, () => saved(id).segments[0]?.cards[0]?.blocks.length === 1);
+  const seg = saved(id).segments[0]!;
+  expect([seg.title, seg.cards[0]!.claim]).toEqual(['Opening', 'The first thing']);
+  await expect(page.locator('.error-bar')).toHaveCount(0);
+});
+
+test('a slow start never lands over the take that finished after it', async ({ page, request }) => {
+  const created = await (await request.post('/api/episodes', { data: { title: 'Slow' } })).json();
+  const id = created.episode.episode.id as string;
+  const segments = cleanOutline([
+    { title: 'Open', minutes: 1, cards: [{ claim: 'First beat', blocks: [] }] },
+    { title: 'Close', minutes: 1, cards: [{ claim: 'Last beat', blocks: [] }] },
+  ]);
+  expect((await request.put(`/api/episodes/${id}/outline`, { data: { segments, base: created.outline_version } })).status()).toBe(200);
+  let first = true;
+  await page.route('**/api/episodes/*/session', async (route) => {
+    if (first) {
+      first = false;
+      await new Promise((r) => setTimeout(r, 800));
+    }
+    await route.continue();
+  });
+
+  await page.goto(`/${id}/record`);
+  await expect(page.locator('.stage-claim')).toHaveText('First beat');
+  await page.keyboard.press(' ');
+  await page.keyboard.press('ArrowRight');
+  await expect(page.locator('.stage-claim')).toHaveText('Last beat');
+  await page.keyboard.press('f');
+  await page.keyboard.press('Escape');
+  await expect(page).toHaveURL(new RegExp(`/${id}$`));
+  for (let i = 0; i < 50 && saved(id).session?.ended === undefined; i++) await page.waitForTimeout(100);
+  await page.waitForTimeout(1000); // long enough for a stray start to have landed, were it unordered
+  const session = saved(id).session!;
+  expect(session.ended).toBeDefined();
+  expect(session.splits.map((s) => s.segmentId)).toEqual(segments.map((s) => s.id));
+});
+
 test('the card steps through the beats and leaves a session behind', async ({ page, request }) => {
   const created = await (await request.post('/api/episodes', { data: { title: 'Card' } })).json();
   const id = created.episode.episode.id as string;
@@ -102,7 +156,7 @@ test('the card steps through the beats and leaves a session behind', async ({ pa
 
   await page.keyboard.press('Escape');
   await expect(page).toHaveURL(new RegExp(`/${id}$`));
-  for (let i = 0; i < 50 && !saved(id).session; i++) await page.waitForTimeout(100);
+  for (let i = 0; i < 50 && saved(id).session?.ended === undefined; i++) await page.waitForTimeout(100);
   const session = saved(id).session!;
   expect(session.splits.map((s) => s.segmentId)).toEqual(segments.map((s) => s.id));
 });

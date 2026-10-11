@@ -27,7 +27,7 @@
 
 import { useEffect, useLayoutEffect, useMemo, useRef, useState } from 'preact/hooks';
 
-import type { EpisodeDoc, Split } from '../../shared/podcast/types.ts';
+import type { EpisodeDoc, RecordingSession, Split } from '../../shared/podcast/types.ts';
 import { beatPace, beats as planBeats, fmt, plannedTotal } from '../../shared/podcast/pace.ts';
 import { inlineRuns } from '../../shared/podcast/cards.ts';
 import { podcastApi, type EpisodeView } from './api.ts';
@@ -92,10 +92,20 @@ export function Card({
   const beat = beats[at];
   const nextBeat = beats[at + 1];
 
+  // Each write is the whole session, so they go in the order they were
+  // made: a slow start or split landing after Finish or Reset would
+  // otherwise put back the session those replaced.
+  const sessionWrites = useRef<Promise<unknown>>(Promise.resolve());
+  const putSession = (session: RecordingSession | null): Promise<unknown> => {
+    sessionWrites.current = sessionWrites.current
+      .then(() => podcastApi.session(doc.episode.id, session))
+      .catch(() => { /* telemetry, not editorial — never interrupt a take */ });
+    return sessionWrites.current;
+  };
+
   const persistSession = (nextSplits: Split[], endedAt?: number) => {
     if (!started) return;
-    void podcastApi.session(doc.episode.id, { started_at: started, splits: nextSplits, ended: endedAt })
-      .catch(() => { /* telemetry, not editorial — never interrupt a take */ });
+    void putSession({ started_at: started, splits: nextSplits, ended: endedAt });
   };
 
   // ── the clock ───────────────────────────────────────────────────────────
@@ -112,7 +122,7 @@ export function Card({
       const iso = new Date().toISOString();
       setStarted(iso);
       setSplits(first);
-      void podcastApi.session(doc.episode.id, { started_at: iso, splits: first }).catch(() => {});
+      void putSession({ started_at: iso, splits: first });
     }
     setRunningSince(Date.now());
   };
@@ -126,7 +136,7 @@ export function Card({
     setShift(0);
     setSplits([]);
     setAt(0);
-    void podcastApi.session(doc.episode.id, null).catch(() => {});
+    void putSession(null);
   };
 
   const finish = () => {
@@ -164,7 +174,7 @@ export function Card({
     const id = doc.episode.id;
     const closing = live && !ended && started ? { started_at: started, splits, ended: elapsed } : null;
     void run(async () => {
-      if (closing) await podcastApi.session(id, closing).catch(() => {});
+      await (closing ? putSession(closing) : sessionWrites.current);
       return podcastApi.get(id);
     });
     onExit();

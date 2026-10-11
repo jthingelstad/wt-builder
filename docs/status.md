@@ -917,11 +917,14 @@ first real episode is the first real run.
   by hand. A number held by another episode is refused.
 - **Outline.** Saved whole (`PUT /api/episodes/:id/outline`) with the
   version it was edited from; a stale tab gets 409 `outline-moved`, says
-  so, and re-reads. Every save narrates itself in the log
-  (`outlineEvents`).
+  so, and re-reads. The page's own saves go one at a time, each an edit
+  applied to the outline the last one answered with, so tabbing through
+  fields faster than the server answers loses nothing. Every save narrates
+  itself in the log (`outlineEvents`).
 - **The card.** Beats, pace, splits per segment, take notes; keys ←/→ J/K,
   space, R, S, F, N, +/−, Esc. A session's splits and take notes are saved
   to the episode (`PUT …/session`, `POST …/notes`) and never published.
+  Session writes go in the order they were made: each is the whole session.
 - **Audio.** `POST /api/episodes/:id/audio?name=` streams the edited
   recording (up to 2 GB) to a temp file and masters it with ffmpeg: two-pass
   linear loudnorm to −16 LUFS / −1.5 dBTP, 80 Hz high-pass, mono 44.1 kHz
@@ -934,7 +937,9 @@ first real episode is the first real run.
 - **Transcript.** `POST …/transcribe` sends the mastered mp3 to OpenAI
   `whisper-1` in 10-minute chunks and drafts paragraphs on 1.25 s pauses
   (`src/server/podcast/transcribe.ts`); 409 `has-transcript` unless
-  `replace`. Never run.
+  `replace`. The box is locked while a draft is made, and a draft that
+  finds the transcript edited meanwhile is set aside (409
+  `transcript-moved`, logged), never written over it. Never run.
 - **Send — the `another` leg.** `POST /api/episodes/:id/send[?force=1]`
   commits `content/episodes/NNN-slug.md`, its `.txt` transcript and
   `uploads/YYYY/another-thing-N.mp3` (re-tagged with the episode as it
@@ -944,8 +949,9 @@ first real episode is the first real run.
   without `force`, 409 `number-taken` when the repository already holds
   another episode under the number, 409 when the master is not on disk.
   Claimed before the first await; a `sending` found at boot is marked
-  failed. Once sent, number, slug and date are frozen (409 `frozen`) and
-  the episode cannot be deleted. Tested with GitHub stubbed
+  failed. Number, slug and date are frozen while the send is out (409
+  `sending`) and for good once sent (409 `frozen`); a sent episode cannot
+  be deleted. Tested with GitHub stubbed
   (`tests/podcast-routes.test.ts`); never run.
 - **Verify.** Read back off the live site: the feed carries the GUID and
   the enclosure, the mp3 answers with the bytes sent, the page is up.

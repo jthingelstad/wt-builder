@@ -4,12 +4,16 @@
  *
  * The outline saves whole (PUT /outline) with the version it was edited
  * from; fields save on blur and never overwrite typing in progress
- * (Field.tsx). Three texts live here on purpose and stay apart: the OUTLINE
+ * (Field.tsx). An outline edit is a change to apply, not a copy of the
+ * outline: the page's saves go one at a time, each applied to the outline
+ * the last one answered with, so tabbing through fields faster than the
+ * server answers loses nothing, and `outline-moved` is left meaning what it
+ * says, another tab. Three texts live here on purpose and stay apart: the OUTLINE
  * (what Jamie records from, never published), the SHOW NOTES (what a
  * listener reads) and the TRANSCRIPT (what was said).
  */
 
-import { useState } from 'preact/hooks';
+import { useRef, useState } from 'preact/hooks';
 
 import { cardSeconds, inlineRuns, newId, parseBlocks, serializeBlocks } from '../../shared/podcast/cards.ts';
 import { fmt, plannedTotal, splitReport } from '../../shared/podcast/pace.ts';
@@ -41,21 +45,33 @@ export function Episode({ view, error, run, onError, onIndex, onRecord, onReload
   const id = e.id;
   const sent = Boolean(lastSent(doc.sends?.another));
   const [logOpen, setLogOpen] = useState(false);
+  // Drafting a transcript takes minutes; the box is locked meanwhile, so the
+  // draft never lands over what was typed (the server refuses that too).
+  const [drafting, setDrafting] = useState(false);
+  const listening = drafting || view.busy.transcribing;
 
   const patch = (body: Record<string, unknown>) => run(() => podcastApi.patch(id, body));
-  const saveOutline = async (segments: Segment[]) => {
-    try {
-      return await run(async () => {
-        try {
-          return await podcastApi.outline(id, segments, view.outline_version);
-        } catch (err) {
-          if (err instanceof ApiError && err.code === 'outline-moved') onReload();
-          throw err;
-        }
-      });
-    } catch {
-      return false;
-    }
+  // The outline this page's next save starts from. While none is waiting it
+  // follows what is on screen; while one is, it is what the last answered.
+  const outline = useRef({ segments: doc.segments, version: view.outline_version });
+  const queue = useRef<Promise<unknown>>(Promise.resolve());
+  const waiting = useRef(0);
+  if (waiting.current === 0) outline.current = { segments: doc.segments, version: view.outline_version };
+  const saveOutline = (change: Edit<Segment[]>): Promise<boolean> => {
+    waiting.current += 1;
+    const saving = queue.current.then(() => run(async () => {
+      const from = outline.current;
+      try {
+        const v = await podcastApi.outline(id, change(from.segments), from.version);
+        outline.current = { segments: v.episode.segments, version: v.outline_version };
+        return v;
+      } catch (err) {
+        if (err instanceof ApiError && err.code === 'outline-moved') onReload();
+        throw err;
+      }
+    })).catch(() => false).finally(() => { waiting.current -= 1; });
+    queue.current = saving;
+    return saving;
   };
 
   const planned = plannedTotal(doc.segments);
@@ -154,10 +170,10 @@ export function Episode({ view, error, run, onError, onIndex, onRecord, onReload
           <section class="pc-section">
             <h2>
               Transcript <span class="pc-sub">drafted from the mastered audio, yours after a read-through</span>
-              <Transcribe view={view} run={run} />
+              <Transcribe view={view} run={run} busy={drafting} setBusy={setDrafting} />
             </h2>
             <TextArea
-              class="pc-text pc-transcript" rows={12} value={doc.transcript ?? ''}
+              class="pc-text pc-transcript" rows={12} value={doc.transcript ?? ''} readOnly={listening}
               placeholder={doc.audio ? 'Transcribe the mastered audio, or paste a transcript. Paragraphs on blank lines.' : 'Drop the recording first.'}
               onCommit={(t) => (t !== (doc.transcript ?? '') ? patch({ transcript: t }) : undefined)}
             />
@@ -229,26 +245,34 @@ function move<T>(list: T[], i: number, d: number): T[] {
   return next;
 }
 
-function Outline({ doc, save }: { doc: EpisodeDoc; save: (s: Segment[]) => Promise<boolean> }) {
+/** An outline edit: what to do to the newest copy, by id, never a copy of it. */
+type Edit<T> = (current: T) => T;
+
+/** Move the entry with this id by d places, wherever it is now. */
+function moveId<T extends { id: string }>(list: T[], id: string, d: number): T[] {
+  return move(list, list.findIndex((x) => x.id === id), d);
+}
+
+function Outline({ doc, save }: { doc: EpisodeDoc; save: (change: Edit<Segment[]>) => Promise<boolean> }) {
   const segs = doc.segments;
-  const setSeg = (i: number, seg: Segment) => save(segs.map((s, j) => (j === i ? seg : s)));
+  const setSeg = (id: string, change: Edit<Segment>) => save((all) => all.map((s) => (s.id === id ? change(s) : s)));
   return (
     <div class="pc-outline">
       {!segs.length && <p class="quiet">No segments yet. A segment is one part of the episode; its cards are the beats you record from, one screen each.</p>}
       {segs.map((seg, i) => (
         <SegmentEditor
           key={seg.id} seg={seg} first={i === 0} last={i === segs.length - 1}
-          onChange={(next) => setSeg(i, next)}
-          onMove={(d) => void save(move(segs, i, d))}
+          onChange={(change) => setSeg(seg.id, change)}
+          onMove={(d) => void save((all) => moveId(all, seg.id, d))}
           onRemove={() => {
             if (seg.cards.some((c) => c.claim || c.blocks.length) && !confirm(`Remove the segment "${seg.title || 'untitled'}" and its cards?`)) return;
-            void save(segs.filter((_, j) => j !== i));
+            void save((all) => all.filter((s) => s.id !== seg.id));
           }}
         />
       ))}
       <button
         class="btn small pc-add"
-        onClick={() => void save([...segs, { id: newId('seg'), title: '', cards: [{ id: newId('card'), blocks: [] }], links: [] }])}
+        onClick={() => void save((all) => [...all, { id: newId('seg'), title: '', cards: [{ id: newId('card'), blocks: [] }], links: [] }])}
       ><Plus /> Segment</button>
     </div>
   );
@@ -258,11 +282,11 @@ function SegmentEditor({ seg, first, last, onChange, onMove, onRemove }: {
   seg: Segment;
   first: boolean;
   last: boolean;
-  onChange: (s: Segment) => Promise<boolean>;
+  onChange: (change: Edit<Segment>) => Promise<boolean>;
   onMove: (d: number) => void;
   onRemove: () => void;
 }) {
-  const setCard = (i: number, card: CardT) => onChange({ ...seg, cards: seg.cards.map((c, j) => (j === i ? card : c)) });
+  const setCard = (id: string, change: Edit<CardT>) => onChange((s) => ({ ...s, cards: s.cards.map((c) => (c.id === id ? change(c) : c)) }));
   const links = seg.links.map((l) => (l.text ? `${l.text} | ${l.url}` : l.url)).join('\n');
   return (
     <div class={`pc-seg role-${seg.role ?? 'none'}`}>
@@ -271,22 +295,26 @@ function SegmentEditor({ seg, first, last, onChange, onMove, onRemove }: {
           class="pc-role" value={seg.role ?? ''} title="What this segment is for in the arc (advisory)"
           onChange={(ev) => {
             const role = (ev.currentTarget as HTMLSelectElement).value;
-            const { role: _drop, ...rest } = seg;
-            void onChange(role ? { ...rest, role: role as Segment['role'] } : rest);
+            void onChange((s) => {
+              const { role: _drop, ...rest } = s;
+              return role ? { ...rest, role: role as Segment['role'] } : rest;
+            });
           }}
         >
           <option value="">—</option>
           {SEGMENT_ROLES.map((r) => <option key={r} value={r}>{r}</option>)}
         </select>
-        <Input class="pc-seg-title" value={seg.title} placeholder="Segment title" onCommit={(t) => (t !== seg.title ? onChange({ ...seg, title: t }) : undefined)} />
+        <Input class="pc-seg-title" value={seg.title} placeholder="Segment title" onCommit={(t) => (t !== seg.title ? onChange((s) => ({ ...s, title: t })) : undefined)} />
         <span class="pc-num" title="Planned minutes: the card's pace is made from these">
           <Input
             type="number" min="0" step="0.5" value={seg.minutes ?? ''} placeholder="min"
             onCommit={(t) => {
               const minutes = t === '' ? undefined : Number(t);
               if (minutes === seg.minutes) return undefined;
-              const { minutes: _drop, ...rest } = seg;
-              return onChange(minutes === undefined ? rest : { ...rest, minutes });
+              return onChange((s) => {
+                const { minutes: _drop, ...rest } = s;
+                return minutes === undefined ? rest : { ...rest, minutes };
+              });
             }}
           />
           <span class="pc-sub">m</span>
@@ -301,12 +329,12 @@ function SegmentEditor({ seg, first, last, onChange, onMove, onRemove }: {
       {seg.cards.map((card, i) => (
         <CardEditor
           key={card.id} card={card} seg={seg} first={i === 0} last={i === seg.cards.length - 1}
-          onChange={(c) => setCard(i, c)}
-          onMove={(d) => void onChange({ ...seg, cards: move(seg.cards, i, d) })}
-          onRemove={() => void onChange({ ...seg, cards: seg.cards.filter((_, j) => j !== i) })}
+          onChange={(change) => setCard(card.id, change)}
+          onMove={(d) => void onChange((s) => ({ ...s, cards: moveId(s.cards, card.id, d) }))}
+          onRemove={() => void onChange((s) => ({ ...s, cards: s.cards.filter((c) => c.id !== card.id) }))}
         />
       ))}
-      <button class="btn tiny pc-add" onClick={() => void onChange({ ...seg, cards: [...seg.cards, { id: newId('card'), blocks: [] }] })}>
+      <button class="btn tiny pc-add" onClick={() => void onChange((s) => ({ ...s, cards: [...s.cards, { id: newId('card'), blocks: [] }] }))}>
         <Plus size={11} /> Card
       </button>
 
@@ -321,7 +349,7 @@ function SegmentEditor({ seg, first, last, onChange, onMove, onRemove }: {
             const url = (bar >= 0 ? line.slice(bar + 1) : line).trim();
             return /^https?:\/\//.test(url) ? { text, url } : null;
           }).filter((l): l is { text: string; url: string } => Boolean(l));
-          return onChange({ ...seg, links: next });
+          return onChange((s) => ({ ...s, links: next }));
         }}
       />
     </div>
@@ -338,7 +366,7 @@ function CardEditor({ card, seg, first, last, onChange, onMove, onRemove }: {
   seg: Segment;
   first: boolean;
   last: boolean;
-  onChange: (c: CardT) => Promise<boolean>;
+  onChange: (change: Edit<CardT>) => Promise<boolean>;
   onMove: (d: number) => void;
   onRemove: () => void;
 }) {
@@ -346,8 +374,10 @@ function CardEditor({ card, seg, first, last, onChange, onMove, onRemove }: {
   const share = cardSeconds(seg, card);
   const set = (key: 'kicker' | 'claim', value: string) => {
     if (value === (card[key] ?? '')) return undefined;
-    const { [key]: _drop, ...rest } = card;
-    return onChange(value.trim() ? { ...rest, [key]: value.trim() } : rest);
+    return onChange((c) => {
+      const { [key]: _drop, ...rest } = c;
+      return value.trim() ? { ...rest, [key]: value.trim() } : rest;
+    });
   };
   return (
     <div class="pc-card">
@@ -360,8 +390,10 @@ function CardEditor({ card, seg, first, last, onChange, onMove, onRemove }: {
             onCommit={(t) => {
               const seconds = t === '' ? undefined : Number(t);
               if (seconds === card.seconds) return undefined;
-              const { seconds: _drop, ...rest } = card;
-              return onChange(seconds === undefined ? rest : { ...rest, seconds });
+              return onChange((c) => {
+                const { seconds: _drop, ...rest } = c;
+                return seconds === undefined ? rest : { ...rest, seconds };
+              });
             }}
           />
           <span class="pc-sub">s</span>
@@ -377,7 +409,7 @@ function CardEditor({ card, seg, first, last, onChange, onMove, onRemove }: {
         placeholder={'One block a line.   ! glance word   " say it word for word   > bridge   ? cuttable   *gold* inside a line'}
         onCommit={(t) => {
           const blocks = parseBlocks(t);
-          return serializeBlocks(blocks) !== text ? onChange({ ...card, blocks }) : undefined;
+          return serializeBlocks(blocks) !== text ? onChange((c) => ({ ...c, blocks })) : undefined;
         }}
       />
       {card.blocks.length > 0 && (
@@ -446,9 +478,8 @@ function Audio({ view, run, onError }: { view: EpisodeView; run: Props['run']; o
   );
 }
 
-function Transcribe({ view, run }: { view: EpisodeView; run: Props['run'] }) {
+function Transcribe({ view, run, busy, setBusy }: { view: EpisodeView; run: Props['run']; busy: boolean; setBusy: (b: boolean) => void }) {
   const doc = view.episode;
-  const [busy, setBusy] = useState(false);
   if (!doc.audio) return null;
   const working = busy || view.busy.transcribing;
   return (
