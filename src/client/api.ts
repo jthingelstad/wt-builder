@@ -1,7 +1,7 @@
 /** Thin client for the service. Every credential stays on the far side of this. */
 
 import type { Section, WaitingOn } from '../shared/dependencies.ts';
-import type { ArchiveReference, Channel, EchoOption, IssueDoc, Item, LinkedBefore, Share, ShareDestination } from '../shared/types.ts';
+import type { AcrossRow, ArchiveReference, Channel, ContentStats, EchoOption, IssueDoc, Item, LinkedBefore, Share, ShareDestination } from '../shared/types.ts';
 import type { IssueTiming } from '../shared/timing.ts';
 import type { ProofSpot } from '../shared/proof.ts';
 import type { IssueEvent } from '../shared/events.ts';
@@ -397,6 +397,9 @@ export const api = {
     previous: { number: number; timing: IssueTiming } | null;
     shipped: { sha: string; at: string; subject: string }[];
   }>(`/issues/${id}/timing`),
+
+  /** What the issue holds, and every issue since WT1 measured the same way (the Stats view). */
+  stats: (id: string) => call<{ content: ContentStats; across: AcrossRow[] }>(`/issues/${id}/stats`),
 
   /** Put an issue to bed, or wake it. */
   bed: (id: string, asleep: boolean) => post(`/issues/${id}/bed`, { asleep }),

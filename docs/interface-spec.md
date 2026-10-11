@@ -183,8 +183,9 @@ from there"). `Stats` in the editor's header, a plain `btn` just before the
 primary `Publish` / `Share`, opens `/{id}/stats` at any point in the issue's life:
 a layer over the editor built from Send's pieces (`send-layer stats-layer`,
 `send-card`), as Share is. The header: `← Issue` and the identity. Escape goes
-back. Then `Stats`, a one-line lede, and the cards. Its first card is Made in,
-moved here from the Send view; more cards follow it as the view grows.
+back. Then `Stats`, a one-line lede, and three cards, 22px apart: Made in (moved here
+from the Send view), What's in it, and Across issues. More follow as the view
+grows.
 
 An issue with nothing counted yet says so in one quiet line rather than showing
 an empty card; a pre-Builder issue says it has no record of how it was made.
@@ -227,6 +228,41 @@ never shows when a sitting happened, not even in a tooltip — each day's total 
 its weekday, nothing finer: the clock times were too much to share (Jamie,
 2026-10-04). Its stat numbers are the one upright serif in the app (D's choice);
 no note ever sits beside them, so they cannot be read as the editorial voice.
+
+**What's in it** and **Across issues** (Jamie, 2026-10-11) come from one answer,
+`GET /api/issues/:id/stats` (`src/server/issue-stats.ts`; wording in
+`src/client/issue-stats.ts`). Both use Made in's card, eyebrow, stats and bar, so
+the three read as one infographic. **One measure for every issue**: everything is
+counted from the website edition as `renderWebsite` prints it, a Builder issue
+from its items and a pre-Builder one from the body it was imported as (counted,
+never parsed into items). Words are what a reader reads: no URLs, image markup or
+tags. A link is a distinct `linkKey` off Jamie's own sites (`*.thingelstad.com`),
+never a picture or `uploads.micro.blog` (WT100's forty photo posts are not forty
+links). It is new when no published issue dated before it carried it, the rule
+"Linked before" uses. The podcast length is the last podcast send's, else the
+archive page's front matter.
+
+- **What's in it**: eyebrow `WHAT'S IN IT · THE WEEKLY THING 353`; four stats —
+  `2,586` `words, 11 minutes to read` (238 a minute), `30` `links, 26 new` (`all
+  new`), `11` `photos`, `17 m` `to listen to` (`—` `no podcast yet`); **WHERE THE
+  WORDS ARE**, Made in's stacked bar of the five longest sections and the rest, in
+  its greens; then two ranked lists side by side (stacked under 640px), each row a
+  name, an 8px bar against the largest in `--made-3`, and a mono count: **WHERE THE
+  LINKS GO** (the five most-linked sites) and **WHERE IT CAME FROM** (items by
+  Pinboard, Micro.blog, Written here, Thingy). A pre-Builder issue has no sections
+  or sources, so it shows the stats and the sites only.
+- **Across issues**: eyebrow `ACROSS ISSUES · WT1–WT353`. Three strips —
+  **WORDS**, **LINKS**, **MINUTES TO LISTEN** — every issue a column, oldest at the
+  left, 64px tall (one SVG, `preserveAspectRatio="none"`): before WT Builder
+  `--made-5`, in WT Builder `--made-3`, this issue `--made-1`, drawn again over the
+  strip at least 3px wide so it shows on a phone. Each column's tooltip reads `WT120 · 2020 · 2,104
+  words`. Beside each kicker one grey sentence places it:
+  `2,586 words · more than 64% of issues · the middle issue has 2,304` (`fewer
+  than`; `more than any other issue` at the ends). An issue with no podcast has no
+  place on that strip and no sentence. The year under the first issue of each
+  year (every other year under 640px), then the legend. **SINCE WT BUILDER**: a
+  table of the Builder issues — Made in, words, links (new), listen — with this
+  issue's row in bold.
 
 ## Issue index
 

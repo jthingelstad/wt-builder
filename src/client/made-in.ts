@@ -26,8 +26,8 @@ export interface MadeIn {
 }
 
 /** Darkest first; "Everything else" always takes the last, palest one. */
-const SEGMENT_COLORS = ['var(--made-1)', 'var(--green)', 'var(--made-3)', 'var(--made-4)', 'var(--made-5)'];
-const REST_COLOR = 'var(--green-4)';
+export const SEGMENT_COLORS = ['var(--made-1)', 'var(--green)', 'var(--made-3)', 'var(--made-4)', 'var(--made-5)'];
+export const REST_COLOR = 'var(--green-4)';
 const TOP = 5;
 
 const WORDS = ['none', 'one', 'two', 'three', 'four', 'five', 'six'];

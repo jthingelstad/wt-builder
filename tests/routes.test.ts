@@ -372,6 +372,29 @@ describe('there is no draft share', () => {
   });
 });
 
+describe('the Stats view\'s numbers', () => {
+  it('say what an issue holds and set it among every issue, and a missing issue is a 404', async () => {
+    const created = await fetch(`${base}/api/issues`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ number: 990415, publication_date: '2026-12-12' }),
+    });
+    const id = ((await created.json()) as { issue: { issue: { id: string } } }).issue.issue.id;
+    const res = await fetch(`${base}/api/issues/${id}/stats`);
+    expect(res.status).toBe(200);
+    const body = await res.json() as { content: { words: number; links: number }; across: { number: number }[] };
+    try {
+      // A new issue offline has swept no links: counted, and none in it yet.
+      expect(body.content).toMatchObject({ links: 0, new_links: 0, domains: [] });
+      expect(typeof body.content.words).toBe('number');
+      expect(body.across.map((r) => r.number)).toContain(990415);
+      expect((await fetch(`${base}/api/issues/nope/stats`)).status).toBe(404);
+    } finally {
+      await fetch(`${base}/api/issues/${id}`, { method: 'DELETE' });
+    }
+  });
+});
+
 describe('the send guards refuse before any leg runs', () => {
   it('website without a sent podcast is a 409, and force is the escape', async () => {
     const created = await fetch(`${base}/api/issues`, {

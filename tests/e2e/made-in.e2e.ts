@@ -96,5 +96,5 @@ test('an issue with nothing counted yet says so, rather than showing an empty pa
   }));
   await open(page, '/stats');
   await expect(page.locator('.stats-empty')).toContainText('Nothing to count yet');
-  await expect(page.locator('.mi-card')).toHaveCount(0);
+  await expect(page.locator('.send-card.timing')).toHaveCount(0);
 });

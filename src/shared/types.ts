@@ -530,3 +530,40 @@ export function isPresent(item: Item): boolean {
 export function inChannel(item: Item, channel: Channel): boolean {
   return item.channels[channel] === true;
 }
+
+/**
+ * The Stats view's "What's in it" and "Across issues" numbers
+ * (src/server/issue-stats.ts, 2026-10-11).
+ */
+export interface ContentStats {
+  words: number;
+  reading_minutes: number;
+  /** Distinct links to pages off Jamie's own sites, keyed as "Linked before" keys them (linkKey). */
+  links: number;
+  /** Of those, the ones no earlier published issue carried. */
+  new_links: number;
+  photos: number;
+  /** The podcast's length, once it has one. */
+  audio_seconds: number | null;
+  /** Where the words are, in edition order. A WT Builder issue only. */
+  sections: { label: string; words: number; items: number }[];
+  /** Who the items in the website edition came from. A WT Builder issue only. */
+  sources: { label: string; items: number }[];
+  /** The sites linked most, most first, at most five. */
+  domains: { domain: string; links: number }[];
+}
+
+export interface AcrossRow {
+  number: number;
+  publication_date: string;
+  /** Made before WT Builder: imported as one published body. */
+  imported: boolean;
+  words: number;
+  links: number;
+  /** Links no published issue before it carried. */
+  new_links: number;
+  photos: number;
+  audio_seconds: number | null;
+  /** How long it took, from its event log (WT Builder issues only). */
+  built_ms?: number;
+}

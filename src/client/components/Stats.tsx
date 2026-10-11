@@ -14,6 +14,7 @@ import { useEffect, useState } from 'preact/hooks';
 import type { IssueDoc } from '../../shared/types.ts';
 import { lastSent } from '../../shared/sends.ts';
 import { madeIn } from '../made-in.ts';
+import { acrossIssues, whatsInIt, type Count, type Strip } from '../issue-stats.ts';
 import { api, type Readiness } from '../api.ts';
 import { ArrowLeft } from '../icons.tsx';
 import { LEGS } from './Send.tsx';
@@ -51,6 +52,7 @@ export function Stats({ doc, readiness, onBack }: Props) {
         <h1>Stats</h1>
         <p class="lede">What went into WT{n}, read from its record.</p>
         <MadeIn doc={doc} readiness={readiness} />
+        <Holds doc={doc} />
       </div>
     </div>
   );
@@ -150,5 +152,149 @@ function MadeIn({ doc, readiness }: { doc: IssueDoc; readiness: Readiness | null
         </div>
       )}
     </section>
+  );
+}
+
+/**
+ * What's in it and Across issues (Jamie, 2026-10-11), from one answer:
+ * GET /api/issues/:id/stats (src/server/issue-stats.ts). Both read the
+ * website edition, so a pre-Builder issue and this one are counted alike.
+ */
+function Holds({ doc }: { doc: IssueDoc }) {
+  const [data, setData] = useState<Awaited<ReturnType<typeof api.stats>> | null | undefined>(undefined);
+  const sentKey = LEGS.map((k) => doc.sends?.[k]?.status ?? '').join('|');
+  useEffect(() => {
+    api.stats(doc.issue.id).then(setData).catch(() => setData(null));
+  }, [doc.issue.id, sentKey]);
+  if (!data) return null;
+  const n = doc.issue.number;
+  const it = whatsInIt(n, data.content);
+  const across = acrossIssues(n, data.across);
+
+  return (
+    <>
+      <section class="send-card stats-card in-it">
+        <div class="mi-card">
+          <div class="mi-head"><h2 class="mi-eyebrow">{it.eyebrow}</h2></div>
+
+          <div class="mi-stats" style={{ gridTemplateColumns: `repeat(${it.stats.length}, minmax(0, 1fr))` }}>
+            {it.stats.map((s) => (
+              <div class="mi-stat" key={s.label}>
+                <span class="mi-value">{s.value}</span>
+                <span class="mi-label">{s.label}</span>
+              </div>
+            ))}
+          </div>
+
+          {it.words.length > 0 && (
+            <div class="mi-block">
+              <span class="mi-kicker">WHERE THE WORDS ARE</span>
+              <div class="mi-bar" role="img" aria-label={it.words.map((w) => `${w.label} ${w.text} words`).join(', ')}>
+                {it.words.map((w) => <span key={w.label} style={{ flexGrow: w.value, background: w.color }} />)}
+              </div>
+              <div class="mi-legend">
+                {it.words.map((w) => (
+                  <span class="mi-key" key={w.label}>
+                    <span class="mi-swatch" style={{ background: w.color }} />{w.label} <span class="mi-time">{w.text}</span>
+                  </span>
+                ))}
+              </div>
+            </div>
+          )}
+
+          {(it.domains.length > 0 || it.sources.length > 0) && (
+            <div class="st-pair">
+              {it.domains.length > 0 && <Counts kicker="WHERE THE LINKS GO" rows={it.domains} />}
+              {it.sources.length > 0 && <Counts kicker="WHERE IT CAME FROM" rows={it.sources} />}
+            </div>
+          )}
+        </div>
+      </section>
+
+      <section class="send-card stats-card across">
+        <div class="mi-card">
+          <div class="mi-head"><h2 class="mi-eyebrow">{across.eyebrow}</h2></div>
+
+          {across.strips.map((st) => <Column key={st.key} strip={st} years={across.years} />)}
+
+          <div class="st-legend">
+            <span class="mi-key"><span class="mi-swatch st-before" />Before WT Builder</span>
+            <span class="mi-key"><span class="mi-swatch st-builder" />In WT Builder</span>
+            <span class="mi-key"><span class="mi-swatch st-this" />WT{n}</span>
+          </div>
+
+          {across.builder.length > 0 && (
+            <div class="mi-block">
+              <span class="mi-kicker">SINCE WT BUILDER</span>
+              <table class="st-table">
+                <thead>
+                  <tr><th>Issue</th><th>Made in</th><th>Words</th><th>Links</th><th>Listen</th></tr>
+                </thead>
+                <tbody>
+                  {across.builder.map((r) => (
+                    <tr key={r.number} class={r.current ? 'current' : undefined}>
+                      <td>WT{r.number}</td><td>{r.made}</td><td>{r.words}</td><td>{r.links}</td><td>{r.listen}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+          )}
+        </div>
+      </section>
+    </>
+  );
+}
+
+/** A short ranked list, each row with a bar against the largest. */
+function Counts({ kicker, rows }: { kicker: string; rows: Count[] }) {
+  return (
+    <div class="mi-block">
+      <span class="mi-kicker">{kicker}</span>
+      <div class="st-counts">
+        {rows.map((r) => (
+          <div class="st-count" key={r.label}>
+            <span class="st-count-label">{r.label}</span>
+            <span class="st-count-bar"><span style={{ width: `${Math.max(4, r.share * 100)}%` }} /></span>
+            <span class="mi-time">{r.value}</span>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+}
+
+/**
+ * Every issue as a column, oldest at the left. This issue is drawn over the
+ * strip at a width that stays visible, since one column of three hundred is
+ * thinner than a pixel on a phone.
+ */
+function Column({ strip, years }: { strip: Strip; years: { label: string; at: number }[] }) {
+  const n = strip.bars.length;
+  return (
+    <div class="mi-block st-strip">
+      <div class="st-strip-head">
+        <span class="mi-kicker">{strip.kicker}</span>
+        {strip.says && <span class="st-says">{strip.says}</span>}
+      </div>
+      <div class="st-plot">
+        <svg viewBox={`0 0 ${n} 100`} preserveAspectRatio="none" role="img" aria-label={strip.says ?? strip.kicker}>
+          {strip.bars.map((b, i) => {
+            const h = (b.value / strip.max) * 100;
+            return (
+              <rect key={b.number} x={i + 0.12} y={100 - h} width={0.76} height={h} class={`st-${b.tone}`}>
+                <title>{b.title}</title>
+              </rect>
+            );
+          })}
+        </svg>
+        {strip.here && (
+          <span class="st-here" style={{ left: `${strip.here.at * 100}%`, height: `${strip.here.height * 100}%` }} />
+        )}
+      </div>
+      <div class="st-years">
+        {years.map((y) => <span key={y.label} style={{ left: `${y.at * 100}%` }}>{y.label}</span>)}
+      </div>
+    </div>
   );
 }

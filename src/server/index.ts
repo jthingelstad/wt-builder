@@ -51,6 +51,7 @@ import { heldOut, outOfWindow, windowOf } from '../shared/render/plan.ts';
 import { archiveInputs, emailSubject, issueEntry, siteInputs, subjectFor } from './publish.ts';
 import { type EarlierDelivery, verifierFor } from './verify.ts';
 import { issueTiming, type IssueTiming } from '../shared/timing.ts';
+import { acrossIssues, contentStats } from './issue-stats.ts';
 import { handleMcp, type McpDeps } from './mcp.ts';
 import { log } from './log.ts';
 import { took, type EventActor, type EventInput } from '../shared/events.ts';
@@ -1853,6 +1854,22 @@ const routes: [RegExp, string, (ctx: Ctx, params: string[]) => Promise<unknown>]
     const until = timing.publishedAt ?? new Date().toISOString();
     const shipped = since ? await shippedBetween(since, until) : [];
     return { timing, previous, shipped };
+  }],
+
+  /**
+   * The Stats view's other cards (src/server/issue-stats.ts): what this
+   * issue holds, and every issue since WT1 measured the same way, so it
+   * can be set among them.
+   */
+  [/^\/api\/issues\/([^/]+)\/stats$/, 'GET', async (_ctx, [id]) => {
+    requireIssue(id!);
+    const rows = store.listIssues();
+    const row = rows.find((r) => r.id === id)!;
+    const built = (r: { id: string }) => {
+      const t = timingOf(r.id);
+      return t && t.actions ? t.activeMs + t.after.ms : undefined;
+    };
+    return { content: contentStats(row, rows), across: acrossIssues(rows, built) };
   }],
 
   /**

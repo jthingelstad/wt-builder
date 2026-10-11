@@ -270,6 +270,16 @@ finished, what is half-finished, and what has never run.
   2026-10-11 (`src/client/components/Stats.tsx`, `/{id}/stats`, the header's
   `Stats`), where it moved from the Send view; `made in …` on the index row. WT350 3 h 12 m + 57 m fixing;
   WT351 2 h 30 m + 5 m.
+- **Issue stats** (2026-10-11) — `GET /api/issues/:id/stats`: What's in it
+  (words, reading time, links and how many are new, photos, podcast length, words
+  by section, items by source, the most-linked sites) and Across issues (every
+  issue's words, links, new links, photos, podcast length and, for Builder issues,
+  time to make), all counted from the website edition so pre-Builder issues and
+  Builder ones are measured alike (`src/server/issue-stats.ts`, cached per saved
+  version; ~140 ms cold over 353 issues, ~30 ms warm). Pre-Builder podcast
+  lengths come from the archive pages' front matter in the sibling
+  `weekly.thingelstad.com` checkout. The Stats view's second and third cards.
+  Not on the MCP.
 - **Put to bed** (2026-09-26, WT351) — `POST /api/issues/:id/bed {asleep}`;
   a published issue only; while asleep every non-GET to the issue answers 423
   except `/bed`, `/verify/*` and `/shares*` (docs/decisions.md). Send view's last card,
