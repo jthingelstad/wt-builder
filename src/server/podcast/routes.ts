@@ -49,6 +49,9 @@ const target = { repo: config.anotherRepo, branch: config.anotherBranch };
 /** A dropped recording, before mastering: an hour of 24-bit stereo WAV is ~1 GB. */
 const MAX_UPLOAD_BYTES = 2_000_000_000;
 
+/** The site's build takes about this long to put a sent episode on the page and in the feed. */
+const FIRST_LOOK_MS = 60_000;
+
 // ── in-process state: what is running now ────────────────────────────────
 
 const mastering = new Set<string>();
@@ -149,6 +152,9 @@ async function send(id: string, force: boolean) {
   // A new master replaces the mp3 on disk: the send would package this
   // document and could read either file.
   if (mastering.has(id)) throw new HttpError(409, 'a new recording is being mastered — send when it is done');
+  // A draft landing after the package was made would leave the page saying
+  // what was never sent.
+  if (transcribing.has(id)) throw new HttpError(409, 'the transcript is being drafted — send when it is done');
   const blocking = validate(doc).filter((p) => p.severity === 'blocks');
   if (blocking.length) throw new HttpError(422, blocking.map((p) => p.text).join(' '), 'invalid');
   if (!existsSync(masteredPath(id))) throw new HttpError(409, 'the mastered mp3 is not on disk — drop the recording again');
@@ -199,7 +205,11 @@ async function send(id: string, force: boolean) {
       data: { dest: 'another', outcome: 'sent', ms, sha: pushed.sha, changed: pushed.changed },
     });
     log.info(`[episode] ${id} sent: ${pushed.sha} ${pushed.changed.join(', ') || '(unchanged)'}`);
-    scheduleRecheck(id, 60_000);
+    // The first look is on the record, not only in a timer: a restart in the
+    // next minute resumes it, and a re-send never shows the last send's pass.
+    const firstLook = new Date(Date.now() + FIRST_LOOK_MS).toISOString();
+    eps.recordEpisodeVerify(id, { status: 'waiting', at: new Date().toISOString(), checks: [], recheck_at: firstLook });
+    scheduleRecheck(id, FIRST_LOOK_MS);
     return view(requireEpisode(id));
   } catch (err) {
     if (err instanceof Refusal) throw err;
@@ -558,6 +568,7 @@ export const podcastRoutes: Route[] = [
     const b = (await body()) as { replace?: boolean };
     const doc = requireEpisode(id!);
     if (transcribing.has(id!)) throw new HttpError(409, 'already transcribing');
+    if (sending.has(id!) || isOut(doc.sends?.another)) throw new HttpError(409, 'the episode is being sent — transcribe when the send is done');
     if (mastering.has(id!)) throw new HttpError(409, 'a new recording is being mastered — transcribe when it is done');
     if (!existsSync(masteredPath(id!))) throw new HttpError(409, 'no mastered audio yet — drop the recording first');
     if (doc.transcript?.trim() && !b.replace) {

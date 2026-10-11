@@ -249,6 +249,9 @@ describe('the send', () => {
     const doc = eps.getEpisode(id)!.doc;
     expect(doc.episode.status).toBe('published');
     expect(doc.sends?.another?.status).toBe('sent');
+    // The first check is on the record, so a restart resumes it.
+    expect(doc.verify?.another).toMatchObject({ status: 'waiting', checks: [] });
+    expect(Date.parse(doc.verify!.another!.recheck_at!)).toBeGreaterThan(Date.now());
     // 7:30 PM Central is the next UTC day: the permalink says the 12th.
     expect(doc.sends?.another?.url).toBe('https://another.thingelstad.com/2026/10/12/ready-to-go.html');
 
@@ -367,6 +370,29 @@ describe('one thing at a time on the audio', () => {
 
     done();
     expect((await upload).status).toBe(200);
+  });
+
+  it('while a transcript is drafted, nothing sends; while a send is out, nothing drafts', async () => {
+    const id = await ready();
+    let done!: () => void;
+    transcribe.mockImplementation(() => new Promise((resolve) => { done = () => resolve('The draft.'); }));
+    const drafting = call('POST', `/episodes/${id}/transcribe`, { replace: true });
+    await vi.waitFor(() => expect(transcribe).toHaveBeenCalled());
+    const send = await call('POST', `/episodes/${id}/send`);
+    expect(send.status).toBe(409);
+    expect(send.text).toContain('being drafted');
+    expect(putTree).not.toHaveBeenCalled();
+    done();
+    expect((await drafting).status).toBe(200);
+
+    let land!: (v: unknown) => void;
+    putTree.mockReturnValueOnce(new Promise((resolve) => { land = resolve; }));
+    const sending = call('POST', `/episodes/${id}/send`);
+    await vi.waitFor(() => expect(putTree).toHaveBeenCalled());
+    expect((await call('POST', `/episodes/${id}/transcribe`, { replace: true })).status).toBe(409);
+    expect(transcribe).toHaveBeenCalledTimes(1);
+    land({ sha: 'abc123', changed: ['x'], unchanged: 0, committed: true });
+    expect((await sending).status).toBe(200);
   });
 
   it('while a transcript is drafted, a new recording waits', async () => {
