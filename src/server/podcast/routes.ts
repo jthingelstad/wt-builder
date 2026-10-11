@@ -245,7 +245,12 @@ export function failInterruptedEpisodeSends(): void {
 async function runVerify(id: string, asked: boolean) {
   const doc = requireEpisode(id);
   const before = doc.verify?.another?.status;
+  const send = doc.sends?.another?.at;
   const v = await verifyEpisode(doc);
+  // A re-send landed while this looked: what it found is the last send's,
+  // and the new send's own check stands.
+  const now = requireEpisode(id);
+  if (now.sends?.another?.at !== send) return now.verify?.another ?? v;
   const moved = before !== v.status;
   const events: EventInput[] = moved || asked || v.status === 'error'
     ? [{
@@ -340,6 +345,7 @@ function applySettings(doc: EpisodeDoc, body: Record<string, unknown>): EventInp
   }
   if (typeof body.transcript === 'string' && body.transcript !== (doc.transcript ?? '')) {
     doc.transcript = body.transcript.slice(0, 1_000_000);
+    delete doc.transcript_stale;
     events.push({ kind: 'edit', anchor: 'transcript', summary: 'Edited the transcript', data: { field: 'transcript' } });
   }
   return events;
@@ -535,6 +541,8 @@ export const podcastRoutes: Route[] = [
       }
       const ms = Date.now() - started;
       return fresh(id!, (d) => {
+        // A transcript of the take this replaces may not match the new one.
+        if (d.audio && d.transcript?.trim()) d.transcript_stale = true;
         d.audio = { source_filename: name, duration_seconds: result.durationSeconds, bytes: result.bytes, mastered_at: new Date().toISOString() };
         if (!d.episode.date) d.episode.date = centralIso(Date.now());
       }, [{
@@ -591,7 +599,7 @@ export const podcastRoutes: Route[] = [
         record(id!, { kind: 'audio', actor: 'wt-builder', summary: 'Transcript draft set aside — the transcript was edited meanwhile', anchor: 'transcript', data: { action: 'set-aside', ms } });
         throw new HttpError(409, 'the transcript was edited while the draft was made — your text is kept; Transcribe again to replace it', 'transcript-moved');
       }
-      return fresh(id!, (d) => { d.transcript = text; }, [{
+      return fresh(id!, (d) => { d.transcript = text; delete d.transcript_stale; }, [{
         kind: 'audio', actor: 'wt-builder', anchor: 'transcript',
         summary: `Transcript drafted — ${paragraphs} paragraph${paragraphs === 1 ? '' : 's'}, in ${took(ms)}`,
         data: { action: 'transcribed', ms, paragraphs },

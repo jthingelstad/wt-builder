@@ -916,10 +916,12 @@ first real episode is the first real run.
   `WT_BUILDER_LAST_PUBLISHED_EPISODE` (default 1) is the last one published
   by hand. A number held by another episode is refused.
 - **Outline.** Saved whole (`PUT /api/episodes/:id/outline`) with the
-  version it was edited from; a stale tab gets 409 `outline-moved`, says
-  so, and re-reads. The page's own saves go one at a time, each an edit
+  version it was edited from; a save from behind gets 409 `outline-moved`.
+  The page's saves go one at a time, each an edit (by segment and card id)
   applied to the outline the last one answered with, so tabbing through
-  fields faster than the server answers loses nothing. Every save narrates
+  fields faster than the server answers loses nothing. After another tab's
+  save, the page applies the edit to that outline instead, says so, and
+  re-reads only if that is refused too. Every save narrates
   itself in the log (`outlineEvents`).
 - **The card.** Beats, pace, splits per segment, take notes; keys ←/→ J/K,
   space, R, S, F, N, +/−, Esc. A session's splits and take notes are saved
@@ -942,7 +944,10 @@ first real episode is the first real run.
   (`src/server/podcast/transcribe.ts`); 409 `has-transcript` unless
   `replace`. The box is locked while a draft is made, and a draft that
   finds the transcript edited meanwhile is set aside (409
-  `transcript-moved`, logged), never written over it. Never run.
+  `transcript-moved`, logged), never written over it. A transcript left
+  from before a new master is flagged (`transcript_stale`): a warning at
+  the send and an open tick until it is transcribed again or edited.
+  Never run.
 - **Send — the `another` leg.** `POST /api/episodes/:id/send[?force=1]`
   commits `content/episodes/NNN-slug.md`, its `.txt` transcript and
   `uploads/YYYY/another-thing-N.mp3` (re-tagged with the episode as it
@@ -959,7 +964,8 @@ first real episode is the first real run.
 - **Verify.** Read back off the live site: the feed carries the GUID and
   the enclosure, the mp3 answers with the bytes sent, the page is up.
   A send records `waiting` with the first look a minute out, so a restart
-  resumes it; `waiting` for 20 minutes while Pages builds, re-checking
+  resumes it; a look at the previous send that returns after a re-send is
+  dropped; `waiting` for 20 minutes while Pages builds, re-checking
   every 2; `POST …/verify` checks again. Never run.
 - **Log and time.** Episode events use the shared log (kinds `episode`,
   `recording`, `audio`); `GET …/events` reads them, and "Made in" counts

@@ -8,7 +8,7 @@
  * outline: the page's saves go one at a time, each applied to the outline
  * the last one answered with, so tabbing through fields faster than the
  * server answers loses nothing, and `outline-moved` is left meaning what it
- * says, another tab. Three texts live here on purpose and stay apart: the OUTLINE
+ * says, another tab: then the edit is applied to that tab's outline. Three texts live here on purpose and stay apart: the OUTLINE
  * (what Jamie records from, never published), the SHOW NOTES (what a
  * listener reads) and the TRANSCRIPT (what was said).
  */
@@ -59,17 +59,35 @@ export function Episode({ view, error, run, onError, onIndex, onRecord, onReload
   if (waiting.current === 0) outline.current = { segments: doc.segments, version: view.outline_version };
   const saveOutline = (change: Edit<Segment[]>): Promise<boolean> => {
     waiting.current += 1;
+    let movedUnder = false;
     const saving = queue.current.then(() => run(async () => {
-      const from = outline.current;
-      try {
+      const put = async (from: { segments: Segment[]; version: string }) => {
         const v = await podcastApi.outline(id, change(from.segments), from.version);
         outline.current = { segments: v.episode.segments, version: v.outline_version };
+        return v;
+      };
+      try {
+        return await put(outline.current);
+      } catch (err) {
+        if (!(err instanceof ApiError && err.code === 'outline-moved')) throw err;
+      }
+      // Another tab saved first. The edit is a change by id, so it goes onto
+      // the newer outline, as a field edit would (the later save stands,
+      // the outline it replaced is kept in the revisions); it is never dropped.
+      // Refused again, the page re-reads and says so.
+      const latest = await podcastApi.get(id);
+      try {
+        const v = await put({ segments: latest.episode.segments, version: latest.outline_version });
+        movedUnder = true;
         return v;
       } catch (err) {
         if (err instanceof ApiError && err.code === 'outline-moved') onReload();
         throw err;
       }
-    })).catch(() => false).finally(() => { waiting.current -= 1; });
+    })).then((ok) => {
+      if (ok && movedUnder) onError('The outline had changed in another tab; your edit was made to the newer outline.');
+      return ok;
+    }).catch(() => false).finally(() => { waiting.current -= 1; });
     queue.current = saving;
     return saving;
   };

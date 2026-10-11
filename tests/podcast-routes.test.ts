@@ -13,8 +13,13 @@ import { mkdirSync, mkdtempSync, rmSync, writeFileSync } from 'node:fs';
 import { tmpdir } from 'node:os';
 import { join } from 'node:path';
 
-const { listPaths, putTree, tagged, master, transcribe } = vi.hoisted(() => ({
-  listPaths: vi.fn(), putTree: vi.fn(), tagged: vi.fn(), master: vi.fn(), transcribe: vi.fn(),
+const { listPaths, putTree, tagged, master, transcribe, verifyEpisode } = vi.hoisted(() => ({
+  listPaths: vi.fn(), putTree: vi.fn(), tagged: vi.fn(), master: vi.fn(), transcribe: vi.fn(), verifyEpisode: vi.fn(),
+}));
+
+vi.mock('../src/server/podcast/verify.ts', async (importOriginal) => ({
+  ...(await importOriginal<typeof import('../src/server/podcast/verify.ts')>()),
+  verifyEpisode,
 }));
 
 vi.mock('../src/server/integrations/github.ts', async (importOriginal) => ({
@@ -65,6 +70,7 @@ beforeEach(() => {
   tagged.mockReset().mockResolvedValue(Buffer.from('ID3 tagged mp3'));
   master.mockReset();
   transcribe.mockReset();
+  verifyEpisode.mockReset().mockResolvedValue({ status: 'passed', at: new Date().toISOString(), checks: [] });
 });
 
 async function call(method: string, path: string, body?: unknown) {
@@ -408,5 +414,48 @@ describe('one thing at a time on the audio', () => {
 
     done();
     expect((await drafting).status).toBe(200);
+  });
+});
+
+describe('after a new master', () => {
+  it('a transcript of the old take is flagged, warns at the send, and clears when touched', async () => {
+    const id = await ready();
+    master.mockResolvedValue({ path: masteredPath(id), bytes: 4321, durationSeconds: 1800 });
+    expect((await fetch(`${base}/api/episodes/${id}/audio?name=new.wav`, { method: 'POST', body: 'RIFF new take' })).status).toBe(200);
+    expect(eps.getEpisode(id)!.doc.transcript_stale).toBe(true);
+    const send = await call('POST', `/episodes/${id}/send`);
+    expect(send.status).toBe(409);
+    expect(send.json.code).toBe('warnings');
+    expect(send.text).toContain('mastered again');
+
+    await call('PATCH', `/episodes/${id}`, { transcript: 'Hello, read against the new take.' });
+    expect(eps.getEpisode(id)!.doc.transcript_stale).toBeUndefined();
+  });
+
+  it('a first master never flags a transcript', async () => {
+    await call('POST', '/episodes', {});
+    await call('PATCH', '/episodes/at2', { transcript: 'Written first.' });
+    master.mockResolvedValue({ path: masteredPath('at2'), bytes: 1, durationSeconds: 60 });
+    await fetch(`${base}/api/episodes/at2/audio?name=first.wav`, { method: 'POST', body: 'RIFF' });
+    expect(eps.getEpisode('at2')!.doc.transcript_stale).toBeUndefined();
+  });
+});
+
+describe('the check after a send', () => {
+  it("a look at the last send that comes back after a re-send never stands for the new one", async () => {
+    const id = await ready();
+    expect((await call('POST', `/episodes/${id}/send`)).status).toBe(200);
+    let found!: () => void;
+    verifyEpisode.mockReturnValueOnce(new Promise((resolve) => {
+      found = () => resolve({ status: 'passed', at: new Date().toISOString(), checks: [] });
+    }));
+    const looking = call('POST', `/episodes/${id}/verify`);
+    await vi.waitFor(() => expect(verifyEpisode).toHaveBeenCalled());
+
+    await new Promise((r) => setTimeout(r, 5)); // a later send stamp
+    expect((await call('POST', `/episodes/${id}/send`)).status).toBe(200);
+    found();
+    expect((await looking).status).toBe(200);
+    expect(eps.getEpisode(id)!.doc.verify?.another?.status).toBe('waiting');
   });
 });

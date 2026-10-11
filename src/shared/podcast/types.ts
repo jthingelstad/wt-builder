@@ -145,6 +145,11 @@ export interface EpisodeDoc {
   show_notes?: string;
   /** Plain text, blank-line paragraphs: Another's transcript contract. */
   transcript?: string;
+  /**
+   * The recording was mastered again after the transcript was written: it
+   * may describe the old take. Cleared by a new draft or an edit to it.
+   */
+  transcript_stale?: boolean;
   audio?: AudioState;
   /** One leg: the commit to another.thingelstad.com. */
   sends?: { another?: SendState };

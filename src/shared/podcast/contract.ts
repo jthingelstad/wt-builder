@@ -193,6 +193,7 @@ export function validate(doc: EpisodeDoc): Problem[] {
   if (!doc.audio) blocks('No mastered audio. Drop the edited recording first.');
   if (!e.summary.trim()) warns('No summary. It is the feed entry and the episode page description.');
   if (!doc.transcript?.trim()) warns('No transcript. The episode can go without one; it reads better with one.');
+  else if (doc.transcript_stale) warns('The transcript was written before the recording was mastered again: transcribe again, or read it against the new take.');
   if (!doc.show_notes?.trim()) warns('No show notes. The episode page would be only the link list.');
   return out;
 }

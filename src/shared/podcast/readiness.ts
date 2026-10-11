@@ -46,7 +46,7 @@ export function episodeReadiness(doc: EpisodeDoc): EpisodeReadiness {
       hint: 'Record from the card, or drop the recording.',
     },
     { key: 'audio', stage: 'publish', title: 'Audio', done: Boolean(doc.audio), hint: 'Drop the edited recording to master it.' },
-    { key: 'transcript', stage: 'publish', title: 'Transcript', done: Boolean(doc.transcript?.trim()), hint: 'Transcribe the mastered audio, then read it through.' },
+    { key: 'transcript', stage: 'publish', title: 'Transcript', done: Boolean(doc.transcript?.trim()) && !doc.transcript_stale, hint: doc.transcript_stale ? 'Written before the new master: transcribe again or read it through.' : 'Transcribe the mastered audio, then read it through.' },
     { key: 'summary', stage: 'publish', title: 'Summary', done: Boolean(e.summary.trim()), hint: 'One line for the feed.' },
     { key: 'notes', stage: 'publish', title: 'Show notes', done: Boolean(doc.show_notes?.trim()), hint: 'What a listener reads on the episode page.' },
     { key: 'sent', stage: 'publish', title: 'Sent', done: Boolean(lastSent(doc.sends?.another)), hint: 'Send it to another.thingelstad.com.' },

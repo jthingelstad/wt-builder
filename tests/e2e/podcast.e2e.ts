@@ -61,7 +61,7 @@ test('the index reaches the episodes, and a new episode opens on its outline', a
   await expect(page.locator('.issue-row', { hasText: 'AT2' })).toContainText('Why a podcast at all');
 });
 
-test('a stale outline is refused, not saved over the newer one', async ({ page, request }) => {
+test("an edit from a tab that is behind lands on the other tab's outline, not over it", async ({ page, request }) => {
   const created = await (await request.post('/api/episodes', { data: { title: 'Stale' } })).json();
   const id = created.episode.episode.id as string;
   await page.goto(`/${id}`);
@@ -73,11 +73,13 @@ test('a stale outline is refused, not saved over the newer one', async ({ page, 
   });
   expect(other.status()).toBe(200);
 
-  // This tab, still on the old version, adds one too: refused, then re-read.
+  // This tab, still on the old version, adds one too: its edit goes onto
+  // the newer outline, and the page says what happened.
   await page.getByRole('button', { name: 'Segment' }).click();
-  await expect(page.locator('.error-bar')).toBeVisible();
-  await expect(page.locator('.pc-seg-title')).toHaveValue('From the other tab');
-  expect(saved(id).segments.map((s) => s.title)).toEqual(['From the other tab']);
+  await expect(page.locator('.error-bar')).toContainText('changed in another tab');
+  await expect(page.locator('.pc-seg')).toHaveCount(2);
+  await expect(page.locator('.pc-seg-title').first()).toHaveValue('From the other tab');
+  expect(saved(id).segments.map((s) => s.title)).toEqual(['From the other tab', '']);
 });
 
 test('outline edits made faster than the server answers all land, in order', async ({ page, request }) => {
