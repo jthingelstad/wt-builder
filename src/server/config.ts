@@ -26,7 +26,7 @@ export const OFFLINE = process.env.WT_BUILDER_OFFLINE === '1';
 if (OFFLINE) {
   for (const k of [
     'PINBOARD_API_TOKEN', 'MICROBLOG_API_KEY', 'BUTTONDOWN_API_KEY', 'LIBRARIAN_RETRIEVE_SECRET',
-    'GITHUB_PAT_TOKEN', 'OPENAI_API_KEY', 'SPAMHAUS_DQS_KEY', 'POSTMARK_DMARC_TOKEN', 'ANTHROPIC_API_KEY', 'ANTHROPIC_AUTH_TOKEN',
+    'GITHUB_PAT_TOKEN', 'ANOTHER_GITHUB_PAT_TOKEN', 'OPENAI_API_KEY', 'SPAMHAUS_DQS_KEY', 'POSTMARK_DMARC_TOKEN', 'ANTHROPIC_API_KEY', 'ANTHROPIC_AUTH_TOKEN',
     'AWS_ACCESS_KEY_ID', 'AWS_SECRET_ACCESS_KEY', 'AWS_SESSION_TOKEN', 'AWS_PROFILE',
     'WT_BUILDER_PINBOARD_WRITEBACK', 'WT_BUILDER_MICROBLOG_WRITEBACK',
   ]) process.env[k] = '';
@@ -83,7 +83,12 @@ export interface Credentials {
   /** Authorizes /retrieve on the Librarian Lambda. */
   librarianSecret?: string;
   githubToken?: string;
-  /** Text-to-speech for the audio edition. */
+  /**
+   * Contents: write on another.thingelstad.com, for the episode send. Falls
+   * back to `githubToken` when that one PAT covers both repositories.
+   */
+  anotherGithubToken?: string;
+  /** Text-to-speech for the audio edition, and an episode's transcript. */
   openaiKey?: string;
   /** Spamhaus Data Query Service: the DBL lookups in the blocklist check. */
   spamhausKey?: string;
@@ -98,6 +103,7 @@ export const credentials: Credentials = {
   /** Authorizes /retrieve on the Librarian Lambda. Echoes fails loud without it. */
   librarianSecret: optional('LIBRARIAN_RETRIEVE_SECRET'),
   githubToken: optional('GITHUB_PAT_TOKEN'),
+  anotherGithubToken: optional('ANOTHER_GITHUB_PAT_TOKEN') ?? optional('GITHUB_PAT_TOKEN'),
   openaiKey: optional('OPENAI_API_KEY'),
   /** The blocklist check asks the Spamhaus DBL only with it (src/server/domain-check.ts). */
   spamhausKey: optional('SPAMHAUS_DQS_KEY'),
@@ -169,6 +175,26 @@ export const config = {
     'https://jcvud66qqpq53frvno5stoqntm0zqntw.lambda-url.us-east-1.on.aws',
 
   /**
+   * Another Thing, the podcast (src/server/podcast/). An episode's send
+   * commits its page, transcript and mp3 to this repository as one commit;
+   * the site's own build publishes it.
+   */
+  anotherRepo: optional('WT_BUILDER_ANOTHER_REPO') ?? 'jthingelstad/another.thingelstad.com',
+  anotherBranch: optional('WT_BUILDER_ANOTHER_BRANCH') ?? 'main',
+  /**
+   * Where a mastered episode waits until its send commits it. Git-ignored
+   * with the database; once sent, the repository holds the copy of record.
+   */
+  episodeAudioDir:
+    optional('WT_BUILDER_EPISODE_AUDIO') ??
+    fileURLToPath(new URL('../../data/another-audio', import.meta.url)),
+  /**
+   * The last episode published before WT Builder sent one, so the next
+   * episode's number continues from it. Editable on the episode either way.
+   */
+  lastPublishedEpisode: Number(optional('WT_BUILDER_LAST_PUBLISHED_EPISODE') ?? 1) || 0,
+
+  /**
    * Synthesized speech, one file per script block, keyed by what was said and
    * how. A wording fix re-synthesizes only the blocks that changed; a failed
    * run resumes where it stopped. A cache, not the copy of record: every
@@ -196,11 +222,13 @@ export function describeConfig(): Record<string, string> {
     librarian: credentials.librarianSecret ? 'configured' : 'MISSING',
     aws: process.env.AWS_ACCESS_KEY_ID ? 'configured' : 'MISSING',
     github: credentials.githubToken ? 'configured' : 'MISSING',
+    anotherGithub: process.env.ANOTHER_GITHUB_PAT_TOKEN?.trim() ? 'configured' : credentials.anotherGithubToken ? 'GITHUB_PAT_TOKEN' : 'MISSING',
     openai: credentials.openaiKey ? 'configured' : 'MISSING',
     spamhaus: credentials.spamhausKey ? 'configured' : 'MISSING (blocklist check asks URIBL only)',
     postmarkDmarc: credentials.postmarkDmarcToken ? 'configured' : 'MISSING (no DMARC line on the Buttondown check)',
     websiteRepo: config.websiteRepo,
     archiveRepo: config.archiveRepo,
+    anotherRepo: config.anotherRepo,
     pinboardWriteBack: config.pinboardWriteBack ? 'enabled' : 'disabled',
     microblogWriteBack: config.microblogWriteBack ? 'enabled' : 'disabled',
     rehostImages: config.rehostImages ? 'enabled' : 'disabled',

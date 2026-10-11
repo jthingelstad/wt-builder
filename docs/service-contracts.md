@@ -455,6 +455,10 @@ Claude Code or Codex on otto, or any MCP client on the tailnet.
   rows carry `actor`; `get_timing` adds `wands` (`calls`, `failed`,
   `used`, `waiting_seconds`). Share links are withheld from `data` as from
   the summary.
+- **Episode kinds (1.9.2, 2026-10-11).** `list_events`' `kind` filter
+  takes `episode`, `recording` and `audio`, which only an Another Thing
+  episode's log carries; an issue never has them, and no tool reads an
+  episode yet.
 - **No draft share (1.9.0, 2026-10-11).** `get_status` and `get_issue`
   drop `shared_as_draft`: the editor no longer shares a draft as a page.
   `list_shares` (LinkedIn and blog posts of a published issue) is unchanged.

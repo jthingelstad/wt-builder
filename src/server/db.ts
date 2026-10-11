@@ -151,6 +151,36 @@ const MIGRATIONS: ((d: Database.Database) => void)[] = [
       END;
     `);
   },
+  // v7 — Another Thing, the podcast, as a second product (docs/decisions.md,
+  // 2026-10-11). Episodes are their own documents in their own table, never
+  // issues: nothing that lists, numbers, sweeps or sends an issue can meet
+  // one. Their revisions are their own table too, so `npm run revisions
+  // --restore` can never put an episode's document into `issues`. The event
+  // log is shared: an episode's events carry its `at<N>`, as an issue's
+  // carry `wt<N>`, and the Log sheet, the timing and the watcher read them
+  // the same way.
+  (d) => {
+    d.exec(`
+      CREATE TABLE episodes (
+        id             TEXT PRIMARY KEY,
+        number         INTEGER NOT NULL,
+        status         TEXT NOT NULL DEFAULT 'draft',
+        schema_version INTEGER NOT NULL,
+        doc            TEXT NOT NULL,
+        send_another   TEXT,
+        created_at     TEXT NOT NULL,
+        updated_at     TEXT NOT NULL
+      );
+      CREATE UNIQUE INDEX episodes_number ON episodes(number);
+      CREATE TABLE episode_revisions (
+        id         INTEGER PRIMARY KEY AUTOINCREMENT,
+        episode_id TEXT NOT NULL,
+        saved_at   TEXT NOT NULL,
+        doc        TEXT NOT NULL
+      );
+      CREATE INDEX episode_revisions_episode ON episode_revisions(episode_id, id DESC);
+    `);
+  },
 ];
 
 /**
@@ -506,7 +536,12 @@ function rowToEvent(row: Record<string, unknown>): IssueEvent {
   };
 }
 
-function insertEvent(issueId: string, at: string, e: EventInput): number {
+/**
+ * Append one event at a given instant. Exported for the podcast's store,
+ * which writes an episode's events in its own save's transaction, the way
+ * saveIssue does; everything else logs through `record` or a save.
+ */
+export function insertEvent(issueId: string, at: string, e: EventInput): number {
   const info = openDb()
     .prepare('INSERT INTO events (issue_id, at, kind, actor, summary, anchor, data) VALUES (?, ?, ?, ?, ?, ?, ?)')
     .run(issueId, at, e.kind, actorOf(e), e.summary, e.anchor ?? null, e.data ? JSON.stringify(e.data) : null);

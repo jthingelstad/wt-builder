@@ -65,6 +65,9 @@ and a Retry on a failed write-back is Jamie's.
 | `send` | jamie | A leg's start (`data.action: 'start'`), its finish or failure (the service's, with `data.ms`), refusals and overrides. |
 | `verify` | wt-builder | A leg's check, logged only when its status moves (`data.from`, `data.to`), when it errs, or when Jamie asked. |
 | `share` | jamie | LinkedIn, the blog post. Before 2026-10-11, the draft share too. |
+| `episode` | jamie | An Another Thing episode started or deleted. "Published" is the service's. |
+| `recording` | jamie | A session at the card: started, finished (`data.seconds`), a take note. |
+| `audio` | jamie | A recording dropped, then mastered or failed (the service's, `data.ms`); a transcript drafted. |
 
 ## Rules for writing one
 

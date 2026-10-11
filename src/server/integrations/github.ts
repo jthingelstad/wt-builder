@@ -1,8 +1,10 @@
 /**
  * Committing generated files to a GitHub repository.
  *
- * Two legs ride this: the website handoff and the archive feed, each pointed
- * at its own repository through `RepoTarget`. A handoff must land as one
+ * Three legs ride this: the website handoff, the archive feed, and an
+ * Another Thing episode's send, each pointed at its own repository through
+ * `RepoTarget`. The episode's commit carries its mp3, so a file's content
+ * may be a Buffer, uploaded as a base64 blob. A handoff must land as one
  * commit: a half-applied set would leave the render surface with an archive
  * page whose index entry is missing, or the corpus with links and no text. This
  * builds blobs, then a tree, then a commit, then moves the ref — the same
@@ -27,27 +29,44 @@ export interface RepoFile {
   content: string;
 }
 
-function token(): string {
-  const t = credentials.githubToken;
+/** A file a push may carry as bytes: an episode's mp3. */
+export interface RepoBlob {
+  path: string;
+  content: string | Buffer;
+}
+
+/** The token for a repository: the target's own, or GITHUB_PAT_TOKEN. */
+const tokens = new Map<string, { get: () => string | undefined; name: string }>();
+
+/** A repository whose pushes use another credential (the podcast's repo), named for the error. */
+export function useToken(repo: string, get: () => string | undefined, name: string): void {
+  tokens.set(repo, { get, name });
+}
+
+function token(repo: string): string {
+  const own = tokens.get(repo);
+  const t = own ? own.get() : credentials.githubToken;
   if (!t) {
+    const name = own?.name ?? 'GITHUB_PAT_TOKEN';
     throw new MissingTokenError(
-      'GITHUB_PAT_TOKEN is not set. A fine-grained PAT with Contents: write on the website repo is required.',
+      `${name} is not set. A fine-grained PAT with Contents: write on ${repo} is required.`,
     );
   }
   return t;
 }
 
-async function call(repo: string, path: string, init: RequestInit = {}): Promise<any> {
+/** A blob of an episode's mp3 is tens of MB, base64: give it longer than a page. */
+async function call(repo: string, path: string, init: RequestInit = {}, timeoutMs = 30_000): Promise<any> {
   const res = await fetch(`${API}/repos/${repo}${path}`, {
     ...init,
     headers: {
-      Authorization: `Bearer ${token()}`,
+      Authorization: `Bearer ${token(repo)}`,
       Accept: 'application/vnd.github+json',
       'X-GitHub-Api-Version': '2022-11-28',
       'Content-Type': 'application/json',
       ...(init.headers ?? {}),
     },
-    signal: AbortSignal.timeout(30_000),
+    signal: AbortSignal.timeout(timeoutMs),
   });
   const text = await res.text();
   if (!res.ok) {
@@ -60,8 +79,8 @@ async function call(repo: string, path: string, init: RequestInit = {}): Promise
  * Git's own blob hash, so a file can be compared against the remote tree
  * without fetching its content.
  */
-export function blobSha(content: string): string {
-  const body = Buffer.from(content, 'utf8');
+export function blobSha(content: string | Buffer): string {
+  const body = Buffer.isBuffer(content) ? content : Buffer.from(content, 'utf8');
   return createHash('sha1')
     .update(`blob ${body.length}\0`)
     .update(body)
@@ -115,8 +134,15 @@ export async function readFile(path: string, target: RepoTarget = {}): Promise<s
   return Buffer.from(String(blob.content ?? ''), 'base64').toString('utf8');
 }
 
+/** Every file path under `prefix` on the target branch: what a directory holds. */
+export async function listPaths(prefix: string, target: RepoTarget = {}): Promise<string[]> {
+  const { repo, branch } = targetOf(target);
+  const { tree } = await head(repo, branch);
+  return [...(await treeBlobs(repo, tree)).keys()].filter((p) => p.startsWith(prefix));
+}
+
 /** What a push would change, without changing anything. */
-export async function diff(files: RepoFile[], target: RepoTarget = {}): Promise<PushResult> {
+export async function diff(files: RepoBlob[], target: RepoTarget = {}): Promise<PushResult> {
   const { repo, branch } = targetOf(target);
   const { commit, tree } = await head(repo, branch);
   const remote = await treeBlobs(repo, tree);
@@ -134,7 +160,7 @@ export async function diff(files: RepoFile[], target: RepoTarget = {}): Promise<
  * rebuilding against the new head rather than forcing.
  */
 export async function putTree(
-  files: RepoFile[],
+  files: RepoBlob[],
   message: string,
   target: RepoTarget = {},
 ): Promise<PushResult> {
@@ -154,10 +180,15 @@ export async function putTree(
 
     const entries = [];
     for (const file of changed) {
-      const blob = await call(repo, '/git/blobs', {
-        method: 'POST',
-        body: JSON.stringify({ content: file.content, encoding: 'utf-8' }),
-      });
+      const blob = Buffer.isBuffer(file.content)
+        ? await call(repo, '/git/blobs', {
+            method: 'POST',
+            body: JSON.stringify({ content: file.content.toString('base64'), encoding: 'base64' }),
+          }, 300_000)
+        : await call(repo, '/git/blobs', {
+            method: 'POST',
+            body: JSON.stringify({ content: file.content, encoding: 'utf-8' }),
+          });
       entries.push({ path: file.path, mode: '100644', type: 'blob', sha: blob.sha });
     }
 

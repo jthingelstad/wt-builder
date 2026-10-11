@@ -14,13 +14,6 @@ import { Archive, Check, CircleAlert, Spinner, Moon } from '../icons.tsx';
 import { omnifocusUrl, taskpaper } from '../../shared/taskpaper.ts';
 import { duration } from '../../shared/timing.ts';
 
-/** AT Builder: the same host, served one port up (tailnet :10002, dev :5318). */
-function siblingUrl(): string {
-  const { protocol, hostname, port } = window.location;
-  const sibling = port === '10001' ? '10002' : port === '5317' ? '5318' : port === '4317' ? '4318' : '10002';
-  return `${protocol}//${hostname}:${sibling}/`;
-}
-
 /**
  * The issue's OmniFocus project, from the dashboard: the week starts here,
  * before the issue is opened (Jamie, 2026-09-20). The row only has the
@@ -45,6 +38,8 @@ interface Props {
   onOpen: (id: string) => void;
   /** A put-to-bed issue's Share view. */
   onShare: (id: string) => void;
+  /** Another Thing's episodes. */
+  onPodcast: () => void;
 }
 
 interface Filters {
@@ -74,7 +69,7 @@ function matches(i: IssueSummary, f: Filters): boolean {
   return true;
 }
 
-export function IssueIndex({ error, loading: opening, onError, onOpen, onShare }: Props) {
+export function IssueIndex({ error, loading: opening, onError, onOpen, onShare, onPodcast }: Props) {
   const [issues, setIssues] = useState<IssueSummary[]>([]);
   const [nextNumber, setNextNumber] = useState(1);
   const [loading, setLoading] = useState(true);
@@ -127,9 +122,8 @@ export function IssueIndex({ error, loading: opening, onError, onOpen, onShare }
       <header class="header">
         <span class="mark">W</span>
         <span class="wordmark">WT Builder</span>
-        {/* The sibling, one hop away: same host, the next port on the tailnet
-            (:10001 → :10002; :5317 → :5318 in dev). Jamie, 2026-09-20. */}
-        <a class="sibling-link" href={siblingUrl()}>AT Builder →</a>
+        {/* The podcast, the second product this app makes (decisions.md, 2026-10-11). */}
+        <a class="sibling-link" href="/another" onClick={(e) => { e.preventDefault(); onPodcast(); }}>Another Thing →</a>
         <span class="head-spacer" />
         <button class="btn primary" onClick={() => setSheet(true)}>New issue</button>
       </header>

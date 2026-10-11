@@ -1,6 +1,8 @@
 import { render } from 'preact';
 import { App } from './app.tsx';
 import './styles.css';
+// After the shell's rules, so the podcast's own (.pc-mark over .mark) win.
+import './podcast/podcast.css';
 
 /**
  * A file dropped anywhere but a drop zone is the browser's to handle, and the

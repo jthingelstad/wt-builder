@@ -256,29 +256,55 @@ prevented from writing, but because the accept step is his.
 *Visible in `editorial.ts` as a return type. Invisible as a principle — which is
 the part that stops the next convenience feature from quietly writing.*
 
-## The podcast builder will be a sibling, not a feature
+## Another Thing is a second product here, not a feature of the issue (2026-10-11)
 
-The authoring app for *Another Thing* — outlining, recording support,
-transcripts, publishing episodes — is **`at-builder`**, scoped 2026-08-28.
-**It is its own application, not a mode of WT Builder.** One editor and one newsletter is
-what makes this codebase small enough to trust; a second product grafted on
-is how Studio became a "publishing brain" and died of it. The product brief's
-non-goals already exclude podcast authoring, and that exclusion is load-bearing.
+This section used to say the podcast builder would be a sibling application,
+`at-builder`, scoped 2026-08-28. It was built that way, never sent an
+episode, and was folded in here on 2026-10-11 (Jamie: "an outliner, a view
+that allows me to show that outline on screen for recording with timers and
+such, and publishing workflow"). The two apps were mirroring the same shell
+(event log, revisions, time spent, send guards, the GitHub commit client,
+deploy) while sharing nothing on screen, so every fix to one was a port to
+the other.
 
-What the sibling should take from here is the *pattern*, and possibly two
-mechanisms worth extracting when it starts (not before): the audio mastering
-chain (`integrations/audio.ts` — per-block TTS and placed pauses are
-irrelevant to a recorded podcast, but the loudnorm/chapter/tag/upload tail is
-not) and the cross-repo commit
-client (`integrations/github.ts`). Its send targets differ: an episode is a
-commit of `content/episodes/{N}-slug.md` + transcript into
-`another.thingelstad.com`, whose URL scheme (`/podcast.xml`, `/YYYY/MM/DD/`,
-`/uploads/YYYY/`) is load-bearing for subscribers and must not be redesigned
-by the tool. The corpus side needs nothing: the Librarian already ingests
-Another's episodes on its own schedule.
+What changed is where the shell lives, not the old reasoning. The newsletter
+and the podcast are **two products in one service**, and neither is a mode of
+the other:
 
-*Invisible in code because it is a decision about what this repo will never
-contain.*
+- **Separate documents.** An episode is its own row in its own tables
+  (`episodes`, `episode_revisions`, migration 7), never an issue and never an
+  item. `npm run revisions -- --restore` cannot put an episode into `issues`.
+  Nothing under `src/server/podcast/` reads or writes an issue, and nothing
+  in the issue code reads an episode.
+- **Separate screens.** `/another`, `/at<N>` and `/at<N>/record` hold their
+  own state (`src/client/podcast/`); they share the header, the buttons and
+  the log sheet, and nothing else. The recording card keeps AT Builder's dark
+  palette and block contract, scoped under `.card-surface`.
+- **Shared shell.** One event log (the kinds `episode`, `recording` and
+  `audio` were added; an episode's events carry `at<N>`), one way of
+  counting the time spent, one send-claim rule, one GitHub client (a
+  repository can name its own token: `ANOTHER_GITHUB_PAT_TOKEN`), one deploy.
+- **Left behind on purpose:** AT Builder's wands, prospecting, hooks and
+  chapter editing. The outline is Jamie's; nothing generates it. The only
+  model call is transcription of the mastered audio, which drafts text Jamie
+  then edits.
+
+The send is a commit of `content/episodes/NNN-slug.md`, its transcript and
+`uploads/YYYY/another-thing-N.mp3` into `another.thingelstad.com`, as one
+commit. Its URL scheme (`/podcast.xml`, `/YYYY/MM/DD/slug.html` by the
+date's UTC day, `/uploads/YYYY/`) is held by every subscriber's client and
+must not be redesigned by the tool. **A blocking validation problem is a
+hard stop** (a value Another's parser would misread, no offset on the date,
+no audio): unlike every other gate here it cannot be overridden, because what
+it protects is a feed entry subscribers cannot un-receive. Warnings (no
+transcript, no show notes) are overridable with `?force=1` and a confirm, as
+everywhere else. A number already used in the repository refuses the send
+too: episode 1 was published by hand.
+
+The corpus side still needs nothing: the Librarian ingests Another's episodes
+from that repository on its own schedule.
+
+*Invisible in code because it is a boundary: what each product may touch.*
 
 ## There are no bumpers, and no music (2026-09-21)
 

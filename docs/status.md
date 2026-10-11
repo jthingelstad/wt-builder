@@ -900,6 +900,63 @@ finished, what is half-finished, and what has never run.
     issue re-created under the same number shares the deleted one's
     revision history.
 
+## Another Thing, the podcast — built 2026-10-11, never sent
+
+The second product (decisions.md, 2026-10-11), folded in from AT Builder,
+which never sent an episode either. Built and tested offline; **nothing here
+has run against a real recording, OpenAI, GitHub or the live site yet.** The
+first real episode is the first real run.
+
+- **Screens.** `/another` lists episodes (the index's "Another Thing →"
+  link); `/at<N>` is one episode, outline beside a rail of fields, audio,
+  send and time spent; `/at<N>/record` is the card. Code in
+  `src/client/podcast/`, styles in `src/client/podcast/podcast.css`.
+  Tests: `tests/e2e/podcast.e2e.ts` on WebKit and Chromium.
+- **Numbering.** The first episode made here is `at2`:
+  `WT_BUILDER_LAST_PUBLISHED_EPISODE` (default 1) is the last one published
+  by hand. A number held by another episode is refused.
+- **Outline.** Saved whole (`PUT /api/episodes/:id/outline`) with the
+  version it was edited from; a stale tab gets 409 `outline-moved`, says
+  so, and re-reads. Every save narrates itself in the log
+  (`outlineEvents`).
+- **The card.** Beats, pace, splits per segment, take notes; keys ←/→ J/K,
+  space, R, S, F, N, +/−, Esc. A session's splits and take notes are saved
+  to the episode (`PUT …/session`, `POST …/notes`) and never published.
+- **Audio.** `POST /api/episodes/:id/audio?name=` streams the edited
+  recording (up to 2 GB) to a temp file and masters it with ffmpeg: two-pass
+  linear loudnorm to −16 LUFS / −1.5 dBTP, 80 Hz high-pass, mono 44.1 kHz
+  128k, ID3v2.3 tags. The master waits in `WT_BUILDER_EPISODE_AUDIO`
+  (default `data/another-audio/`, keyed by episode id) until the send.
+  The first master stamps the episode's date in Central with its offset.
+  Mastering is tested for real against a generated recording
+  (`tests/podcast-master.test.ts`, skipped where ffmpeg is absent, as on
+  CI); never yet against a real one.
+- **Transcript.** `POST …/transcribe` sends the mastered mp3 to OpenAI
+  `whisper-1` in 10-minute chunks and drafts paragraphs on 1.25 s pauses
+  (`src/server/podcast/transcribe.ts`); 409 `has-transcript` unless
+  `replace`. Never run.
+- **Send — the `another` leg.** `POST /api/episodes/:id/send[?force=1]`
+  commits `content/episodes/NNN-slug.md`, its `.txt` transcript and
+  `uploads/YYYY/another-thing-N.mp3` (re-tagged with the episode as it
+  stands) to `jthingelstad/another.thingelstad.com` (`WT_BUILDER_ANOTHER_REPO`)
+  as one commit, with `ANOTHER_GITHUB_PAT_TOKEN` (or `GITHUB_PAT_TOKEN`).
+  Refusals: 422 for a blocking problem (never overridable), 409 `warnings`
+  without `force`, 409 `number-taken` when the repository already holds
+  another episode under the number, 409 when the master is not on disk.
+  Claimed before the first await; a `sending` found at boot is marked
+  failed. Once sent, number, slug and date are frozen (409 `frozen`) and
+  the episode cannot be deleted. Tested with GitHub stubbed
+  (`tests/podcast-routes.test.ts`); never run.
+- **Verify.** Read back off the live site: the feed carries the GUID and
+  the enclosure, the mp3 answers with the bytes sent, the page is up.
+  `waiting` for 20 minutes while Pages builds, re-checking every 2;
+  `POST …/verify` checks again. Never run.
+- **Log and time.** Episode events use the shared log (kinds `episode`,
+  `recording`, `audio`); `GET …/events` reads them, and "Made in" counts
+  outline, record and publish time (`src/shared/podcast/timing.ts`).
+- **Not built.** MCP tools for episodes (the MCP reads issues only), the
+  podcast's stats, and chapters.
+
 ## Not built
 
 - ~~The 352px editorial review panel~~ — built 2026-08-28: shares the rail

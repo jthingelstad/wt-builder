@@ -8,6 +8,13 @@ instructions. Do not fork them.
 WT Builder is the authoring application for *The Weekly Thing*. One editor, one
 live issue, nine years of a Shortcuts workflow being retired into it.
 
+It also makes *Another Thing*, the podcast: a second product in the same
+service since 2026-10-11, with its own documents, screens and send leg
+(`docs/decisions.md`, "Another Thing is a second product"). An outline, a
+card to record from, and a send to another.thingelstad.com. It shares the
+shell (log, revisions, time spent, send guards, the GitHub client) and
+nothing else: podcast code never touches an issue.
+
 **It publishes The Weekly Thing.** WT350 (2026-09-20) and WT351 (2026-09-26)
 were built and sent end to end here — website, Buttondown, podcast, and archive —
 and it is still being built while it is used: Jamie edits a live issue while an
@@ -42,6 +49,7 @@ read. `schema_version` on the document carries migrations.
 | `src/shared/render/plan.ts` | Ordering, window filtering, channel filtering, Journal grouping — planned once so the editions cannot drift. |
 | `src/server/` | The service. Holds every credential; nothing here reaches the browser. |
 | `src/client/` | Preact. Talks only to `/api`. |
+| `src/server/podcast/`, `src/client/podcast/`, `src/shared/podcast/` | Another Thing: routes, mastering, transcription, verify; the episode pages and the card; the contract with another.thingelstad.com. |
 | `fixtures/expected/` | What the three editions must render to. The tests hold them. |
 
 ```sh
@@ -180,6 +188,19 @@ now, and a body that says why, in prose.
   keeps the version it replaces in `revisions`; `npm run revisions -- wt350
   [item-id]` shows what an item said over time.
 - **`.env` must never be committed.** This repo is public.
+- **Another's URLs are held by subscribers.** An episode's permalink and
+  GUID come from its date's **UTC** day (a 7 PM Central date is the next
+  day's URL), its audio from the same UTC year, and Another's own
+  minimal frontmatter parser reads what the send writes. Never change the
+  shape; `tests/podcast-contract.test.ts` parses what is emitted with a copy
+  of that parser, and `tests/podcast-parser-drift.test.ts` holds the copy to
+  the sibling checkout. Once an episode is sent its number, slug and date
+  are frozen.
+- **Mastering needs ffmpeg and ffprobe on PATH** (Homebrew, on otto). The
+  masters wait in `data/another-audio/` (`WT_BUILDER_EPISODE_AUDIO`) until
+  the send commits them; after that the repository holds the mp3. Episode
+  sends use `ANOTHER_GITHUB_PAT_TOKEN` (Contents: write on
+  another.thingelstad.com), falling back to `GITHUB_PAT_TOKEN`.
 
 ## Guardrails
 

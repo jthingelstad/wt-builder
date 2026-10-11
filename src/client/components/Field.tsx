@@ -81,3 +81,21 @@ export function Input({ value, onCommit, ...rest }: InputProps) {
     />
   );
 }
+
+type TextAreaProps = Omit<JSX.TextareaHTMLAttributes<HTMLTextAreaElement>, 'value' | 'defaultValue' | 'ref' | 'onBlur'> & {
+  value: string;
+  onCommit?: (text: string) => unknown;
+};
+
+/** A `<textarea>` that follows the same rule as Input: typing in progress is never overwritten. */
+export function TextArea({ value, onCommit, ...rest }: TextAreaProps) {
+  const { ref, settle } = useFieldValue<HTMLTextAreaElement>(value);
+  return (
+    <textarea
+      {...rest}
+      ref={ref}
+      defaultValue={value}
+      onBlur={(e) => settle(onCommit?.(e.currentTarget.value))}
+    />
+  );
+}

@@ -100,7 +100,7 @@ export function LeftPanel(props: Props) {
         )}
 
       {logOpen && (
-        <EventLog issueId={doc.issue.id} number={doc.issue.number} onClose={() => setLogOpen(false)} />
+        <EventLog title={`WT${doc.issue.number} — the log`} load={() => api.events(doc.issue.id)} onClose={() => setLogOpen(false)} />
       )}
 
       <Outline {...props} nodes={nodes} frozen={frozen} />

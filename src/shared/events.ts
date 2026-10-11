@@ -1,5 +1,7 @@
 /**
- * The issue's event log: one record of everything that happens to an issue,
+ * The event log: one record of everything that happens to an issue, or to an
+ * Another Thing episode (its events carry the episode's `at<N>` where an
+ * issue's carry `wt<N>`),
  * read by the Log sheet, the issue timing, the MCP's `changes` and
  * `list_events`, an item's history, and `npm run watch` (docs/event-log.md).
  *
@@ -44,7 +46,13 @@ export type EventKind =
   /** A leg's verification, when its status moves. */
   | 'verify'
   /** Draft share, LinkedIn, the blog post. */
-  | 'share';
+  | 'share'
+  /** An Another Thing episode's own life: started, published, deleted. */
+  | 'episode'
+  /** A recording session at the card: started, finished, a take note. */
+  | 'recording'
+  /** An episode's audio: a recording dropped, mastered, transcribed. */
+  | 'audio';
 
 /**
  * Who made it happen. `jamie` is an act in the editor, and only those count
@@ -105,6 +113,9 @@ export const ACTOR_OF: Record<EventKind, EventActor> = {
   send: 'jamie',
   verify: 'wt-builder',
   share: 'jamie',
+  episode: 'jamie',
+  recording: 'jamie',
+  audio: 'jamie',
 };
 
 export const EVENT_KINDS = Object.keys(ACTOR_OF) as EventKind[];
