@@ -305,8 +305,9 @@ describe('the send', () => {
     expect(moved.status).toBe(409);
     expect(moved.json.code).toBe('landed');
     expect((await call('DELETE', `/episodes/${id}`)).json.code).toBe('landed');
-    // Fields that are not its identity still edit.
+    // Fields that are not its identity still edit, and a new title no longer takes the slug with it.
     expect((await call('PATCH', `/episodes/${id}`, { summary: 'Still editable.' })).status).toBe(200);
+    expect((await call('PATCH', `/episodes/${id}`, { title: 'A new title' })).json.episode.episode.slug).toBe('ready-to-go');
 
     // GitHub cannot be read: nothing is assumed either way.
     listPaths.mockRejectedValueOnce(new Error('GitHub 503'));

@@ -336,8 +336,10 @@ function applySettings(doc: EpisodeDoc, body: Record<string, unknown>): EventInp
     e.number = body.number;
   }
   if (typeof body.title === 'string' && body.title !== e.title) {
-    // The slug follows the title until it is set by hand or the episode is sent.
-    if (!sent && !going && body.slug === undefined && e.slug === slugFromTitle(e.title)) e.slug = slugFromTitle(body.title);
+    // The slug follows the title until it is set by hand or a send is
+    // tried: a failed send may have landed, and its URL is the slug's.
+    const tried = Boolean(doc.sends?.another && doc.sends.another.status !== 'none');
+    if (!sent && !going && !tried && body.slug === undefined && e.slug === slugFromTitle(e.title)) e.slug = slugFromTitle(body.title);
     e.title = body.title.slice(0, 300);
     events.push({ kind: 'settings', anchor: 'episode', summary: `Title — ${e.title || '(none)'}`, data: { field: 'title' } });
   }

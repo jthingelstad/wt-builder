@@ -961,7 +961,8 @@ first real episode is the first real run.
   send that landed but was never recorded): the retry commits nothing new
   and records the send. Until then, after a failed send, a new number,
   slug or date and deleting the episode first look for its page in the
-  repository: there, 409 `landed`; GitHub unreadable, 502.
+  repository: there, 409 `landed`; GitHub unreadable, 502. Once a send
+  has been tried, the slug no longer follows the title.
   Claimed before the first await; a `sending` found at boot is marked
   failed. Number, slug and date are frozen while the send is out (409
   `sending`) and for good once sent (409 `frozen`); a sent episode cannot
