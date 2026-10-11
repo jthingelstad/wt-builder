@@ -655,12 +655,12 @@ Block types, in the Website lens:
 
 | Block | Rendering |
 | --- | --- |
-| Head | mono kicker (`WT350 · SAT, SEP 5, 2026` — no "draft"; everything here is a draft until it is published); title 40px/700/1.1/-0.028em; dek 17px/1.55 `#4a4a4a`; byline row — 30px `#e6e5e2` avatar circle "JT", name 13px/500, mono stats `1,240 words · 7 links · ~6 min read` (website only — see Source lens) |
+| Head | mono kicker (`WT350 · SAT, SEP 5, 2026` — no "draft"; everything here is a draft until it is published); title 40px/700/1.1/-0.028em; dek 17px/1.55 `#4a4a4a`; byline row — 30px `#e6e5e2` avatar circle "JT", name 13px/500, mono stats `1,240 words · 7 links · ~6 min read` |
 | Section rule | `1px #e6e5e2`, `margin: 30px 0` |
 | H2 | 25px/700/-0.02em + `#` in `#d6d4d0`; optional mono note pill (`AD HOC SECTION`, `FIXED LAST · NOT IN AUDIO`). **Only for sections whose name publishes** — Currently, Notable, Journal, Briefly, Echoes, ad hoc. Photo, Haiku, Membership, Intro, Outro print no heading; their name goes to the structural margin |
 | Paragraph | 16.5px/1.7, `margin-bottom: 15px` |
 | Currently | `**Building:** value` — bold label, colon, editable value, both inline |
-| Photo | **Empty:** a 300px dashed `#dedcd8` / `#fafaf9` drop zone — a `<label>` around a hidden `input[type=file]` with a 24px `image-plus` glyph, "Drop a photo here, or click to choose", and "Time and place are read from the file. Both stay editable." A file held over the zone turns the edge solid terracotta, tints it, and reads "Drop to upload" — the drop is visibly received before it is let go. **Set:** the image at full column width, radius 6px, with hover-revealed **Replace** (label + hidden input) and `trash-2` **Remove** over the bottom-right; a file held over the image darkens it with "Drop to replace". A file dropped anywhere else on the page is refused, never opened in the tab. Then caption 16px/1.6 — rendered Markdown at rest and source while editing, like commentary, so a link reads as a link — and a meta line 14px `#6e6e6e` (`Aug 29, 2026 · 8:35 PM · Cannon Lake, Warsaw, MN`). Dropping a file stamps the timestamp from its modified date and seeds empty alt text from the filename. The wand drafts **alt text only** — three candidates, a pick sets the alt — and never offers or touches the caption, which is Jamie's |
+| Photo | **Empty:** a 300px dashed `#dedcd8` / `#fafaf9` drop zone — a `<label>` around a hidden `input[type=file]` with a 24px `image-plus` glyph, "Drop a photo here, or click to choose", and "Time and place are read from the file. Both stay editable." A file held over the zone turns the edge solid terracotta, tints it, and reads "Drop to upload" — the drop is visibly received before it is let go. **Set:** the image at full column width, radius 6px, with hover-revealed **Replace** (label + hidden input) and `trash-2` **Remove** over the bottom-right; a file held over the image darkens it with "Drop to replace". A file dropped anywhere else on the page is refused, never opened in the tab. Then caption 16px/1.6 — rendered Markdown at rest and source while editing, like commentary, so a link reads as a link — and a meta line 14px `#6e6e6e` (`Aug 29, 2026 · 8:35 PM · Cannon Lake, Warsaw, MN`). Dropping a file stamps the timestamp from its modified date and seeds empty alt text from the filename. The wand drafts **alt text only** — three candidates, a pick sets the alt — and never offers or touches the caption, which is Jamie's. *Since 2026-10-11* the alt text is also typed by hand on a line under the meta line: mono 9.5px `ALT TEXT` label, then the alt as plain text 14px `#6e6e6e`, edited in place (its other home, the Source lens, was removed) |
 | Quote | `border-left: 3px solid #e6e5e2`, `padding-left: 20px`; text 19px/1.6 italic. No name field: *Revisited 2026-09-29*, a Quote carries no attribution in any edition (Jamie), so the "Who said it" line is gone from the canvas |
 | Link title | 19px/700/1.35 in `#1a5fb4` + mono domain `#b0aeaa` |
 | Journal date | 17px/700, `margin: 22px 0 10px`. **Weekday only** — "Saturday" |
@@ -700,6 +700,15 @@ first-line preview (120 chars, truncated, `#9a9a9a`), count (`4 items` / `3 of 4
 Nothing is editable in this mode.
 
 #### Source lens — the canonical items
+
+*Removed 2026-10-11, unused* (Jamie: "Source view is not used in wt builder").
+The section below is kept as the record of what it was. What only it offered
+moved: a photo's alt text is typed under the photo (see Photo above), and the
+"as imported" line is in the Inspector's PROVENANCE. The rest already had a
+home: held-out strips in each lens, the channels in APPEARS IN, the structure
+in the left panel's outline. The MCP's `render_issue` lost its `source` lens
+with it (1.8.0); `get_issue` has every item as stored.
+
 
 Same grid, same margins, but the reading column shows what is *stored* rather than what a
 channel renders. Nothing is filtered: held-out items appear marked `HELD OUT`,
@@ -863,7 +872,7 @@ Opened by the rail `i` button. `padding: 14px 18px 40px`.
    and **Rejoin the blog post** (confirmed) takes the post's words back. A forked
    row carries a blue `git-fork` mark under its rail at full strength, as a row
    hint's mark does (it opens the Inspector), and no faded sync glyph; the
-   Source lens meta line says `forked`. See `docs/item-model.md`, *Forked*.
+   Inspector's Sync line says forked. See `docs/item-model.md`, *Forked*.
 5. **Promotion card** (journal posts) — current state, why, and
    **Promote to its own section** / **Return to Journal**.
 6. **Thingy / generation card** — one card serves Membership, Echoes, Haiku, and link
@@ -887,7 +896,10 @@ Opened by the rail `i` button. `padding: 14px 18px 40px`.
    when the type has an automatic rule. When nothing is checked, a dashed note: "Held
    out of WT350. It stays on Pinboard — only its place here is gone."
 8. **PROVENANCE** — source, source URL, imported/published time, and (when edited) an
-   "As imported" diff card with the original snapshot in italics.
+   "As imported" diff card with the original snapshot in italics. *As built
+   2026-10-11:* one `As imported` row, the snapshot's commentary, body or caption in
+   italics, cut at 120 characters, shown only when it differs from the words now.
+   It moved here from the Source lens.
 9. **HISTORY** (2026-10-11) — a closed `<details>` with the item's event count; open,
    its last 20 events in the Log sheet's row style, newest first. A row the service
    or the source made is dimmed and says so ("WT Builder: Write to Pinboard
@@ -968,8 +980,8 @@ No editor library: the page is the editor.
 `included = website || email || audio`. `heldOut` is its inverse. Held-out items render
 as the compact strip described above, so exclusion stays visible and reversible. An item
 with exactly one channel on is an **edition-only item** and says so
-(`EMAIL ONLY`, blue). The Source lens surfaces the same state as `W E A` chips, shown
-only when the set is not the default.
+(`EMAIL ONLY`, blue). The Inspector's APPEARS IN shows each channel. (The Source
+lens surfaced the same state as `W E A` chips until it was removed, 2026-10-11.)
 
 **Published section names.** `NOHEAD = [photo, haiku, membership, intro, outro, mdblock]`
 — these publish with no heading, so the canvas prints none. Their name appears in the
@@ -1053,7 +1065,7 @@ The state this design assumes, as a guide to the real store:
 ```
 nodes[], items{}, issue{}, library[], orphans[], lastPublished
 view: "index" | "editor"
-lens: "source" | "website" | "buttondown" | "audio"
+lens: "website" | "buttondown" | "audio"
 selected: itemId | null          // inspector
 panelOpen, metaOpen, collapsed, showChecklist: bool
 setup: {publish, days, number} | null

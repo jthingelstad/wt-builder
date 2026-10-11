@@ -71,7 +71,7 @@ chips; clearing an item's channels hides it and rechecking one returns it.
 
 **Text edits are the exception, and it is a known hole.** Typing over a paragraph
 and blurring loses what was there. `source_snapshot` covers imported material —
-the "as imported" line in the Source lens — but there is nothing for direct
+the "as imported" line in the Inspector (the Source lens's, until 2026-10-11) — but there is nothing for direct
 content. Any future undo should start there; the structural acts are already
 reversible.
 

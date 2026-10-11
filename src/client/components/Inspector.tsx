@@ -86,6 +86,21 @@ function GrowingTextarea(props: { id: string; value: string; disabled?: boolean;
   );
 }
 
+/**
+ * The words the item came in with, when they differ from its words now: a
+ * link's commentary, a post's body, a photo's caption. Cut to 120 characters.
+ * The snapshot is the last copy both sides shared (reconcile.ts, fork), so a
+ * conflict or a fork reads against it. Moved here from the Source lens
+ * when that was removed (2026-10-11).
+ */
+function asImported(item: Item): string | null {
+  const field = item.type === 'pinboard_link' ? 'commentary' : item.type === 'photo' ? 'caption' : 'body';
+  const was = item.source_snapshot?.[field];
+  const now = field === 'caption' ? item.media?.caption : item[field];
+  if (typeof was !== 'string' || !was.trim() || was === (now ?? '')) return null;
+  return was.length > 120 ? `${was.slice(0, 119)}…` : was;
+}
+
 /** Provenance, fields, channels, and source synchronization for one item. */
 export function Inspector({ doc, itemId, run, onClose, onError, onBackToReview, writeOut, onWriteOut }: Props) {
   const item = doc.items[itemId];
@@ -379,6 +394,9 @@ export function Inspector({ doc, itemId, run, onClose, onError, onBackToReview, 
         <div class="kv"><span>Sync</span><span>{syncLine(item.sync_state, item.source)}</span></div>
       )}
       {item.sync_error && <p class="field-note error-text">{item.sync_error}</p>}
+      {asImported(item) && (
+        <div class="kv"><span>As imported</span><span class="as-imported">“{asImported(item)}”</span></div>
+      )}
 
       {frozen ? null : imported && item.sync_state === 'conflict' ? (
         // A retry would be refused again: the source moved. Jamie chooses.

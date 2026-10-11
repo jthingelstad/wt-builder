@@ -58,3 +58,24 @@ test('the checklist counts a conflict', async ({ request }) => {
   const unit = readiness.units.find((u: { anchor: string; kind: string }) => u.anchor === 'link-flipcash' && u.kind === 'sync');
   expect(unit?.title).toContain('edited here and at Pinboard');
 });
+
+test('the Inspector says what a link came in as, once its words differ (2026-10-11)', async ({ page }) => {
+  // Moved here from the Source lens when that was removed.
+  const doc = store.getIssue(ISSUE)!.doc;
+  const link = doc.items['link-functions']!;
+  link.source_snapshot = { commentary: 'The words Pinboard had.' };
+  doc.items['briefly-forge']!.source_snapshot = { commentary: doc.items['briefly-forge']!.commentary };
+  store.saveIssue(doc);
+  await open(page);
+  const inspect = async (id: string) => {
+    const row = page.locator(`[data-anchor="${id}"]`);
+    await row.hover();
+    await row.getByRole('button', { name: 'Inspect' }).click();
+  };
+  await inspect('link-functions');
+  const panel = page.locator('aside.panel');
+  await expect(panel.locator('.kv', { hasText: 'As imported' })).toContainText('“The words Pinboard had.”');
+  // Unchanged words say nothing.
+  await inspect('briefly-forge');
+  await expect(panel.locator('.kv', { hasText: 'As imported' })).toHaveCount(0);
+});

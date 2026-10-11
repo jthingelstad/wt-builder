@@ -14,7 +14,6 @@ import { prosePieces, renderAudio } from '../src/shared/render/audio.ts';
 import { pronounce } from '../src/shared/render/speech.ts';
 import { speakable, isSilent } from '../src/shared/render/speech.ts';
 import { candidateToItem } from '../src/server/integrations/pinboard.ts';
-import { sourceRows } from '../src/shared/render/source.ts';
 import { markdownToSafeHtml } from '../src/shared/markdown.ts';
 import { shouldWriteBack, writeBackMessage } from '../src/client/api.ts';
 
@@ -375,20 +374,6 @@ describe('the send screen offers every leg that exists', () => {
   // — the severed guard contained the same strings it looked for.
 });
 
-describe('the source lens shows words, not markup', () => {
-  it('strips Markdown from a Journal post used as a title', () => {
-    const doc = issue(
-      { 'j-1': { type: 'journal_post', source: 'Micro.blog', authorship: 'syndicated',
-                 body: 'Great coffee at [Johnson Public House](https://jph.test) in Madison. '
-                     + '<img src="https://x.test/a.jpg" width="600">' } },
-      [node({ id: 'journal', type: 'journal', label: 'Journal', items: ['j-1'] })],
-    );
-    const row = sourceRows(doc)[0]!;
-    expect(row.title).toContain('Johnson Public House');
-    expect(row.title).not.toContain('](');
-    expect(row.title).not.toContain('<img');
-  });
-});
 
 describe('a link whose URL has parentheses in it (WT352)', () => {
   const intro = 'And if you play [The Replacements](https://en.wikipedia.org/wiki/The_Replacements_(band)) everything will just fall into place.';

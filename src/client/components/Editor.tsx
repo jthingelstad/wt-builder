@@ -51,10 +51,6 @@ interface Props {
 }
 
 const KICKER: Record<Lens, [string, string]> = {
-  source: [
-    'SOURCE — CANONICAL ITEMS',
-    'Every item as stored, nothing filtered or transformed. The three channels are renderings of this.',
-  ],
   website: [
     'WEBSITE — EDITABLE',
     'Click any text to edit it in place. The page is the editor.',
@@ -155,7 +151,7 @@ export function Editor({ doc, readiness, busy, error, run, onIndex, onSend, onSh
   // is editable, and the kicker says so rather than a 423.
   const lensKicker = !frozen && doc.issue.status === 'published' && lens === 'website'
     ? 'WEBSITE — PUBLISHED · EDITS NEED A RE-SEND'
-    : frozen && lens !== 'source'
+    : frozen
       ? kicker.replace('EDITABLE', 'PUBLISHED')
       : kicker;
   const lensNote = frozen && lens === 'website'
@@ -510,16 +506,8 @@ export function Editor({ doc, readiness, busy, error, run, onIndex, onSend, onSh
 
         <span class="head-spacer" />
 
-        {/*
-          Source sits outside the segmented group on purpose: the three channels
-          are permutations of it, not peers of it.
-        */}
-        <button
-          class={`btn${lens === 'source' ? ' primary' : ''}`}
-          onClick={() => setLens('source')}
-        >
-          Source
-        </button>
+        {/* The three editions. A Source lens of the stored items stood beside
+            them until 2026-10-11, unused (docs/interface-spec.md). */}
         <div class="segment">
           {CHANNEL_LENSES.map((c) => (
             <button

@@ -450,6 +450,9 @@ Claude Code or Codex on otto, or any MCP client on the tailnet.
   rows carry `actor`; `get_timing` adds `wands` (`calls`, `failed`,
   `used`, `waiting_seconds`). Share links are withheld from `data` as from
   the summary.
+- **No Source lens (1.8.0, 2026-10-11).** `render_issue` takes `website`,
+  `email` or `audio`; `source` went with the editor's Source lens, which
+  was unused. `get_issue` has every item as stored, held-out ones included.
 - **Row hints (1.5.0).** `get_status` carries `hints` (`{anchor, name,
   kind, text}`, cut at 40 with `hints_note`), and `get_issue` / `get_item`
   carry each item's `hints`: the same list the editor marks

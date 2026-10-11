@@ -141,7 +141,7 @@ function mirroredOf(item: Item, remote: RemoteFields): Record<string, unknown> {
  * Fork an item from its source: from here on its words are the issue's own.
  * Whatever was waiting to be written, or in conflict, is let go — the source
  * keeps what it has. The snapshot stays as the last copy both sides shared,
- * which is what the Source lens's "as imported" line compares against.
+ * which is what the Inspector's "as imported" line compares against.
  */
 export function fork(item: Item): void {
   item.sync_state = 'forked';

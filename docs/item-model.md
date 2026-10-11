@@ -239,7 +239,7 @@ presentation, and placement do not modify it; edits to its words do.
 `sync_state: forked`, and from then its title and body are the issue's own.
 Edits never write back, a re-scan never adopts the post's edits, marks no
 conflict, and a deletion at the blog does not drop it. The snapshot stays as
-the last copy both sides shared, so the Source lens's "as imported" line shows
+the last copy both sides shared, so the Inspector's "as imported" line shows
 how far the newsletter's copy has moved. **Rejoin** reads the post and takes
 its words over the newsletter's copy; it mirrors again from there. Made for a
 long promoted post cut down for the issue while the blog keeps all of it.

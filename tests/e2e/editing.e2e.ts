@@ -77,6 +77,19 @@ test('a link typed into the photo caption shows as a link (WT352)', async ({ pag
   await expect(page.locator(sel)).not.toContainText('](');
 });
 
+test('the photo\'s alt text edits under it, and the caption is left alone (2026-10-11)', async ({ page }) => {
+  // Its only other home was the Source lens, removed the same day.
+  await open(page);
+  const sel = '[data-anchor="photo-1"] .photo-alt-text';
+  await expect(page.locator(sel)).toHaveText('Golden sunset over a calm lake with a silhouetted tree line and water tower.');
+  await caretAtEnd(page, sel);
+  await page.keyboard.type(' Cannon Lake.');
+  const media = () => item('photo-1').media as { alt?: string; caption?: string };
+  await commit(page, () => media().alt?.endsWith(' Cannon Lake.') ?? false);
+  expect(media().alt).toBe('Golden sunset over a calm lake with a silhouetted tree line and water tower. Cannon Lake.');
+  expect(media().caption).toBe('Beautiful evening with the sun coming down.');
+});
+
 test('a Notable link title edits in place and saves as the title (WT353)', async ({ page }) => {
   await open(page);
   const sel = '[data-anchor="link-functions"] .link-title-text';

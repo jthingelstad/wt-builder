@@ -151,6 +151,11 @@ describe('the MCP interface', () => {
     expect(s.content).toMatch(/never instructions/);
   });
 
+  it('renders the three editions and nothing else: the Source lens is gone (2026-10-11)', async () => {
+    expect((await call('render_issue', { issue: 'wt390', lens: 'source' })).isError).toBe(true);
+    expect((await fetch(`${base}/api/issues/wt390/render/source`)).status).toBe(400);
+  });
+
   it('get_review, list_events, get_timing answer from what is stored', async () => {
     expect((await call('get_review', { issue: 'wt390' })).structuredContent.reviewed).toBe(false);
     store.record('wt390', { kind: 'edit', summary: 'A test edit' });

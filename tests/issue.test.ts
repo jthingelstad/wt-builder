@@ -17,7 +17,6 @@ import {
   updateItem, followBookmarkTags, pruneGone, pruneOutsideWindow, setItemOrder,
 } from '../src/server/issue.ts';
 import { falloutOf, itemsInWindow, outOfWindow, planEdition, windowOf } from '../src/shared/render/plan.ts';
-import { sourceRows } from '../src/shared/render/source.ts';
 import { renderWebsite } from '../src/shared/render/website.ts';
 import { renderAudio } from '../src/shared/render/audio.ts';
 
@@ -247,7 +246,7 @@ describe('sections', () => {
     const original = fixture().nodes.find((n) => n.id === 'journal')!;
     const removed = removeSection(fixture(), 'journal');
     expect(removed.held_nodes).toContainEqual(original);
-    expect(sourceRows(removed).some((row) => row.nodeId === 'journal' && row.held)).toBe(true);
+    expect(removed.nodes.some((n) => n.id === 'journal')).toBe(false);
 
     const restored = addSection(removed, { id: 'journal', type: 'journal', label: 'Journal' });
     expect(restored.nodes.find((n) => n.id === 'journal')).toEqual(original);
@@ -1069,8 +1068,9 @@ describe('section removal', () => {
     const before = doc.items[localId];
 
     const removed = removeSection(doc, currently.id);
-    // Out of every rendering path...
-    expect(sourceRows(removed).some((r) => r.itemId === localId)).toBe(false);
+    // Out of the issue's items, kept aside, and out of every rendering path...
+    expect(removed.items[localId]).toBeUndefined();
+    expect(removed.held_items?.[localId]).toEqual(before);
     for (const channel of ['website', 'email', 'audio'] as const) {
       expect(planEdition(removed, channel).some((p) => p.items.some((i) => i.id === localId)))
         .toBe(false);

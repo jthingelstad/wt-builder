@@ -877,8 +877,9 @@ const routes: [RegExp, string, (ctx: Ctx, params: string[]) => Promise<unknown>]
   // the edition's own; the edition's frame (title, header, footer) stays.
   [/^\/api\/issues\/([^/]+)\/render\/([a-z]+)$/, 'GET', async ({ url }, [id, lens]) => {
     const doc = requireIssue(id!);
-    const l = lens as 'website' | 'email' | 'audio' | 'source';
-    if (!['website', 'email', 'audio', 'source'].includes(l)) {
+    // The editions only: the Source lens was removed 2026-10-11, unused.
+    const l = lens as 'website' | 'email' | 'audio';
+    if (!['website', 'email', 'audio'].includes(l)) {
       throw new HttpError(400, `unknown lens ${lens}`);
     }
     const item = url.searchParams.get('item');

@@ -22,8 +22,10 @@ finished, what is half-finished, and what has never run.
   editorial margin.
 - **Website lens** — head block, section rules, headings, Currently, Journal
   with date grouping, Briefly, Haiku, Echoes, held-out strips.
-- **Source lens** — every item as stored, its own section headings with
-  `SECTION · type · n ITEMS`, prose plus one quiet meta line, state chips.
+- **Source lens** — removed 2026-10-11, unused. A photo's alt text is now
+  typed under the photo, and "as imported" is a row in the Inspector's
+  Provenance. `GET /render/source` answers 400, and the MCP's `render_issue`
+  takes `website`, `email` or `audio` only (1.8.0).
 - **Left panel** — issue metadata at rest and open, the outline with drag
   reorder, provenance chips, add-back chips for absent sections.
 - **Progress strip** — one tick per readiness unit, edge-aware tooltips,

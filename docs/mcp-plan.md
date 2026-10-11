@@ -186,7 +186,7 @@ the ones he wants by hand. The write design is kept below as v2.
 | `list_issues` | Issues with number, date, status, title, and the strip's counts; drafts first, then the most recent published | `GET /api/issues` |
 | `get_issue` | The issue as an outline: sections in order, each item with id, type, title, full text fields, sync state, held-out flag, and its pill's state | `GET /api/issues/:id` |
 | `get_item` | One item, every field | same |
-| `render_issue` | One edition as it will print: `website`, `email`, `audio` (the script) or `source` | `GET /render/:lens` |
+| `render_issue` | One edition as it will print: `website`, `email` or `audio` (the script); `source` until 1.8.0, when the Source lens was removed | `GET /render/:lens` |
 | `get_review` | The current editorial review notes, as the margin shows them | the doc's `review` |
 | `list_events` | The event log, optionally `since` an event id | `GET /events` |
 | `get_timing` | How long the issue has taken, beside the one before | `GET /timing` |

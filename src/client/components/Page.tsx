@@ -15,7 +15,7 @@ import type { ArchiveReference, Channel, EchoOption, IssueDoc, IssueNode, Item, 
 import { CHANNELS, DRAFTABLE } from '../../shared/types.ts';
 import { clockTime, kickerDate, longDate, wallClock, weekday } from '../../shared/dates.ts';
 import {
-  editionOnly, falloutOf, heldOut, itemsInWindow, orderedNodes, outOfWindow, postBlocks, windowOf,
+  falloutOf, itemsInWindow, orderedNodes, outOfWindow, postBlocks, windowOf,
 } from '../../shared/render/plan.ts';
 import { audioScript } from '../../shared/render/audio.ts';
 import type { ScriptBlock } from '../../shared/render/audio.ts';
@@ -27,7 +27,8 @@ import { ImagePlus, Plus, Spinner, Trash } from '../icons.tsx';
 import { Editable, Rail, RichEditable, Row, Wand, itemRail, sectionRail } from './Row.tsx';
 import { linkUrl } from '../../shared/links.ts';
 
-export type Lens = Channel | 'source';
+/** The editions. A Source lens stood beside them until 2026-10-11, unused. */
+export type Lens = Channel;
 
 /** Link sections whose entries can move down to Briefly (matches plan.ts). */
 const HEADING_LINK_SECTIONS: ReadonlySet<string> = new Set(['notable', 'featured']);
@@ -149,9 +150,7 @@ export function Page({
   // ── head ────────────────────────────────────────────────────────────────
   const linkCount = itemsInWindow(doc).filter(([, i]) => i.type === 'pinboard_link').length;
   const wordCount = issueWords(doc);
-  const stats = lens === 'source'
-    ? `${nodes.length} nodes · ${Object.keys(doc.items).length} items · ${wordCount} words`
-    : `${wordCount.toLocaleString()} words · ${linkCount} links · ~${Math.max(1, Math.round(wordCount / 220))} min read`;
+  const stats = `${wordCount.toLocaleString()} words · ${linkCount} links · ~${Math.max(1, Math.round(wordCount / 220))} min read`;
 
   rows.push(
     <Row
@@ -196,13 +195,8 @@ export function Page({
           onCommit={(dek) => act.updateIssue({ dek })}
         />
         <div class="byline">
-          {/* A website rendering artifact — Source shows the editor's measure instead. */}
-          {lens !== 'source' && (
-            <>
-              <span class="avatar">JT</span>
-              <span class="name">Jamie Thingelstad</span>
-            </>
-          )}
+          <span class="avatar">JT</span>
+          <span class="name">Jamie Thingelstad</span>
           <span class="stats">{stats}</span>
         </div>
       </div>
@@ -211,17 +205,13 @@ export function Page({
 
   // ── sections ────────────────────────────────────────────────────────────
   nodes.forEach((node, index) => {
-    const inLens = lens === 'source'
-      ? node.items
-      : node.items.filter((id) => {
-          const item = doc.items[id];
-          return item && !outOfWindow(item, w) && item.channels[lens as Channel];
-        });
+    const inLens = node.items.filter((id) => {
+      const item = doc.items[id];
+      return item && !outOfWindow(item, w) && item.channels[lens];
+    });
 
     const fallout = falloutOf(doc, node, w);
-    // Source shows structure as structure: every node gets a heading, including
-    // the ones whose name does not publish.
-    const showHeading = lens === 'source' || headingPublishes(node);
+    const showHeading = headingPublishes(node);
 
     // A section emptied by the window says so rather than vanishing: a section
     // that disappears silently reads as data loss. And a section that is
@@ -230,7 +220,7 @@ export function Page({
     // has no way to get its first line (WT350, 2026-09-20).
     const writable = structural && lens === 'website' &&
       (node.type === 'currently' || node.type === 'notable' || node.type === 'briefly' || node.type === 'echoes');
-    if (!inLens.length && !fallout.all && lens !== 'source' && !writable) return;
+    if (!inLens.length && !fallout.all && !writable) return;
 
     if (index > 0) {
       rows.push(
@@ -255,25 +245,7 @@ export function Page({
       onRemove: () => act.removeNode(node.id),
     });
 
-    if (showHeading && lens === 'source') {
-      const kind = node.kind === 'promoted_item' ? 'PROMOTED' : 'SECTION';
-      rows.push(
-        <Row
-          key={`${node.id}-h`}
-          anchor={node.id}
-          selected={selected === node.id}
-          rail={<Rail {...rail} />}
-        >
-          <div class="src-section" onClick={() => onSelect(node.id)}>
-            <h2 class={fallout.all ? 'faded' : undefined}>{node.label}</h2>
-            <span class="meta">
-              {kind} · {node.type} · {node.items.length} ITEM{node.items.length === 1 ? '' : 'S'}
-              {fallout.count > 0 && ` · ${fallout.count} OUTSIDE WINDOW`}
-            </span>
-          </div>
-        </Row>,
-      );
-    } else if (showHeading) {
+    if (showHeading) {
       // Notable and Briefly carry an ordering wand: the model proposes a
       // sequence that reads better than bookmark order, and nothing moves
       // until Jamie applies it (Jamie, 2026-09-20).
@@ -360,7 +332,7 @@ export function Page({
       const item = doc.items[itemId];
       if (!item) return;
 
-      if (node.type === 'journal' && lens !== 'source') {
+      if (node.type === 'journal') {
         const c = wallClock(item.published_at);
         const key = c?.key ?? '';
         if (key !== lastKey) {
@@ -556,21 +528,19 @@ export function Page({
     }
 
     // Held-out items stay visible so exclusion is reversible, not a disappearance.
-    if (lens !== 'source') {
-      for (const itemId of node.items) {
-        const item = doc.items[itemId];
-        if (!item || inLens.includes(itemId)) continue;
-        if (outOfWindow(item, w)) continue;
-        rows.push(
-          <Row key={`${itemId}-held`} anchor={itemId}>
-            <HeldStrip
-              item={item}
-              lens={lens as Channel}
-              onPutBack={readOnly ? undefined : () => act.setChannel(itemId, lens as Channel, true)}
-            />
-          </Row>,
-        );
-      }
+    for (const itemId of node.items) {
+      const item = doc.items[itemId];
+      if (!item || inLens.includes(itemId)) continue;
+      if (outOfWindow(item, w)) continue;
+      rows.push(
+        <Row key={`${itemId}-held`} anchor={itemId}>
+          <HeldStrip
+            item={item}
+            lens={lens}
+            onPutBack={readOnly ? undefined : () => act.setChannel(itemId, lens, true)}
+          />
+        </Row>,
+      );
     }
   });
 
@@ -760,12 +730,8 @@ interface BlockProps {
   onSelect: (anchor: string) => void;
 }
 
-function Block(props: BlockProps) {
-  return props.lens === 'source' ? <SourceBlock {...props} /> : <ChannelBlock {...props} />;
-}
-
 /** The Website/Email/Audio rendering — what a reader sees. */
-function ChannelBlock({ doc, node, item, itemId, lens, readOnly, act }: BlockProps) {
+function Block({ doc, node, item, itemId, lens, readOnly, act }: BlockProps) {
   const set = (patch: Record<string, unknown>) => act.updateItem(itemId, patch);
   const thingy = item.authorship === 'Thingy';
 
@@ -1422,6 +1388,17 @@ function Photo({
         onCommit={(caption) => set({ media: { ...media, caption } })}
       />
       {meta && <div class="photo-meta">{meta}</div>}
+      {/* What a screen reader says in place of the picture; the editions put
+          it on the <img>. The Photo wand drafts it too. Typed here since the
+          Source lens, its only other home, was removed (2026-10-11). */}
+      <div class="photo-alt">
+        <span class="photo-alt-label">ALT TEXT</span>
+        <Editable
+          class="photo-alt-text" readOnly={readOnly} value={media.alt ?? ''}
+          ph="Describe the picture for someone who cannot see it"
+          onCommit={(alt) => set({ media: { ...media, alt } })}
+        />
+      </div>
     </div>
   );
 }
@@ -1481,145 +1458,6 @@ function HeldStrip({
       )}
     </div>
   );
-}
-
-// ── the Source lens ───────────────────────────────────────────────────────
-
-/**
- * Prose plus one quiet line — never a labelled field grid. The grid version was
- * truthful and unreadable.
- */
-function SourceBlock({ doc, node, item, itemId, readOnly, act }: BlockProps) {
-  const set = (patch: Record<string, unknown>) => act.updateItem(itemId, patch);
-  const w = windowOf(doc);
-
-  // A Currently line's label is its title-equivalent; without it the Source
-  // lens showed five bodies and no way to tell Building from Listening.
-  const primary = item.title ?? item.label ?? item.media?.alt;
-  const body = item.commentary ?? item.body ?? item.media?.caption ?? '';
-
-  const chips = !CHANNELS.every((c) => item.channels[c]) || item.channel_locks;
-  const state = outOfWindow(item, w) ? 'OUTSIDE WINDOW'
-    : heldOut(item) ? 'HELD OUT'
-    : node.kind === 'promoted_item' ? 'PROMOTED'
-    : null;
-
-  const meta = [
-    node.label,
-    item.tags?.length ? item.tags.join(' ') : '',
-    item.published_at ? wallClock(item.published_at)?.key : '',
-    item.presentation,
-    item.sync_state === 'forked' ? 'forked' : '',
-    item.media?.location,
-    editionOnly(item) ? 'edition only' : '',
-  ].filter(Boolean);
-
-  const imported = item.source_snapshot?.[item.type === 'pinboard_link' ? 'commentary' : 'body'];
-  const diverged = typeof imported === 'string' && imported.trim() && imported !== body;
-
-  return (
-    <div class="src-item">
-      <div class="src-head">
-        <span class="src-type">{item.type.replace(/_/g, ' ').toUpperCase()}</span>
-        <span class={`src-dot ${authorClass(item)}`} />
-        <span class="src-author">{item.source}</span>
-        <span class="src-spacer" />
-        {state && <span class="src-state">{state}</span>}
-        {chips && CHANNELS.map((c) => (
-          <span
-            key={c}
-            class={`src-chip${item.channels[c] ? ' on' : ''}${item.channel_locks?.[c] ? ' locked' : ''}`}
-            title={item.channel_locks?.[c] ?? `${c}: ${item.channels[c] ? 'on' : 'off'}`}
-          >
-            {c[0]!.toUpperCase()}
-          </span>
-        ))}
-      </div>
-
-      {primary !== undefined && (
-        <Editable
-          class="src-primary" readOnly={readOnly} value={primary ?? ''} ph="Untitled"
-          onCommit={(title) => set(item.type === 'photo'
-            ? { media: { ...(item.media ?? {}), alt: title } }
-            : item.type === 'currently' ? { label: title }
-            : { title })}
-        />
-      )}
-
-      {item.type === 'photo' && item.media?.url && (
-        <img class="src-photo" src={item.media.url} alt={item.media.alt ?? ''} loading="lazy" />
-      )}
-
-      {/* Rendered at rest, Markdown while editing — the same as the page. Source
-          is about provenance and structure, not about reading raw Markdown
-          (Jamie, 2026-09-20: "too markdown"). */}
-      {item.type === 'membership' && <div class="src-label">INVITATION — everyone else</div>}
-      <RichEditable
-        class="src-body" tag="div" multiline readOnly={readOnly} value={body} ph="No text"
-        render={markdownToSafeHtml}
-        onCommit={(text) => set(
-          item.type === 'pinboard_link' ? { commentary: text }
-            : item.type === 'photo' ? { media: { ...(item.media ?? {}), caption: text } }
-            : { body: text },
-        )}
-      />
-      {item.type === 'echo' && (
-        <>
-          <div class="src-label">ASK THINGY — the door under the thread</div>
-          <RichEditable
-            class="src-body" tag="div" readOnly={readOnly}
-            value={item.ask ?? ''} ph="No question — the echo prints without a door."
-            render={markdownInlineToSafeHtml}
-            onCommit={(text) => set({ ask: text })}
-          />
-          {item.archive_references?.length ? (
-            <div class="src-meta">
-              grounded in{' '}
-              {item.archive_references.map((r, i) => (
-                <span key={r.url}>
-                  {i > 0 && ', '}
-                  <a href={r.url} target="_blank" rel="noreferrer" title={r.note ?? r.title ?? r.url}>
-                    {r.issue ? `WT${r.issue}` : r.title ?? domainOf(r.url)}
-                  </a>
-                </span>
-              ))}
-            </div>
-          ) : (
-            <div class="src-meta">no citations carried</div>
-          )}
-        </>
-      )}
-      {item.type === 'membership' && (
-        <>
-          <div class="src-label">THANKS — what a Supporting Member sees instead (email only)</div>
-          <RichEditable
-            class="src-body" tag="div" multiline readOnly={readOnly}
-            value={item.member_thanks ?? ''} ph="No drafted thanks — the email falls back to the invitation."
-            render={markdownToSafeHtml}
-            onCommit={(text) => set({ member_thanks: text })}
-          />
-        </>
-      )}
-
-      <div class="src-meta">
-        {meta.join(' · ')}
-        {item.source_url && (
-          <>
-            {meta.length ? ' · ' : ''}
-            <a href={item.source_url} target="_blank" rel="noreferrer">{domainOf(item.source_url)}</a>
-          </>
-        )}
-      </div>
-
-      {diverged && <div class="src-meta">as imported: “{String(imported).slice(0, 120)}”</div>}
-    </div>
-  );
-}
-
-function authorClass(item: Item): string {
-  if (item.authorship === 'Thingy') return 'thingy';
-  if (item.authorship === 'syndicated') return 'syndicated';
-  return 'jamie';
 }
 
 export { Plus };

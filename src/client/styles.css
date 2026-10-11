@@ -255,6 +255,7 @@ a:hover { text-decoration: underline; }
 
 .kv { display: flex; gap: 10px; font-size: 12px; padding: 4px 0; }
 .kv > span:first-child { color: var(--muted); width: 82px; flex: none; }
+.kv .as-imported { font-style: italic; color: var(--secondary); min-width: 0; overflow-wrap: anywhere; }
 .break-link { word-break: break-all; }
 
 .edition-buttons { display: flex; gap: 5px; flex-wrap: wrap; }

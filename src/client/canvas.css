@@ -385,6 +385,9 @@ a.link-domain:hover { color: var(--blue); }
 .photo-caption p { font-size: 16px; line-height: 1.6; margin: 0 0 10px; }
 .photo-caption p:last-child { margin-bottom: 0; }
 .photo-meta { font-size: 14px; color: var(--secondary); }
+.photo-alt { display: flex; gap: 10px; align-items: baseline; margin-top: 8px; font-size: 14px; line-height: 1.5; color: var(--secondary); }
+.photo-alt-label { flex: none; font-family: var(--mono); font-size: 9.5px; letter-spacing: 0.06em; color: var(--faint); }
+.photo-alt-text { flex: 1; min-width: 0; }
 
 .held-strip {
   border: 1px dashed var(--border-button);
@@ -505,7 +508,6 @@ span[contenteditable]:focus {
   margin: 0 0 8px;
   cursor: default;
 }
-.src-label { font-family: var(--mono); font-size: 9.5px; letter-spacing: .06em; color: var(--faint); margin: 10px 0 4px; }
 
 .md-label {
   font-family: var(--mono);
@@ -531,97 +533,6 @@ span[contenteditable]:focus {
 }
 .photo-set:hover .photo-actions { opacity: 1; }
 .photo-actions .btn { background: var(--page); cursor: pointer; }
-
-/* ── the Source lens ──────────────────────────────────────────────────── */
-
-.src-item { margin-bottom: 22px; }
-
-.src-head {
-  display: flex;
-  align-items: center;
-  gap: 7px;
-  margin-bottom: 7px;
-}
-
-.src-type {
-  font-family: var(--mono);
-  font-size: 9.5px;
-  letter-spacing: 0.07em;
-  color: var(--faint);
-  white-space: nowrap;
-}
-
-.src-dot { width: 5px; height: 5px; border-radius: 99px; flex: none; }
-.src-dot.jamie { background: var(--ink); }
-.src-dot.syndicated { background: var(--blue); }
-.src-dot.thingy { background: var(--terracotta); }
-
-.src-author { font-size: 11px; color: var(--secondary); white-space: nowrap; }
-.src-spacer { flex: 1; }
-
-.src-state {
-  font-family: var(--mono);
-  font-size: 9px;
-  letter-spacing: 0.06em;
-  color: var(--secondary);
-  background: var(--neutral-tint);
-  border-radius: 5px;
-  padding: 3px 7px;
-  white-space: nowrap;
-}
-
-/* Shown only when the item is not in all three editions, or a rule applies. */
-.src-chip {
-  width: 17px;
-  height: 17px;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: 4px;
-  font-family: var(--mono);
-  font-size: 9px;
-  font-weight: 700;
-  border: 1px solid var(--border);
-  background: var(--page);
-  color: var(--muted);
-  flex: none;
-}
-.src-chip.on { background: var(--ink); border-color: var(--ink); color: #fff; }
-.src-chip.locked { color: var(--mark); border-color: var(--border-faintest); background: var(--subtle); }
-
-.src-primary { display: block; font-size: 17px; font-weight: 600; line-height: 1.35; margin-bottom: 4px; }
-.src-body { font-size: 16.5px; line-height: 1.7; white-space: pre-wrap; }
-.src-body p, .src-body ul, .src-body ol, .src-body blockquote, .src-body h3, .src-body h4 { white-space: normal; }
-.src-body p { margin: 0 0 10px; }
-.src-body p:last-child { margin-bottom: 0; }
-.src-body img { display: block; max-width: 100%; height: auto; border-radius: 6px; margin: 8px 0; }
-.src-body ul, .src-body ol { margin: 0 0 10px; padding-left: 24px; }
-.src-body blockquote { border-left: 3px solid var(--border); padding-left: 16px; margin: 0 0 10px; color: var(--secondary); }
-.src-photo { display: block; max-width: 100%; height: auto; border-radius: 6px; margin: 6px 0 10px; }
-
-.src-meta {
-  font-family: var(--mono);
-  font-size: 11px;
-  color: var(--held);
-  margin-top: 6px;
-  line-height: 1.5;
-}
-.src-meta a { color: var(--held); }
-
-/* The Source heading carries its own meta rather than a published H2. */
-.src-section {
-  display: flex;
-  align-items: baseline;
-  gap: 9px;
-  margin-bottom: 14px;
-}
-.src-section h2 { font-size: 22px; letter-spacing: -0.018em; margin: 0; }
-.src-section .meta {
-  font-family: var(--mono);
-  font-size: 10px;
-  letter-spacing: 0.06em;
-  color: var(--faint);
-}
 
 /* ── the progress strip ───────────────────────────────────────────────── */
 
