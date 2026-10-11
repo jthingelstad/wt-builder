@@ -645,7 +645,7 @@ describe('shares, for setting beside Tinylytics', () => {
     draft(395, (doc) => { doc.issue.status = 'published'; doc.issue.put_to_bed_at = '2026-05-23T20:00:00.000Z'; });
     const li = store.createShare('wt395', 'linkedin', 'Words.\n\nhttps://weekly.thingelstad.com/archive/395/?ref=linkedin');
     store.updateShare(li.id, { state: 'shared', shared_at: '2026-05-23T21:00:00.000Z', url: 'https://www.linkedin.com/feed/update/1/' });
-    store.createShare('wt395', 'blog', 'https://weekly.thingelstad.com/archive/395/?ref=blog');
+    const blog = store.createShare('wt395', 'blog', 'Words.\n\n[Weekly Thing 395](https://weekly.thingelstad.com/archive/395/?ref=blog-wt395)');
 
     const issue = (await call('get_issue', { issue: 'wt395' })).structuredContent;
     expect(issue.shares.map((s: any) => s.destination)).toEqual(['blog', 'linkedin']);
@@ -656,6 +656,9 @@ describe('shares, for setting beside Tinylytics', () => {
       issue: 'wt395', destination: 'linkedin', state: 'shared', page_path: '/archive/395/', ref: 'linkedin',
       referrer: 'linkedin.com', shared_at: '2026-05-23T21:00:00.000Z', url: 'https://www.linkedin.com/feed/update/1/',
     });
+    // The ref is the one the link carried: the destination alone before
+    // WT354, the destination and the issue since.
+    expect(all.shares.find((s: any) => s.id === blog.id).ref).toBe('blog-wt395');
     expect(all.note).toContain('Tinylytics');
 
     const only = (await call('list_shares', { destination: 'blog', state: 'draft' })).structuredContent;

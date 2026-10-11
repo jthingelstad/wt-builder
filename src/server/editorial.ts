@@ -13,7 +13,7 @@ import { fileURLToPath } from 'node:url';
 import Anthropic from '@anthropic-ai/sdk';
 
 import type { ArchiveReference, EchoGrounding, EchoOption, IssueDoc, Item, ItemType, ShareDestination } from '../shared/types.ts';
-import { linksIssue, plainText, shareLink } from '../shared/shares.ts';
+import { linksIssue, plainText, shareLink, withShareLink } from '../shared/shares.ts';
 import { renderAnnotated } from '../shared/render/annotate.ts';
 import { log } from './log.ts';
 import { bodyLines, isIncluded, outOfWindow, windowOf } from '../shared/render/plan.ts';
@@ -1789,7 +1789,7 @@ export async function draftShare(doc: IssueDoc, destination: ShareDestination): 
   } as Anthropic.MessageCreateParamsNonStreaming, DRAFT_SAYS);
 
   const candidates = (parsed.candidates ?? []).slice(0, 3).flatMap((c): ShareOption[] => {
-    let text = String(c.text ?? '').trim();
+    let text = withShareLink(String(c.text ?? '').trim(), doc, destination);
     if (!text) return [];
     if (destination === 'linkedin') {
       text = plainText(text);

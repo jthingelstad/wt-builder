@@ -39,8 +39,12 @@ Fields:
   the research did not show it helps a personal profile). The editor marks
   where LinkedIn cuts the post at "…see more" and counts against its 3,000
   characters.
-- **Link.** The issue URL with `?ref=linkedin`. The site already records
-  `ref` for subscribe attribution, and Tinylytics shows it as the referrer.
+- **Link.** The issue URL with `?ref=linkedin-wt354`: the destination and the
+  issue (Jamie, 2026-10-11; shares before WT354 carried `?ref=linkedin`). The
+  site records `ref` for subscribe attribution, and Tinylytics lists each ref
+  as its own row in Sources, so a share's visits read without asking LinkedIn.
+  It names a post, never a person. A drafted candidate's issue link is given
+  this ref whatever the model wrote.
 
 Actions: **Copy text**, **Open LinkedIn** (the feed), **Mark shared**, which
 asks for the post's URL and accepts none.
@@ -51,7 +55,7 @@ the podcast leg writes) and the dek. Nothing to generate.
 ## Blog post
 
 Fields: an optional **title** and the **body**, which ends on the link to the
-issue with `?ref=blog`. Category `Weekly Thing`, always.
+issue with `?ref=blog-wt354`. Category `Weekly Thing`, always.
 
 **Post** shows the post as it will go up and asks once, then creates it through
 Micropub `h=entry` with the credential the Micro.blog integration already

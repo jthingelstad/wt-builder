@@ -301,7 +301,8 @@ finished, what is half-finished, and what has never run.
   Builder posts itself through Micropub (`createPost` in
   `src/server/integrations/microblog.ts`, category `Weekly Thing`, never
   back-dated), recording the post's URL from the Location header. The link
-  carries `?ref=linkedin` or `?ref=blog`. A shared row is the record: no
+  carries `?ref=linkedin-wt354` or `?ref=blog-wt354` since 2026-10-11 (the
+  destination alone before). A shared row is the record: no
   edit, re-post or delete (409). The wand offers three candidates and writes
   nothing (`draftShare` in `src/server/editorial.ts`), and since 2026-10-07
   describes the issue rather than speaking as Jamie: for LinkedIn each leads

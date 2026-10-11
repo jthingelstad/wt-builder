@@ -13,7 +13,7 @@ import { fileURLToPath } from 'node:url';
 
 import type { IssueDoc, Share } from '../src/shared/types.ts';
 import { issueWindow } from '../src/shared/dates.ts';
-import { foldAt, linksIssue, plainText, shareLink, startingText, LINKEDIN_FOLD } from '../src/shared/shares.ts';
+import { carriedRef, foldAt, linksIssue, plainText, shareLink, startingText, withShareLink, LINKEDIN_FOLD } from '../src/shared/shares.ts';
 
 const { create, createPost } = vi.hoisted(() => ({ create: vi.fn(), createPost: vi.fn() }));
 
@@ -88,11 +88,30 @@ const start = async (id: string, destination: string) => {
 describe('the share helpers', () => {
   const doc = fixture();
 
-  it('links the issue page with the destination as its ref', () => {
-    expect(shareLink(doc, 'linkedin')).toBe(`https://weekly.thingelstad.com/archive/${doc.issue.number}/?ref=linkedin`);
-    expect(startingText(doc, 'blog')).toBe(`https://weekly.thingelstad.com/archive/${doc.issue.number}/?ref=blog`);
-    const imported = { ...doc, issue: { ...doc.issue, archive_url: 'https://weekly.thingelstad.com/archive/12/' } };
-    expect(shareLink(imported, 'linkedin')).toBe('https://weekly.thingelstad.com/archive/12/?ref=linkedin');
+  it('links the issue page with the destination and the issue as its ref', () => {
+    // Jamie, 2026-10-11: one row per share in Tinylytics' Sources.
+    expect(shareLink(doc, 'linkedin')).toBe(`https://weekly.thingelstad.com/archive/${doc.issue.number}/?ref=linkedin-wt${doc.issue.number}`);
+    expect(startingText(doc, 'blog')).toBe(`https://weekly.thingelstad.com/archive/${doc.issue.number}/?ref=blog-wt${doc.issue.number}`);
+    const imported = { ...doc, issue: { ...doc.issue, number: 12, archive_url: 'https://weekly.thingelstad.com/archive/12/' } };
+    expect(shareLink(imported, 'linkedin')).toBe('https://weekly.thingelstad.com/archive/12/?ref=linkedin-wt12');
+  });
+
+  it('reads the ref a share carried, then or now', () => {
+    expect(carriedRef('Words.\n\nhttps://weekly.thingelstad.com/archive/353/?ref=linkedin', 353)).toBe('linkedin');
+    expect(carriedRef('[Weekly Thing 354](https://weekly.thingelstad.com/archive/354/?ref=blog-wt354)', 354)).toBe('blog-wt354');
+    expect(carriedRef('https://weekly.thingelstad.com/archive/354/?a=1&ref=linkedin-wt354#x', 354)).toBe('linkedin-wt354');
+    expect(carriedRef('https://weekly.thingelstad.com/archive/354/', 354)).toBeUndefined();
+    expect(carriedRef('https://weekly.thingelstad.com/archive/3540/?ref=blog', 354)).toBeUndefined();
+  });
+
+  it('gives every link to the issue the share\'s own ref, and no other link', () => {
+    const n = doc.issue.number;
+    const own = shareLink(doc, 'blog');
+    expect(withShareLink(`[it](https://weekly.thingelstad.com/archive/${n}/?ref=linkedin) and weekly.thingelstad.com/archive/${n}`, doc, 'blog'))
+      .toBe(`[it](${own}) and ${own}`);
+    const others = `https://weekly.thingelstad.com/archive/${n}0/ https://weekly.thingelstad.com/archive/${n - 1}/?ref=blog`;
+    expect(withShareLink(others, doc, 'blog')).toBe(others);
+    expect(withShareLink(own, doc, 'blog')).toBe(own);
   });
 
   it('knows the issue is linked with or without the ref', () => {
@@ -119,7 +138,7 @@ describe('the door lets shares through', () => {
     sleeping(501);
     const share = await start('wt501', 'linkedin');
     expect(share).toMatchObject({ issue_id: 'wt501', destination: 'linkedin', state: 'draft' });
-    expect(share.text).toBe('https://weekly.thingelstad.com/archive/501/?ref=linkedin');
+    expect(share.text).toBe('https://weekly.thingelstad.com/archive/501/?ref=linkedin-wt501');
     expect((await call('PATCH', 'wt501/meta', { title: 'x' })).status).toBe(423);
     expect(store.listEvents('wt501').map((e) => e.summary)).toContain('Share started — LinkedIn');
   });
@@ -248,8 +267,9 @@ describe('the share wand', () => {
     expect(res.status).toBe(200);
     const { candidates } = await res.json() as { candidates: { lead?: string; lead_title?: string; title?: string; text: string }[] };
     expect(candidates).toHaveLength(2);
-    expect(candidates[0]).toMatchObject({ lead: 'link-flipcash', text: 'About Flipcash and why.\n\nWeekly Thing 530 has more.\n\nhttps://weekly.thingelstad.com/archive/530/?ref=linkedin' });
-    expect(candidates[1]!.text.match(/archive\/530/g)).toHaveLength(1);
+    expect(candidates[0]).toMatchObject({ lead: 'link-flipcash', text: 'About Flipcash and why.\n\nWeekly Thing 530 has more.\n\nhttps://weekly.thingelstad.com/archive/530/?ref=linkedin-wt530' });
+    // A candidate that wrote the link with another ref carries the share's own, once.
+    expect(candidates[1]!.text).toBe('Second.\n\nhttps://weekly.thingelstad.com/archive/530/?ref=linkedin-wt530');
 
     // The prompt carries Jamie's strategy and the Notable links by id.
     const params = create.mock.calls[0]![0] as { system: string; messages: { content: string }[] };
@@ -259,7 +279,7 @@ describe('the share wand', () => {
     expect(params.system).not.toContain('first-person, observational');
     expect(params.system).toContain('Weekly Thing 530 looks at');
     expect(params.messages[0]!.content).toContain('id: link-flipcash');
-    expect(store.getShare(s.id)?.text).toBe('https://weekly.thingelstad.com/archive/530/?ref=linkedin');
+    expect(store.getShare(s.id)?.text).toBe('https://weekly.thingelstad.com/archive/530/?ref=linkedin-wt530');
   });
 
   it('blog: no title (the subject is the title), and the issue linked in Markdown when missing', async () => {
@@ -267,7 +287,7 @@ describe('the share wand', () => {
     const s = await start('wt531', 'blog');
     answer([{ lead: '', text: 'This issue had a photo.' }]);
     const { candidates } = await (await call('POST', `wt531/shares/${s.id}/draft`)).json() as { candidates: { title?: string; text: string }[] };
-    expect(candidates[0]).toEqual({ text: 'This issue had a photo.\n\n[Weekly Thing 531](https://weekly.thingelstad.com/archive/531/?ref=blog)' });
+    expect(candidates[0]).toEqual({ text: 'This issue had a photo.\n\n[Weekly Thing 531](https://weekly.thingelstad.com/archive/531/?ref=blog-wt531)' });
   });
 
   it('nothing back is a failure the error bar can say', async () => {

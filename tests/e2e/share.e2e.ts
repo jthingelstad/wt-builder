@@ -37,7 +37,7 @@ test('put to bed, Share opens the view; a LinkedIn share is written, folds, and 
   await page.getByRole('button', { name: 'LinkedIn' }).click();
   const card = page.locator('.tell-card.dest-li');
   const field = card.locator('textarea');
-  await expect(field).toHaveValue(/archive\/350\/\?ref=linkedin$/);
+  await expect(field).toHaveValue(/archive\/350\/\?ref=linkedin-wt350$/);
   const link = await field.inputValue();
 
   const text = `The lead, in Jamie's words.\nA second line.\nA third line.\nBelow the fold.\n\n${link}`;

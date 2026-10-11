@@ -361,7 +361,7 @@ names the lead (`lead`, `lead_title`), is made plain text, and gets the link
 appended if the model left it out. A pre-Builder record has no items, so the
 prompt reads its published text and leads with its strongest link. Blog: a
 short description, ending on a Markdown link to the issue (appended if
-missing); no title, since the share starts titled with the issue's subject. The link is `?ref=linkedin` or `?ref=blog`. No
+missing); no title, since the share starts titled with the issue's subject. The link is `?ref=linkedin-wt354` or `?ref=blog-wt354` (the destination alone before WT354), and any issue link a candidate wrote is given it. `list_shares`' `ref` is read from the link the share carried. No
 candidate back is a failure the error bar says.
 
 ## Both

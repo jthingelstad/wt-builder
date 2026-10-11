@@ -35,7 +35,7 @@ import { StreamableHTTPServerTransport } from '@modelcontextprotocol/sdk/server/
 import { z } from 'zod';
 
 import type { IssueDoc, Item, Share, ShareDestination, Verification } from '../shared/types.ts';
-import { DESTINATION_NAME, REFERRER } from '../shared/shares.ts';
+import { DESTINATION_NAME, REFERRER, carriedRef } from '../shared/shares.ts';
 import type { Readiness, ReadinessUnit } from './issue.ts';
 import { heldOut, outOfWindow, windowOf } from '../shared/render/plan.ts';
 import { waitingSummary } from '../shared/dependencies.ts';
@@ -66,7 +66,7 @@ export interface McpDeps {
  * tool, its arguments, or its answer changes, so a client holding a cached
  * tool list knows to fetch it again.
  */
-export const MCP_VERSION = '1.9.0';
+export const MCP_VERSION = '1.9.1';
 
 export const INSTRUCTIONS = `WT Builder is Jamie Thingelstad's authoring app for The Weekly Thing newsletter. This server is READ-ONLY: it shows an issue as the editor does and changes nothing.
 
@@ -544,6 +544,7 @@ const pillOutput = z.object({
  * the link it posted.
  */
 function shareView(s: Share, number: number | null) {
+  const ref = number !== null ? carriedRef(s.text, number) : undefined;
   return {
     id: s.id,
     issue: number !== null ? `wt${number}` : s.issue_id,
@@ -552,7 +553,8 @@ function shareView(s: Share, number: number | null) {
     state: s.state,
     ...(s.title ? { title: s.title } : {}),
     text: s.text,
-    ...(number !== null ? { page_path: `/archive/${number}/`, ref: s.destination } : {}),
+    ...(number !== null ? { page_path: `/archive/${number}/` } : {}),
+    ...(ref ? { ref } : {}),
     referrer: REFERRER[s.destination],
     created_at: s.created_at,
     ...(s.shared_at ? { shared_at: s.shared_at } : {}),
@@ -957,7 +959,7 @@ export function buildServer(deps: McpDeps, caller = 'local', logged = new Set<st
 
   server.registerTool('list_shares', {
     title: 'How issues were shared',
-    description: 'The shares of published issues, newest first: each a LinkedIn post Jamie made himself or a blog post WT Builder made on micro.blog, with its words, its state (draft, or shared with shared_at and the post\'s url when known), and what joins it to Tinylytics: page_path (the issue\'s page on weekly.thingelstad.com), ref (the ?ref= on the link it carried) and referrer. For setting a share beside the traffic it brought.',
+    description: 'The shares of published issues, newest first: each a LinkedIn post Jamie made himself or a blog post WT Builder made on micro.blog, with its words, its state (draft, or shared with shared_at and the post\'s url when known), and what joins it to Tinylytics: page_path (the issue\'s page on weekly.thingelstad.com), ref (the ?ref= on the link it carried: linkedin-wt354 since WT354, linkedin before) and referrer. For setting a share beside the traffic it brought.',
     inputSchema: {
       issue: z.string().max(64).optional().describe('Only this issue\'s shares: "wt351", "351", or its id. Leave out for every issue.'),
       destination: z.enum(['linkedin', 'blog']).optional().describe('Only shares to this destination.'),

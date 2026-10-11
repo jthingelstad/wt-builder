@@ -42,15 +42,43 @@ export function issueUrl(doc: IssueDoc): string {
 }
 
 /**
- * The link a share carries: the issue page with `?ref=` naming the
- * destination. The site records `ref` for subscribe attribution, and the
- * page's canonical URL stays the plain one, so the preview card is the
- * issue's own.
+ * The `ref` a share's link carries: the destination and the issue,
+ * `linkedin-wt353` (Jamie, 2026-10-11), so Tinylytics' Sources lists each
+ * share's visits on its own row and LinkedIn need not be asked. It names a
+ * post, never a person. Shares before WT354 carried the destination alone.
+ */
+export function shareRef(doc: IssueDoc, destination: ShareDestination): string {
+  return `${destination}-wt${doc.issue.number}`;
+}
+
+/**
+ * The link a share carries: the issue page with `?ref=` (shareRef). The site
+ * records `ref` for subscribe attribution, and the page's canonical URL stays
+ * the plain one, so the preview card is the issue's own.
  */
 export function shareLink(doc: IssueDoc, destination: ShareDestination): string {
   const url = new URL(issueUrl(doc));
-  url.searchParams.set('ref', destination);
+  url.searchParams.set('ref', shareRef(doc, destination));
   return url.toString();
+}
+
+/**
+ * Every link to the issue in the text, made the share's own link: a drafted
+ * candidate that wrote it bare, or with another ref, still carries the right
+ * one, and once.
+ */
+export function withShareLink(text: string, doc: IssueDoc, destination: ShareDestination): string {
+  const bare = issueUrl(doc).replace(/^https?:\/\//, '').replace(/\/$/, '').replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+  return text.replace(new RegExp(`(?:https?://)?${bare}(?![\\w.-])/?(?:\\?[^\\s)#]*)?`, 'g'), shareLink(doc, destination));
+}
+
+/**
+ * The `ref` on the issue link a share's text carries, whatever WT Builder
+ * wrote then: the record of what went out, not today's rule.
+ */
+export function carriedRef(text: string, number: number): string | undefined {
+  const m = new RegExp(`/archive/${number}/?\\?(?:[^\\s)#]*&)?ref=([^&\\s)#]+)`).exec(text);
+  return m ? decodeURIComponent(m[1]!) : undefined;
 }
 
 /** A new share starts as its link alone: the words go above it. */
