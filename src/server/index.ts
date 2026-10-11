@@ -49,7 +49,6 @@ import { audioScript } from '../shared/render/audio.ts';
 import { joinScriptReview, lintScript } from '../shared/render/script-lint.ts';
 import { heldOut, outOfWindow, windowOf } from '../shared/render/plan.ts';
 import { archiveInputs, emailSubject, issueEntry, siteInputs, subjectFor } from './publish.ts';
-import * as draftShare from './share.ts';
 import { type EarlierDelivery, verifierFor } from './verify.ts';
 import { issueTiming, type IssueTiming } from '../shared/timing.ts';
 import { handleMcp, type McpDeps } from './mcp.ts';
@@ -806,12 +805,6 @@ const routes: [RegExp, string, (ctx: Ctx, params: string[]) => Promise<unknown>]
       .map(([d, s]) => `${d} ${s!.status}`);
     if (legs.length) {
       throw new HttpError(409, `WT${doc.issue.number} has been sent (${legs.join(', ')}) — only an unsent draft can be deleted`);
-    }
-    // A shared draft has a page on the CDN, and only this document can take
-    // it down (DELETE …/share). Deleted, the page would stay up with no
-    // Unshare left to press.
-    if (doc.draft_share) {
-      throw new HttpError(409, `WT${doc.issue.number} is shared at ${doc.draft_share.url} — unshare it first`);
     }
     store.deleteIssue(id!);
     return { ok: true };
@@ -1708,30 +1701,8 @@ const routes: [RegExp, string, (ctx: Ctx, params: string[]) => Promise<unknown>]
    */
   [/^\/api\/issues\/([^/]+)\/drafting$/, 'GET', async (_ctx, [id]) => ({ drafting: draftSays.get(id!) ?? null })],
 
-  /**
-   * Share the draft: render the website edition to one static page and put
-   * it on the CDN at an unguessable URL, loudly labeled DRAFT, with Jamie's
-   * note to the reader. Re-sharing refreshes the same URL.
-   */
-  [/^\/api\/issues\/([^/]+)\/share$/, 'POST', async ({ body }, [id]) => {
-    const b = await body();
-    const doc = requireIssue(id!);
-    const share = await draftShare.share(doc, typeof b.note === 'string' ? b.note : undefined);
-    return { ...savedFresh(id!, (d) => { d.draft_share = share; }, [{ kind: 'share', summary: `Draft shared — ${share.url}`, data: { destination: 'draft' } }]), share };
-  }],
-
-  /** Stop sharing: delete the page. `no-store` makes revocation prompt. */
-  [/^\/api\/issues\/([^/]+)\/share$/, 'DELETE', async (_ctx, [id]) => {
-    const doc = requireIssue(id!);
-    if (doc.draft_share) {
-      await draftShare.unshare(doc);
-      return savedFresh(id!, (d) => { delete d.draft_share; }, [{ kind: 'share', summary: 'Draft share stopped', data: { destination: 'draft', action: 'stop' } }]);
-    }
-    return saved(doc);
-  }],
-
   // ── sharing a published issue (docs/share-plan.md) ──────────────────────
-  // Not the draft share above. Shares live in their own table, so these
+  // Shares live in their own table, so these
   // routes pass guardBed: put to bed freezes the issue, and sharing is what
   // happens after it, this week or a year later.
 
@@ -2231,19 +2202,6 @@ async function sendWebsite(id: string, force = false) {
       url: `https://github.com/${config.websiteRepo}/commit/${result.sha}`,
     };
     const row = store.recordSend(id, 'website', state);
-
-    // A published issue must not keep serving a page that shouts DRAFT. Best
-    // effort: the URL is unguessable either way, and Unshare remains.
-    if (row?.doc.draft_share) {
-      try {
-        await draftShare.unshare(row.doc);
-        savedFresh(id, (d) => { delete d.draft_share; }, [{
-          kind: 'share', actor: 'wt-builder', summary: 'Draft share retired — the issue published', data: { destination: 'draft', action: 'retire' },
-        }]);
-      } catch (e) {
-        log.warn(`[share] ${id} retiring the draft share failed: ${(e as Error).message}`);
-      }
-    }
 
     return { issue: row?.doc, send: state, changed: result.changed, committed: result.committed };
   } catch (err) {

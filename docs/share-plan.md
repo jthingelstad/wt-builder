@@ -103,9 +103,9 @@ words are his: no Thingy byline (`docs/decisions.md`; the byline boundary).
   freezes the document and the shares are not part of it.
 - **The door.** `guardBed` lets `/api/issues/{id}/shares…` through, as it does
   `/verify/`. Every other write to a sleeping issue is still a 423.
-- **Names.** The pre-send draft page is already "share" in code (`share.ts`,
+- **Names.** The pre-send draft page was "share" in code too (`share.ts`,
   `draft_share`). This is `shares` (`src/shared/shares.ts`); the two never
-  meet, since a website send retires the draft page.
+  met. The draft page was removed 2026-10-11, unused.
 - **MCP.** Shares are readable through the MCP, so an agent can set them
   beside Tinylytics and say what a share brought in: `get_issue` carries the
   issue's shares, and a `list_shares` tool lists them across issues

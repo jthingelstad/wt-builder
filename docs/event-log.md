@@ -64,7 +64,7 @@ and a Retry on a failed write-back is Jamie's.
 | `wand` | jamie | A wand's draft: `data.outcome` is `offered` (with `offered`, the count) or `failed`, and `data.ms`. An override is a `wand` event too. |
 | `send` | jamie | A leg's start (`data.action: 'start'`), its finish or failure (the service's, with `data.ms`), refusals and overrides. |
 | `verify` | wt-builder | A leg's check, logged only when its status moves (`data.from`, `data.to`), when it errs, or when Jamie asked. |
-| `share` | jamie | The draft share, LinkedIn, the blog post. |
+| `share` | jamie | LinkedIn, the blog post. Before 2026-10-11, the draft share too. |
 
 ## Rules for writing one
 

@@ -66,7 +66,7 @@ export interface McpDeps {
  * tool, its arguments, or its answer changes, so a client holding a cached
  * tool list knows to fetch it again.
  */
-export const MCP_VERSION = '1.8.0';
+export const MCP_VERSION = '1.9.0';
 
 export const INSTRUCTIONS = `WT Builder is Jamie Thingelstad's authoring app for The Weekly Thing newsletter. This server is READ-ONLY: it shows an issue as the editor does and changes nothing.
 
@@ -123,7 +123,11 @@ export function scrub(text: string | undefined, max = 300): string | undefined {
   return clean.length > max ? `${clean.slice(0, max)}…` : clean;
 }
 
-/** A draft-share URL is the whole capability to read an unpublished draft; the agent never needs it. */
+/**
+ * A draft-share URL was the whole capability to read an unpublished draft.
+ * The draft share was removed 2026-10-11, but WT350's log still names the
+ * one it made, so its link stays withheld.
+ */
 export const withoutShareLinks = (text: string) =>
   text.replace(/(?:https?:(?:\/\/|%2F%2F)[^\s"'<>]*?)?drafts(?:\/|%2F)wt\d+-[0-9a-f]{8,}\.html?/gi, '[draft share link withheld]');
 
@@ -183,7 +187,6 @@ function issueHead(doc: IssueDoc) {
     ...(i.status === 'draft' && i.publication_date < todayCentral()
       ? { overdue_by_days: Math.round((Date.parse(todayCentral()) - Date.parse(i.publication_date)) / 86_400_000) }
       : {}),
-    shared_as_draft: Boolean(doc.draft_share),
     window: { from: w.from, to: w.to },
   };
 }
@@ -568,7 +571,7 @@ const SHARES_NOTE = 'To measure a share in Tinylytics, look at hits on the weekl
 const headOutput = z.object({
   id: z.string(), number: z.number(), title: z.string(), dek: z.string(), publication_date: z.string(),
   status: z.string(), put_to_bed: z.boolean(), imported: z.boolean(), archive_url: z.string().optional(),
-  overdue: z.boolean(), overdue_by_days: z.number().optional(), shared_as_draft: z.boolean(), window: z.object({ from: z.string(), to: z.string() }),
+  overdue: z.boolean(), overdue_by_days: z.number().optional(), window: z.object({ from: z.string(), to: z.string() }),
 });
 
 const itemOutput = z.looseObject({ id: z.string(), type: z.string(), in_issue: z.boolean(), held_out: z.string().optional() });

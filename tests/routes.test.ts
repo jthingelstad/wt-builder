@@ -356,13 +356,19 @@ describe('a promoted post keeps a title', () => {
   });
 });
 
-describe('the draft share routes are wired', () => {
-  it('share and unshare both reach their handlers', async () => {
-    // 404 means the handler ran far enough to look for the issue.
-    const { status } = await post('/api/issues/nope/share');
-    expect(status).toBe(404);
-    const res = await fetch(`${base}/api/issues/nope/share`, { method: 'DELETE' });
-    expect(res.status).toBe(404);
+describe('there is no draft share', () => {
+  // Removed 2026-10-11, unused: "the timeline that I publish on means that
+  // I'll never use it" (Jamie). The AI review is the second reader.
+  it('neither shares nor unshares a draft, even an issue that exists', async () => {
+    const created = await fetch(`${base}/api/issues`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ number: 990014, publication_date: '2026-12-05' }),
+    });
+    const id = ((await created.json()) as { issue: { issue: { id: string } } }).issue.issue.id;
+    expect((await post(`/api/issues/${id}/share`)).status).toBe(404);
+    expect((await fetch(`${base}/api/issues/${id}/share`, { method: 'DELETE' })).status).toBe(404);
+    await fetch(`${base}/api/issues/${id}`, { method: 'DELETE' });
   });
 });
 
@@ -789,25 +795,6 @@ describe('deleting an issue', () => {
       expect((await fetch(`${base}/api/issues/${id}`)).status, status).toBe(200);
       store.deleteIssue(id);
     }
-  });
-
-  it('a draft with a live share page is refused until it is unshared', async () => {
-    const id = await create(990013, '2026-11-28');
-    const store = await import('../src/server/db.ts');
-    const doc = store.getIssue(id)!.doc;
-    doc.draft_share = { token: 't0k3n', url: 'https://files.example/weekly-thing/drafts/wt990013-t0k3n.html', at: new Date().toISOString() };
-    store.saveIssue(doc);
-
-    const res = await del(id);
-    expect(res.status).toBe(409);
-    expect((await res.json()).error).toContain('unshare');
-    expect((await fetch(`${base}/api/issues/${id}`)).status).toBe(200);
-
-    // Unshared (as DELETE /share leaves it), the same draft goes.
-    const unshared = store.getIssue(id)!.doc;
-    delete unshared.draft_share;
-    store.saveIssue(unshared);
-    expect((await del(id)).status).toBe(200);
   });
 
   it('an unsent draft is deleted, and its last version is kept among its revisions', async () => {

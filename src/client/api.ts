@@ -334,13 +334,6 @@ export const api = {
   draftShare: (id: string, sid: number) =>
     call<{ candidates: ShareOption[] }>(`/issues/${id}/shares/${sid}/draft`, { method: 'POST', body: '{}' }),
 
-  /** Share the draft as a static DRAFT-labeled page on the CDN. */
-  shareDraft: (id: string, note?: string) =>
-    call<IssueResponse & { share: { url: string } }>(`/issues/${id}/share`, {
-      method: 'POST', body: JSON.stringify({ note }),
-    }),
-  unshareDraft: (id: string) => call<IssueResponse>(`/issues/${id}/share`, { method: 'DELETE' }),
-
   /** An editorial read. Advisory only — notes never gate publishing. */
   review: (id: string, only?: string) =>
     post(`/issues/${id}/review`, { only }) as Promise<IssueResponse & { review: unknown }>,

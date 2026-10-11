@@ -684,8 +684,8 @@ insert points, add chips (the outline's `+ Section`, `+ Markdown` and NOT IN THI
 ISSUE among them), and the ordering and Echoes wands. Once it is put to bed,
 nothing is editable, and the client offers nothing that would be refused. No run is
 contenteditable, and no rail action moves, removes or promotes (Inspect, which only
-reads, stays). Wands, held-strip buttons, outline and Collapse actions, Edit, Share
-and Re-scan are all withdrawn. The Inspector's fields are read-only and its write
+reads, stays). Wands, held-strip buttons, outline and Collapse actions, Edit and
+Re-scan are all withdrawn. The Inspector's fields are read-only and its write
 buttons are gone. A new review read is not offered. The kicker reads
 `WEBSITE — PUBLISHED`, and its note says the issue is put to bed. A pre-Builder
 record is frozen the same way. The server's 423 (`guardBed`) is the backstop.

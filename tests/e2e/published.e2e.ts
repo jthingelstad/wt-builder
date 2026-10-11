@@ -38,6 +38,8 @@ test('a draft still edits its number, date and window, and re-scans', async ({ p
   await expect(panel.getByRole('button', { name: '+ Section', exact: true })).toHaveCount(1);
   await expect(panel.getByRole('button', { name: '+ Markdown', exact: true })).toHaveCount(1);
   await expect(panel.getByRole('button', { name: 'Re-scan' })).toHaveCount(1);
+  // A draft is never shared as a page: removed 2026-10-11, unused.
+  await expect(panel.getByRole('button', { name: /^Shared?$/ })).toHaveCount(0);
   await panel.getByRole('button', { name: 'Edit' }).click();
   const meta = panel.locator('.meta-card.edit');
   await expect(meta.locator('input[type="number"]').first()).toBeVisible();
@@ -109,9 +111,9 @@ test('put to bed, nothing is offered: no editable run, rail, wand, field, or but
   await expect(page.locator('.ghost-chip, .insert-point, .photo-actions')).toHaveCount(0);
   await expect(page.locator('.held-strip button')).toHaveCount(0);
 
-  // The panel: no Edit, Re-scan, or Share; the outline only navigates.
+  // The panel: no Edit or Re-scan; the outline only navigates.
   const panel = page.locator('.left-panel');
-  for (const name of ['Edit', 'Re-scan', 'Share', '+ Section', '+ Markdown']) {
+  for (const name of ['Edit', 'Re-scan', '+ Section', '+ Markdown']) {
     await expect(panel.getByRole('button', { name, exact: true })).toHaveCount(0);
   }
   await expect(panel.locator('.ol-actions, .absent')).toHaveCount(0);

@@ -55,7 +55,7 @@ finished, what is half-finished, and what has never run.
   pages events past the 500 the page shows (`events?all=1`); it names an
   issue through `GET /api/issues?heads=1` (id, number, date, status; no
   readiness), which took a call from ~245 ms to ~15 ms of event loop; it
-  withholds draft-share links and scrubs stored error text; four prompts
+  withholds draft-share links (WT350's log names one) and scrubs stored error text; four prompts
   (`finish_draft`, `briefly_pass`, `proof_issue`, `compare_with_last_week`);
   and every call is one `[mcp]` line in the service log, including a call
   the SDK rejects before the tool runs, so `npm run watch` shows an agent
@@ -811,16 +811,13 @@ finished, what is half-finished, and what has never run.
   Exercised over HTTP in routes.test.ts; not yet clicked in a browser
   against a live bookmark.
 
-- **Draft share** (2026-09-03) — Share on the meta card publishes the draft
-  as one static page on the CDN (`weekly-thing/drafts/wt{N}-{token}.html`,
-  unguessable token, `no-store`, `noindex`): a sticky DRAFT banner, Jamie's
-  optional note to the reader, the rendered website edition, and a
-  don't-pass-this-along footer. Re-sharing refreshes the same URL; Stop
-  sharing deletes the page; a successful website send retires it
-  automatically. The builder itself stays unshareable — this is the rendered
-  snapshot leaving, never the app. Routes:
-  `POST|DELETE /api/issues/:id/share`. Page rendering and routes are tested;
-  the S3 upload has not yet run for real.
+- **Draft share** — removed 2026-10-11, unused: "the timeline that I publish on means that I'll never use it" (Jamie). A second
+  reader before sending would be a paid editor, and the AI review is that
+  reader. It was used once, as a WT350 test on 2026-09-04, and stopped 12
+  minutes later; the CDN's drafts prefix was empty at removal.
+  `POST|DELETE /api/issues/:id/share` are gone (404), and the meta card has
+  no Share. The Share view for a put-to-bed issue is a different thing and
+  stays.
 
 - **Section headings typed on the canvas** (2026-09-28) — an ad hoc
   section's heading saves as the node's label through

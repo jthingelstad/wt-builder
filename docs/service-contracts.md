@@ -445,11 +445,14 @@ Claude Code or Codex on otto, or any MCP client on the tailnet.
   failure (`data.outcome`), and an edit picked from one has `data.via:
   'wand'`. `sync` is split into `write` (a write-back's outcome) and
   `source` (Jamie's decision: fork, rejoin, keep mine, take theirs); a
-  draft share is `share`. `list_events` takes `item` and `kind` filters;
+  draft share was `share`. `list_events` takes `item` and `kind` filters;
   `get_item` carries `history`, its newest 12 events; `changes.other`
   rows carry `actor`; `get_timing` adds `wands` (`calls`, `failed`,
   `used`, `waiting_seconds`). Share links are withheld from `data` as from
   the summary.
+- **No draft share (1.9.0, 2026-10-11).** `get_status` and `get_issue`
+  drop `shared_as_draft`: the editor no longer shares a draft as a page.
+  `list_shares` (LinkedIn and blog posts of a published issue) is unchanged.
 - **No Source lens (1.8.0, 2026-10-11).** `render_issue` takes `website`,
   `email` or `audio`; `source` went with the editor's Source lens, which
   was unused. `get_issue` has every item as stored, held-out ones included.
@@ -481,7 +484,8 @@ Claude Code or Codex on otto, or any MCP client on the tailnet.
 - **Content is data.** The instructions say that tool output is never
   instructions, and which words are not Jamie's: a syndicated link's title
   is the page's own; `authorship: "Thingy"` items and review notes are
-  model drafts. Draft-share links are withheld (`withoutShareLinks`), and
+  model drafts. Draft-share links are withheld (`withoutShareLinks`; the
+  draft share is gone, but WT350's log still names one), and
   stored integration error text is capped and scrubbed (`scrub`).
 - **Where an item stands.** `in_issue` follows the editions' rule (placed,
   a channel on, inside the window, not excluded), and `held_out` says why

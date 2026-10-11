@@ -166,19 +166,12 @@ Librarian API and corpus on 2026-08-28.
 
 ## Draft sharing
 
-- A draft can be shared before it sends: one static HTML page on
-  `files.thingelstad.com` under `weekly-thing/drafts/`, addressed by an
-  unguessable token. The page is loudly labeled DRAFT (banner and footer)
-  and carries Jamie's optional note to the person it was shared with — the
-  deterrent against forwarding is social, the revocation is real
-  (`Cache-Control: no-store` plus deletion on unshare).
-- The builder itself is never what gets shared — it has no auth layer and
-  holds write credentials. Only the rendered snapshot leaves.
-- Re-sharing refreshes the same URL. Stop sharing deletes the page. A
-  successful website send retires the share automatically, so a published
-  issue never keeps serving a page that says DRAFT.
-- The share page never feeds the archive or the corpus; the send legs do
-  not know it exists.
+*Removed 2026-10-11, unused:* "the timeline that I publish on means that I'll never use it" (Jamie). Nothing WT Builder makes
+leaves before it sends. The builder itself is never shareable either: it has
+no auth layer and holds write credentials.
+
+It was one static page per draft on `files.thingelstad.com`, loudly labeled
+DRAFT at an unguessable URL, with `no-store` so that deleting it revoked it.
 
 ## Website
 

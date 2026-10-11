@@ -1,5 +1,5 @@
 /**
- * Markdown to safe HTML for the canvas, the draft-share page, and the HTML
+ * Markdown to safe HTML for the canvas and the HTML
  * inside Thingy's email frame.
  *
  * CommonMark, via markdown-it: the website (Hugo) and Buttondown both render

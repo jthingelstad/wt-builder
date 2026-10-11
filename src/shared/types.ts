@@ -239,21 +239,10 @@ export interface EchoGrounding {
   flags: string[];
 }
 
-/** A shared draft preview: where it lives and what Jamie said with it. */
-export interface DraftShare {
-  token: string;
-  url: string;
-  /** Jamie's note to the person the draft was shared with. */
-  note?: string;
-  /** When the page was last rendered and uploaded. */
-  at: string;
-}
-
 /**
  * Sharing a published issue (docs/share-plan.md): LinkedIn, which Jamie
  * posts himself from text WT Builder holds, or a blog post WT Builder makes
- * on micro.blog. Not the draft share above, which is a page of an unsent
- * draft; this is announcing an issue that went out.
+ * on micro.blog: announcing an issue that went out.
  */
 export type ShareDestination = 'linkedin' | 'blog';
 
@@ -502,12 +491,6 @@ export interface IssueDoc {
   domain_check?: DomainCheck;
   /** Deliverability findings in the email itself that Jamie keeps (src/shared/deliverability.ts). */
   deliverability?: DeliverabilityKept;
-  /**
-   * The live draft-preview share, when one exists: a static page at an
-   * unguessable CDN URL, loudly labeled DRAFT. Re-sharing refreshes the same
-   * URL; unsharing deletes the page (docs/integrations.md).
-   */
-  draft_share?: DraftShare;
   /**
    * The most recent editorial review. Each review replaces the last, so notes
    * are never merged or aged; a failed review leaves this untouched.
