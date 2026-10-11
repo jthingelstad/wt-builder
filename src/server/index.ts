@@ -1715,7 +1715,7 @@ const routes: [RegExp, string, (ctx: Ctx, params: string[]) => Promise<unknown>]
     return { shares: store.listShares(id!) };
   }],
 
-  /** A new share: a draft holding the issue's link, for the words to go above; a blog post also its title. */
+  /** A new share: a draft holding the contents template (src/shared/shares.ts); a blog post also its title. */
   [/^\/api\/issues\/([^/]+)\/shares$/, 'POST', async ({ body }, [id]) => {
     const b = await body();
     const doc = requireIssue(id!);
@@ -1789,14 +1789,6 @@ const routes: [RegExp, string, (ctx: Ctx, params: string[]) => Promise<unknown>]
     } finally {
       sharesPosting.delete(share.id);
     }
-  }],
-
-  /** Three candidates from the wand. Nothing is written: Jamie picks one and edits it. */
-  [/^\/api\/issues\/([^/]+)\/shares\/(\d+)\/draft$/, 'POST', async (_ctx, [id, sid]) => {
-    const share = requireDraftShare(id!, sid!, 'drafted');
-    const doc = requireIssue(id!);
-    return drafting(id!, `share-${share.id}`, `${DESTINATION_NAME[share.destination]} share`, 'share', () =>
-      editorial.draftShare(doc, share.destination));
   }],
 
   /** What the website handoff would change, changing nothing. */

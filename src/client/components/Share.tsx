@@ -19,8 +19,8 @@ import { useEffect, useRef, useState } from 'preact/hooks';
 
 import type { IssueDoc, Share as ShareRow, ShareDestination } from '../../shared/types.ts';
 import { DESTINATION_NAME, LINKEDIN_MAX, foldAt, linksIssue, plainText, shareLink } from '../../shared/shares.ts';
-import { api, type ShareOption } from '../api.ts';
-import { ArrowLeft, Check, CornerUpRight, Globe, Plus, Trash, WandSparkles } from '../icons.tsx';
+import { api } from '../api.ts';
+import { ArrowLeft, Check, CornerUpRight, Globe, Plus, Trash } from '../icons.tsx';
 
 interface Props {
   doc: IssueDoc;
@@ -130,7 +130,6 @@ function ShareCard({ doc, share, onShares }: { doc: IssueDoc; share: ShareRow; o
   const [title, setTitle] = useState(share.title ?? '');
   const [err, setErr] = useState<string | null>(null);
   const [busy, setBusy] = useState<string | null>(null);
-  const [candidates, setCandidates] = useState<ShareOption[] | null>(null);
   const [copied, setCopied] = useState(false);
   // What the server holds, so a blur with nothing changed saves nothing.
   const saved = useRef({ text: share.text, title: share.title ?? '' });
@@ -163,19 +162,6 @@ function ShareCard({ doc, share, onShares }: { doc: IssueDoc; share: ShareRow; o
     } finally {
       setBusy(null);
     }
-  };
-
-  const draft = () => act('draft', async () => {
-    setCandidates((await api.draftShare(id, share.id)).candidates);
-  });
-
-  // The words only: a blog post's title (the issue's subject, to start) stays.
-  const use = (c: ShareOption) => {
-    const written = text.trim() && text.trim() !== shareLink(doc, share.destination);
-    if (written && !confirm('Replace the words in this share with the draft?')) return;
-    setText(c.text);
-    setCandidates(null);
-    void flush({ text: c.text, title });
   };
 
   // The clipboard is written first, inside the click: Safari refuses a write
@@ -238,11 +224,6 @@ function ShareCard({ doc, share, onShares }: { doc: IssueDoc; share: ShareRow; o
             {share.url && <> · <a href={share.url} target="_blank" rel="noreferrer">the post ↗</a></>}
           </div>
         </div>
-        {!shared && (
-          <button class="btn" disabled={busy !== null} onClick={draft} title="Three drafts to pick from. Nothing is written until you pick one.">
-            <WandSparkles /> {busy === 'draft' ? 'Drafting…' : 'Draft'}
-          </button>
-        )}
       </div>
 
       <div class="sh-body">
@@ -262,7 +243,7 @@ function ShareCard({ doc, share, onShares }: { doc: IssueDoc; share: ShareRow; o
             )}
             <textarea
               class="sh-text" rows={linkedin ? 10 : 7} value={text}
-              placeholder={linkedin ? 'What to say on LinkedIn, above the link' : 'The post, ending on the issue'}
+              placeholder={linkedin ? 'The post, ending on the issue link' : 'The post, ending on the issue'}
               onInput={(e) => setText((e.target as HTMLTextAreaElement).value)}
               onBlur={() => void flush()}
             />
@@ -283,23 +264,6 @@ function ShareCard({ doc, share, onShares }: { doc: IssueDoc; share: ShareRow; o
         {missingLink && <div class="sc-evidence warn">The post does not link WT{n}: {shareLink(doc, share.destination)}</div>}
         {markdown && <div class="sc-evidence warn">LinkedIn shows Markdown as typed: links and asterisks will show.</div>}
         {err && <div class="sc-evidence error">{err}</div>}
-
-        {candidates && (
-          <div class="draft-picker sh-cands">
-            <div class="dp-head">
-              <span class="mono-label">DRAFTED — PICK ONE</span>
-              <button class="dp-x" aria-label="Dismiss" onClick={() => setCandidates(null)}>×</button>
-            </div>
-            {candidates.map((c, i) => (
-              <div key={i} class="sh-cand">
-                {c.lead_title && <div class="sh-lead">Leads with <strong>{c.lead_title}</strong></div>}
-                <div class="sh-cand-text">{c.text}</div>
-                <button class="btn small" onClick={() => use(c)}>Use this</button>
-              </div>
-            ))}
-            <p class="dp-foot">Nothing is written until you pick one.</p>
-          </div>
-        )}
       </div>
 
       {!shared && (

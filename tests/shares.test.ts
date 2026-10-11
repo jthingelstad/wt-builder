@@ -1,6 +1,6 @@
 /**
  * Sharing a published issue (docs/share-plan.md): the helpers, the table,
- * the routes over HTTP, the wand's post-processing, and the sweep that never
+ * the routes over HTTP, the contents templates a share starts from, and the sweep that never
  * offers a share's own blog post to the next issue. The model and Micropub
  * are stubbed; no network is reached and nothing is posted.
  */
@@ -13,7 +13,7 @@ import { fileURLToPath } from 'node:url';
 
 import type { IssueDoc, Share } from '../src/shared/types.ts';
 import { issueWindow } from '../src/shared/dates.ts';
-import { carriedRef, foldAt, linksIssue, plainText, shareLink, startingText, withShareLink, LINKEDIN_FOLD } from '../src/shared/shares.ts';
+import { blogContents, carriedRef, foldAt, linkedinContents, linksIssue, plainText, shareLink, startingText, LINKEDIN_FOLD } from '../src/shared/shares.ts';
 
 const { create, createPost } = vi.hoisted(() => ({ create: vi.fn(), createPost: vi.fn() }));
 
@@ -91,7 +91,7 @@ describe('the share helpers', () => {
   it('links the issue page with the destination and the issue as its ref', () => {
     // Jamie, 2026-10-11: one row per share in Tinylytics' Sources.
     expect(shareLink(doc, 'linkedin')).toBe(`https://weekly.thingelstad.com/archive/${doc.issue.number}/?ref=linkedin-wt${doc.issue.number}`);
-    expect(startingText(doc, 'blog')).toBe(`https://weekly.thingelstad.com/archive/${doc.issue.number}/?ref=blog-wt${doc.issue.number}`);
+    expect(shareLink(doc, 'blog')).toBe(`https://weekly.thingelstad.com/archive/${doc.issue.number}/?ref=blog-wt${doc.issue.number}`);
     const imported = { ...doc, issue: { ...doc.issue, number: 12, archive_url: 'https://weekly.thingelstad.com/archive/12/' } };
     expect(shareLink(imported, 'linkedin')).toBe('https://weekly.thingelstad.com/archive/12/?ref=linkedin-wt12');
   });
@@ -104,15 +104,6 @@ describe('the share helpers', () => {
     expect(carriedRef('https://weekly.thingelstad.com/archive/3540/?ref=blog', 354)).toBeUndefined();
   });
 
-  it('gives every link to the issue the share\'s own ref, and no other link', () => {
-    const n = doc.issue.number;
-    const own = shareLink(doc, 'blog');
-    expect(withShareLink(`[it](https://weekly.thingelstad.com/archive/${n}/?ref=linkedin) and weekly.thingelstad.com/archive/${n}`, doc, 'blog'))
-      .toBe(`[it](${own}) and ${own}`);
-    const others = `https://weekly.thingelstad.com/archive/${n}0/ https://weekly.thingelstad.com/archive/${n - 1}/?ref=blog`;
-    expect(withShareLink(others, doc, 'blog')).toBe(others);
-    expect(withShareLink(own, doc, 'blog')).toBe(own);
-  });
 
   it('knows the issue is linked with or without the ref', () => {
     expect(linksIssue(`see weekly.thingelstad.com/archive/${doc.issue.number}/`, doc)).toBe(true);
@@ -138,7 +129,7 @@ describe('the door lets shares through', () => {
     sleeping(501);
     const share = await start('wt501', 'linkedin');
     expect(share).toMatchObject({ issue_id: 'wt501', destination: 'linkedin', state: 'draft' });
-    expect(share.text).toBe('https://weekly.thingelstad.com/archive/501/?ref=linkedin-wt501');
+    expect(share.text).toMatch(/^The Weekly Thing 501\n\nIn this issue:\n[\s\S]*\n\nhttps:\/\/weekly\.thingelstad\.com\/archive\/501\/\?ref=linkedin-wt501$/);
     expect((await call('PATCH', 'wt501/meta', { title: 'x' })).status).toBe(423);
     expect(store.listEvents('wt501').map((e) => e.summary)).toContain('Share started — LinkedIn');
   });
@@ -249,54 +240,62 @@ describe('a blog share', () => {
   });
 });
 
-describe('the share wand', () => {
-  const answer = (candidates: unknown[]) => create.mockResolvedValue({
-    stop_reason: 'end_turn', stop_details: null,
-    content: [{ type: 'text', text: JSON.stringify({ candidates }) }],
+describe('the contents templates a share starts from', () => {
+  // Jamie, 2026-10-11: a list of what is in the issue, plainly neither Jamie
+  // writing nor a model pretending to be him. Nothing is generated.
+  const issue = () => {
+    const doc = fixture();
+    doc.issue.title = 'Release Notes for Every Day';
+    doc.issue.dek = 'Release Notes, Claude Haiku 5.5, zkAPI';
+    return doc;
+  };
+
+  it('LinkedIn: the name, the Notable links as the pages title them, the rest counted, the link last', () => {
+    const doc = issue();
+    doc.sends = { ...doc.sends, podcast: { status: 'sent', at: '2026-05-23T12:00:00.000Z', audio: { audio_duration_seconds: 1018 } } } as IssueDoc['sends'];
+    expect(linkedinContents(doc)).toBe([
+      'The Weekly Thing 350: Release Notes for Every Day',
+      'In this issue:\n- Create Your Own Currency With Flipcash (avc.xyz)\n- LLMs are functions, not brains. (james-pritchard.com)',
+      'Plus 3 more links, 4 journal posts, a photo, and a 17-minute audio edition.',
+      'https://weekly.thingelstad.com/archive/350/?ref=linkedin-wt350',
+    ].join('\n\n'));
+    // Plain text: LinkedIn shows Markdown as typed.
+    expect(plainText(linkedinContents(doc))).toBe(linkedinContents(doc));
+    expect(startingText(doc, 'linkedin')).toBe(linkedinContents(doc));
   });
 
-  it('LinkedIn: leads named, made plain, the link always last; nothing written', async () => {
-    sleeping(530);
-    const s = await start('wt530', 'linkedin');
-    answer([
-      { lead: 'link-flipcash', text: 'About [Flipcash](https://x.test/) and **why**.\n\nWeekly Thing 530 has more.' },
-      { lead: 'link-functions', title: '', text: 'Second.\n\nhttps://weekly.thingelstad.com/archive/530/?ref=linkedin' },
-      { lead: 'nope', title: '', text: '   ' },
-    ]);
-    const res = await call('POST', `wt530/shares/${s.id}/draft`);
-    expect(res.status).toBe(200);
-    const { candidates } = await res.json() as { candidates: { lead?: string; lead_title?: string; title?: string; text: string }[] };
-    expect(candidates).toHaveLength(2);
-    expect(candidates[0]).toMatchObject({ lead: 'link-flipcash', text: 'About Flipcash and why.\n\nWeekly Thing 530 has more.\n\nhttps://weekly.thingelstad.com/archive/530/?ref=linkedin-wt530' });
-    // A candidate that wrote the link with another ref carries the share's own, once.
-    expect(candidates[1]!.text).toBe('Second.\n\nhttps://weekly.thingelstad.com/archive/530/?ref=linkedin-wt530');
-
-    // The prompt carries Jamie's strategy and the Notable links by id.
-    const params = create.mock.calls[0]![0] as { system: string; messages: { content: string }[] };
-    expect(params.system).toContain('a DIFFERENT Notable link');
-    // A description, not Jamie talking (2026-10-07): no voice, no first person.
-    expect(params.system).toContain('You write descriptions, not personal posts');
-    expect(params.system).not.toContain('first-person, observational');
-    expect(params.system).toContain('Weekly Thing 530 looks at');
-    expect(params.messages[0]!.content).toContain('id: link-flipcash');
-    expect(store.getShare(s.id)?.text).toBe('https://weekly.thingelstad.com/archive/530/?ref=linkedin-wt530');
+  it('LinkedIn: a title that names the issue is not said twice; no podcast, no audio line', () => {
+    const doc = issue();
+    doc.issue.title = 'Weekly Thing for May 13, 2017';
+    const text = linkedinContents(doc);
+    expect(text.startsWith('The Weekly Thing 350\n\n')).toBe(true);
+    expect(text).not.toContain('audio');
   });
 
-  it('blog: no title (the subject is the title), and the issue linked in Markdown when missing', async () => {
-    sleeping(531);
-    const s = await start('wt531', 'blog');
-    answer([{ lead: '', text: 'This issue had a photo.' }]);
-    const { candidates } = await (await call('POST', `wt531/shares/${s.id}/draft`)).json() as { candidates: { title?: string; text: string }[] };
-    expect(candidates[0]).toEqual({ text: 'This issue had a photo.\n\n[Weekly Thing 531](https://weekly.thingelstad.com/archive/531/?ref=blog-wt531)' });
+  it('LinkedIn: a pre-Builder record is its name, its dek and the link, never its body parsed', () => {
+    const doc = issue();
+    doc.issue.imported = true;
+    expect(linkedinContents(doc)).toBe(
+      'The Weekly Thing 350: Release Notes for Every Day\n\nRelease Notes, Claude Haiku 5.5, zkAPI\n\nhttps://weekly.thingelstad.com/archive/350/?ref=linkedin-wt350',
+    );
   });
 
-  it('nothing back is a failure the error bar can say', async () => {
-    sleeping(532);
-    const s = await start('wt532', 'linkedin');
-    answer([]);
-    const res = await call('POST', `wt532/shares/${s.id}/draft`);
-    expect(res.status).toBeGreaterThanOrEqual(400);
-    expect((await res.json()).error).toContain('came back empty');
+  it('blog: the dek, Jamie\'s own words, ending on a Markdown link to the issue', () => {
+    const doc = issue();
+    expect(blogContents(doc)).toBe('Release Notes, Claude Haiku 5.5, zkAPI. [Weekly Thing 350](https://weekly.thingelstad.com/archive/350/?ref=blog-wt350)');
+    doc.issue.dek = 'Ends on its own stop.';
+    expect(blogContents(doc)).toBe('Ends on its own stop. [Weekly Thing 350](https://weekly.thingelstad.com/archive/350/?ref=blog-wt350)');
+    doc.issue.dek = '';
+    expect(startingText(doc, 'blog')).toBe('[Weekly Thing 350](https://weekly.thingelstad.com/archive/350/?ref=blog-wt350)');
+  });
+
+  it('a new share starts from its template, and there is no share wand to ask', async () => {
+    const doc = sleeping(530);
+    const s = await start('wt530', 'blog');
+    expect(s.text).toBe(blogContents(doc));
+    expect(s.title).toMatch(/^WT530 — /);
+    expect((await call('POST', `wt530/shares/${s.id}/draft`)).status).toBe(404);
+    expect(create).not.toHaveBeenCalled();
   });
 });
 

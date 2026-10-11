@@ -372,6 +372,18 @@ is logged that never was, and what is no longer logged:
 - **No `agent` actor yet.** The MCP cannot write (below), so nothing an
   agent does reaches the log. Writes add that actor.
 
+## A share's words are a template, never generated (2026-10-11)
+
+There is no share wand. Jamie, after WT353, on its copy: "They all felt either
+inauthentically pretending to be me but not, or too hype-y." A share goes out
+on Jamie's LinkedIn or his blog, where Thingy does not post, so the newsletter's
+answer (Thingy writing under its own byline) does not reach it. What he is
+comfortable with is "simple templates that show the list of things in it
+because it is obviously not me writing the share, and also obviously not AI
+pretending to be me". So a share starts as a contents template filled from the
+issue (`src/shared/shares.ts`; `docs/share-plan.md`). Do not bring generated
+share copy back, in any voice, without asking Jamie.
+
 ## A share's blog post is never swept into the next issue (2026-10-06)
 
 The Weekly Thing reprints every blog post, and a share's blog post is a blog

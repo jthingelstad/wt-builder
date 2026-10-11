@@ -5,6 +5,8 @@
  */
 
 import type { IssueDoc, ShareDestination } from './types.ts';
+import { planEdition } from './render/plan.ts';
+import { lastSent } from './sends.ts';
 
 export const SITE = 'https://weekly.thingelstad.com';
 
@@ -63,16 +65,6 @@ export function shareLink(doc: IssueDoc, destination: ShareDestination): string 
 }
 
 /**
- * Every link to the issue in the text, made the share's own link: a drafted
- * candidate that wrote it bare, or with another ref, still carries the right
- * one, and once.
- */
-export function withShareLink(text: string, doc: IssueDoc, destination: ShareDestination): string {
-  const bare = issueUrl(doc).replace(/^https?:\/\//, '').replace(/\/$/, '').replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
-  return text.replace(new RegExp(`(?:https?://)?${bare}(?![\\w.-])/?(?:\\?[^\\s)#]*)?`, 'g'), shareLink(doc, destination));
-}
-
-/**
  * The `ref` on the issue link a share's text carries, whatever WT Builder
  * wrote then: the record of what went out, not today's rule.
  */
@@ -81,9 +73,76 @@ export function carriedRef(text: string, number: number): string | undefined {
   return m ? decodeURIComponent(m[1]!) : undefined;
 }
 
-/** A new share starts as its link alone: the words go above it. */
+/**
+ * A new share starts as a contents template, filled from the issue (Jamie,
+ * 2026-10-11): a list of what is in it, which is plainly neither Jamie
+ * writing nor a model pretending to be him. Nothing is generated; the share
+ * wand is gone (docs/decisions.md). He edits it, or adds a line of his own.
+ */
 export function startingText(doc: IssueDoc, destination: ShareDestination): string {
-  return shareLink(doc, destination);
+  return destination === 'linkedin' ? linkedinContents(doc) : blogContents(doc);
+}
+
+const site = (url: string) => {
+  try { return new URL(url).hostname.replace(/^www\./, ''); } catch { return ''; }
+};
+
+/** "a, b, and c" */
+function listed(parts: string[]): string {
+  if (parts.length < 3) return parts.join(' and ');
+  return `${parts.slice(0, -1).join(', ')}, and ${parts.at(-1)}`;
+}
+
+const counted = (n: number, one: string, many: string) => (n === 1 ? `1 ${one}` : `${n} ${many}`);
+
+/**
+ * LinkedIn: the issue's name, its Notable links as the pages title them with
+ * their sites, a line counting the rest, and the link. Plain text, since
+ * LinkedIn shows Markdown as typed. A pre-Builder record has no items (it is
+ * never parsed into them), so it is the name, the dek and the link.
+ */
+export function linkedinContents(doc: IssueDoc): string {
+  const n = doc.issue.number;
+  // A title that already names the issue ("Weekly Thing for May 13, 2017") is not said twice.
+  const title = doc.issue.title?.trim();
+  const head = `The Weekly Thing ${n}${title && !/weekly thing/i.test(title) ? `: ${title}` : ''}`;
+  const link = shareLink(doc, 'linkedin');
+  if (doc.issue.imported) return [head, doc.issue.dek?.trim(), link].filter(Boolean).join('\n\n');
+
+  const plan = planEdition(doc, 'website');
+  const of = (type: string) => plan.filter((p) => p.node.type === type).flatMap((p) => p.items);
+  const notable = of('notable').filter(({ item }) => item.type === 'pinboard_link' && item.title);
+  const lines = notable.map(({ item }) => {
+    const from = site(item.source_url ?? '');
+    return `- ${String(item.title).trim()}${from ? ` (${from})` : ''}`;
+  });
+
+  const briefly = of('briefly').length;
+  const journal = of('journal').length;
+  const audio = Number(lastSent(doc.sends?.podcast)?.audio?.audio_duration_seconds);
+  const rest = [
+    briefly ? counted(briefly, notable.length ? 'more link' : 'link', notable.length ? 'more links' : 'links') : '',
+    journal ? counted(journal, 'journal post', 'journal posts') : '',
+    of('photo').length ? 'a photo' : '',
+    audio > 0 ? `a ${Math.max(1, Math.round(audio / 60))}-minute audio edition` : '',
+  ].filter(Boolean);
+
+  const parts = [head];
+  if (lines.length) parts.push(`In this issue:\n${lines.join('\n')}`);
+  if (rest.length) parts.push(`${lines.length ? 'Plus' : 'In this issue:'} ${listed(rest)}.`);
+  parts.push(link);
+  return parts.join('\n\n');
+}
+
+/**
+ * The blog post: the issue's dek, Jamie's own words written for the issue,
+ * ending on a Markdown link to it. Titled with the subject already.
+ */
+export function blogContents(doc: IssueDoc): string {
+  const dek = doc.issue.dek?.trim() ?? '';
+  const end = `[Weekly Thing ${doc.issue.number}](${shareLink(doc, 'blog')})`;
+  if (!dek) return end;
+  return `${dek}${/[.!?…]$/.test(dek) ? '' : '.'} ${end}`;
 }
 
 /** Whether the text links the issue at all, with or without the ref. */

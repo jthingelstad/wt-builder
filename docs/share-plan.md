@@ -43,8 +43,7 @@ Fields:
   issue (Jamie, 2026-10-11; shares before WT354 carried `?ref=linkedin`). The
   site records `ref` for subscribe attribution, and Tinylytics lists each ref
   as its own row in Sources, so a share's visits read without asking LinkedIn.
-  It names a post, never a person. A drafted candidate's issue link is given
-  this ref whatever the model wrote.
+  It names a post, never a person.
 
 Actions: **Copy text**, **Open LinkedIn** (the feed), **Mark shared**, which
 asks for the post's URL and accepts none.
@@ -70,9 +69,33 @@ skips any post whose URL a blog share recorded (`sweepMicroblog` gets the set).
 Not by category: Jamie writes his own `Weekly Thing` posts, and those belong in
 Journal (WT352 carried one).
 
-## The wand
+## The starting text: a contents template (2026-10-11)
 
-One wand per destination, both from the first build. Like every wand, it
+The wand is gone (below). A share starts as a template filled from the issue
+(`startingText` in `src/shared/shares.ts`), and Jamie edits it or adds a line
+of his own. Jamie, after WT353: the wand's copy felt "either inauthentically
+pretending to be me but not, or too hype-y"; he is "most comfortable with
+simple templates that show the list of things in it because it is obviously
+not me writing the share, and also obviously not AI pretending to be me".
+Thingy writes in the newsletter under its own byline, but it does not post on
+Jamie's LinkedIn or his blog, so a byline is no answer there.
+
+- **LinkedIn.** `The Weekly Thing 353: Release Notes for Every Day`, then
+  `In this issue:` and each Notable link as the page titles it with its site
+  (`- On the Rumored M8 Ultra AI Servers (macsparky.com)`), then one line
+  counting the rest (`Plus 14 more links, 9 journal posts, a photo, and a
+  17-minute audio edition.`), then the link. Plain text. A title that already
+  names the issue is not repeated. A pre-Builder record has no items, so it
+  is the name, the dek and the link.
+- **Blog post.** The dek, Jamie's own words written for the issue, ending on
+  `[Weekly Thing 353](…?ref=blog-wt353)`; titled with the subject as before.
+
+The template is the same shape every week, so what Jamie checks is the
+titles, not whether a sentence sounds like him.
+
+## The wand (removed 2026-10-11)
+
+What follows is the wand as it was, kept for the reasoning. One wand per destination, both from the first build. Like every wand, it
 offers three candidates and never writes; Jamie picks one and edits it, and the
 words are his: no Thingy byline (`docs/decisions.md`; the byline boundary).
 

@@ -152,18 +152,18 @@ instead: no page to share yet. (`docs/share-plan.md` for the reasons.)
 The shares follow, newest first, one card each. The card head: a tile
 (`corner-up-right` for LinkedIn, `globe` for a blog post), the destination
 name, a `DRAFT` or `SHARED` pill, the started or shared time, `the post ↗`
-when a URL is known, and the wand's `Draft` button on a draft.
+when a URL is known. No wand: a share starts as a contents template
+(2026-10-11, `docs/share-plan.md`).
 
 A draft card is a task: a textarea (a title input above it for a blog post,
 filled with the email's subject to start),
-saved on blur, starting as the issue link alone so the words go above it.
+saved on blur, starting as the contents template (LinkedIn: the issue's name,
+`In this issue:` and its Notable links with their sites, a line counting the
+rest, the link; blog: the dek ending on the link).
 LinkedIn adds a mono count toward 3000 (terracotta over it) and, under it, the
 lines LinkedIn shows before `…see more`, with a left rule, or "The whole post
 shows". Amber lines say when the text no longer links the issue, and when a
-LinkedIn draft has Markdown in it. The wand's three candidates open in the
-draft picker's frame inside the card; a LinkedIn candidate says `Leads with
-<the Notable link>`; `Use this` puts it in the field (asking first if there
-are words to replace). The foot: LinkedIn has `Copy text`, `Open LinkedIn ↗`
+LinkedIn draft has Markdown in it. The foot: LinkedIn has `Copy text`, `Open LinkedIn ↗`
 and primary `Mark shared` (asks for the post's URL, optional); a blog post has
 primary `Post to the blog` (confirmed: it publishes now). `Delete` (ghost,
 confirmed) sits at the right. A shared card shows its words as they went, and

@@ -347,9 +347,15 @@ references, are flagged too. The result rides on the echo as
 `grounding: { flags: [] }` and the picker shows each flag in the warning
 colour. Nothing is dropped and nothing is stored: the pick stays Jamie's.
 
-### Share drafts (2026-10-06)
+### Share drafts (2026-10-06, removed 2026-10-11)
 
-`POST /api/issues/:id/shares/:sid/draft` drafts a share of a published issue
+**Removed 2026-10-11:** the route answers 404 and a share starts as a contents
+template instead (`startingText` in `src/shared/shares.ts`, `docs/share-plan.md`).
+The share links carry `?ref=linkedin-wt354` or `?ref=blog-wt354` (the
+destination alone before WT354), and `list_shares`' `ref` is read from the link
+the share carried. As it was:
+
+`POST /api/issues/:id/shares/:sid/draft` drafted a share of a published issue
 (`draftShare` in `src/server/editorial.ts`; `docs/share-plan.md`): three
 candidates, written nowhere, with no Thingy byline, since the post goes out
 as Jamie's. Since 2026-10-07 they describe the issue rather than speak as
@@ -361,8 +367,7 @@ names the lead (`lead`, `lead_title`), is made plain text, and gets the link
 appended if the model left it out. A pre-Builder record has no items, so the
 prompt reads its published text and leads with its strongest link. Blog: a
 short description, ending on a Markdown link to the issue (appended if
-missing); no title, since the share starts titled with the issue's subject. The link is `?ref=linkedin-wt354` or `?ref=blog-wt354` (the destination alone before WT354), and any issue link a candidate wrote is given it. `list_shares`' `ref` is read from the link the share carried. No
-candidate back is a failure the error bar says.
+missing); no title, since the share starts titled with the issue's subject. No candidate back was a failure the error bar said.
 
 ## Both
 

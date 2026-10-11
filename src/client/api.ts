@@ -150,13 +150,6 @@ function checkBuild(res: Response): void {
 }
 
 /** A refusal from the service: its message, its HTTP status, and the code it names, when it names one. */
-/** One wand candidate for a share (src/server/editorial.ts, draftShare). */
-export interface ShareOption {
-  lead?: string;
-  lead_title?: string;
-  text: string;
-}
-
 export class ApiError extends Error {
   constructor(message: string, public status: number, public code?: string) {
     super(message);
@@ -331,8 +324,6 @@ export const api = {
     call<{ share: Share; shares: Share[] }>(`/issues/${id}/shares/${sid}/shared`, { method: 'POST', body: JSON.stringify({ url }) }),
   postShare: (id: string, sid: number) =>
     call<{ share: Share; shares: Share[] }>(`/issues/${id}/shares/${sid}/post`, { method: 'POST', body: '{}' }),
-  draftShare: (id: string, sid: number) =>
-    call<{ candidates: ShareOption[] }>(`/issues/${id}/shares/${sid}/draft`, { method: 'POST', body: '{}' }),
 
   /** An editorial read. Advisory only — notes never gate publishing. */
   review: (id: string, only?: string) =>
