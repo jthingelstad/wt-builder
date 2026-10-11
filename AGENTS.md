@@ -129,6 +129,30 @@ first ride-along: `docs/mcp-ride-along-wt352.md`.
 > inside the app and it holds write credentials for Pinboard, Micro.blog,
 > Buttondown, GitHub, and S3.
 
+## How changes land
+
+Two ways, by size (Jamie, 2026-10-11).
+
+- **Small: straight to `main`.** A fix found while an issue is being built, a
+  copy change, a correction to one module, anything a live session needs now.
+  One commit per fix, `npm run deploy`, push. This is the default, and the
+  fastest path stays open for it.
+- **Bigger: a branch, a pull request, a Codex review.** A new surface, a
+  database migration, a send leg, a change to a contract, anything across
+  several modules. Work on a branch named for the change, in a worktree
+  (`git worktree add ../wt-builder-<branch> -b <branch>`), because the live
+  service runs from this checkout: switching it to a branch would put the
+  branch in front of Jamie at the next restart, and would take `main` away
+  from a live fix meanwhile. Push, and open a pull request whose body says
+  what changed, how it was tested, and what has never run for real. Ask for
+  a review with a comment reading `@codex review`. Read each finding against
+  the code: fix a real one in a commit on the branch, and answer every
+  comment with what happened to it, a wrong one included. Merge with a merge
+  commit once CI is green, then `npm run deploy` from `main` here.
+
+Commit messages are the same either way: a subject that says what is true
+now, and a body that says why, in prose.
+
 ## Things that will bite
 
 - **Micro.blog reads through Micropub `q=source`**, which returns the exact
