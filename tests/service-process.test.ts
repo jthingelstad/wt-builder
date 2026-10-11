@@ -27,7 +27,7 @@ describe('the running service logs a stray error and keeps running', () => {
       let armed = false;
       console.log = (...args) => {
         log(...args);
-        if (armed || !String(args[0]).startsWith('WT Builder on')) return;
+        if (armed || !String(args[0]).includes('[boot] WT Builder on')) return;
         armed = true;
         setTimeout(() => { throw new Error('stray-probe-exception'); }, 0);
         setTimeout(() => { Promise.reject(new Error('stray-probe-rejection')); }, 50);
@@ -75,7 +75,7 @@ describe('the service fails a stranded send before it serves', () => {
       const log = console.log;
       console.log = (...args) => {
         log(...args);
-        if (String(args[0]).startsWith('WT Builder on')) process.exit(0);
+        if (String(args[0]).includes('[boot] WT Builder on')) process.exit(0);
       };
     `);
     try {

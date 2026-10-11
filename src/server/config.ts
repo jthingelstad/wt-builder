@@ -9,6 +9,7 @@
 import { existsSync } from 'node:fs';
 import { resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { log } from './log.ts';
 
 const ENV_PATH = fileURLToPath(new URL('../../.env', import.meta.url));
 
@@ -37,7 +38,7 @@ if (OFFLINE) {
   try {
     process.loadEnvFile(ENV_PATH);
   } catch (err) {
-    console.warn(`[config] could not load .env: ${(err as Error).message}`);
+    log.warn(`[config] could not load .env: ${(err as Error).message}`);
   }
 }
 
@@ -65,7 +66,7 @@ function list(name: string): string[] {
  */
 export function parseAllowedOrigins(
   value: string | undefined,
-  warn: (message: string) => void = console.warn,
+  warn: (message: string) => void = log.warn,
 ): string[] {
   const all = (value ?? '').split(',').map((v) => v.trim()).filter(Boolean);
   const kept = all.filter((o) => o.toLowerCase() !== 'null');

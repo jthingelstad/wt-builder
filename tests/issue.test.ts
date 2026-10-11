@@ -639,7 +639,7 @@ describe('window-derived inclusion', () => {
     expect(Object.keys(doc.items)).toContain('i-0');
     expect(Object.keys(doc.items)).not.toContain('i-1');
     expect(doc.nodes.find((n) => n.id === 'n-notable')!.items).toEqual(['i-0']);
-    expect(log).toEqual([{ kind: 'dropped', summary: 'A link — outside the window' }]);
+    expect(log).toEqual([{ kind: 'dropped', anchor: 'i-1', summary: 'A link — outside the window', data: { why: 'window' } }]);
   });
 
   it('keeps a fallen-out item whose edit has not reached the source, and says so', () => {
@@ -673,7 +673,7 @@ describe('window-derived inclusion', () => {
     const log = pruneGone(doc);
     expect(Object.keys(doc.items)).toEqual(expect.not.arrayContaining(['i-1']));
     expect(doc.nodes.find((n) => n.id === 'n-notable')!.items).toEqual(['i-0']);
-    expect(log).toEqual([{ kind: 'dropped', summary: 'A link — deleted at Pinboard' }]);
+    expect(log).toEqual([{ kind: 'dropped', actor: 'source', anchor: 'i-1', summary: 'A link — deleted at Pinboard', data: { why: 'deleted', source: 'Pinboard' } }]);
   });
 
   it("never drops Jamie's own writing or an unjudgeable item", () => {

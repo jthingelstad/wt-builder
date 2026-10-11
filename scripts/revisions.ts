@@ -46,7 +46,7 @@ if (restore) {
     process.exit(1);
   }
   store.saveIssue(newest.doc);
-  store.logEvent(issueId, 'issue', `Restored from revisions — WT${newest.doc.issue.number}, as it stood ${newest.saved_at}`);
+  store.record(issueId, { kind: 'issue', actor: 'jamie', summary: `Restored from revisions — WT${newest.doc.issue.number}, as it stood ${newest.saved_at}`, data: { saved_at: newest.saved_at } });
   console.log(`restored ${issueId} (WT${newest.doc.issue.number}) as it stood ${newest.saved_at}`);
   process.exit(0);
 }

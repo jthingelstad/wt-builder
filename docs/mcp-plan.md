@@ -232,7 +232,10 @@ or two, and build only the writes that use asked for.
   reload and a stale drag cannot put an old order back.
 - **Attribution**: an `actor` column on events, set through an
   `AsyncLocalStorage` scope; agent work shown as its own line beside "Made
-  in", never counted in it; the watcher shows the actor.
+  in", never counted in it; the watcher shows the actor. *2026-10-11:* the
+  column exists (migration v6, `docs/event-log.md`) with `jamie`,
+  `wt-builder` and `source`; writes add an agent actor, and the timing
+  already counts only `jamie`.
 - Deferred decisions: proposals only or some direct text edits; whether
   published issues can take proposals for a re-send.
 

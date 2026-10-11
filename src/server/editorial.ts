@@ -15,6 +15,7 @@ import Anthropic from '@anthropic-ai/sdk';
 import type { ArchiveReference, EchoGrounding, EchoOption, IssueDoc, Item, ItemType, ShareDestination } from '../shared/types.ts';
 import { linksIssue, plainText, shareLink } from '../shared/shares.ts';
 import { renderAnnotated } from '../shared/render/annotate.ts';
+import { log } from './log.ts';
 import { bodyLines, isIncluded, outOfWindow, windowOf } from '../shared/render/plan.ts';
 import { imageTags, splitBody } from '../shared/body.ts';
 import { anchorText } from '../shared/anchor.ts';
@@ -139,7 +140,7 @@ export function modelFailure(err: unknown, what: string): unknown {
   const kind = err.constructor?.name ?? '';
   const status = typeof e.status === 'number' ? e.status : undefined;
   const plain = (why: string, again: string) => {
-    console.error(`[model] ${what}: ${err.message.slice(0, 300)}`);
+    log.error(`[model] ${what}: ${err.message.slice(0, 300)}`);
     return new Error(`${what.charAt(0).toUpperCase()}${what.slice(1)} didn't come back: ${why}.${again ? ` ${again}` : ''}`);
   };
   if (/Timeout/.test(kind)) return plain('the model took too long to answer', 'Try again.');
@@ -359,7 +360,7 @@ export async function review(req: ReviewRequest): Promise<Review> {
     try {
       proof = await callReviewer(PROOF_PROMPT, `${issueLine}\n\n${rendered}`, PROOF_EFFORT);
     } catch (err) {
-      console.warn(`[review] proof pass failed: ${(err as Error).message}`);
+      log.warn(`[review] proof pass failed: ${(err as Error).message}`);
     }
   }
 
@@ -383,7 +384,7 @@ export async function review(req: ReviewRequest): Promise<Review> {
         JUDGEMENT_EFFORT,
       );
     } catch (err) {
-      console.warn(`[review] judgement pass failed: ${(err as Error).message}`);
+      log.warn(`[review] judgement pass failed: ${(err as Error).message}`);
     }
   }
 
@@ -1895,7 +1896,7 @@ async function pageText(url: string): Promise<string> {
       .trim();
     return text.slice(0, PAGE_CHARS);
   } catch (err) {
-    console.warn(`[draft] the link's page was not read: ${(err as Error).message}`);
+    log.warn(`[draft] the link's page was not read: ${(err as Error).message}`);
     return '';
   }
 }

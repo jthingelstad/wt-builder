@@ -13,6 +13,7 @@ import { basename, dirname, join, resolve } from 'node:path';
 
 import type { Destination, IssueDoc, SendState, Share, ShareDestination, Verification } from '../shared/types.ts';
 import { SCHEMA_VERSION } from '../shared/types.ts';
+import { actorOf, type EventInput, type IssueEvent } from '../shared/events.ts';
 import { lastSent } from '../shared/sends.ts';
 import { config, LIVE_DB_PATH, OFFLINE } from './config.ts';
 
@@ -114,7 +115,59 @@ const MIGRATIONS: ((d: Database.Database) => void)[] = [
       CREATE INDEX shares_issue ON shares(issue_id, id DESC);
     `);
   },
+  // v6 — the event log becomes the record (docs/event-log.md, 2026-10-11).
+  // Every event says who made it happen (`actor`) and carries its facts as
+  // JSON (`data`), so the timing, an item's history and the MCP read those
+  // instead of parsing sentences. The kinds that held two things are split:
+  // `sync` was both a write-back's outcome (now `write`, the service's) and
+  // Jamie's decisions about a source (now `source`); `draft` was a wand that
+  // failed (now `wand`, which logs the ones that come back too); a draft
+  // share was logged as a `send`. Old events get the actor today's rules
+  // give them; nothing else about them changes.
+  (d) => {
+    d.exec(`
+      ALTER TABLE events ADD COLUMN actor TEXT;
+      ALTER TABLE events ADD COLUMN data TEXT;
+      CREATE INDEX events_anchor ON events(issue_id, anchor, id DESC);
+
+      UPDATE events SET kind = 'write'
+        WHERE kind = 'sync' AND (summary LIKE 'Write to %' OR summary LIKE 'Finished after restart%');
+      UPDATE events SET kind = 'gone' WHERE kind = 'sync' AND summary LIKE 'Deleted at %';
+      UPDATE events SET kind = 'source' WHERE kind = 'sync';
+      UPDATE events SET kind = 'wand', data = '{"outcome":"failed"}' WHERE kind = 'draft';
+      UPDATE events SET kind = 'share' WHERE kind = 'send' AND summary LIKE 'Draft share%';
+
+      UPDATE events SET actor = CASE
+        WHEN kind IN ('edit', 'structure', 'channels', 'settings', 'source', 'review', 'wand', 'share') THEN 'jamie'
+        WHEN kind IN ('swept-in', 'refreshed', 'conflict', 'gone', 'held-out', 'put-back', 'moved') THEN 'source'
+        WHEN kind = 'dropped' AND summary LIKE '%— deleted at %' THEN 'source'
+        WHEN kind = 'issue' AND summary LIKE 'Published%' THEN 'wt-builder'
+        WHEN kind = 'issue' THEN 'jamie'
+        WHEN kind = 'send' AND (summary LIKE 'Send finished%' OR summary LIKE 'Send failed%') THEN 'wt-builder'
+        WHEN kind = 'send' THEN 'jamie'
+        WHEN kind = 'links' AND (summary LIKE 'Kept as it is%' OR summary LIKE 'Asking again%'
+          OR summary LIKE 'Using %' OR summary LIKE 'Back to the bookmark%') THEN 'jamie'
+        ELSE 'wt-builder'
+      END;
+    `);
+  },
 ];
+
+/**
+ * Bring a database up to `to` (every migration, by default), one transaction
+ * per version. Exported so a test can stop at an old version, write rows the
+ * way that version did, and watch the next migration carry them.
+ */
+export function migrate(d: Database.Database, to = MIGRATIONS.length): void {
+  const current = d.pragma('user_version', { simple: true }) as number;
+  for (let v = current; v < to; v++) {
+    const step = MIGRATIONS[v]!;
+    d.transaction(() => {
+      step(d);
+      d.pragma(`user_version = ${v + 1}`);
+    })();
+  }
+}
 
 export const REVISIONS_KEPT = 300;
 
@@ -154,14 +207,7 @@ export function openDb(path = config.dbPath): Database.Database {
   d.pragma('journal_mode = WAL');
   d.pragma('foreign_keys = ON');
 
-  const current = d.pragma('user_version', { simple: true }) as number;
-  for (let v = current; v < MIGRATIONS.length; v++) {
-    const migrate = MIGRATIONS[v]!;
-    d.transaction(() => {
-        migrate(d);
-        d.pragma(`user_version = ${v + 1}`);
-      })();
-    }
+  migrate(d);
 
     makeDatabaseFilesPrivate(path);
     db = d;
@@ -246,18 +292,21 @@ export class IssueExists extends Error {}
  * record and all, with a blank draft (review 2026-09-27, §1.1). Here an id
  * or number already taken throws IssueExists and nothing is written.
  */
-export function createIssueRow(doc: IssueDoc): IssueRow {
+export function createIssueRow(doc: IssueDoc, events: EventInput[] = []): IssueRow {
   const now = new Date().toISOString();
   try {
-    openDb()
-      .prepare(
-        `INSERT INTO issues (id, number, publication_date, status, schema_version, doc, created_at, updated_at)
-         VALUES (?, ?, ?, ?, ?, ?, ?, ?)`,
-      )
-      .run(
-        doc.issue.id, doc.issue.number, doc.issue.publication_date, doc.issue.status,
-        doc.schema_version ?? SCHEMA_VERSION, JSON.stringify(doc), now, now,
-      );
+    openDb().transaction(() => {
+      openDb()
+        .prepare(
+          `INSERT INTO issues (id, number, publication_date, status, schema_version, doc, created_at, updated_at)
+           VALUES (?, ?, ?, ?, ?, ?, ?, ?)`,
+        )
+        .run(
+          doc.issue.id, doc.issue.number, doc.issue.publication_date, doc.issue.status,
+          doc.schema_version ?? SCHEMA_VERSION, JSON.stringify(doc), now, now,
+        );
+      for (const e of events) insertEvent(doc.issue.id, now, e);
+    })();
   } catch (err) {
     // Only a taken id (the primary key) or number (its unique index) is
     // "already exists"; a NOT NULL or CHECK failure is a fault, not a clash.
@@ -273,7 +322,7 @@ export function createIssueRow(doc: IssueDoc): IssueRow {
   return getIssue(doc.issue.id)!;
 }
 
-export function saveIssue(doc: IssueDoc): IssueRow {
+export function saveIssue(doc: IssueDoc, events: EventInput[] = []): IssueRow {
   const now = new Date().toISOString();
   const sends = doc.sends ?? {};
   const serialize = (d: Destination) =>
@@ -327,6 +376,10 @@ export function saveIssue(doc: IssueDoc): IssueRow {
         send_archive: serialize('archive'),
         now,
       });
+    // The events this save narrates, in its transaction and at its instant:
+    // an event is never logged for a save that did not happen, and
+    // versionBefore(event.at) is the issue just before the save it narrates.
+    for (const e of events) insertEvent(doc.issue.id, now, e);
   })();
 
   return getIssue(doc.issue.id)!;
@@ -372,26 +425,25 @@ export function recordSend(id: string, destination: Destination, state: SendStat
   // sent (`lastSent`): a failed re-send of the Buttondown draft still leaves
   // the draft, and reading `status` kept such an issue a draft for good.
   const sends = row.doc.sends;
+  let published = false;
   if (
     row.doc.issue.status === 'draft' &&
     lastSent(sends.website) &&
     lastSent(sends.buttondown)
   ) {
     row.doc.issue.status = 'published';
-    logEvent(id, 'issue', `Published — WT${row.doc.issue.number}`);
+    published = true;
   }
 
-  openDb()
-    .prepare(
-      `UPDATE issues SET doc = ?, status = ?, ${SEND_COLUMN[destination]} = ?, updated_at = ? WHERE id = ?`,
-    )
-    .run(
-      JSON.stringify(row.doc),
-      row.doc.issue.status,
-      JSON.stringify(state),
-      new Date().toISOString(),
-      id,
-    );
+  const now = new Date().toISOString();
+  openDb().transaction(() => {
+    openDb()
+      .prepare(
+        `UPDATE issues SET doc = ?, status = ?, ${SEND_COLUMN[destination]} = ?, updated_at = ? WHERE id = ?`,
+      )
+      .run(JSON.stringify(row.doc), row.doc.issue.status, JSON.stringify(state), now, id);
+    if (published) insertEvent(id, now, { kind: 'issue', actor: 'wt-builder', summary: `Published — WT${row.doc.issue.number}`, data: { action: 'published' } });
+  })();
   return getIssue(id);
 }
 
@@ -399,13 +451,16 @@ export function recordSend(id: string, destination: Destination, state: SendStat
  * Record one leg's verification. Like recordSend, a targeted write that makes
  * no revision: verification describes the destination, not the issue's words.
  */
-export function recordVerify(id: string, destination: Destination, v: Verification): IssueRow | null {
+export function recordVerify(id: string, destination: Destination, v: Verification, events: EventInput[] = []): IssueRow | null {
   const row = getIssue(id);
   if (!row) return null;
   row.doc.verify = { ...(row.doc.verify ?? {}), [destination]: v };
-  openDb()
-    .prepare('UPDATE issues SET doc = ? WHERE id = ?')
-    .run(JSON.stringify(row.doc), id);
+  openDb().transaction(() => {
+    openDb()
+      .prepare('UPDATE issues SET doc = ? WHERE id = ?')
+      .run(JSON.stringify(row.doc), id);
+    for (const e of events) insertEvent(id, v.at, e);
+  })();
   return getIssue(id);
 }
 
@@ -435,34 +490,58 @@ export function deleteIssue(id: string): void {
 
 // ── the event log ─────────────────────────────────────────────────────────
 
-export interface IssueEvent {
-  id: number;
-  at: string;
-  kind: string;
-  summary: string;
-  /** The item the event touched, when it touched one (since v4). */
-  anchor?: string | null;
+export type { IssueEvent } from '../shared/events.ts';
+
+const EVENT_COLUMNS = 'id, at, kind, actor, summary, anchor, data';
+
+function rowToEvent(row: Record<string, unknown>): IssueEvent {
+  return {
+    id: row.id as number,
+    at: row.at as string,
+    kind: row.kind as IssueEvent['kind'],
+    actor: (row.actor ?? 'wt-builder') as IssueEvent['actor'],
+    summary: row.summary as string,
+    anchor: (row.anchor as string | null) ?? null,
+    data: row.data ? JSON.parse(row.data as string) as Record<string, unknown> : null,
+  };
 }
 
-/** Append one event. The log narrates; it never decides anything. */
-export function logEvent(issueId: string, kind: string, summary: string, anchor?: string): void {
-  openDb()
-    .prepare('INSERT INTO events (issue_id, at, kind, summary, anchor) VALUES (?, ?, ?, ?, ?)')
-    .run(issueId, new Date().toISOString(), kind, summary, anchor ?? null);
+function insertEvent(issueId: string, at: string, e: EventInput): number {
+  const info = openDb()
+    .prepare('INSERT INTO events (issue_id, at, kind, actor, summary, anchor, data) VALUES (?, ?, ?, ?, ?, ?, ?)')
+    .run(issueId, at, e.kind, actorOf(e), e.summary, e.anchor ?? null, e.data ? JSON.stringify(e.data) : null);
+  return Number(info.lastInsertRowid);
+}
+
+/**
+ * Append one event that narrates no save of the issue: a send starting, a
+ * wand's draft, a verification. One that narrates a save goes to saveIssue
+ * with it. The log narrates; it never decides anything. Returns its id, for
+ * the service log line that carries the detail.
+ */
+export function record(issueId: string, e: EventInput): number {
+  return insertEvent(issueId, new Date().toISOString(), e);
 }
 
 /** Oldest first, every event — what the timing reads. */
 export function allEvents(issueId: string): IssueEvent[] {
-  return openDb()
-    .prepare('SELECT id, at, kind, summary, anchor FROM events WHERE issue_id = ? ORDER BY id')
-    .all(issueId) as IssueEvent[];
+  return (openDb()
+    .prepare(`SELECT ${EVENT_COLUMNS} FROM events WHERE issue_id = ? ORDER BY id`)
+    .all(issueId) as Record<string, unknown>[]).map(rowToEvent);
 }
 
 /** Newest first. */
 export function listEvents(issueId: string, limit = 500): IssueEvent[] {
-  return openDb()
-    .prepare('SELECT id, at, kind, summary, anchor FROM events WHERE issue_id = ? ORDER BY id DESC LIMIT ?')
-    .all(issueId, limit) as IssueEvent[];
+  return (openDb()
+    .prepare(`SELECT ${EVENT_COLUMNS} FROM events WHERE issue_id = ? ORDER BY id DESC LIMIT ?`)
+    .all(issueId, limit) as Record<string, unknown>[]).map(rowToEvent);
+}
+
+/** One item's (or section's) history, newest first. */
+export function itemEvents(issueId: string, anchor: string, limit = 100): IssueEvent[] {
+  return (openDb()
+    .prepare(`SELECT ${EVENT_COLUMNS} FROM events WHERE issue_id = ? AND anchor = ? ORDER BY id DESC LIMIT ?`)
+    .all(issueId, anchor, limit) as Record<string, unknown>[]).map(rowToEvent);
 }
 
 /** When the first event after `id` happened, or null when none has yet. */

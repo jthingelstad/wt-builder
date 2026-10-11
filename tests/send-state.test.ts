@@ -492,7 +492,7 @@ describe('Buttondown is asked what the email is before it is changed', () => {
       expect(legOf(id, 'buttondown')).toMatchObject({ status: 'sent' });
       const logged = store.listEvents(id).slice(0, store.listEvents(id).length - events).map((e) => e.summary);
       expect(logged).toContain(`Override — buttondown: the email is "${status}", not a draft; updating it anyway`);
-      expect(logged).toContain(`Send finished — buttondown (updated while "${status}", by override; status unchanged)`);
+      expect(logged).toContainEqual(expect.stringMatching(new RegExp(`^Send finished in .+ — buttondown \\(updated while "${status}", by override; status unchanged\\)$`)));
       store.deleteIssue(id);
     });
   });
@@ -786,6 +786,47 @@ describe('checking again keeps what Buttondown last said', () => {
     await realFetch(`${base}/api/issues/${id}/verify/buttondown`, { method: 'POST', body: '{}' });
     await until(() => store.getIssue(id)!.doc.verify!.buttondown!.status !== 'running');
     expect(store.getIssue(id)!.doc.verify!.buttondown).toMatchObject({ status: 'error', remote_status: 'sent' });
+    store.deleteIssue(id);
+  });
+});
+
+describe('the log hears about a leg in facts, and about a check only when it says something new', () => {
+  // WT352's log was 124 rechecks of 420 events, each one "still waiting"
+  // (docs/event-log.md). A check is news when its status moves, when it
+  // errs, or when Jamie asked for it.
+  const verifies = (id: string) => store.listEvents(id).filter((e) => e.kind === 'verify');
+
+  it('a send logs its start and finish as data; a recheck that agrees is not logged; one Jamie asks for is', async () => {
+    const id = issue(990497);
+    h.verifier = async () => ({ checks: [{ label: 'Status', ok: true, detail: 'Draft' }], remote_status: 'draft' });
+    expect((await send(id, 'buttondown')).status).toBe(200);
+    await until(() => store.getIssue(id)!.doc.verify?.buttondown?.status === 'passed');
+
+    const sends = store.listEvents(id).filter((e) => e.kind === 'send');
+    expect(sends.find((e) => e.data?.action === 'start')).toMatchObject({ actor: 'jamie', data: { dest: 'buttondown', action: 'start' } });
+    expect(sends.find((e) => e.data?.outcome === 'finished')).toMatchObject({
+      actor: 'wt-builder', data: { dest: 'buttondown', outcome: 'finished', ms: expect.any(Number) },
+    });
+    expect(verifies(id)).toEqual([expect.objectContaining({
+      actor: 'wt-builder', summary: 'Verified — buttondown: passed', data: { dest: 'buttondown', from: null, to: 'passed' },
+    })]);
+
+    // The same answer again, after a second send: nothing new to say.
+    const calls = h.verifyCalls;
+    expect((await send(id, 'buttondown')).status).toBe(200);
+    await until(() => h.verifyCalls > calls && store.getIssue(id)!.doc.verify!.buttondown!.status === 'passed');
+    expect(verifies(id)).toHaveLength(1);
+
+    // Jamie pressing Check again is his act, logged even when it agrees.
+    await realFetch(`${base}/api/issues/${id}/verify/buttondown`, { method: 'POST', body: '{}' });
+    await until(() => verifies(id).length === 2);
+    expect(verifies(id)[0]).toMatchObject({ actor: 'jamie', data: { dest: 'buttondown', from: 'passed', to: 'passed' } });
+
+    // And a check that cannot reach Buttondown is always news.
+    h.verifier = async () => { throw new Error('Buttondown /emails failed: 503'); };
+    await realFetch(`${base}/api/issues/${id}/verify/buttondown`, { method: 'POST', body: '{}' });
+    await until(() => verifies(id).length === 3);
+    expect(verifies(id)[0]).toMatchObject({ data: { from: 'passed', to: 'error' } });
     store.deleteIssue(id);
   });
 });

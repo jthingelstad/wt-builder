@@ -53,6 +53,8 @@ import * as draftShare from './share.ts';
 import { type EarlierDelivery, verifierFor } from './verify.ts';
 import { issueTiming, type IssueTiming } from '../shared/timing.ts';
 import { handleMcp, type McpDeps } from './mcp.ts';
+import { log } from './log.ts';
+import { took, type EventActor, type EventInput } from '../shared/events.ts';
 import { execFile } from 'node:child_process';
 import { promisify } from 'node:util';
 
@@ -168,8 +170,8 @@ function requireIssue(id: string): IssueDoc {
  * commentary. They run in the background; `checking` tells the client to
  * look again shortly for what they found.
  */
-function saved(doc: IssueDoc) {
-  const row = store.saveIssue(doc);
+function saved(doc: IssueDoc, events: EventInput[] = []) {
+  const row = store.saveIssue(doc, events);
   noteArrival(row.doc);
   return { issue: row.doc, readiness: issues.readiness(row.doc), checking: checking(row.doc.issue.id) };
 }
@@ -184,9 +186,14 @@ function saved(doc: IssueDoc) {
  * that to two Currently lines (2026-09-20). Node runs this function without
  * yielding, so nothing can land between the read and the save.
  */
-function savedFresh(id: string, change: (doc: IssueDoc) => IssueDoc | void) {
+function savedFresh(
+  id: string,
+  change: (doc: IssueDoc) => IssueDoc | void,
+  events: EventInput[] | ((doc: IssueDoc) => EventInput[]) = [],
+) {
   const fresh = requireIssue(id);
-  return saved(change(fresh) ?? fresh);
+  const next = change(fresh) ?? fresh;
+  return saved(next, typeof events === 'function' ? events(next) : events);
 }
 
 // The checks on arrival read and save through the store, synchronously:
@@ -199,7 +206,7 @@ arrivalDeps({
     if (!fresh || fresh.issue.put_to_bed_at) return undefined;
     return store.saveIssue(change(fresh)).doc;
   },
-  log: (id, text) => store.logEvent(id, 'links', text),
+  log: (id, text, data) => store.record(id, { kind: 'links', actor: 'wt-builder', summary: text, data }),
 });
 
 /**
@@ -274,7 +281,7 @@ export function failInterruptedSends(): void {
         error: 'interrupted by a restart',
         ...(state.external_id ? { external_id: state.external_id } : {}),
       });
-      store.logEvent(row.id, 'send', `Send failed — ${dest}: interrupted by a restart`);
+      store.record(row.id, { kind: 'send', actor: 'wt-builder', summary: `Send failed — ${dest}: interrupted by a restart`, data: { dest, outcome: 'interrupted' } });
     }
   }
 }
@@ -289,9 +296,11 @@ async function writeItemToSource(
   id: string,
   doc: IssueDoc,
   itemId: string,
-): Promise<{ patch: Partial<Item>; result: { sync_state: Item['sync_state']; error?: string } }> {
+  actor: EventActor = 'wt-builder',
+): Promise<{ patch: Partial<Item>; result: { sync_state: Item['sync_state']; error?: string }; event: EventInput }> {
   const item = doc.items[itemId];
   if (!item) throw new HttpError(404, `no item ${itemId}`);
+  const started = Date.now();
 
   // Writing back a `gone` item would recreate the record its owner deleted
   // at the source. Deleting was an act there; restoring must be one too.
@@ -307,8 +316,11 @@ async function writeItemToSource(
           ? await pinboard.writeBack(item)
           : { sync_state: 'local' as const, error: `${item.source} has no write-back` };
 
-  store.logEvent(id, 'sync',
-    `Write to ${item.source} — ${result.sync_state}${result.error ? `: ${result.error}` : ''} — ${issues.itemName(item)}`, itemId);
+  const event: EventInput = {
+    kind: 'write', actor, anchor: itemId,
+    summary: `Write to ${item.source} — ${result.sync_state}${result.error ? `: ${result.error}` : ''} — ${issues.itemName(item)}`,
+    data: { source: item.source, from: item.sync_state ?? null, to: result.sync_state, ms: Date.now() - started },
+  };
   // A successful write moves the merge base: the snapshot now records what
   // was written, so the next scan's reconcile starts from this write rather
   // than re-adopting it as a source-side change.
@@ -324,7 +336,7 @@ async function writeItemToSource(
   const patch: Partial<Item> = { sync_state: result.sync_state, sync_error: result.error, ...snapshot };
   const flags = (result as { flags?: Record<string, string> }).flags;
   if (flags) patch.source_flags = flags;
-  return { patch, result };
+  return { patch, result, event };
 }
 
 /**
@@ -343,12 +355,12 @@ type WriteOutcome = { response: ReturnType<typeof saved>; result: { sync_state: 
  * any write to the same item already queued. Each write reads the item when
  * its turn comes, so it carries the newest words, not the ones its edit saw.
  */
-function writeBack(id: string, itemId: string): Promise<WriteOutcome> {
+function writeBack(id: string, itemId: string, why: WriteWhy = {}): Promise<WriteOutcome> {
   const key = `${id}\n${itemId}`;
   const queue = writeQueues.get(key) ?? { tail: Promise.resolve(), waiting: 0 };
   writeQueues.set(key, queue);
   queue.waiting++;
-  const run = queue.tail.catch(() => {}).then(() => writeLatest(id, itemId, queue));
+  const run = queue.tail.catch(() => {}).then(() => writeLatest(id, itemId, queue, why));
   queue.tail = run.catch(() => {}).finally(() => {
     queue.waiting--;
     if (!queue.waiting && writeQueues.get(key) === queue) writeQueues.delete(key);
@@ -356,7 +368,14 @@ function writeBack(id: string, itemId: string): Promise<WriteOutcome> {
   return run;
 }
 
-async function writeLatest(id: string, itemId: string, queue: { waiting: number }): Promise<WriteOutcome> {
+/**
+ * Why a write ran, for its `write` event: Jamie's Retry is his act (`actor:
+ * 'jamie'`); a write that follows an edit, or a restart, is the service's —
+ * the edit that implied it is already logged as his.
+ */
+type WriteWhy = { actor?: EventActor; after_restart?: boolean };
+
+async function writeLatest(id: string, itemId: string, queue: { waiting: number }, why: WriteWhy): Promise<WriteOutcome> {
   for (let attempt = 1; ; attempt++) {
     // A write whose turn comes after the issue was put to bed writes
     // nothing: the issue is frozen, as the door would have answered. What
@@ -376,7 +395,11 @@ async function writeLatest(id: string, itemId: string, queue: { waiting: number 
       throw new HttpError(423, `WT${doc.issue.number} was put to bed before the write's turn came — `
         + `what the item says is saved here and not written to ${source}; once the issue is woken, ${wayOn}`);
     }
-    const { patch, result } = await writeItemToSource(id, doc, itemId);
+    const { patch, result, event } = await writeItemToSource(id, doc, itemId, why.actor);
+    if (why.after_restart) {
+      event.summary = `${event.summary} (after a restart)`;
+      event.data = { ...event.data, after_restart: true };
+    }
     let again = false;
     const response = savedFresh(id, (d) => {
       // Put to bed while the source was written: the write reached it, so
@@ -408,7 +431,7 @@ async function writeLatest(id: string, itemId: string, queue: { waiting: number 
       next.items[itemId]!.sync_state = 'failed';
       next.items[itemId]!.sync_error = 'it kept changing while it was written — your edit is kept; Retry';
       return next;
-    });
+    }, [event]);
     if (again) continue;
     // Answer with the state that was saved, not the source's raw reply: a
     // write that landed stale is `syncing` or `failed` on the item, and a
@@ -440,15 +463,21 @@ async function readSource(item: Item): Promise<import('./reconcile.ts').RemoteFi
   }
 }
 
-/** Bracket a send leg with log entries; the leg's own behavior is untouched. */
+/**
+ * Bracket a send leg with log entries; the leg's own behavior is untouched.
+ * Starting is Jamie's act; how it ended is the service's, with how long it took.
+ */
 async function loggedSend(id: string, dest: string, run: () => Promise<unknown>): Promise<unknown> {
-  store.logEvent(id, 'send', `Send started — ${dest}`);
+  store.record(id, { kind: 'send', summary: `Send started — ${dest}`, data: { dest, action: 'start' } });
+  const started = Date.now();
   try {
     const out = await run();
-    store.logEvent(id, 'send', `Send finished — ${dest}`);
+    const ms = Date.now() - started;
+    store.record(id, { kind: 'send', actor: 'wt-builder', summary: `Send finished in ${took(ms)} — ${dest}`, data: { dest, outcome: 'finished', ms } });
     return out;
   } catch (err) {
-    store.logEvent(id, 'send', `Send failed — ${dest}: ${(err as Error).message}`);
+    const ms = Date.now() - started;
+    store.record(id, { kind: 'send', actor: 'wt-builder', summary: `Send failed — ${dest}: ${(err as Error).message}`, data: { dest, outcome: 'failed', ms } });
     throw err;
   }
 }
@@ -520,7 +549,7 @@ const VERIFY_STALE_MS = 25 * 60_000;
  * website's page appears only once the site has deployed — so the Send view
  * shows `running` and picks the result up when it lands.
  */
-async function runVerify(id: string, dest: Destination, wait = false, resumed = false): Promise<void> {
+async function runVerify(id: string, dest: Destination, wait = false, resumed = false, asked = false): Promise<void> {
   const verify = verifierFor(dest, earlierDelivery);
   const doc = store.getIssue(id)?.doc;
   if (!verify || !doc) return;
@@ -555,8 +584,16 @@ async function runVerify(id: string, dest: Destination, wait = false, resumed = 
       ...(current?.remote_status ? { remote_status: current.remote_status } : {}),
     };
   }
-  store.recordVerify(id, dest, result);
-  store.logEvent(id, 'verify', `Verified — ${dest}: ${result.status}${result.error ? ` (${result.error.slice(0, 120)})` : ''}`);
+  // Logged when the status moves, when it errs, and when Jamie asked: a
+  // recheck that finds the archive still waiting is not news, and those were
+  // 124 of WT352's 420 events.
+  const was = current?.status === 'running' ? undefined : current?.status;
+  const news = asked || result.status !== was || result.status === 'error';
+  store.recordVerify(id, dest, result, news ? [{
+    kind: 'verify', actor: asked ? 'jamie' : 'wt-builder',
+    summary: `Verified — ${dest}: ${result.status}${result.error ? ` (${result.error.slice(0, 120)})` : ''}`,
+    data: { dest, from: was ?? null, to: result.status, ...(result.recheck_at ? { recheck_at: result.recheck_at } : {}) },
+  }] : []);
 }
 
 /**
@@ -616,22 +653,44 @@ function verifyAfterSend(id: string, dest: Destination): void {
  */
 const draftSays = new Map<string, { anchor: string; says: string }>();
 
+/** How many drafts a wand offered: its candidates, echoes, pairs and alts. */
+function offered(r: Partial<editorial.DraftResult>): number {
+  return (r.candidates?.length ?? 0) + (r.echoes?.length ?? 0) + (r.membership?.length ?? 0)
+    + (r.photo?.length ?? 0) + (r.alts?.length ?? 0);
+}
+
 /**
- * Runs one wand's draft. A failure keeps its plain sentence for the error
- * bar (WT352: a Librarian 429 reached Jamie as raw JSON), puts the raw answer
- * in the service log, and is logged as a `draft` event on the item or
- * section, so the log and the MCP's `changes` show a draft that did not come.
+ * Runs one wand's draft and logs it either way, as a `wand` event on the
+ * item or section with which wand, how long it took and what came of it:
+ * `offered` with how many, or `failed` with what Jamie was told. A pick
+ * from it is logged by the save it makes, as an edit `via: 'wand'`. A
+ * failure keeps its plain sentence for the error bar (WT352: a Librarian
+ * 429 reached Jamie as raw JSON) and puts the raw answer in the service
+ * log, naming the event.
  */
-async function drafting<T>(
-  id: string, anchor: string, name: string, run: (onBusy: (says: string) => void) => Promise<T>,
+async function drafting<T extends object>(
+  id: string, anchor: string, name: string, wand: string,
+  run: (onBusy: (says: string) => void) => Promise<T>,
 ): Promise<T> {
+  const started = Date.now();
   try {
-    return await run((says) => draftSays.set(id, { anchor, says }));
+    const result = await run((says) => draftSays.set(id, { anchor, says }));
+    const ms = Date.now() - started;
+    const n = offered(result as Partial<editorial.DraftResult>);
+    store.record(id, {
+      kind: 'wand', anchor, summary: `Wand offered ${n} ${n === 1 ? 'draft' : 'drafts'} in ${took(ms)} — ${name}`,
+      data: { wand, outcome: 'offered', offered: n, ms },
+    });
+    return result;
   } catch (err) {
     const said = String((err as Error)?.message ?? err);
     const detail = (err as { detail?: unknown })?.detail;
-    if (detail) console.error(`[draft] ${name}: ${String(detail).slice(0, 300)}`);
-    store.logEvent(id, 'draft', `Draft failed: ${said} — ${name}`, anchor);
+    const ms = Date.now() - started;
+    const event = store.record(id, {
+      kind: 'wand', anchor, summary: `Draft failed: ${said} — ${name}`,
+      data: { wand, outcome: 'failed', ms, ...(err instanceof HttpError ? { status: err.status } : {}) },
+    });
+    if (detail) log.error(`[draft] ${id} ${name}: ${String(detail).slice(0, 300)} (event ${event})`);
     throw err;
   } finally {
     if (draftSays.get(id)?.anchor === anchor) draftSays.delete(id);
@@ -707,12 +766,14 @@ const routes: [RegExp, string, (ctx: Ctx, params: string[]) => Promise<unknown>]
     // holds its old one, so a number check alone let an upsert replace it.
     let row: store.IssueRow;
     try {
-      row = store.createIssueRow(doc);
+      row = store.createIssueRow(doc, [{
+        kind: 'issue', summary: `Issue started — WT${doc.issue.number}, publishes ${doc.issue.publication_date}`,
+        data: { number: doc.issue.number, publication_date: doc.issue.publication_date },
+      }]);
     } catch (err) {
       if (err instanceof store.IssueExists) throw new HttpError(409, err.message);
       throw err;
     }
-    store.logEvent(doc.issue.id, 'issue', `Issue started — WT${doc.issue.number}, publishes ${doc.issue.publication_date}`);
     return { issue: row.doc, readiness: issues.readiness(row.doc) };
   }],
 
@@ -780,15 +841,14 @@ const routes: [RegExp, string, (ctx: Ctx, params: string[]) => Promise<unknown>]
     // "0 in" lines would bury the log's signal. Quiet means nothing happened
     // — a drop, a move, or a hold-out is something happening, and a scan that
     // did one of those must say so (the first drops went unlogged, 2026-09-20).
-    if (report.log.length) {
-      store.logEvent(id!, 'sweep',
-        `Re-scan: ${report.added} in, ${report.refreshed} refreshed, ${report.gone} gone, ${report.conflicts} conflicted`);
-      for (const entry of report.log) store.logEvent(id!, entry.kind, entry.summary);
-    }
-    return { ...saved(doc), report };
+    const events: EventInput[] = report.log.length ? [{
+      kind: 'sweep',
+      summary: `Re-scan: ${report.added} in, ${report.refreshed} refreshed, ${report.gone} gone, ${report.conflicts} conflicted`,
+      data: { added: report.added, refreshed: report.refreshed, gone: report.gone, conflicts: report.conflicts },
+    }, ...report.log] : [];
+    return { ...saved(doc, events), report };
   }],
 
-  /** The issue's event log, newest first: the latest 500, or with ?all=1 all of it (the MCP pages it). */
   /**
    * Where the in-flight podcast render is: `{ podcast: { step, done, total,
    * cached, started_at, step_at } }`, or `{}` when none is running. The
@@ -799,8 +859,15 @@ const routes: [RegExp, string, (ctx: Ctx, params: string[]) => Promise<unknown>]
     return podcast ? { podcast } : {};
   }],
 
+  /**
+   * The issue's event log, newest first: the latest 500, or with ?all=1 all
+   * of it (the MCP pages it). ?item=<id> is one item's or section's history
+   * (the inspector's History, get_item).
+   */
   [/^\/api\/issues\/([^/]+)\/events$/, 'GET', async ({ url }, [id]) => {
     requireIssue(id!); // 404 for a missing issue, not an empty log
+    const item = url.searchParams.get('item');
+    if (item) return { events: store.itemEvents(id!, item) };
     return { events: url.searchParams.get('all') === '1' ? store.allEvents(id!).reverse() : store.listEvents(id!) };
   }],
 
@@ -858,8 +925,10 @@ const routes: [RegExp, string, (ctx: Ctx, params: string[]) => Promise<unknown>]
     return v ? at(v.doc, v.saved_at) : { issue: null, why: `the issue as of event ${event} is older than the ${store.REVISIONS_KEPT} versions kept` };
   }],
 
-  [/^\/api\/issues\/([^/]+)\/items\/([^/]+)$/, 'PATCH', async ({ body }, [id, itemId]) => {
+  [/^\/api\/issues\/([^/]+)\/items\/([^/]+)$/, 'PATCH', async ({ body, url }, [id, itemId]) => {
     const raw = await body();
+    // ?via=wand: the words are a pick from a wand's drafts, not typing.
+    const viaWand = url.searchParams.get('via') === 'wand';
     const doc = requireIssue(id!);
     // A silent no-op reads to the client as a saved edit.
     if (!doc.items[itemId!]) throw new HttpError(404, `no item ${itemId}`);
@@ -875,13 +944,20 @@ const routes: [RegExp, string, (ctx: Ctx, params: string[]) => Promise<unknown>]
     // the document or the source it mirrors, and the log says so.
     const { patch, dropped } = issues.withoutFlattening(doc.items[itemId!]!, raw);
     if (dropped.length) {
-      store.logEvent(id!, 'edit',
-        `Refused an edit to ${dropped.join(', ')} that only removed its line breaks — ${issues.itemName(doc.items[itemId!]!)}`, itemId);
+      store.record(id!, {
+        kind: 'edit', anchor: itemId,
+        summary: `Refused an edit to ${dropped.join(', ')} that only removed its line breaks — ${issues.itemName(doc.items[itemId!]!)}`,
+        data: { fields: dropped, outcome: 'refused' },
+      });
     }
     if (!Object.keys(patch).length) return { issue: doc, readiness: issues.readiness(doc) };
-    store.logEvent(id!, 'edit',
-      `Edited ${Object.keys(patch).join(', ')} — ${issues.itemName(doc.items[itemId!]!)}`, itemId);
-    const result = saved(issues.updateItem(doc, itemId!, patch));
+    const fields = Object.keys(patch);
+    const name = issues.itemName(doc.items[itemId!]!);
+    const result = saved(issues.updateItem(doc, itemId!, patch), [{
+      kind: 'edit', anchor: itemId,
+      summary: viaWand ? `Used the wand's draft for ${fields.join(', ')} — ${name}` : `Edited ${fields.join(', ')} — ${name}`,
+      data: { fields, ...(viaWand ? { via: 'wand' } : {}) },
+    }]);
 
     // The write-back belongs to the edit, not to the surface it was made on.
     // updateItem marks a source-field change `syncing`; only the inspector
@@ -902,22 +978,20 @@ const routes: [RegExp, string, (ctx: Ctx, params: string[]) => Promise<unknown>]
     }
     const doc = requireIssue(id!);
     const item = doc.items[itemId!];
-    if (item) {
-      store.logEvent(id!, 'channels',
-        `${channel} ${b.on ? 'on' : 'off'} — ${issues.itemName(item)}`, itemId);
-    }
-    return saved(issues.setChannel(doc, itemId!, channel, Boolean(b.on)));
+    return saved(issues.setChannel(doc, itemId!, channel, Boolean(b.on)), item ? [{
+      kind: 'channels', anchor: itemId, summary: `${channel} ${b.on ? 'on' : 'off'} — ${issues.itemName(item)}`,
+      data: { channel, on: Boolean(b.on) },
+    }] : []);
   }],
 
   [/^\/api\/issues\/([^/]+)\/items\/([^/]+)\/visibility$/, 'POST', async ({ body }, [id, itemId]) => {
     const b = await body();
     const doc = requireIssue(id!);
     const item = doc.items[itemId!];
-    if (item) {
-      store.logEvent(id!, 'channels',
-        `${b.visible ? 'Shown' : 'Hidden'} — ${issues.itemName(item)}`, itemId);
-    }
-    return saved(b.visible ? issues.showItem(doc, itemId!) : issues.hideItem(doc, itemId!));
+    return saved(b.visible ? issues.showItem(doc, itemId!) : issues.hideItem(doc, itemId!), item ? [{
+      kind: 'channels', anchor: itemId, summary: `${b.visible ? 'Shown' : 'Hidden'} — ${issues.itemName(item)}`,
+      data: { visible: Boolean(b.visible) },
+    }] : []);
   }],
 
   [/^\/api\/issues\/([^/]+)\/items\/([^/]+)\/promote$/, 'POST', async (_ctx, [id, itemId]) => {
@@ -925,29 +999,47 @@ const routes: [RegExp, string, (ctx: Ctx, params: string[]) => Promise<unknown>]
     const item = doc.items[itemId!];
     // Promoting an already-promoted post is a no-op (issues.promote); only a real one is logged.
     const already = doc.nodes.some((n) => n.kind === 'promoted_item' && n.items.includes(itemId!));
-    if (item && !already) store.logEvent(id!, 'structure', `Promoted — ${issues.itemName(item)}`, itemId);
-    return saved(issues.promote(doc, itemId!));
+    return saved(issues.promote(doc, itemId!), item && !already
+      ? [{ kind: 'structure', anchor: itemId, summary: `Promoted — ${issues.itemName(item)}`, data: { action: 'promote' } }]
+      : []);
   }],
 
-  [/^\/api\/issues\/([^/]+)\/nodes\/([^/]+)\/demote$/, 'POST', async (_ctx, [id, nodeId]) =>
-    saved(issues.demote(requireIssue(id!), nodeId!))],
+  [/^\/api\/issues\/([^/]+)\/nodes\/([^/]+)\/demote$/, 'POST', async (_ctx, [id, nodeId]) => {
+    const doc = requireIssue(id!);
+    const node = doc.nodes.find((n) => n.id === nodeId);
+    const itemId = node?.kind === 'promoted_item' ? node.items[0] : undefined;
+    return saved(issues.demote(doc, nodeId!), node ? [{
+      kind: 'structure', anchor: itemId ?? nodeId, summary: `Demoted — ${node.label}`, data: { action: 'demote', node: nodeId },
+    }] : []);
+  }],
 
   [/^\/api\/issues\/([^/]+)\/nodes\/([^/]+)\/move$/, 'POST', async ({ body }, [id, nodeId]) => {
     const b = await body();
-    return saved(issues.moveNode(requireIssue(id!), nodeId!, Number(b.delta ?? 0)));
+    const doc = requireIssue(id!);
+    const delta = Number(b.delta ?? 0);
+    const label = doc.nodes.find((n) => n.id === nodeId)?.label ?? nodeId!;
+    return saved(issues.moveNode(doc, nodeId!, delta), delta ? [{
+      kind: 'structure', anchor: nodeId, summary: `Moved section ${delta < 0 ? 'up' : 'down'} — ${label}`, data: { action: 'move', delta },
+    }] : []);
   }],
 
   [/^\/api\/issues\/([^/]+)\/nodes\/([^/]+)\/items\/([^/]+)\/move$/, 'POST',
     async ({ body }, [id, nodeId, itemId]) => {
       const b = await body();
-      return saved(issues.moveItem(requireIssue(id!), nodeId!, itemId!, Number(b.delta ?? 0)));
+      const doc = requireIssue(id!);
+      const delta = Number(b.delta ?? 0);
+      const item = doc.items[itemId!];
+      return saved(issues.moveItem(doc, nodeId!, itemId!, delta), item && delta ? [{
+        kind: 'structure', anchor: itemId, summary: `Moved ${delta < 0 ? 'up' : 'down'} — ${issues.itemName(item)}`, data: { action: 'move', delta, node: nodeId },
+      }] : []);
     }],
 
   [/^\/api\/issues\/([^/]+)\/nodes\/([^/]+)$/, 'DELETE', async (_ctx, [id, nodeId]) => {
     const doc = requireIssue(id!);
     const label = doc.nodes.find((n) => n.id === nodeId)?.label ?? nodeId;
-    store.logEvent(id!, 'structure', `Removed section — ${label}`);
-    return saved(issues.removeSection(doc, nodeId!));
+    return saved(issues.removeSection(doc, nodeId!), [{
+      kind: 'structure', anchor: nodeId, summary: `Removed section — ${label}`, data: { action: 'remove-section' },
+    }]);
   }],
 
   /** One item out: syndicated is held out, locally-authored is deleted. */
@@ -955,12 +1047,12 @@ const routes: [RegExp, string, (ctx: Ctx, params: string[]) => Promise<unknown>]
     async (_ctx, [id, nodeId, itemId]) => {
       const doc = requireIssue(id!);
       const item = doc.items[itemId!];
-      if (item) {
-        store.logEvent(id!, 'structure', item.authorship === 'syndicated'
-          ? `Held out — ${issues.itemName(item)}`
-          : `Deleted — ${issues.itemName(item)}`, itemId);
-      }
-      const result = saved(issues.removeItem(doc, nodeId!, itemId!));
+      const held = item?.authorship === 'syndicated';
+      const result = saved(issues.removeItem(doc, nodeId!, itemId!), item ? [{
+        kind: 'structure', anchor: itemId,
+        summary: held ? `Held out — ${issues.itemName(item)}` : `Deleted — ${issues.itemName(item)}`,
+        data: { action: held ? 'hold-out' : 'delete', node: nodeId },
+      }] : []);
       // A held-out Pinboard link carries _exclude on the bookmark; write it.
       const after = result.issue.items[itemId!];
       if (after?.source !== 'Pinboard' || after.sync_state !== 'syncing') return result;
@@ -976,24 +1068,26 @@ const routes: [RegExp, string, (ctx: Ctx, params: string[]) => Promise<unknown>]
     if (!label) throw new HttpError(400, 'a section needs a label');
     const doc = requireIssue(id!);
     const old = doc.nodes.find((n) => n.id === nodeId)?.label ?? nodeId;
-    store.logEvent(id!, 'structure', `Renamed section — ${old} → ${label}`);
-    return saved(issues.renameSection(doc, nodeId!, label));
+    return saved(issues.renameSection(doc, nodeId!, label), [{
+      kind: 'structure', anchor: nodeId, summary: `Renamed section — ${old} → ${label}`, data: { action: 'rename', from: old, to: label },
+    }]);
   }],
 
   [/^\/api\/issues\/([^/]+)\/nodes$/, 'POST', async ({ body }, [id]) => {
     const b = await body();
     const doc = requireIssue(id!);
     if (b.kind === 'markdown') {
-      store.logEvent(id!, 'structure', 'Added a Markdown block');
-      return saved(issues.addMarkdownBlock(doc, b.before));
+      return saved(issues.addMarkdownBlock(doc, b.before), [{
+        kind: 'structure', summary: 'Added a Markdown block', data: { action: 'add-markdown' },
+      }]);
     }
-    store.logEvent(id!, 'structure', `Added section — ${String(b.label ?? b.type ?? 'Section')}`);
+    const label = String(b.label ?? b.type ?? 'Section');
     return saved(issues.addSection(doc, {
       type: String(b.type ?? 'ad_hoc'),
       label: String(b.label ?? 'Section'),
       id: b.id,
       before: b.before,
-    }));
+    }), [{ kind: 'structure', anchor: typeof b.id === 'string' ? b.id : undefined, summary: `Added section — ${label}`, data: { action: 'add-section', type: String(b.type ?? 'ad_hoc') } }]);
   }],
 
   /** One item into an existing node — a Currently entry, a written link. */
@@ -1003,8 +1097,9 @@ const routes: [RegExp, string, (ctx: Ctx, params: string[]) => Promise<unknown>]
     if (!['currently', 'pinboard_link', 'quote', 'markdown'].includes(type)) {
       throw new HttpError(400, `cannot add a ${type || '(missing type)'} item`);
     }
-    store.logEvent(id!, 'structure', `Added a ${type.replace('_', ' ')} — ${nodeId}`);
-    return saved(issues.addItem(requireIssue(id!), nodeId!, type as import('../shared/types.ts').ItemType));
+    return saved(issues.addItem(requireIssue(id!), nodeId!, type as import('../shared/types.ts').ItemType), [{
+      kind: 'structure', anchor: nodeId, summary: `Added a ${type.replace('_', ' ')} — ${nodeId}`, data: { action: 'add-item', type },
+    }]);
   }],
 
   /**
@@ -1039,8 +1134,10 @@ const routes: [RegExp, string, (ctx: Ctx, params: string[]) => Promise<unknown>]
     if (!node) throw new HttpError(404, `no section ${nodeId}`);
     if (node.type !== 'echoes') throw new HttpError(400, `${node.label} does not hold echoes`);
     const { doc: next, ids } = issues.addEchoes(doc, nodeId!, echoes);
-    store.logEvent(id!, 'edit', `Added ${ids.length} ${ids.length === 1 ? 'echo' : 'echoes'} — Echoes`);
-    return { ...saved(next), ids };
+    return { ...saved(next, [{
+      kind: 'edit', anchor: nodeId, summary: `Added ${ids.length} ${ids.length === 1 ? 'echo' : 'echoes'} from the wand — Echoes`,
+      data: { via: 'wand', items: ids },
+    }]), ids };
   }],
 
   /** Standard sections not currently in the issue, offered back. */
@@ -1050,8 +1147,10 @@ const routes: [RegExp, string, (ctx: Ctx, params: string[]) => Promise<unknown>]
     return { sections: issues.standardSections().filter((s) => !present.has(s.type)) };
   }],
 
-  [/^\/api\/issues\/([^/]+)\/settings$/, 'POST', async ({ body }, [id]) => {
+  [/^\/api\/issues\/([^/]+)\/settings$/, 'POST', async ({ body, url }, [id]) => {
     const b = await body();
+    // ?via=wand: the title and dek are a pick from the head wand's drafts.
+    const viaWand = url.searchParams.get('via') === 'wand';
     let doc = requireIssue(id!);
     // Number, date and window are the edition's identity. On a published
     // issue each saved at once, and the next re-send published a different
@@ -1081,8 +1180,12 @@ const routes: [RegExp, string, (ctx: Ctx, params: string[]) => Promise<unknown>]
       b.title !== undefined ? 'title' : '',
       b.dek !== undefined ? 'dek' : '',
     ].filter(Boolean);
-    if (parts.length) store.logEvent(id!, 'settings', `Settings — ${parts.join(', ')}`);
-    return saved(doc);
+    const fields = (['number', 'publication_date', 'window_days', 'title', 'dek'] as const).filter((k) => b[k] !== undefined && b[k] !== '');
+    return saved(doc, parts.length ? [{
+      kind: 'settings', anchor: 'issue',
+      summary: viaWand ? `Used the wand's draft for ${parts.join(', ')}` : `Settings — ${parts.join(', ')}`,
+      data: { fields, ...(viaWand ? { via: 'wand' } : {}) },
+    }] : []);
   }],
 
   /**
@@ -1092,7 +1195,7 @@ const routes: [RegExp, string, (ctx: Ctx, params: string[]) => Promise<unknown>]
    * `sync_state` records the outcome.
    */
   [/^\/api\/issues\/([^/]+)\/items\/([^/]+)\/writeback$/, 'POST', async (_ctx, [id, itemId]) => {
-    const { response, result } = await writeBack(id!, itemId!);
+    const { response, result } = await writeBack(id!, itemId!, { actor: 'jamie' });
     return { ...response, result };
   }],
 
@@ -1111,9 +1214,11 @@ const routes: [RegExp, string, (ctx: Ctx, params: string[]) => Promise<unknown>]
     if (item.sync_state === 'syncing') {
       throw new HttpError(409, `${issues.itemName(item)} is being written to Micro.blog — fork it once that lands`);
     }
-    const response = savedFresh(id!, (d) => issues.fork(d, itemId!));
-    store.logEvent(id!, 'sync', `Forked for the newsletter — edits here no longer change the post at Micro.blog — ${issues.itemName(item)}`, itemId);
-    return response;
+    return savedFresh(id!, (d) => issues.fork(d, itemId!), [{
+      kind: 'source', anchor: itemId,
+      summary: `Forked for the newsletter — edits here no longer change the post at Micro.blog — ${issues.itemName(item)}`,
+      data: { action: 'fork', source: item.source, from: item.sync_state ?? null, to: 'forked' },
+    }]);
   }],
 
   /**
@@ -1140,8 +1245,11 @@ const routes: [RegExp, string, (ctx: Ctx, params: string[]) => Promise<unknown>]
         throw new HttpError(409, `${issues.itemName(item)} changed while Micro.blog was read — nothing changed; look again`);
       }
       return issues.takeTheirs(d, itemId!, remote);
-    });
-    store.logEvent(id!, 'sync', `Rejoined the post at Micro.blog — took its words over the newsletter's copy — ${issues.itemName(item)}`, itemId);
+    }, (d) => [{
+      kind: 'source', anchor: itemId,
+      summary: `Rejoined the post at Micro.blog — took its words over the newsletter's copy — ${issues.itemName(item)}`,
+      data: { action: 'rejoin', source: item.source, from: 'forked', to: d.items[itemId!]?.sync_state ?? null },
+    }]);
     return response;
   }],
 
@@ -1162,11 +1270,12 @@ const routes: [RegExp, string, (ctx: Ctx, params: string[]) => Promise<unknown>]
     // (cross-batch review of review-fixes, Batch 2 x Batch 7).
     const meanwhile = `${item.source} was read`;
     if (remote === null) {
-      const response = savedFresh(id!, (d) => issues.updateItem(awake(d, meanwhile), itemId!, {
+      return savedFresh(id!, (d) => issues.updateItem(awake(d, meanwhile), itemId!, {
         sync_state: 'gone', sync_error: `deleted at ${item.source} — not recreating it`,
-      }));
-      store.logEvent(id!, 'sync', `Deleted at ${item.source} — ${issues.itemName(item)}`, itemId);
-      return response;
+      }), [{
+        kind: 'gone', anchor: itemId, summary: `Deleted at ${item.source} — ${issues.itemName(item)}`,
+        data: { source: item.source, from: 'conflict', to: 'gone' },
+      }]);
     }
     // The choice was made about the copy read above. One that moved while
     // the source was read — edited, or no longer in conflict — is not the
@@ -1182,12 +1291,15 @@ const routes: [RegExp, string, (ctx: Ctx, params: string[]) => Promise<unknown>]
       return d;
     };
     if (choice === 'take-theirs') {
-      const response = savedFresh(id!, (d) => issues.takeTheirs(unmoved(d), itemId!, remote));
-      store.logEvent(id!, 'sync', `Took ${item.source}'s copy — ${issues.itemName(item)}`, itemId);
-      return response;
+      return savedFresh(id!, (d) => issues.takeTheirs(unmoved(d), itemId!, remote), (d) => [{
+        kind: 'source', anchor: itemId, summary: `Took ${item.source}'s copy — ${issues.itemName(item)}`,
+        data: { action: 'take-theirs', source: item.source, from: 'conflict', to: d.items[itemId!]?.sync_state ?? null },
+      }]);
     }
-    savedFresh(id!, (d) => issues.keepMine(unmoved(d), itemId!, remote));
-    store.logEvent(id!, 'sync', `Kept this copy over ${item.source}'s — ${issues.itemName(item)}`, itemId);
+    savedFresh(id!, (d) => issues.keepMine(unmoved(d), itemId!, remote), [{
+      kind: 'source', anchor: itemId, summary: `Kept this copy over ${item.source}'s — ${issues.itemName(item)}`,
+      data: { action: 'keep-mine', source: item.source, from: 'conflict' },
+    }]);
     const { response, result } = await writeBack(id!, itemId!);
     return { ...response, result };
   }],
@@ -1204,11 +1316,13 @@ const routes: [RegExp, string, (ctx: Ctx, params: string[]) => Promise<unknown>]
     // card's one "Check" button covers both, and DNS is quick beside HTTP.
     const [results, domains] = await Promise.all([checkLinks(urls), checkDomains(emailDomains(doc))]);
     const at = new Date().toISOString();
-    const response = savedFresh(id!, (d) =>
-      applyDomainCheck(applyLinkCheck(awake(d, 'the links were checked'), results, at), domains, at));
-    store.logEvent(id!, 'links', `Links checked — ${urls.length}: ${findingsSummary(linkFindings(response.issue)) || 'all answered'}`);
-    store.logEvent(id!, 'links', `Deliverability — ${Object.keys(domains).length} domains: ${deliverabilitySummary(deliverabilityFindings(response.issue)) || 'nothing found'}`);
-    return response;
+    // No button calls this any more (links are checked as they arrive), so
+    // it is the service's; the findings are summed as they stand after the save.
+    return savedFresh(id!, (d) =>
+      applyDomainCheck(applyLinkCheck(awake(d, 'the links were checked'), results, at), domains, at), (d) => [
+      { kind: 'links', actor: 'wt-builder', summary: `Links checked — ${urls.length}: ${findingsSummary(linkFindings(d)) || 'all answered'}`, data: { links: urls.length } },
+      { kind: 'links', actor: 'wt-builder', summary: `Deliverability — ${Object.keys(domains).length} domains: ${deliverabilitySummary(deliverabilityFindings(d)) || 'nothing found'}`, data: { domains: Object.keys(domains).length } },
+    ]);
   }],
 
   /**
@@ -1221,9 +1335,10 @@ const routes: [RegExp, string, (ctx: Ctx, params: string[]) => Promise<unknown>]
     const key = String(b.key ?? '');
     if (!key) throw new HttpError(400, 'key is required');
     const keep = b.keep !== false;
-    const response = savedFresh(id!, (d) => keepFinding(d, key, keep));
-    store.logEvent(id!, 'links', `${keep ? 'Kept as it is' : 'Asking again'} — ${key}`);
-    return response;
+    return savedFresh(id!, (d) => keepFinding(d, key, keep), [{
+      kind: 'links',
+      summary: `${keep ? 'Kept as it is' : 'Asking again'} — ${key}`, data: { action: keep ? 'keep' : 'ask-again', key },
+    }]);
   }],
 
   /**
@@ -1241,17 +1356,17 @@ const routes: [RegExp, string, (ctx: Ctx, params: string[]) => Promise<unknown>]
     if (!item) throw new HttpError(404, `no item ${itemId}`);
     if (action === 'keep') {
       if (!url) throw new HttpError(400, 'which link?');
-      const response = savedFresh(id!, (d) => acceptLinks(d, [url]));
-      store.logEvent(id!, 'links', `Kept as it is — ${url}`, itemId);
-      return response;
+      return savedFresh(id!, (d) => acceptLinks(d, [url]), [{
+        kind: 'links', anchor: itemId, summary: `Kept as it is — ${url}`, data: { action: 'keep', url },
+      }]);
     }
     if (item.type !== 'pinboard_link' || !item.source_url) {
       throw new HttpError(400, `${issues.itemName(item)} has no link of its own to change`);
     }
     if (action === 'original') {
-      const response = savedFresh(id!, (d) => issues.updateItem(d, itemId!, { canonical_url: undefined }));
-      store.logEvent(id!, 'links', `Back to the bookmark's link — ${issues.itemName(item)}`, itemId);
-      return response;
+      return savedFresh(id!, (d) => issues.updateItem(d, itemId!, { canonical_url: undefined }), [{
+        kind: 'links', anchor: itemId, summary: `Back to the bookmark's link — ${issues.itemName(item)}`, data: { action: 'original' },
+      }]);
     }
     if (action !== 'use') throw new HttpError(400, `unknown action ${action}`);
     const shown = linkUrl(item)!;
@@ -1267,8 +1382,7 @@ const routes: [RegExp, string, (ctx: Ctx, params: string[]) => Promise<unknown>]
         throw new HttpError(409, `${issues.itemName(item)}'s link changed meanwhile — nothing changed; look again`);
       }
       return issues.updateItem(d, itemId!, { canonical_url: suggestion === fresh.source_url ? undefined : suggestion });
-    });
-    store.logEvent(id!, 'links', `Using ${suggestion} — ${issues.itemName(item)}`, itemId);
+    }, [{ kind: 'links', anchor: itemId, summary: `Using ${suggestion} — ${issues.itemName(item)}`, data: { action: 'use', url: suggestion } }]);
     return response;
   }],
 
@@ -1317,15 +1431,17 @@ const routes: [RegExp, string, (ctx: Ctx, params: string[]) => Promise<unknown>]
       }
       done = { edit, from, to, name: issues.itemName(item), field: found.spot.field };
       return issues.updateItem(d, edit.item!.id, patch);
+    }, () => {
+      const { edit, from, to, name, field } = done!;
+      const said = `${undoing ? 'Undid proof fix' : 'Applied proof fix'} "${from}" → "${to}"`;
+      const data = { via: 'review', action: undoing ? 'undo' : 'apply', review_at: reviewAt, index, field, from, to };
+      return [edit.head
+        ? { kind: 'settings', anchor: 'issue', summary: `Settings — ${field}: ${said}`, data }
+        : { kind: 'edit', anchor: edit.item!.id, summary: `${said} — ${name}`, data }];
     });
-    const { edit, from, to, name, field } = done!;
-    const said = `${undoing ? 'Undid proof fix' : 'Applied proof fix'} "${from}" → "${to}"`;
-    if (edit.head) {
-      store.logEvent(id!, 'settings', `Settings — ${field}: ${said}`);
-      return { ...response, applied: edit.spot };
-    }
+    const { edit } = done!;
+    if (edit.head) return { ...response, applied: edit.spot };
     const itemId = edit.item!.id;
-    store.logEvent(id!, 'edit', `${said} — ${name}`, itemId);
     // As a PATCH: an edit to a mirrored field is written to its source.
     if (response.issue.items[itemId]?.sync_state !== 'syncing') return { ...response, applied: edit.spot };
     const { response: written, result } = await writeBack(id!, itemId);
@@ -1356,7 +1472,10 @@ const routes: [RegExp, string, (ctx: Ctx, params: string[]) => Promise<unknown>]
     try {
       moved = await pinboard.moveBookmark(from, to);
     } catch (err) {
-      store.logEvent(id!, 'sync', `Move refused — ${issues.itemName(item)}: ${(err as Error).message}`, itemId);
+      store.record(id!, {
+        kind: 'source', anchor: itemId, summary: `Move refused — ${issues.itemName(item)}: ${(err as Error).message}`,
+        data: { action: 'move-bookmark', outcome: 'refused', from, to },
+      });
       throw new HttpError(502, (err as Error).message);
     }
     // Pinboard has moved. The item follows even if Jamie edited it meanwhile:
@@ -1369,10 +1488,13 @@ const routes: [RegExp, string, (ctx: Ctx, params: string[]) => Promise<unknown>]
         source_id: `pinboard:${moved.hash ?? to}`,
         canonical_url: undefined,
       });
-    });
-    store.logEvent(id!, 'sync', moved.removed
-      ? `Moved the bookmark — ${from} → ${to}`
-      : `Moved the bookmark — ${from} → ${to}; the old one could not be deleted, so delete it at Pinboard`, itemId);
+    }, [{
+      kind: 'source', anchor: itemId,
+      summary: moved.removed
+        ? `Moved the bookmark — ${from} → ${to}`
+        : `Moved the bookmark — ${from} → ${to}; the old one could not be deleted, so delete it at Pinboard`,
+      data: { action: 'move-bookmark', from, to, removed: moved.removed },
+    }]);
     return { ...response, result: { removed: moved.removed } };
   }],
 
@@ -1402,17 +1524,20 @@ const routes: [RegExp, string, (ctx: Ctx, params: string[]) => Promise<unknown>]
     if (dest.items.includes(itemId!)) return saved(doc);
 
     const moved = issues.moveLinkToSection(doc, itemId!, target);
-    store.logEvent(id!, 'structure', `Moved to ${target} — ${issues.itemName(item)}`, itemId);
+    const event: EventInput = {
+      kind: 'structure', anchor: itemId, summary: `Moved to ${target} — ${issues.itemName(item)}`,
+      data: { action: 'move-section', to: target },
+    };
 
     // The move marks the item `syncing` only when the tags actually changed;
     // a `gone` bookmark moves locally and is never re-created at the source.
     if (moved.items[itemId!]?.sync_state === 'syncing') {
       // The move is saved now; the write-back's outcome lands on a fresh read.
-      saved(moved);
+      saved(moved, [event]);
       const { response, result } = await writeBack(id!, itemId!);
       return { ...response, result };
     }
-    return saved(moved);
+    return saved(moved, [event]);
   }],
 
   /**
@@ -1431,6 +1556,7 @@ const routes: [RegExp, string, (ctx: Ctx, params: string[]) => Promise<unknown>]
       .slice(0, editorial.ARCHIVE_ISSUES)
       .map((r) => ({ number: r.number, rendered: render(r.doc, 'website') }));
 
+    const started = Date.now();
     const result = await editorial.review({
       doc,
       recentIssues,
@@ -1439,8 +1565,14 @@ const routes: [RegExp, string, (ctx: Ctx, params: string[]) => Promise<unknown>]
       // its notes from here instead of losing them.
       previous: doc.review as editorial.Review | undefined,
     });
-    store.logEvent(id!, 'review', 'Editorial review ran');
-    return { ...savedFresh(id!, (d) => { d.review = result; }), review: result };
+    const ms = Date.now() - started;
+    return {
+      ...savedFresh(id!, (d) => { d.review = result; }, [{
+        kind: 'review', summary: `Editorial review ran in ${took(ms)} — ${result.notes.length} ${result.notes.length === 1 ? 'note' : 'notes'}`,
+        data: { review: 'editorial', ms, notes: result.notes.length, ...(b.only ? { only: b.only } : {}) },
+      }]),
+      review: result,
+    };
   }],
 
   /**
@@ -1465,7 +1597,6 @@ const routes: [RegExp, string, (ctx: Ctx, params: string[]) => Promise<unknown>]
       ? (await geocode.placeName(stored.coordinates)) ?? stored.coordinates
       : undefined;
 
-    store.logEvent(id!, 'edit', `Photo uploaded — ${filename}`, itemId);
     // Seconds of upload and geocoding have passed: the item is re-read.
     const result = savedFresh(id!, (d) => {
       const fresh = d.items[itemId!];
@@ -1487,7 +1618,7 @@ const routes: [RegExp, string, (ctx: Ctx, params: string[]) => Promise<unknown>]
         // to the exact spot on the map.
         coordinates: carried?.coordinates || stored.coordinates || undefined,
       };
-    });
+    }, [{ kind: 'edit', anchor: itemId, summary: `Photo uploaded — ${filename}`, data: { fields: ['media'], filename } }]);
     return { ...result, image: stored };
   }],
 
@@ -1504,8 +1635,22 @@ const routes: [RegExp, string, (ctx: Ctx, params: string[]) => Promise<unknown>]
       const item = doc.items[itemId];
       return item && item.type === 'pinboard_link' && !outOfWindow(item, w) && !heldOut(item);
     });
-    const suggestion = await editorial.suggestOrder(doc, nodeId!, ids);
-    return { ...suggestion, current: ids };
+    const started = Date.now();
+    try {
+      const suggestion = await editorial.suggestOrder(doc, nodeId!, ids);
+      const ms = Date.now() - started;
+      store.record(id!, {
+        kind: 'wand', anchor: nodeId, summary: `Wand offered an order for ${ids.length} links in ${took(ms)} — ${node.label}`,
+        data: { wand: 'order', outcome: 'offered', offered: 1, ms },
+      });
+      return { ...suggestion, current: ids };
+    } catch (err) {
+      store.record(id!, {
+        kind: 'wand', anchor: nodeId, summary: `Order failed: ${(err as Error).message} — ${node.label}`,
+        data: { wand: 'order', outcome: 'failed', ms: Date.now() - started },
+      });
+      throw err;
+    }
   }],
 
   /** Apply an order to a section — the answer to the suggestion above, or a drag. */
@@ -1516,8 +1661,11 @@ const routes: [RegExp, string, (ctx: Ctx, params: string[]) => Promise<unknown>]
     const doc = requireIssue(id!);
     const node = doc.nodes.find((n) => n.id === nodeId);
     if (!node) throw new HttpError(404, `no section ${nodeId}`);
-    store.logEvent(id!, 'structure', `Reordered ${node.label}${typeof b.why === 'string' && b.why ? ` — ${b.why}` : ''}`);
-    return saved(issues.setItemOrder(doc, nodeId!, order));
+    const why = typeof b.why === 'string' && b.why ? b.why : undefined;
+    return saved(issues.setItemOrder(doc, nodeId!, order), [{
+      kind: 'structure', anchor: nodeId, summary: `Reordered ${node.label}${why ? ` — ${why}` : ''}`,
+      data: { action: 'reorder', ...(why ? { via: 'wand' } : {}) },
+    }]);
   }],
 
   /**
@@ -1534,7 +1682,8 @@ const routes: [RegExp, string, (ctx: Ctx, params: string[]) => Promise<unknown>]
       ? linkedBefore(item.source_url, doc.issue, store.listIssues())
       : undefined;
     const name = itemId === 'issue' ? 'Title and dek' : item ? issues.itemName(item) : itemId!;
-    return drafting(id!, itemId!, name, (onBusy) =>
+    const wand = itemId === 'issue' ? 'title_dek' : item?.type ?? 'unknown';
+    return drafting(id!, itemId!, name, wand, (onBusy) =>
       editorial.draft({ doc, itemId: itemId!, context: b.context, linkedBefore: linked, onBusy }));
   }],
 
@@ -1549,7 +1698,7 @@ const routes: [RegExp, string, (ctx: Ctx, params: string[]) => Promise<unknown>]
     if (!node) throw new HttpError(404, `no section ${nodeId}`);
     if (node.type !== 'echoes') throw new HttpError(400, `${node.label} does not hold echoes`);
     waitingGate(id!, doc, nodeId!, url.searchParams.get('force') === '1');
-    return drafting(id!, nodeId!, node.label, (onBusy) => editorial.draft({ doc, nodeId: nodeId!, onBusy }));
+    return drafting(id!, nodeId!, node.label, 'echoes_section', (onBusy) => editorial.draft({ doc, nodeId: nodeId!, onBusy }));
   }],
 
   /**
@@ -1567,8 +1716,7 @@ const routes: [RegExp, string, (ctx: Ctx, params: string[]) => Promise<unknown>]
     const b = await body();
     const doc = requireIssue(id!);
     const share = await draftShare.share(doc, typeof b.note === 'string' ? b.note : undefined);
-    store.logEvent(id!, 'send', `Draft shared — ${share.url}`);
-    return { ...savedFresh(id!, (d) => { d.draft_share = share; }), share };
+    return { ...savedFresh(id!, (d) => { d.draft_share = share; }, [{ kind: 'share', summary: `Draft shared — ${share.url}`, data: { destination: 'draft' } }]), share };
   }],
 
   /** Stop sharing: delete the page. `no-store` makes revocation prompt. */
@@ -1576,8 +1724,7 @@ const routes: [RegExp, string, (ctx: Ctx, params: string[]) => Promise<unknown>]
     const doc = requireIssue(id!);
     if (doc.draft_share) {
       await draftShare.unshare(doc);
-      store.logEvent(id!, 'send', 'Draft share stopped');
-      return savedFresh(id!, (d) => { delete d.draft_share; });
+      return savedFresh(id!, (d) => { delete d.draft_share; }, [{ kind: 'share', summary: 'Draft share stopped', data: { destination: 'draft', action: 'stop' } }]);
     }
     return saved(doc);
   }],
@@ -1606,7 +1753,7 @@ const routes: [RegExp, string, (ctx: Ctx, params: string[]) => Promise<unknown>]
     }
     // A blog post is titled as the email was ("WT352 — …"), for Jamie to keep or change.
     const share = store.createShare(id!, destination, startingText(doc, destination), destination === 'blog' ? subjectFor(doc) : undefined);
-    store.logEvent(id!, 'share', `Share started — ${DESTINATION_NAME[destination]}`);
+    store.record(id!, { kind: 'share', summary: `Share started — ${DESTINATION_NAME[destination]}`, data: { destination } });
     return { share, shares: store.listShares(id!) };
   }],
 
@@ -1623,7 +1770,7 @@ const routes: [RegExp, string, (ctx: Ctx, params: string[]) => Promise<unknown>]
   [/^\/api\/issues\/([^/]+)\/shares\/(\d+)$/, 'DELETE', async (_ctx, [id, sid]) => {
     const share = requireDraftShare(id!, sid!, 'deleted');
     store.deleteShare(share.id);
-    store.logEvent(id!, 'share', `Share deleted — ${DESTINATION_NAME[share.destination]}, never shared`);
+    store.record(id!, { kind: 'share', summary: `Share deleted — ${DESTINATION_NAME[share.destination]}, never shared`, data: { destination: share.destination, action: 'delete' } });
     return { shares: store.listShares(id!) };
   }],
 
@@ -1637,7 +1784,7 @@ const routes: [RegExp, string, (ctx: Ctx, params: string[]) => Promise<unknown>]
     if (share.destination !== 'linkedin') throw new HttpError(400, 'a blog post is shared by posting it');
     const url = typeof b.url === 'string' ? b.url.trim() : '';
     if (url && !/^https?:\/\/\S+$/i.test(url)) throw new HttpError(400, `"${url.slice(0, 80)}" is not a link`);
-    store.logEvent(id!, 'share', `Shared to LinkedIn${url ? ` — ${url}` : ''}`);
+    store.record(id!, { kind: 'share', summary: `Shared to LinkedIn${url ? ` — ${url}` : ''}`, data: { destination: 'linkedin', action: 'shared' } });
     return {
       share: store.updateShare(share.id, { state: 'shared', shared_at: new Date().toISOString(), ...(url ? { url } : {}) }),
       shares: store.listShares(id!),
@@ -1658,13 +1805,13 @@ const routes: [RegExp, string, (ctx: Ctx, params: string[]) => Promise<unknown>]
     sharesPosting.add(share.id);
     try {
       const url = await microblog.createPost({ title: share.title, content: share.text, category: ['Weekly Thing'] });
-      store.logEvent(id!, 'share', `Blog post published — ${url}`);
+      store.record(id!, { kind: 'share', summary: `Blog post published — ${url}`, data: { destination: 'blog', action: 'published' } });
       return {
         share: store.updateShare(share.id, { state: 'shared', shared_at: new Date().toISOString(), url }),
         shares: store.listShares(id!),
       };
     } catch (err) {
-      store.logEvent(id!, 'share', `Blog post failed — ${String((err as Error).message).slice(0, 200)}`);
+      store.record(id!, { kind: 'share', actor: 'wt-builder', summary: `Blog post failed — ${String((err as Error).message).slice(0, 200)}`, data: { destination: 'blog', outcome: 'failed' } });
       throw new HttpError(502, (err as Error).message);
     } finally {
       sharesPosting.delete(share.id);
@@ -1675,7 +1822,7 @@ const routes: [RegExp, string, (ctx: Ctx, params: string[]) => Promise<unknown>]
   [/^\/api\/issues\/([^/]+)\/shares\/(\d+)\/draft$/, 'POST', async (_ctx, [id, sid]) => {
     const share = requireDraftShare(id!, sid!, 'drafted');
     const doc = requireIssue(id!);
-    return drafting(id!, `share-${share.id}`, `${DESTINATION_NAME[share.destination]} share`, () =>
+    return drafting(id!, `share-${share.id}`, `${DESTINATION_NAME[share.destination]} share`, 'share', () =>
       editorial.draftShare(doc, share.destination));
   }],
 
@@ -1705,8 +1852,7 @@ const routes: [RegExp, string, (ctx: Ctx, params: string[]) => Promise<unknown>]
   /** Copy every remote image onto the CDN, resized. Safe to run repeatedly. */
   [/^\/api\/issues\/([^/]+)\/images\/rehost$/, 'POST', async (_ctx, [id]) => {
     const { report, mapping } = await rehostIssueImages(requireIssue(id!));
-    store.logEvent(id!, 'send', 'Images rehosted to the CDN');
-    return { ...savedFresh(id!, (d) => applyRehost(d, mapping)), report };
+    return { ...savedFresh(id!, (d) => applyRehost(d, mapping), [{ kind: 'send', summary: 'Images rehosted to the CDN', data: { action: 'rehost' } }]), report };
   }],
 
   /**
@@ -1749,11 +1895,10 @@ const routes: [RegExp, string, (ctx: Ctx, params: string[]) => Promise<unknown>]
     if (asleep && doc.issue.status !== 'published') {
       throw new HttpError(400, 'only a published issue can be put to bed — send the website and Buttondown first');
     }
-    store.logEvent(id!, 'issue', asleep ? `Put to bed — WT${doc.issue.number}` : `Woken — WT${doc.issue.number}`);
     return savedFresh(id!, (d) => {
       if (asleep) d.issue.put_to_bed_at = new Date().toISOString();
       else delete d.issue.put_to_bed_at;
-    });
+    }, [{ kind: 'issue', summary: asleep ? `Put to bed — WT${doc.issue.number}` : `Woken — WT${doc.issue.number}`, data: { action: asleep ? 'bed' : 'wake' } }]);
   }],
 
   /**
@@ -1787,10 +1932,12 @@ const routes: [RegExp, string, (ctx: Ctx, params: string[]) => Promise<unknown>]
         return f;
       }),
     };
-    store.logEvent(id!, 'review', `Script read — ${r.verdict === 'ready' ? 'ready' : `${r.findings.length} to look at`}`);
     return savedFresh(id!, (d) => {
       d.script_review = { at: new Date().toISOString(), script_hash: hash, verdict: r.verdict, summary: r.summary, findings: r.findings };
-    });
+    }, [{
+      kind: 'review', summary: `Script read — ${r.verdict === 'ready' ? 'ready' : `${r.findings.length} to look at`}`,
+      data: { review: 'script', verdict: r.verdict, findings: r.findings.length },
+    }]);
   }],
 
   /**
@@ -1802,7 +1949,7 @@ const routes: [RegExp, string, (ctx: Ctx, params: string[]) => Promise<unknown>]
     if (!verifierFor(destination)) throw new HttpError(400, `${destination} has no verification`);
     const doc = requireIssue(id!);
     if (doc.sends?.[destination]?.status !== 'sent') throw new HttpError(400, `${destination} has not been sent`);
-    void runVerify(id!, destination).catch(() => { /* recorded inside */ });
+    void runVerify(id!, destination, false, false, true).catch(() => { /* recorded inside */ });
     return { issue: store.getIssue(id!)?.doc };
   }],
 
@@ -1844,7 +1991,7 @@ const routes: [RegExp, string, (ctx: Ctx, params: string[]) => Promise<unknown>]
     // shows why nothing happened.
     const refuse = (message: string, code?: string): never => {
       store.recordSend(id!, destination, previous ?? { status: 'none' });
-      store.logEvent(id!, 'send', `Send refused — buttondown: ${message}`);
+      store.record(id!, { kind: 'send', summary: `Send refused — buttondown: ${message}`, data: { dest: 'buttondown', outcome: 'refused' } });
       throw new Refusal(409, message, code);
     };
     // Buttondown's status when an update went past "not a draft" on purpose.
@@ -1862,7 +2009,7 @@ const routes: [RegExp, string, (ctx: Ctx, params: string[]) => Promise<unknown>]
         const email = await buttondown.getEmail(draftId);
         if (email.status !== 'draft' && force) {
           overrode = email.status || 'unknown';
-          store.logEvent(id!, 'send', `Override — buttondown: the email is "${overrode}", not a draft; updating it anyway`);
+          store.record(id!, { kind: 'send', summary: `Override — buttondown: the email is "${overrode}", not a draft; updating it anyway`, data: { dest: 'buttondown', override: 'not_draft', status: overrode } });
         } else if (email.status !== 'draft') {
           const status = email.status || 'unknown';
           // What Buttondown just said is recorded where the card reads it, so
@@ -1880,7 +2027,8 @@ const routes: [RegExp, string, (ctx: Ctx, params: string[]) => Promise<unknown>]
           refuse(`WT${before.issue.number}'s email is no longer a draft on Buttondown (it is "${status}"), so it can't be edited safely — nothing was changed.`, 'not_draft');
         }
       }
-      store.logEvent(id!, 'send', 'Send started — buttondown');
+      store.record(id!, { kind: 'send', summary: 'Send started — buttondown', data: { dest: 'buttondown', action: 'start' } });
+      const started = Date.now();
       // Rehost first: the email is where image weight actually hurts, and the
       // rewritten URLs must be in the document before the body is rendered.
       const { report: images, mapping } = await rehostIssueImages(requireIssue(id!));
@@ -1900,9 +2048,18 @@ const routes: [RegExp, string, (ctx: Ctx, params: string[]) => Promise<unknown>]
         edit_url: draft.edit_url,
       };
       const row = store.recordSend(id!, destination, state);
-      store.logEvent(id!, 'send', overrode
-        ? `Send finished — buttondown (updated while "${overrode}", by override; status unchanged)`
-        : 'Send finished — buttondown (draft, never scheduled)');
+      // What WT Builder did, not what the email is now: it saves a draft and
+      // leaves scheduling to Buttondown, where Jamie may schedule it a minute
+      // later. "(draft, never scheduled)" read as the email's state and was
+      // taken for it (WT353, 2026-10-10); the verification says the state.
+      const ms = Date.now() - started;
+      store.record(id!, {
+        kind: 'send', actor: 'wt-builder',
+        summary: overrode
+          ? `Send finished in ${took(ms)} — buttondown (updated while "${overrode}", by override; status unchanged)`
+          : `Send finished in ${took(ms)} — buttondown: saved as a draft; scheduling it is Buttondown's`,
+        data: { dest: 'buttondown', outcome: 'finished', ms, ...(overrode ? { override: overrode } : {}) },
+      });
       verifyAfterSend(id!, 'buttondown');
       return { issue: row?.doc, send: state, images };
     } catch (err) {
@@ -1914,7 +2071,7 @@ const routes: [RegExp, string, (ctx: Ctx, params: string[]) => Promise<unknown>]
         external_id: draftId,
       };
       store.recordSend(id!, destination, state);
-      store.logEvent(id!, 'send', `Send failed — buttondown: ${state.error}`);
+      store.record(id!, { kind: 'send', actor: 'wt-builder', summary: `Send failed — buttondown: ${state.error}`, data: { dest: 'buttondown', outcome: 'failed' } });
       throw new HttpError(502, state.error!);
     } finally {
       release();
@@ -1983,7 +2140,7 @@ function waitingGate(id: string, doc: IssueDoc, anchor: string, force: boolean):
   if (!force) {
     throw new HttpError(409, `${unit.title} is waiting on ${on}. Finish ${unit.waiting_on.length === 1 ? 'it' : 'them'} first, or draft anyway.`, 'waiting');
   }
-  store.logEvent(id, 'edit', `Override — drafted ${unit.title} before ${unit.waiting_on.map((w) => w.name).join(', ')} ${unit.waiting_on.length === 1 ? 'was' : 'were'} done`, anchor);
+  store.record(id, { kind: 'wand', anchor, data: { override: 'waiting' }, summary: `Override — drafted ${unit.title} before ${unit.waiting_on.map((w) => w.name).join(', ')} ${unit.waiting_on.length === 1 ? 'was' : 'were'} done` });
 }
 
 async function linksGate(id: string, destination: Destination, force: boolean): Promise<void> {
@@ -1996,11 +2153,11 @@ async function linksGate(id: string, destination: Destination, force: boolean): 
   if (!dead.length) return;
   if (!force) {
     const message = `${dead.length} dead link${dead.length === 1 ? '' : 's'} in the issue: ${dead.slice(0, 3).join(', ')}${dead.length > 3 ? ', …' : ''}. Fix ${dead.length === 1 ? 'it' : 'them'} in the inspector, keep ${dead.length === 1 ? 'it' : 'them'}, or send anyway.`;
-    store.logEvent(id, 'send', `Send refused — ${destination}: ${message}`);
+    store.record(id, { kind: 'send', summary: `Send refused — ${destination}: ${message}`, data: { dest: destination, outcome: 'refused' } });
     throw new Refusal(409, message, 'dead_links');
   }
   savedFresh(id, (d) => acceptLinks(d, dead));
-  store.logEvent(id, 'send', `Override — ${destination}: sent with ${dead.length} dead link${dead.length === 1 ? '' : 's'}`);
+  store.record(id, { kind: 'send', summary: `Override — ${destination}: sent with ${dead.length} dead link${dead.length === 1 ? '' : 's'}`, data: { dest: destination, override: 'dead_links', count: dead.length } });
 }
 
 /**
@@ -2025,11 +2182,11 @@ async function domainsGate(id: string, force: boolean): Promise<void> {
   const names = listed.map((d) => `${d.domain} (${(d.result?.lists ?? []).join('; ')})`);
   if (!force) {
     const message = `${listed.length} domain${listed.length === 1 ? '' : 's'} in the email ${listed.length === 1 ? 'is' : 'are'} on a spam blocklist: ${names.slice(0, 3).join(', ')}${names.length > 3 ? ', …' : ''}. Filters may send the whole issue to spam. Remove the link, or send anyway.`;
-    store.logEvent(id, 'send', `Send refused — buttondown: ${message}`);
+    store.record(id, { kind: 'send', summary: `Send refused — buttondown: ${message}`, data: { dest: 'buttondown', outcome: 'refused' } });
     throw new Refusal(409, message, 'listed_domains');
   }
   savedFresh(id, (d) => acceptDomains(d, listed.map((x) => x.domain)));
-  store.logEvent(id, 'send', `Override — buttondown: sent with ${names.join(', ')} on a blocklist`);
+  store.record(id, { kind: 'send', summary: `Override — buttondown: sent with ${names.join(', ')} on a blocklist`, data: { dest: 'buttondown', override: 'blocklist', domains: names } });
 }
 
 async function sendWebsite(id: string, force = false) {
@@ -2048,7 +2205,7 @@ async function sendWebsite(id: string, force = false) {
     throw new HttpError(409, noAudioYet(doc.sends?.podcast));
   }
   const release = claimLeg(id, 'website');
-  if (noAudio) store.logEvent(id, 'send', 'Override — website: committed with no podcast audio');
+  if (noAudio) store.record(id, { kind: 'send', summary: 'Override — website: committed with no podcast audio', data: { dest: 'website', override: 'no_audio' } });
   try {
     // The page must not hotlink: every image the issue references is on the CDN
     // before the page is rendered (content-addressed; a second run is free).
@@ -2079,10 +2236,11 @@ async function sendWebsite(id: string, force = false) {
     if (row?.doc.draft_share) {
       try {
         await draftShare.unshare(row.doc);
-        savedFresh(id, (d) => { delete d.draft_share; });
-        store.logEvent(id, 'send', 'Draft share retired — the issue published');
+        savedFresh(id, (d) => { delete d.draft_share; }, [{
+          kind: 'share', actor: 'wt-builder', summary: 'Draft share retired — the issue published', data: { destination: 'draft', action: 'retire' },
+        }]);
       } catch (e) {
-        console.warn(`[share] retiring the draft share failed: ${(e as Error).message}`);
+        log.warn(`[share] ${id} retiring the draft share failed: ${(e as Error).message}`);
       }
     }
 
@@ -2131,7 +2289,7 @@ async function sendPodcast(id: string, force = false) {
   const unapproved = scriptUnapproved(doc);
   if (unapproved && !force) throw new HttpError(409, unapproved);
   const release = claimLeg(id, 'podcast');
-  if (unapproved) store.logEvent(id, 'send', `Override — podcast: synthesized without approval (${unapproved.split(' — ')[0]})`);
+  if (unapproved) store.record(id, { kind: 'send', summary: `Override — podcast: synthesized without approval (${unapproved.split(' — ')[0]})`, data: { dest: 'podcast', override: 'unapproved' } });
   try {
     // Blocks, not a flat script: each is synthesized in its speaker's voice
     // and placed with the pause its boundary calls for.
@@ -2267,12 +2425,12 @@ function guardEdge(req: IncomingMessage, method: string, pathname: string): void
   const port = listeningPort();
   const misdirected = edge.hostRefusal(req.headers, edge.allowedHosts(port, config.allowedHosts));
   if (misdirected) {
-    console.warn(`[edge] 421 ${method} ${pathname}: ${misdirected}`);
+    log.warn(`[edge] 421 ${method} ${pathname}: ${misdirected}`);
     throw new HttpError(421, misdirected);
   }
   const refusal = edge.crossSiteRefusal(method, req.headers, edge.allowedOrigins(port), config.allowedOrigins);
   if (refusal) {
-    console.warn(`[edge] 403 ${method} ${pathname}: ${refusal}`);
+    log.warn(`[edge] 403 ${method} ${pathname}: ${refusal}`);
     throw new HttpError(403, refusal);
   }
 }
@@ -2302,7 +2460,7 @@ const mcpDeps: McpDeps = {
   read: readRoute,
   scriptHash: (doc) => scriptHash(audioScript(doc)),
   linkedBefore: (url, issue) => linkedBefore(url, issue, store.listIssues()),
-  log: (line) => console.log(line),
+  log: (line) => log.info(line),
 };
 
 const server = createServer(async (req, res) => {
@@ -2347,7 +2505,7 @@ const server = createServer(async (req, res) => {
   } catch (err) {
     const status = err instanceof HttpError ? err.status : 500;
     const message = (err as Error).message ?? 'unknown error';
-    if (status >= 500) console.error(`[${method} ${url?.pathname ?? req.url}] ${message}`);
+    if (status >= 500) log.error(`[${method} ${url?.pathname ?? req.url}] ${message}`);
     const code = err instanceof HttpError ? err.code : undefined;
     json(res, status, code ? { error: message, code } : { error: message });
   }
@@ -2366,8 +2524,8 @@ if (isMain !== false) {
     // Only once it is serving: a failure to boot (the offline guard refusing
     // the live database, a port in use) must still exit.
     logStrayErrors();
-    console.log(`WT Builder on http://${config.host}:${config.port}`);
-    for (const [k, v] of Object.entries(describeConfig())) console.log(`  ${k}: ${v}`);
+    // One line: the config dump was fifteen, at every restart, and half the log.
+    log.info(`[boot] WT Builder on http://${config.host}:${config.port} — ${Object.entries(describeConfig()).map(([k, v]) => `${k}: ${v}`).join(', ')}`);
     void finishStrandedWrites();
     resumeRechecks();
   });
@@ -2383,10 +2541,10 @@ if (isMain !== false) {
  */
 export function logStrayErrors(proc: Pick<NodeJS.Process, 'on'> = process): void {
   proc.on('uncaughtException', (err: Error) => {
-    console.error(`[process] uncaught exception, still running: ${err?.stack ?? err}`);
+    log.error(`[process] uncaught exception, still running: ${err?.stack ?? err}`);
   });
   proc.on('unhandledRejection', (reason: unknown) => {
-    console.error(`[process] unhandled rejection, still running: ${(reason as Error)?.stack ?? reason}`);
+    log.error(`[process] unhandled rejection, still running: ${(reason as Error)?.stack ?? reason}`);
   });
 }
 
@@ -2405,10 +2563,9 @@ export async function finishStrandedWrites(): Promise<void> {
     for (const [itemId, item] of Object.entries(row.doc.items)) {
       if (item.sync_state !== 'syncing') continue;
       try {
-        const { result } = await writeBack(row.id, itemId);
-        store.logEvent(row.id, 'sync', `Finished after restart — ${result.sync_state} — ${issues.itemName(item)}`);
+        await writeBack(row.id, itemId, { after_restart: true });
       } catch (e) {
-        console.warn(`[boot] stranded write for ${row.id}/${itemId} failed: ${(e as Error).message}`);
+        log.warn(`[boot] ${row.id} stranded write for ${itemId} failed: ${(e as Error).message}`);
       }
     }
   }

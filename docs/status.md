@@ -257,9 +257,11 @@ finished, what is half-finished, and what has never run.
   `doc.verify`, never in a revision. Code: `src/server/verify.ts`.
 - **Issue timing** (2026-09-26) — `GET /api/issues/:id/timing`: how long the
   issue took, from its event log (`src/shared/timing.ts`): Jamie's own acts
-  only, sittings split at 30 min, the last "Published" as the real one,
+  only (`actor: jamie` since v6, so a write-back that followed his edit is
+  not his time), sittings split at 30 min, the last "Published" as the real one,
   same-day fixing after it, time by section (events carry an `anchor` item id
-  since schema v4; older ones match by name). Beside it, the Builder issue
+  since schema v4; older ones match by name), and the wands: presses,
+  failures, picks used, seconds waiting (from 2026-10-11 on). Beside it, the Builder issue
   before and what shipped in WT Builder between the two (git log of `src/`).
   Send view panel, design D since 2026-10-04 (`src/client/made-in.ts`: stats,
   one stacked bar, a tile per day, no clock times); `made in …` on the index row. WT350 3 h 12 m + 57 m fixing;
@@ -607,13 +609,23 @@ finished, what is half-finished, and what has never run.
   skipped when the editor opens under the Send view (a link to
   `/<id>/send`), when it is uncovered from it, and once any leg has been
   sent or is out, so the legs of a run render the same issue (2026-09-28).
-- **Event log** (2026-08-30) — every action on an issue is narrated to an
+- **Event log** (2026-08-30; the record since migration v6, 2026-10-11,
+  `docs/event-log.md`) — every action on an issue is narrated to an
   append-only `events` table (its own table; the document rewrites wholesale
   on every save): sweep arrivals, source-side refreshes/gone/conflicts,
-  edits, outline changes, channel flips, settings, write-backs, review runs,
-  and sends. `GET /api/issues/:id/events`, newest first; the **Log** button
-  on the meta card opens it as a sheet. Quiet re-scans (nothing changed) log
-  nothing, so the auto-scan on open cannot bury the signal.
+  edits, outline changes, channel flips, settings, decisions about a source,
+  write-backs, wand drafts (offered or failed, with how long they took),
+  review runs, sends, and verifications whose status moved. Each event has
+  an `actor` (`jamie`, `wt-builder`, `source`), an `anchor` and `data`, and
+  is written in the transaction of the save it narrates.
+  `GET /api/issues/:id/events`, newest first (`?all=1` all of it, `?item=<id>`
+  one item's history); the **Log** button on the meta card opens it as a
+  sheet, with **Only what you did**; the Inspector's **History** shows one
+  item's. `PATCH /items/:id?via=wand` and `POST /settings?via=wand` mark a
+  pick from a wand's drafts. Quiet re-scans (nothing changed) and rechecks
+  that agree log nothing, so neither buries the signal. The service log
+  (`src/server/log.ts`) starts every line with its UTC instant and level,
+  and an error that goes with an event names it (`(event N)`).
 
 - **Ordering wand** (2026-09-20) — a wand on the Notable and Briefly headings
   asks the model for a sequence that reads better than bookmark order; the

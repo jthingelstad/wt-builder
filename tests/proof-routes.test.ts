@@ -156,7 +156,7 @@ describe('POST /proof — apply', () => {
     expect(res.status).toBe(200);
     expect(store.getIssue(id)!.doc.issue.title).toBe('The Weekly Thing');
     expect(res.body.applied).toEqual({ item_id: null, field: 'issue.title', offset: 11 });
-    expect(events(id)).toContainEqual({ kind: 'settings', summary: 'Settings — title: Applied proof fix "Thnig" → "Thing"', anchor: null });
+    expect(events(id)).toContainEqual({ kind: 'settings', summary: 'Settings — title: Applied proof fix "Thnig" → "Thing"', anchor: 'issue' });
   });
 });
 
@@ -231,6 +231,6 @@ describe('POST /proof — write-back, as a hand edit', () => {
     expect(adds[0]!.get('extended')).toBe('These kinds of tools matter.');
     expect(adds[0]!.get('shared')).toBe('yes');
     expect(store.getIssue(id)!.doc.items['link-one']!.sync_state).toBe('synced');
-    expect(events(id).map((e) => e.kind)).toEqual(expect.arrayContaining(['edit', 'sync']));
+    expect(events(id).map((e) => e.kind)).toEqual(expect.arrayContaining(['edit', 'write']));
   });
 });

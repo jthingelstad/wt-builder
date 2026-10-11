@@ -29,6 +29,7 @@ import { emailDomains, type EmailDomain } from '../shared/deliverability.ts';
 import { applyLinkCheck, checkLinks, pagesHandedIn } from './link-check.ts';
 import { applyDomainCheck, checkDomains, dnsHandedIn } from './domain-check.ts';
 import { OFFLINE } from './config.ts';
+import { log } from './log.ts';
 
 const HOUR = 3_600_000;
 
@@ -51,7 +52,7 @@ export interface ArrivalDeps {
   read(id: string): IssueDoc | undefined;
   /** Apply a change to a fresh read and save it, synchronously; undefined when it must not be saved. */
   apply(id: string, change: (doc: IssueDoc) => IssueDoc): IssueDoc | undefined;
-  log(id: string, text: string): void;
+  log(id: string, text: string, data?: Record<string, unknown>): void;
 }
 
 let deps: ArrivalDeps | undefined;
@@ -131,7 +132,7 @@ function run(id: string): Promise<void> {
       await once(id);
     } while (again.has(id));
   })()
-    .catch((err) => console.error(`[links] the check on arrival failed for ${id}: ${(err as Error).message}`))
+    .catch((err) => log.error(`[links] ${id} the check on arrival failed: ${(err as Error).message}`))
     .finally(() => running.delete(id));
   running.set(id, p);
   return p;
@@ -189,5 +190,5 @@ async function once(id: string): Promise<void> {
     domains.length && `${domains.length} domain${domains.length === 1 ? '' : 's'}`,
   ].filter(Boolean).join(', ');
   const said = [found, listed.length && `${listed.join(', ')} on a spam blocklist`].filter(Boolean).join('; ');
-  deps!.log(id, `Checked as they arrived — ${what}: ${said || 'nothing to act on'}`);
+  deps!.log(id, `Checked as they arrived — ${what}: ${said || 'nothing to act on'}`, { links: urls.length, domains: domains.length, listed });
 }

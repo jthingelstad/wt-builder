@@ -7,30 +7,40 @@
 import { useEffect, useState } from 'preact/hooks';
 
 import { api } from '../api.ts';
+import type { EventActor, EventKind, IssueEvent } from '../../shared/events.ts';
 
-interface Ev {
-  id: number;
-  at: string;
-  kind: string;
-  summary: string;
-}
-
-/** Chip text per kind — words, not codes. */
-const KIND: Record<string, string> = {
+/** Chip text per kind — words, not codes. Every kind has one (the type says so). */
+export const KIND: Record<EventKind, string> = {
   issue: 'issue',
   sweep: 'scan',
   'swept-in': 'in',
   refreshed: 'refresh',
-  gone: 'gone',
   conflict: 'conflict',
+  gone: 'gone',
+  dropped: 'dropped',
+  kept: 'kept',
+  'held-out': 'held out',
+  'put-back': 'put back',
+  moved: 'moved',
   edit: 'edit',
   structure: 'outline',
   channels: 'channels',
   settings: 'settings',
-  sync: 'write',
-  send: 'send',
+  source: 'source',
+  write: 'write',
+  links: 'links',
   review: 'review',
-  draft: 'wand',
+  wand: 'wand',
+  send: 'send',
+  verify: 'verify',
+  share: 'share',
+};
+
+/** Who, for a row that is not Jamie's own act. */
+export const ACTOR: Record<EventActor, string> = {
+  jamie: 'You',
+  'wt-builder': 'WT Builder',
+  source: 'The source',
 };
 
 function when(at: string): string {
@@ -47,7 +57,10 @@ export function EventLog({ issueId, number, onClose }: {
   number: number;
   onClose: () => void;
 }) {
-  const [events, setEvents] = useState<Ev[] | null>(null);
+  const [events, setEvents] = useState<IssueEvent[] | null>(null);
+  // Jamie's own acts only: the service's write-backs, verifications and
+  // scans are most of a long log.
+  const [mine, setMine] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
@@ -74,15 +87,21 @@ export function EventLog({ issueId, number, onClose }: {
             <p class="quiet">Nothing yet. Actions land here as they happen.</p>
           )}
           {events && events.length > 0 && (
-            <div class="log-list">
-              {events.map((e) => (
-                <div key={e.id} class="log-row">
-                  <span class="log-when">{when(e.at)}</span>
-                  <span class="log-kind">{KIND[e.kind] ?? e.kind}</span>
-                  <span class="log-what">{e.summary}</span>
-                </div>
-              ))}
-            </div>
+            <>
+              <label class="log-filter">
+                <input type="checkbox" checked={mine} onChange={(e) => setMine((e.target as HTMLInputElement).checked)} />
+                {' '}Only what you did
+              </label>
+              <div class="log-list">
+                {events.filter((e) => !mine || e.actor === 'jamie').map((e) => (
+                  <div key={e.id} class={`log-row${e.actor === 'jamie' ? '' : ' auto'}`}>
+                    <span class="log-when">{when(e.at)}</span>
+                    <span class="log-kind" title={ACTOR[e.actor]}>{KIND[e.kind] ?? e.kind}</span>
+                    <span class="log-what">{e.summary}</span>
+                  </div>
+                ))}
+              </div>
+            </>
           )}
         </div>
         <div class="sheet-foot">

@@ -38,6 +38,7 @@ import { config, credentials } from '../config.ts';
 import { CDN_HOST } from './images.ts';
 import { buildCover, coverSource, squareArt } from './cover.ts';
 import { subjectFor } from '../publish.ts';
+import { log } from '../log.ts';
 
 export const TTS_MODEL = 'tts-1-hd';
 export const TTS_VOICE = 'echo';
@@ -619,7 +620,7 @@ export async function renderAudio(
       blocks = [...blocks.slice(0, i), welded, ...blocks.slice(i + 2)];
       spoken = [...spoken.slice(0, i), piece, ...spoken.slice(i + 2)];
       synthesized += piece.fresh ? 1 : 0;
-      console.warn(`[audio] silent piece welded onto the next: ${JSON.stringify(welded.text.slice(0, 60))}`);
+      log.warn(`[audio] silent piece welded onto the next: ${JSON.stringify(welded.text.slice(0, 60))}`);
     }
 
     // 2. Each piece to PCM at the synthesizer's rate, its own dead air

@@ -33,6 +33,7 @@ const wt352: IssueTiming = {
   publishedAt: '2026-10-04T16:15:36.423Z',
   sendMs: 3 * M,
   after: { actions: 3, sends: 1, ms: 0 },
+  wands: { calls: 0, failed: 0, used: 0, ms: 0 },
   bySection: [
     ['Notable', 54], ['Briefly', 20], ['Currently', 12], ['Journal', 9], ['Review & send', 8], ['Intro', 5],
     ['Other', 4], ['Photo', 3], ['Membership', 3], ['Haiku', 3], ['Echoes', 2], ['Outro', 1], ['Title & dek', 0.4],

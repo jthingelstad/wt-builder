@@ -184,8 +184,12 @@ describe('the Echoes route', () => {
 
     // Logged on the section, so the log and the MCP's changes show it; the
     // draft's words are gone from /drafting once it has answered.
-    const failed = store.listEvents('wt360').find((e) => e.kind === 'draft');
-    expect(failed).toMatchObject({ anchor: 'echoes', summary: 'Draft failed: The archive was too busy to answer. Try Echoes again in a minute. — Echoes' });
+    const failed = store.listEvents('wt360').find((e) => e.kind === 'wand');
+    expect(failed).toMatchObject({
+      anchor: 'echoes', actor: 'jamie',
+      summary: 'Draft failed: The archive was too busy to answer. Try Echoes again in a minute. — Echoes',
+      data: expect.objectContaining({ wand: 'echoes_section', outcome: 'failed', ms: expect.any(Number) }),
+    });
     expect(((await (await fetch(`${base}/api/issues/wt360/drafting`)).json()) as { drafting: unknown }).drafting).toBeNull();
   });
 
@@ -202,7 +206,7 @@ describe('the Echoes route', () => {
     });
     const out = await res.json() as { error: string };
     expect(out.error).toBe("The draft didn't come back: the model was too busy. Try again in a minute.");
-    expect(store.listEvents('wt360').find((e) => e.kind === 'draft')?.summary).toContain('the model was too busy');
+    expect(store.listEvents('wt360').find((e) => e.kind === 'wand')?.summary).toContain('the model was too busy');
   });
 });
 
@@ -256,6 +260,14 @@ describe('the link wand', () => {
     const out = await res.json() as { linked_before?: unknown };
     expect(out.linked_before).toBeUndefined();
     expect(String(create.mock.calls[0]![0].messages[0].content)).not.toContain('was in the Weekly Thing before');
+
+    // A wand that comes back is logged too, on its item, with what it
+    // offered and how long it took: it is Jamie's press (2026-10-11).
+    expect(store.listEvents('wt380').find((e) => e.kind === 'wand' && e.anchor === 'link-functions')).toMatchObject({
+      actor: 'jamie',
+      summary: expect.stringMatching(/^Wand offered 2 drafts in .+ — /),
+      data: { wand: 'pinboard_link', outcome: 'offered', offered: 2, ms: expect.any(Number) },
+    });
   });
 });
 

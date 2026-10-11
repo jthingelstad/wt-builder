@@ -250,7 +250,7 @@ describe('every model call says why it failed', () => {
     create.mockResolvedValue(cutOff);
     const warn = vi.spyOn(console, 'warn').mockImplementation(() => {});
     await expect(review({ doc: fixture() })).rejects.toThrow('the review failed; your previous notes are untouched');
-    expect(warn.mock.calls.map((c) => String(c[0]))).toEqual([
+    expect(warn.mock.calls.map((c) => String(c[0]).replace(/^\S+Z WARN  /, ''))).toEqual([
       '[review] proof pass failed: the review ran out of room — try again',
       '[review] judgement pass failed: the review ran out of room — try again',
     ]);

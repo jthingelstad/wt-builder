@@ -1,4 +1,4 @@
-import { useEffect } from 'preact/hooks';
+import { useEffect, useState } from 'preact/hooks';
 
 import type { IssueDoc, Item } from '../../shared/types.ts';
 import { CHANNELS } from '../../shared/types.ts';
@@ -7,6 +7,8 @@ import { edited, Input, useFieldValue } from './Field.tsx';
 import { isFrozen } from './Page.tsx';
 import { actionOf, giftLine, linkFindings, worthSuggesting, type LinkFinding } from '../../shared/link-findings.ts';
 import { haikuHint, titleHint, unfinishedHint } from '../../shared/hints.ts';
+import type { IssueEvent } from '../../shared/events.ts';
+import { ACTOR, KIND } from './EventLog.tsx';
 
 interface Props {
   doc: IssueDoc;
@@ -489,6 +491,8 @@ export function Inspector({ doc, itemId, run, onClose, onError, onBackToReview, 
         </>
       ) : null}
 
+      <History issueId={id} itemId={itemId} doc={doc} />
+
       <div class="panel-actions">
         {!frozen && (
           <button
@@ -538,5 +542,35 @@ function PhotoFields({
         </div>
       ))}
     </>
+  );
+}
+
+/**
+ * The item's own events, newest first: who changed it and when — an edit, a
+ * pick from the wand, a fork, a write-back, a re-scan that refreshed it. Read
+ * again whenever the issue is saved, which is when a new event can land.
+ */
+function History({ issueId, itemId, doc }: { issueId: string; itemId: string; doc: IssueDoc }) {
+  const [events, setEvents] = useState<IssueEvent[] | null>(null);
+  useEffect(() => {
+    let live = true;
+    api.events(issueId, itemId).then((r) => { if (live) setEvents(r.events); }).catch(() => { if (live) setEvents(null); });
+    return () => { live = false; };
+  }, [issueId, itemId, doc]);
+  if (!events?.length) return null;
+  const when = (at: string) => new Date(at).toLocaleString('en-US', { month: 'short', day: 'numeric', hour: 'numeric', minute: '2-digit' });
+  return (
+    <details class="history">
+      <summary><h3>History</h3> <span class="quiet">{events.length}</span></summary>
+      <div class="log-list history-list">
+        {events.slice(0, 20).map((e) => (
+          <div key={e.id} class={`log-row${e.actor === 'jamie' ? '' : ' auto'}`}>
+            <span class="log-when">{when(e.at)}</span>
+            <span class="log-kind" title={ACTOR[e.actor]}>{KIND[e.kind] ?? e.kind}</span>
+            <span class="log-what">{e.actor === 'jamie' ? '' : `${ACTOR[e.actor]}: `}{e.summary}</span>
+          </div>
+        ))}
+      </div>
+    </details>
   );
 }

@@ -19,6 +19,8 @@ import type {
   ItemType,
 } from '../shared/types.ts';
 import { SCHEMA_VERSION, allChannels, emptyChannels } from '../shared/types.ts';
+import type { EventInput } from '../shared/events.ts';
+import { log as serviceLog } from './log.ts';
 import { type Window, addDays, instantOf, issueWindow, issueSaturday } from '../shared/dates.ts';
 import { bodyLines, orderedNodes, outOfWindow, windowOf } from '../shared/render/plan.ts';
 import { applyDependencies, sectionOf, type Section, type WaitingOn } from '../shared/dependencies.ts';
@@ -151,7 +153,7 @@ export interface SweepReport {
   window: { from: string; to: string };
   candidates: Candidate[];
   /** One line per thing that happened, for the issue's event log. */
-  log: { kind: string; summary: string }[];
+  log: EventInput[];
 }
 
 /** A short human handle for an item, for log lines and reports. */
@@ -215,13 +217,13 @@ export async function fetchForSweep(doc: IssueDoc, skipPosts: string[] = []): Pr
   );
   const [links, posts] = await Promise.all([
     pinboard.sweepPinboard(window).catch((e) => {
-      console.warn(`[sweep] Pinboard failed: ${(e as Error).message}`);
+      serviceLog.warn(`[sweep] Pinboard failed: ${(e as Error).message}`);
       return [] as Candidate[];
     }),
     // A blog post a share made announces an issue: never Journal (skipPosts,
     // the route passes sharedBlogUrls; docs/share-plan.md).
     microblog.sweepMicroblog(window, skipPosts).catch((e) => {
-      console.warn(`[sweep] Micro.blog failed: ${(e as Error).message}`);
+      serviceLog.warn(`[sweep] Micro.blog failed: ${(e as Error).message}`);
       return [] as Candidate[];
     }),
   ]);
@@ -230,7 +232,7 @@ export async function fetchForSweep(doc: IssueDoc, skipPosts: string[] = []): Pr
   try {
     mb = await microblog.remoteIndex();
   } catch (e) {
-    console.warn(`[sweep] Micro.blog reconcile skipped: ${(e as Error).message}`);
+    serviceLog.warn(`[sweep] Micro.blog reconcile skipped: ${(e as Error).message}`);
   }
 
   // Only what the window will keep is worth a round trip — plus a fallen-out
@@ -245,7 +247,7 @@ export async function fetchForSweep(doc: IssueDoc, skipPosts: string[] = []): Pr
     try {
       bookmarks.set(item.source_url, await pinboard.fetchBookmark(item.source_url));
     } catch (e) {
-      console.warn(`[sweep] Pinboard reconcile skipped for ${item.source_url}: ${(e as Error).message}`);
+      serviceLog.warn(`[sweep] Pinboard reconcile skipped for ${item.source_url}: ${(e as Error).message}`);
     }
     if (!item.published_at) {
       const time = await pinboard.captureTime(item.source_url);
@@ -274,7 +276,7 @@ export function applySweep(doc: IssueDoc, fetched: SweepFetch): { doc: IssueDoc;
   let added = 0;
   let skipped = 0;
   const justAdded = new Set<string>();
-  const log: { kind: string; summary: string }[] = [];
+  const log: EventInput[] = [];
 
   for (const c of links) {
     // Excluded at Pinboard: not in the issue, by Jamie's hand.
@@ -295,7 +297,7 @@ export function applySweep(doc: IssueDoc, fetched: SweepFetch): { doc: IssueDoc;
     next.items[id] = item;
     placeInto(next, id, item.section ?? pinboard.DEFAULT_LINK_SECTION);
     justAdded.add(id);
-    log.push({ kind: 'swept-in', summary: `${itemName(item)} — Pinboard, into ${item.section ?? pinboard.DEFAULT_LINK_SECTION}` });
+    log.push({ kind: 'swept-in', anchor: id, summary: `${itemName(item)} — Pinboard, into ${item.section ?? pinboard.DEFAULT_LINK_SECTION}`, data: { source: 'Pinboard' } });
     added++;
   }
 
@@ -306,7 +308,7 @@ export function applySweep(doc: IssueDoc, fetched: SweepFetch): { doc: IssueDoc;
     next.items[id] = item;
     placeInto(next, id, 'Journal');
     justAdded.add(id);
-    log.push({ kind: 'swept-in', summary: `${itemName(item)} — Micro.blog, into Journal` });
+    log.push({ kind: 'swept-in', anchor: id, summary: `${itemName(item)} — Micro.blog, into Journal`, data: { source: 'Micro.blog' } });
     added++;
   }
 
@@ -363,12 +365,12 @@ export function applySweep(doc: IssueDoc, fetched: SweepFetch): { doc: IssueDoc;
     const outcome = reconcileItem(item, remote);
     if (outcome === 'refreshed') {
       reconciled.refreshed++;
-      log.push({ kind: 'refreshed', summary: `${itemName(item)} — adopted the ${item.source} edit` });
+      log.push({ kind: 'refreshed', anchor: id, summary: `${itemName(item)} — adopted the ${item.source} edit`, data: { source: item.source } });
     } else if (outcome === 'gone') {
       reconciled.gone++;
     } else if (outcome === 'conflict') {
       reconciled.conflicts++;
-      log.push({ kind: 'conflict', summary: `${itemName(item)} — edited both here and at ${item.source}` });
+      log.push({ kind: 'conflict', anchor: id, summary: `${itemName(item)} — edited both here and at ${item.source}`, data: { source: item.source } });
     }
   }
 
@@ -414,21 +416,21 @@ const UNSYNCED: ReadonlySet<string> = new Set(['local', 'syncing', 'failed', 'co
  * except an edit that has not written back yet, and that item is kept and
  * named in the log. Mutates `doc`; returns the log lines.
  */
-export function pruneOutsideWindow(doc: IssueDoc): { kind: string; summary: string }[] {
+export function pruneOutsideWindow(doc: IssueDoc): EventInput[] {
   const w = issueWindow(doc.issue.publication_date, doc.issue.window_days);
-  const log: { kind: string; summary: string }[] = [];
+  const log: EventInput[] = [];
   const dropped = new Set<string>();
 
   for (const [id, item] of Object.entries(doc.items)) {
     if (!outOfWindow(item, w)) continue;
     if (UNSYNCED.has(item.sync_state ?? '')) {
-      log.push({ kind: 'kept', summary: item.sync_state === 'forked'
+      log.push({ kind: 'kept', anchor: id, data: { why: item.sync_state === 'forked' ? 'forked' : 'unsynced' }, summary: item.sync_state === 'forked'
         ? `${itemName(item)} — outside the window, kept: it is the newsletter's own copy`
         : `${itemName(item)} — outside the window, kept: an edit here has not reached ${item.source}` });
       continue;
     }
     dropped.add(id);
-    log.push({ kind: 'dropped', summary: `${itemName(item)} — outside the window` });
+    log.push({ kind: 'dropped', anchor: id, summary: `${itemName(item)} — outside the window`, data: { why: 'window' } });
   }
   dropItems(doc, dropped);
   return log;
@@ -459,13 +461,13 @@ function dropItems(doc: IssueDoc, dropped: Set<string>): void {
  * sitting in the issue until removed a second time by hand. The words are
  * one row away in `revisions` if the deletion was a slip. Mutates `doc`.
  */
-export function pruneGone(doc: IssueDoc): { kind: string; summary: string }[] {
-  const log: { kind: string; summary: string }[] = [];
+export function pruneGone(doc: IssueDoc): EventInput[] {
+  const log: EventInput[] = [];
   const dropped = new Set<string>();
   for (const [id, item] of Object.entries(doc.items)) {
     if (item.sync_state !== 'gone') continue;
     dropped.add(id);
-    log.push({ kind: 'dropped', summary: `${itemName(item)} — deleted at ${item.source}` });
+    log.push({ kind: 'dropped', actor: 'source', anchor: id, summary: `${itemName(item)} — deleted at ${item.source}`, data: { why: 'deleted', source: item.source } });
   }
   dropItems(doc, dropped);
   return log;
@@ -490,8 +492,8 @@ export function pruneGone(doc: IssueDoc): { kind: string; summary: string }[] {
 export function followBookmarkTags(
   doc: IssueDoc,
   skip: Set<string> = new Set(),
-): { kind: string; summary: string }[] {
-  const log: { kind: string; summary: string }[] = [];
+): EventInput[] {
+  const log: EventInput[] = [];
   const norm = (v: unknown) => (Array.isArray(v) ? [...v].sort().join(' ') : String(v ?? '')).trim();
   for (const [id, item] of Object.entries(doc.items)) {
     if (item.type !== 'pinboard_link' || item.source !== 'Pinboard' || skip.has(id)) continue;
@@ -514,7 +516,7 @@ export function followBookmarkTags(
       if (!item.section) item.section = here.label;
       item.excluded = true;
       doc.orphans = [...(doc.orphans ?? []), id];
-      log.push({ kind: 'held-out', summary: `${itemName(item)} — _exclude at Pinboard` });
+      log.push({ kind: 'held-out', anchor: id, summary: `${itemName(item)} — _exclude at Pinboard` });
       continue;
     }
     if (!excludedAtSource && heldOut && item.excluded) {
@@ -524,7 +526,7 @@ export function followBookmarkTags(
       delete item.excluded;
       dest.items.push(id);
       item.section = implied;
-      log.push({ kind: 'put-back', summary: `${itemName(item)} — _exclude came off at Pinboard, into ${implied}` });
+      log.push({ kind: 'put-back', anchor: id, summary: `${itemName(item)} — _exclude came off at Pinboard, into ${implied}`, data: { to: implied } });
       continue;
     }
 
@@ -536,7 +538,7 @@ export function followBookmarkTags(
     here.items = here.items.filter((i) => i !== id);
     dest.items.push(id);
     item.section = implied;
-    log.push({ kind: 'moved', summary: `${itemName(item)} — ${from} → ${implied}, following the bookmark` });
+    log.push({ kind: 'moved', anchor: id, summary: `${itemName(item)} — ${from} → ${implied}, following the bookmark`, data: { from, to: implied } });
   }
   return log;
 }

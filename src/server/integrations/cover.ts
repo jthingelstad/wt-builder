@@ -25,6 +25,7 @@ import type { IssueDoc } from '../../shared/types.ts';
 import { planEdition } from '../../shared/render/plan.ts';
 import { config } from '../config.ts';
 import { CDN_HOST } from './images.ts';
+import { log } from '../log.ts';
 
 /** The archive page's social card. */
 export const BANNER_WIDTH = 1200;
@@ -77,7 +78,7 @@ async function sourceBytes(url: string | null): Promise<{ bytes: Buffer; from: s
       return { bytes: Buffer.from(await res.arrayBuffer()), from: url, fallback: false };
     }
     const why = res instanceof Error ? res.message : res.status;
-    console.warn(`[cover] could not fetch ${url}: ${why}; falling back to show art, and leaving any live banner as it is`);
+    log.warn(`[cover] could not fetch ${url}: ${why}; falling back to show art, and leaving any live banner as it is`);
   }
   if (!existsSync(SHOW_ART)) {
     throw new Error(
@@ -130,7 +131,7 @@ async function bannerExists(s3: S3Client, issueNumber: number | string): Promise
   } catch (err) {
     const e = err as { name?: string; $metadata?: { httpStatusCode?: number } };
     if (e.name === 'NotFound' || e.$metadata?.httpStatusCode === 404) return false;
-    console.warn(`[cover] could not tell whether ${bannerKey(issueNumber)} exists (${(err as Error).message}); leaving it`);
+    log.warn(`[cover] could not tell whether ${bannerKey(issueNumber)} exists (${(err as Error).message}); leaving it`);
     return true;
   }
 }

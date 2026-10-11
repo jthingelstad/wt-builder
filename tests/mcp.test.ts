@@ -153,7 +153,7 @@ describe('the MCP interface', () => {
 
   it('get_review, list_events, get_timing answer from what is stored', async () => {
     expect((await call('get_review', { issue: 'wt390' })).structuredContent.reviewed).toBe(false);
-    store.logEvent('wt390', 'edit', 'A test edit');
+    store.record('wt390', { kind: 'edit', summary: 'A test edit' });
     const events = (await call('list_events', { issue: 'wt390' })).structuredContent;
     expect(events.events[0].summary).toBe('A test edit');
     const later = (await call('list_events', { issue: 'wt390', since: events.events[0].id })).structuredContent;
@@ -228,7 +228,7 @@ describe('found by adversarial testing (2026-10-04)', () => {
   });
 
   it('a draft share link never reaches the agent', async () => {
-    store.logEvent('wt390', 'send', 'Draft shared — https://files.thingelstad.com/weekly-thing/drafts/wt390-89fa2935fc5c8bd9b55637f3.html');
+    store.record('wt390', { kind: 'share', summary: 'Draft shared — https://files.thingelstad.com/weekly-thing/drafts/wt390-89fa2935fc5c8bd9b55637f3.html' });
     const { events } = (await call('list_events', { issue: 'wt390', limit: 5 })).structuredContent;
     expect(events[0].summary).toBe('Draft shared — [draft share link withheld]');
   });
@@ -277,7 +277,13 @@ describe('found by adversarial testing, round 2 (2026-10-04)', () => {
   });
   const quietly = async <T>(fn: () => Promise<T>) => {
     const lines: string[] = [];
-    const spy = vi.spyOn(console, 'log').mockImplementation((l: unknown) => { lines.push(String(l)); });
+    // Every service-log line starts with its instant and level (log.ts);
+    // the assertions read what follows.
+    const spy = vi.spyOn(console, 'log').mockImplementation((l: unknown) => {
+      const line = String(l);
+      expect(line).toMatch(/^\d{4}-\d\d-\d\dT\d\d:\d\d:\d\d\.\d{3}Z INFO  /);
+      lines.push(line.slice(31));
+    });
     try {
       return { out: await fn(), lines };
     } finally {
@@ -348,7 +354,7 @@ describe('found by adversarial testing, round 2 (2026-10-04)', () => {
 
   it('pages back through an event log longer than 500', async () => {
     draft(385);
-    for (let i = 0; i < 520; i++) store.logEvent('wt385', 'edit', `Edit ${i}`);
+    for (let i = 0; i < 520; i++) store.record('wt385', { kind: 'edit', summary: `Edit ${i}` });
     const seen: number[] = [];
     let before: number | undefined;
     for (;;) {
@@ -362,7 +368,7 @@ describe('found by adversarial testing, round 2 (2026-10-04)', () => {
   });
 
   it('withholds a share link in any spelling, in any field', async () => {
-    store.logEvent('wt390', 'send', 'a https%3A%2F%2Ffiles.thingelstad.com%2Fweekly-thing%2Fdrafts%2Fwt390-89fa2935fc5c8bd9.html b weekly-thing/drafts/wt390-89fa2935fc5c8bd9.htm');
+    store.record('wt390', { kind: 'share', summary: 'a https%3A%2F%2Ffiles.thingelstad.com%2Fweekly-thing%2Fdrafts%2Fwt390-89fa2935fc5c8bd9.html b weekly-thing/drafts/wt390-89fa2935fc5c8bd9.htm', data: { link: 'https://files.thingelstad.com/weekly-thing/drafts/wt390-89fa2935fc5c8bd9.html' } });
     const out = await call('list_events', { issue: 'wt390', limit: 1 });
     expect(out.content[0]!.text).not.toMatch(/89fa2935/);
     expect(JSON.stringify(out.structuredContent)).not.toMatch(/89fa2935/);
@@ -397,13 +403,11 @@ describe('riding along (MCP 1.4.0)', () => {
     await tick();
 
     // Jamie finishes the Intro, which unblocks the Outro, then starts the Outro.
-    store.logEvent('wt371', 'edit', 'Edited body — Intro', 'intro-1');
     doc.items['intro-1']!.body = longIntro;
-    store.saveIssue(doc);
+    store.saveIssue(doc, [{ kind: 'edit', summary: 'Edited body — Intro', anchor: 'intro-1' }]);
     await tick();
-    store.logEvent('wt371', 'edit', 'Edited body — Outro', 'outro-1');
     doc.items['outro-1']!.body = 'So long';
-    store.saveIssue(doc);
+    store.saveIssue(doc, [{ kind: 'edit', summary: 'Edited body — Outro', anchor: 'outro-1' }]);
 
     const s = (await call('get_status', { issue: 'wt371', since: first.cursor })).structuredContent;
     expect(s.cursor).toBeGreaterThan(0);
@@ -590,7 +594,7 @@ describe('prompts', () => {
 describe('logging', () => {
   it('logs every call: the tool, the issue, the outcome, the time, and who asked', async () => {
     const lines: string[] = [];
-    const spy = vi.spyOn(console, 'log').mockImplementation((l: unknown) => { lines.push(String(l)); });
+    const spy = vi.spyOn(console, 'log').mockImplementation((l: unknown) => { lines.push(String(l).replace(/^\S+Z INFO  /, '')); });
     try {
       const c = new Client({ name: 'log-test', version: '9.9' });
       await c.connect(new StreamableHTTPClientTransport(new URL(`${base}/mcp`)));
@@ -612,7 +616,7 @@ describe('logging', () => {
 
   it('logs a refused request with its status', async () => {
     const lines: string[] = [];
-    const spy = vi.spyOn(console, 'log').mockImplementation((l: unknown) => { lines.push(String(l)); });
+    const spy = vi.spyOn(console, 'log').mockImplementation((l: unknown) => { lines.push(String(l).replace(/^\S+Z INFO  /, '')); });
     try {
       await fetch(`${base}/mcp`, { method: 'DELETE' });
     } finally {
@@ -715,5 +719,32 @@ describe('what the MCP interface cannot reach', () => {
     });
     expect(warned).toHaveBeenCalled();
     expect(answer).toMatch(/^HTTP\/1\.1 421/);
+  });
+});
+
+describe('an item\'s history (v6, 2026-10-11)', () => {
+  // The WT353 fork was found only after the fact: nothing read one item's
+  // events, and the sweep's entries named no item.
+  it('get_item carries its history with who did each thing; list_events narrows by item and kind', async () => {
+    draft(396);
+    store.record('wt396', { kind: 'source', anchor: 'journal-boat', summary: 'Forked from Micro.blog — Boat', data: { action: 'fork', source: 'Micro.blog' } });
+    store.record('wt396', { kind: 'refreshed', anchor: 'link-flipcash', summary: 'Refreshed from Pinboard — Flipcash' });
+    store.record('wt396', { kind: 'wand', anchor: 'journal-boat', summary: 'Wand offered 3 drafts in 4.2 s — Boat', data: { wand: 'journal_post', outcome: 'offered', offered: 3, ms: 4200 } });
+
+    const item = (await call('get_item', { issue: 'wt396', item_id: 'journal-boat' })).structuredContent;
+    expect(item.history.map((e: any) => [e.kind, e.actor])).toEqual([['wand', 'jamie'], ['source', 'jamie']]);
+    expect(item.history[1].data).toEqual({ action: 'fork', source: 'Micro.blog' });
+
+    const forks = (await call('list_events', { issue: 'wt396', item: 'journal-boat', kind: ['source'] })).structuredContent;
+    expect(forks.events).toEqual([expect.objectContaining({ kind: 'source', anchor: 'journal-boat', summary: 'Forked from Micro.blog — Boat' })]);
+    const bySource = (await call('list_events', { issue: 'wt396', kind: ['refreshed'] })).structuredContent;
+    expect(bySource.events).toEqual([expect.objectContaining({ actor: 'source', anchor: 'link-flipcash' })]);
+  });
+
+  it('withholds a share link carried in data too', async () => {
+    draft(397);
+    store.record('wt397', { kind: 'share', summary: 'Draft shared', data: { link: 'https://files.thingelstad.com/weekly-thing/drafts/wt397-0123456789abcdef.html' } });
+    const out = await call('list_events', { issue: 'wt397', kind: ['share'] });
+    expect(JSON.stringify(out.structuredContent)).not.toMatch(/0123456789abcdef/);
   });
 });

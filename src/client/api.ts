@@ -4,6 +4,7 @@ import type { Section, WaitingOn } from '../shared/dependencies.ts';
 import type { ArchiveReference, Channel, EchoOption, IssueDoc, Item, LinkedBefore, Share, ShareDestination } from '../shared/types.ts';
 import type { IssueTiming } from '../shared/timing.ts';
 import type { ProofSpot } from '../shared/proof.ts';
+import type { IssueEvent } from '../shared/events.ts';
 
 /** One step of a podcast render, as GET /progress reports it (src/server/integrations/audio.ts). */
 export interface AudioProgress {
@@ -216,10 +217,14 @@ export const api = {
   renderLens: (id: string, lens: string) =>
     call<{ lens: string; rendered: string }>(`/issues/${id}/render/${lens}`),
 
-  /** `result` is present when the edit touched a mirrored field and was written to its source. */
-  updateItem: (id: string, itemId: string, patch: Record<string, unknown>) =>
+  /**
+   * `result` is present when the edit touched a mirrored field and was
+   * written to its source. `via: 'wand'` marks a pick from a wand's drafts,
+   * so the log tells it from typing.
+   */
+  updateItem: (id: string, itemId: string, patch: Record<string, unknown>, via?: 'wand') =>
     call<IssueResponse & { result?: { sync_state: Item['sync_state']; error?: string } }>(
-      `/issues/${id}/items/${itemId}`, { method: 'PATCH', body: JSON.stringify(patch) }),
+      `/issues/${id}/items/${itemId}${via ? `?via=${via}` : ''}`, { method: 'PATCH', body: JSON.stringify(patch) }),
 
   setChannel: (id: string, itemId: string, channel: Channel, on: boolean) =>
     post(`/issues/${id}/items/${itemId}/channel`, { channel, on }),
@@ -245,9 +250,10 @@ export const api = {
   removeItem: (id: string, nodeId: string, itemId: string) =>
     call<IssueResponse>(`/issues/${id}/nodes/${nodeId}/items/${itemId}`, { method: 'DELETE' }),
 
-  events: (id: string) =>
-    call<{ events: { id: number; at: string; kind: string; summary: string }[] }>(
-      `/issues/${id}/events`,
+  /** The issue's log, newest first; with `item`, that item's (or section's) history. */
+  events: (id: string, item?: string) =>
+    call<{ events: IssueEvent[] }>(
+      `/issues/${id}/events${item ? `?item=${encodeURIComponent(item)}` : ''}`,
     ),
 
   renameNode: (id: string, nodeId: string, label: string) =>
@@ -267,7 +273,7 @@ export const api = {
   availableSections: (id: string) =>
     call<{ sections: { id: string; type: string; label: string }[] }>(`/issues/${id}/available-sections`),
 
-  settings: (id: string, body: Record<string, unknown>) => post(`/issues/${id}/settings`, body),
+  settings: (id: string, body: Record<string, unknown>, via?: 'wand') => post(`/issues/${id}/settings${via ? `?via=${via}` : ''}`, body),
 
   /**
    * A photo, sent as raw bytes rather than base64 — encoding inflates a real

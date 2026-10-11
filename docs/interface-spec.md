@@ -507,7 +507,9 @@ not once any leg has been sent or is out: a bulk run's legs must render the
 same issue (Batch 6 review, B1). Re-scan stays available. **Log** opens the issue's event log as a sheet — every action on the
 issue, newest first: sweep arrivals, source refreshes, edits, outline
 changes, write-backs, sends. Rows are `time · kind chip · summary`. The log
-narrates; it never decides.
+narrates; it never decides. *Revisited 2026-10-11* (`docs/event-log.md`): rows
+the service or a source made are dimmed, their chip's tooltip names who made them,
+and an **Only what you did** checkbox above the list hides them.
 
 **Edit open** — white card, radius 9px, `padding: 11px 12px`, mono 9.5px/.08em
 `#9a9a9a` field labels separated by `1px #f0efec` rules:
@@ -886,7 +888,12 @@ Opened by the rail `i` button. `padding: 14px 18px 40px`.
    out of WT350. It stays on Pinboard — only its place here is gone."
 8. **PROVENANCE** — source, source URL, imported/published time, and (when edited) an
    "As imported" diff card with the original snapshot in italics.
-9. **Remove from this issue** — outlined, hover terracotta, with reassurance that the
+9. **HISTORY** (2026-10-11) — a closed `<details>` with the item's event count; open,
+   its last 20 events in the Log sheet's row style, newest first. A row the service
+   or the source made is dimmed and says so ("WT Builder: Write to Pinboard
+   succeeded", "The source: Refreshed from Pinboard"); Jamie's own are plain. Read
+   from `GET /events?item=<id>`, again after each save. See `docs/event-log.md`.
+10. **Remove from this issue** — outlined, hover terracotta, with reassurance that the
    source post stays published.
 
 ### 2. Overlays

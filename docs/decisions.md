@@ -351,6 +351,27 @@ copy, so every renderer, proof, link check and wand already reads it. Rejoin
 is the one way back, and it takes the blog's words; the newsletter's copy is
 let go (the `revisions` table still has it).
 
+## The log records presses, and not what says nothing new (2026-10-11)
+
+Jamie, after WT353: "We have a product level feature here of a user visible
+log per issue and we even use it to generate the time spent per issue. But
+when Claude is looking at things like 'was this item forked' it could not
+find it until after the fact." So the event log is the record of the issue,
+not a narration of some of it (`docs/event-log.md`). That shows up in what
+is logged that never was, and what is no longer logged:
+
+- **A wand that works is logged**, not only one that fails, and so is the
+  pick from it (`via: 'wand'`). When only failures were logged, the log could
+  say how often the wands failed and nothing about how much they helped.
+- **A recheck that agrees is not logged.** WT352's log was 124 rechecks of
+  420 events, each one "still waiting". A check is logged when its status
+  moves, when it errs, or when Jamie asked for it.
+- **Who did it is a column, not a guess from the kind.** Only Jamie's acts
+  are his time. Before this, an automatic write-back after each edit was
+  counted as work.
+- **No `agent` actor yet.** The MCP cannot write (below), so nothing an
+  agent does reaches the log. Writes add that actor.
+
 ## A share's blog post is never swept into the next issue (2026-10-06)
 
 The Weekly Thing reprints every blog post, and a share's blog post is a blog

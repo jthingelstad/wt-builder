@@ -704,7 +704,7 @@ export function Editor({ doc, readiness, busy, error, run, onIndex, onSend, onSh
                   void run(() => api.settings(id, {
                     title: (title ?? '').trim(),
                     dek: rest.join(' ').trim(),
-                  }));
+                  }, 'wand'));
                   return;
                 }
                 const item = doc.items[itemId];
@@ -713,7 +713,7 @@ export function Editor({ doc, readiness, busy, error, run, onIndex, onSend, onSh
                 // An echo carries the citations it was drafted from, so the
                 // inspector can show what it stands on. A redraft replaces them.
                 if ((item?.type === 'echoes' || item?.type === 'echo') && refs?.length) patch.archive_references = refs;
-                void run(() => api.updateItem(id, itemId, patch));
+                void run(() => api.updateItem(id, itemId, patch, 'wand'));
               }}
               onDismissDraft={() => setDraft(null)}
               ordering={ordering}

@@ -438,7 +438,18 @@ Claude Code or Codex on otto, or any MCP client on the tailnet.
 - **Failed drafts (1.5.2).** A wand's draft that fails is a `draft` event
   (`Draft failed: <what Jamie was told> — <item or section>`) anchored to
   its item, so `changes.items` carries it with kind `draft`; a section's
-  (Echoes) lands in `changes.other`.
+  (Echoes) lands in `changes.other`. *Since 1.7.0 the kind is `wand`.*
+- **Actors and history (1.7.0, 2026-10-11).** Every event carries `actor`
+  (`jamie`, `wt-builder`, `source`) and `data`, its facts as JSON
+  (`docs/event-log.md`). A wand logs the drafts it offered as well as a
+  failure (`data.outcome`), and an edit picked from one has `data.via:
+  'wand'`. `sync` is split into `write` (a write-back's outcome) and
+  `source` (Jamie's decision: fork, rejoin, keep mine, take theirs); a
+  draft share is `share`. `list_events` takes `item` and `kind` filters;
+  `get_item` carries `history`, its newest 12 events; `changes.other`
+  rows carry `actor`; `get_timing` adds `wands` (`calls`, `failed`,
+  `used`, `waiting_seconds`). Share links are withheld from `data` as from
+  the summary.
 - **Row hints (1.5.0).** `get_status` carries `hints` (`{anchor, name,
   kind, text}`, cut at 40 with `hints_note`), and `get_issue` / `get_item`
   carry each item's `hints`: the same list the editor marks

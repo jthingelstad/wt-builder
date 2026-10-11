@@ -654,6 +654,15 @@ a:hover { text-decoration: underline; }
 }
 
 .log-what { color: var(--ink); overflow-wrap: anywhere; }
+/* What the service or a source did, beside Jamie's own acts. */
+.log-row.auto .log-what { color: var(--secondary); }
+.history { margin-top: 18px; }
+.history summary { cursor: pointer; display: flex; align-items: baseline; gap: 6px; list-style: none; }
+.history summary::-webkit-details-marker { display: none; }
+.history summary h3 { margin: 0; }
+.history-list { max-height: 260px; }
+.history-list .log-row { grid-template-columns: 74px 52px 1fr; gap: 6px; font-size: 12px; }
+.log-filter { display: inline-flex; align-items: center; gap: 4px; font-size: 12px; color: var(--secondary); margin: 0 0 8px; }
 
 /* The Review control carries its own count, so the header never reflows. */
 .count-badge {

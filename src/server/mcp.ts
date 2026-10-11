@@ -45,6 +45,7 @@ import { findingsSummary, giftLine, linkFindings } from '../shared/link-findings
 import { deliverabilityFindings, deliverabilitySummary } from '../shared/deliverability.ts';
 import { anchorText } from '../shared/anchor.ts';
 import { itemName } from './issue.ts';
+import { EVENT_KINDS, type EventKind } from '../shared/events.ts';
 import { openChecks, rowHints, rowName, type Hint } from '../shared/hints.ts';
 
 /** A GET route, run in process, without persisting anything. Refuses anything else. */
@@ -65,7 +66,7 @@ export interface McpDeps {
  * tool, its arguments, or its answer changes, so a client holding a cached
  * tool list knows to fetch it again.
  */
-export const MCP_VERSION = '1.6.0';
+export const MCP_VERSION = '1.7.0';
 
 export const INSTRUCTIONS = `WT Builder is Jamie Thingelstad's authoring app for The Weekly Thing newsletter. This server is READ-ONLY: it shows an issue as the editor does and changes nothing.
 
@@ -429,7 +430,7 @@ function reviewView(doc: IssueDoc, editedSince: number, then: IssueDoc | null, t
 
 // ── time: the cursor and what moved since ───────────────────────────────
 
-interface Event { id: number; at: string; kind: string; summary: string; anchor?: string | null }
+interface Event { id: number; at: string; kind: string; actor?: string; summary: string; anchor?: string | null; data?: Record<string, unknown> | null }
 
 /** Quiet this long and the item Jamie was editing counts as finished for now. */
 const SETTLE_MS = 60_000;
@@ -437,6 +438,21 @@ const SETTLE_MS = 60_000;
 /** The issue's events, newest first. */
 const eventsOf = async (read: Reader, id: string) =>
   (await read(`/api/issues/${encodeURIComponent(id)}/events?all=1`) as { events: Event[] }).events;
+
+/** How many of an item's events get_item carries; list_events with item has them all. */
+const HISTORY_CAP = 12;
+
+const eventOutput = z.object({
+  id: z.number(), at: z.string(), kind: z.string(), actor: z.string(), summary: z.string(),
+  anchor: z.string().optional(), data: z.record(z.string(), z.unknown()).optional(),
+});
+
+/** One event as an agent reads it: a draft share's link withheld from the sentence and the facts. */
+const eventView = (e: Event) => ({
+  id: e.id, at: e.at, kind: e.kind, actor: e.actor ?? 'wt-builder', summary: withoutShareLinks(e.summary),
+  ...(e.anchor ? { anchor: e.anchor } : {}),
+  ...(e.data ? { data: JSON.parse(withoutShareLinks(JSON.stringify(e.data))) as Record<string, unknown> } : {}),
+});
 
 /** The cursor an agent holds: the newest event id, 0 before the first. */
 const cursorOf = (events: Event[]) => events[0]?.id ?? 0;
@@ -662,7 +678,7 @@ export function buildServer(deps: McpDeps, caller = 'local', logged = new Set<st
       since,
       events: newer.length,
       items,
-      other: other.slice(0, OTHER_CAP).map((e) => ({ id: e.id, kind: e.kind, summary: withoutShareLinks(e.summary) })),
+      other: other.slice(0, OTHER_CAP).map((e) => ({ id: e.id, kind: e.kind, actor: e.actor ?? 'wt-builder', summary: withoutShareLinks(e.summary) })),
       pills,
       focus: focus ? { ...focus, name: Object.hasOwn(doc.items, focus.anchor) ? itemName(doc.items[focus.anchor]!) : focus.anchor } : null,
       ...(notes.length ? { note: notes.join(' ') } : {}),
@@ -671,7 +687,7 @@ export function buildServer(deps: McpDeps, caller = 'local', logged = new Set<st
 
   server.registerTool('get_status', {
     title: 'Where the issue stands',
-    description: 'The readiness strip and the Send view in one answer, for one issue: lifecycle; every pill in the order the issue reads with its state (done; partial = started but under the bar; todo; waiting = made from sections not finished yet, with what it waits on) and where it is finished (done_in: editor, or sync conflict); workable_now, what can be done next and where; the link check (dead links, links moved to another page with the suggested URL, and gift links, which stop working when the gift expires; links are checked as they arrive, and a site that would not answer is only counted) and the email checks, with send_line, the Send view\'s one line (clear, or each row with something to act on); each send leg (website, buttondown, podcast, archive) with its verification problems and warnings; and the audio script review (findings counts the mechanical lint\'s, mechanical of them, and the model\'s); hints, what the editor marks on a row without touching its pill (link: an open link finding; mail: what in the email a filter holds against it, on the row that prints it, or the title\'s row (anchor issue) for the subject; unfinished: Jamie\'s words stop mid-sentence, or a Currently line of a few words, which an item still being typed also does, so check focus; title: a syndicated title still ending with the site\'s name, Jamie\'s to trim or keep; haiku: the haiku does not count 5-7-5 or is not three lines, with the counts found, a guess from spelling); and cursor, the newest event id. Pass a cursor back as since to add changes: the items touched since (settled once Jamie has moved to another item or been quiet a minute), the pills whose state moved, from and to, and focus, the item Jamie is editing now. An event of kind draft is a wand\'s draft that failed, with what Jamie was told (on the item, or in other for a section such as Echoes). Start here.',
+    description: 'The readiness strip and the Send view in one answer, for one issue: lifecycle; every pill in the order the issue reads with its state (done; partial = started but under the bar; todo; waiting = made from sections not finished yet, with what it waits on) and where it is finished (done_in: editor, or sync conflict); workable_now, what can be done next and where; the link check (dead links, links moved to another page with the suggested URL, and gift links, which stop working when the gift expires; links are checked as they arrive, and a site that would not answer is only counted) and the email checks, with send_line, the Send view\'s one line (clear, or each row with something to act on); each send leg (website, buttondown, podcast, archive) with its verification problems and warnings; and the audio script review (findings counts the mechanical lint\'s, mechanical of them, and the model\'s); hints, what the editor marks on a row without touching its pill (link: an open link finding; mail: what in the email a filter holds against it, on the row that prints it, or the title\'s row (anchor issue) for the subject; unfinished: Jamie\'s words stop mid-sentence, or a Currently line of a few words, which an item still being typed also does, so check focus; title: a syndicated title still ending with the site\'s name, Jamie\'s to trim or keep; haiku: the haiku does not count 5-7-5 or is not three lines, with the counts found, a guess from spelling); and cursor, the newest event id. Pass a cursor back as since to add changes: the items touched since (settled once Jamie has moved to another item or been quiet a minute), the pills whose state moved, from and to, and focus, the item Jamie is editing now. An event of kind wand is a wand\'s draft, offered or failed (the failure with what Jamie was told), on the item, or in other for a section such as Echoes; a pick from it is an edit. Each event in other says who made it happen (actor: jamie, wt-builder, or source). Start here.',
     inputSchema: {
       issue: issueArg,
       since: z.number().int().min(0).optional()
@@ -685,7 +701,7 @@ export function buildServer(deps: McpDeps, caller = 'local', logged = new Set<st
         since: z.number(),
         events: z.number(),
         items: z.array(z.looseObject({ anchor: z.string(), name: z.string(), settled: z.boolean() })),
-        other: z.array(z.object({ id: z.number(), kind: z.string(), summary: z.string() })),
+        other: z.array(z.object({ id: z.number(), kind: z.string(), actor: z.string(), summary: z.string() })),
         pills: z.array(z.object({ title: z.string(), anchor: z.string(), from: z.string().nullable(), to: z.string().nullable() })).nullable(),
         focus: z.object({ anchor: z.string(), name: z.string(), since: z.string(), last_edit_at: z.string(), quiet_seconds: z.number(), settled: z.boolean() }).nullable(),
         note: z.string().optional(),
@@ -849,7 +865,7 @@ export function buildServer(deps: McpDeps, caller = 'local', logged = new Set<st
 
   server.registerTool('get_item', {
     title: 'One item, in full',
-    description: 'Every field of one item, the section it is in (or why it is held out), every pill it owns (including a failed or conflicted write-back), when Jamie last edited it, the last review\'s notes on it (marked as get_review marks them), and for a link the published issues that carried it before.',
+    description: 'Every field of one item, the section it is in (or why it is held out), every pill it owns (including a failed or conflicted write-back), when Jamie last edited it, its history (its newest events, each with who made it happen: jamie, wt-builder or source — a fork, a write-back, a wand draft, a re-scan that refreshed it), the last review\'s notes on it (marked as get_review marks them), and for a link the published issues that carried it before.',
     inputSchema: { issue: issueArg, item_id: z.string().max(200).describe('The item id, from get_issue.') },
     outputSchema: {
       item: itemOutput,
@@ -857,6 +873,7 @@ export function buildServer(deps: McpDeps, caller = 'local', logged = new Set<st
       pills: z.array(pillOutput),
       cursor: z.number(),
       last_edited_at: z.string().nullable(),
+      history: z.array(eventOutput),
       review_notes: z.array(z.looseObject({ kind: z.string(), still_applies: z.boolean().nullable() })),
       linked_before: z.array(z.object({ number: z.number(), publication_date: z.string() })).optional(),
     },
@@ -876,6 +893,7 @@ export function buildServer(deps: McpDeps, caller = 'local', logged = new Set<st
       pills: pillsOf(readiness.units.filter((u) => u.anchor === item_id && anchorOf(u) !== 'issue')),
       cursor: cursorOf(events),
       last_edited_at: events.find((e) => e.kind === 'edit' && e.anchor === item_id)?.at ?? null,
+      history: events.filter((e) => e.anchor === item_id).slice(0, HISTORY_CAP).map(eventView),
       review_notes: own.length ? own.map((n) => noteView(doc, then ?? null, n)) : [],
       ...(url ? { linked_before: deps.linkedBefore(url, doc.issue).slice(0, 20) } : {}),
     };
@@ -969,28 +987,32 @@ export function buildServer(deps: McpDeps, caller = 'local', logged = new Set<st
 
   server.registerTool('list_events', {
     title: 'The event log',
-    description: 'What happened to the issue, newest first: edits, syncs with Pinboard and Micro.blog, sends, overrides. Each event may name the item it was about (anchor). Page back with before; catch up with since.',
+    description: 'What happened to the issue, newest first: edits (data.via is wand for a pick from a wand\'s drafts), wand drafts offered or failed, decisions about a source (fork, rejoin, keep mine, take theirs), write-backs to Pinboard and Micro.blog, re-scans, sends, verifications when their status moved, overrides. Each event says who made it happen (actor: jamie, wt-builder, or source for a change made at Pinboard or Micro.blog), may name the item or section it was about (anchor), and carries its facts in data. item narrows to one item\'s history; kind to some kinds. Page back with before; catch up with since.',
     inputSchema: {
       issue: issueArg,
+      item: z.string().max(200).optional().describe('Only this item\'s (or section\'s) events: its history.'),
+      kind: z.array(z.enum(EVENT_KINDS as [EventKind, ...EventKind[]])).max(EVENT_KINDS.length).optional().describe('Only these kinds.'),
       since: z.number().int().optional().describe('Only events after this event id (newer).'),
       before: z.number().int().optional().describe('Only events before this event id (older): the next page.'),
       limit: z.number().int().min(1).max(200).optional().describe('How many to show (default 50, at most 200).'),
     },
     outputSchema: {
-      events: z.array(z.object({ id: z.number(), at: z.string(), kind: z.string(), summary: z.string(), anchor: z.string().optional() })),
+      events: z.array(eventOutput),
       shown: z.number(),
       matching: z.number(),
       note: z.string().optional(),
     },
     annotations: READ_ONLY,
-  }, tool('list_events', async ({ issue, since, before, limit }: { issue?: string; since?: number; before?: number; limit?: number }, seen) => {
+  }, tool('list_events', async ({ issue, item, kind, since, before, limit }: { issue?: string; item?: string; kind?: EventKind[]; since?: number; before?: number; limit?: number }, seen) => {
     const { id } = await resolve(issue, seen);
-    const { events } = await read(`/api/issues/${encodeURIComponent(id)}/events?all=1`) as { events: { id: number; at: string; kind: string; summary: string; anchor?: string | null }[] };
-    const matching = events.filter((e) => (since === undefined || e.id > since) && (before === undefined || e.id < before));
+    const events = await eventsOf(read, id);
+    const kinds = kind?.length ? new Set<string>(kind) : null;
+    const matching = events.filter((e) => (since === undefined || e.id > since) && (before === undefined || e.id < before)
+      && (item === undefined || e.anchor === item) && (!kinds || kinds.has(e.kind)));
     const shown = matching.slice(0, limit ?? 50);
     const last = shown.at(-1);
     return {
-      events: shown.map((e) => ({ id: e.id, at: e.at, kind: e.kind, summary: withoutShareLinks(e.summary), ...(e.anchor ? { anchor: e.anchor } : {}) })),
+      events: shown.map(eventView),
       shown: shown.length,
       matching: matching.length,
       ...(matching.length > shown.length && last ? { note: `Showing the newest ${shown.length} of ${matching.length}; pass before: ${last.id} for older ones.` } : {}),
@@ -998,7 +1020,7 @@ export function buildServer(deps: McpDeps, caller = 'local', logged = new Set<st
   }));
 
   const SHIPPED_CAP = 25;
-  const timingView = (t: { activeMs: number; sessions: unknown[]; actions: number; edits: number; publishedAt?: string; sendMs?: number; after: { actions: number; sends: number; ms: number }; bySection: { label: string; ms: number }[]; byDay: { day: string; sittings: number; ms: number; added: number }[] }) => ({
+  const timingView = (t: { activeMs: number; sessions: unknown[]; actions: number; edits: number; publishedAt?: string; sendMs?: number; after: { actions: number; sends: number; ms: number }; bySection: { label: string; ms: number }[]; byDay: { day: string; sittings: number; ms: number; added: number }[]; wands?: { calls: number; failed: number; used: number; ms: number } }) => ({
     active_minutes: minutes(t.activeMs)!,
     sittings: t.sessions.length,
     actions: t.actions,
@@ -1008,6 +1030,9 @@ export function buildServer(deps: McpDeps, caller = 'local', logged = new Set<st
     after_publishing: { actions: t.after.actions, sends: t.after.sends, minutes: minutes(t.after.ms)! },
     by_section: t.bySection.map((s) => ({ label: s.label, minutes: minutes(s.ms)! })),
     by_day: t.byDay.map((d) => ({ day: d.day, sittings: d.sittings, minutes: minutes(d.ms)!, added: d.added })),
+    wands: t.wands
+      ? { calls: t.wands.calls, failed: t.wands.failed, used: t.wands.used, waiting_seconds: Math.round(t.wands.ms / 1000) }
+      : { calls: 0, failed: 0, used: 0, waiting_seconds: 0 },
   });
   const timingOutput = z.object({
     active_minutes: z.number(), sittings: z.number(), actions: z.number(), edits: z.number(),
@@ -1015,11 +1040,12 @@ export function buildServer(deps: McpDeps, caller = 'local', logged = new Set<st
     after_publishing: z.object({ actions: z.number(), sends: z.number(), minutes: z.number() }),
     by_section: z.array(z.object({ label: z.string(), minutes: z.number() })),
     by_day: z.array(z.object({ day: z.string(), sittings: z.number(), minutes: z.number(), added: z.number() })),
+    wands: z.object({ calls: z.number(), failed: z.number(), used: z.number(), waiting_seconds: z.number() }),
   });
 
   server.registerTool('get_timing', {
     title: 'How long the issue has taken',
-    description: 'The issue\'s editing time in minutes, from its event log (Jamie\'s own acts, sittings split at 30 minutes; by_day gives each Central day\'s sittings, minutes and items added, never clock times), beside the Builder issue before it, and the WT Builder changes that shipped between the two.',
+    description: 'The issue\'s editing time in minutes, from its event log (Jamie\'s own acts, those with actor jamie, sittings split at 30 minutes; by_day gives each Central day\'s sittings, minutes and items added, never clock times; wands counts wand presses, those that failed, picks Jamie used, and seconds spent waiting on them, zero before 2026-10-11 when wands began to be logged), beside the Builder issue before it, and the WT Builder changes that shipped between the two.',
     inputSchema: { issue: issueArg },
     outputSchema: {
       timing: timingOutput,

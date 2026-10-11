@@ -9,6 +9,11 @@
  *   npm run watch -- wt352        # a given issue, by id or number
  *   npm run watch -- wt352 --from 560   # resume after event 560
  *
+ * It starts by replaying the last REPLAY events, so a watch armed a few
+ * seconds after Jamie acted still shows the act (the WT353 fork landed 18 s
+ * before the watcher did). Each event shows its id, who made it happen
+ * (jamie, wt-builder, source) and the item it touched.
+ *
  * It follows ONE issue whatever its status: the scratch watcher it replaced
  * tracked drafts only, so publishing read as every item being removed.
  */
@@ -21,6 +26,7 @@ const ROOT = join(import.meta.dirname, '..');
 const DB = process.env.WT_BUILDER_DB ?? join(ROOT, 'data', 'wt-builder.db');
 const LOGS = ['wt-builder.log', 'wt-builder.err'].map((f) => join(homedir(), 'Library', 'Logs', 'wt-builder', f));
 const POLL_MS = 3000;
+const REPLAY = 10;
 
 const args = process.argv.slice(2);
 const fromAt = args.indexOf('--from');
@@ -52,14 +58,15 @@ function snapshot(): Snap {
 }
 
 const say = (line: string) => console.log(line);
-let last = from ?? ((db.prepare('SELECT max(id) AS m FROM events WHERE issue_id = ?').get(id) as { m: number | null }).m ?? 0);
+const newest = (db.prepare('SELECT max(id) AS m FROM events WHERE issue_id = ?').get(id) as { m: number | null }).m ?? 0;
+let last = from ?? ((db.prepare('SELECT id FROM events WHERE issue_id = ? ORDER BY id DESC LIMIT 1 OFFSET ?').get(id, REPLAY - 1) as { id: number } | undefined)?.id ?? 1) - 1;
 let prev = snapshot();
 const pos = new Map(LOGS.map((f) => [f, existsSync(f) ? statSync(f).size : 0]));
-say(`watching ${id} (${prev.status}) from event ${last}`);
+say(`watching ${id} (${prev.status}) from event ${last}${from === undefined && newest > last ? ` (replaying the last ${newest - last})` : ''}`);
 
 function tick(): void {
-  for (const e of db.prepare('SELECT id, at, kind, summary FROM events WHERE issue_id = ? AND id > ? ORDER BY id').all(id, last) as { id: number; at: string; kind: string; summary: string }[]) {
-    say(`EVENT ${e.at.slice(11, 19)}Z ${e.kind}: ${e.summary.slice(0, 200)}`);
+  for (const e of db.prepare('SELECT id, at, kind, actor, anchor, summary FROM events WHERE issue_id = ? AND id > ? ORDER BY id').all(id, last) as { id: number; at: string; kind: string; actor: string | null; anchor: string | null; summary: string }[]) {
+    say(`EVENT #${e.id} ${e.at.slice(11, 19)}Z ${e.kind}/${e.actor ?? '?'}${e.anchor ? ` [${e.anchor}]` : ''}: ${e.summary.slice(0, 200)}`);
     last = e.id;
   }
   const now = snapshot();

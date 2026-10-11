@@ -3,9 +3,12 @@
  * "did it save me time!"). Pure: the server hands it the events and the
  * document; the Send view and the index show what it returns.
  *
- * Only Jamie's own acts count as work — edits, write-backs, moves, settings,
- * reviews, sends. Automatic events (re-scans, sweeps, verification) happen
- * without him and are not his time. Acts closer together than SESSION_GAP
+ * Only Jamie's own acts count as work: events whose `actor` is `jamie`
+ * (src/shared/events.ts) — edits, wand presses, moves, settings, reviews,
+ * sends, decisions about a source. What the service or a source did (a
+ * write-back's outcome, a re-scan, a verification) is not his time. Events
+ * from before actors (none are left after the v6 migration; tests build
+ * them) fall back to the kinds that were his. Acts closer together than SESSION_GAP
  * are one sitting; the time between them is the work. Time before an act is
  * given to the part of the issue the act touched, capped at ATTRIBUTE_CAP so
  * a coffee break inside a session does not land on one link.
@@ -20,6 +23,8 @@ export interface TimingEvent {
   kind: string;
   summary: string;
   anchor?: string | null;
+  actor?: string | null;
+  data?: Record<string, unknown> | null;
 }
 
 export interface TimingSession {
@@ -63,6 +68,12 @@ export interface IssueTiming {
   after: { actions: number; sends: number; ms: number };
   /** Active time by part of the issue, largest first. */
   bySection: { label: string; ms: number }[];
+  /**
+   * The wands before publishing: presses, the drafts that came back, the
+   * picks Jamie used (an edit `via: 'wand'`), and the time spent waiting
+   * on them. Zero for issues made before wands were logged (2026-10-11).
+   */
+  wands: { calls: number; failed: number; used: number; ms: number };
 }
 
 export const SESSION_GAP_MS = 30 * 60_000;
@@ -70,18 +81,26 @@ const ATTRIBUTE_CAP_MS = 10 * 60_000;
 /** Sittings earlier than this before publishing are development, not this issue. */
 const BUILD_WINDOW_MS = 8 * 24 * 3_600_000;
 
-// "moved" and "kept" are the re-scan re-filing links by their bookmark tags,
-// not Jamie; they were a third of WT350's unattributed time. "draft" (a
-// wand's draft that failed) is left out too: a draft that comes back is not
-// logged, so counting the failures would count only the unlucky presses.
+// Before actors: "moved" and "kept" are the re-scan re-filing links by their
+// bookmark tags, not Jamie; "draft" was a failed wand, and the ones that came
+// back were not logged, so counting failures counted only unlucky presses.
 const WORK = new Set(['edit', 'structure', 'settings', 'sync', 'held-out', 'review', 'send', 'channels']);
+const isWork = (e: TimingEvent) => (e.actor ? e.actor === 'jamie' : WORK.has(e.kind));
+const isSendStart = (e: TimingEvent) =>
+  e.kind === 'send' && (e.data ? e.data.action === 'start' : e.summary.startsWith('Send started'));
+const isPublished = (e: TimingEvent) =>
+  e.kind === 'issue' && (e.data ? e.data.action === 'published' : e.summary.startsWith('Published'));
 /** Fixing after publishing is the same day's; later sends are other work (WT350's audio rebuild). */
 const AFTER_WINDOW_MS = 12 * 3_600_000;
 
 /** Which part of the issue an event belongs to: its item's section, or a named part. */
 function sectionOf(e: TimingEvent, doc: IssueDoc, byName: Map<string, string>): string {
-  if (e.kind === 'settings') return 'Title & dek';
-  if (e.kind === 'send' || e.kind === 'review') return 'Review & send';
+  if (e.kind === 'settings' || e.anchor === 'issue') return 'Title & dek';
+  if (e.kind === 'send' || e.kind === 'review' || e.kind === 'share') return 'Review & send';
+  // A section-wide act (a reorder, the Echoes wand) anchors to the section.
+  const section = e.anchor ? doc.nodes.find((n) => n.id === e.anchor) : undefined;
+  if (section) return section.kind === 'promoted_item' ? 'Journal' : section.label;
+  // Events from before anchors: read the sentence.
   const reordered = /^Reordered (.+?)(?: — |$)/.exec(e.summary);
   if (reordered) return reordered[1]!;
   if (e.summary.startsWith('Photo uploaded')) return 'Photo';
@@ -147,11 +166,11 @@ function byDay(sessions: TimingSession[], doc: IssueDoc): TimingDay[] {
 export function issueTiming(events: TimingEvent[], doc: IssueDoc): IssueTiming {
   // The last "Published" is the real one: early development runs published
   // WT350 once on Aug 30, three weeks before it was built.
-  const published = [...events].reverse().find((e) => e.kind === 'issue' && e.summary.startsWith('Published'));
+  const published = [...events].reverse().find(isPublished);
   const pubMs = published ? Date.parse(published.at) : Infinity;
   const floor = Number.isFinite(pubMs) ? pubMs - BUILD_WINDOW_MS : -Infinity;
 
-  const work = events.filter((e) => WORK.has(e.kind));
+  const work = events.filter(isWork);
   const before = work.filter((e) => Date.parse(e.at) <= pubMs && Date.parse(e.at) >= floor);
   const after = work.filter((e) => Date.parse(e.at) > pubMs && Date.parse(e.at) <= pubMs + AFTER_WINDOW_MS);
 
@@ -167,7 +186,8 @@ export function issueTiming(events: TimingEvent[], doc: IssueDoc): IssueTiming {
     bySection.set(label, (bySection.get(label) ?? 0) + Math.min(gap, ATTRIBUTE_CAP_MS));
   }
 
-  const firstSend = before.find((e) => e.kind === 'send' && e.summary.startsWith('Send started'));
+  const firstSend = before.find(isSendStart);
+  const wandCalls = before.filter((e) => e.kind === 'wand' && (e.data?.outcome === 'offered' || e.data?.outcome === 'failed'));
   return {
     sessions,
     byDay: byDay(sessions, doc),
@@ -178,10 +198,16 @@ export function issueTiming(events: TimingEvent[], doc: IssueDoc): IssueTiming {
     sendMs: firstSend && published ? pubMs - Date.parse(firstSend.at) : undefined,
     after: {
       actions: after.length,
-      sends: after.filter((e) => e.kind === 'send' && e.summary.startsWith('Send started')).length,
+      sends: after.filter(isSendStart).length,
       ms: afterSessions.reduce((n, s) => n + s.ms, 0),
     },
     bySection: [...bySection].map(([label, ms]) => ({ label, ms })).sort((a, b) => b.ms - a.ms),
+    wands: {
+      calls: wandCalls.length,
+      failed: wandCalls.filter((e) => e.data?.outcome === 'failed').length,
+      used: before.filter((e) => e.data?.via === 'wand').length,
+      ms: wandCalls.reduce((n, e) => n + (typeof e.data?.ms === 'number' ? e.data.ms : 0), 0),
+    },
   };
 }
 
