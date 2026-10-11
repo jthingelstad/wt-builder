@@ -8,9 +8,8 @@
  * Default sizes match the spec's call sites: 12px in the structural rail,
  * 13–14px in chrome, 24px in the photo drop zone.
  *
- * This file is copied verbatim into AT Builder (src/client/icons.tsx there);
- * the sibling's tests/sibling-drift.test.ts fails when the two differ. Add a
- * glyph here, then carry it across — the set is the family's, not this app's.
+ * The podcast's pages draw from the same set (AT Builder carried a copy until
+ * it was folded in here, 2026-10-11).
  */
 
 interface IconProps { size?: number; class?: string }

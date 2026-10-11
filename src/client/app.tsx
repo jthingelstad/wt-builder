@@ -2,12 +2,13 @@ import { useCallback, useEffect, useRef, useState } from 'preact/hooks';
 
 import type { IssueDoc } from '../shared/types.ts';
 import { api, onStaleBuild, type IssueResponse, type Readiness } from './api.ts';
-import { parseRoute, routeHref, sameRoute, type Route } from './router.ts';
+import { isPodcast, parseRoute, routeHref, sameRoute, type Route } from './router.ts';
 import { IssueIndex } from './components/Index.tsx';
 import { Editor } from './components/Editor.tsx';
 import { Send } from './components/Send.tsx';
 import { Share } from './components/Share.tsx';
 import { Stats } from './components/Stats.tsx';
+import { Podcast } from './podcast/Podcast.tsx';
 
 export function App() {
   const [route, setRoute] = useState<Route>(() => parseRoute(location.pathname));
@@ -31,7 +32,7 @@ export function App() {
   const routeRef = useRef(route);
   const onScreen = useCallback((issue: IssueDoc) => {
     const r = routeRef.current;
-    return r.view !== 'index' && r.id === issue.issue.id;
+    return r.view !== 'index' && !isPodcast(r) && r.id === issue.issue.id;
   }, []);
 
   // A link or blocklist check running in the background for the issue on
@@ -115,7 +116,8 @@ export function App() {
    * pasted link open the issue rather than the dashboard.
    */
   useEffect(() => {
-    if (route.view === 'index') {
+    // The podcast loads its own episode (podcast/Podcast.tsx).
+    if (route.view === 'index' || isPodcast(route)) {
       setDoc(null);
       setReadiness(null);
       return;
@@ -158,6 +160,15 @@ export function App() {
     </div>
   );
 
+  if (isPodcast(route)) {
+    return (
+      <>
+        {bar}
+        <Podcast route={route} go={go} />
+      </>
+    );
+  }
+
   // Until the issue the route names has loaded, whatever doc is held is
   // another issue's, and is not shown.
   if (route.view === 'index' || !doc || doc.issue.id !== route.id) {
@@ -170,6 +181,7 @@ export function App() {
           onError={setError}
           onOpen={(id) => go({ view: 'issue', id })}
           onShare={(id) => go({ view: 'share', id })}
+          onPodcast={() => go({ view: 'episodes' })}
         />
       </>
     );

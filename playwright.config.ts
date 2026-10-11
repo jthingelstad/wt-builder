@@ -33,6 +33,7 @@ export default defineConfig({
       WT_BUILDER_PORT: String(PORT),
       WT_BUILDER_DB: `${process.cwd()}/tmp/e2e/e2e.db`,
       WT_BUILDER_TTS_CACHE: `${process.cwd()}/tmp/e2e/tts`,
+      WT_BUILDER_EPISODE_AUDIO: `${process.cwd()}/tmp/e2e/another-audio`,
       // `npm run test:e2e` builds here, never into the dist/ the live service serves.
       WT_BUILDER_DIST: `${process.cwd()}/tmp/e2e/dist`,
     },

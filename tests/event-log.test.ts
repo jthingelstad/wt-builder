@@ -72,7 +72,7 @@ describe('migration v6 carries the old log', () => {
     ];
     for (const [kind, summary, anchor] of old) insert.run('wt350', '2026-09-20T12:00:00.000Z', kind, summary, anchor);
 
-    store.migrate(d);
+    store.migrate(d, 6);
     expect(d.pragma('user_version', { simple: true })).toBe(6);
     const rows = d.prepare('SELECT kind, actor, data FROM events ORDER BY id').all() as { kind: string; actor: string; data: string | null }[];
     expect(rows.map((r) => [r.kind, r.actor])).toEqual([

@@ -71,7 +71,9 @@ Jamie can open the week's swept issue and, without reading instructions:
 - A general creative studio
 - Multiple newsletters, users, agents, or simultaneous issues
 - Blog authoring
-- Podcast authoring beyond the Weekly Thing audio edition
+- Podcast authoring beyond the Weekly Thing audio edition and *Another
+  Thing*, which is a second product in the same service with its own
+  documents and screens (decisions.md, 2026-10-11)
 - Generic project or knowledge management
 - Replacing Pinboard, Micro.blog, Buttondown, or Thingy
 - Becoming the archive. WT Builder sends issue text to the archive after

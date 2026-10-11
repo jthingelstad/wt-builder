@@ -1,12 +1,12 @@
 /**
- * The issue's event log — a sheet listing every action taken on the issue:
- * arrivals from the sweep, source-side refreshes, edits, outline moves,
- * write-backs, sends. The log narrates; it never decides anything.
+ * The event log — a sheet listing every action taken on an issue (arrivals
+ * from the sweep, source-side refreshes, edits, outline moves, write-backs,
+ * sends) or on an Another Thing episode (its outline, recording, audio and
+ * send). The log narrates; it never decides anything.
  */
 
 import { useEffect, useState } from 'preact/hooks';
 
-import { api } from '../api.ts';
 import type { EventActor, EventKind, IssueEvent } from '../../shared/events.ts';
 
 /** Chip text per kind — words, not codes. Every kind has one (the type says so). */
@@ -34,6 +34,9 @@ export const KIND: Record<EventKind, string> = {
   send: 'send',
   verify: 'verify',
   share: 'share',
+  episode: 'episode',
+  recording: 'recording',
+  audio: 'audio',
 };
 
 /** Who, for a row that is not Jamie's own act. */
@@ -52,9 +55,11 @@ function when(at: string): string {
   });
 }
 
-export function EventLog({ issueId, number, onClose }: {
-  issueId: string;
-  number: number;
+export function EventLog({ title, load, onClose }: {
+  /** "WT352 — the log". */
+  title: string;
+  /** The events, newest first: an issue's or an episode's. */
+  load: () => Promise<{ events: IssueEvent[] }>;
   onClose: () => void;
 }) {
   const [events, setEvents] = useState<IssueEvent[] | null>(null);
@@ -64,10 +69,10 @@ export function EventLog({ issueId, number, onClose }: {
   const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
-    api.events(issueId)
+    load()
       .then((r) => setEvents(r.events))
       .catch((e) => setError((e as Error).message));
-  }, [issueId]);
+  }, [title]);
 
   useEffect(() => {
     const onKey = (e: KeyboardEvent) => {
@@ -81,7 +86,7 @@ export function EventLog({ issueId, number, onClose }: {
     <div class="scrim" onClick={onClose}>
       <div class="sheet log-sheet" onClick={(e) => e.stopPropagation()}>
         <div class="sheet-body">
-          <h2>WT{number} — the log</h2>
+          <h2>{title}</h2>
           {error && <p class="err-note">{error}</p>}
           {events && !events.length && (
             <p class="quiet">Nothing yet. Actions land here as they happen.</p>

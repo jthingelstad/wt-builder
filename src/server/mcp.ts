@@ -66,7 +66,7 @@ export interface McpDeps {
  * tool, its arguments, or its answer changes, so a client holding a cached
  * tool list knows to fetch it again.
  */
-export const MCP_VERSION = '1.9.1';
+export const MCP_VERSION = '1.9.2';
 
 export const INSTRUCTIONS = `WT Builder is Jamie Thingelstad's authoring app for The Weekly Thing newsletter. This server is READ-ONLY: it shows an issue as the editor does and changes nothing.
 

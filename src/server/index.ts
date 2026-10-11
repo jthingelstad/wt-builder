@@ -54,28 +54,15 @@ import { issueTiming, type IssueTiming } from '../shared/timing.ts';
 import { acrossIssues, contentStats } from './issue-stats.ts';
 import { handleMcp, type McpDeps } from './mcp.ts';
 import { log } from './log.ts';
+import { ANSWERED, HttpError, type Route } from './http.ts';
+import { podcastRoutes, failInterruptedEpisodeSends, resumeEpisodeRechecks } from './podcast/routes.ts';
 import { took, type EventActor, type EventInput } from '../shared/events.ts';
 import { execFile } from 'node:child_process';
 import { promisify } from 'node:util';
 
 const DIST = config.distDir;
 
-interface Ctx {
-  req: IncomingMessage;
-  res: ServerResponse;
-  url: URL;
-  body: () => Promise<any>;
-  raw: () => Promise<Buffer>;
-  /** Set by readRoute (the MCP interface): a GET answers without persisting anything. */
-  readOnly?: boolean;
-}
-
-export class HttpError extends Error {
-  /** `code` names a refusal the client acts on, beside the message it shows. */
-  constructor(public status: number, message: string, public code?: string) {
-    super(message);
-  }
-}
+export { HttpError };
 
 /**
  * A leg turned down on what the destination said, after its state was set
@@ -699,7 +686,7 @@ async function drafting<T extends object>(
 
 // ── routes ────────────────────────────────────────────────────────────────
 
-const routes: [RegExp, string, (ctx: Ctx, params: string[]) => Promise<unknown>][] = [
+const routes: Route[] = [
   [/^\/api\/health$/, 'GET', async () => ({
     ok: true,
     ...describeConfig(),
@@ -2058,6 +2045,10 @@ const routes: [RegExp, string, (ctx: Ctx, params: string[]) => Promise<unknown>]
       release();
     }
   }],
+
+  // Another Thing, the podcast: its own routes under /api/episodes
+  // (src/server/podcast/routes.ts).
+  ...podcastRoutes,
 ];
 
 
@@ -2457,6 +2448,7 @@ const server = createServer(async (req, res) => {
         { req, res, url, body: () => readBody(req), raw: () => readRaw(req) },
         params,
       );
+      if (result === ANSWERED) return;
       return json(res, 200, result);
     }
 
@@ -2489,6 +2481,7 @@ if (isMain !== false) {
     // listening callback runs on the tick the bind succeeds, before the loop
     // accepts a connection, so no request sees a stale `sending`.
     failInterruptedSends();
+    failInterruptedEpisodeSends();
     // Only once it is serving: a failure to boot (the offline guard refusing
     // the live database, a port in use) must still exit.
     logStrayErrors();
@@ -2496,6 +2489,7 @@ if (isMain !== false) {
     log.info(`[boot] WT Builder on http://${config.host}:${config.port} — ${Object.entries(describeConfig()).map(([k, v]) => `${k}: ${v}`).join(', ')}`);
     void finishStrandedWrites();
     resumeRechecks();
+    resumeEpisodeRechecks();
   });
 }
 
