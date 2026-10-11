@@ -99,6 +99,22 @@ test('an edit to a segment another tab removed is said, never saved as made', as
   expect(saved(id).segments.map((s) => s.title)).toEqual(['Keep']);
 });
 
+test('the same edit made in two tabs is not mistaken for an edit to something removed', async ({ page, request }) => {
+  const created = await (await request.post('/api/episodes', { data: { title: 'Twice' } })).json();
+  const id = created.episode.episode.id as string;
+  const segments = cleanOutline([{ title: 'Before', cards: [] }]);
+  const put = await (await request.put(`/api/episodes/${id}/outline`, { data: { segments, base: created.outline_version } })).json();
+  await page.goto(`/${id}`);
+  await expect(page.locator('.pc-seg-title')).toHaveValue('Before');
+
+  expect((await request.put(`/api/episodes/${id}/outline`, { data: { segments: [{ ...segments[0], title: 'After' }], base: put.outline_version } })).status()).toBe(200);
+  await page.locator('.pc-seg-title').fill('After');
+  await page.locator('.pc-seg-title').blur();
+  await expect(page.locator('.error-bar')).toContainText('changed in another tab');
+  await expect(page.locator('.error-bar')).not.toContainText('no longer in it');
+  expect(saved(id).segments.map((s) => s.title)).toEqual(['After']);
+});
+
 test('outline edits made faster than the server answers all land, in order', async ({ page, request }) => {
   const created = await (await request.post('/api/episodes', { data: { title: 'Quick' } })).json();
   const id = created.episode.episode.id as string;

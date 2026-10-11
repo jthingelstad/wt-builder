@@ -57,7 +57,7 @@ export function Episode({ view, error, run, onError, onIndex, onRecord, onReload
   const queue = useRef<Promise<unknown>>(Promise.resolve());
   const waiting = useRef(0);
   if (waiting.current === 0) outline.current = { segments: doc.segments, version: view.outline_version };
-  const saveOutline = (change: Edit<Segment[]>): Promise<boolean> => {
+  const saveOutline = (change: Edit<Segment[]>, target?: Target): Promise<boolean> => {
     waiting.current += 1;
     let movedUnder = false;
     const saving = queue.current.then(() => run(async () => {
@@ -78,7 +78,8 @@ export function Episode({ view, error, run, onError, onIndex, onRecord, onReload
       const latest = await podcastApi.get(id);
       // An edit to a segment or card the other tab removed changes nothing
       // there: said, not saved as if it had been made.
-      if (JSON.stringify(change(latest.episode.segments)) === JSON.stringify(latest.episode.segments)) {
+      const there = !target || latest.episode.segments.some((s) => s.id === target.seg && (!target.card || s.cards.some((c) => c.id === target.card)));
+      if (!there) {
         onReload();
         throw new Error('The outline changed in another tab, and what you edited is no longer in it: your edit was not made.');
       }
@@ -271,6 +272,8 @@ function move<T>(list: T[], i: number, d: number): T[] {
 
 /** An outline edit: what to do to the newest copy, by id, never a copy of it. */
 type Edit<T> = (current: T) => T;
+/** What an edit is to: the segment, and the card in it. */
+interface Target { seg: string; card?: string }
 
 /** Move the entry with this id by d places, wherever it is now; gone, nothing moves. */
 function moveId<T extends { id: string }>(list: T[], id: string, d: number): T[] {
@@ -278,20 +281,21 @@ function moveId<T extends { id: string }>(list: T[], id: string, d: number): T[]
   return i < 0 ? list : move(list, i, d);
 }
 
-function Outline({ doc, save }: { doc: EpisodeDoc; save: (change: Edit<Segment[]>) => Promise<boolean> }) {
+function Outline({ doc, save }: { doc: EpisodeDoc; save: (change: Edit<Segment[]>, target?: Target) => Promise<boolean> }) {
   const segs = doc.segments;
-  const setSeg = (id: string, change: Edit<Segment>) => save((all) => all.map((s) => (s.id === id ? change(s) : s)));
+  const setSeg = (id: string, change: Edit<Segment>, card?: string) =>
+    save((all) => all.map((s) => (s.id === id ? change(s) : s)), { seg: id, card });
   return (
     <div class="pc-outline">
       {!segs.length && <p class="quiet">No segments yet. A segment is one part of the episode; its cards are the beats you record from, one screen each.</p>}
       {segs.map((seg, i) => (
         <SegmentEditor
           key={seg.id} seg={seg} first={i === 0} last={i === segs.length - 1}
-          onChange={(change) => setSeg(seg.id, change)}
-          onMove={(d) => void save((all) => moveId(all, seg.id, d))}
+          onChange={(change, card) => setSeg(seg.id, change, card)}
+          onMove={(d) => void save((all) => moveId(all, seg.id, d), { seg: seg.id })}
           onRemove={() => {
             if (seg.cards.some((c) => c.claim || c.blocks.length) && !confirm(`Remove the segment "${seg.title || 'untitled'}" and its cards?`)) return;
-            void save((all) => all.filter((s) => s.id !== seg.id));
+            void save((all) => all.filter((s) => s.id !== seg.id), { seg: seg.id });
           }}
         />
       ))}
@@ -307,11 +311,11 @@ function SegmentEditor({ seg, first, last, onChange, onMove, onRemove }: {
   seg: Segment;
   first: boolean;
   last: boolean;
-  onChange: (change: Edit<Segment>) => Promise<boolean>;
+  onChange: (change: Edit<Segment>, card?: string) => Promise<boolean>;
   onMove: (d: number) => void;
   onRemove: () => void;
 }) {
-  const setCard = (id: string, change: Edit<CardT>) => onChange((s) => ({ ...s, cards: s.cards.map((c) => (c.id === id ? change(c) : c)) }));
+  const setCard = (id: string, change: Edit<CardT>) => onChange((s) => ({ ...s, cards: s.cards.map((c) => (c.id === id ? change(c) : c)) }), id);
   const links = seg.links.map((l) => (l.text ? `${l.text} | ${l.url}` : l.url)).join('\n');
   return (
     <div class={`pc-seg role-${seg.role ?? 'none'}`}>
@@ -355,8 +359,8 @@ function SegmentEditor({ seg, first, last, onChange, onMove, onRemove }: {
         <CardEditor
           key={card.id} card={card} seg={seg} first={i === 0} last={i === seg.cards.length - 1}
           onChange={(change) => setCard(card.id, change)}
-          onMove={(d) => void onChange((s) => ({ ...s, cards: moveId(s.cards, card.id, d) }))}
-          onRemove={() => void onChange((s) => ({ ...s, cards: s.cards.filter((c) => c.id !== card.id) }))}
+          onMove={(d) => void onChange((s) => ({ ...s, cards: moveId(s.cards, card.id, d) }), card.id)}
+          onRemove={() => void onChange((s) => ({ ...s, cards: s.cards.filter((c) => c.id !== card.id) }), card.id)}
         />
       ))}
       <button class="btn tiny pc-add" onClick={() => void onChange((s) => ({ ...s, cards: [...s.cards, { id: newId('card'), blocks: [] }] }))}>

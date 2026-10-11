@@ -282,6 +282,18 @@ describe('the send', () => {
     expect(remove).toEqual(['content/episodes/002-ready-to-go.txt']);
   });
 
+  it('a first send that landed but was never recorded is reconciled on the retry, not refused', async () => {
+    const id = await ready();
+    putTree.mockRejectedValueOnce(new Error('socket hang up')); // the commit landed; the answer was lost
+    expect((await call('POST', `/episodes/${id}/send`)).status).toBe(502);
+    listPaths.mockResolvedValue(['content/episodes/002-ready-to-go.md', 'content/episodes/002-ready-to-go.txt', 'uploads/2026/another-thing-2.mp3']);
+    putTree.mockResolvedValueOnce({ sha: 'abc123', changed: [], unchanged: 3, committed: false });
+    const retry = await call('POST', `/episodes/${id}/send`);
+    expect(retry.status).toBe(200);
+    expect(eps.getEpisode(id)!.doc.sends?.another?.status).toBe('sent');
+    expect((await call('PATCH', `/episodes/${id}`, { slug: 'moved' })).json.code).toBe('frozen');
+  });
+
   it('refuses a number already in the repository, and leaves the send state as it was', async () => {
     const id = await ready();
     listPaths.mockResolvedValue(['content/episodes/002-published-by-hand.md']);

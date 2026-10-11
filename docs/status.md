@@ -957,6 +957,9 @@ first real episode is the first real run.
   Refusals: 422 for a blocking problem (never overridable), 409 `warnings`
   without `force`, 409 `number-taken` when the repository already holds
   another episode under the number, 409 when the master is not on disk.
+  The number's mp3 beside this episode's own page is this episode's (a
+  send that landed but was never recorded): the retry commits nothing new
+  and records the send.
   Claimed before the first await; a `sending` found at boot is marked
   failed. Number, slug and date are frozen while the send is out (409
   `sending`) and for good once sent (409 `frozen`); a sent episode cannot

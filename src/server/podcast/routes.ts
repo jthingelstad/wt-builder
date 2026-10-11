@@ -136,15 +136,17 @@ function guardInFlight(doc: EpisodeDoc): void {
 /**
  * What the repository already holds for this number, beside this episode's
  * own files: another slug's page under `content/episodes/00N-`, or the
- * number's mp3 before this episode has ever sent it. Either means the
+ * number's mp3 with no page of this episode's beside it. Either means the
  * number is taken (episode 1 was published by hand), and sending would put
- * two episodes behind one number.
+ * two episodes behind one number. The mp3 beside this episode's own page is
+ * this episode's: a send that landed but was never recorded (the answer
+ * lost, or a restart before the save), which a retry reconciles and records.
  */
 export function clashes(doc: EpisodeDoc, paths: string[], audioPath: string): string[] {
   const own = `content/episodes/${episodeStem(doc.episode.number, doc.episode.slug)}.`;
   const prefix = episodePrefix(doc.episode.number);
   const out = paths.filter((p) => p.startsWith(prefix) && !p.startsWith(own));
-  if (!isSent(doc) && paths.includes(audioPath)) out.push(audioPath);
+  if (!isSent(doc) && paths.includes(audioPath) && !paths.includes(`${own}md`)) out.push(audioPath);
   return out;
 }
 

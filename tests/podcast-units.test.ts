@@ -133,8 +133,10 @@ describe('the send', () => {
   it('finds another episode under this number, and leaves its own files alone', () => {
     const paths = ['content/episodes/001-how-do-you-start-a-podcast.md', 'content/episodes/002-mine.md', 'content/episodes/002-mine.txt', 'uploads/2026/another-thing-2.mp3'];
     expect(clashes(doc(1, 'something-else'), paths, 'uploads/2025/another-thing-1.mp3')).toEqual(['content/episodes/001-how-do-you-start-a-podcast.md']);
-    // Unsent, an mp3 already at the path is someone else's.
-    expect(clashes(doc(2, 'mine'), paths, 'uploads/2026/another-thing-2.mp3')).toEqual(['uploads/2026/another-thing-2.mp3']);
+    // Unsent, an mp3 at the path with no page of this episode's is someone else's.
+    expect(clashes(doc(2, 'mine'), ['uploads/2026/another-thing-2.mp3'], 'uploads/2026/another-thing-2.mp3')).toEqual(['uploads/2026/another-thing-2.mp3']);
+    // Unsent beside its own page, it is a send that landed unrecorded: the retry reconciles it.
+    expect(clashes(doc(2, 'mine'), paths, 'uploads/2026/another-thing-2.mp3')).toEqual([]);
     // Sent, it is this episode's own, replaced by a re-send.
     expect(clashes(doc(2, 'mine', true), paths, 'uploads/2026/another-thing-2.mp3')).toEqual([]);
     expect(clashes(doc(3, 'new'), paths, 'uploads/2026/another-thing-3.mp3')).toEqual([]);
