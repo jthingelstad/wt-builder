@@ -260,6 +260,19 @@ describe('the send', () => {
     expect((await call('DELETE', `/episodes/${id}`)).status).toBe(409);
   });
 
+  it('a re-send without the transcript takes the old one out of the repository', async () => {
+    const id = await ready();
+    expect((await call('POST', `/episodes/${id}/send`)).status).toBe(200);
+    expect(putTree.mock.calls[0]![3]).toEqual([]);
+
+    await call('PATCH', `/episodes/${id}`, { transcript: '' });
+    listPaths.mockResolvedValue(['content/episodes/002-ready-to-go.md', 'content/episodes/002-ready-to-go.txt', 'uploads/2026/another-thing-2.mp3']);
+    expect((await call('POST', `/episodes/${id}/send?force=1`)).status).toBe(200);
+    const [files, , , remove] = putTree.mock.calls[1]!;
+    expect((files as { path: string }[]).map((f) => f.path)).not.toContain('content/episodes/002-ready-to-go.txt');
+    expect(remove).toEqual(['content/episodes/002-ready-to-go.txt']);
+  });
+
   it('refuses a number already in the repository, and leaves the send state as it was', async () => {
     const id = await ready();
     listPaths.mockResolvedValue(['content/episodes/002-published-by-hand.md']);
@@ -331,5 +344,43 @@ describe('the transcript draft', () => {
     expect(eps.getEpisode(id)!.doc.transcript).toBe('Typed meanwhile.');
     const events = (await call('GET', `/episodes/${id}/events`)).json.events.map((e: { summary: string }) => e.summary);
     expect(events.some((t: string) => t.startsWith('Transcript draft set aside'))).toBe(true);
+  });
+});
+
+describe('one thing at a time on the audio', () => {
+  it('while a new recording is mastering, nothing sends or transcribes from the old one', async () => {
+    const id = await ready();
+    let done!: () => void;
+    master.mockImplementation(() => new Promise((resolve) => {
+      done = () => resolve({ path: masteredPath(id), bytes: 4321, durationSeconds: 1800 });
+    }));
+    const upload = fetch(`${base}/api/episodes/${id}/audio?name=new.wav`, { method: 'POST', body: 'RIFF new take' });
+    await vi.waitFor(() => expect(master).toHaveBeenCalled());
+
+    const send = await call('POST', `/episodes/${id}/send`);
+    expect(send.status).toBe(409);
+    expect(send.text).toContain('being mastered');
+    expect(putTree).not.toHaveBeenCalled();
+    expect(eps.getEpisode(id)!.doc.sends?.another?.status ?? 'none').toBe('none');
+    expect((await call('POST', `/episodes/${id}/transcribe`, { replace: true })).status).toBe(409);
+    expect(transcribe).not.toHaveBeenCalled();
+
+    done();
+    expect((await upload).status).toBe(200);
+  });
+
+  it('while a transcript is drafted, a new recording waits', async () => {
+    const id = await ready();
+    let done!: () => void;
+    transcribe.mockImplementation(() => new Promise((resolve) => { done = () => resolve('The draft.'); }));
+    const drafting = call('POST', `/episodes/${id}/transcribe`, { replace: true });
+    await vi.waitFor(() => expect(transcribe).toHaveBeenCalled());
+
+    const upload = await fetch(`${base}/api/episodes/${id}/audio?name=new.wav`, { method: 'POST', body: 'RIFF new take' });
+    expect(upload.status).toBe(409);
+    expect(master).not.toHaveBeenCalled();
+
+    done();
+    expect((await drafting).status).toBe(200);
   });
 });

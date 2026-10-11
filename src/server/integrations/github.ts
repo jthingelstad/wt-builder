@@ -157,12 +157,15 @@ export async function diff(files: RepoBlob[], target: RepoTarget = {}): Promise<
 
 /**
  * Commit `files` as one atomic commit. Retries once on a lost ref-update race,
- * rebuilding against the new head rather than forcing.
+ * rebuilding against the new head rather than forcing. `remove` names paths
+ * the same commit deletes, where they exist: a re-sent episode without its
+ * transcript takes the old one away rather than leaving it behind.
  */
 export async function putTree(
   files: RepoBlob[],
   message: string,
   target: RepoTarget = {},
+  remove: string[] = [],
 ): Promise<PushResult> {
   if (!files.length) throw new Error('putTree requires at least one file');
   const { repo, branch } = targetOf(target);
@@ -174,11 +177,12 @@ export async function putTree(
     const remote = await treeBlobs(repo, baseTree);
 
     const changed = files.filter((f) => remote.get(f.path) !== blobSha(f.content));
-    if (!changed.length) {
+    const removed = remove.filter((path) => remote.has(path) && !files.some((f) => f.path === path));
+    if (!changed.length && !removed.length) {
       return { sha: parent, changed: [], unchanged: files.length, committed: false };
     }
 
-    const entries = [];
+    const entries: { path: string; mode: string; type: string; sha: string | null }[] = [];
     for (const file of changed) {
       const blob = Buffer.isBuffer(file.content)
         ? await call(repo, '/git/blobs', {
@@ -191,6 +195,8 @@ export async function putTree(
           });
       entries.push({ path: file.path, mode: '100644', type: 'blob', sha: blob.sha });
     }
+    // A null sha is how the Git Data API takes a path out of the tree.
+    for (const path of removed) entries.push({ path, mode: '100644', type: 'blob', sha: null });
 
     const tree = await call(repo, '/git/trees', {
       method: 'POST',
@@ -209,7 +215,7 @@ export async function putTree(
       });
       return {
         sha: commit.sha,
-        changed: changed.map((f) => f.path),
+        changed: [...changed.map((f) => f.path), ...removed],
         unchanged: files.length - changed.length,
         committed: true,
       };

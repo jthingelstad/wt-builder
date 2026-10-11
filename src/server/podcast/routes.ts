@@ -146,6 +146,9 @@ export function clashes(doc: EpisodeDoc, paths: string[], audioPath: string): st
 async function send(id: string, force: boolean) {
   const doc = requireEpisode(id);
   guardInFlight(doc);
+  // A new master replaces the mp3 on disk: the send would package this
+  // document and could read either file.
+  if (mastering.has(id)) throw new HttpError(409, 'a new recording is being mastered — send when it is done');
   const blocking = validate(doc).filter((p) => p.severity === 'blocks');
   if (blocking.length) throw new HttpError(422, blocking.map((p) => p.text).join(' '), 'invalid');
   if (!existsSync(masteredPath(id))) throw new HttpError(409, 'the mastered mp3 is not on disk — drop the recording again');
@@ -167,15 +170,21 @@ async function send(id: string, force: boolean) {
   try {
     const e = doc.episode;
     const audioPath = audioRepoPath(e.number, e.date!);
-    const taken = clashes(doc, await github.listPaths('', target), audioPath);
+    const paths = await github.listPaths('', target);
+    const taken = clashes(doc, paths, audioPath);
     if (taken.length) {
       eps.recordEpisodeSend(id, previous ?? { status: 'none' });
       throw new Refusal(409, `episode ${e.number} is already in the repository (${taken.join(', ')}) — renumber this one before sending`, 'number-taken');
     }
 
     const mp3 = await tagged(doc);
-    const files = [...packageTextFiles(doc), { path: audioPath, content: mp3 }];
-    const pushed = await github.putTree(files, `Another Thing ${e.number}: ${e.title}\n\nSent from WT Builder.`, target);
+    const text = packageTextFiles(doc);
+    const files = [...text, { path: audioPath, content: mp3 }];
+    // This episode's own files the package no longer has (a transcript
+    // cleared since the last send) go in the same commit.
+    const own = `content/episodes/${episodeStem(e.number, e.slug)}.`;
+    const gone = paths.filter((p) => p.startsWith(own) && !text.some((f) => f.path === p));
+    const pushed = await github.putTree(files, `Another Thing ${e.number}: ${e.title}\n\nSent from WT Builder.`, target, gone);
     const ms = Date.now() - started;
     const url = `${SITE}${permalink(e.date!, e.slug)}`;
     eps.recordEpisodeSend(id, {
@@ -482,6 +491,8 @@ export const podcastRoutes: Route[] = [
   [/^\/api\/episodes\/([^/]+)\/audio$/, 'POST', async ({ req, url }, [id]) => {
     const doc = requireEpisode(id!);
     if (mastering.has(id!)) throw new HttpError(409, 'a recording is already being mastered');
+    // A draft being made describes the mp3 it was made from.
+    if (transcribing.has(id!)) throw new HttpError(409, 'the transcript is being drafted from the current master — wait for it');
     if (sending.has(id!) || isOut(doc.sends?.another)) throw new HttpError(409, 'the episode is being sent — wait for the send');
     const name = (url.searchParams.get('name') ?? 'recording.wav').replace(/[^\w. -]/g, '').slice(0, 120) || 'recording.wav';
 
@@ -547,6 +558,7 @@ export const podcastRoutes: Route[] = [
     const b = (await body()) as { replace?: boolean };
     const doc = requireEpisode(id!);
     if (transcribing.has(id!)) throw new HttpError(409, 'already transcribing');
+    if (mastering.has(id!)) throw new HttpError(409, 'a new recording is being mastered — transcribe when it is done');
     if (!existsSync(masteredPath(id!))) throw new HttpError(409, 'no mastered audio yet — drop the recording first');
     if (doc.transcript?.trim() && !b.replace) {
       throw new HttpError(409, 'the episode has a transcript already — replacing it loses your edits', 'has-transcript');

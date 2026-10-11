@@ -933,7 +933,9 @@ first real episode is the first real run.
   The first master stamps the episode's date in Central with its offset.
   Mastering is tested for real against a generated recording
   (`tests/podcast-master.test.ts`, skipped where ffmpeg is absent, as on
-  CI); never yet against a real one.
+  CI); never yet against a real one. A new recording is refused while a
+  transcript is being drafted, and a send or a draft while one is being
+  mastered: what is sent or transcribed is always the current master.
 - **Transcript.** `POST …/transcribe` sends the mastered mp3 to OpenAI
   `whisper-1` in 10-minute chunks and drafts paragraphs on 1.25 s pauses
   (`src/server/podcast/transcribe.ts`); 409 `has-transcript` unless
@@ -943,7 +945,7 @@ first real episode is the first real run.
 - **Send — the `another` leg.** `POST /api/episodes/:id/send[?force=1]`
   commits `content/episodes/NNN-slug.md`, its `.txt` transcript and
   `uploads/YYYY/another-thing-N.mp3` (re-tagged with the episode as it
-  stands) to `jthingelstad/another.thingelstad.com` (`WT_BUILDER_ANOTHER_REPO`)
+  stands), and removes its own `.txt` when a re-send has no transcript, to `jthingelstad/another.thingelstad.com` (`WT_BUILDER_ANOTHER_REPO`)
   as one commit, with `ANOTHER_GITHUB_PAT_TOKEN` (or `GITHUB_PAT_TOKEN`).
   Refusals: 422 for a blocking problem (never overridable), 409 `warnings`
   without `force`, 409 `number-taken` when the repository already holds
