@@ -7,6 +7,7 @@ import { IssueIndex } from './components/Index.tsx';
 import { Editor } from './components/Editor.tsx';
 import { Send } from './components/Send.tsx';
 import { Share } from './components/Share.tsx';
+import { Stats } from './components/Stats.tsx';
 
 export function App() {
   const [route, setRoute] = useState<Route>(() => parseRoute(location.pathname));
@@ -180,6 +181,7 @@ export function App() {
   // inspector and the review's triage (review 2026-09-27 §2.4).
   const sending = route.view === 'send';
   const sharing = route.view === 'share';
+  const counting = route.view === 'stats';
   return (
     <>
       {bar}
@@ -190,11 +192,12 @@ export function App() {
         busy={busy}
         error={error}
         run={run}
-        covered={sending || sharing}
+        covered={sending || sharing || counting}
         jumpTo={jumpTo}
         onIndex={() => go({ view: 'index' })}
         onSend={() => go({ view: 'send', id: doc.issue.id })}
         onShare={() => go({ view: 'share', id: doc.issue.id })}
+        onStats={() => go({ view: 'stats', id: doc.issue.id })}
         onError={setError}
       />
       {sending && (
@@ -219,6 +222,14 @@ export function App() {
           doc={doc}
           onBack={() => go({ view: 'issue', id: doc.issue.id })}
           onSends={() => go({ view: 'send', id: doc.issue.id })}
+        />
+      )}
+      {counting && (
+        <Stats
+          key={doc.issue.id}
+          doc={doc}
+          readiness={readiness}
+          onBack={() => go({ view: 'issue', id: doc.issue.id })}
         />
       )}
     </>

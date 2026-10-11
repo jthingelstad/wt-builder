@@ -25,7 +25,7 @@ import { ArrowLeft, Check, CornerUpRight, Globe, Plus, Trash, WandSparkles } fro
 interface Props {
   doc: IssueDoc;
   onBack: () => void;
-  /** To the Send view, where Made in and Put to bed live. */
+  /** To the Send view, where Put to bed lives. */
   onSends: () => void;
 }
 
@@ -86,7 +86,7 @@ export function Share({ doc, onBack, onSends }: Props) {
           <span class="win">{doc.issue.title}</span>
         </span>
         <span class="head-spacer" />
-        <button class="btn ghost-btn" onClick={onSends} title="The Send view: what went out, Made in, and Put to bed">Sends</button>
+        <button class="btn ghost-btn" onClick={onSends} title="The Send view: what went out, and Put to bed">Sends</button>
       </header>
 
       <div class="send-body">

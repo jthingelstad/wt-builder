@@ -3,8 +3,8 @@
  *
  * The design models this as one app with view states (`view: "index" |
  * "editor"`, and Send as a full-screen layer *over* the editor rather than a
- * page beside it; Share, once an issue is put to bed, is a layer the same
- * way), so this is not a split into separate documents. It gives
+ * page beside it; Share, once an issue is put to bed, and Stats are layers
+ * the same way), so this is not a split into separate documents. It gives
  * those states addresses.
  *
  * Without them the app has no back button, no bookmarkable issue, no way to
@@ -16,7 +16,8 @@ export type Route =
   | { view: 'index' }
   | { view: 'issue'; id: string }
   | { view: 'send'; id: string }
-  | { view: 'share'; id: string };
+  | { view: 'share'; id: string }
+  | { view: 'stats'; id: string };
 
 /** The issue id is the path segment — `wt350` is both the id and the URL. */
 export function parseRoute(pathname: string): Route {
@@ -28,6 +29,7 @@ export function parseRoute(pathname: string): Route {
   // stale bookmark should land you on the issue rather than nowhere.
   if (parts[1] === 'send') return { view: 'send', id };
   if (parts[1] === 'share') return { view: 'share', id };
+  if (parts[1] === 'stats') return { view: 'stats', id };
   return { view: 'issue', id };
 }
 

@@ -39,6 +39,8 @@ interface Props {
   onSend: () => void;
   /** Once the issue is put to bed, Publish becomes Share. */
   onShare: () => void;
+  /** The issue's infographic, at any point in its life (2026-10-11). */
+  onStats: () => void;
   onError: (m: string | null) => void;
   /**
    * The Send view is layered over the editor, which stays mounted beneath
@@ -67,7 +69,7 @@ const KICKER: Record<Lens, [string, string]> = {
 
 const CHANNEL_LENSES: Channel[] = ['website', 'email', 'audio'];
 
-export function Editor({ doc, readiness, busy, error, run, onIndex, onSend, onShare, onError, covered = false, jumpTo }: Props) {
+export function Editor({ doc, readiness, busy, error, run, onIndex, onSend, onShare, onStats, onError, covered = false, jumpTo }: Props) {
   const [lens, setLens] = useState<Lens>('website');
   const [panel, setPanel] = useState(true);
   const [selected, setSelected] = useState<string | null>(null);
@@ -544,6 +546,7 @@ export function Editor({ doc, readiness, busy, error, run, onIndex, onSend, onSh
         <button class={`btn${panel ? ' primary' : ''}`} onClick={() => setPanel(!panel)}>
           Issue
         </button>
+        <button class="btn" onClick={onStats}>Stats</button>
         {/* Put to bed, the sending is done and what is left is telling people (docs/share-plan.md). */}
         {doc.issue.put_to_bed_at
           ? <button class="btn primary" onClick={onShare}>Share</button>

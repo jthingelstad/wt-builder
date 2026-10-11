@@ -21,7 +21,6 @@ import { audioScript } from '../../shared/render/audio.ts';
 import { linkFindings } from '../../shared/link-findings.ts';
 import { deliverabilityFindings } from '../../shared/deliverability.ts';
 import { openChecks } from '../../shared/hints.ts';
-import { madeIn } from '../made-in.ts';
 import { ApiError, api, type AudioProgress, type PodcastAudio, type Readiness, type SendResult } from '../api.ts';
 import {
   Archive, ArrowLeft, Check, Circle, CircleAlert, Globe, Mail, Moon, Podcast, Spinner, X,
@@ -178,6 +177,9 @@ const CARDS: Card[] = [
     ],
   },
 ];
+
+/** The send legs, in the Send view's order: Stats counts them too. */
+export const LEGS = CARDS.map((c) => c.key);
 
 /** "Website, Buttondown and Archive": the legs a bulk run asks about, by card name. */
 function legNames(keys: Destination[]): string {
@@ -550,8 +552,6 @@ export function Send({ doc, readiness, error, onBack, onJump, onSent, onError }:
             onVerify={() => verify(card.key)}
           />
         ))}
-
-        <Timing doc={doc} readiness={readiness} />
 
         <Bed doc={doc} onChanged={onSent} onError={onError} />
 
@@ -944,93 +944,6 @@ function Bed({ doc, onChanged, onError }: { doc: IssueDoc; onChanged: (d: IssueD
             failedSince.length ? `Last attempt failed: ${failedSince.map((c) => c.name).join(', ')}.` : ''].filter(Boolean).join(' ')}
           {' '}It can still go to bed.
         </span></div>
-      )}
-    </section>
-  );
-}
-
-/**
- * How long the issue took, from its event log — beside the Builder issue
- * before it, with what shipped in WT Builder between the two, so a feature's
- * effect on the time can be seen (Jamie, WT351: "did it save me time!").
- * Jamie's own acts only; sittings split at 30 minutes apart.
- *
- * Design D (Jamie, 2026-10-04), with no sentence on top: an eyebrow and the
- * comparison, four stats, one stacked bar, a tile per day. It is meant to be
- * shared, so it shows each day's total and never when a sitting happened.
- * The numbers are worked out in made-in.ts.
- */
-function Timing({ doc, readiness }: { doc: IssueDoc; readiness: Readiness | null }) {
-  const [data, setData] = useState<Awaited<ReturnType<typeof api.timing>> | null>(null);
-  const [showShipped, setShowShipped] = useState(false);
-  const sentKey = CARDS.map((c) => doc.sends?.[c.key]?.status ?? '').join('|');
-  useEffect(() => {
-    api.timing(doc.issue.id).then(setData).catch(() => setData(null));
-  }, [doc.issue.id, sentKey]);
-  if (!data || !data.timing.actions) return null;
-  const m = madeIn({
-    number: doc.issue.number,
-    timing: data.timing,
-    previous: data.previous,
-    pills: readiness ? { done: readiness.done, total: readiness.total } : null,
-    legs: { sent: CARDS.filter((c) => lastSent(doc.sends?.[c.key])).length, total: CARDS.length },
-  });
-  return (
-    <section class="send-card timing">
-      <div class="mi-card">
-        <div class="mi-head">
-          <h2 class="mi-eyebrow">{m.eyebrow}</h2>
-          {m.comparison && <span class={`mi-pill${m.comparison.less ? '' : ' more'}`}>{m.comparison.text}</span>}
-        </div>
-
-        <div class="mi-stats" style={{ gridTemplateColumns: `repeat(${m.stats.length}, minmax(0, 1fr))` }}>
-          {m.stats.map((s) => (
-            <div class="mi-stat" key={s.label}>
-              <span class="mi-value">{s.value}</span>
-              <span class="mi-label">{s.label}</span>
-            </div>
-          ))}
-        </div>
-
-        {m.segments.length > 0 && (
-          <div class="mi-block">
-            <span class="mi-kicker">WHERE IT WENT</span>
-            <div class="mi-bar" role="img" aria-label={m.segments.map((s) => `${s.label} ${s.time}`).join(', ')}>
-              {m.segments.map((s) => <span key={s.label} style={{ flexGrow: s.ms, background: s.color }} />)}
-            </div>
-            <div class="mi-legend">
-              {m.segments.map((s) => (
-                <span class="mi-key" key={s.label}>
-                  <span class="mi-swatch" style={{ background: s.color }} />{s.label} <span class="mi-time">{s.time}</span>
-                </span>
-              ))}
-            </div>
-          </div>
-        )}
-
-        <div class="mi-block">
-          <span class="mi-kicker">WHEN · DARKER IS LONGER</span>
-          <div class="mi-days" style={{ gridTemplateColumns: `repeat(${m.tiles.length}, minmax(0, var(--mi-tile)))` }}>
-            {m.tiles.map((d) => (
-              <div class="mi-day" key={d.day} title={d.title}>
-                <div class={`mi-tile${d.dark ? ' dark' : ''}`} style={{ background: d.shade }}>{d.time}</div>
-                <span class="mi-dow">{d.dow}</span>
-                <span class="mi-added">{d.added}</span>
-              </div>
-            ))}
-          </div>
-          <p class="mi-foot">{m.footnote}</p>
-        </div>
-      </div>
-      {data.shipped.length > 0 && (
-        <div class="tm-shipped">
-          <button class="tm-shipped-toggle" onClick={() => setShowShipped(!showShipped)}>
-            {showShipped ? 'Hide' : 'What changed in'} WT Builder since WT{data.previous!.number} ({data.shipped.length})
-          </button>
-          {showShipped && (
-            <ul>{data.shipped.map((c) => <li key={c.sha}><code>{c.sha}</code> {c.subject}</li>)}</ul>
-          )}
-        </div>
       )}
     </section>
   );

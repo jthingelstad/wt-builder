@@ -1,11 +1,12 @@
 /**
- * The Made in card on the Send view (design D, 2026-10-04). It is meant to
+ * The Made in card on the Stats view (design D, 2026-10-04; moved off the
+ * Send view 2026-10-11). It is meant to
  * be shared, so it shows each day's total and never when a sitting happened
  * (Jamie, 2026-10-04). The timing route is answered here with sittings at
  * known clock times, and none of those times may reach the card.
  */
 import { expect, test } from '@playwright/test';
-import { open, reset } from './helpers.ts';
+import { ISSUE, open, reset } from './helpers.ts';
 
 test.beforeEach(() => reset());
 
@@ -39,7 +40,7 @@ test('the card shows days and totals, never a clock time', async ({ page }) => {
   await page.route('**/api/issues/*/timing', (route) => route.fulfill({
     json: { timing, previous: { number: 349, timing: { ...timing, activeMs: 150 * M } }, shipped: [] },
   }));
-  await open(page, '/send');
+  await open(page, '/stats');
   const card = page.locator('.send-card.timing');
   await expect(card).toBeVisible();
 
@@ -69,4 +70,31 @@ test('the card shows days and totals, never a clock time', async ({ page }) => {
     expect(t).not.toMatch(/\b\d{1,2}:\d{2}\b/);
     expect(t).not.toMatch(/\b(AM|PM)\b/i);
   }
+});
+
+test('Stats is in the header, holds Made in, and the Send view no longer does (2026-10-11)', async ({ page }) => {
+  await page.route('**/api/issues/*/timing', (route) => route.fulfill({ json: { timing, previous: null, shipped: [] } }));
+  await open(page);
+  await page.locator('header').getByRole('button', { name: 'Stats', exact: true }).click();
+  await expect(page).toHaveURL(new RegExp(`/${ISSUE}/stats$`));
+  await expect(page.locator('.stats-layer h1')).toHaveText('Stats');
+  await expect(page.locator('.stats-layer .send-card.timing')).toBeVisible();
+
+  await page.keyboard.press('Escape');
+  await expect(page).toHaveURL(new RegExp(`/${ISSUE}$`));
+  await expect(page.locator('.stats-layer')).toHaveCount(0);
+
+  await page.locator('header').getByRole('button', { name: 'Publish', exact: true }).click();
+  await expect(page).toHaveURL(new RegExp(`/${ISSUE}/send$`));
+  await expect(page.locator('.send-card').first()).toBeVisible();
+  await expect(page.locator('.send-card.timing, .mi-card')).toHaveCount(0);
+});
+
+test('an issue with nothing counted yet says so, rather than showing an empty page', async ({ page }) => {
+  await page.route('**/api/issues/*/timing', (route) => route.fulfill({
+    json: { timing: { ...timing, sessions: [], byDay: [], activeMs: 0, actions: 0, edits: 0, publishedAt: undefined, bySection: [] }, previous: null, shipped: [] },
+  }));
+  await open(page, '/stats');
+  await expect(page.locator('.stats-empty')).toContainText('Nothing to count yet');
+  await expect(page.locator('.mi-card')).toHaveCount(0);
 });

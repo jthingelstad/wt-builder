@@ -34,7 +34,7 @@ export function item(id: string): Record<string, unknown> {
  * an image fails in milliseconds, and open() waits for every image to have
  * finished one way or the other before the test touches anything.
  */
-export async function open(page: Page, path: '' | '/send' = ''): Promise<void> {
+export async function open(page: Page, path: '' | '/send' | '/stats' = ''): Promise<void> {
   await page.route((url) => url.hostname !== '127.0.0.1', (route) => route.abort());
   await page.goto(`/${ISSUE}${path}`);
   await page.locator('[data-anchor]').first().waitFor();

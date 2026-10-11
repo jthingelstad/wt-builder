@@ -129,7 +129,67 @@ an archive not yet indexed — and says when it will look again on its own. The
 Archive card also carries **PREVIEW**: what a commit would change in the corpus,
 changing nothing.
 
-Before it, **Made in** — how long the issue took, read from the event log, laid
+*Moved 2026-10-11:* **Made in**, the card that sat here, opens the Stats view
+now (below). The Send view is about sending.
+
+The last card is **Put to bed** (`moon`, dusk `#4b4a7a` on `#eceaf6`): `AWAKE` /
+`ASLEEP`, one line on what it means, and `Put to bed` — enabled once the issue is
+published, with an amber strip naming any leg not sent or not verified (it can
+still go to bed). Asleep, the card offers `Wake it` (confirmed), every send button
+is disabled, the issue opens under a dusk banner with the same `Wake it`, and the
+index row carries a `PUT TO BED` chip. The index offers the same act on every published row: `Put to bed` (`moon`) beside `Website ↗`, and `Wake` (confirmed) once asleep.
+
+## Share view
+
+Once an issue is put to bed, the editor header's `Publish` becomes `Share`
+(primary, the same place), and opens `/{id}/share`: a layer over the editor,
+built from Send's pieces (`send-layer`, `send-card`, `sc-*`), so it looks like
+Send's sibling and nothing new. The header: `← Issue`, the identity, and a
+ghost `Sends` button that crosses to the Send view, where Put to bed lives. Escape goes back. Then `Share`, a one-sentence lede, and
+`NEW SHARE  [+ LinkedIn] [+ Blog post]`. A draft issue shows an amber line
+instead: no page to share yet. (`docs/share-plan.md` for the reasons.)
+
+The shares follow, newest first, one card each. The card head: a tile
+(`corner-up-right` for LinkedIn, `globe` for a blog post), the destination
+name, a `DRAFT` or `SHARED` pill, the started or shared time, `the post ↗`
+when a URL is known, and the wand's `Draft` button on a draft.
+
+A draft card is a task: a textarea (a title input above it for a blog post,
+filled with the email's subject to start),
+saved on blur, starting as the issue link alone so the words go above it.
+LinkedIn adds a mono count toward 3000 (terracotta over it) and, under it, the
+lines LinkedIn shows before `…see more`, with a left rule, or "The whole post
+shows". Amber lines say when the text no longer links the issue, and when a
+LinkedIn draft has Markdown in it. The wand's three candidates open in the
+draft picker's frame inside the card; a LinkedIn candidate says `Leads with
+<the Notable link>`; `Use this` puts it in the field (asking first if there
+are words to replace). The foot: LinkedIn has `Copy text`, `Open LinkedIn ↗`
+and primary `Mark shared` (asks for the post's URL, optional); a blog post has
+primary `Post to the blog` (confirmed: it publishes now). `Delete` (ghost,
+confirmed) sits at the right. A shared card shows its words as they went, and
+nothing to press. A put-to-bed row on the index carries a primary `Share`
+beside `Open` that lands here (Jamie, 2026-10-07).
+
+No class or attribute in this view says "share" or "linkedin", and it holds no
+`linkedin.com` link (`Open LinkedIn` opens the feed from a click): a content
+blocker's social filter list hid the New share row in Jamie's Safari on the
+first day. `tell-*` names the view's own pieces; `tests/shares.test.ts` guards it.
+
+## Stats view
+
+The issue's infographic (Jamie, 2026-10-11: "Think of it like building an
+infographic about each issue… start with the what it took and then we'll extend
+from there"). `Stats` in the editor's header, a plain `btn` just before the
+primary `Publish` / `Share`, opens `/{id}/stats` at any point in the issue's life:
+a layer over the editor built from Send's pieces (`send-layer stats-layer`,
+`send-card`), as Share is. The header: `← Issue` and the identity. Escape goes
+back. Then `Stats`, a one-line lede, and the cards. Its first card is Made in,
+moved here from the Send view; more cards follow it as the view grows.
+
+An issue with nothing counted yet says so in one quiet line rather than showing
+an empty card; a pre-Builder issue says it has no record of how it was made.
+
+**Made in** — how long the issue took, read from the event log, laid
 out as design D (Jamie, 2026-10-04: his favourite visual, "but not with the
 sentence on top"), numbers in `src/client/made-in.ts`. One white card,
 `padding: 30px 34px`, blocks 30px apart, and no headline:
@@ -167,50 +227,6 @@ never shows when a sitting happened, not even in a tooltip — each day's total 
 its weekday, nothing finer: the clock times were too much to share (Jamie,
 2026-10-04). Its stat numbers are the one upright serif in the app (D's choice);
 no note ever sits beside them, so they cannot be read as the editorial voice.
-
-The last card is **Put to bed** (`moon`, dusk `#4b4a7a` on `#eceaf6`): `AWAKE` /
-`ASLEEP`, one line on what it means, and `Put to bed` — enabled once the issue is
-published, with an amber strip naming any leg not sent or not verified (it can
-still go to bed). Asleep, the card offers `Wake it` (confirmed), every send button
-is disabled, the issue opens under a dusk banner with the same `Wake it`, and the
-index row carries a `PUT TO BED` chip. The index offers the same act on every published row: `Put to bed` (`moon`) beside `Website ↗`, and `Wake` (confirmed) once asleep.
-
-## Share view
-
-Once an issue is put to bed, the editor header's `Publish` becomes `Share`
-(primary, the same place), and opens `/{id}/share`: a layer over the editor,
-built from Send's pieces (`send-layer`, `send-card`, `sc-*`), so it looks like
-Send's sibling and nothing new. The header: `← Issue`, the identity, and a
-ghost `Sends` button that crosses to the Send view, where Made in and Put to
-bed live. Escape goes back. Then `Share`, a one-sentence lede, and
-`NEW SHARE  [+ LinkedIn] [+ Blog post]`. A draft issue shows an amber line
-instead: no page to share yet. (`docs/share-plan.md` for the reasons.)
-
-The shares follow, newest first, one card each. The card head: a tile
-(`corner-up-right` for LinkedIn, `globe` for a blog post), the destination
-name, a `DRAFT` or `SHARED` pill, the started or shared time, `the post ↗`
-when a URL is known, and the wand's `Draft` button on a draft.
-
-A draft card is a task: a textarea (a title input above it for a blog post,
-filled with the email's subject to start),
-saved on blur, starting as the issue link alone so the words go above it.
-LinkedIn adds a mono count toward 3000 (terracotta over it) and, under it, the
-lines LinkedIn shows before `…see more`, with a left rule, or "The whole post
-shows". Amber lines say when the text no longer links the issue, and when a
-LinkedIn draft has Markdown in it. The wand's three candidates open in the
-draft picker's frame inside the card; a LinkedIn candidate says `Leads with
-<the Notable link>`; `Use this` puts it in the field (asking first if there
-are words to replace). The foot: LinkedIn has `Copy text`, `Open LinkedIn ↗`
-and primary `Mark shared` (asks for the post's URL, optional); a blog post has
-primary `Post to the blog` (confirmed: it publishes now). `Delete` (ghost,
-confirmed) sits at the right. A shared card shows its words as they went, and
-nothing to press. A put-to-bed row on the index carries a primary `Share`
-beside `Open` that lands here (Jamie, 2026-10-07).
-
-No class or attribute in this view says "share" or "linkedin", and it holds no
-`linkedin.com` link (`Open LinkedIn` opens the feed from a click): a content
-blocker's social filter list hid the New share row in Jamie's Safari on the
-first day. `tell-*` names the view's own pieces; `tests/shares.test.ts` guards it.
 
 ## Issue index
 
@@ -488,7 +504,8 @@ chosen. The editorial review never counts here (see *Editorial review*).
 *Revisited 2026-09-20* (`docs/decisions.md`, *Picking is the review*): a Thingy
 item counts as done when it has words; marking it reviewed is not a unit.
 - **Issue** toggle (left panel).
-- **Publish** button; **Share** once the issue is put to bed (see *Share view*).
+- **Stats** button (see *Stats view*), then **Publish**; **Share** once the issue is put
+  to bed (see *Share view*).
 
 #### Left panel — issue metadata + outline (300px, `#fbfbfa`, right border)
 
@@ -567,7 +584,7 @@ the row's width no longer depends on the canvas's).
 **The editorial voice is serif italic.** Note bodies are
 `Iowan Old Style, Charter, Georgia, "Times New Roman", serif`, italic, 13.5px/1.5,
 `#3a3a3a`; the whole-issue read at the top is the same face at 15.5px/1.55. Nothing else
-in the app is serif or italic (save Made in's upright stat numbers, on the Send view, where
+in the app is serif or italic (save Made in's upright stat numbers, on the Stats view, where
 no note is), so a note never reads as part of the issue — and 11.5px
 sans was simply too small to read comfortably in a margin.
 

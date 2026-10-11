@@ -445,7 +445,8 @@ a:hover { text-decoration: underline; }
 
 /* How long it took: the event log, read as time (Send view). Design D,
    2026-10-04 — meant to be shared, so it is laid out like a picture. */
-.send-card.timing { margin-top: 22px; --mi-tile: 72px; }
+.send-card.timing { --mi-tile: 72px; }
+.stats-empty { margin-top: 8px; }
 .mi-card { padding: 30px 34px 26px; display: flex; flex-direction: column; gap: 30px; }
 .mi-head { display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap; gap: 8px 16px; margin-bottom: -14px; }
 .mi-eyebrow { margin: 0; font-family: var(--mono); font-weight: 500; font-size: 11px; letter-spacing: 0.08em; color: var(--secondary); }
