@@ -136,17 +136,21 @@ function guardInFlight(doc: EpisodeDoc): void {
 /**
  * What the repository already holds for this number, beside this episode's
  * own files: another slug's page under `content/episodes/00N-`, or the
- * number's mp3 with no page of this episode's beside it. Either means the
- * number is taken (episode 1 was published by hand), and sending would put
- * two episodes behind one number. The mp3 beside this episode's own page is
- * this episode's: a send that landed but was never recorded (the answer
- * lost, or a restart before the save), which a retry reconciles and records.
+ * number's mp3 or this very page before this episode has sent them. Either
+ * means the number is taken (episode 1 was published by hand), and sending
+ * would put two episodes behind one number, or over one. After a failed
+ * send, this episode's own page with the mp3 beside it is that send landed
+ * but never recorded (the answer lost, or a restart before the save), which
+ * the retry reconciles and records.
  */
 export function clashes(doc: EpisodeDoc, paths: string[], audioPath: string): string[] {
   const own = `content/episodes/${episodeStem(doc.episode.number, doc.episode.slug)}.`;
   const prefix = episodePrefix(doc.episode.number);
-  const out = paths.filter((p) => p.startsWith(prefix) && !p.startsWith(own));
-  if (!isSent(doc) && paths.includes(audioPath) && !paths.includes(`${own}md`)) out.push(audioPath);
+  const sent = isSent(doc);
+  const landed = !sent && doc.sends?.another?.status === 'failed' && paths.includes(`${own}md`);
+  const theirs = (p: string) => !p.startsWith(own) || (!sent && !landed);
+  const out = paths.filter((p) => p.startsWith(prefix) && theirs(p));
+  if (!sent && !landed && paths.includes(audioPath)) out.push(audioPath);
   return out;
 }
 
@@ -327,6 +331,13 @@ function applySettings(doc: EpisodeDoc, body: Record<string, unknown>): EventInp
     if (sent) throw new HttpError(409, `the episode has been sent: its ${key} makes its URL and GUID, and stays as it is`, 'frozen');
     if (going) throw new HttpError(409, `the episode is being sent: its ${key} is what is going out — wait for the send`, 'sending');
   }
+  // Nor does anything else the send publishes change under it: the record
+  // would say sent over words the repository never got.
+  if (going) {
+    const now: Record<string, unknown> = { title: e.title, summary: e.summary, explicit: Boolean(e.explicit), show_notes: doc.show_notes ?? '', transcript: doc.transcript ?? '' };
+    const changed = Object.keys(now).find((k) => body[k] !== undefined && body[k] !== now[k]);
+    if (changed) throw new HttpError(409, `the episode is being sent: its ${changed.replace('_', ' ')} is what is going out — wait for the send`, 'sending');
+  }
 
   if (typeof body.number === 'number' && body.number !== e.number) {
     if (!Number.isInteger(body.number) || body.number < 1) throw new HttpError(400, 'the number must be a positive whole number');
@@ -477,6 +488,8 @@ export const podcastRoutes: Route[] = [
       throw new HttpError(400, (err as Error).message);
     }
     const doc = requireEpisode(id!);
+    // Its links publish under "Mentioned in this episode".
+    if (sending.has(id!) || isOut(doc.sends?.another)) throw new HttpError(409, 'the episode is being sent: its links are going out — wait for the send', 'sending');
     if (b.base && b.base !== outlineVersion(doc)) {
       throw new HttpError(409, 'the outline changed in another tab — reloaded with the newer one', 'outline-moved');
     }

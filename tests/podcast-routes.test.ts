@@ -357,9 +357,12 @@ describe('the send', () => {
     const moved = await call('PATCH', `/episodes/${id}`, { slug: 'another-slug' });
     expect(moved.status).toBe(409);
     expect(moved.json.code).toBe('sending');
-    // The title still edits, and the slug does not follow it out from under the send.
-    const retitled = await call('PATCH', `/episodes/${id}`, { title: 'Retitled' });
-    expect(retitled.json.episode.episode.slug).toBe('ready-to-go');
+    // Nothing else it publishes changes under it either; what it does not publish still edits.
+    for (const edit of [{ title: 'Retitled' }, { show_notes: 'New notes.' }, { transcript: 'New words.' }, { explicit: true }]) {
+      expect((await call('PATCH', `/episodes/${id}`, edit)).json.code, JSON.stringify(edit)).toBe('sending');
+    }
+    expect((await call('PUT', `/episodes/${id}/outline`, { segments: [] })).json.code).toBe('sending');
+    expect((await call('PATCH', `/episodes/${id}`, { target_minutes: 25 })).status).toBe(200);
 
     land({ sha: 'abc123', changed: ['x'], unchanged: 0, committed: true });
     expect((await sending).status).toBe(200);

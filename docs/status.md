@@ -957,15 +957,18 @@ first real episode is the first real run.
   Refusals: 422 for a blocking problem (never overridable), 409 `warnings`
   without `force`, 409 `number-taken` when the repository already holds
   another episode under the number, 409 when the master is not on disk.
-  The number's mp3 beside this episode's own page is this episode's (a
-  send that landed but was never recorded): the retry commits nothing new
-  and records the send. Until then, after a failed send, a new number,
+  Before any send, a page at this episode's own name is someone else's
+  (409 `number-taken`); after a failed send, that page with the mp3 is the
+  send that landed but was never recorded: the retry commits nothing new
+  and records it. Until then, after a failed send, a new number,
   slug or date and deleting the episode first look for its page in the
   repository: there, 409 `landed`; GitHub unreadable, 502. Once a send
   has been tried, the slug no longer follows the title.
   Claimed before the first await; a `sending` found at boot is marked
-  failed. Number, slug and date are frozen while the send is out (409
-  `sending`) and for good once sent (409 `frozen`); a sent episode cannot
+  failed. While the send is out nothing it publishes changes (title,
+  summary, explicit, show notes, transcript, outline links: 409
+  `sending`); number, slug and date are frozen for good once sent (409
+  `frozen`); a sent episode cannot
   be deleted. Tested with GitHub stubbed
   (`tests/podcast-routes.test.ts`); never run.
 - **Verify.** Read back off the live site: the feed carries the GUID and

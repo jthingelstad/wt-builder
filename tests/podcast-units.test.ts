@@ -125,9 +125,9 @@ describe('how long an episode took', () => {
 });
 
 describe('the send', () => {
-  const doc = (number: number, slug: string, sent = false) => ({
+  const doc = (number: number, slug: string, state: 'sent' | 'failed' | null = null) => ({
     episode: { number, slug },
-    sends: sent ? { another: { status: 'sent', at: 'x' } } : {},
+    sends: state ? { another: { status: state, at: 'x' } } : {},
   }) as unknown as EpisodeDoc;
 
   it('finds another episode under this number, and leaves its own files alone', () => {
@@ -135,10 +135,14 @@ describe('the send', () => {
     expect(clashes(doc(1, 'something-else'), paths, 'uploads/2025/another-thing-1.mp3')).toEqual(['content/episodes/001-how-do-you-start-a-podcast.md']);
     // Unsent, an mp3 at the path with no page of this episode's is someone else's.
     expect(clashes(doc(2, 'mine'), ['uploads/2026/another-thing-2.mp3'], 'uploads/2026/another-thing-2.mp3')).toEqual(['uploads/2026/another-thing-2.mp3']);
-    // Unsent beside its own page, it is a send that landed unrecorded: the retry reconciles it.
-    expect(clashes(doc(2, 'mine'), paths, 'uploads/2026/another-thing-2.mp3')).toEqual([]);
-    // Sent, it is this episode's own, replaced by a re-send.
-    expect(clashes(doc(2, 'mine', true), paths, 'uploads/2026/another-thing-2.mp3')).toEqual([]);
+    // Never tried, a page at this very name was published by someone else: sending would write over it.
+    expect(clashes(doc(2, 'mine'), paths, 'uploads/2026/another-thing-2.mp3')).toEqual([
+      'content/episodes/002-mine.md', 'content/episodes/002-mine.txt', 'uploads/2026/another-thing-2.mp3',
+    ]);
+    // After a failed send, its own page and mp3 are that send, landed unrecorded: the retry reconciles it.
+    expect(clashes(doc(2, 'mine', 'failed'), paths, 'uploads/2026/another-thing-2.mp3')).toEqual([]);
+    // Sent, they are this episode's own, replaced by a re-send.
+    expect(clashes(doc(2, 'mine', 'sent'), paths, 'uploads/2026/another-thing-2.mp3')).toEqual([]);
     expect(clashes(doc(3, 'new'), paths, 'uploads/2026/another-thing-3.mp3')).toEqual([]);
   });
 });
