@@ -920,8 +920,9 @@ first real episode is the first real run.
   The page's saves go one at a time, each an edit (by segment and card id)
   applied to the outline the last one answered with, so tabbing through
   fields faster than the server answers loses nothing. After another tab's
-  save, the page applies the edit to that outline instead, says so, and
-  re-reads only if that is refused too. Every save narrates
+  save, the page applies the edit to that outline instead and says so; an
+  edit to a segment or card that tab removed is said and not made, and a
+  second refusal re-reads. Every save narrates
   itself in the log (`outlineEvents`).
 - **The card.** Beats, pace, splits per segment, take notes; keys ←/→ J/K,
   space, R, S, F, N, +/−, Esc. A session's splits and take notes are saved
@@ -965,7 +966,8 @@ first real episode is the first real run.
   the enclosure, the mp3 answers with the bytes sent, the page is up.
   A send records `waiting` with the first look a minute out, so a restart
   resumes it; a look at the previous send that returns after a re-send is
-  dropped; `waiting` for 20 minutes while Pages builds, re-checking
+  dropped, as is any check that finishes after a later one started;
+  `waiting` for 20 minutes while Pages builds, re-checking
   every 2; `POST …/verify` checks again. Never run.
 - **Log and time.** Episode events use the shared log (kinds `episode`,
   `recording`, `audio`); `GET …/events` reads them, and "Made in" counts

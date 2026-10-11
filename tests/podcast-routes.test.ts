@@ -459,3 +459,23 @@ describe('the check after a send', () => {
     expect(eps.getEpisode(id)!.doc.verify?.another?.status).toBe('waiting');
   });
 });
+
+describe('two checks of one send', () => {
+  it('an older check finishing last never replaces a newer answer', async () => {
+    const id = await ready();
+    expect((await call('POST', `/episodes/${id}/send`)).status).toBe(200);
+    let timedOut!: () => void;
+    verifyEpisode.mockReturnValueOnce(new Promise((resolve) => {
+      timedOut = () => resolve({ status: 'error', at: new Date().toISOString(), checks: [], error: 'timed out' });
+    }));
+    const older = call('POST', `/episodes/${id}/verify`);
+    await vi.waitFor(() => expect(verifyEpisode).toHaveBeenCalledTimes(1));
+    expect((await call('POST', `/episodes/${id}/verify`)).status).toBe(200);
+    expect(eps.getEpisode(id)!.doc.verify?.another?.status).toBe('passed');
+
+    timedOut();
+    await older;
+    expect(eps.getEpisode(id)!.doc.verify?.another?.status).toBe('passed');
+  });
+});
+

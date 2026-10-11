@@ -76,6 +76,12 @@ export function Episode({ view, error, run, onError, onIndex, onRecord, onReload
       // the outline it replaced is kept in the revisions); it is never dropped.
       // Refused again, the page re-reads and says so.
       const latest = await podcastApi.get(id);
+      // An edit to a segment or card the other tab removed changes nothing
+      // there: said, not saved as if it had been made.
+      if (JSON.stringify(change(latest.episode.segments)) === JSON.stringify(latest.episode.segments)) {
+        onReload();
+        throw new Error('The outline changed in another tab, and what you edited is no longer in it: your edit was not made.');
+      }
       try {
         const v = await put({ segments: latest.episode.segments, version: latest.outline_version });
         movedUnder = true;
@@ -266,9 +272,10 @@ function move<T>(list: T[], i: number, d: number): T[] {
 /** An outline edit: what to do to the newest copy, by id, never a copy of it. */
 type Edit<T> = (current: T) => T;
 
-/** Move the entry with this id by d places, wherever it is now. */
+/** Move the entry with this id by d places, wherever it is now; gone, nothing moves. */
 function moveId<T extends { id: string }>(list: T[], id: string, d: number): T[] {
-  return move(list, list.findIndex((x) => x.id === id), d);
+  const i = list.findIndex((x) => x.id === id);
+  return i < 0 ? list : move(list, i, d);
 }
 
 function Outline({ doc, save }: { doc: EpisodeDoc; save: (change: Edit<Segment[]>) => Promise<boolean> }) {

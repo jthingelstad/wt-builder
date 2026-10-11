@@ -82,6 +82,23 @@ test("an edit from a tab that is behind lands on the other tab's outline, not ov
   expect(saved(id).segments.map((s) => s.title)).toEqual(['From the other tab', '']);
 });
 
+test('an edit to a segment another tab removed is said, never saved as made', async ({ page, request }) => {
+  const created = await (await request.post('/api/episodes', { data: { title: 'Gone' } })).json();
+  const id = created.episode.episode.id as string;
+  const segments = cleanOutline([{ title: 'Keep', cards: [] }, { title: 'Doomed', cards: [] }]);
+  const put = await (await request.put(`/api/episodes/${id}/outline`, { data: { segments, base: created.outline_version } })).json();
+  await page.goto(`/${id}`);
+  await expect(page.locator('.pc-seg')).toHaveCount(2);
+
+  // Another tab removes the second segment; this tab, behind, retitles it.
+  expect((await request.put(`/api/episodes/${id}/outline`, { data: { segments: [segments[0]], base: put.outline_version } })).status()).toBe(200);
+  await page.locator('.pc-seg-title').nth(1).fill('Retitled');
+  await page.locator('.pc-seg-title').nth(1).blur();
+  await expect(page.locator('.error-bar')).toContainText('no longer in it');
+  await expect(page.locator('.pc-seg')).toHaveCount(1);
+  expect(saved(id).segments.map((s) => s.title)).toEqual(['Keep']);
+});
+
 test('outline edits made faster than the server answers all land, in order', async ({ page, request }) => {
   const created = await (await request.post('/api/episodes', { data: { title: 'Quick' } })).json();
   const id = created.episode.episode.id as string;

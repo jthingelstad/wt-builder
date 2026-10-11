@@ -58,6 +58,8 @@ const mastering = new Set<string>();
 const transcribing = new Set<string>();
 const sending = new Set<string>();
 const rechecks = new Map<string, NodeJS.Timeout>();
+/** The latest check started per episode: an older one finishing later is dropped. */
+const looks = new Map<string, number>();
 
 function requireEpisode(id: string): EpisodeDoc {
   const row = eps.getEpisode(id);
@@ -246,11 +248,14 @@ async function runVerify(id: string, asked: boolean) {
   const doc = requireEpisode(id);
   const before = doc.verify?.another?.status;
   const send = doc.sends?.another?.at;
+  const look = (looks.get(id) ?? 0) + 1;
+  looks.set(id, look);
   const v = await verifyEpisode(doc);
-  // A re-send landed while this looked: what it found is the last send's,
-  // and the new send's own check stands.
+  // A re-send landed while this looked (what it found is the last send's),
+  // or a later check started meanwhile (its answer is the newer): the
+  // record keeps what stands.
   const now = requireEpisode(id);
-  if (now.sends?.another?.at !== send) return now.verify?.another ?? v;
+  if (now.sends?.another?.at !== send || looks.get(id) !== look) return now.verify?.another ?? v;
   const moved = before !== v.status;
   const events: EventInput[] = moved || asked || v.status === 'error'
     ? [{
