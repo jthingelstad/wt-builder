@@ -959,7 +959,9 @@ first real episode is the first real run.
   another episode under the number, 409 when the master is not on disk.
   The number's mp3 beside this episode's own page is this episode's (a
   send that landed but was never recorded): the retry commits nothing new
-  and records the send.
+  and records the send. Until then, after a failed send, a new number,
+  slug or date and deleting the episode first look for its page in the
+  repository: there, 409 `landed`; GitHub unreadable, 502.
   Claimed before the first await; a `sending` found at boot is marked
   failed. Number, slug and date are frozen while the send is out (409
   `sending`) and for good once sent (409 `frozen`); a sent episode cannot

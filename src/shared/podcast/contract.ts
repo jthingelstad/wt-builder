@@ -91,14 +91,13 @@ export function audioRepoPath(number: number, dateIso: string): string {
 /**
  * A frontmatter value the minimal parser reads back unchanged. Quotes
  * protect a value that is itself wrapped in quotes, and edge whitespace.
+ * The parser strips one matching pair from the ends and reads no escapes,
+ * so a double-quoted value comes back exactly, whatever quotes are inside.
  * Nothing protects a newline, a bare number or `true`/`false`: the parser
  * strips the quotes before it coerces, so `validate` refuses those instead.
  */
 function fmValue(value: string): string {
-  if (/^["'].*["']$/.test(value) || /^\s|\s$/.test(value)) {
-    return `"${value.replace(/"/g, "'")}"`;
-  }
-  return value;
+  return /^["'].*["']$/.test(value) || /^\s|\s$/.test(value) ? `"${value}"` : value;
 }
 
 /** "Mentioned in this episode": the segments' links, deduped, in order. */

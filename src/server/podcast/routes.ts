@@ -231,6 +231,25 @@ async function send(id: string, force: boolean) {
   }
 }
 
+/**
+ * After a failed send, did it land anyway? A commit whose answer was lost, or
+ * a restart between the commit and the save, leaves `failed` on the record
+ * and the episode in the repository. Its own page there says so. Until that
+ * is known, nothing that would orphan what subscribers may already have (a
+ * new number, slug or date; deleting the episode) goes ahead.
+ */
+async function landedAnyway(doc: EpisodeDoc): Promise<boolean> {
+  if (doc.sends?.another?.status !== 'failed' || isSent(doc)) return false;
+  const page = `content/episodes/${episodeStem(doc.episode.number, doc.episode.slug)}.md`;
+  try {
+    return (await github.listPaths(page, target)).includes(page);
+  } catch (err) {
+    throw new HttpError(502, `the last send failed, and the repository cannot be read to see whether it landed anyway (${(err as Error).message}) — send again, or try once GitHub answers`);
+  }
+}
+
+const LANDED = 'the last send failed but reached the repository — send again to record it; then its number, slug and date are its URL and GUID for good';
+
 /** Sends run in-process, so a `sending` found at boot was cut off by the restart. */
 export function failInterruptedEpisodeSends(): void {
   for (const row of eps.listEpisodes()) {
@@ -410,7 +429,11 @@ export const podcastRoutes: Route[] = [
 
   [/^\/api\/episodes\/([^/]+)$/, 'PATCH', async ({ body }, [id]) => {
     const b = (await body()) as Record<string, unknown>;
-    const doc = requireEpisode(id!);
+    const was = requireEpisode(id!);
+    if (FROZEN.some((k) => b[k] !== undefined && b[k] !== was.episode[k]) && await landedAnyway(was)) {
+      throw new HttpError(409, LANDED, 'landed');
+    }
+    const doc = requireEpisode(id!); // read again: the look at the repository awaited
     const events = applySettings(doc, b);
     if (!events.length) return view(doc);
     try {
@@ -427,6 +450,11 @@ export const podcastRoutes: Route[] = [
       throw new HttpError(409, 'a sent episode is the record of what went out — it is not deleted');
     }
     if (mastering.has(id!) || transcribing.has(id!)) throw new HttpError(409, 'the audio is being worked on — wait for it to finish');
+    if (await landedAnyway(doc)) throw new HttpError(409, LANDED, 'landed');
+    const now = requireEpisode(id!);
+    if (isSent(now) || isOut(now.sends?.another) || sending.has(id!)) {
+      throw new HttpError(409, 'a sent episode is the record of what went out — it is not deleted');
+    }
     eps.deleteEpisode(id!);
     await unlink(masteredPath(id!)).catch(() => {});
     log.info(`[episode] ${id} deleted (its revisions are kept)`);

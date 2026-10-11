@@ -92,11 +92,10 @@ describe('the emitted episode survives the real parser', () => {
   });
 
   it('a title the parser could misread survives it', () => {
-    for (const title of ['# Not a comment', 'Colons: a subtitle', '"Quoted" at the start', 'Ends in a quote"', ' padded ']) {
+    for (const title of ['# Not a comment', 'Colons: a subtitle', '"Quoted" at the start', 'Ends in a quote"', ' padded ', '"Whole"', "'Single'", ' He said "hi" ', `"Both" 'kinds'`]) {
       expect(parseFrontmatter(episodeMarkdown(episode({ title }))).data.title, title).toBe(title);
+      expect(parseFrontmatter(episodeMarkdown(episode({ summary: title }))).data.summary, title).toBe(title);
     }
-    // Wholly quoted, the parser would strip the quotes: they come through as single quotes.
-    expect(parseFrontmatter(episodeMarkdown(episode({ title: '"Whole"' }))).data.title).toBe("'Whole'");
   });
 
   it('never emits what the surface derives from the mp3', () => {

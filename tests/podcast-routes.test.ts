@@ -294,6 +294,30 @@ describe('the send', () => {
     expect((await call('PATCH', `/episodes/${id}`, { slug: 'moved' })).json.code).toBe('frozen');
   });
 
+  it('after a failed send, the identity and the episode stay until the repository says it did not land', async () => {
+    const id = await ready();
+    putTree.mockRejectedValueOnce(new Error('socket hang up'));
+    expect((await call('POST', `/episodes/${id}/send`)).status).toBe(502);
+
+    // It landed: the page is there. No new slug, no delete.
+    listPaths.mockResolvedValue(['content/episodes/002-ready-to-go.md']);
+    const moved = await call('PATCH', `/episodes/${id}`, { slug: 'moved' });
+    expect(moved.status).toBe(409);
+    expect(moved.json.code).toBe('landed');
+    expect((await call('DELETE', `/episodes/${id}`)).json.code).toBe('landed');
+    // Fields that are not its identity still edit.
+    expect((await call('PATCH', `/episodes/${id}`, { summary: 'Still editable.' })).status).toBe(200);
+
+    // GitHub cannot be read: nothing is assumed either way.
+    listPaths.mockRejectedValueOnce(new Error('GitHub 503'));
+    expect((await call('PATCH', `/episodes/${id}`, { slug: 'moved' })).status).toBe(502);
+
+    // It did not land: the identity is the episode's to change again.
+    listPaths.mockResolvedValue([]);
+    expect((await call('PATCH', `/episodes/${id}`, { slug: 'moved' })).json.episode.episode.slug).toBe('moved');
+    expect((await call('DELETE', `/episodes/${id}`)).status).toBe(200);
+  });
+
   it('refuses a number already in the repository, and leaves the send state as it was', async () => {
     const id = await ready();
     listPaths.mockResolvedValue(['content/episodes/002-published-by-hand.md']);
