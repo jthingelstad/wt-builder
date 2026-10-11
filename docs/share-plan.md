@@ -87,8 +87,12 @@ Jamie's LinkedIn or his blog, so a byline is no answer there.
   17-minute audio edition.`), then the link. Plain text. A title that already
   names the issue is not repeated. A pre-Builder record has no items, so it
   is the name, the dek and the link.
-- **Blog post.** The dek, Jamie's own words written for the issue, ending on
-  `[Weekly Thing 353](…?ref=blog-wt353)`; titled with the subject as before.
+- **Blog post.** The same contents in Markdown (Jamie, 2026-10-11: "the blog
+  post would be better as that more thorough description too"): `In this
+  issue:`, the list, the counting line, and `[Weekly Thing 353](…?ref=blog-wt353)`.
+  No name line, since the post is titled with the subject as before. Titles
+  are escaped, so a page's `*` or `[` shows as typed. A pre-Builder record
+  is its dek, Jamie's own words, ending on the link.
 
 The template is the same shape every week, so what Jamie checks is the
 titles, not whether a sentence sounds like him.

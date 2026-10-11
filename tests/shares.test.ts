@@ -280,8 +280,20 @@ describe('the contents templates a share starts from', () => {
     );
   });
 
-  it('blog: the dek, Jamie\'s own words, ending on a Markdown link to the issue', () => {
+  it('blog: the same contents in Markdown, with no name line (the subject titles it), ending on the link', () => {
     const doc = issue();
+    doc.items['link-functions']!.title = 'A *starred* [bracketed] title';
+    expect(blogContents(doc)).toBe([
+      'In this issue:',
+      '- Create Your Own Currency With Flipcash (avc.xyz)\n- A \\*starred\\* \\[bracketed\\] title (james-pritchard.com)',
+      'Plus 3 more links, 4 journal posts, and a photo.',
+      '[Weekly Thing 350](https://weekly.thingelstad.com/archive/350/?ref=blog-wt350)',
+    ].join('\n\n'));
+  });
+
+  it('blog: a pre-Builder record is its dek, Jamie\'s own words, ending on a Markdown link', () => {
+    const doc = issue();
+    doc.issue.imported = true;
     expect(blogContents(doc)).toBe('Release Notes, Claude Haiku 5.5, zkAPI. [Weekly Thing 350](https://weekly.thingelstad.com/archive/350/?ref=blog-wt350)');
     doc.issue.dek = 'Ends on its own stop.';
     expect(blogContents(doc)).toBe('Ends on its own stop. [Weekly Thing 350](https://weekly.thingelstad.com/archive/350/?ref=blog-wt350)');

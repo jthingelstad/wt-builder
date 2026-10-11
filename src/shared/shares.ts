@@ -96,10 +96,37 @@ function listed(parts: string[]): string {
 const counted = (n: number, one: string, many: string) => (n === 1 ? `1 ${one}` : `${n} ${many}`);
 
 /**
- * LinkedIn: the issue's name, its Notable links as the pages title them with
- * their sites, a line counting the rest, and the link. Plain text, since
- * LinkedIn shows Markdown as typed. A pre-Builder record has no items (it is
- * never parsed into them), so it is the name, the dek and the link.
+ * What the issue holds, for both templates: its Notable links as the pages
+ * title them, with their sites, and the rest counted. Null for a
+ * pre-Builder record, which has no items (it is never parsed into them).
+ */
+function contents(doc: IssueDoc): { notable: { title: string; site: string }[]; rest: string } | null {
+  if (doc.issue.imported) return null;
+  const plan = planEdition(doc, 'website');
+  const of = (type: string) => plan.filter((p) => p.node.type === type).flatMap((p) => p.items);
+  const notable = of('notable')
+    .filter(({ item }) => item.type === 'pinboard_link' && item.title)
+    .map(({ item }) => ({ title: String(item.title).trim(), site: site(item.source_url ?? '') }));
+
+  const briefly = of('briefly').length;
+  const journal = of('journal').length;
+  const audio = Number(lastSent(doc.sends?.podcast)?.audio?.audio_duration_seconds);
+  const counts = [
+    briefly ? counted(briefly, notable.length ? 'more link' : 'link', notable.length ? 'more links' : 'links') : '',
+    journal ? counted(journal, 'journal post', 'journal posts') : '',
+    of('photo').length ? 'a photo' : '',
+    audio > 0 ? `a ${Math.max(1, Math.round(audio / 60))}-minute audio edition` : '',
+  ].filter(Boolean);
+  const rest = counts.length ? `${notable.length ? 'Plus' : 'In this issue:'} ${listed(counts)}.` : '';
+  return { notable, rest };
+}
+
+const entry = (l: { title: string; site: string }, title = l.title) => `- ${title}${l.site ? ` (${l.site})` : ''}`;
+
+/**
+ * LinkedIn: the issue's name, its Notable links, a line counting the rest,
+ * and the link. Plain text, since LinkedIn shows Markdown as typed. A
+ * pre-Builder record is the name, the dek and the link.
  */
 export function linkedinContents(doc: IssueDoc): string {
   const n = doc.issue.number;
@@ -107,40 +134,35 @@ export function linkedinContents(doc: IssueDoc): string {
   const title = doc.issue.title?.trim();
   const head = `The Weekly Thing ${n}${title && !/weekly thing/i.test(title) ? `: ${title}` : ''}`;
   const link = shareLink(doc, 'linkedin');
-  if (doc.issue.imported) return [head, doc.issue.dek?.trim(), link].filter(Boolean).join('\n\n');
-
-  const plan = planEdition(doc, 'website');
-  const of = (type: string) => plan.filter((p) => p.node.type === type).flatMap((p) => p.items);
-  const notable = of('notable').filter(({ item }) => item.type === 'pinboard_link' && item.title);
-  const lines = notable.map(({ item }) => {
-    const from = site(item.source_url ?? '');
-    return `- ${String(item.title).trim()}${from ? ` (${from})` : ''}`;
-  });
-
-  const briefly = of('briefly').length;
-  const journal = of('journal').length;
-  const audio = Number(lastSent(doc.sends?.podcast)?.audio?.audio_duration_seconds);
-  const rest = [
-    briefly ? counted(briefly, notable.length ? 'more link' : 'link', notable.length ? 'more links' : 'links') : '',
-    journal ? counted(journal, 'journal post', 'journal posts') : '',
-    of('photo').length ? 'a photo' : '',
-    audio > 0 ? `a ${Math.max(1, Math.round(audio / 60))}-minute audio edition` : '',
-  ].filter(Boolean);
-
+  const c = contents(doc);
+  if (!c) return [head, doc.issue.dek?.trim(), link].filter(Boolean).join('\n\n');
   const parts = [head];
-  if (lines.length) parts.push(`In this issue:\n${lines.join('\n')}`);
-  if (rest.length) parts.push(`${lines.length ? 'Plus' : 'In this issue:'} ${listed(rest)}.`);
+  if (c.notable.length) parts.push(`In this issue:\n${c.notable.map((l) => entry(l)).join('\n')}`);
+  if (c.rest) parts.push(c.rest);
   parts.push(link);
   return parts.join('\n\n');
 }
 
+/** A page's title as Markdown text: its marks shown, never read as emphasis or a link. */
+const escaped = (text: string) => text.replace(/([\\`*_[\]<>])/g, '\\$1');
+
 /**
- * The blog post: the issue's dek, Jamie's own words written for the issue,
- * ending on a Markdown link to it. Titled with the subject already.
+ * The blog post: the same contents as LinkedIn (Jamie, 2026-10-11: "the more
+ * thorough description"), in Markdown, ending on a link to the issue. No
+ * name line: the post is titled with the issue's subject already. A
+ * pre-Builder record is its dek, Jamie's own words, and the link.
  */
 export function blogContents(doc: IssueDoc): string {
-  const dek = doc.issue.dek?.trim() ?? '';
   const end = `[Weekly Thing ${doc.issue.number}](${shareLink(doc, 'blog')})`;
+  const c = contents(doc);
+  if (c && (c.notable.length || c.rest)) {
+    const parts: string[] = [];
+    if (c.notable.length) parts.push('In this issue:', c.notable.map((l) => entry(l, escaped(l.title))).join('\n'));
+    if (c.rest) parts.push(c.rest);
+    parts.push(end);
+    return parts.join('\n\n');
+  }
+  const dek = doc.issue.dek?.trim() ?? '';
   if (!dek) return end;
   return `${dek}${/[.!?…]$/.test(dek) ? '' : '.'} ${end}`;
 }

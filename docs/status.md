@@ -306,8 +306,8 @@ finished, what is half-finished, and what has never run.
   edit, re-post or delete (409). A share starts as a contents template
   (`startingText` in `src/shared/shares.ts`, since 2026-10-11): for LinkedIn
   the issue's name, its Notable links as the pages title them with their
-  sites, a line counting the rest, and the link; for the blog, the dek ending
-  on a Markdown link. The share wand was removed the same day (its route
+  sites, a line counting the rest, and the link; for the blog, the same in
+  Markdown, ending on a link to the issue (a pre-Builder record: its dek). The share wand was removed the same day (its route
   `…/draft` answers 404). A blog share starts titled as the email was
   (`subjectFor`, "WT352 — …").
   The Micro.blog sweep skips every post a share recorded, by URL
