@@ -110,7 +110,7 @@ test('a Briefly link title edits in place; emptied, it goes back (WT353)', async
   await commit(page, () => item('briefly-forge').title === `${before} (again)`);
   expect(item('briefly-forge').title).toBe(`${before} (again)`);
   await page.locator(sel).click();
-  await page.keyboard.press('Meta+a');
+  await page.keyboard.press('ControlOrMeta+a');
   await page.keyboard.press('Backspace');
   await commit(page, () => false);
   expect(item('briefly-forge').title).toBe(`${before} (again)`);
