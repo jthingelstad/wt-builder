@@ -172,7 +172,7 @@ export const config = {
    */
   librarianUrl:
     optional('LIBRARIAN_RETRIEVE_URL') ??
-    'https://jcvud66qqpq53frvno5stoqntm0zqntw.lambda-url.us-east-1.on.aws',
+    'https://librarian.thingelstad.com',
 
   /**
    * Another Thing, the podcast (src/server/podcast/). An episode's send
