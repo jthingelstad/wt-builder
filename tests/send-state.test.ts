@@ -28,6 +28,9 @@ const h = vi.hoisted(() => ({
   drafts: [] as { op: 'create' | 'update'; id?: string; subject: string }[],
   draftFails: null as Error | null,
   committed: [] as { path: string; content: string }[][],
+  /** Each repository_dispatch the archive leg sent: event, payload, repository. */
+  dispatched: [] as { event: string; payload: Record<string, unknown>; repo?: string }[],
+  dispatchFails: null as Error | null,
   renders: 0,
   renderFails: null as Error | null,
   /** Resolves the rehost when set: lets a test hold a leg mid-flight. */
@@ -86,6 +89,10 @@ vi.mock('../src/server/integrations/github.ts', async (importOriginal) => {
     putTree: vi.fn(async (files: RepoFile[]) => {
       h.committed.push(files);
       return { sha: `c0ffee${h.committed.length}`, changed: files.map((f) => f.path), unchanged: 0, committed: true };
+    }),
+    dispatch: vi.fn(async (event: string, payload: Record<string, unknown>, target: { repo?: string } = {}) => {
+      if (h.dispatchFails) throw h.dispatchFails;
+      h.dispatched.push({ event, payload, repo: target.repo });
     }),
   };
 });
@@ -719,7 +726,7 @@ describe('a claim that cannot be recorded is not held', () => {
 
 describe('a Buttondown failure recorded before last_sent still names its draft', () => {
   // A failed state from before last_sent carried the draft id on itself;
-  // the Buttondown retry read it there, and the page and archive must too.
+  // the Buttondown retry read it there, and the page must too.
   const legacy = (id: string) => {
     const doc = store.getIssue(id)!.doc;
     doc.sends = { ...(doc.sends ?? {}), buttondown: { status: 'failed', at: '2026-09-20T15:00:00Z', error: 'Buttondown failed: 503', external_id: 'em-legacy' } };
@@ -735,14 +742,61 @@ describe('a Buttondown failure recorded before last_sent still names its draft',
     expect(committedField(/archive\/990491\.md$/)).toContain('buttondown_id: "em-legacy"');
     store.deleteIssue(id);
   });
+});
 
-  it('the archive carries its id, not an empty one', async () => {
-    const id = issue(990492);
-    legacy(id);
+describe('the archive leg tells the library, and sends no text', () => {
+  const summaries = (id: string) => store.listEvents(id).map((e) => e.summary);
+  const websiteSent = (id: string) => store.recordSend(id, 'website', { status: 'sent', at: minutesAgo(5), external_id: 'abc1234' });
+
+  it('dispatches issue-sent with the number to the archive repository, and commits nothing', async () => {
+    const id = issue(990561);
+    websiteSent(id);
+    const commits = h.committed.length;
+    const res = await send(id, 'archive');
+    expect(res.status).toBe(200);
+    expect(h.dispatched.at(-1)).toEqual({ event: 'issue-sent', payload: { issue: 990561 }, repo: 'jthingelstad/librarian-thing' });
+    expect(h.committed).toHaveLength(commits);
+    expect(legOf(id, 'archive')).toMatchObject({
+      status: 'sent',
+      external_id: 'issue-sent 990561',
+      url: 'https://github.com/jthingelstad/librarian-thing/actions/workflows/library-round.yml',
+    });
+    store.deleteIssue(id);
+  });
+
+  it('refuses before the website leg has sent: the round would find no page', async () => {
+    const id = issue(990562);
+    const asked = h.dispatched.length;
+    const res = await send(id, 'archive');
+    expect(res.status).toBe(409);
+    expect(res.body.error).toContain('website leg has not sent');
+    expect(h.dispatched).toHaveLength(asked);
+    expect(legOf(id, 'archive')).toBeUndefined();
+    store.deleteIssue(id);
+  });
+
+  it('force=1 asks anyway and logs the override; with the website sent it is an ordinary send', async () => {
+    const early = issue(990563);
+    expect((await send(early, 'archive', '?force=1')).status).toBe(200);
+    expect(summaries(early)).toContain('Override — archive: asked before the website leg sent');
+    const late = issue(990564);
+    websiteSent(late);
+    expect((await send(late, 'archive', '?force=1')).status).toBe(200);
+    expect(summaries(late).some((x) => x.startsWith('Override'))).toBe(false);
+    store.deleteIssue(early);
+    store.deleteIssue(late);
+  });
+
+  it('a dispatch GitHub refuses is a failed send that keeps the last good one', async () => {
+    const id = issue(990565);
+    websiteSent(id);
     expect((await send(id, 'archive')).status).toBe(200);
-    const files = h.committed.at(-1)!.map((f) => f.content).join('\n');
-    expect(files).toContain('em-legacy');
-    expect(files).not.toMatch(/buttondown_id: ""/);
+    h.dispatchFails = new Error('GitHub /dispatches failed: 403 Forbidden');
+    const res = await send(id, 'archive');
+    h.dispatchFails = null;
+    expect(res.status).toBe(502);
+    expect(legOf(id, 'archive')).toMatchObject({ status: 'failed', error: 'GitHub /dispatches failed: 403 Forbidden' });
+    expect(legOf(id, 'archive')!.last_sent).toMatchObject({ status: 'sent', external_id: 'issue-sent 990565' });
     store.deleteIssue(id);
   });
 });

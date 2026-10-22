@@ -98,15 +98,19 @@ The archive holds the corpus Thingy answers from. It is a separate repository,
 Librarian API and corpus on 2026-08-28.
 
 - The archive is not a publishing destination. See [`decisions.md`](decisions.md).
-- After an issue publishes, WT Builder sends its text to the archive so Thingy
-  can retrieve and cite it.
-- The send is a direct commit into the archive repository, scoped to
-  `data/issues/{N}/`, rather than an API call. See [`decisions.md`](decisions.md).
-  The target repository is `WT_BUILDER_ARCHIVE_REPO`.
+- After an issue publishes, WT Builder tells the archive, so Thingy can
+  retrieve and cite it. The archive's library pulls the issue from
+  `weekly.thingelstad.com`; nothing of the issue is sent from here.
+- The send is a `repository_dispatch` of `issue-sent` with `{ "issue": N }` to
+  `WT_BUILDER_ARCHIVE_REPO` (`dispatch` in `src/server/integrations/github.ts`,
+  `GITHUB_PAT_TOKEN` with Contents: write). Until 2026-10-22 it was a commit
+  into `data/issues/{N}/` there. See [`decisions.md`](decisions.md).
 - The send is asynchronous and non-blocking. It has its own evidence and retry
-  and is never a readiness gate. A failed archive send means the issue is
-  published and Thingy does not know about it yet.
-- Send text only. The archive receives no audio.
+  and is never a readiness gate. It is refused before the website leg has
+  sent (overridable), because the library would find no page. A failed
+  archive send means the issue is published and Thingy does not know about it
+  until the next morning's round.
+- No audio of any kind.
 
 ## Buttondown
 

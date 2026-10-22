@@ -48,7 +48,7 @@ import * as audio from './integrations/audio.ts';
 import { audioScript } from '../shared/render/audio.ts';
 import { joinScriptReview, lintScript } from '../shared/render/script-lint.ts';
 import { heldOut, outOfWindow, windowOf } from '../shared/render/plan.ts';
-import { archiveInputs, emailSubject, issueEntry, siteInputs, subjectFor } from './publish.ts';
+import { emailSubject, issueEntry, siteInputs, subjectFor } from './publish.ts';
 import { type EarlierDelivery, verifierFor } from './verify.ts';
 import { issueTiming, type IssueTiming } from '../shared/timing.ts';
 import { acrossIssues, contentStats } from './issue-stats.ts';
@@ -1786,21 +1786,6 @@ const routes: Route[] = [
     return { repo: config.websiteRepo, ...result, files: files.map((f) => f.path) };
   }],
 
-  /**
-   * What the archive feed would commit, committing nothing. The website leg
-   * has this because a real commit publishes; the archive leg has it because
-   * a real commit puts draft text in the corpus Thingy answers from.
-   */
-  [/^\/api\/issues\/([^/]+)\/send\/archive\/preview$/, 'GET', async (_ctx, [id]) => {
-    const doc = requireIssue(id!);
-    const files = archiveInputs(doc, emailRecord(doc));
-    const result = await githubRepo.diff(files, {
-      repo: config.archiveRepo,
-      branch: config.archiveBranch,
-    });
-    return { repo: config.archiveRepo, ...result, files: files.map((f) => f.path) };
-  }],
-
   /** Copy every remote image onto the CDN, resized. Safe to run repeatedly. */
   [/^\/api\/issues\/([^/]+)\/images\/rehost$/, 'POST', async (_ctx, [id]) => {
     const { report, mapping } = await rehostIssueImages(requireIssue(id!));
@@ -1935,7 +1920,7 @@ const routes: Route[] = [
       return out;
     }
     if (destination === 'archive') {
-      const out = await loggedSend(id!, 'archive', () => sendArchive(id!));
+      const out = await loggedSend(id!, 'archive', () => sendArchive(id!, force));
       verifyAfterSend(id!, 'archive');
       return out;
     }
@@ -2293,30 +2278,38 @@ async function sendPodcast(id: string, force = false) {
 }
 
 /**
- * Feed the issue's text to the archive — the corpus the Librarian API answers
- * from. Not publishing (docs/decisions.md): it runs after the issue is out,
- * never gates it, and a failure leaves the issue published and Thingy stale.
- * The archive repository's CI rebuilds and uploads the corpus on this commit.
+ * Tell the archive the issue is out. The library (librarian-thing) holds its
+ * own copy of every issue, pulled from weekly.thingelstad.com, the source of
+ * authority, so this leg carries no text: a `repository_dispatch` asks the
+ * library round to pull weekly's archive pages now and to build this issue's
+ * corpus, which ends the corpus's Friday and Saturday hold (librarian-thing
+ * `pipeline/library/README.md`). Not publishing (docs/decisions.md): it runs
+ * after the issue is out and never gates it, and a failure leaves the issue
+ * published and Thingy behind until the next morning's round pulls it anyway.
  */
-async function sendArchive(id: string) {
+async function sendArchive(id: string, force = false) {
   const doc = requireIssue(id);
   guardInFlight(doc, 'archive');
+  // The round pulls the page the website leg committed. Before that there is
+  // no page, and the round fails saying so; asked anyway, it is an override.
+  const website = lastSent(doc.sends?.website);
+  if (!website && !force) {
+    throw new HttpError(409, 'the website leg has not sent: the library pulls the issue from weekly.thingelstad.com, so the archive goes after it. Sending now (?force=1) starts a round that finds no page.');
+  }
   const release = claimLeg(id, 'archive');
+  if (!website) store.record(id, { kind: 'send', summary: 'Override — archive: asked before the website leg sent', data: { dest: 'archive', override: 'no-website' } });
   try {
-    const files = archiveInputs(doc, emailRecord(doc));
-    const result = await githubRepo.putTree(
-      files,
-      `Archive issue ${doc.issue.number} from WT Builder`,
-      { repo: config.archiveRepo, branch: config.archiveBranch },
-    );
+    await githubRepo.dispatch('issue-sent', { issue: doc.issue.number }, { repo: config.archiveRepo });
+    // GitHub answers a dispatch with no body, so the receipt is the event
+    // and the page where its round runs.
     const state: SendState = {
       status: 'sent',
       at: new Date().toISOString(),
-      external_id: result.sha,
-      url: `https://github.com/${config.archiveRepo}/commit/${result.sha}`,
+      external_id: `issue-sent ${doc.issue.number}`,
+      url: `https://github.com/${config.archiveRepo}/actions/workflows/library-round.yml`,
     };
     const row = store.recordSend(id, 'archive', state);
-    return { issue: row?.doc, send: state, changed: result.changed, committed: result.committed };
+    return { issue: row?.doc, send: state };
   } catch (err) {
     const state: SendState = {
       status: 'failed',

@@ -217,16 +217,6 @@ describe('a Buttondown failure recorded before last_sent still names its draft t
     expect(vi.mocked(buttondown.getEmail)).toHaveBeenCalledWith('em-legacy');
     expect(checks.find((c) => c.label === 'Status')?.ok).not.toBe(false);
   });
-
-  it('the archive check compares against files carrying its id, not an empty one', async () => {
-    const d = legacy();
-    vi.mocked(githubRepo.diff).mockClear();
-    await verifyArchive(d);
-    const files = vi.mocked(githubRepo.diff).mock.calls[0]![0] as { content: string }[];
-    const text = files.map((f) => f.content).join('\n');
-    expect(text).toContain('em-legacy');
-    expect(text).not.toMatch(/buttondown_id: ""/);
-  });
 });
 
 describe('the Buttondown check reads complaints once the email has gone', () => {
@@ -268,5 +258,33 @@ describe('the archive check asks the Librarian for this issue exactly', () => {
     const { checks } = await verifyArchive(d);
     expect(vi.mocked(librarian.retrieve).mock.calls[0]![2]).toEqual({ filters: { issueNumber: d.issue.number } });
     expect(checks.find((c) => c.label === 'Retrievable by Thingy')?.ok).toBe(true);
+  });
+
+  it('is the only check: the leg sends no text, so nothing is diffed', async () => {
+    const d = sent();
+    vi.mocked(githubRepo.diff).mockClear();
+    vi.mocked(librarian.retrieve).mockResolvedValueOnce([{ issue_number: d.issue.number, text: 'its own words' }]);
+    const { checks } = await verifyArchive(d);
+    expect(checks.map((c) => c.label)).toEqual(['Retrievable by Thingy']);
+    expect(vi.mocked(githubRepo.diff)).not.toHaveBeenCalled();
+  });
+
+  it('waits, then fails a day after the archive was told', async () => {
+    const d = sent();
+    d.sends!.archive!.at = new Date(Date.now() - 60 * 60_000).toISOString();
+    vi.mocked(librarian.retrieve).mockResolvedValueOnce([]);
+    const early = await verifyArchive(d);
+    expect(early.checks[0]!.ok).toBeNull();
+    expect(early.recheckMs).toBe(15 * 60_000);
+    d.sends!.archive!.at = new Date(Date.now() - 25 * 60 * 60_000).toISOString();
+    vi.mocked(librarian.retrieve).mockResolvedValueOnce([]);
+    const late = await verifyArchive(d);
+    expect(late.checks[0]!.ok).toBe(false);
+    expect(late.checks[0]!.detail).toContain('Library Round');
+  });
+
+  it('an archive never told is a failure, not a wait', async () => {
+    const { checks } = await verifyArchive(structuredClone(doc));
+    expect(checks).toEqual([expect.objectContaining({ label: 'Retrievable by Thingy', ok: false })]);
   });
 });

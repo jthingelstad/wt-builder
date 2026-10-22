@@ -1,13 +1,14 @@
 /**
  * Committing generated files to a GitHub repository.
  *
- * Three legs ride this: the website handoff, the archive feed, and an
- * Another Thing episode's send, each pointed at its own repository through
- * `RepoTarget`. The episode's commit carries its mp3, so a file's content
+ * Two legs commit through this: the website handoff and an Another Thing
+ * episode's send, each pointed at its own repository through `RepoTarget`.
+ * The archive leg only knocks (`dispatch`): the library pulls the issue
+ * itself. The episode's commit carries its mp3, so a file's content
  * may be a Buffer, uploaded as a base64 blob. A handoff must land as one
  * commit: a half-applied set would leave the render surface with an archive
- * page whose index entry is missing, or the corpus with links and no text. This
- * builds blobs, then a tree, then a commit, then moves the ref — the same
+ * page whose index entry is missing, or an episode with no audio. This builds
+ * blobs, then a tree, then a commit, then moves the ref — the same
  * mechanism Studio uses, so the two produce identical history.
  *
  * Idempotent: files already matching the branch tree are skipped, and a push
@@ -316,6 +317,21 @@ export async function editTree(
   }
 
   throw new RefUpdateConflict(`lost the ref-update race on ${branch} three times: ${lastError?.message ?? 'unknown'}`);
+}
+
+/**
+ * Send a `repository_dispatch` event, which starts the workflows in `repo`
+ * that listen for `eventType`. Carries no files: the archive leg tells the
+ * library an issue is out, and the library round pulls it from the website
+ * repository (librarian-thing `.github/workflows/library-round.yml`). The
+ * token needs Contents: write on `repo`, which the archive commits needed too.
+ */
+export async function dispatch(eventType: string, payload: Record<string, unknown>, target: RepoTarget = {}): Promise<void> {
+  const { repo } = targetOf(target);
+  await call(repo, '/dispatches', {
+    method: 'POST',
+    body: JSON.stringify({ event_type: eventType, client_payload: payload }),
+  });
 }
 
 export function isConfigured(): boolean {
