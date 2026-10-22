@@ -25,32 +25,50 @@ publishing leg and sends directly to each destination: the website edition as a
 committed handoff to `weekly.thingelstad.com`, the email edition as a Buttondown
 draft, the audio file to `files.thingelstad.com`.
 
-**The archive is not a publishing destination.** WT Builder sends issue text to
-it for exactly one reason — so Thingy can retrieve and cite the issue — and that
-send happens *after* publication and must never block it. An issue can sit
-published with an unsent archive feed. That is a Thingy staleness problem, not a
+**The archive is not a publishing destination.** WT Builder tells it an issue
+is out for exactly one reason — so Thingy can retrieve and cite the issue — and
+that send happens *after* publication and must never block it. An issue can sit
+published with an unsent archive leg. That is a Thingy staleness problem, not a
 publishing problem.
 
-The archive receives text only. It receives no audio of any kind: audio lives on
-the CDN and the website publishes the reference.
+The archive receives nothing from WT Builder but that word. It pulls the issue
+from weekly.thingelstad.com, the source of authority for issues (Jamie,
+2026-10-01), the way it pulls the blog from micro.blog. No audio of any kind:
+audio lives on the CDN and the website publishes the reference.
 
 *Invisible in code because it is a boundary between repositories. Nothing in
 `src/` can show you that the archive is downstream of publishing rather than part
 of it.*
 
-## The archive feed is a commit, not an API call
+## The archive pulls; the archive leg only knocks
 
-WT Builder commits issue text directly into the archive repository — the same
-cross-repo commit mechanism used to hand generated inputs to
-`weekly.thingelstad.com`, pointed at a different target.
+Until 2026-10-22 the archive leg committed the issue's text into
+`librarian-thing/data/issues/{N}/`, and that commit started the corpus build.
+Then the Librarian's archive moved out of git into its library, one SQLite
+file in S3 that pulls every source (librarian-thing
+`PLAN-2026-10-22-blog-steward.md` in its docs, approved by Jamie). weekly's
+`apps/site/archive/{N}.md` already held everything the commit carried, so the
+library pulls that page, and a second copy written from here could only
+disagree with it.
 
-Not an ingest endpoint: a commit is durable, diffable, revertible, and carries
-provenance for free, and the archive's corpus build already triggers on changes
-to that path. An API would have to reinvent all of it and add a service to
-operate.
+The leg stays, as a `repository_dispatch` of `issue-sent` with the issue's
+number to `WT_BUILDER_ARCHIVE_REPO`. Without it a send reaches Thingy at the
+next morning's round, and the corpus holds still from Friday until a send
+names its issue, so a Saturday send would wait until Sunday. A dispatch rather
+than a call into the library: GitHub runs the round with the archive's own
+credentials, WT Builder needs no access to the library's bucket, and the token
+it already holds (Contents: write on the archive) is enough. The receipt is
+the event, and the evidence is downstream: Verify asks the Librarian for the
+issue's own passages.
 
-*The mechanism is in `src/server/integrations/github.ts`. The reason it is not an
-API is not.*
+The leg refuses to go before the website leg has sent (overridable, as every
+gate is): the round would find no page. A repair is a fix at the source and a
+re-send, website first, then the archive; for WT1 to WT349, which WT Builder
+never authored, an edit to the page on weekly (`npm run rerender:archive`
+re-rendered those pages from the archive's copy and retired with it).
+
+*The mechanism is `dispatch` in `src/server/integrations/github.ts`. Why the
+leg sends no text is not in the code.*
 
 ## No undo, no locking, no conflict model
 
@@ -233,13 +251,12 @@ small: two passages at most, pooled last, and a prompt that puts topics and
 themes first. Nothing brings back a guaranteed year-ago echo.
 
 The link wand's "Linked before in WTn" deliberately does not ask the
-archive. `/retrieve` has no link lookup, and the sibling
-`librarian-thing/data/issues/` checkout on this Mac only has an issue once
-someone pulls it: the archive leg commits to GitHub, not to that checkout.
-This service's own records hold every issue the moment it is sent, and all
-349 pre-Builder issues were imported from that same canonical text. A later
-repair made only in the archive is not seen here; for whether a link was
-carried, that is an acceptable gap. If it ever is not, the answer is a
+archive. `/retrieve` has no link lookup, and librarian-thing's `data/` on this
+Mac is an export of its library, as current as the last time someone exported
+it. This service's own records hold every issue the moment it is sent, and all
+349 pre-Builder issues were imported from the archive's text. A later repair
+to a page on weekly is not seen here; for whether a link was carried, that is
+an acceptable gap. If it ever is not, the answer is a
 service-auth link lookup in the Librarian (the MCP's `find_links` already
 takes a `url` over the corpus link graph; `/retrieve` would need the same),
 not a runtime read of a sibling checkout.

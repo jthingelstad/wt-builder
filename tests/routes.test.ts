@@ -81,12 +81,17 @@ describe('every send leg the screen offers is dispatched', () => {
     });
   }
 
-  for (const leg of ['website', 'archive'] as const) {
-    it(`${leg} preview reaches its handler`, async () => {
-      const res = await fetch(`${base}/api/issues/nope/send/${leg}/preview`);
-      expect(res.status).toBe(404); // the handler's first act is to load the issue
-    });
-  }
+  it('website preview reaches its handler', async () => {
+    const res = await fetch(`${base}/api/issues/nope/send/website/preview`);
+    expect(res.status).toBe(404); // the handler's first act is to load the issue
+    expect((await res.json()).error).toContain('no issue');
+  });
+
+  it('the archive has no preview: it sends no text (2026-10-22)', async () => {
+    const res = await fetch(`${base}/api/issues/nope/send/archive/preview`);
+    expect(res.status).toBe(404);
+    expect((await res.json()).error ?? '').not.toContain('no issue');
+  });
 
   it('an unknown destination is a 400, not a crash', async () => {
     const { status, body } = await post('/api/issues/nope/send/gopher');

@@ -71,6 +71,37 @@ test('the website card waits for an audio reference, not a podcast status', asyn
   await expect(card(page, 'Website').locator('.sc-blocker')).toContainText('podcast runs first');
 });
 
+// The library pulls the issue from weekly (2026-10-22), so the archive waits
+// for the website leg, not Buttondown, and going first is an override that
+// asks.
+test('the archive card waits for the website leg, and "Tell it anyway…" asks', async ({ page }) => {
+  const posted = await recordSends(page);
+  await open(page, '/send');
+  const archive = card(page, 'Archive');
+  await expect(archive.locator('.sc-blocker')).toContainText('goes after the website leg');
+  await expect(archive.locator('.sc-blocker')).not.toContainText('Buttondown');
+  await expect(archive.locator('.sc-preview')).toHaveCount(0);
+  const ask = archive.locator('.sc-head .btn');
+  await expect(ask).toHaveText('Tell it anyway…');
+
+  const asked: string[] = [];
+  page.once('dialog', (d) => { asked.push(d.message()); void d.dismiss(); });
+  await ask.click();
+  await expect.poll(() => asked).toHaveLength(1);
+  expect(asked[0]).toContain('no page for the library to pull');
+  expect(posted).toEqual([]);
+
+  page.once('dialog', (d) => void d.accept());
+  await ask.click();
+  await expect.poll(() => posted).toEqual(['archive?force=1']);
+
+  // With the website sent, the card is an ordinary send.
+  store.recordSend(ISSUE, 'website', { status: 'sent', at: '2026-09-26T15:05:00Z', external_id: 'f00d', url: 'https://github.com/x/y/commit/f00d' });
+  await page.reload();
+  await expect(archive.locator('.sc-blocker')).toHaveCount(0);
+  await expect(archive.locator('.sc-head .btn.primary')).toHaveText('Tell the archive');
+});
+
 /** Records each send the view posts, leg and query, and answers as the server holds the issue. */
 async function recordSends(page: import('@playwright/test').Page): Promise<string[]> {
   const posted: string[] = [];

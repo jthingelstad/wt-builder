@@ -311,8 +311,9 @@ semantic retrieval, never a silently degraded guess.
   loud. It replaced the deterministic one-year-ago issue excerpt
   (`pickSeasonalIssue`, retired with the `seasonal` draft field).
 - **Thingy's words are not Jamie's archive** (review 2026-09-27, §5). From
-  WT350 on, the archive leg commits the website render with Thingy's frames
-  inside (Echoes, Membership). Since 2026-09-29 librarian-thing strips every
+  WT350 on, the archive holds the website render with Thingy's frames inside
+  (Echoes, Membership), committed by the archive leg until 2026-10-22 and
+  pulled from weekly's page since. Since 2026-09-29 librarian-thing strips every
   `<div class="from-thingy">` block before it builds a chunk, a count or a
   link (`strip_thingy_blocks`; Jamie: "Thingy's echoes section should be
   excluded from the corpus entirely"), so no `/retrieve` passage can be

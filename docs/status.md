@@ -250,9 +250,9 @@ finished, what is half-finished, and what has never run.
   the body's, review 2026-09-27 §3 — a draft sent before 2026-09-28 whose
   title carries `{{`, `{%` or `{#` shows a Subject warning until "Update
   draft"; every other draft's subject is unchanged), and once sent, Buttondown's delivery counts (never
-  opens or clicks); the archive's corpus files against the issue, and the
-  Librarian returning the issue's own passages (asked for that issue
-  exactly, `filters.issueNumber`). A leg still landing (scheduled,
+  opens or clicks); and the Librarian returning the issue's own passages
+  (asked for that issue exactly, `filters.issueNumber`; since 2026-10-22
+  the archive leg's only check, the leg sending no text to compare). A leg still landing (scheduled,
   not yet indexed) is `waiting` and re-checks itself (`recheck_at`, re-armed on
   boot). Runs in the background after every send and on
   "Check again" (`POST /api/issues/:id/verify/:dest`); results live on
@@ -413,12 +413,34 @@ finished, what is half-finished, and what has never run.
   last published issue (review 2026-09-27 §7), and the merge inside the
   commit against a concurrent writer (appendix, Sending & verify). The page
   commits through `putTree`, the path WT350 and WT351 went out on.
+- **The archive leg tells the library** (2026-10-22) — librarian-thing's
+  archive left git for its library (`library.db` in S3, pulled from every
+  source; plan `PLAN-2026-10-22-blog-steward.md` in its docs, approved by
+  Jamie), so the leg sends no text. `sendArchive` dispatches
+  `repository_dispatch` `issue-sent` with `{ issue: N }` to
+  `WT_BUILDER_ARCHIVE_REPO` (`dispatch` in `integrations/github.ts`, the
+  same `GITHUB_PAT_TOKEN`, Contents: write); that repository's Library
+  Round pulls weekly's archive pages, fails if WT{N}'s page is missing, and
+  starts the corpus build for N, which ends the corpus's Friday and
+  Saturday hold. The receipt is `external_id: "issue-sent N"` and a link to
+  the round's runs. Refused with a 409 until the website leg has sent
+  (`?force=1` asks anyway, one "Override — archive: …" line). The card
+  reads **Tell the archive** / **Tell it again**, its blocker names the
+  website leg only, and its preview and `GET …/send/archive/preview` are
+  gone; Verify keeps the Librarian check alone. `archiveInputs`,
+  `archiveMarkdown` and `links.json`/`metadata.json` are no longer sent
+  (the renderers stay, tested, unused by any leg). Tested offline
+  (`tests/send-state.test.ts`, `tests/routes.test.ts`); **never run for
+  real** — WT354's send is its first, so check its round in
+  librarian-thing's Actions.
 - **Every send gate can be overridden** (2026-09-29) — Jamie: "There should
   be nothing that I cannot override. I'm the only user." Every gate on a
   leg takes `?force=1`: the podcast's script approval (`sendPodcast`,
   `scriptUnapproved`), the website's audio reference (`sendWebsite`),
-  a Buttondown email that is not a draft, and a dead link on the website or
-  email (2026-10-01, *Link check* below). While a gate holds, the card's
+  a Buttondown email that is not a draft, a dead link on the website or
+  email (2026-10-01, *Link check* below), and the archive asked before the
+  website leg has sent (2026-10-22, **Tell it anyway…**: the round finds no
+  page; *The archive leg tells the library* below). While a gate holds, the card's
   one action is its override — named for what it skips, ending in `…`,
   plain `btn` rather than `btn primary` — and it asks with a `confirm`
   saying what going past means: **Send without approval…** (not read,
@@ -657,8 +679,11 @@ finished, what is half-finished, and what has never run.
   block in email, and Thingy's own voice (nova) in audio. `VOICE_ID` records
   both voices. Heard in WT350's send (2026-09-20).
 
-- **The back catalogue re-renders from its canonical text** (2026-09-26) —
-  `npm run rerender:archive` merges each page (WT1–WT349 and 140-special)
+- ~~**The back catalogue re-renders from its canonical text**~~ (2026-09-26;
+  retired 2026-10-22, *The archive leg tells the library* below: the
+  library pulls these pages, so a back-catalogue repair is an edit to the
+  page on weekly, and the script and its code are gone) —
+  `npm run rerender:archive` merged each page (WT1–WT349 and 140-special)
   with the archive's `data/issues/{N}/archive.md`: body and editorial front
   matter from there; layout, permalink, tags and the audio record kept from
   the page. Dry run by default, with a diff per page in `tmp/rerender/` and a
@@ -1052,7 +1077,8 @@ first real episode is the first real run.
   archive page + emails.json (since 2026-09-29, the page alone). No
   commit — a real one publishes.
 - **Archive: previewed.** The diff against the corpus repository shows
-  exactly the canonical trio. No commit — a real one reaches Thingy.
+  exactly the canonical trio. No commit — a real one reaches Thingy. (Since
+  2026-10-22 the leg is a dispatch and has no preview.)
 
 What remains unrun is exactly the two commits that reach readers, and both
 run on send day.

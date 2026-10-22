@@ -5,9 +5,9 @@
  * the sibling librarian-thing checkout. Every issue since WT1 is here — the
  * pre-Builder ones imported from the archive's canonical text as one
  * published body each, WT350 on as items — and the record is current the
- * moment an issue is sent, while the archive leg lands on GitHub and the
- * local checkout only catches up when someone pulls it. `/retrieve` has no
- * link lookup (contract 4.12). See docs/decisions.md.
+ * moment an issue is sent, while the archive's library pulls it later and
+ * the local checkout is an export, as current as its last run. `/retrieve`
+ * has no link lookup (contract 4.12). See docs/decisions.md.
  *
  * Pure: the route hands in the rows.
  */

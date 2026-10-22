@@ -353,7 +353,7 @@ function IssueRow({
   );
 }
 
-/** The archive feed's own state. Not a channel, and not a gate. */
+/** The archive leg's own state. Not a channel, and not a gate. */
 function ArchiveCell({
   issue, busy, onSend,
 }: { issue: IssueSummary; busy: boolean; onSend: () => void }) {

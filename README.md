@@ -108,8 +108,10 @@ rendering bug.
 - **Buttondown** — creates and updates a **draft**. Never schedules, never sends.
 - **Website** — commits generated inputs to `weekly.thingelstad.com`. Sent
   for every issue since WT350.
-- **Archive** — commits issue text into the corpus repository the Librarian
-  API answers from, after publication. Sent for every issue since WT350.
+- **Archive** — after publication, tells librarian-thing the issue is out;
+  its library pulls the issue from `weekly.thingelstad.com` and builds the
+  corpus the Librarian API answers from. Sent for every issue since WT350
+  (as a commit of the issue's text until 2026-10-22).
 - **Podcast** — OpenAI TTS, mastered and uploaded to `files.thingelstad.com`.
   Sent for every issue since WT350.
 - **Images** — remote images and dropped photos are resized and rehosted to the

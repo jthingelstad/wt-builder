@@ -149,38 +149,46 @@ last good send kept, and can be retried at once. Only the process that wins the
 port does this, as it starts listening and before any request: a second process
 opened on the same database cannot fail the running service's legs.
 
-## The archive feed
+## The archive leg
 
-Sending issue text to the archive so Thingy can retrieve it is a **separate leg
-that is not publishing**. It differs from the three above in three ways:
+Telling the archive an issue is out so Thingy can retrieve it is a **separate
+leg that is not publishing**. It differs from the three above in three ways:
 
 - it runs after the issue is published, not as part of getting there,
 - it is never a readiness gate, and
 - its failure is reported but does not degrade the issue's published state.
 
 The Send view shows it as a fourth card, as prominent as the other three
-(WT351), and verifies it like them: the corpus files match the issue, and the
-Librarian returns the issue's own passages. None of the three differences above
-changed. An issue can sit published with an unsent archive feed. That is a Thingy
+(WT351), and verifies it like them: the Librarian returns the issue's own
+passages. None of the three differences above changed. An issue can sit
+published with an unsent archive leg. That is a Thingy
 staleness problem, not a publishing problem, and it is retried independently from
 the dashboard.
 
-The leg is a commit of `data/issues/{N}/` — `archive.md`, `links.json`, and
-`metadata.json`, the canonical shape nine years of issues already have there —
-into the archive repository (`WT_BUILDER_ARCHIVE_REPO`), whose CI rebuilds and
-uploads the corpus on any change under that path. Its evidence is the commit
-sha, like the website leg's.
+The leg sends no text (since 2026-10-22). It is a `repository_dispatch` of
+`issue-sent` with the issue's number to the archive repository
+(`WT_BUILDER_ARCHIVE_REPO`), whose library round pulls the issue's page from
+weekly.thingelstad.com, the source of authority, and builds the corpus for it.
+So it goes after the website leg, and is refused before it unless forced.
+Its receipt is the event and a link to the round's runs; the evidence is
+Verify's.
 
-Send text only. The archive receives no audio — the file lives on the CDN and the
-website publishes the reference.
+Until 2026-10-22 the leg committed `data/issues/{N}/` (`archive.md`,
+`links.json`, `metadata.json`) into that repository, whose CI rebuilt the
+corpus on the change. The Librarian's archive left git for its library then,
+and weekly's page held everything the commit carried (`docs/decisions.md`,
+"The archive pulls; the archive leg only knocks").
+
+The archive receives no audio — the file lives on the CDN and the website
+publishes the reference.
 
 ## Repairs to the back catalogue
 
-The archive's `data/issues/{N}/archive.md` is the canonical text of every
-issue, and historical repairs land there. For issues WT Builder authored
-(WT350 on), a re-send of the website leg carries a repair to the site. For
-WT1–WT349, which it never authored, `npm run rerender:archive` does: it
-re-renders the site page from the canonical text, keeping everything the site
-page owns — layout, permalink, tags, and the audio record the back catalogue
-writes. It is a merge, never a copy: the audio record is the podcast feed's
-data, and the canonical text has none.
+weekly.thingelstad.com's `apps/site/archive/{N}.md` is the source of
+authority for every issue, and the library pulls repairs from there. For
+issues WT Builder authored (WT350 on), fix the issue here and re-send the
+website leg, then the archive. For WT1–WT349, which it never authored, edit
+the page on weekly, keeping what the page owns — layout, permalink, tags, and
+the audio record the back catalogue writes. Until 2026-10-22,
+`npm run rerender:archive` re-rendered those pages from the archive's copy;
+it retired when the archive began pulling them.

@@ -153,26 +153,24 @@ const CARDS: Card[] = [
   },
   {
     // A leg like the others (Jamie, WT351): the archive is where Thingy
-    // answers from, and it is how the issue lasts. It runs last because it
-    // holds published issues only — a draft committed here would put
-    // unpublished text in front of readers asking Thingy.
+    // answers from, and it is how the issue lasts. Since 2026-10-22 it
+    // carries no text: the library pulls the issue from the website
+    // repository, so it runs after the website leg, and after a re-send it
+    // pulls the fixed page.
     key: 'archive',
     name: 'Archive',
     dest: 'librarian-thing',
     icon: <Archive />,
-    ends: 'Commits the canonical text to the corpus repository, where the Librarian indexes it and Thingy retrieves from it.',
-    verb: 'Commit to archive',
-    again: 'Re-commit',
-    blocker: (sent) => (sent.website && sent.buttondown
+    ends: 'Tells the library the issue is out. The library pulls it from weekly.thingelstad.com and builds the corpus Thingy retrieves from; Verify follows it until Thingy finds the issue.',
+    verb: 'Tell the archive',
+    again: 'Tell it again',
+    blocker: (sent) => (sent.website
       ? null
-      : 'The archive holds published issues, so it goes after the website and Buttondown legs.'),
+      : 'The library pulls the issue from weekly.thingelstad.com, so the archive goes after the website leg.'),
     steps: [
-      { label: 'Render the archive files' },
       {
-        label: 'Commit to the corpus',
-        evidence: (r) => (r.send.external_id
-          ? { text: String(r.send.external_id).slice(0, 7), href: r.send.url, label: 'Commit' }
-          : undefined),
+        label: 'Start the library round',
+        evidence: (r) => (r.send.url ? { href: r.send.url, label: 'Library Round' } : undefined),
       },
     ],
   },
@@ -362,6 +360,12 @@ export function Send({ doc, readiness, error, onBack, onJump, onSent, onError }:
       return {
         label: stateOf('website') === 'sent' ? 'Re-commit without audio…' : 'Commit without audio…',
         warning: `WT${n} has no podcast audio recorded. Commit the page without an episode? It has none until the website is re-committed after the podcast.`,
+      };
+    }
+    if (key === 'archive' && !lastSent(doc.sends?.website)) {
+      return {
+        label: 'Tell it anyway…',
+        warning: `WT${n}'s website leg has not sent, so weekly.thingelstad.com has no page for the library to pull. Start the library round anyway? It finds no page, and the archive is told again after the website leg.`,
       };
     }
     if (key === 'buttondown' && emailLocked) {
@@ -560,43 +564,6 @@ export function Send({ doc, readiness, error, onBack, onJump, onSent, onError }:
   );
 }
 
-/**
- * What the archive commit would change in the corpus repository, changing
- * nothing — a draft must never be committed there, and this is how to look
- * before committing (or before re-committing after a fix).
- */
-function ArchivePreview({ issueId }: { issueId: string }) {
-  const [preview, setPreview] = useState<{ repo: string; changed: string[]; unchanged: number } | null>(null);
-  const [loading, setLoading] = useState(false);
-  const [err, setErr] = useState<string | null>(null);
-  const load = () => {
-    setLoading(true);
-    setErr(null);
-    api.sendPreview(issueId, 'archive')
-      .then(setPreview)
-      .catch((e: Error) => setErr(e.message))
-      .finally(() => setLoading(false));
-  };
-  return (
-    <div class="sc-preview">
-      <div class="sv-head">
-        <span class="mono-label">PREVIEW</span>
-        <span class="head-spacer" />
-        <button class="btn small" disabled={loading} onClick={load}>{loading ? 'Diffing…' : 'What would change'}</button>
-      </div>
-      {err && <div class="sc-evidence error">{err}</div>}
-      {preview && (
-        <div class="after-preview">
-          <span class="mono-label">WOULD COMMIT TO {preview.repo.toUpperCase()}</span>
-          {preview.changed.length === 0
-            ? <span class="quiet">Nothing — the corpus already matches this issue.</span>
-            : preview.changed.map((f) => <code key={f}>~ {f}</code>)}
-        </div>
-      )}
-    </div>
-  );
-}
-
 /** Time gone, from milliseconds: 2:05, or 45s. */
 function elapsed(ms: number): string {
   const s = Math.max(0, Math.round(ms / 1000));
@@ -785,7 +752,6 @@ function SendCard({
         })}
       </div>
 
-      {card.key === 'archive' && <ArchivePreview issueId={issueId} />}
       {done && <VerifyPanel v={verification} busy={busy} onVerify={onVerify} />}
     </section>
   );

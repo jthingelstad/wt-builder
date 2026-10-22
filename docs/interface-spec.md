@@ -125,9 +125,9 @@ row with `check` / `circle-alert` amber / `x` terracotta, its finding in 11px mo
 and any specifics (a time to listen at, a file that differs) beneath. A verdict pill
 (`CHECKING`, `VERIFIED`, `WAITING`, `LOOK AT THIS`, `NOT RIGHT`), the time it ran,
 and `Check again`. `WAITING` is a leg still landing — an email scheduled for later,
-an archive not yet indexed — and says when it will look again on its own. The
-Archive card also carries **PREVIEW**: what a commit would change in the corpus,
-changing nothing.
+an archive not yet indexed — and says when it will look again on its own. (The
+Archive card's **PREVIEW** of what a commit would change in the corpus went
+2026-10-22: the leg sends no text, so there is nothing to preview.)
 
 *Moved 2026-10-11:* **Made in**, the card that sat here, opens the Stats view
 now (below). The Send view is about sending.

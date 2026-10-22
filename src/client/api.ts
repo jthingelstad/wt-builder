@@ -404,12 +404,6 @@ export const api = {
   verify: (id: string, destination: string) =>
     call<{ issue: IssueDoc }>(`/issues/${id}/verify/${destination}`, { method: 'POST', body: '{}' }),
 
-  /** What a leg would commit, committing nothing. website and archive only. */
   /** Where an in-flight podcast render is; `{}` when none is running. */
   progress: (id: string) => call<{ podcast?: AudioProgress }>(`/issues/${id}/progress`),
-
-  sendPreview: (id: string, leg: 'website' | 'archive') =>
-    call<{ repo: string; sha: string; changed: string[]; unchanged: number }>(
-      `/issues/${id}/send/${leg}/preview`,
-    ),
 };

@@ -157,12 +157,11 @@ export const config = {
   websiteBranch: optional('WT_BUILDER_WEBSITE_BRANCH') ?? 'main',
 
   /**
-   * The archive repository — the corpus the Librarian API answers from. Its
-   * CI rebuilds and uploads the corpus on any change under data/issues/,
-   * which is what the archive send commits into.
+   * The archive repository — the library and the corpus the Librarian API
+   * answers from. The archive send dispatches `issue-sent` to it, and its
+   * library round pulls the issue from the website repository.
    */
   archiveRepo: optional('WT_BUILDER_ARCHIVE_REPO') ?? 'jthingelstad/librarian-thing',
-  archiveBranch: optional('WT_BUILDER_ARCHIVE_BRANCH') ?? 'main',
 
   /**
    * The Librarian retrieval endpoint — the archive's semantic search, which

@@ -25,13 +25,11 @@ import { audioScript, ISSUE_URL_BASE } from '../shared/render/audio.ts';
 import { renderEmail } from '../shared/render/email.ts';
 import { emailOf, lastSent } from '../shared/sends.ts';
 import { plausibleDuration } from './backfill.ts';
-import { archiveInputs, emailSubject } from './publish.ts';
-import { config } from './config.ts';
+import { emailSubject } from './publish.ts';
 import * as buttondown from './integrations/buttondown.ts';
 import * as dmarc from './integrations/dmarc.ts';
 import type { DmarcReport } from './integrations/dmarc.ts';
 import { registrableDomain } from '../shared/deliverability.ts';
-import * as githubRepo from './integrations/github.ts';
 import { CDN_HOST } from './integrations/images.ts';
 import * as librarian from './integrations/librarian.ts';
 
@@ -484,27 +482,27 @@ export async function verifyButtondown(doc: IssueDoc, earlier: EarlierDelivery[]
 
 // ── archive ───────────────────────────────────────────────────────────────
 
-/** The Librarian ingests on its own schedule; stop looking after a day. */
+/**
+ * The round pulls and the corpus builds in well under an hour, and the next
+ * morning's round would pull a missed one; stop looking after a day.
+ */
 const INDEX_PATIENCE_MS = 24 * 60 * MINUTE;
 
+/**
+ * The archive leg sends no text, so there is nothing to compare: the library
+ * pulled the issue from the website repository, and the website's own verify
+ * holds that page to the issue. What is left to see is the end of it, Thingy
+ * finding the issue. Asked for this issue exactly (4.11 issueNumber), so a
+ * crowded topic cannot push it out of the top k the way a plain semantic
+ * probe could.
+ */
 export async function verifyArchive(doc: IssueDoc): Promise<VerifyOutcome> {
   const n = doc.issue.number;
   const sent = lastSent(doc.sends?.archive);
-  if (!sent?.external_id) return { checks: [fail('In the corpus', 'No archive commit is recorded for this issue.')] };
+  if (!sent) return { checks: [fail('Retrievable by Thingy', 'The archive has not been told this issue is out.')] };
   const checks: VerifyCheck[] = [];
   let recheckMs: number | undefined;
 
-  // 1. The corpus holds exactly what this issue renders to.
-  const email = emailOf(doc.sends?.buttondown);
-  const files = archiveInputs(doc, { buttondownId: email.id, absoluteUrl: email.url });
-  const d = await githubRepo.diff(files, { repo: config.archiveRepo, branch: config.archiveBranch });
-  checks.push(d.changed.length
-    ? warn('In the corpus', `${d.changed.length} of ${files.length} files in ${config.archiveRepo} differ from the issue as it renders now — "Re-commit" brings them level.`, d.changed)
-    : pass('In the corpus', `${files.length} files in ${config.archiveRepo} match the issue exactly`));
-
-  // 2. Thingy can find it: the Librarian returns this issue's own passages.
-  // Asked for this issue exactly (4.11 issueNumber), so a crowded topic
-  // cannot push it out of the top k the way a plain semantic probe could.
   const passages = await librarian.retrieve(`${doc.issue.title} ${doc.issue.dek ?? ''}`.trim(), 5, {
     filters: { issueNumber: n },
   });
@@ -515,8 +513,8 @@ export async function verifyArchive(doc: IssueDoc): Promise<VerifyOutcome> {
     const age = Date.now() - Date.parse(sent.at ?? new Date().toISOString());
     const patient = age < INDEX_PATIENCE_MS;
     checks.push((patient ? warn : fail)('Retrievable by Thingy', patient
-      ? `Not in the Librarian yet — it ingests on its own schedule. Checked again every 15 minutes.`
-      : `A day after the commit the Librarian still returns nothing from WT${n} — check its ingest.`));
+      ? `Not in the Librarian yet: the library round pulls the issue, then the corpus builds. Checked again every 15 minutes.`
+      : `A day after the archive was told, the Librarian still returns nothing from WT${n}: check librarian-thing's Library Round and Corpus & API runs.`));
     if (patient) recheckMs = 15 * MINUTE;
   }
   return { checks, recheckMs };
