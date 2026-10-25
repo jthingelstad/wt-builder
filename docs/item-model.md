@@ -59,7 +59,7 @@ title
 body
 commentary
 label                  Currently entries carry one ("Building", "Listening")
-attribution            Quote (legacy; no edition renders it since 2026-09-29)
+attribution            Quote: who said it, inline Markdown, optional (printed again since 2026-10-25)
 ask                    Echo: the question under the thread, opens Thingy with it asked
 section                the section a link was captured for; placement wins
 tags                   Pinboard tags
@@ -193,7 +193,7 @@ knows what a block is without the reader being told.
 
 - Intro: Markdown
 - Outro: Markdown
-- Quote: Markdown quotation, no attribution (2026-09-29)
+- Quote: Markdown quotation, optional attribution and commentary (2026-10-25; 2026-09-29 had dropped the name)
 - Currently entry: structured label, value, and optional context/image
 - Photo: image, alt text, caption, timestamp, and optional location
 - Markdown block: Markdown, no heading

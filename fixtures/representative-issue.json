@@ -416,7 +416,8 @@
         "audio": true
       },
       "body": "Simple things should be simple.\nComplex things should be possible.",
-      "attribution": "Alan Kay"
+      "attribution": "Alan Kay",
+      "commentary": "A design rule I keep coming back to."
     },
     "membership-1": {
       "type": "membership",

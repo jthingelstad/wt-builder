@@ -7,12 +7,12 @@
 
 import type { IssueDoc, Item } from '../types.ts';
 import { echoBlock } from '../echoes.ts';
-import { markdownToSafeHtml } from '../markdown.ts';
+import { markdownInlineToSafeHtml, markdownToSafeHtml } from '../markdown.ts';
 import { lastSent } from '../sends.ts';
 import type { Block } from './website.ts';
 import { THINGY_LABEL, THINGY_ROLE, THINGY_URL, byline, nodeBlocks, nodeHeading } from './website.ts';
 import type { PlannedNode } from './plan.ts';
-import { bodyLines, planEdition, postBlocks, finishEdition } from './plan.ts';
+import { bodyLines, planEdition, postBlocks, finishEdition, quoteAttribution } from './plan.ts';
 
 export const PREMIUM_CONDITION = "subscriber.subscriber_type == 'premium'";
 
@@ -58,6 +58,35 @@ const html = (markdown: string | undefined) => markdownToSafeHtml(postBlocks(mar
  */
 export function inertTemplate(text: string): string {
   return text.replace(/\{(?=[{%#])/g, '{\u200b');
+}
+
+// ── the pull quote ────────────────────────────────────────────────────────
+
+const QUOTE_FRAME_STYLE = ['margin:0 0 1.6em', 'padding:2px 0 2px 18px', 'border-left:4px solid #1a5eb6'].join(';');
+const QUOTE_WORDS_STYLE = [
+  'margin:0 0 10px', 'font-size:24px', 'line-height:1.35', 'font-weight:700', 'color:#1a1a1a',
+].join(';');
+const QUOTE_BY_STYLE = ['margin:0 0 12px', 'font-size:16px', 'color:#5a5a66'].join(';');
+
+/**
+ * A Quote in email: the website's pull quote with its look inline, one HTML
+ * block like Thingy's frame. Not a Markdown blockquote: Buttondown draws
+ * every blockquote as the same card, so a Quote looked like a passage
+ * quoted under a link (Jamie, 2026-10-25). The words, who said them when
+ * Jamie says, then Jamie's line about it in the email's own type.
+ */
+export function quoteEmailBlocks(item: Item): Block[] {
+  const lines = bodyLines(item.body);
+  if (!lines.length) return [];
+  const who = quoteAttribution(item);
+  const line = String(item.commentary ?? '').trim();
+  return [[
+    `<div class="pull-quote" style="${QUOTE_FRAME_STYLE}">`,
+    html(inertTemplate(lines.join('\n\n'))).replace(/<p>/g, `<p style="${QUOTE_WORDS_STYLE}">`),
+    ...(who ? [`<p style="${QUOTE_BY_STYLE}">\u2014 ${markdownInlineToSafeHtml(inertTemplate(who))}</p>`] : []),
+    ...(line ? [html(inertTemplate(line))] : []),
+    '</div>',
+  ].join('\n')];
 }
 
 /**
@@ -114,13 +143,16 @@ export function echoesBlocks(planned: PlannedNode, issueNumber: number): Block[]
 
 function emailNodeBlocks(planned: PlannedNode, issueNumber: number): Block[] {
   // Every block here is the issue's own words and structure; none is Liquid.
-  if (planned.node.type !== 'membership' && planned.node.type !== 'echoes') {
+  const { type } = planned.node;
+  if (type !== 'membership' && type !== 'echoes' && type !== 'quote') {
     return nodeBlocks(planned, issueNumber, 'email').map(inertTemplate);
   }
 
-  const body: Block[] = planned.node.type === 'echoes'
+  const body: Block[] = type === 'echoes'
     ? echoesBlocks(planned, issueNumber)
-    : planned.items.flatMap((entry) => membershipBlocks(entry.item, issueNumber));
+    : type === 'quote'
+      ? planned.items.flatMap((entry) => quoteEmailBlocks(entry.item))
+      : planned.items.flatMap((entry) => membershipBlocks(entry.item, issueNumber));
   if (!body.some((b) => b.trim())) return [];
   const heading = nodeHeading(planned);
   return heading ? [inertTemplate(heading), ...body] : body;

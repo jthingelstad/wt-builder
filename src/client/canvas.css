@@ -317,6 +317,14 @@ a.link-domain:hover { color: var(--blue); }
 }
 .row-page blockquote p { font-size: 19px; font-style: italic; line-height: 1.6; }
 
+/* A Quote: the pull quote the site prints, upright and heavy (2026-10-25). */
+.row-page .pull-quote blockquote { border-left: 4px solid var(--blue); padding-left: 22px; margin: 0 0 10px; }
+.row-page .pull-quote blockquote p { font-size: 24px; font-style: normal; font-weight: 700; line-height: 1.35; }
+.row-page .pull-quote-by { font-size: 15px; color: var(--secondary); margin: 0 0 12px 26px; }
+.row-page .pull-quote-by .dash { margin-right: 6px; }
+.row-page .pull-quote-who { display: inline-block; min-width: 12em; }
+.row-page .pull-quote-line { margin-left: 26px; }
+
 .haiku { font-size: 18px; font-weight: 700; line-height: 1.85; white-space: pre-line; }
 
 /* A promoted post: an article's own structure, one step under the section heading. */

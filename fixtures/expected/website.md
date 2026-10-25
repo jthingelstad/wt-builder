@@ -64,9 +64,17 @@ A good demonstration of what token speed feels like. →
 This should be a built-in feature in Shortcuts. →
 **[Introducing Shortcuts Playground](https://www.macstories.net/stories/introducing-shortcuts-playground/)**
 
+<div class="pull-quote">
+
 > Simple things should be simple.
 >
 > Complex things should be possible.
+
+<p class="pull-quote-by">— Alan Kay</p>
+
+A design rule I keep coming back to.
+
+</div>
 
 <div class="from-thingy">
 

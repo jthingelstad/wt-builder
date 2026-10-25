@@ -274,6 +274,17 @@ describe('sections', () => {
     expect(createIssue({ number: 999, publication_date: '2026-10-31' }).nodes.map((n) => n.type)).not.toContain('quote');
   });
 
+  it('brings a removed Quote back with its words from the outline chip, whatever its id', () => {
+    const removed = removeSection(fixture(), 'pull-quote');
+    const restored = addSection(removed, { id: 'quote', type: 'quote', label: 'Quote' });
+    expect(restored.nodes.find((n) => n.id === 'pull-quote')?.items).toEqual(['quote-kay']);
+    expect(restored.nodes.some((n) => n.id === 'quote')).toBe(false);
+    expect(restored.items['quote-kay']!.attribution).toBe('Alan Kay');
+    expect(restored.held_items?.['quote-kay']).toBeUndefined();
+    expect(restored.issue.output_order).toContain('pull-quote');
+    expect(restored.issue.output_order).not.toContain('quote');
+  });
+
   it('repairs a draft Quote section added bare (WT354)', () => {
     const doc = fixture();
     doc.issue.status = 'draft';

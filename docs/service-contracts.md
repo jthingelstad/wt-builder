@@ -456,6 +456,10 @@ Claude Code or Codex on otto, or any MCP client on the tailnet.
   rows carry `actor`; `get_timing` adds `wands` (`calls`, `failed`,
   `used`, `waiting_seconds`). Share links are withheld from `data` as from
   the summary.
+- **Quote attribution (1.9.3, 2026-10-25).** `get_issue` names
+  `attribution` among the text fields: who said a Quote, printed again in
+  every edition since the pull quote came back (WT354). A Quote's
+  `commentary` is Jamie's line under it.
 - **Episode kinds (1.9.2, 2026-10-11).** `list_events`' `kind` filter
   takes `episode`, `recording` and `audio`, which only an Another Thing
   episode's log carries; an issue never has them, and no tool reads an

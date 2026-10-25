@@ -12,7 +12,8 @@ import { splitBody, videoParts } from '../body.ts';
 import { echoBlocks } from '../echoes.ts';
 import { linkUrl } from '../links.ts';
 import type { PlannedItem, PlannedNode } from './plan.ts';
-import { bodyLines, planEdition, postBlocks, finishEdition, quoteMarkdown } from './plan.ts';
+import { bodyLines, planEdition, postBlocks, finishEdition, quoteAttribution, quoteMarkdown } from './plan.ts';
+import { markdownInlineToSafeHtml } from '../markdown.ts';
 
 /** Blocks are joined by a blank line; a block is one Markdown paragraph. */
 export type Block = string;
@@ -62,6 +63,33 @@ export function thingyFrame(body: Block[]): Block[] {
     '<div class="from-thingy">',
     `<p class="from-thingy-label"><a href="${THINGY_URL}">${THINGY_LABEL}</a>, ${THINGY_ROLE}</p>`,
     ...body,
+    '</div>',
+  ];
+}
+
+// ── the pull quote ────────────────────────────────────────────────────────
+
+/**
+ * A Quote on the website: the words as a blockquote, who said them when
+ * Jamie says, and Jamie's line about it, in a frame the site styles
+ * (`.pull-quote` in weekly.thingelstad.com's stylesheet) so it stands apart
+ * from a passage quoted under a link (Jamie, 2026-10-25). Built like
+ * Thingy's frame: each piece its own block, so markdown-it reads the div
+ * and the name as raw HTML and the quote and the line as Markdown. A name
+ * or a line with no quote is an unwritten item, and prints nothing.
+ */
+export function quoteBlocks(item: Item): Block[] {
+  const quote = quoteMarkdown(item);
+  if (!quote) return [];
+  const who = quoteAttribution(item);
+  return [
+    '<div class="pull-quote">',
+    quote,
+    // The name is Markdown, so a link renders; but as HTML, so the site
+    // keeps its class. The canvas renderer opens links in a new tab, and
+    // no other link on the issue page does.
+    ...(who ? [`<p class="pull-quote-by">\u2014 ${markdownInlineToSafeHtml(who).replace(/ target="_blank" rel="noreferrer"/g, '')}</p>`] : []),
+    ...postBlocks(item.commentary),
     '</div>',
   ];
 }
@@ -300,7 +328,7 @@ function itemBlocks(entry: PlannedItem, node?: IssueNode, issueNumber?: number, 
       // On its own (outside an Echoes node) an echo still carries its frame.
       return attributed(item, echoBlocks(item, issueNumber));
     case 'quote':
-      return [quoteMarkdown(item)];
+      return quoteBlocks(item);
     default:
       // Intro, outro, Markdown blocks: prose keeps its paragraphs.
       return postBlocks(item.body);

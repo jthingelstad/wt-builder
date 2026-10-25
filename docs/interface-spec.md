@@ -714,7 +714,7 @@ Block types, in the Website lens:
 | Paragraph | 16.5px/1.7, `margin-bottom: 15px` |
 | Currently | `**Building:** value` — bold label, colon, editable value, both inline |
 | Photo | **Empty:** a 300px dashed `#dedcd8` / `#fafaf9` drop zone — a `<label>` around a hidden `input[type=file]` with a 24px `image-plus` glyph, "Drop a photo here, or click to choose", and "Time and place are read from the file. Both stay editable." A file held over the zone turns the edge solid terracotta, tints it, and reads "Drop to upload" — the drop is visibly received before it is let go. **Set:** the image at full column width, radius 6px, with hover-revealed **Replace** (label + hidden input) and `trash-2` **Remove** over the bottom-right; a file held over the image darkens it with "Drop to replace". A file dropped anywhere else on the page is refused, never opened in the tab. Then caption 16px/1.6 — rendered Markdown at rest and source while editing, like commentary, so a link reads as a link — and a meta line 14px `#6e6e6e` (`Aug 29, 2026 · 8:35 PM · Cannon Lake, Warsaw, MN`). Dropping a file stamps the timestamp from its modified date and seeds empty alt text from the filename. The wand drafts **alt text only** — three candidates, a pick sets the alt — and never offers or touches the caption, which is Jamie's. *Since 2026-10-11* the alt text is also typed by hand on a line under the meta line: mono 9.5px `ALT TEXT` label, then the alt as plain text 14px `#6e6e6e`, edited in place (its other home, the Source lens, was removed) |
-| Quote | `border-left: 3px solid #e6e5e2`, `padding-left: 20px`; text 19px/1.6 italic. No name field: *Revisited 2026-09-29*, a Quote carries no attribution in any edition (Jamie), so the "Who said it" line is gone from the canvas |
+| Quote | A pull quote with no heading: `border-left: 4px solid` blue, `padding-left: 22px`; text 24px/1.35, weight 700, upright. Under it a "— Who said it (optional)" line and a "A line of yours about it (optional)" body. *Revisited 2026-10-25*: the name is back and the commentary is new (Jamie, WT354); 2026-09-29 had removed the name |
 | Link title | 19px/700/1.35 in `#1a5fb4` + mono domain `#b0aeaa` |
 | Journal date | 17px/700, `margin: 22px 0 10px`. **Weekday only** — "Saturday" |
 | Journal entry | linked time (`10:54 AM`) — em dash `#9a9a9a` — editable body, all inline at 16.5px/1.7 |
@@ -1233,7 +1233,7 @@ Menlo, monospace`.
 | Index H1 | 38 / 700 / 1.1 / -0.028em |
 | Section H2 | 25 / 700 / -0.02em |
 | Link title | 19 / 700 / 1.35 |
-| Quote | 19 / italic / 1.6 |
+| Quote | 24 / 700 / 1.35 |
 | Haiku | 18 / 700 / 1.85 |
 | Dek | 17 / 1.55 |
 | Journal date | 17 / 700 |

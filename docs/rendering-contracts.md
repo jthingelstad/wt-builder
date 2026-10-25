@@ -138,6 +138,25 @@ they usually quote an article unattributed. No edition prints or speaks one,
 the canvas no longer asks "Who said it", and an `attribution` already stored
 on a Quote is left alone and ignored.
 
+*Revisited 2026-10-25:* WT354 quotes Jamie's own post, so a Quote is a pull
+quote again: the words, an optional name, and an optional line of Jamie's
+under it (Jamie: "Approved: build the Quote attribution, commentary and
+pull-quote style in WT Builder and weekly.thingelstad.com"). The section
+prints no heading and can be moved like any other.
+
+- **Website:** a `<div class="pull-quote">` frame holding the blockquote,
+  then `<p class="pull-quote-by">— <name></p>` when there is a name, then the
+  commentary paragraphs, each its own block (the Thingy-frame pattern). The
+  site styles the frame.
+- **Buttondown:** the same frame as one inline-styled HTML block, Liquid made
+  inert, because Buttondown does not carry the site's CSS.
+- **Audio:** "Quote. … End quote, from <name>." then the commentary as
+  Jamie's own words. With no name, "End quote." as before.
+
+The name is inline Markdown, so it can be a link. A leading dash Jamie types
+is dropped; the frame adds its own. Without the words nothing prints, name
+and commentary included.
+
 ## Photo
 
 Website and Buttondown include image, alt text, caption, and a metadata line of
