@@ -23,7 +23,7 @@ import { Notes, type Note } from './Notes.tsx';
 import { CollapseView } from './Collapse.tsx';
 import { LeftPanel } from './LeftPanel.tsx';
 import { HintsContext, OwedContext, SHORTCUTS } from './Row.tsx';
-import { rowHints } from '../../shared/hints.ts';
+import { openChecks, rowHints } from '../../shared/hints.ts';
 import { Strip } from './Strip.tsx';
 import { Inspector } from './Inspector.tsx';
 import { ReviewPanel, type NoteFix, type PanelNote } from './ReviewPanel.tsx';
@@ -133,20 +133,22 @@ export function Editor({ doc, readiness, busy, error, run, onIndex, onSend, onSh
   const rowsRef = useRef<HTMLDivElement>(null);
 
   const id = doc.issue.id;
-  // The link check and deliverability are about the whole issue: their
-  // summary ("1 gift link, 2 moved, 3 the site would not answer") printed
-  // under whichever row had the first finding and named none of them
-  // (WT352). Each finding is said on its own row instead (Row.tsx), and the
-  // summary stays on the strip; the Send view has one line naming the rows.
   const owed = useMemo(() => new Map(
     (readiness?.units ?? [])
-      .filter((u) => u.state === 'partial' && u.context && u.kind !== 'links' && u.kind !== 'mail')
+      .filter((u) => u.state === 'partial' && u.context)
       .map((u) => [u.anchor, u.context!]),
   ), [readiness]);
   const w = windowOf(doc);
   const frozen = isFrozen(doc);
   // Frozen, nothing can be acted on, so nothing is hinted.
   const rowHintMap = useMemo(() => (frozen ? new Map() : rowHints(doc)), [doc, frozen]);
+  // The link check and deliverability are nothing Jamie writes and finishes,
+  // so they are not pills (Jamie, 2026-10-25). Each finding is said on its
+  // row (Row.tsx); while one is open, Publish carries the count, and the Send
+  // view names the rows. Clear, Publish is plain.
+  const checks = useMemo(() => (frozen ? { rows: [], issue: [] } : openChecks(doc)), [doc, frozen]);
+  const checksOpen = checks.rows.length + checks.issue.length;
+  const checksSaid = [...checks.rows.map((r) => `${r.name}: ${r.what.join(', ')}`), ...checks.issue].join('\n');
   const [kicker, note] = KICKER[lens];
   // Published, the text stays editable until it is put to bed, and an edit
   // reaches readers only by a re-send (Jamie, 2026-09-28). Frozen, nothing
@@ -550,7 +552,16 @@ export function Editor({ doc, readiness, busy, error, run, onIndex, onSend, onSh
         {/* Put to bed, the sending is done and what is left is telling people (docs/share-plan.md). */}
         {doc.issue.put_to_bed_at
           ? <button class="btn primary" onClick={onShare}>Share</button>
-          : <button class="btn primary" onClick={onSend}>Publish</button>}
+          : (
+            <button
+              class="btn primary"
+              onClick={onSend}
+              title={checksOpen ? `To look at before it goes:\n${checksSaid}` : undefined}
+            >
+              Publish
+              {checksOpen > 0 && <span class="checks-badge" aria-label={`${checksOpen} to look at`}>{checksOpen}</span>}
+            </button>
+          )}
       </header>
 
       <Strip number={doc.issue.number} readiness={readiness} onJump={goTo} doc={doc} />

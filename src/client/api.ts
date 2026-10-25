@@ -48,7 +48,7 @@ export function writeBackMessage(
   return /your edit is kept/i.test(said) ? `${source}: ${said}` : `${source}: ${said}. Your edit is kept.`;
 }
 
-export type ReadinessKind = 'required' | 'commentary' | 'sync' | 'thingy' | 'links' | 'mail';
+export type ReadinessKind = 'required' | 'commentary' | 'sync' | 'thingy';
 
 export type ReadinessState = 'done' | 'partial' | 'todo' | 'waiting';
 

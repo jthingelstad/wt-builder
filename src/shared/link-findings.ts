@@ -1,10 +1,10 @@
 /**
  * The issue's links, and what the last link check found for each.
  *
- * Pure, and on both sides: the server derives the "Links checked" readiness
- * unit and the send legs' dead-link gate from it, the client the rows'
- * notes, the inspector's per-item findings, the Send view's one line and
- * the Send card's override. The check itself, which fetches, is
+ * Pure, and on both sides: the server derives the send legs' dead-link
+ * gate from it, the client the rows' notes, the inspector's per-item
+ * findings, Publish's count, the Send view's one line and the Send card's
+ * override. The check itself, which fetches, is
  * src/server/link-check.ts; it runs as each link arrives
  * (src/server/arrival-check.ts).
  */

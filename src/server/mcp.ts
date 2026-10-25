@@ -66,7 +66,7 @@ export interface McpDeps {
  * tool, its arguments, or its answer changes, so a client holding a cached
  * tool list knows to fetch it again.
  */
-export const MCP_VERSION = '1.9.3';
+export const MCP_VERSION = '1.10.0';
 
 export const INSTRUCTIONS = `WT Builder is Jamie Thingelstad's authoring app for The Weekly Thing newsletter. This server is READ-ONLY: it shows an issue as the editor does and changes nothing.
 
@@ -242,12 +242,12 @@ function itemView(doc: IssueDoc, id: string, item: Item, placed: boolean, extra:
 
 /**
  * Where a pill is finished: in the issue's words, or by settling a sync.
- * The link and email checks are finished on their rows since 2026-10-04
- * (each finding is the row's note), no longer in the Send view.
+ * The link and email checks are no pills since 2026-10-25 (MCP 1.10.0);
+ * they are under checks, and each finding is its row's hint.
  */
 const doneIn = (u: ReadinessUnit) => (u.kind === 'sync' ? 'sync conflict' : 'editor');
 
-/** A link or email pill anchors to the first row with something to act on, or the issue when none has. */
+/** Where a pill takes Jamie: its item, or `issue` for an issue-wide one. */
 const anchorOf = (u: ReadinessUnit) => u.anchor;
 
 function pillsOf(units: ReadinessUnit[]) {

@@ -23,7 +23,7 @@ const pinboard = await import('../src/server/integrations/pinboard.ts');
 const { usePages } = await import('../src/server/link-check.ts');
 const { useDns } = await import('../src/server/domain-check.ts');
 const { ARRIVAL, arrivalSettled, clearArrivalCache } = await import('../src/server/arrival-check.ts');
-const { rowHints } = await import('../src/shared/hints.ts');
+const { openChecks, rowHints } = await import('../src/shared/hints.ts');
 
 let base = '';
 const realFetch = globalThis.fetch;
@@ -120,7 +120,8 @@ async function draft(number: number, commentary = 'Worth it.'): Promise<string> 
   return id;
 }
 
-const unit = (body: any, kind: string) => body.readiness.units.find((u: { kind: string }) => u.kind === kind);
+// Since 2026-10-25 a finding is no pill: it is open on its row, and Publish counts it.
+const open = (body: any) => openChecks(body.issue).rows.map((r) => r.anchor);
 
 describe('the check as a link arrives', () => {
   it('a link typed into commentary: the save answers at once, and the row says dead once it is checked', async () => {
@@ -140,7 +141,7 @@ describe('the check as a link arrives', () => {
     expect(after.body.issue.items['link-one'].commentary).toContain(DEAD);
     const hints = rowHints(after.body.issue).get('link-one') ?? [];
     expect(hints.find((h) => h.kind === 'link')).toMatchObject({ short: 'dead link' });
-    expect(unit(after.body, 'links')).toMatchObject({ state: 'partial', anchor: 'link-one' });
+    expect(open(after.body)).toEqual(['link-one']);
     const events = store.listEvents(id);
     expect(events.some((e: { kind: string; summary: string }) => e.kind === 'links' && /Checked as they arrived/.test(e.summary) && /1 dead/.test(e.summary))).toBe(true);
   });
@@ -201,7 +202,7 @@ describe('the check as a link arrives', () => {
     expect(store.getIssue(b)!.doc.link_check!.results[DEAD]!.verdict).toBe('dead');
   });
 
-  it('a domain on a blocklist is said on the row that prints it, and on the pill', async () => {
+  it('a domain on a blocklist is said on the row that prints it, and counted on Publish', async () => {
     const id = await draft(990205);
     await call('PATCH', `/api/issues/${id}/items/link-one`, { commentary: `See [this](${LISTED}).` });
     await arrivalSettled();
@@ -210,7 +211,7 @@ describe('the check as a link arrives', () => {
     expect(after.body.issue.domain_check.results['spammy.example']).toMatchObject({ verdict: 'listed' });
     const mail = (rowHints(after.body.issue).get('link-one') ?? []).filter((h) => h.kind === 'mail');
     expect(mail[0]?.text).toContain('spammy.example');
-    expect(unit(after.body, 'mail')).toMatchObject({ state: 'partial', anchor: 'link-one' });
+    expect(open(after.body)).toEqual(['link-one']);
   });
 
   it('off (offline, nothing handed in): a save fetches nothing and says no check is coming', async () => {

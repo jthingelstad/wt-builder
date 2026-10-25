@@ -12,7 +12,7 @@ import {
   acceptLinks, applyLinkCheck, canonicalHint, checkLink, checkLinks, type Fetched, type Fetcher,
 } from '../src/server/link-check.ts';
 import { actionOf, findingsSummary, giftLine, giftOf, issueLinks, linkFindings } from '../src/shared/link-findings.ts';
-import { rowHints } from '../src/shared/hints.ts';
+import { openChecks, rowHints } from '../src/shared/hints.ts';
 import { contentFindings } from '../src/shared/deliverability.ts';
 import { readiness } from '../src/server/issue.ts';
 
@@ -140,39 +140,44 @@ describe('what the issue prints', () => {
   });
 });
 
-describe('the Links checked unit', () => {
-  const unit = (doc: IssueDoc) => readiness(doc).units.find((u) => u.title === 'Links checked');
+// The Links checked pill until 2026-10-25, when Jamie took it off the strip:
+// it is nothing he writes and finishes. What is open is Publish's count and
+// the Send view's line, both openChecks.
+describe('link findings on Publish, not a pill', () => {
+  const open = (doc: IssueDoc) => openChecks(doc).rows.map((r) => r.anchor);
   const result = (verdict: LinkResult['verdict'], extra: Partial<LinkResult> = {}): LinkResult =>
     ({ verdict, checked_at: '2026-10-01T12:00:00.000Z', ...extra });
 
-  it('is done before any check: a link not checked yet is nothing to act on (2026-10-04)', () => {
-    const u = unit(fixture())!;
-    expect(u.state).toBe('done');
-    expect(u.kind).toBe('links');
-    expect(u.context).toContain('checked as it arrives');
+  it('are no pill, and so not in the strip\'s count', () => {
+    const doc = fixture();
+    const dead = issueLinks(doc).find((l) => l.role === 'item')!;
+    const checked = applyLinkCheck(doc, { [dead.url]: result('dead', { status: 404 }) }, '2026-10-01T12:00:00.000Z');
+    expect(open(checked)).toEqual([dead.items[0]]);
+    expect(readiness(checked).units.map((u) => u.title)).not.toContain('Links checked');
   });
 
-  it('is done when every link answered, unchecked ones included', () => {
+  it('nothing is open before any check: a link not checked yet is nothing to act on (2026-10-04)', () => {
+    expect(open(fixture())).toEqual([]);
+  });
+
+  it('nothing is open when every link answered, unchecked ones included', () => {
     const doc = fixture();
     const results = Object.fromEntries(issueLinks(doc).map((l, i) => [l.url, result(i === 0 ? 'unchecked' : 'ok')]));
-    const u = unit(applyLinkCheck(doc, results, '2026-10-01T12:00:00.000Z'))!;
-    expect(u.state).toBe('done');
+    expect(open(applyLinkCheck(doc, results, '2026-10-01T12:00:00.000Z'))).toEqual([]);
   });
 
-  it('is partial with the counts, and jumps to the first finding; kept findings stop counting', () => {
+  it('a dead link is open on its row, with the counts; kept, it stops counting', () => {
     const doc = fixture();
     const links = issueLinks(doc);
     const dead = links.find((l) => l.role === 'item')!;
     const results = Object.fromEntries(links.map((l) => [l.url, result(l === dead ? 'dead' : 'ok', l === dead ? { status: 404 } : {})]));
     const checked = applyLinkCheck(doc, results, '2026-10-01T12:00:00.000Z');
-    const u = unit(checked)!;
-    expect(u.state).toBe('partial');
-    expect(u.context).toContain('1 dead');
-    expect(u.anchor).toBe(dead.items[0]);
+    expect(open(checked)).toEqual([dead.items[0]]);
+    expect(findingsSummary(linkFindings(checked))).toContain('1 dead');
     expect(linkFindings(checked).unaccepted.map((l) => l.url)).toEqual([dead.url]);
 
     const kept = acceptLinks(checked, [dead.url]);
-    expect(unit(kept)!.state).toBe('done');
+    expect(open(kept)).toEqual([]);
     expect(linkFindings(kept).unaccepted).toEqual([]);
   });
 
@@ -187,8 +192,7 @@ describe('the Links checked unit', () => {
     const f = linkFindings(checked);
     expect(f.pending.map((l) => l.url)).toEqual(['https://avc.xyz/flipcash']);
     // Pending holds nothing: it is checked as it arrives, and again at send.
-    expect(unit(checked)!.state).toBe('done');
-    expect(unit(checked)!.context).toContain('1 not checked yet');
+    expect(open(checked)).toEqual([]);
   });
 });
 
@@ -198,7 +202,7 @@ describe('gift links (Jamie, 2026-10-04)', () => {
   const at = Date.parse('2026-10-04T12:00:00Z');
   // The shape of the WT352 Verge link: a five-day token, expired 2026-09-29.
   const verge = `https://www.theverge.com/column/999999/optimizer?view_token=${jwt({ iat: 1790269400, exp: 1790701400 })}`;
-  const unit = (doc: IssueDoc) => readiness(doc).units.find((u) => u.title === 'Links checked');
+  const open = (doc: IssueDoc) => openChecks(doc, at).rows.map((r) => r.anchor);
   const withGift = (url: string) => {
     const doc = fixture();
     doc.items['link-flipcash']!.source_url = url;
@@ -228,33 +232,29 @@ describe('gift links (Jamie, 2026-10-04)', () => {
     expect(giftOf(`https://www.theverge.com/a?view_token=${jwt({ exp: 'soon' })}`, at)).toEqual({ param: 'view_token' });
   });
 
-  it('is a finding before any check, and says so in the unit', () => {
+  it('is a finding before any check, open on its row', () => {
     const doc = withGift(verge);
     const f = linkFindings(doc, at);
     expect(f.gifts.map((l) => l.url)).toEqual([verge]);
     expect(f.open.map((l) => l.url)).toEqual([verge]);
     expect(findingsSummary(f)).toBe('1 gift link (1 expired)');
-    const u = unit(doc)!;
-    expect(u.state).toBe('partial');
-    expect(u.context).toContain('1 gift link (1 expired)');
+    expect(open(doc)).toEqual(['link-flipcash']);
   });
 
-  it('keeps the unit partial after a clean check, until Jamie keeps it; the keep survives the next check', () => {
+  it('stays open after a clean check, until Jamie keeps it; the keep survives the next check', () => {
     const doc = withGift(verge);
     const all = Object.fromEntries(issueLinks(doc).map((l) => [l.url, { verdict: 'ok', checked_at: '2026-10-04T12:00:00.000Z' } as LinkResult]));
     const checked = applyLinkCheck(doc, all, '2026-10-04T12:00:00.000Z');
-    const u = unit(checked)!;
-    expect(u.state).toBe('partial');
-    expect(u.anchor).toBe('link-flipcash');
-    expect(u.context).toContain('1 gift link');
+    expect(open(checked)).toEqual(['link-flipcash']);
+    expect(findingsSummary(linkFindings(checked, at))).toContain('1 gift link');
     // Warn, don't block: a gift link never stops a send.
     expect(linkFindings(checked).unaccepted).toEqual([]);
 
     const kept = acceptLinks(checked, [verge]);
-    expect(unit(kept)!.state).toBe('done');
+    expect(open(kept)).toEqual([]);
     const again = applyLinkCheck(kept, all, '2026-10-04T13:00:00.000Z');
     expect(again.link_check!.accepted).toEqual([verge]);
-    expect(unit(again)!.state).toBe('done');
+    expect(open(again)).toEqual([]);
   });
 });
 
@@ -298,7 +298,7 @@ describe('what Jamie can act on (plan before WT353, item 1)', () => {
       const doc = withLink(url, r);
       expect(linkFindings(doc).open, url).toEqual([]);
       expect(hintsOn(doc), url).toEqual([]);
-      expect(readiness(doc).units.find((u) => u.kind === 'links')!.state, url).toBe('done');
+      expect(openChecks(doc).rows, url).toEqual([]);
     }
   });
 

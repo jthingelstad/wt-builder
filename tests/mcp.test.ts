@@ -91,9 +91,9 @@ describe('the MCP interface', () => {
     expect(done + partial + waiting + todo).toBe(total);
     expect(s.summary).toContain(`${waiting} waiting`);
     expect(s.workable_now.map((w: any) => w.anchor)).not.toContain('outro-1');
-    // Issue-wide pills belong to the issue, and are finished in the Send view.
-    // Since 2026-10-04 a link or email finding is the row's note: done in the editor, anchored to its row.
-    for (const p of s.pills.filter((p: any) => p.kind === 'links' || p.kind === 'mail')) expect(p).toMatchObject({ state: 'done', done_in: 'editor' });
+    // Since 2026-10-25 the link check and deliverability are no pills: nothing
+    // Jamie writes and finishes. They are under checks, and on their rows.
+    expect(s.pills.filter((p: any) => p.kind === 'links' || p.kind === 'mail')).toEqual([]);
     expect(s.checks.links).toHaveProperty('summary');
     expect(Object.keys(s.sends).sort()).toEqual(['archive', 'buttondown', 'podcast', 'website']);
     // The page's own readiness, pill for pill.
@@ -559,7 +559,7 @@ describe('row hints (MCP 1.5.0)', () => {
 });
 
 describe('link and email findings on their rows (MCP 1.5.5, plan before WT353 item 1)', () => {
-  it('a dead link and a shouting subject: hints on their rows, the pills partial in the editor, and the Send line names both', async () => {
+  it('a dead link and a shouting subject: hints on their rows, no pills, and the Send line names both', async () => {
     const { issueLinks } = await import('../src/shared/link-findings.ts');
     draft(377, (d) => {
       d.issue.title = 'BUY NOW EVERYONE';
@@ -571,8 +571,7 @@ describe('link and email findings on their rows (MCP 1.5.5, plan before WT353 it
     const s = (await call('get_status', { issue: 'wt377' })).structuredContent;
     expect(s.hints.find((h: any) => h.anchor === 'link-flipcash' && h.kind === 'link').text).toMatch(/^A dead link \(404\)/);
     expect(s.hints.find((h: any) => h.anchor === 'issue' && h.kind === 'mail')).toMatchObject({ name: 'The title', text: expect.stringContaining('capitals') });
-    expect(s.pills.find((p: any) => p.kind === 'links')).toMatchObject({ state: 'partial', done_in: 'editor', anchor: 'link-flipcash' });
-    expect(s.pills.find((p: any) => p.kind === 'mail')).toMatchObject({ state: 'partial', done_in: 'editor' });
+    expect(s.pills.filter((p: any) => p.kind === 'links' || p.kind === 'mail')).toEqual([]);
     const line = s.checks.send_line;
     expect(line.clear).toBe(false);
     expect(line.rows.map((r: any) => r.anchor)).toEqual(['issue', 'link-flipcash']);

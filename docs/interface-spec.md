@@ -32,8 +32,8 @@ Gmail's clip, a blocklisted domain no row prints) follows on the same line. Ther
 is no **Check links** button and no link or deliverability box: a link is checked
 as it arrives and said on its row while he writes (Jamie, after WT352: "at that
 point I'm about sending, not editing"). The checklist's own amber line ("N of M
-things on the checklist are still open") shows only while one is, and counts
-neither the Links checked nor the Deliverability pill. The dead-link and
+things on the checklist are still open") shows only while one is; the link and
+email checks have no pill to count (since 2026-10-25, see *Publish*). The dead-link and
 blocklist asks stay on the website and Buttondown cards (**Commit with dead
 links…**, **Send with a blocklisted domain…**).
 
@@ -541,7 +541,8 @@ chosen. The editorial review never counts here (see *Editorial review*).
 item counts as done when it has words; marking it reviewed is not a unit.
 - **Issue** toggle (left panel).
 - **Stats** button (see *Stats view*), then **Publish**; **Share** once the issue is put
-  to bed (see *Share view*).
+  to bed (see *Share view*). While a link or email finding is open, **Publish** carries
+  its count (see *Publish*).
 
 #### Left panel — issue metadata + outline (300px, `#fbfbfa`, right border)
 
@@ -1074,7 +1075,15 @@ it (`docs/decisions.md`, *Revisited 2026-09-28 — the source is the second edit
 visible amber note rather than being rejected.
 
 **Publish.** The button opens the Send view; once the issue is put to bed it
-reads `Share` and opens the Share view instead. An issue is `published` once its
+reads `Share` and opens the Share view instead. While a row has a link or email
+finding open (or the whole email has one: its size, a blocklisted domain no row
+prints), the button carries a small amber count after its label (`.checks-badge`,
+the Review count's colours, `amber-3` ground and `amber` text), and its tooltip
+names each row and what is open on it, as the Send view's checks line does
+(`openChecks` in `src/shared/hints.ts`). Clear, it is plain. The link check and
+deliverability were readiness pills until 2026-10-25, when Jamie took them off
+the strip: "they aren't something I do and complete". The strip and its `N of M
+done` count only what he writes; each finding is still its row's amber note. An issue is `published` once its
 website and Buttondown legs are sent, and it stays editable until it is put to bed
 (see *Editing* above). The real contract is in `docs/publishing-lifecycle.md` and
 is summarized below.

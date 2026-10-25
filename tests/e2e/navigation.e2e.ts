@@ -15,10 +15,9 @@ test('a progress-strip pill scrolls to its item and opens nothing', async ({ pag
   const ticks = page.locator('.strip button');
   const n = await ticks.count();
   const before = await scrollTop(page);
-  // The last section's tick, deep in the page: after it come the Links
-  // checked and Deliverability ticks, which point at the title row while
-  // nothing is open (2026-10-04), then the readout.
-  await ticks.nth(n - 4).click();
+  // The last section's tick, deep in the page: after it comes only the
+  // readout (the link and mail checks left the strip 2026-10-25).
+  await ticks.nth(n - 2).click();
   await expect.poll(() => scrollTop(page)).toBeGreaterThan(before + 200);
   await expect(page.locator('.row.selected')).toHaveCount(0);
   await expect(page.getByText('PROVENANCE')).toHaveCount(0);

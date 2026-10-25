@@ -700,8 +700,10 @@ a:hover { text-decoration: underline; }
 .history-list .log-row { grid-template-columns: 74px 52px 1fr; gap: 6px; font-size: 12px; }
 .log-filter { display: inline-flex; align-items: center; gap: 4px; font-size: 12px; color: var(--secondary); margin: 0 0 8px; }
 
-/* The Review control carries its own count, so the header never reflows. */
-.count-badge {
+/* The Review control carries its own count, so the header never reflows;
+   Publish carries the link and mail checks still open (2026-10-25). */
+.count-badge,
+.checks-badge {
   font-family: var(--mono);
   font-size: 9.5px;
   background: var(--amber-3);
