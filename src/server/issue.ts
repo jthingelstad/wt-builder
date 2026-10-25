@@ -34,7 +34,7 @@ import { fork as forkFromSource, keepMine as rebaseOnRemote, reconcileItem, take
 
 /** Sections that print no heading — the content carries itself. */
 const HEADLESS: ReadonlySet<string> = new Set([
-  'intro', 'outro', 'photo', 'haiku', 'membership', 'mdblock',
+  'intro', 'outro', 'photo', 'haiku', 'membership', 'mdblock', 'quote',
 ]);
 
 /** The familiar skeleton. Every node is removable, and missing ones are offered back. */
@@ -51,8 +51,15 @@ const SKELETON: { id: string; type: string; label: string }[] = [
   { id: 'echoes', type: 'echoes', label: 'Echoes' },
 ];
 
+/**
+ * What the outline's "Not in this issue" offers: the skeleton, and Quote,
+ * which no new issue starts with but any issue can take (interface-spec.md;
+ * it was missing from the panel until WT354, offered only on the canvas).
+ */
 export function standardSections(): { id: string; type: string; label: string }[] {
-  return SKELETON.map((s) => ({ ...s }));
+  const offered = SKELETON.map((s) => ({ ...s }));
+  offered.splice(1, 0, { id: 'quote', type: 'quote', label: 'Quote' });
+  return offered;
 }
 
 function node(id: string, type: string, label: string, items: string[] = []): IssueNode {
@@ -998,6 +1005,13 @@ export function addSection(
     created.items = [itemId];
     next.items[itemId] = seedItem('markdown');
   }
+  // A Quote section is one quote written here, so it arrives with the item
+  // to write it in. Added bare, it showed nothing to type into (WT354).
+  if (!held && spec.type === 'quote') {
+    const itemId = `quote-${Date.now().toString(36)}`;
+    created.items = [itemId];
+    next.items[itemId] = seedItem('quote');
+  }
 
   // Put back the locally-authored items this section took with it.
   if (held && next.held_items) {
@@ -1249,6 +1263,24 @@ export function normalizeSkeleton(doc: IssueDoc): IssueDoc | null {
     const itemId = `${photo.id}-1`;
     n.items[itemId] = seedItem('photo');
     target.items = [itemId];
+  }
+
+  // A Quote section added before it was seeded (WT354) holds nothing to
+  // type into and was made with a heading, so it would print "## Quote" and
+  // speak "the Quote section". A draft's gets its item and loses the heading.
+  if (doc.issue.status === 'draft') {
+    for (const quote of doc.nodes) {
+      if (quote.type !== 'quote' || quote.kind !== 'section') continue;
+      if (quote.items.length && quote.publishes_heading === false) continue;
+      const n = touch();
+      const target = n.nodes.find((x) => x.id === quote.id)!;
+      target.publishes_heading = false;
+      if (!target.items.length) {
+        const itemId = `${quote.id}-1`;
+        n.items[itemId] = seedItem('quote');
+        target.items = [itemId];
+      }
+    }
   }
 
   // Echoes was locked out of audio until Thingy had a voice (2026-09-20), and

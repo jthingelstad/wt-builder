@@ -261,6 +261,34 @@ describe('sections', () => {
     expect(doc.items[added.items[0]!]!.type).toBe('markdown');
   });
 
+  it('seeds a new Quote section with its quote, and prints no heading', () => {
+    const doc = addSection(fixture(), { type: 'quote', label: 'Quote' });
+    const added = doc.nodes.find((n) => n.type === 'quote' && n.id !== 'pull-quote')!;
+    expect(added.publishes_heading).toBe(false);
+    expect(added.items).toHaveLength(1);
+    expect(doc.items[added.items[0]!]!.type).toBe('quote');
+  });
+
+  it('offers Quote in the outline, though no new issue starts with one', () => {
+    expect(issues.standardSections().map((s) => s.type)).toContain('quote');
+    expect(createIssue({ number: 999, publication_date: '2026-10-31' }).nodes.map((n) => n.type)).not.toContain('quote');
+  });
+
+  it('repairs a draft Quote section added bare (WT354)', () => {
+    const doc = fixture();
+    doc.issue.status = 'draft';
+    doc.nodes.push({
+      id: 'quote-bare', kind: 'section', type: 'quote', label: 'Quote',
+      movable: true, publishes_heading: true, items: [],
+    });
+    const repaired = normalizeSkeleton(doc)!;
+    const quote = repaired.nodes.find((n) => n.id === 'quote-bare')!;
+    expect(quote.publishes_heading).toBe(false);
+    expect(quote.items).toEqual(['quote-bare-1']);
+    expect(repaired.items['quote-bare-1']!.type).toBe('quote');
+    expect(normalizeSkeleton(repaired)).toBeNull();
+  });
+
   it('never places a new section after Echoes', () => {
     const doc = addSection(fixture(), { type: 'ad_hoc', label: 'Postscript' });
     expect(doc.issue.output_order?.at(-1)).toBe('echoes');
