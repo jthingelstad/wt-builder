@@ -789,13 +789,31 @@ function Block({ doc, node, item, itemId, lens, readOnly, act }: BlockProps) {
       );
 
     case 'quote':
+      // The pull quote as the editions print it: the words, who said them,
+      // and Jamie's line about it. The name and the line are optional; an
+      // empty one prints nothing (docs/rendering-contracts.md, Quote).
       return (
-        <blockquote>
-          <Editable
-            tag="p" multiline readOnly={readOnly} value={item.body ?? ''}
-            ph="The quote…" onCommit={(text) => set({ body: text })}
+        <div class="pull-quote">
+          <blockquote>
+            <Editable
+              tag="p" multiline readOnly={readOnly} value={item.body ?? ''}
+              ph="The quote…" onCommit={(text) => set({ body: text })}
+            />
+          </blockquote>
+          <p class="pull-quote-by">
+            <span class="dash">{'\u2014'}</span>
+            <RichEditable
+              class="pull-quote-who" readOnly={readOnly} value={item.attribution ?? ''}
+              ph="Who said it (optional)" render={markdownInlineToSafeHtml}
+              onCommit={(text) => set({ attribution: text })}
+            />
+          </p>
+          <RichEditable
+            tag="div" class="post-body pull-quote-line" multiline readOnly={readOnly}
+            value={item.commentary ?? ''} ph="A line of yours about it (optional)"
+            render={markdownToSafeHtml} onCommit={(text) => set({ commentary: text })}
           />
-        </blockquote>
+        </div>
       );
 
     case 'haiku':

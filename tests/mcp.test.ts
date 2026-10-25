@@ -134,6 +134,15 @@ describe('the MCP interface', () => {
     expect(excluded).toMatchObject({ in_issue: false, held_out: 'every edition turned off' });
   });
 
+  it('get_issue: a section moved up reads where it was moved, not where it was stored (WT354)', async () => {
+    draft(369, (doc) => {
+      const ids = doc.nodes.map((n) => n.id).filter((id) => id !== 'pull-quote');
+      doc.issue.output_order = [...ids.slice(0, ids.indexOf('journal')), 'pull-quote', ...ids.slice(ids.indexOf('journal'))];
+    });
+    const ids = (await call('get_issue', { issue: 'wt369' })).structuredContent.sections.map((n: any) => n.id);
+    expect(ids.indexOf('pull-quote')).toBe(ids.indexOf('journal') - 1);
+  });
+
   it('get_item: one item, its section, and its pills; an unknown id is refused', async () => {
     const s = (await call('get_item', { issue: 'wt391', item_id: 'outro-1' })).structuredContent;
     expect(s.section).toBe(fixture().nodes.find((n) => n.items.includes('outro-1'))!.label);

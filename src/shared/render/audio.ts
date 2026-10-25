@@ -21,7 +21,7 @@ import { askThingyUrl, echoBlock } from '../echoes.ts';
 import { linkUrl } from '../links.ts';
 import { videoTags } from '../body.ts';
 import type { PlannedNode } from './plan.ts';
-import { bodyLines, isLinkSection, planEdition, postBlocks, quoteMarkdown, withRehostedImages } from './plan.ts';
+import { bodyLines, isLinkSection, planEdition, postBlocks, quoteAttribution, quoteMarkdown, withRehostedImages } from './plan.ts';
 import { speakable } from './speech.ts';
 
 /**
@@ -372,10 +372,17 @@ function itemPieces(item: Item, planned: PlannedNode, index: number, total: numb
     }
     case 'photo':
       return photoPieces(item);
-    case 'quote':
-      // Someone else's words, framed as a quote — spoken bare, they were
-      // Jamie's (review 2026-09-27 §3). No name follows "End quote."
-      return prosePieces(quoteMarkdown({ ...item, body: sentenceLines(bodyLines(item.body)).join('\n') }));
+    case 'quote': {
+      // Someone's words, framed as a quote — spoken bare, they were Jamie's
+      // (review 2026-09-27 §3) — then whose they are when Jamie says, and
+      // Jamie's line about it in Jamie's own voice (2026-10-25).
+      const pieces = prosePieces(quoteMarkdown({ ...item, body: sentenceLines(bodyLines(item.body)).join('\n') }));
+      if (!pieces.length) return [];
+      const who = speakable(quoteAttribution(item)).trim().replace(/[.!?…]+$/, '');
+      const last = pieces[pieces.length - 1]!;
+      if (who) last.text = last.text.replace(/ End quote\.$/, ` End quote, from ${who}.`);
+      return [...pieces, ...prosePieces(item.commentary)];
+    }
     case 'echo':
       // The thread only. The Ask-Thingy question is a door on the page and
       // a chapter link in the player; read aloud after every echo it sounded

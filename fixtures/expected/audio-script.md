@@ -71,7 +71,9 @@ That's the end of Briefly.
 
 Quote. Simple things should be simple.
 
-Complex things should be possible. End quote.
+Complex things should be possible. End quote, from Alan Kay.
+
+A design rule I keep coming back to.
 
 Next, a word about membership, from Thingy.
 

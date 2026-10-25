@@ -37,7 +37,7 @@ import { z } from 'zod';
 import type { IssueDoc, Item, Share, ShareDestination, Verification } from '../shared/types.ts';
 import { DESTINATION_NAME, REFERRER, carriedRef } from '../shared/shares.ts';
 import type { Readiness, ReadinessUnit } from './issue.ts';
-import { heldOut, outOfWindow, windowOf } from '../shared/render/plan.ts';
+import { heldOut, orderedNodes, outOfWindow, windowOf } from '../shared/render/plan.ts';
 import { waitingSummary } from '../shared/dependencies.ts';
 import { lastSent } from '../shared/sends.ts';
 import { todayCentral } from '../shared/dates.ts';
@@ -66,7 +66,7 @@ export interface McpDeps {
  * tool, its arguments, or its answer changes, so a client holding a cached
  * tool list knows to fetch it again.
  */
-export const MCP_VERSION = '1.9.2';
+export const MCP_VERSION = '1.9.3';
 
 export const INSTRUCTIONS = `WT Builder is Jamie Thingelstad's authoring app for The Weekly Thing newsletter. This server is READ-ONLY: it shows an issue as the editor does and changes nothing.
 
@@ -823,7 +823,7 @@ export function buildServer(deps: McpDeps, caller = 'local', logged = new Set<st
 
   server.registerTool('get_issue', {
     title: 'The issue, section by section',
-    description: 'The issue as an outline in reading order: each section with its pill state and items, every text field in full (title, commentary, body, label, ask, caption). Each item says whether it prints (in_issue) and, when it does not, why (held_out), and carries hints when the editor marks its row (link, unfinished, title, haiku; see get_status). authorship is "Jamie" (Jamie\'s words), "syndicated" (from Pinboard or Micro.blog: a link\'s title is the linked page\'s own, its commentary is Jamie\'s), or "Thingy" (a model draft Jamie picked). Items swept in but not placed are listed under held_out_items; removed sections under removed_sections; how the published issue was shared under shares (see list_shares).',
+    description: 'The issue as an outline in reading order: each section with its pill state and items, every text field in full (title, commentary, body, label, ask, caption, attribution: who said a Quote). Each item says whether it prints (in_issue) and, when it does not, why (held_out), and carries hints when the editor marks its row (link, unfinished, title, haiku; see get_status). authorship is "Jamie" (Jamie\'s words), "syndicated" (from Pinboard or Micro.blog: a link\'s title is the linked page\'s own, its commentary is Jamie\'s), or "Thingy" (a model draft Jamie picked). Items swept in but not placed are listed under held_out_items; removed sections under removed_sections; how the published issue was shared under shares (see list_shares).',
     inputSchema: { issue: issueArg },
     outputSchema: {
       issue: headOutput,
@@ -851,7 +851,9 @@ export function buildServer(deps: McpDeps, caller = 'local', logged = new Set<st
       issue: issueHead(doc),
       ...(notes.length ? { note: notes.join(' ') } : {}),
       cursor,
-      sections: doc.nodes.map((n) => ({
+      // Reading order, as the description says: doc.nodes is storage order,
+      // where a section added later sits at the end wherever it was moved.
+      sections: orderedNodes(doc).map((n) => ({
         id: n.id,
         label: n.label,
         type: n.type,

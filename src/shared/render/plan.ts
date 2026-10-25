@@ -204,14 +204,24 @@ export function bodyLines(body: string | undefined): string[] {
 }
 
 /**
- * A Quote item as one Markdown blockquote: each line of the quote a
+ * A Quote item's words as one Markdown blockquote: each line of the quote a
  * paragraph inside it. One blockquote per line read as that many separate
- * quotations (review 2026-09-27 §3). A Quote carries no name: Jamie usually
- * quotes an article unattributed, so no edition prints or speaks one, and
- * any stored `attribution` is left alone and ignored (Jamie, 2026-09-29).
+ * quotations (review 2026-09-27 §3). Who said it and Jamie's line about it
+ * are the editions' to place (`quoteAttribution`, `commentary`).
  */
 export function quoteMarkdown(item: Item): string {
   return bodyLines(item.body).map((l) => `> ${l}`).join('\n>\n');
+}
+
+/**
+ * Whose words a Quote is, without a dash Jamie typed before the name; empty
+ * when Jamie left it blank, and then no edition names anyone. Revisited
+ * 2026-10-25: 2026-09-29 printed no name at all, because Jamie usually
+ * quotes an article unattributed; WT354 quoted Jamie's own post, and the
+ * name came back as optional (Jamie, 2026-10-25).
+ */
+export function quoteAttribution(item: Item): string {
+  return String(item.attribution ?? '').replace(/^[\s\u2014\u2013-]+/, '').trim();
 }
 
 /**

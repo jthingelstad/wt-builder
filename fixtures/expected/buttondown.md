@@ -70,9 +70,11 @@ This should be a built-in feature in Shortcuts. → **[Introducing Shortcuts Pla
 
 ---
 
-> Simple things should be simple.
->
-> Complex things should be possible.
+<div class="pull-quote" style="margin:0 0 1.6em;padding:2px 0 2px 18px;border-left:4px solid #1a5eb6">
+<p style="margin:0 0 10px;font-size:24px;line-height:1.35;font-weight:700;color:#1a1a1a">Simple things should be simple.</p><p style="margin:0 0 10px;font-size:24px;line-height:1.35;font-weight:700;color:#1a1a1a">Complex things should be possible.</p>
+<p style="margin:0 0 12px;font-size:16px;color:#5a5a66">— Alan Kay</p>
+<p>A design rule I keep coming back to.</p>
+</div>
 
 ---
 

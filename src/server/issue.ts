@@ -982,21 +982,25 @@ export function addSection(
   spec: { type: string; label: string; id?: string; before?: string },
 ): IssueDoc {
   const next = structuredClone(doc);
-  const id = spec.id ?? `${spec.type}-${Date.now().toString(36)}`;
-  if (next.nodes.some((n) => n.id === id)) {
+  const asked = spec.id ?? `${spec.type}-${Date.now().toString(36)}`;
+  if (next.nodes.some((n) => n.id === asked)) {
     // An existing id with a target is the outline's drag-reorder. Without a
     // target it is a no-op — never a duplicate.
     if (spec.before && next.nodes.some((n) => n.id === spec.before)) {
-      next.issue.output_order = insertBefore(next, id, spec.before);
+      next.issue.output_order = insertBefore(next, asked, spec.before);
     }
     return next;
   }
 
-  const heldIndex = (next.held_nodes ?? []).findIndex(
-    (n) => n.id === id || (!spec.id && n.type === spec.type && n.label === spec.label),
-  );
-  const held = heldIndex >= 0 ? next.held_nodes![heldIndex] : undefined;
-  if (held) next.held_nodes = next.held_nodes!.filter((_, i) => i !== heldIndex);
+  // The held section by its id, else by what it is: an outline chip carries
+  // the standard id, and a section added from the canvas got another one
+  // (WT354's Quote came back empty, its words left in held_items).
+  const heldNodes = next.held_nodes ?? [];
+  let heldIndex = heldNodes.findIndex((n) => n.id === asked);
+  if (heldIndex < 0) heldIndex = heldNodes.findIndex((n) => n.type === spec.type && n.label === spec.label);
+  const held = heldIndex >= 0 ? heldNodes[heldIndex] : undefined;
+  if (held) next.held_nodes = heldNodes.filter((_, i) => i !== heldIndex);
+  const id = held?.id ?? asked;
 
   const created = held ? structuredClone(held) : node(id, spec.type, spec.label);
   if (!held && spec.type === 'ad_hoc') {
@@ -1380,6 +1384,18 @@ export function readiness(doc: IssueDoc): Readiness {
       const altWritten = Boolean(m?.alt) && !/^(img|dsc|dscf|pxl|photo|image)[ _-]?\d+$/i.test(String(m?.alt).trim());
       add(!m?.url ? 'todo' : altWritten && m.caption ? 'done' : 'partial', 'Photo',
         node.items[0] ?? node.id, 'required', 'A photo, alt text in words (not the filename), and a caption — or remove the section.');
+      continue;
+    }
+
+    if (node.kind === 'section' && node.type === 'quote') {
+      // A Quote with no words prints nothing, so it owes them. Who said it
+      // and Jamie's line about it are optional (2026-10-25).
+      for (const id of node.items) {
+        const item = doc.items[id];
+        if (!item || !inIssue(item)) continue;
+        add(bodyLines(item.body).length > 0, 'Quote', id, 'required',
+          'The quote. Who said it and a line of yours are optional — or remove the section.');
+      }
       continue;
     }
 
