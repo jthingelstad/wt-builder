@@ -420,7 +420,7 @@ Claude Code or Codex on otto, or any MCP client on the tailnet.
   the Links checked and Deliverability pills are `done_in: 'editor'`,
   anchored to the first row with something to act on, and read `done`
   unless one has (a link not checked yet, or a site that would not answer,
-  holds nothing). `checks.send_line` is the Send view's one line:
+  holds nothing). Both pills are gone since 1.10.0. `checks.send_line` is the Send view's one line:
   `{clear, rows: [{anchor, name, what}], issue}`, `what` a few words each
   ("dead link", "plain-http link"), `issue` what is the whole email's.
   `checks.links.moved` lists only moves to a different page, never one that
@@ -456,6 +456,13 @@ Claude Code or Codex on otto, or any MCP client on the tailnet.
   rows carry `actor`; `get_timing` adds `wands` (`calls`, `failed`,
   `used`, `waiting_seconds`). Share links are withheld from `data` as from
   the summary.
+- **No link or email pills (1.10.0, 2026-10-25).** `get_status`' `pills`
+  (and `get_issue`'s section pills, and `changes.pills`) no longer carry
+  kinds `links` or `mail`: the readiness strip dropped the Links checked
+  and Deliverability pills, which were nothing Jamie writes and finishes.
+  The findings are where they were: `checks.links`, the email checks,
+  `checks.send_line`, and each row's `hints`. The editor's **Publish**
+  counts them.
 - **Quote attribution (1.9.3, 2026-10-25).** `get_issue` names
   `attribution` among the text fields: who said a Quote, printed again in
   every edition since the pull quote came back (WT354). A Quote's

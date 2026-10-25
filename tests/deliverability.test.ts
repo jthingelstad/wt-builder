@@ -19,6 +19,7 @@ import {
 } from '../src/server/domain-check.ts';
 import { credentials } from '../src/server/config.ts';
 import { readiness } from '../src/server/issue.ts';
+import { openChecks } from '../src/shared/hints.ts';
 import { complaintsCheck, dmarcCheck } from '../src/server/verify.ts';
 import { reportsBetween, type DmarcReport } from '../src/server/integrations/dmarc.ts';
 
@@ -89,27 +90,28 @@ describe('contentFindings', () => {
   });
 });
 
-describe('the Deliverability pill (plan before WT353, item 1)', () => {
-  const unit = (doc: IssueDoc) => readiness(doc).units.find((u) => u.title === 'Deliverability')!;
+// The Deliverability pill until 2026-10-25, when Jamie took it off the strip:
+// it is nothing he writes and finishes. What is open is Publish's count and
+// the Send view's line, both openChecks.
+describe('deliverability findings on Publish, not a pill', () => {
+  const open = (doc: IssueDoc) => openChecks(doc);
 
-  it('is done when nothing is open: a domain not looked up yet is nothing to act on', () => {
-    const u = unit(fixture());
-    expect(u).toMatchObject({ state: 'done', kind: 'mail' });
-    expect(u.context).not.toMatch(/not checked|unchecked/i);
+  it('nothing is open on the fixture: a domain not looked up yet is nothing to act on', () => {
+    expect(open(fixture())).toEqual({ rows: [], issue: [] });
   });
 
-  it('is partial on an open content finding, anchored to its row, and done once it is kept', () => {
+  it('an open content finding is open on its row, no pill, and closes once it is kept', () => {
     const doc = withLink('Old [site](http://old.example.net/page).');
-    expect(unit(doc)).toMatchObject({ state: 'partial', anchor: 'link-x' });
-    expect(unit(doc).context).toContain('on its row');
+    expect(open(doc).rows.map((r) => r.anchor)).toEqual(['link-x']);
+    expect(readiness(doc).units.map((u) => u.title)).not.toContain('Deliverability');
     const key = contentFindings(doc)[0]!.key;
-    expect(unit(keepFinding(doc, key, true)).state).toBe('done');
+    expect(open(keepFinding(doc, key, true)).rows).toEqual([]);
   });
 
-  it('a subject finding is the title row\'s note, and the pill points at the issue', () => {
+  it('a subject finding is the title row\'s note, and open on the issue', () => {
     const doc = fixture();
     doc.issue.title = 'ACT NOW EVERYONE';
-    expect(unit(doc)).toMatchObject({ state: 'partial', anchor: 'issue' });
+    expect(open(doc).rows.map((r) => r.anchor)).toEqual(['issue']);
   });
 });
 
@@ -194,7 +196,7 @@ describe('the blocklist lookups', () => {
     expect(skipped[0]).toContain('Spamhaus refused the query');
   });
 
-  it('applies results to the email\'s domains, keeps a send-anyway only while listed, and gates readiness', async () => {
+  it('applies results to the email\'s domains, keeps a send-anyway only while listed, and is open on its row until then', async () => {
     useDns(table({ ...URIBL_UP, 'example.net.multi.uribl.com': ['127.0.0.8'] }));
     const doc = withLink('Old [site](https://old.example.net/page).');
     const results = await checkDomains(emailDomains(doc), NOW);
@@ -202,12 +204,11 @@ describe('the blocklist lookups', () => {
     const f = deliverabilityFindings(checked);
     expect(f.unaccepted.map((d) => d.domain)).toEqual(['example.net']);
     expect(deliverabilitySummary(f)).toContain('1 domain on a spam blocklist');
-    const unit = readiness(checked).units.find((u) => u.title === 'Deliverability')!;
-    expect(unit).toMatchObject({ state: 'partial', kind: 'mail', anchor: 'link-x' });
+    expect(openChecks(checked).rows.map((r) => r.anchor)).toEqual(['link-x']);
 
     const accepted = acceptDomains(checked, ['example.net']);
     expect(deliverabilityFindings(accepted).unaccepted).toEqual([]);
-    expect(readiness(accepted).units.find((u) => u.title === 'Deliverability')!.state).toBe('done');
+    expect(openChecks(accepted).rows).toEqual([]);
 
     // Delisted: the acceptance goes with it, so a new listing asks again.
     const clean = Object.fromEntries(Object.keys(results).map((d) => [d, { verdict: 'clean' as const, asked: ['URIBL'], checked_at: NOW().toISOString() }]));

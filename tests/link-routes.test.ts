@@ -19,6 +19,7 @@ const config = await import('../src/server/config.ts');
 const pinboard = await import('../src/server/integrations/pinboard.ts');
 const { usePages } = await import('../src/server/link-check.ts');
 const { useDns } = await import('../src/server/domain-check.ts');
+const { openChecks } = await import('../src/shared/hints.ts');
 
 let base = '';
 const realFetch = globalThis.fetch;
@@ -94,8 +95,8 @@ describe('POST /links/check', () => {
     const results = body.issue.link_check.results;
     expect(results[SHORT]).toMatchObject({ verdict: 'moved', suggestion: FULL, note: 'shortened' });
     expect(results['https://example.org/fine'].verdict).toBe('ok');
-    const unit = body.readiness.units.find((u: { title: string }) => u.title === 'Links checked');
-    expect(unit).toMatchObject({ state: 'partial', kind: 'links', anchor: 'link-one' });
+    expect(openChecks(body.issue).rows.map((r) => r.anchor)).toEqual(['link-one']);
+    expect(body.readiness.units.map((u: { title: string }) => u.title)).not.toContain('Links checked');
   });
 });
 
@@ -124,8 +125,7 @@ describe('POST /items/:id/link', () => {
     await post(`/api/issues/${id}/links/check`);
     const kept = await post(`/api/issues/${id}/items/link-one/link`, { action: 'keep', url: DEAD });
     expect(kept.body.issue.link_check.accepted).toEqual([DEAD]);
-    const unit = kept.body.readiness.units.find((u: { title: string }) => u.title === 'Links checked');
-    expect(unit.state).toBe('done');
+    expect(openChecks(kept.body.issue).rows).toEqual([]);
   });
 });
 
@@ -177,8 +177,8 @@ describe('the blocklist gate on the email leg', () => {
     const id = await draft(990120);
     const { body } = await post(`/api/issues/${id}/links/check`);
     expect(body.issue.domain_check.results['example.org']).toMatchObject({ verdict: 'listed', lists: ['URIBL: red list'] });
-    const unit = body.readiness.units.find((u: { title: string }) => u.title === 'Deliverability');
-    expect(unit).toMatchObject({ state: 'partial', kind: 'mail', anchor: 'link-one' });
+    expect(openChecks(body.issue).rows.map((r) => r.anchor)).toEqual(['link-one']);
+    expect(body.readiness.units.map((u: { title: string }) => u.title)).not.toContain('Deliverability');
   });
 
   it('refuses the email with listed_domains, and leaves the leg alone', async () => {

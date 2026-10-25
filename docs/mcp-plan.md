@@ -67,6 +67,9 @@ something for flavour is not a dependency.
 | Membership | nothing | Its wand is grounded in the live members page (this year's nonprofit, the $48 offer), not in the issue: the assembled issue rides along as background, as it does for every wand. A Membership written first is as good as one written last. |
 | Links checked | nothing | It corrects itself: each link is checked as it arrives (2026-10-04), and the pill reads done unless a row has something to act on. A dependency would only delay a check that runs on its own and again at send. |
 | Deliverability | nothing | The same: each domain is looked up as it arrives, and the pill reads done unless a row has something to act on. |
+
+(Links checked and Deliverability left the strip on 2026-10-25, MCP 1.10.0:
+nothing Jamie writes and finishes. Publish counts their open findings.)
 | Sync pills (a failed or conflicted write-back) | nothing | Urgent whenever they appear; never waiting. |
 
 No chains: nothing that waits is itself waited on, so `waiting_on` is always

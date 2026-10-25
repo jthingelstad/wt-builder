@@ -76,6 +76,30 @@ test('keep as it is stops asking about a dead link', async ({ page }) => {
   expect(store.getIssue(ISSUE)!.doc.link_check!.accepted).toEqual([DEAD]);
 });
 
+// Not pills: nothing Jamie writes and finishes (Jamie, 2026-10-25).
+test('Publish carries the open checks as a count, and the strip has no pill for them', async ({ page }) => {
+  await open(page);
+  const publish = page.locator('header button', { hasText: 'Publish' });
+  await expect(publish.locator('.checks-badge')).toHaveText('2');
+  await expect(publish).toHaveAttribute('title', /dead link/);
+  await expect(page.locator('.strip [aria-label^="Links checked"], .strip [aria-label^="Deliverability"]')).toHaveCount(0);
+  // Kept, the dead link stops counting.
+  const panel = await inspect(page, 'link-functions');
+  await panel.getByRole('button', { name: 'Keep as it is' }).click();
+  await expect(publish.locator('.checks-badge')).toHaveText('1');
+});
+
+test('clear, Publish is plain', async ({ page }) => {
+  const doc = store.getIssue(ISSUE)!.doc;
+  doc.link_check = { at: AT, results: Object.fromEntries(issueLinks(doc).map((l) => [l.url, { verdict: 'ok' as const, checked_at: AT }])) };
+  store.saveIssue(doc);
+  await open(page);
+  const publish = page.locator('header button', { hasText: 'Publish' });
+  await expect(publish).toBeVisible();
+  await expect(publish.locator('.checks-badge')).toHaveCount(0);
+  await expect(publish).not.toHaveAttribute('title', /.+/);
+});
+
 test('the Send view: one amber line naming each row, and its jump goes back to the row', async ({ page }) => {
   const doc = store.getIssue(ISSUE)!.doc;
   await open(page, '/send');

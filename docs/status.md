@@ -498,8 +498,9 @@ finished, what is half-finished, and what has never run.
   JWT: a finding until kept, never a send gate (2026-10-04, after an expired
   Verge gift nearly went out in WT352). **A finding is its row's note**
   (`rowHints` in `src/shared/hints.ts`, Row.tsx): amber, under the words,
-  opening the inspector. The "Links checked" readiness unit is done unless
-  a row has something to act on, and then jumps to it. The inspector
+  opening the inspector. It is no readiness unit (the "Links checked" pill
+  left the strip 2026-10-25): an open finding is counted on **Publish**
+  and named in its tooltip (`openChecks` in `src/shared/hints.ts`). The inspector
   offers, per finding, **Use the suggested link**
   (`POST /api/issues/:id/items/:itemId/link` `{action: "use"}` — sets
   `canonical_url`, which the website, email and audio print; `source_url`
@@ -597,10 +598,10 @@ finished, what is half-finished, and what has never run.
     Check Point gateway (`cloud-sec-av.com`) re-sending to one recipient
     failed six of seven and would otherwise have warned every week; and
     wp.pl sends a blank row of no messages, now skipped.
-  The "Deliverability" readiness unit (`kind: 'mail'`) is done unless a
-  listed domain or a finding in the email is left open (a domain not
-  looked up yet holds nothing), and jumps to the row that prints the first
-  one. Tests: `tests/deliverability.test.ts`, `tests/link-routes.test.ts`,
+  An open finding (a listed domain or something in the email; a domain not
+  looked up yet holds nothing) is the row's note and is counted on
+  **Publish**, like a link finding; the "Deliverability" readiness unit
+  left the strip 2026-10-25. Tests: `tests/deliverability.test.ts`, `tests/link-routes.test.ts`,
   `tests/arrival-check.test.ts`, `tests/verify.test.ts`,
   `tests/e2e/deliverability.e2e.ts`.
 - **Front matter quotes every string** (2026-09-28) — the site page, the

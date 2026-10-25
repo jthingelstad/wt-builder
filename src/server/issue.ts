@@ -26,8 +26,6 @@ import { bodyLines, orderedNodes, outOfWindow, windowOf } from '../shared/render
 import { applyDependencies, sectionOf, type Section, type WaitingOn } from '../shared/dependencies.ts';
 import { imagesWithoutAlt } from '../shared/body.ts';
 import { MD_TARGET } from '../shared/links.ts';
-import { findingsSummary, linkFindings } from '../shared/link-findings.ts';
-import { anchorFor, deliverabilityFindings, deliverabilitySummary } from '../shared/deliverability.ts';
 import * as pinboard from './integrations/pinboard.ts';
 import * as microblog from './integrations/microblog.ts';
 import { fork as forkFromSource, keepMine as rebaseOnRemote, reconcileItem, takeTheirs as adoptRemote, type RemoteFields } from './reconcile.ts';
@@ -1182,7 +1180,7 @@ export function setIssueNumber(doc: IssueDoc, number: number): IssueDoc {
 // ── readiness ─────────────────────────────────────────────────────────────
 
 /** What kind of outstanding thing this is — the popover colours by it. */
-export type ReadinessKind = 'required' | 'commentary' | 'sync' | 'thingy' | 'links' | 'mail';
+export type ReadinessKind = 'required' | 'commentary' | 'sync' | 'thingy';
 
 /**
  * `waiting`: not done, and made from a section that is not done yet either
@@ -1455,49 +1453,10 @@ export function readiness(doc: IssueDoc): Readiness {
 
   section = undefined;
 
-  // One unit for every link the issue prints (plan 2026-10-01 §3): warn,
-  // don't block. Since 2026-10-04 each link is checked as it arrives
-  // (src/server/arrival-check.ts) and its finding is said on its row, so the
-  // pill is done unless a row still has something to act on: dead, a gift
-  // link, or moved to another page, not kept. A link not checked yet, or a
-  // site that would not answer, holds nothing. The tick jumps to the first
-  // row with a finding.
-  const links = linkFindings(doc);
-  if (links.links.length) {
-    const said = findingsSummary(links);
-    add(
-      links.open.length ? 'partial' : 'done',
-      'Links checked', links.open[0]?.items[0] ?? 'issue', 'links',
-      said
-        ? `${said}. Each is said on its row: use the suggested link, or keep it as it is.`
-        : links.pending.length
-          ? `${links.links.length} links, ${links.pending.length} not checked yet. Each is checked as it arrives, and again before the website and the email go.`
-          : `${links.links.length} links, nothing to act on.`,
-    );
-  }
-
-  // One unit for whether the email will reach the inbox (2026-10-01): warn,
-  // don't block. Done unless a domain is on a blocklist Jamie has not sent
-  // anyway, or something in the email itself is left that he has not kept;
-  // each is said on the row that prints it (src/shared/hints.ts). A domain
-  // not looked up yet, or one no list answered for, holds nothing. Only an
-  // issue with an email edition has one.
-  const mail = deliverabilityFindings(doc);
-  if (mail.domains.length) {
-    const said = deliverabilitySummary(mail);
-    const open = mail.unaccepted.length + mail.open.length;
-    const listedUrl = mail.unaccepted[0]?.urls[0];
-    const first = listedUrl ? anchorFor(doc, listedUrl) : mail.open[0]?.anchor ?? 'issue';
-    add(
-      open ? 'partial' : 'done',
-      'Deliverability', first, 'mail',
-      said
-        ? `${said}. Each is said on its row; the email asks before it goes with a blocklisted domain.`
-        : mail.pending.length
-          ? `${mail.domains.length} domains, ${mail.pending.length} not looked up yet. Each is looked up as it arrives, and again before the email goes.`
-          : `${mail.domains.length} domains on no blocklist, and nothing in the email a filter holds against it.`,
-    );
-  }
+  // The link check and deliverability are not pills: they are nothing Jamie
+  // writes and finishes (Jamie, 2026-10-25). Each finding is said on its row,
+  // the Publish button carries a count while one is open (Editor.tsx), and the
+  // Send view names the rows (openChecks in src/shared/hints.ts).
 
   // A standard section that is not in the issue is satisfied, not outstanding.
   for (const [type, label] of [

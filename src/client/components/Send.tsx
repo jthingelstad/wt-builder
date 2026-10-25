@@ -297,7 +297,7 @@ export function Send({ doc, readiness, error, onBack, onJump, onSent, onError }:
   const checks = openChecks(doc);
   // Put to bed or a pre-Builder record, nothing can be acted on.
   const frozen = Boolean(doc.issue.put_to_bed_at || doc.issue.imported);
-  const checklist = (readiness?.units ?? []).filter((u) => u.kind !== 'links' && u.kind !== 'mail');
+  const checklist = readiness?.units ?? [];
   const checklistTotal = checklist.length;
   const checklistOpen = checklist.filter((u) => !u.done).length;
   const emailLocked = remoteStatus && remoteStatus !== 'draft' ? remoteStatus : undefined;
