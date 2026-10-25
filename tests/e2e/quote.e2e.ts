@@ -30,7 +30,7 @@ test('the name and the line show at rest and save what is typed', async ({ page 
 test('a linked name reads as a link at rest', async ({ page }) => {
   await open(page);
   await caretAtEnd(page, `${quote} .pull-quote-who`);
-  await page.keyboard.press('Meta+a');
+  await page.keyboard.press('ControlOrMeta+a');
   await page.keyboard.type('[Alan Kay](https://example.com/kay)');
   await commit(page, () => String(item('quote-kay').attribution ?? '').startsWith('['));
   expect(item('quote-kay').attribution).toBe('[Alan Kay](https://example.com/kay)');
