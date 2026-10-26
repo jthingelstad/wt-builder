@@ -161,8 +161,7 @@ A draft card is a task: a textarea (a title input above it for a blog post,
 filled with the email's subject to start),
 saved on blur, starting as the contents template (LinkedIn: the issue's name,
 `In this issue:` and its Notable links, titles only, a line counting the
-rest, the link; blog: the same in Markdown with each link's site, without the
-name line).
+rest, the link; blog: the same in Markdown, without the name line).
 LinkedIn adds a mono count toward 3000 (terracotta over it) and, under it, the
 lines LinkedIn shows before `…see more`, with a left rule, or "The whole post
 shows". Amber lines say when the text no longer links the issue, and when a

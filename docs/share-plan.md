@@ -95,7 +95,8 @@ Jamie's LinkedIn or his blog, so a byline is no answer there.
   posts it.
 - **Blog post.** The same contents in Markdown (Jamie, 2026-10-11: "the blog
   post would be better as that more thorough description too"): `In this
-  issue:`, the list, the counting line, and `[Weekly Thing 353](…?ref=blog-wt353)`.
+  issue:`, the list (titles alone, as on LinkedIn since 2026-10-25), the
+  counting line, and `[Weekly Thing 353](…?ref=blog-wt353)`.
   No name line, since the post is titled with the subject as before. Titles
   are escaped, so a page's `*` or `[` shows as typed. A pre-Builder record
   is its dek, Jamie's own words, ending on the link.

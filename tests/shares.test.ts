@@ -294,12 +294,12 @@ describe('the contents templates a share starts from', () => {
     );
   });
 
-  it('blog: the same contents in Markdown, with no name line (the subject titles it), ending on the link', () => {
+  it('blog: the same contents in Markdown, titles alone, with no name line (the subject titles it), ending on the link', () => {
     const doc = issue();
     doc.items['link-functions']!.title = 'A *starred* [bracketed] title';
     expect(blogContents(doc)).toBe([
       'In this issue:',
-      '- Create Your Own Currency With Flipcash (avc.xyz)\n- A \\*starred\\* \\[bracketed\\] title (james-pritchard.com)',
+      '- Create Your Own Currency With Flipcash\n- A \\*starred\\* \\[bracketed\\] title',
       'Plus 3 more links, 4 journal posts, and a photo.',
       '[Weekly Thing 350](https://weekly.thingelstad.com/archive/350/?ref=blog-wt350)',
     ].join('\n\n'));

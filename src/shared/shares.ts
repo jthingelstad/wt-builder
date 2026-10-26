@@ -83,10 +83,6 @@ export function startingText(doc: IssueDoc, destination: ShareDestination): stri
   return destination === 'linkedin' ? linkedinContents(doc) : blogContents(doc);
 }
 
-const site = (url: string) => {
-  try { return new URL(url).hostname.replace(/^www\./, ''); } catch { return ''; }
-};
-
 /** "a, b, and c" */
 function listed(parts: string[]): string {
   if (parts.length < 3) return parts.join(' and ');
@@ -97,16 +93,20 @@ const counted = (n: number, one: string, many: string) => (n === 1 ? `1 ${one}` 
 
 /**
  * What the issue holds, for both templates: its Notable links as the pages
- * title them, with their sites (the blog shows them), and the rest counted. Null for a
- * pre-Builder record, which has no items (it is never parsed into them).
+ * title them, titles alone, and the rest counted. Null for a pre-Builder
+ * record, which has no items (it is never parsed into them).
+ *
+ * No site beside a title (Jamie, 2026-10-25, WT354): LinkedIn reads
+ * "(anthropic.com)" as a link and cards the first one it sees, over the
+ * issue's own card, and the blog post follows LinkedIn.
  */
-function contents(doc: IssueDoc): { notable: { title: string; site: string }[]; rest: string } | null {
+function contents(doc: IssueDoc): { notable: string[]; rest: string } | null {
   if (doc.issue.imported) return null;
   const plan = planEdition(doc, 'website');
   const of = (type: string) => plan.filter((p) => p.node.type === type).flatMap((p) => p.items);
   const notable = of('notable')
     .filter(({ item }) => item.type === 'pinboard_link' && item.title)
-    .map(({ item }) => ({ title: String(item.title).trim(), site: site(item.source_url ?? '') }));
+    .map(({ item }) => String(item.title).trim());
 
   const briefly = of('briefly').length;
   const journal = of('journal').length;
@@ -121,17 +121,12 @@ function contents(doc: IssueDoc): { notable: { title: string; site: string }[]; 
   return { notable, rest };
 }
 
-const entry = (l: { title: string; site: string }, title = l.title) => `- ${title}${l.site ? ` (${l.site})` : ''}`;
-
 /**
  * LinkedIn: the issue's name, its Notable links, a line counting the rest,
  * and the link. Plain text, since LinkedIn shows Markdown as typed. A
  * pre-Builder record is the name, the dek and the link.
- *
- * The links are titles alone, no sites: LinkedIn reads "(anthropic.com)" as
- * a link and cards the first one it sees, so WT354's post would have shown
- * anthropic.com's card instead of the issue's (Jamie, 2026-10-25). The name
- * is "Weekly Thing 354", as Jamie posted it, without "The".
+ * The name is "Weekly Thing 354", as Jamie posted it, without "The"
+ * (2026-10-25).
  */
 export function linkedinContents(doc: IssueDoc): string {
   const n = doc.issue.number;
@@ -142,7 +137,7 @@ export function linkedinContents(doc: IssueDoc): string {
   const c = contents(doc);
   if (!c) return [head, doc.issue.dek?.trim(), link].filter(Boolean).join('\n\n');
   const parts = [head];
-  if (c.notable.length) parts.push(`In this issue:\n${c.notable.map((l) => `- ${l.title}`).join('\n')}`);
+  if (c.notable.length) parts.push(`In this issue:\n${c.notable.map((t) => `- ${t}`).join('\n')}`);
   if (c.rest) parts.push(c.rest);
   parts.push(link);
   return parts.join('\n\n');
@@ -162,7 +157,7 @@ export function blogContents(doc: IssueDoc): string {
   const c = contents(doc);
   if (c && (c.notable.length || c.rest)) {
     const parts: string[] = [];
-    if (c.notable.length) parts.push('In this issue:', c.notable.map((l) => entry(l, escaped(l.title))).join('\n'));
+    if (c.notable.length) parts.push('In this issue:', c.notable.map((t) => `- ${escaped(t)}`).join('\n'));
     if (c.rest) parts.push(c.rest);
     parts.push(end);
     return parts.join('\n\n');
