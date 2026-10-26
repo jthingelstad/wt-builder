@@ -70,10 +70,14 @@ This should be a built-in feature in Shortcuts. → **[Introducing Shortcuts Pla
 
 ---
 
-<div class="pull-quote" style="margin:0 0 1.6em;padding:2px 0 2px 18px;border-left:4px solid #1a5eb6">
-<p style="margin:0 0 10px;font-size:24px;line-height:1.35;font-weight:700;color:#1a1a1a">Simple things should be simple.</p><p style="margin:0 0 10px;font-size:24px;line-height:1.35;font-weight:700;color:#1a1a1a">Complex things should be possible.</p>
-<p style="margin:0 0 12px;font-size:16px;color:#5a5a66">— Alan Kay</p>
+<div class="pull-quote" style="margin:0 0 1.6em">
+<div style="margin:0 0 12px;padding:2px 0 2px 18px;border-left:4px solid #1a5eb6">
+<p style="margin:0 0 10px;font-size:24px;line-height:1.35;font-weight:700">Simple things should be simple.</p><p style="margin:0;font-size:24px;line-height:1.35;font-weight:700">Complex things should be possible.</p>
+</div>
+<p style="margin-left:22px;margin-top:0;margin-bottom:12px;font-size:16px">— Alan Kay</p>
+<div style="margin-left:22px">
 <p>A design rule I keep coming back to.</p>
+</div>
 </div>
 
 ---

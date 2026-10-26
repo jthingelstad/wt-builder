@@ -62,29 +62,38 @@ export function inertTemplate(text: string): string {
 
 // ── the pull quote ────────────────────────────────────────────────────────
 
-const QUOTE_FRAME_STYLE = ['margin:0 0 1.6em', 'padding:2px 0 2px 18px', 'border-left:4px solid #1a5eb6'].join(';');
-const QUOTE_WORDS_STYLE = [
-  'margin:0 0 10px', 'font-size:24px', 'line-height:1.35', 'font-weight:700', 'color:#1a1a1a',
-].join(';');
-const QUOTE_BY_STYLE = ['margin:0 0 12px', 'font-size:16px', 'color:#5a5a66'].join(';');
+// No colour on the words, the name or the line: they take the email's own,
+// which Buttondown turns light in dark mode. WT354's words were set #1a1a1a
+// and went dark on dark (Jamie, 2026-10-25). The bar is the only colour.
+const QUOTE_FRAME_STYLE = 'margin:0 0 1.6em';
+const QUOTE_BAR_STYLE = ['margin:0 0 12px', 'padding:2px 0 2px 18px', 'border-left:4px solid #1a5eb6'].join(';');
+const QUOTE_WORDS_STYLE = ['margin:0 0 10px', 'font-size:24px', 'line-height:1.35', 'font-weight:700'].join(';');
+const QUOTE_LAST_STYLE = QUOTE_WORDS_STYLE.replace('margin:0 0 10px', 'margin:0');
+const QUOTE_PAST_BAR = 'margin-left:22px';
+const QUOTE_BY_STYLE = [`${QUOTE_PAST_BAR}`, 'margin-top:0', 'margin-bottom:12px', 'font-size:16px'].join(';');
 
 /**
  * A Quote in email: the website's pull quote with its look inline, one HTML
  * block like Thingy's frame. Not a Markdown blockquote: Buttondown draws
  * every blockquote as the same card, so a Quote looked like a passage
- * quoted under a link (Jamie, 2026-10-25). The words, who said them when
- * Jamie says, then Jamie's line about it in the email's own type.
+ * quoted under a link (Jamie, 2026-10-25). The words beside the bar, then,
+ * past the bar as on the website, who said them when Jamie says and
+ * Jamie's line about it in the email's own type.
  */
 export function quoteEmailBlocks(item: Item): Block[] {
   const lines = bodyLines(item.body);
   if (!lines.length) return [];
   const who = quoteAttribution(item);
   const line = String(item.commentary ?? '').trim();
+  const words = html(inertTemplate(lines.join('\n\n'))).replace(/<p>/g, `<p style="${QUOTE_WORDS_STYLE}">`);
+  const last = words.lastIndexOf(`<p style="${QUOTE_WORDS_STYLE}">`);
   return [[
     `<div class="pull-quote" style="${QUOTE_FRAME_STYLE}">`,
-    html(inertTemplate(lines.join('\n\n'))).replace(/<p>/g, `<p style="${QUOTE_WORDS_STYLE}">`),
+    `<div style="${QUOTE_BAR_STYLE}">`,
+    `${words.slice(0, last)}<p style="${QUOTE_LAST_STYLE}">${words.slice(last + `<p style="${QUOTE_WORDS_STYLE}">`.length)}`,
+    '</div>',
     ...(who ? [`<p style="${QUOTE_BY_STYLE}">\u2014 ${markdownInlineToSafeHtml(inertTemplate(who))}</p>`] : []),
-    ...(line ? [html(inertTemplate(line))] : []),
+    ...(line ? [`<div style="${QUOTE_PAST_BAR}">`, html(inertTemplate(line)), '</div>'] : []),
     '</div>',
   ].join('\n')];
 }

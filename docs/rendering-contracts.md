@@ -149,7 +149,11 @@ prints no heading and can be moved like any other.
   commentary paragraphs, each its own block (the Thingy-frame pattern). The
   site styles the frame.
 - **Buttondown:** the same frame as one inline-styled HTML block, Liquid made
-  inert, because Buttondown does not carry the site's CSS.
+  inert, because Buttondown does not carry the site's CSS. As on the site,
+  the blue bar runs beside the words only, and the name and the commentary
+  sit past it. No text colour is set: the words take the email's own, which
+  turns light in a dark-mode client. WT354's `#1a1a1a` went dark on dark
+  (Jamie, 2026-10-25).
 - **Audio:** "Quote. … End quote, from <name>." then the commentary as
   Jamie's own words. With no name, "End quote." as before.
 
