@@ -141,8 +141,10 @@ index row carries a `PUT TO BED` chip. The index offers the same act on every pu
 
 ## Share view
 
-Once an issue is put to bed, the editor header's `Publish` becomes `Share`
-(primary, the same place), and opens `/{id}/share`: a layer over the editor,
+Once an issue is published (its website and Buttondown legs sent), the
+editor header carries a primary `Share` before `Publish`, which turns
+secondary; put to bed, `Share` alone stays (2026-10-25: Jamie shares before
+putting an issue to bed). It opens `/{id}/share`: a layer over the editor,
 built from Send's pieces (`send-layer`, `send-card`, `sc-*`), so it looks like
 Send's sibling and nothing new. The header: `← Issue`, the identity, and a
 ghost `Sends` button that crosses to the Send view, where Put to bed lives. Escape goes back. Then `Share`, a one-sentence lede, and
@@ -168,8 +170,9 @@ LinkedIn draft has Markdown in it. The foot: LinkedIn has `Copy text`, `Open Lin
 and primary `Mark shared` (asks for the post's URL, optional); a blog post has
 primary `Post to the blog` (confirmed: it publishes now). `Delete` (ghost,
 confirmed) sits at the right. A shared card shows its words as they went, and
-nothing to press. A put-to-bed row on the index carries a primary `Share`
-beside `Open` that lands here (Jamie, 2026-10-07).
+nothing to press. A published row on the index carries a primary `Share`
+beside `Open` that lands here (Jamie, 2026-10-07; put-to-bed rows only until
+2026-10-25).
 
 No class or attribute in this view says "share" or "linkedin", and it holds no
 `linkedin.com` link (`Open LinkedIn` opens the feed from a click): a content
@@ -541,8 +544,8 @@ chosen. The editorial review never counts here (see *Editorial review*).
 *Revisited 2026-09-20* (`docs/decisions.md`, *Picking is the review*): a Thingy
 item counts as done when it has words; marking it reviewed is not a unit.
 - **Issue** toggle (left panel).
-- **Stats** button (see *Stats view*), then **Publish**; **Share** once the issue is put
-  to bed (see *Share view*). While a link or email finding is open, **Publish** carries
+- **Stats** button (see *Stats view*), then **Publish**; **Share** before it once the
+  issue is published, and alone once it is put to bed (see *Share view*). While a link or email finding is open, **Publish** carries
   its count (see *Publish*).
 
 #### Left panel — issue metadata + outline (300px, `#fbfbfa`, right border)

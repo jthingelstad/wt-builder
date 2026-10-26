@@ -1,7 +1,8 @@
 /**
  * The Share view: a layer over the editor, as Send is, for an issue that has
- * gone out (docs/share-plan.md). Put to bed, the editor's Publish becomes
- * Share and lands here, this week or a year later.
+ * gone out (docs/share-plan.md). Once the website and Buttondown legs have
+ * sent it, the editor's Share lands here, before Put to bed (Jamie shares
+ * first) or a year later.
  *
  * Each share is one post to one place, worked like a task: LinkedIn, which
  * Jamie posts himself (copy, open, mark shared), or a blog post WT Builder

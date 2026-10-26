@@ -1,6 +1,7 @@
 /**
- * The Share view (docs/share-plan.md): once an issue is put to bed, Publish
- * becomes Share, and a share is worked like a task. Asserted by what the
+ * The Share view (docs/share-plan.md): once an issue is out, the editor
+ * offers Share (alone, once it is put to bed), and a share is worked like a
+ * task. Asserted by what the
  * server saved. Offline, so a blog post cannot reach micro.blog: it fails,
  * and stays a draft, which is the refusal path this pins.
  */
@@ -8,6 +9,12 @@ import { expect, test } from '@playwright/test';
 import { ISSUE, open, reset, store } from './helpers.ts';
 
 const shares = () => store.listShares(ISSUE);
+
+function published(): void {
+  const doc = store.getIssue(ISSUE)!.doc;
+  doc.issue.status = 'published';
+  store.saveIssue(doc);
+}
 
 function sleeping(): void {
   const doc = store.getIssue(ISSUE)!.doc;
@@ -25,6 +32,23 @@ test('a draft issue offers Publish, not Share', async ({ page }) => {
   await open(page);
   await expect(page.locator('header').getByRole('button', { name: 'Publish' })).toBeVisible();
   await expect(page.locator('header').getByRole('button', { name: 'Share', exact: true })).toHaveCount(0);
+});
+
+test('published and awake, Share sits before Publish and a share can start; put to bed, Share stands alone', async ({ page }) => {
+  // Jamie shares before he puts the issue to bed (WT354).
+  published();
+  await open(page);
+  const header = page.locator('header');
+  await expect(header.getByRole('button', { name: 'Publish' })).toBeVisible();
+  await header.getByRole('button', { name: 'Share', exact: true }).click();
+  await expect(page).toHaveURL(new RegExp(`/${ISSUE}/share$`));
+  await page.getByRole('button', { name: 'LinkedIn' }).click();
+  await expect.poll(() => shares().length).toBe(1);
+
+  sleeping();
+  await open(page);
+  await expect(header.getByRole('button', { name: 'Share', exact: true })).toBeVisible();
+  await expect(header.getByRole('button', { name: 'Publish' })).toHaveCount(0);
 });
 
 test('put to bed, Share opens the view; a LinkedIn share is written, folds, and is marked shared', async ({ page }) => {
@@ -103,12 +127,12 @@ test('Sends crosses to the Send view, and Escape goes back to the issue', async 
   await expect(page).toHaveURL(new RegExp(`/${ISSUE}$`));
 });
 
-test('a put-to-bed row on the index has Share, and it opens the Share view', async ({ page }) => {
+test('a published row on the index has Share, asleep or not, and it opens the Share view', async ({ page }) => {
   await page.addInitScript(() => localStorage.setItem('wt-builder:index-filters', JSON.stringify({ hideAsleep: false })));
   await page.goto('/');
   const row = page.locator('.issue-row', { hasText: 'WT350' });
   await expect(row.getByRole('button', { name: 'Share', exact: true })).toHaveCount(0);
-  sleeping();
+  published();
   await page.reload();
   await row.getByRole('button', { name: 'Share', exact: true }).click();
   await expect(page).toHaveURL(new RegExp(`/${ISSUE}/share$`));

@@ -549,19 +549,22 @@ export function Editor({ doc, readiness, busy, error, run, onIndex, onSend, onSh
           Issue
         </button>
         <button class="btn" onClick={onStats}>Stats</button>
-        {/* Put to bed, the sending is done and what is left is telling people (docs/share-plan.md). */}
-        {doc.issue.put_to_bed_at
-          ? <button class="btn primary" onClick={onShare}>Share</button>
-          : (
-            <button
-              class="btn primary"
-              onClick={onSend}
-              title={checksOpen ? `To look at before it goes:\n${checksSaid}` : undefined}
-            >
-              Publish
-              {checksOpen > 0 && <span class="checks-badge" aria-label={`${checksOpen} to look at`}>{checksOpen}</span>}
-            </button>
-          )}
+        {/* Out, the issue can be shared before it is put to bed: Jamie shares
+            first and puts it to bed later (2026-10-25, WT354). Asleep, Share is
+            all that is left (docs/share-plan.md). */}
+        {doc.issue.status === 'published' && (
+          <button class="btn primary" onClick={onShare}>Share</button>
+        )}
+        {!doc.issue.put_to_bed_at && (
+          <button
+            class={`btn${doc.issue.status === 'published' ? '' : ' primary'}`}
+            onClick={onSend}
+            title={checksOpen ? `To look at before it goes:\n${checksSaid}` : undefined}
+          >
+            Publish
+            {checksOpen > 0 && <span class="checks-badge" aria-label={`${checksOpen} to look at`}>{checksOpen}</span>}
+          </button>
+        )}
       </header>
 
       <Strip number={doc.issue.number} readiness={readiness} onJump={goTo} doc={doc} />

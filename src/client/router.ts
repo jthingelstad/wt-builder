@@ -3,7 +3,7 @@
  *
  * The design models this as one app with view states (`view: "index" |
  * "editor"`, and Send as a full-screen layer *over* the editor rather than a
- * page beside it; Share, once an issue is put to bed, and Stats are layers
+ * page beside it; Share, once an issue is out, and Stats are layers
  * the same way), so this is not a split into separate documents. It gives
  * those states addresses.
  *

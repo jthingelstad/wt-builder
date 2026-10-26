@@ -6,10 +6,13 @@
 
 ## What it is
 
-Once an issue is **put to bed**, the editor's `Publish` button becomes
-`Share`. Sharing is how an issue gets announced after it goes out, this week
-or a year later, so it works on every sleeping issue, pre-Builder records
-included.
+Once an issue is **out** (the website and Buttondown legs have sent it), the
+editor offers `Share`; once it is **put to bed**, `Share` is all that is left
+where `Publish` was. Sharing is how an issue gets announced after it goes
+out, this week or a year later, so it works on every sleeping issue,
+pre-Builder records included. *Revisited 2026-10-25:* it opened only on put
+to bed, and Jamie shares before he puts an issue to bed (WT354), so it opens
+as soon as the issue is published.
 
 An issue can have any number of shares. Each share is one row with one
 destination, a little like a Currently entry, and it works like a task:
@@ -170,7 +173,7 @@ So it stays small. Any of these can come back when there is a reason.
   following; they get the blog post through micro.blog anyway). Turning off
   micro.blog's feed cross-post of the Weekly Thing is Jamie's setting.
 - Link in a LinkedIn comment.
-- ~~A `Share` button on the index rows~~ — added 2026-10-07 at Jamie's ask, on put-to-bed rows.
+- ~~A `Share` button on the index rows~~ — added 2026-10-07 at Jamie's ask, on put-to-bed rows; on every published row since 2026-10-25.
 - A `dropped` state, back-dated blog posts, a cover-photo toggle, a choice of
   category.
 - Per-share `ref` values, traffic shown on the row, a reminder to answer

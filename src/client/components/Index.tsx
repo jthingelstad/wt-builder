@@ -36,7 +36,7 @@ interface Props {
   loading?: boolean;
   onError: (message: string | null) => void;
   onOpen: (id: string) => void;
-  /** A put-to-bed issue's Share view. */
+  /** A published issue's Share view. */
   onShare: (id: string) => void;
   /** Another Thing's episodes. */
   onPodcast: () => void;
@@ -292,8 +292,8 @@ function IssueRow({
           <button class={`btn small${isDraft ? ' primary' : ''}`} onClick={() => onOpen(issue.id)}>
             Open
           </button>
-          {/* Put to bed, what is left is telling people (Jamie, 2026-10-07). */}
-          {issue.put_to_bed_at && (
+          {/* Once out, it can be shared, put to bed or not (Jamie, 2026-10-07; awake too since 2026-10-25). */}
+          {!isDraft && (
             <button class="btn small primary" onClick={() => onShare(issue.id)}>Share</button>
           )}
           {isDraft && !issue.imported && (
