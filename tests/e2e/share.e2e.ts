@@ -38,7 +38,7 @@ test('put to bed, Share opens the view; a LinkedIn share is written, folds, and 
   const card = page.locator('.tell-card.dest-li');
   const field = card.locator('textarea');
   // It starts as the contents template, the link last, and no wand offers words.
-  await expect(field).toHaveValue(/^The Weekly Thing 350[\s\S]*\nIn this issue:\n- [\s\S]*\nhttps:\/\/weekly\.thingelstad\.com\/archive\/350\/\?ref=linkedin-wt350$/);
+  await expect(field).toHaveValue(/^Weekly Thing 350[\s\S]*\nIn this issue:\n- [\s\S]*\nhttps:\/\/weekly\.thingelstad\.com\/archive\/350\/\?ref=linkedin-wt350$/);
   await expect(card.getByRole('button', { name: /Draft/ })).toHaveCount(0);
   const link = (await field.inputValue()).split('\n').at(-1)!;
 

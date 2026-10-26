@@ -97,7 +97,7 @@ const counted = (n: number, one: string, many: string) => (n === 1 ? `1 ${one}` 
 
 /**
  * What the issue holds, for both templates: its Notable links as the pages
- * title them, with their sites, and the rest counted. Null for a
+ * title them, with their sites (the blog shows them), and the rest counted. Null for a
  * pre-Builder record, which has no items (it is never parsed into them).
  */
 function contents(doc: IssueDoc): { notable: { title: string; site: string }[]; rest: string } | null {
@@ -127,17 +127,22 @@ const entry = (l: { title: string; site: string }, title = l.title) => `- ${titl
  * LinkedIn: the issue's name, its Notable links, a line counting the rest,
  * and the link. Plain text, since LinkedIn shows Markdown as typed. A
  * pre-Builder record is the name, the dek and the link.
+ *
+ * The links are titles alone, no sites: LinkedIn reads "(anthropic.com)" as
+ * a link and cards the first one it sees, so WT354's post would have shown
+ * anthropic.com's card instead of the issue's (Jamie, 2026-10-25). The name
+ * is "Weekly Thing 354", as Jamie posted it, without "The".
  */
 export function linkedinContents(doc: IssueDoc): string {
   const n = doc.issue.number;
   // A title that already names the issue ("Weekly Thing for May 13, 2017") is not said twice.
   const title = doc.issue.title?.trim();
-  const head = `The Weekly Thing ${n}${title && !/weekly thing/i.test(title) ? `: ${title}` : ''}`;
+  const head = `Weekly Thing ${n}${title && !/weekly thing/i.test(title) ? `: ${title}` : ''}`;
   const link = shareLink(doc, 'linkedin');
   const c = contents(doc);
   if (!c) return [head, doc.issue.dek?.trim(), link].filter(Boolean).join('\n\n');
   const parts = [head];
-  if (c.notable.length) parts.push(`In this issue:\n${c.notable.map((l) => entry(l)).join('\n')}`);
+  if (c.notable.length) parts.push(`In this issue:\n${c.notable.map((l) => `- ${l.title}`).join('\n')}`);
   if (c.rest) parts.push(c.rest);
   parts.push(link);
   return parts.join('\n\n');

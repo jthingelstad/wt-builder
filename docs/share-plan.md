@@ -80,13 +80,16 @@ not me writing the share, and also obviously not AI pretending to be me".
 Thingy writes in the newsletter under its own byline, but it does not post on
 Jamie's LinkedIn or his blog, so a byline is no answer there.
 
-- **LinkedIn.** `The Weekly Thing 353: Release Notes for Every Day`, then
-  `In this issue:` and each Notable link as the page titles it with its site
-  (`- On the Rumored M8 Ultra AI Servers (macsparky.com)`), then one line
+- **LinkedIn.** `Weekly Thing 353: Release Notes for Every Day`, then
+  `In this issue:` and each Notable link as the page titles it
+  (`- On the Rumored M8 Ultra AI Servers`), then one line
   counting the rest (`Plus 14 more links, 9 journal posts, a photo, and a
   17-minute audio edition.`), then the link. Plain text. A title that already
   names the issue is not repeated. A pre-Builder record has no items, so it
-  is the name, the dek and the link.
+  is the name, the dek and the link. No sites beside the titles (Jamie,
+  2026-10-25, WT354): LinkedIn reads `(anthropic.com)` as a link and cards
+  the first one, over the issue's own card. The name drops "The", as Jamie
+  posts it.
 - **Blog post.** The same contents in Markdown (Jamie, 2026-10-11: "the blog
   post would be better as that more thorough description too"): `In this
   issue:`, the list, the counting line, and `[Weekly Thing 353](…?ref=blog-wt353)`.

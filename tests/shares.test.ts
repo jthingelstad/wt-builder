@@ -129,7 +129,7 @@ describe('the door lets shares through', () => {
     sleeping(501);
     const share = await start('wt501', 'linkedin');
     expect(share).toMatchObject({ issue_id: 'wt501', destination: 'linkedin', state: 'draft' });
-    expect(share.text).toMatch(/^The Weekly Thing 501\n\nIn this issue:\n[\s\S]*\n\nhttps:\/\/weekly\.thingelstad\.com\/archive\/501\/\?ref=linkedin-wt501$/);
+    expect(share.text).toMatch(/^Weekly Thing 501\n\nIn this issue:\n[\s\S]*\n\nhttps:\/\/weekly\.thingelstad\.com\/archive\/501\/\?ref=linkedin-wt501$/);
     expect((await call('PATCH', 'wt501/meta', { title: 'x' })).status).toBe(423);
     expect(store.listEvents('wt501').map((e) => e.summary)).toContain('Share started — LinkedIn');
   });
@@ -250,17 +250,19 @@ describe('the contents templates a share starts from', () => {
     return doc;
   };
 
-  it('LinkedIn: the name, the Notable links as the pages title them, the rest counted, the link last', () => {
+  it('LinkedIn: the name, the Notable links as the pages title them (no sites), the rest counted, the link last', () => {
     const doc = issue();
     doc.sends = { ...doc.sends, podcast: { status: 'sent', at: '2026-05-23T12:00:00.000Z', audio: { audio_duration_seconds: 1018 } } } as IssueDoc['sends'];
     expect(linkedinContents(doc)).toBe([
-      'The Weekly Thing 350: Release Notes for Every Day',
-      'In this issue:\n- Create Your Own Currency With Flipcash (avc.xyz)\n- LLMs are functions, not brains. (james-pritchard.com)',
+      'Weekly Thing 350: Release Notes for Every Day',
+      'In this issue:\n- Create Your Own Currency With Flipcash\n- LLMs are functions, not brains.',
       'Plus 3 more links, 4 journal posts, a photo, and a 17-minute audio edition.',
       'https://weekly.thingelstad.com/archive/350/?ref=linkedin-wt350',
     ].join('\n\n'));
     // Plain text: LinkedIn shows Markdown as typed.
     expect(plainText(linkedinContents(doc))).toBe(linkedinContents(doc));
+    // No site beside a title: LinkedIn links a bare domain and cards the first one (WT354).
+    expect(linkedinContents(doc).replace(/https:\/\/weekly\.thingelstad\.com\S*/, '')).not.toMatch(/\b[a-z0-9-]+\.(?:com|xyz|org|net|io|run|im|works)\b/i);
     expect(startingText(doc, 'linkedin')).toBe(linkedinContents(doc));
   });
 
@@ -268,7 +270,7 @@ describe('the contents templates a share starts from', () => {
     const doc = issue();
     doc.issue.title = 'Weekly Thing for May 13, 2017';
     const text = linkedinContents(doc);
-    expect(text.startsWith('The Weekly Thing 350\n\n')).toBe(true);
+    expect(text.startsWith('Weekly Thing 350\n\n')).toBe(true);
     expect(text).not.toContain('audio');
   });
 
@@ -276,7 +278,7 @@ describe('the contents templates a share starts from', () => {
     const doc = issue();
     doc.issue.imported = true;
     expect(linkedinContents(doc)).toBe(
-      'The Weekly Thing 350: Release Notes for Every Day\n\nRelease Notes, Claude Haiku 5.5, zkAPI\n\nhttps://weekly.thingelstad.com/archive/350/?ref=linkedin-wt350',
+      'Weekly Thing 350: Release Notes for Every Day\n\nRelease Notes, Claude Haiku 5.5, zkAPI\n\nhttps://weekly.thingelstad.com/archive/350/?ref=linkedin-wt350',
     );
   });
 
