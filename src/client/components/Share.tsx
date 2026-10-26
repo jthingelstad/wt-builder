@@ -179,7 +179,7 @@ function ShareCard({ doc, share, onShares }: { doc: IssueDoc; share: ShareRow; o
   };
 
   const markShared = () => {
-    const url = prompt(`Marking the LinkedIn share of WT${n} as shared. The post's URL, if you have it (optional):`, '');
+    const url = prompt(`Marking the LinkedIn share of WT${n} as shared. The post's link, if you have it: its address, or the short lnkd.in one from "Link to this post" (optional):`, '');
     if (url === null) return;
     void act('shared', async () => {
       if (!(await flush())) return;

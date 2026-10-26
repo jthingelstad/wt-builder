@@ -1736,7 +1736,9 @@ const routes: Route[] = [
 
   /**
    * LinkedIn: Jamie posted it himself. The post's URL is the evidence when he
-   * pastes it back; none is fine.
+   * pastes it back; none is fine. Any link is taken as given: the long
+   * /posts/ address, or the lnkd.in short link that LinkedIn's "Link to this
+   * post" hands out (WT354). A short link is never followed to resolve it.
    */
   [/^\/api\/issues\/([^/]+)\/shares\/(\d+)\/shared$/, 'POST', async ({ body }, [id, sid]) => {
     const b = await body();

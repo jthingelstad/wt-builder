@@ -173,6 +173,18 @@ describe('a LinkedIn share', () => {
     expect(store.getShare(s.id)?.text).toBe(text);
   });
 
+  it('takes either link LinkedIn hands out: the post\'s address, or "Link to this post", a short lnkd.in one', async () => {
+    // WT354: Share gave the long /posts/ address, "Link to this post" a short one (Jamie, 2026-10-25).
+    sleeping(511);
+    const long = 'https://www.linkedin.com/posts/jthingelstad_weekly-thing-354-a-museum-for-nnxyz-art-share-7520215199014879233-ITDK/?utm_source=share&utm_medium=member_desktop';
+    const short = 'https://lnkd.in/p/gmsVxuKe';
+    for (const url of [long, short]) {
+      const s = await start('wt511', 'linkedin');
+      expect((await call('POST', `wt511/shares/${s.id}/shared`, { url })).status).toBe(200);
+      expect(store.getShare(s.id)).toMatchObject({ state: 'shared', url });
+    }
+  });
+
   it('is not posted from here, and belongs to its own issue', async () => {
     sleeping(511);
     sleeping(512);
