@@ -10,6 +10,7 @@ import { existsSync } from 'node:fs';
 import { resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { log } from './log.ts';
+import { archiveTrigger } from './archive-trigger.ts';
 
 const ENV_PATH = fileURLToPath(new URL('../../.env', import.meta.url));
 
@@ -29,6 +30,7 @@ if (OFFLINE) {
     'GITHUB_PAT_TOKEN', 'ANOTHER_GITHUB_PAT_TOKEN', 'OPENAI_API_KEY', 'SPAMHAUS_DQS_KEY', 'POSTMARK_DMARC_TOKEN', 'ANTHROPIC_API_KEY', 'ANTHROPIC_AUTH_TOKEN',
     'AWS_ACCESS_KEY_ID', 'AWS_SECRET_ACCESS_KEY', 'AWS_SESSION_TOKEN', 'AWS_PROFILE',
     'WT_BUILDER_PINBOARD_WRITEBACK', 'WT_BUILDER_MICROBLOG_WRITEBACK',
+    'WT_BUILDER_ARCHIVE_TRIGGER', 'WT_BUILDER_ARCHIVE_BUS_PROOF',
   ]) process.env[k] = '';
   process.env.AWS_SHARED_CREDENTIALS_FILE = '/dev/null';
   process.env.AWS_CONFIG_FILE = '/dev/null';
@@ -177,6 +179,12 @@ export const config = {
    * library round pulls the issue from the website repository.
    */
   archiveRepo: optional('WT_BUILDER_ARCHIVE_REPO') ?? 'jthingelstad/librarian-thing',
+  archiveTrigger: archiveTrigger(
+    optional('WT_BUILDER_ARCHIVE_TRIGGER'),
+    optional('WT_BUILDER_ARCHIVE_BUS_PROOF'),
+    publishingBusFrom(process.env.WT_BUILDER_PUBLISHING_BUS),
+    optional('WT_BUILDER_ARCHIVE_REPO') ?? 'jthingelstad/librarian-thing',
+  ),
 
   /**
    * The Librarian retrieval endpoint — the archive's semantic search, which

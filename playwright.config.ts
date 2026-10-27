@@ -7,7 +7,8 @@
  */
 import { defineConfig, devices } from '@playwright/test';
 
-const PORT = 4399;
+const PORT = Number(process.env.WT_BUILDER_E2E_PORT || 4399);
+if (!Number.isInteger(PORT) || PORT < 1024 || PORT > 65535) throw new Error('WT_BUILDER_E2E_PORT must be an unprivileged port');
 
 export default defineConfig({
   testDir: 'tests/e2e',

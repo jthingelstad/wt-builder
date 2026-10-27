@@ -48,6 +48,7 @@ read. `schema_version` on the document carries migrations.
 | `src/shared/` | Types, dates, renderers. Runs on both sides. |
 | `src/shared/render/plan.ts` | Ordering, window filtering, channel filtering, Journal grouping — planned once so the editions cannot drift. |
 | `src/server/` | The service. Holds every credential; nothing here reaches the browser. |
+| `src/server/archive-trigger.ts` | The prepared archive cutover: nudge by default, bus only after Jamie verifies a real workflow and arrival receipt. An archive command needs acknowledgement; reader-facing sends keep optional announcements. |
 | `src/client/` | Preact. Talks only to `/api`. |
 | `src/server/podcast/`, `src/client/podcast/`, `src/shared/podcast/` | Another Thing: routes, mastering, transcription, verify; the episode pages and the card; the contract with another.thingelstad.com. |
 | `fixtures/expected/` | What the three editions must render to. The tests hold them. |
@@ -77,6 +78,8 @@ in Safari, so WebKit is the first project; a contenteditable change is not
 done until it passes there. Never test by typing into the live service.
 CI runs both suites: the browser suite as its own job after the unit tests,
 on Chromium and WebKit.
+`WT_BUILDER_E2E_PORT` chooses an unused test port in a second worktree;
+the default is 4399. Never stop another checkout's server to run the suite.
 
 The renderers are the part with a real specification. Change one and `npm test`
 says immediately whether the editions still match `fixtures/expected/`. If a

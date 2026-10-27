@@ -473,3 +473,13 @@ An issue is published by its legs, as before (*Published is derived*), not
 by the bus hearing about it. Jamie, 2026-10-26: "I really would like to get
 as many things to be event based"; the bus is how, and the sends stay
 the thing that happened.
+
+**Prepared exception for the archive command (2026-10-27, off).** Once the
+bus rule has carried a natural real send and its destination receipt, Jamie
+may retire the direct nudge with the two cutover variables in `status.md`.
+The archive is a trigger rather than a reader-facing publication, so in
+that mode its published event is the delivery itself. It needs an
+acknowledgement before success is recorded; it is not a second optional
+announcement after a dispatch. An uncertain command is never retried here.
+Every reader-facing leg retains its non-gating announcement. The nudge stays
+until the operator has checked the real workflow and received evidence.

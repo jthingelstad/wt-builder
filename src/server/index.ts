@@ -25,6 +25,7 @@ import { render } from '../shared/render/index.ts';
 import { emailOf, isOut, lastSent, recordedAudioUrl, refusedNotDraft } from '../shared/sends.ts';
 import { renderEmail } from '../shared/render/email.ts';
 import { config, describeConfig } from './config.ts';
+import { deliverArchiveTrigger } from './archive-trigger.ts';
 import * as edge from './edge.ts';
 import * as store from './db.ts';
 import * as issues from './issue.ts';
@@ -2318,7 +2319,6 @@ async function sendArchive(id: string, force = false) {
   const release = claimLeg(id, 'archive');
   if (!website) store.record(id, { kind: 'send', summary: 'Override — archive: asked before the website leg sent', data: { dest: 'archive', override: 'no-website' } });
   try {
-    await githubRepo.dispatch('issue-sent', { issue: doc.issue.number }, { repo: config.archiveRepo });
     // GitHub answers a dispatch with no body, so the receipt is the event
     // and the page where its round runs.
     const state: SendState = {
@@ -2327,8 +2327,14 @@ async function sendArchive(id: string, force = false) {
       external_id: `issue-sent ${doc.issue.number}`,
       url: `https://github.com/${config.archiveRepo}/actions/workflows/library-round.yml`,
     };
+    state.external_id = await deliverArchiveTrigger(config.archiveTrigger, doc.issue.number, {
+      dispatch: () => githubRepo.dispatch('issue-sent', { issue: doc.issue.number }, { repo: config.archiveRepo }),
+      publish: () => announce(issuePublished(requireIssue(id), 'archive', state), () => {
+        store.record(id, { kind: 'send', actor: 'wt-builder', summary: 'Archive trigger was not acknowledged by the publishing bus', data: { dest: 'archive', outcome: 'announce-failed' } });
+      }),
+    });
     const row = store.recordSend(id, 'archive', state);
-    await announceIssueLeg(id, 'archive', state);
+    if (config.archiveTrigger !== 'bus') await announceIssueLeg(id, 'archive', state);
     return { issue: row?.doc, send: state };
   } catch (err) {
     const state: SendState = {
