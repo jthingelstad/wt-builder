@@ -414,6 +414,18 @@ finished, what is half-finished, and what has never run.
   last published issue (review 2026-09-27 §7), and the merge inside the
   commit against a concurrent writer (appendix, Sending & verify). The page
   commits through `putTree`, the path WT350 and WT351 went out on.
+- **Every send announces itself on the publishing bus** (2026-10-27) —
+  after each leg's send is on the record (website, buttondown, podcast,
+  archive, and the episode's), `integrations/publishing.ts` puts a
+  `published` event on `thingelstad-publishing`, the EventBridge bus the
+  sync stack owns (sync.thingelstad.xyz/AGENTS.md): product, kind, id, the
+  leg and when it went, and every leg sent so far. The sync page runs on
+  it, records it as WT Builder's fact, and measures each hop from its own
+  leg (shared/flows.json, hops 7 to 10 and 21). The bus is told, never
+  asked: a failure is logged and recorded on the issue as "Published event
+  failed", and the send stands (docs/decisions.md). The AWS user in `.env`
+  (`wt-archive`) was granted PutEvents on the bus by the sync stack.
+  `WT_BUILDER_PUBLISHING_BUS` names the bus; empty turns announcing off.
 - **The archive leg tells the library** (2026-10-22) — librarian-thing's
   archive left git for its library (`library.db` in S3, pulled from every
   source; plan `PLAN-2026-10-22-blog-steward.md` in its docs, approved by

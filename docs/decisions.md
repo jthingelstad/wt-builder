@@ -461,3 +461,15 @@ It has no authentication either, by the same reasoning as the editor: it is
 reached on loopback and on the tailnet, where Tailscale has already said who
 is asking, and it is never served through Funnel. Restricting `/mcp` alone
 to loopback would protect nothing while the editor beside it can write.
+
+## A send is announced on the bus, never gated by it (2026-10-27)
+
+Every leg puts a `published` event on the publishing bus after its send is
+on the record (`integrations/publishing.ts`). The event is a receipt for
+others (the sync page measures each hop from it), not a step of the send:
+if the bus is unreachable, or slow past ten seconds, the leg is still sent,
+the failure is logged and recorded on the issue, and nothing is retried.
+An issue is published by its legs, as before (*Published is derived*), not
+by the bus hearing about it. Jamie, 2026-10-26: "I really would like to get
+as many things to be event based"; the bus is how, and the sends stay
+the thing that happened.

@@ -49,6 +49,15 @@ if (OFFLINE) {
  */
 export const LIVE_DB_PATH = fileURLToPath(new URL('../../data/wt-builder.db', import.meta.url));
 
+/**
+ * The publishing bus from its variable: unset means the default bus, set but
+ * empty means announcing is off (the documented opt-out), anything else is
+ * the bus name.
+ */
+export function publishingBusFrom(value: string | undefined): string {
+  return value === undefined ? 'thingelstad-publishing' : value.trim();
+}
+
 function optional(name: string): string | undefined {
   const v = process.env[name];
   return v && v.trim() ? v.trim() : undefined;
@@ -145,6 +154,12 @@ export const config = {
   /** Rehost and resize remote images onto the CDN before sending. */
   rehostImages: optional('WT_BUILDER_REHOST_IMAGES') !== 'false',
   awsRegion: optional('AWS_DEFAULT_REGION') ?? 'us-east-1',
+  /**
+   * The publishing bus (integrations/publishing.ts): the EventBridge bus
+   * every send announces itself on, owned by the sync stack. Unset means the
+   * default bus; set but empty turns announcing off.
+   */
+  publishingBus: publishingBusFrom(process.env.WT_BUILDER_PUBLISHING_BUS),
 
   /**
    * The last issue published before WT Builder. Pre-Builder issues are not
@@ -237,6 +252,7 @@ export function describeConfig(): Record<string, string> {
     archiveRepo: config.archiveRepo,
     anotherRepo: config.anotherRepo,
     anotherAudioBucket: config.anotherAudioBucket,
+    publishingBus: config.publishingBus || 'off',
     pinboardWriteBack: config.pinboardWriteBack ? 'enabled' : 'disabled',
     microblogWriteBack: config.microblogWriteBack ? 'enabled' : 'disabled',
     rehostImages: config.rehostImages ? 'enabled' : 'disabled',
