@@ -446,6 +446,16 @@ finished, what is half-finished, and what has never run.
   (`tests/send-state.test.ts`, `tests/routes.test.ts`); **never run for
   real** — WT354's send is its first, so check its round in
   librarian-thing's Actions.
+- **Archive bus cutover prepared, off** (2026-10-27) — the existing
+  `issue-sent` dispatch remains the default. `WT_BUILDER_ARCHIVE_TRIGGER=bus`
+  is honored only with an enabled publishing bus and
+  `WT_BUILDER_ARCHIVE_BUS_PROOF`, a workflow-run URL Jamie has checked
+  against a natural archive send and its destination arrival. The URL is
+  operator attestation, not automatic proof. In bus mode the published
+  archive command itself is the delivery: it must be acknowledged before
+  the leg records success, and it is not announced a second time. Failure
+  leaves this archive leg failed with its last good send; publication and
+  other legs remain independent. No live cutover or send has been tested.
 - **Every send gate can be overridden** (2026-09-29) — Jamie: "There should
   be nothing that I cannot override. I'm the only user." Every gate on a
   leg takes `?force=1`: the podcast's script approval (`sendPodcast`,
