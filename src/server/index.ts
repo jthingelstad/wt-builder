@@ -44,6 +44,7 @@ import { findingsSummary, issueLinks, linkFindings, worthSuggesting } from '../s
 import { linkUrl } from '../shared/links.ts';
 import { asSpot, editAt, findProof, findUndo, type ProofEdit } from '../shared/proof.ts';
 import * as githubRepo from './integrations/github.ts';
+import { announce, issuePublished } from './integrations/publishing.ts';
 import * as audio from './integrations/audio.ts';
 import { audioScript } from '../shared/render/audio.ts';
 import { joinScriptReview, lintScript } from '../shared/render/script-lint.ts';
@@ -145,6 +146,19 @@ function requireDraftShare(id: string, sid: string, doing: string): Share {
 const sharesPosting = new Set<number>();
 
 /** Load an issue or fail with a 404 the client can act on. */
+/**
+ * Tell the publishing bus a leg went out (integrations/publishing.ts). After
+ * the send is on the record and never gating it: a failure is logged and
+ * recorded on the issue, and the leg stays sent.
+ */
+async function announceIssueLeg(id: string, leg: Destination, state: SendState): Promise<void> {
+  const doc = store.getIssue(id)?.doc;
+  if (!doc) return;
+  await announce(issuePublished(doc, leg, state), (message) => {
+    store.record(id, { kind: 'send', actor: 'wt-builder', summary: `Published event failed — ${leg}: ${message}`, data: { dest: leg, outcome: 'announce-failed' } });
+  });
+}
+
 function requireIssue(id: string): IssueDoc {
   const row = store.getIssue(id);
   if (!row) throw new HttpError(404, `no issue ${id}`);
@@ -2003,6 +2017,7 @@ const routes: Route[] = [
         edit_url: draft.edit_url,
       };
       const row = store.recordSend(id!, destination, state);
+      await announceIssueLeg(id!, destination, state);
       // What WT Builder did, not what the email is now: it saves a draft and
       // leaves scheduling to Buttondown, where Jamie may schedule it a minute
       // later. "(draft, never scheduled)" read as the email's state and was
@@ -2189,6 +2204,7 @@ async function sendWebsite(id: string, force = false) {
       url: `https://github.com/${config.websiteRepo}/commit/${result.sha}`,
     };
     const row = store.recordSend(id, 'website', state);
+    await announceIssueLeg(id, 'website', state);
 
     return { issue: row?.doc, send: state, changed: result.changed, committed: result.committed };
   } catch (err) {
@@ -2264,6 +2280,7 @@ async function sendPodcast(id: string, force = false) {
       },
     };
     const row = store.recordSend(id, 'podcast', state);
+    await announceIssueLeg(id, 'podcast', state);
     return { issue: row?.doc, send: state, pieces: result.pieces, synthesized: result.synthesized, cover: result.coverSource };
   } catch (err) {
     const state: SendState = {
@@ -2311,6 +2328,7 @@ async function sendArchive(id: string, force = false) {
       url: `https://github.com/${config.archiveRepo}/actions/workflows/library-round.yml`,
     };
     const row = store.recordSend(id, 'archive', state);
+    await announceIssueLeg(id, 'archive', state);
     return { issue: row?.doc, send: state };
   } catch (err) {
     const state: SendState = {

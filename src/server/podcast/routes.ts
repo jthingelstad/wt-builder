@@ -37,6 +37,7 @@ import { config, credentials } from '../config.ts';
 import { allEvents, listEvents, record } from '../db.ts';
 import { ANSWERED, HttpError, type Route } from '../http.ts';
 import * as github from '../integrations/github.ts';
+import { announce, episodePublished } from '../integrations/publishing.ts';
 import { log } from '../log.ts';
 import { AudioClash, placeAudio } from './bucket.ts';
 import { durationSeconds, master, masteredPath, measuredSeconds, tagged } from './master.ts';
@@ -242,9 +243,14 @@ async function send(id: string, force: boolean) {
     const pushed = await github.putTree(text, `Another Thing ${e.number}: ${e.title}\n\nSent from WT Builder.`, target, gone);
     const ms = Date.now() - started;
     const url = `${SITE}${permalink(e.date!, e.slug)}`;
-    eps.recordEpisodeSend(id, {
+    const sent: SendState = {
       status: 'sent', at: new Date().toISOString(), external_id: pushed.sha, url,
       audio: { ...audio, duration_seconds: doc.audio?.duration_seconds },
+    };
+    eps.recordEpisodeSend(id, sent);
+    // The bus is told after the send is on the record, and never gates it.
+    await announce(episodePublished(doc, sent, url), (message) => {
+      record(id, { kind: 'send', actor: 'wt-builder', anchor: 'send', summary: `Published event failed — another: ${message}`, data: { dest: 'another', outcome: 'announce-failed' } });
     });
     const audioSaid = placed.placed === 'unchanged' ? 'the audio already in the bucket' : `the audio ${placed.placed} in the bucket`;
     record(id, {

@@ -145,6 +145,12 @@ export const config = {
   /** Rehost and resize remote images onto the CDN before sending. */
   rehostImages: optional('WT_BUILDER_REHOST_IMAGES') !== 'false',
   awsRegion: optional('AWS_DEFAULT_REGION') ?? 'us-east-1',
+  /**
+   * The publishing bus (integrations/publishing.ts): the EventBridge bus
+   * every send announces itself on, owned by the sync stack. Empty turns
+   * announcing off.
+   */
+  publishingBus: optional('WT_BUILDER_PUBLISHING_BUS') ?? 'thingelstad-publishing',
 
   /**
    * The last issue published before WT Builder. Pre-Builder issues are not
@@ -237,6 +243,7 @@ export function describeConfig(): Record<string, string> {
     archiveRepo: config.archiveRepo,
     anotherRepo: config.anotherRepo,
     anotherAudioBucket: config.anotherAudioBucket,
+    publishingBus: config.publishingBus || 'off',
     pinboardWriteBack: config.pinboardWriteBack ? 'enabled' : 'disabled',
     microblogWriteBack: config.microblogWriteBack ? 'enabled' : 'disabled',
     rehostImages: config.rehostImages ? 'enabled' : 'disabled',
