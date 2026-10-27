@@ -40,7 +40,8 @@ export function id3Tags(doc: EpisodeDoc): Record<string, string> {
 }
 
 /**
- * Where an episode's mastered mp3 waits until the send commits it: keyed by
+ * Where an episode's mastered mp3 waits until the send puts it in the audio
+ * bucket (and stays, for listening back and a re-send): keyed by
  * the episode's id, which never changes, so renumbering a draft cannot
  * strand its audio.
  */
@@ -75,14 +76,23 @@ export async function toolsPresent(): Promise<boolean> {
   }
 }
 
-export async function durationSeconds(path: string): Promise<number> {
+/**
+ * The running time as ffprobe measures it, to the millisecond: what the
+ * episode's `audioSeconds` and the feed's itunes:duration are made from.
+ */
+export async function measuredSeconds(path: string): Promise<number> {
   const out = await run('ffprobe', [
     '-v', 'error', '-show_entries', 'format=duration',
     '-of', 'default=noprint_wrappers=1:nokey=1', path,
   ]);
   const seconds = Number(out);
-  if (!Number.isFinite(seconds)) throw new Error(`ffprobe could not read a duration from ${path}`);
-  return Math.round(seconds);
+  if (!Number.isFinite(seconds) || seconds <= 0) throw new Error(`ffprobe could not read a duration from ${path}`);
+  return Math.round(seconds * 1000) / 1000;
+}
+
+/** Whole seconds, for the page and the pace. */
+export async function durationSeconds(path: string): Promise<number> {
+  return Math.round(await measuredSeconds(path));
 }
 
 interface LoudnormMeasurement {

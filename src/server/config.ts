@@ -174,15 +174,23 @@ export const config = {
     'https://librarian.thingelstad.com',
 
   /**
-   * Another Thing, the podcast (src/server/podcast/). An episode's send
-   * commits its page, transcript and mp3 to this repository as one commit;
-   * the site's own build publishes it.
+   * Another Thing, the podcast (src/server/podcast/). An episode's send puts
+   * its mp3 in the audio bucket, then commits its page and transcript to this
+   * repository as one commit; the site's own build publishes it.
    */
   anotherRepo: optional('WT_BUILDER_ANOTHER_REPO') ?? 'jthingelstad/another.thingelstad.com',
   anotherBranch: optional('WT_BUILDER_ANOTHER_BRANCH') ?? 'main',
   /**
-   * Where a mastered episode waits until its send commits it. Git-ignored
-   * with the database; once sent, the repository holds the copy of record.
+   * The another-site stack's audio bucket (its AudioBucket output, in
+   * another.thingelstad.com/infra/deployment.json). CloudFront serves it at
+   * the /uploads/YYYY/another-thing-N.mp3 URLs subscribers hold. Written with
+   * the AWS identity in .env, as the CDN bucket is.
+   */
+  anotherAudioBucket: optional('WT_BUILDER_ANOTHER_AUDIO_BUCKET') ?? 'another-site-audiobucket-fjuvh89lopyc',
+  /**
+   * Where a mastered episode waits until its send puts it in the audio
+   * bucket. Git-ignored with the database; once sent, the bucket holds the
+   * copy of record.
    */
   episodeAudioDir:
     optional('WT_BUILDER_EPISODE_AUDIO') ??
@@ -228,6 +236,7 @@ export function describeConfig(): Record<string, string> {
     websiteRepo: config.websiteRepo,
     archiveRepo: config.archiveRepo,
     anotherRepo: config.anotherRepo,
+    anotherAudioBucket: config.anotherAudioBucket,
     pinboardWriteBack: config.pinboardWriteBack ? 'enabled' : 'disabled',
     microblogWriteBack: config.microblogWriteBack ? 'enabled' : 'disabled',
     rehostImages: config.rehostImages ? 'enabled' : 'disabled',

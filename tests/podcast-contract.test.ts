@@ -11,10 +11,13 @@ import { describe, expect, it } from 'vitest';
 
 import type { EpisodeDoc } from '../src/shared/podcast/types.ts';
 import {
-  audioRepoPath, centralIso, episodeMarkdown, episodeStem, guidFor, mentionedSection,
+  audioRepoPath, audioSecondsValue, centralIso, episodeMarkdown, episodeStem, guidFor, mentionedSection,
   packageTextFiles, permalink, slugFromTitle, transcriptText, validate,
 } from '../src/shared/podcast/contract.ts';
 import { computePermalink, parseFrontmatter } from './podcast-vendored-parser.ts';
+
+/** The tagged mp3 as the send measured it: what went into the audio bucket. */
+const AUDIO = { bytes: 13237856, seconds: 635.352 };
 
 function episode(over: Partial<EpisodeDoc['episode']> = {}): EpisodeDoc {
   return {
@@ -54,12 +57,15 @@ function episode(over: Partial<EpisodeDoc['episode']> = {}): EpisodeDoc {
 
 describe('the emitted episode survives the real parser', () => {
   it('round-trips every frontmatter field', () => {
-    const { data } = parseFrontmatter(episodeMarkdown(episode()));
+    const { data } = parseFrontmatter(episodeMarkdown(episode(), AUDIO));
     expect(data.title).toBe('What does an archive owe its author?');
     expect(data.number).toBe(2);
     expect(data.slug).toBe('what-does-an-archive-owe');
     expect(data.date).toBe('2026-09-14T19:30:00-05:00');
     expect(data.audio).toBe('/uploads/2026/another-thing-2.mp3');
+    expect(data.audioBytes).toBe(13237856);
+    // A decimal stays a string through the parser; the site reads it with Number().
+    expect(data.audioSeconds).toBe('635.352');
     expect(data.transcript).toBe('002-what-does-an-archive-owe.txt');
     expect(data.summary).toBe('Nine years of newsletters, one corpus, and the question of memory.');
     expect(data.guidIsPermalink).toBe(true);
@@ -67,12 +73,12 @@ describe('the emitted episode survives the real parser', () => {
   });
 
   it('carries explicit only when it is set', () => {
-    expect(parseFrontmatter(episodeMarkdown(episode({ explicit: true }))).data.explicit).toBe(true);
+    expect(parseFrontmatter(episodeMarkdown(episode({ explicit: true }), AUDIO)).data.explicit).toBe(true);
   });
 
   it("agrees with the parser's permalink and GUID derivation, UTC and all", () => {
     const doc = episode();
-    const { data } = parseFrontmatter(episodeMarkdown(doc));
+    const { data } = parseFrontmatter(episodeMarkdown(doc, AUDIO));
     const theirs = computePermalink(new Date(String(data.date)), String(data.slug));
     expect(permalink(doc.episode.date!, doc.episode.slug)).toBe(theirs);
     expect(data.guid).toBe(`https://another.thingelstad.com${theirs}`);
@@ -84,7 +90,7 @@ describe('the emitted episode survives the real parser', () => {
   });
 
   it('the body is show notes plus the deduped link list, never the outline', () => {
-    const { body } = parseFrontmatter(episodeMarkdown(episode()));
+    const { body } = parseFrontmatter(episodeMarkdown(episode(), AUDIO));
     expect(body).toContain('nine years of writing');
     expect(body).toContain('## Mentioned in this episode');
     expect(body.match(/weekly\.thingelstad\.com/g)).toHaveLength(1);
@@ -93,26 +99,40 @@ describe('the emitted episode survives the real parser', () => {
 
   it('a title the parser could misread survives it', () => {
     for (const title of ['# Not a comment', 'Colons: a subtitle', '"Quoted" at the start', 'Ends in a quote"', ' padded ', '"Whole"', "'Single'", ' He said "hi" ', `"Both" 'kinds'`]) {
-      expect(parseFrontmatter(episodeMarkdown(episode({ title }))).data.title, title).toBe(title);
-      expect(parseFrontmatter(episodeMarkdown(episode({ summary: title }))).data.summary, title).toBe(title);
+      expect(parseFrontmatter(episodeMarkdown(episode({ title }), AUDIO)).data.title, title).toBe(title);
+      expect(parseFrontmatter(episodeMarkdown(episode({ summary: title }), AUDIO)).data.summary, title).toBe(title);
     }
   });
 
-  it('never emits what the surface derives from the mp3', () => {
-    const md = episodeMarkdown(episode());
-    for (const forbidden of ['duration', 'bytes', 'mime']) expect(md.toLowerCase()).not.toContain(forbidden);
+  it('carries the audio facts after audio:, in the order the site documents, and nothing the site derives', () => {
+    const md = episodeMarkdown(episode(), AUDIO);
+    const keys = md.split('\n---')[0]!.split('\n').slice(1).map((l) => l.split(':')[0]);
+    expect(keys).toEqual(['title', 'number', 'slug', 'date', 'audio', 'audioBytes', 'audioSeconds', 'transcript', 'summary', 'guid', 'guidIsPermalink']);
+    for (const forbidden of ['duration:', 'mime', 'length:']) expect(md.toLowerCase()).not.toContain(forbidden);
     expect(md).not.toMatch(/^permalink:/m);
   });
 
+  it('writes the measured seconds to the millisecond, and a whole number as the site reads it', () => {
+    expect(parseFrontmatter(episodeMarkdown(episode(), { bytes: 1, seconds: 600.12345 })).data.audioSeconds).toBe('600.123');
+    expect(Number(parseFrontmatter(episodeMarkdown(episode(), { bytes: 1, seconds: 600 })).data.audioSeconds)).toBe(600);
+    expect(audioSecondsValue(635.3524)).toBe('635.352');
+  });
+
+  it('refuses audio facts that are not measurements', () => {
+    for (const bad of [{ bytes: 0, seconds: 600 }, { bytes: 1.5, seconds: 600 }, { bytes: 10, seconds: 0 }, { bytes: 10, seconds: Number.NaN }]) {
+      expect(() => episodeMarkdown(episode(), bad), JSON.stringify(bad)).toThrow();
+    }
+  });
+
   it('packages the page and the transcript, and no transcript file without one', () => {
-    expect(packageTextFiles(episode()).map((f) => f.path)).toEqual([
+    expect(packageTextFiles(episode(), AUDIO).map((f) => f.path)).toEqual([
       'content/episodes/002-what-does-an-archive-owe.md',
       'content/episodes/002-what-does-an-archive-owe.txt',
     ]);
     const bare = episode();
     bare.transcript = '';
-    expect(packageTextFiles(bare).map((f) => f.path)).toEqual(['content/episodes/002-what-does-an-archive-owe.md']);
-    expect(parseFrontmatter(episodeMarkdown(bare)).data.transcript).toBeUndefined();
+    expect(packageTextFiles(bare, AUDIO).map((f) => f.path)).toEqual(['content/episodes/002-what-does-an-archive-owe.md']);
+    expect(parseFrontmatter(episodeMarkdown(bare, AUDIO)).data.transcript).toBeUndefined();
   });
 });
 

@@ -38,6 +38,8 @@ export interface EpisodePackage {
   files: { path: string; content: string }[];
   audio: { path: string; bytes: number } | null;
   repo: string;
+  /** The audio bucket the mp3 goes to; the files above go to `repo`. */
+  bucket: string;
   error?: string;
 }
 

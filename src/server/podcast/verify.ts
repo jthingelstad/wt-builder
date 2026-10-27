@@ -3,7 +3,7 @@
  * the feed carries its GUID and its enclosure, the enclosure answers with
  * the bytes that were sent, and the episode page is up.
  *
- * GitHub Pages builds after the commit, so for a while after a send the
+ * The site's build deploys to S3 and CloudFront after the commit, so for a while after a send the
  * answer is "not yet", which is `waiting`, not a problem: the routes look
  * again on their own until LANDING_MS has passed, and only then is a missing
  * piece a problem.
@@ -60,7 +60,7 @@ export async function verifyEpisode(doc: EpisodeDoc, get: Fetch = fetch, now = D
         ? `${audioUrl} answered ${audio.status}`
         : sameBytes
           ? `${audioUrl} is up (${(length / 1e6).toFixed(1)} MB)`
-          : `${audioUrl} is ${length} bytes; the send committed ${sentBytes} (an older copy is still cached, or the build has not run)`,
+          : `${audioUrl} is ${length} bytes; the send put ${sentBytes} in the audio bucket (an older copy is still cached, or the build has not run)`,
     });
 
     const page = await get(pageUrl, { signal: AbortSignal.timeout(20_000) });

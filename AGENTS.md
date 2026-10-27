@@ -198,9 +198,17 @@ now, and a body that says why, in prose.
   are frozen.
 - **Mastering needs ffmpeg and ffprobe on PATH** (Homebrew, on otto). The
   masters wait in `data/another-audio/` (`WT_BUILDER_EPISODE_AUDIO`) until
-  the send commits them; after that the repository holds the mp3. Episode
-  sends use `ANOTHER_GITHUB_PAT_TOKEN` (Contents: write on
-  another.thingelstad.com), falling back to `GITHUB_PAT_TOKEN`.
+  the send. **The episode mp3 is never committed** (since 2026-10-26): the
+  send puts it in the another-site stack's audio bucket
+  (`WT_BUILDER_ANOTHER_AUDIO_BUCKET`, default
+  `another-site-audiobucket-fjuvh89lopyc`) at `uploads/YYYY/another-thing-N.mp3`,
+  reads it back, and only then commits the page, whose `audioBytes` and
+  `audioSeconds` are that object's size and the master's measured running
+  time. The site's deploy refuses a feed whose enclosure is not in the
+  bucket at that length. The bucket write uses the AWS key in `.env`, as the
+  CDN does; nothing deletes from the bucket. Episode sends use
+  `ANOTHER_GITHUB_PAT_TOKEN` (Contents: write on another.thingelstad.com),
+  falling back to `GITHUB_PAT_TOKEN`.
 
 ## Guardrails
 

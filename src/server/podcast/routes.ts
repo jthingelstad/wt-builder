@@ -38,7 +38,8 @@ import { allEvents, listEvents, record } from '../db.ts';
 import { ANSWERED, HttpError, type Route } from '../http.ts';
 import * as github from '../integrations/github.ts';
 import { log } from '../log.ts';
-import { durationSeconds, master, masteredPath, tagged } from './master.ts';
+import { AudioClash, placeAudio } from './bucket.ts';
+import { durationSeconds, master, masteredPath, measuredSeconds, tagged } from './master.ts';
 import * as eps from './store.ts';
 import { transcribe } from './transcribe.ts';
 import { RECHECK_MS, verifyEpisode } from './verify.ts';
@@ -134,24 +135,41 @@ function guardInFlight(doc: EpisodeDoc): void {
 }
 
 /**
- * What the repository already holds for this number, beside this episode's
- * own files: another slug's page under `content/episodes/00N-`, or the
- * number's mp3 or this very page before this episode has sent them. Either
- * means the number is taken (episode 1 was published by hand), and sending
- * would put two episodes behind one number, or over one. After a failed
- * send, this episode's own page with the mp3 beside it is that send landed
- * but never recorded (the answer lost, or a restart before the save), which
- * the retry reconciles and records.
+ * After a failed send, is this episode's own page in the repository? Then
+ * that send landed but was never recorded (the answer lost, or a restart
+ * before the save). The send puts the mp3 in the audio bucket before it
+ * commits, so a page there means its audio went first: landed is the page
+ * in git and the object in the bucket, and the retry reconciles both.
  */
-export function clashes(doc: EpisodeDoc, paths: string[], audioPath: string): string[] {
+function landedIn(doc: EpisodeDoc, paths: string[]): boolean {
+  const page = `content/episodes/${episodeStem(doc.episode.number, doc.episode.slug)}.md`;
+  return !isSent(doc) && doc.sends?.another?.status === 'failed' && paths.includes(page);
+}
+
+/**
+ * What the repository already holds for this number, beside this episode's
+ * own files: another slug's page under `content/episodes/00N-`, or this very
+ * page before this episode has sent it. Either means the number is taken
+ * (episode 1 was published by hand), and sending would put two episodes
+ * behind one number, or over one. The mp3 is not in the repository; whether
+ * its key in the audio bucket is taken is the bucket's to say (placeAudio).
+ */
+export function clashes(doc: EpisodeDoc, paths: string[]): string[] {
   const own = `content/episodes/${episodeStem(doc.episode.number, doc.episode.slug)}.`;
   const prefix = episodePrefix(doc.episode.number);
-  const sent = isSent(doc);
-  const landed = !sent && doc.sends?.another?.status === 'failed' && paths.includes(`${own}md`);
-  const theirs = (p: string) => !p.startsWith(own) || (!sent && !landed);
-  const out = paths.filter((p) => p.startsWith(prefix) && theirs(p));
-  if (!sent && !landed && paths.includes(audioPath)) out.push(audioPath);
-  return out;
+  const mine = isSent(doc) || landedIn(doc, paths);
+  return paths.filter((p) => p.startsWith(prefix) && (!p.startsWith(own) || !mine));
+}
+
+/**
+ * Did an earlier send of this episode put audio at this key? Its last good
+ * send, a failed one that got as far as the bucket, or one that landed
+ * whole. Then a new master may replace what is there; anything else at the
+ * key is not this episode's to overwrite.
+ */
+function audioIsOurs(doc: EpisodeDoc, paths: string[], key: string): boolean {
+  const state = doc.sends?.another;
+  return lastSent(state)?.audio?.path === key || state?.audio?.path === key || landedIn(doc, paths);
 }
 
 async function send(id: string, force: boolean) {
@@ -171,9 +189,11 @@ async function send(id: string, force: boolean) {
     throw new HttpError(409, warnings.map((p) => p.text).join(' '), 'warnings');
   }
 
-  // Claimed before the first await: a second click finds it taken.
+  // Claimed before the first await: a second click finds it taken. Audio an
+  // earlier failed send put in the bucket rides on the claim, so a failure
+  // (or a restart) before this send's own upload still knows it was ours.
   const previous = doc.sends?.another;
-  eps.recordEpisodeSend(id, { status: 'sending', at: new Date().toISOString() });
+  eps.recordEpisodeSend(id, { status: 'sending', at: new Date().toISOString(), ...(previous?.audio ? { audio: previous.audio } : {}) });
   sending.add(id);
   record(id, {
     kind: 'send', actor: 'jamie', anchor: 'send',
@@ -185,32 +205,54 @@ async function send(id: string, force: boolean) {
     const e = doc.episode;
     const audioPath = audioRepoPath(e.number, e.date!);
     const paths = await github.listPaths('', target);
-    const taken = clashes(doc, paths, audioPath);
+    const taken = clashes(doc, paths);
     if (taken.length) {
       eps.recordEpisodeSend(id, previous ?? { status: 'none' });
       throw new Refusal(409, `episode ${e.number} is already in the repository (${taken.join(', ')}) — renumber this one before sending`, 'number-taken');
     }
 
+    // The mp3 goes into the audio bucket first, and is read back there,
+    // before anything is committed: a page in the repository whose
+    // enclosure is not in the bucket fails the site's deploy.
     const mp3 = await tagged(doc);
-    const text = packageTextFiles(doc);
-    const files = [...text, { path: audioPath, content: mp3 }];
+    const seconds = await measuredSeconds(masteredPath(id));
+    let placed;
+    try {
+      placed = await placeAudio(audioPath, mp3, audioIsOurs(doc, paths, audioPath), (md5) => {
+        // On the record before the put: a lost answer or a failed read-back
+        // leaves an object only this record says is this episode's.
+        eps.recordEpisodeSend(id, { status: 'sending', at: new Date().toISOString(), audio: { path: audioPath, bytes: mp3.length, seconds, md5 } });
+      });
+    } catch (err) {
+      if (!(err instanceof AudioClash)) throw err;
+      eps.recordEpisodeSend(id, previous ?? { status: 'none' });
+      throw new Refusal(409, `${err.message} — renumber this episode, or look at the bucket, before sending`, 'audio-taken');
+    }
+    const audio = { path: audioPath, bytes: mp3.length, seconds, md5: placed.md5 };
+    // On the record before the commit: a failed or cut-off send that got this
+    // far put this audio there, and its retry may replace it.
+    eps.recordEpisodeSend(id, { status: 'sending', at: new Date().toISOString(), audio });
+    log.info(`[episode] ${id} audio ${placed.placed}: s3://${config.anotherAudioBucket}/${audioPath} (${mp3.length} bytes, ${seconds} s)`);
+
+    const text = packageTextFiles(doc, { bytes: mp3.length, seconds });
     // This episode's own files the package no longer has (a transcript
     // cleared since the last send) go in the same commit.
     const own = `content/episodes/${episodeStem(e.number, e.slug)}.`;
     const gone = paths.filter((p) => p.startsWith(own) && !text.some((f) => f.path === p));
-    const pushed = await github.putTree(files, `Another Thing ${e.number}: ${e.title}\n\nSent from WT Builder.`, target, gone);
+    const pushed = await github.putTree(text, `Another Thing ${e.number}: ${e.title}\n\nSent from WT Builder.`, target, gone);
     const ms = Date.now() - started;
     const url = `${SITE}${permalink(e.date!, e.slug)}`;
     eps.recordEpisodeSend(id, {
       status: 'sent', at: new Date().toISOString(), external_id: pushed.sha, url,
-      audio: { path: audioPath, bytes: mp3.length, duration_seconds: doc.audio?.duration_seconds },
+      audio: { ...audio, duration_seconds: doc.audio?.duration_seconds },
     });
+    const audioSaid = placed.placed === 'unchanged' ? 'the audio already in the bucket' : `the audio ${placed.placed} in the bucket`;
     record(id, {
       kind: 'send', actor: 'wt-builder', anchor: 'send',
       summary: pushed.committed
-        ? `Send finished — another.thingelstad.com: ${pushed.changed.length} file${pushed.changed.length === 1 ? '' : 's'} committed, ${took(ms)}`
+        ? `Send finished — another.thingelstad.com: ${audioSaid}, ${pushed.changed.length} file${pushed.changed.length === 1 ? '' : 's'} committed, ${took(ms)}`
         : `Send finished — another.thingelstad.com already had this episode exactly`,
-      data: { dest: 'another', outcome: 'sent', ms, sha: pushed.sha, changed: pushed.changed },
+      data: { dest: 'another', outcome: 'sent', ms, sha: pushed.sha, changed: pushed.changed, audio: placed.placed },
     });
     log.info(`[episode] ${id} sent: ${pushed.sha} ${pushed.changed.join(', ') || '(unchanged)'}`);
     // The first look is on the record, not only in a timer: a restart in the
@@ -222,7 +264,9 @@ async function send(id: string, force: boolean) {
   } catch (err) {
     if (err instanceof Refusal) throw err;
     const ms = Date.now() - started;
-    eps.recordEpisodeSend(id, { status: 'failed', at: new Date().toISOString(), error: (err as Error).message });
+    // Audio this send (or an earlier failed one) put in the bucket stays on the record.
+    const put = requireEpisode(id).sends?.another?.audio;
+    eps.recordEpisodeSend(id, { status: 'failed', at: new Date().toISOString(), error: (err as Error).message, ...(put ? { audio: put } : {}) });
     record(id, {
       kind: 'send', actor: 'wt-builder', anchor: 'send',
       summary: `Send failed — another.thingelstad.com: ${(err as Error).message}`,
@@ -238,9 +282,13 @@ async function send(id: string, force: boolean) {
 /**
  * After a failed send, did it land anyway? A commit whose answer was lost, or
  * a restart between the commit and the save, leaves `failed` on the record
- * and the episode in the repository. Its own page there says so. Until that
- * is known, nothing that would orphan what subscribers may already have (a
- * new number, slug or date; deleting the episode) goes ahead.
+ * and the episode in the repository. Its own page there says so: the audio
+ * went into the bucket before the commit, so the page is the last half to
+ * land. Audio in the bucket with no page is not published (no feed names
+ * it), and changing the number then leaves only an unlinked object, which
+ * the bucket keeps. Until that is known, nothing that would orphan what
+ * subscribers may already have (a new number, slug or date; deleting the
+ * episode) goes ahead.
  */
 async function landedAnyway(doc: EpisodeDoc): Promise<boolean> {
   if (doc.sends?.another?.status !== 'failed' || isSent(doc)) return false;
@@ -257,8 +305,9 @@ const LANDED = 'the last send failed but reached the repository — send again t
 /** Sends run in-process, so a `sending` found at boot was cut off by the restart. */
 export function failInterruptedEpisodeSends(): void {
   for (const row of eps.listEpisodes()) {
-    if (row.doc.sends?.another?.status !== 'sending') continue;
-    eps.recordEpisodeSend(row.id, { status: 'failed', at: new Date().toISOString(), error: 'interrupted by a restart' });
+    const state = row.doc.sends?.another;
+    if (state?.status !== 'sending') continue;
+    eps.recordEpisodeSend(row.id, { status: 'failed', at: new Date().toISOString(), error: 'interrupted by a restart', ...(state.audio ? { audio: state.audio } : {}) });
     record(row.id, {
       kind: 'send', actor: 'wt-builder', anchor: 'send',
       summary: 'Send failed — another.thingelstad.com: interrupted by a restart',
@@ -663,7 +712,12 @@ export const podcastRoutes: Route[] = [
     }
   }],
 
-  /** What a send would commit, as text, with the problems: no network, nothing written. */
+  /**
+   * What a send would commit, as text, with the problems: no network, nothing
+   * written. The page's audioBytes and audioSeconds here are the master's as
+   * mastering recorded them; the send measures the tagged mp3 it puts in the
+   * bucket, which its ID3 tags make a little larger.
+   */
   [/^\/api\/episodes\/([^/]+)\/package$/, 'GET', async (_ctx, [id]) => {
     const doc = requireEpisode(id!);
     const problems = validate(doc);
@@ -672,7 +726,7 @@ export const podcastRoutes: Route[] = [
     let error: string | undefined;
     if (!blocked) {
       try {
-        files = packageTextFiles(doc);
+        files = packageTextFiles(doc, { bytes: doc.audio!.bytes, seconds: doc.audio!.duration_seconds });
       } catch (err) {
         error = (err as Error).message;
       }
@@ -682,6 +736,7 @@ export const podcastRoutes: Route[] = [
       files,
       audio: doc.episode.date && doc.audio ? { path: audioRepoPath(doc.episode.number, doc.episode.date), bytes: doc.audio.bytes } : null,
       repo: config.anotherRepo,
+      bucket: config.anotherAudioBucket,
       ...(error ? { error } : {}),
     };
   }],

@@ -977,17 +977,28 @@ first real episode is the first real run.
   the send and an open tick until it is transcribed again or edited.
   Never run.
 - **Send — the `another` leg.** `POST /api/episodes/:id/send[?force=1]`
-  commits `content/episodes/NNN-slug.md`, its `.txt` transcript and
-  `uploads/YYYY/another-thing-N.mp3` (re-tagged with the episode as it
-  stands), and removes its own `.txt` when a re-send has no transcript, to `jthingelstad/another.thingelstad.com` (`WT_BUILDER_ANOTHER_REPO`)
+  first puts the mp3 (re-tagged with the episode as it stands) in the
+  another-site audio bucket (`WT_BUILDER_ANOTHER_AUDIO_BUCKET`) at
+  `uploads/YYYY/another-thing-N.mp3`, `audio/mpeg`, the site's audio
+  Cache-Control, with Content-MD5, and reads it back (HeadObject: size,
+  type, MD5) (`src/server/podcast/bucket.ts`). The same bytes already there
+  are left alone; different audio is 409 `audio-taken` unless an earlier
+  send of this episode put it there (its record's `audio.path`, kept
+  through a failed or cut-off send); nothing deletes from the bucket. An
+  S3 failure is a failed send before anything is committed. Then it commits
+  `content/episodes/NNN-slug.md`, with `audioBytes` (the object's size) and
+  `audioSeconds` (the master measured by ffprobe, to the millisecond), and
+  its `.txt` transcript, and removes its own `.txt` when a re-send has no
+  transcript, to `jthingelstad/another.thingelstad.com` (`WT_BUILDER_ANOTHER_REPO`)
   as one commit, with `ANOTHER_GITHUB_PAT_TOKEN` (or `GITHUB_PAT_TOKEN`).
+  No mp3 is committed (since 2026-10-26).
   Refusals: 422 for a blocking problem (never overridable), 409 `warnings`
   without `force`, 409 `number-taken` when the repository already holds
   another episode under the number, 409 when the master is not on disk.
   Before any send, a page at this episode's own name is someone else's
-  (409 `number-taken`); after a failed send, that page with the mp3 is the
-  send that landed but was never recorded: the retry commits nothing new
-  and records it. Until then, after a failed send, a new number,
+  (409 `number-taken`); after a failed send, that page is the send that
+  landed but was never recorded (its audio went to the bucket first): the
+  retry commits nothing new and records it. Until then, after a failed send, a new number,
   slug or date and deleting the episode first look for its page in the
   repository: there, 409 `landed`; GitHub unreadable, 502. Once a send
   has been tried, the slug no longer follows the title.
@@ -996,14 +1007,18 @@ first real episode is the first real run.
   summary, explicit, show notes, transcript, outline links: 409
   `sending`); number, slug and date are frozen for good once sent (409
   `frozen`); a sent episode cannot
-  be deleted. Tested with GitHub stubbed
-  (`tests/podcast-routes.test.ts`); never run.
+  be deleted. Tested with GitHub and S3 stubbed
+  (`tests/podcast-routes.test.ts`); offline, an unstubbed bucket call
+  fails for want of credentials (`tests/podcast-bucket-offline.test.ts`).
+  The bucket module's HeadObject was run read-only against the real bucket
+  with WT Builder's identity (episode 1: 13237856 bytes, audio/mpeg); its
+  PutObject has never run for real, and the send never has.
 - **Verify.** Read back off the live site: the feed carries the GUID and
   the enclosure, the mp3 answers with the bytes sent, the page is up.
   A send records `waiting` with the first look a minute out, so a restart
   resumes it; a look at the previous send that returns after a re-send is
   dropped, as is any check that finishes after a later one started;
-  `waiting` for 20 minutes while Pages builds, re-checking
+  `waiting` for 20 minutes while the site builds and deploys, re-checking
   every 2; `POST …/verify` checks again. Never run.
 - **Log and time.** Episode events use the shared log (kinds `episode`,
   `recording`, `audio`); `GET …/events` reads them, and "Made in" counts

@@ -131,19 +131,21 @@ describe('the send', () => {
   }) as unknown as EpisodeDoc;
 
   it('finds another episode under this number, and leaves its own files alone', () => {
-    const paths = ['content/episodes/001-how-do-you-start-a-podcast.md', 'content/episodes/002-mine.md', 'content/episodes/002-mine.txt', 'uploads/2026/another-thing-2.mp3'];
-    expect(clashes(doc(1, 'something-else'), paths, 'uploads/2025/another-thing-1.mp3')).toEqual(['content/episodes/001-how-do-you-start-a-podcast.md']);
-    // Unsent, an mp3 at the path with no page of this episode's is someone else's.
-    expect(clashes(doc(2, 'mine'), ['uploads/2026/another-thing-2.mp3'], 'uploads/2026/another-thing-2.mp3')).toEqual(['uploads/2026/another-thing-2.mp3']);
+    const paths = ['content/episodes/001-how-do-you-start-a-podcast.md', 'content/episodes/002-mine.md', 'content/episodes/002-mine.txt'];
+    expect(clashes(doc(1, 'something-else'), paths)).toEqual(['content/episodes/001-how-do-you-start-a-podcast.md']);
     // Never tried, a page at this very name was published by someone else: sending would write over it.
-    expect(clashes(doc(2, 'mine'), paths, 'uploads/2026/another-thing-2.mp3')).toEqual([
-      'content/episodes/002-mine.md', 'content/episodes/002-mine.txt', 'uploads/2026/another-thing-2.mp3',
-    ]);
-    // After a failed send, its own page and mp3 are that send, landed unrecorded: the retry reconciles it.
-    expect(clashes(doc(2, 'mine', 'failed'), paths, 'uploads/2026/another-thing-2.mp3')).toEqual([]);
+    expect(clashes(doc(2, 'mine'), paths)).toEqual(['content/episodes/002-mine.md', 'content/episodes/002-mine.txt']);
+    // After a failed send, its own page is that send, landed unrecorded: the retry reconciles it.
+    expect(clashes(doc(2, 'mine', 'failed'), paths)).toEqual([]);
     // Sent, they are this episode's own, replaced by a re-send.
-    expect(clashes(doc(2, 'mine', 'sent'), paths, 'uploads/2026/another-thing-2.mp3')).toEqual([]);
-    expect(clashes(doc(3, 'new'), paths, 'uploads/2026/another-thing-3.mp3')).toEqual([]);
+    expect(clashes(doc(2, 'mine', 'sent'), paths)).toEqual([]);
+    expect(clashes(doc(3, 'new'), paths)).toEqual([]);
+  });
+
+  it('never looks for the mp3 in the repository: the audio bucket holds it', () => {
+    // An mp3 in the tree (one committed by hand before the cutover) neither takes the number nor counts as landed.
+    expect(clashes(doc(2, 'mine'), ['uploads/2026/another-thing-2.mp3'])).toEqual([]);
+    expect(clashes(doc(2, 'mine', 'failed'), ['uploads/2026/another-thing-2.mp3', 'content/episodes/002-other.md'])).toEqual(['content/episodes/002-other.md']);
   });
 });
 
