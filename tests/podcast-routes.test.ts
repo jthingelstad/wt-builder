@@ -1,7 +1,7 @@
 /**
- * Another Thing's routes, over HTTP, against a throwaway database. GitHub
- * and the mp3 tagger are stubbed: nothing here reaches the network or needs
- * ffmpeg. What is pinned: the numbering, the slug following the title, the
+ * Another Thing's routes, over HTTP, against a throwaway database. GitHub,
+ * the mp3 tagger and S3 (the audio bucket, an in-memory map) are stubbed:
+ * nothing here reaches the network or needs ffmpeg. What is pinned: the numbering, the slug following the title, the
  * outline's stale-tab refusal, the frozen fields once sent (and while
  * sending), a transcript draft never landing over edits, and every send
  * refusal (nothing to send, warnings unconfirmed, a number already taken in
@@ -12,10 +12,49 @@ import { afterAll, beforeAll, beforeEach, describe, expect, it, vi } from 'vites
 import { mkdirSync, mkdtempSync, rmSync, writeFileSync } from 'node:fs';
 import { tmpdir } from 'node:os';
 import { join } from 'node:path';
+import { createHash } from 'node:crypto';
+import { parseFrontmatter } from './podcast-vendored-parser.ts';
 
-const { listPaths, putTree, tagged, master, transcribe, verifyEpisode } = vi.hoisted(() => ({
-  listPaths: vi.fn(), putTree: vi.fn(), tagged: vi.fn(), master: vi.fn(), transcribe: vi.fn(), verifyEpisode: vi.fn(),
+const { listPaths, putTree, tagged, master, measuredSeconds, transcribe, verifyEpisode, bucket } = vi.hoisted(() => ({
+  listPaths: vi.fn(), putTree: vi.fn(), tagged: vi.fn(), master: vi.fn(), measuredSeconds: vi.fn(), transcribe: vi.fn(), verifyEpisode: vi.fn(),
+  /** The audio bucket: what is in it, every call made to it, and the order of puts and commits. */
+  bucket: {
+    objects: new Map<string, { body: Buffer; type?: string; cacheControl?: string }>(),
+    calls: [] as { op: string; Bucket?: string; Key?: string; ContentType?: string; CacheControl?: string; ContentMD5?: string }[],
+    order: [] as string[],
+    failPut: null as Error | null,
+  },
 }));
+
+vi.mock('@aws-sdk/client-s3', async (importOriginal) => {
+  const real = await importOriginal<typeof import('@aws-sdk/client-s3')>();
+  const { createHash } = await import('node:crypto');
+  const md5 = (b: Buffer) => createHash('md5').update(b).digest('hex');
+  return {
+    ...real,
+    S3Client: class {
+      async send(command: { input: Record<string, any> }) {
+        const { Bucket, Key, ContentType, CacheControl, ContentMD5 } = command.input;
+        if (command instanceof real.HeadObjectCommand) {
+          bucket.calls.push({ op: 'head', Bucket, Key });
+          const o = bucket.objects.get(Key);
+          if (!o) throw Object.assign(new Error('NotFound'), { name: 'NotFound', $metadata: { httpStatusCode: 404 } });
+          return { ETag: `"${md5(o.body)}"`, ContentLength: o.body.length, ContentType: o.type, CacheControl: o.cacheControl };
+        }
+        if (command instanceof real.PutObjectCommand) {
+          bucket.calls.push({ op: 'put', Bucket, Key, ContentType, CacheControl, ContentMD5 });
+          bucket.order.push('put');
+          if (bucket.failPut) throw bucket.failPut;
+          const body = Buffer.from(command.input.Body as Buffer);
+          if (ContentMD5 !== Buffer.from(md5(body), 'hex').toString('base64')) throw new Error('BadDigest');
+          bucket.objects.set(Key, { body, type: ContentType, cacheControl: CacheControl });
+          return {};
+        }
+        throw new Error(`the audio bucket stub was asked for ${command.constructor.name}`);
+      }
+    },
+  };
+});
 
 vi.mock('../src/server/podcast/verify.ts', async (importOriginal) => ({
   ...(await importOriginal<typeof import('../src/server/podcast/verify.ts')>()),
@@ -32,6 +71,7 @@ vi.mock('../src/server/podcast/master.ts', async (importOriginal) => ({
   ...(await importOriginal<typeof import('../src/server/podcast/master.ts')>()),
   tagged,
   master,
+  measuredSeconds,
 }));
 
 vi.mock('../src/server/podcast/transcribe.ts', async (importOriginal) => ({
@@ -48,6 +88,7 @@ const { server } = await import('../src/server/index.ts');
 const eps = await import('../src/server/podcast/store.ts');
 const { masteredPath } = await import('../src/server/podcast/master.ts');
 const { cleanOutline } = await import('../src/shared/podcast/outline.ts');
+const { failInterruptedEpisodeSends } = await import('../src/server/podcast/routes.ts');
 
 let base = '';
 
@@ -66,8 +107,16 @@ afterAll(async () => {
 beforeEach(() => {
   for (const e of eps.listEpisodes()) eps.deleteEpisode(e.id);
   listPaths.mockReset().mockResolvedValue(['content/episodes/001-how-do-you-start-a-podcast.md', 'uploads/2025/another-thing-1.mp3']);
-  putTree.mockReset().mockResolvedValue({ sha: 'abc123', changed: ['x'], unchanged: 0, committed: true });
+  putTree.mockReset().mockImplementation(async () => {
+    bucket.order.push('commit');
+    return { sha: 'abc123', changed: ['x'], unchanged: 0, committed: true };
+  });
   tagged.mockReset().mockResolvedValue(Buffer.from('ID3 tagged mp3'));
+  measuredSeconds.mockReset().mockResolvedValue(600.384);
+  bucket.objects.clear();
+  bucket.calls.length = 0;
+  bucket.order.length = 0;
+  bucket.failPut = null;
   master.mockReset();
   transcribe.mockReset();
   verifyEpisode.mockReset().mockResolvedValue({ status: 'passed', at: new Date().toISOString(), checks: [] });
@@ -238,18 +287,40 @@ describe('the send', () => {
     expect(putTree).toHaveBeenCalledTimes(1);
   });
 
-  it('commits the page, the transcript and the tagged mp3 as one, and the episode is published', async () => {
+  it('puts the tagged mp3 in the audio bucket, reads it back, then commits the page and the transcript, and the episode is published', async () => {
     const id = await ready();
     const r = await call('POST', `/episodes/${id}/send`);
     expect(r.status).toBe(200);
+
+    // The audio first, then the commit.
+    expect(bucket.order).toEqual(['put', 'commit']);
+    expect(bucket.calls.map((c) => c.op)).toEqual(['head', 'put', 'head']);
+    const put = bucket.calls[1]!;
+    expect(put).toMatchObject({
+      Bucket: 'another-site-audiobucket-fjuvh89lopyc',
+      Key: 'uploads/2026/another-thing-2.mp3',
+      ContentType: 'audio/mpeg',
+      CacheControl: 'public, max-age=86400, s-maxage=31536000',
+    });
+    expect(put.ContentMD5).toBe(createHash('md5').update('ID3 tagged mp3').digest('base64'));
+    expect(bucket.objects.get('uploads/2026/another-thing-2.mp3')!.body.toString()).toBe('ID3 tagged mp3');
+
+    // No mp3 in the commit: the page and the transcript only.
     const [files, message, target] = putTree.mock.calls[0]!;
     expect((files as { path: string }[]).map((f) => f.path)).toEqual([
       'content/episodes/002-ready-to-go.md',
       'content/episodes/002-ready-to-go.txt',
-      'uploads/2026/another-thing-2.mp3',
     ]);
-    expect(Buffer.isBuffer((files as { content: unknown }[])[2]!.content)).toBe(true);
+    expect((files as { content: unknown }[]).every((f) => typeof f.content === 'string')).toBe(true);
     expect(message).toContain('Another Thing 2: Ready to go');
+
+    // The page carries the bucket object's size and the master's measured running time.
+    const page = parseFrontmatter((files as { content: string }[])[0]!.content).data;
+    expect(page.audio).toBe('/uploads/2026/another-thing-2.mp3');
+    expect(page.audioBytes).toBe(Buffer.byteLength('ID3 tagged mp3'));
+    expect(page.audioSeconds).toBe('600.384');
+    expect(measuredSeconds).toHaveBeenCalledWith(masteredPath(id));
+    expect(eps.getEpisode(id)!.doc.sends?.another?.audio).toMatchObject({ path: 'uploads/2026/another-thing-2.mp3', bytes: 14, seconds: 600.384 });
     expect(target).toEqual({ repo: 'jthingelstad/another.thingelstad.com', branch: 'main' });
 
     const doc = eps.getEpisode(id)!.doc;
@@ -337,6 +408,89 @@ describe('the send', () => {
     expect(r.status).toBe(502);
     expect(eps.getEpisode(id)!.doc.sends?.another?.status).toBe('failed');
     expect((await call('POST', `/episodes/${id}/send`)).status).toBe(200);
+  });
+
+  it('a re-send of the same bytes leaves the bucket as it is', async () => {
+    const id = await ready();
+    expect((await call('POST', `/episodes/${id}/send`)).status).toBe(200);
+    bucket.calls.length = 0;
+    expect((await call('POST', `/episodes/${id}/send`)).status).toBe(200);
+    expect(bucket.calls.map((c) => c.op)).toEqual(['head']);
+    expect(putTree).toHaveBeenCalledTimes(2);
+  });
+
+  it('the same bytes already in the bucket from audio:put are not a clash', async () => {
+    const id = await ready();
+    bucket.objects.set('uploads/2026/another-thing-2.mp3', { body: Buffer.from('ID3 tagged mp3'), type: 'audio/mpeg' });
+    expect((await call('POST', `/episodes/${id}/send`)).status).toBe(200);
+    expect(bucket.calls.map((c) => c.op)).toEqual(['head']);
+  });
+
+  it('refuses different audio at the key that this episode never put there, before GitHub is written', async () => {
+    const id = await ready();
+    bucket.objects.set('uploads/2026/another-thing-2.mp3', { body: Buffer.from('someone else'), type: 'audio/mpeg' });
+    const r = await call('POST', `/episodes/${id}/send`);
+    expect(r.status).toBe(409);
+    expect(r.json.code).toBe('audio-taken');
+    expect(r.text).toContain('uploads/2026/another-thing-2.mp3');
+    expect(bucket.calls.map((c) => c.op)).toEqual(['head']);
+    expect(bucket.objects.get('uploads/2026/another-thing-2.mp3')!.body.toString()).toBe('someone else');
+    expect(putTree).not.toHaveBeenCalled();
+    expect(eps.getEpisode(id)!.doc.sends?.another?.status ?? 'none').toBe('none');
+  });
+
+  it('a re-send of a new master replaces its own audio at the same key', async () => {
+    const id = await ready();
+    expect((await call('POST', `/episodes/${id}/send`)).status).toBe(200);
+    tagged.mockResolvedValue(Buffer.from('ID3 a new master'));
+    listPaths.mockResolvedValue(['content/episodes/002-ready-to-go.md', 'content/episodes/002-ready-to-go.txt']);
+    expect((await call('POST', `/episodes/${id}/send`)).status).toBe(200);
+    expect(bucket.objects.get('uploads/2026/another-thing-2.mp3')!.body.toString()).toBe('ID3 a new master');
+    const page = parseFrontmatter((putTree.mock.calls[1]![0] as { content: string }[])[0]!.content).data;
+    expect(page.audioBytes).toBe(Buffer.byteLength('ID3 a new master'));
+  });
+
+  it('a send that put the audio and then failed may replace it on the retry', async () => {
+    const id = await ready();
+    putTree.mockRejectedValueOnce(new Error('GitHub /git/trees failed: 500'));
+    expect((await call('POST', `/episodes/${id}/send`)).status).toBe(502);
+    expect(eps.getEpisode(id)!.doc.sends?.another).toMatchObject({ status: 'failed', audio: { path: 'uploads/2026/another-thing-2.mp3' } });
+    tagged.mockResolvedValue(Buffer.from('ID3 retagged after a new title'));
+    expect((await call('POST', `/episodes/${id}/send`)).status).toBe(200);
+    expect(bucket.objects.get('uploads/2026/another-thing-2.mp3')!.body.toString()).toBe('ID3 retagged after a new title');
+  });
+
+  it('a send cut off by a restart after the audio went up keeps that on the record', async () => {
+    const id = await ready();
+    eps.recordEpisodeSend(id, { status: 'sending', at: 'x', audio: { path: 'uploads/2026/another-thing-2.mp3', bytes: 3 } });
+    failInterruptedEpisodeSends();
+    expect(eps.getEpisode(id)!.doc.sends?.another).toMatchObject({ status: 'failed', audio: { path: 'uploads/2026/another-thing-2.mp3' } });
+  });
+
+  it('an S3 failure stops the send before GitHub is written, and it is a failed send', async () => {
+    const id = await ready();
+    bucket.failPut = Object.assign(new Error('AccessDenied'), { $metadata: { httpStatusCode: 403 } });
+    const r = await call('POST', `/episodes/${id}/send`);
+    expect(r.status).toBe(502);
+    expect(r.text).toContain('AccessDenied');
+    expect(putTree).not.toHaveBeenCalled();
+    expect(eps.getEpisode(id)!.doc.sends?.another?.status).toBe('failed');
+  });
+
+  it('audio that does not read back as put stops the send before GitHub is written', async () => {
+    const id = await ready();
+    // S3 answers the put but holds something else: a wrong type, as Pages once served it.
+    bucket.failPut = null;
+    const realSet = bucket.objects.set.bind(bucket.objects);
+    bucket.objects.set = (k, v) => realSet(k, { ...v, type: 'audio/mp3' });
+    try {
+      const r = await call('POST', `/episodes/${id}/send`);
+      expect(r.status).toBe(502);
+      expect(r.text).toContain('does not hold what was put');
+      expect(putTree).not.toHaveBeenCalled();
+    } finally {
+      bucket.objects.set = realSet;
+    }
   });
 
   it('refuses when the mastered file is gone from disk', async () => {

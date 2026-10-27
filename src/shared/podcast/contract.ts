@@ -15,10 +15,15 @@
  *   the one the parser computes would strand subscribers;
  * - the audio path's year is the same UTC year.
  *
- * Never emitted: duration, byte size, MIME type. Another derives them from
- * the mp3 at build time. Never changed: the permalink shape, the GUID scheme,
- * the uploads path. Apple, Spotify, Overcast and every subscriber's client
- * hold those (another.thingelstad.com/AGENTS.md, URL preservation).
+ * The mp3 is not in the repository: the send puts it in the site's audio
+ * bucket at `audioRepoPath` (src/server/podcast/bucket.ts), and the front
+ * matter carries what the feed needs from it, `audioBytes` and
+ * `audioSeconds`, measured from the file that went into the bucket, never
+ * estimated (another.thingelstad.com/AGENTS.md, "Adding an episode"). The
+ * site's deploy refuses a feed whose enclosure is not in the bucket at that
+ * length. Never changed: the permalink shape, the GUID scheme, the uploads
+ * path. Apple, Spotify, Overcast and every subscriber's client hold those
+ * (another.thingelstad.com/AGENTS.md, URL preservation).
  */
 
 import { centralClock } from '../dates.ts';
@@ -83,7 +88,10 @@ export function episodePrefix(number: number): string {
   return `content/episodes/${String(number).padStart(3, '0')}-`;
 }
 
-/** `uploads/YYYY/another-thing-N.mp3`: the enclosure's path, by UTC year. */
+/**
+ * `uploads/YYYY/another-thing-N.mp3`: the enclosure's path, by UTC year, and
+ * the mp3's key in the audio bucket (the URL path without its slash).
+ */
 export function audioRepoPath(number: number, dateIso: string): string {
   return `uploads/${utcParts(dateIso).yyyy}/another-thing-${number}.mp3`;
 }
@@ -115,10 +123,27 @@ export function mentionedSection(segments: Segment[]): string {
   return `## Mentioned in this episode\n\n${lines.join('\n')}`;
 }
 
+/** The mp3 as it is in the audio bucket: its size, and its running time as measured. */
+export interface AudioFacts {
+  bytes: number;
+  seconds: number;
+}
+
+/**
+ * Decimal seconds to the millisecond, as the site's `audio:put` prints them.
+ * The parser leaves a decimal a string (a whole number becomes a number);
+ * the site reads either with Number().
+ */
+export function audioSecondsValue(seconds: number): string {
+  return String(Math.round(seconds * 1000) / 1000);
+}
+
 /** The episode's Markdown file, exactly as Another expects to parse it. */
-export function episodeMarkdown(doc: EpisodeDoc): string {
+export function episodeMarkdown(doc: EpisodeDoc, audio: AudioFacts): string {
   const e = doc.episode;
   if (!e.date) throw new Error('the episode has no date: it is stamped when the recording is mastered');
+  if (!Number.isInteger(audio.bytes) || audio.bytes <= 0) throw new Error(`the mp3's size is not a byte count: ${audio.bytes}`);
+  if (!Number.isFinite(audio.seconds) || audio.seconds <= 0) throw new Error(`the mp3's running time is not a duration: ${audio.seconds}`);
 
   const stem = episodeStem(e.number, e.slug);
   const fm: string[] = ['---'];
@@ -127,6 +152,8 @@ export function episodeMarkdown(doc: EpisodeDoc): string {
   fm.push(`slug: ${e.slug}`);
   fm.push(`date: ${e.date}`);
   fm.push(`audio: /${audioRepoPath(e.number, e.date)}`);
+  fm.push(`audioBytes: ${audio.bytes}`);
+  fm.push(`audioSeconds: ${audioSecondsValue(audio.seconds)}`);
   if (doc.transcript?.trim()) fm.push(`transcript: ${stem}.txt`);
   fm.push(`summary: ${fmValue(e.summary)}`);
   fm.push(`guid: ${guidFor(e.date, e.slug)}`);
@@ -146,10 +173,10 @@ export function transcriptText(doc: EpisodeDoc): string {
   return `${String(doc.transcript ?? '').trim()}\n`;
 }
 
-/** The text files a send commits, beside the mp3. */
-export function packageTextFiles(doc: EpisodeDoc): { path: string; content: string }[] {
+/** The files a send commits: the page and its transcript. The mp3 goes to the audio bucket. */
+export function packageTextFiles(doc: EpisodeDoc, audio: AudioFacts): { path: string; content: string }[] {
   const stem = episodeStem(doc.episode.number, doc.episode.slug);
-  const files = [{ path: `content/episodes/${stem}.md`, content: episodeMarkdown(doc) }];
+  const files = [{ path: `content/episodes/${stem}.md`, content: episodeMarkdown(doc, audio) }];
   if (doc.transcript?.trim()) files.push({ path: `content/episodes/${stem}.txt`, content: transcriptText(doc) });
   return files;
 }

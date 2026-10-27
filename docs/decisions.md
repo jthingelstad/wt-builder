@@ -306,9 +306,18 @@ the other:
   model call is transcription of the mastered audio, which drafts text Jamie
   then edits.
 
-The send is a commit of `content/episodes/NNN-slug.md`, its transcript and
-`uploads/YYYY/another-thing-N.mp3` into `another.thingelstad.com`, as one
-commit. Its URL scheme (`/podcast.xml`, `/YYYY/MM/DD/slug.html` by the
+The send puts `uploads/YYYY/another-thing-N.mp3` into the another-site
+stack's audio bucket, reads it back, and then commits
+`content/episodes/NNN-slug.md` and its transcript into
+`another.thingelstad.com`, as one commit. The mp3 is not in git (2026-10-26,
+another.thingelstad.com PRs #12 and #13; Jamie: "Not great for the audio
+files to be in git -- we can and should change that to be more AWS
+proper"): CloudFront serves the bucket at the same URLs, and the page
+carries `audioBytes` and `audioSeconds` for the feed. Like the site's own
+`npm run audio:put`, the send leaves the same bytes alone, refuses different
+audio at the key unless an earlier send of this episode put it there (a new
+master keeps its URL; the bucket keeps old versions a year), and never
+deletes. Its URL scheme (`/podcast.xml`, `/YYYY/MM/DD/slug.html` by the
 date's UTC day, `/uploads/YYYY/`) is held by every subscriber's client and
 must not be redesigned by the tool. **A blocking validation problem is a
 hard stop** (a value Another's parser would misread, no offset on the date,

@@ -612,8 +612,9 @@ function Publish({ view, run, onError }: { view: EpisodeView; run: Props['run'];
               <pre>{f.content}</pre>
             </details>
           ))}
-          {pkg.audio && <div class="mono pc-sub">{pkg.audio.path} · {(pkg.audio.bytes / 1e6).toFixed(1)} MB</div>}
           <div class="pc-sub">to {pkg.repo}</div>
+          {pkg.audio && <div class="mono pc-sub">{pkg.audio.path} · {(pkg.audio.bytes / 1e6).toFixed(1)} MB</div>}
+          {pkg.audio && <div class="pc-sub">to the audio bucket {pkg.bucket}, first; the page's audioBytes and audioSeconds are measured from the tagged mp3 at the send</div>}
         </div>
       )}
     </section>
