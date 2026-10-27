@@ -218,7 +218,11 @@ async function send(id: string, force: boolean) {
     const seconds = await measuredSeconds(masteredPath(id));
     let placed;
     try {
-      placed = await placeAudio(audioPath, mp3, audioIsOurs(doc, paths, audioPath));
+      placed = await placeAudio(audioPath, mp3, audioIsOurs(doc, paths, audioPath), (md5) => {
+        // On the record before the put: a lost answer or a failed read-back
+        // leaves an object only this record says is this episode's.
+        eps.recordEpisodeSend(id, { status: 'sending', at: new Date().toISOString(), audio: { path: audioPath, bytes: mp3.length, seconds, md5 } });
+      });
     } catch (err) {
       if (!(err instanceof AudioClash)) throw err;
       eps.recordEpisodeSend(id, previous ?? { status: 'none' });

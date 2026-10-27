@@ -61,8 +61,16 @@ function matches(head: HeadObjectCommandOutput | null, body: Buffer, md5: string
  * episode put whatever is at the key now (an earlier send of it), so a new
  * master may replace it. Throws AudioClash for anyone else's audio, and an
  * Error when what is there afterwards is not what was put.
+ *
+ * `putting` runs just before the PutObject, once the key is this episode's
+ * to write (empty, or its own audio): the caller records the key as its own
+ * then, so a put whose answer is lost, or a read-back that fails, still
+ * leaves the record saying whose object it is. Recording it early is safe:
+ * a put that never happened left the key empty or this episode's already.
  */
-export async function placeAudio(key: string, body: Buffer, ours: boolean): Promise<{ placed: Placed; md5: string }> {
+export async function placeAudio(
+  key: string, body: Buffer, ours: boolean, putting: (md5: string) => void = () => {},
+): Promise<{ placed: Placed; md5: string }> {
   const md5 = md5Hex(body);
   const there = await headAudio(key);
   if (matches(there, body, md5)) return { placed: 'unchanged', md5 };
@@ -71,6 +79,7 @@ export async function placeAudio(key: string, body: Buffer, ours: boolean): Prom
   if (there && !same && !ours) {
     throw new AudioClash(`different audio is already in the audio bucket at ${key} (${there.ContentLength} bytes), and this episode did not put it there`);
   }
+  putting(md5);
   await s3().send(new PutObjectCommand({
     Bucket: config.anotherAudioBucket,
     Key: key,

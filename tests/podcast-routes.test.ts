@@ -472,6 +472,24 @@ describe('the send', () => {
     expect(bucket.objects.get('uploads/2026/another-thing-2.mp3')!.body.toString()).toBe('ID3 a new master');
   });
 
+  it('a first send whose read-back fails after the put still owns the object on the retry', async () => {
+    const id = await ready();
+    const realGet = bucket.objects.get.bind(bucket.objects);
+    let heads = 0;
+    // The first HeadObject finds nothing; the put lands; the read-back's answer is lost.
+    bucket.objects.get = (k) => (++heads === 2 ? (() => { throw new Error('socket hang up'); })() : realGet(k));
+    try {
+      expect((await call('POST', `/episodes/${id}/send`)).status).toBe(502);
+    } finally {
+      bucket.objects.get = realGet;
+    }
+    expect(putTree).not.toHaveBeenCalled();
+    expect(eps.getEpisode(id)!.doc.sends?.another).toMatchObject({ status: 'failed', audio: { path: 'uploads/2026/another-thing-2.mp3' } });
+    tagged.mockResolvedValue(Buffer.from('ID3 retagged after a new title'));
+    expect((await call('POST', `/episodes/${id}/send`)).status).toBe(200);
+    expect(bucket.objects.get('uploads/2026/another-thing-2.mp3')!.body.toString()).toBe('ID3 retagged after a new title');
+  });
+
   it('a send cut off by a restart after the audio went up keeps that on the record', async () => {
     const id = await ready();
     eps.recordEpisodeSend(id, { status: 'sending', at: 'x', audio: { path: 'uploads/2026/another-thing-2.mp3', bytes: 3 } });
