@@ -460,6 +460,18 @@ describe('the send', () => {
     expect(bucket.objects.get('uploads/2026/another-thing-2.mp3')!.body.toString()).toBe('ID3 retagged after a new title');
   });
 
+  it('a second failure before the upload still remembers the first one put the audio', async () => {
+    const id = await ready();
+    putTree.mockRejectedValueOnce(new Error('GitHub /git/trees failed: 500'));
+    expect((await call('POST', `/episodes/${id}/send`)).status).toBe(502);
+    listPaths.mockRejectedValueOnce(new Error('GitHub 503'));
+    expect((await call('POST', `/episodes/${id}/send`)).status).toBe(502);
+    expect(eps.getEpisode(id)!.doc.sends?.another).toMatchObject({ status: 'failed', audio: { path: 'uploads/2026/another-thing-2.mp3' } });
+    tagged.mockResolvedValue(Buffer.from('ID3 a new master'));
+    expect((await call('POST', `/episodes/${id}/send`)).status).toBe(200);
+    expect(bucket.objects.get('uploads/2026/another-thing-2.mp3')!.body.toString()).toBe('ID3 a new master');
+  });
+
   it('a send cut off by a restart after the audio went up keeps that on the record', async () => {
     const id = await ready();
     eps.recordEpisodeSend(id, { status: 'sending', at: 'x', audio: { path: 'uploads/2026/another-thing-2.mp3', bytes: 3 } });

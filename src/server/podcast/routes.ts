@@ -189,9 +189,11 @@ async function send(id: string, force: boolean) {
     throw new HttpError(409, warnings.map((p) => p.text).join(' '), 'warnings');
   }
 
-  // Claimed before the first await: a second click finds it taken.
+  // Claimed before the first await: a second click finds it taken. Audio an
+  // earlier failed send put in the bucket rides on the claim, so a failure
+  // (or a restart) before this send's own upload still knows it was ours.
   const previous = doc.sends?.another;
-  eps.recordEpisodeSend(id, { status: 'sending', at: new Date().toISOString() });
+  eps.recordEpisodeSend(id, { status: 'sending', at: new Date().toISOString(), ...(previous?.audio ? { audio: previous.audio } : {}) });
   sending.add(id);
   record(id, {
     kind: 'send', actor: 'jamie', anchor: 'send',
