@@ -49,6 +49,15 @@ if (OFFLINE) {
  */
 export const LIVE_DB_PATH = fileURLToPath(new URL('../../data/wt-builder.db', import.meta.url));
 
+/**
+ * The publishing bus from its variable: unset means the default bus, set but
+ * empty means announcing is off (the documented opt-out), anything else is
+ * the bus name.
+ */
+export function publishingBusFrom(value: string | undefined): string {
+  return value === undefined ? 'thingelstad-publishing' : value.trim();
+}
+
 function optional(name: string): string | undefined {
   const v = process.env[name];
   return v && v.trim() ? v.trim() : undefined;
@@ -147,10 +156,10 @@ export const config = {
   awsRegion: optional('AWS_DEFAULT_REGION') ?? 'us-east-1',
   /**
    * The publishing bus (integrations/publishing.ts): the EventBridge bus
-   * every send announces itself on, owned by the sync stack. Empty turns
-   * announcing off.
+   * every send announces itself on, owned by the sync stack. Unset means the
+   * default bus; set but empty turns announcing off.
    */
-  publishingBus: optional('WT_BUILDER_PUBLISHING_BUS') ?? 'thingelstad-publishing',
+  publishingBus: publishingBusFrom(process.env.WT_BUILDER_PUBLISHING_BUS),
 
   /**
    * The last issue published before WT Builder. Pre-Builder issues are not

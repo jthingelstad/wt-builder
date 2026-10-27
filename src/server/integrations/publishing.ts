@@ -104,7 +104,9 @@ export function episodePublished(doc: EpisodeDoc, state: SendState, url: string)
 }
 
 let client: EventBridgeClient | undefined;
-const bus = () => (client ??= new EventBridgeClient({ region: config.awsRegion, maxAttempts: 3 }));
+// One attempt: a send is announced once and never retried (docs/decisions.md),
+// and the SDK's own retries would run past the announce timeout.
+const bus = () => (client ??= new EventBridgeClient({ region: config.awsRegion, maxAttempts: 1 }));
 
 /** Put the event on the bus; the event id EventBridge gave it. */
 export async function putPublished(event: Published): Promise<string> {

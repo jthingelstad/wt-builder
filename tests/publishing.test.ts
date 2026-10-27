@@ -11,7 +11,7 @@ import { describe, expect, it } from 'vitest';
 import type { EpisodeDoc } from '../src/shared/podcast/types.ts';
 import type { IssueDoc } from '../src/shared/types.ts';
 
-const { OFFLINE } = await import('../src/server/config.ts');
+const { OFFLINE, publishingBusFrom } = await import('../src/server/config.ts');
 const { ANNOUNCE_TIMEOUT_MS, announce, episodePublished, issuePublished, putPublished } = await import('../src/server/integrations/publishing.ts');
 
 const issue = (sends: IssueDoc['sends']): IssueDoc => ({
@@ -85,5 +85,18 @@ describe('the bus, offline', () => {
     expect(failures).toHaveLength(1);
     expect(failures[0]).toMatch(/credential/i);
     expect(Date.now() - started).toBeLessThan(ANNOUNCE_TIMEOUT_MS);
+  });
+});
+
+describe('the bus setting', () => {
+  it('is the default bus when the variable is unset', () => {
+    expect(publishingBusFrom(undefined)).toBe('thingelstad-publishing');
+  });
+  it('is off when the variable is set but empty', () => {
+    expect(publishingBusFrom('')).toBe('');
+    expect(publishingBusFrom('   ')).toBe('');
+  });
+  it('is the named bus otherwise', () => {
+    expect(publishingBusFrom(' my-bus ')).toBe('my-bus');
   });
 });
