@@ -193,6 +193,28 @@ describe('membership campaign facts', () => {
     expect(facts).toContain('$1788.79 raised so far');
   });
 
+  it('lists member benefits apart from what every subscriber has', () => {
+    const facts = campaignFacts({
+      ...support,
+      benefits: [
+        { for: 'everyone', name: 'Release Notes', line: 'A journal that comes to you.' },
+        { for: 'members', name: 'Thingy, upgraded', line: 'Claude Opus answers.' },
+        { for: 'members', name: 'No line' },
+      ],
+    });
+    const [members, everyone] = facts.split('Free for every subscriber');
+    expect(members).toContain('the fees pay for none of them');
+    expect(members).toContain('- Thingy, upgraded: Claude Opus answers.');
+    expect(members).not.toContain('Release Notes');
+    expect(members).not.toContain('No line');
+    expect(everyone).toContain('never a member benefit');
+    expect(everyone).toContain('- Release Notes: A journal that comes to you.');
+  });
+
+  it('names no benefits when the list is absent', () => {
+    expect(campaignFacts(support)).not.toContain('benefit');
+  });
+
   it('degrades to the evergreen frame when fields are missing', () => {
     const facts = campaignFacts({});
     expect(facts).toContain('100% of membership fees');

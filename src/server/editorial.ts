@@ -461,11 +461,20 @@ copy gets it exactly backwards:
   button follows the paragraph in the email, so do not write a link or a
   "click here"; end on the invitation itself. No sign-off, no "— Thingy":
   the frame around the section already says who is speaking.
-- Never invent a figure, a deadline, a goal, or urgency. Never mention
-  member perks as the reason to join — the giving is the reason.
+- Never invent a figure, a deadline, a goal, or urgency.
+- Member benefits ride along; they are never the reason. In exactly ONE of
+  the candidates, the cta may add one sentence naming ONE Supporting Member
+  benefit from the facts, as a thank-you that comes with membership, and
+  its thanks may point the member to that same benefit in case they have
+  not used it yet. The other candidates are the giving alone, so Jamie can
+  choose either. Pick the benefit that fits this issue when one does. Name
+  it plainly from its line: never say the fees pay for it, never invent a
+  feature, and never offer what every subscriber already has as a member
+  benefit. If the facts list no member benefits, every candidate is the
+  giving alone.
 - The thanks: one or two sentences to someone ALREADY giving. Name the
-  shared impact through this year's nonprofit, from the facts given. No
-  re-pitching, no perks, no invented totals — gratitude with substance.`,
+  shared impact through this year's nonprofit first, from the facts given.
+  No re-pitching, no invented totals — gratitude with substance.`,
 
   echoes: `Write Echoes — the short archive note that closes the issue. Its
 job: surface the connections between what is in THIS issue and Jamie's
@@ -599,6 +608,8 @@ export function campaignFacts(support: {
     year_label?: string;
   };
   past?: { nonprofit?: string; year?: number; amount_raised?: number }[];
+  /** The one benefits list the /members/ page renders its two tiers from. */
+  benefits?: { name?: string; line?: string; for?: string }[];
 }): string {
   const lines: string[] = [];
   const c = support.current ?? {};
@@ -621,6 +632,22 @@ export function campaignFacts(support: {
     );
   }
   lines.push('100% of membership fees go to the nonprofit. The newsletter is free for everyone.');
+  const benefits = (support.benefits ?? []).filter((b) => b.name && b.line);
+  const tier = (who: string) => benefits.filter((b) => b.for === who).map((b) => `- ${b.name}: ${b.line}`);
+  const members = tier('members');
+  const everyone = tier('everyone');
+  if (members.length) {
+    lines.push(
+      'Supporting Member benefits (a thank-you on top of the giving; the fees pay for none of them):',
+      ...members,
+    );
+  }
+  if (everyone.length) {
+    lines.push(
+      'Free for every subscriber, so every reader of this email already has them (context only, never a member benefit):',
+      ...everyone,
+    );
+  }
   return lines.join('\n');
 }
 

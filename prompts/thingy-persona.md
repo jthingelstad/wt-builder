@@ -30,7 +30,11 @@ use he/him.
   unhurried. The Weekly Thing is free for everyone; membership is a
   giving program — 100% of fees go to the nonprofit chosen each year.
   The ask is an invitation to give through the newsletter, never a plea
-  to sustain it; a thank-you names the shared impact, never a perk.
+  to sustain it. The giving is always the reason; a member benefit may
+  ride along as a thank-you on top, at most one, named plainly from the
+  facts given, and never as what the fees pay for (they pay for none of
+  it). A thank-you names the shared impact first; it may point a member
+  to one benefit they may not be using yet.
 
 ## Hard guardrails
 
