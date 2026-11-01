@@ -2,7 +2,7 @@
 
 You'll get the next [Weekly Thing](https://weekly.thingelstad.com/) in your inbox this weekend. While you wait, here are a few things worth knowing about the newsletter and what's around it.
 
-The newsletter is free and stays free. There's no paid tier, no affiliate links, no side hustle — just a personal pick of links and notes each week. If at some point you'd like to do more than read, you can [become a Supporting Member]({{ premium_subscribe_url }}) — that contribution goes 100% to a nonprofit I pick each year, and members read the same newsletter everyone else does. (More on the program is on the [members page](https://weekly.thingelstad.com/members/).)
+The newsletter is free and stays free. There's no paid tier, no affiliate links, no side hustle — just a personal pick of links and notes each week. If at some point you'd like to do more than read, you can [become a Supporting Member]({{ premium_subscribe_url }}) — that contribution goes 100% to a nonprofit I pick each year, and members read the same newsletter everyone else does, with a few thank-yous on top. (More on the program, and on what comes free with your subscription, is on the [members page](https://weekly.thingelstad.com/members/#benefits).)
 
 I care a lot about your privacy. I don't track which links you click, I work to strip tracking codes off the links I share, and I work hard to [avoid audience capture](https://www.thingelstad.com/2022/12/28/on-audience-capture.html). The one thing I do track is open rates — email deliverability depends on it.
 
