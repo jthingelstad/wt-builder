@@ -211,6 +211,13 @@ instead, in the email's premium branch). One pick fills both — `body` and
 `member_thanks` falls back to the historical form: the invitation with the
 static thanks line appended.
 
+**Member benefits ride along** (Jamie, 2026-10-31). The campaign facts carry
+`benefits` from the same `support.json`: the Supporting Member tier, marked
+as a thank-you the fees pay for none of, and the free-for-everyone tier as
+context only. In exactly one of the three pairs the cta may name one member
+benefit and its thanks may point to it; the others are the giving alone, so
+how often a benefit reaches readers is Jamie's pick. No list, no benefits.
+
 ```json
 { "candidates": [ { "cta": "…", "thanks": "…" } ] }
 ```
