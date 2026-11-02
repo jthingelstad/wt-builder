@@ -153,17 +153,10 @@ repository.
 
 ## The back catalogue
 
-Issues 1–349 get their audio edition ten a morning from a LaunchAgent,
-`com.thingelstad.wt-backfill` (02:15), which runs `scripts/backfill-daily.ts`:
-render the newest ten without a current edition, verify the files on the CDN,
-commit the pages to the website as one commit, check yesterday's are in the
-feed, and transcribe each render for the record. Reports land in
-`tmp/backfill/reports/<date>.md`; the log is
-`~/Library/Logs/wt-builder/backfill.log`. `npm run backfill:daily -- --pick`
-says what is next. Install or reinstall with
-
-```sh
-launchctl bootstrap gui/$(id -u) ~/Library/LaunchAgents/com.thingelstad.wt-backfill.plist
-```
+Issues 1–349 have their audio editions. A daily LaunchAgent rendered them ten a
+morning from September to October 2026 and was retired on 2026-11-01.
+`npm run backfill:audio` still makes one old issue's edition: `--plan` counts,
+`--dry` renders to `tmp/backfill/<issue>/` for a listen, `--publish` renders to
+the CDN and commits the pages.
 
 See `backfill/README.md` for where the scripts come from.
