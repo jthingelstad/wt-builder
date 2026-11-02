@@ -26,8 +26,6 @@
     "buttondown:push": "node --import tsx scripts/buttondown-config.ts push",
     "persona:sync": "node scripts/sync-persona.mjs",
     "persona:check": "node scripts/sync-persona.mjs --check",
-    "backfill:daily": "node --import tsx scripts/backfill-daily.ts",
-    "backfill:status": "node --import tsx scripts/backfill-status.ts",
     "test:e2e": "vite build --outDir tmp/e2e/dist --emptyOutDir && playwright test",
     "watch": "node --import tsx scripts/watch.ts"
   },

@@ -720,8 +720,8 @@ finished, what is half-finished, and what has never run.
   scripts in `backfill/scripts/` are not regenerated from it.
 - **The back catalogue is being published, ten a day** (2026-09-22) — six
   calibration renders assessed by whisper (`backfill/assess.py`); the daily
-  job (`scripts/backfill-daily.ts`, LaunchAgent `com.thingelstad.wt-backfill`
-  at 02:15) renders the newest ten without a current edition against the live
+  job (LaunchAgent `com.thingelstad.wt-backfill` at 02:15; the job and its
+  script were removed on 2026-11-01, the catalogue done) renders the newest ten without a current edition against the live
   page on GitHub, verifies the CDN, commits the pages, checks the feed, and
   writes `tmp/backfill/reports/<date>.md`. Newest first: 349 → 1. Jamie chose
   ten a day over one bill (2026-09-22).

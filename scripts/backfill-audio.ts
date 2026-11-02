@@ -12,8 +12,6 @@
  *   --publish  render to the CDN against the page on GitHub, verify, and
  *              commit the pages with their audio fields as one commit; the
  *              website's CI deploys them
- *
- * The daily job (scripts/backfill-daily.ts) is --publish for the next ten.
  */
 
 import { mkdirSync } from 'node:fs';
