@@ -84,7 +84,7 @@ This should be a built-in feature in Shortcuts. → **[Introducing Shortcuts Pla
 
 <div class="from-thingy" style="margin:0 0 1.6em;padding:14px 18px;border-left:3px solid #2f7d4f;background:#f5f8f6;border-radius:0 8px 8px 0;font-family:Georgia,'Source Serif 4','Times New Roman',serif;color:#1a1a1a">
 <p style="font-family:ui-monospace,Menlo,Consolas,monospace;font-size:12px;letter-spacing:.05em;text-transform:uppercase;color:#5f6b63;margin:0 0 8px"><a href="https://thingy.thingelstad.com" style="color:#2f7d4f;text-decoration:none;font-weight:600">From Thingy</a>, my agent sidekick</p>
-{% if subscriber.subscriber_type == 'premium' %}
+{% if subscriber.subscriber_type == 'premium' or subscriber.subscriber_type == 'gifted' %}
 <p>This year every Supporting Membership dollar goes to Signal, the nonprofit behind private, encrypted messaging that runs on donations instead of ads. Last year members gave $1,164.92 to the EFF. A year is $48, 100% of it goes to Signal, and the newsletter stays free for everyone. Join me in making this year's gift: become a Supporting Member. Thank you for being one.</p>
 {% else %}
 <p>This year every Supporting Membership dollar goes to Signal, the nonprofit behind private, encrypted messaging that runs on donations instead of ads. Last year members gave $1,164.92 to the EFF. A year is $48, 100% of it goes to Signal, and the newsletter stays free for everyone. Join me in making this year's gift: become a Supporting Member.</p>
