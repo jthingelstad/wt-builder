@@ -80,7 +80,7 @@ of his own. Jamie, after WT353: the wand's copy felt "either inauthentically
 pretending to be me but not, or too hype-y"; he is "most comfortable with
 simple templates that show the list of things in it because it is obviously
 not me writing the share, and also obviously not AI pretending to be me".
-Thingy writes in the newsletter under its own byline, but it does not post on
+Thingy writes in the newsletter under his own byline, but he does not post on
 Jamie's LinkedIn or his blog, so a byline is no answer there.
 
 - **LinkedIn.** `Weekly Thing 353: Release Notes for Every Day`, then

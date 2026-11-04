@@ -86,11 +86,20 @@ export interface ScriptBlock {
 export const ISSUE_URL_BASE = 'https://weekly.thingelstad.com/archive/';
 export const MEMBERS_URL = 'https://weekly.thingelstad.com/members/';
 /**
- * Thingy's portrait — the identity image the site and the chat use — shown as
- * the chapter art whenever Thingy is the one speaking (Jamie, 2026-09-21).
- * Attribution the listener can see as well as hear.
+ * Thingy's portrait — the identity image the site and the chat use, in his
+ * librarian's jacket — shown as the chapter art whenever Thingy is the one
+ * speaking (Jamie, 2026-09-21). Attribution the listener can see as well as
+ * hear.
  */
 export const THINGY_IMAGE = 'https://weekly.thingelstad.com/img/thingy.png';
+/**
+ * Supporting Membership's art: Thingy as its host, in the concert outfit
+ * (charcoal denim, the sound-wave tee, over-ear headphones). Jamie, on
+ * 2026-11-03: "supporting membership -- use concert". The v0.13 concert
+ * figure from thingy-character, served by weekly.thingelstad.com, which must
+ * be live before an audio send asks for it (a missing picture fails the send).
+ */
+export const THINGY_HOST_IMAGE = 'https://weekly.thingelstad.com/img/thingy-concert.png';
 
 /** The site, spelled out; the assembler's lexicon handles the surname. */
 export const SPOKEN_SITE = 'weekly dot thingelstad dot com';
@@ -99,9 +108,11 @@ export const HAIKU_TRANSITION = "And to close, this week's haiku.";
 export const HAIKU_TRANSITION_MID = "This week's haiku.";
 
 /**
- * Jamie hands over; Thingy introduces itself in its own voice, then speaks.
- * Just "from Thingy": describing Thingy every time it spoke was redundant,
- * twice an episode (Jamie, listening to WT351).
+ * Jamie hands over; Thingy introduces himself in his own voice, then speaks.
+ * Just "from Thingy": describing Thingy every time he spoke was redundant,
+ * twice an episode (Jamie, listening to WT351). These are the persona's
+ * hand-offs word for word (thingy.thingelstad.xyz persona/THINGY.md, "How
+ * he sounds"); change them there first.
  */
 export const MEMBERSHIP_TRANSITION = 'Next, a word about membership, from Thingy.';
 export const ECHOES_TRANSITION = 'Before we go, Echoes from the archive, from Thingy.';
@@ -460,7 +471,7 @@ function chapterFor(doc: IssueDoc, item: Item, planned: PlannedNode): Chapter | 
     case 'echoes':
       return { title: planned.node.label, image: THINGY_IMAGE };
     case 'membership':
-      return { title: 'Supporting Membership', url: `${MEMBERS_URL}?ref=WT${doc.issue.number}-audio`, image: THINGY_IMAGE };
+      return { title: 'Supporting Membership', url: `${MEMBERS_URL}?ref=WT${doc.issue.number}-audio`, image: THINGY_HOST_IMAGE };
     default:
       // Intro rides the Welcome chapter; a headed section's items ride its
       // opener. The unheaded ones — Outro, a Quote — are their own.
@@ -589,7 +600,7 @@ export function audioScript(doc: IssueDoc): ScriptBlock[] {
       // No opener: the section still gets its beat from what came before.
       spoken[0]!.pauseBefore = 'section';
     }
-    // Thingy introduces itself before its first words, in its own voice —
+    // Thingy introduces himself before his first words, in his own voice —
     // once an episode; a second hello would be a stranger.
     if (spoken.some((b) => b.speaker === 'thingy') && !script.some((b) => b.speaker === 'thingy')) {
       script.push({ kind: 'transition', text: THINGY_HELLO, pauseBefore: 'lead', nodeId: planned.node.id, speaker: 'thingy' });

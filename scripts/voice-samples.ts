@@ -27,7 +27,7 @@ if (!row) {
 }
 const membership = Object.values(row.doc.items).find((i) => i.type === 'membership' && i.body?.trim());
 const text = speakable(flatten(membership?.body)) ||
-  'Supporting Members make the Weekly Thing possible while directing every membership dollar to this year\'s nonprofit partner.';
+  'This year every Supporting Membership dollar goes to this year\'s nonprofit, and the newsletter stays free for everyone.';
 
 // "voice", "voice@model", "voice@model:instruction words", any with "*0.92" for speed.
 const candidates = voices.length ? voices : [TTS_VOICE, 'nova', 'shimmer', 'fable'];

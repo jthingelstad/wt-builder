@@ -41,15 +41,18 @@ export function byline(item: Item): string {
 // ── Thingy's frame ────────────────────────────────────────────────────────
 //
 // Thingy is Jamie's sidekick, showing up in the content from time to time.
-// It identifies itself the same way everywhere and differently per channel:
-// a labelled block set in the site's serif on the web, an inline-styled
-// block in email, its own voice in audio (docs/rendering-contracts.md,
-// Thingy attribution; Jamie, 2026-09-20). The label links to Thingy's own
-// site, and the byline reads "From Thingy, my agentic librarian".
+// He identifies himself the same way everywhere and differently per channel:
+// a labelled panel the site styles on the web, an inline-styled block in
+// email, his own voice in audio (docs/rendering-contracts.md, Thingy
+// attribution; Jamie, 2026-09-20). The label links to Thingy's own site, and
+// the byline reads "From Thingy, my agent sidekick": the frame is in Jamie's
+// voice, and "my agent sidekick" is what Jamie calls him (Thingy's persona,
+// thingy.thingelstad.xyz persona/THINGY.md, approved 2026-11-03; it replaced
+// "my agentic librarian").
 
 export const THINGY_URL = 'https://thingy.thingelstad.com';
 export const THINGY_LABEL = 'From Thingy';
-export const THINGY_ROLE = 'my agentic librarian';
+export const THINGY_ROLE = 'my agent sidekick';
 
 /**
  * The website frame: an HTML block the site styles (`.from-thingy` in

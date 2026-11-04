@@ -939,7 +939,7 @@ Opened by the rail `i` button. `padding: 14px 18px 40px`.
    ("Reading WT350 and the archive…", "Reading the linked page…"), then
    `CANDIDATES` / `OPTIONS — PICK ONE OR IGNORE THEM` as selectable cards (13px/1.55,
    `white-space: pre-line`; the current pick gets a colored border and 600 weight).
-   Footer states the rule — Thingy keeps its byline; a picked link description becomes
+   Footer states the rule — Thingy keeps his byline; a picked link description becomes
    Jamie's text and syncs to Pinboard as his. Thingy items also carry **Mark reviewed**
    (`circle-check`), which is what satisfies the "reviewed by you" progress unit.
    *Revisited 2026-09-20* (`docs/decisions.md`, *Picking is the review*): picking

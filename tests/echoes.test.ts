@@ -134,7 +134,7 @@ describe('an issue from before echoes were items renders unchanged', () => {
     expect(out.slice(out.indexOf('## Echoes'))).toBe([
       '## Echoes',
       '<div class="from-thingy">',
-      '<p class="from-thingy-label"><a href="https://thingy.thingelstad.com">From Thingy</a>, my agentic librarian</p>',
+      '<p class="from-thingy-label"><a href="https://thingy.thingelstad.com">From Thingy</a>, my agent sidekick</p>',
       composed,
       '</div>',
       '',

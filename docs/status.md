@@ -697,11 +697,15 @@ finished, what is half-finished, and what has never run.
   the links offered. Routes: `POST /nodes/:id/order` (propose),
   `POST /nodes/:id/reorder` (apply, logged with the why).
 
-- **Thingy's frame** (2026-09-20) — "From Thingy, my agentic librarian",
-  linked to thingy.thingelstad.com, around Membership and Echoes: a sans block
-  on the site (`.from-thingy` in weekly.thingelstad.com), an inline-styled
-  block in email, and Thingy's own voice (nova) in audio. `VOICE_ID` records
-  both voices. Heard in WT350's send (2026-09-20).
+- **Thingy's frame** (2026-09-20) — "From Thingy, my agent sidekick" (the
+  persona's name for him from 2026-11-03; "my agentic librarian" before),
+  linked to thingy.thingelstad.com, around Membership and Echoes: a tinted,
+  labelled panel on the site (`.from-thingy` in weekly.thingelstad.com), an
+  inline-styled block in email, and Thingy's own voice (nova, until Jamie
+  picks one by ear) in audio. `VOICE_ID` records both voices. Heard in
+  WT350's send (2026-09-20). Membership's audio chapter shows him in the
+  concert outfit (`img/thingy-concert.png`, 2026-11-03), Echoes' the
+  librarian portrait.
 
 - ~~**The back catalogue re-renders from its canonical text**~~ (2026-09-26;
   retired 2026-10-22, *The archive leg tells the library* below: the

@@ -429,7 +429,7 @@ is logged that never was, and what is no longer logged:
 There is no share wand. Jamie, after WT353, on its copy: "They all felt either
 inauthentically pretending to be me but not, or too hype-y." A share goes out
 on Jamie's LinkedIn or his blog, where Thingy does not post, so the newsletter's
-answer (Thingy writing under its own byline) does not reach it. What he is
+answer (Thingy writing under his own byline) does not reach it. What he is
 comfortable with is "simple templates that show the list of things in it
 because it is obviously not me writing the share, and also obviously not AI
 pretending to be me". So a share starts as a contents template filled from the

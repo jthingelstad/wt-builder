@@ -45,7 +45,10 @@ export const TTS_VOICE = 'echo';
 /**
  * Thingy's voice — chosen by ear against echo on 2026-09-20 (nova, on the
  * same model; gpt-4o-mini-tts lost on sound). A different voice is the
- * audio edition's different font.
+ * audio edition's different font. Thingy is he/him since 2026-11-03, and
+ * nova may read as a woman's voice, so Jamie agreed to audition others
+ * (one Echoes and one Membership passage in each candidate); nova stays
+ * until he picks one by ear. Never echo: that is Jamie's.
  */
 export const THINGY_VOICE = 'nova';
 export const VOICES: Record<Speaker, string> = { jamie: TTS_VOICE, thingy: THINGY_VOICE };
