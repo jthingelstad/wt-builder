@@ -14,7 +14,9 @@ import { THINGY_LABEL, THINGY_ROLE, THINGY_URL, byline, nodeBlocks, nodeHeading 
 import type { PlannedNode } from './plan.ts';
 import { bodyLines, planEdition, postBlocks, finishEdition, quoteAttribution } from './plan.ts';
 
-export const PREMIUM_CONDITION = "subscriber.subscriber_type == 'premium'";
+/** A gifted subscriber is a Supporting Member too (Jamie, 2026-11-04: "gifted
+ * should be treated the same as premium"), so never gets the invitation. */
+export const PREMIUM_CONDITION = "subscriber.subscriber_type == 'premium' or subscriber.subscriber_type == 'gifted'";
 
 /** Appended for subscribers who are already Supporting Members. */
 export const MEMBER_THANKS = 'Thank you for being one.';

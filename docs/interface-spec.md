@@ -799,7 +799,7 @@ The grid version was truthful and unreadable.
 
 Same document, minus items with `email: false`. Adds one Buttondown-only block after
 Membership: mono Liquid in a `#f3f6fb` / `1px #dde6f3` card, `#1a5fb4` text —
-`{% if subscriber.subscriber_type == 'premium' %}…` — with a caption explaining the
+`{% if subscriber.subscriber_type == 'premium' or subscriber.subscriber_type == 'gifted' %}…` — with a caption explaining the
 website prints the invitation variant as prose.
 
 #### Audio lens
