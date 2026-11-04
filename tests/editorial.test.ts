@@ -186,8 +186,10 @@ describe('membership campaign facts', () => {
     const facts = campaignFacts(support);
     expect(facts).toContain('Signal');
     expect(facts).toContain('Ninth Year');
-    expect(facts).toContain('$48/year');
-    expect(facts).toContain('one-time gift of any amount');
+    expect(facts).toContain('A year of Supporting Membership is $48, recurring.');
+    // The section's one offer is the year: the facts never hand the model
+    // the one-time gift its prompt forbids (persona review, 2026-11-03).
+    expect(facts).not.toMatch(/one-time|gift of any amount|monthly/i);
     expect(facts).toContain('100% of membership fees go to the nonprofit');
     expect(facts).toContain('free for everyone');
     expect(facts).toContain('$1788.79 raised so far');
@@ -380,7 +382,7 @@ describe('asking the Librarian for Echoes', () => {
     expect(anchor.label).toBe(ECHOES_CALENDAR_LABEL);
     expect(anchor.query).toContain('Assembled item by item');
     expect(anchor.query).toContain('The New Standards');
-    expect(anchor.query).not.toContain('Supporting Members make the Weekly Thing possible');
+    expect(anchor.query).not.toContain('Supporting Membership dollar goes to Signal');
     expect(anchor.query).not.toContain('A post Jamie has intentionally removed from this issue.');
     expect(anchor.query.length).toBeLessThanOrEqual(1000);
   });
@@ -551,7 +553,7 @@ describe('an issue excerpt', () => {
 
   it('leaves Thingy\'s own items out of the excerpt', () => {
     const excerpt = issueExcerpt(doc, 100_000);
-    expect(excerpt).not.toContain('Supporting Members make the Weekly Thing possible');
+    expect(excerpt).not.toContain('Supporting Membership dollar goes to Signal');
     expect(excerpt).not.toContain('recalls earlier issues about owning the tools');
     expect(excerpt).toContain('The New Standards');
   });
@@ -590,5 +592,23 @@ describe('the wand is shown only where a draft exists', () => {
       if (type !== 'echoes') expect(DRAFTABLE.has(type as never), type).toBe(true);
     }
     expect(DRAFTABLE.has('intro')).toBe(false);
+  });
+});
+
+describe('the Membership prompt (persona, 2026-11-03)', () => {
+  it('gives Thingy the host\'s job and his most persuasive register, never a plea', async () => {
+    const { DRAFT_PROMPTS } = await import('../src/server/editorial.ts');
+    const prompt = DRAFT_PROMPTS.membership!.replace(/\s+/g, ' ');
+    expect(prompt).toContain('host of Supporting Membership');
+    expect(prompt).toContain('specific about where the money goes');
+    expect(prompt).toContain('never that the Weekly Thing needs the money');
+    expect(prompt).toMatch(/plea, guilt or pressure/);
+  });
+
+  it('takes the price from the facts and offers the year alone, as the facts do', async () => {
+    const { DRAFT_PROMPTS } = await import('../src/server/editorial.ts');
+    const prompt = DRAFT_PROMPTS.membership!.replace(/\s+/g, ' ');
+    expect(prompt).not.toMatch(/\$\d/);
+    expect(prompt).toContain('Never mention a one-time gift');
   });
 });

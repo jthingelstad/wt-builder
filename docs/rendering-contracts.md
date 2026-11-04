@@ -77,9 +77,11 @@ the builder (WT349 compared side by side, 2026-09-20). The body ends with the
 Tinylytics open pixel as every issue before the builder carried it — anonymous,
 named for the issue (`/email/<N>/`), never for the reader, email medium only.
 Membership's regular-subscriber branch ends with the button to the members
-page — the year at $48 is the only offer, and the button is the only thing to
-do — with the reader's email prefilled and `ref=WT<N>`; the premium branch is
-thanks with no button. WT349's second mid-issue button is not carried:
+page — a year of Supporting Membership is the only offer, at the yearly price
+in `support.json`, and the button is the only thing to do — with the reader's
+email prefilled and `ref=WT<N>`; the premium branch is thanks with no button.
+The members page also takes a one-time gift of any amount; the section never
+mentions it (Jamie, 2026-09-20). WT349's second mid-issue button is not carried:
 Membership is one Thingy-framed section now.
 
 Buttondown runs the body as a template, so the renderer's own tags (the
@@ -176,33 +178,46 @@ an issue.
 
 ## Thingy attribution
 
-Thingy is Jamie's sidekick, showing up in the content from time to time
-(Membership, Echoes). Thingy's words must never appear to be Jamie's, so Thingy
-identifies itself the same way everywhere and differently per channel
-(2026-09-20):
+Thingy is Jamie's sidekick, showing up in the content from time to time:
+the host of Supporting Membership, the librarian in Echoes. He is he/him.
+The persona is thingy.thingelstad.xyz `persona/THINGY.md` (settled with Jamie
+2026-11-03); the drafting prompts wear its print charter, vendored from
+librarian-thing as `prompts/thingy-persona.md`. Thingy's words must never appear to be Jamie's, so Thingy identifies
+himself the same way everywhere and differently per channel (2026-09-20):
 
 - **Website** — `<div class="from-thingy">` with a label line, `From Thingy`
-  linked to https://thingy.thingelstad.com, then `, my agentic librarian`; the
-  body follows as Markdown. The site sets the block in its sans against the
-  issue's serif — the different font is the identity. Not a blockquote.
+  linked to https://thingy.thingelstad.com, then `, my agent sidekick`
+  (`THINGY_ROLE`, Jamie's name for him; "my agentic librarian" until
+  2026-11-03, and a page already sent keeps it until its website leg is
+  sent again); the body follows as Markdown. The site sets the block as a
+  tinted panel under that uppercase label; the panel and the label are the
+  identity, not a typeface (the site is one sans throughout). Not a
+  blockquote.
 - **Email** — the same label in an inline-styled block (mail clients keep
-  inline styles and little else), with the body rendered to HTML inside so no
-  mail-side Markdown parser has to look inside a div. The Liquid membership
-  branch sits inside the frame.
+  inline styles and little else): a green rule down the left, a tinted
+  ground, the label in small monospaced capitals, with the body rendered to
+  HTML inside so no mail-side Markdown parser has to look inside a div. The
+  Liquid membership branch sits inside the frame.
 - **Audio** — a different voice. Jamie hands over in his voice, Thingy
-  introduces itself in its own (`nova`, same `tts-1-hd` model as Jamie's
-  `echo`), then speaks; Jamie takes the next section back:
+  introduces himself in his own (`nova`, same `tts-1-hd` model as Jamie's
+  `echo`), then speaks; Jamie takes the next section back. The lines are the
+  persona's "How he sounds" word for word (`src/shared/render/audio.ts`):
 
 ```text
-Next, a word about membership, from Thingy, my agentic librarian.   ← echo
-Hello, this is Thingy. <the membership words>                       ← nova
+Next, a word about membership, from Thingy.          ← echo
+Hello, this is Thingy. <the membership words>        ← nova
 …
-Before we go, Echoes from the archive, from Thingy, my agentic librarian.  ← echo
-<the echoes words>                                                          ← nova
+Before we go, Echoes from the archive, from Thingy.  ← echo
+<the echoes words>                                   ← nova
 ```
 
-Thingy says hello once an episode. Echoes is spoken since 2026-09-20 — it was
-omitted from audio until Thingy had a voice.
+Thingy says hello once an episode, before the first words he speaks; a
+second hello would be a stranger. The hand-off said "from Thingy, my agentic
+librarian" until Jamie, listening to WT351, cut the description. Echoes is
+spoken since 2026-09-20 — it was omitted from audio until Thingy had a voice.
+`nova` stays Thingy's voice until Jamie picks one by ear (the persona has him
+as he/him since 2026-11-03, and an audition of other voices is agreed);
+never `echo`, which is Jamie's.
 
 ## Echoes
 
@@ -224,8 +239,10 @@ number (`src/shared/echoes.ts`) — it is never stored in the body, so editing
 the question changes the link. **One Thingy frame wraps the whole section**,
 not each echo: on the website the `.from-thingy` div, in email the
 inline-styled block with each echo rendered to HTML inside it, in audio one
-hand-over and one hello. Audio speaks each echo as its thread, then
-"Ask Thingy: <question>" — the link's words, never its URL.
+hand-over and one hello. Audio speaks each echo's thread only: the question
+is a door on the page and a chapter link in the player, and read aloud after
+every echo it sounded strange (Jamie, listening to WT351). A single-body
+Echoes drops its Ask-Thingy paragraphs from audio the same way.
 
 An issue whose Echoes is one `echoes` item — WT350 and earlier, where the
 body was composed at pick time — renders that body as written, inside the
@@ -277,8 +294,12 @@ before the words themselves. Settled 2026-08-28.
 chapter — each section, each link with its URL, each Journal post with its blog
 URL and first photo, the Photo with its picture, each echo with its Ask Thingy
 door, Membership with the members page — is timed by where the assembler placed
-it. Thingy's portrait (the site's `img/thingy.png`) is the art of every chapter
-Thingy speaks, so the attribution is seen as well as heard. Chapter art is cropped square (1000px, attention crop, like the cover) so it
+it. Thingy's portrait (the site's `img/thingy.png`, the librarian) is the art
+of every Echoes chapter, and the concert figure (`img/thingy-concert.png`, the
+host's outfit; Jamie, 2026-11-03: "supporting membership -- use concert") is
+Membership's, so the attribution is seen as well as heard. Both are fetched
+from weekly.thingelstad.com at send time, and a missing picture fails the
+send. Chapter art is cropped square (1000px, attention crop, like the cover) so it
 fills a player's frame on purpose, and uploaded content-addressed beside the
 file. The mp3 carries ID3v2 chapters; `<name>.chapters.json` (Podcasting 2.0) and
 `<name>.vtt` (WebVTT, every cue naming its speaker, so Thingy is attributed in

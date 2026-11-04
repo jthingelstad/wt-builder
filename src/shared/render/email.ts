@@ -105,8 +105,9 @@ export function quoteEmailBlocks(item: Item): Block[] {
 /**
  * The one thing a reader can do about membership: the button, as every issue
  * before the builder had it. It goes to the members page with the reader's
- * email filled in and the issue as the ref; that page offers the year at $48
- * and nothing else is offered here (Jamie, 2026-09-20).
+ * email filled in and the issue as the ref. That page offers the year and a
+ * one-time gift of any amount; this section and its button offer the year
+ * alone (Jamie, 2026-09-20), and the drafting prompt never mentions the gift.
  */
 export function membershipButton(issueNumber: number): string {
   return [

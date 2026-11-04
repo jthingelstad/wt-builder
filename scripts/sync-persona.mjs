@@ -4,9 +4,10 @@
  * The canonical charter lives in
  * librarian-thing/apps/librarian/prompts/thingy-persona.md — one wardrobe
  * for every surface that speaks as Thingy. This repo prepends the vendored
- * copy to the three BYLINED drafting prompts (Echoes, Membership CTA,
- * member Thank-you), so the character cannot fork the way three
- * hand-written personas would (the drift that motivated this).
+ * copy to the two BYLINED drafting prompts (Echoes, and Membership, which
+ * drafts the invitation and the member thank-you together), so the
+ * character cannot fork the way hand-written personas would (the drift that
+ * motivated this).
  *
  *   node scripts/sync-persona.mjs           # copy + write sha256
  *   node scripts/sync-persona.mjs --check   # verify vendored copy

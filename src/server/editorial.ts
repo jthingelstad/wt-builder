@@ -440,9 +440,16 @@ export const THINGY_PERSONA = readFileSync(
 
 export const DRAFT_PROMPTS: Partial<Record<Item['type'], string>> = {
   membership: `Write the Membership section for this issue of The Weekly
-Thing — BOTH sides of its email branching, in the community-giving register
-above. Each candidate is a pair: "cta", the invitation a reader sees, and
-"thanks", what an existing Supporting Member sees INSTEAD.
+Thing — BOTH sides of its email branching. Each candidate is a pair: "cta",
+the invitation a reader sees, and "thanks", what an existing Supporting
+Member sees INSTEAD.
+
+Thingy's job here is the host of Supporting Membership, and this is his
+most persuasive register, more energetic than the librarian's in Echoes. He
+is trying to sell, in a good way: enthusiastic about this year's nonprofit,
+specific about where the money goes, and direct about the ask. Never a
+plea, guilt or pressure, and never that the Weekly Thing needs the money:
+it does not.
 
 Understand the program before you write, because generic newsletter-support
 copy gets it exactly backwards:
@@ -452,16 +459,19 @@ copy gets it exactly backwards:
 - Supporting Membership is a community giving program: 100% of membership
   fees go directly to a nonprofit selected each year. The member's money
   funds the nonprofit, not the newsletter.
-- Name the current year's nonprofit and say in a phrase why it matters —
-  from the facts given, never invented.
-- The cta: one short paragraph. An invitation to give through the
-  newsletter, not a plea to sustain it. "Less than a coffee a month" is the
-  register. The offer is ONE thing: a year of Supporting Membership at $48.
-  Never mention a one-time gift, a monthly option, or any other amount. A
-  button follows the paragraph in the email, so do not write a link or a
-  "click here"; end on the invitation itself. No sign-off, no "— Thingy":
-  the frame around the section already says who is speaking.
-- Never invent a figure, a deadline, a goal, or urgency.
+- The pitch is the cause and the record: name this year's nonprofit, say
+  specifically what it does and why the money matters there, and, when the
+  facts give them, what members gave in the years before. All of it from the
+  facts given, never invented.
+- The cta: one short paragraph that makes the case and ends on a clear,
+  plain ask ("Join as a Supporting Member" is that kind of ask; make it
+  gladly). The offer is ONE thing: a year of Supporting Membership at the
+  yearly price in the facts (no price in the facts, name none). Never
+  mention a one-time gift, a monthly option, or any other amount. A button
+  follows the paragraph in the email, so do not write a link or a "click
+  here"; end on the ask itself. No sign-off, no "— Thingy": the frame
+  around the section already says who is speaking.
+- Never invent a figure, a deadline, a goal, urgency or scarcity.
 - Member benefits ride along; they are never the reason. In exactly ONE of
   the candidates, the cta may add one sentence naming ONE Supporting Member
   benefit from the facts, as a thank-you that comes with membership, and
@@ -472,9 +482,10 @@ copy gets it exactly backwards:
   feature, and never offer what every subscriber already has as a member
   benefit. If the facts list no member benefits, every candidate is the
   giving alone.
-- The thanks: one or two sentences to someone ALREADY giving. Name the
-  shared impact through this year's nonprofit first, from the facts given.
-  No re-pitching, no invented totals — gratitude with substance.`,
+- The thanks: one or two sentences to someone ALREADY giving, as warm as
+  the ask is direct. Name the shared impact through this year's nonprofit
+  first, from the facts given. No re-pitching, no invented totals —
+  gratitude with substance.`,
 
   echoes: `Write Echoes — the short archive note that closes the issue. Its
 job: surface the connections between what is in THIS issue and Jamie's
@@ -482,7 +493,8 @@ archive, so a reader discovers that this week's topics, people, and places
 have history. Primarily the Weekly Thing's own issues; his blog and the
 Another Thing podcast are welcome when the echo lives there.
 
-Write in the archive-librarian register above.
+Thingy's job here is the librarian: write in the persona's Echoes register
+above.
 
 Shape: return UP TO FIVE unique echoes, best first — aim for five when the
 material supports it, fewer when it does not; never pad toward a count.
@@ -619,10 +631,14 @@ export function campaignFacts(support: {
     );
   }
   if (c.description) lines.push(`About them: ${c.description}`);
+  // The members page takes a one-time gift of any amount as well
+  // (`current.stripe_donate_url`), but this section's one offer is the year,
+  // and its button goes to that page (Jamie, 2026-09-20; email.ts,
+  // membershipButton). Telling the model about the gift here while the
+  // prompt forbids it was the contradiction the persona review found
+  // (2026-11-03), so the facts carry only what the section offers.
   if (support.yearly_price) {
-    lines.push(
-      `Membership is $${support.yearly_price}/year, recurring — or a one-time gift of any amount.`,
-    );
+    lines.push(`A year of Supporting Membership is $${support.yearly_price}, recurring.`);
   }
   const past = (support.past ?? []).filter((p) => p.nonprofit);
   if (past.length) {
@@ -1342,7 +1358,7 @@ export function issueExcerpt(doc: IssueDoc, max = 2800): string {
       // editions' own test. A held-out item was never in the issue.
       if (!item || !isIncluded(item, w)) continue;
       // Thingy's own words are not the issue's: an echo retrieved by the
-      // issue's echoes would be Thingy quoting itself as Jamie (review
+      // issue's echoes would be Thingy quoting himself as Jamie (review
       // 2026-09-27, §5).
       if (item.authorship === 'Thingy') continue;
       const flat = [item.title, item.body, item.commentary]

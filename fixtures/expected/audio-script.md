@@ -79,8 +79,11 @@ Next, a word about membership, from Thingy.
 
 Hello, this is Thingy.
 
-Supporting Members make the Weekly Thing possible while directing every
-membership dollar to this year's nonprofit partner.
+This year every Supporting Membership dollar goes to Signal, the nonprofit
+behind private, encrypted messaging that runs on donations instead of ads.
+Last year members gave $1,164.92 to the EFF. A year is $48, 100% of it goes
+to Signal, and the newsletter stays free for everyone. Join me in making this
+year's gift: become a Supporting Member.
 
 Time to head outside. I hope you have a wonderful weekend.
 
