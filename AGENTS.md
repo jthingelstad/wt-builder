@@ -100,8 +100,13 @@ npm run watch -- wt352                              # an issue, live
 
 `npm run deploy` is the only way to restart after a change: `npm test`, then
 `npm run build` (typecheck + `dist/`), and only if both pass
-`launchctl kickstart -k gui/$(id -u)/com.thingelstad.wt-builder`. A bare
-kickstart puts untested code in front of Jamie.
+`scripts/restart-service.ts`, which runs
+`launchctl kickstart -k gui/$(id -u)/com.thingelstad.wt-builder` and waits up to
+30 seconds for a new PID listening on a TCP port. A bare kickstart puts untested
+code in front of Jamie, and its 0 proves nothing: on 2026-11-03 it returned 0
+with the job stuck in `spawn failed` (exit 78). When the deploy fails at this
+step the service is down; the script prints what launchd reports and the repair,
+and repairs nothing itself.
 
 **Live sessions.** When Jamie builds an issue with an agent watching, arm
 `npm run watch` first (under a monitor): it prints one line per event, sync

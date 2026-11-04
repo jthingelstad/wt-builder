@@ -13,7 +13,7 @@
     "dev:client": "vite",
     "build": "tsc -p tsconfig.json --noEmit && vite build",
     "start": "node --import tsx src/server/index.ts",
-    "deploy": "npm test && npm run build && launchctl kickstart -k gui/$(id -u)/com.thingelstad.wt-builder",
+    "deploy": "npm test && npm run build && node --import tsx scripts/restart-service.ts",
     "test": "vitest run",
     "test:watch": "vitest",
     "typecheck": "tsc -p tsconfig.json --noEmit",
